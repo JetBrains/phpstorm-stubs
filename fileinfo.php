@@ -84,18 +84,24 @@ function finfo_close ($finfo) {}
  * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
  * Set libmagic configuration options
  * @link http://php.net/manual/en/function.finfo-set-flags.php
+ * @param resource $finfo <p>
+ * Fileinfo resource returned by finfo_open.
+ * </p>
  * @param int $options <p>
  * One or disjunction of more Fileinfo
  * constants.
  * </p>
  * @return bool true on success or false on failure.
  */
-function finfo_set_flags ($options) {}
+function finfo_set_flags ($finfo, $options) {}
 
 /**
  * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
  * Return information about a file
  * @link http://php.net/manual/en/function.finfo-file.php
+ * @param resource $finfo <p>
+ * Fileinfo resource returned by finfo_open.
+ * </p>
  * @param string $file_name <p>
  * Name of a file to be checked.
  * </p>
@@ -109,13 +115,15 @@ function finfo_set_flags ($options) {}
  * @return string a textual description of the contents of the
  * filename argument, or false if an error occurred.
  */
-function finfo_file ($file_name, $options = null, $context = null) {}
+function finfo_file ($finfo, $file_name, $options = null, $context = null) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
  * Return information about a string buffer
  * @link http://php.net/manual/en/function.finfo-buffer.php
- * @param resource $finfo Fileinfo resource returned by finfo_open().
+ * @param resource $finfo <p>
+ * Fileinfo resource returned by finfo_open.
+ * </p>
  * @param string $string <p>
  * Content of a file to be checked.
  * </p>
