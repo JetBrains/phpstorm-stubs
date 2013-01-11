@@ -89,6 +89,7 @@ class XSLTProcessor  {
     /**
      * @since 5.4
      * @param int $securityPrefs
+     * @return int
      * @link http://php.net/manual/en/xsltprocessor.setsecurityprefs.php
      */
     public function setSecurityPrefs ($securityPrefs) {}
