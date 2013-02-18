@@ -780,6 +780,7 @@ class ReflectionClass implements Reflector {
 	 * PHP >= 5.4.0<br/>
 	 * @link http://php.net/manual/en/reflectionclass.newinstancewithoutconstructor.php
 	 * Creates a new class instance without invoking the constructor.
+     * @return object
 	 */
 	public function newInstanceWithoutConstructor() {}
 
