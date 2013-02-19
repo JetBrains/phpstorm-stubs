@@ -638,14 +638,50 @@ class MongoCollection {
     /**
 	 * Inserts an array into the collection
 	 * @link http://www.php.net/manual/en/mongocollection.insert.php
-	 * @param array $a An array.
+	 * @param array|object $a An array or object. If an object is used, it may not have protected or private properties.
+     * Note: If the parameter does not have an _id key or property, a new MongoId instance will be created and assigned to it.
+     * This special behavior does not mean that the parameter is passed by reference.
 	 * @param array $options Options for the insert.
-	 * @throws MongoCursorException
-	 * @return bool|array If 'safe' was set, returns an array containing the status of the
-     *         insert. Otherwise, returns a boolean representing if the array was not empty (an
-     *         empty array will not be inserted)
-	 */
-    public function insert(array $a, array $options = array()) {}
+     * <dl>
+     * <dt>"w"
+     * <dd>See WriteConcerns. The default value for MongoClient is 1.
+     * <dt>"fsync"
+     * <dd>Boolean, defaults to FALSE. Forces the insert to be synced to disk before returning success. If TRUE, an acknowledged insert is implied and will override setting w to 0.
+     * <dt>"timeout"
+     * <dd>Integer, defaults to MongoCursor::$timeout. If "safe" is set, this sets how long (in milliseconds) for the client to wait for a database response. If the database does not respond within the timeout period, a MongoCursorTimeoutException will be thrown.
+     * <dt>"safe"
+     * <dd>Deprecated. Please use the WriteConcern w option.
+     * </dl>
+	 * @throws MongoException if the inserted document is empty or if it contains zero-length keys. Attempting to insert an object with protected and private properties will cause a zero-length key error.
+	 * @throws MongoCursorException if the "w" option is set and the write fails.
+	 * @throws MongoCursorTimeoutException if the "w" option is set to a value greater than one and the operation takes longer than MongoCursor::$timeout milliseconds to complete. This does not kill the operation on the server, it is a client-side timeout. The operation in MongoCollection::$wtimeout is milliseconds.
+	 * @return bool|array Returns an array containing the status of the insertion if the "w" option is set.
+     * Otherwise, returns TRUE if the inserted array is not empty (a MongoException will be thrown if the inserted array is empty).
+	 * If an array is returned, the following keys may be present:
+     * <dl>
+     * <dt>ok
+     * <dd>This should almost be 1 (unless last_error itself failed).
+     * <dt>err
+     * <dd>If this field is non-null, an error occurred on the previous operation. If this field is set, it will be a string describing the error that occurred.
+     * <dt>code
+     * <dd>If a database error occurred, the relevant error code will be passed back to the client.
+     * <dt>errmsg
+     * <dd>This field is set if something goes wrong with a database command. It is coupled with ok being 0. For example, if w is set and times out, errmsg will be set to "timed out waiting for slaves" and ok will be 0. If this field is set, it will be a string describing the error that occurred.
+     * <dt>n
+     * <dd>If the last operation was an update, upsert, or a remove, the number of documents affected will be returned. For insert operations, this value is always 0.
+     * <dt>wtimeout
+     * <dd>If the previous option timed out waiting for replication.
+     * <dt>waited
+     * <dd>How long the operation waited before timing out.
+     * <dt>wtime
+     * <dd>If w was set and the operation succeeded, how long it took to replicate to w servers.
+     * <dt>upserted
+     * <dd>If an upsert occurred, this field will contain the new record's _id field. For upserts, either this field or updatedExisting will be present (unless an error occurred).
+     * <dt>updatedExisting
+     * <dd>If an upsert updated an existing element, this field will be true. For upserts, either this field or upserted will be present (unless an error occurred).
+	 * </dl>
+     */
+    public function insert($a, array $options = array()) {}
 
     /**
 	 * Inserts multiple documents into this collection
@@ -758,12 +794,27 @@ class MongoCollection {
     /**
 	 * Saves an object to this collection
 	 * @link http://www.php.net/manual/en/mongocollection.save.php
-	 * @param mixed $a Array to save.
+	 * @param array|object $a Array to save. If an object is used, it may not have protected or private properties.
+     * Note: If the parameter does not have an _id key or property, a new MongoId instance will be created and assigned to it.
+     * See MongoCollection::insert() for additional information on this behavior.
 	 * @param array $options Options for the save.
-	 * @throws MongoCursorException
-	 * @return mixed
+     * <dl>
+     * <dt>"w"
+     * <dd>See WriteConcerns. The default value for MongoClient is 1.
+     * <dt>"fsync"
+     * <dd>Boolean, defaults to FALSE. Forces the insert to be synced to disk before returning success. If TRUE, an acknowledged insert is implied and will override setting w to 0.
+     * <dt>"timeout"
+     * <dd>Integer, defaults to MongoCursor::$timeout. If "safe" is set, this sets how long (in milliseconds) for the client to wait for a database response. If the database does not respond within the timeout period, a MongoCursorTimeoutException will be thrown.
+     * <dt>"safe"
+     * <dd>Deprecated. Please use the WriteConcern w option.
+     * </dl>
+	 * @throws MongoException if the inserted document is empty or if it contains zero-length keys. Attempting to insert an object with protected and private properties will cause a zero-length key error.
+	 * @throws MongoCursorException if the "w" option is set and the write fails.
+	 * @throws MongoCursorTimeoutException if the "w" option is set to a value greater than one and the operation takes longer than MongoCursor::$timeout milliseconds to complete. This does not kill the operation on the server, it is a client-side timeout. The operation in MongoCollection::$wtimeout is milliseconds.
+	 * @return array|boolean If w was set, returns an array containing the status of the save.
+     * Otherwise, returns a boolean representing if the array was not empty (an empty array will not be inserted).
 	 */
-    public function save(array $a, array $options = array()) {}
+    public function save($a, array $options = array()) {}
 
     /**
 	 * Creates a database reference
