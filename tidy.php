@@ -478,6 +478,7 @@ function tidy_clean_repair () {}
  * @param $data
  * @param $config_file [optional]
  * @param $encoding [optional]
+ * @return string Returns the repaired string.
  */
 function tidy_repair_string ($data, $config_file, $encoding) {}
 
@@ -488,6 +489,7 @@ function tidy_repair_string ($data, $config_file, $encoding) {}
  * @param $config_file [optional]
  * @param $encoding [optional]
  * @param $use_include_path [optional]
+ * @return Returns the repaired contents as a string.
  */
 function tidy_repair_file ($filename, $config_file, $encoding, $use_include_path) {}
 
