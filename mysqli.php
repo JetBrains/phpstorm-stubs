@@ -119,6 +119,12 @@ class mysqli  {
 	 */
 	public $warning_count;
 
+    /**
+     * @var array A list of errors, each as an associative array containing the errno, error, and sqlstate.
+     * @link http://www.php.net/manual/en/mysqli.error-list.php
+     */
+    public $error_list;
+
 
 	/**
 	 * (PHP 5)<br/>
