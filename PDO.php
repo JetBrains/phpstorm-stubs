@@ -112,6 +112,7 @@ class PDO  {
 	 * Specifies that the fetch method shall return each row as an object with
 	 * variable names that correspond to the column names returned in the result
 	 * set. <b>PDO::FETCH_LAZY</b> creates the object variable names as they are accessed.
+	 * Not valid inside <b>PDOStatement::fetchAll</b>.
 	 * @link http://php.net/manual/en/pdo.constants.php
 	 */
 	const FETCH_LAZY = 1;
@@ -182,13 +183,31 @@ class PDO  {
 	 * @link http://php.net/manual/en/pdo.constants.php
 	 */
 	const FETCH_INTO = 9;
+
+	/**
+	 * Allows completely customize the way data is treated on the fly (only
+	 * valid inside <b>PDOStatement::fetchAll</b>).
+	 * @link http://php.net/manual/en/pdo.constants.php
+	 */
 	const FETCH_FUNC = 10;
+
+	/**
+	 * Group return by values. Usually combined with
+	 * <b>PDO::FETCH_COLUMN</b> or
+	 * <b>PDO::FETCH_KEY_PAIR</b>.
+	 * @link http://php.net/manual/en/pdo.constants.php
+	 */
 	const FETCH_GROUP = 65536;
+
+	/**
+	 * Fetch only the unique values.
+	 * @link http://php.net/manual/en/pdo.constants.php
+	 */
 	const FETCH_UNIQUE = 196608;
 
 	/**
-	 * Fetch into an array where the 1st column is a key and all subsequent
-	 * columns are values. Available since PHP 5.2.3.
+	 * Fetch a two-column result into an array where the first column is a key and the second column
+	 * is the value. Available since PHP 5.2.3.
 	 * @link http://php.net/manual/en/pdo.constants.php
 	 */
 	const FETCH_KEY_PAIR = 12;
@@ -223,7 +242,7 @@ class PDO  {
 	const FETCH_NAMED = 11;
 
 	/**
-	 * If this value is false, PDO attempts to disable autocommit so that the
+	 * If this value is <b>FALSE</b>, PDO attempts to disable autocommit so that the
 	 * connection begins a transaction.
 	 * @link http://php.net/manual/en/pdo.constants.php
 	 */
@@ -470,7 +489,7 @@ class PDO  {
 	const CURSOR_SCROLL = 1;
 
 	/**
-	 * If this attribute is set to true on a
+	 * If this attribute is set to <b>TRUE</b> on a
 	 * <b>PDOStatement</b>, the MySQL driver will use the
 	 * buffered versions of the MySQL API. If you're writing portable code, you
 	 * should use <b>PDOStatement::fetchAll</b> instead.
@@ -579,11 +598,42 @@ class PDO  {
 	 * @link http://php.net/manual/en/pdo-mysql.constants.php
 	 */
 	const MYSQL_ATTR_IGNORE_SPACE = 1009;
-	const ODBC_ATTR_USE_CURSOR_LIBRARY = 1000;
-	const ODBC_ATTR_ASSUME_UTF8 = 1001;
-	const ODBC_SQL_USE_IF_NEEDED = 0;
-	const ODBC_SQL_USE_DRIVER = 2;
-	const ODBC_SQL_USE_ODBC = 1;
+	const MYSQL_ATTR_SSL_KEY = 1010;
+
+	/**
+	 * <p>
+	 * The file path to the SSL certificate.
+	 * </p>
+	 * <p>
+	 * This exists as of PHP 5.3.7.
+	 * </p>
+	 * @link http://php.net/manual/en/pdo-mysql.constants.php
+	 */
+	const MYSQL_ATTR_SSL_CERT = 1011;
+
+	/**
+	 * <p>
+	 * The file path to the SSL certificate authority.
+	 * </p>
+	 * <p>
+	 * This exists as of PHP 5.3.7.
+	 * </p>
+	 * @link http://php.net/manual/en/pdo-mysql.constants.php
+	 */
+	const MYSQL_ATTR_SSL_CA = 1012;
+
+	/**
+	 * <p>
+	 * The file path to the directory that contains the trusted SSL
+	 * CA certificates, which are stored in PEM format.
+	 * </p>
+	 * <p>
+	 * This exists as of PHP 5.3.7.
+	 * </p>
+	 * @link http://php.net/manual/en/pdo-mysql.constants.php
+	 */
+	const MYSQL_ATTR_SSL_CAPATH = 1013;
+	const MYSQL_ATTR_SSL_CIPHER = 1014;
 	const PGSQL_ATTR_DISABLE_NATIVE_PREPARED_STATEMENT = 1000;
 	const PGSQL_TRANSACTION_IDLE = 0;
 	const PGSQL_TRANSACTION_ACTIVE = 1;
@@ -623,7 +673,7 @@ class PDO  {
 	 * <b>PDO::prepare</b> returns a
 	 * <b>PDOStatement</b> object.
 	 * If the database server cannot successfully prepare the statement,
-	 * <b>PDO::prepare</b> returns false or emits
+	 * <b>PDO::prepare</b> returns <b>FALSE</b> or emits
 	 * <b>PDOException</b> (depending on error handling).
 	 * </p>
 	 * <p>
@@ -636,7 +686,7 @@ class PDO  {
 	 * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)<br/>
 	 * Initiates a transaction
 	 * @link http://php.net/manual/en/pdo.begintransaction.php
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function beginTransaction () {}
 
@@ -644,7 +694,7 @@ class PDO  {
 	 * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)<br/>
 	 * Commits a transaction
 	 * @link http://php.net/manual/en/pdo.commit.php
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function commit () {}
 
@@ -652,7 +702,7 @@ class PDO  {
 	 * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)<br/>
 	 * Rolls back a transaction
 	 * @link http://php.net/manual/en/pdo.rollback.php
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function rollBack () {}
 
@@ -660,7 +710,7 @@ class PDO  {
 	 * (PHP 5 &gt;= 5.3.3, Bundled pdo_pgsql)<br/>
 	 * Checks if inside a transaction
 	 * @link http://php.net/manual/en/pdo.intransaction.php
-	 * @return bool true if a transaction is currently active, and false if not.
+	 * @return bool <b>TRUE</b> if a transaction is currently active, and <b>FALSE</b> if not.
 	 */
 	public function inTransaction () {}
 
@@ -668,9 +718,9 @@ class PDO  {
 	 * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)<br/>
 	 * Set an attribute
 	 * @link http://php.net/manual/en/pdo.setattribute.php
-	 * @param int $attribute 
-	 * @param mixed $value 
-	 * @return bool true on success or false on failure.
+	 * @param int $attribute
+	 * @param mixed $value
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function setAttribute ($attribute, $value) {}
 
@@ -685,10 +735,15 @@ class PDO  {
 	 * Data inside the query should be properly escaped.
 	 * </p>
 	 * @return int <b>PDO::exec</b> returns the number of rows that were modified
-	 * or deleted by the SQL statement you issued. If no rows were affected, 
+	 * or deleted by the SQL statement you issued. If no rows were affected,
 	 * <b>PDO::exec</b> returns 0.
 	 * </p>
-	 * &return.falseproblem;
+	 * This function may
+	 * return Boolean <b>FALSE</b>, but may also return a non-Boolean value which
+	 * evaluates to <b>FALSE</b>. Please read the section on Booleans for more
+	 * information. Use the ===
+	 * operator for testing the return value of this
+	 * function.
 	 * <p>
 	 * The following example incorrectly relies on the return value of
 	 * <b>PDO::exec</b>, wherein a statement that affected 0 rows
@@ -709,7 +764,7 @@ class PDO  {
 	 * <p>
 	 * Data inside the query should be properly escaped.
 	 * </p>
-	 * @return PDOStatement <b>PDO::query</b> returns a PDOStatement object, or false
+	 * @return PDOStatement <b>PDO::query</b> returns a PDOStatement object, or <b>FALSE</b>
 	 * on failure.
 	 */
 	public function query ($statement) {}
@@ -763,7 +818,7 @@ class PDO  {
 	 * code for an operation performed on a particular statement handle.
 	 * </p>
 	 * <p>
-	 * Returns null if no operation has been run on the database handle.
+	 * Returns <b>NULL</b> if no operation has been run on the database handle.
 	 */
 	public function errorCode () {}
 
@@ -794,7 +849,7 @@ class PDO  {
 	 * </p>
 	 * <p>
 	 * If the SQLSTATE error code is not set or there is no driver-specific
-	 * error, the elements following element 0 will be set to null.
+	 * error, the elements following element 0 will be set to <b>NULL</b>.
 	 * </p>
 	 * <p>
 	 * <b>PDO::errorInfo</b> only retrieves error information for
@@ -844,7 +899,7 @@ class PDO  {
 	 * Provides a data type hint for drivers that have alternate quoting styles.
 	 * </p>
 	 * @return string a quoted string that is theoretically safe to pass into an
-	 * SQL statement. Returns false if the driver does not support quoting in
+	 * SQL statement. Returns <b>FALSE</b> if the driver does not support quoting in
 	 * this way.
 	 */
 	public function quote ($string, $parameter_type = PDO::PARAM_STR) {}
@@ -865,7 +920,7 @@ class PDO  {
 }
 
 /**
- * Represents a prepared statement and, after the statement is executed, an 
+ * Represents a prepared statement and, after the statement is executed, an
  * associated result set.
  * @link http://php.net/manual/en/class.pdostatement.php
  */
@@ -896,7 +951,7 @@ class PDOStatement implements Traversable {
 	 * in the <b>PDO::prepare</b>, then the statement will
 	 * fail and an error is emitted.
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function execute (array $input_parameters = null) {}
 
@@ -923,9 +978,9 @@ class PDOStatement implements Traversable {
 	 * PDO::CURSOR_SCROLL when you prepare the SQL
 	 * statement with <b>PDO::prepare</b>.
 	 * </p>
-	 * @param int $cursor_offset [optional] 
+	 * @param int $cursor_offset [optional]
 	 * @return mixed The return value of this function on success depends on the fetch type. In
-	 * all cases, false is returned on failure.
+	 * all cases, <b>FALSE</b> is returned on failure.
 	 */
 	public function fetch ($fetch_style = null, $cursor_orientation = PDO::FETCH_ORI_NEXT, $cursor_offset = 0) {}
 
@@ -938,7 +993,7 @@ class PDOStatement implements Traversable {
 	 * placeholders, this will be a parameter name of the form
 	 * :name. For a prepared statement using
 	 * question mark placeholders, this will be the 1-indexed position of
-	 * the parameter. 
+	 * the parameter.
 	 * </p>
 	 * @param mixed $variable <p>
 	 * Name of the PHP variable to bind to the SQL statement parameter.
@@ -946,7 +1001,7 @@ class PDOStatement implements Traversable {
 	 * @param int $data_type [optional] <p>
 	 * Explicit data type for the parameter using the PDO::PARAM_*
 	 * constants.
-	 * To return an INOUT parameter from a stored procedure, 
+	 * To return an INOUT parameter from a stored procedure,
 	 * use the bitwise OR operator to set the PDO::PARAM_INPUT_OUTPUT bits
 	 * for the <i>data_type</i> parameter.
 	 * </p>
@@ -957,7 +1012,7 @@ class PDOStatement implements Traversable {
 	 * </p>
 	 * @param mixed $driver_options [optional] <p>
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function bindParam ($parameter, &$variable, $data_type = PDO::PARAM_STR, $length = null, $driver_options = null) {}
 
@@ -982,7 +1037,7 @@ class PDOStatement implements Traversable {
 	 * @param mixed $driverdata [optional] <p>
 	 * Optional parameter(s) for the driver.
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function bindColumn ($column, &$param, $type = null, $maxlen = null, $driverdata = null) {}
 
@@ -995,7 +1050,7 @@ class PDOStatement implements Traversable {
 	 * placeholders, this will be a parameter name of the form
 	 * :name. For a prepared statement using
 	 * question mark placeholders, this will be the 1-indexed position of
-	 * the parameter. 
+	 * the parameter.
 	 * </p>
 	 * @param mixed $value <p>
 	 * The value to bind to the parameter.
@@ -1004,7 +1059,7 @@ class PDOStatement implements Traversable {
 	 * Explicit data type for the parameter using the PDO::PARAM_*
 	 * constants.
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function bindValue ($parameter, $value, $data_type = PDO::PARAM_STR) {}
 
@@ -1097,7 +1152,7 @@ class PDOStatement implements Traversable {
 	 * Elements of this array are passed to the constructor.
 	 * </p>
 	 * @return mixed an instance of the required class with property names that
-	 * correspond to the column names or false on failure.
+	 * correspond to the column names or <b>FALSE</b> on failure.
 	 */
 	public function fetchObject ($class_name = "stdClass", array $ctor_args = null) {}
 
@@ -1142,9 +1197,9 @@ class PDOStatement implements Traversable {
 	 * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.2.0)<br/>
 	 * Set a statement attribute
 	 * @link http://php.net/manual/en/pdostatement.setattribute.php
-	 * @param int $attribute 
-	 * @param mixed $value 
-	 * @return bool true on success or false on failure.
+	 * @param int $attribute
+	 * @param mixed $value
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function setAttribute ($attribute, $value) {}
 
@@ -1152,7 +1207,7 @@ class PDOStatement implements Traversable {
 	 * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.2.0)<br/>
 	 * Retrieve a statement attribute
 	 * @link http://php.net/manual/en/pdostatement.getattribute.php
-	 * @param int $attribute 
+	 * @param int $attribute
 	 * @return mixed the attribute value.
 	 */
 	public function getAttribute ($attribute) {}
@@ -1224,7 +1279,7 @@ class PDOStatement implements Traversable {
 	 * </tr>
 	 * </table>
 	 * <p>
-	 * Returns false if the requested column does not exist in the result set,
+	 * Returns <b>FALSE</b> if the requested column does not exist in the result set,
 	 * or if no result set exists.
 	 */
 	public function getColumnMeta ($column) {}
@@ -1236,7 +1291,7 @@ class PDOStatement implements Traversable {
 	 * @param int $mode <p>
 	 * The fetch mode must be one of the PDO::FETCH_* constants.
 	 * </p>
-	 * @return bool 1 on success or false on failure.
+	 * @return bool 1 on success or <b>FALSE</b> on failure.
 	 */
 	public function setFetchMode ($mode) {}
 
@@ -1244,7 +1299,7 @@ class PDOStatement implements Traversable {
 	 * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.2.0)<br/>
 	 * Advances to the next rowset in a multi-rowset statement handle
 	 * @link http://php.net/manual/en/pdostatement.nextrowset.php
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function nextRowset () {}
 
@@ -1252,7 +1307,7 @@ class PDOStatement implements Traversable {
 	 * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.9.0)<br/>
 	 * Closes the cursor, enabling the statement to be executed again.
 	 * @link http://php.net/manual/en/pdostatement.closecursor.php
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function closeCursor () {}
 
@@ -1260,7 +1315,7 @@ class PDOStatement implements Traversable {
 	 * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.9.0)<br/>
 	 * Dump an SQL prepared command
 	 * @link http://php.net/manual/en/pdostatement.debugdumpparams.php
-	 * @return bool 
+	 * @return bool No value is returned.
 	 */
 	public function debugDumpParams () {}
 
