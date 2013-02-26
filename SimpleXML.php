@@ -37,9 +37,9 @@ class SimpleXMLElement implements Traversable {
 	 * returning it.
 	 * </p>
 	 * @return mixed If the <i>filename</i> isn't specified, this function
-	 * returns a string on success and false on error. If the
-	 * parameter is specified, it returns true if the file was written
-	 * successfully and false otherwise.
+	 * returns a string on success and <b>FALSE</b> on error. If the
+	 * parameter is specified, it returns <b>TRUE</b> if the file was written
+	 * successfully and <b>FALSE</b> otherwise.
 	 */
 	public function asXML ($filename = null) {}
 
@@ -66,7 +66,7 @@ class SimpleXMLElement implements Traversable {
 	 * @param string $path <p>
 	 * An XPath path
 	 * </p>
-	 * @return SimpleXMLElement[] an array of SimpleXMLElement objects or false in
+	 * @return SimpleXMLElement[] an array of SimpleXMLElement objects or <b>FALSE</b> in
 	 * case of an error.
 	 */
 	public function xpath ($path) {}
@@ -84,7 +84,7 @@ class SimpleXMLElement implements Traversable {
 	 * use by the XML document or the XPath query using
 	 * <i>prefix</i> will not return any results.
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function registerXPathNamespace ($prefix, $ns) {}
 
@@ -96,13 +96,13 @@ class SimpleXMLElement implements Traversable {
 	 * An optional namespace for the retrieved attributes
 	 * </p>
 	 * @param bool $is_prefix [optional] <p>
-	 * Default to false
+	 * Default to <b>FALSE</b>
 	 * </p>
 	 * @return SimpleXMLElement a <b>SimpleXMLElement</b> object that can be
 	 * iterated over to loop through the attributes on the tag.
 	 * </p>
 	 * <p>
-	 * Returns null if called on a <b>SimpleXMLElement</b>
+	 * Returns <b>NULL</b> if called on a <b>SimpleXMLElement</b>
 	 * object that already represents an attribute and not a tag.
 	 */
 	public function attributes ($ns = null, $is_prefix = false) {}
@@ -115,8 +115,8 @@ class SimpleXMLElement implements Traversable {
 	 * An XML namespace.
 	 * </p>
 	 * @param bool $is_prefix [optional] <p>
-	 * If <i>is_prefix</i> is true,
-	 * <i>ns</i> will be regarded as a prefix. If false,
+	 * If <i>is_prefix</i> is <b>TRUE</b>,
+	 * <i>ns</i> will be regarded as a prefix. If <b>FALSE</b>,
 	 * <i>ns</i> will be regarded as a namespace
 	 * URL.
 	 * </p>
@@ -185,17 +185,20 @@ class SimpleXMLElement implements Traversable {
 	 * @param string $name <p>
 	 * The name of the attribute to add.
 	 * </p>
-	 * @param string $value <p>
+	 * @param string $value [optional] <p>
 	 * The value of the attribute.
 	 * </p>
 	 * @param string $namespace [optional] <p>
 	 * If specified, the namespace to which the attribute belongs.
 	 * </p>
-	 * @return void
+	 * @return void No value is returned.
 	 */
-	public function addAttribute ($name, $value, $namespace = null) {}
+	public function addAttribute ($name, $value = null, $namespace = null) {}
 
-	public function __toString () {}
+    /**
+     * @return string
+     */
+    public function __toString () {}
 
 	/**
 	 * (PHP 5 &gt;= 5.3.0)<br/>
@@ -217,7 +220,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements Traversable, Recursi
 	 * (PHP 5 &gt;= 5.1.0)<br/>
 	 * Rewind to the first element
 	 * @link http://php.net/manual/en/simplexmliterator.rewind.php
-	 * @return void
+	 * @return void No value is returned.
 	 */
 	public function rewind () {}
 
@@ -225,7 +228,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements Traversable, Recursi
 	 * (PHP 5 &gt;= 5.1.0)<br/>
 	 * Check whether the current element is valid
 	 * @link http://php.net/manual/en/simplexmliterator.valid.php
-	 * @return bool true if the current element is valid, otherwise false
+	 * @return bool <b>TRUE</b> if the current element is valid, otherwise <b>FALSE</b>
 	 */
 	public function valid () {}
 
@@ -233,7 +236,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements Traversable, Recursi
 	 * (PHP 5 &gt;= 5.1.0)<br/>
 	 * Returns the current element
 	 * @link http://php.net/manual/en/simplexmliterator.current.php
-	 * @return mixed the current element as a <b>SimpleXMLIterator</b> object or null on failure.
+	 * @return mixed the current element as a <b>SimpleXMLIterator</b> object or <b>NULL</b> on failure.
 	 */
 	public function current () {}
 
@@ -241,7 +244,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements Traversable, Recursi
 	 * (PHP 5 &gt;= 5.1.0)<br/>
 	 * Return current key
 	 * @link http://php.net/manual/en/simplexmliterator.key.php
-	 * @return mixed the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object or false
+	 * @return mixed the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object or <b>FALSE</b>
 	 */
 	public function key () {}
 
@@ -249,7 +252,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements Traversable, Recursi
 	 * (PHP 5 &gt;= 5.1.0)<br/>
 	 * Move to next element
 	 * @link http://php.net/manual/en/simplexmliterator.next.php
-	 * @return void
+	 * @return void No value is returned.
 	 */
 	public function next () {}
 
@@ -257,7 +260,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements Traversable, Recursi
 	 * (PHP 5 &gt;= 5.1.0)<br/>
 	 * Checks whether the current element has sub elements.
 	 * @link http://php.net/manual/en/simplexmliterator.haschildren.php
-	 * @return bool true if the current element has sub-elements, otherwise false
+	 * @return bool <b>TRUE</b> if the current element has sub-elements, otherwise <b>FALSE</b>
 	 */
 	public function hasChildren () {}
 
@@ -265,12 +268,15 @@ class SimpleXMLIterator extends SimpleXMLElement implements Traversable, Recursi
 	 * (PHP 5 &gt;= 5.1.0)<br/>
 	 * Returns the sub-elements of the current element
 	 * @link http://php.net/manual/en/simplexmliterator.getchildren.php
-	 * @return object a <b>SimpleXMLIterator</b> object containing
+	 * @return SimpleXMLIterator a <b>SimpleXMLIterator</b> object containing
 	 * the sub-elements of the current element.
 	 */
 	public function getChildren () {}
 
-	public function __toString () {}
+    /**
+     * @return string
+     */
+    public function __toString () {}
 
 }
 
@@ -283,10 +289,10 @@ class SimpleXMLIterator extends SimpleXMLElement implements Traversable, Recursi
  * </p>
  * <p>
  * Libxml 2 unescapes the URI, so if you want to pass e.g.
- * b&amp;c as the URI parameter a,
+ * b&#38;#38;c as the URI parameter a,
  * you have to call
  * simplexml_load_file(rawurlencode('http://example.com/?a=' .
- * urlencode('b&amp;c'))). Since PHP 5.1.0 you don't need to do
+ * urlencode('b&#38;#38;c'))). Since PHP 5.1.0 you don't need to do
  * this because PHP will do it for you.
  * </p>
  * @param string $class_name [optional] <p>
@@ -299,13 +305,17 @@ class SimpleXMLIterator extends SimpleXMLElement implements Traversable, Recursi
  * Since PHP 5.1.0 and Libxml 2.6.0, you may also use the
  * <i>options</i> parameter to specify additional Libxml parameters.
  * </p>
- * @param string $ns [optional]
- * @param bool $is_prefix [optional]
+ * @param string $ns [optional] <p>
+ * Namespace prefix or URI.
+ * </p>
+ * @param bool $is_prefix [optional] <p>
+ * <b>TRUE</b> if <i>ns</i> is a prefix, <b>FALSE</b> if it's a URI;
+ * defaults to <b>FALSE</b>.
+ * </p>
  * @return SimpleXMLElement an object of class SimpleXMLElement with
- * properties containing the data held within the XML document. On errors, it
- * will return false.
+ * properties containing the data held within the XML document, or <b>FALSE</b> on failure.
  */
-function simplexml_load_file ($filename, $class_name = "SimpleXMLElement", $options = 0, $ns = null, $is_prefix = false) {}
+function simplexml_load_file ($filename, $class_name = "SimpleXMLElement", $options = 0, $ns = "", $is_prefix = false) {}
 
 /**
  * (PHP 5)<br/>
@@ -324,13 +334,17 @@ function simplexml_load_file ($filename, $class_name = "SimpleXMLElement", $opti
  * Since PHP 5.1.0 and Libxml 2.6.0, you may also use the
  * <i>options</i> parameter to specify additional Libxml parameters.
  * </p>
- * @param string $ns [optional]
- * @param bool $is_prefix [optional]
- * @return object an object of class SimpleXMLElement with
- * properties containing the data held within the xml document. On errors, it
- * will return false.
+ * @param string $ns [optional] <p>
+ * Namespace prefix or URI.
+ * </p>
+ * @param bool $is_prefix [optional] <p>
+ * <b>TRUE</b> if <i>ns</i> is a prefix, <b>FALSE</b> if it's a URI;
+ * defaults to <b>FALSE</b>.
+ * </p>
+ * @return SimpleXMLElement an object of class SimpleXMLElement with
+ * properties containing the data held within the xml document, or <b>FALSE</b> on failure.
  */
-function simplexml_load_string ($data, $class_name = "SimpleXMLElement", $options = 0, $ns = null, $is_prefix = false) {}
+function simplexml_load_string ($data, $class_name = "SimpleXMLElement", $options = 0, $ns = "", $is_prefix = false) {}
 
 /**
  * (PHP 5)<br/>
@@ -345,7 +359,7 @@ function simplexml_load_string ($data, $class_name = "SimpleXMLElement", $option
  * the specified class. That class should extend the
  * SimpleXMLElement class.
  * </p>
- * @return SimpleXMLElement a SimpleXMLElement or false on failure.
+ * @return SimpleXMLElement a SimpleXMLElement or <b>FALSE</b> on failure.
  */
 function simplexml_import_dom (DOMNode $node, $class_name = "SimpleXMLElement") {}
 
