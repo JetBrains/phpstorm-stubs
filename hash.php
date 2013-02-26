@@ -13,8 +13,8 @@
  * Message to be hashed.
  * </p>
  * @param bool $raw_output [optional] <p>
- * When set to true, outputs raw binary data.
- * false outputs lowercase hexits.
+ * When set to <b>TRUE</b>, outputs raw binary data.
+ * <b>FALSE</b> outputs lowercase hexits.
  * </p>
  * @return string a string containing the calculated message digest as lowercase hexits
  * unless <i>raw_output</i> is set to true in which case the raw
@@ -33,8 +33,8 @@ function hash ($algo, $data, $raw_output = false) {}
  * URL describing location of file to be hashed; Supports fopen wrappers.
  * </p>
  * @param bool $raw_output [optional] <p>
- * When set to true, outputs raw binary data.
- * false outputs lowercase hexits.
+ * When set to <b>TRUE</b>, outputs raw binary data.
+ * <b>FALSE</b> outputs lowercase hexits.
  * </p>
  * @return string a string containing the calculated message digest as lowercase hexits
  * unless <i>raw_output</i> is set to true in which case the raw
@@ -56,8 +56,8 @@ function hash_file ($algo, $filename, $raw_output = false) {}
  * Shared secret key used for generating the HMAC variant of the message digest.
  * </p>
  * @param bool $raw_output [optional] <p>
- * When set to true, outputs raw binary data.
- * false outputs lowercase hexits.
+ * When set to <b>TRUE</b>, outputs raw binary data.
+ * <b>FALSE</b> outputs lowercase hexits.
  * </p>
  * @return string a string containing the calculated message digest as lowercase hexits
  * unless <i>raw_output</i> is set to true in which case the raw
@@ -79,8 +79,8 @@ function hash_hmac ($algo, $data, $key, $raw_output = false) {}
  * Shared secret key used for generating the HMAC variant of the message digest.
  * </p>
  * @param bool $raw_output [optional] <p>
- * When set to true, outputs raw binary data.
- * false outputs lowercase hexits.
+ * When set to <b>TRUE</b>, outputs raw binary data.
+ * <b>FALSE</b> outputs lowercase hexits.
  * </p>
  * @return string a string containing the calculated message digest as lowercase hexits
  * unless <i>raw_output</i> is set to true in which case the raw
@@ -121,7 +121,7 @@ function hash_init ($algo, $options = 0, $key = null) {}
  * @param string $data <p>
  * Message to be included in the hash digest.
  * </p>
- * @return bool true.
+ * @return bool <b>TRUE</b>.
  */
 function hash_update ($context, $data) {}
 
@@ -153,8 +153,8 @@ function hash_update_stream ($context, $handle, $length = -1) {}
  * @param string $filename <p>
  * URL describing location of file to be hashed; Supports fopen wrappers.
  * </p>
- * @param resource $context [optional] 
- * @return bool true on success or false on failure.
+ * @param resource $context [optional]
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function hash_update_file ($context, $filename, $context = null) {}
 
@@ -166,8 +166,8 @@ function hash_update_file ($context, $filename, $context = null) {}
  * Hashing context returned by <b>hash_init</b>.
  * </p>
  * @param bool $raw_output [optional] <p>
- * When set to true, outputs raw binary data.
- * false outputs lowercase hexits.
+ * When set to <b>TRUE</b>, outputs raw binary data.
+ * <b>FALSE</b> outputs lowercase hexits.
  * </p>
  * @return string a string containing the calculated message digest as lowercase hexits
  * unless <i>raw_output</i> is set to true in which case the raw
@@ -216,7 +216,7 @@ function hash_algos () {}
  * @param int $bytes <p>
  * The key length, in bytes.
  * </p>
- * @return string the generated key as a string, or false on error.
+ * @return string the generated key as a string, or <b>FALSE</b> on error.
  */
 function mhash_keygen_s2k ($hash, $password, $salt, $bytes) {}
 
@@ -227,7 +227,7 @@ function mhash_keygen_s2k ($hash, $password, $salt, $bytes) {}
  * @param int $hash <p>
  * The hash ID. One of the <b>MHASH_hashname</b> constants.
  * </p>
- * @return int the size in bytes or false, if the <i>hash</i>
+ * @return int the size in bytes or <b>FALSE</b>, if the <i>hash</i>
  * does not exist.
  */
 function mhash_get_block_size ($hash) {}
@@ -239,7 +239,7 @@ function mhash_get_block_size ($hash) {}
  * @param int $hash <p>
  * The hash ID. One of the <b>MHASH_hashname</b> constants.
  * </p>
- * @return string the name of the hash or false, if the hash does not exist.
+ * @return string the name of the hash or <b>FALSE</b>, if the hash does not exist.
  */
 function mhash_get_hash_name ($hash) {}
 
@@ -265,11 +265,11 @@ function mhash_count () {}
  * @param string $key [optional] <p>
  * If specified, the function will return the resulting HMAC instead.
  * HMAC is keyed hashing for message authentication, or simply a message
- * digest that depends on the specified key. Not all algorithms 
+ * digest that depends on the specified key. Not all algorithms
  * supported in mhash can be used in HMAC mode.
  * </p>
  * @return string the resulting hash (also called digest) or HMAC as a string, or
- * false on error.
+ * <b>FALSE</b> on error.
  */
 function mhash ($hash, $data, $key = null) {}
 
@@ -307,6 +307,11 @@ define ('MHASH_RIPEMD256', 24);
 define ('MHASH_RIPEMD320', 25);
 define ('MHASH_SNEFRU256', 27);
 define ('MHASH_MD2', 28);
+define ('MHASH_FNV132', 29);
+define ('MHASH_FNV1A32', 30);
+define ('MHASH_FNV164', 31);
+define ('MHASH_FNV1A64', 32);
+define ('MHASH_JOAAT', 33);
 
 // End of hash v.1.0
 ?>

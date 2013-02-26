@@ -86,7 +86,7 @@ class ZipArchive  {
 	/**
 	 * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
 	 * Open a ZIP file archive
-	 * @link http://php.net/manual/en/function.ziparchive-open.php
+	 * @link http://php.net/manual/en/ziparchive.open.php
 	 * @param string $filename <p>
 	 * The file name of the ZIP archive to open.
 	 * </p>

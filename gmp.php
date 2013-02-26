@@ -7,7 +7,7 @@
  * Create GMP number
  * @link http://php.net/manual/en/function.gmp-init.php
  * @param mixed $number <p>
- * An integer or a string. The string representation can be decimal, 
+ * An integer or a string. The string representation can be decimal,
  * hexadecimal or octal.
  * </p>
  * @param int $base [optional] <p>
@@ -20,9 +20,9 @@
  * hexadecimal is assumed, otherwise if the first character is "0",
  * octal is assumed, otherwise decimal is assumed.
  * </p>
- * @return resource &gmp.return;
+ * @return resource A GMP number resource.
  */
-function gmp_init ($number, $base = null) {}
+function gmp_init ($number, $base = 0) {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
@@ -31,7 +31,7 @@ function gmp_init ($number, $base = null) {}
  * @param resource $gmpnumber <p>
  * A GMP number.
  * </p>
- * @return int An integer value of gmpnumber.
+ * @return int An integer value of <i>gmpnumber</i>.
  */
 function gmp_intval ($gmpnumber) {}
 
@@ -42,14 +42,15 @@ function gmp_intval ($gmpnumber) {}
  * @param resource $gmpnumber <p>
  * The GMP number that will be converted to a string.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param int $base [optional] <p>
- * The base of the returned number. The default base is 10. 
+ * The base of the returned number. The default base is 10.
  * Allowed values for the base are from 2 to 62 and -2 to -36.
  * </p>
  * @return string The number, as a string.
  */
-function gmp_strval ($gmpnumber, $base = null) {}
+function gmp_strval ($gmpnumber, $base = 10) {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
@@ -58,11 +59,13 @@ function gmp_strval ($gmpnumber, $base = null) {}
  * @param resource $a <p>
  * A number that will be added.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param resource $b <p>
  * A number that will be added.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @return resource A GMP number representing the sum of the arguments.
  */
 function gmp_add ($a, $b) {}
@@ -74,12 +77,14 @@ function gmp_add ($a, $b) {}
  * @param resource $a <p>
  * The number being subtracted from.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param resource $b <p>
- * The number subtracted from a.
+ * The number subtracted from <i>a</i>.
  * </p>
- * &gmp.parameter;
- * @return resource &gmp.return;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @return resource A GMP number resource.
  */
 function gmp_sub ($a, $b) {}
 
@@ -88,14 +93,16 @@ function gmp_sub ($a, $b) {}
  * Multiply numbers
  * @link http://php.net/manual/en/function.gmp-mul.php
  * @param resource $a <p>
- * A number that will be multiplied by b.
+ * A number that will be multiplied by <i>b</i>.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param resource $b <p>
- * A number that will be multiplied by a.
+ * A number that will be multiplied by <i>a</i>.
  * </p>
- * &gmp.parameter;
- * @return resource &gmp.return;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @return resource A GMP number resource.
  */
 function gmp_mul ($a, $b) {}
 
@@ -106,21 +113,23 @@ function gmp_mul ($a, $b) {}
  * @param resource $n <p>
  * The number being divided.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param resource $d <p>
- * The number that n is being divided by.
+ * The number that <i>n</i> is being divided by.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param int $round [optional] <p>
- * See the gmp_div_q function for description
- * of the round argument.
+ * See the <b>gmp_div_q</b> function for description
+ * of the <i>round</i> argument.
  * </p>
  * @return array an array, with the first
  * element being [n/d] (the integer result of the
  * division) and the second being (n - [n/d] * d)
  * (the remainder of the division).
  */
-function gmp_div_qr ($n, $d, $round = null) {}
+function gmp_div_qr ($n, $d, $round = 'GMP_ROUND_ZERO') {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
@@ -129,20 +138,22 @@ function gmp_div_qr ($n, $d, $round = null) {}
  * @param resource $a <p>
  * The number being divided.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param resource $b <p>
- * The number that a is being divided by.
+ * The number that <i>a</i> is being divided by.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param int $round [optional] <p>
  * The result rounding is defined by the
- * round, which can have the following
+ * <i>round</i>, which can have the following
  * values:
- * GMP_ROUND_ZERO: The result is truncated
+ * <b>GMP_ROUND_ZERO</b>: The result is truncated
  * towards 0.
- * @return resource &gmp.return;
+ * @return resource A GMP number resource.
  */
-function gmp_div_q ($a, $b, $round = null) {}
+function gmp_div_q ($a, $b, $round = 'GMP_ROUND_ZERO') {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
@@ -151,22 +162,24 @@ function gmp_div_q ($a, $b, $round = null) {}
  * @param resource $n <p>
  * The number being divided.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param resource $d <p>
- * The number that n is being divided by.
+ * The number that <i>n</i> is being divided by.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param int $round [optional] <p>
- * See the gmp_div_q function for description
- * of the round argument.
+ * See the <b>gmp_div_q</b> function for description
+ * of the <i>round</i> argument.
  * </p>
  * @return resource The remainder, as a GMP number.
  */
-function gmp_div_r ($n, $d, $round = null) {}
+function gmp_div_r ($n, $d, $round = 'GMP_ROUND_ZERO') {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
- * &Alias; <function>gmp_div_q</function>
+ * Alias of <b>gmp_div_q</b>
  * @link http://php.net/manual/en/function.gmp-div.php
  * @param $a
  * @param $b
@@ -178,12 +191,14 @@ function gmp_div ($a, $b, $round) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Modulo operation
  * @link http://php.net/manual/en/function.gmp-mod.php
- * @param resource $n &gmp.parameter;
+ * @param resource $n It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param resource $d <p>
  * The modulo that is being evaluated.
  * </p>
- * &gmp.parameter;
- * @return resource &gmp.return;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @return resource A GMP number resource.
  */
 function gmp_mod ($n, $d) {}
 
@@ -194,12 +209,14 @@ function gmp_mod ($n, $d) {}
  * @param resource $n <p>
  * The number being divided.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param resource $d <p>
- * The number that a is being divided by.
+ * The number that <i>a</i> is being divided by.
  * </p>
- * &gmp.parameter;
- * @return resource &gmp.return;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @return resource A GMP number resource.
  */
 function gmp_divexact ($n, $d) {}
 
@@ -207,8 +224,9 @@ function gmp_divexact ($n, $d) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Negate number
  * @link http://php.net/manual/en/function.gmp-neg.php
- * @param resource $a &gmp.parameter;
- * @return resource -a, as a GMP number.
+ * @param resource $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @return resource -<i>a</i>, as a GMP number.
  */
 function gmp_neg ($a) {}
 
@@ -216,8 +234,9 @@ function gmp_neg ($a) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Absolute value
  * @link http://php.net/manual/en/function.gmp-abs.php
- * @param resource $a &gmp.parameter;
- * @return resource the absolute value of a, as a GMP number.
+ * @param resource $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @return resource the absolute value of <i>a</i>, as a GMP number.
  */
 function gmp_abs ($a) {}
 
@@ -228,8 +247,9 @@ function gmp_abs ($a) {}
  * @param mixed $a <p>
  * The factorial number.
  * </p>
- * &gmp.parameter;
- * @return resource &gmp.return;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @return resource A GMP number resource.
  */
 function gmp_fact ($a) {}
 
@@ -237,7 +257,8 @@ function gmp_fact ($a) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Calculate square root
  * @link http://php.net/manual/en/function.gmp-sqrt.php
- * @param resource $a &gmp.parameter;
+ * @param resource $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @return resource The integer portion of the square root, as a GMP number.
  */
 function gmp_sqrt ($a) {}
@@ -249,10 +270,11 @@ function gmp_sqrt ($a) {}
  * @param resource $a <p>
  * The number being square rooted.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @return array array where first element is the integer square root of
- * a and the second is the remainder
- * (i.e., the difference between a and the
+ * <i>a</i> and the second is the remainder
+ * (i.e., the difference between <i>a</i> and the
  * first element squared).
  */
 function gmp_sqrtrem ($a) {}
@@ -264,11 +286,12 @@ function gmp_sqrtrem ($a) {}
  * @param resource $base <p>
  * The base number.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param int $exp <p>
- * The positive power to raise the base.
+ * The positive power to raise the <i>base</i>.
  * </p>
- * @return resource The new (raised) number, as a GMP number. The case of 
+ * @return resource The new (raised) number, as a GMP number. The case of
  * 0^0 yields 1.
  */
 function gmp_pow ($base, $exp) {}
@@ -280,15 +303,18 @@ function gmp_pow ($base, $exp) {}
  * @param resource $base <p>
  * The base number.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param resource $exp <p>
- * The positive power to raise the base.
+ * The positive power to raise the <i>base</i>.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param resource $mod <p>
  * The modulo.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @return resource The new (raised) number, as a GMP number.
  */
 function gmp_powm ($base, $exp, $mod) {}
@@ -300,9 +326,10 @@ function gmp_powm ($base, $exp, $mod) {}
  * @param resource $a <p>
  * The number being checked as a perfect square.
  * </p>
- * &gmp.parameter;
- * @return bool true if a is a perfect square,
- * false otherwise.
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @return bool <b>TRUE</b> if <i>a</i> is a perfect square,
+ * <b>FALSE</b> otherwise.
  */
 function gmp_perfect_square ($a) {}
 
@@ -313,29 +340,33 @@ function gmp_perfect_square ($a) {}
  * @param resource $a <p>
  * The number being checked as a prime.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param int $reps [optional] <p>
  * Reasonable values
- * of reps vary from 5 to 10 (default being
+ * of <i>reps</i> vary from 5 to 10 (default being
  * 10); a higher value lowers the probability for a non-prime to
  * pass as a "probable" prime.
  * </p>
- * &gmp.parameter;
- * @return int If this function returns 0, a is
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @return int If this function returns 0, <i>a</i> is
  * definitely not prime. If it returns 1, then
- * a is "probably" prime. If it returns 2,
- * then a is surely prime.
+ * <i>a</i> is "probably" prime. If it returns 2,
+ * then <i>a</i> is surely prime.
  */
-function gmp_prob_prime ($a, $reps = null) {}
+function gmp_prob_prime ($a, $reps = 10) {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Calculate GCD
  * @link http://php.net/manual/en/function.gmp-gcd.php
- * @param resource $a &gmp.parameter;
- * @param resource $b &gmp.parameter;
+ * @param resource $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @param resource $b It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @return resource A positive GMP number that divides into both
- * a and b.
+ * <i>a</i> and <i>b</i>.
  */
 function gmp_gcd ($a, $b) {}
 
@@ -343,8 +374,10 @@ function gmp_gcd ($a, $b) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Calculate GCD and multipliers
  * @link http://php.net/manual/en/function.gmp-gcdext.php
- * @param resource $a &gmp.parameter;
- * @param resource $b &gmp.parameter;
+ * @param resource $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @param resource $b It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @return array An array of GMP numbers.
  */
 function gmp_gcdext ($a, $b) {}
@@ -353,9 +386,11 @@ function gmp_gcdext ($a, $b) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Inverse by modulo
  * @link http://php.net/manual/en/function.gmp-invert.php
- * @param resource $a &gmp.parameter;
- * @param resource $b &gmp.parameter;
- * @return resource A GMP number on success or false if an inverse does not exist.
+ * @param resource $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @param resource $b It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @return resource A GMP number on success or <b>FALSE</b> if an inverse does not exist.
  */
 function gmp_invert ($a, $b) {}
 
@@ -363,12 +398,14 @@ function gmp_invert ($a, $b) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Jacobi symbol
  * @link http://php.net/manual/en/function.gmp-jacobi.php
- * @param resource $a &gmp.parameter;
- * @param resource $p &gmp.parameter; 
+ * @param resource $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @param resource $p It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * <p>
  * Should be odd and must be positive.
  * </p>
- * @return int &gmp.return;
+ * @return int A GMP number resource.
  */
 function gmp_jacobi ($a, $p) {}
 
@@ -376,12 +413,14 @@ function gmp_jacobi ($a, $p) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Legendre symbol
  * @link http://php.net/manual/en/function.gmp-legendre.php
- * @param resource $a &gmp.parameter;
- * @param resource $p &gmp.parameter; 
+ * @param resource $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @param resource $p It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * <p>
  * Should be odd and must be positive.
  * </p>
- * @return int &gmp.return;
+ * @return int A GMP number resource.
  */
 function gmp_legendre ($a, $p) {}
 
@@ -389,8 +428,10 @@ function gmp_legendre ($a, $p) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Compare numbers
  * @link http://php.net/manual/en/function.gmp-cmp.php
- * @param resource $a &gmp.parameter;
- * @param resource $b &gmp.parameter;
+ * @param resource $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @param resource $b It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @return int a positive value if a &gt; b, zero if
  * a = b and a negative value if a &lt;
  * b.
@@ -401,10 +442,11 @@ function gmp_cmp ($a, $b) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Sign of number
  * @link http://php.net/manual/en/function.gmp-sign.php
- * @param resource $a &gmp.parameter;
- * @return int 1 if a is positive,
- * -1 if a is negative,
- * and 0 if a is zero.
+ * @param resource $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @return int 1 if <i>a</i> is positive,
+ * -1 if <i>a</i> is negative,
+ * and 0 if <i>a</i> is zero.
  */
 function gmp_sign ($a) {}
 
@@ -415,17 +457,20 @@ function gmp_sign ($a) {}
  * @param int $limiter [optional] <p>
  * The limiter.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @return resource A random GMP number.
  */
-function gmp_random ($limiter = null) {}
+function gmp_random ($limiter = 20) {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Bitwise AND
  * @link http://php.net/manual/en/function.gmp-and.php
- * @param resource $a &gmp.parameter;
- * @param resource $b &gmp.parameter;
+ * @param resource $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @param resource $b It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @return resource A GMP number representing the bitwise AND comparison.
  */
 function gmp_and ($a, $b) {}
@@ -434,9 +479,11 @@ function gmp_and ($a, $b) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Bitwise OR
  * @link http://php.net/manual/en/function.gmp-or.php
- * @param resource $a &gmp.parameter;
- * @param resource $b &gmp.parameter;
- * @return resource &gmp.return;
+ * @param resource $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @param resource $b It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @return resource A GMP number resource.
  */
 function gmp_or ($a, $b) {}
 
@@ -444,8 +491,9 @@ function gmp_or ($a, $b) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Calculates one's complement
  * @link http://php.net/manual/en/function.gmp-com.php
- * @param resource $a &gmp.parameter;
- * @return resource the one's complement of a, as a GMP number.
+ * @param resource $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @return resource the one's complement of <i>a</i>, as a GMP number.
  */
 function gmp_com ($a) {}
 
@@ -453,9 +501,11 @@ function gmp_com ($a) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Bitwise XOR
  * @link http://php.net/manual/en/function.gmp-xor.php
- * @param resource $a &gmp.parameter;
- * @param resource $b &gmp.parameter;
- * @return resource &gmp.return;
+ * @param resource $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @param resource $b It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @return resource A GMP number resource.
  */
 function gmp_xor ($a, $b) {}
 
@@ -466,7 +516,8 @@ function gmp_xor ($a, $b) {}
  * @param resource $a <p>
  * The number being set to.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param int $index <p>
  * The set bit.
  * </p>
@@ -474,17 +525,19 @@ function gmp_xor ($a, $b) {}
  * Defines if the bit is set to 0 or 1. By default the bit is set to
  * 1. Index starts at 0.
  * </p>
- * @return void &gmp.return;
+ * @return void A GMP number resource.
  */
-function gmp_setbit (&$a, $index, $set_clear = null) {}
+function gmp_setbit ($a, $index, $set_clear = true) {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Clear bit
  * @link http://php.net/manual/en/function.gmp-clrbit.php
- * @param resource $a &gmp.parameter;
- * @param int $index &gmp.parameter;
- * @return void &gmp.return;
+ * @param resource $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @param int $index It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @return void A GMP number resource.
  */
 function gmp_clrbit ($a, $index) {}
 
@@ -495,7 +548,8 @@ function gmp_clrbit ($a, $index) {}
  * @param resource $a <p>
  * The number to scan.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param int $start <p>
  * The starting bit.
  * </p>
@@ -511,7 +565,8 @@ function gmp_scan0 ($a, $start) {}
  * @param resource $a <p>
  * The number to scan.
  * </p>
- * &gmp.parameter;
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param int $start <p>
  * The starting bit.
  * </p>
@@ -524,11 +579,12 @@ function gmp_scan1 ($a, $start) {}
  * (PHP 5 &gt;= 5.3.0)<br/>
  * Tests if a bit is set
  * @link http://php.net/manual/en/function.gmp-testbit.php
- * @param resource $a &gmp.parameter;
+ * @param resource $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @param int $index <p>
  * The bit to test
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function gmp_testbit ($a, $index) {}
 
@@ -536,8 +592,9 @@ function gmp_testbit ($a, $index) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Population count
  * @link http://php.net/manual/en/function.gmp-popcount.php
- * @param resource $a &gmp.parameter;
- * @return int The population count of a, as an integer.
+ * @param resource $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @return int The population count of <i>a</i>, as an integer.
  */
 function gmp_popcount ($a) {}
 
@@ -545,15 +602,17 @@ function gmp_popcount ($a) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Hamming distance
  * @link http://php.net/manual/en/function.gmp-hamdist.php
- * @param resource $a &gmp.parameter; 
+ * @param resource $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * <p>
  * It should be positive.
  * </p>
- * @param resource $b &gmp.parameter; 
+ * @param resource $b It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * <p>
  * It should be positive.
  * </p>
- * @return int &gmp.return;
+ * @return int A GMP number resource.
  */
 function gmp_hamdist ($a, $b) {}
 
@@ -561,8 +620,9 @@ function gmp_hamdist ($a, $b) {}
  * (PHP 5 &gt;= 5.2.0)<br/>
  * Find next prime number
  * @link http://php.net/manual/en/function.gmp-nextprime.php
- * @param int $a &gmp.parameter;
- * @return resource Return the next prime number greater than a,
+ * @param int $a It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @return resource Return the next prime number greater than <i>a</i>,
  * as a GMP number.
  */
 function gmp_nextprime ($a) {}
@@ -575,7 +635,7 @@ define ('GMP_ROUND_MINUSINF', 2);
  * The GMP library version
  * @link http://php.net/manual/en/gmp.constants.php
  */
-define ('GMP_VERSION', "4.3.1");
+define ('GMP_VERSION', "5.0.2");
 
 // End of gmp v.
 ?>
