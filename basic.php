@@ -1,9 +1,5 @@
 <?php
 
-//function sha256 () {}
-
-//function sha256_file () {}
-
 /**
  * (PHP 4, PHP 5)<br/>
  * @deprecated since 5.3.0
@@ -22,21 +18,22 @@
  * platform:
  * </p>
  * <p>
- * Windows - If not explicitly set in the &php.ini;, the extension is
- * loaded from c:\php4\extensions\ by default.
+ * Windows - If not explicitly set in the <i>php.ini</i>, the extension is
+ * loaded from C:\php4\extensions\ (PHP 4) or
+ * C:\php5\ (PHP 5) by default.
  * </p>
  * <p>
- * Unix - If not explicitly set in the &php.ini;, the default extension
+ * Unix - If not explicitly set in the <i>php.ini</i>, the default extension
  * directory depends on
  * whether PHP has been built with --enable-debug
  * or not
- * @return int true on success or false on failure. If the functionality of loading modules is not available
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure. If the functionality of loading modules is not available
  * or has been disabled (either by setting
- * enable_dl off or by enabling &safemode;
- * in &php.ini;) an E_ERROR is emitted
- * and execution is stopped. If dl fails because the
- * specified library couldn't be loaded, in addition to false an
- * E_WARNING message is emitted.
+ * enable_dl off or by enabling safe mode
+ * in <i>php.ini</i>) an <b>E_ERROR</b> is emitted
+ * and execution is stopped. If <b>dl</b> fails because the
+ * specified library couldn't be loaded, in addition to <b>FALSE</b> an
+ * <b>E_WARNING</b> message is emitted.
  */
 function dl ($library) {}
 
@@ -44,7 +41,7 @@ function dl ($library) {}
 /**
  * The full path and filename of the file. If used inside an include,
  * the name of the included file is returned.
- * Since PHP 4.0.2, __FILE__ always contains an
+ * Since PHP 4.0.2, <b>__FILE__</b> always contains an
  * absolute path with symlinks resolved whereas in older versions it contained relative path
  * under some circumstances.
  * @link http://php.net/manual/en/language.constants.predefined.php
@@ -69,14 +66,6 @@ define ('__LINE__', 0);
 define ('__CLASS__', '');
 
 /**
- * The trait name. (Added in PHP 5.4.0) As of PHP 5.4 this constant
- * returns the trait as it was declared (case-sensitive).
- * The trait name includes the namespace it was declared in (e.g. Foo\Bar).
- * @link http://php.net/manual/en/language.constants.predefined.php
- */
-define ('__TRAIT__', '');
-
-/**
  * The function name. (Added in PHP 4.3.0) As of PHP 5 this constant
  * returns the function name as it was declared (case-sensitive). In
  * PHP 4 its value is always lowercased.
@@ -90,6 +79,14 @@ define ('__FUNCTION__', '');
  * @link http://php.net/manual/en/language.constants.predefined.php
  */
 define ('__METHOD__', '');
+
+/**
+ * The trait name. (Added in PHP 5.4.0) As of PHP 5.4 this constant
+ * returns the trait as it was declared (case-sensitive). The trait name includes the namespace
+ * it was declared in (e.g. Foo\Bar).
+ * @link http://php.net/manual/en/language.constants.predefined.php
+ */
+define ('__TRAIT__', '');
 
 /**
  * The directory of the file. If used inside an include,

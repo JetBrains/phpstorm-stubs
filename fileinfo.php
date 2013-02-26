@@ -1,6 +1,6 @@
 <?php
 
-// Start of fileinfo v.1.0.5-dev
+// Start of fileinfo v.1.0.5
 
 class finfo  {
 
@@ -11,41 +11,52 @@ class finfo  {
 	public function finfo ($options, $arg) {}
 
 	/**
-	 * @param $options
+	 * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
+	 * Set libmagic configuration options
+	 * @link http://php.net/manual/en/function.finfo-set-flags.php
+	 * @param int $options <p>
+	 * One or disjunction of more Fileinfo
+	 * constants.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function set_flags ($options) {}
 
-    /**
-     * Return information about a file
-     * @link http://docs.php.net/finfo_file
-     * @param string $filename Fileinfo Name of a file to be checked.
-     * @param int $options [optional] One or disjunction of more Fileinfo constants.
-     * @param resource $context [optional] For a description of contexts, refer to Stream Functions.
-     * @return string textual description of the contents of the filename argument, or FALSE if an error occurred
-     */
-	public function file ($filename = NULL, $options = FILEINFO_NONE, $context = NULL) {}
+	/**
+	 * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
+	 * Return information about a file
+	 * @link http://php.net/manual/en/function.finfo-file.php
+	 * @param string $file_name [optional] <p>
+	 * Name of a file to be checked.
+	 * </p>
+	 * @param int $options [optional] <p>
+	 * One or disjunction of more Fileinfo
+	 * constants.
+	 * </p>
+	 * @param resource $context [optional] <p>
+	 * For a description of contexts, refer to .
+	 * </p>
+	 * @return string a textual description of the contents of the
+	 * <i>filename</i> argument, or <b>FALSE</b> if an error occurred.
+	 */
+	public function file ($file_name = null, $options = FILEINFO_NONE, $context = null) {}
 
-    /**
-     * (PHP 5 &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
-     * Return information about a string buffer
-     * @link http://php.net/manual/en/function.finfo-buffer.php
-     * @param string $string <p>
-     * Content of a file to be checked.
-     * </p>
-     * @param int $options [optional] <p>
-     * One or disjunction of more Fileinfo
-     * constants.
-     * </p>
-     * @param resource $context [optional] <p>
-     * </p>
-     * @param string $string Content of a file to be checked.
-     * @param int $options [optional] One or disjunction of more
-     * <a href="http://hu.php.net/manual/en/fileinfo.constants.php">Fileinfo</a> constants.
-     * @param resource $context [optional]
-     * @return string a textual description of the string
-     * argument, or false if an error occurred.
-     */
-    public function buffer ($string, $options = FILEINFO_NONE, $context = NULL) {}
+	/**
+	 * (PHP 5 &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
+	 * Return information about a string buffer
+	 * @link http://php.net/manual/en/function.finfo-buffer.php
+	 * @param string $string [optional] <p>
+	 * Content of a file to be checked.
+	 * </p>
+	 * @param int $options [optional] <p>
+	 * One or disjunction of more Fileinfo
+	 * constants.
+	 * </p>
+	 * @param resource $context [optional]
+	 * @return string a textual description of the <i>string</i>
+	 * argument, or <b>FALSE</b> if an error occurred.
+	 */
+	public function buffer ($string = null, $options = FILEINFO_NONE, $context = null) {}
 
 }
 
@@ -65,7 +76,7 @@ class finfo  {
  * A .mime and/or .mgc suffix is added if
  * needed.
  * </p>
- * @return resource a magic database resource on success or false on failure.
+ * @return resource a magic database resource on success or <b>FALSE</b> on failure.
  */
 function finfo_open ($options = null, $magic_file = null) {}
 
@@ -76,7 +87,7 @@ function finfo_open ($options = null, $magic_file = null) {}
  * @param resource $finfo <p>
  * Fileinfo resource returned by finfo_open.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function finfo_close ($finfo) {}
 
@@ -91,7 +102,7 @@ function finfo_close ($finfo) {}
  * One or disjunction of more Fileinfo
  * constants.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function finfo_set_flags ($finfo, $options) {}
 
@@ -112,8 +123,8 @@ function finfo_set_flags ($finfo, $options) {}
  * @param resource $context [optional] <p>
  * For a description of contexts, refer to .
  * </p>
- * @return string a textual description of the contents of the
- * filename argument, or false if an error occurred.
+ * @return mixed a textual description of the contents of the
+ * <i>filename</i> argument, or <b>FALSE</b> if an error occurred.
  */
 function finfo_file ($finfo, $file_name, $options = null, $context = null) {}
 
@@ -137,8 +148,8 @@ function finfo_file ($finfo, $file_name, $options = null, $context = null) {}
  * @param int $options [optional] One or disjunction of more
  * <a href="http://hu.php.net/manual/en/fileinfo.constants.php">Fileinfo</a> constants.
  * @param resource $context [optional] 
- * @return string a textual description of the string
- * argument, or false if an error occurred.
+ * @return string a textual description of the <i>string</i>
+ * argument, or <b>FALSE</b> if an error occurred.
  */
 function finfo_buffer ($finfo ,$string, $options = FILEINFO_NONE, $context = NULL) {}
 
@@ -212,5 +223,5 @@ define ('FILEINFO_PRESERVE_ATIME', 128);
  */
 define ('FILEINFO_RAW', 256);
 
-// End of fileinfo v.1.0.5-dev
+// End of fileinfo v.1.0.5
 ?>
