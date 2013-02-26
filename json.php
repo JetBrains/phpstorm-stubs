@@ -3,6 +3,25 @@
 // Start of json v.1.2.1
 
 /**
+ * Objects implementing JsonSerializable
+ * can customize their JSON representation when encoded with
+ * <b>json_encode</b>.
+ * @link http://php.net/manual/en/class.jsonserializable.php
+ */
+interface JsonSerializable  {
+
+	/**
+	 * (PHP 5 &gt;= 5.4.0)<br/>
+	 * Specify data which should be serialized to JSON
+	 * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+	 * @return mixed data which can be serialized by <b>json_encode</b>,
+	 * which is a value of any type other than a resource.
+	 */
+	abstract public function jsonSerialize ();
+
+}
+
+/**
  * (PHP 5 &gt;= 5.2.0, PECL json &gt;= 1.2.0)<br/>
  * Returns the JSON representation of a value
  * @link http://php.net/manual/en/function.json-encode.php
@@ -22,9 +41,11 @@
  * <b>JSON_PRETTY_PRINT</b>,
  * <b>JSON_UNESCAPED_SLASHES</b>,
  * <b>JSON_FORCE_OBJECT</b>,
- * <b>JSON_UNESCAPED_UNICODE</b>.
+ * <b>JSON_UNESCAPED_UNICODE</b>. The behaviour of these
+ * constants is described on
+ * the JSON constants page.
  * </p>
- * @return string a JSON encoded string on success.
+ * @return string a JSON encoded string on success or <b>FALSE</b> on failure.
  */
 function json_encode ($value, $options = 0) {}
 
@@ -39,7 +60,7 @@ function json_encode ($value, $options = 0) {}
  * This function only works with UTF-8 encoded data.
  * </p>
  * @param bool $assoc [optional] <p>
- * When true, returned objects will be converted into
+ * When <b>TRUE</b>, returned objects will be converted into
  * associative arrays.
  * </p>
  * @param int $depth [optional] <p>
@@ -52,8 +73,8 @@ function json_encode ($value, $options = 0) {}
  * </p>
  * @return mixed the value encoded in <i>json</i> in appropriate
  * PHP type. Values true, false and
- * null (case-insensitive) are returned as true, false
- * and null respectively. null is returned if the
+ * null (case-insensitive) are returned as <b>TRUE</b>, <b>FALSE</b>
+ * and <b>NULL</b> respectively. <b>NULL</b> is returned if the
  * <i>json</i> cannot be decoded or if the encoded
  * data is deeper than the recursion limit.
  */
@@ -63,7 +84,7 @@ function json_decode ($json, $assoc = false, $depth = 512, $options = 0) {}
  * (PHP 5 &gt;= 5.3.0)<br/>
  * Returns the last error occurred
  * @link http://php.net/manual/en/function.json-last-error.php
- * @return int an integer, the value can be one of the following 
+ * @return int an integer, the value can be one of the following
  * constants:
  */
 function json_last_error () {}
@@ -71,24 +92,28 @@ function json_last_error () {}
 
 /**
  * All &lt; and &gt; are converted to \u003C and \u003E.
+ * Available since PHP 5.3.0.
  * @link http://php.net/manual/en/json.constants.php
  */
 define ('JSON_HEX_TAG', 1);
 
 /**
- * All &amp;s are converted to \u0026.
+ * All &#38;#38;s are converted to \u0026.
+ * Available since PHP 5.3.0.
  * @link http://php.net/manual/en/json.constants.php
  */
 define ('JSON_HEX_AMP', 2);
 
 /**
  * All ' are converted to \u0027.
+ * Available since PHP 5.3.0.
  * @link http://php.net/manual/en/json.constants.php
  */
 define ('JSON_HEX_APOS', 4);
 
 /**
  * All " are converted to \u0022.
+ * Available since PHP 5.3.0.
  * @link http://php.net/manual/en/json.constants.php
  */
 define ('JSON_HEX_QUOT', 8);
@@ -97,6 +122,7 @@ define ('JSON_HEX_QUOT', 8);
  * Outputs an object rather than an array when a non-associative array is
  * used. Especially useful when the recipient of the output is expecting
  * an object and the array is empty.
+ * Available since PHP 5.3.0.
  * @link http://php.net/manual/en/json.constants.php
  */
 define ('JSON_FORCE_OBJECT', 16);
@@ -109,74 +135,75 @@ define ('JSON_FORCE_OBJECT', 16);
 define ('JSON_NUMERIC_CHECK', 32);
 
 /**
+ * Don't escape /.
+ * Available since PHP 5.4.0.
+ * @link http://php.net/manual/en/json.constants.php
+ */
+define ('JSON_UNESCAPED_SLASHES', 64);
+
+/**
+ * Use whitespace in returned data to format it.
+ * Available since PHP 5.4.0.
+ * @link http://php.net/manual/en/json.constants.php
+ */
+define ('JSON_PRETTY_PRINT', 128);
+
+/**
+ * Encode multibyte Unicode characters literally (default is to escape as \uXXXX).
+ * Available since PHP 5.4.0.
+ * @link http://php.net/manual/en/json.constants.php
+ */
+define ('JSON_UNESCAPED_UNICODE', 256);
+
+/**
  * No error has occurred.
+ * Available since PHP 5.3.0.
  * @link http://php.net/manual/en/json.constants.php
  */
 define ('JSON_ERROR_NONE', 0);
 
 /**
  * The maximum stack depth has been exceeded.
+ * Available since PHP 5.3.0.
  * @link http://php.net/manual/en/json.constants.php
  */
 define ('JSON_ERROR_DEPTH', 1);
 
 /**
- * Since 5.4.0
- * Use whitespace in returned data to format it.
- * @link http://php.net/manual/en/json.constants.php
- */
-define ('JSON_PRETTY_PRINT', 0);
-
-/**
  * Occurs with underflow or with the modes mismatch.
+ * Available since PHP 5.3.0.
  * @link http://php.net/manual/en/json.constants.php
  */
 define ('JSON_ERROR_STATE_MISMATCH', 2);
 
-
-/**
- * Since 5.4.0
- * Don't escape /
- * @link http://php.net/manual/en/json.constants.php
- */
-define ('JSON_UNESCAPED_SLASHES', 0);
-
-/**
- * Since 5.4.0
- * @link http://php.net/manual/en/json.constants.php
- */
-define ('JSON_BIGINT_AS_STRING', 0);
-
-
-
 /**
  * Control character error, possibly incorrectly encoded.
+ * Available since PHP 5.3.0.
  * @link http://php.net/manual/en/json.constants.php
  */
 define ('JSON_ERROR_CTRL_CHAR', 3);
 
 /**
  * Syntax error.
+ * Available since PHP 5.3.0.
  * @link http://php.net/manual/en/json.constants.php
  */
 define ('JSON_ERROR_SYNTAX', 4);
 
 /**
  * Malformed UTF-8 characters, possibly incorrectly encoded. This
- * constant is available as of PHP 5.3.1.
+ * constant is available as of PHP 5.3.3.
  * @link http://php.net/manual/en/json.constants.php
  */
 define ('JSON_ERROR_UTF8', 5);
-
-// End of json v.1.2.1
-
+define ('JSON_OBJECT_AS_ARRAY', 1);
 
 /**
- * Encode multibyte Unicode characters literally (default is to escape as \uXXXX). Available since PHP 5.4.0.
- * @link http://php.net/manual/en/function.json-encode.php
+ * Encodes large integers as their original string value.
+ * Available since PHP 5.4.0.
+ * @link http://php.net/manual/en/json.constants.php
  */
-define('JSON_UNESCAPED_UNICODE', 256);
-/** @link http://php.net/manual/en/function.json-decode.php */
-define('JSON_OBJECT_AS_ARRAY', 1);
+define ('JSON_BIGINT_AS_STRING', 2);
 
+// End of json v.1.2.1
 ?>
