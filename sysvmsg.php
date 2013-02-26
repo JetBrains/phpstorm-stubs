@@ -11,26 +11,23 @@
  * </p>
  * @param int $perms [optional] <p>
  * Queue permissions. Default to 0666. If the message queue already
- * exists, the perms will be ignored.
+ * exists, the <i>perms</i> will be ignored.
  * </p>
  * @return resource a resource handle that can be used to access the System V message queue.
  */
-function msg_get_queue ($key, $perms = null) {}
+function msg_get_queue ($key, $perms = 0666) {}
 
 /**
  * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
  * Send a message to a message queue
  * @link http://php.net/manual/en/function.msg-send.php
- * @param resource $queue <p>
- * </p>
- * @param int $msgtype <p>
- * </p>
- * @param mixed $message <p>
- * </p>
+ * @param resource $queue
+ * @param int $msgtype
+ * @param mixed $message
  * @param bool $serialize [optional] <p>
- * The optional serialize controls how the
- * message is sent. serialize
- * defaults to true which means that the message is
+ * The optional <i>serialize</i> controls how the
+ * <i>message</i> is sent. <i>serialize</i>
+ * defaults to <b>TRUE</b> which means that the <i>message</i> is
  * serialized using the same mechanism as the session module before being
  * sent to the queue. This allows complex arrays and objects to be sent to
  * other PHP scripts, or if you are using the WDDX serializer, to any WDDX
@@ -41,42 +38,40 @@ function msg_get_queue ($key, $perms = null) {}
  * until another process reads messages from the queue and frees enough
  * space for your message to be sent.
  * This is called blocking; you can prevent blocking by setting the
- * optional blocking parameter to false, in which
- * case msg_send will immediately return false if the
+ * optional <i>blocking</i> parameter to <b>FALSE</b>, in which
+ * case <b>msg_send</b> will immediately return <b>FALSE</b> if the
  * message is too big for the queue, and set the optional
- * errorcode to MSG_EAGAIN,
+ * <i>errorcode</i> to <b>MSG_EAGAIN</b>,
  * indicating that you should try to send your message again a little
  * later on.
  * </p>
- * @param int $errorcode [optional] <p>
- * </p>
- * @return bool true on success or false on failure.
+ * @param int $errorcode [optional]
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * </p>
  * <p>
  * Upon successful completion the message queue data structure is updated as
- * follows: msg_lspid is set to the process-ID of the
- * calling process, msg_qnum is incremented by 1 and
- * msg_stime is set to the current time.
+ * follows: <i>msg_lspid</i> is set to the process-ID of the
+ * calling process, <i>msg_qnum</i> is incremented by 1 and
+ * <i>msg_stime</i> is set to the current time.
  */
-function msg_send ($queue, $msgtype, $message, $serialize = null, $blocking = null, &$errorcode = null) {}
+function msg_send ($queue, $msgtype, $message, $serialize = true, $blocking = true, &$errorcode = null) {}
 
 /**
  * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
  * Receive a message from a message queue
  * @link http://php.net/manual/en/function.msg-receive.php
- * @param resource $queue <p>
- * </p>
+ * @param resource $queue
  * @param int $desiredmsgtype <p>
- * If desiredmsgtype is 0, the message from the front
- * of the queue is returned. If desiredmsgtype is
+ * If <i>desiredmsgtype</i> is 0, the message from the front
+ * of the queue is returned. If <i>desiredmsgtype</i> is
  * greater than 0, then the first message of that type is returned.
- * If desiredmsgtype is less than 0, the first
+ * If <i>desiredmsgtype</i> is less than 0, the first
  * message on the queue with the lowest type less than or equal to the
- * absolute value of desiredmsgtype will be read.
+ * absolute value of <i>desiredmsgtype</i> will be read.
  * If no messages match the criteria, your script will wait until a suitable
  * message arrives on the queue. You can prevent the script from blocking
- * by specifying MSG_IPC_NOWAIT in the
- * flags parameter.
+ * by specifying <b>MSG_IPC_NOWAIT</b> in the
+ * <i>flags</i> parameter.
  * </p>
  * @param int $msgtype <p>
  * The type of the message that was received will be stored in this
@@ -84,62 +79,62 @@ function msg_send ($queue, $msgtype, $message, $serialize = null, $blocking = nu
  * </p>
  * @param int $maxsize <p>
  * The maximum size of message to be accepted is specified by the
- * maxsize; if the message in the queue is larger
+ * <i>maxsize</i>; if the message in the queue is larger
  * than this size the function will fail (unless you set
- * flags as described below).
+ * <i>flags</i> as described below).
  * </p>
  * @param mixed $message <p>
- * The received message will be stored in message,
+ * The received message will be stored in <i>message</i>,
  * unless there were errors receiving the message.
  * </p>
  * @param bool $unserialize [optional] <p>
  * If set to
- * true, the message is treated as though it was serialized using the
+ * <b>TRUE</b>, the message is treated as though it was serialized using the
  * same mechanism as the session module. The message will be unserialized
  * and then returned to your script. This allows you to easily receive
  * arrays or complex object structures from other PHP scripts, or if you
  * are using the WDDX serializer, from any WDDX compatible source.
  * </p>
  * <p>
- * If unserialize is false, the message will be
+ * If <i>unserialize</i> is <b>FALSE</b>, the message will be
  * returned as a binary-safe string.
  * </p>
  * @param int $flags [optional] <p>
- * The optional flags allows you to pass flags to the
+ * The optional <i>flags</i> allows you to pass flags to the
  * low-level msgrcv system call. It defaults to 0, but you may specify one
  * or more of the following values (by adding or ORing them together).
  * <table>
  * Flag values for msg_receive
  * <tr valign="top">
- * <td>MSG_IPC_NOWAIT</td>
+ * <td><b>MSG_IPC_NOWAIT</b></td>
  * <td>If there are no messages of the
- * desiredmsgtype, return immediately and do not
+ * <i>desiredmsgtype</i>, return immediately and do not
  * wait. The function will fail and return an integer value
- * corresponding to MSG_ENOMSG.
+ * corresponding to <b>MSG_ENOMSG</b>.
  * </td>
  * </tr>
  * <tr valign="top">
- * <td>MSG_EXCEPT</td>
+ * <td><b>MSG_EXCEPT</b></td>
  * <td>Using this flag in combination with a
- * desiredmsgtype greater than 0 will cause the
+ * <i>desiredmsgtype</i> greater than 0 will cause the
  * function to receive the first message that is not equal to
- * desiredmsgtype.</td>
+ * <i>desiredmsgtype</i>.</td>
  * </tr>
  * <tr valign="top">
- * <td>MSG_NOERROR</td>
+ * <td><b>MSG_NOERROR</b></td>
  * <td>
- * If the message is longer than maxsize,
+ * If the message is longer than <i>maxsize</i>,
  * setting this flag will truncate the message to
- * maxsize and will not signal an error.
+ * <i>maxsize</i> and will not signal an error.
  * </td>
  * </tr>
  * </table>
  * </p>
  * @param int $errorcode [optional] <p>
- * If the function fails, the optional errorcode
+ * If the function fails, the optional <i>errorcode</i>
  * will be set to the value of the system errno variable.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * </p>
  * <p>
  * Upon successful completion the message queue data structure is updated as
@@ -147,7 +142,7 @@ function msg_send ($queue, $msgtype, $message, $serialize = null, $blocking = nu
  * calling process, msg_qnum is decremented by 1 and
  * msg_rtime is set to the current time.
  */
-function msg_receive ($queue, $desiredmsgtype, &$msgtype, $maxsize, &$message, $unserialize = null, $flags = null, &$errorcode = null) {}
+function msg_receive ($queue, $desiredmsgtype, &$msgtype, $maxsize, &$message, $unserialize = true, $flags = 0, &$errorcode = null) {}
 
 /**
  * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
@@ -156,7 +151,7 @@ function msg_receive ($queue, $desiredmsgtype, &$msgtype, $maxsize, &$message, $
  * @param resource $queue <p>
  * Message queue resource handle
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function msg_remove_queue ($queue) {}
 
@@ -246,9 +241,9 @@ function msg_stat_queue ($queue) {}
  * </p>
  * @param array $data <p>
  * You specify the values you require by setting the value of the keys
- * that you require in the data array.
+ * that you require in the <i>data</i> array.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function msg_set_queue ($queue, array $data) {}
 
@@ -259,7 +254,7 @@ function msg_set_queue ($queue, array $data) {}
  * @param int $key <p>
  * Queue key.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function msg_queue_exists ($key) {}
 
