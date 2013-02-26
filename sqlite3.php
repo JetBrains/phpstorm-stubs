@@ -1,6 +1,6 @@
 <?php
 
-// Start of sqlite3 v.0.7-dev
+// Start of sqlite3 v.0.7
 
 /**
  * A class that interfaces SQLite 3 databases.
@@ -13,7 +13,7 @@ class SQLite3  {
 	 * Opens an SQLite database
 	 * @link http://php.net/manual/en/sqlite3.open.php
 	 * @param string $filename <p>
-	 * Path to the SQLite database.
+	 * Path to the SQLite database, or :memory: to use in-memory database.
 	 * </p>
 	 * @param int $flags [optional] <p>
 	 * Optional flags used to determine how to open the SQLite database. By
@@ -26,15 +26,15 @@ class SQLite3  {
 	 * An optional encryption key used when encrypting and decrypting an
 	 * SQLite database.
 	 * </p>
-	 * @return bool true on success, false on failure to open the database.
+	 * @return void No value is returned.
 	 */
-	public function open ($filename, $flags = null, $encryption_key = null) {}
+	public function open ($filename, $flags = 'SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE', $encryption_key = null) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.3.0)<br/>
 	 * Closes the database connection
 	 * @link http://php.net/manual/en/sqlite3.close.php
-	 * @return bool true on success, false on failure.
+	 * @return bool <b>TRUE</b> on success, <b>FALSE</b> on failure.
 	 */
 	public function close () {}
 
@@ -46,7 +46,7 @@ class SQLite3  {
 	 * The SQL query to execute (typically an INSERT, UPDATE, or DELETE
 	 * query).
 	 * </p>
-	 * @return bool true if the query succeeded, false on failure.
+	 * @return bool <b>TRUE</b> if the query succeeded, <b>FALSE</b> on failure.
 	 */
 	public function exec ($query) {}
 
@@ -85,6 +85,18 @@ class SQLite3  {
 	public function lastErrorMsg () {}
 
 	/**
+	 * (PHP 5 &gt;= 5.3.3)<br/>
+	 * Sets the busy connection handler
+	 * @link http://php.net/manual/en/sqlite3.busytimeout.php
+	 * @param int $msecs <p>
+	 * The milliseconds to sleep. Setting this value to a value less than
+	 * or equal to zero, will turn off an already set timeout handler.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success, <b>FALSE</b> on failure.
+	 */
+	public function busyTimeout ($msecs) {}
+
+	/**
 	 * (PHP 5 &gt;= 5.3.0)<br/>
 	 * Attempts to load an SQLite extension library
 	 * @link http://php.net/manual/en/sqlite3.loadextension.php
@@ -92,14 +104,14 @@ class SQLite3  {
 	 * The name of the library to load. The library must be located in the
 	 * directory specified in the configure option sqlite3.extension_dir.
 	 * </p>
-	 * @return bool true if the extension is successfully loaded, false on failure.
+	 * @return bool <b>TRUE</b> if the extension is successfully loaded, <b>FALSE</b> on failure.
 	 */
 	public function loadExtension ($shared_library) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.3.0)<br/>
 	 * Returns the number of database rows that were changed (or inserted or
-   deleted) by the most recent SQL statement
+deleted) by the most recent SQL statement
 	 * @link http://php.net/manual/en/sqlite3.changes.php
 	 * @return int an integer value corresponding to the number of
 	 * database rows changed (or inserted or deleted) by the most recent SQL
@@ -126,7 +138,7 @@ class SQLite3  {
 	 * @param string $query <p>
 	 * The SQL query to prepare.
 	 * </p>
-	 * @return SQLite3Stmt an SQLite3Stmt object on success or false on failure.
+	 * @return SQLite3Stmt an <b>SQLite3Stmt</b> object on success or <b>FALSE</b> on failure.
 	 */
 	public function prepare ($query) {}
 
@@ -137,8 +149,8 @@ class SQLite3  {
 	 * @param string $query <p>
 	 * The SQL query to execute.
 	 * </p>
-	 * @return SQLite3Result an SQLite3Result object if the query returns results. Otherwise,
-	 * returns true if the query succeeded, false on failure.
+	 * @return SQLite3Result an <b>SQLite3Result</b> object if the query returns results. Otherwise,
+	 * returns <b>TRUE</b> if the query succeeded, <b>FALSE</b> on failure.
 	 */
 	public function query ($query) {}
 
@@ -150,14 +162,23 @@ class SQLite3  {
 	 * The SQL query to execute.
 	 * </p>
 	 * @param bool $entire_row [optional] <p>
-	 * By default, querySingle returns the value of the first column returned
-	 * by the query. If entire_row is true, then it returns an array of the
-	 * entire first row.
+	 * By default, <b>querySingle</b> returns the value of the
+	 * first column returned by the query. If
+	 * <i>entire_row</i> is <b>TRUE</b>, then it returns an array
+	 * of the entire first row.
 	 * </p>
 	 * @return mixed the value of the first column of results or an array of the entire
-	 * first row (if entire_row is true), otherwise false on failure.
+	 * first row (if <i>entire_row</i> is <b>TRUE</b>).
+	 * </p>
+	 * <p>
+	 * If the query is valid but no results are returned, then <b>NULL</b> will be
+	 * returned if <i>entire_row</i> is <b>FALSE</b>, otherwise an
+	 * empty array is returned.
+	 * </p>
+	 * <p>
+	 * Invalid or failing queries will return <b>FALSE</b>.
 	 */
-	public function querySingle ($query, $entire_row = null) {}
+	public function querySingle ($query, $entire_row = false) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.3.0)<br/>
@@ -175,9 +196,9 @@ class SQLite3  {
 	 * this parameter is negative, then the SQL function may take
 	 * any number of arguments.
 	 * </p>
-	 * @return bool true upon successful creation of the function, false on failure.
+	 * @return bool <b>TRUE</b> upon successful creation of the function, <b>FALSE</b> on failure.
 	 */
-	public function createFunction ($name, $callback, $argument_count = null) {}
+	public function createFunction ($name, $callback, $argument_count = -1) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.3.0)<br/>
@@ -199,10 +220,16 @@ class SQLite3  {
 	 * this parameter is negative, then the SQL aggregate may take
 	 * any number of arguments.
 	 * </p>
-	 * @return bool true upon successful creation of the aggregate, false on
+	 * @return bool <b>TRUE</b> upon successful creation of the aggregate, <b>FALSE</b> on
 	 * failure.
 	 */
-	public function createAggregate ($name, $step_callback, $final_callback, $argument_count = null) {}
+	public function createAggregate ($name, $step_callback, $final_callback, $argument_count = -1) {}
+
+	/**
+	 * @param $name
+	 * @param $callback
+	 */
+	public function createCollation ($name, $callback) {}
 
 	/**
 	 * @param $table
@@ -221,20 +248,22 @@ class SQLite3  {
 	 * (PHP 5 &gt;= 5.3.0)<br/>
 	 * Instantiates an SQLite3 object and opens an SQLite 3 database
 	 * @link http://php.net/manual/en/sqlite3.construct.php
-	 * @param $filename
-	 * @param $flags [optional]
-	 * @param $encryption_key [optional]
+	 * @param string $filename <p>
+	 * Path to the SQLite database, or :memory: to use in-memory database.
+	 * </p>
+	 * @param int $flags [optional] <p>
+	 * Optional flags used to determine how to open the SQLite database. By
+	 * default, open uses SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE.
+	 * <p>
+	 * SQLITE3_OPEN_READONLY: Open the database for
+	 * reading only.
+	 * </p>
+	 * @param string $encryption_key [optional] <p>
+	 * An optional encryption key used when encrypting and decrypting an
+	 * SQLite database.
+	 * </p>
 	 */
-	public function __construct ($filename, $flags, $encryption_key) {}
-
-	/**
-	 * (PHP 5 &gt;= 5.3.3)<br/>
-	 * Sets the busy connection handler
-	 * @link http://www.php.net/manual/en/sqlite3.busytimeout.php
-	 * @param int $msecs The milliseconds to sleep. Setting this value to a value less than or equal to zero, will turn off an already set timeout handler.
-	 * @return bool Returns TRUE on success, FALSE on failure.
-	 */
-	public function busyTimeout ($msecs) {}
+	public function __construct ($filename, $flags = null, $encryption_key = null) {}
 
 }
 
@@ -256,7 +285,7 @@ class SQLite3Stmt  {
 	 * (PHP 5 &gt;= 5.3.0)<br/>
 	 * Closes the prepared statement
 	 * @link http://php.net/manual/en/sqlite3stmt.close.php
-	 * @return bool true
+	 * @return bool <b>TRUE</b>
 	 */
 	public function close () {}
 
@@ -264,7 +293,7 @@ class SQLite3Stmt  {
 	 * (PHP 5 &gt;= 5.3.0)<br/>
 	 * Resets the prepared statement
 	 * @link http://php.net/manual/en/sqlite3stmt.reset.php
-	 * @return bool true if the statement is successfully reset, false on failure.
+	 * @return bool <b>TRUE</b> if the statement is successfully reset, <b>FALSE</b> on failure.
 	 */
 	public function reset () {}
 
@@ -272,7 +301,7 @@ class SQLite3Stmt  {
 	 * (PHP 5 &gt;= 5.3.0)<br/>
 	 * Clears all current bound parameters
 	 * @link http://php.net/manual/en/sqlite3stmt.clear.php
-	 * @return bool true on successful clearing of bound parameters, false on
+	 * @return bool <b>TRUE</b> on successful clearing of bound parameters, <b>FALSE</b> on
 	 * failure.
 	 */
 	public function clear () {}
@@ -281,8 +310,8 @@ class SQLite3Stmt  {
 	 * (PHP 5 &gt;= 5.3.0)<br/>
 	 * Executes a prepared statement and returns a result set object
 	 * @link http://php.net/manual/en/sqlite3stmt.execute.php
-	 * @return SQLite3Result an SQLite3Result object on successful execution of the prepared
-	 * statement, false on failure.
+	 * @return SQLite3Result an <b>SQLite3Result</b> object on successful execution of the prepared
+	 * statement, <b>FALSE</b> on failure.
 	 */
 	public function execute () {}
 
@@ -304,7 +333,7 @@ class SQLite3Stmt  {
 	 * stored in 1, 2, 3, 4, 6, or 8 bytes depending on the magnitude of
 	 * the value.
 	 * </p>
-	 * @return bool true if the parameter is bound to the statement variable, false
+	 * @return bool <b>TRUE</b> if the parameter is bound to the statement variable, <b>FALSE</b>
 	 * on failure.
 	 */
 	public function bindParam ($sql_param, &$param, $type = null) {}
@@ -327,10 +356,12 @@ class SQLite3Stmt  {
 	 * stored in 1, 2, 3, 4, 6, or 8 bytes depending on the magnitude of
 	 * the value.
 	 * </p>
-	 * @return bool true if the value is bound to the statement variable, false
+	 * @return bool <b>TRUE</b> if the value is bound to the statement variable, <b>FALSE</b>
 	 * on failure.
 	 */
 	public function bindValue ($sql_param, $value, $type = null) {}
+
+	public function readOnly () {}
 
 	/**
 	 * @param $sqlite3
@@ -361,7 +392,7 @@ class SQLite3Result  {
 	 * The numeric zero-based index of the column.
 	 * </p>
 	 * @return string the string name of the column identified by
-	 * column_number.
+	 * <i>column_number</i>.
 	 */
 	public function columnName ($column_number) {}
 
@@ -373,10 +404,10 @@ class SQLite3Result  {
 	 * The numeric zero-based index of the column.
 	 * </p>
 	 * @return int the data type index of the column identified by
-	 * column_number (one of
-	 * SQLITE3_INTEGER, SQLITE3_FLOAT,
-	 * SQLITE3_TEXT, SQLITE3_BLOB, or
-	 * SQLITE3_NULL).
+	 * <i>column_number</i> (one of
+	 * <b>SQLITE3_INTEGER</b>, <b>SQLITE3_FLOAT</b>,
+	 * <b>SQLITE3_TEXT</b>, <b>SQLITE3_BLOB</b>, or
+	 * <b>SQLITE3_NULL</b>).
 	 */
 	public function columnType ($column_number) {}
 
@@ -393,16 +424,16 @@ class SQLite3Result  {
 	 * name as returned in the corresponding result set
 	 * </p>
 	 * @return array a result row as an associatively or numerically indexed array or
-	 * both.
+	 * both. Alternately will return <b>FALSE</b> if there are no more rows.
 	 */
-	public function fetchArray ($mode = null) {}
+	public function fetchArray ($mode = 'SQLITE3_BOTH') {}
 
 	/**
 	 * (PHP 5 &gt;= 5.3.0)<br/>
 	 * Resets the result set back to the first row
-	 * @link http://php.net/manual/en/sqlite3Result.reset.php
-	 * @return bool true if the result set is successfully reset
-	 * back to the first row, false on failure.
+	 * @link http://php.net/manual/en/sqlite3result.reset.php
+	 * @return bool <b>TRUE</b> if the result set is successfully reset
+	 * back to the first row, <b>FALSE</b> on failure.
 	 */
 	public function reset () {}
 
@@ -410,7 +441,7 @@ class SQLite3Result  {
 	 * (PHP 5 &gt;= 5.3.0)<br/>
 	 * Closes the result set
 	 * @link http://php.net/manual/en/sqlite3result.finalize.php
-	 * @return bool true.
+	 * @return bool <b>TRUE</b>.
 	 */
 	public function finalize () {}
 
@@ -419,7 +450,7 @@ class SQLite3Result  {
 }
 
 /**
- * Specifies that the Sqlite3Result::fetchArray
+ * Specifies that the <b>Sqlite3Result::fetchArray</b>
  * method shall return an array indexed by column name as returned in the
  * corresponding result set.
  * @link http://php.net/manual/en/sqlite3.constants.php
@@ -427,7 +458,7 @@ class SQLite3Result  {
 define ('SQLITE3_ASSOC', 1);
 
 /**
- * Specifies that the Sqlite3Result::fetchArray
+ * Specifies that the <b>Sqlite3Result::fetchArray</b>
  * method shall return an array indexed by column number as returned in the
  * corresponding result set, starting at column 0.
  * @link http://php.net/manual/en/sqlite3.constants.php
@@ -435,7 +466,7 @@ define ('SQLITE3_ASSOC', 1);
 define ('SQLITE3_NUM', 2);
 
 /**
- * Specifies that the Sqlite3Result::fetchArray
+ * Specifies that the <b>Sqlite3Result::fetchArray</b>
  * method shall return an array indexed by both column name and number as
  * returned in the corresponding result set, starting at column 0.
  * @link http://php.net/manual/en/sqlite3.constants.php
@@ -491,5 +522,5 @@ define ('SQLITE3_OPEN_READWRITE', 2);
  */
 define ('SQLITE3_OPEN_CREATE', 4);
 
-// End of sqlite3 v.0.7-dev
+// End of sqlite3 v.0.7
 ?>
