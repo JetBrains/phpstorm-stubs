@@ -15,9 +15,9 @@
  * </p>
  * @param array $regs [optional] <p>
  * If matches are found for parenthesized substrings of
- * pattern and the function is called with the
- * third argument regs, the matches will be stored
- * in the elements of the array regs. 
+ * <i>pattern</i> and the function is called with the
+ * third argument <i>regs</i>, the matches will be stored
+ * in the elements of the array <i>regs</i>.
  * </p>
  * <p>
  * $regs[1] will contain the substring which starts at
@@ -27,11 +27,11 @@
  * matched.
  * </p>
  * @return int the length of the matched string if a match for
- * pattern was found in string,
- * or false if no matches were found or an error occurred.
+ * <i>pattern</i> was found in <i>string</i>,
+ * or <b>FALSE</b> if no matches were found or an error occurred.
  * </p>
  * <p>
- * If the optional parameter regs was not passed or
+ * If the optional parameter <i>regs</i> was not passed or
  * the length of the matched string is 0, this function returns 1.
  */
 function ereg ($pattern, $string, array &$regs = null) {}
@@ -45,19 +45,19 @@ function ereg ($pattern, $string, array &$regs = null) {}
  * A POSIX extended regular expression.
  * </p>
  * @param string $replacement <p>
- * If pattern contains parenthesized substrings,
- * replacement may contain substrings of the form
- * \\digit, which will be
- * replaced by the text matching the digit'th parenthesized substring; 
- * \\0 will produce the entire contents of string.
+ * If <i>pattern</i> contains parenthesized substrings,
+ * <i>replacement</i> may contain substrings of the form
+ * \digit, which will be
+ * replaced by the text matching the digit'th parenthesized substring;
+ * \0 will produce the entire contents of string.
  * Up to nine substrings may be used. Parentheses may be nested, in which
  * case they are counted by the opening parenthesis.
  * </p>
  * @param string $string <p>
  * The input string.
  * </p>
- * @return string The modified string is returned. If no matches are found in 
- * string, then it will be returned unchanged.
+ * @return string The modified string is returned. If no matches are found in
+ * <i>string</i>, then it will be returned unchanged.
  */
 function ereg_replace ($pattern, $replacement, $string) {}
 
@@ -74,9 +74,9 @@ function ereg_replace ($pattern, $replacement, $string) {}
  * </p>
  * @param array $regs [optional] <p>
  * If matches are found for parenthesized substrings of
- * pattern and the function is called with the
- * third argument regs, the matches will be stored
- * in the elements of the array regs. 
+ * <i>pattern</i> and the function is called with the
+ * third argument <i>regs</i>, the matches will be stored
+ * in the elements of the array <i>regs</i>.
  * </p>
  * <p>
  * $regs[1] will contain the substring which starts at the first left
@@ -85,11 +85,11 @@ function ereg_replace ($pattern, $replacement, $string) {}
  * matched.
  * </p>
  * @return int the length of the matched string if a match for
- * pattern was found in string,
- * or false if no matches were found or an error occurred.
+ * <i>pattern</i> was found in <i>string</i>,
+ * or <b>FALSE</b> if no matches were found or an error occurred.
  * </p>
  * <p>
- * If the optional parameter regs was not passed or
+ * If the optional parameter <i>regs</i> was not passed or
  * the length of the matched string is 0, this function returns 1.
  */
 function eregi ($pattern, $string, array &$regs = null) {}
@@ -103,19 +103,19 @@ function eregi ($pattern, $string, array &$regs = null) {}
  * A POSIX extended regular expression.
  * </p>
  * @param string $replacement <p>
- * If pattern contains parenthesized substrings,
- * replacement may contain substrings of the form
- * \\digit, which will be
- * replaced by the text matching the digit'th parenthesized substring; 
- * \\0 will produce the entire contents of string.
+ * If <i>pattern</i> contains parenthesized substrings,
+ * <i>replacement</i> may contain substrings of the form
+ * \digit, which will be
+ * replaced by the text matching the digit'th parenthesized substring;
+ * \0 will produce the entire contents of string.
  * Up to nine substrings may be used. Parentheses may be nested, in which
  * case they are counted by the opening parenthesis.
  * </p>
  * @param string $string <p>
  * The input string.
  * </p>
- * @return string The modified string is returned. If no matches are found in 
- * string, then it will be returned unchanged.
+ * @return string The modified string is returned. If no matches are found in
+ * <i>string</i>, then it will be returned unchanged.
  */
 function eregi_replace ($pattern, $replacement, $string) {}
 
@@ -130,9 +130,9 @@ function eregi_replace ($pattern, $replacement, $string) {}
  * <p>
  * If you want to split on any of the characters which are considered
  * special by regular expressions, you'll need to escape them first. If
- * you think split (or any other regex function, for
+ * you think <b>split</b> (or any other regex function, for
  * that matter) is doing something weird, please read the file
- * regex.7, included in the 
+ * regex.7, included in the
  * regex/ subdirectory of the PHP distribution. It's
  * in manpage format, so you'll want to do something along the lines of
  * man /usr/local/src/regex/regex.7 in order to read it.
@@ -141,25 +141,25 @@ function eregi_replace ($pattern, $replacement, $string) {}
  * The input string.
  * </p>
  * @param int $limit [optional] <p>
- * If limit is set, the returned array will
- * contain a maximum of limit elements with the
+ * If <i>limit</i> is set, the returned array will
+ * contain a maximum of <i>limit</i> elements with the
  * last element containing the whole rest of
- * string.
+ * <i>string</i>.
  * </p>
  * @return array an array of strings, each of which is a substring of
- * string formed by splitting it on boundaries formed
- * by the case-sensitive regular expression pattern.
+ * <i>string</i> formed by splitting it on boundaries formed
+ * by the case-sensitive regular expression <i>pattern</i>.
  * </p>
  * <p>
  * If there are n occurrences of
- * pattern, the returned array will contain
+ * <i>pattern</i>, the returned array will contain
  * n+1 items. For example, if
- * there is no occurrence of pattern, an array with
+ * there is no occurrence of <i>pattern</i>, an array with
  * only one element will be returned. Of course, this is also true if
- * string is empty. If an error occurs,
- * split returns false.
+ * <i>string</i> is empty. If an error occurs,
+ * <b>split</b> returns <b>FALSE</b>.
  */
-function split ($pattern, $string, $limit = null) {}
+function split ($pattern, $string, $limit = -1) {}
 
 /**
  * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
@@ -172,9 +172,9 @@ function split ($pattern, $string, $limit = null) {}
  * <p>
  * If you want to split on any of the characters which are considered
  * special by regular expressions, you'll need to escape them first. If
- * you think spliti (or any other regex function, for
+ * you think <b>spliti</b> (or any other regex function, for
  * that matter) is doing something weird, please read the file
- * regex.7, included in the 
+ * regex.7, included in the
  * regex/ subdirectory of the PHP distribution. It's
  * in manpage format, so you'll want to do something along the lines of
  * man /usr/local/src/regex/regex.7 in order to read it.
@@ -183,25 +183,25 @@ function split ($pattern, $string, $limit = null) {}
  * The input string.
  * </p>
  * @param int $limit [optional] <p>
- * If limit is set, the returned array will
- * contain a maximum of limit elements with the
+ * If <i>limit</i> is set, the returned array will
+ * contain a maximum of <i>limit</i> elements with the
  * last element containing the whole rest of
- * string.
+ * <i>string</i>.
  * </p>
  * @return array an array of strings, each of which is a substring of
- * string formed by splitting it on boundaries formed
- * by the case insensitive regular expression pattern.
+ * <i>string</i> formed by splitting it on boundaries formed
+ * by the case insensitive regular expression <i>pattern</i>.
  * </p>
  * <p>
  * If there are n occurrences of
- * pattern, the returned array will contain
+ * <i>pattern</i>, the returned array will contain
  * n+1 items. For example, if
- * there is no occurrence of pattern, an array with
+ * there is no occurrence of <i>pattern</i>, an array with
  * only one element will be returned. Of course, this is also true if
- * string is empty. If an error occurs,
- * spliti returns false.
+ * <i>string</i> is empty. If an error occurs,
+ * <b>spliti</b> returns <b>FALSE</b>.
  */
-function spliti ($pattern, $string, $limit = null) {}
+function spliti ($pattern, $string, $limit = -1) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
@@ -212,8 +212,8 @@ function spliti ($pattern, $string, $limit = null) {}
  * The input string.
  * </p>
  * @return string a valid regular expression which will match
- * string, ignoring case. This expression is
- * string with each alphabetic character converted to
+ * <i>string</i>, ignoring case. This expression is
+ * <i>string</i> with each alphabetic character converted to
  * a bracket expression; this bracket expression contains that character's
  * uppercase and lowercase form. Other characters remain unchanged.
  */
