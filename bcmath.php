@@ -12,7 +12,7 @@
  * @param string $right_operand <p>
  * The right operand, as a string.
  * </p>
- * @param int $scale [optional] 
+ * @param int $scale [optional]
  * @return string The sum of the two operands, as a string.
  */
 function bcadd ($left_operand, $right_operand, $scale = null) {}
@@ -27,7 +27,7 @@ function bcadd ($left_operand, $right_operand, $scale = null) {}
  * @param string $right_operand <p>
  * The right operand, as a string.
  * </p>
- * @param int $scale [optional] 
+ * @param int $scale [optional]
  * @return string The result of the subtraction, as a string.
  */
 function bcsub ($left_operand, $right_operand, $scale = null) {}
@@ -42,7 +42,7 @@ function bcsub ($left_operand, $right_operand, $scale = null) {}
  * @param string $right_operand <p>
  * The right operand, as a string.
  * </p>
- * @param int $scale [optional] 
+ * @param int $scale [optional]
  * @return string the result as a string.
  */
 function bcmul ($left_operand, $right_operand, $scale = null) {}
@@ -57,9 +57,9 @@ function bcmul ($left_operand, $right_operand, $scale = null) {}
  * @param string $right_operand <p>
  * The right operand, as a string.
  * </p>
- * @param int $scale [optional] 
- * @return string the result of the division as a string, or &null; if 
- * right_operand is 0.
+ * @param int $scale [optional]
+ * @return string the result of the division as a string, or <b>NULL</b> if
+ * <i>right_operand</i> is 0.
  */
 function bcdiv ($left_operand, $right_operand, $scale = null) {}
 
@@ -73,8 +73,8 @@ function bcdiv ($left_operand, $right_operand, $scale = null) {}
  * @param string $modulus <p>
  * The modulus, as a string.
  * </p>
- * @return string the modulus as a string, or &null; if 
- * modulus is 0.
+ * @return string the modulus as a string, or <b>NULL</b> if
+ * <i>modulus</i> is 0.
  */
 function bcmod ($left_operand, $modulus) {}
 
@@ -88,7 +88,7 @@ function bcmod ($left_operand, $modulus) {}
  * @param string $right_operand <p>
  * The right operand, as a string.
  * </p>
- * @param int $scale [optional] 
+ * @param int $scale [optional]
  * @return string the result as a string.
  */
 function bcpow ($left_operand, $right_operand, $scale = null) {}
@@ -100,9 +100,9 @@ function bcpow ($left_operand, $right_operand, $scale = null) {}
  * @param string $operand <p>
  * The operand, as a string.
  * </p>
- * @param int $scale [optional] 
- * @return string the square root as a string, or &null; if 
- * operand is negative.
+ * @param int $scale [optional]
+ * @return string the square root as a string, or <b>NULL</b> if
+ * <i>operand</i> is negative.
  */
 function bcsqrt ($operand, $scale = null) {}
 
@@ -113,7 +113,7 @@ function bcsqrt ($operand, $scale = null) {}
  * @param int $scale <p>
  * The scale factor.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function bcscale ($scale) {}
 
@@ -128,13 +128,13 @@ function bcscale ($scale) {}
  * The right operand, as a string.
  * </p>
  * @param int $scale [optional] <p>
- * The optional scale parameter is used to set the
+ * The optional <i>scale</i> parameter is used to set the
  * number of digits after the decimal place which will be used in the
- * comparison. 
+ * comparison.
  * </p>
  * @return int 0 if the two operands are equal, 1 if the
- * left_operand is larger than the 
- * right_operand, -1 otherwise.
+ * <i>left_operand</i> is larger than the
+ * <i>right_operand</i>, -1 otherwise.
  */
 function bccomp ($left_operand, $right_operand, $scale = null) {}
 
@@ -151,8 +151,8 @@ function bccomp ($left_operand, $right_operand, $scale = null) {}
  * @param string $modulus <p>
  * The modulus, as a string.
  * </p>
- * @param int $scale [optional] 
- * @return string the result as a string, or &null; if modulus
+ * @param int $scale [optional]
+ * @return string the result as a string, or <b>NULL</b> if <i>modulus</i>
  * is 0.
  */
 function bcpowmod ($left_operand, $right_operand, $modulus, $scale = null) {}

@@ -10,11 +10,11 @@
  * The name of the file to open.
  * </p>
  * @param string $mode <p>
- * Similar to the fopen function, only 'r' (read)
+ * Similar to the <b>fopen</b> function, only 'r' (read)
  * and 'w' (write) are supported. Everything else will cause bzopen
- * to return false.
+ * to return <b>FALSE</b>.
  * </p>
- * @return resource If the open fails, bzopen returns false, otherwise
+ * @return resource If the open fails, <b>bzopen</b> returns <b>FALSE</b>, otherwise
  * it returns a pointer to the newly opened file.
  */
 function bzopen ($filename, $mode) {}
@@ -24,34 +24,35 @@ function bzopen ($filename, $mode) {}
  * Binary safe bzip2 file read
  * @link http://php.net/manual/en/function.bzread.php
  * @param resource $bz <p>
- * The file pointer. It must be valid and must point to a file 
- * successfully opened by bzopen.
+ * The file pointer. It must be valid and must point to a file
+ * successfully opened by <b>bzopen</b>.
  * </p>
  * @param int $length [optional] <p>
- * If not specified, bzread will read 1024 
- * (uncompressed) bytes at a time.
+ * If not specified, <b>bzread</b> will read 1024
+ * (uncompressed) bytes at a time. A maximum of 8192
+ * uncompressed bytes will be read at a time.
  * </p>
- * @return string the uncompressed data, or false on error.
+ * @return string the uncompressed data, or <b>FALSE</b> on error.
  */
-function bzread ($bz, $length = null) {}
+function bzread ($bz, $length = 1024) {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Binary safe bzip2 file write
  * @link http://php.net/manual/en/function.bzwrite.php
  * @param resource $bz <p>
- * The file pointer. It must be valid and must point to a file 
- * successfully opened by bzopen.
+ * The file pointer. It must be valid and must point to a file
+ * successfully opened by <b>bzopen</b>.
  * </p>
  * @param string $data <p>
  * The written data.
  * </p>
  * @param int $length [optional] <p>
- * If supplied, writing will stop after length 
- * (uncompressed) bytes have been written or the end of 
- * data is reached, whichever comes first.
+ * If supplied, writing will stop after <i>length</i>
+ * (uncompressed) bytes have been written or the end of
+ * <i>data</i> is reached, whichever comes first.
  * </p>
- * @return int the number of bytes written, or false on error.
+ * @return int the number of bytes written, or <b>FALSE</b> on error.
  */
 function bzwrite ($bz, $data, $length = null) {}
 
@@ -60,10 +61,10 @@ function bzwrite ($bz, $data, $length = null) {}
  * Force a write of all buffered data
  * @link http://php.net/manual/en/function.bzflush.php
  * @param resource $bz <p>
- * The file pointer. It must be valid and must point to a file 
- * successfully opened by bzopen.
+ * The file pointer. It must be valid and must point to a file
+ * successfully opened by <b>bzopen</b>.
  * </p>
- * @return int true on success or false on failure.
+ * @return int <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function bzflush ($bz) {}
 
@@ -72,10 +73,10 @@ function bzflush ($bz) {}
  * Close a bzip2 file
  * @link http://php.net/manual/en/function.bzclose.php
  * @param resource $bz <p>
- * The file pointer. It must be valid and must point to a file 
- * successfully opened by bzopen.
+ * The file pointer. It must be valid and must point to a file
+ * successfully opened by <b>bzopen</b>.
  * </p>
- * @return int true on success or false on failure.
+ * @return int <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function bzclose ($bz) {}
 
@@ -84,8 +85,8 @@ function bzclose ($bz) {}
  * Returns a bzip2 error number
  * @link http://php.net/manual/en/function.bzerrno.php
  * @param resource $bz <p>
- * The file pointer. It must be valid and must point to a file 
- * successfully opened by bzopen.
+ * The file pointer. It must be valid and must point to a file
+ * successfully opened by <b>bzopen</b>.
  * </p>
  * @return int the error number as an integer.
  */
@@ -96,8 +97,8 @@ function bzerrno ($bz) {}
  * Returns a bzip2 error string
  * @link http://php.net/manual/en/function.bzerrstr.php
  * @param resource $bz <p>
- * The file pointer. It must be valid and must point to a file 
- * successfully opened by bzopen.
+ * The file pointer. It must be valid and must point to a file
+ * successfully opened by <b>bzopen</b>.
  * </p>
  * @return string a string containing the error message.
  */
@@ -108,10 +109,10 @@ function bzerrstr ($bz) {}
  * Returns the bzip2 error number and error string in an array
  * @link http://php.net/manual/en/function.bzerror.php
  * @param resource $bz <p>
- * The file pointer. It must be valid and must point to a file 
- * successfully opened by bzopen.
+ * The file pointer. It must be valid and must point to a file
+ * successfully opened by <b>bzopen</b>.
  * </p>
- * @return array an associative array, with the error code in the 
+ * @return array an associative array, with the error code in the
  * errno entry, and the error message in the
  * errstr entry.
  */
@@ -125,22 +126,22 @@ function bzerror ($bz) {}
  * The string to compress.
  * </p>
  * @param int $blocksize [optional] <p>
- * Specifies the blocksize used during compression and should be a number 
- * from 1 to 9 with 9 giving the best compression, but using more 
+ * Specifies the blocksize used during compression and should be a number
+ * from 1 to 9 with 9 giving the best compression, but using more
  * resources to do so.
  * </p>
  * @param int $workfactor [optional] <p>
  * Controls how the compression phase behaves when presented with worst
  * case, highly repetitive, input data. The value can be between 0 and
- * 250 with 0 being a special case. 
+ * 250 with 0 being a special case.
  * </p>
  * <p>
- * Regardless of the workfactor, the generated 
+ * Regardless of the <i>workfactor</i>, the generated
  * output is the same.
  * </p>
- * @return mixed The compressed string or number of error in case of error.
+ * @return mixed The compressed string, or an error number if an error occurred.
  */
-function bzcompress ($source, $blocksize = null, $workfactor = null) {}
+function bzcompress ($source, $blocksize = 4, $workfactor = 0) {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
@@ -150,17 +151,17 @@ function bzcompress ($source, $blocksize = null, $workfactor = null) {}
  * The string to decompress.
  * </p>
  * @param int $small [optional] <p>
- * If true, an alternative decompression algorithm will be used which
- * uses less memory (the maximum memory requirement drops to around 2300K) 
+ * If <b>TRUE</b>, an alternative decompression algorithm will be used which
+ * uses less memory (the maximum memory requirement drops to around 2300K)
  * but works at roughly half the speed.
  * </p>
  * <p>
- * See the bzip2 documentation for more 
+ * See the bzip2 documentation for more
  * information about this feature.
  * </p>
- * @return mixed The decompressed string or number of error in case of error.
+ * @return mixed The decompressed string, or an error number if an error occurred.
  */
-function bzdecompress ($source, $small = null) {}
+function bzdecompress ($source, $small = 0) {}
 
 // End of bz2 v.
 ?>
