@@ -1,6 +1,6 @@
 <?php
 
-// Start of memcache v.3.0.5
+// Start of memcache v.3.0.6
 
 class MemcachePool  {
 
@@ -70,12 +70,18 @@ class Memcache extends MemcachePool  {
 	 * Point to the port where memcached is listening for connections. Set this
 	 * parameter to 0 when using UNIX domain sockets.
 	 * </p>
+	 * <p>
+	 * Please note: <i>port</i> defaults to
+	 * memcache.default_port
+	 * if not specified. For this reason it is wise to specify the port
+	 * explicitly in this method call.
+	 * </p>
 	 * @param int $timeout [optional] <p>
 	 * Value in seconds which will be used for connecting to the daemon. Think
 	 * twice before changing the default value of 1 second - you can lose all
 	 * the advantages of caching if your connection is too slow.
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function connect ($host, $port = null, $timeout = null) {}
 
@@ -98,7 +104,7 @@ class Memcache extends MemcachePool  {
 	 * twice before changing the default value of 1 second - you can lose all
 	 * the advantages of caching if your connection is too slow.
 	 * </p>
-	 * @return mixed a Memcache object or false on failure.
+	 * @return mixed a Memcache object or <b>FALSE</b> on failure.
 	 */
 	public function pconnect ($host, $port = null, $timeout = null) {}
 
@@ -117,8 +123,14 @@ class Memcache extends MemcachePool  {
 	 * Set this
 	 * parameter to 0 when using UNIX domain sockets.
 	 * </p>
+	 * <p>
+	 * Please note: <i>port</i> defaults to
+	 * memcache.default_port
+	 * if not specified. For this reason it is wise to specify the port
+	 * explicitly in this method call.
+	 * </p>
 	 * @param bool $persistent [optional] <p>
-	 * Controls the use of a persistent connection. Default to true.
+	 * Controls the use of a persistent connection. Default to <b>TRUE</b>.
 	 * </p>
 	 * @param int $weight [optional] <p>
 	 * Number of buckets to create for this server which in turn control its
@@ -132,36 +144,36 @@ class Memcache extends MemcachePool  {
 	 * </p>
 	 * @param int $retry_interval [optional] <p>
 	 * Controls how often a failed server will be retried, the default value
-	 * is 15 seconds. Setting this parameter to -1 disables automatic retry. 
+	 * is 15 seconds. Setting this parameter to -1 disables automatic retry.
 	 * Neither this nor the <i>persistent</i> parameter has any
 	 * effect when the extension is loaded dynamically via <b>dl</b>.
 	 * </p>
 	 * <p>
-	 * Each failed connection struct has its own timeout and before it has expired 
-	 * the struct will be skipped when selecting backends to serve a request. Once 
-	 * expired the connection will be successfully reconnected or marked as failed 
+	 * Each failed connection struct has its own timeout and before it has expired
+	 * the struct will be skipped when selecting backends to serve a request. Once
+	 * expired the connection will be successfully reconnected or marked as failed
 	 * for another <i>retry_interval</i> seconds. The typical
 	 * effect is that each web server child will retry the connection about every
 	 * <i>retry_interval</i> seconds when serving a page.
 	 * </p>
 	 * @param bool $status [optional] <p>
 	 * Controls if the server should be flagged as online. Setting this parameter
-	 * to false and <i>retry_interval</i> to -1 allows a failed
-	 * server to be kept in the pool so as not to affect the key distribution 
-	 * algorithm. Requests for this server will then failover or fail immediately 
+	 * to <b>FALSE</b> and <i>retry_interval</i> to -1 allows a failed
+	 * server to be kept in the pool so as not to affect the key distribution
+	 * algorithm. Requests for this server will then failover or fail immediately
 	 * depending on the <i>memcache.allow_failover</i> setting.
-	 * Default to true, meaning the server should be considered online.
+	 * Default to <b>TRUE</b>, meaning the server should be considered online.
 	 * </p>
-	 * @param callback $failure_callback [optional] <p>
-	 * Allows the user to specify a callback function to run upon encountering an 
-	 * error. The callback is run before failover is attempted. The function takes 
+	 * @param callable $failure_callback [optional] <p>
+	 * Allows the user to specify a callback function to run upon encountering an
+	 * error. The callback is run before failover is attempted. The function takes
 	 * two parameters, the hostname and port of the failed server.
 	 * </p>
 	 * @param int $timeoutms [optional] <p>
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function addserver ($host, $port = 11211, $persistent = null, $weight = null, $timeout = null, $retry_interval = null, $status = null, $failure_callback = null, $timeoutms = null) {}
+	public function addserver ($host, $port = 11211, $persistent = null, $weight = null, $timeout = null, $retry_interval = null, $status = null, callable $failure_callback = null, $timeoutms = null) {}
 
 	public function setserverparams () {}
 
@@ -275,11 +287,11 @@ function memcache_delete () {}
  * Turn debug output on/off
  * @link http://php.net/manual/en/function.memcache-debug.php
  * @param bool $on_off <p>
- * Turns debug output on if equals to true.
- * Turns debug output off if equals to false.
+ * Turns debug output on if equals to <b>TRUE</b>.
+ * Turns debug output off if equals to <b>FALSE</b>.
  * </p>
- * @return bool true if PHP was built with --enable-debug option, otherwise
- * returns false.
+ * @return bool <b>TRUE</b> if PHP was built with --enable-debug option, otherwise
+ * returns <b>FALSE</b>.
  */
 function memcache_debug ($on_off) {}
 
@@ -300,5 +312,5 @@ function memcache_flush () {}
 define ('MEMCACHE_COMPRESSED', 2);
 define ('MEMCACHE_HAVE_SESSION', 1);
 
-// End of memcache v.3.0.5
+// End of memcache v.3.0.6
 ?>
