@@ -1,6 +1,6 @@
 <?php
 
-// Start of readline v.
+// Start of readline v.5.4.6-1ubuntu1.1
 
 /**
  * (PHP 4, PHP 5)<br/>
@@ -42,7 +42,7 @@ function readline_info ($varname = null, $newvalue = null) {}
  * @param string $line <p>
  * The line to be added in the history.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function readline_add_history ($line) {}
 
@@ -50,7 +50,7 @@ function readline_add_history ($line) {}
  * (PHP 4, PHP 5)<br/>
  * Clears the history
  * @link http://php.net/manual/en/function.readline-clear-history.php
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function readline_clear_history () {}
 
@@ -70,7 +70,7 @@ function readline_list_history () {}
  * @param string $filename [optional] <p>
  * Path to the filename containing the command history.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function readline_read_history ($filename = null) {}
 
@@ -81,7 +81,7 @@ function readline_read_history ($filename = null) {}
  * @param string $filename [optional] <p>
  * Path to the saved file.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function readline_write_history ($filename = null) {}
 
@@ -89,13 +89,13 @@ function readline_write_history ($filename = null) {}
  * (PHP 4, PHP 5)<br/>
  * Registers a completion function
  * @link http://php.net/manual/en/function.readline-completion-function.php
- * @param callback $function <p>
+ * @param callable $function <p>
  * You must supply the name of an existing function which accepts a
  * partial command line and returns an array of possible matches.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function readline_completion_function ($function) {}
+function readline_completion_function (callable $function) {}
 
 /**
  * (PHP 5 &gt;= 5.1.0)<br/>
@@ -104,19 +104,19 @@ function readline_completion_function ($function) {}
  * @param string $prompt <p>
  * The prompt message.
  * </p>
- * @param callback $callback <p>
- * The callback function takes one parameter; the
+ * @param callable $callback <p>
+ * The <i>callback</i> function takes one parameter; the
  * user input returned.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function readline_callback_handler_install ($prompt, $callback) {}
+function readline_callback_handler_install ($prompt, callable $callback) {}
 
 /**
  * (PHP 5 &gt;= 5.1.0)<br/>
  * Reads a character and informs the readline callback interface when a line is received
  * @link http://php.net/manual/en/function.readline-callback-read-char.php
- * @return void 
+ * @return void No value is returned.
  */
 function readline_callback_read_char () {}
 
@@ -124,8 +124,8 @@ function readline_callback_read_char () {}
  * (PHP 5 &gt;= 5.1.0)<br/>
  * Removes a previously installed callback handler and restores terminal settings
  * @link http://php.net/manual/en/function.readline-callback-handler-remove.php
- * @return bool true if a previously installed callback handler was removed, or
- * false if one could not be found.
+ * @return bool <b>TRUE</b> if a previously installed callback handler was removed, or
+ * <b>FALSE</b> if one could not be found.
  */
 function readline_callback_handler_remove () {}
 
@@ -133,7 +133,7 @@ function readline_callback_handler_remove () {}
  * (PHP 5 &gt;= 5.1.0)<br/>
  * Redraws the display
  * @link http://php.net/manual/en/function.readline-redisplay.php
- * @return void 
+ * @return void No value is returned.
  */
 function readline_redisplay () {}
 
@@ -145,5 +145,6 @@ function readline_redisplay () {}
  */
 function readline_on_new_line () {}
 
-// End of readline v.
+define ('READLINE_LIB', "libedit");
+// End of readline v.5.4.6-1ubuntu1.1
 ?>

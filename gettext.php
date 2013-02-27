@@ -7,7 +7,7 @@
  * Sets the default domain
  * @link http://php.net/manual/en/function.textdomain.php
  * @param string $text_domain <p>
- * The new message domain, or &null; to get the current setting without
+ * The new message domain, or <b>NULL</b> to get the current setting without
  * changing it
  * </p>
  * @return string If successful, this function returns the current message
@@ -22,7 +22,7 @@ function textdomain ($text_domain) {}
  * @param string $message <p>
  * The message being translated.
  * </p>
- * @return string a translated string if one is found in the 
+ * @return string a translated string if one is found in the
  * translation table, or the submitted message if not found.
  */
 function gettext ($message) {}
@@ -80,7 +80,7 @@ function dcgettext ($domain, $message, $category) {}
  * @param string $directory <p>
  * The directory path
  * </p>
- * @return string The full pathname for the domain currently being set.
+ * @return string The full pathname for the <i>domain</i> currently being set.
  */
 function bindtextdomain ($domain, $directory) {}
 
@@ -88,15 +88,12 @@ function bindtextdomain ($domain, $directory) {}
  * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
  * Plural version of gettext
  * @link http://php.net/manual/en/function.ngettext.php
- * @param string $msgid1 <p>
- * </p>
- * @param string $msgid2 <p>
- * </p>
- * @param int $n <p>
- * </p>
- * @return string correct plural form of message identified by 
- * msgid1 and msgid2
- * for count n.
+ * @param string $msgid1
+ * @param string $msgid2
+ * @param int $n
+ * @return string correct plural form of message identified by
+ * <i>msgid1</i> and <i>msgid2</i>
+ * for count <i>n</i>.
  */
 function ngettext ($msgid1, $msgid2, $n) {}
 
@@ -107,12 +104,9 @@ function ngettext ($msgid1, $msgid2, $n) {}
  * @param string $domain <p>
  * The domain
  * </p>
- * @param string $msgid1 <p>
- * </p>
- * @param string $msgid2 <p>
- * </p>
- * @param int $n <p>
- * </p>
+ * @param string $msgid1
+ * @param string $msgid2
+ * @param int $n
  * @return string A string on success.
  */
 function dngettext ($domain, $msgid1, $msgid2, $n) {}
@@ -124,14 +118,10 @@ function dngettext ($domain, $msgid1, $msgid2, $n) {}
  * @param string $domain <p>
  * The domain
  * </p>
- * @param string $msgid1 <p>
- * </p>
- * @param string $msgid2 <p>
- * </p>
- * @param int $n <p>
- * </p>
- * @param int $category <p>
- * </p>
+ * @param string $msgid1
+ * @param string $msgid2
+ * @param int $n
+ * @param int $category
  * @return string A string on success.
  */
 function dcngettext ($domain, $msgid1, $msgid2, $n, $category) {}
