@@ -7,7 +7,72 @@
  * @link http://php.net/manual/en/class.snmp.php
  */
 class SNMP  {
-	const VERSION_1 = 0;
+    /**
+     * @var int Maximum OID per GET/SET/GETBULK request
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.props.max-oids
+     */
+    public $max_oids;
+
+    /**
+     * @var int Controls the method how the SNMP values will be returned
+     * <dl>
+     * <dt>SNMP_VALUE_LIBRARY	<dd>The return values will be as returned by the Net-SNMP library.
+     * <dt>SNMP_VALUE_PLAIN	<dd>The return values will be the plain value without the SNMP type hint.
+     * <dt>SNMP_VALUE_OBJECT	 <dd>The return values will be objects with the properties "value" and "type", where the latter is one of the SNMP_OCTET_STR, SNMP_COUNTER etc. constants. The way "value" is returned is based on which one of SNMP_VALUE_LIBRARY, SNMP_VALUE_PLAIN is set
+     * <dl>
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.props.max-oids
+     */
+    public $valueretrieval;
+
+    /**
+     * @var bool Value of quick_print within the NET-SNMP library
+     * <p>Sets the value of quick_print within the NET-SNMP library. When this is set (1), the SNMP library will return 'quick printed' values. This means that just the value will be printed. When quick_print is not enabled (default) the UCD SNMP library prints extra information including the type of the value (i.e. IpAddress or OID). Additionally, if quick_print is not enabled, the library prints additional hex values for all strings of three characters or less.
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.props.quick-print
+     */
+    public $quick_print;
+
+    /**
+     * @var bool Controls the way enum values are printed
+     * <p>Parameter toggles if walk/get etc. should automatically lookup enum values in the MIB and return them together with their human readable string.
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.props.enum-print
+     */
+    public $enum_print;
+
+    /**
+     * @var int Controls OID output format
+     * <p>OID .1.3.6.1.2.1.1.3.0 representation for various oid_output_format values
+     * <dl>
+     * <dt>SNMP_OID_OUTPUT_FULL	<dd>.iso.org.dod.internet.mgmt.mib-2.system.sysUpTime.sysUpTimeInstance
+     * <dt>SNMP_OID_OUTPUT_NUMERIC	<dd>.1.3.6.1.2.1.1.3.0
+     * <dt>SNMP_OID_OUTPUT_MODULE	<dd>DISMAN-EVENT-MIB::sysUpTimeInstance
+     * <dt>SNMP_OID_OUTPUT_SUFFIX	<dd>sysUpTimeInstance
+     * <dt>SNMP_OID_OUTPUT_UCD	<dd>system.sysUpTime.sysUpTimeInstance
+     * <dt>SNMP_OID_OUTPUT_NONE	<dd>Undefined
+     * </dl>
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.props.oid-output-format
+     */
+    public $oid_output_format;
+
+    /**
+     * @var bool Controls disabling check for increasing OID while walking OID tree
+     * <p> Some SNMP agents are known for returning OIDs out of order but can complete the walk anyway. Other agents return OIDs that are out of order and can cause SNMP::walk() to loop indefinitely until memory limit will be reached. PHP SNMP library by default performs OID increasing check and stops walking on OID tree when it detects possible loop with issuing warning about non-increasing OID faced. Set oid_increasing_check to FALSE to disable this check.
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.props.oid-increasing-check
+     */
+    public $oid_increasing_check;
+
+    /**
+     * @var int Controls which failures will raise SNMPException instead of warning. Use bitwise OR'ed SNMP::ERRNO_* constants. By default all SNMP exceptions are disabled.
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.props.exceptions-enabled
+     */
+    public $exceptions_enabled;
+
+    /**
+     * @var array Read-only property with remote agent configuration: hostname, port, default timeout, default retries count
+     * @link http://www.php.net/manual/en/class.snmp.php#snmp.props.info
+     */
+    public $info;
+
+    const VERSION_1 = 0;
 	const VERSION_2c = 1;
 	const VERSION_2C = 1;
 	const VERSION_3 = 3;
@@ -41,22 +106,21 @@ class SNMP  {
 	 */
 	public function close () {}
 
-	/**
-	 * (PHP 5 &gt;= 5.4.0)<br/>
-	 * Configures security-related SNMPv3 session parameters
-	 * @link http://php.net/manual/en/snmp.setsecurity.php
-	 * @param $session
-	 * @param $sec_level
-	 * @param $auth_protocol
-	 * @param $auth_passphrase
-	 * @param $priv_protocol
-	 * @param $priv_passphrase
-	 * @param $contextName
-	 * @param $contextEngineID
-	 * @param $var1 [optional]
-	 * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure.
-	 */
-	public function setSecurity ($session, $sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $contextName, $contextEngineID, $var9) {}
+    /**
+     * (PHP 5 &gt;= 5.4.0)<br/>
+     * Configures security-related SNMPv3 session parameters
+     * @link http://php.net/manual/en/snmp.setsecurity.php
+     * @param $session
+     * @param $sec_level
+     * @param $auth_protocol
+     * @param $auth_passphrase
+     * @param $priv_protocol
+     * @param $priv_passphrase
+     * @param $contextName
+     * @param $contextEngineID
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+	public function setSecurity ($session, $sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $contextName, $contextEngineID) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.4.0)<br/>
@@ -89,7 +153,7 @@ follows the given object id
 	 * @param $suffix_keys
 	 * @param $max_repetitions
 	 * @param $non_repeaters
-	 * @return mixed an associative array of the SNMP object ids and their values on success or <b>FALSE</b> on error.
+	 * @return array associative array of the SNMP object ids and their values on success or <b>FALSE</b> on error.
 	 * When a SNMP error occures <b>SNMP::getErrno</b> and
 	 * <b>SNMP::getError</b> can be used for retrieving error
 	 * number (specific to SNMP extension, see class constants) and error message
@@ -104,7 +168,7 @@ follows the given object id
 	 * @param $object_id
 	 * @param $type
 	 * @param $value
-	 * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function set ($object_id, $type, $value) {}
 
@@ -112,7 +176,7 @@ follows the given object id
 	 * (PHP 5 &gt;= 5.4.0)<br/>
 	 * Get last error code
 	 * @link http://php.net/manual/en/snmp.geterrno.php
-	 * @return mixed one of SNMP error code values described in constants chapter.
+	 * @return int one of SNMP error code values described in constants chapter.
 	 */
 	public function getErrno () {}
 
@@ -120,7 +184,7 @@ follows the given object id
 	 * (PHP 5 &gt;= 5.4.0)<br/>
 	 * Get last error message
 	 * @link http://php.net/manual/en/snmp.geterror.php
-	 * @return mixed String describing error from last SNMP request.
+	 * @return string String describing error from last SNMP request.
 	 */
 	public function getError () {}
 
@@ -134,98 +198,14 @@ follows the given object id
  * @link http://php.net/manual/en/class.snmpexception.php
  */
 class SNMPException extends RuntimeException  {
-	protected $message;
-	protected $code;
-	protected $file;
-	protected $line;
-
-
-	/**
-	 * (PHP 5 &gt;= 5.1.0)<br/>
-	 * Clone the exception
-	 * @link http://php.net/manual/en/exception.clone.php
-	 * @return void No value is returned.
-	 */
-	final private function __clone () {}
-
-	/**
-	 * (PHP 5 &gt;= 5.1.0)<br/>
-	 * Construct the exception
-	 * @link http://php.net/manual/en/exception.construct.php
-	 * @param $message [optional]
-	 * @param $code [optional]
-	 * @param $previous [optional]
-	 */
-	public function __construct ($message, $code, $previous) {}
-
-	/**
-	 * (PHP 5 &gt;= 5.1.0)<br/>
-	 * Gets the Exception message
-	 * @link http://php.net/manual/en/exception.getmessage.php
-	 * @return string the Exception message as a string.
-	 */
-	final public function getMessage () {}
-
-	/**
-	 * (PHP 5 &gt;= 5.1.0)<br/>
-	 * Gets the Exception code
-	 * @link http://php.net/manual/en/exception.getcode.php
-	 * @return mixed the exception code as integer in
-	 * <b>Exception</b> but possibly as other type in
-	 * <b>Exception</b> descendants (for example as
-	 * string in <b>PDOException</b>).
-	 */
-	final public function getCode () {}
-
-	/**
-	 * (PHP 5 &gt;= 5.1.0)<br/>
-	 * Gets the file in which the exception occurred
-	 * @link http://php.net/manual/en/exception.getfile.php
-	 * @return string the filename in which the exception was created.
-	 */
-	final public function getFile () {}
-
-	/**
-	 * (PHP 5 &gt;= 5.1.0)<br/>
-	 * Gets the line in which the exception occurred
-	 * @link http://php.net/manual/en/exception.getline.php
-	 * @return int the line number where the exception was created.
-	 */
-	final public function getLine () {}
-
-	/**
-	 * (PHP 5 &gt;= 5.1.0)<br/>
-	 * Gets the stack trace
-	 * @link http://php.net/manual/en/exception.gettrace.php
-	 * @return array the Exception stack trace as an array.
-	 */
-	final public function getTrace () {}
-
-	/**
-	 * (PHP 5 &gt;= 5.3.0)<br/>
-	 * Returns previous Exception
-	 * @link http://php.net/manual/en/exception.getprevious.php
-	 * @return Exception the previous <b>Exception</b> if available
-	 * or <b>NULL</b> otherwise.
-	 */
-	final public function getPrevious () {}
-
-	/**
-	 * (PHP 5 &gt;= 5.1.0)<br/>
-	 * Gets the stack trace as a string
-	 * @link http://php.net/manual/en/exception.gettraceasstring.php
-	 * @return string the Exception stack trace as a string.
-	 */
-	final public function getTraceAsString () {}
-
-	/**
-	 * (PHP 5 &gt;= 5.1.0)<br/>
-	 * String representation of the exception
-	 * @link http://php.net/manual/en/exception.tostring.php
-	 * @return string the string representation of the exception.
-	 */
-	public function __toString () {}
-
+    /**
+     * @var string Textual error message. Exception::getMessage() to access it.
+     */
+    protected $message;
+    /**
+     * @var string SNMP library error code. Use Exception::getCode() to access it.
+     */
+    protected $code;
 }
 
 /**
