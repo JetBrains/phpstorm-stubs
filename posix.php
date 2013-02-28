@@ -12,7 +12,7 @@
  * @param int $sig <p>
  * One of the PCNTL signals constants.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function posix_kill ($pid, $sig) {}
 
@@ -47,7 +47,7 @@ function posix_getuid () {}
  * @param int $uid <p>
  * The user id.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function posix_setuid ($uid) {}
 
@@ -66,7 +66,7 @@ function posix_geteuid () {}
  * @param int $uid <p>
  * The user id.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function posix_seteuid ($uid) {}
 
@@ -85,7 +85,7 @@ function posix_getgid () {}
  * @param int $gid <p>
  * The group id.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function posix_setgid ($gid) {}
 
@@ -104,7 +104,7 @@ function posix_getegid () {}
  * @param int $gid <p>
  * The group id.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function posix_setegid ($gid) {}
 
@@ -151,7 +151,7 @@ function posix_setsid () {}
  * @param int $pgid <p>
  * The process group id.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function posix_setpgid ($pid, $pgid) {}
 
@@ -172,9 +172,9 @@ function posix_getpgid ($pid) {}
  * @link http://php.net/manual/en/function.posix-getsid.php
  * @param int $pid <p>
  * The process identifier. If set to 0, the current process is
- * assumed. If an invalid pid is
- * specified, then false is returned and an error is set which
- * can be checked with posix_get_last_error.
+ * assumed. If an invalid <i>pid</i> is
+ * specified, then <b>FALSE</b> is returned and an error is set which
+ * can be checked with <b>posix_get_last_error</b>.
  * </p>
  * @return int the identifier, as an integer.
  */
@@ -220,9 +220,9 @@ function posix_times () {}
  * (PHP 4, PHP 5)<br/>
  * Get path name of controlling terminal
  * @link http://php.net/manual/en/function.posix-ctermid.php
- * @return string Upon successful completion, returns string of the pathname to 
- * the current controlling terminal. Otherwise false is returned and errno
- * is set, which can be checked with posix_get_last_error.
+ * @return string Upon successful completion, returns string of the pathname to
+ * the current controlling terminal. Otherwise <b>FALSE</b> is returned and errno
+ * is set, which can be checked with <b>posix_get_last_error</b>.
  */
 function posix_ctermid () {}
 
@@ -234,7 +234,7 @@ function posix_ctermid () {}
  * The file descriptor.
  * </p>
  * @return string On success, returns a string of the absolute path of the
- * fd. On failure, returns false
+ * <i>fd</i>. On failure, returns <b>FALSE</b>
  */
 function posix_ttyname ($fd) {}
 
@@ -245,8 +245,8 @@ function posix_ttyname ($fd) {}
  * @param int $fd <p>
  * The file descriptor.
  * </p>
- * @return bool true if fd is an open descriptor connected
- * to a terminal and false otherwise.
+ * @return bool <b>TRUE</b> if <i>fd</i> is an open descriptor connected
+ * to a terminal and <b>FALSE</b> otherwise.
  */
 function posix_isatty ($fd) {}
 
@@ -254,9 +254,9 @@ function posix_isatty ($fd) {}
  * (PHP 4, PHP 5)<br/>
  * Pathname of current directory
  * @link http://php.net/manual/en/function.posix-getcwd.php
- * @return string a string of the absolute pathname on success. 
- * On error, returns false and sets errno which can be checked with
- * posix_get_last_error.
+ * @return string a string of the absolute pathname on success.
+ * On error, returns <b>FALSE</b> and sets errno which can be checked with
+ * <b>posix_get_last_error</b>.
  */
 function posix_getcwd () {}
 
@@ -268,13 +268,13 @@ function posix_getcwd () {}
  * Path to the FIFO file.
  * </p>
  * @param int $mode <p>
- * The second parameter mode has to be given in
+ * The second parameter <i>mode</i> has to be given in
  * octal notation (e.g. 0644). The permission of the newly created
  * FIFO also depends on the setting of the current
- * umask. The permissions of the created file are
- * (mode &amp; ~umask).
+ * <b>umask</b>. The permissions of the created file are
+ * (mode &#38;#38; ~umask).
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function posix_mkfifo ($pathname, $mode) {}
 
@@ -287,21 +287,21 @@ function posix_mkfifo ($pathname, $mode) {}
  * </p>
  * @param int $mode <p>
  * This parameter is constructed by a bitwise OR between file type (one of
- * the following constants: POSIX_S_IFREG,
- * POSIX_S_IFCHR, POSIX_S_IFBLK,
- * POSIX_S_IFIFO or
- * POSIX_S_IFSOCK) and permissions.
+ * the following constants: <b>POSIX_S_IFREG</b>,
+ * <b>POSIX_S_IFCHR</b>, <b>POSIX_S_IFBLK</b>,
+ * <b>POSIX_S_IFIFO</b> or
+ * <b>POSIX_S_IFSOCK</b>) and permissions.
  * </p>
  * @param int $major [optional] <p>
  * The major device kernel identifier (required to pass when using
- * S_IFCHR or S_IFBLK).
+ * <b>S_IFCHR</b> or <b>S_IFBLK</b>).
  * </p>
  * @param int $minor [optional] <p>
  * The minor device kernel identifier.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_mknod ($pathname, $mode, $major = null, $minor = null) {}
+function posix_mknod ($pathname, $mode, $major = 0, $minor = 0) {}
 
 /**
  * (PHP 5 &gt;= 5.1.0)<br/>
@@ -311,20 +311,20 @@ function posix_mknod ($pathname, $mode, $major = null, $minor = null) {}
  * The name of the file to be tested.
  * </p>
  * @param int $mode [optional] <p>
- * A mask consisting of one or more of POSIX_F_OK,
- * POSIX_R_OK, POSIX_W_OK and
- * POSIX_X_OK.
+ * A mask consisting of one or more of <b>POSIX_F_OK</b>,
+ * <b>POSIX_R_OK</b>, <b>POSIX_W_OK</b> and
+ * <b>POSIX_X_OK</b>.
  * </p>
  * <p>
- * POSIX_R_OK, POSIX_W_OK and
- * POSIX_X_OK request checking whether the file
+ * <b>POSIX_R_OK</b>, <b>POSIX_W_OK</b> and
+ * <b>POSIX_X_OK</b> request checking whether the file
  * exists and has read, write and execute permissions, respectively.
- * POSIX_F_OK just requests checking for the
+ * <b>POSIX_F_OK</b> just requests checking for the
  * existence of the file.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_access ($file, $mode = null) {}
+function posix_access ($file, $mode = POSIX_F_OK) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
@@ -344,7 +344,7 @@ function posix_access ($file, $mode = null) {}
  * The name element contains the name of the group. This is
  * a short, usually less than 16 character "handle" of the
  * group, not the real, full name. This should be the same as
- * the name parameter used when
+ * the <i>name</i> parameter used when
  * calling the function, and hence redundant.
  * </td>
  * </tr>
@@ -407,7 +407,7 @@ function posix_getgrnam ($name) {}
  * <td>gid</td>
  * <td>
  * Group ID, should be the same as the
- * gid parameter used when calling the
+ * <i>gid</i> parameter used when calling the
  * function, and hence redundant.
  * </td>
  * </tr>
@@ -429,8 +429,8 @@ function posix_getgrgid ($gid) {}
  * @param string $username <p>
  * An alphanumeric username.
  * </p>
- * @return array On success an array with the following elements is returned, else 
- * false is returned:
+ * @return array On success an array with the following elements is returned, else
+ * <b>FALSE</b> is returned:
  * <table>
  * The user information array
  * <tr valign="top">
@@ -443,7 +443,7 @@ function posix_getgrgid ($gid) {}
  * The name element contains the username of the user. This is
  * a short, usually less than 16 character "handle" of the
  * user, not the real, full name. This should be the same as
- * the username parameter used when
+ * the <i>username</i> parameter used when
  * calling the function, and hence redundant.
  * </td>
  * </tr>
@@ -465,7 +465,7 @@ function posix_getgrgid ($gid) {}
  * <td>gid</td>
  * <td>
  * The group ID of the user. Use the function
- * posix_getgrgid to resolve the group
+ * <b>posix_getgrgid</b> to resolve the group
  * name and a list of its members.
  * </td>
  * </tr>
@@ -533,7 +533,7 @@ function posix_getpwnam ($username) {}
  * <td>uid</td>
  * <td>
  * User ID, should be the same as the
- * uid parameter used when calling the
+ * <i>uid</i> parameter used when calling the
  * function, and hence redundant.
  * </td>
  * </tr>
@@ -541,7 +541,7 @@ function posix_getpwnam ($username) {}
  * <td>gid</td>
  * <td>
  * The group ID of the user. Use the function
- * posix_getgrgid to resolve the group
+ * <b>posix_getgrgid</b> to resolve the group
  * name and a list of its members.
  * </td>
  * </tr>
@@ -606,7 +606,7 @@ function posix_getpwuid ($uid) {}
  * <td>
  * The maximum size of the virtual memory for the process, in bytes.
  * </td>
- * </tr> 
+ * </tr>
  * <tr valign="top">
  * <td>data</td>
  * <td>
@@ -669,6 +669,11 @@ function posix_getrlimit () {}
  */
 function posix_get_last_error () {}
 
+/**
+ * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * Alias of <b>posix_get_last_error</b>
+ * @link http://php.net/manual/en/function.posix-errno.php
+ */
 function posix_errno () {}
 
 /**
@@ -676,8 +681,8 @@ function posix_errno () {}
  * Retrieve the system error message associated with the given errno
  * @link http://php.net/manual/en/function.posix-strerror.php
  * @param int $errno <p>
- * A POSIX error number, returned by 
- * posix_get_last_error. If set to 0, then the
+ * A POSIX error number, returned by
+ * <b>posix_get_last_error</b>. If set to 0, then the
  * string "Success" is returned.
  * </p>
  * @return string the error message, as a string.
@@ -694,7 +699,7 @@ function posix_strerror ($errno) {}
  * @param int $base_group_id <p>
  * Typically the group number from the password file.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function posix_initgroups ($name, $base_group_id) {}
 
