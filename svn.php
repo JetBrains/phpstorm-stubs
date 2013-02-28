@@ -73,7 +73,7 @@ class SvnNode  {
  * @param string $targetpath <p>
  * String local path to directory to check out in to
  * </p>
- * &svn.relativepath;
+ * Relative paths will be resolved as if the current working directory was the one that contains the PHP binary. To use the calling script&#x00027;s working directory, use <b>realpath</b> or dirname(__FILE__).
  * @param int $revision [optional] <p>
  * Integer revision number of repository to check out. Default is
  * HEAD, the most recent revision.
@@ -82,7 +82,7 @@ class SvnNode  {
  * Any combination of <b>SVN_NON_RECURSIVE</b> and
  * <b>SVN_IGNORE_EXTERNALS</b>.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function svn_checkout ($repos, $targetpath, $revision = null, $flags = 0) {}
 
@@ -98,7 +98,7 @@ function svn_checkout ($repos, $targetpath, $revision = null, $flags = 0) {}
  * revision.
  * </p>
  * @return string the string contents of the item from the repository on
- * success, and false on failure.
+ * success, and <b>FALSE</b> on failure.
  */
 function svn_cat ($repos_url, $revision_no = null) {}
 
@@ -227,7 +227,7 @@ function svn_log ($repos_url, $start_revision = null, $end_revision = null, $lim
  * String value to set to parameter at key. Format of value varies
  * with the parameter.
  * </p>
- * @return void
+ * @return void No value is returned.
  */
 function svn_auth_set_parameter ($key, $value) {}
 
@@ -240,7 +240,7 @@ function svn_auth_set_parameter ($key, $value) {}
  * defined by this extension to specify a key.
  * </p>
  * @return string the string value of the parameter at <i>key</i>;
- * returns null if parameter does not exist.
+ * returns <b>NULL</b> if parameter does not exist.
  */
 function svn_auth_get_parameter ($key) {}
 
@@ -262,7 +262,7 @@ function svn_config_ensure () {}
  * First path to diff. This can be a URL to a file/directory in an SVN
  * repository or a local file/directory path.
  * </p>
- * &svn.relativepath;
+ * Relative paths will be resolved as if the current working directory was the one that contains the PHP binary. To use the calling script&#x00027;s working directory, use <b>realpath</b> or dirname(__FILE__).
  * If a local file path has only backslashes and no forward slashes,
  * this extension will fail to find the path. Always
  * replace all backslashes with forward slashes when using this
@@ -280,7 +280,7 @@ function svn_config_ensure () {}
  * </p>
  * @return array an array-list consisting of two streams: the first is the diff output
  * and the second contains error stream output. The streams can be
- * read using <b>fread</b>. Returns false or null on
+ * read using <b>fread</b>. Returns <b>FALSE</b> or <b>NULL</b> on
  * error.
  * </p>
  * <p>
@@ -299,8 +299,8 @@ function svn_diff ($path1, $rev1, $path2, $rev2) {}
  * @param string $workingdir <p>
  * String path to local working directory to cleanup
  * </p>
- * &svn.relativepath;
- * @return bool true on success or false on failure.
+ * Relative paths will be resolved as if the current working directory was the one that contains the PHP binary. To use the calling script&#x00027;s working directory, use <b>realpath</b> or dirname(__FILE__).
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function svn_cleanup ($workingdir) {}
 
@@ -314,7 +314,7 @@ function svn_cleanup ($workingdir) {}
  * @param bool $recursive [optional] <p>
  * Optionally make recursive changes.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function svn_revert ($path, $recursive = false) {}
 
@@ -332,11 +332,11 @@ function svn_resolved () {}
  * </p>
  * This parameter must be an array, a string for a single
  * target is not acceptable.
- * &svn.relativepath;
- * @param bool $dontrecurse [optional] <p>
+ * Relative paths will be resolved as if the current working directory was the one that contains the PHP binary. To use the calling script&#x00027;s working directory, use <b>realpath</b> or dirname(__FILE__).
+ * @param bool $recursive [optional] <p>
  * Boolean flag to disable recursive committing of
  * directories in the <i>targets</i> array.
- * Default is false.
+ * Default is <b>TRUE</b>.
  * </p>
  * @return array array in form of:
  * </p>
@@ -348,9 +348,9 @@ function svn_resolved () {}
  * )
  * </pre>
  * <p>
- * Returns false on failure.
+ * Returns <b>FALSE</b> on failure.
  */
-function svn_commit ($log, array $targets, $dontrecurse = false) {}
+function svn_commit ($log, array $targets, $recursive = true) {}
 
 function svn_lock () {}
 
@@ -363,17 +363,17 @@ function svn_unlock () {}
  * @param string $path <p>
  * Path of item to add.
  * </p>
- * &svn.relativepath;
+ * Relative paths will be resolved as if the current working directory was the one that contains the PHP binary. To use the calling script&#x00027;s working directory, use <b>realpath</b> or dirname(__FILE__).
  * @param bool $recursive [optional] <p>
  * If item is directory, whether or not to recursively add
- * all of its contents. Default is true
+ * all of its contents. Default is <b>TRUE</b>
  * </p>
  * @param bool $force [optional] <p>
  * If true, Subversion will recurse into already versioned directories
  * in order to add unversioned files that may be hiding in those
- * directories. Default is false
+ * directories. Default is <b>FALSE</b>
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function svn_add ($path, $recursive = true, $force = false) {}
 
@@ -384,7 +384,7 @@ function svn_add ($path, $recursive = true, $force = false) {}
  * @param string $path <p>
  * Local path to file or directory to retrieve status of.
  * </p>
- * &svn.relativepath;
+ * Relative paths will be resolved as if the current working directory was the one that contains the PHP binary. To use the calling script&#x00027;s working directory, use <b>realpath</b> or dirname(__FILE__).
  * @param int $flags [optional] <p>
  * Any combination of <b>SVN_NON_RECURSIVE</b>,
  * <b>SVN_ALL</b> (regardless of modification status),
@@ -411,24 +411,24 @@ function svn_add ($path, $recursive = true, $force = false) {}
  * path
  * String path to file/directory of this entry on local filesystem.
  * text_status
- * Status of item's text. &svn.referto.status;
+ * Status of item's text. Refer to status constants for possible values.
  * repos_text_status
  * Status of item's text in repository. Only accurate if
- * <i>update</i> was set to true.
- * &svn.referto.status;
+ * <i>update</i> was set to <b>TRUE</b>.
+ * Refer to status constants for possible values.
  * prop_status
- * Status of item's properties. &svn.referto.status;
+ * Status of item's properties. Refer to status constants for possible values.
  * repos_prop_status
  * Status of item's property in repository. Only accurate if
- * <i>update</i> was set to true. &svn.referto.status;
+ * <i>update</i> was set to <b>TRUE</b>. Refer to status constants for possible values.
  * locked
- * Whether or not the item is locked. (Only set if true.)
+ * Whether or not the item is locked. (Only set if <b>TRUE</b>.)
  * copied
  * Whether or not the item was copied (scheduled for addition with
- * history). (Only set if true.)
+ * history). (Only set if <b>TRUE</b>.)
  * switched
  * Whether or not the item was switched using the switch command.
- * (Only set if true)
+ * (Only set if <b>TRUE</b>)
  * <p>
  * These keys are only set if the item is versioned:
  * </p>
@@ -441,7 +441,7 @@ function svn_add ($path, $recursive = true, $force = false) {}
  * revision
  * Integer revision of item in working copy.
  * kind
- * Type of item, i.e. file or directory. &svn.referto.type;
+ * Type of item, i.e. file or directory. Refer to type constants for possible values.
  * schedule
  * Scheduled action for item, i.e. addition or deletion. Constants
  * for these magic numbers are not available, they can
@@ -456,14 +456,14 @@ function svn_add ($path, $recursive = true, $force = false) {}
  * </code>
  * deleted
  * Whether or not the item was deleted, but parent revision lags
- * behind. (Only set if true.)
+ * behind. (Only set if <b>TRUE</b>.)
  * absent
  * Whether or not the item is absent, that is, Subversion knows that
  * there should be something there but there isn't. (Only set if
- * true.)
+ * <b>TRUE</b>.)
  * incomplete
  * Whether or not the entries file for a directory is incomplete.
- * (Only set if true.)
+ * (Only set if <b>TRUE</b>.)
  * cmt_date
  * Integer Unix timestamp of last commit date. (Unaffected by <i>update</i>.)
  * cmt_rev
@@ -480,16 +480,16 @@ function svn_status ($path, $flags = 0) {}
  * @param string $path <p>
  * Path to local working copy.
  * </p>
- * &svn.relativepath;
+ * Relative paths will be resolved as if the current working directory was the one that contains the PHP binary. To use the calling script&#x00027;s working directory, use <b>realpath</b> or dirname(__FILE__).
  * @param int $revno [optional] <p>
  * Revision number to update to, default is <b>SVN_REVISION_HEAD</b>.
  * </p>
  * @param bool $recurse [optional] <p>
  * Whether or not to recursively update directories.
  * </p>
- * @return int new revision number on success, returns false on failure.
+ * @return int new revision number on success, returns <b>FALSE</b> on failure.
  */
-function svn_update ($path, $revno = 'SVN_REVISION_HEAD', $recurse = true) {}
+function svn_update ($path, $revno = SVN_REVISION_HEAD, $recurse = true) {}
 
 /**
  * (PECL svn &gt;= 0.2.0)<br/>
@@ -498,14 +498,14 @@ function svn_update ($path, $revno = 'SVN_REVISION_HEAD', $recurse = true) {}
  * @param string $path <p>
  * Path of file or directory to import.
  * </p>
- * &svn.relativepath;
+ * Relative paths will be resolved as if the current working directory was the one that contains the PHP binary. To use the calling script&#x00027;s working directory, use <b>realpath</b> or dirname(__FILE__).
  * @param string $url <p>
  * Repository URL to import into.
  * </p>
  * @param bool $nonrecursive <p>
  * Whether or not to refrain from recursively processing directories.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function svn_import ($path, $url, $nonrecursive) {}
 
@@ -522,10 +522,10 @@ function svn_info () {}
  * The path to the new repository.
  * </p>
  * @param bool $working_copy [optional] <p>
- * If true, it will export uncommitted files from the working copy.
+ * If <b>TRUE</b>, it will export uncommitted files from the working copy.
  * </p>
  * @param int $revision_no [optional]
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function svn_export ($frompath, $topath, $working_copy = true, $revision_no = -1) {}
 
@@ -556,13 +556,13 @@ function svn_blame ($repository_url, $revision_no = 'SVN_REVISION_HEAD') {}
  * @param string $path <p>
  * Path of item to delete.
  * </p>
- * &svn.relativepath;
+ * Relative paths will be resolved as if the current working directory was the one that contains the PHP binary. To use the calling script&#x00027;s working directory, use <b>realpath</b> or dirname(__FILE__).
  * @param bool $force [optional] <p>
- * If true, the file will be deleted even if it has local modifications.
+ * If <b>TRUE</b>, the file will be deleted even if it has local modifications.
  * Otherwise, local modifications will result in a failure. Default is
- * false
+ * <b>FALSE</b>
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function svn_delete ($path, $force = false) {}
 
@@ -574,7 +574,7 @@ function svn_delete ($path, $force = false) {}
  * The path to the working copy or repository.
  * </p>
  * @param string $log_message [optional]
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function svn_mkdir ($path, $log_message = null) {}
 
@@ -598,7 +598,7 @@ function svn_propget () {}
  * Its description
  * </p>
  * @return resource What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_repos_create ($path, array $config = null, array $fsconfig = null) {}
 
@@ -610,7 +610,7 @@ function svn_repos_create ($path, array $config = null, array $fsconfig = null) 
  * Its description
  * </p>
  * @return bool What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_repos_recover ($path) {}
 
@@ -628,7 +628,7 @@ function svn_repos_recover ($path) {}
  * Its description
  * </p>
  * @return bool What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_repos_hotcopy ($repospath, $destpath, $cleanlogs) {}
 
@@ -640,7 +640,7 @@ function svn_repos_hotcopy ($repospath, $destpath, $cleanlogs) {}
  * Its description
  * </p>
  * @return resource What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_repos_open ($path) {}
 
@@ -652,7 +652,7 @@ function svn_repos_open ($path) {}
  * Its description
  * </p>
  * @return resource What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_repos_fs ($repos) {}
 
@@ -673,7 +673,7 @@ function svn_repos_fs ($repos) {}
  * Its description
  * </p>
  * @return resource What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_repos_fs_begin_txn_for_commit ($repos, $rev, $author, $log_msg) {}
 
@@ -685,7 +685,7 @@ function svn_repos_fs_begin_txn_for_commit ($repos, $rev, $author, $log_msg) {}
  * Its description
  * </p>
  * @return int What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_repos_fs_commit_txn ($txn) {}
 
@@ -700,7 +700,7 @@ function svn_repos_fs_commit_txn ($txn) {}
  * Its description
  * </p>
  * @return resource What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_revision_root ($fs, $revnum) {}
 
@@ -715,7 +715,7 @@ function svn_fs_revision_root ($fs, $revnum) {}
  * Its description
  * </p>
  * @return int What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_check_path ($fsroot, $path) {}
 
@@ -733,7 +733,7 @@ function svn_fs_check_path ($fsroot, $path) {}
  * Its description
  * </p>
  * @return string What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_revision_prop ($fs, $revnum, $propname) {}
 
@@ -748,7 +748,7 @@ function svn_fs_revision_prop ($fs, $revnum, $propname) {}
  * Its description
  * </p>
  * @return array What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_dir_entries ($fsroot, $path) {}
 
@@ -763,7 +763,7 @@ function svn_fs_dir_entries ($fsroot, $path) {}
  * Its description
  * </p>
  * @return int What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_node_created_rev ($fsroot, $path) {}
 
@@ -775,7 +775,7 @@ function svn_fs_node_created_rev ($fsroot, $path) {}
  * Its description
  * </p>
  * @return int What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_youngest_rev ($fs) {}
 
@@ -790,7 +790,7 @@ function svn_fs_youngest_rev ($fs) {}
  * Its description
  * </p>
  * @return resource What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_file_contents ($fsroot, $path) {}
 
@@ -805,7 +805,7 @@ function svn_fs_file_contents ($fsroot, $path) {}
  * Its description
  * </p>
  * @return int What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_file_length ($fsroot, $path) {}
 
@@ -817,7 +817,7 @@ function svn_fs_file_length ($fsroot, $path) {}
  * Its description
  * </p>
  * @return resource What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_txn_root ($txn) {}
 
@@ -832,7 +832,7 @@ function svn_fs_txn_root ($txn) {}
  * Its description
  * </p>
  * @return bool What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_make_file ($root, $path) {}
 
@@ -847,7 +847,7 @@ function svn_fs_make_file ($root, $path) {}
  * Its description
  * </p>
  * @return bool What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_make_dir ($root, $path) {}
 
@@ -862,7 +862,7 @@ function svn_fs_make_dir ($root, $path) {}
  * Its description
  * </p>
  * @return resource What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_apply_text ($root, $path) {}
 
@@ -883,7 +883,7 @@ function svn_fs_apply_text ($root, $path) {}
  * Its description
  * </p>
  * @return bool What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_copy ($from_root, $from_path, $to_root, $to_path) {}
 
@@ -898,7 +898,7 @@ function svn_fs_copy ($from_root, $from_path, $to_root, $to_path) {}
  * Its description
  * </p>
  * @return bool What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_delete ($root, $path) {}
 
@@ -913,7 +913,7 @@ function svn_fs_delete ($root, $path) {}
  * Its description
  * </p>
  * @return resource What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_begin_txn2 ($repos, $rev) {}
 
@@ -928,7 +928,7 @@ function svn_fs_begin_txn2 ($repos, $rev) {}
  * Its description
  * </p>
  * @return bool What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_is_dir ($root, $path) {}
 
@@ -943,7 +943,7 @@ function svn_fs_is_dir ($root, $path) {}
  * Its description
  * </p>
  * @return bool What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_is_file ($root, $path) {}
 
@@ -961,7 +961,7 @@ function svn_fs_is_file ($root, $path) {}
  * Its description
  * </p>
  * @return string What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_node_prop ($fsroot, $path, $propname) {}
 
@@ -982,7 +982,7 @@ function svn_fs_node_prop ($fsroot, $path, $propname) {}
  * Its description
  * </p>
  * @return bool What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_change_node_prop ($root, $path, $name, $value) {}
 
@@ -1003,7 +1003,7 @@ function svn_fs_change_node_prop ($root, $path, $name, $value) {}
  * Its description
  * </p>
  * @return bool What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_contents_changed ($root1, $path1, $root2, $path2) {}
 
@@ -1024,7 +1024,7 @@ function svn_fs_contents_changed ($root1, $path1, $root2, $path2) {}
  * Its description
  * </p>
  * @return bool What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_props_changed ($root1, $path1, $root2, $path2) {}
 
@@ -1036,7 +1036,7 @@ function svn_fs_props_changed ($root1, $path1, $root2, $path2) {}
  * Its description
  * </p>
  * @return bool What the function returns, first on success, then on failure. See
- * also the &amp;return.success; entity
+ * also the &#38;#38;return.success; entity
  */
 function svn_fs_abort_txn ($txn) {}
 

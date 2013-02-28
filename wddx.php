@@ -12,7 +12,7 @@
  * @param string $comment [optional] <p>
  * An optional comment string that appears in the packet header.
  * </p>
- * @return string the WDDX packet, or false on error.
+ * @return string the WDDX packet, or <b>FALSE</b> on error.
  */
 function wddx_serialize_value ($var, $comment = null) {}
 
@@ -24,8 +24,8 @@ function wddx_serialize_value ($var, $comment = null) {}
  * Can be either a string naming a variable or an array containing
  * strings naming the variables or another array, etc.
  * </p>
- * @param mixed $_ [optional] 
- * @return string the WDDX packet, or false on error.
+ * @param mixed $_ [optional]
+ * @return string the WDDX packet, or <b>FALSE</b> on error.
  */
 function wddx_serialize_vars ($var_name, $_ = null) {}
 
@@ -36,7 +36,7 @@ function wddx_serialize_vars ($var_name, $_ = null) {}
  * @param string $comment [optional] <p>
  * An optional comment string.
  * </p>
- * @return resource a packet ID for use in later functions, or false on error.
+ * @return resource a packet ID for use in later functions, or <b>FALSE</b> on error.
  */
 function wddx_packet_start ($comment = null) {}
 
@@ -45,7 +45,7 @@ function wddx_packet_start ($comment = null) {}
  * Ends a WDDX packet with the specified ID
  * @link http://php.net/manual/en/function.wddx-packet-end.php
  * @param resource $packet_id <p>
- * A WDDX packet, returned by wddx_packet_start.
+ * A WDDX packet, returned by <b>wddx_packet_start</b>.
  * </p>
  * @return string the string containing the WDDX packet.
  */
@@ -56,25 +56,26 @@ function wddx_packet_end ($packet_id) {}
  * Add variables to a WDDX packet with the specified ID
  * @link http://php.net/manual/en/function.wddx-add-vars.php
  * @param resource $packet_id <p>
- * A WDDX packet, returned by wddx_packet_start.
+ * A WDDX packet, returned by <b>wddx_packet_start</b>.
  * </p>
  * @param mixed $var_name <p>
  * Can be either a string naming a variable or an array containing
  * strings naming the variables or another array, etc.
  * </p>
- * @param mixed $_ [optional] 
- * @return bool true on success or false on failure.
+ * @param mixed $_ [optional]
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function wddx_add_vars ($packet_id, $var_name, $_ = null) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
- * Unserializes a WDDX packet.
- * Alias: <function>wddx_unserialize</function>
+ * Unserializes a WDDX packet
  * @link http://php.net/manual/en/function.wddx-deserialize.php
- * @param string $packet A WDDX packet, as a string or stream.
- * @return mixed Returns the deserialized value which can be a string, a number or an array.
- * Note that structures are deserialized into associative arrays.
+ * @param string $packet <p>
+ * A WDDX packet, as a string or stream.
+ * </p>
+ * @return mixed the deserialized value which can be a string, a number or an
+ * array. Note that structures are deserialized into associative arrays.
  */
 function wddx_deserialize ($packet) {}
 
