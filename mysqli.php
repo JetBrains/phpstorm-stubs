@@ -1526,7 +1526,7 @@ function mysqli_commit ($link) {}
  * @param string $database If provided will specify the default database to be used when performing queries.
  * @param string $port Specifies the port number to attempt to connect to the MySQL server.
  * @param string $socket Specifies the socket or named pipe that should be used.
- * @return object which represents the connection to a MySQL Server.
+ * @return mysqli object which represents the connection to a MySQL Server.
  */
 function mysqli_connect ($host = '', $user = '', $password = '', $database = '', $port = '', $socket = '') {}
 
