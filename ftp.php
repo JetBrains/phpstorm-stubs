@@ -7,7 +7,7 @@
  * Opens an FTP connection
  * @link http://php.net/manual/en/function.ftp-connect.php
  * @param string $host <p>
- * The FTP server address. This parameter shouldn't have any trailing 
+ * The FTP server address. This parameter shouldn't have any trailing
  * slashes and shouldn't be prefixed with ftp://.
  * </p>
  * @param int $port [optional] <p>
