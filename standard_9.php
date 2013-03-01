@@ -48,7 +48,7 @@ function array_replace (array $array, array $array1, array $array2 = null, array
  * @param array $_ [optional] 
  * @return array an array, or &null; if an error occurs.
  */
-function array_replace_recursive (array &$array, array &$array1, array &$array2 = null, array &$_ = null) {}
+function array_replace_recursive (array $array, array $array1, array $array2 = null, array $_ = null) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
