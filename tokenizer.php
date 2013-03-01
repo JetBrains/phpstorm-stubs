@@ -24,8 +24,7 @@ function token_get_all ($source) {}
  * @param int $token <p>
  * The token value.
  * </p>
- * @return string The symbolic name of the given token. The returned
- * name returned matches the name of the matching token constant.
+ * @return string The symbolic name of the given <i>token</i>.
  */
 function token_name ($token) {}
 

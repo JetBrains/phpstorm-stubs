@@ -19,9 +19,9 @@ class tidy  {
 	 * @link http://php.net/manual/en/tidy.getopt.php
 	 * @param string $option <p>
 	 * You will find a list with each configuration option and their types
-	 * at: &url.tidy.conf;.
+	 * at: http://tidy.sourceforge.net/docs/quickref.html.
 	 * </p>
-	 * @return mixed the value of the specified option.
+	 * @return mixed the value of the specified <i>option</i>.
 	 * The return type depends on the type of the specified one.
 	 */
 	public function getOpt ($option) {}
@@ -30,7 +30,7 @@ class tidy  {
 	 * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
 	 * Execute configured cleanup and repair operations on parsed markup
 	 * @link http://php.net/manual/en/tidy.cleanrepair.php
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function cleanRepair () {}
 
@@ -39,22 +39,22 @@ class tidy  {
 	 * Parse markup in file or URI
 	 * @link http://php.net/manual/en/tidy.parsefile.php
 	 * @param string $filename <p>
-	 * If the filename parameter is given, this function
+	 * If the <i>filename</i> parameter is given, this function
 	 * will also read that file and initialize the object with the file,
-	 * acting like tidy_parse_file.
+	 * acting like <b>tidy_parse_file</b>.
 	 * </p>
 	 * @param mixed $config [optional] <p>
-	 * The config config can be passed either as an
+	 * The config <i>config</i> can be passed either as an
 	 * array or as a string. If a string is passed, it is interpreted as the
 	 * name of the configuration file, otherwise, it is interpreted as the
 	 * options themselves.
 	 * </p>
 	 * <p>
 	 * For an explanation about each option, see
-	 * &url.tidy.conf;.
+	 * http://tidy.sourceforge.net/docs/quickref.html.
 	 * </p>
 	 * @param string $encoding [optional] <p>
-	 * The encoding parameter sets the encoding for
+	 * The <i>encoding</i> parameter sets the encoding for
 	 * input/output documents. The possible values for encoding are: 
 	 * ascii, latin0, latin1,
 	 * raw, utf8, iso2022,
@@ -65,9 +65,9 @@ class tidy  {
 	 * @param bool $use_include_path [optional] <p>
 	 * Search for the file in the include_path.
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function parseFile ($filename, $config = null, $encoding = null, $use_include_path = null) {}
+	public function parseFile ($filename, $config = null, $encoding = null, $use_include_path = false) {}
 
 	/**
 	 * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -77,16 +77,16 @@ class tidy  {
 	 * The data to be parsed.
 	 * </p>
 	 * @param mixed $config [optional] <p>
-	 * The config config can be passed either as an
+	 * The config <i>config</i> can be passed either as an
 	 * array or as a string. If a string is passed, it is interpreted as the
 	 * name of the configuration file, otherwise, it is interpreted as the
 	 * options themselves.
 	 * </p>
 	 * <p>
-	 * For an explanation about each option, visit &url.tidy.conf;.
+	 * For an explanation about each option, visit http://tidy.sourceforge.net/docs/quickref.html.
 	 * </p>
 	 * @param string $encoding [optional] <p>
-	 * The encoding parameter sets the encoding for
+	 * The <i>encoding</i> parameter sets the encoding for
 	 * input/output documents. The possible values for encoding are: 
 	 * ascii, latin0, latin1,
 	 * raw, utf8, iso2022,
@@ -94,7 +94,7 @@ class tidy  {
 	 * utf16, utf16le, utf16be,
 	 * big5, and shiftjis.
 	 * </p>
-	 * @return bool a new tidy instance.
+	 * @return bool a new <b>tidy</b> instance.
 	 */
 	public function parseString ($input, $config = null, $encoding = null) {}
 
@@ -106,17 +106,17 @@ class tidy  {
 	 * The data to be repaired.
 	 * </p>
 	 * @param mixed $config [optional] <p>
-	 * The config config can be passed either as an
+	 * The config <i>config</i> can be passed either as an
 	 * array or as a string. If a string is passed, it is interpreted as the
 	 * name of the configuration file, otherwise, it is interpreted as the
 	 * options themselves.
 	 * </p>
 	 * <p>
-	 * Check &url.tidy.conf; for
+	 * Check http://tidy.sourceforge.net/docs/quickref.html for
 	 * an explanation about each option.
 	 * </p>
 	 * @param string $encoding [optional] <p>
-	 * The encoding parameter sets the encoding for
+	 * The <i>encoding</i> parameter sets the encoding for
 	 * input/output documents. The possible values for encoding are: 
 	 * ascii, latin0, latin1,
 	 * raw, utf8, iso2022,
@@ -136,7 +136,7 @@ class tidy  {
 	 * The file to be repaired.
 	 * </p>
 	 * @param mixed $config [optional] <p>
-	 * The config config can be passed either as an
+	 * The config <i>config</i> can be passed either as an
 	 * array or as a string. If a string is passed, it is interpreted as the
 	 * name of the configuration file, otherwise, it is interpreted as the
 	 * options themselves.
@@ -146,7 +146,7 @@ class tidy  {
 	 * explanation about each option.
 	 * </p>
 	 * @param string $encoding [optional] <p>
-	 * The encoding parameter sets the encoding for
+	 * The <i>encoding</i> parameter sets the encoding for
 	 * input/output documents. The possible values for encoding are: 
 	 * ascii, latin0, latin1,
 	 * raw, utf8, iso2022,
@@ -159,13 +159,13 @@ class tidy  {
 	 * </p>
 	 * @return string the repaired contents as a string.
 	 */
-	public function repairFile ($filename, $config = null, $encoding = null, $use_include_path = null) {}
+	public function repairFile ($filename, $config = null, $encoding = null, $use_include_path = false) {}
 
 	/**
 	 * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
 	 * Run configured diagnostics on parsed and repaired markup
-	 * @link http://php.net/manual/en/function.tidy-diagnose.php
-	 * @return bool true on success or false on failure.
+	 * @link http://php.net/manual/en/tidy.diagnose.php
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function diagnose () {}
 
@@ -184,7 +184,7 @@ class tidy  {
 	 * @return array an array of configuration options.
 	 * </p>
 	 * <p>
-	 * For an explanation about each option, visit &url.tidy.conf;.
+	 * For an explanation about each option, visit http://tidy.sourceforge.net/docs/quickref.html.
 	 */
 	public function getConfig () {}
 
@@ -197,6 +197,16 @@ class tidy  {
 	 */
 	public function getStatus () {}
 
+	/**
+	 * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
+	 * Get the Detected HTML version for the specified document
+	 * @link http://php.net/manual/en/tidy.gethtmlver.php
+	 * @return int the detected HTML version.
+	 * </p>
+	 * <p>
+	 * This function is not yet implemented in the Tidylib itself, so it always
+	 * return 0.
+	 */
 	public function getHtmlVer () {}
 
 	/**
@@ -207,7 +217,7 @@ class tidy  {
 	 * The option name
 	 * </p>
 	 * @return string a string if the option exists and has documentation available, or
-	 * false otherwise.
+	 * <b>FALSE</b> otherwise.
 	 */
 	public function getOptDoc ($optname) {}
 
@@ -215,12 +225,12 @@ class tidy  {
 	 * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
 	 * Indicates if the document is a XHTML document
 	 * @link http://php.net/manual/en/tidy.isxhtml.php
-	 * @return bool This function returns true if the specified tidy
-	 * object is a XHTML document, or false otherwise.
+	 * @return bool This function returns <b>TRUE</b> if the specified tidy
+	 * <i>object</i> is a XHTML document, or <b>FALSE</b> otherwise.
 	 * </p>
 	 * <p>
 	 * This function is not yet implemented in the Tidylib itself, so it always
-	 * return false.
+	 * return <b>FALSE</b>.
 	 */
 	public function isXhtml () {}
 
@@ -228,43 +238,43 @@ class tidy  {
 	 * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
 	 * Indicates if the document is a generic (non HTML/XHTML) XML document
 	 * @link http://php.net/manual/en/tidy.isxml.php
-	 * @return bool This function returns true if the specified tidy
-	 * object is a generic XML document (non HTML/XHTML),
-	 * or false otherwise.
+	 * @return bool This function returns <b>TRUE</b> if the specified tidy
+	 * <i>object</i> is a generic XML document (non HTML/XHTML),
+	 * or <b>FALSE</b> otherwise.
 	 * </p>
 	 * <p>
 	 * This function is not yet implemented in the Tidylib itself, so it always
-	 * return false.
+	 * return <b>FALSE</b>.
 	 */
 	public function isXml () {}
 
 	/**
 	 * (PHP 5, PECL tidy 0.5.2-1.0.0)<br/>
-	 * Returns a <classname>tidyNode</classname> object representing the root of the tidy parse tree
+	 * Returns a <b>tidyNode</b> object representing the root of the tidy parse tree
 	 * @link http://php.net/manual/en/tidy.root.php
-	 * @return tidyNode the tidyNode object.
+	 * @return tidyNode the <b>tidyNode</b> object.
 	 */
 	public function root () {}
 
 	/**
 	 * (PHP 5, PECL tidy 0.5.2-1.0.0)<br/>
-	 * Returns a <classname>tidyNode</classname> object starting from the &lt;head&gt; tag of the tidy parse tree
+	 * Returns a <b>tidyNode</b> object starting from the &lt;head&gt; tag of the tidy parse tree
 	 * @link http://php.net/manual/en/tidy.head.php
-	 * @return tidyNode the tidyNode object.
+	 * @return tidyNode the <b>tidyNode</b> object.
 	 */
 	public function head () {}
 
 	/**
 	 * (PHP 5, PECL tidy 0.5.2-1.0.0)<br/>
-	 * Returns a <classname>tidyNode</classname> object starting from the &lt;html&gt; tag of the tidy parse tree
+	 * Returns a <b>tidyNode</b> object starting from the &lt;html&gt; tag of the tidy parse tree
 	 * @link http://php.net/manual/en/tidy.html.php
-	 * @return tidyNode the tidyNode object.
+	 * @return tidyNode the <b>tidyNode</b> object.
 	 */
 	public function html () {}
 
 	/**
 	 * (PHP 5, PECL tidy 0.5.2-1.0)<br/>
-	 * Returns a <classname>tidyNode</classname> object starting from the &lt;body&gt; tag of the tidy parse tree
+	 * Returns a <b>tidyNode</b> object starting from the &lt;body&gt; tag of the tidy parse tree
 	 * @link http://php.net/manual/en/tidy.body.php
 	 * @return tidyNode the detected HTML version.
 	 * </p>
@@ -276,24 +286,24 @@ class tidy  {
 
 	/**
 	 * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
-	 * Constructs a new <classname>tidy</classname> object
+	 * Constructs a new <b>tidy</b> object
 	 * @link http://php.net/manual/en/tidy.construct.php
 	 * @param string $filename [optional] <p>
-	 * If the filename parameter is given, this function
+	 * If the <i>filename</i> parameter is given, this function
 	 * will also read that file and initialize the object with the file,
-	 * acting like tidy_parse_file.
+	 * acting like <b>tidy_parse_file</b>.
 	 * </p>
 	 * @param mixed $config [optional] <p>
-	 * The config config can be passed either as an
+	 * The config <i>config</i> can be passed either as an
 	 * array or as a string. If a string is passed, it is interpreted as the
 	 * name of the configuration file, otherwise, it is interpreted as the
 	 * options themselves.
 	 * </p>
 	 * <p>
-	 * For an explanation about each option, visit &url.tidy.conf;.
+	 * For an explanation about each option, visit http://tidy.sourceforge.net/docs/quickref.html.
 	 * </p>
 	 * @param string $encoding [optional] <p>
-	 * The encoding parameter sets the encoding for
+	 * The <i>encoding</i> parameter sets the encoding for
 	 * input/output documents. The possible values for encoding are: 
 	 * ascii, latin0, latin1,
 	 * raw, utf8, iso2022,
@@ -304,7 +314,6 @@ class tidy  {
 	 * @param bool $use_include_path [optional] <p>
 	 * Search for the file in the include_path.
 	 * </p>
-	 * @return tidy the new tidy instance.
 	 */
 	public function __construct ($filename = null, $config = null, $encoding = null, $use_include_path = null) {}
 
@@ -357,7 +366,7 @@ final class tidyNode  {
 	 * (PHP 5 &gt;= 5.0.1)<br/>
 	 * Checks if a node has children
 	 * @link http://php.net/manual/en/tidynode.haschildren.php
-	 * @return bool true if the node has children, false otherwise.
+	 * @return bool <b>TRUE</b> if the node has children, <b>FALSE</b> otherwise.
 	 */
 	public function hasChildren () {}
 
@@ -365,7 +374,7 @@ final class tidyNode  {
 	 * (PHP 5 &gt;= 5.0.1)<br/>
 	 * Checks if a node has siblings
 	 * @link http://php.net/manual/en/tidynode.hassiblings.php
-	 * @return bool true if the node has siblings, false otherwise.
+	 * @return bool <b>TRUE</b> if the node has siblings, <b>FALSE</b> otherwise.
 	 */
 	public function hasSiblings () {}
 
@@ -373,7 +382,7 @@ final class tidyNode  {
 	 * (PHP 5 &gt;= 5.0.1)<br/>
 	 * Checks if a node represents a comment
 	 * @link http://php.net/manual/en/tidynode.iscomment.php
-	 * @return bool true if the node is a comment, false otherwise.
+	 * @return bool <b>TRUE</b> if the node is a comment, <b>FALSE</b> otherwise.
 	 */
 	public function isComment () {}
 
@@ -381,7 +390,7 @@ final class tidyNode  {
 	 * (PHP 5 &gt;= 5.0.1)<br/>
 	 * Checks if a node is part of a HTML document
 	 * @link http://php.net/manual/en/tidynode.ishtml.php
-	 * @return bool true if the node is part of a HTML document, false otherwise.
+	 * @return bool <b>TRUE</b> if the node is part of a HTML document, <b>FALSE</b> otherwise.
 	 */
 	public function isHtml () {}
 
@@ -389,7 +398,7 @@ final class tidyNode  {
 	 * (PHP 5 &gt;= 5.0.1)<br/>
 	 * Checks if a node represents text (no markup)
 	 * @link http://php.net/manual/en/tidynode.istext.php
-	 * @return bool true if the node represent a text, false otherwise.
+	 * @return bool <b>TRUE</b> if the node represent a text, <b>FALSE</b> otherwise.
 	 */
 	public function isText () {}
 
@@ -397,7 +406,7 @@ final class tidyNode  {
 	 * (PHP 5 &gt;= 5.0.1)<br/>
 	 * Checks if this node is JSTE
 	 * @link http://php.net/manual/en/tidynode.isjste.php
-	 * @return bool true if the node is JSTE, false otherwise.
+	 * @return bool <b>TRUE</b> if the node is JSTE, <b>FALSE</b> otherwise.
 	 */
 	public function isJste () {}
 
@@ -405,7 +414,7 @@ final class tidyNode  {
 	 * (PHP 5 &gt;= 5.0.1)<br/>
 	 * Checks if this node is ASP
 	 * @link http://php.net/manual/en/tidynode.isasp.php
-	 * @return bool true if the node is ASP, false otherwise.
+	 * @return bool <b>TRUE</b> if the node is ASP, <b>FALSE</b> otherwise.
 	 */
 	public function isAsp () {}
 
@@ -413,7 +422,7 @@ final class tidyNode  {
 	 * (PHP 5 &gt;= 5.0.1)<br/>
 	 * Checks if a node is PHP
 	 * @link http://php.net/manual/en/tidynode.isphp.php
-	 * @return bool true if the current node is PHP code, false otherwise.
+	 * @return bool <b>TRUE</b> if the current node is PHP code, <b>FALSE</b> otherwise.
 	 */
 	public function isPhp () {}
 
@@ -421,10 +430,12 @@ final class tidyNode  {
 	 * (PHP 5 &gt;= 5.2.2)<br/>
 	 * Returns the parent node of the current node
 	 * @link http://php.net/manual/en/tidynode.getparent.php
-	 * @return tidyNode a tidyNode if the node has a parent, or &null;
+	 * @return tidyNode a tidyNode if the node has a parent, or <b>NULL</b>
 	 * otherwise.
 	 */
 	public function getParent () {}
+
+	private function __construct () {}
 
 }
 
@@ -453,7 +464,7 @@ function tidy_parse_file ($file, $config_options, $encoding, $use_include_path) 
  * Return a string representing the parsed tidy markup
  * @link http://php.net/manual/en/function.tidy-get-output.php
  * @param tidy $object <p>
- * &tidy.object;
+ * The <b>Tidy</b> object.
  * </p>
  * @return string the parsed tidy markup.
  */
@@ -537,26 +548,33 @@ function tidy_is_xhtml () {}
 function tidy_is_xml () {}
 
 /**
+ * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Returns the Number of Tidy errors encountered for specified document
  * @link http://php.net/manual/en/function.tidy-error-count.php
+ * @param tidy $object <p>
+ * The <b>Tidy</b> object.
+ * </p>
+ * @return int the number of errors.
  */
-function tidy_error_count () {}
+function tidy_error_count (tidy $object) {}
 
 /**
+ * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Returns the Number of Tidy warnings encountered for specified document
  * @link http://php.net/manual/en/function.tidy-warning-count.php
- * @param $object tidy <p>
- * The Tidy object.
+ * @param tidy $object <p>
+ * The <b>Tidy</b> object.
  * </p>
  * @return int the number of warnings.
  */
 function tidy_warning_count (tidy $object) {}
 
 /**
+ * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Returns the Number of Tidy accessibility warnings encountered for specified document
  * @link http://php.net/manual/en/function.tidy-access-count.php
- * @param $object tidy <p>
- * The Tidy object.
+ * @param tidy $object <p>
+ * The <b>Tidy</b> object.
  * </p>
  * @return int the number of warnings.
  */
@@ -567,7 +585,7 @@ function tidy_access_count (tidy $object) {}
  * Returns the Number of Tidy configuration errors encountered for specified document
  * @link http://php.net/manual/en/function.tidy-config-count.php
  * @param tidy $object <p>
- * &tidy.object;
+ * The <b>Tidy</b> object.
  * </p>
  * @return int the number of errors.
  */
