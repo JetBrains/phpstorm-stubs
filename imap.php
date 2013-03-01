@@ -45,9 +45,9 @@
  * Connection parameters, the following (string) keys maybe used
  * to set one or more connection parameters:
  * DISABLE_AUTHENTICATOR - Disable authentication properties
- * @return resource an IMAP stream on success or false on error.
+ * @return resource an IMAP stream on success or <b>FALSE</b> on error.
  */
-function imap_open ($mailbox, $username, $password, $options = 0, $n_retries = 0, array $params = null) {}
+function imap_open ($mailbox, $username, $password, $options = NIL, $n_retries = 0, array $params = null) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
@@ -65,7 +65,7 @@ function imap_open ($mailbox, $username, $password, $options = 0, $n_retries = 0
  * @param int $n_retries [optional] <p>
  * Number of maximum connect attempts
  * </p>
- * @return bool true if the stream is reopened, false otherwise.
+ * @return bool <b>TRUE</b> if the stream is reopened, <b>FALSE</b> otherwise.
  */
 function imap_reopen ($imap_stream, $mailbox, $options = 0, $n_retries = 0) {}
 
@@ -80,7 +80,7 @@ function imap_reopen ($imap_stream, $mailbox, $options = 0, $n_retries = 0) {}
  * deletion. You can achieve the same thing by using
  * <b>imap_expunge</b>
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_close ($imap_stream, $flag = 0) {}
 
@@ -203,14 +203,14 @@ function imap_headerinfo ($imap_stream, $msg_number, $fromlength = 0, $subjectle
  * <b>imap_header</b>, except for the flags and other
  * properties that come from the IMAP server.
  */
-function imap_rfc822_parse_headers ($headers, $defaulthost = null) {}
+function imap_rfc822_parse_headers ($headers, $defaulthost = UNKNOWN) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
  * Returns a properly formatted email address given the mailbox, host, and personal info
  * @link http://php.net/manual/en/function.imap-rfc822-write-address.php
  * @param string $mailbox <p>
- * The mailbox name, see imap_open for more
+ * The mailbox name, see <b>imap_open</b> for more
  * information
  * </p>
  * @param string $host <p>
@@ -297,6 +297,26 @@ function imap_bodystruct ($imap_stream, $msg_number, $section) {}
 function imap_fetchbody ($imap_stream, $msg_number, $section, $options = 0) {}
 
 /**
+ * (PHP 5 &gt;= 5.3.6)<br/>
+ * Fetch MIME headers for a particular section of the message
+ * @link http://php.net/manual/en/function.imap-fetchmime.php
+ * @param resource $imap_stream
+ * @param int $msg_number <p>
+ * The message number
+ * </p>
+ * @param string $section <p>
+ * The part number. It is a string of integers delimited by period which
+ * index into a body part list as per the IMAP4 specification
+ * </p>
+ * @param int $options [optional] <p>
+ * A bitmask with one or more of the following:
+ * <b>FT_UID</b> - The <i>msg_number</i> is a UID
+ * @return string the MIME headers of a particular section of the body of the specified messages as a
+ * text string.
+ */
+function imap_fetchmime ($imap_stream, $msg_number, $section, $options = 0) {}
+
+/**
  * (PHP 5 &gt;= 5.1.3)<br/>
  * Save a specific body section to a file
  * @link http://php.net/manual/en/function.imap-savebody.php
@@ -315,7 +335,7 @@ function imap_fetchbody ($imap_stream, $msg_number, $section, $options = 0) {}
  * @param int $options [optional] <p>
  * A bitmask with one or more of the following:
  * <b>FT_UID</b> - The <i>msg_number</i> is a UID
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_savebody ($imap_stream, $file, $msg_number, $part_number = "", $options = 0) {}
 
@@ -334,24 +354,6 @@ function imap_savebody ($imap_stream, $file, $msg_number, $part_number = "", $op
  * @return string the header of the specified message as a text string.
  */
 function imap_fetchheader ($imap_stream, $msg_number, $options = 0) {}
-
-/**
- * (PHP 5.3.6)<br/>
- * Fetch MIME headers for a particular section of the message
- * @link http://php.net/manual/en/function.imap-fetchmime.php
- * @param resource $imap_stream
- * @param int $msg_number <p>
- * The message number
- * </p>
- * @param string $section The part number.
- * It is a string of integers delimited by period which index into a body part list as per the IMAP4 specification <p>
- * @param int $options [optional] A bitmask with one or more of the following:<ul>
- * <li>FT_UID - The msg_number is a UID
- * <li>FT_PEEK - Do not set the \Seen flag if not already set
- * <li>FT_INTERNAL - The return string is in internal format, will not canonicalize to CRLF.</ul><p>
- * @return string the MIME headers of a particular section of the body of the specified messages as a text string..
- */
-function imap_fetchmime ($imap_stream, $msg_number, string $section, $options = 0) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
@@ -384,7 +386,7 @@ function imap_fetchmime ($imap_stream, $msg_number, string $section, $options = 
  * </tr>
  * <tr valign="top">
  * <td>ifsubtype</td>
- * <td>true if there is a subtype string</td>
+ * <td><b>TRUE</b> if there is a subtype string</td>
  * </tr>
  * <tr valign="top">
  * <td>subtype</td>
@@ -392,7 +394,7 @@ function imap_fetchmime ($imap_stream, $msg_number, string $section, $options = 
  * </tr>
  * <tr valign="top">
  * <td>ifdescription</td>
- * <td>true if there is a description string</td>
+ * <td><b>TRUE</b> if there is a description string</td>
  * </tr>
  * <tr valign="top">
  * <td>description</td>
@@ -400,7 +402,7 @@ function imap_fetchmime ($imap_stream, $msg_number, string $section, $options = 
  * </tr>
  * <tr valign="top">
  * <td>ifid</td>
- * <td>true if there is an identification string</td>
+ * <td><b>TRUE</b> if there is an identification string</td>
  * </tr>
  * <tr valign="top">
  * <td>id</td>
@@ -416,7 +418,7 @@ function imap_fetchmime ($imap_stream, $msg_number, string $section, $options = 
  * </tr>
  * <tr valign="top">
  * <td>ifdisposition</td>
- * <td>true if there is a disposition string</td>
+ * <td><b>TRUE</b> if there is a disposition string</td>
  * </tr>
  * <tr valign="top">
  * <td>disposition</td>
@@ -424,7 +426,7 @@ function imap_fetchmime ($imap_stream, $msg_number, string $section, $options = 
  * </tr>
  * <tr valign="top">
  * <td>ifdparameters</td>
- * <td>true if the dparameters array exists</td>
+ * <td><b>TRUE</b> if the dparameters array exists</td>
  * </tr>
  * <tr valign="top">
  * <td>dparameters</td>
@@ -436,7 +438,7 @@ function imap_fetchmime ($imap_stream, $msg_number, string $section, $options = 
  * </tr>
  * <tr valign="top">
  * <td>ifparameters</td>
- * <td>true if the parameters array exists</td>
+ * <td><b>TRUE</b> if the parameters array exists</td>
  * </tr>
  * <tr valign="top">
  * <td>parameters</td>
@@ -490,7 +492,7 @@ function imap_fetchstructure ($imap_stream, $msg_number, $options = 0) {}
  * <b>IMAP_GC_ENV</b> (enveloppe and bodies),
  * <b>IMAP_GC_TEXTS</b> (texts).
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_gc ($imap_stream, $caches) {}
 
@@ -499,7 +501,7 @@ function imap_gc ($imap_stream, $caches) {}
  * Delete all messages marked for deletion
  * @link http://php.net/manual/en/function.imap-expunge.php
  * @param resource $imap_stream 
- * @return bool true.
+ * @return bool <b>TRUE</b>.
  */
 function imap_expunge ($imap_stream) {}
 
@@ -516,7 +518,7 @@ function imap_expunge ($imap_stream) {}
  * to treat the <i>msg_number</i> argument as an
  * UID.
  * </p>
- * @return bool true.
+ * @return bool <b>TRUE</b>.
  */
 function imap_delete ($imap_stream, $msg_number, $options = 0) {}
 
@@ -529,7 +531,7 @@ function imap_delete ($imap_stream, $msg_number, $options = 0) {}
  * The message number
  * </p>
  * @param int $flags [optional]
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_undelete ($imap_stream, $msg_number, $flags = 0) {}
 
@@ -547,7 +549,7 @@ function imap_undelete ($imap_stream, $msg_number, $flags = 0) {}
  * <b>Recent</b> - number of recent messages in the mailbox
  * </p>
  * <p> 
- * Returns false on failure.
+ * Returns <b>FALSE</b> on failure.
  */
 function imap_check ($imap_stream) {}
 
@@ -560,7 +562,18 @@ function imap_check ($imap_stream) {}
  * <i>ref</i> should normally be just the server
  * specification as described in <b>imap_open</b>
  * </p>
- * @param string $pattern &imap.pattern;
+ * @param string $pattern Specifies where in the mailbox hierarchy
+ * to start searching.</p>There are two special characters you can
+ * pass as part of the <i>pattern</i>:
+ * &#x00027;*&#x00027; and &#x00027;&#37;&#x00027;.
+ * &#x00027;*&#x00027; means to return all mailboxes. If you pass
+ * <i>pattern</i> as &#x00027;*&#x00027;, you will
+ * get a list of the entire mailbox hierarchy.
+ * &#x00027;&#37;&#x00027;
+ * means to return the current level only.
+ * &#x00027;&#37;&#x00027; as the <i>pattern</i>
+ * parameter will return only the top level
+ * mailboxes; &#x00027;~/mail/&#37;&#x00027; on UW_IMAPD will return every mailbox in the ~/mail directory, but none in subfolders of that directory.</p>
  * @param string $content <p>
  * The searched string
  * </p>
@@ -585,7 +598,7 @@ function imap_listscan ($imap_stream, $ref, $pattern, $content) {}
  * @param int $options [optional] <p>
  * <i>options</i> is a bitmask of one or more of
  * <b>CP_UID</b> - the sequence numbers contain UIDS
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_mail_copy ($imap_stream, $msglist, $mailbox, $options = 0) {}
 
@@ -605,7 +618,7 @@ function imap_mail_copy ($imap_stream, $msglist, $mailbox, $options = 0) {}
  * @param int $options [optional] <p>
  * <i>options</i> is a bitmask and may contain the single option:
  * <b>CP_UID</b> - the sequence numbers contain UIDS
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_mail_move ($imap_stream, $msglist, $mailbox, $options = 0) {}
 
@@ -642,7 +655,7 @@ function imap_mail_compose (array $envelope, array $body) {}
  * information. Names containing international characters should be
  * encoded by <b>imap_utf7_encode</b>
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_createmailbox ($imap_stream, $mailbox) {}
 
@@ -659,7 +672,7 @@ function imap_createmailbox ($imap_stream, $mailbox) {}
  * The new mailbox name, see <b>imap_open</b> for more
  * information
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_renamemailbox ($imap_stream, $old_mbox, $new_mbox) {}
 
@@ -672,7 +685,7 @@ function imap_renamemailbox ($imap_stream, $old_mbox, $new_mbox) {}
  * The mailbox name, see <b>imap_open</b> for more
  * information
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_deletemailbox ($imap_stream, $mailbox) {}
 
@@ -685,7 +698,7 @@ function imap_deletemailbox ($imap_stream, $mailbox) {}
  * The mailbox name, see <b>imap_open</b> for more
  * information
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_subscribe ($imap_stream, $mailbox) {}
 
@@ -698,7 +711,7 @@ function imap_subscribe ($imap_stream, $mailbox) {}
  * The mailbox name, see <b>imap_open</b> for more
  * information
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_unsubscribe ($imap_stream, $mailbox) {}
 
@@ -726,7 +739,7 @@ function imap_unsubscribe ($imap_stream, $mailbox) {}
  * @param string $internal_date [optional] <p>
  * If this parameter is set, it will set the INTERNALDATE on the appended message. The parameter should be a date string that conforms to the rfc2060 specifications for a date_time value.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_append ($imap_stream, $mailbox, $message, $options = null, $internal_date = null) {}
 
@@ -735,7 +748,7 @@ function imap_append ($imap_stream, $mailbox, $message, $options = null, $intern
  * Check if the IMAP stream is still active
  * @link http://php.net/manual/en/function.imap-ping.php
  * @param resource $imap_stream 
- * @return bool true if the stream is still alive, false otherwise.
+ * @return bool <b>TRUE</b> if the stream is still alive, <b>FALSE</b> otherwise.
  */
 function imap_ping ($imap_stream) {}
 
@@ -868,7 +881,7 @@ function imap_status_current ($stream_id, $options) {}
  * </table>
  * </p>
  * <p>
- * Returns false on failure.
+ * Returns <b>FALSE</b> on failure.
  */
 function imap_mailboxmsginfo ($imap_stream) {}
 
@@ -892,9 +905,9 @@ function imap_mailboxmsginfo ($imap_stream) {}
  * A bit mask that may contain the single option:
  * <b>ST_UID</b> - The sequence argument contains UIDs
  * instead of sequence numbers
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function imap_setflag_full ($imap_stream, $sequence, $flag, $options = 0) {}
+function imap_setflag_full ($imap_stream, $sequence, $flag, $options = NIL) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
@@ -915,7 +928,7 @@ function imap_setflag_full ($imap_stream, $sequence, $flag, $options = 0) {}
  * the single option:
  * <b>ST_UID</b> - The sequence argument contains UIDs
  * instead of sequence numbers
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_clearflag_full ($imap_stream, $sequence, $flag, $options = 0) {}
 
@@ -962,7 +975,7 @@ function imap_uid ($imap_stream, $msg_number) {}
  * The message UID
  * </p>
  * @return int the message sequence number for the given 
- * uid.
+ * <i>uid</i>.
  */
 function imap_msgno ($imap_stream, $uid) {}
 
@@ -975,20 +988,18 @@ function imap_msgno ($imap_stream, $uid) {}
  * <i>ref</i> should normally be just the server
  * specification as described in <b>imap_open</b>.
  * </p>
- * @param pattern string <p>
- * Specifies where in the mailbox hierarchy to start searching.
- * </p>
- * <p>
- * There are two special characters you can pass as part of the
- * pattern: '*' and '%'. '*' means to return
- * all mailboxes. If you pass pattern as '*',
- * you will get a list of the entire mailbox hierarchy. '%' means to
- * return the current level only. '%' as the
- * pattern parameter will return only the top
- * level mailboxes; '~/mail/%' on UW_IMAPD will return every mailbox
- * in the ~/mail directory, but none in subfolders of that
- * directory.
- * </p>
+ * @param string $pattern Specifies where in the mailbox hierarchy
+ * to start searching.</p>There are two special characters you can
+ * pass as part of the <i>pattern</i>:
+ * &#x00027;*&#x00027; and &#x00027;&#37;&#x00027;.
+ * &#x00027;*&#x00027; means to return all mailboxes. If you pass
+ * <i>pattern</i> as &#x00027;*&#x00027;, you will
+ * get a list of the entire mailbox hierarchy.
+ * &#x00027;&#37;&#x00027;
+ * means to return the current level only.
+ * &#x00027;&#37;&#x00027; as the <i>pattern</i>
+ * parameter will return only the top level
+ * mailboxes; &#x00027;~/mail/&#37;&#x00027; on UW_IMAPD will return every mailbox in the ~/mail directory, but none in subfolders of that directory.</p>
  * @return array an array containing the names of the mailboxes.
  */
 function imap_list ($imap_stream, $ref, $pattern) {}
@@ -1002,20 +1013,18 @@ function imap_list ($imap_stream, $ref, $pattern) {}
  * <i>ref</i> should normally be just the server
  * specification as described in <b>imap_open</b>
  * </p>
- * @param pattern string <p>
- * Specifies where in the mailbox hierarchy to start searching.
- * </p>
- * <p>
- * There are two special characters you can pass as part of the
- * pattern: '*' and '%'. '*' means to return
- * all mailboxes. If you pass pattern as '*',
- * you will get a list of the entire mailbox hierarchy. '%' means to
- * return the current level only. '%' as the
- * pattern parameter will return only the top
- * level mailboxes; '~/mail/%' on UW_IMAPD will return every mailbox
- * in the ~/mail directory, but none in subfolders of that
- * directory.
- * </p>
+ * @param string $pattern Specifies where in the mailbox hierarchy
+ * to start searching.</p>There are two special characters you can
+ * pass as part of the <i>pattern</i>:
+ * &#x00027;*&#x00027; and &#x00027;&#37;&#x00027;.
+ * &#x00027;*&#x00027; means to return all mailboxes. If you pass
+ * <i>pattern</i> as &#x00027;*&#x00027;, you will
+ * get a list of the entire mailbox hierarchy.
+ * &#x00027;&#37;&#x00027;
+ * means to return the current level only.
+ * &#x00027;&#37;&#x00027; as the <i>pattern</i>
+ * parameter will return only the top level
+ * mailboxes; &#x00027;~/mail/&#37;&#x00027; on UW_IMAPD will return every mailbox in the ~/mail directory, but none in subfolders of that directory.</p>
  * @return array an array of all the subscribed mailboxes.
  */
 function imap_lsub ($imap_stream, $ref, $pattern) {}
@@ -1061,7 +1070,7 @@ function imap_fetch_overview ($imap_stream, $sequence, $options = 0) {}
  * (PHP 4, PHP 5)<br/>
  * Returns all IMAP alert messages that have occurred
  * @link http://php.net/manual/en/function.imap-alerts.php
- * @return array an array of all of the IMAP alert messages generated or false if
+ * @return array an array of all of the IMAP alert messages generated or <b>FALSE</b> if
  * no alert messages are available.
  */
 function imap_alerts () {}
@@ -1072,7 +1081,7 @@ function imap_alerts () {}
  * @link http://php.net/manual/en/function.imap-errors.php
  * @return array This function returns an array of all of the IMAP error messages
  * generated since the last <b>imap_errors</b> call,
- * or the beginning of the page. Returns false if no error messages are
+ * or the beginning of the page. Returns <b>FALSE</b> if no error messages are
  * available.
  */
 function imap_errors () {}
@@ -1082,7 +1091,7 @@ function imap_errors () {}
  * Gets the last IMAP error that occurred during this page request
  * @link http://php.net/manual/en/function.imap-last-error.php
  * @return string the full text of the last IMAP error message that occurred on the
- * current page. Returns false if no error messages are available.
+ * current page. Returns <b>FALSE</b> if no error messages are available.
  */
 function imap_last_error () {}
 
@@ -1106,10 +1115,10 @@ function imap_last_error () {}
  * @return array an array of message numbers or UIDs.
  * </p>
  * <p>
- * Return false if it does not understand the search
+ * Return <b>FALSE</b> if it does not understand the search
  * <i>criteria</i> or no messages have been found.
  */
-function imap_search ($imap_stream, $criteria, $options = SE_FREE, $charset = null) {}
+function imap_search ($imap_stream, $criteria, $options = SE_FREE, $charset = NIL) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
@@ -1120,7 +1129,7 @@ function imap_search ($imap_stream, $criteria, $options = SE_FREE, $charset = nu
  * was defined in RFC1642).
  * </p>
  * @return string a string that is encoded in ISO-8859-1 and consists of the same
- * sequence of characters in <i>text</i>, or false
+ * sequence of characters in <i>text</i>, or <b>FALSE</b>
  * if <i>text</i> contains invalid modified UTF-7 sequence
  * or <i>text</i> contains a character that is not part of
  * ISO-8859-1 character set.
@@ -1165,7 +1174,7 @@ function imap_mime_header_decode ($text) {}
  * @param resource $imap_stream 
  * @param int $options [optional]
  * @return array <b>imap_thread</b> returns an associative array containing
- * a tree of messages threaded by REFERENCES, or false
+ * a tree of messages threaded by REFERENCES, or <b>FALSE</b>
  * on error.
  * </p>
  * <p>
@@ -1198,7 +1207,7 @@ function imap_thread ($imap_stream, $options = SE_FREE) {}
  * The timeout, in seconds.
  * </p>
  * @return mixed If the <i>timeout</i> parameter is set, this function
- * returns true on success and false on failure.
+ * returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
  * </p>
  * <p>
  * If <i>timeout</i> is not provided or evaluates to -1,
@@ -1220,7 +1229,7 @@ function imap_timeout ($timeout_type, $timeout = -1) {}
  * @return array an array with integer values limit and usage for the given
  * mailbox. The value of limit represents the total amount of space
  * allowed for this mailbox. The usage value represents the mailboxes
- * current level of capacity. Will return false in the case of failure.
+ * current level of capacity. Will return <b>FALSE</b> in the case of failure.
  * </p>
  * <p>
  * As of PHP 4.3, the function more properly reflects the
@@ -1250,7 +1259,7 @@ function imap_get_quota ($imap_stream, $quota_root) {}
  * corresponding array with the usage and limit values within.
  * </p>
  * <p>
- * This function will return false in the case of call failure, and an
+ * This function will return <b>FALSE</b> in the case of call failure, and an
  * array of information about the connection upon an un-parsable response
  * from the server.
  */
@@ -1268,7 +1277,7 @@ function imap_get_quotaroot ($imap_stream, $quota_root) {}
  * @param int $quota_limit <p>
  * The maximum size (in KB) for the <i>quota_root</i>
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_set_quota ($imap_stream, $quota_root, $quota_limit) {}
 
@@ -1288,7 +1297,7 @@ function imap_set_quota ($imap_stream, $quota_root, $quota_limit) {}
  * The rights to give to the user. Passing an empty string will delete
  * acl.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_setacl ($imap_stream, $mailbox, $id, $rights) {}
 
@@ -1353,7 +1362,7 @@ function imap_getannotation ($stream_id, $mailbox, $entry, $attr) {}
  * Use this parameter to specify return path upon mail delivery failure.
  * This is useful when using PHP as a mail client for multiple users.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imap_mail ($to, $subject, $message, $additional_headers = null, $cc = null, $bcc = null, $rpath = null) {}
 
@@ -1388,20 +1397,18 @@ function imap_listmailbox ($stream_id, $ref, $pattern) {}
  * <i>ref</i> should normally be just the server
  * specification as described in <b>imap_open</b>
  * </p>
- * @param pattern string <p>
- * Specifies where in the mailbox hierarchy to start searching.
- * </p>
- * <p>
- * There are two special characters you can pass as part of the
- * pattern: '*' and '%'. '*' means to return
- * all mailboxes. If you pass pattern as '*',
- * you will get a list of the entire mailbox hierarchy. '%' means to
- * return the current level only. '%' as the
- * pattern parameter will return only the top
- * level mailboxes; '~/mail/%' on UW_IMAPD will return every mailbox
- * in the ~/mail directory, but none in subfolders of that
- * directory.
- * </p>
+ * @param string $pattern Specifies where in the mailbox hierarchy
+ * to start searching.</p>There are two special characters you can
+ * pass as part of the <i>pattern</i>:
+ * &#x00027;*&#x00027; and &#x00027;&#37;&#x00027;.
+ * &#x00027;*&#x00027; means to return all mailboxes. If you pass
+ * <i>pattern</i> as &#x00027;*&#x00027;, you will
+ * get a list of the entire mailbox hierarchy.
+ * &#x00027;&#37;&#x00027;
+ * means to return the current level only.
+ * &#x00027;&#37;&#x00027; as the <i>pattern</i>
+ * parameter will return only the top level
+ * mailboxes; &#x00027;~/mail/&#37;&#x00027; on UW_IMAPD will return every mailbox in the ~/mail directory, but none in subfolders of that directory.</p>
  * @return array an array of objects containing mailbox information. Each
  * object has the attributes <i>name</i>, specifying
  * the full name of the mailbox; <i>delimiter</i>,
@@ -1458,23 +1465,21 @@ function imap_listsubscribed ($stream_id, $ref, $pattern) {}
  * @link http://php.net/manual/en/function.imap-getsubscribed.php
  * @param resource $imap_stream 
  * @param string $ref <p>
- * ref should normally be just the server
- * specification as described in imap_open
+ * <i>ref</i> should normally be just the server
+ * specification as described in <b>imap_open</b>
  * </p>
- * @param pattern string <p>
- * Specifies where in the mailbox hierarchy to start searching.
- * </p>
- * <p>
- * There are two special characters you can pass as part of the
- * pattern: '*' and '%'. '*' means to return
- * all mailboxes. If you pass pattern as '*',
- * you will get a list of the entire mailbox hierarchy. '%' means to
- * return the current level only. '%' as the
- * pattern parameter will return only the top
- * level mailboxes; '~/mail/%' on UW_IMAPD will return every mailbox
- * in the ~/mail directory, but none in subfolders of that
- * directory.
- * </p>
+ * @param string $pattern Specifies where in the mailbox hierarchy
+ * to start searching.</p>There are two special characters you can
+ * pass as part of the <i>pattern</i>:
+ * &#x00027;*&#x00027; and &#x00027;&#37;&#x00027;.
+ * &#x00027;*&#x00027; means to return all mailboxes. If you pass
+ * <i>pattern</i> as &#x00027;*&#x00027;, you will
+ * get a list of the entire mailbox hierarchy.
+ * &#x00027;&#37;&#x00027;
+ * means to return the current level only.
+ * &#x00027;&#37;&#x00027; as the <i>pattern</i>
+ * parameter will return only the top level
+ * mailboxes; &#x00027;~/mail/&#37;&#x00027; on UW_IMAPD will return every mailbox in the ~/mail directory, but none in subfolders of that directory.</p>
  * @return array an array of objects containing mailbox information. Each
  * object has the attributes <i>name</i>, specifying
  * the full name of the mailbox; <i>delimiter</i>,

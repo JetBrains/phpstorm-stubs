@@ -76,7 +76,7 @@ function xmlrpc_get_type ($value) {}
  * @param string $type <p>
  * 'base64' or 'datetime'
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * If successful, <i>value</i> is converted to an object.
  */
 function xmlrpc_set_type (&$value, $type) {}
@@ -88,7 +88,7 @@ function xmlrpc_set_type (&$value, $type) {}
  * @param array $arg <p>
  * Array returned by <b>xmlrpc_decode</b>.
  * </p>
- * @return bool true if the argument means fault, false otherwise. Fault
+ * @return bool <b>TRUE</b> if the argument means fault, <b>FALSE</b> otherwise. Fault
  * description is available in $arg["faultString"], fault
  * code is in $arg["faultCode"].
  */
