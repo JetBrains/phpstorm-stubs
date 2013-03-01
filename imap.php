@@ -117,77 +117,52 @@ function imap_headers ($imap_stream) {}
  * (PHP 4, PHP 5)<br/>
  * Read the header of the message
  * @link http://php.net/manual/en/function.imap-headerinfo.php
- * @param resource $imap_stream 
- * @param int $msg_number <p>
- * The message number
- * </p>
- * @param int $fromlength [optional] <p>
- * Number of characters for the fetchfrom property.
- * Must be greater than or equal to zero.
- * </p>
- * @param int $subjectlength [optional] <p>
- * Number of characters for the fetchsubject property
- * Must be greater than or equal to zero.
- * </p>
- * @param string $defaulthost [optional]
- * @return object the information in an object with following properties:
- * toaddress - full to: line, up to 1024 characters
- * to - an array of objects from the To: line, with the following 
- * properties: personal, adl,
- * mailbox, and host
- * fromaddress - full from: line, up to 1024 characters
- * from - an array of objects from the From: line, with the following 
- * properties: personal, adl,
- * mailbox, and host
- * ccaddress - full cc: line, up to 1024 characters
- * cc - an array of objects from the Cc: line, with the following 
- * properties: personal, adl,
- * mailbox, and host
- * bccaddress - full bcc: line, up to 1024 characters
- * bcc - an array of objects from the Bcc: line, with the following 
- * properties: personal, adl,
- * mailbox, and host
- * reply_toaddress - full Reply-To: line, up to 1024 characters
- * reply_to - an array of objects from the Reply-To: line, with the following
- * properties: personal, adl,
- * mailbox, and host
- * senderaddress - full sender: line, up to 1024 characters
- * sender - an array of objects from the Sender: line, with the following 
- * properties: personal, adl,
- * mailbox, and host
- * return_pathaddress - full Return-Path: line, up to 1024 characters
- * return_path - an array of objects from the Return-Path: line, with the
- * following properties: personal, 
- * adl, mailbox, and 
- * host
- * remail - 
- * date - The message date as found in its headers
- * Date - Same as date
- * subject - The message subject
- * Subject - Same a subject 
- * in_reply_to - 
- * message_id - 
- * newsgroups - 
- * followup_to - 
- * references - 
- * Recent - R if recent and seen, N
- * if recent and not seen, ' ' if not recent.
- * Unseen - U if not seen AND not recent, ' ' if seen
- * OR not seen and recent
- * Flagged - F if flagged, ' ' if not flagged
- * Answered - A if answered, ' ' if unanswered
- * Deleted - D if deleted, ' ' if not deleted
- * Draft - X if draft, ' ' if not draft
- * Msgno - The message number
- * MailDate - 
- * Size - The message size
- * udate - mail message date in Unix time
- * fetchfrom - from line formatted to fit <i>fromlength</i>
- * characters
- * fetchsubject - subject line formatted to fit 
- * <i>subjectlength</i> characters
+ * @param resource $stream_id An IMAP stream returned by imap_open().
+ * @param int $msg_no The message number
+ * @param int $from_length [optional] Number of characters for the fetchfrom property. Must be greater than or equal to zero.
+ * @param int $subject_length [optional] Number of characters for the fetchsubject property Must be greater than or equal to zero.
+ * @param $default_host [optional]
+ * @return object Returns the information in an object with following properties:
+ * <dl>
+ * <dt>toaddress <dd>full to: line, up to 1024 characters
+ * <dt>to <dd>an array of objects from the To: line, with the following properties: personal, adl, mailbox, and host
+ * <dt>fromaddress <dd>full from: line, up to 1024 characters
+ * <dt>from <dd>an array of objects from the From: line, with the following properties: personal, adl, mailbox, and host
+ * <dt>ccaddress <dd>full cc: line, up to 1024 characters
+ * <dt>cc <dd>an array of objects from the Cc: line, with the following properties: personal, adl, mailbox, and host
+ * <dt>bccaddress <dd>full bcc: line, up to 1024 characters
+ * <dt>bcc <dd>an array of objects from the Bcc: line, with the following properties: personal, adl, mailbox, and host
+ * <dt>reply_toaddress <dd>full Reply-To: line, up to 1024 characters
+ * <dt>reply_to <dd>an array of objects from the Reply-To: line, with the following properties: personal, adl, mailbox, and host
+ * <dt>senderaddress <dd>full sender: line, up to 1024 characters
+ * <dt>sender <dd>an array of objects from the Sender: line, with the following properties: personal, adl, mailbox, and host
+ * <dt>return_pathaddress <dd>full Return-Path: line, up to 1024 characters
+ * <dt>return_path <dd>an array of objects from the Return-Path: line, with the following properties: personal, adl, mailbox, and host
+ * <dt>remail -
+ * <dt>date <dd>The message date as found in its headers
+ * <dt>Date <dd>Same as date
+ * <dt>subject <dd>The message subject
+ * <dt>Subject <dd>Same a subject
+ * <dt>in_reply_to -
+ * <dt>message_id -
+ * <dt>newsgroups -
+ * <dt>followup_to -
+ * <dt>references -
+ * <dt>Recent <dd>R if recent and seen, N if recent and not seen, ' ' if not recent.
+ * <dt>Unseen <dd>U if not seen AND not recent, ' ' if seen OR not seen and recent
+ * <dt>Flagged <dd>F if flagged, ' ' if not flagged
+ * <dt>Answered <dd>A if answered, ' ' if unanswered
+ * <dt>Deleted <dd>D if deleted, ' ' if not deleted
+ * <dt>Draft <dd>X if draft, ' ' if not draft
+ * <dt>Msgno <dd>The message number
+ * <dt>MailDate -
+ * <dt>Size <dd>The message size
+ * <dt>udate <dd>mail message date in Unix time
+ * <dt>fetchfrom <dd>from line formatted to fit fromlength characters
+ * <dt>fetchsubject <dd>subject line formatted to fit subjectlength characters
+ * </dl>
  */
-function imap_headerinfo ($imap_stream, $msg_number, $fromlength = 0, $subjectlength = 0, $defaulthost = null) {}
+function imap_headerinfo ($stream_id, $msg_no, $from_length = 0, $subject_length = 0, $default_host = null) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
@@ -1370,13 +1345,52 @@ function imap_mail ($to, $subject, $message, $additional_headers = null, $cc = n
  * (PHP 4, PHP 5)<br/>
  * Alias of <b>imap_headerinfo</b>
  * @link http://php.net/manual/en/function.imap-header.php
- * @param $stream_id
- * @param $msg_no
- * @param $from_length [optional]
- * @param $subject_length [optional]
+ * @param resource $stream_id An IMAP stream returned by imap_open().
+ * @param int $msg_no The message number
+ * @param int $from_length [optional] Number of characters for the fetchfrom property. Must be greater than or equal to zero.
+ * @param int $subject_length [optional] Number of characters for the fetchsubject property Must be greater than or equal to zero.
  * @param $default_host [optional]
+ * @return object Returns the information in an object with following properties:
+ * <dl>
+ * <dt>toaddress <dd>full to: line, up to 1024 characters
+ * <dt>to <dd>an array of objects from the To: line, with the following properties: personal, adl, mailbox, and host
+ * <dt>fromaddress <dd>full from: line, up to 1024 characters
+ * <dt>from <dd>an array of objects from the From: line, with the following properties: personal, adl, mailbox, and host
+ * <dt>ccaddress <dd>full cc: line, up to 1024 characters
+ * <dt>cc <dd>an array of objects from the Cc: line, with the following properties: personal, adl, mailbox, and host
+ * <dt>bccaddress <dd>full bcc: line, up to 1024 characters
+ * <dt>bcc <dd>an array of objects from the Bcc: line, with the following properties: personal, adl, mailbox, and host
+ * <dt>reply_toaddress <dd>full Reply-To: line, up to 1024 characters
+ * <dt>reply_to <dd>an array of objects from the Reply-To: line, with the following properties: personal, adl, mailbox, and host
+ * <dt>senderaddress <dd>full sender: line, up to 1024 characters
+ * <dt>sender <dd>an array of objects from the Sender: line, with the following properties: personal, adl, mailbox, and host
+ * <dt>return_pathaddress <dd>full Return-Path: line, up to 1024 characters
+ * <dt>return_path <dd>an array of objects from the Return-Path: line, with the following properties: personal, adl, mailbox, and host
+ * <dt>remail -
+ * <dt>date <dd>The message date as found in its headers
+ * <dt>Date <dd>Same as date
+ * <dt>subject <dd>The message subject
+ * <dt>Subject <dd>Same a subject
+ * <dt>in_reply_to -
+ * <dt>message_id -
+ * <dt>newsgroups -
+ * <dt>followup_to -
+ * <dt>references -
+ * <dt>Recent <dd>R if recent and seen, N if recent and not seen, ' ' if not recent.
+ * <dt>Unseen <dd>U if not seen AND not recent, ' ' if seen OR not seen and recent
+ * <dt>Flagged <dd>F if flagged, ' ' if not flagged
+ * <dt>Answered <dd>A if answered, ' ' if unanswered
+ * <dt>Deleted <dd>D if deleted, ' ' if not deleted
+ * <dt>Draft <dd>X if draft, ' ' if not draft
+ * <dt>Msgno <dd>The message number
+ * <dt>MailDate -
+ * <dt>Size <dd>The message size
+ * <dt>udate <dd>mail message date in Unix time
+ * <dt>fetchfrom <dd>from line formatted to fit fromlength characters
+ * <dt>fetchsubject <dd>subject line formatted to fit subjectlength characters
+ * </dl>
  */
-function imap_header ($stream_id, $msg_no, $from_length, $subject_length, $default_host) {}
+function imap_header ($stream_id, $msg_no, $from_length = 0, $subject_length = 0, $default_host = null) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
