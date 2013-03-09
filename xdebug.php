@@ -158,6 +158,11 @@ function xdebug_memory_usage () {}
  */
 function xdebug_peak_memory_usage () {}
 
+/**
+ * Returns the current time index since the starting of the script in seconds.
+ *
+ * @return float
+ */
 function xdebug_time_index () {}
 
 /**
@@ -189,7 +194,9 @@ function xdebug_stop_code_coverage () {}
 function xdebug_get_code_coverage () {}
 
 /**
- * @return void
+ * Returns the number of functions called, including constructors, desctructors and methods.
+ *
+ * @return int
  */
 function xdebug_get_function_count () {}
 

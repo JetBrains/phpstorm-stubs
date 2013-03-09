@@ -1328,6 +1328,13 @@ class PDOStatement implements Traversable {
 final class PDORow  {
 }
 
+/**
+ * (PHP 5 &gt;= 5.1.3, PECL pdo &gt;= 1.0.3)<br/>
+ * Return an array of available PDO drivers
+ * @link http://php.net/manual/en/pdo.getavailabledrivers.php
+ * @return array <b>PDO::getAvailableDrivers</b> returns an array of PDO driver names. If
+ * no drivers are available, it returns an empty array.
+ */
 function pdo_drivers () {}
 
 // End of PDO v.1.0.4dev
