@@ -1056,7 +1056,13 @@ class Memcached  {
 	 */
 	public function getServerByKey ($server_key) {}
 
-	public function resetServerList () {}
+    /**
+     * (PECL memcached &gt;= 2.0.0)
+     * Removes all memcache servers from the known server list, reseting it back to empty.
+     * @link http://php.net/manual/en/memcached.resetserverlist.php
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function resetServerList () {}
 
 	public function quit () {}
 
