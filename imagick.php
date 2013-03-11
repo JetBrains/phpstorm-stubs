@@ -1550,7 +1550,7 @@ class Imagick implements Iterator, Traversable {
 	 * wildcards for file names, or can be URLs.
 	 * </p>
 	 */
-	public function __construct ($files) {}
+	public function __construct ($files = null) {}
 
     /**
      * @return string
