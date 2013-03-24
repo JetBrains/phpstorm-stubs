@@ -44,21 +44,6 @@ function hex2bin($data) {};
 function fastcgi_finish_request() {};
 
 /**
- * (PHP 5 >= 5.4.0)
- * Objects implementing JsonSerializable can customize their JSON representation when encoded with json_encode().
- * @link http://docs.php.net/manual/en/class.jsonserializable.php
- */
-interface JsonSerializable {
-    /**
-     * (PHP 5 >= 5.4.0)
-     * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link http://docs.php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value of any type other than a resource.
-     */
-    function jsonSerialize();
-}
-
-/**
  * Get or Set the HTTP response code
  * @param int $response_code [optional] The optional response_code will set the response code.
  * @return int The current response code. By default the return value is int(200).
