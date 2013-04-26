@@ -791,6 +791,7 @@ function fwrite ($handle, $string, $length = null) {}
  * @param $fp
  * @param $str
  * @param $length [optional]
+ * @return int|FALSE returns the number of bytes written, or FALSE on error.
  */
 function fputs ($fp, $str, $length) {}
 
