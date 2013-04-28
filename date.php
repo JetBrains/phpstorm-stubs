@@ -281,7 +281,7 @@ function strtotime ($time, $now = null) {}
  * created with date_create.
  * </p>
  * @param int $timestamp [optional] 
- * @return string a formatted date string. If a non-numeric value is used for 
+ * @return string|bool a formatted date string. If a non-numeric value is used for
  * timestamp, false is returned and an 
  * E_WARNING level error is emitted.
  */
