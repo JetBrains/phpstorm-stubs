@@ -504,7 +504,7 @@ class PDO  {
 	 * }
 	 * </code>
 	 * </p>
-	 * @link http://php.net/manual/en/pdo-mysql.constants.php
+	 * @link http://php.net/manual/en/ref.pdo-mysql.php
 	 */
 	const MYSQL_ATTR_USE_BUFFERED_QUERY = 1000;
 
@@ -516,7 +516,7 @@ class PDO  {
 	 * Note, this constant can only be used in the <i>driver_options</i>
 	 * array when constructing a new database handle.
 	 * </p>
-	 * @link http://php.net/manual/en/pdo-mysql.constants.php
+	 * @link http://php.net/manual/en/ref.pdo-mysql.php
 	 */
 	const MYSQL_ATTR_LOCAL_INFILE = 1001;
 
@@ -529,7 +529,7 @@ class PDO  {
 	 * Note, this constant can only be used in the <i>driver_options</i>
 	 * array when constructing a new database handle.
 	 * </p>
-	 * @link http://php.net/manual/en/pdo-mysql.constants.php
+	 * @link http://php.net/manual/en/ref.pdo-mysql.php
 	 */
 	const MYSQL_ATTR_INIT_COMMAND = 1002;
 
@@ -538,7 +538,7 @@ class PDO  {
 	 * Maximum buffer size. Defaults to 1 MiB. This constant is not supported when
 	 * compiled against mysqlnd.
 	 * </p>
-	 * @link http://php.net/manual/en/pdo-mysql.constants.php
+	 * @link http://php.net/manual/en/ref.pdo-mysql.php
 	 */
 	const MYSQL_ATTR_MAX_BUFFER_SIZE = 1005;
 
@@ -549,7 +549,7 @@ class PDO  {
 	 * mysqlnd is used, because mysqlnd does not read the mysql
 	 * configuration files.
 	 * </p>
-	 * @link http://php.net/manual/en/pdo-mysql.constants.php
+	 * @link http://php.net/manual/en/ref.pdo-mysql.php
 	 */
 	const MYSQL_ATTR_READ_DEFAULT_FILE = 1003;
 
@@ -560,7 +560,7 @@ class PDO  {
 	 * is not available if mysqlnd is used, because mysqlnd does not read the mysql
 	 * configuration files.
 	 * </p>
-	 * @link http://php.net/manual/en/pdo-mysql.constants.php
+	 * @link http://php.net/manual/en/ref.pdo-mysql.php
 	 */
 	const MYSQL_ATTR_READ_DEFAULT_GROUP = 1004;
 
@@ -569,7 +569,7 @@ class PDO  {
 	 * Enable network communication compression. This is not supported when
 	 * compiled against mysqlnd.
 	 * </p>
-	 * @link http://php.net/manual/en/pdo-mysql.constants.php
+	 * @link http://php.net/manual/en/ref.pdo-mysql.php
 	 */
 	const MYSQL_ATTR_COMPRESS = 1006;
 
@@ -577,7 +577,7 @@ class PDO  {
 	 * <p>
 	 * Perform direct queries, don't use prepared statements.
 	 * </p>
-	 * @link http://php.net/manual/en/pdo-mysql.constants.php
+	 * @link http://php.net/manual/en/ref.pdo-mysql.php
 	 */
 	const MYSQL_ATTR_DIRECT_QUERY = 1007;
 
@@ -586,7 +586,7 @@ class PDO  {
 	 * Return the number of found (matched) rows, not the
 	 * number of changed rows.
 	 * </p>
-	 * @link http://php.net/manual/en/pdo-mysql.constants.php
+	 * @link http://php.net/manual/en/ref.pdo-mysql.php
 	 */
 	const MYSQL_ATTR_FOUND_ROWS = 1008;
 
@@ -595,7 +595,7 @@ class PDO  {
 	 * Permit spaces after function names. Makes all functions
 	 * names reserved words.
 	 * </p>
-	 * @link http://php.net/manual/en/pdo-mysql.constants.php
+	 * @link http://php.net/manual/en/ref.pdo-mysql.php
 	 */
 	const MYSQL_ATTR_IGNORE_SPACE = 1009;
 	const MYSQL_ATTR_SSL_KEY = 1010;
@@ -607,7 +607,7 @@ class PDO  {
 	 * <p>
 	 * This exists as of PHP 5.3.7.
 	 * </p>
-	 * @link http://php.net/manual/en/pdo-mysql.constants.php
+	 * @link http://php.net/manual/en/ref.pdo-mysql.php
 	 */
 	const MYSQL_ATTR_SSL_CERT = 1011;
 
@@ -618,7 +618,7 @@ class PDO  {
 	 * <p>
 	 * This exists as of PHP 5.3.7.
 	 * </p>
-	 * @link http://php.net/manual/en/pdo-mysql.constants.php
+	 * @link http://php.net/manual/en/ref.pdo-mysql.php
 	 */
 	const MYSQL_ATTR_SSL_CA = 1012;
 
@@ -630,7 +630,7 @@ class PDO  {
 	 * <p>
 	 * This exists as of PHP 5.3.7.
 	 * </p>
-	 * @link http://php.net/manual/en/pdo-mysql.constants.php
+	 * @link http://php.net/manual/en/ref.pdo-mysql.php
 	 */
 	const MYSQL_ATTR_SSL_CAPATH = 1013;
 	const MYSQL_ATTR_SSL_CIPHER = 1014;
