@@ -148,11 +148,12 @@ function pcntl_wait (&$status, $options = 0) {}
  * @param int $signo <p>
  * The signal number.
  * </p>
- * @param callable $handler <p>
- * The signal handler which may be the name of a user created function,
- * or method, or either of the two global constants
- * <b>SIG_IGN</b> or <b>SIG_DFL</b>.
- * </p>
+ * @param callable|int $handler <p>
+ * The signal handler. This may be either a callable, which will be invoked to handle the signal,
+ * or either of the two global constants SIG_IGN or SIG_DFL,
+ * which will ignore the signal or restore the default signal handler respectively.
+ * <p>If a callable is given, it must implement the following signature:
+ * <code>void handler ( int $signo )</code> $signo The signal being handled.</p>
  * <p>
  * Note that when you set a handler to an object method, that object's
  * reference count is increased which makes it persist until you either
