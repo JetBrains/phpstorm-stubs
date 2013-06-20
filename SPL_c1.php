@@ -2415,7 +2415,7 @@ class MultipleIterator implements Iterator, Traversable {
          * (PHP 5 &gt;= 5.3.0)<br/>
          * Gets the registered iterator instances
          * @link http://php.net/manual/en/multipleiterator.key.php
-         * @return void An array of all registered iterator instances,
+         * @return array An array of all registered iterator instances,
          * or false if no sub iterator is attached.
          */
         public function key () {}
