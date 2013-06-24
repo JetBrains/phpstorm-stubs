@@ -7,6 +7,52 @@ namespace {
      * @return array
      */
     function PS_UNRESERVE_PREFIX_array(){};
+
+
+    /**
+     * Generator objects are returned from generators, cannot be instantiated via new.
+     * @link http://www.php.net/manual/en/class.generator.php
+     * @link https://wiki.php.net/rfc/generators
+     */
+    final class Generator implements Iterator {
+        /**
+         * Throws an exception if the generator is currently after the first yield.
+         * @return void
+         */
+        function rewind() {};
+        /**
+         * Returns false if the generator has been closed, true otherwise.
+         * @return bool
+         */
+        function valid() {};
+        /**
+         * Returns whatever was passed to yield or null if nothing was passed or the generator is already closed.
+         * @return mixed
+         */
+        function current() {};
+        /**
+         * Returns the yielded key or, if none was specified, an auto-incrementing key or null if the generator is already closed.
+         * @return mixed
+         */
+        function key() {};
+        /**
+         * Resumes the generator (unless the generator is already closed).
+         * @return void
+         */
+        function next() {};
+
+        /**
+         * Sets the return value of the yield expression and resumes the generator (unless the generator is already closed).
+         * @return mixed
+         */
+        function send(mixed $value) {};
+        /**
+         * Throws an exception at the current suspension point in the generator.
+         * @return mixed
+         */
+        function throw(Exception $exception) {};
+    }
+
 }
 
 namespace ___PHPSTORM_HELPERS {
