@@ -282,12 +282,19 @@ function pcntl_exec ($path, array $args = null, array $envs = null) {}
  */
 function pcntl_alarm ($seconds) {}
 
+/**
+ * @return int
+ */
 function pcntl_get_last_error () {}
 
+/**
+ * @return int
+ */
 function pcntl_errno () {}
 
 /**
- * @param $errno
+ * @param int $errno
+ * @return string
  */
 function pcntl_strerror ($errno) {}
 
