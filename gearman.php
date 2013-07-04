@@ -945,6 +945,15 @@ function gearman_client_do_high($client_object, $function_name, $workload, $uniq
 
 /**
  * @param $client_object
+ * @param string $function_name
+ * @param string $workload
+ * @param string $unique
+ * @return
+ */
+function gearman_client_do_normal($client_object, $function_name, $workload, $unique) {}
+
+/**
+ * @param $client_object
  * @param $function_name
  * @param $workload
  * @param $unique
@@ -1581,6 +1590,20 @@ class GearmanClient {
      * @return string A string representing the results of running a task
      */
     public function doHigh($function_name, $workload, $unique = null) {}
+
+    /**
+     * Runs a single task and returns a string representation of the
+     * result. It is up to the GearmanClient and GearmanWorker to agree on the format
+     * of the result. Normal and high priority tasks will get precedence over low
+     * priority tasks in the job queue.
+     *
+     * @link http://php.net/manual/en/gearmanclient.dolow.php
+     * @param string $function_name
+     * @param string $workload
+     * @param string $unique
+     * @return string A string representing the results of running a task
+     */
+    public function doNormal($function_name, $workload, $unique = null) {}
 
     /**
      * Runs a single low priority task and returns a string representation of the
