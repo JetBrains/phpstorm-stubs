@@ -465,7 +465,13 @@ class ReflectionParameter implements Reflector {
 	 */
 	public function isArray () {}
 
-	public function isCallable () {}
+    /**
+     * (PHP 5 &gt;= 5.4.0)<>br/
+     * Returns whether parameter MUST be callable
+     * @link http://php.net/manual/en/reflectionparameter.iscallable.php
+     * @return bool Returns TRUE if the parameter is callable, FALSE if it is not or NULL on failure.
+     */
+    public function isCallable () {}
 
 	/**
 	 * (PHP 5)<br/>
