@@ -246,7 +246,19 @@ class Memcache extends MemcachePool  {
 
 	public function getstats () {}
 
-	public function getextendedstats () {}
+    /**
+     * Get statistics from all servers in pool
+     * @link http://php.net/manual/en/memcache.getextendedstats.php
+     * @param string $type [optional] The type of statistics to fetch. Valid values are
+     * {reset, malloc, maps, cachedump, slabs, items, sizes}.
+     * According to the memcached protocol spec these additional arguments
+     * "are subject to change for the convenience of memcache developers".
+     * @param int $slabid [optional] Used in conjunction with type set to cachedump to identify the slab to dump from.
+     * The cachedump command ties up the server and is strictly to be used for debugging purposes.
+     * @param int $limit [optional] Used in conjunction with type set to cachedump to limit the number of entries to dump.
+     * @return array Returns a two-dimensional associative array of server statistics or FALSE on failure.
+     */
+    public function getExtendedStats ($type, $slabid, $limit=100) {}
 
 	public function setcompressthreshold () {}
 
