@@ -787,11 +787,26 @@ function fwrite ($handle, $string, $length = null) {}
 /**
  * (PHP 4, PHP 5)<br/>
  * &Alias; <function>fwrite</function>
+ * @see fwrite()
  * @link http://php.net/manual/en/function.fputs.php
- * @param $fp
- * @param $str
- * @param $length [optional]
- * @return int|FALSE returns the number of bytes written, or FALSE on error.
+ * Binary-safe file write
+ * @param resource $handle &fs.file.pointer;
+ * @param string $string <p>
+ * The string that is to be written.
+ * </p>
+ * @param int $length [optional] <p>
+ * If the length argument is given, writing will
+ * stop after length bytes have been written or
+ * the end of string is reached, whichever comes
+ * first.
+ * </p>
+ * <p>
+ * Note that if the length argument is given,
+ * then the magic_quotes_runtime
+ * configuration option will be ignored and no slashes will be
+ * stripped from string.
+ * </p>
+ * @return int
  */
 function fputs ($fp, $str, $length) {}
 
