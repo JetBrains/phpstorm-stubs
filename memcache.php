@@ -234,7 +234,15 @@ class Memcache extends MemcachePool  {
      */
     public function get ($key, &$flags = null ) {}
 
-	public function delete () {}
+    /**
+     * Deletes an item with the key.
+     *
+     * @link http://php.net/manual/en/memcache.delete.php
+     * @param string $key     The key associated with the item to delete.
+     * @param int    $timeout This deprecated parameter is not supported, and defaults to 0 seconds. Do not use this parameter.
+     * @return bool Returns TRUE on success or FALSE on failure.
+     */
+    public function delete ($key, $timeout = 0) {}
 
 	public function getstats () {}
 
