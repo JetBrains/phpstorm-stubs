@@ -1263,7 +1263,7 @@ function sqlsrv_fetch($stmt, $row=null, $offset=null){}
  * @link http://msdn.microsoft.com/en-us/library/cc296207.aspx
  * @param resource $stmt A statement resource corresponding to an executed statement.
  * @param int $field_index The index of the field to be retrieved. Indexes begin at zero.
- * @param int|null $get_as_type A SQLSRV constant (SQLSRV_PHPTYPE_*) that determines the PHP data type for the returned
+ * @param int $get_as_type [optional] A SQLSRV constant (SQLSRV_PHPTYPE_*) that determines the PHP data type for the returned
  * data. For information about supported data types, see
  * {@link http://msdn.microsoft.com/en-us/library/cc296183.aspx Constants (Microsoft Drivers for PHP for SQL Server)}.
  * If no return type is specified, a default PHP type will be returned. For information about default PHP types, see
