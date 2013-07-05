@@ -270,7 +270,7 @@ function wordwrap ($str, $width = 75, $break = "\n", $cut = false) {}
  * </p>
  * @return string The converted string.
  */
-function htmlspecialchars ($string, $quote_style = null, $charset = null, $double_encode = null) {}
+function htmlspecialchars ($string, $quote_style, $charset, $double_encode) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
