@@ -1549,6 +1549,7 @@ function mysqli_connect_error () {}
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
  * @param int $offset
+ * @return bool Returns TRUE on success or FALSE on failure.
  */
 function mysqli_data_seek ($result, $offset) {}
 
