@@ -738,19 +738,30 @@ function stream_set_read_buffer ($stream, $buffer) {}
 /**
  * (PHP 4, PHP 5)<br/>
  * &Alias; <function>stream_set_write_buffer</function>
+ * <p>Sets the buffering for write operations on the given stream to buffer bytes.
+ * Output using fwrite() is normally buffered at 8K.
+ * This means that if there are two processes wanting to write to the same output stream (a file),
+ * each is paused after 8K of data to allow the other to write.
  * @link http://php.net/manual/en/function.set-file-buffer.php
- * @param $fp
- * @param $buffer
+ * @param resource $fp The file pointer.
+ * @param int $buffer The number of bytes to buffer. If buffer is 0 then write operations are unbuffered.
+ * This ensures that all writes with fwrite() are completed before other processes are allowed to write to that output stream.
+ * @return int
  */
 function set_file_buffer ($fp, $buffer) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
  * &Alias; <function>stream_set_blocking</function>
+ * <p>Sets blocking or non-blocking mode on a stream.
+ * This function works for any stream that supports non-blocking mode (currently, regular files and socket streams).
  * @link http://php.net/manual/en/function.set-socket-blocking.php
  * @deprecated since 5.3.0, use stream_set_blocking() instead
- * @param $socket
- * @param $mode
+ * @param resource $socket
+ * @param int $mode If mode is 0, the given stream will be switched to non-blocking mode, and if 1, it will be switched to blocking mode.
+ * This affects calls like fgets() and fread() that read from the stream.
+ * In non-blocking mode an fgets() call will always return right away while in blocking mode it will wait for data to become available on the stream.
+ * @return bool Returns TRUE on success or FALSE on failure.
  */
 function set_socket_blocking ($socket, $mode) {}
 
@@ -779,8 +790,20 @@ function stream_set_blocking ($stream, $mode) {}
  * (PHP 4, PHP 5)<br/>
  * &Alias; <function>stream_set_blocking</function>
  * @link http://php.net/manual/en/function.socket-set-blocking.php
- * @param $socket
- * @param $mode
+ * @param resource $socket <p>
+ * The stream.
+ * </p>
+ * @param int $mode <p>
+ * If mode is 0, the given stream
+ * will be switched to non-blocking mode, and if 1, it
+ * will be switched to blocking mode. This affects calls like
+ * fgets and fread
+ * that read from the stream. In non-blocking mode an
+ * fgets call will always return right away
+ * while in blocking mode it will wait for data to become available
+ * on the stream.
+ * </p>
+ * @return bool true on success or false on failure.
  */
 function socket_set_blocking ($socket, $mode) {}
 
@@ -896,10 +919,24 @@ function stream_wrapper_register ($protocol, $classname, $flags = null) {}
 /**
  * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
  * &Alias; <function>stream_wrapper_register</function>
+ * <p>Register a URL wrapper implemented as a PHP class
  * @link http://php.net/manual/en/function.stream-register-wrapper.php
- * @param $protocol
- * @param $classname
- * @param $flags [optional]
+ * @param string $protocol <p>
+ * The wrapper name to be registered.
+ * </p>
+ * @param string $classname <p>
+ * The classname which implements the protocol.
+ * </p>
+ * @param int $flags [optional] <p>
+ * Should be set to STREAM_IS_URL if
+ * protocol is a URL protocol. Default is 0, local
+ * stream.
+ * </p>
+ * @return bool true on success or false on failure.
+ * </p>
+ * <p>
+ * stream_wrapper_register will return false if the
+ * protocol already has a handler.
  */
 function stream_register_wrapper ($protocol, $classname, $flags) {}
 
@@ -998,10 +1035,18 @@ function stream_set_timeout ($stream, $seconds, $microseconds = null) {}
 /**
  * (PHP 4, PHP 5)<br/>
  * &Alias; <function>stream_set_timeout</function>
+ * <p>Set timeout period on a stream
  * @link http://php.net/manual/en/function.socket-set-timeout.php
- * @param $stream
- * @param $seconds
- * @param $microseconds
+ * @param resource $stream <p>
+ * The target stream.
+ * </p>
+ * @param int $seconds <p>
+ * The seconds part of the timeout to be set.
+ * </p>
+ * @param int $microseconds [optional] <p>
+ * The microseconds part of the timeout to be set.
+ * </p>
+ * @return bool true on success or false on failure.
  */
 function socket_set_timeout ($stream, $seconds, $microseconds) {}
 
