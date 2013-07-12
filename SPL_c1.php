@@ -266,7 +266,7 @@ class SplFileInfo  {
          * (PHP 5 &gt;= 5.1.2)<br/>
          * Returns the path to the file as a string
          * @link http://php.net/manual/en/splfileinfo.tostring.php
-         * @return void the path to the file.
+         * @return string the path to the file.
          */
         public function __toString () {}
 
@@ -1402,7 +1402,7 @@ class SplDoublyLinkedList implements Iterator, Traversable, Countable, ArrayAcce
          * PHP >= 5.4.0<br/>
          * Unserializes the storage
          * @link http://php.net/manual/ru/spldoublylinkedlist.serialize.php
-         * @param $serialized The serialized string.
+         * @param string $serialized The serialized string.
          * @return void
          */
          public function unserialize($serialized) {}
@@ -2493,8 +2493,8 @@ class SplEnum extends SplType {
 
     /**
      * Creates a new value of some type
-     * @param mixed $initial_value Type and default value depends on the extension class.
-     * @param bool $strict Whether to set the object's sctrictness.
+     * @param mixed $initial_value [optional] Type and default value depends on the extension class.
+     * @param bool $strict [optional] Whether to set the object's sctrictness.
      * @throws UnexpectedValueException if incompatible type is given.
      */
     public function __construct($initial_value, $strict) {}
