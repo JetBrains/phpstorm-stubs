@@ -1168,6 +1168,15 @@ define('FILTER_SANITIZE_FULL_SPECIAL_CHARS', 515);
 
 
 /**
+ * (PHP4, PHP5)
+ * <p>Constant containing either the session name and session ID in the form of "name=ID" or
+ * empty string if session ID was set in an appropriate session cookie.
+ * This is the same id as the one returned by session_id().
+ * @see session_id()
+ * @link http://php.net/manual/en/session.constants.php
+ */
+define('SID', "name=ID");
+/**
  * Return value of session_status() if sessions are disabled. Since PHP 5.4.0.
  * @link http://php.net/manual/en/function.session-status.php
  */
