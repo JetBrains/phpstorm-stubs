@@ -783,7 +783,7 @@ class CachingIterator extends IteratorIterator implements OuterIterator, Travers
      * (PHP 5)<br/>
      * Check whether the current element is valid
      * @link http://php.net/manual/en/cachingiterator.valid.php
-     * @return void true on success or false on failure.
+     * @return bool true on success or false on failure.
      */
     public function valid() { }
 
