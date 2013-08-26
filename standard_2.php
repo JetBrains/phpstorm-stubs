@@ -551,9 +551,13 @@ function rawurldecode ($str) {}
  * is used to separate arguments, unless this parameter is specified,
  * and is then used.
  * </p>
+ * @param int $enc_type By default, PHP_QUERY_RFC1738.
+ *  <p>If enc_type is PHP_QUERY_RFC1738, then encoding is performed per » RFC 1738 and the application/x-www-form-urlencoded media type,
+ *  which implies that spaces are encoded as plus (+) signs.
+ *  <p>If enc_type is PHP_QUERY_RFC3986, then encoding is performed according to » RFC 3986, and spaces will be percent encoded (%20).
  * @return string a URL-encoded string.
  */
-function http_build_query (array $formdata, $numeric_prefix = null, $arg_separator = null) {}
+function http_build_query (array $formdata, $numeric_prefix = null, $arg_separator = null, $enc_type = PHP_QUERY_RFC1738) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
