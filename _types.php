@@ -60,6 +60,8 @@ namespace {
 
 namespace ___PHPSTORM_HELPERS {
 
+class PS_UNRESERVE_PREFIX_this {}
+class PS_UNRESERVE_PREFIX_static {}
 class object {
   /**
    * PHP 5 allows developers to declare constructor methods for classes.
@@ -76,7 +78,7 @@ class object {
   function __construct() {}
 
   /**
-   * PHP 5 introduces a destructor concept similar to that of other object-oriented languages, such as C++. 
+   * PHP 5 introduces a destructor concept similar to that of other object-oriented languages, such as C++.
    * The destructor method will be called as soon as all references to a particular object are removed or
    * when the object is explicitly destroyed or in any order in shutdown sequence.
    *
@@ -86,8 +88,8 @@ class object {
    * Note: Destructors called during the script shutdown have HTTP headers already sent.
    * The working directory in the script shutdown phase can be different with some SAPIs (e.g. Apache).
    *
-   * Note: Attempting to throw an exception from a destructor (called in the time of script termination) causes a fatal error. 
-   * 
+   * Note: Attempting to throw an exception from a destructor (called in the time of script termination) causes a fatal error.
+   *
    * @return void
    * @link http://php.net/manual/en/language.oop5.decon.php
    */
@@ -95,7 +97,7 @@ class object {
 
   /**
    * is triggered when invoking inaccessible methods in an object context.
-   * 
+   *
    * @param $name string
    * @param $arguments array
    * @return mixed
@@ -105,7 +107,7 @@ class object {
 
   /**
    * is triggered when invoking inaccessible methods in a static context.
-   * 
+   *
    * @param $name string
    * @param $arguments array
    * @return mixed
@@ -115,7 +117,7 @@ class object {
 
   /**
    * is utilized for reading data from inaccessible members.
-   * 
+   *
    * @param $name string
    * @return mixed
    * @link http://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
@@ -124,7 +126,7 @@ class object {
 
   /**
    * run when writing data to inaccessible members.
-   * 
+   *
    * @param $name string
    * @param $value mixed
    * @return void
@@ -163,7 +165,7 @@ class object {
   function __sleep() {}
 
   /**
-   * unserialize() checks for the presence of a function with the magic name __wakeup. 
+   * unserialize() checks for the presence of a function with the magic name __wakeup.
    * If present, this function can reconstruct any resources that the object may have.
    * The intended use of __wakeup is to reestablish any database connections that may have been lost during
    * serialization and perform other reinitialization tasks.
