@@ -1048,7 +1048,7 @@ function stream_set_timeout ($stream, $seconds, $microseconds = null) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function socket_set_timeout ($stream, $seconds, $microseconds) {}
+function socket_set_timeout ($stream, $seconds, $microseconds = 0) {}
 
 /**
  * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
