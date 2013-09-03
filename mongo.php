@@ -744,6 +744,17 @@ class MongoCollection {
     public function find(array $query = array(), array $fields = array()) {}
 
     /**
+    	 * Update a document and return it
+    	 * @link http://www.php.net/manual/ru/mongocollection.findandmodify.php
+    	 * @param array $query The query criteria to search for.
+    	 * @param array $update The update criteria.
+    	 * @param array $fields Optionally only return these fields.
+    	 * @param array $options An array of options to apply, such as remove the match document from the DB and return it.
+    	 * @return Returns the original document, or the modified document when new is set.
+         */
+    public function findAndModify (array $query, array $update, array $fields, array $options) {}
+
+    /**
 	 * Querys this collection, returning a single element
 	 * @link http://www.php.net/manual/en/mongocollection.findone.php
 	 * @param array $query The fields for which to search.
