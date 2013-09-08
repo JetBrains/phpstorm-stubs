@@ -337,13 +337,13 @@ class DOMNode  {
 
     /**
      * Canonicalize nodes to a string
-     * @param $exclusive [optional] Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.
-     * @param $with_comments [optional] Retain comments in output.
-     * @param $xpath [optional] An array of xpaths to filter the nodes by.
-     * @param $ns_prefixes [optional] An array of namespace prefixes to filter the nodes by.
+     * @param bool $exclusive [optional] Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.
+     * @param bool $with_comments [optional] Retain comments in output.
+     * @param array $xpath [optional] An array of xpaths to filter the nodes by.
+     * @param array $ns_prefixes [optional] An array of namespace prefixes to filter the nodes by.
      * @return string canonicalized nodes as a string or FALSE on failure
      */
-    public function C14N ($exclusive, array $with_comments, array $xpath = null, $ns_prefixes = null) {}
+    public function C14N ($exclusive, $with_comments, array $xpath = null, $ns_prefixes = null) {}
 
     /**
      * Canonicalize nodes to a file.
