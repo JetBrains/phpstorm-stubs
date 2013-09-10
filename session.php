@@ -370,7 +370,7 @@ function session_commit () {}
  * (PHP 5 >= 5.4.0)<br>
  * Returns the current session status
  * @link http://php.net/manual/en/function.session-status.php
- * @return <b>PHP_SESSION_DISABLED</b> if sessions are disabled.
+ * @return int <b>PHP_SESSION_DISABLED</b> if sessions are disabled.
  * <b>PHP_SESSION_NONE</b> if sessions are enabled, but none exists.
  * <b>PHP_SESSION_ACTIVE</b> if sessions are enabled, and one exists.
  */
