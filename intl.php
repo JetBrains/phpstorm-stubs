@@ -1774,6 +1774,7 @@ class IntlDateFormatter  {
 	 * If <b>NULL</b> or the empty string, the default time zone for the runtime is used.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @deprecated in 5.5 http://www.php.net/manual/en/migration55.deprecated.php
 	 */
 	public function setTimeZoneId ($zone) {}
 
@@ -3078,6 +3079,7 @@ function datefmt_get_timezone_id (MessageFormatter $mf) {}
  * If <b>NULL</b> or the empty string, the default time zone for the runtime is used.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @deprecated in 5.5 http://www.php.net/manual/en/migration55.deprecated.php
  */
 function datefmt_set_timezone_id (MessageFormatter $mf, $zone) {}
 
