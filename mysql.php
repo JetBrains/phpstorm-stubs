@@ -1,6 +1,7 @@
 <?php
 
 // Start of mysql v.1.0
+// @deprecated in 5.5 entire extension is deprecated in favor of mysqli
 
 /**
  * (PHP 4, PHP 5)<br/>
