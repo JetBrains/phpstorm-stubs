@@ -2463,5 +2463,152 @@ define ('PNG_FILTER_PAETH', 128);
  */
 define ('PNG_ALL_FILTERS', 248);
 
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_BELL', 1);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_BESSEL', 2);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_BICUBIC', 4);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_BICUBIC_FIXED', 5);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_BILINEAR_FIXED', 3);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_BLACKMAN', 6);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_BOX', 7);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_BSPLINE', 8);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_CATMULLROM', 9);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_GAUSSIAN', 10);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_GENERALIZED_CUBIC', 11);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_HERMITE', 12);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_HAMMING', 13);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_HANNING', 14);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_MITCHELL', 15);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_POWER', 17);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_QUADRATIC', 18);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_SINC', 19);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_NEAREST_NEIGHBOUR', 16);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_WEIGHTED4', 21);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Used together with imagesetinterpolation().
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_TRIANGLE', 20);
+
 // End of gd v.
 ?>

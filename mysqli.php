@@ -383,9 +383,15 @@ class mysqli  {
 	 * <td><b>MYSQLI_READ_DEFAULT_GROUP</b></td>
 	 * <td>
 	 * Read options from the named group from my.cnf
-	 * or the file specified with <b>MYSQL_READ_DEFAULT_FILE</b>.
+	 * or the file specified with <b>MYSQL_READ_DEFAULT_FILE</b>
 	 * </td>
 	 * </tr>
+     * <tr valign="top">
+     * <td><b>MYSQLI_SERVER_PUBLIC_KEY</b></td>
+     * <td>
+     * RSA public key file used with the SHA-256 based authentication.
+     * </td>
+     * </tr>
 	 * </table>
 	 * </p>
 	 * @param mixed $value <p>
@@ -2510,6 +2516,14 @@ define ('MYSQLI_OPT_CONNECT_TIMEOUT', 0);
  * @link http://php.net/manual/en/mysqli.constants.php
  */
 define ('MYSQLI_OPT_LOCAL_INFILE', 8);
+
+/**
+ * <p>
+ * RSA public key file used with the SHA-256 based authentication.
+ * </p>
+ * @link http://php.net/manual/en/mysqli.constants.php
+ */
+define ('MYSQLI_SERVER_PUBLIC_KEY', 27);
 
 /**
  * <p>
