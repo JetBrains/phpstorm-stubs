@@ -157,7 +157,17 @@ class mysqli  {
 	 */
 	public function autocommit ($mode) {}
 
-	/**
+    /**
+     * (PHP 5 &gt;= 5.5.0)<br/>
+     * Starts a transaction
+     * @link http://www.php.net/manual/en/mysqli.begin-transaction.php
+     * @param int $flags
+     * @param string $name
+     * @return bool true on success or false on failure.
+     */
+    public function begin_transaction ($flags, $name) {}
+
+    /**
 	 * (PHP 5)<br/>
 	 * Changes the user of the specified database connection
 	 * @link http://php.net/manual/en/mysqli.change-user.php
@@ -626,6 +636,15 @@ class mysqli  {
 	 */
 	public function real_query ($query) {}
 
+    /**
+     * (PHP 5 &gt;= 5.5.0)<br/>
+     * Execute an SQL query
+     * @link http://php.net/manual/en/mysqli.release-savepoint.php
+     * @param string $name
+     * @return bool Returns TRUE on success or FALSE on failure.
+     */
+    public function release_savepoint ($name) {}
+
 	/**
 	 * (PHP 5)<br/>
 	 * Rolls back current transaction
@@ -633,6 +652,15 @@ class mysqli  {
 	 * @return bool true on success or false on failure.
 	 */
 	public function rollback () {}
+
+    /**
+     * (PHP 5 &gt;= 5.5.0)<br/>
+     * Set a named transaction savepoint
+     * @link http://www.php.net/manual/en/mysqli.savepoint.php
+     * @param string $name
+     * @return bool Returns TRUE on success or FALSE on failure.
+     */
+    public function savepoint ($name) {}
 
 	/**
 	 * (PHP 5)<br/>
@@ -1488,6 +1516,17 @@ function mysqli_affected_rows ($link) {}
 function mysqli_autocommit ($link, $mode) {}
 
 /**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Starts a transaction
+ * @link http://www.php.net/manual/en/mysqli.begin-transaction.php
+ * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param int $flags
+ * @param string $name
+ * @return bool true on success or false on failure.
+ */
+function mysqli_begin_transaction ($link, $flags, $name) {}
+
+/**
  * Changes the user of the specified database connection
  * @link http://php.net/manual/en/mysqli.change-user.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
@@ -2083,12 +2122,32 @@ function mysqli_real_query ($link, $query) {}
 function mysqli_reap_async_query ($link) {}
 
 /**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Set a named transaction savepoint
+ * @link http://www.php.net/manual/en/mysqli.release-savepoint.php
+ * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param string $name
+ * @return bool Returns TRUE on success or FALSE on failure.
+ */
+function mysqli_release_savepoint ($link ,$name) {}
+
+/**
  * Rolls back current transaction
  * @link http://php.net/manual/en/mysqli.rollback.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
  * @return bool
  */
 function mysqli_rollback ($link) {}
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Set a named transaction savepoint
+ * @link http://www.php.net/manual/en/mysqli.savepoint.php
+ * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param string $name
+ * @return bool Returns TRUE on success or FALSE on failure.
+ */
+function mysqli_savepoint ($link ,$name) {}
 
 /**
  * Selects the default database for database queries

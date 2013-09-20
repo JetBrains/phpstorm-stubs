@@ -1765,7 +1765,23 @@ class IntlDateFormatter  {
 	 */
 	public function getTimeZoneId () {}
 
-	/**
+    /**
+     * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
+     * Get copy of formatter's calendar object
+     * @link http://www.php.net/manual/en/intldateformatter.getcalendarobject.php
+     * @return IntlCalendar A copy of the internal calendar object used by this formatter.
+     */
+    public function getCalendarObject () {}
+
+    /**
+     * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
+     *  Get formatter's timezone
+     * @link http://www.php.net/manual/en/intldateformatter.gettimezone.php
+     * @return IntlTimeZone|bool The associated IntlTimeZone object or FALSE on failure.
+     */
+    public function getTimeZone () {}
+
+    /**
 	 * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
 	 * Sets the time zone to use
 	 * @link http://php.net/manual/en/intldateformatter.settimezoneid.php
@@ -1778,7 +1794,47 @@ class IntlDateFormatter  {
 	 */
 	public function setTimeZoneId ($zone) {}
 
-	/**
+    /**
+     * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
+     * Sets formatter's timezone
+     * @link http://php.net/manual/en/intldateformatter.settimezone.php
+     * @param mixed $zone <p>
+     * The timezone to use for this formatter. This can be specified in the
+     * following forms:
+     * <ul>
+     * <li>
+     * <p>
+     * <b>NULL</b>, in which case the default timezone will be used, as specified in
+     * the ini setting @link http://php.net/manual/en/datetime.configuration.php#ini.date.timezone date.timezone or
+     * through the function  @link http://php.net/manual/en/function.date-default-timezone-set.php date_default_timezone_set() and as
+     * returned by @link http://php.net/manual/en/function.date-default-timezone-get.php date_default_timezone_get().
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * An @link http://php.net/manual/en/class.intltimezone.php IntlTimeZone, which will be used directly.
+     * </p>
+     * </li>
+     * <li>
+     * <p>
+     * A @link http://php.net/manual/en/class.datetimezone.php DateTimeZone. Its identifier will be extracted
+     * and an ICU timezone object will be created; the timezone will be backed
+     * by ICU's database, not PHP's.
+     * </p>
+     * </li>
+     *<li>
+     * <p>
+     * A @link http://php.net/manual/en/language.types.string.php string, which should be a valid ICU timezone identifier.
+     * See <b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw offsets such as <em>"GMT+08:30"</em> are also accepted.
+     * </p>
+     * </li>
+     * </ul>
+     * </p>
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function setTimezone ($zone) {}
+
+    /**
 	 * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
 	 * Set the pattern used for the IntlDateFormatter
 	 * @link http://php.net/manual/en/intldateformatter.setpattern.php
@@ -1840,6 +1896,32 @@ class IntlDateFormatter  {
 	 * @return string The formatted string or, if an error occurred, <b>FALSE</b>.
 	 */
 	public function format ($value) {}
+
+    /**
+     * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
+     * Formats an object
+     * @link http://www.php.net/manual/en/intldateformatter.formatobject.php
+     * @param object $object <p>
+     * An object of type IntlCalendar or DateTime. The timezone information in the object will be used.
+     * </p>
+     * @param mixed $format [optional] <p>
+     * How to format the date/time. This can either be an {@link http://www.php.net/manual/en/language.types.array.php array} with
+     * two elements (first the date style, then the time style, these being one
+     * of the constants <b>IntlDateFormatter::NONE</b>,
+     * <b>IntlDateFormatter::SHORT</b>,
+     * <br>IntlDateFormatter::MEDIUM</b>,
+     * <br>IntlDateFormatter::LONG</b>,
+     * <b>IntlDateFormatter::FULL</b>), a long with
+     * the value of one of these constants (in which case it will be used both
+     * for the time and the date) or a @link http://www.php.net/manual/en/language.types.string.php with the format
+     * described in @link http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details the ICU
+     * documentation. If <br>NULL</br>, the default style will be used.
+     * </p>
+     * @param string $locale [optional] <p>
+     * The locale to use, or <b>NULL<\b> to use the default one.</p>
+     * @return string A string with result or <b>FALSE<\b> on failure.
+     */
+    public function formatObject($object, $format = NULL, $locale = NULL) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -3070,6 +3152,22 @@ function datefmt_get_locale (MessageFormatter $mf, $which = null) {}
 function datefmt_get_timezone_id (MessageFormatter $mf) {}
 
 /**
+ * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 3.0.0)<br/>
+ * Get copy of formatter's calendar object
+ * @link http://www.php.net/manual/en/intldateformatter.getcalendarobject.php
+ * @return IntlCalendar A copy of the internal calendar object used by this formatter.
+ */
+function datefmt_get_calendar_object() {}
+
+/**
+ * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
+ *  Get formatter's timezone
+ * @link http://www.php.net/manual/en/intldateformatter.gettimezone.php
+ * @return IntlTimeZone|bool The associated IntlTimeZone object or FALSE on failure.
+ */
+function datefmt_get_timezone() {}
+
+/**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Sets the time zone to use
  * @link http://php.net/manual/en/intldateformatter.settimezoneid.php
@@ -3082,6 +3180,46 @@ function datefmt_get_timezone_id (MessageFormatter $mf) {}
  * @deprecated in 5.5 http://www.php.net/manual/en/migration55.deprecated.php
  */
 function datefmt_set_timezone_id (MessageFormatter $mf, $zone) {}
+
+/**
+ * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
+ * Sets formatter's timezone
+ * @link http://php.net/manual/en/intldateformatter.settimezone.php
+ * @param mixed $zone <p>
+ * The timezone to use for this formatter. This can be specified in the
+ * following forms:
+ * <ul>
+ * <li>
+ * <p>
+ * <b>NULL</b>, in which case the default timezone will be used, as specified in
+ * the ini setting @link http://php.net/manual/en/datetime.configuration.php#ini.date.timezone date.timezone or
+ * through the function  @link http://php.net/manual/en/function.date-default-timezone-set.php date_default_timezone_set() and as
+ * returned by @link http://php.net/manual/en/function.date-default-timezone-get.php date_default_timezone_get().
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * An @link http://php.net/manual/en/class.intltimezone.php IntlTimeZone, which will be used directly.
+ * </p>
+ * </li>
+ * <li>
+ * <p>
+ * A @link http://php.net/manual/en/class.datetimezone.php DateTimeZone. Its identifier will be extracted
+ * and an ICU timezone object will be created; the timezone will be backed
+ * by ICU's database, not PHP's.
+ * </p>
+ * </li>
+ *<li>
+ * <p>
+ * A @link http://php.net/manual/en/language.types.string.php string, which should be a valid ICU timezone identifier.
+ * See <b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw offsets such as <em>"GMT+08:30"</em> are also accepted.
+ * </p>
+ * </li>
+ * </ul>
+ * </p>
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ */
+function datefmt_set_timezone ($zone) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -3141,6 +3279,32 @@ function datefmt_set_lenient (MessageFormatter $mf, $lenient) {}
  * @return string The formatted string or, if an error occurred, <b>FALSE</b>.
  */
 function datefmt_format (MessageFormatter $mf, $value) {}
+
+/**
+ * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
+ * Formats an object
+ * @link http://www.php.net/manual/en/intldateformatter.formatobject.php
+ * @param object $object <p>
+ * An object of type IntlCalendar or DateTime. The timezone information in the object will be used.
+ * </p>
+ * @param mixed $format [optional] <p>
+ * How to format the date/time. This can either be an {http://www.php.net/manual/en/language.types.array.php array}  with
+ * two elements (first the date style, then the time style, these being one
+ * of the constants <b>IntlDateFormatter::NONE</b>,
+ * <b>IntlDateFormatter::SHORT</b>,
+ * <b>IntlDateFormatter::MEDIUM</b>,
+ * <b>IntlDateFormatter::LONG</b>,
+ * <b>IntlDateFormatter::FULL</b>), a long with
+ * the value of one of these constants (in which case it will be used both
+ * for the time and the date) or a {@link http://www.php.net/manual/en/language.types.string.php} with the format
+ * described in {@link http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details the ICU}
+ * documentation. If <b>NULL</b>, the default style will be used.
+ * </p>
+ * @param string $locale [optional] <p>
+ * The locale to use, or NULL to use the default one.</p>
+ * @return string The formatted string or, if an error occurred, <b>FALSE</b>.
+ */
+ function datefmt_format_object($object, $format = NULL, $locale = NULL) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
