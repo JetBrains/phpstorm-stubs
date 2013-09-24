@@ -1805,26 +1805,26 @@ class IntlDateFormatter  {
      * <li>
      * <p>
      * <b>NULL</b>, in which case the default timezone will be used, as specified in
-     * the ini setting @link http://php.net/manual/en/datetime.configuration.php#ini.date.timezone date.timezone or
-     * through the function  @link http://php.net/manual/en/function.date-default-timezone-set.php date_default_timezone_set() and as
-     * returned by @link http://php.net/manual/en/function.date-default-timezone-get.php date_default_timezone_get().
+     * the ini setting {@link "http://php.net/manual/en/datetime.configuration.php#ini.date.timezone" date.timezone} or
+     * through the function  {@link "http://php.net/manual/en/function.date-default-timezone-set.php" date_default_timezone_set()} and as
+     * returned by {@link "http://php.net/manual/en/function.date-default-timezone-get.php" date_default_timezone_get()}.
      * </p>
      * </li>
      * <li>
      * <p>
-     * An @link http://php.net/manual/en/class.intltimezone.php IntlTimeZone, which will be used directly.
+     * An {@link "http://php.net/manual/en/class.intltimezone.php" IntlTimeZone}, which will be used directly.
      * </p>
      * </li>
      * <li>
      * <p>
-     * A @link http://php.net/manual/en/class.datetimezone.php DateTimeZone. Its identifier will be extracted
+     * A {@link "http://php.net/manual/en/class.datetimezone.php" DateTimeZone}. Its identifier will be extracted
      * and an ICU timezone object will be created; the timezone will be backed
      * by ICU's database, not PHP's.
      * </p>
      * </li>
      *<li>
      * <p>
-     * A @link http://php.net/manual/en/language.types.string.php string, which should be a valid ICU timezone identifier.
+     * A {@link "http://php.net/manual/en/language.types.string.php" string}, which should be a valid ICU timezone identifier.
      * See <b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw offsets such as <em>"GMT+08:30"</em> are also accepted.
      * </p>
      * </li>
@@ -1902,24 +1902,24 @@ class IntlDateFormatter  {
      * Formats an object
      * @link http://www.php.net/manual/en/intldateformatter.formatobject.php
      * @param object $object <p>
-     * An object of type IntlCalendar or DateTime. The timezone information in the object will be used.
+     * An object of type {@link "http://www.php.net/manual/en/class.intlcalendar.php" IntlCalendar} or {@link "http://www.php.net/manual/en/class.datetime.php" DateTime}. The timezone information in the object will be used.
      * </p>
      * @param mixed $format [optional] <p>
-     * How to format the date/time. This can either be an {@link http://www.php.net/manual/en/language.types.array.php array} with
+     * How to format the date/time. This can either be an {@link "http://www.php.net/manual/en/language.types.array.php" array} with
      * two elements (first the date style, then the time style, these being one
      * of the constants <b>IntlDateFormatter::NONE</b>,
      * <b>IntlDateFormatter::SHORT</b>,
-     * <br>IntlDateFormatter::MEDIUM</b>,
-     * <br>IntlDateFormatter::LONG</b>,
+     * <b>IntlDateFormatter::MEDIUM</b>,
+     * <b>IntlDateFormatter::LONG</b>,
      * <b>IntlDateFormatter::FULL</b>), a long with
      * the value of one of these constants (in which case it will be used both
-     * for the time and the date) or a @link http://www.php.net/manual/en/language.types.string.php with the format
-     * described in @link http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details the ICU
-     * documentation. If <br>NULL</br>, the default style will be used.
+     * for the time and the date) or a {@link "http://www.php.net/manual/en/language.types.string.php" string} with the format
+     * described in {@link "http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details" the ICU
+     * documentation}. If <br>NULL</br>, the default style will be used.
      * </p>
      * @param string $locale [optional] <p>
-     * The locale to use, or <b>NULL<\b> to use the default one.</p>
-     * @return string A string with result or <b>FALSE<\b> on failure.
+     * The locale to use, or <b>NULL</b> to use the {@link "http://www.php.net/manual/en/intl.configuration.php#ini.intl.default-locale"default one}.</p>
+     * @return string A string with result or <b>FALSE</b> on failure.
      */
     public function formatObject($object, $format = NULL, $locale = NULL) {}
 
@@ -3192,26 +3192,26 @@ function datefmt_set_timezone_id (MessageFormatter $mf, $zone) {}
  * <li>
  * <p>
  * <b>NULL</b>, in which case the default timezone will be used, as specified in
- * the ini setting @link http://php.net/manual/en/datetime.configuration.php#ini.date.timezone date.timezone or
- * through the function  @link http://php.net/manual/en/function.date-default-timezone-set.php date_default_timezone_set() and as
- * returned by @link http://php.net/manual/en/function.date-default-timezone-get.php date_default_timezone_get().
+ * the ini setting {@link "http://php.net/manual/en/datetime.configuration.php#ini.date.timezone" date.timezone} or
+ * through the function  {@link "http://php.net/manual/en/function.date-default-timezone-set.php" date_default_timezone_set()} and as
+ * returned by {@link "http://php.net/manual/en/function.date-default-timezone-get.php" date_default_timezone_get()}.
  * </p>
  * </li>
  * <li>
  * <p>
- * An @link http://php.net/manual/en/class.intltimezone.php IntlTimeZone, which will be used directly.
+ * An {@link "http://php.net/manual/en/class.intltimezone.php" IntlTimeZone}, which will be used directly.
  * </p>
  * </li>
  * <li>
  * <p>
- * A @link http://php.net/manual/en/class.datetimezone.php DateTimeZone. Its identifier will be extracted
+ * A {@link "http://php.net/manual/en/class.datetimezone.php" DateTimeZone}. Its identifier will be extracted
  * and an ICU timezone object will be created; the timezone will be backed
  * by ICU's database, not PHP's.
  * </p>
  * </li>
- *<li>
+ * <li>
  * <p>
- * A @link http://php.net/manual/en/language.types.string.php string, which should be a valid ICU timezone identifier.
+ * A {@link "http://php.net/manual/en/language.types.string.php" string}, which should be a valid ICU timezone identifier.
  * See <b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw offsets such as <em>"GMT+08:30"</em> are also accepted.
  * </p>
  * </li>

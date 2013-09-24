@@ -161,11 +161,11 @@ class mysqli  {
      * (PHP 5 &gt;= 5.5.0)<br/>
      * Starts a transaction
      * @link http://www.php.net/manual/en/mysqli.begin-transaction.php
-     * @param int $flags
-     * @param string $name
+     * @param int $flags [optional]
+     * @param string $name [optional]
      * @return bool true on success or false on failure.
      */
-    public function begin_transaction ($flags, $name) {}
+    public function begin_transaction ($flags = 0, $name = null) {}
 
     /**
 	 * (PHP 5)<br/>
@@ -1520,11 +1520,11 @@ function mysqli_autocommit ($link, $mode) {}
  * Starts a transaction
  * @link http://www.php.net/manual/en/mysqli.begin-transaction.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @param int $flags
- * @param string $name
+ * @param int $flags [optional]
+ * @param string $name [optional]
  * @return bool true on success or false on failure.
  */
-function mysqli_begin_transaction ($link, $flags, $name) {}
+function mysqli_begin_transaction ($link, $flags = 0, $name = null) {}
 
 /**
  * Changes the user of the specified database connection
