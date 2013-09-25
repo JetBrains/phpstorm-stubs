@@ -1914,8 +1914,8 @@ class IntlDateFormatter  {
      * <b>IntlDateFormatter::FULL</b>), a long with
      * the value of one of these constants (in which case it will be used both
      * for the time and the date) or a {@link "http://www.php.net/manual/en/language.types.string.php" string} with the format
-     * described in {@link "http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details" the ICU
-     * documentation}. If <br>NULL</br>, the default style will be used.
+     * described in {@link "http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details" the ICU documentation}.
+     * If <br>NULL</br>, the default style will be used.
      * </p>
      * @param string $locale [optional] <p>
      * The locale to use, or <b>NULL</b> to use the {@link "http://www.php.net/manual/en/intl.configuration.php#ini.intl.default-locale"default one}.</p>
@@ -3297,7 +3297,7 @@ function datefmt_format (MessageFormatter $mf, $value) {}
  * <b>IntlDateFormatter::FULL</b>), a long with
  * the value of one of these constants (in which case it will be used both
  * for the time and the date) or a {@link http://www.php.net/manual/en/language.types.string.php} with the format
- * described in {@link http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details the ICU}
+ * described in {@link http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details the ICU documentation}
  * documentation. If <b>NULL</b>, the default style will be used.
  * </p>
  * @param string $locale [optional] <p>
