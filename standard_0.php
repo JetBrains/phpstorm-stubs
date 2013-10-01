@@ -586,13 +586,145 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
 function getimagesize ($filename, array &$imageinfo = null) {}
 
 /**
+ * Return an image containing the affine tramsformed src image, using an optional clipping area
+ * @link http://www.php.net/manual/en/function.imageaffine.php
+ * @param resource $image <p>An image resource, returned by one of the image creation functions,
+ * such as {@link http://www.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.</p>
+ * @param array $affine <p>Array with keys 0 to 5.</p>
+ * @param array $clip [optional] <p>Array with keys "x", "y", "width" and "height".</p>
+ * @return resource Return affined image resource on success or FALSE on failure.
+ */
+function imageaffine($image, $affine, $clip = null) {}
+
+/**
  * (PHP 5 &gt;= 5.5.0)<br/>
- *  Set the interpolation method
+ * Concat two matrices (as in doing many ops in one go)
+ * @link http://www.php.net/manual/en/function.imageaffinematrixconcat.php
+ * @param array $m1 <p>Array with keys 0 to 5.</p>
+ * @param array $m2 <p>Array with keys 0 to 5.</p>
+ * @return array Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
+ */
+function imageaffinematrixconcat(array $m1, array $m2) {}
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Return an image containing the affine tramsformed src image, using an optional clipping area
+ * @link http://www.php.net/manual/en/function.imageaffinematrixget.php
+ * @param int $type <p> One of <b>IMG_AFFINE_*</b> constants.
+ * @param mixed $options [optional]
+ * @return array Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
+ */
+
+function imageaffinematrixget ($type, $options = null) {}
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Crop an image using the given coordinates and size, x, y, width and height
+ * @link http://www.php.net/manual/en/function.imagecrop.php
+ * @param resource $image <p>
+ * An image resource, returned by one of the image creation functions, such as {@link http://www.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
+ * </p>
+ * @param array $rect <p>Array with keys "x", "y", "width" and "height".</p>
+ * @return resource Return cropped image resource on success or FALSE on failure.
+ */
+function imagecrop ($image, $rect) {}
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Crop an image automatically using one of the available modes
+ * @link http://www.php.net/manual/en/function.imagecropauto.php
+ * @param resource $image <p>
+ * An image resource, returned by one of the image creation functions, such as {@link http://www.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
+ * </p>
+ * @param int $mode [optional] <p>
+ * One of <b>IMG_CROP_*</b> constants.
+ * </p>
+ * @param float $thresold <p>
+ * Used <b>IMG_CROP_THRESOLD</b> mode.
+ * </p>
+ * @param int $color [optional]
+ * <p>
+ * Used in <b>IMG_CROP_THRESHOLD</b> mode.
+ * </p>
+ * @return resource Return cropped image resource on success or <b>FALSE</b> on failure.
+ */
+function imagecropauto ($image, $mode = -1, $threshold = .5, $color = -1) {}
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Flips an image using a given mode
+ * @link http://www.php.net/manual/en/function.imageflip.php
+ * @param resource $image <p>
+ * An image resource, returned by one of the image creation functions, such as {@link http://www.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
+ * </p>
+ * @param int $mode <p>
+ * Flip mode, this can be one of the <b>IMG_FLIP_*</b> constants:
+ * </p>
+ * <table>
+ * <thead>
+ * <tr>
+ * <th>Constant</th>
+ * <th>Meaning</th>
+ * </tr>
+ * </thead>
+ * <tr>
+ * <td><b>IMG_FLIP_HORIZONTAL</b></td>
+ * <td>
+ * Flips the image horizontally.
+ * </td>
+ * </tr>
+ * <tr>
+ * <td><b>IMG_FLIP_VERTICAL</b></td>
+ * <td>
+ * Flips the image vertically.
+ * </td>
+ * </tr>
+ * <tr>
+ * <td><b>IMG_FLIP_BOTH</b></td>
+ * <td>
+ * Flips the image both horizontally and vertically.
+ * </td>
+ * </tr>
+ * </tbody>
+ * </table>
+ * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ */
+function imageflip ($image, $mode) {}
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Converts a palette based image to true color
+ * @link http://www.php.net/manual/en/function.imagepalettetotruecolor.php
+ * @param resource $image <p>
+ * An image resource, returnd by one of the image creation functions, such as {@link http://www.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
+ * </p>
+ * @return bool Returns <b>TRUE</b> if the convertion was complete, or if the source image already is a true color image, otherwise <b>FALSE</b> is returned.
+ */
+function imagepalettetotruecolor ($image) {}
+
+/**
+ *(PHP 5 &gt;= 5.5.0)<br/>
+ * Scale an image using the given new width and height
+ * @link http://www.php.net/manual/en/function.imagescale.php
+ * @param resource $image <p>
+ * An image resource, returnd by one of the image creation functions, such as {@link http://www.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
+ * </p>
+ * @param int $new_width
+ * @param int $new_height [optional]
+ * @param int $mode [optional] One of <b>IMG_NEAREST_NEIGHBOUR</b>, <b>IMG_BILINEAR_FIXED</b>, <b>IMG_BICUBIC</b>, <b>IMG_BICUBIC_FIXED</b> or anything else (will use two pass).
+ * @return resource|bool Return scaled image resource on success or <b>FALSE</b> on failure.
+ */
+
+function imagescale ($image, $new_width, $new_height = -1, $mode = IMG_BILINEAR_FIXED) {}
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Set the interpolation method
  * @link http://www.php.net/manual/en/function.imagesetinterpolation.php
  * @param resource $image <p>
- * An image resource, returned by one of the image creation functions, such as @link imagecreatetruecolor().
+ * An image resource, returned by one of the image creation functions, such as {@link http://www.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
  * </p>
- *  * @param int $method <p>
+ * @param int $method <p>
  * The interpolation method, which can be one of the following:
  * <ul>
  * <li>
