@@ -592,7 +592,7 @@ function getimagesize ($filename, array &$imageinfo = null) {}
  * such as {@link http://www.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.</p>
  * @param array $affine <p>Array with keys 0 to 5.</p>
  * @param array $clip [optional] <p>Array with keys "x", "y", "width" and "height".</p>
- * @return resource Return affined image resource on success or FALSE on failure.
+ * @return resource|bool Return affined image resource on success or FALSE on failure.
  */
 function imageaffine($image, $affine, $clip = null) {}
 
@@ -602,7 +602,7 @@ function imageaffine($image, $affine, $clip = null) {}
  * @link http://www.php.net/manual/en/function.imageaffinematrixconcat.php
  * @param array $m1 <p>Array with keys 0 to 5.</p>
  * @param array $m2 <p>Array with keys 0 to 5.</p>
- * @return array Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
+ * @return array|bool Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
  */
 function imageaffinematrixconcat(array $m1, array $m2) {}
 
@@ -612,7 +612,7 @@ function imageaffinematrixconcat(array $m1, array $m2) {}
  * @link http://www.php.net/manual/en/function.imageaffinematrixget.php
  * @param int $type <p> One of <b>IMG_AFFINE_*</b> constants.
  * @param mixed $options [optional]
- * @return array Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
+ * @return array|bool Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
  */
 
 function imageaffinematrixget ($type, $options = null) {}
@@ -625,7 +625,7 @@ function imageaffinematrixget ($type, $options = null) {}
  * An image resource, returned by one of the image creation functions, such as {@link http://www.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
  * </p>
  * @param array $rect <p>Array with keys "x", "y", "width" and "height".</p>
- * @return resource Return cropped image resource on success or FALSE on failure.
+ * @return resource|bool Return cropped image resource on success or FALSE on failure.
  */
 function imagecrop ($image, $rect) {}
 
@@ -639,14 +639,14 @@ function imagecrop ($image, $rect) {}
  * @param int $mode [optional] <p>
  * One of <b>IMG_CROP_*</b> constants.
  * </p>
- * @param float $thresold <p>
- * Used <b>IMG_CROP_THRESOLD</b> mode.
+ * @param float $threshold [optional] <p>
+ * Used <b>IMG_CROP_THRESHOLD</b> mode.
  * </p>
  * @param int $color [optional]
  * <p>
  * Used in <b>IMG_CROP_THRESHOLD</b> mode.
  * </p>
- * @return resource Return cropped image resource on success or <b>FALSE</b> on failure.
+ * @return resource|bool Return cropped image resource on success or <b>FALSE</b> on failure.
  */
 function imagecropauto ($image, $mode = -1, $threshold = .5, $color = -1) {}
 
