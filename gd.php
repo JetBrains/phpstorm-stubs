@@ -2465,6 +2465,71 @@ define ('PNG_ALL_FILTERS', 248);
 
 /**
  * (PHP 5 &gt;= 5.5.0)<br/>
+ */
+define('IMG_AFFINE_TRANSLATE',0);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ */
+define('IMG_AFFINE_SCALE',1);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ */
+define('IMG_AFFINE_ROTATE',2);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ */
+define('IMG_AFFINE_SHEAR_HORIZONTAL',3);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ */
+define('IMG_AFFINE_SHEAR_VERTICAL',4);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ */
+define('IMG_CROP_DEFAULT',0);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ */
+define('IMG_CROP_TRANSPARENT',1);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ */
+define('IMG_CROP_BLACK',2);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ */
+define('IMG_CROP_WHITE',3);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ */
+define('IMG_CROP_SIDES',4);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ */
+define('IMG_FLIP_BOTH',3);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ */
+define('IMG_FLIP_HORIZONTAL',1);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ */
+define('IMG_FLIP_VERTICAL',2);
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
