@@ -55,7 +55,7 @@ class SNMP  {
 
     /**
      * @var bool Controls disabling check for increasing OID while walking OID tree
-     * <p> Some SNMP agents are known for returning OIDs out of order but can complete the walk anyway. Other agents return OIDs that are out of order and can cause SNMP::walk() to loop indefinitely until memory limit will be reached. PHP SNMP library by default performs OID increasing check and stops walking on OID tree when it detects possible loop with issuing warning about non-increasing OID faced. Set oid_increasing_check to FALSE to disable this check.
+     * <p> Some SNMP agents are known for returning OIDs out of order but can complete the walk anyway. Other agents return OIDs that are out of order and can cause SNMP::walk() to loop indefinitely until memory limit will be reached. PHP SNMP library by default performs OID increasing check and stops walking on OID tree when it detects possible loop with issuing warning about non-increasing OID faced. Set oid_increasing_check to <b>FALSE</b> to disable this check.
      * @link http://www.php.net/manual/en/class.snmp.php#snmp.props.oid-increasing-check
      */
     public $oid_increasing_check;
@@ -90,13 +90,43 @@ class SNMP  {
 	 * (PHP 5 &gt;= 5.4.0)<br/>
 	 * Creates SNMP instance representing session to remote SNMP agent
 	 * @link http://php.net/manual/en/snmp.construct.php
-	 * @param $version
-	 * @param $host
-	 * @param $community
-	 * @param $timeout [optional]
-	 * @param $retries [optional]
-	 */
-	public function __construct ($version, $host, $community, $timeout, $retries) {}
+	 * @param $version SNMP protocol version:
+     * <b>SNMP::VERSION_1</b>,
+     * <b>SNMP::VERSION_2C</b>,
+     * <b>SNMP::VERSION_3</b>.
+     * @param $hostname string The SNMP agent. <i>hostname</i> may be suffixed with
+     * optional <acronym title="Simple Network Management Protocol">SNMP</acronym> agent port after colon. IPv6 addresses must be enclosed in square
+     * brackets if used with port. If FQDN is used for <i>hostname</i>
+     * it will be resolved by php-snmp library, not by Net-SNMP engine. Usage
+     * of IPv6 addresses when specifying FQDN may be forced by enclosing FQDN
+     * into square brackets. Here it is some examples:
+     * <table>
+     * <tbody>
+     * <tr><td>IPv4 with default port</td><td>127.0.0.1</td></tr>
+     * <tr><td>IPv6 with default port</td><td>::1 or [::1]</td></tr>
+     * <tr><td>IPv4 with specific port</td><td>127.0.0.1:1161</td></tr>
+     * <tr><td>IPv6 with specific port</td><td>[::1]:1161</td></tr>
+     * <tr><td>FQDN with default port</td><td>host.domain</td></tr>
+     * <tr><td>FQDN with specific port</td><td>host.domain:1161</td></tr>
+     * <tr><td>FQDN with default port, force usage of IPv6 address</td><td>[host.domain]</td></tr>
+     * <tr><td>FQDN with specific port, force usage of IPv6 address</td><td>[host.domain]:1161</td>
+     * </tbody>
+     * </table>
+	 * @param $community string <p>The purpuse of <i>community</i> is
+     * <acronym title="Simple Network Management Protocol">SNMP</acronym> version specific:</p>
+     * <table>
+     *
+     * <tbody>
+     * <tr><td>SNMP::VERSION_1</td><td><acronym title="Simple Network Management Protocol">SNMP</acronym> community</td></tr>
+     * <tr><td>SNMP::VERSION_2C</td><td><acronym title="Simple Network Management Protocol">SNMP</acronym> community</td></tr>
+     *
+     * <tr><td>SNMP::VERSION_3</td><td><acronym title="Simple Network Management Protocol">SNMP</acronym>v3 securityName</td></tr>
+     * </tbody>
+     * </table>
+	 * @param $timeout [optional] int The number of microseconds until the first timeout.
+	 * @param $retries [optional] int The number of retries in case timeout occurs.
+     */
+	public function __construct ($version, $hostname, $community, $timeout = 1000000, $retries = 5) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.4.0)<br/>
@@ -110,65 +140,127 @@ class SNMP  {
      * (PHP 5 &gt;= 5.4.0)<br/>
      * Configures security-related SNMPv3 session parameters
      * @link http://php.net/manual/en/snmp.setsecurity.php
-     * @param $session
-     * @param $sec_level
-     * @param $auth_protocol
-     * @param $auth_passphrase
-     * @param $priv_protocol
-     * @param $priv_passphrase
-     * @param $contextName
-     * @param $contextEngineID
+     * @param $sec_level string the security level (noAuthNoPriv|authNoPriv|authPriv)
+     * @param $auth_protocol string [optional] the authentication protocol (MD5 or SHA)
+     * @param $auth_passphrase string [optional] the authentication pass phrase
+     * @param $priv_protocol string [optional] the privacy protocol (DES or AES)
+     * @param $priv_passphrase string [optional] the privacy pass phrase
+     * @param $contextName string [optional] the context name
+     * @param $contextEngineID string [optional] the context EngineID
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-	public function setSecurity ($session, $sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $contextName, $contextEngineID) {}
+	public function setSecurity ($sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $contextName, $contextEngineID) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.4.0)<br/>
 	 * Fetch an SNMP object
 	 * @link http://php.net/manual/en/snmp.get.php
-	 * @param $object_id
-	 * @param $use_orignames [optional]
+	 * @param $object_id mixed The SNMP object (OID) or objects
+     * @param $preserve_keys bool [optional] When object_id is a array and preserve_keys set to <b>TRUE</b> keys in results will be taken exactly as in object_id, otherwise SNMP::oid_output_format property is used to determinate the form of keys.
 	 * @return mixed SNMP objects requested as string or array
 	 * depending on <i>object_id</i> type or <b>FALSE</b> on error.
 	 */
-	public function get ($object_id, $use_orignames) {}
+	public function get ($object_id, $preserve_keys = FALSE) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.4.0)<br/>
 	 * Fetch an SNMP object which
-follows the given object id
+     * follows the given object id
 	 * @link http://php.net/manual/en/snmp.getnext.php
-	 * @param $object_id
-	 * @param $use_orignames [optional]
+	 * @param $object_id mixed <p>
+     * The <acronym title="Simple Network Management Protocol">SNMP</acronym> object (OID) or objects
+     * </p>
 	 * @return mixed SNMP objects requested as string or array
 	 * depending on <i>object_id</i> type or <b>FALSE</b> on error.
 	 */
-	public function getnext ($object_id, $use_orignames) {}
+	public function getnext ($object_id) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.4.0)<br/>
 	 * Fetch SNMP object subtree
 	 * @link http://php.net/manual/en/snmp.walk.php
-	 * @param $object_id
-	 * @param $suffix_keys
-	 * @param $max_repetitions
-	 * @param $non_repeaters
-	 * @return array associative array of the SNMP object ids and their values on success or <b>FALSE</b> on error.
+	 * @param $object_id string <p>Root of subtree to be fetched</p>
+     * @param $suffix_as_keys bool [optional] <p>By default full OID notation is used for keys in output array. If set to <b>TRUE</b> subtree prefix will be removed from keys leaving only suffix of object_id.</p>
+     * @param $max_repetitions int [optional] <p>This specifies the maximum number of iterations over the repeating variables. The default is to use this value from SNMP object.</p>
+     * @param $non_repeaters int [optional] <p>This specifies the number of supplied variables that should not be iterated over. The default is to use this value from SNMP object.</p>
+     * @return array associative array of the SNMP object ids and their values on success or <b>FALSE</b> on error.
 	 * When a SNMP error occures <b>SNMP::getErrno</b> and
 	 * <b>SNMP::getError</b> can be used for retrieving error
 	 * number (specific to SNMP extension, see class constants) and error message
 	 * respectively.
 	 */
-	public function walk ($object_id, $suffix_keys, $max_repetitions, $non_repeaters) {}
+	public function walk ($object_id, $suffix_as_keys = FALSE, $max_repetitions, $non_repeaters) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.4.0)<br/>
 	 * Set the value of an SNMP object
 	 * @link http://php.net/manual/en/snmp.set.php
-	 * @param $object_id
-	 * @param $type
-	 * @param $value
-	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @param $object_id string <p>The SNMP object id</p>
+     *
+     * <p>When count of OIDs in object_id array is greater than
+     * max_oids object property set method will have to use multiple queries
+     * to perform requested value updates. In this case type and value checks
+     * are made per-chunk so second or subsequent requests may fail due to
+     * wrong type or value for OID requested. To mark this a warning is
+     * raised when count of OIDs in object_id array is greater than max_oids.
+     * When count of OIDs in object_id array is greater than max_oids object property set method will have to use multiple queries to perform requested value updates. In this case type and value checks are made per-chunk so second or subsequent requests may fail due to wrong type or value for OID requested. To mark this a warning is raised when count of OIDs in object_id array is greater than max_oids.</p>
+     * @param $type mixed <p>The MIB defines the type of each object id. It has to be specified as a single character from the below list.</p>
+     * <table>
+     * <b>types</b>
+     * <tbody>
+     * <tr><td>=</td><td>The type is taken from the MIB</td></tr>
+     * <tr><td>i</td><td>INTEGER</td> </tr>
+     * <tr><td>u</td><td>INTEGER</td></tr>
+     * <tr><td>s</td><td>STRING</td></tr>
+     * <tr><td>x</td><td>HEX STRING</td></tr>
+     * <tr><td>d</td><td>DECIMAL STRING</td></tr>
+     * <tr><td>n</td><td>NULLOBJ</td></tr>
+     * <tr><td>o</td><td>OBJID</td></tr>
+     * <tr><td>t</td><td>TIMETICKS</td></tr>
+     * <tr><td>a</td><td>IPADDRESS</td></tr>
+     * <tr><td>b</td><td>BITS</td></tr>
+     * </tbody>
+     * </table>
+     * <p>
+     * If <b>OPAQUE_SPECIAL_TYPES</b> was defined while compiling the SNMP library, the following are also valid:
+     * </p>
+     * <table>
+     * <b>types</b>
+     * <tbody>
+     * <tr><td>U</td><td>unsigned int64</td></tr>
+     * <tr><td>I</td><td>signed int64</td></tr>
+     * <tr><td>F</td><td>float</td></tr>
+     * <tr><td>D</td><td>double</td></tr>
+     * </tbody>
+     * </table>
+     * <p>
+     * Most of these will use the obvious corresponding ASN.1 type.  's', 'x', 'd' and 'b' are all different ways of specifying an OCTET STRING value, and
+     * the 'u' unsigned type is also used for handling Gauge32 values.
+     * </p>
+     *
+     * <p>
+     * If the MIB-Files are loaded by into the MIB Tree with "snmp_read_mib" or by specifying it in the libsnmp config, '=' may be used as
+     * the <i>type</code></i> parameter for all object ids as the type can then be automatically read from the MIB.
+     * </p>
+
+     * <p>
+     * Note that there are two ways to set a variable of the type BITS like e.g.
+     * "SYNTAX    BITS {telnet(0), ftp(1), http(2), icmp(3), snmp(4), ssh(5), https(6)}":
+     * </p>
+     * <ul>
+     * <li>
+     * Using type "b" and a list of bit numbers. This method is not recommended since GET query for the same OID would return e.g. 0xF8.
+     * </li>
+     * <li>
+     * Using type "x" and a hex number but without(!) the usual "0x" prefix.
+     * </li>
+     * </ul>
+     * <p>
+     * See examples section for more details.
+     * </p>
+	 * @param $value mixed <p>
+     * The new value.</p>
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function set ($object_id, $type, $value) {}
 
@@ -388,10 +480,9 @@ function snmpset ($host, $community, $object_id, $type, $value, $timeout = 10000
  * (PHP 4, PHP 5)<br/>
  * Fetches the current value of the UCD library's quick_print setting
  * @link http://php.net/manual/en/function.snmp-get-quick-print.php
- * @param $d
  * @return bool <b>TRUE</b> if quick_print is on, <b>FALSE</b> otherwise.
  */
-function snmp_get_quick_print ($d) {}
+function snmp_get_quick_print () {}
 
 /**
  * (PHP 4, PHP 5)<br/>
