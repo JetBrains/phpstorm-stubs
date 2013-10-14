@@ -341,5 +341,19 @@ define ('CURLFTPMETHOD_MULTICWD', 1);
 define ('CURLFTPMETHOD_NOCWD', 2);
 define ('CURLFTPMETHOD_SINGLECWD', 3);
 
+define ('CURLPROTO_HTTP', 1);
+define ('CURLPROTO_HTTPS', 2);
+define ('CURLPROTO_FTP', 4);
+define ('CURLPROTO_FTPS', 8);
+define ('CURLPROTO_SCP', 16);
+define ('CURLPROTO_SFTP', 32);
+define ('CURLPROTO_TELNET', 64);
+define ('CURLPROTO_LDAP', 128);
+define ('CURLPROTO_LDAPS', 256);
+define ('CURLPROTO_DICT', 512);
+define ('CURLPROTO_FILE', 1024);
+define ('CURLPROTO_TFTP', 2048);
+define ('CURLPROTO_ALL', -1);
+
 // End of curl v.
 ?>
