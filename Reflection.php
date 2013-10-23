@@ -437,7 +437,7 @@ class ReflectionParameter implements Reflector {
 	 * (PHP 5 &gt;= 5.2.3)<br/>
 	 * Gets declaring function
 	 * @link http://php.net/manual/en/reflectionparameter.getdeclaringfunction.php
-	 * @return ReflectionFunction A <b>ReflectionFunction</b> object.
+	 * @return ReflectionFunctionAbstract A <b>ReflectionFunctionAbstract</b> object.
 	 */
 	public function getDeclaringFunction () {}
 
