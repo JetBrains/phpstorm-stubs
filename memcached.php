@@ -963,11 +963,17 @@ class Memcached  {
 	 * @param int $offset [optional] <p>
 	 * The amount by which to increment the item's value.
 	 * </p>
-	 * @return int new item's value on success or <b>FALSE</b> on failure.
+     * @param int $initial_value [optional] <p>
+     * The value to set the item to if it doesn't currently exist.
+     * </p>
+     * @param int $expiry [optional] <p>
+     * The expiry time to set on the item.
+     * </p>
+     * @return int new item's value on success or <b>FALSE</b> on failure.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTFOUND</b> if the key does not exist.
 	 */
-	public function increment ($key, $offset = 1) {}
+	public function increment ($key, $offset = 1, $initial_value = 0, $expiry = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
