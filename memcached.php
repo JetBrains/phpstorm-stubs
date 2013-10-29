@@ -985,11 +985,17 @@ class Memcached  {
 	 * @param int $offset [optional] <p>
 	 * The amount by which to decrement the item's value.
 	 * </p>
+     * @param int $initial_value [optional] <p>
+     * The value to set the item to if it doesn't currently exists
+     * </p>
+     * @param int $expiry [optional] <p>
+     * The expiry time to set on the item.
+     * </p>
 	 * @return int item's new value on success or <b>FALSE</b> on failure.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTFOUND</b> if the key does not exist.
 	 */
-	public function decrement ($key, $offset = 1) {}
+	public function decrement ($key, $offset = 1, $initial_value = 0, $expiry = 0) {}
 
 	/**
 	 * @param $server_key
