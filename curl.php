@@ -2,6 +2,75 @@
 
 // Start of curl v.
 
+class CURLFile {
+    public $name;
+    public $mime;
+    public $postname;
+
+    /**
+     * (PHP 5 &gt;= 5.5.0)<br/>
+     * Create a CURLFile object
+     * @link http://www.php.net/manual/en/curlfile.construct.php
+     * @param string $filename <p>Path to the file which will be uploaded.</p>
+     * @param string $mimetype [optional] <p>Mimetype of the file.</p>
+     * @param string $postname [optional] <p>Name of the file.</p>
+     */
+    function __construct($filename, $mimetype, $postname) {
+    }
+
+    /**
+     * (PHP 5 &gt;= 5.5.0)<br/>
+     * Get file name
+     * @link http://www.php.net/manual/en/curlfile.getfilename.php
+     * @return string Returns file name.
+     */
+    public function getFilename() {
+    }
+
+    /**
+     * (PHP 5 &gt;= 5.5.0)<br/>
+     * Get MIME type
+     * @link http://www.php.net/manual/en/curlfile.getmimetype.php
+     * @return string Returns MIME type.
+     */
+    public function getMimeType() {
+    }
+
+    /**
+     * (PHP 5 &gt;= 5.5.0)<br/>
+     * Get file name for POST
+     * @link http://www.php.net/manual/en/curlfile.getpostfilename.php
+     * @return string Returns file name for POST.
+     */
+    public function getPostFilename() {
+    }
+
+    /**
+     * (PHP 5 &gt;= 5.5.0)<br/>
+     * Set MIME type
+     * @link http://www.php.net/manual/en/curlfile.setmimetype.php
+     * @param string $mime
+     */
+    public function setMimeType($mime) {
+    }
+
+    /**
+     * (PHP 5 &gt;= 5.5.0)<br/>
+     * Set file name for POST
+     * http://www.php.net/manual/en/curlfile.setpostfilename.php
+     * @param string $postname
+     */
+    public function setPostFilename($postname) {
+    }
+
+    /**
+     * (PHP 5 &gt;= 5.5.0)<br/>
+     * @link http://www.php.net/manual/en/curlfile.wakeup.php
+     * Unserialization handler
+     */
+    public function __wakeup() {
+    }
+}
 /**
  * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
  * Initialize a cURL session
@@ -1228,6 +1297,128 @@ function curl_setopt ($ch, $option, $value) {}
 function curl_setopt_array ($ch, array $options) {}
 
 /**
+ * (PHP 5 &gt;=5.5.0)<br/>
+ * Close a cURL share handle
+ * @link http://www.php.net/manual/en/function.curl-share-close.php
+ * @param resource $sh <p class="para">
+ * A cURL share handle returned by  <span class="function"><a href="function.curl-share-init.php" class="function">curl_share_init()</a></span>
+ * </p>
+ * @return void
+ */
+function curl_share_close ($sh) {}
+
+/**
+ * (PHP 5 &gt;=5.5.0)<br/>
+ * Initialize a cURL share handle
+ * @link http://www.php.net/manual/en/function.curl-share-init.php
+ * @return resource Returns resource of type "cURL Share Handle".
+ */
+function curl_share_init () {}
+
+/**
+ * (PHP 5 &gt;=5.5.0)<br/>
+ * Set an option for a cURL share handle.
+ * @link http://www.php.net/manual/en/function.curl-share-setopt.php
+ * @param resource $sh <p>
+ * A cURL share handle returned by  {@link http://www.php.net/manual/en/function.curl-share-init.php curl_share_init()}.
+ * </p>
+ * @param int $option <table>
+ *
+ * <thead>
+ * <tr>
+ * <th>Option</th>
+ * <th>Description</th>
+ * </tr>
+ *
+ * </thead>
+ *
+ * <tbody>
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLSHOPT_SHARE</b></td>
+ * <td style="vertical-align: top;">
+ * Specifies a type of data that should be shared.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLSHOPT_UNSHARE</b></td>
+ * <td style="vertical-align: top;">
+ * Specifies a type of data that will be no longer shared.
+ * </td>
+ * </tr>
+ *
+ * </tbody>
+ *
+ * </table>
+ * @param string $value  <p><table>
+ *
+ * <thead>
+ * <tr>
+ * <th>Value</th>
+ * <th>Description</th>
+ * </tr>
+ *
+ * </thead>
+ *
+ * <tbody class="tbody">
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURL_LOCK_DATA_COOKIE</b></td>
+ * <td style="vertical-align: top;">
+ * Shares cookie data.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURL_LOCK_DATA_DNS</b></td>
+ * <td style="vertical-align: top;">
+ * Shares DNS cache. Note that when you use cURL multi handles,
+ * all handles added to the same multi handle will share DNS cache
+ * by default.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURL_LOCK_DATA_SSL_SESSION</b></td>
+ * <td style="vertical-align: top;">
+ * Shares SSL session IDs, reducing the time spent on the SSL
+ * handshake when reconnecting to the same server. Note that SSL
+ * session IDs are reused withing the same handle by default.
+ * </td>
+ * </tr>
+ *
+ * </tbody>
+ *
+ * </table>
+ * </p>
+ * @return bool
+ * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ */
+function curl_share_setopt ($sh, $option, $value ) {}
+
+/**
+ * (PHP 5 &gt;=5.5.0)<br/>
+ * Return string describing the given error code
+ * @link http://www.php.net/manual/en/function.curl-strerror.php
+ * @param int $errornum <p>
+ * One of the {@link http://curl.haxx.se/libcurl/c/libcurl-errors.html &nbsp;cURL error codes} constants.
+ * </p>
+ * @return string|NULL Returns error description or <b>NULL</b> for invalid error code.
+ */
+function curl_strerror ($errornum ) {}
+
+/**
+ * (PHP 5 &gt;=5.5.0)<br/>
+ * Decodes the given URL encoded string
+ * @link http://www.php.net/manual/en/function.curl-unescape.php
+ * @param resource $ch <p>A cURL handle returned by
+ * {@link http://www.php.net/manual/en/function.curl-init.php curl_init()}.</p>
+ * @param string $str <p>
+ * The URL encoded string to be decoded.
+ * </p>
+ * @return string|bool Returns decoded string or FALSE on failure.
+ */
+function  curl_unescape ($ch, $str)  {}
+/**
  * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
  * Perform a cURL session
  * @link http://php.net/manual/en/function.curl-exec.php
@@ -1292,6 +1483,31 @@ function curl_error ($ch) {}
 function curl_errno ($ch) {}
 
 /**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * URL encodes the given string
+ * @link http://www.php.net/manual/en/function.curl-escape.php
+ * @param resource $ch <p>
+ * A cURL handle returned by
+ * {@link http://www.php.net/manual/en/function.curl-init.php curl_init()}.</p>
+ * @param string $str <p>
+ * The string to be encoded.</p>
+ * @return string|boolean Returns escaped string or FALSE on failure.
+ */
+function curl_escape($ch, $str) {}
+
+/**
+ * (PHP 5 >= 5.5.0) <br/>
+ * Create a CURLFile object
+ * @link http://www.php.net/manual/en/curlfile.construct.php
+ * @param string $filename <p> Path to the file which will be uploaded.</p>
+ * @param string $mimetype [optional] <p>Mimetype of the file.</p>
+ * @param string $postname [optional] <p>Name of the file.</p>
+ * @return CURLFile
+ * Returns a {@link http://www.php.net/manual/en/class.curlfile.php CURLFile} object.
+ */
+function curl_file_create($filename, $mimetype, $postname) {}
+
+/**
  * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
  * Close a cURL session
  * @link http://php.net/manual/en/function.curl-close.php
@@ -1341,6 +1557,88 @@ function curl_multi_remove_handle ($mh, $ch) {}
  * the descriptor sets. On failure, this function will return -1 on a select failure or timeout (from the underlying select system call).
  */
 function curl_multi_select ($mh, $timeout = null) {}
+
+/**
+ * (PHP 5 &gt;=5.5.0)<br/>
+ * Set an option for the cURL multi handle
+ * @link www.php.net/manual/en/function.curl-multi-setopt.php
+ * @param resource $mh
+ * @param int $option <p>
+ * One of the <b>CURLMOPT_*</b> constants.
+ * </p>
+ * @param mixed $value   <p>
+ * The value to be set on <em>option</em>.
+ * </p>
+ * <p>
+ * <em>value</em> should be an {@link http://php.net/manual/en/language.types.integer.php int} for the
+ * following values of the <em>option</em> parameter:
+ * </p><table>
+ *
+ * <thead>
+ * <tr>
+ * <th>Option</th>
+ * <th>Set <em><code class="parameter">value</code></em> to</th>
+ * </tr>
+ *
+ * </thead>
+ *
+ * <tbody>
+ * <tr>
+ * <td><b>CURLMOPT_PIPELINING</b></td>
+ * <td style="vertical-align: top;">
+ * Pass 1 to enable or 0 to disable. Enabling pipelining on a multi
+ * handle will make it attempt to perform HTTP Pipelining as far as
+ * possible for transfers using this handle. This means that if you add
+ * a second request that can use an already existing connection, the
+ * second request will be "piped" on the same connection rather than
+ * being executed in parallel.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLMOPT_MAXCONNECTS</b></td>
+ * <td style="vertical-align: top;">
+ * Pass a number that will be used as the maximum amount of
+ * simultaneously open connections that libcurl may cache. Default is
+ * 10. When the cache is full, curl closes the oldest one in the cache
+ * to prevent the number of open connections from increasing.
+ * </td>
+ * </tr>
+ * </tbody>
+ * </table>
+ * @return boolean Returns TRUE on success or FALSE on failure.
+ */
+function curl_multi_setopt ($mh, $option, $value) {}
+
+/**
+ * (PHP 5 &gt;=5.5.0)<br/>
+ * Return string describing error code
+ * @link http://www.php.net/manual/en/function.curl-multi-strerror.php
+ * @param int $errornum <p>
+ * One of the {@link http://curl.haxx.se/libcurl/c/libcurl-errors.html CURLM error codes} constants.
+ * </p>
+ * @return string|NULL Returns error string for valid error code, NULL otherwise.
+ */
+function curl_multi_strerror ($errornum) {}
+
+/**
+ * (PHP 5 &gt;=5.5.0)<br/>
+ * Pause and unpause a connection
+ * @link http://www.php.net/manual/en/function.curl-pause.php
+ * @param resource $ch <p>A cURL handle returned by @link {http://www.php.net/manual/en/function.curl-init.php curl_init()}.</p>
+ * @param int $bitmask <p>One of <b>CURLPAUSE_*</b> constants.</p>
+ * @return int Returns an error code (<b>CURLE_OK</b> for no error).
+ */
+function curl_pause ($ch , $bitmask ) {}
+
+/**
+ * (PHP 5 &gt;=5.5.0)<br/>
+ * Reset all options of a libcurl session handle
+ * @link www.php.net/manual/en/function.curl-reset.php
+ * @param resource $ch <p>A cURL handle returned by {@link www.php.net/manual/en/function.curl-init.php curl_init()}.</p>
+ * @return void
+ */
+function curl_reset ( $ch ) {}
 
 /**
  * (PHP 5)<br/>

@@ -89,6 +89,13 @@ function json_decode ($json, $assoc = false, $depth = 512, $options = 0) {}
  */
 function json_last_error () {}
 
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Returns the error string of the last json_encode() or json_decode() call
+ * @link http://php.net/manual/en/function.json-last-error-msg.php
+ * @return string|NULL Returns the error message on success or <b>NULL</b> with wrong parameters.
+ */
+function json_last_error_msg () {}
 
 /**
  * All &lt; and &gt; are converted to \u003C and \u003E.

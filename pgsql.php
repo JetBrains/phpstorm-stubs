@@ -1351,6 +1351,37 @@ function pg_escape_string ($connection = null, $data) {}
  */
 function pg_escape_bytea ($connection = null, $data) {}
 
+
+/**
+ * (PHP 5 &gt;=5.5.0)<br/>
+ * Escape a identifier for insertion into a text field
+ * @link http://www.php.net/manual/en/function.pg-escape-identifier.php
+ * @param resource $connection [optional] <p>PostgreSQL database connection resource.
+ * When connection is not present, the default connection is used.
+ * The default connection is the last connection made by pg_connect() or pg_pconnect().</p>
+ * @param string $data <p>
+ * A {@link http://www.php.net/manual/en/language.types.string.php string} containing text to be escaped.
+ * </p>
+ * @return string A @link http://www.php.net/manual/en/language.types.string.php string} containing the escaped data.
+ */
+function pg_escape_identifier ($connection, $data ) {}
+
+/**
+ * (PHP 5 &gt;=5.5.0)<br/>
+ * @link http://www.php.net/manual/en/function.pg-escape-literal.php
+ * @param resource $connection [optional] <p>
+ * PostgreSQL database connection resource.  When
+ * <em>connection</em> is not present, the default connection
+ * is used. The default connection is the last connection made by
+ * {@link http://www.php.net/manual/en/function.pg-connect.php pg_connect()} or  {@link http://www.php.net/manual/en/function.pg-pconnect.php pg_pconnect()}.
+ * </p>
+ * @param string $data <p>
+ * A {@link http://www.php.net/manual/en/language.types.string.php string} containing text to be escaped.
+ * </p>
+ * @return string A {@link http://www.php.net/manual/en/language.types.string.php string} containing the escaped data.
+ */
+function pg_escape_literal ($connection,  $data ) {}
+
 /**
  * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
  * Unescape binary for bytea type

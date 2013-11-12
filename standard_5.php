@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * (PHP 5.5.0)<br/>
+ * Get the boolean value of a variable
+ * @param mixed $var <p>the scalar value being converted to a boolean.</p>
+ * @return boolean The boolean value of var.
+ */
+function boolval($var) {}
 
 /**
  * (PHP 4, PHP 5)<br/>

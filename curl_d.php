@@ -355,5 +355,24 @@ define ('CURLPROTO_FILE', 1024);
 define ('CURLPROTO_TFTP', 2048);
 define ('CURLPROTO_ALL', -1);
 
+/**
+ * Available since PHP 5.5.0
+ * @link http://php.net/manual/en/curl.constants.php
+ */
+define ('CURLMOPT_PIPELINING', 3);
+
+/**
+ * Available since PHP 5.5.0
+ * @link http://php.net/manual/en/curl.constants.php
+ */
+define ('CURLMOPT_MAXCONNECTS', 6);
+
+define ('CURLSHOPT_SHARE', 1);
+define ('CURLSHOPT_UNSHARE', 2);
+define ('CURL_LOCK_DATA_COOKIE', 2);
+define ('CURL_LOCK_DATA_DNS', 3);
+define ('CURL_LOCK_DATA_SSL_SESSION', 4);
+
+
 // End of curl v.
 ?>
