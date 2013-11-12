@@ -1300,8 +1300,8 @@ function curl_setopt_array ($ch, array $options) {}
  * (PHP 5 &gt;=5.5.0)<br/>
  * Close a cURL share handle
  * @link http://www.php.net/manual/en/function.curl-share-close.php
- * @param resource $sh <p class="para">
- * A cURL share handle returned by  <span class="function"><a href="function.curl-share-init.php" class="function">curl_share_init()</a></span>
+ * @param resource $sh <p>
+ * A cURL share handle returned by  {@link http://www.php.net/manual/en/function.curl-share-init.php curl_share_init()}
  * </p>
  * @return void
  */
