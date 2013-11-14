@@ -6066,5 +6066,302 @@ define ('IDNA_ERROR_BIDI', 2048);
 define ('IDNA_ERROR_CONTEXTJ', 4096);
 
 
+class IntlBreakIterator implements Traversable {
+    /* Constants */
+    const  DONE = -1;
+    const  WORD_NONE = 0;
+    const  WORD_NONE_LIMIT = 100;
+    const  WORD_NUMBER = 100;
+    const  WORD_NUMBER_LIMIT = 200;
+    const  WORD_LETTER = 200;
+    const  WORD_LETTER_LIMIT = 300;
+    const  WORD_KANA = 300;
+    const  WORD_KANA_LIMIT = 400;
+    const  WORD_IDEO = 400;
+    const WORD_IDEO_LIMIT = 500;
+    const  LINE_SOFT = 0;
+    const  LINE_SOFT_LIMIT = 100;
+    const  LINE_HARD = 100;
+    const  LINE_HARD_LIMIT = 200;
+    const  SENTENCE_TERM = 0;
+    const  SENTENCE_TERM_LIMIT = 100;
+    const  SENTENCE_SEP = 100;
+    const  SENTENCE_SEP_LIMIT = 200;
+
+    /* Methods */
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Private constructor for disallowing instantiation
+     */
+    private function __construct() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Create break iterator for boundaries of combining character sequences
+     * @link http://www.php.net/manual/en/intlbreakiterator.createcharacterinstance.php
+     * @param string $locale
+     * @return IntlBreakIterator
+     */
+    public static function  createCharacterInstance($locale) { }
+
+    /*
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Create break iterator for boundaries of code points
+     * @link http://www.php.net/manual/en/intlbreakiterator.createcodepointinstance.php
+     * @return IntlBreakIterator
+     */
+    public static function createCodePointInstance() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Create break iterator for logically possible line breaks
+     * @link http://www.php.net/manual/en/intlbreakiterator.createlineinstance.php
+     * @param string $locale
+     * @return IntlBreakIterator
+     */
+    public static function createLineInstance($locale) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Create break iterator for sentence breaks
+     * @link http://www.php.net/manual/en/intlbreakiterator.createsentenceinstance.php
+     * @param string $locale
+     * @return IntlBreakIterator
+     */
+    public static function createSentenceInstance($locale) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Create break iterator for title-casing breaks
+     * @link http://www.php.net/manual/en/intlbreakiterator.createtitleinstance.php
+     * @param string $locale
+     * @return IntlBreakIterator
+     */
+    public static function createTitleInstance($locale) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Create break iterator for word breaks
+     * @link http://www.php.net/manual/en/intlbreakiterator.createwordinstance.php
+     * @param string $locale
+     * @return IntlBreakIterator
+     */
+    public static function createWordInstance($locale) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get index of current position
+     * @link http://www.php.net/manual/en/intlbreakiterator.current.php
+     * @return int
+     */
+    public function current() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Set position to the first character in the text
+     * @link http://www.php.net/manual/en/intlbreakiterator.first.php
+     */
+    public function first() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Advance the iterator to the first boundary following specified offset
+     * @link http://www.php.net/manual/en/intlbreakiterator.following.php
+     * @param int $offset
+     */
+    public function following($offset) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get last error code on the object
+     * @link http://www.php.net/manual/en/intlbreakiterator.geterrorcode.php
+     */
+    public function getErrorCode() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get last error message on the object
+     * @link http://www.php.net/manual/en/intlbreakiterator.geterrormessage.php
+     */
+    public function getErrorMessage() { }
+
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get the locale associated with the object
+     * @link http://www.php.net/manual/en/intlbreakiterator.getlocale.php
+     * @param string $locale_type
+     */
+    public function getLocale($locale_type) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Create iterator for navigating fragments between boundaries
+     * @link http://www.php.net/manual/en/intlbreakiterator.getpartsiterator.php
+     * @param string $key_type [optional]
+     */
+    public function getPartsIterator($key_type) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get the text being scanned
+     * @link http://www.php.net/manual/en/intlbreakiterator.gettext.php
+     */
+    public function getText() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Tell whether an offset is a boundaryʼs offset
+     * @link http://www.php.net/manual/en/intlbreakiterator.isboundary.php
+     * @param string $offset
+     */
+    public function isBoundary($offset) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Set the iterator position to index beyond the last character
+     * @link http://www.php.net/manual/en/intlbreakiterator.last.php
+     * @return int
+     */
+    public function last() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * @link http://www.php.net/manual/en/intlbreakiterator.next.php
+     * @param string $offset [optional]
+     * @return int
+     */
+    public function next($offset) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * @link http://www.php.net/manual/en/intlbreakiterator.preceding.php
+     * @param int $offset
+     */
+    public function preceding($offset) {}
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Set the iterator position to the boundary immediately before the current
+     * @link http://www.php.net/manual/en/intlbreakiterator.previous.php
+     * @return int
+     */
+    public function previous() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Set the text being scanned
+     * @link http://www.php.net/manual/en/intlbreakiterator.settext.php
+     * @param string $text
+
+     */
+    public function setText($text) { }
+}
+
+class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversable {
+
+    /* Methods */
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * @param string $rules
+     * @param string $areCompiled
+     */
+    public function __construct($rules, $areCompiled) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Create break iterator for boundaries of combining character sequences
+     * @link http://www.php.net/manual/en/intlbreakiterator.createcharacterinstance.php
+     * @param string $locale
+     * @return IntlRuleBasedBreakIterator
+     */
+    public static function  createCharacterInstance($locale) { }
+
+    /*
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Create break iterator for boundaries of code points
+     * @link http://www.php.net/manual/en/intlbreakiterator.createcodepointinstance.php
+     * @return IntlRuleBasedBreakIterator
+     */
+    public static function createCodePointInstance() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Create break iterator for logically possible line breaks
+     * @link http://www.php.net/manual/en/intlbreakiterator.createlineinstance.php
+     * @param string $locale
+     * @return IntlRuleBasedBreakIterator
+     */
+    public static function createLineInstance($locale) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Create break iterator for sentence breaks
+     * @link http://www.php.net/manual/en/intlbreakiterator.createsentenceinstance.php
+     * @param string $locale
+     * @return IntlRuleBasedBreakIterator
+     */
+    public static function createSentenceInstance($locale) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Create break iterator for title-casing breaks
+     * @link http://www.php.net/manual/en/intlbreakiterator.createtitleinstance.php
+     * @param string $locale
+     * @return IntlRuleBasedBreakIterator
+     */
+    public static function createTitleInstance($locale) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Create break iterator for word breaks
+     * @link http://www.php.net/manual/en/intlbreakiterator.createwordinstance.php
+     * @param string $locale
+     * @return IntlRuleBasedBreakIterator
+     */
+    public static function createWordInstance($locale) { }
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * @link http://www.php.net/manual/en/intlrulebasedbreakiterator.getbinaryrules.php
+     * Get the binary form of compiled rules
+     */
+    public function getBinaryRules() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * @link http://www.php.net/manual/en/intlrulebasedbreakiterator.getrules.php
+     * Get the rule set used to create this object
+     */
+    public function getRules() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * @link http://www.php.net/manual/en/intlrulebasedbreakiterator.getrulesstatus.php
+     * Get the largest status value from the break rules that determined the current break position
+     * @return int
+     */
+    public function getRuleStatus() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * @link http://www.php.net/manual/en/intlrulebasedbreakiterator.getrulestatusvec.php
+     * Get the status values from the break rules that determined the current break position
+     * @return int
+     */
+    public function getRuleStatusVec() { }
+}
+
+class IntlCodePointBreakIterator extends IntlBreakIterator implements Traversable {
+
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get last code point passed over after advancing or receding the iterator
+     * @link http://www.php.net/manual/en/intlcodepointbreakiterator.getlastcodepoint.php
+     */
+    public function getLastCodePoint() { }
+
+
+}
 // End of intl v.1.1.0
 ?>
