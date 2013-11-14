@@ -6211,7 +6211,7 @@ class IntlBreakIterator implements Traversable {
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
-     * Tell whether an offset is a boundaryʼs offset
+     * Tell whether an offset is a boundary's offset
      * @link http://www.php.net/manual/en/intlbreakiterator.isboundary.php
      * @param string $offset
      */
