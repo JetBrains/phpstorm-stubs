@@ -98,6 +98,24 @@ class MongoClient
     public function getReadPreference ()
     {}
 
+
+    /**
+     * Kills a specific cursor on the server
+     * @link http://www.php.net/manual/en/mongoclient.killcursor.php
+     * @param string $server_hash <p>
+     * The server hash that has the cursor. This can be obtained through
+     * {@link http://www.php.net/manual/en/mongocursor.info.php MongoCursor::info()}.
+     * </p>
+     * @param int|MongoInt64 $id
+     * <p>
+     * The ID of the cursor to kill. You can either supply an {@link http://www.php.net/manual/en/language.types.integer.php int}
+     * containing the 64 bit cursor ID, or an object of the
+     * {@link http://www.php.net/manual/en/class.mongoint64.php MongoInt64} class. The latter is necessary on 32
+     * bit platforms (and Windows).
+     * </p>
+     */
+public function killCursor ( $server_hash , $id) {}
+
     /**
      * List databases
      * @return array
@@ -391,6 +409,57 @@ class MongoDB {
 	 */
     const PROFILING_ON = 2;
 
+    /**
+     * @var int
+     * <p>
+     * The number of servers to replicate a change to before returning success.
+     * Inherited by instances of {@link http://php.net/manual/en/class.mongocollection.php MongoCollection} derived
+     * from this.  <em>w</em> functionality is only available in
+     * version 1.5.1+ of the MongoDB server and 1.0.8+ of the driver.
+     * </p>
+     * <p>
+     * <em>w</em> is used whenever you need to adjust the
+     * acknowledgement level
+     * ( {@link http://php.net/manual/en/mongocollection.insert.php MongoCollection::insert()},
+     * {@link http://php.net/manual/en/mongocollection.update.php MongoCollection::update()},
+     * {@link http://php.net/manual/en/mongocollection.remove.php MongoCollection::remove()},
+     * {@link http://php.net/manual/en/mongocollection.save.php MongoCollection::save()}, and
+     * {@link http://php.net/manual/en/mongocollection.ensureindex.php MongoCollection::ensureIndex()} all support this
+     * option). With the default value (1), an acknowledged operation will return once
+     * the database server has the operation. If the server goes down before
+     * the operation has been replicated to a secondary, it is possible to lose
+     * the operation forever. Thus, you can specify <em>w</em> to be
+     * higher than one and guarantee that at least one secondary has the
+     * operation before it is considered successful.
+     * </p>
+     * <p>
+     * For example, if <em>w</em> is 2, the primary and one secondary
+     * must have a record of the operation or the driver will throw a
+     * {@link http://php.net/manual/en/class.mongocursorexception.php MongoCursorException}. It is tempting to set
+     * <em>w</em> to the total number of secondaries + primary, but
+     * then if one secondary is down the operation will fail and an exception
+     * will be thrown, so usually <em>w=2</em> is safest (primary and
+     * one secondary).
+     * </p>
+     */
+    public $w = 1;
+
+    /**
+     * @var int <p>
+     * T he number of milliseconds to wait for <em>MongoDB::$w</em>
+     * replications to take place.  Inherited by instances of
+     * {@link http://www.php.net/manual/en/class.mongocollection.php MongoCollection} derived from this.
+     * <em>w</em> functionality is only available in version 1.5.1+ of
+     * the MongoDB server and 1.0.8+ of the driver.
+     * </p>
+     * <p>
+     * Unless <em>wtimeout</em> is set, the server waits forever for
+     * replicating to <em>w</em> servers to finish.  The driver
+     * defaults to waiting for 10 seconds, you can change this value to alter
+     * its behavior.
+     * </p>
+     */
+    public $wtimeout = 10000;
 	/**
 	 * Creates a new database
 	 * This method is not meant to be called directly. The preferred way to create an instance of MongoDB is through Mongo::__get() or Mongo::selectDB().
@@ -418,6 +487,15 @@ class MongoDB {
     public function __get($name) {}
 
     /**
+     * (PECL mongo &gt;= 1.3.0)<br/>
+     * @link http://www.php.net/manual/en/mongodb.getcollectionnames.php
+     * Get all collections from this database
+     * @param bool $includeSystemCollections [optional] Include system collections.
+     * @return array Returns the names of the all the collections in the database as an {@link http://www.php.net/manual/en/language.types.array.php array}.
+     */
+    public function getCollectionNames($includeSystemCollections = false) {}
+
+    /**
 	 * Fetches toolkit for dealing with files stored in this database
 	 * @link http://www.php.net/manual/en/mongodb.getgridfs.php
 	 * @param string $prefix The prefix for the files and chunks collections.
@@ -432,6 +510,12 @@ class MongoDB {
     */
     public function getProfilingLevel() {}
 
+    /**
+     * (PECL mongo &gt;= 1.1.0)<br/>
+     * @link http://www.php.net/manual/en/mongodb.getslaveokay.php
+     * @return bool Returns the value of slaveOkay for this instance.
+     */
+    public function getSlaveOkay () {}
     /**
 	 * Sets this database's profiling level
 	 * @link http://www.php.net/manual/en/mongodb.setprofilinglevel.php
@@ -464,6 +548,15 @@ class MongoDB {
 	 */
     public function selectCollection($name) {}
 
+    /**
+     * (PECL mongo &gt;= 1.1.0)<br/>
+     * @param bool $ok [optional] <p>
+     * If reads should be sent to secondary members of a replica set for all
+     * possible queries using this {@link http://www.php.net/manual/en/class.mongodb.php MongoDB} instance.
+     * </p>
+     * @return bool Returns the former value of slaveOkay for this instance.
+     */
+    public function setSlaveOkay ($ok = true) {}
 
 	/**
 	 * Creates a collection
@@ -566,6 +659,22 @@ class MongoDB {
      *         what went wrong)
 	 */
     public function authenticate($username, $password) {}
+
+    /**
+     * (PECL mongo &gt;= 1.3.0)<br/>
+     * http://www.php.net/manual/en/mongodb.setreadpreference.php
+     * @return array() This function returns an array describing the read preference. The array contains the values type for the string read preference mode (corresponding to the MongoClient constants), and tagsets containing a list of all tag set criteria. If no tag sets were specified, tagsets will not be present in the array.
+     */
+    public function getReadPreference () {}
+
+    /**
+     * (PECL mongo &gt;= 1.3.0)<br/>
+     * @link http://www.php.net/manual/en/mongodb.setreadpreference.php
+     * @param string $read_preference <p>The read preference mode: MongoClient::RP_PRIMARY, MongoClient::RP_PRIMARY_PREFERRED, MongoClient::RP_SECONDARY, MongoClient::RP_SECONDARY_PREFERRED, or MongoClient::RP_NEAREST.</p>
+     * @param array $tags <p>An array of zero or more tag sets, where each tag set is itself an array of criteria used to match tags on replica set members.</p>
+     * @return boolean Returns TRUE on success, or FALSE otherwise.
+     */
+    public function setReadPreference ($read_preference, array $tags) {}
 }
 
 /**
@@ -758,7 +867,7 @@ class MongoCollection {
     	 * @param array $update The update criteria.
     	 * @param array $fields Optionally only return these fields.
     	 * @param array $options An array of options to apply, such as remove the match document from the DB and return it.
-    	 * @return Returns the original document, or the modified document when new is set.
+    	 * @return array Returns the original document, or the modified document when new is set.
          */
     public function findAndModify (array $query, array $update = NULL, array $fields = NULL, array $options = NULL) {}
 
@@ -882,6 +991,17 @@ class MongoCursor implements Iterator, Traversable {
     public static $slaveOkay = FALSE;
 
     /**
+     * @var int <p>
+     * Set timeout in milliseconds for all database responses. Use
+     * <em>-1</em> to wait forever. Can be overridden with
+     * {link http://php.net/manual/en/mongocursor.timeout.php MongoCursor::timeout()}. This does not cause the
+     * MongoDB server to cancel the operation; it only instructs the driver to
+     * stop waiting for a response and throw a
+     * {@link http://php.net/manual/en/class.mongocursortimeoutexception.php MongoCursorTimeoutException} after a set time.
+     * </p>
+     */
+    static $timeout = 30000;
+    /**
 	 * Create a new cursor
 	 * @link http://www.php.net/manual/en/mongocursor.construct.php
 	 * @param resource $connection Database connection.
@@ -892,6 +1012,13 @@ class MongoCursor implements Iterator, Traversable {
 	 */
     public function __construct(resource $connection, $ns, array $query = array(), array $fields = array()) {}
 
+    /**
+     * (PECL mongo &gt;= 1.2.11)<br/>
+     * Sets whether this cursor will wait for a while for a tailable cursor to return more data
+     * @param bool $wait [optional] <p>If the cursor should wait for more data to become available.</p>
+     * @return MongoCursor Returns this cursor.
+     */
+    public function awaitData ($wait = true) {}
     /**
 	 * Checks if there are any more elements in this cursor
 	 * @link http://www.php.net/manual/en/mongocursor.hasnext.php
@@ -911,6 +1038,13 @@ class MongoCursor implements Iterator, Traversable {
     public function getNext() {}
 
     /**
+     * (PECL mongo &gt;= 1.3.3)<br/>
+     * @link http://www.php.net/manual/en/mongocursor.getreadpreference.php
+     * @return array This function returns an array describing the read preference. The array contains the values <em>type</em> for the string read preference mode (corresponding to the {@link http://www.php.net/manual/en/class.mongoclient.php MongoClient} constants), and <em>tagsets</em> containing a list of all tag set criteria. If no tag sets were specified, <em>tagsets</em> will not be present in the array.
+     */
+    public function getReadPreference () { }
+
+    /**
 	 * Limits the number of results returned
 	 * @link http://www.php.net/manual/en/mongocursor.limit.php
 	 * @param int $num The number of results to return.
@@ -918,6 +1052,37 @@ class MongoCursor implements Iterator, Traversable {
      * @return MongoCursor Returns this cursor
 	 */
     public function limit($num) {}
+
+    /**
+     * (PECL mongo &gt;= 1.2.0)<br/>
+     * @link http://www.php.net/manual/en/mongocursor.partial.php
+     * @param bool $okay [optional] <p>If receiving partial results is okay.</p>
+     * @return MongoCursor Returns this cursor.
+     */
+    public function partial ($okay = true) {}
+
+    /**
+     * (PECL mongo &gt;= 1.2.1)<br/>
+     * @link http://www.php.net/manual/en/mongocursor.setflag.php
+     * @param int $flag <p>
+     * Which flag to set. You can not set flag 6 (EXHAUST) as the driver does
+     * not know how to handle them. You will get a warning if you try to use
+     * this flag. For available flags, please refer to the wire protocol
+     * {@link http://www.mongodb.org/display/DOCS/Mongo+Wire+Protocol#MongoWireProtocol-OPQUERY &nbsp;documentation}.
+     * </p>
+     * @param bool $set [optional] <p>Whether the flag should be set (TRUE) or unset (FALSE).</p>
+     * @return MongoCursor
+     */
+    public function setFlag ($flag, $set = true ) {}
+
+    /**
+     * (PECL mongo &gt;= 1.3.3)<br/>
+     * @link http://www.php.net/manual/en/mongocursor.setreadpreference.php
+     * @param string $read_preference <p>The read preference mode: MongoClient::RP_PRIMARY, MongoClient::RP_PRIMARY_PREFERRED, MongoClient::RP_SECONDARY, MongoClient::RP_SECONDARY_PREFERRED, or MongoClient::RP_NEAREST.</p>
+     * @param array $tags [optional] <p>The read preference mode: MongoClient::RP_PRIMARY, MongoClient::RP_PRIMARY_PREFERRED, MongoClient::RP_SECONDARY, MongoClient::RP_SECONDARY_PREFERRED, or MongoClient::RP_NEAREST.</p>
+     * @return MongoCursor Returns this cursor.
+     */
+    public function setReadPreference ($read_preference, array $tags) {}
 
     /**
 	 * Skips a number of results
@@ -1732,6 +1897,7 @@ class MongoLog {
      */
     const PARSE = 0;
 
+    const CON = 2;
 
     /**
      * @link http://php.net/manual/en/class.mongolog.php#mongolog.props.level@static
@@ -1747,7 +1913,36 @@ class MongoLog {
      */
     private static $module = 0;
 
-
+    /**
+     * (PECL mongo &gt;= 1.3.0)<br/>
+     * @param callable $log_function
+     * The function to be called on events.
+     * </p>
+     * <p>
+     * The function should have the following prototype
+     * </p>
+     *
+     * <em>log_function</em>
+     * ( <em>int</em> <em>$module</em>
+     * , <em>int</em> <em>$level</em>
+     * , <em>string<em> <em>$message</em>
+     * )
+     *
+     * <em>module</em>
+     *
+     * One of the {@link http://www.php.net/manual/en/class.mongolog.php#mongolog.constants.module MongoLog module constants}.
+     *
+     * <em>level</em>
+     *
+     *
+     * One of the {@link http://www.php.net/manual/en/class.mongolog.php#mongolog.constants.level MongoLog level constants}.
+     *
+     * <em>message</em>
+     *
+     * The log message itself.
+     * @return boolean Returns TRUE on success or FALSE on failure.
+     */
+    public static function setCallback ( callable $log_function ) {}
     /**
      * This function can be used to set how verbose logging should be and the types of
      * activities that should be logged. Use the constants described in the MongoLog
