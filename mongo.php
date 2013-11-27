@@ -491,7 +491,8 @@ class MongoDB {
      * @link http://www.php.net/manual/en/mongodb.getcollectionnames.php
      * Get all collections from this database
      * @param bool $includeSystemCollections [optional] Include system collections.
-     * @return array Returns the names of the all the collections in the database as an {@link http://www.php.net/manual/en/language.types.array.php array}.
+     * @return array Returns the names of the all the collections in the database as an
+     * {@link http://www.php.net/manual/en/language.types.array.php array}.
      */
     public function getCollectionNames($includeSystemCollections = false) {}
 
@@ -662,7 +663,7 @@ class MongoDB {
 
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
-     * http://www.php.net/manual/en/mongodb.setreadpreference.php
+     * @link http://www.php.net/manual/en/mongodb.setreadpreference.php
      * @return array() This function returns an array describing the read preference. The array contains the values type for the string read preference mode (corresponding to the MongoClient constants), and tagsets containing a list of all tag set criteria. If no tag sets were specified, tagsets will not be present in the array.
      */
     public function getReadPreference () {}
@@ -698,6 +699,26 @@ class MongoCollection {
 	public $db = NULL ;
 
     /**
+     * @var int<p>
+     * The number of servers to replicate a change to before returning success.
+     * Value is inherited from the parent database. The
+     * {@link http://www.php.net/manual/en/class.mongodb.php MongoDB} class has a more detailed description of
+     * how <em>w</em> works.
+     * </p>
+     */
+    public $w;
+
+    /**
+     * @var int <p>
+     * The number of milliseconds to wait for <em>$this-&gt;w</em>
+     * replications to take place.  Value is inherited from the parent database.
+     * The {@link http://www.php.net/manual/en/class.mongodb.php MongoDB} class has a more detailed description
+     * of how <em>wtimeout</em> works.
+     * </p>
+     */
+    public $wtimeout;
+
+    /**
 	 * Creates a new collection
 	 * @link http://www.php.net/manual/en/mongocollection.construct.php
 	 * @param MongoDB $db Parent database.
@@ -723,11 +744,76 @@ class MongoCollection {
     public function __get($name) {}
 
     /**
+     * (PECL mongo &gt;= 1.3.0)<br/>
+     * <p>
+     * The MongoDB
+     * {@link http://docs.mongodb.org/manual/applications/aggregation/ aggregation framework}
+     * provides a means to calculate aggregated values without having to use
+     * MapReduce. While MapReduce is powerful, it is often more difficult than
+     * necessary for many simple aggregation tasks, such as totaling or averaging
+     * field values.
+     * </p>
+     * <p>
+     * This method accepts either a variable amount of pipeline operators, or a
+     * single array of operators constituting the pipeline.
+     * </p>
+     * @link http://www.php.net/manual/en/mongocollection.aggregate.php
+     * @param array $pipeline <p> An array of pipeline operators, or just the first operator. </p>
+     * @param array $op [optional] <p> The second pipeline operator.</p>
+     * @param array $pipelineOperators [optional] <p> Additional pipeline operators. </p>
+     * @return array The result of the aggregation as an array. The ok will be set to 1 on success, 0 on failure.
+     */
+    public function aggregate ( array $pipeline, array $op, array $pipelineOperators ) {}
+
+    /**
 	 * Returns this collection's name
 	 * @link http://www.php.net/manual/en/mongocollection.getname.php
 	 * @return string
 	 */
     public function getName() {}
+
+    /**
+     * (PECL mongo &gt;= 1.1.0)<br/>
+     * <p>
+     * See {@link http://www.php.net/manual/en/mongo.queries.php the query section} of this manual for
+     * information on distributing reads to secondaries.
+     * </p>
+     * @link http://www.php.net/manual/en/mongocollection.getslaveokay.php
+     * @return bool Returns the value of slaveOkay for this instance.
+     */
+    public function getSlaveOkay() { }
+
+    /**
+     * (PECL mongo &gt;= 1.1.0)<br/>
+     * <p>
+     * See {@link http://www.php.net/manual/en/mongo.queries.php the query section} of this manual for
+     * information on distributing reads to secondaries.
+     * </p>
+     * @link http://www.php.net/manual/en/mongocollection.setslaveokay.php
+     * @param bool $ok [optional] <p>
+     * If reads should be sent to secondary members of a replica set for all
+     * possible queries using this {@link http://www.php.net/manual/en/class.mongocollection.php MongoCollection}
+     * instance.
+     * @return bool Returns the former value of slaveOkay for this instance.
+     * </p>
+     */
+    public function setSlaveOkay($ok = true) { }
+
+    /**
+     * (PECL mongo &gt;= 1.3.0)<br/>
+     * @link http://www.php.net/manual/en/mongocollection.getreadpreference.php
+     * @return array This function returns an array describing the read preference. The array contains the values <em>type</em> for the string read preference mode
+     * (corresponding to the {@link http://www.php.net/manual/en/class.mongoclient.php MongoClient} constants), and <em>tagsets</em> containing a list of all tag set criteria. If no tag sets were specified, <em>tagsets</em> will not be present in the array.
+     */
+    public function getReadPreference() { }
+
+    /**
+     * (PECL mongo &gt;= 1.3.0)<br/>
+     * @param string $read_preference <p>The read preference mode: <b>MongoClient::RP_PRIMARY</b>, <b>MongoClient::RP_PRIMARY_PREFERRED</b>, <b>MongoClient::RP_SECONDARY</b>, <b>MongoClient::RP_SECONDARY_PREFERRED</b>, or <b>MongoClient::RP_NEAREST</b>.</p>
+     * @param array $tags <p>An array of zero or more tag sets, where each tag set is itself an array of criteria used to match tags on replica set members.<p>
+     * @return bool Returns <b>TRUE</b> on success, or <b>FALSE</b> otherwise.
+     */
+    public function setReadPreference($read_preference, array $tags) { }
 
    /**
 	* Drops this collection
@@ -858,7 +944,7 @@ class MongoCollection {
          * @param string $key The key to use.
          * @param array $query An optional query parameters
          */
-    public function distinct (string $key, array $query = NULL) {}
+    public function distinct ($key, array $query = NULL) {}
 
     /**
     	 * Update a document and return it
@@ -1040,7 +1126,8 @@ class MongoCursor implements Iterator, Traversable {
     /**
      * (PECL mongo &gt;= 1.3.3)<br/>
      * @link http://www.php.net/manual/en/mongocursor.getreadpreference.php
-     * @return array This function returns an array describing the read preference. The array contains the values <em>type</em> for the string read preference mode (corresponding to the {@link http://www.php.net/manual/en/class.mongoclient.php MongoClient} constants), and <em>tagsets</em> containing a list of all tag set criteria. If no tag sets were specified, <em>tagsets</em> will not be present in the array.
+     * @return array This function returns an array describing the read preference. The array contains the values <em>type</em> for the string
+     * read preference mode (corresponding to the {@link http://www.php.net/manual/en/class.mongoclient.php MongoClient} constants), and <em>tagsets</em> containing a list of all tag set criteria. If no tag sets were specified, <em>tagsets</em> will not be present in the array.
      */
     public function getReadPreference () { }
 
@@ -1068,9 +1155,9 @@ class MongoCursor implements Iterator, Traversable {
      * Which flag to set. You can not set flag 6 (EXHAUST) as the driver does
      * not know how to handle them. You will get a warning if you try to use
      * this flag. For available flags, please refer to the wire protocol
-     * {@link http://www.mongodb.org/display/DOCS/Mongo+Wire+Protocol#MongoWireProtocol-OPQUERY &nbsp;documentation}.
+     * {@link http://www.mongodb.org/display/DOCS/Mongo+Wire+Protocol#MongoWireProtocol-OPQUERY documentation}.
      * </p>
-     * @param bool $set [optional] <p>Whether the flag should be set (TRUE) or unset (FALSE).</p>
+     * @param bool $set [optional] <p>Whether the flag should be set (<b>TRUE</b>) or unset (<b>FALSE</b>).</p>
      * @return MongoCursor
      */
     public function setFlag ($flag, $set = true ) {}
@@ -1127,7 +1214,7 @@ class MongoCursor implements Iterator, Traversable {
 	 * @throws MongoCursorTimeoutException
      * @return MongoCursor Returns this cursor
 	 */
-    public function timeout(int $ms) {}
+    public function timeout($ms) {}
 
    /**
 	* Checks if there are documents that have not been sent yet from the database for this cursor
@@ -1915,34 +2002,39 @@ class MongoLog {
 
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
-     * @param callable $log_function
+     * <p>
+     * This function will set a callback function to be called for {@link http://www.php.net/manual/en/class.mongolog.php MongoLog} events
+     * instead of triggering warnings.
+     * </p>
+     * @link http://www.php.net/manual/en/mongolog.setcallback.php
+     * @param callable $log_function   <p>
      * The function to be called on events.
      * </p>
      * <p>
      * The function should have the following prototype
      * </p>
      *
-     * <em>log_function</em>
-     * ( <em>int</em> <em>$module</em>
-     * , <em>int</em> <em>$level</em>
-     * , <em>string<em> <em>$message</em>
-     * )
+     * <em>log_function</em> ( <em>int</em> <em>$module</em> , <em>int</em> <em>$level</em>, <em>string</em> <em>$message</em>)
+     * <ul>
+     * <li>
+     * <b><i>module</i></b>
      *
-     * <em>module</em>
+     * <p>One of the {@link http://www.php.net/manual/en/class.mongolog.php#mongolog.constants.module MongoLog module constants}.</p>
+     * </li>
+     * <li>
+     * <b><i>level</i></b>
      *
-     * One of the {@link http://www.php.net/manual/en/class.mongolog.php#mongolog.constants.module MongoLog module constants}.
+     * <p>One of the {@link http://www.php.net/manual/en/class.mongolog.php#mongolog.constants.level MongoLog level constants}.</p>
+     * </li
+     * <li>
+     * <b><i>message</i></b>
      *
-     * <em>level</em>
-     *
-     *
-     * One of the {@link http://www.php.net/manual/en/class.mongolog.php#mongolog.constants.level MongoLog level constants}.
-     *
-     * <em>message</em>
-     *
-     * The log message itself.
-     * @return boolean Returns TRUE on success or FALSE on failure.
+     * <p>The log message itself.</p></li>
+     * <ul>
+     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public static function setCallback ( callable $log_function ) {}
+
     /**
      * This function can be used to set how verbose logging should be and the types of
      * activities that should be logged. Use the constants described in the MongoLog
