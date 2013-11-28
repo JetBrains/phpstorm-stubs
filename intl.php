@@ -4694,7 +4694,7 @@ function intlcal_add ($calendar, $field,  $amount) {}
  * <li>
  * <p>
  * A {@link http://www.php.net/manual/en/language.types.string.php string}, which should be a valid ICU timezone identifier.
- * See  b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw
+ * See  <b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw
  * offsets such as <em>"GMT+08:30"</em> are also accepted.
  * </p>
  * </li>
