@@ -128,7 +128,8 @@ class DateTimeImmutable implements DateTimeInterface {
      * (PHP 5 &gt;=5.5.0)<br/>
      * Alters the timestamp
      * @link http://www.php.net/manual/en/datetimeimmutable.modify.php
-     * @param string $modify  <p>A date/time string. Valid formats are explained in {@link http://www.php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
+     * @param string $modify  <p>A date/time string. Valid formats are explained in
+     * {@link http://www.php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
      * @return DateTimeImmutable
      * Returns the {@link http://www.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
@@ -222,13 +223,12 @@ class DateTimeImmutable implements DateTimeInterface {
      * Returns the difference between two DateTime objects
      * @link http://www.php.net/manual/en/datetime.diff.php
      * @param DateTimeInterface $datetime2 <p>The date to compare to.</p>
-     * @param bool $absolute <p>Should the interval be forced to be positive?</p>
+     * @param bool $absolute [optional] <p>Should the interval be forced to be positive?</p>
      * @return DateInterval
-     * The http://www.php.net/manual/en/class.dateinterval.php DateInterval} object representing the
+     * The {@link http://www.php.net/manual/en/class.dateinterval.php DateInterval} object representing the
      * difference between the two dates or <b>FALSE</b> on failure.
-     *
      */
-    public function diff($datetime, $absolute = false) { }
+    public function diff($datetime2, $absolute = false) { }
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>

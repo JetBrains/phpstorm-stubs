@@ -2305,12 +2305,12 @@ class IntlCalendar {
      * Add a (signed) amount of time to a field
      * @link http://www.php.net/manual/en/intlcalendar.add.php
      * @param int $field <p>
-     * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar<} date/time http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
+     * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
      * These are integer values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
      * @param int $amount <p>The signed amount to add to the current field. If the amount is positive, the instant will be moved forward; if it is negative, the instant wil be moved into the past. The unit is implicit to the field type.
-     * For instance, hours for IntlCalendar::FIELD_HOUR_OF_DAY.</p>
+     * For instance, hours for <b>IntlCalendar::FIELD_HOUR_OF_DAY</b>.</p>
      * @return bool Returns TRUE on success or FALSE on failure.
      */
     public function add($field, $amount) { }
@@ -2406,7 +2406,7 @@ class IntlCalendar {
      * A locale to use or <b>NULL</b> to use {@link http://www.php.net/manual/en/intl.configuration.php#ini.intl.default-locale the default locale}.
      * </p>
      * @return IntlCalendar
-     * The created http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} instance or <b>NULL</b> on
+     * The created {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} instance or <b>NULL</b> on
      * failure.
      */
     public static function createInstance($timeZone = NULL, $locale = NULL) { }
@@ -2432,7 +2432,7 @@ class IntlCalendar {
      * @link http://www.php.net/manual/en/intlcalendar.fielddifference.php
      * @param float $when <p>
      * The time against which to compare the quantity represented by the
-     * <em>field<</em>. For the result to be positive, the time
+     * <em>field</em>. For the result to be positive, the time
      * given for this parameter must be ahead of the time of the object the
      * method is being invoked on.
      * </p>
@@ -2488,7 +2488,8 @@ class IntlCalendar {
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
-     * @return int An {@link http://www.php.net/manual/en/language.types.integer.php int} representing the maximum value in the units associated
+     * @return int
+     * An {@link http://www.php.net/manual/en/language.types.integer.php int} representing the maximum value in the units associated
      * with the given <em>field</em> or <b>FALSE</b> on failure.
      */
     public function getActualMaximum($field) { }
@@ -2777,7 +2778,7 @@ class IntlCalendar {
      * @link http://www.php.net/manual/en/intlcalendar.isweekend.php
      * @param float $date [optional] <p>
      * An optional timestamp representing the number of milliseconds since the
-     * epoch, excluding leap seconds. If <strong><code>NULL</code></strong>, this object's current time is
+     * epoch, excluding leap seconds. If <b>NULL</b>, this object's current time is
      * used instead.
      * </p>
      * @return bool
@@ -2795,13 +2796,15 @@ class IntlCalendar {
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Add value to field without carrying into more significant fields
      * @link http://www.php.net/manual/en/intlcalendar.roll.php
-     * @param int $field <p>One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar<} date/time {link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * @param int $field
+     * <p>One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time
+     * {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
      * @param mixed $amountOrUpOrDown <p>
      * The (signed) amount to add to the field, <b>TRUE</b> for rolling up (adding
-     * <em>1</em>), or <strong><code>FALSE</code></strong> for rolling down (subtracting
+     * <em>1</em>), or <b>FALSE</b> for rolling down (subtracting
      * <em>1</em>).
      * </p>
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -2814,8 +2817,9 @@ class IntlCalendar {
      * Whether a field is set
      * @link http://www.php.net/manual/en/intlcalendar.isset.php
      * @param int $field <p>
-     * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
-     * values between <em>0</em> and
+     * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time
+     * {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
+     * These are integer values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
      * @return bool Assuming there are no argument errors, returns <b>TRUE</b> iif the field is set.
@@ -2897,7 +2901,7 @@ class IntlCalendar {
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Set behavior for handling skipped wall times at positive timezone offset transitions
      * @link http://www.php.net/manual/en/intlcalendar.setskippedwalltimeoption.php
-     * @param $wallTimeOption <p>
+     * @param int $wallTimeOption <p>
      * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b>,
      * <b>IntlCalendar::WALLTIME_LAST</b> or
      * <b>IntlCalendar::WALLTIME_NEXT_VALID</b>.
@@ -2959,7 +2963,7 @@ class IntlCalendar {
      * </p>
      * </li>
      * </ul>
-     * #return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
+     * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
      */
     public function setTimeZone($timeZone) { }
 
@@ -3046,7 +3050,7 @@ class IntlTimeZone {
      * @param bool $isSystemID [optional]
      * @return string
      */
-    public static function getCanonicalID($zoneId, $isSystemID) { }
+    public static function getCanonicalID($zoneId, &$isSystemID) { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3117,7 +3121,7 @@ class IntlTimeZone {
      * @param int $dstOffset
      * @return int
      */
-    public function getOffset($date, $local, $rawOffset, $dstOffset) { }
+    public function getOffset($date, $local, &$rawOffset, &$dstOffset) { }
 
     /**
      * Get the raw GMT offset (before taking daylight savings time into account
@@ -6175,6 +6179,7 @@ class IntlBreakIterator implements Traversable {
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get last error code on the object
      * @link http://www.php.net/manual/en/intlbreakiterator.geterrorcode.php
+     * @return int
      */
     public function getErrorCode() { }
 
@@ -6182,6 +6187,7 @@ class IntlBreakIterator implements Traversable {
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get last error message on the object
      * @link http://www.php.net/manual/en/intlbreakiterator.geterrormessage.php
+     * @return string
      */
     public function getErrorMessage() { }
 
@@ -6263,8 +6269,9 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
     /* Methods */
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
+     * @link http://www.php.net/manual/en/intlbreakiterator.construct.php
      * @param string $rules
-     * @param string $areCompiled
+     * @param string $areCompiled [optional]
      */
     public function __construct($rules, $areCompiled) { }
 
@@ -6324,6 +6331,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      * (PHP 5 &gt;=5.5.0)<br/>
      * @link http://www.php.net/manual/en/intlrulebasedbreakiterator.getbinaryrules.php
      * Get the binary form of compiled rules
+     * @return string
      */
     public function getBinaryRules() { }
 
@@ -6331,6 +6339,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      * (PHP 5 &gt;=5.5.0)<br/>
      * @link http://www.php.net/manual/en/intlrulebasedbreakiterator.getrules.php
      * Get the rule set used to create this object
+     * @return string
      */
     public function getRules() { }
 
@@ -6346,7 +6355,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      * (PHP 5 &gt;=5.5.0)<br/>
      * @link http://www.php.net/manual/en/intlrulebasedbreakiterator.getrulestatusvec.php
      * Get the status values from the break rules that determined the current break position
-     * @return int
+     * @return array
      */
     public function getRuleStatusVec() { }
 }
@@ -6358,6 +6367,7 @@ class IntlCodePointBreakIterator extends IntlBreakIterator implements Traversabl
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get last code point passed over after advancing or receding the iterator
      * @link http://www.php.net/manual/en/intlcodepointbreakiterator.getlastcodepoint.php
+     * @return int
      */
     public function getLastCodePoint() { }
 
