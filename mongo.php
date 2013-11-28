@@ -663,7 +663,7 @@ class MongoDB {
 
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
-     * @link http://www.php.net/manual/en/mongodb.setreadpreference.php
+     * @link http://www.php.net/manual/en/mongodb.getreadpreference.php
      * @return array() This function returns an array describing the read preference. The array contains the values type for the string read preference mode (corresponding to the MongoClient constants), and tagsets containing a list of all tag set criteria. If no tag sets were specified, tagsets will not be present in the array.
      */
     public function getReadPreference () {}
@@ -672,7 +672,7 @@ class MongoDB {
      * (PECL mongo &gt;= 1.3.0)<br/>
      * @link http://www.php.net/manual/en/mongodb.setreadpreference.php
      * @param string $read_preference <p>The read preference mode: MongoClient::RP_PRIMARY, MongoClient::RP_PRIMARY_PREFERRED, MongoClient::RP_SECONDARY, MongoClient::RP_SECONDARY_PREFERRED, or MongoClient::RP_NEAREST.</p>
-     * @param array $tags <p>An array of zero or more tag sets, where each tag set is itself an array of criteria used to match tags on replica set members.</p>
+     * @param array $tags [optional] <p>An array of zero or more tag sets, where each tag set is itself an array of criteria used to match tags on replica set members.</p>
      * @return boolean Returns TRUE on success, or FALSE otherwise.
      */
     public function setReadPreference ($read_preference, array $tags) {}
@@ -810,7 +810,7 @@ class MongoCollection {
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
      * @param string $read_preference <p>The read preference mode: <b>MongoClient::RP_PRIMARY</b>, <b>MongoClient::RP_PRIMARY_PREFERRED</b>, <b>MongoClient::RP_SECONDARY</b>, <b>MongoClient::RP_SECONDARY_PREFERRED</b>, or <b>MongoClient::RP_NEAREST</b>.</p>
-     * @param array $tags <p>An array of zero or more tag sets, where each tag set is itself an array of criteria used to match tags on replica set members.<p>
+     * @param array $tags [optional] <p>An array of zero or more tag sets, where each tag set is itself an array of criteria used to match tags on replica set members.<p>
      * @return bool Returns <b>TRUE</b> on success, or <b>FALSE</b> otherwise.
      */
     public function setReadPreference($read_preference, array $tags) { }
