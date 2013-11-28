@@ -72,7 +72,7 @@ define("PASSWORD_BCRYPT", 1);
  * <ul>
  * <li>
  * <em>algo</em>, which will match a
- * @link http://www.php.net/manual/en/password.constants.php" password algorithm constant
+ * {@link http://www.php.net/manual/en/password.constants.php password algorithm constant}
  * </li>
  * <li>
  * <em>algoName</em>, which has the human readable name of the algorithm

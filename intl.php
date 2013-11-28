@@ -4562,7 +4562,7 @@ function idn_to_utf8 ($ascii_domain, &$errorcode = null) {}
  * A locale to use or <b>NULL</b> to use {@link http://www.php.net/manual/en/intl.configuration.php#ini.intl.default-locale the default locale}.
  * </p>
  * @return IntlCalendar
- * The created http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} instance or <b>NULL</b> on
+ * The created {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} instance or <b>NULL</b> on
  * failure.
  */
 function intlcal_create_instance($timeZone = NULL, $locale = NULL) {}
@@ -4649,13 +4649,13 @@ function intlcal_set_time ($date) {}
  * The calendar object, on the procedural style interface.
  * </p>
  * @param int $field <p>
- * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar<} date/time http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
+ * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
  * These are integer values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
  * @param int $amount <p>The signed amount to add to the current field. If the amount is positive, the instant will be moved forward; if it is negative, the instant wil be moved into the past. The unit is implicit to the field type.
  * For instance, hours for IntlCalendar::FIELD_HOUR_OF_DAY.</p>
- * @return bool Returns TRUE on success or FALSE on failure.
+ * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function intlcal_add ($calendar, $field,  $amount) {}
 
@@ -4699,7 +4699,7 @@ function intlcal_add ($calendar, $field,  $amount) {}
  * </p>
  * </li>
  * </ul>
- * #return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
+ * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
  */
 function intlcal_set_time_zone ($calendar, $timeZone) {}
 
@@ -4780,13 +4780,15 @@ function intlcal_set ($calendar, $year,  $month,  $dayOfMonth = NULL,  $hour = N
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
- * @param int $field <p>One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar<} date/time {link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
- * values between <em>0</em> and
+ * @param int $field <p>One of the
+ * {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time
+ * {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
+ * These are integer values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
  * @param mixed $amountOrUpOrDown <p>
  * The (signed) amount to add to the field, <b>TRUE</b> for rolling up (adding
- * <em>1</em>), or <strong><code>FALSE</code></strong> for rolling down (subtracting
+ * <em>1</em>), or <b>FALSE</b> for rolling down (subtracting
  * <em>1</em>).
  * </p>
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -4818,7 +4820,7 @@ function intlcal_clear ($calendar, $field = NULL) {}
  * </p>
  * @param float $when <p>
  * The time against which to compare the quantity represented by the
- * <em>field<</em>. For the result to be positive, the time
+ * <em>field</em>. For the result to be positive, the time
  * given for this parameter must be ahead of the time of the object the
  * method is being invoked on.
  * </p>
@@ -4850,7 +4852,8 @@ function intlcal_clear ($calendar, $field = NULL) {}
  * values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
- * @return int An {@link http://www.php.net/manual/en/language.types.integer.php int} representing the maximum value in the units associated
+ * @return int
+ * An {@link http://www.php.net/manual/en/language.types.integer.php int} representing the maximum value in the units associated
  * with the given <em>field</em> or <b>FALSE</b> on failure.
  */
  function intlcal_get_actual_maximum ($calendar, $field) {}
@@ -5288,7 +5291,7 @@ function intlcal_set_repeated_wall_time_option ($calendar, $wallTimeOption) {}
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
- * @param $wallTimeOption <p>
+ * @param int $wallTimeOption <p>
  * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b>,
  * <b>IntlCalendar::WALLTIME_LAST</b> or
  * <b>IntlCalendar::WALLTIME_NEXT_VALID</b>.
@@ -5367,7 +5370,7 @@ function intlcal_get_error_message ($calendar) {}
  * @param string $zoneId
  * @return int
  */
- function intlz_count_equivalent_ids($zoneId) { }
+ function intltz_count_equivalent_ids($zoneId) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5383,7 +5386,7 @@ function intlz_create_default() { }
  * @param mixed $countryOrRawOffset [optional]
  * @return IntlIterator
  */
-function intlz_create_enumeration($countryOrRawOffset) { }
+function intltz_create_enumeration($countryOrRawOffset) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5391,7 +5394,7 @@ function intlz_create_enumeration($countryOrRawOffset) { }
  * @param string $zoneId
  * @return IntlTimeZone
  */
-function intlz_create_time_zone($zoneId) { }
+function intltz_create_time_zone($zoneId) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5399,7 +5402,7 @@ function intlz_create_time_zone($zoneId) { }
  * @param DateTimeZone $zoneId
  * @return IntlTimeZone
  */
-function intlz_from_date_time_zone($zoneId) { }
+function intltz_from_date_time_zone($zoneId) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5409,7 +5412,7 @@ function intlz_from_date_time_zone($zoneId) { }
  * @param bool $isSystemID [optional]
  * @return string
  */
-function intlz_get_canonical_id($zoneId, $isSystemID) { }
+function intltz_get_canonical_id($zoneId, &$isSystemID) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5422,7 +5425,7 @@ function intlz_get_canonical_id($zoneId, $isSystemID) { }
  * @param string $locale [optional]
  * @return string
  */
-function intlz_get_display_name($obj, $isDaylight, $style, $locale) { }
+function intltz_get_display_name($obj, $isDaylight, $style, $locale) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5433,7 +5436,7 @@ function intlz_get_display_name($obj, $isDaylight, $style, $locale) { }
  * @link http://www.php.net/manual/en/intltimezone.getequivalentid.php
  * @return int
  */
-function intlz_get_dst_savings($obj) { }
+function intltz_get_dst_savings($obj) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5443,7 +5446,7 @@ function intlz_get_dst_savings($obj) { }
  * @param int $index
  * @return string
  */
-function intlz_get_equivalent_id($zoneId, $index) { }
+function intltz_get_equivalent_id($zoneId, $index) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5454,7 +5457,7 @@ function intlz_get_equivalent_id($zoneId, $index) { }
  * </p>
  * @return int
  */
-function intlz_get_error_code($obj) { }
+function intltz_get_error_code($obj) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5465,7 +5468,7 @@ function intlz_get_error_code($obj) { }
  * </p>
  * @return string
  */
-function intlz_get_error_message($obj) { }
+function intltz_get_error_message($obj) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5473,7 +5476,7 @@ function intlz_get_error_message($obj) { }
  * @link http://www.php.net/manual/en/intltimezone.getgmt.php
  * @return IntlTimeZone
  */
-function intlz_getGMT() { }
+function intltz_getGMT() { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5482,7 +5485,7 @@ function intlz_getGMT() { }
  * @param IntlTimeZone $obj
  * @return string
  */
-function intlz_get_id($obj) { }
+function intltz_get_id($obj) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5495,7 +5498,7 @@ function intlz_get_id($obj) { }
  * @param int $dstOffset
  * @return int
  */
-function intlz_get_offset($obj, $date, $local, $rawOffset, $dstOffset) { }
+function intltz_get_offset($obj, $date, $local, &$rawOffset, &$dstOffset) { }
 
 /**
  * Get the raw GMT offset (before taking daylight savings time into account
@@ -5503,7 +5506,7 @@ function intlz_get_offset($obj, $date, $local, $rawOffset, $dstOffset) { }
  * @param IntlTimeZone $obj
  * @return int
  */
-function intlz_get_raw_offset($obj) { }
+function intltz_get_raw_offset($obj) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5512,7 +5515,7 @@ function intlz_get_raw_offset($obj) { }
  * @param IntlTimeZone $obj
  * @return string
  */
-function intlz_get_tz_data_version($obj) { }
+function intltz_get_tz_data_version($obj) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5522,7 +5525,7 @@ function intlz_get_tz_data_version($obj) { }
  * @param IntlTimeZone $otherTimeZone
  * @return bool
  */
-function intlz_has_same_rules($obj, $otherTimeZone) { }
+function intltz_has_same_rules($obj, $otherTimeZone) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5531,7 +5534,7 @@ function intlz_has_same_rules($obj, $otherTimeZone) { }
  * @param $obj
  * @return DateTimeZone
  */
-function intlz_to_date_time_zone($obj) { }
+function intltz_to_date_time_zone($obj) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5540,7 +5543,7 @@ function intlz_to_date_time_zone($obj) { }
  * @param $obj
  * @return bool
  */
-function intlz_use_daylight_time($obj) { }
+function intltz_use_daylight_time($obj) { }
 
 
 /**

@@ -1625,20 +1625,22 @@ function curl_multi_strerror ($errornum) {}
  * (PHP 5 &gt;=5.5.0)<br/>
  * Pause and unpause a connection
  * @link http://www.php.net/manual/en/function.curl-pause.php
- * @param resource $ch <p>A cURL handle returned by @link {http://www.php.net/manual/en/function.curl-init.php curl_init()}.</p>
+ * @param resource $ch
+ * <p>A cURL handle returned by {@link http://www.php.net/manual/en/function.curl-init.php curl_init()}.</p>
  * @param int $bitmask <p>One of <b>CURLPAUSE_*</b> constants.</p>
  * @return int Returns an error code (<b>CURLE_OK</b> for no error).
  */
-function curl_pause ($ch , $bitmask ) {}
+function curl_pause ($ch, $bitmask ) {}
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Reset all options of a libcurl session handle
  * @link www.php.net/manual/en/function.curl-reset.php
- * @param resource $ch <p>A cURL handle returned by {@link www.php.net/manual/en/function.curl-init.php curl_init()}.</p>
+ * @param resource $ch <p>A cURL handle returned by
+ * {@link www.php.net/manual/en/function.curl-init.php curl_init()}.</p>
  * @return void
  */
-function curl_reset ( $ch ) {}
+function curl_reset ($ch) {}
 
 /**
  * (PHP 5)<br/>

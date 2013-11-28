@@ -1362,7 +1362,7 @@ function pg_escape_bytea ($connection = null, $data) {}
  * @param string $data <p>
  * A {@link http://www.php.net/manual/en/language.types.string.php string} containing text to be escaped.
  * </p>
- * @return string A @link http://www.php.net/manual/en/language.types.string.php string} containing the escaped data.
+ * @return string A {@link http://www.php.net/manual/en/language.types.string.php string} containing the escaped data.
  */
 function pg_escape_identifier ($connection, $data ) {}
 
@@ -1378,7 +1378,8 @@ function pg_escape_identifier ($connection, $data ) {}
  * @param string $data <p>
  * A {@link http://www.php.net/manual/en/language.types.string.php string} containing text to be escaped.
  * </p>
- * @return string A {@link http://www.php.net/manual/en/language.types.string.php string} containing the escaped data.
+ * @return string
+ * A {@link http://www.php.net/manual/en/language.types.string.php string} containing the escaped data.
  */
 function pg_escape_literal ($connection,  $data ) {}
 

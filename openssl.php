@@ -656,6 +656,7 @@ function openssl_seal ($data, &$sealed_data, array &$env_keys, array $pub_key_id
 function openssl_open ($sealed_data, &$open_data, $env_key, $priv_key_id, $method = null) {}
 
 /**
+ * (PHP 5 &gt;= 5.5.0)<br/>
  * Generates a PKCS5 v2 PBKDF2 string, defaults to SHA-1
  * @link http://www.php.net/manual/en/function.openssl-pbkdf2.php
  * @param string $password
