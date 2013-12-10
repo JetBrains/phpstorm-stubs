@@ -239,38 +239,120 @@ function wordwrap ($str, $width = 75, $break = "\n", $cut = false) {}
  * Convert special characters to HTML entities
  * @link http://php.net/manual/en/function.htmlspecialchars.php
  * @param string $string <p>
- * The string being converted.
+ * The {@link http://www.php.net/manual/en/language.types.string.php string} being converted.
  * </p>
- * @param int $quote_style [optional] <p>
- * The optional second argument, quote_style, tells
- * the function what to do with single and double quote characters.
- * The default mode, ENT_COMPAT, is the backwards compatible mode
- * which only translates the double-quote character and leaves the
- * single-quote untranslated. If ENT_QUOTES is set, both single and
- * double quotes are translated and if ENT_NOQUOTES is set neither
- * single nor double quotes are translated.
- * </p>
- * @param string $charset [optional] <p>
- * Defines character set used in conversion.
- * The default character set is ISO-8859-1.
+ * @param int $flags [optional] <p>
+ * A bitmask of one or more of the following flags, which specify how to handle quotes,
+ * invalid code unit sequences and the used document type. The default is
+ * <em><b>ENT_COMPAT | ENT_HTML401</b></em>.
+ * </p><table>
+ * <caption><b>Available <em>flags</em> constants</b></caption>
+ *
+ * <thead>
+ * <tr>
+ * <th>Constant Name</th>
+ * <th>Description</th>
+ * </tr>
+ *
+ * </thead>
+ *
+ * <tbody>
+ * <tr>
+ * <td><b>ENT_COMPAT</b></td>
+ * <td>Will convert double-quotes and leave single-quotes alone.</td>
+ * </tr>
+ *
+ * <tr>
+ * <td><b>ENT_QUOTES</b></td>
+ * <td>Will convert both double and single quotes.</td>
+ *</tr>
+ *
+ * <tr>
+ * <td><b>ENT_NOQUOTES</b></td>
+ * <td>Will leave both double and single quotes unconverted.</td>
+ * </tr>
+ *
+ * <tr>
+ * <td><b>ENT_IGNORE</b></td>
+ * <td>
+ * Silently discard invalid code unit sequences instead of returning
+ * an empty string. Using this flag is discouraged as it
+ * {@link http://unicode.org/reports/tr36/#Deletion_of_Noncharacters »&nbsp;may have security implications}.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td><b>ENT_SUBSTITUTE</b></td>
+ * <td>
+ * Replace invalid code unit sequences with a Unicode Replacement Character
+ * U+FFFD (UTF-8) or &amp;#FFFD; (otherwise) instead of returning an empty string.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td><b>ENT_DISALLOWED</b></td>
+ * <td>
+ * Replace invalid code points for the given document type with a
+ * Unicode Replacement Character U+FFFD (UTF-8) or &amp;#FFFD;
+ * (otherwise) instead of leaving them as is. This may be useful, for
+ * instance, to ensure the well-formedness of XML documents with
+ * embedded external content.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td><b>ENT_HTML401</b></td>
+ * <td>
+ * Handle code as HTML 4.01.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td><b>ENT_XML1</b></td>
+ * <td>
+ * Handle code as XML 1.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td><b>ENT_XHTML</b></td>
+ * <td>
+ * Handle code as XHTML.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td><b>ENT_HTML5</b></td>
+ * <td>
+ * Handle code as HTML 5.
+ * </td>
+ * </tr>
+ *
+ * </tbody>
+ *
+ * </table>
+ * @param string $encoding [optional] <p>
+ * Defines encoding used in conversion.
+ * If omitted, the default value for this argument is ISO-8859-1 in
+ * versions of PHP prior to 5.4.0, and UTF-8 from PHP 5.4.0 onwards.
  * </p>
  * <p>
- * For the purposes of this function, the charsets
- * ISO-8859-1, ISO-8859-15,
- * UTF-8, cp866,
- * cp1251, cp1252, and
- * KOI8-R are effectively equivalent, as the
- * characters affected by htmlspecialchars
- * occupy the same positions in all of these charsets.
+ * For the purposes of this function, the encodings
+ * <em>ISO-8859-1</em>, <em>ISO-8859-15</em>,
+ * <em>UTF-8</em>, <em>cp866</em>,
+ * <em>cp1251</em>, <em>cp1252</em>, and
+ * <em>KOI8-R</em> are effectively equivalent, provided the
+ * <em><b>string</b></em> itself is valid for the encoding, as
+ * the characters affected by  <b>htmlspecialchars()</b> occupy
+ * the same positions in all of these encodings.
  * </p>
- * &reference.strings.charsets;
  * @param bool $double_encode [optional] <p>
- * When double_encode is turned off PHP will not
+ * When <em><b>double_encode</b></em> is turned off PHP will not
  * encode existing html entities, the default is to convert everything.
  * </p>
  * @return string The converted string.
  */
-function htmlspecialchars ($string, $quote_style, $charset, $double_encode) {}
+function htmlspecialchars ($string, $flags = ENT_COMPAT, $encoding = 'UTF-8', $double_encode = true) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
