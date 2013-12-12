@@ -674,7 +674,7 @@ function array_combine(array $keys, array $values) { }
  * @param mixed $key <p>
  * Value to check.
  * </p>
- * @param array $search <p>
+ * @param array|ArrayObject $search <p>
  * An array with keys to check.
  * </p>
  * @return bool true on success or false on failure.
