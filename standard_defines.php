@@ -248,6 +248,9 @@ define ('HTML_ENTITIES', 1);
 define ('ENT_COMPAT', 2);
 define ('ENT_QUOTES', 3);
 define ('ENT_NOQUOTES', 0);
+/**
+ * (PHP 5 &gt;= 5.3.0)<br/>
+ */
 define ('ENT_IGNORE', 4);
 define ('STR_PAD_LEFT', 0);
 define ('STR_PAD_RIGHT', 1);
@@ -1274,12 +1277,14 @@ define('IPPROTO_IPV6', 41);
 
 
 /**
+ * (PHP 5 &gt;= 5.5.0)<br/>
  * Replace invalid code unit sequences with a Unicode Replacement Character
  * U+FFFD (UTF-8) or &#FFFD; (otherwise) instead of returning an empty string.
  * @link http://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_SUBSTITUTE', 8);
 /**
+ * (PHP 5 &gt;= 5.5.0)<br/>
  * Replace invalid code points for the given document type with
  * a Unicode Replacement Character U+FFFD (UTF-8) or &#FFFD;
  * (otherwise) instead of leaving them as is. This may be useful,
@@ -1289,21 +1294,25 @@ define('ENT_SUBSTITUTE', 8);
  */
 define('ENT_DISALLOWED', 128);
 /**
+ * (PHP 5 &gt;= 5.5.0)<br/>
  * Handle code as HTML 4.01.
  * @link http://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_HTML401', 0);
 /**
+ * (PHP 5 &gt;= 5.5.0)<br/>
  * Handle code as XML 1.
  * @link http://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_XML1', 16);
 /**
+ * (PHP 5 &gt;= 5.5.0)<br/>
  * Handle code as XHTML.
  * @link http://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_XHTML', 32);
 /**
+ * (PHP 5 &gt;= 5.5.0)<br/>
  * Handle code as HTML 5.
  * @link http://php.net/manual/en/function.htmlspecialchars.php
  */
