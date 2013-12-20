@@ -1014,9 +1014,10 @@ function date_offset_get ($object) {}
  * (PHP 5 &gt;= 5.3.0)<br/>
  * &Alias; <methodname>DateTime::diff</methodname>
  * @link http://php.net/manual/en/function.date-diff.php
- * @param $object
- * @param $object2
- * @param $absolute [optional]
+ * @param DateTime $object
+ * @param DateTime $object2 The date to compare to
+ * @param boolean $absolute [optional] Whether to return absolute difference.
+ * @return DateInterval|boolean The DateInterval object representing the difference between the two dates or FALSE on failure.
  */
 function date_diff ($object, $object2, $absolute) {}
 
