@@ -102,8 +102,31 @@ function gettype ($var) {}
  * The variable being converted.
  * </p>
  * @param string $type <p>
- * Possibles values of type are:
+ * Possibles values of <b>type</b> are:
+ * </p><ul>
+ * <li>
  * "boolean" (or, since PHP 4.2.0, "bool")
+ * </li>
+ * <li>
+ * "integer" (or, since PHP 4.2.0, "int")
+ * </li>
+ * <li>
+ * "float" (only possible since PHP 4.2.0, for older versions use the
+ * deprecated variant "double")
+ * </li>
+ * <li>
+ * "string"
+ * </li>
+ * <li>
+ * "array"
+ * </li>
+ * <li>
+ * "object"
+ * </li>
+ * <li>
+ * "null" (since PHP 4.2.0)
+ * </li>
+ * </ul>
  * @return bool true on success or false on failure.
  */
 function settype (&$var, $type) {}
