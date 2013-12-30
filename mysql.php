@@ -341,8 +341,8 @@ function mysql_result ($result, $row, $field = 0) {}
  * (PHP 4, PHP 5)<br/>
  * Get number of rows in result
  * @link http://php.net/manual/en/function.mysql-num-rows.php
- * @param resource $result 
- * @return int The number of rows in a result set on success or false on failure.
+ * @param resource $result <p>The result resource that is being evaluated. This result comes from a call to mysql_query().</p>
+ * @return int <p>The number of rows in the result set on success or FALSE on failure. </p>
  */
 function mysql_num_rows ($result) {}
 
@@ -761,7 +761,11 @@ function mysql_freeresult ($result) {}
 function mysql_numfields ($result) {}
 
 /**
- * @param $result
+ * (PHP 4, PHP 5)
+ * Alias of mysql_num_rows()
+ * @link http://php.net/manual/en/function.mysql-num-rows.php
+ * @param resource $result <p>The result resource that is being evaluated. This result comes from a call to mysql_query().</p>
+ * @return int <p>The number of rows in the result set on success or FALSE on failure. </p>
  */
 function mysql_numrows ($result) {}
 
