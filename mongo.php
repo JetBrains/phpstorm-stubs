@@ -939,22 +939,23 @@ class MongoCollection {
     public function find(array $query = array(), array $fields = array()) {}
 
     /**
-         * Retrieve a list of distinct values for the given key across a collection
-         * @link http://www.php.net/manual/ru/mongocollection.distinct.php
-         * @param string $key The key to use.
-         * @param array $query An optional query parameters
-         */
+     * Retrieve a list of distinct values for the given key across a collection
+     * @link http://www.php.net/manual/ru/mongocollection.distinct.php
+     * @param string $key The key to use.
+     * @param array $query An optional query parameters
+     * @return array|bool Returns an array of distinct values, or <b>FALSE</b> on failure
+     */
     public function distinct ($key, array $query = NULL) {}
 
     /**
-    	 * Update a document and return it
-    	 * @link http://www.php.net/manual/ru/mongocollection.findandmodify.php
-    	 * @param array $query The query criteria to search for.
-    	 * @param array $update The update criteria.
-    	 * @param array $fields Optionally only return these fields.
-    	 * @param array $options An array of options to apply, such as remove the match document from the DB and return it.
-    	 * @return array Returns the original document, or the modified document when new is set.
-         */
+     * Update a document and return it
+     * @link http://www.php.net/manual/ru/mongocollection.findandmodify.php
+     * @param array $query The query criteria to search for.
+     * @param array $update The update criteria.
+     * @param array $fields Optionally only return these fields.
+     * @param array $options An array of options to apply, such as remove the match document from the DB and return it.
+     * @return array Returns the original document, or the modified document when new is set.
+     */
     public function findAndModify (array $query, array $update = NULL, array $fields = NULL, array $options = NULL) {}
 
     /**
