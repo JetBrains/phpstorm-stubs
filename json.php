@@ -45,9 +45,10 @@ interface JsonSerializable  {
  * constants is described on
  * the JSON constants page.
  * </p>
+ * @param int $depth [optional] <p>Set the maximum depth. Must be greater than zero.</p>
  * @return string a JSON encoded string on success or <b>FALSE</b> on failure.
  */
-function json_encode ($value, $options = 0) {}
+function json_encode ($value, $options = 0, $depth = 512) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0, PECL json &gt;= 1.2.0)<br/>
