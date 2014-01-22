@@ -478,7 +478,7 @@ function pg_cancel_query ($connection) {}
  * <b>pg_query_params</b> or <b>pg_execute</b>
  * (among others).
  * </p>
- * @param int $row <p>
+ * @param int $row [optional]<p>
  * Row number in result to fetch. Rows are numbered from 0 upwards. If omitted,
  * next row is fetched.
  * </p>
@@ -497,7 +497,7 @@ function pg_cancel_query ($connection) {}
  * false is returned if <i>row</i> exceeds the number
  * of rows in the set, or on any other error.
  */
-function pg_fetch_result ($result, $row, $field) {}
+function pg_fetch_result ($result, $row = null, $field) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
