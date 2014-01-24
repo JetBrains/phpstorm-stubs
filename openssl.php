@@ -95,9 +95,16 @@ function openssl_pkey_get_private($key, $passphrase = "") { }
  * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
  * Extract public key from certificate and prepare it for use
  * @link http://php.net/manual/en/function.openssl-pkey-get-public.php
- * @param mixed $certificate <p>
- * <i>certificate</i> can be one of the following:
- * an X.509 certificate resource
+ * @param mixed $certificate <p><em><b>certificate</b></em> can be one of the following:
+ * <ol>
+ * <li>an X.509 certificate resource</li>
+ * <li>a string having the format
+ * <var>file://path/to/file.pem</var>. The named file must
+ * contain a PEM encoded certificate/public key (it may contain both).
+ * </span>
+ * </li>
+ * <li>A PEM formatted public key.</li>
+ * </ol></p>
  * @return resource a positive key resource identifier on success, or false on error.
  */
 function openssl_pkey_get_public($certificate) { }
@@ -159,9 +166,20 @@ function openssl_get_privatekey($key, $passphrase) { }
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Alias of <b>openssl_pkey_get_public</b>
  * @link http://php.net/manual/en/function.openssl-get-publickey.php
- * @param $cert
+ * @param mixed $certificate <p>
+ * <em><b>certificate</b></em> can be one of the following:
+ * <ol>
+ * <li>an X.509 certificate resource</li>
+ * <li>a string having the format
+ * <var>file://path/to/file.pem</var>. The named file must
+ * contain a PEM encoded certificate/public key (it may contain both).
+ * </span>
+ * </li>
+ * <li>A PEM formatted public key.</li>
+ * </ol> </p>
+ * @return resource a positive key resource identifier on success, or FALSE on error.
  */
-function openssl_get_publickey($cert) { }
+function openssl_get_publickey($certificate) { }
 
 /**
  * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
