@@ -505,10 +505,14 @@ function is_subclass_of ($object, $class_name) {}
  * @param string $class_name <p>
  * The class name
  * </p>
- * @return bool true if the object is of this class or has this class as one of
- * its parents, false otherwise.
+ * @param bool $allow_string [optional] <p>
+ * If this parameter set to <b>FALSE</b>, string class name as <em><b>object</b></em>
+ * is not allowed. This also prevents from calling autoloader if the class doesn't exist.
+ * </p>
+ * @return bool <b>TRUE</b> if the object is of this class or has this class as one of
+ * its parents, <b>FALSE</b> otherwise.
  */
-function is_a ($object, $class_name) {}
+function is_a ($object, $class_name, $allow_string = FALSE) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
