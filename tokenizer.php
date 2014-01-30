@@ -164,5 +164,7 @@ define('T_TRAIT', 355);
 define('T_CALLABLE', 363);
 /** @link http://php.net/manual/en/tokens.php */
 define('T_TRAIT_C', 365);
+/** @link http://php.net/manual/en/tokens.php */
+define('T_YIELD', 267);
 
 ?>
