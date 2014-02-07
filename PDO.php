@@ -662,10 +662,10 @@ class PDO  {
 	 * </p>
 	 * @param array $driver_options [optional] <p>
 	 * This array holds one or more key=&gt;value pairs to set
-	 * attribute values for the PDOStatement object that this method
+	 * attribute values for the <b>PDOStatement</b> object that this method
 	 * returns. You would most commonly use this to set the
-	 * PDO::ATTR_CURSOR value to
-	 * PDO::CURSOR_SCROLL to request a scrollable cursor.
+	 * <b>PDO::ATTR_CURSOR</b> value to
+	 * <b>PDO::CURSOR_SCROLL</b> to request a scrollable cursor.
 	 * Some drivers have driver specific options that may be set at
 	 * prepare-time.
 	 * </p>
@@ -680,7 +680,7 @@ class PDO  {
 	 * Emulated prepared statements does not communicate with the database server
 	 * so <b>PDO::prepare</b> does not check the statement.
 	 */
-	public function prepare ($statement, array $driver_options = null) {}
+    public function prepare ($statement, array $driver_options = array()) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)<br/>
