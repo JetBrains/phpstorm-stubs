@@ -686,7 +686,7 @@ function addcslashes ($str, $charlist) {}
  * </p>
  * @return string the modified string.
  */
-function rtrim ($str, $charlist = null) {}
+function rtrim ($str, $charlist = " \t\n\r\0\x0B") {}
 
 /**
  * (PHP 4, PHP 5)<br/>
@@ -815,7 +815,7 @@ function chunk_split ($body, $chunklen = null, $end = null) {}
  * </p>
  * @return string The trimmed string.
  */
-function trim ($str, $charlist = null) {}
+function trim ($str, $charlist = " \t\n\r\0\x0B") {}
 
 /**
  * (PHP 4, PHP 5)<br/>
@@ -847,7 +847,7 @@ function trim ($str, $charlist = null) {}
  * "\x0B" (ASCII 11
  * (0x0B)), a vertical tab.
  */
-function ltrim ($str, $charlist = null) {}
+function ltrim ($str, $charlist = " \t\n\r\0\x0B") {}
 
 /**
  * (PHP 4, PHP 5)<br/>
