@@ -1094,7 +1094,13 @@ class Memcached  {
 	 */
 	public function getVersion () {}
 
-	public function getAllKeys () {}
+    /**
+     * (PECL memcached &gt;= 2.0.0)<br/>
+     * Gets the keys stored on all the servers
+     * @link http://www.php.net/manual/en/memcached.getallkeys.php
+     * @return array|bool Returns the keys stored on all the servers on success or <b>FALSE</b> on failure.
+     */
+    public function getAllKeys () {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
