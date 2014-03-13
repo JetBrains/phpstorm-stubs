@@ -78,12 +78,12 @@ function gzgetc ($zp) {}
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
  * </p>
- * @param int $length <p>
+ * @param int $length [optional] <p>
  * The length of data to get.
  * </p>
  * @return string The uncompressed string, or <b>FALSE</b> on error.
  */
-function gzgets ($zp, $length) {}
+function gzgets ($zp, $length = 1024) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
