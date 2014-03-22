@@ -12,7 +12,7 @@
  * @param string $subject <p>
  * The input string.
  * </p>
- * @param array $matches [optional] <p>
+ * @param mixed $matches [optional] <p>
  * If <i>matches</i> is provided, then it is filled with
  * the results of search. $matches[0] will contain the
  * text that matched the full pattern, $matches[1]
@@ -83,7 +83,7 @@
  * <i>subject</i>.
  * <b>preg_match</b> returns false if an error occurred.
  */
-function preg_match ($pattern, $subject, array &$matches = null, $flags = 0, $offset = 0) {}
+function preg_match ($pattern, $subject, &$matches, $flags = 0, $offset = 0) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
