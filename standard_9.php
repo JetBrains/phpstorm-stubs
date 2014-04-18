@@ -598,7 +598,11 @@ function array_product(array $array) { }
 
 /**
  * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
- * Filters elements of an array using a callback function
+ * Iterates over each value in the <b>array</b>
+ * passing them to the <b>callback</b> function.
+ * If the <b>callback</b> function returns true, the
+ * current value from <b>array</b> is returned into
+ * the result array. Array keys are preserved.
  * @link http://php.net/manual/en/function.array-filter.php
  * @param array $input <p>
  * The array to iterate over
