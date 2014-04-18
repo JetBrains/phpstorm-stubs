@@ -822,8 +822,15 @@ function gethostname () {}
  * (PHP 5)<br/>
  * &Alias; <function>checkdnsrr</function>
  * @link http://php.net/manual/en/function.dns-check-record.php
- * @param $host
- * @param $type [optional]
+ * @param $host <p>
+ * <b>host</b> may either be the IP address in
+ * dotted-quad notation or the host name.
+ * </p>
+ * @param $type [optional] <p>
+ * <b>type</b> may be any one of: A, MX, NS, SOA,
+ * PTR, CNAME, AAAA, A6, SRV, NAPTR, TXT or ANY.
+ * </p>
+ * @return bool Returns <b>TRUE</b> if any records are found; returns <b>FALSE</b> if no records were found or if an error occurred.
  */
 function dns_check_record ($host, $type) {}
 
