@@ -763,7 +763,7 @@ class Imagick implements Iterator, Traversable, Countable {
 	 * @param $displace [optional]
 	 * @param $sizeCorrection [optional]
 	 */
-	public function roundcornersimage ($xRounding, $yRounding, $strokeWidth, $displace, $sizeCorrection) {}
+	public function roundCornersImage ($xRounding, $yRounding, $strokeWidth, $displace, $sizeCorrection) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -1553,12 +1553,12 @@ class Imagick implements Iterator, Traversable, Countable {
 	/**
 	 * @param $CHANNEL [optional]
 	 */
-	public function autolevelimage ($CHANNEL) {}
+	public function autoLevelImage ($CHANNEL) {}
 
 	/**
 	 * @param $factor [optional]
 	 */
-	public function blueshiftimage ($factor) {}
+	public function blueShiftImage ($factor) {}
 
 	/**
 	 * (No version information available, might only be in SVN)<br/>
@@ -1618,13 +1618,13 @@ class Imagick implements Iterator, Traversable, Countable {
 	/**
 	 * @param $CHANNEL [optional]
 	 */
-	public function clampimage ($CHANNEL) {}
+	public function clampImage ($CHANNEL) {}
 
 	/**
 	 * @param $stack
 	 * @param $offset
 	 */
-	public function smushimages ($stack, $offset) {}
+	public function smushImages ($stack, $offset) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -1684,7 +1684,7 @@ class Imagick implements Iterator, Traversable, Countable {
 	/**
 	 * @param $filenames
 	 */
-	public function readimages ($filenames) {}
+	public function readImages ($filenames) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -1885,7 +1885,7 @@ class Imagick implements Iterator, Traversable, Countable {
 	 */
 	public function setLastIterator () {}
 
-	public function resetiterator () {}
+	public function resetIterator () {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -2350,7 +2350,7 @@ class Imagick implements Iterator, Traversable, Countable {
 	 * @param $key
 	 * @param $value
 	 */
-	public function setimageattribute ($key, $value) {}
+	public function setImageAttribute ($key, $value) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -2448,7 +2448,7 @@ class Imagick implements Iterator, Traversable, Countable {
 	/**
 	 * @param $filename
 	 */
-	public function setimageprogressmonitor ($filename) {}
+	public function setImageProgressMonitor ($filename) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -2817,7 +2817,7 @@ class Imagick implements Iterator, Traversable, Countable {
 	 * @param $pathname
 	 * @param $inside
 	 */
-	public function clipimagepath ($pathname, $inside) {}
+	public function clipImagePath ($pathname, $inside) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
