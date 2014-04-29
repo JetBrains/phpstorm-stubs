@@ -146,10 +146,14 @@ class SimpleXMLElement implements Traversable {
 	 * If specified, returns all namespaces declared in parent and child nodes.
 	 * Otherwise, returns only namespaces declared in root node.
 	 * </p>
+	 * @param bool $from_root [optional] <p>
+	 * Allows you to recursively check namespaces under a child node instead of
+	 * from the root of the XML doc.
+	 * </p>
 	 * @return array The getDocNamespaces method returns an array
 	 * of namespace names with their associated URIs.
 	 */
-	public function getDocNamespaces ($recursive = false) {}
+	public function getDocNamespaces ($recursive = false, $from_root = true) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.3)<br/>
@@ -273,10 +277,21 @@ class SimpleXMLIterator extends SimpleXMLElement implements Traversable, Recursi
 	 */
 	public function getChildren () {}
 
-    /**
-     * @return string
-     */
+	/**
+	 * (No version information available, might only be in SVN)<br/>
+	 * Returns the string content
+	 * @link http://php.net/manual/en/simplexmlelement.tostring.php
+	 * @return string the string content on success or an empty string on failure.
+	 */
     public function __toString () {}
+
+	/**
+	 * (PHP 5 &gt;= 5.3.0)<br/>
+	 * Counts the children of an element
+	 * @link http://php.net/manual/en/simplexmlelement.count.php
+	 * @return int the number of elements of an element.
+	 */
+	public function count () {}
 
 }
 
@@ -364,4 +379,3 @@ function simplexml_load_string ($data, $class_name = "SimpleXMLElement", $option
 function simplexml_import_dom (DOMNode $node, $class_name = "SimpleXMLElement") {}
 
 // End of SimpleXML v.0.1
-?>

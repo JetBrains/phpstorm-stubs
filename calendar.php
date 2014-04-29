@@ -202,7 +202,7 @@ function easter_days ($year = null, $method = CAL_EASTER_DEFAULT) {}
  * (PHP 4, PHP 5)<br/>
  * Convert Unix timestamp to Julian Day
  * @link http://php.net/manual/en/function.unixtojd.php
- * @param int $timestamp [optional] <p>
+ * @param int $timestamp [optional] defaults to time() <p>
  * A unix timestamp to convert.
  * </p>
  * @return int A julian day number as integer.
@@ -315,4 +315,3 @@ define ('CAL_JEWISH_ADD_ALAFIM', 4);
 define ('CAL_JEWISH_ADD_GERESHAYIM', 8);
 
 // End of calendar v.
-?>

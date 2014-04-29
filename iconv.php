@@ -25,7 +25,7 @@
  * @param string $str <p>
  * The string to be converted.
  * </p>
- * @return string the converted string or false on failure.
+ * @return string the converted string or <b>FALSE</b> on failure.
  */
 function iconv ($in_charset, $out_charset, $str) {}
 
@@ -52,7 +52,7 @@ function ob_iconv_handler ($contents, $status) {}
  * internal_encoding
  * </p>
  * @return mixed the current value of the internal configuration variable if
- * successful or false on failure.
+ * successful or <b>FALSE</b> on failure.
  * </p>
  * <p>
  * If <i>type</i> is omitted or set to "all",
@@ -66,7 +66,7 @@ function iconv_get_encoding ($type = "all") {}
  * Set current setting for character encoding conversion
  * @link http://php.net/manual/en/function.iconv-set-encoding.php
  * @param string $type <p>
- * The value of <i>type</i> can be any one of those:
+ * The value of <i>type</i> can be any one of these:
  * input_encoding
  * output_encoding
  * internal_encoding
@@ -74,7 +74,7 @@ function iconv_get_encoding ($type = "all") {}
  * @param string $charset <p>
  * The character set.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function iconv_set_encoding ($type, $charset) {}
 
@@ -145,7 +145,7 @@ function iconv_strlen ($str, $charset = 'ini_get("iconv.internal_encoding")') {}
  * </p>
  * <p>
  * If <i>str</i> is shorter than <i>offset</i>
- * characters long, false will be returned.
+ * characters long, <b>FALSE</b> will be returned.
  */
 function iconv_substr ($str, $offset, $length = 'iconv_strlen($str, $charset)', $charset = 'ini_get("iconv.internal_encoding")') {}
 
@@ -173,7 +173,7 @@ function iconv_substr ($str, $offset, $length = 'iconv_strlen($str, $charset)', 
  * </p>
  * <p>
  * If <i>needle</i> is not found,
- * <b>iconv_strpos</b> will return false.
+ * <b>iconv_strpos</b> will return <b>FALSE</b>.
  */
 function iconv_strpos ($haystack, $needle, $offset = 0, $charset = 'ini_get("iconv.internal_encoding")') {}
 
@@ -197,7 +197,7 @@ function iconv_strpos ($haystack, $needle, $offset = 0, $charset = 'ini_get("ico
  * </p>
  * <p>
  * If <i>needle</i> is not found,
- * <b>iconv_strrpos</b> will return false.
+ * <b>iconv_strrpos</b> will return <b>FALSE</b>.
  */
 function iconv_strrpos ($haystack, $needle, $charset = 'ini_get("iconv.internal_encoding")') {}
 
@@ -298,7 +298,7 @@ function iconv_strrpos ($haystack, $needle, $charset = 'ini_get("iconv.internal_
  * </table>
  * </p>
  * @return string an encoded MIME field on success,
- * or false if an error occurs during the encoding.
+ * or <b>FALSE</b> if an error occurs during the encoding.
  */
 function iconv_mime_encode ($field_name, $field_value, array $preferences = null) {}
 
@@ -350,7 +350,7 @@ function iconv_mime_encode ($field_name, $field_value, array $preferences = null
  * will be used.
  * </p>
  * @return string a decoded MIME field on success,
- * or false if an error occurs during the decoding.
+ * or <b>FALSE</b> if an error occurs during the decoding.
  */
 function iconv_mime_decode ($encoded_header, $mode = 0, $charset = 'ini_get("iconv.internal_encoding")') {}
 
@@ -403,7 +403,7 @@ function iconv_mime_decode ($encoded_header, $mode = 0, $charset = 'ini_get("ico
  * </p>
  * @return array an associative array that holds a whole set of
  * MIME header fields specified by
- * <i>encoded_headers</i> on success, or false
+ * <i>encoded_headers</i> on success, or <b>FALSE</b>
  * if an error occurs during the decoding.
  * </p>
  * <p>
@@ -426,7 +426,7 @@ define ('ICONV_IMPL', "glibc");
  * string
  * @link http://php.net/manual/en/iconv.constants.php
  */
-define ('ICONV_VERSION', 2.13);
+define ('ICONV_VERSION', 2.17);
 
 /**
  * integer

@@ -47,7 +47,7 @@
  * DISABLE_AUTHENTICATOR - Disable authentication properties
  * @return resource an IMAP stream on success or <b>FALSE</b> on error.
  */
-function imap_open ($mailbox, $username, $password, $options = NIL, $n_retries = 0, array $params = null) {}
+function imap_open ($mailbox, $username, $password, $options = 0, $n_retries = 0, array $params = null) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
@@ -1052,7 +1052,7 @@ function imap_alerts () {}
 
 /**
  * (PHP 4, PHP 5)<br/>
- * Returns all of the IMAP errors that have occured
+ * Returns all of the IMAP errors that have occurred
  * @link http://php.net/manual/en/function.imap-errors.php
  * @return array This function returns an array of all of the IMAP error messages
  * generated since the last <b>imap_errors</b> call,
@@ -1258,7 +1258,7 @@ function imap_set_quota ($imap_stream, $quota_root, $quota_limit) {}
 
 /**
  * (PHP 4 &gt;= 4.0.7, PHP 5)<br/>
- * Sets the ACL for a giving mailbox
+ * Sets the ACL for a given mailbox
  * @link http://php.net/manual/en/function.imap-setacl.php
  * @param resource $imap_stream 
  * @param string $mailbox <p>
@@ -1323,7 +1323,7 @@ function imap_getannotation ($stream_id, $mailbox, $entry, $attr) {}
  * The mail subject
  * </p>
  * @param string $message <p>
- * The mail body
+ * The mail body, see <b>imap_mail_compose</b>
  * </p>
  * @param string $additional_headers [optional] <p>
  * As string with additional headers to be set on the mail
