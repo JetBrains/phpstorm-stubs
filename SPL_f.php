@@ -145,7 +145,7 @@ function spl_object_hash ($obj) {}
  * </p>
  * @return array An array containing the elements of the iterator.
  */
-function iterator_to_array ($iterator, $use_keys = null) {}
+function iterator_to_array ($iterator, $use_keys = true) {}
 
 /**
  * (PHP 5 &gt;= 5.1.0)<br/>
