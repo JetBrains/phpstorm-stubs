@@ -15,7 +15,6 @@ class PharException extends Exception  {
  * @link http://php.net/manual/en/class.phar.php
  */
 class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, SeekableIterator, Traversable, Iterator, Countable, ArrayAccess {
-	const OTHER_MODE_MASK = 12288;
 	const BZ2 = 8192;
 	const GZ = 4096;
 	const NONE = 0;
@@ -37,7 +36,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * Construct a Phar archive object
 	 * @link http://php.net/manual/en/phar.construct.php
 	 * @param string $fname <p>
-	 * Path to an existing Phar archive or to-be-created archive
+	 * Path to an existing Phar archive or to-be-created archive. The file name's
+	 * extension must contain .phar.
 	 * </p>
 	 * @param int $flags [optional] <p>
 	 * Flags to pass to parent class <b>RecursiveDirectoryIterator</b>.
@@ -215,7 +215,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * @return Phar The method returns a <b>Phar</b> object on success and throws an
 	 * exception on failure.
 	 */
-	public function convertToExecutable ($format = null, $compression = null, $extension = null) {}
+	public function convertToExecutable ($format = 9021976, $compression = 9021976, $extension = null) {}
 
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -246,7 +246,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * @return PharData The method returns a <b>PharData</b> object on success and throws an
 	 * exception on failure.
 	 */
-	public function convertToData ($format = null, $compression = null, $extension = null) {}
+	public function convertToData ($format = 9021976, $compression = 9021976, $extension = null) {}
 
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -404,6 +404,14 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	public function isFileFormat ($format) {}
 
 	/**
+	 * (Unknown)<br/>
+	 * Returns true if the phar archive can be modified
+	 * @link http://php.net/manual/en/phar.iswritable.php
+	 * @return bool <b>TRUE</b> if the phar archive can be modified
+	 */
+	public function isWritable () {}
+
+	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * determines whether a file exists in the phar
 	 * @link http://php.net/manual/en/phar.offsetexists.php
@@ -488,15 +496,15 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 */
 	public function setMetadata ($metadata) {}
 
-    /**
-     * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.1.0)<br/>
-     * set the signature algorithm for a phar and apply it.
+	/**
+	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.1.0)<br/>
+	 * set the signature algorithm for a phar and apply it.
 	 * @link http://php.net/manual/en/phar.setsignaturealgorithm.php
-     * @param int $sigtype <p>
-     * One of Phar::MD5,
-     * Phar::SHA1, Phar::SHA256,
+	 * @param int $sigtype <p>
+	 * One of Phar::MD5,
+	 * Phar::SHA1, Phar::SHA256,
 	 * Phar::SHA512, or Phar::OPENSSL
-     * </p>
+	 * </p>
 	 * @param string $privatekey [optional] <p>
 	 * The contents of an OpenSSL private key, as extracted from a certificate or
 	 * OpenSSL key file:
@@ -510,7 +518,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * naming and placement of the public key file.
 	 * </p>
 	 * @return void No value is returned.
-     */
+	 */
 	public function setSignatureAlgorithm ($sigtype, $privatekey = null) {}
 
 	/**
@@ -521,9 +529,11 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * A string or an open stream handle to use as the executable stub for this
 	 * phar archive.
 	 * </p>
+	 * @param int $len [optional] <p>
+	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function setStub ($stub) {}
+	public function setStub ($stub, $len = -1) {}
 
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
@@ -697,7 +707,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * </p>
 	 * @return void No return.
 	 */
-	final public static function mungServer (array $munglist ) {}
+	final public static function mungServer (array $munglist) {}
 
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
@@ -809,7 +819,6 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * constants.
 	 */
 	public function getChildren () {}
-
 
 	/**
 	 * (PHP 5 &gt;= 5.3.0)<br/>
@@ -1044,7 +1053,7 @@ class PharFileInfo extends SplFileInfo  {
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Compresses the current Phar entry with either zlib or bzip2 compression
 	 * @link http://php.net/manual/en/pharfileinfo.compress.php
-	 * @param int $compression 
+	 * @param int $compression
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function compress ($compression) {}
@@ -1123,7 +1132,7 @@ class PharFileInfo extends SplFileInfo  {
 	 * </p>
 	 * @return bool <b>TRUE</b> if the file is compressed within the Phar archive, <b>FALSE</b> if not.
 	 */
-	public function isCompressed ($compression_type = null) {}
+	public function isCompressed ($compression_type = 9021976) {}
 
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>

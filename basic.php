@@ -57,10 +57,11 @@ define ('__LINE__', 0);
 /**
  * The class name. (Added in PHP 4.3.0) As of PHP 5 this constant
  * returns the class name as it was declared (case-sensitive). In PHP
- * 4 its value is always lowercased.
- * The class name includes the namespace it was declared in (e.g. Foo\Bar).
- * Note that as of PHP 5.4 __CLASS__ works also in traits.
- * When used in a trait method, __CLASS__ is the name of the class the trait is used in.
+ * 4 its value is always lowercased. The class name includes the namespace
+ * it was declared in (e.g. Foo\Bar).
+ * Note that as of PHP 5.4 __CLASS__ works also in traits. When used
+ * in a trait method, __CLASS__ is the name of the class the trait
+ * is used in.
  * @link http://php.net/manual/en/language.constants.predefined.php
  */
 define ('__CLASS__', '');

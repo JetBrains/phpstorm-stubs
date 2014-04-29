@@ -1,6 +1,6 @@
 <?php
 
-// Start of sqlite3 v.0.7
+// Start of sqlite3 v.0.7-dev
 
 /**
  * A class that interfaces SQLite 3 databases.
@@ -226,10 +226,22 @@ deleted) by the most recent SQL statement
 	public function createAggregate ($name, $step_callback, $final_callback, $argument_count = -1) {}
 
 	/**
-	 * @param $name
-	 * @param $callback
+	 * (PHP 5 &gt;= 5.3.11)<br/>
+	 * Registers a PHP function for use as an SQL collating function
+	 * @link http://php.net/manual/en/sqlite3.createcollation.php
+	 * @param string $name <p>
+	 * Name of the SQL collating function to be created or redefined
+	 * </p>
+	 * @param callable $callback <p>
+	 * The name of a PHP function or user-defined function to apply as a
+	 * callback, defining the behavior of the collation. It should accept two
+	 * strings and return as <b>strcmp</b> does, i.e. it should
+	 * return -1, 1, or 0 if the first string sorts before, sorts after, or is
+	 * equal to the second.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function createCollation ($name, $callback) {}
+	public function createCollation ($name, callable $callback) {}
 
 	/**
 	 * @param $table
@@ -522,5 +534,5 @@ define ('SQLITE3_OPEN_READWRITE', 2);
  */
 define ('SQLITE3_OPEN_CREATE', 4);
 
-// End of sqlite3 v.0.7
+// End of sqlite3 v.0.7-dev
 ?>
