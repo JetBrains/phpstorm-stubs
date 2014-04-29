@@ -242,7 +242,7 @@ function enchant_dict_get_error ($dict) {}
  * Describes an individual dictionary
  * @link http://php.net/manual/en/function.enchant-dict-describe.php
  * @param resource $dict <p>
- * Dictinaray resource
+ * Dictionary resource
  * </p>
  * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */

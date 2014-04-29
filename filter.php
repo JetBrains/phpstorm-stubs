@@ -108,13 +108,16 @@ function filter_var ($variable, $filter = FILTER_DEFAULT, $options = null) {}
  * This parameter can be also an integer holding a filter constant. Then all values in the
  * input array are filtered by this filter.
  * </p>
+ * @param bool $add_empty [optional] <p>
+ * Add missing keys as <b>NULL</b> to the return value.
+ * </p>
  * @return mixed An array containing the values of the requested variables on success, or <b>FALSE</b>
  * on failure. An array value will be <b>FALSE</b> if the filter fails, or <b>NULL</b> if
  * the variable is not set. Or if the flag <b>FILTER_NULL_ON_FAILURE</b>
  * is used, it returns <b>FALSE</b> if the variable is not set and <b>NULL</b> if the filter
  * fails.
  */
-function filter_input_array ($type, $definition = null) {}
+function filter_input_array ($type, $definition = null, $add_empty = true) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0)<br/>
@@ -138,11 +141,14 @@ function filter_input_array ($type, $definition = null) {}
  * This parameter can be also an integer holding a filter constant. Then all values in the
  * input array are filtered by this filter.
  * </p>
+ * @param bool $add_empty [optional] <p>
+ * Add missing keys as <b>NULL</b> to the return value.
+ * </p>
  * @return mixed An array containing the values of the requested variables on success, or <b>FALSE</b>
  * on failure. An array value will be <b>FALSE</b> if the filter fails, or <b>NULL</b> if
  * the variable is not set.
  */
-function filter_var_array (array $data, $definition = null) {}
+function filter_var_array (array $data, $definition = null, $add_empty = true) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0)<br/>
@@ -297,6 +303,7 @@ define ('FILTER_VALIDATE_EMAIL', 274);
  * @link http://php.net/manual/en/filter.constants.php
  */
 define ('FILTER_VALIDATE_IP', 275);
+define ('FILTER_VALIDATE_MAC', 276);
 
 /**
  * ID of default ("string") filter.
@@ -333,7 +340,7 @@ define ('FILTER_SANITIZE_ENCODED', 514);
  * @link http://php.net/manual/en/filter.constants.php
  */
 define ('FILTER_SANITIZE_SPECIAL_CHARS', 515);
-define ('FILTER_SANITIZE_FULL_SPECIAL_CHARS', 515);
+define ('FILTER_SANITIZE_FULL_SPECIAL_CHARS', 522);
 
 /**
  * ID of "email" filter.

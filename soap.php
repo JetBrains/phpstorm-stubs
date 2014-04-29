@@ -35,8 +35,9 @@ class SoapClient  {
 	 * non-WSDL mode. In WSDL mode, they come from the WSDL file.
 	 * </p>
 	 * <p>
-	 * The soap_version option specifies whether to use SOAP
-	 * 1.1 (default), or SOAP 1.2 client.
+	 * The soap_version option should be one of either
+	 * <b>SOAP_1_1</b> or <b>SOAP_1_2</b> to
+	 * select SOAP 1.1 or 1.2, respectively. If omitted, 1.1 is used.
 	 * </p>
 	 * <p>
 	 * For HTTP authentication, the login and
@@ -121,7 +122,14 @@ class SoapClient  {
 	 * <p>
 	 * The keep_alive option is a boolean value defining whether
 	 * to send the Connection: Keep-Alive header or
-	 * Connection: close .
+	 * Connection: close.
+	 * </p>
+	 * <p>
+	 * The ssl_method option is one of
+	 * <b>SOAP_SSL_METHOD_TLS</b>,
+	 * <b>SOAP_SSL_METHOD_SSLv2</b>,
+	 * <b>SOAP_SSL_METHOD_SSLv3</b> or
+	 * <b>SOAP_SSL_METHOD_SSLv23</b>.
 	 * </p>
 	 */
 	public function SoapClient ($wsdl, array $options = null) {}
@@ -174,7 +182,7 @@ class SoapClient  {
 	 * an associative array of named output parameters.
 	 * </p>
 	 * <p>
-	 * On error, if the SoapClient object was constructed with the trace
+	 * On error, if the SoapClient object was constructed with the exceptions
 	 * option set to <b>FALSE</b>, a SoapFault object will be returned.
 	 */
 	public function __soapCall ($function_name, array $arguments, array $options = null, $input_headers = null, array &$output_headers = null) {}
@@ -386,9 +394,10 @@ class SoapServer  {
 	 * object after setClass is called.
 	 * </p>
 	 * <p>
-	 * <b>SOAP_PERSISTENCE_SESSION</b> - SoapServer data does persists between requests.
-	 * This is accomplished by serializing the SoapServer class data into $_SESSION['_bogus_session_name'],
-	 * because of this <b>session_start</b> must be called before this persistence mode is set.
+	 * <b>SOAP_PERSISTENCE_SESSION</b> - SoapServer data persists between requests.
+	 * This is accomplished by serializing the SoapServer class data into
+	 * $_SESSION['_bogus_session_name'], because of this
+	 * <b>session_start</b> must be called before this persistence mode is set.
 	 * </p>
 	 * @return void No value is returned.
 	 */
@@ -693,6 +702,30 @@ define ('WSDL_CACHE_NONE', 0);
 define ('WSDL_CACHE_DISK', 1);
 define ('WSDL_CACHE_MEMORY', 2);
 define ('WSDL_CACHE_BOTH', 3);
+
+/**
+ * Since PHP 5.5.0.
+ * @link http://php.net/manual/en/soap.constants.php
+ */
+define ('SOAP_SSL_METHOD_TLS', 0);
+
+/**
+ * Since PHP 5.5.0.
+ * @link http://php.net/manual/en/soap.constants.php
+ */
+define ('SOAP_SSL_METHOD_SSLv2', 1);
+
+/**
+ * Since PHP 5.5.0.
+ * @link http://php.net/manual/en/soap.constants.php
+ */
+define ('SOAP_SSL_METHOD_SSLv3', 2);
+
+/**
+ * Since PHP 5.5.0.
+ * @link http://php.net/manual/en/soap.constants.php
+ */
+define ('SOAP_SSL_METHOD_SSLv23', 3);
 
 // End of soap v.
 ?>

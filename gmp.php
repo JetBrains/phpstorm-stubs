@@ -514,20 +514,19 @@ function gmp_xor ($a, $b) {}
  * Set bit
  * @link http://php.net/manual/en/function.gmp-setbit.php
  * @param resource $a <p>
- * The number being set to.
+ * The value to modify.
  * </p>
  * It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
  * @param int $index <p>
- * The set bit.
+ * The index of the bit to set. Index 0 represents the least significant bit.
  * </p>
- * @param bool $set_clear [optional] <p>
- * Defines if the bit is set to 0 or 1. By default the bit is set to
- * 1. Index starts at 0.
+ * @param bool $bit_on [optional] <p>
+ * True to set the bit (set it to 1/on); false to clear the bit (set it to 0/off).
  * </p>
  * @return void A GMP number resource.
  */
-function gmp_setbit ($a, $index, $set_clear = true) {}
+function gmp_setbit (&$a, $index, $bit_on = true) {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
@@ -535,8 +534,9 @@ function gmp_setbit ($a, $index, $set_clear = true) {}
  * @link http://php.net/manual/en/function.gmp-clrbit.php
  * @param resource $a It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
- * @param int $index It can be either a GMP number resource, or a
- * numeric string given that it is possible to convert the latter to a number.</p>
+ * @param int $index <p>
+ * The index of the bit to clear. Index 0 represents the least significant bit.
+ * </p>
  * @return void A GMP number resource.
  */
 function gmp_clrbit ($a, $index) {}
@@ -584,7 +584,8 @@ function gmp_scan1 ($a, $start) {}
  * @param int $index <p>
  * The bit to test
  * </p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return bool <b>TRUE</b> if the bit is set in resource <i>$a</i>,
+ * otherwise <b>FALSE</b>.
  */
 function gmp_testbit ($a, $index) {}
 
@@ -635,7 +636,7 @@ define ('GMP_ROUND_MINUSINF', 2);
  * The GMP library version
  * @link http://php.net/manual/en/gmp.constants.php
  */
-define ('GMP_VERSION', "5.0.2");
+define ('GMP_VERSION', "5.1.2");
 
 // End of gmp v.
 ?>

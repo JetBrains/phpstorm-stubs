@@ -1,6 +1,6 @@
 <?php
 
-// Start of geoip v.1.0.7
+// Start of geoip v.1.0.8
 
 /**
  * (PECL geoip &gt;= 0.2.0)<br/>
@@ -206,5 +206,5 @@ define ('GEOIP_DIALUP_SPEED', 1);
 define ('GEOIP_CABLEDSL_SPEED', 2);
 define ('GEOIP_CORPORATE_SPEED', 3);
 
-// End of geoip v.1.0.7
+// End of geoip v.1.0.8
 ?>
