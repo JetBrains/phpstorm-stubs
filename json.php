@@ -1,6 +1,6 @@
 <?php
 
-// Start of json v.1.2.1
+// Start of json v.1.3.1
 
 /**
  * Objects implementing JsonSerializable
@@ -17,7 +17,39 @@ interface JsonSerializable  {
 	 * @return mixed data which can be serialized by <b>json_encode</b>,
 	 * which is a value of any type other than a resource.
 	 */
-	abstract public function jsonSerialize ();
+    function jsonSerialize ();
+
+}
+
+class JsonIncrementalParser  {
+	const JSON_PARSER_SUCCESS = 0;
+	const JSON_PARSER_CONTINUE = 1;
+
+
+	/**
+	 * @param $depth [optional]
+	 * @param $options [optional]
+	 */
+	public function __construct ($depth, $options) {}
+
+	public function getError () {}
+
+	public function reset () {}
+
+	/**
+	 * @param $json
+	 */
+	public function parse ($json) {}
+
+	/**
+	 * @param $filename
+	 */
+	public function parseFile ($filename) {}
+
+	/**
+	 * @param $options [optional]
+	 */
+	public function get ($options) {}
 
 }
 
@@ -30,7 +62,11 @@ interface JsonSerializable  {
  * a resource.
  * </p>
  * <p>
- * This function only works with UTF-8 encoded data.
+ * All string data must be UTF-8 encoded.
+ * </p>
+ * <p>PHP implements a superset of
+ * JSON - it will also encode and decode scalar types and <b>NULL</b>. The JSON standard
+ * only supports these values when they are nested inside an array or an object.
  * </p>
  * @param int $options [optional] <p>
  * Bitmask consisting of <b>JSON_HEX_QUOT</b>,
@@ -45,7 +81,9 @@ interface JsonSerializable  {
  * constants is described on
  * the JSON constants page.
  * </p>
- * @param int $depth [optional] <p>Set the maximum depth. Must be greater than zero.</p>
+ * @param int $depth [optional] <p>
+ * Set the maximum depth. Must be greater than zero.
+ * </p>
  * @return string a JSON encoded string on success or <b>FALSE</b> on failure.
  */
 function json_encode ($value, $options = 0, $depth = 512) {}
@@ -58,7 +96,11 @@ function json_encode ($value, $options = 0, $depth = 512) {}
  * The <i>json</i> string being decoded.
  * </p>
  * <p>
- * This function only works with UTF-8 encoded data.
+ * This function only works with UTF-8 encoded strings.
+ * </p>
+ * <p>PHP implements a superset of
+ * JSON - it will also encode and decode scalar types and <b>NULL</b>. The JSON standard
+ * only supports these values when they are nested inside an array or an object.
  * </p>
  * @param bool $assoc [optional] <p>
  * When <b>TRUE</b>, returned objects will be converted into
@@ -94,9 +136,10 @@ function json_last_error () {}
  * (PHP 5 &gt;= 5.5.0)<br/>
  * Returns the error string of the last json_encode() or json_decode() call
  * @link http://php.net/manual/en/function.json-last-error-msg.php
- * @return string|NULL Returns the error message on success or <b>NULL</b> with wrong parameters.
+ * @return string the error message on success or <b>NULL</b> with wrong parameters.
  */
 function json_last_error_msg () {}
+
 
 /**
  * All &lt; and &gt; are converted to \u003C and \u003E.
@@ -162,20 +205,7 @@ define ('JSON_PRETTY_PRINT', 128);
  * @link http://php.net/manual/en/json.constants.php
  */
 define ('JSON_UNESCAPED_UNICODE', 256);
-
-/**
- * No error has occurred.
- * Available since PHP 5.3.0.
- * @link http://php.net/manual/en/json.constants.php
- */
-define ('JSON_ERROR_NONE', 0);
-
-/**
- * The maximum stack depth has been exceeded.
- * Available since PHP 5.3.0.
- * @link http://php.net/manual/en/json.constants.php
- */
-define ('JSON_ERROR_DEPTH', 1);
+define ('JSON_PARTIAL_OUTPUT_ON_ERROR', 512);
 
 /**
  * Occurs with underflow or with the modes mismatch.
@@ -192,19 +222,78 @@ define ('JSON_ERROR_STATE_MISMATCH', 2);
 define ('JSON_ERROR_CTRL_CHAR', 3);
 
 /**
- * Syntax error.
- * Available since PHP 5.3.0.
- * @link http://php.net/manual/en/json.constants.php
- */
-define ('JSON_ERROR_SYNTAX', 4);
-
-/**
  * Malformed UTF-8 characters, possibly incorrectly encoded. This
  * constant is available as of PHP 5.3.3.
  * @link http://php.net/manual/en/json.constants.php
  */
 define ('JSON_ERROR_UTF8', 5);
+
+/**
+ * <p>
+ * The object or array passed to <b>json_encode</b> include
+ * recursive references and cannot be encoded.
+ * If the <b>JSON_PARTIAL_OUTPUT_ON_ERROR</b> option was
+ * given, <b>NULL</b> will be encoded in the place of the recursive reference.
+ * </p>
+ * <p>
+ * This constant is available as of PHP 5.5.0.
+ * </p>
+ * @link http://php.net/manual/en/json.constants.php
+ */
+define ('JSON_ERROR_RECURSION', 6);
+
+/**
+ * <p>
+ * The value passed to <b>json_encode</b> includes either
+ * <b>NAN</b>
+ * or <b>INF</b>.
+ * If the <b>JSON_PARTIAL_OUTPUT_ON_ERROR</b> option was
+ * given, 0 will be encoded in the place of these
+ * special numbers.
+ * </p>
+ * <p>
+ * This constant is available as of PHP 5.5.0.
+ * </p>
+ * @link http://php.net/manual/en/json.constants.php
+ */
+define ('JSON_ERROR_INF_OR_NAN', 7);
+
+/**
+ * <p>
+ * A value of an unsupported type was given to
+ * <b>json_encode</b>, such as a resource.
+ * If the <b>JSON_PARTIAL_OUTPUT_ON_ERROR</b> option was
+ * given, <b>NULL</b> will be encoded in the place of the unsupported value.
+ * </p>
+ * <p>
+ * This constant is available as of PHP 5.5.0.
+ * </p>
+ * @link http://php.net/manual/en/json.constants.php
+ */
+define ('JSON_ERROR_UNSUPPORTED_TYPE', 8);
+
+/**
+ * No error has occurred.
+ * Available since PHP 5.3.0.
+ * @link http://php.net/manual/en/json.constants.php
+ */
+define ('JSON_ERROR_NONE', 0);
+
+/**
+ * The maximum stack depth has been exceeded.
+ * Available since PHP 5.3.0.
+ * @link http://php.net/manual/en/json.constants.php
+ */
+define ('JSON_ERROR_DEPTH', 1);
+
+/**
+ * Syntax error.
+ * Available since PHP 5.3.0.
+ * @link http://php.net/manual/en/json.constants.php
+ */
+define ('JSON_ERROR_SYNTAX', 4);
 define ('JSON_OBJECT_AS_ARRAY', 1);
+define ('JSON_PARSER_NOTSTRICT', 4);
 
 /**
  * Encodes large integers as their original string value.
@@ -213,5 +302,5 @@ define ('JSON_OBJECT_AS_ARRAY', 1);
  */
 define ('JSON_BIGINT_AS_STRING', 2);
 
-// End of json v.1.2.1
+// End of json v.1.3.1
 ?>

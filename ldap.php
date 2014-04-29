@@ -917,7 +917,7 @@ function ldap_set_rebind_proc ($link, callable $callback) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ldap_control_paged_result ($link, $pagesize, $iscritical = null, $cookie = null) {}
+function ldap_control_paged_result ($link, $pagesize, $iscritical = false, $cookie = "") {}
 
 /**
  * (PHP 5 &gt;= 5.4.0)<br/>

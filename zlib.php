@@ -83,7 +83,7 @@ function gzgetc ($zp) {}
  * </p>
  * @return string The uncompressed string, or <b>FALSE</b> on error.
  */
-function gzgets ($zp, $length = 1024) {}
+function gzgets ($zp, $length) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
@@ -266,9 +266,12 @@ function gzfile ($filename, $use_include_path = 0) {}
  * <p>
  * If -1 is used, the default compression of the zlib library is used which is 6.
  * </p>
+ * @param int $encoding [optional] <p>
+ * One of <b>ZLIB_ENCODING_*</b> constants.
+ * </p>
  * @return string The compressed string or <b>FALSE</b> if an error occurred.
  */
-function gzcompress ($data, $level = -1) {}
+function gzcompress ($data, $level = -1, $encoding = ZLIB_ENCODING_DEFLATE) {}
 
 /**
  * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
@@ -301,9 +304,12 @@ function gzuncompress ($data, $length = 0) {}
  * for maximum compression. If not given, the default compression level will
  * be the default compression level of the zlib library.
  * </p>
+ * @param int $encoding [optional] <p>
+ * One of <b>ZLIB_ENCODING_*</b> constants.
+ * </p>
  * @return string The deflated string or <b>FALSE</b> if an error occurred.
  */
-function gzdeflate ($data, $level = -1) {}
+function gzdeflate ($data, $level = -1, $encoding = ZLIB_ENCODING_RAW) {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
@@ -355,7 +361,7 @@ function gzinflate ($data, $length = 0) {}
 function gzencode ($data, $level = -1, $encoding_mode = FORCE_GZIP) {}
 
 /**
- * (No version information available, might only be in SVN)<br/>
+ * (PHP 5 &gt;= 5.4.0)<br/>
  * Decodes a gzip compressed string
  * @link http://php.net/manual/en/function.gzdecode.php
  * @param string $data <p>

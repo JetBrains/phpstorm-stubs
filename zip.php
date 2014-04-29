@@ -7,54 +7,275 @@
  * @link http://php.net/manual/en/class.ziparchive.php
  */
 class ZipArchive  {
+
+	/**
+	 * Create the archive if it does not exist.
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const CREATE = 1;
+
+	/**
+	 * Error if archive already exists.
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const EXCL = 2;
+
+	/**
+	 * Perform additional consistency checks on the archive, and error if they fail.
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const CHECKCONS = 4;
+
+	/**
+	 * Always start a new archive, this mode will overwrite the file if
+	 * it already exists.
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const OVERWRITE = 8;
+
+	/**
+	 * Ignore case on name lookup
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const FL_NOCASE = 1;
+
+	/**
+	 * Ignore directory component
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const FL_NODIR = 2;
+
+	/**
+	 * Read compressed data
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const FL_COMPRESSED = 4;
+
+	/**
+	 * Use original data, ignoring changes.
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const FL_UNCHANGED = 8;
+
+	/**
+	 * better of deflate or store.
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const CM_DEFAULT = -1;
+
+	/**
+	 * stored (uncompressed).
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const CM_STORE = 0;
+
+	/**
+	 * shrunk
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const CM_SHRINK = 1;
+
+	/**
+	 * reduced with factor 1
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const CM_REDUCE_1 = 2;
+
+	/**
+	 * reduced with factor 2
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const CM_REDUCE_2 = 3;
+
+	/**
+	 * reduced with factor 3
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const CM_REDUCE_3 = 4;
+
+	/**
+	 * reduced with factor 4
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const CM_REDUCE_4 = 5;
+
+	/**
+	 * imploded
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const CM_IMPLODE = 6;
+
+	/**
+	 * deflated
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const CM_DEFLATE = 8;
+
+	/**
+	 * deflate64
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const CM_DEFLATE64 = 9;
+
+	/**
+	 * PKWARE imploding
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const CM_PKWARE_IMPLODE = 10;
+
+	/**
+	 * BZIP2 algorithm
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const CM_BZIP2 = 12;
 	const CM_LZMA = 14;
 	const CM_TERSE = 18;
 	const CM_LZ77 = 19;
 	const CM_WAVPACK = 97;
 	const CM_PPMD = 98;
+
+	/**
+	 * No error.
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_OK = 0;
+
+	/**
+	 * Multi-disk zip archives not supported.
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_MULTIDISK = 1;
+
+	/**
+	 * Renaming temporary file failed.
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_RENAME = 2;
+
+	/**
+	 * Closing zip archive failed
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_CLOSE = 3;
+
+	/**
+	 * Seek error
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_SEEK = 4;
+
+	/**
+	 * Read error
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_READ = 5;
+
+	/**
+	 * Write error
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_WRITE = 6;
+
+	/**
+	 * CRC error
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_CRC = 7;
+
+	/**
+	 * Containing zip archive was closed
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_ZIPCLOSED = 8;
+
+	/**
+	 * No such file.
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_NOENT = 9;
+
+	/**
+	 * File already exists
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_EXISTS = 10;
+
+	/**
+	 * Can't open file
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_OPEN = 11;
+
+	/**
+	 * Failure to create temporary file.
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_TMPOPEN = 12;
+
+	/**
+	 * Zlib error
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_ZLIB = 13;
+
+	/**
+	 * Memory allocation failure
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_MEMORY = 14;
+
+	/**
+	 * Entry has been changed
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_CHANGED = 15;
+
+	/**
+	 * Compression method not supported.
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_COMPNOTSUPP = 16;
+
+	/**
+	 * Premature EOF
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_EOF = 17;
+
+	/**
+	 * Invalid argument
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_INVAL = 18;
+
+	/**
+	 * Not a zip archive
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_NOZIP = 19;
+
+	/**
+	 * Internal error
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_INTERNAL = 20;
+
+	/**
+	 * Zip archive inconsistent
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_INCONS = 21;
+
+	/**
+	 * Can't remove file
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_REMOVE = 22;
+
+	/**
+	 * Entry has been deleted
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
 	const ER_DELETED = 23;
 
     /**
@@ -93,61 +314,61 @@ class ZipArchive  {
 	 * @param int $flags [optional] <p>
 	 * The mode to use to open the archive.
 	 * <p>
-	 * <b>ZIPARCHIVE::OVERWRITE</b>
+	 * <b>ZipArchive::OVERWRITE</b>
 	 * </p>
 	 * @return mixed <i>Error codes</i>
 	 * <p>
 	 * Returns <b>TRUE</b> on success or the error code.
 	 * <p>
-	 * <b>ZIPARCHIVE::ER_EXISTS</b>
+	 * <b>ZipArchive::ER_EXISTS</b>
 	 * </p>
 	 * <p>
 	 * File already exists.
 	 * </p>
 	 * <p>
-	 * <b>ZIPARCHIVE::ER_INCONS</b>
+	 * <b>ZipArchive::ER_INCONS</b>
 	 * </p>
 	 * <p>
 	 * Zip archive inconsistent.
 	 * </p>
 	 * <p>
-	 * <b>ZIPARCHIVE::ER_INVAL</b>
+	 * <b>ZipArchive::ER_INVAL</b>
 	 * </p>
 	 * <p>
 	 * Invalid argument.
 	 * </p>
 	 * <p>
-	 * <b>ZIPARCHIVE::ER_MEMORY</b>
+	 * <b>ZipArchive::ER_MEMORY</b>
 	 * </p>
 	 * <p>
 	 * Malloc failure.
 	 * </p>
 	 * <p>
-	 * <b>ZIPARCHIVE::ER_NOENT</b>
+	 * <b>ZipArchive::ER_NOENT</b>
 	 * </p>
 	 * <p>
 	 * No such file.
 	 * </p>
 	 * <p>
-	 * <b>ZIPARCHIVE::ER_NOZIP</b>
+	 * <b>ZipArchive::ER_NOZIP</b>
 	 * </p>
 	 * <p>
 	 * Not a zip archive.
 	 * </p>
 	 * <p>
-	 * <b>ZIPARCHIVE::ER_OPEN</b>
+	 * <b>ZipArchive::ER_OPEN</b>
 	 * </p>
 	 * <p>
 	 * Can't open file.
 	 * </p>
 	 * <p>
-	 * <b>ZIPARCHIVE::ER_READ</b>
+	 * <b>ZipArchive::ER_READ</b>
 	 * </p>
 	 * <p>
 	 * Read error.
 	 * </p>
 	 * <p>
-	 * <b>ZIPARCHIVE::ER_SEEK</b>
+	 * <b>ZipArchive::ER_SEEK</b>
 	 * </p>
 	 * <p>
 	 * Seek error.
@@ -219,18 +440,46 @@ class ZipArchive  {
 	public function addFile ($filename, $localname = null, $start = 0, $length = 0) {}
 
 	/**
-	 * @param $pattern
-	 * @param $flags [optional]
-	 * @param $options [optional]
+	 * (PHP 5 &gt;= 5.3.0, PECL zip &gt;= 1.9.0)<br/>
+	 * Add files from a directory by glob pattern
+	 * @link http://php.net/manual/en/ziparchive.addglob.php
+	 * @param string $pattern <p>
+	 * A <b>glob</b> pattern against which files will be matched.
+	 * </p>
+	 * @param int $flags [optional] <p>
+	 * A bit mask of glob() flags.
+	 * </p>
+	 * @param array $options [optional] <p>
+	 * An associative array of options. Available options are:
+	 * <p>
+	 * "add_path"
+	 * </p>
+	 * <p>
+	 * Prefix to prepend when translating to the local path of the file within
+	 * the archive. This is applied after any remove operations defined by the
+	 * "remove_path" or "remove_all_path"
+	 * options.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function addGlob ($pattern, $flags, $options) {}
+	public function addGlob ($pattern, $flags = 0, array $options = array()) {}
 
 	/**
-	 * @param $pattern
-	 * @param $path [optional]
-	 * @param $options [optional]
+	 * (PHP 5 &gt;= 5.3.0, PECL zip &gt;= 1.9.0)<br/>
+	 * Add files from a directory by PCRE pattern
+	 * @link http://php.net/manual/en/ziparchive.addpattern.php
+	 * @param string $pattern <p>
+	 * A PCRE pattern against which files will be matched.
+	 * </p>
+	 * @param string $path [optional] <p>
+	 * The directory that will be scanned. Defaults to the current working directory.
+	 * </p>
+	 * @param array $options [optional] <p>
+	 * An associative array of options accepted by <b>ZipArchive::addGlob</b>.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function addPattern ($pattern, $path, $options) {}
+	public function addPattern ($pattern, $path = '.', array $options = array()) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.5.0)<br/>
@@ -267,7 +516,7 @@ class ZipArchive  {
 	 * @param string $comment <p>
 	 * The contents of the comment.
 	 * </p>
-	 * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function setArchiveComment ($comment) {}
 
@@ -276,7 +525,7 @@ class ZipArchive  {
 	 * Returns the Zip archive comment
 	 * @link http://php.net/manual/en/ziparchive.getarchivecomment.php
 	 * @param int $flags [optional] <p>
-	 * If flags is set to <b>ZIPARCHIVE::FL_UNCHANGED</b>, the original unchanged
+	 * If flags is set to <b>ZipArchive::FL_UNCHANGED</b>, the original unchanged
 	 * comment is returned.
 	 * </p>
 	 * @return string the Zip archive comment or <b>FALSE</b> on failure.
@@ -293,7 +542,7 @@ class ZipArchive  {
 	 * @param string $comment <p>
 	 * The contents of the comment.
 	 * </p>
-	 * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function setCommentIndex ($index, $comment) {}
 
@@ -307,7 +556,7 @@ class ZipArchive  {
 	 * @param string $comment <p>
 	 * The contents of the comment.
 	 * </p>
-	 * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function setCommentName ($name, $comment) {}
 
@@ -319,7 +568,7 @@ class ZipArchive  {
 	 * Index of the entry
 	 * </p>
 	 * @param int $flags [optional] <p>
-	 * If flags is set to <b>ZIPARCHIVE::FL_UNCHANGED</b>, the original unchanged
+	 * If flags is set to <b>ZipArchive::FL_UNCHANGED</b>, the original unchanged
 	 * comment is returned.
 	 * </p>
 	 * @return string the comment on success or <b>FALSE</b> on failure.
@@ -334,7 +583,7 @@ class ZipArchive  {
 	 * Name of the entry
 	 * </p>
 	 * @param int $flags [optional] <p>
-	 * If flags is set to <b>ZIPARCHIVE::FL_UNCHANGED</b>, the original unchanged
+	 * If flags is set to <b>ZipArchive::FL_UNCHANGED</b>, the original unchanged
 	 * comment is returned.
 	 * </p>
 	 * @return string the comment on success or <b>FALSE</b> on failure.
@@ -372,13 +621,13 @@ class ZipArchive  {
 	 * </p>
 	 * @param int $flags [optional] <p>
 	 * The flags argument specifies how the name lookup should be done.
-	 * Also, ZipArchive::FL_UNCHANGED may be ORed to it to request
+	 * Also, <b>ZipArchive::FL_UNCHANGED</b> may be ORed to it to request
 	 * information about the original file in the archive,
 	 * ignoring any changes made.
 	 * <p>
-	 * ZipArchive::FL_NOCASE
+	 * <b>ZipArchive::FL_NOCASE</b>
 	 * </p>
-	 * @return mixed an array containing the entry details or <b>FALSE</b> on failure.
+	 * @return array an array containing the entry details or <b>FALSE</b> on failure.
 	 */
 	public function statName ($name, $flags = null) {}
 
@@ -390,11 +639,11 @@ class ZipArchive  {
 	 * Index of the entry
 	 * </p>
 	 * @param int $flags [optional] <p>
-	 * ZipArchive::FL_UNCHANGED may be ORed to it to request
+	 * <b>ZipArchive::FL_UNCHANGED</b> may be ORed to it to request
 	 * information about the original file in the archive,
 	 * ignoring any changes made.
 	 * </p>
-	 * @return mixed an array containing the entry details or <b>FALSE</b> on failure.
+	 * @return array an array containing the entry details or <b>FALSE</b> on failure.
 	 */
 	public function statIndex ($index, $flags = null) {}
 
@@ -409,9 +658,9 @@ class ZipArchive  {
 	 * The flags are specified by ORing the following values,
 	 * or 0 for none of them.
 	 * <p>
-	 * ZipArchive::FL_NOCASE
+	 * <b>ZipArchive::FL_NOCASE</b>
 	 * </p>
-	 * @return mixed the index of the entry on success or <b>FALSE</b> on failure.
+	 * @return int the index of the entry on success or <b>FALSE</b> on failure.
 	 */
 	public function locateName ($name, $flags = null) {}
 
@@ -423,7 +672,7 @@ class ZipArchive  {
 	 * Index of the entry.
 	 * </p>
 	 * @param int $flags [optional] <p>
-	 * If flags is set to <b>ZIPARCHIVE::FL_UNCHANGED</b>, the original unchanged
+	 * If flags is set to <b>ZipArchive::FL_UNCHANGED</b>, the original unchanged
 	 * name is returned.
 	 * </p>
 	 * @return string the name on success or <b>FALSE</b> on failure.
@@ -434,7 +683,7 @@ class ZipArchive  {
 	 * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
 	 * Revert all global changes done in the archive.
 	 * @link http://php.net/manual/en/ziparchive.unchangearchive.php
-	 * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function unchangeArchive () {}
 
@@ -442,7 +691,7 @@ class ZipArchive  {
 	 * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
 	 * Undo all changes done in the archive
 	 * @link http://php.net/manual/en/ziparchive.unchangeall.php
-	 * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function unchangeAll () {}
 
@@ -453,7 +702,7 @@ class ZipArchive  {
 	 * @param int $index <p>
 	 * Index of the entry.
 	 * </p>
-	 * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function unchangeIndex ($index) {}
 
@@ -464,7 +713,7 @@ class ZipArchive  {
 	 * @param string $name <p>
 	 * Name of the entry.
 	 * </p>
-	 * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function unchangeName ($name) {}
 
@@ -498,9 +747,9 @@ class ZipArchive  {
 	 * The flags to use to open the archive. the following values may
 	 * be ORed to it.
 	 * <p>
-	 * <b>ZIPARCHIVE::FL_UNCHANGED</b>
+	 * <b>ZipArchive::FL_UNCHANGED</b>
 	 * </p>
-	 * @return mixed the contents of the entry on success or <b>FALSE</b> on failure.
+	 * @return string the contents of the entry on success or <b>FALSE</b> on failure.
 	 */
 	public function getFromName ($name, $length = 0, $flags = null) {}
 
@@ -519,9 +768,9 @@ class ZipArchive  {
 	 * The flags to use to open the archive. the following values may
 	 * be ORed to it.
 	 * <p>
-	 * ZipArchive::FL_UNCHANGED
+	 * <b>ZipArchive::FL_UNCHANGED</b>
 	 * </p>
-	 * @return mixed the contents of the entry on success or <b>FALSE</b> on failure.
+	 * @return string the contents of the entry on success or <b>FALSE</b> on failure.
 	 */
 	public function getFromIndex ($index, $length = 0, $flags = null) {}
 
@@ -625,16 +874,14 @@ function zip_entry_close ($zip_entry) {}
  * A directory entry returned by <b>zip_read</b>.
  * </p>
  * @param int $length [optional] <p>
- * The number of bytes to return. If not specified, this function will
- * attempt to read 1024 bytes.
+ * The number of bytes to return.
  * </p>
  * <p>
  * This should be the uncompressed length you wish to read.
  * </p>
- * @return string the data read, or <b>FALSE</b> if the end of the file is
- * reached.
+ * @return string the data read, empty string on end of a file, or <b>FALSE</b> on error.
  */
-function zip_entry_read ($zip_entry, $length = null) {}
+function zip_entry_read ($zip_entry, $length = 1024) {}
 
 /**
  * (PHP 4 &gt;= 4.1.0, PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.0.0)<br/>
