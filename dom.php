@@ -5,85 +5,85 @@
 
 /**
  * (PHP 5)<br/>
- * Gets a <classname>DOMElement</classname> object from a
-   <classname>SimpleXMLElement</classname> object
+ * Gets a <b>DOMElement</b> object from a
+<b>SimpleXMLElement</b> object
  * @link http://php.net/manual/en/function.dom-import-simplexml.php
  * @param SimpleXMLElement $node <p>
- * The SimpleXMLElement node.
+ * The <b>SimpleXMLElement</b> node.
  * </p>
- * @return DOMElement The DOMElement node added or false if any errors occur.
+ * @return DOMElement The <b>DOMElement</b> node added or <b>FALSE</b> if any errors occur.
  */
 function dom_import_simplexml (SimpleXMLElement $node) {}
 
 
 /**
- * Node is a DOMElement
+ * Node is a <b>DOMElement</b>
  * @link http://php.net/manual/en/dom.constants.php
  */
 define ('XML_ELEMENT_NODE', 1);
 
 /**
- * Node is a DOMAttr
+ * Node is a <b>DOMAttr</b>
  * @link http://php.net/manual/en/dom.constants.php
  */
 define ('XML_ATTRIBUTE_NODE', 2);
 
 /**
- * Node is a DOMText
+ * Node is a <b>DOMText</b>
  * @link http://php.net/manual/en/dom.constants.php
  */
 define ('XML_TEXT_NODE', 3);
 
 /**
- * Node is a DOMCharacterData
+ * Node is a <b>DOMCharacterData</b>
  * @link http://php.net/manual/en/dom.constants.php
  */
 define ('XML_CDATA_SECTION_NODE', 4);
 
 /**
- * Node is a DOMEntityReference
+ * Node is a <b>DOMEntityReference</b>
  * @link http://php.net/manual/en/dom.constants.php
  */
 define ('XML_ENTITY_REF_NODE', 5);
 
 /**
- * Node is a DOMEntity
+ * Node is a <b>DOMEntity</b>
  * @link http://php.net/manual/en/dom.constants.php
  */
 define ('XML_ENTITY_NODE', 6);
 
 /**
- * Node is a DOMProcessingInstruction
+ * Node is a <b>DOMProcessingInstruction</b>
  * @link http://php.net/manual/en/dom.constants.php
  */
 define ('XML_PI_NODE', 7);
 
 /**
- * Node is a DOMComment
+ * Node is a <b>DOMComment</b>
  * @link http://php.net/manual/en/dom.constants.php
  */
 define ('XML_COMMENT_NODE', 8);
 
 /**
- * Node is a DOMDocument
+ * Node is a <b>DOMDocument</b>
  * @link http://php.net/manual/en/dom.constants.php
  */
 define ('XML_DOCUMENT_NODE', 9);
 
 /**
- * Node is a DOMDocumentType
+ * Node is a <b>DOMDocumentType</b>
  * @link http://php.net/manual/en/dom.constants.php
  */
 define ('XML_DOCUMENT_TYPE_NODE', 10);
 
 /**
- * Node is a DOMDocumentFragment
+ * Node is a <b>DOMDocumentFragment</b>
  * @link http://php.net/manual/en/dom.constants.php
  */
 define ('XML_DOCUMENT_FRAG_NODE', 11);
 
 /**
- * Node is a DOMNotation
+ * Node is a <b>DOMNotation</b>
  * @link http://php.net/manual/en/dom.constants.php
  */
 define ('XML_NOTATION_NODE', 12);
@@ -118,7 +118,7 @@ define ('DOM_INDEX_SIZE_ERR', 1);
 
 /**
  * If the specified range of text does not fit into a 
- * DOMString.
+ * <b>DOMString</b>.
  * @link http://php.net/manual/en/dom.constants.php
  */
 define ('DOMSTRING_SIZE_ERR', 2);

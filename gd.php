@@ -10,7 +10,7 @@
  * </p>
  * <p>
  * <table>
- * Elements of array returned by gd_info
+ * Elements of array returned by <b>gd_info</b>
  * <tr valign="top">
  * <td>Attribute</td>
  * <td>Meaning</td>
@@ -21,54 +21,59 @@
  * libgd version.</td>
  * </tr>
  * <tr valign="top">
- * <td>Freetype Support</td>
- * <td>boolean value. true
- * if Freetype Support is installed.</td>
+ * <td>FreeType Support</td>
+ * <td>boolean value. <b>TRUE</b>
+ * if FreeType Support is installed.</td>
  * </tr>
  * <tr valign="top">
- * <td>Freetype Linkage</td>
+ * <td>FreeType Linkage</td>
  * <td>string value describing the way in which
- * Freetype was linked. Expected values are: 'with freetype',
+ * FreeType was linked. Expected values are: 'with freetype',
  * 'with TTF library', and 'with unknown library'. This element will
- * only be defined if Freetype Support evaluated to
- * true.</td>
+ * only be defined if FreeType Support evaluated to
+ * <b>TRUE</b>.</td>
  * </tr>
  * <tr valign="top">
  * <td>T1Lib Support</td>
- * <td>boolean value. true
+ * <td>boolean value. <b>TRUE</b>
  * if T1Lib support is included.</td>
  * </tr>
  * <tr valign="top">
  * <td>GIF Read Support</td>
- * <td>boolean value. true
+ * <td>boolean value. <b>TRUE</b>
  * if support for reading GIF
  * images is included.</td>
  * </tr>
  * <tr valign="top">
  * <td>GIF Create Support</td>
- * <td>boolean value. true
+ * <td>boolean value. <b>TRUE</b>
  * if support for creating GIF
  * images is included.</td>
  * </tr>
  * <tr valign="top">
  * <td>JPEG Support</td>
- * <td>boolean value. true
+ * <td>boolean value. <b>TRUE</b>
  * if JPEG support is included.</td>
  * </tr>
  * <tr valign="top">
  * <td>PNG Support</td>
- * <td>boolean value. true
+ * <td>boolean value. <b>TRUE</b>
  * if PNG support is included.</td>
  * </tr>
  * <tr valign="top">
  * <td>WBMP Support</td>
- * <td>boolean value. true
+ * <td>boolean value. <b>TRUE</b>
  * if WBMP support is included.</td>
  * </tr>
  * <tr valign="top">
  * <td>XBM Support</td>
- * <td>boolean value. true
+ * <td>boolean value. <b>TRUE</b>
  * if XBM support is included.</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>WebP Support</td>
+ * <td>boolean value. <b>TRUE</b>
+ * if WebP support is included.</td>
  * </tr>
  * </table>
  * </p>
@@ -100,14 +105,14 @@ function gd_info () {}
  * </p>
  * @param int $end <p>
  * The arc end angle, in degrees.
- * 0&deg; is located at the three-o'clock position, and the arc is drawn
+ * 0° is located at the three-o'clock position, and the arc is drawn
  * clockwise.
  * </p>
  * @param int $color <p>
  * A color identifier created with 
- * imagecolorallocate.
+ * <b>imagecolorallocate</b>.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imagearc ($image, $cx, $cy, $width, $height, $start, $end, $color) {}
 
@@ -130,9 +135,9 @@ function imagearc ($image, $cx, $cy, $width, $height, $start, $end, $color) {}
  * </p>
  * @param int $color <p>
  * The color of the ellipse. A color identifier created with
- * imagecolorallocate.
+ * <b>imagecolorallocate</b>.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imageellipse ($image, $cx, $cy, $width, $height, $color) {}
 
@@ -153,9 +158,9 @@ function imageellipse ($image, $cx, $cy, $width, $height, $color) {}
  * </p>
  * @param int $color <p>
  * A color identifier created with 
- * imagecolorallocate.
+ * <b>imagecolorallocate</b>.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imagechar ($image, $font, $x, $y, $c, $color) {}
 
@@ -176,9 +181,9 @@ function imagechar ($image, $font, $x, $y, $c, $color) {}
  * </p>
  * @param int $color <p>
  * A color identifier created with 
- * imagecolorallocate.
+ * <b>imagecolorallocate</b>.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imagecharup ($image, $font, $x, $y, $c, $color) {}
 
@@ -202,16 +207,10 @@ function imagecolorat ($image, $x, $y) {}
  * Allocate a color for an image
  * @link http://php.net/manual/en/function.imagecolorallocate.php
  * @param resource $image 
- * @param int $red <p>
- * Value of red component.
- * </p>
- * @param int $green <p>
- * Value of green component.
- * </p>
- * @param int $blue <p>
- * Value of blue component.
- * </p>
- * @return int A color identifier or false if the allocation failed.
+ * @param int $red <p>Value of red component.</p>
+ * @param int $green <p>Value of green component.</p>
+ * @param int $blue <p>Value of blue component.</p>
+ * @return int A color identifier or <b>FALSE</b> if the allocation failed.
  */
 function imagecolorallocate ($image, $red, $green, $blue) {}
 
@@ -225,7 +224,7 @@ function imagecolorallocate ($image, $red, $green, $blue) {}
  * @param resource $source <p>
  * The source image resource.
  * </p>
- * @return void 
+ * @return void No value is returned.
  */
 function imagepalettecopy ($destination, $source) {}
 
@@ -233,27 +232,23 @@ function imagepalettecopy ($destination, $source) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Create a new image from the image stream in the string
  * @link http://php.net/manual/en/function.imagecreatefromstring.php
- * @param string $data 
- * @return resource An image resource will be returned on success. false is returned if
+ * @param string $image <p>
+ * A string containing the image data.
+ * </p>
+ * @return resource An image resource will be returned on success. <b>FALSE</b> is returned if
  * the image type is unsupported, the data is not in a recognised format,
  * or the image is corrupt and cannot be loaded.
  */
-function imagecreatefromstring ($data) {}
+function imagecreatefromstring ($image) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
  * Get the index of the closest color to the specified color
  * @link http://php.net/manual/en/function.imagecolorclosest.php
  * @param resource $image 
- * @param int $red <p>
- * Value of red component.
- * </p>
- * @param int $green <p>
- * Value of green component.
- * </p>
- * @param int $blue <p>
- * Value of blue component.
- * </p>
+ * @param int $red <p>Value of red component.</p>
+ * @param int $green <p>Value of green component.</p>
+ * @param int $blue <p>Value of blue component.</p>
  * @return int the index of the closest color, in the palette of the image, to
  * the specified one
  */
@@ -264,15 +259,9 @@ function imagecolorclosest ($image, $red, $green, $blue) {}
  * Get the index of the color which has the hue, white and blackness
  * @link http://php.net/manual/en/function.imagecolorclosesthwb.php
  * @param resource $image 
- * @param int $red <p>
- * Value of red component.
- * </p>
- * @param int $green <p>
- * Value of green component.
- * </p>
- * @param int $blue <p>
- * Value of blue component.
- * </p>
+ * @param int $red <p>Value of red component.</p>
+ * @param int $green <p>Value of green component.</p>
+ * @param int $blue <p>Value of blue component.</p>
  * @return int an integer with the index of the color which has 
  * the hue, white and blackness nearest the given color.
  */
@@ -286,7 +275,7 @@ function imagecolorclosesthwb ($image, $red, $green, $blue) {}
  * @param int $color <p>
  * The color identifier.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function imagecolordeallocate ($image, $color) {}
 
@@ -295,15 +284,9 @@ function imagecolordeallocate ($image, $color) {}
  * Get the index of the specified color or its closest possible alternative
  * @link http://php.net/manual/en/function.imagecolorresolve.php
  * @param resource $image 
- * @param int $red <p>
- * Value of red component.
- * </p>
- * @param int $green <p>
- * Value of green component.
- * </p>
- * @param int $blue <p>
- * Value of blue component.
- * </p>
+ * @param int $red <p>Value of red component.</p>
+ * @param int $green <p>Value of green component.</p>
+ * @param int $blue <p>Value of blue component.</p>
  * @return int a color index.
  */
 function imagecolorresolve ($image, $red, $green, $blue) {}
@@ -313,15 +296,9 @@ function imagecolorresolve ($image, $red, $green, $blue) {}
  * Get the index of the specified color
  * @link http://php.net/manual/en/function.imagecolorexact.php
  * @param resource $image 
- * @param int $red <p>
- * Value of red component.
- * </p>
- * @param int $green <p>
- * Value of green component.
- * </p>
- * @param int $blue <p>
- * Value of blue component.
- * </p>
+ * @param int $red <p>Value of red component.</p>
+ * @param int $green <p>Value of green component.</p>
+ * @param int $blue <p>Value of blue component.</p>
  * @return int the index of the specified color in the palette, or -1 if the
  * color does not exist.
  */
@@ -335,18 +312,15 @@ function imagecolorexact ($image, $red, $green, $blue) {}
  * @param int $index <p>
  * An index in the palette.
  * </p>
- * @param int $red <p>
- * Value of red component.
+ * @param int $red <p>Value of red component.</p>
+ * @param int $green <p>Value of green component.</p>
+ * @param int $blue <p>Value of blue component.</p>
+ * @param int $alpha [optional] <p>
+ * Value of alpha component.
  * </p>
- * @param int $green <p>
- * Value of green component.
- * </p>
- * @param int $blue <p>
- * Value of blue component.
- * </p>
- * @return void 
+ * @return void No value is returned.
  */
-function imagecolorset ($image, $index, $red, $green, $blue) {}
+function imagecolorset ($image, $index, $red, $green, $blue, $alpha = 0) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
@@ -355,10 +329,12 @@ function imagecolorset ($image, $index, $red, $green, $blue) {}
  * @param resource $image 
  * @param int $color [optional] <p>
  * A color identifier created with 
- * imagecolorallocate.
+ * <b>imagecolorallocate</b>.
  * </p>
  * @return int The identifier of the new (or current, if none is specified)
- * transparent color is returned.
+ * transparent color is returned. If <i>color</i>
+ * is not specified, and the image has no transparent color, the
+ * returned identifier will be -1.
  */
 function imagecolortransparent ($image, $color = null) {}
 
@@ -366,7 +342,10 @@ function imagecolortransparent ($image, $color = null) {}
  * (PHP 4, PHP 5)<br/>
  * Find out the number of colors in an image's palette
  * @link http://php.net/manual/en/function.imagecolorstotal.php
- * @param resource $image 
+ * @param resource $image <p>
+ * An image resource, returned by one of the image creation functions, such
+ * as <b>imagecreatefromgif</b>.
+ * </p>
  * @return int the number of colors in the specified image's palette or 0 for
  * truecolor images.
  */

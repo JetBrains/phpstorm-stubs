@@ -1,6 +1,6 @@
 <?php
 
-// Start of imagick v.3.1.0RC1
+// Start of imagick v.3.2.0RC1
 
 class ImagickException extends Exception  {
 }
@@ -15,9 +15,10 @@ class ImagickPixelException extends Exception  {
 }
 
 /**
+ * @method Imagick clone() (PECL imagick 2.0.0)<br/>Makes an exact copy of the Imagick object
  * @link http://php.net/manual/en/class.imagick.php
  */
-class Imagick implements Iterator, Traversable {
+class Imagick implements Iterator, Traversable, Countable {
 	const COLOR_BLACK = 11;
 	const COLOR_BLUE = 12;
 	const COLOR_CYAN = 13;
@@ -28,8 +29,10 @@ class Imagick implements Iterator, Traversable {
 	const COLOR_OPACITY = 18;
 	const COLOR_ALPHA = 19;
 	const COLOR_FUZZ = 20;
-	const IMAGICK_EXTNUM = 30001;
-	const IMAGICK_EXTVER = "3.1.0RC1";
+	const IMAGICK_EXTNUM = 30200;
+	const IMAGICK_EXTVER = "3.2.0RC1";
+	const QUANTUM_RANGE = 65535;
+	const USE_ZEND_MM = 0;
 	const COMPOSITE_DEFAULT = 40;
 	const COMPOSITE_UNDEFINED = 0;
 	const COMPOSITE_NO = 1;
@@ -84,6 +87,25 @@ class Imagick implements Iterator, Traversable {
 	const COMPOSITE_SUBTRACT = 52;
 	const COMPOSITE_THRESHOLD = 53;
 	const COMPOSITE_XOR = 54;
+	const COMPOSITE_CHANGEMASK = 6;
+	const COMPOSITE_LINEARLIGHT = 34;
+	const COMPOSITE_DIVIDE = 55;
+	const COMPOSITE_DISTORT = 56;
+	const COMPOSITE_BLUR = 57;
+	const COMPOSITE_PEGTOPLIGHT = 58;
+	const COMPOSITE_VIVIDLIGHT = 59;
+	const COMPOSITE_PINLIGHT = 60;
+	const COMPOSITE_LINEARDODGE = 61;
+	const COMPOSITE_LINEARBURN = 62;
+	const COMPOSITE_MATHEMATICS = 63;
+	const COMPOSITE_MODULUSADD = 2;
+	const COMPOSITE_MODULUSSUBTRACT = 52;
+	const COMPOSITE_MINUSDST = 36;
+	const COMPOSITE_DIVIDEDST = 55;
+	const COMPOSITE_DIVIDESRC = 64;
+	const COMPOSITE_MINUSSRC = 65;
+	const COMPOSITE_DARKENINTENSITY = 66;
+	const COMPOSITE_LIGHTENINTENSITY = 67;
 	const MONTAGEMODE_FRAME = 1;
 	const MONTAGEMODE_UNFRAME = 2;
 	const MONTAGEMODE_CONCATENATE = 3;
@@ -107,6 +129,21 @@ class Imagick implements Iterator, Traversable {
 	const FILTER_LANCZOS = 22;
 	const FILTER_BESSEL = 13;
 	const FILTER_SINC = 14;
+	const FILTER_KAISER = 16;
+	const FILTER_WELSH = 17;
+	const FILTER_PARZEN = 18;
+	const FILTER_LAGRANGE = 21;
+	const FILTER_SENTINEL = 30;
+	const FILTER_BOHMAN = 19;
+	const FILTER_BARTLETT = 20;
+	const FILTER_JINC = 13;
+	const FILTER_SINCFAST = 15;
+	const FILTER_ROBIDOUX = 26;
+	const FILTER_LANCZOSSHARP = 23;
+	const FILTER_LANCZOS2 = 24;
+	const FILTER_LANCZOS2SHARP = 25;
+	const FILTER_ROBIDOUXSHARP = 27;
+	const FILTER_COSINE = 28;
 	const IMGTYPE_UNDEFINED = 0;
 	const IMGTYPE_BILEVEL = 1;
 	const IMGTYPE_GRAYSCALE = 2;
@@ -118,6 +155,7 @@ class Imagick implements Iterator, Traversable {
 	const IMGTYPE_COLORSEPARATION = 8;
 	const IMGTYPE_COLORSEPARATIONMATTE = 9;
 	const IMGTYPE_OPTIMIZE = 10;
+	const IMGTYPE_PALETTEBILEVELMATTE = 11;
 	const RESOLUTION_UNDEFINED = 0;
 	const RESOLUTION_PIXELSPERINCH = 1;
 	const RESOLUTION_PIXELSPERCENTIMETER = 2;
@@ -135,6 +173,14 @@ class Imagick implements Iterator, Traversable {
 	const COMPRESSION_DXT1 = 3;
 	const COMPRESSION_DXT3 = 4;
 	const COMPRESSION_DXT5 = 5;
+	const COMPRESSION_ZIPS = 14;
+	const COMPRESSION_PIZ = 15;
+	const COMPRESSION_PXR24 = 16;
+	const COMPRESSION_B44 = 17;
+	const COMPRESSION_B44A = 18;
+	const COMPRESSION_LZMA = 19;
+	const COMPRESSION_JBIG1 = 20;
+	const COMPRESSION_JBIG2 = 21;
 	const PAINT_POINT = 1;
 	const PAINT_REPLACE = 2;
 	const PAINT_FLOODFILL = 3;
@@ -175,7 +221,7 @@ class Imagick implements Iterator, Traversable {
 	const NOISE_RANDOM = 7;
 	const CHANNEL_UNDEFINED = 0;
 	const CHANNEL_RED = 1;
-	const CHANNEL_GRAY = 1;
+	const CHANNEL_GRAY = 128;
 	const CHANNEL_CYAN = 1;
 	const CHANNEL_GREEN = 2;
 	const CHANNEL_MAGENTA = 2;
@@ -188,6 +234,10 @@ class Imagick implements Iterator, Traversable {
 	const CHANNEL_INDEX = 32;
 	const CHANNEL_ALL = 134217727;
 	const CHANNEL_DEFAULT = 134217719;
+	const CHANNEL_TRUEALPHA = 64;
+	const CHANNEL_RGBS = 128;
+	const CHANNEL_SYNC = 256;
+	const CHANNEL_COMPOSITES = 47;
 	const METRIC_UNDEFINED = 0;
 	const METRIC_MEANABSOLUTEERROR = 2;
 	const METRIC_MEANSQUAREERROR = 4;
@@ -228,6 +278,11 @@ class Imagick implements Iterator, Traversable {
 	const EVALUATE_COSINE = 24;
 	const EVALUATE_SINE = 25;
 	const EVALUATE_ADDMODULUS = 26;
+	const EVALUATE_MEAN = 27;
+	const EVALUATE_ABS = 28;
+	const EVALUATE_EXPONENTIAL = 29;
+	const EVALUATE_MEDIAN = 30;
+	const EVALUATE_SUM = 31;
 	const COLORSPACE_UNDEFINED = 0;
 	const COLORSPACE_RGB = 1;
 	const COLORSPACE_GRAY = 2;
@@ -262,6 +317,9 @@ class Imagick implements Iterator, Traversable {
 	const VIRTUALPIXELMETHOD_WHITE = 12;
 	const VIRTUALPIXELMETHOD_HORIZONTALTILE = 13;
 	const VIRTUALPIXELMETHOD_VERTICALTILE = 14;
+	const VIRTUALPIXELMETHOD_HORIZONTALTILEEDGE = 15;
+	const VIRTUALPIXELMETHOD_VERTICALTILEEDGE = 16;
+	const VIRTUALPIXELMETHOD_CHECKERTILE = 17;
 	const PREVIEW_UNDEFINED = 0;
 	const PREVIEW_ROTATE = 1;
 	const PREVIEW_SHEAR = 2;
@@ -353,6 +411,10 @@ class Imagick implements Iterator, Traversable {
 	const LAYERMETHOD_OPTIMIZEIMAGE = 7;
 	const LAYERMETHOD_REMOVEDUPS = 10;
 	const LAYERMETHOD_REMOVEZERO = 11;
+	const LAYERMETHOD_MERGE = 13;
+	const LAYERMETHOD_FLATTEN = 14;
+	const LAYERMETHOD_MOSAIC = 15;
+	const LAYERMETHOD_TRIMBOUNDS = 16;
 	const ORIENTATION_UNDEFINED = 0;
 	const ORIENTATION_TOPLEFT = 1;
 	const ORIENTATION_TOPRIGHT = 2;
@@ -377,9 +439,11 @@ class Imagick implements Iterator, Traversable {
 	const DISTORTION_BARRELINVERSE = 15;
 	const DISTORTION_SHEPARDS = 16;
 	const DISTORTION_SENTINEL = 18;
-	const LAYERMETHOD_MERGE = 13;
-	const LAYERMETHOD_FLATTEN = 14;
-	const LAYERMETHOD_MOSAIC = 15;
+	const DISTORTION_BILINEARFORWARD = 6;
+	const DISTORTION_BILINEARREVERSE = 7;
+	const DISTORTION_RESIZE = 17;
+	const DISTORTION_CYLINDER2PLANE = 12;
+	const DISTORTION_PLANE2CYLINDER = 13;
 	const ALPHACHANNEL_ACTIVATE = 1;
 	const ALPHACHANNEL_DEACTIVATE = 4;
 	const ALPHACHANNEL_RESET = 7;
@@ -1445,7 +1509,7 @@ class Imagick implements Iterator, Traversable {
 	 * The getImageChannelKurtosis purpose
 	 * @link http://php.net/manual/en/imagick.getimagechannelkurtosis.php
 	 * @param int $channel [optional] <p>
-	 * &imagick.parameter.channel;
+	 * Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <b>Imagick::CHANNEL_DEFAULT</b>. Refer to this list of channel constants
 	 * </p>
 	 * @return array an array with kurtosis and skewness
 	 * members.
@@ -1487,6 +1551,16 @@ class Imagick implements Iterator, Traversable {
 	public function haldclutimage (Imagick $clut, $channel = Imagick::CHANNEL_DEFAULT) {}
 
 	/**
+	 * @param $CHANNEL [optional]
+	 */
+	public function autolevelimage ($CHANNEL) {}
+
+	/**
+	 * @param $factor [optional]
+	 */
+	public function blueshiftimage ($factor) {}
+
+	/**
 	 * (No version information available, might only be in SVN)<br/>
 	 * Get image artifact
 	 * @link http://php.net/manual/en/imagick.getimageartifact.php
@@ -1516,7 +1590,7 @@ class Imagick implements Iterator, Traversable {
 	 * Delete image artifact
 	 * @link http://php.net/manual/en/imagick.deleteimageartifact.php
 	 * @param string $artifact <p>
-	 * The name of the artifact
+	 * The name of the artifact to delete
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
 	 */
@@ -1542,6 +1616,17 @@ class Imagick implements Iterator, Traversable {
 	public function setcolorspace ($COLORSPACE) {}
 
 	/**
+	 * @param $CHANNEL [optional]
+	 */
+	public function clampimage ($CHANNEL) {}
+
+	/**
+	 * @param $stack
+	 * @param $offset
+	 */
+	public function smushimages ($stack, $offset) {}
+
+	/**
 	 * (PECL imagick 2.0.0)<br/>
 	 * The Imagick constructor
 	 * @link http://php.net/manual/en/imagick.construct.php
@@ -1556,6 +1641,8 @@ class Imagick implements Iterator, Traversable {
      * @return string
      */
     public function __tostring () {}
+
+	public function count () {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -1636,10 +1723,15 @@ class Imagick implements Iterator, Traversable {
 	 * (PECL imagick 0.9.0-0.9.9)<br/>
 	 * Writes an image to the specified filename
 	 * @link http://php.net/manual/en/imagick.writeimage.php
-	 * @param string $filename [optional]
+	 * @param string $filename [optional] <p>
+	 * Filename where to write the image. The extension of the filename
+	 * defines the type of the file.
+	 * Format can be forced regardless of file extension using format: prefix,
+	 * for example "jpg:test.png".
+	 * </p>
 	 * @return bool <b>TRUE</b> on success.
 	 */
-	public function writeimage ($filename = null) {}
+	public function writeimage ($filename = NULL) {}
 
 	/**
 	 * (PECL imagick 0.9.0-0.9.9)<br/>
@@ -2293,7 +2385,11 @@ class Imagick implements Iterator, Traversable {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Sets the image delay
 	 * @link http://php.net/manual/en/imagick.setimagedelay.php
-	 * @param int $delay
+	 * @param int $delay <p>
+	 * The amount of time expressed in 'ticks' that the image should be
+	 * displayed for. For animated GIFs there are 100 ticks per second, so a
+	 * value of 20 would be 20/100 of a second aka 1/5th of a second.
+	 * </p>
 	 * @return bool <b>TRUE</b> on success.
 	 */
 	public function setimagedelay ($delay) {}
@@ -2320,7 +2416,10 @@ class Imagick implements Iterator, Traversable {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Sets the image iterations
 	 * @link http://php.net/manual/en/imagick.setimageiterations.php
-	 * @param int $iterations
+	 * @param int $iterations <p>
+	 * The number of iterations the image should loop over. Set to '0' to loop
+	 * continuously.
+	 * </p>
 	 * @return bool <b>TRUE</b> on success.
 	 */
 	public function setimageiterations ($iterations) {}
@@ -2374,7 +2473,10 @@ class Imagick implements Iterator, Traversable {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Sets the image ticks-per-second
 	 * @link http://php.net/manual/en/imagick.setimagetickspersecond.php
-	 * @param int $ticks_per_second
+	 * @param int $ticks_per_second <p>
+	 * The duration for which an image should be displayed expressed in ticks
+	 * per second.
+	 * </p>
 	 * @return bool <b>TRUE</b> on success.
 	 */
 	public function setimagetickspersecond ($ticks_per_second) {}
@@ -2523,7 +2625,7 @@ class Imagick implements Iterator, Traversable {
 	 * @param string $pattern [optional]
 	 * @return array an array containing the formats supported by Imagick.
 	 */
-	public function queryformats ($pattern = "*") {}
+	public static function queryformats ($pattern = "*") {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -2534,7 +2636,7 @@ class Imagick implements Iterator, Traversable {
 	 * </p>
 	 * @return array an array containing the configured fonts.
 	 */
-	public function queryfonts ($pattern = "*") {}
+	public static function queryfonts ($pattern = "*") {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -3491,7 +3593,7 @@ class Imagick implements Iterator, Traversable {
 	/**
 	 * (PECL imagick 2.0.0)<br/>
 	 * Changes the transparency value of a color
-	 * @link http://php.net/manual/en/function.imagick-mattefloodfillimage.php
+	 * @link http://php.net/manual/en/imagick.mattefloodfillimage.php
 	 * @param float $alpha <p>
 	 * The level of transparency: 1.0 is fully opaque and 0.0 is fully
 	 * transparent.
@@ -3544,7 +3646,7 @@ class Imagick implements Iterator, Traversable {
 	/**
 	 * (PECL imagick 2.0.0)<br/>
 	 * Change any pixel that matches color
-	 * @link http://php.net/manual/en/function.imagick-paintopaqueimage.php
+	 * @link http://php.net/manual/en/imagick.paintopaqueimage.php
 	 * @param mixed $target <p>
 	 * Change this target color to the fill color within the image. An
 	 * ImagickPixel object or a string representing the target color.
@@ -3569,7 +3671,7 @@ class Imagick implements Iterator, Traversable {
 	/**
 	 * (PECL imagick 2.0.0)<br/>
 	 * Changes any pixel that matches color with the color defined by fill
-	 * @link http://php.net/manual/en/function.imagick-painttransparentimage.php
+	 * @link http://php.net/manual/en/imagick.painttransparentimage.php
 	 * @param mixed $target <p>
 	 * Change this target color to specified opacity value within the image.
 	 * </p>
@@ -3958,7 +4060,7 @@ class Imagick implements Iterator, Traversable {
 	 * @return string a string containing the copyright notice of Imagemagick and
 	 * Magickwand C API.
 	 */
-	public function getcopyright () {}
+	public static function getcopyright () {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -3982,7 +4084,7 @@ class Imagick implements Iterator, Traversable {
 	 * @link http://php.net/manual/en/imagick.gethomeurl.php
 	 * @return string a link to the imagemagick homepage.
 	 */
-	public function gethomeurl () {}
+	public static function gethomeurl () {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -4010,7 +4112,7 @@ class Imagick implements Iterator, Traversable {
 	 * @link http://php.net/manual/en/imagick.getpackagename.php
 	 * @return string the ImageMagick package name as a string.
 	 */
-	public function getpackagename () {}
+	public static function getpackagename () {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -4028,7 +4130,7 @@ class Imagick implements Iterator, Traversable {
 	 * @link http://php.net/manual/en/imagick.getquantumdepth.php
 	 * @return array the Imagick quantum depth as a string.
 	 */
-	public function getquantumdepth () {}
+	public static function getquantumdepth () {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -4036,7 +4138,7 @@ class Imagick implements Iterator, Traversable {
 	 * @link http://php.net/manual/en/imagick.getquantumrange.php
 	 * @return array the Imagick quantum range as a string.
 	 */
-	public function getquantumrange () {}
+	public static function getquantumrange () {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -4044,7 +4146,7 @@ class Imagick implements Iterator, Traversable {
 	 * @link http://php.net/manual/en/imagick.getreleasedate.php
 	 * @return string the ImageMagick release date as a string.
 	 */
-	public function getreleasedate () {}
+	public static function getreleasedate () {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -4055,7 +4157,7 @@ class Imagick implements Iterator, Traversable {
 	 * </p>
 	 * @return int the specified resource's memory usage in megabytes.
 	 */
-	public function getresource ($type) {}
+	public static function getresource ($type) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -4066,7 +4168,7 @@ class Imagick implements Iterator, Traversable {
 	 * </p>
 	 * @return int the specified resource limit in megabytes.
 	 */
-	public function getresourcelimit ($type) {}
+	public static function getresourcelimit ($type) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -4092,7 +4194,7 @@ class Imagick implements Iterator, Traversable {
 	 * @link http://php.net/manual/en/imagick.getversion.php
 	 * @return array the ImageMagick API version as a string and as a number.
 	 */
-	public function getversion () {}
+	public static function getversion () {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -4174,11 +4276,15 @@ class Imagick implements Iterator, Traversable {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Sets the limit for a particular resource in megabytes
 	 * @link http://php.net/manual/en/imagick.setresourcelimit.php
-	 * @param int $type
-	 * @param int $limit
+	 * @param int $type <p>
+	 * Refer to the list of resourcetype constants.
+	 * </p>
+	 * @param int $limit <p>
+	 * The resource limit. The unit depends on the type of the resource being limited.
+	 * </p>
 	 * @return bool <b>TRUE</b> on success.
 	 */
-	public function setresourcelimit ($type, $limit) {}
+	public static function setresourcelimit ($type, $limit) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -4247,6 +4353,7 @@ class Imagick implements Iterator, Traversable {
 }
 
 /**
+ * @method ImagickDraw clone() (PECL imagick 2.0.0)<br/>Makes an exact copy of the specified ImagickDraw object
  * @link http://php.net/manual/en/class.imagickdraw.php
  */
 class ImagickDraw  {
@@ -4266,6 +4373,13 @@ class ImagickDraw  {
 	 * @param $spacing
 	 */
 	public function settextinterwordspacing ($spacing) {}
+
+	public function gettextinterlinespacing () {}
+
+	/**
+	 * @param $spacing
+	 */
+	public function settextinterlinespacing ($spacing) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -5780,6 +5894,20 @@ class ImagickPixelIterator implements Iterator, Traversable {
 	 */
 	public function clear () {}
 
+	/**
+	 * @param Imagick $Imagick
+	 */
+	public static function getpixeliterator (Imagick $Imagick) {}
+
+	/**
+	 * @param Imagick $Imagick
+	 * @param $x
+	 * @param $y
+	 * @param $columns
+	 * @param $rows
+	 */
+	public static function getpixelregioniterator (Imagick $Imagick, $x, $y, $columns, $rows) {}
+
 	public function key () {}
 
 	public function next () {}
@@ -5793,6 +5921,7 @@ class ImagickPixelIterator implements Iterator, Traversable {
 }
 
 /**
+ * @method clone()
  * @link http://php.net/manual/en/class.imagickpixel.php
  */
 class ImagickPixel  {
@@ -5867,7 +5996,7 @@ class ImagickPixel  {
 	 * Sets the normalized value of one of the channels
 	 * @link http://php.net/manual/en/imagickpixel.setcolorvalue.php
 	 * @param int $color <p>
-	 * One of the Imagick channel color constants.
+	 * One of the Imagick color constants e.g. \Imagick::COLOR_GREEN or \Imagick::COLOR_ALPHA.
 	 * </p>
 	 * @param float $value <p>
 	 * The value to set this channel to, ranging from 0 to 1.
@@ -5881,7 +6010,9 @@ class ImagickPixel  {
 	 * Gets the normalized value of the provided color channel
 	 * @link http://php.net/manual/en/imagickpixel.getcolorvalue.php
 	 * @param int $color <p>
-	 * The channel to check, specified as one of the Imagick channel constants.
+	 * The color to get the value of, specified as one of the Imagick color
+	 * constants. This can be one of the RGB colors, CMYK colors, alpha and
+	 * opacity e.g (Imagick::COLOR_BLUE, Imagick::COLOR_MAGENTA).
 	 * </p>
 	 * @return float The value of the channel, as a normalized floating-point number, throwing
 	 * ImagickPixelException on error.
@@ -5921,6 +6052,22 @@ class ImagickPixel  {
 	public function issimilar (ImagickPixel $color, $fuzz) {}
 
 	/**
+	 * (No version information available, might only be in SVN)<br/>
+	 * Check the distance between this color and another
+	 * @link http://php.net/manual/en/imagickpixel.ispixelsimilar.php
+	 * @param ImagickPixel $color <p>
+	 * The ImagickPixel object to compare this object against.
+	 * </p>
+	 * @param float $fuzz <p>
+	 * The maximum distance within which to consider these colors as similar.
+	 * The theoretical maximum for this value is the square root of three
+	 * (1.732).
+	 * </p>
+	 * @return bool <b>TRUE</b> on success.
+	 */
+	public function ispixelsimilar (ImagickPixel $color, $fuzz) {}
+
+	/**
 	 * (PECL imagick 2.0.0)<br/>
 	 * Returns the color
 	 * @link http://php.net/manual/en/imagickpixel.getcolor.php
@@ -5955,5 +6102,5 @@ class ImagickPixel  {
 	public function setcolorcount ($colorCount) {}
 
 }
-// End of imagick v.3.1.0RC1
+// End of imagick v.3.2.0RC1
 ?>

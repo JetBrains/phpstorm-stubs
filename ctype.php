@@ -91,7 +91,8 @@ function ctype_print ($text) {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
- * Check for any printable character which is not whitespace or an alphanumeric character
+ * Check for any printable character which is not whitespace or an
+alphanumeric character
  * @link http://php.net/manual/en/function.ctype-punct.php
  * @param string $text <p>
  * The tested string.
