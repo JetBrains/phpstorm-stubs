@@ -93,7 +93,7 @@ function hash_hmac_file ($algo, $filename, $key, $raw_output = false) {}
  * Initialize an incremental hashing context
  * @link http://php.net/manual/en/function.hash-init.php
  * @param string $algo <p>
- * Name of selected hashing algorithm (i.e. "md5", "sha256", "haval160,4", etc..)
+ * Name of selected hashing algorithm (i.e. "md5", "sha256", "haval160,4", etc..). For a list of supported algorithms see <b>hash_algos</b>.
  * </p>
  * @param int $options [optional] <p>
  * Optional settings for hash generation, currently supports only one option:
@@ -111,25 +111,6 @@ function hash_hmac_file ($algo, $filename, $key, $raw_output = false) {}
  */
 function hash_init ($algo, $options = 0, $key = null) {}
 
-/**
- * (PHP 5 &gt;=5.5.0)<br/>
- * @link http://www.php.net/manual/en/function.hash-pbkdf2.php
- * @param string $algo <p>
- * Name of selected hashing algorithm (i.e. <em>md5</em>,
- * <em>sha256</em>, <em>haval160,4</em>, etc..) See
- * {@link http://www.php.net/manual/en/function.hash-algos.php hash_algos()} for a list of supported algorithms.
- * </p>
- * @param string $password <p> The password to use for the derivation.</p>
- * @param string $salt <p> The salt to use for the derivation.</p>
- * @param int $iterations <p> The number of internal iterations to perform for the derivation. </p>
- * @param int $length [optional] <p>The length of the derived key to output. If <b>0</b>, the length of the supplied algorithm is used.</p>
- * @param bool $raw_output [optional] <p>When set to TRUE, outputs raw binary data. <b>FALSE</b> outputs lowercase hexits.</p>
- * @return string
- * Returns a string containing the derived key as lowercase hexits unless
- * <em><b>raw_output</b></em> is set to true in which case the raw
- * binary representation of the derived key is returned.
- */
-function hash_pbkdf2($algo, $password, $salt, $iterations, $length = 0, $raw_output = false) {}
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Pump data into an active hashing context
@@ -166,16 +147,18 @@ function hash_update_stream ($context, $handle, $length = -1) {}
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Pump data into an active hashing context from a file
  * @link http://php.net/manual/en/function.hash-update-file.php
- * @param resource $context <p>
- * Stream context as returned by <b>stream_context_create</b>.
+ * @param resource $hcontext <p>
+ * Hashing context returned by <b>hash_init</b>.
  * </p>
  * @param string $filename <p>
  * URL describing location of file to be hashed; Supports fopen wrappers.
  * </p>
- * @param resource $context [optional]
+ * @param resource $scontext [optional] <p>
+ * Stream context as returned by <b>stream_context_create</b>.
+ * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function hash_update_file ($context, $filename, $context = null) {}
+function hash_update_file ($hcontext, $filename, $scontext = null) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -213,6 +196,22 @@ function hash_copy ($context) {}
  * hashing algorithms.
  */
 function hash_algos () {}
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Generate a PBKDF2 key derivation of a supplied password
+ * @link http://php.net/manual/en/function.hash-pbkdf2.php
+ * @param $algo
+ * @param $password
+ * @param $salt
+ * @param $iterations
+ * @param $length [optional]
+ * @param $raw_output [optional]
+ * @return mixed a string containing the derived key as lowercase hexits unless
+ * <i>raw_output</i> is set to <b>TRUE</b> in which case the raw
+ * binary representation of the derived key is returned.
+ */
+function hash_pbkdf2 ($algo, $password, $salt, $iterations, $length, $raw_output) {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>

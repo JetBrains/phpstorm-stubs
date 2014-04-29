@@ -290,7 +290,8 @@ function pspell_config_repl ($dictionary_link, $file) {}
 
 /**
  * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
- * Determine whether to save a replacement pairs list along with the wordlist
+ * Determine whether to save a replacement pairs list
+along with the wordlist
  * @link http://php.net/manual/en/function.pspell-config-save-repl.php
  * @param int $dictionary_link
  * @param bool $flag <p>

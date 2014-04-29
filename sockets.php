@@ -1266,7 +1266,7 @@ function socket_last_error ($socket = null) {}
 function socket_clear_error ($socket = null) {}
 
 /**
- * (PHP 4 &gt;= 5.4.0)<br/>
+ * (PHP 5 &gt;= 5.4.0)<br/>
  * Import a stream
  * @link http://php.net/manual/en/function.socket-import-stream.php
  * @param resource $stream <p>
@@ -1275,6 +1275,38 @@ function socket_clear_error ($socket = null) {}
  * @return resource <b>FALSE</b> or <b>NULL</b> on failure.
  */
 function socket_import_stream ($stream) {}
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Send a message
+ * @link http://php.net/manual/en/function.socket-sendmsg.php
+ * @param resource $socket
+ * @param array $message
+ * @param int $flags
+ * @return int
+ */
+function socket_sendmsg ($socket, array $message, $flags) {}
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Read a message
+ * @link http://php.net/manual/en/function.socket-recvmsg.php
+ * @param resource $socket
+ * @param string $message
+ * @param int $flags [optional]
+ * @return int
+ */
+function socket_recvmsg ($socket, $message, $flags = null) {}
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Calculate message buffer size
+ * @link http://php.net/manual/en/function.socket-cmsg-space.php
+ * @param int $level
+ * @param int $type
+ * @return int
+ */
+function socket_cmsg_space ($level, $type) {}
 
 /**
  * @param $socket
@@ -1306,7 +1338,8 @@ define ('SOCK_SEQPACKET', 5);
 define ('SOCK_RDM', 4);
 define ('MSG_OOB', 1);
 define ('MSG_WAITALL', 256);
-define ('MSG_DONTWAIT', 64);
+define ('MSG_CTRUNC', 8);
+define ('MSG_TRUNC', 32);
 define ('MSG_PEEK', 2);
 define ('MSG_DONTROUTE', 4);
 
@@ -1321,8 +1354,23 @@ define ('MSG_EOR', 128);
  * @link http://php.net/manual/en/sockets.constants.php
  */
 define ('MSG_EOF', 512);
+define ('MSG_CONFIRM', 2048);
+define ('MSG_ERRQUEUE', 8192);
+define ('MSG_NOSIGNAL', 16384);
+define ('MSG_DONTWAIT', 64);
+define ('MSG_MORE', 32768);
+define ('MSG_WAITFORONE', 65536);
+define ('MSG_CMSG_CLOEXEC', 1073741824);
 define ('SO_DEBUG', 1);
 define ('SO_REUSEADDR', 2);
+
+/**
+ * This constant is only available in PHP 5.4.10 or later on platforms that
+ * support the <b>SO_REUSEPORT</b> socket option: this
+ * includes Mac OS X and FreeBSD, but does not include Linux or Windows.
+ * @link http://php.net/manual/en/sockets.constants.php
+ */
+define ('SO_REUSEPORT', 15);
 define ('SO_KEEPALIVE', 9);
 define ('SO_DONTROUTE', 5);
 define ('SO_LINGER', 13);
@@ -1336,6 +1384,7 @@ define ('SO_SNDTIMEO', 21);
 define ('SO_RCVTIMEO', 20);
 define ('SO_TYPE', 3);
 define ('SO_ERROR', 4);
+define ('SO_BINDTODEVICE', 25);
 define ('SOL_SOCKET', 1);
 define ('SOMAXCONN', 128);
 
@@ -1959,6 +2008,16 @@ define ('IPPROTO_IP', 0);
 define ('IPPROTO_IPV6', 41);
 define ('SOL_TCP', 6);
 define ('SOL_UDP', 17);
+define ('IPV6_UNICAST_HOPS', 16);
+define ('IPV6_RECVPKTINFO', 49);
+define ('IPV6_PKTINFO', 50);
+define ('IPV6_RECVHOPLIMIT', 51);
+define ('IPV6_HOPLIMIT', 52);
+define ('IPV6_RECVTCLASS', 66);
+define ('IPV6_TCLASS', 67);
+define ('SCM_RIGHTS', 1);
+define ('SCM_CREDENTIALS', 2);
+define ('SO_PASSCRED', 16);
 
 // End of sockets v.
 ?>
