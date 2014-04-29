@@ -1,6 +1,6 @@
 <?php
 
-// Start of memcached v.2.0.1
+// Start of memcached v.2.1.0
 
 /**
  * Represents a connection to a set of memcached servers.
@@ -145,6 +145,7 @@ class Memcached  {
 	 * @link http://php.net/manual/en/memcached.constants.php
 	 */
 	const DISTRIBUTION_CONSISTENT = 1;
+	const DISTRIBUTION_VIRTUAL_BUCKET = 6;
 
 	/**
 	 * <p>Enables or disables compatibility with libketama-like behavior. When
@@ -505,7 +506,7 @@ class Memcached  {
 	 * Retrieve an item from a specific server
 	 * @link http://php.net/manual/en/memcached.getbykey.php
 	 * @param string $server_key <p>
-	 * The key identifying the server to store the value on.
+	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
 	 * @param string $key <p>
 	 * The key of the item to fetch.
@@ -545,7 +546,7 @@ class Memcached  {
 	 * Retrieve multiple items from a specific server
 	 * @link http://php.net/manual/en/memcached.getmultibykey.php
 	 * @param string $server_key <p>
-	 * The key identifying the server to store the value on.
+	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
 	 * @param array $keys <p>
 	 * Array of keys to retrieve.
@@ -584,7 +585,7 @@ class Memcached  {
 	 * Request multiple items from a specific server
 	 * @link http://php.net/manual/en/memcached.getdelayedbykey.php
 	 * @param string $server_key <p>
-	 * The key identifying the server to store the value on.
+	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
 	 * @param array $keys <p>
 	 * Array of keys to request.
@@ -642,7 +643,7 @@ class Memcached  {
 	 * Store an item on a specific server
 	 * @link http://php.net/manual/en/memcached.setbykey.php
 	 * @param string $server_key <p>
-	 * The key identifying the server to store the value on.
+	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
 	 * @param string $key <p>
 	 * The key under which to store the value.
@@ -659,15 +660,35 @@ class Memcached  {
 	public function setByKey ($server_key, $key, $value, $expiration = null) {}
 
 	/**
-	 * @param $key
-	 * @param $expiration
+	 * (PECL memcached &gt;= 2.0.0)<br/>
+	 * Set a new expiration on an item
+	 * @link http://php.net/manual/en/memcached.touch.php
+	 * @param string $key <p>
+	 * The key under which to store the value.
+	 * </p>
+	 * @param int $expiration <p>
+	 * The expiration time, defaults to 0. See Expiration Times for more info.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
 	public function touch ($key, $expiration) {}
 
 	/**
-	 * @param $server_key
-	 * @param $key
-	 * @param $expiration
+	 * (PECL memcached &gt;= 2.0.0)<br/>
+	 * Set a new expiration on an item on a specific server
+	 * @link http://php.net/manual/en/memcached.touchbykey.php
+	 * @param string $server_key <p>
+	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+	 * </p>
+	 * @param string $key <p>
+	 * The key under which to store the value.
+	 * </p>
+	 * @param int $expiration <p>
+	 * The expiration time, defaults to 0. See Expiration Times for more info.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
 	public function touchByKey ($server_key, $key, $expiration) {}
 
@@ -691,7 +712,7 @@ class Memcached  {
 	 * Store multiple items on a specific server
 	 * @link http://php.net/manual/en/memcached.setmultibykey.php
 	 * @param string $server_key <p>
-	 * The key identifying the server to store the value on.
+	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
 	 * @param array $items <p>
 	 * An array of key/value pairs to store on the server.
@@ -735,7 +756,7 @@ class Memcached  {
 	 * Unique value associated with the existing item. Generated by memcache.
 	 * </p>
 	 * @param string $server_key <p>
-	 * The key identifying the server to store the value on.
+	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
 	 * @param string $key <p>
 	 * The key under which to store the value.
@@ -777,7 +798,7 @@ class Memcached  {
 	 * Add an item under a new key on a specific server
 	 * @link http://php.net/manual/en/memcached.addbykey.php
 	 * @param string $server_key <p>
-	 * The key identifying the server to store the value on.
+	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
 	 * @param string $key <p>
 	 * The key under which to store the value.
@@ -815,7 +836,7 @@ class Memcached  {
 	 * Append data to an existing item on a specific server
 	 * @link http://php.net/manual/en/memcached.appendbykey.php
 	 * @param string $server_key <p>
-	 * The key identifying the server to store the value on.
+	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
 	 * @param string $key <p>
 	 * The key under which to store the value.
@@ -850,7 +871,7 @@ class Memcached  {
 	 * Prepend data to an existing item on a specific server
 	 * @link http://php.net/manual/en/memcached.prependbykey.php
 	 * @param string $server_key <p>
-	 * The key identifying the server to store the value on.
+	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
 	 * @param string $key <p>
 	 * The key of the item to prepend the data to.
@@ -888,7 +909,7 @@ class Memcached  {
 	 * Replace the item under an existing key on a specific server
 	 * @link http://php.net/manual/en/memcached.replacebykey.php
 	 * @param string $server_key <p>
-	 * The key identifying the server to store the value on.
+	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
 	 * @param string $key <p>
 	 * The key under which to store the value.
@@ -922,17 +943,27 @@ class Memcached  {
 	public function delete ($key, $time = 0) {}
 
 	/**
-	 * @param $keys
-	 * @param $time [optional]
+	 * (PECL memcached &gt;= 2.0.0)<br/>
+	 * Delete multiple items
+	 * @link http://php.net/manual/en/memcached.deletemulti.php
+	 * @param array $keys <p>
+	 * The keys to be deleted.
+	 * </p>
+	 * @param int $time [optional] <p>
+	 * The amount of time the server will wait to delete the items.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * The <b>Memcached::getResultCode</b> will return
+	 * <b>Memcached::RES_NOTFOUND</b> if the key does not exist.
 	 */
-	public function deleteMulti ($keys, $time) {}
+	public function deleteMulti (array $keys, $time = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Delete an item from a specific server
 	 * @link http://php.net/manual/en/memcached.deletebykey.php
 	 * @param string $server_key <p>
-	 * The key identifying the server to store the value on.
+	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
 	 * @param string $key <p>
 	 * The key to be deleted.
@@ -947,11 +978,23 @@ class Memcached  {
 	public function deleteByKey ($server_key, $key, $time = 0) {}
 
 	/**
-	 * @param $server_key
-	 * @param $keys
-	 * @param $time [optional]
+	 * (PECL memcached &gt;= 2.0.0)<br/>
+	 * Delete multiple items from a specific server
+	 * @link http://php.net/manual/en/memcached.deletemultibykey.php
+	 * @param string $server_key <p>
+	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+	 * </p>
+	 * @param array $keys <p>
+	 * The keys to be deleted.
+	 * </p>
+	 * @param int $time [optional] <p>
+	 * The amount of time the server will wait to delete the items.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * The <b>Memcached::getResultCode</b> will return
+	 * <b>Memcached::RES_NOTFOUND</b> if the key does not exist.
 	 */
-	public function deleteMultiByKey ($server_key, $keys, $time) {}
+	public function deleteMultiByKey ($server_key, array $keys, $time = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -963,15 +1006,13 @@ class Memcached  {
 	 * @param int $offset [optional] <p>
 	 * The amount by which to increment the item's value.
 	 * </p>
-     * @param int $initial_value [optional] <p>
-     * The value to set the item to if it doesn't currently exist.
-     * </p>
-     * @param int $expiry [optional] <p>
-     * The expiry time to set on the item.
-     * </p>
-     * @return int new item's value on success or <b>FALSE</b> on failure.
-	 * The <b>Memcached::getResultCode</b> will return
-	 * <b>Memcached::RES_NOTFOUND</b> if the key does not exist.
+	 * @param int $initial_value [optional] <p>
+	 * The value to set the item to if it doesn't currently exist.
+	 * </p>
+	 * @param int $expiry [optional] <p>
+	 * The expiry time to set on the item.
+	 * </p>
+	 * @return int new item's value on success or <b>FALSE</b> on failure.
 	 */
 	public function increment ($key, $offset = 1, $initial_value = 0, $expiry = 0) {}
 
@@ -985,35 +1026,61 @@ class Memcached  {
 	 * @param int $offset [optional] <p>
 	 * The amount by which to decrement the item's value.
 	 * </p>
-     * @param int $initial_value [optional] <p>
-     * The value to set the item to if it doesn't currently exists
-     * </p>
-     * @param int $expiry [optional] <p>
-     * The expiry time to set on the item.
-     * </p>
+	 * @param int $initial_value [optional] <p>
+	 * The value to set the item to if it doesn't currently exist.
+	 * </p>
+	 * @param int $expiry [optional] <p>
+	 * The expiry time to set on the item.
+	 * </p>
 	 * @return int item's new value on success or <b>FALSE</b> on failure.
-	 * The <b>Memcached::getResultCode</b> will return
-	 * <b>Memcached::RES_NOTFOUND</b> if the key does not exist.
 	 */
 	public function decrement ($key, $offset = 1, $initial_value = 0, $expiry = 0) {}
 
 	/**
-	 * @param $server_key
-	 * @param $key
-	 * @param $offset [optional]
-	 * @param $initial_value [optional]
-	 * @param $expiry [optional]
+	 * (PECL memcached &gt;= 2.0.0)<br/>
+	 * Increment numeric item's value, stored on a specific server
+	 * @link http://php.net/manual/en/memcached.incrementbykey.php
+	 * @param string $server_key <p>
+	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+	 * </p>
+	 * @param string $key <p>
+	 * The key of the item to increment.
+	 * </p>
+	 * @param int $offset [optional] <p>
+	 * The amount by which to increment the item's value.
+	 * </p>
+	 * @param int $initial_value [optional] <p>
+	 * The value to set the item to if it doesn't currently exist.
+	 * </p>
+	 * @param int $expiry [optional] <p>
+	 * The expiry time to set on the item.
+	 * </p>
+	 * @return int new item's value on success or <b>FALSE</b> on failure.
 	 */
-	public function incrementByKey ($server_key, $key, $offset, $initial_value, $expiry) {}
+	public function incrementByKey ($server_key, $key, $offset = 1, $initial_value = 0, $expiry = 0) {}
 
 	/**
-	 * @param $server_key
-	 * @param $key
-	 * @param $offset [optional]
-	 * @param $initial_value [optional]
-	 * @param $expiry [optional]
+	 * (PECL memcached &gt;= 2.0.0)<br/>
+	 * Decrement numeric item's value, stored on a specific server
+	 * @link http://php.net/manual/en/memcached.decrementbykey.php
+	 * @param string $server_key <p>
+	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
+	 * </p>
+	 * @param string $key <p>
+	 * The key of the item to decrement.
+	 * </p>
+	 * @param int $offset [optional] <p>
+	 * The amount by which to decrement the item's value.
+	 * </p>
+	 * @param int $initial_value [optional] <p>
+	 * The value to set the item to if it doesn't currently exist.
+	 * </p>
+	 * @param int $expiry [optional] <p>
+	 * The expiry time to set on the item.
+	 * </p>
+	 * @return int item's new value on success or <b>FALSE</b> on failure.
 	 */
-	public function decrementByKey ($server_key, $key, $offset, $initial_value, $expiry) {}
+	public function decrementByKey ($server_key, $key, $offset = 1, $initial_value = 0, $expiry = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -1061,21 +1128,29 @@ class Memcached  {
 	 * Map a key to a server
 	 * @link http://php.net/manual/en/memcached.getserverbykey.php
 	 * @param string $server_key <p>
-	 * The key identifying the server to store the value on.
+	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
-	 * @return array <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return array an array containing three keys of host,
+	 * port, and weight on success or <b>FALSE</b>
+	 * on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
 	public function getServerByKey ($server_key) {}
 
-    /**
-     * (PECL memcached &gt;= 2.0.0)
-     * Removes all memcache servers from the known server list, reseting it back to empty.
-     * @link http://php.net/manual/en/memcached.resetserverlist.php
-     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     */
-    public function resetServerList () {}
+	/**
+	 * (PECL memcached &gt;= 2.0.0)<br/>
+	 * Clears all servers from the server list
+	 * @link http://php.net/manual/en/memcached.resetserverlist.php
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 */
+	public function resetServerList () {}
 
+	/**
+	 * (PECL memcached &gt;= 2.0.0)<br/>
+	 * Close any open connections
+	 * @link http://php.net/manual/en/memcached.quit.php
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 */
 	public function quit () {}
 
 	/**
@@ -1094,13 +1169,13 @@ class Memcached  {
 	 */
 	public function getVersion () {}
 
-    /**
-     * (PECL memcached &gt;= 2.0.0)<br/>
-     * Gets the keys stored on all the servers
-     * @link http://www.php.net/manual/en/memcached.getallkeys.php
-     * @return array|bool Returns the keys stored on all the servers on success or <b>FALSE</b> on failure.
-     */
-    public function getAllKeys () {}
+	/**
+	 * (PECL memcached &gt;= 2.0.0)<br/>
+	 * Gets the keys stored on all the servers
+	 * @link http://php.net/manual/en/memcached.getallkeys.php
+	 * @return array the keys stored on all the servers on success or <b>FALSE</b> on failure.
+	 */
+	public function getAllKeys () {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -1137,12 +1212,31 @@ class Memcached  {
 	public function setOption ($option, $value) {}
 
 	/**
-	 * @param $options
+	 * (PECL memcached &gt;= 2.0.0)<br/>
+	 * Set Memcached options
+	 * @link http://php.net/manual/en/memcached.setoptions.php
+	 * @param array $options <p>
+	 * An associative array of options where the key is the option to set and
+	 * the value is the new value for the option.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function setOptions ($options) {}
+	public function setOptions (array $options) {}
 
+	/**
+	 * (PECL memcached &gt;= 2.0.0)<br/>
+	 * Check if a persitent connection to memcache is being used
+	 * @link http://php.net/manual/en/memcached.ispersistent.php
+	 * @return bool true if Memcache instance uses a persistent connection, false otherwise.
+	 */
 	public function isPersistent () {}
 
+	/**
+	 * (PECL memcached &gt;= 2.0.0)<br/>
+	 * Check if the instance was recently created
+	 * @link http://php.net/manual/en/memcached.ispristine.php
+	 * @return bool the true if instance is recently created, false otherwise.
+	 */
 	public function isPristine () {}
 
 }
@@ -1153,5 +1247,5 @@ class Memcached  {
 class MemcachedException extends RuntimeException  {
 
 }
-// End of memcached v.2.0.1
+// End of memcached v.2.1.0
 ?>

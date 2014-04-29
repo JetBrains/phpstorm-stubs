@@ -34,7 +34,7 @@ function bcsub ($left_operand, $right_operand, $scale = null) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
- * Multiply two arbitrary precision number
+ * Multiply two arbitrary precision numbers
  * @link http://php.net/manual/en/function.bcmul.php
  * @param string $left_operand <p>
  * The left operand, as a string.

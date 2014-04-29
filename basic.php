@@ -37,6 +37,25 @@
  */
 function dl ($library) {}
 
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Sets the process title
+ * @link http://php.net/manual/en/function.cli-set-process-title.php
+ * @param string $title <p>
+ * The new title.
+ * </p>
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ */
+function cli_set_process_title ($title) {}
+
+/**
+ * (PHP 5 &gt;= 5.5.0)<br/>
+ * Returns the current process title
+ * @link http://php.net/manual/en/function.cli-get-process-title.php
+ * @return string Return a string with the current process title or <b>NULL</b> on error.
+ */
+function cli_get_process_title () {}
+
 
 /**
  * The full path and filename of the file. If used inside an include,

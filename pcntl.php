@@ -149,23 +149,28 @@ function pcntl_wait (&$status, $options = 0) {}
  * The signal number.
  * </p>
  * @param callable|int $handler <p>
- * The signal handler. This may be either a callable, which will be invoked to handle the signal,
- * or either of the two global constants SIG_IGN or SIG_DFL,
- * which will ignore the signal or restore the default signal handler respectively.
- * <p>If a callable is given, it must implement the following signature:
- * <code>void handler ( int $signo )</code> $signo The signal being handled.</p>
- * <p>
- * Note that when you set a handler to an object method, that object's
- * reference count is increased which makes it persist until you either
- * change the handler to something else, or your script ends.
+ * The signal handler. This may be either a callable, which
+ * will be invoked to handle the signal, or either of the two global
+ * constants <b>SIG_IGN</b> or <b>SIG_DFL</b>,
+ * which will ignore the signal or restore the default signal handler
+ * respectively.
  * </p>
+ * <p>
+ * If a callable is given, it must implement the following
+ * signature:
+ * </p>
+ * <p>
+ * void<b>handler</b>
+ * <b>int<i>signo</i></b>
+ * <i>signo</i>
+ * The signal being handled.
  * @param bool $restart_syscalls [optional] <p>
  * Specifies whether system call restarting should be used when this
  * signal arrives.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pcntl_signal ($signo, callable $handler, $restart_syscalls = true) {}
+function pcntl_signal ($signo, $handler, $restart_syscalls = true) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0)<br/>
@@ -283,18 +288,27 @@ function pcntl_exec ($path, array $args = null, array $envs = null) {}
 function pcntl_alarm ($seconds) {}
 
 /**
- * @return int
+ * (PHP 5 &gt;= 5.3.4)<br/>
+ * Retrieve the error number set by the last pcntl function which failed
+ * @link http://php.net/manual/en/function.pcntl-get-last-error.php
+ * @return int error code.
  */
 function pcntl_get_last_error () {}
 
 /**
- * @return int
+ * (PHP 5 &gt;= 5.3.4)<br/>
+ * Alias of <b>pcntl_strerror</b>
+ * @link http://php.net/manual/en/function.pcntl-errno.php
  */
 function pcntl_errno () {}
 
 /**
- * @param int $errno
- * @return string
+ * (PHP 5 &gt;= 5.3.4)<br/>
+ * Retrieve the system error message associated with the given errno
+ * @link http://php.net/manual/en/function.pcntl-strerror.php
+ * @param int $errno <p>
+ * </p>
+ * @return string error description on success or <b>FALSE</b> on failure.
  */
 function pcntl_strerror ($errno) {}
 
@@ -303,7 +317,7 @@ function pcntl_strerror ($errno) {}
  * Get the priority of any process
  * @link http://php.net/manual/en/function.pcntl-getpriority.php
  * @param int $pid [optional] <p>
- * If not specified, the pid of the current process is used.
+ * If not specified, the pid of the current process  (getmypid()) is used.
  * </p>
  * @param int $process_identifier [optional] <p>
  * One of <b>PRIO_PGRP</b>, <b>PRIO_USER</b>
@@ -328,7 +342,7 @@ function pcntl_getpriority ($pid, $process_identifier = PRIO_PROCESS) {}
  * man page for specific details.
  * </p>
  * @param int $pid [optional] <p>
- * If not specified, the pid of the current process is used.
+ * If not specified, the pid of the current process (getmypid()) is used.
  * </p>
  * @param int $process_identifier [optional] <p>
  * One of <b>PRIO_PGRP</b>, <b>PRIO_USER</b>
