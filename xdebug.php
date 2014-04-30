@@ -208,17 +208,16 @@ function xdebug_get_function_count () {}
  */
 function xdebug_dump_superglobals () {}
 
-define ('XDEBUG_TRACE_APPEND', 1);
-define ('XDEBUG_TRACE_COMPUTERIZED', 2);
-define ('XDEBUG_TRACE_HTML', 4);
-define ('XDEBUG_CC_UNUSED', 1);
-define ('XDEBUG_CC_DEAD_CODE', 2);
-
 /**
  * Returns all the headers that are set with PHP's header() function,
  * or any other header set internally within PHP (such as through setcookie()), as an array.
  *
  * @return array
  */
-function xdebug_get_headers() {}
-?>
+function xdebug_get_headers () {}
+
+define ('XDEBUG_TRACE_APPEND', 1);
+define ('XDEBUG_TRACE_COMPUTERIZED', 2);
+define ('XDEBUG_TRACE_HTML', 4);
+define ('XDEBUG_CC_UNUSED', 1);
+define ('XDEBUG_CC_DEAD_CODE', 2);

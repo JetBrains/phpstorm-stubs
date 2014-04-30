@@ -35,7 +35,7 @@
  * is created, even if the <i>connection_string</i> is identical to
  * an existing connection.
  * </p>
- * @return resource PostgreSQL connection resource on success, false on failure.
+ * @return resource PostgreSQL connection resource on success, <b>FALSE</b> on failure.
  */
 function pg_connect ($connection_string, $connect_type = null) {}
 
@@ -67,7 +67,7 @@ function pg_connect ($connection_string, $connect_type = null) {}
  * is created, even if the <i>connection_string</i> is identical to
  * an existing connection.
  * </p>
- * @return resource PostgreSQL connection resource on success, false on failure.
+ * @return resource PostgreSQL connection resource on success, <b>FALSE</b> on failure.
  */
 function pg_pconnect ($connection_string, $connect_type = null) {}
 
@@ -81,7 +81,7 @@ function pg_pconnect ($connection_string, $connect_type = null) {}
  * is used. The default connection is the last connection made by
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_close ($connection = null) {}
 
@@ -104,7 +104,7 @@ function pg_connection_status ($connection) {}
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
- * @return bool true if the connection is busy, false otherwise.
+ * @return bool <b>TRUE</b> if the connection is busy, <b>FALSE</b> otherwise.
  */
 function pg_connection_busy ($connection) {}
 
@@ -115,7 +115,7 @@ function pg_connection_busy ($connection) {}
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_connection_reset ($connection) {}
 
@@ -130,7 +130,7 @@ function pg_connection_reset ($connection) {}
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
  * @return string A string containing the name of the host the
- * <i>connection</i> is to, or false on error.
+ * <i>connection</i> is to, or <b>FALSE</b> on error.
  */
 function pg_host ($connection = null) {}
 
@@ -145,7 +145,7 @@ function pg_host ($connection = null) {}
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
  * @return string A string containing the name of the database the
- * <i>connection</i> is to, or false on error.
+ * <i>connection</i> is to, or <b>FALSE</b> on error.
  */
 function pg_dbname ($connection = null) {}
 
@@ -161,7 +161,7 @@ function pg_dbname ($connection = null) {}
  * </p>
  * @return int An int containing the port number of the database
  * server the <i>connection</i> is to,
- * or false on error.
+ * or <b>FALSE</b> on error.
  */
 function pg_port ($connection = null) {}
 
@@ -176,7 +176,7 @@ function pg_port ($connection = null) {}
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
  * @return string A string containing the debug TTY of
- * the <i>connection</i>, or false on error.
+ * the <i>connection</i>, or <b>FALSE</b> on error.
  */
 function pg_tty ($connection = null) {}
 
@@ -191,7 +191,7 @@ function pg_tty ($connection = null) {}
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
  * @return string A string containing the <i>connection</i>
- * options, or false on error.
+ * options, or <b>FALSE</b> on error.
  */
 function pg_options ($connection = null) {}
 
@@ -207,7 +207,7 @@ function pg_options ($connection = null) {}
  * </p>
  * @return array an array with client, protocol
  * and server keys and values (if available). Returns
- * false on error or invalid connection.
+ * <b>FALSE</b> on error or invalid connection.
  */
 function pg_version ($connection = null) {}
 
@@ -221,7 +221,7 @@ function pg_version ($connection = null) {}
  * is used. The default connection is the last connection made by
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_ping ($connection = null) {}
 
@@ -242,7 +242,7 @@ function pg_ping ($connection = null) {}
  * DateStyle, TimeZone, and
  * integer_datetimes.
  * </p>
- * @return string A string containing the value of the parameter, false on failure or invalid
+ * @return string A string containing the value of the parameter, <b>FALSE</b> on failure or invalid
  * <i>param_name</i>.
  */
 function pg_parameter_status ($connection = null, $param_name) {}
@@ -280,9 +280,18 @@ function pg_transaction_status ($connection) {}
  * included in the query string. However, using multiple transactions in one function call is not recommended.
  * </p>
  * <p>
- * Data inside the query should be properly escaped.
+ * String interpolation of user-supplied data is extremely dangerous and is
+ * likely to lead to SQL
+ * injection vulnerabilities. In most cases
+ * <b>pg_query_params</b> should be preferred, passing
+ * user-supplied values as parameters rather than substituting them into
+ * the query string.
  * </p>
- * @return resource A query result resource on success or false on failure.
+ * <p>
+ * Any user-supplied data substituted directly into a query string should
+ * be properly escaped.
+ * </p>
+ * @return resource A query result resource on success or <b>FALSE</b> on failure.
  */
 function pg_query ($connection = null, $query) {}
 
@@ -301,12 +310,25 @@ function pg_query ($connection = null, $query) {}
  * (multiple statements separated by semi-colons are not allowed.) If any parameters
  * are used, they are referred to as $1, $2, etc.
  * </p>
+ * <p>
+ * User-supplied values should always be passed as parameters, not
+ * interpolated into the query string, where they form possible
+ * SQL injection
+ * attack vectors and introduce bugs when handling data containing quotes.
+ * If for some reason you cannot use a parameter, ensure that interpolated
+ * values are properly escaped.
+ * </p>
  * @param array $params <p>
  * An array of parameter values to substitute for the $1, $2, etc. placeholders
  * in the original prepared query string. The number of elements in the array
  * must match the number of placeholders.
  * </p>
- * @return resource A query result resource on success or false on failure.
+ * <p>
+ * Values intended for bytea fields are not supported as
+ * parameters. Use <b>pg_escape_bytea</b> instead, or use the
+ * large object functions.
+ * </p>
+ * @return resource A query result resource on success or <b>FALSE</b> on failure.
  */
 function pg_query_params ($connection = null, $query, array $params) {}
 
@@ -331,7 +353,7 @@ given parameters, and waits for completion.
  * (multiple statements separated by semi-colons are not allowed.) If any parameters
  * are used, they are referred to as $1, $2, etc.
  * </p>
- * @return resource A query result resource on success or false on failure.
+ * @return resource A query result resource on success or <b>FALSE</b> on failure.
  */
 function pg_prepare ($connection = null, $stmtname, $query) {}
 
@@ -360,7 +382,7 @@ function pg_prepare ($connection = null, $stmtname, $query) {}
  * <p>
  * Elements are converted to strings by calling this function.
  * </p>
- * @return resource A query result resource on success or false on failure.
+ * @return resource A query result resource on success or <b>FALSE</b> on failure.
  */
 function pg_execute ($connection = null, $stmtname, array $params) {}
 
@@ -377,7 +399,7 @@ function pg_execute ($connection = null, $stmtname, array $params) {}
  * <p>
  * Data inside the query should be properly escaped.
  * </p>
- * @return bool true on success or false on failure.</p>
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
  * <p>
  * Use <b>pg_get_result</b> to determine the query result.
  */
@@ -400,7 +422,7 @@ function pg_send_query ($connection, $query) {}
  * in the original prepared query string. The number of elements in the array
  * must match the number of placeholders.
  * </p>
- * @return bool true on success or false on failure.</p>
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
  * <p>
  * Use <b>pg_get_result</b> to determine the query result.
  */
@@ -426,7 +448,7 @@ function pg_send_query_params ($connection, $query, array $params) {}
  * (multiple statements separated by semi-colons are not allowed.) If any parameters
  * are used, they are referred to as $1, $2, etc.
  * </p>
- * @return bool true on success, false on failure. Use <b>pg_get_result</b>
+ * @return bool <b>TRUE</b> on success, <b>FALSE</b> on failure. Use <b>pg_get_result</b>
  * to determine the query result.
  */
 function pg_send_prepare ($connection, $stmtname, $query) {}
@@ -453,7 +475,7 @@ function pg_send_prepare ($connection, $stmtname, $query) {}
  * in the original prepared query string. The number of elements in the array
  * must match the number of placeholders.
  * </p>
- * @return bool true on success, false on failure. Use <b>pg_get_result</b>
+ * @return bool <b>TRUE</b> on success, <b>FALSE</b> on failure. Use <b>pg_get_result</b>
  * to determine the query result.
  */
 function pg_send_execute ($connection, $stmtname, array $params) {}
@@ -465,7 +487,7 @@ function pg_send_execute ($connection, $stmtname, array $params) {}
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_cancel_query ($connection) {}
 
@@ -487,14 +509,14 @@ function pg_cancel_query ($connection) {}
  * an int representing the field number to fetch. Fields are
  * numbered from 0 upwards.
  * </p>
- * @return string Boolean is returned as &quot;t&quot; or &quot;f&quot;. All
+ * @return string Boolean is returned as &#x00022;t&#x00022; or &#x00022;f&#x00022;. All
  * other types, including arrays are returned as strings formatted
  * in the same default PostgreSQL manner that you would see in the
  * psql program. Database NULL
- * values are returned as null.
+ * values are returned as <b>NULL</b>.
  * </p>
  * <p>
- * false is returned if <i>row</i> exceeds the number
+ * <b>FALSE</b> is returned if <i>row</i> exceeds the number
  * of rows in the set, or on any other error.
  */
 function pg_fetch_result ($result, $row = null, $field) {}
@@ -510,15 +532,15 @@ function pg_fetch_result ($result, $row = null, $field) {}
  * </p>
  * @param int $row [optional] <p>
  * Row number in result to fetch. Rows are numbered from 0 upwards. If
- * omitted or null, the next row is fetched.
+ * omitted or <b>NULL</b>, the next row is fetched.
  * </p>
  * @param int $result_type [optional]
  * @return array An array, indexed from 0 upwards, with each value
  * represented as a string. Database NULL
- * values are returned as null.
+ * values are returned as <b>NULL</b>.
  * </p>
  * <p>
- * false is returned if <i>row</i> exceeds the number
+ * <b>FALSE</b> is returned if <i>row</i> exceeds the number
  * of rows in the set, there are no more rows, or on any other error.
  */
 function pg_fetch_row ($result, $row = null, $result_type = null) {}
@@ -534,15 +556,15 @@ function pg_fetch_row ($result, $row = null, $result_type = null) {}
  * </p>
  * @param int $row [optional] <p>
  * Row number in result to fetch. Rows are numbered from 0 upwards. If
- * omitted or null, the next row is fetched.
+ * omitted or <b>NULL</b>, the next row is fetched.
  * </p>
  * @return array An array indexed associatively (by field name).
  * Each value in the array is represented as a
  * string. Database NULL
- * values are returned as null.
+ * values are returned as <b>NULL</b>.
  * </p>
  * <p>
- * false is returned if <i>row</i> exceeds the number
+ * <b>FALSE</b> is returned if <i>row</i> exceeds the number
  * of rows in the set, there are no more rows, or on any other error.
  */
 function pg_fetch_assoc ($result, $row = null) {}
@@ -558,7 +580,7 @@ function pg_fetch_assoc ($result, $row = null) {}
  * </p>
  * @param int $row [optional] <p>
  * Row number in result to fetch. Rows are numbered from 0 upwards. If
- * omitted or null, the next row is fetched.
+ * omitted or <b>NULL</b>, the next row is fetched.
  * </p>
  * @param int $result_type [optional] <p>
  * An optional parameter that controls
@@ -576,10 +598,10 @@ function pg_fetch_assoc ($result, $row = null) {}
  * associatively (indexed by field name), or both.
  * Each value in the array is represented as a
  * string. Database NULL
- * values are returned as null.
+ * values are returned as <b>NULL</b>.
  * </p>
  * <p>
- * false is returned if <i>row</i> exceeds the number
+ * <b>FALSE</b> is returned if <i>row</i> exceeds the number
  * of rows in the set, there are no more rows, or on any other error.
  */
 function pg_fetch_array ($result, $row = null, $result_type = PGSQL_BOTH) {}
@@ -595,17 +617,17 @@ function pg_fetch_array ($result, $row = null, $result_type = PGSQL_BOTH) {}
  * </p>
  * @param int $row [optional] <p>
  * Row number in result to fetch. Rows are numbered from 0 upwards. If
- * omitted or null, the next row is fetched.
+ * omitted or <b>NULL</b>, the next row is fetched.
  * </p>
  * @param int $result_type [optional] <p>
  * Ignored and deprecated.
  * </p>
  * @return object An object with one attribute for each field
  * name in the result. Database NULL
- * values are returned as null.
+ * values are returned as <b>NULL</b>.
  * </p>
  * <p>
- * false is returned if <i>row</i> exceeds the number
+ * <b>FALSE</b> is returned if <i>row</i> exceeds the number
  * of rows in the set, there are no more rows, or on any other error.
  */
 function pg_fetch_object ($result, $row = null, $result_type = PGSQL_ASSOC) {}
@@ -623,7 +645,7 @@ function pg_fetch_object ($result, $row = null, $result_type = PGSQL_ASSOC) {}
  * of field values indexed by field name.
  * </p>
  * <p>
- * false is returned if there are no rows in the result, or on any
+ * <b>FALSE</b> is returned if there are no rows in the result, or on any
  * other error.
  */
 function pg_fetch_all ($result) {}
@@ -644,7 +666,7 @@ function pg_fetch_all ($result) {}
  * @return array An array with all values in the result column.
  * </p>
  * <p>
- * false is returned if <i>column</i> is larger than the number
+ * <b>FALSE</b> is returned if <i>column</i> is larger than the number
  * of columns in the result, or on any other error.
  */
 function pg_fetch_all_columns ($result, $column = 0) {}
@@ -670,7 +692,7 @@ function pg_affected_rows ($result) {}
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource.
  * </p>
- * @return resource The result resource, or false if no more results are available.
+ * @return resource The result resource, or <b>FALSE</b> if no more results are available.
  */
 function pg_get_result ($connection = null) {}
 
@@ -687,7 +709,7 @@ function pg_get_result ($connection = null) {}
  * Row to move the internal offset to in the <i>result</i> resource.
  * Rows are numbered starting from zero.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_result_seek ($result, $offset) {}
 
@@ -723,7 +745,7 @@ function pg_result_status ($result, $type = PGSQL_STATUS_LONG) {}
  * <b>pg_query_params</b> or <b>pg_execute</b>
  * (among others).
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_free_result ($result) {}
 
@@ -737,7 +759,7 @@ function pg_free_result ($result) {}
  * (among others).
  * </p>
  * @return string A string containing the OID assigned to the most recently inserted
- * row in the specified <i>connection</i>, or false on error or
+ * row in the specified <i>connection</i>, or <b>FALSE</b> on error or
  * no available OID.
  */
 function pg_last_oid ($result) {}
@@ -780,7 +802,7 @@ function pg_num_fields ($result) {}
  * @param int $field_number <p>
  * Field number, starting from 0.
  * </p>
- * @return string The field name, or false on error.
+ * @return string The field name, or <b>FALSE</b> on error.
  */
 function pg_field_name ($result, $field_number) {}
 
@@ -813,7 +835,7 @@ function pg_field_num ($result, $field_name) {}
  * Field number, starting from 0.
  * </p>
  * @return int The internal field storage size (in bytes). -1 indicates a variable
- * length field. false is returned on error.
+ * length field. <b>FALSE</b> is returned on error.
  */
 function pg_field_size ($result, $field_number) {}
 
@@ -829,7 +851,7 @@ function pg_field_size ($result, $field_number) {}
  * @param int $field_number <p>
  * Field number, starting from 0.
  * </p>
- * @return string A string containing the base name of the field's type, or false
+ * @return string A string containing the base name of the field's type, or <b>FALSE</b>
  * on error.
  */
 function pg_field_type ($result, $field_number) {}
@@ -846,7 +868,7 @@ function pg_field_type ($result, $field_number) {}
  * @param int $field_number <p>
  * Field number, starting from 0.
  * </p>
- * @return int The OID of the field's base type. false is returned on error.
+ * @return int The OID of the field's base type. <b>FALSE</b> is returned on error.
  */
 function pg_field_type_oid ($result, $field_number) {}
 
@@ -861,7 +883,7 @@ function pg_field_type_oid ($result, $field_number) {}
  * </p>
  * @param int $row_number
  * @param mixed $field_name_or_number
- * @return int The field printed length, or false on error.
+ * @return int The field printed length, or <b>FALSE</b> on error.
  */
 function pg_field_prtlen ($result, $row_number, $field_name_or_number) {}
 
@@ -883,7 +905,7 @@ function pg_field_prtlen ($result, $row_number, $field_name_or_number) {}
  * the field name as a string.
  * </p>
  * @return int 1 if the field in the given row is SQL NULL, 0
- * if not. false is returned if the row is out of range, or upon any other error.
+ * if not. <b>FALSE</b> is returned if the row is out of range, or upon any other error.
  */
 function pg_field_is_null ($result, $row, $field) {}
 
@@ -901,10 +923,10 @@ function pg_field_is_null ($result, $row, $field) {}
  * </p>
  * @param bool $oid_only [optional] <p>
  * By default the tables name that field belongs to is returned but
- * if <i>oid_only</i> is set to true, then the
+ * if <i>oid_only</i> is set to <b>TRUE</b>, then the
  * oid will instead be returned.
  * </p>
- * @return mixed On success either the fields table name or oid. Or, false on failure.
+ * @return mixed On success either the fields table name or oid. Or, <b>FALSE</b> on failure.
  */
 function pg_field_table ($result, $field_number, $oid_only = false) {}
 
@@ -928,7 +950,7 @@ function pg_field_table ($result, $field_number, $oid_only = false) {}
  * numerical and associative indices.
  * </p>
  * @return array An array containing the NOTIFY message name and backend PID.
- * Otherwise if no NOTIFY is waiting, then false is returned.
+ * Otherwise if no NOTIFY is waiting, then <b>FALSE</b> is returned.
  */
 function pg_get_notify ($connection, $result_type = null) {}
 
@@ -953,7 +975,7 @@ function pg_get_pid ($connection) {}
  * (among others).
  * </p>
  * @return string a string if there is an error associated with the
- * <i>result</i> parameter, false otherwise.
+ * <i>result</i> parameter, <b>FALSE</b> otherwise.
  */
 function pg_result_error ($result) {}
 
@@ -976,7 +998,7 @@ function pg_result_error ($result) {}
  * <b>PGSQL_DIAG_SOURCE_LINE</b> or
  * <b>PGSQL_DIAG_SOURCE_FUNCTION</b>.
  * </p>
- * @return string A string containing the contents of the error field, null if the field does not exist or false
+ * @return string A string containing the contents of the error field, <b>NULL</b> if the field does not exist or <b>FALSE</b>
  * on failure.
  */
 function pg_result_error_field ($result, $fieldcode) {}
@@ -992,7 +1014,7 @@ function pg_result_error_field ($result, $fieldcode) {}
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
  * @return string A string containing the last error message on the
- * given <i>connection</i>, or false on error.
+ * given <i>connection</i>, or <b>FALSE</b> on error.
  */
 function pg_last_error ($connection = null) {}
 
@@ -1004,7 +1026,7 @@ function pg_last_error ($connection = null) {}
  * PostgreSQL database connection resource.
  * </p>
  * @return string A string containing the last notice on the
- * given <i>connection</i>, or false on error.
+ * given <i>connection</i>, or <b>FALSE</b> on error.
  */
 function pg_last_notice ($connection) {}
 
@@ -1022,7 +1044,7 @@ function pg_last_notice ($connection) {}
  * A line of text to be sent directly to the PostgreSQL backend. A NULL
  * terminator is added automatically.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_put_line ($connection = null, $data) {}
 
@@ -1036,7 +1058,7 @@ function pg_put_line ($connection = null, $data) {}
  * is used. The default connection is the last connection made by
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_end_copy ($connection = null) {}
 
@@ -1059,7 +1081,7 @@ function pg_end_copy ($connection = null) {}
  * <i>rows</i>. Default is \N ("\\N").
  * </p>
  * @return array An array with one element for each line of COPY data.
- * It returns false on failure.
+ * It returns <b>FALSE</b> on failure.
  */
 function pg_copy_to ($connection, $table_name, $delimiter = null, $null_as = null) {}
 
@@ -1087,7 +1109,7 @@ function pg_copy_to ($connection, $table_name, $delimiter = null, $null_as = nul
  * How SQL NULL values are represented in the
  * <i>rows</i>. Default is \N ("\\N").
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_copy_from ($connection, $table_name, array $rows, $delimiter = null, $null_as = null) {}
 
@@ -1096,6 +1118,10 @@ function pg_copy_from ($connection, $table_name, array $rows, $delimiter = null,
  * Enable tracing a PostgreSQL connection
  * @link http://php.net/manual/en/function.pg-trace.php
  * @param string $pathname <p>
+ * The full path and file name of the file in which to write the
+ * trace log. Same as in <b>fopen</b>.
+ * </p>
+ * @param string $mode [optional] <p>
  * An optional file access mode, same as for <b>fopen</b>.
  * </p>
  * @param string $mode [optional]
@@ -1105,7 +1131,7 @@ function pg_copy_from ($connection, $table_name, array $rows, $delimiter = null,
  * is used. The default connection is the last connection made by
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_trace ($pathname, $mode = "w", $connection = null) {}
 
@@ -1119,7 +1145,7 @@ function pg_trace ($pathname, $mode = "w", $connection = null) {}
  * is used. The default connection is the last connection made by
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
- * @return bool Always returns true.
+ * @return bool Always returns <b>TRUE</b>.
  */
 function pg_untrace ($connection = null) {}
 
@@ -1140,7 +1166,7 @@ function pg_untrace ($connection = null) {}
  * was added in PHP 5.3 and relies on functionality that first
  * appeared in PostgreSQL 8.1.
  * </p>
- * @return int A large object OID or false on error.
+ * @return int A large object OID or <b>FALSE</b> on error.
  */
 function pg_lo_create ($connection = null, $object_id = null) {}
 
@@ -1157,7 +1183,7 @@ function pg_lo_create ($connection = null, $object_id = null) {}
  * @param int $oid <p>
  * The OID of the large object in the database.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_lo_unlink ($connection, $oid) {}
 
@@ -1178,7 +1204,7 @@ function pg_lo_unlink ($connection, $oid) {}
  * Can be either "r" for read-only, "w" for write only or "rw" for read and
  * write.
  * </p>
- * @return resource A large object resource or false on error.
+ * @return resource A large object resource or <b>FALSE</b> on error.
  */
 function pg_lo_open ($connection, $oid, $mode) {}
 
@@ -1187,7 +1213,7 @@ function pg_lo_open ($connection, $oid, $mode) {}
  * Close a large object
  * @link http://php.net/manual/en/function.pg-lo-close.php
  * @param resource $large_object
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_lo_close ($large_object) {}
 
@@ -1202,7 +1228,7 @@ function pg_lo_close ($large_object) {}
  * An optional maximum number of bytes to return.
  * </p>
  * @return string A string containing <i>len</i> bytes from the
- * large object, or false on error.
+ * large object, or <b>FALSE</b> on error.
  */
 function pg_lo_read ($large_object, $len = 8192) {}
 
@@ -1223,7 +1249,7 @@ function pg_lo_read ($large_object, $len = 8192) {}
  * and no greater than the length of <i>data</i>. Defaults to
  * the length of <i>data</i>.
  * </p>
- * @return int The number of bytes written to the large object, or false on error.
+ * @return int The number of bytes written to the large object, or <b>FALSE</b> on error.
  */
 function pg_lo_write ($large_object, $data, $len = null) {}
 
@@ -1234,7 +1260,7 @@ function pg_lo_write ($large_object, $data, $len = null) {}
  * @param resource $large_object <p>
  * PostgreSQL large object (LOB) resource, returned by <b>pg_lo_open</b>.
  * </p>
- * @return int Number of bytes read or false on error.
+ * @return int Number of bytes read or <b>FALSE</b> on error.
  */
 function pg_lo_read_all ($large_object) {}
 
@@ -1260,7 +1286,7 @@ function pg_lo_read_all ($large_object) {}
  * appeared in PostgreSQL 8.1.
  * </p>
  * @return int The OID of the newly created large object, or
- * false on failure.
+ * <b>FALSE</b> on failure.
  */
 function pg_lo_import ($connection = null, $pathname, $object_id = null) {}
 
@@ -1281,7 +1307,7 @@ function pg_lo_import ($connection = null, $pathname, $object_id = null) {}
  * The full path and file name of the file in which to write the
  * large object on the client filesystem.
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_lo_export ($connection = null, $oid, $pathname) {}
 
@@ -1300,7 +1326,7 @@ function pg_lo_export ($connection = null, $oid, $pathname) {}
  * <b>PGSQL_SEEK_CUR</b> (seek from current position)
  * or <b>PGSQL_SEEK_END</b> (seek from object end) .
  * </p>
- * @return bool true on success or false on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_lo_seek ($large_object, $offset, $whence = PGSQL_SEEK_CUR) {}
 
@@ -1318,7 +1344,7 @@ function pg_lo_tell ($large_object) {}
 
 /**
  * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
- * Escape a string for insertion into a text field
+ * Escape a string for query
  * @link http://php.net/manual/en/function.pg-escape-string.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
@@ -1351,37 +1377,39 @@ function pg_escape_string ($connection = null, $data) {}
  */
 function pg_escape_bytea ($connection = null, $data) {}
 
-
 /**
- * (PHP 5 &gt;=5.5.0)<br/>
+ * (PHP 5 &gt;= 5.4.4)<br/>
  * Escape a identifier for insertion into a text field
- * @link http://www.php.net/manual/en/function.pg-escape-identifier.php
- * @param resource $connection [optional] <p>PostgreSQL database connection resource.
- * When connection is not present, the default connection is used.
- * The default connection is the last connection made by pg_connect() or pg_pconnect().</p>
- * @param string $data <p>
- * A {@link http://www.php.net/manual/en/language.types.string.php string} containing text to be escaped.
+ * @link http://php.net/manual/en/function.pg-escape-identifier.php
+ * @param resource $connection [optional] <p>
+ * PostgreSQL database connection resource. When
+ * <i>connection</i> is not present, the default connection
+ * is used. The default connection is the last connection made by
+ * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
- * @return string A {@link http://www.php.net/manual/en/language.types.string.php string} containing the escaped data.
+ * @param string $data <p>
+ * A string containing text to be escaped.
+ * </p>
+ * @return string A string containing the escaped data.
  */
-function pg_escape_identifier ($connection, $data ) {}
+function pg_escape_identifier ($connection = null, $data) {}
 
 /**
- * (PHP 5 &gt;=5.5.0)<br/>
- * @link http://www.php.net/manual/en/function.pg-escape-literal.php
+ * (PHP 5 &gt;= 5.4.4)<br/>
+ * Escape a literal for insertion into a text field
+ * @link http://php.net/manual/en/function.pg-escape-literal.php
  * @param resource $connection [optional] <p>
- * PostgreSQL database connection resource.  When
- * <em>connection</em> is not present, the default connection
+ * PostgreSQL database connection resource. When
+ * <i>connection</i> is not present, the default connection
  * is used. The default connection is the last connection made by
- * {@link http://www.php.net/manual/en/function.pg-connect.php pg_connect()} or  {@link http://www.php.net/manual/en/function.pg-pconnect.php pg_pconnect()}.
+ * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
  * @param string $data <p>
- * A {@link http://www.php.net/manual/en/language.types.string.php string} containing text to be escaped.
+ * A string containing text to be escaped.
  * </p>
- * @return string
- * A {@link http://www.php.net/manual/en/language.types.string.php string} containing the escaped data.
+ * @return string A string containing the escaped data.
  */
-function pg_escape_literal ($connection,  $data ) {}
+function pg_escape_literal ($connection = null, $data) {}
 
 /**
  * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
@@ -1427,7 +1455,7 @@ function pg_set_error_verbosity ($connection = null, $verbosity) {}
  * is used. The default connection is the last connection made by
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
- * @return string The client encoding, or false on error.
+ * @return string The client encoding, or <b>FALSE</b> on error.
  */
 function pg_client_encoding ($connection = null) {}
 
@@ -1466,7 +1494,7 @@ function pg_set_client_encoding ($connection = null, $encoding) {}
  * @param string $table_name <p>
  * The name of the table.
  * </p>
- * @return array An array of the table definition, or false on error.
+ * @return array An array of the table definition, or <b>FALSE</b> on error.
  */
 function pg_meta_data ($connection, $table_name) {}
 
@@ -1488,7 +1516,7 @@ function pg_meta_data ($connection, $table_name) {}
  * <b>PGSQL_CONV_FORCE_NULL</b> or
  * <b>PGSQL_CONV_IGNORE_NOT_NULL</b>, combined.
  * </p>
- * @return array An array of converted values, or false on error.
+ * @return array An array of converted values, or <b>FALSE</b> on error.
  */
 function pg_convert ($connection, $table_name, array $assoc_array, $options = 0) {}
 
@@ -1515,7 +1543,7 @@ function pg_convert ($connection, $table_name, array $assoc_array, $options = 0)
  * <b>PGSQL_DML_STRING</b> combined. If <b>PGSQL_DML_STRING</b> is part of the
  * <i>options</i> then query string is returned.
  * </p>
- * @return mixed true on success or false on failure. Returns string if <b>PGSQL_DML_STRING</b> is passed
+ * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure. Returns string if <b>PGSQL_DML_STRING</b> is passed
  * via <i>options</i>.
  */
 function pg_insert ($connection, $table_name, array $assoc_array, $options = PGSQL_DML_EXEC) {}
@@ -1545,7 +1573,7 @@ function pg_insert ($connection, $table_name, array $assoc_array, $options = PGS
  * <b>PGSQL_DML_STRING</b> combined. If <b>PGSQL_DML_STRING</b> is part of the
  * <i>options</i> then query string is returned.
  * </p>
- * @return mixed true on success or false on failure. Returns string if <b>PGSQL_DML_STRING</b> is passed
+ * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure. Returns string if <b>PGSQL_DML_STRING</b> is passed
  * via <i>options</i>.
  */
 function pg_update ($connection, $table_name, array $data, array $condition, $options = PGSQL_DML_EXEC) {}
@@ -1571,7 +1599,7 @@ function pg_update ($connection, $table_name, array $data, array $condition, $op
  * <b>PGSQL_DML_STRING</b> combined. If <b>PGSQL_DML_STRING</b> is part of the
  * <i>options</i> then query string is returned.
  * </p>
- * @return mixed true on success or false on failure. Returns string if <b>PGSQL_DML_STRING</b> is passed
+ * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure. Returns string if <b>PGSQL_DML_STRING</b> is passed
  * via <i>options</i>.
  */
 function pg_delete ($connection, $table_name, array $assoc_array, $options = PGSQL_DML_EXEC) {}
@@ -1598,7 +1626,7 @@ function pg_delete ($connection, $table_name, array $assoc_array, $options = PGS
  * <b>PGSQL_DML_STRING</b> combined. If <b>PGSQL_DML_STRING</b> is part of the
  * <i>options</i> then query string is returned.
  * </p>
- * @return mixed true on success or false on failure. Returns string if <b>PGSQL_DML_STRING</b> is passed
+ * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure. Returns string if <b>PGSQL_DML_STRING</b> is passed
  * via <i>options</i>.
  */
 function pg_select ($connection, $table_name, array $assoc_array, $options = PGSQL_DML_EXEC) {}
@@ -1771,6 +1799,8 @@ function pg_clientencoding ($connection) {}
  */
 function pg_setclientencoding ($connection, $encoding) {}
 
+define ('PGSQL_LIBPQ_VERSION', "9.1.10");
+define ('PGSQL_LIBPQ_VERSION_STR', "PostgreSQL 9.1.10 on x86_64-unknown-linux-gnu, compiled by gcc (Ubuntu/Linaro 4.8.1-10ubuntu7) 4.8.1, 64-bit");
 
 /**
  * Passed to <b>pg_connect</b> to force the creation of a new connection,
@@ -2084,7 +2114,7 @@ define ('PGSQL_CONV_FORCE_NULL', 4);
 
 /**
  * Passed to <b>pg_convert</b>.
- * Ignore conversion of null into SQL NOT NULL columns.
+ * Ignore conversion of <b>NULL</b> into SQL NOT NULL columns.
  * @link http://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_CONV_IGNORE_NOT_NULL', 8);
@@ -2094,4 +2124,3 @@ define ('PGSQL_DML_ASYNC', 1024);
 define ('PGSQL_DML_STRING', 2048);
 
 // End of pgsql v.
-?>

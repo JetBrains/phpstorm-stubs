@@ -523,7 +523,7 @@ function snmp_set_enum_print ($enum_print) {}
  * </p>
  * @return bool No value is returned.
  */
-function snmp_set_oid_output_format ($oid_format = 'SNMP_OID_OUTPUT_MODULE') {}
+function snmp_set_oid_output_format ($oid_format = SNMP_OID_OUTPUT_MODULE) {}
 
 /**
  * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
@@ -547,10 +547,10 @@ function snmp_set_oid_numeric_print ($oid_format) {}
  * @param string $object_id <p>
  * The SNMP object.
  * </p>
- * @param string $timeout [optional] <p>
+ * @param int $timeout [optional] <p>
  * The number of microseconds until the first timeout.
  * </p>
- * @param string $retries [optional] <p>
+ * @param int $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
  * @return string SNMP object value on success or <b>FALSE</b> on error.
@@ -570,10 +570,10 @@ function snmp2_get ($host, $community, $object_id, $timeout = 1000000, $retries 
  * @param string $object_id <p>
  * The SNMP object id which precedes the wanted one.
  * </p>
- * @param string $timeout [optional] <p>
+ * @param int $timeout [optional] <p>
  * The number of microseconds until the first timeout.
  * </p>
- * @param string $retries [optional] <p>
+ * @param int $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
  * @return string SNMP object value on success or <b>FALSE</b> on error.
@@ -600,10 +600,10 @@ function snmp2_getnext ($host, $community, $object_id, $timeout = 1000000, $retr
  * If <i>object_id</i> is specified, all the SNMP objects
  * below that <i>object_id</i> are returned.
  * </p>
- * @param string $timeout [optional] <p>
+ * @param int $timeout [optional] <p>
  * The number of microseconds until the first timeout.
  * </p>
- * @param string $retries [optional] <p>
+ * @param int $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
  * @return array an array of SNMP object values starting from the
@@ -624,10 +624,10 @@ function snmp2_walk ($host, $community, $object_id, $timeout = 1000000, $retries
  * @param string $object_id <p>
  * The SNMP object id which precedes the wanted one.
  * </p>
- * @param string $timeout [optional] <p>
+ * @param int $timeout [optional] <p>
  * The number of microseconds until the first timeout.
  * </p>
- * @param string $retries [optional] <p>
+ * @param int $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
  * @return array an associative array of the SNMP object ids and their values on success or <b>FALSE</b> on error.
@@ -687,10 +687,10 @@ function snmp2_real_walk ($host, $community, $object_id, $timeout = 1000000, $re
  * @param string $value <p>
  * The new value.
  * </p>
- * @param string $timeout [optional] <p>
+ * @param int $timeout [optional] <p>
  * The number of microseconds until the first timeout.
  * </p>
- * @param string $retries [optional] <p>
+ * @param int $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -729,10 +729,10 @@ function snmp2_set ($host, $community, $object_id, $type, $value, $timeout = 100
  * @param string $object_id <p>
  * The SNMP object id.
  * </p>
- * @param string $timeout [optional] <p>
+ * @param int $timeout [optional] <p>
  * The number of microseconds until the first timeout.
  * </p>
- * @param string $retries [optional] <p>
+ * @param int $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
  * @return string SNMP object value on success or <b>FALSE</b> on error.
@@ -768,10 +768,10 @@ function snmp3_get ($host, $sec_name, $sec_level, $auth_protocol, $auth_passphra
  * @param string $object_id <p>
  * The SNMP object id.
  * </p>
- * @param string $timeout [optional] <p>
+ * @param int $timeout [optional] <p>
  * The number of microseconds until the first timeout.
  * </p>
- * @param string $retries [optional] <p>
+ * @param int $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
  * @return string SNMP object value on success or <b>FALSE</b> on error.
@@ -813,10 +813,10 @@ function snmp3_getnext ($host, $sec_name, $sec_level, $auth_protocol, $auth_pass
  * If <i>object_id</i> is specified, all the SNMP objects
  * below that <i>object_id</i> are returned.
  * </p>
- * @param string $timeout [optional] <p>
+ * @param int $timeout [optional] <p>
  * The number of microseconds until the first timeout.
  * </p>
- * @param string $retries [optional] <p>
+ * @param int $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
  * @return array an array of SNMP object values starting from the
@@ -1046,4 +1046,3 @@ define ('SNMP_INTEGER', 2);
 define ('SNMP_COUNTER64', 70);
 
 // End of snmp v.0.1
-?>

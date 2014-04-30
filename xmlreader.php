@@ -113,11 +113,12 @@ class XMLReader  {
 	 */
 	const SUBST_ENTITIES = 4;
 
+
 	/**
 	 * (PHP 5 &gt;= 5.1.2)<br/>
 	 * Close the XMLReader input
 	 * @link http://php.net/manual/en/xmlreader.close.php
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function close () {}
 
@@ -128,8 +129,8 @@ class XMLReader  {
 	 * @param string $name <p>
 	 * The name of the attribute.
 	 * </p>
-	 * @return string The value of the attribute, or an empty string if no attribute with the
-	 * given name is found or not positioned of element.
+	 * @return string The value of the attribute, or <b>NULL</b> if no attribute with the given
+	 * <i>name</i> is found or not positioned on an element node.
 	 */
 	public function getAttribute ($name) {}
 
@@ -141,7 +142,7 @@ class XMLReader  {
 	 * The position of the attribute.
 	 * </p>
 	 * @return string The value of the attribute, or an empty string if no attribute exists
-	 * at index or not positioned of element.
+	 * at <i>index</i> or not positioned of element.
 	 */
 	public function getAttributeNo ($index) {}
 
@@ -156,8 +157,8 @@ class XMLReader  {
 	 * The namespace URI.
 	 * </p>
 	 * @return string The value of the attribute, or an empty string if no attribute with the
-	 * given localName and
-	 * namespaceURI is found or not positioned of element.
+	 * given <i>localName</i> and
+	 * <i>namespaceURI</i> is found or not positioned of element.
 	 */
 	public function getAttributeNs ($localName, $namespaceURI) {}
 
@@ -169,7 +170,7 @@ class XMLReader  {
 	 * One of the parser option
 	 * constants.
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function getParserProperty ($property) {}
 
@@ -177,7 +178,7 @@ class XMLReader  {
 	 * (PHP 5 &gt;= 5.1.2)<br/>
 	 * Indicates if the parsed document is valid
 	 * @link http://php.net/manual/en/xmlreader.isvalid.php
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function isValid () {}
 
@@ -188,7 +189,7 @@ class XMLReader  {
 	 * @param string $prefix <p>
 	 * String containing the prefix.
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function lookupNamespace ($prefix) {}
 
@@ -199,7 +200,7 @@ class XMLReader  {
 	 * @param int $index <p>
 	 * The position of the attribute.
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function moveToAttributeNo ($index) {}
 
@@ -210,7 +211,7 @@ class XMLReader  {
 	 * @param string $name <p>
 	 * The name of the attribute.
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function moveToAttribute ($name) {}
 
@@ -224,7 +225,7 @@ class XMLReader  {
 	 * @param string $namespaceURI <p>
 	 * The namespace URI.
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function moveToAttributeNs ($localName, $namespaceURI) {}
 
@@ -232,7 +233,7 @@ class XMLReader  {
 	 * (PHP 5 &gt;= 5.1.2)<br/>
 	 * Position cursor on the parent Element of current Attribute
 	 * @link http://php.net/manual/en/xmlreader.movetoelement.php
-	 * @return bool true if successful and false if it fails or not positioned on
+	 * @return bool <b>TRUE</b> if successful and <b>FALSE</b> if it fails or not positioned on
 	 * Attribute when this method is called.
 	 */
 	public function moveToElement () {}
@@ -241,7 +242,7 @@ class XMLReader  {
 	 * (PHP 5 &gt;= 5.1.2)<br/>
 	 * Position cursor on the first Attribute
 	 * @link http://php.net/manual/en/xmlreader.movetofirstattribute.php
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function moveToFirstAttribute () {}
 
@@ -249,7 +250,7 @@ class XMLReader  {
 	 * (PHP 5 &gt;= 5.1.2)<br/>
 	 * Position cursor on the next Attribute
 	 * @link http://php.net/manual/en/xmlreader.movetonextattribute.php
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function moveToNextAttribute () {}
 
@@ -261,21 +262,22 @@ class XMLReader  {
 	 * URI pointing to the document.
 	 * </p>
 	 * @param string $encoding [optional] <p>
-	 * The document encoding or &null;.
+	 * The document encoding or <b>NULL</b>.
 	 * </p>
 	 * @param int $options [optional] <p>
 	 * A bitmask of the LIBXML_*
 	 * constants.
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure. If called statically, returns an
+	 * <b>XMLReader</b> or <b>FALSE</b> on failure.
 	 */
-	public function open ($URI, $encoding = null, $options = null) {}
+	public function open ($URI, $encoding = null, $options = 0) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2)<br/>
 	 * Move to next node in document
 	 * @link http://php.net/manual/en/xmlreader.read.php
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function read () {}
 
@@ -286,7 +288,7 @@ class XMLReader  {
 	 * @param string $localname [optional] <p>
 	 * The name of the next node to move to.
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function next ($localname = null) {}
 
@@ -308,7 +310,7 @@ class XMLReader  {
 
 	/**
 	 * (PHP 5 &gt;= 5.2.0)<br/>
-	 * Reads the contents of the current node as an string
+	 * Reads the contents of the current node as a string
 	 * @link http://php.net/manual/en/xmlreader.readstring.php
 	 * @return string the content of the current node as a string. Empty string on
 	 * failure.
@@ -322,23 +324,23 @@ class XMLReader  {
 	 * @param string $filename <p>
 	 * The filename of the XSD schema.
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function setSchema ($filename) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2)<br/>
-	 * Set or Unset parser options
+	 * Set parser options
 	 * @link http://php.net/manual/en/xmlreader.setparserproperty.php
 	 * @param int $property <p>
 	 * One of the parser option
 	 * constants.
 	 * </p>
 	 * @param bool $value <p>
-	 * If set to true the option will be enabled otherwise will
+	 * If set to <b>TRUE</b> the option will be enabled otherwise will
 	 * be disabled.
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function setParserProperty ($property, $value) {}
 
@@ -349,7 +351,7 @@ class XMLReader  {
 	 * @param string $filename <p>
 	 * filename or URI pointing to a RelaxNG Schema.
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function setRelaxNGSchema ($filename) {}
 
@@ -360,7 +362,7 @@ class XMLReader  {
 	 * @param string $source <p>
 	 * String containing the RelaxNG Schema.
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function setRelaxNGSchemaSource ($source) {}
 
@@ -372,24 +374,25 @@ class XMLReader  {
 	 * String containing the XML to be parsed.
 	 * </p>
 	 * @param string $encoding [optional] <p>
-	 * The document encoding or &null;.
+	 * The document encoding or <b>NULL</b>.
 	 * </p>
 	 * @param int $options [optional] <p>
 	 * A bitmask of the LIBXML_*
 	 * constants.
 	 * </p>
-	 * @return bool true on success or false on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure. If called statically, returns an
+	 * <b>XMLReader</b> or <b>FALSE</b> on failure.
 	 */
-	public function XML ($source, $encoding = null, $options = null) {}
+	public function XML ($source, $encoding = null, $options = 0) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2)<br/>
 	 * Returns a copy of the current node as a DOM object
 	 * @link http://php.net/manual/en/xmlreader.expand.php
-	 * @return DOMNode The resulting DOMNode or false on error.
+	 * @param DOMNode $basenode [optional]
+	 * @return DOMNode The resulting <b>DOMNode</b> or <b>FALSE</b> on error.
 	 */
-	public function expand () {}
+	public function expand (DOMNode $basenode = null) {}
 
 }
 // End of xmlreader v.0.2
-?>
