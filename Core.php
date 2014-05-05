@@ -499,7 +499,7 @@ function is_subclass_of ($object, $class_name) {}
  * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
  * Checks if the object is of this class or has this class as one of its parents
  * @link http://php.net/manual/en/function.is-a.php
- * @param object $object <p>
+ * @param object|string $object <p>
  * The tested object
  * </p>
  * @param string $class_name <p>
