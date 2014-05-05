@@ -1650,6 +1650,22 @@ function SQLSRV_SQLTYPE_BINARY($byteCount){}
 function SQLSRV_SQLTYPE_VARBINARY($byteCount){}
 
 /**
+ * Specifies a SQL Server varchar filed.
+ *
+ * <br />In the documentation this is presented as a constant that accepts an arguement.<br />
+ *
+ * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ *
+ * @link http://msdn.microsoft.com/en-us/library/cc296183.aspx
+ *
+ * @param int $charCount Must be between 1 and 8000.
+ *
+ * @return int Value to use in any place that accepts a SQLSRV_SQLTYPE_* constant to represent the varchar data type.
+ */
+
+function SQLSRV_SQLTYPE_VARCHAR($charCount) {}
+
+/**
  * Specifies a SQL Server char field.
  *
  * <br />In the documentation this is presented as a constant that accepts an arguement.<br />
