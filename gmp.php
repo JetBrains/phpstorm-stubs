@@ -129,7 +129,7 @@ function gmp_mul ($a, $b) {}
  * division) and the second being (n - [n/d] * d)
  * (the remainder of the division).
  */
-function gmp_div_qr ($n, $d, $round = 'GMP_ROUND_ZERO') {}
+function gmp_div_qr ($n, $d, $round = GMP_ROUND_ZERO) {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
@@ -153,7 +153,7 @@ function gmp_div_qr ($n, $d, $round = 'GMP_ROUND_ZERO') {}
  * towards 0.
  * @return resource A GMP number resource.
  */
-function gmp_div_q ($a, $b, $round = 'GMP_ROUND_ZERO') {}
+function gmp_div_q ($a, $b, $round = GMP_ROUND_ZERO) {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
@@ -175,15 +175,30 @@ function gmp_div_q ($a, $b, $round = 'GMP_ROUND_ZERO') {}
  * </p>
  * @return resource The remainder, as a GMP number.
  */
-function gmp_div_r ($n, $d, $round = 'GMP_ROUND_ZERO') {}
+function gmp_div_r ($n, $d, $round = GMP_ROUND_ZERO) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Alias of <b>gmp_div_q</b>
- * @link http://php.net/manual/en/function.gmp-div.php
- * @param $a
- * @param $b
- * @param $round [optional]
+ * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * Divide numbers
+ * @link http://php.net/manual/en/function.gmp-div-q.php
+ * @param resource $a <p>
+ * The number being divided.
+ * </p>
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @param resource $b <p>
+ * The number that <i>a</i> is being divided by.
+ * </p>
+ * It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
+ * @param int $round [optional] <p>
+ * The result rounding is defined by the
+ * <i>round</i>, which can have the following
+ * values:
+ * <b>GMP_ROUND_ZERO</b>: The result is truncated
+ * towards 0.
+ * @return resource A GMP number resource.
  */
 function gmp_div ($a, $b, $round) {}
 
