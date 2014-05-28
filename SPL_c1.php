@@ -622,7 +622,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, Traversabl
 	/**
          * PHP >= 5.4.0<br/>
          * Write a field array as a CSV line
-         * @link http://php.net/manual/en/splfileobject.fgetcsv.php
+         * @link http://php.net/manual/en/splfileobject.fputcsv.php
          * @param array $fields <p>
 	 * An array of values
          *</p>
