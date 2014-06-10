@@ -977,7 +977,11 @@ define ('OPENSSL_ALGO_MD5', 2);
 define ('OPENSSL_ALGO_MD4', 3);
 define ('OPENSSL_ALGO_MD2', 4);
 define ('OPENSSL_ALGO_DSS1', 5);
-
+define ('OPENSSL_ALGO_SHA224', 6);
+define ('OPENSSL_ALGO_SHA256', 7);
+define ('OPENSSL_ALGO_SHA384', 8);
+define ('OPENSSL_ALGO_SHA512', 9);
+define ('OPENSSL_ALGO_RMD160', 10);
 /**
  * When signing a message, use cleartext signing with the MIME
  * type "multipart/signed". This is the default
