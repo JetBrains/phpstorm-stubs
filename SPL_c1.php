@@ -940,6 +940,16 @@ class SplDoublyLinkedList implements Iterator, Traversable, Countable, ArrayAcce
 
 
         /**
+         * (PHP 5 &gt;= 5.5.0)<br/>
+         * Add/insert a new value at the specified index
+         * @param mixed $index The index where the new value is to be inserted.
+         * @param mixed $newval The new value for the index.
+         * @link http://php.net/spldoublylinkedlist.add
+         * @return void
+         */
+        public function add($index, $newval) {}
+
+        /**
          * (PHP 5 &gt;= 5.3.0)<br/>
          * Pops a node from the end of the doubly linked list
          * @link http://php.net/manual/en/spldoublylinkedlist.pop.php
