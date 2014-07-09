@@ -117,6 +117,15 @@ class DateTimeImmutable implements DateTimeInterface {
     public static function createFromFormat($format, $time, DateTimeZone $timezone) { }
 
     /**
+     * (PHP 5 &gt;=5.6.0)<br/>
+     * Returns new DateTimeImmutable object encapsulating the given DateTime object
+     * @link http://www.php.net/manual/en/datetimeimmutable.createfrommutable.php
+     * @param DateTime $dateTime The mutable DateTime object that you want to convert to an immutable version. This object is not modified, but instead a new DateTimeImmutable object is created containing the same date time and timezone information.
+     * @return DateTimeImmutable returns a new DateTimeImmutable instance.
+     */
+    public static function createFromMutable(DateTime $dateTime) { }
+
+    /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Returns the warnings and errors
      * @link http://www.php.net/manual/en/datetimeimmutable.getlasterrors.php
