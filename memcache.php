@@ -6,47 +6,238 @@ class MemcachePool  {
 
 	public function connect () {}
 
-	public function addserver () {}
+    /**
+     * (PECL memcache &gt;= 0.2.0)<br/>
+     * Add an item to the server
+     * @link http://php.net/manual/ru/memcache.add.php
+     * @param
+     */
+    public function addserver ($host, $port = 11211, $persistent, $weight, $timeout, $retry_interval, $status,  $failure_callback, $timeoutms) {}
 
-	public function setserverparams () {}
+    /**
+     * (PECL memcache &gt;= 2.1.0)<br/>
+     * Changes server parameters and status at runtime
+     * @link http://www.php.net/manual/en/memcache.setserverparams.php
+     * @param string $host <p>Point to the host where memcached is listening for connections.</p.
+     * @param int $port [optional] <p>
+     * Point to the port where memcached is listening for connections.
+     * </p>
+     * @param int $timeout [optional] <p>
+     * Value in seconds which will be used for connecting to the daemon. Think twice before changing the default value of 1 second - you can lose all the advantages of caching if your connection is too slow.
+     * </p>
+     * @param int $retry_interval [optional] <p>
+     * Controls how often a failed server will be retried, the default value
+     * is 15 seconds. Setting this parameter to -1 disables automatic retry.
+     * Neither this nor the <code class="parameter">persistent</code> parameter has any
+     * effect when the extension is loaded dynamically via {@link http://www.php.net/manual/en/function.dl.php dl()}.
+     * </p>
+     * @param bool $status [optional] <p>
+     * Controls if the server should be flagged as online. Setting this parameter
+     * to <b>FALSE</b> and <b>retry_interval</b> to -1 allows a failed
+     * server to be kept in the pool so as not to affect the key distribution
+     * algorithm. Requests for this server will then failover or fail immediately
+     * depending on the <b>memcache.allow_failover</b> setting.
+     * Default to <b>TRUE</b>, meaning the server should be considered online.
+     * </p>
+     * @param callable $failure_callback [optional] <p>
+     * Allows the user to specify a callback function to run upon encountering an error. The callback is run before failover is attempted.
+     * The function takes two parameters, the hostname and port of the failed server.
+     * </p>
+     */
+    public function setServerParams ($host, $port = 11211, $timeout, $retry_interval = false, $status, callable $failure_callback) {}
 
-	public function setfailurecallback () {}
+    /**
+     *
+     */
+    public function setFailureCallback () {}
 
-	public function getserverstatus () {}
+    /**
+     * (PECL memcache &gt;= 2.1.0)<br/>
+     * Returns server status
+     * @link http://php.net/manual/en/memcache.getserverstatus.php
+     * @param string $host Point to the host where memcached is listening for connections.
+     * @param int $port Point to the port where memcached is listening for connections.
+     * @return int Returns a the servers status. 0 if server is failed, non-zero otherwise
+     */
+    public function getserverstatus ($host, $port = 11211) {}
 
-	public function findserver () {}
+    /**
+     *
+     */
+    public function findserver () {}
 
-	public function getversion () {}
+    /**
+     * (PECL memcache &gt;= 0.2.0)<br/>
+     * Return version of the server
+     * @link http://php.net/manual/en/memcache.getversion.php
+     * @return string|boolean Returns a string of server version number or <b>FALSE</b> on failure.
+     */
+    public function getversion () {}
 
-	public function add () {}
+    /**
+     * (PECL memcache &gt;= 2.0.0)<br/>
+     * Get statistics from all servers in pool
+     * @link http://php.net/manual/en/memcache.add.php
+     * @param string $key The key that will be associated with the item.
+     * @param mixed $var The variable to store. Strings and integers are stored as is, other types are stored serialized.
+     * @param int $flag [optional] <p>
+     * Use <b>MEMCACHE_COMPRESSED</b> to store the item
+     * compressed (uses zlib).
+     * </p>
+     * @param int $expire [optional] <p>Expiration time of the item.
+     * If it's equal to zero, the item will never expire.
+     * You can also use Unix timestamp or a number of seconds starting from current time, but in the latter case the number of seconds may not exceed 2592000 (30 days).</p>
+     * @return array|boolean Returns a two-dimensional associative array of server statistics or <b>FALSE</b> on failure.
+     */
+    public function add ($key , $var, $flag, $expire) {}
 
-	public function set () {}
+    /**
+     * (PECL memcache &gt;= 0.2.0)<br/>
+     * Store data at the server
+     * @link http://php.net/manual/en/memcache.set.php
+     * @param string $key The key that will be associated with the item.
+     * @param mixed $var The variable to store. Strings and integers are stored as is, other types are stored serialized.
+     * @param int $flag [optional] Use MEMCACHE_COMPRESSED to store the item compressed (uses zlib).
+     * @param int $expire [optional] Expiration time of the item. If it's equal to zero, the item will never expire. You can also use Unix timestamp or a number of seconds starting from current time, but in the latter case the number of seconds may not exceed 2592000 (30 days).
+     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function set ($key, $var, $flag, $expire) {}
 
-	public function replace () {}
+    /**
+     * (PECL memcache &gt;= 0.2.0)<br/>
+     * Replace value of the existing item
+     * @link http://php.net/manual/en/memcache.replace.php
+     * @param string $key <p>The key that will be associated with the item.</p>
+     * @param mixed $var <p>The variable to store. Strings and integers are stored as is, other types are stored serialized.</p>
+     * @param int $flag [optional] <p>Use <b>MEMCACHE_COMPRESSED</b> to store the item compressed (uses zlib).</p>
+     * @param int $expire [optional] <p>Expiration time of the item. If it's equal to zero, the item will never expire. You can also use Unix timestamp or a number of seconds starting from current time, but in the latter case the number of seconds may not exceed 2592000 (30 days).</p>
+     * @return boolean Returns TRUE on success or FALSE on failure.
+     */
+    public function replace ($key,  $var, $flag, $expire) {}
 
 	public function cas () {}
 
 	public function append () {}
 
-	public function prepend () {}
+    /**
+     * @return string
+     */
+    public function prepend () {}
 
-	public function get () {}
+    /**
+     * (PECL memcache &gt;= 0.2.0)<br/>
+     * Retrieve item from the server
+     * @link http://php.net/manual/en/memcache.get.php
+     * @param string|array $key <p>
+     * The key or array of keys to fetch.
+     * </p>
+     * @param int|array $flags <p>
+     * If present, flags fetched along with the values will be written to this parameter. These
+     * flags are the same as the ones given to for example {@link http://php.net/manual/en/memcache.set.php Memcache::set()}.
+     * The lowest byte of the int is reserved for pecl/memcache internal usage (e.g. to indicate
+     * compression and serialization status).
+     * </p>
+     * @return <p>
+     * Returns the string associated with the <b>key</b> or
+     * an array of found key-value pairs when <b>key</b> is an {@link http://php.net/manual/en/language.types.array.php array}.
+     * Returns <b>FALSE</b> on failure, <b>key</b> is not found or
+     * <b>key</b> is an empty {@link http://php.net/manual/en/language.types.array.php array}.
+     * </p>
+     */
+    public function get ($key, &$flags) {}
 
-	public function delete () {}
+    /**
+     * (PECL memcache &gt;= 0.2.0)<br/>
+     * Delete item from the server
+     * http://php.net/manual/ru/memcache.delete.php
+     * @param $key string The key associated with the item to delete.
+     * @param $timeout int [optional] This deprecated parameter is not supported, and defaults to 0 seconds. Do not use this parameter.
+     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function delete ($key, $timeout = 0 ) {}
 
-	public function getstats () {}
+    /**
+     * (PECL memcache &gt;= 0.2.0)<br/>
+     * Get statistics of the server
+     * @link http://php.net/manual/ru/memcache.getstats.php
+     * @param string $type [optional] <p>
+     * The type of statistics to fetch.
+     * Valid values are {reset, malloc, maps, cachedump, slabs, items, sizes}.
+     * According to the memcached protocol spec these additional arguments "are subject to change for the convenience of memcache developers".</p>
+     * @param int $slabid [optional] <p>
+     * Used in conjunction with <b>type</b> set to
+     * cachedump to identify the slab to dump from. The cachedump
+     * command ties up the server and is strictly to be used for
+     * debugging purposes.
+     * </p>
+     * @param int $limit [optional] <p>
+     * Used in conjunction with <b>type</b> set to cachedump to limit the number of entries to dump.
+     * </p>
+     * @return array|bool Returns an associative array of server statistics or <b>FALSE</b> on failure.
+     */
+    public function getstats ($type, $slabid, $limit = 100) {}
 
-	public function getextendedstats () {}
+    /**
+     * (PECL memcache &gt;= 2.0.0)<br/>
+     * Get statistics from all servers in pool
+     * @link http://php.net/manual/en/memcache.getextendedstats.php
+     * @param string $type [optional] <p>The type of statistics to fetch. Valid values are {reset, malloc, maps, cachedump, slabs, items, sizes}. According to the memcached protocol spec these additional arguments "are subject to change for the convenience of memcache developers".</p>
+     * @param int $slabid [optional] <p>
+     * Used in conjunction with <b>type</b> set to
+     * cachedump to identify the slab to dump from. The cachedump
+     * command ties up the server and is strictly to be used for
+     * debugging purposes.
+     * </p>
+     * @return array|boolean
+     * Returns a two-dimensional associative array of server statistics or <b>FALSE</b>
+     * on failure.
+     */
+    public function getextendedstats ($type, $slabid, $limit = 100) {}
 
-	public function setcompressthreshold () {}
+    /**
+     * (PECL memcache &gt;= 2.0.0)<br/>
+     * Enable automatic compression of large values
+     * @link http://php.net/manual/en/memcache.setcompressthreshold.php
+     * @param int $thresold <p>Controls the minimum value length before attempting to compress automatically.</p>
+     * @param float $min_saving [optional] <p>Specifies the minimum amount of savings to actually store the value compressed. The supplied value must be between 0 and 1. Default value is 0.2 giving a minimum 20% compression savings.</p>
+     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function setcompressthreshold ($thresold, $min_saving) {}
+    /**
+     * (PECL memcache &gt;= 0.2.0)<br/>
+     * Increment item's value
+     * @link http://php.net/manual/en/memcache.increment.php
+     * @param $key string Key of the item to increment.
+     * @param $value int [optional] increment the item by <b>value</b>
+     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function increment ($key, $value = 1) {}
 
-	public function increment () {}
+    /**
+     * (PECL memcache &gt;= 0.2.0)<br/>
+     * Decrement item's value
+     * @link http://php.net/manual/en/memcache.decrement.php
+     * @param $key string Key of the item do decrement.
+     * @param $value int Decrement the item by <b>value</b>.
+     * @return int Returns item's new value on success or <b>FALSE</b> on failure.
+     */
+    public function decrement ($key, $value = 1) {}
 
-	public function decrement () {}
+    /**
+     * (PECL memcache &gt;= 0.4.0)<br/>
+     * Close memcached server connection
+     * @link http://php.net/manual/en/memcache.close.php
+     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function close () {}
 
-	public function close () {}
-
-	public function flush () {}
+    /**
+     * (PECL memcache &gt;= 1.0.0)<br/>
+     * Flush all existing items at the server
+     * @link http://php.net/manual/en/memcache.flush.php
+     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function flush () {}
 
 }
 
