@@ -643,6 +643,22 @@ function gmp_hamdist ($a, $b) {}
  */
 function gmp_nextprime ($a) {}
 
+/**
+ * (PHP 5 &gt;= 5.6.0)<br/>
+ * @param $a
+ * @param $nth
+ * @return double
+ */
+function gmp_root($a, $nth){}
+
+/**
+ * (PHP 5 &gt;= 5.6.0)<br/>
+ * @param $a
+ * @param $nth
+ * @return double
+ */
+function gmp_rootrem($a, $nth){}
+
 define ('GMP_ROUND_ZERO', 0);
 define ('GMP_ROUND_PLUSINF', 1);
 define ('GMP_ROUND_MINUSINF', 2);

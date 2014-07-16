@@ -937,6 +937,18 @@ function ldap_control_paged_result ($link, $pagesize, $iscritical = false, $cook
  */
 function ldap_control_paged_result_response ($link, $result, &$cookie = null, &$estimated = null) {}
 
+/**
+ * (PHP 5 &gt;= 5.6.0)<br/>
+ * @param $subject
+ * @param $ignore [optional]
+ * @param $escape [optional] LDAP_ESCAPE_FILTER|LDAP_ESCAPE_DN or null
+ * @return string
+ */
+
+function ldap_escape($subject, $ignore = null, $escape = null) {}
+
+define('LDAP_ESCAPE_FILTER', 1);
+define ('LDAP_ESCAPE_DN', 2);
 define ('LDAP_DEREF_NEVER', 0);
 define ('LDAP_DEREF_SEARCHING', 1);
 define ('LDAP_DEREF_FINDING', 2);

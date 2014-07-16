@@ -560,6 +560,13 @@ class ZipArchive  {
 	 */
 	public function setCommentName ($name, $comment) {}
 
+    /**
+     * (PHP 5 &gt;= 5.6.0, PECL zip &gt;= 1.12.0)<br/>
+     * @param $password
+     * @return boolean
+     */
+    public function setPassword($password) {}
+
 	/**
 	 * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.4.0)<br/>
 	 * Returns the comment of an entry using the entry index
