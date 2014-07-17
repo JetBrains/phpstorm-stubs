@@ -906,7 +906,7 @@ class PharData extends Phar {
 	 * available within the <b>Phar</b> class.
 	 * </p>
 	 */
-	public function __construct ($fname, $flags = null, $alias = null, $format = 'Phar::TAR') {}
+	public function __construct ($fname, $flags = null, $alias = null, $format = Phar::TAR) {}
 
 	public function offsetExists ($entry) {}
 
