@@ -615,7 +615,7 @@ function user_error ($message, $error_type) {}
  * was a class method, this function will return an indexed array with the class
  * and the method name.
  */
-function set_error_handler ($error_handler, $error_types = 'E_ALL | E_STRICT') {}
+function set_error_handler ($error_handler, $error_types = E_ALL | E_STRICT) {}
 
 /**
  * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
