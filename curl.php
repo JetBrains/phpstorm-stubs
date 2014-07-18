@@ -421,6 +421,19 @@ function curl_version ($age = null) {}
  * </td>
  * </tr>
  * <tr valign="top">
+ * <td>CURLOPT_SAFE_UPLOAD</td>
+ * <td>
+ * TRUE to disable support for the <em>@</em> prefix for
+ * uploading files in <b>CURLOPT_POSTFIELDS</b>, which
+ * means that values starting with <em>@</em> can be safely
+ * passed as fields. {@link http://php.net/manual/en/class.curlfile.php CURLFile} may be used for
+ * uploads instead.
+ * </td>
+ * <td>
+ * Added in PHP 5.5.0. Currenly -1 by default, but this is likely
+ * to be changed in a future version of PHP.
+ * </td>
+ * </tr>
  * <td>CURLOPT_SSL_VERIFYPEER</td>
  * <td>
  * false to stop cURL from verifying the peer's

@@ -118,7 +118,7 @@ function mcrypt_get_cipher_name ($cipher) {}
  * </p>
  * @return string the initialization vector, or false on error.
  */
-function mcrypt_create_iv ($size, $source = null) {}
+function mcrypt_create_iv ($size, $source = MCRYPT_DEV_URANDOM) {}
 
 /**
  * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
