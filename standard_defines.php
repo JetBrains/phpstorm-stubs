@@ -414,14 +414,6 @@ define ('STREAM_CLIENT_ASYNC_CONNECT', 2);
  * @link http://php.net/manual/en/stream.constants.php
  */
 define ('STREAM_CLIENT_CONNECT', 4);
-define ('STREAM_CRYPTO_METHOD_SSLv2_CLIENT', 0);
-define ('STREAM_CRYPTO_METHOD_SSLv3_CLIENT', 1);
-define ('STREAM_CRYPTO_METHOD_SSLv23_CLIENT', 2);
-define ('STREAM_CRYPTO_METHOD_TLS_CLIENT', 3);
-define ('STREAM_CRYPTO_METHOD_SSLv2_SERVER', 4);
-define ('STREAM_CRYPTO_METHOD_SSLv3_SERVER', 5);
-define ('STREAM_CRYPTO_METHOD_SSLv23_SERVER', 6);
-define ('STREAM_CRYPTO_METHOD_TLS_SERVER', 7);
 
 /**
  * Used with stream_socket_shutdown to disable
