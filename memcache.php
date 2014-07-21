@@ -4,7 +4,30 @@
 
 class MemcachePool  {
 
-	public function connect () {}
+    /**
+     * (PECL memcache &gt;= 0.2.0)<br/>
+     * Open memcached server connection
+     * @link http://php.net/manual/en/memcache.connect.php
+     * @param string $host <p>
+     * Point to the host where memcached is listening for connections. This parameter
+     * may also specify other transports like <em>unix:///path/to/memcached.sock</em>
+     * to use UNIX domain sockets, in this case <b>port</b> must also
+     * be set to <em>0</em>.
+     * </p>
+     * @param int $port [optional] <p>
+     * Point to the port where memcached is listening for connections. Set this
+     * parameter to <em>0</em> when using UNIX domain sockets.
+     * </p>
+     * <p>
+     * Please note: <b>port</b> defaults to
+     * {@link http://php.net/manual/ru/memcache.ini.php#ini.memcache.default-port memcache.default_port}
+     * if not specified. For this reason it is wise to specify the port
+     * explicitly in this method call.
+     * </p>
+     * @param int $timeout [optional] <p>Value in seconds which will be used for connecting to the daemon. Think twice before changing the default value of 1 second - you can lose all the advantages of caching if your connection is too slow.</p>
+     * @return boolean <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
+     */
+    public function connect ($host, $port, $timeout) {}
 
     /**
      * (PECL memcache &gt;= 2.0.0)<br/>
@@ -71,7 +94,7 @@ class MemcachePool  {
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function addserver ($host, $port = 11211, $persistent = null, $weight = null, $timeout = null, $retry_interval = null, $status = null, callable $failure_callback = null, $timeoutms = null) {}
+    public function addserver ($host, $port = 11211, $persistent = true, $weight = null, $timeout = 1, $retry_interval = 15, $status = null, callable $failure_callback = null, $timeoutms = null) {}
 
     /**
      * (PECL memcache &gt;= 2.1.0)<br/>
@@ -87,7 +110,7 @@ class MemcachePool  {
      * @param int $retry_interval [optional] <p>
      * Controls how often a failed server will be retried, the default value
      * is 15 seconds. Setting this parameter to -1 disables automatic retry.
-     * Neither this nor the <code class="parameter">persistent</code> parameter has any
+     * Neither this nor the <b>persistent</b> parameter has any
      * effect when the extension is loaded dynamically via {@link http://www.php.net/manual/en/function.dl.php dl()}.
      * </p>
      * @param bool $status [optional] <p>
@@ -102,6 +125,7 @@ class MemcachePool  {
      * Allows the user to specify a callback function to run upon encountering an error. The callback is run before failover is attempted.
      * The function takes two parameters, the hostname and port of the failed server.
      * </p>
+     * @return boolean <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
      */
     public function setServerParams ($host, $port = 11211, $timeout, $retry_interval = false, $status, callable $failure_callback) {}
 
@@ -199,7 +223,7 @@ class MemcachePool  {
      * The lowest byte of the int is reserved for pecl/memcache internal usage (e.g. to indicate
      * compression and serialization status).
      * </p>
-     * @return <p>
+     * @return string|array <p>
      * Returns the string associated with the <b>key</b> or
      * an array of found key-value pairs when <b>key</b> is an {@link http://php.net/manual/en/language.types.array.php array}.
      * Returns <b>FALSE</b> on failure, <b>key</b> is not found or
@@ -264,7 +288,7 @@ class MemcachePool  {
      * @param float $min_saving [optional] <p>Specifies the minimum amount of savings to actually store the value compressed. The supplied value must be between 0 and 1. Default value is 0.2 giving a minimum 20% compression savings.</p>
      * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function setcompressthreshold ($thresold, $min_saving) {}
+    public function setCompressThreshold ($thresold, $min_saving = 0.2) {}
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Increment item's value
@@ -331,7 +355,7 @@ class Memcache extends MemcachePool  {
 	 * </p>
 	 * @return mixed a Memcache object or <b>FALSE</b> on failure.
 	 */
-	public function pconnect ($host, $port = null, $timeout = null) {}
+	public function pconnect ($host, $port, $timeout = 1) {}
 }
 
 function memcache_connect () {}
