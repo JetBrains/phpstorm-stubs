@@ -39,7 +39,7 @@ function gmp_intval ($gmpnumber) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Convert GMP number to string
  * @link http://php.net/manual/en/function.gmp-strval.php
- * @param resource $gmpnumber <p>
+ * @param resource|string $gmpnumber <p>
  * The GMP number that will be converted to a string.
  * </p>
  * It can be either a GMP number resource, or a
@@ -178,16 +178,15 @@ function gmp_div_q ($a, $b, $round = GMP_ROUND_ZERO) {}
 function gmp_div_r ($n, $d, $round = GMP_ROUND_ZERO) {}
 
 /**
- * Alias of <b>gmp_div_q</b>
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Divide numbers
  * @link http://php.net/manual/en/function.gmp-div-q.php
- * @param resource|string $a <p>
+ * @param resource|string|GMP $a <p>
  * The number being divided.
  * </p>
  * It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
- * @param resource|string $b <p>
+ * @param resource|string|GMP $b <p>
  * The number that <i>a</i> is being divided by.
  * </p>
  * It can be either a GMP number resource, or a
@@ -200,7 +199,7 @@ function gmp_div_r ($n, $d, $round = GMP_ROUND_ZERO) {}
  * towards 0.
  * @return resource A GMP number resource.
  */
-function gmp_div ($a, $b, $round) {}
+function gmp_div ($a, $b, $round = GMP_ROUND_ZERO) {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
@@ -221,12 +220,12 @@ function gmp_mod ($n, $d) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Exact division of numbers
  * @link http://php.net/manual/en/function.gmp-divexact.php
- * @param resource|string $n <p>
+ * @param resource|string|GMP $n <p>
  * The number being divided.
  * </p>
  * It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
- * @param resource $d|string <p>
+ * @param resource|string|GMP $d <p>
  * The number that <i>a</i> is being divided by.
  * </p>
  * It can be either a GMP number resource, or a
@@ -469,7 +468,7 @@ function gmp_sign ($a) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Random number
  * @link http://php.net/manual/en/function.gmp-random.php
- * @param resource|string $limiter [optional] <p>
+ * @param int $limiter [optional] <p>
  * The limiter.
  * </p>
  * It can be either a GMP number resource, or a
@@ -529,32 +528,32 @@ function gmp_xor ($a, $b) {}
  * Set bit
  * @link http://php.net/manual/en/function.gmp-setbit.php
  * @param resource|string $a <p>
- * The value to modify.
+ * The number being set to.
  * </p>
  * It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
  * @param int $index <p>
- * The index of the bit to set. Index 0 represents the least significant bit.
+ * The set bit.
  * </p>
- * @param bool $bit_on [optional] <p>
- * True to set the bit (set it to 1/on); false to clear the bit (set it to 0/off).
+ * @param bool $set_clear [optional] <p>
+ * Defines if the bit is set to 0 or 1. By default the bit is set to
+ * 1. Index starts at 0.
  * </p>
  * @return void A GMP number resource.
  */
-function gmp_setbit (&$a, $index, $bit_on = true) {}
+function gmp_setbit (&$a, $index, $set_clear = true) {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Clear bit
  * @link http://php.net/manual/en/function.gmp-clrbit.php
- * @param resource|string $a It can be either a GMP number resource, or a
+ * @param resource|string|GMP $a It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
- * @param int $index <p>
- * The index of the bit to clear. Index 0 represents the least significant bit.
- * </p>
+ * @param int $index It can be either a GMP number resource, or a
+ * numeric string given that it is possible to convert the latter to a number.</p>
  * @return void A GMP number resource.
  */
-function gmp_clrbit ($a, $index) {}
+function gmp_clrbit (&$a, $index) {}
 
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
@@ -594,13 +593,12 @@ function gmp_scan1 ($a, $start) {}
  * (PHP 5 &gt;= 5.3.0)<br/>
  * Tests if a bit is set
  * @link http://php.net/manual/en/function.gmp-testbit.php
- * @param resource|string $a It can be either a GMP number resource, or a
+ * @param resource|string|GMP $a It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
  * @param int $index <p>
  * The bit to test
  * </p>
- * @return bool <b>TRUE</b> if the bit is set in resource <i>$a</i>,
- * otherwise <b>FALSE</b>.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function gmp_testbit ($a, $index) {}
 
@@ -618,12 +616,12 @@ function gmp_popcount ($a) {}
  * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
  * Hamming distance
  * @link http://php.net/manual/en/function.gmp-hamdist.php
- * @param resource|string $a It can be either a GMP number resource, or a
+ * @param resource|string|GMP $a It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
  * <p>
  * It should be positive.
  * </p>
- * @param resource|string $b It can be either a GMP number resource, or a
+ * @param resource|string|GMP $b It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
  * <p>
  * It should be positive.
@@ -643,22 +641,6 @@ function gmp_hamdist ($a, $b) {}
  */
 function gmp_nextprime ($a) {}
 
-/**
- * (PHP 5 &gt;= 5.6.0)<br/>
- * @param $a
- * @param $nth
- * @return double
- */
-function gmp_root($a, $nth){}
-
-/**
- * (PHP 5 &gt;= 5.6.0)<br/>
- * @param $a
- * @param $nth
- * @return double
- */
-function gmp_rootrem($a, $nth){}
-
 define ('GMP_ROUND_ZERO', 0);
 define ('GMP_ROUND_PLUSINF', 1);
 define ('GMP_ROUND_MINUSINF', 2);
@@ -667,7 +649,28 @@ define ('GMP_ROUND_MINUSINF', 2);
  * The GMP library version
  * @link http://php.net/manual/en/gmp.constants.php
  */
-define ('GMP_VERSION', "5.1.2");
+define ('GMP_VERSION', "");
 
+class GMP implements Serializable {
+
+    /**
+     * (PHP 5 &gt;= 5.1.0)<br/>
+     * String representation of object
+     * @link http://php.net/manual/en/serializable.serialize.php
+     * @return string the string representation of the object or null
+     */
+    public function serialize() {}
+
+    /**
+     * (PHP 5 &gt;= 5.1.0)<br/>
+     * Constructs the object
+     * @link http://php.net/manual/en/serializable.unserialize.php
+     * @param string $serialized <p>
+     * The string representation of the object.
+     * </p>
+     * @return void
+     */
+    public function unserialize($serialized) {}
+}
 // End of gmp v.
 ?>
