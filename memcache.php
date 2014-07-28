@@ -27,7 +27,7 @@ class MemcachePool  {
      * @param int $timeout [optional] <p>Value in seconds which will be used for connecting to the daemon. Think twice before changing the default value of 1 second - you can lose all the advantages of caching if your connection is too slow.</p>
      * @return boolean <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
      */
-    public function connect ($host, $port, $timeout) {}
+    public function connect ($host, $port, $timeout = 1) {}
 
     /**
      * (PECL memcache &gt;= 2.0.0)<br/>
@@ -94,7 +94,7 @@ class MemcachePool  {
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function addserver ($host, $port = 11211, $persistent = true, $weight = null, $timeout = 1, $retry_interval = 15, $status = null, callable $failure_callback = null, $timeoutms = null) {}
+    public function addserver ($host, $port = 11211, $persistent = true, $weight = null, $timeout = 1, $retry_interval = 15, $status = null, callable $failure_callback = null, $timeoutms) {}
 
     /**
      * (PECL memcache &gt;= 2.1.0)<br/>
@@ -127,7 +127,7 @@ class MemcachePool  {
      * </p>
      * @return boolean <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
      */
-    public function setServerParams ($host, $port = 11211, $timeout, $retry_interval = false, $status, callable $failure_callback) {}
+    public function setServerParams ($host, $port = 11211, $timeout = 1, $retry_interval = false, $status = true, callable $failure_callback) {}
 
     /**
      *
@@ -217,7 +217,7 @@ class MemcachePool  {
      * @param string|array $key <p>
      * The key or array of keys to fetch.
      * </p>
-     * @param int|array $flags <p>
+     * @param int|array $flags [optional] <p>
      * If present, flags fetched along with the values will be written to this parameter. These
      * flags are the same as the ones given to for example {@link http://php.net/manual/en/memcache.set.php Memcache::set()}.
      * The lowest byte of the int is reserved for pecl/memcache internal usage (e.g. to indicate
