@@ -31,14 +31,16 @@
  */
 class Redis
 {
-    const AFTER                 = '';
-    const BEFORE                = '';
+    const AFTER                 = 'after';
+    const BEFORE                = 'before';
 
     /**
      * Options
      */
     const OPT_SERIALIZER        = 1;
     const OPT_PREFIX            = 2;
+    const OPT_READ_TIMEOUT = 3;
+    const OPT_SCAN = 4;
 
     /**
      * Serializers
@@ -50,8 +52,9 @@ class Redis
     /**
      * Multi
      */
-    const MULTI                 = '';
-    const PIPELINE              = '';
+    const ATOMIC = 0;
+    const MULTI = 1;
+    const PIPELINE = 2;
 
     /**
      * Type
@@ -65,6 +68,12 @@ class Redis
 
 
     /**
+     * Scan
+     */
+     const SCAN_NORETRY = 0;
+     const SCAN_RETRY = 1;
+
+     /**
      * Creates a Redis client
      *
      * @example $redis = new Redis();
@@ -78,7 +87,6 @@ class Redis
      * @param int       $port       optional
      * @param float     $timeout    value in seconds (optional, default is 0.0 meaning unlimited)
      * @return bool                 TRUE on success, FALSE on error.
-     * @example
      * <pre>
      * $redis->connect('127.0.0.1', 6379);
      * $redis->connect('127.0.0.1');            // port 6379 by default
@@ -87,6 +95,123 @@ class Redis
      * </pre>
      */
     public function connect( $host, $port = 6379, $timeout = 0.0 ) {}
+
+    /**
+     * Set the string value in argument as value of the key, with a time to live.
+     *
+     * @param   string $key
+     * @param   int $ttl in milliseconds
+     * @param   string $value
+     * @return  bool:   TRUE if the command is successful.
+     * @link    http://redis.io/commands/setex
+     * $redis->psetex('key', 100, 'value'); // sets key → value, with 0.1 sec TTL.
+     */
+    public function psetex($key, $ttl, $value) {}
+
+    /**
+     * Scan a set for members.
+     *
+     * @see scan()
+     * @param   string $key
+     * @param   int $iterator
+     * @param   string $pattern
+     * @param   int $count
+     * @return  array|bool
+     */
+    public function sScan($key, $iterator, $pattern = '', $count = 0) {}
+
+    /**
+     * Scan the keyspace for keys.
+     *
+     * @param   int $iterator
+     * @param   string $pattern
+     * @param   int $count How many keys to return in a go (only a sugestion to Redis)
+     * @return  array|bool   an array of keys or FALSE if there are no more keys
+     * @link    http://redis.io/commands/scan
+     * <pre>
+     * $it = NULL; // Initialize our iterator to NULL
+     * $redis->setOption(Redis::OPT_SCAN, Redis::SCAN_RETRY); // retry when we get no keys back
+     * while($arr_keys = $redis->scan($it)) {
+     *   foreach($arr_keys as $str_key) {
+     *     echo "Here is a key: $str_key\n";
+     *   }
+     *   echo "No more keys to scan!\n";
+     * }
+     * </pre>
+     */
+    public function scan($iterator, $pattern = '', $count = 0) {}
+
+    /**
+     * Scan a sorted set for members, with optional pattern and count.
+     *
+     * @see scan()
+     * @param   string  $key
+     * @param   int $iterator
+     * @param   string  $pattern
+     * @param   int $count
+     * @return  array|bool
+     */
+    public function zScan($key, $iterator, $pattern = '', $count = 0) {}
+
+    /**
+     * Scan a HASH value for members, with an optional pattern and count.
+     *
+     * @see scan()
+     * @param   string $key
+     * @param   int $iterator
+     * @param   string $pattern
+     * @param   int $count
+     * @return  array
+     */
+    public function hScan($key, $iterator, $pattern = '', $count = 0) {}
+
+
+
+    /**
+     * Issue the CLIENT command with various arguments.
+     * @param   string $command list | getname | setname | kill
+     * @param   string $arg
+     * @return  mixed
+     * @link    http://redis.io/commands/client-list
+     * @link    http://redis.io/commands/client-getname
+     * @link    http://redis.io/commands/client-setname
+     * @link    http://redis.io/commands/client-kill
+     * <pre>
+     * $redis->client('list');
+     * $redis->client('getname');
+     * $redis->client('setname', 'somename');
+     * $redis->client('kill', <ip:port>);
+     * </pre>
+     *
+     *
+     * CLIENT LIST will return an array of arrays with client information.
+     * CLIENT GETNAME will return the client name or false if none has been set
+     * CLIENT SETNAME will return true if it can be set and false if not
+     * CLIENT KILL will return true if the client can be killed, and false if not
+     */
+    public function client($command, $arg = '') {}
+
+    /**
+     * Access the Redis slow log.
+     *
+     * @param   string $command get | len | reset
+     * @return  mixed
+     * @link    http://redis.io/commands/slowlog
+     * <pre>
+     * // Get ten slowlog entries
+     * $redis->slowlog('get', 10);
+     *
+     * // Get the default number of slowlog entries
+     * $redis->slowlog('get');
+     *
+     * // Reset our slowlog
+     * $redis->slowlog('reset');
+     *
+     * // Retrieve slowlog length
+     * $redis->slowlog('len');
+     * </pre>
+     */
+    public function slowlog($command) {}
 
     /**
      * @see connect()
@@ -112,8 +237,7 @@ class Redis
      * @param string    $host       can be a host, or the path to a unix domain socket
      * @param int       $port       optional
      * @param float     $timeout    value in seconds (optional, default is 0 meaning unlimited)
-     * @return bool                 TRUE on success, FALSE on error.
-     * @example
+     * @return bool                 TRUE on success, FALSE on ertcnror.
      * <pre>
      * $redis->connect('127.0.0.1', 6379);
      * $redis->connect('127.0.0.1');            // port 6379 by default
@@ -187,12 +311,12 @@ class Redis
      *
      * @param   string  $key
      * @param   string  $value
-     * @param   float   $timeout    Calling setex() is preferred if you want a timeout.
+     * @param   int   $timeout [optional] Calling setex() is preferred if you want a timeout.
      * @return  bool:   TRUE if the command is successful.
      * @link    http://redis.io/commands/set
      * @example $redis->set('key', 'value');
      */
-    public function set( $key, $value, $timeout = 0.0 ) {}
+    public function set( $key, $value, $timeout = 0 ) {}
 
     /**
      * Set the string value in argument as value of the key, with a time to live.
@@ -2923,7 +3047,6 @@ class Redis
      * @return  array If successfull, the time will come back as an associative array with element zero being the
      * unix timestamp, and element one being microseconds.
      * @link    http://redis.io/commands/time
-     * @example
      * <pre>
      * var_dump( $redis->time() );
      * // array(2) {
