@@ -973,6 +973,7 @@ function date_modify ($object, $modify) {}
  * @link http://php.net/manual/en/function.date-add.php
  * @param $object
  * @param $interval
+ * @return DateTime
  */
 function date_add ($object, $interval) {}
 
