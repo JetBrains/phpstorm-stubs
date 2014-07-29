@@ -31,9 +31,9 @@ function strtotime ($time, $now = null) {}
  * contains the format string 'D, d M Y H:i:s'.
  * </p>
  * <p>
- * <table>
  * The following characters are recognized in the
  * format parameter string
+ * <table>
  * <tr valign="top">
  * <td>format character</td>
  * <td>Description</td>
@@ -280,7 +280,9 @@ function strtotime ($time, $now = null) {}
  * date_format function with user based timestamps
  * created with date_create.
  * </p>
- * @param int $timestamp [optional] 
+ * @param int $timestamp [optional] The optional timestamp parameter is an integer Unix timestamp
+ * that defaults to the current local time if a timestamp is not given.
+ * In other words, it defaults to the value of time().
  * @return string|bool a formatted date string. If a non-numeric value is used for
  * timestamp, false is returned and an 
  * E_WARNING level error is emitted.
