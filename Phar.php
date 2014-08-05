@@ -46,6 +46,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * Alias with which this Phar archive should be referred to in calls to stream
 	 * functionality.
 	 * </p>
+     * @throws BadMethodCallException If called twice.
+     * @throws UnexpectedValueException If the phar archive can't be opened.
 	 */
 	public function __construct ($fname, $flags = null, $alias = null) {}
 
