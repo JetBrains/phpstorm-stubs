@@ -94,7 +94,7 @@ class MemcachePool  {
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function addserver ($host, $port = 11211, $persistent = true, $weight = null, $timeout = 1, $retry_interval = 15, $status = null, callable $failure_callback = null, $timeoutms) {}
+    public function addserver ($host, $port = 11211, $persistent = true, $weight = null, $timeout = 1, $retry_interval = 15, $status = true, callable $failure_callback = null, $timeoutms) {}
 
     /**
      * (PECL memcache &gt;= 2.1.0)<br/>
@@ -127,7 +127,7 @@ class MemcachePool  {
      * </p>
      * @return boolean <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
      */
-    public function setServerParams ($host, $port = 11211, $timeout = 1, $retry_interval = false, $status = true, callable $failure_callback) {}
+    public function setServerParams ($host, $port = 11211, $timeout = 1, $retry_interval = 15, $status = true, callable $failure_callback) {}
 
     /**
      *
