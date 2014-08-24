@@ -1322,13 +1322,10 @@ class mysqli_stmt  {
 	 * (PHP 5)<br/>
 	 * Binds variables to a prepared statement for result storage
 	 * @link http://php.net/manual/en/mysqli-stmt.bind-result.php
-	 * @param mixed $var1 <p>
-	 * The variable to be bound.
-	 * </p>
-	 * @param mixed $_ [optional]
+	 * @param mixed ...$_ The variables to be bound.
 	 * @return bool true on success or false on failure.
 	 */
-	public function bind_result (&$var1, &$_ = null) {}
+	public function bind_result (&...$_) {}
 
 	/**
 	 * (PHP 5)<br/>
