@@ -1322,10 +1322,11 @@ class mysqli_stmt  {
 	 * (PHP 5)<br/>
 	 * Binds variables to a prepared statement for result storage
 	 * @link http://php.net/manual/en/mysqli-stmt.bind-result.php
+	 * @param mixed $var1 The variable to be bound.
 	 * @param mixed ...$_ The variables to be bound.
 	 * @return bool true on success or false on failure.
 	 */
-	public function bind_result (&...$_) {}
+	public function bind_result (&$var1, &...$_) {}
 
 	/**
 	 * (PHP 5)<br/>
@@ -2246,11 +2247,12 @@ function mysqli_stmt_bind_param ($stmt, $types, &$var1) {}
 /**
  * Binds variables to a prepared statement for result storage
  * @link http://php.net/manual/en/mysqli-stmt.bind-result.php
- * @param mysqli_stmt $stmt
- * @param mixed $var1
+ * @param mysqli_stmt $stmt Statement
+ * @param mixed $var1 The variable to be bound.
+ * @param mixed ...$_ The variables to be bound.
  * @return bool
  */
-function mysqli_stmt_bind_result ($stmt, &$var1) {}
+function mysqli_stmt_bind_result ($stmt, &$var1, &...$_) {}
 
 /**
  * Fetch results from a prepared statement into the bound variables
