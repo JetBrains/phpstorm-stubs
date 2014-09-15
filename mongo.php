@@ -31,42 +31,119 @@ class MongoClient
 
     /* Methods */
     /**
-     * Constructor
-     * @param string $server
-     * @param array $options
+     * Creates a new database connection object
+     * @link http://php.net/manual/en/mongo.construct.php
+     * @param string $server [optional] The server name.
+     * @param array $options [optional] An array of options for the connection. Currently
+     *        available options include: "connect" If the constructor should connect before
+     *        returning. Default is true. "timeout" For how long the driver should try to
+     *        connect to the database (in milliseconds). "replicaSet" The name of the replica
+     *        set to connect to. If this is given, the master will be determined by using the
+     *        ismaster database command on the seeds, so the driver may end up connecting to a
+     *        server that was not even listed. See the replica set example below for details.
+     *        "username" The username can be specified here, instead of including it in the
+     *        host list. This is especially useful if a username has a ":" in it. This
+     *        overrides a username set in the host list. "password" The password can be
+     *        specified here, instead of including it in the host list. This is especially
+     *        useful if a password has a "@" in it. This overrides a password set in the host
+     *        list. "db" The database to authenticate against can be specified here, instead
+     *        of including it in the host list. This overrides a database given in the host
+     *        list  "fsync" When "fsync" is set, all write operations will block until the database has flushed the changes to disk. This makes the write operations slower, but it guarantees that writes have succeeded and that the operations can be recovered in case of total system failure.
+     *        If the MongoDB server has journaling enabled, this option is identical to "journal". If journaling is not enabled, this option ensures that write operations will be synced to database files on disk.
+     *        "journal"
+     *        When "journal" is set, all write operations will block until the database has flushed the changes to the journal on disk. This makes the write operations slower, but it guarantees that writes have succeeded and that the operations can be recovered in case of total system failure.
+     *        Note: If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.
+     *        "gssapiServiceName"
+     *        Sets the » Kerberos service principal. Only applicable when authMechanism=GSSAPI. Defaults to "mongodb".
+     *        "password"
+     *        The password can be specified here, instead of including it in the host list. This is especially useful if a password has a "@" in it. This overrides a password set in the host list.
+     *        "readPreference"
+     *        Specifies the read preference type. Read preferences provide you with control from which secondaries data can be read from.
+     *        Allowed values are: MongoClient::RP_PRIMARY, MongoClient::RP_PRIMARY_PREFERRED, MongoClient::RP_SECONDARY, MongoClient::RP_SECONDARY_PREFERRED and MongoClient::RP_NEAREST.
+     *        See the documentation on read preferences for more information.
+     *        "readPreferenceTags"
+     *        Specifies the read preference tags as an array of strings. Tags can be used in combination with the readPreference option to further control which secondaries data might be read from.
+     *        See the documentation on read preferences for more information.
+     *        "replicaSet"
+     *        The name of the replica set to connect to. If this is given, the primary will be automatically be determined. This means that the driver may end up connecting to a server that was not even listed. See the replica set example below for details.
+     *        "secondaryAcceptableLatencyMS"
+     *        When reading from a secondary (using ReadPreferences), do not read from secondaries known to be more then secondaryAcceptableLatencyMS away from us. Defaults to 15
+     *        "socketTimeoutMS"
+     *        How long a socket operation (read or write) can take before timing out in milliseconds. Defaults to 30000 (30 seconds).
+     *        If -1 is specified, socket operations may block indefinitely. This option may also be set on a per-operation basis using MongoCursor::timeout() for queries or the "socketTimeoutMS" option for write methods.
+     *        Note: This is a client-side timeout. If a write operation times out, there is no way to know if the server actually handled the write or not, as a MongoCursorTimeoutException will be thrown in lieu of returning a write result.
+     *        "ssl"
+     *        A boolean to specify whether you want to enable SSL for the connections to MongoDB. Extra options such as certificates can be set with SSL context options.
+     *        "username"
+     *        The username can be specified here, instead of including it in the host list. This is especially useful if a username has a ":" in it. This overrides a username set in the host list.
+     *        "w"
+     *        The w option specifies the Write Concern for the driver, which determines how long the driver blocks when writing. The default value is 1.
+     *        This option is applicable when connecting to both single servers and replica sets. A positive value controls how many nodes must acknowledge the write instruction before the driver continues. A value of 1 would require the single server or primary (in a replica set) to acknowledge the write operation. A value of 3 would cause the driver to block until the write has been applied to the primary as well as two secondary servers (in a replica set).
+     *        A string value is used to control which tag sets are taken into account for write concerns. "majority" is special and ensures that the write operation has been applied to the majority (more than 50%) of the participating nodes.
+     *        "wTimeoutMS" This option specifies the time limit, in milliseconds, for write concern acknowledgement. It is only applicable for write operations where "w" is greater than 1, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a MongoCursorException will be thrown. A value of 0 may be specified to block indefinitely. The default value is 10000 (ten seconds).
+     * @param array $driver_options [optional] <p>
+     *         An array of options for the MongoDB driver. Options include setting
+     *         connection {@link http://php.net/manual/en/mongo.connecting.ssl.php#mongo.connecting.context.ssl context options for SSL}
+     *         or {@link http://php.net/manual/en/context.mongodb.php logging callbacks}.
+     *         </p><ul>
+     *         <li>
+     *         <p>
+     *         <em>"context"</em>
+     *         </p>
+     *         <p>
+     *         The Stream Context to attach to all new connections. This allows you
+     *         for example to configure SSL certificates and are described at
+     *         {@link http://php.net/manual/en/context.ssl.php SSL context options}. See the
+     *         {@link http://php.net/manual/en/mongo.connecting.ssl.php#mongo.connecting.context.ssl Connecting over SSL} tutorial.
+     *         </p>
+     *         </li>
+     *         </ul>
+     * @return MongoClient
+     * Returns a new database connection object*
+     * @throws MongoConnectionException
      */
-    public function __construct ($server = "mongodb://localhost:27017", $options = array("connect" => TRUE))
-    {}
+    public function __construct($server = "mongodb://localhost:27017", array $options = array("connect" => TRUE), $driver_options) {}
 
     /**
-     * Close
-     * Forcefully closes a connection to the database, even if persistent connections are being used. You should never
-     * have to do this under normal circumstances.
-     * @param bool|string $connection
-     * @return bool
+     * (PECL mongo &gt;= 1.3.0)<br/>
+     * Closes this database connection
+     * This method does not need to be called, except in unusual circumstances.
+     * The driver will cleanly close the database connection when the Mongo object goes out of scope.
+     * @link http://www.php.net/manual/en/mongoclient.close.php
+     * @param  boolean|string $connection [optional] <p>
+     * If connection is not given, or <b>FALSE</b> then connection that would be selected for writes would be closed. In a single-node configuration, that is then the whole connection, but if you are connected to a replica set, close() will only close the connection to the primary server.
+     * If connection is <b>TRUE</b> then all connections as known by the connection manager will be closed. This can include connections that are not referenced in the connection string used to create the object that you are calling close on.
+     * If connection is a string argument, then it will only close the connection identified by this hash. Hashes are identifiers for a connection and can be obtained by calling {@see MongoClient::getConnections()}.
+     * </p>
+     * @return boolean If the connection was successfully closed.
      */
-    public function close ($connection)
-    {}
+    public function close($connection) {}
+    /**
+     * Connects to a database server
+     *
+     * @link http://www.php.net/manual/en/mongoclient.connect.php
+     *
+     * @throws MongoConnectionException
+     * @return boolean If the connection was successful.
+     */
+    public function connect() {}
 
     /**
-     * Connect
-     * @return bool
+     * @deprecated Use MongoDB::drop() instead.
+     * Drops a database
+     *
+     * @link http://www.php.net/manual/en/mongoclient.dropdb.php
+     * @param mixed $db The database to drop. Can be a MongoDB object or the name of the database.
+     * @return array The database response.
      */
-    public function connect ()
-    {}
+    public function dropDB($db) {}
 
     /**
-     * Drop DB
-     * @param mixed $db
-     * @return array
-     */
-    public function dropDB ($db)
-    {}
-
-    /**
-     * Magic database getter
-     * @param string $dbname
-     * @return MongoDB
+     * (PECL mongo &gt;= 1.3.0)<br/>
+     * Gets a database
+     * @link http://php.net/manual/en/mongoclient.get.php
+     * @param string $dbname The database name.
+     * @return MongoDB The database name.
      */
     public function __get ($dbname)
     {}
@@ -98,6 +175,15 @@ class MongoClient
     public function getReadPreference ()
     {}
 
+    /**
+     * (PECL mongo &gt;= 1.5.0)<br/>
+     * Get the write concern for this connection
+     * @return array <p>This function returns an array describing the write concern.
+     * The array contains the values w for an integer acknowledgement level or string mode,
+     * and wtimeout denoting the maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
+     */
+    public function getWriteConcern () {}
+
 
     /**
      * Kills a specific cursor on the server
@@ -114,34 +200,40 @@ class MongoClient
      * bit platforms (and Windows).
      * </p>
      */
-public function killCursor ( $server_hash , $id) {}
+    public function killCursor ( $server_hash , $id) {}
 
     /**
-     * List databases
-     * @return array
+     * (PECL mongo &gt;= 1.3.0)<br/>
+     * Lists all of the databases available
+     * @link http://php.net/manual/en/mongoclient.listdbs.php
+     * @return array Returns an associative array containing three fields. The first field is databases, which in turn contains an array. Each element of the array is an associative array corresponding to a database, giving the database's name, size, and if it's empty. The other two fields are totalSize (in bytes) and ok, which is 1 if this method ran successfully.
      */
-    public function listDBs ()
-    {}
+    public function listDBs() {}
+
 
     /**
-     * Select collection
+     * (PECL mongo &gt;= 1.3.0)<br/>
      * Gets a database collection
-     * @param string $db The database name
-     * @param string $collection The collection name
-     * @return MongoCollection
+     * @link http://www.php.net/manual/en/mongoclient.selectcollection.php
+     * @param string $db The database name.
+     * @param string $collection The collection name.
+     * @throws Exception Throws Exception if the database or collection name is invalid.
+     * @return MongoCollection Returns a new collection object.
      */
-    public function selectCollection ($db, $collection)
-    {}
+    public function selectCollection($db, $collection) {}
 
     /**
-     * Select database
-     * @param string $name
-     * @return MongoDB
+     * (PECL mongo &gt;= 1.3.0)<br/>
+     * Gets a database
+     * @link http://www.php.net/manual/en/mongo.selectdb.php
+     * @param string $name The database name.
+     * @throws InvalidArgumentException
+     * @return MongoDB Returns a new db object.
      */
-    public function selectDB ($name)
-    {}
+    public function selectDB($name) {}
 
     /**
+     * (PECL mongo &gt;= 1.3.0)<br/>
      * Set read preference
      * @param string $readPreference
      * @param array $tags
@@ -151,11 +243,22 @@ public function killCursor ( $server_hash , $id) {}
     {}
 
     /**
-     * Magic to string method
-     * @return string
+     * (PECL mongo &gt;= 1.1.0)<br/>
+     * Choose a new secondary for slaveOkay reads
+     * @link www.php.net/manual/en/mongo.switchslave.php
+     * @return string The address of the secondary this connection is using for reads. This may be the same as the previous address as addresses are randomly chosen. It may return only one address if only one secondary (or only the primary) is available.
+     * For example, if we had a three member replica set with a primary, secondary, and arbiter this method would always return the address of the secondary. If the secondary became unavailable, this method would always return the address of the primary. If the primary also became unavailable, this method would throw an exception, as an arbiter cannot handle reads.
+     * @throws MongoException (error code 15) if it is called on a non-replica-set connection. It will also throw MongoExceptions if it cannot find anyone (primary or secondary) to read from (error code 16).
+     *
      */
-    public function __toString ()
-    {}
+    public function switchSlave()  {}
+
+    /**
+     * String representation of this connection
+     * @link http://www.php.net/manual/en/mongoclient.tostring.php
+     * @return string Returns hostname and port for this connection.
+     */
+    public function __toString() {}
 }
 
 /**
@@ -166,90 +269,35 @@ public function killCursor ( $server_hash , $id) {}
  * Relying on this feature is highly discouraged. Please use MongoClient instead.
  * @see MongoClient
  */
-class Mongo {
-	/**
-     * @link http://php.net/manual/en/class.mongo.php#mongo.constants.version
-	 * PHP driver version. May be suffixed with "+" or "-" if it is in-between versions.
-	 */
-    const VERSION = '1.0.4+';
-
-
-	/**
-	 * @link http://php.net/manual/en/class.mongo.php#mongo.constants.default-host
-     * Host to connect to if no host is given.
-	 */
-    const DEFAULT_HOST = 'localhost';
-
-	/**
-	 * @link http://php.net/manual/en/class.mongo.php#mongo.constants.default-port
-     * Port to connect to if no port is given.
-	 */
-    const DEFAULT_PORT = 27017;
-
-
+class Mongo extends MongoClient {
     /**
-     * @link http://php.net/manual/en/class.mongo.php#mongo.props.connected
-     * @var $connected boolean
+     * @deprecated This feature has been DEPRECATED as of version 1.2.3. Relying on this feature is highly discouraged. Please use MongoPool::getSize() instead.
+     * (PECL mongo &gt;= 1.2.0)<br/>
+     * Get pool size for connection pools
+     * @link http://php.net/manual/en/mongo.getpoolsize.php
+     * @return int Returns the current pool size.
      */
-    public $connected = false;
-
-
+    public function getPoolSize() {}
     /**
-     * @link http://php.net/manual/en/class.mongo.php#mongo.props.status
-     * @var $status
+     * (PECL mongo &gt;= 1.1.0)<br/>
+     * Returns the address being used by this for slaveOkay reads
+     * @link http://php.net/manual/en/mongo.getslave.php
+     * @return bool <p>The address of the secondary this connection is using for reads.
+     * </p>
+     * <p>
+     * This returns <b>NULL</b> if this is not connected to a replica set or not yet
+     * initialized.
+     * </p>
      */
-    public $status;
-
-
+    public function getSlave() {}
     /**
-     * @link http://php.net/manual/en/class.mongo.php#mongo.props.server
-     * @var $server
+     * (PECL mongo &gt;= 1.1.0)<br/>
+     * Get slaveOkay setting for this connection
+     * @link http://php.net/manual/en/mongo.getslaveokay.php
+     * @return bool Returns the value of slaveOkay for this instance.
      */
-    protected $server;
-
+    public function getSlaveOkay() {}
     /**
-     * @link http://php.net/manual/en/class.mongo.php#mongo.props.persistent
-     * @var $persistent
-     */
-    protected $persistent = false;
-
-    /**
-	 * Creates a new database connection object
-	 *
-	 * @param string $server The server name.
-	 * @param array $options An array of options for the connection. Currently
-     *        available options include: "connect" If the constructor should connect before
-     *        returning. Default is true. "timeout" For how long the driver should try to
-     *        connect to the database (in milliseconds). "replicaSet" The name of the replica
-     *        set to connect to. If this is given, the master will be determined by using the
-     *        ismaster database command on the seeds, so the driver may end up connecting to a
-     *        server that was not even listed. See the replica set example below for details.
-     *        "username" The username can be specified here, instead of including it in the
-     *        host list. This is especially useful if a username has a ":" in it. This
-     *        overrides a username set in the host list. "password" The password can be
-     *        specified here, instead of including it in the host list. This is especially
-     *        useful if a password has a "@" in it. This overrides a password set in the host
-     *        list. "db" The database to authenticate against can be specified here, instead
-     *        of including it in the host list. This overrides a database given in the host
-     *        list
-	 * @link http://php.net/manual/en/mongo.construct.php
-	 *
-	 * @throws MongoConnectionException
-	 * @return Mongo A new database connection object.
-	 */
-    public function __construct($server = "mongodb://localhost:27017", array $options = array("connect" => TRUE)) {}
-
-   /**
-	* Connects to a database server
-	*
-	* @link http://www.php.net/manual/en/mongo.connect.php
-	*
-	* @throws MongoConnectionException
-    * @return boolean If the connection was successful.
-    */
-    public function connect() {}
-
-   /**
 	* Connects to paired database server
 	* @deprecated Pass a string of the form "mongodb://server1,server2" to the constructor instead of using this method.
 	* @link http://www.php.net/manual/en/mongo.pairconnect.php
@@ -258,6 +306,50 @@ class Mongo {
     */
     public function pairConnect() {}
 
+    /**
+     * (PECL mongo &gt;= 1.2.0)<br/>
+     * @deprecated This feature has been DEPRECATED as of version 1.2.3. Relying on this feature is highly discouraged. Please use MongoPool::info() instead.
+     * Returns information about all connection pools.
+     * @link http://php.net/manual/en/mongo.pooldebug.php
+     * @return array  Each connection pool has an identifier, which starts with the host. For each pool, this function shows the following fields:
+     * <p><b>in use</b></p>
+     * <p>The number of connections currently being used by MongoClient instances.
+     * in pool
+     * The number of connections currently in the pool (not being used).</p>
+     * <p><b>remaining</b></p>
+     *
+     * <p>The number of connections that could be created by this pool. For example, suppose a pool had 5 connections remaining and 3 connections in the pool. We could create 8 new instances of MongoClient before we exhausted this pool (assuming no instances of MongoClient went out of scope, returning their connections to the pool).
+     *
+     * A negative number means that this pool will spawn unlimited connections.
+     *
+     * Before a pool is created, you can change the max number of connections by calling Mongo::setPoolSize(). Once a pool is showing up in the output of this function, its size cannot be changed.</p>
+     * <p><b>timeout</b></p>
+     *
+     * <p>The socket timeout for connections in this pool. This is how long connections in this pool will attempt to connect to a server before giving up.</p>
+     *
+     */
+    public function poolDebug() {}
+
+    /**
+     * (PECL mongo &gt;= 1.1.0)<br/>
+     * Change slaveOkay setting for this connection
+     * @link http://php.net/manual/en/mongo.setslaveokay.php
+     * @param bool $ok [optional] <p class="para">
+     * If reads should be sent to secondary members of a replica set for all
+     * possible queries using this {@see MongoClient} instance.
+     * </p>
+     * @return bool returns the former value of slaveOkay for this instance.
+     */
+    public function setSlaveOkay ($ok) {}
+    /**
+     * @deprecated Relying on this feature is highly discouraged. Please use MongoPool::setSize() instead.
+     *(PECL mongo &gt;= 1.2.0)<br/>
+     * Set the size for future connection pools.
+     * @link http://php.net/manual/en/mongo.setpoolsize.php
+     * @param $size <p>The max number of connections future pools will be able to create. Negative numbers mean that the pool will spawn an infinite number of connections.</p>
+     * @return bool Returns the former value of pool size.
+     */
+    public function setPoolSize($size) {}
     /**
 	 * Creates a persistent connection with a database server
 	 * @link http://www.php.net/manual/en/mongo.persistconnect.php
@@ -290,51 +382,6 @@ class Mongo {
     protected function connectUtil() {}
 
    /**
-	* String representation of this connection
-	* @link http://www.php.net/manual/en/mongo.tostring.php
-    * @return string Returns hostname and port for this connection.
-    */
-    public function __toString() {}
-
-   /**
-	* Gets a database
-	*
-	* @link http://www.php.net/manual/en/mongo.get.php
-    * @param string $name The database name.
-	* @throws Exception
-    * @return MongoDB
-    */
-    public function __get($name) {}
-
-    /**
-	 * Gets a database
-	 * @link http://www.php.net/manual/en/mongo.selectdb.php
-	 * @param string $dbname The database name.
-	 * @throws InvalidArgumentException
-	 * @return MongoDB Returns a new db object.
-	 */
-    public function selectDB($dbname) {}
-
-    /**
-	 * Gets a database collection
-	 * @link http://www.php.net/manual/en/mongo.selectcollection.php
-	 * @param string|MongoDB $db The database name.
-	 * @param string $collection The collection name.
-	 * @throws InvalidArgumentException
-	 * @return MongoCollection Returns a new collection object.
-	 */
-    public function selectCollection($db, $collection) {}
-
-    /**
-	 * Drops a database
-	 *
-	 * @link http://www.php.net/manual/en/mongo.dropdb.php
-	 * @param mixed $db The database to drop. Can be a MongoDB object or the name of the database.
-	 * @return array The database response.
-	 */
-    public function dropDB($db) {}
-
-   /**
 	* Check if there was an error on the most recent db operation performed
 	* @deprecated Use MongoDB::lastError() instead.
 	* @link http://www.php.net/manual/en/mongo.lasterror.php
@@ -365,25 +412,6 @@ class Mongo {
     * @return boolean The database response.
     */
     public function forceError() {}
-
-   /**
-	* Lists all of the databases available
-	* @link http://www.php.net/manual/en/mongo.listdbs.php
-    * @return array Returns an associative array containing three fields. The first field is databases, which in turn contains an array. Each element of the array is an associative array corresponding to a database, giving the database's name, size, and if it's empty. The other two fields are totalSize (in bytes) and ok, which is 1 if this method ran successfully.
-    */
-    public function listDBs() {}
-
-    /**
-	 * Closes this database connection
-	 *
-	 * This method does not need to be called, except in unusual circumstances.
-	 * The driver will cleanly close the database connection when the Mongo object goes out of scope.
-	 *
-	 * @link http://www.php.net/manual/en/mongo.close.php
-	 *
-	 * @return boolean If the connection was successfully closed.
-	 */
-    public function close() {}
 }
 
 /**
@@ -460,16 +488,18 @@ class MongoDB {
      * </p>
      */
     public $wtimeout = 10000;
+
 	/**
+     * (PECL mongo &gt;= 0.9.0)<br/>
 	 * Creates a new database
-	 * This method is not meant to be called directly. The preferred way to create an instance of MongoDB is through Mongo::__get() or Mongo::selectDB().
+	 * This method is not meant to be called directly. The preferred way to create an instance of MongoDB is through {@see Mongo::__get()} or {@see Mongo::selectDB()}.
 	 * @link http://www.php.net/manual/en/mongodb.construct.php
-	 * @param Mongo $conn Database connection.
+	 * @param MongoClient $conn Database connection.
 	 * @param string $name Database name.
 	 * @throws Exception
-	 * @return MongoDB
-	 */
-    public function __construct(Mongo $conn, $name) {}
+	 * @return MongoDB Returns the database.
+     */
+    public function __construct($conn, $name) {}
 
    /**
 	* The name of this database
@@ -479,6 +509,7 @@ class MongoDB {
     public function __toString() {}
 
     /**
+    * (PECL mongo &gt;= 1.0.2)<br/>
 	* Gets a collection
 	* @link http://www.php.net/manual/en/mongodb.get.php
     * @param string $name The name of the collection.
@@ -497,14 +528,16 @@ class MongoDB {
     public function getCollectionNames($includeSystemCollections = false) {}
 
     /**
+     * (PECL mongo &gt;= 0.9.0)<br/>
 	 * Fetches toolkit for dealing with files stored in this database
 	 * @link http://www.php.net/manual/en/mongodb.getgridfs.php
-	 * @param string $prefix The prefix for the files and chunks collections.
+	 * @param string $prefix [optional] The prefix for the files and chunks collections.
 	 * @return MongoGridFS Returns a new gridfs object for this database.
 	 */
     public function getGridFS($prefix = "fs") {}
 
    /**
+    * (PECL mongo &gt;= 0.9.0)<br/>
 	* Gets this database's profiling level
 	* @link http://www.php.net/manual/en/mongodb.getprofilinglevel.php
     * @return int Returns the profiling level.
@@ -513,11 +546,13 @@ class MongoDB {
 
     /**
      * (PECL mongo &gt;= 1.1.0)<br/>
+     * Get slaveOkay setting for this database
      * @link http://www.php.net/manual/en/mongodb.getslaveokay.php
      * @return bool Returns the value of slaveOkay for this instance.
      */
     public function getSlaveOkay () {}
     /**
+     * (PECL mongo &gt;= 0.9.0)<br/>
 	 * Sets this database's profiling level
 	 * @link http://www.php.net/manual/en/mongodb.setprofilinglevel.php
 	 * @param int $level Profiling level.
@@ -526,6 +561,7 @@ class MongoDB {
     public function setProfilingLevel($level) {}
 
    /**
+    * (PECL mongo &gt;= 0.9.0)<br/>
 	* Drops this database
 	* @link http://www.php.net/manual/en/mongodb.drop.php
     * @return array Returns the database response.
@@ -535,22 +571,28 @@ class MongoDB {
     /**
 	 * Repairs and compacts this database
 	 * @link http://www.php.net/manual/en/mongodb.repair.php
-	 * @param bool $preserve_cloned_files If cloned files should be kept if the repair fails.
-	 * @param bool $backup_original_files If original files should be backed up.
-	 * @return array Returns db response.
+	 * @param bool $preserve_cloned_files [optional] <p>If cloned files should be kept if the repair fails.</p>
+	 * @param bool $backup_original_files [optional] <p>If original files should be backed up.</p>
+	 * @return array <p>Returns db response.</p>
 	 */
     public function repair($preserve_cloned_files = FALSE, $backup_original_files = FALSE) {}
 
     /**
+     * (PECL mongo &gt;= 0.9.0)<br/>
 	 * Gets a collection
 	 * @link http://www.php.net/manual/en/mongodb.selectcollection.php
-	 * @param string $name
-	 * @return MongoCollection
+	 * @param string $name <b>The collection name.</b>
+     * @throws Exception if the collection name is invalid.
+     * @return MongoCollection <p>
+     * Returns a new collection object.
+     * </p>
 	 */
     public function selectCollection($name) {}
 
     /**
      * (PECL mongo &gt;= 1.1.0)<br/>
+     * Change slaveOkay setting for this database
+     * @link http://php.net/manual/en/mongodb.setslaveokay.php
      * @param bool $ok [optional] <p>
      * If reads should be sent to secondary members of a replica set for all
      * possible queries using this {@link http://www.php.net/manual/en/class.mongodb.php MongoDB} instance.
@@ -563,15 +605,42 @@ class MongoDB {
 	 * Creates a collection
 	 * @link http://www.php.net/manual/en/mongodb.createcollection.php
 	 * @param string $name The name of the collection.
-	 * @param bool $capped If the collection should be a fixed size.
-	 * @param int $size If the collection is fixed size, its size in bytes.
-	 * @param int $max If the collection is fixed size, the maximum number of elements to store in the collection.
-	 * @return MongoCollection
-	 */
-    public function createCollection($name, $capped = FALSE, $size = 0, $max = 0) {}
+     * @param array $options [optional] <p>
+     * <p>
+     * An array containing options for the collections. Each option is its own
+     * element in the options array, with the option name listed below being
+     * the key of the element. The supported options depend on the MongoDB
+     * server version. At the moment, the following options are supported:
+     * </p>
+     * <p>
+     * <b>capped</b>
+     * <p>
+     * If the collection should be a fixed size.
+     * </p>
+     * </p>
+     * <p>
+     * <b>size</b>
+     * <p>
+     * If the collection is fixed size, its size in bytes.</p></p>
+     * <p><b>max</b>
+     * <p>If the collection is fixed size, the maximum number of elements to store in the collection.</p></p>
+     * <i>autoIndexId</i>
+     *
+     * <p>
+     * If capped is <b>TRUE</b> you can specify <b>FALSE</b> to disable the
+     * automatic index created on the <em>_id</em> field.
+     * Before MongoDB 2.2, the default value for
+     * <em>autoIndexId</em> was <b>FALSE</b>.
+     * </p>
+     * </p>
+	 * @return MongoCollection <p>Returns a collection object representing the new collection.</p>
+     */
+    public function createCollection($name, $options) {}
 
     /**
-	 * Drops a collection
+     * (PECL mongo &gt;= 0.9.0)<br/>
+     * @deprecated Use MongoCollection::drop() instead.
+     * Drops a collection
 	 * @link http://www.php.net/manual/en/mongodb.dropcollection.php
 	 * @param MongoCollection|string $coll MongoCollection or name of collection to drop.
 	 * @return array Returns the database response.
@@ -579,23 +648,35 @@ class MongoDB {
     public function dropCollection($coll) {}
 
    /**
+    * (PECL mongo &gt;= 0.9.0)<br/>
 	* Get a list of collections in this database
 	* @link http://www.php.net/manual/en/mongodb.listcollections.php
+    * @param bool $includeSystemCollections [optional] <p>Include system collections.</p>
     * @return array Returns a list of MongoCollections.
     */
-    public function listCollections() {}
+    public function listCollections($includeSystemCollections = false) {}
 
     /**
-	 * Creates a database reference
+     * (PECL mongo &gt;= 0.9.0)<br/>
+     * Creates a database reference
 	 * @link http://www.php.net/manual/en/mongodb.createdbref.php
 	 * @param string $collection The collection to which the database reference will point.
-	 * @param mixed $a Object or _id to which to create a reference. If an object or associative array is given, this will create a reference using the _id field.
-	 * @return array Returns a database reference array.
+	 * @param mixed $document_or_id <p>
+     * If an array or object is given, its <em>_id</em> field will be
+     * used as the reference ID. If a {@see MongoId} or scalar
+     * is given, it will be used as the reference ID.
+     * </p>
+	 * @return array <p>Returns a database reference array.</p>
+     * <p>
+     * If an array without an <em>_id</em> field was provided as the
+     * <em>document_or_id</em> parameter, <b>NULL</b> will be returned.
+     * </p>
 	 */
-    public function createDBRef($collection, $a) {}
+    public function createDBRef($collection, $document_or_id) {}
 
 
 	/**
+     * (PECL mongo &gt;= 0.9.0)<br/>
 	 * Fetches the document pointed to by a database reference
 	 * @link http://www.php.net/manual/en/mongodb.getdbref.php
 	 * @param array $ref A database reference.
@@ -604,10 +685,20 @@ class MongoDB {
     public function getDBRef(array $ref) {}
 
     /**
+     * (PECL mongo &gt;= 1.5.0)<br/>
+     * Get the write concern for this database
+     * @link http://php.net/manual/en/mongodb.getwriteconcern.php
+     * @return array <p>This function returns an array describing the write concern.
+     * The array contains the values w for an integer acknowledgement level or string mode,
+     * and wtimeout denoting the maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
+     */
+    public function getWriteConcern() {}
+    /**
+     * (PECL mongo &gt;= 0.9.3)<br/>
 	 * Runs JavaScript code on the database server.
 	 * @link http://www.php.net/manual/en/mongodb.execute.php
 	 * @param MongoCode|string $code Code to execute.
-	 * @param array $args Arguments to be passed to code.
+	 * @param array $args [optional] Arguments to be passed to code.
 	 * @return array Returns the result of the evaluation.
 	 */
     public function execute($code, array $args = array()) {}
@@ -616,11 +707,23 @@ class MongoDB {
 	 * Execute a database command
 	 * @link http://www.php.net/manual/en/mongodb.command.php
 	 * @param array $data The query to send.
+     * @param array() $options [optional] <p>
+     * This parameter is an associative array of the form
+     * <em>array("optionname" =&gt; &lt;boolean&gt;, ...)</em>. Currently
+     * supported options are:
+     * </p><ul>
+     * <li><p><em>"timeout"</em></p><p>Deprecated alias for <em>"socketTimeoutMS"</em>.</p></li>
+     * </ul>
 	 * @return array Returns database response.
-	 */
-    public function command(array $data) {}
+     * Every database response is always maximum one document,
+     * which means that the result of a database command can never exceed 16MB.
+     * The resulting document's structure depends on the command,
+     * but most results will have the ok field to indicate success or failure and results containing an array of each of the resulting documents.
+     */
+    public function command(array $data, $options) {}
 
    /**
+    * (PECL mongo &gt;= 0.9.5)<br/>
 	* Check if there was an error on the most recent db operation performed
 	* @link http://www.php.net/manual/en/mongodb.lasterror.php
     * @return array Returns the error, if there was one.
@@ -628,6 +731,7 @@ class MongoDB {
     public function lastError() {}
 
    /**
+    * (PECL mongo &gt;= 0.9.5)<br/>
 	* Checks for the last error thrown during a database operation
 	* @link http://www.php.net/manual/en/mongodb.preverror.php
     * @return array Returns the error and the number of operations ago it occurred.
@@ -635,6 +739,7 @@ class MongoDB {
     public function prevError() {}
 
    /**
+    * (PECL mongo &gt;= 0.9.5)<br/>
 	* Clears any flagged errors on the database
 	* @link http://www.php.net/manual/en/mongodb.reseterror.php
     * @return array Returns the database response.
@@ -642,6 +747,7 @@ class MongoDB {
     public function resetError() {}
 
     /**
+     * (PECL mongo &gt;= 0.9.5)<br/>
 	 * Creates a database error
 	 * @link http://www.php.net/manual/en/mongodb.forceerror.php
 	 * @return boolean Returns the database response.
@@ -649,33 +755,55 @@ class MongoDB {
     public function forceError() {}
 
     /**
+     * (PECL mongo &gt;= 1.0.1)<br/>
 	 * Log in to this database
-	 *
 	 * @link http://www.php.net/manual/en/mongodb.authenticate.php
 	 * @param string $username The username.
 	 * @param string $password The password (in plaintext).
-	 * @return array Returns database response. If the login was successful, it will return 1.
-     *         If something went wrong, it will return 0, "errmsg" => "auth fails"
-     *         ("auth fails" could be another message, depending on database version and
-     *         what went wrong)
+	 * @return array <p>Returns database response. If the login was successful, it will return 1.</p>
+     * <p>
+     * <span style="color: #0000BB">&lt;?php<br></span><span style="color: #007700">array(</span><span style="color: #DD0000">"ok"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br></span><span style="color: #0000BB">?&gt;</span>
+     * </span>
+     * </code></div>
+     * </div>
+     * </p>
+     * <p> If something went wrong, it will return </p>
+     * <p>
+     * <div class="example-contents">
+     * <div class="phpcode"><code><span style="color: #000000">
+     * <span style="color: #0000BB">&lt;?php<br></span><span style="color: #007700">array(</span><span style="color: #DD0000">"ok"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"errmsg"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"auth&nbsp;fails"</span><span style="color: #007700">);<br></span><span style="color: #0000BB">?&gt;</span></p>
+     *         <p>("auth fails" could be another message, depending on database version and
+     *         what went wrong)</p>
 	 */
     public function authenticate($username, $password) {}
 
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
+     * Get the read preference for this database
      * @link http://www.php.net/manual/en/mongodb.getreadpreference.php
-     * @return array() This function returns an array describing the read preference. The array contains the values type for the string read preference mode (corresponding to the MongoClient constants), and tagsets containing a list of all tag set criteria. If no tag sets were specified, tagsets will not be present in the array.
+     * @return array This function returns an array describing the read preference. The array contains the values type for the string read preference mode (corresponding to the MongoClient constants), and tagsets containing a list of all tag set criteria. If no tag sets were specified, tagsets will not be present in the array.
      */
     public function getReadPreference () {}
 
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
+     * Set the read preference for this database
      * @link http://www.php.net/manual/en/mongodb.setreadpreference.php
-     * @param string $read_preference <p>The read preference mode: MongoClient::RP_PRIMARY, MongoClient::RP_PRIMARY_PREFERRED, MongoClient::RP_SECONDARY, MongoClient::RP_SECONDARY_PREFERRED, or MongoClient::RP_NEAREST.</p>
+     * @param string $read_preference <p>The read preference mode: <b>MongoClient::RP_PRIMARY</b>, <b>MongoClient::RP_PRIMARY_PREFERRED</b>, <b>MongoClient::RP_SECONDARY</b>, <b>MongoClient::RP_SECONDARY_PREFERRED</b>, or <b>MongoClient::RP_NEAREST</b>.</p>
      * @param array $tags [optional] <p>An array of zero or more tag sets, where each tag set is itself an array of criteria used to match tags on replica set members.</p>
-     * @return boolean Returns TRUE on success, or FALSE otherwise.
+     * @return boolean Returns <b>TRUE</b> on success, or <b>FALSE</b> otherwise.
      */
     public function setReadPreference ($read_preference, array $tags) {}
+
+    /**
+     * (PECL mongo &gt;= 1.5.0)<br/>
+     * @link http://php.net/manual/en/mongodb.setwriteconcern.php
+     * Set the write concern for this database
+     * @param mixed $w <p>The write concern. This may be an integer denoting the number of servers required to acknowledge the write, or a string mode (e.g. "majority").</p>
+     * @param int $wtimeout[optional] <p>The maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
+     * @return boolean Returns <b>TRUE</b> on success, or <b>FALSE</b> otherwise.
+     */
+    public function setWriteConcern($w, $wtimeout) {}
 }
 
 /**
@@ -1091,13 +1219,13 @@ class MongoCursor implements Iterator, Traversable {
     /**
 	 * Create a new cursor
 	 * @link http://www.php.net/manual/en/mongocursor.construct.php
-	 * @param resource $connection Database connection.
+	 * @param MongoClient $connection Database connection.
 	 * @param string $ns Full name of database and collection.
 	 * @param array $query Database query.
 	 * @param array $fields Fields to return.
      * @return MongoCursor Returns the new cursor
 	 */
-    public function __construct(resource $connection, $ns, array $query = array(), array $fields = array()) {}
+    public function __construct($connection, $ns, array $query = array(), array $fields = array()) {}
 
     /**
      * (PECL mongo &gt;= 1.2.11)<br/>
@@ -1410,11 +1538,11 @@ class MongoGridFS extends MongoCollection {
      *
      * @link http://php.net/manual/en/mongogridfs.construct.php
      * @param MongoDB $db Database
-     * @param string $prefix
-     * @param mixed $chunks
-     * @return
+     * @param string $prefix [optional] <p>Optional collection name prefix.</p>
+     * @param mixed $chunks  [optional]
+     * @return MongoGridFS
      */
-    public function __construct($db, $prefix = 'fs', $chunks = 'fs') {}
+    public function __construct($db, $prefix = "fs", $chunks = "fs") {}
 
     /**
      * Drops the files and chunks collections
