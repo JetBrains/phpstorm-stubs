@@ -25,26 +25,30 @@ function strtolower ($str) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
- * Find position of first occurrence of a string
+ * Find the position of the first occurrence of a substring in a string
  * @link http://php.net/manual/en/function.strpos.php
  * @param string $haystack <p>
  * The string to search in
  * </p>
  * @param mixed $needle <p>
- * If needle is not a string, it is converted
+ * If <b>needle</b> is not a string, it is converted
  * to an integer and applied as the ordinal value of a character.
  * </p>
  * @param int $offset [optional] <p>
- * The optional offset parameter allows you
- * to specify which character in haystack to
- * start searching. The position returned is still relative to the
- * beginning of haystack.
+ * If specified, search will start this number of characters counted from
+ * the beginning of the string. Unlike {@see strrpos()} and {@see strripos()}, the offset cannot be negative.
  * </p>
- * @return int the position as an integer. If needle is
- * not found, strpos will return boolean
- * false.
+ * @return int|boolean <p>
+ * Returns the position where the needle exists relative to the beginnning of
+ * the <b>haystack</b> string (independent of search direction
+ * or offset).
+ * Also note that string positions start at 0, and not 1.
+ * </p>
+ * <p>
+ * Returns <b>FALSE</b> if the needle was not found.
+ * </p>
  */
-function strpos ($haystack, $needle, $offset = null) {}
+function strpos ($haystack, $needle, $offset = 0) {}
 
 /**
  * (PHP 5)<br/>
@@ -74,17 +78,28 @@ function stripos ($haystack, $needle, $offset = null) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
- * Find position of last occurrence of a char in a string
+ * Find the position of the last occurrence of a substring in a string
  * @link http://php.net/manual/en/function.strrpos.php
  * @param string $haystack <p>
+ * The string to search in.
  * </p>
  * @param string $needle <p>
+ * If <b>needle</b> is not a string, it is converted to an integer and applied as the ordinal value of a character.
  * </p>
  * @param int $offset [optional] <p>
+ * If specified, search will start this number of characters counted from the beginning of the string. If the value is negative, search will instead start from that many characters from the end of the string, searching backwards.
  * </p>
- * @return int 
+ * @return int|boolean <p>
+ * Returns the position where the needle exists relative to the beginning of
+ * the <b>haystack</b> string (independent of search direction
+ * or offset).
+ * Also note that string positions start at 0, and not 1.
+ * </p>
+ * <p>
+ * Returns <b>FALSE</b> if the needle was not found.
+ * </p>
  */
-function strrpos ($haystack, $needle, $offset = null) {}
+function strrpos ($haystack, $needle, $offset = 0) {}
 
 /**
  * (PHP 5)<br/>
@@ -311,16 +326,17 @@ function stristr ($haystack, $needle, $before_needle = null) {}
  * The string to search in
  * </p>
  * @param mixed $needle <p>
- * If needle contains more than one character,
- * only the first is used. This behavior is different from that of
- * strstr.
+ * If <b>needle</b> contains more than one character,
+ * only the first is used. This behavior is different from that of {@see strstr()}.
  * </p>
  * <p>
- * If needle is not a string, it is converted to
+ * If <b>needle</b> is not a string, it is converted to
  * an integer and applied as the ordinal value of a character.
  * </p>
- * @return string This function returns the portion of string, or false if
- * needle is not found.
+ * @return string <p>
+ * This function returns the portion of string, or <b>FALSE</b> if
+ * <b>needle</b> is not found.
+ * </p>
  */
 function strrchr ($haystack, $needle) {}
 
