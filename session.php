@@ -226,6 +226,18 @@ function session_unset () {}
 function session_set_save_handler ($open, $close, $read, $write, $destroy, $gc) {}
 
 /**
+ * (PHP 5.4)<br/>
+ * Sets user-level session storage functions
+ * @link http://php.net/manual/en/function.session-set-save-handler.php
+ * </p>
+ * @param SessionHandlerInterface $session_handler An instance of a class implementing SessionHandlerInterface, such as SessionHandler,
+ * to register as the session handler. Since PHP 5.4 only.
+ * @param bool $register_shutdown [optional] Register session_write_close() as a register_shutdown_function() function.
+ * @return bool true on success or false on failure.
+ */
+function session_set_save_handler (SessionHandlerInterface $session_handler, $register_shutdown = true) {}
+
+/**
  * (PHP 4 &gt;= 4.0.3, PHP 5)<br/>
  * Get and/or set the current cache limiter
  * @link http://php.net/manual/en/function.session-cache-limiter.php
