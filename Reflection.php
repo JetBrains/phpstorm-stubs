@@ -513,8 +513,14 @@ class ReflectionParameter implements Reflector {
 	 */
 	public function getDefaultValue () {}
 
-	public function isDefaultValueConstant () {}
+    /**
+     * @return boolean
+     */
+    public function isDefaultValueConstant () {}
 
+    /**
+     * @return string
+     */
 	public function getDefaultValueConstantName () {}
 
 }
