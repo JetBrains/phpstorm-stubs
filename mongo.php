@@ -1048,14 +1048,47 @@ class MongoCollection {
     public function update(array $criteria , array $newobj, array $options = array()) {}
 
     /**
+     * (PECL mongo &gt;= 0.9.0)<br/>
 	 * Remove records from this collection
 	 * @link http://www.php.net/manual/en/mongocollection.remove.php
-	 * @param array $criteria Description of records to remove.
-	 * @param array $options Options for remove.
+	 * @param array $criteria [optional] <p>Query criteria for the documents to delete.</p>
+     * @param array $options [optional] <p>An array of options for the remove operation. Currently available options
+     * include:
+     * </p><ul>
+     * <li><p><em>"w"</em></p><p>See {@link http://www.php.net/manual/en/mongo.writeconcerns.php Write Concerns}. The default value for <b>MongoClient</b> is <em>1</em>.</p></li>
+     * <li>
+     * <p>
+     * <em>"justOne"</em>
+     * </p>
+     * <p>
+     * Specify <strong><code>TRUE</code></strong> to limit deletion to just one document. If <strong><code>FALSE</code></strong> or
+     * omitted, all documents matching the criteria will be deleted.
+     * </p>
+     * </li>
+     * <li><p><em>"fsync"</em></p><p>Boolean, defaults to <b>FALSE</b>. If journaling is enabled, it works exactly like <em>"j"</em>. If journaling is not enabled, the write operation blocks until it is synced to database files on disk. If <strong><code>TRUE</code></strong>, an acknowledged insert is implied and this option will override setting <em>"w"</em> to <em>0</em>.</p><blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">If journaling is enabled, users are strongly encouraged to use the <em>"j"</em> option instead of <em>"fsync"</em>. Do not use <em>"fsync"</em> and <em>"j"</em> simultaneously, as that will result in an error.</p></blockquote></li>
+     * <li><p><em>"j"</em></p><p>Boolean, defaults to <b>FALSE</b>. Forces the write operation to block until it is synced to the journal on disk. If <strong><code>TRUE</code></strong>, an acknowledged write is implied and this option will override setting <em>"w"</em> to <em>0</em>.</p><blockquote class="note"><p><strong class="note">Note</strong>: <span class="simpara">If this option is used and journaling is disabled, MongoDB 2.6+ will raise an error and the write will fail; older server versions will simply ignore the option.</p></blockquote></li>
+     * <li><p><em>"socketTimeoutMS"</em></p><p>This option specifies the time limit, in milliseconds, for socket communication. If the server does not respond within the timeout period, a <b>MongoCursorTimeoutException</b> will be thrown and there will be no way to determine if the server actually handled the write or not. A value of <em>-1</em> may be specified to block indefinitely. The default value for <b>MongoClient</b> is <em>30000</em> (30 seconds).</p></li>
+     * <li><p><em>"w"</em></p><p>See {@link http://www.php.net/manual/en/mongo.writeconcerns.php Write Concerns }. The default value for <b>MongoClient</b> is <em>1</em>.</p></li>
+     * <li><p><em>"wTimeoutMS"</em></p><p>This option specifies the time limit, in milliseconds, for {@link http://www.php.net/manual/en/mongo.writeconcerns.php write concern} acknowledgement. It is only applicable when <em>"w"</em> is greater than <em>1</em>, as the timeout pertains to replication. If the write concern is not satisfied within the time limit, a <a href="class.mongocursorexception.php" class="classname">MongoCursorException</a> will be thrown. A value of <em>0</em> may be specified to block indefinitely. The default value for {@link http://www.php.net/manual/en/class.mongoclient.php MongoClient} is <em>10000</em> (ten seconds).</p></li>
+     * </ul>
+     *
+     * <p>
+     * The following options are deprecated and should no longer be used:
+     * </p><ul>
+     * <li><p><em>"safe"</em></p><p>Deprecated. Please use the {@link http://www.php.net/manual/en/mongo.writeconcerns.php write concern} <em>"w"</em> option.</p></li>
+     * <li><p><em>"timeout"</em></p><p>Deprecated alias for <em>"socketTimeoutMS"</em>.</p></li>
+     * <li><p><b>"wtimeout"</b></p><p>Deprecated alias for <em>"wTimeoutMS"</em>.</p></p>
 	 * @throws MongoCursorException
-	 * @return mixed
+     * @throws MongoCursorTimeoutException
+	 * @return bool|array <p>Returns an array containing the status of the removal if the
+     * <em>"w"</em> option is set. Otherwise, returns <b>TRUE</b>.
+     * </p>
+     * <p>
+     * Fields in the status array are described in the documentation for
+     * <b>MongoCollection::insert()</b>.
+     * </p>
 	 */
-    public function remove(array $criteria, array $options = array()) {}
+    public function remove(array $criteria = array(), array $options = array()) {}
 
     /**
 	 * Querys this collection
