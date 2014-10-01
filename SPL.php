@@ -1743,7 +1743,7 @@ class ArrayObject implements IteratorAggregate, Traversable, ArrayAccess, Serial
      * (PHP 5 &gt;= 5.3.0)<br/>
      * Serialize an ArrayObject
      * @link http://php.net/manual/en/arrayobject.serialize.php
-     * @return void The serialized representation of the <b>ArrayObject</b>.
+     * @return string The serialized representation of the <b>ArrayObject</b>.
      */
     public function serialize() { }
 
