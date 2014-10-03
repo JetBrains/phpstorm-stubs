@@ -28,6 +28,9 @@ function token_get_all ($source) {}
  */
 function token_name ($token) {}
 
+define ('T_POW',300);
+define ('T_ELLIPSIS', 389);
+define ('T_POW_EQUAL', 268);
 define ('T_REQUIRE_ONCE', 258);
 define ('T_REQUIRE', 259);
 define ('T_EVAL', 260);
