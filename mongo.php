@@ -1783,31 +1783,78 @@ class MongoGridFSCursor extends MongoCursor implements Traversable, Iterator {
  */
 class MongoId {
     /**
-     * @var $id
+     * @var string $id
      */
-     public $id;
+     public $id = NULL;
 
     /**
+     * (PECL mongo &gt;= 0.8.0)
 	 * Creates a new id
 	 * @link http://www.php.net/manual/en/mongoid.construct.php
-	 * @param string $id A string to use as the id. Must be 24 hexidecimal characters. If an invalid string is passed to this constructor, the constructor will ignore it and create a new id value.
-	 * @return MongoId
-	 */
+	 * @param string $id [optional] A string to use as the id. Must be 24 hexidecimal characters. If an invalid string is passed to this constructor, the constructor will ignore it and create a new id value.
+	 * @return MongoId <p>Returns a new id.</p>
+     */
     public function __construct($id = NULL) {}
 
+    /**
+     * (PECL mongo &gt;= 0.8.0)
+     * Check if a value is a valid ObjectId
+     * @link http://php.net/manual/en/mongoid.isvalid.php
+     * @param mixed $value The value to check for validity.
+     * @return bool <p>
+     * Returns <b>TRUE</b> if <i>value</i> is a
+     * MongoId instance or a string consisting of exactly 24
+     * hexadecimal characters; otherwise, <b>FALSE</b> is returned.
+     * </p>
+     */
+    public static function isValid($value) {}
    /**
+    * (PECL mongo &gt;= 0.8.0)
 	* Returns a hexidecimal representation of this id
 	* @link http://www.php.net/manual/en/mongoid.tostring.php
     * @return string This id.
     */
     public function __toString() {}
 
+    /**
+     * (PECL mongo &gt;= 1.0.11)
+     * Gets the incremented value to create this id
+     * @link http://php.net/manual/en/mongoid.getinc.php
+     * @return int Returns the incremented value used to create this MongoId.
+     */
+    public function getInc() {}
+
+    /**
+     * (PECL mongo &gt;= 1.0.11)
+     * Gets the process ID
+     * @link http://php.net/manual/en/mongoid.getpid.php
+     * @return int Returns the PID of the MongoId.
+     */
+    public function getPID() {}
+
    /**
+    * (PECL mongo &gt;= 1.0.1)
 	* Gets the number of seconds since the epoch that this id was created
 	* @link http://www.php.net/manual/en/mongoid.gettimestamp.php
     * @return int
     */
     public function getTimestamp() {}
+
+    /**
+     * (PECL mongo &gt;= 1.0.8)
+     * Gets the hostname being used for this machine's ids
+     * @link http://www.php.net/manual/en/mongoid.gethostname.php
+     * @return string Returns the hostname.
+     */
+    public function getHostname() {}
+
+    /**
+     * (PECL mongo &gt;= 1.0.8)
+     * Create a dummy MongoId
+     * @link http://php.net/manual/en/mongoid.set-state.php
+     * @param array $props <p>Theoretically, an array of properties used to create the new id. However, as MongoId instances have no properties, this is not used.</p>
+     */
+    public static function __set_state(array $props) {}
 }
 
 class MongoCode {
