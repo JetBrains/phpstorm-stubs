@@ -65,13 +65,13 @@ function cli_get_process_title () {}
  * under some circumstances.
  * @link http://php.net/manual/en/language.constants.predefined.php
  */
-define ('__FILE__', '');
+define ('__FILE__', '', true);
 
 /**
  * The current line number of the file.
  * @link http://php.net/manual/en/language.constants.predefined.php
  */
-define ('__LINE__', 0);
+define ('__LINE__', 0, true);
 
 /**
  * The class name. (Added in PHP 4.3.0) As of PHP 5 this constant
@@ -83,7 +83,7 @@ define ('__LINE__', 0);
  * is used in.
  * @link http://php.net/manual/en/language.constants.predefined.php
  */
-define ('__CLASS__', '');
+define ('__CLASS__', '', true);
 
 /**
  * The function name. (Added in PHP 4.3.0) As of PHP 5 this constant
@@ -91,14 +91,14 @@ define ('__CLASS__', '');
  * PHP 4 its value is always lowercased.
  * @link http://php.net/manual/en/language.constants.predefined.php
  */
-define ('__FUNCTION__', '');
+define ('__FUNCTION__', '', true);
 
 /**
  * The class method name. (Added in PHP 5.0.0) The method name is
  * returned as it was declared (case-sensitive).
  * @link http://php.net/manual/en/language.constants.predefined.php
  */
-define ('__METHOD__', '');
+define ('__METHOD__', '', true);
 
 /**
  * The trait name. (Added in PHP 5.4.0) As of PHP 5.4 this constant
@@ -106,7 +106,7 @@ define ('__METHOD__', '');
  * it was declared in (e.g. Foo\Bar).
  * @link http://php.net/manual/en/language.constants.predefined.php
  */
-define ('__TRAIT__', '');
+define ('__TRAIT__', '', true);
 
 /**
  * The directory of the file. If used inside an include,
@@ -116,14 +116,14 @@ define ('__TRAIT__', '');
  * (Added in PHP 5.3.0.)
  * @link http://php.net/manual/en/language.constants.predefined.php
  */
-define ('__DIR__', '');
+define ('__DIR__', '', true);
 
 /**
  * The name of the current namespace (case-sensitive). This constant
  * is defined in compile-time (Added in PHP 5.3.0).
  * @link http://php.net/manual/en/language.constants.predefined.php
  */
-define ('__NAMESPACE__', '');
+define ('__NAMESPACE__', '', true);
 
 
 ?>
