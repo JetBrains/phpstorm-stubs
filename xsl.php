@@ -34,7 +34,7 @@ class XSLTProcessor  {
 	 * (PHP 5)<br/>
 	 * Transform to URI
 	 * @link http://php.net/manual/en/xsltprocessor.transformtouri.php
-	 * @param DOMDocument $doc <p>
+	 * @param DOMDocument|SimpleXMLElement $doc <p>
 	 * The document to transform.
 	 * </p>
 	 * @param string $uri <p>
@@ -42,18 +42,18 @@ class XSLTProcessor  {
 	 * </p>
 	 * @return int the number of bytes written or <b>FALSE</b> if an error occurred.
 	 */
-	public function transformToUri (DOMDocument $doc, $uri) {}
+	public function transformToUri ($doc, $uri) {}
 
 	/**
 	 * (PHP 5)<br/>
 	 * Transform to XML
 	 * @link http://php.net/manual/en/xsltprocessor.transformtoxml.php
-	 * @param DOMDocument $doc <p>
+	 * @param DOMDocument|SimpleXMLElement $doc <p>
 	 * The transformed document.
 	 * </p>
 	 * @return string The result of the transformation as a string or <b>FALSE</b> on error.
 	 */
-	public function transformToXml (DOMDocument $doc) {}
+	public function transformToXml ($doc) {}
 
 	/**
 	 * (PHP 5)<br/>
