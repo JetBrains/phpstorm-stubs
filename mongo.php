@@ -1783,7 +1783,8 @@ class MongoGridFSCursor extends MongoCursor implements Traversable, Iterator {
  */
 class MongoId {
     /**
-     * @var string $id
+     * @var string $id <p> Note: The property name begins with a $ character. It may be accessed using
+     * {@link http://php.net/manual/en/language.types.string.php#language.types.string.parsing.complex complex variable parsed syntax} (e.g. $mongoId->{'$id'}).</p>
      */
      public $id = NULL;
 
@@ -1846,13 +1847,14 @@ class MongoId {
      * @link http://www.php.net/manual/en/mongoid.gethostname.php
      * @return string Returns the hostname.
      */
-    public function getHostname() {}
+    public static function getHostname() {}
 
     /**
      * (PECL mongo &gt;= 1.0.8)
      * Create a dummy MongoId
      * @link http://php.net/manual/en/mongoid.set-state.php
      * @param array $props <p>Theoretically, an array of properties used to create the new id. However, as MongoId instances have no properties, this is not used.</p>
+     * @return MongoId A new id with the value "000000000000000000000000".
      */
     public static function __set_state(array $props) {}
 }
