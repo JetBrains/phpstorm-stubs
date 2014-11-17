@@ -781,7 +781,7 @@ function gmstrftime ($format, $timestamp = null) {}
  * (PHP 4, PHP 5)<br/>
  * Return current Unix timestamp
  * @link http://php.net/manual/en/function.time.php
- * @return int 
+ * @return int <p>Returns the current time measured in the number of seconds since the Unix Epoch (January 1 1970 00:00:00 GMT).</p>
  */
 function time () {}
 
@@ -902,7 +902,8 @@ function date_create ($time = null, DateTimeZone $timezone = null ) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0)<br/>
- * &Alias; <methodname>DateTime::createFromFormat</methodname>
+ * Alias:
+ * {@see DateTime::createFromFormat}
  * @link http://php.net/manual/en/function.date-create-from-format.php
  * @param string $format Format accepted by  <a href="http://us.php.net/manual/en/function.date.php">date()</a>.
  * <p>If format does not contain the character ! then portions of the generated time which are not specified in format will be set to the current system time.
@@ -910,9 +911,10 @@ function date_create ($time = null, DateTimeZone $timezone = null ) {}
  * <p>The Unix epoch is 1970-01-01 00:00:00 UTC.
  * @param string $time String representing the time.
  * @param DateTimeZone $timezone [optional] A DateTimeZone object representing the desired time zone.
- * @return DateTime
+ * @return DateTime <p> Returns a new
+ * {@see DateTime} instance or <b>FALSE</b> on failure.</p>
  */
-function date_create_from_format (string $format , string $time , DateTimeZone $timezone = null) {}
+function date_create_from_format ($format, $time, $timezone = null) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0)<br/>
@@ -942,18 +944,21 @@ function date_parse_from_format ($format, $date) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0)<br/>
- * &Alias; <methodname>DateTime::getLastErrors</methodname>
+ * Alias:
+ * {@see DateTime::getLastErrors}
  * @link http://php.net/manual/en/function.date-get-last-errors.php
+ * @return array <p>Returns array containing info about warnings and errors.</p>
  */
 function date_get_last_errors () {}
 
 /**
  * (PHP 5 &gt;= 5.2.0)<br/>
- * &Alias; <methodname>DateTime::format</methodname>
+ * Alias:
+ * {@see DateTime::format}
  * @link http://php.net/manual/en/function.date-format.php
  * @param $object
  * @param $format
- * @return string|bool formatted date string on success or FALSE on failure.
+ * @return string|bool formatted date string on success or <b>FALSE</b> on failure.
  */
 function date_format ($object, $format) {}
 
@@ -961,11 +966,12 @@ function date_format ($object, $format) {}
  * (PHP 5 &gt;= 5.2.0)<br/>
  * Alter the timestamp of a DateTime object by incrementing or decrementing
  * in a format accepted by strtotime().
- * &Alias; <methodname>DateTime::modify</methodname>
+ * Alias:
+ * {@see DateTime::modify}
  * @link http://php.net/manual/en/function.date-modify.php
  * @param DateTime $object A DateTime object returned by date_create(). The function modifies this object.
- * @param string $modify A date/time string. Valid formats are explained in <a href="http://www.php.net/manual/en/datetime.formats.php">Date and Time Formats</a>.
- * @return DateTime Returns the DateTime object for method chaining or FALSE on failure.
+ * @param string $modify A date/time string. Valid formats are explained in {@link http://www.php.net/manual/en/datetime.formats.php Date and Time Formats}.
+ * @return DateTime|boolean Returns the DateTime object for method chaining or <b>FALSE</b> on failure.
  */
 function date_modify ($object, $modify) {}
 
@@ -973,49 +979,79 @@ function date_modify ($object, $modify) {}
  * (PHP 5 &gt;= 5.3.0)<br/>
  * &Alias; <methodname>DateTime::add</methodname>
  * @link http://php.net/manual/en/function.date-add.php
- * @param $object
- * @param $interval
- * @return DateTime
+ * @param $object <p>Procedural style only: A
+ * {@see DateTime} object returned by
+ * {@see date_create()}. The function modifies this object.</p>
+ * @param $interval <p>A
+ * {@see DateInterval} object</p>
+ * @return DateTime <p>Returns the
+ * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
 function date_add ($object, $interval) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0)<br/>
- * &Alias; <methodname>DateTime::sub</methodname>
+ * Alias:
+ * {@see DateTime::sub}
  * @link http://php.net/manual/en/function.date-sub.php
- * @param $object
- * @param $interval
+ * @param DateTime $object Procedural style only: A
+ * {@see DateTime} object returned by
+ * {@see date_create()}. The function modifies this object.
+ * @param DateInterval $interval <p>A
+ * {@see DateInterval} object</p>
+ * @return DateTime|boolean <p>Returns the
+ * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
 function date_sub ($object, $interval) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0)<br/>
- * &Alias; <methodname>DateTime::getTimezone</methodname>
+ * Alias:
+ * {@see DateTime::getTimezone}
  * @link http://php.net/manual/en/function.date-timezone-get.php
- * @param $object
+ * @param $object <p>Procedural style only: A
+ * {@see DateTime} object
+ * returned by
+ * {@see date_create()}</p>
+ * @return DateTimeZone
+ * <p>
+ * Returns a
+ * {@see DateTimeZone} object on success
+ * or <b>FALSE</b> on failure.
+ * </p>
  */
 function date_timezone_get ($object) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0)<br/>
- * &Alias; <methodname>DateTime::setTimezone</methodname>
+ * Alias:
+ * {@see DateTime::setTimezone}
  * @link http://php.net/manual/en/function.date-timezone-set.php
- * @param $object
- * @param $timezone
+ * @param DateTime $object <p>A
+ * {@see DateTime} object returned by
+ * {@see date_create()}. The function modifies this object.</p>
+ * @param DateTimeZone $timezone <p>A
+ * {@see DateTimeZone} object representing the desired time zone.</p>
+ * @return DateTime|boolean <p>Returns the
+ * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
 function date_timezone_set ($object, $timezone) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0)<br/>
- * &Alias; <methodname>DateTime::getOffset</methodname>
+ * Alias:
+ * {@see DateTime::getOffset}
  * @link http://php.net/manual/en/function.date-offset-get.php
- * @param $object
+ * @param $object <p>Procedural style only: A {@see DateTime} object
+ * returned by {@see date_create()}</p>
+ * @return int <p>Returns the timezone offset in seconds from UTC on success or <b>FALSE</b> on failure.</p>
  */
 function date_offset_get ($object) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0)<br/>
- * &Alias; <methodname>DateTime::diff</methodname>
+ * Alias:
+ * {@see DateTime::diff}
  * @link http://php.net/manual/en/function.date-diff.php
  * @param DateTime $object
  * @param DateTime $object2 The date to compare to
@@ -1032,6 +1068,8 @@ function date_diff ($object, $object2, $absolute) {}
  * @param $hour
  * @param $minute
  * @param $second [optional]
+ * @return DateTime|boolean <p>Returns the
+ * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
 function date_time_set ($object, $hour, $minute, $second) {}
 
@@ -1039,39 +1077,55 @@ function date_time_set ($object, $hour, $minute, $second) {}
  * (PHP 5 &gt;= 5.2.0)<br/>
  * &Alias; <methodname>DateTime::setDate</methodname>
  * @link http://php.net/manual/en/function.date-date-set.php
- * @param $object
- * @param $year
- * @param $month
- * @param $day
+ * @param $object <p>Procedural style only: A {@see DateTime} object
+ * returned by {@see date_create()}.
+ * The function modifies this object.</p>
+ * @param $year <p>Year of the date.</p>
+ * @param $month <p>Month of the date.</p>
+ * @param $day <p>Day of the date.</p>
+ * @return DateTime|boolean
+ * <p>
+ * Returns the
+ * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.
+ * </p>
  */
 function date_date_set ($object, $year, $month, $day) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0)<br/>
- * &Alias; <methodname>DateTime::setISODate</methodname>
+ * Alias:
+ * {@see DateTime::setISODate}
  * @link http://php.net/manual/en/function.date-isodate-set.php
- * @param $object
- * @param $year
- * @param $week
- * @param $day [optional]
+ * @param DateTime $object
+ * @param int $year <p>Year of the date</p>
+ * @param int $week <p>Week of the date.</p>
+ * @param $day [optional] <p>Offset from the first day of the week.</p>
+ * @return DateTime <p>
+ * Returns the {@see DateTime} object for method chaining or <strong><code>FALSE</code></strong> on failure.
+ * </p>
  */
-function date_isodate_set ($object, $year, $week, $day) {}
+function date_isodate_set ($object, $year, $week, $day = 1) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0)<br/>
  * &Alias; <methodname>DateTime::setTimestamp</methodname>
  * @link http://php.net/manual/en/function.date-timestamp-set.php
- * @param $object
- * @param $unixtimestamp
- * @return DateTime object for call chaining or FALSE on failure
+ * @param DateTime $object <p>Procedural style only: A
+ * {@see DateTime} object returned by
+ * {@see date_create()}. The function modifies this object.</p>
+ * @param int $unixtimestamp <p>Unix timestamp representing the date.</p>
+ * @return DateTime|boolean
+ * {@see DateTime} object for call chaining or <b>FALSE</b> on failure
  */
 function date_timestamp_set ($object, $unixtimestamp) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0)<br/>
- * &Alias; <methodname>DateTime::getTimestamp</methodname>
+ * Alias:
+ * {@see DateTime::getTimestamp}
  * @link http://php.net/manual/en/function.date-timestamp-get.php
- * @param $object
+ * @param DateTimeInterface $object
+ * @return int <p>Returns the Unix timestamp representing the date.</p>
  */
 function date_timestamp_get ($object) {}
 
@@ -1089,9 +1143,11 @@ function timezone_open ($timezone) {}
 
 /**
  * (PHP 5 &gt;= 5.1.0)<br/>
- * &Alias; <methodname>DateTimeZone::getName</methodname>
+ * Alias: {@see DateTimeZone::getName}
  * @link http://php.net/manual/en/function.timezone-name-get.php
- * @param $object
+ * @param $object <p>The
+ * {@see DateTimeZone} for which to get a name.</p>
+ * @return string One of the timezone names in the list of timezones.
  */
 function timezone_name_get ($object) {}
 
@@ -1119,34 +1175,45 @@ function timezone_name_from_abbr ($abbr, $gmtOffset = null, $isdst = null) {}
 
 /**
  * (PHP 5 &gt;= 5.1.0)<br/>
- * &Alias; <methodname>DateTimeZone::getOffset</methodname>
+ * Alias:
+ * {@link DateTimeZone::getOffset}
  * @link http://php.net/manual/en/function.timezone-offset-get.php
- * @param $object
- * @param $datetime
+ * @param $object <p>Procedural style only: A
+ * {@see DateTimeZone} object
+ * returned by
+ * {@see timezone_open()}</p>
+ * @param $datetime <p>DateTime that contains the date/time to compute the offset from.</p>
+ * @return int|boolean <p>Returns time zone offset in seconds on success or <b>FALSE</b> on failure.</p>
  */
 function timezone_offset_get ($object, $datetime) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0)<br/>
- * &Alias; <methodname>DateTimeZone::getTransitions</methodname>
+ * Alias:
+ * {@see DateTimeZone::getTransitions}
  * @link http://php.net/manual/en/function.timezone-transitions-get.php
- * @param $object
- * @param $timestamp_begin [optional]
- * @param $timestamp_end [optional]
+ * @param DateTimeZone $object <p>Procedural style only: A
+ * {@see DateTimeZone} object returned by
+ * {@see timezone_open()}</p>
+ * @param int $timestamp_begin [optional] <p>Begin timestamp</p>
+ * @param int $timestamp_end [optional] <p>End timestamp</p>
+ * @return array|boolean <p>Returns numerically indexed array containing associative array with all transitions on success or FALSE on failure.</p>
  */
 function timezone_transitions_get ($object, $timestamp_begin, $timestamp_end) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0)<br/>
- * &Alias; <methodname>DateTimeZone::getLocation</methodname>
+ * &Alias; {@see DateTimeZone::getLocation}
  * @link http://php.net/manual/en/function.timezone-location-get.php
- * @param $object
+ * @param $object <p>Procedural style only: A {@see DateTimeZone} object returned by {@see timezone_open()}
+ * @return array <p>Array containing location information about timezone.</p>
  */
 function timezone_location_get ($object) {}
 
 /**
  * (PHP 5 &gt;= 5.1.0)<br/>
- * Alias: {@see DateTimeZone::listIdentifiers()}
+ * Alias:
+ * {@see DateTimeZone::listIdentifiers()}
  * @link http://php.net/manual/en/function.timezone-identifiers-list.php
  * @param int $what [optional] One of DateTimeZone class constants.
  * @param string $country [optional] A two-letter ISO 3166-1 compatible country code.
@@ -1158,9 +1225,10 @@ function timezone_identifiers_list ($what = DateTimeZone::ALL, $country = null) 
 /**
  * (PHP 5 &gt;= 5.2.0)<br/>
  * Returns associative array containing dst, offset and the timezone name
- * &Alias; <methodname>DateTimeZone::listAbbreviations</methodname>
+ * Alias:
+ * {@see DateTimeZone::listAbbreviations}
  * @link http://php.net/manual/en/function.timezone-abbreviations-list.php
- * @return array Array on success or FALSE on failure.
+ * @return array Array on success or <b>FALSE</b> on failure.
  */
 function timezone_abbreviations_list () {}
 
@@ -1174,9 +1242,15 @@ function timezone_version_get () {}
 
 /**
  * (PHP 5 &gt;= 5.3.0)<br/>
- * &Alias; <methodname>DateInterval::createFromDateString</methodname>
+ * Alias:
+ * {@see DateInterval::createFromDateString}
  * @link http://php.net/manual/en/function.date-interval-create-from-date-string.php
- * @param $time
+ * @param $time <p>A date with relative parts. Specifically, the relative formats supported by the parser used for
+ * {@see strtotime()} and
+ * {@see DateTime} will be used to construct the
+ * {@see DateInterval}.</p>
+ * @return DateInterval
+ * <p>Returns a new DateInterval instance.</p>
  */
 function date_interval_create_from_date_string ($time) {}
 
@@ -1186,6 +1260,7 @@ function date_interval_create_from_date_string ($time) {}
  * @link http://php.net/manual/en/function.date-interval-format.php
  * @param $object
  * @param $format
+ * @return DateInterval
  */
 function date_interval_format ($object, $format) {}
 
