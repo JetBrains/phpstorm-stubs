@@ -466,7 +466,7 @@ function fscanf ($handle, $format, &$_ = null) {}
  * If the component parameter is specified a
  * string is returned instead of an array.
  */
-function parse_url ($url, $component = null) {}
+function parse_url ($url, $component = -1) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
