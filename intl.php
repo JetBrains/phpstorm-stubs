@@ -1467,9 +1467,11 @@ class Locale {
     public static function lookup(array $langtag, $locale, $canonicalize = false, $default = null) { }
 
     /**
-     * @param $arg1
+     * @link http://php.net/manual/en/locale.canonicalize.php
+     * @param string $locale
+     * @return string
      */
-    public static function canonicalize($arg1) { }
+    public static function canonicalize($locale) { }
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
