@@ -31,8 +31,8 @@ class SQLiteDatabase  {
 	 * @return resource|bool <p>
 	 * This function will return a result handle or <b>FALSE</b> on failure.
 	 * For queries that return rows, the result handle can then be used with
-	 * functions such as <span class="function"><a href="function.sqlite-fetch-array.php" class="function">sqlite_fetch_array()</a></span> and
-	 * <span class="function"><a href="function.sqlite-seek.php" class="function">sqlite_seek()</a></span>.
+	 * functions such as {@see sqlite_fetch_array()} and
+	 * {@see sqlite_seek()}.
 	 * </p>
 	 * <p>
 	 * Regardless of the query type, this function will return <b>FALSE</b> if the
@@ -61,11 +61,11 @@ class SQLiteDatabase  {
 	 * </p>
 	 * @param string $error_message [optional] <p>The specified variable will be filled if an error occurs. This is specially important because SQL syntax errors can't be fetched using the
 	 * {@see sqlite_last_error()} function.</p>
-	 * @return boolean <p class="para">
+	 * @return boolean <p>
 	 * This function will return a boolean result; <b>TRUE</b> for success or <b>FALSE</b> for failure.
 	 * If you need to run a query that returns rows, see {@see sqlite_query()}.
 	 * </p>
-	 * <p class="para">The column names returned by
+	 * <p>The column names returned by
 	 * <b>SQLITE_ASSOC</b> and <b>SQLITE_BOTH</b> will be
 	 * case-folded according to the value of the
 	 * {@see sqlite.assoc_case} configuration
@@ -179,9 +179,9 @@ class SQLiteDatabase  {
 	 * @param $num_args [optional]   <blockquote><p><b>Note</b>: Two alternative syntaxes are
 	 * supported for compatibility with other database extensions (such as MySQL).
 	 * The preferred form is the first, where the <i>dbhandle</i>
-	 * parameter is the first parameter to the function.</span></p></blockquote>
+	 * parameter is the first parameter to the function.</p></blockquote>
 	 */
-	public function createFunction ($function_name, $callback, $num_args) {}
+	public function createFunction ($function_name, $callback, $num_args = -1) {}
 
 	/**
 	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
@@ -224,7 +224,7 @@ class SQLiteDatabase  {
 	 * {@link http://php.net/manual/en/sqlite.configuration.php#ini.sqlite.assoc-case sqlite.assoc_case} configuration
 	 * option.</p>
 	 */
-	public function fetchColumnTypes ($table_name, $result_type) {}
+	public function fetchColumnTypes ($table_name, $result_type = SQLITE_ASSOC) {}
 
 }
 
@@ -234,52 +234,134 @@ class SQLiteDatabase  {
 final class SQLiteResult implements Iterator, Traversable, Countable {
 
 	/**
+	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
+	 * Fetches the next row from a result set as an array
+	 * @link http://php.net/manual/en/function.sqlite-fetch-array.php
 	 * @param $result_type [optional]
-	 * @param $decode_binary [optional]
+	 * <p>
+	 * The optional <i>result_type</i>
+	 * parameter accepts a constant and determines how the returned array will be
+	 * indexed. Using <b>SQLITE_ASSOC</b> will return only associative
+	 * indices (named fields) while <b>SQLITE_NUM</b> will return
+	 * only numerical indices (ordinal field numbers). <b>SQLITE_BOTH</b>
+	 * will return both associative and numerical indices.
+	 * <b>SQLITE_BOTH</b> is the default for this function.
+	 * @param $decode_binary [optional] <p>When the <i>decode_binary</i>
+	 * parameter is set to <b>TRUE</b> (the default), PHP will decode the binary encoding
+	 * it applied to the data if it was encoded using the
+	 *{@link http://php.net/manual/en/sqlite.configuration.php#ini.sqlite.assoc-case sqlite.assoc_case}. You should normally leave this
+	 * value at its default, unless you are interoperating with databases created by
+	 * other sqlite capable applications.</p>
+	 * @return array <p>
+	 * Returns an array of the next row from a result set; <b>FALSE</b> if the
+	 * next position is beyond the final row.
+	 * </p>
+	 * <p>The column names returned by
+	 * <b>SQLITE_ASSOC</b> and <b>SQLITE_BOTH</b> will be
+	 * case-folded according to the value of the
+	 * {@link http://php.net/manual/en/sqlite.configuration.php#ini.sqlite.assoc-case sqlite.assoc_case}  configuration
+	 * option.</p>
 	 */
-	public function fetch ($result_type, $decode_binary) {}
+	public function fetch ($result_type = SQLITE_BOTH, $decode_binary =  true) {}
 
 	/**
-	 * @param $class_name [optional]
-	 * @param $ctor_params [optional]
-	 * @param $decode_binary [optional]
+	 * (PHP 5 &lt; 5.4.0)
+	 * Fetches the next row from a result set as an object
+	 * @link http://php.net/manual/en/function.sqlite-fetch-object.php
+	 * @param string $class_name [optional]
+	 * @param array $ctor_params [optional]
+	 * @param bool $decode_binary [optional]
+	 * @return object
 	 */
-	public function fetchObject ($class_name, $ctor_params, $decode_binary) {}
+	public function fetchObject ($class_name, $ctor_params, $decode_binary = true) {}
 
 	/**
-	 * @param $decode_binary [optional]
+	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.1)
+	 * Fetches the first column of a result set as a string
+	 * @link http://php.net/manual/en/function.sqlite-fetch-single.php
+	 * @param bool $decode_binary [optional]
+	 * @return string <p>Returns the first column value, as a string.</p>
 	 */
-	public function fetchSingle ($decode_binary) {}
+	public function fetchSingle ($decode_binary = true) {}
 
 	/**
-	 * @param $result_type [optional]
-	 * @param $decode_binary [optional]
+	 * (PHP 5 &lt; 5.4.0)
+	 * Fetches the next row from a result set as an object
+	 * @link http://php.net/manual/en/function.sqlite-fetch-object.php
+	 * @param resource $result_type [optional]
+	 * @param array $ctor_params [optional]
+	 * @param bool $decode_binary [optional]
+	 * @return object
 	 */
-	public function fetchAll ($result_type, $decode_binary) {}
+	public function fetchAll ($result_type, array $ctor_params,  $decode_binary = true) {}
 
 	/**
+	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
+	 * Fetches a column from the current row of a result set
+	 * @link http://php.net/manual/en/function.sqlite-column.php
 	 * @param $index_or_name
-	 * @param $decode_binary [optional]
+	 * @param $decode_binary [optional] <p>When the <i>decode_binary</i>
+	 * parameter is set to <b>TRUE</b> (the default), PHP will decode the binary encoding
+	 * it applied to the data if it was encoded using the
+	 * {@see sqlite_escape_string()}.  You should normally leave this
+	 * value at its default, unless you are interoperating with databases created by
+	 * other sqlite capable applications.</p>
+	 * @return mixed Returns the column value
 	 */
-	public function column ($index_or_name, $decode_binary) {}
+	public function column ($index_or_name, $decode_binary = true) {}
 
+	/**
+	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
+	 * Returns the number of fields in a result set
+	 * @link http://php.net/manual/en/function.sqlite-num-fields.php
+	 * @return int <p>Returns the number of fields, as an integer.</p>
+	 */
 	public function numFields () {}
 
 	/**
-	 * @param $field_index
+	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
+	 * Returns the name of a particular field
+	 * @link http://php.net/manual/en/function.sqlite-field-name.php
+	 * @param $field_index <p>The ordinal column number in the result set.</p>
+	 * @return string <p>
+	 * Returns the name of a field in an SQLite result set, given the ordinal
+	 * column number; <b>FALSE</b> on error.
+	 * </p>
+	 * <p>The column names returned by
+	 * <b>SQLITE_ASSOC</b> and <b>SQLITE_BOTH</b> will be
+	 * case-folded according to the value of the
+	 * {@link http://php.net/manual/en/sqlite.configuration.php#ini.sqlite.assoc-case sqlite.assoc_case}configuration
+	 * option.</p>
+	 *
 	 */
 	public function fieldName ($field_index) {}
 
 	/**
-	 * @param $result_type [optional] <p class="para">The optional <code class="parameter">result_type</code>
+	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
+	 * Fetches the current row from a result set as an array
+	 * @link http://php.net/manual/en/function.sqlite-current.php
+	 * @param $result_type [optional] <p>The optional <i>result_type</i>
 	 * parameter accepts a constant and determines how the returned array will be
 	 * indexed. Using <b>SQLITE_ASSOC</b> will return only associative
 	 * indices (named fields) while <b>SQLITE_NUM</b> will return
 	 * only numerical indices (ordinal field numbers). <b>SQLITE_BOTH</b>
 	 * will return both associative and numerical indices.
 	 * <b>SQLITE_BOTH</b> is the default for this function.</p>
-	 * @param $decode_binary [optional]
-	 * @return array
+	 * @param $decode_binary [optional] <p>When the <i>decode_binary</i>
+	 * parameter is set to <b>TRUE</b> (the default), PHP will decode the binary encoding
+	 * it applied to the data if it was encoded using the
+	 * {@see sqlite_escape_string()}.  You should normally leave this
+	 * value at its default, unless you are interoperating with databases created by
+	 * other sqlite capable applications.</p>
+	 * @return array <p>
+	 * Returns an array of the current row from a result set; <b>FALSE</b> if the
+	 * current position is beyond the final row.
+	 * </p>
+	 * <p>The column names returned by
+	 * <b>SQLITE_ASSOC</b> and <b>SQLITE_BOTH</b> will be
+	 * case-folded according to the value of the
+	 * {@link http://php.net/manual/en/sqlite.configuration.php#ini.sqlite.assoc-case sqlite.assoc_case} configuration
+	 * option.</p>
 	 */
 	public function current ($result_type = SQLITE_BOTH , $decode_binary = true) {}
 	/**
@@ -291,17 +373,19 @@ final class SQLiteResult implements Iterator, Traversable, Countable {
 	public function key () {}
 	/**
 	 * (PHP 5 &gt;= 5.0.0)<br/>
-	 * Move forward to next element
-	 * @link http://php.net/manual/en/iterator.next.php
-	 * @return void Any returned value is ignored.
+	 * Seek to the next row number
+	 * @link http://php.net/manual/en/function.sqlite-next.php
+	 * @return bool Returns <b>TRUE</b> on success, or </b>FALSE</b> if there are no more rows.
 	 */
 	public function next () {}
 	/**
 	 * (PHP 5 &gt;= 5.0.0)<br/>
 	 * Checks if current position is valid
 	 * @link http://php.net/manual/en/iterator.valid.php
-	 * @return boolean The return value will be casted to boolean and then evaluated.
-	 * Returns true on success or false on failure.
+	 * @return boolean <p class="para">
+	 * Returns <b>TRUE</b> if there are more rows available from the
+	 * <i>result</i> handle, or <b>FALSE</b> otherwise.
+	 * </p>
 	 */
 	public function valid () {}
 	/**
@@ -316,10 +400,11 @@ final class SQLiteResult implements Iterator, Traversable, Countable {
 	 * (PHP 5 &gt;= 5.1.0)<br/>
 	 * Count elements of an object
 	 * @link http://php.net/manual/en/countable.count.php
-	 * @return int The custom count as an integer.
+	 * @return int <p>The custom count as an integer.
 	 * </p>
 	 * <p>
 	 * The return value is cast to an integer.
+	 * </p>
 	 */
 	public function count () {}
 
@@ -605,14 +690,14 @@ function sqlite_exec ($query, &$error_msg = null) {}
  * when used procedurally.  This parameter is not required
  * when using the object-oriented method.
  * </p>
- * @param int $result_type [optional] &sqlite.result-type; <p class="para">The optional <code class="parameter">result_type</code>
+ * @param int $result_type [optional] &sqlite.result-type; <p>The optional <i>result_type</i>
  * parameter accepts a constant and determines how the returned array will be
  * indexed. Using <b>SQLITE_ASSOC</b> will return only associative
  * indices (named fields) while <b>SQLITE_NUM</b> will return
  * only numerical indices (ordinal field numbers). <b>SQLITE_BOTH</b>
  * will return both associative and numerical indices.
  * <b>SQLITE_BOTH</b> is the default for this function.</p>
- * @param bool $decode_binary [optional] &sqlite.decode-bin; <p >When the <i>decode_binary</i>
+ * @param bool $decode_binary [optional] &sqlite.decode-bin; <p>When the <i>decode_binary</i>
  * parameter is set to <b>TRUE</b> (the default), PHP will decode the binary encoding
  * it applied to the data if it was encoded using the
  * {@link sqlite_escape_string()}.  You should normally leave this
@@ -780,7 +865,7 @@ function sqlite_last_insert_rowid ($dbhandle) {}
  * (PHP 5, PECL sqlite &gt;= 1.0.0)<br/>
  * Returns the number of rows in a buffered result set
  * @link http://php.net/manual/en/function.sqlite-num-rows.php
- * @param $result <p class="para">
+ * @param $result <p>
  * The SQLite result resource.  This parameter is not required when using
  * the object-oriented method.
  * </p>
