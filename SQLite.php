@@ -57,7 +57,7 @@ class SQLiteDatabase  {
 	 * The query to be executed.
 	 * </p>
 	 * <p>
-	 * Data inside the query should be <a href="function.sqlite-escape-string.php" class="link">properly escaped</a>.
+	 * Data inside the query should be {@link http://php.net/manual/en/function.sqlite-escape-string.php properly escaped}.
 	 * </p>
 	 * @param string $error_message [optional] <p>The specified variable will be filled if an error occurs. This is specially important because SQL syntax errors can't be fetched using the
 	 * {@see sqlite_last_error()} function.</p>
@@ -187,7 +187,7 @@ class SQLiteDatabase  {
 	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
 	 * Set busy timeout duration, or disable busy handlers
 	 * @link http://php.net/manual/en/function.sqlite-busy-timeout.php
-	 * @param $milliseconds <p> The number of milliseconds. When set to 0, busy handlers will be disabled and SQLite will return immediately with a <i>SQLITE_BUSY</i> status code if another process/thread has the database locked for an update.
+	 * @param $milliseconds <p> The number of milliseconds. When set to 0, busy handlers will be disabled and SQLite will return immediately with a <b>SQLITE_BUSY</b> status code if another process/thread has the database locked for an update.
 	 * PHP sets the default busy timeout to be 60 seconds when the database is opened.</p>
 	 * @return int <p>Returns an error code, or 0 if no error occurred.</p>
 	 */
@@ -306,7 +306,7 @@ final class SQLiteResult implements Iterator, Traversable, Countable {
 	 * {@see sqlite_escape_string()}.  You should normally leave this
 	 * value at its default, unless you are interoperating with databases created by
 	 * other sqlite capable applications.</p>
-	 * @return mixed Returns the column value
+	 * @return mixed <p>Returns the column value</p>
 	 */
 	public function column ($index_or_name, $decode_binary = true) {}
 
@@ -375,14 +375,14 @@ final class SQLiteResult implements Iterator, Traversable, Countable {
 	 * (PHP 5 &gt;= 5.0.0)<br/>
 	 * Seek to the next row number
 	 * @link http://php.net/manual/en/function.sqlite-next.php
-	 * @return bool Returns <b>TRUE</b> on success, or </b>FALSE</b> if there are no more rows.
+	 * @return bool Returns <b>TRUE</b> on success, or <b>FALSE</b> if there are no more rows.
 	 */
 	public function next () {}
 	/**
 	 * (PHP 5 &gt;= 5.0.0)<br/>
 	 * Checks if current position is valid
 	 * @link http://php.net/manual/en/iterator.valid.php
-	 * @return boolean <p class="para">
+	 * @return boolean <p>
 	 * Returns <b>TRUE</b> if there are more rows available from the
 	 * <i>result</i> handle, or <b>FALSE</b> otherwise.
 	 * </p>
@@ -412,7 +412,7 @@ final class SQLiteResult implements Iterator, Traversable, Countable {
 	 * (PHP 5 &gt;= 5.4.0)<br/>
 	 * Seek to the previous row number of a result set
 	 * @link http://php.net/manual/en/function.sqlite-prev.php
-	 * @return boolean <p> Returns <b>TRUE</b> on success, or <sb>FALSE</b> if there are no more previous rows.
+	 * @return boolean <p> Returns <b>TRUE</b> on success, or <b>FALSE</b> if there are no more previous rows.
 	 * </p>
 	 */
 	public function prev () {}
@@ -586,7 +586,7 @@ function sqlite_open ($filename, $mode = null, &$error_message = null) {}
  * Passed by reference and is set to hold a descriptive error message
  * explaining why the database could not be opened if there was an error.
  * </p>
- * @return resource a resource (database handle) on success, false on error.
+ * @return resource <p>a resource (database handle) on success, false on error.</p>
  */
 function sqlite_popen ($filename, $mode = null, &$error_message = null) {}
 
@@ -669,8 +669,8 @@ function sqlite_query ($query, $dbhandle, $result_type = null, &$error_msg = SQL
  * the
  * {@see sqlite_last_error} function.
  * </p>
- * @return bool This function will return a boolean result; true for success or false for failure.
- * If you need to run a query that returns rows, see sqlite_query.
+ * @return bool <p>This function will return a boolean result; true for success or false for failure.
+ * If you need to run a query that returns rows, see sqlite_query.</p>
  */
 function sqlite_exec ($query, &$error_msg = null) {}
 
@@ -731,8 +731,8 @@ function sqlite_single_query ($db, $query, $first_row_only = null, $decode_binar
  * @param resource $result <p>The SQLite result resource. This parameter is not required when using the object-oriented method.</p>
  * @param int $result_type [optional] &sqlite.result-type;
  * @param bool $decode_binary [optional] &sqlite.decode-bin;
- * @return array an array of the next row from a result set; false if the
- * next position is beyond the final row.
+ * @return array <p>an array of the next row from a result set; false if the
+ * next position is beyond the final row.</p>
  */
 function sqlite_fetch_array ($result, $result_type = SQLITE_BOTH, $decode_binary = null) {}
 
@@ -759,7 +759,7 @@ function sqlite_fetch_object ($result, $class_name = null, array $ctor_params = 
  * {@see sqlite_escape_string()}.  You should normally leave this
  * value at its default, unless you are interoperating with databases created by
  * other sqlite capable applications.</p>
- * @return string the first column value, as a string.
+ * @return string <p>the first column value, as a string.</p>
  */
 function sqlite_fetch_single ($result, $decode_binary = null) {}
 
@@ -774,7 +774,7 @@ function sqlite_fetch_single ($result, $decode_binary = null) {}
  * {@see sqlite_escape_string()}.  You should normally leave this
  * value at its default, unless you are interoperating with databases created by
  * other sqlite capable applications.</p>
- * @return string the first column value, as a string.
+ * @return string <p>the first column value, as a string.</p>
  */
 function sqlite_fetch_string ($result, $decode_binary) {}
 
@@ -800,7 +800,7 @@ function sqlite_fetch_all ($result_type = null, $decode_binary = null) {}
  * Fetches the current row from a result set as an array
  * @link http://php.net/manual/en/function.sqlite-current.php
  * @param resource $result <p>The SQLite result resource. This parameter is not required when using the object-oriented method.</p>
- * @param int $result_type [optional] <p>The optional result_type parameter accepts a constant and determines how the returned array will be indexed. Using SQLITE_ASSOC will return only associative indices (named fields) while SQLITE_NUM will return only numerical indices (ordinal field numbers). <b>SQLITE_BOTH</b> will return both associative and numerical indices. <b>SQLITE_BOTH</b> is the default for this function.</p>
+ * @param int $result_type [optional] <p>The optional result_type parameter accepts a constant and determines how the returned array will be indexed. Using <b>SQLITE_ASSOC</b> will return only associative indices (named fields) while <b>SQLITE_NUM</b> will return only numerical indices (ordinal field numbers). <b>SQLITE_BOTH</b> will return both associative and numerical indices. <b>SQLITE_BOTH</b> is the default for this function.</p>
  * @param bool $decode_binary [optional] <p>When the decode_binary parameter is set to <b>TRUE</b> (the default), PHP will decode the binary encoding it applied to the data if it was encoded using the sqlite_escape_string(). You should normally leave this value at its default, unless you are interoperating with databases created by other sqlite capable applications.</p>
  * @return array an array of the current row from a result set; false if the
  * current position is beyond the final row.
@@ -829,7 +829,7 @@ function sqlite_column ($result, $index_or_name, $decode_binary = null) {}
  * (PHP 5, PECL sqlite &gt;= 1.0.0)<br/>
  * Returns the version of the linked SQLite library
  * @link http://php.net/manual/en/function.sqlite-libversion.php
- * @return string the librart version, as a string.
+ * @return string the library version, as a string.
  */
 function sqlite_libversion () {}
 
@@ -1024,7 +1024,7 @@ function sqlite_escape_string ($item) {}
  * @param int $milliseconds <p>
  * The number of milliseconds. When set to
  * 0, busy handlers will be disabled and SQLite will
- * return immediately with a SQLITE_BUSY status code
+ * return immediately with a <b>SQLITE_BUSY</b> status code
  * if another process/thread has the database locked for an update.
  * </p>
  * <p>
@@ -1196,11 +1196,11 @@ function sqlite_udf_decode_binary ($data) {}
  * @param int $result_type [optional] <p>
  * The optional result_type parameter accepts a
  * constant and determines how the returned array will be indexed. Using
- * SQLITE_ASSOC will return only associative indices
- * (named fields) while SQLITE_NUM will return only
+ * <b>SQLITE_ASSOC</b> will return only associative indices
+ * (named fields) while <b>SQLITE_NUM</b> will return only
  * numerical indices (ordinal field numbers).
  * SQLITE_BOTH will return both associative and
- * numerical indices. SQLITE_ASSOC is the default for
+ * numerical indices. <b>SQLITE_ASSOC</b> is the default for
  * this function.
  * </p>
  * @return array an array of column data types; false on error.
