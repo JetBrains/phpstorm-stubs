@@ -901,6 +901,22 @@ function getdate ($timestamp = null) {}
 function date_create ($time = null, DateTimeZone $timezone = null ) {}
 
 /**
+ * (PHP 5.5)<br/>
+ * Alias for DateTimeImmutable::__construct()
+ * Returns new DateTimeImmutable object
+ * @link http://php.net/manual/en/function.date-create-immutable.php
+ * @see DateTimeImmutable::__construct()
+ * @param string $time [optional] <p>
+ * String in a format accepted by strtotime.
+ * </p>
+ * @param DateTimeZone $timezone [optional] <p>
+ * Time zone of the time.
+ * </p>
+ * @return DateTimeImmutable DateTime object on success or false on failure.
+ */
+function date_create_immutable ($time = null, DateTimeZone $timezone = null ) {}
+
+/**
  * (PHP 5 &gt;= 5.3.0)<br/>
  * Alias:
  * {@see DateTime::createFromFormat}
