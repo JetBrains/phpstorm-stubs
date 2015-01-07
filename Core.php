@@ -444,15 +444,12 @@ function function_exists ($function_name) {}
  * (PHP 5 &gt;= 5.3.0)<br/>
  * Creates an alias for a class
  * @link http://php.net/manual/en/function.class-alias.php
- * @param string $original [optional] <p>
- * The original class.
- * </p>
- * @param string $alias [optional] <p>
- * The alias name for the class.
- * </p>
+ * @param string $original The original class.
+ * @param string $alias The alias name for the class.
+ * @param bool $autoload [optional] Whether to autoload if the original class is not found.
  * @return bool true on success or false on failure.
  */
-function class_alias ($original = null, $alias = null) {}
+function class_alias ($original, $alias, $autoload = TRUE) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
