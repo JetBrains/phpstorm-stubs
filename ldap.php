@@ -947,12 +947,94 @@ function ldap_control_paged_result_response ($link, $result, &$cookie = null, &$
 
 function ldap_escape($subject, $ignore = null, $escape = null) {}
 
+/**
+ * (PHP 5.4 &gt;= 5.4.26, PHP 5.5 &gt;= 5.5.10, PHP 5.6 &gt;= 5.6.0)
+ * Batch and execute modifications on an LDAP entry
+ * @link http://php.net/manual/en/function.ldap-modify-batch.php
+ * @param $link_identifier <p>
+ * An LDAP link identifier, returned by
+ * {@see ldap_connect()}.
+ * </p>
+ * @param $dn <p>The distinguished name of an LDAP entity.</p>
+ * @param $entry <p>An array that specifies the modifications to make. Each entry in this
+ * array is an associative array with two or three keys:
+ * <em>attrib</em> maps to the name of the attribute to modify,
+ * <em>modtype</em> maps to the type of modification to perform,
+ * and (depending on the type of modification) <em>values</em>
+ * maps to an array of attribute values relevant to the modification.
+ * </p>
+ * <p>
+ * Possible values for <em>modtype</em> include:
+ * </p><dl>
+ *
+ *
+ * <dt>
+ * <b>LDAP_MODIFY_BATCH_ADD</b></dt>
+ *
+ * <dd>
+ *
+ * <p>
+ * Each value specified through <em>values</em> is added (as
+ * an additional value) to the attribute named by
+ * <em>attrib</em>.
+ * </p>
+ * </dd>
+ *
+ * <dt>
+ * <b>LDAP_MODIFY_BATCH_REMOVE</b></dt>
+ *
+ * <dd>
+ *
+ * <p>
+ * Each value specified through <em>values</em> is removed
+ * from the attribute named by <em>attrib</em>. Any value of
+ * the attribute not contained in the <em>values</em> array
+ * will remain untouched.
+ * </p>
+ * </dd>
+ * <dt>
+ * <b>LDAP_MODIFY_BATCH_REMOVE_ALL</b></dt>
+ *
+ * <dd>
+ *
+ * <p>
+ * All values are removed from the attribute named by
+ * <em>attrib</em>. A <em>values</em> entry must
+ * not be provided.
+ * </p>
+ * </dd>
+ *
+ * <dt>
+ * <b>LDAP_MODIFY_BATCH_REPLACE</b></dt>
+ *
+ * <dd>
+ *
+ * <p>
+ * All current values of the attribute named by
+ * <em>attrib</em> are replaced with the values specified
+ * through <em>values</em>.
+ * </p>
+ * </dd>
+ * </dl>
+ * <p>
+ * Note that any value for <em>attrib</em> must be a string, any
+ * value for <em>values</em> must be an array of strings, and
+ * any value for <em>modtype</em> must be one of the
+ * <b>LDAP_MODIFY_BATCH_*</b> constants listed above.
+ * </p></p>
+ */
+function ldap_modify_batch ( $link_identifier , $dn , $entry) {}
+
 define('LDAP_ESCAPE_FILTER', 1);
 define ('LDAP_ESCAPE_DN', 2);
 define ('LDAP_DEREF_NEVER', 0);
 define ('LDAP_DEREF_SEARCHING', 1);
 define ('LDAP_DEREF_FINDING', 2);
 define ('LDAP_DEREF_ALWAYS', 3);
+define ('LDAP_MODIFY_BATCH_REMOVE',2);
+define('LDAP_MODIFY_BATCH_ADD', 1);
+define('LDAP_MODIFY_BATCH_REMOVE_ALL', 18);
+define('LDAP_MODIFY_BATCH_REPLACE', 3);
 
 /**
  * Specifies alternative rules for following aliases at the server.
