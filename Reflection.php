@@ -651,9 +651,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector {
 	 * (PHP &gt;= 5.4.0)<br/>
 	 * Returns a dynamically created closure for the method
 	 * @link http://php.net/manual/en/reflectionmethod.getclosure.php
-	 * @param string $object <p>
-	 * Forbidden for static methods, required for other methods.
-	 * </p>
+	 * @param object $object [optional] Forbidden for static methods, required for other methods.
 	 * @return Closure <b>Closure</b>.
 	 * Returns <b>NULL</b> in case of an error.
 	 */
