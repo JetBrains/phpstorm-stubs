@@ -372,8 +372,8 @@ class OCI_Collection  {
  * Associates a PHP variable with a column for query fetches
  * @link http://php.net/manual/en/function.oci-define-by-name.php
  * @param resource $statement A valid OCI8 statement
- * identifier created by <b>oci_parse</b> and executed
- * by <b>oci_execute</b>, or a REF
+ * identifier created by {@see oci_parse} and executed
+ * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
  * @param string $column_name <p>
  * The column name used in the query.
@@ -393,7 +393,7 @@ class OCI_Collection  {
  * data type will still be SQLT_CHR.
  * </p>
  * <p>
- * You can optionally use <b>oci_new_descriptor</b>
+ * You can optionally use {@see oci_new_descriptor}
  * to allocate LOB/ROWID/BFILE descriptors.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -422,7 +422,7 @@ function oci_define_by_name ($statement, $column_name, &$variable, $type = SQLT_
  * of <i>variable</i> to set the maximum
  * length. In this case the <i>variable</i> must
  * exist and contain data
- * when <b>oci_bind_by_name</b> is called.
+ * when {@see oci_bind_by_name} is called.
  * </p>
  * @param int $type [optional] <p>
  * The datatype that Oracle will treat the data as. The
@@ -434,7 +434,7 @@ function oci_define_by_name ($statement, $column_name, &$variable, $type = SQLT_
  * <p>
  * If you need to bind an abstract datatype (LOB/ROWID/BFILE) you
  * need to allocate it first using the
- * <b>oci_new_descriptor</b> function. The
+ * {@see oci_new_descriptor} function. The
  * <i>length</i> is not used for abstract datatypes
  * and should be set to -1.
  * </p>
@@ -466,7 +466,7 @@ function oci_bind_by_name ($statement, $bv_name, &$variable, $maxlength = -1, $t
  * </p>
  * @param int $max_item_length [optional] <p>
  * Sets maximum length for array items. If not specified or equals to -1,
- * <b>oci_bind_array_by_name</b> will find the longest
+ * {@see oci_bind_array_by_name} will find the longest
  * element in the incoming array and will use it as the maximum length.
  * </p>
  * @param int $type [optional] <p>
@@ -604,9 +604,9 @@ function oci_field_type_raw ($statement, $field) {}
  * <tr valign="top">
  * <td><b>OCI_DESCRIBE_ONLY</b></td>
  * <td>Make query meta data available to functions
- * like <b>oci_field_name</b> but do not
+ * like {@see oci_field_name} but do not
  * create a result set. Any subsequent fetch call such
- * as <b>oci_fetch_array</b> will
+ * as {@see oci_fetch_array} will
  * fail.</td>
  * </tr>
  * <tr valign="top">
@@ -622,8 +622,8 @@ function oci_field_type_raw ($statement, $field) {}
  * Using <b>OCI_NO_AUTO_COMMIT</b> mode starts or continues a
  * transaction. Transactions are automatically rolled back when
  * the connection is closed, or when the script ends. Explicitly
- * call <b>oci_commit</b> to commit a transaction,
- * or <b>oci_rollback</b> to abort it.
+ * call {@see oci_commit} to commit a transaction,
+ * or {@see oci_rollback} to abort it.
  * </p>
  * <p>
  * When inserting or updating data, using transactions is
@@ -633,15 +633,15 @@ function oci_field_type_raw ($statement, $field) {}
  * <p>
  * If <b>OCI_NO_AUTO_COMMIT</b> mode is used for any
  * statement including queries, and
- * <b>oci_commit</b>
- * or <b>oci_rollback</b> is not subsequently
+ * {@see oci_commit}
+ * or {@see oci_rollback} is not subsequently
  * called, then OCI8 will perform a rollback at the end of the
  * script even if no data was changed. To avoid an unnecessary
  * rollback, many scripts do not
  * use <b>OCI_NO_AUTO_COMMIT</b> mode for queries or
  * PL/SQL. Be careful to ensure the appropriate transactional
  * consistency for the application when
- * using <b>oci_execute</b> with different modes in
+ * using {@see oci_execute} with different modes in
  * the same script.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -664,8 +664,8 @@ function oci_cancel ($statement) {}
  * Fetches the next row from a query into internal buffers
  * @link http://php.net/manual/en/function.oci-fetch.php
  * @param resource $statement A valid OCI8 statement
- * identifier created by <b>oci_parse</b> and executed
- * by <b>oci_execute</b>, or a REF
+ * identifier created by {@see oci_parse} and executed
+ * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> if there are no more rows in the
  * <i>statement</i>.
@@ -677,8 +677,8 @@ function oci_fetch ($statement) {}
  * Returns the next row from a query as an object
  * @link http://php.net/manual/en/function.oci-fetch-object.php
  * @param resource $statement A valid OCI8 statement
- * identifier created by <b>oci_parse</b> and executed
- * by <b>oci_execute</b>, or a REF
+ * identifier created by {@see oci_parse} and executed
+ * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
  * @return object an object. Each attribute of the object corresponds to a
  * column of the row. If there are no more rows in
@@ -712,8 +712,8 @@ function oci_fetch_object ($statement) {}
  * Returns the next row from a query as a numeric array
  * @link http://php.net/manual/en/function.oci-fetch-row.php
  * @param resource $statement A valid OCI8 statement
- * identifier created by <b>oci_parse</b> and executed
- * by <b>oci_execute</b>, or a REF
+ * identifier created by {@see oci_parse} and executed
+ * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
  * @return array a numerically indexed array. If there are no more rows in
  * the <i>statement</i> then <b>FALSE</b> is returned.
@@ -725,8 +725,8 @@ function oci_fetch_row ($statement) {}
  * Returns the next row from a query as an associative array
  * @link http://php.net/manual/en/function.oci-fetch-assoc.php
  * @param resource $statement A valid OCI8 statement
- * identifier created by <b>oci_parse</b> and executed
- * by <b>oci_execute</b>, or a REF
+ * identifier created by {@see oci_parse} and executed
+ * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
  * @return array an associative array. If there are no more rows in
  * the <i>statement</i> then <b>FALSE</b> is returned.
@@ -738,17 +738,17 @@ function oci_fetch_assoc ($statement) {}
  * Returns the next row from a query as an associative or numeric array
  * @link http://php.net/manual/en/function.oci-fetch-array.php
  * @param resource $statement A valid OCI8 statement
- * identifier created by <b>oci_parse</b> and executed
- * by <b>oci_execute</b>, or a REF
+ * identifier created by {@see oci_parse} and executed
+ * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
  * <p>
- * Can also be a statement identifier returned by <b>oci_get_implicit_resultset</b>.
+ * Can also be a statement identifier returned by {@see oci_get_implicit_resultset}.
  * </p>
  * @param int $mode [optional] <p>
  * An optional second parameter can be any combination of the following
  * constants:
  * <table>
- * <b>oci_fetch_array</b> Modes
+ * {@see oci_fetch_array} Modes
  * <tr valign="top">
  * <td>Constant</td>
  * <td>Description</td>
@@ -821,9 +821,9 @@ function oci_fetch_array ($statement, $mode = null) {}
 
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
- * Obsolete variant of <b>oci_fetch_array</b>, <b>oci_fetch_object</b>,
-<b>oci_fetch_assoc</b> and
-<b>oci_fetch_row</b>
+ * Obsolete variant of {@see oci_fetch_array}, {@see oci_fetch_object},
+{@see oci_fetch_assoc} and
+{@see oci_fetch_row}
  * @link http://php.net/manual/en/function.ocifetchinto.php
  */
 function ocifetchinto ($statement_resource, &$result, $mode) {}
@@ -833,8 +833,8 @@ function ocifetchinto ($statement_resource, &$result, $mode) {}
  * Fetches multiple rows from a query into a two-dimensional array
  * @link http://php.net/manual/en/function.oci-fetch-all.php
  * @param resource $statement A valid OCI8 statement
- * identifier created by <b>oci_parse</b> and executed
- * by <b>oci_execute</b>, or a REF
+ * identifier created by {@see oci_parse} and executed
+ * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
  * @param array $output <p>
  * The variable to contain the returned rows.
@@ -844,7 +844,7 @@ function ocifetchinto ($statement_resource, &$result, $mode) {}
  * conversion.
  * </p>
  * <p>
- * See <b>oci_fetch_array</b> for more information
+ * See {@see oci_fetch_array} for more information
  * on how data and types are fetched.
  * </p>
  * @param int $skip [optional] <p>
@@ -860,7 +860,7 @@ function ocifetchinto ($statement_resource, &$result, $mode) {}
  * Parameter <i>flags</i> indicates the array
  * structure and whether associative arrays should be used.
  * <table>
- * <b>oci_fetch_all</b> Array Structure Modes
+ * {@see oci_fetch_all} Array Structure Modes
  * <tr valign="top">
  * <td>Constant</td>
  * <td>Description</td>
@@ -880,7 +880,7 @@ function ocifetchinto ($statement_resource, &$result, $mode) {}
  * <p>
  * Arrays can be indexed by column heading or numerically.
  * <table>
- * <b>oci_fetch_all</b> Array Index Modes
+ * {@see oci_fetch_all} Array Index Modes
  * <tr valign="top">
  * <td>Constant</td>
  * <td>Description</td>
@@ -957,7 +957,7 @@ function oci_num_fields ($statement) {}
  * @link http://php.net/manual/en/function.oci-parse.php
  * @param resource $connection <p>
  * An Oracle connection identifier, returned by
- * <b>oci_connect</b>, <b>oci_pconnect</b>, or <b>oci_new_connect</b>.
+ * {@see oci_connect}, {@see oci_pconnect}, or {@see oci_new_connect}.
  * </p>
  * @param string $sql_text <p>
  * The SQL or PL/SQL statement.
@@ -977,8 +977,8 @@ function oci_parse ($connection, $sql_text) {}
  * Returns the next child statement resource from a parent statement resource that has Oracle Database 12c Implicit Result Sets
  * @link http://php.net/manual/en/function.oci-get-implicit-resultset.php
  * @param resource $statement <p>A valid OCI8 statement identifier created
- * by <b>oci_parse</b> and executed
- * by <b>oci_execute</b>. The statement
+ * by {@see oci_parse} and executed
+ * by {@see oci_execute}. The statement
  * identifier may or may not be associated with a SQL statement
  * that returns Implicit Result Sets.
  * </p>
@@ -986,7 +986,7 @@ function oci_parse ($connection, $sql_text) {}
  * on <i>statement</i>. Returns <b>FALSE</b> when child
  * statements do not exist, or all child statements have been returned
  * by previous calls
- * to <b>oci_get_implicit_resultset</b>.
+ * to {@see oci_get_implicit_resultset}.
  */
 function oci_get_implicit_resultset ($statement) {}
 
@@ -996,7 +996,7 @@ function oci_get_implicit_resultset ($statement) {}
  * @link http://php.net/manual/en/function.oci-new-cursor.php
  * @param resource $connection <p>
  * An Oracle connection identifier, returned by
- * <b>oci_connect</b> or <b>oci_pconnect</b>.
+ * {@see oci_connect} or {@see oci_pconnect}.
  * </p>
  * @return resource a new statement handle, or <b>FALSE</b> on error.
  */
@@ -1040,7 +1040,7 @@ function oci_server_version ($connection) {}
  * Returns the type of a statement
  * @link http://php.net/manual/en/function.oci-statement-type.php
  * @param resource $statement <p>
- * A valid OCI8 statement identifier from <b>oci_parse</b>.
+ * A valid OCI8 statement identifier from {@see oci_parse}.
  * </p>
  * @return string the type of <i>statement</i> as one of the
  * following strings.
@@ -1118,8 +1118,8 @@ function oci_num_rows ($statement) {}
  * @link http://php.net/manual/en/function.oci-close.php
  * @param resource $connection <p>
  * An Oracle connection identifier returned by
- * <b>oci_connect</b>, <b>oci_pconnect</b>,
- * or <b>oci_new_connect</b>.
+ * {@see oci_connect}, {@see oci_pconnect},
+ * or {@see oci_new_connect}.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
@@ -1387,17 +1387,17 @@ function oci_pconnect ($username, $password, $connection_string = null, $charact
  * @param resource $resource [optional] <p>
  * For most errors, <i>resource</i> is the
  * resource handle that was passed to the failing function call.
- * For connection errors with <b>oci_connect</b>,
- * <b>oci_new_connect</b> or
- * <b>oci_pconnect</b> do not pass <i>resource</i>.
+ * For connection errors with {@see oci_connect},
+ * {@see oci_new_connect} or
+ * {@see oci_pconnect} do not pass <i>resource</i>.
  * </p>
- * @return array If no error is found, <b>oci_error</b> returns
- * <b>FALSE</b>. Otherwise, <b>oci_error</b> returns the
+ * @return array If no error is found, {@see oci_error} returns
+ * <b>FALSE</b>. Otherwise, {@see oci_error} returns the
  * error information as an associative array.
  * </p>
  * <p>
  * <table>
- * <b>oci_error</b> Array Description
+ * {@see oci_error} Array Description
  * <tr valign="top">
  * <td>Array key</td>
  * <td>Type</td>
@@ -1483,7 +1483,7 @@ function oci_lob_copy (OCI_Lob $lob_to, OCI_Lob $lob_from, $length = 0) {}
  * @link http://php.net/manual/en/function.oci-commit.php
  * @param resource $connection <p>
  * An Oracle connection identifier, returned by
- * <b>oci_connect</b>, <b>oci_pconnect</b>, or <b>oci_new_connect</b>.
+ * {@see oci_connect}, {@see oci_pconnect}, or {@see oci_new_connect}.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
@@ -1495,8 +1495,8 @@ function oci_commit ($connection) {}
  * @link http://php.net/manual/en/function.oci-rollback.php
  * @param resource $connection <p>
  * An Oracle connection identifier, returned by
- * <b>oci_connect</b>, <b>oci_pconnect</b>
- * or <b>oci_new_connect</b>.
+ * {@see oci_connect}, {@see oci_pconnect}
+ * or {@see oci_new_connect}.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
@@ -1508,7 +1508,7 @@ function oci_rollback ($connection) {}
  * @link http://php.net/manual/en/function.oci-new-descriptor.php
  * @param resource $connection <p>
  * An Oracle connection identifier, returned by
- * <b>oci_connect</b> or <b>oci_pconnect</b>.
+ * {@see oci_connect} or {@see oci_pconnect}.
  * </p>
  * @param int $type [optional] <p>
  * Valid values for <i>type</i> are:
@@ -1524,8 +1524,8 @@ function oci_new_descriptor ($connection, $type = OCI_DTYPE_LOB) {}
  * Sets number of rows to be prefetched by queries
  * @link http://php.net/manual/en/function.oci-set-prefetch.php
  * @param resource $statement A valid OCI8 statement
- * identifier created by <b>oci_parse</b> and executed
- * by <b>oci_execute</b>, or a REF
+ * identifier created by {@see oci_parse} and executed
+ * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
  * @param int $rows <p>
  * The number of rows to be prefetched, &gt;= 0
@@ -1539,8 +1539,8 @@ function oci_set_prefetch ($statement, $rows) {}
  * Sets the client identifier
  * @link http://php.net/manual/en/function.oci-set-client-identifier.php
  * @param resource $connection An Oracle connection identifier,
- * returned by <b>oci_connect</b>, <b>oci_pconnect</b>,
- * or <b>oci_new_connect</b>.</p>
+ * returned by {@see oci_connect}, {@see oci_pconnect},
+ * or {@see oci_new_connect}.</p>
  * @param string $client_identifier <p>
  * User chosen string up to 64 bytes long.
  * </p>
@@ -1565,8 +1565,8 @@ function oci_set_edition ($edition) {}
  * Sets the module name
  * @link http://php.net/manual/en/function.oci-set-module-name.php
  * @param resource $connection An Oracle connection identifier,
- * returned by <b>oci_connect</b>, <b>oci_pconnect</b>,
- * or <b>oci_new_connect</b>.</p>
+ * returned by {@see oci_connect}, {@see oci_pconnect},
+ * or {@see oci_new_connect}.</p>
  * @param string $module_name <p>
  * User chosen string up to 48 bytes long.
  * </p>
@@ -1579,8 +1579,8 @@ function oci_set_module_name ($connection, $module_name) {}
  * Sets the action name
  * @link http://php.net/manual/en/function.oci-set-action.php
  * @param resource $connection An Oracle connection identifier,
- * returned by <b>oci_connect</b>, <b>oci_pconnect</b>,
- * or <b>oci_new_connect</b>.</p>
+ * returned by {@see oci_connect}, {@see oci_pconnect},
+ * or {@see oci_new_connect}.</p>
  * @param string $action_name <p>
  * User chosen string up to 32 bytes long.
  * </p>
@@ -1593,8 +1593,8 @@ function oci_set_action ($connection, $action_name) {}
  * Sets the client information
  * @link http://php.net/manual/en/function.oci-set-client-info.php
  * @param resource $connection An Oracle connection identifier,
- * returned by <b>oci_connect</b>, <b>oci_pconnect</b>,
- * or <b>oci_new_connect</b>.</p>
+ * returned by {@see oci_connect}, {@see oci_pconnect},
+ * or {@see oci_new_connect}.</p>
  * @param string $client_info <p>
  * User chosen string up to 64 bytes long.
  * </p>
@@ -1608,7 +1608,7 @@ function oci_set_client_info ($connection, $client_info) {}
  * @link http://php.net/manual/en/function.oci-password-change.php
  * @param resource $connection <p>
  * An Oracle connection identifier, returned by
- * <b>oci_connect</b> or <b>oci_pconnect</b>.
+ * {@see oci_connect} or {@see oci_pconnect}.
  * </p>
  * @param string $username <p>
  * The Oracle user name.
@@ -1629,7 +1629,7 @@ function oci_password_change ($connection, $username, $old_password, $new_passwo
  * @link http://php.net/manual/en/function.oci-new-collection.php
  * @param resource $connection <p>
  * An Oracle connection identifier, returned by
- * <b>oci_connect</b> or <b>oci_pconnect</b>.
+ * {@see oci_connect} or {@see oci_pconnect}.
  * </p>
  * @param string $tdo <p>
  * Should be a valid named type (uppercase).
@@ -2104,7 +2104,7 @@ function ocicolltrim ($collection, $number) {}
 define ('OCI_DEFAULT', 0);
 
 /**
- * Used with <b>oci_connect</b> to connect with
+ * Used with {@see oci_connect} to connect with
  * the SYSOPER privilege. The <i>php.ini</i> setting
  * oci8.privileged_connect
  * should be enabled to use this.
@@ -2113,7 +2113,7 @@ define ('OCI_DEFAULT', 0);
 define ('OCI_SYSOPER', 4);
 
 /**
- * Used with <b>oci_connect</b> to connect with
+ * Used with {@see oci_connect} to connect with
  * the SYSDBA privilege. The <i>php.ini</i> setting
  * oci8.privileged_connect
  * should be enabled to use this.
@@ -2122,7 +2122,7 @@ define ('OCI_SYSOPER', 4);
 define ('OCI_SYSDBA', 2);
 
 /**
- * Used with <b>oci_connect</b> for using
+ * Used with {@see oci_connect} for using
  * Oracles' External or OS authentication. Introduced in PHP
  * 5.3 and PECL OCI8 1.3.4.
  * @link http://php.net/manual/en/oci8.constants.php
@@ -2131,7 +2131,7 @@ define ('OCI_CRED_EXT', -2147483648);
 
 /**
  * Statement execution mode
- * for <b>oci_execute</b>. Use this mode if you
+ * for {@see oci_execute}. Use this mode if you
  * want meta data such as the column names but don't want to
  * fetch rows from the query.
  * @link http://php.net/manual/en/oci8.constants.php
@@ -2139,7 +2139,7 @@ define ('OCI_CRED_EXT', -2147483648);
 define ('OCI_DESCRIBE_ONLY', 16);
 
 /**
- * Statement execution mode for <b>oci_execute</b>
+ * Statement execution mode for {@see oci_execute}
  * call. Automatically commit changes when the statement has
  * succeeded.
  * @link http://php.net/manual/en/oci8.constants.php
@@ -2148,7 +2148,7 @@ define ('OCI_COMMIT_ON_SUCCESS', 32);
 
 /**
  * Statement execution mode
- * for <b>oci_execute</b>. The transaction is not
+ * for {@see oci_execute}. The transaction is not
  * automatically committed when using this mode. For
  * readability in new code, use this value instead of the
  * older, equivalent <b>OCI_DEFAULT</b> constant.
@@ -2242,50 +2242,50 @@ define ('SQLT_NUM', 2);
 define ('SQLT_RSET', 116);
 
 /**
- * Used with <b>oci_bind_array_by_name</b> to bind arrays of
+ * Used with {@see oci_bind_array_by_name} to bind arrays of
  * CHAR.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_AFC', 96);
 
 /**
- * Used with <b>oci_bind_array_by_name</b> to bind arrays of
+ * Used with {@see oci_bind_array_by_name} to bind arrays of
  * VARCHAR2.
- * Also used with <b>oci_bind_by_name</b>.
+ * Also used with {@see oci_bind_by_name}.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_CHR', 1);
 
 /**
- * Used with <b>oci_bind_array_by_name</b> to bind arrays of
+ * Used with {@see oci_bind_array_by_name} to bind arrays of
  * VARCHAR.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_VCS', 9);
 
 /**
- * Used with <b>oci_bind_array_by_name</b> to bind arrays of
+ * Used with {@see oci_bind_array_by_name} to bind arrays of
  * VARCHAR2.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_AVC', 97);
 
 /**
- * Used with <b>oci_bind_array_by_name</b> to bind arrays of
+ * Used with {@see oci_bind_array_by_name} to bind arrays of
  * STRING.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_STR', 5);
 
 /**
- * Used with <b>oci_bind_array_by_name</b> to bind arrays of
+ * Used with {@see oci_bind_array_by_name} to bind arrays of
  * LONG VARCHAR.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_LVC', 94);
 
 /**
- * Used with <b>oci_bind_array_by_name</b> to bind arrays of
+ * Used with {@see oci_bind_array_by_name} to bind arrays of
  * FLOAT.
  * @link http://php.net/manual/en/oci8.constants.php
  */
@@ -2298,13 +2298,13 @@ define ('SQLT_FLT', 4);
 define ('SQLT_UIN', 68);
 
 /**
- * Used with <b>oci_bind_by_name</b> to bind LONG values.
+ * Used with {@see oci_bind_by_name} to bind LONG values.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_LNG', 8);
 
 /**
- * Used with <b>oci_bind_by_name</b> to bind LONG RAW values.
+ * Used with {@see oci_bind_by_name} to bind LONG RAW values.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_LBI', 24);
@@ -2316,7 +2316,7 @@ define ('SQLT_LBI', 24);
 define ('SQLT_BIN', 23);
 
 /**
- * Used with <b>oci_bind_array_by_name</b> to bind arrays of
+ * Used with {@see oci_bind_array_by_name} to bind arrays of
  * LONG.
  * @link http://php.net/manual/en/oci8.constants.php
  */
@@ -2335,7 +2335,7 @@ define ('SQLT_BDOUBLE', 22);
 define ('SQLT_BFLOAT', 21);
 
 /**
- * Used with <b>oci_bind_by_name</b> when binding
+ * Used with {@see oci_bind_by_name} when binding
  * named data types. Note: in PHP &lt; 5.0 it was called
  * <b>OCI_B_SQLT_NTY</b>.
  * @link http://php.net/manual/en/oci8.constants.php
@@ -2355,134 +2355,134 @@ define ('SQLT_NTY', 108);
 define ('OCI_SYSDATE', "SYSDATE");
 
 /**
- * Used with <b>oci_bind_by_name</b> when binding
+ * Used with {@see oci_bind_by_name} when binding
  * BFILEs.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_BFILE', 114);
 
 /**
- * Used with <b>oci_bind_by_name</b> when binding
+ * Used with {@see oci_bind_by_name} when binding
  * CFILEs.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_CFILEE', 115);
 
 /**
- * Used with <b>oci_bind_by_name</b> when binding
+ * Used with {@see oci_bind_by_name} when binding
  * CLOBs.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_CLOB', 112);
 
 /**
- * Used with <b>oci_bind_by_name</b> when
+ * Used with {@see oci_bind_by_name} when
  * binding BLOBs.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_BLOB', 113);
 
 /**
- * Used with <b>oci_bind_by_name</b> when binding
+ * Used with {@see oci_bind_by_name} when binding
  * ROWIDs.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_ROWID', 104);
 
 /**
- * Used with <b>oci_bind_by_name</b> when binding
+ * Used with {@see oci_bind_by_name} when binding
  * cursors, previously allocated
- * with <b>oci_new_descriptor</b>.
+ * with {@see oci_new_descriptor}.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_CURSOR', 116);
 
 /**
- * Used with <b>oci_bind_by_name</b> to bind RAW values.
+ * Used with {@see oci_bind_by_name} to bind RAW values.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_BIN', 23);
 
 /**
- * Used with <b>oci_bind_array_by_name</b> to bind arrays of
+ * Used with {@see oci_bind_array_by_name} to bind arrays of
  * INTEGER.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_INT', 3);
 
 /**
- * Used with <b>oci_bind_array_by_name</b> to bind arrays of
+ * Used with {@see oci_bind_array_by_name} to bind arrays of
  * NUMBER.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_NUM', 2);
 
 /**
- * Default mode of <b>oci_fetch_all</b>.
+ * Default mode of {@see oci_fetch_all}.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_FETCHSTATEMENT_BY_COLUMN', 16);
 
 /**
- * Alternative mode of <b>oci_fetch_all</b>.
+ * Alternative mode of {@see oci_fetch_all}.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_FETCHSTATEMENT_BY_ROW', 32);
 
 /**
- * Used with <b>oci_fetch_all</b> and
- * <b>oci_fetch_array</b> to get results as an associative
+ * Used with {@see oci_fetch_all} and
+ * {@see oci_fetch_array} to get results as an associative
  * array.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_ASSOC', 1);
 
 /**
- * Used with <b>oci_fetch_all</b> and
- * <b>oci_fetch_array</b> to get results as an
+ * Used with {@see oci_fetch_all} and
+ * {@see oci_fetch_array} to get results as an
  * enumerated array.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_NUM', 2);
 
 /**
- * Used with <b>oci_fetch_all</b> and
- * <b>oci_fetch_array</b> to get results as an
+ * Used with {@see oci_fetch_all} and
+ * {@see oci_fetch_array} to get results as an
  * array with both associative and number indices.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_BOTH', 3);
 
 /**
- * Used with <b>oci_fetch_array</b> to get empty
+ * Used with {@see oci_fetch_array} to get empty
  * array elements if the row items value is <b>NULL</b>.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_RETURN_NULLS', 4);
 
 /**
- * Used with <b>oci_fetch_array</b> to get the
+ * Used with {@see oci_fetch_array} to get the
  * data value of the LOB instead of the descriptor.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_RETURN_LOBS', 8);
 
 /**
- * This flag tells <b>oci_new_descriptor</b> to
+ * This flag tells {@see oci_new_descriptor} to
  * initialize a new FILE descriptor.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_DTYPE_FILE', 56);
 
 /**
- * This flag tells <b>oci_new_descriptor</b> to
+ * This flag tells {@see oci_new_descriptor} to
  * initialize a new LOB descriptor.
  * @link http://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_DTYPE_LOB', 50);
 
 /**
- * This flag tells <b>oci_new_descriptor</b> to
+ * This flag tells {@see oci_new_descriptor} to
  * initialize a new ROWID descriptor.
  * @link http://php.net/manual/en/oci8.constants.php
  */
@@ -2529,7 +2529,7 @@ define ('SQLT_BOL', 252);
 
 /**
  * (PECL OCI8 &gt;= 2.0.7)<br/>
- * Used with <b>oci_bind_by_name</b> when
+ * Used with {@see oci_bind_by_name} when
  * binding PL/SQL BOOLEAN.
  * @link http://php.net/manual/en/oci8.constants.php
  */
