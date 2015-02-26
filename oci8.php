@@ -1682,10 +1682,14 @@ function ocibindbyname ($statement, $column_name, &$variable, $maximum_length = 
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_define_by_name}
  * @link http://php.net/manual/en/function.ocidefinebyname.php
- * @param resource $statement
+ * @param resource $statement <p>A valid OCI8 statement identifier created by {@see oci_parse()} and executed by {@see oci_execute()}, or a REF CURSOR statement identifier.</p>
+ * @param string $column_name <p>The column name used in the query. Use uppercase for Oracle's default, non-case sensitive column names. Use the exact column name case for case-sensitive column names.</p>
+ * @param mixed $variable <p>The PHP variable that will contain the returned column value.</p>
+ * @param int $type [optional] <p>The data type to be returned. Generally not needed. Note that Oracle-style data conversions are not performed. For example, SQLT_INT will be ignored and the returned data type will still be SQLT_CHR.
+ * You can optionally use {@see oci_new_descriptor()} to allocate LOB/ROWID/BFILE descriptors.</p>
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ocidefinebyname ($statement, $column_name, &$variable, $type) {}
+function ocidefinebyname ($statement, $column_name, &$variable, $type = SQLT_CHR) {}
 
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
@@ -2153,6 +2157,47 @@ function ocicollmax ($collection) {}
 function ocicolltrim ($collection, $number) {}
 
 
+/**
+ * (PHP 4 &gt;= 4.0.6, PECL OCI8 1.0)
+ * Writes a temporary large object
+ * Alias of {@see OCI-Lob::writeTemporary()}
+ * @link http://php.net/manual/en/function.ociwritetemporarylob.php
+ * @param OCI_Lob $lob_descriptor
+ * @param string $data <p>The data to write.</p>
+ * @param int $lob_type <p>
+ * Can be one of the following:
+ * </p><ul>
+ * <li>
+ * <b>OCI_TEMP_BLOB</b> is used to create temporary BLOBs
+ * </li>
+ * <li>
+ * <b>OCI_TEMP_CLOB</b> is used to create
+ * temporary CLOBs
+ * </li>
+ * </ul>
+ * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
+ */
+function ociwritetemporarylob($lob_descriptor, $data, $lob_type = OCI_TEMP_CLOB ) {}
+
+/**
+ * (PHP 4 &gt;= 4.0.6, PECL OCI8 1.0)
+ * Alias of {@see OCI-Lob::close()}
+ * @link http://php.net/manual/en/function.ocicloselob.php
+ * @param OCI_Lob $lob_descriptor
+ * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
+ */
+function ocicloselob($lob_descriptor){}
+
+/**
+ * (PHP 4 >= 4.0.6, PECL OCI8 1.0)
+ * Alias of {@see OCI-Collection::assign()}
+ * Assigns a value to the collection from another existing collection
+ * @link http://php.net/manual/en/function.ocicollassign.php
+ * @param OCI_Collection $to
+ * @param OCI_Collection $from An instance of OCI-Collection.
+ * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
+ */
+function ocicollassign($to, $from ) {}
 /**
  * See <b>OCI_NO_AUTO_COMMIT</b>.
  * @link http://php.net/manual/en/oci8.constants.php
