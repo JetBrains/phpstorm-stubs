@@ -23,6 +23,16 @@
 function hash ($algo, $data, $raw_output = false) {}
 
 /**
+ * (PHP 5 &gt;= 5.6.0)<br/>
+ * Timing attack safe string comparison
+ * @link http://php.net/manual/en/function.hash-equals.php
+ * @param string $known_string <p>The string of known length to compare against</p>
+ * @param string $user_string <p>The user-supplied string</p>
+ * @return boolean <p>Returns <b>TRUE</b> when the two strings are equal, <b>FALSE</b> otherwise.</p>
+ */
+function hash_equals($known_string, $user_string) {}
+
+/**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Generate a hash value using the contents of a given file
  * @link http://php.net/manual/en/function.hash-file.php
