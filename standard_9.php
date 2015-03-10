@@ -1,6 +1,10 @@
 <?php
 
 
+define ("ARRAY_FILTER_USE_BOTH", 1);
+define ("ARRAY_FILTER_USE_KEY", 2);
+
+
 /**
  * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
  * Merge two or more arrays recursively
@@ -616,9 +620,21 @@ function array_product(array $array) { }
  * converting to
  * boolean) will be removed.
  * </p>
+ * @param int $flag [optional] <p>
+ * Flag determining what arguments are sent to <i>callback</i>:
+ * </p><ul>
+ * <li>
+ * <b>ARRAY_FILTER_USE_KEY</b> - pass key as the only argument
+ * to <i>callback</i> instead of the value</span>
+ * </li>
+ * <li>
+ * <b>ARRAY_FILTER_USE_BOTH</b> - pass both value and key as
+ * arguments to <i>callback</i> instead of the value</span>
+ * </li>
+ * </ul>
  * @return array the filtered array.
  */
-function array_filter(array $input, $callback = null) { }
+function array_filter(array $input, $callback = null, $flag = 0) { }
 
 /**
  * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
