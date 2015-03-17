@@ -752,10 +752,11 @@ function key (array &$array) {}
  * @param array|mixed $value1 Array to look through or first value to compare
  * @param mixed $value2 [optional] second value to compare
  * </p>
+ * @param mixed $values [optional] any comparable value
  * @return mixed min returns the numerically lowest of the
  * parameter values.
  */
-function min (array $value1, $value2 = null) {}
+function min (array $value1, $value2 = null, ...$values) {}
 
 /**
  * (PHP 4, PHP 5)<br/>
