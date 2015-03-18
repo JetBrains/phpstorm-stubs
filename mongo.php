@@ -2069,6 +2069,57 @@ class MongoGridFSException extends MongoException {
 
 }
 
+/**
+ * <p>(PECL mongo &gt;= 1.5.0)</p>
+ * @link http://php.net/manual/en/class.mongowriteconcernexception.php#class.mongowriteconcernexception
+ */
+class MongoWriteConcernException extends MongoCursorException {
+    /**
+     * Get the error document
+     * @link http://php.net/manual/en/mongowriteconcernexception.getdocument.php
+     * @return array <p>A MongoDB document, if available, as an array.</p>
+     */
+    public function getDocument() {}
+}
+
+/**
+ * <p>(PECL mongo &gt;= 1.5.0)</p>
+ * @link http://php.net/manual/en/class.mongoexecutiontimeoutexception.php
+ */
+class MongoExecutionTimeoutException extends MongoException {}
+
+/**
+ * <p>(PECL mongo &gt;= 1.5.0)</p>
+ */
+class MongoProtocolException extends MongoException {}
+
+/**
+ * <p>(PECL mongo &gt;= 1.5.0)</p>
+ * @link http://php.net/manual/en/class.mongoduplicatekeyexception.php
+ */
+class MongoDuplicateKeyException extends MongoWriteConcernException {
+
+}
+
+/**
+ * <p>(PECL mongo &gt;= 1.3.0)</p>
+ * @link http://php.net/manual/en/class.mongoresultexception.php#mongoresultexception.props.document
+ *
+ */
+class MongoResultException extends MongoException {
+    /**
+     * <p>(PECL mongo &gt;= 1.3.0)</p>
+     * Retrieve the full result document
+     * http://php.net/manual/en/mongoresultexception.getdocument.php
+     * @return array <p>The full result document as an array, including partial data if available and additional keys.</p>
+     */
+    public function getDocument () {}
+
+    public $document;
+
+
+}
+
 class MongoTimestamp {
     /**
      * @link http://php.net/manual/en/class.mongotimestamp.php#mongotimestamp.props.sec
