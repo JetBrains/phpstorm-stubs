@@ -87,6 +87,26 @@ define ('CURLOPT_WRITEHEADER', 10029);
 define ('CURLOPT_SSL_VERIFYHOST', 81);
 define ('CURLOPT_COOKIEFILE', 10031);
 define ('CURLOPT_SSLVERSION', 32);
+define ('CURL_SSLVERSION_DEFAULT', 0);
+define ('CURL_SSLVERSION_TLSv1',1);
+define ('CURL_SSLVERSION_SSLv2',2);
+define ('CURL_SSLVERSION_SSLv3',3);
+
+/**
+ * Available since PHP 5.5.19 and 5.6.3
+ */
+define ('CURL_SSLVERSION_TLSv1_0',4);
+
+/**
+ * Available since PHP 5.5.19 and 5.6.3
+ */
+define ('CURL_SSLVERSION_TLSv1_1',5);
+
+/**
+ * Available since PHP 5.5.19 and 5.6.3
+ */
+define('CURL_SSLVERSION_TLSv1_2', 6);
+
 define ('CURLOPT_TIMECONDITION', 33);
 define ('CURLOPT_TIMEVALUE', 34);
 define ('CURLOPT_CUSTOMREQUEST', 10036);
