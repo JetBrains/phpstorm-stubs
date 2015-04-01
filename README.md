@@ -4,6 +4,8 @@ STUBS are normal, syntactically correct PHP files that contain function & class 
 
 IDE needs them for completion, code inspection, type inference, doc popups, etc. Quality of most of this services depend on quality of the stubs (basically their PHPDOC @annotations).
 
+[Relevant open issues]
+
 ### Contribution process
 TBD
 
@@ -18,3 +20,4 @@ TBD
 [PHPDOC]:https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md
 [Apache 2]:https://www.apache.org/licenses/LICENSE-2.0
 [Contributor agreement]:http://www.jetbrains.org/display/IJOS/Contributor+Agreement
+[Relevant open issues]:https://youtrack.jetbrains.com/issues/WI?q=%23Unresolved+Subsystem%3A+%7BPHP+lib+stubs%7D+order+by%3A+votes+
