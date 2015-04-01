@@ -154,10 +154,25 @@ class OAuth {
     public function getLastResponse() { }
 
     /**
+     * Get headers for last response
+     * @return string|false
+     */
+    public function getLastResponseHeaders() { }
+
+    /**
      * Get HTTP information about the last response
      * @return array
      */
     public function getLastResponseInfo() { }
+
+    /**
+     * Generate OAuth header string signature
+     * @param string $http_method
+     * @param string $url
+     * @param mixed  $extra_parameters
+     * @return string|false
+     */
+    public function getRequestHeader($http_method, $url, $extra_parameters = '') { }
 
     /**
      * Fetch a request token
@@ -170,9 +185,9 @@ class OAuth {
     /**
      * Set authorization type
      * @param int $auth_type
-     * @return mixed
+     * @return bool
      */
-    public function setAuthType(int $auth_type) { }
+    public function setAuthType($auth_type) { }
 
     /**
      * Set CA path and info
