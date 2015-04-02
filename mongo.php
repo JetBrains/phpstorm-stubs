@@ -911,7 +911,7 @@ class MongoCollection {
      * @param array $pipeline          <p> The Aggregation Framework pipeline to execute. </p>
      * @param array $option            [optional] <p> Options for the aggregation command </p>
      *
-     * @return array Returns a {@link http://php.net/manual/en/class.mongocommandcursor.php MongoCommandCursor} object
+     * @return MongoCommandCursor Returns a {@link http://php.net/manual/en/class.mongocommandcursor.php MongoCommandCursor} object
      */
     public function aggregateCursor(array $command, array $options) {}
 
