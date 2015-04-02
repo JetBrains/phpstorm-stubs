@@ -7,12 +7,10 @@ IDE needs them for completion, code inspection, type inference, doc popups, etc.
 [Relevant open issues]
 
 ### Contribution process
-TBD
-
-[Contributor agreement]
+You have to send a photo of signed [Contributor agreement] before we'll be able to include your contribution into the product and redistribute to other users. See link for explanation. 
 
 ### Updating the IDE
-TBD
+TBD: Have a full copy of .git repo within IDE and add it as an external library "PHP Runtime" to the project. It should then be easilly updatable both way via normal git methods. 
 
 ### License
 [Apache 2]
