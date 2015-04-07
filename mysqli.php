@@ -2274,7 +2274,7 @@ function mysqli_stmt_free_result ($stmt) {}
  * Gets a result set from a prepared statement
  * @link http://php.net/manual/en/mysqli-stmt.get-result.php
  * @param mysqli_stmt $stmt
- * @result mysqli_result|bool Returns a resultset or FALSE on failure.
+ * @return mysqli_result|bool Returns a resultset or FALSE on failure.
  */
 function mysqli_stmt_get_result ($stmt) {}
 
