@@ -143,6 +143,16 @@ function stream_context_set_option ($stream_or_context, $wrapper, $option, $valu
 
 /**
  * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * Sets an option for a stream/wrapper/context
+ * @link http://php.net/manual/en/function.stream-context-set-option.php
+ * @param resource $stream_or_context The stream or context resource to apply the options too.
+ * @param array $options The options to set for the default context.
+ * @return bool true on success or false on failure.
+ */
+function stream_context_set_option ($stream_or_context, array $options) {}
+
+/**
+ * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
  * Retrieve options for a stream/wrapper/context
  * @link http://php.net/manual/en/function.stream-context-get-options.php
  * @param resource $stream_or_context <p>
