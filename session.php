@@ -388,5 +388,21 @@ function session_commit () {}
  */
 function session_status () {}
 
+/**
+ * (PHP 5 >= 5.6.0)<br>
+ * Discard session array changes and finish session
+ * @link http://php.net/manual/en/function.session-abort.php
+ * @return bool true if a session was successfully reinitialized or false on failure.
+ */
+function session_abort() {}
+
+/**
+ * (PHP 5 >= 5.6.0)<br>
+ * Re-initialize session array with original values
+ * @link http://php.net/manual/en/function.session-reset.php
+ * @return bool true if a session was successfully reinitialized or false on failure.
+ */
+function session_reset() {}
+
 // End of session v.
 ?>
