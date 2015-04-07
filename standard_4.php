@@ -620,7 +620,7 @@ function setrawcookie ($name, $value = null, $expire = null, $path = null, $doma
  * </p>
  * @return void 
  */
-function header ($string, $replace = null, $http_response_code = null) {}
+function header ($string, $replace = true, $http_response_code = null) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0)<br/>
