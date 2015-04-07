@@ -242,8 +242,11 @@ function posix_ttyname ($fd) {}
  * (PHP 4, PHP 5)<br/>
  * Determine if a file descriptor is an interactive terminal
  * @link http://php.net/manual/en/function.posix-isatty.php
- * @param int $fd <p>
- * The file descriptor.
+ * @param mixed $fd <p>
+ * The file descriptor, which is expected to be either a file resource or an integer.
+ * An integer will be assumed to be a file descriptor that can be passed
+ * directly to the underlying system call.<br />
+ * In almost all cases, you will want to provide a file resource.
  * </p>
  * @return bool <b>TRUE</b> if <i>fd</i> is an open descriptor connected
  * to a terminal and <b>FALSE</b> otherwise.
