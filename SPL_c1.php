@@ -598,6 +598,17 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, Traversabl
         public function fgets () {}
 
         /**
+         * (PHP 5 &gt;= 5.5.11)<br/>
+         * Read from file
+         * @link http://php.net/manual/en/splfileobject.fread.php
+         * @param int $length <p>
+         * The number of bytes to read.
+         * </p>
+         * @return string returns the string read from the file or FALSE on failure.
+         */
+        public function fread ($length) {}
+
+        /**
          * (PHP 5 &gt;= 5.1.0)<br/>
          * Gets line from file and parse as CSV fields
          * @link http://php.net/manual/en/splfileobject.fgetcsv.php
