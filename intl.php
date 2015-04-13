@@ -2854,6 +2854,16 @@ class IntlCalendar {
     public function set($year, $month, $dayOfMonth = NULL, $hour = NULL, $minute = NULL, $second = NULL) { }
 
     /**
+     * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
+     * Set a time field or several common fields at once
+     * @link http://www.php.net/manual/en/intlcalendar.set.php
+     * @param int $field One of the IntlCalendar date/time field constants. These are integer values between 0 and IntlCalendar::FIELD_COUNT.
+     * @param int $value The new value of the given field.
+     * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
+     */
+    public function set($field, $value) { }
+
+    /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Set the day on which the week is deemed to start
      * @link http://www.php.net/manual/en/intlcalendar.setfirstdayofweek.php
