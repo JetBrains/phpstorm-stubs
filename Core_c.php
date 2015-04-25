@@ -311,6 +311,9 @@ final class Closure {
      */
     private function __construct() { }
 
+    /**
+     * @return mixed
+     */
     public function __invoke() { }
 
     /**
