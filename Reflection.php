@@ -259,6 +259,21 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	 */
 	public function returnsReference () {}
 
+	/**
+	 * (PHP 5 >= 5.5.0)<br/>
+	 * Returns whether this function is a generator
+	 * @link http://php.net/manual/en/reflectionfunctionabstract.isgenerator.php
+	 * @return bool <b>TRUE</b> if the function is generator, otherwise <b>FALSE</b>
+	 */
+	public function isGenerator() {}
+
+	/**
+	 * (PHP 5 >= 5.6.0)<br/>
+	 * Returns whether this function is variadic
+	 * @link http://php.net/manual/en/reflectionfunctionabstract.isvariadic.php
+	 * @return bool <b>TRUE</b> if the function is variadic, otherwise <b>FALSE</b>
+	 */
+	public function isVariadic() {}
 }
 
 /**
