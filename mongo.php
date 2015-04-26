@@ -894,6 +894,28 @@ class MongoCollection {
     public function aggregate ( array $pipeline, array $op, array $pipelineOperators ) {}
 
     /**
+     * (PECL mongo &gt;= 1.5.0)<br/>
+     *
+     * <p>
+     * With this method you can execute Aggregation Framework pipelines and retrieve the results
+     * through a cursor, instead of getting just one document back as you would with
+     * {@link http://php.net/manual/en/mongocollection.aggregate.php MongoCollection::aggregate()}.
+     * This method returns a {@link http://php.net/manual/en/class.mongocommandcursor.php MongoCommandCursor} object.
+     * This cursor object implements the {@link http://php.net/manual/en/class.iterator.php Iterator} interface
+     * just like the {@link http://php.net/manual/en/class.mongocursor.php MongoCursor} objects that are returned
+     * by the {@link http://php.net/manual/en/mongocollection.find.php MongoCollection::find()} method
+     * </p>
+     *
+     * @link http://php.net/manual/en/mongocollection.aggregatecursor.php
+     *
+     * @param array $pipeline          <p> The Aggregation Framework pipeline to execute. </p>
+     * @param array $option            [optional] <p> Options for the aggregation command </p>
+     *
+     * @return MongoCommandCursor Returns a {@link http://php.net/manual/en/class.mongocommandcursor.php MongoCommandCursor} object
+     */
+    public function aggregateCursor(array $command, array $options) {}
+
+    /**
 	 * Returns this collection's name
 	 * @link http://www.php.net/manual/en/mongocollection.getname.php
 	 * @return string
