@@ -3,7 +3,7 @@
 /**
  * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
  * Runs the equivalent of the select() system call on the given
-   arrays of streams with a timeout specified by tv_sec and tv_usec
+ * arrays of streams with a timeout specified by tv_sec and tv_usec
  * @link http://php.net/manual/en/function.stream-select.php
  * @param array $read <p>
  * The streams listed in the read array will be watched to
