@@ -221,6 +221,7 @@ function mysql_list_dbs ($link_identifier = null) {}
  * Use the <b>mysql_tablename</b> function to
  * traverse this result pointer, or any function for result tables,
  * such as <b>mysql_fetch_array</b>.
+ * @deprecated This function has been DEPRECATED as of PHP 5.2.0.
  */
 function mysql_list_tables ($database, $link_identifier = null) {}
 
@@ -711,52 +712,61 @@ function mysql_set_charset ($charset, $link_identifier = null) {}
  * @param $database_name
  * @param $query
  * @param $link_identifier [optional]
+ * @deprecated This function has been DEPRECATED as of PHP 5.5.0. Use mysql_db_query instead.
  */
 function mysql ($database_name, $query, $link_identifier) {}
 
 /**
  * @param $result
  * @param $field_index
+ * @deprecated This function has been DEPRECATED as of PHP 5.5.0. Use mysql_field_name instead.
  */
 function mysql_fieldname ($result, $field_index) {}
 
 /**
  * @param $result
  * @param $field_offset
+ * @deprecated This function has been DEPRECATED as of PHP 5.5.0. Use mysql_field_table instead.
  */
 function mysql_fieldtable ($result, $field_offset) {}
 
 /**
  * @param $result
  * @param $field_offset
+ * @deprecated This function has been DEPRECATED as of PHP 5.5.0. Use mysql_field_len instead.
  */
 function mysql_fieldlen ($result, $field_offset) {}
 
 /**
  * @param $result
  * @param $field_offset
+ * @deprecated This function has been DEPRECATED as of PHP 5.5.0. Use mysql_field_type instead.
  */
 function mysql_fieldtype ($result, $field_offset) {}
 
 /**
  * @param $result
  * @param $field_offset
+ * @deprecated This function has been DEPRECATED as of PHP 5.5.0. Use mysql_field_flags instead.
  */
 function mysql_fieldflags ($result, $field_offset) {}
 
 /**
  * @param $database_name
  * @param $link_identifier [optional]
+ * @deprecated This function has been DEPRECATED as of PHP 5.5.0. Use mysql_select_db instead.
  */
 function mysql_selectdb ($database_name, $link_identifier) {}
 
 /**
  * @param $result
+ * @deprecated This function has been DEPRECATED as of PHP 5.5.0. Use mysql_free_result instead.
  */
 function mysql_freeresult ($result) {}
 
 /**
  * @param $result
+ * @deprecated This function has been DEPRECATED as of PHP 5.5.0. Use mysql_num_fields instead.
  */
 function mysql_numfields ($result) {}
 
@@ -766,17 +776,20 @@ function mysql_numfields ($result) {}
  * @link http://php.net/manual/en/function.mysql-num-rows.php
  * @param resource $result <p>The result resource that is being evaluated. This result comes from a call to mysql_query().</p>
  * @return int <p>The number of rows in the result set on success or FALSE on failure. </p>
+ * @deprecated This function has been DEPRECATED as of PHP 5.5.0. Use mysql_num_rows instead.
  */
 function mysql_numrows ($result) {}
 
 /**
  * @param $link_identifier [optional]
+ * @deprecated This function has been DEPRECATED as of PHP 5.5.0. Use mysql_list_dbs instead.
  */
 function mysql_listdbs ($link_identifier) {}
 
 /**
  * @param $database_name
  * @param $link_identifier [optional]
+ * @deprecated This function has been DEPRECATED as of PHP 5.5.0. Use mysql_list_tables instead.
  */
 function mysql_listtables ($database_name, $link_identifier) {}
 
@@ -784,6 +797,7 @@ function mysql_listtables ($database_name, $link_identifier) {}
  * @param $database_name
  * @param $table_name
  * @param $link_identifier [optional]
+ * @deprecated This function has been DEPRECATED as of PHP 5.5.0. Use mysql_list_fields instead.
  */
 function mysql_listfields ($database_name, $table_name, $link_identifier) {}
 
@@ -810,6 +824,7 @@ function mysql_db_name ($result, $row, $field = null) {}
  * @param $result
  * @param $row
  * @param $field [optional]
+ * @deprecated This function has been DEPRECATED as of PHP 5.5.0. Use mysql_db_name instead.
  */
 function mysql_dbname ($result, $row, $field) {}
 
