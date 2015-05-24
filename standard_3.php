@@ -929,6 +929,7 @@ function magic_quotes_runtime ($new_setting) {}
  * false for off, true for on.
  * </p>
  * @return bool true on success or false on failure.
+ * @deprecated This function has been DEPRECATED as of PHP 5.4.0. Raises an E_CORE_ERROR.
  */
 function set_magic_quotes_runtime ($new_setting) {}
 
@@ -937,6 +938,7 @@ function set_magic_quotes_runtime ($new_setting) {}
  * Gets the current configuration setting of magic quotes gpc
  * @link http://php.net/manual/en/function.get-magic-quotes-gpc.php
  * @return int 0 if magic quotes gpc are off, 1 otherwise.
+ * @deprecated This function has been DEPRECATED as of PHP 5.4.0. Always return false.
  */
 function get_magic_quotes_gpc () {}
 
@@ -945,6 +947,7 @@ function get_magic_quotes_gpc () {}
  * Gets the current active configuration setting of magic_quotes_runtime
  * @link http://php.net/manual/en/function.get-magic-quotes-runtime.php
  * @return int 0 if magic quotes runtime is off, 1 otherwise.
+ * @deprecated This function has been DEPRECATED as of PHP 5.4.0. Always return false.
  */
 function get_magic_quotes_runtime () {}
 
