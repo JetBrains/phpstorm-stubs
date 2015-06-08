@@ -1173,7 +1173,8 @@ class Imagick implements Iterator, Traversable, Countable {
 	 * @param int $layer_method <p>
 	 * One of the <b>Imagick::LAYERMETHOD_*</b> constants
 	 * </p>
-	 * @return bool <b>TRUE</b> on success.
+	 * @return Imagick Returns an Imagick object containing the merged image.
+	 * @throws ImagickException
 	 */
 	public function mergeImageLayers ($layer_method) {}
 
