@@ -530,12 +530,15 @@ function rawurldecode ($str) {}
  * (PHP 5)<br/>
  * Generate URL-encoded query string
  * @link http://php.net/manual/en/function.http-build-query.php
- * @param array $formdata <p>
+ * @param mixed $query_data <p>
  * May be an array or object containing properties.
  * </p>
  * <p>
- * The array form may be a simple one-dimensional structure, or an array
- * of arrays (who in turn may contain other arrays).
+ * If query_data is an array, it may be a simple one-dimensional structure,
+ * or an array of arrays (which in turn may contain other arrays).
+ * </p>
+ * <p>
+ * If query_data is an object, then only public properties will be incorporated into the result.
  * </p>
  * @param string $numeric_prefix [optional] <p>
  * If numeric indices are used in the base array and this parameter is
@@ -557,7 +560,7 @@ function rawurldecode ($str) {}
  *  <p>If enc_type is PHP_QUERY_RFC3986, then encoding is performed according to » RFC 3986, and spaces will be percent encoded (%20).
  * @return string a URL-encoded string.
  */
-function http_build_query (array $formdata, $numeric_prefix = null, $arg_separator = null, $enc_type = PHP_QUERY_RFC1738) {}
+function http_build_query ($query_data, $numeric_prefix = null, $arg_separator = null, $enc_type = PHP_QUERY_RFC1738)
 
 /**
  * (PHP 4, PHP 5)<br/>
