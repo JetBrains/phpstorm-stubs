@@ -202,6 +202,7 @@ class object {
     function __debugInfo(){}
 
   /**
+   * @since 5.1.0
    * This static method is called for classes exported by var_export() since PHP 5.1.0.
    * The only parameter of this method is an array containing exported properties in the form array('property' => value, ...).
    *

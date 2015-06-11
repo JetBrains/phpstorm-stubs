@@ -3,7 +3,8 @@
 // Start of posix v.
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Send a signal to a process
  * @link http://php.net/manual/en/function.posix-kill.php
  * @param int $pid <p>
@@ -17,7 +18,8 @@
 function posix_kill ($pid, $sig) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return the current process identifier
  * @link http://php.net/manual/en/function.posix-getpid.php
  * @return int the identifier, as an integer.
@@ -25,7 +27,8 @@ function posix_kill ($pid, $sig) {}
 function posix_getpid () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return the parent process identifier
  * @link http://php.net/manual/en/function.posix-getppid.php
  * @return int the identifier, as an integer.
@@ -33,7 +36,8 @@ function posix_getpid () {}
 function posix_getppid () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return the real user ID of the current process
  * @link http://php.net/manual/en/function.posix-getuid.php
  * @return int the user id, as an integer
@@ -41,7 +45,8 @@ function posix_getppid () {}
 function posix_getuid () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Set the UID of the current process
  * @link http://php.net/manual/en/function.posix-setuid.php
  * @param int $uid <p>
@@ -52,7 +57,8 @@ function posix_getuid () {}
 function posix_setuid ($uid) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return the effective user ID of the current process
  * @link http://php.net/manual/en/function.posix-geteuid.php
  * @return int the user id, as an integer
@@ -60,7 +66,8 @@ function posix_setuid ($uid) {}
 function posix_geteuid () {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Set the effective UID of the current process
  * @link http://php.net/manual/en/function.posix-seteuid.php
  * @param int $uid <p>
@@ -71,7 +78,8 @@ function posix_geteuid () {}
 function posix_seteuid ($uid) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return the real group ID of the current process
  * @link http://php.net/manual/en/function.posix-getgid.php
  * @return int the real group id, as an integer.
@@ -79,7 +87,8 @@ function posix_seteuid ($uid) {}
 function posix_getgid () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Set the GID of the current process
  * @link http://php.net/manual/en/function.posix-setgid.php
  * @param int $gid <p>
@@ -90,7 +99,8 @@ function posix_getgid () {}
 function posix_setgid ($gid) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return the effective group ID of the current process
  * @link http://php.net/manual/en/function.posix-getegid.php
  * @return int an integer of the effective group ID.
@@ -98,7 +108,8 @@ function posix_setgid ($gid) {}
 function posix_getegid () {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Set the effective GID of the current process
  * @link http://php.net/manual/en/function.posix-setegid.php
  * @param int $gid <p>
@@ -109,7 +120,8 @@ function posix_getegid () {}
 function posix_setegid ($gid) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return the group set of the current process
  * @link http://php.net/manual/en/function.posix-getgroups.php
  * @return array an array of integers containing the numeric group ids of the group
@@ -118,7 +130,8 @@ function posix_setegid ($gid) {}
 function posix_getgroups () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return login name
  * @link http://php.net/manual/en/function.posix-getlogin.php
  * @return string the login name of the user, as a string.
@@ -126,7 +139,8 @@ function posix_getgroups () {}
 function posix_getlogin () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return the current process group identifier
  * @link http://php.net/manual/en/function.posix-getpgrp.php
  * @return int the identifier, as an integer.
@@ -134,7 +148,8 @@ function posix_getlogin () {}
 function posix_getpgrp () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Make the current process a session leader
  * @link http://php.net/manual/en/function.posix-setsid.php
  * @return int the session id, or -1 on errors.
@@ -142,7 +157,8 @@ function posix_getpgrp () {}
 function posix_setsid () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Set process group id for job control
  * @link http://php.net/manual/en/function.posix-setpgid.php
  * @param int $pid <p>
@@ -156,7 +172,8 @@ function posix_setsid () {}
 function posix_setpgid ($pid, $pgid) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get process group id for job control
  * @link http://php.net/manual/en/function.posix-getpgid.php
  * @param int $pid <p>
@@ -167,7 +184,8 @@ function posix_setpgid ($pid, $pgid) {}
 function posix_getpgid ($pid) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the current sid of the process
  * @link http://php.net/manual/en/function.posix-getsid.php
  * @param int $pid <p>
@@ -181,7 +199,8 @@ function posix_getpgid ($pid) {}
 function posix_getsid ($pid) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get system name
  * @link http://php.net/manual/en/function.posix-uname.php
  * @return array a hash of strings with information about the
@@ -202,7 +221,8 @@ function posix_getsid ($pid) {}
 function posix_uname () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get process times
  * @link http://php.net/manual/en/function.posix-times.php
  * @return array a hash of strings with information about the current
@@ -217,7 +237,8 @@ function posix_uname () {}
 function posix_times () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get path name of controlling terminal
  * @link http://php.net/manual/en/function.posix-ctermid.php
  * @return string Upon successful completion, returns string of the pathname to
@@ -227,7 +248,8 @@ function posix_times () {}
 function posix_ctermid () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Determine terminal device name
  * @link http://php.net/manual/en/function.posix-ttyname.php
  * @param int $fd <p>
@@ -239,7 +261,8 @@ function posix_ctermid () {}
 function posix_ttyname ($fd) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Determine if a file descriptor is an interactive terminal
  * @link http://php.net/manual/en/function.posix-isatty.php
  * @param mixed $fd <p>
@@ -254,7 +277,8 @@ function posix_ttyname ($fd) {}
 function posix_isatty ($fd) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Pathname of current directory
  * @link http://php.net/manual/en/function.posix-getcwd.php
  * @return string a string of the absolute pathname on success.
@@ -264,7 +288,8 @@ function posix_isatty ($fd) {}
 function posix_getcwd () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Create a fifo special file (a named pipe)
  * @link http://php.net/manual/en/function.posix-mkfifo.php
  * @param string $pathname <p>
@@ -282,7 +307,7 @@ function posix_getcwd () {}
 function posix_mkfifo ($pathname, $mode) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Create a special or ordinary file (POSIX.1)
  * @link http://php.net/manual/en/function.posix-mknod.php
  * @param string $pathname <p>
@@ -307,7 +332,7 @@ function posix_mkfifo ($pathname, $mode) {}
 function posix_mknod ($pathname, $mode, $major = 0, $minor = 0) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Determine accessibility of a file
  * @link http://php.net/manual/en/function.posix-access.php
  * @param string $file <p>
@@ -330,7 +355,8 @@ function posix_mknod ($pathname, $mode, $major = 0, $minor = 0) {}
 function posix_access ($file, $mode = POSIX_F_OK) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return info about a group by name
  * @link http://php.net/manual/en/function.posix-getgrnam.php
  * @param string $name <p>The name of the group</p>
@@ -377,7 +403,8 @@ function posix_access ($file, $mode = POSIX_F_OK) {}
 function posix_getgrnam ($name) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return info about a group by group id
  * @link http://php.net/manual/en/function.posix-getgrgid.php
  * @param int $gid <p>
@@ -426,7 +453,8 @@ function posix_getgrnam ($name) {}
 function posix_getgrgid ($gid) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return info about a user by username
  * @link http://php.net/manual/en/function.posix-getpwnam.php
  * @param string $username <p>
@@ -503,7 +531,8 @@ function posix_getgrgid ($gid) {}
 function posix_getpwnam ($username) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return info about a user by user id
  * @link http://php.net/manual/en/function.posix-getpwuid.php
  * @param int $uid <p>
@@ -579,7 +608,8 @@ function posix_getpwnam ($username) {}
 function posix_getpwuid ($uid) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return info about system resource limits
  * @link http://php.net/manual/en/function.posix-getrlimit.php
  * @return array an associative array of elements for each
@@ -664,7 +694,8 @@ function posix_getpwuid ($uid) {}
 function posix_getrlimit () {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Retrieve the error number set by the last posix function that failed
  * @link http://php.net/manual/en/function.posix-get-last-error.php
  * @return int the errno (error number) set by the last posix function that
@@ -673,14 +704,16 @@ function posix_getrlimit () {}
 function posix_get_last_error () {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Alias of <b>posix_get_last_error</b>
  * @link http://php.net/manual/en/function.posix-errno.php
  */
 function posix_errno () {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Retrieve the system error message associated with the given errno
  * @link http://php.net/manual/en/function.posix-strerror.php
  * @param int $errno <p>
@@ -693,7 +726,7 @@ function posix_errno () {}
 function posix_strerror ($errno) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Calculate the group access list
  * @link http://php.net/manual/en/function.posix-initgroups.php
  * @param string $name <p>

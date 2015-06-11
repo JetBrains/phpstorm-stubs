@@ -1,6 +1,6 @@
 <?php
 /**
- * PHP >= 5.4.0<br/>
+ * @since 5.4.0
  * <b>SessionHandlerInterface</b> is an interface which defines
  * a prototype for creating a custom session handler.
  * In order to pass a custom session handler to
@@ -11,7 +11,7 @@
 interface SessionHandlerInterface {
 
 	/**
-	 * PHP >= 5.4.0<br/>
+	 * @since 5.4.0
 	 * Close the session
 	 * @link http://php.net/manual/en/sessionhandlerinterface.close.php
 	 * @return bool <p>
@@ -22,7 +22,7 @@ interface SessionHandlerInterface {
 	public function close();
 
 	/**
-	 * PHP >= 5.4.0<br/>
+	 * @since 5.4.0
 	 * Destroy a session
 	 * @link http://php.net/manual/en/sessionhandlerinterface.destroy.php
 	 * @param int $session_id The session ID being destroyed.
@@ -34,7 +34,7 @@ interface SessionHandlerInterface {
 	public function destroy($session_id);
 
 	/**
-	 * PHP >= 5.4.0<br/>
+	 * @since 5.4.0
 	 * Cleanup old sessions
 	 * @link http://php.net/manual/en/sessionhandlerinterface.gc.php
 	 * @param int $maxlifetime <p>
@@ -49,7 +49,7 @@ interface SessionHandlerInterface {
 	public function gc($maxlifetime);
 
 	/**
-	 * PHP >= 5.4.0<br/>
+	 * @since 5.4.0
 	 * Initialize session
 	 * @link http://php.net/manual/en/sessionhandlerinterface.open.php
 	 * @param string $save_path The path where to store/retrieve the session.
@@ -63,7 +63,7 @@ interface SessionHandlerInterface {
 
 
 	/**
-	 * PHP >= 5.4.0<br/>
+	 * @since 5.4.0
 	 * Read session data
 	 * @link http://php.net/manual/en/sessionhandlerinterface.read.php
 	 * @param string $session_id The session id to read data for.
@@ -76,7 +76,7 @@ interface SessionHandlerInterface {
 	public function read($session_id);
 
 	/**
-	 * PHP >= 5.4.0<br/>
+	 * @since 5.4.0
 	 * Write session data
 	 * @link http://php.net/manual/en/sessionhandlerinterface.write.php
 	 * @param string $session_id The session id.
@@ -96,7 +96,7 @@ interface SessionHandlerInterface {
 }
 
 /**
- * PHP >= 5.4.0<br/>
+ * @since 5.4.0
  * <b>SessionHandler</b> a special class that can
  * be used to expose the current internal PHP session
  * save handler by inheritance. There are six methods
@@ -113,7 +113,7 @@ interface SessionHandlerInterface {
 class SessionHandler implements SessionHandlerInterface {
 
 	/**
-	 * PHP >= 5.4.0<br/>
+	 * @since 5.4.0
 	 * Close the session
 	 * @link http://php.net/manual/en/sessionhandler.close.php
 	 * @return bool <p>
@@ -124,7 +124,7 @@ class SessionHandler implements SessionHandlerInterface {
 	public function close() { }
 
 	/**
-	 * PHP >= 5.4.0<br/>
+	 * @since 5.4.0
 	 * Destroy a session
 	 * @link http://php.net/manual/en/sessionhandler.destroy.php
 	 * @param int $session_id The session ID being destroyed.
@@ -136,7 +136,7 @@ class SessionHandler implements SessionHandlerInterface {
 	public function destroy($session_id) { }
 
 	/**
-	 * PHP >= 5.4.0<br/>
+	 * @since 5.4.0
 	 * Cleanup old sessions
 	 * @link http://php.net/manual/en/sessionhandler.gc.php
 	 * @param int $maxlifetime <p>
@@ -151,7 +151,7 @@ class SessionHandler implements SessionHandlerInterface {
 	public function gc($maxlifetime) { }
 
 	/**
-	 * PHP >= 5.4.0<br/>
+	 * @since 5.4.0
 	 * Initialize session
 	 * @link http://php.net/manual/en/sessionhandler.open.php
 	 * @param string $save_path The path where to store/retrieve the session.
@@ -165,7 +165,7 @@ class SessionHandler implements SessionHandlerInterface {
 
 
 	/**
-	 * PHP >= 5.4.0<br/>
+	 * @since 5.4.0
 	 * Read session data
 	 * @link http://php.net/manual/en/sessionhandler.read.php
 	 * @param string $session_id The session id to read data for.
@@ -178,7 +178,7 @@ class SessionHandler implements SessionHandlerInterface {
 	public function read($session_id) { }
 
 	/**
-	 * PHP >= 5.4.0<br/>
+	 * @since 5.4.0
 	 * Write session data
 	 * @link http://php.net/manual/en/sessionhandler.write.php
 	 * @param string $session_id The session id.

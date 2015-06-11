@@ -4,7 +4,7 @@
 
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Return available SPL classes
  * @link http://php.net/manual/en/function.spl-classes.php
  * @return array 
@@ -12,7 +12,7 @@
 function spl_classes () {}
 
 /**
- * (PHP 5 &gt;= 5.1.2)<br/>
+ * @since 5.1.2
  * Default implementation for __autoload()
  * @link http://php.net/manual/en/function.spl-autoload.php
  * @param string $class_name <p>
@@ -27,7 +27,7 @@ function spl_classes () {}
 function spl_autoload ($class_name, $file_extensions = null) {}
 
 /**
- * (PHP 5 &gt;= 5.1.2)<br/>
+ * @since 5.1.2
  * Register and return default file extensions for spl_autoload
  * @link http://php.net/manual/en/function.spl-autoload-extensions.php
  * @param string $file_extensions [optional] <p>
@@ -43,7 +43,7 @@ function spl_autoload ($class_name, $file_extensions = null) {}
 function spl_autoload_extensions ($file_extensions = null) {}
 
 /**
- * (PHP 5 &gt;= 5.1.2)<br/>
+ * @since 5.1.2
  * Register given function as __autoload() implementation
  * @link http://php.net/manual/en/function.spl-autoload-register.php
  * @param callback $autoload_function [optional] <p>
@@ -60,7 +60,7 @@ function spl_autoload_extensions ($file_extensions = null) {}
 function spl_autoload_register ($autoload_function = null, $throw = true, $prepend = false) {}
 
 /**
- * (PHP 5 &gt;= 5.1.2)<br/>
+ * @since 5.1.2
  * Unregister given function as __autoload() implementation
  * @link http://php.net/manual/en/function.spl-autoload-unregister.php
  * @param mixed $autoload_function <p>
@@ -71,7 +71,7 @@ function spl_autoload_register ($autoload_function = null, $throw = true, $prepe
 function spl_autoload_unregister ($autoload_function) {}
 
 /**
- * (PHP 5 &gt;= 5.1.2)<br/>
+ * @since 5.1.2
  * Return all registered __autoload() functions
  * @link http://php.net/manual/en/function.spl-autoload-functions.php
  * @return array An array of all registered __autoload functions.
@@ -81,7 +81,7 @@ function spl_autoload_unregister ($autoload_function) {}
 function spl_autoload_functions () {}
 
 /**
- * (PHP 5 &gt;= 5.1.2)<br/>
+ * @since 5.1.2
  * Try all registered __autoload() function to load the requested class
  * @link http://php.net/manual/en/function.spl-autoload-call.php
  * @param string $class_name <p>
@@ -92,7 +92,7 @@ function spl_autoload_functions () {}
 function spl_autoload_call ($class_name) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Return the parent classes of the given class
  * @link http://php.net/manual/en/function.class-parents.php
  * @param mixed $class <p>
@@ -108,7 +108,7 @@ function spl_autoload_call ($class_name) {}
 function class_parents ($class, $autoload = null) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Return the interfaces which are implemented by the given class
  * @link http://php.net/manual/en/function.class-implements.php
  * @param mixed $class <p>
@@ -124,7 +124,7 @@ function class_parents ($class, $autoload = null) {}
 function class_implements ($class, $autoload = null) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Return hash id for given object
  * @link http://php.net/manual/en/function.spl-object-hash.php
  * @param object $obj 
@@ -134,7 +134,7 @@ function class_implements ($class, $autoload = null) {}
 function spl_object_hash ($obj) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Copy the iterator into an array
  * @link http://php.net/manual/en/function.iterator-to-array.php
  * @param Traversable $iterator <p>
@@ -148,7 +148,7 @@ function spl_object_hash ($obj) {}
 function iterator_to_array ($iterator, $use_keys = true) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Count the elements in an iterator
  * @link http://php.net/manual/en/function.iterator-count.php
  * @param Traversable $iterator <p>
@@ -159,7 +159,7 @@ function iterator_to_array ($iterator, $use_keys = true) {}
 function iterator_count ($iterator) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Call a function for every element in an iterator
  * @link http://php.net/manual/en/function.iterator-apply.php
  * @param Traversable $iterator <p>
@@ -180,7 +180,7 @@ function iterator_apply ($iterator, $function, array $args = null) {}
 // End of SPL v.0.2
 
 /**
- * (PHP 5 &gt;= 5.4.0)<br/>
+ * @since 5.4.0
  * Return the traits used by the given class
  * @param mixed $class An object (class instance) or a string (class name).
  * @param bool $autoload Whether to allow this function to load the class automatically through the __autoload() magic method.

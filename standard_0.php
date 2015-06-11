@@ -57,7 +57,8 @@ class Directory  {
 }
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Returns the value of a constant
  * @link http://php.net/manual/en/function.constant.php
  * @param string $name <p>
@@ -69,7 +70,8 @@ class Directory  {
 function constant ($name) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Convert binary data into hexadecimal representation
  * @link http://php.net/manual/en/function.bin2hex.php
  * @param string $str <p>
@@ -80,7 +82,8 @@ function constant ($name) {}
 function bin2hex ($str) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Delay execution
  * @link http://php.net/manual/en/function.sleep.php
  * @param int $seconds <p>
@@ -93,7 +96,8 @@ function bin2hex ($str) {}
 function sleep ($seconds) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Delay execution in microseconds
  * @link http://php.net/manual/en/function.usleep.php
  * @param int $micro_seconds <p>
@@ -105,7 +109,7 @@ function sleep ($seconds) {}
 function usleep ($micro_seconds) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Delay for a number of seconds and nanoseconds
  * @link http://php.net/manual/en/function.time-nanosleep.php
  * @param int $seconds <p>
@@ -127,7 +131,7 @@ function usleep ($micro_seconds) {}
 function time_nanosleep ($seconds, $nanoseconds) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Make the script sleep until the specified time
  * @link http://php.net/manual/en/function.time-sleep-until.php
  * @param float $timestamp <p>
@@ -138,7 +142,7 @@ function time_nanosleep ($seconds, $nanoseconds) {}
 function time_sleep_until ($timestamp) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Parse a time/date generated with <function>strftime</function>
  * @link http://php.net/manual/en/function.strptime.php
  * @param string $date <p>
@@ -203,7 +207,8 @@ function time_sleep_until ($timestamp) {}
 function strptime ($date, $format) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Flush the output buffer
  * @link http://php.net/manual/en/function.flush.php
  * @return void 
@@ -211,7 +216,8 @@ function strptime ($date, $format) {}
 function flush () {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Wraps a string to a given number of characters
  * @link http://php.net/manual/en/function.wordwrap.php
  * @param string $str <p>
@@ -235,7 +241,8 @@ function flush () {}
 function wordwrap ($str, $width = 75, $break = "\n", $cut = false) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Convert special characters to HTML entities
  * @link http://php.net/manual/en/function.htmlspecialchars.php
  * @param string $string <p>
@@ -355,7 +362,8 @@ function wordwrap ($str, $width = 75, $break = "\n", $cut = false) {}
 function htmlspecialchars ($string, $flags = ENT_COMPAT, $encoding = 'UTF-8', $double_encode = true) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Convert all applicable characters to HTML entities
  * @link http://php.net/manual/en/function.htmlentities.php
  * @param string $string <p>
@@ -402,7 +410,8 @@ function htmlspecialchars ($string, $flags = ENT_COMPAT, $encoding = 'UTF-8', $d
 function htmlentities ($string, $quote_style = null, $charset = null, $double_encode = null) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Convert all HTML entities to their applicable characters
  * @link http://php.net/manual/en/function.html-entity-decode.php
  * @param string $string <p>
@@ -444,7 +453,7 @@ function htmlentities ($string, $quote_style = null, $charset = null, $double_en
 function html_entity_decode ($string, $quote_style = null, $charset = null) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Convert special HTML entities back to characters
  * @link http://php.net/manual/en/function.htmlspecialchars-decode.php
  * @param string $string <p>
@@ -478,7 +487,8 @@ function html_entity_decode ($string, $quote_style = null, $charset = null) {}
 function htmlspecialchars_decode ($string, $quote_style = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Returns the translation table used by <function>htmlspecialchars</function> and <function>htmlentities</function>
  * @link http://php.net/manual/en/function.get-html-translation-table.php
  * @param int $table [optional] <p>
@@ -498,7 +508,8 @@ function htmlspecialchars_decode ($string, $quote_style = null) {}
 function get_html_translation_table ($table = null, $quote_style = null) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Calculate the sha1 hash of a string
  * @link http://php.net/manual/en/function.sha1.php
  * @param string $str <p>
@@ -515,7 +526,8 @@ function get_html_translation_table ($table = null, $quote_style = null) {}
 function sha1 ($str, $raw_output = null) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Calculate the sha1 hash of a file
  * @link http://php.net/manual/en/function.sha1-file.php
  * @param string $filename <p>
@@ -530,7 +542,8 @@ function sha1 ($str, $raw_output = null) {}
 function sha1_file ($filename, $raw_output = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Calculate the md5 hash of a string
  * @link http://php.net/manual/en/function.md5.php
  * @param string $str <p>
@@ -546,7 +559,8 @@ function sha1_file ($filename, $raw_output = null) {}
 function md5 ($str, $raw_output = null) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Calculates the md5 hash of a given file
  * @link http://php.net/manual/en/function.md5-file.php
  * @param string $filename <p>
@@ -561,7 +575,8 @@ function md5 ($str, $raw_output = null) {}
 function md5_file ($filename, $raw_output = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Calculates the crc32 polynomial of a string
  * @link http://php.net/manual/en/function.crc32.php
  * @param string $str <p>
@@ -572,7 +587,8 @@ function md5_file ($filename, $raw_output = null) {}
 function crc32 ($str) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Parse a binary IPTC block into single tags.
  * @link http://php.net/manual/en/function.iptcparse.php
  * @param string $iptcblock <p>
@@ -584,7 +600,8 @@ function crc32 ($str) {}
 function iptcparse ($iptcblock) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Embeds binary IPTC data into a JPEG image
  * @link http://php.net/manual/en/function.iptcembed.php
  * @param string $iptcdata <p>
@@ -603,7 +620,8 @@ function iptcparse ($iptcblock) {}
 function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the size of an image
  * @link http://php.net/manual/en/function.getimagesize.php
  * @param string $filename <p>
@@ -679,7 +697,7 @@ function getimagesize ($filename, array &$imageinfo = null) {}
 function imageaffine($image, $affine, $clip = null) {}
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Concat two matrices (as in doing many ops in one go)
  * @link http://www.php.net/manual/en/function.imageaffinematrixconcat.php
  * @param array $m1 <p>Array with keys 0 to 5.</p>
@@ -689,7 +707,7 @@ function imageaffine($image, $affine, $clip = null) {}
 function imageaffinematrixconcat(array $m1, array $m2) {}
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Return an image containing the affine tramsformed src image, using an optional clipping area
  * @link http://www.php.net/manual/en/function.imageaffinematrixget.php
  * @param int $type <p> One of <b>IMG_AFFINE_*</b> constants.
@@ -700,7 +718,7 @@ function imageaffinematrixconcat(array $m1, array $m2) {}
 function imageaffinematrixget ($type, $options = null) {}
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Crop an image using the given coordinates and size, x, y, width and height
  * @link http://www.php.net/manual/en/function.imagecrop.php
  * @param resource $image <p>
@@ -712,7 +730,7 @@ function imageaffinematrixget ($type, $options = null) {}
 function imagecrop ($image, $rect) {}
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Crop an image automatically using one of the available modes
  * @link http://www.php.net/manual/en/function.imagecropauto.php
  * @param resource $image <p>
@@ -733,7 +751,7 @@ function imagecrop ($image, $rect) {}
 function imagecropauto ($image, $mode = -1, $threshold = .5, $color = -1) {}
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Flips an image using a given mode
  * @link http://www.php.net/manual/en/function.imageflip.php
  * @param resource $image <p>
@@ -774,7 +792,7 @@ function imagecropauto ($image, $mode = -1, $threshold = .5, $color = -1) {}
 function imageflip ($image, $mode) {}
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Converts a palette based image to true color
  * @link http://www.php.net/manual/en/function.imagepalettetotruecolor.php
  * @param resource $image <p>
@@ -785,7 +803,7 @@ function imageflip ($image, $mode) {}
 function imagepalettetotruecolor ($image) {}
 
 /**
- *(PHP 5 &gt;= 5.5.0)<br/>
+ *@since 5.5.0
  * Scale an image using the given new width and height
  * @link http://www.php.net/manual/en/function.imagescale.php
  * @param resource $image <p>
@@ -800,7 +818,7 @@ function imagepalettetotruecolor ($image) {}
 function imagescale ($image, $new_width, $new_height = -1, $mode = IMG_BILINEAR_FIXED) {}
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Set the interpolation method
  * @link http://www.php.net/manual/en/function.imagesetinterpolation.php
  * @param resource $image <p>
@@ -879,7 +897,8 @@ function imagescale ($image, $new_width, $new_height = -1, $mode = IMG_BILINEAR_
 function imagesetinterpolation ($image, $method = IMG_BILINEAR_FIXED) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Get Mime-Type for image-type returned by getimagesize,
    exif_read_data, exif_thumbnail, exif_imagetype
  * @link http://php.net/manual/en/function.image-type-to-mime-type.php
@@ -968,7 +987,7 @@ function imagesetinterpolation ($image, $method = IMG_BILINEAR_FIXED) {}
 function image_type_to_mime_type ($imagetype) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Get file extension for image type
  * @link http://php.net/manual/en/function.image-type-to-extension.php
  * @param int $imagetype <p>
@@ -982,7 +1001,8 @@ function image_type_to_mime_type ($imagetype) {}
 function image_type_to_extension ($imagetype, $include_dot = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Outputs lots of PHP information
  * @link http://php.net/manual/en/function.phpinfo.php
  * @param int $what [optional] <p>
@@ -1069,7 +1089,8 @@ function image_type_to_extension ($imagetype, $include_dot = null) {}
 function phpinfo ($what = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets the current PHP version
  * @link http://php.net/manual/en/function.phpversion.php
  * @param string $extension [optional] <p>
@@ -1083,7 +1104,8 @@ function phpinfo ($what = null) {}
 function phpversion ($extension = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Prints out the credits for PHP
  * @link http://php.net/manual/en/function.phpcredits.php
  * @param int $flag [optional] <p>
@@ -1179,7 +1201,8 @@ function php_egg_logo_guid () {}
 function zend_logo_guid () {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Returns the type of interface between web server and PHP
  * @link http://php.net/manual/en/function.php-sapi-name.php
  * @return string the interface type, as a lowercase string.
@@ -1199,7 +1222,8 @@ function zend_logo_guid () {}
 function php_sapi_name () {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Returns information about the operating system PHP is running on
  * @link http://php.net/manual/en/function.php-uname.php
  * @param string $mode [optional] <p>
@@ -1212,7 +1236,8 @@ function php_sapi_name () {}
 function php_uname ($mode = null) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Return a list of .ini files parsed from the additional ini dir
  * @link http://php.net/manual/en/function.php-ini-scanned-files.php
  * @return string a comma-separated string of .ini files on success. Each comma is
@@ -1226,7 +1251,7 @@ function php_uname ($mode = null) {}
 function php_ini_scanned_files () {}
 
 /**
- * (PHP 5 &gt;= 5.2.4)<br/>
+ * @since 5.2.4
  * Retrieve a path to the loaded php.ini file
  * @link http://php.net/manual/en/function.php-ini-loaded-file.php
  * @return string The loaded &php.ini; path, or false if one is not loaded.
@@ -1234,7 +1259,8 @@ function php_ini_scanned_files () {}
 function php_ini_loaded_file () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * String comparisons using a "natural order" algorithm
  * @link http://php.net/manual/en/function.strnatcmp.php
  * @param string $str1 <p>
@@ -1251,7 +1277,8 @@ function php_ini_loaded_file () {}
 function strnatcmp ($str1, $str2) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Case insensitive string comparisons using a "natural order" algorithm
  * @link http://php.net/manual/en/function.strnatcasecmp.php
  * @param string $str1 <p>
@@ -1268,7 +1295,8 @@ function strnatcmp ($str1, $str2) {}
 function strnatcasecmp ($str1, $str2) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Count the number of substring occurrences
  * @link http://php.net/manual/en/function.substr-count.php
  * @param string $haystack <p>
@@ -1290,7 +1318,8 @@ function strnatcasecmp ($str1, $str2) {}
 function substr_count ($haystack, $needle, $offset = null, $length = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Finds the length of the first segment of a string consisting
    entirely of characters contained within a given mask.
  * @link http://php.net/manual/en/function.strspn.php
@@ -1343,7 +1372,8 @@ function substr_count ($haystack, $needle, $offset = null, $length = null) {}
 function strspn ($subject, $mask, $start = null, $length = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Find length of initial segment not matching mask
  * @link http://php.net/manual/en/function.strcspn.php
  * @param string $str1 <p>
@@ -1363,7 +1393,8 @@ function strspn ($subject, $mask, $start = null, $length = null) {}
 function strcspn ($str1, $str2, $start = null, $length = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Tokenize string
  * Note that only the first call to strtok uses the string argument.
  * Every subsequent call to strtok only needs the token to use, as it keeps track of where it is in the current string.

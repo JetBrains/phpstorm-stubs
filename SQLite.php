@@ -365,21 +365,21 @@ final class SQLiteResult implements Iterator, Traversable, Countable {
 	 */
 	public function current ($result_type = SQLITE_BOTH , $decode_binary = true) {}
 	/**
-	 * (PHP 5 &gt;= 5.0.0)<br/>
+	 * @since 5.0.0
 	 * Return the key of the current element
 	 * @link http://php.net/manual/en/iterator.key.php
 	 * @return mixed scalar on success, or null on failure.
 	 */
 	public function key () {}
 	/**
-	 * (PHP 5 &gt;= 5.0.0)<br/>
+	 * @since 5.0.0
 	 * Seek to the next row number
 	 * @link http://php.net/manual/en/function.sqlite-next.php
 	 * @return bool Returns <b>TRUE</b> on success, or <b>FALSE</b> if there are no more rows.
 	 */
 	public function next () {}
 	/**
-	 * (PHP 5 &gt;= 5.0.0)<br/>
+	 * @since 5.0.0
 	 * Checks if current position is valid
 	 * @link http://php.net/manual/en/iterator.valid.php
 	 * @return boolean <p>
@@ -389,7 +389,7 @@ final class SQLiteResult implements Iterator, Traversable, Countable {
 	 */
 	public function valid () {}
 	/**
-	 * (PHP 5 &gt;= 5.0.0)<br/>
+	 * @since 5.0.0
 	 * Rewind the Iterator to the first element
 	 * @link http://php.net/manual/en/iterator.rewind.php
 	 * @return void Any returned value is ignored.
@@ -397,7 +397,7 @@ final class SQLiteResult implements Iterator, Traversable, Countable {
 	public function rewind () {}
 
 	/**
-	 * (PHP 5 &gt;= 5.1.0)<br/>
+	 * @since 5.1.0
 	 * Count elements of an object
 	 * @link http://php.net/manual/en/countable.count.php
 	 * @return int <p>The custom count as an integer.
@@ -409,7 +409,7 @@ final class SQLiteResult implements Iterator, Traversable, Countable {
 	public function count () {}
 
 	/**
-	 * (PHP 5 &gt;= 5.4.0)<br/>
+	 * @since 5.4.0
 	 * Seek to the previous row number of a result set
 	 * @link http://php.net/manual/en/function.sqlite-prev.php
 	 * @return boolean <p> Returns <b>TRUE</b> on success, or <b>FALSE</b> if there are no more previous rows.
@@ -418,7 +418,7 @@ final class SQLiteResult implements Iterator, Traversable, Countable {
 	public function prev () {}
 
 	/**
-	 *(PHP 5 &gt;= 5.4.0)<br/>
+	 *@since 5.4.0
 	 * Returns whether or not a previous row is available
 	 * @link http://php.net/manual/en/function.sqlite-has-prev.php
 	 * @return bool <p>
@@ -515,7 +515,7 @@ final class SQLiteException extends RuntimeException  {
 
 
 	/**
-	 * (PHP 5 &gt;= 5.1.0)<br/>
+	 * @since 5.1.0
 	 * Clone the exception
 	 * @link http://php.net/manual/en/exception.clone.php
 	 * @return void 
@@ -523,7 +523,7 @@ final class SQLiteException extends RuntimeException  {
 	final private function __clone () {}
 
 	/**
-	 * (PHP 5 &gt;= 5.1.0)<br/>
+	 * @since 5.1.0
 	 * Construct the exception
 	 * @link http://php.net/manual/en/exception.construct.php
 	 * @param $message [optional]
@@ -533,7 +533,7 @@ final class SQLiteException extends RuntimeException  {
 	public function __construct ($message, $code, $previous) {}
 
 	/**
-	 * (PHP 5 &gt;= 5.1.0)<br/>
+	 * @since 5.1.0
 	 * String representation of the exception
 	 * @link http://php.net/manual/en/exception.tostring.php
 	 * @return string the string representation of the exception.
@@ -737,7 +737,7 @@ function sqlite_single_query ($db, $query, $first_row_only = null, $decode_binar
 function sqlite_fetch_array ($result, $result_type = SQLITE_BOTH, $decode_binary = null) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Fetches the next row from a result set as an object
  * @link http://php.net/manual/en/function.sqlite-fetch-object.php
  * @param resource $result
@@ -944,7 +944,7 @@ function sqlite_rewind ($result) {}
 function sqlite_next ($result) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Seek to the previous row number of a result set
  * @link http://php.net/manual/en/function.sqlite-prev.php
  * @param resource $result <p>
@@ -958,7 +958,7 @@ function sqlite_next ($result) {}
 function sqlite_prev ($result) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Returns whether more rows are available
  * @link http://php.net/manual/en/function.sqlite-valid.php
  * @param resource $result <p>
@@ -985,7 +985,7 @@ function sqlite_valid ($result) {}
 function sqlite_has_more ($result) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Returns whether or not a previous row is available
  * @link http://php.net/manual/en/function.sqlite-has-prev.php
  * @param resource $result <p>
@@ -1138,7 +1138,7 @@ function sqlite_create_aggregate ($dbhandle, $function_name, $step_func, $finali
 function sqlite_create_function ($dbhandle, $function_name, $callback, $num_args = null) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Opens a SQLite database and returns a SQLiteDatabase object
  * @link http://php.net/manual/en/function.sqlite-factory.php
  * @param string $filename <p>
@@ -1183,7 +1183,7 @@ function sqlite_udf_encode_binary ($data) {}
 function sqlite_udf_decode_binary ($data) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Return an array of column types from a particular table
  * @link http://php.net/manual/en/function.sqlite-fetch-column-types.php
  * @param string $table_name <p>

@@ -3,7 +3,8 @@
 // Start of apache v.
 
 /**
- * (PHP 4 &gt;= 4.0.5, PHP 5)<br/>
+ * @since 4.0.5
+ * @since 5.0
  * Terminate apache process after this request
  * apache_child_terminate() will register the Apache process executing the current PHP request for termination once execution of PHP code is completed. It may be used to terminate a process after a script with high memory consumption has been run as memory will usually only be freed internally but not given back to the operating system.
  * @link http://php.net/manual/en/function.apache-child-terminate.php
@@ -12,7 +13,8 @@
 function apache_child_terminate () {}
 
 /**
- * (PHP 4 &gt;= 4.3.2, PHP 5)<br/>
+ * @since 4.3.2
+ * @since 5.0
  * Get a list of loaded Apache modules
  * @link http://php.net/manual/en/function.apache-get-modules.php
  * @return array of loaded Apache modules.
@@ -20,7 +22,8 @@ function apache_child_terminate () {}
 function apache_get_modules () {}
 
 /**
- * (PHP 4 &gt;= 4.3.2, PHP 5)<br/>
+ * @since 4.3.2
+ * @since 5.0
  * Fetch the Apache version
  * @link http://php.net/manual/en/function.apache-get-version.php
  * @return string|false the Apache version on success or <b>FALSE</b> on failure.
@@ -28,7 +31,8 @@ function apache_get_modules () {}
 function apache_get_version () {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Get an Apache subprocess_env variable
  * Retrieve an Apache environment variable specified by $variable.
  * This function requires Apache 2 otherwise it's undefined.
@@ -44,7 +48,8 @@ function apache_get_version () {}
 function apache_getenv ( $variable, $walk_to_top = false ) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Perform a partial request for the specified URI and return all info about it
  * This performs a partial request for a URI. It goes just far enough to obtain all the important information about the given resource.
  * This function is supported when PHP is installed as an Apache module or by the NSAPI server module in Netscape/iPlanet/SunONE webservers.
@@ -57,7 +62,8 @@ function apache_getenv ( $variable, $walk_to_top = false ) {}
 function apache_lookup_uri ( $filename ) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get and set apache request notes
  * This function is a wrapper for Apache's table_get and table_set. It edits the table of notes that exists during a request. The table's purpose is to allow Apache modules to communicate.
  * The main use for apache_note() is to pass information from one module to another within the same request.
@@ -73,7 +79,8 @@ function apache_lookup_uri ( $filename ) {}
 function apache_note ( $note_name, $note_value = '' ) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Fetches all HTTP request headers from the current request
  * @link http://php.net/manual/en/function.apache-request-headers.php
  * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b on failure.
@@ -81,7 +88,7 @@ function apache_note ( $note_name, $note_value = '' ) {}
 function apache_request_headers () {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Reset the Apache write timer
  * apache_reset_timeout() resets the Apache write timer, which defaults to 300 seconds. With set_time_limit(0); ignore_user_abort(true) and periodic apache_reset_timeout() calls, Apache can theoretically run forever.
  * This function requires Apache 1.
@@ -91,7 +98,8 @@ function apache_request_headers () {}
 function apache_reset_timeout () {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Fetch all HTTP response headers
  * @link http://php.net/manual/en/function.apache-response-headers.php
  * @return array|false An array of all Apache response headers on success or <b>FALSE</b> on failure.
@@ -99,7 +107,8 @@ function apache_reset_timeout () {}
 array function apache_response_headers () {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Sets the value of the Apache environment variable specified by variable.
  * Note: When setting an Apache environment variable, the corresponding $_SERVER variable is not changed.
  * @link http://php.net/manual/en/function.apache-setenv.php
@@ -117,7 +126,8 @@ array function apache_response_headers () {}
 function apache_setenv ( $variable, $value, $walk_to_top = false ) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Fetches all HTTP headers from the current request.
  * This function is an alias for apache_request_headers(). Please read the apache_request_headers() documentation for more information on how this function works.
  * @link http://php.net/manual/en/function.getallheaders.php
@@ -126,7 +136,8 @@ function apache_setenv ( $variable, $value, $walk_to_top = false ) {}
 function getallheaders () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Perform an Apache sub-request
  * virtual() is an Apache-specific function which is similar to <!--#include virtual...--> in mod_include. It performs an Apache sub-request. It is useful for including CGI scripts or .shtml files, or anything else that you would parse through Apache. Note that for a CGI script, the script must generate valid CGI headers. At the minimum that means it must generate a Content-Type header.
  * To run the sub-request, all buffers are terminated and flushed to the browser, pending headers are sent too.

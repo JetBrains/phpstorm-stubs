@@ -3,7 +3,8 @@
 // Start of date v.5.3.2-0.dotdeb.1
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Parse about any English textual datetime description into a Unix timestamp
  * @link http://php.net/manual/en/function.strtotime.php
  * @param string $time <p>
@@ -20,7 +21,8 @@
 function strtotime ($time, $now = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Format a local time/date
  * @link http://php.net/manual/en/function.date.php
  * @param string $format <p>
@@ -290,7 +292,7 @@ function strtotime ($time, $now = null) {}
 function date ($format, $timestamp = null) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Format a local time/date as integer
  * @link http://php.net/manual/en/function.idate.php
  * @param string $format <p>
@@ -386,7 +388,8 @@ function date ($format, $timestamp = null) {}
 function idate ($format, $timestamp = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Format a GMT/UTC date/time
  * @link http://php.net/manual/en/function.gmdate.php
  * @param string $format <p>
@@ -401,7 +404,8 @@ function idate ($format, $timestamp = null) {}
 function gmdate ($format, $timestamp = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get Unix timestamp for a date
  * @link http://php.net/manual/en/function.mktime.php
  * @param int $hour [optional] <p>
@@ -452,7 +456,8 @@ function gmdate ($format, $timestamp = null) {}
 function mktime ($hour = null, $minute = null, $second = null, $month = null, $day = null, $year = null, $is_dst = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get Unix timestamp for a GMT date
  * @link http://php.net/manual/en/function.gmmktime.php
  * @param int $hour [optional] <p>
@@ -482,7 +487,8 @@ function mktime ($hour = null, $minute = null, $second = null, $month = null, $d
 function gmmktime ($hour = null, $minute = null, $second = null, $month = null, $day = null, $year = null, $is_dst = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Validate a Gregorian date
  * @link http://php.net/manual/en/function.checkdate.php
  * @param int $month <p>
@@ -501,7 +507,8 @@ function gmmktime ($hour = null, $minute = null, $second = null, $month = null, 
 function checkdate ($month, $day, $year) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Format a local time/date according to locale settings
  * The following characters are recognized in the
  * format parameter string
@@ -762,7 +769,8 @@ function checkdate ($month, $day, $year) {}
 function strftime ($format, $timestamp) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Format a GMT/UTC time/date according to locale settings
  * @link http://php.net/manual/en/function.gmstrftime.php
  * @param string $format <p>
@@ -778,7 +786,8 @@ function strftime ($format, $timestamp) {}
 function gmstrftime ($format, $timestamp = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return current Unix timestamp
  * @link http://php.net/manual/en/function.time.php
  * @return int <p>Returns the current time measured in the number of seconds since the Unix Epoch (January 1 1970 00:00:00 GMT).</p>
@@ -786,7 +795,8 @@ function gmstrftime ($format, $timestamp = null) {}
 function time () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the local time
  * @link http://php.net/manual/en/function.localtime.php
  * @param int $timestamp [optional] 
@@ -805,7 +815,8 @@ function time () {}
 function localtime ($timestamp = null, $is_associative = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get date/time information
  * @link http://php.net/manual/en/function.getdate.php
  * @param int $timestamp [optional] 
@@ -887,7 +898,7 @@ function localtime ($timestamp = null, $is_associative = null) {}
 function getdate ($timestamp = null) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Returns new DateTime object
  * @link http://php.net/manual/en/function.date-create.php
  * @param string $time [optional] <p>
@@ -917,7 +928,7 @@ function date_create ($time = null, DateTimeZone $timezone = null ) {}
 function date_create_immutable ($time = null, DateTimeZone $timezone = null ) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Alias:
  * {@see DateTime::createFromFormat}
  * @link http://php.net/manual/en/function.date-create-from-format.php
@@ -933,7 +944,7 @@ function date_create_immutable ($time = null, DateTimeZone $timezone = null ) {}
 function date_create_from_format ($format, $time, $timezone = null) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Returns associative array with detailed info about given date
  * @link http://php.net/manual/en/function.date-parse.php
  * @param string $date <p>
@@ -945,7 +956,7 @@ function date_create_from_format ($format, $time, $timezone = null) {}
 function date_parse ($date) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Get info about given date
  * @link http://php.net/manual/en/function.date-parse-from-format.php
  * @param string $format <p>
@@ -959,7 +970,7 @@ function date_parse ($date) {}
 function date_parse_from_format ($format, $date) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Alias:
  * {@see DateTime::getLastErrors}
  * @link http://php.net/manual/en/function.date-get-last-errors.php
@@ -968,7 +979,7 @@ function date_parse_from_format ($format, $date) {}
 function date_get_last_errors () {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Alias:
  * {@see DateTime::format}
  * @link http://php.net/manual/en/function.date-format.php
@@ -979,7 +990,7 @@ function date_get_last_errors () {}
 function date_format ($object, $format) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Alter the timestamp of a DateTime object by incrementing or decrementing
  * in a format accepted by strtotime().
  * Alias:
@@ -992,7 +1003,7 @@ function date_format ($object, $format) {}
 function date_modify ($object, $modify) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * &Alias; <methodname>DateTime::add</methodname>
  * @link http://php.net/manual/en/function.date-add.php
  * @param $object <p>Procedural style only: A
@@ -1006,7 +1017,7 @@ function date_modify ($object, $modify) {}
 function date_add ($object, $interval) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Alias:
  * {@see DateTime::sub}
  * @link http://php.net/manual/en/function.date-sub.php
@@ -1021,7 +1032,7 @@ function date_add ($object, $interval) {}
 function date_sub ($object, $interval) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Alias:
  * {@see DateTime::getTimezone}
  * @link http://php.net/manual/en/function.date-timezone-get.php
@@ -1039,7 +1050,7 @@ function date_sub ($object, $interval) {}
 function date_timezone_get ($object) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Alias:
  * {@see DateTime::setTimezone}
  * @link http://php.net/manual/en/function.date-timezone-set.php
@@ -1054,7 +1065,7 @@ function date_timezone_get ($object) {}
 function date_timezone_set ($object, $timezone) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Alias:
  * {@see DateTime::getOffset}
  * @link http://php.net/manual/en/function.date-offset-get.php
@@ -1065,7 +1076,7 @@ function date_timezone_set ($object, $timezone) {}
 function date_offset_get ($object) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Alias:
  * {@see DateTime::diff}
  * @link http://php.net/manual/en/function.date-diff.php
@@ -1077,7 +1088,7 @@ function date_offset_get ($object) {}
 function date_diff ($object, $object2, $absolute) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * &Alias; <methodname>DateTime::setTime</methodname>
  * @link http://php.net/manual/en/function.date-time-set.php
  * @param $object
@@ -1090,7 +1101,7 @@ function date_diff ($object, $object2, $absolute) {}
 function date_time_set ($object, $hour, $minute, $second) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * &Alias; <methodname>DateTime::setDate</methodname>
  * @link http://php.net/manual/en/function.date-date-set.php
  * @param $object <p>Procedural style only: A {@see DateTime} object
@@ -1108,7 +1119,7 @@ function date_time_set ($object, $hour, $minute, $second) {}
 function date_date_set ($object, $year, $month, $day) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Alias:
  * {@see DateTime::setISODate}
  * @link http://php.net/manual/en/function.date-isodate-set.php
@@ -1123,7 +1134,7 @@ function date_date_set ($object, $year, $month, $day) {}
 function date_isodate_set ($object, $year, $week, $day = 1) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * &Alias; <methodname>DateTime::setTimestamp</methodname>
  * @link http://php.net/manual/en/function.date-timestamp-set.php
  * @param DateTime $object <p>Procedural style only: A
@@ -1136,7 +1147,7 @@ function date_isodate_set ($object, $year, $week, $day = 1) {}
 function date_timestamp_set ($object, $unixtimestamp) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Alias:
  * {@see DateTime::getTimestamp}
  * @link http://php.net/manual/en/function.date-timestamp-get.php
@@ -1146,7 +1157,7 @@ function date_timestamp_set ($object, $unixtimestamp) {}
 function date_timestamp_get ($object) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Returns new DateTimeZone object
  * @link http://php.net/manual/en/function.timezone-open.php
  * @param string $timezone <p>
@@ -1158,7 +1169,7 @@ function date_timestamp_get ($object) {}
 function timezone_open ($timezone) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Alias: {@see DateTimeZone::getName}
  * @link http://php.net/manual/en/function.timezone-name-get.php
  * @param $object <p>The
@@ -1168,7 +1179,7 @@ function timezone_open ($timezone) {}
 function timezone_name_get ($object) {}
 
 /**
- * (PHP 5 &gt;= 5.1.3)<br/>
+ * @since 5.1.3
  * Returns the timezone name from abbreviation
  * @link http://php.net/manual/en/function.timezone-name-from-abbr.php
  * @param string $abbr <p>
@@ -1190,7 +1201,7 @@ function timezone_name_get ($object) {}
 function timezone_name_from_abbr ($abbr, $gmtOffset = null, $isdst = null) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Alias:
  * {@link DateTimeZone::getOffset}
  * @link http://php.net/manual/en/function.timezone-offset-get.php
@@ -1204,7 +1215,7 @@ function timezone_name_from_abbr ($abbr, $gmtOffset = null, $isdst = null) {}
 function timezone_offset_get ($object, $datetime) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Alias:
  * {@see DateTimeZone::getTransitions}
  * @link http://php.net/manual/en/function.timezone-transitions-get.php
@@ -1218,7 +1229,7 @@ function timezone_offset_get ($object, $datetime) {}
 function timezone_transitions_get ($object, $timestamp_begin, $timestamp_end) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * &Alias; {@see DateTimeZone::getLocation}
  * @link http://php.net/manual/en/function.timezone-location-get.php
  * @param $object <p>Procedural style only: A {@see DateTimeZone} object returned by {@see timezone_open()}
@@ -1227,7 +1238,7 @@ function timezone_transitions_get ($object, $timestamp_begin, $timestamp_end) {}
 function timezone_location_get ($object) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Alias:
  * {@see DateTimeZone::listIdentifiers()}
  * @link http://php.net/manual/en/function.timezone-identifiers-list.php
@@ -1239,7 +1250,7 @@ function timezone_location_get ($object) {}
 function timezone_identifiers_list ($what = DateTimeZone::ALL, $country = null) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Returns associative array containing dst, offset and the timezone name
  * Alias:
  * {@see DateTimeZone::listAbbreviations}
@@ -1249,7 +1260,7 @@ function timezone_identifiers_list ($what = DateTimeZone::ALL, $country = null) 
 function timezone_abbreviations_list () {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Gets the version of the timezonedb
  * @link http://php.net/manual/en/function.timezone-version-get.php
  * @return string a string.
@@ -1257,7 +1268,7 @@ function timezone_abbreviations_list () {}
 function timezone_version_get () {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Alias:
  * {@see DateInterval::createFromDateString}
  * @link http://php.net/manual/en/function.date-interval-create-from-date-string.php
@@ -1271,7 +1282,7 @@ function timezone_version_get () {}
 function date_interval_create_from_date_string ($time) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * &Alias; <methodname>DateInterval::format</methodname>
  * @link http://php.net/manual/en/function.date-interval-format.php
  * @param $object
@@ -1281,7 +1292,7 @@ function date_interval_create_from_date_string ($time) {}
 function date_interval_format ($object, $format) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Sets the default timezone used by all date/time functions in a script
  * @link http://php.net/manual/en/function.date-default-timezone-set.php
  * @param string $timezone_identifier <p>
@@ -1296,7 +1307,7 @@ function date_interval_format ($object, $format) {}
 function date_default_timezone_set ($timezone_identifier) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Gets the default timezone used by all date/time functions in a script
  * @link http://php.net/manual/en/function.date-default-timezone-get.php
  * @return string a string.
@@ -1304,7 +1315,7 @@ function date_default_timezone_set ($timezone_identifier) {}
 function date_default_timezone_get () {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Returns time of sunrise for a given day and location
  * @link http://php.net/manual/en/function.date-sunrise.php
  * @param int $timestamp <p>
@@ -1354,7 +1365,7 @@ function date_default_timezone_get () {}
 function date_sunrise ($timestamp, $format = null, $latitude = null, $longitude = null, $zenith = null, $gmt_offset = null) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Returns time of sunset for a given day and location
  * @link http://php.net/manual/en/function.date-sunset.php
  * @param int $timestamp <p>
@@ -1404,7 +1415,7 @@ function date_sunrise ($timestamp, $format = null, $latitude = null, $longitude 
 function date_sunset ($timestamp, $format = null, $latitude = null, $longitude = null, $zenith = null, $gmt_offset = null) {}
 
 /**
- * (PHP 5 &gt;= 5.1.2)<br/>
+ * @since 5.1.2
  * Returns an array with information about sunset/sunrise and twilight begin/end
  * @link http://php.net/manual/en/function.date-sun-info.php
  * @param int $time <p>

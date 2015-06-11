@@ -3,7 +3,8 @@
 // Start of readline v.5.5.3-1ubuntu2.1
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Reads a line
  * @link http://php.net/manual/en/function.readline.php
  * @param string $prompt [optional] <p>
@@ -15,7 +16,8 @@
 function readline ($prompt = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets/sets various internal readline variables
  * @link http://php.net/manual/en/function.readline-info.php
  * @param string $varname [optional] <p>
@@ -36,7 +38,8 @@ function readline ($prompt = null) {}
 function readline_info ($varname = null, $newvalue = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Adds a line to the history
  * @link http://php.net/manual/en/function.readline-add-history.php
  * @param string $line <p>
@@ -47,7 +50,8 @@ function readline_info ($varname = null, $newvalue = null) {}
 function readline_add_history ($line) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Clears the history
  * @link http://php.net/manual/en/function.readline-clear-history.php
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -55,7 +59,8 @@ function readline_add_history ($line) {}
 function readline_clear_history () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Lists the history
  * @link http://php.net/manual/en/function.readline-list-history.php
  * @return array an array of the entire command line history. The elements are
@@ -64,7 +69,8 @@ function readline_clear_history () {}
 function readline_list_history () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Reads the history
  * @link http://php.net/manual/en/function.readline-read-history.php
  * @param string $filename [optional] <p>
@@ -75,7 +81,8 @@ function readline_list_history () {}
 function readline_read_history ($filename = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Writes the history
  * @link http://php.net/manual/en/function.readline-write-history.php
  * @param string $filename [optional] <p>
@@ -86,7 +93,8 @@ function readline_read_history ($filename = null) {}
 function readline_write_history ($filename = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Registers a completion function
  * @link http://php.net/manual/en/function.readline-completion-function.php
  * @param callable $function <p>
@@ -98,7 +106,7 @@ function readline_write_history ($filename = null) {}
 function readline_completion_function (callable $function) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Initializes the readline callback interface and terminal, prints the prompt and returns immediately
  * @link http://php.net/manual/en/function.readline-callback-handler-install.php
  * @param string $prompt <p>
@@ -113,7 +121,7 @@ function readline_completion_function (callable $function) {}
 function readline_callback_handler_install ($prompt, callable $callback) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Reads a character and informs the readline callback interface when a line is received
  * @link http://php.net/manual/en/function.readline-callback-read-char.php
  * @return void No value is returned.
@@ -121,7 +129,7 @@ function readline_callback_handler_install ($prompt, callable $callback) {}
 function readline_callback_read_char () {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Removes a previously installed callback handler and restores terminal settings
  * @link http://php.net/manual/en/function.readline-callback-handler-remove.php
  * @return bool <b>TRUE</b> if a previously installed callback handler was removed, or
@@ -130,7 +138,7 @@ function readline_callback_read_char () {}
 function readline_callback_handler_remove () {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Redraws the display
  * @link http://php.net/manual/en/function.readline-redisplay.php
  * @return void No value is returned.
@@ -138,7 +146,7 @@ function readline_callback_handler_remove () {}
 function readline_redisplay () {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Inform readline that the cursor has moved to a new line
  * @link http://php.net/manual/en/function.readline-on-new-line.php
  * @return void No value is returned.

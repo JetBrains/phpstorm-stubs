@@ -1,7 +1,8 @@
 <?php
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets time of last page modification
  * @link http://php.net/manual/en/function.getlastmod.php
  * @return int the time of the last modification of the current
@@ -11,7 +12,8 @@
 function getlastmod () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Decodes data encoded with MIME base64
  * @link http://php.net/manual/en/function.base64-decode.php
  * @param string $data <p>
@@ -27,7 +29,8 @@ function getlastmod () {}
 function base64_decode ($data, $strict = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Encodes data with MIME base64
  * @link http://php.net/manual/en/function.base64-encode.php
  * @param string $data <p>
@@ -38,7 +41,7 @@ function base64_decode ($data, $strict = null) {}
 function base64_encode ($data) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Uuencode a string
  * @link http://php.net/manual/en/function.convert-uuencode.php
  * @param string $data <p>
@@ -49,7 +52,7 @@ function base64_encode ($data) {}
 function convert_uuencode ($data) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Decode a uuencoded string
  * @link http://php.net/manual/en/function.convert-uudecode.php
  * @param string $data <p>
@@ -60,7 +63,8 @@ function convert_uuencode ($data) {}
 function convert_uudecode ($data) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Absolute value
  * @link http://php.net/manual/en/function.abs.php
  * @param mixed $number <p>
@@ -75,7 +79,8 @@ function convert_uudecode ($data) {}
 function abs ($number) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Round fractions up
  * @link http://php.net/manual/en/function.ceil.php
  * @param float $value <p>
@@ -90,7 +95,8 @@ function abs ($number) {}
 function ceil ($value) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Round fractions down
  * @link http://php.net/manual/en/function.floor.php
  * @param float $value <p>
@@ -104,7 +110,8 @@ function ceil ($value) {}
 function floor ($value) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Returns the rounded value of val to specified precision (number of digits after the decimal point).
  * precision can also be negative or zero (default).
  * Note: PHP doesn't handle strings like "12,300.2" correctly by default. See converting from strings.
@@ -126,7 +133,8 @@ function floor ($value) {}
 function round ($val, $precision = 0, $mode = PHP_ROUND_HALF_UP) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sine
  * @link http://php.net/manual/en/function.sin.php
  * @param float $arg <p>
@@ -137,7 +145,8 @@ function round ($val, $precision = 0, $mode = PHP_ROUND_HALF_UP) {}
 function sin ($arg) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Cosine
  * @link http://php.net/manual/en/function.cos.php
  * @param float $arg <p>
@@ -148,7 +157,8 @@ function sin ($arg) {}
 function cos ($arg) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Tangent
  * @link http://php.net/manual/en/function.tan.php
  * @param float $arg <p>
@@ -159,7 +169,8 @@ function cos ($arg) {}
 function tan ($arg) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Arc sine
  * @link http://php.net/manual/en/function.asin.php
  * @param float $arg <p>
@@ -170,7 +181,8 @@ function tan ($arg) {}
 function asin ($arg) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Arc cosine
  * @link http://php.net/manual/en/function.acos.php
  * @param float $arg <p>
@@ -181,7 +193,8 @@ function asin ($arg) {}
 function acos ($arg) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Arc tangent
  * @link http://php.net/manual/en/function.atan.php
  * @param float $arg <p>
@@ -192,7 +205,8 @@ function acos ($arg) {}
 function atan ($arg) {}
 
 /**
- * (PHP 4 &gt;= 4.1.0, PHP 5)<br/>
+ * @since 4.1.0
+ * @since 5.0
  * Inverse hyperbolic tangent
  * @link http://php.net/manual/en/function.atanh.php
  * @param float $arg <p>
@@ -203,7 +217,8 @@ function atan ($arg) {}
 function atanh ($arg) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Arc tangent of two variables
  * @link http://php.net/manual/en/function.atan2.php
  * @param float $y <p>
@@ -218,7 +233,8 @@ function atanh ($arg) {}
 function atan2 ($y, $x) {}
 
 /**
- * (PHP 4 &gt;= 4.1.0, PHP 5)<br/>
+ * @since 4.1.0
+ * @since 5.0
  * Hyperbolic sine
  * @link http://php.net/manual/en/function.sinh.php
  * @param float $arg <p>
@@ -229,7 +245,8 @@ function atan2 ($y, $x) {}
 function sinh ($arg) {}
 
 /**
- * (PHP 4 &gt;= 4.1.0, PHP 5)<br/>
+ * @since 4.1.0
+ * @since 5.0
  * Hyperbolic cosine
  * @link http://php.net/manual/en/function.cosh.php
  * @param float $arg <p>
@@ -240,7 +257,8 @@ function sinh ($arg) {}
 function cosh ($arg) {}
 
 /**
- * (PHP 4 &gt;= 4.1.0, PHP 5)<br/>
+ * @since 4.1.0
+ * @since 5.0
  * Hyperbolic tangent
  * @link http://php.net/manual/en/function.tanh.php
  * @param float $arg <p>
@@ -251,7 +269,8 @@ function cosh ($arg) {}
 function tanh ($arg) {}
 
 /**
- * (PHP 4 &gt;= 4.1.0, PHP 5)<br/>
+ * @since 4.1.0
+ * @since 5.0
  * Inverse hyperbolic sine
  * @link http://php.net/manual/en/function.asinh.php
  * @param float $arg <p>
@@ -262,7 +281,8 @@ function tanh ($arg) {}
 function asinh ($arg) {}
 
 /**
- * (PHP 4 &gt;= 4.1.0, PHP 5)<br/>
+ * @since 4.1.0
+ * @since 5.0
  * Inverse hyperbolic cosine
  * @link http://php.net/manual/en/function.acosh.php
  * @param float $arg <p>
@@ -273,7 +293,8 @@ function asinh ($arg) {}
 function acosh ($arg) {}
 
 /**
- * (PHP 4 &gt;= 4.1.0, PHP 5)<br/>
+ * @since 4.1.0
+ * @since 5.0
  * Returns exp(number) - 1, computed in a way that is accurate even
    when the value of number is close to zero
  * @link http://php.net/manual/en/function.expm1.php
@@ -285,7 +306,8 @@ function acosh ($arg) {}
 function expm1 ($arg) {}
 
 /**
- * (PHP 4 &gt;= 4.1.0, PHP 5)<br/>
+ * @since 4.1.0
+ * @since 5.0
  * Returns log(1 + number), computed in a way that is accurate even when
    the value of number is close to zero
  * @link http://php.net/manual/en/function.log1p.php
@@ -297,7 +319,8 @@ function expm1 ($arg) {}
 function log1p ($number) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get value of pi
  * @link http://php.net/manual/en/function.pi.php
  * @return float The value of pi as float.
@@ -305,7 +328,8 @@ function log1p ($number) {}
 function pi () {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Finds whether a value is a legal finite number
  * @link http://php.net/manual/en/function.is-finite.php
  * @param float $val <p>
@@ -318,7 +342,8 @@ function pi () {}
 function is_finite ($val) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Finds whether a value is not a number
  * @link http://php.net/manual/en/function.is-nan.php
  * @param float $val <p>
@@ -330,7 +355,8 @@ function is_finite ($val) {}
 function is_nan ($val) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Finds whether a value is infinite
  * @link http://php.net/manual/en/function.is-infinite.php
  * @param float $val <p>
@@ -341,7 +367,8 @@ function is_nan ($val) {}
 function is_infinite ($val) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Exponential expression
  * @link http://php.net/manual/en/function.pow.php
  * @param number $base <p>
@@ -358,7 +385,8 @@ function is_infinite ($val) {}
 function pow ($base, $exp) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Calculates the exponent of <constant>e</constant>
  * @link http://php.net/manual/en/function.exp.php
  * @param float $arg <p>
@@ -369,7 +397,8 @@ function pow ($base, $exp) {}
 function exp ($arg) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Natural logarithm
  * @link http://php.net/manual/en/function.log.php
  * @param float $arg <p>
@@ -386,7 +415,8 @@ function exp ($arg) {}
 function log ($arg, $base = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Base-10 logarithm
  * @link http://php.net/manual/en/function.log10.php
  * @param float $arg <p>
@@ -397,7 +427,8 @@ function log ($arg, $base = null) {}
 function log10 ($arg) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Square root
  * @link http://php.net/manual/en/function.sqrt.php
  * @param float $arg <p>
@@ -409,7 +440,8 @@ function log10 ($arg) {}
 function sqrt ($arg) {}
 
 /**
- * (PHP 4 &gt;= 4.1.0, PHP 5)<br/>
+ * @since 4.1.0
+ * @since 5.0
  * Calculate the length of the hypotenuse of a right-angle triangle
  * @link http://php.net/manual/en/function.hypot.php
  * @param float $x <p>
@@ -423,7 +455,8 @@ function sqrt ($arg) {}
 function hypot ($x, $y) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Converts the number in degrees to the radian equivalent
  * @link http://php.net/manual/en/function.deg2rad.php
  * @param float $number <p>
@@ -434,7 +467,8 @@ function hypot ($x, $y) {}
 function deg2rad ($number) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Converts the radian number to the equivalent number in degrees
  * @link http://php.net/manual/en/function.rad2deg.php
  * @param float $number <p>
@@ -445,7 +479,8 @@ function deg2rad ($number) {}
 function rad2deg ($number) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Binary to decimal
  * @link http://php.net/manual/en/function.bindec.php
  * @param string $binary_string <p>
@@ -456,7 +491,8 @@ function rad2deg ($number) {}
 function bindec ($binary_string) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Hexadecimal to decimal
  * @link http://php.net/manual/en/function.hexdec.php
  * @param string $hex_string <p>
@@ -467,7 +503,8 @@ function bindec ($binary_string) {}
 function hexdec ($hex_string) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Octal to decimal
  * @link http://php.net/manual/en/function.octdec.php
  * @param string $octal_string <p>
@@ -478,7 +515,8 @@ function hexdec ($hex_string) {}
 function octdec ($octal_string) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Decimal to binary
  * @link http://php.net/manual/en/function.decbin.php
  * @param int $number <p>
@@ -597,7 +635,8 @@ function octdec ($octal_string) {}
 function decbin ($number) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Decimal to octal
  * @link http://php.net/manual/en/function.decoct.php
  * @param int $number <p>
@@ -608,7 +647,8 @@ function decbin ($number) {}
 function decoct ($number) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Decimal to hexadecimal
  * @link http://php.net/manual/en/function.dechex.php
  * @param int $number <p>
@@ -619,7 +659,8 @@ function decoct ($number) {}
 function dechex ($number) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Convert a number between arbitrary bases
  * @link http://php.net/manual/en/function.base-convert.php
  * @param string $number <p>
@@ -636,7 +677,8 @@ function dechex ($number) {}
 function base_convert ($number, $frombase, $tobase) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Format a number with grouped thousands
  * @link http://php.net/manual/en/function.number-format.php
  * @param float $number <p>
@@ -652,7 +694,8 @@ function base_convert ($number, $frombase, $tobase) {}
 function number_format ($number , $decimals = 0 , $dec_point = '.' , $thousands_sep = ',' ) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Returns the floating point remainder (modulo) of the division
   of the arguments
  * @link http://php.net/manual/en/function.fmod.php
@@ -668,7 +711,7 @@ function number_format ($number , $decimals = 0 , $dec_point = '.' , $thousands_
 function fmod ($x, $y) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Converts a packed internet address to a human readable representation
  * @link http://php.net/manual/en/function.inet-ntop.php
  * @param string $in_addr <p>
@@ -679,7 +722,7 @@ function fmod ($x, $y) {}
 function inet_ntop ($in_addr) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Converts a human readable IP address to its packed in_addr representation
  * @link http://php.net/manual/en/function.inet-pton.php
  * @param string $address <p>
@@ -691,7 +734,8 @@ function inet_ntop ($in_addr) {}
 function inet_pton ($address) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Converts a string containing an (IPv4) Internet Protocol dotted address into a proper address
  * @link http://php.net/manual/en/function.ip2long.php
  * @param string $ip_address <p>
@@ -703,7 +747,8 @@ function inet_pton ($address) {}
 function ip2long ($ip_address) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Converts an (IPv4) Internet network address into a string in Internet standard dotted format
  * @link http://php.net/manual/en/function.long2ip.php
  * @param string $proper_address <p>
@@ -714,7 +759,8 @@ function ip2long ($ip_address) {}
 function long2ip ($proper_address) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets the value of an environment variable
  * @link http://php.net/manual/en/function.getenv.php
  * @param string $varname <p>
@@ -726,7 +772,8 @@ function long2ip ($proper_address) {}
 function getenv ($varname) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sets the value of an environment variable
  * @link http://php.net/manual/en/function.putenv.php
  * @param string $setting <p>
@@ -737,7 +784,8 @@ function getenv ($varname) {}
 function putenv ($setting) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Gets options from the command line argument list
  * @link http://php.net/manual/en/function.getopt.php
  * @param string $options Each character in this string will be used as option characters and
@@ -758,7 +806,7 @@ function putenv ($setting) {}
 function getopt ($options, array $longopts = null) {}
 
 /**
- * (PHP 5 &gt;= 5.1.3)<br/>
+ * @since 5.1.3
  * Gets system load average
  * @link http://php.net/manual/en/function.sys-getloadavg.php
  * @return array an array with three samples (last 1, 5 and 15
@@ -767,7 +815,8 @@ function getopt ($options, array $longopts = null) {}
 function sys_getloadavg () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return current Unix timestamp with microseconds
  * @link http://php.net/manual/en/function.microtime.php
  * @param bool $get_as_float [optional] <p>
@@ -786,7 +835,8 @@ function sys_getloadavg () {}
 function microtime ($get_as_float = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get current time
  * @link http://php.net/manual/en/function.gettimeofday.php
  * @param bool $return_float [optional] <p>
@@ -805,7 +855,8 @@ function microtime ($get_as_float = null) {}
 function gettimeofday ($return_float = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets the current resource usages
  * @link http://php.net/manual/en/function.getrusage.php
  * @param int $who [optional] <p>
@@ -818,7 +869,8 @@ function gettimeofday ($return_float = null) {}
 function getrusage ($who = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Generate a unique ID
  * @link http://php.net/manual/en/function.uniqid.php
  * @param string $prefix [optional] <p>
@@ -841,7 +893,8 @@ function getrusage ($who = null) {}
 function uniqid ($prefix = "", $more_entropy = false) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Convert a quoted-printable string to an 8 bit string
  * @link http://php.net/manual/en/function.quoted-printable-decode.php
  * @param string $str <p>
@@ -852,7 +905,7 @@ function uniqid ($prefix = "", $more_entropy = false) {}
 function quoted_printable_decode ($str) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Convert a 8 bit string to a quoted-printable string
  * @link http://php.net/manual/en/function.quoted-printable-encode.php
  * @param string $str <p>
@@ -863,7 +916,8 @@ function quoted_printable_decode ($str) {}
 function quoted_printable_encode ($str) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Convert from one Cyrillic character set to another
  * @link http://php.net/manual/en/function.convert-cyr-string.php
  * @param string $str <p>
@@ -880,7 +934,8 @@ function quoted_printable_encode ($str) {}
 function convert_cyr_string ($str, $from, $to) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets the name of the owner of the current PHP script
  * @link http://php.net/manual/en/function.get-current-user.php
  * @return string the username as a string.
@@ -888,7 +943,8 @@ function convert_cyr_string ($str, $from, $to) {}
 function get_current_user () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Limits the maximum execution time
  * @link http://php.net/manual/en/function.set-time-limit.php
  * @param int $seconds <p>
@@ -900,7 +956,8 @@ function get_current_user () {}
 function set_time_limit ($seconds) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets the value of a PHP configuration option
  * @link http://php.net/manual/en/function.get-cfg-var.php
  * @param string $option <p>
@@ -912,7 +969,8 @@ function set_time_limit ($seconds) {}
 function get_cfg_var ($option) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * &Alias; <function>set_magic_quotes_runtime</function>
  * @link http://php.net/manual/en/function.magic-quotes-runtime.php
  * @deprecated since 5.3.0
@@ -921,7 +979,8 @@ function get_cfg_var ($option) {}
 function magic_quotes_runtime ($new_setting) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sets the current active configuration setting of magic_quotes_runtime
  * @link http://php.net/manual/en/function.set-magic-quotes-runtime.php
  * @deprecated since 5.3.0
@@ -934,7 +993,8 @@ function magic_quotes_runtime ($new_setting) {}
 function set_magic_quotes_runtime ($new_setting) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets the current configuration setting of magic quotes gpc
  * @link http://php.net/manual/en/function.get-magic-quotes-gpc.php
  * @return int 0 if magic quotes gpc are off, 1 otherwise.
@@ -943,7 +1003,8 @@ function set_magic_quotes_runtime ($new_setting) {}
 function get_magic_quotes_gpc () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets the current active configuration setting of magic_quotes_runtime
  * @link http://php.net/manual/en/function.get-magic-quotes-runtime.php
  * @return int 0 if magic quotes runtime is off, 1 otherwise.
@@ -988,7 +1049,8 @@ function get_magic_quotes_runtime () {}
 function import_request_variables ($types, $prefix = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Send an error message somewhere
  * @link http://php.net/manual/en/function.error-log.php
  * @param string $message <p>

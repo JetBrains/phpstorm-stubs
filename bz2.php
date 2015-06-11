@@ -3,7 +3,8 @@
 // Start of bz2 v.
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Opens a bzip2 compressed file
  * @link http://php.net/manual/en/function.bzopen.php
  * @param string $filename <p>
@@ -20,7 +21,8 @@
 function bzopen ($filename, $mode) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Binary safe bzip2 file read
  * @link http://php.net/manual/en/function.bzread.php
  * @param resource $bz <p>
@@ -37,7 +39,8 @@ function bzopen ($filename, $mode) {}
 function bzread ($bz, $length = 1024) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Binary safe bzip2 file write
  * @link http://php.net/manual/en/function.bzwrite.php
  * @param resource $bz <p>
@@ -57,7 +60,8 @@ function bzread ($bz, $length = 1024) {}
 function bzwrite ($bz, $data, $length = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Force a write of all buffered data
  * @link http://php.net/manual/en/function.bzflush.php
  * @param resource $bz <p>
@@ -69,7 +73,8 @@ function bzwrite ($bz, $data, $length = null) {}
 function bzflush ($bz) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Close a bzip2 file
  * @link http://php.net/manual/en/function.bzclose.php
  * @param resource $bz <p>
@@ -81,7 +86,8 @@ function bzflush ($bz) {}
 function bzclose ($bz) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Returns a bzip2 error number
  * @link http://php.net/manual/en/function.bzerrno.php
  * @param resource $bz <p>
@@ -93,7 +99,8 @@ function bzclose ($bz) {}
 function bzerrno ($bz) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Returns a bzip2 error string
  * @link http://php.net/manual/en/function.bzerrstr.php
  * @param resource $bz <p>
@@ -105,7 +112,8 @@ function bzerrno ($bz) {}
 function bzerrstr ($bz) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Returns the bzip2 error number and error string in an array
  * @link http://php.net/manual/en/function.bzerror.php
  * @param resource $bz <p>
@@ -119,7 +127,8 @@ function bzerrstr ($bz) {}
 function bzerror ($bz) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Compress a string into bzip2 encoded data
  * @link http://php.net/manual/en/function.bzcompress.php
  * @param string $source <p>
@@ -144,7 +153,8 @@ function bzerror ($bz) {}
 function bzcompress ($source, $blocksize = 4, $workfactor = 0) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Decompresses bzip2 encoded data
  * @link http://php.net/manual/en/function.bzdecompress.php
  * @param string $source <p>

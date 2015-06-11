@@ -61,7 +61,7 @@ class LibXMLError  {
 }
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Set the streams context for the next libxml document load or write
  * @link http://php.net/manual/en/function.libxml-set-streams-context.php
  * @param resource $streams_context <p>
@@ -73,7 +73,7 @@ class LibXMLError  {
 function libxml_set_streams_context ($streams_context) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Disable libxml errors and allow user to fetch error information as needed
  * @link http://php.net/manual/en/function.libxml-use-internal-errors.php
  * @param bool $use_errors [optional] <p>
@@ -85,7 +85,7 @@ function libxml_set_streams_context ($streams_context) {}
 function libxml_use_internal_errors ($use_errors = false) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Retrieve last error from libxml
  * @link http://php.net/manual/en/function.libxml-get-last-error.php
  * @return LibXMLError a LibXMLError object if there is any error in the
@@ -94,7 +94,7 @@ function libxml_use_internal_errors ($use_errors = false) {}
 function libxml_get_last_error () {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Clear libxml error buffer
  * @link http://php.net/manual/en/function.libxml-clear-errors.php
  * @return void No value is returned.
@@ -102,7 +102,7 @@ function libxml_get_last_error () {}
 function libxml_clear_errors () {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Retrieve array of errors
  * @link http://php.net/manual/en/function.libxml-get-errors.php
  * @return array an array with LibXMLError objects if there are any
@@ -111,7 +111,7 @@ function libxml_clear_errors () {}
 function libxml_get_errors () {}
 
 /**
- * (PHP 5 &gt;= 5.2.11)<br/>
+ * @since 5.2.11
  * Disable the ability to load external entities
  * @link http://php.net/manual/en/function.libxml-disable-entity-loader.php
  * @param bool $disable [optional] <p>
@@ -124,7 +124,7 @@ function libxml_get_errors () {}
 function libxml_disable_entity_loader ($disable = true) {}
 
 /**
- * (PHP 5 &gt;= 5.4.0)<br/>
+ * @since 5.4.0
  * Changes the default external entity loader
  * @link http://php.net/manual/en/function.libxml-set-external-entity-loader.php
  * @param callable $resolver_function <p>

@@ -23,7 +23,7 @@
 function hash ($algo, $data, $raw_output = false) {}
 
 /**
- * (PHP 5 &gt;= 5.6.0)<br/>
+ * @since 5.6.0
  * Timing attack safe string comparison
  * @link http://php.net/manual/en/function.hash-equals.php
  * @param string $known_string <p>The string of known length to compare against</p>
@@ -188,7 +188,7 @@ function hash_update_file ($hcontext, $filename, $scontext = null) {}
 function hash_final ($context, $raw_output = false) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Copy hashing context
  * @link http://php.net/manual/en/function.hash-copy.php
  * @param resource $context <p>
@@ -208,7 +208,7 @@ function hash_copy ($context) {}
 function hash_algos () {}
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Generate a PBKDF2 key derivation of a supplied password
  * @link http://php.net/manual/en/function.hash-pbkdf2.php
  * @param $algo
@@ -224,7 +224,8 @@ function hash_algos () {}
 function hash_pbkdf2 ($algo, $password, $salt, $iterations, $length, $raw_output) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Generates a key
  * @link http://php.net/manual/en/function.mhash-keygen-s2k.php
  * @param int $hash <p>
@@ -249,7 +250,8 @@ function hash_pbkdf2 ($algo, $password, $salt, $iterations, $length, $raw_output
 function mhash_keygen_s2k ($hash, $password, $salt, $bytes) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets the block size of the specified hash
  * @link http://php.net/manual/en/function.mhash-get-block-size.php
  * @param int $hash <p>
@@ -261,7 +263,8 @@ function mhash_keygen_s2k ($hash, $password, $salt, $bytes) {}
 function mhash_get_block_size ($hash) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets the name of the specified hash
  * @link http://php.net/manual/en/function.mhash-get-hash-name.php
  * @param int $hash <p>
@@ -272,7 +275,8 @@ function mhash_get_block_size ($hash) {}
 function mhash_get_hash_name ($hash) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets the highest available hash ID
  * @link http://php.net/manual/en/function.mhash-count.php
  * @return int the highest available hash ID. Hashes are numbered from 0 to this
@@ -281,7 +285,8 @@ function mhash_get_hash_name ($hash) {}
 function mhash_count () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Computes hash
  * @link http://php.net/manual/en/function.mhash.php
  * @param int $hash <p>

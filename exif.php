@@ -3,7 +3,8 @@
 // Start of exif v.1.4 $Id$
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Reads the EXIF headers from JPEG or TIFF
  * @link http://php.net/manual/en/function.exif-read-data.php
  * @param string $filename <p>
@@ -79,7 +80,8 @@
 function exif_read_data ($filename, $sections = null, $arrays = false, $thumbnail = false) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Alias of <b>exif_read_data</b>
  * @link http://php.net/manual/en/function.read-exif-data.php
  * @param $filename
@@ -90,7 +92,8 @@ function exif_read_data ($filename, $sections = null, $arrays = false, $thumbnai
 function read_exif_data ($filename, $sections_needed, $sub_arrays, $read_thumbnail) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Get the header name for an index
  * @link http://php.net/manual/en/function.exif-tagname.php
  * @param int $index <p>
@@ -102,7 +105,8 @@ function read_exif_data ($filename, $sections_needed, $sub_arrays, $read_thumbna
 function exif_tagname ($index) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Retrieve the embedded thumbnail of a TIFF or JPEG image
  * @link http://php.net/manual/en/function.exif-thumbnail.php
  * @param string $filename <p>
@@ -125,7 +129,8 @@ function exif_tagname ($index) {}
 function exif_thumbnail ($filename, &$width = null, &$height = null, &$imagetype = null) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Determine the type of an image
  * @link http://php.net/manual/en/function.exif-imagetype.php
  * @param string $filename The image being checked.

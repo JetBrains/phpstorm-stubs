@@ -3,7 +3,8 @@
 // Start of shmop v.
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Create or open shared memory block
  * @link http://php.net/manual/en/function.shmop-open.php
  * @param int $key <p>
@@ -30,7 +31,8 @@
 function shmop_open ($key, $flags, $mode, $size) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Read data from shared memory block
  * @link http://php.net/manual/en/function.shmop-read.php
  * @param int $shmid <p>
@@ -48,7 +50,8 @@ function shmop_open ($key, $flags, $mode, $size) {}
 function shmop_read ($shmid, $start, $count) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Close shared memory block
  * @link http://php.net/manual/en/function.shmop-close.php
  * @param int $shmid <p>
@@ -60,7 +63,8 @@ function shmop_read ($shmid, $start, $count) {}
 function shmop_close ($shmid) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Get size of shared memory block
  * @link http://php.net/manual/en/function.shmop-size.php
  * @param int $shmid <p>
@@ -73,7 +77,8 @@ function shmop_close ($shmid) {}
 function shmop_size ($shmid) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Write data into shared memory block
  * @link http://php.net/manual/en/function.shmop-write.php
  * @param int $shmid <p>
@@ -93,7 +98,8 @@ function shmop_size ($shmid) {}
 function shmop_write ($shmid, $data, $offset) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Delete shared memory block
  * @link http://php.net/manual/en/function.shmop-delete.php
  * @param int $shmid <p>

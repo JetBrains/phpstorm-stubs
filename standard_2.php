@@ -1,7 +1,8 @@
 <?php
 
 /**
- * (PHP 4 &gt;= 4.1.0, PHP 5)<br/>
+ * @since 4.1.0
+ * @since 5.0
  * Query language and locale information
  * @link http://php.net/manual/en/function.nl-langinfo.php
  * @param int $item <p>
@@ -147,7 +148,8 @@
 function nl_langinfo ($item) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Calculate the soundex key of a string
  * @link http://php.net/manual/en/function.soundex.php
  * @param string $str <p>
@@ -158,7 +160,8 @@ function nl_langinfo ($item) {}
 function soundex ($str) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Calculate Levenshtein distance between two strings
  * @link http://php.net/manual/en/function.levenshtein.php
  * @param string $str1 <p>
@@ -174,7 +177,8 @@ function soundex ($str) {}
 function levenshtein ($str1, $str2) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return a specific character
  * @link http://php.net/manual/en/function.chr.php
  * @param int $ascii <p>
@@ -185,7 +189,8 @@ function levenshtein ($str1, $str2) {}
 function chr ($ascii) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return ASCII value of character
  * @link http://php.net/manual/en/function.ord.php
  * @param string $string <p>
@@ -196,7 +201,8 @@ function chr ($ascii) {}
 function ord ($string) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Parses the string into variables
  * @link http://php.net/manual/en/function.parse-str.php
  * @param string $str <p>
@@ -211,7 +217,7 @@ function ord ($string) {}
 function parse_str ($str, array &$arr = null) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Parse a CSV string into an array
  * @link http://php.net/manual/en/function.str-getcsv.php
  * @param string $input <p>
@@ -232,7 +238,8 @@ function parse_str ($str, array &$arr = null) {}
 function str_getcsv ($input, $delimiter = null, $enclosure = null, $escape = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Pad a string to a certain length with another string
  * @link http://php.net/manual/en/function.str-pad.php
  * @param string $input <p>
@@ -260,7 +267,8 @@ function str_getcsv ($input, $delimiter = null, $enclosure = null, $escape = nul
 function str_pad ($input, $pad_length, $pad_string = null, $pad_type = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * &Alias; <function>rtrim</function>
  * @see rtrim()
  * @link http://php.net/manual/en/function.chop.php
@@ -271,7 +279,8 @@ function str_pad ($input, $pad_length, $pad_string = null, $pad_type = null) {}
 function chop ($str, $character_mask) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * &Alias; <function>strstr</function>
  * @link http://php.net/manual/en/function.strchr.php
  * Note: This function is case-sensitive. For case-insensitive searches, use stristr().
@@ -286,7 +295,8 @@ function chop ($str, $character_mask) {}
 function strchr ($haystack, $needle, $part) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return a formatted string
  * @link http://php.net/manual/en/function.sprintf.php
  * @param string $format <p>
@@ -314,7 +324,8 @@ function strchr ($haystack, $needle, $part) {}
 function sprintf ($format, $args = null, $_ = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Output a formatted string
  * @link http://php.net/manual/en/function.printf.php
  * @param string $format <p>
@@ -329,7 +340,8 @@ function sprintf ($format, $args = null, $_ = null) {}
 function printf ($format, $args = null, $_ = null) {}
 
 /**
- * (PHP 4 &gt;= 4.1.0, PHP 5)<br/>
+ * @since 4.1.0
+ * @since 5.0
  * Output a formatted string
  * @link http://php.net/manual/en/function.vprintf.php
  * @param string $format <p>
@@ -343,7 +355,8 @@ function printf ($format, $args = null, $_ = null) {}
 function vprintf ($format, array $args) {}
 
 /**
- * (PHP 4 &gt;= 4.1.0, PHP 5)<br/>
+ * @since 4.1.0
+ * @since 5.0
  * Return a formatted string
  * @link http://php.net/manual/en/function.vsprintf.php
  * @param string $format <p>
@@ -359,7 +372,7 @@ function vprintf ($format, array $args) {}
 function vsprintf ($format, array $args) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Write a formatted string to a stream
  * @link http://php.net/manual/en/function.fprintf.php
  * @param resource $handle &fs.file.pointer;
@@ -375,7 +388,7 @@ function vsprintf ($format, array $args) {}
 function fprintf ($handle, $format, $args = null, $_ = null) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Write a formatted string to a stream
  * @link http://php.net/manual/en/function.vfprintf.php
  * @param resource $handle <p>
@@ -391,7 +404,8 @@ function fprintf ($handle, $format, $args = null, $_ = null) {}
 function vfprintf ($handle, $format, array $args) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Parses input from a string according to a format
  * @link http://php.net/manual/en/function.sscanf.php
  * @param string $str <p>
@@ -418,7 +432,8 @@ function vfprintf ($handle, $format, array $args) {}
 function sscanf ($str, $format, &$_ = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Parses input from a file according to a format
  * @link http://php.net/manual/en/function.fscanf.php
  * @param resource $handle &fs.file.pointer;
@@ -435,7 +450,8 @@ function sscanf ($str, $format, &$_ = null) {}
 function fscanf ($handle, $format, &$_ = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Parse a URL and return its components
  * @link http://php.net/manual/en/function.parse-url.php
  * @param string $url <p>
@@ -469,7 +485,8 @@ function fscanf ($handle, $format, &$_ = null) {}
 function parse_url ($url, $component = -1) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * URL-encodes string
  * @link http://php.net/manual/en/function.urlencode.php
  * @param string $str <p>
@@ -488,7 +505,8 @@ function parse_url ($url, $component = -1) {}
 function urlencode ($str) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Decodes URL-encoded string
  * @link http://php.net/manual/en/function.urldecode.php
  * @param string $str <p>
@@ -499,7 +517,8 @@ function urlencode ($str) {}
 function urldecode ($str) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * URL-encode according to RFC 1738
  * @link http://php.net/manual/en/function.rawurlencode.php
  * @param string $str <p>
@@ -516,7 +535,8 @@ function urldecode ($str) {}
 function rawurlencode ($str) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Decode URL-encoded strings
  * @link http://php.net/manual/en/function.rawurldecode.php
  * @param string $str <p>
@@ -527,7 +547,7 @@ function rawurlencode ($str) {}
 function rawurldecode ($str) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Generate URL-encoded query string
  * @link http://php.net/manual/en/function.http-build-query.php
  * @param mixed $query_data <p>
@@ -563,7 +583,8 @@ function rawurldecode ($str) {}
 function http_build_query ($query_data, $numeric_prefix = null, $arg_separator = null, $enc_type = PHP_QUERY_RFC1738)
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Returns the target of a symbolic link
  * @link http://php.net/manual/en/function.readlink.php
  * @param string $path <p>
@@ -574,7 +595,8 @@ function http_build_query ($query_data, $numeric_prefix = null, $arg_separator =
 function readlink ($path) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets information about a link
  * @link http://php.net/manual/en/function.linkinfo.php
  * @param string $path <p>
@@ -587,7 +609,8 @@ function readlink ($path) {}
 function linkinfo ($path) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Creates a symbolic link
  * @link http://php.net/manual/en/function.symlink.php
  * @param string $target <p>
@@ -601,7 +624,8 @@ function linkinfo ($path) {}
 function symlink ($target, $link) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Create a hard link
  * @link http://php.net/manual/en/function.link.php
  * @param string $from_path <p>
@@ -615,7 +639,8 @@ function symlink ($target, $link) {}
 function link ($from_path, $to_path) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Deletes a file
  * @link http://php.net/manual/en/function.unlink.php
  * @param string $filename <p>
@@ -627,7 +652,8 @@ function link ($from_path, $to_path) {}
 function unlink ($filename, $context = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Execute an external program
  * @link http://php.net/manual/en/function.exec.php
  * @param string $command <p>
@@ -660,7 +686,8 @@ function unlink ($filename, $context = null) {}
 function exec ($command, array &$output = null, &$return_var = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Execute an external program and display the output
  * @link http://php.net/manual/en/function.system.php
  * @param string $command <p>
@@ -677,7 +704,8 @@ function exec ($command, array &$output = null, &$return_var = null) {}
 function system ($command, &$return_var = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Escape shell metacharacters
  * @link http://php.net/manual/en/function.escapeshellcmd.php
  * @param string $command <p>
@@ -688,7 +716,8 @@ function system ($command, &$return_var = null) {}
 function escapeshellcmd ($command) {}
 
 /**
- * (PHP 4 &gt;= 4.0.3, PHP 5)<br/>
+ * @since 4.0.3
+ * @since 5.0
  * Escape a string to be used as a shell argument
  * @link http://php.net/manual/en/function.escapeshellarg.php
  * @param string $arg <p>
@@ -699,7 +728,8 @@ function escapeshellcmd ($command) {}
 function escapeshellarg ($arg) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Execute an external program and display raw output
  * @link http://php.net/manual/en/function.passthru.php
  * @param string $command <p>
@@ -714,7 +744,8 @@ function escapeshellarg ($arg) {}
 function passthru ($command, &$return_var = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Execute command via shell and return the complete output as a string
  * @link http://php.net/manual/en/function.shell-exec.php
  * @param string $cmd <p>
@@ -725,7 +756,8 @@ function passthru ($command, &$return_var = null) {}
 function shell_exec ($cmd) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Execute a command and open file pointers for input/output
  * @link http://php.net/manual/en/function.proc-open.php
  * @param string $cmd <p>
@@ -789,7 +821,8 @@ function shell_exec ($cmd) {}
 function proc_open ($cmd, array $descriptorspec, array &$pipes, $cwd = null, array $env = null, array $other_options = null) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Close a process opened by <function>proc_open</function> and return the exit code of that process
  * @link http://php.net/manual/en/function.proc-close.php
  * @param resource $process <p>
@@ -801,7 +834,7 @@ function proc_open ($cmd, array $descriptorspec, array &$pipes, $cwd = null, arr
 function proc_close ($process) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Kills a process opened by proc_open
  * @link http://php.net/manual/en/function.proc-terminate.php
  * @param resource $process <p>
@@ -819,7 +852,7 @@ function proc_close ($process) {}
 function proc_terminate ($process, $signal = null) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Get information about a process opened by <function>proc_open</function>
  * @link http://php.net/manual/en/function.proc-get-status.php
  * @param resource $process <p>
@@ -897,7 +930,7 @@ function proc_terminate ($process, $signal = null) {}
 function proc_get_status ($process) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Change the priority of the current process
  * @link http://php.net/manual/en/function.proc-nice.php
  * @param int $increment <p>
@@ -910,7 +943,8 @@ function proc_get_status ($process) {}
 function proc_nice ($increment) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Generate a random integer
  * @link http://php.net/manual/en/function.rand.php
  * @param $min [optional]
@@ -921,7 +955,8 @@ function proc_nice ($increment) {}
 function rand ($min, $max) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Seed the random number generator
  * @link http://php.net/manual/en/function.srand.php
  * @param int $seed [optional] <p>
@@ -932,7 +967,8 @@ function rand ($min, $max) {}
 function srand ($seed = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Show largest possible random value
  * @link http://php.net/manual/en/function.getrandmax.php
  * @return int The largest possible random value returned by rand
@@ -940,7 +976,8 @@ function srand ($seed = null) {}
 function getrandmax () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Generate a better random value
  * @link http://php.net/manual/en/function.mt-rand.php
  * @param $min [optional]
@@ -951,7 +988,8 @@ function getrandmax () {}
 function mt_rand ($min, $max) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Seed the better random number generator
  * @link http://php.net/manual/en/function.mt-srand.php
  * @param int $seed [optional] <p>
@@ -962,7 +1000,8 @@ function mt_rand ($min, $max) {}
 function mt_srand ($seed = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Show largest possible random value
  * @link http://php.net/manual/en/function.mt-getrandmax.php
  * @return int the maximum random value returned by mt_rand
@@ -970,7 +1009,8 @@ function mt_srand ($seed = null) {}
 function mt_getrandmax () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get port number associated with an Internet service and protocol
  * @link http://php.net/manual/en/function.getservbyname.php
  * @param string $service <p>
@@ -986,7 +1026,8 @@ function mt_getrandmax () {}
 function getservbyname ($service, $protocol) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get Internet service which corresponds to port and protocol
  * @link http://php.net/manual/en/function.getservbyport.php
  * @param int $port <p>
@@ -1001,7 +1042,8 @@ function getservbyname ($service, $protocol) {}
 function getservbyport ($port, $protocol) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get protocol number associated with protocol name
  * @link http://php.net/manual/en/function.getprotobyname.php
  * @param string $name <p>
@@ -1012,7 +1054,8 @@ function getservbyport ($port, $protocol) {}
 function getprotobyname ($name) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get protocol name associated with protocol number
  * @link http://php.net/manual/en/function.getprotobynumber.php
  * @param int $number <p>
@@ -1023,7 +1066,8 @@ function getprotobyname ($name) {}
 function getprotobynumber ($number) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets PHP script owner's UID
  * @link http://php.net/manual/en/function.getmyuid.php
  * @return int the user ID of the current script, or false on error.
@@ -1031,7 +1075,8 @@ function getprotobynumber ($number) {}
 function getmyuid () {}
 
 /**
- * (PHP 4 &gt;= 4.1.0, PHP 5)<br/>
+ * @since 4.1.0
+ * @since 5.0
  * Get PHP script owner's GID
  * @link http://php.net/manual/en/function.getmygid.php
  * @return int the group ID of the current script, or false on error.
@@ -1039,7 +1084,8 @@ function getmyuid () {}
 function getmygid () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets PHP's process ID
  * @link http://php.net/manual/en/function.getmypid.php
  * @return int the current PHP process ID, or false on error.
@@ -1047,7 +1093,8 @@ function getmygid () {}
 function getmypid () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets the inode of the current script
  * @link http://php.net/manual/en/function.getmyinode.php
  * @return int the current script's inode as an integer, or false on error.

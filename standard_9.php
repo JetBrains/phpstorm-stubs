@@ -6,7 +6,8 @@ define ("ARRAY_FILTER_USE_KEY", 2);
 
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Merge two or more arrays recursively
  * @link http://php.net/manual/en/function.array-merge-recursive.php
  * @param array $array1 <p>
@@ -18,7 +19,7 @@ define ("ARRAY_FILTER_USE_KEY", 2);
 function array_merge_recursive(array $array1, array $_ = null) { }
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * array_replace() replaces the values of the first array with the same values from all the following arrays.
  * If a key from the first array exists in the second array, its value will be replaced by the value from the second array.
  * If the key exists in the second array, and not the first, it will be created in the first array.
@@ -39,7 +40,7 @@ function array_merge_recursive(array $array1, array $_ = null) { }
 function array_replace(array $array, array $array1, array $array2 = null, array $_ = null) { }
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Replaces elements from passed arrays into the first array recursively
  * @link http://php.net/manual/en/function.array-replace-recursive.php
  * @param array $array <p>
@@ -55,7 +56,8 @@ function array_replace(array $array, array $array1, array $array2 = null, array 
 function array_replace_recursive(array $array, array $array1, array $array2 = null, array $_ = null) { }
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return all the keys of an array
  * @link http://php.net/manual/en/function.array-keys.php
  * @param array $input <p>
@@ -72,7 +74,8 @@ function array_replace_recursive(array $array, array $array1, array $array2 = nu
 function array_keys(array $input, $search_value = null, $strict = null) { }
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return all the values of an array
  * @link http://php.net/manual/en/function.array-values.php
  * @param array $input <p>
@@ -83,7 +86,8 @@ function array_keys(array $input, $search_value = null, $strict = null) { }
 function array_values(array $input) { }
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Counts all the values of an array
  * @link http://php.net/manual/en/function.array-count-values.php
  * @param array $input <p>
@@ -106,7 +110,8 @@ function array_count_values(array $input) { }
 function array_column(array $array, $column, $index_key = null) { }
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return an array with elements in reverse order
  * @link http://php.net/manual/en/function.array-reverse.php
  * @param array $array <p>
@@ -120,7 +125,8 @@ function array_column(array $array, $column, $index_key = null) { }
 function array_reverse(array $array, $preserve_keys = null) { }
 
 /**
- * (PHP 4 &gt;= 4.0.5, PHP 5)<br/>
+ * @since 4.0.5
+ * @since 5.0
  * Iteratively reduce the array to a single value using a callback function
  * @link http://php.net/manual/en/function.array-reduce.php
  * @param array $input <p>
@@ -143,7 +149,8 @@ function array_reverse(array $array, $preserve_keys = null) { }
 function array_reduce(array $input, $function, $initial = null) { }
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Pad array to the specified length with a value
  * @link http://php.net/manual/en/function.array-pad.php
  * @param array $input <p>
@@ -166,7 +173,8 @@ function array_reduce(array $input, $function, $initial = null) { }
 function array_pad(array $input, $pad_size, $pad_value) { }
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Exchanges all keys with their associated values in an array
  * @link http://php.net/manual/en/function.array-flip.php
  * @param array $trans <p>
@@ -177,7 +185,8 @@ function array_pad(array $input, $pad_size, $pad_value) { }
 function array_flip(array $trans) { }
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Changes all keys in an array
  * @link http://php.net/manual/en/function.array-change-key-case.php
  * @param array $input <p>
@@ -193,7 +202,8 @@ function array_flip(array $trans) { }
 function array_change_key_case(array $input, $case = null) { }
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Pick one or more random entries out of an array
  * @link http://php.net/manual/en/function.array-rand.php
  * @param array $input <p>
@@ -210,7 +220,8 @@ function array_change_key_case(array $input, $case = null) { }
 function array_rand(array $input, $num_req = null) { }
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Removes duplicate values from an array
  * @link http://php.net/manual/en/function.array-unique.php
  * @param array $array <p>
@@ -229,7 +240,8 @@ function array_rand(array $input, $num_req = null) { }
 function array_unique(array $array, $sort_flags = null) { }
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Computes the intersection of arrays
  * @link http://php.net/manual/en/function.array-intersect.php
  * @param array $array1 <p>
@@ -245,7 +257,7 @@ function array_unique(array $array, $sort_flags = null) { }
 function array_intersect(array $array1, array $array2, array $_ = null) { }
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Computes the intersection of arrays using keys for comparison
  * @link http://php.net/manual/en/function.array-intersect-key.php
  * @param array $array1 <p>
@@ -262,7 +274,7 @@ function array_intersect(array $array1, array $array2, array $_ = null) { }
 function array_intersect_key(array $array1, array $array2, array $_ = null) { }
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Computes the intersection of arrays using a callback function on the keys for comparison
  * @link http://php.net/manual/en/function.array-intersect-ukey.php
  * @param array $array1 <p>
@@ -281,7 +293,7 @@ function array_intersect_key(array $array1, array $array2, array $_ = null) { }
 function array_intersect_ukey(array $array1, array $array2, array $_ = null, $key_compare_func) { }
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Computes the intersection of arrays, compares data by a callback function
  * @link http://php.net/manual/en/function.array-uintersect.php
  * @param array $array1 <p>
@@ -306,7 +318,8 @@ function array_intersect_ukey(array $array1, array $array2, array $_ = null, $ke
 function array_uintersect(array $array1, array $array2, array $_ = null, $data_compare_func) { }
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Computes the intersection of arrays with additional index check
  * @link http://php.net/manual/en/function.array-intersect-assoc.php
  * @param array $array1 <p>
@@ -322,7 +335,7 @@ function array_uintersect(array $array1, array $array2, array $_ = null, $data_c
 function array_intersect_assoc(array $array1, array $array2, array $_ = null) { }
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Computes the intersection of arrays with additional index check, compares data by a callback function
  * @link http://php.net/manual/en/function.array-uintersect-assoc.php
  * @param array $array1 <p>
@@ -345,7 +358,7 @@ function array_intersect_assoc(array $array1, array $array2, array $_ = null) { 
 function array_uintersect_assoc(array $array1, array $array2, array $_ = null, $data_compare_func) { }
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Computes the intersection of arrays with additional index check, compares indexes by a callback function
  * @link http://php.net/manual/en/function.array-intersect-uassoc.php
  * @param array $array1 <p>
@@ -364,7 +377,7 @@ function array_uintersect_assoc(array $array1, array $array2, array $_ = null, $
 function array_intersect_uassoc(array $array1, array $array2, array $_ = null, $key_compare_func) { }
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Computes the intersection of arrays with additional index check, compares data and indexes by a callback functions
  * @link http://php.net/manual/en/function.array-uintersect-uassoc.php
  * @param array $array1 <p>
@@ -390,7 +403,8 @@ function array_intersect_uassoc(array $array1, array $array2, array $_ = null, $
 function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, $data_compare_func, $key_compare_func) { }
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Computes the difference of arrays
  * @link http://php.net/manual/en/function.array-diff.php
  * @param array $array1 <p>
@@ -406,7 +420,7 @@ function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, 
 function array_diff(array $array1, array $array2, array $_ = null) { }
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Computes the difference of arrays using keys for comparison
  * @link http://php.net/manual/en/function.array-diff-key.php
  * @param array $array1 <p>
@@ -423,7 +437,7 @@ function array_diff(array $array1, array $array2, array $_ = null) { }
 function array_diff_key(array $array1, array $array2, array $_ = null) { }
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Computes the difference of arrays using a callback function on the keys for comparison
  * @link http://php.net/manual/en/function.array-diff-ukey.php
  * @param array $array1 <p>
@@ -445,7 +459,7 @@ function array_diff_key(array $array1, array $array2, array $_ = null) { }
 function array_diff_ukey(array $array1, array $array2, array $_ = null, $key_compare_func) { }
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Computes the difference of arrays by using a callback function for data comparison
  * @link http://php.net/manual/en/function.array-udiff.php
  * @param array $array1 <p>
@@ -470,7 +484,8 @@ function array_diff_ukey(array $array1, array $array2, array $_ = null, $key_com
 function array_udiff(array $array1, array $array2, array $_ = null, $data_compare_func) { }
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Computes the difference of arrays with additional index check
  * @link http://php.net/manual/en/function.array-diff-assoc.php
  * @param array $array1 <p>
@@ -486,7 +501,7 @@ function array_udiff(array $array1, array $array2, array $_ = null, $data_compar
 function array_diff_assoc(array $array1, array $array2, array $_ = null) { }
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Computes the difference of arrays with additional index check, compares data by a callback function
  * @link http://php.net/manual/en/function.array-udiff-assoc.php
  * @param array $array1 <p>
@@ -518,7 +533,7 @@ function array_diff_assoc(array $array1, array $array2, array $_ = null) { }
 function array_udiff_assoc(array $array1, array $array2, array $_ = null, $data_compare_func) { }
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Computes the difference of arrays with additional index check which is performed by a user supplied callback function
  * @link http://php.net/manual/en/function.array-diff-uassoc.php
  * @param array $array1 <p>
@@ -540,7 +555,7 @@ function array_udiff_assoc(array $array1, array $array2, array $_ = null, $data_
 function array_diff_uassoc(array $array1, array $array2, array $_ = null, $key_compare_func) { }
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Computes the difference of arrays with additional index check, compares data and indexes by a callback function
  * @link http://php.net/manual/en/function.array-udiff-uassoc.php
  * @param array $array1 <p>
@@ -579,7 +594,8 @@ function array_diff_uassoc(array $array1, array $array2, array $_ = null, $key_c
 function array_udiff_uassoc(array $array1, array $array2, array $_ = null, $data_compare_func, $key_compare_func) { }
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Calculate the sum of values in an array
  * @link http://php.net/manual/en/function.array-sum.php
  * @param array $array <p>
@@ -590,7 +606,7 @@ function array_udiff_uassoc(array $array1, array $array2, array $_ = null, $data
 function array_sum(array $array) { }
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Calculate the product of values in an array
  * @link http://php.net/manual/en/function.array-product.php
  * @param array $array <p>
@@ -601,7 +617,8 @@ function array_sum(array $array) { }
 function array_product(array $array) { }
 
 /**
- * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
+ * @since 4.0.6
+ * @since 5.0
  * Iterates over each value in the <b>array</b>
  * passing them to the <b>callback</b> function.
  * If the <b>callback</b> function returns true, the
@@ -637,7 +654,8 @@ function array_product(array $array) { }
 function array_filter(array $input, $callback = null, $flag = 0) { }
 
 /**
- * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
+ * @since 4.0.6
+ * @since 5.0
  * Applies the callback to the elements of the given arrays
  * @link http://php.net/manual/en/function.array-map.php
  * @param callback $callback <p>
@@ -653,7 +671,8 @@ function array_filter(array $input, $callback = null, $flag = 0) { }
 function array_map($callback, array $arr1, array $_ = null) { }
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Split an array into chunks
  * @link http://php.net/manual/en/function.array-chunk.php
  * @param array $input <p>
@@ -672,7 +691,7 @@ function array_map($callback, array $arr1, array $_ = null) { }
 function array_chunk(array $input, $size, $preserve_keys = null) { }
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Creates an array by using one array for keys and another for its values
  * @link http://php.net/manual/en/function.array-combine.php
  * @param array $keys <p>
@@ -688,7 +707,8 @@ function array_chunk(array $input, $size, $preserve_keys = null) { }
 function array_combine(array $keys, array $values) { }
 
 /**
- * (PHP 4 &gt;= 4.0.7, PHP 5)<br/>
+ * @since 4.0.7
+ * @since 5.0
  * Checks if the given key or index exists in the array
  * @link http://php.net/manual/en/function.array-key-exists.php
  * @param mixed $key <p>
@@ -702,7 +722,8 @@ function array_combine(array $keys, array $values) { }
 function array_key_exists($key, array $search) { }
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * &Alias; <function>current</function>
  * @link http://php.net/manual/en/function.pos.php
  * @param $arg
@@ -710,7 +731,8 @@ function array_key_exists($key, array $search) { }
 function pos(&$arg) { }
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * &Alias; <function>count</function>
  * @link http://php.net/manual/en/function.sizeof.php
  * @param $var
@@ -735,7 +757,8 @@ function sizeof($var, $mode) { }
 function key_exists($key, $search) { }
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Checks if assertion is &false;
  * @link http://php.net/manual/en/function.assert.php
  * @param mixed $assertion <p>
@@ -764,7 +787,8 @@ function cli_get_process_title() { }
 function cli_set_process_title($title) { }
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Set/get the various assert flags
  * @link http://php.net/manual/en/function.assert-options.php
  * @param int $what <p>
@@ -819,7 +843,8 @@ function cli_set_process_title($title) { }
 function assert_options($what, $value = null) { }
 
 /**
- * (PHP 4 &gt;= 4.1.0, PHP 5)<br/>
+ * @since 4.1.0
+ * @since 5.0
  * Compares two "PHP-standardized" version number strings
  * @link http://php.net/manual/en/function.version-compare.php
  * @param string $version1 <p>
@@ -856,7 +881,8 @@ function assert_options($what, $value = null) { }
 function version_compare($version1, $version2, $operator = null) { }
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Convert a pathname and a project identifier to a System V IPC key
  * @link http://php.net/manual/en/function.ftok.php
  * @param string $pathname <p>
@@ -871,7 +897,8 @@ function version_compare($version1, $version2, $operator = null) { }
 function ftok($pathname, $proj) { }
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Perform the rot13 transform on a string
  * @link http://php.net/manual/en/function.str-rot13.php
  * @param string $str <p>
@@ -882,7 +909,7 @@ function ftok($pathname, $proj) { }
 function str_rot13($str) { }
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Retrieve list of registered filters
  * @link http://php.net/manual/en/function.stream-get-filters.php
  * @return array an indexed array containing the name of all stream filters
@@ -891,7 +918,7 @@ function str_rot13($str) { }
 function stream_get_filters() { }
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Register a user defined stream filter
  * @link http://php.net/manual/en/function.stream-filter-register.php
  * @param string $filtername <p>
@@ -1008,7 +1035,7 @@ function stream_get_filters() { }
 function stream_filter_register($filtername, $classname) { }
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Return a bucket object from the brigade for operating on
  * @link http://php.net/manual/en/function.stream-bucket-make-writeable.php
  * @param resource $brigade
@@ -1017,7 +1044,7 @@ function stream_filter_register($filtername, $classname) { }
 function stream_bucket_make_writeable($brigade) { }
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Prepend bucket to brigade
  * @link http://php.net/manual/en/function.stream-bucket-prepend.php
  * @param resource $brigade
@@ -1027,7 +1054,7 @@ function stream_bucket_make_writeable($brigade) { }
 function stream_bucket_prepend($brigade, $bucket) { }
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Append bucket to brigade
  * @link http://php.net/manual/en/function.stream-bucket-append.php
  * @param resource $brigade
@@ -1037,7 +1064,7 @@ function stream_bucket_prepend($brigade, $bucket) { }
 function stream_bucket_append($brigade, $bucket) { }
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Create a new bucket for use on the current stream
  * @link http://php.net/manual/en/function.stream-bucket-new.php
  * @param resource $stream
@@ -1047,7 +1074,8 @@ function stream_bucket_append($brigade, $bucket) { }
 function stream_bucket_new($stream, $buffer) { }
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Add URL rewriter values
  * @link http://php.net/manual/en/function.output-add-rewrite-var.php
  * @param string $name <p>
@@ -1061,7 +1089,8 @@ function stream_bucket_new($stream, $buffer) { }
 function output_add_rewrite_var($name, $value) { }
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Reset URL rewriter values
  * @link http://php.net/manual/en/function.output-reset-rewrite-vars.php
  * @return bool true on success or false on failure.
@@ -1069,7 +1098,7 @@ function output_add_rewrite_var($name, $value) { }
 function output_reset_rewrite_vars() { }
 
 /**
- * (PHP 5 &gt;= 5.2.1)<br/>
+ * @since 5.2.1
  * Returns directory path used for temporary files
  * @link http://php.net/manual/en/function.sys-get-temp-dir.php
  * @return string the path of the temporary directory.

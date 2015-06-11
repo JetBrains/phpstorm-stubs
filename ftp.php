@@ -3,7 +3,8 @@
 // Start of ftp v.
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Opens an FTP connection
  * @link http://php.net/manual/en/function.ftp-connect.php
  * @param string $host <p>
@@ -25,7 +26,8 @@
 function ftp_connect ($host, $port = 21, $timeout = 90) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Opens an Secure SSL-FTP connection
  * @link http://php.net/manual/en/function.ftp-ssl-connect.php
  * @param string $host <p>
@@ -47,7 +49,8 @@ function ftp_connect ($host, $port = 21, $timeout = 90) {}
 function ftp_ssl_connect ($host, $port = 21, $timeout = 90) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Logs in to an FTP connection
  * @link http://php.net/manual/en/function.ftp-login.php
  * @param resource $ftp_stream <p>
@@ -65,7 +68,8 @@ function ftp_ssl_connect ($host, $port = 21, $timeout = 90) {}
 function ftp_login ($ftp_stream, $username, $password) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Returns the current directory name
  * @link http://php.net/manual/en/function.ftp-pwd.php
  * @param resource $ftp_stream <p>
@@ -76,7 +80,8 @@ function ftp_login ($ftp_stream, $username, $password) {}
 function ftp_pwd ($ftp_stream) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Changes to the parent directory
  * @link http://php.net/manual/en/function.ftp-cdup.php
  * @param resource $ftp_stream <p>
@@ -87,7 +92,8 @@ function ftp_pwd ($ftp_stream) {}
 function ftp_cdup ($ftp_stream) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Changes the current directory on a FTP server
  * @link http://php.net/manual/en/function.ftp-chdir.php
  * @param resource $ftp_stream <p>
@@ -102,7 +108,8 @@ function ftp_cdup ($ftp_stream) {}
 function ftp_chdir ($ftp_stream, $directory) {}
 
 /**
- * (PHP 4 &gt;= 4.0.3, PHP 5)<br/>
+ * @since 4.0.3
+ * @since 5.0
  * Requests execution of a command on the FTP server
  * @link http://php.net/manual/en/function.ftp-exec.php
  * @param resource $ftp_stream <p>
@@ -117,7 +124,7 @@ function ftp_chdir ($ftp_stream, $directory) {}
 function ftp_exec ($ftp_stream, $command) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Sends an arbitrary command to an FTP server
  * @link http://php.net/manual/en/function.ftp-raw.php
  * @param resource $ftp_stream <p>
@@ -133,7 +140,8 @@ function ftp_exec ($ftp_stream, $command) {}
 function ftp_raw ($ftp_stream, $command) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Creates a directory
  * @link http://php.net/manual/en/function.ftp-mkdir.php
  * @param resource $ftp_stream <p>
@@ -147,7 +155,8 @@ function ftp_raw ($ftp_stream, $command) {}
 function ftp_mkdir ($ftp_stream, $directory) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Removes a directory
  * @link http://php.net/manual/en/function.ftp-rmdir.php
  * @param resource $ftp_stream <p>
@@ -162,7 +171,7 @@ function ftp_mkdir ($ftp_stream, $directory) {}
 function ftp_rmdir ($ftp_stream, $directory) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Set permissions on a file via FTP
  * @link http://php.net/manual/en/function.ftp-chmod.php
  * @param resource $ftp_stream <p>
@@ -179,7 +188,7 @@ function ftp_rmdir ($ftp_stream, $directory) {}
 function ftp_chmod ($ftp_stream, $mode, $filename) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Allocates space for a file to be uploaded
  * @link http://php.net/manual/en/function.ftp-alloc.php
  * @param resource $ftp_stream <p>
@@ -197,7 +206,8 @@ function ftp_chmod ($ftp_stream, $mode, $filename) {}
 function ftp_alloc ($ftp_stream, $filesize, &$result = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Returns a list of files in the given directory
  * @link http://php.net/manual/en/function.ftp-nlist.php
  * @param resource $ftp_stream <p>
@@ -215,7 +225,8 @@ function ftp_alloc ($ftp_stream, $filesize, &$result = null) {}
 function ftp_nlist ($ftp_stream, $directory) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Returns a detailed list of files in the given directory
  * @link http://php.net/manual/en/function.ftp-rawlist.php
  * @param resource $ftp_stream <p>
@@ -238,7 +249,8 @@ function ftp_nlist ($ftp_stream, $directory) {}
 function ftp_rawlist ($ftp_stream, $directory, $recursive = false) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Returns the system type identifier of the remote FTP server
  * @link http://php.net/manual/en/function.ftp-systype.php
  * @param resource $ftp_stream <p>
@@ -249,7 +261,8 @@ function ftp_rawlist ($ftp_stream, $directory, $recursive = false) {}
 function ftp_systype ($ftp_stream) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Turns passive mode on or off
  * @link http://php.net/manual/en/function.ftp-pasv.php
  * @param resource $ftp_stream <p>
@@ -263,7 +276,8 @@ function ftp_systype ($ftp_stream) {}
 function ftp_pasv ($ftp_stream, $pasv) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Downloads a file from the FTP server
  * @link http://php.net/manual/en/function.ftp-get.php
  * @param resource $ftp_stream <p>
@@ -287,7 +301,8 @@ function ftp_pasv ($ftp_stream, $pasv) {}
 function ftp_get ($ftp_stream, $local_file, $remote_file, $mode, $resumepos = 0) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Downloads a file from the FTP server and saves to an open file
  * @link http://php.net/manual/en/function.ftp-fget.php
  * @param resource $ftp_stream <p>
@@ -311,7 +326,8 @@ function ftp_get ($ftp_stream, $local_file, $remote_file, $mode, $resumepos = 0)
 function ftp_fget ($ftp_stream, $handle, $remote_file, $mode, $resumepos = 0) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Uploads a file to the FTP server
  * @link http://php.net/manual/en/function.ftp-put.php
  * @param resource $ftp_stream <p>
@@ -333,7 +349,8 @@ function ftp_fget ($ftp_stream, $handle, $remote_file, $mode, $resumepos = 0) {}
 function ftp_put ($ftp_stream, $remote_file, $local_file, $mode, $startpos = 0) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Uploads from an open file to the FTP server
  * @link http://php.net/manual/en/function.ftp-fput.php
  * @param resource $ftp_stream <p>
@@ -355,7 +372,8 @@ function ftp_put ($ftp_stream, $remote_file, $local_file, $mode, $startpos = 0) 
 function ftp_fput ($ftp_stream, $remote_file, $handle, $mode, $startpos = 0) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Returns the size of the given file
  * @link http://php.net/manual/en/function.ftp-size.php
  * @param resource $ftp_stream <p>
@@ -369,7 +387,8 @@ function ftp_fput ($ftp_stream, $remote_file, $handle, $mode, $startpos = 0) {}
 function ftp_size ($ftp_stream, $remote_file) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Returns the last modified time of the given file
  * @link http://php.net/manual/en/function.ftp-mdtm.php
  * @param resource $ftp_stream <p>
@@ -384,7 +403,8 @@ function ftp_size ($ftp_stream, $remote_file) {}
 function ftp_mdtm ($ftp_stream, $remote_file) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Renames a file or a directory on the FTP server
  * @link http://php.net/manual/en/function.ftp-rename.php
  * @param resource $ftp_stream <p>
@@ -401,7 +421,8 @@ function ftp_mdtm ($ftp_stream, $remote_file) {}
 function ftp_rename ($ftp_stream, $oldname, $newname) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Deletes a file on the FTP server
  * @link http://php.net/manual/en/function.ftp-delete.php
  * @param resource $ftp_stream <p>
@@ -415,7 +436,8 @@ function ftp_rename ($ftp_stream, $oldname, $newname) {}
 function ftp_delete ($ftp_stream, $path) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sends a SITE command to the server
  * @link http://php.net/manual/en/function.ftp-site.php
  * @param resource $ftp_stream <p>
@@ -430,7 +452,8 @@ function ftp_delete ($ftp_stream, $path) {}
 function ftp_site ($ftp_stream, $command) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Closes an FTP connection
  * @link http://php.net/manual/en/function.ftp-close.php
  * @param resource $ftp_stream <p>
@@ -441,7 +464,8 @@ function ftp_site ($ftp_stream, $command) {}
 function ftp_close ($ftp_stream) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Set miscellaneous runtime FTP options
  * @link http://php.net/manual/en/function.ftp-set-option.php
  * @param resource $ftp_stream <p>
@@ -482,7 +506,8 @@ function ftp_close ($ftp_stream) {}
 function ftp_set_option ($ftp_stream, $option, $value) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Retrieves various runtime behaviours of the current FTP stream
  * @link http://php.net/manual/en/function.ftp-get-option.php
  * @param resource $ftp_stream <p>
@@ -513,7 +538,8 @@ function ftp_set_option ($ftp_stream, $option, $value) {}
 function ftp_get_option ($ftp_stream, $option) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Retrieves a file from the FTP server and writes it to an open file (non-blocking)
  * @link http://php.net/manual/en/function.ftp-nb-fget.php
  * @param resource $ftp_stream <p>
@@ -536,7 +562,8 @@ function ftp_get_option ($ftp_stream, $option) {}
 function ftp_nb_fget ($ftp_stream, $handle, $remote_file, $mode, $resumepos = 0) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Retrieves a file from the FTP server and writes it to a local file (non-blocking)
  * @link http://php.net/manual/en/function.ftp-nb-get.php
  * @param resource $ftp_stream <p>
@@ -559,7 +586,8 @@ function ftp_nb_fget ($ftp_stream, $handle, $remote_file, $mode, $resumepos = 0)
 function ftp_nb_get ($ftp_stream, $local_file, $remote_file, $mode, $resumepos = 0) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Continues retrieving/sending a file (non-blocking)
  * @link http://php.net/manual/en/function.ftp-nb-continue.php
  * @param resource $ftp_stream <p>
@@ -571,7 +599,8 @@ function ftp_nb_get ($ftp_stream, $local_file, $remote_file, $mode, $resumepos =
 function ftp_nb_continue ($ftp_stream) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Stores a file on the FTP server (non-blocking)
  * @link http://php.net/manual/en/function.ftp-nb-put.php
  * @param resource $ftp_stream <p>
@@ -594,7 +623,8 @@ function ftp_nb_continue ($ftp_stream) {}
 function ftp_nb_put ($ftp_stream, $remote_file, $local_file, $mode, $startpos = 0) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Stores a file from an open file to the FTP server (non-blocking)
  * @link http://php.net/manual/en/function.ftp-nb-fput.php
  * @param resource $ftp_stream <p>
@@ -617,7 +647,8 @@ function ftp_nb_put ($ftp_stream, $remote_file, $local_file, $mode, $startpos = 
 function ftp_nb_fput ($ftp_stream, $remote_file, $handle, $mode, $startpos = 0) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Alias of <b>ftp_close</b>
  * @link http://php.net/manual/en/function.ftp-quit.php
  * @param $ftp

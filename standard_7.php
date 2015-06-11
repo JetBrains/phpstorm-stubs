@@ -1,7 +1,8 @@
 <?php
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Open Internet or Unix domain socket connection
  * @link http://php.net/manual/en/function.fsockopen.php
  * @param string $hostname <p>
@@ -46,7 +47,8 @@
 function fsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $timeout = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Open persistent Internet or Unix domain socket connection
  * @link http://php.net/manual/en/function.pfsockopen.php
  * @param string $hostname 
@@ -59,7 +61,8 @@ function fsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $t
 function pfsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $timeout = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Pack data into binary string
  * @link http://php.net/manual/en/function.pack.php
  * @param string $format <p>
@@ -167,7 +170,8 @@ function pfsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $
 function pack ($format, $args = null, $_ = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Unpack data from binary string
  * @link http://php.net/manual/en/function.unpack.php
  * @param string $format <p>
@@ -182,7 +186,8 @@ function pack ($format, $args = null, $_ = null) {}
 function unpack ($format, $data) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Tells what the user's browser is capable of
  * @link http://php.net/manual/en/function.get-browser.php
  * @param string $user_agent [optional] <p>
@@ -212,7 +217,8 @@ function unpack ($format, $data) {}
 function get_browser ($user_agent = null, $return_array = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * One-way string encryption (hashing)
  * @link http://php.net/manual/en/function.crypt.php
  * @param string $str <p>
@@ -233,7 +239,8 @@ function get_browser ($user_agent = null, $return_array = null) {}
 function crypt ($str, $salt = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Open directory handle
  * @link http://php.net/manual/en/function.opendir.php
  * @param string $path <p>
@@ -260,7 +267,8 @@ function crypt ($str, $salt = null) {}
 function opendir ($path, $context = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Close directory handle
  * @link http://php.net/manual/en/function.closedir.php
  * @param resource $dir_handle [optional] <p>
@@ -274,7 +282,8 @@ function opendir ($path, $context = null) {}
 function closedir ($dir_handle = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Change directory
  * @link http://php.net/manual/en/function.chdir.php
  * @param string $directory <p>
@@ -285,7 +294,8 @@ function closedir ($dir_handle = null) {}
 function chdir ($directory) {}
 
 /**
- * (PHP 4 &gt;= 4.0.5, PHP 5)<br/>
+ * @since 4.0.5
+ * @since 5.0
  * Change the root directory
  * @link http://php.net/manual/en/function.chroot.php
  * @param string $directory <p>
@@ -296,7 +306,8 @@ function chdir ($directory) {}
 function chroot ($directory) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets the current working directory
  * @link http://php.net/manual/en/function.getcwd.php
  * @return string the current working directory on success, or false on
@@ -312,7 +323,8 @@ function chroot ($directory) {}
 function getcwd () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Rewind directory handle
  * @link http://php.net/manual/en/function.rewinddir.php
  * @param resource $dir_handle [optional] <p>
@@ -326,7 +338,8 @@ function getcwd () {}
 function rewinddir ($dir_handle = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Read entry from directory handle
  * @link http://php.net/manual/en/function.readdir.php
  * @param resource $dir_handle [optional] <p>
@@ -340,7 +353,8 @@ function rewinddir ($dir_handle = null) {}
 function readdir ($dir_handle = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return an instance of the Directory class
  * @link http://php.net/manual/en/class.dir.php
  * @param $directory
@@ -350,7 +364,7 @@ function readdir ($dir_handle = null) {}
 function dir ($directory, $context) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * List files and directories inside the specified path
  * @link http://php.net/manual/en/function.scandir.php
  * @param string $directory <p>
@@ -374,7 +388,8 @@ function dir ($directory, $context) {}
 function scandir ($directory, $sorting_order = null, $context = null) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Find pathnames matching a pattern
  * @link http://php.net/manual/en/function.glob.php
  * @param string $pattern <p>
@@ -393,7 +408,8 @@ function scandir ($directory, $sorting_order = null, $context = null) {}
 function glob ($pattern, $flags = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets last access time of file
  * @link http://php.net/manual/en/function.fileatime.php
  * @param string $filename <p>
@@ -405,7 +421,8 @@ function glob ($pattern, $flags = null) {}
 function fileatime ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets inode change time of file
  * @link http://php.net/manual/en/function.filectime.php
  * @param string $filename <p>
@@ -417,7 +434,8 @@ function fileatime ($filename) {}
 function filectime ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets file group
  * @link http://php.net/manual/en/function.filegroup.php
  * @param string $filename <p>
@@ -431,7 +449,8 @@ function filectime ($filename) {}
 function filegroup ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets file inode
  * @link http://php.net/manual/en/function.fileinode.php
  * @param string $filename <p>
@@ -442,7 +461,8 @@ function filegroup ($filename) {}
 function fileinode ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets file modification time
  * @link http://php.net/manual/en/function.filemtime.php
  * @param string $filename <p>
@@ -455,7 +475,8 @@ function fileinode ($filename) {}
 function filemtime ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets file owner
  * @link http://php.net/manual/en/function.fileowner.php
  * @param string $filename <p>
@@ -468,7 +489,8 @@ function filemtime ($filename) {}
 function fileowner ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets file permissions
  * @link http://php.net/manual/en/function.fileperms.php
  * @param string $filename <p>
@@ -479,7 +501,8 @@ function fileowner ($filename) {}
 function fileperms ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets file size
  * @link http://php.net/manual/en/function.filesize.php
  * @param string $filename <p>
@@ -491,7 +514,8 @@ function fileperms ($filename) {}
 function filesize ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets file type
  * @link http://php.net/manual/en/function.filetype.php
  * @param string $filename <p>
@@ -508,7 +532,8 @@ function filesize ($filename) {}
 function filetype ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Checks whether a file or directory exists
  * @link http://php.net/manual/en/function.file-exists.php
  * @param string $filename <p>
@@ -537,7 +562,8 @@ function filetype ($filename) {}
 function file_exists ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Tells whether the filename is writable
  * @link http://php.net/manual/en/function.is-writable.php
  * @param string $filename <p>
@@ -549,7 +575,8 @@ function file_exists ($filename) {}
 function is_writable ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * &Alias; <function>is_writable</function>
  * @link http://php.net/manual/en/function.is-writeable.php
  * @param string $filename <p>
@@ -561,7 +588,8 @@ function is_writable ($filename) {}
 function is_writeable ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Tells whether a file exists and is readable
  * @link http://php.net/manual/en/function.is-readable.php
  * @param string $filename <p>
@@ -573,7 +601,8 @@ function is_writeable ($filename) {}
 function is_readable ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Tells whether the filename is executable
  * @link http://php.net/manual/en/function.is-executable.php
  * @param string $filename <p>
@@ -585,7 +614,8 @@ function is_readable ($filename) {}
 function is_executable ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Tells whether the filename is a regular file
  * @link http://php.net/manual/en/function.is-file.php
  * @param string $filename <p>
@@ -597,7 +627,8 @@ function is_executable ($filename) {}
 function is_file ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Tells whether the filename is a directory
  * @link http://php.net/manual/en/function.is-dir.php
  * @param string $filename <p>
@@ -612,7 +643,8 @@ function is_file ($filename) {}
 function is_dir ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Tells whether the filename is a symbolic link
  * @link http://php.net/manual/en/function.is-link.php
  * @param string $filename <p>
@@ -624,7 +656,8 @@ function is_dir ($filename) {}
 function is_link ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gives information about a file
  * @link http://php.net/manual/en/function.stat.php
  * @param string $filename <p>
@@ -716,7 +749,8 @@ function is_link ($filename) {}
 function stat ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gives information about a file or symbolic link
  * @link http://php.net/manual/en/function.lstat.php
  * @param string $filename <p>
@@ -732,7 +766,8 @@ function stat ($filename) {}
 function lstat ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Changes file owner
  * @link http://php.net/manual/en/function.chown.php
  * @param string $filename <p>
@@ -746,7 +781,8 @@ function lstat ($filename) {}
 function chown ($filename, $user) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Changes file group
  * @link http://php.net/manual/en/function.chgrp.php
  * @param string $filename <p>
@@ -760,7 +796,7 @@ function chown ($filename, $user) {}
 function chgrp ($filename, $group) {}
 
 /**
- * (PHP 5 &gt;= 5.1.2)<br/>
+ * @since 5.1.2
  * Changes user ownership of symlink
  * @link http://php.net/manual/en/function.lchown.php
  * @param string $filename <p>
@@ -774,7 +810,7 @@ function chgrp ($filename, $group) {}
 function lchown ($filename, $user) {}
 
 /**
- * (PHP 5 &gt;= 5.1.2)<br/>
+ * @since 5.1.2
  * Changes group ownership of symlink
  * @link http://php.net/manual/en/function.lchgrp.php
  * @param string $filename <p>
@@ -788,7 +824,8 @@ function lchown ($filename, $user) {}
 function lchgrp ($filename, $group) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Changes file mode
  * @link http://php.net/manual/en/function.chmod.php
  * @param string $filename <p>
@@ -821,7 +858,8 @@ function lchgrp ($filename, $group) {}
 function chmod ($filename, $mode) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sets access and modification time of file
  * @link http://php.net/manual/en/function.touch.php
  * @param string $filename <p>
@@ -841,7 +879,8 @@ function chmod ($filename, $mode) {}
 function touch ($filename, $time = null, $atime = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Clears file status cache
  * @link http://php.net/manual/en/function.clearstatcache.php
  * @param bool $clear_realpath_cache [optional] <p>
@@ -856,7 +895,8 @@ function touch ($filename, $time = null, $atime = null) {}
 function clearstatcache ($clear_realpath_cache = null, $filename = null) {}
 
 /**
- * (PHP 4 &gt;= 4.1.0, PHP 5)<br/>
+ * @since 4.1.0
+ * @since 5.0
  * Returns the total size of a directory
  * @link http://php.net/manual/en/function.disk-total-space.php
  * @param string $directory <p>
@@ -868,7 +908,8 @@ function clearstatcache ($clear_realpath_cache = null, $filename = null) {}
 function disk_total_space ($directory) {}
 
 /**
- * (PHP 4 &gt;= 4.1.0, PHP 5)<br/>
+ * @since 4.1.0
+ * @since 5.0
  * Returns available space in directory
  * @link http://php.net/manual/en/function.disk-free-space.php
  * @param string $directory <p>
@@ -885,7 +926,8 @@ function disk_total_space ($directory) {}
 function disk_free_space ($directory) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * &Alias; <function>disk_free_space</function>
  * @link http://php.net/manual/en/function.diskfreespace.php
  * @param $path
@@ -893,7 +935,8 @@ function disk_free_space ($directory) {}
 function diskfreespace ($path) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Send mail
  * @link http://php.net/manual/en/function.mail.php
  * @param string $to <p>
@@ -976,7 +1019,8 @@ function diskfreespace ($path) {}
 function mail ($to, $subject, $message, $additional_headers = null, $additional_parameters = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Calculate the hash value needed by EZMLM
  * @link http://php.net/manual/en/function.ezmlm-hash.php
  * @param string $addr <p>
@@ -987,7 +1031,8 @@ function mail ($to, $subject, $message, $additional_headers = null, $additional_
 function ezmlm_hash ($addr) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Open connection to system logger
  * @link http://php.net/manual/en/function.openlog.php
  * @param string $ident <p>

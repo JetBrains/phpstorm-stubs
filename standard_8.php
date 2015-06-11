@@ -2,7 +2,8 @@
 
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Generate a system log message
  * @link http://php.net/manual/en/function.syslog.php
  * @param int $priority <p>
@@ -59,7 +60,8 @@
 function syslog ($priority, $message) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Close connection to system logger
  * @link http://php.net/manual/en/function.closelog.php
  * @return bool true on success or false on failure.
@@ -67,7 +69,8 @@ function syslog ($priority, $message) {}
 function closelog () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Registers a function that will be called when PHP starts sending output.
  * The callback is executed just after PHP prepares all headers to be sent,<br>
  * and before any other output is sent, creating a window to manipulate the outgoing headers before being sent.
@@ -118,7 +121,8 @@ function stream_set_chunk_size ($fp , $chunk_size) {}
 function socket_import_stream ($stream) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Initializes all syslog related variables
  * @link http://php.net/manual/en/function.define-syslog-variables.php
  * @deprecated since 5.3.0
@@ -127,7 +131,8 @@ function socket_import_stream ($stream) {}
 function define_syslog_variables () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Combined linear congruential generator
  * @link http://php.net/manual/en/function.lcg-value.php
  * @return float A pseudo random float value in the range of (0, 1)
@@ -135,7 +140,8 @@ function define_syslog_variables () {}
 function lcg_value () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Calculate the metaphone key of a string
  * @link http://php.net/manual/en/function.metaphone.php
  * @param string $str <p>
@@ -148,7 +154,8 @@ function lcg_value () {}
 function metaphone ($str, $phones = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Turn on output buffering
  * @link http://php.net/manual/en/function.ob-start.php
  * @param callback $output_callback [optional] <p>
@@ -217,7 +224,8 @@ function metaphone ($str, $phones = null) {}
 function ob_start ($output_callback = null, $chunk_size = null, $erase = null) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Flush (send) the output buffer
  * @link http://php.net/manual/en/function.ob-flush.php
  * @return void 
@@ -225,7 +233,8 @@ function ob_start ($output_callback = null, $chunk_size = null, $erase = null) {
 function ob_flush () {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Clean (erase) the output buffer
  * @link http://php.net/manual/en/function.ob-clean.php
  * @return void 
@@ -233,7 +242,8 @@ function ob_flush () {}
 function ob_clean () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Flush (send) the output buffer and turn off output buffering
  * @link http://php.net/manual/en/function.ob-end-flush.php
  * @return bool true on success or false on failure. Reasons for failure are first that you called the
@@ -243,7 +253,8 @@ function ob_clean () {}
 function ob_end_flush () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Clean (erase) the output buffer and turn off output buffering
  * @link http://php.net/manual/en/function.ob-end-clean.php
  * @return bool true on success or false on failure. Reasons for failure are first that you called the
@@ -253,7 +264,8 @@ function ob_end_flush () {}
 function ob_end_clean () {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Flush the output buffer, return it as a string and turn off output buffering
  * @link http://php.net/manual/en/function.ob-get-flush.php
  * @return string the output buffer or false if no buffering is active.
@@ -261,7 +273,8 @@ function ob_end_clean () {}
 function ob_get_flush () {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Get current buffer contents and delete current output buffer
  * @link http://php.net/manual/en/function.ob-get-clean.php
  * @return string the contents of the output buffer and end output buffering.
@@ -270,7 +283,8 @@ function ob_get_flush () {}
 function ob_get_clean () {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Return the length of the output buffer
  * @link http://php.net/manual/en/function.ob-get-length.php
  * @return int the length of the output buffer contents or false if no
@@ -279,7 +293,8 @@ function ob_get_clean () {}
 function ob_get_length () {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Return the nesting level of the output buffering mechanism
  * @link http://php.net/manual/en/function.ob-get-level.php
  * @return int the level of nested output buffering handlers or zero if output
@@ -288,7 +303,8 @@ function ob_get_length () {}
 function ob_get_level () {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Get status of output buffers
  * @link http://php.net/manual/en/function.ob-get-status.php
  * @param bool $full_status [optional] <p>
@@ -354,7 +370,8 @@ function ob_get_level () {}
 function ob_get_status ($full_status = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return the contents of the output buffer
  * @link http://php.net/manual/en/function.ob-get-contents.php
  * @return string This will return the contents of the output buffer or false, if output
@@ -363,7 +380,8 @@ function ob_get_status ($full_status = null) {}
 function ob_get_contents () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Turn implicit flush on/off
  * @link http://php.net/manual/en/function.ob-implicit-flush.php
  * @param int $flag [optional] <p>
@@ -374,7 +392,8 @@ function ob_get_contents () {}
 function ob_implicit_flush ($flag = null) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * List all output handlers in use
  * @link http://php.net/manual/en/function.ob-list-handlers.php
  * @return array This will return an array with the output handlers in use (if any). If
@@ -386,7 +405,8 @@ function ob_implicit_flush ($flag = null) {}
 function ob_list_handlers () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sort an array by key
  * @link http://php.net/manual/en/function.ksort.php
  * @param array $array <p>
@@ -402,7 +422,8 @@ function ob_list_handlers () {}
 function ksort (array &$array, $sort_flags = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sort an array by key in reverse order
  * @link http://php.net/manual/en/function.krsort.php
  * @param array $array <p>
@@ -418,7 +439,8 @@ function ksort (array &$array, $sort_flags = null) {}
 function krsort (array &$array, $sort_flags = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sort an array using a "natural order" algorithm
  * @link http://php.net/manual/en/function.natsort.php
  * @param array $array <p>
@@ -429,7 +451,8 @@ function krsort (array &$array, $sort_flags = null) {}
 function natsort (array &$array) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sort an array using a case insensitive "natural order" algorithm
  * @link http://php.net/manual/en/function.natcasesort.php
  * @param array $array <p>
@@ -440,7 +463,8 @@ function natsort (array &$array) {}
 function natcasesort (array &$array) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sort an array and maintain index association
  * @link http://php.net/manual/en/function.asort.php
  * @param array $array <p>
@@ -456,7 +480,8 @@ function natcasesort (array &$array) {}
 function asort (array &$array, $sort_flags = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sort an array in reverse order and maintain index association
  * @link http://php.net/manual/en/function.arsort.php
  * @param array $array <p>
@@ -472,7 +497,8 @@ function asort (array &$array, $sort_flags = null) {}
 function arsort (array &$array, $sort_flags = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sort an array
  * @link http://php.net/manual/en/function.sort.php
  * @param array $array <p>
@@ -491,7 +517,8 @@ function arsort (array &$array, $sort_flags = null) {}
 function sort (array &$array, $sort_flags = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sort an array in reverse order
  * @link http://php.net/manual/en/function.rsort.php
  * @param array $array <p>
@@ -507,7 +534,8 @@ function sort (array &$array, $sort_flags = null) {}
 function rsort (array &$array, $sort_flags = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sort an array by values using a user-defined comparison function
  * @link http://php.net/manual/en/function.usort.php
  * @param array $array <p>
@@ -523,7 +551,8 @@ function rsort (array &$array, $sort_flags = null) {}
 function usort (array &$array, $cmp_function) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sort an array with a user-defined comparison function and maintain index association
  * @link http://php.net/manual/en/function.uasort.php
  * @param array $array <p>
@@ -538,7 +567,8 @@ function usort (array &$array, $cmp_function) {}
 function uasort (array &$array, $cmp_function) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sort an array by keys using a user-defined comparison function
  * @link http://php.net/manual/en/function.uksort.php
  * @param array $array <p>
@@ -560,7 +590,8 @@ function uasort (array &$array, $cmp_function) {}
 function uksort (array &$array, $cmp_function) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Shuffle an array
  * @link http://php.net/manual/en/function.shuffle.php
  * @param array $array <p>
@@ -571,7 +602,8 @@ function uksort (array &$array, $cmp_function) {}
 function shuffle (array &$array) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Apply a user function to every member of an array
  * @link http://php.net/manual/en/function.array-walk.php
  * @param array $array <p>
@@ -606,7 +638,7 @@ function shuffle (array &$array) {}
 function array_walk (array &$array, $funcname, $userdata = null) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Apply a user function recursively to every member of an array
  * @link http://php.net/manual/en/function.array-walk-recursive.php
  * @param array $input <p>
@@ -635,7 +667,8 @@ function array_walk (array &$array, $funcname, $userdata = null) {}
 function array_walk_recursive (array &$input, $funcname, $userdata = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Counts all elements in an array, or something in an object.
  * <p>For objects, if you have SPL installed, you can hook into count() by implementing interface {@see Countable}.
  * The interface has exactly one method, {@see Countable::count()}, which returns the return value for the count() function.
@@ -665,7 +698,8 @@ function array_walk_recursive (array &$input, $funcname, $userdata = null) {}
 function count ($var, $mode = COUNT_NORMAL) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Set the internal pointer of an array to its last element
  * @link http://php.net/manual/en/function.end.php
  * @param array $array <p>
@@ -679,7 +713,8 @@ function count ($var, $mode = COUNT_NORMAL) {}
 function end (array &$array) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Rewind the internal array pointer
  * @link http://php.net/manual/en/function.prev.php
  * @param array $array <p>
@@ -692,7 +727,8 @@ function end (array &$array) {}
 function prev (array &$array) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Advance the internal array pointer of an array
  * @link http://php.net/manual/en/function.next.php
  * @param array $array <p>
@@ -704,7 +740,8 @@ function prev (array &$array) {}
 function next (array &$array) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Set the internal pointer of an array to its first element
  * @link http://php.net/manual/en/function.reset.php
  * @param array $array <p>
@@ -716,7 +753,8 @@ function next (array &$array) {}
 function reset (array &$array) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return the current element in an array
  * @link http://php.net/manual/en/function.current.php
  * @param array $array <p>
@@ -731,7 +769,8 @@ function reset (array &$array) {}
 function current (array &$array) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Fetch a key from an array
  * @link http://php.net/manual/en/function.key.php
  * @param array $array <p>
@@ -746,7 +785,8 @@ function current (array &$array) {}
 function key (array &$array) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Find lowest value
  * @link http://php.net/manual/en/function.min.php
  * @param array|mixed $value1 Array to look through or first value to compare
@@ -759,7 +799,8 @@ function key (array &$array) {}
 function min (array $value1, $value2 = null, ...$values) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Find highest value
  * @link http://php.net/manual/en/function.max.php
  * @param array|mixed $value1 Array to look through or first value to compare
@@ -772,7 +813,8 @@ function min (array $value1, $value2 = null, ...$values) {}
 function max (array $value1, $value2 = null, ...$values) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Checks if a value exists in an array
  * @link http://php.net/manual/en/function.in-array.php
  * @param mixed $needle <p>
@@ -797,7 +839,8 @@ function max (array $value1, $value2 = null, ...$values) {}
 function in_array ($needle, array $haystack, $strict = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.5, PHP 5)<br/>
+ * @since 4.0.5
+ * @since 5.0
  * Searches the array for a given value and returns the corresponding key if successful
  * @link http://php.net/manual/en/function.array-search.php
  * @param mixed $needle <p>
@@ -828,7 +871,8 @@ function in_array ($needle, array $haystack, $strict = null) {}
 function array_search ($needle, array $haystack, $strict = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Import variables into the current symbol table from an array
  * @link http://php.net/manual/en/function.extract.php
  * @param array array $var_<p>
@@ -857,7 +901,8 @@ function array_search ($needle, array $haystack, $strict = null) {}
 function extract (array $var_array, $extract_type = null, $prefix = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Create array containing variables and their values
  * @link http://php.net/manual/en/function.compact.php
  * @param mixed $varname <p>
@@ -873,7 +918,8 @@ function extract (array $var_array, $extract_type = null, $prefix = null) {}
 function compact ($varname, $_ = null) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Fill an array with values
  * @link http://php.net/manual/en/function.array-fill.php
  * @param int $start_index <p>
@@ -891,7 +937,7 @@ function compact ($varname, $_ = null) {}
 function array_fill ($start_index, $num, $value) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Fill an array with values, specifying keys
  * @link http://php.net/manual/en/function.array-fill-keys.php
  * @param array $keys <p>
@@ -906,7 +952,8 @@ function array_fill ($start_index, $num, $value) {}
 function array_fill_keys (array $keys, $value) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Create an array containing a range of elements
  * @link http://php.net/manual/en/function.range.php
  * @param mixed $low <p>
@@ -928,7 +975,8 @@ function array_fill_keys (array $keys, $value) {}
 function range ($low, $high, $step = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sort multiple or multi-dimensional arrays
  * @link http://php.net/manual/en/function.array-multisort.php
  * @param array $arr <p>
@@ -950,7 +998,8 @@ function range ($low, $high, $step = null) {}
 function array_multisort (array &$arr, $arg = null, $arg = null, $_ = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Push one or more elements onto the end of array
  * @link http://php.net/manual/en/function.array-push.php
  * @param array $array <p>
@@ -965,7 +1014,8 @@ function array_multisort (array &$arr, $arg = null, $arg = null, $_ = null) {}
 function array_push (array &$array, $var, $_ = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Pop the element off the end of array
  * @link http://php.net/manual/en/function.array-pop.php
  * @param array $array <p>
@@ -978,7 +1028,8 @@ function array_push (array &$array, $var, $_ = null) {}
 function array_pop (array &$array) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Shift an element off the beginning of array
  * @link http://php.net/manual/en/function.array-shift.php
  * @param array $array <p>
@@ -990,7 +1041,8 @@ function array_pop (array &$array) {}
 function array_shift (array &$array) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Prepend one or more elements to the beginning of an array
  * @link http://php.net/manual/en/function.array-unshift.php
  * @param array $array <p>
@@ -1005,7 +1057,8 @@ function array_shift (array &$array) {}
 function array_unshift (array &$array, $var, $_ = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Remove a portion of the array and replace it with something else
  * @link http://php.net/manual/en/function.array-splice.php
  * @param array $input <p>
@@ -1052,7 +1105,8 @@ function array_unshift (array &$array, $var, $_ = null) {}
 function array_splice (array &$input, $offset, $length = null, $replacement = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Extract a slice of the array
  * @link http://php.net/manual/en/function.array-slice.php
  * @param array $array <p>
@@ -1083,7 +1137,8 @@ function array_splice (array &$input, $offset, $length = null, $replacement = nu
 function array_slice (array $array, $offset, $length = null, $preserve_keys = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Merge one or more arrays
  * @link http://php.net/manual/en/function.array-merge.php
  * @param array $array1 <p>

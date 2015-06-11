@@ -3,7 +3,8 @@
 // Start of odbc v.1.0
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Toggle autocommit behaviour
  * @link http://php.net/manual/en/function.odbc-autocommit.php
  * @param resource $connection_id The ODBC connection identifier,
@@ -24,7 +25,8 @@
 function odbc_autocommit ($connection_id, $OnOff = false) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Handling of binary column data
  * @link http://php.net/manual/en/function.odbc-binmode.php
  * @param resource $result_id <p>
@@ -46,7 +48,8 @@ function odbc_autocommit ($connection_id, $OnOff = false) {}
 function odbc_binmode ($result_id, $mode) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Close an ODBC connection
  * @link http://php.net/manual/en/function.odbc-close.php
  * @param resource $connection_id The ODBC connection identifier,
@@ -56,7 +59,8 @@ function odbc_binmode ($result_id, $mode) {}
 function odbc_close ($connection_id) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Close all ODBC connections
  * @link http://php.net/manual/en/function.odbc-close-all.php
  * @return void No value is returned.
@@ -64,7 +68,8 @@ function odbc_close ($connection_id) {}
 function odbc_close_all () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Lists the column names in specified tables
  * @link http://php.net/manual/en/function.odbc-columns.php
  * @param resource $connection_id The ODBC connection identifier,
@@ -105,7 +110,8 @@ function odbc_close_all () {}
 function odbc_columns ($connection_id, $qualifier = null, $schema = null, $table_name = null, $column_name = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Commit an ODBC transaction
  * @link http://php.net/manual/en/function.odbc-commit.php
  * @param resource $connection_id The ODBC connection identifier,
@@ -115,7 +121,8 @@ function odbc_columns ($connection_id, $qualifier = null, $schema = null, $table
 function odbc_commit ($connection_id) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Connect to a datasource
  * @link http://php.net/manual/en/function.odbc-connect.php
  * @param string $dsn <p>
@@ -141,7 +148,8 @@ function odbc_commit ($connection_id) {}
 function odbc_connect ($dsn, $user, $password, $cursor_type = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get cursorname
  * @link http://php.net/manual/en/function.odbc-cursor.php
  * @param resource $result_id <p>
@@ -152,7 +160,8 @@ function odbc_connect ($dsn, $user, $password, $cursor_type = null) {}
 function odbc_cursor ($result_id) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Returns information about a current connection
  * @link http://php.net/manual/en/function.odbc-data-source.php
  * @param resource $connection_id The ODBC connection identifier,
@@ -168,7 +177,8 @@ function odbc_cursor ($result_id) {}
 function odbc_data_source ($connection_id, $fetch_type) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Execute a prepared statement
  * @link http://php.net/manual/en/function.odbc-execute.php
  * @param resource $result_id <p>
@@ -197,7 +207,8 @@ function odbc_data_source ($connection_id, $fetch_type) {}
 function odbc_execute ($result_id, array $parameters_array = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.5, PHP 5)<br/>
+ * @since 4.0.5
+ * @since 5.0
  * Get the last error code
  * @link http://php.net/manual/en/function.odbc-error.php
  * @param resource $connection_id [optional] The ODBC connection identifier,
@@ -213,7 +224,8 @@ function odbc_execute ($result_id, array $parameters_array = null) {}
 function odbc_error ($connection_id = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.5, PHP 5)<br/>
+ * @since 4.0.5
+ * @since 5.0
  * Get the last error message
  * @link http://php.net/manual/en/function.odbc-errormsg.php
  * @param resource $connection_id [optional] The ODBC connection identifier,
@@ -229,7 +241,8 @@ function odbc_error ($connection_id = null) {}
 function odbc_errormsg ($connection_id = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Prepare and execute an SQL statement
  * @link http://php.net/manual/en/function.odbc-exec.php
  * @param resource $connection_id The ODBC connection identifier,
@@ -246,7 +259,8 @@ function odbc_errormsg ($connection_id = null) {}
 function odbc_exec ($connection_id, $query_string, $flags = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Fetch a result row as an associative array
  * @link http://php.net/manual/en/function.odbc-fetch-array.php
  * @param resource $result <p>
@@ -261,7 +275,8 @@ function odbc_exec ($connection_id, $query_string, $flags = null) {}
 function odbc_fetch_array ($result, $rownumber = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Fetch a result row as an object
  * @link http://php.net/manual/en/function.odbc-fetch-object.php
  * @param resource $result <p>
@@ -276,7 +291,8 @@ function odbc_fetch_array ($result, $rownumber = null) {}
 function odbc_fetch_object ($result, $rownumber = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Fetch a row
  * @link http://php.net/manual/en/function.odbc-fetch-row.php
  * @param resource $result_id <p>
@@ -302,7 +318,8 @@ function odbc_fetch_object ($result, $rownumber = null) {}
 function odbc_fetch_row ($result_id, $row_number = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Fetch one result row into array
  * @link http://php.net/manual/en/function.odbc-fetch-into.php
  * @param resource $result_id <p>
@@ -323,7 +340,8 @@ function odbc_fetch_row ($result_id, $row_number = null) {}
 function odbc_fetch_into ($result_id, array &$result_array, $rownumber = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the length (precision) of a field
  * @link http://php.net/manual/en/function.odbc-field-len.php
  * @param resource $result_id <p>
@@ -337,7 +355,8 @@ function odbc_fetch_into ($result_id, array &$result_array, $rownumber = null) {
 function odbc_field_len ($result_id, $field_number) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the scale of a field
  * @link http://php.net/manual/en/function.odbc-field-scale.php
  * @param resource $result_id <p>
@@ -351,7 +370,8 @@ function odbc_field_len ($result_id, $field_number) {}
 function odbc_field_scale ($result_id, $field_number) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the columnname
  * @link http://php.net/manual/en/function.odbc-field-name.php
  * @param resource $result_id <p>
@@ -365,7 +385,8 @@ function odbc_field_scale ($result_id, $field_number) {}
 function odbc_field_name ($result_id, $field_number) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Datatype of a field
  * @link http://php.net/manual/en/function.odbc-field-type.php
  * @param resource $result_id <p>
@@ -379,7 +400,8 @@ function odbc_field_name ($result_id, $field_number) {}
 function odbc_field_type ($result_id, $field_number) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return column number
  * @link http://php.net/manual/en/function.odbc-field-num.php
  * @param resource $result_id <p>
@@ -394,7 +416,8 @@ function odbc_field_type ($result_id, $field_number) {}
 function odbc_field_num ($result_id, $field_name) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Free resources associated with a result
  * @link http://php.net/manual/en/function.odbc-free-result.php
  * @param resource $result_id <p>
@@ -405,7 +428,8 @@ function odbc_field_num ($result_id, $field_name) {}
 function odbc_free_result ($result_id) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Retrieves information about data types supported by the data source
  * @link http://php.net/manual/en/function.odbc-gettypeinfo.php
  * @param resource $connection_id The ODBC connection identifier,
@@ -441,7 +465,8 @@ function odbc_free_result ($result_id) {}
 function odbc_gettypeinfo ($connection_id, $data_type = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Handling of LONG columns
  * @link http://php.net/manual/en/function.odbc-longreadlen.php
  * @param resource $result_id <p>
@@ -457,7 +482,8 @@ function odbc_gettypeinfo ($connection_id, $data_type = null) {}
 function odbc_longreadlen ($result_id, $length) {}
 
 /**
- * (PHP 4 &gt;= 4.0.5, PHP 5)<br/>
+ * @since 4.0.5
+ * @since 5.0
  * Checks if multiple results are available
  * @link http://php.net/manual/en/function.odbc-next-result.php
  * @param resource $result_id <p>
@@ -468,7 +494,8 @@ function odbc_longreadlen ($result_id, $length) {}
 function odbc_next_result ($result_id) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Number of columns in a result
  * @link http://php.net/manual/en/function.odbc-num-fields.php
  * @param resource $result_id <p>
@@ -479,7 +506,8 @@ function odbc_next_result ($result_id) {}
 function odbc_num_fields ($result_id) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Number of rows in a result
  * @link http://php.net/manual/en/function.odbc-num-rows.php
  * @param resource $result_id <p>
@@ -491,7 +519,8 @@ function odbc_num_fields ($result_id) {}
 function odbc_num_rows ($result_id) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Open a persistent database connection
  * @link http://php.net/manual/en/function.odbc-pconnect.php
  * @param string $dsn
@@ -504,7 +533,8 @@ function odbc_num_rows ($result_id) {}
 function odbc_pconnect ($dsn, $user, $password, $cursor_type = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Prepares a statement for execution
  * @link http://php.net/manual/en/function.odbc-prepare.php
  * @param resource $connection_id The ODBC connection identifier,
@@ -518,7 +548,8 @@ function odbc_pconnect ($dsn, $user, $password, $cursor_type = null) {}
 function odbc_prepare ($connection_id, $query_string) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get result data
  * @link http://php.net/manual/en/function.odbc-result.php
  * @param resource $result_id <p>
@@ -535,7 +566,8 @@ function odbc_prepare ($connection_id, $query_string) {}
 function odbc_result ($result_id, $field) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Print result as HTML table
  * @link http://php.net/manual/en/function.odbc-result-all.php
  * @param resource $result_id <p>
@@ -549,7 +581,8 @@ function odbc_result ($result_id, $field) {}
 function odbc_result_all ($result_id, $format = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Rollback a transaction
  * @link http://php.net/manual/en/function.odbc-rollback.php
  * @param resource $connection_id The ODBC connection identifier,
@@ -559,7 +592,8 @@ function odbc_result_all ($result_id, $format = null) {}
 function odbc_rollback ($connection_id) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Adjust ODBC settings
  * @link http://php.net/manual/en/function.odbc-setoption.php
  * @param resource $id <p>
@@ -583,7 +617,8 @@ function odbc_rollback ($connection_id) {}
 function odbc_setoption ($id, $function, $option, $param) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Retrieves special columns
  * @link http://php.net/manual/en/function.odbc-specialcolumns.php
  * @param resource $connection_id The ODBC connection identifier,
@@ -627,7 +662,8 @@ function odbc_setoption ($id, $function, $option, $param) {}
 function odbc_specialcolumns ($connection_id, $type, $qualifier, $owner, $table, $scope, $nullable) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Retrieve statistics about a table
  * @link http://php.net/manual/en/function.odbc-statistics.php
  * @param resource $connection_id The ODBC connection identifier,
@@ -668,7 +704,8 @@ function odbc_specialcolumns ($connection_id, $type, $qualifier, $owner, $table,
 function odbc_statistics ($connection_id, $qualifier, $owner, $table_name, $unique, $accuracy) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the list of table names stored in a specific data source
  * @link http://php.net/manual/en/function.odbc-tables.php
  * @param resource $connection_id The ODBC connection identifier,
@@ -707,7 +744,8 @@ function odbc_statistics ($connection_id, $qualifier, $owner, $table_name, $uniq
 function odbc_tables ($connection_id, $qualifier = null, $owner = null, $name = null, $types = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets the primary keys for a table
  * @link http://php.net/manual/en/function.odbc-primarykeys.php
  * @param resource $connection_id The ODBC connection identifier,
@@ -729,7 +767,8 @@ function odbc_tables ($connection_id, $qualifier = null, $owner = null, $name = 
 function odbc_primarykeys ($connection_id, $qualifier, $owner, $table) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Lists columns and associated privileges for the given table
  * @link http://php.net/manual/en/function.odbc-columnprivileges.php
  * @param resource $connection_id The ODBC connection identifier,
@@ -769,7 +808,8 @@ function odbc_primarykeys ($connection_id, $qualifier, $owner, $table) {}
 function odbc_columnprivileges ($connection_id, $qualifier, $owner, $table_name, $column_name) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Lists tables and the privileges associated with each table
  * @link http://php.net/manual/en/function.odbc-tableprivileges.php
  * @param resource $connection_id The ODBC connection identifier,
@@ -800,7 +840,8 @@ function odbc_columnprivileges ($connection_id, $qualifier, $owner, $table_name,
 function odbc_tableprivileges ($connection_id, $qualifier, $owner, $name) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Retrieves a list of foreign keys
  * @link http://php.net/manual/en/function.odbc-foreignkeys.php
  * @param resource $connection_id The ODBC connection identifier,
@@ -859,7 +900,8 @@ function odbc_tableprivileges ($connection_id, $qualifier, $owner, $name) {}
 function odbc_foreignkeys ($connection_id, $pk_qualifier, $pk_owner, $pk_table, $fk_qualifier, $fk_owner, $fk_table) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the list of procedures stored in a specific data source
  * @link http://php.net/manual/en/function.odbc-procedures.php
  * @param resource $connection_id The ODBC connection identifier,
@@ -881,7 +923,8 @@ function odbc_foreignkeys ($connection_id, $pk_qualifier, $pk_owner, $pk_table, 
 function odbc_procedures ($connection_id) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Retrieve information about parameters to procedures
  * @link http://php.net/manual/en/function.odbc-procedurecolumns.php
  * @param resource $connection_id The ODBC connection identifier,
@@ -909,7 +952,8 @@ function odbc_procedures ($connection_id) {}
 function odbc_procedurecolumns ($connection_id) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Alias of <b>odbc_exec</b>
  * @link http://php.net/manual/en/function.odbc-do.php
  * @param $connection_id
@@ -919,7 +963,8 @@ function odbc_procedurecolumns ($connection_id) {}
 function odbc_do ($connection_id, $query, $flags) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Alias of <b>odbc_field_len</b>
  * @link http://php.net/manual/en/function.odbc-field-precision.php
  * @param $result_id
