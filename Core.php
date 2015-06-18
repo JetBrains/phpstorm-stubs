@@ -486,11 +486,15 @@ function get_required_files () {}
  * @param string $class_name <p>
  * The class name
  * </p>
+ * @param bool $allow_string [optional] <p>
+ * If this parameter set to false, string class name as object is not allowed.
+ * This also prevents from calling autoloader if the class doesn't exist. 
+ * </p>
  * @return bool This function returns true if the object <i>object</i>,
  * belongs to a class which is a subclass of 
  * <i>class_name</i>, false otherwise.
  */
-function is_subclass_of ($object, $class_name) {}
+function is_subclass_of ($object, $class_name, $allow_string = TRUE) {}
 
 /**
  * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
