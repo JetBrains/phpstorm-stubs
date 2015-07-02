@@ -229,7 +229,7 @@ class OCI_Lob  {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function writetemporary ($data, $lob_type = OCI_TEMP_CLOB) {}
+	public function writeTemporary ($data, $lob_type = OCI_TEMP_CLOB) {}
 
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
