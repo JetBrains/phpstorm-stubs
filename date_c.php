@@ -622,22 +622,22 @@ class DatePeriod implements Traversable {
     const EXCLUDE_START_DATE = 1;
 
     /**
-     * @param DateTime $start
+     * @param DateTimeInterface $start
      * @param DateInterval $interval
-     * @param DateTime $end
+     * @param DateTimeInterface $end
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link http://php.net/manual/en/dateperiod.construct.php
      */
-    public function __construct (DateTime $start, DateInterval $interval, DateTime $end, $options=0) {}
+    public function __construct (DateTimeInterface $start, DateInterval $interval, DateTimeInterface $end, $options=0) {}
 
     /**
-     * @param DateTime $start
+     * @param DateTimeInterface $start
      * @param DateInterval $interval
-     * @param int $recirrences Number of recurrences
+     * @param int $recurrences Number of recurrences
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link http://php.net/manual/en/dateperiod.construct.php
      */
-    public function __construct (DateTime $start, DateInterval $interval, $recirrences, $options=0) {}
+    public function __construct (DateTimeInterface $start, DateInterval $interval, $recurrences, $options=0) {}
 
     /**
      * @param string $isostr String containing the ISO interval.
