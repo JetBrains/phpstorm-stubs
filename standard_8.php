@@ -125,7 +125,7 @@ function socket_import_stream ($stream) {}
  * @since 5.0
  * Initializes all syslog related variables
  * @link http://php.net/manual/en/function.define-syslog-variables.php
- * @deprecated since 5.3.0
+ * @deprecated 5.3
  * @return void
  */
 function define_syslog_variables () {}

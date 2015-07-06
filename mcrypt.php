@@ -7,7 +7,7 @@
  * @since 5.0
  * Deprecated: Encrypt/decrypt data in ECB mode
  * @link http://php.net/manual/en/function.mcrypt-ecb.php
- * @deprecated in 5.5 http://www.php.net/manual/en/migration55.deprecated.php
+ * @deprecated 5.5 http://www.php.net/manual/en/migration55.deprecated.php
  * @param int $cipher
  * @param string $key 
  * @param string $data 
@@ -21,7 +21,7 @@ function mcrypt_ecb ($cipher, $key, $data, $mode) {}
  * @since 5.0
  * Encrypt/decrypt data in CBC mode
  * @link http://php.net/manual/en/function.mcrypt-cbc.php
- * @deprecated in 5.5 http://www.php.net/manual/en/migration55.deprecated.php
+ * @deprecated 5.5 http://www.php.net/manual/en/migration55.deprecated.php
  * @param int $cipher 
  * @param string $key 
  * @param string $data 
@@ -36,7 +36,7 @@ function mcrypt_cbc ($cipher, $key, $data, $mode, $iv = null) {}
  * @since 5.0
  * Encrypt/decrypt data in CFB mode
  * @link http://php.net/manual/en/function.mcrypt-cfb.php
- * @deprecated in 5.5 http://www.php.net/manual/en/migration55.deprecated.php
+ * @deprecated 5.5 http://www.php.net/manual/en/migration55.deprecated.php
  * @param int $cipher
  * @param string $key 
  * @param string $data 
@@ -51,7 +51,7 @@ function mcrypt_cfb ($cipher, $key, $data, $mode, $iv) {}
  * @since 5.0
  * Encrypt/decrypt data in OFB mode
  * @link http://php.net/manual/en/function.mcrypt-ofb.php
- * @deprecated in 5.5 http://www.php.net/manual/en/migration55.deprecated.php
+ * @deprecated 5.5 http://www.php.net/manual/en/migration55.deprecated.php
  * @param int $cipher
  * @param string $key 
  * @param string $data 
@@ -351,12 +351,13 @@ function mcrypt_generic ($td, $data) {}
 function mdecrypt_generic ($td, $data) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5 &lt;= 5.1.6)<br/>
+ * @since 4.0.2
+ * @since 5.1.6
  * This function terminates encryption
  * @link http://php.net/manual/en/function.mcrypt-generic-end.php
  * @param resource $td 
  * @return bool
- * @deprecated This function has been DEPRECATED as of PHP 5.4.0.
+ * @deprecated 5.4.0 This function has been DEPRECATED as of PHP 5.4.0.
  */
 function mcrypt_generic_end ($td) {}
 

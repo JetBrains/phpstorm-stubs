@@ -3,7 +3,7 @@
 /**
  * @since 4.0
  * @since 5.0
- * @deprecated since 5.3.0
+ * @deprecated 5.3.0 since 5.3.0
  * Loads a PHP extension at runtime
  * @link http://php.net/manual/en/function.dl.php
  * @param string $library <p>

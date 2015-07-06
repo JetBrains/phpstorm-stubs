@@ -57,7 +57,7 @@ function call_user_func_array ($function, array $param_arr) {}
  * @since 5.0
  * Call a user method on an specific object
  * @link http://php.net/manual/en/function.call-user-method.php
- * @deprecated since 5.3.0, use call_user_func() instead
+ * @deprecated 5.3 use call_user_func() instead
  * @param string $method_name
  * @param object $obj 
  * @param mixed $parameter [optional] 
@@ -71,7 +71,7 @@ function call_user_method ($method_name, &$obj, $parameter = null, $_ = null) {}
  * @since 5.0
  * Call a user method given with an array of parameters
  * @link http://php.net/manual/en/function.call-user-method-array.php
- * @deprecated since 5.3.0, use call_user_func_array() instead
+ * @deprecated 5.3 use call_user_func_array() instead
  * @param string $method_name
  * @param object $obj 
  * @param array $params 

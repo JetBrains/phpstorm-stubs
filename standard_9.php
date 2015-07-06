@@ -742,7 +742,8 @@ function pos(&$arg) { }
 function sizeof($var, $mode) { }
 
 /**
- * (PHP 4 < 4.0.6)<br/>
+ * @since 4.0.7
+ * @since 5.0
  * Checks if the given key or index exists in the array. The name of this function is array_key_exists() in PHP > 4.0.6.
  * @link http://php.net/manual/en/function.array-key-exists.php
  * @param mixed $key <p>

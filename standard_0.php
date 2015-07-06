@@ -1171,32 +1171,36 @@ function phpversion ($extension = null) {}
 function phpcredits ($flag = null) {}
 
 /**
- * (PHP 4, PHP 5 < 5.5)<br/>
+ * @since 4.0
+ * @since 5.0
+ * @deprecated 5.5 Removed in PHP 5.5
  * Gets the logo guid
  * @link http://php.net/manual/en/function.php-logo-guid.php
  * @return string PHPE9568F34-D428-11d2-A769-00AA001ACF42.
- * @deprecated removed in PHP 5.5
  */
 function php_logo_guid () {}
 
 /**
- * (PHP 4, PHP 5 < 5.5)<br/>
- * @deprecated removed in PHP 5.5
+ * @since 4.0
+ * @since 5.0
+ * @deprecated 5.5 Removed in PHP 5.5
  */
 function php_real_logo_guid () {}
 
 /**
- * (PHP 4, PHP 5 < 5.5)<br/>
- * @deprecated removed in PHP 5.5
+ * @since 4.0
+ * @since 5.0
+ * @deprecated 5.5 Removed in PHP 5.5
  */
 function php_egg_logo_guid () {}
 
 /**
- * (PHP 4, PHP 5 < 5.5)<br/>
+ * @since 4.0
+ * @since 5.0
+ * @deprecated 5.5 Removed in PHP 5.5
  * Gets the Zend guid
  * @link http://php.net/manual/en/function.zend-logo-guid.php
  * @return string PHPE9568F35-D428-11d2-A769-00AA001ACF42.
- * @deprecated removed in PHP 5.5
  */
 function zend_logo_guid () {}
 

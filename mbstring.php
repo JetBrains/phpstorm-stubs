@@ -907,7 +907,8 @@ function mb_send_mail ($to, $subject, $message, $additional_headers = null, $add
 function mb_get_info ($type = null) {}
 
 /**
- * (PHP 4 &gt;= 4.4.3, PHP 5 &gt;= 5.1.3)<br/>
+ * @since 4.4.3
+ * @since 5.1.3
  * Check if the string is valid for the specified encoding
  * @link http://php.net/manual/en/function.mb-check-encoding.php
  * @param string $var [optional] <p>

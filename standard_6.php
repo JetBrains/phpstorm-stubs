@@ -781,7 +781,7 @@ function set_file_buffer ($fp, $buffer) {}
  * <p>Sets blocking or non-blocking mode on a stream.
  * This function works for any stream that supports non-blocking mode (currently, regular files and socket streams).
  * @link http://php.net/manual/en/function.set-socket-blocking.php
- * @deprecated since 5.3.0, use stream_set_blocking() instead
+ * @deprecated 5.3 use stream_set_blocking() instead
  * @param resource $socket
  * @param int $mode If mode is 0, the given stream will be switched to non-blocking mode, and if 1, it will be switched to blocking mode.
  * This affects calls like fgets() and fread() that read from the stream.

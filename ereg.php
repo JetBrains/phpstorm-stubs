@@ -7,7 +7,7 @@
  * @since 5.0
  * Regular expression match
  * @link http://php.net/manual/en/function.ereg.php
- * @deprecated since 5.3.0, use preg_match() instead
+ * @deprecated 5.3.0 Use preg_match() instead
  * @param string $pattern <p>
  * Case sensitive regular expression.
  * </p>
@@ -42,7 +42,7 @@ function ereg ($pattern, $string, array &$regs = null) {}
  * @since 5.0
  * Replace regular expression
  * @link http://php.net/manual/en/function.ereg-replace.php
- * @deprecated since 5.3.0, use preg_replace() instead
+ * @deprecated 5.3.0 Use preg_replace() instead
  * @param string $pattern <p>
  * A POSIX extended regular expression.
  * </p>
@@ -68,7 +68,7 @@ function ereg_replace ($pattern, $replacement, $string) {}
  * @since 5.0
  * Case insensitive regular expression match
  * @link http://php.net/manual/en/function.eregi.php
- * @deprecated since 5.3.0, use preg_match() instead
+ * @deprecated 5.3.0 Use preg_match() instead
  * @param string $pattern <p>
  * Case insensitive regular expression.
  * </p>
@@ -102,7 +102,7 @@ function eregi ($pattern, $string, array &$regs = null) {}
  * @since 5.0
  * Replace regular expression case insensitive
  * @link http://php.net/manual/en/function.eregi-replace.php
- * @deprecated since 5.3.0, use preg_replace() instead
+ * @deprecated 5.3.0 Use preg_replace() instead
  * @param string $pattern <p>
  * A POSIX extended regular expression.
  * </p>
@@ -128,7 +128,7 @@ function eregi_replace ($pattern, $replacement, $string) {}
  * @since 5.0
  * Split string into array by regular expression
  * @link http://php.net/manual/en/function.split.php
- * @deprecated since 5.3.0, use preg_split() instead
+ * @deprecated 5.3.0 Use preg_split() instead
  * @param string $pattern <p>
  * Case sensitive regular expression.
  * </p>
@@ -171,7 +171,7 @@ function split ($pattern, $string, $limit = -1) {}
  * @since 5.0
  * Split string into array by regular expression case insensitive
  * @link http://php.net/manual/en/function.spliti.php
- * @deprecated since 5.3.0, use preg_split() with the 'i' modifier instead
+ * @deprecated 5.3.0 Use preg_split() with the 'i' modifier instead
  * @param string $pattern <p>
  * Case insensitive regular expression.
  * </p>
@@ -214,7 +214,7 @@ function spliti ($pattern, $string, $limit = -1) {}
  * @since 5.0
  * Make regular expression for case insensitive match
  * @link http://php.net/manual/en/function.sql-regcase.php
- * @deprecated since 5.3.0
+ * @deprecated 5.3.0
  * @param string $string <p>
  * The input string.
  * </p>

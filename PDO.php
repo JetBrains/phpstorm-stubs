@@ -636,7 +636,7 @@ class PDO  {
 	const MYSQL_ATTR_SSL_CAPATH = 1013;
 	const MYSQL_ATTR_SSL_CIPHER = 1014;
 	/**
-	 * @deprecated This constant has been DEPRECATED as of PHP 5.6.0. Use PDO::ATTR_EMULATE_PREPARES instead.
+	 * @deprecated 5.6.0 Use PDO::ATTR_EMULATE_PREPARES instead.
 	 */
 	const PGSQL_ATTR_DISABLE_NATIVE_PREPARED_STATEMENT = 1000;
 	const PGSQL_TRANSACTION_IDLE = 0;
