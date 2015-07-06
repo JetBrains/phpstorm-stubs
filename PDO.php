@@ -782,10 +782,17 @@ class PDO  {
 	 * <p>
 	 * Data inside the query should be properly escaped.
 	 * </p>
+	 * @param int $mode <p>
+	 * The fetch mode must be one of the PDO::FETCH_* constants.
+	 * </p>
+	 * @param mixed $arg3 <p>
+	 * The second and following parameters are the same as the parameters for PDOStatement::setFetchMode.
+	 * </p>
 	 * @return PDOStatement <b>PDO::query</b> returns a PDOStatement object, or <b>FALSE</b>
 	 * on failure.
+	 * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
 	 */
-	public function query ($statement) {}
+	public function query ($statement, $mode = PDO::ATTR_DEFAULT_FETCH_MODE, $arg3 = null) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)<br/>
