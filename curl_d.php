@@ -394,6 +394,7 @@ define ('CURL_LOCK_DATA_COOKIE', 2);
 define ('CURL_LOCK_DATA_DNS', 3);
 define ('CURL_LOCK_DATA_SSL_SESSION', 4);
 
+define ('CURLOPT_KEYPASSWD', 10026);
 
 // End of curl v.
 ?>
