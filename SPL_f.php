@@ -184,7 +184,7 @@ function iterator_apply ($iterator, $function, array $args = null) {}
  * Return the traits used by the given class
  * @param mixed $class An object (class instance) or a string (class name).
  * @param bool $autoload Whether to allow this function to load the class automatically through the __autoload() magic method.
- * @return array on success, or FALSE on error.
+ * @return array Array on success, or FALSE on error.
  * @link http://php.net/manual/en/function.class-uses.php
  * @see class_parents(), get_declared_traits()
  */
