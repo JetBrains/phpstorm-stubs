@@ -25,7 +25,7 @@ interface SessionHandlerInterface {
 	 * PHP >= 5.4.0<br/>
 	 * Destroy a session
 	 * @link http://php.net/manual/en/sessionhandlerinterface.destroy.php
-	 * @param int $session_id The session ID being destroyed.
+	 * @param string $session_id The session ID being destroyed.
 	 * @return bool <p>
 	 * The return value (usually TRUE on success, FALSE on failure).
 	 * Note this value is returned internally to PHP for processing.
@@ -127,7 +127,7 @@ class SessionHandler implements SessionHandlerInterface {
 	 * PHP >= 5.4.0<br/>
 	 * Destroy a session
 	 * @link http://php.net/manual/en/sessionhandler.destroy.php
-	 * @param int $session_id The session ID being destroyed.
+	 * @param string $session_id The session ID being destroyed.
 	 * @return bool <p>
 	 * The return value (usually TRUE on success, FALSE on failure).
 	 * Note this value is returned internally to PHP for processing.
