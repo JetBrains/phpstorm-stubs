@@ -307,7 +307,7 @@ define ('JSON_BIGINT_AS_STRING', 2);
  * Available since PHP 5.6.6.
  * @link http://php.net/manual/en/json.constants.php
  */
-define('JSON_PRESERVE_ZERO_FRACTION', 1024)
+define('JSON_PRESERVE_ZERO_FRACTION', 1024);
 
 // End of json v.1.3.1
 ?>
