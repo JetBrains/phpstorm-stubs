@@ -4,7 +4,7 @@
 
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Gets a <b>DOMElement</b> object from a
 <b>SimpleXMLElement</b> object
  * @link http://php.net/manual/en/function.dom-import-simplexml.php

@@ -3,7 +3,8 @@
 // Start of tokenizer v.0.1
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Split given source into PHP tokens
  * @link http://php.net/manual/en/function.token-get-all.php
  * @param string $source <p>
@@ -18,7 +19,8 @@
 function token_get_all ($source) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Get the symbolic name of a given PHP token
  * @link http://php.net/manual/en/function.token-name.php
  * @param int $token <p>

@@ -803,7 +803,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	final public static function webPhar ($alias = null, $index = "index.php", $f404 = null, array $mimetypes = null, callable $rewrites = null) {}
 
 	/**
-	 * (PHP 5)<br/>
+	 * @since 5.0
 	 * Returns whether current entry is a directory and not '.' or '..'
 	 * @link http://php.net/manual/en/recursivedirectoryiterator.haschildren.php
 	 * @param bool $allow_links [optional] <p>
@@ -813,7 +813,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	public function hasChildren ($allow_links = false) {}
 
 	/**
-	 * (PHP 5 &gt;= 5.1.0)<br/>
+	 * @since 5.1.0
 	 * Returns an iterator for the current entry if it is a directory
 	 * @link http://php.net/manual/en/recursivedirectoryiterator.getchildren.php
 	 * @return mixed The filename, file information, or $this depending on the set flags.
@@ -823,7 +823,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	public function getChildren () {}
 
 	/**
-	 * (PHP 5 &gt;= 5.3.0)<br/>
+	 * @since 5.3.0
 	 * Rewinds back to the beginning
 	 * @link http://php.net/manual/en/filesystemiterator.rewind.php
 	 * @return void No value is returned.
@@ -831,7 +831,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	public function rewind () {}
 
 	/**
-	 * (PHP 5 &gt;= 5.3.0)<br/>
+	 * @since 5.3.0
 	 * Move to the next file
 	 * @link http://php.net/manual/en/filesystemiterator.next.php
 	 * @return void No value is returned.
@@ -839,7 +839,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	public function next () {}
 
 	/**
-	 * (PHP 5 &gt;= 5.3.0)<br/>
+	 * @since 5.3.0
 	 * Retrieve the key for the current file
 	 * @link http://php.net/manual/en/filesystemiterator.key.php
 	 * @return string the pathname or filename depending on the set flags.
@@ -848,7 +848,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	public function key () {}
 
 	/**
-	 * (PHP 5 &gt;= 5.3.0)<br/>
+	 * @since 5.3.0
 	 * The current file
 	 * @link http://php.net/manual/en/filesystemiterator.current.php
 	 * @return mixed The filename, file information, or $this depending on the set flags.
@@ -857,7 +857,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	public function current () {}
 
 	/**
-	 * (PHP 5)<br/>
+	 * @since 5.0
 	 * Check whether current DirectoryIterator position is a valid file
 	 * @link http://php.net/manual/en/directoryiterator.valid.php
 	 * @return bool <b>TRUE</b> if the position is valid, otherwise <b>FALSE</b>
@@ -865,7 +865,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	public function valid () {}
 
 	/**
-	 * (PHP 5 &gt;= 5.3.0)<br/>
+	 * @since 5.3.0
 	 * Seek to a DirectoryIterator item
 	 * @link http://php.net/manual/en/directoryiterator.seek.php
 	 * @param int $position <p>
@@ -941,7 +941,7 @@ class PharData extends Phar {
 
 
 	/**
-	 * (PHP 5)<br/>
+	 * @since 5.0
 	 * Returns whether current entry is a directory and not '.' or '..'
 	 * @link http://php.net/manual/en/recursivedirectoryiterator.haschildren.php
 	 * @param bool $allow_links [optional] <p>
@@ -951,7 +951,7 @@ class PharData extends Phar {
 	public function hasChildren ($allow_links = false) {}
 
 	/**
-	 * (PHP 5 &gt;= 5.1.0)<br/>
+	 * @since 5.1.0
 	 * Returns an iterator for the current entry if it is a directory
 	 * @link http://php.net/manual/en/recursivedirectoryiterator.getchildren.php
 	 * @return mixed The filename, file information, or $this depending on the set flags.
@@ -962,7 +962,7 @@ class PharData extends Phar {
 
 
 	/**
-	 * (PHP 5 &gt;= 5.3.0)<br/>
+	 * @since 5.3.0
 	 * Rewinds back to the beginning
 	 * @link http://php.net/manual/en/filesystemiterator.rewind.php
 	 * @return void No value is returned.
@@ -970,7 +970,7 @@ class PharData extends Phar {
 	public function rewind () {}
 
 	/**
-	 * (PHP 5 &gt;= 5.3.0)<br/>
+	 * @since 5.3.0
 	 * Move to the next file
 	 * @link http://php.net/manual/en/filesystemiterator.next.php
 	 * @return void No value is returned.
@@ -978,7 +978,7 @@ class PharData extends Phar {
 	public function next () {}
 
 	/**
-	 * (PHP 5 &gt;= 5.3.0)<br/>
+	 * @since 5.3.0
 	 * Retrieve the key for the current file
 	 * @link http://php.net/manual/en/filesystemiterator.key.php
 	 * @return string the pathname or filename depending on the set flags.
@@ -987,7 +987,7 @@ class PharData extends Phar {
 	public function key () {}
 
 	/**
-	 * (PHP 5 &gt;= 5.3.0)<br/>
+	 * @since 5.3.0
 	 * The current file
 	 * @link http://php.net/manual/en/filesystemiterator.current.php
 	 * @return mixed The filename, file information, or $this depending on the set flags.
@@ -998,7 +998,7 @@ class PharData extends Phar {
 
 
 	/**
-	 * (PHP 5)<br/>
+	 * @since 5.0
 	 * Check whether current DirectoryIterator position is a valid file
 	 * @link http://php.net/manual/en/directoryiterator.valid.php
 	 * @return bool <b>TRUE</b> if the position is valid, otherwise <b>FALSE</b>
@@ -1006,7 +1006,7 @@ class PharData extends Phar {
 	public function valid () {}
 
 	/**
-	 * (PHP 5 &gt;= 5.3.0)<br/>
+	 * @since 5.3.0
 	 * Seek to a DirectoryIterator item
 	 * @link http://php.net/manual/en/directoryiterator.seek.php
 	 * @param int $position <p>

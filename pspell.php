@@ -3,7 +3,8 @@
 // Start of pspell v.
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Load a new dictionary
  * @link http://php.net/manual/en/function.pspell-new.php
  * @param string $language <p>
@@ -38,7 +39,8 @@
 function pspell_new ($language, $spelling = null, $jargon = null, $encoding = null, $mode = 0) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Load a new dictionary with personal wordlist
  * @link http://php.net/manual/en/function.pspell-new-personal.php
  * @param string $personal <p>
@@ -76,7 +78,8 @@ function pspell_new ($language, $spelling = null, $jargon = null, $encoding = nu
 function pspell_new_personal ($personal, $language, $spelling = null, $jargon = null, $encoding = null, $mode = 0) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Load a new dictionary with settings based on a given config
  * @link http://php.net/manual/en/function.pspell-new-config.php
  * @param int $config <p>
@@ -88,7 +91,8 @@ function pspell_new_personal ($personal, $language, $spelling = null, $jargon = 
 function pspell_new_config ($config) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Check a word
  * @link http://php.net/manual/en/function.pspell-check.php
  * @param int $dictionary_link
@@ -100,7 +104,8 @@ function pspell_new_config ($config) {}
 function pspell_check ($dictionary_link, $word) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Suggest spellings of a word
  * @link http://php.net/manual/en/function.pspell-suggest.php
  * @param int $dictionary_link
@@ -112,7 +117,8 @@ function pspell_check ($dictionary_link, $word) {}
 function pspell_suggest ($dictionary_link, $word) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Store a replacement pair for a word
  * @link http://php.net/manual/en/function.pspell-store-replacement.php
  * @param int $dictionary_link <p>
@@ -130,7 +136,8 @@ function pspell_suggest ($dictionary_link, $word) {}
 function pspell_store_replacement ($dictionary_link, $misspelled, $correct) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Add the word to a personal wordlist
  * @link http://php.net/manual/en/function.pspell-add-to-personal.php
  * @param int $dictionary_link
@@ -142,7 +149,8 @@ function pspell_store_replacement ($dictionary_link, $misspelled, $correct) {}
 function pspell_add_to_personal ($dictionary_link, $word) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Add the word to the wordlist in the current session
  * @link http://php.net/manual/en/function.pspell-add-to-session.php
  * @param int $dictionary_link
@@ -154,7 +162,8 @@ function pspell_add_to_personal ($dictionary_link, $word) {}
 function pspell_add_to_session ($dictionary_link, $word) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Clear the current session
  * @link http://php.net/manual/en/function.pspell-clear-session.php
  * @param int $dictionary_link
@@ -163,7 +172,8 @@ function pspell_add_to_session ($dictionary_link, $word) {}
 function pspell_clear_session ($dictionary_link) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Save the personal wordlist to a file
  * @link http://php.net/manual/en/function.pspell-save-wordlist.php
  * @param int $dictionary_link <p>
@@ -175,7 +185,8 @@ function pspell_clear_session ($dictionary_link) {}
 function pspell_save_wordlist ($dictionary_link) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Create a config used to open a dictionary
  * @link http://php.net/manual/en/function.pspell-config-create.php
  * @param string $language <p>
@@ -205,7 +216,8 @@ function pspell_save_wordlist ($dictionary_link) {}
 function pspell_config_create ($language, $spelling = null, $jargon = null, $encoding = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Consider run-together words as valid compounds
  * @link http://php.net/manual/en/function.pspell-config-runtogether.php
  * @param int $dictionary_link
@@ -218,7 +230,8 @@ function pspell_config_create ($language, $spelling = null, $jargon = null, $enc
 function pspell_config_runtogether ($dictionary_link, $flag) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Change the mode number of suggestions returned
  * @link http://php.net/manual/en/function.pspell-config-mode.php
  * @param int $dictionary_link
@@ -232,7 +245,8 @@ function pspell_config_runtogether ($dictionary_link, $flag) {}
 function pspell_config_mode ($dictionary_link, $mode) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Ignore words less than N characters long
  * @link http://php.net/manual/en/function.pspell-config-ignore.php
  * @param int $dictionary_link
@@ -244,7 +258,8 @@ function pspell_config_mode ($dictionary_link, $mode) {}
 function pspell_config_ignore ($dictionary_link, $n) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Set a file that contains personal wordlist
  * @link http://php.net/manual/en/function.pspell-config-personal.php
  * @param int $dictionary_link
@@ -257,7 +272,7 @@ function pspell_config_ignore ($dictionary_link, $n) {}
 function pspell_config_personal ($dictionary_link, $file) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Location of the main word list
  * @link http://php.net/manual/en/function.pspell-config-dict-dir.php
  * @param int $conf
@@ -267,7 +282,7 @@ function pspell_config_personal ($dictionary_link, $file) {}
 function pspell_config_dict_dir ($conf, $directory) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * location of language data files
  * @link http://php.net/manual/en/function.pspell-config-data-dir.php
  * @param int $conf
@@ -277,7 +292,8 @@ function pspell_config_dict_dir ($conf, $directory) {}
 function pspell_config_data_dir ($conf, $directory) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Set a file that contains replacement pairs
  * @link http://php.net/manual/en/function.pspell-config-repl.php
  * @param int $dictionary_link
@@ -289,7 +305,8 @@ function pspell_config_data_dir ($conf, $directory) {}
 function pspell_config_repl ($dictionary_link, $file) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Determine whether to save a replacement pairs list
 along with the wordlist
  * @link http://php.net/manual/en/function.pspell-config-save-repl.php

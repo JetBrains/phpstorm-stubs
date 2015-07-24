@@ -249,7 +249,7 @@ define ('ENT_COMPAT', 2);
 define ('ENT_QUOTES', 3);
 define ('ENT_NOQUOTES', 0);
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  */
 define ('ENT_IGNORE', 4);
 define ('STR_PAD_LEFT', 0);
@@ -260,7 +260,7 @@ define ('PATHINFO_BASENAME', 2);
 define ('PATHINFO_EXTENSION', 4);
 
 /**
- * Since PHP 5.2.0.
+ * @since 5.2.0
  * @link http://php.net/manual/en/filesystem.constants.php
  */
 define ('PATHINFO_FILENAME', 8);
@@ -565,24 +565,20 @@ define ('FILE_NO_DEFAULT_CONTEXT', 16);
 
 /**
  * <p>
- * Text mode (since PHP 5.2.7).
- * <p>
  * This constant has no effect prior to PHP 6. It is only available for 
  * forward compatibility.
  * </p>
- * </p>
+ * @since 5.2.7
  * @link http://php.net/manual/en/filesystem.constants.php
  */
 define ('FILE_TEXT', 0);
 
 /**
  * <p>
- * Binary mode (since PHP 5.2.7).
- * <p>
  * This constant has no effect prior to PHP 6. It is only available for 
  * forward compatibility.
  * </p>
- * </p>
+ * @since 5.2.7
  * @link http://php.net/manual/en/filesystem.constants.php
  */
 define ('FILE_BINARY', 0);
@@ -1172,17 +1168,20 @@ define('FILTER_SANITIZE_FULL_SPECIAL_CHARS', 515);
  */
 define('SID', "name=ID");
 /**
- * Return value of session_status() if sessions are disabled. Since PHP 5.4.0.
+ * Return value of session_status() if sessions are disabled.
+ * @since 5.4.0
  * @link http://php.net/manual/en/function.session-status.php
  */
 define('PHP_SESSION_DISABLED', 0);
 /**
- * Return value of session_status() if sessions are enabled, but no session exists. Since PHP 5.4.0.
+ * Return value of session_status() if sessions are enabled, but no session exists.
+ * @since 5.4.0
  * @link http://php.net/manual/en/function.session-status.php
  */
 define('PHP_SESSION_NONE', 1);
 /**
- * Return value of session_status() if sessions are enabled, and a session exists. Since PHP 5.4.0.
+ * Return value of session_status() if sessions are enabled, and a session exists.
+ * @since 5.4.0
  * @link http://php.net/manual/en/function.session-status.php
  */
 define('PHP_SESSION_ACTIVE', 2);
@@ -1269,14 +1268,14 @@ define('IPPROTO_IPV6', 41);
 
 
 /**
- * (PHP 5 &gt;= 5.4.0)<br/>
+ * @since 5.4.0
  * Replace invalid code unit sequences with a Unicode Replacement Character
  * U+FFFD (UTF-8) or &#FFFD; (otherwise) instead of returning an empty string.
  * @link http://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_SUBSTITUTE', 8);
 /**
- * (PHP 5 &gt;= 5.4.0)<br/>
+ * @since 5.4.0
  * Replace invalid code points for the given document type with
  * a Unicode Replacement Character U+FFFD (UTF-8) or &#FFFD;
  * (otherwise) instead of leaving them as is. This may be useful,
@@ -1286,25 +1285,25 @@ define('ENT_SUBSTITUTE', 8);
  */
 define('ENT_DISALLOWED', 128);
 /**
- * (PHP 5 &gt;= 5.4.0)<br/>
+ * @since 5.4.0
  * Handle code as HTML 4.01.
  * @link http://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_HTML401', 0);
 /**
- * (PHP 5 &gt;= 5.4.0)<br/>
+ * @since 5.4.0
  * Handle code as XML 1.
  * @link http://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_XML1', 16);
 /**
- * (PHP 5 &gt;= 5.4.0)<br/>
+ * @since 5.4.0
  * Handle code as XHTML.
  * @link http://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_XHTML', 32);
 /**
- * (PHP 5 &gt;= 5.4.0)<br/>
+ * @since 5.4.0
  * Handle code as HTML 5.
  * @link http://php.net/manual/en/function.htmlspecialchars.php
  */

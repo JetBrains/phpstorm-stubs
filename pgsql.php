@@ -3,7 +3,8 @@
 // Start of pgsql v.
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Open a PostgreSQL connection
  * @link http://php.net/manual/en/function.pg-connect.php
  * @param string $connection_string <p>
@@ -40,7 +41,8 @@
 function pg_connect ($connection_string, $connect_type = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Open a persistent PostgreSQL connection
  * @link http://php.net/manual/en/function.pg-pconnect.php
  * @param string $connection_string <p>
@@ -72,7 +74,8 @@ function pg_connect ($connection_string, $connect_type = null) {}
 function pg_pconnect ($connection_string, $connect_type = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Closes a PostgreSQL connection
  * @link http://php.net/manual/en/function.pg-close.php
  * @param resource $connection [optional] <p>
@@ -86,7 +89,8 @@ function pg_pconnect ($connection_string, $connect_type = null) {}
 function pg_close ($connection = null) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Get connection status
  * @link http://php.net/manual/en/function.pg-connection-status.php
  * @param resource $connection <p>
@@ -98,7 +102,8 @@ function pg_close ($connection = null) {}
 function pg_connection_status ($connection) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Get connection is busy or not
  * @link http://php.net/manual/en/function.pg-connection-busy.php
  * @param resource $connection <p>
@@ -109,7 +114,8 @@ function pg_connection_status ($connection) {}
 function pg_connection_busy ($connection) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Reset connection (reconnect)
  * @link http://php.net/manual/en/function.pg-connection-reset.php
  * @param resource $connection <p>
@@ -120,7 +126,8 @@ function pg_connection_busy ($connection) {}
 function pg_connection_reset ($connection) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Returns the host name associated with the connection
  * @link http://php.net/manual/en/function.pg-host.php
  * @param resource $connection [optional] <p>
@@ -135,7 +142,8 @@ function pg_connection_reset ($connection) {}
 function pg_host ($connection = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the database name
  * @link http://php.net/manual/en/function.pg-dbname.php
  * @param resource $connection [optional] <p>
@@ -150,7 +158,8 @@ function pg_host ($connection = null) {}
 function pg_dbname ($connection = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return the port number associated with the connection
  * @link http://php.net/manual/en/function.pg-port.php
  * @param resource $connection [optional] <p>
@@ -166,7 +175,8 @@ function pg_dbname ($connection = null) {}
 function pg_port ($connection = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return the TTY name associated with the connection
  * @link http://php.net/manual/en/function.pg-tty.php
  * @param resource $connection [optional] <p>
@@ -181,7 +191,8 @@ function pg_port ($connection = null) {}
 function pg_tty ($connection = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the options associated with the connection
  * @link http://php.net/manual/en/function.pg-options.php
  * @param resource $connection [optional] <p>
@@ -196,7 +207,7 @@ function pg_tty ($connection = null) {}
 function pg_options ($connection = null) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Returns an array with client, protocol and server version (when available)
  * @link http://php.net/manual/en/function.pg-version.php
  * @param resource $connection [optional] <p>
@@ -212,7 +223,8 @@ function pg_options ($connection = null) {}
 function pg_version ($connection = null) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Ping database connection
  * @link http://php.net/manual/en/function.pg-ping.php
  * @param resource $connection [optional] <p>
@@ -226,7 +238,7 @@ function pg_version ($connection = null) {}
 function pg_ping ($connection = null) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Looks up a current parameter setting of the server.
  * @link http://php.net/manual/en/function.pg-parameter-status.php
  * @param resource $connection [optional] <p>
@@ -248,7 +260,7 @@ function pg_ping ($connection = null) {}
 function pg_parameter_status ($connection = null, $param_name) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Returns the current in-transaction status of the server.
  * @link http://php.net/manual/en/function.pg-transaction-status.php
  * @param resource $connection <p>
@@ -265,7 +277,8 @@ function pg_parameter_status ($connection = null, $param_name) {}
 function pg_transaction_status ($connection) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Execute a query
  * @link http://php.net/manual/en/function.pg-query.php
  * @param resource $connection [optional] <p>
@@ -296,7 +309,7 @@ function pg_transaction_status ($connection) {}
 function pg_query ($connection = null, $query) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Submits a command to the server and waits for the result, with the ability to pass parameters separately from the SQL command text.
  * @link http://php.net/manual/en/function.pg-query-params.php
  * @param resource $connection [optional] <p>
@@ -333,7 +346,7 @@ function pg_query ($connection = null, $query) {}
 function pg_query_params ($connection = null, $query, array $params) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Submits a request to create a prepared statement with the 
 given parameters, and waits for completion.
  * @link http://php.net/manual/en/function.pg-prepare.php
@@ -358,7 +371,7 @@ given parameters, and waits for completion.
 function pg_prepare ($connection = null, $stmtname, $query) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Sends a request to execute a prepared statement with given parameters, and waits for the result.
  * @link http://php.net/manual/en/function.pg-execute.php
  * @param resource $connection [optional] <p>
@@ -387,7 +400,8 @@ function pg_prepare ($connection = null, $stmtname, $query) {}
 function pg_execute ($connection = null, $stmtname, array $params) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Sends asynchronous query
  * @link http://php.net/manual/en/function.pg-send-query.php
  * @param resource $connection <p>
@@ -406,7 +420,7 @@ function pg_execute ($connection = null, $stmtname, array $params) {}
 function pg_send_query ($connection, $query) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Submits a command and separate parameters to the server without waiting for the result(s).
  * @link http://php.net/manual/en/function.pg-send-query-params.php
  * @param resource $connection <p>
@@ -429,7 +443,7 @@ function pg_send_query ($connection, $query) {}
 function pg_send_query_params ($connection, $query, array $params) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Sends a request to create a prepared statement with the given parameters, without waiting for completion.
  * @link http://php.net/manual/en/function.pg-send-prepare.php
  * @param resource $connection <p>
@@ -454,7 +468,7 @@ function pg_send_query_params ($connection, $query, array $params) {}
 function pg_send_prepare ($connection, $stmtname, $query) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Sends a request to execute a prepared statement with given parameters, without waiting for the result(s).
  * @link http://php.net/manual/en/function.pg-send-execute.php
  * @param resource $connection <p>
@@ -481,7 +495,8 @@ function pg_send_prepare ($connection, $stmtname, $query) {}
 function pg_send_execute ($connection, $stmtname, array $params) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Cancel an asynchronous query
  * @link http://php.net/manual/en/function.pg-cancel-query.php
  * @param resource $connection <p>
@@ -492,7 +507,8 @@ function pg_send_execute ($connection, $stmtname, array $params) {}
 function pg_cancel_query ($connection) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Returns values from a result resource
  * @link http://php.net/manual/en/function.pg-fetch-result.php
  * @param resource $result <p>
@@ -522,7 +538,8 @@ function pg_cancel_query ($connection) {}
 function pg_fetch_result ($result, $row = null, $field) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get a row as an enumerated array
  * @link http://php.net/manual/en/function.pg-fetch-row.php
  * @param resource $result <p>
@@ -546,7 +563,8 @@ function pg_fetch_result ($result, $row = null, $field) {}
 function pg_fetch_row ($result, $row = null, $result_type = null) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Fetch a row as an associative array
  * @link http://php.net/manual/en/function.pg-fetch-assoc.php
  * @param resource $result <p>
@@ -570,7 +588,8 @@ function pg_fetch_row ($result, $row = null, $result_type = null) {}
 function pg_fetch_assoc ($result, $row = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Fetch a row as an array
  * @link http://php.net/manual/en/function.pg-fetch-array.php
  * @param resource $result <p>
@@ -607,7 +626,8 @@ function pg_fetch_assoc ($result, $row = null) {}
 function pg_fetch_array ($result, $row = null, $result_type = PGSQL_BOTH) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Fetch a row as an object
  * @link http://php.net/manual/en/function.pg-fetch-object.php
  * @param resource $result <p>
@@ -633,7 +653,8 @@ function pg_fetch_array ($result, $row = null, $result_type = PGSQL_BOTH) {}
 function pg_fetch_object ($result, $row = null, $result_type = PGSQL_ASSOC) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Fetches all rows from a result as an array
  * @link http://php.net/manual/en/function.pg-fetch-all.php
  * @param resource $result <p>
@@ -651,7 +672,7 @@ function pg_fetch_object ($result, $row = null, $result_type = PGSQL_ASSOC) {}
 function pg_fetch_all ($result) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Fetches all rows in a particular result column as an array
  * @link http://php.net/manual/en/function.pg-fetch-all-columns.php
  * @param resource $result <p>
@@ -672,7 +693,8 @@ function pg_fetch_all ($result) {}
 function pg_fetch_all_columns ($result, $column = 0) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Returns number of affected records (tuples)
  * @link http://php.net/manual/en/function.pg-affected-rows.php
  * @param resource $result <p>
@@ -686,7 +708,8 @@ function pg_fetch_all_columns ($result, $column = 0) {}
 function pg_affected_rows ($result) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Get asynchronous query result
  * @link http://php.net/manual/en/function.pg-get-result.php
  * @param resource $connection [optional] <p>
@@ -697,7 +720,8 @@ function pg_affected_rows ($result) {}
 function pg_get_result ($connection = null) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Set internal row offset in result resource
  * @link http://php.net/manual/en/function.pg-result-seek.php
  * @param resource $result <p>
@@ -714,7 +738,8 @@ function pg_get_result ($connection = null) {}
 function pg_result_seek ($result, $offset) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Get status of query result
  * @link http://php.net/manual/en/function.pg-result-status.php
  * @param resource $result <p>
@@ -737,7 +762,8 @@ function pg_result_seek ($result, $offset) {}
 function pg_result_status ($result, $type = PGSQL_STATUS_LONG) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Free result memory
  * @link http://php.net/manual/en/function.pg-free-result.php
  * @param resource $result <p>
@@ -750,7 +776,8 @@ function pg_result_status ($result, $type = PGSQL_STATUS_LONG) {}
 function pg_free_result ($result) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Returns the last row's OID
  * @link http://php.net/manual/en/function.pg-last-oid.php
  * @param resource $result <p>
@@ -765,7 +792,8 @@ function pg_free_result ($result) {}
 function pg_last_oid ($result) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Returns the number of rows in a result
  * @link http://php.net/manual/en/function.pg-num-rows.php
  * @param resource $result <p>
@@ -778,7 +806,8 @@ function pg_last_oid ($result) {}
 function pg_num_rows ($result) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Returns the number of fields in a result
  * @link http://php.net/manual/en/function.pg-num-fields.php
  * @param resource $result <p>
@@ -791,7 +820,8 @@ function pg_num_rows ($result) {}
 function pg_num_fields ($result) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Returns the name of a field
  * @link http://php.net/manual/en/function.pg-field-name.php
  * @param resource $result <p>
@@ -807,7 +837,8 @@ function pg_num_fields ($result) {}
 function pg_field_name ($result, $field_number) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Returns the field number of the named field
  * @link http://php.net/manual/en/function.pg-field-num.php
  * @param resource $result <p>
@@ -823,7 +854,8 @@ function pg_field_name ($result, $field_number) {}
 function pg_field_num ($result, $field_name) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Returns the internal storage size of the named field
  * @link http://php.net/manual/en/function.pg-field-size.php
  * @param resource $result <p>
@@ -840,7 +872,8 @@ function pg_field_num ($result, $field_name) {}
 function pg_field_size ($result, $field_number) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Returns the type name for the corresponding field number
  * @link http://php.net/manual/en/function.pg-field-type.php
  * @param resource $result <p>
@@ -857,7 +890,7 @@ function pg_field_size ($result, $field_number) {}
 function pg_field_type ($result, $field_number) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Returns the type ID (OID) for the corresponding field number
  * @link http://php.net/manual/en/function.pg-field-type-oid.php
  * @param resource $result <p>
@@ -873,7 +906,8 @@ function pg_field_type ($result, $field_number) {}
 function pg_field_type_oid ($result, $field_number) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Returns the printed length
  * @link http://php.net/manual/en/function.pg-field-prtlen.php
  * @param resource $result <p>
@@ -888,7 +922,8 @@ function pg_field_type_oid ($result, $field_number) {}
 function pg_field_prtlen ($result, $row_number, $field_name_or_number) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Test if a field is SQL NULL
  * @link http://php.net/manual/en/function.pg-field-is-null.php
  * @param resource $result <p>
@@ -910,7 +945,7 @@ function pg_field_prtlen ($result, $row_number, $field_name_or_number) {}
 function pg_field_is_null ($result, $row, $field) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Returns the name or oid of the tables field
  * @link http://php.net/manual/en/function.pg-field-table.php
  * @param resource $result <p>
@@ -931,7 +966,8 @@ function pg_field_is_null ($result, $row, $field) {}
 function pg_field_table ($result, $field_number, $oid_only = false) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Gets SQL NOTIFY message
  * @link http://php.net/manual/en/function.pg-get-notify.php
  * @param resource $connection <p>
@@ -955,7 +991,8 @@ function pg_field_table ($result, $field_number, $oid_only = false) {}
 function pg_get_notify ($connection, $result_type = null) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Gets the backend's process ID
  * @link http://php.net/manual/en/function.pg-get-pid.php
  * @param resource $connection <p>
@@ -966,7 +1003,8 @@ function pg_get_notify ($connection, $result_type = null) {}
 function pg_get_pid ($connection) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Get error message associated with result
  * @link http://php.net/manual/en/function.pg-result-error.php
  * @param resource $result <p>
@@ -980,7 +1018,7 @@ function pg_get_pid ($connection) {}
 function pg_result_error ($result) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Returns an individual field of an error report.
  * @link http://php.net/manual/en/function.pg-result-error-field.php
  * @param resource $result <p>
@@ -1004,7 +1042,8 @@ function pg_result_error ($result) {}
 function pg_result_error_field ($result, $fieldcode) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Get the last error message string of a connection
  * @link http://php.net/manual/en/function.pg-last-error.php
  * @param resource $connection [optional] <p>
@@ -1019,7 +1058,8 @@ function pg_result_error_field ($result, $fieldcode) {}
 function pg_last_error ($connection = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
+ * @since 4.0.6
+ * @since 5.0
  * Returns the last notice message from PostgreSQL server
  * @link http://php.net/manual/en/function.pg-last-notice.php
  * @param resource $connection <p>
@@ -1031,7 +1071,8 @@ function pg_last_error ($connection = null) {}
 function pg_last_notice ($connection) {}
 
 /**
- * (PHP 4 &gt;= 4.0.3, PHP 5)<br/>
+ * @since 4.0.3
+ * @since 5.0
  * Send a NULL-terminated string to PostgreSQL backend
  * @link http://php.net/manual/en/function.pg-put-line.php
  * @param resource $connection [optional] <p>
@@ -1049,7 +1090,8 @@ function pg_last_notice ($connection) {}
 function pg_put_line ($connection = null, $data) {}
 
 /**
- * (PHP 4 &gt;= 4.0.3, PHP 5)<br/>
+ * @since 4.0.3
+ * @since 5.0
  * Sync with PostgreSQL backend
  * @link http://php.net/manual/en/function.pg-end-copy.php
  * @param resource $connection [optional] <p>
@@ -1063,7 +1105,8 @@ function pg_put_line ($connection = null, $data) {}
 function pg_end_copy ($connection = null) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Copy a table to an array
  * @link http://php.net/manual/en/function.pg-copy-to.php
  * @param resource $connection <p>
@@ -1086,7 +1129,8 @@ function pg_end_copy ($connection = null) {}
 function pg_copy_to ($connection, $table_name, $delimiter = null, $null_as = null) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Insert records into a table from an array
  * @link http://php.net/manual/en/function.pg-copy-from.php
  * @param resource $connection <p>
@@ -1114,7 +1158,8 @@ function pg_copy_to ($connection, $table_name, $delimiter = null, $null_as = nul
 function pg_copy_from ($connection, $table_name, array $rows, $delimiter = null, $null_as = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Enable tracing a PostgreSQL connection
  * @link http://php.net/manual/en/function.pg-trace.php
  * @param string $pathname <p>
@@ -1136,7 +1181,8 @@ function pg_copy_from ($connection, $table_name, array $rows, $delimiter = null,
 function pg_trace ($pathname, $mode = "w", $connection = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Disable tracing of a PostgreSQL connection
  * @link http://php.net/manual/en/function.pg-untrace.php
  * @param resource $connection [optional] <p>
@@ -1150,7 +1196,8 @@ function pg_trace ($pathname, $mode = "w", $connection = null) {}
 function pg_untrace ($connection = null) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Create a large object
  * @link http://php.net/manual/en/function.pg-lo-create.php
  * @param resource $connection [optional] <p>
@@ -1171,7 +1218,8 @@ function pg_untrace ($connection = null) {}
 function pg_lo_create ($connection = null, $object_id = null) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Delete a large object
  * @link http://php.net/manual/en/function.pg-lo-unlink.php
  * @param resource $connection <p>
@@ -1188,7 +1236,8 @@ function pg_lo_create ($connection = null, $object_id = null) {}
 function pg_lo_unlink ($connection, $oid) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Open a large object
  * @link http://php.net/manual/en/function.pg-lo-open.php
  * @param resource $connection <p>
@@ -1209,7 +1258,8 @@ function pg_lo_unlink ($connection, $oid) {}
 function pg_lo_open ($connection, $oid, $mode) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Close a large object
  * @link http://php.net/manual/en/function.pg-lo-close.php
  * @param resource $large_object
@@ -1218,7 +1268,8 @@ function pg_lo_open ($connection, $oid, $mode) {}
 function pg_lo_close ($large_object) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Read a large object
  * @link http://php.net/manual/en/function.pg-lo-read.php
  * @param resource $large_object <p>
@@ -1233,7 +1284,8 @@ function pg_lo_close ($large_object) {}
 function pg_lo_read ($large_object, $len = 8192) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Write to a large object
  * @link http://php.net/manual/en/function.pg-lo-write.php
  * @param resource $large_object <p>
@@ -1254,7 +1306,8 @@ function pg_lo_read ($large_object, $len = 8192) {}
 function pg_lo_write ($large_object, $data, $len = null) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Reads an entire large object and send straight to browser
  * @link http://php.net/manual/en/function.pg-lo-read-all.php
  * @param resource $large_object <p>
@@ -1265,7 +1318,8 @@ function pg_lo_write ($large_object, $data, $len = null) {}
 function pg_lo_read_all ($large_object) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Import a large object from file
  * @link http://php.net/manual/en/function.pg-lo-import.php
  * @param resource $connection [optional] <p>
@@ -1291,7 +1345,8 @@ function pg_lo_read_all ($large_object) {}
 function pg_lo_import ($connection = null, $pathname, $object_id = null) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Export a large object to file
  * @link http://php.net/manual/en/function.pg-lo-export.php
  * @param resource $connection [optional] <p>
@@ -1312,7 +1367,8 @@ function pg_lo_import ($connection = null, $pathname, $object_id = null) {}
 function pg_lo_export ($connection = null, $oid, $pathname) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Seeks position within a large object
  * @link http://php.net/manual/en/function.pg-lo-seek.php
  * @param resource $large_object <p>
@@ -1331,7 +1387,8 @@ function pg_lo_export ($connection = null, $oid, $pathname) {}
 function pg_lo_seek ($large_object, $offset, $whence = PGSQL_SEEK_CUR) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Returns current seek position a of large object
  * @link http://php.net/manual/en/function.pg-lo-tell.php
  * @param resource $large_object <p>
@@ -1343,7 +1400,8 @@ function pg_lo_seek ($large_object, $offset, $whence = PGSQL_SEEK_CUR) {}
 function pg_lo_tell ($large_object) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Escape a string for query
  * @link http://php.net/manual/en/function.pg-escape-string.php
  * @param resource $connection [optional] <p>
@@ -1360,7 +1418,8 @@ function pg_lo_tell ($large_object) {}
 function pg_escape_string ($connection = null, $data) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Escape a string for insertion into a bytea field
  * @link http://php.net/manual/en/function.pg-escape-bytea.php
  * @param resource $connection [optional] <p>
@@ -1378,7 +1437,7 @@ function pg_escape_string ($connection = null, $data) {}
 function pg_escape_bytea ($connection = null, $data) {}
 
 /**
- * (PHP 5 &gt;= 5.4.4)<br/>
+ * @since 5.4.4
  * Escape a identifier for insertion into a text field
  * @link http://php.net/manual/en/function.pg-escape-identifier.php
  * @param resource $connection [optional] <p>
@@ -1395,7 +1454,7 @@ function pg_escape_bytea ($connection = null, $data) {}
 function pg_escape_identifier ($connection = null, $data) {}
 
 /**
- * (PHP 5 &gt;= 5.4.4)<br/>
+ * @since 5.4.4
  * Escape a literal for insertion into a text field
  * @link http://php.net/manual/en/function.pg-escape-literal.php
  * @param resource $connection [optional] <p>
@@ -1412,7 +1471,8 @@ function pg_escape_identifier ($connection = null, $data) {}
 function pg_escape_literal ($connection = null, $data) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Unescape binary for bytea type
  * @link http://php.net/manual/en/function.pg-unescape-bytea.php
  * @param string $data <p>
@@ -1424,7 +1484,7 @@ function pg_escape_literal ($connection = null, $data) {}
 function pg_unescape_bytea ($data) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Determines the verbosity of messages returned by <b>pg_last_error</b> 
 and <b>pg_result_error</b>.
  * @link http://php.net/manual/en/function.pg-set-error-verbosity.php
@@ -1446,7 +1506,8 @@ and <b>pg_result_error</b>.
 function pg_set_error_verbosity ($connection = null, $verbosity) {}
 
 /**
- * (PHP 4 &gt;= 4.0.3, PHP 5)<br/>
+ * @since 4.0.3
+ * @since 5.0
  * Gets the client encoding
  * @link http://php.net/manual/en/function.pg-client-encoding.php
  * @param resource $connection [optional] <p>
@@ -1460,7 +1521,8 @@ function pg_set_error_verbosity ($connection = null, $verbosity) {}
 function pg_client_encoding ($connection = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.3, PHP 5)<br/>
+ * @since 4.0.3
+ * @since 5.0
  * Set the client encoding
  * @link http://php.net/manual/en/function.pg-set-client-encoding.php
  * @param resource $connection [optional] <p>
@@ -1485,7 +1547,8 @@ function pg_client_encoding ($connection = null) {}
 function pg_set_client_encoding ($connection = null, $encoding) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Get meta data for table
  * @link http://php.net/manual/en/function.pg-meta-data.php
  * @param resource $connection <p>
@@ -1499,7 +1562,8 @@ function pg_set_client_encoding ($connection = null, $encoding) {}
 function pg_meta_data ($connection, $table_name) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Convert associative array values into suitable for SQL statement
  * @link http://php.net/manual/en/function.pg-convert.php
  * @param resource $connection <p>
@@ -1521,7 +1585,8 @@ function pg_meta_data ($connection, $table_name) {}
 function pg_convert ($connection, $table_name, array $assoc_array, $options = 0) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Insert array into table
  * @link http://php.net/manual/en/function.pg-insert.php
  * @param resource $connection <p>
@@ -1549,7 +1614,8 @@ function pg_convert ($connection, $table_name, array $assoc_array, $options = 0)
 function pg_insert ($connection, $table_name, array $assoc_array, $options = PGSQL_DML_EXEC) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Update table
  * @link http://php.net/manual/en/function.pg-update.php
  * @param resource $connection <p>
@@ -1579,7 +1645,8 @@ function pg_insert ($connection, $table_name, array $assoc_array, $options = PGS
 function pg_update ($connection, $table_name, array $data, array $condition, $options = PGSQL_DML_EXEC) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Deletes records
  * @link http://php.net/manual/en/function.pg-delete.php
  * @param resource $connection <p>
@@ -1605,7 +1672,8 @@ function pg_update ($connection, $table_name, array $data, array $condition, $op
 function pg_delete ($connection, $table_name, array $assoc_array, $options = PGSQL_DML_EXEC) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Select records
  * @link http://php.net/manual/en/function.pg-select.php
  * @param resource $connection <p>

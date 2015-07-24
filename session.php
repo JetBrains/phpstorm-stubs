@@ -3,7 +3,8 @@
 // Start of session v.
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get and/or set the current session name
  * @link http://php.net/manual/en/function.session-name.php
  * @param string $name [optional] <p>
@@ -25,7 +26,8 @@
 function session_name ($name = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get and/or set the current session module
  * @link http://php.net/manual/en/function.session-module-name.php
  * @param string $module [optional] <p>
@@ -37,7 +39,8 @@ function session_name ($name = null) {}
 function session_module_name ($module = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get and/or set the current session save path
  * @link http://php.net/manual/en/function.session-save-path.php
  * @param string $path [optional] <p>
@@ -57,7 +60,8 @@ function session_module_name ($module = null) {}
 function session_save_path ($path = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get and/or set the current session id
  * @link http://php.net/manual/en/function.session-id.php
  * @param string $id [optional] <p>
@@ -79,7 +83,8 @@ function session_save_path ($path = null) {}
 function session_id ($id = null) {}
 
 /**
- * (PHP 4 &gt;= 4.3.2, PHP 5)<br/>
+ * @since 4.3.2
+ * @since 5.0
  * Update the current session id with a newly generated one
  * @link http://php.net/manual/en/function.session-regenerate-id.php
  * @param bool $delete_old_session [optional] <p>
@@ -97,7 +102,8 @@ function session_regenerate_id ($delete_old_session = false) {}
 function session_register_shutdown  () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Decodes session data from a string
  * @link http://php.net/manual/en/function.session-decode.php
  * @param string $data <p>
@@ -108,7 +114,8 @@ function session_register_shutdown  () {}
 function session_decode ($data) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Register one or more global variables with the current session
  * @link http://php.net/manual/en/function.session-register.php
  * @param mixed $name <p>
@@ -117,24 +124,26 @@ function session_decode ($data) {}
  * </p>
  * @param mixed $_ [optional]
  * @return bool true on success or false on failure.
- * @deprecated This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
+ * @deprecated 5.3.0 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
  */
 function session_register ($name, $_ = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Unregister a global variable from the current session
  * @link http://php.net/manual/en/function.session-unregister.php
  * @param string $name <p>
  * The variable name.
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
+ * @deprecated 5.3.0 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
  */
 function session_unregister ($name) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Find out whether a global variable is registered in a session
  * @link http://php.net/manual/en/function.session-is-registered.php
  * @param string $name <p>
@@ -143,12 +152,13 @@ function session_unregister ($name) {}
  * @return bool <b>session_is_registered</b> returns true if there is a
  * global variable with the name <i>name</i> registered in
  * the current session, false otherwise.
- * @deprecated This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
+ * @deprecated 5.3.0 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
  */
 function session_is_registered ($name) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Encodes the current session data as a string
  * @link http://php.net/manual/en/function.session-encode.php
  * @return string the contents of the current session encoded.
@@ -156,7 +166,8 @@ function session_is_registered ($name) {}
 function session_encode () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Initialize session data
  * @link http://php.net/manual/en/function.session-start.php
  * @return bool This function returns true if a session was successfully started,
@@ -165,7 +176,8 @@ function session_encode () {}
 function session_start () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Destroys all data registered to a session
  * @link http://php.net/manual/en/function.session-destroy.php
  * @return bool true on success or false on failure.
@@ -173,7 +185,8 @@ function session_start () {}
 function session_destroy () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Free all session variables
  * @link http://php.net/manual/en/function.session-unset.php
  * @return void
@@ -181,7 +194,8 @@ function session_destroy () {}
 function session_unset () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sets user-level session storage functions
  * @link http://php.net/manual/en/function.session-set-save-handler.php
  * @param callback $open <p>
@@ -238,7 +252,8 @@ function session_set_save_handler ($open, $close, $read, $write, $destroy, $gc) 
 function session_set_save_handler (SessionHandlerInterface $session_handler, $register_shutdown = true) {}
 
 /**
- * (PHP 4 &gt;= 4.0.3, PHP 5)<br/>
+ * @since 4.0.3
+ * @since 5.0
  * Get and/or set the current cache limiter
  * @link http://php.net/manual/en/function.session-cache-limiter.php
  * @param string $cache_limiter [optional] <p>
@@ -296,7 +311,8 @@ function session_set_save_handler (SessionHandlerInterface $session_handler, $re
 function session_cache_limiter ($cache_limiter = null) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Return current cache expire
  * @link http://php.net/manual/en/function.session-cache-expire.php
  * @param string $new_cache_expire [optional] <p>
@@ -314,7 +330,8 @@ function session_cache_limiter ($cache_limiter = null) {}
 function session_cache_expire ($new_cache_expire = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Set the session cookie parameters
  * @link http://php.net/manual/en/function.session-set-cookie-params.php
  * @param int $lifetime <p>
@@ -345,7 +362,8 @@ function session_cache_expire ($new_cache_expire = null) {}
 function session_set_cookie_params ($lifetime, $path = null, $domain = null, $secure = false, $httponly = false) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the session cookie parameters
  * @link http://php.net/manual/en/function.session-get-cookie-params.php
  * @return array an array with the current session cookie information, the array
@@ -364,7 +382,8 @@ function session_set_cookie_params ($lifetime, $path = null, $domain = null, $se
 function session_get_cookie_params () {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Write session data and end session
  * @link http://php.net/manual/en/function.session-write-close.php
  * @return void
@@ -372,7 +391,8 @@ function session_get_cookie_params () {}
 function session_write_close () {}
 
 /**
- * (PHP 4 &gt;= 4.4.0, PHP 5)<br/>
+ * @since 4.4.0
+ * @since 5.0
  * Alias of <b>session_write_close</b>
  * @link http://php.net/manual/en/function.session-commit.php
  */

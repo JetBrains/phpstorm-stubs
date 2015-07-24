@@ -3,7 +3,8 @@
 // Start of sysvshm v.
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Creates or open a shared memory segment
  * @link http://php.net/manual/en/function.shm-attach.php
  * @param int $key <p>
@@ -22,7 +23,8 @@
 function shm_attach ($key, $memsize = null, $perm = 0666) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Removes shared memory from Unix systems
  * @link http://php.net/manual/en/function.shm-remove.php
  * @param resource $shm_identifier <p>
@@ -34,7 +36,8 @@ function shm_attach ($key, $memsize = null, $perm = 0666) {}
 function shm_remove ($shm_identifier) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Disconnects from shared memory segment
  * @link http://php.net/manual/en/function.shm-detach.php
  * @param resource $shm_identifier <p>
@@ -46,7 +49,8 @@ function shm_remove ($shm_identifier) {}
 function shm_detach ($shm_identifier) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Inserts or updates a variable in shared memory
  * @link http://php.net/manual/en/function.shm-put-var.php
  * @param resource $shm_identifier <p>
@@ -67,7 +71,7 @@ function shm_detach ($shm_identifier) {}
 function shm_put_var ($shm_identifier, $variable_key, $variable) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Check whether a specific entry exists
  * @link http://php.net/manual/en/function.shm-has-var.php
  * @param resource $shm_identifier <p>
@@ -81,7 +85,8 @@ function shm_put_var ($shm_identifier, $variable_key, $variable) {}
 function shm_has_var ($shm_identifier, $variable_key) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Returns a variable from shared memory
  * @link http://php.net/manual/en/function.shm-get-var.php
  * @param resource $shm_identifier <p>
@@ -95,7 +100,8 @@ function shm_has_var ($shm_identifier, $variable_key) {}
 function shm_get_var ($shm_identifier, $variable_key) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Removes a variable from shared memory
  * @link http://php.net/manual/en/function.shm-remove-var.php
  * @param resource $shm_identifier <p>

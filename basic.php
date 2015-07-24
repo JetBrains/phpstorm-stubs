@@ -1,8 +1,9 @@
 <?php
 
 /**
- * (PHP 4, PHP 5)<br/>
- * @deprecated since 5.3.0
+ * @since 4.0
+ * @since 5.0
+ * @deprecated 5.3.0 since 5.3.0
  * Loads a PHP extension at runtime
  * @link http://php.net/manual/en/function.dl.php
  * @param string $library <p>
@@ -38,7 +39,7 @@
 function dl ($library) {}
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Sets the process title
  * @link http://php.net/manual/en/function.cli-set-process-title.php
  * @param string $title <p>
@@ -49,7 +50,7 @@ function dl ($library) {}
 function cli_set_process_title ($title) {}
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Returns the current process title
  * @link http://php.net/manual/en/function.cli-get-process-title.php
  * @return string Return a string with the current process title or <b>NULL</b> on error.
@@ -104,6 +105,7 @@ define ('__METHOD__', '', true);
  * The trait name. (Added in PHP 5.4.0) As of PHP 5.4 this constant
  * returns the trait as it was declared (case-sensitive). The trait name includes the namespace
  * it was declared in (e.g. Foo\Bar).
+ * @since 5.4.0
  * @link http://php.net/manual/en/language.constants.predefined.php
  */
 define ('__TRAIT__', '', true);
@@ -113,7 +115,7 @@ define ('__TRAIT__', '', true);
  * the directory of the included file is returned. This is equivalent
  * to dirname(__FILE__). This directory name
  * does not have a trailing slash unless it is the root directory.
- * (Added in PHP 5.3.0.)
+ * @since 5.3.0
  * @link http://php.net/manual/en/language.constants.predefined.php
  */
 define ('__DIR__', '', true);
@@ -121,6 +123,7 @@ define ('__DIR__', '', true);
 /**
  * The name of the current namespace (case-sensitive). This constant
  * is defined in compile-time (Added in PHP 5.3.0).
+ * @since 5.3.0
  * @link http://php.net/manual/en/language.constants.predefined.php
  */
 define ('__NAMESPACE__', '', true);

@@ -3,7 +3,7 @@
 // Start of filter v.0.11.0
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Gets a specific external variable by name and optionally filters it
  * @link http://php.net/manual/en/function.filter-input.php
  * @param int $type <p>
@@ -30,7 +30,7 @@
 function filter_input ($type, $variable_name, $filter = FILTER_DEFAULT, $options = null) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Filters a variable with a specified filter
  * @link http://php.net/manual/en/function.filter-var.php
  * @param mixed $variable <p>
@@ -86,7 +86,7 @@ function filter_input ($type, $variable_name, $filter = FILTER_DEFAULT, $options
 function filter_var ($variable, $filter = FILTER_DEFAULT, $options = null) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Gets external variables and optionally filters them
  * @link http://php.net/manual/en/function.filter-input-array.php
  * @param int $type <p>
@@ -120,7 +120,7 @@ function filter_var ($variable, $filter = FILTER_DEFAULT, $options = null) {}
 function filter_input_array ($type, $definition = null, $add_empty = true) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Gets multiple variables and optionally filters them
  * @link http://php.net/manual/en/function.filter-var-array.php
  * @param array $data <p>
@@ -151,7 +151,7 @@ function filter_input_array ($type, $definition = null, $add_empty = true) {}
 function filter_var_array (array $data, $definition = null, $add_empty = true) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Returns a list of all supported filters
  * @link http://php.net/manual/en/function.filter-list.php
  * @return array an array of names of all supported filters, empty array if there
@@ -161,7 +161,7 @@ function filter_var_array (array $data, $definition = null, $add_empty = true) {
 function filter_list () {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Checks if variable of specified type exists
  * @link http://php.net/manual/en/function.filter-has-var.php
  * @param int $type <p>
@@ -177,7 +177,7 @@ function filter_list () {}
 function filter_has_var ($type, $variable_name) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Returns the filter ID belonging to a named filter
  * @link http://php.net/manual/en/function.filter-id.php
  * @param string $filtername <p>

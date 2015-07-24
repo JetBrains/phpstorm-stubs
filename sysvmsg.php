@@ -3,7 +3,8 @@
 // Start of sysvmsg v.
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Create or attach to a message queue
  * @link http://php.net/manual/en/function.msg-get-queue.php
  * @param int $key <p>
@@ -18,7 +19,8 @@
 function msg_get_queue ($key, $perms = 0666) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Send a message to a message queue
  * @link http://php.net/manual/en/function.msg-send.php
  * @param resource $queue
@@ -57,7 +59,8 @@ function msg_get_queue ($key, $perms = 0666) {}
 function msg_send ($queue, $msgtype, $message, $serialize = true, $blocking = true, &$errorcode = null) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Receive a message from a message queue
  * @link http://php.net/manual/en/function.msg-receive.php
  * @param resource $queue
@@ -145,7 +148,8 @@ function msg_send ($queue, $msgtype, $message, $serialize = true, $blocking = tr
 function msg_receive ($queue, $desiredmsgtype, &$msgtype, $maxsize, &$message, $unserialize = true, $flags = 0, &$errorcode = null) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Destroy a message queue
  * @link http://php.net/manual/en/function.msg-remove-queue.php
  * @param resource $queue <p>
@@ -156,7 +160,8 @@ function msg_receive ($queue, $desiredmsgtype, &$msgtype, $maxsize, &$message, $
 function msg_remove_queue ($queue) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Returns information from the message queue data structure
  * @link http://php.net/manual/en/function.msg-stat-queue.php
  * @param resource $queue <p>
@@ -233,7 +238,8 @@ function msg_remove_queue ($queue) {}
 function msg_stat_queue ($queue) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Set information in the message queue data structure
  * @link http://php.net/manual/en/function.msg-set-queue.php
  * @param resource $queue <p>
@@ -248,7 +254,7 @@ function msg_stat_queue ($queue) {}
 function msg_set_queue ($queue, array $data) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Check whether a message queue exists
  * @link http://php.net/manual/en/function.msg-queue-exists.php
  * @param int $key <p>

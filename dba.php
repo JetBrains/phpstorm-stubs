@@ -3,7 +3,8 @@
 // Start of dba v.
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Open database
  * @link http://php.net/manual/en/function.dba-open.php
  * @param string $path <p>
@@ -123,7 +124,8 @@
 function dba_open ($path, $mode, $handler = null, $_ = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Open database persistently
  * @link http://php.net/manual/en/function.dba-popen.php
  * @param string $path <p>
@@ -147,7 +149,8 @@ function dba_open ($path, $mode, $handler = null, $_ = null) {}
 function dba_popen ($path, $mode, $handler = null, $_ = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Close a DBA database
  * @link http://php.net/manual/en/function.dba-close.php
  * @param resource $handle <p>
@@ -159,7 +162,8 @@ function dba_popen ($path, $mode, $handler = null, $_ = null) {}
 function dba_close ($handle) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Delete DBA entry specified by key
  * @link http://php.net/manual/en/function.dba-delete.php
  * @param string $key <p>
@@ -174,7 +178,8 @@ function dba_close ($handle) {}
 function dba_delete ($key, $handle) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Check whether key exists
  * @link http://php.net/manual/en/function.dba-exists.php
  * @param string $key <p>
@@ -189,7 +194,8 @@ function dba_delete ($key, $handle) {}
 function dba_exists ($key, $handle) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Fetch data specified by key
  * @link http://php.net/manual/en/function.dba-fetch.php
  * @param string $key <p>
@@ -210,7 +216,8 @@ function dba_exists ($key, $handle) {}
 function dba_fetch ($key, $handle) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Insert entry
  * @link http://php.net/manual/en/function.dba-insert.php
  * @param string $key <p>
@@ -230,7 +237,8 @@ function dba_fetch ($key, $handle) {}
 function dba_insert ($key, $value, $handle) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Replace or insert entry
  * @link http://php.net/manual/en/function.dba-replace.php
  * @param string $key <p>
@@ -248,7 +256,8 @@ function dba_insert ($key, $value, $handle) {}
 function dba_replace ($key, $value, $handle) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Fetch first key
  * @link http://php.net/manual/en/function.dba-firstkey.php
  * @param resource $handle <p>
@@ -260,7 +269,8 @@ function dba_replace ($key, $value, $handle) {}
 function dba_firstkey ($handle) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Fetch next key
  * @link http://php.net/manual/en/function.dba-nextkey.php
  * @param resource $handle <p>
@@ -272,7 +282,8 @@ function dba_firstkey ($handle) {}
 function dba_nextkey ($handle) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Optimize database
  * @link http://php.net/manual/en/function.dba-optimize.php
  * @param resource $handle <p>
@@ -284,7 +295,8 @@ function dba_nextkey ($handle) {}
 function dba_optimize ($handle) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Synchronize database
  * @link http://php.net/manual/en/function.dba-sync.php
  * @param resource $handle <p>
@@ -296,7 +308,8 @@ function dba_optimize ($handle) {}
 function dba_sync ($handle) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * List all the handlers available
  * @link http://php.net/manual/en/function.dba-handlers.php
  * @param bool $full_info [optional] <p>
@@ -314,7 +327,8 @@ function dba_sync ($handle) {}
 function dba_handlers ($full_info = false) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * List all open database files
  * @link http://php.net/manual/en/function.dba-list.php
  * @return array An associative array, in the form resourceid =&gt; filename.
@@ -322,7 +336,7 @@ function dba_handlers ($full_info = false) {}
 function dba_list () {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Splits a key in string representation into array representation
  * @link http://php.net/manual/en/function.dba-key-split.php
  * @param mixed $key <p>

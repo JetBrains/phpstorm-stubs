@@ -367,13 +367,13 @@ class PDO  {
 	const ATTR_MAX_COLUMN_LEN = 18;
 
 	/**
-	 * Available since PHP 5.1.3.
+	 * @since 5.1.3
 	 * @link http://php.net/manual/en/pdo.constants.php
 	 */
 	const ATTR_EMULATE_PREPARES = 20;
 
 	/**
-	 * Available since PHP 5.2.0
+	 * @since 5.2.0
 	 * @link http://php.net/manual/en/pdo.constants.php
 	 */
 	const ATTR_DEFAULT_FETCH_MODE = 19;
@@ -636,7 +636,7 @@ class PDO  {
 	const MYSQL_ATTR_SSL_CAPATH = 1013;
 	const MYSQL_ATTR_SSL_CIPHER = 1014;
 	/**
-	 * @deprecated This constant has been DEPRECATED as of PHP 5.6.0. Use PDO::ATTR_EMULATE_PREPARES instead.
+	 * @deprecated 5.6.0 Use PDO::ATTR_EMULATE_PREPARES instead.
 	 */
 	const PGSQL_ATTR_DISABLE_NATIVE_PREPARED_STATEMENT = 1000;
 	const PGSQL_TRANSACTION_IDLE = 0;

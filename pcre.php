@@ -3,7 +3,8 @@
 // Start of pcre v.
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Perform a regular expression match
  * @link http://php.net/manual/en/function.preg-match.php
  * @param string $pattern <p>
@@ -82,7 +83,8 @@
 function preg_match ($pattern, $subject, array &$matches = null, $flags = 0, $offset = 0) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Perform a global regular expression match
  * @link http://php.net/manual/en/function.preg-match-all.php
  * @param string $pattern <p>
@@ -140,7 +142,8 @@ function preg_match ($pattern, $subject, array &$matches = null, $flags = 0, $of
 function preg_match_all ($pattern, $subject, array &$matches = null, $flags = PREG_PATTERN_ORDER, $offset = 0) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Perform a regular expression search and replace
  * @link http://php.net/manual/en/function.preg-replace.php
  * @param mixed $pattern <p>
@@ -229,7 +232,8 @@ function preg_match_all ($pattern, $subject, array &$matches = null, $flags = PR
 function preg_replace ($pattern, $replacement, $subject, $limit = -1, &$count = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.5, PHP 5)<br/>
+ * @since 4.0.5
+ * @since 5.0
  * Perform a regular expression search and replace using a callback
  * @link http://php.net/manual/en/function.preg-replace-callback.php
  * @param mixed $pattern <p>
@@ -300,7 +304,7 @@ function preg_replace ($pattern, $replacement, $subject, $limit = -1, &$count = 
 function preg_replace_callback ($pattern, callable $callback, $subject, $limit = -1, &$count = null) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Perform a regular expression search and replace
  * @link http://php.net/manual/en/function.preg-filter.php
  * @param mixed $pattern
@@ -319,7 +323,8 @@ function preg_replace_callback ($pattern, callable $callback, $subject, $limit =
 function preg_filter ($pattern, $replacement, $subject, $limit = -1, &$count = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Split string by a regular expression
  * @link http://php.net/manual/en/function.preg-split.php
  * @param string $pattern <p>
@@ -347,7 +352,8 @@ function preg_filter ($pattern, $replacement, $subject, $limit = -1, &$count = n
 function preg_split ($pattern, $subject, $limit = -1, $flags = 0) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Quote regular expression characters
  * @link http://php.net/manual/en/function.preg-quote.php
  * @param string $str <p>
@@ -364,7 +370,8 @@ function preg_split ($pattern, $subject, $limit = -1, $flags = 0) {}
 function preg_quote ($str, $delimiter = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return array entries that match the pattern
  * @link http://php.net/manual/en/function.preg-grep.php
  * @param string $pattern <p>
@@ -384,7 +391,7 @@ function preg_quote ($str, $delimiter = null) {}
 function preg_grep ($pattern, array $input, $flags = 0) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Returns the error code of the last PCRE regex execution
  * @link http://php.net/manual/en/function.preg-last-error.php
  * @return int one of the following constants (explained on their own page):

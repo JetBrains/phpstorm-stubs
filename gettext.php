@@ -3,7 +3,8 @@
 // Start of gettext v.
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sets the default domain
  * @link http://php.net/manual/en/function.textdomain.php
  * @param string $text_domain <p>
@@ -16,7 +17,8 @@
 function textdomain ($text_domain) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Lookup a message in the current domain
  * @link http://php.net/manual/en/function.gettext.php
  * @param string $message <p>
@@ -28,7 +30,8 @@ function textdomain ($text_domain) {}
 function gettext ($message) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Lookup a message in the current domain
  * @link http://php.net/manual/en/function.gettext.php
  * @param string $message <p>
@@ -40,7 +43,8 @@ function gettext ($message) {}
 function _ ($message) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Override the current domain
  * @link http://php.net/manual/en/function.dgettext.php
  * @param string $domain <p>
@@ -54,7 +58,8 @@ function _ ($message) {}
 function dgettext ($domain, $message) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Overrides the domain for a single lookup
  * @link http://php.net/manual/en/function.dcgettext.php
  * @param string $domain <p>
@@ -71,7 +76,8 @@ function dgettext ($domain, $message) {}
 function dcgettext ($domain, $message, $category) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sets the path for a domain
  * @link http://php.net/manual/en/function.bindtextdomain.php
  * @param string $domain <p>
@@ -85,7 +91,8 @@ function dcgettext ($domain, $message, $category) {}
 function bindtextdomain ($domain, $directory) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Plural version of gettext
  * @link http://php.net/manual/en/function.ngettext.php
  * @param string $msgid1
@@ -98,7 +105,8 @@ function bindtextdomain ($domain, $directory) {}
 function ngettext ($msgid1, $msgid2, $n) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Plural version of dgettext
  * @link http://php.net/manual/en/function.dngettext.php
  * @param string $domain <p>
@@ -112,7 +120,8 @@ function ngettext ($msgid1, $msgid2, $n) {}
 function dngettext ($domain, $msgid1, $msgid2, $n) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Plural version of dcgettext
  * @link http://php.net/manual/en/function.dcngettext.php
  * @param string $domain <p>
@@ -127,7 +136,8 @@ function dngettext ($domain, $msgid1, $msgid2, $n) {}
 function dcngettext ($domain, $msgid1, $msgid2, $n, $category) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.2.0
+ * @since 5.0
  * Specify the character encoding in which the messages from the DOMAIN message catalog will be returned
  * @link http://php.net/manual/en/function.bind-textdomain-codeset.php
  * @param string $domain <p>

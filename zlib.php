@@ -3,7 +3,8 @@
 // Start of zlib v.2.0
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Output a gz-file
  * @link http://php.net/manual/en/function.readgzfile.php
  * @param string $filename <p>
@@ -22,7 +23,8 @@
 function readgzfile ($filename, $use_include_path = 0) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Rewind the position of a gz-file pointer
  * @link http://php.net/manual/en/function.gzrewind.php
  * @param resource $zp <p>
@@ -34,7 +36,8 @@ function readgzfile ($filename, $use_include_path = 0) {}
 function gzrewind ($zp) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Close an open gz-file pointer
  * @link http://php.net/manual/en/function.gzclose.php
  * @param resource $zp <p>
@@ -46,7 +49,8 @@ function gzrewind ($zp) {}
 function gzclose ($zp) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Test for EOF on a gz-file pointer
  * @link http://php.net/manual/en/function.gzeof.php
  * @param resource $zp <p>
@@ -59,7 +63,8 @@ function gzclose ($zp) {}
 function gzeof ($zp) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get character from gz-file pointer
  * @link http://php.net/manual/en/function.gzgetc.php
  * @param resource $zp <p>
@@ -71,7 +76,8 @@ function gzeof ($zp) {}
 function gzgetc ($zp) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get line from file pointer
  * @link http://php.net/manual/en/function.gzgets.php
  * @param resource $zp <p>
@@ -86,7 +92,8 @@ function gzgetc ($zp) {}
 function gzgets ($zp, $length) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get line from gz-file pointer and strip HTML tags
  * @link http://php.net/manual/en/function.gzgetss.php
  * @param resource $zp <p>
@@ -105,7 +112,8 @@ function gzgets ($zp, $length) {}
 function gzgetss ($zp, $length, $allowable_tags = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Binary-safe gz-file read
  * @link http://php.net/manual/en/function.gzread.php
  * @param resource $zp <p>
@@ -120,7 +128,8 @@ function gzgetss ($zp, $length, $allowable_tags = null) {}
 function gzread ($zp, $length) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Open gz-file
  * @link http://php.net/manual/en/function.gzopen.php
  * @param string $filename <p>
@@ -150,7 +159,8 @@ function gzread ($zp, $length) {}
 function gzopen ($filename, $mode, $use_include_path = 0) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Output all remaining data on a gz-file pointer
  * @link http://php.net/manual/en/function.gzpassthru.php
  * @param resource $zp <p>
@@ -163,7 +173,8 @@ function gzopen ($filename, $mode, $use_include_path = 0) {}
 function gzpassthru ($zp) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Seek on a gz-file pointer
  * @link http://php.net/manual/en/function.gzseek.php
  * @param resource $zp <p>
@@ -188,7 +199,8 @@ function gzpassthru ($zp) {}
 function gzseek ($zp, $offset, $whence = SEEK_SET) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Tell gz-file pointer read/write position
  * @link http://php.net/manual/en/function.gztell.php
  * @param resource $zp <p>
@@ -200,7 +212,8 @@ function gzseek ($zp, $offset, $whence = SEEK_SET) {}
 function gztell ($zp) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Binary-safe gz-file write
  * @link http://php.net/manual/en/function.gzwrite.php
  * @param resource $zp <p>
@@ -228,7 +241,8 @@ function gztell ($zp) {}
 function gzwrite ($zp, $string, $length = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Alias of <b>gzwrite</b>
  * @link http://php.net/manual/en/function.gzputs.php
  * @param $fp
@@ -238,7 +252,8 @@ function gzwrite ($zp, $string, $length = null) {}
 function gzputs ($fp, $str, $length) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Read entire gz-file into an array
  * @link http://php.net/manual/en/function.gzfile.php
  * @param string $filename <p>
@@ -253,7 +268,8 @@ function gzputs ($fp, $str, $length) {}
 function gzfile ($filename, $use_include_path = 0) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Compress a string
  * @link http://php.net/manual/en/function.gzcompress.php
  * @param string $data <p>
@@ -274,7 +290,8 @@ function gzfile ($filename, $use_include_path = 0) {}
 function gzcompress ($data, $level = -1, $encoding = ZLIB_ENCODING_DEFLATE) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Uncompress a compressed string
  * @link http://php.net/manual/en/function.gzuncompress.php
  * @param string $data <p>
@@ -293,7 +310,8 @@ function gzcompress ($data, $level = -1, $encoding = ZLIB_ENCODING_DEFLATE) {}
 function gzuncompress ($data, $length = 0) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Deflate a string
  * @link http://php.net/manual/en/function.gzdeflate.php
  * @param string $data <p>
@@ -312,7 +330,8 @@ function gzuncompress ($data, $length = 0) {}
 function gzdeflate ($data, $level = -1, $encoding = ZLIB_ENCODING_RAW) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Inflate a deflated string
  * @link http://php.net/manual/en/function.gzinflate.php
  * @param string $data <p>
@@ -331,7 +350,8 @@ function gzdeflate ($data, $level = -1, $encoding = ZLIB_ENCODING_RAW) {}
 function gzinflate ($data, $length = 0) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Create a gzip compressed string
  * @link http://php.net/manual/en/function.gzencode.php
  * @param string $data <p>
@@ -361,7 +381,7 @@ function gzinflate ($data, $length = 0) {}
 function gzencode ($data, $level = -1, $encoding_mode = FORCE_GZIP) {}
 
 /**
- * (PHP 5 &gt;= 5.4.0)<br/>
+ * @since 5.4.0
  * Decodes a gzip compressed string
  * @link http://php.net/manual/en/function.gzdecode.php
  * @param string $data <p>
@@ -375,7 +395,7 @@ function gzencode ($data, $level = -1, $encoding_mode = FORCE_GZIP) {}
 function gzdecode ($data, $length = null) {}
 
 /**
- * (PHP 5 &gt;= 5.4.0)<br/>
+ * @since 5.4.0
  * Compress data with the specified encoding
  * @link http://php.net/manual/en/function.zlib-encode.php
  * @param string $data <p>
@@ -389,7 +409,7 @@ function gzdecode ($data, $length = null) {}
 function zlib_encode ($data, $encoding, $level = -1) {}
 
 /**
- * (PHP 5 &gt;= 5.4.0)<br/>
+ * @since 5.4.0
  * Uncompress any raw/gzip/zlib encoded data
  * @link http://php.net/manual/en/function.zlib-decode.php
  * @param string $data <p>
@@ -401,7 +421,8 @@ function zlib_encode ($data, $encoding, $level = -1) {}
 function zlib_decode ($data, $max_decoded_len = null) {}
 
 /**
- * (PHP 4 &gt;= 4.3.2, PHP 5)<br/>
+ * @since 4.3.2
+ * @since 5.0
  * Returns the coding type used for output compression
  * @link http://php.net/manual/en/function.zlib-get-coding-type.php
  * @return string Possible return values are gzip, deflate,
@@ -410,7 +431,8 @@ function zlib_decode ($data, $max_decoded_len = null) {}
 function zlib_get_coding_type () {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * ob_start callback function to gzip output buffer
  * @link http://php.net/manual/en/function.ob-gzhandler.php
  * @param string $buffer

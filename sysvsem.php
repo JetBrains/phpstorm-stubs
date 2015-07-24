@@ -3,7 +3,8 @@
 // Start of sysvsem v.
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get a semaphore id
  * @link http://php.net/manual/en/function.sem-get.php
  * @param int $key
@@ -26,7 +27,8 @@
 function sem_get ($key, $max_acquire = 1, $perm = 0666, $auto_release = 1) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Acquire a semaphore
  * @link http://php.net/manual/en/function.sem-acquire.php
  * @param resource $sem_identifier <p>
@@ -38,7 +40,8 @@ function sem_get ($key, $max_acquire = 1, $perm = 0666, $auto_release = 1) {}
 function sem_acquire ($sem_identifier) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Release a semaphore
  * @link http://php.net/manual/en/function.sem-release.php
  * @param resource $sem_identifier <p>
@@ -50,7 +53,8 @@ function sem_acquire ($sem_identifier) {}
 function sem_release ($sem_identifier) {}
 
 /**
- * (PHP 4 &gt;= 4.1.0, PHP 5)<br/>
+ * @since 4.1.0
+ * @since 5.0
  * Remove a semaphore
  * @link http://php.net/manual/en/function.sem-remove.php
  * @param resource $sem_identifier <p>

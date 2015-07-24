@@ -3,10 +3,11 @@
 // Start of mcrypt v.
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Deprecated: Encrypt/decrypt data in ECB mode
  * @link http://php.net/manual/en/function.mcrypt-ecb.php
- * @deprecated in 5.5 http://www.php.net/manual/en/migration55.deprecated.php
+ * @deprecated 5.5 http://www.php.net/manual/en/migration55.deprecated.php
  * @param int $cipher
  * @param string $key 
  * @param string $data 
@@ -16,10 +17,11 @@
 function mcrypt_ecb ($cipher, $key, $data, $mode) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Encrypt/decrypt data in CBC mode
  * @link http://php.net/manual/en/function.mcrypt-cbc.php
- * @deprecated in 5.5 http://www.php.net/manual/en/migration55.deprecated.php
+ * @deprecated 5.5 http://www.php.net/manual/en/migration55.deprecated.php
  * @param int $cipher 
  * @param string $key 
  * @param string $data 
@@ -30,10 +32,11 @@ function mcrypt_ecb ($cipher, $key, $data, $mode) {}
 function mcrypt_cbc ($cipher, $key, $data, $mode, $iv = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Encrypt/decrypt data in CFB mode
  * @link http://php.net/manual/en/function.mcrypt-cfb.php
- * @deprecated in 5.5 http://www.php.net/manual/en/migration55.deprecated.php
+ * @deprecated 5.5 http://www.php.net/manual/en/migration55.deprecated.php
  * @param int $cipher
  * @param string $key 
  * @param string $data 
@@ -44,10 +47,11 @@ function mcrypt_cbc ($cipher, $key, $data, $mode, $iv = null) {}
 function mcrypt_cfb ($cipher, $key, $data, $mode, $iv) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Encrypt/decrypt data in OFB mode
  * @link http://php.net/manual/en/function.mcrypt-ofb.php
- * @deprecated in 5.5 http://www.php.net/manual/en/migration55.deprecated.php
+ * @deprecated 5.5 http://www.php.net/manual/en/migration55.deprecated.php
  * @param int $cipher
  * @param string $key 
  * @param string $data 
@@ -58,7 +62,8 @@ function mcrypt_cfb ($cipher, $key, $data, $mode, $iv) {}
 function mcrypt_ofb ($cipher, $key, $data, $mode, $iv) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the key size of the specified cipher
  * @link http://php.net/manual/en/function.mcrypt-get-key-size.php
  * @param int $cipher 
@@ -67,7 +72,8 @@ function mcrypt_ofb ($cipher, $key, $data, $mode, $iv) {}
 function mcrypt_get_key_size ($cipher) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the block size of the specified cipher
  * @link http://php.net/manual/en/function.mcrypt-get-block-size.php
  * @param int $cipher <p>
@@ -79,7 +85,8 @@ function mcrypt_get_key_size ($cipher) {}
 function mcrypt_get_block_size ($cipher) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the name of the specified cipher
  * @link http://php.net/manual/en/function.mcrypt-get-cipher-name.php
  * @param int $cipher <p>
@@ -92,7 +99,8 @@ function mcrypt_get_block_size ($cipher) {}
 function mcrypt_get_cipher_name ($cipher) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Create an initialization vector (IV) from a random source
  * @link http://php.net/manual/en/function.mcrypt-create-iv.php
  * @param int $size <p>
@@ -121,7 +129,8 @@ function mcrypt_get_cipher_name ($cipher) {}
 function mcrypt_create_iv ($size, $source = MCRYPT_DEV_URANDOM) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Get an array of all supported ciphers
  * @link http://php.net/manual/en/function.mcrypt-list-algorithms.php
  * @param string $lib_dir [optional] <p>
@@ -134,7 +143,8 @@ function mcrypt_create_iv ($size, $source = MCRYPT_DEV_URANDOM) {}
 function mcrypt_list_algorithms ($lib_dir = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Get an array of all supported modes
  * @link http://php.net/manual/en/function.mcrypt-list-modes.php
  * @param string $lib_dir [optional] <p>
@@ -147,7 +157,8 @@ function mcrypt_list_algorithms ($lib_dir = null) {}
 function mcrypt_list_modes ($lib_dir = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Returns the size of the IV belonging to a specific cipher/mode combination
  * @link http://php.net/manual/en/function.mcrypt-get-iv-size.php
  * @param string $cipher <p>
@@ -168,7 +179,8 @@ function mcrypt_list_modes ($lib_dir = null) {}
 function mcrypt_get_iv_size ($cipher, $mode) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Encrypts plaintext with given parameters
  * @link http://php.net/manual/en/function.mcrypt-encrypt.php
  * @param string $cipher <p>
@@ -209,7 +221,8 @@ function mcrypt_get_iv_size ($cipher, $mode) {}
 function mcrypt_encrypt ($cipher, $key, $data, $mode, $iv = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Decrypts crypttext with given parameters
  * @link http://php.net/manual/en/function.mcrypt-decrypt.php
  * @param string $cipher <p>
@@ -242,7 +255,8 @@ function mcrypt_encrypt ($cipher, $key, $data, $mode, $iv = null) {}
 function mcrypt_decrypt ($cipher, $key, $data, $mode, $iv = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Opens the module of the algorithm and the mode to be used
  * @link http://php.net/manual/en/function.mcrypt-module-open.php
  * @param string $algorithm <p>
@@ -269,7 +283,8 @@ function mcrypt_decrypt ($cipher, $key, $data, $mode, $iv = null) {}
 function mcrypt_module_open ($algorithm, $algorithm_directory, $mode, $mode_directory) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * This function initializes all buffers needed for encryption
  * @link http://php.net/manual/en/function.mcrypt-generic-init.php
  * @param resource $td <p>
@@ -298,7 +313,8 @@ function mcrypt_module_open ($algorithm, $algorithm_directory, $mode, $mode_dire
 function mcrypt_generic_init ($td, $key, $iv) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * This function encrypts data
  * @link http://php.net/manual/en/function.mcrypt-generic.php
  * @param resource $td <p>
@@ -319,7 +335,8 @@ function mcrypt_generic_init ($td, $key, $iv) {}
 function mcrypt_generic ($td, $data) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Decrypt data
  * @link http://php.net/manual/en/function.mdecrypt-generic.php
  * @param resource $td <p>
@@ -334,17 +351,19 @@ function mcrypt_generic ($td, $data) {}
 function mdecrypt_generic ($td, $data) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5 &lt;= 5.1.6)<br/>
+ * @since 4.0.2
+ * @since 5.1.6
  * This function terminates encryption
  * @link http://php.net/manual/en/function.mcrypt-generic-end.php
  * @param resource $td 
  * @return bool
- * @deprecated This function has been DEPRECATED as of PHP 5.4.0.
+ * @deprecated 5.4.0 This function has been DEPRECATED as of PHP 5.4.0.
  */
 function mcrypt_generic_end ($td) {}
 
 /**
- * (PHP 4 &gt;= 4.0.7, PHP 5)<br/>
+ * @since 4.0.7
+ * @since 5.0
  * This function deinitializes an encryption module
  * @link http://php.net/manual/en/function.mcrypt-generic-deinit.php
  * @param resource $td <p>
@@ -355,7 +374,8 @@ function mcrypt_generic_end ($td) {}
 function mcrypt_generic_deinit ($td) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Runs a self test on the opened module
  * @link http://php.net/manual/en/function.mcrypt-enc-self-test.php
  * @param resource $td <p>
@@ -367,7 +387,8 @@ function mcrypt_generic_deinit ($td) {}
 function mcrypt_enc_self_test ($td) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Checks whether the encryption of the opened mode works on blocks
  * @link http://php.net/manual/en/function.mcrypt-enc-is-block-algorithm-mode.php
  * @param resource $td <p>
@@ -379,7 +400,8 @@ function mcrypt_enc_self_test ($td) {}
 function mcrypt_enc_is_block_algorithm_mode ($td) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Checks whether the algorithm of the opened mode is a block algorithm
  * @link http://php.net/manual/en/function.mcrypt-enc-is-block-algorithm.php
  * @param resource $td <p>
@@ -391,7 +413,8 @@ function mcrypt_enc_is_block_algorithm_mode ($td) {}
 function mcrypt_enc_is_block_algorithm ($td) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Checks whether the opened mode outputs blocks
  * @link http://php.net/manual/en/function.mcrypt-enc-is-block-mode.php
  * @param resource $td <p>
@@ -402,7 +425,8 @@ function mcrypt_enc_is_block_algorithm ($td) {}
 function mcrypt_enc_is_block_mode ($td) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Returns the blocksize of the opened algorithm
  * @link http://php.net/manual/en/function.mcrypt-enc-get-block-size.php
  * @param resource $td <p>
@@ -413,7 +437,8 @@ function mcrypt_enc_is_block_mode ($td) {}
 function mcrypt_enc_get_block_size ($td) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Returns the maximum supported keysize of the opened mode
  * @link http://php.net/manual/en/function.mcrypt-enc-get-key-size.php
  * @param resource $td <p>
@@ -424,7 +449,8 @@ function mcrypt_enc_get_block_size ($td) {}
 function mcrypt_enc_get_key_size ($td) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Returns an array with the supported keysizes of the opened algorithm
  * @link http://php.net/manual/en/function.mcrypt-enc-get-supported-key-sizes.php
  * @param resource $td <p>
@@ -439,7 +465,8 @@ function mcrypt_enc_get_key_size ($td) {}
 function mcrypt_enc_get_supported_key_sizes ($td) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Returns the size of the IV of the opened algorithm
  * @link http://php.net/manual/en/function.mcrypt-enc-get-iv-size.php
  * @param resource $td <p>
@@ -450,7 +477,8 @@ function mcrypt_enc_get_supported_key_sizes ($td) {}
 function mcrypt_enc_get_iv_size ($td) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Returns the name of the opened algorithm
  * @link http://php.net/manual/en/function.mcrypt-enc-get-algorithms-name.php
  * @param resource $td <p>
@@ -461,7 +489,8 @@ function mcrypt_enc_get_iv_size ($td) {}
 function mcrypt_enc_get_algorithms_name ($td) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Returns the name of the opened mode
  * @link http://php.net/manual/en/function.mcrypt-enc-get-modes-name.php
  * @param resource $td <p>
@@ -472,7 +501,8 @@ function mcrypt_enc_get_algorithms_name ($td) {}
 function mcrypt_enc_get_modes_name ($td) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * This function runs a self test on the specified module
  * @link http://php.net/manual/en/function.mcrypt-module-self-test.php
  * @param string $algorithm <p>
@@ -488,7 +518,8 @@ function mcrypt_enc_get_modes_name ($td) {}
 function mcrypt_module_self_test ($algorithm, $lib_dir = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Returns if the specified module is a block algorithm or not
  * @link http://php.net/manual/en/function.mcrypt-module-is-block-algorithm-mode.php
  * @param string $mode <p>
@@ -505,7 +536,8 @@ function mcrypt_module_self_test ($algorithm, $lib_dir = null) {}
 function mcrypt_module_is_block_algorithm_mode ($mode, $lib_dir = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * This function checks whether the specified algorithm is a block algorithm
  * @link http://php.net/manual/en/function.mcrypt-module-is-block-algorithm.php
  * @param string $algorithm <p>
@@ -521,7 +553,8 @@ function mcrypt_module_is_block_algorithm_mode ($mode, $lib_dir = null) {}
 function mcrypt_module_is_block_algorithm ($algorithm, $lib_dir = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Returns if the specified mode outputs blocks or not
  * @link http://php.net/manual/en/function.mcrypt-module-is-block-mode.php
  * @param string $mode <p>
@@ -538,7 +571,8 @@ function mcrypt_module_is_block_algorithm ($algorithm, $lib_dir = null) {}
 function mcrypt_module_is_block_mode ($mode, $lib_dir = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Returns the blocksize of the specified algorithm
  * @link http://php.net/manual/en/function.mcrypt-module-get-algo-block-size.php
  * @param string $algorithm <p>
@@ -553,7 +587,8 @@ function mcrypt_module_is_block_mode ($mode, $lib_dir = null) {}
 function mcrypt_module_get_algo_block_size ($algorithm, $lib_dir = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Returns the maximum supported keysize of the opened mode
  * @link http://php.net/manual/en/function.mcrypt-module-get-algo-key-size.php
  * @param string $algorithm <p>
@@ -569,7 +604,8 @@ function mcrypt_module_get_algo_block_size ($algorithm, $lib_dir = null) {}
 function mcrypt_module_get_algo_key_size ($algorithm, $lib_dir = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Returns an array with the supported keysizes of the opened algorithm
  * @link http://php.net/manual/en/function.mcrypt-module-get-supported-key-sizes.php
  * @param string $algorithm <p>
@@ -587,7 +623,8 @@ function mcrypt_module_get_algo_key_size ($algorithm, $lib_dir = null) {}
 function mcrypt_module_get_supported_key_sizes ($algorithm, $lib_dir = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Close the mcrypt module
  * @link http://php.net/manual/en/function.mcrypt-module-close.php
  * @param resource $td <p>

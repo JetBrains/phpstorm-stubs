@@ -154,7 +154,8 @@ function finfo_file ($finfo, $file_name, $options = null, $context = null) {}
 function finfo_buffer ($finfo ,$string, $options = FILEINFO_NONE, $context = NULL) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Detect MIME Content-type for a file (deprecated)
  * @link http://php.net/manual/en/function.mime-content-type.php
  * @param string $filename <p>
@@ -186,14 +187,14 @@ define ('FILEINFO_MIME', 1040);
 
 /**
  * Return the mime type.
- * Available since PHP 5.3.0.
+ * @since 5.3.0
  * @link http://php.net/manual/en/fileinfo.constants.php
  */
 define ('FILEINFO_MIME_TYPE', 16);
 
 /**
  * Return the mime encoding of the file.
- * Available since PHP 5.3.0.
+ * @since 5.3.0
  * @link http://php.net/manual/en/fileinfo.constants.php
  */
 define ('FILEINFO_MIME_ENCODING', 1024);

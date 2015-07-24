@@ -3,7 +3,8 @@
 // Start of gd v.
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Retrieve information about the currently installed GD library
  * @link http://php.net/manual/en/function.gd-info.php
  * @return array an associative array.
@@ -84,7 +85,8 @@
 function gd_info () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Draws an arc
  * @link http://php.net/manual/en/function.imagearc.php
  * @param resource $image 
@@ -117,7 +119,8 @@ function gd_info () {}
 function imagearc ($image, $cx, $cy, $width, $height, $start, $end, $color) {}
 
 /**
- * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
+ * @since 4.0.6
+ * @since 5.0
  * Draw an ellipse
  * @link http://php.net/manual/en/function.imageellipse.php
  * @param resource $image 
@@ -142,7 +145,8 @@ function imagearc ($image, $cx, $cy, $width, $height, $start, $end, $color) {}
 function imageellipse ($image, $cx, $cy, $width, $height, $color) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Draw a character horizontally
  * @link http://php.net/manual/en/function.imagechar.php
  * @param resource $image 
@@ -165,7 +169,8 @@ function imageellipse ($image, $cx, $cy, $width, $height, $color) {}
 function imagechar ($image, $font, $x, $y, $c, $color) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Draw a character vertically
  * @link http://php.net/manual/en/function.imagecharup.php
  * @param resource $image 
@@ -188,7 +193,8 @@ function imagechar ($image, $font, $x, $y, $c, $color) {}
 function imagecharup ($image, $font, $x, $y, $c, $color) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the index of the color of a pixel
  * @link http://php.net/manual/en/function.imagecolorat.php
  * @param resource $image 
@@ -203,7 +209,8 @@ function imagecharup ($image, $font, $x, $y, $c, $color) {}
 function imagecolorat ($image, $x, $y) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Allocate a color for an image
  * @link http://php.net/manual/en/function.imagecolorallocate.php
  * @param resource $image 
@@ -215,7 +222,8 @@ function imagecolorat ($image, $x, $y) {}
 function imagecolorallocate ($image, $red, $green, $blue) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Copy the palette from one image to another
  * @link http://php.net/manual/en/function.imagepalettecopy.php
  * @param resource $destination <p>
@@ -229,7 +237,8 @@ function imagecolorallocate ($image, $red, $green, $blue) {}
 function imagepalettecopy ($destination, $source) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Create a new image from the image stream in the string
  * @link http://php.net/manual/en/function.imagecreatefromstring.php
  * @param string $image <p>
@@ -242,7 +251,8 @@ function imagepalettecopy ($destination, $source) {}
 function imagecreatefromstring ($image) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the index of the closest color to the specified color
  * @link http://php.net/manual/en/function.imagecolorclosest.php
  * @param resource $image 
@@ -255,7 +265,8 @@ function imagecreatefromstring ($image) {}
 function imagecolorclosest ($image, $red, $green, $blue) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Get the index of the color which has the hue, white and blackness
  * @link http://php.net/manual/en/function.imagecolorclosesthwb.php
  * @param resource $image 
@@ -268,7 +279,8 @@ function imagecolorclosest ($image, $red, $green, $blue) {}
 function imagecolorclosesthwb ($image, $red, $green, $blue) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * De-allocate a color for an image
  * @link http://php.net/manual/en/function.imagecolordeallocate.php
  * @param resource $image 
@@ -280,7 +292,8 @@ function imagecolorclosesthwb ($image, $red, $green, $blue) {}
 function imagecolordeallocate ($image, $color) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the index of the specified color or its closest possible alternative
  * @link http://php.net/manual/en/function.imagecolorresolve.php
  * @param resource $image 
@@ -292,7 +305,8 @@ function imagecolordeallocate ($image, $color) {}
 function imagecolorresolve ($image, $red, $green, $blue) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the index of the specified color
  * @link http://php.net/manual/en/function.imagecolorexact.php
  * @param resource $image 
@@ -305,7 +319,8 @@ function imagecolorresolve ($image, $red, $green, $blue) {}
 function imagecolorexact ($image, $red, $green, $blue) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Set the color for the specified palette index
  * @link http://php.net/manual/en/function.imagecolorset.php
  * @param resource $image 
@@ -323,7 +338,8 @@ function imagecolorexact ($image, $red, $green, $blue) {}
 function imagecolorset ($image, $index, $red, $green, $blue, $alpha = 0) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Define a color as transparent
  * @link http://php.net/manual/en/function.imagecolortransparent.php
  * @param resource $image 
@@ -339,7 +355,8 @@ function imagecolorset ($image, $index, $red, $green, $blue, $alpha = 0) {}
 function imagecolortransparent ($image, $color = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Find out the number of colors in an image's palette
  * @link http://php.net/manual/en/function.imagecolorstotal.php
  * @param resource $image <p>
@@ -352,7 +369,8 @@ function imagecolortransparent ($image, $color = null) {}
 function imagecolorstotal ($image) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the colors for an index
  * @link http://php.net/manual/en/function.imagecolorsforindex.php
  * @param resource $image 
@@ -365,7 +383,8 @@ function imagecolorstotal ($image) {}
 function imagecolorsforindex ($image, $index) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Copy part of an image
  * @link http://php.net/manual/en/function.imagecopy.php
  * @param resource $dst_im <p>
@@ -397,7 +416,8 @@ function imagecolorsforindex ($image, $index) {}
 function imagecopy ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Copy and merge part of an image
  * @link http://php.net/manual/en/function.imagecopymerge.php
  * @param resource $dst_im <p>
@@ -436,7 +456,8 @@ function imagecopy ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $s
 function imagecopymerge ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h, $pct) {}
 
 /**
- * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
+ * @since 4.0.6
+ * @since 5.0
  * Copy and merge part of an image with gray scale
  * @link http://php.net/manual/en/function.imagecopymergegray.php
  * @param resource $dst_im <p>
@@ -475,7 +496,8 @@ function imagecopymerge ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_
 function imagecopymergegray ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h, $pct) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Copy and resize part of an image
  * @link http://php.net/manual/en/function.imagecopyresized.php
  * @param resource $dst_image 
@@ -509,7 +531,8 @@ function imagecopymergegray ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $
 function imagecopyresized ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Create a new palette based image
  * @link http://php.net/manual/en/function.imagecreate.php
  * @param int $width <p>
@@ -523,7 +546,8 @@ function imagecopyresized ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $src_
 function imagecreate ($width, $height) {}
 
 /**
- * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
+ * @since 4.0.6
+ * @since 5.0
  * Create a new true color image
  * @link http://php.net/manual/en/function.imagecreatetruecolor.php
  * @param int $width <p>
@@ -537,7 +561,8 @@ function imagecreate ($width, $height) {}
 function imagecreatetruecolor ($width, $height) {}
 
 /**
- * (PHP 4 &gt;= 4.3.2, PHP 5)<br/>
+ * @since 4.3.2
+ * @since 5.0
  * Finds whether an image is a truecolor image
  * @link http://php.net/manual/en/function.imageistruecolor.php
  * @param resource $image 
@@ -547,7 +572,8 @@ function imagecreatetruecolor ($width, $height) {}
 function imageistruecolor ($image) {}
 
 /**
- * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
+ * @since 4.0.6
+ * @since 5.0
  * Convert a true color image to a palette image
  * @link http://php.net/manual/en/function.imagetruecolortopalette.php
  * @param resource $image 
@@ -564,7 +590,8 @@ function imageistruecolor ($image) {}
 function imagetruecolortopalette ($image, $dither, $ncolors) {}
 
 /**
- * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
+ * @since 4.0.6
+ * @since 5.0
  * Set the thickness for line drawing
  * @link http://php.net/manual/en/function.imagesetthickness.php
  * @param resource $image 
@@ -576,7 +603,8 @@ function imagetruecolortopalette ($image, $dither, $ncolors) {}
 function imagesetthickness ($image, $thickness) {}
 
 /**
- * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
+ * @since 4.0.6
+ * @since 5.0
  * Draw a partial arc and fill it
  * @link http://php.net/manual/en/function.imagefilledarc.php
  * @param resource $image 
@@ -612,7 +640,8 @@ function imagesetthickness ($image, $thickness) {}
 function imagefilledarc ($image, $cx, $cy, $width, $height, $start, $end, $color, $style) {}
 
 /**
- * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
+ * @since 4.0.6
+ * @since 5.0
  * Draw a filled ellipse
  * @link http://php.net/manual/en/function.imagefilledellipse.php
  * @param resource $image 
@@ -637,7 +666,8 @@ function imagefilledarc ($image, $cx, $cy, $width, $height, $start, $end, $color
 function imagefilledellipse ($image, $cx, $cy, $width, $height, $color) {}
 
 /**
- * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
+ * @since 4.0.6
+ * @since 5.0
  * Set the blending mode for an image
  * @link http://php.net/manual/en/function.imagealphablending.php
  * @param resource $image 
@@ -650,7 +680,8 @@ function imagefilledellipse ($image, $cx, $cy, $width, $height, $color) {}
 function imagealphablending ($image, $blendmode) {}
 
 /**
- * (PHP 4 &gt;= 4.3.2, PHP 5)<br/>
+ * @since 4.3.2
+ * @since 5.0
  * Set the flag to save full alpha channel information (as opposed to single-color transparency) when saving PNG images
  * @link http://php.net/manual/en/function.imagesavealpha.php
  * @param resource $image 
@@ -662,7 +693,8 @@ function imagealphablending ($image, $blendmode) {}
 function imagesavealpha ($image, $saveflag) {}
 
 /**
- * (PHP 4 &gt;= 4.3.2, PHP 5)<br/>
+ * @since 4.3.2
+ * @since 5.0
  * Allocate a color for an image
  * @link http://php.net/manual/en/function.imagecolorallocatealpha.php
  * @param resource $image 
@@ -685,7 +717,8 @@ function imagesavealpha ($image, $saveflag) {}
 function imagecolorallocatealpha ($image, $red, $green, $blue, $alpha) {}
 
 /**
- * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
+ * @since 4.0.6
+ * @since 5.0
  * Get the index of the specified color + alpha or its closest possible alternative
  * @link http://php.net/manual/en/function.imagecolorresolvealpha.php
  * @param resource $image 
@@ -708,7 +741,8 @@ function imagecolorallocatealpha ($image, $red, $green, $blue, $alpha) {}
 function imagecolorresolvealpha ($image, $red, $green, $blue, $alpha) {}
 
 /**
- * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
+ * @since 4.0.6
+ * @since 5.0
  * Get the index of the closest color to the specified color + alpha
  * @link http://php.net/manual/en/function.imagecolorclosestalpha.php
  * @param resource $image 
@@ -731,7 +765,8 @@ function imagecolorresolvealpha ($image, $red, $green, $blue, $alpha) {}
 function imagecolorclosestalpha ($image, $red, $green, $blue, $alpha) {}
 
 /**
- * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
+ * @since 4.0.6
+ * @since 5.0
  * Get the index of the specified color + alpha
  * @link http://php.net/manual/en/function.imagecolorexactalpha.php
  * @param resource $image 
@@ -755,7 +790,8 @@ function imagecolorclosestalpha ($image, $red, $green, $blue, $alpha) {}
 function imagecolorexactalpha ($image, $red, $green, $blue, $alpha) {}
 
 /**
- * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
+ * @since 4.0.6
+ * @since 5.0
  * Copy and resize part of an image with resampling
  * @link http://php.net/manual/en/function.imagecopyresampled.php
  * @param resource $dst_image 
@@ -789,7 +825,8 @@ function imagecolorexactalpha ($image, $red, $green, $blue, $alpha) {}
 function imagecopyresampled ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Rotate an image with a given angle
  * @link http://php.net/manual/en/function.imagerotate.php
  * @param resource $image 
@@ -807,7 +844,8 @@ function imagecopyresampled ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $sr
 function imagerotate ($image, $angle, $bgd_color, $ignore_transparent = null) {}
 
 /**
- * (PHP 4 &gt;= 4.3.2, PHP 5)<br/>
+ * @since 4.3.2
+ * @since 5.0
  * Should antialias functions be used or not
  * @link http://php.net/manual/en/function.imageantialias.php
  * @param resource $image 
@@ -819,7 +857,8 @@ function imagerotate ($image, $angle, $bgd_color, $ignore_transparent = null) {}
 function imageantialias ($image, $enabled) {}
 
 /**
- * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
+ * @since 4.0.6
+ * @since 5.0
  * Set the tile image for filling
  * @link http://php.net/manual/en/function.imagesettile.php
  * @param resource $image 
@@ -831,7 +870,8 @@ function imageantialias ($image, $enabled) {}
 function imagesettile ($image, $tile) {}
 
 /**
- * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
+ * @since 4.0.6
+ * @since 5.0
  * Set the brush image for line drawing
  * @link http://php.net/manual/en/function.imagesetbrush.php
  * @param resource $image 
@@ -843,7 +883,8 @@ function imagesettile ($image, $tile) {}
 function imagesetbrush ($image, $brush) {}
 
 /**
- * (PHP 4 &gt;= 4.0.6, PHP 5)<br/>
+ * @since 4.0.6
+ * @since 5.0
  * Set the style for line drawing
  * @link http://php.net/manual/en/function.imagesetstyle.php
  * @param resource $image 
@@ -857,7 +898,8 @@ function imagesetbrush ($image, $brush) {}
 function imagesetstyle ($image, $stylearray ) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Create a new image from file or URL
  * @link http://php.net/manual/en/function.imagecreatefrompng.php
  * @param string $filename <p>
@@ -868,7 +910,8 @@ function imagesetstyle ($image, $stylearray ) {}
 function imagecreatefrompng ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Create a new image from file or URL
  * @link http://php.net/manual/en/function.imagecreatefromgif.php
  * @param string $filename <p>
@@ -879,7 +922,8 @@ function imagecreatefrompng ($filename) {}
 function imagecreatefromgif ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Create a new image from file or URL
  * @link http://php.net/manual/en/function.imagecreatefromjpeg.php
  * @param string $filename <p>
@@ -890,7 +934,8 @@ function imagecreatefromgif ($filename) {}
 function imagecreatefromjpeg ($filename) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Create a new image from file or URL
  * @link http://php.net/manual/en/function.imagecreatefromwbmp.php
  * @param string $filename <p>
@@ -901,7 +946,8 @@ function imagecreatefromjpeg ($filename) {}
 function imagecreatefromwbmp ($filename) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Create a new image from file or URL
  * @link http://php.net/manual/en/function.imagecreatefromxbm.php
  * @param string $filename <p>
@@ -912,7 +958,8 @@ function imagecreatefromwbmp ($filename) {}
 function imagecreatefromxbm ($filename) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Create a new image from file or URL
  * @link http://php.net/manual/en/function.imagecreatefromxpm.php
  * @param string $filename <p>
@@ -923,7 +970,8 @@ function imagecreatefromxbm ($filename) {}
 function imagecreatefromxpm ($filename) {}
 
 /**
- * (PHP 4 &gt;= 4.0.7, PHP 5)<br/>
+ * @since 4.0.7
+ * @since 5.0
  * Create a new image from GD file or URL
  * @link http://php.net/manual/en/function.imagecreatefromgd.php
  * @param string $filename <p>
@@ -934,7 +982,8 @@ function imagecreatefromxpm ($filename) {}
 function imagecreatefromgd ($filename) {}
 
 /**
- * (PHP 4 &gt;= 4.0.7, PHP 5)<br/>
+ * @since 4.0.7
+ * @since 5.0
  * Create a new image from GD2 file or URL
  * @link http://php.net/manual/en/function.imagecreatefromgd2.php
  * @param string $filename <p>
@@ -945,7 +994,8 @@ function imagecreatefromgd ($filename) {}
 function imagecreatefromgd2 ($filename) {}
 
 /**
- * (PHP 4 &gt;= 4.0.7, PHP 5)<br/>
+ * @since 4.0.7
+ * @since 5.0
  * Create a new image from a given part of GD2 file or URL
  * @link http://php.net/manual/en/function.imagecreatefromgd2part.php
  * @param string $filename <p>
@@ -968,7 +1018,8 @@ function imagecreatefromgd2 ($filename) {}
 function imagecreatefromgd2part ($filename, $srcX, $srcY, $width, $height) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Output a PNG image to either the browser or a file
  * @link http://php.net/manual/en/function.imagepng.php
  * @param resource $image 
@@ -995,7 +1046,8 @@ function imagecreatefromgd2part ($filename, $srcX, $srcY, $width, $height) {}
 function imagepng ($image, $filename = null, $quality = null, $filters = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Output image to browser or file
  * @link http://php.net/manual/en/function.imagegif.php
  * @param resource $image 
@@ -1008,7 +1060,8 @@ function imagepng ($image, $filename = null, $quality = null, $filters = null) {
 function imagegif ($image, $filename = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Output image to browser or file
  * @link http://php.net/manual/en/function.imagejpeg.php
  * @param resource $image 
@@ -1030,7 +1083,8 @@ function imagegif ($image, $filename = null) {}
 function imagejpeg ($image, $filename = null, $quality = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Output image to browser or file
  * @link http://php.net/manual/en/function.imagewbmp.php
  * @param resource $image 
@@ -1048,7 +1102,8 @@ function imagejpeg ($image, $filename = null, $quality = null) {}
 function imagewbmp ($image, $filename = null, $foreground = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.7, PHP 5)<br/>
+ * @since 4.0.7
+ * @since 5.0
  * Output GD image to browser or file
  * @link http://php.net/manual/en/function.imagegd.php
  * @param resource $image 
@@ -1061,7 +1116,8 @@ function imagewbmp ($image, $filename = null, $foreground = null) {}
 function imagegd ($image, $filename = null) {}
 
 /**
- * (PHP 4 &gt;= 4.0.7, PHP 5)<br/>
+ * @since 4.0.7
+ * @since 5.0
  * Output GD2 image to browser or file
  * @link http://php.net/manual/en/function.imagegd2.php
  * @param resource $image 
@@ -1082,7 +1138,8 @@ function imagegd ($image, $filename = null) {}
 function imagegd2 ($image, $filename = null, $chunk_size = null, $type = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Destroy an image
  * @link http://php.net/manual/en/function.imagedestroy.php
  * @param resource $image 
@@ -1091,7 +1148,8 @@ function imagegd2 ($image, $filename = null, $chunk_size = null, $type = null) {
 function imagedestroy ($image) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Apply a gamma correction to a GD image
  * @link http://php.net/manual/en/function.imagegammacorrect.php
  * @param resource $image 
@@ -1106,7 +1164,8 @@ function imagedestroy ($image) {}
 function imagegammacorrect ($image, $inputgamma, $outputgamma) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Flood fill
  * @link http://php.net/manual/en/function.imagefill.php
  * @param resource $image 
@@ -1125,7 +1184,8 @@ function imagegammacorrect ($image, $inputgamma, $outputgamma) {}
 function imagefill ($image, $x, $y, $color) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Draw a filled polygon
  * @link http://php.net/manual/en/function.imagefilledpolygon.php
  * @param resource $image 
@@ -1145,7 +1205,8 @@ function imagefill ($image, $x, $y, $color) {}
 function imagefilledpolygon ($image, array $points, $num_points, $color) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Draw a filled rectangle
  * @link http://php.net/manual/en/function.imagefilledrectangle.php
  * @param resource $image 
@@ -1170,7 +1231,8 @@ function imagefilledpolygon ($image, array $points, $num_points, $color) {}
 function imagefilledrectangle ($image, $x1, $y1, $x2, $y2, $color) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Flood fill to specific color
  * @link http://php.net/manual/en/function.imagefilltoborder.php
  * @param resource $image 
@@ -1193,7 +1255,8 @@ function imagefilledrectangle ($image, $x1, $y1, $x2, $y2, $color) {}
 function imagefilltoborder ($image, $x, $y, $border, $color) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get font width
  * @link http://php.net/manual/en/function.imagefontwidth.php
  * @param int $font 
@@ -1202,7 +1265,8 @@ function imagefilltoborder ($image, $x, $y, $border, $color) {}
 function imagefontwidth ($font) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get font height
  * @link http://php.net/manual/en/function.imagefontheight.php
  * @param int $font 
@@ -1211,7 +1275,8 @@ function imagefontwidth ($font) {}
 function imagefontheight ($font) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Enable or disable interlace
  * @link http://php.net/manual/en/function.imageinterlace.php
  * @param resource $image 
@@ -1224,7 +1289,8 @@ function imagefontheight ($font) {}
 function imageinterlace ($image, $interlace = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Draw a line
  * @link http://php.net/manual/en/function.imageline.php
  * @param resource $image 
@@ -1249,7 +1315,8 @@ function imageinterlace ($image, $interlace = null) {}
 function imageline ($image, $x1, $y1, $x2, $y2, $color) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Load a new font
  * @link http://php.net/manual/en/function.imageloadfont.php
  * @param string $file <p>
@@ -1303,7 +1370,8 @@ function imageline ($image, $x1, $y1, $x2, $y2, $color) {}
 function imageloadfont ($file) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Draws a polygon
  * @link http://php.net/manual/en/function.imagepolygon.php
  * @param resource $image 
@@ -1338,7 +1406,8 @@ function imageloadfont ($file) {}
 function imagepolygon ($image, array $points, $num_points, $color) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Draw a rectangle
  * @link http://php.net/manual/en/function.imagerectangle.php
  * @param resource $image 
@@ -1364,7 +1433,8 @@ function imagepolygon ($image, array $points, $num_points, $color) {}
 function imagerectangle ($image, $x1, $y1, $x2, $y2, $color) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Set a single pixel
  * @link http://php.net/manual/en/function.imagesetpixel.php
  * @param resource $image 
@@ -1383,7 +1453,8 @@ function imagerectangle ($image, $x1, $y1, $x2, $y2, $color) {}
 function imagesetpixel ($image, $x, $y, $color) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Draw a string horizontally
  * @link http://php.net/manual/en/function.imagestring.php
  * @param resource $image 
@@ -1406,7 +1477,8 @@ function imagesetpixel ($image, $x, $y, $color) {}
 function imagestring ($image, $font, $x, $y, $string, $color) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Draw a string vertically
  * @link http://php.net/manual/en/function.imagestringup.php
  * @param resource $image 
@@ -1429,7 +1501,8 @@ function imagestring ($image, $font, $x, $y, $string, $color) {}
 function imagestringup ($image, $font, $x, $y, $string, $color) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get image width
  * @link http://php.net/manual/en/function.imagesx.php
  * @param resource $image 
@@ -1439,7 +1512,8 @@ function imagestringup ($image, $font, $x, $y, $string, $color) {}
 function imagesx ($image) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get image height
  * @link http://php.net/manual/en/function.imagesy.php
  * @param resource $image 
@@ -1449,7 +1523,8 @@ function imagesx ($image) {}
 function imagesy ($image) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Draw a dashed line
  * @link http://php.net/manual/en/function.imagedashedline.php
  * @param resource $image 
@@ -1474,7 +1549,8 @@ function imagesy ($image) {}
 function imagedashedline ($image, $x1, $y1, $x2, $y2, $color) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Give the bounding box of a text using TrueType fonts
  * @link http://php.net/manual/en/function.imagettfbbox.php
  * @param float $size <p>
@@ -1541,7 +1617,8 @@ function imagedashedline ($image, $x1, $y1, $x2, $y2, $color) {}
 function imagettfbbox ($size, $angle, $fontfile, $text) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Write text to the image using TrueType fonts
  * @link http://php.net/manual/en/function.imagettftext.php
  * @param resource $image 
@@ -1622,7 +1699,8 @@ function imagettfbbox ($size, $angle, $fontfile, $text) {}
 function imagettftext ($image, $size, $angle, $x, $y, $color, $fontfile, $text) {}
 
 /**
- * (PHP 4 &gt;= 4.0.7, PHP 5)<br/>
+ * @since 4.0.7
+ * @since 5.0
  * Give the bounding box of a text using fonts via freetype2
  * @link http://php.net/manual/en/function.imageftbbox.php
  * @param float $size <p>
@@ -1701,7 +1779,8 @@ function imagettftext ($image, $size, $angle, $x, $y, $color, $fontfile, $text) 
 function imageftbbox ($size, $angle, $fontfile, $text, $extrainfo = null ) {}
 
 /**
- * (PHP 4 &gt;= 4.0.7, PHP 5)<br/>
+ * @since 4.0.7
+ * @since 5.0
  * Write text to the image using fonts using FreeType 2
  * @link http://php.net/manual/en/function.imagefttext.php
  * @param resource $image 
@@ -1807,7 +1886,8 @@ function imageftbbox ($size, $angle, $fontfile, $text, $extrainfo = null ) {}
 function imagefttext ($image, $size, $angle, $x, $y, $color, $fontfile, $text, $extrainfo = null ) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Load a PostScript Type 1 font from file
  * @link http://php.net/manual/en/function.imagepsloadfont.php
  * @param string $filename <p>
@@ -1819,7 +1899,8 @@ function imagefttext ($image, $size, $angle, $x, $y, $color, $fontfile, $text, $
 function imagepsloadfont ($filename) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Free memory used by a PostScript Type 1 font
  * @link http://php.net/manual/en/function.imagepsfreefont.php
  * @param resource $font_index <p>
@@ -1830,7 +1911,8 @@ function imagepsloadfont ($filename) {}
 function imagepsfreefont ($font_index) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Change the character encoding vector of a font
  * @link http://php.net/manual/en/function.imagepsencodefont.php
  * @param resource $font_index <p>
@@ -1847,7 +1929,8 @@ function imagepsfreefont ($font_index) {}
 function imagepsencodefont ($font_index, $encodingfile) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Extend or condense a font
  * @link http://php.net/manual/en/function.imagepsextendfont.php
  * @param resource $font_index <p>
@@ -1861,7 +1944,8 @@ function imagepsencodefont ($font_index, $encodingfile) {}
 function imagepsextendfont ($font_index, $extend) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Slant a font
  * @link http://php.net/manual/en/function.imagepsslantfont.php
  * @param resource $font_index <p>
@@ -1875,7 +1959,8 @@ function imagepsextendfont ($font_index, $extend) {}
 function imagepsslantfont ($font_index, $slant) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Draws a text over an image using PostScript Type1 fonts
  * @link http://php.net/manual/en/function.imagepstext.php
  * @param resource $image 
@@ -1947,7 +2032,8 @@ function imagepsslantfont ($font_index, $slant) {}
 function imagepstext ($image, $text, $font_index, $size, $foreground, $background, $x, $y, $space = null, $tightness = null, $angle = null, $antialias_steps = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Give the bounding box of a text rectangle using PostScript Type1 fonts
  * @link http://php.net/manual/en/function.imagepsbbox.php
  * @param string $text <p>
@@ -1978,7 +2064,8 @@ function imagepstext ($image, $text, $font_index, $size, $foreground, $backgroun
 function imagepsbbox ($text, $font, $size) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Return the image types supported by this PHP build
  * @link http://php.net/manual/en/function.imagetypes.php
  * @return int a bit-field corresponding to the image formats supported by the
@@ -1990,7 +2077,8 @@ function imagepsbbox ($text, $font, $size) {}
 function imagetypes () {}
 
 /**
- * (PHP 4 &gt;= 4.0.5, PHP 5)<br/>
+ * @since 4.0.5
+ * @since 5.0
  * Convert JPEG image file to WBMP image file
  * @link http://php.net/manual/en/function.jpeg2wbmp.php
  * @param string $jpegname <p>
@@ -2013,7 +2101,8 @@ function imagetypes () {}
 function jpeg2wbmp ($jpegname, $wbmpname, $dest_height, $dest_width, $threshold) {}
 
 /**
- * (PHP 4 &gt;= 4.0.5, PHP 5)<br/>
+ * @since 4.0.5
+ * @since 5.0
  * Convert PNG image file to WBMP image file
  * @link http://php.net/manual/en/function.png2wbmp.php
  * @param string $pngname <p>
@@ -2036,7 +2125,8 @@ function jpeg2wbmp ($jpegname, $wbmpname, $dest_height, $dest_width, $threshold)
 function png2wbmp ($pngname, $wbmpname, $dest_height, $dest_width, $threshold) {}
 
 /**
- * (PHP 4 &gt;= 4.0.5, PHP 5)<br/>
+ * @since 4.0.5
+ * @since 5.0
  * Output image to browser or file
  * @link http://php.net/manual/en/function.image2wbmp.php
  * @param resource $image 
@@ -2052,7 +2142,8 @@ function png2wbmp ($pngname, $wbmpname, $dest_height, $dest_width, $threshold) {
 function image2wbmp ($image, $filename = null, $threshold = null) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Set the alpha blending flag to use the bundled libgd layering effects
  * @link http://php.net/manual/en/function.imagelayereffect.php
  * @param resource $image 
@@ -2119,7 +2210,7 @@ function imagexbm ($image, $filename, $foreground = null) {}
 function imagefilter ($image, $filtertype, $arg1 = null, $arg2 = null, $arg3 = null, $arg4 = null) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Apply a 3x3 convolution matrix, using coefficient and offset
  * @link http://php.net/manual/en/function.imageconvolution.php
  * @param resource $image 
@@ -2443,212 +2534,212 @@ define ('PNG_FILTER_PAETH', 128);
 define ('PNG_ALL_FILTERS', 248);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  */
 define('IMG_AFFINE_TRANSLATE',0);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  */
 define('IMG_AFFINE_SCALE',1);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  */
 define('IMG_AFFINE_ROTATE',2);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  */
 define('IMG_AFFINE_SHEAR_HORIZONTAL',3);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  */
 define('IMG_AFFINE_SHEAR_VERTICAL',4);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  */
 define('IMG_CROP_DEFAULT',0);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  */
 define('IMG_CROP_TRANSPARENT',1);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  */
 define('IMG_CROP_BLACK',2);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  */
 define('IMG_CROP_WHITE',3);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  */
 define('IMG_CROP_SIDES',4);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  */
 define('IMG_FLIP_BOTH',3);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  */
 define('IMG_FLIP_HORIZONTAL',1);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  */
 define('IMG_FLIP_VERTICAL',2);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_BELL', 1);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_BESSEL', 2);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_BICUBIC', 4);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_BICUBIC_FIXED', 5);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_BILINEAR_FIXED', 3);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_BLACKMAN', 6);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_BOX', 7);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_BSPLINE', 8);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_CATMULLROM', 9);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_GAUSSIAN', 10);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_GENERALIZED_CUBIC', 11);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_HERMITE', 12);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_HAMMING', 13);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_HANNING', 14);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_MITCHELL', 15);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_POWER', 17);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_QUADRATIC', 18);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_SINC', 19);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_NEAREST_NEIGHBOUR', 16);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */
 define('IMG_WEIGHTED4', 21);
 
 /**
- * (PHP 5 &gt;= 5.5.0)<br/>
+ * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
  */

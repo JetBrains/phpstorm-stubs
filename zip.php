@@ -386,7 +386,7 @@ class ZipArchive  {
 	public function close () {}
 
 	/**
-	 * (PHP 5 &gt;= 5.2.7)<br/>
+	 * @since 5.2.7
 	 * Returns the status error message, system and/or zip messages
 	 * @link http://php.net/manual/en/ziparchive.getstatusstring.php
 	 * @return string a string with the status message on success or <b>FALSE</b> on failure.

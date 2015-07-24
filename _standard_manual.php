@@ -28,7 +28,7 @@ define("__COMPILER_HALT_OFFSET__",0);
 
 
 /**
- * PHP >= 5.4.0<br/>
+ * @since 5.4.0
  * Convert hex to binary
  * @link http://php.net/manual/en/function.hex2bin.php
  * @param string $data

@@ -3,7 +3,8 @@
 // Start of gmp v.
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Create GMP number
  * @link http://php.net/manual/en/function.gmp-init.php
  * @param mixed $number <p>
@@ -25,7 +26,8 @@
 function gmp_init ($number, $base = 0) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Convert GMP number to integer
  * @link http://php.net/manual/en/function.gmp-intval.php
  * @param resource $gmpnumber <p>
@@ -36,7 +38,8 @@ function gmp_init ($number, $base = 0) {}
 function gmp_intval ($gmpnumber) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Convert GMP number to string
  * @link http://php.net/manual/en/function.gmp-strval.php
  * @param resource|string $gmpnumber <p>
@@ -53,7 +56,8 @@ function gmp_intval ($gmpnumber) {}
 function gmp_strval ($gmpnumber, $base = 10) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Add numbers
  * @link http://php.net/manual/en/function.gmp-add.php
  * @param resource|string $a <p>
@@ -71,7 +75,8 @@ function gmp_strval ($gmpnumber, $base = 10) {}
 function gmp_add ($a, $b) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Subtract numbers
  * @link http://php.net/manual/en/function.gmp-sub.php
  * @param resource|string $a <p>
@@ -89,7 +94,8 @@ function gmp_add ($a, $b) {}
 function gmp_sub ($a, $b) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Multiply numbers
  * @link http://php.net/manual/en/function.gmp-mul.php
  * @param resource|string $a <p>
@@ -107,7 +113,8 @@ function gmp_sub ($a, $b) {}
 function gmp_mul ($a, $b) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Divide numbers and get quotient and remainder
  * @link http://php.net/manual/en/function.gmp-div-qr.php
  * @param resource|string $n <p>
@@ -132,7 +139,8 @@ function gmp_mul ($a, $b) {}
 function gmp_div_qr ($n, $d, $round = GMP_ROUND_ZERO) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Divide numbers
  * @link http://php.net/manual/en/function.gmp-div-q.php
  * @param resource|string $a <p>
@@ -156,7 +164,8 @@ function gmp_div_qr ($n, $d, $round = GMP_ROUND_ZERO) {}
 function gmp_div_q ($a, $b, $round = GMP_ROUND_ZERO) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Remainder of the division of numbers
  * @link http://php.net/manual/en/function.gmp-div-r.php
  * @param resource|string $n <p>
@@ -178,7 +187,8 @@ function gmp_div_q ($a, $b, $round = GMP_ROUND_ZERO) {}
 function gmp_div_r ($n, $d, $round = GMP_ROUND_ZERO) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Divide numbers
  * @link http://php.net/manual/en/function.gmp-div-q.php
  * @param resource|string|GMP $a <p>
@@ -202,7 +212,8 @@ function gmp_div_r ($n, $d, $round = GMP_ROUND_ZERO) {}
 function gmp_div ($a, $b, $round = GMP_ROUND_ZERO) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Modulo operation
  * @link http://php.net/manual/en/function.gmp-mod.php
  * @param resource|string $n It can be either a GMP number resource, or a
@@ -217,7 +228,8 @@ function gmp_div ($a, $b, $round = GMP_ROUND_ZERO) {}
 function gmp_mod ($n, $d) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Exact division of numbers
  * @link http://php.net/manual/en/function.gmp-divexact.php
  * @param resource|string|GMP $n <p>
@@ -235,7 +247,8 @@ function gmp_mod ($n, $d) {}
 function gmp_divexact ($n, $d) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Negate number
  * @link http://php.net/manual/en/function.gmp-neg.php
  * @param resource|string $a It can be either a GMP number resource, or a
@@ -245,7 +258,8 @@ function gmp_divexact ($n, $d) {}
 function gmp_neg ($a) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Absolute value
  * @link http://php.net/manual/en/function.gmp-abs.php
  * @param resource|string $a It can be either a GMP number resource, or a
@@ -255,7 +269,8 @@ function gmp_neg ($a) {}
 function gmp_abs ($a) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Factorial
  * @link http://php.net/manual/en/function.gmp-fact.php
  * @param resource|string $a <p>
@@ -268,7 +283,8 @@ function gmp_abs ($a) {}
 function gmp_fact ($a) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Calculate square root
  * @link http://php.net/manual/en/function.gmp-sqrt.php
  * @param resource|string $a It can be either a GMP number resource, or a
@@ -278,7 +294,8 @@ function gmp_fact ($a) {}
 function gmp_sqrt ($a) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Square root with remainder
  * @link http://php.net/manual/en/function.gmp-sqrtrem.php
  * @param resource|string $a <p>
@@ -294,7 +311,8 @@ function gmp_sqrt ($a) {}
 function gmp_sqrtrem ($a) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Raise number into power
  * @link http://php.net/manual/en/function.gmp-pow.php
  * @param resource|string $base <p>
@@ -311,7 +329,8 @@ function gmp_sqrtrem ($a) {}
 function gmp_pow ($base, $exp) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Raise number into power with modulo
  * @link http://php.net/manual/en/function.gmp-powm.php
  * @param resource|string $base <p>
@@ -334,7 +353,8 @@ function gmp_pow ($base, $exp) {}
 function gmp_powm ($base, $exp, $mod) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Perfect square check
  * @link http://php.net/manual/en/function.gmp-perfect-square.php
  * @param resource|string $a <p>
@@ -348,7 +368,8 @@ function gmp_powm ($base, $exp, $mod) {}
 function gmp_perfect_square ($a) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Check if number is "probably prime"
  * @link http://php.net/manual/en/function.gmp-prob-prime.php
  * @param resource|string $a <p>
@@ -372,7 +393,8 @@ function gmp_perfect_square ($a) {}
 function gmp_prob_prime ($a, $reps = 10) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Calculate GCD
  * @link http://php.net/manual/en/function.gmp-gcd.php
  * @param resource|string $a It can be either a GMP number resource, or a
@@ -385,7 +407,8 @@ function gmp_prob_prime ($a, $reps = 10) {}
 function gmp_gcd ($a, $b) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Calculate GCD and multipliers
  * @link http://php.net/manual/en/function.gmp-gcdext.php
  * @param resource|string $a It can be either a GMP number resource, or a
@@ -397,7 +420,8 @@ function gmp_gcd ($a, $b) {}
 function gmp_gcdext ($a, $b) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Inverse by modulo
  * @link http://php.net/manual/en/function.gmp-invert.php
  * @param resource|string $a It can be either a GMP number resource, or a
@@ -409,7 +433,8 @@ function gmp_gcdext ($a, $b) {}
 function gmp_invert ($a, $b) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Jacobi symbol
  * @link http://php.net/manual/en/function.gmp-jacobi.php
  * @param resource|string $a It can be either a GMP number resource, or a
@@ -424,7 +449,8 @@ function gmp_invert ($a, $b) {}
 function gmp_jacobi ($a, $p) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Legendre symbol
  * @link http://php.net/manual/en/function.gmp-legendre.php
  * @param resource|string $a It can be either a GMP number resource, or a
@@ -439,7 +465,8 @@ function gmp_jacobi ($a, $p) {}
 function gmp_legendre ($a, $p) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Compare numbers
  * @link http://php.net/manual/en/function.gmp-cmp.php
  * @param resource|string $a It can be either a GMP number resource, or a
@@ -453,7 +480,8 @@ function gmp_legendre ($a, $p) {}
 function gmp_cmp ($a, $b) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Sign of number
  * @link http://php.net/manual/en/function.gmp-sign.php
  * @param resource|string $a It can be either a GMP number resource, or a
@@ -465,7 +493,8 @@ function gmp_cmp ($a, $b) {}
 function gmp_sign ($a) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Random number
  * @link http://php.net/manual/en/function.gmp-random.php
  * @param int $limiter [optional] <p>
@@ -478,7 +507,8 @@ function gmp_sign ($a) {}
 function gmp_random ($limiter = 20) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Bitwise AND
  * @link http://php.net/manual/en/function.gmp-and.php
  * @param resource|string $a It can be either a GMP number resource, or a
@@ -490,7 +520,8 @@ function gmp_random ($limiter = 20) {}
 function gmp_and ($a, $b) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Bitwise OR
  * @link http://php.net/manual/en/function.gmp-or.php
  * @param resource|string $a It can be either a GMP number resource, or a
@@ -502,7 +533,8 @@ function gmp_and ($a, $b) {}
 function gmp_or ($a, $b) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Calculates one's complement
  * @link http://php.net/manual/en/function.gmp-com.php
  * @param resource|string $a It can be either a GMP number resource, or a
@@ -512,7 +544,8 @@ function gmp_or ($a, $b) {}
 function gmp_com ($a) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Bitwise XOR
  * @link http://php.net/manual/en/function.gmp-xor.php
  * @param resource|string $a It can be either a GMP number resource, or a
@@ -524,7 +557,8 @@ function gmp_com ($a) {}
 function gmp_xor ($a, $b) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Set bit
  * @link http://php.net/manual/en/function.gmp-setbit.php
  * @param resource|string $a <p>
@@ -544,7 +578,8 @@ function gmp_xor ($a, $b) {}
 function gmp_setbit (&$a, $index, $set_clear = true) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Clear bit
  * @link http://php.net/manual/en/function.gmp-clrbit.php
  * @param resource|string|GMP $a It can be either a GMP number resource, or a
@@ -556,7 +591,8 @@ function gmp_setbit (&$a, $index, $set_clear = true) {}
 function gmp_clrbit (&$a, $index) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Scan for 0
  * @link http://php.net/manual/en/function.gmp-scan0.php
  * @param resource|string $a <p>
@@ -573,7 +609,8 @@ function gmp_clrbit (&$a, $index) {}
 function gmp_scan0 ($a, $start) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Scan for 1
  * @link http://php.net/manual/en/function.gmp-scan1.php
  * @param resource|string $a <p>
@@ -590,7 +627,7 @@ function gmp_scan0 ($a, $start) {}
 function gmp_scan1 ($a, $start) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Tests if a bit is set
  * @link http://php.net/manual/en/function.gmp-testbit.php
  * @param resource|string|GMP $a It can be either a GMP number resource, or a
@@ -603,7 +640,8 @@ function gmp_scan1 ($a, $start) {}
 function gmp_testbit ($a, $index) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Population count
  * @link http://php.net/manual/en/function.gmp-popcount.php
  * @param resource|string $a It can be either a GMP number resource, or a
@@ -613,7 +651,8 @@ function gmp_testbit ($a, $index) {}
 function gmp_popcount ($a) {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Hamming distance
  * @link http://php.net/manual/en/function.gmp-hamdist.php
  * @param resource|string|GMP $a It can be either a GMP number resource, or a
@@ -631,7 +670,7 @@ function gmp_popcount ($a) {}
 function gmp_hamdist ($a, $b) {}
 
 /**
- * (PHP 5 &gt;= 5.2.0)<br/>
+ * @since 5.2.0
  * Find next prime number
  * @link http://php.net/manual/en/function.gmp-nextprime.php
  * @param resource|string $a It can be either a GMP number resource, or a
@@ -654,7 +693,7 @@ define ('GMP_VERSION', "");
 class GMP implements Serializable {
 
     /**
-     * (PHP 5 &gt;= 5.1.0)<br/>
+     * @since 5.1.0
      * String representation of object
      * @link http://php.net/manual/en/serializable.serialize.php
      * @return string the string representation of the object or null
@@ -662,7 +701,7 @@ class GMP implements Serializable {
     public function serialize() {}
 
     /**
-     * (PHP 5 &gt;= 5.1.0)<br/>
+     * @since 5.1.0
      * Constructs the object
      * @link http://php.net/manual/en/serializable.unserialize.php
      * @param string $serialized <p>

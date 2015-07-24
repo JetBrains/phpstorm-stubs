@@ -10,7 +10,8 @@
 function zend_version () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Returns the number of arguments passed to the function
  * @link http://php.net/manual/en/function.func-num-args.php
  * @return int the number of arguments passed into the current user-defined
@@ -19,7 +20,8 @@ function zend_version () {}
 function func_num_args () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return an item from the argument list
  * @link http://php.net/manual/en/function.func-get-arg.php
  * @param int $arg_num <p>
@@ -31,7 +33,8 @@ function func_num_args () {}
 function func_get_arg ($arg_num) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Returns an array comprising a function's argument list
  * @link http://php.net/manual/en/function.func-get-args.php
  * @return array an array in which each element is a copy of the corresponding
@@ -40,7 +43,8 @@ function func_get_arg ($arg_num) {}
 function func_get_args () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get string length
  * @link http://php.net/manual/en/function.strlen.php
  * @param string $string <p>
@@ -52,7 +56,8 @@ function func_get_args () {}
 function strlen ($string) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Binary safe string comparison
  * @link http://php.net/manual/en/function.strcmp.php
  * @param string $str1 <p>
@@ -69,7 +74,8 @@ function strlen ($string) {}
 function strcmp ($str1, $str2) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Binary safe string comparison of the first n characters
  * @link http://php.net/manual/en/function.strncmp.php
  * @param string $str1 <p>
@@ -89,7 +95,8 @@ function strcmp ($str1, $str2) {}
 function strncmp ($str1, $str2, $len) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Binary safe case-insensitive string comparison
  * @link http://php.net/manual/en/function.strcasecmp.php
  * @param string $str1 <p>
@@ -106,7 +113,8 @@ function strncmp ($str1, $str2, $len) {}
 function strcasecmp ($str1, $str2) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Binary safe case-insensitive string comparison of the first n characters
  * @link http://php.net/manual/en/function.strncasecmp.php
  * @param string $str1 <p>
@@ -125,7 +133,8 @@ function strcasecmp ($str1, $str2) {}
 function strncasecmp ($str1, $str2, $len) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return the current key and value pair from an array and advance the array cursor
  * @link http://php.net/manual/en/function.each.php
  * @param array $array <p>
@@ -147,7 +156,8 @@ function strncasecmp ($str1, $str2, $len) {}
 function each (array &$array) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Sets which PHP errors are reported
  * @link http://php.net/manual/en/function.error-reporting.php
  * @param int $level [optional] <p>
@@ -272,7 +282,8 @@ function each (array &$array) {}
 function error_reporting ($level = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Defines a named constant
  * @link http://php.net/manual/en/function.define.php
  * @param string $name <p>
@@ -299,7 +310,8 @@ function error_reporting ($level = null) {}
 function define ($name, $value, $case_insensitive = false) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Checks whether a given named constant exists
  * @link http://php.net/manual/en/function.defined.php
  * @param string $name <p>
@@ -311,7 +323,8 @@ function define ($name, $value, $case_insensitive = false) {}
 function defined ($name) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Returns the name of the class of an object
  * @link http://php.net/manual/en/function.get-class.php
  * @param object $object [optional] <p>
@@ -328,7 +341,7 @@ function defined ($name) {}
 function get_class ($object = null) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * the "Late Static Binding" class name
  * @link http://php.net/manual/en/function.get-called-class.php
  * @return string the class name. Returns false if called from outside a class.
@@ -336,7 +349,8 @@ function get_class ($object = null) {}
 function get_called_class () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Retrieves the parent class name for object or class
  * @link http://php.net/manual/en/function.get-parent-class.php
  * @param mixed $object [optional] <p>
@@ -354,7 +368,8 @@ function get_called_class () {}
 function get_parent_class ($object = null) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Checks if the class method exists
  * @link http://php.net/manual/en/function.method-exists.php
  * @param mixed $object <p>
@@ -370,7 +385,7 @@ function get_parent_class ($object = null) {}
 function method_exists ($object, $method_name) {}
 
 /**
- * (PHP 5 &gt;= 5.1.0)<br/>
+ * @since 5.1.0
  * Checks if the object or class has a property
  * @link http://php.net/manual/en/function.property-exists.php
  * @param mixed $class <p>
@@ -385,7 +400,7 @@ function method_exists ($object, $method_name) {}
 function property_exists ($class, $property) {}
 
 /**
- * (PHP 5 &gt;= 5.4.0)<br/>
+ * @since 5.4.0
  * Checks if the trait exists
  * @param string $traitname Name of the trait to check
  * @param bool $autoload [optional] Whether to autoload if not already loaded.
@@ -395,7 +410,8 @@ function property_exists ($class, $property) {}
 function trait_exists($traitname, $autoload ) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Checks if the class has been defined
  * @link http://php.net/manual/en/function.class-exists.php
  * @param string $class_name <p>
@@ -410,7 +426,7 @@ function trait_exists($traitname, $autoload ) {}
 function class_exists ($class_name, $autoload = true) {}
 
 /**
- * (PHP 5 &gt;= 5.0.2)<br/>
+ * @since 5.0.2
  * Checks if the interface has been defined
  * @link http://php.net/manual/en/function.interface-exists.php
  * @param string $interface_name <p>
@@ -425,7 +441,8 @@ function class_exists ($class_name, $autoload = true) {}
 function interface_exists ($interface_name, $autoload = true) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Return true if the given function has been defined
  * @link http://php.net/manual/en/function.function-exists.php
  * @param string $function_name <p>
@@ -441,7 +458,7 @@ function interface_exists ($interface_name, $autoload = true) {}
 function function_exists ($function_name) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Creates an alias for a class
  * @link http://php.net/manual/en/function.class-alias.php
  * @param string $original The original class.
@@ -452,7 +469,8 @@ function function_exists ($function_name) {}
 function class_alias ($original, $alias, $autoload = TRUE) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Returns an array with the names of included or required files
  * @link http://php.net/manual/en/function.get-included-files.php
  * @return string[] an array of the names of all files.
@@ -469,7 +487,8 @@ function class_alias ($original, $alias, $autoload = TRUE) {}
 function get_included_files () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Alias of <b>get_included_files</b>
  * @link http://php.net/manual/en/function.get-required-files.php
  * @return string[]
@@ -477,7 +496,8 @@ function get_included_files () {}
 function get_required_files () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Checks if the object has this class as one of its parents
  * @link http://php.net/manual/en/function.is-subclass-of.php
  * @param mixed $object <p>
@@ -497,7 +517,8 @@ function get_required_files () {}
 function is_subclass_of ($object, $class_name, $allow_string = TRUE) {}
 
 /**
- * (PHP 4 &gt;= 4.2.0, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Checks if the object is of this class or has this class as one of its parents
  * @link http://php.net/manual/en/function.is-a.php
  * @param object|string $object <p>
@@ -516,7 +537,8 @@ function is_subclass_of ($object, $class_name, $allow_string = TRUE) {}
 function is_a ($object, $class_name, $allow_string = FALSE) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Get the default properties of the class
  * @link http://php.net/manual/en/function.get-class-vars.php
  * @param string $class_name <p>
@@ -530,7 +552,8 @@ function is_a ($object, $class_name, $allow_string = FALSE) {}
 function get_class_vars ($class_name) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets the properties of the given object
  * @link http://php.net/manual/en/function.get-object-vars.php
  * @param object $object <p>
@@ -543,7 +566,8 @@ function get_class_vars ($class_name) {}
 function get_object_vars ($object) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Gets the class methods' names
  * @link http://php.net/manual/en/function.get-class-methods.php
  * @param mixed $class_name <p>
@@ -555,7 +579,8 @@ function get_object_vars ($object) {}
 function get_class_methods ($class_name) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Generates a user-level error/warning/notice message
  * @link http://php.net/manual/en/function.trigger-error.php
  * @param string $error_msg <p>
@@ -573,7 +598,8 @@ function get_class_methods ($class_name) {}
 function trigger_error ($error_msg, $error_type = E_USER_NOTICE) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Alias of <b>trigger_error</b>
  * @link http://php.net/manual/en/function.user-error.php
  * @param $message
@@ -582,7 +608,8 @@ function trigger_error ($error_msg, $error_type = E_USER_NOTICE) {}
 function user_error ($message, $error_type) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Sets a user-defined error handler function
  * @link http://php.net/manual/en/function.set-error-handler.php
  * @param callback $error_handler <p>
@@ -619,7 +646,8 @@ function user_error ($message, $error_type) {}
 function set_error_handler ($error_handler, $error_types = E_ALL | E_STRICT) {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Restores the previous error handler function
  * @link http://php.net/manual/en/function.restore-error-handler.php
  * @return bool This function always returns true.
@@ -627,7 +655,7 @@ function set_error_handler ($error_handler, $error_types = E_ALL | E_STRICT) {}
 function restore_error_handler () {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Sets a user-defined exception handler function
  * @link http://php.net/manual/en/function.set-exception-handler.php
  * @param callback $exception_handler <p>
@@ -643,7 +671,7 @@ function restore_error_handler () {}
 function set_exception_handler ($exception_handler) {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Restores the previously defined exception handler function
  * @link http://php.net/manual/en/function.restore-exception-handler.php
  * @return bool This function always returns true.
@@ -651,7 +679,8 @@ function set_exception_handler ($exception_handler) {}
 function restore_exception_handler () {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Returns an array with the name of the defined classes
  * @link http://php.net/manual/en/function.get-declared-classes.php
  * @return array an array of the names of the declared classes in the current
@@ -667,7 +696,7 @@ function restore_exception_handler () {}
 function get_declared_classes () {}
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Returns an array of all declared interfaces
  * @link http://php.net/manual/en/function.get-declared-interfaces.php
  * @return array an array of the names of the declared interfaces in the current
@@ -676,7 +705,7 @@ function get_declared_classes () {}
 function get_declared_interfaces () {}
 
 /**
- * (PHP 5 &gt;= 5.4.0)<br/>
+ * @since 5.4.0
  * Returns an array of all declared traits
  * @return array with names of all declared traits in values. Returns NULL in case of a failure.
  * @link http://www.php.net/manual/en/function.get-declared-traits.php
@@ -685,7 +714,8 @@ function get_declared_interfaces () {}
 function get_declared_traits() {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Returns an array of all defined functions
  * @link http://php.net/manual/en/function.get-defined-functions.php
  * @return array an multidimensional array containing a list of all defined
@@ -697,7 +727,8 @@ function get_declared_traits() {}
 function get_defined_functions () {}
 
 /**
- * (PHP 4 &gt;= 4.0.4, PHP 5)<br/>
+ * @since 4.0.4
+ * @since 5.0
  * Returns an array of all defined variables
  * @link http://php.net/manual/en/function.get-defined-vars.php
  * @return array A multidimensional array with all the variables.
@@ -705,7 +736,8 @@ function get_defined_functions () {}
 function get_defined_vars () {}
 
 /**
- * (PHP 4 &gt;= 4.0.1, PHP 5)<br/>
+ * @since 4.0.1
+ * @since 5.0
  * Create an anonymous (lambda-style) function
  * @link http://php.net/manual/en/function.create-function.php
  * @param string $args <p>
@@ -719,7 +751,8 @@ function get_defined_vars () {}
 function create_function ($args, $code) {}
 
 /**
- * (PHP 4 &gt;= 4.0.2, PHP 5)<br/>
+ * @since 4.0.2
+ * @since 5.0
  * Returns the resource type
  * @link http://php.net/manual/en/function.get-resource-type.php
  * @param resource $handle <p>
@@ -737,7 +770,8 @@ function create_function ($args, $code) {}
 function get_resource_type ($handle) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Returns an array with the names of all modules compiled and loaded
  * @link http://php.net/manual/en/function.get-loaded-extensions.php
  * @param bool $zend_extensions [optional] <p>
@@ -749,7 +783,8 @@ function get_resource_type ($handle) {}
 function get_loaded_extensions ($zend_extensions = false) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Find out whether an extension is loaded
  * @link http://php.net/manual/en/function.extension-loaded.php
  * @param string $name <p>
@@ -784,7 +819,8 @@ function get_loaded_extensions ($zend_extensions = false) {}
 function extension_loaded ($name) {}
 
 /**
- * (PHP 4, PHP 5)<br/>
+ * @since 4.0
+ * @since 5.0
  * Returns an array with the names of the functions of a module
  * @link http://php.net/manual/en/function.get-extension-funcs.php
  * @param string $module_name <p>
@@ -799,7 +835,8 @@ function extension_loaded ($name) {}
 function get_extension_funcs ($module_name) {}
 
 /**
- * (PHP 4 &gt;= 4.1.0, PHP 5)<br/>
+ * @since 4.1.0
+ * @since 5.0
  * Returns an associative array with the names of all the constants and their values
  * @link http://php.net/manual/en/function.get-defined-constants.php
  * @param bool $categorize [optional] <p>
@@ -852,7 +889,8 @@ function get_extension_funcs ($module_name) {}
 function get_defined_constants ($categorize = false) {}
 
 /**
- * (PHP 4 &gt;= 4.3.0, PHP 5)<br/>
+ * @since 4.3.0
+ * @since 5.0
  * Generates a backtrace
  * @link http://php.net/manual/en/function.debug-backtrace.php
  * @param int $options [optional] <p>
@@ -954,7 +992,7 @@ const DEBUG_BACKTRACE_PROVIDE_OBJECT = 0;
 const DEBUG_BACKTRACE_IGNORE_ARGS = 0;
 
 /**
- * (PHP 5)<br/>
+ * @since 5.0
  * Prints a backtrace
  * @link http://php.net/manual/en/function.debug-print-backtrace.php
  * @param int $options [optional] <p>
@@ -979,7 +1017,7 @@ const DEBUG_BACKTRACE_IGNORE_ARGS = 0;
 function debug_print_backtrace ($options = 0, $limit = 0) {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Forces collection of any existing garbage cycles
  * @link http://php.net/manual/en/function.gc-collect-cycles.php
  * @return int number of collected cycles.
@@ -987,7 +1025,7 @@ function debug_print_backtrace ($options = 0, $limit = 0) {}
 function gc_collect_cycles () {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Returns status of the circular reference collector
  * @link http://php.net/manual/en/function.gc-enabled.php
  * @return bool true if the garbage collector is enabled, false otherwise.
@@ -995,7 +1033,7 @@ function gc_collect_cycles () {}
 function gc_enabled () {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Activates the circular reference collector
  * @link http://php.net/manual/en/function.gc-enable.php
  * @return void 
@@ -1003,7 +1041,7 @@ function gc_enabled () {}
 function gc_enable () {}
 
 /**
- * (PHP 5 &gt;= 5.3.0)<br/>
+ * @since 5.3.0
  * Deactivates the circular reference collector
  * @link http://php.net/manual/en/function.gc-disable.php
  * @return void 
