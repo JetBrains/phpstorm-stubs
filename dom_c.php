@@ -1035,9 +1035,10 @@ class DOMDocument extends DOMNode  {
      * (PHP 5)<br/>
      * Dumps the internal document into a string using HTML formatting
      * @link http://php.net/manual/domdocument.savehtml.php
+     * @param DOMNode $node [optional] parameter to output a subset of the document.
      * @return string the HTML, or false if an error occurred.
      */
-    public function saveHTML () {}
+    public function saveHTML (DOMNode $node = NULL) {}
 
     /**
      * (PHP 5)<br/>
