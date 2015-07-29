@@ -551,9 +551,10 @@ function tidy_get_error_buffer () {}
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Execute configured cleanup and repair operations on parsed markup
  * @link http://php.net/manual/en/tidy.cleanrepair.php
+ * @param tidy $object The Tidy object.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function tidy_clean_repair () {}
+function tidy_clean_repair (tidy $object) {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.7.0)<br/>
