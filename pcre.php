@@ -94,6 +94,19 @@ function preg_match ($pattern, $subject, array &$matches = null, $flags = 0, $of
  * The input string.
  * </p>
  * @param array $matches [optional] <p>
+ * Array of all matches in multi-dimensional array ordered according to flags.
+ * </p>
+ * @param int $flags [optional] <p>
+ * Can be a combination of the following flags (note that it doesn't make
+ * sense to use <b>PREG_PATTERN_ORDER</b> together with
+ * <b>PREG_SET_ORDER</b>):
+ * <b>PREG_PATTERN_ORDER</b>
+ * <p>
+ * Orders results so that $matches[0] is an array of full
+ * pattern matches, $matches[1] is an array of strings matched by
+ * the first parenthesized subpattern, and so on.
+ * </p>
+ * @param int $offset [optional] <p>
  * Normally, the search starts from the beginning of the subject string.
  * The optional parameter <i>offset</i> can be used to
  * specify the alternate place from which to start the search (in bytes).
@@ -106,16 +119,6 @@ function preg_match ($pattern, $subject, array &$matches = null, $flags = 0, $of
  * ^, $ or
  * (?&lt;=x). See <b>preg_match</b>
  * for examples.
- * </p>
- * @param int $flags [optional] <p>
- * Can be a combination of the following flags (note that it doesn't make
- * sense to use <b>PREG_PATTERN_ORDER</b> together with
- * <b>PREG_SET_ORDER</b>):
- * <b>PREG_PATTERN_ORDER</b>
- * <p>
- * Orders results so that $matches[0] is an array of full
- * pattern matches, $matches[1] is an array of strings matched by
- * the first parenthesized subpattern, and so on.
  * </p>
  * <p>
  * <code>
