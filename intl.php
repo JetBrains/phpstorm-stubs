@@ -6376,5 +6376,24 @@ class IntlCodePointBreakIterator extends IntlBreakIterator implements Traversabl
     public function getLastCodePoint() { }
 }
 
+
+class IntlChar {
+    const PROPERTY_ALPHABETIC = _UCHAR_ALPHABETIC_;
+    const PROPERTY_ASCII_HEX_DIGIT = _UCHAR_ASCII_HEX_DIGIT_;
+
+    /**
+     * @param int $codepoint
+     * @param int $property
+     * @return bool
+     */
+    static public function hasBinaryProperty($codepoint, $property){}
+
+    /**
+     * (PHP 7)
+     * @param int $codepoint
+     * @return bool
+     */
+    static public function isAlphabetic($codepoint){}
+}
 // End of intl v.1.1.0
 ?>

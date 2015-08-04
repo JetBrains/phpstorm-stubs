@@ -164,12 +164,77 @@ interface Serializable {
     public function unserialize($serialized);
 }
 
+
+interface Throwable
+{
+
+    /**
+     * (PHP 7)
+     * Returns message
+     * @link http://php.net/manual/en/throwable.getmessage.php
+     * @return string
+     */
+    public function getMessage();
+
+    /**
+     * (PHP 7)
+     * Returns Code
+     * @link http://php.net/manual/en/throwable.getcode.php
+     * @return int
+     */
+    public function getCode();
+
+    /**
+     * (PHP 7)
+     * Returns File Name
+     * @link http://php.net/manual/en/throwable.getfile.php
+     * @return string
+     */
+    public function getFile();
+
+    /**
+     * (PHP 7)
+     * Returns Line Number
+     * @link http://php.net/manual/en/throwable.getline.php
+     * @return int
+     */
+    public function getLine();
+
+    /**
+     * (PHP 7)
+     * Returns Stack Trace
+     * @link http://php.net/manual/en/throwable.gettrace.php
+     * @return array
+     */
+    public function getTrace();
+
+    /**
+     * (PHP 7)
+     * @link http://php.net/manual/en/throwable.gettraceasstring.php
+     * @return string
+     */
+    public function getTraceAsString();
+
+    /**
+     * (PHP 7)
+     * @link http://php.net/manual/en/throwable.getprevious.php
+     * @return Throwable
+     */
+    public function getPrevious();
+
+    /**
+     * (PHP 7)
+     * @link http://php.net/manual/en/throwable.tostring.php
+     * @return string
+     */
+    public function __toString();
+}
 /**
  * Exception is the base class for
  * all Exceptions.
  * @link http://php.net/manual/en/class.exception.php
  */
-class Exception {
+class Exception implements Throwable {
     protected $message;
     protected $code;
     protected $file;
@@ -337,6 +402,17 @@ final class Closure {
      * @return Closure Returns the newly created Closure object or FALSE on failure
      */
     static function bind(Closure $closure, $newthis, $newscope = 'static') { }
+
+    /**
+     * (PHP 7)
+     * Calls the closure with the given parameters and returns the result, with $this bound to the given object $to
+     * @link http://php.net/manual/en/closure.call.php
+     * @param object $to
+     * @param mixed $parameters [optional]
+     * @return Closure
+     */
+    static function call ($to, $parameters) {}
+
 }
 
 ?>
