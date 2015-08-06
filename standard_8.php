@@ -2,8 +2,6 @@
 
 
 /**
- * @since 4.0
- * @since 5.0
  * Generate a system log message
  * @link http://php.net/manual/en/function.syslog.php
  * @param int $priority <p>
@@ -56,27 +54,29 @@
  * errno.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function syslog ($priority, $message) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Close connection to system logger
  * @link http://php.net/manual/en/function.closelog.php
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function closelog () {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Registers a function that will be called when PHP starts sending output.
  * The callback is executed just after PHP prepares all headers to be sent,<br>
  * and before any other output is sent, creating a window to manipulate the outgoing headers before being sent.
  * @link http://www.php.net/manual/en/function.header-register-callback.php
  * @param callable $callback Function called just before the headers are sent.
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function header_register_callback ( callable $callback ) {}
 
@@ -121,27 +121,25 @@ function stream_set_chunk_size ($fp , $chunk_size) {}
 function socket_import_stream ($stream) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Initializes all syslog related variables
  * @link http://php.net/manual/en/function.define-syslog-variables.php
  * @deprecated 5.3
  * @return void
+ * @since 4.0
+ * @since 5.0
  */
 function define_syslog_variables () {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Combined linear congruential generator
  * @link http://php.net/manual/en/function.lcg-value.php
  * @return float A pseudo random float value in the range of (0, 1)
+ * @since 4.0
+ * @since 5.0
  */
 function lcg_value () {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Calculate the metaphone key of a string
  * @link http://php.net/manual/en/function.metaphone.php
  * @param string $str <p>
@@ -150,12 +148,12 @@ function lcg_value () {}
  * @param int $phones [optional] <p>
  * </p>
  * @return string the metaphone key as a string.
+ * @since 4.0
+ * @since 5.0
  */
 function metaphone ($str, $phones = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Turn on output buffering
  * @link http://php.net/manual/en/function.ob-start.php
  * @param callback $output_callback [optional] <p>
@@ -220,91 +218,91 @@ function metaphone ($str, $phones = null) {}
  * and return false if called.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function ob_start ($output_callback = null, $chunk_size = null, $erase = null) {}
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Flush (send) the output buffer
  * @link http://php.net/manual/en/function.ob-flush.php
  * @return void 
+ * @since 4.2.0
+ * @since 5.0
  */
 function ob_flush () {}
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Clean (erase) the output buffer
  * @link http://php.net/manual/en/function.ob-clean.php
  * @return void 
+ * @since 4.2.0
+ * @since 5.0
  */
 function ob_clean () {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Flush (send) the output buffer and turn off output buffering
  * @link http://php.net/manual/en/function.ob-end-flush.php
  * @return bool true on success or false on failure. Reasons for failure are first that you called the
  * function without an active buffer or that for some reason a buffer could
  * not be deleted (possible for special buffer).
+ * @since 4.0
+ * @since 5.0
  */
 function ob_end_flush () {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Clean (erase) the output buffer and turn off output buffering
  * @link http://php.net/manual/en/function.ob-end-clean.php
  * @return bool true on success or false on failure. Reasons for failure are first that you called the
  * function without an active buffer or that for some reason a buffer could
  * not be deleted (possible for special buffer).
+ * @since 4.0
+ * @since 5.0
  */
 function ob_end_clean () {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Flush the output buffer, return it as a string and turn off output buffering
  * @link http://php.net/manual/en/function.ob-get-flush.php
  * @return string the output buffer or false if no buffering is active.
+ * @since 4.3.0
+ * @since 5.0
  */
 function ob_get_flush () {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Get current buffer contents and delete current output buffer
  * @link http://php.net/manual/en/function.ob-get-clean.php
  * @return string the contents of the output buffer and end output buffering.
  * If output buffering isn't active then false is returned.
+ * @since 4.3.0
+ * @since 5.0
  */
 function ob_get_clean () {}
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Return the length of the output buffer
  * @link http://php.net/manual/en/function.ob-get-length.php
  * @return int the length of the output buffer contents or false if no
  * buffering is active.
+ * @since 4.0.2
+ * @since 5.0
  */
 function ob_get_length () {}
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Return the nesting level of the output buffering mechanism
  * @link http://php.net/manual/en/function.ob-get-level.php
  * @return int the level of nested output buffering handlers or zero if output
  * buffering is not active.
+ * @since 4.2.0
+ * @since 5.0
  */
 function ob_get_level () {}
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Get status of output buffers
  * @link http://php.net/manual/en/function.ob-get-status.php
  * @param bool $full_status [optional] <p>
@@ -366,34 +364,34 @@ function ob_get_level () {}
  * chunk_sizeChunk size as set by ob_start
  * size...
  * blocksize...
+ * @since 4.2.0
+ * @since 5.0
  */
 function ob_get_status ($full_status = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Return the contents of the output buffer
  * @link http://php.net/manual/en/function.ob-get-contents.php
  * @return string This will return the contents of the output buffer or false, if output
  * buffering isn't active.
+ * @since 4.0
+ * @since 5.0
  */
 function ob_get_contents () {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Turn implicit flush on/off
  * @link http://php.net/manual/en/function.ob-implicit-flush.php
  * @param int $flag [optional] <p>
  * true to turn implicit flushing on, false otherwise.
  * </p>
  * @return void 
+ * @since 4.0
+ * @since 5.0
  */
 function ob_implicit_flush ($flag = null) {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * List all output handlers in use
  * @link http://php.net/manual/en/function.ob-list-handlers.php
  * @return array This will return an array with the output handlers in use (if any). If
@@ -401,12 +399,12 @@ function ob_implicit_flush ($flag = null) {}
  * an anonymous function was used with ob_start,
  * ob_list_handlers will return "default output
  * handler".
+ * @since 4.3.0
+ * @since 5.0
  */
 function ob_list_handlers () {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Sort an array by key
  * @link http://php.net/manual/en/function.ksort.php
  * @param array $array <p>
@@ -418,12 +416,12 @@ function ob_list_handlers () {}
  * see sort.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function ksort (array &$array, $sort_flags = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Sort an array by key in reverse order
  * @link http://php.net/manual/en/function.krsort.php
  * @param array $array <p>
@@ -435,36 +433,36 @@ function ksort (array &$array, $sort_flags = null) {}
  * sort.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function krsort (array &$array, $sort_flags = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Sort an array using a "natural order" algorithm
  * @link http://php.net/manual/en/function.natsort.php
  * @param array $array <p>
  * The input array.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function natsort (array &$array) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Sort an array using a case insensitive "natural order" algorithm
  * @link http://php.net/manual/en/function.natcasesort.php
  * @param array $array <p>
  * The input array.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function natcasesort (array &$array) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Sort an array and maintain index association
  * @link http://php.net/manual/en/function.asort.php
  * @param array $array <p>
@@ -476,12 +474,12 @@ function natcasesort (array &$array) {}
  * see sort.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function asort (array &$array, $sort_flags = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Sort an array in reverse order and maintain index association
  * @link http://php.net/manual/en/function.arsort.php
  * @param array $array <p>
@@ -493,12 +491,12 @@ function asort (array &$array, $sort_flags = null) {}
  * sort.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function arsort (array &$array, $sort_flags = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Sort an array
  * @link http://php.net/manual/en/function.sort.php
  * @param array $array <p>
@@ -513,12 +511,12 @@ function arsort (array &$array, $sort_flags = null) {}
  * SORT_REGULAR - compare items normally
  * (don't change types)
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function sort (array &$array, $sort_flags = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Sort an array in reverse order
  * @link http://php.net/manual/en/function.rsort.php
  * @param array $array <p>
@@ -530,12 +528,12 @@ function sort (array &$array, $sort_flags = null) {}
  * sort.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function rsort (array &$array, $sort_flags = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Sort an array by values using a user-defined comparison function
  * @link http://php.net/manual/en/function.usort.php
  * @param array $array <p>
@@ -547,12 +545,12 @@ function rsort (array &$array, $sort_flags = null) {}
  * respectively less than, equal to, or greater than the second.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function usort (array &$array, $cmp_function) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Sort an array with a user-defined comparison function and maintain index association
  * @link http://php.net/manual/en/function.uasort.php
  * @param array $array <p>
@@ -563,12 +561,12 @@ function usort (array &$array, $cmp_function) {}
  * examples of user-defined comparison functions.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function uasort (array &$array, $cmp_function) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Sort an array by keys using a user-defined comparison function
  * @link http://php.net/manual/en/function.uksort.php
  * @param array $array <p>
@@ -586,24 +584,24 @@ function uasort (array &$array, $cmp_function) {}
  * second.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function uksort (array &$array, $cmp_function) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Shuffle an array
  * @link http://php.net/manual/en/function.shuffle.php
  * @param array $array <p>
  * The array.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function shuffle (array &$array) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Apply a user function to every member of an array
  * @link http://php.net/manual/en/function.array-walk.php
  * @param array $array <p>
@@ -634,11 +632,12 @@ function shuffle (array &$array) {}
  * funcname.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function array_walk (array &$array, $funcname, $userdata = null) {}
 
 /**
- * @since 5.0
  * Apply a user function recursively to every member of an array
  * @link http://php.net/manual/en/function.array-walk-recursive.php
  * @param array $input <p>
@@ -663,12 +662,11 @@ function array_walk (array &$array, $funcname, $userdata = null) {}
  * funcname.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 5.0
  */
 function array_walk_recursive (array &$input, $funcname, $userdata = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Counts all elements in an array, or something in an object.
  * <p>For objects, if you have SPL installed, you can hook into count() by implementing interface {@see Countable}.
  * The interface has exactly one method, {@see Countable::count()}, which returns the return value for the count() function.
@@ -694,12 +692,12 @@ function array_walk_recursive (array &$input, $funcname, $userdata = null) {}
  * Caution: count may return 0 for a variable that isn't set,
  * but it may also return 0 for a variable that has been initialized with an
  * empty array. Use isset to test if a variable is set.
+ * @since 4.0
+ * @since 5.0
  */
 function count ($var, $mode = COUNT_NORMAL) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Set the internal pointer of an array to its last element
  * @link http://php.net/manual/en/function.end.php
  * @param array $array <p>
@@ -709,12 +707,12 @@ function count ($var, $mode = COUNT_NORMAL) {}
  * passed by reference.
  * </p>
  * @return mixed the value of the last element or false for empty array.
+ * @since 4.0
+ * @since 5.0
  */
 function end (array &$array) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Rewind the internal array pointer
  * @link http://php.net/manual/en/function.prev.php
  * @param array $array <p>
@@ -723,12 +721,12 @@ function end (array &$array) {}
  * @return mixed the array value in the previous place that's pointed to by
  * the internal array pointer, or false if there are no more
  * elements.
+ * @since 4.0
+ * @since 5.0
  */
 function prev (array &$array) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Advance the internal array pointer of an array
  * @link http://php.net/manual/en/function.next.php
  * @param array $array <p>
@@ -736,12 +734,12 @@ function prev (array &$array) {}
  * </p>
  * @return mixed the array value in the next place that's pointed to by the
  * internal array pointer, or false if there are no more elements.
+ * @since 4.0
+ * @since 5.0
  */
 function next (array &$array) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Set the internal pointer of an array to its first element
  * @link http://php.net/manual/en/function.reset.php
  * @param array $array <p>
@@ -749,12 +747,12 @@ function next (array &$array) {}
  * </p>
  * @return mixed the value of the first array element, or false if the array is
  * empty.
+ * @since 4.0
+ * @since 5.0
  */
 function reset (array &$array) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Return the current element in an array
  * @link http://php.net/manual/en/function.current.php
  * @param array $array <p>
@@ -765,12 +763,12 @@ function reset (array &$array) {}
  * internal pointer. It does not move the pointer in any way. If the
  * internal pointer points beyond the end of the elements list or the array is 
  * empty, current returns false.
+ * @since 4.0
+ * @since 5.0
  */
 function current (array &$array) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Fetch a key from an array
  * @link http://php.net/manual/en/function.key.php
  * @param array $array <p>
@@ -781,12 +779,12 @@ function current (array &$array) {}
  * internal pointer. It does not move the pointer in any way. If the
  * internal pointer points beyond the end of the elements list or the array is 
  * empty, key returns &null;.
+ * @since 4.0
+ * @since 5.0
  */
 function key (array &$array) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Find lowest value
  * @link http://php.net/manual/en/function.min.php
  * @param array|mixed $value1 Array to look through or first value to compare
@@ -795,12 +793,12 @@ function key (array &$array) {}
  * @param mixed $values [optional] any comparable value
  * @return mixed min returns the numerically lowest of the
  * parameter values.
+ * @since 4.0
+ * @since 5.0
  */
 function min (array $value1, $value2 = null, ...$values) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Find highest value
  * @link http://php.net/manual/en/function.max.php
  * @param array|mixed $value1 Array to look through or first value to compare
@@ -809,12 +807,12 @@ function min (array $value1, $value2 = null, ...$values) {}
  * @param mixed $values [optional] any comparable value
  * @return mixed max returns the numerically highest of the
  * parameter values, either within a arg array or two arguments.
+ * @since 4.0
+ * @since 5.0
  */
 function max (array $value1, $value2 = null, ...$values) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Checks if a value exists in an array
  * @link http://php.net/manual/en/function.in-array.php
  * @param mixed $needle <p>
@@ -835,12 +833,12 @@ function max (array $value1, $value2 = null, ...$values) {}
  * </p>
  * @return bool true if needle is found in the array,
  * false otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function in_array ($needle, array $haystack, $strict = null) {}
 
 /**
- * @since 4.0.5
- * @since 5.0
  * Searches the array for a given value and returns the corresponding key if successful
  * @link http://php.net/manual/en/function.array-search.php
  * @param mixed $needle <p>
@@ -867,12 +865,12 @@ function in_array ($needle, array $haystack, $strict = null) {}
  * more than once, the first matching key is returned. To return the keys for
  * all matching values, use array_keys with the optional
  * search_value parameter instead.
+ * @since 4.0.5
+ * @since 5.0
  */
 function array_search ($needle, array $haystack, $strict = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Import variables into the current symbol table from an array
  * @link http://php.net/manual/en/function.extract.php
  * @param array array $var_<p>
@@ -897,12 +895,12 @@ function array_search ($needle, array $haystack, $strict = null) {}
  * $_REQUEST, for example.
  * @return int the number of variables successfully imported into the symbol
  * table.
+ * @since 4.0
+ * @since 5.0
  */
 function extract (array $var_array, $extract_type = null, $prefix = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Create array containing variables and their values
  * @link http://php.net/manual/en/function.compact.php
  * @param mixed $varname <p>
@@ -914,12 +912,12 @@ function extract (array $var_array, $extract_type = null, $prefix = null) {}
  * </p>
  * @param mixed $_ [optional] 
  * @return array the output array with all the variables added to it.
+ * @since 4.0
+ * @since 5.0
  */
 function compact ($varname, $_ = null) {}
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Fill an array with values
  * @link http://php.net/manual/en/function.array-fill.php
  * @param int $start_index <p>
@@ -933,11 +931,12 @@ function compact ($varname, $_ = null) {}
  * Value to use for filling
  * </p>
  * @return array the filled array
+ * @since 4.2.0
+ * @since 5.0
  */
 function array_fill ($start_index, $num, $value) {}
 
 /**
- * @since 5.2.0
  * Fill an array with values, specifying keys
  * @link http://php.net/manual/en/function.array-fill-keys.php
  * @param array $keys <p>
@@ -948,12 +947,11 @@ function array_fill ($start_index, $num, $value) {}
  * Value to use for filling
  * </p>
  * @return array the filled array
+ * @since 5.2.0
  */
 function array_fill_keys (array $keys, $value) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Create an array containing a range of elements
  * @link http://php.net/manual/en/function.range.php
  * @param mixed $low <p>
@@ -971,12 +969,12 @@ function array_fill_keys (array $keys, $value) {}
  * @return array an array of elements from low to
  * high, inclusive. If low > high, the sequence will
  * be from high to low.
+ * @since 4.0
+ * @since 5.0
  */
 function range ($low, $high, $step = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Sort multiple or multi-dimensional arrays
  * @link http://php.net/manual/en/function.array-multisort.php
  * @param array $arr <p>
@@ -994,12 +992,12 @@ function range ($low, $high, $step = null) {}
  * @param mixed $arg [optional] 
  * @param mixed $_ [optional] 
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function array_multisort (array &$arr, $arg = null, $arg = null, $_ = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Push one or more elements onto the end of array
  * @link http://php.net/manual/en/function.array-push.php
  * @param array $array <p>
@@ -1010,12 +1008,12 @@ function array_multisort (array &$arr, $arg = null, $arg = null, $_ = null) {}
  * </p>
  * @param mixed $_ [optional] 
  * @return int the new number of elements in the array.
+ * @since 4.0
+ * @since 5.0
  */
 function array_push (array &$array, $var, $_ = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Pop the element off the end of array
  * @link http://php.net/manual/en/function.array-pop.php
  * @param array $array <p>
@@ -1024,12 +1022,12 @@ function array_push (array &$array, $var, $_ = null) {}
  * @return mixed the last value of array.
  * If array is empty (or is not an array),
  * &null; will be returned.
+ * @since 4.0
+ * @since 5.0
  */
 function array_pop (array &$array) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Shift an element off the beginning of array
  * @link http://php.net/manual/en/function.array-shift.php
  * @param array $array <p>
@@ -1037,12 +1035,12 @@ function array_pop (array &$array) {}
  * </p>
  * @return mixed the shifted value, or &null; if array is
  * empty or is not an array.
+ * @since 4.0
+ * @since 5.0
  */
 function array_shift (array &$array) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Prepend one or more elements to the beginning of an array
  * @link http://php.net/manual/en/function.array-unshift.php
  * @param array $array <p>
@@ -1053,12 +1051,12 @@ function array_shift (array &$array) {}
  * </p>
  * @param mixed $_ [optional] 
  * @return int the new number of elements in the array.
+ * @since 4.0
+ * @since 5.0
  */
 function array_unshift (array &$array, $var, $_ = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Remove a portion of the array and replace it with something else
  * @link http://php.net/manual/en/function.array-splice.php
  * @param array $input <p>
@@ -1101,12 +1099,12 @@ function array_unshift (array &$array, $var, $_ = null) {}
  * around it, unless the element is an array itself.
  * </p>
  * @return array the array consisting of the extracted elements.
+ * @since 4.0
+ * @since 5.0
  */
 function array_splice (array &$input, $offset, $length = null, $replacement = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Extract a slice of the array
  * @link http://php.net/manual/en/function.array-slice.php
  * @param array $array <p>
@@ -1133,12 +1131,12 @@ function array_splice (array &$input, $offset, $length = null, $replacement = nu
  * preserve_keys to true.
  * </p>
  * @return array the slice.
+ * @since 4.0
+ * @since 5.0
  */
 function array_slice (array $array, $offset, $length = null, $preserve_keys = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Merge one or more arrays
  * @link http://php.net/manual/en/function.array-merge.php
  * @param array $array1 <p>
@@ -1147,6 +1145,8 @@ function array_slice (array $array, $offset, $length = null, $preserve_keys = nu
  * @param array $array2 [optional] 
  * @param array $_ [optional] 
  * @return array the resulting array.
+ * @since 4.0
+ * @since 5.0
  */
 function array_merge (array $array1, array $array2 = null, array $_ = null) {}
 

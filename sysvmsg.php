@@ -3,8 +3,6 @@
 // Start of sysvmsg v.
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Create or attach to a message queue
  * @link http://php.net/manual/en/function.msg-get-queue.php
  * @param int $key <p>
@@ -15,12 +13,12 @@
  * exists, the <i>perms</i> will be ignored.
  * </p>
  * @return resource a resource handle that can be used to access the System V message queue.
+ * @since 4.3.0
+ * @since 5.0
  */
 function msg_get_queue ($key, $perms = 0666) {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Send a message to a message queue
  * @link http://php.net/manual/en/function.msg-send.php
  * @param resource $queue
@@ -55,12 +53,12 @@ function msg_get_queue ($key, $perms = 0666) {}
  * follows: <i>msg_lspid</i> is set to the process-ID of the
  * calling process, <i>msg_qnum</i> is incremented by 1 and
  * <i>msg_stime</i> is set to the current time.
+ * @since 4.3.0
+ * @since 5.0
  */
 function msg_send ($queue, $msgtype, $message, $serialize = true, $blocking = true, &$errorcode = null) {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Receive a message from a message queue
  * @link http://php.net/manual/en/function.msg-receive.php
  * @param resource $queue
@@ -144,24 +142,24 @@ function msg_send ($queue, $msgtype, $message, $serialize = true, $blocking = tr
  * follows: msg_lrpid is set to the process-ID of the
  * calling process, msg_qnum is decremented by 1 and
  * msg_rtime is set to the current time.
+ * @since 4.3.0
+ * @since 5.0
  */
 function msg_receive ($queue, $desiredmsgtype, &$msgtype, $maxsize, &$message, $unserialize = true, $flags = 0, &$errorcode = null) {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Destroy a message queue
  * @link http://php.net/manual/en/function.msg-remove-queue.php
  * @param resource $queue <p>
  * Message queue resource handle
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.3.0
+ * @since 5.0
  */
 function msg_remove_queue ($queue) {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Returns information from the message queue data structure
  * @link http://php.net/manual/en/function.msg-stat-queue.php
  * @param resource $queue <p>
@@ -234,12 +232,12 @@ function msg_remove_queue ($queue) {}
  * </td>
  * </tr>
  * </table>
+ * @since 4.3.0
+ * @since 5.0
  */
 function msg_stat_queue ($queue) {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Set information in the message queue data structure
  * @link http://php.net/manual/en/function.msg-set-queue.php
  * @param resource $queue <p>
@@ -250,17 +248,19 @@ function msg_stat_queue ($queue) {}
  * that you require in the <i>data</i> array.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.3.0
+ * @since 5.0
  */
 function msg_set_queue ($queue, array $data) {}
 
 /**
- * @since 5.3.0
  * Check whether a message queue exists
  * @link http://php.net/manual/en/function.msg-queue-exists.php
  * @param int $key <p>
  * Queue key.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 5.3.0
  */
 function msg_queue_exists ($key) {}
 

@@ -11,11 +11,11 @@
 interface JsonSerializable  {
 
 	/**
-	 * @since 5.4.0
 	 * Specify data which should be serialized to JSON
 	 * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
 	 * @return mixed data which can be serialized by <b>json_encode</b>,
 	 * which is a value of any type other than a resource.
+	 * @since 5.4.0
 	 */
     function jsonSerialize ();
 
@@ -124,19 +124,19 @@ function json_encode ($value, $options = 0, $depth = 512) {}
 function json_decode ($json, $assoc = false, $depth = 512, $options = 0) {}
 
 /**
- * @since 5.3.0
  * Returns the last error occurred
  * @link http://php.net/manual/en/function.json-last-error.php
  * @return int an integer, the value can be one of the following
  * constants:
+ * @since 5.3.0
  */
 function json_last_error () {}
 
 /**
- * @since 5.5.0
  * Returns the error string of the last json_encode() or json_decode() call
  * @link http://php.net/manual/en/function.json-last-error-msg.php
  * @return string the error message on success or <b>NULL</b> with wrong parameters.
+ * @since 5.5.0
  */
 function json_last_error_msg () {}
 

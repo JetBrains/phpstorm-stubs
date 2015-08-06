@@ -3,20 +3,18 @@
 // Start of openssl v.
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Frees a private key
  * @link http://php.net/manual/en/function.openssl-pkey-free.php
  * @param resource $key <p>
  * Resource holding the key.
  * </p>
  * @return void
+ * @since 4.2.0
+ * @since 5.0
  */
 function openssl_pkey_free($key) { }
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Generates a new private key
  * @link http://php.net/manual/en/function.openssl-pkey-new.php
  * @param array $configargs [optional] <p>
@@ -27,12 +25,12 @@ function openssl_pkey_free($key) { }
  * </p>
  * @return resource a resource identifier for the pkey on success, or false on
  * error.
+ * @since 4.2.0
+ * @since 5.0
  */
 function openssl_pkey_new(array $configargs = null) { }
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Gets an exportable representation of a key into a string
  * @link http://php.net/manual/en/function.openssl-pkey-export.php
  * @param mixed $key
@@ -47,12 +45,12 @@ function openssl_pkey_new(array $configargs = null) { }
  * information about <i>configargs</i>.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.2.0
+ * @since 5.0
  */
 function openssl_pkey_export($key, &$out, $passphrase = null, array $configargs = null) { }
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Gets an exportable representation of a key into a file
  * @link http://php.net/manual/en/function.openssl-pkey-export-to-file.php
  * @param mixed $key
@@ -70,12 +68,12 @@ function openssl_pkey_export($key, &$out, $passphrase = null, array $configargs 
  * information about <i>configargs</i>.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.2.0
+ * @since 5.0
  */
 function openssl_pkey_export_to_file($key, $outfilename, $passphrase = null, array $configargs = null) { }
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Get a private key
  * @link http://php.net/manual/en/function.openssl-pkey-get-private.php
  * @param $key
@@ -93,12 +91,12 @@ function openssl_pkey_export_to_file($key, $outfilename, $passphrase = null, arr
  * if the specified key is encrypted (protected by a passphrase).
  * </p>
  * @return resource|bool Returns a positive key resource identifier on success, or <b>FALSE</b> on error.
+ * @since 4.2.0
+ * @since 5.0
  */
 function openssl_pkey_get_private($key, $passphrase = "") { }
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Extract public key from certificate and prepare it for use
  * @link http://php.net/manual/en/function.openssl-pkey-get-public.php
  * @param mixed $certificate <p><em><b>certificate</b></em> can be one of the following:
@@ -112,11 +110,12 @@ function openssl_pkey_get_private($key, $passphrase = "") { }
  * <li>A PEM formatted public key.</li>
  * </ol></p>
  * @return resource a positive key resource identifier on success, or false on error.
+ * @since 4.2.0
+ * @since 5.0
  */
 function openssl_pkey_get_public($certificate) { }
 
 /**
- * @since 5.2.0
  * Returns an array with the key details
  * @link http://php.net/manual/en/function.openssl-pkey-get-details.php
  * @param resource $key <p>
@@ -134,22 +133,21 @@ function openssl_pkey_get_public($certificate) { }
  * <p>
  * Depending on the key type used, additional details may be returned. Note that
  * some elements may not always be available.
+ * @since 5.2.0
  */
 function openssl_pkey_get_details($key) { }
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Free key resource
  * @link http://php.net/manual/en/function.openssl-free-key.php
  * @param resource $key_identifier
  * @return void
+ * @since 4.0.4
+ * @since 5.0
  */
 function openssl_free_key($key_identifier) { }
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Alias of <b>openssl_pkey_get_private</b>
  * @link http://php.net/manual/en/function.openssl-get-privatekey.php
  * @param $key
@@ -167,12 +165,12 @@ function openssl_free_key($key_identifier) { }
  * if the specified key is encrypted (protected by a passphrase).
  * </p>
  * @return resource|bool Returns a positive key resource identifier on success, or <b>FALSE</b> on error.
+ * @since 4.0.4
+ * @since 5.0
  */
 function openssl_get_privatekey($key, $passphrase) { }
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Alias of <b>openssl_pkey_get_public</b>
  * @link http://php.net/manual/en/function.openssl-get-publickey.php
  * @param mixed $certificate <p>
@@ -187,11 +185,12 @@ function openssl_get_privatekey($key, $passphrase) { }
  * <li>A PEM formatted public key.</li>
  * </ol> </p>
  * @return resource a positive key resource identifier on success, or FALSE on error.
+ * @since 4.0.4
+ * @since 5.0
  */
 function openssl_get_publickey($certificate) { }
 
 /**
- * @since 5.6.0
  * Generate a new signed public key and challenge
  * @link http://php.net/manual/en/function.openssl-spki-new.php
  * @param resource $privkey <p>
@@ -204,40 +203,41 @@ function openssl_get_publickey($certificate) { }
  * @param string $challenge <p>The challenge associated to associate with the SPKAC</p>
  * @param int $algorithm <p>The digest algorithm. See openssl_get_md_method().</p>
  * @return string Returns a signed public key and challenge string or NULL on failure.
+ * @since 5.6.0
  */
 function openssl_spki_new(&$privkey, &$challenge, $algorithm = 0) {}
 
 
 /**
- * @since 5.6.0
  * Verifies a signed public key and challenge
  * @link http://php.net/manual/en/function.openssl-spki-verify.php
  * @param string $spkac <p>Expects a valid signed public key and challenge</p>
  * @return boolean Returns a boolean on success or failure.
+ * @since 5.6.0
  */
 function openssl_spki_verify(&$spkac) {}
 
 /**
- * @since 5.6.0
  * Exports the challenge assoicated with a signed public key and challenge
  * @link http://php.net/manual/en/function.openssl-spki-export-challenge.php
  * @param string $spkac <p>Expects a valid signed public key and challenge</p>
  * @return string|NULL Returns the associated challenge string or NULL on failure.
+ * @since 5.6.0
  */
 function openssl_spki_export_challenge (&$spkac ) {}
 
 /**
- * @since 5.6.0
  * Exports a valid PEM formatted public key signed public key and challenge
  * @link http://php.net/manual/en/function.openssl-spki-export.php
  * @param string $spkac <p>Expects a valid signed public key and challenge</p>
  * @return string|NULL Returns the associated PEM formatted public key or NULL on failure.
+ * @since 5.6.0
  */
 function openssl_spki_export (&$spkac ) {}
 /**
+ * Parse an X.509 certificate and return a resource identifier for
  * @since 4.0.6
  * @since 5.0
- * Parse an X.509 certificate and return a resource identifier for
 it
  * @link http://php.net/manual/en/function.openssl-x509-read.php
  * @param mixed $x509certdata
@@ -246,26 +246,24 @@ it
 function openssl_x509_read($x509certdata) { }
 
 /**
- * @since 5.6.0
  * @param string $x509
  * @param string $type [optional] hash method
  * @param bool $binary [optional]
  * @return string|boolean <b>FALSE</b> on failure
+ * @since 5.6.0
  */
 function openssl_x509_fingerprint($x509, $type, $binary) {}
 /**
- * @since 4.0.6
- * @since 5.0
  * Free certificate resource
  * @link http://php.net/manual/en/function.openssl-x509-free.php
  * @param resource $x509cert
  * @return void
+ * @since 4.0.6
+ * @since 5.0
  */
 function openssl_x509_free($x509cert) { }
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Parse an X509 certificate and return the information as an array
  * @link http://php.net/manual/en/function.openssl-x509-parse.php
  * @param mixed $x509cert
@@ -277,12 +275,12 @@ function openssl_x509_free($x509cert) { }
  * </p>
  * @return array The structure of the returned data is (deliberately) not
  * yet documented, as it is still subject to change.
+ * @since 4.0.6
+ * @since 5.0
  */
 function openssl_x509_parse($x509cert, $shortnames = true) { }
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Verifies if a certificate can be used for a particular purpose
  * @link http://php.net/manual/en/function.openssl-x509-checkpurpose.php
  * @param mixed $x509cert <p>
@@ -341,12 +339,12 @@ function openssl_x509_parse($x509cert, $shortnames = true) { }
  * </p>
  * @return int true if the certificate can be used for the intended purpose,
  * false if it cannot, or -1 on error.
+ * @since 4.0.6
+ * @since 5.0
  */
 function openssl_x509_checkpurpose($x509cert, $purpose, array $cainfo = null, $untrustedfile = null) { }
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Checks if a private key corresponds to a certificate
  * @link http://php.net/manual/en/function.openssl-x509-check-private-key.php
  * @param mixed $cert <p>
@@ -357,12 +355,12 @@ function openssl_x509_checkpurpose($x509cert, $purpose, array $cainfo = null, $u
  * </p>
  * @return bool true if <i>key</i> is the private key that
  * corresponds to <i>cert</i>, or false otherwise.
+ * @since 4.2.0
+ * @since 5.0
  */
 function openssl_x509_check_private_key($cert, $key) { }
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Exports a certificate as a string
  * @link http://php.net/manual/en/function.openssl-x509-export.php
  * @param mixed $x509
@@ -371,12 +369,12 @@ function openssl_x509_check_private_key($cert, $key) { }
  * </p>
  * @param bool $notext [optional] &note.openssl.param-notext;
  * @return bool true on success or false on failure.
+ * @since 4.2.0
+ * @since 5.0
  */
 function openssl_x509_export($x509, &$output, $notext = true) { }
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Exports a certificate to file
  * @link http://php.net/manual/en/function.openssl-x509-export-to-file.php
  * @param mixed $x509
@@ -385,11 +383,12 @@ function openssl_x509_export($x509, &$output, $notext = true) { }
  * </p>
  * @param bool $notext [optional] &note.openssl.param-notext;
  * @return bool true on success or false on failure.
+ * @since 4.2.0
+ * @since 5.0
  */
 function openssl_x509_export_to_file($x509, $outfilename, $notext = '&true;') { }
 
 /**
- * @since 5.2.2
  * Exports a PKCS#12 Compatible Certificate Store File to variable.
  * @link http://php.net/manual/en/function.openssl-pkcs12-export.php
  * @param mixed $x509
@@ -404,11 +403,11 @@ function openssl_x509_export_to_file($x509, $outfilename, $notext = '&true;') { 
  * </p>
  * @param array $args [optional]
  * @return bool true on success or false on failure.
+ * @since 5.2.2
  */
 function openssl_pkcs12_export($x509, &$out, $priv_key, $pass, array $args = null) { }
 
 /**
- * @since 5.2.2
  * Exports a PKCS#12 Compatible Certificate Store File
  * @link http://php.net/manual/en/function.openssl-pkcs12-export-to-file.php
  * @param mixed $x509
@@ -423,11 +422,11 @@ function openssl_pkcs12_export($x509, &$out, $priv_key, $pass, array $args = nul
  * </p>
  * @param array $args [optional]
  * @return bool true on success or false on failure.
+ * @since 5.2.2
  */
 function openssl_pkcs12_export_to_file($x509, $filename, $priv_key, $pass, array $args = null) { }
 
 /**
- * @since 5.2.2
  * Parse a PKCS#12 Certificate Store into an array
  * @link http://php.net/manual/en/function.openssl-pkcs12-read.php
  * @param string $pkcs12
@@ -438,12 +437,11 @@ function openssl_pkcs12_export_to_file($x509, $filename, $priv_key, $pass, array
  * Encryption password for unlocking the PKCS#12 file.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 5.2.2
  */
 function openssl_pkcs12_read($pkcs12, array &$certs, $pass) { }
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Generates a CSR
  * @link http://php.net/manual/en/function.openssl-csr-new.php
  * @param array $dn <p>
@@ -535,24 +533,24 @@ function openssl_pkcs12_read($pkcs12, array &$certs, $pass) { }
  * converted to OIDs and applied to the relevant part of the request.
  * </p>
  * @return mixed the CSR.
+ * @since 4.2.0
+ * @since 5.0
  */
 function openssl_csr_new(array $dn, &$privkey, array $configargs = null, array $extraattribs = null) { }
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Exports a CSR as a string
  * @link http://php.net/manual/en/function.openssl-csr-export.php
  * @param resource $csr
  * @param string $out
  * @param bool $notext [optional] &note.openssl.param-notext;
  * @return bool true on success or false on failure.
+ * @since 4.2.0
+ * @since 5.0
  */
 function openssl_csr_export($csr, &$out, $notext = true) { }
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Exports a CSR to a file
  * @link http://php.net/manual/en/function.openssl-csr-export-to-file.php
  * @param resource $csr
@@ -561,12 +559,12 @@ function openssl_csr_export($csr, &$out, $notext = true) { }
  * </p>
  * @param bool $notext [optional] &note.openssl.param-notext;
  * @return bool true on success or false on failure.
+ * @since 4.2.0
+ * @since 5.0
  */
 function openssl_csr_export_to_file($csr, $outfilename, $notext = true) { }
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Sign a CSR with another certificate (or itself) and generate a certificate
  * @link http://php.net/manual/en/function.openssl-csr-sign.php
  * @param mixed $csr <p>
@@ -598,31 +596,32 @@ function openssl_csr_export_to_file($csr, $outfilename, $notext = true) { }
  * it will default to 0.
  * </p>
  * @return resource an x509 certificate resource on success, false on failure.
+ * @since 4.2.0
+ * @since 5.0
  */
 function openssl_csr_sign($csr, $cacert, $priv_key, $days, array $configargs = null, $serial = 0) { }
 
 /**
- * @since 5.2.0
  * Returns the subject of a CERT
  * @link http://php.net/manual/en/function.openssl-csr-get-subject.php
  * @param mixed $csr
  * @param bool $use_shortnames [optional]
  * @return array
+ * @since 5.2.0
  */
 function openssl_csr_get_subject($csr, $use_shortnames = true) { }
 
 /**
- * @since 5.2.0
  * Returns the public key of a CERT
  * @link http://php.net/manual/en/function.openssl-csr-get-public-key.php
  * @param mixed $csr
  * @param bool $use_shortnames [optional]
  * @return resource
+ * @since 5.2.0
  */
 function openssl_csr_get_public_key($csr, $use_shortnames = true) { }
 
 /**
- * @since 5.3.0
  * Computes a digest
  * @link http://php.net/manual/en/function.openssl-digest.php
  * @param string $data <p>
@@ -636,11 +635,11 @@ function openssl_csr_get_public_key($csr, $use_shortnames = true) { }
  * value is binhex encoded.
  * </p>
  * @return string the digested hash value on success or false on failure.
+ * @since 5.3.0
  */
 function openssl_digest($data, $method, $raw_output = false) { }
 
 /**
- * @since 5.3.0
  * Encrypts data
  * @link http://php.net/manual/en/function.openssl-encrypt.php
  * @param string $data <p>
@@ -660,11 +659,11 @@ function openssl_digest($data, $method, $raw_output = false) { }
  * A non-NULL Initialization Vector.
  * </p>
  * @return string the encrypted string on success or false on failure.
+ * @since 5.3.0
  */
 function openssl_encrypt($data, $method, $password, $raw_output = false, $iv = "") { }
 
 /**
- * @since 5.3.0
  * Decrypts data
  * @link http://php.net/manual/en/function.openssl-decrypt.php
  * @param string $data <p>
@@ -685,6 +684,7 @@ function openssl_encrypt($data, $method, $password, $raw_output = false, $iv = "
  * A non-NULL Initialization Vector.
  * </p>
  * @return string The decrypted string on success or false on failure.
+ * @since 5.3.0
  */
 function openssl_decrypt($data, $method, $password, $raw_input = false, $iv = "") { }
 
@@ -700,8 +700,6 @@ function openssl_decrypt($data, $method, $password, $raw_input = false, $iv = ""
 function openssl_cipher_iv_length($method) { }
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Generate signature
  * @link http://php.net/manual/en/function.openssl-sign.php
  * @param string $data
@@ -714,12 +712,12 @@ function openssl_cipher_iv_length($method) { }
  * For more information see the list of Signature Algorithms.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.4
+ * @since 5.0
  */
 function openssl_sign($data, &$signature, $priv_key_id, $signature_alg = OPENSSL_ALGO_SHA1) { }
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Verify signature
  * @link http://php.net/manual/en/function.openssl-verify.php
  * @param string $data
@@ -730,12 +728,12 @@ function openssl_sign($data, &$signature, $priv_key_id, $signature_alg = OPENSSL
  * </p>
  * @return int 1 if the signature is correct, 0 if it is incorrect, and
  * -1 on error.
+ * @since 4.0.4
+ * @since 5.0
  */
 function openssl_verify($data, $signature, $pub_key_id, $signature_alg = OPENSSL_ALGO_SHA1) { }
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Seal (encrypt) data
  * @link http://php.net/manual/en/function.openssl-seal.php
  * @param string $data
@@ -747,12 +745,12 @@ function openssl_verify($data, $signature, $pub_key_id, $signature_alg = OPENSSL
  * If successful the sealed data is returned in
  * <i>sealed_data</i>, and the envelope keys in
  * <i>env_keys</i>.
+ * @since 4.0.4
+ * @since 5.0
  */
 function openssl_seal($data, &$sealed_data, array &$env_keys, array $pub_key_ids, $method = null) { }
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Open sealed data
  * @link http://php.net/manual/en/function.openssl-open.php
  * @param string $sealed_data
@@ -764,11 +762,12 @@ function openssl_seal($data, &$sealed_data, array &$env_keys, array $pub_key_ids
  * @param mixed $priv_key_id
  * @param string $method [optional]
  * @return bool true on success or false on failure.
+ * @since 4.0.4
+ * @since 5.0
  */
 function openssl_open($sealed_data, &$open_data, $env_key, $priv_key_id, $method = null) { }
 
 /**
- * @since 5.5.0
  * Generates a PKCS5 v2 PBKDF2 string, defaults to SHA-1
  * @link http://www.php.net/manual/en/function.openssl-pbkdf2.php
  * @param string $password
@@ -777,12 +776,11 @@ function openssl_open($sealed_data, &$open_data, $env_key, $priv_key_id, $method
  * @param int $iterations
  * @param string $digest_algorithm [optional]
  * @return string|bool Returns string or FALSE on failure.
+ * @since 5.5.0
  */
 function openssl_pbkdf2($password, $salt, $key_length, $iterations, $digest_algorithm) { }
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Verifies the signature of an S/MIME signed message
  * @link http://php.net/manual/en/function.openssl-pkcs7-verify.php
  * @param string $filename <p>
@@ -816,12 +814,12 @@ function openssl_pbkdf2($password, $salt, $key_length, $iterations, $digest_algo
  * @return mixed true if the signature is verified, false if it is not correct
  * (the message has been tampered with, or the signing certificate is invalid),
  * or -1 on error.
+ * @since 4.0.6
+ * @since 5.0
  */
 function openssl_pkcs7_verify($filename, $flags, $outfilename = null, array $cainfo = null, $extracerts = null, $content = null) { }
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Decrypts an S/MIME encrypted message
  * @link http://php.net/manual/en/function.openssl-pkcs7-decrypt.php
  * @param string $infilename
@@ -832,12 +830,12 @@ function openssl_pkcs7_verify($filename, $flags, $outfilename = null, array $cai
  * @param mixed $recipcert
  * @param mixed $recipkey [optional]
  * @return bool true on success or false on failure.
+ * @since 4.0.6
+ * @since 5.0
  */
 function openssl_pkcs7_decrypt($infilename, $outfilename, $recipcert, $recipkey = null) { }
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Sign an S/MIME message
  * @link http://php.net/manual/en/function.openssl-pkcs7-sign.php
  * @param string $infilename
@@ -859,12 +857,12 @@ function openssl_pkcs7_decrypt($infilename, $outfilename, $recipcert, $recipkey 
  * example be used to help the recipient to verify the certificate that you used.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.6
+ * @since 5.0
  */
 function openssl_pkcs7_sign($infilename, $outfilename, $signcert, $privkey, array $headers, $flags = PKCS7_DETACHED, $extracerts = null) { }
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Encrypt an S/MIME message
  * @link http://php.net/manual/en/function.openssl-pkcs7-encrypt.php
  * @param string $infile
@@ -890,12 +888,12 @@ function openssl_pkcs7_sign($infilename, $outfilename, $signcert, $privkey, arra
  * One of cipher constants.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.6
+ * @since 5.0
  */
 function openssl_pkcs7_encrypt($infile, $outfile, $recipcerts, array $headers, $flags = 0, $cipherid = OPENSSL_CIPHER_RC2_40) { }
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Encrypts data with private key
  * @link http://php.net/manual/en/function.openssl-private-encrypt.php
  * @param string $data
@@ -907,12 +905,12 @@ function openssl_pkcs7_encrypt($infile, $outfile, $recipcerts, array $headers, $
  * <b>OPENSSL_NO_PADDING</b>.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.6
+ * @since 5.0
  */
 function openssl_private_encrypt($data, &$crypted, $key, $padding = OPENSSL_PKCS1_PADDING) { }
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Decrypts data with private key
  * @link http://php.net/manual/en/function.openssl-private-decrypt.php
  * @param string $data
@@ -929,12 +927,12 @@ function openssl_private_encrypt($data, &$crypted, $key, $padding = OPENSSL_PKCS
  * <b>OPENSSL_NO_PADDING</b>.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.6
+ * @since 5.0
  */
 function openssl_private_decrypt($data, &$decrypted, $key, $padding = OPENSSL_PKCS1_PADDING) { }
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Encrypts data with public key
  * @link http://php.net/manual/en/function.openssl-public-encrypt.php
  * @param string $data
@@ -952,12 +950,12 @@ function openssl_private_decrypt($data, &$decrypted, $key, $padding = OPENSSL_PK
  * <b>OPENSSL_NO_PADDING</b>.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.6
+ * @since 5.0
  */
 function openssl_public_encrypt($data, &$crypted, $key, $padding = OPENSSL_PKCS1_PADDING) { }
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Decrypts data with public key
  * @link http://php.net/manual/en/function.openssl-public-decrypt.php
  * @param string $data
@@ -972,11 +970,12 @@ function openssl_public_encrypt($data, &$crypted, $key, $padding = OPENSSL_PKCS1
  * <b>OPENSSL_NO_PADDING</b>.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.6
+ * @since 5.0
  */
 function openssl_public_decrypt($data, &$decrypted, $key, $padding = OPENSSL_PKCS1_PADDING) { }
 
 /**
- * @since 5.3.0
  * Gets available digest methods
  * @link http://php.net/manual/en/function.openssl-get-md-methods.php
  * @param bool $aliases [optional] <p>
@@ -984,11 +983,11 @@ function openssl_public_decrypt($data, &$decrypted, $key, $padding = OPENSSL_PKC
  * returned array.
  * </p>
  * @return array An array of available digest methods.
+ * @since 5.3.0
  */
 function openssl_get_md_methods($aliases = false) { }
 
 /**
- * @since 5.3.0
  * Gets available cipher methods
  * @link http://php.net/manual/en/function.openssl-get-cipher-methods.php
  * @param bool $aliases [optional] <p>
@@ -996,6 +995,7 @@ function openssl_get_md_methods($aliases = false) { }
  * returned array.
  * </p>
  * @return array An array of available cipher methods.
+ * @since 5.3.0
  */
 function openssl_get_cipher_methods($aliases = false) { }
 
@@ -1014,7 +1014,6 @@ function openssl_get_cipher_methods($aliases = false) { }
 function openssl_dh_compute_key($pub_key, $dh_key) { }
 
 /**
- * @since 5.3.0
  * Generates a string of pseudo-random bytes, with the number of bytes determined by the length parameter.
  * <p>It also indicates if a cryptographically strong algorithm was used to produce the pseudo-random bytes,
  * and does this via the optional crypto_strong parameter. It's rare for this to be FALSE, but some systems may be broken or old.
@@ -1029,16 +1028,17 @@ function openssl_dh_compute_key($pub_key, $dh_key) { }
  * passwords, etc. true if it did, otherwise false
  * </p>
  * @return string the generated &string; of bytes on success, or false on failure.
+ * @since 5.3.0
  */
 function openssl_random_pseudo_bytes($length, &$crypto_strong = null) { }
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Return openSSL error message
  * @link http://php.net/manual/en/function.openssl-error-string.php
  * @return string an error message string, or false if there are no more error
  * messages to return.
+ * @since 4.0.6
+ * @since 5.0
  */
 function openssl_error_string() { }
 

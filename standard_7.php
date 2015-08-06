@@ -1,8 +1,6 @@
 <?php
 
 /**
- * @since 4.0
- * @since 5.0
  * Open Internet or Unix domain socket connection
  * @link http://php.net/manual/en/function.fsockopen.php
  * @param string $hostname <p>
@@ -43,12 +41,12 @@
  * fgets, fgetss,
  * fwrite, fclose, and
  * feof). If the call fails, it will return false
+ * @since 4.0
+ * @since 5.0
  */
 function fsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $timeout = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Open persistent Internet or Unix domain socket connection
  * @link http://php.net/manual/en/function.pfsockopen.php
  * @param string $hostname 
@@ -57,12 +55,12 @@ function fsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $t
  * @param string $errstr [optional] 
  * @param float $timeout [optional] 
  * @return resource 
+ * @since 4.0
+ * @since 5.0
  */
 function pfsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $timeout = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Pack data into binary string
  * @link http://php.net/manual/en/function.pack.php
  * @param string $format <p>
@@ -166,12 +164,12 @@ function pfsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $
  * </p>
  * @param mixed $_ [optional] 
  * @return string a binary string containing data.
+ * @since 4.0
+ * @since 5.0
  */
 function pack ($format, $args = null, $_ = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Unpack data from binary string
  * @link http://php.net/manual/en/function.unpack.php
  * @param string $format <p>
@@ -182,12 +180,12 @@ function pack ($format, $args = null, $_ = null) {}
  * </p>
  * @return array an associative array containing unpacked elements of binary
  * string.
+ * @since 4.0
+ * @since 5.0
  */
 function unpack ($format, $data) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Tells what the user's browser is capable of
  * @link http://php.net/manual/en/function.get-browser.php
  * @param string $user_agent [optional] <p>
@@ -213,12 +211,12 @@ function unpack ($format, $data) {}
  * enabled the browser to accept cookies or not. The only way to test if
  * cookies are accepted is to set one with setcookie,
  * reload, and check for the value.
+ * @since 4.0
+ * @since 5.0
  */
 function get_browser ($user_agent = null, $return_array = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * One-way string encryption (hashing)
  * @link http://php.net/manual/en/function.crypt.php
  * @param string $str <p>
@@ -235,12 +233,12 @@ function get_browser ($user_agent = null, $return_array = null) {}
  * may impact both appearance and security.
  * </p>
  * @return string the encrypted string.
+ * @since 4.0
+ * @since 5.0
  */
 function crypt ($str, $salt = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Open directory handle
  * @link http://php.net/manual/en/function.opendir.php
  * @param string $path <p>
@@ -263,12 +261,12 @@ function crypt ($str, $salt = null) {}
  * opendir by prepending
  * '@' to the
  * front of the function name.
+ * @since 4.0
+ * @since 5.0
  */
 function opendir ($path, $context = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Close directory handle
  * @link http://php.net/manual/en/function.closedir.php
  * @param resource $dir_handle [optional] <p>
@@ -278,36 +276,36 @@ function opendir ($path, $context = null) {}
  * is assumed.
  * </p>
  * @return void 
+ * @since 4.0
+ * @since 5.0
  */
 function closedir ($dir_handle = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Change directory
  * @link http://php.net/manual/en/function.chdir.php
  * @param string $directory <p>
  * The new current directory
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function chdir ($directory) {}
 
 /**
- * @since 4.0.5
- * @since 5.0
  * Change the root directory
  * @link http://php.net/manual/en/function.chroot.php
  * @param string $directory <p>
  * The new directory
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.5
+ * @since 5.0
  */
 function chroot ($directory) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gets the current working directory
  * @link http://php.net/manual/en/function.getcwd.php
  * @return string the current working directory on success, or false on
@@ -319,12 +317,12 @@ function chroot ($directory) {}
  * readable or search mode set, even if the current directory
  * does. See chmod for more information on
  * modes and permissions.
+ * @since 4.0
+ * @since 5.0
  */
 function getcwd () {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Rewind directory handle
  * @link http://php.net/manual/en/function.rewinddir.php
  * @param resource $dir_handle [optional] <p>
@@ -334,12 +332,12 @@ function getcwd () {}
  * is assumed.
  * </p>
  * @return void 
+ * @since 4.0
+ * @since 5.0
  */
 function rewinddir ($dir_handle = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Read entry from directory handle
  * @link http://php.net/manual/en/function.readdir.php
  * @param resource $dir_handle [optional] <p>
@@ -349,22 +347,23 @@ function rewinddir ($dir_handle = null) {}
  * is assumed.
  * </p>
  * @return string the filename on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function readdir ($dir_handle = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Return an instance of the Directory class
  * @link http://php.net/manual/en/class.dir.php
  * @param $directory
  * @param $context [optional]
  * @return Directory 
+ * @since 4.0
+ * @since 5.0
  */
 function dir ($directory, $context) {}
 
 /**
- * @since 5.0
  * List files and directories inside the specified path
  * @link http://php.net/manual/en/function.scandir.php
  * @param string $directory <p>
@@ -384,12 +383,11 @@ function dir ($directory, $context) {}
  * failure. If directory is not a directory, then 
  * boolean false is returned, and an error of level 
  * E_WARNING is generated.
+ * @since 5.0
  */
 function scandir ($directory, $sorting_order = null, $context = null) {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Find pathnames matching a pattern
  * @link http://php.net/manual/en/function.glob.php
  * @param string $pattern <p>
@@ -404,12 +402,12 @@ function scandir ($directory, $sorting_order = null, $context = null) {}
  * <p>
  * On some systems it is impossible to distinguish between empty match and an
  * error.
+ * @since 4.3.0
+ * @since 5.0
  */
 function glob ($pattern, $flags = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gets last access time of file
  * @link http://php.net/manual/en/function.fileatime.php
  * @param string $filename <p>
@@ -417,12 +415,12 @@ function glob ($pattern, $flags = null) {}
  * </p>
  * @return int the time the file was last accessed, or false on failure.
  * The time is returned as a Unix timestamp.
+ * @since 4.0
+ * @since 5.0
  */
 function fileatime ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gets inode change time of file
  * @link http://php.net/manual/en/function.filectime.php
  * @param string $filename <p>
@@ -430,12 +428,12 @@ function fileatime ($filename) {}
  * </p>
  * @return int the time the file was last changed, or false on failure.
  * The time is returned as a Unix timestamp.
+ * @since 4.0
+ * @since 5.0
  */
 function filectime ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gets file group
  * @link http://php.net/manual/en/function.filegroup.php
  * @param string $filename <p>
@@ -445,24 +443,24 @@ function filectime ($filename) {}
  * of an error. The group ID is returned in numerical format, use
  * posix_getgrgid to resolve it to a group name.
  * Upon failure, false is returned.
+ * @since 4.0
+ * @since 5.0
  */
 function filegroup ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gets file inode
  * @link http://php.net/manual/en/function.fileinode.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
  * @return int the inode number of the file, or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function fileinode ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gets file modification time
  * @link http://php.net/manual/en/function.filemtime.php
  * @param string $filename <p>
@@ -471,12 +469,12 @@ function fileinode ($filename) {}
  * @return int the time the file was last modified, or false on failure.
  * The time is returned as a Unix timestamp, which is
  * suitable for the date function.
+ * @since 4.0
+ * @since 5.0
  */
 function filemtime ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gets file owner
  * @link http://php.net/manual/en/function.fileowner.php
  * @param string $filename <p>
@@ -485,24 +483,24 @@ function filemtime ($filename) {}
  * @return int the user ID of the owner of the file, or false on failure.
  * The user ID is returned in numerical format, use
  * posix_getpwuid to resolve it to a username.
+ * @since 4.0
+ * @since 5.0
  */
 function fileowner ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gets file permissions
  * @link http://php.net/manual/en/function.fileperms.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
  * @return int the permissions on the file, or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function fileperms ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gets file size
  * @link http://php.net/manual/en/function.filesize.php
  * @param string $filename <p>
@@ -510,12 +508,12 @@ function fileperms ($filename) {}
  * </p>
  * @return int the size of the file in bytes, or false (and generates an error
  * of level E_WARNING) in case of an error.
+ * @since 4.0
+ * @since 5.0
  */
 function filesize ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gets file type
  * @link http://php.net/manual/en/function.filetype.php
  * @param string $filename <p>
@@ -528,12 +526,12 @@ function filesize ($filename) {}
  * Returns false if an error occurs. filetype will also
  * produce an E_NOTICE message if the stat call fails
  * or if the file type is unknown.
+ * @since 4.0
+ * @since 5.0
  */
 function filetype ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Checks whether a file or directory exists
  * @link http://php.net/manual/en/function.file-exists.php
  * @param string $filename <p>
@@ -558,12 +556,12 @@ function filetype ($filename) {}
  * </p>
  * <p>
  * The check is done using the real UID/GID instead of the effective one.
+ * @since 4.0
+ * @since 5.0
  */
 function file_exists ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Tells whether the filename is writable
  * @link http://php.net/manual/en/function.is-writable.php
  * @param string $filename <p>
@@ -571,12 +569,12 @@ function file_exists ($filename) {}
  * </p>
  * @return bool true if the filename exists and is
  * writable.
+ * @since 4.0
+ * @since 5.0
  */
 function is_writable ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * &Alias; <function>is_writable</function>
  * @link http://php.net/manual/en/function.is-writeable.php
  * @param string $filename <p>
@@ -584,12 +582,12 @@ function is_writable ($filename) {}
  * </p>
  * @return bool true if the filename exists and is
  * writable.
+ * @since 4.0
+ * @since 5.0
  */
 function is_writeable ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Tells whether a file exists and is readable
  * @link http://php.net/manual/en/function.is-readable.php
  * @param string $filename <p>
@@ -597,12 +595,12 @@ function is_writeable ($filename) {}
  * </p>
  * @return bool true if the file or directory specified by
  * filename exists and is readable, false otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function is_readable ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Tells whether the filename is executable
  * @link http://php.net/manual/en/function.is-executable.php
  * @param string $filename <p>
@@ -610,12 +608,12 @@ function is_readable ($filename) {}
  * </p>
  * @return bool true if the filename exists and is executable, or false on
  * error.
+ * @since 4.0
+ * @since 5.0
  */
 function is_executable ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Tells whether the filename is a regular file
  * @link http://php.net/manual/en/function.is-file.php
  * @param string $filename <p>
@@ -623,12 +621,12 @@ function is_executable ($filename) {}
  * </p>
  * @return bool true if the filename exists and is a regular file, false
  * otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function is_file ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Tells whether the filename is a directory
  * @link http://php.net/manual/en/function.is-dir.php
  * @param string $filename <p>
@@ -639,12 +637,12 @@ function is_file ($filename) {}
  * </p>
  * @return bool true if the filename exists and is a directory, false
  * otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function is_dir ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Tells whether the filename is a symbolic link
  * @link http://php.net/manual/en/function.is-link.php
  * @param string $filename <p>
@@ -652,12 +650,12 @@ function is_dir ($filename) {}
  * </p>
  * @return bool true if the filename exists and is a symbolic link, false
  * otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function is_link ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gives information about a file
  * @link http://php.net/manual/en/function.stat.php
  * @param string $filename <p>
@@ -745,12 +743,12 @@ function is_link ($filename) {}
  * </p>
  * <p>
  * In case of error, stat returns false.
+ * @since 4.0
+ * @since 5.0
  */
 function stat ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gives information about a file or symbolic link
  * @link http://php.net/manual/en/function.lstat.php
  * @param string $filename <p>
@@ -762,12 +760,12 @@ function stat ($filename) {}
  * except that if the filename parameter is a symbolic
  * link, the status of the symbolic link is returned, not the status of the
  * file pointed to by the symbolic link.
+ * @since 4.0
+ * @since 5.0
  */
 function lstat ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Changes file owner
  * @link http://php.net/manual/en/function.chown.php
  * @param string $filename <p>
@@ -777,12 +775,12 @@ function lstat ($filename) {}
  * A user name or number.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function chown ($filename, $user) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Changes file group
  * @link http://php.net/manual/en/function.chgrp.php
  * @param string $filename <p>
@@ -792,11 +790,12 @@ function chown ($filename, $user) {}
  * A group name or number.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function chgrp ($filename, $group) {}
 
 /**
- * @since 5.1.2
  * Changes user ownership of symlink
  * @link http://php.net/manual/en/function.lchown.php
  * @param string $filename <p>
@@ -806,11 +805,11 @@ function chgrp ($filename, $group) {}
  * User name or number.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 5.1.2
  */
 function lchown ($filename, $user) {}
 
 /**
- * @since 5.1.2
  * Changes group ownership of symlink
  * @link http://php.net/manual/en/function.lchgrp.php
  * @param string $filename <p>
@@ -820,12 +819,11 @@ function lchown ($filename, $user) {}
  * The group specified by name or number.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 5.1.2
  */
 function lchgrp ($filename, $group) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Changes file mode
  * @link http://php.net/manual/en/function.chmod.php
  * @param string $filename <p>
@@ -854,12 +852,12 @@ function lchgrp ($filename, $group) {}
  * </p>
  * <p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function chmod ($filename, $mode) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Sets access and modification time of file
  * @link http://php.net/manual/en/function.touch.php
  * @param string $filename <p>
@@ -875,12 +873,12 @@ function chmod ($filename, $mode) {}
  * time.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function touch ($filename, $time = null, $atime = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Clears file status cache
  * @link http://php.net/manual/en/function.clearstatcache.php
  * @param bool $clear_realpath_cache [optional] <p>
@@ -891,12 +889,12 @@ function touch ($filename, $time = null, $atime = null) {}
  * clear_realpath_cache is true.
  * </p>
  * @return void 
+ * @since 4.0
+ * @since 5.0
  */
 function clearstatcache ($clear_realpath_cache = null, $filename = null) {}
 
 /**
- * @since 4.1.0
- * @since 5.0
  * Returns the total size of a directory
  * @link http://php.net/manual/en/function.disk-total-space.php
  * @param string $directory <p>
@@ -904,12 +902,12 @@ function clearstatcache ($clear_realpath_cache = null, $filename = null) {}
  * </p>
  * @return float the total number of bytes as a float
  * or false on failure.
+ * @since 4.1.0
+ * @since 5.0
  */
 function disk_total_space ($directory) {}
 
 /**
- * @since 4.1.0
- * @since 5.0
  * Returns available space in directory
  * @link http://php.net/manual/en/function.disk-free-space.php
  * @param string $directory <p>
@@ -922,21 +920,21 @@ function disk_total_space ($directory) {}
  * </p>
  * @return float the number of available bytes as a float
  * or false on failure.
+ * @since 4.1.0
+ * @since 5.0
  */
 function disk_free_space ($directory) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * &Alias; <function>disk_free_space</function>
  * @link http://php.net/manual/en/function.diskfreespace.php
  * @param $path
+ * @since 4.0
+ * @since 5.0
  */
 function diskfreespace ($path) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Send mail
  * @link http://php.net/manual/en/function.mail.php
  * @param string $to <p>
@@ -1015,24 +1013,24 @@ function diskfreespace ($path) {}
  * <p>
  * It is important to note that just because the mail was accepted for delivery,
  * it does NOT mean the mail will actually reach the intended destination.
+ * @since 4.0
+ * @since 5.0
  */
 function mail ($to, $subject, $message, $additional_headers = null, $additional_parameters = null) {}
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Calculate the hash value needed by EZMLM
  * @link http://php.net/manual/en/function.ezmlm-hash.php
  * @param string $addr <p>
  * The email address that's being hashed.
  * </p>
  * @return int The hash value of addr.
+ * @since 4.0.2
+ * @since 5.0
  */
 function ezmlm_hash ($addr) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Open connection to system logger
  * @link http://php.net/manual/en/function.openlog.php
  * @param string $ident <p>
@@ -1151,6 +1149,8 @@ function ezmlm_hash ($addr) {}
  * operating systems
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function openlog ($ident, $option, $facility) {}
 

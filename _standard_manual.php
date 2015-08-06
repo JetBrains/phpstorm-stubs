@@ -28,21 +28,21 @@ define("__COMPILER_HALT_OFFSET__",0);
 
 
 /**
- * @since 5.4.0
  * Convert hex to binary
  * @link http://php.net/manual/en/function.hex2bin.php
  * @param string $data
  * @return string Returns the binary representation of the given data.
  * @see bin2hex(), unpack()
+ * @since 5.4.0
  */
 function hex2bin($data) {};
 
 /**
- * @since 5.3.3
  * This function flushes all response data to the client and finishes the request.
  * This allows for time consuming tasks to be performed without leaving the connection to the client open.
  * @return boolean Returns TRUE on success or FALSE on failure.
  * @link http://php.net/manual/en/install.fpm.php
+ * @since 5.3.3
  */
 function fastcgi_finish_request() {};
 

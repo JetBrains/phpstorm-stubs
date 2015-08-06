@@ -3,8 +3,6 @@
 // Start of shmop v.
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Create or open shared memory block
  * @link http://php.net/manual/en/function.shmop-open.php
  * @param int $key <p>
@@ -27,12 +25,12 @@
  * @return int On success <b>shmop_open</b> will return an id that you can
  * use to access the shared memory segment you've created. <b>FALSE</b> is
  * returned on failure.
+ * @since 4.0.4
+ * @since 5.0
  */
 function shmop_open ($key, $flags, $mode, $size) {}
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Read data from shared memory block
  * @link http://php.net/manual/en/function.shmop-read.php
  * @param int $shmid <p>
@@ -46,12 +44,12 @@ function shmop_open ($key, $flags, $mode, $size) {}
  * The number of bytes to read
  * </p>
  * @return string the data or <b>FALSE</b> on failure.
+ * @since 4.0.4
+ * @since 5.0
  */
 function shmop_read ($shmid, $start, $count) {}
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Close shared memory block
  * @link http://php.net/manual/en/function.shmop-close.php
  * @param int $shmid <p>
@@ -59,12 +57,12 @@ function shmop_read ($shmid, $start, $count) {}
  * <b>shmop_open</b>
  * </p>
  * @return void No value is returned.
+ * @since 4.0.4
+ * @since 5.0
  */
 function shmop_close ($shmid) {}
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Get size of shared memory block
  * @link http://php.net/manual/en/function.shmop-size.php
  * @param int $shmid <p>
@@ -73,12 +71,12 @@ function shmop_close ($shmid) {}
  * </p>
  * @return int an int, which represents the number of bytes the shared memory
  * block occupies.
+ * @since 4.0.4
+ * @since 5.0
  */
 function shmop_size ($shmid) {}
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Write data into shared memory block
  * @link http://php.net/manual/en/function.shmop-write.php
  * @param int $shmid <p>
@@ -94,12 +92,12 @@ function shmop_size ($shmid) {}
  * </p>
  * @return int The size of the written <i>data</i>, or <b>FALSE</b> on
  * failure.
+ * @since 4.0.4
+ * @since 5.0
  */
 function shmop_write ($shmid, $data, $offset) {}
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Delete shared memory block
  * @link http://php.net/manual/en/function.shmop-delete.php
  * @param int $shmid <p>
@@ -107,6 +105,8 @@ function shmop_write ($shmid, $data, $offset) {}
  * <b>shmop_open</b>
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0.4
+ * @since 5.0
  */
 function shmop_delete ($shmid) {}
 

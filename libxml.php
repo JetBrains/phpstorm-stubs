@@ -61,7 +61,6 @@ class LibXMLError  {
 }
 
 /**
- * @since 5.0
  * Set the streams context for the next libxml document load or write
  * @link http://php.net/manual/en/function.libxml-set-streams-context.php
  * @param resource $streams_context <p>
@@ -69,11 +68,11 @@ class LibXMLError  {
  * <b>stream_context_create</b>)
  * </p>
  * @return void No value is returned.
+ * @since 5.0
  */
 function libxml_set_streams_context ($streams_context) {}
 
 /**
- * @since 5.1.0
  * Disable libxml errors and allow user to fetch error information as needed
  * @link http://php.net/manual/en/function.libxml-use-internal-errors.php
  * @param bool $use_errors [optional] <p>
@@ -81,37 +80,37 @@ function libxml_set_streams_context ($streams_context) {}
  * </p>
  * @return bool This function returns the previous value of
  * <i>use_errors</i>.
+ * @since 5.1.0
  */
 function libxml_use_internal_errors ($use_errors = false) {}
 
 /**
- * @since 5.1.0
  * Retrieve last error from libxml
  * @link http://php.net/manual/en/function.libxml-get-last-error.php
  * @return LibXMLError a LibXMLError object if there is any error in the
  * buffer, <b>FALSE</b> otherwise.
+ * @since 5.1.0
  */
 function libxml_get_last_error () {}
 
 /**
- * @since 5.1.0
  * Clear libxml error buffer
  * @link http://php.net/manual/en/function.libxml-clear-errors.php
  * @return void No value is returned.
+ * @since 5.1.0
  */
 function libxml_clear_errors () {}
 
 /**
- * @since 5.1.0
  * Retrieve array of errors
  * @link http://php.net/manual/en/function.libxml-get-errors.php
  * @return array an array with LibXMLError objects if there are any
  * errors in the buffer, or an empty array otherwise.
+ * @since 5.1.0
  */
 function libxml_get_errors () {}
 
 /**
- * @since 5.2.11
  * Disable the ability to load external entities
  * @link http://php.net/manual/en/function.libxml-disable-entity-loader.php
  * @param bool $disable [optional] <p>
@@ -120,11 +119,11 @@ function libxml_get_errors () {}
  * and ) to load external entities.
  * </p>
  * @return bool the previous value.
+ * @since 5.2.11
  */
 function libxml_disable_entity_loader ($disable = true) {}
 
 /**
- * @since 5.4.0
  * Changes the default external entity loader
  * @link http://php.net/manual/en/function.libxml-set-external-entity-loader.php
  * @param callable $resolver_function <p>
@@ -134,6 +133,7 @@ function libxml_disable_entity_loader ($disable = true) {}
  * opened, or <b>NULL</b>.
  * </p>
  * @return void No value is returned.
+ * @since 5.4.0
  */
 function libxml_set_external_entity_loader (callable $resolver_function) {}
 

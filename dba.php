@@ -3,8 +3,6 @@
 // Start of dba v.
 
 /**
- * @since 4.0
- * @since 5.0
  * Open database
  * @link http://php.net/manual/en/function.dba-open.php
  * @param string $path <p>
@@ -120,12 +118,12 @@
  * </p>
  * @param mixed $_ [optional]
  * @return resource a positive handle on success or <b>FALSE</b> on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function dba_open ($path, $mode, $handler = null, $_ = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Open database persistently
  * @link http://php.net/manual/en/function.dba-popen.php
  * @param string $path <p>
@@ -145,12 +143,12 @@ function dba_open ($path, $mode, $handler = null, $_ = null) {}
  * </p>
  * @param mixed $_ [optional]
  * @return resource a positive handle on success or <b>FALSE</b> on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function dba_popen ($path, $mode, $handler = null, $_ = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Close a DBA database
  * @link http://php.net/manual/en/function.dba-close.php
  * @param resource $handle <p>
@@ -158,12 +156,12 @@ function dba_popen ($path, $mode, $handler = null, $_ = null) {}
  * <b>dba_popen</b>.
  * </p>
  * @return void No value is returned.
+ * @since 4.0
+ * @since 5.0
  */
 function dba_close ($handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Delete DBA entry specified by key
  * @link http://php.net/manual/en/function.dba-delete.php
  * @param string $key <p>
@@ -174,12 +172,12 @@ function dba_close ($handle) {}
  * <b>dba_popen</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function dba_delete ($key, $handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Check whether key exists
  * @link http://php.net/manual/en/function.dba-exists.php
  * @param string $key <p>
@@ -190,12 +188,12 @@ function dba_delete ($key, $handle) {}
  * <b>dba_popen</b>.
  * </p>
  * @return bool <b>TRUE</b> if the key exists, <b>FALSE</b> otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function dba_exists ($key, $handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Fetch data specified by key
  * @link http://php.net/manual/en/function.dba-fetch.php
  * @param string $key <p>
@@ -212,12 +210,12 @@ function dba_exists ($key, $handle) {}
  * </p>
  * @return string the associated string if the key/data pair is found, <b>FALSE</b>
  * otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function dba_fetch ($key, $handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Insert entry
  * @link http://php.net/manual/en/function.dba-insert.php
  * @param string $key <p>
@@ -233,12 +231,12 @@ function dba_fetch ($key, $handle) {}
  * <b>dba_popen</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function dba_insert ($key, $value, $handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Replace or insert entry
  * @link http://php.net/manual/en/function.dba-replace.php
  * @param string $key <p>
@@ -252,12 +250,12 @@ function dba_insert ($key, $value, $handle) {}
  * <b>dba_popen</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function dba_replace ($key, $value, $handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Fetch first key
  * @link http://php.net/manual/en/function.dba-firstkey.php
  * @param resource $handle <p>
@@ -265,12 +263,12 @@ function dba_replace ($key, $value, $handle) {}
  * <b>dba_popen</b>.
  * </p>
  * @return string the key on success or <b>FALSE</b> on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function dba_firstkey ($handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Fetch next key
  * @link http://php.net/manual/en/function.dba-nextkey.php
  * @param resource $handle <p>
@@ -278,12 +276,12 @@ function dba_firstkey ($handle) {}
  * <b>dba_popen</b>.
  * </p>
  * @return string the key on success or <b>FALSE</b> on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function dba_nextkey ($handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Optimize database
  * @link http://php.net/manual/en/function.dba-optimize.php
  * @param resource $handle <p>
@@ -291,12 +289,12 @@ function dba_nextkey ($handle) {}
  * <b>dba_popen</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function dba_optimize ($handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Synchronize database
  * @link http://php.net/manual/en/function.dba-sync.php
  * @param resource $handle <p>
@@ -304,12 +302,12 @@ function dba_optimize ($handle) {}
  * <b>dba_popen</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function dba_sync ($handle) {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * List all the handlers available
  * @link http://php.net/manual/en/function.dba-handlers.php
  * @param bool $full_info [optional] <p>
@@ -323,20 +321,21 @@ function dba_sync ($handle) {}
  * <p>
  * When the internal cdb library is used you will see
  * cdb and cdb_make.
+ * @since 4.3.0
+ * @since 5.0
  */
 function dba_handlers ($full_info = false) {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * List all open database files
  * @link http://php.net/manual/en/function.dba-list.php
  * @return array An associative array, in the form resourceid =&gt; filename.
+ * @since 4.3.0
+ * @since 5.0
  */
 function dba_list () {}
 
 /**
- * @since 5.0
  * Splits a key in string representation into array representation
  * @link http://php.net/manual/en/function.dba-key-split.php
  * @param mixed $key <p>
@@ -345,6 +344,7 @@ function dba_list () {}
  * @return mixed an array of the form array(0 =&gt; group, 1 =&gt;
  * value_name). This function will return <b>FALSE</b> if
  * <i>key</i> is <b>NULL</b> or <b>FALSE</b>.
+ * @since 5.0
  */
 function dba_key_split ($key) {}
 

@@ -3,8 +3,6 @@
 // Start of exif v.1.4 $Id$
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Reads the EXIF headers from JPEG or TIFF
  * @link http://php.net/manual/en/function.exif-read-data.php
  * @param string $filename <p>
@@ -76,24 +74,24 @@
  * the header names and the array values are the values associated with
  * those headers. If no data can be returned,
  * <b>exif_read_data</b> will return <b>FALSE</b>.
+ * @since 4.2.0
+ * @since 5.0
  */
 function exif_read_data ($filename, $sections = null, $arrays = false, $thumbnail = false) {}
 
 /**
- * @since 4.0.1
- * @since 5.0
  * Alias of <b>exif_read_data</b>
  * @link http://php.net/manual/en/function.read-exif-data.php
  * @param $filename
  * @param $sections_needed [optional]
  * @param $sub_arrays [optional]
  * @param $read_thumbnail [optional]
+ * @since 4.0.1
+ * @since 5.0
  */
 function read_exif_data ($filename, $sections_needed, $sub_arrays, $read_thumbnail) {}
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Get the header name for an index
  * @link http://php.net/manual/en/function.exif-tagname.php
  * @param int $index <p>
@@ -101,12 +99,12 @@ function read_exif_data ($filename, $sections_needed, $sub_arrays, $read_thumbna
  * </p>
  * @return string the header name, or <b>FALSE</b> if <i>index</i> is
  * not a defined EXIF tag id.
+ * @since 4.2.0
+ * @since 5.0
  */
 function exif_tagname ($index) {}
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Retrieve the embedded thumbnail of a TIFF or JPEG image
  * @link http://php.net/manual/en/function.exif-thumbnail.php
  * @param string $filename <p>
@@ -125,12 +123,12 @@ function exif_tagname ($index) {}
  * </p>
  * @return string the embedded thumbnail, or <b>FALSE</b> if the image contains no
  * thumbnail.
+ * @since 4.2.0
+ * @since 5.0
  */
 function exif_thumbnail ($filename, &$width = null, &$height = null, &$imagetype = null) {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Determine the type of an image
  * @link http://php.net/manual/en/function.exif-imagetype.php
  * @param string $filename The image being checked.
@@ -143,6 +141,8 @@ function exif_thumbnail ($filename, &$width = null, &$height = null, &$imagetype
  * <b>exif_imagetype</b> will emit an <b>E_NOTICE</b>
  * and return <b>FALSE</b> if it is unable to read enough bytes from the file to
  * determine the image type.
+ * @since 4.3.0
+ * @since 5.0
  */
 function exif_imagetype ($filename) {}
 

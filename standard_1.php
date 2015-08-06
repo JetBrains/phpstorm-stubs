@@ -2,32 +2,30 @@
 
 
 /**
- * @since 4.0
- * @since 5.0
  * Make a string uppercase
  * @link http://php.net/manual/en/function.strtoupper.php
  * @param string $string <p>
  * The input string.
  * </p>
  * @return string the uppercased string.
+ * @since 4.0
+ * @since 5.0
  */
 function strtoupper ($string) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Make a string lowercase
  * @link http://php.net/manual/en/function.strtolower.php
  * @param string $str <p>
  * The input string.
  * </p>
  * @return string the lowercased string.
+ * @since 4.0
+ * @since 5.0
  */
 function strtolower ($str) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Find the position of the first occurrence of a substring in a string
  * @link http://php.net/manual/en/function.strpos.php
  * @param string $haystack <p>
@@ -50,11 +48,12 @@ function strtolower ($str) {}
  * <p>
  * Returns <b>FALSE</b> if the needle was not found.
  * </p>
+ * @since 4.0
+ * @since 5.0
  */
 function strpos ($haystack, $needle, $offset = 0) {}
 
 /**
- * @since 5.0
  * Find position of first occurrence of a case-insensitive string
  * @link http://php.net/manual/en/function.stripos.php
  * @param string $haystack <p>
@@ -76,12 +75,11 @@ function strpos ($haystack, $needle, $offset = 0) {}
  * </p>
  * @return int If needle is not found,
  * stripos will return boolean false.
+ * @since 5.0
  */
 function stripos ($haystack, $needle, $offset = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Find the position of the last occurrence of a substring in a string
  * @link http://php.net/manual/en/function.strrpos.php
  * @param string $haystack <p>
@@ -102,11 +100,12 @@ function stripos ($haystack, $needle, $offset = null) {}
  * <p>
  * Returns <b>FALSE</b> if the needle was not found.
  * </p>
+ * @since 4.0
+ * @since 5.0
  */
 function strrpos ($haystack, $needle, $offset = 0) {}
 
 /**
- * @since 5.0
  * Find position of last occurrence of a case-insensitive string in a string
  * @link http://php.net/manual/en/function.strripos.php
  * @param string $haystack <p>
@@ -131,24 +130,23 @@ function strrpos ($haystack, $needle, $offset = 0) {}
  * </p>
  * <p>
  * If needle is not found, false is returned.
+ * @since 5.0
  */
 function strripos ($haystack, $needle, $offset = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Reverse a string
  * @link http://php.net/manual/en/function.strrev.php
  * @param string $string <p>
  * The string to be reversed.
  * </p>
  * @return string the reversed string.
+ * @since 4.0
+ * @since 5.0
  */
 function strrev ($string) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Convert logical Hebrew text to visual text
  * @link http://php.net/manual/en/function.hebrev.php
  * @param string $hebrew_text <p>
@@ -159,12 +157,12 @@ function strrev ($string) {}
  * line that will be returned.
  * </p>
  * @return string the visual string.
+ * @since 4.0
+ * @since 5.0
  */
 function hebrev ($hebrew_text, $max_chars_per_line = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Convert logical Hebrew text to visual text with newline conversion
  * @link http://php.net/manual/en/function.hebrevc.php
  * @param string $hebrew_text <p>
@@ -175,12 +173,12 @@ function hebrev ($hebrew_text, $max_chars_per_line = null) {}
  * line that will be returned.
  * </p>
  * @return string the visual string.
+ * @since 4.0
+ * @since 5.0
  */
 function hebrevc ($hebrew_text, $max_chars_per_line = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Inserts HTML line breaks before all newlines in a string
  * @link http://php.net/manual/en/function.nl2br.php
  * @param string $string <p>
@@ -190,12 +188,12 @@ function hebrevc ($hebrew_text, $max_chars_per_line = null) {}
  * Whenever to use XHTML compatible line breaks or not.
  * </p>
  * @return string the altered string.
+ * @since 4.0
+ * @since 5.0
  */
 function nl2br ($string, $is_xhtml = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Returns filename component of path
  * @link http://php.net/manual/en/function.basename.php
  * @param string $path <p>
@@ -211,12 +209,12 @@ function nl2br ($string, $is_xhtml = null) {}
  * be cut off.
  * </p>
  * @return string the base name of the given path.
+ * @since 4.0
+ * @since 5.0
  */
 function basename ($path, $suffix = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Returns directory name component of path
  * @link http://php.net/manual/en/function.dirname.php
  * @param string $path <p>
@@ -232,12 +230,12 @@ function basename ($path, $suffix = null) {}
  * indicating the current directory. Otherwise, the returned string is
  * path with any trailing
  * /component removed.
+ * @since 4.0
+ * @since 5.0
  */
 function dirname ($path) {}
 
 /**
- * @since 4.0.3
- * @since 5.0
  * Returns information about a file path
  * @link http://php.net/manual/en/function.pathinfo.php
  * @param string $path <p>
@@ -259,12 +257,12 @@ function dirname ($path) {}
  * <p>
  * If options is used, this function will return a 
  * string if not all elements are requested.
+ * @since 4.0.3
+ * @since 5.0
  */
 function pathinfo ($path, $options = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Un-quotes a quoted string
  * @link http://php.net/manual/en/function.stripslashes.php
  * @param string $str <p>
@@ -274,24 +272,24 @@ function pathinfo ($path, $options = null) {}
  * (\' becomes ' and so on.)
  * Double backslashes (\\) are made into a single
  * backslash (\).
+ * @since 4.0
+ * @since 5.0
  */
 function stripslashes ($str) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Un-quote string quoted with <function>addcslashes</function>
  * @link http://php.net/manual/en/function.stripcslashes.php
  * @param string $str <p>
  * The string to be unescaped.
  * </p>
  * @return string the unescaped string.
+ * @since 4.0
+ * @since 5.0
  */
 function stripcslashes ($str) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Find first occurrence of a string
  * @link http://php.net/manual/en/function.strstr.php
  * @param string $haystack <p>
@@ -308,12 +306,12 @@ function stripcslashes ($str) {}
  * </p>
  * @return string the portion of string, or false if needle
  * is not found.
+ * @since 4.0
+ * @since 5.0
  */
 function strstr ($haystack, $needle, $before_needle = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Case-insensitive <function>strstr</function>
  * @link http://php.net/manual/en/function.stristr.php
  * @param string $haystack <p>
@@ -330,12 +328,12 @@ function strstr ($haystack, $needle, $before_needle = null) {}
  * </p>
  * @return string the matched substring. If needle is not
  * found, returns false.
+ * @since 4.0
+ * @since 5.0
  */
 function stristr ($haystack, $needle, $before_needle = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Find the last occurrence of a character in a string
  * @link http://php.net/manual/en/function.strrchr.php
  * @param string $haystack <p>
@@ -353,24 +351,24 @@ function stristr ($haystack, $needle, $before_needle = null) {}
  * This function returns the portion of string, or <b>FALSE</b> if
  * <b>needle</b> is not found.
  * </p>
+ * @since 4.0
+ * @since 5.0
  */
 function strrchr ($haystack, $needle) {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Randomly shuffles a string
  * @link http://php.net/manual/en/function.str-shuffle.php
  * @param string $str <p>
  * The input string.
  * </p>
  * @return string the shuffled string.
+ * @since 4.3.0
+ * @since 5.0
  */
 function str_shuffle ($str) {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Return information about words used in a string
  * @link http://php.net/manual/en/function.str-word-count.php
  * @param string $string <p>
@@ -385,11 +383,12 @@ function str_shuffle ($str) {}
  * </p>
  * @return mixed an array or an integer, depending on the
  * format chosen.
+ * @since 4.3.0
+ * @since 5.0
  */
 function str_word_count ($string, $format = null, $charlist = null) {}
 
 /**
- * @since 5.0
  * Convert a string to an array
  * @link http://php.net/manual/en/function.str-split.php
  * @param string $string <p>
@@ -408,11 +407,11 @@ function str_word_count ($string, $format = null, $charlist = null) {}
  * If the split_length length exceeds the length of
  * string, the entire string is returned as the first
  * (and only) array element.
+ * @since 5.0
  */
 function str_split ($string, $split_length = 1) {}
 
 /**
- * @since 5.0
  * Search a string for any of a set of characters
  * @link http://php.net/manual/en/function.strpbrk.php
  * @param string $haystack <p>
@@ -423,11 +422,11 @@ function str_split ($string, $split_length = 1) {}
  * </p>
  * @return string a string starting from the character found, or false if it is
  * not found.
+ * @since 5.0
  */
 function strpbrk ($haystack, $char_list) {}
 
 /**
- * @since 5.0
  * Binary safe comparison of 2 strings from an offset, up to length characters
  * @link http://php.net/manual/en/function.substr-compare.php
  * @param string $main_str <p>
@@ -454,12 +453,11 @@ function strpbrk ($haystack, $char_list) {}
  * main_str or length is set and
  * is less than 1, substr_compare prints a warning and returns
  * false.
+ * @since 5.0
  */
 function substr_compare ($main_str, $str, $offset, $length = null, $case_insensitivity = null) {}
 
 /**
- * @since 4.0.5
- * @since 5.0
  * Locale based string comparison
  * @link http://php.net/manual/en/function.strcoll.php
  * @param string $str1 <p>
@@ -472,12 +470,12 @@ function substr_compare ($main_str, $str, $offset, $length = null, $case_insensi
  * str2; &gt; 0 if
  * str1 is greater than
  * str2, and 0 if they are equal.
+ * @since 4.0.5
+ * @since 5.0
  */
 function strcoll ($str1, $str2) {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Formats a number as a currency string
  * @link http://php.net/manual/en/function.money-format.php
  * @param string $format <p>
@@ -490,12 +488,12 @@ function strcoll ($str1, $str2) {}
  * string will be returned unchanged.
  * Non-numeric number causes returning &null; and
  * emitting E_WARNING.
+ * @since 4.3.0
+ * @since 5.0
  */
 function money_format ($format, $number) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Return part of a string
  * @link http://php.net/manual/en/function.substr.php
  * @param string $string <p>
@@ -544,12 +542,12 @@ function money_format ($format, $number) {}
  * Using a negative length
  * ]]>
  * @return string the extracted part of string or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function substr ($string, $start, $length = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Replace text within a portion of a string
  * @link http://php.net/manual/en/function.substr-replace.php
  * @param mixed $string <p>
@@ -583,59 +581,59 @@ function substr ($string, $start, $length = null) {}
  * </p>
  * @return mixed The result string is returned. If string is an
  * array then array is returned.
+ * @since 4.0
+ * @since 5.0
  */
 function substr_replace ($string, $replacement, $start, $length = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Quote meta characters
  * @link http://php.net/manual/en/function.quotemeta.php
  * @param string $str <p>
  * The input string.
  * </p>
  * @return string the string with meta characters quoted.
+ * @since 4.0
+ * @since 5.0
  */
 function quotemeta ($str) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Make a string's first character uppercase
  * @link http://php.net/manual/en/function.ucfirst.php
  * @param string $str <p>
  * The input string.
  * </p>
  * @return string the resulting string.
+ * @since 4.0
+ * @since 5.0
  */
 function ucfirst ($str) {}
 
 /**
- * @since 5.3.0
  * Make a string's first character lowercase
  * @link http://php.net/manual/en/function.lcfirst.php
  * @param string $str <p>
  * The input string.
  * </p>
  * @return string the resulting string.
+ * @since 5.3.0
  */
 function lcfirst ($str) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Uppercase the first character of each word in a string
  * @link http://php.net/manual/en/function.ucwords.php
  * @param string $str <p>
  * The input string.
  * </p>
  * @return string the modified string.
+ * @since 4.0
+ * @since 5.0
  */
 function ucwords ($str) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Translate certain characters
  * @link http://php.net/manual/en/function.strtr.php
  * @param string $str <p>
@@ -651,24 +649,24 @@ function ucwords ($str) {}
  * translating all occurrences of each character in
  * from to the corresponding character in
  * to.
+ * @since 4.0
+ * @since 5.0
  */
 function strtr ($str, $from, $to) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Quote string with slashes
  * @link http://php.net/manual/en/function.addslashes.php
  * @param string $str <p>
  * The string to be escaped.
  * </p>
  * @return string the escaped string.
+ * @since 4.0
+ * @since 5.0
  */
 function addslashes ($str) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Quote string with slashes in a C style
  * @link http://php.net/manual/en/function.addcslashes.php
  * @param string $str <p>
@@ -703,12 +701,12 @@ function addslashes ($str) {}
  * while in C all of these are predefined escape sequences.
  * </p>
  * @return string the escaped string.
+ * @since 4.0
+ * @since 5.0
  */
 function addcslashes ($str, $charlist) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Strip whitespace (or other characters) from the end of a string.
  * Without the second parameter, rtrim() will strip these characters:
  * <ul>
@@ -730,12 +728,12 @@ function addcslashes ($str, $charlist) {}
  * .. you can specify a range of characters.
  * </p>
  * @return string the modified string.
+ * @since 4.0
+ * @since 5.0
  */
 function rtrim ($str, $charlist = " \t\n\r\0\x0B") {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Replace all occurrences of the search string with the replacement string
  * @link http://php.net/manual/en/function.str-replace.php
  * @param mixed $search <p>
@@ -758,11 +756,12 @@ function rtrim ($str, $charlist = " \t\n\r\0\x0B") {}
  * </p>
  * @param int $count [optional] If passed, this will hold the number of matched and replaced needles.
  * @return mixed This function returns a string or an array with the replaced values.
+ * @since 4.0
+ * @since 5.0
  */
 function str_replace ($search, $replace, $subject, &$count = null) {}
 
 /**
- * @since 5.0
  * Case-insensitive version of <function>str_replace</function>.
  * @link http://php.net/manual/en/function.str-ireplace.php
  * @param mixed $search <p>
@@ -783,12 +782,11 @@ function str_replace ($search, $replace, $subject, &$count = null) {}
  * reference.
  * </p>
  * @return mixed a string or an array of replacements.
+ * @since 5.0
  */
 function str_ireplace ($search, $replace, $subject, &$count = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Repeat a string
  * @link http://php.net/manual/en/function.str-repeat.php
  * @param string $input <p>
@@ -804,12 +802,12 @@ function str_ireplace ($search, $replace, $subject, &$count = null) {}
  * will return an empty string.
  * </p>
  * @return string the repeated string.
+ * @since 4.0
+ * @since 5.0
  */
 function str_repeat ($input, $multiplier) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Return information about characters used in a string
  * @link http://php.net/manual/en/function.count-chars.php
  * @param string $string <p>
@@ -828,12 +826,12 @@ function str_repeat ($input, $multiplier) {}
  * zero are listed.
  * 3 - a string containing all unique characters is returned.
  * 4 - a string containing all not used characters is returned.
+ * @since 4.0
+ * @since 5.0
  */
 function count_chars ($string, $mode = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Split a string into smaller chunks
  * @link http://php.net/manual/en/function.chunk-split.php
  * @param string $body <p>
@@ -846,12 +844,12 @@ function count_chars ($string, $mode = null) {}
  * The line ending sequence.
  * </p>
  * @return string the chunked string.
+ * @since 4.0
+ * @since 5.0
  */
 function chunk_split ($body, $chunklen = null, $end = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Strip whitespace (or other characters) from the beginning and end of a string
  * @link http://php.net/manual/en/function.trim.php
  * @param string $str <p>
@@ -864,12 +862,12 @@ function chunk_split ($body, $chunklen = null, $end = null) {}
  * .. you can specify a range of characters.
  * </p>
  * @return string The trimmed string.
+ * @since 4.0
+ * @since 5.0
  */
 function trim ($str, $charlist = " \t\n\r\0\x0B") {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Strip whitespace (or other characters) from the beginning of a string
  * @link http://php.net/manual/en/function.ltrim.php
  * @param string $str <p>
@@ -897,12 +895,12 @@ function trim ($str, $charlist = " \t\n\r\0\x0B") {}
  * (0x00)), the NUL-byte.
  * "\x0B" (ASCII 11
  * (0x0B)), a vertical tab.
+ * @since 4.0
+ * @since 5.0
  */
 function ltrim ($str, $charlist = " \t\n\r\0\x0B") {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Strip HTML and PHP tags from a string
  * @link http://php.net/manual/en/function.strip-tags.php
  * @param string $str <p>
@@ -917,12 +915,12 @@ function ltrim ($str, $charlist = " \t\n\r\0\x0B") {}
  * can not be changed with allowable_tags.
  * </p>
  * @return string the stripped string.
+ * @since 4.0
+ * @since 5.0
  */
 function strip_tags ($str, $allowable_tags = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Calculate the similarity between two strings
  * @link http://php.net/manual/en/function.similar-text.php
  * @param string $first <p>
@@ -937,12 +935,12 @@ function strip_tags ($str, $allowable_tags = null) {}
  * percent for you. 
  * </p>
  * @return int the number of matching chars in both strings.
+ * @since 4.0
+ * @since 5.0
  */
 function similar_text ($first, $second, &$percent = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Split a string by string
  * @link http://php.net/manual/en/function.explode.php
  * @param string $delimiter <p>
@@ -970,12 +968,12 @@ function similar_text ($first, $second, &$percent = null) {}
  * limit is used, then an empty array will be
  * returned. For any other limit, an array containing
  * string will be returned.
+ * @since 4.0
+ * @since 5.0
  */
 function explode ($delimiter, $string, $limit = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Join array elements with a string
  * @link http://php.net/manual/en/function.implode.php
  * @param string $glue [optional]<p>
@@ -988,12 +986,12 @@ function explode ($delimiter, $string, $limit = null) {}
  * </p>
  * @return string a string containing a string representation of all the array
  * elements in the same order, with the glue string between each element.
+ * @since 4.0
+ * @since 5.0
  */
 function implode ($glue, array $pieces) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * &Alias; <function>implode</function>
  * @link http://php.net/manual/en/function.join.php
  * @param string $glue <p>
@@ -1006,12 +1004,12 @@ function implode ($glue, array $pieces) {}
  * </p>
  * @return string a string containing a string representation of all the array
  * elements in the same order, with the glue string between each element.
+ * @since 4.0
+ * @since 5.0
  */
 function join ($glue, $pieces) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Set locale information
  * @link http://php.net/manual/en/function.setlocale.php
  * @param int $category <p>
@@ -1050,12 +1048,12 @@ function join ($glue, $pieces) {}
  * The return value of setlocale depends
  * on the system that PHP is running. It returns exactly
  * what the system setlocale function returns.
+ * @since 4.0
+ * @since 5.0
  */
 function setlocale ($category, $locale, $_ = null) {}
 
 /**
- * @since 4.0.5
- * @since 5.0
  * Get numeric formatting information
  * @link http://php.net/manual/en/function.localeconv.php
  * @return array localeconv returns data based upon the current locale
@@ -1172,6 +1170,8 @@ function setlocale ($category, $locale, $_ = null) {}
  * grouping is. If an array element is equal to CHAR_MAX,
  * no further grouping is done. If an array element is equal to 0, the previous
  * element should be used.
+ * @since 4.0.5
+ * @since 5.0
  */
 function localeconv () {}
 

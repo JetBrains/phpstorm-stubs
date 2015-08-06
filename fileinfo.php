@@ -154,8 +154,6 @@ function finfo_file ($finfo, $file_name, $options = null, $context = null) {}
 function finfo_buffer ($finfo ,$string, $options = FILEINFO_NONE, $context = NULL) {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Detect MIME Content-type for a file (deprecated)
  * @link http://php.net/manual/en/function.mime-content-type.php
  * @param string $filename <p>
@@ -163,6 +161,8 @@ function finfo_buffer ($finfo ,$string, $options = FILEINFO_NONE, $context = NUL
  * </p>
  * @return string the content type in MIME format, like 
  * text/plain or application/octet-stream.
+ * @since 4.3.0
+ * @since 5.0
  */
 function mime_content_type ($filename) {}
 

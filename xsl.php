@@ -8,7 +8,6 @@
 class XSLTProcessor  {
 
 	/**
-	 * @since 5.0
 	 * Import stylesheet
 	 * @link http://php.net/manual/en/xsltprocessor.importstylesheet.php
 	 * @param object $stylesheet <p>
@@ -16,22 +15,22 @@ class XSLTProcessor  {
 	 * <b>SimpleXMLElement</b> object.
 	 * </p>
 	 * @return void No value is returned.
+	 * @since 5.0
 	 */
 	public function importStylesheet ($stylesheet) {}
 
 	/**
-	 * @since 5.0
 	 * Transform to a DOMDocument
 	 * @link http://php.net/manual/en/xsltprocessor.transformtodoc.php
 	 * @param DOMNode $doc <p>
 	 * The node to be transformed.
 	 * </p>
 	 * @return DOMDocument The resulting <b>DOMDocument</b> or <b>FALSE</b> on error.
+	 * @since 5.0
 	 */
 	public function transformToDoc (DOMNode $doc) {}
 
 	/**
-	 * @since 5.0
 	 * Transform to URI
 	 * @link http://php.net/manual/en/xsltprocessor.transformtouri.php
 	 * @param DOMDocument|SimpleXMLElement $doc <p>
@@ -41,22 +40,22 @@ class XSLTProcessor  {
 	 * The target URI for the transformation.
 	 * </p>
 	 * @return int the number of bytes written or <b>FALSE</b> if an error occurred.
+	 * @since 5.0
 	 */
 	public function transformToUri ($doc, $uri) {}
 
 	/**
-	 * @since 5.0
 	 * Transform to XML
 	 * @link http://php.net/manual/en/xsltprocessor.transformtoxml.php
 	 * @param DOMDocument|SimpleXMLElement $doc <p>
 	 * The transformed document.
 	 * </p>
 	 * @return string The result of the transformation as a string or <b>FALSE</b> on error.
+	 * @since 5.0
 	 */
 	public function transformToXml ($doc) {}
 
 	/**
-	 * @since 5.0
 	 * Set value for a parameter
 	 * @link http://php.net/manual/en/xsltprocessor.setparameter.php
 	 * @param string $namespace <p>
@@ -69,11 +68,11 @@ class XSLTProcessor  {
 	 * The new value of the XSLT parameter.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @since 5.0
 	 */
 	public function setParameter ($namespace, $name, $value) {}
 
 	/**
-	 * @since 5.0
 	 * Get value of a parameter
 	 * @link http://php.net/manual/en/xsltprocessor.getparameter.php
 	 * @param string $namespaceURI <p>
@@ -83,11 +82,11 @@ class XSLTProcessor  {
 	 * The local name of the XSLT parameter.
 	 * </p>
 	 * @return string The value of the parameter (as a string), or <b>FALSE</b> if it's not set.
+	 * @since 5.0
 	 */
 	public function getParameter ($namespaceURI, $localName) {}
 
 	/**
-	 * @since 5.0
 	 * Remove parameter
 	 * @link http://php.net/manual/en/xsltprocessor.removeparameter.php
 	 * @param string $namespaceURI <p>
@@ -97,19 +96,19 @@ class XSLTProcessor  {
 	 * The local name of the XSLT parameter.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @since 5.0
 	 */
 	public function removeParameter ($namespaceURI, $localName) {}
 
 	/**
-	 * @since 5.0.4
 	 * Determine if PHP has EXSLT support
 	 * @link http://php.net/manual/en/xsltprocessor.hasexsltsupport.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @since 5.0.4
 	 */
 	public function hasExsltSupport () {}
 
 	/**
-	 * @since 5.0.4
 	 * Enables the ability to use PHP functions as XSLT functions
 	 * @link http://php.net/manual/en/xsltprocessor.registerphpfunctions.php
 	 * @param mixed $restrict [optional] <p>
@@ -121,6 +120,7 @@ class XSLTProcessor  {
 	 * functions.
 	 * </p>
 	 * @return void No value is returned.
+	 * @since 5.0.4
 	 */
 	public function registerPHPFunctions ($restrict = null) {}
 

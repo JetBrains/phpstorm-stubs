@@ -23,11 +23,11 @@ interface Traversable {
 interface IteratorAggregate extends Traversable {
 
     /**
-     * @since 5.0.0
      * Retrieve an external iterator
      * @link http://php.net/manual/en/iteratoraggregate.getiterator.php
      * @return Traversable An instance of an object implementing <b>Iterator</b> or
      * <b>Traversable</b>
+     * @since 5.0.0
      */
     public function getIterator();
 }
@@ -40,43 +40,43 @@ interface IteratorAggregate extends Traversable {
 interface Iterator extends Traversable {
 
     /**
-     * @since 5.0.0
      * Return the current element
      * @link http://php.net/manual/en/iterator.current.php
      * @return mixed Can return any type.
+     * @since 5.0.0
      */
     public function current();
 
     /**
-     * @since 5.0.0
      * Move forward to next element
      * @link http://php.net/manual/en/iterator.next.php
      * @return void Any returned value is ignored.
+     * @since 5.0.0
      */
     public function next();
 
     /**
-     * @since 5.0.0
      * Return the key of the current element
      * @link http://php.net/manual/en/iterator.key.php
      * @return mixed scalar on success, or null on failure.
+     * @since 5.0.0
      */
     public function key();
 
     /**
-     * @since 5.0.0
      * Checks if current position is valid
      * @link http://php.net/manual/en/iterator.valid.php
      * @return boolean The return value will be casted to boolean and then evaluated.
      * Returns true on success or false on failure.
+     * @since 5.0.0
      */
     public function valid();
 
     /**
-     * @since 5.0.0
      * Rewind the Iterator to the first element
      * @link http://php.net/manual/en/iterator.rewind.php
      * @return void Any returned value is ignored.
+     * @since 5.0.0
      */
     public function rewind();
 }
@@ -88,7 +88,6 @@ interface Iterator extends Traversable {
 interface ArrayAccess {
 
     /**
-     * @since 5.0.0
      * Whether a offset exists
      * @link http://php.net/manual/en/arrayaccess.offsetexists.php
      * @param mixed $offset <p>
@@ -98,22 +97,22 @@ interface ArrayAccess {
      * </p>
      * <p>
      * The return value will be casted to boolean if non-boolean was returned.
+     * @since 5.0.0
      */
     public function offsetExists($offset);
 
     /**
-     * @since 5.0.0
      * Offset to retrieve
      * @link http://php.net/manual/en/arrayaccess.offsetget.php
      * @param mixed $offset <p>
      * The offset to retrieve.
      * </p>
      * @return mixed Can return all value types.
+     * @since 5.0.0
      */
     public function offsetGet($offset);
 
     /**
-     * @since 5.0.0
      * Offset to set
      * @link http://php.net/manual/en/arrayaccess.offsetset.php
      * @param mixed $offset <p>
@@ -123,17 +122,18 @@ interface ArrayAccess {
      * The value to set.
      * </p>
      * @return void
+     * @since 5.0.0
      */
     public function offsetSet($offset, $value);
 
     /**
-     * @since 5.0.0
      * Offset to unset
      * @link http://php.net/manual/en/arrayaccess.offsetunset.php
      * @param mixed $offset <p>
      * The offset to unset.
      * </p>
      * @return void
+     * @since 5.0.0
      */
     public function offsetUnset($offset);
 }
@@ -145,21 +145,21 @@ interface ArrayAccess {
 interface Serializable {
 
     /**
-     * @since 5.1.0
      * String representation of object
      * @link http://php.net/manual/en/serializable.serialize.php
      * @return string the string representation of the object or null
+     * @since 5.1.0
      */
     public function serialize();
 
     /**
-     * @since 5.1.0
      * Constructs the object
      * @link http://php.net/manual/en/serializable.unserialize.php
      * @param string $serialized <p>
      * The string representation of the object.
      * </p>
      * @return void
+     * @since 5.1.0
      */
     public function unserialize($serialized);
 }
@@ -242,88 +242,88 @@ class Exception implements Throwable {
 
 
     /**
-     * @since 5.1.0
      * Clone the exception
      * @link http://php.net/manual/en/exception.clone.php
      * @return void
+     * @since 5.1.0
      */
     final private function __clone() { }
 
     /**
-     * @since 5.1.0
      * Construct the exception. Note: The message is NOT binary safe.
      * @link http://php.net/manual/en/exception.construct.php
      * @param string $message [optional] The Exception message to throw.
      * @param int $code [optional] The Exception code.
      * @param Exception $previous [optional] The previous exception used for the exception chaining. Since 5.3.0
+     * @since 5.1.0
      */
     public function __construct($message = "", $code = 0, Exception $previous = null) { }
 
     /**
-     * @since 5.1.0
      * Gets the Exception message
      * @link http://php.net/manual/en/exception.getmessage.php
      * @return string the Exception message as a string.
+     * @since 5.1.0
      */
     final public function getMessage() { }
 
     /**
-     * @since 5.1.0
      * Gets the Exception code
      * @link http://php.net/manual/en/exception.getcode.php
      * @return mixed|int the exception code as integer in
      * <b>Exception</b> but possibly as other type in
      * <b>Exception</b> descendants (for example as
      * string in <b>PDOException</b>).
+     * @since 5.1.0
      */
     final public function getCode() { }
 
     /**
-     * @since 5.1.0
      * Gets the file in which the exception occurred
      * @link http://php.net/manual/en/exception.getfile.php
      * @return string the filename in which the exception was created.
+     * @since 5.1.0
      */
     final public function getFile() { }
 
     /**
-     * @since 5.1.0
      * Gets the line in which the exception occurred
      * @link http://php.net/manual/en/exception.getline.php
      * @return int the line number where the exception was created.
+     * @since 5.1.0
      */
     final public function getLine() { }
 
     /**
-     * @since 5.1.0
      * Gets the stack trace
      * @link http://php.net/manual/en/exception.gettrace.php
      * @return array the Exception stack trace as an array.
+     * @since 5.1.0
      */
     final public function getTrace() { }
 
     /**
-     * @since 5.3.0
      * Returns previous Exception
      * @link http://php.net/manual/en/exception.getprevious.php
      * @return Exception the previous <b>Exception</b> if available
      * or null otherwise.
+     * @since 5.3.0
      */
     final public function getPrevious() { }
 
     /**
-     * @since 5.1.0
      * Gets the stack trace as a string
      * @link http://php.net/manual/en/exception.gettraceasstring.php
      * @return string the Exception stack trace as a string.
+     * @since 5.1.0
      */
     final public function getTraceAsString() { }
 
     /**
-     * @since 5.1.0
      * String representation of the exception
      * @link http://php.net/manual/en/exception.tostring.php
      * @return string the string representation of the exception.
+     * @since 5.1.0
      */
     public function __toString() { }
 }
@@ -338,7 +338,6 @@ class ErrorException extends Exception {
 
 
     /**
-     * @since 5.1.0
      * Constructs the exception
      * @link http://php.net/manual/en/errorexception.construct.php
      * @param string $message [optional] The Exception message to throw.
@@ -347,14 +346,15 @@ class ErrorException extends Exception {
      * @param string $filename [optional] The filename where the exception is thrown.
      * @param int $lineno [optional] The line number where the exception is thrown.
      * @param Exception $previous [optional] The previous exception used for the exception chaining.
+     * @since 5.1.0
      */
     public function __construct($message = "", $code = 0, $severity = 1, $filename = __FILE__, $lineno = __LINE__, $previous) { }
 
     /**
-     * @since 5.1.0
      * Gets the exception severity
      * @link http://php.net/manual/en/errorexception.getseverity.php
      * @return int the severity level of the exception.
+     * @since 5.1.0
      */
     final public function getSeverity() { }
 }

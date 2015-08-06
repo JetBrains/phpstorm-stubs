@@ -1,28 +1,27 @@
 <?php
 /**
- * @since 5.4.0
  * <b>SessionHandlerInterface</b> is an interface which defines
  * a prototype for creating a custom session handler.
  * In order to pass a custom session handler to
  * session_set_save_handler() using its OOP invocation,
  * the class must implement this interface.
  * @link http://php.net/manual/en/class.sessionhandlerinterface.php
+ * @since 5.4.0
  */
 interface SessionHandlerInterface {
 
 	/**
-	 * @since 5.4.0
 	 * Close the session
 	 * @link http://php.net/manual/en/sessionhandlerinterface.close.php
 	 * @return bool <p>
 	 * The return value (usually TRUE on success, FALSE on failure).
 	 * Note this value is returned internally to PHP for processing.
 	 * </p>
+	 * @since 5.4.0
 	 */
 	public function close();
 
 	/**
-	 * @since 5.4.0
 	 * Destroy a session
 	 * @link http://php.net/manual/en/sessionhandlerinterface.destroy.php
 	 * @param string $session_id The session ID being destroyed.
@@ -30,11 +29,11 @@ interface SessionHandlerInterface {
 	 * The return value (usually TRUE on success, FALSE on failure).
 	 * Note this value is returned internally to PHP for processing.
 	 * </p>
+	 * @since 5.4.0
 	 */
 	public function destroy($session_id);
 
 	/**
-	 * @since 5.4.0
 	 * Cleanup old sessions
 	 * @link http://php.net/manual/en/sessionhandlerinterface.gc.php
 	 * @param int $maxlifetime <p>
@@ -45,11 +44,11 @@ interface SessionHandlerInterface {
 	 * The return value (usually TRUE on success, FALSE on failure).
 	 * Note this value is returned internally to PHP for processing.
 	 * </p>
+	 * @since 5.4.0
 	 */
 	public function gc($maxlifetime);
 
 	/**
-	 * @since 5.4.0
 	 * Initialize session
 	 * @link http://php.net/manual/en/sessionhandlerinterface.open.php
 	 * @param string $save_path The path where to store/retrieve the session.
@@ -58,12 +57,12 @@ interface SessionHandlerInterface {
 	 * The return value (usually TRUE on success, FALSE on failure).
 	 * Note this value is returned internally to PHP for processing.
 	 * </p>
+	 * @since 5.4.0
 	 */
 	public function open($save_path, $session_id);
 
 
 	/**
-	 * @since 5.4.0
 	 * Read session data
 	 * @link http://php.net/manual/en/sessionhandlerinterface.read.php
 	 * @param string $session_id The session id to read data for.
@@ -72,11 +71,11 @@ interface SessionHandlerInterface {
 	 * If nothing was read, it must return an empty string.
 	 * Note this value is returned internally to PHP for processing.
 	 * </p>
+	 * @since 5.4.0
 	 */
 	public function read($session_id);
 
 	/**
-	 * @since 5.4.0
 	 * Write session data
 	 * @link http://php.net/manual/en/sessionhandlerinterface.write.php
 	 * @param string $session_id The session id.
@@ -91,12 +90,12 @@ interface SessionHandlerInterface {
 	 * The return value (usually TRUE on success, FALSE on failure).
 	 * Note this value is returned internally to PHP for processing.
 	 * </p>
+	 * @since 5.4.0
 	 */
 	public function write($session_id, $session_data);
 }
 
 /**
- * @since 5.4.0
  * <b>SessionHandler</b> a special class that can
  * be used to expose the current internal PHP session
  * save handler by inheritance. There are six methods
@@ -109,22 +108,22 @@ interface SessionHandlerInterface {
  * PHP extensions such as SQLite (as sqlite),
  * Memcache (as memcache), and Memcached (as memcached).
  * @link http://php.net/manual/en/class.reflectionzendextension.php
+ * @since 5.4.0
  */
 class SessionHandler implements SessionHandlerInterface {
 
 	/**
-	 * @since 5.4.0
 	 * Close the session
 	 * @link http://php.net/manual/en/sessionhandler.close.php
 	 * @return bool <p>
 	 * The return value (usually TRUE on success, FALSE on failure).
 	 * Note this value is returned internally to PHP for processing.
 	 * </p>
+	 * @since 5.4.0
 	 */
 	public function close() { }
 
 	/**
-	 * @since 5.4.0
 	 * Destroy a session
 	 * @link http://php.net/manual/en/sessionhandler.destroy.php
 	 * @param string $session_id The session ID being destroyed.
@@ -132,11 +131,11 @@ class SessionHandler implements SessionHandlerInterface {
 	 * The return value (usually TRUE on success, FALSE on failure).
 	 * Note this value is returned internally to PHP for processing.
 	 * </p>
+	 * @since 5.4.0
 	 */
 	public function destroy($session_id) { }
 
 	/**
-	 * @since 5.4.0
 	 * Cleanup old sessions
 	 * @link http://php.net/manual/en/sessionhandler.gc.php
 	 * @param int $maxlifetime <p>
@@ -147,11 +146,11 @@ class SessionHandler implements SessionHandlerInterface {
 	 * The return value (usually TRUE on success, FALSE on failure).
 	 * Note this value is returned internally to PHP for processing.
 	 * </p>
+	 * @since 5.4.0
 	 */
 	public function gc($maxlifetime) { }
 
 	/**
-	 * @since 5.4.0
 	 * Initialize session
 	 * @link http://php.net/manual/en/sessionhandler.open.php
 	 * @param string $save_path The path where to store/retrieve the session.
@@ -160,12 +159,12 @@ class SessionHandler implements SessionHandlerInterface {
 	 * The return value (usually TRUE on success, FALSE on failure).
 	 * Note this value is returned internally to PHP for processing.
 	 * </p>
+	 * @since 5.4.0
 	 */
 	public function open($save_path, $session_id) { }
 
 
 	/**
-	 * @since 5.4.0
 	 * Read session data
 	 * @link http://php.net/manual/en/sessionhandler.read.php
 	 * @param string $session_id The session id to read data for.
@@ -174,11 +173,11 @@ class SessionHandler implements SessionHandlerInterface {
 	 * If nothing was read, it must return an empty string.
 	 * Note this value is returned internally to PHP for processing.
 	 * </p>
+	 * @since 5.4.0
 	 */
 	public function read($session_id) { }
 
 	/**
-	 * @since 5.4.0
 	 * Write session data
 	 * @link http://php.net/manual/en/sessionhandler.write.php
 	 * @param string $session_id The session id.
@@ -193,6 +192,7 @@ class SessionHandler implements SessionHandlerInterface {
 	 * The return value (usually TRUE on success, FALSE on failure).
 	 * Note this value is returned internally to PHP for processing.
 	 * </p>
+	 * @since 5.4.0
 	 */
 	public function write($session_id, $session_data) { }
 }

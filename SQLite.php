@@ -365,39 +365,38 @@ final class SQLiteResult implements Iterator, Traversable, Countable {
 	 */
 	public function current ($result_type = SQLITE_BOTH , $decode_binary = true) {}
 	/**
-	 * @since 5.0.0
 	 * Return the key of the current element
 	 * @link http://php.net/manual/en/iterator.key.php
 	 * @return mixed scalar on success, or null on failure.
+	 * @since 5.0.0
 	 */
 	public function key () {}
 	/**
-	 * @since 5.0.0
 	 * Seek to the next row number
 	 * @link http://php.net/manual/en/function.sqlite-next.php
 	 * @return bool Returns <b>TRUE</b> on success, or <b>FALSE</b> if there are no more rows.
+	 * @since 5.0.0
 	 */
 	public function next () {}
 	/**
-	 * @since 5.0.0
 	 * Checks if current position is valid
 	 * @link http://php.net/manual/en/iterator.valid.php
 	 * @return boolean <p>
 	 * Returns <b>TRUE</b> if there are more rows available from the
 	 * <i>result</i> handle, or <b>FALSE</b> otherwise.
 	 * </p>
+	 * @since 5.0.0
 	 */
 	public function valid () {}
 	/**
-	 * @since 5.0.0
 	 * Rewind the Iterator to the first element
 	 * @link http://php.net/manual/en/iterator.rewind.php
 	 * @return void Any returned value is ignored.
+	 * @since 5.0.0
 	 */
 	public function rewind () {}
 
 	/**
-	 * @since 5.1.0
 	 * Count elements of an object
 	 * @link http://php.net/manual/en/countable.count.php
 	 * @return int <p>The custom count as an integer.
@@ -405,15 +404,16 @@ final class SQLiteResult implements Iterator, Traversable, Countable {
 	 * <p>
 	 * The return value is cast to an integer.
 	 * </p>
+	 * @since 5.1.0
 	 */
 	public function count () {}
 
 	/**
-	 * @since 5.4.0
 	 * Seek to the previous row number of a result set
 	 * @link http://php.net/manual/en/function.sqlite-prev.php
 	 * @return boolean <p> Returns <b>TRUE</b> on success, or <b>FALSE</b> if there are no more previous rows.
 	 * </p>
+	 * @since 5.4.0
 	 */
 	public function prev () {}
 
@@ -515,28 +515,28 @@ final class SQLiteException extends RuntimeException  {
 
 
 	/**
-	 * @since 5.1.0
 	 * Clone the exception
 	 * @link http://php.net/manual/en/exception.clone.php
 	 * @return void 
+	 * @since 5.1.0
 	 */
 	final private function __clone () {}
 
 	/**
-	 * @since 5.1.0
 	 * Construct the exception
 	 * @link http://php.net/manual/en/exception.construct.php
 	 * @param $message [optional]
 	 * @param $code [optional]
 	 * @param $previous [optional]
+	 * @since 5.1.0
 	 */
 	public function __construct ($message, $code, $previous) {}
 
 	/**
-	 * @since 5.1.0
 	 * String representation of the exception
 	 * @link http://php.net/manual/en/exception.tostring.php
 	 * @return string the string representation of the exception.
+	 * @since 5.1.0
 	 */
 	public function __toString () {}
 
@@ -737,7 +737,6 @@ function sqlite_single_query ($db, $query, $first_row_only = null, $decode_binar
 function sqlite_fetch_array ($result, $result_type = SQLITE_BOTH, $decode_binary = null) {}
 
 /**
- * @since 5.0
  * Fetches the next row from a result set as an object
  * @link http://php.net/manual/en/function.sqlite-fetch-object.php
  * @param resource $result
@@ -745,6 +744,7 @@ function sqlite_fetch_array ($result, $result_type = SQLITE_BOTH, $decode_binary
  * @param array $ctor_params [optional] 
  * @param bool $decode_binary [optional] 
  * @return object
+ * @since 5.0
  */
 function sqlite_fetch_object ($result, $class_name = null, array $ctor_params = null, $decode_binary = null) {}
 
@@ -944,7 +944,6 @@ function sqlite_rewind ($result) {}
 function sqlite_next ($result) {}
 
 /**
- * @since 5.0
  * Seek to the previous row number of a result set
  * @link http://php.net/manual/en/function.sqlite-prev.php
  * @param resource $result <p>
@@ -954,11 +953,11 @@ function sqlite_next ($result) {}
  * <blockquote><p><b>Note</b>: </p><p>This function cannot be used with
  * unbuffered result handles.</p></blockquote>
  * @return bool true on success, or false if there are no more previous rows.
+ * @since 5.0
  */
 function sqlite_prev ($result) {}
 
 /**
- * @since 5.0
  * Returns whether more rows are available
  * @link http://php.net/manual/en/function.sqlite-valid.php
  * @param resource $result <p>
@@ -969,6 +968,7 @@ function sqlite_prev ($result) {}
  * unbuffered result handles.</p></blockquote>
  * @return bool <b>TRUE</b> if there are more rows available from the
  * result handle, or <b>FALSE</b> otherwise.
+ * @since 5.0
  */
 function sqlite_valid ($result) {}
 
@@ -985,7 +985,6 @@ function sqlite_valid ($result) {}
 function sqlite_has_more ($result) {}
 
 /**
- * @since 5.0
  * Returns whether or not a previous row is available
  * @link http://php.net/manual/en/function.sqlite-has-prev.php
  * @param resource $result <p>
@@ -994,6 +993,7 @@ function sqlite_has_more ($result) {}
  * </p>
  * @return bool <b>TRUE</b> if there are more previous rows available from the
  * result handle, or <b>FALSE</b> otherwise.
+ * @since 5.0
  */
 function sqlite_has_prev ($result) {}
 
@@ -1138,7 +1138,6 @@ function sqlite_create_aggregate ($dbhandle, $function_name, $step_func, $finali
 function sqlite_create_function ($dbhandle, $function_name, $callback, $num_args = null) {}
 
 /**
- * @since 5.0
  * Opens a SQLite database and returns a SQLiteDatabase object
  * @link http://php.net/manual/en/function.sqlite-factory.php
  * @param string $filename <p>
@@ -1155,6 +1154,7 @@ function sqlite_create_function ($dbhandle, $function_name, $callback, $num_args
  * explaining why the database could not be opened if there was an error.
  * </p>
  * @return SQLiteDatabase a SQLiteDatabase object on success, &null; on error.
+ * @since 5.0
  */
 function sqlite_factory ($filename, $mode = null, &$error_message = null) {}
 
@@ -1183,7 +1183,6 @@ function sqlite_udf_encode_binary ($data) {}
 function sqlite_udf_decode_binary ($data) {}
 
 /**
- * @since 5.0
  * Return an array of column types from a particular table
  * @link http://php.net/manual/en/function.sqlite-fetch-column-types.php
  * @param string $table_name <p>
@@ -1204,6 +1203,7 @@ function sqlite_udf_decode_binary ($data) {}
  * this function.
  * </p>
  * @return array an array of column data types; false on error.
+ * @since 5.0
  */
 function sqlite_fetch_column_types ($dbhandle, $table_name, $result_type = null) {}
 

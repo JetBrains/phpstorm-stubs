@@ -3,8 +3,6 @@
 // Start of recode v.
 
 /**
- * @since 4.0
- * @since 5.0
  * Recode a string according to a recode request
  * @link http://php.net/manual/en/function.recode-string.php
  * @param string $request <p>
@@ -15,12 +13,12 @@
  * </p>
  * @return string the recoded string or <b>FALSE</b>, if unable to
  * perform the recode request.
+ * @since 4.0
+ * @since 5.0
  */
 function recode_string ($request, $string) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Recode from file to file according to recode request
  * @link http://php.net/manual/en/function.recode-file.php
  * @param string $request <p>
@@ -35,16 +33,18 @@ function recode_string ($request, $string) {}
  * the <i>output</i>
  * </p>
  * @return bool <b>FALSE</b>, if unable to comply, <b>TRUE</b> otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function recode_file ($request, $input, $output) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Alias of <b>recode_string</b>
  * @link http://php.net/manual/en/function.recode.php
  * @param $request
  * @param $str
+ * @since 4.0
+ * @since 5.0
  */
 function recode ($request, $str) {}
 

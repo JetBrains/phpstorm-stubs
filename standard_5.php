@@ -9,8 +9,6 @@
 function boolval($var) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Get the integer value of a variable
  * @link http://php.net/manual/en/function.intval.php
  * @param mixed $var <p>
@@ -35,16 +33,18 @@ function boolval($var) {}
  * leftmost characters of the string. The common rules of 
  * integer casting 
  * apply.
+ * @since 4.0
+ * @since 5.0
  */
 function intval ($var, $base = null) {}
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Get float value of a variable
  * @link http://php.net/manual/en/function.floatval.php
  * @param mixed $var May be any scalar type. should not be used on objects, as doing so will emit an E_NOTICE level error and return 1.
  * @return float value of the given variable. Empty arrays return 0, non-empty arrays return 1.
+ * @since 4.2.0
+ * @since 5.0
  */
 function floatval ($var) {}
 
@@ -60,8 +60,6 @@ function floatval ($var) {}
 function doubleval ($var) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Get string value of a variable
  * @link http://php.net/manual/en/function.strval.php
  * @param mixed $var <p>
@@ -72,12 +70,12 @@ function doubleval ($var) {}
  * strval on arrays or objects.
  * </p>
  * @return string The string value of var.
+ * @since 4.0
+ * @since 5.0
  */
 function strval ($var) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Get the type of a variable
  * @link http://php.net/manual/en/function.gettype.php
  * @param mixed $var <p>
@@ -95,12 +93,12 @@ function strval ($var) {}
  * "resource"
  * "NULL"
  * "unknown type"
+ * @since 4.0
+ * @since 5.0
  */
 function gettype ($var) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Set the type of a variable
  * @link http://php.net/manual/en/function.settype.php
  * @param mixed $var <p>
@@ -133,12 +131,12 @@ function gettype ($var) {}
  * </li>
  * </ul>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function settype (&$var, $type) {}
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Finds whether a variable is &null;
  * @link http://php.net/manual/en/function.is-null.php
  * @param mixed $var <p>
@@ -146,12 +144,12 @@ function settype (&$var, $type) {}
  * </p>
  * @return bool true if var is null, false
  * otherwise.
+ * @since 4.0.4
+ * @since 5.0
  */
 function is_null ($var) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Finds whether a variable is a resource
  * @link http://php.net/manual/en/function.is-resource.php
  * @param mixed $var <p>
@@ -159,12 +157,12 @@ function is_null ($var) {}
  * </p>
  * @return bool true if var is a resource,
  * false otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function is_resource ($var) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Finds out whether a variable is a boolean
  * @link http://php.net/manual/en/function.is-bool.php
  * @param mixed $var <p>
@@ -172,12 +170,12 @@ function is_resource ($var) {}
  * </p>
  * @return bool true if var is a boolean,
  * false otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function is_bool ($var) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * &Alias; <function>is_int</function>
  * @link http://php.net/manual/en/function.is-long.php
  * @param mixed $var <p>
@@ -185,12 +183,12 @@ function is_bool ($var) {}
  * </p>
  * @return bool true if var is an integer,
  * false otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function is_long ($var) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Finds whether the type of a variable is float
  * @link http://php.net/manual/en/function.is-float.php
  * @param mixed $var <p>
@@ -198,12 +196,12 @@ function is_long ($var) {}
  * </p>
  * @return bool true if var is a float, 
  * false otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function is_float ($var) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Find whether the type of a variable is integer
  * @link http://php.net/manual/en/function.is-int.php
  * @param mixed $var <p>
@@ -211,12 +209,12 @@ function is_float ($var) {}
  * </p>
  * @return bool true if var is an integer, 
  * false otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function is_int ($var) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * &Alias; <function>is_int</function>
  * @link http://php.net/manual/en/function.is-integer.php
  * @param mixed $var <p>
@@ -224,12 +222,12 @@ function is_int ($var) {}
  * </p>
  * @return bool true if var is an integer,
  * false otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function is_integer ($var) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * &Alias; <function>is_float</function>
  * @link http://php.net/manual/en/function.is-double.php
  * @param mixed $var <p>
@@ -237,12 +235,12 @@ function is_integer ($var) {}
  * </p>
  * @return bool true if var is a float,
  * false otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function is_double ($var) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * &Alias; <function>is_float</function>
  * @link http://php.net/manual/en/function.is-real.php
  * @param mixed $var <p>
@@ -250,12 +248,12 @@ function is_double ($var) {}
  * </p>
  * @return bool true if var is a float,
  * false otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function is_real ($var) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Finds whether a variable is a number or a numeric string
  * @link http://php.net/manual/en/function.is-numeric.php
  * @param mixed $var <p>
@@ -263,12 +261,12 @@ function is_real ($var) {}
  * </p>
  * @return bool true if var is a number or a numeric
  * string, false otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function is_numeric ($var) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Find whether the type of a variable is string
  * @link http://php.net/manual/en/function.is-string.php
  * @param mixed $var <p>
@@ -276,12 +274,12 @@ function is_numeric ($var) {}
  * </p>
  * @return bool true if var is of type string,
  * false otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function is_string ($var) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Finds whether a variable is an array
  * @link http://php.net/manual/en/function.is-array.php
  * @param mixed $var <p>
@@ -289,12 +287,12 @@ function is_string ($var) {}
  * </p>
  * @return bool true if var is an array, 
  * false otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function is_array ($var) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Finds whether a variable is an object
  * @link http://php.net/manual/en/function.is-object.php
  * @param mixed $var <p>
@@ -302,12 +300,12 @@ function is_array ($var) {}
  * </p>
  * @return bool true if var is an object, 
  * false otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function is_object ($var) {}
 
 /**
- * @since 4.0.5
- * @since 5.0
  * Finds whether a variable is a scalar
  * @link http://php.net/manual/en/function.is-scalar.php
  * @param mixed $var <p>
@@ -315,12 +313,12 @@ function is_object ($var) {}
  * </p>
  * @return bool true if var is a scalar false
  * otherwise.
+ * @since 4.0.5
+ * @since 5.0
  */
 function is_scalar ($var) {}
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Verify that the contents of a variable can be called as a function
  * @link http://php.net/manual/en/function.is-callable.php
  * @param callback|callable $name <p>
@@ -344,12 +342,12 @@ function is_scalar ($var) {}
  * </p>
  * @return bool true if name is callable, false 
  * otherwise.
+ * @since 4.0.6
+ * @since 5.0
  */
 function is_callable ($name, $syntax_only = null, &$callable_name = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Closes process file pointer
  * @link http://php.net/manual/en/function.pclose.php
  * @param resource $handle <p>
@@ -357,12 +355,12 @@ function is_callable ($name, $syntax_only = null, &$callable_name = null) {}
  * successful call to popen.
  * </p>
  * @return int the termination status of the process that was run.
+ * @since 4.0
+ * @since 5.0
  */
 function pclose ($handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Opens process file pointer
  * @link http://php.net/manual/en/function.popen.php
  * @param string $command <p>
@@ -380,12 +378,12 @@ function pclose ($handle) {}
  * </p>
  * <p>
  * If an error occurs, returns false.
+ * @since 4.0
+ * @since 5.0
  */
 function popen ($command, $mode) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Outputs a file
  * @link http://php.net/manual/en/function.readfile.php
  * @param string $filename <p>
@@ -401,12 +399,12 @@ function popen ($command, $mode) {}
  * @return int the number of bytes read from the file. If an error
  * occurs, false is returned and unless the function was called as
  * @readfile, an error message is printed.
+ * @since 4.0
+ * @since 5.0
  */
 function readfile ($filename, $use_include_path = null, $context = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Rewind the position of a file pointer
  * @link http://php.net/manual/en/function.rewind.php
  * @param resource $handle <p>
@@ -414,12 +412,12 @@ function readfile ($filename, $use_include_path = null, $context = null) {}
  * successfully opened by fopen.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function rewind ($handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Removes directory
  * @link http://php.net/manual/en/function.rmdir.php
  * @param string $dirname <p>
@@ -427,12 +425,12 @@ function rewind ($handle) {}
  * </p>
  * @param resource $context [optional] &note.context-support;
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function rmdir ($dirname, $context = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Changes the current umask
  * @link http://php.net/manual/en/function.umask.php
  * @param int $mask [optional] <p>
@@ -440,12 +438,12 @@ function rmdir ($dirname, $context = null) {}
  * </p>
  * @return int umask without arguments simply returns the
  * current umask otherwise the old umask is returned.
+ * @since 4.0
+ * @since 5.0
  */
 function umask ($mask = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Closes an open file pointer
  * @link http://php.net/manual/en/function.fclose.php
  * @param resource $handle <p>
@@ -453,34 +451,34 @@ function umask ($mask = null) {}
  * opened by fopen or fsockopen.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function fclose ($handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Tests for end-of-file on a file pointer
  * @link http://php.net/manual/en/function.feof.php
  * @param resource $handle &fs.validfp.all;
  * @return bool true if the file pointer is at EOF or an error occurs
  * (including socket timeout); otherwise returns false.
+ * @since 4.0
+ * @since 5.0
  */
 function feof ($handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gets character from file pointer
  * @link http://php.net/manual/en/function.fgetc.php
  * @param resource $handle &fs.validfp.all;
  * @return string a string containing a single character read from the file pointed
  * to by handle. Returns false on EOF.
+ * @since 4.0
+ * @since 5.0
  */
 function fgetc ($handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gets line from file pointer
  * @link http://php.net/manual/en/function.fgets.php
  * @param resource $handle &fs.validfp.all;
@@ -501,12 +499,12 @@ function fgetc ($handle) {}
  * </p>
  * <p>
  * If an error occurs, returns false.
+ * @since 4.0
+ * @since 5.0
  */
 function fgets ($handle, $length = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gets line from file pointer and strip HTML tags
  * @link http://php.net/manual/en/function.fgetss.php
  * @param resource $handle &fs.validfp.all;
@@ -523,12 +521,12 @@ function fgets ($handle, $length = null) {}
  * </p>
  * <p>
  * If an error occurs, returns false.
+ * @since 4.0
+ * @since 5.0
  */
 function fgetss ($handle, $length = null, $allowable_tags = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Binary-safe file read
  * @link http://php.net/manual/en/function.fread.php
  * @param resource $handle &fs.file.pointer;
@@ -536,12 +534,12 @@ function fgetss ($handle, $length = null, $allowable_tags = null) {}
  * Up to length number of bytes read.
  * </p>
  * @return string the read string or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function fread ($handle, $length) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Opens file or URL
  * @link http://php.net/manual/en/function.fopen.php
  * @param string $filename <p>
@@ -717,12 +715,12 @@ function fread ($handle, $length) {}
  * </p>
  * @param resource $context [optional] &note.context-support;
  * @return resource a file pointer resource on success, or false on error.
+ * @since 4.0
+ * @since 5.0
  */
 function fopen ($filename, $mode, $use_include_path = null, $context = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Output all remaining data on a file pointer
  * @link http://php.net/manual/en/function.fpassthru.php
  * @param resource $handle &fs.validfp.all;
@@ -730,12 +728,12 @@ function fopen ($filename, $mode, $use_include_path = null, $context = null) {}
  * false. Otherwise, fpassthru returns
  * the number of characters read from handle
  * and passed through to the output.
+ * @since 4.0
+ * @since 5.0
  */
 function fpassthru ($handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Truncates a file to a given length
  * @link http://php.net/manual/en/function.ftruncate.php
  * @param resource $handle <p>
@@ -756,23 +754,23 @@ function fpassthru ($handle) {}
  * will be lost.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function ftruncate ($handle, $size) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gets information about a file using an open file pointer
  * @link http://php.net/manual/en/function.fstat.php
  * @param resource $handle &fs.file.pointer;
  * @return array an array with the statistics of the file; the format of the array
  * is described in detail on the stat manual page.
+ * @since 4.0
+ * @since 5.0
  */
 function fstat ($handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Seeks on a file pointer
  * @link http://php.net/manual/en/function.fseek.php
  * @param resource $handle &fs.file.pointer;
@@ -797,12 +795,12 @@ function fstat ($handle) {}
  * </p>
  * @return int Upon success, returns 0; otherwise, returns -1. Note that seeking
  * past EOF is not considered an error.
+ * @since 4.0
+ * @since 5.0
  */
 function fseek ($handle, $offset, $whence = SEEK_SET) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Returns the current position of the file read/write pointer
  * @link http://php.net/manual/en/function.ftell.php
  * @param resource $handle <p>
@@ -816,22 +814,22 @@ function fseek ($handle, $offset, $whence = SEEK_SET) {}
  * </p>
  * <p>
  * If an error occurs, returns false.
+ * @since 4.0
+ * @since 5.0
  */
 function ftell ($handle) {}
 
 /**
- * @since 4.0.1
- * @since 5.0
  * Flushes the output to a file
  * @link http://php.net/manual/en/function.fflush.php
  * @param resource $handle &fs.validfp.all;
  * @return bool true on success or false on failure.
+ * @since 4.0.1
+ * @since 5.0
  */
 function fflush ($handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Binary-safe file write
  * @link http://php.net/manual/en/function.fwrite.php
  * @param resource $handle &fs.file.pointer;
@@ -851,12 +849,12 @@ function fflush ($handle) {}
  * stripped from string.
  * </p>
  * @return int 
+ * @since 4.0
+ * @since 5.0
  */
 function fwrite ($handle, $string, $length = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * &Alias; <function>fwrite</function>
  * @see fwrite()
  * @link http://php.net/manual/en/function.fputs.php
@@ -878,12 +876,12 @@ function fwrite ($handle, $string, $length = null) {}
  * stripped from string.
  * </p>
  * @return int
+ * @since 4.0
+ * @since 5.0
  */
 function fputs ($fp, $str, $length) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Attempts to create the directory specified by pathname.
  * @link http://php.net/manual/en/function.mkdir.php
  * @param string $pathname <p>
@@ -908,12 +906,12 @@ function fputs ($fp, $str, $length) {}
  * </p>
  * @param resource $context [optional] &note.context-support;
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function mkdir ($pathname, $mode = 0777, $recursive = false, $context = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Renames a file or directory
  * @link http://php.net/manual/en/function.rename.php
  * @param string $oldname <p>
@@ -928,12 +926,12 @@ function mkdir ($pathname, $mode = 0777, $recursive = false, $context = null) {}
  * </p>
  * @param resource $context [optional] &note.context-support;
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function rename ($oldname, $newname, $context = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Copies file
  * @link http://php.net/manual/en/function.copy.php
  * @param string $source <p>
@@ -952,12 +950,12 @@ function rename ($oldname, $newname, $context = null) {}
  * stream_context_create.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function copy ($source, $dest, $context = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Create file with unique file name
  * @link http://php.net/manual/en/function.tempnam.php
  * @param string $dir <p>
@@ -969,22 +967,22 @@ function copy ($source, $dest, $context = null) {}
  * Windows use only the first three characters of prefix.
  * @return string the new temporary filename, or false on
  * failure.
+ * @since 4.0
+ * @since 5.0
  */
 function tempnam ($dir, $prefix) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Creates a temporary file
  * @link http://php.net/manual/en/function.tmpfile.php
  * @return resource a file handle, similar to the one returned by
  * fopen, for the new file or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function tmpfile () {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Reads entire file into an array
  * @link http://php.net/manual/en/function.file.php
  * @param string $filename <p>
@@ -1012,12 +1010,12 @@ function tmpfile () {}
  * FILE_IGNORE_NEW_LINES is used, so you still need to
  * use rtrim if you do not want the line ending
  * present.
+ * @since 4.0
+ * @since 5.0
  */
 function file ($filename, $flags = null, $context = null) {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Reads entire file into a string
  * @link http://php.net/manual/en/function.file-get-contents.php
  * @param string $filename <p>
@@ -1089,11 +1087,12 @@ function file ($filename, $flags = null, $context = null) {}
  * of file is reached.
  * </p>
  * @return string The function returns the read data or false on failure.
+ * @since 4.3.0
+ * @since 5.0
  */
 function file_get_contents ($filename, $flags = null, $context = null, $offset = null, $maxlen = null) {}
 
 /**
- * @since 5.0
  * Write a string to a file
  * @link http://php.net/manual/en/function.file-put-contents.php
  * @param string $filename <p>
@@ -1188,6 +1187,7 @@ function file_get_contents ($filename, $flags = null, $context = null, $offset =
  * </p>
  * @return int The function returns the number of bytes that were written to the file, or
  * false on failure.
+ * @since 5.0
  */
 function file_put_contents ($filename, $data, $flags = null, $context = null) {}
 ?>

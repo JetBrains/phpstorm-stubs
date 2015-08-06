@@ -3,8 +3,6 @@
 // Start of interbase v.
 
 /**
- * @since 4.0
- * @since 5.0
  * Open a connection to an InterBase database
  * @link http://php.net/manual/en/function.ibase-connect.php
  * @param string $database [optional] <p>
@@ -43,12 +41,12 @@
  * @param int $sync [optional] <p>
  * </p>
  * @return resource an InterBase link identifier on success, or false on error.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_connect ($database = null, $username = null, $password = null, $charset = null, $buffers = null, $dialect = null, $role = null, $sync = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Open a persistent connection to an InterBase database
  * @link http://php.net/manual/en/function.ibase-pconnect.php
  * @param string $database [optional] <p>
@@ -87,12 +85,12 @@ function ibase_connect ($database = null, $username = null, $password = null, $c
  * @param int $sync [optional] <p>
  * </p>
  * @return resource an InterBase link identifier on success, or false on error.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_pconnect ($database = null, $username = null, $password = null, $charset = null, $buffers = null, $dialect = null, $role = null, $sync = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Close a connection to an InterBase database
  * @link http://php.net/manual/en/function.ibase-close.php
  * @param resource $connection_id [optional] <p>
@@ -101,11 +99,12 @@ function ibase_pconnect ($database = null, $username = null, $password = null, $
  * is assumed.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_close ($connection_id = null) {}
 
 /**
- * @since 5.0
  * Drops a database
  * @link http://php.net/manual/en/function.ibase-drop-db.php
  * @param resource $connection [optional] <p>
@@ -113,12 +112,11 @@ function ibase_close ($connection_id = null) {}
  * assumed.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 5.0
  */
 function ibase_drop_db ($connection = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Execute a query on an InterBase database
  * @link http://php.net/manual/en/function.ibase-query.php
  * @param resource $link_identifier [optional] <p>
@@ -140,12 +138,12 @@ function ibase_drop_db ($connection = null) {}
  * affected by the query for INSERT, UPDATE and DELETE statements. In order
  * to retain backward compatibility, it will return true for these
  * statements if the query succeeded without affecting any rows.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_query ($link_identifier = null, $query, $bind_args = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Fetch a row from an InterBase database
  * @link http://php.net/manual/en/function.ibase-fetch-row.php
  * @param resource $result_identifier <p>
@@ -162,12 +160,12 @@ function ibase_query ($link_identifier = null, $query, $bind_args = null) {}
  * @return array an array that corresponds to the fetched row, or false if there
  * are no more rows. Each result column is stored in an array offset,
  * starting at offset 0.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_fetch_row ($result_identifier, $fetch_flag = null) {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Fetch a result row from a query as an associative array
  * @link http://php.net/manual/en/function.ibase-fetch-assoc.php
  * @param resource $result <p>
@@ -184,12 +182,12 @@ function ibase_fetch_row ($result_identifier, $fetch_flag = null) {}
  * @return array an associative array that corresponds to the fetched row.
  * Subsequent calls will return the next row in the result set, or false if
  * there are no more rows.
+ * @since 4.3.0
+ * @since 5.0
  */
 function ibase_fetch_assoc ($result, $fetch_flag = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Get an object from a InterBase database
  * @link http://php.net/manual/en/function.ibase-fetch-object.php
  * @param resource $result_id <p>
@@ -206,12 +204,12 @@ function ibase_fetch_assoc ($result, $fetch_flag = null) {}
  * </p>
  * @return object an object with the next row information, or false if there are
  * no more rows.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_fetch_object ($result_id, $fetch_flag = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Free a result set
  * @link http://php.net/manual/en/function.ibase-free-result.php
  * @param resource $result_identifier <p>
@@ -219,11 +217,12 @@ function ibase_fetch_object ($result_id, $fetch_flag = null) {}
  * ibase_execute.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_free_result ($result_identifier) {}
 
 /**
- * @since 5.0
  * Assigns a name to a result set
  * @link http://php.net/manual/en/function.ibase-name-result.php
  * @param resource $result <p>
@@ -233,24 +232,23 @@ function ibase_free_result ($result_identifier) {}
  * The name to be assigned.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 5.0
  */
 function ibase_name_result ($result, $name) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Prepare a query for later binding of parameter placeholders and execution
  * @link http://php.net/manual/en/function.ibase-prepare.php
  * @param string $query <p>
  * An InterBase query.
  * </p>
  * @return resource a prepared query handle, or false on error.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_prepare ($query) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Execute a previously prepared query
  * @link http://php.net/manual/en/function.ibase-execute.php
  * @param resource $query <p>
@@ -269,57 +267,58 @@ function ibase_prepare ($query) {}
  * the query (if > 0 and applicable to the statement type). A query that
  * succeeded, but did not affect any rows (e.g. an UPDATE of a non-existent
  * record) will return true.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_execute ($query, $bind_arg = null, $_ = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Free memory allocated by a prepared query
  * @link http://php.net/manual/en/function.ibase-free-query.php
  * @param resource $query <p>
  * A query prepared with ibase_prepare.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_free_query ($query) {}
 
 /**
- * @since 5.0
  * Increments the named generator and returns its new value
  * @link http://php.net/manual/en/function.ibase-gen-id.php
  * @param string $generator 
  * @param int $increment [optional] 
  * @param resource $link_identifier [optional] 
  * @return mixed new generator value as integer, or as string if the value is too big.
+ * @since 5.0
  */
 function ibase_gen_id ($generator, $increment = null, $link_identifier = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Get the number of fields in a result set
  * @link http://php.net/manual/en/function.ibase-num-fields.php
  * @param resource $result_id <p>
  * An InterBase result identifier.
  * </p>
  * @return int the number of fields as an integer.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_num_fields ($result_id) {}
 
 /**
- * @since 5.0
  * Return the number of parameters in a prepared query
  * @link http://php.net/manual/en/function.ibase-num-params.php
  * @param resource $query <p>
  * The prepared query handle.
  * </p>
  * @return int the number of parameters as an integer.
+ * @since 5.0
  */
 function ibase_num_params ($query) {}
 
 /**
- * @since 5.0
  * Return the number of rows that were affected by the previous query
  * @link http://php.net/manual/en/function.ibase-affected-rows.php
  * @param resource $link_identifier [optional] <p>
@@ -327,12 +326,11 @@ function ibase_num_params ($query) {}
  * connection resource, its default transaction is used.
  * </p>
  * @return int the number of rows as an integer.
+ * @since 5.0
  */
 function ibase_affected_rows ($link_identifier = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Get information about a field
  * @link http://php.net/manual/en/function.ibase-field-info.php
  * @param resource $result <p>
@@ -344,11 +342,12 @@ function ibase_affected_rows ($link_identifier = null) {}
  * @return array an array with the following keys: name,
  * alias, relation,
  * length and type.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_field_info ($result, $field_number) {}
 
 /**
- * @since 5.0
  * Return information about a parameter in a prepared query
  * @link http://php.net/manual/en/function.ibase-param-info.php
  * @param resource $query <p>
@@ -360,12 +359,11 @@ function ibase_field_info ($result, $field_number) {}
  * @return array an array with the following keys: name,
  * alias, relation,
  * length and type.
+ * @since 5.0
  */
 function ibase_param_info ($query, $param_number) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Begin a transaction
  * @link http://php.net/manual/en/function.ibase-trans.php
  * @param int $trans_args [optional] <p>
@@ -385,12 +383,12 @@ function ibase_param_info ($query, $param_number) {}
  * assumed.
  * </p>
  * @return resource a transaction handle, or false on error.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_trans ($trans_args = null, $link_identifier = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Commit a transaction
  * @link http://php.net/manual/en/function.ibase-commit.php
  * @param resource $link_or_trans_identifier [optional] <p>
@@ -401,12 +399,12 @@ function ibase_trans ($trans_args = null, $link_identifier = null) {}
  * corresponding transaction will be committed.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_commit ($link_or_trans_identifier = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Roll back a transaction
  * @link http://php.net/manual/en/function.ibase-rollback.php
  * @param resource $link_or_trans_identifier [optional] <p>
@@ -417,11 +415,12 @@ function ibase_commit ($link_or_trans_identifier = null) {}
  * corresponding transaction will be rolled back.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_rollback ($link_or_trans_identifier = null) {}
 
 /**
- * @since 5.0
  * Commit a transaction without closing it
  * @link http://php.net/manual/en/function.ibase-commit-ret.php
  * @param resource $link_or_trans_identifier [optional] <p>
@@ -434,11 +433,11 @@ function ibase_rollback ($link_or_trans_identifier = null) {}
  * will not be invalidated.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 5.0
  */
 function ibase_commit_ret ($link_or_trans_identifier = null) {}
 
 /**
- * @since 5.0
  * Roll back a transaction without closing it
  * @link http://php.net/manual/en/function.ibase-rollback-ret.php
  * @param resource $link_or_trans_identifier [optional] <p>
@@ -451,12 +450,11 @@ function ibase_commit_ret ($link_or_trans_identifier = null) {}
  * will not be invalidated.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 5.0
  */
 function ibase_rollback_ret ($link_or_trans_identifier = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Return blob length and other useful info
  * @link http://php.net/manual/en/function.ibase-blob-info.php
  * @param resource $link_identifier <p>
@@ -469,12 +467,12 @@ function ibase_rollback_ret ($link_or_trans_identifier = null) {}
  * @return array an array containing information about a BLOB. The information returned
  * consists of the length of the BLOB, the number of segments it contains, the size
  * of the largest segment, and whether it is a stream BLOB or a segmented BLOB.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_blob_info ($link_identifier, $blob_id) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Create a new blob for adding data
  * @link http://php.net/manual/en/function.ibase-blob-create.php
  * @param resource $link_identifier [optional] <p>
@@ -483,12 +481,12 @@ function ibase_blob_info ($link_identifier, $blob_id) {}
  * </p>
  * @return resource a BLOB handle for later use with
  * ibase_blob_add or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_blob_create ($link_identifier = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Add data into a newly created blob
  * @link http://php.net/manual/en/function.ibase-blob-add.php
  * @param resource $blob_handle <p>
@@ -498,24 +496,24 @@ function ibase_blob_create ($link_identifier = null) {}
  * The data to be added.
  * </p>
  * @return void 
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_blob_add ($blob_handle, $data) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Cancel creating blob
  * @link http://php.net/manual/en/function.ibase-blob-cancel.php
  * @param resource $blob_handle <p>
  * A BLOB handle opened with ibase_blob_create.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_blob_cancel ($blob_handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Close blob
  * @link http://php.net/manual/en/function.ibase-blob-close.php
  * @param resource $blob_handle <p>
@@ -526,12 +524,12 @@ function ibase_blob_cancel ($blob_handle) {}
  * the BLOB was being written to, this function returns a string containing
  * the BLOB id that has been assigned to it by the database. On failure, this
  * function returns false.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_blob_close ($blob_handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Open blob for retrieving data parts
  * @link http://php.net/manual/en/function.ibase-blob-open.php
  * @param resource $link_identifier <p>
@@ -543,12 +541,12 @@ function ibase_blob_close ($blob_handle) {}
  * </p>
  * @return resource a BLOB handle for later use with 
  * ibase_blob_get or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_blob_open ($link_identifier, $blob_id) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Get len bytes data from open blob
  * @link http://php.net/manual/en/function.ibase-blob-get.php
  * @param resource $blob_handle <p>
@@ -559,23 +557,23 @@ function ibase_blob_open ($link_identifier, $blob_id) {}
  * </p>
  * @return string at most len bytes from the BLOB, or false
  * on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_blob_get ($blob_handle, $len) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Output blob contents to browser
  * @link http://php.net/manual/en/function.ibase-blob-echo.php
  * @param string $blob_id <p>
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_blob_echo ($blob_id) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Create blob, copy file in it, and close it
  * @link http://php.net/manual/en/function.ibase-blob-import.php
  * @param resource $link_identifier <p>
@@ -586,29 +584,29 @@ function ibase_blob_echo ($blob_id) {}
  * The file handle is a handle returned by fopen.
  * </p>
  * @return string the BLOB id on success, or false on error.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_blob_import ($link_identifier, $file_handle) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Return error messages
  * @link http://php.net/manual/en/function.ibase-errmsg.php
  * @return string the error message as a string, or false if no error occurred.
+ * @since 4.0
+ * @since 5.0
  */
 function ibase_errmsg () {}
 
 /**
- * @since 5.0
  * Return an error code
  * @link http://php.net/manual/en/function.ibase-errcode.php
  * @return int the error code as an integer, or false if no error occurred.
+ * @since 5.0
  */
 function ibase_errcode () {}
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Add a user to a security database (only for IB6 or later)
  * @link http://php.net/manual/en/function.ibase-add-user.php
  * @param resource $service_handle 
@@ -618,12 +616,12 @@ function ibase_errcode () {}
  * @param string $middle_name [optional] 
  * @param string $last_name [optional] 
  * @return bool true on success or false on failure.
+ * @since 4.2.0
+ * @since 5.0
  */
 function ibase_add_user ($service_handle, $user_name, $password, $first_name = null, $middle_name = null, $last_name = null) {}
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Modify a user to a security database (only for IB6 or later)
  * @link http://php.net/manual/en/function.ibase-modify-user.php
  * @param resource $service_handle 
@@ -633,42 +631,43 @@ function ibase_add_user ($service_handle, $user_name, $password, $first_name = n
  * @param string $middle_name [optional] 
  * @param string $last_name [optional] 
  * @return bool true on success or false on failure.
+ * @since 4.2.0
+ * @since 5.0
  */
 function ibase_modify_user ($service_handle, $user_name, $password, $first_name = null, $middle_name = null, $last_name = null) {}
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Delete a user from a security database (only for IB6 or later)
  * @link http://php.net/manual/en/function.ibase-delete-user.php
  * @param resource $service_handle 
  * @param string $user_name 
  * @return bool true on success or false on failure.
+ * @since 4.2.0
+ * @since 5.0
  */
 function ibase_delete_user ($service_handle, $user_name) {}
 
 /**
- * @since 5.0
  * Connect to the service manager
  * @link http://php.net/manual/en/function.ibase-service-attach.php
  * @param string $host 
  * @param string $dba_username 
  * @param string $dba_password 
  * @return resource 
+ * @since 5.0
  */
 function ibase_service_attach ($host, $dba_username, $dba_password) {}
 
 /**
- * @since 5.0
  * Disconnect from the service manager
  * @link http://php.net/manual/en/function.ibase-service-detach.php
  * @param resource $service_handle 
  * @return bool true on success or false on failure.
+ * @since 5.0
  */
 function ibase_service_detach ($service_handle) {}
 
 /**
- * @since 5.0
  * Initiates a backup task in the service manager and returns immediately
  * @link http://php.net/manual/en/function.ibase-backup.php
  * @param resource $service_handle 
@@ -677,11 +676,11 @@ function ibase_service_detach ($service_handle) {}
  * @param int $options [optional] 
  * @param bool $verbose [optional] 
  * @return mixed 
+ * @since 5.0
  */
 function ibase_backup ($service_handle, $source_db, $dest_file, $options = null, $verbose = null) {}
 
 /**
- * @since 5.0
  * Initiates a restore task in the service manager and returns immediately
  * @link http://php.net/manual/en/function.ibase-restore.php
  * @param resource $service_handle 
@@ -690,11 +689,11 @@ function ibase_backup ($service_handle, $source_db, $dest_file, $options = null,
  * @param int $options [optional] 
  * @param bool $verbose [optional] 
  * @return mixed 
+ * @since 5.0
  */
 function ibase_restore ($service_handle, $source_file, $dest_db, $options = null, $verbose = null) {}
 
 /**
- * @since 5.0
  * Execute a maintenance command on the database server
  * @link http://php.net/manual/en/function.ibase-maintain-db.php
  * @param resource $service_handle 
@@ -702,11 +701,11 @@ function ibase_restore ($service_handle, $source_file, $dest_db, $options = null
  * @param int $action 
  * @param int $argument [optional] 
  * @return bool true on success or false on failure.
+ * @since 5.0
  */
 function ibase_maintain_db ($service_handle, $db, $action, $argument = null) {}
 
 /**
- * @since 5.0
  * Request statistics about a database
  * @link http://php.net/manual/en/function.ibase-db-info.php
  * @param resource $service_handle 
@@ -714,21 +713,21 @@ function ibase_maintain_db ($service_handle, $db, $action, $argument = null) {}
  * @param int $action 
  * @param int $argument [optional] 
  * @return string 
+ * @since 5.0
  */
 function ibase_db_info ($service_handle, $db, $action, $argument = null) {}
 
 /**
- * @since 5.0
  * Request information about a database server
  * @link http://php.net/manual/en/function.ibase-server-info.php
  * @param resource $service_handle 
  * @param int $action 
  * @return string 
+ * @since 5.0
  */
 function ibase_server_info ($service_handle, $action) {}
 
 /**
- * @since 5.0
  * Wait for an event to be posted by the database
  * @link http://php.net/manual/en/function.ibase-wait-event.php
  * @param string $event_name1 <p>
@@ -738,11 +737,11 @@ function ibase_server_info ($service_handle, $action) {}
  * </p>
  * @param string $_ [optional] 
  * @return string the name of the event that was posted.
+ * @since 5.0
  */
 function ibase_wait_event ($event_name1, $event_name2 = null, $_ = null) {}
 
 /**
- * @since 5.0
  * Register a callback function to be called when events are posted
  * @link http://php.net/manual/en/function.ibase-set-event-handler.php
  * @param callback $event_handler <p>
@@ -764,11 +763,11 @@ function ibase_wait_event ($event_name1, $event_name2 = null, $_ = null) {}
  * @param string $_ [optional] 
  * @return resource The return value is an event resource. This resource can be used to free
  * the event handler using ibase_free_event_handler.
+ * @since 5.0
  */
 function ibase_set_event_handler ($event_handler, $event_name1, $event_name2 = null, $_ = null) {}
 
 /**
- * @since 5.0
  * Cancels a registered event handler
  * @link http://php.net/manual/en/function.ibase-free-event-handler.php
  * @param resource $event <p>
@@ -776,6 +775,7 @@ function ibase_set_event_handler ($event_handler, $event_name1, $event_name2 = n
  * ibase_set_event_handler.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 5.0
  */
 function ibase_free_event_handler ($event) {}
 

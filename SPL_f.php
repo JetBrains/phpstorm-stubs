@@ -4,15 +4,14 @@
 
 
 /**
- * @since 5.0
  * Return available SPL classes
  * @link http://php.net/manual/en/function.spl-classes.php
  * @return array 
+ * @since 5.0
  */
 function spl_classes () {}
 
 /**
- * @since 5.1.2
  * Default implementation for __autoload()
  * @link http://php.net/manual/en/function.spl-autoload.php
  * @param string $class_name <p>
@@ -23,11 +22,11 @@ function spl_classes () {}
  * filename extensions .inc and .php. 
  * </p>
  * @return void
+ * @since 5.1.2
  */
 function spl_autoload ($class_name, $file_extensions = null) {}
 
 /**
- * @since 5.1.2
  * Register and return default file extensions for spl_autoload
  * @link http://php.net/manual/en/function.spl-autoload-extensions.php
  * @param string $file_extensions [optional] <p>
@@ -39,11 +38,11 @@ function spl_autoload ($class_name, $file_extensions = null) {}
  * </p>
  * @return string A comma delimited list of default file extensions for
  * spl_autoload.
+ * @since 5.1.2
  */
 function spl_autoload_extensions ($file_extensions = null) {}
 
 /**
- * @since 5.1.2
  * Register given function as __autoload() implementation
  * @link http://php.net/manual/en/function.spl-autoload-register.php
  * @param callback $autoload_function [optional] <p>
@@ -56,43 +55,43 @@ function spl_autoload_extensions ($file_extensions = null) {}
  * @param bool $prepend If true, spl_autoload_register() will prepend the autoloader on the autoload stack instead of
  * appending it. 
  * @return bool true on success or false on failure.
+ * @since 5.1.2
  */
 function spl_autoload_register ($autoload_function = null, $throw = true, $prepend = false) {}
 
 /**
- * @since 5.1.2
  * Unregister given function as __autoload() implementation
  * @link http://php.net/manual/en/function.spl-autoload-unregister.php
  * @param mixed $autoload_function <p>
  * The autoload function being unregistered.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 5.1.2
  */
 function spl_autoload_unregister ($autoload_function) {}
 
 /**
- * @since 5.1.2
  * Return all registered __autoload() functions
  * @link http://php.net/manual/en/function.spl-autoload-functions.php
  * @return array An array of all registered __autoload functions.
  * If the autoload stack is not activated then the return value is false.
  * If no function is registered the return value will be an empty array.
+ * @since 5.1.2
  */
 function spl_autoload_functions () {}
 
 /**
- * @since 5.1.2
  * Try all registered __autoload() function to load the requested class
  * @link http://php.net/manual/en/function.spl-autoload-call.php
  * @param string $class_name <p>
  * The class name being searched.
  * </p>
  * @return void
+ * @since 5.1.2
  */
 function spl_autoload_call ($class_name) {}
 
 /**
- * @since 5.1.0
  * Return the parent classes of the given class
  * @link http://php.net/manual/en/function.class-parents.php
  * @param mixed $class <p>
@@ -104,11 +103,11 @@ function spl_autoload_call ($class_name) {}
  * method.
  * </p>
  * @return array An array on success, or false on error.
+ * @since 5.1.0
  */
 function class_parents ($class, $autoload = null) {}
 
 /**
- * @since 5.1.0
  * Return the interfaces which are implemented by the given class
  * @link http://php.net/manual/en/function.class-implements.php
  * @param mixed $class <p>
@@ -120,21 +119,21 @@ function class_parents ($class, $autoload = null) {}
  * method.
  * </p>
  * @return array An array on success, or false on error.
+ * @since 5.1.0
  */
 function class_implements ($class, $autoload = null) {}
 
 /**
- * @since 5.2.0
  * Return hash id for given object
  * @link http://php.net/manual/en/function.spl-object-hash.php
  * @param object $obj 
  * @return string A string that is unique for each object and is always the same for
  * the same object.
+ * @since 5.2.0
  */
 function spl_object_hash ($obj) {}
 
 /**
- * @since 5.1.0
  * Copy the iterator into an array
  * @link http://php.net/manual/en/function.iterator-to-array.php
  * @param Traversable $iterator <p>
@@ -144,22 +143,22 @@ function spl_object_hash ($obj) {}
  * Whether to use the iterator element keys as index.
  * </p>
  * @return array An array containing the elements of the iterator.
+ * @since 5.1.0
  */
 function iterator_to_array ($iterator, $use_keys = true) {}
 
 /**
- * @since 5.1.0
  * Count the elements in an iterator
  * @link http://php.net/manual/en/function.iterator-count.php
  * @param Traversable $iterator <p>
  * The iterator being counted.
  * </p>
  * @return int The number of elements in iterator.
+ * @since 5.1.0
  */
 function iterator_count ($iterator) {}
 
 /**
- * @since 5.1.0
  * Call a function for every element in an iterator
  * @link http://php.net/manual/en/function.iterator-apply.php
  * @param Traversable $iterator <p>
@@ -174,19 +173,20 @@ function iterator_count ($iterator) {}
  * Arguments to pass to the callback function.
  * </p>
  * @return int the iteration count.
+ * @since 5.1.0
  */
 function iterator_apply ($iterator, $function, array $args = null) {}
 
 // End of SPL v.0.2
 
 /**
- * @since 5.4.0
  * Return the traits used by the given class
  * @param mixed $class An object (class instance) or a string (class name).
  * @param bool $autoload Whether to allow this function to load the class automatically through the __autoload() magic method.
  * @return array Array on success, or FALSE on error.
  * @link http://php.net/manual/en/function.class-uses.php
  * @see class_parents(), get_declared_traits()
+ * @since 5.4.0
  */
 function class_uses($class, bool $autoload = true ) {}
 ?>

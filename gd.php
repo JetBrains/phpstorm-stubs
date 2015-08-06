@@ -3,8 +3,6 @@
 // Start of gd v.
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Retrieve information about the currently installed GD library
  * @link http://php.net/manual/en/function.gd-info.php
  * @return array an associative array.
@@ -81,12 +79,12 @@
  * <p>
  * Previous to PHP 5.3.0, the JPEG Support attribute was named
  * JPG Support.
+ * @since 4.3.0
+ * @since 5.0
  */
 function gd_info () {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Draws an arc
  * @link http://php.net/manual/en/function.imagearc.php
  * @param resource $image 
@@ -115,12 +113,12 @@ function gd_info () {}
  * <b>imagecolorallocate</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagearc ($image, $cx, $cy, $width, $height, $start, $end, $color) {}
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Draw an ellipse
  * @link http://php.net/manual/en/function.imageellipse.php
  * @param resource $image 
@@ -141,12 +139,12 @@ function imagearc ($image, $cx, $cy, $width, $height, $start, $end, $color) {}
  * <b>imagecolorallocate</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0.6
+ * @since 5.0
  */
 function imageellipse ($image, $cx, $cy, $width, $height, $color) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Draw a character horizontally
  * @link http://php.net/manual/en/function.imagechar.php
  * @param resource $image 
@@ -165,12 +163,12 @@ function imageellipse ($image, $cx, $cy, $width, $height, $color) {}
  * <b>imagecolorallocate</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagechar ($image, $font, $x, $y, $c, $color) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Draw a character vertically
  * @link http://php.net/manual/en/function.imagecharup.php
  * @param resource $image 
@@ -189,12 +187,12 @@ function imagechar ($image, $font, $x, $y, $c, $color) {}
  * <b>imagecolorallocate</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagecharup ($image, $font, $x, $y, $c, $color) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Get the index of the color of a pixel
  * @link http://php.net/manual/en/function.imagecolorat.php
  * @param resource $image 
@@ -205,12 +203,12 @@ function imagecharup ($image, $font, $x, $y, $c, $color) {}
  * y-coordinate of the point.
  * </p>
  * @return int the index of the color.
+ * @since 4.0
+ * @since 5.0
  */
 function imagecolorat ($image, $x, $y) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Allocate a color for an image
  * @link http://php.net/manual/en/function.imagecolorallocate.php
  * @param resource $image 
@@ -218,12 +216,12 @@ function imagecolorat ($image, $x, $y) {}
  * @param int $green <p>Value of green component.</p>
  * @param int $blue <p>Value of blue component.</p>
  * @return int A color identifier or <b>FALSE</b> if the allocation failed.
+ * @since 4.0
+ * @since 5.0
  */
 function imagecolorallocate ($image, $red, $green, $blue) {}
 
 /**
- * @since 4.0.1
- * @since 5.0
  * Copy the palette from one image to another
  * @link http://php.net/manual/en/function.imagepalettecopy.php
  * @param resource $destination <p>
@@ -233,12 +231,12 @@ function imagecolorallocate ($image, $red, $green, $blue) {}
  * The source image resource.
  * </p>
  * @return void No value is returned.
+ * @since 4.0.1
+ * @since 5.0
  */
 function imagepalettecopy ($destination, $source) {}
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Create a new image from the image stream in the string
  * @link http://php.net/manual/en/function.imagecreatefromstring.php
  * @param string $image <p>
@@ -247,12 +245,12 @@ function imagepalettecopy ($destination, $source) {}
  * @return resource An image resource will be returned on success. <b>FALSE</b> is returned if
  * the image type is unsupported, the data is not in a recognised format,
  * or the image is corrupt and cannot be loaded.
+ * @since 4.0.4
+ * @since 5.0
  */
 function imagecreatefromstring ($image) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Get the index of the closest color to the specified color
  * @link http://php.net/manual/en/function.imagecolorclosest.php
  * @param resource $image 
@@ -261,12 +259,12 @@ function imagecreatefromstring ($image) {}
  * @param int $blue <p>Value of blue component.</p>
  * @return int the index of the closest color, in the palette of the image, to
  * the specified one
+ * @since 4.0
+ * @since 5.0
  */
 function imagecolorclosest ($image, $red, $green, $blue) {}
 
 /**
- * @since 4.0.1
- * @since 5.0
  * Get the index of the color which has the hue, white and blackness
  * @link http://php.net/manual/en/function.imagecolorclosesthwb.php
  * @param resource $image 
@@ -275,12 +273,12 @@ function imagecolorclosest ($image, $red, $green, $blue) {}
  * @param int $blue <p>Value of blue component.</p>
  * @return int an integer with the index of the color which has 
  * the hue, white and blackness nearest the given color.
+ * @since 4.0.1
+ * @since 5.0
  */
 function imagecolorclosesthwb ($image, $red, $green, $blue) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * De-allocate a color for an image
  * @link http://php.net/manual/en/function.imagecolordeallocate.php
  * @param resource $image 
@@ -288,12 +286,12 @@ function imagecolorclosesthwb ($image, $red, $green, $blue) {}
  * The color identifier.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagecolordeallocate ($image, $color) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Get the index of the specified color or its closest possible alternative
  * @link http://php.net/manual/en/function.imagecolorresolve.php
  * @param resource $image 
@@ -301,12 +299,12 @@ function imagecolordeallocate ($image, $color) {}
  * @param int $green <p>Value of green component.</p>
  * @param int $blue <p>Value of blue component.</p>
  * @return int a color index.
+ * @since 4.0
+ * @since 5.0
  */
 function imagecolorresolve ($image, $red, $green, $blue) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Get the index of the specified color
  * @link http://php.net/manual/en/function.imagecolorexact.php
  * @param resource $image 
@@ -315,12 +313,12 @@ function imagecolorresolve ($image, $red, $green, $blue) {}
  * @param int $blue <p>Value of blue component.</p>
  * @return int the index of the specified color in the palette, or -1 if the
  * color does not exist.
+ * @since 4.0
+ * @since 5.0
  */
 function imagecolorexact ($image, $red, $green, $blue) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Set the color for the specified palette index
  * @link http://php.net/manual/en/function.imagecolorset.php
  * @param resource $image 
@@ -334,12 +332,12 @@ function imagecolorexact ($image, $red, $green, $blue) {}
  * Value of alpha component.
  * </p>
  * @return void No value is returned.
+ * @since 4.0
+ * @since 5.0
  */
 function imagecolorset ($image, $index, $red, $green, $blue, $alpha = 0) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Define a color as transparent
  * @link http://php.net/manual/en/function.imagecolortransparent.php
  * @param resource $image 
@@ -351,12 +349,12 @@ function imagecolorset ($image, $index, $red, $green, $blue, $alpha = 0) {}
  * transparent color is returned. If <i>color</i>
  * is not specified, and the image has no transparent color, the
  * returned identifier will be -1.
+ * @since 4.0
+ * @since 5.0
  */
 function imagecolortransparent ($image, $color = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Find out the number of colors in an image's palette
  * @link http://php.net/manual/en/function.imagecolorstotal.php
  * @param resource $image <p>
@@ -365,12 +363,12 @@ function imagecolortransparent ($image, $color = null) {}
  * </p>
  * @return int the number of colors in the specified image's palette or 0 for
  * truecolor images.
+ * @since 4.0
+ * @since 5.0
  */
 function imagecolorstotal ($image) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Get the colors for an index
  * @link http://php.net/manual/en/function.imagecolorsforindex.php
  * @param resource $image 
@@ -379,12 +377,12 @@ function imagecolorstotal ($image) {}
  * </p>
  * @return array an associative array with red, green, blue and alpha keys that
  * contain the appropriate values for the specified color index.
+ * @since 4.0
+ * @since 5.0
  */
 function imagecolorsforindex ($image, $index) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Copy part of an image
  * @link http://php.net/manual/en/function.imagecopy.php
  * @param resource $dst_im <p>
@@ -412,12 +410,12 @@ function imagecolorsforindex ($image, $index) {}
  * Source height.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagecopy ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h) {}
 
 /**
- * @since 4.0.1
- * @since 5.0
  * Copy and merge part of an image
  * @link http://php.net/manual/en/function.imagecopymerge.php
  * @param resource $dst_im <p>
@@ -452,12 +450,12 @@ function imagecopy ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $s
  * implements alpha transparency for true colour images.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.1
+ * @since 5.0
  */
 function imagecopymerge ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h, $pct) {}
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Copy and merge part of an image with gray scale
  * @link http://php.net/manual/en/function.imagecopymergegray.php
  * @param resource $dst_im <p>
@@ -492,12 +490,12 @@ function imagecopymerge ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_
  * it implements alpha transparency for true colour images.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.6
+ * @since 5.0
  */
 function imagecopymergegray ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h, $pct) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Copy and resize part of an image
  * @link http://php.net/manual/en/function.imagecopyresized.php
  * @param resource $dst_image 
@@ -527,12 +525,12 @@ function imagecopymergegray ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $
  * Source height.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagecopyresized ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Create a new palette based image
  * @link http://php.net/manual/en/function.imagecreate.php
  * @param int $width <p>
@@ -542,12 +540,12 @@ function imagecopyresized ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $src_
  * The image height.
  * </p>
  * @return resource an image resource identifier on success, false on errors.
+ * @since 4.0
+ * @since 5.0
  */
 function imagecreate ($width, $height) {}
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Create a new true color image
  * @link http://php.net/manual/en/function.imagecreatetruecolor.php
  * @param int $width <p>
@@ -557,23 +555,23 @@ function imagecreate ($width, $height) {}
  * Image height.
  * </p>
  * @return resource an image resource identifier on success, false on errors.
+ * @since 4.0.6
+ * @since 5.0
  */
 function imagecreatetruecolor ($width, $height) {}
 
 /**
- * @since 4.3.2
- * @since 5.0
  * Finds whether an image is a truecolor image
  * @link http://php.net/manual/en/function.imageistruecolor.php
  * @param resource $image 
  * @return bool true if the image is truecolor, false
  * otherwise.
+ * @since 4.3.2
+ * @since 5.0
  */
 function imageistruecolor ($image) {}
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Convert a true color image to a palette image
  * @link http://php.net/manual/en/function.imagetruecolortopalette.php
  * @param resource $image 
@@ -586,12 +584,12 @@ function imageistruecolor ($image) {}
  * Sets the maximum number of colors that should be retained in the palette.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.6
+ * @since 5.0
  */
 function imagetruecolortopalette ($image, $dither, $ncolors) {}
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Set the thickness for line drawing
  * @link http://php.net/manual/en/function.imagesetthickness.php
  * @param resource $image 
@@ -599,12 +597,12 @@ function imagetruecolortopalette ($image, $dither, $ncolors) {}
  * Thickness, in pixels.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.6
+ * @since 5.0
  */
 function imagesetthickness ($image, $thickness) {}
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Draw a partial arc and fill it
  * @link http://php.net/manual/en/function.imagefilledarc.php
  * @param resource $image 
@@ -636,12 +634,12 @@ function imagesetthickness ($image, $thickness) {}
  * A bitwise OR of the following possibilities:
  * IMG_ARC_PIE
  * @return bool true on success or false on failure.
+ * @since 4.0.6
+ * @since 5.0
  */
 function imagefilledarc ($image, $cx, $cy, $width, $height, $start, $end, $color, $style) {}
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Draw a filled ellipse
  * @link http://php.net/manual/en/function.imagefilledellipse.php
  * @param resource $image 
@@ -662,12 +660,12 @@ function imagefilledarc ($image, $cx, $cy, $width, $height, $start, $end, $color
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.6
+ * @since 5.0
  */
 function imagefilledellipse ($image, $cx, $cy, $width, $height, $color) {}
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Set the blending mode for an image
  * @link http://php.net/manual/en/function.imagealphablending.php
  * @param resource $image 
@@ -676,12 +674,12 @@ function imagefilledellipse ($image, $cx, $cy, $width, $height, $color) {}
  * the default value is true otherwise the default value is false
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.6
+ * @since 5.0
  */
 function imagealphablending ($image, $blendmode) {}
 
 /**
- * @since 4.3.2
- * @since 5.0
  * Set the flag to save full alpha channel information (as opposed to single-color transparency) when saving PNG images
  * @link http://php.net/manual/en/function.imagesavealpha.php
  * @param resource $image 
@@ -689,12 +687,12 @@ function imagealphablending ($image, $blendmode) {}
  * Whether to save the alpha channel or not. Default to false. 
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.3.2
+ * @since 5.0
  */
 function imagesavealpha ($image, $saveflag) {}
 
 /**
- * @since 4.3.2
- * @since 5.0
  * Allocate a color for an image
  * @link http://php.net/manual/en/function.imagecolorallocatealpha.php
  * @param resource $image 
@@ -713,12 +711,12 @@ function imagesavealpha ($image, $saveflag) {}
  * 127 indicates completely transparent.
  * </p>
  * @return int A color identifier or false if the allocation failed.
+ * @since 4.3.2
+ * @since 5.0
  */
 function imagecolorallocatealpha ($image, $red, $green, $blue, $alpha) {}
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Get the index of the specified color + alpha or its closest possible alternative
  * @link http://php.net/manual/en/function.imagecolorresolvealpha.php
  * @param resource $image 
@@ -737,12 +735,12 @@ function imagecolorallocatealpha ($image, $red, $green, $blue, $alpha) {}
  * 127 indicates completely transparent.
  * </p>
  * @return int a color index.
+ * @since 4.0.6
+ * @since 5.0
  */
 function imagecolorresolvealpha ($image, $red, $green, $blue, $alpha) {}
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Get the index of the closest color to the specified color + alpha
  * @link http://php.net/manual/en/function.imagecolorclosestalpha.php
  * @param resource $image 
@@ -761,12 +759,12 @@ function imagecolorresolvealpha ($image, $red, $green, $blue, $alpha) {}
  * 127 indicates completely transparent.
  * </p>
  * @return int the index of the closest color in the palette.
+ * @since 4.0.6
+ * @since 5.0
  */
 function imagecolorclosestalpha ($image, $red, $green, $blue, $alpha) {}
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Get the index of the specified color + alpha
  * @link http://php.net/manual/en/function.imagecolorexactalpha.php
  * @param resource $image 
@@ -786,12 +784,12 @@ function imagecolorclosestalpha ($image, $red, $green, $blue, $alpha) {}
  * </p>
  * @return int the index of the specified color+alpha in the palette of the
  * image, or -1 if the color does not exist in the image's palette.
+ * @since 4.0.6
+ * @since 5.0
  */
 function imagecolorexactalpha ($image, $red, $green, $blue, $alpha) {}
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Copy and resize part of an image with resampling
  * @link http://php.net/manual/en/function.imagecopyresampled.php
  * @param resource $dst_image 
@@ -821,12 +819,12 @@ function imagecolorexactalpha ($image, $red, $green, $blue, $alpha) {}
  * Source height.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.6
+ * @since 5.0
  */
 function imagecopyresampled ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h) {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Rotate an image with a given angle
  * @link http://php.net/manual/en/function.imagerotate.php
  * @param resource $image 
@@ -840,12 +838,12 @@ function imagecopyresampled ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $sr
  * If set and non-zero, transparent colors are ignored (otherwise kept).
  * </p>
  * @return resource 
+ * @since 4.3.0
+ * @since 5.0
  */
 function imagerotate ($image, $angle, $bgd_color, $ignore_transparent = null) {}
 
 /**
- * @since 4.3.2
- * @since 5.0
  * Should antialias functions be used or not
  * @link http://php.net/manual/en/function.imageantialias.php
  * @param resource $image 
@@ -853,12 +851,12 @@ function imagerotate ($image, $angle, $bgd_color, $ignore_transparent = null) {}
  * Whether to enable antialiasing or not.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.3.2
+ * @since 5.0
  */
 function imageantialias ($image, $enabled) {}
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Set the tile image for filling
  * @link http://php.net/manual/en/function.imagesettile.php
  * @param resource $image 
@@ -866,12 +864,12 @@ function imageantialias ($image, $enabled) {}
  * The image resource to be used as a tile.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.6
+ * @since 5.0
  */
 function imagesettile ($image, $tile) {}
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Set the brush image for line drawing
  * @link http://php.net/manual/en/function.imagesetbrush.php
  * @param resource $image 
@@ -879,12 +877,12 @@ function imagesettile ($image, $tile) {}
  * An image resource.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.6
+ * @since 5.0
  */
 function imagesetbrush ($image, $brush) {}
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Set the style for line drawing
  * @link http://php.net/manual/en/function.imagesetstyle.php
  * @param resource $image 
@@ -894,108 +892,108 @@ function imagesetbrush ($image, $brush) {}
  * transparent pixel.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.6
+ * @since 5.0
  */
 function imagesetstyle ($image, $stylearray ) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Create a new image from file or URL
  * @link http://php.net/manual/en/function.imagecreatefrompng.php
  * @param string $filename <p>
  * Path to the PNG image.
  * </p>
  * @return resource an image resource identifier on success, false on errors.
+ * @since 4.0
+ * @since 5.0
  */
 function imagecreatefrompng ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Create a new image from file or URL
  * @link http://php.net/manual/en/function.imagecreatefromgif.php
  * @param string $filename <p>
  * Path to the GIF image.
  * </p>
  * @return resource an image resource identifier on success, false on errors.
+ * @since 4.0
+ * @since 5.0
  */
 function imagecreatefromgif ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Create a new image from file or URL
  * @link http://php.net/manual/en/function.imagecreatefromjpeg.php
  * @param string $filename <p>
  * Path to the JPEG image.
  * </p>
  * @return resource an image resource identifier on success, false on errors.
+ * @since 4.0
+ * @since 5.0
  */
 function imagecreatefromjpeg ($filename) {}
 
 /**
- * @since 4.0.1
- * @since 5.0
  * Create a new image from file or URL
  * @link http://php.net/manual/en/function.imagecreatefromwbmp.php
  * @param string $filename <p>
  * Path to the WBMP image.
  * </p>
  * @return resource an image resource identifier on success, false on errors.
+ * @since 4.0.1
+ * @since 5.0
  */
 function imagecreatefromwbmp ($filename) {}
 
 /**
- * @since 4.0.1
- * @since 5.0
  * Create a new image from file or URL
  * @link http://php.net/manual/en/function.imagecreatefromxbm.php
  * @param string $filename <p>
  * Path to the XBM image.
  * </p>
  * @return resource an image resource identifier on success, false on errors.
+ * @since 4.0.1
+ * @since 5.0
  */
 function imagecreatefromxbm ($filename) {}
 
 /**
- * @since 4.0.1
- * @since 5.0
  * Create a new image from file or URL
  * @link http://php.net/manual/en/function.imagecreatefromxpm.php
  * @param string $filename <p>
  * Path to the XPM image.
  * </p>
  * @return resource an image resource identifier on success, false on errors.
+ * @since 4.0.1
+ * @since 5.0
  */
 function imagecreatefromxpm ($filename) {}
 
 /**
- * @since 4.0.7
- * @since 5.0
  * Create a new image from GD file or URL
  * @link http://php.net/manual/en/function.imagecreatefromgd.php
  * @param string $filename <p>
  * Path to the GD file.
  * </p>
  * @return resource an image resource identifier on success, false on errors.
+ * @since 4.0.7
+ * @since 5.0
  */
 function imagecreatefromgd ($filename) {}
 
 /**
- * @since 4.0.7
- * @since 5.0
  * Create a new image from GD2 file or URL
  * @link http://php.net/manual/en/function.imagecreatefromgd2.php
  * @param string $filename <p>
  * Path to the GD2 image.
  * </p>
  * @return resource an image resource identifier on success, false on errors.
+ * @since 4.0.7
+ * @since 5.0
  */
 function imagecreatefromgd2 ($filename) {}
 
 /**
- * @since 4.0.7
- * @since 5.0
  * Create a new image from a given part of GD2 file or URL
  * @link http://php.net/manual/en/function.imagecreatefromgd2part.php
  * @param string $filename <p>
@@ -1014,12 +1012,12 @@ function imagecreatefromgd2 ($filename) {}
  * Source height.
  * </p>
  * @return resource an image resource identifier on success, false on errors.
+ * @since 4.0.7
+ * @since 5.0
  */
 function imagecreatefromgd2part ($filename, $srcX, $srcY, $width, $height) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Output a PNG image to either the browser or a file
  * @link http://php.net/manual/en/function.imagepng.php
  * @param resource $image 
@@ -1042,12 +1040,12 @@ function imagecreatefromgd2part ($filename, $srcX, $srcY, $width, $height) {}
  * disable or activate all filters.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagepng ($image, $filename = null, $quality = null, $filters = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Output image to browser or file
  * @link http://php.net/manual/en/function.imagegif.php
  * @param resource $image 
@@ -1056,12 +1054,12 @@ function imagepng ($image, $filename = null, $quality = null, $filters = null) {
  * will be outputted directly.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagegif ($image, $filename = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Output image to browser or file
  * @link http://php.net/manual/en/function.imagejpeg.php
  * @param resource $image 
@@ -1079,12 +1077,12 @@ function imagegif ($image, $filename = null) {}
  * default is the default IJG quality value (about 75).
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagejpeg ($image, $filename = null, $quality = null) {}
 
 /**
- * @since 4.0.1
- * @since 5.0
  * Output image to browser or file
  * @link http://php.net/manual/en/function.imagewbmp.php
  * @param resource $image 
@@ -1098,12 +1096,12 @@ function imagejpeg ($image, $filename = null, $quality = null) {}
  * The default foreground color is black.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.1
+ * @since 5.0
  */
 function imagewbmp ($image, $filename = null, $foreground = null) {}
 
 /**
- * @since 4.0.7
- * @since 5.0
  * Output GD image to browser or file
  * @link http://php.net/manual/en/function.imagegd.php
  * @param resource $image 
@@ -1112,12 +1110,12 @@ function imagewbmp ($image, $filename = null, $foreground = null) {}
  * will be outputted directly.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.7
+ * @since 5.0
  */
 function imagegd ($image, $filename = null) {}
 
 /**
- * @since 4.0.7
- * @since 5.0
  * Output GD2 image to browser or file
  * @link http://php.net/manual/en/function.imagegd2.php
  * @param resource $image 
@@ -1134,22 +1132,22 @@ function imagegd ($image, $filename = null) {}
  * IMG_GD2_RAW.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.7
+ * @since 5.0
  */
 function imagegd2 ($image, $filename = null, $chunk_size = null, $type = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Destroy an image
  * @link http://php.net/manual/en/function.imagedestroy.php
  * @param resource $image 
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagedestroy ($image) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Apply a gamma correction to a GD image
  * @link http://php.net/manual/en/function.imagegammacorrect.php
  * @param resource $image 
@@ -1160,12 +1158,12 @@ function imagedestroy ($image) {}
  * The output gamma.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagegammacorrect ($image, $inputgamma, $outputgamma) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Flood fill
  * @link http://php.net/manual/en/function.imagefill.php
  * @param resource $image 
@@ -1180,12 +1178,12 @@ function imagegammacorrect ($image, $inputgamma, $outputgamma) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagefill ($image, $x, $y, $color) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Draw a filled polygon
  * @link http://php.net/manual/en/function.imagefilledpolygon.php
  * @param resource $image 
@@ -1201,12 +1199,12 @@ function imagefill ($image, $x, $y, $color) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagefilledpolygon ($image, array $points, $num_points, $color) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Draw a filled rectangle
  * @link http://php.net/manual/en/function.imagefilledrectangle.php
  * @param resource $image 
@@ -1227,12 +1225,12 @@ function imagefilledpolygon ($image, array $points, $num_points, $color) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagefilledrectangle ($image, $x1, $y1, $x2, $y2, $color) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Flood fill to specific color
  * @link http://php.net/manual/en/function.imagefilltoborder.php
  * @param resource $image 
@@ -1251,32 +1249,32 @@ function imagefilledrectangle ($image, $x1, $y1, $x2, $y2, $color) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagefilltoborder ($image, $x, $y, $border, $color) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Get font width
  * @link http://php.net/manual/en/function.imagefontwidth.php
  * @param int $font 
  * @return int the width of the pixel
+ * @since 4.0
+ * @since 5.0
  */
 function imagefontwidth ($font) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Get font height
  * @link http://php.net/manual/en/function.imagefontheight.php
  * @param int $font 
  * @return int the height of the pixel.
+ * @since 4.0
+ * @since 5.0
  */
 function imagefontheight ($font) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Enable or disable interlace
  * @link http://php.net/manual/en/function.imageinterlace.php
  * @param resource $image 
@@ -1285,12 +1283,12 @@ function imagefontheight ($font) {}
  * turned off.
  * </p>
  * @return int 1 if the interlace bit is set for the image, 0 otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function imageinterlace ($image, $interlace = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Draw a line
  * @link http://php.net/manual/en/function.imageline.php
  * @param resource $image 
@@ -1311,12 +1309,12 @@ function imageinterlace ($image, $interlace = null) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imageline ($image, $x1, $y1, $x2, $y2, $color) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Load a new font
  * @link http://php.net/manual/en/function.imageloadfont.php
  * @param string $file <p>
@@ -1366,12 +1364,12 @@ function imageline ($image, $x1, $y1, $x2, $y2, $color) {}
  * </p>
  * @return int The font identifier which is always bigger than 5 to avoid conflicts with
  * built-in fonts or false on errors.
+ * @since 4.0
+ * @since 5.0
  */
 function imageloadfont ($file) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Draws a polygon
  * @link http://php.net/manual/en/function.imagepolygon.php
  * @param resource $image 
@@ -1402,12 +1400,12 @@ function imageloadfont ($file) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagepolygon ($image, array $points, $num_points, $color) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Draw a rectangle
  * @link http://php.net/manual/en/function.imagerectangle.php
  * @param resource $image 
@@ -1429,12 +1427,12 @@ function imagepolygon ($image, array $points, $num_points, $color) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagerectangle ($image, $x1, $y1, $x2, $y2, $color) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Set a single pixel
  * @link http://php.net/manual/en/function.imagesetpixel.php
  * @param resource $image 
@@ -1449,12 +1447,12 @@ function imagerectangle ($image, $x1, $y1, $x2, $y2, $color) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagesetpixel ($image, $x, $y, $color) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Draw a string horizontally
  * @link http://php.net/manual/en/function.imagestring.php
  * @param resource $image 
@@ -1473,12 +1471,12 @@ function imagesetpixel ($image, $x, $y, $color) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagestring ($image, $font, $x, $y, $string, $color) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Draw a string vertically
  * @link http://php.net/manual/en/function.imagestringup.php
  * @param resource $image 
@@ -1497,34 +1495,34 @@ function imagestring ($image, $font, $x, $y, $string, $color) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagestringup ($image, $font, $x, $y, $string, $color) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Get image width
  * @link http://php.net/manual/en/function.imagesx.php
  * @param resource $image 
  * @return int Return the width of the image or false on 
  * errors.
+ * @since 4.0
+ * @since 5.0
  */
 function imagesx ($image) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Get image height
  * @link http://php.net/manual/en/function.imagesy.php
  * @param resource $image 
  * @return int Return the height of the image or false on 
  * errors.
+ * @since 4.0
+ * @since 5.0
  */
 function imagesy ($image) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Draw a dashed line
  * @link http://php.net/manual/en/function.imagedashedline.php
  * @param resource $image 
@@ -1545,12 +1543,12 @@ function imagesy ($image) {}
  * imagecolorallocate.
  * </p>
  * @return bool Always returns true
+ * @since 4.0
+ * @since 5.0
  */
 function imagedashedline ($image, $x1, $y1, $x2, $y2, $color) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Give the bounding box of a text using TrueType fonts
  * @link http://php.net/manual/en/function.imagettfbbox.php
  * @param float $size <p>
@@ -1613,12 +1611,12 @@ function imagedashedline ($image, $x1, $y1, $x2, $y2, $color) {}
  * The points are relative to the text regardless of the
  * angle, so "upper left" means in the top left-hand 
  * corner seeing the text horizontally.
+ * @since 4.0
+ * @since 5.0
  */
 function imagettfbbox ($size, $angle, $fontfile, $text) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Write text to the image using TrueType fonts
  * @link http://php.net/manual/en/function.imagettftext.php
  * @param resource $image 
@@ -1695,12 +1693,12 @@ function imagettfbbox ($size, $angle, $fontfile, $text) {}
  * regardless of the angle, so "upper left" means in the top left-hand 
  * corner when you see the text horizontally.
  * Returns false on error.
+ * @since 4.0
+ * @since 5.0
  */
 function imagettftext ($image, $size, $angle, $x, $y, $color, $fontfile, $text) {}
 
 /**
- * @since 4.0.7
- * @since 5.0
  * Give the bounding box of a text using fonts via freetype2
  * @link http://php.net/manual/en/function.imageftbbox.php
  * @param float $size <p>
@@ -1775,12 +1773,12 @@ function imagettftext ($image, $size, $angle, $x, $y, $color, $fontfile, $text) 
  * The points are relative to the text regardless of the
  * angle, so "upper left" means in the top left-hand 
  * corner seeing the text horizontally.
+ * @since 4.0.7
+ * @since 5.0
  */
 function imageftbbox ($size, $angle, $fontfile, $text, $extrainfo = null ) {}
 
 /**
- * @since 4.0.7
- * @since 5.0
  * Write text to the image using fonts using FreeType 2
  * @link http://php.net/manual/en/function.imagefttext.php
  * @param resource $image 
@@ -1882,12 +1880,12 @@ function imageftbbox ($size, $angle, $fontfile, $text, $extrainfo = null ) {}
  * <td>7</td>
  * <td>upper left y-coordinate</td>
  * </tr>
+ * @since 4.0.7
+ * @since 5.0
  */
 function imagefttext ($image, $size, $angle, $x, $y, $color, $fontfile, $text, $extrainfo = null ) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Load a PostScript Type 1 font from file
  * @link http://php.net/manual/en/function.imagepsloadfont.php
  * @param string $filename <p>
@@ -1895,24 +1893,24 @@ function imagefttext ($image, $size, $angle, $x, $y, $color, $fontfile, $text, $
  * </p>
  * @return resource In the case everything went right, a valid font index will be returned and
  * can be used for further purposes. Otherwise the function returns false.
+ * @since 4.0
+ * @since 5.0
  */
 function imagepsloadfont ($filename) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Free memory used by a PostScript Type 1 font
  * @link http://php.net/manual/en/function.imagepsfreefont.php
  * @param resource $font_index <p>
  * A font resource, returned by imagepsloadfont.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagepsfreefont ($font_index) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Change the character encoding vector of a font
  * @link http://php.net/manual/en/function.imagepsencodefont.php
  * @param resource $font_index <p>
@@ -1925,12 +1923,12 @@ function imagepsfreefont ($font_index) {}
  * IsoLatin2.enc.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagepsencodefont ($font_index, $encodingfile) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Extend or condense a font
  * @link http://php.net/manual/en/function.imagepsextendfont.php
  * @param resource $font_index <p>
@@ -1940,12 +1938,12 @@ function imagepsencodefont ($font_index, $encodingfile) {}
  * Extension value, must be greater than 0.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagepsextendfont ($font_index, $extend) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Slant a font
  * @link http://php.net/manual/en/function.imagepsslantfont.php
  * @param resource $font_index <p>
@@ -1955,12 +1953,12 @@ function imagepsextendfont ($font_index, $extend) {}
  * Slant level.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function imagepsslantfont ($font_index, $slant) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Draws a text over an image using PostScript Type1 fonts
  * @link http://php.net/manual/en/function.imagepstext.php
  * @param resource $image 
@@ -2028,12 +2026,12 @@ function imagepsslantfont ($font_index, $slant) {}
  * <td>3</td>
  * <td>upper right y-coordinate</td>
  * </tr>
+ * @since 4.0
+ * @since 5.0
  */
 function imagepstext ($image, $text, $font_index, $size, $foreground, $background, $x, $y, $space = null, $tightness = null, $angle = null, $antialias_steps = null) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Give the bounding box of a text rectangle using PostScript Type1 fonts
  * @link http://php.net/manual/en/function.imagepsbbox.php
  * @param string $text <p>
@@ -2060,12 +2058,12 @@ function imagepstext ($image, $text, $font_index, $size, $foreground, $backgroun
  * <td>3</td>
  * <td>lower y-coordinate</td>
  * </tr>
+ * @since 4.0
+ * @since 5.0
  */
 function imagepsbbox ($text, $font, $size) {}
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Return the image types supported by this PHP build
  * @link http://php.net/manual/en/function.imagetypes.php
  * @return int a bit-field corresponding to the image formats supported by the
@@ -2073,12 +2071,12 @@ function imagepsbbox ($text, $font, $size) {}
  * IMG_GIF | IMG_JPG |
  * IMG_PNG | IMG_WBMP | 
  * IMG_XPM.
+ * @since 4.0.2
+ * @since 5.0
  */
 function imagetypes () {}
 
 /**
- * @since 4.0.5
- * @since 5.0
  * Convert JPEG image file to WBMP image file
  * @link http://php.net/manual/en/function.jpeg2wbmp.php
  * @param string $jpegname <p>
@@ -2097,12 +2095,12 @@ function imagetypes () {}
  * Threshold value, between 0 and 8 (inclusive).
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.5
+ * @since 5.0
  */
 function jpeg2wbmp ($jpegname, $wbmpname, $dest_height, $dest_width, $threshold) {}
 
 /**
- * @since 4.0.5
- * @since 5.0
  * Convert PNG image file to WBMP image file
  * @link http://php.net/manual/en/function.png2wbmp.php
  * @param string $pngname <p>
@@ -2121,12 +2119,12 @@ function jpeg2wbmp ($jpegname, $wbmpname, $dest_height, $dest_width, $threshold)
  * Threshold value, between 0 and 8 (inclusive).
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.5
+ * @since 5.0
  */
 function png2wbmp ($pngname, $wbmpname, $dest_height, $dest_width, $threshold) {}
 
 /**
- * @since 4.0.5
- * @since 5.0
  * Output image to browser or file
  * @link http://php.net/manual/en/function.image2wbmp.php
  * @param resource $image 
@@ -2138,12 +2136,12 @@ function png2wbmp ($pngname, $wbmpname, $dest_height, $dest_width, $threshold) {
  * Threshold value, between 0 and 255 (inclusive).
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.5
+ * @since 5.0
  */
 function image2wbmp ($image, $filename = null, $threshold = null) {}
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Set the alpha blending flag to use the bundled libgd layering effects
  * @link http://php.net/manual/en/function.imagelayereffect.php
  * @param resource $image 
@@ -2153,6 +2151,8 @@ function image2wbmp ($image, $filename = null, $threshold = null) {}
  * Use pixel replacement (equivalent of passing true to
  * imagealphablending)
  * @return bool true on success or false on failure.
+ * @since 4.3.0
+ * @since 5.0
  */
 function imagelayereffect ($image, $effect) {}
 
@@ -2210,7 +2210,6 @@ function imagexbm ($image, $filename, $foreground = null) {}
 function imagefilter ($image, $filtertype, $arg1 = null, $arg2 = null, $arg3 = null, $arg4 = null) {}
 
 /**
- * @since 5.1.0
  * Apply a 3x3 convolution matrix, using coefficient and offset
  * @link http://php.net/manual/en/function.imageconvolution.php
  * @param resource $image 
@@ -2224,6 +2223,7 @@ function imagefilter ($image, $filtertype, $arg1 = null, $arg2 = null, $arg3 = n
  * Color offset.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 5.1.0
  */
 function imageconvolution ($image, array $matrix, $div, $offset) {}
 
@@ -2599,149 +2599,149 @@ define('IMG_FLIP_HORIZONTAL',1);
 define('IMG_FLIP_VERTICAL',2);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_BELL', 1);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_BESSEL', 2);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_BICUBIC', 4);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_BICUBIC_FIXED', 5);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_BILINEAR_FIXED', 3);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_BLACKMAN', 6);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_BOX', 7);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_BSPLINE', 8);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_CATMULLROM', 9);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_GAUSSIAN', 10);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_GENERALIZED_CUBIC', 11);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_HERMITE', 12);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_HAMMING', 13);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_HANNING', 14);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_MITCHELL', 15);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_POWER', 17);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_QUADRATIC', 18);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_SINC', 19);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_NEAREST_NEIGHBOUR', 16);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_WEIGHTED4', 21);
 
 /**
- * @since 5.5.0
  * Used together with imagesetinterpolation().
  * @link http://php.net/manual/en/image.constants.php
+ * @since 5.5.0
  */
 define('IMG_TRIANGLE', 20);
 

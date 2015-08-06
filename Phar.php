@@ -803,75 +803,75 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	final public static function webPhar ($alias = null, $index = "index.php", $f404 = null, array $mimetypes = null, callable $rewrites = null) {}
 
 	/**
-	 * @since 5.0
 	 * Returns whether current entry is a directory and not '.' or '..'
 	 * @link http://php.net/manual/en/recursivedirectoryiterator.haschildren.php
 	 * @param bool $allow_links [optional] <p>
 	 * </p>
 	 * @return bool whether the current entry is a directory, but not '.' or '..'
+	 * @since 5.0
 	 */
 	public function hasChildren ($allow_links = false) {}
 
 	/**
-	 * @since 5.1.0
 	 * Returns an iterator for the current entry if it is a directory
 	 * @link http://php.net/manual/en/recursivedirectoryiterator.getchildren.php
 	 * @return mixed The filename, file information, or $this depending on the set flags.
 	 * See the FilesystemIterator
 	 * constants.
+	 * @since 5.1.0
 	 */
 	public function getChildren () {}
 
 	/**
-	 * @since 5.3.0
 	 * Rewinds back to the beginning
 	 * @link http://php.net/manual/en/filesystemiterator.rewind.php
 	 * @return void No value is returned.
+	 * @since 5.3.0
 	 */
 	public function rewind () {}
 
 	/**
-	 * @since 5.3.0
 	 * Move to the next file
 	 * @link http://php.net/manual/en/filesystemiterator.next.php
 	 * @return void No value is returned.
+	 * @since 5.3.0
 	 */
 	public function next () {}
 
 	/**
-	 * @since 5.3.0
 	 * Retrieve the key for the current file
 	 * @link http://php.net/manual/en/filesystemiterator.key.php
 	 * @return string the pathname or filename depending on the set flags.
 	 * See the FilesystemIterator constants.
+	 * @since 5.3.0
 	 */
 	public function key () {}
 
 	/**
-	 * @since 5.3.0
 	 * The current file
 	 * @link http://php.net/manual/en/filesystemiterator.current.php
 	 * @return mixed The filename, file information, or $this depending on the set flags.
 	 * See the FilesystemIterator constants.
+	 * @since 5.3.0
 	 */
 	public function current () {}
 
 	/**
-	 * @since 5.0
 	 * Check whether current DirectoryIterator position is a valid file
 	 * @link http://php.net/manual/en/directoryiterator.valid.php
 	 * @return bool <b>TRUE</b> if the position is valid, otherwise <b>FALSE</b>
+	 * @since 5.0
 	 */
 	public function valid () {}
 
 	/**
-	 * @since 5.3.0
 	 * Seek to a DirectoryIterator item
 	 * @link http://php.net/manual/en/directoryiterator.seek.php
 	 * @param int $position <p>
 	 * The zero-based numeric position to seek to.
 	 * </p>
 	 * @return void No value is returned.
+	 * @since 5.3.0
 	 */
 	public function seek ($position) {}
 
@@ -941,78 +941,78 @@ class PharData extends Phar {
 
 
 	/**
-	 * @since 5.0
 	 * Returns whether current entry is a directory and not '.' or '..'
 	 * @link http://php.net/manual/en/recursivedirectoryiterator.haschildren.php
 	 * @param bool $allow_links [optional] <p>
 	 * </p>
 	 * @return bool whether the current entry is a directory, but not '.' or '..'
+	 * @since 5.0
 	 */
 	public function hasChildren ($allow_links = false) {}
 
 	/**
-	 * @since 5.1.0
 	 * Returns an iterator for the current entry if it is a directory
 	 * @link http://php.net/manual/en/recursivedirectoryiterator.getchildren.php
 	 * @return mixed The filename, file information, or $this depending on the set flags.
 	 * See the FilesystemIterator
 	 * constants.
+	 * @since 5.1.0
 	 */
 	public function getChildren () {}
 
 
 	/**
-	 * @since 5.3.0
 	 * Rewinds back to the beginning
 	 * @link http://php.net/manual/en/filesystemiterator.rewind.php
 	 * @return void No value is returned.
+	 * @since 5.3.0
 	 */
 	public function rewind () {}
 
 	/**
-	 * @since 5.3.0
 	 * Move to the next file
 	 * @link http://php.net/manual/en/filesystemiterator.next.php
 	 * @return void No value is returned.
+	 * @since 5.3.0
 	 */
 	public function next () {}
 
 	/**
-	 * @since 5.3.0
 	 * Retrieve the key for the current file
 	 * @link http://php.net/manual/en/filesystemiterator.key.php
 	 * @return string the pathname or filename depending on the set flags.
 	 * See the FilesystemIterator constants.
+	 * @since 5.3.0
 	 */
 	public function key () {}
 
 	/**
-	 * @since 5.3.0
 	 * The current file
 	 * @link http://php.net/manual/en/filesystemiterator.current.php
 	 * @return mixed The filename, file information, or $this depending on the set flags.
 	 * See the FilesystemIterator constants.
+	 * @since 5.3.0
 	 */
 	public function current () {}
 
 
 
 	/**
-	 * @since 5.0
 	 * Check whether current DirectoryIterator position is a valid file
 	 * @link http://php.net/manual/en/directoryiterator.valid.php
 	 * @return bool <b>TRUE</b> if the position is valid, otherwise <b>FALSE</b>
+	 * @since 5.0
 	 */
 	public function valid () {}
 
 	/**
-	 * @since 5.3.0
 	 * Seek to a DirectoryIterator item
 	 * @link http://php.net/manual/en/directoryiterator.seek.php
 	 * @param int $position <p>
 	 * The zero-based numeric position to seek to.
 	 * </p>
 	 * @return void No value is returned.
+	 * @since 5.3.0
 	 */
 	public function seek ($position) {}
 

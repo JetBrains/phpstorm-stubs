@@ -210,7 +210,6 @@ class tidy  {
 	public function getHtmlVer () {}
 
 	/**
-	 * @since 5.1.0
 	 * Returns the documentation for the given option name
 	 * @link http://php.net/manual/en/tidy.getoptdoc.php
 	 * @param string $optname <p>
@@ -218,6 +217,7 @@ class tidy  {
 	 * </p>
 	 * @return string a string if the option exists and has documentation available, or
 	 * <b>FALSE</b> otherwise.
+	 * @since 5.1.0
 	 */
 	public function getOptDoc ($optname) {}
 
@@ -375,75 +375,75 @@ final class tidyNode  {
 
 
 	/**
-	 * @since 5.0.1
 	 * Checks if a node has children
 	 * @link http://php.net/manual/en/tidynode.haschildren.php
 	 * @return bool <b>TRUE</b> if the node has children, <b>FALSE</b> otherwise.
+	 * @since 5.0.1
 	 */
 	public function hasChildren () {}
 
 	/**
-	 * @since 5.0.1
 	 * Checks if a node has siblings
 	 * @link http://php.net/manual/en/tidynode.hassiblings.php
 	 * @return bool <b>TRUE</b> if the node has siblings, <b>FALSE</b> otherwise.
+	 * @since 5.0.1
 	 */
 	public function hasSiblings () {}
 
 	/**
-	 * @since 5.0.1
 	 * Checks if a node represents a comment
 	 * @link http://php.net/manual/en/tidynode.iscomment.php
 	 * @return bool <b>TRUE</b> if the node is a comment, <b>FALSE</b> otherwise.
+	 * @since 5.0.1
 	 */
 	public function isComment () {}
 
 	/**
-	 * @since 5.0.1
 	 * Checks if a node is part of a HTML document
 	 * @link http://php.net/manual/en/tidynode.ishtml.php
 	 * @return bool <b>TRUE</b> if the node is part of a HTML document, <b>FALSE</b> otherwise.
+	 * @since 5.0.1
 	 */
 	public function isHtml () {}
 
 	/**
-	 * @since 5.0.1
 	 * Checks if a node represents text (no markup)
 	 * @link http://php.net/manual/en/tidynode.istext.php
 	 * @return bool <b>TRUE</b> if the node represent a text, <b>FALSE</b> otherwise.
+	 * @since 5.0.1
 	 */
 	public function isText () {}
 
 	/**
-	 * @since 5.0.1
 	 * Checks if this node is JSTE
 	 * @link http://php.net/manual/en/tidynode.isjste.php
 	 * @return bool <b>TRUE</b> if the node is JSTE, <b>FALSE</b> otherwise.
+	 * @since 5.0.1
 	 */
 	public function isJste () {}
 
 	/**
-	 * @since 5.0.1
 	 * Checks if this node is ASP
 	 * @link http://php.net/manual/en/tidynode.isasp.php
 	 * @return bool <b>TRUE</b> if the node is ASP, <b>FALSE</b> otherwise.
+	 * @since 5.0.1
 	 */
 	public function isAsp () {}
 
 	/**
-	 * @since 5.0.1
 	 * Checks if a node is PHP
 	 * @link http://php.net/manual/en/tidynode.isphp.php
 	 * @return bool <b>TRUE</b> if the current node is PHP code, <b>FALSE</b> otherwise.
+	 * @since 5.0.1
 	 */
 	public function isPhp () {}
 
 	/**
-	 * @since 5.2.2
 	 * Returns the parent node of the current node
 	 * @link http://php.net/manual/en/tidynode.getparent.php
 	 * @return tidyNode a tidyNode if the node has a parent, or <b>NULL</b>
 	 * otherwise.
+	 * @since 5.2.2
 	 */
 	public function getParent () {}
 
@@ -739,7 +739,6 @@ function tidy_access_count (tidy $object) {}
 function tidy_config_count (tidy $object) {}
 
 /**
- * @since 5.1.0
  * Returns the documentation for the given option name
  * @link http://php.net/manual/en/tidy.getoptdoc.php
  * @param string $optname <p>
@@ -747,6 +746,7 @@ function tidy_config_count (tidy $object) {}
  * </p>
  * @return string a string if the option exists and has documentation available, or
  * <b>FALSE</b> otherwise.
+ * @since 5.1.0
  */
 function tidy_get_opt_doc ($optname) {}
 
@@ -785,7 +785,6 @@ function tidy_get_html () {}
 function tidy_get_body ($tidy) {}
 
 /**
- * @since 5.0
  * ob_start callback function to repair the buffer
  * @link http://php.net/manual/en/function.ob-tidyhandler.php
  * @param string $input <p>
@@ -795,6 +794,7 @@ function tidy_get_body ($tidy) {}
  * The buffer mode.
  * </p>
  * @return string the modified buffer.
+ * @since 5.0
  */
 function ob_tidyhandler ($input, $mode = null) {}
 

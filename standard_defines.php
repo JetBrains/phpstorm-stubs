@@ -260,8 +260,8 @@ define ('PATHINFO_BASENAME', 2);
 define ('PATHINFO_EXTENSION', 4);
 
 /**
- * @since 5.2.0
  * @link http://php.net/manual/en/filesystem.constants.php
+ * @since 5.2.0
  */
 define ('PATHINFO_FILENAME', 8);
 define ('CHAR_MAX', 127);
@@ -1268,44 +1268,44 @@ define('IPPROTO_IPV6', 41);
 
 
 /**
- * @since 5.4.0
  * Replace invalid code unit sequences with a Unicode Replacement Character
  * U+FFFD (UTF-8) or &#FFFD; (otherwise) instead of returning an empty string.
  * @link http://php.net/manual/en/function.htmlspecialchars.php
+ * @since 5.4.0
  */
 define('ENT_SUBSTITUTE', 8);
 /**
- * @since 5.4.0
  * Replace invalid code points for the given document type with
  * a Unicode Replacement Character U+FFFD (UTF-8) or &#FFFD;
  * (otherwise) instead of leaving them as is. This may be useful,
  * for instance, to ensure the well-formedness of XML documents
  * with embedded external content.
  * @link http://php.net/manual/en/function.htmlspecialchars.php
+ * @since 5.4.0
  */
 define('ENT_DISALLOWED', 128);
 /**
- * @since 5.4.0
  * Handle code as HTML 4.01.
  * @link http://php.net/manual/en/function.htmlspecialchars.php
+ * @since 5.4.0
  */
 define('ENT_HTML401', 0);
 /**
- * @since 5.4.0
  * Handle code as XML 1.
  * @link http://php.net/manual/en/function.htmlspecialchars.php
+ * @since 5.4.0
  */
 define('ENT_XML1', 16);
 /**
- * @since 5.4.0
  * Handle code as XHTML.
  * @link http://php.net/manual/en/function.htmlspecialchars.php
+ * @since 5.4.0
  */
 define('ENT_XHTML', 32);
 /**
- * @since 5.4.0
  * Handle code as HTML 5.
  * @link http://php.net/manual/en/function.htmlspecialchars.php
+ * @since 5.4.0
  */
 define('ENT_HTML5', 48);
 

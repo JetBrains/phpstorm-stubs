@@ -3,8 +3,6 @@
 // Start of gettext v.
 
 /**
- * @since 4.0
- * @since 5.0
  * Sets the default domain
  * @link http://php.net/manual/en/function.textdomain.php
  * @param string $text_domain <p>
@@ -13,12 +11,12 @@
  * </p>
  * @return string If successful, this function returns the current message
  * domain, after possibly changing it.
+ * @since 4.0
+ * @since 5.0
  */
 function textdomain ($text_domain) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Lookup a message in the current domain
  * @link http://php.net/manual/en/function.gettext.php
  * @param string $message <p>
@@ -26,12 +24,12 @@ function textdomain ($text_domain) {}
  * </p>
  * @return string a translated string if one is found in the
  * translation table, or the submitted message if not found.
+ * @since 4.0
+ * @since 5.0
  */
 function gettext ($message) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Lookup a message in the current domain
  * @link http://php.net/manual/en/function.gettext.php
  * @param string $message <p>
@@ -39,12 +37,12 @@ function gettext ($message) {}
  * </p>
  * @return string a translated string if one is found in the
  * translation table, or the submitted message if not found.
+ * @since 4.0
+ * @since 5.0
  */
 function _ ($message) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Override the current domain
  * @link http://php.net/manual/en/function.dgettext.php
  * @param string $domain <p>
@@ -54,12 +52,12 @@ function _ ($message) {}
  * The message
  * </p>
  * @return string A string on success.
+ * @since 4.0
+ * @since 5.0
  */
 function dgettext ($domain, $message) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Overrides the domain for a single lookup
  * @link http://php.net/manual/en/function.dcgettext.php
  * @param string $domain <p>
@@ -72,12 +70,12 @@ function dgettext ($domain, $message) {}
  * The category
  * </p>
  * @return string A string on success.
+ * @since 4.0
+ * @since 5.0
  */
 function dcgettext ($domain, $message, $category) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Sets the path for a domain
  * @link http://php.net/manual/en/function.bindtextdomain.php
  * @param string $domain <p>
@@ -87,12 +85,12 @@ function dcgettext ($domain, $message, $category) {}
  * The directory path
  * </p>
  * @return string The full pathname for the <i>domain</i> currently being set.
+ * @since 4.0
+ * @since 5.0
  */
 function bindtextdomain ($domain, $directory) {}
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Plural version of gettext
  * @link http://php.net/manual/en/function.ngettext.php
  * @param string $msgid1
@@ -101,12 +99,12 @@ function bindtextdomain ($domain, $directory) {}
  * @return string correct plural form of message identified by
  * <i>msgid1</i> and <i>msgid2</i>
  * for count <i>n</i>.
+ * @since 4.2.0
+ * @since 5.0
  */
 function ngettext ($msgid1, $msgid2, $n) {}
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Plural version of dgettext
  * @link http://php.net/manual/en/function.dngettext.php
  * @param string $domain <p>
@@ -116,12 +114,12 @@ function ngettext ($msgid1, $msgid2, $n) {}
  * @param string $msgid2
  * @param int $n
  * @return string A string on success.
+ * @since 4.2.0
+ * @since 5.0
  */
 function dngettext ($domain, $msgid1, $msgid2, $n) {}
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Plural version of dcgettext
  * @link http://php.net/manual/en/function.dcngettext.php
  * @param string $domain <p>
@@ -132,12 +130,12 @@ function dngettext ($domain, $msgid1, $msgid2, $n) {}
  * @param int $n
  * @param int $category
  * @return string A string on success.
+ * @since 4.2.0
+ * @since 5.0
  */
 function dcngettext ($domain, $msgid1, $msgid2, $n, $category) {}
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Specify the character encoding in which the messages from the DOMAIN message catalog will be returned
  * @link http://php.net/manual/en/function.bind-textdomain-codeset.php
  * @param string $domain <p>
@@ -147,6 +145,8 @@ function dcngettext ($domain, $msgid1, $msgid2, $n, $category) {}
  * The code set
  * </p>
  * @return string A string on success.
+ * @since 4.2.0
+ * @since 5.0
  */
 function bind_textdomain_codeset ($domain, $codeset) {}
 

@@ -3,8 +3,6 @@
 // Start of iconv v.
 
 /**
- * @since 4.0.5
- * @since 5.0
  * Convert string to requested character encoding
  * @link http://php.net/manual/en/function.iconv.php
  * @param string $in_charset <p>
@@ -27,24 +25,24 @@
  * The string to be converted.
  * </p>
  * @return string the converted string or <b>FALSE</b> on failure.
+ * @since 4.0.5
+ * @since 5.0
  */
 function iconv ($in_charset, $out_charset, $str) {}
 
 /**
- * @since 4.0.5
- * @since 5.0
  * Convert character encoding as output buffer handler
  * @link http://php.net/manual/en/function.ob-iconv-handler.php
  * @param string $contents 
  * @param int $status 
  * @return string See <b>ob_start</b> for information about this handler
  * return values.
+ * @since 4.0.5
+ * @since 5.0
  */
 function ob_iconv_handler ($contents, $status) {}
 
 /**
- * @since 4.0.5
- * @since 5.0
  * Retrieve internal configuration variables of iconv extension
  * @link http://php.net/manual/en/function.iconv-get-encoding.php
  * @param string $type [optional] <p>
@@ -61,12 +59,12 @@ function ob_iconv_handler ($contents, $status) {}
  * If <i>type</i> is omitted or set to "all",
  * <b>iconv_get_encoding</b> returns an array that
  * stores all these variables.
+ * @since 4.0.5
+ * @since 5.0
  */
 function iconv_get_encoding ($type = "all") {}
 
 /**
- * @since 4.0.5
- * @since 5.0
  * Set current setting for character encoding conversion
  * @link http://php.net/manual/en/function.iconv-set-encoding.php
  * @param string $type <p>
@@ -79,11 +77,12 @@ function iconv_get_encoding ($type = "all") {}
  * The character set.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0.5
+ * @since 5.0
  */
 function iconv_set_encoding ($type, $charset) {}
 
 /**
- * @since 5.0
  * Returns the character count of string
  * @link http://php.net/manual/en/function.iconv-strlen.php
  * @param string $str <p>
@@ -95,11 +94,11 @@ function iconv_set_encoding ($type, $charset) {}
  * iconv.internal_encoding.
  * </p>
  * @return int the character count of <i>str</i>, as an integer.
+ * @since 5.0
  */
 function iconv_strlen ($str, $charset = 'ini_get("iconv.internal_encoding")') {}
 
 /**
- * @since 5.0
  * Cut out part of a string
  * @link http://php.net/manual/en/function.iconv-substr.php
  * @param string $str <p>
@@ -150,11 +149,11 @@ function iconv_strlen ($str, $charset = 'ini_get("iconv.internal_encoding")') {}
  * <p>
  * If <i>str</i> is shorter than <i>offset</i>
  * characters long, <b>FALSE</b> will be returned.
+ * @since 5.0
  */
 function iconv_substr ($str, $offset, $length = 'iconv_strlen($str, $charset)', $charset = 'ini_get("iconv.internal_encoding")') {}
 
 /**
- * @since 5.0
  * Finds position of first occurrence of a needle within a haystack
  * @link http://php.net/manual/en/function.iconv-strpos.php
  * @param string $haystack <p>
@@ -178,11 +177,11 @@ function iconv_substr ($str, $offset, $length = 'iconv_strlen($str, $charset)', 
  * <p>
  * If <i>needle</i> is not found,
  * <b>iconv_strpos</b> will return <b>FALSE</b>.
+ * @since 5.0
  */
 function iconv_strpos ($haystack, $needle, $offset = 0, $charset = 'ini_get("iconv.internal_encoding")') {}
 
 /**
- * @since 5.0
  * Finds the last occurrence of a needle within a haystack
  * @link http://php.net/manual/en/function.iconv-strrpos.php
  * @param string $haystack <p>
@@ -202,11 +201,11 @@ function iconv_strpos ($haystack, $needle, $offset = 0, $charset = 'ini_get("ico
  * <p>
  * If <i>needle</i> is not found,
  * <b>iconv_strrpos</b> will return <b>FALSE</b>.
+ * @since 5.0
  */
 function iconv_strrpos ($haystack, $needle, $charset = 'ini_get("iconv.internal_encoding")') {}
 
 /**
- * @since 5.0
  * Composes a MIME header field
  * @link http://php.net/manual/en/function.iconv-mime-encode.php
  * @param string $field_name <p>
@@ -303,11 +302,11 @@ function iconv_strrpos ($haystack, $needle, $charset = 'ini_get("iconv.internal_
  * </p>
  * @return string an encoded MIME field on success,
  * or <b>FALSE</b> if an error occurs during the encoding.
+ * @since 5.0
  */
 function iconv_mime_encode ($field_name, $field_value, array $preferences = null) {}
 
 /**
- * @since 5.0
  * Decodes a MIME header field
  * @link http://php.net/manual/en/function.iconv-mime-decode.php
  * @param string $encoded_header <p>
@@ -355,11 +354,11 @@ function iconv_mime_encode ($field_name, $field_value, array $preferences = null
  * </p>
  * @return string a decoded MIME field on success,
  * or <b>FALSE</b> if an error occurs during the decoding.
+ * @since 5.0
  */
 function iconv_mime_decode ($encoded_header, $mode = 0, $charset = 'ini_get("iconv.internal_encoding")') {}
 
 /**
- * @since 5.0
  * Decodes multiple MIME header fields at once
  * @link http://php.net/manual/en/function.iconv-mime-decode-headers.php
  * @param string $encoded_headers <p>
@@ -416,6 +415,7 @@ function iconv_mime_decode ($encoded_header, $mode = 0, $charset = 'ini_get("ico
  * If more than one field of the same name are present,
  * <b>iconv_mime_decode_headers</b> automatically incorporates
  * them into a numerically indexed array in the order of occurrence.
+ * @since 5.0
  */
 function iconv_mime_decode_headers ($encoded_headers, $mode = 0, $charset = 'ini_get("iconv.internal_encoding")') {}
 

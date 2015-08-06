@@ -3,8 +3,6 @@
 // Start of bz2 v.
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Opens a bzip2 compressed file
  * @link http://php.net/manual/en/function.bzopen.php
  * @param string $filename <p>
@@ -17,12 +15,12 @@
  * </p>
  * @return resource If the open fails, <b>bzopen</b> returns <b>FALSE</b>, otherwise
  * it returns a pointer to the newly opened file.
+ * @since 4.0.4
+ * @since 5.0
  */
 function bzopen ($filename, $mode) {}
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Binary safe bzip2 file read
  * @link http://php.net/manual/en/function.bzread.php
  * @param resource $bz <p>
@@ -35,12 +33,12 @@ function bzopen ($filename, $mode) {}
  * uncompressed bytes will be read at a time.
  * </p>
  * @return string the uncompressed data, or <b>FALSE</b> on error.
+ * @since 4.0.4
+ * @since 5.0
  */
 function bzread ($bz, $length = 1024) {}
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Binary safe bzip2 file write
  * @link http://php.net/manual/en/function.bzwrite.php
  * @param resource $bz <p>
@@ -56,12 +54,12 @@ function bzread ($bz, $length = 1024) {}
  * <i>data</i> is reached, whichever comes first.
  * </p>
  * @return int the number of bytes written, or <b>FALSE</b> on error.
+ * @since 4.0.4
+ * @since 5.0
  */
 function bzwrite ($bz, $data, $length = null) {}
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Force a write of all buffered data
  * @link http://php.net/manual/en/function.bzflush.php
  * @param resource $bz <p>
@@ -69,12 +67,12 @@ function bzwrite ($bz, $data, $length = null) {}
  * successfully opened by <b>bzopen</b>.
  * </p>
  * @return int <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0.4
+ * @since 5.0
  */
 function bzflush ($bz) {}
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Close a bzip2 file
  * @link http://php.net/manual/en/function.bzclose.php
  * @param resource $bz <p>
@@ -82,12 +80,12 @@ function bzflush ($bz) {}
  * successfully opened by <b>bzopen</b>.
  * </p>
  * @return int <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0.4
+ * @since 5.0
  */
 function bzclose ($bz) {}
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Returns a bzip2 error number
  * @link http://php.net/manual/en/function.bzerrno.php
  * @param resource $bz <p>
@@ -95,12 +93,12 @@ function bzclose ($bz) {}
  * successfully opened by <b>bzopen</b>.
  * </p>
  * @return int the error number as an integer.
+ * @since 4.0.4
+ * @since 5.0
  */
 function bzerrno ($bz) {}
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Returns a bzip2 error string
  * @link http://php.net/manual/en/function.bzerrstr.php
  * @param resource $bz <p>
@@ -108,12 +106,12 @@ function bzerrno ($bz) {}
  * successfully opened by <b>bzopen</b>.
  * </p>
  * @return string a string containing the error message.
+ * @since 4.0.4
+ * @since 5.0
  */
 function bzerrstr ($bz) {}
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Returns the bzip2 error number and error string in an array
  * @link http://php.net/manual/en/function.bzerror.php
  * @param resource $bz <p>
@@ -123,12 +121,12 @@ function bzerrstr ($bz) {}
  * @return array an associative array, with the error code in the
  * errno entry, and the error message in the
  * errstr entry.
+ * @since 4.0.4
+ * @since 5.0
  */
 function bzerror ($bz) {}
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Compress a string into bzip2 encoded data
  * @link http://php.net/manual/en/function.bzcompress.php
  * @param string $source <p>
@@ -149,12 +147,12 @@ function bzerror ($bz) {}
  * output is the same.
  * </p>
  * @return mixed The compressed string, or an error number if an error occurred.
+ * @since 4.0.4
+ * @since 5.0
  */
 function bzcompress ($source, $blocksize = 4, $workfactor = 0) {}
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Decompresses bzip2 encoded data
  * @link http://php.net/manual/en/function.bzdecompress.php
  * @param string $source <p>
@@ -170,6 +168,8 @@ function bzcompress ($source, $blocksize = 4, $workfactor = 0) {}
  * information about this feature.
  * </p>
  * @return mixed The decompressed string, or an error number if an error occurred.
+ * @since 4.0.4
+ * @since 5.0
  */
 function bzdecompress ($source, $small = 0) {}
 

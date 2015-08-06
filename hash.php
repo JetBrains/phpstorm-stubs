@@ -23,12 +23,12 @@
 function hash ($algo, $data, $raw_output = false) {}
 
 /**
- * @since 5.6.0
  * Timing attack safe string comparison
  * @link http://php.net/manual/en/function.hash-equals.php
  * @param string $known_string <p>The string of known length to compare against</p>
  * @param string $user_string <p>The user-supplied string</p>
  * @return boolean <p>Returns <b>TRUE</b> when the two strings are equal, <b>FALSE</b> otherwise.</p>
+ * @since 5.6.0
  */
 function hash_equals($known_string, $user_string) {}
 
@@ -188,13 +188,13 @@ function hash_update_file ($hcontext, $filename, $scontext = null) {}
 function hash_final ($context, $raw_output = false) {}
 
 /**
- * @since 5.3.0
  * Copy hashing context
  * @link http://php.net/manual/en/function.hash-copy.php
  * @param resource $context <p>
  * Hashing context returned by <b>hash_init</b>.
  * </p>
  * @return resource a copy of Hashing Context resource.
+ * @since 5.3.0
  */
 function hash_copy ($context) {}
 
@@ -208,7 +208,6 @@ function hash_copy ($context) {}
 function hash_algos () {}
 
 /**
- * @since 5.5.0
  * Generate a PBKDF2 key derivation of a supplied password
  * @link http://php.net/manual/en/function.hash-pbkdf2.php
  * @param $algo
@@ -220,12 +219,11 @@ function hash_algos () {}
  * @return mixed a string containing the derived key as lowercase hexits unless
  * <i>raw_output</i> is set to <b>TRUE</b> in which case the raw
  * binary representation of the derived key is returned.
+ * @since 5.5.0
  */
 function hash_pbkdf2 ($algo, $password, $salt, $iterations, $length, $raw_output) {}
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Generates a key
  * @link http://php.net/manual/en/function.mhash-keygen-s2k.php
  * @param int $hash <p>
@@ -246,12 +244,12 @@ function hash_pbkdf2 ($algo, $password, $salt, $iterations, $length, $raw_output
  * The key length, in bytes.
  * </p>
  * @return string the generated key as a string, or <b>FALSE</b> on error.
+ * @since 4.0.4
+ * @since 5.0
  */
 function mhash_keygen_s2k ($hash, $password, $salt, $bytes) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gets the block size of the specified hash
  * @link http://php.net/manual/en/function.mhash-get-block-size.php
  * @param int $hash <p>
@@ -259,34 +257,34 @@ function mhash_keygen_s2k ($hash, $password, $salt, $bytes) {}
  * </p>
  * @return int the size in bytes or <b>FALSE</b>, if the <i>hash</i>
  * does not exist.
+ * @since 4.0
+ * @since 5.0
  */
 function mhash_get_block_size ($hash) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gets the name of the specified hash
  * @link http://php.net/manual/en/function.mhash-get-hash-name.php
  * @param int $hash <p>
  * The hash ID. One of the <b>MHASH_hashname</b> constants.
  * </p>
  * @return string the name of the hash or <b>FALSE</b>, if the hash does not exist.
+ * @since 4.0
+ * @since 5.0
  */
 function mhash_get_hash_name ($hash) {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Gets the highest available hash ID
  * @link http://php.net/manual/en/function.mhash-count.php
  * @return int the highest available hash ID. Hashes are numbered from 0 to this
  * hash ID.
+ * @since 4.0
+ * @since 5.0
  */
 function mhash_count () {}
 
 /**
- * @since 4.0
- * @since 5.0
  * Computes hash
  * @link http://php.net/manual/en/function.mhash.php
  * @param int $hash <p>
@@ -303,6 +301,8 @@ function mhash_count () {}
  * </p>
  * @return string the resulting hash (also called digest) or HMAC as a string, or
  * <b>FALSE</b> on error.
+ * @since 4.0
+ * @since 5.0
  */
 function mhash ($hash, $data, $key = null) {}
 

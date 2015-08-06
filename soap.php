@@ -10,7 +10,6 @@
 class SoapClient  {
 
 	/**
-	 * @since 5.0.1
 	 * SoapClient constructor
 	 * @link http://php.net/manual/en/soapclient.soapclient.php
 	 * @param mixed $wsdl <p>
@@ -131,11 +130,11 @@ class SoapClient  {
 	 * <b>SOAP_SSL_METHOD_SSLv3</b> or
 	 * <b>SOAP_SSL_METHOD_SSLv23</b>.
 	 * </p>
+	 * @since 5.0.1
 	 */
 	public function SoapClient ($wsdl, array $options = null) {}
 
     /**
-     * @since 5.0.1
      * SoapClient constructor
      * @link http://php.net/manual/en/soapclient.soapclient.php
      * @param mixed $wsdl <p>
@@ -256,21 +255,21 @@ class SoapClient  {
      * <b>SOAP_SSL_METHOD_SSLv3</b> or
      * <b>SOAP_SSL_METHOD_SSLv23</b>.
      * </p>
+     * @since 5.0.1
      */
     public function __construct ($wsdl, array $options = null) {}
 
 	/**
-	 * @since 5.0.1
 	 * Calls a SOAP function (deprecated)
 	 * @link http://php.net/manual/en/soapclient.call.php
 	 * @param string $function_name
 	 * @param string $arguments
 	 * @return mixed
+	 * @since 5.0.1
 	 */
 	public function __call ($function_name, $arguments) {}
 
 	/**
-	 * @since 5.0.1
 	 * Calls a SOAP function
 	 * @link http://php.net/manual/en/soapclient.soapcall.php
 	 * @param string $function_name <p>
@@ -309,60 +308,60 @@ class SoapClient  {
 	 * <p>
 	 * On error, if the SoapClient object was constructed with the exceptions
 	 * option set to <b>FALSE</b>, a SoapFault object will be returned.
+	 * @since 5.0.1
 	 */
 	public function __soapCall ($function_name, array $arguments, array $options = null, $input_headers = null, array &$output_headers = null) {}
 
 	/**
-	 * @since 5.0.1
 	 * Returns last SOAP request
 	 * @link http://php.net/manual/en/soapclient.getlastrequest.php
 	 * @return string The last SOAP request, as an XML string.
+	 * @since 5.0.1
 	 */
 	public function __getLastRequest () {}
 
 	/**
-	 * @since 5.0.1
 	 * Returns last SOAP response
 	 * @link http://php.net/manual/en/soapclient.getlastresponse.php
 	 * @return string The last SOAP response, as an XML string.
+	 * @since 5.0.1
 	 */
 	public function __getLastResponse () {}
 
 	/**
-	 * @since 5.0.1
 	 * Returns the SOAP headers from the last request
 	 * @link http://php.net/manual/en/soapclient.getlastrequestheaders.php
 	 * @return string The last SOAP request headers.
+	 * @since 5.0.1
 	 */
 	public function __getLastRequestHeaders () {}
 
 	/**
-	 * @since 5.0.1
 	 * Returns the SOAP headers from the last response
 	 * @link http://php.net/manual/en/soapclient.getlastresponseheaders.php
 	 * @return string The last SOAP response headers.
+	 * @since 5.0.1
 	 */
 	public function __getLastResponseHeaders () {}
 
 	/**
-	 * @since 5.0.1
 	 * Returns list of available SOAP functions
 	 * @link http://php.net/manual/en/soapclient.getfunctions.php
 	 * @return array The array of SOAP function prototypes, detailing the return type,
 	 * the function name and type-hinted paramaters.
+	 * @since 5.0.1
 	 */
 	public function __getFunctions () {}
 
 	/**
-	 * @since 5.0.1
 	 * Returns a list of SOAP types
 	 * @link http://php.net/manual/en/soapclient.gettypes.php
 	 * @return array The array of SOAP types, detailing all structures and types.
+	 * @since 5.0.1
 	 */
 	public function __getTypes () {}
 
 	/**
-	 * @since 5.0.1
 	 * Performs a SOAP request
 	 * @link http://php.net/manual/en/soapclient.dorequest.php
 	 * @param string $request <p>
@@ -382,11 +381,11 @@ class SoapClient  {
 	 * Use this where a response is not expected.
 	 * </p>
 	 * @return string The XML SOAP response.
+	 * @since 5.0.1
 	 */
 	public function __doRequest ($request, $location, $action, $version, $one_way = 0) {}
 
 	/**
-	 * @since 5.0.4
 	 * The __setCookie purpose
 	 * @link http://php.net/manual/en/soapclient.setcookie.php
 	 * @param string $name <p>
@@ -396,22 +395,22 @@ class SoapClient  {
 	 * The value of the cookie. If not specified, the cookie will be deleted.
 	 * </p>
 	 * @return void No value is returned.
+	 * @since 5.0.4
 	 */
 	public function __setCookie ($name, $value = null) {}
 
 	/**
-	 * @since 5.0.1
 	 * Sets the location of the Web service to use
 	 * @link http://php.net/manual/en/soapclient.setlocation.php
 	 * @param string $new_location [optional] <p>
 	 * The new endpoint URL.
 	 * </p>
 	 * @return string The old endpoint URL.
+	 * @since 5.0.1
 	 */
 	public function __setLocation ($new_location = null) {}
 
 	/**
-	 * @since 5.0.5
 	 * Sets SOAP headers for subsequent calls
 	 * @link http://php.net/manual/en/soapclient.setsoapheaders.php
 	 * @param mixed $soapheaders [optional] <p>
@@ -420,6 +419,7 @@ class SoapClient  {
 	 * If not specified or set to <b>NULL</b>, the headers will be deleted.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @since 5.0.5
 	 */
 	public function __setSoapHeaders ($soapheaders = null) {}
 
@@ -432,7 +432,6 @@ class SoapClient  {
 class SoapVar  {
 
 	/**
-	 * @since 5.0.1
 	 * SoapVar constructor
 	 * @link http://php.net/manual/en/soapvar.soapvar.php
 	 * @param mixed $data <p>
@@ -453,6 +452,7 @@ class SoapVar  {
 	 * @param string $node_namespace [optional] <p>
 	 * The XML node namespace.
 	 * </p>
+	 * @since 5.0.1
 	 */
 	public function SoapVar ($data, $encoding, $type_name = null, $type_namespace = null, $node_name = null, $node_namespace = null) {}
 
@@ -465,7 +465,6 @@ class SoapVar  {
 class SoapServer  {
 
 	/**
-	 * @since 5.0.1
 	 * SoapServer constructor
 	 * @link http://php.net/manual/en/soapserver.soapserver.php
 	 * @param mixed $wsdl <p>
@@ -503,11 +502,11 @@ class SoapServer  {
 	 * <b>SOAP_SINGLE_ELEMENT_ARRAYS</b>,
 	 * <b>SOAP_USE_XSI_ARRAY_TYPE</b>.
 	 * </p>
+	 * @since 5.0.1
 	 */
 	public function SoapServer ($wsdl, array $options = null) {}
 
 	/**
-	 * @since 5.1.2
 	 * Sets SoapServer persistence mode
 	 * @link http://php.net/manual/en/soapserver.setpersistence.php
 	 * @param int $mode <p>
@@ -525,11 +524,11 @@ class SoapServer  {
 	 * <b>session_start</b> must be called before this persistence mode is set.
 	 * </p>
 	 * @return void No value is returned.
+	 * @since 5.1.2
 	 */
 	public function setPersistence ($mode) {}
 
 	/**
-	 * @since 5.0.1
 	 * Sets the class which handles SOAP requests
 	 * @link http://php.net/manual/en/soapserver.setclass.php
 	 * @param string $class_name <p>
@@ -541,22 +540,22 @@ class SoapServer  {
 	 * </p>
 	 * @param mixed $_ [optional]
 	 * @return void No value is returned.
+	 * @since 5.0.1
 	 */
 	public function setClass ($class_name, $args = null, $_ = null) {}
 
 	/**
-	 * @since 5.2.0
 	 * Sets the object which will be used to handle SOAP requests
 	 * @link http://php.net/manual/en/soapserver.setobject.php
 	 * @param object $object <p>
 	 * The object to handle the requests.
 	 * </p>
 	 * @return void No value is returned.
+	 * @since 5.2.0
 	 */
 	public function setObject ($object) {}
 
 	/**
-	 * @since 5.0.1
 	 * Adds one or more functions to handle SOAP requests
 	 * @link http://php.net/manual/en/soapserver.addfunction.php
 	 * @param mixed $functions <p>
@@ -576,19 +575,19 @@ class SoapServer  {
 	 * return an array with named output parameters.
 	 * </p>
 	 * @return void No value is returned.
+	 * @since 5.0.1
 	 */
 	public function addFunction ($functions) {}
 
 	/**
-	 * @since 5.0.1
 	 * Returns list of defined functions
 	 * @link http://php.net/manual/en/soapserver.getfunctions.php
 	 * @return array An array of the defined functions.
+	 * @since 5.0.1
 	 */
 	public function getFunctions () {}
 
 	/**
-	 * @since 5.0.1
 	 * Handles a SOAP request
 	 * @link http://php.net/manual/en/soapserver.handle.php
 	 * @param string $soap_request [optional] <p>
@@ -596,11 +595,11 @@ class SoapServer  {
 	 * in the raw POST data of the HTTP request.
 	 * </p>
 	 * @return void No value is returned.
+	 * @since 5.0.1
 	 */
 	public function handle ($soap_request = null) {}
 
 	/**
-	 * @since 5.0.1
 	 * Issue SoapServer fault indicating an error
 	 * @link http://php.net/manual/en/soapserver.fault.php
 	 * @param string $code <p>
@@ -619,17 +618,18 @@ class SoapServer  {
 	 * The name of the fault. This can be used to select a name from a WSDL file.
 	 * </p>
 	 * @return void No value is returned.
+	 * @since 5.0.1
 	 */
 	public function fault ($code, $string, $actor = null, $details = null, $name = null) {}
 
 	/**
-	 * @since 5.0.1
 	 * Add a SOAP header to the response
 	 * @link http://php.net/manual/en/soapserver.addsoapheader.php
 	 * @param SoapHeader $object <p>
 	 * The header to be returned.
 	 * </p>
 	 * @return void No value is returned.
+	 * @since 5.0.1
 	 */
 	public function addSoapHeader (SoapHeader $object) {}
 
@@ -641,7 +641,6 @@ class SoapServer  {
  */
 class SoapFault extends Exception  {
 	/**
-	 * @since 5.0.1
 	 * SoapFault constructor
 	 * @link http://php.net/manual/en/soapfault.soapfault.php
 	 * @param string $faultcode <p>
@@ -663,14 +662,15 @@ class SoapFault extends Exception  {
 	 * Can be used during SOAP header handling to report an error in the
 	 * response header.
 	 * </p>
+	 * @since 5.0.1
 	 */
 	public function SoapFault ($faultcode, $faultstring, $faultactor = null, $detail = null, $faultname = null, $headerfault = null) {}
 
 	/**
-	 * @since 5.0.1
 	 * Obtain a string representation of a SoapFault
 	 * @link http://php.net/manual/en/soapfault.tostring.php
 	 * @return string A string describing the SoapFault.
+	 * @since 5.0.1
 	 */
 	public function __toString () {}
 
@@ -684,7 +684,6 @@ class SoapFault extends Exception  {
 class SoapParam  {
 
 	/**
-	 * @since 5.0.1
 	 * SoapParam constructor
 	 * @link http://php.net/manual/en/soapparam.soapparam.php
 	 * @param mixed $data <p>
@@ -695,6 +694,7 @@ class SoapParam  {
 	 * @param string $name <p>
 	 * The parameter name.
 	 * </p>
+	 * @since 5.0.1
 	 */
 	public function SoapParam ($data, $name) {}
 
@@ -707,7 +707,6 @@ class SoapParam  {
 class SoapHeader  {
 
 	/**
-	 * @since 5.0.1
 	 * SoapHeader constructor
 	 * @link http://php.net/manual/en/soapheader.soapheader.php
 	 * @param string $namespace <p>
@@ -725,6 +724,7 @@ class SoapHeader  {
 	 * Value of the actor attribute of the SOAP header
 	 * element.
 	 * </p>
+	 * @since 5.0.1
 	 */
 	public function SoapHeader ($namespace, $name, $data = null, $mustunderstand = false, $actor = null) {}
 
@@ -829,26 +829,26 @@ define ('WSDL_CACHE_MEMORY', 2);
 define ('WSDL_CACHE_BOTH', 3);
 
 /**
- * @since 5.5.0
  * @link http://php.net/manual/en/soap.constants.php
+ * @since 5.5.0
  */
 define ('SOAP_SSL_METHOD_TLS', 0);
 
 /**
- * @since 5.5.0
  * @link http://php.net/manual/en/soap.constants.php
+ * @since 5.5.0
  */
 define ('SOAP_SSL_METHOD_SSLv2', 1);
 
 /**
- * @since 5.5.0
  * @link http://php.net/manual/en/soap.constants.php
+ * @since 5.5.0
  */
 define ('SOAP_SSL_METHOD_SSLv3', 2);
 
 /**
- * @since 5.5.0
  * @link http://php.net/manual/en/soap.constants.php
+ * @since 5.5.0
  */
 define ('SOAP_SSL_METHOD_SSLv23', 3);
 

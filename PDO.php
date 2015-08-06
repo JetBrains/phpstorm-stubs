@@ -367,14 +367,14 @@ class PDO  {
 	const ATTR_MAX_COLUMN_LEN = 18;
 
 	/**
-	 * @since 5.1.3
 	 * @link http://php.net/manual/en/pdo.constants.php
+	 * @since 5.1.3
 	 */
 	const ATTR_EMULATE_PREPARES = 20;
 
 	/**
-	 * @since 5.2.0
 	 * @link http://php.net/manual/en/pdo.constants.php
+	 * @since 5.2.0
 	 */
 	const ATTR_DEFAULT_FETCH_MODE = 19;
 

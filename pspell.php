@@ -3,8 +3,6 @@
 // Start of pspell v.
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Load a new dictionary
  * @link http://php.net/manual/en/function.pspell-new.php
  * @param string $language <p>
@@ -35,12 +33,12 @@
  * <b>PSPELL_FAST</b> - Fast mode (least number of
  * suggestions)
  * @return int the dictionary link identifier on success or <b>FALSE</b> on failure.
+ * @since 4.0.2
+ * @since 5.0
  */
 function pspell_new ($language, $spelling = null, $jargon = null, $encoding = null, $mode = 0) {}
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Load a new dictionary with personal wordlist
  * @link http://php.net/manual/en/function.pspell-new-personal.php
  * @param string $personal <p>
@@ -74,12 +72,12 @@ function pspell_new ($language, $spelling = null, $jargon = null, $encoding = nu
  * <b>PSPELL_FAST</b> - Fast mode (least number of
  * suggestions)
  * @return int the dictionary link identifier for use in other pspell functions.
+ * @since 4.0.2
+ * @since 5.0
  */
 function pspell_new_personal ($personal, $language, $spelling = null, $jargon = null, $encoding = null, $mode = 0) {}
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Load a new dictionary with settings based on a given config
  * @link http://php.net/manual/en/function.pspell-new-config.php
  * @param int $config <p>
@@ -87,12 +85,12 @@ function pspell_new_personal ($personal, $language, $spelling = null, $jargon = 
  * <b>pspell_config_create</b> when the config was created.
  * </p>
  * @return int a dictionary link identifier on success.
+ * @since 4.0.2
+ * @since 5.0
  */
 function pspell_new_config ($config) {}
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Check a word
  * @link http://php.net/manual/en/function.pspell-check.php
  * @param int $dictionary_link
@@ -100,12 +98,12 @@ function pspell_new_config ($config) {}
  * The tested word.
  * </p>
  * @return bool <b>TRUE</b> if the spelling is correct, <b>FALSE</b> if not.
+ * @since 4.0.2
+ * @since 5.0
  */
 function pspell_check ($dictionary_link, $word) {}
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Suggest spellings of a word
  * @link http://php.net/manual/en/function.pspell-suggest.php
  * @param int $dictionary_link
@@ -113,12 +111,12 @@ function pspell_check ($dictionary_link, $word) {}
  * The tested word.
  * </p>
  * @return array an array of possible spellings.
+ * @since 4.0.2
+ * @since 5.0
  */
 function pspell_suggest ($dictionary_link, $word) {}
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Store a replacement pair for a word
  * @link http://php.net/manual/en/function.pspell-store-replacement.php
  * @param int $dictionary_link <p>
@@ -132,12 +130,12 @@ function pspell_suggest ($dictionary_link, $word) {}
  * The fixed spelling for the <i>misspelled</i> word.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0.2
+ * @since 5.0
  */
 function pspell_store_replacement ($dictionary_link, $misspelled, $correct) {}
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Add the word to a personal wordlist
  * @link http://php.net/manual/en/function.pspell-add-to-personal.php
  * @param int $dictionary_link
@@ -145,12 +143,12 @@ function pspell_store_replacement ($dictionary_link, $misspelled, $correct) {}
  * The added word.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0.2
+ * @since 5.0
  */
 function pspell_add_to_personal ($dictionary_link, $word) {}
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Add the word to the wordlist in the current session
  * @link http://php.net/manual/en/function.pspell-add-to-session.php
  * @param int $dictionary_link
@@ -158,22 +156,22 @@ function pspell_add_to_personal ($dictionary_link, $word) {}
  * The added word.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0.2
+ * @since 5.0
  */
 function pspell_add_to_session ($dictionary_link, $word) {}
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Clear the current session
  * @link http://php.net/manual/en/function.pspell-clear-session.php
  * @param int $dictionary_link
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0.2
+ * @since 5.0
  */
 function pspell_clear_session ($dictionary_link) {}
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Save the personal wordlist to a file
  * @link http://php.net/manual/en/function.pspell-save-wordlist.php
  * @param int $dictionary_link <p>
@@ -181,12 +179,12 @@ function pspell_clear_session ($dictionary_link) {}
  * <b>pspell_new_personal</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0.2
+ * @since 5.0
  */
 function pspell_save_wordlist ($dictionary_link) {}
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Create a config used to open a dictionary
  * @link http://php.net/manual/en/function.pspell-config-create.php
  * @param string $language <p>
@@ -212,12 +210,12 @@ function pspell_save_wordlist ($dictionary_link) {}
  * using.
  * </p>
  * @return int Retuns a pspell config identifier, or <b>FALSE</b> on error.
+ * @since 4.0.2
+ * @since 5.0
  */
 function pspell_config_create ($language, $spelling = null, $jargon = null, $encoding = null) {}
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Consider run-together words as valid compounds
  * @link http://php.net/manual/en/function.pspell-config-runtogether.php
  * @param int $dictionary_link
@@ -226,12 +224,12 @@ function pspell_config_create ($language, $spelling = null, $jargon = null, $enc
  * <b>FALSE</b> otherwise.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0.2
+ * @since 5.0
  */
 function pspell_config_runtogether ($dictionary_link, $flag) {}
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Change the mode number of suggestions returned
  * @link http://php.net/manual/en/function.pspell-config-mode.php
  * @param int $dictionary_link
@@ -241,12 +239,12 @@ function pspell_config_runtogether ($dictionary_link, $flag) {}
  * <b>PSPELL_FAST</b> - Fast mode (least number of
  * suggestions)
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0.2
+ * @since 5.0
  */
 function pspell_config_mode ($dictionary_link, $mode) {}
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Ignore words less than N characters long
  * @link http://php.net/manual/en/function.pspell-config-ignore.php
  * @param int $dictionary_link
@@ -254,12 +252,12 @@ function pspell_config_mode ($dictionary_link, $mode) {}
  * Words less than <i>n</i> characters will be skipped.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0.2
+ * @since 5.0
  */
 function pspell_config_ignore ($dictionary_link, $n) {}
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Set a file that contains personal wordlist
  * @link http://php.net/manual/en/function.pspell-config-personal.php
  * @param int $dictionary_link
@@ -268,32 +266,32 @@ function pspell_config_ignore ($dictionary_link, $n) {}
  * The file should be writable by whoever PHP runs as (e.g. nobody).
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0.2
+ * @since 5.0
  */
 function pspell_config_personal ($dictionary_link, $file) {}
 
 /**
- * @since 5.0
  * Location of the main word list
  * @link http://php.net/manual/en/function.pspell-config-dict-dir.php
  * @param int $conf
  * @param string $directory
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 5.0
  */
 function pspell_config_dict_dir ($conf, $directory) {}
 
 /**
- * @since 5.0
  * location of language data files
  * @link http://php.net/manual/en/function.pspell-config-data-dir.php
  * @param int $conf
  * @param string $directory
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 5.0
  */
 function pspell_config_data_dir ($conf, $directory) {}
 
 /**
- * @since 4.0.2
- * @since 5.0
  * Set a file that contains replacement pairs
  * @link http://php.net/manual/en/function.pspell-config-repl.php
  * @param int $dictionary_link
@@ -301,13 +299,15 @@ function pspell_config_data_dir ($conf, $directory) {}
  * The file should be writable by whoever PHP runs as (e.g. nobody).
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 4.0.2
+ * @since 5.0
  */
 function pspell_config_repl ($dictionary_link, $file) {}
 
 /**
+ * Determine whether to save a replacement pairs list
  * @since 4.0.2
  * @since 5.0
- * Determine whether to save a replacement pairs list
 along with the wordlist
  * @link http://php.net/manual/en/function.pspell-config-save-repl.php
  * @param int $dictionary_link

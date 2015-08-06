@@ -23,8 +23,8 @@ define ('CURLOPT_HTTPHEADER', 10023);
 define ('CURLOPT_NOPROGRESS', 43);
 
 /**
- * @since 5.3.0
  * @link http://php.net/manual/en/curl.constants.php
+ * @since 5.3.0
  */
 define ('CURLOPT_PROGRESSFUNCTION', 20056);
 define ('CURLOPT_NOBODY', 44);
@@ -36,8 +36,8 @@ define ('CURLOPT_FTPAPPEND', 50);
 define ('CURLOPT_NETRC', 51);
 
 /**
- * @since 5.3.2
  * @link http://us.php.net/manual/en/function.curl-setopt.php
+ * @since 5.3.2
  */
 define ('CURLOPT_CERTINFO', -1);
 define ('CURLOPT_FTPASCII', -1);
@@ -71,14 +71,14 @@ define ('CURLOPT_RESUME_FROM', 21);
 define ('CURLOPT_COOKIE', 10022);
 
 /**
- * @since 5.1.0
  * @link http://php.net/manual/en/curl.constants.php
+ * @since 5.1.0
  */
 define ('CURLOPT_COOKIESESSION', 96);
 
 /**
- * @since 5.1.0
  * @link http://php.net/manual/en/curl.constants.php
+ * @since 5.1.0
  */
 define ('CURLOPT_AUTOREFERER', 58);
 define ('CURLOPT_SSLCERT', 10025);
@@ -93,20 +93,20 @@ define ('CURL_SSLVERSION_SSLv2',2);
 define ('CURL_SSLVERSION_SSLv3',3);
 
 /**
- * @since 5.5.19
  * @since 5.6.3
+ * @since 5.5.19
  */
 define ('CURL_SSLVERSION_TLSv1_0',4);
 
 /**
- * @since 5.5.19
  * @since 5.6.3
+ * @since 5.5.19
  */
 define ('CURL_SSLVERSION_TLSv1_1',5);
 
 /**
- * @since 5.5.19
  * @since 5.6.3
+ * @since 5.5.19
  */
 define('CURL_SSLVERSION_TLSv1_2', 6);
 
@@ -158,8 +158,8 @@ define ('CURLOPT_UNRESTRICTED_AUTH', 105);
 define ('CURLOPT_FTP_USE_EPRT', 106);
 
 /**
- * @since 5.2.1
  * @link http://php.net/manual/en/curl.constants.php
+ * @since 5.2.1
  */
 define ('CURLOPT_TCP_NODELAY', 121);
 define ('CURLOPT_HTTP200ALIASES', 10104);
@@ -177,8 +177,8 @@ define ('CURLOPT_PROXYAUTH', 111);
 define ('CURLOPT_FTP_CREATE_MISSING_DIRS', 110);
 
 /**
- * @since 5.2.4
  * @link http://php.net/manual/en/curl.constants.php
+ * @since 5.2.4
  */
 define ('CURLOPT_PRIVATE', 10103);
 define ('CURLCLOSEPOLICY_LEAST_RECENTLY_USED', 2);
@@ -208,14 +208,14 @@ define ('CURLINFO_REDIRECT_TIME', 3145747);
 define ('CURLINFO_REDIRECT_COUNT', 2097172);
 
 /**
- * @since 5.1.3
  * @link http://php.net/manual/en/curl.constants.php
+ * @since 5.1.3
  */
 define ('CURLINFO_HEADER_OUT', 2);
 
 /**
- * @since 5.2.4
  * @link http://php.net/manual/en/curl.constants.php
+ * @since 5.2.4
  */
 define ('CURLINFO_PRIVATE', 1048597);
 define ('CURL_VERSION_IPV6', 1);
@@ -306,56 +306,56 @@ define ('CURLM_INTERNAL_ERROR', 4);
 define ('CURLMSG_DONE', 1);
 
 /**
- * @since 5.1.0
  * @link http://php.net/manual/en/curl.constants.php
+ * @since 5.1.0
  */
 define ('CURLOPT_FTPSSLAUTH', 129);
 
 /**
- * @since 5.1.0
  * @link http://php.net/manual/en/curl.constants.php
+ * @since 5.1.0
  */
 define ('CURLFTPAUTH_DEFAULT', 0);
 
 /**
- * @since 5.1.0
  * @link http://php.net/manual/en/curl.constants.php
+ * @since 5.1.0
  */
 define ('CURLFTPAUTH_SSL', 1);
 
 /**
- * @since 5.1.0
  * @link http://php.net/manual/en/curl.constants.php
+ * @since 5.1.0
  */
 define ('CURLFTPAUTH_TLS', 2);
 
 /**
- * @since 5.2.0
  * @link http://php.net/manual/en/curl.constants.php
+ * @since 5.2.0
  */
 define ('CURLOPT_FTP_SSL', 119);
 
 /**
- * @since 5.2.0
  * @link http://php.net/manual/en/curl.constants.php
+ * @since 5.2.0
  */
 define ('CURLFTPSSL_NONE', 0);
 
 /**
- * @since 5.2.0
  * @link http://php.net/manual/en/curl.constants.php
+ * @since 5.2.0
  */
 define ('CURLFTPSSL_TRY', 1);
 
 /**
- * @since 5.2.0
  * @link http://php.net/manual/en/curl.constants.php
+ * @since 5.2.0
  */
 define ('CURLFTPSSL_CONTROL', 2);
 
 /**
- * @since 5.2.0
  * @link http://php.net/manual/en/curl.constants.php
+ * @since 5.2.0
  */
 define ('CURLFTPSSL_ALL', 3);
 define ('CURLOPT_FTP_FILEMETHOD', 138);
@@ -380,14 +380,14 @@ define ('CURLPROTO_TFTP', 2048);
 define ('CURLPROTO_ALL', -1);
 
 /**
- * @since 5.5.0
  * @link http://php.net/manual/en/curl.constants.php
+ * @since 5.5.0
  */
 define ('CURLMOPT_PIPELINING', 3);
 
 /**
- * @since 5.5.0
  * @link http://php.net/manual/en/curl.constants.php
+ * @since 5.5.0
  */
 define ('CURLMOPT_MAXCONNECTS', 6);
 

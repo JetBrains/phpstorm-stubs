@@ -1,8 +1,6 @@
 <?php
 
 /**
- * @since 4.0
- * @since 5.0
  * @deprecated 5.3.0 since 5.3.0
  * Loads a PHP extension at runtime
  * @link http://php.net/manual/en/function.dl.php
@@ -35,25 +33,27 @@
  * and execution is stopped. If <b>dl</b> fails because the
  * specified library couldn't be loaded, in addition to <b>FALSE</b> an
  * <b>E_WARNING</b> message is emitted.
+ * @since 4.0
+ * @since 5.0
  */
 function dl ($library) {}
 
 /**
- * @since 5.5.0
  * Sets the process title
  * @link http://php.net/manual/en/function.cli-set-process-title.php
  * @param string $title <p>
  * The new title.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 5.5.0
  */
 function cli_set_process_title ($title) {}
 
 /**
- * @since 5.5.0
  * Returns the current process title
  * @link http://php.net/manual/en/function.cli-get-process-title.php
  * @return string Return a string with the current process title or <b>NULL</b> on error.
+ * @since 5.5.0
  */
 function cli_get_process_title () {}
 

@@ -6,8 +6,6 @@ define ("ARRAY_FILTER_USE_KEY", 2);
 
 
 /**
- * @since 4.0.1
- * @since 5.0
  * Merge two or more arrays recursively
  * @link http://php.net/manual/en/function.array-merge-recursive.php
  * @param array $array1 <p>
@@ -15,11 +13,12 @@ define ("ARRAY_FILTER_USE_KEY", 2);
  * </p>
  * @param array $_ [optional]
  * @return array An array of values resulted from merging the arguments together.
+ * @since 4.0.1
+ * @since 5.0
  */
 function array_merge_recursive(array $array1, array $_ = null) { }
 
 /**
- * @since 5.3.0
  * array_replace() replaces the values of the first array with the same values from all the following arrays.
  * If a key from the first array exists in the second array, its value will be replaced by the value from the second array.
  * If the key exists in the second array, and not the first, it will be created in the first array.
@@ -36,11 +35,11 @@ function array_merge_recursive(array $array1, array $_ = null) { }
  * @param array $array2 [optional]
  * @param array $_ [optional]
  * @return array or null if an error occurs.
+ * @since 5.3.0
  */
 function array_replace(array $array, array $array1, array $array2 = null, array $_ = null) { }
 
 /**
- * @since 5.3.0
  * Replaces elements from passed arrays into the first array recursively
  * @link http://php.net/manual/en/function.array-replace-recursive.php
  * @param array $array <p>
@@ -52,12 +51,11 @@ function array_replace(array $array, array $array1, array $array2 = null, array 
  * @param array $array2 [optional]
  * @param array $_ [optional]
  * @return array an array, or &null; if an error occurs.
+ * @since 5.3.0
  */
 function array_replace_recursive(array $array, array $array1, array $array2 = null, array $_ = null) { }
 
 /**
- * @since 4.0
- * @since 5.0
  * Return all the keys of an array
  * @link http://php.net/manual/en/function.array-keys.php
  * @param array $input <p>
@@ -70,24 +68,24 @@ function array_replace_recursive(array $array, array $array1, array $array2 = nu
  * Determines if strict comparison (===) should be used during the search.
  * </p>
  * @return array an array of all the keys in input.
+ * @since 4.0
+ * @since 5.0
  */
 function array_keys(array $input, $search_value = null, $strict = null) { }
 
 /**
- * @since 4.0
- * @since 5.0
  * Return all the values of an array
  * @link http://php.net/manual/en/function.array-values.php
  * @param array $input <p>
  * The array.
  * </p>
  * @return array an indexed array of values.
+ * @since 4.0
+ * @since 5.0
  */
 function array_values(array $input) { }
 
 /**
- * @since 4.0
- * @since 5.0
  * Counts all the values of an array
  * @link http://php.net/manual/en/function.array-count-values.php
  * @param array $input <p>
@@ -95,6 +93,8 @@ function array_values(array $input) { }
  * </p>
  * @return array an associative array of values from input as
  * keys and their count as value.
+ * @since 4.0
+ * @since 5.0
  */
 function array_count_values(array $input) { }
 
@@ -110,8 +110,6 @@ function array_count_values(array $input) { }
 function array_column(array $array, $column, $index_key = null) { }
 
 /**
- * @since 4.0
- * @since 5.0
  * Return an array with elements in reverse order
  * @link http://php.net/manual/en/function.array-reverse.php
  * @param array $array <p>
@@ -121,12 +119,12 @@ function array_column(array $array, $column, $index_key = null) { }
  * If set to true keys are preserved.
  * </p>
  * @return array the reversed array.
+ * @since 4.0
+ * @since 5.0
  */
 function array_reverse(array $array, $preserve_keys = null) { }
 
 /**
- * @since 4.0.5
- * @since 5.0
  * Iteratively reduce the array to a single value using a callback function
  * @link http://php.net/manual/en/function.array-reduce.php
  * @param array $input <p>
@@ -145,12 +143,12 @@ function array_reverse(array $array, $preserve_keys = null) { }
  * <p>
  * If the array is empty and initial is not passed,
  * array_reduce returns &null;.
+ * @since 4.0.5
+ * @since 5.0
  */
 function array_reduce(array $input, $function, $initial = null) { }
 
 /**
- * @since 4.0
- * @since 5.0
  * Pad array to the specified length with a value
  * @link http://php.net/manual/en/function.array-pad.php
  * @param array $input <p>
@@ -169,24 +167,24 @@ function array_reduce(array $input, $function, $initial = null) { }
  * positive then the array is padded on the right, if it's negative then
  * on the left. If the absolute value of pad_size is less than or equal to
  * the length of the input then no padding takes place.
+ * @since 4.0
+ * @since 5.0
  */
 function array_pad(array $input, $pad_size, $pad_value) { }
 
 /**
- * @since 4.0
- * @since 5.0
  * Exchanges all keys with their associated values in an array
  * @link http://php.net/manual/en/function.array-flip.php
  * @param array $trans <p>
  * An array of key/value pairs to be flipped.
  * </p>
  * @return array the flipped array on success and false on failure.
+ * @since 4.0
+ * @since 5.0
  */
 function array_flip(array $trans) { }
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Changes all keys in an array
  * @link http://php.net/manual/en/function.array-change-key-case.php
  * @param array $input <p>
@@ -198,12 +196,12 @@ function array_flip(array $trans) { }
  * </p>
  * @return array an array with its keys lower or uppercased, or false if
  * input is not an array.
+ * @since 4.2.0
+ * @since 5.0
  */
 function array_change_key_case(array $input, $case = null) { }
 
 /**
- * @since 4.0
- * @since 5.0
  * Pick one or more random entries out of an array
  * @link http://php.net/manual/en/function.array-rand.php
  * @param array $input <p>
@@ -216,12 +214,12 @@ function array_change_key_case(array $input, $case = null) { }
  * returns the key for a random entry. Otherwise, it returns an array
  * of keys for the random entries. This is done so that you can pick
  * random keys as well as values out of the array.
+ * @since 4.0
+ * @since 5.0
  */
 function array_rand(array $input, $num_req = null) { }
 
 /**
- * @since 4.0.1
- * @since 5.0
  * Removes duplicate values from an array
  * @link http://php.net/manual/en/function.array-unique.php
  * @param array $array <p>
@@ -236,12 +234,12 @@ function array_rand(array $input, $num_req = null) { }
  * SORT_REGULAR - compare items normally
  * (don't change types)
  * @return array the filtered array.
+ * @since 4.0.1
+ * @since 5.0
  */
 function array_unique(array $array, $sort_flags = null) { }
 
 /**
- * @since 4.0.1
- * @since 5.0
  * Computes the intersection of arrays
  * @link http://php.net/manual/en/function.array-intersect.php
  * @param array $array1 <p>
@@ -253,11 +251,12 @@ function array_unique(array $array, $sort_flags = null) { }
  * @param array $_ [optional]
  * @return array an array containing all of the values in
  * array1 whose values exist in all of the parameters.
+ * @since 4.0.1
+ * @since 5.0
  */
 function array_intersect(array $array1, array $array2, array $_ = null) { }
 
 /**
- * @since 5.1.0
  * Computes the intersection of arrays using keys for comparison
  * @link http://php.net/manual/en/function.array-intersect-key.php
  * @param array $array1 <p>
@@ -270,11 +269,11 @@ function array_intersect(array $array1, array $array2, array $_ = null) { }
  * @return array an associative array containing all the entries of
  * array1 which have keys that are present in all
  * arguments.
+ * @since 5.1.0
  */
 function array_intersect_key(array $array1, array $array2, array $_ = null) { }
 
 /**
- * @since 5.1.0
  * Computes the intersection of arrays using a callback function on the keys for comparison
  * @link http://php.net/manual/en/function.array-intersect-ukey.php
  * @param array $array1 <p>
@@ -289,11 +288,11 @@ function array_intersect_key(array $array1, array $array2, array $_ = null) { }
  * </p>
  * @return array the values of array1 whose keys exist
  * in all the arguments.
+ * @since 5.1.0
  */
 function array_intersect_ukey(array $array1, array $array2, array $_ = null, $key_compare_func) { }
 
 /**
- * @since 5.0
  * Computes the intersection of arrays, compares data by a callback function
  * @link http://php.net/manual/en/function.array-uintersect.php
  * @param array $array1 <p>
@@ -314,12 +313,11 @@ function array_intersect_ukey(array $array1, array $array2, array $_ = null, $ke
  * </p>
  * @return array an array containing all the values of array1
  * that are present in all the arguments.
+ * @since 5.0
  */
 function array_uintersect(array $array1, array $array2, array $_ = null, $data_compare_func) { }
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Computes the intersection of arrays with additional index check
  * @link http://php.net/manual/en/function.array-intersect-assoc.php
  * @param array $array1 <p>
@@ -331,11 +329,12 @@ function array_uintersect(array $array1, array $array2, array $_ = null, $data_c
  * @param array $_ [optional]
  * @return array an associative array containing all the values in
  * array1 that are present in all of the arguments.
+ * @since 4.3.0
+ * @since 5.0
  */
 function array_intersect_assoc(array $array1, array $array2, array $_ = null) { }
 
 /**
- * @since 5.0
  * Computes the intersection of arrays with additional index check, compares data by a callback function
  * @link http://php.net/manual/en/function.array-uintersect-assoc.php
  * @param array $array1 <p>
@@ -354,11 +353,11 @@ function array_intersect_assoc(array $array1, array $array2, array $_ = null) { 
  * </p>
  * @return array an array containing all the values of
  * array1 that are present in all the arguments.
+ * @since 5.0
  */
 function array_uintersect_assoc(array $array1, array $array2, array $_ = null, $data_compare_func) { }
 
 /**
- * @since 5.0
  * Computes the intersection of arrays with additional index check, compares indexes by a callback function
  * @link http://php.net/manual/en/function.array-intersect-uassoc.php
  * @param array $array1 <p>
@@ -373,11 +372,11 @@ function array_uintersect_assoc(array $array1, array $array2, array $_ = null, $
  * </p>
  * @return array the values of array1 whose values exist
  * in all of the arguments.
+ * @since 5.0
  */
 function array_intersect_uassoc(array $array1, array $array2, array $_ = null, $key_compare_func) { }
 
 /**
- * @since 5.0
  * Computes the intersection of arrays with additional index check, compares data and indexes by a callback functions
  * @link http://php.net/manual/en/function.array-uintersect-uassoc.php
  * @param array $array1 <p>
@@ -399,12 +398,11 @@ function array_intersect_uassoc(array $array1, array $array2, array $_ = null, $
  * </p>
  * @return array an array containing all the values of
  * array1 that are present in all the arguments.
+ * @since 5.0
  */
 function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, $data_compare_func, $key_compare_func) { }
 
 /**
- * @since 4.0.1
- * @since 5.0
  * Computes the difference of arrays
  * @link http://php.net/manual/en/function.array-diff.php
  * @param array $array1 <p>
@@ -416,11 +414,12 @@ function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, 
  * @param array $_ [optional]
  * @return array an array containing all the entries from
  * array1 that are not present in any of the other arrays.
+ * @since 4.0.1
+ * @since 5.0
  */
 function array_diff(array $array1, array $array2, array $_ = null) { }
 
 /**
- * @since 5.1.0
  * Computes the difference of arrays using keys for comparison
  * @link http://php.net/manual/en/function.array-diff-key.php
  * @param array $array1 <p>
@@ -433,11 +432,11 @@ function array_diff(array $array1, array $array2, array $_ = null) { }
  * @return array an array containing all the entries from
  * array1 whose keys are not present in any of the
  * other arrays.
+ * @since 5.1.0
  */
 function array_diff_key(array $array1, array $array2, array $_ = null) { }
 
 /**
- * @since 5.1.0
  * Computes the difference of arrays using a callback function on the keys for comparison
  * @link http://php.net/manual/en/function.array-diff-ukey.php
  * @param array $array1 <p>
@@ -455,11 +454,11 @@ function array_diff_key(array $array1, array $array2, array $_ = null) { }
  * </p>
  * @return array an array containing all the entries from
  * array1 that are not present in any of the other arrays.
+ * @since 5.1.0
  */
 function array_diff_ukey(array $array1, array $array2, array $_ = null, $key_compare_func) { }
 
 /**
- * @since 5.0
  * Computes the difference of arrays by using a callback function for data comparison
  * @link http://php.net/manual/en/function.array-udiff.php
  * @param array $array1 <p>
@@ -480,12 +479,11 @@ function array_diff_ukey(array $array1, array $array2, array $_ = null, $key_com
  * </p>
  * @return array an array containing all the values of array1
  * that are not present in any of the other arguments.
+ * @since 5.0
  */
 function array_udiff(array $array1, array $array2, array $_ = null, $data_compare_func) { }
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Computes the difference of arrays with additional index check
  * @link http://php.net/manual/en/function.array-diff-assoc.php
  * @param array $array1 <p>
@@ -497,11 +495,12 @@ function array_udiff(array $array1, array $array2, array $_ = null, $data_compar
  * @param array $_ [optional]
  * @return array an array containing all the values from
  * array1 that are not present in any of the other arrays.
+ * @since 4.3.0
+ * @since 5.0
  */
 function array_diff_assoc(array $array1, array $array2, array $_ = null) { }
 
 /**
- * @since 5.0
  * Computes the difference of arrays with additional index check, compares data by a callback function
  * @link http://php.net/manual/en/function.array-udiff-assoc.php
  * @param array $array1 <p>
@@ -529,11 +528,11 @@ function array_diff_assoc(array $array1, array $array2, array $_ = null) { }
  * callback. In this aspect the behaviour is opposite to the behaviour of
  * array_diff_assoc which uses internal function for
  * comparison.
+ * @since 5.0
  */
 function array_udiff_assoc(array $array1, array $array2, array $_ = null, $data_compare_func) { }
 
 /**
- * @since 5.0
  * Computes the difference of arrays with additional index check which is performed by a user supplied callback function
  * @link http://php.net/manual/en/function.array-diff-uassoc.php
  * @param array $array1 <p>
@@ -551,11 +550,11 @@ function array_udiff_assoc(array $array1, array $array2, array $_ = null, $data_
  * </p>
  * @return array an array containing all the entries from
  * array1 that are not present in any of the other arrays.
+ * @since 5.0
  */
 function array_diff_uassoc(array $array1, array $array2, array $_ = null, $key_compare_func) { }
 
 /**
- * @since 5.0
  * Computes the difference of arrays with additional index check, compares data and indexes by a callback function
  * @link http://php.net/manual/en/function.array-udiff-uassoc.php
  * @param array $array1 <p>
@@ -590,35 +589,34 @@ function array_diff_uassoc(array $array1, array $array2, array $_ = null, $key_c
  * @return array an array containing all the values from
  * array1 that are not present in any of the other
  * arguments.
+ * @since 5.0
  */
 function array_udiff_uassoc(array $array1, array $array2, array $_ = null, $data_compare_func, $key_compare_func) { }
 
 /**
- * @since 4.0.4
- * @since 5.0
  * Calculate the sum of values in an array
  * @link http://php.net/manual/en/function.array-sum.php
  * @param array $array <p>
  * The input array.
  * </p>
  * @return number the sum of values as an integer or float.
+ * @since 4.0.4
+ * @since 5.0
  */
 function array_sum(array $array) { }
 
 /**
- * @since 5.1.0
  * Calculate the product of values in an array
  * @link http://php.net/manual/en/function.array-product.php
  * @param array $array <p>
  * The array.
  * </p>
  * @return number the product as an integer or float.
+ * @since 5.1.0
  */
 function array_product(array $array) { }
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Iterates over each value in the <b>array</b>
  * passing them to the <b>callback</b> function.
  * If the <b>callback</b> function returns true, the
@@ -650,12 +648,12 @@ function array_product(array $array) { }
  * </li>
  * </ul>
  * @return array the filtered array.
+ * @since 4.0.6
+ * @since 5.0
  */
 function array_filter(array $input, $callback = null, $flag = 0) { }
 
 /**
- * @since 4.0.6
- * @since 5.0
  * Applies the callback to the elements of the given arrays
  * @link http://php.net/manual/en/function.array-map.php
  * @param callback $callback <p>
@@ -667,12 +665,12 @@ function array_filter(array $input, $callback = null, $flag = 0) { }
  * @param array $_ [optional]
  * @return array an array containing all the elements of arr1
  * after applying the callback function to each one.
+ * @since 4.0.6
+ * @since 5.0
  */
 function array_map($callback, array $arr1, array $_ = null) { }
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Split an array into chunks
  * @link http://php.net/manual/en/function.array-chunk.php
  * @param array $input <p>
@@ -687,11 +685,12 @@ function array_map($callback, array $arr1, array $_ = null) { }
  * </p>
  * @return array a multidimensional numerically indexed array, starting with zero,
  * with each dimension containing size elements.
+ * @since 4.2.0
+ * @since 5.0
  */
 function array_chunk(array $input, $size, $preserve_keys = null) { }
 
 /**
- * @since 5.0
  * Creates an array by using one array for keys and another for its values
  * @link http://php.net/manual/en/function.array-combine.php
  * @param array $keys <p>
@@ -703,12 +702,11 @@ function array_chunk(array $input, $size, $preserve_keys = null) { }
  * </p>
  * @return array the combined array, false if the number of elements
  * for each array isn't equal or if the arrays are empty.
+ * @since 5.0
  */
 function array_combine(array $keys, array $values) { }
 
 /**
- * @since 4.0.7
- * @since 5.0
  * Checks if the given key or index exists in the array
  * @link http://php.net/manual/en/function.array-key-exists.php
  * @param mixed $key <p>
@@ -718,32 +716,32 @@ function array_combine(array $keys, array $values) { }
  * An array with keys to check.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.0.7
+ * @since 5.0
  */
 function array_key_exists($key, array $search) { }
 
 /**
- * @since 4.0
- * @since 5.0
  * &Alias; <function>current</function>
  * @link http://php.net/manual/en/function.pos.php
  * @param $arg
+ * @since 4.0
+ * @since 5.0
  */
 function pos(&$arg) { }
 
 /**
- * @since 4.0
- * @since 5.0
  * &Alias; <function>count</function>
  * @link http://php.net/manual/en/function.sizeof.php
  * @param $var
  * @param $mode [optional]
  * @return int
+ * @since 4.0
+ * @since 5.0
  */
 function sizeof($var, $mode) { }
 
 /**
- * @since 4.0.7
- * @since 5.0
  * Checks if the given key or index exists in the array. The name of this function is array_key_exists() in PHP > 4.0.6.
  * @link http://php.net/manual/en/function.array-key-exists.php
  * @param mixed $key <p>
@@ -754,12 +752,12 @@ function sizeof($var, $mode) { }
  * </p>
  * @return bool true on success or false on failure.
  * @deprecated
+ * @since 4.0.7
+ * @since 5.0
  */
 function key_exists($key, $search) { }
 
 /**
- * @since 4.0
- * @since 5.0
  * Checks if assertion is &false;
  * @link http://php.net/manual/en/function.assert.php
  * @param mixed $assertion <p>
@@ -768,6 +766,8 @@ function key_exists($key, $search) { }
  * @param string $description [optional]
  * <p>An optional description that will be included in the failure message if the assertion fails.</p>
  * @return bool false if the assertion is false, true otherwise.
+ * @since 4.0
+ * @since 5.0
  */
 function assert($assertion, $description) { }
 
@@ -788,8 +788,6 @@ function cli_get_process_title() { }
 function cli_set_process_title($title) { }
 
 /**
- * @since 4.0
- * @since 5.0
  * Set/get the various assert flags
  * @link http://php.net/manual/en/function.assert-options.php
  * @param int $what <p>
@@ -840,12 +838,12 @@ function cli_set_process_title($title) { }
  * An optional new value for the option.
  * </p>
  * @return mixed the original setting of any option or false on errors.
+ * @since 4.0
+ * @since 5.0
  */
 function assert_options($what, $value = null) { }
 
 /**
- * @since 4.1.0
- * @since 5.0
  * Compares two "PHP-standardized" version number strings
  * @link http://php.net/manual/en/function.version-compare.php
  * @param string $version1 <p>
@@ -878,12 +876,12 @@ function assert_options($what, $value = null) { }
  * When using the optional operator argument, the
  * function will return true if the relationship is the one specified
  * by the operator, false otherwise.
+ * @since 4.1.0
+ * @since 5.0
  */
 function version_compare($version1, $version2, $operator = null) { }
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Convert a pathname and a project identifier to a System V IPC key
  * @link http://php.net/manual/en/function.ftok.php
  * @param string $pathname <p>
@@ -894,32 +892,33 @@ function version_compare($version1, $version2, $operator = null) { }
  * </p>
  * @return int On success the return value will be the created key value, otherwise
  * -1 is returned.
+ * @since 4.2.0
+ * @since 5.0
  */
 function ftok($pathname, $proj) { }
 
 /**
- * @since 4.2.0
- * @since 5.0
  * Perform the rot13 transform on a string
  * @link http://php.net/manual/en/function.str-rot13.php
  * @param string $str <p>
  * The input string.
  * </p>
  * @return string the ROT13 version of the given string.
+ * @since 4.2.0
+ * @since 5.0
  */
 function str_rot13($str) { }
 
 /**
- * @since 5.0
  * Retrieve list of registered filters
  * @link http://php.net/manual/en/function.stream-get-filters.php
  * @return array an indexed array containing the name of all stream filters
  * available.
+ * @since 5.0
  */
 function stream_get_filters() { }
 
 /**
- * @since 5.0
  * Register a user defined stream filter
  * @link http://php.net/manual/en/function.stream-filter-register.php
  * @param string $filtername <p>
@@ -1032,51 +1031,50 @@ function stream_get_filters() { }
  * <p>
  * stream_filter_register will return false if the
  * filtername is already defined.
+ * @since 5.0
  */
 function stream_filter_register($filtername, $classname) { }
 
 /**
- * @since 5.0
  * Return a bucket object from the brigade for operating on
  * @link http://php.net/manual/en/function.stream-bucket-make-writeable.php
  * @param resource $brigade
  * @return object
+ * @since 5.0
  */
 function stream_bucket_make_writeable($brigade) { }
 
 /**
- * @since 5.0
  * Prepend bucket to brigade
  * @link http://php.net/manual/en/function.stream-bucket-prepend.php
  * @param resource $brigade
  * @param resource $bucket
  * @return void
+ * @since 5.0
  */
 function stream_bucket_prepend($brigade, $bucket) { }
 
 /**
- * @since 5.0
  * Append bucket to brigade
  * @link http://php.net/manual/en/function.stream-bucket-append.php
  * @param resource $brigade
  * @param resource $bucket
  * @return void
+ * @since 5.0
  */
 function stream_bucket_append($brigade, $bucket) { }
 
 /**
- * @since 5.0
  * Create a new bucket for use on the current stream
  * @link http://php.net/manual/en/function.stream-bucket-new.php
  * @param resource $stream
  * @param string $buffer
  * @return object
+ * @since 5.0
  */
 function stream_bucket_new($stream, $buffer) { }
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Add URL rewriter values
  * @link http://php.net/manual/en/function.output-add-rewrite-var.php
  * @param string $name <p>
@@ -1086,23 +1084,25 @@ function stream_bucket_new($stream, $buffer) { }
  * The variable value.
  * </p>
  * @return bool true on success or false on failure.
+ * @since 4.3.0
+ * @since 5.0
  */
 function output_add_rewrite_var($name, $value) { }
 
 /**
- * @since 4.3.0
- * @since 5.0
  * Reset URL rewriter values
  * @link http://php.net/manual/en/function.output-reset-rewrite-vars.php
  * @return bool true on success or false on failure.
+ * @since 4.3.0
+ * @since 5.0
  */
 function output_reset_rewrite_vars() { }
 
 /**
- * @since 5.2.1
  * Returns directory path used for temporary files
  * @link http://php.net/manual/en/function.sys-get-temp-dir.php
  * @return string the path of the temporary directory.
+ * @since 5.2.1
  */
 function sys_get_temp_dir() { }
 

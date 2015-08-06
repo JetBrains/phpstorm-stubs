@@ -6013,63 +6013,63 @@ define ('INTL_IDNA_VARIANT_UTS46', 1);
  */
 define ('IDNA_ERROR_EMPTY_LABEL', 1);
 /**
- * @since 5.4
  * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
  */
 define ('IDNA_ERROR_LABEL_TOO_LONG', 2);
 /**
- * @since 5.4
  * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
  */
 define ('IDNA_ERROR_DOMAIN_NAME_TOO_LONG', 4);
 /**
- * @since 5.4
  * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
  */
 define ('IDNA_ERROR_LEADING_HYPHEN', 8);
 /**
- * @since 5.4
  * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
  */
 define ('IDNA_ERROR_TRAILING_HYPHEN', 16);
 /**
- * @since 5.4
  * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
  */
 define ('IDNA_ERROR_HYPHEN_3_4', 32);
 /**
- * @since 5.4
  * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
  */
 define ('IDNA_ERROR_LEADING_COMBINING_MARK', 64);
 /**
- * @since 5.4
  * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
  */
 define ('IDNA_ERROR_DISALLOWED', 128);
 /**
- * @since 5.4
  * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
  */
 define ('IDNA_ERROR_PUNYCODE', 256);
 /**
- * @since 5.4
  * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
  */
 define ('IDNA_ERROR_LABEL_HAS_DOT', 512);
 /**
- * @since 5.4
  * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
  */
 define ('IDNA_ERROR_INVALID_ACE_LABEL', 1024);
 /**
- * @since 5.4
  * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
  */
 define ('IDNA_ERROR_BIDI', 2048);
 /**
- * @since 5.4
  * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @since 5.4
  */
 define ('IDNA_ERROR_CONTEXTJ', 4096);
 
