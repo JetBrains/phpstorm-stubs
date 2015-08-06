@@ -183,10 +183,10 @@ function unserialize ($str) {}
  * @param mixed $expression <p>
  * The variable you want to export.
  * </p>
- * @param mixed $expression [optional] 
+ * @param mixed $_ [optional]
  * @return void 
  */
-function var_dump ($expression, $expression = null) {}
+function var_dump ($expression, $_ = null) {}
 
 /**
  * @since 4.2.0
