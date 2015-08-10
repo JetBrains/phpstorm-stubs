@@ -459,7 +459,7 @@ function fclose ($handle) {}
 /**
  * Tests for end-of-file on a file pointer
  * @link http://php.net/manual/en/function.feof.php
- * @param resource $handle &fs.validfp.all;
+ * @param resource $handle The file pointer must be valid, and must point to a file successfully opened by fopen() or fsockopen() (and not yet closed by fclose()).
  * @return bool true if the file pointer is at EOF or an error occurs
  * (including socket timeout); otherwise returns false.
  * @since 4.0
@@ -470,7 +470,7 @@ function feof ($handle) {}
 /**
  * Gets character from file pointer
  * @link http://php.net/manual/en/function.fgetc.php
- * @param resource $handle &fs.validfp.all;
+ * @param resource $handle The file pointer must be valid, and must point to a file successfully opened by fopen() or fsockopen() (and not yet closed by fclose()).
  * @return string a string containing a single character read from the file pointed
  * to by handle. Returns false on EOF.
  * @since 4.0
@@ -481,7 +481,7 @@ function fgetc ($handle) {}
 /**
  * Gets line from file pointer
  * @link http://php.net/manual/en/function.fgets.php
- * @param resource $handle &fs.validfp.all;
+ * @param resource $handle The file pointer must be valid, and must point to a file successfully opened by fopen() or fsockopen() (and not yet closed by fclose()).
  * @param int $length [optional] <p>
  * Reading ends when length - 1 bytes have been
  * read, on a newline (which is included in the return value), or on EOF
@@ -507,7 +507,7 @@ function fgets ($handle, $length = null) {}
 /**
  * Gets line from file pointer and strip HTML tags
  * @link http://php.net/manual/en/function.fgetss.php
- * @param resource $handle &fs.validfp.all;
+ * @param resource $handle The file pointer must be valid, and must point to a file successfully opened by fopen() or fsockopen() (and not yet closed by fclose()).
  * @param int $length [optional] <p>
  * Length of the data to be retrieved.
  * </p>
@@ -723,7 +723,7 @@ function fopen ($filename, $mode, $use_include_path = null, $context = null) {}
 /**
  * Output all remaining data on a file pointer
  * @link http://php.net/manual/en/function.fpassthru.php
- * @param resource $handle &fs.validfp.all;
+ * @param resource $handle The file pointer must be valid, and must point to a file successfully opened by fopen() or fsockopen() (and not yet closed by fclose()).
  * @return int If an error occurs, fpassthru returns
  * false. Otherwise, fpassthru returns
  * the number of characters read from handle
@@ -822,7 +822,7 @@ function ftell ($handle) {}
 /**
  * Flushes the output to a file
  * @link http://php.net/manual/en/function.fflush.php
- * @param resource $handle &fs.validfp.all;
+ * @param resource $handle The file pointer must be valid, and must point to a file successfully opened by fopen() or fsockopen() (and not yet closed by fclose()).
  * @return bool true on success or false on failure.
  * @since 4.0.1
  * @since 5.0

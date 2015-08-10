@@ -651,7 +651,7 @@ function fgetcsv ($handle, $length = null, $delimiter = null, $enclosure = null,
 /**
  * Format line as CSV and write to file pointer
  * @link http://php.net/manual/en/function.fputcsv.php
- * @param resource $handle &fs.validfp.all;
+ * @param resource $handle The file pointer must be valid, and must point to a file successfully opened by fopen() or fsockopen() (and not yet closed by fclose()).
  * @param array $fields <p>
  * An array of values.
  * </p>
