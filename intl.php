@@ -6385,13 +6385,14 @@ class IntlChar {
      * @param int $codepoint
      * @param int $property
      * @return bool
+     * @since 7.0
      */
     static public function hasBinaryProperty($codepoint, $property){}
 
     /**
-     * (PHP 7)
      * @param int $codepoint
      * @return bool
+     * @since 7.0
      */
     static public function isAlphabetic($codepoint){}
 }

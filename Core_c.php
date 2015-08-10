@@ -168,64 +168,64 @@ interface Serializable {
 interface Throwable
 {
 
-    /**
-     * (PHP 7)
+    /***
      * Returns message
      * @link http://php.net/manual/en/throwable.getmessage.php
      * @return string
+     * @since 7.0
      */
     public function getMessage();
 
     /**
-     * (PHP 7)
      * Returns Code
      * @link http://php.net/manual/en/throwable.getcode.php
      * @return int
+     * @since 7.0
      */
     public function getCode();
 
     /**
-     * (PHP 7)
      * Returns File Name
      * @link http://php.net/manual/en/throwable.getfile.php
      * @return string
+     * @since 7.0
      */
     public function getFile();
 
     /**
-     * (PHP 7)
      * Returns Line Number
      * @link http://php.net/manual/en/throwable.getline.php
      * @return int
+     * @since 7.0
      */
     public function getLine();
 
     /**
-     * (PHP 7)
      * Returns Stack Trace
      * @link http://php.net/manual/en/throwable.gettrace.php
      * @return array
+     * @since 7.0
      */
     public function getTrace();
 
     /**
-     * (PHP 7)
      * @link http://php.net/manual/en/throwable.gettraceasstring.php
      * @return string
+     * @since 7.0
      */
     public function getTraceAsString();
 
     /**
-     * (PHP 7)
      * @link http://php.net/manual/en/throwable.getprevious.php
      * @return Throwable
+     * @since 7.0
      */
     public function getPrevious();
 
     /**
-     * (PHP 7)
      * @link http://php.net/manual/en/throwable.tostring.php
      * @return string
+     * @since 7.0
      */
     public function __toString();
 }
@@ -404,12 +404,12 @@ final class Closure {
     static function bind(Closure $closure, $newthis, $newscope = 'static') { }
 
     /**
-     * (PHP 7)
      * Calls the closure with the given parameters and returns the result, with $this bound to the given object $to
      * @link http://php.net/manual/en/closure.call.php
      * @param object $to
      * @param mixed $parameters [optional]
      * @return Closure
+     * @since 7.0
      */
     static function call ($to, $parameters) {}
 
