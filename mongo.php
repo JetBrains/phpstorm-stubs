@@ -1151,6 +1151,16 @@ class MongoCollection {
     public function findOne(array $query = array(), array $fields = array()) {}
 
     /**
+     * Creates an index on the given field(s), or does nothing if the index already exists
+     * @link http://www.php.net/manual/en/mongocollection.createindex.php
+     * @param array $keys Field or fields to use as index.
+     * @param array $options [optional] This parameter is an associative array of the form array("optionname" => <boolean>, ...).
+     * @return array Returns the database response.
+     */
+    public function createIndex(array $keys, array $options = array()) {}
+
+    /**
+	 * @deprecated Use MongoCollection::createIndex() instead.
 	 * Creates an index on the given field(s), or does nothing if the index already exists
 	 * @link http://www.php.net/manual/en/mongocollection.ensureindex.php
 	 * @param array $keys Field or fields to use as index.
