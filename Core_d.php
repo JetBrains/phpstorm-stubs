@@ -325,7 +325,7 @@ define ('PHP_EXTENSION_DIR', "/usr/lib/php5/20090626");
 define ('PHP_PREFIX', "/usr");
 define ('PHP_BINDIR', "/usr/bin");
 define ('PHP_LIBDIR', "/usr/lib/php5");
-define ('PHP_DATADIR', "${prefix}/share");
+define ('PHP_DATADIR', "/usr/share");
 define ('PHP_SYSCONFDIR', "/etc");
 define ('PHP_LOCALSTATEDIR', "/var");
 define ('PHP_CONFIG_FILE_PATH', "/etc/php5/cli");
@@ -353,6 +353,3 @@ define ('UPLOAD_ERR_EXTENSION', 8);
 define('STDIN', fopen('php://stdin', 'r'));
 define('STDOUT', fopen('php://stdout', 'w'));
 define('STDERR', fopen('php://stderr', 'w'));
-
-// End of Core v.5.3.6-13ubuntu3.2
-?>

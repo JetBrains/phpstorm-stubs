@@ -314,7 +314,7 @@ class XMLWriter  {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function startDocument ($version = 1.0, $encoding = null, $standalone = null) {}
+	public function startDocument ($version = '1.0', $encoding = null, $standalone = null) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -828,7 +828,7 @@ function xmlwriter_write_raw ($content) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_document ($version = 1.0, $encoding = null, $standalone = null) {}
+function xmlwriter_start_document ($version = '1.0', $encoding = null, $standalone = null) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -1027,5 +1027,3 @@ function xmlwriter_output_memory ($flush = true) {}
  */
 function xmlwriter_flush ($empty = true) {}
 
-// End of xmlwriter v.0.1
-?>

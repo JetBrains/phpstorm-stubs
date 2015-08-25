@@ -920,7 +920,7 @@ function ocifetchinto ($statement_resource, &$result, $mode = null) {}
  * @return int the number of rows in <i>output</i>, which
  * may be 0 or more, or <b>FALSE</b> on failure.
  */
-function oci_fetch_all ($statement, array &$output, $skip = 0, $maxrows = -1, $flags = 'OCI_FETCHSTATEMENT_BY_COLUMN + OCI_ASSOC') {}
+function oci_fetch_all ($statement, array &$output, $skip = 0, $maxrows = -1, $flags = OCI_FETCHSTATEMENT_BY_COLUMN | OCI_ASSOC) {}
 
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>

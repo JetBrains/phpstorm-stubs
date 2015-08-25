@@ -786,7 +786,7 @@ class Imagick implements Iterator, Traversable, Countable {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
 	 */
-	public function roundCorners ($x_rounding, $y_rounding, $stroke_width = 10, $displace = 5, $size_correction = -6) {}
+	public function roundCorners ($x_rounding, $y_rounding, $stroke_width = 10.0, $displace = 5.0, $size_correction = -6.0) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -1001,7 +1001,7 @@ class Imagick implements Iterator, Traversable, Countable {
 	 * @param Imagick $lookup_table <p>
 	 * Imagick object containing the color lookup table
 	 * </p>
-	 * @param float $channel [optional] <p>
+	 * @param int $channel [optional] <p>
 	 * The Channeltype
 	 * constant. When not supplied, default channels are replaced.
 	 * </p>

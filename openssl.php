@@ -386,7 +386,7 @@ function openssl_x509_export($x509, &$output, $notext = true) { }
  * @since 4.2.0
  * @since 5.0
  */
-function openssl_x509_export_to_file($x509, $outfilename, $notext = '&true;') { }
+function openssl_x509_export_to_file($x509, $outfilename, $notext = true) { }
 
 /**
  * Exports a PKCS#12 Compatible Certificate Store File to variable.
@@ -1205,4 +1205,3 @@ define("STREAM_CRYPTO_METHOD_TLSv1_1_CLIENT", 17);
 define("STREAM_CRYPTO_METHOD_TLSv1_1_SERVER", 16);
 define("STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT", 33);
 define("STREAM_CRYPTO_METHOD_TLSv1_2_SERVER", 32);
-?>

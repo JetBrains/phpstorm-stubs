@@ -401,12 +401,12 @@ function gzdecode ($data, $length = null) {}
  * </p>
  * @param string $encoding <p>
  * </p>
- * @param string $level [optional] <p>
+ * @param string $level [optional] default -1 <p>
  * </p>
  * @return string
  * @since 5.4.0
  */
-function zlib_encode ($data, $encoding, $level = -1) {}
+function zlib_encode ($data, $encoding, $level) {}
 
 /**
  * Uncompress any raw/gzip/zlib encoded data
@@ -446,6 +446,3 @@ define ('FORCE_DEFLATE', 15);
 define ('ZLIB_ENCODING_RAW', -15);
 define ('ZLIB_ENCODING_GZIP', 31);
 define ('ZLIB_ENCODING_DEFLATE', 15);
-
-// End of zlib v.2.0
-?>

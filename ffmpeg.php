@@ -209,20 +209,20 @@ class ffmpeg_frame
 	/** Resize and optionally crop the frame. (Cropping is built into ffmpeg resizing so I'm providing it here for completeness.)
 	 * @param int $width - New width of the frame (must be an even number).
 	 * @param int $height - New height of the frame (must be an even number).
-	 * @param int $croptop - Remove [croptop] rows of pixels from the top of the frame.
-	 * @param int $cropbottom - Remove [cropbottom] rows of pixels from the bottom of the frame.
-	 * @param int $cropleft - Remove [cropleft] rows of pixels from the left of the frame.
-	 * @param int $cropright - Remove [cropright] rows of pixels from the right of the frame.
+	 * @param int $crop_top - Remove [croptop] rows of pixels from the top of the frame.
+	 * @param int $crop_bottom - Remove [cropbottom] rows of pixels from the bottom of the frame.
+	 * @param int $crop_left - Remove [cropleft] rows of pixels from the left of the frame.
+	 * @param int $crop_right - Remove [cropright] rows of pixels from the right of the frame.
 	 * NOTE: Cropping is always applied to the frame before it is resized. Crop values must be even numbers.
 	 */
 	public function resize($width, $height, $crop_top = 0, $crop_bottom = 0, $crop_left = 0, $crop_right = 0)
 	{ }
 
 	/** Crop the frame.
-	 * @param int $croptop - Remove [croptop] rows of pixels from the top of the frame.
-	 * @param int $cropbottom - Remove [cropbottom] rows of pixels from the bottom of the frame.
-	 * @param int $cropleft - Remove [cropleft] rows of pixels from the left of the frame.
-	 * @param int $cropright - Remove [cropright] rows of pixels from the right of the frame.
+	 * @param int $crop_top - Remove [croptop] rows of pixels from the top of the frame.
+	 * @param int $crop_bottom - Remove [cropbottom] rows of pixels from the bottom of the frame.
+	 * @param int $crop_left - Remove [cropleft] rows of pixels from the left of the frame.
+	 * @param int $crop_right - Remove [cropright] rows of pixels from the right of the frame.
 	 * NOTE: Crop values must be even numbers.
 	 */
 	public function crop($crop_top, $crop_bottom = 0, $crop_left = 0, $crop_right = 0)

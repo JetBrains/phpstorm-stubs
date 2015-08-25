@@ -274,7 +274,8 @@ class MemcachePool  {
      * command ties up the server and is strictly to be used for
      * debugging purposes.
      * </p>
-     * @return array|boolean
+     * @param int $limit Used in conjunction with type set to cachedump to limit the number of entries to dump.
+     * @return array|bool Returns a two-dimensional associative array of server statistics or <b>FALSE</b>
      * Returns a two-dimensional associative array of server statistics or <b>FALSE</b>
      * on failure.
      */

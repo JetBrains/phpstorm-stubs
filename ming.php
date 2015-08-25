@@ -389,7 +389,7 @@ function ming_useswfversion ($version) {}
 /**
  * Returns the action flag for keyPress(char)
  * @link http://php.net/manual/en/function.ming-keypress.php
- * @param char string 
+ * @param $char string 
  * @return int What the function returns, first on success, then on failure. See
  * also the &amp;return.success; entity
  */

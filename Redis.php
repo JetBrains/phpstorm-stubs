@@ -842,7 +842,6 @@ class Redis
     /**
      * @see     lLen()
      * @param   string    $key
-     * @param   int       $index
      * @link    http://redis.io/commands/llen
      */
     public function lSize( $key ) {}
@@ -1563,7 +1562,7 @@ class Redis
      * Sets an expiration date (a timeout in milliseconds) on an item.
      *
      * @param   string  $key    The key that will disappear.
-     * @param   int     $pttl   The key's remaining Time To Live, in milliseconds.
+     * @param   int     $ttl   The key's remaining Time To Live, in milliseconds.
      * @return  bool:   TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/pexpire
      * @example
@@ -1892,8 +1891,7 @@ class Redis
      *
      * @param   string  $operation  either "AND", "OR", "NOT", "XOR"
      * @param   string  $retKey     return key
-     * @param   string  $key1
-     * @param   string  $key2
+     * @param   string  $keys
      * @return  int     The size of the string stored in the destination key.
      * @link    http://redis.io/commands/bitop
      * @example
@@ -1907,7 +1905,7 @@ class Redis
      * $redis->bitOp('XOR', 'bit', 'bit1', 'bit2'); // bit = 11
      * </pre>
      */
-    public function bitOp( $operation, $retKey, $key1, $key2, $key3 = null ) {}
+    public function bitOp( $operation, $retKey, ...$keys) {}
 
     /**
      * Removes all entries from the current database.
@@ -2969,7 +2967,7 @@ class Redis
 
     /**
      * A utility method to prefix the value with the prefix setting for phpredis.
-     * @param   $value  The value you wish to prefix
+     * @param  mixed $value  The value you wish to prefix
      * @return  string  If a prefix is set up, the value now prefixed.  If there is no prefix, the value will be returned unchanged.
      * @example
      * <pre>
@@ -3082,7 +3080,7 @@ class RedisArray {
     public function _function() {}
 
     /**
-     * @param   string  key     The key for which you want to lookup the host
+     * @param   string  $key     The key for which you want to lookup the host
      * @return  string  the host to be used for a certain key
      */
     public function _target($key) {}

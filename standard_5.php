@@ -859,7 +859,7 @@ function fwrite ($handle, $string, $length = null) {}
  * @see fwrite()
  * @link http://php.net/manual/en/function.fputs.php
  * Binary-safe file write
- * @param resource $handle &fs.file.pointer;
+ * @param resource $handle A file system pointer resource that is typically created using fopen(). 
  * @param string $string <p>
  * The string that is to be written.
  * </p>
@@ -879,7 +879,7 @@ function fwrite ($handle, $string, $length = null) {}
  * @since 4.0
  * @since 5.0
  */
-function fputs ($fp, $str, $length) {}
+function fputs ($handle, $string, $length) {}
 
 /**
  * Attempts to create the directory specified by pathname.

@@ -175,7 +175,7 @@
  * </p>
  * @return resource a resource on success, or false on error.
  */
-function ssh2_connect ($host, $port = null, $methods = nullarray , $callbacks = nullarray ) {}
+function ssh2_connect ($host, $port = null, array $methods = null , array $callbacks = null ) {}
 
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
@@ -325,7 +325,7 @@ function ssh2_forward_accept () {}
  * </p>
  * @return resource 
  */
-function ssh2_shell ($session, $term_type = null, $env = nullarray , $width = null, $height = null, $width_height_type = null) {}
+function ssh2_shell ($session, $term_type = null, array $env = null , $width = null, $height = null, $width_height_type = null) {}
 
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
@@ -356,7 +356,7 @@ function ssh2_shell ($session, $term_type = null, $env = nullarray , $width = nu
  * </p>
  * @return resource a stream on success or false on failure.
  */
-function ssh2_exec ($session, $command, $pty = null, $env = nullarray , $width = null, $height = null, $width_height_type = null) {}
+function ssh2_exec ($session, $command, $pty = null, array $env = null , $width = null, $height = null, $width_height_type = null) {}
 
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
@@ -617,7 +617,7 @@ function ssh2_publickey_init ($session) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function ssh2_publickey_add ($pkey, $algoname, $blob, $overwrite = null, $attributes = nullarray ) {}
+function ssh2_publickey_add ($pkey, $algoname, $blob, $overwrite = null, array $attributes = null ) {}
 
 /**
  * (PECL ssh2 &gt;= 0.10)<br/>
@@ -764,6 +764,3 @@ define ('SSH2_POLLNVAL', 32);
 define ('SSH2_POLL_SESSION_CLOSED', 16);
 define ('SSH2_POLL_CHANNEL_CLOSED', 128);
 define ('SSH2_POLL_LISTENER_CLOSED', 128);
-
-// End of ssh2 v.0.11.0-dev
-?>

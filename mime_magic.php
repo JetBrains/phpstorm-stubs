@@ -5,7 +5,7 @@
 /**
  * Detect MIME Content-type for a file (deprecated)
  * @link http://php.net/manual/en/function.mime-content-type.php
- * @param filename string <p>
+ * @param $filename string <p>
  * Path to the tested file.
  * </p>
  * @return string the content type in MIME format, like 
@@ -14,5 +14,3 @@
  */
 function mime_content_type ($filename) {}
 
-// End of mime_magic v.0.1
-?>

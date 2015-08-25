@@ -321,7 +321,7 @@ class OAuthProvider {
     public function is2LeggedEndpoint($params_array) { }
 
     /**
-     * @return bool $will_issue_request_token
+     * @param bool $will_issue_request_token
      * @return void
      */
     public function isRequestTokenEndpoint($will_issue_request_token) { }
@@ -334,7 +334,7 @@ class OAuthProvider {
     final public function removeRequiredParameter($req_params) { }
 
     /**
-     * @param string $oauthexcecption
+     * @param string $oauthexception
      * @param bool $send_headers
      * @static
      * @return string

@@ -258,7 +258,7 @@ class HttpMessage implements Countable, Serializable, Iterator, Traversable {
 	 * </p>
 	 * @return void 
 	 */
-	public function setHeaders ($headersarray ) {}
+	public function setHeaders (sarray $header) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -274,7 +274,7 @@ class HttpMessage implements Countable, Serializable, Iterator, Traversable {
 	 * </p>
 	 * @return void true on success or false on failure.
 	 */
-	public function addHeaders ($headersarray , $append = null) {}
+	public function addHeaders (array $headers, $append = null) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -472,6 +472,9 @@ class HttpMessage implements Countable, Serializable, Iterator, Traversable {
 
 	public function next () {}
 
+	/**
+	 * @return string
+	 */
 	public function __toString () {}
 
 	/**
@@ -536,7 +539,7 @@ class HttpMessage implements Countable, Serializable, Iterator, Traversable {
 	 * </p>
 	 * @return void 
 	 */
-	public function prepend ($messageHttpMessage , $top = null) {}
+	public function prepend (HttpMessage $message, $top = null) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 0.23.0)<br/>
@@ -575,7 +578,6 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	 * @param mixed $add [optional] <p>
 	 * additional/initial query string parameters
 	 * </p>
-	 * @return void 
 	 */
 	final public function __construct ($global = null, $add = null) {}
 
@@ -595,6 +597,9 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	 */
 	public function toString () {}
 
+	/**
+	 * @return string
+	 */
 	public function __toString () {}
 
 	/**
@@ -714,34 +719,80 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	 */
 	public function xlate ($ie, $oe) {}
 
-	public function serialize () {}
+	/**
+	 * String representation of object
+	 * @link http://php.net/manual/en/serializable.serialize.php
+	 * @return string the string representation of the object or null
+	 * @since 5.1.0
+	 */
+	public function serialize()
+	{}
 
 	/**
-	 * @param $serialized
+	 * Offset to retrieve
+	 * @link http://php.net/manual/en/arrayaccess.offsetget.php
+	 * @param mixed $offset <p>
+	 * The offset to retrieve.
+	 * </p>
+	 * @return mixed Can return all value types.
+	 * @since 5.0.0
 	 */
-	public function unserialize ($serialized) {}
+	public function offsetGet($offset)
+	{}
 
 	/**
-	 * @param $offset
+	 * Constructs the object
+	 * @link http://php.net/manual/en/serializable.unserialize.php
+	 * @param string $serialized <p>
+	 * The string representation of the object.
+	 * </p>
+	 * @return void
+	 * @since 5.1.0
 	 */
-	public function offsetGet ($offset) {}
+	public function unserialize($serialized)
+	{}
 
 	/**
-	 * @param $offset
-	 * @param $value
+	 * Whether a offset exists
+	 * @link http://php.net/manual/en/arrayaccess.offsetexists.php
+	 * @param mixed $offset <p>
+	 * An offset to check for.
+	 * </p>
+	 * @return boolean true on success or false on failure.
+	 * </p>
+	 * <p>
+	 * The return value will be casted to boolean if non-boolean was returned.
+	 * @since 5.0.0
 	 */
-	public function offsetSet ($offset, $value) {}
+	public function offsetExists($offset)
+	{}
 
 	/**
-	 * @param $offset
+	 * Offset to set
+	 * @link http://php.net/manual/en/arrayaccess.offsetset.php
+	 * @param mixed $offset <p>
+	 * The offset to assign the value to.
+	 * </p>
+	 * @param mixed $value <p>
+	 * The value to set.
+	 * </p>
+	 * @return void
+	 * @since 5.0.0
 	 */
-	public function offsetExists ($offset) {}
+	public function offsetSet($offset, $value)
+	{}
 
 	/**
-	 * @param $offset
+	 * Offset to unset
+	 * @link http://php.net/manual/en/arrayaccess.offsetunset.php
+	 * @param mixed $offset <p>
+	 * The offset to unset.
+	 * </p>
+	 * @return void
+	 * @since 5.0.0
 	 */
-	public function offsetUnset ($offset) {}
-
+	public function offsetUnset($offset)
+	{}
 }
 
 /**
@@ -880,7 +931,7 @@ class HttpRequest  {
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function addSslOptions ($optionsarray ) {}
+	public function addSslOptions (sarray $option) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -891,7 +942,7 @@ class HttpRequest  {
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function addHeaders ($headersarray ) {}
+	public function addHeaders (array $headers) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -922,7 +973,7 @@ class HttpRequest  {
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function addCookies ($cookiesarray ) {}
+	public function addCookies (array $cookies) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -1053,7 +1104,7 @@ class HttpRequest  {
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function addQueryData ($query_paramsarray ) {}
+	public function addQueryData (array $query_params) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -1065,7 +1116,7 @@ class HttpRequest  {
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function setPostFields ($post_dataarray ) {}
+	public function setPostFields (array $post_data) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -1084,7 +1135,7 @@ class HttpRequest  {
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function addPostFields ($post_dataarray ) {}
+	public function addPostFields (array $post_data) {}
 
 	/**
 	 * @param $request_body_data [optional]
@@ -1138,7 +1189,7 @@ class HttpRequest  {
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function setPostFiles ($post_filesarray ) {}
+	public function setPostFiles (array $post_files) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -1485,7 +1536,6 @@ class HttpRequestPool implements Countable, Iterator, Traversable {
 	 * @param HttpRequest $request [optional] <p>
 	 * HttpRequest object to attach
 	 * </p>
-	 * @return void 
 	 */
 	public function __construct ( HttpRequest $request = null) {}
 
@@ -2124,7 +2174,7 @@ function http_build_url ($url = null, $parts = null, $flags = null,  array &$new
  * </p>
  * @return string the built query as string on success or false on failure.
  */
-function http_build_str ($queryarray , $prefix = null, $arg_separator = null) {}
+function http_build_str (array $query, $prefix = null, $arg_separator = null) {}
 
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
@@ -2138,7 +2188,7 @@ function http_build_str ($queryarray , $prefix = null, $arg_separator = null) {}
  * </p>
  * @return string the negotiated language or the default language (i.e. first array entry) if none match.
  */
-function http_negotiate_language ($supportedarray ,  array &$result = null ) {}
+function http_negotiate_language (array $supported,  array &$result = null ) {}
 
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
@@ -2152,7 +2202,7 @@ function http_negotiate_language ($supportedarray ,  array &$result = null ) {}
  * </p>
  * @return string the negotiated charset or the default charset (i.e. first array entry) if none match.
  */
-function http_negotiate_charset ($supportedarray ,  array &$result = null ) {}
+function http_negotiate_charset (array $supported,  array &$result = null ) {}
 
 /**
  * (PECL pecl_http &gt;= 0.19.0)<br/>
@@ -2166,7 +2216,7 @@ function http_negotiate_charset ($supportedarray ,  array &$result = null ) {}
  * </p>
  * @return string the negotiated content type or the default content type (i.e. first array entry) if none match.
  */
-function http_negotiate_content_type ($supportedarray ,  array &$result = null ) {}
+function http_negotiate_content_type (array $supported,  array &$result = null ) {}
 
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
@@ -2397,7 +2447,7 @@ function http_parse_cookie ($cookie, $flags = null,  array $allowed_extras = nul
  * </p>
  * @return string the cookie(s) as string.
  */
-function http_build_cookie ($cookiearray ) {}
+function http_build_cookie (array $cookie) {}
 
 /**
  * (PECL pecl_http &gt;= 1.0.0)<br/>
@@ -2654,7 +2704,7 @@ function http_request ($method, $url = null, $body = null, array $options = null
  * </p>
  * @return string encoded string on success or false on failure.
  */
-function http_request_body_encode ($fieldsarray , $filesarray ) {}
+function http_request_body_encode (array $fields, array $files) {}
 
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -3217,6 +3267,3 @@ define ('HTTP_QUERYSTRING_TYPE_FLOAT', 2);
 define ('HTTP_QUERYSTRING_TYPE_STRING', 6);
 define ('HTTP_QUERYSTRING_TYPE_ARRAY', 4);
 define ('HTTP_QUERYSTRING_TYPE_OBJECT', 5);
-
-// End of http v.1.6.6
-?>

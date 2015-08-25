@@ -28,7 +28,7 @@ class SQLite3  {
 	 * @return void No value is returned.
 	 * @since 5.3.0
 	 */
-	public function open ($filename, $flags = 'SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE', $encryption_key = null) {}
+	public function open ($filename, $flags = SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE, $encryption_key = null) {}
 
 	/**
 	 * Closes the database connection
@@ -438,7 +438,7 @@ class SQLite3Result  {
 	 * both. Alternately will return <b>FALSE</b> if there are no more rows.
 	 * @since 5.3.0
 	 */
-	public function fetchArray ($mode = 'SQLITE3_BOTH') {}
+	public function fetchArray ($mode = SQLITE3_BOTH) {}
 
 	/**
 	 * Resets the result set back to the first row

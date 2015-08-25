@@ -1,7 +1,5 @@
 <?php
 
-// Start of gd v.
-
 /**
  * Retrieve information about the currently installed GD library
  * @link http://php.net/manual/en/function.gd-info.php
@@ -895,7 +893,7 @@ function imagesetbrush ($image, $brush) {}
  * @since 4.0.6
  * @since 5.0
  */
-function imagesetstyle ($image, $stylearray ) {}
+function imagesetstyle ($image, array $style) {}
 
 /**
  * Create a new image from file or URL
@@ -2744,6 +2742,3 @@ define('IMG_WEIGHTED4', 21);
  * @since 5.5.0
  */
 define('IMG_TRIANGLE', 20);
-
-// End of gd v.
-?>

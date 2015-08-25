@@ -873,7 +873,7 @@ function array_search ($needle, array $haystack, $strict = null) {}
 /**
  * Import variables into the current symbol table from an array
  * @link http://php.net/manual/en/function.extract.php
- * @param array array $var_<p>
+ * @param array $var_array<p>
  * Note that prefix is only required if
  * extract_type is EXTR_PREFIX_SAME,
  * EXTR_PREFIX_ALL, EXTR_PREFIX_INVALID

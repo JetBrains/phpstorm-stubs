@@ -1500,7 +1500,7 @@ class DOMElement extends DOMNode  {
      * @return DOMAttr old node if the attribute has been replaced or &null;.
      * @since 5.0
      */
-    public function setAttributeNode ($attrDOMAttr ) {}
+    public function setAttributeNode (DOMAttr $attr) {}
 
     /**
      * Removes attribute
@@ -1511,7 +1511,7 @@ class DOMElement extends DOMNode  {
      * @return bool true on success or false on failure.
      * @since 5.0
      */
-    public function removeAttributeNode ($oldnodeDOMAttr ) {}
+    public function removeAttributeNode (DOMAttr $oldnode) {}
 
     /**
      * Gets elements by tagname
@@ -1594,7 +1594,7 @@ class DOMElement extends DOMNode  {
      * @return DOMAttr the old node if the attribute has been replaced.
      * @since 5.0
      */
-    public function setAttributeNodeNS ($attrDOMAttr ) {}
+    public function setAttributeNodeNS (DOMAttr $attr) {}
 
     /**
      * Get elements by namespaceURI and localName
@@ -1684,7 +1684,7 @@ class DOMElement extends DOMNode  {
      * @return void
      * @since 5.0
      */
-    public function setIdAttributeNode ($attrDOMAttr , $isId) {}
+    public function setIdAttributeNode (DOMAttr $attr, $isId) {}
 
     /**
      * Creates a new DOMElement object
@@ -2161,5 +2161,3 @@ class DOMXPath  {
     public function registerPhpFunctions ($restrict = null) {}
 
 }
-
-?>

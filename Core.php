@@ -986,7 +986,7 @@ function get_defined_constants ($categorize = false) {}
  * @since 4.3.0
  * @since 5.0
  */
-function debug_backtrace ($provide_object = DEBUG_BACKTRACE_PROVIDE_OBJECT, $limit = 0) {}
+function debug_backtrace ($options = DEBUG_BACKTRACE_PROVIDE_OBJECT, $limit = 0) {}
 
 const DEBUG_BACKTRACE_PROVIDE_OBJECT = 0;
 const DEBUG_BACKTRACE_IGNORE_ARGS = 0;
@@ -1047,7 +1047,3 @@ function gc_enable () {}
  * @since 5.3.0
  */
 function gc_disable () {}
-
-
-// End of Core v.5.3.2-0.dotdeb.1
-?>

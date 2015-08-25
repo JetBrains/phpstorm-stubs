@@ -380,13 +380,13 @@ class RecursiveIteratorIterator implements Iterator, Traversable, OuterIterator 
      * Set max depth
      * @link http://php.net/manual/en/recursiveiteratoriterator.setmaxdepth.php
      * @param string $max_depth [optional] <p>
-     * The maximum allowed depth. -1 is used
+     * The maximum allowed depth. Default -1 is used
      * for any depth.
      * </p>
      * @return void
      * @since 5.1.0
      */
-    public function setMaxDepth($max_depth = -1) { }
+    public function setMaxDepth($max_depth) { }
 
     /**
      * Get max depth

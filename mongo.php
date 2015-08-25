@@ -909,11 +909,11 @@ class MongoCollection {
      * @link http://php.net/manual/en/mongocollection.aggregatecursor.php
      *
      * @param array $pipeline          <p> The Aggregation Framework pipeline to execute. </p>
-     * @param array $option            [optional] <p> Options for the aggregation command </p>
+     * @param array $options            [optional] <p> Options for the aggregation command </p>
      *
      * @return MongoCommandCursor Returns a {@link http://php.net/manual/en/class.mongocommandcursor.php MongoCommandCursor} object
      */
-    public function aggregateCursor(array $command, array $options) {}
+    public function aggregateCursor(array $pipeline, array $options) {}
 
     /**
 	 * Returns this collection's name
@@ -1241,10 +1241,11 @@ class MongoCollection {
     public function getDBRef(array $ref) {}
 
     /**
+    * @param  mixed $keys
     * @static
-    * @return
+    * @return string 
     */
-    protected static function toIndexString() {}
+    protected static function toIndexString($keys) {}
 
 	/**
 	 * Performs an operation similar to SQL's GROUP BY command
@@ -1569,6 +1570,76 @@ class MongoCursor implements Iterator, Traversable {
     public function batchSize($batchSize){}
 }
 
+class MongoCommandCursor implements MongoCursorInterface, Iterator{
+    /**
+     * Return the current element
+     * @link http://php.net/manual/en/iterator.current.php
+     * @return mixed Can return any type.
+     * @since 5.0.0
+     */
+    public function current(){}
+
+    /**
+     * Move forward to next element
+     * @link http://php.net/manual/en/iterator.next.php
+     * @return void Any returned value is ignored.
+     * @since 5.0.0
+     */
+    public function next(){}
+
+    /**
+     * Return the key of the current element
+     * @link http://php.net/manual/en/iterator.key.php
+     * @return mixed scalar on success, or null on failure.
+     * @since 5.0.0
+     */
+    public function key(){}
+
+    /**
+     * Checks if current position is valid
+     * @link http://php.net/manual/en/iterator.valid.php
+     * @return boolean The return value will be casted to boolean and then evaluated.
+     * Returns true on success or false on failure.
+     * @since 5.0.0
+     */
+    public function valid(){}
+
+    /**
+     * Rewind the Iterator to the first element
+     * @link http://php.net/manual/en/iterator.rewind.php
+     * @return void Any returned value is ignored.
+     * @since 5.0.0
+     */
+    public function rewind(){}
+
+    function batchSize(int $batchSize):MongoCursorInterface{}
+
+    function dead():bool{}
+
+    function info():array{}
+
+    function getReadPreference():array{}
+
+    function setReadPreference(string $read_preference, array $tags = null):MongoCursorInterface{}
+
+    function timeout(int $ms):MongoCursorInterface{}
+}
+
+interface MongoCursorInterface extends Iterator
+{
+    function batchSize(int $batchSize):MongoCursorInterface;
+
+    function dead():bool;
+
+    function info():array;
+
+    function getReadPreference():array;
+
+    function setReadPreference(string $read_preference, array $tags = null):MongoCursorInterface;
+
+    function timeout(int $ms):MongoCursorInterface;
+}
+
 /**
  *
  */
@@ -1756,7 +1827,7 @@ class MongoGridFSFile {
      * At most two GridFSFile chunks will be loaded in memory.
      *
      * @link http://php.net/manual/en/mongogridfsfile.getresource.php
-     * @return stream Returns a resource that can be used to read the file with
+     * @return resource Returns a resource that can be used to read the file with
      */
     public function getResource() {}
 }
@@ -2279,20 +2350,6 @@ class MongoLog {
     const PARSE = 0;
 
     const CON = 2;
-
-    /**
-     * @link http://php.net/manual/en/class.mongolog.php#mongolog.props.level@static
-     *
-     * @var $level
-     */
-    private static $level = 0;
-
-    /**
-     * @link http://php.net/manual/en/class.mongolog.php#mongolog.props.module@static
-     *
-     * @var $module
-     */
-    private static $module = 0;
 
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>

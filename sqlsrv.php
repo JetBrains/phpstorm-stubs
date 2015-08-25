@@ -1340,13 +1340,6 @@ function sqlsrv_fetch_array($stmt, $fetch_type = null, $row=null, $offset=null){
  * @param array|null $ctor_params [optional]  An array that contains values passed to the constructor of the class
  * specified with the $className parameter. If the constructor of the specified class accepts parameter values, the
  * $ctorParams parameter must be used when calling sqlsrv_fetch_object.
- * @param int $fetch_type [optional] A predefined constant. This parameter can take on one of the values listed in the
- * following table:
- * <ul><li>SQLSRV_FETCH_NUMERIC - The next row of data is returned as a numeric array.</li>
- * <li>SQLSRV_FETCH_ASSOC - The next row of data is returned as an associative array. The array keys are the column
- * names in the result set.</li>
- * <li>SQLSRV_FETCH_BOTH - The next row of data is returned as both a numeric array and an associative array. This is
- * the default value. </li></ul>
  * @param int|null $row [optional] One of the following values, specifying the row to access in a result set that uses a
  * scrollable cursor: SQLSRV_SCROLL_NEXT, SQLSRV_SCROLL_PRIOR, SQLSRV_SCROLL_FIRST, SQLSRV_SCROLL_LAST,
  * SQLSRV_SCROLL_ABSOLUTE, SQLSRV_SCROLL_RELATIVE. <br />

@@ -186,7 +186,7 @@ function imap_headerinfo ($stream_id, $msg_no, $from_length = 0, $subject_length
  * @since 4.0
  * @since 5.0
  */
-function imap_rfc822_parse_headers ($headers, $defaulthost = UNKNOWN) {}
+function imap_rfc822_parse_headers ($headers, $defaulthost = "UNKNOWN") {}
 
 /**
  * Returns a properly formatted email address given the mailbox, host, and personal info
@@ -1836,5 +1836,3 @@ define ('IMAP_GC_ENV', 2);
  */
 define ('IMAP_GC_TEXTS', 4);
 
-// End of imap v.
-?>

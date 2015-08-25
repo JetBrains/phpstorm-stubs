@@ -621,7 +621,7 @@ function sqlite_close ($dbhandle) {}
  * only numerical indices (ordinal field numbers). <b>SQLITE_BOTH</b>
  * will return both associative and numerical indices.
  * <b>SQLITE_BOTH</b> is the default for this function.</p>
- * @param string $error_msg [optional] <p>
+ * @param mixed $error_msg [optional] <p>
  * The specified variable will be filled if an error occurs. This is
  * specially important because SQL syntax errors can't be fetched using
  * the
@@ -672,7 +672,7 @@ function sqlite_query ($query, $dbhandle, $result_type = null, &$error_msg = SQL
  * @return bool <p>This function will return a boolean result; true for success or false for failure.
  * If you need to run a query that returns rows, see sqlite_query.</p>
  */
-function sqlite_exec ($query, &$error_msg = null) {}
+function sqlite_exec ($dbhandle, $query, &$error_msg = null) {}
 
 /**
  * (PHP 5, PECL sqlite &gt;= 1.0.0)<br/>
@@ -710,7 +710,7 @@ function sqlite_exec ($query, &$error_msg = null) {}
  * {@link php.net/en/sqlite.configuration.php#ini.sqlite.assoc-case sqlite.assoc_case} configuration
  * option.</p>
  */
-function sqlite_array_query ($query, $result_type = null, $decode_binary = null) {}
+function sqlite_array_query ($dbhandle, $query, $result_type = null, $decode_binary = null) {}
 
 /**
  * (PHP 5, PECL sqlite &gt;= 1.0.1)<br/>
@@ -1191,7 +1191,6 @@ function sqlite_udf_decode_binary ($data) {}
  * @param resource $dbhandle <p>The SQLite Database resource; returned from
  * {@see sqlite_open()} when used procedurally.
  * This parameter is not required when using the object-oriented method.</p>
- * @param string $function_name <p>
  * @param int $result_type [optional] <p>
  * The optional result_type parameter accepts a
  * constant and determines how the returned array will be indexed. Using
@@ -1397,5 +1396,3 @@ define ('SQLITE_ROW', 100);
  */
 define ('SQLITE_DONE', 101);
 
-// End of SQLite v.2.0-dev
-?>
