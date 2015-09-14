@@ -626,17 +626,17 @@ function symlink ($target, $link) {}
 /**
  * Create a hard link
  * @link http://php.net/manual/en/function.link.php
- * @param string $from_path <p>
- * The link name.
- * </p>
- * @param string $to_path <p>
+ * @param string $target <p>
  * Target of the link.
+ * </p>
+ * @param string $link <p>
+ * The link name.
  * </p>
  * @return bool true on success or false on failure.
  * @since 4.0
  * @since 5.0
  */
-function link ($from_path, $to_path) {}
+function link ($target, $link) {}
 
 /**
  * Deletes a file
