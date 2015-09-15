@@ -2,12 +2,56 @@
 
 namespace {
 
-    //this one is used to find usages of this construct
     /**
+     * @param mixed $_ [optional]
      * @return array
      */
-    function PS_UNRESERVE_PREFIX_array(){};
+    function PS_UNRESERVE_PREFIX_array(...$_){};
 
+    /**
+     * @param mixed $var1
+     * @param mixed $_ [optional]
+     * @return array
+     */
+    function PS_UNRESERVE_PREFIX_list($var1, ...$_){};
+
+    /**
+     * @param int|string $status [optional]
+     * @return void
+     */
+    function PS_UNRESERVE_PREFIX_die($status = ""){};
+
+    /**
+     * @param int|string $status [optional]
+     * @return void
+     */
+    function PS_UNRESERVE_PREFIX_exit($status = ""){};
+
+    /**
+     * @param mixed $var
+     * @return bool
+     */
+    function PS_UNRESERVE_PREFIX_empty($var){};
+
+    /**
+     * @param mixed $var
+     * @param mixed $_ [optional]
+     * @return bool
+     */
+    function PS_UNRESERVE_PREFIX_isset($var, ...$_){};
+
+    /**
+     * @param mixed $var
+     * @param mixed $_ [optional]
+     * @return void
+     */
+    function PS_UNRESERVE_PREFIX_unset($var, ...$_){};
+
+    /**
+     * @param string $code
+     * @return mixed
+     */
+    function PS_UNRESERVE_PREFIX_eval($code){};
 
     /**
      * Generator objects are returned from generators, cannot be instantiated via new.
