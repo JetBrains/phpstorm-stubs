@@ -666,3 +666,5 @@ class _CouchbaseSpatialViewQuery extends CouchbaseViewQuery {
     public function toString() { }
 
 }
+
+class CouchbaseException extends Exception { }
