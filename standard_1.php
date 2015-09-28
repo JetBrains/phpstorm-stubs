@@ -625,13 +625,14 @@ function lcfirst ($str) {}
  * Uppercase the first character of each word in a string
  * @link http://php.net/manual/en/function.ucwords.php
  * @param string $str <p>
+ * @param string $delimiters [optional] <p>
  * The input string.
  * </p>
  * @return string the modified string.
  * @since 4.0
  * @since 5.0
  */
-function ucwords ($str) {}
+function ucwords ($str, $delimiters = " \t\r\n\f\v") {}
 
 /**
  * Translate certain characters
