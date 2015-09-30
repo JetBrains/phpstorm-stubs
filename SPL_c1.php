@@ -1888,7 +1888,7 @@ class SplObjectStorage implements Countable, Iterator, Traversable, Serializable
          * @return void 
          * @since 5.3.0
          */
-	public function addAll (SplObjectStorage $storage) {}
+	public function addAll ($storage) {}
 
         /**
          * Removes objects contained in another storage from the current storage
@@ -1899,7 +1899,7 @@ class SplObjectStorage implements Countable, Iterator, Traversable, Serializable
          * @return void 
          * @since 5.3.0
          */
-	public function removeAll (SplObjectStorage $storage) {}
+	public function removeAll ($storage) {}
 
         /**
 	 * Removes all objects except for those contained in another storage from the current storage
@@ -1910,7 +1910,7 @@ class SplObjectStorage implements Countable, Iterator, Traversable, Serializable
 	 * @return void
 	 * @since 5.3.6
 	 */
-	public function removeAllExcept (SplObjectStorage $storage) {}
+	public function removeAllExcept ($storage) {}
 
 	/**
          * Returns the data associated with the current iterator entry
