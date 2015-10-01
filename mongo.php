@@ -2047,6 +2047,13 @@ class MongoDate {
     * @return string
     */
     public function __toString() {}
+    
+    /**
+     * Returns a DateTime object representing this date
+     * @link http://php.net/manual/en/mongodate.todatetime.php
+     * @return DateTime
+     */
+    public function toDateTime() {}
 }
 
 class MongoBinData {
