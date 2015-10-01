@@ -1125,4 +1125,3 @@ function getmxrr ($hostname, array &$mxhosts, array &$weight = null) {}
  * @since 5.0
  */
 function dns_get_record ($hostname, $type = null, array &$authns = null, array &$addtl = null) {}
-?>

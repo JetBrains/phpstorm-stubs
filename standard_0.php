@@ -1415,7 +1415,3 @@ function strcspn ($str1, $str2, $start = null, $length = null) {}
  * @since 5.0
  */
 function strtok ($str = null, $token) {}
-
-
-// End of standard v.5.3.1-0.dotdeb.1
-?>

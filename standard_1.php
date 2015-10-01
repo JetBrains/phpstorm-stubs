@@ -627,11 +627,12 @@ function lcfirst ($str) {}
  * @param string $str <p>
  * The input string.
  * </p>
+ * @param string $delimiters [optional] <p>
  * @return string the modified string.
  * @since 4.0
  * @since 5.0
  */
-function ucwords ($str) {}
+function ucwords ($str, $delimiters = " \t\r\n\f\v") {}
 
 /**
  * Translate certain characters
@@ -1174,5 +1175,3 @@ function setlocale ($category, $locale, $_ = null) {}
  * @since 5.0
  */
 function localeconv () {}
-
-?>

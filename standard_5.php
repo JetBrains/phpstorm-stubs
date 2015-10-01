@@ -1190,4 +1190,3 @@ function file_get_contents ($filename, $flags = null, $context = null, $offset =
  * @since 5.0
  */
 function file_put_contents ($filename, $data, $flags = null, $context = null) {}
-?>

@@ -1133,4 +1133,3 @@ function import_request_variables ($types, $prefix = null) {}
  * @since 5.0
  */
 function error_log ($message, $message_type = null, $destination = null, $extra_headers = null) {}
-?>

@@ -84,7 +84,7 @@ class SvnNode  {
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function svn_checkout ($repos, $targetpath, $revision = null, $flags = 0) {}
+function svn_checkout ($repos, $targetpath, $revision = SVN_REVISION_HEAD, $flags = 0) {}
 
 /**
  * (PECL svn &gt;= 0.1.0)<br/>
@@ -100,7 +100,7 @@ function svn_checkout ($repos, $targetpath, $revision = null, $flags = 0) {}
  * @return string the string contents of the item from the repository on
  * success, and <b>FALSE</b> on failure.
  */
-function svn_cat ($repos_url, $revision_no = null) {}
+function svn_cat ($repos_url, $revision_no = SVN_REVISION_HEAD) {}
 
 /**
  * (PECL svn &gt;= 0.1.0)<br/>
@@ -129,7 +129,7 @@ function svn_cat ($repos_url, $revision_no = null) {}
  * [1] => ...
  * </pre>
  */
-function svn_ls ($repos_url, $revision_no = 'SVN_REVISION_HEAD', $recurse = false, $peg = false) {}
+function svn_ls ($repos_url, $revision_no = SVN_REVISION_HEAD, $recurse = false, $peg = false) {}
 
 /**
  * (PECL svn &gt;= 0.1.0)<br/>
@@ -213,7 +213,7 @@ function svn_ls ($repos_url, $revision_no = 'SVN_REVISION_HEAD', $recurse = fals
  * <p>
  * If no changes were made to the item, an empty array is returned.
  */
-function svn_log ($repos_url, $start_revision = null, $end_revision = null, $limit = 0, $flags = 'SVN_DISCOVER_CHANGED_PATHS | SVN_STOP_ON_COPY') {}
+function svn_log ($repos_url, $start_revision = null, $end_revision = null, $limit = 0, $flags = SVN_DISCOVER_CHANGED_PATHS | SVN_STOP_ON_COPY) {}
 
 /**
  * (PECL svn &gt;= 0.1.0)<br/>
@@ -547,7 +547,7 @@ function svn_switch () {}
  * which includes the revision number, line number, line of code,
  * author, and date.
  */
-function svn_blame ($repository_url, $revision_no = 'SVN_REVISION_HEAD') {}
+function svn_blame ($repository_url, $revision_no = SVN_REVISION_HEAD) {}
 
 /**
  * (PECL svn &gt;= 0.4.0)<br/>
@@ -1238,6 +1238,3 @@ define ('SVN_WC_SCHEDULE_NORMAL', 0);
 define ('SVN_WC_SCHEDULE_ADD', 1);
 define ('SVN_WC_SCHEDULE_DELETE', 2);
 define ('SVN_WC_SCHEDULE_REPLACE', 3);
-
-// End of svn v.1.0.1
-?>

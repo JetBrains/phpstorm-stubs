@@ -2041,6 +2041,13 @@ class MongoDate {
      * @return MongoDate Returns this new date
      */
     public function __construct($sec = 0, $usec = 0) {}
+    
+    /**
+     * Returns a DateTime object representing this date
+     * @link http://php.net/manual/en/mongodate.todatetime.php
+     * @return DateTime
+     */
+    public function toDateTime() {}
 
     /**
     * Returns a string representation of this date
