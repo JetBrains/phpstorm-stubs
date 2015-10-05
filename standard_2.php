@@ -162,11 +162,26 @@ function soundex ($str) {}
 /**
  * Calculate Levenshtein distance between two strings
  * @link http://php.net/manual/en/function.levenshtein.php
+ * Note: In its simplest form the function will take only the two strings
+ * as parameter and will calculate just the number of insert, replace and
+ * delete operations needed to transform str1 into str2.
+ * Note: A second variant will take three additional parameters that define
+ * the cost of insert, replace and delete operations. This is more general
+ * and adaptive than variant one, but not as efficient.
  * @param string $str1 <p>
  * One of the strings being evaluated for Levenshtein distance.
  * </p>
  * @param string $str2 <p>
  * One of the strings being evaluated for Levenshtein distance.
+ * </p>
+ * @param int $cost_ins [optional] <p>
+ * Defines the cost of insertion.
+ * </p>
+ * @param int $cost_rep [optional] <p>
+ * Defines the cost of replacement.
+ * </p>
+ * @param int $cost_del [optional] <p>
+ * Defines the cost of deletion.
  * </p>
  * @return int This function returns the Levenshtein-Distance between the
  * two argument strings or -1, if one of the argument strings
@@ -174,7 +189,7 @@ function soundex ($str) {}
  * @since 4.0.1
  * @since 5.0
  */
-function levenshtein ($str1, $str2) {}
+function levenshtein ($str1, $str2, $cost_ins = null, $cost_rep = null, $cost_del = null) {}
 
 /**
  * Return a specific character
