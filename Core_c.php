@@ -165,11 +165,17 @@ interface Serializable {
 }
 
 
+/**
+ * Throwable is the base interface for any object that can be thrown via a throw statement in PHP 7,
+ * including Error and Exception.
+ * @link http://php.net/manual/en/class.throwable.php
+ * @since 7.0
+ */
 interface Throwable
 {
 
     /***
-     * Returns message
+     * Gets the message
      * @link http://php.net/manual/en/throwable.getmessage.php
      * @return string
      * @since 7.0
@@ -177,54 +183,65 @@ interface Throwable
     public function getMessage();
 
     /**
-     * Returns Code
+     * Gets the exception code
      * @link http://php.net/manual/en/throwable.getcode.php
-     * @return int
+     * @return int <p>
+     * Returns the exception code as integer in
+     * {@see Exception} but possibly as other type in
+     * {@see Exception} descendants (for example as
+     * string in {@see PDOException}).
+     * </p>
      * @since 7.0
      */
     public function getCode();
 
     /**
-     * Returns File Name
+     * Gets the file in which the exception occurred
      * @link http://php.net/manual/en/throwable.getfile.php
-     * @return string
+     * @return string Returns the name of the file from which the object was thrown.
      * @since 7.0
      */
     public function getFile();
 
     /**
-     * Returns Line Number
+     * Gets the line on which the object was instantiated
      * @link http://php.net/manual/en/throwable.getline.php
-     * @return int
+     * @return int Returns the line number where the thrown object was instantiated.
      * @since 7.0
      */
     public function getLine();
 
     /**
-     * Returns Stack Trace
+     * Gets the stack trace
      * @link http://php.net/manual/en/throwable.gettrace.php
-     * @return array
+     * @return array <p>
+     * Returns the stack trace as an array in the same format as
+     * {@see debug_backtrace()}.
+     * </p>
      * @since 7.0
      */
     public function getTrace();
 
     /**
+     * Gets the stack trace as a string
      * @link http://php.net/manual/en/throwable.gettraceasstring.php
-     * @return string
+     * @return string Returns the stack trace as a string.
      * @since 7.0
      */
     public function getTraceAsString();
 
     /**
+     * Returns the previous Throwable
      * @link http://php.net/manual/en/throwable.getprevious.php
-     * @return Throwable
+     * @return Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
      * @since 7.0
      */
     public function getPrevious();
 
     /**
+     * Gets a string representation of the thrown object
      * @link http://php.net/manual/en/throwable.tostring.php
-     * @return string
+     * @return string <p>Returns the string representation of the thrown object.</p>
      * @since 7.0
      */
     public function __toString();
@@ -326,6 +343,140 @@ class Exception implements Throwable {
      * @since 5.1.0
      */
     public function __toString() { }
+}
+
+/**
+ * Error is the base class for all internal PHP error exceptions.
+ * @link http://php.net/manual/en/class.error.php
+ * @since 7.0
+ */
+class Error implements Throwable {
+
+    /***
+     * Gets the message
+     * @link http://php.net/manual/en/throwable.getmessage.php
+     * @return string
+     * @since 7.0
+     */
+    public function getMessage()
+    {
+    }
+
+    /**
+     * Gets the exception code
+     * @link http://php.net/manual/en/throwable.getcode.php
+     * @return int <p>
+     * Returns the exception code as integer in
+     * {@see Exception} but possibly as other type in
+     * {@see Exception} descendants (for example as
+     * string in {@see PDOException}).
+     * </p>
+     * @since 7.0
+     */
+    public function getCode(){}
+
+
+    /**
+     * Gets the file in which the exception occurred
+     * @link http://php.net/manual/en/throwable.getfile.php
+     * @return string Returns the name of the file from which the object was thrown.
+     * @since 7.0
+     */
+    public function getFile(){}
+
+
+    /**
+     * Gets the line on which the object was instantiated
+     * @link http://php.net/manual/en/throwable.getline.php
+     * @return int Returns the line number where the thrown object was instantiated.
+     * @since 7.0
+     */
+    public  function getLine(){}
+
+
+    /**
+     * Gets the stack trace
+     * @link http://php.net/manual/en/throwable.gettrace.php
+     * @return array <p>
+     * Returns the stack trace as an array in the same format as
+     * {@see debug_backtrace()}.
+     * </p>
+     * @since 7.0
+     */
+    public function getTrace(){}
+
+    /**
+     * Gets the stack trace as a string
+     * @link http://php.net/manual/en/throwable.gettraceasstring.php
+     * @return string Returns the stack trace as a string.
+     * @since 7.0
+     */
+    public function getTraceAsString(){}
+
+    /**
+     * Returns the previous Throwable
+     * @link http://php.net/manual/en/throwable.getprevious.php
+     * @return Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
+     * @since 7.0
+     */
+    public function getPrevious(){}
+    /**
+     * Gets a string representation of the thrown object
+     * @link http://php.net/manual/en/throwable.tostring.php
+     * @return string <p>Returns the string representation of the thrown object.</p>
+     * @since 7.0
+     */
+    public function __toString(){}
+}
+
+/**
+ * There are three scenarios where a TypeError may be thrown.
+ * The first is where the argument type being passed to a function does not match its corresponding declared
+ * parameter type. The second is where a value being returned from a function does not match the declared function return type. The third is where an
+ * invalid number of arguments are passed to a built-in PHP function (strict mode only).
+ * @link http://php.net/manual/en/class.typeerror.php
+ * @since 7.0
+ */
+class TypeError extends Error {
+
+}
+
+/**
+ * ParseError is thrown when an error occurs while parsing PHP code, such as when {@see eval()} is called.
+ * @link http://php.net/manual/en/class.parseerror.php
+ * @since 7.0
+ */
+class ParseError extends Error {
+
+}
+
+/**
+ * AssertionError is thrown when an assertion made via {@see assert()} fails.
+ * @link http://php.net/manual/en/class.assertionerror.php
+ * @since 7.0
+ */
+class AssertionError extends Error {
+
+}
+
+/**
+ * ArithmeticError is thrown when an error occurs while performing mathematical operations.
+ * In PHP 7.0, these errors include attempting to perform a bitshift by a negative amount,
+ * and any call to {@see intdiv()} that would result in a value outside the possible bounds of an integer.
+ * @link http://php.net/manual/en/class.arithmeticerror.php
+ * @since 7.0
+ */
+class ArithmeticError extends Error {
+
+}
+
+/**
+ * DivisionByZeroError is thrown when an attempt is made to divide a number by zero.
+ * @link http://php.net/manual/en/class.divisionbyzeroerror.php
+ * @since 7.0
+ */
+class DivisionByError extends Error {
+
 }
 
 /**
