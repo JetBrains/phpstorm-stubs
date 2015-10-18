@@ -560,6 +560,28 @@ class ZipArchive  {
 	 */
 	public function setCommentName ($name, $comment) {}
 
+	/**
+	 * Set the compression method of an entry defined by its index
+	 * @link http://php.net/manual/en/ziparchive.setcompressionindex.php
+	 * @param int $index Index of the entry.
+	 * @param int $comp_method The compression method. Either ZipArchive::CM_DEFAULT, ZipArchive::CM_STORE or ZipArchive::CM_DEFLATE.
+	 * @param int $comp_flags [optional] Compression flags. Currently unused.
+	 * @return bool Returns TRUE on success or FALSE on failure.
+	 * @since 7.0
+	 */
+	public function setCompressionIndex ($index, $comp_method, $comp_flags = 0) {}
+
+	/**
+	 * Set the compression method of an entry defined by its name
+	 * http://php.net/manual/en/ziparchive.setcompressionname.php
+	 * @param string $name Name of the entry.
+	 * @param int $comp_method The compression method. Either ZipArchive::CM_DEFAULT, ZipArchive::CM_STORE or ZipArchive::CM_DEFLATE.
+	 * @param int $comp_flags [optional] Compression flags. Currently unused.
+	 * @return bool Returns TRUE on success or FALSE on failure.
+	 * @since 7.0
+	 */
+	public function setCompressionName ($name, $comp_method, $comp_flags = 0){}
+
     /**
      * (PHP 5 &gt;= 5.6.0, PECL zip &gt;= 1.12.0)<br/>
      * @param $password

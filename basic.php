@@ -57,6 +57,30 @@ function cli_set_process_title ($title) {}
  */
 function cli_get_process_title () {}
 
+/**
+ * Reclaims memory used by the Zend Engine memory manager
+ * @link http://php.net/manual/en/function.gc-mem-caches.php
+ * @return int Returns the number of bytes freed.
+ * @since 7.0
+ */
+function gc_mem_caches () {}
+
+/**
+ * Returns active resources
+ * @link http://php.net/manual/en/function.get-resources.php
+ * @param string $type [optional]<p>
+ *
+ * If defined, this will cause get_resources() to only return resources of the given type. A list of resource types is available.
+ *
+ * If the string Unknown is provided as the type, then only resources that are of an unknown type will be returned.
+ *
+ * If omitted, all resources will be returned.
+ * </p>
+ * @return array Returns an array of currently active resources, indexed by resource number.
+ * @since 7.0
+ */
+function get_resources ($type) {}
+
 
 /**
  * The full path and filename of the file. If used inside an include,

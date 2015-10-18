@@ -988,6 +988,12 @@ function get_defined_constants ($categorize = false) {}
  */
 function debug_backtrace ($options = DEBUG_BACKTRACE_PROVIDE_OBJECT, $limit = 0) {}
 
+/**
+ * Clear the most recent error
+ * @link http://php.net/manual/en/function.error-clear-last.php
+ * @since 7.0
+ */
+function error_clear_last () {}
 const DEBUG_BACKTRACE_PROVIDE_OBJECT = 0;
 const DEBUG_BACKTRACE_IGNORE_ARGS = 0;
 

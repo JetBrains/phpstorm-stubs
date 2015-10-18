@@ -1014,9 +1014,39 @@ function join ($glue, $pieces) {}
  * Set locale information
  * @link http://php.net/manual/en/function.setlocale.php
  * @param int $category <p>
- * category is a named constant specifying the
+ * <p>
+ * <em>category</em> is a named constant specifying the
  * category of the functions affected by the locale setting:
- * LC_ALL for all of the below
+ * </p><ul>
+ * <li>
+ * <b>LC_ALL</b> for all of the below
+ * </li>
+ * <li>
+ * <b>LC_COLLATE</b> for string comparison, see
+ * {@see strcoll()}
+ * </li>
+ * <li>
+ * <b>LC_CTYPE</b> for character classification and conversion, for
+ * example {@see strtoupper()}
+ * </li>
+ * <li>
+ * <b>LC_MONETARY</b> for {@see localeconv()}
+ * </li>
+ * <li>
+ * <b>LC_NUMERIC</b> for decimal separator (See also
+ * {@see localeconv()})
+ * </li>
+ *<li>
+ * <b>LC_TIME</b> for date and time formatting with
+ * {@see strftime()}
+ *
+ * </li>
+ * <li>
+ * <b>LC_MESSAGES</B> for system responses (available if PHP was compiled with
+ * <em>libintl</em>)
+ *
+ * </li>
+ * </ul>
  * @param string $locale <p>
  * If locale is &null; or the empty string
  * "", the locale names will be set from the
