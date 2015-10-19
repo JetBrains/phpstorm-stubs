@@ -228,6 +228,14 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	public function getParameters () {}
 
 	/**
+	 * Gets the specified return type of a function
+	 * @link http://php.net/manual/en/reflectionfunctionabstract.getreturntype.php
+	 * @return ReflectionType|NULL Returns a ReflectionType object if a return type is specified, NULL otherwise.
+	 * @since 7.0
+	 */
+	public function getReturnType () {}
+
+	/**
 	 * Gets function short name
 	 * @link http://php.net/manual/en/reflectionfunctionabstract.getshortname.php
 	 * @return string The short name of the function.
@@ -430,6 +438,14 @@ class ReflectionParameter implements Reflector {
 	 * @since 5.0
 	 */
 	public function getName () {}
+
+	/**
+	 * Gets a parameter's type
+	 * @link http://php.net/manual/en/reflectionparameter.gettype.php
+	 * @return ReflectionType|NULL Returns a ReflectionType object if a parameter type is specified, NULL otherwise.
+	 * @since 7.0
+	 */
+	public function getType() {}
 
 	/**
 	 * Checks if passed by reference
@@ -1754,5 +1770,162 @@ class ReflectionZendExtension implements Reflector {
 	public function getCopyright () {}
 
 }
+
+/**
+ * The ReflectionGenerator class reports information about a generator.
+ * @since 7.0
+ */
+class ReflectionGenerator
+{
+	/* Methods */
+	/**
+	 * Constructs a ReflectionGenerator object
+	 * @link http://php.net/manual/en/reflectiongenerator.construct.php
+	 * @param Generator $generator A generator object.
+	 * @since 7.0
+	 */
+	public function __construct(Generator $generator)
+	{
+	}
+
+	/**
+	 *  Gets the file name of the currently executing generator
+	 * @link http://php.net/manual/en/reflectiongenerator.getexecutingfile.php
+	 * @return string Returns the full path and file name of the currently executing generator.
+	 * @since 7.0
+	 *
+	 */
+	public function getExecutingFile()
+	{
+	}
+
+	/**
+	 * Gets the executing Generator object
+	 * @link http://php.net/manual/en/reflectiongenerator.construct.php
+	 * @return Generator Returns the currently executing Generator object.
+	 * @since 7.0
+	 *
+	 */
+	public function getExecutingGenerator()
+	{
+	}
+
+	/**
+	 * Gets the currently executing line of the generator
+	 * @link http://php.net/manual/en/reflectiongenerator.getexecutingline.php
+	 * @return int Returns the line number of the currently executing statement in the generator.
+	 * @since 7.0
+	 */
+	public function getExecutingLine()
+	{
+	}
+
+	/**
+	 * Gets the function name of the generator
+	 * @link http://php.net/manual/en/reflectiongenerator.getfunction.php
+	 * @return ReflectionFunctionAbstract Returns a ReflectionFunctionAbstract class. This will be ReflectionFunction for functions, or ReflectionMethod for methods.
+	 * @since 7.0
+	 */
+	public function getFunction()
+	{
+	}
+
+	/**
+	 * Gets the function name of the generator
+	 * @link http://php.net/manual/en/reflectiongenerator.getthis.php
+	 * @return object|null Returns the $this value, or NULL if the generator was not created in a class context.
+	 * @since 7.0
+	 */
+	public function getThis()
+	{
+	}
+
+	/**
+	 * Gets the trace of the executing generator
+	 * @link http://php.net/manual/en/reflectiongenerator.gettrace.php
+	 * @param int $options [optional] <p>
+	 * The value of <em>options</em> can be any of the following
+	 * the following flags.
+	 * </p>
+	 * <table>
+	 * <b>Available options</b>
+	 *
+	 * <thead>
+	 * <tr>
+	 * <th>Option</th>
+	 * <th>Description</th>
+	 * </tr>
+	 *
+	 * </thead>
+	 *
+	 * <tbody class="tbody">
+	 * <tr>
+	 * <td>
+	 * <b>DEBUG_BACKTRACE_PROVIDE_OBJECT</b>
+	 * </td>
+	 * <td>
+	 * Default.
+	 * </td>
+	 * </tr>
+	 *
+	 * <tr>
+	 * <td>
+	 * <b>DEBUG_BACKTRACE_IGNORE_ARGS</B>
+	 * </td>
+	 * <td>
+	 * Don't include the argument information for functions in the stack
+	 * trace.
+	 * </td>
+	 * </tr>
+	 *
+	 * </tbody>
+	 *
+	 * </table>
+	 * @return array Returns the trace of the currently executing generator.
+	 * @since 7.0
+	 */
+	public function getTrace($options = DEBUG_BACKTRACE_PROVIDE_OBJECT)
+	{
+	}
+}
+
+/**
+ * The ReflectionType class reports information about a function's parameters.
+ * @since 7.0
+ */
+class ReflectionType
+{
+	/* Methods */
+	/**
+	 * Checks if null is allowed
+	 * @link http://php.net/manual/en/reflectiontype.allowsnull.php
+	 * @return bool TRUE if NULL is allowed, otherwise FALSE
+	 * @since 7.0
+	 */
+	public function allowsNull()
+	{
+	}
+
+	/**
+	 * Checks if it is a built-in type
+	 * @link http://php.net/manual/en/reflectiontype.isbuiltin.php
+	 * @return bool TRUE if it's a built-in type, otherwise FALSE
+	 * @since 7.0
+	 */
+	public function isBuiltin()
+	{
+	}
+
+	/**
+	 * To string
+	 * @link http://php.net/manual/en/reflectiontype.tostring.php
+	 * @return string Returns the type of the parameter.
+	 * @since 7.0
+	 */
+	public function __toString()
+	{
+	}
+}
+
 // End of Reflection v.$Id: bcdcdaeea3aba34a8083bb62c6eda69ff3c3eab5 $
 ?>

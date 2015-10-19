@@ -307,6 +307,18 @@ function preg_replace ($pattern, $replacement, $subject, $limit = -1, &$count = 
 function preg_replace_callback ($pattern, callable $callback, $subject, $limit = -1, &$count = null) {}
 
 /**
+ * Perform a regular expression search and replace using callbacks
+ * @link http://php.net/manual/en/function.preg-replace-callback-array.php
+ * @param array $patterns_and_callbacks
+ * @param mixed $subject
+ * @param int $limit [optional]
+ * @param int $count [optional]
+ * @return array|NUll  <p>preg_replace_callback_array() returns an array if the subject parameter is an array, or a string otherwise. On errors the return value is NULL</p>
+ * <p>If matches are found, the new subject will be returned, otherwise subject will be returned unchanged.</p>
+ */
+function preg_replace_callback_array ($patterns_and_callbacks, $subject , $limit = -1, &$count ) {}
+
+/**
  * Perform a regular expression search and replace
  * @link http://php.net/manual/en/function.preg-filter.php
  * @param mixed $pattern
@@ -417,6 +429,11 @@ function preg_last_error () {}
  */
 define ('PREG_PATTERN_ORDER', 1);
 
+/**
+ * Returned by {@see preg_last_error()} if the last PCRE function failed due to limited JIT stack space.
+ * @since 7.0
+ */
+define ('PREG_JIT_STACKLIMIT_ERROR', 6);
 /**
  * Orders results so that $matches[0] is an array of first set of
  * matches, $matches[1] is an array of second set of matches, and so

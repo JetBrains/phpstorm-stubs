@@ -78,6 +78,20 @@ function posix_geteuid () {}
 function posix_seteuid ($uid) {}
 
 /**
+ * Set system resource limits
+ * @link http://php.net/manual/en/function.posix-setrlimit.php
+ * @param int $resource <p>
+ * The
+ * {@link http://php.net/manual/en/posix.constants.setrlimit.php resource limit constant}
+ * corresponding to the limit that is being set.
+ * </p>
+ * @param int $softlimit The soft limit, in whatever unit the resource limit requires, or POSIX_RLIMIT_INFINITY.
+ * @param int $hardlimit The hard limit, in whatever unit the resource limit requires, or POSIX_RLIMIT_INFINITY.
+ * @return bool Returns TRUE on success or FALSE on failure.
+ * @since 7.0
+ */
+function posix_setrlimit ($resource, $softlimit, $hardlimit ) {}
+/**
  * Return the real group ID of the current process
  * @link http://php.net/manual/en/function.posix-getgid.php
  * @return int the real group id, as an integer.
@@ -793,6 +807,10 @@ define ('POSIX_S_IFIFO', 4096);
  * @link http://php.net/manual/en/posix.constants.php
  */
 define ('POSIX_S_IFSOCK', 49152);
+
+
+
+
 
 // End of posix v.
 ?>

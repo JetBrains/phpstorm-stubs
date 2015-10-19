@@ -237,6 +237,16 @@ define ('LIBXML_PEDANTIC', 128);
 define ('LIBXML_COMPACT', 65536);
 
 /**
+ * Allows line numbers greater than 65535 to be reported correctly.
+ * <p>
+ * Only available in Libxml &gt;= 2.9.0
+ * </p>
+ * @link http://php.net/manual/en/libxml.constants.php
+ */
+define ('LIBXML_BIGLINES', 65535);
+
+
+/**
  * Drop the XML declaration when saving a document
  * <p>
  * Only available in Libxml &gt;= 2.6.21
