@@ -12,4 +12,4 @@ Please link pull request/commit messages to [YT] issue and back if such issue ex
 We don't really want to include all possible extension/libs ASAP (they do slow IDE down a bit) and we are working on better system for managing them. **Until we find good solution we'll prioritise bugfixes**.
 
 [Contributor agreement]:http://www.jetbrains.org/display/IJOS/Contributor+Agreement
-[YT]:http://youtrack.jetbrains.com/issues/WI?q=%23Unresolved
+[YT]:https://youtrack.jetbrains.com/issues/WI?q=%23Unresolved+%23%7BPHP+lib+stubs%7D+
