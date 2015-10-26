@@ -1011,12 +1011,16 @@ class DOMDocument extends DOMNode  {
      * @param string $source <p>
      * The HTML string.
      * </p>
+     * @param string $options [optional] <p>
+     * Since PHP 5.4.0 and Libxml 2.6.0, you may also 
+     * use the options parameter to specify additional Libxml parameters.
+     * </p>
      * @return bool true on success or false on failure. If called statically, returns a
      * DOMDocument and issues E_STRICT
      * warning.
      * @since 5.0
      */
-    public function loadHTML ($source) {}
+    public function loadHTML ($source, $options = 0) {}
 
     /**
      * Load HTML from a file
@@ -1024,12 +1028,16 @@ class DOMDocument extends DOMNode  {
      * @param string $filename <p>
      * The path to the HTML file.
      * </p>
+     * @param string $options [optional] <p>
+     * Since PHP 5.4.0 and Libxml 2.6.0, you may also 
+     * use the options parameter to specify additional Libxml parameters.
+     * </p>
      * @return bool true on success or false on failure. If called statically, returns a
      * DOMDocument and issues E_STRICT
      * warning.
      * @since 5.0
      */
-    public function loadHTMLFile ($filename) {}
+    public function loadHTMLFile ($filename, $options = 0) {}
 
     /**
      * Dumps the internal document into a string using HTML formatting
