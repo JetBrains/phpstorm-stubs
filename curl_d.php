@@ -2,6 +2,27 @@
 
 // Start of curl v.
 
+/**
+ * @since 5.3.7
+ */
+define('CURLINFO_REDIRECT_URL', 1048607);
+
+/**
+ * @since 5.4.7
+ */
+define('CURLINFO_PRIMARY_IP', 1048608);
+/**
+ * @since 5.4.7
+ */
+define('CURLINFO_PRIMARY_PORT', 2097192);
+/**
+ * @since 5.4.7
+ */
+define('CURLINFO_LOCAL_IP', 1048617);
+/**
+ * @since 5.4.7
+ */
+define('CURLINFO_LOCAL_PORT', 2097194);
 //TODO: copy proper descriptions for all constants from http://us.php.net/manual/en/function.curl-setopt.php
 
 define ('CURLOPT_IPRESOLVE', 113);
