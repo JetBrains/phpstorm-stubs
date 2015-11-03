@@ -558,6 +558,14 @@ class ReflectionParameter implements Reflector {
      */
 	public function getDefaultValueConstantName () {}
 
+	/**
+	 * Returns whether this function is variadic
+	 * @link http://php.net/manual/en/reflectionparameter.isvariadic.php
+	 * @return bool <b>TRUE</b> if the function is variadic, otherwise <b>FALSE</b>
+	 * @since 5.6.0
+	 */
+	public function isVariadic() {}
+
 }
 
 /**
