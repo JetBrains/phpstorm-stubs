@@ -219,10 +219,8 @@ define ('LIBXML_NONET', 2048);
 
 /**
  * Sets XML_PARSE_PEDANTIC flag, which enables pedentic error reporting.
- * <p>
- * Available as of PHP &gt;= 5.4.0
- * </p>
  * @link http://php.net/manual/en/libxml.constants.php
+ * @since 5.4.0
  */
 define ('LIBXML_PEDANTIC', 128);
 

@@ -847,11 +847,11 @@ function gethostbyname ($hostname) {}
 function gethostbynamel ($hostname) {}
 
 /**
- * (PHP &gt;= 5.3.0)<br/>
  * Gets the host name
  * @link http://php.net/manual/en/function.gethostname.php
  * @return string a string with the hostname on success, otherwise false is 
  * returned.
+ * @since 5.3.0
  */
 function gethostname () {}
 

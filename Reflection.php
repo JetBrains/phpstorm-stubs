@@ -268,18 +268,18 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	public function returnsReference () {}
 
 	/**
-	 * (PHP 5 >= 5.5.0)<br/>
 	 * Returns whether this function is a generator
 	 * @link http://php.net/manual/en/reflectionfunctionabstract.isgenerator.php
 	 * @return bool <b>TRUE</b> if the function is generator, otherwise <b>FALSE</b>
+	 * @since 5.5.0
 	 */
 	public function isGenerator() {}
 
 	/**
-	 * (PHP 5 >= 5.6.0)<br/>
 	 * Returns whether this function is variadic
 	 * @link http://php.net/manual/en/reflectionfunctionabstract.isvariadic.php
 	 * @return bool <b>TRUE</b> if the function is variadic, otherwise <b>FALSE</b>
+	 * @since 5.6.0
 	 */
 	public function isVariadic() {}
 }
@@ -456,11 +456,11 @@ class ReflectionParameter implements Reflector {
 	public function isPassedByReference () {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Returns whether this parameter can be passed by value
 	 * @link http://php.net/manual/en/reflectionparameter.canbepassedbyvalue.php
 	 * @return bool <b>TRUE</b> if the parameter can be passed by value, <b>FALSE</b> otherwise.
 	 * Returns <b>NULL</b> in case of an error.
+	 * @since 5.4.0
 	 */
 	public function canBePassedByValue () {}
 
@@ -497,10 +497,10 @@ class ReflectionParameter implements Reflector {
 	public function isArray () {}
 
     /**
-     * (PHP 5 &gt;= 5.4.0)<>br/
      * Returns whether parameter MUST be callable
      * @link http://php.net/manual/en/reflectionparameter.iscallable.php
      * @return bool Returns TRUE if the parameter is callable, FALSE if it is not or NULL on failure.
+	 * @since 5.4.0
      */
     public function isCallable () {}
 
@@ -545,12 +545,16 @@ class ReflectionParameter implements Reflector {
 	public function getDefaultValue () {}
 
     /**
-     * @return boolean
+	 * Returns whether the default value of this parameter is constant
+	 * @return boolean
+	 * @since 5.4.6
      */
     public function isDefaultValueConstant () {}
 
     /**
+	 * Returns the default value's constant name if default value is constant or null
      * @return string
+	 * @since 5.4.6
      */
 	public function getDefaultValueConstantName () {}
 
@@ -679,12 +683,12 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector {
 	public function isDestructor () {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Returns a dynamically created closure for the method
 	 * @link http://php.net/manual/en/reflectionmethod.getclosure.php
 	 * @param object $object [optional] Forbidden for static methods, required for other methods.
 	 * @return Closure <b>Closure</b>.
 	 * Returns <b>NULL</b> in case of an error.
+	 * @since 5.4.0
 	 */
 	public function getClosure ($object) {}
 
@@ -893,10 +897,10 @@ class ReflectionClass implements Reflector {
 	public function isInstantiable () {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Returns whether this class is cloneable
 	 * @link http://php.net/manual/en/reflectionclass.iscloneable.php
 	 * @return bool <b>TRUE</b> if the class is cloneable, <b>FALSE</b> otherwise.
+	 * @since 5.4.0
 	 */
 	public function isCloneable () {}
 
@@ -1077,40 +1081,40 @@ class ReflectionClass implements Reflector {
 	public function isInterface () {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Returns an array of traits used by this class
 	 * @link http://php.net/manual/en/reflectionclass.gettraits.php
 	 * @return ReflectionClass[] an array with trait names in keys and instances of trait's
 	 * <b>ReflectionClass</b> in values.
 	 * Returns <b>NULL</b> in case of an error.
+	 * @since 5.4.0
 	 */
 	public function getTraits () {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Returns an array of names of traits used by this class
 	 * @link http://php.net/manual/en/reflectionclass.gettraitnames.php
 	 * @return array an array with trait names in values.
 	 * Returns <b>NULL</b> in case of an error.
+	 * @since 5.4.0
 	 */
 	public function getTraitNames () {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Returns an array of trait aliases
 	 * @link http://php.net/manual/en/reflectionclass.gettraitaliases.php
 	 * @return array an array with new method names in keys and original names (in the
 	 * format "TraitName::original") in values.
 	 * Returns <b>NULL</b> in case of an error.
+	 * @since 5.4.0
 	 */
 	public function getTraitAliases () {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Returns whether this is a trait
 	 * @link http://php.net/manual/en/reflectionclass.istrait.php
 	 * @return bool <b>TRUE</b> if this is a trait, <b>FALSE</b> otherwise.
 	 * Returns <b>NULL</b> in case of an error.
+	 * @since 5.4.0
 	 */
 	public function isTrait () {}
 
@@ -1163,10 +1167,10 @@ class ReflectionClass implements Reflector {
 	 */
 	public function newInstance ($args = null, $_ = null) {}
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Creates a new class instance without invoking the constructor.
 	 * @link http://php.net/manual/en/reflectionclass.newinstancewithoutconstructor.php
 	 * @return object
+	 * @since 5.4.0
 	 */
 	public function newInstanceWithoutConstructor() {}
 
@@ -1664,20 +1668,20 @@ class ReflectionExtension implements Reflector {
 	public function info () {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Returns whether this extension is persistent
 	 * @link http://php.net/manual/en/reflectionextension.ispersistent.php
 	 * @return bool <b>TRUE</b> for extensions loaded by extension, <b>FALSE</b>
 	 * otherwise.
+	 * @since 5.4.0
 	 */
 	public function isPersistent () {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Returns whether this extension is temporary
 	 * @link http://php.net/manual/en/reflectionextension.istemporary.php
 	 * @return bool <b>TRUE</b> for extensions loaded by <b>dl</b>,
 	 * <b>FALSE</b> otherwise.
+	 * @since 5.4.0
 	 */
 	public function isTemporary () {}
 
@@ -1693,15 +1697,14 @@ class ReflectionZendExtension implements Reflector {
 
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Clone handler
 	 * @link http://php.net/manual/en/reflectionzendextension.clone.php
 	 * @return void
+	 * @since 5.4.0
 	 */
 	final private function __clone () {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Export
 	 * @link http://php.net/manual/en/reflectionzendextension.export.php
 	 * @param string $name <p>
@@ -1709,63 +1712,64 @@ class ReflectionZendExtension implements Reflector {
 	 * @param string $return [optional] <p>
 	 * </p>
 	 * @return string
+	 * @since 5.4.0
 	 */
 	public static function export ($name, $return = null) {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Constructor
 	 * @link http://php.net/manual/en/reflectionzendextension.construct.php
 	 * @param string $name <p>
 	 * </p>
+	 * @since 5.4.0
 	 */
 	public function __construct ($name) {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * To string handler
 	 * @link http://php.net/manual/en/reflectionzendextension.tostring.php
 	 * @return string
+	 * @since 5.4.0
 	 */
 	public function __toString () {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Gets name
 	 * @link http://php.net/manual/en/reflectionzendextension.getname.php
 	 * @return string
+	 * @since 5.4.0
 	 */
 	public function getName () {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Gets version
 	 * @link http://php.net/manual/en/reflectionzendextension.getversion.php
 	 * @return string
+	 * @since 5.4.0
 	 */
 	public function getVersion () {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Gets author
 	 * @link http://php.net/manual/en/reflectionzendextension.getauthor.php
 	 * @return string
+	 * @since 5.4.0
 	 */
 	public function getAuthor () {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Gets URL
 	 * @link http://php.net/manual/en/reflectionzendextension.geturl.php
 	 * @return string
+	 * @since 5.4.0
 	 */
 	public function getURL () {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Gets copyright
 	 * @link http://php.net/manual/en/reflectionzendextension.getcopyright.php
 	 * @return string
+	 * @since 5.4.0
 	 */
 	public function getCopyright () {}
 
