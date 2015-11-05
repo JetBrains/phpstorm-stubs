@@ -2071,6 +2071,11 @@ class MongoBinData {
      * @link http://php.net/manual/en/class.mongobindata.php#mongobindata.constants.uuid
      */
     const UUID = 3;
+    
+    /**
+     * @link http://php.net/manual/en/class.mongobindata.php#mongobindata.constants.uuid_rfc4122
+     */ 
+    const UUID_RFC4122 = 4;
 
      /**
      * @link http://php.net/manual/en/class.mongobindata.php#mongobindata.constants.md5
