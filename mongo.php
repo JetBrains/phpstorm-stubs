@@ -2057,30 +2057,48 @@ class MongoDate {
 }
 
 class MongoBinData {
+	/**
+	 * Generic binary data.
+	 * @link http://php.net/manual/en/class.mongobindata.php#mongobindata.constants.custom
+	 */
+	const GENERIC = 0x0;
+
      /**
+	  * Function
      * @link http://php.net/manual/en/class.mongobindata.php#mongobindata.constants.func
      */
-    const FUNC = 1;
+    const FUNC = 0x1;
 
      /**
+	  * Generic binary data (deprecated in favor of MongoBinData::GENERIC)
      * @link http://php.net/manual/en/class.mongobindata.php#mongobindata.constants.byte-array
      */
-    const BYTE_ARRAY = 2;
+    const BYTE_ARRAY = 0x2;
 
      /**
+	  * Universally unique identifier (deprecated in favor of MongoBinData::UUID_RFC4122)
      * @link http://php.net/manual/en/class.mongobindata.php#mongobindata.constants.uuid
      */
-    const UUID = 3;
+    const UUID = 0x3;
 
-     /**
+	/**
+	 * Universally unique identifier (according to » RFC 4122)
+	 * @link http://php.net/manual/en/class.mongobindata.php#mongobindata.constants.custom
+	 */
+	const UUID_RFC4122 = 0x4;
+
+	
+	/**
+	 * MD5
      * @link http://php.net/manual/en/class.mongobindata.php#mongobindata.constants.md5
      */
-    const MD5 = 5;
+    const MD5 = 0x5;
 
      /**
+	  * User-defined type
      * @link http://php.net/manual/en/class.mongobindata.php#mongobindata.constants.custom
      */
-    const CUSTOM = 128;
+    const CUSTOM = 0x80;
 
 
     /**
