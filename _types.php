@@ -98,6 +98,14 @@ namespace {
          * @return mixed
          */
         function PS_UNRESERVE_PREFIX_throw(Exception $exception) {}
+
+        /**
+         * @link https://wiki.php.net/rfc/generator-return-expressions
+         * Returns whatever was passed to return or null if nothing.
+         * Throws an exception if the generator is still valid.
+         * @return mixed|null
+         */
+        function getReturn() {}
     }
 
 }
