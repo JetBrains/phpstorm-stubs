@@ -125,30 +125,30 @@ class XSLTProcessor  {
 	public function registerPHPFunctions ($restrict = null) {}
 
 	/**
-	 * (PHP &gt;= 5.3.0)<br/>
 	 * Sets profiling output file
 	 * @link http://php.net/manual/en/xsltprocessor.setprofiling.php
 	 * @param string $filename <p>
 	 * Path to the file to dump profiling information.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @since 5.3.0
 	 */
 	public function setProfiling ($filename) {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Set security preferences
 	 * @link http://php.net/manual/en/xsltprocessor.setsecurityprefs.php
 	 * @param int $securityPrefs
 	 * @return int
+	 * @since 5.4.0
 	 */
 	public function setSecurityPrefs ($securityPrefs) {}
 
 	/**
-	 * (PHP &gt;= 5.4.0)<br/>
 	 * Get security preferences
 	 * @link http://php.net/manual/en/xsltprocessor.getsecurityprefs.php
 	 * @return int
+	 * @since 5.4.0
 	 */
 	public function getSecurityPrefs () {}
 

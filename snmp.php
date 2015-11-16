@@ -567,7 +567,6 @@ function snmp_set_oid_numeric_print ($oid_format) {}
 function snmp2_get ($host, $community, $object_id, $timeout = 1000000, $retries = 5) {}
 
 /**
- * (PHP &gt;= 5.2.0)<br/>
  * Fetch the SNMP object which follows the given object id
  * @link http://php.net/manual/en/function.snmp2-getnext.php
  * @param string $host <p>
@@ -587,11 +586,11 @@ function snmp2_get ($host, $community, $object_id, $timeout = 1000000, $retries 
  * </p>
  * @return string SNMP object value on success or <b>FALSE</b> on error.
  * In case of an error, an E_WARNING message is shown.
+ * @since 5.2.0
  */
 function snmp2_getnext ($host, $community, $object_id, $timeout = 1000000, $retries = 5) {}
 
 /**
- * (PHP &gt;= 5.2.0)<br/>
  * Fetch all the SNMP objects from an agent
  * @link http://php.net/manual/en/function.snmp2-walk.php
  * @param string $host <p>
@@ -617,11 +616,11 @@ function snmp2_getnext ($host, $community, $object_id, $timeout = 1000000, $retr
  * </p>
  * @return array an array of SNMP object values starting from the
  * <i>object_id</i> as root or <b>FALSE</b> on error.
+ * @since 5.2.0
  */
 function snmp2_walk ($host, $community, $object_id, $timeout = 1000000, $retries = 5) {}
 
 /**
- * (PHP &gt;= 5.2.0)<br/>
  * Return all objects including their respective object ID within the specified one
  * @link http://php.net/manual/en/function.snmp2-real-walk.php
  * @param string $host <p>
@@ -641,11 +640,11 @@ function snmp2_walk ($host, $community, $object_id, $timeout = 1000000, $retries
  * </p>
  * @return array an associative array of the SNMP object ids and their values on success or <b>FALSE</b> on error.
  * In case of an error, an E_WARNING message is shown.
+ * @since 5.2.0
  */
 function snmp2_real_walk ($host, $community, $object_id, $timeout = 1000000, $retries = 5) {}
 
 /**
- * (PHP &gt;= 5.2.0)<br/>
  * Set the value of an SNMP object
  * @link http://php.net/manual/en/function.snmp2-set.php
  * @param string $host <p>
@@ -707,6 +706,7 @@ function snmp2_real_walk ($host, $community, $object_id, $timeout = 1000000, $re
  * <p>
  * If the SNMP host rejects the data type, an E_WARNING message like "Warning: Error in packet. Reason: (badValue) The value given has the wrong type or length." is shown.
  * If an unknown or invalid OID is specified the warning probably reads "Could not add variable".
+ * @since 5.2.0
  */
 function snmp2_set ($host, $community, $object_id, $type, $value, $timeout = 1000000, $retries = 5) {}
 
