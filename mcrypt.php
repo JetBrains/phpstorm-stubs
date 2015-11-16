@@ -64,12 +64,13 @@ function mcrypt_ofb ($cipher, $key, $data, $mode, $iv) {}
 /**
  * Get the key size of the specified cipher
  * @link http://php.net/manual/en/function.mcrypt-get-key-size.php
- * @param int $cipher 
+ * @param int|string $cipher
+ * @param string $mode
  * @return int 
  * @since 4.0
  * @since 5.0
  */
-function mcrypt_get_key_size ($cipher) {}
+function mcrypt_get_key_size ($cipher, $mode) {}
 
 /**
  * Get the block size of the specified cipher
