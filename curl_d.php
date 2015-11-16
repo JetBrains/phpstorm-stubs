@@ -1,6 +1,6 @@
 <?php
 
-// Start of curl v.
+//TODO: copy proper descriptions for all constants from http://us.php.net/manual/en/function.curl-setopt.php
 
 /**
  * @since 5.3.7
@@ -23,7 +23,6 @@ define('CURLINFO_LOCAL_IP', 1048617);
  * @since 5.4.7
  */
 define('CURLINFO_LOCAL_PORT', 2097194);
-//TODO: copy proper descriptions for all constants from http://us.php.net/manual/en/function.curl-setopt.php
 
 define ('CURLOPT_IPRESOLVE', 113);
 define ('CURL_IPRESOLVE_WHATEVER', 0);
@@ -420,5 +419,3 @@ define ('CURL_LOCK_DATA_SSL_SESSION', 4);
 
 define ('CURLOPT_KEYPASSWD', 10026);
 
-// End of curl v.
-?>

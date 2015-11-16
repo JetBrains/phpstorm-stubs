@@ -397,5 +397,3 @@ class APCIterator implements Iterator
 	 */
 	public function getTotalCount(){}
 }
-
-?>

@@ -1,7 +1,5 @@
 <?php
 
-// Start of bcmath v.
-
 /**
  * Add two arbitrary precision numbers
  * @link http://php.net/manual/en/function.bcadd.php
@@ -165,6 +163,3 @@ function bccomp ($left_operand, $right_operand, $scale = null) {}
  * @since 5.0
  */
 function bcpowmod ($left_operand, $right_operand, $modulus, $scale = null) {}
-
-// End of bcmath v.
-?>

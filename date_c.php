@@ -647,4 +647,3 @@ class DatePeriod implements Traversable {
     public function __construct ($isostr, $options=0) {}
 }
 
-?>

@@ -1,7 +1,5 @@
 <?php
 
-// Start of curl v.
-
 class CURLFile {
     public $name;
     public $mime;
@@ -1709,6 +1707,3 @@ function curl_multi_info_read ($mh, &$msgs_in_queue = null) {}
  * @since 5.0
  */
 function curl_multi_close ($mh) {}
-
-// End of curl v.
-?>

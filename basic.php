@@ -152,5 +152,3 @@ define ('__DIR__', '', true);
  */
 define ('__NAMESPACE__', '', true);
 
-
-?>

@@ -1,7 +1,5 @@
 <?php
 
-// Start of apache v.
-
 /**
  * Terminate apache process after this request
  * apache_child_terminate() will register the Apache process executing the current PHP request for termination once execution of PHP code is completed. It may be used to terminate a process after a script with high memory consumption has been run as memory will usually only be freed internally but not given back to the operating system.
@@ -104,7 +102,7 @@ function apache_reset_timeout () {}
  * @since 4.3.0
  * @since 5.0
  */
-array function apache_response_headers () {}
+function apache_response_headers () {}
 
 /**
  * Sets the value of the Apache environment variable specified by variable.
@@ -149,6 +147,3 @@ function getallheaders () {}
  * @since 5.0
  */
 function virtual ( $filename ) {}
-
-// End of apache v.
-?>

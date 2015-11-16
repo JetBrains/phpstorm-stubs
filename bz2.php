@@ -1,7 +1,5 @@
 <?php
 
-// Start of bz2 v.
-
 /**
  * Opens a bzip2 compressed file
  * @link http://php.net/manual/en/function.bzopen.php
@@ -172,6 +170,3 @@ function bzcompress ($source, $blocksize = 4, $workfactor = 0) {}
  * @since 5.0
  */
 function bzdecompress ($source, $small = 0) {}
-
-// End of bz2 v.
-?>

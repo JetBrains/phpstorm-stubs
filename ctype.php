@@ -1,7 +1,5 @@
 <?php
 
-// Start of ctype v.
-
 /**
  * Check for alphanumeric character(s)
  * @link http://php.net/manual/en/function.ctype-alnum.php
@@ -151,6 +149,3 @@ function ctype_upper ($text) {}
  * @since 5.0
  */
 function ctype_xdigit ($text) {}
-
-// End of ctype v.
-?>

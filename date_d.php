@@ -33,4 +33,3 @@ define ('SUNFUNCS_RET_STRING', 1);
 define ('SUNFUNCS_RET_DOUBLE', 2);
 
 // End of date v.5.3.2-0.dotdeb.1
-?>

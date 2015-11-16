@@ -1432,4 +1432,3 @@ function date_sunset ($timestamp, $format = null, $latitude = null, $longitude =
 function date_sun_info ($time, $latitude, $longitude) {}
 
 // End of date v.5.3.2-0.dotdeb.1
-?>
