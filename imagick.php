@@ -1850,6 +1850,7 @@ class Imagick implements Iterator, Traversable, Countable {
 	 * Returns the image length in bytes
 	 * @link http://php.net/manual/en/imagick.getimagesize.php
 	 * @return int an int containing the current image size.
+	 * @deprecated use {@see Imagick::getImageLength()} instead
 	 */
 	public function getImageSize () {}
 
