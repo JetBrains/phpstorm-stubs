@@ -104,7 +104,7 @@ function apache_reset_timeout () {}
  * @since 4.3.0
  * @since 5.0
  */
-array function apache_response_headers () {}
+function apache_response_headers () {}
 
 /**
  * Sets the value of the Apache environment variable specified by variable.
