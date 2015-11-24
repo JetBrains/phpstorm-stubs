@@ -1197,6 +1197,10 @@ class mysqli_stmt  {
 	 */
 	public $error;
 	/**
+	 * @var array
+	 */
+	public $error_list;
+	/**
 	 * @var string
 	 */
 	public $sqlstate;
