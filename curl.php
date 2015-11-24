@@ -156,1138 +156,1957 @@ function curl_version ($age = null) {}
  * <p>
  * value should be a bool for the
  * following values of the option parameter:
- * <tr valign="top">
- * <td>Option</td>
- * <td>Set value to</td>
- * <td>Notes</td>
+ * <table class="doctable informaltable">
+ *
+ * <thead>
+ * <tr>
+ * <th>Option</th>
+ * <th>Set <em>value</em> to</th>
+ * <th>Notes</th>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_AUTOREFERER</td>
- * <td>
- * true to automatically set the Referer: field in
- * requests where it follows a Location: redirect.
+ *
+ * </thead>
+ *
+ * <tbody class="tbody">
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_AUTOREFERER</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to automatically set the <em>Referer:</em> field in
+ * requests where it follows a <em>Location:</em> redirect.
  * </td>
- * <td>
- * Available since PHP 5.1.0.
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_BINARYTRANSFER</td>
- * <td>
- * true to return the raw output when
- * CURLOPT_RETURNTRANSFER is used.
- * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_COOKIESESSION</td>
- * <td>
- * true to mark this as a new cookie "session". It will force libcurl
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_BINARYTRANSFER</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to return the raw output when
+ * <b>CURLOPT_RETURNTRANSFER</b> is used.
+ * </td>
+ * <td style="vertical-align: top;">
+ * From PHP 5.1.3, this option has no effect: the raw output will
+ * always be returned when
+ * <b>CURLOPT_RETURNTRANSFER</b> is used.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_COOKIESESSION</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to mark this as a new cookie "session". It will force libcurl
  * to ignore all cookies it is about to load that are "session cookies"
  * from the previous session. By default, libcurl always stores and
  * loads all cookies, independent if they are session cookies or not.
  * Session cookies are cookies without expiry date and they are meant
  * to be alive and existing for this "session" only.
  * </td>
- * <td>
- * Available since PHP 5.1.0.
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_CRLF</td>
- * <td>
- * true to convert Unix newlines to CRLF newlines
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_CERTINFO</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to output SSL certification information to <em>STDERR</em>
+ * on secure transfers.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.19.1.
+ * Available since PHP 5.3.2.
+ * Requires <b>CURLOPT_VERBOSE</b> to be on to have an effect.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_CONNECT_ONLY</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> tells the library to perform all the required proxy authentication
+ * and connection setup, but no data transfer. This option is implemented for
+ * HTTP, SMTP and POP3.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in 7.15.2.
+ * Available since PHP 5.5.0.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_CRLF</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to convert Unix newlines to CRLF newlines
  * on transfers.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_DNS_USE_GLOBAL_CACHE</td>
- * <td>
- * true to use a global DNS cache. This option is
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_DNS_USE_GLOBAL_CACHE</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to use a global DNS cache. This option is
  * not thread-safe and is enabled by default.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_FAILONERROR</td>
- * <td>
- * true to fail silently if the HTTP code returned
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_FAILONERROR</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to fail verbosely if the HTTP code returned
  * is greater than or equal to 400. The default behavior is to return
  * the page normally, ignoring the code.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_FILETIME</td>
- * <td>
- * true to attempt to retrieve the modification
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_FILETIME</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to attempt to retrieve the modification
  * date of the remote document. This value can be retrieved using
- * the CURLINFO_FILETIME option with
- * curl_getinfo.
+ * the <b>CURLINFO_FILETIME</b> option with
+ * <span class="function">{@see curl_getinfo()}</span>.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_FOLLOWLOCATION</td>
- * <td>
- * true to follow any
- * "Location: " header that the server sends as
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_FOLLOWLOCATION</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to follow any
+ * <em>"Location: "</em> header that the server sends as
  * part of the HTTP header (note this is recursive, PHP will follow as
- * many "Location: " headers that it is sent,
- * unless CURLOPT_MAXREDIRS is set).
+ * many <em>"Location: "</em> headers that it is sent,
+ * unless <b>CURLOPT_MAXREDIRS</b> is set).
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_FORBID_REUSE</td>
- * <td>
- * true to force the connection to explicitly
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_FORBID_REUSE</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to force the connection to explicitly
  * close when it has finished processing, and not be pooled for reuse.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_FRESH_CONNECT</td>
- * <td>
- * true to force the use of a new connection
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_FRESH_CONNECT</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to force the use of a new connection
  * instead of a cached one.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_FTP_USE_EPRT</td>
- * <td>
- * true to use EPRT (and LPRT) when doing active
- * FTP downloads. Use false to disable EPRT and LPRT and use PORT
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_FTP_USE_EPRT</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to use EPRT (and LPRT) when doing active
+ * FTP downloads. Use <b>FALSE</b> to disable EPRT and LPRT and use PORT
  * only.
  * </td>
- * <td>
- * Added in PHP 5.0.0.
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_FTP_USE_EPSV</td>
- * <td>
- * true to first try an EPSV command for FTP
- * transfers before reverting back to PASV. Set to false
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_FTP_USE_EPSV</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to first try an EPSV command for FTP
+ * transfers before reverting back to PASV. Set to <b>FALSE</b>
  * to disable EPSV.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_FTPAPPEND</td>
- * <td>
- * true to append to the remote file instead of
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_FTP_CREATE_MISSING_DIRS</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to create missing directories when an FTP operation
+ * encounters a path that currently doesn't exist.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_FTPAPPEND</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to append to the remote file instead of
  * overwriting it.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_FTPASCII</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_TCP_NODELAY</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to disable TCP's Nagle algorithm, which tries to minimize
+ * the number of small packets on the network.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Available since PHP 5.2.1 for versions compiled with libcurl 7.11.2 or
+ * greater.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_FTPASCII</b></td>
+ * <td style="vertical-align: top;">
  * An alias of
- * CURLOPT_TRANSFERTEXT. Use that instead.
+ * <b>CURLOPT_TRANSFERTEXT</b>. Use that instead.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_FTPLISTONLY</td>
- * <td>
- * true to only list the names of an FTP
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_FTPLISTONLY</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to only list the names of an FTP
  * directory.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_HEADER</td>
- * <td>
- * true to include the header in the output.
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_HEADER</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to include the header in the output.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_HTTPGET</td>
- * <td>
- * true to reset the HTTP request method to GET.
+ *
+ * <tr>
+ * <td><b>CURLINFO_HEADER_OUT</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to track the handle's request string.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Available since PHP 5.1.3. The <b>CURLINFO_</b>
+ * prefix is intentional.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_HTTPGET</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to reset the HTTP request method to GET.
  * Since GET is the default, this is only necessary if the request
  * method has been changed.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_HTTPPROXYTUNNEL</td>
- * <td>
- * true to tunnel through a given HTTP proxy.
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_HTTPPROXYTUNNEL</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to tunnel through a given HTTP proxy.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_MUTE</td>
- * <td>
- * true to be completely silent with regards to
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_MUTE</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to be completely silent with regards to
  * the cURL functions.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
+ * Removed in cURL 7.15.5 (You can use CURLOPT_RETURNTRANSFER instead)
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_NETRC</td>
- * <td>
- * true to scan the ~/.netrc
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_NETRC</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to scan the <var class="filename">~/.netrc</var>
  * file to find a username and password for the remote site that
  * a connection is being established with.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_NOBODY</td>
- * <td>
- * true to exclude the body from the output.
- * Request method is then set to HEAD. Changing this to false does
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_NOBODY</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to exclude the body from the output.
+ * Request method is then set to HEAD. Changing this to <b>FALSE</b> does
  * not change it to GET.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_NOPROGRESS</td>
- * <td><p>
- * true to disable the progress meter for cURL transfers.
- * <p>
- * PHP automatically sets this option to true, this should only be
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_NOPROGRESS</b></td>
+ * <td style="vertical-align: top;"><p>
+ * <b>TRUE</b> to disable the progress meter for cURL transfers.
+ * </p><blockquote class="note"><p><strong class="note">Note</strong>:
+ * </p><p>
+ * PHP automatically sets this option to <b>TRUE</b>, this should only be
  * changed for debugging purposes.
  * </p>
- * </p></td>
- * <td>
+ * </blockquote>
+ * </td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_NOSIGNAL</td>
- * <td>
- * true to ignore any cURL function that causes a
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_NOSIGNAL</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to ignore any cURL function that causes a
  * signal to be sent to the PHP process. This is turned on by default
  * in multi-threaded SAPIs so timeout options can still be used.
  * </td>
- * <td>
- * Added in cURL 7.10 and PHP 5.0.0.
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.10.
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_POST</td>
- * <td>
- * true to do a regular HTTP POST. This POST is the
- * normal application/x-www-form-urlencoded kind,
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_POST</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to do a regular HTTP POST. This POST is the
+ * normal <em>application/x-www-form-urlencoded</em> kind,
  * most commonly used by HTML forms.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_PUT</td>
- * <td>
- * true to HTTP PUT a file. The file to PUT must
- * be set with CURLOPT_INFILE and
- * CURLOPT_INFILESIZE.
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_PUT</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to HTTP PUT a file. The file to PUT must
+ * be set with <b>CURLOPT_INFILE</b> and
+ * <b>CURLOPT_INFILESIZE</b>.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_RETURNTRANSFER</td>
- * <td>
- * true to return the transfer as a string of the
- * return value of curl_exec instead of outputting
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_RETURNTRANSFER</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to return the transfer as a string of the
+ * return value of <span class="function">{@see curl_exec()}</span> instead of outputting
  * it out directly.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_SAFE_UPLOAD</td>
- * <td>
- * TRUE to disable support for the <em>@</em> prefix for
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SAFE_UPLOAD</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to disable support for the <em>@</em> prefix for
  * uploading files in <b>CURLOPT_POSTFIELDS</b>, which
  * means that values starting with <em>@</em> can be safely
- * passed as fields. {@link http://php.net/manual/en/class.curlfile.php CURLFile} may be used for
+ * passed as fields. {@see CURLFile} may be used for
  * uploads instead.
  * </td>
- * <td>
- * Added in PHP 5.5.0. Currenly -1 by default, but this is likely
- * to be changed in a future version of PHP.
+ * <td style="vertical-align: top;">
+ * Added in PHP 5.5.0 with <b>FALSE</b> as the default value. PHP 5.6.0
+ * changes the default value to <b>TRUE</b>.
  * </td>
  * </tr>
- * <td>CURLOPT_SSL_VERIFYPEER</td>
- * <td>
- * false to stop cURL from verifying the peer's
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSL_VERIFYPEER</b></td>
+ * <td style="vertical-align: top;">
+ * <b>FALSE</b> to stop cURL from verifying the peer's
  * certificate. Alternate certificates to verify against can be
- * specified with the CURLOPT_CAINFO option
+ * specified with the <b>CURLOPT_CAINFO</b> option
  * or a certificate directory can be specified with the
- * CURLOPT_CAPATH option.
- * CURLOPT_SSL_VERIFYHOST may also need to be
- * true or false if
- * CURLOPT_SSL_VERIFYPEER is disabled (it
- * defaults to 2).
+ * <b>CURLOPT_CAPATH</b> option.
  * </td>
- * <td>
- * true by default as of cURL 7.10. Default bundle installed as of
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> by default as of cURL 7.10. Default bundle installed as of
  * cURL 7.10.
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_TRANSFERTEXT</td>
- * <td>
- * true to use ASCII mode for FTP transfers.
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_TRANSFERTEXT</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to use ASCII mode for FTP transfers.
  * For LDAP, it retrieves data in plain text instead of HTML. On
- * Windows systems, it will not set STDOUT to binary
+ * Windows systems, it will not set <em>STDOUT</em> to binary
  * mode.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_UNRESTRICTED_AUTH</td>
- * <td>
- * true to keep sending the username and password
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_UNRESTRICTED_AUTH</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to keep sending the username and password
  * when following locations (using
- * CURLOPT_FOLLOWLOCATION), even when the
+ * <b>CURLOPT_FOLLOWLOCATION</b>), even when the
  * hostname has changed.
  * </td>
- * <td>
- * Added in PHP 5.0.0.
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_UPLOAD</td>
- * <td>
- * true to prepare for an upload.
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_UPLOAD</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to prepare for an upload.
  * </td>
- * <td>
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_VERBOSE</td>
- * <td>
- * true to output verbose information. Writes
- * output to STDERR, or the file specified using
- * CURLOPT_STDERR.
- * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * </p>
- * <p>
- * value should be an integer for the
- * following values of the option parameter:
- * <tr valign="top">
- * <td>Option</td>
- * <td>Set value to</td>
- * <td>Notes</td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_VERBOSE</b></td>
+ * <td style="vertical-align: top;">
+ * <b>TRUE</b> to output verbose information. Writes
+ * output to <em>STDERR</em>, or the file specified using
+ * <b>CURLOPT_STDERR</B>.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_BUFFERSIZE</td>
- * <td>
+ *
+ * </tbody>
+ *
+ * </table>
+ *
+ * value should be an integer for the following values of the option parameter:
+ * <table>
+ *
+ * <thead>
+ * <tr>
+ * <th>Option</th>
+ * <th>Set <em>value</em> to</th>
+ * <th>Notes</th>
+ * </tr>
+ *
+ * </thead>
+ *
+ * <tbody class="tbody">
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_BUFFERSIZE</b></td>
+ * <td style="vertical-align: top;">
  * The size of the buffer to use for each read. There is no guarantee
  * this request will be fulfilled, however.
  * </td>
- * <td>
- * Added in cURL 7.10 and PHP 5.0.0.
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.10.
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_CLOSEPOLICY</td>
- * <td>
- * Either
- * CURLCLOSEPOLICY_LEAST_RECENTLY_USED or
- * CURLCLOSEPOLICY_OLDEST.
- * There are three other CURLCLOSEPOLICY_
- * constants, but cURL does not support them yet.
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_CLOSEPOLICY</b></td>
+ * <td style="vertical-align: top;">
+ * One of the <b>CURLCLOSEPOLICY_*</b> values.
+ * <blockquote class="note"><p><b>Note</b>:
+ * </p><p>
+ * This option is deprecated, as it was never implemented in cURL and
+ * never had any effect.
+ * </p>
+ * </blockquote>
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
+ * Removed in PHP 5.6.0.
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_CONNECTTIMEOUT</td>
- * <td>
+ *
+ * <tr>
+ * <td><b>CURLOPT_CONNECTTIMEOUT</b></td>
+ * <td style="vertical-align: top;">
  * The number of seconds to wait while trying to connect. Use 0 to
  * wait indefinitely.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_CONNECTTIMEOUT_MS</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_CONNECTTIMEOUT_MS</b></td>
+ * <td style="vertical-align: top;">
  * The number of milliseconds to wait while trying to connect. Use 0 to
  * wait indefinitely.
+ *
+ * If libcurl is built to use the standard system name resolver, that
+ * portion of the connect will still use full-second resolution for
+ * timeouts with a minimum timeout allowed of one second.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * Added in cURL 7.16.2. Available since PHP 5.2.3.
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_DNS_CACHE_TIMEOUT</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_DNS_CACHE_TIMEOUT</b></td>
+ * <td style="vertical-align: top;">
  * The number of seconds to keep DNS entries in memory. This
  * option is set to 120 (2 minutes) by default.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_FTPSSLAUTH</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_FTPSSLAUTH</b></td>
+ * <td style="vertical-align: top;">
  * The FTP authentication method (when is activated):
- * CURLFTPAUTH_SSL (try SSL first),
- * CURLFTPAUTH_TLS (try TLS first), or
- * CURLFTPAUTH_DEFAULT (let cURL decide).
+ * <em>CURLFTPAUTH_SSL</em> (try SSL first),
+ * <em>CURLFTPAUTH_TLS</em> (try TLS first), or
+ * <em>CURLFTPAUTH_DEFAULT</em> (let cURL decide).
  * </td>
- * <td>
- * Added in cURL 7.12.2 and PHP 5.1.0.
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.12.2.
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_HTTP_VERSION</td>
- * <td>
- * CURL_HTTP_VERSION_NONE (default, lets CURL
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_HTTP_VERSION</b></td>
+ * <td style="vertical-align: top;">
+ * <code class="parameter">CURL_HTTP_VERSION_NONE</code> (default, lets CURL
  * decide which version to use),
- * CURL_HTTP_VERSION_1_0 (forces HTTP/1.0),
- * or CURL_HTTP_VERSION_1_1 (forces HTTP/1.1).
+ * <code class="parameter">CURL_HTTP_VERSION_1_0</code> (forces HTTP/1.0),
+ * or <code class="parameter">CURL_HTTP_VERSION_1_1</code> (forces HTTP/1.1).
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_HTTPAUTH</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_HTTPAUTH</b></td>
+ * <td style="vertical-align: top;">
  * <p>
  * The HTTP authentication method(s) to use. The options are:
- * CURLAUTH_BASIC,
- * CURLAUTH_DIGEST,
- * CURLAUTH_GSSNEGOTIATE,
- * CURLAUTH_NTLM,
- * CURLAUTH_ANY, and
- * CURLAUTH_ANYSAFE.
+ * <code class="parameter">CURLAUTH_BASIC</code>,
+ * <code class="parameter">CURLAUTH_DIGEST</code>,
+ * <code class="parameter">CURLAUTH_GSSNEGOTIATE</code>,
+ * <code class="parameter">CURLAUTH_NTLM</code>,
+ * <code class="parameter">CURLAUTH_ANY</code>, and
+ * <code class="parameter">CURLAUTH_ANYSAFE</code>.
  * </p>
  * <p>
- * The bitwise | (or) operator can be used to combine
+ * The bitwise <em>|</em> (or) operator can be used to combine
  * more than one method. If this is done, cURL will poll the server to see
  * what methods it supports and pick the best one.
  * </p>
  * <p>
- * CURLAUTH_ANY is an alias for
- * CURLAUTH_BASIC | CURLAUTH_DIGEST | CURLAUTH_GSSNEGOTIATE | CURLAUTH_NTLM.
+ * <code class="parameter">CURLAUTH_ANY</code> is an alias for
+ * <em>CURLAUTH_BASIC | CURLAUTH_DIGEST | CURLAUTH_GSSNEGOTIATE | CURLAUTH_NTLM</em>.
  * </p>
  * <p>
- * CURLAUTH_ANYSAFE is an alias for
- * CURLAUTH_DIGEST | CURLAUTH_GSSNEGOTIATE | CURLAUTH_NTLM.
+ * <code class="parameter">CURLAUTH_ANYSAFE</code> is an alias for
+ * <em>CURLAUTH_DIGEST | CURLAUTH_GSSNEGOTIATE | CURLAUTH_NTLM</em>.
  * </p>
  * </td>
- * <td>
- * Added in PHP 5.0.0.
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_INFILESIZE</td>
- * <td>
- * The expected size, in bytes, of the file when uploading a file to a
- * remote site.
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_INFILESIZE</b></td>
+ * <td style="vertical-align: top;">
+ * The expected size, in bytes, of the file when uploading a file to
+ * a remote site. Note that using this option will not stop libcurl
+ * from sending more data, as exactly what is sent depends on
+ * <b>CURLOPT_READFUNCTION</b>.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_LOW_SPEED_LIMIT</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_LOW_SPEED_LIMIT</b></td>
+ * <td style="vertical-align: top;">
  * The transfer speed, in bytes per second, that the transfer should be
- * below during CURLOPT_LOW_SPEED_TIME seconds
- * for PHP to consider the transfer too slow and abort.
+ * below during the count of <b>CURLOPT_LOW_SPEED_TIME</b>
+ * seconds before PHP considers the transfer too slow and aborts.
  * </td>
- * <td>
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_LOW_SPEED_TIME</td>
- * <td>
- * The number of seconds the transfer should be below
- * CURLOPT_LOW_SPEED_LIMIT for PHP to consider
- * the transfer too slow and abort.
- * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_MAXCONNECTS</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_LOW_SPEED_TIME</b></td>
+ * <td style="vertical-align: top;">
+ * The number of seconds the transfer speed should be below
+ * <b>CURLOPT_LOW_SPEED_LIMIT</b> before PHP considers
+ * the transfer too slow and aborts.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_MAXCONNECTS</b></td>
+ * <td style="vertical-align: top;">
  * The maximum amount of persistent connections that are allowed.
  * When the limit is reached,
- * CURLOPT_CLOSEPOLICY is used to determine
+ * <b>CURLOPT_CLOSEPOLICY</b> is used to determine
  * which connection to close.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_MAXREDIRS</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_MAXREDIRS</b></td>
+ * <td style="vertical-align: top;">
  * The maximum amount of HTTP redirections to follow. Use this option
- * alongside CURLOPT_FOLLOWLOCATION.
+ * alongside <b>CURLOPT_FOLLOWLOCATION</b>.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_PORT</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_PORT</b></td>
+ * <td style="vertical-align: top;">
  * An alternative port number to connect to.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_PROTOCOLS</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_POSTREDIR</b></td>
+ * <td style="vertical-align: top;">
+ * A bitmask of 1 (301 Moved Permanently), 2 (302 Found)
+ * vand 4 (303 See Other) if the HTTP POST method should be maintained
+ * when <b>CURLOPT_FOLLOWLOCATION</b> is set and a
+ * specific type of redirect occurs.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.19.1. Available since PHP 5.3.2.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_PROTOCOLS</b></td>
+ * <td style="vertical-align: top;">
  * <p>
- * Bitmask of CURLPROTO_* values. If used, this bitmask 
+ * Bitmask of <b>CURLPROTO_*</b> values. If used, this bitmask
  * limits what protocols libcurl may use in the transfer. This allows you to have
  * a libcurl built to support a wide range of protocols but still limit specific
  * transfers to only be allowed to use a subset of them. By default libcurl will
- * accept all protocols it supports. 
- * See also CURLOPT_REDIR_PROTOCOLS.
+ * accept all protocols it supports.
+ * See also <b>CURLOPT_REDIR_PROTOCOLS</b>.
  * </p>
  * <p>
- * Valid protocol options are: 
- * CURLPROTO_HTTP,
- * CURLPROTO_HTTPS,
- * CURLPROTO_FTP,
- * CURLPROTO_FTPS,
- * CURLPROTO_SCP,
- * CURLPROTO_SFTP,
- * CURLPROTO_TELNET,
- * CURLPROTO_LDAP,
- * CURLPROTO_LDAPS,
- * CURLPROTO_DICT,
- * CURLPROTO_FILE,
- * CURLPROTO_TFTP,
- * CURLPROTO_ALL
+ * Valid protocol options are:
+ * <code class="parameter">CURLPROTO_HTTP</code>,
+ * <code class="parameter">CURLPROTO_HTTPS</code>,
+ * <code class="parameter">CURLPROTO_FTP</code>,
+ * <code class="parameter">CURLPROTO_FTPS</code>,
+ * <code class="parameter">CURLPROTO_SCP</code>,
+ * <code class="parameter">CURLPROTO_SFTP</code>,
+ * <code class="parameter">CURLPROTO_TELNET</code>,
+ * <code class="parameter">CURLPROTO_LDAP</code>,
+ * <code class="parameter">CURLPROTO_LDAPS</code>,
+ * <code class="parameter">CURLPROTO_DICT</code>,
+ * <code class="parameter">CURLPROTO_FILE</code>,
+ * <code class="parameter">CURLPROTO_TFTP</code>,
+ * <code class="parameter">CURLPROTO_ALL</code>
  * </p>
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * Added in cURL 7.19.4.
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_PROXYAUTH</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_PROXYAUTH</b></td>
+ * <td style="vertical-align: top;">
  * The HTTP authentication method(s) to use for the proxy connection.
  * Use the same bitmasks as described in
- * CURLOPT_HTTPAUTH. For proxy authentication,
- * only CURLAUTH_BASIC and
- * CURLAUTH_NTLM are currently supported.
+ * <b>CURLOPT_HTTPAUTH</b>. For proxy authentication,
+ * only <code class="parameter">CURLAUTH_BASIC</code> and
+ * <code class="parameter">CURLAUTH_NTLM</code> are currently supported.
  * </td>
- * <td>
- * Added in cURL 7.10.7 and PHP 5.1.0.
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.10.7.
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_PROXYPORT</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_PROXYPORT</b></td>
+ * <td style="vertical-align: top;">
  * The port number of the proxy to connect to. This port number can
- * also be set in CURLOPT_PROXY.
+ * also be set in <b>CURLOPT_PROXY</b>.
  * </td>
- * <td>
- * Added in PHP 5.0.0.
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_PROXYTYPE</td>
- * <td>
- * Either CURLPROXY_HTTP (default) or
- * CURLPROXY_SOCKS5.
- * </td>
- * <td>
- * Added in cURL 7.10 and PHP 5.0.0.
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_REDIR_PROTOCOLS</td>
- * <td>
- * Bitmask of CURLPROTO_* values. If used, this bitmask
- * limits what protocols libcurl may use in a transfer that it follows to in
- * a redirect when CURLOPT_FOLLOWLOCATION is enabled.
- * This allows you to limit specific transfers to only be allowed to use a subset
- * of protocols in redirections. By default libcurl will allow all protocols
- * except for FILE and SCP. This is a difference compared to pre-7.19.4 versions
- * which unconditionally would follow to all protocols supported. 
- * See also CURLOPT_PROTOCOLS for protocol constant values.
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_PROXYTYPE</b></td>
+ * <td style="vertical-align: top;">
+ * Either <b>CURLPROXY_HTTP</b> (default),
+ * <b>CURLPROXY_SOCKS4</b>,
+ * <b>CURLPROXY_SOCKS5</b>,
+ * <b>CURLPROXY_SOCKS4A</b> or
+ * <b>CURLPROXY_SOCKS5_HOSTNAME</b>.
  * </td>
- * <td>
- * Added in cURL 7.19.4.
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_RESUME_FROM</td>
- * <td>
- * The offset, in bytes, to resume a transfer from.
- * </td>
- * <td>
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_SSL_VERIFYHOST</td>
- * <td>
- * 1 to check the existence of a common name in the
- * SSL peer certificate. 2 to check the existence of
- * a common name and also verify that it matches the hostname
- * provided.
- * </td>
- * <td>
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_SSLVERSION</td>
- * <td>
- * The SSL version (2 or 3) to use. By default PHP will try to determine
- * this itself, although in some cases this must be set manually.
- * </td>
- * <td>
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_TIMECONDITION</td>
- * <td>
- * How CURLOPT_TIMEVALUE is treated.
- * Use CURL_TIMECOND_IFMODSINCE to return the
- * page only if it has been modified since the time specified in
- * CURLOPT_TIMEVALUE. If it hasn't been modified,
- * a "304 Not Modified" header will be returned
- * assuming CURLOPT_HEADER is true.
- * Use CURL_TIMECOND_IFUNMODSINCE for the reverse
- * effect. CURL_TIMECOND_IFMODSINCE is the
- * default.
- * </td>
- * <td>
- * Added in PHP 5.1.0.
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_TIMEOUT</td>
- * <td>
- * The maximum number of seconds to allow cURL functions to execute.
- * </td>
- * <td>
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_TIMEOUT_MS</td>
- * <td>
- * The maximum number of milliseconds to allow cURL functions to
- * execute.
- * </td>
- * <td>
- * Added in cURL 7.16.2. Available since PHP 5.2.3.
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_TIMEVALUE</td>
- * <td>
- * The time in seconds since January 1st, 1970. The time will be used
- * by CURLOPT_TIMECONDITION. By default,
- * CURL_TIMECOND_IFMODSINCE is used.
- * </td>
- * <td>
- * </td>
- * </tr>
- * </p>
- * <p>
- * value should be a string for the
- * following values of the option parameter:
- * <tr valign="top">
- * <td>Option</td>
- * <td>Set value to</td>
- * <td>Notes</td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_CAINFO</td>
- * <td>
- * The name of a file holding one or more certificates to verify the
- * peer with. This only makes sense when used in combination with
- * CURLOPT_SSL_VERIFYPEER.
- * </td>
- * <td>
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_CAPATH</td>
- * <td>
- * A directory that holds multiple CA certificates. Use this option
- * alongside CURLOPT_SSL_VERIFYPEER.
- * </td>
- * <td>
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_COOKIE</td>
- * <td>
- * The contents of the "Cookie: " header to be
- * used in the HTTP request.
- * Note that multiple cookies are separated with a semicolon followed
- * by a space (e.g., "fruit=apple; colour=red")
- * </td>
- * <td>
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_COOKIEFILE</td>
- * <td>
- * The name of the file containing the cookie data. The cookie file can
- * be in Netscape format, or just plain HTTP-style headers dumped into
- * a file.
- * </td>
- * <td>
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_COOKIEJAR</td>
- * <td>
- * The name of a file to save all internal cookies to when the
- * connection closes.
- * </td>
- * <td>
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_CUSTOMREQUEST</td>
- * <td><p>
- * A custom request method to use instead of
- * "GET" or "HEAD" when doing
- * a HTTP request. This is useful for doing
- * "DELETE" or other, more obscure HTTP requests.
- * Valid values are things like "GET",
- * "POST", "CONNECT" and so on;
- * i.e. Do not enter a whole HTTP request line here. For instance,
- * entering "GET /index.html HTTP/1.0\r\n\r\n"
- * would be incorrect.
- * <p>
- * Don't do this without making sure the server supports the custom
- * request method first.
- * </p>
- * </p></td>
- * <td>
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_EGDSOCKET</td>
- * <td>
- * Like CURLOPT_RANDOM_FILE, except a filename
- * to an Entropy Gathering Daemon socket.
- * </td>
- * <td>
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_ENCODING</td>
- * <td>
- * The contents of the "Accept-Encoding: " header.
- * This enables decoding of the response. Supported encodings are
- * "identity", "deflate", and
- * "gzip". If an empty string, "",
- * is set, a header containing all supported encoding types is sent.
- * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * Added in cURL 7.10.
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_FTPPORT</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_REDIR_PROTOCOLS</b></td>
+ * <td style="vertical-align: top;">
+ * Bitmask of <b>CURLPROTO_*</b> values. If used, this bitmask
+ * limits what protocols libcurl may use in a transfer that it follows to in
+ * a redirect when <b>CURLOPT_FOLLOWLOCATION</b> is enabled.
+ * This allows you to limit specific transfers to only be allowed to use a subset
+ * of protocols in redirections. By default libcurl will allow all protocols
+ * except for FILE and SCP. This is a difference compared to pre-7.19.4 versions
+ * which unconditionally would follow to all protocols supported.
+ * See also <b>CURLOPT_PROTOCOLS</b> for protocol constant values.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.19.4.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_RESUME_FROM</b></td>
+ * <td style="vertical-align: top;">
+ * The offset, in bytes, to resume a transfer from.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSL_VERIFYHOST</b></td>
+ * <td style="vertical-align: top;">
+ * 1 to check the existence of a common name in the
+ * SSL peer certificate. 2 to check the existence of
+ * a common name and also verify that it matches the hostname
+ * provided. In production environments the value of this option
+ * should be kept at 2 (default value).
+ * </td>
+ * <td style="vertical-align: top;">
+ * Support for value 1 removed in cURL 7.28.1
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSLVERSION</b></td>
+ * <td style="vertical-align: top;">
+ * One of <b>CURL_SSLVERSION_DEFAULT</b> (0),
+ * <b>CURL_SSLVERSION_TLSv1</b> (1),
+ * <b>CURL_SSLVERSION_SSLv2</b> (2),
+ * <b>CURL_SSLVERSION_SSLv3</b> (3),
+ * <b>CURL_SSLVERSION_TLSv1_0</b> (4),
+ * <b>CURL_SSLVERSION_TLSv1_1</b> (5) or
+ * <b>CURL_SSLVERSION_TLSv1_2</b> (6).
+ * <blockquote class="note"><p><strong class="note">Note</strong>:
+ * </p><p class="para">
+ * Your best bet is to not set this and let it use the default.
+ * Setting it to 2 or 3 is very dangerous given the known
+ * vulnerabilities in SSLv2 and SSLv3.
+ * </p>
+ * </blockquote>
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_TIMECONDITION</b></td>
+ * <td style="vertical-align: top;">
+ * How <b>CURLOPT_TIMEVALUE</b> is treated.
+ * Use <b>CURL_TIMECOND_IFMODSINCE</b> to return the
+ * page only if it has been modified since the time specified in
+ * <b>CURLOPT_TIMEVALUE</b>. If it hasn't been modified,
+ * a <em>"304 Not Modified"</em> header will be returned
+ * assuming <b>CURLOPT_HEADER</code></strong> is <strong><code>TRUE</b>.
+ * Use <code class="parameter">CURL_TIMECOND_IFUNMODSINCE</code> for the reverse
+ * effect. <code class="parameter">CURL_TIMECOND_IFMODSINCE</code> is the
+ * default.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_TIMEOUT</b></td>
+ * <td style="vertical-align: top;">
+ * The maximum number of seconds to allow cURL functions to execute.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_TIMEOUT_MS</b></td>
+ * <td style="vertical-align: top;">
+ * The maximum number of milliseconds to allow cURL functions to
+ * execute.
+ *
+ * If libcurl is built to use the standard system name resolver, that
+ * portion of the connect will still use full-second resolution for
+ * timeouts with a minimum timeout allowed of one second.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.16.2. Available since PHP 5.2.3.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_TIMEVALUE</b></td>
+ * <td style="vertical-align: top;">
+ * The time in seconds since January 1st, 1970. The time will be used
+ * by <b>CURLOPT_TIMECONDITION</b>. By default,
+ * <code class="parameter">CURL_TIMECOND_IFMODSINCE</code> is used.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_MAX_RECV_SPEED_LARGE</b></td>
+ * <td style="vertical-align: top;">
+ * If a download exceeds this speed (counted in bytes per second) on
+ * cumulative average during the transfer, the transfer will pause to
+ * keep the average rate less than or equal to the parameter value.
+ * Defaults to unlimited speed.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.15.5. Available since PHP 5.4.0.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_MAX_SEND_SPEED_LARGE</b></td>
+ * <td style="vertical-align: top;">
+ * If an upload exceeds this speed (counted in bytes per second) on
+ * cumulative average during the transfer, the transfer will pause to
+ * keep the average rate less than or equal to the parameter value.
+ * Defaults to unlimited speed.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.15.5. Available since PHP 5.4.0.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSH_AUTH_TYPES</b></td>
+ * <td style="vertical-align: top;">
+ * A bitmask consisting of one or more of
+ * <b>CURLSSH_AUTH_PUBLICKEY</b>,
+ * <b>CURLSSH_AUTH_PASSWORD</b>,
+ * <b>CURLSSH_AUTH_HOST</b>,
+ * <b>CURLSSH_AUTH_KEYBOARD</b>. Set to
+ * <b>CURLSSH_AUTH_ANY</b> to let libcurl pick one.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.16.1.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_IPRESOLVE</b></td>
+ * <td style="vertical-align: top;">
+ * Allows an application to select what kind of IP addresses to use when
+ * resolving host names. This is only interesting when using host names that
+ * resolve addresses using more than one version of IP, possible values are
+ * <b>CURL_IPRESOLVE_WHATEVER</b>,
+ * <b>CURL_IPRESOLVE_V4</b>,
+ * <b>CURL_IPRESOLVE_V6</b>, by default
+ * <b>CURL_IPRESOLVE_WHATEVER</b>.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.10.8.
+ * </td>
+ * </tr>
+ *
+ * </tbody>
+ *
+ * </table>
+ *
+ * value should be a string for the following values of the option parameter:
+ * <table class="doctable informaltable">
+ *
+ * <thead>
+ * <tr>
+ * <th>Option</th>
+ * <th>Set <code class="parameter">value</code> to</th>
+ * <th>Notes</th>
+ * </tr>
+ *
+ * </thead>
+ *
+ * <tbody class="tbody">
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_CAINFO</b></td>
+ * <td style="vertical-align: top;">
+ * The name of a file holding one or more certificates to verify the
+ * peer with. This only makes sense when used in combination with
+ * <b>CURLOPT_SSL_VERIFYPEER</b>.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Might require an absolute path.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_CAPATH</b></td>
+ * <td style="vertical-align: top;">
+ * A directory that holds multiple CA certificates. Use this option
+ * alongside <b>CURLOPT_SSL_VERIFYPEER</b>.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_COOKIE</b></td>
+ * <td style="vertical-align: top;">
+ * The contents of the <em>"Cookie: "</em> header to be
+ * used in the HTTP request.
+ * Note that multiple cookies are separated with a semicolon followed
+ * by a space (e.g., "<em>fruit=apple; colour=red</em>")
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_COOKIEFILE</b></td>
+ * <td style="vertical-align: top;">
+ * The name of the file containing the cookie data. The cookie file can
+ * be in Netscape format, or just plain HTTP-style headers dumped into
+ * a file.
+ * If the name is an empty string, no cookies are loaded, but cookie
+ * handling is still enabled.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_COOKIEJAR</b></td>
+ * <td style="vertical-align: top;">
+ * The name of a file to save all internal cookies to when the handle is closed,
+ * e.g. after a call to curl_close.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_CUSTOMREQUEST</b></td>
+ * <td style="vertical-align: top;"><p class="para">
+ * A custom request method to use instead of
+ * <em>"GET"</em> or <em>"HEAD"</em> when doing
+ * a HTTP request. This is useful for doing
+ * <em>"DELETE"</em> or other, more obscure HTTP requests.
+ * Valid values are things like <em>"GET"</em>,
+ * <em>"POST"</em>, <em>"CONNECT"</em> and so on;
+ * i.e. Do not enter a whole HTTP request line here. For instance,
+ * entering <em>"GET /index.html HTTP/1.0\r\n\r\n"</em>
+ * would be incorrect.
+ * </p><blockquote class="note"><p><strong class="note">Note</strong>:
+ * </p><p class="para">
+ * Don't do this without making sure the server supports the custom
+ * request method first.
+ * </p>
+ * </blockquote>
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_EGDSOCKET</b></td>
+ * <td style="vertical-align: top;">
+ * Like <b>CURLOPT_RANDOM_FILE</b>, except a filename
+ * to an Entropy Gathering Daemon socket.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_ENCODING</b></td>
+ * <td style="vertical-align: top;">
+ * The contents of the <em>"Accept-Encoding: "</em> header.
+ * This enables decoding of the response. Supported encodings are
+ * <em>"identity"</em>, <em>"deflate"</em>, and
+ * <em>"gzip"</em>. If an empty string, <em>""</em>,
+ * is set, a header containing all supported encoding types is sent.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.10.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_FTPPORT</b></td>
+ * <td style="vertical-align: top;">
  * The value which will be used to get the IP address to use
- * for the FTP "POST" instruction. The "POST" instruction tells
- * the remote server to connect to our specified IP address. The
+ * for the FTP "PORT" instruction. The "PORT" instruction tells
+ * the remote server to connect to our specified IP address.  The
  * string may be a plain IP address, a hostname, a network
  * interface name (under Unix), or just a plain '-' to use the
  * systems default IP address.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_INTERFACE</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_INTERFACE</b></td>
+ * <td style="vertical-align: top;">
  * The name of the outgoing network interface to use. This can be an
  * interface name, an IP address or a host name.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_KRB4LEVEL</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_KEYPASSWD</b></td>
+ * <td style="vertical-align: top;">
+ * The password required to use the <b>CURLOPT_SSLKEY</b>
+ * or <b>CURLOPT_SSH_PRIVATE_KEYFILE</b> private key.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.16.1.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_KRB4LEVEL</b></td>
+ * <td style="vertical-align: top;">
  * The KRB4 (Kerberos 4) security level. Any of the following values
  * (in order from least to most powerful) are valid:
- * "clear",
- * "safe",
- * "confidential",
- * "private"..
+ * <em>"clear"</em>,
+ * <em>"safe"</em>,
+ * <em>"confidential"</em>,
+ * <em>"private".</em>.
  * If the string does not match one of these,
- * "private" is used. Setting this option to &null;
+ * <em>"private"</em> is used. Setting this option to <b>NULL</b>
  * will disable KRB4 security. Currently KRB4 security only works
  * with FTP transactions.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_POSTFIELDS</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_POSTFIELDS</b></td>
+ * <td style="vertical-align: top;">
+ * <span class="simpara">
  * The full data to post in a HTTP "POST" operation.
- * To post a file, prepend a filename with @ and
- * use the full path. This can either be passed as a urlencoded 
- * string like 'para1=val1&amp;para2=val2&amp;...' 
+ * To post a file, prepend a filename with <em>@</em> and
+ * use the full path. The filetype can be explicitly specified by
+ * following the filename with the type in the format
+ * '<em>;type=mimetype</em>'. This parameter can either be
+ * passed as a urlencoded string like '<em>para1=val1&amp;para2=val2&amp;...</em>'
  * or as an array with the field name as key and field data as value.
- * If value is an array, the
- * Content-Type header will be set to
- * multipart/form-data.
+ * If <code class="parameter">value</code> is an array, the
+ * <em>Content-Type</em> header will be set to
+ * <em>multipart/form-data</em>.
+ * </span>
+ * <span class="simpara">
+ * As of PHP 5.2.0, <code class="parameter">value</code> must be an array if
+ * files are passed to this option with the <em>@</em> prefix.
+ * </span>
+ * <span class="simpara">
+ * As of PHP 5.5.0, the <em>@</em> prefix is deprecated and
+ * files can be sent using <a href="class.curlfile.php" class="classname">CURLFile</a>. The
+ * <em>@</em> prefix can be disabled for safe passing of
+ * values beginning with <em>@</em> by setting the
+ * <b>CURLOPT_SAFE_UPLOAD</code></strong> option to <strong><code>TRUE</b>.
+ * </span>
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_PROXY</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_PROXY</b></td>
+ * <td style="vertical-align: top;">
  * The HTTP proxy to tunnel requests through.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_PROXYUSERPWD</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_PROXYUSERPWD</b></td>
+ * <td style="vertical-align: top;">
  * A username and password formatted as
- * "[username]:[password]" to use for the
+ * <em>"[username]:[password]"</em> to use for the
  * connection to the proxy.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_RANDOM_FILE</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_RANDOM_FILE</b></td>
+ * <td style="vertical-align: top;">
  * A filename to be used to seed the random number generator for SSL.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_RANGE</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_RANGE</b></td>
+ * <td style="vertical-align: top;">
  * Range(s) of data to retrieve in the format
- * "X-Y" where X or Y are optional. HTTP transfers
+ * <em>"X-Y"</em> where X or Y are optional. HTTP transfers
  * also support several intervals, separated with commas in the format
- * "X-Y,N-M".
+ * <em>"X-Y,N-M"</em>.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_REFERER</td>
- * <td>
- * The contents of the "Referer: " header to be used
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_REFERER</b></td>
+ * <td style="vertical-align: top;">
+ * The contents of the <em>"Referer: "</em> header to be used
  * in a HTTP request.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_SSL_CIPHER_LIST</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSH_HOST_PUBLIC_KEY_MD5</b></td>
+ * <td style="vertical-align: top;">
+ * A string containing 32 hexadecimal digits. The string should be the
+ * MD5 checksum of the remote host's public key, and libcurl will reject
+ * the connection to the host unless the md5sums match.
+ * This option is only for SCP and SFTP transfers.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.17.1.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSH_PUBLIC_KEYFILE</b></td>
+ * <td style="vertical-align: top;">
+ * The file name for your public key. If not used, libcurl defaults to
+ * $HOME/.ssh/id_dsa.pub if the HOME environment variable is set,
+ * and just "id_dsa.pub" in the current directory if HOME is not set.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.16.1.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSH_PRIVATE_KEYFILE</b></td>
+ * <td style="vertical-align: top;">
+ * The file name for your private key. If not used, libcurl defaults to
+ * $HOME/.ssh/id_dsa if the HOME environment variable is set,
+ * and just "id_dsa" in the current directory if HOME is not set.
+ * If the file is password-protected, set the password with
+ * <b>CURLOPT_KEYPASSWD</b>.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.16.1.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSL_CIPHER_LIST</b></td>
+ * <td style="vertical-align: top;">
  * A list of ciphers to use for SSL. For example,
- * RC4-SHA and TLSv1 are valid
+ * <em>RC4-SHA</em> and <em>TLSv1</em> are valid
  * cipher lists.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_SSLCERT</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSLCERT</b></td>
+ * <td style="vertical-align: top;">
  * The name of a file containing a PEM formatted certificate.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_SSLCERTPASSWD</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSLCERTPASSWD</b></td>
+ * <td style="vertical-align: top;">
  * The password required to use the
- * CURLOPT_SSLCERT certificate.
+ * <b>CURLOPT_SSLCERT</b> certificate.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_SSLCERTTYPE</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSLCERTTYPE</b></td>
+ * <td style="vertical-align: top;">
  * The format of the certificate. Supported formats are
- * "PEM" (default), "DER",
- * and "ENG".
+ * <em>"PEM"</em> (default), <em>"DER"</em>,
+ * and <em>"ENG"</em>.
  * </td>
- * <td>
- * Added in cURL 7.9.3 and PHP 5.0.0.
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.9.3.
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_SSLENGINE</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSLENGINE</b></td>
+ * <td style="vertical-align: top;">
  * The identifier for the crypto engine of the private SSL key
- * specified in CURLOPT_SSLKEY.
+ * specified in <b>CURLOPT_SSLKEY</b>.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_SSLENGINE_DEFAULT</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSLENGINE_DEFAULT</b></td>
+ * <td style="vertical-align: top;">
  * The identifier for the crypto engine used for asymmetric crypto
  * operations.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_SSLKEY</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSLKEY</b></td>
+ * <td style="vertical-align: top;">
  * The name of a file containing a private SSL key.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_SSLKEYPASSWD</td>
- * <td><p>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSLKEYPASSWD</b></td>
+ * <td style="vertical-align: top;"><p class="para">
  * The secret password needed to use the private SSL key specified in
- * CURLOPT_SSLKEY.
- * <p>
+ * <b>CURLOPT_SSLKEY</b>.
+ * </p><blockquote class="note"><p><strong class="note">Note</strong>:
+ * </p><p class="para">
  * Since this option contains a sensitive password, remember to keep
  * the PHP script it is contained within safe.
  * </p>
- * </p></td>
- * <td>
+ * </blockquote>
+ * </td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_SSLKEYTYPE</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSLKEYTYPE</b></td>
+ * <td style="vertical-align: top;">
  * The key type of the private SSL key specified in
- * CURLOPT_SSLKEY. Supported key types are
- * "PEM" (default), "DER",
- * and "ENG".
+ * <b>CURLOPT_SSLKEY</b>. Supported key types are
+ * <em>"PEM"</em> (default), <em>"DER"</em>,
+ * and <em>"ENG"</em>.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_URL</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_URL</b></td>
+ * <td style="vertical-align: top;">
  * The URL to fetch. This can also be set when initializing a
- * session with curl_init.
+ * session with {@see curl_init()}</span>.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_USERAGENT</td>
- * <td>
- * The contents of the "User-Agent: " header to be
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_USERAGENT</b></td>
+ * <td style="vertical-align: top;">
+ * The contents of the <em>"User-Agent: "</em> header to be
  * used in a HTTP request.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_USERPWD</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_USERPWD</b></td>
+ * <td style="vertical-align: top;">
  * A username and password formatted as
- * "[username]:[password]" to use for the
+ * <em>"[username]:[password]"</em> to use for the
  * connection.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * </p>
- * <p>
- * value should be an array for the
- * following values of the option parameter:
- * <tr valign="top">
- * <td>Option</td>
- * <td>Set value to</td>
- * <td>Notes</td>
+ *
+ * </tbody>
+ *
+ * </table>
+ * <table class="doctable informaltable">
+ *
+ * <thead>
+ * <tr>
+ * <th>Option</th>
+ * <th>Set <code class="parameter">value</code> to</th>
+ * <th>Notes</th>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_HTTP200ALIASES</td>
- * <td>
+ *
+ * </thead>
+ *
+ * <tbody class="tbody">
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_CAINFO</b></td>
+ * <td style="vertical-align: top;">
+ * The name of a file holding one or more certificates to verify the
+ * peer with. This only makes sense when used in combination with
+ * <b>CURLOPT_SSL_VERIFYPEER</b>.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Might require an absolute path.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_CAPATH</b></td>
+ * <td style="vertical-align: top;">
+ * A directory that holds multiple CA certificates. Use this option
+ * alongside <b>CURLOPT_SSL_VERIFYPEER</b>.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_COOKIE</b></td>
+ * <td style="vertical-align: top;">
+ * The contents of the <em>"Cookie: "</em> header to be
+ * used in the HTTP request.
+ * Note that multiple cookies are separated with a semicolon followed
+ * by a space (e.g., "<em>fruit=apple; colour=red</em>")
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_COOKIEFILE</b></td>
+ * <td style="vertical-align: top;">
+ * The name of the file containing the cookie data. The cookie file can
+ * be in Netscape format, or just plain HTTP-style headers dumped into
+ * a file.
+ * If the name is an empty string, no cookies are loaded, but cookie
+ * handling is still enabled.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_COOKIEJAR</b></td>
+ * <td style="vertical-align: top;">
+ * The name of a file to save all internal cookies to when the handle is closed,
+ * e.g. after a call to curl_close.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_CUSTOMREQUEST</b></td>
+ * <td style="vertical-align: top;"><p class="para">
+ * A custom request method to use instead of
+ * <em>"GET"</em> or <em>"HEAD"</em> when doing
+ * a HTTP request. This is useful for doing
+ * <em>"DELETE"</em> or other, more obscure HTTP requests.
+ * Valid values are things like <em>"GET"</em>,
+ * <em>"POST"</em>, <em>"CONNECT"</em> and so on;
+ * i.e. Do not enter a whole HTTP request line here. For instance,
+ * entering <em>"GET /index.html HTTP/1.0\r\n\r\n"</em>
+ * would be incorrect.
+ * </p><blockquote class="note"><p><strong class="note">Note</strong>:
+ * </p><p class="para">
+ * Don't do this without making sure the server supports the custom
+ * request method first.
+ * </p>
+ * </blockquote>
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_EGDSOCKET</b></td>
+ * <td style="vertical-align: top;">
+ * Like <b>CURLOPT_RANDOM_FILE</b>, except a filename
+ * to an Entropy Gathering Daemon socket.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_ENCODING</b></td>
+ * <td style="vertical-align: top;">
+ * The contents of the <em>"Accept-Encoding: "</em> header.
+ * This enables decoding of the response. Supported encodings are
+ * <em>"identity"</em>, <em>"deflate"</em>, and
+ * <em>"gzip"</em>. If an empty string, <em>""</em>,
+ * is set, a header containing all supported encoding types is sent.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.10.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_FTPPORT</b></td>
+ * <td style="vertical-align: top;">
+ * The value which will be used to get the IP address to use
+ * for the FTP "PORT" instruction. The "PORT" instruction tells
+ * the remote server to connect to our specified IP address.  The
+ * string may be a plain IP address, a hostname, a network
+ * interface name (under Unix), or just a plain '-' to use the
+ * systems default IP address.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_INTERFACE</b></td>
+ * <td style="vertical-align: top;">
+ * The name of the outgoing network interface to use. This can be an
+ * interface name, an IP address or a host name.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_KEYPASSWD</b></td>
+ * <td style="vertical-align: top;">
+ * The password required to use the <b>CURLOPT_SSLKEY</b>
+ * or <b>CURLOPT_SSH_PRIVATE_KEYFILE</b> private key.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.16.1.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_KRB4LEVEL</b></td>
+ * <td style="vertical-align: top;">
+ * The KRB4 (Kerberos 4) security level. Any of the following values
+ * (in order from least to most powerful) are valid:
+ * <em>"clear"</em>,
+ * <em>"safe"</em>,
+ * <em>"confidential"</em>,
+ * <em>"private".</em>.
+ * If the string does not match one of these,
+ * <em>"private"</em> is used. Setting this option to <b>NULL</b>
+ * will disable KRB4 security. Currently KRB4 security only works
+ * with FTP transactions.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_POSTFIELDS</b></td>
+ * <td style="vertical-align: top;">
+ * <span class="simpara">
+ * The full data to post in a HTTP "POST" operation.
+ * To post a file, prepend a filename with <em>@</em> and
+ * use the full path. The filetype can be explicitly specified by
+ * following the filename with the type in the format
+ * '<em>;type=mimetype</em>'. This parameter can either be
+ * passed as a urlencoded string like '<em>para1=val1&amp;para2=val2&amp;...</em>'
+ * or as an array with the field name as key and field data as value.
+ * If <code class="parameter">value</code> is an array, the
+ * <em>Content-Type</em> header will be set to
+ * <em>multipart/form-data</em>.
+ * </span>
+ * <span class="simpara">
+ * As of PHP 5.2.0, <code class="parameter">value</code> must be an array if
+ * files are passed to this option with the <em>@</em> prefix.
+ * </span>
+ * <span class="simpara">
+ * As of PHP 5.5.0, the <em>@</em> prefix is deprecated and
+ * files can be sent using <a href="class.curlfile.php" class="classname">CURLFile</a>. The
+ * <em>@</em> prefix can be disabled for safe passing of
+ * values beginning with <em>@</em> by setting the
+ * <b>CURLOPT_SAFE_UPLOAD</code></strong> option to <strong><code>TRUE</b>.
+ * </span>
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_PROXY</b></td>
+ * <td style="vertical-align: top;">
+ * The HTTP proxy to tunnel requests through.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_PROXYUSERPWD</b></td>
+ * <td style="vertical-align: top;">
+ * A username and password formatted as
+ * <em>"[username]:[password]"</em> to use for the
+ * connection to the proxy.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_RANDOM_FILE</b></td>
+ * <td style="vertical-align: top;">
+ * A filename to be used to seed the random number generator for SSL.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_RANGE</b></td>
+ * <td style="vertical-align: top;">
+ * Range(s) of data to retrieve in the format
+ * <em>"X-Y"</em> where X or Y are optional. HTTP transfers
+ * also support several intervals, separated with commas in the format
+ * <em>"X-Y,N-M"</em>.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_REFERER</b></td>
+ * <td style="vertical-align: top;">
+ * The contents of the <em>"Referer: "</em> header to be used
+ * in a HTTP request.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSH_HOST_PUBLIC_KEY_MD5</b></td>
+ * <td style="vertical-align: top;">
+ * A string containing 32 hexadecimal digits. The string should be the
+ * MD5 checksum of the remote host's public key, and libcurl will reject
+ * the connection to the host unless the md5sums match.
+ * This option is only for SCP and SFTP transfers.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.17.1.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSH_PUBLIC_KEYFILE</b></td>
+ * <td style="vertical-align: top;">
+ * The file name for your public key. If not used, libcurl defaults to
+ * $HOME/.ssh/id_dsa.pub if the HOME environment variable is set,
+ * and just "id_dsa.pub" in the current directory if HOME is not set.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.16.1.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSH_PRIVATE_KEYFILE</b></td>
+ * <td style="vertical-align: top;">
+ * The file name for your private key. If not used, libcurl defaults to
+ * $HOME/.ssh/id_dsa if the HOME environment variable is set,
+ * and just "id_dsa" in the current directory if HOME is not set.
+ * If the file is password-protected, set the password with
+ * <b>CURLOPT_KEYPASSWD</b>.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.16.1.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSL_CIPHER_LIST</b></td>
+ * <td style="vertical-align: top;">
+ * A list of ciphers to use for SSL. For example,
+ * <em>RC4-SHA</em> and <em>TLSv1</em> are valid
+ * cipher lists.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSLCERT</b></td>
+ * <td style="vertical-align: top;">
+ * The name of a file containing a PEM formatted certificate.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSLCERTPASSWD</b></td>
+ * <td style="vertical-align: top;">
+ * The password required to use the
+ * <b>CURLOPT_SSLCERT</b> certificate.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSLCERTTYPE</b></td>
+ * <td style="vertical-align: top;">
+ * The format of the certificate. Supported formats are
+ * <em>"PEM"</em> (default), <em>"DER"</em>,
+ * and <em>"ENG"</em>.
+ * </td>
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.9.3.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSLENGINE</b></td>
+ * <td style="vertical-align: top;">
+ * The identifier for the crypto engine of the private SSL key
+ * specified in <b>CURLOPT_SSLKEY</b>.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSLENGINE_DEFAULT</b></td>
+ * <td style="vertical-align: top;">
+ * The identifier for the crypto engine used for asymmetric crypto
+ * operations.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSLKEY</b></td>
+ * <td style="vertical-align: top;">
+ * The name of a file containing a private SSL key.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSLKEYPASSWD</b></td>
+ * <td style="vertical-align: top;"><p class="para">
+ * The secret password needed to use the private SSL key specified in
+ * <b>CURLOPT_SSLKEY</b>.
+ * </p><blockquote class="note"><p><strong class="note">Note</strong>:
+ * </p><p class="para">
+ * Since this option contains a sensitive password, remember to keep
+ * the PHP script it is contained within safe.
+ * </p>
+ * </blockquote>
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SSLKEYTYPE</b></td>
+ * <td style="vertical-align: top;">
+ * The key type of the private SSL key specified in
+ * <b>CURLOPT_SSLKEY</b>. Supported key types are
+ * <em>"PEM"</em> (default), <em>"DER"</em>,
+ * and <em>"ENG"</em>.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_URL</b></td>
+ * <td style="vertical-align: top;">
+ * The URL to fetch. This can also be set when initializing a
+ * session with <span class="function"><a href="function.curl-init.php" class="function">curl_init()</a></span>.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_USERAGENT</b></td>
+ * <td style="vertical-align: top;">
+ * The contents of the <em>"User-Agent: "</em> header to be
+ * used in a HTTP request.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_USERPWD</b></td>
+ * <td style="vertical-align: top;">
+ * A username and password formatted as
+ * <em>"[username]:[password]"</em> to use for the
+ * connection.
+ * </td>
+ * <td style="vertical-align: top;">
+ * </td>
+ * </tr>
+ *
+ * </tbody>
+ *
+ * </table>
+ * </p>
+ * value should be an array for the following values of the option parameter:
+ * <table class="doctable informaltable">
+ *
+ * <thead>
+ * <tr>
+ * <th>Option</th>
+ * <th>Set <code class="parameter">value</code> to</th>
+ * <th>Notes</th>
+ * </tr>
+ *
+ * </thead>
+ *
+ * <tbody class="tbody">
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_HTTP200ALIASES</b></td>
+ * <td style="vertical-align: top;">
  * An array of HTTP 200 responses that will be treated as valid
  * responses and not as errors.
  * </td>
- * <td>
- * Added in cURL 7.10.3 and PHP 5.0.0.
+ * <td style="vertical-align: top;">
+ * Added in cURL 7.10.3.
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_HTTPHEADER</td>
- * <td>
- * An array of HTTP header fields to set.
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_HTTPHEADER</b></td>
+ * <td style="vertical-align: top;">
+ * An array of HTTP header fields to set, in the format
+ * <code class="code">
+ * array('Content-type: text/plain', 'Content-length: 100')
+ * </code>
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_POSTQUOTE</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_POSTQUOTE</b></td>
+ * <td style="vertical-align: top;">
  * An array of FTP commands to execute on the server after the FTP
  * request has been performed.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_QUOTE</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_QUOTE</b></td>
+ * <td style="vertical-align: top;">
  * An array of FTP commands to execute on the server prior to the FTP
  * request.
  * </td>
- * <td>
+ * <td style="vertical-align: top;">
  * </td>
  * </tr>
- * </p>
- * <p>
- * value should be a stream resource (using
- * fopen, for example) for the following values of the
- * option parameter:
- * <tr valign="top">
- * <td>Option</td>
- * <td>Set value to</td>
- * <td>Notes</td>
+ *
+ * </tbody>
+ *
+ * </table>
+ * value should be a stream resource (using {@see fopen()}, for example) for the following values of the option parameter:
+ * <table class="doctable informaltable">
+ *
+ * <thead>
+ * <tr>
+ * <th>Option</th>
+ * <th>Set <code class="parameter">value</code> to</th>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_FILE</td>
- * <td>
+ *
+ * </thead>
+ *
+ * <tbody class="tbody">
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_FILE</b></td>
+ * <td style="vertical-align: top;">
  * The file that the transfer should be written to. The default
- * is STDOUT (the browser window).
- * </td>
- * <td>
+ * is <em>STDOUT</em> (the browser window).
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_INFILE</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_INFILE</b></td>
+ * <td style="vertical-align: top;">
  * The file that the transfer should be read from when uploading.
  * </td>
- * <td>
- * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_STDERR</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_STDERR</b></td>
+ * <td style="vertical-align: top;">
  * An alternative location to output errors to instead of
- * STDERR.
- * </td>
- * <td>
+ * <em>STDERR</em>.
  * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_WRITEHEADER</td>
- * <td>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_WRITEHEADER</b></td>
+ * <td style="vertical-align: top;">
  * The file that the header part of the transfer is written to.
  * </td>
- * <td>
- * </td>
  * </tr>
- * </p>
- * <p>
- * value should be a string that is the name of a valid
- * callback function for the following values of the
- * option parameter:
- * <tr valign="top">
- * <td>Option</td>
- * <td>Set value to</td>
- * <td>Notes</td>
+ *
+ * </tbody>
+ *
+ * </table>
+ *  value should be the name of a valid function or a Closure for the following values of the option parameter:
+ * <table class="doctable informaltable">
+ *
+ * <thead>
+ * <tr>
+ * <th>Option</th>
+ * <th>Set <code class="parameter">value</code> to</th>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_HEADERFUNCTION</td>
- * <td>
- * The name of a callback function where the callback function takes
- * two parameters. The first is the cURL resource, the second is a
+ *
+ * </thead>
+ *
+ * <tbody class="tbody">
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_HEADERFUNCTION</b></td>
+ * <td style="vertical-align: top;">
+ * A callback accepting two parameters.
+ * The first is the cURL resource, the second is a
  * string with the header data to be written. The header data must
- * be written when using this callback function. Return the number of 
+ * be written by this callback. Return the number of
  * bytes written.
  * </td>
- * <td>
- * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_PASSWDFUNCTION</td>
- * <td>
- * The name of a callback function where the callback function takes
- * three parameters. The first is the cURL resource, the second is a
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_PASSWDFUNCTION</b></td>
+ * <td style="vertical-align: top;">
+ * A callback accepting three parameters.
+ * The first is the cURL resource, the second is a
  * string containing a password prompt, and the third is the maximum
  * password length. Return the string containing the password.
  * </td>
- * <td>
- * </td>
  * </tr>
- * <tr valign="top">
- * <td>CURLOPT_PROGRESSFUNCTION</td>
- * <td>
- * The name of a callback function where the callback function takes
- * three parameters. The first is the cURL resource, the second is a
- * file-descriptor resource, and the third is length. Return the
- * string containing the data.
- * </td>
- * <td>
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_READFUNCTION</td>
- * <td>
- * The name of a callback function where the callback function takes
- * two parameters. The first is the cURL resource, and the second is a
- * string with the data to be read. The data must be read by using this
- * callback function. Return the number of bytes read. Return 0 to signal
- * EOF.
- * </td>
- * <td>
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>CURLOPT_WRITEFUNCTION</td>
- * <td>
- * The name of a callback function where the callback function takes
- * two parameters. The first is the cURL resource, and the second is a
- * string with the data to be written. The data must be written by using
- * this callback function. Must return the exact number of bytes written 
- * or this will fail.
- * </td>
- * <td>
- * </td>
- * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_PROGRESSFUNCTION</b></td>
+ * <td style="vertical-align: top;">
+ * <p>
+ * A callback accepting five parameters.
+ * The first is the cURL resource, the second is the total number of
+ * bytes expected to be downloaded in this transfer, the third is
+ * the number of bytes downloaded so far, the fourth is the total
+ * number of bytes expected to be uploaded in this transfer, and the
+ * fifth is the number of bytes uploaded so far.
  * </p>
+ * <blockquote class="note"><p><strong class="note">Note</strong>:
+ * </p><p class="para">
+ * The callback is only called when the <b>CURLOPT_NOPROGRESS</b>
+ * option is set to <b>FALSE</b>.
+ * </p>
+ * </blockquote>
+ * <p>
+ * Return a non-zero value to abort the transfer. In which case, the
+ * transfer will set a <b>CURLE_ABORTED_BY_CALLBACK</b>
+ * error.
+ * </p>
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_READFUNCTION</b></td>
+ * <td style="vertical-align: top;">
+ * A callback accepting three parameters.
+ * The first is the cURL resource, the second is a
+ * stream resource provided to cURL through the option
+ * <b>CURLOPT_INFILE</b>, and the third is the maximum
+ * amount of data to be read. The callback must return a string
+ * with a length equal or smaller than the amount of data requested,
+ * typically by reading it from the passed stream resource. It should
+ * return an empty string to signal <em>EOF</em>.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_WRITEFUNCTION</b></td>
+ * <td style="vertical-align: top;">
+ * A callback accepting two parameters.
+ * The first is the cURL resource, and the second is a
+ * string with the data to be written. The data must be saved by
+ * this callback. It must return the exact number of bytes written
+ * or the transfer will be aborted with an error.
+ * </td>
+ * </tr>
+ *
+ * </tbody>
+ *
+ * </table>
+ * Other values:
+ * <table class="doctable informaltable">
+ *
+ * <thead>
+ * <tr>
+ * <th>Option</th>
+ * <th>Set <code class="parameter">value</code> to</th>
+ * </tr>
+ *
+ * </thead>
+ *
+ * <tbody class="tbody">
+ * <tr>
+ * <td style="vertical-align: top;"><b>CURLOPT_SHARE</b></td>
+ * <td style="vertical-align: top;">
+ * A result of <span class="function">{@see curl_share_init()}</span>. Makes the cURL
+ * handle to use the data from the shared handle.
+ * </td>
+ * </tr>
+ *
+ * </tbody>
+ *
+ * </table>
  * @return bool true on success or false on failure.
  * @since 4.0.2
  * @since 5.0
