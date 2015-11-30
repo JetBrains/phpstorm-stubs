@@ -464,9 +464,9 @@ function fscanf ($handle, $format, &$_ = null) {}
  * or PHP_URL_FRAGMENT to retrieve just a specific
  * URL component as a string.
  * </p>
- * @return mixed On seriously malformed URLs, parse_url may return
- * false and emit a E_WARNING. Otherwise an associative
- * array is returned, whose components may be (at least one):
+ * @return mixed On seriously malformed URLs, parse_url() may return FALSE.
+ * If the component parameter is omitted, an associative array is returned.
+ * At least one element will be present within the array. Potential keys within this array are:
  * scheme - e.g. http
  * host 
  * port
