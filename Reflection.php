@@ -129,6 +129,14 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	public function isInternal () {}
 
 	/**
+	 * Returns whether this function is a generator
+	 * @link http://php.net/manual/en/reflectionfunctionabstract.isgenerator.php
+	 * @return bool <p>Returns <b>TRUE</b> if the function is generator, <b>FALSE</b> if it is not or <b>NULL</b> on failure.</p>
+	 * @since 5.5.0
+	 */
+	public function isGenerator() {}
+
+	/**
 	 * Checks if user defined
 	 * @link http://php.net/manual/en/reflectionfunctionabstract.isuserdefined.php
 	 * @return bool <b>TRUE</b> if it's user-defined, otherwise false;
