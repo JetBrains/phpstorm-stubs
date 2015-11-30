@@ -1081,6 +1081,13 @@ class ReflectionClass implements Reflector {
 	public function getInterfaceNames () {}
 
 	/**
+	 * Checks if the class is anonymous
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @since 7.0
+	 */
+	public function isAnonymous () {}
+
+	/**
 	 * Checks if the class is an interface
 	 * @link http://php.net/manual/en/reflectionclass.isinterface.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
