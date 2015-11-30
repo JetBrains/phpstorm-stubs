@@ -740,6 +740,14 @@ function ignore_user_abort ($value = null) {}
  * INI_SCANNER_RAW. If INI_SCANNER_RAW 
  * is supplied, then option values will not be parsed.
  * </p>
+ * <p>
+ * As of PHP 5.6.1 can also be specified as <strong><code>INI_SCANNER_TYPED</code></strong>.
+ * In this mode boolean, null and integer types are preserved when possible.
+ * String values <em>"true"</em>, <em>"on"</em> and <em>"yes"</em>
+ * are converted to <b>TRUE</b>. <em>"false"</em>, <em>"off"</em>, <em>"no"</em>
+ * and <em>"none"</em> are considered <b>FALSE</b>. <em>"null"</em> is converted to <b>NULL</b>
+ * in typed mode. Also, all numeric strings are converted to integer type if it is possible.
+ * </p>
  * @return array The settings are returned as an associative array on success,
  * and false on failure.
  * @since 4.0
