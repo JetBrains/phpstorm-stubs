@@ -21,6 +21,12 @@ define ('INI_SCANNER_NORMAL', 0);
  * @link http://php.net/manual/en/filesystem.constants.php
  */
 define ('INI_SCANNER_RAW', 1);
+
+/**
+ * Typed INI scanner mode (since PHP 5.6.1).
+ * @link http://php.net/manual/en/function.parse-ini-file.php
+ */
+define ('INI_SCANNER_TYPED', 2);
 define ('PHP_URL_SCHEME', 0);
 define ('PHP_URL_HOST', 1);
 define ('PHP_URL_PORT', 2);
