@@ -751,7 +751,6 @@ function sizeof($var, $mode) { }
  * An array with keys to check.
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated
  * @since 4.0.7
  * @since 5.0
  */
