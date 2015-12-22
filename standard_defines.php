@@ -17,6 +17,11 @@ define ('INI_ALL', 7);
 define ('INI_SCANNER_NORMAL', 0);
 
 /**
+ * @since 5.6.1
+ */
+define ('INI_SCANNER_TYPED', 2);
+
+/**
  * Raw INI scanner mode (since PHP 5.3).
  * @link http://php.net/manual/en/filesystem.constants.php
  */

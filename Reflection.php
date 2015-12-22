@@ -129,6 +129,14 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	public function isInternal () {}
 
 	/**
+	 * Returns whether this function is a generator
+	 * @link http://php.net/manual/en/reflectionfunctionabstract.isgenerator.php
+	 * @return bool <p>Returns <b>TRUE</b> if the function is generator, <b>FALSE</b> if it is not or <b>NULL</b> on failure.</p>
+	 * @since 5.5.0
+	 */
+	public function isGenerator() {}
+
+	/**
 	 * Checks if user defined
 	 * @link http://php.net/manual/en/reflectionfunctionabstract.isuserdefined.php
 	 * @return bool <b>TRUE</b> if it's user-defined, otherwise false;
@@ -1079,6 +1087,13 @@ class ReflectionClass implements Reflector {
 	 * @since 5.2.0
 	 */
 	public function getInterfaceNames () {}
+
+	/**
+	 * Checks if the class is anonymous
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @since 7.0
+	 */
+	public function isAnonymous () {}
 
 	/**
 	 * Checks if the class is an interface
