@@ -1106,4 +1106,23 @@ function output_reset_rewrite_vars() { }
  */
 function sys_get_temp_dir() { }
 
+/**
+ * Get the contents of the realpath cache.
+ * @link http://php.net/manual/en/function.realpath-cache-get.php
+ * @return array Returns an array of realpath cache entries. The keys are
+ * original path entries, and the values are arrays of data items,
+ * containing the resolved path, expiration date, and other options kept in
+ * the cache.
+ * @since 5.3.2
+ */
+function realpath_cache_get() { }
+
+/**
+ * Get the amount of memory used by the realpath cache.
+ * @link http://php.net/manual/en/function.realpath-cache-size.php
+ * @return int Returns how much memory realpath cache is using.
+ * @since 5.3.2
+ */
+function realpath_cache_size() { }
+
 ?>
