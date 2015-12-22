@@ -66,8 +66,8 @@ function doubleval ($var) {}
  * The variable that is being converted to a string.
  * </p>
  * <p>
- * var may be any scalar type. You cannot use
- * strval on arrays or objects.
+ * $var may be any scalar type or an object that implements the __toString() method. 
+ * You cannot use strval() on arrays or objects that do not implement the __toString() method.
  * </p>
  * @return string The string value of var.
  * @since 4.0
