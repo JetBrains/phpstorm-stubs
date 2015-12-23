@@ -11,27 +11,26 @@ define ('INI_SYSTEM', 4);
 define ('INI_ALL', 7);
 
 /**
- * Normal INI scanner mode (since PHP 5.3).
+ * Normal INI scanner mode
+ * @since 5.3
  * @link http://php.net/manual/en/filesystem.constants.php
  */
 define ('INI_SCANNER_NORMAL', 0);
 
 /**
+ * Typed INI scanner mode
  * @since 5.6.1
+ * @link http://php.net/manual/en/function.parse-ini-file.php
  */
 define ('INI_SCANNER_TYPED', 2);
 
 /**
- * Raw INI scanner mode (since PHP 5.3).
+ * Raw INI scanner mode
+ * @since 5.3
  * @link http://php.net/manual/en/filesystem.constants.php
  */
 define ('INI_SCANNER_RAW', 1);
 
-/**
- * Typed INI scanner mode (since PHP 5.6.1).
- * @link http://php.net/manual/en/function.parse-ini-file.php
- */
-define ('INI_SCANNER_TYPED', 2);
 define ('PHP_URL_SCHEME', 0);
 define ('PHP_URL_HOST', 1);
 define ('PHP_URL_PORT', 2);
@@ -550,19 +549,22 @@ define ('STREAM_SERVER_LISTEN', 8);
 
 /**
  * Search for filename in
- * include_path (since PHP 5).
+ * include_path
+ * @since 5
  * @link http://php.net/manual/en/filesystem.constants.php
  */
 define ('FILE_USE_INCLUDE_PATH', 1);
 
 /**
- * Strip EOL characters (since PHP 5).
+ * Strip EOL characters
+ * @since PHP 5
  * @link http://php.net/manual/en/filesystem.constants.php
  */
 define ('FILE_IGNORE_NEW_LINES', 2);
 
 /**
- * Skip empty lines (since PHP 5).
+ * Skip empty lines
+ * @since PHP 5
  * @link http://php.net/manual/en/filesystem.constants.php
  */
 define ('FILE_SKIP_EMPTY_LINES', 4);
@@ -1104,7 +1106,8 @@ define('PHP_QUERY_RFC3986', 2);
 //WI-11254 Stubs for missing constants from PHP 5.4
 
 /**
- * Specifies where the manpages were installed into. Available since PHP 5.3.7.
+ * Specifies where the manpages were installed into.
+ * @since PHP 5.3.7
  * @link http://php.net/manual/en/reserved.constants.php
  */
 define('PHP_MANDIR', '/usr/local/php/php/man');
