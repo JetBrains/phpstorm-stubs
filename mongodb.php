@@ -879,7 +879,7 @@ namespace MongoDB {
              * @link http://php.net/manual/en/mongodb-bson-objectid.construct.php
              * @param string $id
              */
-            public function __construct($id)
+            public function __construct($id = null)
             {
             }
 
