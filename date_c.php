@@ -366,7 +366,7 @@ class DateTime implements DateTimeInterface {
     /**
      * Set the TimeZone associated with the DateTime
      * @param DateTimeZone $timezone
-     * @return DateTime
+     * @return $this
      * @link http://php.net/manual/en/datetime.settimezone.php
      */
     public function setTimezone ($timezone) {}
@@ -383,7 +383,7 @@ class DateTime implements DateTimeInterface {
      * @param int $hour
      * @param int $minute
      * @param int $second
-     * @return DateTime
+     * @return $this
      * @link http://php.net/manual/en/datetime.settime.php
      */
     public function setTime ($hour, $minute, $second=0) {}
@@ -393,7 +393,7 @@ class DateTime implements DateTimeInterface {
      * @param int $year
      * @param int $month
      * @param int $day
-     * @return DateTime
+     * @return $this
      * @link http://php.net/manual/en/datetime.setdate.php
      */
     public function setDate ($year, $month, $day) {}
@@ -403,7 +403,7 @@ class DateTime implements DateTimeInterface {
      * @param int $year
      * @param int $week
      * @param int $day
-     * @return DateTime
+     * @return $this
      * @link http://php.net/manual/en/datetime.setisodate.php
      */
     public function setISODate ($year, $week, $day=1) {}
@@ -411,7 +411,7 @@ class DateTime implements DateTimeInterface {
     /**
      * Sets the date and time based on a Unix timestamp.
      * @param int $unixtimestamp
-     * @return DateTime
+     * @return $this
      * @link http://php.net/manual/en/datetime.settimestamp.php
      */
     public function setTimestamp ($unixtimestamp) {}
