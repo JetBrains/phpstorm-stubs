@@ -456,6 +456,15 @@ class ReflectionParameter implements Reflector {
 	public function getType() {}
 
 	/**
+	 * Checks if the parameter has a type associated with it.
+	 * @link http://php.net/manual/en/reflectionparameter.hastype.php
+	 * @return bool TRUE if a type is specified, FALSE otherwise.
+	 * @since 7.0
+	 */
+	public function hasType () {}
+
+
+	/**
 	 * Checks if passed by reference
 	 * @link http://php.net/manual/en/reflectionparameter.ispassedbyreference.php
 	 * @return bool <b>TRUE</b> if the parameter is passed in by reference, otherwise <b>FALSE</b>
