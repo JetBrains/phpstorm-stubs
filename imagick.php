@@ -1819,6 +1819,10 @@ class Imagick implements Iterator, Traversable, Countable {
 	 */
 	public function getImageFormat () {}
 
+	/**
+	 * @link http://lv.php.net/manual/en/imagick.getimagemimetype.php
+	 * @return string Returns the image mime-type.
+	 */
 	public function getImageMimeType () {}
 
 	/**
