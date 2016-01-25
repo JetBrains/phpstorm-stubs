@@ -651,7 +651,7 @@ function openssl_digest($data, $method, $raw_output = false) { }
  * @param string $password <p>
  * The password.
  * </p>
- * @param bool $raw_output [optional] <p>
+ * @param int $options [optional] <p>
  * Setting to true will return as raw output data, otherwise the return
  * value is base64 encoded.
  * </p>
@@ -661,7 +661,7 @@ function openssl_digest($data, $method, $raw_output = false) { }
  * @return string the encrypted string on success or false on failure.
  * @since 5.3.0
  */
-function openssl_encrypt($data, $method, $password, $raw_output = false, $iv = "") { }
+function openssl_encrypt($data, $method, $password, $options = 0, $iv = "") { }
 
 /**
  * Decrypts data
@@ -675,7 +675,7 @@ function openssl_encrypt($data, $method, $password, $raw_output = false, $iv = "
  * @param string $password <p>
  * The password.
  * </p>
- * @param bool $raw_input [optional] <p>
+ * @param int $options [optional] <p>
  * Setting to true will take a raw encoded string,
  * otherwise a base64 string is assumed for the
  * <i>data</i> parameter.
@@ -686,7 +686,7 @@ function openssl_encrypt($data, $method, $password, $raw_output = false, $iv = "
  * @return string The decrypted string on success or false on failure.
  * @since 5.3.0
  */
-function openssl_decrypt($data, $method, $password, $raw_input = false, $iv = "") { }
+function openssl_decrypt($data, $method, $password, $options = 1, $iv = "") { }
 
 /**
  * (PHP 5 &gt;= PHP 5.3.3)<br/>
