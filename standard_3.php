@@ -1011,7 +1011,6 @@ function set_magic_quotes_runtime ($new_setting) {}
  * Gets the current configuration setting of magic quotes gpc
  * @link http://php.net/manual/en/function.get-magic-quotes-gpc.php
  * @return int 0 if magic quotes gpc are off, 1 otherwise.
- * @deprecated 5.4 This function has been DEPRECATED as of PHP 5.4.0. Always return false.
  * @since 4.0
  * @since 5.0
  */
@@ -1021,7 +1020,6 @@ function get_magic_quotes_gpc () {}
  * Gets the current active configuration setting of magic_quotes_runtime
  * @link http://php.net/manual/en/function.get-magic-quotes-runtime.php
  * @return int 0 if magic quotes runtime is off, 1 otherwise.
- * @deprecated 5.4 This function has been DEPRECATED as of PHP 5.4.0. Always return false.
  * @since 4.0
  * @since 5.0
  */
