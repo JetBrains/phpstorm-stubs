@@ -1316,9 +1316,24 @@ class PDOStatement implements Traversable {
 	 * @param int $mode <p>
 	 * The fetch mode must be one of the PDO::FETCH_* constants.
 	 * </p>
+	 * @param int|string|object $arg2 <p>
+     * If $mode is PDO::FETCH_COLUMN, the integer column index to fetch.
+	 * </p>
+     * <p>
+     * If $mode is PDO::FETCH_CLASS, the name of the class to instantiate with
+     * row data.
+     * </p>
+     * <p>
+     * If $mode is PDO::FETCH_INTO, an object whose members to update with the
+     * result set from fetching.
+     * </p>
+     * @param array $ctorargs <p>
+     * If $mode is PDO::FETCH_CLASS, the list of arguments to send the
+     * requested class's constructor.
+     * </p>
 	 * @return bool 1 on success or <b>FALSE</b> on failure.
 	 */
-	public function setFetchMode ($mode) {}
+	public function setFetchMode ($mode, $arg2 = null, $ctorargs = null) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.2.0)<br/>
