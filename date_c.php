@@ -425,7 +425,7 @@ class DateTime implements DateTimeInterface {
 
     /**
      * Returns the difference between two DateTime objects represented as a DateInterval.
-     * @param DateTime $datetime2 The date to compare to.
+     * @param DateTimeInterface $datetime2 The date to compare to.
      * @param boolean $absolute [optional] Whether to return absolute difference.
      * @return DateInterval|boolean The DateInterval object representing the difference between the two dates or FALSE on failure.
      * @link http://php.net/manual/en/datetime.diff.php
