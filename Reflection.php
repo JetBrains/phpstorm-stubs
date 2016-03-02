@@ -145,6 +145,13 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	 */
 	public function getClosureThis () {}
 
+	/**
+	 * Returns the scope associated to the closure
+	 * @link http://php.net/manual/en/reflectionfunctionabstract.getclosurescopeclass.php
+	 * @return ReflectionClass Returns the class on success.
+	 * Returns <b>NULL</b> on failure.
+	 * @since 5.4.0
+	 */
 	public function getClosureScopeClass () {}
 
 	/**
