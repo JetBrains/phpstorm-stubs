@@ -1,5 +1,5 @@
 # Contribution process
-Your help is most appreciated, and improves experience for everyone, but **we are legally obliged to get a contributor license agreement for any change**. You have to send a photo of signed [Contributor agreement] before we'll be able to include your contribution into the product and redistribute to other users. See link for explanation. 
+Your help is most appreciated, and improves experience for everyone, but **we are legally obliged to get a contributor license agreement for any change**. Please send a photo of signed [Contributor agreement] PDF - mention you github account name there - to contribute@jetbrains.com so we'll be able to include your contribution into the product and redistribute to other users.
 
 # Notes on content
 Please link pull request/commit messages to [YT] issue and back if such issue exists.
