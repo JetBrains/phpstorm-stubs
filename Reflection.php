@@ -624,11 +624,11 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector {
 	/**
 	 * Constructs a ReflectionMethod
 	 * @link http://php.net/manual/en/reflectionmethod.construct.php
-	 * @param mixed $class <p>
+	 * @param mixed $class [optional] <p>
 	 * Classname or object (instance of the class) that contains the method.
 	 * </p>
 	 * @param string $name <p>
-	 * Name of the method.
+	 * Name of the method, or the method FQN in the form 'Foo::bar' if $class argument missing
 	 * </p>
 	 * @since 5.0
 	 */
