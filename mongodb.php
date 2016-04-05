@@ -1027,7 +1027,7 @@ namespace MongoDB {
              * @link http://php.net/manual/en/mongodb-bson-unserializable.bsonunserialize.php
              * @param array $data Properties within the BSON array or document.
              */
-            public function  bsonUnserialize($data);
+            public function  bsonUnserialize(array $data);
         }
 
         /**
