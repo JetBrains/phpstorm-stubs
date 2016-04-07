@@ -1535,7 +1535,7 @@ class Imagick implements Iterator, Traversable, Countable {
 	/**
 	 * @param $COLORSPACE
 	 */
-	public function transformimagecolorspace ($COLORSPACE) {}
+	public function transformImageColorspace ($COLORSPACE) {}
 
 	/**
 	 * (No version information available, might only be in SVN)<br/>
@@ -1641,7 +1641,7 @@ class Imagick implements Iterator, Traversable, Countable {
     /**
      * @return string
      */
-	public function __tostring () {}
+	public function __toString () {}
 
 	public function count () {}
 
