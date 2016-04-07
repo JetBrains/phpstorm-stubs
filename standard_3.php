@@ -964,7 +964,7 @@ function get_current_user () {}
  * The maximum execution time, in seconds. If set to zero, no time limit
  * is imposed.
  * </p>
- * @return void 
+ * @return bool Returns TRUE on success, or FALSE on failure. 
  * @since 4.0
  * @since 5.0
  */
