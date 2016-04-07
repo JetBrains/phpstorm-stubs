@@ -663,10 +663,11 @@ function fgetcsv ($handle, $length = null, $delimiter = null, $enclosure = null,
  * The optional enclosure parameter sets the field
  * enclosure (one character only).
  * </p>
+ * @param string $escape_char The optional escape_char parameter sets the escape character (one character only).
  * @return int the length of the written string or false on failure.
  * @since 5.1.0
  */
-function fputcsv ($handle, array $fields, $delimiter = null, $enclosure = null) {}
+function fputcsv ($handle, array $fields, $delimiter = ",", $enclosure = '"', $escape_char = "\\") {}
 
 /**
  * Portable advisory file locking
