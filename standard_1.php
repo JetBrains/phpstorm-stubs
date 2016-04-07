@@ -990,12 +990,12 @@ function explode ($delimiter, $string, $limit = null) {}
  * @since 4.0
  * @since 5.0
  */
-function implode ($glue, array $pieces) {}
+function implode ($glue = "", array $pieces) {}
 
 /**
  * &Alias; <function>implode</function>
  * @link http://php.net/manual/en/function.join.php
- * @param string $glue <p>
+ * @param string $glue [optional] <p>
  * Defaults to an empty string. This is not the preferred usage of
  * implode as glue would be
  * the second parameter and thus, the bad prototype would be used.
@@ -1008,7 +1008,7 @@ function implode ($glue, array $pieces) {}
  * @since 4.0
  * @since 5.0
  */
-function join ($glue, $pieces) {}
+function join ($glue = "", $pieces) {}
 
 /**
  * Set locale information
