@@ -357,17 +357,16 @@ function is_nan ($val) {}
 /**
  * Integer division
  * @link http://php.net/manual/en/function.intdiv.php
- * @param $numerator <p>Number to be divide.</p>
- * @param $divisor <p>Number which divides the <b><i>numerator</i></b></p>
- * @return int|bool <p>
- * The integer division of <b><i>numerator</i></b> by <b><i>divisor</i></b>.
- * If <b><i>divisor</i></b> is zero, it throws an <b>E_WARNING</b> and returns <b>FALSE</b>.
- * If the <b><i>numerator</i></b> is <b>LONG_MIN</b> (-<b>PHP_INT_MAX</b> - 1) and the
- * <b><i>divisor</i></b> is -1, it returns zero.
+ * @param $dividend <p>Number to be divide.</p>
+ * @param $divisor <p>Number which divides the <b><i>dividend</i></b></p>
+ * @return int <p>
+ * If divisor is 0, a {@link DivisionByZeroError} exception is thrown.
+ * If the <b><i>dividend</i></b> is <b>PHP_INT_MIN</b> and the <b><i>divisor</i></b> is -1,
+ * then an {@link ArithmeticError} exception is thrown.
  * </p>
  * @since 7.0
  */
-function intdiv ($numerator,  $divisor) {}
+function intdiv ($dividend,  $divisor) {}
 
 /**
  * Finds whether a value is infinite

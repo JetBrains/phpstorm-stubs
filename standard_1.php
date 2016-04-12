@@ -225,6 +225,10 @@ function basename ($path, $suffix = null) {}
  * (\) are used as directory separator character. In
  * other environments, it is the forward slash (/).
  * </p>
+ * @param int $levels <p>
+ * The number of parent directories to go up.
+ * This must be an integer greater than 0.
+ * </p>
  * @return string the name of the directory. If there are no slashes in
  * path, a dot ('.') is returned,
  * indicating the current directory. Otherwise, the returned string is
@@ -233,7 +237,7 @@ function basename ($path, $suffix = null) {}
  * @since 4.0
  * @since 5.0
  */
-function dirname ($path) {}
+function dirname ($path, $levels = 1) {}
 
 /**
  * Returns information about a file path
