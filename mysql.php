@@ -483,7 +483,7 @@ function mysql_fetch_assoc ($result) {}
  * @since 4.0
  * @since 5.0
  */
-function mysql_fetch_object ($result, $class_name = null, array $params = null ) {}
+function mysql_fetch_object ($result, $class_name = 'stdClass', array $params = null ) {}
 
 /**
  * @deprecated 5.5
