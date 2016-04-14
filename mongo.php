@@ -2178,6 +2178,136 @@ class MongoDBRef {
     public static function get($db, $ref) {}
 }
 
+class MongoWriteBatch
+{
+
+	const COMMAND_INSERT = 1;
+	const COMMAND_UPDATE = 2;
+	const COMMAND_DELETE = 3;
+
+
+	/**
+	 * <p>(PECL mongo &gt;= 1.5.0)</p>
+	 * MongoWriteBatch constructor.
+	 * @link http://php.net/manual/en/mongowritebatch.construct.php
+	 * @param MongoCollection $collection The {@see MongoCollection} to execute the batch on.
+	 * Its {@link http://php.net/manual/en/mongo.writeconcerns.php write concern}
+	 * will be copied and used as the default write concern if none is given as <code >$write_options</code> or during
+	 * {@see MongoWriteBatch::execute()}.
+	 * @param string $batch_type [optional] <p>
+	 * One of:
+	 * </p><ul>
+	 * <li class="member"><em>0</em> - make an MongoWriteBatch::COMMAND_INSERT batch</li>
+	 * <li class="member"><em>1</em> - make an MongoWriteBatch::COMMAND_UPDATE batch</li>
+	 * <li class="member"><em>2</em> - make a  MongoWriteBatch::COMMAND_DELETE batch</li>
+	 * </ul>
+	 * @param array $write_options [optional]
+	 * <p> An array of Write Options.</p><table><thead><tr><th>key</th><th>value meaning</th></tr>
+	 * </thead>
+	 * <tbody><tr><td>w (int|string)</td><td>{@link http://php.net/manual/en/mongo.writeconcerns.php Write concern} value</td></tr>
+	 * <tr><td>wtimeout (int)</td><td>{@link http://php.net/manual/en/mongo.writeconcerns.php Maximum time to wait for replication}</td></tr>
+	 * <tr><td>ordered</td><td>Determins if MongoDB must apply this batch in order (sequentally, one item at a time) or can rearrange it.
+	 * Defaults to <strong><code>TRUE</code></strong></td></tr>
+	 * <tr><td>j (bool)</td><td>Wait for journaling on the primary. This value is discouraged, use WriteConcern instead</td></tr>
+	 * <tr><td>fsync (bool)</td><td>Wait for fsync on the primary. This value is discouraged, use WriteConcern instead</td></tr>
+	 * </tbody></table>
+	 */
+	protected function __construct($collection, $batch_type, $write_options)
+	{
+	}
+
+	/**
+	 * <p>(PECL mongo &gt;= 1.5.0)</p>
+	 * Adds a write operation to a batch
+	 * @link http://php.net/manual/en/mongowritebatch.add.php
+	 * @param array $item <p>
+	 * An array that describes a write operation. The structure of this value
+	 * depends on the batch's operation type.
+	 * </p><table>
+	 * <thead>
+	 * <tr>
+	 * <th>Batch type</th>
+	 * <th>Argument expectation</th>
+	 * </tr>
+	 *
+	 * </thead>
+	 *
+	 * <tbody>
+	 * <tr>
+	 * <td><strong><code>MongoWriteBatch::COMMAND_INSERT</code></strong></td>
+	 * <td>
+	 * The document to add.
+	 * </td>
+	 * </tr>
+	 * <tr>
+	 * <td><strong><code>MongoWriteBatch::COMMAND_UPDATE</code></strong></td>
+	 * <td>
+	 * <p>Raw update operation.</p>
+	 * <p>Required keys are <em>"q"</em> and <em>"u"</em>, which correspond to the
+	 * <code>$criteria</code> and <code$new_object</code> parameters of {@see MongoCollection::update()}, respectively.</p>
+	 * <p>Optional keys are <em>"multi"</em> and <em>"upsert"</em>, which correspond to the
+	 * <em>"multiple"</em> and <em>"upsert"</em> options for {@see MongoCollection::update()}, respectively.
+	 * If unspecified, both options default to <strong><code>FALSE</code></strong>.</p>
+	 * </td>
+	 * </tr>
+	 * <tr>
+	 * <td><strong><code>MongoWriteBatch::COMMAND_DELETE</code></strong></td>
+	 * <td>
+	 * <p class="para">Raw delete operation.</p>
+	 * <p>Required keys are: <em>"q"</em> and <em>"limit"</em>, which correspond to the <code>$criteria</code> parameter
+	 * and <em>"justOne"</em> option of {@see MongoCollection::remove()}, respectively.</p>
+	 * <p>The <em>"limit"</em> option is an integer; however, MongoDB only supports <em>0</em> (i.e. remove all matching
+	 * ocuments) and <em>1</em> (i.e. remove at most one matching document) at this time.</p>
+	 * </td>
+	 * </tr>
+	 * </tbody>
+	 * </table>
+	 * @return bool <b>Returns TRUE on success and throws an exception on failure.</b>
+	 */
+	public function add(array $item)
+	{
+	}
+
+	/**
+	 * <p>(PECL mongo &gt;= 1.5.0)</p>
+	 * Executes a batch of write operations
+	 * @link http://php.net/manual/en/mongowritebatch.execute.php
+	 * @param array $write_options See {@see MongoWriteBatch::__construct.}
+	 * @return array Returns an array containing statistical information for the full batch.
+	 * If the batch had to be split into multiple batches, the return value will aggregate the values from individual batches and return only the totals.
+	 * If the batch was empty, an array containing only the 'ok' field is returned (as <b>TRUE</b<) although nothing will be shipped over the wire (NOOP).
+	 */
+	final public function execute(array $write_options)
+	{
+	}
+}
+
+class MongoUpdateBatch extends MongoWriteBatch
+{
+
+	/**
+	 * <p>(PECL mongo &gt;= 1.5.0)</p>
+	 * MongoUpdateBatch constructor.
+	 * @link http://php.net/manual/en/mongoupdatebatch.construct.php
+	 * @param MongoCollection $collection <p>The MongoCollection to execute the batch on.
+	 * Its write concern will be copied and used as the default write concern
+	 * if none is given as $write_options or during {@see MongoWriteBatch::execute()}.</p>
+	 * @param array $write_options <p class="para">An array of Write Options.</p><table class="doctable informaltable"><thead><tr><th>key</th><th>value meaning</th></tr>
+	 * </thead>
+	 * <tbody class="tbody"><tr><td>w (int|string)</td><td>{@link http://php.net/manual/en/mongo.writeconcerns.php Write concern} value</td></tr>
+	 * <tr><td>wtimeout (int)</td><td>{@link http://php.net/manual/en/mongo.writeconcerns.php Maximum time to wait for replication}</td></tr>
+	 * <tr><td>ordered</td><td>Determins if MongoDB must apply this batch in order (sequentally, one item at a time) or can rearrange it. Defaults to <strong><code>TRUE</code></strong></td></tr>
+	 * <tr><td>j (bool)</td><td>Wait for journaling on the primary. This value is discouraged, use WriteConcern instead</td></tr>
+	 * <tr><td>fsync (bool)</td><td>Wait for fsync on the primary. This value is discouraged, use WriteConcern instead</td></tr>
+	 * </tbody></table>
+	 */
+	public function __construct(MongoCollection $collection, array $write_options)
+	{
+	}
+
+
+}
+
 class MongoException extends Exception {
 }
 

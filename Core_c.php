@@ -174,7 +174,7 @@ interface Serializable {
 interface Throwable
 {
 
-    /***
+    /**
      * Gets the message
      * @link http://php.net/manual/en/throwable.getmessage.php
      * @return string
@@ -475,7 +475,7 @@ class ArithmeticError extends Error {
  * @link http://php.net/manual/en/class.divisionbyzeroerror.php
  * @since 7.0
  */
-class DivisionByError extends Error {
+class DivisionByZeroError extends Error {
 
 }
 
