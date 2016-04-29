@@ -371,5 +371,4 @@ class object {
   function __clone() {}
 
 }
-
 }
