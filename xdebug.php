@@ -152,7 +152,7 @@ function xdebug_stop_error_collection () {}
  * @param bool $clean
  * @return string
  */
-function xdebug_get_collected_errors ($clean) {}
+function xdebug_get_collected_errors ($clean = false) {}
 
 /**
  * This function makes the debugger break on the specific line as if a normal file/line breakpoint was set on this line.
@@ -248,7 +248,7 @@ function xdebug_start_code_coverage ($options = 0) {}
  * @param bool $cleanup Destroy collected information in memory
  * @return void
  */
-function xdebug_stop_code_coverage ($cleanup) {}
+function xdebug_stop_code_coverage ($cleanup = true) {}
 
 /**
  * Returns whether code coverage is active.
