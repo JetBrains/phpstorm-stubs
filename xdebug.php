@@ -294,3 +294,4 @@ define ('XDEBUG_TRACE_HTML', 4);
 define ('XDEBUG_TRACE_NAKED_FILENAME', 8;
 define ('XDEBUG_CC_UNUSED', 1);
 define ('XDEBUG_CC_DEAD_CODE', 2);
+define ('XDEBUG_CC_BRANCH_CHECK', 4)
