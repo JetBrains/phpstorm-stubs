@@ -407,7 +407,7 @@ function htmlspecialchars ($string, $flags = ENT_COMPAT, $encoding = 'UTF-8', $d
  * @since 4.0
  * @since 5.0
  */
-function htmlentities ($string, $quote_style = null, $charset = null, $double_encode = null) {}
+function htmlentities ($string, $quote_style = null, $charset = null, $double_encode = true) {}
 
 /**
  * Convert all HTML entities to their applicable characters
