@@ -317,6 +317,7 @@ define ('CURL_NETRC_REQUIRED', 2);
 define ('CURL_HTTP_VERSION_NONE', 0);
 define ('CURL_HTTP_VERSION_1_0', 1);
 define ('CURL_HTTP_VERSION_1_1', 2);
+define ('CURLOPT_HTTP_VERSION_2_0', 3);
 define ('CURLM_CALL_MULTI_PERFORM', -1);
 define ('CURLM_OK', 0);
 define ('CURLM_BAD_HANDLE', 1);
