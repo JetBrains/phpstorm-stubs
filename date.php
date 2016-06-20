@@ -18,7 +18,7 @@
  * @since 4.0
  * @since 5.0
  */
-function strtotime ($time, $now = null) {}
+function strtotime ($time, $now = 'time()') {}
 
 /**
  * Format a local time/date
