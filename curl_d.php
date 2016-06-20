@@ -3,6 +3,25 @@
 //TODO: copy proper descriptions for all constants from http://us.php.net/manual/en/function.curl-setopt.php
 
 /**
+ * A bitmask consisting of one or more of
+ * <b>CURLSSH_AUTH_PUBLICKEY</b>,
+ * <b>CURLSSH_AUTH_PASSWORD</b>,
+ * <b>CURLSSH_AUTH_HOST</b>,
+ * <b>CURLSSH_AUTH_KEYBOARD</b>. Set to
+ * <b>CURLSSH_AUTH_ANY</b> to let libcurl pick one.
+ */
+define('CURLOPT_SSH_AUTH_TYPES', 151);
+
+/**
+ * @since 5.5.0
+ * @link http://php.net/manual/en/function.curl-setopt.php
+ * <b>TRUE</b> tells the library to perform all the required proxy authentication
+ * and connection setup, but no data transfer. This option is implemented for
+ * HTTP, SMTP and POP3.
+ */
+define ('CURLOPT_CONNECT_ONLY', 141);
+
+/**
  * @since 5.3.7
  */
 define('CURLINFO_REDIRECT_URL', 1048607);
@@ -23,7 +42,12 @@ define('CURLINFO_LOCAL_IP', 1048617);
  * @since 5.4.7
  */
 define('CURLINFO_LOCAL_PORT', 2097194);
-
+/**
+ * A result of {@see curl_share_init()}. Makes the cURL handle to use the data from the shared handle.
+ * @link http://php.net/manual/en/function.curl-setopt.php
+ * @since 5.5.0
+ */
+define ('CURLOPT_SHARE', 10100);
 define ('CURLOPT_IPRESOLVE', 113);
 define ('CURL_IPRESOLVE_WHATEVER', 0);
 define ('CURL_IPRESOLVE_V4', 1);
@@ -82,6 +106,18 @@ define ('CURLOPT_TIMEOUT', 13);
 define ('CURLOPT_TIMEOUT_MS', 155);
 define ('CURLOPT_POSTFIELDS', 10015);
 define ('CURLOPT_REFERER', 10016);
+/**
+ * @link http://php.net/manual/en/function.curl-setopt.php
+ */
+define ('CURLOPT_SSH_HOST_PUBLIC_KEY_MD5', 10162);
+/**
+ * @link http://php.net/manual/en/function.curl-setopt.php
+ */
+define ('CURLOPT_SSH_PUBLIC_KEYFILE', 10152);
+/**
+ * @link http://php.net/manual/en/function.curl-setopt.php
+ */
+define ('CURLOPT_SSH_PRIVATE_KEYFILE', 10153);
 define ('CURLOPT_USERAGENT', 10018);
 define ('CURLOPT_FTPPORT', 10017);
 define ('CURLOPT_FTP_USE_EPSV', 85);
@@ -201,6 +237,103 @@ define ('CURLOPT_FTP_CREATE_MISSING_DIRS', 110);
  * @since 5.2.4
  */
 define ('CURLOPT_PRIVATE', 10103);
+
+/**
+ * The last response code
+ * @link http://php.net/manual/en/function.curl-getinfo.php
+ * @since 5.5.0
+ */
+define ('CURLINFO_RESPONSE_CODE', 2097154);
+/**
+ * The CONNECT response code
+ * @link http://php.net/manual/en/function.curl-getinfo.php
+ * @since 5.5.0
+ */
+define ('CURLINFO_HTTP_CONNECTCODE', 2097174);
+/**
+ * Bitmask indicating the authentication method(s) available according to the previous response
+ * @link http://php.net/manual/en/function.curl-getinfo.php
+ * @since 5.5.0
+ */
+define ('CURLINFO_HTTPAUTH_AVAIL', 2097175);
+/**
+ * Bitmask indicating the proxy authentication method(s) available according to the previous response
+ * @link http://php.net/manual/en/function.curl-getinfo.php
+ * @since 5.5.0
+ */
+define ('CURLINFO_PROXYAUTH_AVAIL', 2097176);
+/**
+ * Errno from a connect failure. The number is OS and system specific.
+ * @link http://php.net/manual/en/function.curl-getinfo.php
+ * @since 5.5.0
+ */
+define ('CURLINFO_OS_ERRNO', 2097177);
+/**
+ * Number of connections curl had to create to achieve the previous transfer
+ * @link http://php.net/manual/en/function.curl-getinfo.php
+ * @since 5.5.0
+ */
+define ('CURLINFO_NUM_CONNECTS', 2097178);
+/**
+ * OpenSSL crypto-engines supported
+ * @link http://php.net/manual/en/function.curl-getinfo.php
+ * @since 5.5.0
+ */
+define ('CURLINFO_SSL_ENGINES', 4194331);
+/**
+ * All known cookies
+ * @link http://php.net/manual/en/function.curl-getinfo.php
+ * @since 5.5.0
+ */
+define ('CURLINFO_COOKIELIST', 4194332);
+/**
+ * Entry path in FTP server
+ * @link http://php.net/manual/en/function.curl-getinfo.php
+ * @since 5.5.0
+ */
+define ('CURLINFO_FTP_ENTRY_PATH', 1048606);
+/**
+ * Time in seconds it took from the start until the SSL/SSH connect/handshake to the remote host was completed
+ * @link http://php.net/manual/en/function.curl-getinfo.php
+ * @since 5.5.0
+ */
+define ('CURLINFO_APPCONNECT_TIME',3145761);
+/**
+ * TLS certificate chain
+ * @link http://php.net/manual/en/function.curl-getinfo.php
+ * @since 5.5.0
+ */
+define ('CURLINFO_CERTINFO', 4194338);
+/**
+ * Info on unmet time conditional
+ * @link http://php.net/manual/en/function.curl-getinfo.php
+ * @since 5.5.0
+ */
+define ('CURLINFO_CONDITION_UNMET', 2097187);
+/**
+ * Next RTSP client CSeq
+ * @link http://php.net/manual/en/function.curl-getinfo.php
+ * @since 5.5.0
+ */
+define ('CURLINFO_RTSP_CLIENT_CSEQ', 2097189);
+/**
+ * Recently received CSeq
+ * @link http://php.net/manual/en/function.curl-getinfo.php
+ * @since 5.5.0
+ */
+define ('CURLINFO_RTSP_CSEQ_RECV', 2097191);
+/**
+ * Next RTSP server CSeq
+ * @link http://php.net/manual/en/function.curl-getinfo.php
+ * @since 5.5.0
+ */
+define ('CURLINFO_RTSP_SERVER_CSEQ', 2097190);
+/**
+ * RTSP session ID
+ * @link http://php.net/manual/en/function.curl-getinfo.php
+ * @since 5.5.0
+ */
+define ('CURLINFO_RTSP_SESSION_ID', 1048612);
 define ('CURLCLOSEPOLICY_LEAST_RECENTLY_USED', 2);
 define ('CURLCLOSEPOLICY_LEAST_TRAFFIC', 3);
 define ('CURLCLOSEPOLICY_SLOWEST', 4);
