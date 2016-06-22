@@ -14,7 +14,7 @@ class XSLTProcessor  {
 	 * The imported style sheet as a <b>DOMDocument</b> or
 	 * <b>SimpleXMLElement</b> object.
 	 * </p>
-	 * @return void No value is returned.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * @since 5.0
 	 */
 	public function importStylesheet ($stylesheet) {}
