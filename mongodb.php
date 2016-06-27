@@ -879,7 +879,7 @@ namespace MongoDB {
              * @link http://php.net/manual/en/mongodb-bson-objectid.construct.php
              * @param string $id
              */
-            public function __construct($id)
+            public function __construct($id = null)
             {
             }
 
@@ -957,13 +957,13 @@ namespace MongoDB {
         }
 
         /**
-         * Class UTCDatetime
+         * Class UTCDateTime
          * @link http://php.net/manual/en/class.mongodb-bson-utcdatetime.php
          */
-        class UTCDatetime implements Type
+        class UTCDateTime implements Type
         {
             /**
-             * UTCDatetime constructor.
+             * UTCDateTime constructor.
              * @link http://php.net/manual/en/mongodb-bson-utcdatetime.construct.php
              * @param string $milliseconds
              */
