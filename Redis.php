@@ -1046,7 +1046,6 @@ class Redis
 
     /**
      * Adds a values to the set value stored at key.
-     * If this value is already in the set, FALSE is returned.
      *
      * @param   string  $key        Required key
      * @param   array   $values      Required values
