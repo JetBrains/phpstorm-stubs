@@ -1044,6 +1044,23 @@ class Redis
      */
     public function sAdd( $key, $value1, $value2 = null, $valueN = null ) {}
 
+    /**
+     * Adds a values to the set value stored at key.
+     * If this value is already in the set, FALSE is returned.
+     *
+     * @param   string  $key        Required key
+     * @param   array   $values      Required values
+     * @return  boolean The number of elements added to the set
+     * @link    http://redis.io/commands/sadd
+     * @link    https://github.com/phpredis/phpredis/commit/3491b188e0022f75b938738f7542603c7aae9077
+     * @since   phpredis 2.2.8
+     * @example
+     * <pre>
+     * $redis->sAddArray('k', array('v1'));                // boolean
+     * $redis->sAddArray('k', array('v1', 'v2', 'v3'));    // boolean
+     * </pre>
+     */
+    public function sAddArray( $key, array $values) {}
 
     /**
      * Removes the specified members from the set value stored at key.
