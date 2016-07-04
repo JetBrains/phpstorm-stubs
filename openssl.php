@@ -1038,9 +1038,16 @@ function openssl_random_pseudo_bytes($length, &$crypto_strong = null) { }
  * @return string an error message string, or false if there are no more error
  * messages to return.
  * @since 4.0.6
- * @since 5.0
  */
 function openssl_error_string() { }
+
+/**
+ * Retrieve the available certificate locations
+ * @link http://php.net/manual/en/function.openssl-get-cert-locations.php
+ * @return array an array with the available certificate locations
+ * @since 5.6.0
+ */
+function openssl_get_cert_locations() { }
 
 define ('OPENSSL_VERSION_TEXT', "OpenSSL 1.0.0e 6 Sep 2011");
 define ('OPENSSL_VERSION_NUMBER', 268435551);

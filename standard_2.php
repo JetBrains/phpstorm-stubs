@@ -244,13 +244,13 @@ function parse_str ($str, array &$arr = null) {}
  * Set the field enclosure character (one character only).
  * </p>
  * @param string $escape [optional] <p>
- * Set the escape character (one character only). Defaults as a backslash
- * (\)
+ * Set the escape character (one character only). 
+ * Defaults as a backslash (\)
  * </p>
  * @return array an indexed array containing the fields read.
  * @since 5.3.0
  */
-function str_getcsv ($input, $delimiter = null, $enclosure = null, $escape = null) {}
+function str_getcsv ($input, $delimiter = ",", $enclosure = '"', $escape = "\\") {}
 
 /**
  * Pad a string to a certain length with another string
