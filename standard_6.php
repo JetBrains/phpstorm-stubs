@@ -393,7 +393,7 @@ function stream_socket_server ($local_socket, &$errno = null, &$errstr = null, $
  * Can also be determined later using
  * stream_socket_get_name.
  * </p>
- * @return resource true on success or false on failure.
+ * @return resource|bool Returns a stream to the accepted socket connection or FALSE on failure.
  * @since 5.0
  */
 function stream_socket_accept ($server_socket, $timeout = null, &$peername = null) {}

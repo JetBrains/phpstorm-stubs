@@ -52,14 +52,14 @@ interface SessionHandlerInterface {
 	 * Initialize session
 	 * @link http://php.net/manual/en/sessionhandlerinterface.open.php
 	 * @param string $save_path The path where to store/retrieve the session.
-	 * @param string $session_id The session id.
+	 * @param string $name The session name.
 	 * @return bool <p>
 	 * The return value (usually TRUE on success, FALSE on failure).
 	 * Note this value is returned internally to PHP for processing.
 	 * </p>
 	 * @since 5.4.0
 	 */
-	public function open($save_path, $session_id);
+	public function open($save_path, $name);
 
 
 	/**
@@ -154,14 +154,14 @@ class SessionHandler implements SessionHandlerInterface {
 	 * Initialize session
 	 * @link http://php.net/manual/en/sessionhandler.open.php
 	 * @param string $save_path The path where to store/retrieve the session.
-	 * @param string $session_id The session id.
+	 * @param string $session_name The session name.
 	 * @return bool <p>
 	 * The return value (usually TRUE on success, FALSE on failure).
 	 * Note this value is returned internally to PHP for processing.
 	 * </p>
 	 * @since 5.4.0
 	 */
-	public function open($save_path, $session_id) { }
+	public function open($save_path, $session_name) { }
 
 
 	/**

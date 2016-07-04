@@ -30,6 +30,16 @@ class php_user_filter  {
 class Directory  {
 
     /**
+     * @var string The directory that was opened.
+     */
+    public $path;
+
+    /**
+     * @var resource Can be used with other directory functions such as {@see readdir()}, {@see rewinddir()} and {@see closedir()}.
+     */
+    public $handle;
+    
+    /**
      * Close directory handle.
      * Same as closedir(), only dir_handle defaults to $this.
      * @param resource $dir_handle [optional]
