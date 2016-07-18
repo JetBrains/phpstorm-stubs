@@ -3020,7 +3020,7 @@ class IntlTimeZone {
      * @link http://www.php.net/manual/en/intltimezone.createdefault.php
      * @return IntlTimeZone
      */
-    public function createDefault() { }
+    public static function createDefault() { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
