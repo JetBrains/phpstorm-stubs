@@ -645,5 +645,26 @@ class DatePeriod implements Traversable {
      * @link http://php.net/manual/en/dateperiod.construct.php
      */
     public function __construct ($isostr, $options=0) {}
+
+    /**
+     * Gets the interval
+     * @return DateInterval
+     * @link http://php.net/manual/en/dateperiod.getdateinterval.php
+     */
+    public function getDateInterval () {}
+
+    /**
+     * Gets the end date
+     * @return DateTime
+     * @link http://php.net/manual/en/dateperiod.getenddate.php
+     */
+    public function getEndDate () {}
+
+    /**
+     * Gets the start date
+     * @return DateTime
+     * @link http://php.net/manual/en/dateperiod.getstartdate.php
+     */
+    public function getStartDate () {}
 }
 
