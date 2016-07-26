@@ -921,9 +921,10 @@ namespace MongoDB {
             /**
              * ObjectID constructor.
              * @link http://php.net/manual/en/mongodb-bson-objectid.construct.php
-             * @param string $id
+             * @param string $id A string representation of this ObjectID. Omitting this argument will instead generate a new ObjectID.
+             * @throws InvalidArgumentException If passed ObjectID is malformed.
              */
-            public function __construct($id)
+            public function __construct($id = null)
             {
             }
 
