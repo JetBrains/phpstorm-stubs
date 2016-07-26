@@ -94,7 +94,7 @@ class MemcachePool  {
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function addserver ($host, $port = 11211, $persistent = true, $weight = null, $timeout = 1, $retry_interval = 15, $status = true, callable $failure_callback = null, $timeoutms) {}
+    public function addServer ($host, $port = 11211, $persistent = true, $weight = null, $timeout = 1, $retry_interval = 15, $status = true, callable $failure_callback = null, $timeoutms) {}
 
     /**
      * (PECL memcache &gt;= 2.1.0)<br/>
@@ -142,12 +142,12 @@ class MemcachePool  {
      * @param int $port Point to the port where memcached is listening for connections.
      * @return int Returns a the servers status. 0 if server is failed, non-zero otherwise
      */
-    public function getserverstatus ($host, $port = 11211) {}
+    public function getServerStatus ($host, $port = 11211) {}
 
     /**
      *
      */
-    public function findserver () {}
+    public function findServer () {}
 
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
@@ -155,7 +155,7 @@ class MemcachePool  {
      * @link http://php.net/manual/en/memcache.getversion.php
      * @return string|boolean Returns a string of server version number or <b>FALSE</b> on failure.
      */
-    public function getversion () {}
+    public function getVersion () {}
 
     /**
      * (PECL memcache &gt;= 2.0.0)<br/>
@@ -261,7 +261,7 @@ class MemcachePool  {
      * </p>
      * @return array|bool Returns an associative array of server statistics or <b>FALSE</b> on failure.
      */
-    public function getstats ($type, $slabid, $limit = 100) {}
+    public function getStats ($type, $slabid, $limit = 100) {}
 
     /**
      * (PECL memcache &gt;= 2.0.0)<br/>
@@ -279,7 +279,7 @@ class MemcachePool  {
      * Returns a two-dimensional associative array of server statistics or <b>FALSE</b>
      * on failure.
      */
-    public function getextendedstats ($type, $slabid, $limit = 100) {}
+    public function getExtendedStats ($type, $slabid, $limit = 100) {}
 
     /**
      * (PECL memcache &gt;= 2.0.0)<br/>
