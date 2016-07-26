@@ -617,6 +617,7 @@ class DateInterval {
 /**
  * Representation of date period.
  * @link http://php.net/manual/en/class.dateperiod.php
+ * @since 5.3.0
  */
 class DatePeriod implements Traversable {
     const EXCLUDE_START_DATE = 1;
@@ -627,6 +628,7 @@ class DatePeriod implements Traversable {
      * @param DateTimeInterface $end
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link http://php.net/manual/en/dateperiod.construct.php
+     * @since 5.3.0
      */
     public function __construct (DateTimeInterface $start, DateInterval $interval, DateTimeInterface $end, $options=0) {}
 
@@ -636,6 +638,7 @@ class DatePeriod implements Traversable {
      * @param int $recurrences Number of recurrences
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link http://php.net/manual/en/dateperiod.construct.php
+     * @since 5.3.0
      */
     public function __construct (DateTimeInterface $start, DateInterval $interval, $recurrences, $options=0) {}
 
@@ -643,6 +646,7 @@ class DatePeriod implements Traversable {
      * @param string $isostr String containing the ISO interval.
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link http://php.net/manual/en/dateperiod.construct.php
+     * @since 5.3.0
      */
     public function __construct ($isostr, $options=0) {}
 
@@ -650,6 +654,7 @@ class DatePeriod implements Traversable {
      * Gets the interval
      * @return DateInterval
      * @link http://php.net/manual/en/dateperiod.getdateinterval.php
+     * @since 5.6.5
      */
     public function getDateInterval () {}
 
@@ -657,6 +662,7 @@ class DatePeriod implements Traversable {
      * Gets the end date
      * @return DateTime
      * @link http://php.net/manual/en/dateperiod.getenddate.php
+     * @since 5.6.5
      */
     public function getEndDate () {}
 
@@ -664,7 +670,7 @@ class DatePeriod implements Traversable {
      * Gets the start date
      * @return DateTime
      * @link http://php.net/manual/en/dateperiod.getstartdate.php
+     * @since 5.6.5
      */
     public function getStartDate () {}
 }
-
