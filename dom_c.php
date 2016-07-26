@@ -1065,10 +1065,14 @@ class DOMDocument extends DOMNode  {
      * @param string $filename <p>
      * The path to the schema.
      * </p>
+	 * @param int $options [optional] <p>
+	 * Bitwise OR
+	 * of the libxml option constants.
+	 * </p>
      * @return bool true on success or false on failure.
      * @since 5.0
      */
-    public function schemaValidate ($filename) {}
+    public function schemaValidate ($filename, $options = null) {}
 
     /**
      * Validates a document based on a schema
