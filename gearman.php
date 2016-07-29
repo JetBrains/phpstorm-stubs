@@ -2099,6 +2099,16 @@ class GearmanWorker {
     public function setTimeout($timeout) {}
 
     /**
+     * Give the worker an identifier so it can be tracked when asking gearmand for
+     * the list of available workers.
+     *
+     * @link http://php.net/manual/en/gearmanworker.setid.php
+     * @param int $id A string identifier
+     * @return bool Returns TRUE on success or FALSE on failure
+     */
+    public function setId($id) {}
+
+    /**
      * Adds a job server to this worker. This goes into a list of servers than can be
      * used to run jobs. No socket I/O happens here.
      *
