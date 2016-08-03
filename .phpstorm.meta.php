@@ -14,8 +14,9 @@ namespace PHPSTORM_META {
 
   /**
    * map argument with #$argNum Literal value to one of expressions
-   * @param mixed $argNum
-   * @param mixed $map
+   * @param mixed $argNum ignored, for now its always 0
+   * @param mixed $map Key-value pairs: string_literal|const|class_const => class_name::class|pattern_literal
+   * where pattern literal can contain @ char to be replaced with argument literal value
    * @return mixed overrides map object
    */
   function map($map) {
@@ -24,7 +25,7 @@ namespace PHPSTORM_META {
 
   /**
    * type of argument #$argNum
-   * @param mixed $argNum
+   * @param mixed $argNum ignored, for now its always 0
    * @return mixed
    */
   function type($argNum) {
@@ -43,7 +44,7 @@ namespace PHPSTORM_META {
   override(\array_shift(0), elementType(0));
   override(\array_reverse(0), elementType(0));
   override(\array_pop(0), elementType(0));
-  override(\array_map(0), type(0));
+//  override(\array_map(0), type(1));
   override(\array_filter(0), type(0));
   override(\array_reduce(0), elementType(0));
 

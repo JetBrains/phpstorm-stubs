@@ -53,7 +53,7 @@ namespace MongoDB {
              * @param WriteConcern $writeConcern Optionally, a MongoDB\Driver\WriteConcern. If none given, default to the Write Concern set by the MongoDB Connection URI.
              * @return WriteResult
              */
-            final public function executeBulkWrite($namespace, BulkWrite $bulk = null, WriteConcern $writeConcern = null)
+            final public function executeBulkWrite($namespace, BulkWrite $bulk, WriteConcern $writeConcern = null)
             {
             }
 
@@ -148,11 +148,12 @@ namespace MongoDB {
 
             /**
              * @link http://php.net/manual/en/mongodb-driver-server.executebulkwrite.php
-             * @param $namespace
-             * @param BulkWrite $zwrite
+             * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
+             * @param BulkWrite $zwrite The MongoDB\Driver\BulkWrite to execute.
+             * @param WriteConcern $writeConcern Optionally, a MongoDB\Driver\WriteConcern. If none given, default to the Write Concern set by the MongoDB Connection URI.
              * @return WriteResult
              */
-            final public function executeBulkWrite($namespace, BulkWrite $zwrite)
+            final public function executeBulkWrite($namespace, BulkWrite $zwrite, WriteConcern $writeConcern = null)
             {
             }
 
@@ -288,6 +289,49 @@ namespace MongoDB {
              * @param array $tagSets
              */
             final public function __construct($readPreference, array $tagSets = [])
+            {
+            }
+
+            /**
+             * @link http://php.net/manual/en/mongodb-driver-readpreference.getmode.php
+             * @return integer
+             */
+            final public function  getMode ()
+            {
+            }
+
+            /**
+             * @link http://php.net/manual/en/mongodb-driver-readpreference.gettagsets.php
+             * @return array
+             */
+            final public function getTagSets ()
+            {
+            }
+        }
+
+        /**
+         * Class ReadConcern
+         * @link http://php.net/manual/en/class.mongodb-driver-readconcern.php
+         */
+        final class ReadConcern
+        {
+            const LOCAL = 'local';
+            const MAJORITY = 'majority';
+
+            /**
+             * ReadConcern constructor.
+             * @link http://php.net/manual/en/mongodb-driver-readconcern.construct.php
+             * @param string $level
+             */
+            final public function __construct($level = null)
+            {
+            }
+
+            /**
+             * @link http://php.net/manual/en/mongodb-driver-readconcern.getlevel.php
+             * @return string|null
+             */
+            final public function getLevel ()
             {
             }
         }
@@ -877,9 +921,10 @@ namespace MongoDB {
             /**
              * ObjectID constructor.
              * @link http://php.net/manual/en/mongodb-bson-objectid.construct.php
-             * @param string $id
+             * @param string $id A string representation of this ObjectID. Omitting this argument will instead generate a new ObjectID.
+             * @throws InvalidArgumentException If passed ObjectID is malformed.
              */
-            public function __construct($id)
+            public function __construct($id = null)
             {
             }
 
@@ -957,13 +1002,13 @@ namespace MongoDB {
         }
 
         /**
-         * Class UTCDatetime
+         * Class UTCDateTime
          * @link http://php.net/manual/en/class.mongodb-bson-utcdatetime.php
          */
-        class UTCDatetime implements Type
+        class UTCDateTime implements Type
         {
             /**
-             * UTCDatetime constructor.
+             * UTCDateTime constructor.
              * @link http://php.net/manual/en/mongodb-bson-utcdatetime.construct.php
              * @param string $milliseconds
              */
@@ -973,6 +1018,7 @@ namespace MongoDB {
 
             /**
              * @link http://php.net/manual/en/mongodb-bson-utcdatetime.todatetime.php
+             * @return \DateTime
              */
             final public function toDateTime()
             {
