@@ -123,6 +123,14 @@ class SessionHandler implements SessionHandlerInterface {
 	 */
 	public function close() { }
 
+    /**
+     * Return a new session ID
+     * @link http://php.net/manual/en/sessionhandler.create-sid.php
+     * @return string <p>A session ID valid for the default session handler.</p>
+     * @since 5.5.1
+     */
+	public function create_sid() {}
+
 	/**
 	 * Destroy a session
 	 * @link http://php.net/manual/en/sessionhandler.destroy.php

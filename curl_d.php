@@ -553,3 +553,262 @@ define ('CURL_LOCK_DATA_SSL_SESSION', 4);
 
 define ('CURLOPT_KEYPASSWD', 10026);
 
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLFTP_CREATE_DIR', 1);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLFTP_CREATE_DIR_NONE', 0);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLAUTH_NTLM_WB', 32);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURL_HTTP_VERSION_2', 3);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_SASL_IR', 218);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_DNS_INTERFACE', 10221);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_DNS_LOCAL_IP4', 10222);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_DNS_LOCAL_IP6', 10223);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_XOAUTH2_BEARER', 10220);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_LOGIN_OPTIONS', 10224);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_EXPECT_100_TIMEOUT_MS', 227);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_SSL_ENABLE_ALPN', 226);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_SSL_ENABLE_NPN', 225);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_PINNEDPUBLICKEY', 10230);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_UNIX_SOCKET_PATH', 10231);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_SSL_VERIFYSTATUS', 232);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_PATH_AS_IS', 234);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_SSL_FALSESTART', 233);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_PIPEWAIT', 237);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_PROXY_SERVICE_NAME', 10235);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_SERVICE_NAME', 10236);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLSSH_AUTH_AGENT', 16);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLPIPE_NOTHING', 0);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLPIPE_HTTP1', 1);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLPIPE_MULTIPLEX', 2);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLHEADER_SEPARATE', 1);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLHEADER_UNIFIED', 0);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLPROTO_SMB', 67108864);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLPROTO_SMBS', 134217728);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_HEADEROPT', 229);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLOPT_PROXYHEADER', 10228);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURL_REDIR_POST_301', 1);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURL_REDIR_POST_302', 2);
+
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURL_REDIR_POST_303', 4);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLPROXY_HTTP_1_0',1);
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURL_REDIR_POST_ALL', 7);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define ('CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE', 30010);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define ('CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE', 30009);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLMOPT_MAX_HOST_CONNECTIONS', 7);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLMOPT_MAX_PIPELINE_LENGTH', 8);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLMOPT_MAX_TOTAL_CONNECTIONS', 13);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define ('CURLFTP_CREATE_DIR_RETRY', 2);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURLAUTH_NEGOTIATE', 4);
+
