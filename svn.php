@@ -19,13 +19,48 @@ class Svn  {
 	const UNSPECIFIED = -5;
 
 
-	public static function cat () {}
-
-	public static function checkout () {}
-
-	public static function log () {}
-
-	public static function status () {}
+    public static function checkout() {}
+    public static function cat() {}
+    public static function ls() {}
+    public static function log() {}
+    public static function auth_set_parameter() {}
+    public static function auth_get_parameter() {}
+    public static function client_version() {}
+    public static function config_ensure() {}
+    public static function diff() {}
+    public static function cleanup() {}
+    public static function revert() {}
+    public static function resolved() {}
+    public static function commit() {}
+    public static function lock() {}
+    public static function unlock() {}
+    public static function add() {}
+    public static function status() {}
+    public static function update() {}
+    public static function update2() {}
+    public static function import() {}
+    public static function info() {}
+    public static function export() {}
+    public static function copy() {}
+    public static function switch() {}
+    public static function blame() {}
+    public static function delete() {}
+    public static function mkdir() {}
+    public static function move() {}
+    public static function proplist() {}
+    public static function propget() {}
+    public static function propset() {}
+    public static function prop_delete() {}
+    public static function revprop_get() {}
+    public static function revprop_set() {}
+    public static function revprop_delete() {}
+    public static function repos_create() {}
+    public static function repos_recover() {}
+    public static function repos_hotcopy() {}
+    public static function repos_open() {}
+    public static function repos_fs() {}
+    public static function repos_fs_begin_txn_for_commit() {}
+    public static function repos_fs_commit_txn() {}
 
 }
 
@@ -239,7 +274,7 @@ function svn_auth_set_parameter ($key, $value) {}
  * String key name. Use the authentication constants
  * defined by this extension to specify a key.
  * </p>
- * @return string the string value of the parameter at <i>key</i>;
+ * @return string|NULL the string value of the parameter at <i>key</i>;
  * returns <b>NULL</b> if parameter does not exist.
  */
 function svn_auth_get_parameter ($key) {}
@@ -578,11 +613,32 @@ function svn_delete ($path, $force = false) {}
  */
 function svn_mkdir ($path, $log_message = null) {}
 
-function svn_move () {}
+/**
+ * @link http://php.net/manual/en/ref.svn.php
+ * @param string $src_path
+ * @param string $dst_path
+ * @param bool $force [optional]
+ * @return mixed
+ */
+function svn_move ($src_path, $dst_path,  $force = false) {}
 
-function svn_proplist () {}
+/**
+ * @link http://php.net/manual/en/ref.svn.php
+ * @param string $path
+ * @param bool $recurse [optional]
+ * @param int $revision [optional]
+ * @return mixed
+ */
+function svn_proplist ($path, $recurse = false, $revision) {}
 
-function svn_propget () {}
+/**
+ * @param string $path
+ * @param string $property_name
+ * @param bool $recurse [optional]
+ * @param int $revision [optional]
+ * @return mixed
+ */
+function svn_propget ($path, $property_name, $recurse = false, $revision) {}
 
 /**
  * (PECL svn &gt;= 0.1.0)<br/>
