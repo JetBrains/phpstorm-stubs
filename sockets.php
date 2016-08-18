@@ -344,6 +344,7 @@ function socket_close ($socket) {}
  * @link http://www.php.net/manual/en/function.socket-cmsg-space.php
  * @param int $level
  * @param int $type
+ * @since 5.5.0
  */
 function socket_cmsg_space ($level , $type ) {}
 
@@ -683,6 +684,7 @@ function socket_send ($socket, $buf, $len, $flags) {}
  * @param array $message
  * @param int $flags
  * @return int
+ * @since 5.5.0
  */
 function socket_sendmsg ($socket, array $message, $flags ) {}
 
@@ -770,6 +772,7 @@ function socket_recvfrom ($socket, &$buf, $len, $flags, &$name, &$port = null) {
  * @param string $message
  * @param int $flags [optional]
  * @return int
+ * @since 5.5.0
  */
 function socket_recvmsg ($socket , $message, $flags) {}
 /**
