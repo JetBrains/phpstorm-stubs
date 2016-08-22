@@ -813,7 +813,7 @@ function imageflip ($image, $mode) {}
 function imagepalettetotruecolor ($image) {}
 
 /**
- *@since 5.5.0
+ * @since 5.5.0
  * Scale an image using the given new width and height
  * @link http://www.php.net/manual/en/function.imagescale.php
  * @param resource $image <p>
