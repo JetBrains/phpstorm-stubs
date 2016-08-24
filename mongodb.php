@@ -865,16 +865,23 @@ namespace MongoDB {
              * Binary constructor.
              * @link http://php.net/manual/en/mongodb-bson-binary.construct.php
              * @param string $data
-             * @param string $subtype
+             * @param integer $type
              */
-            public function __construct($data, $subtype)
+            public function __construct($data, $type)
             {
             }
 
             /**
-             * @link http://php.net/manual/en/mongodb-bson-binary.getsubtype.php
+             * @link http://php.net/manual/en/mongodb-bson-binary.getdata.php
              */
-            public function getSubType()
+            public function getData()
+            {
+            }
+
+            /**
+             * @link http://php.net/manual/en/mongodb-bson-binary.gettype.php
+             */
+            public function getType()
             {
             }
         }
