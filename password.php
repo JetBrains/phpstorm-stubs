@@ -113,7 +113,7 @@ function password_hash ($password, $algo, $options = null) {}
  * @param string $hash A hash created by password_hash().
  * @param int $algo A <a href="http://www.php.net/manual/en/password.constants.php" class="link">password algorithm constant</a> denoting the algorithm to use when hashing the password.
  * @param array $options [optional] <p> An associative array containing options. See the password algorithm constants for documentation on the supported options for each algorithm.
- * @return string Returns TRUE if the hash should be rehashed to match the given algo and options, or FALSE otherwise.
+ * @return bool Returns TRUE if the hash should be rehashed to match the given algo and options, or FALSE otherwise.
  * @since 5.5.0
  */
 function password_needs_rehash ($hash, $algo, $options = null) {}
