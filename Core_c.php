@@ -352,6 +352,17 @@ class Exception implements Throwable {
  */
 class Error implements Throwable {
 
+    /**
+     * Construct the error object.
+     * @link http://php.net/manual/en/error.construct.php
+     * @param string $message [optional] The Error message to throw.
+     * @param int $code [optional] The Error code.
+     * @param Throwable $previous [optional] The previous throwable used for the exception chaining.
+     */
+    public function __construct($message = "", $code = 0, Throwable $previous = null)
+    {
+    }
+
     /***
      * Gets the message
      * @link http://php.net/manual/en/throwable.getmessage.php
