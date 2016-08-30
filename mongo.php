@@ -1146,9 +1146,10 @@ class MongoCollection {
 	 * @link http://www.php.net/manual/en/mongocollection.findone.php
 	 * @param array $query The fields for which to search.
 	 * @param array $fields Fields of the results to return.
+	 * @param array $options This parameter is an associative array of the form array("name" => <value>, ...).
 	 * @return array|null
 	 */
-    public function findOne(array $query = array(), array $fields = array()) {}
+    public function findOne(array $query = array(), array $fields = array(), array $options = array()) {}
 
     /**
      * Creates an index on the given field(s), or does nothing if the index already exists
