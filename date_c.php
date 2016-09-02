@@ -112,7 +112,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @param string $format
      * @param string $time
      * @param DateTimeZone $timezone [optional]
-     * @return DateTimeImmutable
+     * @return DateTimeImmutable|boolean
      */
     public static function createFromFormat($format, $time, DateTimeZone $timezone) { }
 
@@ -438,7 +438,7 @@ class DateTime implements DateTimeInterface {
      * @param string $format Format accepted by date().
      * @param string $time String representing the time.
      * @param DateTimeZone $timezone A DateTimeZone object representing the desired time zone.
-     * @return DateTime
+     * @return DateTime|boolean
      * @link http://php.net/manual/en/datetime.createfromformat.php
      */
     public static function createFromFormat ($format, $time, DateTimeZone $timezone=null) {}
