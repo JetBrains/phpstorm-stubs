@@ -368,6 +368,7 @@ function mysql_insert_id ($link_identifier = null) {}
 function mysql_result ($result, $row, $field = 0) {}
 
 /**
+ * @deprecated 5.5
  * Get number of rows in result
  * @link http://php.net/manual/en/function.mysql-num-rows.php
  * @param resource $result <p>The result resource that is being evaluated. This result comes from a call to mysql_query().</p>
