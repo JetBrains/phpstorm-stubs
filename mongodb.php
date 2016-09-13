@@ -508,13 +508,12 @@ namespace MongoDB {
             /**
              * Construct immutable WriteConcern
              * @link http://php.net/manual/en/mongodb-driver-writeconcern.construct.php
-             * @param string $wstring
+             * @param string|integer $w
              * @param integer $wtimeout How long to wait (in milliseconds) for secondaries before failing.
              * @param boolean $journal Wait until mongod has applied the write to the journal.
-             * @param boolean $fsync Wait until the write has been flushed to disk.
              * @throws InvalidArgumentException on argument parsing errors.
              */
-            final public function __construct($wstring, $wtimeout = 0, $journal = false, $fsync = false)
+            final public function __construct($w, $wtimeout = 0, $journal = false)
             {
             }
         }
