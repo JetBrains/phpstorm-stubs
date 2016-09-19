@@ -99,6 +99,13 @@ namespace MongoDB {
             }
 
             /**
+             * @return ReadConcern
+             */
+            final public function getReadConcern()
+            {
+            }
+
+            /**
              * @return ReadPreference
              */
             final public function getReadPreference()
