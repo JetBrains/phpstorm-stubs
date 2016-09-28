@@ -166,21 +166,23 @@ namespace MongoDB {
 
             /**
              * @link http://php.net/manual/en/mongodb-driver-server.executecommand.php
-             * @param $db
-             * @param Command $command
+             * @param string $db The name of the database on which to execute the command.
+             * @param Command $command The MongoDB\Driver\Command to execute.
+             * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to select the server for this operation. If none is given, the read preference from the MongoDB Connection URI will be used.
              * @return Cursor
              */
-            final public function executeCommand($db, Command $command)
+            final public function executeCommand($db, Command $command, ReadPreference $readPreference = null)
             {
             }
 
             /**
              * @link http://php.net/manual/en/mongodb-driver-server.executequery.php
-             * @param $namespace
-             * @param Query $zquery
+             * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
+             * @param Query $query The MongoDB\Driver\Query to execute.
+             * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to select the server for this operation. If none is given, the read preference from the MongoDB Connection URI will be used.
              * @return Cursor
              */
-            final public function executeQuery($namespace, Query $zquery)
+            final public function executeQuery($namespace, Query $query, ReadPreference $readPreference = null)
             {
             }
 
