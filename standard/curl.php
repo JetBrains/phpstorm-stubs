@@ -2536,3 +2536,27 @@ function curl_multi_info_read ($mh, &$msgs_in_queue = null) {}
  * @since 5.0
  */
 function curl_multi_close ($mh) {}
+
+/**
+ * @param resource $mh
+ * @since 7.1
+ * @return int
+ */
+function curl_multi_errno($mh) {}
+
+/**
+ * @param resource $rh
+ * @since 7.1
+ * @return int
+ */
+function curl_share_errno(resource $rh) {}
+
+/**
+ * @param int $errno
+ * @since 7.1
+ * @return int
+ */
+function curl_share_strerror($errno){}
+
+
+

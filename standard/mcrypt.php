@@ -20,7 +20,7 @@ function mcrypt_ecb ($cipher, $key, $data, $mode) {}
  * Encrypt/decrypt data in CBC mode
  * @link http://php.net/manual/en/function.mcrypt-cbc.php
  * @deprecated 5.5 http://www.php.net/manual/en/migration55.deprecated.php
- * @param int $cipher 
+ * @param int|string $cipher
  * @param string $key 
  * @param string $data 
  * @param int $mode 
