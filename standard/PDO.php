@@ -788,11 +788,15 @@ class PDO  {
 	 * @param mixed $arg3 <p>
 	 * The second and following parameters are the same as the parameters for PDOStatement::setFetchMode.
 	 * </p>
+	 * @param array $ctorargs [optional] <p>
+	 * Arguments of custom class constructor when the <i>mode</i> 
+	 * parameter is set to <b>PDO::FETCH_CLASS</b>.
+	 * </p>
 	 * @return PDOStatement <b>PDO::query</b> returns a PDOStatement object, or <b>FALSE</b>
 	 * on failure.
 	 * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
 	 */
-	public function query ($statement, $mode = PDO::ATTR_DEFAULT_FETCH_MODE, $arg3 = null) {}
+	public function query ($statement, $mode = PDO::ATTR_DEFAULT_FETCH_MODE, $arg3 = null, array $ctorargs = array()) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)<br/>
@@ -1164,7 +1168,7 @@ class PDOStatement implements Traversable {
 	 * ORDER BY clauses in SQL to restrict results before retrieving and
 	 * processing them with PHP.
 	 */
-	public function fetchAll ($fetch_style = null, $fetch_argument = null, array $ctor_args = 'array()') {}
+	public function fetchAll ($fetch_style = null, $fetch_argument = null, array $ctor_args = array()) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.2.4)<br/>
@@ -1179,7 +1183,7 @@ class PDOStatement implements Traversable {
 	 * @return mixed an instance of the required class with property names that
 	 * correspond to the column names or <b>FALSE</b> on failure.
 	 */
-	public function fetchObject ($class_name = "stdClass", array $ctor_args = null) {}
+	public function fetchObject ($class_name = "stdClass", array $ctor_args = array()) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)<br/>
