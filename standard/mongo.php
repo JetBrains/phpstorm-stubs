@@ -1540,35 +1540,47 @@ class MongoCursor implements Iterator, Traversable {
 	 */
 	public function info(){}
 
-    /**
-     * PECL mongo >=1.0.11
-     * Limits the number of elements returned in one batch.
-     * <p>A cursor typically fetches a batch of result objects and store them locally.
-     * This method sets the batchSize value to configure the amount of documents retrieved from the server in one data packet.
-     * However, it will never return more documents than fit in the max batch size limit (usually 4MB).
-     *
-     * @param int $batchSize The number of results to return per batch. Each batch requires a round-trip to the server.
-     * <p>If batchSize is 2 or more, it represents the size of each batch of objects retrieved.
-     * It can be adjusted to optimize performance and limit data transfer.
-     *
-     * <p>If batchSize is 1 or negative, it will limit of number returned documents to the absolute value of batchSize,
-     * and the cursor will be closed. For example if batchSize is -10, then the server will return a maximum of 10
-     * documents and as many as can fit in 4MB, then close the cursor.
-     * <b>Warning</b>
-     * <p>A batchSize of 1 is special, and means the same as -1, i.e. a value of 1 makes the cursor only capable of returning one document.
-     * <p>Note that this feature is different from MongoCursor::limit() in that documents must fit within a maximum size,
-     * and it removes the need to send a request to close the cursor server-side.
-     * The batch size can be changed even after a cursor is iterated, in which case the setting will apply on the next batch retrieval.
-     * <p>This cannot override MongoDB's limit on the amount of data it will return to the client (i.e.,
-     * if you set batch size to 1,000,000,000, MongoDB will still only return 4-16MB of results per batch).
-     * <p>To ensure consistent behavior, the rules of MongoCursor::batchSize() and MongoCursor::limit() behave a little complex
-     * but work "as expected". The rules are: hard limits override soft limits with preference given to MongoCursor::limit() over
-     * MongoCursor::batchSize(). After that, whichever is set and lower than the other will take precedence.
-     * See below. section for some examples.
-     * @return MongoCursor Returns this cursor.
-     * @link http://docs.php.net/manual/en/mongocursor.batchsize.php
-     */
-    public function batchSize($batchSize){}
+	/**
+	 * PECL mongo >=1.0.11
+	 * Limits the number of elements returned in one batch.
+	 * <p>A cursor typically fetches a batch of result objects and store them locally.
+	 * This method sets the batchSize value to configure the amount of documents retrieved from the server in one data packet.
+	 * However, it will never return more documents than fit in the max batch size limit (usually 4MB).
+	 *
+	 * @param int $batchSize The number of results to return per batch. Each batch requires a round-trip to the server.
+	 * <p>If batchSize is 2 or more, it represents the size of each batch of objects retrieved.
+	 * It can be adjusted to optimize performance and limit data transfer.
+	 *
+	 * <p>If batchSize is 1 or negative, it will limit of number returned documents to the absolute value of batchSize,
+	 * and the cursor will be closed. For example if batchSize is -10, then the server will return a maximum of 10
+	 * documents and as many as can fit in 4MB, then close the cursor.
+	 * <b>Warning</b>
+	 * <p>A batchSize of 1 is special, and means the same as -1, i.e. a value of 1 makes the cursor only capable of returning one document.
+	 * <p>Note that this feature is different from MongoCursor::limit() in that documents must fit within a maximum size,
+	 * and it removes the need to send a request to close the cursor server-side.
+	 * The batch size can be changed even after a cursor is iterated, in which case the setting will apply on the next batch retrieval.
+	 * <p>This cannot override MongoDB's limit on the amount of data it will return to the client (i.e.,
+	 * if you set batch size to 1,000,000,000, MongoDB will still only return 4-16MB of results per batch).
+	 * <p>To ensure consistent behavior, the rules of MongoCursor::batchSize() and MongoCursor::limit() behave a little complex
+	 * but work "as expected". The rules are: hard limits override soft limits with preference given to MongoCursor::limit() over
+	 * MongoCursor::batchSize(). After that, whichever is set and lower than the other will take precedence.
+	 * See below. section for some examples.
+	 * @return MongoCursor Returns this cursor.
+	 * @link http://docs.php.net/manual/en/mongocursor.batchsize.php
+	 */
+	public function batchSize($batchSize){}
+	
+	/**
+	 * (PECL mongo >=1.5.0)
+	 * Sets a server-side timeout for this query
+	 * @link http://php.net/manual/en/mongocursor.maxtimems.php
+	 * @param int $ms <p>
+	 * Specifies a cumulative time limit in milliseconds to be allowed by the
+	 * server for processing operations on the cursor.
+	 * </p>
+	 * @return MongoCursor This cursor.
+	 */
+	public function maxTimeMS ($ms) {}
 }
 
 class MongoCommandCursor implements MongoCursorInterface, Iterator{
