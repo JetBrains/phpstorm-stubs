@@ -836,7 +836,7 @@ function max (array $value1, $value2 = null, ...$values) {}
  * @since 4.0
  * @since 5.0
  */
-function in_array ($needle, array $haystack, $strict = null) {}
+function in_array ($needle, array $haystack, $strict = false) {}
 
 /**
  * Searches the array for a given value and returns the corresponding key if successful
