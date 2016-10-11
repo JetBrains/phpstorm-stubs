@@ -1569,6 +1569,18 @@ class MongoCursor implements Iterator, Traversable {
      * @link http://docs.php.net/manual/en/mongocursor.batchsize.php
      */
     public function batchSize($batchSize){}
+	
+	/**
+	 * (PECL mongo >=1.5.0)
+	 * Sets a server-side timeout for this query
+	 * @link http://php.net/manual/en/mongocursor.maxtimems.php
+	 * @param int $ms <p>
+	 * Specifies a cumulative time limit in milliseconds to be allowed by the
+	 * server for processing operations on the cursor.
+	 * </p>
+	 * @return MongoCursor This cursor.
+	 */
+	public function maxTimeMS ($ms) {}
 }
 
 class MongoCommandCursor implements MongoCursorInterface, Iterator{
