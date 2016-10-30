@@ -635,6 +635,21 @@ class PDO  {
 	 */
 	const MYSQL_ATTR_SSL_CAPATH = 1013;
 	const MYSQL_ATTR_SSL_CIPHER = 1014;
+	
+	/**
+	 * <p>
+	 * Disables multi query execution in both PDO::prepare() and PDO::query() when set to FALSE.
+	 * </p>
+	 * <p>
+	 * Note, this constant can only be used in the driver_options array when constructing a new database handle.
+	 * </p>
+	 * <p>
+	 * This exists as of PHP 5.5.21 and PHP 5.6.5.
+	 * </p>
+	 * @link http://php.net/manual/en/ref.pdo-mysql.php
+	 */
+	const MYSQL_ATTR_MULTI_STATEMENTS = 1015;
+	
 	/**
 	 * @deprecated 5.6.0 Use PDO::ATTR_EMULATE_PREPARES instead.
 	 */
