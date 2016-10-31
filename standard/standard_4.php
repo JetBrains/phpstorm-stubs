@@ -946,7 +946,7 @@ function getmxrr ($hostname, array &$mxhosts, array &$weight = null) {}
  * </p>
  * @param int $type [optional] <p>
  * By default, dns_get_record will search for any
- * resource records associated with hostname. 
+ * resource records associated with hostname.
  * To limit the query, specify the optional type
  * parameter. May be any one of the following:
  * DNS_A, DNS_CNAME,
@@ -970,6 +970,10 @@ function getmxrr ($hostname, array &$mxhosts, array &$weight = null) {}
  * @param array $addtl [optional] <p>
  * Passed by reference and, if given, will be populated with any
  * Additional Records.
+ * </p>
+ * @param bool $raw [optional] <p>
+ * In case of raw mode, we query only the requested type
+ * instead of looping type by type before going with the additional info stuff.
  * </p>
  * @return array This function returns an array of associative arrays. Each associative array contains
  * at minimum the following keys:
@@ -1132,4 +1136,4 @@ function getmxrr ($hostname, array &$mxhosts, array &$weight = null) {}
  * </table>
  * @since 5.0
  */
-function dns_get_record ($hostname, $type = null, array &$authns = null, array &$addtl = null) {}
+function dns_get_record ($hostname, $type = null, array &$authns = null, array &$addtl = null, &$raw = false) {}
