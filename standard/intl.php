@@ -4491,38 +4491,60 @@ function grapheme_stristr($haystack, $needle, $before_needle = false) { }
 function grapheme_extract($haystack, $size, $extract_type = null, $start = 0, &$next = null) { }
 
 /**
- * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.2, PECL idn &gt;= 0.1)<br/>
- * Convert UTF-8 encoded domain name to ASCII
+ * (PHP 5 &gt;= 5.3.0, PHP 7, PECL intl &gt;= 1.0.2, PHP 7, PECL idn &gt;= 0.1)<br/>
+ * Convert domain name to IDNA ASCII form.
  * @link http://php.net/manual/en/function.idn-to-ascii.php
- * @param string $utf8_domain <p>
- * The UTF-8 encoded domain name.
- * <p>
+ * @param string $domain <p>
+ * Domain to convert. In PHP 5 must be UTF-8 encoded.
  * If e.g. an ISO-8859-1 (aka Western Europe latin1) encoded string is
  * passed it will be converted into an ACE encoded "xn--" string.
  * It will not be the one you expected though!
  * </p>
- * @param int $errorcode [optional] <p>
- * Will be set to the IDNA error code.
+ * @param int $options [optional] <p>
+ * Conversion options - combination of IDNA_* constants (except IDNA_ERROR_* constants).
+ * </p>
+ * @param int $variant [optional] <p>
+ * Either INTL_IDNA_VARIANT_2003 for IDNA 2003 or INTL_IDNA_VARIANT_UTS46 for UTS #46.
+ * </p>
+ * @param array $idna_info [optional] <p>
+ * This parameter can be used only if INTL_IDNA_VARIANT_UTS46 was used for variant.
+ * In that case, it will be filled with an array with the keys 'result',
+ * the possibly illegal result of the transformation, 'isTransitionalDifferent',
+ * a boolean indicating whether the usage of the transitional mechanisms of UTS #46
+ * either has or would have changed the result and 'errors',
+ * which is an int representing a bitset of the error constants IDNA_ERROR_*.
  * </p>
  * @return string The ACE encoded version of the domain name or <b>FALSE</b> on failure.
  */
-function idn_to_ascii($utf8_domain, &$errorcode = null) { }
+function idn_to_ascii($domain, $options = 0, $variant = INTL_IDNA_VARIANT_2003, array &$idna_info) { }
 
 /**
- * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.2, PECL idn &gt;= 0.1)<br/>
- * Convert ASCII encoded domain name to UTF-8
+ * (PHP 5 &gt;= 5.3.0, PHP 7, PECL intl &gt;= 1.0.2, PHP 7, PECL idn &gt;= 0.1)<br/>
+ * Convert domain name from IDNA ASCII to Unicode.
  * @link http://php.net/manual/en/function.idn-to-utf8.php
- * @param string $ascii_domain <p>
+ * @param string $domain <p>
+ * Domain to convert in IDNA ASCII-compatible format.
  * The ASCII encoded domain name. Looks like "xn--..." if the it originally contained non-ASCII characters.
  * </p>
- * @param int $errorcode [optional] <p>
- * Will be set to the IDNA error code.
+ * @param int $options [optional] <p>
+ * Conversion options - combination of IDNA_* constants (except IDNA_ERROR_* constants).
+ * </p>
+ * @param int $variant [optional] <p>
+ * Either INTL_IDNA_VARIANT_2003 for IDNA 2003 or INTL_IDNA_VARIANT_UTS46 for UTS #46.
+ * </p>
+ * @param int &$idna_info [optional] <p>
+ * This parameter can be used only if INTL_IDNA_VARIANT_UTS46 was used for variant.
+ * In that case, it will be filled with an array with the keys 'result',
+ * the possibly illegal result of the transformation, 'isTransitionalDifferent',
+ * a boolean indicating whether the usage of the transitional mechanisms of UTS #46
+ * either has or would have changed the result and 'errors',
+ * which is an int representing a bitset of the error constants IDNA_ERROR_*.
  * </p>
  * @return string The UTF-8 encoded version of the domain name or <b>FALSE</b> on failure.
  * RFC 3490 4.2 states though "ToUnicode never fails. If any step fails, then the original input
  * sequence is returned immediately in that step."
  */
-function idn_to_utf8($ascii_domain, &$errorcode = null) { }
+function idn_to_utf8($domain, $options = 0, $variant = INTL_IDNA_VARIANT_2003, array &$idna_info) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
