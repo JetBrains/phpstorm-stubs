@@ -238,9 +238,9 @@ class Collator {
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Create a collator
      * @link http://php.net/manual/en/collator.construct.php
-     * @param $arg1
+     * @param string $locale
      */
-    public function __construct($arg1) { }
+    public function __construct($locale) { }
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
