@@ -366,7 +366,6 @@ class DOMNode  {
 class DOMException extends Exception  {
 
     /**
-     * @var
      * @since 5.0
      * An integer indicating the type of error generated
      * @link http://php.net/manual/en/class.domexception.php#domexception.props.code
@@ -1760,7 +1759,6 @@ class DOMElement extends DOMNode  {
 class DOMText extends DOMCharacterData  {
 
     /**
-     * @var
      * @since 5.0
      * Holds all the text of logically-adjacent (not separated by Element, Comment or Processing Instruction) Text nodes.
      * @link http://php.net/manual/en/class.domtext.php#domtext.props.wholeText
@@ -2044,7 +2042,6 @@ class DOMEntityReference extends DOMNode  {
 class DOMProcessingInstruction extends DOMNode  {
 
     /**
-     * @var
      * @since 5.0
      *
      * @link http://php.net/manual/en/class.domprocessinginstruction.php#domprocessinginstruction.props.target
@@ -2052,7 +2049,6 @@ class DOMProcessingInstruction extends DOMNode  {
     public $target;
 
     /**
-     * @var
      * @since 5.0
      *
      * @link http://php.net/manual/en/class.domprocessinginstruction.php#domprocessinginstruction.props.data
