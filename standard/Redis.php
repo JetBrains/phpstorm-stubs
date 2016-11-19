@@ -4,9 +4,9 @@
  * @author Max Kamashev <max.kamashev@gmail.com>
  * @link https://github.com/ukko/phpredis-phpdoc
  *
- * @method echo string $string Sends a string to Redis, which replies with the same string
+ * @method string echo(string $string) Sends a string to Redis, which replies with the same string
  *
- * @method  eval( $script, $args = array(), $numKeys = 0 )
+ * @method mixed eval($script, $args = array(), $numKeys = 0)
  *  Evaluate a LUA script serverside
  *  @param  string  $script
  *  @param  array   $args
