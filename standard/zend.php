@@ -129,7 +129,7 @@ class ZendAPI_Queue {
      * @param int $max_jobs  Maximum jobs to retrive. Default is -1, getting all jobs available.
      * @param bool $with_globals_and_output. Whether gets the global variables dataand job output.
      *     Default is false.
-     * @return array. Jobs that satisfies filter_options.
+     * @return array  Jobs that satisfies filter_options.
      */
     function getJobsInQueue($filter_options=null, $max_jobs=-1, $with_globals_and_output=false) {}
     
@@ -138,21 +138,21 @@ class ZendAPI_Queue {
      * Return the number of jobs in the queue according to the options given in the filter_options parameter
      * @param array $filter_options Array of optional filter options to filter the jobs we want to get from the queue. If not set, all jobs will be counted.<br>
      *     Options can be: priority, application_id, host, name, status, recurring.
-     * @return int. Number of jobs that satisfy filter_options.
+     * @return int  Number of jobs that satisfy filter_options.
      */
     function getNumOfJobsInQueue($filter_options=null) {}
 
 
     /**
      * Return all the hosts that jobs were submitted from.
-     * @return array. 
+     * @return array  
      */
     function getAllhosts() {}
 
 
     /**
      * Return all the application ids exists in queue.
-     * @return array.
+     * @return array 
      */
     function getAllApplicationIDs() {}
 
@@ -191,7 +191,7 @@ class ZendAPI_Queue {
     /**
      * Return description of the last error occured in the queue object. After every
      *    method invoked an error string describing the error is store in the queue object.
-     * @return string.
+     * @return string 
      */
     function getLastError() {}
 

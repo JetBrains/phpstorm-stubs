@@ -5,7 +5,9 @@ namespace PHPSTORM_META {
   /**
    * @param callable $callable Class, Method or function call
    * @param mixed $method one of
-   * @see map(), type(), elementType()
+   * @see map()
+   * @see type()
+   * @see elementType()
    * @return mixed override pair object
    */
   function override($callable, $override) {

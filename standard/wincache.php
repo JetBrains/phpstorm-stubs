@@ -414,7 +414,7 @@ function wincache_ucache_meminfo() {}
  * parameter takes a default value of 0 which means the variable will stay in the
  * cache unless explicitly deleted by using wincache_ucache_delete() or
  * wincache_ucache_clear() functions.</p>
- * @return boolean<p>
+ * @return boolean <p>
  * If key is string, the function returns TRUE on success and FALSE on failure.</p>
  * <p>If key is an array, the function returns:
  * <ul style="list-style: square;">

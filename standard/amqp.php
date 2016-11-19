@@ -1183,7 +1183,7 @@ class AMQPQueue
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return bool;
+     * @return bool
      */
     public function cancel($consumer_tag = '') { }
 

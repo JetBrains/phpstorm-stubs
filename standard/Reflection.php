@@ -91,7 +91,6 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	/**
 	 * To string
 	 * @link http://php.net/manual/en/reflectionfunctionabstract.tostring.php
-	 * @return string.
 	 * @since 5.0
 	 */
 	abstract public function __toString ();

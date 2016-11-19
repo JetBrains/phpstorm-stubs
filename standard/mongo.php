@@ -707,7 +707,7 @@ class MongoDB {
 	 * Execute a database command
 	 * @link http://www.php.net/manual/en/mongodb.command.php
 	 * @param array $data The query to send.
-     * @param array() $options [optional] <p>
+     * @param array $options [optional] <p>
      * This parameter is an associative array of the form
      * <em>array("optionname" =&gt; &lt;boolean&gt;, ...)</em>. Currently
      * supported options are:
@@ -827,7 +827,7 @@ class MongoCollection {
 	public $db = NULL ;
 
     /**
-     * @var int<p>
+     * @var int <p>
      * The number of servers to replicate a change to before returning success.
      * Value is inherited from the parent database. The
      * {@link http://www.php.net/manual/en/class.mongodb.php MongoDB} class has a more detailed description of
