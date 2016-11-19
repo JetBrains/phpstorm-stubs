@@ -2285,7 +2285,7 @@ class MongoWriteBatch
 	 * <p>(PECL mongo &gt;= 1.5.0)</p>
 	 * Executes a batch of write operations
 	 * @link http://php.net/manual/en/mongowritebatch.execute.php
-	 * @param array $write_options See {@see MongoWriteBatch::__construct.}
+	 * @param array $write_options See {@see MongoWriteBatch::__construct}
 	 * @return array Returns an array containing statistical information for the full batch.
 	 * If the batch had to be split into multiple batches, the return value will aggregate the values from individual batches and return only the totals.
 	 * If the batch was empty, an array containing only the 'ok' field is returned (as <b>TRUE</b<) although nothing will be shipped over the wire (NOOP).
