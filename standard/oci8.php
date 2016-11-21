@@ -826,8 +826,8 @@ function oci_fetch_array ($statement, $mode = null) {}
  * {@see oci_fetch_row}
  * @link http://php.net/manual/en/function.ocifetchinto.php
  * @param resource $statement_resource
- * @param &$result array
- * @param $mode int [optional]
+ * @param array &$result
+ * @param int $mode [optional]
  * @return int|bool
  */
 function ocifetchinto ($statement_resource, &$result, $mode = null) {}
@@ -1671,7 +1671,7 @@ function ocifreecursor ($statement_resource) {}
  * @link http://php.net/manual/en/function.ocibindbyname.php
  * @param resource $statement
  * @param $column_name
- * @param &$variable
+ * @param $variable
  * @param $maximum_length [optional]
  * @param $type [optional]
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -1795,9 +1795,9 @@ function ocifetch ($statement_resource) {}
  * @link http://php.net/manual/en/function.ocifetchstatement.php
  * @param statement_resource
  * @param output
- * @param skip[optional]
- * @param maximum_rows[optional]
- * @param flags[optional]
+ * @param $skip [optional]
+ * @param $maximum_rows [optional]
+ * @param $flags [optional]
  * @return int|bool Returns the number of rows in output, which may be 0 or more, or FALSE on failure.
  */
 function ocifetchstatement ($statement_resource, &$output, $skip, $maximum_rows, $flags) {}
@@ -1927,9 +1927,9 @@ function ocinlogon ($username, $password, $connection_string, $character_set, $s
  * @link http://php.net/manual/en/function.ociplogon.php
  * @param string $username <p>The Oracle user name.</p>
  * @param string $password <p> The password for username</p>
- * @param connection_string[optional]
- * @param character_set[optional]
- * @param session_mode[optional]
+ * @param $connection_string [optional]
+ * @param $character_set [optional]
+ * @param $session_mode [optional]
  * @return resource <p>Returns a connection identifier or <b>FALSE</b> on error.</p>
  */
 function ociplogon ($username, $password, $connection_string, $character_set, $session_mode) {}
@@ -2080,7 +2080,7 @@ function ocifreecollection ($collection) {}
  * Alias of
  * {@see oci_new_collection}
  * @link http://php.net/manual/en/function.ocinewcollection.php
- * @param <p>
+ * @param $connection_resource <p>
  * An Oracle connection identifier, returned by
  * {@see oci_connect()} or
  * {@see oci_pconnect()}.

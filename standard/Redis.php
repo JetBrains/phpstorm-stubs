@@ -4,9 +4,9 @@
  * @author Max Kamashev <max.kamashev@gmail.com>
  * @link https://github.com/ukko/phpredis-phpdoc
  *
- * @method echo string $string Sends a string to Redis, which replies with the same string
+ * @method string echo(string $string) Sends a string to Redis, which replies with the same string
  *
- * @method  eval( $script, $args = array(), $numKeys = 0 )
+ * @method mixed eval($script, $args = array(), $numKeys = 0)
  *  Evaluate a LUA script serverside
  *  @param  string  $script
  *  @param  array   $args
@@ -103,7 +103,7 @@ class Redis
      * @param   string $key
      * @param   int $ttl in milliseconds
      * @param   string $value
-     * @return  bool:   TRUE if the command is successful.
+     * @return  bool    TRUE if the command is successful.
      * @link    http://redis.io/commands/setex
      * $redis->psetex('key', 100, 'value'); // sets key → value, with 0.1 sec TTL.
      */
@@ -266,7 +266,7 @@ class Redis
      *
      * @param   string  $name    parameter name
      * @param   string  $value   parameter value
-     * @return  bool:   TRUE on success, FALSE on error.
+     * @return  bool    TRUE on success, FALSE on error.
      * @example
      * <pre>
      * $redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_NONE);        // don't serialize data
@@ -300,7 +300,7 @@ class Redis
      * Get the value related to the specified key
      *
      * @param   string  $key
-     * @return  string|bool: If key didn't exist, FALSE is returned. Otherwise, the value related to this key is returned.
+     * @return  string|bool  If key didn't exist, FALSE is returned. Otherwise, the value related to this key is returned.
      * @link    http://redis.io/commands/get
      * @example $redis->get('key');
      */
@@ -313,7 +313,7 @@ class Redis
      * @param   string  $key
      * @param   string  $value
      * @param   int   $timeout [optional] Calling setex() is preferred if you want a timeout.
-     * @return  bool:   TRUE if the command is successful.
+     * @return  bool    TRUE if the command is successful.
      * @link    http://redis.io/commands/set
      * @example $redis->set('key', 'value');
      */
@@ -325,7 +325,7 @@ class Redis
      * @param   string  $key
      * @param   int     $ttl
      * @param   string  $value
-     * @return  bool:   TRUE if the command is successful.
+     * @return  bool    TRUE if the command is successful.
      * @link    http://redis.io/commands/setex
      * @example $redis->setex('key', 3600, 'value'); // sets key → value, with 1h TTL.
      */
@@ -336,7 +336,7 @@ class Redis
      *
      * @param   string  $key
      * @param   string  $value
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool    TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/setnx
      * @example
      * <pre>
@@ -524,7 +524,7 @@ class Redis
      * Verify if the specified key exists.
      *
      * @param   string $key
-     * @return  bool: If the key exists, return TRUE, otherwise return FALSE.
+     * @return  bool  If the key exists, return TRUE, otherwise return FALSE.
      * @link    http://redis.io/commands/exists
      * @example
      * <pre>
@@ -1243,7 +1243,7 @@ class Redis
      * @param   string  $key1  keys identifying the different sets on which we will apply the intersection.
      * @param   string  $key2  ...
      * @param   string  $keyN  ...
-     * @return  array, contain the result of the intersection between those keys.
+     * @return  array  contain the result of the intersection between those keys.
      * If the intersection between the different sets is empty, the return value will be empty array.
      * @link    http://redis.io/commands/sinterstore
      * @example
@@ -1278,7 +1278,7 @@ class Redis
      * @param   string  $key1 are intersected as in sInter.
      * @param   string  $key2 ...
      * @param   string  $keyN ...
-     * @return  int:    The cardinality of the resulting set, or FALSE in case of a missing key.
+     * @return  int     The cardinality of the resulting set, or FALSE in case of a missing key.
      * @link    http://redis.io/commands/sinterstore
      * @example
      * <pre>
@@ -1420,7 +1420,7 @@ class Redis
      * @param   string  $key1      Any number of keys corresponding to sets in redis
      * @param   string  $key2      ...
      * @param   string  $keyN      ...
-     * @return  int:    The cardinality of the resulting set, or FALSE in case of a missing key.
+     * @return  int     The cardinality of the resulting set, or FALSE in case of a missing key.
      * @link    http://redis.io/commands/sdiffstore
      * @example
      * <pre>
@@ -1502,7 +1502,7 @@ class Redis
     /**
      * Returns a random key.
      *
-     * @return string: an existing key in redis.
+     * @return string  an existing key in redis.
      * @link    http://redis.io/commands/randomkey
      * @example
      * <pre>
@@ -1535,7 +1535,7 @@ class Redis
      *
      * @param   string  $key
      * @param   int     $dbindex
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool    TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/move
      * @example
      * <pre>
@@ -1553,7 +1553,7 @@ class Redis
      *
      * @param   string  $srcKey
      * @param   string  $dstKey
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool    TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/rename
      * @example
      * <pre>
@@ -1581,7 +1581,7 @@ class Redis
      *
      * @param   string  $srcKey
      * @param   string  $dstKey
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool    TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/renamenx
      * @example
      * <pre>
@@ -1598,7 +1598,7 @@ class Redis
      *
      * @param   string  $key    The key that will disappear.
      * @param   int     $ttl    The key's remaining Time To Live, in seconds.
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool    TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/expire
      * @example
      * <pre>
@@ -1615,7 +1615,7 @@ class Redis
      *
      * @param   string  $key    The key that will disappear.
      * @param   int     $ttl   The key's remaining Time To Live, in milliseconds.
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool    TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/pexpire
      * @example
      * <pre>
@@ -1640,7 +1640,7 @@ class Redis
      *
      * @param   string  $key        The key that will disappear.
      * @param   int     $timestamp  Unix timestamp. The key's date of death, in seconds from Epoch time.
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool    TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/expireat
      * @example
      * <pre>
@@ -1658,7 +1658,7 @@ class Redis
      *
      * @param   string  $key        The key that will disappear.
      * @param   int     $timestamp  Unix timestamp. The key's date of death, in seconds from Epoch time.
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool    TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/pexpireat
      * @example
      * <pre>
@@ -1694,7 +1694,7 @@ class Redis
     /**
      * Returns the current database's size.
      *
-     * @return int:     DB size, in number of keys.
+     * @return int     DB size, in number of keys.
      * @link    http://redis.io/commands/dbsize
      * @example
      * <pre>
@@ -1709,7 +1709,7 @@ class Redis
      * Warning: The password is sent in plain-text over the network.
      *
      * @param   string  $password
-     * @return  bool:   TRUE if the connection is authenticated, FALSE otherwise.
+     * @return  bool    TRUE if the connection is authenticated, FALSE otherwise.
      * @link    http://redis.io/commands/auth
      * @example $redis->auth('foobared');
      */
@@ -1718,7 +1718,7 @@ class Redis
     /**
      * Starts the background rewrite of AOF (Append-Only File)
      *
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool    TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/bgrewriteaof
      * @example $redis->bgrewriteaof();
      */
@@ -1730,7 +1730,7 @@ class Redis
      *
      * @param   string  $host [optional]
      * @param   int $port [optional]
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool    TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/slaveof
      * @example
      * <pre>
@@ -1765,7 +1765,7 @@ class Redis
     /**
      * Performs a synchronous save.
      *
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool    TRUE in case of success, FALSE in case of failure.
      * If a save is already running, this command will fail and return FALSE.
      * @link    http://redis.io/commands/save
      * @example $redis->save();
@@ -1775,7 +1775,7 @@ class Redis
     /**
      * Performs a background save.
      *
-     * @return  bool:    TRUE in case of success, FALSE in case of failure.
+     * @return  bool     TRUE in case of success, FALSE in case of failure.
      * If a save is already running, this command will fail and return FALSE.
      * @link    http://redis.io/commands/bgsave
      * @example $redis->bgSave();
@@ -1785,7 +1785,7 @@ class Redis
     /**
      * Returns the timestamp of the last disk save.
      *
-     * @return  int:    timestamp.
+     * @return  int     timestamp.
      * @link    http://redis.io/commands/lastsave
      * @example $redis->lastSave();
      */
@@ -1827,7 +1827,7 @@ class Redis
      *
      * @param   string  $key
      * @param   string  $value
-     * @return  int:    Size of the value after the append
+     * @return  int     Size of the value after the append
      * @link    http://redis.io/commands/append
      * @example
      * <pre>
@@ -1845,7 +1845,7 @@ class Redis
      * @param   string  $key
      * @param   int     $start
      * @param   int     $end
-     * @return  string: the substring
+     * @return  string  the substring
      * @link    http://redis.io/commands/getrange
      * @example
      * <pre>
@@ -1873,7 +1873,7 @@ class Redis
      * @param   string  $key
      * @param   int     $offset
      * @param   string  $value
-     * @return  string: the length of the string after it was modified.
+     * @return  string  the length of the string after it was modified.
      * @link    http://redis.io/commands/setrange
      * @example
      * <pre>
@@ -1935,7 +1935,7 @@ class Redis
      *
      * @param   string  $key
      * @param   int     $offset
-     * @return  int:    the bit value (0 or 1)
+     * @return  int     the bit value (0 or 1)
      * @link    http://redis.io/commands/getbit
      * @example
      * <pre>
@@ -1952,7 +1952,7 @@ class Redis
      * @param   string  $key
      * @param   int     $offset
      * @param   bool|int $value bool or int (1 or 0)
-     * @return  int:    0 or 1, the value of the bit before it was set.
+     * @return  int     0 or 1, the value of the bit before it was set.
      * @link    http://redis.io/commands/setbit
      * @example
      * <pre>
@@ -2005,7 +2005,7 @@ class Redis
     /**
      * Removes all entries from the current database.
      *
-     * @return  bool: Always TRUE.
+     * @return  bool  Always TRUE.
      * @link    http://redis.io/commands/flushdb
      * @example $redis->flushDB();
      */
@@ -2014,7 +2014,7 @@ class Redis
     /**
      * Removes all entries from all databases.
      *
-     * @return  bool: Always TRUE.
+     * @return  bool  Always TRUE.
      * @link    http://redis.io/commands/flushall
      * @example $redis->flushAll();
      */
@@ -2122,7 +2122,7 @@ class Redis
      *      - Number of connections received
      *      - Number of expired keys
      *
-     * @return bool: `TRUE` in case of success, `FALSE` in case of failure.
+     * @return bool  `TRUE` in case of success, `FALSE` in case of failure.
      * @example $redis->resetStat();
      * @link http://redis.io/commands/config-resetstat
      */
@@ -2132,7 +2132,7 @@ class Redis
      * Returns the time to live left for a given key, in seconds. If the key doesn't exist, FALSE is returned.
      *
      * @param   string  $key
-     * @return  int,    the time left to live in seconds.
+     * @return  int     the time left to live in seconds.
      * @link    http://redis.io/commands/ttl
      * @example $redis->ttl('key');
      */
@@ -2154,7 +2154,7 @@ class Redis
      * Remove the expiration timer from a key.
      *
      * @param   string  $key
-     * @return  bool:   TRUE if a timeout was removed, FALSE if the key didn’t exist or didn’t have an expiration timer.
+     * @return  bool    TRUE if a timeout was removed, FALSE if the key didn’t exist or didn’t have an expiration timer.
      * @link    http://redis.io/commands/persist
      * @example $redis->persist('key');
      */
@@ -2164,7 +2164,7 @@ class Redis
      * Sets multiple key-value pairs in one atomic command.
      * MSETNX only returns TRUE if all the keys were set (see SETNX).
      *
-     * @param   array(key => value) $array Pairs: array(key => value, ...)
+     * @param   array   $array Pairs: array(key => value, ...)
      * @return  bool    TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/mset
      * @example
@@ -2901,7 +2901,7 @@ class Redis
      *
      * @param   string  $key
      * @param   string  $hashKey
-     * @return  bool:   If the member exists in the hash table, return TRUE, otherwise return FALSE.
+     * @return  bool    If the member exists in the hash table, return TRUE, otherwise return FALSE.
      * @link    http://redis.io/commands/hexists
      * @example
      * <pre>
@@ -3254,7 +3254,7 @@ class Redis
     /**
      * Send arbitrary things to the redis server.
      * @param   string      $command    Required command to send to the server.
-     * @param   mixed,...   $arguments  Optional variable amount of arguments to send to the server.
+     * @param   mixed       ...$arguments  Optional variable amount of arguments to send to the server.
      * @return  mixed
      * @example
      * <pre>

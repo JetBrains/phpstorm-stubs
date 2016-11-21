@@ -185,7 +185,8 @@ function iterator_apply ($iterator, $function, array $args = null) {}
  * @param bool $autoload Whether to allow this function to load the class automatically through the __autoload() magic method.
  * @return array Array on success, or FALSE on error.
  * @link http://php.net/manual/en/function.class-uses.php
- * @see class_parents(), get_declared_traits()
+ * @see class_parents()
+ * @see get_declared_traits()
  * @since 5.4.0
  */
 function class_uses($class, bool $autoload = true ) {}

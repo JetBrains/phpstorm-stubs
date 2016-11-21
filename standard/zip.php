@@ -280,27 +280,22 @@ class ZipArchive  {
 
     /**
      * Status of the Zip Archive
-     * @var
      */
     public $status;
     /**
      * System status of the Zip Archive
-     * @var
      */
     public $statusSys;
     /**
      * Number of files in archive
-     * @var
      */
     public $numFiles;
     /**
      * File name in the file system
-     * @var
      */
     public $filename;
     /**
      * Comment for the archive
-     * @var
      */
     public $comment;
 
