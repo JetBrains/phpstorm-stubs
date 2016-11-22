@@ -16,7 +16,7 @@ function strtr ($str, array $replace_pairs) {};
  * @link http://php.net/manual/en/function.halt-compiler.php
  * @return void
  */
-function __halt_compiler(){}
+function PS_UNRESERVE_PREFIX___halt_compiler(){}
 
 /**
  * (PHP 5.1)<br/>
