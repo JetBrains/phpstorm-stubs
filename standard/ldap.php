@@ -1076,6 +1076,35 @@ define('LDAP_MODIFY_BATCH_ADD', 1);
 define('LDAP_MODIFY_BATCH_REMOVE_ALL', 18);
 define('LDAP_MODIFY_BATCH_REPLACE', 3);
 
+define('LDAP_OPT_X_TLS_REQUIRE_CERT', 24582);
+define('LDAP_OPT_X_TLS_NEVER', 0);
+define('LDAP_OPT_X_TLS_HARD', 1);
+define('LDAP_OPT_X_TLS_DEMAND', 2);
+define('LDAP_OPT_X_TLS_ALLOW', 3);
+define('LDAP_OPT_X_TLS_TRY', 4);
+define('LDAP_OPT_X_TLS_CERTFILE', 24580);
+define('LDAP_OPT_X_TLS_CIPHER_SUITE', 24584);
+define('LDAP_OPT_X_TLS_KEYFILE', 24581);
+define('LDAP_OPT_X_TLS_DHFILE', 24590);
+define('LDAP_OPT_X_TLS_CRLFILE', 24592);
+define('LDAP_OPT_X_TLS_RANDOM_FILE', 24585);
+define('LDAP_OPT_X_TLS_CRLCHECK', 24587);
+define('LDAP_OPT_X_TLS_CRL_NONE', 0);
+define('LDAP_OPT_X_TLS_CRL_PEER', 1);
+define('LDAP_OPT_X_TLS_CRL_ALL', 2);
+define('LDAP_OPT_X_TLS_PROTOCOL_MIN', 24583);
+define('LDAP_OPT_X_TLS_PROTOCOL_SSL2', 512);
+define('LDAP_OPT_X_TLS_PROTOCOL_SSL3', 768);
+define('LDAP_OPT_X_TLS_PROTOCOL_TLS1_0', 769);
+define('LDAP_OPT_X_TLS_PROTOCOL_TLS1_1', 770);
+define('LDAP_OPT_X_TLS_PROTOCOL_TLS1_2', 771);
+define('LDAP_OPT_X_TLS_PACKAGE', 24593);
+define('LDAP_OPT_X_KEEPALIVE_IDLE', 25344);
+define('LDAP_OPT_X_KEEPALIVE_PROBES', 25345);
+define('LDAP_OPT_X_KEEPALIVE_INTERVAL', 25346);
+define('LDAP_OPT_X_SASL_USERNAME', 24844);
+define('LDAP_OPT_X_SASL_NOCANON', 24843);
+
 /**
  * Specifies alternative rules for following aliases at the server.
  * @link http://php.net/manual/en/ldap.constants.php

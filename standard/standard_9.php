@@ -1058,7 +1058,7 @@ function stream_bucket_prepend($brigade, $bucket) { }
  * Append bucket to brigade
  * @link http://php.net/manual/en/function.stream-bucket-append.php
  * @param resource $brigade
- * @param resource $bucket
+ * @param object $bucket
  * @return void
  * @since 5.0
  */
