@@ -63,6 +63,17 @@ define('YAML_CRLN_BREAK', 3);
 function yaml_emit_file($filename,$data,$encoding=YAML_ANY_ENCODING,$linebreak=YAML_ANY_BREAK,$callbacks=array()) {}
 
 /**
+ * (PHP 5 &gt;= 5.2.0, PECL yaml &gt;= 0.5.0)<br/>
+ * @link http://php.net/manual/en/function.yaml-emit.php
+ * @param mixed $data The data being encoded. Can be any type except a resource.
+ * @param int $encoding [optional] Output character encoding chosen from YAML_ANY_ENCODING, YAML_UTF8_ENCODING, YAML_UTF16LE_ENCODING, YAML_UTF16BE_ENCODING.
+ * @param int $linebreak [optional] Output linebreak style chosen from YAML_ANY_BREAK, YAML_CR_BREAK, YAML_LN_BREAK, YAML_CRLN_BREAK.
+ * @param array $callbacks [optional] Content handlers for YAML nodes. Associative array of YAML tag => callable mappings. See parse callbacks for more details.
+ * @return string Returns a YAML encoded string on success.
+ */
+function yaml_emit($data,$encoding,$linebreak,$callbacks=array()) {}
+
+/**
  * (PHP 5 &gt;= 5.2.0, PECL yaml &gt;= 0.4.0)<br/>
  * Parse a YAML stream from a file
  * @link http://php.net/manual/en/function.yaml-parse-file.php
