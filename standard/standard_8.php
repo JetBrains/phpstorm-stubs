@@ -1134,7 +1134,7 @@ function array_splice (array &$input, $offset, $length = null, $replacement = nu
  * @since 4.0
  * @since 5.0
  */
-function array_slice (array $array, $offset, $length = null, $preserve_keys = null) {}
+function array_slice (array $array, $offset, $length = null, $preserve_keys = false) {}
 
 /**
  * Merge one or more arrays
