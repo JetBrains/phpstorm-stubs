@@ -97,7 +97,7 @@ function gmp_add ($a, $b) {}
  * </p>
  * It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
- * @return resource A GMP number resource.
+ * @return GMP A GMP number resource.
  * @since 4.0.4
  * @since 5.0
  */
