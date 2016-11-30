@@ -266,6 +266,14 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	public function getStaticVariables () {}
 
 	/**
+	 * Checks if the function has a specified return type
+	 * @link http://php.net/manual/en/reflectionfunctionabstract.hasreturntype.php
+	 * @return bool Returns TRUE if the function is a specified return type, otherwise FALSE.
+	 * @since 7.0
+	 */
+	public function hasReturnType () {}
+
+	/**
 	 * Checks if returns reference
 	 * @link http://php.net/manual/en/reflectionfunctionabstract.returnsreference.php
 	 * @return bool <b>TRUE</b> if it returns a reference, otherwise <b>FALSE</b>
