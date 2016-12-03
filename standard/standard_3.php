@@ -778,12 +778,14 @@ function long2ip ($proper_address) {}
  * @param string $varname <p>
  * The variable name.
  * </p>
- * @return string the value of the environment variable
- * varname, or false on an error.
+ * @return string|array|false the value of the environment variable
+ * varname or array with all environment variables if no variable name
+ * provided, or false on an error.
  * @since 4.0
  * @since 5.0
+ * @since 7.1
  */
-function getenv ($varname) {}
+function getenv ($varname = null) {}
 
 /**
  * Sets the value of an environment variable
