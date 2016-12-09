@@ -600,7 +600,7 @@ function array_udiff_uassoc(array $array1, array $array2, array $_ = null, $data
  * @param array $array <p>
  * The input array.
  * </p>
- * @return number the sum of values as an integer or float.
+ * @return int|float the sum of values as an integer or float.
  * @since 4.0.4
  * @since 5.0
  */
@@ -612,7 +612,7 @@ function array_sum(array $array) { }
  * @param array $array <p>
  * The array.
  * </p>
- * @return number the product as an integer or float.
+ * @return int|float the product as an integer or float.
  * @since 5.1.0
  */
 function array_product(array $array) { }
