@@ -6398,5 +6398,223 @@ class IntlCodePointBreakIterator extends IntlBreakIterator implements Traversabl
     public function getLastCodePoint() { }
 }
 
+class UConverter {
+
+    /* Constants */
+    const REASON_UNASSIGNED = 0;
+    const REASON_ILLEGAL = 1;
+    const REASON_IRREGULAR = 2;
+    const REASON_RESET = 3;
+    const REASON_CLOSE = 4;
+    const REASON_CLONE = 5;
+    const UNSUPPORTED_CONVERTER = -1;
+    const SBCS = 0;
+    const DBCS = 1;
+    const MBCS = 2;
+    const LATIN_1 = 3;
+    const UTF8 = 4;
+    const UTF16_BigEndian = 5;
+    const UTF16_LittleEndian = 6;
+    const UTF32_BigEndian = 7;
+    const UTF32_LittleEndian = 8;
+    const EBCDIC_STATEFUL = 9;
+    const ISO_2022 = 10;
+    const LMBCS_1 = 11;
+    const LMBCS_2 = 12;
+    const LMBCS_3 = 13;
+    const LMBCS_4 = 14;
+    const LMBCS_5 = 15;
+    const LMBCS_6 = 16;
+    const LMBCS_8 = 17;
+    const LMBCS_11 = 18;
+    const LMBCS_16 = 19;
+    const LMBCS_17 = 20;
+    const LMBCS_18 = 21;
+    const LMBCS_19 = 22;
+    const LMBCS_LAST = 22;
+    const HZ = 23;
+    const SCSU = 24;
+    const ISCII = 25;
+    const US_ASCII = 26;
+    const UTF7 = 27;
+    const BOCU1 = 28;
+    const UTF16 = 29;
+    const UTF32 = 30;
+    const CESU8 = 31;
+    const IMAP_MAILBOX = 32;
+
+    /* Methods */
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Create UConverter object
+     * @link http://php.net/manual/en/uconverter.construct.php
+     * @param string $destination_encoding
+     * @param string $source_encoding
+     */
+    public function __construct($destination_encoding = null, $source_encoding = null) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Convert string from one charset to anothe
+     * @link http://php.net/manual/en/uconverter.convert.php
+     * @param string $str
+     * @param bool $reverse
+     * @return string
+     */
+    public function convert($str, $reverse) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Default "from" callback function
+     * @link http://php.net/manual/en/uconverter.fromucallback.php
+     * @param int $reason
+     * @param string $source
+     * @param string $codePoint
+     * @param int $error
+     * @return mixed
+     */
+    public function fromUCallback($reason, $source, $codePoint, &$error) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get the aliases of the given name
+     * @link http://php.net/manual/en/uconverter.getaliases.php
+     * @param string $name
+     * @return array
+     */
+    public static function getAliases($name = null) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get the available canonical converter names
+     * @link http://php.net/manual/en/uconverter.getavailable.php
+     * @return array
+     */
+    public static function getAvailable() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get the destination encoding
+     * @link http://php.net/manual/en/uconverter.getdestinationencoding.php
+     * @return string
+     */
+    public function getDestinationEncoding() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get the destination converter type
+     * @link http://php.net/manual/en/uconverter.getdestinationtype.php
+     * @return int
+     */
+    public function getDestinationType() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get last error code on the object
+     * @link http://php.net/manual/en/uconverter.geterrorcode.php
+     * @return int
+     */
+    public function getErrorCode() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get last error message on the object
+     * @link http://php.net/manual/en/uconverter.geterrormessage.php
+     * @return string
+     */
+    public function getErrorMessage() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get the source encoding
+     * @link http://php.net/manual/en/uconverter.getsourceencoding.php
+     * @return string
+     */
+    public function getSourceEncoding() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get the source convertor type
+     * @link http://php.net/manual/en/uconverter.getsourcetype.php
+     * @return int
+     */
+    public function getSourceType() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get standards associated to converter names
+     * @link http://php.net/manual/en/uconverter.getstandards.php
+     * @return array
+     */
+    public static function getStandards() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get substitution chars
+     * @link http://php.net/manual/en/uconverter.getsubstchars.php
+     * @return string
+     */
+    public function getSubstChars() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get string representation of the callback reason
+     * @link http://php.net/manual/en/uconverter.reasontext.php
+     * @param int $reason
+     * @return string
+     */
+    public static function reasonText($reason) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Set the destination encoding
+     * @link http://php.net/manual/en/uconverter.setdestinationencoding.php
+     * @param string $encoding
+     * @return void
+     */
+    public function setDestinationEncoding($encoding) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Set the source encoding
+     * @link http://php.net/manual/en/uconverter.setsourceencoding.php
+     * @param string $encoding
+     * @return void
+     */
+    public function setSourceEncoding($encoding) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Set the substitution chars
+     * @link http://php.net/manual/en/uconverter.setsubstchars.php
+     * @param string $chars
+     * @return void
+     */
+    public function setSubstChars($chars) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Default "to" callback function
+     * @link http://php.net/manual/en/uconverter.toucallback.php
+     * @param int $reason
+     * @param string $source
+     * @param string $codeUnits
+     * @param int $error
+     * @return mixed
+     */
+    public function toUCallback($reason, $source, $codeUnits, &$error) { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Convert string from one charset to another
+     * @link http://php.net/manual/en/uconverter.transcode.php
+     * @param string $str
+     * @param string $toEncoding
+     * @param string $fromEncoding
+     * @param array $options
+     * @return string
+     */
+    public static function transcode($str, $toEncoding, $fromEncoding, array $options = []) { }
+}
 // End of intl v.1.1.0
 ?>
