@@ -178,7 +178,7 @@ function pack ($format, $args = null, $_ = null) {}
  * @param string $data <p>
  * The packed data.
  * </p>
- * @param int $offset
+ * @param int $offset [optional]
  * @return array an associative array containing unpacked elements of binary
  * string.
  * @since 4.0
