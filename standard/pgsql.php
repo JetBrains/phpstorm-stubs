@@ -1063,12 +1063,13 @@ function pg_last_error ($connection = null) {}
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
+ * @param $operation [optional]
  * @return string A string containing the last notice on the
  * given <i>connection</i>, or <b>FALSE</b> on error.
  * @since 4.0.6
  * @since 5.0
  */
-function pg_last_notice ($connection) {}
+function pg_last_notice ($connection, $operation) {}
 
 /**
  * Send a NULL-terminated string to PostgreSQL backend
@@ -1692,12 +1693,24 @@ function pg_delete ($connection, $table_name, array $assoc_array, $options = PGS
  * <b>PGSQL_DML_STRING</b> combined. If <b>PGSQL_DML_STRING</b> is part of the
  * <i>options</i> then query string is returned.
  * </p>
+ * @param int $result_type [optional] <p>
+ * An optional parameter that controls
+ * how the returned array is indexed.
+ * <i>result_type</i> is a constant and can take the
+ * following values: <b>PGSQL_ASSOC</b>,
+ * <b>PGSQL_NUM</b> and <b>PGSQL_BOTH</b>.
+ * Using <b>PGSQL_NUM</b>, <b>pg_fetch_array</b>
+ * will return an array with numerical indices, using
+ * <b>PGSQL_ASSOC</b> it will return only associative indices
+ * while <b>PGSQL_BOTH</b>, the default, will return both
+ * numerical and associative indices.
+ * </p>
  * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure. Returns string if <b>PGSQL_DML_STRING</b> is passed
  * via <i>options</i>.
  * @since 4.3.0
  * @since 5.0
  */
-function pg_select ($connection, $table_name, array $assoc_array, $options = PGSQL_DML_EXEC) {}
+function pg_select ($connection, $table_name, array $assoc_array, $options = PGSQL_DML_EXEC, $result_type) {}
 
 /**
  * @param $connection [optional]
@@ -2190,6 +2203,24 @@ define ('PGSQL_DML_NO_CONV', 256);
 define ('PGSQL_DML_EXEC', 512);
 define ('PGSQL_DML_ASYNC', 1024);
 define ('PGSQL_DML_STRING', 2048);
+
+/**
+ * @link http://php.net/manual/en/function.pg-last-notice.php
+ * @since 7.1
+ */
+define ('PGSQL_NOTICE_LAST', 1);
+
+/**
+ * @link http://php.net/manual/en/function.pg-last-notice.php
+ * @since 7.1
+ */
+define('PGSQL_NOTICE_ALL', 2);
+
+/**
+ * @link http://php.net/manual/en/function.pg-last-notice.php
+ * @since 7.1
+ */
+define('PGSQL_NOTICE_CLEAR', 3);
 
 const PGSQL_CONNECT_ASYNC = 4;
 const PGSQL_CONNECTION_AUTH_OK = 5;

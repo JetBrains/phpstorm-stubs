@@ -1037,14 +1037,15 @@ function stream_is_local ($stream_or_url) {}
  * </p>
  * @param int $format [optional] <p>
  * If the optional format parameter is set to non-zero,
- * get_headers parses the response and sets the 
+ * get_headers parses the response and sets the
  * array's keys.
  * </p>
+ * @param resource $context [optional]
  * @return array an indexed or associative array with the headers, or false on
  * failure.
  * @since 5.0
  */
-function get_headers ($url, $format = null) {}
+function get_headers ($url, $format = null, resource $context) {}
 
 /**
  * Set timeout period on a stream

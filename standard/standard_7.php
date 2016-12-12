@@ -178,12 +178,13 @@ function pack ($format, $args = null, $_ = null) {}
  * @param string $data <p>
  * The packed data.
  * </p>
+ * @param int $offset
  * @return array an associative array containing unpacked elements of binary
  * string.
  * @since 4.0
  * @since 5.0
  */
-function unpack ($format, $data) {}
+function unpack ($format, $data, $offset) {}
 
 /**
  * Tells what the user's browser is capable of

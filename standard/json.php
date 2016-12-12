@@ -309,5 +309,13 @@ define ('JSON_BIGINT_AS_STRING', 2);
  */
 define ('JSON_PRESERVE_ZERO_FRACTION', 1024);
 
+/**
+ * The line terminators are kept unescaped when JSON_UNESCAPED_UNICODE is supplied.
+ * It uses the same behaviour as it was before PHP 7.1 without this constant. Available since PHP 7.1.0.
+ * @link http://php.net/manual/en/json.constants.php
+ * @since 7.1
+ */
+define('JSON_UNESCAPED_LINE_TERMINATORS', 2048)
+
 // End of json v.1.3.1
 ?>

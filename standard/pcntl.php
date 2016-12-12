@@ -451,6 +451,21 @@ function pcntl_sigwaitinfo (array $set, array &$siginfo = null) {}
  */
 function pcntl_sigtimedwait (array $set, array &$siginfo = null, $seconds = 0, $nanoseconds = 0) {}
 
+/**
+ *
+ * @param bool $on
+ * @return bool
+ * @since 7.1
+ */
+function pcntl_async_signals($on) {}
+
+/**
+ * @param int $signo
+ * @return bool
+ * @since 7.1
+ */
+function pcntl_signal_get_handler($signo) {}
+
 define ('WNOHANG', 1);
 define ('WUNTRACED', 2);
 define ('SIG_IGN', 1);

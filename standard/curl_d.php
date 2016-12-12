@@ -812,3 +812,22 @@ define ('CURLFTP_CREATE_DIR_RETRY', 2);
  */
 define('CURLAUTH_NEGOTIATE', 4);
 
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.1
+ */
+
+define('CURLMOPT_PUSHFUNCTION', 20014);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.1
+ */
+define('CURL_PUSH_OK', 0);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.1
+ */
+define('CURL_PUSH_DENY',1);

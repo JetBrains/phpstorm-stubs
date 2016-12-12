@@ -1006,6 +1006,7 @@ function mb_eregi ($pattern, $string, array $regs = null) {}
  * will be considered as normal character. If e
  * is specified, replacement string will be
  * evaluated as PHP expression.
+ * <p>PHP 7.1: The <i>e</i> modifier has been deprecated.</p>
  * @return string The resultant string on success, or false on error.
  * @since 4.2.0
  * @since 5.0
@@ -1071,6 +1072,7 @@ function mb_ereg_replace_callback ($pattern, callable $callback, $string, $optio
  * </p>
  * @param string $option [optional] option has the same meaning as in
  * mb_ereg_replace.
+ * <p>PHP 7.1: The <i>e</i> modifier has been deprecated.</p>
  * @return string The resultant string or false on error.
  * @since 4.2.0
  * @since 5.0
