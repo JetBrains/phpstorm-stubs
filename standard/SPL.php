@@ -2058,5 +2058,17 @@ class RecursiveArrayIterator extends ArrayIterator
     public function getChildren() { }
 }
 
+/**
+ * @param $arg
+ * @return boolean
+ * @since 7.1
+ */
+function is_iterable($arg) {
+
+}
+/**
+ * @since 7.1
+ */
+define ("MT_RAND_PHP", 1);
 // End of SPL v.0.2
 ?>

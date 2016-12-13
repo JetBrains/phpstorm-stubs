@@ -1011,6 +1011,12 @@ define ('IMAGETYPE_UNKNOWN', 0);
 define ('IMAGETYPE_COUNT', 18);
 
 /**
+ * Image type constant used by the image_type_to_mime_type() and image_type_to_extension() functions
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMAGETYPE_WEBP', 18);
+
+/**
  * IPv4 Address Resource
  * @link http://php.net/manual/en/network.constants.php
  */

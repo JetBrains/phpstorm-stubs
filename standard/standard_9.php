@@ -1091,6 +1091,30 @@ function output_add_rewrite_var($name, $value) { }
 
 /**
  * Reset URL rewriter values
+ * <table>
+ * <thead>
+ * <tr>
+ * <th>Version</th>
+ * <th>Description</th>
+ * </tr>
+ *
+ * </thead>
+ *
+ * <tbody>
+ * <tr>
+ * <td>7.1.0</td>
+ * <td>
+ * Before PHP 7.1.0, rewrite vars set by <span class="function"><a href="function.output-add-rewrite-var.php" class="function">output_add_rewrite_var()</a></span>
+ * use the same Session module trans sid output buffer. Since PHP 7.1.0,
+ * dedicated output buffer is used and {@see output_reset_rewrite_vars()}
+ * only removes rewrite vars defined by {@see output_add_rewrite_var()}.
+ * </td>
+ * </tr>
+ *
+ * </tbody>
+ *
+ * </table>
+ *
  * @link http://php.net/manual/en/function.output-reset-rewrite-vars.php
  * @return bool true on success or false on failure.
  * @since 4.3.0

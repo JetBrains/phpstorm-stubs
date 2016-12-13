@@ -500,5 +500,7 @@ define ('FILTER_FLAG_NO_RES_RANGE', 4194304);
  */
 define ('FILTER_FLAG_NO_PRIV_RANGE', 8388608);
 
+
+define('FILTER_FLAG_EMAIL_UNICODE', 1048576);
 // End of filter v.0.11.0
 ?>

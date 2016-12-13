@@ -1053,3 +1053,38 @@ function gc_enable () {}
  * @since 5.3.0
  */
 function gc_disable () {}
+
+/**
+ * @param string $kind
+ * @return int
+ * @since 7.1
+ */
+function sapi_windows_cp_get($kind) {
+
+}
+
+/**
+ * @param int $cp
+ * @return bool
+ * @since 7.1
+ */
+function sapi_windows_cp_set($cp) {
+
+}
+
+/**
+ * @param int|string $in_codepage
+ * @param int|string $out_codepage
+ * @param string $subject
+ * @return string
+ * @since 7.1
+ */
+function sapi_windows_cp_conv($in_codepage, $out_codepage, $subject) {}
+
+/**
+ * @return bool
+ * @since 7.1
+ */
+function sapi_windows_cp_is_utf8() {
+
+}

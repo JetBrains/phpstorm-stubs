@@ -763,7 +763,7 @@ function ip2long ($ip_address) {}
 /**
  * Converts an (IPv4) Internet network address into a string in Internet standard dotted format
  * @link http://php.net/manual/en/function.long2ip.php
- * @param string $proper_address <p>
+ * @param string|int $proper_address <p>
  * A proper address representation.
  * </p>
  * @return string the Internet IP address as a string.
@@ -775,7 +775,7 @@ function long2ip ($proper_address) {}
 /**
  * Gets the value of an environment variable
  * @link http://php.net/manual/en/function.getenv.php
- * @param string $varname <p>
+ * @param string $varname [optional] <p>
  * The variable name.
  * </p>
  * @return string the value of the environment variable
@@ -812,12 +812,13 @@ function putenv ($setting) {}
  * For example, an longopts element "opt" recognizes an
  * option --opt.
  * Prior to PHP5.3.0 this parameter was only available on few systems
+ * @param int $optind If the optind parameter is present, then the index where argument parsing stopped will be written to this variable.
  * @return array This function will return an array of option / argument pairs or false on
  * failure.
  * @since 4.3.0
  * @since 5.0
  */
-function getopt ($options, array $longopts = null) {}
+function getopt ($options, array $longopts = null, &$optind) {}
 
 /**
  * Gets system load average

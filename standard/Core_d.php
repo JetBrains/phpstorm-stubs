@@ -353,3 +353,6 @@ define ('UPLOAD_ERR_EXTENSION', 8);
 define('STDIN', fopen('php://stdin', 'r'));
 define('STDOUT', fopen('php://stdout', 'w'));
 define('STDERR', fopen('php://stderr', 'w'));
+
+define('PHP_FD_SETSIZE', 1024);
+
