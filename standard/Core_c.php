@@ -582,5 +582,11 @@ final class Closure {
      * @since 7.0
      */
     function call ($newThis, ...$parameters) {}
-
+    
+    /**
+     * @param callable $callable
+     * @return Closure
+     * @since 7.1
+     */
+    public static function fromCallable (callable $callable) {}
 }
