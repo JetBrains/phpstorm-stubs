@@ -17,7 +17,7 @@ class XMLWriter  {
 	 * Procedural style: Returns a new xmlwriter resource for later use with the
 	 * xmlwriter functions on success, <b>FALSE</b> on error.
 	 */
-	public function openUri ($uri) {}
+	public function openURI ($uri) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -226,7 +226,7 @@ class XMLWriter  {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function startPi ($target) {}
+	public function startPI ($target) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -234,7 +234,7 @@ class XMLWriter  {
 	 * @link http://php.net/manual/en/function.xmlwriter-end-pi.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function endPi () {}
+	public function endPI () {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -248,7 +248,7 @@ class XMLWriter  {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function writePi ($target, $content) {}
+	public function writePI ($target, $content) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -256,7 +256,7 @@ class XMLWriter  {
 	 * @link http://php.net/manual/en/function.xmlwriter-start-cdata.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function startCdata () {}
+	public function startCData () {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -264,7 +264,7 @@ class XMLWriter  {
 	 * @link http://php.net/manual/en/function.xmlwriter-end-cdata.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function endCdata () {}
+	public function endCData () {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -275,7 +275,7 @@ class XMLWriter  {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function writeCdata ($content) {}
+	public function writeCData ($content) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -350,7 +350,7 @@ class XMLWriter  {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function startDtd ($qualifiedName, $publicId = null, $systemId = null) {}
+	public function startDTD ($qualifiedName, $publicId = null, $systemId = null) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -358,7 +358,7 @@ class XMLWriter  {
 	 * @link http://php.net/manual/en/function.xmlwriter-end-dtd.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function endDtd () {}
+	public function endDTD () {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -378,7 +378,7 @@ class XMLWriter  {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function writeDtd ($name, $publicId = null, $systemId = null, $subset = null) {}
+	public function writeDTD ($name, $publicId = null, $systemId = null, $subset = null) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -389,7 +389,7 @@ class XMLWriter  {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function startDtdElement ($qualifiedName) {}
+	public function startDTDElement ($qualifiedName) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -397,7 +397,7 @@ class XMLWriter  {
 	 * @link http://php.net/manual/en/function.xmlwriter-end-dtd-element.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function endDtdElement () {}
+	public function endDTDElement () {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -411,7 +411,7 @@ class XMLWriter  {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function writeDtdElement ($name, $content) {}
+	public function writeDTDElement ($name, $content) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -422,7 +422,7 @@ class XMLWriter  {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function startDtdAttlist ($name) {}
+	public function startDTDAttlist ($name) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -430,7 +430,7 @@ class XMLWriter  {
 	 * @link http://php.net/manual/en/function.xmlwriter-end-dtd-attlist.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function endDtdAttlist () {}
+	public function endDTDAttlist () {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -444,7 +444,7 @@ class XMLWriter  {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function writeDtdAttlist ($name, $content) {}
+	public function writeDTDAttlist ($name, $content) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -456,7 +456,7 @@ class XMLWriter  {
 	 * @param bool $isparam
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function startDtdEntity ($name, $isparam) {}
+	public function startDTDEntity ($name, $isparam) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -464,7 +464,7 @@ class XMLWriter  {
 	 * @link http://php.net/manual/en/function.xmlwriter-end-dtd-entity.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function endDtdEntity () {}
+	public function endDTDEntity () {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -482,7 +482,7 @@ class XMLWriter  {
 	 * @param string $ndataid
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function writeDtdEntity ($name, $content, $pe, $pubid, $sysid, $ndataid) {}
+	public function writeDTDEntity ($name, $content, $pe, $pubid, $sysid, $ndataid) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
