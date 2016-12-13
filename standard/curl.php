@@ -2554,7 +2554,7 @@ function curl_share_errno(resource $rh) {}
 /**
  * @param int $errno
  * @since 7.1
- * @return int
+ * @return string
  */
 function curl_share_strerror($errno){}
 
