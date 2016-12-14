@@ -410,7 +410,15 @@ class Memcached  {
 	const RES_UNKNOWN_STAT_KEY = 36;
 	const RES_INVALID_HOST_PROTOCOL = 34;
 	const RES_MEMORY_ALLOCATION_FAILURE = 17;
-
+	const RES_E2BIG = 37;
+	const RES_KEY_TOO_BIG = 39;
+	const RES_SERVER_TEMPORARILY_DISABLED = 47;
+	const RES_SERVER_MEMORY_ALLOCATION_FAILURE = 48;
+	const RES_AUTH_PROBLEM = 40;
+	const RES_AUTH_FAILURE = 41;
+	const RES_AUTH_CONTINUE = 42;
+	
+	
 	/**
 	 * <p>Failed to create network socket.</p>
 	 * @link http://php.net/manual/en/memcached.constants.php
