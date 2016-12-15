@@ -1079,10 +1079,12 @@ class DOMDocument extends DOMNode  {
      * @param string $source <p>
      * A string containing the schema.
      * </p>
+     * @param int $flags [optional] <p>A bitmask of Libxml schema validation flags. Currently the only supported value is <b>LIBXML_SCHEMA_CREATE</b>.
+     * Available since PHP 5.5.2 and Libxml 2.6.14.</p>
      * @return bool true on success or false on failure.
      * @since 5.0
      */
-    public function schemaValidateSource ($source) {}
+    public function schemaValidateSource ($source, $flags) {}
 
     /**
      * Performs relaxNG validation on the document
