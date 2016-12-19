@@ -1179,5 +1179,19 @@ define ('LDAP_OPT_X_SASL_REALM', 24833);
 define ('LDAP_OPT_X_SASL_AUTHCID', 24834);
 define ('LDAP_OPT_X_SASL_AUTHZID', 24835);
 
+/**
+ * Specifies the path of the directory containing CA certificates.
+ * @link http://php.net/manual/en/ldap.constants.php
+ * @since 7.1
+ */
+define('LDAP_OPT_X_TLS_CACERTDIR', 24579);
+
+/**
+ * Specifies the full-path of the CA certificate file.
+ * @link http://php.net/manual/en/ldap.constants.php
+ * @since 7.1
+ */
+define('LDAP_OPT_X_TLS_CACERTFILE', 24578);
+
 // End of ldap v.
 ?>

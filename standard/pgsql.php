@@ -660,6 +660,18 @@ function pg_fetch_object ($result, $row = null, $result_type = PGSQL_ASSOC) {}
  * <b>pg_query_params</b> or <b>pg_execute</b>
  * (among others).
  * </p>
+ * @param int $result_type [optional] <p>
+ * An optional parameter that controls
+ * how the returned array is indexed.
+ * <i>result_type</i> is a constant and can take the
+ * following values: <b>PGSQL_ASSOC</b>,
+ * <b>PGSQL_NUM</b> and <b>PGSQL_BOTH</b>.
+ * Using <b>PGSQL_NUM</b>, <b>pg_fetch_array</b>
+ * will return an array with numerical indices, using
+ * <b>PGSQL_ASSOC</b> it will return only associative indices
+ * while <b>PGSQL_BOTH</b>, the default, will return both
+ * numerical and associative indices.
+ * </p>
  * @return array An array with all rows in the result. Each row is an array
  * of field values indexed by field name.
  * </p>
@@ -669,7 +681,7 @@ function pg_fetch_object ($result, $row = null, $result_type = PGSQL_ASSOC) {}
  * @since 4.3.0
  * @since 5.0
  */
-function pg_fetch_all ($result) {}
+function pg_fetch_all ($result, $result_type) {}
 
 /**
  * Fetches all rows in a particular result column as an array
