@@ -451,7 +451,7 @@ class DateTime implements DateTimeInterface {
     public static function getLastErrors () {}
 
     /**
-     * The handler
+     * The __set_state handler
      * @link http://php.net/manual/en/datetime.set-state.php
      * @param array $array <p>Initialization array.</p>
      * @return DateTime <p>Returns a new instance of a DateTime object.</p>
