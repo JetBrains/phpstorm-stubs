@@ -594,6 +594,7 @@ class DateInterval {
     /**
      * @param string $interval_spec
      * @link http://php.net/manual/en/dateinterval.construct.php
+     * @throws \Exception when the interval_spec cannot be parsed as an interval.
      */
     public function __construct ($interval_spec) {}
 
