@@ -145,13 +145,15 @@ function lcg_value () {}
  * @param string $str <p>
  * The input string.
  * </p>
- * @param int $phones [optional] <p>
+ * @param int $phonemes [optional] <p>
+ * This parameter restricts the returned metaphone key to phonemes characters in length.
+ * The default value of 0 means no restriction.
  * </p>
- * @return string the metaphone key as a string.
+ * @return string the metaphone key as a string, or FALSE on failure
  * @since 4.0
  * @since 5.0
  */
-function metaphone ($str, $phones = null) {}
+function metaphone ($str, $phonemes = 0) {}
 
 /**
  * Turn on output buffering
