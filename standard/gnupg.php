@@ -40,13 +40,12 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-adddecryptkey.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
 	 * @param string $fingerprint
 	 * @param string $passphrase
 	 *
 	 * @return bool
 	 */
-	function adddecryptkey($identifier, $fingerprint, $passphrase)
+	function adddecryptkey($fingerprint, $passphrase)
 	{
 	}
 
@@ -55,15 +54,14 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-verify.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
-	 * @param string $signed_text
+	 * * @param string $signed_text
 	 * @param string $signature
 	 * @param string $plaintext
 	 *
 	 * @return array On success, this function returns information about the signature.
 	 *               On failure, this function returns false.
 	 */
-	function verify($identifier, $signed_text, $signature, &$plaintext = NULL)
+	function verify($signed_text, $signature, &$plaintext = NULL)
 	{
 	}
 
@@ -72,12 +70,11 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-addencryptkey.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
 	 * @param string $fingerprint
 	 *
 	 * @return bool
 	 */
-	function addencryptkey($identifier, $fingerprint)
+	function addencryptkey($fingerprint)
 	{
 	}
 
@@ -86,13 +83,12 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-addsignkey.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
 	 * @param string $fingerprint
 	 * @param string $passphrase
 	 *
 	 * @return bool
 	 */
-	function addsignkey($identifier, $fingerprint, $passphrase = NULL)
+	function addsignkey($fingerprint, $passphrase = NULL)
 	{
 	}
 
@@ -101,11 +97,9 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-cleardecryptkeys.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
-	 *
 	 * @return bool
 	 */
-	function cleardecryptkeys($identifier)
+	function cleardecryptkeys()
 	{
 	}
 
@@ -114,11 +108,10 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-clearencryptkeys.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
 	 *
 	 * @return bool
 	 */
-	function clearencryptkeys($identifier)
+	function clearencryptkeys()
 	{
 	}
 
@@ -127,11 +120,10 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-clearsignkeys.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
 	 *
 	 * @return bool
 	 */
-	function clearsignkeys($identifier)
+	function clearsignkeys()
 	{
 	}
 
@@ -140,13 +132,12 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-decrypt.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
 	 * @param string $text
 	 *
 	 * @return string On success, this function returns the decrypted text.
 	 *                On failure, this function returns false.
 	 */
-	function decrypt($identifier, $text)
+	function decrypt($text)
 	{
 	}
 
@@ -155,7 +146,6 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-decryptverify.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
 	 * @param string $text
 	 * @param string $plaintext
 	 *
@@ -163,7 +153,7 @@ class gnupg {
 	 *               fills the  parameter with the decrypted text.
 	 *               On failure, this function returns false.
 	 */
-	function decryptverify($identifier, $text, &$plaintext)
+	function decryptverify($text, &$plaintext)
 	{
 	}
 
@@ -172,13 +162,12 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-encrypt.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
 	 * @param string $plaintext
 	 *
 	 * @return string On success, this function returns the encrypted text.
 	 *                On failure, this function returns false.
 	 */
-	function encrypt($identifier, $plaintext)
+	function encrypt($plaintext)
 	{
 	}
 
@@ -187,13 +176,12 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-encryptsign.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
 	 * @param string $plaintext
 	 *
 	 * @return string On success, this function returns the encrypted and signed text.
 	 *                On failure, this function returns false.
 	 */
-	function encryptsign($identifier, $plaintext)
+	function encryptsign($plaintext)
 	{
 	}
 
@@ -202,13 +190,12 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-export.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
 	 * @param string $fingerprint
 	 *
 	 * @return string On success, this function returns the keydata.
 	 *                On failure, this function returns false.
 	 */
-	function export($identifier, $fingerprint)
+	function export($fingerprint)
 	{
 	}
 
@@ -217,11 +204,10 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-geterror.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
 	 *
 	 * @return string Returns an errortext, if an error has occurred, otherwise false.
 	 */
-	function geterror($identifier)
+	function geterror()
 	{
 	}
 
@@ -230,13 +216,12 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-getprotocol.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
 	 *
 	 * @return int Returns the currently active protocol, which can be one of
 	 *             or
 	 *             .
 	 */
-	function getprotocol($identifier)
+	function getprotocol()
 	{
 	}
 
@@ -245,13 +230,12 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-import.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
 	 * @param string $keydata
 	 *
 	 * @return array On success, this function returns and info-array about the importprocess.
 	 *               On failure, this function returns false.
 	 */
-	function import($identifier, $keydata)
+	function import($keydata)
 	{
 	}
 
@@ -271,13 +255,12 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-keyinfo.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
 	 * @param string $pattern
 	 *
 	 * @return array Returns an array with information about all keys that matches the given
 	 *               pattern or false, if an error has occurred.
 	 */
-	function keyinfo($identifier, $pattern)
+	function keyinfo($pattern)
 	{
 	}
 
@@ -286,12 +269,11 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-setarmor.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
 	 * @param int $armor
 	 *
 	 * @return bool
 	 */
-	function setarmor($identifier, $armor)
+	function setarmor($armor)
 	{
 	}
 
@@ -300,12 +282,11 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-seterrormode.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
 	 * @param int $errormode
 	 *
 	 * @return void
 	 */
-	function seterrormode($identifier, $errormode)
+	function seterrormode($errormode)
 	{
 	}
 
@@ -314,12 +295,11 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-setsignmode.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
 	 * @param int $signmode
 	 *
 	 * @return bool
 	 */
-	function setsignmode($identifier, $signmode)
+	function setsignmode($signmode)
 	{
 	}
 
@@ -328,13 +308,12 @@ class gnupg {
 	 * @link http://php.net/manual/en/function.gnupg-sign.php
 	 * @phpstub
 	 *
-	 * @param resource $identifier
 	 * @param string $plaintext
 	 *
 	 * @return string On success, this function returns the signed text or the signature.
 	 *                On failure, this function returns false.
 	 */
-	function sign($identifier, $plaintext)
+	function sign($plaintext)
 	{
 	}
 
