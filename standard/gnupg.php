@@ -44,9 +44,9 @@ class gnupg {
 	 * @param string $fingerprint
 	 * @param string $passphrase
 	 *
-	 * @return bool 
+	 * @return bool
 	 */
-	function gnupg_adddecryptkey($identifier, $fingerprint, $passphrase)
+	function adddecryptkey($identifier, $fingerprint, $passphrase)
 	{
 	}
 
@@ -63,7 +63,7 @@ class gnupg {
 	 * @return array On success, this function returns information about the signature.
 	 *               On failure, this function returns false.
 	 */
-	function gnupg_verify($identifier, $signed_text, $signature, &$plaintext = NULL)
+	function verify($identifier, $signed_text, $signature, &$plaintext = NULL)
 	{
 	}
 
@@ -75,9 +75,9 @@ class gnupg {
 	 * @param resource $identifier
 	 * @param string $fingerprint
 	 *
-	 * @return bool 
+	 * @return bool
 	 */
-	function gnupg_addencryptkey($identifier, $fingerprint)
+	function addencryptkey($identifier, $fingerprint)
 	{
 	}
 
@@ -90,9 +90,9 @@ class gnupg {
 	 * @param string $fingerprint
 	 * @param string $passphrase
 	 *
-	 * @return bool 
+	 * @return bool
 	 */
-	function gnupg_addsignkey($identifier, $fingerprint, $passphrase = NULL)
+	function addsignkey($identifier, $fingerprint, $passphrase = NULL)
 	{
 	}
 
@@ -103,9 +103,9 @@ class gnupg {
 	 *
 	 * @param resource $identifier
 	 *
-	 * @return bool 
+	 * @return bool
 	 */
-	function gnupg_cleardecryptkeys($identifier)
+	function cleardecryptkeys($identifier)
 	{
 	}
 
@@ -116,9 +116,9 @@ class gnupg {
 	 *
 	 * @param resource $identifier
 	 *
-	 * @return bool 
+	 * @return bool
 	 */
-	function gnupg_clearencryptkeys($identifier)
+	function clearencryptkeys($identifier)
 	{
 	}
 
@@ -129,9 +129,9 @@ class gnupg {
 	 *
 	 * @param resource $identifier
 	 *
-	 * @return bool 
+	 * @return bool
 	 */
-	function gnupg_clearsignkeys($identifier)
+	function clearsignkeys($identifier)
 	{
 	}
 
@@ -146,7 +146,7 @@ class gnupg {
 	 * @return string On success, this function returns the decrypted text.
 	 *                On failure, this function returns false.
 	 */
-	function gnupg_decrypt($identifier, $text)
+	function decrypt($identifier, $text)
 	{
 	}
 
@@ -163,7 +163,7 @@ class gnupg {
 	 *               fills the  parameter with the decrypted text.
 	 *               On failure, this function returns false.
 	 */
-	function gnupg_decryptverify($identifier, $text, &$plaintext)
+	function decryptverify($identifier, $text, &$plaintext)
 	{
 	}
 
@@ -178,7 +178,7 @@ class gnupg {
 	 * @return string On success, this function returns the encrypted text.
 	 *                On failure, this function returns false.
 	 */
-	function gnupg_encrypt($identifier, $plaintext)
+	function encrypt($identifier, $plaintext)
 	{
 	}
 
@@ -193,7 +193,7 @@ class gnupg {
 	 * @return string On success, this function returns the encrypted and signed text.
 	 *                On failure, this function returns false.
 	 */
-	function gnupg_encryptsign($identifier, $plaintext)
+	function encryptsign($identifier, $plaintext)
 	{
 	}
 
@@ -208,7 +208,7 @@ class gnupg {
 	 * @return string On success, this function returns the keydata.
 	 *                On failure, this function returns false.
 	 */
-	function gnupg_export($identifier, $fingerprint)
+	function export($identifier, $fingerprint)
 	{
 	}
 
@@ -221,7 +221,7 @@ class gnupg {
 	 *
 	 * @return string Returns an errortext, if an error has occurred, otherwise false.
 	 */
-	function gnupg_geterror($identifier)
+	function geterror($identifier)
 	{
 	}
 
@@ -236,7 +236,7 @@ class gnupg {
 	 *             or
 	 *             .
 	 */
-	function gnupg_getprotocol($identifier)
+	function getprotocol($identifier)
 	{
 	}
 
@@ -251,7 +251,7 @@ class gnupg {
 	 * @return array On success, this function returns and info-array about the importprocess.
 	 *               On failure, this function returns false.
 	 */
-	function gnupg_import($identifier, $keydata)
+	function import($identifier, $keydata)
 	{
 	}
 
@@ -262,7 +262,7 @@ class gnupg {
 	 *
 	 * @return resource A GnuPG ``resource`` connection used by other GnuPG functions.
 	 */
-	function gnupg_init()
+	function init()
 	{
 	}
 
@@ -277,7 +277,7 @@ class gnupg {
 	 * @return array Returns an array with information about all keys that matches the given
 	 *               pattern or false, if an error has occurred.
 	 */
-	function gnupg_keyinfo($identifier, $pattern)
+	function keyinfo($identifier, $pattern)
 	{
 	}
 
@@ -289,9 +289,9 @@ class gnupg {
 	 * @param resource $identifier
 	 * @param int $armor
 	 *
-	 * @return bool 
+	 * @return bool
 	 */
-	function gnupg_setarmor($identifier, $armor)
+	function setarmor($identifier, $armor)
 	{
 	}
 
@@ -303,9 +303,9 @@ class gnupg {
 	 * @param resource $identifier
 	 * @param int $errormode
 	 *
-	 * @return void 
+	 * @return void
 	 */
-	function gnupg_seterrormode($identifier, $errormode)
+	function seterrormode($identifier, $errormode)
 	{
 	}
 
@@ -317,9 +317,9 @@ class gnupg {
 	 * @param resource $identifier
 	 * @param int $signmode
 	 *
-	 * @return bool 
+	 * @return bool
 	 */
-	function gnupg_setsignmode($identifier, $signmode)
+	function setsignmode($identifier, $signmode)
 	{
 	}
 
@@ -334,7 +334,7 @@ class gnupg {
 	 * @return string On success, this function returns the signed text or the signature.
 	 *                On failure, this function returns false.
 	 */
-	function gnupg_sign($identifier, $plaintext)
+	function sign($identifier, $plaintext)
 	{
 	}
 
