@@ -296,7 +296,7 @@ class MemcachePool  {
      * @link http://php.net/manual/en/memcache.increment.php
      * @param $key string Key of the item to increment.
      * @param $value int [optional] increment the item by <b>value</b>
-     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return int Returns new items value on success or <b>FALSE</b> on failure.
      */
     public function increment ($key, $value = 1) {}
 
