@@ -534,7 +534,7 @@ function fgetss ($handle, $length = null, $allowable_tags = null) {}
  * @param int $length <p>
  * Up to length number of bytes read.
  * </p>
- * @return string the read string or false on failure.
+ * @return string|bool the read string or false on failure.
  * @since 4.0
  * @since 5.0
  */
@@ -976,7 +976,7 @@ function tempnam ($dir, $prefix) {}
 /**
  * Creates a temporary file
  * @link http://php.net/manual/en/function.tmpfile.php
- * @return resource a file handle, similar to the one returned by
+ * @return resource|bool a file handle, similar to the one returned by
  * fopen, for the new file or false on failure.
  * @since 4.0
  * @since 5.0
@@ -1002,7 +1002,7 @@ function tmpfile () {}
  * <p>
  * &note.context-support;
  * </p>
- * @return array the file in an array. Each element of the array corresponds to a
+ * @return array|bool the file in an array. Each element of the array corresponds to a
  * line in the file, with the newline still attached. Upon failure,
  * file returns false.
  * </p>
@@ -1087,7 +1087,7 @@ function file ($filename, $flags = null, $context = null) {}
  * Maximum length of data read. The default is to read until end
  * of file is reached.
  * </p>
- * @return string The function returns the read data or false on failure.
+ * @return string|bool The function returns the read data or false on failure.
  * @since 4.3.0
  * @since 5.0
  */
@@ -1186,7 +1186,7 @@ function file_get_contents ($filename, $flags = null, $context = null, $offset =
  * A valid context resource created with 
  * stream_context_create.
  * </p>
- * @return int The function returns the number of bytes that were written to the file, or
+ * @return int|bool The function returns the number of bytes that were written to the file, or
  * false on failure.
  * @since 5.0
  */
