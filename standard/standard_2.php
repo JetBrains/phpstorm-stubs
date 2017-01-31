@@ -707,7 +707,7 @@ function exec ($command, array &$output = null, &$return_var = null) {}
  * return status of the executed command will be written to this
  * variable.
  * </p>
- * @return string the last line of the command output on success, and false
+ * @return string|bool the last line of the command output on success, and false
  * on failure.
  * @since 4.0
  * @since 5.0
@@ -823,7 +823,7 @@ function shell_exec ($cmd) {}
  * binary_pipes: open pipes in binary mode, instead
  * of using the usual stream_encoding
  * </p>
- * @return resource a resource representing the process, which should be freed using
+ * @return resource|bool a resource representing the process, which should be freed using
  * proc_close when you are finished with it. On failure
  * returns false.
  * @since 4.3.0
@@ -869,7 +869,7 @@ function proc_terminate ($process, $signal = null) {}
  * The proc_open resource that will
  * be evaluated.
  * </p>
- * @return array An array of collected information on success, and false
+ * @return array|bool An array of collected information on success, and false
  * on failure. The returned array contains the following elements:
  * </p>
  * <p>

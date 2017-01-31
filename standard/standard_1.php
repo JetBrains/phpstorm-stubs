@@ -545,7 +545,7 @@ function money_format ($format, $number) {}
  * </p>
  * Using a negative length
  * ]]>
- * @return string the extracted part of string or false on failure.
+ * @return string|bool the extracted part of string or false on failure.
  * @since 4.0
  * @since 5.0
  */

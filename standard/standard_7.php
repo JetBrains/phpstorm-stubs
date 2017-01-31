@@ -250,7 +250,7 @@ function crypt ($str, $salt = null) {}
  * refer to the streams section of
  * the manual.
  * </p>
- * @return resource a directory handle resource on success, or
+ * @return resource|bool a directory handle resource on success, or
  * false on failure.
  * </p> 
  * <p>
@@ -347,7 +347,7 @@ function rewinddir ($dir_handle = null) {}
  * not specified, the last link opened by opendir 
  * is assumed.
  * </p>
- * @return string the filename on success or false on failure.
+ * @return string|bool the filename on success or false on failure.
  * @since 4.0
  * @since 5.0
  */
@@ -420,7 +420,7 @@ function glob ($pattern, $flags = null) {}
  * @param string $filename <p>
  * Path to the file.
  * </p>
- * @return int the time the file was last accessed, or false on failure.
+ * @return int|bool the time the file was last accessed, or false on failure.
  * The time is returned as a Unix timestamp.
  * @since 4.0
  * @since 5.0
@@ -433,7 +433,7 @@ function fileatime ($filename) {}
  * @param string $filename <p>
  * Path to the file.
  * </p>
- * @return int the time the file was last changed, or false on failure.
+ * @return int|bool the time the file was last changed, or false on failure.
  * The time is returned as a Unix timestamp.
  * @since 4.0
  * @since 5.0
@@ -446,7 +446,7 @@ function filectime ($filename) {}
  * @param string $filename <p>
  * Path to the file.
  * </p>
- * @return int the group ID of the file, or false in case
+ * @return int|bool the group ID of the file, or false in case
  * of an error. The group ID is returned in numerical format, use
  * posix_getgrgid to resolve it to a group name.
  * Upon failure, false is returned.
@@ -461,7 +461,7 @@ function filegroup ($filename) {}
  * @param string $filename <p>
  * Path to the file.
  * </p>
- * @return int the inode number of the file, or false on failure.
+ * @return int|bool the inode number of the file, or false on failure.
  * @since 4.0
  * @since 5.0
  */
@@ -473,7 +473,7 @@ function fileinode ($filename) {}
  * @param string $filename <p>
  * Path to the file.
  * </p>
- * @return int the time the file was last modified, or false on failure.
+ * @return int|bool the time the file was last modified, or false on failure.
  * The time is returned as a Unix timestamp, which is
  * suitable for the date function.
  * @since 4.0
@@ -487,7 +487,7 @@ function filemtime ($filename) {}
  * @param string $filename <p>
  * Path to the file.
  * </p>
- * @return int the user ID of the owner of the file, or false on failure.
+ * @return int|bool the user ID of the owner of the file, or false on failure.
  * The user ID is returned in numerical format, use
  * posix_getpwuid to resolve it to a username.
  * @since 4.0
@@ -501,7 +501,7 @@ function fileowner ($filename) {}
  * @param string $filename <p>
  * Path to the file.
  * </p>
- * @return int the permissions on the file, or false on failure.
+ * @return int|bool the permissions on the file, or false on failure.
  * @since 4.0
  * @since 5.0
  */
@@ -907,7 +907,7 @@ function clearstatcache ($clear_realpath_cache = null, $filename = null) {}
  * @param string $directory <p>
  * A directory of the filesystem or disk partition.
  * </p>
- * @return float the total number of bytes as a float
+ * @return float|bool the total number of bytes as a float
  * or false on failure.
  * @since 4.1.0
  * @since 5.0
@@ -925,7 +925,7 @@ function disk_total_space ($directory) {}
  * function is unspecified and may differ between operating systems and
  * PHP versions.
  * </p>
- * @return float the number of available bytes as a float
+ * @return float|bool the number of available bytes as a float
  * or false on failure.
  * @since 4.1.0
  * @since 5.0

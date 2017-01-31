@@ -317,7 +317,7 @@ function stream_filter_remove ($stream_filter) {}
  * @param resource $context [optional] <p>
  * A valid context resource created with stream_context_create.
  * </p>
- * @return resource On success a stream resource is returned which may
+ * @return resource|bool On success a stream resource is returned which may
  * be used together with the other file functions (such as
  * fgets, fgetss,
  * fwrite, fclose, and
@@ -552,7 +552,7 @@ function stream_socket_shutdown ($stream, $how) {}
  * STREAM_IPPROTO_TCP or
  * STREAM_IPPROTO_UDP 
  * </p>
- * @return array an array with the two socket resources on success, or
+ * @return array|bool an array with the two socket resources on success, or
  * false on failure.
  * @since 5.1.0
  */
@@ -591,7 +591,7 @@ function stream_copy_to_stream ($source, $dest, $maxlength = null, $offset = nul
  * @param int $offset [optional] <p>
  * Seek to the specified offset before reading.
  * </p>
- * @return string a string or false on failure.
+ * @return string|bool a string or false on failure.
  * @since 5.0
  */
 function stream_get_contents ($handle, $maxlength = null, $offset = null) {}
@@ -664,7 +664,7 @@ function fgetcsv ($handle, $length = null, $delimiter = null, $enclosure = null,
  * enclosure (one character only).
  * </p>
  * @param string $escape_char The optional escape_char parameter sets the escape character (one character only).
- * @return int the length of the written string or false on failure.
+ * @return int|bool the length of the written string or false on failure.
  * @since 5.1.0
  */
 function fputcsv ($handle, array $fields, $delimiter = ",", $enclosure = '"', $escape_char = "\\") {}
@@ -976,7 +976,7 @@ function stream_register_wrapper ($protocol, $classname, $flags) {}
  * @link http://php.net/manual/en/function.stream-resolve-include-path.php
  * @param string $filename The filename to resolve.<p>
  * </p>
- * @return string containing the resolved absolute filename, or FALSE on failure.
+ * @return string|bool containing the resolved absolute filename, or FALSE on failure.
  * @since 5.3.2
  */
 function stream_resolve_include_path ($filename) {}
@@ -1157,7 +1157,7 @@ function socket_get_status (resource $stream) {}
  * @param string $path <p>
  * The path being checked.
  * </p>
- * @return string the canonicalized absolute pathname on success. The resulting path 
+ * @return string|bool the canonicalized absolute pathname on success. The resulting path 
  * will have no symbolic link, '/./' or '/../' components.
  * </p>
  * <p>
