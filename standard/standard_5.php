@@ -1022,58 +1022,9 @@ function file ($filename, $flags = null, $context = null) {}
  * @param string $filename <p>
  * Name of the file to read.
  * </p>
- * @param int $flags [optional] <p>
- * Prior to PHP 6, this parameter is called
- * use_include_path and is a bool.
- * As of PHP 5 the FILE_USE_INCLUDE_PATH can be used
- * to trigger include path
- * search.
- * </p>
- * <p>
- * The value of flags can be any combination of 
- * the following flags (with some restrictions), joined with the
- * binary OR (|)
- * operator.
- * </p>
- * <p>
- * <table>
- * Available flags
- * <tr valign="top">
- * <td>Flag</td>
- * <td>Description</td>
- * </tr>
- * <tr valign="top">
- * <td>
- * FILE_USE_INCLUDE_PATH
- * </td>
- * <td>
- * Search for filename in the include directory.
- * See include_path for more
- * information.
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>
- * FILE_TEXT
- * </td>
- * <td>
- * As of PHP 6, the default encoding of the read
- * data is UTF-8. You can specify a different encoding by creating a 
- * custom context or by changing the default using 
- * stream_default_encoding. This flag cannot be 
- * used with FILE_BINARY. 
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>
- * FILE_BINARY
- * </td>
- * <td>
- * With this flag, the file is read in binary mode. This is the default
- * setting and cannot be used with FILE_TEXT. 
- * </td>
- * </tr>
- * </table>
+ * @param bool $use_include_path [optional] <p>
+ * Note: As of PHP 5 the FILE_USE_INCLUDE_PATH constant can be
+ * used to trigger include path search.
  * </p>
  * @param resource $context [optional] <p>
  * A valid context resource created with 
@@ -1091,7 +1042,7 @@ function file ($filename, $flags = null, $context = null) {}
  * @since 4.3.0
  * @since 5.0
  */
-function file_get_contents ($filename, $flags = null, $context = null, $offset = null, $maxlen = null) {}
+function file_get_contents ($filename, $use_include_path = false, $context = null, $offset = 0, $maxlen = null) {}
 
 /**
  * Write a string to a file
@@ -1153,31 +1104,7 @@ function file_get_contents ($filename, $flags = null, $context = null, $offset =
  * <td>
  * Acquire an exclusive lock on the file while proceeding to the 
  * writing. Mutually exclusive with FILE_APPEND.
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>
- * FILE_TEXT
- * </td>
- * <td>
- * data is written in text mode. If unicode 
- * semantics are enabled, the default encoding is UTF-8.
- * You can specify a different encoding by creating a custom context
- * or by using the stream_default_encoding to
- * change the default. This flag cannot be used with 
- * FILE_BINARY. This flag is only available since
- * PHP 6.
- * </td>
- * </tr>
- * <tr valign="top">
- * <td>
- * FILE_BINARY
- * </td>
- * <td>
- * data will be written in binary mode. This
- * is the default setting and cannot be used with
- * FILE_TEXT. This flag is only available since
- * PHP 6.
+ * @since 5.1.0
  * </td>
  * </tr>
  * </table>
@@ -1190,4 +1117,4 @@ function file_get_contents ($filename, $flags = null, $context = null, $offset =
  * false on failure.
  * @since 5.0
  */
-function file_put_contents ($filename, $data, $flags = null, $context = null) {}
+function file_put_contents ($filename, $data, $flags = 0, $context = null) {}
