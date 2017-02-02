@@ -359,7 +359,30 @@ class Memcache extends MemcachePool  {
 	public function pconnect ($host, $port, $timeout = 1) {}
 }
 
-function memcache_connect () {}
+//  string $host [, int $port [, int $timeout ]]
+
+/**
+ * (PECL memcache >= 0.2.0)</br>
+ * Memcache::connect — Open memcached server connection
+ * @link http://php.net/manual/en/memcache.connect.php
+ * @param string $host <p>
+ * Point to the host where memcached is listening for connections.
+ * This parameter may also specify other transports like
+ * unix:///path/to/memcached.sock to use UNIX domain sockets,
+ * in this case port must also be set to 0.
+ * </p>
+ * @param int $port [optional] <p>
+ * Point to the port where memcached is listening for connections.
+ * Set this parameter to 0 when using UNIX domain sockets.
+ * Note:  port defaults to memcache.default_port if not specified.
+ * For this reason it is wise to specify the port explicitly in this method call.
+ * </p>
+ * @param int $timeout [optional] <p>
+ * Value in seconds which will be used for connecting to the daemon.
+ * </p>
+ * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ */
+function memcache_connect ($host, $port, $timeout = 1) {}
 
 function memcache_pconnect () {}
 
