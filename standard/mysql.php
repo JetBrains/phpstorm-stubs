@@ -374,6 +374,7 @@ function mysql_result ($result, $row, $field = 0) {}
  * @return int <p>The number of rows in the result set on success or FALSE on failure. </p>
  * @since 4.0
  * @since 5.0
+ * @deprecated 5.5
  */
 function mysql_num_rows ($result) {}
 
