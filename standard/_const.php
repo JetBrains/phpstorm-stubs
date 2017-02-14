@@ -83,10 +83,13 @@ const UPLOAD_ERR_PARTIAL = 3;
 const ZEND_DEBUG_BUILD = false;
 const ZEND_MULTIBYTE = 0;
 const ZEND_THREAD_SAFE = false;
+/*
+ * This constants are special and can not use the newer const syntax.
+ */
 define('FALSE', false);
 define('NULL', null);
-define('STDIN', fopen('php://stdin', 'r'));
-define('STDOUT', fopen('php://stdout', 'w'));
-define('STDERR', fopen('php://stderr', 'w'));
+define('STDIN', fopen('php://stdin', 'rb'));
+define('STDOUT', fopen('php://stdout', 'wb'));
+define('STDERR', fopen('php://stderr', 'wb'));
 define('TRUE', true);
 
