@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectCodeStyleSettingsManager">
+    <option name="PER_PROJECT_SETTINGS">
+      <value>
+        <option name="LINE_SEPARATOR" value="&#10;" />
+        <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="true" />
+        <option name="FORMATTER_TAGS_ENABLED" value="true" />
+        <PHPCodeStyleSettings>
+          <option name="ALIGN_PHPDOC_PARAM_NAMES" value="true" />
+          <option name="ALIGN_PHPDOC_COMMENTS" value="true" />
+          <option name="PHPDOC_BLANK_LINES_AROUND_PARAMETERS" value="true" />
+          <option name="PHPDOC_WRAP_LONG_LINES" value="true" />
+          <option name="PHPDOC_THROWS_IGNORE_RUNTIME_EXCEPTIONS" value="false" />
+          <option name="PHPDOC_THROWS_IGNORE_LOGIC_EXCEPTIONS" value="false" />
+        </PHPCodeStyleSettings>
+        <codeStyleSettings language="PHP">
+          <option name="KEEP_BLANK_LINES_IN_DECLARATIONS" value="0" />
+          <option name="KEEP_BLANK_LINES_IN_CODE" value="0" />
+          <option name="KEEP_BLANK_LINES_BEFORE_RBRACE" value="0" />
+          <option name="BLANK_LINES_AFTER_PACKAGE" value="1" />
+          <option name="KEEP_SIMPLE_METHODS_IN_ONE_LINE" value="true" />
+          <arrangement>
+            <groups />
+            <rules>
+              <section>
+                <rule>
+                  <match>
+                    <INTERFACE>true</INTERFACE>
+                  </match>
+                  <order>BY_NAME</order>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <CLASS>true</CLASS>
+                  </match>
+                  <order>BY_NAME</order>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <TRAIT>true</TRAIT>
+                  </match>
+                  <order>BY_NAME</order>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <CONST>true</CONST>
+                  </match>
+                  <order>BY_NAME</order>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <FIELD>true</FIELD>
+                      <PUBLIC>true</PUBLIC>
+                      <STATIC>true</STATIC>
+                    </AND>
+                  </match>
+                  <order>BY_NAME</order>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <FIELD>true</FIELD>
+                      <PUBLIC>true</PUBLIC>
+                    </AND>
+                  </match>
+                  <order>BY_NAME</order>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <FIELD>true</FIELD>
+                      <PROTECTED>true</PROTECTED>
+                      <STATIC>true</STATIC>
+                    </AND>
+                  </match>
+                  <order>BY_NAME</order>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <FIELD>true</FIELD>
+                      <PROTECTED>true</PROTECTED>
+                    </AND>
+                  </match>
+                  <order>BY_NAME</order>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <CONSTRUCTOR>true</CONSTRUCTOR>
+                  </match>
+                  <order>BY_NAME</order>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <METHOD>true</METHOD>
+                      <PUBLIC>true</PUBLIC>
+                      <STATIC>true</STATIC>
+                    </AND>
+                  </match>
+                  <order>BY_NAME</order>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <METHOD>true</METHOD>
+                      <PUBLIC>true</PUBLIC>
+                    </AND>
+                  </match>
+                  <order>BY_NAME</order>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <METHOD>true</METHOD>
+                      <PROTECTED>true</PROTECTED>
+                      <STATIC>true</STATIC>
+                    </AND>
+                  </match>
+                  <order>BY_NAME</order>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <METHOD>true</METHOD>
+                      <PROTECTED>true</PROTECTED>
+                    </AND>
+                  </match>
+                  <order>BY_NAME</order>
+                </rule>
+              </section>
+            </rules>
+          </arrangement>
+        </codeStyleSettings>
+      </value>
+    </option>
+    <option name="USE_PER_PROJECT_SETTINGS" value="true" />
+  </component>
+</project>
