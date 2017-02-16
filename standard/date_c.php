@@ -187,10 +187,12 @@ class DateTimeImmutable implements DateTimeInterface {
      * @param int $hour <p> Hour of the time. </p>
      * @param int $minute <p> Minute of the time. </p>
      * @param int $second [optional] <p> Second of the time. </p>
-     * @return static|bool
+     * @param int $microseconds [optional] <p> Microseconds of the time. </p>
+     * @return static|false
+     * @since 7.1.0 $microseconds parameter added.
      * Returns the {@link http://www.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
-    public function setTime($hour, $minute, $second = 0) { }
+    public function setTime($hour, $minute, $second = 0, $microseconds = 0) { }
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -383,10 +385,12 @@ class DateTime implements DateTimeInterface {
      * @param int $hour
      * @param int $minute
      * @param int $second
-     * @return static
+     * @param int $microseconds
+     * @return static|false
+     * @since 7.1.0 $microseconds parameter added.
      * @link http://php.net/manual/en/datetime.settime.php
      */
-    public function setTime ($hour, $minute, $second=0) {}
+    public function setTime ($hour, $minute, $second=0, $microseconds=0) {}
 
     /**
      * Sets the current date of the DateTime object to a different date.
