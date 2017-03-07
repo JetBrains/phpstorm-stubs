@@ -455,6 +455,9 @@ final class tidyNode  {
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Returns the value of the specified configuration option for the tidy document
  * @link http://php.net/manual/en/tidy.getopt.php
+ * @param tidy $object <p>
+ * The <b>Tidy</b> object.
+ * </p>
  * @param string $option <p>
  * You will find a list with each configuration option and their types
  * at: http://tidy.sourceforge.net/docs/quickref.html.
@@ -462,7 +465,7 @@ final class tidyNode  {
  * @return mixed the value of the specified <i>option</i>.
  * The return type depends on the type of the specified one.
  */
-function tidy_getopt ($option) {}
+function tidy_getopt (tidy $object, $option) {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -489,7 +492,7 @@ function tidy_getopt ($option) {}
  * utf16, utf16le, utf16be,
  * big5, and shiftjis.
  * </p>
- * @return bool a new <b>tidy</b> instance.
+ * @return tidy a new <b>tidy</b> instance.
  */
 function tidy_parse_string ($input, $config = null, $encoding = null) {}
 
@@ -524,7 +527,7 @@ function tidy_parse_string ($input, $config = null, $encoding = null) {}
  * @param bool $use_include_path [optional] <p>
  * Search for the file in the include_path.
  * </p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return tidy a new <b>tidy</b> instance.
  */
 function tidy_parse_file ($filename, $config = null, $encoding = null, $use_include_path = false) {}
 
@@ -543,9 +546,12 @@ function tidy_get_output (tidy $object) {}
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Return warnings and errors which occurred parsing the specified document
  * @link http://php.net/manual/en/tidy.props.errorbuffer.php
+ * @param tidy $object <p>
+ * The <b>Tidy</b> object.
+ * </p>
  * @return mixed the error buffer as a string.
  */
-function tidy_get_error_buffer () {}
+function tidy_get_error_buffer (tidy $object) {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -623,9 +629,12 @@ function tidy_repair_file ($filename, $config = null, $encoding = null, $use_inc
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Run configured diagnostics on parsed and repaired markup
  * @link http://php.net/manual/en/tidy.diagnose.php
+ * @param tidy $object <p>
+ * The <b>Tidy</b> object.
+ * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function tidy_diagnose () {}
+function tidy_diagnose (tidy $object) {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -639,38 +648,50 @@ function tidy_get_release () {}
  * (PHP 5, PECL tidy &gt;= 0.7.0)<br/>
  * Get current Tidy configuration
  * @link http://php.net/manual/en/tidy.getconfig.php
+ * @param tidy $object <p>
+ * The <b>Tidy</b> object.
+ * </p>
  * @return array an array of configuration options.
  * </p>
  * <p>
  * For an explanation about each option, visit http://tidy.sourceforge.net/docs/quickref.html.
  */
-function tidy_get_config () {}
+function tidy_get_config (tidy $object) {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Get status of specified document
  * @link http://php.net/manual/en/tidy.getstatus.php
+ * @param tidy $object <p>
+ * The <b>Tidy</b> object.
+ * </p>
  * @return int 0 if no error/warning was raised, 1 for warnings or accessibility
  * errors, or 2 for errors.
  */
-function tidy_get_status () {}
+function tidy_get_status (tidy $object) {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Get the Detected HTML version for the specified document
  * @link http://php.net/manual/en/tidy.gethtmlver.php
+ * @param tidy $object <p>
+ * The <b>Tidy</b> object.
+ * </p>
  * @return int the detected HTML version.
  * </p>
  * <p>
  * This function is not yet implemented in the Tidylib itself, so it always
  * return 0.
  */
-function tidy_get_html_ver () {}
+function tidy_get_html_ver (tidy $object) {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Indicates if the document is a XHTML document
  * @link http://php.net/manual/en/tidy.isxhtml.php
+ * @param tidy $object <p>
+ * The <b>Tidy</b> object.
+ * </p>
  * @return bool This function returns <b>TRUE</b> if the specified tidy
  * <i>object</i> is a XHTML document, or <b>FALSE</b> otherwise.
  * </p>
@@ -678,12 +699,15 @@ function tidy_get_html_ver () {}
  * This function is not yet implemented in the Tidylib itself, so it always
  * return <b>FALSE</b>.
  */
-function tidy_is_xhtml () {}
+function tidy_is_xhtml (tidy $object) {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
  * Indicates if the document is a generic (non HTML/XHTML) XML document
  * @link http://php.net/manual/en/tidy.isxml.php
+ * @param tidy $object <p>
+ * The <b>Tidy</b> object.
+ * </p>
  * @return bool This function returns <b>TRUE</b> if the specified tidy
  * <i>object</i> is a generic XML document (non HTML/XHTML),
  * or <b>FALSE</b> otherwise.
@@ -692,7 +716,7 @@ function tidy_is_xhtml () {}
  * This function is not yet implemented in the Tidylib itself, so it always
  * return <b>FALSE</b>.
  */
-function tidy_is_xml () {}
+function tidy_is_xml (tidy $object) {}
 
 /**
  * (PHP 5, PECL tidy &gt;= 0.5.2)<br/>
@@ -741,6 +765,9 @@ function tidy_config_count (tidy $object) {}
 /**
  * Returns the documentation for the given option name
  * @link http://php.net/manual/en/tidy.getoptdoc.php
+ * @param tidy $object <p>
+ * The <b>Tidy</b> object.
+ * </p>
  * @param string $optname <p>
  * The option name
  * </p>
@@ -748,41 +775,52 @@ function tidy_config_count (tidy $object) {}
  * <b>FALSE</b> otherwise.
  * @since 5.1.0
  */
-function tidy_get_opt_doc ($optname) {}
+function tidy_get_opt_doc (tidy $object, $optname) {}
 
 /**
  * (PHP 5, PECL tidy 0.5.2-1.0.0)<br/>
  * Returns a <b>tidyNode</b> object representing the root of the tidy parse tree
  * @link http://php.net/manual/en/tidy.root.php
+ * @param tidy $object <p>
+ * The <b>Tidy</b> object.
+ * </p>
  * @return tidyNode the <b>tidyNode</b> object.
  */
-function tidy_get_root () {}
+function tidy_get_root (tidy $object) {}
 
 /**
  * (PHP 5, PECL tidy 0.5.2-1.0.0)<br/>
  * Returns a <b>tidyNode</b> object starting from the &lt;head&gt; tag of the tidy parse tree
  * @link http://php.net/manual/en/tidy.head.php
+ * @param tidy $object <p>
+ * The <b>Tidy</b> object.
+ * </p>
  * @return tidyNode the <b>tidyNode</b> object.
  */
-function tidy_get_head () {}
+function tidy_get_head (tidy $object) {}
 
 /**
  * (PHP 5, PECL tidy 0.5.2-1.0.0)<br/>
  * Returns a <b>tidyNode</b> object starting from the &lt;html&gt; tag of the tidy parse tree
  * @link http://php.net/manual/en/tidy.html.php
+ * @param tidy $object <p>
+ * The <b>Tidy</b> object.
+ * </p>
  * @return tidyNode the <b>tidyNode</b> object.
  */
-function tidy_get_html () {}
+function tidy_get_html (tidy $object) {}
 
 /**
  * (PHP 5, PECL tidy 0.5.2-1.0)<br/>
  * Returns a <b>tidyNode</b> object starting from the &lt;body&gt; tag of the tidy parse tree
  * @link http://php.net/manual/en/tidy.body.php
- * @param $tidy
+ * @param tidy $object <p>
+ * The <b>Tidy</b> object.
+ * </p>
  * @return tidyNode a <b>tidyNode</b> object starting from the
  * &lt;body&gt; tag of the tidy parse tree.
  */
-function tidy_get_body ($tidy) {}
+function tidy_get_body (tidy $object) {}
 
 /**
  * ob_start callback function to repair the buffer

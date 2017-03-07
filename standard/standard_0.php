@@ -178,7 +178,7 @@ function usleep ($micro_seconds) {}
  * @param int $nanoseconds <p>
  * Must be a positive integer less than 1 billion.
  * </p>
- * @return mixed true on success or false on failure.
+ * @return bool|array true on success or false on failure.
  * </p>
  * <p>
  * If the delay was interrupted by a signal, an associative array will be
@@ -216,7 +216,7 @@ function time_sleep_until ($timestamp) {}
  * For more information about the format options, read the
  * strftime page.
  * </p>
- * @return array an array or false on failure.
+ * @return array|bool an array or false on failure.
  * </p>
  * <p>
  * <table>
@@ -698,7 +698,7 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
  * You can use the iptcparse function to parse the
  * binary APP13 marker into something readable.
  * </p>
- * @return array an array with 7 elements.
+ * @return array|bool an array with 7 elements.
  * </p>
  * <p>
  * Index 0 and 1 contains respectively the width and the height of the image.

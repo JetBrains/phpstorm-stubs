@@ -339,16 +339,6 @@ function socket_listen ($socket, $backlog = 0) {}
 function socket_close ($socket) {}
 
 /**
- * (PHP 5 &gt;=5.5.0)<br/>
- * Calculate message buffer size
- * @link http://www.php.net/manual/en/function.socket-cmsg-space.php
- * @param int $level
- * @param int $type
- * @since 5.5.0
- */
-function socket_cmsg_space ($level , $type ) {}
-
-/**
  * Write to a socket
  * @link http://php.net/manual/en/function.socket-write.php
  * @param resource $socket
@@ -765,7 +755,6 @@ function socket_sendmsg ($socket, array $message, $flags ) {}
 function socket_recvfrom ($socket, &$buf, $len, $flags, &$name, &$port = null) {}
 
 /**
- * (PHP 5 &gt;=5.5.0)<br/>
  * Read a message
  * @link http://www.php.net/manual/en/function.socket-recvmsg.php
  * @param resource $socket
@@ -1303,28 +1292,6 @@ function socket_clear_error ($socket = null) {}
  * @since 5.4.0
  */
 function socket_import_stream ($stream) {}
-
-/**
- * Send a message
- * @link http://php.net/manual/en/function.socket-sendmsg.php
- * @param resource $socket
- * @param array $message
- * @param int $flags
- * @return int
- * @since 5.5.0
- */
-function socket_sendmsg ($socket, array $message, $flags) {}
-
-/**
- * Read a message
- * @link http://php.net/manual/en/function.socket-recvmsg.php
- * @param resource $socket
- * @param string $message
- * @param int $flags [optional]
- * @return int
- * @since 5.5.0
- */
-function socket_recvmsg ($socket, $message, $flags = null) {}
 
 /**
  * Calculate message buffer size

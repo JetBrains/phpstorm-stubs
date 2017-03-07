@@ -997,7 +997,7 @@ class PDOStatement implements Traversable {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function execute (array $input_parameters = null) {}
+	public function execute ($input_parameters = null) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)<br/>

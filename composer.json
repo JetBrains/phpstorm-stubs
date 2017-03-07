@@ -1,0 +1,16 @@
+{
+    "name": "jetbrains/phpstorm-stubs",
+    "description": "PHP runtime & extensions header files for PhpStorm",
+    "homepage": "https://www.jetbrains.com/phpstorm",
+    "license": "Apache-2.0",
+    "keywords": [
+        "JetBrains",
+        "PHPStorm",
+        "stubs",
+        "autocomplete",
+        "type",
+        "inference",
+        "code",
+        "inspection"
+    ]
+}

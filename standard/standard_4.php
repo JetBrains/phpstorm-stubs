@@ -162,6 +162,15 @@ function serialize ($value) {}
  * should be instantiated, it'll be called. To disable this feature just
  * empty this setting.
  * </p>
+ * @param mixed $options [optional]
+ * <p>Any options to be provided to unserialize(), as an associative array.</p>
+ * <p>
+ * Either an array of class names which should be accepted, FALSE to
+ * accept no classes, or TRUE to accept all classes. If this option is defined
+ * and unserialize() encounters an object of a class that isn't to be accepted,
+ * then the object will be instantiated as __PHP_Incomplete_Class instead.
+ * Omitting this option is the same as defining it as TRUE: PHP will attempt
+ * to instantiate objects of any class.
  * </p>
  * @return mixed The converted value is returned, and can be a boolean,
  * integer, float, string,
@@ -172,8 +181,9 @@ function serialize ($value) {}
  * E_NOTICE is issued.
  * @since 4.0
  * @since 5.0
+ * @since 7.0
  */
-function unserialize ($str) {}
+function unserialize ($str, array $options = null) {}
 
 /**
  * Dumps information about a variable
@@ -333,7 +343,7 @@ function unregister_tick_function ($function_name) {}
  * Set this parameter to true to make this function return the
  * highlighted code.
  * </p>
- * @return mixed If return is set to true, returns the highlighted
+ * @return string|bool If return is set to true, returns the highlighted
  * code as a string instead of printing it out. Otherwise, it will return
  * true on success, false on failure.
  * @since 4.0
@@ -361,7 +371,7 @@ function show_source ($file_name, $return) {}
  * Set this parameter to true to make this function return the
  * highlighted code.
  * </p>
- * @return mixed If return is set to true, returns the highlighted
+ * @return string|bool If return is set to true, returns the highlighted
  * code as a string instead of printing it out. Otherwise, it will return
  * true on success, false on failure.
  * @since 4.0
@@ -449,7 +459,7 @@ function ini_get_all ($extension = null, $details = null) {}
  * @param string $newvalue <p>
  * The new value for the option.
  * </p>
- * @return string the old value on success, false on failure.
+ * @return string|bool the old value on success, false on failure.
  * @since 4.0
  * @since 5.0
  */
@@ -492,7 +502,7 @@ function get_include_path () {}
  * @param string $new_include_path <p>
  * The new value for the include_path
  * </p>
- * @return string the old include_path on
+ * @return string|bool the old include_path on
  * success or false on failure.
  * @since 4.3.0
  * @since 5.0
@@ -748,7 +758,7 @@ function ignore_user_abort ($value = null) {}
  * and <em>"none"</em> are considered <b>FALSE</b>. <em>"null"</em> is converted to <b>NULL</b>
  * in typed mode. Also, all numeric strings are converted to integer type if it is possible.
  * </p>
- * @return array The settings are returned as an associative array on success,
+ * @return array|bool The settings are returned as an associative array on success,
  * and false on failure.
  * @since 4.0
  * @since 5.0
@@ -772,7 +782,7 @@ function parse_ini_file ($filename, $process_sections = null, $scanner_mode = nu
  * INI_SCANNER_RAW. If INI_SCANNER_RAW 
  * is supplied, then option values will not be parsed.
  * </p>
- * @return array The settings are returned as an associative array on success,
+ * @return array|bool The settings are returned as an associative array on success,
  * and false on failure.
  * @since 5.3.0
  */

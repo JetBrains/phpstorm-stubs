@@ -91,14 +91,14 @@ function header_register_callback ( callable $callback ) {}
  * Some programs use these APP markers to embed text information in images. <br>
  * A very common one is to embed » IPTC information in the APP13 marker. <br>
  * You can use the iptcparse() function to parse the binary APP13 marker into something readable.
- * @return array Returns an array with 7 elements.<br>
+ * @return array|bool Returns an array with 7 elements.<br>
  * Index 0 and 1 contains respectively the width and the height of the image.<br>
  * Index 2 is one of the <b>IMAGETYPE_XXX</b> constants indicating the type of the image.<br>
  * Index 3 is a text string with the correct <b>height="yyy" width="xxx"</b> string<br>
  * that can be used directly in an IMG tag.<br>
  * On failure, FALSE is returned.
  */
-function getimagesizefromstring ($imagedata , array &$imageinfo) {}
+function getimagesizefromstring ($imagedata , array &$imageinfo = null) {}
 
 /**
  * PHP > 5.4.0<br/>
@@ -116,7 +116,7 @@ function stream_set_chunk_size ($fp , $chunk_size) {}
  * Import a stream.
  * @link http://www.php.net/manual/en/function.socket-import-stream.php
  * @param resource $stream The stream resource to import.
- * @return void Returns <b>FALSE</b> or <b>NULL</b> on failure.
+ * @return void|bool|null Returns <b>FALSE</b> or <b>NULL</b> on failure.
  */
 function socket_import_stream ($stream) {}
 
@@ -145,13 +145,15 @@ function lcg_value () {}
  * @param string $str <p>
  * The input string.
  * </p>
- * @param int $phones [optional] <p>
+ * @param int $phonemes [optional] <p>
+ * This parameter restricts the returned metaphone key to phonemes characters in length.
+ * The default value of 0 means no restriction.
  * </p>
- * @return string the metaphone key as a string.
+ * @return string|bool the metaphone key as a string, or FALSE on failure
  * @since 4.0
  * @since 5.0
  */
-function metaphone ($str, $phones = null) {}
+function metaphone ($str, $phonemes = 0) {}
 
 /**
  * Turn on output buffering
