@@ -820,7 +820,7 @@ function putenv ($setting) {}
  * @since 4.3.0
  * @since 5.0
  */
-function getopt ($options, $longopts = array(), &$optind = null) {}
+function getopt ($options, array $longopts = null, &$optind = null) {}
 
 /**
  * Gets system load average
