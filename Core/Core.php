@@ -1088,3 +1088,12 @@ function sapi_windows_cp_conv($in_codepage, $out_codepage, $subject) {}
 function sapi_windows_cp_is_utf8() {
 
 }
+
+/**
+ * true if a value is iterable and will be accepted by the iterable pseudo-type, false for other values.
+ * @param mixed $value
+ * @return true
+ * @since 7.1
+ * @link https://wiki.php.net/rfc/iterable
+ */
+function is_iterable($value) {}
