@@ -3,6 +3,11 @@
 namespace {
 
     /**
+     * @link https://wiki.php.net/rfc/iterable
+     */
+    class iterable implements Traversable, PS_UNRESERVE_PREFIX_array {}
+    
+    /**
      * Creates an array.
      * @link http://php.net/manual/en/function.array.php
      * @param mixed $_ [optional] <p>
