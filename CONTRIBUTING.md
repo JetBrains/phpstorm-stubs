@@ -11,8 +11,7 @@ Please link pull request/commit messages to [issue tracker] and back if correspo
 * Please add corresponding @since tags
 
 ##Types of contribution
-We don't really want to include all possible extension/libs ASAP (they do slow the IDE down a bit) and we are working on a better system for managing them. **A reorganisation & a system for managing extra stubs is coming soon**.
-
+As of 2017.1 Preview we gladly accept all "non-statdard" extenstions and IDE get a UI for per-project configuration.
 As of 2016.3 there is an [easy way to package your custom stubs/metadata] as an plugin.
 
 
