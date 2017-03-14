@@ -296,7 +296,7 @@ class MemcachePool  {
      * @link http://php.net/manual/en/memcache.increment.php
      * @param $key string Key of the item to increment.
      * @param $value int [optional] increment the item by <b>value</b>
-     * @return int Returns new items value on success or <b>FALSE</b> on failure.
+     * @return int|boolean Returns new items value on success or <b>FALSE</b> on failure.
      */
     public function increment ($key, $value = 1) {}
 
@@ -306,7 +306,7 @@ class MemcachePool  {
      * @link http://php.net/manual/en/memcache.decrement.php
      * @param $key string Key of the item do decrement.
      * @param $value int Decrement the item by <b>value</b>.
-     * @return int Returns item's new value on success or <b>FALSE</b> on failure.
+     * @return int|boolean Returns item's new value on success or <b>FALSE</b> on failure.
      */
     public function decrement ($key, $value = 1) {}
 
