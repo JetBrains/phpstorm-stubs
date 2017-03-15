@@ -340,3 +340,205 @@ namespace http\Exception {
     {
     }
 }
+
+namespace http\Env {
+
+    /**
+     * Class Response
+     * @package http\Env
+     */
+    class Response extends \http\Message
+    {
+        const CACHE_HIT  = 1;
+        const CACHE_MISS = 2;
+        const CACHE_NO   = 0;
+
+        const CONTENT_ENCODING_GZIP = 1;
+        const CONTENT_ENCODING_NONE = 0;
+
+        /**
+         * How the client should treat this response in regards to caching
+         * @var string
+         */
+        protected $cacheControl = null;
+
+        /**
+         * The response’s cookies.
+         * @var array
+         */
+        protected $cookies = null;
+
+        /**
+         * The response’s MIME content type
+         * @var string
+         */
+        protected $contentType = null;
+
+        /**
+         * The response’s MIME content disposition
+         * @var string
+         */
+        protected $contentDisposition = null;
+
+        /**
+         * See http\Env\Response::CONTENT_ENCODING_* constants
+         * @var int
+         */
+        protected $contentEncoding = null;
+
+        /**
+         * A custom ETag
+         * @var string
+         */
+        protected $etag = null;
+
+        /**
+         * A “Last-Modified” time stamp.
+         * @var int
+         */
+        protected $lastModified = null;
+
+        /**
+         * A request instance which overrides the environments default request
+         * @var \http\Env\Request
+         */
+        protected $request = null;
+
+        /**
+         * Any throttling delay.
+         * @var int
+         */
+        protected $throttleDelay = null;
+
+        /**
+         * The chunk to send every $throttleDelay seconds.
+         * @var int
+         */
+        protected $throttleChunk = null;
+
+        public function __construct()
+        {
+        }
+
+        /**
+         * Output buffer handler
+         * @param string $data
+         * @param int $ob_flags
+         * @return bool
+         */
+        public function __invoke($data, $ob_flags = 0)
+        {
+        }
+
+        /**
+         * @param string $header_name
+         * @return int
+         */
+        public function isCachedByETag($header_name = 'If-None-Match')
+        {
+        }
+
+        /**
+         * @param string $header_name
+         * @return int
+         */
+        public function isCachedByLastModified($header_name = 'If-Modified-Since')
+        {
+        }
+
+        /**
+         * Send the response through the SAPI or $stream
+         * @param resource $stream
+         * @return bool
+         */
+        public function send($stream = null)
+        {
+        }
+
+        /**
+         * Make suggestions to the client how it should cache the response
+         * @param string $cache_control
+         * @return Response
+         */
+        public function setCacheControl($cache_control)
+        {
+        }
+
+        /**
+         * Set the reponse’s content disposition parameters
+         * @param array $disposition_params
+         * @return Response
+         */
+        public function setContentDisposition($disposition_params)
+        {
+        }
+
+        /**
+         * Enable support for “Accept-Encoding” requests with deflate or gzip
+         * @param int $content_encoding
+         * @return Response
+         */
+        public function setContentEncoding($content_encoding)
+        {
+        }
+
+        /**
+         * Set the MIME content type of the response
+         * @param string $content_type
+         * @return Response
+         */
+        public function setContentType($content_type)
+        {
+        }
+
+        /**
+         * Add cookies to the response to send
+         * @param mixed $cookie
+         * @return Response
+         */
+        public function setCookie($cookie)
+        {
+        }
+
+        /**
+         * Override the environment’s request
+         * @param \http\Message $env_request
+         * @return Response
+         */
+        public function setEnvRequest($env_request)
+        {
+        }
+
+        /**
+         * Override the environment’s request
+         * @param string $etag
+         * @return Response
+         */
+        public function setEtag($etag)
+        {
+        }
+
+        /**
+         * Override the environment’s request
+         * @param int $last_modified
+         * @return Response
+         */
+        public function setLastModified($last_modified)
+        {
+        }
+
+        /**
+         * Override the environment’s request
+         * @param int $chunk_size
+         * @param float $delay
+         * @return Response
+         */
+        public function setThrottleRate($chunk_size, $delay = 1)
+        {
+        }
+    }
+
+    class Url extends \http\Url
+    {
+    }
+}
