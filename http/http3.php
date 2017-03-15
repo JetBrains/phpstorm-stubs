@@ -343,6 +343,82 @@ namespace http\Exception {
 
 namespace http\Env {
 
+    class Request extends \http\Message
+    {
+
+        /**
+         * The request’s query parameters. ($_GET)
+         * @var http\QueryString
+         */
+        protected $query = null;
+
+        /**
+         * The request’s form parameters. ($_POST)
+         * @var http\QueryString
+         */
+        protected $form = null;
+
+        /**
+         * The request’s form uploads. ($_FILES)
+         * @var array
+         */
+        protected $files = null;
+
+        /**
+         * The request’s cookies. ($_COOKIE)
+         * @var array
+         */
+        protected $cookie = null;
+
+        public function __construct()
+        {
+        }
+
+        /**
+         * Retrieve an URL query value ($_GET)
+         * @param string $name
+         * @param mixed $type
+         * @param mixed $defval
+         * @param bool $delete
+         * @return mixed
+         */
+        public function getCookie($name = null, $type = null, $defval = null, $delete = false)
+        {
+        }
+
+        /**
+         * Retrieve the uploaded files list ($_FILES)
+         * @return array
+         */
+        public function getFiles()
+        {
+        }
+
+        /**
+         * Retrieve a form value ($_POST)
+         * @param string $name
+         * @param mixed $type
+         * @param mixed $defval
+         * @param bool $delete
+         * @return mixed
+         */
+        public function getForm($name = null, $type = null, $defval = null, $delete = false)
+        {
+        }
+
+        /**
+         * Retrieve an URL query value ($_GET)
+         * @param string $name
+         * @param mixed $type
+         * @param mixed $defval
+         * @param bool $delete
+         * @return mixed
+         */
+        public function getQuery($name = null, $type = null, $defval = null, $delete = false)
+        {
+        }
+    }
+
     /**
      * Class Response
      * @package http\Env
