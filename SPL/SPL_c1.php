@@ -1683,7 +1683,7 @@ class SplFixedArray implements Iterator, Traversable, ArrayAccess, Countable {
          * @param int $size <p>
          * The new array size.
          * </p>
-         * @return int 
+         * @return bool
          * @since 5.3.0
          */
         public function setSize ($size) {}
