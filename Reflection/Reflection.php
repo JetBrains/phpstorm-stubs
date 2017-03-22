@@ -315,6 +315,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
 	 * @param mixed $name <p>
 	 * The name of the function to reflect or a closure.
 	 * </p>
+	 * @throws \ReflectionException if the function does not exist.
 	 * @since 5.0
 	 */
 	public function __construct ($name) {}
@@ -433,6 +434,7 @@ class ReflectionParameter implements Reflector {
 	 * @param string $parameter <p>
 	 * The parameter.
 	 * </p>
+	 * @throws \ReflectionException if the function or parameter does not exist.
 	 * @since 5.0
 	 */
 	public function __construct ($function, $parameter) {}
@@ -637,6 +639,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector {
 	 * @param string $name <p>
 	 * Name of the method, or the method FQN in the form 'Foo::bar' if $class argument missing
 	 * </p>
+	 * @throws \ReflectionException if the class or method does not exist.
 	 * @since 5.0
 	 */
 	public function __construct ($class, $name) {}
@@ -883,6 +886,7 @@ class ReflectionClass implements Reflector {
 	 * Either a string containing the name of the class to
 	 * reflect, or an object.
 	 * </p>
+	 * @throws \ReflectionException if the class does not exist.
 	 * @since 5.0
 	 */
 	public function __construct ($argument) {}
@@ -1435,6 +1439,7 @@ class ReflectionProperty implements Reflector {
 	 * @param string $name <p>
 	 * The name of the property being reflected.
 	 * </p>
+	 * @throws \ReflectionException if the class or property does not exist.
 	 * @since 5.0
 	 */
 	public function __construct ($class, $name) {}
@@ -1612,6 +1617,7 @@ class ReflectionExtension implements Reflector {
 	 * @param string $name <p>
 	 * Name of the extension.
 	 * </p>
+	 * @throws \ReflectionException if the extension does not exist.
 	 * @since 5.0
 	 */
 	public function __construct ($name) {}
@@ -1759,6 +1765,7 @@ class ReflectionZendExtension implements Reflector {
 	 * @link http://php.net/manual/en/reflectionzendextension.construct.php
 	 * @param string $name <p>
 	 * </p>
+	 * @throws \ReflectionException if the extension does not exist.
 	 * @since 5.4.0
 	 */
 	public function __construct ($name) {}
