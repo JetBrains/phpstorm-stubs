@@ -82,11 +82,12 @@ class Redis
     /**
      * Connects to a Redis instance.
      *
-     * @param  string    $host           can be a host, or the path to a unix domain socket
-     * @param  int       $port           optional
-     * @param  float     $timeout        value in seconds (optional, default is 0.0 meaning unlimited)
-     * @param  int       $retry_interval retry interval in milliseconds.
-     * @return bool                      TRUE on success, FALSE on error.
+     * @param string    $host       can be a host, or the path to a unix domain socket
+     * @param int       $port       optional
+     * @param float     $timeout    value in seconds (optional, default is 0.0 meaning unlimited)
+     * @param null      $reserved   should be null if $retry_interval is specified
+     * @param int       $retry_interval  retry interval in milliseconds.
+     * @return bool                 TRUE on success, FALSE on error.
      * @example
      * <pre>
      * $redis->connect('127.0.0.1', 6379);
@@ -95,7 +96,7 @@ class Redis
      * $redis->connect('/tmp/redis.sock');      // unix domain socket.
      * </pre>
      */
-    public function connect( $host, $port = 6379, $timeout = 0.0, $retry_interval = 0 ) {}
+    public function connect( $host, $port = 6379, $timeout = 0.0, $reserved = null, $retry_interval = 0 ) {}
 
     /**
      * Set the string value in argument as value of the key, with a time to live.
