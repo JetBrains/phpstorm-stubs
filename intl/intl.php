@@ -2998,6 +2998,10 @@ class IntlIterator implements Iterator {
     public function valid() { }
 }
 
+class IntlException extends Exception {
+    
+}
+
 class IntlTimeZone {
     /* Constants */
     const  DISPLAY_SHORT = 1;
