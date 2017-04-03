@@ -135,7 +135,7 @@ function strncasecmp ($str1, $str2, $len) {}
 /**
  * Return the current key and value pair from an array and advance the array cursor
  * @link http://php.net/manual/en/function.each.php
- * @param array $array <p>
+ * @param array|ArrayObject $array <p>
  * The input array.
  * </p>
  * @return array the current key and value pair from the array
