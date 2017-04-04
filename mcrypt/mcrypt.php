@@ -6,7 +6,7 @@
  * Deprecated: Encrypt/decrypt data in ECB mode
  * @link http://php.net/manual/en/function.mcrypt-ecb.php
  * @deprecated 5.5 http://www.php.net/manual/en/migration55.deprecated.php
- * @param int $cipher
+ * @param string|int $cipher
  * @param string $key 
  * @param string $data 
  * @param int $mode 
@@ -35,31 +35,31 @@ function mcrypt_cbc ($cipher, $key, $data, $mode, $iv = null) {}
  * Encrypt/decrypt data in CFB mode
  * @link http://php.net/manual/en/function.mcrypt-cfb.php
  * @deprecated 5.5 http://www.php.net/manual/en/migration55.deprecated.php
- * @param int $cipher
+ * @param int|string $cipher
  * @param string $key 
  * @param string $data 
  * @param int $mode 
- * @param string $iv 
+ * @param string $iv [optional]
  * @return string 
  * @since 4.0
  * @since 5.0
  */
-function mcrypt_cfb ($cipher, $key, $data, $mode, $iv) {}
+function mcrypt_cfb ($cipher, $key, $data, $mode, $iv = null) {}
 
 /**
  * Encrypt/decrypt data in OFB mode
  * @link http://php.net/manual/en/function.mcrypt-ofb.php
  * @deprecated 5.5 http://www.php.net/manual/en/migration55.deprecated.php
- * @param int $cipher
+ * @param int|string $cipher
  * @param string $key 
  * @param string $data 
  * @param int $mode 
- * @param string $iv 
+ * @param string $iv [optional]
  * @return string 
  * @since 4.0
  * @since 5.0
  */
-function mcrypt_ofb ($cipher, $key, $data, $mode, $iv) {}
+function mcrypt_ofb ($cipher, $key, $data, $mode, $iv = null) {}
 
 /**
  * Get the key size of the specified cipher
@@ -76,21 +76,23 @@ function mcrypt_get_key_size ($cipher, $mode) {}
 /**
  * Get the block size of the specified cipher
  * @link http://php.net/manual/en/function.mcrypt-get-block-size.php
- * @param int $cipher <p>
+ * @param string|int $cipher <p>
  * One of the MCRYPT_ciphername constants or the name
  * of the algorithm as string.
  * </p>
+ * @param string $mode <p>
+ * One of the <b>MCRYPT_MODE_modename</b> constants, or one of the following strings: "ecb", "cbc", "cfb", "ofb", "nofb" or "stream".</p>
  * @return int Gets the block size, as an integer.
  * @since 4.0
  * @since 5.0
  * @deprecated 7.1
  */
-function mcrypt_get_block_size ($cipher) {}
+function mcrypt_get_block_size ($cipher, $mode) {}
 
 /**
  * Get the name of the specified cipher
  * @link http://php.net/manual/en/function.mcrypt-get-cipher-name.php
- * @param int $cipher <p>
+ * @param int|string $cipher <p>
  * One of the MCRYPT_ciphername constants or the name
  * of the algorithm as string.
  * </p>
@@ -529,7 +531,7 @@ function mcrypt_enc_get_modes_name ($td) {}
  * This function runs a self test on the specified module
  * @link http://php.net/manual/en/function.mcrypt-module-self-test.php
  * @param string $algorithm <p>
- * The algorithm to test.
+ * One of the <b>MCRYPT_ciphername</b> constants, or the name of the algorithm as string.
  * </p>
  * @param string $lib_dir [optional] <p>
  * The optional lib_dir parameter can contain the
