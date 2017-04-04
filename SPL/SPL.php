@@ -1537,7 +1537,7 @@ class ArrayObject implements IteratorAggregate, Traversable, ArrayAccess, Serial
      * @since 5.0.0
      *
      */
-    public function __construct($input = null, $flags = 0, $iterator_class = "ArrayIterator") { }
+    public function __construct($input = [], $flags = 0, $iterator_class = "ArrayIterator") { }
 
     /**
      * Returns whether the requested index exists
