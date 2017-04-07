@@ -10,10 +10,15 @@ class stdClass {
 }
 
 /**
+ * @link https://wiki.php.net/rfc/iterable
+ */
+interface iterable {}
+
+/**
  * Interface to detect if a class is traversable using &foreach;.
  * @link http://php.net/manual/en/class.traversable.php
  */
-interface Traversable {
+interface Traversable extends iterable {
 }
 
 /**
