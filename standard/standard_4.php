@@ -595,7 +595,7 @@ function restore_include_path () {}
  * @since 4.0
  * @since 5.0
  */
-function setcookie ($name, $value = null, $expire = null, $path = null, $domain = null, $secure = null, $httponly = null) {}
+function setcookie ($name, $value = "", $expire = 0, $path = "", $domain = "", $secure = false, $httponly = false) {}
 
 /**
  * Send a cookie without urlencoding the cookie value
@@ -610,7 +610,7 @@ function setcookie ($name, $value = null, $expire = null, $path = null, $domain 
  * @return bool true on success or false on failure.
  * @since 5.0
  */
-function setrawcookie ($name, $value = null, $expire = null, $path = null, $domain = null, $secure = null, $httponly = null) {}
+function setrawcookie ($name, $value = null, $expire = 0, $path = "", $domain = "", $secure = false, $httponly = false) {}
 
 /**
  * Send a raw HTTP header
@@ -763,7 +763,7 @@ function ignore_user_abort ($value = null) {}
  * @since 4.0
  * @since 5.0
  */
-function parse_ini_file ($filename, $process_sections = null, $scanner_mode = null) {}
+function parse_ini_file ($filename, $process_sections = false, $scanner_mode = INI_SCANNER_NORMAL) {}
 
 /**
  * Parse a configuration string
@@ -786,7 +786,7 @@ function parse_ini_file ($filename, $process_sections = null, $scanner_mode = nu
  * and false on failure.
  * @since 5.3.0
  */
-function parse_ini_string ($ini, $process_sections = null, $scanner_mode = null) {}
+function parse_ini_string ($ini, $process_sections = false, $scanner_mode = INI_SCANNER_NORMAL) {}
 
 /**
  * Tells whether the file was uploaded via HTTP POST
@@ -1146,4 +1146,4 @@ function getmxrr ($hostname, array &$mxhosts, array &$weight = null) {}
  * </table>
  * @since 5.0
  */
-function dns_get_record ($hostname, $type = null, array &$authns = null, array &$addtl = null, &$raw = false) {}
+function dns_get_record ($hostname, $type = DNS_ANY, array &$authns = null, array &$addtl = null, &$raw = false) {}
