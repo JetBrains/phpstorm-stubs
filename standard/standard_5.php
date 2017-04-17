@@ -322,18 +322,14 @@ function is_scalar ($var) {}
 /**
  * Verify that the contents of a variable can be called as a function
  * @link http://php.net/manual/en/function.is-callable.php
- * @param callback|callable $name <p>
- * Can be either the name of a function stored in a string variable, or
- * an object and the name of a method within the object, like this: 
- * array($SomeObject, 'MethodName')
+ * @param mixed $var <p>
+ * The value to check
  * </p>
  * @param bool $syntax_only [optional] <p>
- * If set to true the function only verifies that
- * name might be a function or method. It will only
- * reject simple variables that are not strings, or an array that does
- * not have a valid structure to be used as a callback. The valid ones
- * are supposed to have only 2 entries, the first of which is an object
- * or a string, and the second a string.
+ * If set to <b>TRUE</b> the function only verifies that name might be a function or method.
+ * It will only reject simple variables that are not strings,
+ * or an array that does not have a valid structure to be used as a callback.
+ * The valid ones are supposed to have only 2 entries, the first of which is an object or a string, and the second a string.
  * </p>
  * @param string $callable_name [optional] <p>
  * Receives the "callable name". In the example below it is
@@ -341,12 +337,13 @@ function is_scalar ($var) {}
  * that someClass::SomeMethod() is a callable static method, this is not
  * the case.
  * </p>
- * @return bool true if name is callable, false 
+ * @return bool <b>TRUE</b> if $var is callable, <b>FALSE</b> otherwise
  * otherwise.
  * @since 4.0.6
  * @since 5.0
+ * @since 7.0
  */
-function is_callable ($name, $syntax_only = null, &$callable_name = null) {}
+function is_callable ($var, $syntax_only = null, &$callable_name = null) {}
 
 /**
  * Closes process file pointer
