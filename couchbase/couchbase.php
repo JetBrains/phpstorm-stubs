@@ -759,6 +759,24 @@ namespace Couchbase {
         final public function remove($ids, $options = []) {}
 
         /**
+         * Unlocks previously locked document
+         *
+         * @param string|array $ids one or more IDs
+         * @param array $options options
+         *   * "cas" last known document CAS, which has been returned by locking command.
+         *   * "groupid" override value for hashing (not recommended to use)
+         * @return \Couchbase\Document|array document or list of the documents
+         *
+         * @see \Couchbase\Bucket::get()
+         * @see \Couchbase\Bucket::getAndLock()
+         * @see https://developer.couchbase.com/documentation/server/current/sdk/core-operations.html
+         *   Overview of K/V operations
+         * @see https://developer.couchbase.com/documentation/server/current/sdk/php/document-operations.html
+         *   More details about K/V operations for PHP SDK
+         */
+        final public function unlock($ids, $options = []) {}
+
+        /**
          * Updates document's expiration time.
          *
          * @param string|array $ids one or more IDs
@@ -837,7 +855,7 @@ namespace Couchbase {
         /**
          * Performs a query to Couchbase Server
          *
-         * @param N1qlQuery|ViewQuery|SpatialViewQuery|SearchQuery $query
+         * @param N1qlQuery|ViewQuery|SpatialViewQuery|SearchQuery|AnalyticsQuery $query
          * @param bool $jsonAsArray if true, the values in the result rows (or hits) will be represented as
          *    PHP arrays, otherwise they will be instances of the `stdClass`
          * @return object Query-specific result object.
@@ -2277,6 +2295,24 @@ namespace Couchbase {
         final public function highlight($style, ...$fields) {}
 
         /**
+         * Configures the list of fields (including special fields) which are used for sorting purposes.
+         * If empty, the default sorting (descending by score) is used by the server.
+         *
+         * The list of sort fields can include actual fields (like "firstname" but then they must be stored in the
+         * index, configured in the server side mapping). Fields provided first are considered first and in a "tie" case
+         * the next sort field is considered. So sorting by "firstname" and then "lastname" will first sort ascending by
+         * the firstname and if the names are equal then sort ascending by lastname. Special fields like "_id" and
+         * "_score" can also be used. If prefixed with "-" the sort order is set to descending.
+         *
+         * If no sort is provided, it is equal to sort("-_score"), since the server will sort it by score in descending
+         * order.
+         *
+         * @param sort the fields that should take part in the sorting.
+         * @return SearchQuery
+         */
+        final public function sort(...$sort) {}
+
+        /**
          * Adds one SearchFacet to the query
          *
          * This is an additive operation (the given facets are added to any facet previously requested),
@@ -2902,4 +2938,39 @@ namespace Couchbase {
          */
         final public function addRange($name, $min, $max) {}
     }
+
+    /**
+     * Represents a Analytics query (currently experimental support).
+     *
+     * @see https://developer.couchbase.com/documentation/server/4.5/analytics/quick-start.html
+     *   Analytics quick start
+     */
+    final class AnalyticsQuery {
+        /** @ignore */
+        final private function __construct() {}
+
+        /**
+         * Creates new AnalyticsQuery instance directly from the string.
+         *
+         * @param string $statement statement string
+         * @return AnalyticsQuery
+         *
+         * @example examples/api/couchbase.AnalyticsQuery.php
+         */
+        final public static function fromString($statement) {}
+
+        /**
+         * Sets query service location.
+         *
+         * Note that this method accessible only while Analytics support
+         * is experimental. It will be removed after GA release of this
+         * feature, and service location will be supplied in cluster config.
+         *
+         * @param string $hostname location of the analytics service.
+         *    Usually something like "localhost:8095/query/service"
+         * @return AnalyticsQuery
+         */
+        final public function hostname($hostname) {}
+    }
+
 }
