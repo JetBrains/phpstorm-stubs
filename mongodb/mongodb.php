@@ -1194,7 +1194,7 @@ namespace MongoDB {}
              * @link http://php.net/manual/en/mongodb-bson-utcdatetime.construct.php
              * @param integer $milliseconds
              */
-            final public function __construct($milliseconds)
+            final public function __construct($milliseconds=null)
             {
             }
 
