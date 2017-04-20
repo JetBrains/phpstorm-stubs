@@ -305,7 +305,7 @@ class object {
    * The intended use of __sleep is to commit pending data or perform similar cleanup tasks.
    * Also, the function is useful if you have very large objects which do not need to be saved completely.
    *
-   * @return array|void
+   * @return array|NULL
    * @link http://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.sleep
    */
   public function __sleep() {}
