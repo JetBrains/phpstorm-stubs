@@ -4418,7 +4418,9 @@ function grapheme_strripos($haystack, $needle, $offset = 0) { }
  * start position has been calculated when a start is negative). If $start
  * denotes a position beyond this truncation, <b>FALSE</b> will be returned.
  * </p>
- * @return int the extracted part of $string.
+ * @return string|false <p>the extracted part of $string,<br />
+                        or <strong>FALSE</strong> if $length is negative and $start denotes a position beyond truncation $length,<br />
+                        or also <strong>FALSE</strong> if $start denotes a position beyond $string length</p>
  */
 function grapheme_substr($string, $start, $length = null) { }
 
