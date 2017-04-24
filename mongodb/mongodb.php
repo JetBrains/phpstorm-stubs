@@ -211,6 +211,8 @@ namespace MongoDB {}
             /**
              * Returns the hostname of this server
              * @link http://php.net/manual/en/mongodb-driver-server.gethost.php
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @return string
              */
             final public function getHost()
             {
@@ -219,6 +221,7 @@ namespace MongoDB {}
             /**
              * Returns an array of information about this server
              * @link http://php.net/manual/en/mongodb-driver-server.getinfo.php
+             * @throws InvalidArgumentException on argument parsing errors.
              * @return array
              */
             final public function getInfo()
@@ -228,6 +231,8 @@ namespace MongoDB {}
             /**
              * Returns the latency of this server
              * @link http://php.net/manual/en/mongodb-driver-server.getlatency.php
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @return integer
              */
             final public function getLatency()
             {
@@ -236,6 +241,8 @@ namespace MongoDB {}
             /**
              * Returns the port on which this server is listening
              * @link http://php.net/manual/en/mongodb-driver-server.getport.php
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @return integer
              */
             final public function getPort()
             {
@@ -244,6 +251,8 @@ namespace MongoDB {}
             /**
              * Returns an array of tags describing this server in a replica set
              * @link http://php.net/manual/en/mongodb-driver-server.gettags.php
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @return array
              */
             final public function getTags()
             {
@@ -252,6 +261,7 @@ namespace MongoDB {}
             /**
              * Returns an integer denoting the type of this server
              * @link http://php.net/manual/en/mongodb-driver-server.gettype.php
+             * @throws InvalidArgumentException on argument parsing errors.
              * @return integer denoting the type of this server
              */
             final public function getType()
@@ -261,6 +271,8 @@ namespace MongoDB {}
             /**
              * Checks if this server is an arbiter member of a replica set
              * @link http://php.net/manual/en/mongodb-driver-server.isarbiter.php
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @return boolean
              */
             final public function isArbiter()
             {
@@ -269,6 +281,8 @@ namespace MongoDB {}
             /**
              * Checks if this server is a hidden member of a replica set
              * @link http://php.net/manual/en/mongodb-driver-server.ishidden.php
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @return boolean
              */
             final public function isHidden()
             {
@@ -277,6 +291,8 @@ namespace MongoDB {}
             /**
              * Checks if this server is a passive member of a replica set
              * @link http://php.net/manual/en/mongodb-driver-server.ispassive.php
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @return boolean
              */
             final public function isPassive()
             {
@@ -285,6 +301,8 @@ namespace MongoDB {}
             /**
              * Checks if this server is a primary member of a replica set
              * @link http://php.net/manual/en/mongodb-driver-server.isprimary.php
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @return boolean
              */
             final public function isPrimary()
             {
@@ -293,6 +311,8 @@ namespace MongoDB {}
             /**
              * Checks if this server is a secondary member of a replica set
              * @link http://php.net/manual/en/mongodb-driver-server.issecondary.php
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @return boolean
              */
             final public function isSecondary()
             {
