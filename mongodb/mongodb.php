@@ -40,7 +40,7 @@ namespace MongoDB {}
              * @param string $uri A mongodb:// connection URI
              * @param array $options Connection string options
              * @param array $driverOptions Any driver-specific options not included in MongoDB connection spec.
-             * @throws \InvalidArgumentException on argument parsing errors
+             * @throws InvalidArgumentException on argument parsing errors
              * @throws RuntimeException if the uri format is invalid
              */
             final public function __construct($uri, array $options = [], array $driverOptions = [])
@@ -104,6 +104,9 @@ namespace MongoDB {}
             }
 
             /**
+             * Return the ReadConcern for the Manager
+             * @link http://php.net/manual/en/mongodb-driver-manager.getreadconcern.php
+             * @throws InvalidArgumentException on argument parsing errors.
              * @return ReadConcern
              */
             final public function getReadConcern()
@@ -111,6 +114,9 @@ namespace MongoDB {}
             }
 
             /**
+             * Return the ReadPreference for the Manager
+             * @link http://php.net/manual/en/mongodb-driver-manager.getreadpreference.php
+             * @throws InvalidArgumentException
              * @return ReadPreference
              */
             final public function getReadPreference()
@@ -118,6 +124,9 @@ namespace MongoDB {}
             }
 
             /**
+             * Return the WriteConcern for the Manager
+             * @link http://php.net/manual/en/mongodb-driver-manager.getwriteconcern.php
+             * @throws InvalidArgumentException on argument parsing errors.
              * @return WriteConcern
              */
             final public function getWriteConcern()
@@ -128,6 +137,10 @@ namespace MongoDB {}
              * Preselect a MongoDB node based on provided readPreference. This can be useful to gurantee a command runs on a specific server when operating in a mixed version cluster.
              * http://php.net/manual/en/mongodb-driver-manager.selectserver.php
              * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to route the command to. If none given, defaults to the Read Preferences set by the MongoDB Connection URI.
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
+             * @throws AuthenticationException if authentication is needed and fails.
+             * @throws RuntimeException if a server matching the read preference could not be found.
              * @return Server
              */
             final public function selectServer(ReadPreference $readPreference = null)
