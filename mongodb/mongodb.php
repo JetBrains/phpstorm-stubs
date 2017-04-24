@@ -252,7 +252,7 @@ namespace MongoDB {}
              * Returns an array of tags describing this server in a replica set
              * @link http://php.net/manual/en/mongodb-driver-server.gettags.php
              * @throws InvalidArgumentException on argument parsing errors.
-             * @return array
+             * @return array An array of tags used to describe this server in a replica set. The array will contain zero or more string key and value pairs.
              */
             final public function getTags()
             {
