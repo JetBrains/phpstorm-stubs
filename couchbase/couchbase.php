@@ -336,6 +336,7 @@ namespace Couchbase {
          *
          * @see \Couchbase\Authenticator
          * @see \Couchbase\ClassicAuthenticator
+         * @see \Couchbase\PasswordAuthenticator
          */
         final public function authenticate($authenticator) {}
     }
@@ -1241,6 +1242,7 @@ namespace Couchbase {
      *
      * @see \Couchbase\Cluster::authenticate()
      * @see \Couchbase\ClassicAuthenticator
+     * @see \Couchbase\PasswordAuthenticator
      */
     interface Authenticator {}
 
@@ -1273,6 +1275,32 @@ namespace Couchbase {
          * @param string $password bucket password
          */
         final public function bucket($name, $password) {}
+    }
+
+    /**
+     * Authenticator based on RBAC feature of Couchbase Server 5+.
+     *
+     * This authenticator uses single credentials for all operations (data and management).
+     *
+     * @see \Couchbase\Cluster::authenticate()
+     * @see \Couchbase\Authenticator
+     */
+    final class PasswordAuthenticator implements Authenticator {
+        /**
+         * Sets username
+         *
+         * @param string $username username
+         * @return \Couchbase\PasswordAuthenticator
+         */
+        final public function username($username) {}
+
+        /**
+         * Sets password
+         *
+         * @param string $password password
+         * @return \Couchbase\PasswordAuthenticator
+         */
+        final public function password($password) {}
     }
 
     /**
@@ -1870,9 +1898,12 @@ namespace Couchbase {
          * Get a value inside the JSON document.
          *
          * @param string $path the path inside the document where to get the value from.
+         * @param array $options the array with command modificators. Supported values are
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return LookupInBuilder
          */
-        final public function get($path) {}
+        final public function get($path, $options = []) {}
 
         /**
          * Check if a value exists inside the document.
@@ -1880,9 +1911,12 @@ namespace Couchbase {
          * This doesn't transmit the value on the wire if it exists, saving the corresponding byte overhead.
          *
          * @param string $path the path inside the document to check for existence
+         * @param array $options the array with command modificators. Supported values are
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return LookupInBuilder
          */
-        final public function exists($path) {}
+        final public function exists($path, $options = []) {}
 
         /**
          * Perform several lookup operations inside a single existing JSON document, using a specific timeout
@@ -1912,29 +1946,40 @@ namespace Couchbase {
          *
          * @param string $path the path where to insert a new dictionary value.
          * @param mixed $value the new dictionary value to insert.
-         * @param bool $createParents true to create missing intermediary nodes
+         * @param array|bool $options the array with command modificators.
+         *   The boolean value, controls "createPath" option. Supported values are:
+         *   * "createPath" (default: false) true to create missing intermediary nodes.
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function insert($path, $value, $createParents = false) {}
+        final public function insert($path, $value, $options = []) {}
 
         /**
          * Insert a fragment, replacing the old value if the path exists
          *
          * @param string $path the path where to insert (or replace) a dictionary value
          * @param mixed $value the new dictionary value to be applied.
-         * @param bool $createParents true to create missing intermediary nodes
+         * @param array|bool $options the array with command modificators.
+         *   The boolean value, controls "createPath" option. Supported values are:
+         *   * "createPath" (default: false) true to create missing intermediary nodes.
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function upsert($path, $value, $createParents = false) {}
+        final public function upsert($path, $value, $options = []) {}
 
         /**
          * Replace an existing value by the given fragment
          *
          * @param string $path the path where the value to replace is
          * @param mixed $value the new value
+         * @param array $options the array with command modificators. Supported values are:
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function replace($path, $value) {}
+        final public function replace($path, $value, $options = []) {}
 
         /**
          * Remove an entry in a JSON document.
@@ -1942,19 +1987,26 @@ namespace Couchbase {
          * Scalar, array element, dictionary entry, whole array or dictionary, depending on the path.
          *
          * @param string $path the path to remove
+         * @param array $options the array with command modificators. Supported values are:
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function remove($path) {}
+        final public function remove($path, $options = []) {}
 
         /**
          * Prepend to an existing array, pushing the value to the front/first position in the array.
          *
          * @param string $path the path of the array
          * @param mixed $value the value to insert at the front of the array
-         * @param bool $createParents true to create missing intermediary nodes
+         * @param array|bool $options the array with command modificators.
+         *   The boolean value, controls "createPath" option. Supported values are:
+         *   * "createPath" (default: false) true to create missing intermediary nodes.
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function arrayPrepend($path, $value, $createParents = false) {}
+        final public function arrayPrepend($path, $value, $options = []) {}
 
         /**
          * Prepend multiple values at once in an existing array.
@@ -1965,20 +2017,28 @@ namespace Couchbase {
          *
          * @param string $path the path of the array
          * @param array $values the values to insert at the front of the array as individual elements
-         * @param bool $createParents true to create missing intermediary nodes
+         * @param array|bool $options the array with command modificators.
+         *   The boolean value, controls "createPath" option. Supported values are:
+         *   * "createPath" (default: false) true to create missing intermediary nodes.
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function arrayPrependAll($path, $values, $createParents = false) {}
+        final public function arrayPrependAll($path, $values, $options = []) {}
 
         /**
          * Append to an existing array, pushing the value to the back/last position in the array.
          *
          * @param string $path the path of the array
          * @param mixed $value the value to insert at the back of the array
-         * @param bool $createParents true to create missing intermediary nodes
+         * @param array|bool $options the array with command modificators.
+         *   The boolean value, controls "createPath" option. Supported values are:
+         *   * "createPath" (default: false) true to create missing intermediary nodes.
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function arrayAppend($path, $value, $createParents = false) {}
+        final public function arrayAppend($path, $value, $options = []) {}
 
         /**
          * Append multiple values at once in an existing array.
@@ -1989,10 +2049,14 @@ namespace Couchbase {
          *
          * @param string $path the path of the array
          * @param array $values the values to individually insert at the back of the array
-         * @param bool $createParents true to create missing intermediary nodes
+         * @param array|bool $options the array with command modificators.
+         *   The boolean value, controls "createPath" option. Supported values are:
+         *   * "createPath" (default: false) true to create missing intermediary nodes.
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function arrayAppendAll($path, $values, $createParents = false) {}
+        final public function arrayAppendAll($path, $values, $options = []) {}
 
         /**
          * Insert into an existing array at a specific position
@@ -2001,9 +2065,12 @@ namespace Couchbase {
          *
          * @param string $path the path (including array position) where to insert the value
          * @param mixed $value the value to insert in the array
+         * @param array $options the array with command modificators. Supported values are:
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function arrayInsert($path, $value) {}
+        final public function arrayInsert($path, $value, $options = []) {}
 
         /**
          * Insert multiple values at once in an existing array at a specified position.
@@ -2018,9 +2085,12 @@ namespace Couchbase {
          * @param string $path the path of the array
          * @param array $values the values to insert at the specified position of the array, each value becoming
          *   an entry at or after the insert position.
+         * @param array $options the array with command modificators. Supported values are:
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function arrayInsertAll($path, $values) {}
+        final public function arrayInsertAll($path, $values, $options = []) {}
 
         /**
          * Insert a value in an existing array only if the value
@@ -2028,10 +2098,14 @@ namespace Couchbase {
          *
          * @param string $path the path to mutate in the JSON
          * @param mixed $value the value to insert
-         * @param bool $createParents true to create missing intermediary nodes
+         * @param array|bool $options the array with command modificators.
+         *   The boolean value, controls "createPath" option. Supported values are:
+         *   * "createPath" (default: false) true to create missing intermediary nodes.
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function arrayAddUnique($path, $value, $createParents = false) {}
+        final public function arrayAddUnique($path, $value, $options = []) {}
 
         /**
          * Increment/decrement a numerical fragment in a JSON document.
@@ -2041,10 +2115,14 @@ namespace Couchbase {
          *
          * @param string $path the path to the counter (must be containing a number).
          * @param int $delta the value to increment or decrement the counter by
-         * @param bool $createParents true to create missing intermediary nodes
+         * @param array|bool $options the array with command modificators.
+         *   The boolean value, controls "createPath" option. Supported values are:
+         *   * "createPath" (default: false) true to create missing intermediary nodes.
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function counter($path, $delta, $createParents = false) {}
+        final public function counter($path, $delta, $options = []) {}
 
         /**
          * Perform several mutation operations inside a single existing JSON document.
