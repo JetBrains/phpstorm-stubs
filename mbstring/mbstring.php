@@ -1221,11 +1221,93 @@ function mb_ereg_search_getpos () {}
  * @param int $position <p>
  * The position to set.
  * </p>
- * @return bool 
+ * @return bool
  * @since 4.2.0
  * @since 5.0
  */
 function mb_ereg_search_setpos ($position) {}
+
+/**
+ * @param $encoding [optional]
+ */
+function mbregex_encoding ($encoding) {}
+
+/**
+ * @param $pattern
+ * @param $string
+ * @param $registers [optional]
+ */
+function mbereg ($pattern, $string, &$registers) {}
+
+/**
+ * @param $pattern
+ * @param $string
+ * @param $registers [optional]
+ */
+function mberegi ($pattern, $string, &$registers) {}
+
+/**
+ * @param $pattern
+ * @param $replacement
+ * @param $string
+ * @param $option [optional]
+ */
+function mbereg_replace ($pattern, $replacement, $string, $option) {}
+
+/**
+ * @param $pattern
+ * @param $replacement
+ * @param $string
+ */
+function mberegi_replace ($pattern, $replacement, $string) {}
+
+/**
+ * @param $pattern
+ * @param $string
+ * @param $limit [optional]
+ */
+function mbsplit ($pattern, $string, $limit) {}
+
+/**
+ * @param $pattern
+ * @param $string
+ * @param $option [optional]
+ */
+function mbereg_match ($pattern, $string, $option) {}
+
+/**
+ * @param $pattern [optional]
+ * @param $option [optional]
+ */
+function mbereg_search ($pattern, $option) {}
+
+/**
+ * @param $pattern [optional]
+ * @param $option [optional]
+ */
+function mbereg_search_pos ($pattern, $option) {}
+
+/**
+ * @param $pattern [optional]
+ * @param $option [optional]
+ */
+function mbereg_search_regs ($pattern, $option) {}
+
+/**
+ * @param $string
+ * @param $pattern [optional]
+ * @param $option [optional]
+ */
+function mbereg_search_init ($string, $pattern, $option) {}
+
+function mbereg_search_getregs () {}
+
+function mbereg_search_getpos () {}
+
+/**
+ * @param $position
+ */
+function mbereg_search_setpos ($position) {}
 
 define ('MB_OVERLOAD_MAIL', 1);
 define ('MB_OVERLOAD_STRING', 2);
