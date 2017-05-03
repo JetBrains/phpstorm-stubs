@@ -2056,7 +2056,7 @@ class Imagick implements Iterator, Traversable, Countable {
 	 * @param Imagick $composite_object <p>
 	 * Imagick object which holds the composite image
 	 * </p>
-	 * @param int $composite
+	 * @param int $composite Composite operator
 	 * @param int $x <p>
 	 * The column offset of the composited image
 	 * </p>
