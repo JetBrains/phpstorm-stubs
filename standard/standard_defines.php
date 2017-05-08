@@ -600,13 +600,13 @@ define ('FILE_BINARY', 0);
  * Disable backslash escaping.
  * @link http://php.net/manual/en/filesystem.constants.php
  */
-define ('FNM_NOESCAPE', 2);
+define ('FNM_NOESCAPE', 1);
 
 /**
  * Slash in string only matches slash in the given pattern.
  * @link http://php.net/manual/en/filesystem.constants.php
  */
-define ('FNM_PATHNAME', 1);
+define ('FNM_PATHNAME', 2);
 
 /**
  * Leading period in string must be exactly matched by period in the given pattern.
