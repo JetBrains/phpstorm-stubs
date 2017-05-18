@@ -972,7 +972,7 @@ class DOMDocument extends DOMNode  {
      * @return string the XML, or false if an error occurred.
      * @since 5.0
      */
-    public function saveXML ($node = null , $options = null) {}
+    public function saveXML (DOMNode $node = null , $options = null) {}
 
     /**
      * Creates a new DOMDocument object
