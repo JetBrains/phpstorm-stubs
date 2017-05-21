@@ -476,6 +476,15 @@ class AssertionError extends Error {
 }
 
 /**
+ * ArgumentCountError is thrown when too few arguments are passed to a user
+ * defined routine.
+ *
+ * @since 7.1
+ * @see https://php.net/migration71.incompatible#migration71.incompatible.too-few-arguments-exception
+ */
+class ArgumentCountError extends Error {}
+
+/**
  * ArithmeticError is thrown when an error occurs while performing mathematical operations.
  * In PHP 7.0, these errors include attempting to perform a bitshift by a negative amount,
  * and any call to {@see intdiv()} that would result in a value outside the possible bounds of an integer.
