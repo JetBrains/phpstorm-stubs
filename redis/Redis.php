@@ -231,31 +231,34 @@ class Redis
      * many servers connecting to one redis server.
      *
      * Also more than one persistent connection can be made identified by either host + port + timeout
-     * or unix socket + timeout.
+     * or host + persistent_id or unix socket + timeout.
      *
      * This feature is not available in threaded versions. pconnect and popen then working like their non persistent
      * equivalents.
      *
-     * @param string    $host       can be a host, or the path to a unix domain socket
-     * @param int       $port       optional
-     * @param float     $timeout    value in seconds (optional, default is 0 meaning unlimited)
-     * @return bool                 TRUE on success, FALSE on ertcnror.
+     * @param string    $host          can be a host, or the path to a unix domain socket
+     * @param int       $port          optional
+     * @param float     $timeout       value in seconds (optional, default is 0 meaning unlimited)
+     * @param string    $persistent_id identity for the requested persistent connection
+     * @return bool                    TRUE on success, FALSE on ertcnror.
      * <pre>
-     * $redis->connect('127.0.0.1', 6379);
-     * $redis->connect('127.0.0.1');            // port 6379 by default
-     * $redis->connect('127.0.0.1', 6379, 2.5); // 2.5 sec timeout.
-     * $redis->connect('/tmp/redis.sock');      // unix domain socket.
+     * $redis->pconnect('127.0.0.1', 6379);
+     * $redis->pconnect('127.0.0.1');                 // port 6379 by default - same connection like before.
+     * $redis->pconnect('127.0.0.1', 6379, 2.5);      // 2.5 sec timeout and would be another connection than the two before.
+     * $redis->pconnect('127.0.0.1', 6379, 2.5, 'x'); // x is sent as persistent_id and would be another connection than the three before.
+     * $redis->pconnect('/tmp/redis.sock');           // unix domain socket - would be another connection than the four before.
      * </pre>
      */
-    public function pconnect( $host, $port = 6379, $timeout = 0.0 ) {}
+    public function pconnect( $host, $port = 6379, $timeout = 0.0, $persistent_id = null ) {}
 
     /**
      * @see pconnect()
      * @param string    $host
      * @param int       $port
      * @param float     $timeout
+     * @param string    $persistent_id
      */
-    public function popen( $host, $port = 6379, $timeout = 0.0 ) {}
+    public function popen( $host, $port = 6379, $timeout = 0.0, $persistent_id = null ) {}
 
     /**
      * Disconnects from the Redis instance, except when pconnect is used.
