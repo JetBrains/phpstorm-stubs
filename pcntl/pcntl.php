@@ -468,6 +468,7 @@ function pcntl_signal_get_handler($signo) {}
 
 define ('WNOHANG', 1);
 define ('WUNTRACED', 2);
+define ('WCONTINUED', 16);
 define ('SIG_IGN', 1);
 define ('SIG_DFL', 0);
 define ('SIG_ERR', -1);
