@@ -1403,6 +1403,7 @@ define ('IP_MULTICAST_LOOP', 34);
 define ('IPV6_MULTICAST_IF', 17);
 define ('IPV6_MULTICAST_HOPS', 18);
 define ('IPV6_MULTICAST_LOOP', 19);
+define ('IPV6_V6ONLY', 27);
 
 /**
  * Operation not permitted.
