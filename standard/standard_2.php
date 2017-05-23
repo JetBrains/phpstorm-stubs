@@ -1004,11 +1004,14 @@ function mt_rand ($min, $max) {}
  * @param int $seed [optional] <p>
  * An optional seed value
  * </p>
+ * @param int $mode [optional] <p>
+ * Use one of the following constants to specify the implementation of the algorithm to use.
+ * </p>
  * @return void 
  * @since 4.0
  * @since 5.0
  */
-function mt_srand ($seed = null) {}
+function mt_srand ($seed = null, $mode = MT_RAND_MT19937) {}
 
 /**
  * Show largest possible random value

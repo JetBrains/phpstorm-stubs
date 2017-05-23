@@ -2066,6 +2066,12 @@ class RecursiveArrayIterator extends ArrayIterator
 function is_iterable($arg) {
 
 }
+
+/**
+ * @since 7.1
+ */
+define ("MT_RAND_MT19937", 0);
+
 /**
  * @since 7.1
  */
