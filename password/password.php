@@ -62,6 +62,8 @@ define("PASSWORD_DEFAULT", 1);
  */
 define("PASSWORD_BCRYPT", 1);
 
+define('PASSWORD_BCRYPT_DEFAULT_COST', 10);
+
 /**
  * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>
  *
