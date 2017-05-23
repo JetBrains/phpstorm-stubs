@@ -403,6 +403,25 @@ function gmp_perfect_square ($a) {}
 function gmp_prob_prime ($a, $reps = 10) {}
 
 /**
+ * Random number
+ * @link http://php.net/manual/en/function.gmp-random-bits.php
+ * @param int $bits <p>The number of bits. Either a GMP number resource in PHP 5.5 and earlier,
+ * a GMP object in PHP 5.6 and later,
+ * or a numeric string provided that it is possible to convert the latter to a number.</p>
+ * @return GMP A random GMP number.
+ */
+function gmp_random_bits($bits) {}
+
+/**
+ * Random number
+ * @link http://php.net/manual/en/function.gmp-random-range.php
+ * @param GMP $min <p>A GMP number representing the lower bound for the random number</p>
+ * @param GMP $max <p>A GMP number representing the upper bound for the random number</p>
+ * @return GMP A random GMP number.
+ */
+function gmp_random_range(GMP $min, GMP $max) {}
+
+/**
  * Calculate GCD
  * @link http://php.net/manual/en/function.gmp-gcd.php
  * @param resource|string $a It can be either a GMP number resource, or a

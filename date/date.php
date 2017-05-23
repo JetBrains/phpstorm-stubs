@@ -928,6 +928,16 @@ function date_create ($time = null, DateTimeZone $timezone = null ) {}
 function date_create_immutable ($time = null, DateTimeZone $timezone = null ) {}
 
 /**
+ * Returns new DateTimeImmutable object formatted according to the specified format
+ * @link http://php.net/manual/en/function.date-create-immutable-from-format.php
+ * @param string $format
+ * @param string $time
+ * @param DateTimeZone $timezone
+ * @return DateTimeImmutable
+ */
+function date_create_immutable_from_format ($format, $time, DateTimeZone $timezone) {}
+
+/**
  * Alias:
  * {@see DateTime::createFromFormat}
  * @link http://php.net/manual/en/function.date-create-from-format.php

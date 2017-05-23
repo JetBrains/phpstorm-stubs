@@ -1049,6 +1049,8 @@ function openssl_error_string() { }
  */
 function openssl_get_cert_locations() { }
 
+function openssl_get_curve_names() {}
+
 define ('OPENSSL_VERSION_TEXT', "OpenSSL 1.0.0e 6 Sep 2011");
 define ('OPENSSL_VERSION_NUMBER', 268435551);
 define ('X509_PURPOSE_SSL_CLIENT', 1);
