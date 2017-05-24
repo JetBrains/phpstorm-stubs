@@ -1858,6 +1858,48 @@ function mysqli_get_client_version ($link) {}
 function mysqli_get_host_info ($link) {}
 
 /**
+ * Return information about open and cached links
+ * @return array mysqli_get_links_stats() returns an associative array with three elements, keyed as follows:
+ * <p>
+ * <dl>
+ * <dt>
+ * <code>total</code></dt>
+ * <dd>
+ *
+ * <p>
+ * An integer indicating the total number of open links in
+ * any state.
+ * </p>
+ * </dd>
+ *
+ * <dt>
+ * <code>active_plinks</code></dt>
+ *
+ * <dd>
+ *
+ * <p>
+ * An integer representing the number of active persistent
+ * connections.
+ * </p>
+ * </dd>
+ *
+ * <dt>
+ * <code>cached_plinks</code>
+ *
+ * <dd>
+ *
+ * <p>
+ * An integer representing the number of inactive persistent
+ * connections.
+ * </p>
+ * </dd>
+ *
+ * </dl>
+ * </p>
+ */
+function mysqli_get_links_stats() {}
+
+/**
  * Returns the version of the MySQL protocol used
  * @link http://php.net/manual/en/mysqli.get-proto-info.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
@@ -3244,3 +3286,15 @@ define('MYSQLI_OPT_SSL_VERIFY_SERVER_CERT', 21);
 define('MYSQLI_SET_CHARSET_DIR', 6);
 /** @link http://php.net/manual/en/mysqli.constants.php */
 define('MYSQLI_SERVER_PS_OUT_PARAMS', 4096);
+
+define('MYSQLI_CLIENT_SSL_VERIFY_SERVER_CERT', 1073741824);
+
+define('MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT', 64);
+define('MYSQLI_CLIENT_CAN_HANDLE_EXPIRED_PASSWORDS', 4194304);
+define('MYSQLI_OPT_CAN_HANDLE_EXPIRED_PASSWORDS', 29);
+define('MYSQLI_STORE_RESULT_COPY_DATA', 16);
+define('MYSQLI_TYPE_JSON', 245);
+define('MYSQLI_TRANS_COR_AND_CHAIN', 1);
+define('MYSQLI_TRANS_COR_AND_NO_CHAIN', 2);
+define('MYSQLI_TRANS_COR_RELEASE', 4);
+define('MYSQLI_TRANS_COR_NO_RELEASE', 8);

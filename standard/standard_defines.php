@@ -714,6 +714,8 @@ define ('RADIXCHAR', 65536);
 define ('THOUSEP', 65537);
 define ('YESEXPR', 327680);
 define ('NOEXPR', 327681);
+define ('YESSTR', 54);
+define ('NOSTR', 55);
 define ('CODESET', 14);
 define ('CRYPT_SALT_LENGTH', 123);
 define ('CRYPT_STD_DES', 1);
@@ -803,6 +805,7 @@ define ('ASSERT_CALLBACK', 2);
 define ('ASSERT_BAIL', 3);
 define ('ASSERT_WARNING', 4);
 define ('ASSERT_QUIET_EVAL', 5);
+define ('ASSERT_EXCEPTION', 6);
 
 /**
  * Flag indicating if the stream

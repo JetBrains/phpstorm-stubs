@@ -195,6 +195,11 @@ function socket_select (array &$read, array &$write, array &$except, $tv_sec, $t
 function socket_create ($domain, $type, $protocol) {}
 
 /**
+ * @param resource $socket
+ */
+function socket_export_stream($socket) {}
+
+/**
  * Opens a socket on port to accept connections
  * @link http://php.net/manual/en/function.socket-create-listen.php
  * @param int $port <p>
@@ -1403,6 +1408,7 @@ define ('IP_MULTICAST_LOOP', 34);
 define ('IPV6_MULTICAST_IF', 17);
 define ('IPV6_MULTICAST_HOPS', 18);
 define ('IPV6_MULTICAST_LOOP', 19);
+define ('IPV6_V6ONLY', 27);
 
 /**
  * Operation not permitted.

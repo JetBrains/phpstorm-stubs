@@ -235,6 +235,10 @@ function pcntl_wifsignaled ($status) {}
 function pcntl_wexitstatus ($status) {}
 
 /**
+ * @param int $status
+ */
+function pcntl_wifcontinued ( $status){}
+/**
  * Returns the signal which caused the child to terminate
  * @link http://php.net/manual/en/function.pcntl-wtermsig.php
  * @param int $status The <i>status</i>
@@ -468,6 +472,7 @@ function pcntl_signal_get_handler($signo) {}
 
 define ('WNOHANG', 1);
 define ('WUNTRACED', 2);
+define ('WCONTINUED', 16);
 define ('SIG_IGN', 1);
 define ('SIG_DFL', 0);
 define ('SIG_ERR', -1);

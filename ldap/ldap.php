@@ -658,6 +658,7 @@ function ldap_compare ($link_identifier, $dn, $attribute, $value) {}
  * @param string $sortfilter <p>
  * The attribute to use as a key in the sort.
  * </p>
+ * @deprecated 7.0
  * @return bool
  * @since 4.2.0
  * @since 5.0
@@ -1192,6 +1193,13 @@ define('LDAP_OPT_X_TLS_CACERTDIR', 24579);
  * @since 7.1
  */
 define('LDAP_OPT_X_TLS_CACERTFILE', 24578);
+
+define('LDAP_MODIFY_BATCH_ATTRIB', 'attrib');
+define('LDAP_MODIFY_BATCH_MODTYPE', 'modtype');
+define('LDAP_MODIFY_BATCH_VALUES', 'values');
+define('LDAP_OPT_TIMEOUT', 20482);
+define('LDAP_OPT_DIAGNOSTIC_MESSAGE', 50);
+
 
 // End of ldap v.
 ?>

@@ -705,6 +705,9 @@ define ('FTP_TIMEOUT_SEC', 0);
  */
 define ('FTP_AUTOSEEK', 1);
 
+
+define('FTP_USEPASVADDRESS', 2);
+
 /**
  * <p>
  * Asynchronous transfer has failed
