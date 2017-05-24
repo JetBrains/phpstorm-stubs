@@ -28,10 +28,13 @@ define("__COMPILER_HALT_OFFSET__",0);
 
 
 /**
- * Convert hex to binary
+ * Convert hexadecimal string to its binary representation.
+ *
+ * If the hexadecimal input string is of odd length or invalid hexadecimal string an <code>E_WARNING</code> level error is emitted.
+ *
  * @link http://php.net/manual/en/function.hex2bin.php
- * @param string $data
- * @return string Returns the binary representation of the given data.
+ * @param string $data Hexadecimal string to convert.
+ * @return bool|string The binary representation of the given data or <b>FALSE</b> on failure.
  * @see bin2hex(), unpack()
  * @since 5.4.0
  */
