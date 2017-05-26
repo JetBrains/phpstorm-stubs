@@ -152,6 +152,7 @@ function strncasecmp ($str1, $str2, $len) {}
  * false.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.2
  */
 function each (array &$array) {}
 
