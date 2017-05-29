@@ -33,11 +33,16 @@ function sem_get ($key, $max_acquire = 1, $perm = 0666, $auto_release = 1) {}
  * <i>sem_identifier</i> is a semaphore resource,
  * obtained from <b>sem_get</b>.
  * </p>
+ * @param bool $nowait [optional] <p>
+ * Specifies if the process shouldn't wait for the semaphore to be acquired.
+ * If set to <i>true</i>, the call will return <i>false</i> immediately if a
+ * semaphore cannot be immediately acquired.
+ * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 4.0
  * @since 5.0
  */
-function sem_acquire ($sem_identifier) {}
+function sem_acquire ($sem_identifier, $nowait = false) {}
 
 /**
  * Release a semaphore
