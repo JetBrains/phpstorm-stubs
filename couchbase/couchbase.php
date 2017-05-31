@@ -339,6 +339,18 @@ namespace Couchbase {
          * @see \Couchbase\PasswordAuthenticator
          */
         final public function authenticate($authenticator) {}
+
+        /**
+         * Create \Couchbase\PasswordAuthenticator from given credentials and associate it with Cluster
+         *
+         * @param string $username
+         * @param string $password
+         * @return null
+         *
+         * @see \Couchbase\Authenticator
+         * @see \Couchbase\PasswordAuthenticator
+         */
+        final public function authenticateAs($username, $password) {}
     }
 
     /**
@@ -394,6 +406,78 @@ namespace Couchbase {
          *   Retrieving Cluster Information
          */
         final public function info() {}
+
+        /**
+         * Lists all users on this cluster.
+         *
+         * @return array
+         */
+        final public function listUsers() {}
+
+        /**
+         * Creates new user
+         *
+         * @param string $name Name of the user
+         * @param \Couchbase\UserSettings $settings settings (credentials and roles)
+         *
+         * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
+         *   More options and details
+         */
+        final public function upsertUser($name, $settings) {}
+
+        /**
+         * Removes a user identified by its name.
+         *
+         * @param string $name name of the bucket
+         *
+         * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
+         *   More details
+         */
+        final public function removeUser($name) {}
+    }
+
+    /**
+     * Represents settings for new/updated user.
+     *
+     * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
+     */
+    final class UserSettings {
+        /**
+         * Sets full name of the user (optional).
+         *
+         * @param string $fullName Full name of the user
+         *
+         * @return \Couchbase\UserSettings
+         *
+         * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
+         *   More details
+         */
+        final public function fullName($fullName) {}
+
+        /**
+         * Sets password of the user.
+         *
+         * @param string $password Password of the user
+         *
+         * @return \Couchbase\UserSettings
+         *
+         * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
+         *   More details
+         */
+        final public function password($password) {}
+
+        /**
+         * Adds role to the list of the accessible roles of the user.
+         *
+         * @param string $role identifier of the role
+         * @param string $bucket the bucket where this role applicable (or `*` for all buckets)
+         *
+         * @return \Couchbase\UserSettings
+         *
+         * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
+         *   More details
+         */
+        final public function role($role, $bucket) {}
     }
 
     /**
@@ -2159,6 +2243,20 @@ namespace Couchbase {
         final public static function dateRange() {}
 
         /**
+         * Prepare numeric range search query
+         *
+         * @return NumericRangeSearchQuery
+         */
+        final public static function numericRange() {}
+
+        /**
+         * Prepare term range search query
+         *
+         * @return TermRangeSearchQuery
+         */
+        final public static function termRange() {}
+
+        /**
          * Prepare boolean field search query
          *
          * @param bool $value
@@ -2259,6 +2357,27 @@ namespace Couchbase {
          * @return WildcardSearchQuery
          */
         final public static function wildcard($wildcard) {}
+
+        /**
+         * Prepare geo distance search query
+         *
+         * @param float $longitude
+         * @param float $latitude
+         * @param string $distance e.g. "10mi"
+         * @return GeoDistanceSearchQuery
+         */
+        final public static function geoDistance($longitude, $latitude, $distance) {}
+
+        /**
+         * Prepare geo bounding box search query
+         *
+         * @param float $topLeftLongitude
+         * @param float $topLeftLatitude
+         * @param float $bottomRightLongitude
+         * @param float $bottomRightLatitude
+         * @return GeoBoundingBoxSearchQuery
+         */
+        final public static function geoBoundingBox($topLeftLongitude, $topLeftLatitude, $bottomRightLongitude, $bottomRightLatitude) {}
 
         /**
          * Prepare term search facet
@@ -2947,6 +3066,101 @@ namespace Couchbase {
          * @return TermSearchQuery
          */
         final public function fuzziness($fuzziness) {}
+    }
+
+    /**
+     * A FTS query that matches documents on a range of values. At least one bound is required, and the
+     * inclusiveness of each bound can be configured.
+     */
+    final class TermRangeSearchQuery implements \JsonSerializable, SearchQueryPart {
+        /** @ignore */
+        final private function __construct() {}
+
+        /**
+         * @ignore
+         * @return array
+         */
+        final public function jsonSerialize() {}
+
+        /**
+         * @param float $boost
+         * @return TermRangeSearchQuery
+         */
+        final public function boost($boost) {}
+
+        /**
+         * @param string $field
+         * @return TermRangeSearchQuery
+         */
+        final public function field($field) {}
+
+        /**
+         * @param string $min
+         * @param bool $inclusive
+         * @return TermRangeSearchQuery
+         */
+        final public function min($min, $inclusive = true) {}
+
+        /**
+         * @param string $max
+         * @param bool $inclusive
+         * @return TermRangeSearchQuery
+         */
+        final public function max($max, $inclusive = false) {}
+    }
+
+    /**
+     * A FTS query that finds all matches from a given location (point) within the given distance.
+     *
+     * Both the point and the distance are required.
+     */
+    final class GeoDistanceSearchQuery implements \JsonSerializable, SearchQueryPart {
+        /** @ignore */
+        final private function __construct() {}
+
+        /**
+         * @ignore
+         * @return array
+         */
+        final public function jsonSerialize() {}
+
+        /**
+         * @param float $boost
+         * @return GeoDistanceSearchQuery
+         */
+        final public function boost($boost) {}
+
+        /**
+         * @param string $field
+         * @return GeoDistanceSearchQuery
+         */
+        final public function field($field) {}
+    }
+
+    /**
+     * A FTS query which allows to match geo bounding boxes.
+     */
+    final class GeoBoundingBoxSearchQuery implements \JsonSerializable, SearchQueryPart {
+        /** @ignore */
+        final private function __construct() {}
+
+        /**
+         * @ignore
+         * @return array
+         */
+        final public function jsonSerialize() {}
+
+        /**
+         * @param float $boost
+         * @return GeoBoundingBoxSearchQuery
+         */
+        final public function boost($boost) {}
+
+        /**
+         * @param string $field
+         * @return GeoBoundingBoxSearchQuery
+         */
+        final public function field($field) {}
     }
 
     /**
