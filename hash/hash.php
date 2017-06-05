@@ -207,6 +207,28 @@ function hash_copy ($context) {}
  */
 function hash_algos () {}
 
+
+/**
+ * @since 7.1.2
+ * Generate a HKDF key derivation of a supplied key input
+ * @link http://php.net/manual/en/function.hash-hkdf.php
+ * @param string $algo Name of selected hashing algorithm (i.e. "sha256", "sha512", "haval160,4", etc..)
+ * See {@see hash_algos()} for a list of supported algorithms.
+ * <blockquote>
+ * <p><strong>Note</strong></p>
+ * <p>
+ * Non-cryptographic hash functions are not allowed.
+ * </p>
+ * </blockquote>
+ * @param string $ikm <p>Input keying material (raw binary). Cannot be empty.</p>
+ * @param int $length [optional] <p>Desired output length in bytes. Cannot be greater than 255 times the chosen hash function size.
+ * If <b>length</b> is 0, the output length will default to the chosen hash function size.
+ * @param string $info [optional] <p>Application/context-specific info string.</p>
+ * @param string $salt [optional] <p>Salt to use during derivation. While optional, adding random salt significantly improves the strength of HKDF.</p>
+ * @return string <p>Returns a string containing a raw binary representation of the derived key (also known as output keying material - OKM); or <b>FALSE</b> on failure.</p>
+ */
+function hash_hkdf(string $algo , string $ikm, int $length = 0, string $info = '', string $salt = '') {}
+
 /**
  * Generate a PBKDF2 key derivation of a supplied password
  * @link http://php.net/manual/en/function.hash-pbkdf2.php
