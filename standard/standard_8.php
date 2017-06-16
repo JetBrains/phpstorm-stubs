@@ -776,7 +776,7 @@ function current (array &$array) {}
  * @param array|ArrayObject $array <p>
  * The array.
  * </p>
- * @return mixed The key function simply returns the
+ * @return int|string The key function simply returns the
  * key of the array element that's currently being pointed to by the
  * internal pointer. It does not move the pointer in any way. If the
  * internal pointer points beyond the end of the elements list or the array is 
@@ -859,7 +859,7 @@ function in_array ($needle, array $haystack, $strict = false) {}
  * types of the
  * needle in the haystack.
  * </p>
- * @return mixed the key for needle if it is found in the
+ * @return int|string|false the key for needle if it is found in the
  * array, false otherwise.
  * </p>
  * <p>
