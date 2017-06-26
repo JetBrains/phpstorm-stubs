@@ -583,6 +583,13 @@ class DateInterval {
     public $s;
 
     /**
+     * Number of microseconds
+     * @since 7.1.0
+     * @var float
+     */
+    public $f;
+
+    /**
      * Is 1 if the interval is inverted and 0 otherwise
      * @var int
      */
