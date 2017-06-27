@@ -275,7 +275,7 @@ function mb_strlen ($str, $encoding = null) {}
  * @since 4.0.6
  * @since 5.0
  */
-function mb_strpos ($haystack, $needle, $offset = null, $encoding = null) {}
+function mb_strpos ($haystack, $needle, $offset = 0, $encoding = null) {}
 
 /**
  * Find position of last occurrence of a string in a string
@@ -298,7 +298,7 @@ function mb_strpos ($haystack, $needle, $offset = null, $encoding = null) {}
  * @since 4.0.6
  * @since 5.0
  */
-function mb_strrpos ($haystack, $needle, $offset = null, $encoding = null) {}
+function mb_strrpos ($haystack, $needle, $offset = 0, $encoding = null) {}
 
 /**
  * Finds position of first occurrence of a string within another, case insensitive
@@ -323,7 +323,7 @@ function mb_strrpos ($haystack, $needle, $offset = null, $encoding = null) {}
  * string, or false if needle is not found.
  * @since 5.2.0
  */
-function mb_stripos ($haystack, $needle, $offset = null, $encoding = null) {}
+function mb_stripos ($haystack, $needle, $offset = 0, $encoding = null) {}
 
 /**
  * Finds position of last occurrence of a string within another, case insensitive
@@ -349,7 +349,7 @@ function mb_stripos ($haystack, $needle, $offset = null, $encoding = null) {}
  * if needle is not found.
  * @since 5.2.0
  */
-function mb_strripos ($haystack, $needle, $offset = null, $encoding = null) {}
+function mb_strripos ($haystack, $needle, $offset = 0, $encoding = null) {}
 
 /**
  * Finds first occurrence of a string within another
