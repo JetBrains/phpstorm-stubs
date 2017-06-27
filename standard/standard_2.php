@@ -860,7 +860,7 @@ function proc_close ($process) {}
  * @return bool the termination status of the process that was run.
  * @since 5.0
  */
-function proc_terminate ($process, $signal = null) {}
+function proc_terminate ($process, $signal = 15) {}
 
 /**
  * Get information about a process opened by <function>proc_open</function>
