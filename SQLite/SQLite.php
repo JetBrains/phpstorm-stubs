@@ -844,7 +844,7 @@ function sqlite_libencoding () {}
 /**
  * (PHP 5, PECL sqlite &gt;= 1.0.0)<br/>
  * Returns the number of rows that were changed by the most
-   recent SQL statement
+ * recent SQL statement
  * @link http://php.net/manual/en/function.sqlite-changes.php
  * @param $db
  * @return int the number of changed rows.
