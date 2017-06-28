@@ -1439,11 +1439,11 @@ class MongoCursor implements Iterator, Traversable {
    /**
 	* Gives the database a hint about the query
 	* @link http://www.php.net/manual/en/mongocursor.hint.php
-	* @param array $key_pattern Indexes to use for the query.
+	* @param mixed $key_pattern Indexes to use for the query.
 	* @throws MongoCursorException
     * @return MongoCursor Returns this cursor
     */
-    public function hint(array $key_pattern) {}
+    public function hint(mixed $key_pattern) {}
 
 
 	/**
