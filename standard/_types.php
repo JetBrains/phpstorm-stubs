@@ -221,7 +221,7 @@ class object {
    * @return void
    * @link http://php.net/manual/en/language.oop5.decon.php
    */
-  function __construct() {}
+  public function __construct() {}
 
   /**
    * PHP 5 introduces a destructor concept similar to that of other object-oriented languages, such as C++.
@@ -239,7 +239,7 @@ class object {
    * @return void
    * @link http://php.net/manual/en/language.oop5.decon.php
    */
-  function __destruct() {}
+  public function __destruct() {}
 
   /**
    * is triggered when invoking inaccessible methods in an object context.
@@ -249,7 +249,7 @@ class object {
    * @return mixed
    * @link http://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.methods
    */
-  function __call($name, $arguments) {}
+  public function __call($name, $arguments) {}
 
   /**
    * is triggered when invoking inaccessible methods in a static context.
@@ -268,7 +268,7 @@ class object {
    * @return mixed
    * @link http://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
    */
-  function __get($name) {}
+  public function __get($name) {}
 
   /**
    * run when writing data to inaccessible members.
@@ -278,7 +278,7 @@ class object {
    * @return void
    * @link http://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
    */
-  function __set($name, $value) {}
+  public function __set($name, $value) {}
 
   /**
    * is triggered by calling isset() or empty() on inaccessible members.
@@ -287,7 +287,7 @@ class object {
    * @return bool
    * @link http://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
    */
-  function __isset($name) {}
+  public function __isset($name) {}
   /**
    * is invoked when unset() is used on inaccessible members.
    *
@@ -295,7 +295,7 @@ class object {
    * @return void
    * @link http://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
    */
-  function __unset($name) {}
+  public function __unset($name) {}
 
   /**
    * serialize() checks if your class has a function with the magic name __sleep.
@@ -308,7 +308,7 @@ class object {
    * @return string[]
    * @link http://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.sleep
    */
-  function __sleep() {}
+  public function __sleep() {}
 
   /**
    * unserialize() checks for the presence of a function with the magic name __wakeup.
@@ -319,7 +319,7 @@ class object {
    * @return void
    * @link http://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.sleep
    */
-  function __wakeup() {}
+  public function __wakeup() {}
 
   /**
    * The __toString method allows a class to decide how it will react when it is converted to a string.
@@ -327,7 +327,7 @@ class object {
    * @return string
    * @link http://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.tostring
    */
-  function __toString() {}
+  public function __toString() {}
 
   /**
    * The __invoke method is called when a script tries to call an object as a function.
@@ -335,7 +335,7 @@ class object {
    * @return mixed
    * @link http://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.invoke
    */
-  function __invoke() {}
+  public function __invoke() {}
 
     /**
      * This method is called by var_dump() when dumping an object to get the properties that should be shown.
@@ -345,7 +345,7 @@ class object {
      * @return array
      * @link http://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.debuginfo
      */
-    function __debugInfo(){}
+    public function __debugInfo(){}
 
   /**
    * This static method is called for classes exported by var_export() since PHP 5.1.0.
@@ -356,7 +356,7 @@ class object {
    * @return mixed
    * @link http://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.set-state
    */
-  static function __set_state($an_array) {}
+  public static function __set_state($an_array) {}
 
   /**
    * When an object is cloned, PHP 5 will perform a shallow copy of all of the object's properties.
@@ -368,7 +368,7 @@ class object {
    * @return mixed
    * @link http://php.net/manual/en/language.oop5.cloning.php
    */
-  function __clone() {}
+  public function __clone() {}
 
 }
 }
