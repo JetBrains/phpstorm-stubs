@@ -775,17 +775,20 @@ function long2ip ($proper_address) {}
 /**
  * Gets the value of an environment variable
  * @link http://php.net/manual/en/function.getenv.php
- * @param string $varname [optional] <p>
+ * @param string $varname <p>
  * The variable name.
  * </p>
- * @return string|array|false the value of the environment variable
- * varname or array with all environment variables if no variable name
- * provided, or false on an error.
+ * @param bool $local_only [optional] <p>
+ * Set to true to only return local environment variables (set by the operating system or putenv).
+ * </p>
+ * @return string|bool the value of the environment variable varname,
+ * or FALSE if the environment variable varname does not exist.
  * @since 4.0
- * @since 5.0
- * @since 7.1
+ * @since 5.5.38 The local_only parameter has been added.
+ * @since 5.6.24 The local_only parameter has been added.
+ * @since 7.0.9 The local_only parameter has been added.
  */
-function getenv ($varname = null) {}
+function getenv ($varname, $local_only = false) {}
 
 /**
  * Sets the value of an environment variable
