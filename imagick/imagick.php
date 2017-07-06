@@ -18,7 +18,7 @@ class ImagickPixelException extends Exception  {
  * @method Imagick clone() (PECL imagick 2.0.0)<br/>Makes an exact copy of the Imagick object
  * @link http://php.net/manual/en/class.imagick.php
  */
-class Imagick implements Iterator, Traversable, Countable {
+class Imagick implements Iterator, Countable {
 	const COLOR_BLACK = 11;
 	const COLOR_BLUE = 12;
 	const COLOR_CYAN = 13;
@@ -5775,7 +5775,7 @@ class ImagickDraw  {
 /**
  * @link http://php.net/manual/en/class.imagickpixeliterator.php
  */
-class ImagickPixelIterator implements Iterator, Traversable {
+class ImagickPixelIterator implements Iterator {
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>

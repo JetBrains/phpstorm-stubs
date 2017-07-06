@@ -231,7 +231,7 @@ class SQLiteDatabase  {
 /**
  * @link http://php.net/manual/en/ref.sqlite.php
  */
-final class SQLiteResult implements Iterator, Traversable, Countable {
+final class SQLiteResult implements Iterator, Countable {
 
 	/**
 	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)

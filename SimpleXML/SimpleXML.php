@@ -221,7 +221,7 @@ class SimpleXMLElement implements Traversable {
  * The SimpleXMLIterator provides recursive iteration over all nodes of a <b>SimpleXMLElement</b> object.
  * @link http://php.net/manual/en/class.simplexmliterator.php
  */
-class SimpleXMLIterator extends SimpleXMLElement implements Traversable, RecursiveIterator, Iterator, Countable {
+class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, Countable {
 
 	/**
 	 * Rewind to the first element

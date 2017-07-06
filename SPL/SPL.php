@@ -108,7 +108,7 @@ class UnexpectedValueException extends RuntimeException {
  * The EmptyIterator class for an empty iterator.
  * @link http://www.php.net/manual/en/class.emptyiterator.php
  */
-class EmptyIterator implements Iterator, Traversable {
+class EmptyIterator implements Iterator {
 
     /**
      * Return the current element
@@ -157,7 +157,7 @@ class EmptyIterator implements Iterator, Traversable {
  * @link http://www.php.net/manual/en/class.callbackfilteriterator.php
  * @since 5.4.0
  */
-class CallbackFilterIterator extends FilterIterator implements Iterator , Traversable , OuterIterator {
+class CallbackFilterIterator extends FilterIterator {
 
     /**
      * Creates a filtered iterator using the callback to determine which items are accepted or rejected.
@@ -184,7 +184,7 @@ class CallbackFilterIterator extends FilterIterator implements Iterator , Traver
  * RecursiveCallbackFilterIterator from a RecursiveIterator
  * @link http://www.php.net/manual/en/class.recursivecallbackfilteriterator.php
  */
-class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements OuterIterator , Traversable , Iterator , RecursiveIterator {
+class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements RecursiveIterator {
 
     /**
      * Create a RecursiveCallbackFilterIterator from a RecursiveIterator
@@ -216,7 +216,7 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
  * over iterators recursively.
  * @link http://php.net/manual/en/class.recursiveiterator.php
  */
-interface RecursiveIterator extends Iterator, Traversable {
+interface RecursiveIterator extends Iterator {
 
     /**
      * Returns if an iterator can be created for the current entry.
@@ -239,7 +239,7 @@ interface RecursiveIterator extends Iterator, Traversable {
  * Can be used to iterate through recursive iterators.
  * @link http://php.net/manual/en/class.recursiveiteratoriterator.php
  */
-class RecursiveIteratorIterator implements Iterator, Traversable, OuterIterator {
+class RecursiveIteratorIterator implements OuterIterator {
     const LEAVES_ONLY = 0;
     const SELF_FIRST = 1;
     const CHILD_FIRST = 2;
@@ -402,7 +402,7 @@ class RecursiveIteratorIterator implements Iterator, Traversable, OuterIterator 
  * over iterators.
  * @link http://php.net/manual/en/class.outeriterator.php
  */
-interface OuterIterator extends Iterator, Traversable {
+interface OuterIterator extends Iterator {
 
     /**
      * Returns the inner iterator for the current entry.
@@ -423,7 +423,7 @@ interface OuterIterator extends Iterator, Traversable {
  * misuse, otherwise expect exceptions or fatal errors.
  * @link http://php.net/manual/en/class.iteratoriterator.php
  */
-class IteratorIterator implements Iterator, Traversable, OuterIterator {
+class IteratorIterator implements OuterIterator {
 
     /**
      * Create an iterator from anything that is traversable
@@ -488,7 +488,7 @@ class IteratorIterator implements Iterator, Traversable, OuterIterator {
  * must be implemented in the subclass.
  * @link http://php.net/manual/en/class.filteriterator.php
  */
-abstract class FilterIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator {
+abstract class FilterIterator extends IteratorIterator {
 
     /**
      * Check whether the current element of the iterator is acceptable
@@ -561,7 +561,7 @@ abstract class FilterIterator extends IteratorIterator implements OuterIterator,
  * The <b>RecursiveFilterIterator::accept</b> must be implemented in the subclass.
  * @link http://php.net/manual/en/class.recursivefilteriterator.php
  */
-abstract class RecursiveFilterIterator extends FilterIterator implements Iterator, Traversable, OuterIterator, RecursiveIterator {
+abstract class RecursiveFilterIterator extends FilterIterator implements RecursiveIterator {
 
     /**
      * Create a RecursiveFilterIterator from a RecursiveIterator
@@ -592,7 +592,7 @@ abstract class RecursiveFilterIterator extends FilterIterator implements Iterato
  * This extended FilterIterator allows a recursive iteration using RecursiveIteratorIterator that only shows those elements which have children.
  * @link http://php.net/manual/en/class.parentiterator.php
  */
-class ParentIterator extends RecursiveFilterIterator implements RecursiveIterator, OuterIterator, Traversable, Iterator {
+class ParentIterator extends RecursiveFilterIterator {
 
     /**
      * Determines acceptability
@@ -650,7 +650,7 @@ interface Countable {
  * The Seekable iterator.
  * @link http://php.net/manual/en/class.seekableiterator.php
  */
-interface SeekableIterator extends Iterator, Traversable {
+interface SeekableIterator extends Iterator {
 
     /**
      * Seeks to a position
@@ -669,7 +669,7 @@ interface SeekableIterator extends Iterator, Traversable {
  * a limited subset of items in an <b>Iterator</b>.
  * @link http://php.net/manual/en/class.limititerator.php
  */
-class LimitIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator {
+class LimitIterator extends IteratorIterator {
 
     /**
      * Construct a LimitIterator
@@ -753,7 +753,7 @@ class LimitIterator extends IteratorIterator implements OuterIterator, Traversab
  * This object supports cached iteration over another iterator.
  * @link http://php.net/manual/en/class.cachingiterator.php
  */
-class CachingIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator, ArrayAccess, Countable {
+class CachingIterator extends IteratorIterator implements ArrayAccess, Countable {
     const CALL_TOSTRING = 1;
     const CATCH_GET_CHILD = 16;
     const TOSTRING_USE_KEY = 2;
@@ -920,8 +920,7 @@ class CachingIterator extends IteratorIterator implements OuterIterator, Travers
  * ...
  * @link http://php.net/manual/en/class.recursivecachingiterator.php
  */
-class RecursiveCachingIterator extends CachingIterator
-    implements Countable, ArrayAccess, Iterator, Traversable, OuterIterator, RecursiveIterator {
+class RecursiveCachingIterator extends CachingIterator implements RecursiveIterator {
 
     /**
      * Construct
@@ -955,7 +954,7 @@ class RecursiveCachingIterator extends CachingIterator
  * This iterator cannot be rewinded.
  * @link http://php.net/manual/en/class.norewinditerator.php
  */
-class NoRewindIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator {
+class NoRewindIterator extends IteratorIterator {
 
     /**
      * Construct a NoRewindIterator
@@ -1018,7 +1017,7 @@ class NoRewindIterator extends IteratorIterator implements OuterIterator, Traver
  * An Iterator that iterates over several iterators one after the other.
  * @link http://php.net/manual/en/class.appenditerator.php
  */
-class AppendIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator {
+class AppendIterator extends IteratorIterator {
 
     /**
      * Constructs an AppendIterator
@@ -1109,7 +1108,7 @@ class AppendIterator extends IteratorIterator implements OuterIterator, Traversa
  * rewind the iterator upon reaching its end.
  * @link http://php.net/manual/en/class.infiniteiterator.php
  */
-class InfiniteIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator {
+class InfiniteIterator extends IteratorIterator {
 
     /**
      * Constructs an InfiniteIterator
@@ -1132,7 +1131,7 @@ class InfiniteIterator extends IteratorIterator implements OuterIterator, Traver
  * This iterator can be used to filter another iterator based on a regular expression.
  * @link http://php.net/manual/en/class.regexiterator.php
  */
-class RegexIterator extends FilterIterator implements Iterator, Traversable, OuterIterator {
+class RegexIterator extends FilterIterator {
 
     /**
      * Return all matches for the current entry @see preg_match_all
@@ -1318,7 +1317,7 @@ class RegexIterator extends FilterIterator implements Iterator, Traversable, Out
  * This recursive iterator can filter another recursive iterator via a regular expression.
  * @link http://php.net/manual/en/class.recursiveregexiterator.php
  */
-class RecursiveRegexIterator extends RegexIterator implements OuterIterator, Traversable, Iterator, RecursiveIterator {
+class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator {
     /**
      * Creates a new RecursiveRegexIterator.
      * @link http://php.net/manual/en/recursiveregexiterator.construct.php
@@ -1352,7 +1351,7 @@ class RecursiveRegexIterator extends RegexIterator implements OuterIterator, Tra
  * Allows iterating over a <b>RecursiveIterator</b> to generate an ASCII graphic tree.
  * @link http://php.net/manual/en/class.recursivetreeiterator.php
  */
-class RecursiveTreeIterator extends RecursiveIteratorIterator implements OuterIterator, Traversable, Iterator {
+class RecursiveTreeIterator extends RecursiveIteratorIterator {
 
     const BYPASS_CURRENT = 4;
     const BYPASS_KEY = 8;
@@ -1516,7 +1515,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator implements OuterIt
  * This class allows objects to work as arrays.
  * @link http://php.net/manual/en/class.arrayobject.php
  */
-class ArrayObject implements IteratorAggregate, Traversable, ArrayAccess, Serializable, Countable {
+class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Countable {
     /**
      * Properties of the object have their normal functionality when accessed as list (var_dump, foreach, etc.).
      */
@@ -1791,7 +1790,7 @@ class ArrayObject implements IteratorAggregate, Traversable, ArrayAccess, Serial
  * over Arrays and Objects.
  * @link http://php.net/manual/en/class.arrayiterator.php
  */
-class ArrayIterator implements Iterator, Traversable, ArrayAccess, SeekableIterator, Serializable, Countable {
+class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Countable {
     const STD_PROP_LIST = 1;
     const ARRAY_AS_PROPS = 2;
 
@@ -2035,8 +2034,7 @@ class ArrayIterator implements Iterator, Traversable, ArrayAccess, SeekableItera
  * over the current iterator entry.
  * @link http://php.net/manual/en/class.recursivearrayiterator.php
  */
-class RecursiveArrayIterator extends ArrayIterator
-    implements Serializable, SeekableIterator, ArrayAccess, Traversable, Iterator, RecursiveIterator {
+class RecursiveArrayIterator extends ArrayIterator implements RecursiveIterator {
     const CHILD_ARRAYS_ONLY = 4;
 
 

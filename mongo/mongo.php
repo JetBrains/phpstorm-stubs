@@ -1264,7 +1264,7 @@ class MongoCollection {
  * Result object for database query.
  * @link http://www.php.net/manual/en/class.mongocursor.php
  */
-class MongoCursor implements Iterator, Traversable {
+class MongoCursor implements Iterator {
     /**
      * @link http://php.net/manual/en/class.mongocursor.php#mongocursor.props.slaveokay
 	 * @static
@@ -1583,7 +1583,7 @@ class MongoCursor implements Iterator, Traversable {
 	public function maxTimeMS ($ms) {}
 }
 
-class MongoCommandCursor implements MongoCursorInterface, Iterator{
+class MongoCommandCursor implements MongoCursorInterface {
     /**
      * Return the current element
      * @link http://php.net/manual/en/iterator.current.php

@@ -14,7 +14,7 @@ class PharException extends Exception  {
  * phar archives.
  * @link http://php.net/manual/en/class.phar.php
  */
-class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, SeekableIterator, Traversable, Iterator, Countable, ArrayAccess {
+class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, SeekableIterator, Countable, ArrayAccess {
 	const BZ2 = 8192;
 	const GZ = 4096;
 	const NONE = 0;

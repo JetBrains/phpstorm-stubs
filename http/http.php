@@ -184,7 +184,7 @@ class HttpInflateStream  {
 /**
  * @link http://php.net/manual/en/class.httpmessage.php
  */
-class HttpMessage implements Countable, Serializable, Iterator, Traversable {
+class HttpMessage implements Countable, Serializable, Iterator {
 	const TYPE_NONE = 0;
 	const TYPE_REQUEST = 1;
 	const TYPE_RESPONSE = 2;
@@ -1527,7 +1527,7 @@ class HttpRequestDataShare implements Countable {
 /**
  * @link http://php.net/manual/en/class.httprequestpool.php
  */
-class HttpRequestPool implements Countable, Iterator, Traversable {
+class HttpRequestPool implements Countable, Iterator {
 
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
