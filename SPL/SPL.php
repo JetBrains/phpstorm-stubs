@@ -674,12 +674,12 @@ class LimitIterator extends IteratorIterator {
     /**
      * Construct a LimitIterator
      * @link http://php.net/manual/en/limititerator.construct.php
-     * @param Iterator $iterator
-     * @param $offset [optional]
-     * @param $count [optional]
+     * @param Iterator $iterator The iterator to limit.
+     * @param int $offset [optional] The offset to start at. Must be zero or greater.
+     * @param int $count [optional] The number of items to iterate. Must be -1 or greater. -1, the default, means no limit.
      * @since 5.1.0
      */
-    public function __construct(Iterator $iterator, $offset, $count) { }
+    public function __construct(Iterator $iterator, $offset = 0, $count = -1) { }
 
     /**
      * Rewind the iterator to the specified starting offset
