@@ -770,19 +770,45 @@ class LimitIterator extends IteratorIterator {
  * @link http://php.net/manual/en/class.cachingiterator.php
  */
 class CachingIterator extends IteratorIterator implements ArrayAccess, Countable {
-    const CALL_TOSTRING = 1;
-    const CATCH_GET_CHILD = 16;
-    const TOSTRING_USE_KEY = 2;
-    const TOSTRING_USE_CURRENT = 4;
-    const TOSTRING_USE_INNER = 8;
-    const FULL_CACHE = 256;
-
 
     /**
-     * Construct a new CachingIterator object for the iterator.
+     * String conversion flag (mutually exclusive): Uses the current element for the iterator's string conversion.
+     * This converts the current element to a string only once, regardless of whether it is needed or not.
+     */
+    const CALL_TOSTRING = 1;
+
+    /**
+     * String conversion flag (mutually exclusive). Uses the current key for the iterator's string conversion.
+     */
+    const TOSTRING_USE_KEY = 2;
+
+    /**
+     * String conversion flag (mutually exclusive). Uses the current element for the iterator's string conversion.
+     * This converts the current element to a string only when (and every time) it is needed.
+     */
+    const TOSTRING_USE_CURRENT = 4;
+
+    /**
+     * String conversion flag (mutually exclusive). Forwards the string conversion to the inner iterator.
+     * This converts the inner iterator to a string only once, regardless of whether it is needed or not.
+     */
+    const TOSTRING_USE_INNER = 8;
+
+    /**
+     * Ignore exceptions thrown in accessing children. Only used with {@see RecursiveCachingIterator}.
+     */
+    const CATCH_GET_CHILD = 16;
+
+    /**
+     * Cache all read data. This is needed to use {@see CachingIterator::getCache}, and ArrayAccess and Countable methods.
+     */
+    const FULL_CACHE = 256;
+
+    /**
+     * Constructs a new CachingIterator.
      * @link http://php.net/manual/en/cachingiterator.construct.php
-     * @param Iterator $iterator
-     * @param $flags [optional]
+     * @param Iterator $iterator The iterator to cache.
+     * @param int $flags [optional] A bitmask of flags. See CachingIterator class constants for details.
      * @since 5.0
      */
     public function __construct(Iterator $iterator, $flags = self::CALL_TOSTRING) { }
@@ -836,9 +862,9 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     public function hasNext() { }
 
     /**
-     * Return the string representation of the current element
+     * Return the string representation of the current iteration based on the flag being used.
      * @link http://php.net/manual/en/cachingiterator.tostring.php
-     * @return string The string representation of the current element.
+     * @return string The string representation of the current iteration based on the flag being used.
      * @since 5.0
      */
     public function __toString() { }
@@ -869,56 +895,51 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     public function setFlags($flags) { }
 
     /**
-     * The offsetGet purpose
+     * Internal cache array index to retrieve.
      * @link http://php.net/manual/en/cachingiterator.offsetget.php
-     * @param string $index <p>
-     * Description...
-     * </p>
-     * @return void Description...
+     * @param string $index The index of the element to retrieve.
+     * @return mixed
+     * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
      * @since 5.2.0
      */
     public function offsetGet($index) { }
 
     /**
-     * The offsetSet purpose
+     * Set an element on the internal cache array.
      * @link http://php.net/manual/en/cachingiterator.offsetset.php
-     * @param string $index <p>
-     * The index of the element to be set.
-     * </p>
-     * @param string $newval <p>
-     * The new value for the <i>index</i>.
-     * </p>
+     * @param string $index The index of the element to be set.
+     * @param string $newval The new value for the <i>index</i>.
      * @return void
+     * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
      * @since 5.2.0
      */
     public function offsetSet($index, $newval) { }
 
     /**
-     * The offsetUnset purpose
+     * Remove an element from the internal cache array.
      * @link http://php.net/manual/en/cachingiterator.offsetunset.php
-     * @param string $index <p>
-     * The index of the element to be unset.
-     * </p>
+     * @param string $index The index of the element to be unset.
      * @return void
+     * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
      * @since 5.2.0
      */
     public function offsetUnset($index) { }
 
     /**
-     * The offsetExists purpose
+     * Return whether an element at the index exists on the internal cache array.
      * @link http://php.net/manual/en/cachingiterator.offsetexists.php
-     * @param string $index <p>
-     * The index being checked.
-     * </p>
+     * @param string $index The index being checked.
      * @return bool true if an entry referenced by the offset exists, false otherwise.
+     * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
      * @since 5.2.0
      */
     public function offsetExists($index) { }
 
     /**
-     * The getCache purpose
+     * Retrieve the contents of the cache
      * @link http://php.net/manual/en/cachingiterator.getcache.php
-     * @return array Description...
+     * @return array An array containing the cache items.
+     * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
      * @since 5.2.0
      */
     public function getCache() { }
@@ -926,7 +947,8 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * The number of elements in the iterator
      * @link http://php.net/manual/en/cachingiterator.count.php
-     * @return void The count of the elements iterated over.
+     * @return int The count of the elements iterated over.
+     * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
      * @since 5.2.2
      */
     public function count() { }
@@ -939,11 +961,10 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
 class RecursiveCachingIterator extends CachingIterator implements RecursiveIterator {
 
     /**
-     * Construct
+     * Constructs a new RecursiveCachingIterator.
      * @link http://php.net/manual/en/recursivecachingiterator.construct.php
-     * @param Iterator $iterator The iterator being used.
-     * @param int $flags [optional] The flags. Use CALL_TOSTRING to call RecursiveCachingIterator::__toString() for every element (the default),
-     * and/or CATCH_GET_CHILD to catch exceptions when trying to get children.
+     * @param Iterator $iterator The iterator to cache.
+     * @param int $flags [optional] A bitmask of flags. See CachingIterator class constants for details.
      * @since 5.1.0
      */
     public function __construct(Iterator $iterator, $flags = self::CALL_TOSTRING) { }
