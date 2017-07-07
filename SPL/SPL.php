@@ -1405,13 +1405,13 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator {
      * Construct a RecursiveTreeIterator
      * @link http://php.net/manual/en/recursivetreeiterator.construct.php
      * @param RecursiveIterator|IteratorAggregate $iterator
-     * @param int $flags [optional]
-     * @param int $caching_it_flags [optional]
-     * @param int $mode [optional]
+     * @param int $flags [optional] Flags to control the behavior of the RecursiveTreeIterator object.
+     * @param int $caching_it_flags [optional] Flags to affect the behavior of the {@see RecursiveCachingIterator} used internally.
+     * @param int $mode [optional] Flags to affect the behavior of the {@see RecursiveIteratorIterator} used internally.
      * @since 5.3.0
      */
-    public function __construct($iterator, $flags = RecursiveTreeIterator::BYPASS_KEY, $caching_it_flags = CachingIterator::CATCH_GET_CHILD,
-                                $mode = RecursiveIteratorIterator::SELF_FIRST) { }
+    public function __construct($iterator, $flags = self::BYPASS_KEY, $caching_it_flags = CachingIterator::CATCH_GET_CHILD,
+                                $mode = self::SELF_FIRST) { }
 
     /**
      * Rewind iterator
