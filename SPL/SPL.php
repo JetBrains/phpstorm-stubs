@@ -1365,7 +1365,7 @@ class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator 
      * @param int $preg_flags [optional] The regular expression flags. These flags depend on the operation mode parameter
      * @since 5.2.0
      */
-    public function __construct(RecursiveIterator $iterator, $regex, $mode, $flags, $preg_flags) { }
+    public function __construct(RecursiveIterator $iterator, $regex, $mode = self::MATCH, $flags = 0, $preg_flags = 0) { }
 
     /**
      * Returns whether an iterator can be obtained for the current entry.
