@@ -1051,7 +1051,7 @@ function join ($glue = "", $pieces) {}
  *
  * </li>
  * </ul>
- * @param string $locale <p>
+ * @param string|array $locale <p>
  * If locale is &null; or the empty string
  * "", the locale names will be set from the
  * values of environment variables with the same names as the above
