@@ -240,20 +240,36 @@ interface RecursiveIterator extends Iterator {
  * @link http://php.net/manual/en/class.recursiveiteratoriterator.php
  */
 class RecursiveIteratorIterator implements OuterIterator {
+
+    /**
+     * The default. Lists only leaves in iteration.
+     */
     const LEAVES_ONLY = 0;
+
+    /**
+     * Lists leaves and parents in iteration with parents coming first.
+     */
     const SELF_FIRST = 1;
+
+    /**
+     * Lists leaves and parents in iteration with leaves coming first.
+     */
     const CHILD_FIRST = 2;
+
+    /**
+     * Special flag: Ignore exceptions thrown in accessing children.
+     */
     const CATCH_GET_CHILD = 16;
 
     /**
      * Construct a RecursiveIteratorIterator
      * @link http://php.net/manual/en/recursiveiteratoriterator.construct.php
      * @param Traversable $iterator
-     * @param $mode [optional]
-     * @param $flags [optional]
+     * @param int $mode [optional] The operation mode. See class constants for details.
+     * @param int $flags [optional] A bitmask of special flags. See class constants for details.
      * @since 5.1.3
      */
-    public function __construct(Traversable $iterator, $mode, $flags) { }
+    public function __construct(Traversable $iterator, $mode = self::LEAVES_ONLY, $flags = 0) { }
 
     /**
      * Rewind the iterator to the first element of the top level inner iterator
