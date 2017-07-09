@@ -24,7 +24,7 @@ class SimpleXMLElement implements Traversable {
 	/**
      * Provides access to element's children
      * @param $name child name
-     * @return SimpleXMLElement[]
+     * @return SimpleXMLElement
      */
     function __get($name) {}
 
