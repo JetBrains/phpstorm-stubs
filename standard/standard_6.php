@@ -646,7 +646,7 @@ function stream_supports_lock ($stream) {}
  * @since 4.0
  * @since 5.0
  */
-function fgetcsv ($handle, $length = null, $delimiter = null, $enclosure = null, $escape = null) {}
+function fgetcsv ($handle, $length = 0, $delimiter = ',', $enclosure = '"', $escape = '\\') {}
 
 /**
  * Format line as CSV and write to file pointer
