@@ -782,7 +782,7 @@ function long2ip ($proper_address) {}
  * Set to true to only return local environment variables (set by the operating system or putenv).
  * </p>
  * @return string|array|false the value of the environment variable
- * varname associate array with all environment variables if no variable name
+ * varname or associate array with all environment variables if no variable name
  * is provided, or false on an error.
  * @since 4.0
  * @since 5.5.38 The local_only parameter has been added.
