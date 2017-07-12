@@ -776,7 +776,7 @@ function current (array &$array) {}
  * @param array|ArrayObject $array <p>
  * The array.
  * </p>
- * @return int|string The key function simply returns the
+ * @return int|string|null The key function simply returns the
  * key of the array element that's currently being pointed to by the
  * internal pointer. It does not move the pointer in any way. If the
  * internal pointer points beyond the end of the elements list or the array is 
