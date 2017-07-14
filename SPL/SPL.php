@@ -108,7 +108,7 @@ class UnexpectedValueException extends RuntimeException {
  * The EmptyIterator class for an empty iterator.
  * @link http://www.php.net/manual/en/class.emptyiterator.php
  */
-class EmptyIterator implements Iterator, Traversable {
+class EmptyIterator implements Iterator {
 
     /**
      * Return the current element
@@ -157,7 +157,7 @@ class EmptyIterator implements Iterator, Traversable {
  * @link http://www.php.net/manual/en/class.callbackfilteriterator.php
  * @since 5.4.0
  */
-class CallbackFilterIterator extends FilterIterator implements Iterator , Traversable , OuterIterator {
+class CallbackFilterIterator extends FilterIterator {
 
     /**
      * Creates a filtered iterator using the callback to determine which items are accepted or rejected.
@@ -184,7 +184,7 @@ class CallbackFilterIterator extends FilterIterator implements Iterator , Traver
  * RecursiveCallbackFilterIterator from a RecursiveIterator
  * @link http://www.php.net/manual/en/class.recursivecallbackfilteriterator.php
  */
-class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements OuterIterator , Traversable , Iterator , RecursiveIterator {
+class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements RecursiveIterator {
 
     /**
      * Create a RecursiveCallbackFilterIterator from a RecursiveIterator
@@ -216,7 +216,7 @@ class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements 
  * over iterators recursively.
  * @link http://php.net/manual/en/class.recursiveiterator.php
  */
-interface RecursiveIterator extends Iterator, Traversable {
+interface RecursiveIterator extends Iterator {
 
     /**
      * Returns if an iterator can be created for the current entry.
@@ -239,21 +239,37 @@ interface RecursiveIterator extends Iterator, Traversable {
  * Can be used to iterate through recursive iterators.
  * @link http://php.net/manual/en/class.recursiveiteratoriterator.php
  */
-class RecursiveIteratorIterator implements Iterator, Traversable, OuterIterator {
+class RecursiveIteratorIterator implements OuterIterator {
+
+    /**
+     * The default. Lists only leaves in iteration.
+     */
     const LEAVES_ONLY = 0;
+
+    /**
+     * Lists leaves and parents in iteration with parents coming first.
+     */
     const SELF_FIRST = 1;
+
+    /**
+     * Lists leaves and parents in iteration with leaves coming first.
+     */
     const CHILD_FIRST = 2;
+
+    /**
+     * Special flag: Ignore exceptions thrown in accessing children.
+     */
     const CATCH_GET_CHILD = 16;
 
     /**
      * Construct a RecursiveIteratorIterator
      * @link http://php.net/manual/en/recursiveiteratoriterator.construct.php
      * @param Traversable $iterator
-     * @param $mode [optional]
-     * @param $flags [optional]
+     * @param int $mode [optional] The operation mode. See class constants for details.
+     * @param int $flags [optional] A bitmask of special flags. See class constants for details.
      * @since 5.1.3
      */
-    public function __construct(Traversable $iterator, $mode, $flags) { }
+    public function __construct(Traversable $iterator, $mode = self::LEAVES_ONLY, $flags = 0) { }
 
     /**
      * Rewind the iterator to the first element of the top level inner iterator
@@ -402,7 +418,7 @@ class RecursiveIteratorIterator implements Iterator, Traversable, OuterIterator 
  * over iterators.
  * @link http://php.net/manual/en/class.outeriterator.php
  */
-interface OuterIterator extends Iterator, Traversable {
+interface OuterIterator extends Iterator {
 
     /**
      * Returns the inner iterator for the current entry.
@@ -423,7 +439,7 @@ interface OuterIterator extends Iterator, Traversable {
  * misuse, otherwise expect exceptions or fatal errors.
  * @link http://php.net/manual/en/class.iteratoriterator.php
  */
-class IteratorIterator implements Iterator, Traversable, OuterIterator {
+class IteratorIterator implements OuterIterator {
 
     /**
      * Create an iterator from anything that is traversable
@@ -488,7 +504,7 @@ class IteratorIterator implements Iterator, Traversable, OuterIterator {
  * must be implemented in the subclass.
  * @link http://php.net/manual/en/class.filteriterator.php
  */
-abstract class FilterIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator {
+abstract class FilterIterator extends IteratorIterator {
 
     /**
      * Check whether the current element of the iterator is acceptable
@@ -561,7 +577,7 @@ abstract class FilterIterator extends IteratorIterator implements OuterIterator,
  * The <b>RecursiveFilterIterator::accept</b> must be implemented in the subclass.
  * @link http://php.net/manual/en/class.recursivefilteriterator.php
  */
-abstract class RecursiveFilterIterator extends FilterIterator implements Iterator, Traversable, OuterIterator, RecursiveIterator {
+abstract class RecursiveFilterIterator extends FilterIterator implements RecursiveIterator {
 
     /**
      * Create a RecursiveFilterIterator from a RecursiveIterator
@@ -592,7 +608,7 @@ abstract class RecursiveFilterIterator extends FilterIterator implements Iterato
  * This extended FilterIterator allows a recursive iteration using RecursiveIteratorIterator that only shows those elements which have children.
  * @link http://php.net/manual/en/class.parentiterator.php
  */
-class ParentIterator extends RecursiveFilterIterator implements RecursiveIterator, OuterIterator, Traversable, Iterator {
+class ParentIterator extends RecursiveFilterIterator {
 
     /**
      * Determines acceptability
@@ -650,7 +666,7 @@ interface Countable {
  * The Seekable iterator.
  * @link http://php.net/manual/en/class.seekableiterator.php
  */
-interface SeekableIterator extends Iterator, Traversable {
+interface SeekableIterator extends Iterator {
 
     /**
      * Seeks to a position
@@ -669,17 +685,17 @@ interface SeekableIterator extends Iterator, Traversable {
  * a limited subset of items in an <b>Iterator</b>.
  * @link http://php.net/manual/en/class.limititerator.php
  */
-class LimitIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator {
+class LimitIterator extends IteratorIterator {
 
     /**
      * Construct a LimitIterator
      * @link http://php.net/manual/en/limititerator.construct.php
-     * @param Iterator $iterator
-     * @param $offset [optional]
-     * @param $count [optional]
+     * @param Iterator $iterator The iterator to limit.
+     * @param int $offset [optional] The offset to start at. Must be zero or greater.
+     * @param int $count [optional] The number of items to iterate. Must be -1 or greater. -1, the default, means no limit.
      * @since 5.1.0
      */
-    public function __construct(Iterator $iterator, $offset, $count) { }
+    public function __construct(Iterator $iterator, $offset = 0, $count = -1) { }
 
     /**
      * Rewind the iterator to the specified starting offset
@@ -753,20 +769,46 @@ class LimitIterator extends IteratorIterator implements OuterIterator, Traversab
  * This object supports cached iteration over another iterator.
  * @link http://php.net/manual/en/class.cachingiterator.php
  */
-class CachingIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator, ArrayAccess, Countable {
-    const CALL_TOSTRING = 1;
-    const CATCH_GET_CHILD = 16;
-    const TOSTRING_USE_KEY = 2;
-    const TOSTRING_USE_CURRENT = 4;
-    const TOSTRING_USE_INNER = 8;
-    const FULL_CACHE = 256;
-
+class CachingIterator extends IteratorIterator implements ArrayAccess, Countable {
 
     /**
-     * Construct a new CachingIterator object for the iterator.
+     * String conversion flag (mutually exclusive): Uses the current element for the iterator's string conversion.
+     * This converts the current element to a string only once, regardless of whether it is needed or not.
+     */
+    const CALL_TOSTRING = 1;
+
+    /**
+     * String conversion flag (mutually exclusive). Uses the current key for the iterator's string conversion.
+     */
+    const TOSTRING_USE_KEY = 2;
+
+    /**
+     * String conversion flag (mutually exclusive). Uses the current element for the iterator's string conversion.
+     * This converts the current element to a string only when (and every time) it is needed.
+     */
+    const TOSTRING_USE_CURRENT = 4;
+
+    /**
+     * String conversion flag (mutually exclusive). Forwards the string conversion to the inner iterator.
+     * This converts the inner iterator to a string only once, regardless of whether it is needed or not.
+     */
+    const TOSTRING_USE_INNER = 8;
+
+    /**
+     * Ignore exceptions thrown in accessing children. Only used with {@see RecursiveCachingIterator}.
+     */
+    const CATCH_GET_CHILD = 16;
+
+    /**
+     * Cache all read data. This is needed to use {@see CachingIterator::getCache}, and ArrayAccess and Countable methods.
+     */
+    const FULL_CACHE = 256;
+
+    /**
+     * Constructs a new CachingIterator.
      * @link http://php.net/manual/en/cachingiterator.construct.php
-     * @param Iterator $iterator
-     * @param $flags [optional]
+     * @param Iterator $iterator The iterator to cache.
+     * @param int $flags [optional] A bitmask of flags. See CachingIterator class constants for details.
      * @since 5.0
      */
     public function __construct(Iterator $iterator, $flags = self::CALL_TOSTRING) { }
@@ -820,9 +862,9 @@ class CachingIterator extends IteratorIterator implements OuterIterator, Travers
     public function hasNext() { }
 
     /**
-     * Return the string representation of the current element
+     * Return the string representation of the current iteration based on the flag being used.
      * @link http://php.net/manual/en/cachingiterator.tostring.php
-     * @return string The string representation of the current element.
+     * @return string The string representation of the current iteration based on the flag being used.
      * @since 5.0
      */
     public function __toString() { }
@@ -853,56 +895,51 @@ class CachingIterator extends IteratorIterator implements OuterIterator, Travers
     public function setFlags($flags) { }
 
     /**
-     * The offsetGet purpose
+     * Internal cache array index to retrieve.
      * @link http://php.net/manual/en/cachingiterator.offsetget.php
-     * @param string $index <p>
-     * Description...
-     * </p>
-     * @return void Description...
+     * @param string $index The index of the element to retrieve.
+     * @return mixed
+     * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
      * @since 5.2.0
      */
     public function offsetGet($index) { }
 
     /**
-     * The offsetSet purpose
+     * Set an element on the internal cache array.
      * @link http://php.net/manual/en/cachingiterator.offsetset.php
-     * @param string $index <p>
-     * The index of the element to be set.
-     * </p>
-     * @param string $newval <p>
-     * The new value for the <i>index</i>.
-     * </p>
+     * @param string $index The index of the element to be set.
+     * @param string $newval The new value for the <i>index</i>.
      * @return void
+     * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
      * @since 5.2.0
      */
     public function offsetSet($index, $newval) { }
 
     /**
-     * The offsetUnset purpose
+     * Remove an element from the internal cache array.
      * @link http://php.net/manual/en/cachingiterator.offsetunset.php
-     * @param string $index <p>
-     * The index of the element to be unset.
-     * </p>
+     * @param string $index The index of the element to be unset.
      * @return void
+     * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
      * @since 5.2.0
      */
     public function offsetUnset($index) { }
 
     /**
-     * The offsetExists purpose
+     * Return whether an element at the index exists on the internal cache array.
      * @link http://php.net/manual/en/cachingiterator.offsetexists.php
-     * @param string $index <p>
-     * The index being checked.
-     * </p>
+     * @param string $index The index being checked.
      * @return bool true if an entry referenced by the offset exists, false otherwise.
+     * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
      * @since 5.2.0
      */
     public function offsetExists($index) { }
 
     /**
-     * The getCache purpose
+     * Retrieve the contents of the cache
      * @link http://php.net/manual/en/cachingiterator.getcache.php
-     * @return array Description...
+     * @return array An array containing the cache items.
+     * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
      * @since 5.2.0
      */
     public function getCache() { }
@@ -910,7 +947,8 @@ class CachingIterator extends IteratorIterator implements OuterIterator, Travers
     /**
      * The number of elements in the iterator
      * @link http://php.net/manual/en/cachingiterator.count.php
-     * @return void The count of the elements iterated over.
+     * @return int The count of the elements iterated over.
+     * @throws BadMethodCallException when the {@see CachingIterator::FULL_CACHE} flag is not being used.
      * @since 5.2.2
      */
     public function count() { }
@@ -920,15 +958,13 @@ class CachingIterator extends IteratorIterator implements OuterIterator, Travers
  * ...
  * @link http://php.net/manual/en/class.recursivecachingiterator.php
  */
-class RecursiveCachingIterator extends CachingIterator
-    implements Countable, ArrayAccess, Iterator, Traversable, OuterIterator, RecursiveIterator {
+class RecursiveCachingIterator extends CachingIterator implements RecursiveIterator {
 
     /**
-     * Construct
+     * Constructs a new RecursiveCachingIterator.
      * @link http://php.net/manual/en/recursivecachingiterator.construct.php
-     * @param Iterator $iterator The iterator being used.
-     * @param int $flags [optional] The flags. Use CALL_TOSTRING to call RecursiveCachingIterator::__toString() for every element (the default),
-     * and/or CATCH_GET_CHILD to catch exceptions when trying to get children.
+     * @param Iterator $iterator The iterator to cache.
+     * @param int $flags [optional] A bitmask of flags. See CachingIterator class constants for details.
      * @since 5.1.0
      */
     public function __construct(Iterator $iterator, $flags = self::CALL_TOSTRING) { }
@@ -955,7 +991,7 @@ class RecursiveCachingIterator extends CachingIterator
  * This iterator cannot be rewinded.
  * @link http://php.net/manual/en/class.norewinditerator.php
  */
-class NoRewindIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator {
+class NoRewindIterator extends IteratorIterator {
 
     /**
      * Construct a NoRewindIterator
@@ -1018,7 +1054,7 @@ class NoRewindIterator extends IteratorIterator implements OuterIterator, Traver
  * An Iterator that iterates over several iterators one after the other.
  * @link http://php.net/manual/en/class.appenditerator.php
  */
-class AppendIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator {
+class AppendIterator extends IteratorIterator {
 
     /**
      * Constructs an AppendIterator
@@ -1109,7 +1145,7 @@ class AppendIterator extends IteratorIterator implements OuterIterator, Traversa
  * rewind the iterator upon reaching its end.
  * @link http://php.net/manual/en/class.infiniteiterator.php
  */
-class InfiniteIterator extends IteratorIterator implements OuterIterator, Traversable, Iterator {
+class InfiniteIterator extends IteratorIterator {
 
     /**
      * Constructs an InfiniteIterator
@@ -1132,7 +1168,7 @@ class InfiniteIterator extends IteratorIterator implements OuterIterator, Traver
  * This iterator can be used to filter another iterator based on a regular expression.
  * @link http://php.net/manual/en/class.regexiterator.php
  */
-class RegexIterator extends FilterIterator implements Iterator, Traversable, OuterIterator {
+class RegexIterator extends FilterIterator {
 
     /**
      * Return all matches for the current entry @see preg_match_all
@@ -1318,7 +1354,7 @@ class RegexIterator extends FilterIterator implements Iterator, Traversable, Out
  * This recursive iterator can filter another recursive iterator via a regular expression.
  * @link http://php.net/manual/en/class.recursiveregexiterator.php
  */
-class RecursiveRegexIterator extends RegexIterator implements OuterIterator, Traversable, Iterator, RecursiveIterator {
+class RecursiveRegexIterator extends RegexIterator implements RecursiveIterator {
     /**
      * Creates a new RecursiveRegexIterator.
      * @link http://php.net/manual/en/recursiveregexiterator.construct.php
@@ -1329,7 +1365,7 @@ class RecursiveRegexIterator extends RegexIterator implements OuterIterator, Tra
      * @param int $preg_flags [optional] The regular expression flags. These flags depend on the operation mode parameter
      * @since 5.2.0
      */
-    public function __construct(RecursiveIterator $iterator, $regex, $mode, $flags, $preg_flags) { }
+    public function __construct(RecursiveIterator $iterator, $regex, $mode = self::MATCH, $flags = 0, $preg_flags = 0) { }
 
     /**
      * Returns whether an iterator can be obtained for the current entry.
@@ -1352,7 +1388,7 @@ class RecursiveRegexIterator extends RegexIterator implements OuterIterator, Tra
  * Allows iterating over a <b>RecursiveIterator</b> to generate an ASCII graphic tree.
  * @link http://php.net/manual/en/class.recursivetreeiterator.php
  */
-class RecursiveTreeIterator extends RecursiveIteratorIterator implements OuterIterator, Traversable, Iterator {
+class RecursiveTreeIterator extends RecursiveIteratorIterator {
 
     const BYPASS_CURRENT = 4;
     const BYPASS_KEY = 8;
@@ -1369,13 +1405,13 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator implements OuterIt
      * Construct a RecursiveTreeIterator
      * @link http://php.net/manual/en/recursivetreeiterator.construct.php
      * @param RecursiveIterator|IteratorAggregate $iterator
-     * @param int $flags [optional]
-     * @param int $caching_it_flags [optional]
-     * @param int $mode [optional]
+     * @param int $flags [optional] Flags to control the behavior of the RecursiveTreeIterator object.
+     * @param int $caching_it_flags [optional] Flags to affect the behavior of the {@see RecursiveCachingIterator} used internally.
+     * @param int $mode [optional] Flags to affect the behavior of the {@see RecursiveIteratorIterator} used internally.
      * @since 5.3.0
      */
-    public function __construct($iterator, $flags = RecursiveTreeIterator::BYPASS_KEY, $caching_it_flags = CachingIterator::CATCH_GET_CHILD,
-                                $mode = RecursiveIteratorIterator::SELF_FIRST) { }
+    public function __construct($iterator, $flags = self::BYPASS_KEY, $caching_it_flags = CachingIterator::CATCH_GET_CHILD,
+                                $mode = self::SELF_FIRST) { }
 
     /**
      * Rewind iterator
@@ -1516,7 +1552,7 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator implements OuterIt
  * This class allows objects to work as arrays.
  * @link http://php.net/manual/en/class.arrayobject.php
  */
-class ArrayObject implements IteratorAggregate, Traversable, ArrayAccess, Serializable, Countable {
+class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Countable {
     /**
      * Properties of the object have their normal functionality when accessed as list (var_dump, foreach, etc.).
      */
@@ -1537,7 +1573,7 @@ class ArrayObject implements IteratorAggregate, Traversable, ArrayAccess, Serial
      * @since 5.0.0
      *
      */
-    public function __construct($input = [], $flags = 0, $iterator_class = "ArrayIterator") { }
+    public function __construct($input = array(), $flags = 0, $iterator_class = "ArrayIterator") { }
 
     /**
      * Returns whether the requested index exists
@@ -1791,7 +1827,7 @@ class ArrayObject implements IteratorAggregate, Traversable, ArrayAccess, Serial
  * over Arrays and Objects.
  * @link http://php.net/manual/en/class.arrayiterator.php
  */
-class ArrayIterator implements Iterator, Traversable, ArrayAccess, SeekableIterator, Serializable, Countable {
+class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Countable {
     const STD_PROP_LIST = 1;
     const ARRAY_AS_PROPS = 2;
 
@@ -2035,8 +2071,7 @@ class ArrayIterator implements Iterator, Traversable, ArrayAccess, SeekableItera
  * over the current iterator entry.
  * @link http://php.net/manual/en/class.recursivearrayiterator.php
  */
-class RecursiveArrayIterator extends ArrayIterator
-    implements Serializable, SeekableIterator, ArrayAccess, Traversable, Iterator, RecursiveIterator {
+class RecursiveArrayIterator extends ArrayIterator implements RecursiveIterator {
     const CHILD_ARRAYS_ONLY = 4;
 
 
