@@ -51,7 +51,7 @@ function floatval ($var) {}
 
 /**
  * (PHP 4.2.0, PHP 5)<br/>
- * doubleval � Alias of floatval()
+ * Alias of floatval()
  * Get float value of a variable
  * &Alias; <function>floatval</function>
  * @link http://php.net/manual/en/function.doubleval.php
