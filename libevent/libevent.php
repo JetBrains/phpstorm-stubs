@@ -52,7 +52,7 @@ define('EV_SIGNAL', 8);
  * If you want to make it non-pending from within its callback, you can call
  * event_del() on it.
  *
- * The timeout on a persistent event resets whenever the event�s callback runs.
+ * The timeout on a persistent event resets whenever the event's callback runs.
  * Thus, if you have an event with flags EV_READ|EV_PERSIST and a timeout of five
  * seconds, the event will become active:
  *
@@ -151,7 +151,7 @@ function event_base_free($event_base) {}
  * <p>By default, the {@link event_base_loop}() function runs an event_base until
  * there are no more events registered in it. To run the loop, it repeatedly
  * checks whether any of the registered events has triggered (for example,
- * if a read event�s file descriptor is ready to read, or if a timeout event�s
+ * if a read event's file descriptor is ready to read, or if a timeout event's
  * timeout is ready to expire). Once this happens, it marks all triggered events
  * as "active", and starts to run them.
  * </p>
@@ -183,7 +183,7 @@ function event_base_loop($event_base, $flags = null) {}
  *
  * <p>It differs from {@link event_base_loopexit}() in that if the event_base is currently
  * running callbacks for any active events, it will exit immediately after finishing the
- * one it�s currently processing. The behaviour is similar to break statement.</p>
+ * one it's currently processing. The behaviour is similar to break statement.</p>
  *
  * @link http://php.net/event_base_loopbreak
  *
@@ -543,12 +543,12 @@ function event_buffer_timeout_set($bevent, $read_timeout, $write_timeout) {}
  * <p>Every bufferevent has four watermarks:</p>
  *
  * <p><b>Read low-water mark</b><br/>
- * Whenever a read occurs that leaves the bufferevent�s input buffer at this
- * level or higher, the bufferevent�s read callback is invoked. Defaults to 0,
+ * Whenever a read occurs that leaves the bufferevent's input buffer at this
+ * level or higher, the bufferevent's read callback is invoked. Defaults to 0,
  * so that every read results in the read callback being invoked.</p>
  *
  * <p><b>Read high-water mark</b><br/>
- * If the bufferevent�s input buffer ever gets to this level, the bufferevent
+ * If the bufferevent's input buffer ever gets to this level, the bufferevent
  * stops reading until enough data is drained from the input buffer to take us
  * below it again. Defaults to unlimited, so that we never stop reading because
  * of the size of the input buffer.</p>
