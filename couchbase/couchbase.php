@@ -359,6 +359,15 @@ namespace Couchbase {
      * @see \Couchbase\Cluster
      */
     final class ClusterManager {
+        /**
+         * The user account managed by Couchbase Cluster.
+         */
+        const RBAC_DOMAIN_LOCAL = 1;
+        /**
+         * The user account managed by external system (e.g. LDAP).
+         */
+        const RBAC_DOMAIN_EXTERNAL = 2;
+
         /** @ignore */
         final private function __construct() {}
 
@@ -410,30 +419,54 @@ namespace Couchbase {
         /**
          * Lists all users on this cluster.
          *
+         * @param int $domain RBAC domain
+         *
          * @return array
+         *
+         * @see \Couchbase\ClusterManager::RBAC_DOMAIN_LOCAL
+         * @see \Couchbase\ClusterManager::RBAC_DOMAIN_EXTERNAL
          */
-        final public function listUsers() {}
+        final public function listUsers($domain = RBAC_DOMAIN_LOCAL) {}
+
+        /**
+         * Fetch single user by its name
+         *
+         * @param string $username The user's identifier
+         * @param int $domain RBAC domain
+         *
+         * @return array
+         *
+         * @see \Couchbase\ClusterManager::RBAC_DOMAIN_LOCAL
+         * @see \Couchbase\ClusterManager::RBAC_DOMAIN_EXTERNAL
+         */
+        final public function getUser($username, $domain = RBAC_DOMAIN_LOCAL) {}
 
         /**
          * Creates new user
          *
          * @param string $name Name of the user
          * @param \Couchbase\UserSettings $settings settings (credentials and roles)
+         * @param int $domain RBAC domain
          *
          * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
          *   More options and details
+         * @see \Couchbase\ClusterManager::RBAC_DOMAIN_LOCAL
+         * @see \Couchbase\ClusterManager::RBAC_DOMAIN_EXTERNAL
          */
-        final public function upsertUser($name, $settings) {}
+        final public function upsertUser($name, $settings, $domain = RBAC_DOMAIN_LOCAL) {}
 
         /**
          * Removes a user identified by its name.
          *
          * @param string $name name of the bucket
+         * @param int $domain RBAC domain
          *
          * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
          *   More details
+         * @see \Couchbase\ClusterManager::RBAC_DOMAIN_LOCAL
+         * @see \Couchbase\ClusterManager::RBAC_DOMAIN_EXTERNAL
          */
-        final public function removeUser($name) {}
+        final public function removeUser($name, $domain = RBAC_DOMAIN_LOCAL) {}
     }
 
     /**
@@ -477,7 +510,7 @@ namespace Couchbase {
          * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
          *   More details
          */
-        final public function role($role, $bucket) {}
+        final public function role($role, $bucket = NULL) {}
     }
 
     /**
