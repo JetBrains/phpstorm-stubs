@@ -1797,6 +1797,16 @@ class GearmanClient {
      * @return bool
      */
     public function runTasks() {}
+
+    /**
+     * Sends some arbitrary data to all job servers to see if they echo it back.
+     * The data sent is not used or processed in any other way. Primarily used for testing and debugging.
+     *
+     * @link http://php.net/manual/en/gearmanclient.ping.php
+     * @param string $workload
+     * @return bool
+     */
+    public function ping($workload) {}
 }
 
 
