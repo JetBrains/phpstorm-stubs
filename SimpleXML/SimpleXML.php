@@ -6,7 +6,7 @@
  * Represents an element in an XML document.
  * @link http://php.net/manual/en/class.simplexmlelement.php
  */
-class SimpleXMLElement implements Traversable {
+class SimpleXMLElement implements Traversable, ArrayAccess {
 
 	/**
 	 * Creates a new SimpleXMLElement object
@@ -24,7 +24,7 @@ class SimpleXMLElement implements Traversable {
 	/**
      * Provides access to element's children
      * @param $name child name
-     * @return SimpleXMLElement[]
+     * @return SimpleXMLElement
      */
     function __get($name) {}
 
@@ -215,6 +215,38 @@ class SimpleXMLElement implements Traversable {
 	 */
 	public function count () {}
 
+    /**
+     * Class provides access to children by position, and attributes by name
+     * Stub only: method not callable directly.
+     * @param string|int $offset
+     * @return boolean true on success or false on failure.
+     */
+    public function offsetExists ($offset) {}
+
+    /**
+     * Class provides access to children by position, and attributes by name
+     * Stub only: method not callable directly.
+     * @param string|int $offset
+     * @return SimpleXMLElement Either a named attribute or an element from a list of children
+     */
+    public function offsetGet ($offset) {}
+
+    /**
+     * Class provides access to children by position, and attributes by name
+     * Stub only: method not callable directly.
+     * @param string|int $offset
+     * @param mixed $value
+     * @return void
+     */
+    public function offsetSet ($offset, $value) {}
+
+    /**
+     * Class provides access to children by position, and attributes by name
+     * Stub only: method not callable directly.
+     * @param string|int $offset
+     * @return void
+     */
+    public function offsetUnset ($offset) {}
 }
 
 /**
