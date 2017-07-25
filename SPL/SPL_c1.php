@@ -365,6 +365,7 @@ class FilesystemIterator extends DirectoryIterator {
         const NEW_CURRENT_AND_KEY = 256;
         const SKIP_DOTS = 4096;
         const UNIX_PATHS = 8192;
+        const OTHER_MODE_MASK = 12288;
 
         /**
          * Constructs a new filesystem iterator
