@@ -1104,11 +1104,12 @@ function date_diff ($object, $object2, $absolute) {}
  * @param $hour
  * @param $minute
  * @param $second [optional]
+ * @parame $microseconds [optional]
  * @return DateTime|false <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  * @since 5.2.0
  */
-function date_time_set ($object, $hour, $minute, $second) {}
+function date_time_set ($object, $hour, $minute, $second, $microseconds) {}
 
 /**
  * &Alias; <methodname>DateTime::setDate</methodname>
