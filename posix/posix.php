@@ -843,6 +843,46 @@ define ('POSIX_RLIMIT_DATA', 2);
 define ('POSIX_RLIMIT_FSIZE', 1);
 
 /**
+ * The maximum number of locks that the process can create.
+ * This is only supported on extremely old Linux kernels.
+ * @link http://php.net/manual/en/posix.constants.setrlimit.php
+ */
+define('POSIX_RLIMIT_LOCKS', 10);
+
+/**
+ * The maximum number of bytes that can be allocated for POSIX message queues.
+ * PHP does not ship with support for POSIX message queues,
+ * so this limit will not have any effect unless you are using an extension that implements that support.
+ * @link http://php.net/manual/en/posix.constants.setrlimit.php
+ */
+define('POSIX_RLIMIT_MSGQUEUE', 12);
+
+/**
+ * The maximum value to which the process can be <a href="http://php.net/manual/en/function.pcntl-setpriority.php"> reniced</a> to. The value that will be used will be 20 - limit, as resource limit values cannot be negative.
+ * @link http://php.net/manual/en/posix.constants.setrlimit.php
+ */
+define('POSIX_RLIMIT_NICE', 13);
+
+/**
+ * The maximum real time priority that can be set via the sched_setscheduler() and sched_setparam() system calls.
+ * @link http://php.net/manual/en/posix.constants.setrlimit.php
+ */
+define('POSIX_RLIMIT_RTPRIO', 14);
+
+/**
+ * The maximum amount of CPU time, in microseconds,
+ * that the process can consume without making a blocking system call if it is using real time scheduling.
+ * @link http://php.net/manual/en/posix.constants.setrlimit.php
+ */
+define('POSIX_RLIMIT_RTTIME', 15);
+
+/**
+ * The maximum number of signals that can be queued for the real user ID of the process.
+ * @link http://php.net/manual/en/posix.constants.setrlimit.php
+ */
+define('POSIX_RLIMIT_SIGPENDING', 11);
+
+/**
  * The maximum number of bytes that can be locked into memory.
  * @link http://php.net/manual/en/posix.constants.setrlimit.php
  */
