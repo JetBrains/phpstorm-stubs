@@ -360,7 +360,8 @@ function preg_filter ($pattern, $replacement, $subject, $limit = -1, &$count = n
  * If this flag is set, only non-empty pieces will be returned by
  * <b>preg_split</b>.
  * @return array an array containing substrings of <i>subject</i>
- * split along boundaries matched by <i>pattern</i>.
+ * split along boundaries matched by <i>pattern</i>, or <b>FALSE</b>
+ * if an error occurred.
  * @since 4.0
  * @since 5.0
  */
