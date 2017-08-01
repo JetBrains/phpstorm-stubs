@@ -1019,7 +1019,7 @@ function mb_eregi ($pattern, $string, array $regs = null) {}
  * @since 4.2.0
  * @since 5.0
  */
-function mb_ereg_replace ($pattern, $replacement, $string, $option = null) {}
+function mb_ereg_replace ($pattern, $replacement, $string, $option = "msr") {}
 
 /**
  * Perform a regular expresssion seach and replace with multibyte support using a callback
@@ -1085,7 +1085,7 @@ function mb_ereg_replace_callback ($pattern, callable $callback, $string, $optio
  * @since 4.2.0
  * @since 5.0
  */
-function mb_eregi_replace ($pattern, $replace, $string, $option = null) {}
+function mb_eregi_replace ($pattern, $replace, $string, $option = "msr") {}
 
 /**
  * Split multibyte string using regular expression
