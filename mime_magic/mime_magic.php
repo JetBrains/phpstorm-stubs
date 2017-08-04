@@ -3,7 +3,7 @@
 // Start of mime_magic v.0.1
 
 /**
- * Detect MIME Content-type for a file (deprecated)
+ * Detect MIME Content-type for a file
  * @link http://php.net/manual/en/function.mime-content-type.php
  * @param $filename string <p>
  * Path to the tested file.
