@@ -217,36 +217,36 @@ class SimpleXMLElement implements Traversable, ArrayAccess {
 
     /**
      * Class provides access to children by position, and attributes by name
-     * Stub only: method not callable directly.
+     * @access private Method not callable directly, stub exists for typehint only
      * @param string|int $offset
      * @return boolean true on success or false on failure.
      */
-    public function offsetExists ($offset) {}
+    private function offsetExists ($offset) {}
 
     /**
      * Class provides access to children by position, and attributes by name
-     * Stub only: method not callable directly.
+     * @access private Method not callable directly, stub exists for typehint only
      * @param string|int $offset
      * @return SimpleXMLElement Either a named attribute or an element from a list of children
      */
-    public function offsetGet ($offset) {}
+    private function offsetGet ($offset) {}
 
     /**
      * Class provides access to children by position, and attributes by name
-     * Stub only: method not callable directly.
+     * @access private Method not callable directly, stub exists for typehint only
      * @param string|int $offset
      * @param mixed $value
      * @return void
      */
-    public function offsetSet ($offset, $value) {}
+    private function offsetSet ($offset, $value) {}
 
     /**
      * Class provides access to children by position, and attributes by name
-     * Stub only: method not callable directly.
+     * @access private Method not callable directly, stub exists for typehint only
      * @param string|int $offset
      * @return void
      */
-    public function offsetUnset ($offset) {}
+    private function offsetUnset ($offset) {}
 }
 
 /**
