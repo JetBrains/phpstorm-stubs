@@ -23,10 +23,11 @@ class SimpleXMLElement implements Traversable, ArrayAccess {
 
 	/**
      * Provides access to element's children
+     * @access private Method not callable directly, stub exists for typehint only
      * @param $name child name
      * @return SimpleXMLElement
      */
-    function __get($name) {}
+    private function __get($name) {}
 
 	/**
 	 * Return a well-formed XML string based on SimpleXML element
