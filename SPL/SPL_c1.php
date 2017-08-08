@@ -551,7 +551,7 @@ class GlobIterator extends FilesystemIterator implements Countable {
 class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIterator {
         const DROP_NEW_LINE = 1;
         const READ_AHEAD = 2;
-        const SKIP_EMPTY = 6;
+        const SKIP_EMPTY = 4;
         const READ_CSV = 8;
 
 
