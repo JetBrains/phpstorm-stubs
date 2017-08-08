@@ -11,8 +11,8 @@ Please link pull request/commit messages to [issue tracker] and back if correspo
 * Please add corresponding @since tags
 
 ## Types of contribution
-As of 2017.1 Preview we gladly accept all "non-statdard" extenstions and IDE get a UI for per-project configuration.
-As of 2016.3 there is an [easy way to package your custom stubs/metadata] as an plugin.
+As of 2017.1 Preview we gladly accept all "non-standard" extensions and IDE get a UI for per-project configuration.
+As of 2016.3 there is an [easy way to package your custom stubs/metadata] as a plugin.
 
 
 [issue tracker]:https://youtrack.jetbrains.com/issues/WI?q=%23Unresolved+%23%7BPHP+lib+stubs%7D+
