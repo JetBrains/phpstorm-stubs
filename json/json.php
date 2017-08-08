@@ -17,7 +17,7 @@ interface JsonSerializable  {
 	 * which is a value of any type other than a resource.
 	 * @since 5.4.0
 	 */
-    function jsonSerialize ();
+    public function jsonSerialize ();
 
 }
 
