@@ -907,7 +907,7 @@ class NumberFormatter {
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Format a number
      * @link http://php.net/manual/en/numberformatter.format.php
-     * @param number $value <p>
+     * @param int|float $value <p>
      * The value to format. Can be integer or float,
      * other values will be converted to a numeric value.
      * </p>
@@ -3392,7 +3392,7 @@ function numfmt_create($locale, $style, $pattern = null) { }
  * Format a number
  * @link http://php.net/manual/en/numberformatter.format.php
  * @param NumberFormatter $fmt
- * @param number $value <p>
+ * @param int|float $value <p>
  * The value to format. Can be integer or float,
  * other values will be converted to a numeric value.
  * </p>

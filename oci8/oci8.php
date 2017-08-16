@@ -2151,7 +2151,7 @@ function ocicollmax ($collection) {}
  * {@see OCI_Collection::trim}
  * @link http://php.net/manual/en/function.ocicolltrim.php
  * @param collection
- * @param number
+ * @param int|float
  * @return bool Returns <b>TRUE</b> or <b>FALSE</b> on failure.
  */
 function ocicolltrim ($collection, $number) {}
