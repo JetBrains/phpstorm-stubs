@@ -68,7 +68,7 @@ function convert_uudecode ($data) {}
  * @param mixed $number <p>
  * The numeric value to process
  * </p>
- * @return number The absolute value of number. If the
+ * @return float|int The absolute value of number. If the
  * argument number is
  * of type float, the return type is also float,
  * otherwise it is integer (as float usually has a
