@@ -176,14 +176,14 @@ function array_pad(array $input, $pad_size, $pad_value) { }
 /**
  * Exchanges all keys with their associated values in an array
  * @link http://php.net/manual/en/function.array-flip.php
- * @param array $trans <p>
+ * @param array $array <p>
  * An array of key/value pairs to be flipped.
  * </p>
- * @return array|bool the flipped array on success and false on failure.
+ * @return array|null Returns the flipped array on success and NULL on failure.
  * @since 4.0
  * @since 5.0
  */
-function array_flip(array $trans) { }
+function array_flip(array $array) { }
 
 /**
  * Changes all keys in an array
