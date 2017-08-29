@@ -383,13 +383,13 @@ function is_infinite ($val) {}
 /**
  * Exponential expression
  * @link http://php.net/manual/en/function.pow.php
- * @param number $base <p>
+ * @param int|float $base <p>
  * The base to use
  * </p>
- * @param number $exp <p>
+ * @param int|float $exp <p>
  * The exponent
  * </p>
- * @return number base raised to the power of exp.
+ * @return int|float base raised to the power of exp.
  * If the result can be represented as integer it will be returned as type
  * integer, else it will be returned as type float.
  * If the power cannot be computed false will be returned instead.
@@ -498,7 +498,7 @@ function rad2deg ($number) {}
  * @param string $binary_string <p>
  * The binary string to convert
  * </p>
- * @return number The decimal value of binary_string
+ * @return int|float The decimal value of binary_string
  * @since 4.0
  * @since 5.0
  */
@@ -510,7 +510,7 @@ function bindec ($binary_string) {}
  * @param string $hex_string <p>
  * The hexadecimal string to convert
  * </p>
- * @return number The decimal representation of hex_string
+ * @return int|float The decimal representation of hex_string
  * @since 4.0
  * @since 5.0
  */
@@ -522,7 +522,7 @@ function hexdec ($hex_string) {}
  * @param string $octal_string <p>
  * The octal string to convert
  * </p>
- * @return number The decimal representation of octal_string
+ * @return int|float The decimal representation of octal_string
  * @since 4.0
  * @since 5.0
  */
