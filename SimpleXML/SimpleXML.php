@@ -24,7 +24,7 @@ class SimpleXMLElement implements Traversable {
 	/**
      * Provides access to element's children
      * @param $name child name
-     * @return SimpleXMLElement[]
+     * @return array($this)
      */
     function __get($name) {}
 
@@ -65,7 +65,7 @@ class SimpleXMLElement implements Traversable {
 	 * @param string $path <p>
 	 * An XPath path
 	 * </p>
-	 * @return SimpleXMLElement[] an array of SimpleXMLElement objects or <b>FALSE</b> in
+	 * @return array($this) an array of SimpleXMLElement objects or <b>FALSE</b> in
 	 * case of an error.
 	 * @since 5.2.0
 	 */
@@ -97,7 +97,7 @@ class SimpleXMLElement implements Traversable {
 	 * @param bool $is_prefix [optional] <p>
 	 * Default to <b>FALSE</b>
 	 * </p>
-	 * @return SimpleXMLElement a <b>SimpleXMLElement</b> object that can be
+	 * @return $this a <b>SimpleXMLElement</b> object that can be
 	 * iterated over to loop through the attributes on the tag.
 	 * </p>
 	 * <p>
@@ -119,7 +119,7 @@ class SimpleXMLElement implements Traversable {
 	 * <i>ns</i> will be regarded as a namespace
 	 * URL.
 	 * </p>
-	 * @return SimpleXMLElement a <b>SimpleXMLElement</b> element, whether the node
+	 * @return $this a <b>SimpleXMLElement</b> element, whether the node
 	 * has children or not.
 	 * @since 5.0.1
 	 */
@@ -176,7 +176,7 @@ class SimpleXMLElement implements Traversable {
 	 * @param string $namespace [optional] <p>
 	 * If specified, the namespace to which the child element belongs.
 	 * </p>
-	 * @return SimpleXMLElement The addChild method returns a SimpleXMLElement
+	 * @return $this The addChild method returns a SimpleXMLElement
 	 * object representing the child added to the XML node.
 	 * @since 5.1.3
 	 */
@@ -329,7 +329,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
  * <b>TRUE</b> if <i>ns</i> is a prefix, <b>FALSE</b> if it's a URI;
  * defaults to <b>FALSE</b>.
  * </p>
- * @return SimpleXMLElement an object of class SimpleXMLElement with
+ * @return mixed an object of class SimpleXMLElement with
  * properties containing the data held within the XML document, or <b>FALSE</b> on failure.
  * @since 5.0
  */
@@ -358,7 +358,7 @@ function simplexml_load_file ($filename, $class_name = "SimpleXMLElement", $opti
  * <b>TRUE</b> if <i>ns</i> is a prefix, <b>FALSE</b> if it's a URI;
  * defaults to <b>FALSE</b>.
  * </p>
- * @return SimpleXMLElement an object of class SimpleXMLElement with
+ * @return mixed an object of class SimpleXMLElement with
  * properties containing the data held within the xml document, or <b>FALSE</b> on failure.
  * @since 5.0
  */
@@ -376,7 +376,7 @@ function simplexml_load_string ($data, $class_name = "SimpleXMLElement", $option
  * the specified class. That class should extend the
  * SimpleXMLElement class.
  * </p>
- * @return SimpleXMLElement a SimpleXMLElement or <b>FALSE</b> on failure.
+ * @return mixed a SimpleXMLElement or <b>FALSE</b> on failure.
  * @since 5.0
  */
 function simplexml_import_dom (DOMNode $node, $class_name = "SimpleXMLElement") {}
