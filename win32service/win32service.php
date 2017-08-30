@@ -1,5 +1,142 @@
 <?php
 
+//start Win32Service Service Type Bitmasks
+/**
+ * The service runs in its own process.
+ */
+define( "WIN32_SERVICE_WIN32_OWN_PROCESS", 0x00000010 );
+/**
+ * The service can interact with the desktop. This option is not available on Windows Vista or later.
+ */
+define( "WIN32_SERVICE_INTERACTIVE_PROCESS", 0x00000100 );
+/**
+ * The service runs in its own process and can interact with the desktop. This option is not available on Windows Vista
+ * or later.
+ */
+define( "WIN32_SERVICE_WIN32_OWN_PROCESS_INTERACTIVE", 0x00000110 );
+//end Win32Service Service Type Bitmasks
+
+//start Win32Service Service Status Constants
+/**
+ *  The service continue is pending.
+ */
+define( "WIN32_SERVICE_CONTINUE_PENDING", 0x00000005 );
+/**
+ *  The service pause is pending.
+ */
+define( "WIN32_SERVICE_PAUSE_PENDING", 0x00000006 );
+/**
+ *  The service is paused.
+ */
+define( "WIN32_SERVICE_PAUSED", 0x00000007 );
+/**
+ *  The service is running.
+ */
+define( "WIN32_SERVICE_RUNNING", 0x00000004 );
+/**
+ *  The service is starting.
+ */
+define( "WIN32_SERVICE_START_PENDING", 0x00000002 );
+/**
+ *  The service is stopping.
+ */
+define( "WIN32_SERVICE_STOP_PENDING", 0x00000003 );
+/**
+ *  The service is not running.
+ */
+define( "WIN32_SERVICE_STOPPED", 0x00000001 );
+//end Win32Service Service Status Constants
+
+//start Win32Service Service Control Message Constants
+/**
+ *  Notifies a paused service that it should resume.
+ */
+define( "WIN32_SERVICE_CONTROL_CONTINUE", 0x00000003 );
+/**
+ *  Notifies a service that it should report its current status information to the service control manager.
+ */
+define( "WIN32_SERVICE_CONTROL_INTERROGATE", 0x00000004 );
+/**
+ *  Notifies a service that it should pause.
+ */
+define( "WIN32_SERVICE_CONTROL_PAUSE", 0x00000002 );
+/**
+ *  Notifies a service that the system will be shutting down. A service that handles this notification blocks system
+ *  shutdown until the service stops or the preshutdown time-out interval expires. This value is not supported by
+ *  Windows Server 2003 and Windows XP/2000.
+ */
+define( "WIN32_SERVICE_CONTROL_PRESHUTDOWN", 0x0000000F );
+/**
+ *  Notifies a service that the system is shutting down so the service can perform cleanup tasks. If a service accepts
+ *  this control code, it must stop after it performs its cleanup tasks. After the SCM sends this control code, it will
+ *  not send other control codes to the service.
+ */
+define( "WIN32_SERVICE_CONTROL_SHUTDOWN", 0x00000005 );
+/**
+ *  Notifies a service that it should stop.
+ */
+define( "WIN32_SERVICE_CONTROL_STOP", 0x00000001 );
+//end Win32Service Service Control Message Constants
+
+//start Win32Service Service Control Message Accepted Bitmasks
+/**
+ *  The service can be paused and continued. This control code allows the service to receive
+ *  WIN32_SERVICE_CONTROL_PAUSE and WIN32_SERVICE_CONTROL_CONTINUE notifications.
+ */
+define( "WIN32_SERVICE_ACCEPT_PAUSE_CONTINUE", 0x00000002 );
+/**
+ *  The service can perform preshutdown tasks. This control code enables the service to receive
+ *  WIN32_SERVICE_CONTROL_PRESHUTDOWN notifications. This value is not supported by Windows Server 2003 and Windows
+ *  XP/2000.
+ */
+define( "WIN32_SERVICE_ACCEPT_PRESHUTDOWN", 0x00000100 );
+/**
+ *  The service is notified when system shutdown occurs. This control code allows the service to receive
+ *  WIN32_SERVICE_CONTROL_SHUTDOWN notifications.
+ */
+define( "WIN32_SERVICE_ACCEPT_SHUTDOWN", 0x00000004 );
+/**
+ *  The service can be stopped. This control code allows the service to receive WIN32_SERVICE_CONTROL_STOP
+ *  notifications.
+ */
+define( "WIN32_SERVICE_ACCEPT_STOP", 0x00000001 );
+//end Win32Service Service Control Message Accepted Bitmasks
+
+//start Win32Service Service Start Type Constants
+/**
+ *  A service started automatically by the service control manager during system startup.
+ */
+define( "WIN32_SERVICE_AUTO_START", 0x00000002 );
+/**
+ *  A service started by the service control manager when a process calls the StartService function.
+ */
+define( "WIN32_SERVICE_DEMAND_START", 0x00000003 );
+/**
+ *  A service that cannot be started. Attempts to start the service result in the error code
+ *  WIN32_ERROR_SERVICE_DISABLED.
+ */
+define( "WIN32_SERVICE_DISABLED", 0x00000004 );
+//end Win32Service Service Start Type Constants
+
+//start Win32Service Service Error Control Constants
+/**
+ *  The startup program ignores the error and continues the startup operation.
+ */
+define( "WIN32_SERVICE_ERROR_IGNORE", 0x00000000 );
+/**
+ *  The startup program logs the error in the event log but continues the startup operation.
+ */
+define( "WIN32_SERVICE_ERROR_NORMAL", 0x00000001 );
+//end Win32Service Service Error Control Constants
+
+//start Win32Service Service Flag Constants
+/**
+ * The service runs in a system process that must always be running.
+ */
+define( "WIN32_SERVICE_RUNS_IN_SYSTEM_PROCESS", 0x00000001 );
+//end Win32Service Service Flag Constants
+
+//start Win32 Error Codes
 /**
  * The handle to the SCM database does not have the appropriate access rights.
  */
@@ -126,6 +263,42 @@ define( "WIN32_ERROR_SHUTDOWN_IN_PROGRESS", 0x0000045B );
  * No error.
  */
 define( "WIN32_NO_ERROR", 0x00000000 );
+//end Win32 Error Codes
+
+//start Win32 Base Priority Classes
+/**
+ *  Process that has priority above WIN32_NORMAL_PRIORITY_CLASS but below WIN32_HIGH_PRIORITY_CLASS.
+ */
+define( "WIN32_ABOVE_NORMAL_PRIORITY_CLASS", 0x00008000 );
+/**
+ *  Process that has priority above WIN32_IDLE_PRIORITY_CLASS but below WIN32_NORMAL_PRIORITY_CLASS.
+ */
+define( "WIN32_BELOW_NORMAL_PRIORITY_CLASS", 0x00004000 );
+/**
+ *  Process that performs time-critical tasks that must be executed immediately. The threads of the process preempt the
+ *  threads of normal or idle priority class processes. An example is the Task List, which must respond quickly when
+ *  called by the user, regardless of the load on the operating system. Use extreme care when using the high-priority
+ *  class, because a high-priority class application can use nearly all available CPU time.
+ */
+define( "WIN32_HIGH_PRIORITY_CLASS", 0x00000080 );
+/**
+ *  Process whose threads run only when the system is idle. The threads of the process are preempted by the threads of
+ *  any process running in a higher priority class. An example is a screen saver. The idle-priority class is inherited
+ *  by child processes.
+ */
+define( "WIN32_IDLE_PRIORITY_CLASS", 0x00000040 );
+/**
+ *  Process with no special scheduling needs.
+ */
+define( "WIN32_NORMAL_PRIORITY_CLASS", 0x00000020 );
+/**
+ *  Process that has the highest possible priority. The threads of the process preempt the threads of all other
+ *  processes, including operating system processes performing important tasks. For example, a real-time process that
+ *  executes for more than a very brief interval can cause disk caches not to flush or cause the mouse to be
+ *  unresponsive.
+ */
+define( "WIN32_REALTIME_PRIORITY_CLASS", 0x00000100 );
+//end Win32 Base Priority Classes
 
 /**
  * resumes a paused service
