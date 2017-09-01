@@ -1771,7 +1771,7 @@ class MongoGridFS extends MongoCollection {
     * @param mixed $id _id of the file to find.
     * @return MongoGridFSFile|null Returns the file, if found, or NULL.
     */
-    public function __get($id) {}
+    public function get($id) {}
 
      /**
      * Stores a file in the database
