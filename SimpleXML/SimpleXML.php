@@ -6,7 +6,7 @@
  * Represents an element in an XML document.
  * @link http://php.net/manual/en/class.simplexmlelement.php
  */
-class SimpleXMLElement implements Traversable {
+class SimpleXMLElement implements Traversable, ArrayAccess {
 
 	/**
 	 * Creates a new SimpleXMLElement object
@@ -23,10 +23,11 @@ class SimpleXMLElement implements Traversable {
 
 	/**
      * Provides access to element's children
+     * @access private Method not callable directly, stub exists for typehint only
      * @param $name child name
-     * @return SimpleXMLElement[]
+     * @return SimpleXMLElement
      */
-    function __get($name) {}
+    private function __get($name) {}
 
 	/**
 	 * Return a well-formed XML string based on SimpleXML element
@@ -215,6 +216,38 @@ class SimpleXMLElement implements Traversable {
 	 */
 	public function count () {}
 
+    /**
+     * Class provides access to children by position, and attributes by name
+     * @access private Method not callable directly, stub exists for typehint only
+     * @param string|int $offset
+     * @return boolean true on success or false on failure.
+     */
+    private function offsetExists ($offset) {}
+
+    /**
+     * Class provides access to children by position, and attributes by name
+     * @access private Method not callable directly, stub exists for typehint only
+     * @param string|int $offset
+     * @return SimpleXMLElement Either a named attribute or an element from a list of children
+     */
+    private function offsetGet ($offset) {}
+
+    /**
+     * Class provides access to children by position, and attributes by name
+     * @access private Method not callable directly, stub exists for typehint only
+     * @param string|int $offset
+     * @param mixed $value
+     * @return void
+     */
+    private function offsetSet ($offset, $value) {}
+
+    /**
+     * Class provides access to children by position, and attributes by name
+     * @access private Method not callable directly, stub exists for typehint only
+     * @param string|int $offset
+     * @return void
+     */
+    private function offsetUnset ($offset) {}
 }
 
 /**
