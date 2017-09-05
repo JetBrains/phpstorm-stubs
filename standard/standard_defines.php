@@ -1025,6 +1025,8 @@ define('IMAGETYPE_WEBP', 18);
  */
 define ('DNS_A', 1);
 
+define('DNS_CAA', 8192);
+
 /**
  * Authoritative Name Server Resource
  * @link http://php.net/manual/en/network.constants.php

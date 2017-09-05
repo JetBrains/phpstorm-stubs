@@ -8,6 +8,18 @@
  * @param string $source <p>
  * The PHP source to parse.
  * </p>
+ * @param int $flags
+ * <p>
+ * <p>
+ * Valid flags:
+ * </p><ul>
+ * <li>
+ *
+ * <b>TOKEN_PARSE</b> - Recognises the ability to use
+ * reserved words in specific contexts.
+ * </li>
+ * </ul>
+ * </p>
  * @return array An array of token identifiers. Each individual token identifier is either
  * a single character (i.e.: ;, .,
  * &gt;, !, etc...),
@@ -16,7 +28,7 @@
  * @since 4.2.0
  * @since 5.0
  */
-function token_get_all ($source) {}
+function token_get_all ($source, $flags = 0) {}
 
 /**
  * Get the symbolic name of a given PHP token

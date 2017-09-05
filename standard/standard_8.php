@@ -962,7 +962,7 @@ function array_fill_keys (array $keys, $value) {}
  * @param mixed $high <p>
  * High value.
  * </p>
- * @param number $step [optional] <p>
+ * @param int|float $step [optional] <p>
  * If a step value is given, it will be used as the
  * increment between elements in the sequence. step
  * should be given as a positive number. If not specified,

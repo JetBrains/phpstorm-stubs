@@ -324,8 +324,9 @@ function register_tick_function ($function, $arg = null, $_ = null) {}
 /**
  * De-register a function for execution on each tick
  * @link http://php.net/manual/en/function.unregister-tick-function.php
- * @param string $function_name <p>
- * The function name, as a string.
+ * @param callable $function <p>
+ * The function name as a string, or an array consisting of an object and
+ * a method.
  * </p>
  * @return void 
  * @since 4.0.3

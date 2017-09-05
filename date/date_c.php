@@ -306,6 +306,8 @@ class DateTime implements DateTimeInterface {
     const RFC1123 = 'D, d M Y H:i:s O';
     const RFC2822 = 'D, d M Y H:i:s O';
     const RFC3339 = 'Y-m-d\TH:i:sP';
+    const RFC3339_EXTENDED = 'Y-m-d\TH:i:s.vP';
+    const RFC7231 = 'D, d M Y H:i:s \G\M\T';
     const RSS = 'D, d M Y H:i:s O';
     const W3C = 'Y-m-d\TH:i:sP';
 
@@ -537,6 +539,13 @@ class DateTimeZone {
      * @link http://php.net/manual/en/datetimezone.listidentifiers.php
      */
     public static function listIdentifiers ($what=DateTimeZone::ALL, $country=null) {}
+
+    /**
+     * @link http://php.net/manual/en/datetime.wakeup.php
+     */
+    public function __wakeup(){}
+
+
 }
 
 /**
@@ -721,4 +730,7 @@ class DatePeriod implements Traversable {
      * @since 5.6.5
      */
     public function getStartDate () {}
+
+    public static function __set_state (){}
+
 }

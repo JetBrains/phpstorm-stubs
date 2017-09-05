@@ -365,6 +365,7 @@ class FilesystemIterator extends DirectoryIterator {
         const NEW_CURRENT_AND_KEY = 256;
         const SKIP_DOTS = 4096;
         const UNIX_PATHS = 8192;
+        const OTHER_MODE_MASK = 12288;
 
         /**
          * Constructs a new filesystem iterator
@@ -550,7 +551,7 @@ class GlobIterator extends FilesystemIterator implements Countable {
 class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIterator {
         const DROP_NEW_LINE = 1;
         const READ_AHEAD = 2;
-        const SKIP_EMPTY = 6;
+        const SKIP_EMPTY = 4;
         const READ_CSV = 8;
 
 
