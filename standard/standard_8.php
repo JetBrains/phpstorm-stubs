@@ -768,7 +768,7 @@ function reset (array &$array) {}
  * @since 4.0
  * @since 5.0
  */
-function current (array &$array) {}
+function current (array $array) {}
 
 /**
  * Fetch a key from an array
@@ -784,7 +784,7 @@ function current (array &$array) {}
  * @since 4.0
  * @since 5.0
  */
-function key (array &$array) {}
+function key (array $array) {}
 
 /**
  * Find lowest value
