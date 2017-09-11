@@ -24,7 +24,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess {
 	/**
      * Provides access to element's children
      * @access private Method not callable directly, stub exists for typehint only
-     * @param $name child name
+     * @param string $name child name
      * @return SimpleXMLElement
      */
     private function __get($name) {}
