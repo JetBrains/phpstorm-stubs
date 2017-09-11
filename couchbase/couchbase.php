@@ -1918,6 +1918,60 @@ namespace Couchbase {
          * @example examples/api/couchbase.N1qlQuery.consistentWith.php
          */
         final public function consistentWith($state) {}
+
+        /**
+         * If set to true, it will signal the query engine on the server that only non-data modifying requests
+         * are allowed. Note that this rule is enforced on the server and not the SDK side.
+         *
+         * Controls whether a query can change a resulting record set.
+         *
+         * If readonly is true, then the following statements are not allowed:
+         *  - CREATE INDEX
+         *  - DROP INDEX
+         *  - INSERT
+         *  - MERGE
+         *  - UPDATE
+         *  - UPSERT
+         *  - DELETE
+         *
+         * @param boolean $readonly true if readonly should be forced, false is the default and will use the server side default.
+         * @return N1qlQuery
+         */
+        final public function readonly($readonly) {}
+
+        /**
+         * Advanced: Maximum buffered channel size between the indexer client and the query service for index scans.
+         *
+         * This parameter controls when to use scan backfill. Use 0 or a negative number to disable.
+         *
+         * @param int $scanCap the scan_cap param, use 0 or negative number to disable.
+         * @return N1qlQuery
+         */
+        final public function scanCap($scanCap) {}
+
+        /**
+         * Advanced: Controls the number of items execution operators can batch for Fetch from the KV.
+         *
+         * @param int $pipelineBatch the pipeline_batch param.
+         * @return N1qlQuery
+         */
+        final public function pipelineBatch($pipelineBatch) {}
+
+        /**
+         * Advanced: Maximum number of items each execution operator can buffer between various operators.
+         *
+         * @param int $pipelineCap the pipeline_cap param.
+         * @return N1qlQuery
+         */
+        final public function pipelineCap($pipelineCap) {}
+
+        /**
+         * Allows to override the default maximum parallelism for the query execution on the server side.
+         *
+         * @param int $maxParallelism the maximum parallelism for this query, 0 or negative values disable it.
+         * @return N1qlQuery
+         */
+        final public function maxParallelism($maxParallelism) {}
     }
 
     /**
