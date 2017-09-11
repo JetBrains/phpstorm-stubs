@@ -384,6 +384,7 @@ class Imagick implements Iterator, Countable {
 	const RESOURCETYPE_FILE = 3;
 	const RESOURCETYPE_MAP = 4;
 	const RESOURCETYPE_MEMORY = 5;
+	const RESOURCETYPE_THREAD = 6;
 	const DISPOSE_UNRECOGNIZED = 0;
 	const DISPOSE_UNDEFINED = 0;
 	const DISPOSE_NONE = 1;
