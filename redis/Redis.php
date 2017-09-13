@@ -353,7 +353,7 @@ class Redis
     /**
      * Remove specified keys.
      *
-     * @param   string|array    $key1 An array of keys, or an undefined number of parameters, each a key: key1 key2 key3 ... keyN
+     * @param   string|string[] $key1 An array of keys, or an undefined number of parameters, each a key: key1 key2 key3 ... keyN
      * @param   string          $key2 ...
      * @param   string          $key3 ...
      * @return  int             Number of keys deleted.
@@ -372,7 +372,7 @@ class Redis
 
     /**
      * @see del()
-     * @param   string|array    $key1 An array of keys, or an undefined number of parameters, each a key: key1 key2 key3 ... keyN
+     * @param   string|string[] $key1 An array of keys, or an undefined number of parameters, each a key: key1 key2 key3 ... keyN
      * @param   string          $key2 ...
      * @param   string          $key3 ...
      * @return  int             Number of keys deleted.
