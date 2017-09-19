@@ -6,7 +6,7 @@
  * Represents an element in an XML document.
  * @link http://php.net/manual/en/class.simplexmlelement.php
  */
-class SimpleXMLElement implements Traversable, ArrayAccess {
+class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
 
 	/**
 	 * Creates a new SimpleXMLElement object
