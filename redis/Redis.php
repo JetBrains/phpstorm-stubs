@@ -353,10 +353,10 @@ class Redis
     /**
      * Remove specified keys.
      *
-     * @param   int|array   $key1 An array of keys, or an undefined number of parameters, each a key: key1 key2 key3 ... keyN
-     * @param   string      $key2 ...
-     * @param   string      $key3 ...
-     * @return int Number of keys deleted.
+     * @param   string|string[] $key1 An array of keys, or an undefined number of parameters, each a key: key1 key2 key3 ... keyN
+     * @param   string          $key2 ...
+     * @param   string          $key3 ...
+     * @return  int             Number of keys deleted.
      * @link    http://redis.io/commands/del
      * @example
      * <pre>
@@ -372,9 +372,11 @@ class Redis
 
     /**
      * @see del()
-     * @param $key1
-     * @param null $key2
-     * @param null $key3
+     * @param   string|string[] $key1 An array of keys, or an undefined number of parameters, each a key: key1 key2 key3 ... keyN
+     * @param   string          $key2 ...
+     * @param   string          $key3 ...
+     * @return  int             Number of keys deleted.
+     * @link    http://redis.io/commands/del
      */
     public function delete( $key1, $key2 = null, $key3 = null ) {}
 
