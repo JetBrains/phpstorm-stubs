@@ -42,6 +42,8 @@ function token_get_all ($source, $flags = 0) {}
  */
 function token_name ($token) {}
 
+define('TOKEN_PARSE', 1);
+
 define ('T_POW',300);
 define ('T_ELLIPSIS', 389);
 define ('T_POW_EQUAL', 268);
