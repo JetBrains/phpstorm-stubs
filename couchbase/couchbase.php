@@ -52,6 +52,12 @@
  *   controls the form of the documents, returned by the server if they were in JSON format. When true, it will generate
  *   arrays of arrays, otherwise instances of stdClass.
  *
+ * * `couchbase.pool.max_idle_time_sec` (long), default: `60`
+ *
+ *   controls the maximum interval the underlying connection object could be idle, i.e. without any data/query
+ *   operations. All connections which idle more than this interval will be closed automatically. Cleanup function
+ *   executed after each request using RSHUTDOWN hook.
+ *
  * @package Couchbase
  */
 namespace Couchbase {
@@ -2077,6 +2083,19 @@ namespace Couchbase {
         final public function get($path, $options = []) {}
 
         /**
+         * Get a count of values inside the JSON document.
+         *
+         * This method is only available with Couchbase Server 5.0 and later.
+         *
+         * @param string $path the path inside the document where to get the count from.
+         * @param array $options the array with command modificators. Supported values are
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
+         * @return LookupInBuilder
+         */
+        final public function getCount($path, $options = []) {}
+
+        /**
          * Check if a value exists inside the document.
          *
          * This doesn't transmit the value on the wire if it exists, saving the corresponding byte overhead.
@@ -3337,19 +3356,6 @@ namespace Couchbase {
          * @example examples/api/couchbase.AnalyticsQuery.php
          */
         final public static function fromString($statement) {}
-
-        /**
-         * Sets query service location.
-         *
-         * Note that this method accessible only while Analytics support
-         * is experimental. It will be removed after GA release of this
-         * feature, and service location will be supplied in cluster config.
-         *
-         * @param string $hostname location of the analytics service.
-         *    Usually something like "localhost:8095/query/service"
-         * @return AnalyticsQuery
-         */
-        final public function hostname($hostname) {}
     }
 
 }
