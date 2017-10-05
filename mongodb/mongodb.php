@@ -1159,7 +1159,7 @@ namespace MongoDB {}
              * @param string $pattern
              * @param string $flags
              */
-            public function __construct($pattern, $flags)
+            public function __construct($pattern, $flags = "")
             {
             }
 
