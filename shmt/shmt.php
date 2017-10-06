@@ -24,21 +24,17 @@ class SHMT
      * Notes:
      * - Creates a SHMT from the $array and writes it into the file $filename
      * @param string $filename
-     *
      * @throws \Exception
      */
     public function __construct($filename){}
-
     /**
      * Creates binary file in memory from array
      * @param string $filename
      * @param array $array
-     *
      * @return boolean
      * @throws \Exception
      */
     public static function create($filename, $array){}
-
     /**
      * Gets value from binary file array if exists otherwise returns null
      * @param string $string
@@ -46,6 +42,4 @@ class SHMT
      * @return string|null
      */
     public static function get($string){}
-
-
 }
