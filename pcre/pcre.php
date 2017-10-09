@@ -11,7 +11,7 @@
  * @param string $subject <p>
  * The input string.
  * </p>
- * @param array $matches [optional] <p>
+ * @param string[] $matches [optional] <p>
  * If <i>matches</i> is provided, then it is filled with
  * the results of search. $matches[0] will contain the
  * text that matched the full pattern, $matches[1]
@@ -74,7 +74,7 @@
  * )
  * </pre>
  * </p>
- * @return int <b>preg_match</b> returns 1 if the <i>pattern</i>
+ * @return int|false <b>preg_match</b> returns 1 if the <i>pattern</i>
  * matches given <i>subject</i>, 0 if it does not, or <b>FALSE</b>
  * if an error occurred.
  * @since 4.0
@@ -91,7 +91,7 @@ function preg_match ($pattern, $subject, array &$matches = null, $flags = 0, $of
  * @param string $subject <p>
  * The input string.
  * </p>
- * @param array $matches [optional] <p>
+ * @param string[][] $matches [optional] <p>
  * Array of all matches in multi-dimensional array ordered according to flags.
  * </p>
  * @param int $flags [optional] <p>
@@ -137,7 +137,7 @@ function preg_match ($pattern, $subject, array &$matches = null, $flags = 0, $of
  * </p>
  * </p>
  * @param int $offset [optional]
- * @return int the number of full pattern matches (which might be zero),
+ * @return int|false the number of full pattern matches (which might be zero),
  * or <b>FALSE</b> if an error occurred.
  * @since 4.0
  * @since 5.0
@@ -147,7 +147,7 @@ function preg_match_all ($pattern, $subject, array &$matches = null, $flags = PR
 /**
  * Perform a regular expression search and replace
  * @link http://php.net/manual/en/function.preg-replace.php
- * @param mixed $pattern <p>
+ * @param string|string[] $pattern <p>
  * The pattern to search for. It can be either a string or an array with
  * strings.
  * </p>
@@ -156,7 +156,7 @@ function preg_match_all ($pattern, $subject, array &$matches = null, $flags = PR
  * are also available, including the deprecated 'e'
  * (PREG_REPLACE_EVAL), which is specific to this function.
  * </p>
- * @param mixed $replacement <p>
+ * @param string|string[] $replacement <p>
  * The string or an array with strings to replace. If this parameter is a
  * string and the <i>pattern</i> parameter is an array,
  * all patterns will be replaced by that string. If both
@@ -204,7 +204,7 @@ function preg_match_all ($pattern, $subject, array &$matches = null, $flags = PR
  * aware of PHP's string
  * syntax to know exactly how the interpreted string will look.
  * </p>
- * @param mixed $subject <p>
+ * @param string|string[] $subject <p>
  * The string or an array with strings to search and replace.
  * </p>
  * <p>
@@ -221,7 +221,7 @@ function preg_match_all ($pattern, $subject, array &$matches = null, $flags = PR
  * If specified, this variable will be filled with the number of
  * replacements done.
  * </p>
- * @return mixed <b>preg_replace</b> returns an array if the
+ * @return string|string[]|null <b>preg_replace</b> returns an array if the
  * <i>subject</i> parameter is an array, or a string
  * otherwise.
  * </p>
@@ -237,7 +237,7 @@ function preg_replace ($pattern, $replacement, $subject, $limit = -1, &$count = 
 /**
  * Perform a regular expression search and replace using a callback
  * @link http://php.net/manual/en/function.preg-replace-callback.php
- * @param mixed $pattern <p>
+ * @param string|string[] $pattern <p>
  * The pattern to search for. It can be either a string or an array with
  * strings.
  * </p>
@@ -282,7 +282,7 @@ function preg_replace ($pattern, $replacement, $subject, $limit = -1, &$count = 
  * fclose($fp);
  * </code>
  * </p>
- * @param mixed $subject <p>
+ * @param string|string[] $subject <p>
  * The string or an array with strings to search and replace.
  * </p>
  * @param int $limit [optional] <p>
@@ -294,7 +294,7 @@ function preg_replace ($pattern, $replacement, $subject, $limit = -1, &$count = 
  * If specified, this variable will be filled with the number of
  * replacements done.
  * </p>
- * @return mixed <b>preg_replace_callback</b> returns an array if the
+ * @return string|string[]|null <b>preg_replace_callback</b> returns an array if the
  * <i>subject</i> parameter is an array, or a string
  * otherwise. On errors the return value is <b>NULL</b>
  * </p>
@@ -309,11 +309,11 @@ function preg_replace_callback ($pattern, callable $callback, $subject, $limit =
 /**
  * Perform a regular expression search and replace using callbacks
  * @link http://php.net/manual/en/function.preg-replace-callback-array.php
- * @param array $patterns_and_callbacks
- * @param mixed $subject
+ * @param array|callable[] $patterns_and_callbacks An associative array mapping patterns (keys) to callbacks (values)
+ * @param string|string[] $subject
  * @param int $limit [optional]
  * @param int $count [optional]
- * @return array|NUll  <p>preg_replace_callback_array() returns an array if the subject parameter is an array, or a string otherwise. On errors the return value is NULL</p>
+ * @return string|string[]|null  <p>preg_replace_callback_array() returns an array if the subject parameter is an array, or a string otherwise. On errors the return value is NULL</p>
  * <p>If matches are found, the new subject will be returned, otherwise subject will be returned unchanged.</p>
  */
 function preg_replace_callback_array ($patterns_and_callbacks, $subject , $limit = -1, &$count ) {}
@@ -321,12 +321,12 @@ function preg_replace_callback_array ($patterns_and_callbacks, $subject , $limit
 /**
  * Perform a regular expression search and replace
  * @link http://php.net/manual/en/function.preg-filter.php
- * @param mixed $pattern
- * @param mixed $replacement
- * @param mixed $subject
+ * @param string|string[] $pattern
+ * @param string|string[] $replacement
+ * @param string|string[] $subject
  * @param int $limit [optional]
  * @param int $count [optional]
- * @return mixed an array if the <i>subject</i>
+ * @return string|string[]|null an array if the <i>subject</i>
  * parameter is an array, or a string otherwise.
  * </p>
  * <p>
@@ -359,7 +359,7 @@ function preg_filter ($pattern, $replacement, $subject, $limit = -1, &$count = n
  * <b>PREG_SPLIT_NO_EMPTY</b>
  * If this flag is set, only non-empty pieces will be returned by
  * <b>preg_split</b>.
- * @return string[]|array|false an array containing substrings of <i>subject</i>
+ * @return string[]|array[]|false an array containing substrings of <i>subject</i>
  * split along boundaries matched by <i>pattern</i>, or <b>FALSE</b>
  * if an error occurred.
  * @since 4.0
