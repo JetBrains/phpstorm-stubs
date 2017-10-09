@@ -154,7 +154,7 @@ function finfo_file ($finfo, $file_name, $options = null, $context = null) {}
 function finfo_buffer ($finfo ,$string, $options = FILEINFO_NONE, $context = NULL) {}
 
 /**
- * Detect MIME Content-type for a file (deprecated)
+ * Detect MIME Content-type for a file
  * @link http://php.net/manual/en/function.mime-content-type.php
  * @param string $filename <p>
  * Path to the tested file.

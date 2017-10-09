@@ -40,7 +40,7 @@ namespace MongoDB {}
              * @param string $uri A mongodb:// connection URI
              * @param array $options Connection string options
              * @param array $driverOptions Any driver-specific options not included in MongoDB connection spec.
-             * @throws \InvalidArgumentException on argument parsing errors
+             * @throws InvalidArgumentException on argument parsing errors
              * @throws RuntimeException if the uri format is invalid
              */
             final public function __construct($uri, array $options = [], array $driverOptions = [])
@@ -104,6 +104,9 @@ namespace MongoDB {}
             }
 
             /**
+             * Return the ReadConcern for the Manager
+             * @link http://php.net/manual/en/mongodb-driver-manager.getreadconcern.php
+             * @throws InvalidArgumentException on argument parsing errors.
              * @return ReadConcern
              */
             final public function getReadConcern()
@@ -111,6 +114,9 @@ namespace MongoDB {}
             }
 
             /**
+             * Return the ReadPreference for the Manager
+             * @link http://php.net/manual/en/mongodb-driver-manager.getreadpreference.php
+             * @throws InvalidArgumentException
              * @return ReadPreference
              */
             final public function getReadPreference()
@@ -118,6 +124,9 @@ namespace MongoDB {}
             }
 
             /**
+             * Return the WriteConcern for the Manager
+             * @link http://php.net/manual/en/mongodb-driver-manager.getwriteconcern.php
+             * @throws InvalidArgumentException on argument parsing errors.
              * @return WriteConcern
              */
             final public function getWriteConcern()
@@ -128,6 +137,10 @@ namespace MongoDB {}
              * Preselect a MongoDB node based on provided readPreference. This can be useful to gurantee a command runs on a specific server when operating in a mixed version cluster.
              * http://php.net/manual/en/mongodb-driver-manager.selectserver.php
              * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to route the command to. If none given, defaults to the Read Preferences set by the MongoDB Connection URI.
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
+             * @throws AuthenticationException if authentication is needed and fails.
+             * @throws RuntimeException if a server matching the read preference could not be found.
              * @return Server
              */
             final public function selectServer(ReadPreference $readPreference = null)
@@ -211,6 +224,8 @@ namespace MongoDB {}
             /**
              * Returns the hostname of this server
              * @link http://php.net/manual/en/mongodb-driver-server.gethost.php
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @return string
              */
             final public function getHost()
             {
@@ -219,6 +234,7 @@ namespace MongoDB {}
             /**
              * Returns an array of information about this server
              * @link http://php.net/manual/en/mongodb-driver-server.getinfo.php
+             * @throws InvalidArgumentException on argument parsing errors.
              * @return array
              */
             final public function getInfo()
@@ -228,6 +244,8 @@ namespace MongoDB {}
             /**
              * Returns the latency of this server
              * @link http://php.net/manual/en/mongodb-driver-server.getlatency.php
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @return integer
              */
             final public function getLatency()
             {
@@ -236,6 +254,8 @@ namespace MongoDB {}
             /**
              * Returns the port on which this server is listening
              * @link http://php.net/manual/en/mongodb-driver-server.getport.php
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @return integer
              */
             final public function getPort()
             {
@@ -244,6 +264,8 @@ namespace MongoDB {}
             /**
              * Returns an array of tags describing this server in a replica set
              * @link http://php.net/manual/en/mongodb-driver-server.gettags.php
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @return array An array of tags used to describe this server in a replica set. The array will contain zero or more string key and value pairs.
              */
             final public function getTags()
             {
@@ -252,6 +274,7 @@ namespace MongoDB {}
             /**
              * Returns an integer denoting the type of this server
              * @link http://php.net/manual/en/mongodb-driver-server.gettype.php
+             * @throws InvalidArgumentException on argument parsing errors.
              * @return integer denoting the type of this server
              */
             final public function getType()
@@ -261,6 +284,8 @@ namespace MongoDB {}
             /**
              * Checks if this server is an arbiter member of a replica set
              * @link http://php.net/manual/en/mongodb-driver-server.isarbiter.php
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @return boolean
              */
             final public function isArbiter()
             {
@@ -269,6 +294,8 @@ namespace MongoDB {}
             /**
              * Checks if this server is a hidden member of a replica set
              * @link http://php.net/manual/en/mongodb-driver-server.ishidden.php
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @return boolean
              */
             final public function isHidden()
             {
@@ -277,6 +304,8 @@ namespace MongoDB {}
             /**
              * Checks if this server is a passive member of a replica set
              * @link http://php.net/manual/en/mongodb-driver-server.ispassive.php
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @return boolean
              */
             final public function isPassive()
             {
@@ -285,6 +314,8 @@ namespace MongoDB {}
             /**
              * Checks if this server is a primary member of a replica set
              * @link http://php.net/manual/en/mongodb-driver-server.isprimary.php
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @return boolean
              */
             final public function isPrimary()
             {
@@ -293,6 +324,8 @@ namespace MongoDB {}
             /**
              * Checks if this server is a secondary member of a replica set
              * @link http://php.net/manual/en/mongodb-driver-server.issecondary.php
+             * @throws InvalidArgumentException on argument parsing errors.
+             * @return boolean
              */
             final public function isSecondary()
             {

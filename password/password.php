@@ -40,6 +40,21 @@ define("PASSWORD_DEFAULT", 1);
 
 /**
  * <p>
+ * The default cost used for the BCRYPT hashing algorithm.
+ * </p>
+ * <p>
+ * Values for this constant:
+ * </p>
+ *<ul>
+ * <li>
+ * PHP 5.6.0 - <b>PASSWORD_BCRYPT_DEFAULT_COST</b>
+ * </li>
+ * </ul>
+ */
+define("PASSWORD_BCRYPT_DEFAULT_COST", 10);
+
+/**
+ * <p>
  * The default algorithm to use for hashing if no algorithm is provided.
  * This may change in newer PHP releases when newer, stronger hashing
  * algorithms are supported.
@@ -61,6 +76,8 @@ define("PASSWORD_DEFAULT", 1);
  * </ul>
  */
 define("PASSWORD_BCRYPT", 1);
+
+define('PASSWORD_BCRYPT_DEFAULT_COST', 10);
 
 /**
  * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>

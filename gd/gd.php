@@ -2266,6 +2266,12 @@ define ('IMG_WBMP', 8);
 define ('IMG_XPM', 16);
 
 /**
+ * Used as a return value by imagetypes() Available as of PHP 5.6.25 and PHP 7.0.10, respectively.
+ * @link http://php.net/manual/en/image.constants.php
+ */
+define('IMG_WEBP', 32);
+
+/**
  * Special color option which can be used in stead of color allocated with
  * imagecolorallocate or
  * imagecolorallocatealpha
@@ -2602,6 +2608,8 @@ define('IMG_FLIP_VERTICAL',2);
  * @since 5.5.0
  */
 define('IMG_BELL', 1);
+
+define('IMG_CROP_THRESHOLD',5);
 
 /**
  * Used together with imagesetinterpolation().

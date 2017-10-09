@@ -336,8 +336,21 @@ namespace Couchbase {
          *
          * @see \Couchbase\Authenticator
          * @see \Couchbase\ClassicAuthenticator
+         * @see \Couchbase\PasswordAuthenticator
          */
         final public function authenticate($authenticator) {}
+
+        /**
+         * Create \Couchbase\PasswordAuthenticator from given credentials and associate it with Cluster
+         *
+         * @param string $username
+         * @param string $password
+         * @return null
+         *
+         * @see \Couchbase\Authenticator
+         * @see \Couchbase\PasswordAuthenticator
+         */
+        final public function authenticateAs($username, $password) {}
     }
 
     /**
@@ -346,6 +359,15 @@ namespace Couchbase {
      * @see \Couchbase\Cluster
      */
     final class ClusterManager {
+        /**
+         * The user account managed by Couchbase Cluster.
+         */
+        const RBAC_DOMAIN_LOCAL = 1;
+        /**
+         * The user account managed by external system (e.g. LDAP).
+         */
+        const RBAC_DOMAIN_EXTERNAL = 2;
+
         /** @ignore */
         final private function __construct() {}
 
@@ -393,6 +415,102 @@ namespace Couchbase {
          *   Retrieving Cluster Information
          */
         final public function info() {}
+
+        /**
+         * Lists all users on this cluster.
+         *
+         * @param int $domain RBAC domain
+         *
+         * @return array
+         *
+         * @see \Couchbase\ClusterManager::RBAC_DOMAIN_LOCAL
+         * @see \Couchbase\ClusterManager::RBAC_DOMAIN_EXTERNAL
+         */
+        final public function listUsers($domain = RBAC_DOMAIN_LOCAL) {}
+
+        /**
+         * Fetch single user by its name
+         *
+         * @param string $username The user's identifier
+         * @param int $domain RBAC domain
+         *
+         * @return array
+         *
+         * @see \Couchbase\ClusterManager::RBAC_DOMAIN_LOCAL
+         * @see \Couchbase\ClusterManager::RBAC_DOMAIN_EXTERNAL
+         */
+        final public function getUser($username, $domain = RBAC_DOMAIN_LOCAL) {}
+
+        /**
+         * Creates new user
+         *
+         * @param string $name Name of the user
+         * @param \Couchbase\UserSettings $settings settings (credentials and roles)
+         * @param int $domain RBAC domain
+         *
+         * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
+         *   More options and details
+         * @see \Couchbase\ClusterManager::RBAC_DOMAIN_LOCAL
+         * @see \Couchbase\ClusterManager::RBAC_DOMAIN_EXTERNAL
+         */
+        final public function upsertUser($name, $settings, $domain = RBAC_DOMAIN_LOCAL) {}
+
+        /**
+         * Removes a user identified by its name.
+         *
+         * @param string $name name of the bucket
+         * @param int $domain RBAC domain
+         *
+         * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
+         *   More details
+         * @see \Couchbase\ClusterManager::RBAC_DOMAIN_LOCAL
+         * @see \Couchbase\ClusterManager::RBAC_DOMAIN_EXTERNAL
+         */
+        final public function removeUser($name, $domain = RBAC_DOMAIN_LOCAL) {}
+    }
+
+    /**
+     * Represents settings for new/updated user.
+     *
+     * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
+     */
+    final class UserSettings {
+        /**
+         * Sets full name of the user (optional).
+         *
+         * @param string $fullName Full name of the user
+         *
+         * @return \Couchbase\UserSettings
+         *
+         * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
+         *   More details
+         */
+        final public function fullName($fullName) {}
+
+        /**
+         * Sets password of the user.
+         *
+         * @param string $password Password of the user
+         *
+         * @return \Couchbase\UserSettings
+         *
+         * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
+         *   More details
+         */
+        final public function password($password) {}
+
+        /**
+         * Adds role to the list of the accessible roles of the user.
+         *
+         * @param string $role identifier of the role
+         * @param string $bucket the bucket where this role applicable (or `*` for all buckets)
+         *
+         * @return \Couchbase\UserSettings
+         *
+         * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
+         *   More details
+         */
+        final public function role($role, $bucket = NULL) {}
     }
 
     /**
@@ -1241,6 +1359,7 @@ namespace Couchbase {
      *
      * @see \Couchbase\Cluster::authenticate()
      * @see \Couchbase\ClassicAuthenticator
+     * @see \Couchbase\PasswordAuthenticator
      */
     interface Authenticator {}
 
@@ -1273,6 +1392,32 @@ namespace Couchbase {
          * @param string $password bucket password
          */
         final public function bucket($name, $password) {}
+    }
+
+    /**
+     * Authenticator based on RBAC feature of Couchbase Server 5+.
+     *
+     * This authenticator uses single credentials for all operations (data and management).
+     *
+     * @see \Couchbase\Cluster::authenticate()
+     * @see \Couchbase\Authenticator
+     */
+    final class PasswordAuthenticator implements Authenticator {
+        /**
+         * Sets username
+         *
+         * @param string $username username
+         * @return \Couchbase\PasswordAuthenticator
+         */
+        final public function username($username) {}
+
+        /**
+         * Sets password
+         *
+         * @param string $password password
+         * @return \Couchbase\PasswordAuthenticator
+         */
+        final public function password($password) {}
     }
 
     /**
@@ -1773,6 +1918,60 @@ namespace Couchbase {
          * @example examples/api/couchbase.N1qlQuery.consistentWith.php
          */
         final public function consistentWith($state) {}
+
+        /**
+         * If set to true, it will signal the query engine on the server that only non-data modifying requests
+         * are allowed. Note that this rule is enforced on the server and not the SDK side.
+         *
+         * Controls whether a query can change a resulting record set.
+         *
+         * If readonly is true, then the following statements are not allowed:
+         *  - CREATE INDEX
+         *  - DROP INDEX
+         *  - INSERT
+         *  - MERGE
+         *  - UPDATE
+         *  - UPSERT
+         *  - DELETE
+         *
+         * @param boolean $readonly true if readonly should be forced, false is the default and will use the server side default.
+         * @return N1qlQuery
+         */
+        final public function readonly($readonly) {}
+
+        /**
+         * Advanced: Maximum buffered channel size between the indexer client and the query service for index scans.
+         *
+         * This parameter controls when to use scan backfill. Use 0 or a negative number to disable.
+         *
+         * @param int $scanCap the scan_cap param, use 0 or negative number to disable.
+         * @return N1qlQuery
+         */
+        final public function scanCap($scanCap) {}
+
+        /**
+         * Advanced: Controls the number of items execution operators can batch for Fetch from the KV.
+         *
+         * @param int $pipelineBatch the pipeline_batch param.
+         * @return N1qlQuery
+         */
+        final public function pipelineBatch($pipelineBatch) {}
+
+        /**
+         * Advanced: Maximum number of items each execution operator can buffer between various operators.
+         *
+         * @param int $pipelineCap the pipeline_cap param.
+         * @return N1qlQuery
+         */
+        final public function pipelineCap($pipelineCap) {}
+
+        /**
+         * Allows to override the default maximum parallelism for the query execution on the server side.
+         *
+         * @param int $maxParallelism the maximum parallelism for this query, 0 or negative values disable it.
+         * @return N1qlQuery
+         */
+        final public function maxParallelism($maxParallelism) {}
     }
 
     /**
@@ -1870,9 +2069,12 @@ namespace Couchbase {
          * Get a value inside the JSON document.
          *
          * @param string $path the path inside the document where to get the value from.
+         * @param array $options the array with command modificators. Supported values are
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return LookupInBuilder
          */
-        final public function get($path) {}
+        final public function get($path, $options = []) {}
 
         /**
          * Check if a value exists inside the document.
@@ -1880,9 +2082,12 @@ namespace Couchbase {
          * This doesn't transmit the value on the wire if it exists, saving the corresponding byte overhead.
          *
          * @param string $path the path inside the document to check for existence
+         * @param array $options the array with command modificators. Supported values are
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return LookupInBuilder
          */
-        final public function exists($path) {}
+        final public function exists($path, $options = []) {}
 
         /**
          * Perform several lookup operations inside a single existing JSON document, using a specific timeout
@@ -1912,29 +2117,40 @@ namespace Couchbase {
          *
          * @param string $path the path where to insert a new dictionary value.
          * @param mixed $value the new dictionary value to insert.
-         * @param bool $createParents true to create missing intermediary nodes
+         * @param array|bool $options the array with command modificators.
+         *   The boolean value, controls "createPath" option. Supported values are:
+         *   * "createPath" (default: false) true to create missing intermediary nodes.
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function insert($path, $value, $createParents = false) {}
+        final public function insert($path, $value, $options = []) {}
 
         /**
          * Insert a fragment, replacing the old value if the path exists
          *
          * @param string $path the path where to insert (or replace) a dictionary value
          * @param mixed $value the new dictionary value to be applied.
-         * @param bool $createParents true to create missing intermediary nodes
+         * @param array|bool $options the array with command modificators.
+         *   The boolean value, controls "createPath" option. Supported values are:
+         *   * "createPath" (default: false) true to create missing intermediary nodes.
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function upsert($path, $value, $createParents = false) {}
+        final public function upsert($path, $value, $options = []) {}
 
         /**
          * Replace an existing value by the given fragment
          *
          * @param string $path the path where the value to replace is
          * @param mixed $value the new value
+         * @param array $options the array with command modificators. Supported values are:
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function replace($path, $value) {}
+        final public function replace($path, $value, $options = []) {}
 
         /**
          * Remove an entry in a JSON document.
@@ -1942,19 +2158,26 @@ namespace Couchbase {
          * Scalar, array element, dictionary entry, whole array or dictionary, depending on the path.
          *
          * @param string $path the path to remove
+         * @param array $options the array with command modificators. Supported values are:
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function remove($path) {}
+        final public function remove($path, $options = []) {}
 
         /**
          * Prepend to an existing array, pushing the value to the front/first position in the array.
          *
          * @param string $path the path of the array
          * @param mixed $value the value to insert at the front of the array
-         * @param bool $createParents true to create missing intermediary nodes
+         * @param array|bool $options the array with command modificators.
+         *   The boolean value, controls "createPath" option. Supported values are:
+         *   * "createPath" (default: false) true to create missing intermediary nodes.
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function arrayPrepend($path, $value, $createParents = false) {}
+        final public function arrayPrepend($path, $value, $options = []) {}
 
         /**
          * Prepend multiple values at once in an existing array.
@@ -1965,20 +2188,28 @@ namespace Couchbase {
          *
          * @param string $path the path of the array
          * @param array $values the values to insert at the front of the array as individual elements
-         * @param bool $createParents true to create missing intermediary nodes
+         * @param array|bool $options the array with command modificators.
+         *   The boolean value, controls "createPath" option. Supported values are:
+         *   * "createPath" (default: false) true to create missing intermediary nodes.
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function arrayPrependAll($path, $values, $createParents = false) {}
+        final public function arrayPrependAll($path, $values, $options = []) {}
 
         /**
          * Append to an existing array, pushing the value to the back/last position in the array.
          *
          * @param string $path the path of the array
          * @param mixed $value the value to insert at the back of the array
-         * @param bool $createParents true to create missing intermediary nodes
+         * @param array|bool $options the array with command modificators.
+         *   The boolean value, controls "createPath" option. Supported values are:
+         *   * "createPath" (default: false) true to create missing intermediary nodes.
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function arrayAppend($path, $value, $createParents = false) {}
+        final public function arrayAppend($path, $value, $options = []) {}
 
         /**
          * Append multiple values at once in an existing array.
@@ -1989,10 +2220,14 @@ namespace Couchbase {
          *
          * @param string $path the path of the array
          * @param array $values the values to individually insert at the back of the array
-         * @param bool $createParents true to create missing intermediary nodes
+         * @param array|bool $options the array with command modificators.
+         *   The boolean value, controls "createPath" option. Supported values are:
+         *   * "createPath" (default: false) true to create missing intermediary nodes.
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function arrayAppendAll($path, $values, $createParents = false) {}
+        final public function arrayAppendAll($path, $values, $options = []) {}
 
         /**
          * Insert into an existing array at a specific position
@@ -2001,9 +2236,12 @@ namespace Couchbase {
          *
          * @param string $path the path (including array position) where to insert the value
          * @param mixed $value the value to insert in the array
+         * @param array $options the array with command modificators. Supported values are:
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function arrayInsert($path, $value) {}
+        final public function arrayInsert($path, $value, $options = []) {}
 
         /**
          * Insert multiple values at once in an existing array at a specified position.
@@ -2018,9 +2256,12 @@ namespace Couchbase {
          * @param string $path the path of the array
          * @param array $values the values to insert at the specified position of the array, each value becoming
          *   an entry at or after the insert position.
+         * @param array $options the array with command modificators. Supported values are:
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function arrayInsertAll($path, $values) {}
+        final public function arrayInsertAll($path, $values, $options = []) {}
 
         /**
          * Insert a value in an existing array only if the value
@@ -2028,10 +2269,14 @@ namespace Couchbase {
          *
          * @param string $path the path to mutate in the JSON
          * @param mixed $value the value to insert
-         * @param bool $createParents true to create missing intermediary nodes
+         * @param array|bool $options the array with command modificators.
+         *   The boolean value, controls "createPath" option. Supported values are:
+         *   * "createPath" (default: false) true to create missing intermediary nodes.
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function arrayAddUnique($path, $value, $createParents = false) {}
+        final public function arrayAddUnique($path, $value, $options = []) {}
 
         /**
          * Increment/decrement a numerical fragment in a JSON document.
@@ -2041,10 +2286,14 @@ namespace Couchbase {
          *
          * @param string $path the path to the counter (must be containing a number).
          * @param int $delta the value to increment or decrement the counter by
-         * @param bool $createParents true to create missing intermediary nodes
+         * @param array|bool $options the array with command modificators.
+         *   The boolean value, controls "createPath" option. Supported values are:
+         *   * "createPath" (default: false) true to create missing intermediary nodes.
+         *   * "xattr" (default: false) if true, the path refers to a location
+         *     within the document's extended attributes, not the document body.
          * @return MutateInBuilder
          */
-        final public function counter($path, $delta, $createParents = false) {}
+        final public function counter($path, $delta, $options = []) {}
 
         /**
          * Perform several mutation operations inside a single existing JSON document.
@@ -2079,6 +2328,20 @@ namespace Couchbase {
          * @return DateRangeSearchQuery
          */
         final public static function dateRange() {}
+
+        /**
+         * Prepare numeric range search query
+         *
+         * @return NumericRangeSearchQuery
+         */
+        final public static function numericRange() {}
+
+        /**
+         * Prepare term range search query
+         *
+         * @return TermRangeSearchQuery
+         */
+        final public static function termRange() {}
 
         /**
          * Prepare boolean field search query
@@ -2181,6 +2444,27 @@ namespace Couchbase {
          * @return WildcardSearchQuery
          */
         final public static function wildcard($wildcard) {}
+
+        /**
+         * Prepare geo distance search query
+         *
+         * @param float $longitude
+         * @param float $latitude
+         * @param string $distance e.g. "10mi"
+         * @return GeoDistanceSearchQuery
+         */
+        final public static function geoDistance($longitude, $latitude, $distance) {}
+
+        /**
+         * Prepare geo bounding box search query
+         *
+         * @param float $topLeftLongitude
+         * @param float $topLeftLatitude
+         * @param float $bottomRightLongitude
+         * @param float $bottomRightLatitude
+         * @return GeoBoundingBoxSearchQuery
+         */
+        final public static function geoBoundingBox($topLeftLongitude, $topLeftLatitude, $bottomRightLongitude, $bottomRightLatitude) {}
 
         /**
          * Prepare term search facet
@@ -2869,6 +3153,101 @@ namespace Couchbase {
          * @return TermSearchQuery
          */
         final public function fuzziness($fuzziness) {}
+    }
+
+    /**
+     * A FTS query that matches documents on a range of values. At least one bound is required, and the
+     * inclusiveness of each bound can be configured.
+     */
+    final class TermRangeSearchQuery implements \JsonSerializable, SearchQueryPart {
+        /** @ignore */
+        final private function __construct() {}
+
+        /**
+         * @ignore
+         * @return array
+         */
+        final public function jsonSerialize() {}
+
+        /**
+         * @param float $boost
+         * @return TermRangeSearchQuery
+         */
+        final public function boost($boost) {}
+
+        /**
+         * @param string $field
+         * @return TermRangeSearchQuery
+         */
+        final public function field($field) {}
+
+        /**
+         * @param string $min
+         * @param bool $inclusive
+         * @return TermRangeSearchQuery
+         */
+        final public function min($min, $inclusive = true) {}
+
+        /**
+         * @param string $max
+         * @param bool $inclusive
+         * @return TermRangeSearchQuery
+         */
+        final public function max($max, $inclusive = false) {}
+    }
+
+    /**
+     * A FTS query that finds all matches from a given location (point) within the given distance.
+     *
+     * Both the point and the distance are required.
+     */
+    final class GeoDistanceSearchQuery implements \JsonSerializable, SearchQueryPart {
+        /** @ignore */
+        final private function __construct() {}
+
+        /**
+         * @ignore
+         * @return array
+         */
+        final public function jsonSerialize() {}
+
+        /**
+         * @param float $boost
+         * @return GeoDistanceSearchQuery
+         */
+        final public function boost($boost) {}
+
+        /**
+         * @param string $field
+         * @return GeoDistanceSearchQuery
+         */
+        final public function field($field) {}
+    }
+
+    /**
+     * A FTS query which allows to match geo bounding boxes.
+     */
+    final class GeoBoundingBoxSearchQuery implements \JsonSerializable, SearchQueryPart {
+        /** @ignore */
+        final private function __construct() {}
+
+        /**
+         * @ignore
+         * @return array
+         */
+        final public function jsonSerialize() {}
+
+        /**
+         * @param float $boost
+         * @return GeoBoundingBoxSearchQuery
+         */
+        final public function boost($boost) {}
+
+        /**
+         * @param string $field
+         * @return GeoBoundingBoxSearchQuery
+         */
+        final public function field($field) {}
     }
 
     /**

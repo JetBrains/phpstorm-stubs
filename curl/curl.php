@@ -150,7 +150,7 @@ function curl_version ($age = null) {}
  * @param int $option <p>
  * The CURLOPT_XXX option to set.
  * </p>
- * @param mixed $value <p>
+ * @param mixed|callable $value <p>
  * The value to be set on option.
  * </p>
  * <p>

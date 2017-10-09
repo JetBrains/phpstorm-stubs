@@ -139,7 +139,7 @@ function db2_autocommit ($connection, $value = null) {}
  * from stored procedures. A non-negative value specifies the maximum size of 
  * the XML data that will be retrieved from the database. If this parameter 
  * is not used, a default of 1MB will be assumed for retrieving the XML 
- * output value from the stored procedure. 
+ * output value from the stored procedure.
  * </p>
  * @param scale int[optional] <p>
  * Specifies the scale with which the variable should be bound to the

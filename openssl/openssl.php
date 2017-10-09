@@ -648,20 +648,24 @@ function openssl_digest($data, $method, $raw_output = false) { }
  * @param string $method <p>
  * The cipher method.
  * </p>
- * @param string $password <p>
- * The password.
+ * @param string $key <p>
+ * The key. For a list of available cipher methods, use {@see openssl_get_cipher_methods()}.
  * </p>
  * @param int $options [optional] <p>
- * Setting to true will return as raw output data, otherwise the return
- * value is base64 encoded.
+ * options is a bitwise disjunction of the flags OPENSSL_RAW_DATA and OPENSSL_ZERO_PADDING.
  * </p>
  * @param string $iv [optional] <p>
  * A non-NULL Initialization Vector.
  * </p>
+ * @param string &$tag <p>The authentication tag passed by reference when using AEAD cipher mode (GCM or CCM).</p>
+ * @param string $aad <p>Additional authentication data.</p>
+ * @param int $tag_length [optional] <p>
+ * The length of the authentication tag. Its value can be between 4 and 16 for GCM mode.
+ * </p>
  * @return string the encrypted string on success or false on failure.
  * @since 5.3.0
  */
-function openssl_encrypt($data, $method, $password, $options = 0, $iv = "") { }
+function openssl_encrypt($data, $method, $key, $options = 0, $iv = "", &$tag = NULL, $aad = "", $tag_length = 16) { }
 
 /**
  * Decrypts data
@@ -683,10 +687,14 @@ function openssl_encrypt($data, $method, $password, $options = 0, $iv = "") { }
  * @param string $iv [optional] <p>
  * A non-NULL Initialization Vector.
  * </p>
+ * @param string $tag [optional] <p>
+ * The authentication tag in AEAD cipher mode. If it is incorrect, the authentication fails and the function returns <b>FALSE</b>.
+ * </p>
+ * @param string $aad [optional] <p>Additional authentication data.</p>
  * @return string The decrypted string on success or false on failure.
  * @since 5.3.0
  */
-function openssl_decrypt($data, $method, $password, $options = 1, $iv = "") { }
+function openssl_decrypt($data, $method, $password, $options = 1, $iv = "", $tag = "",  $aad = "") { }
 
 /**
  * (PHP 5 &gt;= PHP 5.3.3)<br/>
@@ -1048,6 +1056,8 @@ function openssl_error_string() { }
  * @since 5.6.0
  */
 function openssl_get_cert_locations() { }
+
+function openssl_get_curve_names() {}
 
 define ('OPENSSL_VERSION_TEXT', "OpenSSL 1.0.0e 6 Sep 2011");
 define ('OPENSSL_VERSION_NUMBER', 268435551);

@@ -89,10 +89,10 @@ class SNMP  {
 	/**
 	 * Creates SNMP instance representing session to remote SNMP agent
 	 * @link http://php.net/manual/en/snmp.construct.php
-	 * @param $version SNMP protocol version:
+	 * @param $version int <p>SNMP protocol version:
      * <b>SNMP::VERSION_1</b>,
      * <b>SNMP::VERSION_2C</b>,
-     * <b>SNMP::VERSION_3</b>.
+     * <b>SNMP::VERSION_3</b>.</p>
      * @param $hostname string The SNMP agent. <i>hostname</i> may be suffixed with
      * optional <acronym title="Simple Network Management Protocol">SNMP</acronym> agent port after colon. IPv6 addresses must be enclosed in square
      * brackets if used with port. If FQDN is used for <i>hostname</i>

@@ -1264,7 +1264,7 @@ class MongoCollection {
  * Result object for database query.
  * @link http://www.php.net/manual/en/class.mongocursor.php
  */
-class MongoCursor implements Iterator, Traversable {
+class MongoCursor implements Iterator {
     /**
      * @link http://php.net/manual/en/class.mongocursor.php#mongocursor.props.slaveokay
 	 * @static
@@ -1439,11 +1439,11 @@ class MongoCursor implements Iterator, Traversable {
    /**
 	* Gives the database a hint about the query
 	* @link http://www.php.net/manual/en/mongocursor.hint.php
-	* @param array $key_pattern Indexes to use for the query.
+	* @param mixed $key_pattern Indexes to use for the query.
 	* @throws MongoCursorException
     * @return MongoCursor Returns this cursor
     */
-    public function hint(array $key_pattern) {}
+    public function hint(mixed $key_pattern) {}
 
 
 	/**
@@ -1583,7 +1583,7 @@ class MongoCursor implements Iterator, Traversable {
 	public function maxTimeMS ($ms) {}
 }
 
-class MongoCommandCursor implements MongoCursorInterface, Iterator{
+class MongoCommandCursor implements MongoCursorInterface {
     /**
      * Return the current element
      * @link http://php.net/manual/en/iterator.current.php
@@ -1771,7 +1771,7 @@ class MongoGridFS extends MongoCollection {
     * @param mixed $id _id of the file to find.
     * @return MongoGridFSFile|null Returns the file, if found, or NULL.
     */
-    public function __get($id) {}
+    public function get($id) {}
 
      /**
      * Stores a file in the database

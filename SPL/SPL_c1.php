@@ -277,7 +277,7 @@ class SplFileInfo  {
  * the contents of filesystem directories.
  * @link http://php.net/manual/en/class.directoryiterator.php
  */
-class DirectoryIterator extends SplFileInfo implements Iterator, Traversable, SeekableIterator {
+class DirectoryIterator extends SplFileInfo implements SeekableIterator {
 
         /**
          * Constructs a new directory iterator from a path
@@ -353,7 +353,7 @@ class DirectoryIterator extends SplFileInfo implements Iterator, Traversable, Se
  * The Filesystem iterator
  * @link http://php.net/manual/en/class.filesystemiterator.php
  */
-class FilesystemIterator extends DirectoryIterator implements SeekableIterator, Traversable, Iterator {
+class FilesystemIterator extends DirectoryIterator {
         const CURRENT_MODE_MASK = 240;
         const CURRENT_AS_PATHNAME = 32;
         const CURRENT_AS_FILEINFO = 0;
@@ -365,6 +365,7 @@ class FilesystemIterator extends DirectoryIterator implements SeekableIterator, 
         const NEW_CURRENT_AND_KEY = 256;
         const SKIP_DOTS = 4096;
         const UNIX_PATHS = 8192;
+        const OTHER_MODE_MASK = 12288;
 
         /**
          * Constructs a new filesystem iterator
@@ -435,7 +436,7 @@ class FilesystemIterator extends DirectoryIterator implements SeekableIterator, 
  * an interface for iterating recursively over filesystem directories.
  * @link http://php.net/manual/en/class.recursivedirectoryiterator.php
  */
-class RecursiveDirectoryIterator extends FilesystemIterator implements Iterator, Traversable, SeekableIterator, RecursiveIterator {
+class RecursiveDirectoryIterator extends FilesystemIterator implements RecursiveIterator {
 
 
         /**
@@ -522,7 +523,7 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Iterator,
  * <b>glob</b>.
  * @link http://php.net/manual/en/class.globiterator.php
  */
-class GlobIterator extends FilesystemIterator implements Iterator, Traversable, SeekableIterator, Countable {
+class GlobIterator extends FilesystemIterator implements Countable {
 
         /**
          * Construct a directory using glob
@@ -547,10 +548,10 @@ class GlobIterator extends FilesystemIterator implements Iterator, Traversable, 
  * The SplFileObject class offers an object oriented interface for a file.
  * @link http://php.net/manual/en/class.splfileobject.php
  */
-class SplFileObject extends SplFileInfo implements RecursiveIterator, Traversable, Iterator, SeekableIterator {
+class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIterator {
         const DROP_NEW_LINE = 1;
         const READ_AHEAD = 2;
-        const SKIP_EMPTY = 6;
+        const SKIP_EMPTY = 4;
         const READ_CSV = 8;
 
 
@@ -928,7 +929,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, Traversabl
  * The SplTempFileObject class offers an object oriented interface for a temporary file.
  * @link http://php.net/manual/en/class.spltempfileobject.php
  */
-class SplTempFileObject extends SplFileObject implements SeekableIterator, Iterator, Traversable, RecursiveIterator {
+class SplTempFileObject extends SplFileObject {
 
 
         /**
@@ -944,7 +945,7 @@ class SplTempFileObject extends SplFileObject implements SeekableIterator, Itera
  * The SplDoublyLinkedList class provides the main functionalities of a doubly linked list.
  * @link http://php.net/manual/en/class.spldoublylinkedlist.php
  */
-class SplDoublyLinkedList implements Iterator, Traversable, Countable, ArrayAccess {
+class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess {
         const IT_MODE_LIFO = 2;
         const IT_MODE_FIFO = 0;
         const IT_MODE_DELETE = 1;
@@ -1170,7 +1171,7 @@ class SplDoublyLinkedList implements Iterator, Traversable, Countable, ArrayAcce
  * The SplQueue class provides the main functionalities of a queue implemented using a doubly linked list.
  * @link http://php.net/manual/en/class.splqueue.php
  */
-class SplQueue extends SplDoublyLinkedList implements ArrayAccess, Countable, Traversable, Iterator {
+class SplQueue extends SplDoublyLinkedList {
 
 
         /**
@@ -1210,7 +1211,7 @@ class SplQueue extends SplDoublyLinkedList implements ArrayAccess, Countable, Tr
  * The SplStack class provides the main functionalities of a stack implemented using a doubly linked list.
  * @link http://php.net/manual/en/class.splstack.php
  */
-class SplStack extends SplDoublyLinkedList implements ArrayAccess, Countable, Traversable, Iterator {
+class SplStack extends SplDoublyLinkedList {
 
     /**
      * Sets the mode of iteration
@@ -1230,7 +1231,7 @@ class SplStack extends SplDoublyLinkedList implements ArrayAccess, Countable, Tr
  * The SplHeap class provides the main functionalities of an Heap.
  * @link http://php.net/manual/en/class.splheap.php
  */
-abstract class SplHeap implements Iterator, Traversable, Countable {
+abstract class SplHeap implements Iterator, Countable {
 
         /**
          * Extracts a node from top of the heap and sift up.
@@ -1346,7 +1347,7 @@ abstract class SplHeap implements Iterator, Traversable, Countable {
  * The SplMinHeap class provides the main functionalities of a heap, keeping the minimum on the top.
  * @link http://php.net/manual/en/class.splminheap.php
  */
-class SplMinHeap extends SplHeap implements Countable, Traversable, Iterator {
+class SplMinHeap extends SplHeap {
 
         /**
          * Compare elements in order to place them correctly in the heap while sifting up.
@@ -1462,7 +1463,7 @@ class SplMinHeap extends SplHeap implements Countable, Traversable, Iterator {
  * The SplMaxHeap class provides the main functionalities of a heap, keeping the maximum on the top.
  * @link http://php.net/manual/en/class.splmaxheap.php
  */
-class SplMaxHeap extends SplHeap implements Countable, Traversable, Iterator {
+class SplMaxHeap extends SplHeap {
 
     /**
      * Compare elements in order to place them correctly in the heap while sifting up.
@@ -1487,7 +1488,7 @@ class SplMaxHeap extends SplHeap implements Countable, Traversable, Iterator {
  * prioritized queue, implemented using a heap.
  * @link http://php.net/manual/en/class.splpriorityqueue.php
  */
-class SplPriorityQueue implements Iterator, Traversable, Countable {
+class SplPriorityQueue implements Iterator, Countable {
         const EXTR_BOTH = 3;
         const EXTR_PRIORITY = 2;
         const EXTR_DATA = 1;
@@ -1628,7 +1629,7 @@ class SplPriorityQueue implements Iterator, Traversable, Countable {
  * implementation.
  * @link http://php.net/manual/en/class.splfixedarray.php
  */
-class SplFixedArray implements Iterator, Traversable, ArrayAccess, Countable {
+class SplFixedArray implements Iterator, ArrayAccess, Countable {
 
         /**
          * Constructs a new fixed array
@@ -1842,7 +1843,7 @@ interface SplSubject  {
  * cases involving the need to uniquely identify objects.
  * @link http://php.net/manual/en/class.splobjectstorage.php
  */
-class SplObjectStorage implements Countable, Iterator, Traversable, Serializable, ArrayAccess {
+class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess {
 
         /**
          * Adds an object in the storage
@@ -2063,7 +2064,7 @@ class SplObjectStorage implements Countable, Iterator, Traversable, Serializable
  * An Iterator that sequentially iterates over all attached iterators
  * @link http://php.net/manual/en/class.multipleiterator.php
  */
-class MultipleIterator implements Iterator, Traversable {
+class MultipleIterator implements Iterator {
         const MIT_NEED_ANY = 0;
         const MIT_NEED_ALL = 1;
         const MIT_KEYS_NUMERIC = 0;

@@ -152,6 +152,7 @@ function strncasecmp ($str1, $str2, $len) {}
  * false.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.2
  */
 function each (array &$array) {}
 
@@ -610,7 +611,7 @@ function user_error ($message, $error_type) {}
 /**
  * Sets a user-defined error handler function
  * @link http://php.net/manual/en/function.set-error-handler.php
- * @param callback $error_handler <p>
+ * @param callable $error_handler <p>
  * The user function needs to accept two parameters: the error code, and a
  * string describing the error. Then there are three optional parameters 
  * that may be supplied: the filename in which the error occurred, the
@@ -657,14 +658,15 @@ function restore_error_handler () {}
 /**
  * Sets a user-defined exception handler function
  * @link http://php.net/manual/en/function.set-exception-handler.php
- * @param callback $exception_handler <p>
+ * @param callable|null $exception_handler <p>
  * Name of the function to be called when an uncaught exception occurs.
  * This function must be defined before calling
  * <b>set_exception_handler</b>. This handler function
  * needs to accept one parameter, which will be the exception object that
  * was thrown.
+ * NULL may be passed instead, to reset this handler to its default state.
  * </p>
- * @return callback the name of the previously defined exception handler, or null on error. If
+ * @return callable|null the name of the previously defined exception handler, or null on error. If
  * no previous handler was defined, null is also returned.
  * @since 5.0
  */

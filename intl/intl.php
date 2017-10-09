@@ -907,7 +907,7 @@ class NumberFormatter {
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Format a number
      * @link http://php.net/manual/en/numberformatter.format.php
-     * @param number $value <p>
+     * @param int|float $value <p>
      * The value to format. Can be integer or float,
      * other values will be converted to a numeric value.
      * </p>
@@ -3392,7 +3392,7 @@ function numfmt_create($locale, $style, $pattern = null) { }
  * Format a number
  * @link http://php.net/manual/en/numberformatter.format.php
  * @param NumberFormatter $fmt
- * @param number $value <p>
+ * @param int|float $value <p>
  * The value to format. Can be integer or float,
  * other values will be converted to a numeric value.
  * </p>
@@ -4418,7 +4418,9 @@ function grapheme_strripos($haystack, $needle, $offset = 0) { }
  * start position has been calculated when a start is negative). If $start
  * denotes a position beyond this truncation, <b>FALSE</b> will be returned.
  * </p>
- * @return int the extracted part of $string.
+ * @return string|false <p>the extracted part of $string,<br />
+                        or <strong>FALSE</strong> if $length is negative and $start denotes a position beyond truncation $length,<br />
+                        or also <strong>FALSE</strong> if $start denotes a position beyond $string length</p>
  */
 function grapheme_substr($string, $start, $length = null) { }
 

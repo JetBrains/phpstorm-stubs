@@ -768,7 +768,7 @@ function reset (array &$array) {}
  * @since 4.0
  * @since 5.0
  */
-function current (array &$array) {}
+function current (array $array) {}
 
 /**
  * Fetch a key from an array
@@ -776,7 +776,7 @@ function current (array &$array) {}
  * @param array|ArrayObject $array <p>
  * The array.
  * </p>
- * @return mixed The key function simply returns the
+ * @return int|string|null The key function simply returns the
  * key of the array element that's currently being pointed to by the
  * internal pointer. It does not move the pointer in any way. If the
  * internal pointer points beyond the end of the elements list or the array is 
@@ -784,7 +784,7 @@ function current (array &$array) {}
  * @since 4.0
  * @since 5.0
  */
-function key (array &$array) {}
+function key (array $array) {}
 
 /**
  * Find lowest value
@@ -859,7 +859,7 @@ function in_array ($needle, array $haystack, $strict = false) {}
  * types of the
  * needle in the haystack.
  * </p>
- * @return mixed the key for needle if it is found in the
+ * @return int|string|false the key for needle if it is found in the
  * array, false otherwise.
  * </p>
  * <p>
@@ -962,7 +962,7 @@ function array_fill_keys (array $keys, $value) {}
  * @param mixed $high <p>
  * High value.
  * </p>
- * @param number $step [optional] <p>
+ * @param int|float $step [optional] <p>
  * If a step value is given, it will be used as the
  * increment between elements in the sequence. step
  * should be given as a positive number. If not specified,

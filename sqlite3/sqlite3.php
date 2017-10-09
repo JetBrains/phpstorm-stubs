@@ -110,8 +110,8 @@ class SQLite3  {
 
 	/**
 	 * Returns the number of database rows that were changed (or inserted or
+	 * deleted) by the most recent SQL statement
 	 * @since 5.3.0
-deleted) by the most recent SQL statement
 	 * @link http://php.net/manual/en/sqlite3.changes.php
 	 * @return int an integer value corresponding to the number of
 	 * database rows changed (or inserted or deleted) by the most recent SQL

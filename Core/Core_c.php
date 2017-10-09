@@ -476,6 +476,15 @@ class AssertionError extends Error {
 }
 
 /**
+ * ArgumentCountError is thrown when too few arguments are passed to a user
+ * defined routine.
+ *
+ * @since 7.1
+ * @see https://php.net/migration71.incompatible#migration71.incompatible.too-few-arguments-exception
+ */
+class ArgumentCountError extends Error {}
+
+/**
  * ArithmeticError is thrown when an error occurs while performing mathematical operations.
  * In PHP 7.0, these errors include attempting to perform a bitshift by a negative amount,
  * and any call to {@see intdiv()} that would result in a value outside the possible bounds of an integer.
@@ -554,7 +563,7 @@ final class Closure {
     public function __invoke(...$_) { }
 
     /**
-     * Closure::bindTo � Duplicates the closure with a new bound object and class scope
+     * Duplicates the closure with a new bound object and class scope
      * @link http://www.php.net/manual/en/closure.bindto.php
      * @param object $newthis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.
      * @param mixed $newscope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.

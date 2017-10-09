@@ -928,6 +928,16 @@ function date_create ($time = null, DateTimeZone $timezone = null ) {}
 function date_create_immutable ($time = null, DateTimeZone $timezone = null ) {}
 
 /**
+ * Returns new DateTimeImmutable object formatted according to the specified format
+ * @link http://php.net/manual/en/function.date-create-immutable-from-format.php
+ * @param string $format
+ * @param string $time
+ * @param DateTimeZone $timezone
+ * @return DateTimeImmutable
+ */
+function date_create_immutable_from_format ($format, $time, DateTimeZone $timezone) {}
+
+/**
  * Alias:
  * {@see DateTime::createFromFormat}
  * @link http://php.net/manual/en/function.date-create-from-format.php
@@ -1094,11 +1104,12 @@ function date_diff ($object, $object2, $absolute) {}
  * @param $hour
  * @param $minute
  * @param $second [optional]
+ * @parame $microseconds [optional]
  * @return DateTime|false <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  * @since 5.2.0
  */
-function date_time_set ($object, $hour, $minute, $second) {}
+function date_time_set ($object, $hour, $minute, $second, $microseconds) {}
 
 /**
  * &Alias; <methodname>DateTime::setDate</methodname>

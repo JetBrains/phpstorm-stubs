@@ -306,6 +306,8 @@ class DateTime implements DateTimeInterface {
     const RFC1123 = 'D, d M Y H:i:s O';
     const RFC2822 = 'D, d M Y H:i:s O';
     const RFC3339 = 'Y-m-d\TH:i:sP';
+    const RFC3339_EXTENDED = 'Y-m-d\TH:i:s.vP';
+    const RFC7231 = 'D, d M Y H:i:s \G\M\T';
     const RSS = 'D, d M Y H:i:s O';
     const W3C = 'Y-m-d\TH:i:sP';
 
@@ -537,6 +539,13 @@ class DateTimeZone {
      * @link http://php.net/manual/en/datetimezone.listidentifiers.php
      */
     public static function listIdentifiers ($what=DateTimeZone::ALL, $country=null) {}
+
+    /**
+     * @link http://php.net/manual/en/datetime.wakeup.php
+     */
+    public function __wakeup(){}
+
+
 }
 
 /**
@@ -583,6 +592,13 @@ class DateInterval {
     public $s;
 
     /**
+     * Number of microseconds
+     * @since 7.1.0
+     * @var float
+     */
+    public $f;
+
+    /**
      * Is 1 if the interval is inverted and 0 otherwise
      * @var int
      */
@@ -626,7 +642,43 @@ class DateInterval {
  */
 class DatePeriod implements Traversable {
     const EXCLUDE_START_DATE = 1;
+    
+    /**
+     * Start date
+     * @var DateTimeInterface
+     */
+    public $start;
 
+    /**
+     * Current iterator value.
+     * @var DateTimeInterface|null
+     */
+    public $current;
+    
+    /**
+     * End date.
+     * @var DateTimeInterface|null
+     */
+    public $end;
+    
+    /**
+     * The interval
+     * @var DateInterval
+     */
+    public $interval;
+    
+    /**
+     * Number of recurrences.
+     * @var int
+     */
+    public $recurrences;
+    
+    /**
+     * Start of period.
+     * @var bool
+     */
+    public $include_start_date;
+    
     /**
      * @param DateTimeInterface $start
      * @param DateInterval $interval
@@ -665,7 +717,7 @@ class DatePeriod implements Traversable {
 
     /**
      * Gets the end date
-     * @return DateTimeInterface
+     * @return DateTimeInterface|null
      * @link http://php.net/manual/en/dateperiod.getenddate.php
      * @since 5.6.5
      */
@@ -678,4 +730,7 @@ class DatePeriod implements Traversable {
      * @since 5.6.5
      */
     public function getStartDate () {}
+
+    public static function __set_state (){}
+
 }
