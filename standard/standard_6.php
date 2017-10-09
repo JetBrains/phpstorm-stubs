@@ -631,7 +631,7 @@ function stream_supports_lock ($stream) {}
  * @param string $escape [optional] <p>
  * Set the escape character (one character only). Defaults as a backslash.
  * </p>
- * @return array an indexed array containing the fields read.
+ * @return array|null|false an indexed array containing the fields read.
  * </p>
  * <p>
  * A blank line in a CSV file will be returned as an array
