@@ -1157,7 +1157,7 @@ namespace MongoDB {}
              * Construct a new Regex
              * @link http://php.net/manual/en/mongodb-bson-regex.construct.php
              * @param string $pattern
-             * @param string $flags
+             * @param string $flags [optional]
              */
             public function __construct($pattern, $flags = "")
             {
