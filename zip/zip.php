@@ -578,6 +578,28 @@ class ZipArchive  {
 	public function setCompressionName ($name, $comp_method, $comp_flags = 0){}
 
     /**
+     * Set the encryption method of an entry defined by its index
+     * @link http://php.net/manual/en/ziparchive.setencryptionindex.php
+     * @param int $index Index of the entry.
+     * @param string $method The encryption method defined by one of the ZipArchive::EM_ constants.
+     * @param string $password [optional] Optional password, default used when missing.
+     * @return bool Returns TRUE on success or FALSE on failure.
+     * @since 7.2
+     */
+    public function setEncryptionIndex ($index, $method, $password = null) {}
+
+    /**
+     * Set the encryption method of an entry defined by its name
+     * @link http://php.net/manual/en/ziparchive.setencryptionname.php
+     * @param string $name Name of the entry.
+     * @param string $method The encryption method defined by one of the ZipArchive::EM_ constants.
+     * @param string $password [optional] Optional password, default used when missing.
+     * @return bool Returns TRUE on success or FALSE on failure.
+     * @since 7.2
+     */
+    public function setEncryptionName ($name, $method, $password = null) {}
+
+    /**
      * (PHP 5 &gt;= 5.6.0, PECL zip &gt;= 1.12.0)<br/>
      * @param $password
      * @return boolean
