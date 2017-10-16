@@ -1998,8 +1998,8 @@ class ReflectionClassConstant implements Reflector {
 
     /**
      * ReflectionClassConstant constructor.
-	 * @since 7.1
-	 * @link http://php.net/manual/en/reflectionclassconstant.construct.php
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.construct.php
      * @param mixed $class Either a string containing the name of the class to reflect, or an object.
      * @param string $name The name of the class constant.
      * @return ReflectionClassConstant
@@ -2007,8 +2007,8 @@ class ReflectionClassConstant implements Reflector {
     public function __construct($class, $name) {}
 
     /**
-	 * @since 7.1
-	 * @link http://php.net/manual/en/reflectionclassconstant.export.php
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.export.php
      * @param mixed $class The reflection to export.
      * @param string $name The class constant name.
      * @param bool $return Setting to TRUE will return the export, as opposed to emitting it. Setting to FALSE (the default) will do the opposite.
@@ -2017,65 +2017,65 @@ class ReflectionClassConstant implements Reflector {
 	public static function export($class, $name, $return) {}
 
     /**
-	 * Gets declaring class
-	 * @since 7.1
-	 * @link http://php.net/manual/en/reflectionclassconstant.getdeclaringclass.php
+     * Gets declaring class
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.getdeclaringclass.php
      * @return ReflectionClass
      */
 	public function getDeclaringClass() {}
 
     /**
-	 * Gets doc comments
-	 * @since 7.1
-	 * @link http://php.net/manual/en/reflectionclassconstant.getdoccomment.php
+     * Gets doc comments
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.getdoccomment.php
      * @return string
      */
 	public function getDocComment() {}
 
     /**
-	 * Gets the class constant modifiers
-	 * @since 7.1
-	 * @link http://php.net/manual/en/reflectionclassconstant.getmodifiers.php
+     * Gets the class constant modifiers
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.getmodifiers.php
      * @return int
      */
 	public function getModifiers() {}
 
     /**
-	 * Gets value
-	 * @since 7.1
-	 * @link http://php.net/manual/en/reflectionclassconstant.getvalue.php
+     * Gets value
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.getvalue.php
      * @return mixed
      */
 	public function getValue() {}
 
     /**
-	 * Checks if class constant is private
-	 * @since 7.1
-	 * @link http://php.net/manual/en/reflectionclassconstant.isprivate.php
+     * Checks if class constant is private
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.isprivate.php
      * @return bool
      */
 	public function isPrivate() {}
 
     /**
-	 * Checks if class constant is protected
-	 * @since 7.1
-	 * @link http://php.net/manual/en/reflectionclassconstant.isprotected.php
+     * Checks if class constant is protected
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.isprotected.php
      * @return bool
      */
 	public function isProtected() {}
 
     /**
-	 * Checks if class constant is public
-	 * @since 7.1
-	 * @link http://php.net/manual/en/reflectionclassconstant.ispublic.php
+     * Checks if class constant is public
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.ispublic.php
      * @param bool
      */
 	public function isPublic() {}
 
     /**
-	 * Returns the string representation of the ReflectionClassConstant object.
-	 * @since 7.1
-	 * @link http://php.net/manual/en/reflectionclassconstant.tostring.php
+     * Returns the string representation of the ReflectionClassConstant object.
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.tostring.php
      * @return string|void
      */
 	public function __toString() {}
