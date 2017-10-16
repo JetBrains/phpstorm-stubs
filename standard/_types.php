@@ -202,6 +202,8 @@ namespace {
         function getReturn() {}
     }
 
+    class ClosedGeneratorException extends Exception {}
+
 }
 
 namespace ___PHPSTORM_HELPERS {
