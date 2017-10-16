@@ -1987,5 +1987,106 @@ class ReflectionType
 	}
 }
 
+/**
+ * The ReflectionClassConstant class reports information about a class constant.
+ * @since 7.1
+ */
+class ReflectionClassConstant implements Reflector {
+
+    public $name ;
+    public $class ;
+
+    /**
+     * ReflectionClassConstant constructor.
+	 * @since 7.1
+	 * @link http://php.net/manual/en/reflectionclassconstant.construct.php
+     * @param mixed $class Either a string containing the name of the class to reflect, or an object.
+     * @param string $name The name of the class constant.
+     * @return ReflectionClassConstant
+     */
+    public function __construct($class, $name) {}
+
+    /**
+	 * @since 7.1
+	 * @link http://php.net/manual/en/reflectionclassconstant.export.php
+     * @param mixed $class The reflection to export.
+     * @param string $name The class constant name.
+     * @param bool $return Setting to TRUE will return the export, as opposed to emitting it. Setting to FALSE (the default) will do the opposite.
+     * @return string
+     */
+	public static function export($class, $name, $return) {}
+
+    /**
+	 * Gets declaring class
+	 * @since 7.1
+	 * @link http://php.net/manual/en/reflectionclassconstant.getdeclaringclass.php
+     * @return ReflectionClass
+     */
+	public function getDeclaringClass() {}
+
+    /**
+	 * Gets doc comments
+	 * @since 7.1
+	 * @link http://php.net/manual/en/reflectionclassconstant.getdoccomment.php
+     * @return string
+     */
+	public function getDocComment() {}
+
+    /**
+	 * Gets the class constant modifiers
+	 * @since 7.1
+	 * @link http://php.net/manual/en/reflectionclassconstant.getmodifiers.php
+     * @return int
+     */
+	public function getModifiers() {}
+
+    /**
+	 * Gets value
+	 * @since 7.1
+	 * @link http://php.net/manual/en/reflectionclassconstant.getvalue.php
+     * @return mixed
+     */
+	public function getValue() {}
+
+    /**
+	 * Checks if class constant is private
+	 * @since 7.1
+	 * @link http://php.net/manual/en/reflectionclassconstant.isprivate.php
+     * @return bool
+     */
+	public function isPrivate() {}
+
+    /**
+	 * Checks if class constant is protected
+	 * @since 7.1
+	 * @link http://php.net/manual/en/reflectionclassconstant.isprotected.php
+     * @return bool
+     */
+	public function isProtected() {}
+
+    /**
+	 * Checks if class constant is public
+	 * @since 7.1
+	 * @link http://php.net/manual/en/reflectionclassconstant.ispublic.php
+     * @param bool
+     */
+	public function isPublic() {}
+
+    /**
+	 * Returns the string representation of the ReflectionClassConstant object.
+	 * @since 7.1
+	 * @link http://php.net/manual/en/reflectionclassconstant.tostring.php
+     * @return string|void
+     */
+	public function __toString() {}
+}
+
+/**
+ * @since 7.1
+ */
+class ReflectionNamedType extends ReflectionType{
+
+}
+
 // End of Reflection v.$Id: bcdcdaeea3aba34a8083bb62c6eda69ff3c3eab5 $
 ?>
