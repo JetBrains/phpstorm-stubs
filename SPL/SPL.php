@@ -1200,7 +1200,7 @@ class RegexIterator extends FilterIterator {
      */
     const USE_KEY = 1;
 
-	const INVERT_MATCH = 2;
+    const INVERT_MATCH = 2;
 
     public $replacement;
 
