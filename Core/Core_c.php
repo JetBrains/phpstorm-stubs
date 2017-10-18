@@ -265,6 +265,7 @@ class Exception implements Throwable {
 
     /**
      * Clone the exception
+     * Tries to clone the Exception, which results in Fatal error.
      * @link http://php.net/manual/en/exception.clone.php
      * @return void
      * @since 5.1.0
@@ -348,6 +349,8 @@ class Exception implements Throwable {
      * @since 5.1.0
      */
     public function __toString() { }
+
+    public function __wakeup() { }
 }
 
 /**
@@ -443,6 +446,16 @@ class Error implements Throwable {
      * @since 7.0
      */
     public function __toString(){}
+
+    /**
+     * Clone the error
+     * Error can not be clone, so this method results in fatal error.
+     * @return void
+     * @link http://php.net/manual/en/error.clone.php
+     */
+    private final function __clone(){}
+
+    public function __wakeup(){}
 }
 
 /**
