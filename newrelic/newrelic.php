@@ -356,3 +356,37 @@ function newrelic_set_user_attributes($user, $account, $product) {}
  * @return boolean
  */
 function newrelic_start_transaction($appName, $license = null) {}
+
+/**
+ * @param $curl_resource
+ * @param $header_data
+ *
+ * @return mixed
+ */
+function newrelic_curl_header_callback($curl_resource, $header_data) {}
+
+/**
+ * @param $stream_context
+ *
+ * @return mixed
+ */
+function newrelic_add_headers_to_context($stream_context) {}
+
+/**
+ * @param $stream_context
+ *
+ * @return mixed
+ */
+function newrelic_remove_headers_to_context($stream_context) {}
+
+/**
+ * @param $exception
+ */
+function newrelic_exception_handler($exception) {}
+
+/**
+ * Returns an array with keys X-NewRelic-ID and X-NewRelic-Transaction on success.
+ *
+ * @return array
+ */
+function newrelic_get_request_metadata() {}
