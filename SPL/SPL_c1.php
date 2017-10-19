@@ -549,22 +549,40 @@ class GlobIterator extends FilesystemIterator implements Countable {
  * @link http://php.net/manual/en/class.splfileobject.php
  */
 class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIterator {
+        /**
+         * Drop newlines at the end of a line.
+         */
         const DROP_NEW_LINE = 1;
+        /**
+         * Read on rewind/next.
+         */
         const READ_AHEAD = 2;
+        /**
+         * Skip empty lines in the file. This requires the {@see READ_AHEAD} flag to work as expected.
+         */
         const SKIP_EMPTY = 4;
+        /**
+         * Read lines as CSV rows.
+         */
         const READ_CSV = 8;
 
 
         /**
          * Construct a new file object.
-         * @link http://php.net/manual/en/splfileobject.construct.php
-         * @param $file_name
-         * @param $open_mode [optional]
-         * @param $use_include_path [optional]
-         * @param $context [optional]
+         *
+         * @link  http://php.net/manual/en/splfileobject.construct.php
+         *
+         * @param string   $file_name        The file to open
+         * @param string   $open_mode        [optional] The mode in which to open the file. See {@see fopen} for a list of allowed modes.
+         * @param bool     $use_include_path [optional] Whether to search in the include_path for filename
+         * @param resource $context          [optional] A valid context resource created with {@see stream_context_create}
+         *
+         * @throws RuntimeException When the filename cannot be opened
+         * @throws LogicException When the filename is a directory
+         *
          * @since 5.1.0
          */
-        public function __construct ($file_name, $open_mode, $use_include_path, $context) {}
+        public function __construct ($file_name, $open_mode = 'r', $use_include_path = false, $context = null) {}
 
         /**
          * Rewind the file to the first line
