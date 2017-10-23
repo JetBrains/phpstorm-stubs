@@ -4550,6 +4550,52 @@ class Imagick implements Iterator, Countable {
      * @since 3.3.0
      */
     static public function getRegistry($key) { }
+
+    /**
+     * Returns the ImageMagick quantum range as an integer.
+     * @link http://php.net/manual/en/imagick.getquantum.php
+     * @return int
+     * @since 3.3.0
+     */
+    static public function getQuantum() { }
+
+    /**
+     * Replaces any embedded formatting characters with the appropriate image property and returns the interpreted text. See http://www.imagemagick.org/script/escape.php for escape sequences.
+     * @link http://php.net/manual/en/imagick.identifyformat.php
+     * @see http://www.imagemagick.org/script/escape.php
+     * @param string $embedText A string containing formatting sequences e.g. "Trim box: %@ number of unique colors: %k".
+     * @return bool
+     * @since 3.3.0
+     */
+    public function identifyFormat($embedText) { }
+
+    /**
+     * Implements the inverse discrete Fourier transform (DFT) of the image either as a magnitude / phase or real / imaginary image pair.
+     * @link http://php.net/manual/en/imagick.inversefouriertransformimage.php
+     * @param Imagick $complement The second image to combine with this one to form either the magnitude / phase or real / imaginary image pair.
+     * @param bool $magnitude If true, combine as magnitude / phase pair otherwise a real / imaginary image pair.
+     * @return void
+     * @since 3.3.0
+     */
+    public function inverseFourierTransformImage($complement, $magnitude) { }
+
+    /**
+     * List all the registry settings. Returns an array of all the key/value pairs in the registry
+     * @link http://php.net/manual/en/imagick.listregistry.php
+     * @return array An array containing the key/values from the registry.
+     * @since 3.3.0
+     */
+    static public function listRegistry() { }
+
+    /**
+     * Rotational blurs an image.
+     * @link http://php.net/manual/en/imagick.rotationalblurimage.php
+     * @param string $angle
+     * @param string $CHANNEL
+     * @return void
+     * @since 3.3.0
+     */
+    public function rotationalBlurImage($angle, $CHANNEL = Imagick::CHANNEL_DEFAULT) { }
 }
 
 /**
@@ -6307,6 +6353,18 @@ class ImagickPixel  {
 	 * @param $colorCount
 	 */
 	public function setColorCount ($colorCount) {}
+
+
+    /**
+     * Returns true if the distance between two colors is less than the specified distance. The fuzz value should be in the range 0-QuantumRange.
+     * The maximum value represents the longest possible distance in the colorspace. e.g. from RGB(0, 0, 0) to RGB(255, 255, 255) for the RGB colorspace
+     * @link http://php.net/manual/en/imagickpixel.ispixelsimilarquantum.php
+     * @param string $pixel
+     * @param string $fuzz
+     * @return bool
+     * @since 3.3.0
+     */
+    public function isPixelSimilarQuantum($color, $fuzz) { }
 
 }
 // End of imagick v.3.2.0RC1
