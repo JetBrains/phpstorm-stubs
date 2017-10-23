@@ -1986,8 +1986,8 @@ class Imagick implements Iterator, Countable {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Returns all image sequences as a blob
 	 * @link http://php.net/manual/en/imagick.getimagesblob.php
-	 * @return string a string containing the images. On failure, throws
-	 * ImagickException.
+	 * @return string a string containing the images. On failure, throws ImagickException on failure
+	 * @throws ImagickException on failure
 	 */
 	public function getImagesBlob () {}
 
@@ -2843,8 +2843,8 @@ class Imagick implements Iterator, Countable {
 	 * The number of in-between images to generate.
 	 * </p>
 	 * @return Imagick This method returns a new Imagick object on success.
-	 * Throw an
-	 * <b>ImagickException</b> on error.
+	 * Throw an <b>ImagickException</b> on error.
+	 * @throws ImagickException on error
 	 */
 	public function morphImages ($number_frames) {}
 
@@ -3438,8 +3438,8 @@ class Imagick implements Iterator, Countable {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Returns the chromaticy green primary point
 	 * @link http://php.net/manual/en/imagick.getimagegreenprimary.php
-	 * @return array an array with the keys "x" and "y" on success, throws an
-	 * ImagickException on failure.
+	 * @return array an array with the keys "x" and "y" on success, throws an ImagickException on failure.
+	 * @throws ImagickException on failure
 	 */
 	public function getImageGreenPrimary () {}
 
@@ -3464,8 +3464,8 @@ class Imagick implements Iterator, Countable {
 	 * Gets the image interlace scheme
 	 * @link http://php.net/manual/en/imagick.getimageinterlacescheme.php
 	 * @return int the interlace scheme as an integer on success.
-	 * Throw an
-	 * <b>ImagickException</b> on error.
+     * Trhow an <b>ImagickException</b> on error.
+	 * @throws ImagickException on error
 	 */
 	public function getImageInterlaceScheme () {}
 
@@ -3525,8 +3525,8 @@ class Imagick implements Iterator, Countable {
 	 * @link http://php.net/manual/en/imagick.getimageredprimary.php
 	 * @return array the chromaticity red primary point as an array with the keys "x"
 	 * and "y".
-	 * Throw an
-	 * <b>ImagickException</b> on error.
+	 * Throw an <b>ImagickException</b> on error.
+	 * @throws ImagickException on error
 	 */
 	public function getImageRedPrimary () {}
 
@@ -3635,8 +3635,8 @@ class Imagick implements Iterator, Countable {
 	 * Gets the image total ink density
 	 * @link http://php.net/manual/en/imagick.getimagetotalinkdensity.php
 	 * @return float the image total ink density of the image.
-	 * Throw an
-	 * <b>ImagickException</b> on error.
+	 * Throw an <b>ImagickException</b> on error.
+	 * @throws ImagickException on error
 	 */
 	public function getImageTotalInkDensity () {}
 
@@ -4243,6 +4243,7 @@ class Imagick implements Iterator, Countable {
 	 * @return array the page geometry associated with the Imagick object in
 	 * an associative array with the keys "width", "height", "x", and "y",
 	 * throwing ImagickException on error.
+     * @throws ImagickException on error
 	 */
 	public function getPage () {}
 
@@ -4472,6 +4473,83 @@ class Imagick implements Iterator, Countable {
 	 */
 	public function current () {}
 
+    /**
+     * Change the brightness and/or contrast of an image. It converts the brightness and contrast parameters into slope and intercept and calls a polynomical function to apply to the image.
+     * @link http://php.net/manual/en/imagick.brightnesscontrastimage.php
+     * @param string $brightness
+     * @param string $contrast
+     * @param int $CHANNEL [optional]
+     * @return void
+     * @since 3.3.0
+     */
+    public function brightnessContrastImage($brightness, $contrast, $CHANNEL = Imagick::CHANNEL_DEFAULT) { }
+
+    /**
+     * Applies a user supplied kernel to the image according to the given morphology method.
+     * @link http://php.net/manual/en/imagick.morphology.php
+     * @param int $morphologyMethod Which morphology method to use one of the \Imagick::MORPHOLOGY_* constants.
+     * @param int $iterations The number of iteration to apply the morphology function. A value of -1 means loop until no change found. How this is applied may depend on the morphology method. Typically this is a value of 1.
+     * @param ImagickKernel $ImagickKernel
+     * @param int $CHANNEL [optional]
+     * @return void
+     * @since 3.3.0
+     */
+    public function morphology($morphologyMethod, $iterations, ImagickKernel $ImagickKernel, $CHANNEL = Imagick::CHANNEL_DEFAULT) { }
+
+    /**
+     * Applies a custom convolution kernel to the image.
+     * @link http://php.net/manual/en/imagick.filter.php
+     * @param ImagickKernel $ImagickKernel An instance of ImagickKernel that represents either a single kernel or a linked series of kernels.
+     * @param int $CHANNEL [optional] Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to Imagick::CHANNEL_DEFAULT. Refer to this list of channel constants
+     * @return void
+     * @since 3.3.0
+     */
+    public function filter(ImagickKernel $ImagickKernel , $CHANNEL = Imagick::CHANNEL_DEFAULT) { }
+
+    /**
+     * Apply color transformation to an image. The method permits saturation changes, hue rotation, luminance to alpha, and various other effects. Although variable-sized transformation matrices can be used, typically one uses a 5x5 matrix for an RGBA image and a 6x6 for CMYKA (or RGBA with offsets).
+     * The matrix is similar to those used by Adobe Flash except offsets are in column 6 rather than 5 (in support of CMYKA images) and offsets are normalized (divide Flash offset by 255)
+     * @link http://php.net/manual/en/imagick.colormatriximage.php
+     * @param string $color_matrix
+     * @return void
+     * @since 3.3.0
+     */
+    public function colorMatrixImage($color_matrix = Imagick::CHANNEL_DEFAULT) { }
+
+    /**
+     * Deletes an image property.
+     * @link http://php.net/manual/en/imagick.deleteimageproperty.php
+     * @param string $name The name of the property to delete.
+     * @return void
+     * @since 3.3.0
+     */
+    public function deleteImageProperty($name) { }
+
+    /**
+     * Implements the discrete Fourier transform (DFT) of the image either as a magnitude / phase or real / imaginary image pair.
+     * @link http://php.net/manual/en/imagick.forwardfouriertransformimage.php
+     * @param bool $magnitude If true, return as magnitude / phase pair otherwise a real / imaginary image pair.
+     * @return void
+     * @since 3.3.0
+     */
+    public function forwardFourierTransformimage($magnitude) { }
+
+    /**
+     * Gets the current image's compression type.
+     * @link http://php.net/manual/en/imagick.getimagecompression.php
+     * @return int
+     * @since 3.3.0
+     */
+    public function getImageCompression() { }
+
+    /**
+     * Get the StringRegistry entry for the named key or false if not set.
+     * @link http://php.net/manual/en/imagick.getregistry.php
+     * @param string $key
+     * @return string
+     * @since 3.3.0
+     */
+    static public function getRegistry($key) { }
 }
 
 /**
@@ -5907,6 +5985,7 @@ class ImagickPixelIterator implements Iterator {
 	 * @link http://php.net/manual/en/imagickpixeliterator.newpixeliterator.php
 	 * @param Imagick $wand
 	 * @return bool <b>TRUE</b> on success. Throwing ImagickPixelIteratorException.
+     * @throw ImagickPixelIteratorException
 	 */
 	public function newPixelIterator (Imagick $wand) {}
 
@@ -5919,8 +5998,8 @@ class ImagickPixelIterator implements Iterator {
 	 * @param int $y
 	 * @param int $columns
 	 * @param int $rows
-	 * @return bool a new ImagickPixelIterator on success; on failure, throws
-	 * ImagickPixelIteratorException.
+	 * @return bool a new ImagickPixelIterator on success; on failure, throws ImagickPixelIteratorException
+	 * @throws ImagickPixelIteratorException.
 	 */
 	public function newPixelRegionIterator (Imagick $wand, $x, $y, $columns, $rows) {}
 
@@ -5928,8 +6007,8 @@ class ImagickPixelIterator implements Iterator {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Returns the current pixel iterator row
 	 * @link http://php.net/manual/en/imagickpixeliterator.getiteratorrow.php
-	 * @return int the integer offset of the row, throwing
-	 * ImagickPixelIteratorException on error.
+	 * @return int the integer offset of the row, throwing ImagickPixelIteratorException on error.
+	 * @throws ImagickPixelIteratorException on error
 	 */
 	public function getIteratorRow () {}
 
@@ -5964,6 +6043,7 @@ class ImagickPixelIterator implements Iterator {
 	 * @link http://php.net/manual/en/imagickpixeliterator.getpreviousiteratorrow.php
 	 * @return array the previous row as an array of ImagickPixelWand objects from the
 	 * ImagickPixelIterator, throwing ImagickPixelIteratorException on error.
+     * @throws ImagickPixelIteratorException on error
 	 */
 	public function getPreviousIteratorRow () {}
 
@@ -5981,6 +6061,7 @@ class ImagickPixelIterator implements Iterator {
 	 * @link http://php.net/manual/en/imagickpixeliterator.getnextiteratorrow.php
 	 * @return array the next row as an array of ImagickPixel objects, throwing
 	 * ImagickPixelIteratorException on error.
+     * @throws ImagickPixelIteratorException on error
 	 */
 	public function getNextIteratorRow () {}
 
@@ -6054,6 +6135,7 @@ class ImagickPixel  {
 	 * @link http://php.net/manual/en/imagickpixel.gethsl.php
 	 * @return array the HSL value in an array with the keys "hue",
 	 * "saturation", and "luminosity". Throws ImagickPixelException on failure.
+     * @throws ImagickPixelException on failure
 	 */
 	public function getHSL () {}
 
@@ -6138,6 +6220,7 @@ class ImagickPixel  {
 	 * </p>
 	 * @return float The value of the channel, as a normalized floating-point number, throwing
 	 * ImagickPixelException on error.
+     * @throws ImagickPixelException on error
 	 */
 	public function getColorValue ($color) {}
 
@@ -6198,6 +6281,7 @@ class ImagickPixel  {
 	 * </p>
 	 * @return array An array of channel values, each normalized if <b>TRUE</b> is given as param. Throws
 	 * ImagickPixelException on error.
+     * @throws ImagickPixelException on error.
 	 */
 	public function getColor ($normalized = false) {}
 
@@ -6215,6 +6299,7 @@ class ImagickPixel  {
 	 * @link http://php.net/manual/en/imagickpixel.getcolorcount.php
 	 * @return int the color count as an integer on success, throws
 	 * ImagickPixelException on failure.
+     * @throws ImagickPixelException on failure.
 	 */
 	public function getColorCount () {}
 
@@ -6226,3 +6311,72 @@ class ImagickPixel  {
 }
 // End of imagick v.3.2.0RC1
 
+// Start of Imagick v3.3.0RC1
+
+/**
+ * @link http://php.net/manual/en/class.imagickkernel.php
+ */
+class ImagickKernel {
+    /**
+     * Attach another kernel to this kernel to allow them to both be applied in a single morphology or filter function. Returns the new combined kernel.
+     * @link http://php.net/manual/en/imagickkernel.addkernel.php
+     * @param ImagickKernel $imagickKernel
+     * @return void
+     * @since 3.3.0
+     */
+    public function addKernel(ImagickKernel $imagickKernel) { }
+
+    /**
+     * Adds a given amount of the 'Unity' Convolution Kernel to the given pre-scaled and normalized Kernel. This in effect adds that amount of the original image into the resulting convolution kernel. The resulting effect is to convert the defined kernels into blended soft-blurs, unsharp kernels or into sharpening kernels.
+     * @link http://php.net/manual/en/imagickkernel.addunitykernel.php
+     * @return void
+     * @since 3.3.0
+     */
+    public function addUnityKernel() { }
+
+    /**
+     * Create a kernel from a builtin in kernel. See http://www.imagemagick.org/Usage/morphology/#kernel for examples. Currently the 'rotation' symbols are not supported. Example: $diamondKernel = ImagickKernel::fromBuiltIn(\Imagick::KERNEL_DIAMOND, "2");
+     * @link http://php.net/manual/en/imagickkernel.frombuiltin.php
+     * @param string $kernelType The type of kernel to build e.g. \Imagick::KERNEL_DIAMOND
+     * @param string $kernelString A string that describes the parameters e.g. "4,2.5"
+     * @return void
+     * @since 3.3.0
+     */
+    static public function fromBuiltin($kernelType, $kernelString) { }
+
+    /**
+     * Create a kernel from a builtin in kernel. See http://www.imagemagick.org/Usage/morphology/#kernel for examples. Currently the 'rotation' symbols are not supported. Example: $diamondKernel = ImagickKernel::fromBuiltIn(\Imagick::KERNEL_DIAMOND, "2");
+     * @link http://php.net/manual/en/imagickkernel.frombuiltin.php
+     * @see http://www.imagemagick.org/Usage/morphology/#kernel
+     * @param array $matrix A matrix (i.e. 2d array) of values that define the kernel. Each element should be either a float value, or FALSE if that element shouldn't be used by the kernel.
+     * @param array $origin [optional] Which element of the kernel should be used as the origin pixel. e.g. For a 3x3 matrix specifying the origin as [2, 2] would specify that the bottom right element should be the origin pixel.
+     * @return ImagickKernel
+     * @since 3.3.0
+     */
+    static public function fromMatrix($matrix, $origin) { }
+
+    /**
+     * Get the 2d matrix of values used in this kernel. The elements are either float for elements that are used or 'false' if the element should be skipped.
+     * @link http://php.net/manual/en/imagickkernel.getmatrix.php
+     * @return array A matrix (2d array) of the values that represent the kernel.
+     * @since 3.3.0
+     */
+    public function getMatrix() { }
+
+    /**
+     * ScaleKernelInfo() scales the given kernel list by the given amount, with or without normalization of the sum of the kernel values (as per given flags). The exact behaviour of this function depends on the normalization type being used please see http://www.imagemagick.org/api/morphology.php#ScaleKernelInfo for details. Flag should be one of Imagick::NORMALIZE_KERNEL_VALUE, Imagick::NORMALIZE_KERNEL_CORRELATE, Imagick::NORMALIZE_KERNEL_PERCENT or not set.
+     * @link http://php.net/manual/en/imagickkernel.scale.php
+     * @see http://www.imagemagick.org/api/morphology.php#ScaleKernelInfo
+     * @return void
+     * @since 3.3.0
+     */
+    public function scale() { }
+
+    /**
+     * Separates a linked set of kernels and returns an array of ImagickKernels.
+     * @link http://php.net/manual/en/imagickkernel.separate.php
+     * @return void
+     * @since 3.3.0
+     */
+    public function seperate() { }
+}
