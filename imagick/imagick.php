@@ -1112,8 +1112,8 @@ class Imagick implements Iterator, Countable {
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
-	 * Replaces colors in the image
-	 * @link http://php.net/manual/en/imagick.clutimage.php
+	 * Replaces colors in the image from a color lookup table. Optional second parameter to replace colors in a specific channel. This method is available if Imagick has been compiled against ImageMagick version 6.3.6 or newer.
+     * @link http://php.net/manual/en/imagick.clutimage.php
 	 * @param Imagick $lookup_table <p>
 	 * Imagick object containing the color lookup table
 	 * </p>
@@ -1122,6 +1122,7 @@ class Imagick implements Iterator, Countable {
 	 * constant. When not supplied, default channels are replaced.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+     * @since 2.0.0
 	 */
 	public function clutImage (Imagick $lookup_table, $channel = Imagick::CHANNEL_DEFAULT) {}
 
@@ -3156,11 +3157,16 @@ class Imagick implements Iterator, Countable {
 	public function evaluateImage ($op, $constant, $channel = Imagick::CHANNEL_ALL) {}
 
 	/**
-	 * (PECL imagick 2.0.0)<br/>
-	 * Merges a sequence of images
-	 * @link http://php.net/manual/en/imagick.flattenimages.php
-	 * @return Imagick <b>TRUE</b> on success.
-	 */
+	 * Merges a sequence of images. This is useful for combining Photoshop layers into a single image.
+     * This is replaced by:
+     * <pre>
+     * $im = $im->mergeImageLayers(\Imagick::LAYERMETHOD_FLATTEN)
+     * </pre>
+     * @link http://php.net/manual/en/imagick.flattenimages.php
+	 * @return Imagick Returns an Imagick object containing the merged image.
+     * @throws ImagickException Throws ImagickException on error.
+     * @since 2.0.0
+     */
 	public function flattenImages () {}
 
 	/**
@@ -4549,7 +4555,7 @@ class Imagick implements Iterator, Countable {
      * @return string
      * @since 3.3.0
      */
-    static public function getRegistry($key) { }
+    public static function getRegistry($key) { }
 
     /**
      * Returns the ImageMagick quantum range as an integer.
@@ -4557,7 +4563,7 @@ class Imagick implements Iterator, Countable {
      * @return int
      * @since 3.3.0
      */
-    static public function getQuantum() { }
+    public static function getQuantum() { }
 
     /**
      * Replaces any embedded formatting characters with the appropriate image property and returns the interpreted text. See http://www.imagemagick.org/script/escape.php for escape sequences.
@@ -4585,7 +4591,7 @@ class Imagick implements Iterator, Countable {
      * @return array An array containing the key/values from the registry.
      * @since 3.3.0
      */
-    static public function listRegistry() { }
+    public static function listRegistry() { }
 
     /**
      * Rotational blurs an image.
@@ -4596,6 +4602,81 @@ class Imagick implements Iterator, Countable {
      * @since 3.3.0
      */
     public function rotationalBlurImage($angle, $CHANNEL = Imagick::CHANNEL_DEFAULT) { }
+
+    /**
+     * Selectively blur an image within a contrast threshold. It is similar to the unsharpen mask that sharpens everything with contrast above a certain threshold.
+     * @link http://php.net/manual/en/imagick.selectiveblurimage.php
+     * @param float $radius
+     * @param float $sigma
+     * @param float $threshold
+     * @param int $CHANNEL Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to Imagick::CHANNEL_DEFAULT. Refer to this list of channel constants
+     * @return void
+     * @since 3.3.0
+     */
+    public function selectiveBlurImage($radius, $sigma, $threshold, $CHANNEL = Imagick::CHANNEL_DEFAULT) { }
+
+    /**
+     * Set whether antialiasing should be used for operations. On by default.
+     * @param bool $antialias
+     * @return int
+     * @since 3.3.0
+     */
+    public function setAntiAlias($antialias) { }
+
+    /**
+     * @link http://php.net/manual/en/imagick.setimagebiasquantum.php
+     * @param string $bias
+     * @return void
+     * @since 3.3.0
+     */
+    public function setImageBiasQuantum($bias) { }
+
+    /**
+     * Set a callback that will be called during the processing of the Imagick image.
+     * @link http://php.net/manual/en/imagick.setprogressmonitor.php
+     * @param callable $callback The progress function to call. It should return true if image processing should continue, or false if it should be cancelled.
+     * The offset parameter indicates the progress and the span parameter indicates the total amount of work needed to be done.
+     * <pre> bool callback ( mixed $offset , mixed $span ) </pre>
+     * <b>Caution</b>
+     * The values passed to the callback function are not consistent. In particular the span parameter can increase during image processing. Because of this calculating the percentage complete of an image operation is not trivial.
+     * @return void
+     * @since 3.3.0
+     */
+    public function setProgressMonitor($callback) { }
+
+    /**
+     * Sets the ImageMagick registry entry named key to value. This is most useful for setting "temporary-path" which controls where ImageMagick creates temporary images e.g. while processing PDFs.
+     * @link http://php.net/manual/en/imagick.setregistry.php
+     * @param string $key
+     * @param string $value
+     * @return void
+     * @since 3.3.0
+     */
+    public static function setRegistry($key, $value) { }
+
+    /**
+     * Replace each pixel with corresponding statistic from the neighborhood of the specified width and height.
+     * @link http://php.net/manual/en/imagick.statisticimage.php
+     * @param int $type
+     * @param int $width
+     * @param int $height
+     * @param int $channel [optional]
+     * @return void
+     * @since 3.3.0
+     */
+    public function statisticImage($type, $width, $height, $channel = Imagick::CHANNEL_DEFAULT ) { }
+
+    /**
+     * Searches for a subimage in the current image and returns a similarity image such that an exact match location is completely white and if none of the pixels match, black, otherwise some gray level in-between. You can also pass in the optional parameters bestMatch and similarity.
+     * After calling the function similarity will be set to the 'score' of the similarity between the subimage and the matching position in the larger image, bestMatch will contain an associative array with elements x, y, width, height that describe the matching region.
+     * @link http://php.net/manual/en/imagick.subimagematch.php
+     * @param Imagick $imagick
+     * @param array $offset [optional]
+     * @param float $similarity [optional] A new image that displays the amount of similarity at each pixel.
+     * @return Imagick
+     * @since 3.3.0
+     */
+    public function subImageMatch(Imagick $imagick, array &$offset, &$similarity) { }
 }
 
 /**
@@ -6366,6 +6447,14 @@ class ImagickPixel  {
      */
     public function isPixelSimilarQuantum($color, $fuzz) { }
 
+    /**
+     * Returns the color of the pixel in an array as Quantum values. If ImageMagick was compiled as HDRI these will be floats, otherwise they will be integers.
+     * @link http://php.net/manual/en/imagickpixel.getcolorquantum.php
+     * @return mixed The quantum value of the color element. Float if ImageMagick was compiled with HDRI, otherwise an int.
+     * @since 3.3.0
+     */
+    public function getColorQuantum() { }
+
 }
 // End of imagick v.3.2.0RC1
 
@@ -6400,7 +6489,7 @@ class ImagickKernel {
      * @return void
      * @since 3.3.0
      */
-    static public function fromBuiltin($kernelType, $kernelString) { }
+    public static function fromBuiltin($kernelType, $kernelString) { }
 
     /**
      * Create a kernel from a builtin in kernel. See http://www.imagemagick.org/Usage/morphology/#kernel for examples. Currently the 'rotation' symbols are not supported. Example: $diamondKernel = ImagickKernel::fromBuiltIn(\Imagick::KERNEL_DIAMOND, "2");
@@ -6411,7 +6500,7 @@ class ImagickKernel {
      * @return ImagickKernel
      * @since 3.3.0
      */
-    static public function fromMatrix($matrix, $origin) { }
+    public static function fromMatrix($matrix, $origin) { }
 
     /**
      * Get the 2d matrix of values used in this kernel. The elements are either float for elements that are used or 'false' if the element should be skipped.
