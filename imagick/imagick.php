@@ -721,22 +721,25 @@ class Imagick implements Iterator, Countable {
 	 */
 	public function setImageMatte ($matte) {}
 
-	/**
-	 * (PECL imagick 2.0.0)<br/>
-	 * Adaptively resize image with data dependent triangulation
-	 * @link http://php.net/manual/en/imagick.adaptiveresizeimage.php
-	 * @param int $columns <p>
-	 * The number of columns in the scaled image.
-	 * </p>
-	 * @param int $rows <p>
-	 * The number of rows in the scaled image.
-	 * </p>
-	 * @param bool $bestfit [optional] <p>
-	 * Whether to fit the image inside a bounding box.
-	 * </p>
-	 * @return bool <b>TRUE</b> on success.
-	 */
-	public function adaptiveResizeImage ($columns, $rows, $bestfit = false) {}
+    /**
+     * Adaptively resize image with data dependent triangulation
+     * If legacy is true, the calculations are done with the small rounding bug that existed in Imagick before 3.4.0.
+     * If false, the calculations should produce the same results as ImageMagick CLI does.
+     *
+     * <b>Note:</b> The behavior of the parameter bestfit changed in Imagick 3.0.0. Before this version given dimensions 400x400 an image of dimensions 200x150 would be left untouched.
+     * In Imagick 3.0.0 and later the image would be scaled up to size 400x300 as this is the "best fit" for the given dimensions. If bestfit parameter is used both width and height must be given.
+     * @link http://php.net/manual/en/imagick.adaptiveresizeimage.php
+     * @param int $columns The number of columns in the scaled image.
+     * @param int $rows The number of rows in the scaled image.
+     * @param bool $bestfit [optional] Whether to fit the image inside a bounding box.
+     * @param bool $legacy [optional]
+     * @return bool TRUE on success
+     * @throws ImagickException Throws ImagickException on error
+     * @since 2.0.0
+     * @since 3.0.0 The behavior of the parameter bestfit changed in Imagick 3.0.0. Before this version given dimensions 400x400 an image of dimensions 200x150 would be left untouched. In Imagick 3.0.0 and later the image would be scaled up to size 400x300 as this is the "best fit" for the given dimensions. If bestfit parameter is used both width and height must be given.
+     * @since 3.4.0 $legacy is added, optional, default value false
+     */
+	public function adaptiveResizeImage ($columns, $rows, $bestfit = false, $legacy = false) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -1827,15 +1830,21 @@ class Imagick implements Iterator, Countable {
 	public function setImageFormat ($format) {}
 
 	/**
-	 * (PECL imagick 2.0.0)<br/>
-	 * Scales the size of an image
+	 * Scales the size of an image to the given dimensions. Passing zero as either of the arguments will preserve dimension while scaling.
+     * If legacy is true, the calculations are done with the small rounding bug that existed in Imagick before 3.4.0.
+     * If false, the calculations should produce the same results as ImageMagick CLI does.
 	 * @link http://php.net/manual/en/imagick.scaleimage.php
 	 * @param int $cols
 	 * @param int $rows
 	 * @param bool $bestfit [optional]
+     * @param bool $legacy [optional]
 	 * @return bool <b>TRUE</b> on success.
+     * @throws ImagickException Throws ImagickException on error
+     * @since 2.0.0
+     * @since 3.0.0 The behavior of the parameter bestfit changed in Imagick 3.0.0. Before this version given dimensions 400x400 an image of dimensions 200x150 would be left untouched. In Imagick 3.0.0 and later the image would be scaled up to size 400x300 as this is the "best fit" for the given dimensions. If bestfit parameter is used both width and height must be given.
+     * @since 3.4.0 $legacy is added, optional, default false
 	 */
-	public function scaleImage ($cols, $rows, $bestfit = false) {}
+	public function scaleImage ($cols, $rows, $bestfit = false, $legacy = false) {}
 
 	/**
 	 * (PECL imagick 0.9.0-0.9.9)<br/>
@@ -1880,8 +1889,12 @@ class Imagick implements Iterator, Countable {
 	public function blurImage ($radius, $sigma, $channel = null) {}
 
 	/**
-	 * (PECL imagick 2.0.0)<br/>
-	 * Changes the size of an image
+	 * Changes the size of an image to the given dimensions and removes any associated profiles.
+     * If legacy is true, the calculations are done with the small rounding bug that existed in Imagick before 3.4.0.
+     * If false, the calculations should produce the same results as ImageMagick CLI does.
+     *
+     * <br>
+     * <b>Note:</b> The behavior of the parameter bestfit changed in Imagick 3.0.0. Before this version given dimensions 400x400 an image of dimensions 200x150 would be left untouched. In Imagick 3.0.0 and later the image would be scaled up to size 400x300 as this is the "best fit" for the given dimensions. If bestfit parameter is used both width and height must be given.
 	 * @link http://php.net/manual/en/imagick.thumbnailimage.php
 	 * @param int $columns <p>
 	 * Image width
@@ -1893,23 +1906,28 @@ class Imagick implements Iterator, Countable {
 	 * Whether to force maximum values
 	 * </p>
 	 * @param bool $fill [optional]
+     * @param bool $legacy [optional]
 	 * @return bool <b>TRUE</b> on success.
+     * @since 2.0.0
+     * @since 3.0.0 The behavior of the parameter bestfit changed in Imagick 3.0.0. Before this version given dimensions 400x400 an image of dimensions 200x150 would be left untouched. In Imagick 3.0.0 and later the image would be scaled up to size 400x300 as this is the "best fit" for the given dimensions. If bestfit parameter is used both width and height must be given.
+     * @since 3.4.0 $legacy is added, optional, default value false
 	 */
-	public function thumbnailImage ($columns, $rows, $bestfit = false, $fill = false) {}
+	public function thumbnailImage ($columns, $rows, $bestfit = false, $fill = false, $legacy = false) {}
 
 	/**
-	 * (PECL imagick 2.0.0)<br/>
-	 * Creates a crop thumbnail
+	 * Creates a cropped thumbnail at the requested size.
+     * If legacy is true, uses the incorrect behaviour that was present until Imagick 3.4.0.
+     * If false it uses the correct behaviour.
 	 * @link http://php.net/manual/en/imagick.cropthumbnailimage.php
-	 * @param int $width <p>
-	 * The width of the thumbnail
-	 * </p>
-	 * @param int $height <p>
-	 * The Height of the thumbnail
-	 * </p>
-	 * @return bool <b>TRUE</b> on success.
+	 * @param int $width The width of the thumbnail
+	 * @param int $height The Height of the thumbnail
+	 * @param bool $legacy [optional]
+	 * @return bool TRUE on succes
+     * @throws ImagickException Throws ImagickException on error
+     * @since 2.0.0
+     * @since 3.4.0 $legacy is added, optional, default value false
 	 */
-	public function cropThumbnailImage ($width, $height) {}
+	public function cropThumbnailImage ($width, $height, $legacy = false) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -2388,27 +2406,22 @@ class Imagick implements Iterator, Countable {
 	public function resampleImage ($x_resolution, $y_resolution, $filter, $blur) {}
 
 	/**
-	 * (PECL imagick 2.0.0)<br/>
-	 * Scales an image
+	 * Scales an image to the desired dimensions with one of these filters:
+     * If legacy is true, the calculations are done with the small rounding bug that existed in Imagick before 3.4.0.
+     * If false, the calculations should produce the same results as ImageMagick CLI does.
 	 * @link http://php.net/manual/en/imagick.resizeimage.php
-	 * @param int $columns <p>
-	 * Width of the image
-	 * </p>
-	 * @param int $rows <p>
-	 * Height of the image
-	 * </p>
-	 * @param int $filter <p>
-	 * Refer to the list of filter constants.
-	 * </p>
-	 * @param float $blur <p>
-	 * The blur factor where &gt; 1 is blurry, &lt; 1 is sharp.
-	 * </p>
-	 * @param bool $bestfit [optional] <p>
-	 * Optional fit parameter.
-	 * </p>
-	 * @return bool <b>TRUE</b> on success.
+	 * @param int $columns Width of the image
+	 * @param int $rows Height of the image
+	 * @param int $filter Refer to the list of filter constants.
+	 * @param float $blur The blur factor where > 1 is blurry, < 1 is sharp.
+	 * @param bool $bestfit [optional] Optional fit parameter.
+     * @param bool $legacy [optional]
+	 * @return bool TRUE on success
+     * @since 2.0.0
+     * @since 2.1. $bestfit Added optional fit parameter. This method now supports proportional scaling. Pass zero as either parameter for proportional scaling.
+     * @since 3.4.0 $legacy is added, optional, default value false
 	 */
-	public function resizeImage ($columns, $rows, $filter, $blur, $bestfit = false) {}
+	public function resizeImage ($columns, $rows, $filter, $blur, $bestfit = false, $legacy = false) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -2976,8 +2989,8 @@ class Imagick implements Iterator, Countable {
 	public function colorFloodfillImage ($fill, $fuzz, $bordercolor, $x, $y) {}
 
 	/**
-	 * (PECL imagick 2.0.0)<br/>
-	 * Blends the fill color with the image
+	 * Blends the fill color with each pixel in the image. The 'opacity' color is a per channel strength factor for how strongly the color should be applied.
+     * If legacy is true, the behaviour of this function is incorrect, but consistent with how it behaved before Imagick version 3.4.0
 	 * @link http://php.net/manual/en/imagick.colorizeimage.php
 	 * @param mixed $colorize <p>
 	 * ImagickPixel object or a string containing the colorize color
@@ -2986,9 +2999,13 @@ class Imagick implements Iterator, Countable {
 	 * ImagickPixel object or an float containing the opacity value.
 	 * 1.0 is fully opaque and 0.0 is fully transparent.
 	 * </p>
+     * @param bool $legacy [optional]
 	 * @return bool <b>TRUE</b> on success.
+     * @throws ImagickException Throws ImagickException on error
+     * @since 2.0.0
+     * @since 3.4.0 $legacy is added, optional, default value false
 	 */
-	public function colorizeImage ($colorize, $opacity) {}
+	public function colorizeImage ($colorize, $opacity, $legacy = false) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -4076,14 +4093,17 @@ class Imagick implements Iterator, Countable {
 	public function textureImage (Imagick $texture_wand) {}
 
 	/**
-	 * (PECL imagick 2.0.0)<br/>
-	 * Applies a color vector to each pixel in the image
-	 * @link http://php.net/manual/en/imagick.tintimage.php
+	 * pplies a color vector to each pixel in the image. The 'opacity' color is a per channel strength factor for how strongly the color should be applied.
+     * If legacy is true, the behaviour of this function is incorrect, but consistent with how it behaved before Imagick version 3.4.0
+     * @link http://php.net/manual/en/imagick.tintimage.php
 	 * @param mixed $tint
 	 * @param mixed $opacity
+     * @param bool $legacy [optional]
 	 * @return bool <b>TRUE</b> on success.
+     * @throws ImagickException Throws ImagickException on error
+     * @since 2.0.0
 	 */
-	public function tintImage ($tint, $opacity) {}
+	public function tintImage ($tint, $opacity, $legacy = false) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -4667,16 +4687,73 @@ class Imagick implements Iterator, Countable {
     public function statisticImage($type, $width, $height, $channel = Imagick::CHANNEL_DEFAULT ) { }
 
     /**
-     * Searches for a subimage in the current image and returns a similarity image such that an exact match location is completely white and if none of the pixels match, black, otherwise some gray level in-between. You can also pass in the optional parameters bestMatch and similarity.
-     * After calling the function similarity will be set to the 'score' of the similarity between the subimage and the matching position in the larger image, bestMatch will contain an associative array with elements x, y, width, height that describe the matching region.
+     * Searches for a subimage in the current image and returns a similarity image such that an exact match location is
+     * completely white and if none of the pixels match, black, otherwise some gray level in-between.
+     * You can also pass in the optional parameters bestMatch and similarity. After calling the function similarity will
+     * be set to the 'score' of the similarity between the subimage and the matching position in the larger image,
+     * bestMatch will contain an associative array with elements x, y, width, height that describe the matching region.
+     *
      * @link http://php.net/manual/en/imagick.subimagematch.php
      * @param Imagick $imagick
-     * @param array $offset [optional]
+     * @param array $bestMatch [optional]
      * @param float $similarity [optional] A new image that displays the amount of similarity at each pixel.
+     * @param float $similarity_threshold [optional] Only used if compiled with ImageMagick (library) > 7
+     * @param int $metric [optional] Only used if compiled with ImageMagick (library) > 7
      * @return Imagick
      * @since 3.3.0
      */
-    public function subImageMatch(Imagick $imagick, array &$offset, &$similarity) { }
+    public function subImageMatch(Imagick $imagick, array &$bestMatch, &$similarity, $similarity_threshold, $metric) { }
+
+    /**
+     * Is an alias of Imagick::subImageMatch
+     *
+     * @param Imagick $imagick
+     * @param array $bestMatch [optional]
+     * @param float $similarity [optional] A new image that displays the amount of similarity at each pixel.
+     * @param float $similarity_threshold [optional]
+     * @param int $metric [optional]
+     * @return Imagick
+     * @see Imagick::subImageMatch() This function is an alias of subImageMatch()
+     * @since 3.4.0
+     */
+    public function similarityImage(Imagick $imagick, array &$bestMatch, &$similarity, $similarity_threshold, $metric) { }
+
+    /**
+     * Returns any ImageMagick  configure options that match the specified pattern (e.g. "*" for all). Options include NAME, VERSION, LIB_VERSION, etc.
+     * @return string
+     * @since 3.4.0
+     */
+    public function getConfigureOptions() { }
+
+    /**
+     * GetFeatures() returns the ImageMagick features that have been compiled into the runtime.
+     * @return string
+     * @since 3.4.0
+     */
+    public function getFeatures() { }
+
+    /**
+     * @return int
+     * @since 3.4.0
+     */
+    public function getHDRIEnabled() { }
+
+    /**
+     * Sets the image channel mask. Returns the previous set channel mask.
+     * Only works with Imagick >=7
+     * @param int $channel
+     * @since 3.4.0
+     */
+    public function setImageChannelMask($channel) {}
+
+    /**
+     * Merge multiple images of the same size together with the selected operator. http://www.imagemagick.org/Usage/layers/#evaluate-sequence
+     * @param int $EVALUATE_CONSTANT
+     * @return bool
+     * @see http://www.imagemagick.org/Usage/layers/#evaluate-sequence
+     * @since 3.4.0
+     */
+    public function evaluateImages(int $EVALUATE_CONSTANT) { }
 }
 
 /**
