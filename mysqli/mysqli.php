@@ -2285,10 +2285,10 @@ function mysqli_stmt_send_long_data ($stmt, $param_nr, $data) {}
  * @link http://php.net/manual/en/mysqli-stmt.bind-param.php
  * @param mysqli_stmt $stmt
  * @param string $types
- * @param mixed $var1
+ * @param mixed ...$var1
  * @return bool
  */
-function mysqli_stmt_bind_param ($stmt, $types, &$var1) {}
+function mysqli_stmt_bind_param ($stmt, $types, &...$var1) {}
 
 /**
  * Binds variables to a prepared statement for result storage
