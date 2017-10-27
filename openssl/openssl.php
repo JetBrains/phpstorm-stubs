@@ -749,6 +749,7 @@ function openssl_verify($data, $signature, $pub_key_id, $signature_alg = OPENSSL
  * @param array $env_keys
  * @param array $pub_key_ids
  * @param string $method [optional]
+ * @param string $iv [optional]
  * @return int the length of the sealed data on success, or false on error.
  * If successful the sealed data is returned in
  * <i>sealed_data</i>, and the envelope keys in
@@ -756,7 +757,7 @@ function openssl_verify($data, $signature, $pub_key_id, $signature_alg = OPENSSL
  * @since 4.0.4
  * @since 5.0
  */
-function openssl_seal($data, &$sealed_data, array &$env_keys, array $pub_key_ids, $method = null) { }
+function openssl_seal($data, &$sealed_data, array &$env_keys, array $pub_key_ids, $method = null, $iv = '') { }
 
 /**
  * Open sealed data
