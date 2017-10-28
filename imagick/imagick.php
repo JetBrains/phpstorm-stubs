@@ -4568,6 +4568,7 @@ class Imagick implements Iterator, Countable {
 	 * @link http://php.net/manual/en/imagick.getregistry.php
 	 * @param string $key
 	 * @return string
+	 * @throws Exception Since version >=3.4.3. Throws an exception if the key does not exist, rather than terminating the program.
 	 * @since 3.3.0
 	 */
 	public static function getRegistry ($key) { }
@@ -4764,6 +4765,43 @@ class Imagick implements Iterator, Countable {
 	 * @since 3.4.1
 	 */
 	public function autoOrient () { }
+
+	/**
+	 * Composite one image onto another using the specified gravity.
+	 *
+	 * @param Imagick $imagick
+	 * @param int $COMPOSITE_CONSTANT
+	 * @param int $GRAVITY_CONSTANT
+	 * @return bool
+	 * @since 3.4.1
+	 */
+	public function compositeImageGravity(Imagick $imagick, $COMPOSITE_CONSTANT, $GRAVITY_CONSTANT) { }
+
+	/**
+	 * Attempts to increase the appearance of large-scale light-dark transitions.
+	 *
+	 * @param float $radius
+	 * @param float $strength
+	 * @return bool
+	 * @since 3.4.1
+	 */
+	public function localContrastImage($radius, $strength) { }
+
+	/**
+	 * Identifies the potential image type, returns one of the Imagick::IMGTYPE_* constants
+	 * @return int
+	 * @since 3.4.3
+	 */
+	public function identifyImageType() { }
+
+	/**
+	 * Sets the image to the specified alpha level. Will replace ImagickDraw::setOpacity()
+	 *
+	 * @param float $alpha
+	 * @return bool
+	 * @since 3.4.3
+	 */
+	public function setImageAlpha($alpha) { }
 }
 
 /**
@@ -6178,6 +6216,88 @@ class ImagickDraw  {
 	 */
 	public function setStrokeDashArray (array $dashArray) {}
 
+    /**
+     * Sets the opacity to use when drawing using the fill or stroke color or texture. Fully opaque is 1.0.
+     *
+     * @param float $opacity
+     * @return void
+     * @since 3.4.1
+     */
+	public function setOpacity($opacity) { }
+
+	/**
+	 * Returns the opacity used when drawing with the fill or stroke color or texture. Fully opaque is 1.0.
+	 *
+	 * @return float
+	 * @since 3.4.1
+	 */
+	public function getOpacity() { }
+
+	/**
+	 * Sets the image font resolution.
+	 *
+	 * @param float $x
+	 * @param float $y
+	 * @return bool
+	 * @since 3.4.1
+	 */
+	public function setFontResolution($x, $y) { }
+
+	/**
+	 * Gets the image X and Y resolution.
+	 *
+	 * @return array
+	 * @since 3.4.1
+	 */
+	public function getFontResolution() { }
+
+	/**
+	 * Returns the direction that will be used when annotating with text.
+	 * @return bool
+	 * @since 3.4.1
+	 */
+	public function getTextDirection() { }
+
+	/**
+	 * Sets the font style to use when annotating with text. The AnyStyle enumeration acts as a wild-card "don't care" option.
+	 *
+	 * @param int $direction
+	 * @return bool
+	 * @since 3.4.1
+	 */
+	public function setTextDirection($direction) { }
+
+	/**
+	 * Returns the border color used for drawing bordered objects.
+	 *
+	 * @return ImagickPixel
+	 * @since 3.4.1
+	 */
+	public function getBorderColor() { }
+
+	/**
+	 * Sets the border color to be used for drawing bordered objects.
+	 * @param ImagickPixel $color
+	 * @return bool
+	 * @since 3.4.1
+	 */
+	public function setBorderColor(ImagickPixel $color) { }
+
+	/**
+	 * Obtains the vertical and horizontal resolution.
+	 *
+	 * @return string|null
+	 * @since 3.4.1
+	 */
+	public function getDensity() { }
+
+	/**
+	 * Sets the vertical and horizontal resolution.
+	 * @param string $density_string
+	 * @return bool
+	 * @since 3.4.1
+	 */
+	public function setDensity($density_string) { }
 }
 
 /**
@@ -6542,6 +6662,14 @@ class ImagickPixel  {
 	 */
 	public function getColorQuantum() { }
 
+	/**
+	 * Sets the color count associated with this color from another ImagickPixel object.
+	 *
+	 * @param ImagickPixel $srcPixel
+	 * @return bool
+	 * @since 3.4.1
+	 */
+	public function setColorFromPixel(ImagickPixel $srcPixel) { }
 }
 // End of imagick v.3.2.0RC1
 
