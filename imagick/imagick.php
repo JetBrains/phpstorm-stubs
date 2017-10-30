@@ -722,21 +722,24 @@ class Imagick implements Iterator, Countable {
 	public function setImageMatte ($matte) {}
 
 	/**
-	 * (PECL imagick 2.0.0)<br/>
 	 * Adaptively resize image with data dependent triangulation
+	 *
+	 * If legacy is true, the calculations are done with the small rounding bug that existed in Imagick before 3.4.0.<br>
+	 * If false, the calculations should produce the same results as ImageMagick CLI does.<br>
+	 * <br>
+	 * <b>Note:</b> The behavior of the parameter bestfit changed in Imagick 3.0.0. Before this version given dimensions 400x400 an image of dimensions 200x150 would be left untouched.
+	 * In Imagick 3.0.0 and later the image would be scaled up to size 400x300 as this is the "best fit" for the given dimensions. If bestfit parameter is used both width and height must be given.
 	 * @link http://php.net/manual/en/imagick.adaptiveresizeimage.php
-	 * @param int $columns <p>
-	 * The number of columns in the scaled image.
-	 * </p>
-	 * @param int $rows <p>
-	 * The number of rows in the scaled image.
-	 * </p>
-	 * @param bool $bestfit [optional] <p>
-	 * Whether to fit the image inside a bounding box.
-	 * </p>
-	 * @return bool <b>TRUE</b> on success.
+	 * @param int $columns The number of columns in the scaled image.
+	 * @param int $rows The number of rows in the scaled image.
+	 * @param bool $bestfit [optional] Whether to fit the image inside a bounding box.<br>
+	 *                                 The behavior of the parameter bestfit changed in Imagick 3.0.0. Before this version given dimensions 400x400 an image of dimensions 200x150 would be left untouched. In Imagick 3.0.0 and later the image would be scaled up to size 400x300 as this is the "best fit" for the given dimensions. If bestfit parameter is used both width and height must be given.
+	 * @param bool $legacy [optional] Added since 3.4.0. Default value FALSE
+	 * @return bool TRUE on success
+	 * @throws ImagickException Throws ImagickException on error
+	 * @since 2.0.0
 	 */
-	public function adaptiveResizeImage ($columns, $rows, $bestfit = false) {}
+	public function adaptiveResizeImage ($columns, $rows, $bestfit = false, $legacy = false) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -1112,7 +1115,7 @@ class Imagick implements Iterator, Countable {
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
-	 * Replaces colors in the image
+	 * Replaces colors in the image from a color lookup table. Optional second parameter to replace colors in a specific channel. This method is available if Imagick has been compiled against ImageMagick version 6.3.6 or newer.
 	 * @link http://php.net/manual/en/imagick.clutimage.php
 	 * @param Imagick $lookup_table <p>
 	 * Imagick object containing the color lookup table
@@ -1122,6 +1125,7 @@ class Imagick implements Iterator, Countable {
 	 * constant. When not supplied, default channels are replaced.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
+	 * @since 2.0.0
 	 */
 	public function clutImage (Imagick $lookup_table, $channel = Imagick::CHANNEL_DEFAULT) {}
 
@@ -1754,9 +1758,9 @@ class Imagick implements Iterator, Countable {
 	 */
 	public function __construct ($files = null) {}
 
-    /**
-     * @return string
-     */
+	/**
+	 * @return string
+	 */
 	public function __toString () {}
 
 	public function count () {}
@@ -1826,15 +1830,19 @@ class Imagick implements Iterator, Countable {
 	public function setImageFormat ($format) {}
 
 	/**
-	 * (PECL imagick 2.0.0)<br/>
-	 * Scales the size of an image
+	 * Scales the size of an image to the given dimensions. Passing zero as either of the arguments will preserve dimension while scaling.<br>
+	 * If legacy is true, the calculations are done with the small rounding bug that existed in Imagick before 3.4.0.<br>
+	 * If false, the calculations should produce the same results as ImageMagick CLI does.
 	 * @link http://php.net/manual/en/imagick.scaleimage.php
 	 * @param int $cols
 	 * @param int $rows
-	 * @param bool $bestfit [optional]
+	 * @param bool $bestfit [optional] The behavior of the parameter bestfit changed in Imagick 3.0.0. Before this version given dimensions 400x400 an image of dimensions 200x150 would be left untouched. In Imagick 3.0.0 and later the image would be scaled up to size 400x300 as this is the "best fit" for the given dimensions. If bestfit parameter is used both width and height must be given.
+	 * @param bool $legacy [optional] Added since 3.4.0. Default value FALSE
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException Throws ImagickException on error
+	 * @since 2.0.0
 	 */
-	public function scaleImage ($cols, $rows, $bestfit = false) {}
+	public function scaleImage ($cols, $rows, $bestfit = false, $legacy = false) {}
 
 	/**
 	 * (PECL imagick 0.9.0-0.9.9)<br/>
@@ -1879,8 +1887,11 @@ class Imagick implements Iterator, Countable {
 	public function blurImage ($radius, $sigma, $channel = null) {}
 
 	/**
-	 * (PECL imagick 2.0.0)<br/>
-	 * Changes the size of an image
+	 * Changes the size of an image to the given dimensions and removes any associated profiles.<br>
+	 * If legacy is true, the calculations are done with the small rounding bug that existed in Imagick before 3.4.0.<br>
+	 * If false, the calculations should produce the same results as ImageMagick CLI does.<br>
+	 * <br>
+	 * <b>Note:</b> The behavior of the parameter bestfit changed in Imagick 3.0.0. Before this version given dimensions 400x400 an image of dimensions 200x150 would be left untouched. In Imagick 3.0.0 and later the image would be scaled up to size 400x300 as this is the "best fit" for the given dimensions. If bestfit parameter is used both width and height must be given.
 	 * @link http://php.net/manual/en/imagick.thumbnailimage.php
 	 * @param int $columns <p>
 	 * Image width
@@ -1891,24 +1902,27 @@ class Imagick implements Iterator, Countable {
 	 * @param bool $bestfit [optional] <p>
 	 * Whether to force maximum values
 	 * </p>
+	 * The behavior of the parameter bestfit changed in Imagick 3.0.0. Before this version given dimensions 400x400 an image of dimensions 200x150 would be left untouched. In Imagick 3.0.0 and later the image would be scaled up to size 400x300 as this is the "best fit" for the given dimensions. If bestfit parameter is used both width and height must be given.
 	 * @param bool $fill [optional]
+	 * @param bool $legacy [optional] Added since 3.4.0. Default value FALSE
 	 * @return bool <b>TRUE</b> on success.
+	 * @since 2.0.0
 	 */
-	public function thumbnailImage ($columns, $rows, $bestfit = false, $fill = false) {}
+	public function thumbnailImage ($columns, $rows, $bestfit = false, $fill = false, $legacy = false) {}
 
 	/**
-	 * (PECL imagick 2.0.0)<br/>
-	 * Creates a crop thumbnail
+	 * Creates a cropped thumbnail at the requested size.
+	 * If legacy is true, uses the incorrect behaviour that was present until Imagick 3.4.0.
+	 * If false it uses the correct behaviour.
 	 * @link http://php.net/manual/en/imagick.cropthumbnailimage.php
-	 * @param int $width <p>
-	 * The width of the thumbnail
-	 * </p>
-	 * @param int $height <p>
-	 * The Height of the thumbnail
-	 * </p>
-	 * @return bool <b>TRUE</b> on success.
+	 * @param int $width The width of the thumbnail
+	 * @param int $height The Height of the thumbnail
+	 * @param bool $legacy [optional] Added since 3.4.0. Default value FALSE
+	 * @return bool TRUE on succes
+	 * @throws ImagickException Throws ImagickException on error
+	 * @since 2.0.0
 	 */
-	public function cropThumbnailImage ($width, $height) {}
+	public function cropThumbnailImage ($width, $height, $legacy = false) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -1986,8 +2000,8 @@ class Imagick implements Iterator, Countable {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Returns all image sequences as a blob
 	 * @link http://php.net/manual/en/imagick.getimagesblob.php
-	 * @return string a string containing the images. On failure, throws
-	 * ImagickException.
+	 * @return string a string containing the images. On failure, throws ImagickException on failure
+	 * @throws ImagickException on failure
 	 */
 	public function getImagesBlob () {}
 
@@ -2387,27 +2401,23 @@ class Imagick implements Iterator, Countable {
 	public function resampleImage ($x_resolution, $y_resolution, $filter, $blur) {}
 
 	/**
-	 * (PECL imagick 2.0.0)<br/>
-	 * Scales an image
+	 * Scales an image to the desired dimensions with one of these filters:<br>
+	 * If legacy is true, the calculations are done with the small rounding bug that existed in Imagick before 3.4.0.<br>
+	 * If false, the calculations should produce the same results as ImageMagick CLI does.<br>
+	 * <br>
+	 * <b>Note:</b> The behavior of the parameter bestfit changed in Imagick 3.0.0. Before this version given dimensions 400x400 an image of dimensions 200x150 would be left untouched.<br>
+	 * In Imagick 3.0.0 and later the image would be scaled up to size 400x300 as this is the "best fit" for the given dimensions. If bestfit parameter is used both width and height must be given.
 	 * @link http://php.net/manual/en/imagick.resizeimage.php
-	 * @param int $columns <p>
-	 * Width of the image
-	 * </p>
-	 * @param int $rows <p>
-	 * Height of the image
-	 * </p>
-	 * @param int $filter <p>
-	 * Refer to the list of filter constants.
-	 * </p>
-	 * @param float $blur <p>
-	 * The blur factor where &gt; 1 is blurry, &lt; 1 is sharp.
-	 * </p>
-	 * @param bool $bestfit [optional] <p>
-	 * Optional fit parameter.
-	 * </p>
-	 * @return bool <b>TRUE</b> on success.
+	 * @param int $columns Width of the image
+	 * @param int $rows Height of the image
+	 * @param int $filter Refer to the list of filter constants.
+	 * @param float $blur The blur factor where > 1 is blurry, < 1 is sharp.
+	 * @param bool $bestfit [optional] Added since 2.1.0. Added optional fit parameter. This method now supports proportional scaling. Pass zero as either parameter for proportional scaling
+	 * @param bool $legacy [optional] Added since 3.4.0. Default value FALSE
+	 * @return bool TRUE on success
+	 * @since 2.0.0
 	 */
-	public function resizeImage ($columns, $rows, $filter, $blur, $bestfit = false) {}
+	public function resizeImage ($columns, $rows, $filter, $blur, $bestfit = false, $legacy = false) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -2843,8 +2853,8 @@ class Imagick implements Iterator, Countable {
 	 * The number of in-between images to generate.
 	 * </p>
 	 * @return Imagick This method returns a new Imagick object on success.
-	 * Throw an
-	 * <b>ImagickException</b> on error.
+	 * Throw an <b>ImagickException</b> on error.
+	 * @throws ImagickException on error
 	 */
 	public function morphImages ($number_frames) {}
 
@@ -2975,8 +2985,8 @@ class Imagick implements Iterator, Countable {
 	public function colorFloodfillImage ($fill, $fuzz, $bordercolor, $x, $y) {}
 
 	/**
-	 * (PECL imagick 2.0.0)<br/>
-	 * Blends the fill color with the image
+	 * Blends the fill color with each pixel in the image. The 'opacity' color is a per channel strength factor for how strongly the color should be applied.<br>
+	 * If legacy is true, the behaviour of this function is incorrect, but consistent with how it behaved before Imagick version 3.4.0
 	 * @link http://php.net/manual/en/imagick.colorizeimage.php
 	 * @param mixed $colorize <p>
 	 * ImagickPixel object or a string containing the colorize color
@@ -2985,9 +2995,12 @@ class Imagick implements Iterator, Countable {
 	 * ImagickPixel object or an float containing the opacity value.
 	 * 1.0 is fully opaque and 0.0 is fully transparent.
 	 * </p>
+	 * @param bool $legacy [optional] Added since 3.4.0. Default value FALSE
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException Throws ImagickException on error
+	 * @since 2.0.0
 	 */
-	public function colorizeImage ($colorize, $opacity) {}
+	public function colorizeImage ($colorize, $opacity, $legacy = false) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -3156,10 +3169,15 @@ class Imagick implements Iterator, Countable {
 	public function evaluateImage ($op, $constant, $channel = Imagick::CHANNEL_ALL) {}
 
 	/**
-	 * (PECL imagick 2.0.0)<br/>
-	 * Merges a sequence of images
+	 * Merges a sequence of images. This is useful for combining Photoshop layers into a single image.
+	 * This is replaced by:
+	 * <pre>
+	 * $im = $im->mergeImageLayers(\Imagick::LAYERMETHOD_FLATTEN)
+	 * </pre>
 	 * @link http://php.net/manual/en/imagick.flattenimages.php
-	 * @return Imagick <b>TRUE</b> on success.
+	 * @return Imagick Returns an Imagick object containing the merged image.
+	 * @throws ImagickException Throws ImagickException on error.
+	 * @since 2.0.0
 	 */
 	public function flattenImages () {}
 
@@ -3438,8 +3456,8 @@ class Imagick implements Iterator, Countable {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Returns the chromaticy green primary point
 	 * @link http://php.net/manual/en/imagick.getimagegreenprimary.php
-	 * @return array an array with the keys "x" and "y" on success, throws an
-	 * ImagickException on failure.
+	 * @return array an array with the keys "x" and "y" on success, throws an ImagickException on failure.
+	 * @throws ImagickException on failure
 	 */
 	public function getImageGreenPrimary () {}
 
@@ -3464,8 +3482,8 @@ class Imagick implements Iterator, Countable {
 	 * Gets the image interlace scheme
 	 * @link http://php.net/manual/en/imagick.getimageinterlacescheme.php
 	 * @return int the interlace scheme as an integer on success.
-	 * Throw an
-	 * <b>ImagickException</b> on error.
+	 * Trhow an <b>ImagickException</b> on error.
+	 * @throws ImagickException on error
 	 */
 	public function getImageInterlaceScheme () {}
 
@@ -3525,8 +3543,8 @@ class Imagick implements Iterator, Countable {
 	 * @link http://php.net/manual/en/imagick.getimageredprimary.php
 	 * @return array the chromaticity red primary point as an array with the keys "x"
 	 * and "y".
-	 * Throw an
-	 * <b>ImagickException</b> on error.
+	 * Throw an <b>ImagickException</b> on error.
+	 * @throws ImagickException on error
 	 */
 	public function getImageRedPrimary () {}
 
@@ -3635,8 +3653,8 @@ class Imagick implements Iterator, Countable {
 	 * Gets the image total ink density
 	 * @link http://php.net/manual/en/imagick.getimagetotalinkdensity.php
 	 * @return float the image total ink density of the image.
-	 * Throw an
-	 * <b>ImagickException</b> on error.
+	 * Throw an <b>ImagickException</b> on error.
+	 * @throws ImagickException on error
 	 */
 	public function getImageTotalInkDensity () {}
 
@@ -4070,14 +4088,17 @@ class Imagick implements Iterator, Countable {
 	public function textureImage (Imagick $texture_wand) {}
 
 	/**
-	 * (PECL imagick 2.0.0)<br/>
-	 * Applies a color vector to each pixel in the image
+	 * pplies a color vector to each pixel in the image. The 'opacity' color is a per channel strength factor for how strongly the color should be applied.
+	 * If legacy is true, the behaviour of this function is incorrect, but consistent with how it behaved before Imagick version 3.4.0
 	 * @link http://php.net/manual/en/imagick.tintimage.php
 	 * @param mixed $tint
 	 * @param mixed $opacity
+	 * @param bool $legacy [optional]
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException Throws ImagickException on error
+	 * @since 2.0.0
 	 */
-	public function tintImage ($tint, $opacity) {}
+	public function tintImage ($tint, $opacity, $legacy = false) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
@@ -4243,6 +4264,7 @@ class Imagick implements Iterator, Countable {
 	 * @return array the page geometry associated with the Imagick object in
 	 * an associative array with the keys "width", "height", "x", and "y",
 	 * throwing ImagickException on error.
+	 * @throws ImagickException on error
 	 */
 	public function getPage () {}
 
@@ -4472,6 +4494,314 @@ class Imagick implements Iterator, Countable {
 	 */
 	public function current () {}
 
+	/**
+	 * Change the brightness and/or contrast of an image. It converts the brightness and contrast parameters into slope and intercept and calls a polynomical function to apply to the image.
+	 * @link http://php.net/manual/en/imagick.brightnesscontrastimage.php
+	 * @param string $brightness
+	 * @param string $contrast
+	 * @param int $CHANNEL [optional]
+	 * @return void
+	 * @since 3.3.0
+	 */
+	public function brightnessContrastImage ($brightness, $contrast, $CHANNEL = Imagick::CHANNEL_DEFAULT) { }
+
+	/**
+	 * Applies a user supplied kernel to the image according to the given morphology method.
+	 * @link http://php.net/manual/en/imagick.morphology.php
+	 * @param int $morphologyMethod Which morphology method to use one of the \Imagick::MORPHOLOGY_* constants.
+	 * @param int $iterations The number of iteration to apply the morphology function. A value of -1 means loop until no change found. How this is applied may depend on the morphology method. Typically this is a value of 1.
+	 * @param ImagickKernel $ImagickKernel
+	 * @param int $CHANNEL [optional]
+	 * @return void
+	 * @since 3.3.0
+	 */
+	public function morphology ($morphologyMethod, $iterations, ImagickKernel $ImagickKernel, $CHANNEL = Imagick::CHANNEL_DEFAULT) { }
+
+	/**
+	 * Applies a custom convolution kernel to the image.
+	 * @link http://php.net/manual/en/imagick.filter.php
+	 * @param ImagickKernel $ImagickKernel An instance of ImagickKernel that represents either a single kernel or a linked series of kernels.
+	 * @param int $CHANNEL [optional] Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to Imagick::CHANNEL_DEFAULT. Refer to this list of channel constants
+	 * @return void
+	 * @since 3.3.0
+	 */
+	public function filter (ImagickKernel $ImagickKernel , $CHANNEL = Imagick::CHANNEL_DEFAULT) { }
+
+	/**
+	 * Apply color transformation to an image. The method permits saturation changes, hue rotation, luminance to alpha, and various other effects. Although variable-sized transformation matrices can be used, typically one uses a 5x5 matrix for an RGBA image and a 6x6 for CMYKA (or RGBA with offsets).
+	 * The matrix is similar to those used by Adobe Flash except offsets are in column 6 rather than 5 (in support of CMYKA images) and offsets are normalized (divide Flash offset by 255)
+	 * @link http://php.net/manual/en/imagick.colormatriximage.php
+	 * @param string $color_matrix
+	 * @return void
+	 * @since 3.3.0
+	 */
+	public function colorMatrixImage ($color_matrix = Imagick::CHANNEL_DEFAULT) { }
+
+	/**
+	 * Deletes an image property.
+	 * @link http://php.net/manual/en/imagick.deleteimageproperty.php
+	 * @param string $name The name of the property to delete.
+	 * @return void
+	 * @since 3.3.0
+	 */
+	public function deleteImageProperty ($name) { }
+
+	/**
+	 * Implements the discrete Fourier transform (DFT) of the image either as a magnitude / phase or real / imaginary image pair.
+	 * @link http://php.net/manual/en/imagick.forwardfouriertransformimage.php
+	 * @param bool $magnitude If true, return as magnitude / phase pair otherwise a real / imaginary image pair.
+	 * @return void
+	 * @since 3.3.0
+	 */
+	public function forwardFourierTransformimage ($magnitude) { }
+
+	/**
+	 * Gets the current image's compression type.
+	 * @link http://php.net/manual/en/imagick.getimagecompression.php
+	 * @return int
+	 * @since 3.3.0
+	 */
+	public function getImageCompression () { }
+
+	/**
+	 * Get the StringRegistry entry for the named key or false if not set.
+	 * @link http://php.net/manual/en/imagick.getregistry.php
+	 * @param string $key
+	 * @return string
+	 * @throws Exception Since version >=3.4.3. Throws an exception if the key does not exist, rather than terminating the program.
+	 * @since 3.3.0
+	 */
+	public static function getRegistry ($key) { }
+
+	/**
+	 * Returns the ImageMagick quantum range as an integer.
+	 * @link http://php.net/manual/en/imagick.getquantum.php
+	 * @return int
+	 * @since 3.3.0
+	 */
+	public static function getQuantum () { }
+
+	/**
+	 * Replaces any embedded formatting characters with the appropriate image property and returns the interpreted text. See http://www.imagemagick.org/script/escape.php for escape sequences.
+	 * @link http://php.net/manual/en/imagick.identifyformat.php
+	 * @see http://www.imagemagick.org/script/escape.php
+	 * @param string $embedText A string containing formatting sequences e.g. "Trim box: %@ number of unique colors: %k".
+	 * @return bool
+	 * @since 3.3.0
+	 */
+	public function identifyFormat ($embedText) { }
+
+	/**
+	 * Implements the inverse discrete Fourier transform (DFT) of the image either as a magnitude / phase or real / imaginary image pair.
+	 * @link http://php.net/manual/en/imagick.inversefouriertransformimage.php
+	 * @param Imagick $complement The second image to combine with this one to form either the magnitude / phase or real / imaginary image pair.
+	 * @param bool $magnitude If true, combine as magnitude / phase pair otherwise a real / imaginary image pair.
+	 * @return void
+	 * @since 3.3.0
+	 */
+	public function inverseFourierTransformImage ($complement, $magnitude) { }
+
+	/**
+	 * List all the registry settings. Returns an array of all the key/value pairs in the registry
+	 * @link http://php.net/manual/en/imagick.listregistry.php
+	 * @return array An array containing the key/values from the registry.
+	 * @since 3.3.0
+	 */
+	public static function listRegistry () { }
+
+	/**
+	 * Rotational blurs an image.
+	 * @link http://php.net/manual/en/imagick.rotationalblurimage.php
+	 * @param string $angle
+	 * @param string $CHANNEL
+	 * @return void
+	 * @since 3.3.0
+	 */
+	public function rotationalBlurImage ($angle, $CHANNEL = Imagick::CHANNEL_DEFAULT) { }
+
+	/**
+	 * Selectively blur an image within a contrast threshold. It is similar to the unsharpen mask that sharpens everything with contrast above a certain threshold.
+	 * @link http://php.net/manual/en/imagick.selectiveblurimage.php
+	 * @param float $radius
+	 * @param float $sigma
+	 * @param float $threshold
+	 * @param int $CHANNEL Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to Imagick::CHANNEL_DEFAULT. Refer to this list of channel constants
+	 * @return void
+	 * @since 3.3.0
+	 */
+	public function selectiveBlurImage ($radius, $sigma, $threshold, $CHANNEL = Imagick::CHANNEL_DEFAULT) { }
+
+	/**
+	 * Set whether antialiasing should be used for operations. On by default.
+	 * @param bool $antialias
+	 * @return int
+	 * @since 3.3.0
+	 */
+	public function setAntiAlias ($antialias) { }
+
+	/**
+	 * @link http://php.net/manual/en/imagick.setimagebiasquantum.php
+	 * @param string $bias
+	 * @return void
+	 * @since 3.3.0
+	 */
+	public function setImageBiasQuantum ($bias) { }
+
+	/**
+	 * Set a callback that will be called during the processing of the Imagick image.
+	 * @link http://php.net/manual/en/imagick.setprogressmonitor.php
+	 * @param callable $callback The progress function to call. It should return true if image processing should continue, or false if it should be cancelled.
+	 * The offset parameter indicates the progress and the span parameter indicates the total amount of work needed to be done.
+	 * <pre> bool callback ( mixed $offset , mixed $span ) </pre>
+	 * <b>Caution</b>
+	 * The values passed to the callback function are not consistent. In particular the span parameter can increase during image processing. Because of this calculating the percentage complete of an image operation is not trivial.
+	 * @return void
+	 * @since 3.3.0
+	 */
+	public function setProgressMonitor ($callback) { }
+
+	/**
+	 * Sets the ImageMagick registry entry named key to value. This is most useful for setting "temporary-path" which controls where ImageMagick creates temporary images e.g. while processing PDFs.
+	 * @link http://php.net/manual/en/imagick.setregistry.php
+	 * @param string $key
+	 * @param string $value
+	 * @return void
+	 * @since 3.3.0
+	 */
+	public static function setRegistry ($key, $value) { }
+
+	/**
+	 * Replace each pixel with corresponding statistic from the neighborhood of the specified width and height.
+	 * @link http://php.net/manual/en/imagick.statisticimage.php
+	 * @param int $type
+	 * @param int $width
+	 * @param int $height
+	 * @param int $channel [optional]
+	 * @return void
+	 * @since 3.3.0
+	 */
+	public function statisticImage ($type, $width, $height, $channel = Imagick::CHANNEL_DEFAULT ) { }
+
+	/**
+	 * Searches for a subimage in the current image and returns a similarity image such that an exact match location is
+	 * completely white and if none of the pixels match, black, otherwise some gray level in-between.
+	 * You can also pass in the optional parameters bestMatch and similarity. After calling the function similarity will
+	 * be set to the 'score' of the similarity between the subimage and the matching position in the larger image,
+	 * bestMatch will contain an associative array with elements x, y, width, height that describe the matching region.
+	 *
+	 * @link http://php.net/manual/en/imagick.subimagematch.php
+	 * @param Imagick $imagick
+	 * @param array $bestMatch [optional]
+	 * @param float $similarity [optional] A new image that displays the amount of similarity at each pixel.
+	 * @param float $similarity_threshold [optional] Only used if compiled with ImageMagick (library) > 7
+	 * @param int $metric [optional] Only used if compiled with ImageMagick (library) > 7
+	 * @return Imagick
+	 * @since 3.3.0
+	 */
+	public function subImageMatch (Imagick $imagick, array &$bestMatch, &$similarity, $similarity_threshold, $metric) { }
+
+	/**
+	 * Is an alias of Imagick::subImageMatch
+	 *
+	 * @param Imagick $imagick
+	 * @param array $bestMatch [optional]
+	 * @param float $similarity [optional] A new image that displays the amount of similarity at each pixel.
+	 * @param float $similarity_threshold [optional]
+	 * @param int $metric [optional]
+	 * @return Imagick
+	 * @see Imagick::subImageMatch() This function is an alias of subImageMatch()
+	 * @since 3.4.0
+	 */
+	public function similarityImage (Imagick $imagick, array &$bestMatch, &$similarity, $similarity_threshold, $metric) { }
+
+	/**
+	 * Returns any ImageMagick  configure options that match the specified pattern (e.g. "*" for all). Options include NAME, VERSION, LIB_VERSION, etc.
+	 * @return string
+	 * @since 3.4.0
+	 */
+	public function getConfigureOptions () { }
+
+	/**
+	 * GetFeatures() returns the ImageMagick features that have been compiled into the runtime.
+	 * @return string
+	 * @since 3.4.0
+	 */
+	public function getFeatures () { }
+
+	/**
+	 * @return int
+	 * @since 3.4.0
+	 */
+	public function getHDRIEnabled () { }
+
+	/**
+	 * Sets the image channel mask. Returns the previous set channel mask.
+	 * Only works with Imagick >=7
+	 * @param int $channel
+	 * @since 3.4.0
+	 */
+	public function setImageChannelMask ($channel) {}
+
+	/**
+	 * Merge multiple images of the same size together with the selected operator. http://www.imagemagick.org/Usage/layers/#evaluate-sequence
+	 * @param int $EVALUATE_CONSTANT
+	 * @return bool
+	 * @see http://www.imagemagick.org/Usage/layers/#evaluate-sequence
+	 * @since 3.4.0
+	 */
+	public function evaluateImages ($EVALUATE_CONSTANT) { }
+
+	/**
+	 * Extracts the 'mean' from the image and adjust the image to try make set its gamma appropriately.
+	 * @param int $channel [optional] Default value Imagick::CHANNEL_ALL
+	 * @return bool
+	 * @since 3.4.1
+	 */
+	public function autoGammaImage ($channel = Imagick::CHANNEL_ALL) { }
+
+	/**
+	 * Adjusts an image so that its orientation is suitable $ for viewing (i.e. top-left orientation).
+	 * @return bool
+	 * @since 3.4.1
+	 */
+	public function autoOrient () { }
+
+	/**
+	 * Composite one image onto another using the specified gravity.
+	 *
+	 * @param Imagick $imagick
+	 * @param int $COMPOSITE_CONSTANT
+	 * @param int $GRAVITY_CONSTANT
+	 * @return bool
+	 * @since 3.4.1
+	 */
+	public function compositeImageGravity(Imagick $imagick, $COMPOSITE_CONSTANT, $GRAVITY_CONSTANT) { }
+
+	/**
+	 * Attempts to increase the appearance of large-scale light-dark transitions.
+	 *
+	 * @param float $radius
+	 * @param float $strength
+	 * @return bool
+	 * @since 3.4.1
+	 */
+	public function localContrastImage($radius, $strength) { }
+
+	/**
+	 * Identifies the potential image type, returns one of the Imagick::IMGTYPE_* constants
+	 * @return int
+	 * @since 3.4.3
+	 */
+	public function identifyImageType() { }
+
+	/**
+	 * Sets the image to the specified alpha level. Will replace ImagickDraw::setOpacity()
+	 *
+	 * @param float $alpha
+	 * @return bool
+	 * @since 3.4.3
+	 */
+	public function setImageAlpha($alpha) { }
 }
 
 /**
@@ -5886,6 +6216,88 @@ class ImagickDraw  {
 	 */
 	public function setStrokeDashArray (array $dashArray) {}
 
+    /**
+     * Sets the opacity to use when drawing using the fill or stroke color or texture. Fully opaque is 1.0.
+     *
+     * @param float $opacity
+     * @return void
+     * @since 3.4.1
+     */
+	public function setOpacity($opacity) { }
+
+	/**
+	 * Returns the opacity used when drawing with the fill or stroke color or texture. Fully opaque is 1.0.
+	 *
+	 * @return float
+	 * @since 3.4.1
+	 */
+	public function getOpacity() { }
+
+	/**
+	 * Sets the image font resolution.
+	 *
+	 * @param float $x
+	 * @param float $y
+	 * @return bool
+	 * @since 3.4.1
+	 */
+	public function setFontResolution($x, $y) { }
+
+	/**
+	 * Gets the image X and Y resolution.
+	 *
+	 * @return array
+	 * @since 3.4.1
+	 */
+	public function getFontResolution() { }
+
+	/**
+	 * Returns the direction that will be used when annotating with text.
+	 * @return bool
+	 * @since 3.4.1
+	 */
+	public function getTextDirection() { }
+
+	/**
+	 * Sets the font style to use when annotating with text. The AnyStyle enumeration acts as a wild-card "don't care" option.
+	 *
+	 * @param int $direction
+	 * @return bool
+	 * @since 3.4.1
+	 */
+	public function setTextDirection($direction) { }
+
+	/**
+	 * Returns the border color used for drawing bordered objects.
+	 *
+	 * @return ImagickPixel
+	 * @since 3.4.1
+	 */
+	public function getBorderColor() { }
+
+	/**
+	 * Sets the border color to be used for drawing bordered objects.
+	 * @param ImagickPixel $color
+	 * @return bool
+	 * @since 3.4.1
+	 */
+	public function setBorderColor(ImagickPixel $color) { }
+
+	/**
+	 * Obtains the vertical and horizontal resolution.
+	 *
+	 * @return string|null
+	 * @since 3.4.1
+	 */
+	public function getDensity() { }
+
+	/**
+	 * Sets the vertical and horizontal resolution.
+	 * @param string $density_string
+	 * @return bool
+	 * @since 3.4.1
+	 */
+	public function setDensity($density_string) { }
 }
 
 /**
@@ -5907,6 +6319,7 @@ class ImagickPixelIterator implements Iterator {
 	 * @link http://php.net/manual/en/imagickpixeliterator.newpixeliterator.php
 	 * @param Imagick $wand
 	 * @return bool <b>TRUE</b> on success. Throwing ImagickPixelIteratorException.
+	 * @throw ImagickPixelIteratorException
 	 */
 	public function newPixelIterator (Imagick $wand) {}
 
@@ -5919,8 +6332,8 @@ class ImagickPixelIterator implements Iterator {
 	 * @param int $y
 	 * @param int $columns
 	 * @param int $rows
-	 * @return bool a new ImagickPixelIterator on success; on failure, throws
-	 * ImagickPixelIteratorException.
+	 * @return bool a new ImagickPixelIterator on success; on failure, throws ImagickPixelIteratorException
+	 * @throws ImagickPixelIteratorException.
 	 */
 	public function newPixelRegionIterator (Imagick $wand, $x, $y, $columns, $rows) {}
 
@@ -5928,8 +6341,8 @@ class ImagickPixelIterator implements Iterator {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Returns the current pixel iterator row
 	 * @link http://php.net/manual/en/imagickpixeliterator.getiteratorrow.php
-	 * @return int the integer offset of the row, throwing
-	 * ImagickPixelIteratorException on error.
+	 * @return int the integer offset of the row, throwing ImagickPixelIteratorException on error.
+	 * @throws ImagickPixelIteratorException on error
 	 */
 	public function getIteratorRow () {}
 
@@ -5964,6 +6377,7 @@ class ImagickPixelIterator implements Iterator {
 	 * @link http://php.net/manual/en/imagickpixeliterator.getpreviousiteratorrow.php
 	 * @return array the previous row as an array of ImagickPixelWand objects from the
 	 * ImagickPixelIterator, throwing ImagickPixelIteratorException on error.
+	 * @throws ImagickPixelIteratorException on error
 	 */
 	public function getPreviousIteratorRow () {}
 
@@ -5981,6 +6395,7 @@ class ImagickPixelIterator implements Iterator {
 	 * @link http://php.net/manual/en/imagickpixeliterator.getnextiteratorrow.php
 	 * @return array the next row as an array of ImagickPixel objects, throwing
 	 * ImagickPixelIteratorException on error.
+	 * @throws ImagickPixelIteratorException on error
 	 */
 	public function getNextIteratorRow () {}
 
@@ -6054,6 +6469,7 @@ class ImagickPixel  {
 	 * @link http://php.net/manual/en/imagickpixel.gethsl.php
 	 * @return array the HSL value in an array with the keys "hue",
 	 * "saturation", and "luminosity". Throws ImagickPixelException on failure.
+	 * @throws ImagickPixelException on failure
 	 */
 	public function getHSL () {}
 
@@ -6138,6 +6554,7 @@ class ImagickPixel  {
 	 * </p>
 	 * @return float The value of the channel, as a normalized floating-point number, throwing
 	 * ImagickPixelException on error.
+	 * @throws ImagickPixelException on error
 	 */
 	public function getColorValue ($color) {}
 
@@ -6198,6 +6615,7 @@ class ImagickPixel  {
 	 * </p>
 	 * @return array An array of channel values, each normalized if <b>TRUE</b> is given as param. Throws
 	 * ImagickPixelException on error.
+	 * @throws ImagickPixelException on error.
 	 */
 	public function getColor ($normalized = false) {}
 
@@ -6215,6 +6633,7 @@ class ImagickPixel  {
 	 * @link http://php.net/manual/en/imagickpixel.getcolorcount.php
 	 * @return int the color count as an integer on success, throws
 	 * ImagickPixelException on failure.
+	 * @throws ImagickPixelException on failure.
 	 */
 	public function getColorCount () {}
 
@@ -6223,6 +6642,107 @@ class ImagickPixel  {
 	 */
 	public function setColorCount ($colorCount) {}
 
+
+	/**
+	 * Returns true if the distance between two colors is less than the specified distance. The fuzz value should be in the range 0-QuantumRange.<br>
+	 * The maximum value represents the longest possible distance in the colorspace. e.g. from RGB(0, 0, 0) to RGB(255, 255, 255) for the RGB colorspace
+	 * @link http://php.net/manual/en/imagickpixel.ispixelsimilarquantum.php
+	 * @param string $pixel
+	 * @param string $fuzz
+	 * @return bool
+	 * @since 3.3.0
+	 */
+	public function isPixelSimilarQuantum($color, $fuzz) { }
+
+	/**
+	 * Returns the color of the pixel in an array as Quantum values. If ImageMagick was compiled as HDRI these will be floats, otherwise they will be integers.
+	 * @link http://php.net/manual/en/imagickpixel.getcolorquantum.php
+	 * @return mixed The quantum value of the color element. Float if ImageMagick was compiled with HDRI, otherwise an int.
+	 * @since 3.3.0
+	 */
+	public function getColorQuantum() { }
+
+	/**
+	 * Sets the color count associated with this color from another ImagickPixel object.
+	 *
+	 * @param ImagickPixel $srcPixel
+	 * @return bool
+	 * @since 3.4.1
+	 */
+	public function setColorFromPixel(ImagickPixel $srcPixel) { }
 }
 // End of imagick v.3.2.0RC1
 
+// Start of Imagick v3.3.0RC1
+
+/**
+ * @link http://php.net/manual/en/class.imagickkernel.php
+ */
+class ImagickKernel {
+	/**
+	 * Attach another kernel to this kernel to allow them to both be applied in a single morphology or filter function. Returns the new combined kernel.
+	 * @link http://php.net/manual/en/imagickkernel.addkernel.php
+	 * @param ImagickKernel $imagickKernel
+	 * @return void
+	 * @since 3.3.0
+	 */
+	public function addKernel(ImagickKernel $imagickKernel) { }
+
+	/**
+	 * Adds a given amount of the 'Unity' Convolution Kernel to the given pre-scaled and normalized Kernel. This in effect adds that amount of the original image into the resulting convolution kernel. The resulting effect is to convert the defined kernels into blended soft-blurs, unsharp kernels or into sharpening kernels.
+	 * @link http://php.net/manual/en/imagickkernel.addunitykernel.php
+	 * @return void
+	 * @since 3.3.0
+	 */
+	public function addUnityKernel() { }
+
+	/**
+	 * Create a kernel from a builtin in kernel. See http://www.imagemagick.org/Usage/morphology/#kernel for examples.<br>
+	 * Currently the 'rotation' symbols are not supported. Example: $diamondKernel = ImagickKernel::fromBuiltIn(\Imagick::KERNEL_DIAMOND, "2");
+	 * @link http://php.net/manual/en/imagickkernel.frombuiltin.php
+	 * @param string $kernelType The type of kernel to build e.g. \Imagick::KERNEL_DIAMOND
+	 * @param string $kernelString A string that describes the parameters e.g. "4,2.5"
+	 * @return void
+	 * @since 3.3.0
+	 */
+	public static function fromBuiltin($kernelType, $kernelString) { }
+
+	/**
+	 * Create a kernel from a builtin in kernel. See http://www.imagemagick.org/Usage/morphology/#kernel for examples.<br>
+	 * Currently the 'rotation' symbols are not supported. Example: $diamondKernel = ImagickKernel::fromBuiltIn(\Imagick::KERNEL_DIAMOND, "2");
+	 * @link http://php.net/manual/en/imagickkernel.frombuiltin.php
+	 * @see http://www.imagemagick.org/Usage/morphology/#kernel
+	 * @param array $matrix A matrix (i.e. 2d array) of values that define the kernel. Each element should be either a float value, or FALSE if that element shouldn't be used by the kernel.
+	 * @param array $origin [optional] Which element of the kernel should be used as the origin pixel. e.g. For a 3x3 matrix specifying the origin as [2, 2] would specify that the bottom right element should be the origin pixel.
+	 * @return ImagickKernel
+	 * @since 3.3.0
+	 */
+	public static function fromMatrix($matrix, $origin) { }
+
+	/**
+	 * Get the 2d matrix of values used in this kernel. The elements are either float for elements that are used or 'false' if the element should be skipped.
+	 * @link http://php.net/manual/en/imagickkernel.getmatrix.php
+	 * @return array A matrix (2d array) of the values that represent the kernel.
+	 * @since 3.3.0
+	 */
+	public function getMatrix() { }
+
+	/**
+	 * ScaleKernelInfo() scales the given kernel list by the given amount, with or without normalization of the sum of the kernel values (as per given flags).<br>
+	 * The exact behaviour of this function depends on the normalization type being used please see http://www.imagemagick.org/api/morphology.php#ScaleKernelInfo for details.<br>
+	 * Flag should be one of Imagick::NORMALIZE_KERNEL_VALUE, Imagick::NORMALIZE_KERNEL_CORRELATE, Imagick::NORMALIZE_KERNEL_PERCENT or not set.
+	 * @link http://php.net/manual/en/imagickkernel.scale.php
+	 * @see http://www.imagemagick.org/api/morphology.php#ScaleKernelInfo
+	 * @return void
+	 * @since 3.3.0
+	 */
+	public function scale() { }
+
+	/**
+	 * Separates a linked set of kernels and returns an array of ImagickKernels.
+	 * @link http://php.net/manual/en/imagickkernel.separate.php
+	 * @return void
+	 * @since 3.3.0
+	 */
+	public function seperate() { }
+}
