@@ -592,7 +592,7 @@ namespace MongoDB {}
 
             /**
              * Add an insert operation to the bulk
-             * If the document did not have an _id, a MongoDB\BSON\ObjectID will be generated and returned; otherwise, no value is returned.
+             * If the document did not have an _id, a MongoDB\BSON\ObjectId will be generated and returned; otherwise, no value is returned.
              * @link http://php.net/manual/en/mongodb-driver-bulkwrite.insert.php
              * @param array|object $document
              * @return mixed
@@ -1122,15 +1122,15 @@ namespace MongoDB {}
         }
 
         /**
-         * Class ObjectID
+         * Class ObjectId
          * @link http://php.net/manual/en/class.mongodb-bson-objectid.php
          */
-        class ObjectID implements Type
+        class ObjectId implements Type
         {
             /**
-             * Construct a new ObjectID
+             * Construct a new ObjectId
              * @link http://php.net/manual/en/mongodb-bson-objectid.construct.php
-             * @param string $id A 24-character hexadecimal string. If not provided, the driver will generate an ObjectID.
+             * @param string $id A 24-character hexadecimal string. If not provided, the driver will generate an ObjectId.
              * @throws InvalidArgumentException if id is not a 24-character hexadecimal string.
              */
             public function __construct($id = null)
@@ -1138,7 +1138,7 @@ namespace MongoDB {}
             }
 
             /**
-             * Returns the hexidecimal representation of this ObjectID
+             * Returns the hexidecimal representation of this ObjectId
              * @link http://php.net/manual/en/mongodb-bson-objectid.tostring.php
              * @return string
              */
