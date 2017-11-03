@@ -39,7 +39,6 @@ define('RADIUS_ACCOUNTING_RESPONSE', 5);
 /** An Access-Challenge response to an Access-Request indicating that the RADIUS server requires further information in another Access-Request before authenticating the user. */
 define('RADIUS_ACCESS_CHALLENGE', 11);
 
-
 /**
  * A Disconnect-Request, sent from the RADIUS server to indicate that the user session must be terminated.
  * @since 1.3.0
@@ -76,6 +75,11 @@ define('RADIUS_COA_ACK', 44);
  */
 define('RADIUS_COA_NAK', 45);
 
+/**
+ * RADIUS Attribute Types
+ * @link http://php.net/manual/en/radius.constants.attributes.php
+ */
+
 /** The User-Name attribute. The attribute value is expected to be a string containing the name of the user being authenticated, and can be set using {@see radius_put_attr()}. */
 define('RADIUS_USER_NAME', 1);
 
@@ -92,6 +96,20 @@ define('RADIUS_NAS_IP_ADDRESS', 4);
 
 /** The NAS-Port attribute. The attribute value is expected to be the physical port of the user on the RADIUS client encoded as an integer, which can be set using {@see radius_put_int()}. */
 define('RADIUS_NAS_PORT', 5);
+
+/**
+ * The Service-Type attribute. The attribute value indicates the service type the user is requesting, and is expected to be an integer, which can be set using {@see radius_put_int()}.
+ * A number of constants are provided to represent the possible values of this attribute. They include:
+ * - RADIUS_LOGIN
+ * - RADIUS_FRAMED
+ * - RADIUS_CALLBACK_LOGIN
+ * - RADIUS_CALLBACK_FRAMED
+ * - RADIUS_OUTBOUND
+ * - RADIUS_ADMINISTRATIVE
+ * - RADIUS_NAS_PROMPT
+ * - RADIUS_AUTHENTICATE_ONLY
+ * - RADIUS_CALLBACK_NAS_PROMPT
+ */
 define('RADIUS_SERVICE_TYPE', 6);
 define('RADIUS_LOGIN', 1);
 define('RADIUS_FRAMED', 2);
@@ -102,22 +120,60 @@ define('RADIUS_ADMINISTRATIVE', 6);
 define('RADIUS_NAS_PROMPT', 7);
 define('RADIUS_AUTHENTICATE_ONLY', 8);
 define('RADIUS_CALLBACK_NAS_PROMPT', 9);
+
+/**
+ * The Framed-Protocol attribute. The attribute value is expected to be an integer indicating the framing to be used for framed access, and can be set using {@see radius_put_int()}. The possible attribute values include these constants:
+ * - RADIUS_PPP
+ * - RADIUS_SLIP
+ * - RADIUS_ARAP
+ * - RADIUS_GANDALF
+ * - RADIUS_XYLOGICS
+ */
 define('RADIUS_FRAMED_PROTOCOL', 7);
 define('RADIUS_PPP', 1);
 define('RADIUS_SLIP', 2);
 define('RADIUS_ARAP', 3);
 define('RADIUS_GANDALF', 4);
 define('RADIUS_XYLOGICS', 5);
+
+/** The Framed-IP-Address attribute. The attribute value is expected to be the address of the user's network encoded as an integer, which can be set using {@see radius_put_addr()} and retrieved using {@see radius_cvt_addr()}. */
 define('RADIUS_FRAMED_IP_ADDRESS', 8);
+
+/** The Framed-IP-Netmask attribute. The attribute value is expected to be the netmask of the user's network encoded as an integer, which can be set using {@see radius_put_addr()} and retrieved using {@see radius_cvt_addr()}. */
 define('RADIUS_FRAMED_IP_NETMASK', 9);
+
+/**
+ * The Framed-Routing attribute. The attribute value is expected to be an integer indicating the routing method for the user, which can be set using {@see radius_put_int()}.<br>
+ * <br>
+ * Possible values include:
+ * - 0: No routing
+ * - 1: Send routing packets
+ * - 2: Listen for routing packets
+ * - 3: Send and listen
+ */
 define('RADIUS_FRAMED_ROUTING', 10);
+
+/** The Filter-ID attribute. The attribute value is expected to be an implementation-specific, human-readable string of filters, which can be set using {@see radius_put_attr()}.*/
 define('RADIUS_FILTER_ID', 11);
+
+/** The Framed-MTU attribute. The attribute value is expected to be an integer indicating the MTU to be configured for the user, and can be set using {@see radius_put_int()}.*/
 define('RADIUS_FRAMED_MTU', 12);
+
+/** The Framed-Compression attribute. The attribute value is expected to be an integer indicating the compression protocol to be used, and can be set using radius_put_int(). Possible values include these constants:
+ * - <b>RADIUS_COMP_NONE</b>: No compression
+ * - <b>RADIUS_COMP_VJ</b>: VJ TCP/IP header compression
+ * - <b>RADIUS_COMP_IPXHDR</b>: IPX header compression
+ * - <b>RADIUS_COMP_STAC_LZS</b>: Stac-LZS compression (added in PECL radius 1.3.0b2)
+ */
 define('RADIUS_FRAMED_COMPRESSION', 13);
 define('RADIUS_COMP_NONE', 0);
 define('RADIUS_COMP_VJ', 1);
 define('RADIUS_COMP_IPXHDR', 2);
+
+/** The Login-IP-Host attribute. The attribute value is expected to the IP address to connect the user to, encoded as an integer, which can be set using {@see radius_put_addr()}. */
 define('RADIUS_LOGIN_IP_HOST', 14);
+
+/** The Login-Service attribute. The attribute value is an integer indicating the service to connect the user to on the login host. The value can be converted to a PHP integer via {@see radius_cvt_int()}.*/
 define('RADIUS_LOGIN_SERVICE', 15);
 define('RADIUS_LOGIN_TCP_PORT', 16);
 define('RADIUS_REPLY_MESSAGE', 18);
