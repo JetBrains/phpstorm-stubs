@@ -296,7 +296,7 @@ define ('JSON_OBJECT_AS_ARRAY', 1);
 define ('JSON_PARSER_NOTSTRICT', 4);
 
 /**
- * Encodes large integers as their original string value.
+ * Decodes large integers as their original string value.
  * @since 5.4.0
  * @link http://php.net/manual/en/json.constants.php
  */
