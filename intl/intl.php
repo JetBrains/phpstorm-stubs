@@ -1918,7 +1918,7 @@ class IntlDateFormatter {
      * The locale to use, or <b>NULL</b> to use the {@link "http://www.php.net/manual/en/intl.configuration.php#ini.intl.default-locale"default one}.</p>
      * @return string A string with result or <b>FALSE</b> on failure.
      */
-    public function formatObject($object, $format = NULL, $locale = NULL) { }
+    public static function formatObject($object, $format = NULL, $locale = NULL) { }
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>

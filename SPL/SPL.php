@@ -1520,6 +1520,11 @@ class RecursiveTreeIterator extends RecursiveIteratorIterator {
     public function getPrefix() { }
 
     /**
+     * @param string $postfix
+     */
+    public function setPostfix($postfix) {}
+
+    /**
      * Set a part of the prefix
      * @link http://php.net/manual/en/recursivetreeiterator.setprefixpart.php
      * @param int $part <p>

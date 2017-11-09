@@ -718,6 +718,7 @@ function get_declared_traits() {}
 /**
  * Returns an array of all defined functions
  * @link http://php.net/manual/en/function.get-defined-functions.php
+ * @param bool $exclude_disabled [optional] Whether disabled functions should be excluded from the return value.
  * @return array an multidimensional array containing a list of all defined
  * functions, both built-in (internal) and user-defined. The internal
  * functions will be accessible via $arr["internal"], and
@@ -726,7 +727,7 @@ function get_declared_traits() {}
  * @since 4.0.4
  * @since 5.0
  */
-function get_defined_functions () {}
+function get_defined_functions ($exclude_disabled = FALSE) {}
 
 /**
  * Returns an array of all defined variables

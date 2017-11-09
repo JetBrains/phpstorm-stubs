@@ -749,6 +749,7 @@ function openssl_verify($data, $signature, $pub_key_id, $signature_alg = OPENSSL
  * @param array $env_keys
  * @param array $pub_key_ids
  * @param string $method [optional]
+ * @param string $iv [optional]
  * @return int the length of the sealed data on success, or false on error.
  * If successful the sealed data is returned in
  * <i>sealed_data</i>, and the envelope keys in
@@ -756,7 +757,7 @@ function openssl_verify($data, $signature, $pub_key_id, $signature_alg = OPENSSL
  * @since 4.0.4
  * @since 5.0
  */
-function openssl_seal($data, &$sealed_data, array &$env_keys, array $pub_key_ids, $method = null) { }
+function openssl_seal($data, &$sealed_data, array &$env_keys, array $pub_key_ids, $method = null, $iv = '') { }
 
 /**
  * Open sealed data
@@ -1196,6 +1197,7 @@ define('OPENSSL_CIPHER_AES_192_CBC', 6);
 define('OPENSSL_CIPHER_AES_256_CBC', 7);
 define('OPENSSL_RAW_DATA', 1);
 define('OPENSSL_ZERO_PADDING', 2);
+define('OPENSSL_DONT_ZERO_PAD_KEY', 4);
 
 define('OPENSSL_DEFAULT_STREAM_CIPHERS', "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:" .
 "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:" .

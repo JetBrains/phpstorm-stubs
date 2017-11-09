@@ -446,6 +446,9 @@ function gmdate ($format, $timestamp = null) {}
  * As of PHP 5.1.0, this parameter became deprecated. As a result, the
  * new timezone handling features should be used instead.
  * </p>
+ * <p>
+ * This parameter has been removed in PHP 7.0.0.
+ * </p>
  * @return int|false mktime returns the Unix timestamp of the arguments
  * given.
  * If the arguments are invalid, the function returns false (before PHP 5.1
@@ -453,7 +456,7 @@ function gmdate ($format, $timestamp = null) {}
  * @since 4.0
  * @since 5.0
  */
-function mktime ($hour = null, $minute = null, $second = null, $month = null, $day = null, $year = null, $is_dst = null) {}
+function mktime ($hour = null, $minute = null, $second = null, $month = null, $day = null, $year = null, $is_dst = -1) {}
 
 /**
  * Get Unix timestamp for a GMT date
