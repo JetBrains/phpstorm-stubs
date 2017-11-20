@@ -213,10 +213,13 @@ class mysqli  {
 	/**
 	 * Commits the current transaction
 	 * @link http://php.net/manual/en/mysqli.commit.php
+	 * @param int $flags A bitmask of MYSQLI_TRANS_COR_* constants.
+	 * @param string $name If provided then COMMIT $name is executed.
 	 * @return bool true on success or false on failure.
+	 * @since 5.5 Added flags and name parameters.
 	 * @since 5.0
 	 */
-	public function commit () {}
+	public function commit ($flags = null, $name = null) {}
 
 	/**
 	 * @param $host [optional]
