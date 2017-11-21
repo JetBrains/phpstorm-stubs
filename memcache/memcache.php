@@ -384,7 +384,17 @@ class Memcache extends MemcachePool  {
  */
 function memcache_connect ($host, $port, $timeout = 1) {}
 
-function memcache_pconnect () {}
+/**
+ * (PECL memcache >= 0.4.0)
+ * Memcache::pconnect — Open memcached server persistent connection
+ * 
+ * @link http://php.net/manual/en/memcache.pconnect.php#example-5242
+ * @param      $host
+ * @param null $port
+ * @param int  $timeout
+ * @return Memcache
+ */
+function memcache_pconnect ($host, $port=null, $timeout=1) {}
 
 function memcache_add_server () {}
 

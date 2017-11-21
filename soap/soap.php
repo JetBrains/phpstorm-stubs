@@ -640,6 +640,31 @@ class SoapServer  {
  * @link http://php.net/manual/en/class.soapfault.php
  */
 class SoapFault extends Exception  {
+    /**
+     * @var string
+     */
+	public $faultcode;
+    /**
+     * @var string
+     */
+	public $faultstring;
+    /**
+     * @var string
+     */
+    public $faultactor;
+    /**
+     * @var string
+     */
+    public $detail;
+    /**
+     * @var string
+     */
+    public $faultname;
+    /**
+     * @var string
+     */
+    public $headerfault;
+
 	/**
 	 * SoapFault constructor
 	 * @link http://php.net/manual/en/soapfault.soapfault.php
