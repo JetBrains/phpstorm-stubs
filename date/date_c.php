@@ -1,6 +1,20 @@
 <?php
 
 interface DateTimeInterface {
+    const ATOM = 'Y-m-d\TH:i:sP';
+    const COOKIE = 'l, d-M-y H:i:s T';
+    const ISO8601 = 'Y-m-d\TH:i:sO';
+    const RFC822 = 'D, d M y H:i:s O';
+    const RFC850 = 'l, d-M-y H:i:s T';
+    const RFC1036 = 'D, d M y H:i:s O';
+    const RFC1123 = 'D, d M Y H:i:s O';
+    const RFC2822 = 'D, d M Y H:i:s O';
+    const RFC3339 = 'Y-m-d\TH:i:sP';
+    const RFC3339_EXTENDED = 'Y-m-d\TH:i:s.vP';
+    const RFC7231 = 'D, d M Y H:i:s \G\M\T';
+    const RSS = 'D, d M Y H:i:s O';
+    const W3C = 'Y-m-d\TH:i:sP';
+    
     /* Methods */
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -297,21 +311,6 @@ class DateTimeImmutable implements DateTimeInterface {
  * @link http://php.net/manual/en/class.datetime.php
  */
 class DateTime implements DateTimeInterface {
-    const ATOM = 'Y-m-d\TH:i:sP';
-    const COOKIE = 'l, d-M-y H:i:s T';
-    const ISO8601 = 'Y-m-d\TH:i:sO';
-    const RFC822 = 'D, d M y H:i:s O';
-    const RFC850 = 'l, d-M-y H:i:s T';
-    const RFC1036 = 'D, d M y H:i:s O';
-    const RFC1123 = 'D, d M Y H:i:s O';
-    const RFC2822 = 'D, d M Y H:i:s O';
-    const RFC3339 = 'Y-m-d\TH:i:sP';
-    const RFC3339_EXTENDED = 'Y-m-d\TH:i:s.vP';
-    const RFC7231 = 'D, d M Y H:i:s \G\M\T';
-    const RSS = 'D, d M Y H:i:s O';
-    const W3C = 'Y-m-d\TH:i:sP';
-
-
     /**
      * @param string $time
      * @param DateTimeZone $timezone
