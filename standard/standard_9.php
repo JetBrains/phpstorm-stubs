@@ -232,13 +232,27 @@ function array_rand(array $input, $num_req = null) { }
  * </p>
  * <p>
  * Sorting type flags:
- * SORT_REGULAR - compare items normally
+ * </p><ul>
+ * <li>
+ * <b>SORT_REGULAR</b> - compare items normally
  * (don't change types)
+ * </li>
+ * <li>
+ * <b>SORT_NUMERIC</b> - compare items numerically
+ * </li>
+ * <li>
+ * <b>SORT_STRING</b> - compare items as strings
+ * </li>
+ * <li>
+ * <b>SORT_LOCALE_STRING</b> - compare items as strings,
+ * based on the current locale
+ * </li>
+ * </ul>
  * @return array the filtered array.
  * @since 4.0.1
  * @since 5.0
  */
-function array_unique(array $array, $sort_flags = null) { }
+function array_unique(array $array, $sort_flags = SORT_STRING) { }
 
 /**
  * Computes the intersection of arrays
