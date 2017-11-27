@@ -875,7 +875,7 @@ class NumberFormatter {
      * @param $style
      * @param $pattern [optional]
      */
-    public function __construct($locale, $style, $pattern) { }
+    public function __construct($locale, $style, $pattern = null) { }
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
