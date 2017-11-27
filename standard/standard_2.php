@@ -279,7 +279,7 @@ function str_getcsv ($input, $delimiter = ",", $enclosure = '"', $escape = "\\")
  * @since 4.0.1
  * @since 5.0
  */
-function str_pad ($input, $pad_length, $pad_string = null, $pad_type = null) {}
+function str_pad ($input, $pad_length, $pad_string = " ", $pad_type = STR_PAD_RIGHT) {}
 
 /**
  * &Alias; <function>rtrim</function>
