@@ -683,7 +683,23 @@ function ssh2_publickey_list ($pkey) {}
  * @param int $mode <p>Permissions on the file. See the chmod() for more details on this parameter.</p>
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
-function ssh2_sftp_chmod ($sftp, $filename, $mode){}
+function ssh2_sftp_chmod ($sftp, $filename, $mode) {}
+
+/**
+ * (PECL ssh2 &gt;= 0.12)<br/>
+ * ssh2_auth_agent — Authenticate over SSH using the ssh agent
+ * @link http://php.net/manual/en/function.ssh2-auth-agent.php
+ * <p>
+ * Authenticate over SSH using the ssh agent
+ * </p>
+ * <p>
+ * Note: The ssh2_auth_agent() function will only be available when the ssh2 extension is compiled with libssh >= 1.2.3.
+ * </p>
+ * @param resource $session <p>An SSH connection link identifier, obtained from a call to ssh2_connect().</p>
+ * @param string $username <p>Remote user name.</p>
+ * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
+ */
+function ssh2_auth_agent ($session, $username) {}
 
 /**
  * Flag to ssh2_fingerprint requesting hostkey
