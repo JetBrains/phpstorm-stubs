@@ -4,7 +4,7 @@
 /**
  * The PharException class provides a phar-specific exception class
  * for try/catch blocks.
- * @link http://php.net/manual/en/class.pharexception.php
+ * @link https://secure.php.net/manual/en/class.pharexception.php
  */
 class PharException extends Exception  {
 }
@@ -12,7 +12,7 @@ class PharException extends Exception  {
 /**
  * The Phar class provides a high-level interface to accessing and creating
  * phar archives.
- * @link http://php.net/manual/en/class.phar.php
+ * @link https://secure.php.net/manual/en/class.phar.php
  */
 class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, SeekableIterator, Countable, ArrayAccess {
 	const BZ2 = 8192;
@@ -34,7 +34,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Construct a Phar archive object
-	 * @link http://php.net/manual/en/phar.construct.php
+	 * @link https://secure.php.net/manual/en/phar.construct.php
 	 * @param string $fname <p>
 	 * Path to an existing Phar archive or to-be-created archive. The file name's
 	 * extension must contain .phar.
@@ -56,7 +56,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (Unknown)<br/>
 	 * Add an empty directory to the phar archive
-	 * @link http://php.net/manual/en/phar.addemptydir.php
+	 * @link https://secure.php.net/manual/en/phar.addemptydir.php
 	 * @param string $dirname <p>
 	 * The name of the empty directory to create in the phar archive
 	 * </p>
@@ -70,7 +70,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (Unknown)<br/>
 	 * Add a file from the filesystem to the phar archive
-	 * @link http://php.net/manual/en/phar.addfile.php
+	 * @link https://secure.php.net/manual/en/phar.addfile.php
 	 * @param string $file <p>
 	 * Full or relative path to a file on disk to be added
 	 * to the phar archive.
@@ -85,7 +85,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (Unknown)<br/>
 	 * Add a file from the filesystem to the phar archive
-	 * @link http://php.net/manual/en/phar.addfromstring.php
+	 * @link https://secure.php.net/manual/en/phar.addfromstring.php
 	 * @param string $localname <p>
 	 * Path that the file will be stored in the archive.
 	 * </p>
@@ -99,7 +99,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Construct a phar archive from the files within a directory.
-	 * @link http://php.net/manual/en/phar.buildfromdirectory.php
+	 * @link https://secure.php.net/manual/en/phar.buildfromdirectory.php
 	 * @param string $base_dir <p>
 	 * The full or relative path to the directory that contains all files
 	 * to add to the archive.
@@ -118,7 +118,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Construct a phar archive from an iterator.
-	 * @link http://php.net/manual/en/phar.buildfromiterator.php
+	 * @link https://secure.php.net/manual/en/phar.buildfromiterator.php
 	 * @param Iterator $iter <p>
 	 * Any iterator that either associatively maps phar file to location or
 	 * returns SplFileInfo objects
@@ -136,7 +136,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Compresses all files in the current Phar archive
-	 * @link http://php.net/manual/en/phar.compressfiles.php
+	 * @link https://secure.php.net/manual/en/phar.compressfiles.php
 	 * @param int $compression <p>
 	 * Compression must be one of Phar::GZ,
 	 * Phar::BZ2 to add compression, or Phar::NONE
@@ -149,7 +149,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Decompresses all files in the current Phar archive
-	 * @link http://php.net/manual/en/phar.decompressfiles.php
+	 * @link https://secure.php.net/manual/en/phar.decompressfiles.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function decompressFiles () {}
@@ -157,7 +157,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Compresses the entire Phar archive using Gzip or Bzip2 compression
-	 * @link http://php.net/manual/en/phar.compress.php
+	 * @link https://secure.php.net/manual/en/phar.compress.php
 	 * @param int $compression <p>
 	 * Compression must be one of Phar::GZ,
 	 * Phar::BZ2 to add compression, or Phar::NONE
@@ -177,7 +177,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Decompresses the entire Phar archive
-	 * @link http://php.net/manual/en/phar.decompress.php
+	 * @link https://secure.php.net/manual/en/phar.decompress.php
 	 * @param string $extension [optional] <p>
 	 * For decompressing, the default file extensions
 	 * are .phar and .phar.tar.
@@ -192,7 +192,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Convert a phar archive to another executable phar archive file format
-	 * @link http://php.net/manual/en/phar.converttoexecutable.php
+	 * @link https://secure.php.net/manual/en/phar.converttoexecutable.php
 	 * @param int $format [optional] <p>
 	 * This should be one of Phar::PHAR, Phar::TAR,
 	 * or Phar::ZIP. If set to <b>NULL</b>, the existing file format
@@ -225,7 +225,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Convert a phar archive to a non-executable tar or zip file
-	 * @link http://php.net/manual/en/phar.converttodata.php
+	 * @link https://secure.php.net/manual/en/phar.converttodata.php
 	 * @param int $format [optional] <p>
 	 * This should be one of Phar::TAR
 	 * or Phar::ZIP. If set to <b>NULL</b>, the existing file format
@@ -256,7 +256,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Copy a file internal to the phar archive to another new file within the phar
-	 * @link http://php.net/manual/en/phar.copy.php
+	 * @link https://secure.php.net/manual/en/phar.copy.php
 	 * @param string $oldfile
 	 * @param string $newfile
 	 * @return bool returns <b>TRUE</b> on success, but it is safer to encase method call in a
@@ -267,7 +267,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Returns the number of entries (files) in the Phar archive
-	 * @link http://php.net/manual/en/phar.count.php
+	 * @link https://secure.php.net/manual/en/phar.count.php
 	 * @return int The number of files contained within this phar, or 0 (the number zero)
 	 * if none.
 	 */
@@ -276,7 +276,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Delete a file within a phar archive
-	 * @link http://php.net/manual/en/phar.delete.php
+	 * @link https://secure.php.net/manual/en/phar.delete.php
 	 * @param string $entry <p>
 	 * Path within an archive to the file to delete.
 	 * </p>
@@ -288,7 +288,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
 	 * Deletes the global metadata of the phar
-	 * @link http://php.net/manual/en/phar.delmetadata.php
+	 * @link https://secure.php.net/manual/en/phar.delmetadata.php
 	 * @return bool returns <b>TRUE</b> on success, but it is better to check for thrown exception,
 	 * and assume success if none is thrown.
 	 */
@@ -297,7 +297,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (Unknown)<br/>
 	 * Extract the contents of a phar archive to a directory
-	 * @link http://php.net/manual/en/phar.extractto.php
+	 * @link https://secure.php.net/manual/en/phar.extractto.php
 	 * @param string $pathto <p>
 	 * Path within an archive to the file to delete.
 	 * </p>
@@ -322,7 +322,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Returns phar archive meta-data
-	 * @link http://php.net/manual/en/phar.getmetadata.php
+	 * @link https://secure.php.net/manual/en/phar.getmetadata.php
 	 * @return mixed any PHP variable that can be serialized and is stored as meta-data for the Phar archive,
 	 * or <b>NULL</b> if no meta-data is stored.
 	 */
@@ -331,7 +331,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Return whether phar was modified
-	 * @link http://php.net/manual/en/phar.getmodified.php
+	 * @link https://secure.php.net/manual/en/phar.getmodified.php
 	 * @return bool <b>TRUE</b> if the phar has been modified since opened, <b>FALSE</b> if not.
 	 */
 	public function getModified () {}
@@ -339,7 +339,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Return MD5/SHA1/SHA256/SHA512/OpenSSL signature of a Phar archive
-	 * @link http://php.net/manual/en/phar.getsignature.php
+	 * @link https://secure.php.net/manual/en/phar.getsignature.php
 	 * @return array Array with the opened archive's signature in hash key and MD5,
 	 * SHA-1,
 	 * SHA-256, SHA-512, or OpenSSL
@@ -354,7 +354,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Return the PHP loader or bootstrap stub of a Phar archive
-	 * @link http://php.net/manual/en/phar.getstub.php
+	 * @link https://secure.php.net/manual/en/phar.getstub.php
 	 * @return string a string containing the contents of the bootstrap loader (stub) of
 	 * the current Phar archive.
 	 */
@@ -363,7 +363,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Return version info of Phar archive
-	 * @link http://php.net/manual/en/phar.getversion.php
+	 * @link https://secure.php.net/manual/en/phar.getversion.php
 	 * @return string The opened archive's API version. This is not to be confused with
 	 * the API version that the loaded phar extension will use to create
 	 * new phars. Each Phar archive has the API version hard-coded into
@@ -375,7 +375,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
 	 * Returns whether phar has global meta-data
-	 * @link http://php.net/manual/en/phar.hasmetadata.php
+	 * @link https://secure.php.net/manual/en/phar.hasmetadata.php
 	 * @return bool <b>TRUE</b> if meta-data has been set, and <b>FALSE</b> if not.
 	 */
 	public function hasMetadata () {}
@@ -383,7 +383,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Used to determine whether Phar write operations are being buffered, or are flushing directly to disk
-	 * @link http://php.net/manual/en/phar.isbuffering.php
+	 * @link https://secure.php.net/manual/en/phar.isbuffering.php
 	 * @return bool <b>TRUE</b> if the write operations are being buffer, <b>FALSE</b> otherwise.
 	 */
 	public function isBuffering () {}
@@ -391,7 +391,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Returns Phar::GZ or PHAR::BZ2 if the entire phar archive is compressed (.tar.gz/tar.bz and so on)
-	 * @link http://php.net/manual/en/phar.iscompressed.php
+	 * @link https://secure.php.net/manual/en/phar.iscompressed.php
 	 * @return mixed Phar::GZ, Phar::BZ2 or <b>FALSE</b>
 	 */
 	public function isCompressed () {}
@@ -399,7 +399,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Returns true if the phar archive is based on the tar/phar/zip file format depending on the parameter
-	 * @link http://php.net/manual/en/phar.isfileformat.php
+	 * @link https://secure.php.net/manual/en/phar.isfileformat.php
 	 * @param int $format <p>
 	 * Either Phar::PHAR, Phar::TAR, or
 	 * Phar::ZIP to test for the format of the archive.
@@ -411,7 +411,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (Unknown)<br/>
 	 * Returns true if the phar archive can be modified
-	 * @link http://php.net/manual/en/phar.iswritable.php
+	 * @link https://secure.php.net/manual/en/phar.iswritable.php
 	 * @return bool <b>TRUE</b> if the phar archive can be modified
 	 */
 	public function isWritable () {}
@@ -419,7 +419,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * determines whether a file exists in the phar
-	 * @link http://php.net/manual/en/phar.offsetexists.php
+	 * @link https://secure.php.net/manual/en/phar.offsetexists.php
 	 * @param string $offset <p>
 	 * The filename (relative path) to look for in a Phar.
 	 * </p>
@@ -430,7 +430,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Gets a <b>PharFileInfo</b> object for a specific file
-	 * @link http://php.net/manual/en/phar.offsetget.php
+	 * @link https://secure.php.net/manual/en/phar.offsetget.php
 	 * @param string $offset <p>
 	 * The filename (relative path) to look for in a Phar.
 	 * </p>
@@ -442,7 +442,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * set the contents of an internal file to those of an external file
-	 * @link http://php.net/manual/en/phar.offsetset.php
+	 * @link https://secure.php.net/manual/en/phar.offsetset.php
 	 * @param string $offset <p>
 	 * The filename (relative path) to modify in a Phar.
 	 * </p>
@@ -456,7 +456,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * remove a file from a phar
-	 * @link http://php.net/manual/en/phar.offsetunset.php
+	 * @link https://secure.php.net/manual/en/phar.offsetunset.php
 	 * @param string $offset <p>
 	 * The filename (relative path) to modify in a Phar.
 	 * </p>
@@ -467,7 +467,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.1)<br/>
 	 * Set the alias for the Phar archive
-	 * @link http://php.net/manual/en/phar.setalias.php
+	 * @link https://secure.php.net/manual/en/phar.setalias.php
 	 * @param string $alias <p>
 	 * A shorthand string that this archive can be referred to in phar
 	 * stream wrapper access.
@@ -479,7 +479,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (Unknown)<br/>
 	 * Used to set the PHP loader or bootstrap stub of a Phar archive to the default loader
-	 * @link http://php.net/manual/en/phar.setdefaultstub.php
+	 * @link https://secure.php.net/manual/en/phar.setdefaultstub.php
 	 * @param string $index [optional] <p>
 	 * Relative path within the phar archive to run if accessed on the command-line
 	 * </p>
@@ -493,7 +493,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Sets phar archive meta-data
-	 * @link http://php.net/manual/en/phar.setmetadata.php
+	 * @link https://secure.php.net/manual/en/phar.setmetadata.php
 	 * @param mixed $metadata <p>
 	 * Any PHP variable containing information to store that describes the phar archive
 	 * </p>
@@ -504,7 +504,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.1.0)<br/>
 	 * set the signature algorithm for a phar and apply it.
-	 * @link http://php.net/manual/en/phar.setsignaturealgorithm.php
+	 * @link https://secure.php.net/manual/en/phar.setsignaturealgorithm.php
 	 * @param int $sigtype <p>
 	 * One of Phar::MD5,
 	 * Phar::SHA1, Phar::SHA256,
@@ -529,7 +529,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Used to set the PHP loader or bootstrap stub of a Phar archive
-	 * @link http://php.net/manual/en/phar.setstub.php
+	 * @link https://secure.php.net/manual/en/phar.setstub.php
 	 * @param string $stub <p>
 	 * A string or an open stream handle to use as the executable stub for this
 	 * phar archive.
@@ -543,7 +543,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Start buffering Phar write operations, do not modify the Phar object on disk
-	 * @link http://php.net/manual/en/phar.startbuffering.php
+	 * @link https://secure.php.net/manual/en/phar.startbuffering.php
 	 * @return void No value is returned.
 	 */
 	public function startBuffering () {}
@@ -551,7 +551,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Stop buffering write requests to the Phar archive, and save changes to disk
-	 * @link http://php.net/manual/en/phar.stopbuffering.php
+	 * @link https://secure.php.net/manual/en/phar.stopbuffering.php
 	 * @return void No value is returned.
 	 */
 	public function stopBuffering () {}
@@ -559,7 +559,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Returns the api version
-	 * @link http://php.net/manual/en/phar.apiversion.php
+	 * @link https://secure.php.net/manual/en/phar.apiversion.php
 	 * @return string The API version string as in &#x00022;1.0.0&#x00022;.
 	 */
 	final public static function apiVersion () {}
@@ -567,7 +567,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Returns whether phar extension supports compression using either zlib or bzip2
-	 * @link http://php.net/manual/en/phar.cancompress.php
+	 * @link https://secure.php.net/manual/en/phar.cancompress.php
 	 * @param int $type [optional] <p>
 	 * Either Phar::GZ or Phar::BZ2 can be
 	 * used to test whether compression is possible with a specific compression
@@ -580,7 +580,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Returns whether phar extension supports writing and creating phars
-	 * @link http://php.net/manual/en/phar.canwrite.php
+	 * @link https://secure.php.net/manual/en/phar.canwrite.php
 	 * @return bool <b>TRUE</b> if write access is enabled, <b>FALSE</b> if it is disabled.
 	 */
 	final public static function canWrite () {}
@@ -588,7 +588,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (Unknown)<br/>
 	 * Create a phar-file format specific stub
-	 * @link http://php.net/manual/en/phar.createdefaultstub.php
+	 * @link https://secure.php.net/manual/en/phar.createdefaultstub.php
 	 * @param string $indexfile [optional]
 	 * @param string $webindexfile [optional]
 	 * @return string a string containing the contents of a customized bootstrap loader (stub)
@@ -600,7 +600,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
 	 * Return array of supported compression algorithms
-	 * @link http://php.net/manual/en/phar.getsupportedcompression.php
+	 * @link https://secure.php.net/manual/en/phar.getsupportedcompression.php
 	 * @return array an array containing any of Phar::GZ or
 	 * Phar::BZ2, depending on the availability of
 	 * the zlib extension or the
@@ -611,7 +611,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.1.0)<br/>
 	 * Return array of supported signature types
-	 * @link http://php.net/manual/en/phar.getsupportedsignatures.php
+	 * @link https://secure.php.net/manual/en/phar.getsupportedsignatures.php
 	 * @return array an array containing any of MD5, SHA-1,
 	 * SHA-256, SHA-512, or OpenSSL.
 	 */
@@ -620,7 +620,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * instructs phar to intercept fopen, file_get_contents, opendir, and all of the stat-related functions
-	 * @link http://php.net/manual/en/phar.interceptfilefuncs.php
+	 * @link https://secure.php.net/manual/en/phar.interceptfilefuncs.php
 	 * @return void
 	 */
 	final public static function interceptFileFuncs () {}
@@ -628,7 +628,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
 	 * Returns whether the given filename is a valid phar filename
-	 * @link http://php.net/manual/en/phar.isvalidpharfilename.php
+	 * @link https://secure.php.net/manual/en/phar.isvalidpharfilename.php
 	 * @param string $filename <p>
 	 * The name or full path to a phar archive not yet created
 	 * </p>
@@ -643,7 +643,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Loads any phar archive with an alias
-	 * @link http://php.net/manual/en/phar.loadphar.php
+	 * @link https://secure.php.net/manual/en/phar.loadphar.php
 	 * @param string $filename <p>
 	 * the full or relative path to the phar archive to open
 	 * </p>
@@ -660,7 +660,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Reads the currently executed file (a phar) and registers its manifest
-	 * @link http://php.net/manual/en/phar.mapphar.php
+	 * @link https://secure.php.net/manual/en/phar.mapphar.php
 	 * @param string $alias [optional] <p>
 	 * The alias that can be used in phar:// URLs to
 	 * refer to this archive, rather than its full path.
@@ -675,7 +675,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Returns the full path on disk or full phar URL to the currently executing Phar archive
-	 * @link http://php.net/manual/en/phar.running.php
+	 * @link https://secure.php.net/manual/en/phar.running.php
 	 * @param bool $retphar [optional] <p>
 	 * If <b>FALSE</b>, the full path on disk to the phar
 	 * archive is returned. If <b>TRUE</b>, a full phar URL is returned.
@@ -687,7 +687,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Mount an external path or file to a virtual location within the phar archive
-	 * @link http://php.net/manual/en/phar.mount.php
+	 * @link https://secure.php.net/manual/en/phar.mount.php
 	 * @param string $pharpath <p>
 	 * The internal path within the phar archive to use as the mounted path location.
 	 * This must be a relative path within the phar archive, and must not already exist.
@@ -702,7 +702,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (Unknown)<br/>
 	 * Defines a list of up to 4 $_SERVER variables that should be modified for execution
-	 * @link http://php.net/manual/en/phar.mungserver.php
+	 * @link https://secure.php.net/manual/en/phar.mungserver.php
 	 * @param array $munglist <p>
 	 * an array containing as string indices any of
 	 * REQUEST_URI, PHP_SELF,
@@ -717,7 +717,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Completely remove a phar archive from disk and from memory
-	 * @link http://php.net/manual/en/phar.unlinkarchive.php
+	 * @link https://secure.php.net/manual/en/phar.unlinkarchive.php
 	 * @param string $archive <p>
 	 * The path on disk to the phar archive.
 	 * </p>
@@ -728,7 +728,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * mapPhar for web-based phars. front controller for web applications
-	 * @link http://php.net/manual/en/phar.webphar.php
+	 * @link https://secure.php.net/manual/en/phar.webphar.php
 	 * @param string $alias [optional] <p>
 	 * The alias that can be used in phar:// URLs to
 	 * refer to this archive, rather than its full path.
@@ -807,7 +807,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 
 	/**
 	 * Returns whether current entry is a directory and not '.' or '..'
-	 * @link http://php.net/manual/en/recursivedirectoryiterator.haschildren.php
+	 * @link https://secure.php.net/manual/en/recursivedirectoryiterator.haschildren.php
 	 * @param bool $allow_links [optional] <p>
 	 * </p>
 	 * @return bool whether the current entry is a directory, but not '.' or '..'
@@ -817,7 +817,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 
 	/**
 	 * Returns an iterator for the current entry if it is a directory
-	 * @link http://php.net/manual/en/recursivedirectoryiterator.getchildren.php
+	 * @link https://secure.php.net/manual/en/recursivedirectoryiterator.getchildren.php
 	 * @return mixed The filename, file information, or $this depending on the set flags.
 	 * See the FilesystemIterator
 	 * constants.
@@ -827,7 +827,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 
 	/**
 	 * Rewinds back to the beginning
-	 * @link http://php.net/manual/en/filesystemiterator.rewind.php
+	 * @link https://secure.php.net/manual/en/filesystemiterator.rewind.php
 	 * @return void No value is returned.
 	 * @since 5.3.0
 	 */
@@ -835,7 +835,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 
 	/**
 	 * Move to the next file
-	 * @link http://php.net/manual/en/filesystemiterator.next.php
+	 * @link https://secure.php.net/manual/en/filesystemiterator.next.php
 	 * @return void No value is returned.
 	 * @since 5.3.0
 	 */
@@ -843,7 +843,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 
 	/**
 	 * Retrieve the key for the current file
-	 * @link http://php.net/manual/en/filesystemiterator.key.php
+	 * @link https://secure.php.net/manual/en/filesystemiterator.key.php
 	 * @return string the pathname or filename depending on the set flags.
 	 * See the FilesystemIterator constants.
 	 * @since 5.3.0
@@ -852,7 +852,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 
 	/**
 	 * The current file
-	 * @link http://php.net/manual/en/filesystemiterator.current.php
+	 * @link https://secure.php.net/manual/en/filesystemiterator.current.php
 	 * @return mixed The filename, file information, or $this depending on the set flags.
 	 * See the FilesystemIterator constants.
 	 * @since 5.3.0
@@ -861,7 +861,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 
 	/**
 	 * Check whether current DirectoryIterator position is a valid file
-	 * @link http://php.net/manual/en/directoryiterator.valid.php
+	 * @link https://secure.php.net/manual/en/directoryiterator.valid.php
 	 * @return bool <b>TRUE</b> if the position is valid, otherwise <b>FALSE</b>
 	 * @since 5.0
 	 */
@@ -869,7 +869,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 
 	/**
 	 * Seek to a DirectoryIterator item
-	 * @link http://php.net/manual/en/directoryiterator.seek.php
+	 * @link https://secure.php.net/manual/en/directoryiterator.seek.php
 	 * @param int $position <p>
 	 * The zero-based numeric position to seek to.
 	 * </p>
@@ -886,14 +886,14 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
  * a stub and cannot be executed by the phar extension, it is possible to create
  * and manipulate regular zip and tar files using the PharData class even if
  * phar.readonly php.ini setting is 1.
- * @link http://php.net/manual/en/class.phardata.php
+ * @link https://secure.php.net/manual/en/class.phardata.php
  */
 class PharData extends Phar {
 
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Construct a non-executable tar or zip archive object
-	 * @link http://php.net/manual/en/phardata.construct.php
+	 * @link https://secure.php.net/manual/en/phardata.construct.php
 	 * @param string $fname <p>
 	 * Path to an existing tar/zip archive or to-be-created archive
 	 * </p>
@@ -920,7 +920,7 @@ class PharData extends Phar {
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * set the contents of a file within the tar/zip to those of an external file or string
-	 * @link http://php.net/manual/en/phardata.offsetset.php
+	 * @link https://secure.php.net/manual/en/phardata.offsetset.php
 	 * @param string $offset <p>
 	 * The filename (relative path) to modify in a tar or zip archive.
 	 * </p>
@@ -934,7 +934,7 @@ class PharData extends Phar {
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * remove a file from a tar/zip archive
-	 * @link http://php.net/manual/en/phardata.offsetunset.php
+	 * @link https://secure.php.net/manual/en/phardata.offsetunset.php
 	 * @param string $offset <p>
 	 * The filename (relative path) to modify in the tar/zip archive.
 	 * </p>
@@ -945,7 +945,7 @@ class PharData extends Phar {
 
 	/**
 	 * Returns whether current entry is a directory and not '.' or '..'
-	 * @link http://php.net/manual/en/recursivedirectoryiterator.haschildren.php
+	 * @link https://secure.php.net/manual/en/recursivedirectoryiterator.haschildren.php
 	 * @param bool $allow_links [optional] <p>
 	 * </p>
 	 * @return bool whether the current entry is a directory, but not '.' or '..'
@@ -955,7 +955,7 @@ class PharData extends Phar {
 
 	/**
 	 * Returns an iterator for the current entry if it is a directory
-	 * @link http://php.net/manual/en/recursivedirectoryiterator.getchildren.php
+	 * @link https://secure.php.net/manual/en/recursivedirectoryiterator.getchildren.php
 	 * @return mixed The filename, file information, or $this depending on the set flags.
 	 * See the FilesystemIterator
 	 * constants.
@@ -966,7 +966,7 @@ class PharData extends Phar {
 
 	/**
 	 * Rewinds back to the beginning
-	 * @link http://php.net/manual/en/filesystemiterator.rewind.php
+	 * @link https://secure.php.net/manual/en/filesystemiterator.rewind.php
 	 * @return void No value is returned.
 	 * @since 5.3.0
 	 */
@@ -974,7 +974,7 @@ class PharData extends Phar {
 
 	/**
 	 * Move to the next file
-	 * @link http://php.net/manual/en/filesystemiterator.next.php
+	 * @link https://secure.php.net/manual/en/filesystemiterator.next.php
 	 * @return void No value is returned.
 	 * @since 5.3.0
 	 */
@@ -982,7 +982,7 @@ class PharData extends Phar {
 
 	/**
 	 * Retrieve the key for the current file
-	 * @link http://php.net/manual/en/filesystemiterator.key.php
+	 * @link https://secure.php.net/manual/en/filesystemiterator.key.php
 	 * @return string the pathname or filename depending on the set flags.
 	 * See the FilesystemIterator constants.
 	 * @since 5.3.0
@@ -991,7 +991,7 @@ class PharData extends Phar {
 
 	/**
 	 * The current file
-	 * @link http://php.net/manual/en/filesystemiterator.current.php
+	 * @link https://secure.php.net/manual/en/filesystemiterator.current.php
 	 * @return mixed The filename, file information, or $this depending on the set flags.
 	 * See the FilesystemIterator constants.
 	 * @since 5.3.0
@@ -1002,7 +1002,7 @@ class PharData extends Phar {
 
 	/**
 	 * Check whether current DirectoryIterator position is a valid file
-	 * @link http://php.net/manual/en/directoryiterator.valid.php
+	 * @link https://secure.php.net/manual/en/directoryiterator.valid.php
 	 * @return bool <b>TRUE</b> if the position is valid, otherwise <b>FALSE</b>
 	 * @since 5.0
 	 */
@@ -1010,7 +1010,7 @@ class PharData extends Phar {
 
 	/**
 	 * Seek to a DirectoryIterator item
-	 * @link http://php.net/manual/en/directoryiterator.seek.php
+	 * @link https://secure.php.net/manual/en/directoryiterator.seek.php
 	 * @param int $position <p>
 	 * The zero-based numeric position to seek to.
 	 * </p>
@@ -1025,14 +1025,14 @@ class PharData extends Phar {
 /**
  * The PharFileInfo class provides a high-level interface to the contents
  * and attributes of a single file within a phar archive.
- * @link http://php.net/manual/en/class.pharfileinfo.php
+ * @link https://secure.php.net/manual/en/class.pharfileinfo.php
  */
 class PharFileInfo extends SplFileInfo  {
 
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Construct a Phar entry object
-	 * @link http://php.net/manual/en/pharfileinfo.construct.php
+	 * @link https://secure.php.net/manual/en/pharfileinfo.construct.php
 	 * @param string $entry <p>
 	 * The full url to retrieve a file. If you wish to retrieve the information
 	 * for the file my/file.php from the phar boo.phar,
@@ -1046,7 +1046,7 @@ class PharFileInfo extends SplFileInfo  {
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Sets file-specific permission bits
-	 * @link http://php.net/manual/en/pharfileinfo.chmod.php
+	 * @link https://secure.php.net/manual/en/pharfileinfo.chmod.php
 	 * @param int $permissions <p>
 	 * permissions (see <b>chmod</b>)
 	 * </p>
@@ -1057,7 +1057,7 @@ class PharFileInfo extends SplFileInfo  {
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Compresses the current Phar entry with either zlib or bzip2 compression
-	 * @link http://php.net/manual/en/pharfileinfo.compress.php
+	 * @link https://secure.php.net/manual/en/pharfileinfo.compress.php
 	 * @param int $compression
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
@@ -1066,7 +1066,7 @@ class PharFileInfo extends SplFileInfo  {
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Decompresses the current Phar entry within the phar
-	 * @link http://php.net/manual/en/pharfileinfo.decompress.php
+	 * @link https://secure.php.net/manual/en/pharfileinfo.decompress.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function decompress () {}
@@ -1074,7 +1074,7 @@ class PharFileInfo extends SplFileInfo  {
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
 	 * Deletes the metadata of the entry
-	 * @link http://php.net/manual/en/pharfileinfo.delmetadata.php
+	 * @link https://secure.php.net/manual/en/pharfileinfo.delmetadata.php
 	 * @return bool <b>TRUE</b> if successful, <b>FALSE</b> if the entry had no metadata.
 	 * As with all functionality that modifies the contents of
 	 * a phar, the phar.readonly INI variable
@@ -1087,7 +1087,7 @@ class PharFileInfo extends SplFileInfo  {
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Returns the actual size of the file (with compression) inside the Phar archive
-	 * @link http://php.net/manual/en/pharfileinfo.getcompressedsize.php
+	 * @link https://secure.php.net/manual/en/pharfileinfo.getcompressedsize.php
 	 * @return int The size in bytes of the file within the Phar archive on disk.
 	 */
 	public function getCompressedSize () {}
@@ -1095,7 +1095,7 @@ class PharFileInfo extends SplFileInfo  {
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Returns CRC32 code or throws an exception if CRC has not been verified
-	 * @link http://php.net/manual/en/pharfileinfo.getcrc32.php
+	 * @link https://secure.php.net/manual/en/pharfileinfo.getcrc32.php
 	 * @return int The <b>crc32</b> checksum of the file within the Phar archive.
 	 */
 	public function getCRC32 () {}
@@ -1105,7 +1105,7 @@ class PharFileInfo extends SplFileInfo  {
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Returns file-specific meta-data saved with a file
-	 * @link http://php.net/manual/en/pharfileinfo.getmetadata.php
+	 * @link https://secure.php.net/manual/en/pharfileinfo.getmetadata.php
 	 * @return mixed any PHP variable that can be serialized and is stored as meta-data for the file,
 	 * or <b>NULL</b> if no meta-data is stored.
 	 */
@@ -1114,7 +1114,7 @@ class PharFileInfo extends SplFileInfo  {
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Returns the Phar file entry flags
-	 * @link http://php.net/manual/en/pharfileinfo.getpharflags.php
+	 * @link https://secure.php.net/manual/en/pharfileinfo.getpharflags.php
 	 * @return int The Phar flags (always 0 in the current implementation)
 	 */
 	public function getPharFlags () {}
@@ -1122,7 +1122,7 @@ class PharFileInfo extends SplFileInfo  {
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.2.0)<br/>
 	 * Returns the metadata of the entry
-	 * @link http://php.net/manual/en/pharfileinfo.hasmetadata.php
+	 * @link https://secure.php.net/manual/en/pharfileinfo.hasmetadata.php
 	 * @return bool <b>FALSE</b> if no metadata is set or is <b>NULL</b>, <b>TRUE</b> if metadata is not <b>NULL</b>
 	 */
 	public function hasMetadata () {}
@@ -1130,7 +1130,7 @@ class PharFileInfo extends SplFileInfo  {
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Returns whether the entry is compressed
-	 * @link http://php.net/manual/en/pharfileinfo.iscompressed.php
+	 * @link https://secure.php.net/manual/en/pharfileinfo.iscompressed.php
 	 * @param int $compression_type [optional] <p>
 	 * One of <b>Phar::GZ</b> or <b>Phar::BZ2</b>,
 	 * defaults to any compression.
@@ -1142,7 +1142,7 @@ class PharFileInfo extends SplFileInfo  {
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Returns whether file entry has had its CRC verified
-	 * @link http://php.net/manual/en/pharfileinfo.iscrcchecked.php
+	 * @link https://secure.php.net/manual/en/pharfileinfo.iscrcchecked.php
 	 * @return bool <b>TRUE</b> if the file has had its CRC verified, <b>FALSE</b> if not.
 	 */
 	public function isCRCChecked () {}
@@ -1150,7 +1150,7 @@ class PharFileInfo extends SplFileInfo  {
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Sets file-specific meta-data saved with a file
-	 * @link http://php.net/manual/en/pharfileinfo.setmetadata.php
+	 * @link https://secure.php.net/manual/en/pharfileinfo.setmetadata.php
 	 * @param mixed $metadata <p>
 	 * Any PHP variable containing information to store alongside a file
 	 * </p>
