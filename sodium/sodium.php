@@ -959,3 +959,14 @@ function sodium_crypto_scalarmult_base(
 
     return '';
 }
+
+/**
+ * Creates a random key
+ *
+ * It is equivalent to calling random_bytes() but improves code clarity and can
+ * prevent misuse by ensuring that the provided key length is always be correct.
+ *
+ * @since 7.2.0
+ * @see http://php.net/manual/en/function.sodium-crypto-secretbox-keygen.php
+ */
+function sodium_crypto_secretbox_keygen(): string {}
