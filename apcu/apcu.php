@@ -136,7 +136,6 @@ function apcu_delete($key){}
 /**
  * Caches a variable in the data store, only if it's not already stored
  * @link http://php.net/manual/en/function.apcu-add.php
- *
  * @param string|array $key Store the variable using this name. Keys are cache-unique,
  * so attempting to use apcu_add() to store data with a key that already exists will not
  * overwrite the existing data, and will instead return FALSE. (This is the only difference
