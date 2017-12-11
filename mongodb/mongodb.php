@@ -19,7 +19,6 @@ namespace MongoDB {}
         use MongoDB\Driver\Exception\AuthenticationException;
         use MongoDB\Driver\Exception\BulkWriteException;
         use MongoDB\Driver\Exception\ConnectionException;
-        use MongoDB\Driver\Exception\DuplicateKeyException;
         use MongoDB\Driver\Exception\Exception;
         use MongoDB\Driver\Exception\InvalidArgumentException;
         use MongoDB\Driver\Exception\RuntimeException;
@@ -69,7 +68,6 @@ namespace MongoDB {}
              * @throws AuthenticationException if authentication is needed and fails
              * @throws ConnectionException if connection to the server fails for other then authentication reasons
              * @throws RuntimeException on other errors (invalid command, command arguments, ...)
-             * @throws DuplicateKeyException if a write causes Duplicate Key error
              * @throws WriteException on Write Error
              * @throws WriteConcernException on Write Concern failure
              */
@@ -872,10 +870,6 @@ namespace MongoDB {}
          * @link http://php.net/manual/en/class.mongodb-driver-exception-connectionexception.php
          */
         class ConnectionException extends RuntimeException implements Exception
-        {
-        }
-
-        class DuplicateKeyException extends RuntimeException implements Exception
         {
         }
 
