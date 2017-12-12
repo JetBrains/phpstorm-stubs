@@ -530,13 +530,13 @@ class Redis
      * Verify if the specified key exists.
      *
      * @param   string $key
-     * @return  bool  If the key exists, return TRUE, otherwise return FALSE.
+     * @return  int  If the key exists, return 1, otherwise return 0.
      * @link    http://redis.io/commands/exists
      * @example
      * <pre>
      * $redis->set('key', 'value');
-     * $redis->exists('key');               //  TRUE
-     * $redis->exists('NonExistingKey');    // FALSE
+     * $redis->exists('key');               //  1
+     * $redis->exists('NonExistingKey');    // 0
      * </pre>
      */
     public function exists( $key ) {}
