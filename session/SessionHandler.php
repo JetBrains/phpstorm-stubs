@@ -96,6 +96,40 @@ interface SessionHandlerInterface {
 }
 
 /**
+ * <b>SessionUpdateTimestampHandlerInterface</b> is an interface which
+ * defines a prototype for updating the life time of an existing session.
+ * In order to use the lazy_write option must be enabled and a custom session
+ * handler must implement this interface.
+ * @since 7.0.0
+ */
+interface SessionUpdateTimestampHandlerInterface {
+
+    /**
+     * Validate session id
+     * @param string $session_id The session id
+     * @return bool <p>
+     * Note this value is returned internally to PHP for processing.
+     * </p>
+     */
+    public function validateId($session_id);
+
+    /**
+     * Update timestamp of a session
+     * @param string $session_id The session id
+     * @param string $session_data <p>
+     * The encoded session data. This data is the
+     * result of the PHP internally encoding
+     * the $_SESSION superglobal to a serialized
+     * string and passing it as this parameter.
+     * Please note sessions use an alternative serialization method.
+     * </p>
+     * @return bool
+     */
+    public function updateTimestamp($session_id, $session_data);
+
+}
+
+/**
  * <b>SessionHandler</b> a special class that can
  * be used to expose the current internal PHP session
  * save handler by inheritance. There are six methods
@@ -110,7 +144,7 @@ interface SessionHandlerInterface {
  * @link http://php.net/manual/en/class.reflectionzendextension.php
  * @since 5.4.0
  */
-class SessionHandler implements SessionHandlerInterface {
+class SessionHandler implements SessionHandlerInterface, SessionUpdateTimestampHandlerInterface {
 
 	/**
 	 * Close the session
@@ -203,4 +237,28 @@ class SessionHandler implements SessionHandlerInterface {
 	 * @since 5.4.0
 	 */
 	public function write($session_id, $session_data) { }
+
+    /**
+     * Validate session id
+     * @param string $session_id The session id
+     * @return bool <p>
+     * Note this value is returned internally to PHP for processing.
+     * </p>
+     */
+    public function validateId($session_id) { }
+
+    /**
+     * Update timestamp of a session
+     * @param string $session_id The session id
+     * @param string $session_data <p>
+     * The encoded session data. This data is the
+     * result of the PHP internally encoding
+     * the $_SESSION superglobal to a serialized
+     * string and passing it as this parameter.
+     * Please note sessions use an alternative serialization method.
+     * </p>
+     * @return bool
+     */
+    public function updateTimestamp($session_id, $session_data) { }
+
 }
