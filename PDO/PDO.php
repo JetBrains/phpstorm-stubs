@@ -45,7 +45,36 @@ class PDO  {
 	 */
 	const PARAM_STR = 2;
 
-	/**
+    /**
+     * Flag to denote a string uses the national character set. Available since PHP 7.2.0
+	 * @since 7.2
+	 * @link http://php.net/manual/en/pdo.constants.php
+     */
+    const PARAM_STR_NATL = 1073741824;
+
+    /**
+     * Flag to denote a string uses the regular character set. Available since PHP 7.2.0
+	 * @since 7.2
+     * @link http://php.net/manual/en/pdo.constants.php
+     */
+    const PARAM_STR_CHAR = 536870912;
+
+    /**
+     * Sets the default string parameter type, this can be one of PDO::PARAM_STR_NATL and PDO::PARAM_STR_CHAR. Available since PHP 7.2.0.
+	 * @since 7.2
+	 * @link http://php.net/manual/en/pdo.constants.php
+     */
+    const ATTR_DEFAULT_STR_PARAM = 21;
+
+    /**
+     * Specifies that a function created with PDO::sqliteCreateFunction() is deterministic, i.e. it always returns the same result given the same inputs within a single SQL statement.
+	 * (Available as of PHP 7.1.4.)
+	 * @since 7.1.4
+     * @link http://php.net/manual/en/pdo.constants.php
+     */
+    const SQLITE_DETERMINISTIC = 2048;
+
+    /**
 	 * Represents the SQL large object data type.
 	 * @link http://php.net/manual/en/pdo.constants.php
 	 */
