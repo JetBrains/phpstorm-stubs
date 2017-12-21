@@ -317,6 +317,11 @@ define ('PHP_VERSION_ID', 50306);
 define ('PHP_ZTS', 0);
 define ('PHP_DEBUG', 0);
 define ('PHP_OS', "Linux");
+/**
+ * The operating system family PHP was built for. Either of 'Windows', 'BSD', 'Darwin', 'Solaris', 'Linux' or 'Unknown'. Available as of PHP 7.2.0.
+ * @since 7.2
+ */
+define ('PHP_OS_FAMILY', "Linux");
 define ('PHP_SAPI', "cli");
 define ('DEFAULT_INCLUDE_PATH', ".:/usr/share/php:/usr/share/pear");
 define ('PEAR_INSTALL_DIR', "/usr/share/php");
@@ -338,6 +343,27 @@ define ('PHP_MAXPATHLEN', 4096);
 define ('PHP_INT_MAX', 9223372036854775807);
 define ('PHP_INT_MIN', -9223372036854775808);
 define ('PHP_INT_SIZE', 8);
+/**
+ * Number of decimal digits that can be rounded into a float and back without precision loss. Available as of PHP 7.2.0.
+ * @since 7.2
+ */
+define('PHP_FLOAT_DIG', 15);
+/**
+ * Smallest representable positive number x, so that x + 1.0 != 1.0. Available as of PHP 7.2.0.
+ * @since 7.2
+ */
+define('PHP_FLOAT_EPSILON', 2.2204460492503e-16);
+
+/**
+ * Largest representable floating point number. Available as of PHP 7.2.0.
+ * @since 7.2
+ */
+define('PHP_FLOAT_MAX', 1.7976931348623e+308);
+/**
+ * Smallest representable floating point number. Available as of PHP 7.2.0.
+ * @since 7.2
+ */
+define('PHP_FLOAT_MIN', 2.2250738585072e-308);
 define ('ZEND_MULTIBYTE', 0);
 define ('PHP_OUTPUT_HANDLER_START', 1);
 define ('PHP_OUTPUT_HANDLER_CONT', 2);

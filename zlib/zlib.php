@@ -557,6 +557,16 @@ define ('ZLIB_HUFFMAN_ONLY', 2);
 define ('ZLIB_RLE', 3);
 define ('ZLIB_FIXED', 4);
 define ('ZLIB_DEFAULT_STRATEGY', 0);
+define ('ZLIB_OK', 0);
+define ('ZLIB_STREAM_END', 1);
+define ('ZLIB_NEED_DICT', 2);
+define ('ZLIB_ERRNO', -1);
+define ('ZLIB_STREAM_ERROR', -2);
+define ('ZLIB_DATA_ERROR', -3);
+define ('ZLIB_MEM_ERROR', -4);
+define ('ZLIB_BUF_ERROR', -5);
+define ('ZLIB_VERSION_ERROR', -6);
+
 
 define ('ZLIB_VERSION', 'zlib_version_string'); // This is set to the zlib version
 define ('ZLIB_VERNUM', 'zlib_version_string'); // This is set to the zlib version

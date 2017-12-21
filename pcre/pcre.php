@@ -517,6 +517,7 @@ define ('PREG_BAD_UTF8_ERROR', 4);
  */
 define ('PREG_BAD_UTF8_OFFSET_ERROR', 5);
 
+define ('PREG_UNMATCHED_AS_NULL', 512);
 /**
  * PCRE version and release date (e.g. "7.0 18-Dec-2006").
  * @link http://php.net/manual/en/pcre.constants.php
