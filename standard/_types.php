@@ -200,6 +200,14 @@ namespace {
          * @return mixed|null
          */
         function getReturn() {}
+
+        /**
+         * Serialize callback
+         * Throws an exception as generators can't be serialized.
+         * @link http://php.net/manual/en/generator.wakeup.php
+         * @return void
+         */
+        public function __wakeup(){}
     }
 
     class ClosedGeneratorException extends Exception {}
