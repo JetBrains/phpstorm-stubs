@@ -230,6 +230,13 @@ function hash_algos () {}
 function hash_hkdf(string $algo , string $ikm, int $length = 0, string $info = '', string $salt = '') {}
 
 /**
+ * @since 7.2
+ * Return a list of registered hashing algorithms suitable for hash_hmac
+ * @return string Returns a numerically indexed array containing the list of supported hashing algorithms suitable for {@see hash_hmac()}.
+ */
+function hash_hmac_algos() {}
+
+/**
  * Generate a PBKDF2 key derivation of a supplied password
  * @link http://php.net/manual/en/function.hash-pbkdf2.php
  * @param $algo
