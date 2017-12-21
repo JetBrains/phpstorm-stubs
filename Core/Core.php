@@ -750,6 +750,7 @@ function get_defined_vars () {}
  * @return string a unique function name as a string, or false on error.
  * @since 4.0.1
  * @since 5.0
+ * @deprecated 7.2
  */
 function create_function ($args, $code) {}
 
