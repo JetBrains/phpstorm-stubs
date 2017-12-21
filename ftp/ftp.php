@@ -3,6 +3,22 @@
 // Start of ftp v.
 
 /**
+ * @param $ftp
+ * @param $remote_file
+ * @param $local_file
+ * @param $mode
+ * @since 7.2
+ */
+function ftp_append ($ftp,  $remote_file,  $local_file,  $mode){}
+
+/**
+ * @param $ftp
+ * @param $directory
+ * @since 7.2
+ */
+function ftp_mlsd ($ftp,  $directory){}
+
+/**
  * Opens an FTP connection
  * @link http://php.net/manual/en/function.ftp-connect.php
  * @param string $host <p>
