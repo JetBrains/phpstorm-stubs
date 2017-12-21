@@ -533,6 +533,12 @@ function inflate_init ($encoding, $options = array()) {}
  */
 function inflate_add ($context, $encoded_data, $flush_mode = ZLIB_SYNC_FLUSH) {}
 
+/**
+ * @param $resource
+ * @since 7.2
+ */
+function inflate_get_read_len ($resource){}
+
 define ('FORCE_GZIP', 31);
 define ('FORCE_DEFLATE', 15);
 define ('ZLIB_ENCODING_RAW', -15);
