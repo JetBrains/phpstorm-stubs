@@ -2225,6 +2225,15 @@ function imagefilter ($image, $filtertype, $arg1 = null, $arg2 = null, $arg3 = n
  */
 function imageconvolution ($image, array $matrix, $div, $offset) {}
 
+/**
+ * @param resource $im
+ * @param int $res_x
+ * @param int $res_y
+ * @return array
+ * @since 7.2
+ */
+function imageresolution ($im, $res_x = 96, $res_y = 96) {}
+
 
 /**
  * Used as a return value by imagetypes

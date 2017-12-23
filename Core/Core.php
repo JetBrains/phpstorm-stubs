@@ -1101,3 +1101,28 @@ function sapi_windows_cp_is_utf8() {
  * @link https://wiki.php.net/rfc/iterable
  */
 function is_iterable($value) {}
+
+/**
+ * Encodes an ISO-8859-1 string to UTF-8
+ * @link http://php.net/manual/en/function.utf8-encode.php
+ * @param string $data <p>
+ * An ISO-8859-1 string.
+ * </p>
+ * @return string the UTF-8 translation of <i>data</i>.
+ * @since 4.0
+ * @since 5.0
+ */
+function utf8_encode ($data) {}
+
+/**
+ * Converts a string with ISO-8859-1 characters encoded with UTF-8
+ * @since 4.0
+ * @since 5.0
+to single-byte ISO-8859-1
+ * @link http://php.net/manual/en/function.utf8-decode.php
+ * @param string $data <p>
+ * An UTF-8 encoded string.
+ * </p>
+ * @return string the ISO-8859-1 translation of <i>data</i>.
+ */
+function utf8_decode ($data) {}

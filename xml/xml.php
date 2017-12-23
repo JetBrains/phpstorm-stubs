@@ -549,31 +549,6 @@ function xml_parser_set_option ($parser, $option, $value) {}
  */
 function xml_parser_get_option ($parser, $option) {}
 
-/**
- * Encodes an ISO-8859-1 string to UTF-8
- * @link http://php.net/manual/en/function.utf8-encode.php
- * @param string $data <p>
- * An ISO-8859-1 string.
- * </p>
- * @return string the UTF-8 translation of <i>data</i>.
- * @since 4.0
- * @since 5.0
- */
-function utf8_encode ($data) {}
-
-/**
- * Converts a string with ISO-8859-1 characters encoded with UTF-8
- * @since 4.0
- * @since 5.0
-to single-byte ISO-8859-1
- * @link http://php.net/manual/en/function.utf8-decode.php
- * @param string $data <p>
- * An UTF-8 encoded string.
- * </p>
- * @return string the ISO-8859-1 translation of <i>data</i>.
- */
-function utf8_decode ($data) {}
-
 define ('XML_ERROR_NONE', 0);
 define ('XML_ERROR_NO_MEMORY', 1);
 define ('XML_ERROR_SYNTAX', 2);

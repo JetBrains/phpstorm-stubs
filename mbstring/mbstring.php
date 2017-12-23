@@ -566,7 +566,7 @@ function mb_strimwidth ($str, $start, $width, $trimmarker = null, $encoding = nu
 /**
  * Convert character encoding
  * @link http://php.net/manual/en/function.mb-convert-encoding.php
- * @param string $str <p>
+ * @param string|array $str <p>
  * The string being encoded.
  * </p>
  * @param string $to_encoding <p>
@@ -914,7 +914,7 @@ function mb_get_info ($type = null) {}
 /**
  * Check if the string is valid for the specified encoding
  * @link http://php.net/manual/en/function.mb-check-encoding.php
- * @param string $var [optional] <p>
+ * @param string|array $var [optional] <p>
  * The byte stream to check. If it is omitted, this function checks
  * all the input from the beginning of the request.
  * </p>
@@ -1303,6 +1303,30 @@ function mbereg_search_init ($string, $pattern, $option) {}
 function mbereg_search_getregs () {}
 
 function mbereg_search_getpos () {}
+
+/**
+ * @param int $cp
+ * @param string $encoding
+ * @return string|false
+ * @since 7.2
+ */
+function mb_chr($cp, $encoding) {}
+
+/**
+ * @param string $cp
+ * @param string $encoding
+ * @return int|false
+ * @since 7.2
+ */
+function mb_ord($str, $encoding) {}
+
+/**
+ * @param string $cp
+ * @param string $encoding
+ * @return string|false
+ * @since 7.2
+ */
+function mb_scrub($str, $encoding) {}
 
 /**
  * @param $position

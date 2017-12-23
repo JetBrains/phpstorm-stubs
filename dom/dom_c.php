@@ -1131,7 +1131,7 @@ class DOMDocument extends DOMNode  {
  * The DOMNodeList class
  * @link http://php.net/manual/en/class.domnodelist.php
  */
-class DOMNodeList implements Traversable {
+class DOMNodeList implements Traversable, Countable {
 
     /**
      * @var int
@@ -1152,7 +1152,12 @@ class DOMNodeList implements Traversable {
 	 * index.
 	 * @since 5.0
    */
-        public function item ($index) {}
+    public function item ($index) {}
+
+    /**
+     * @since 7.2.0
+     */
+    public function count() {}
 
 }
 
@@ -1161,7 +1166,7 @@ class DOMNodeList implements Traversable {
  * @link http://php.net/manual/en/class.domnamednodemap.php
  * @property-read $length The number of nodes in the map. The range of valid child node indices is 0 to length - 1 inclusive.
  */
-class DOMNamedNodeMap implements Traversable {
+class DOMNamedNodeMap implements Traversable, Countable {
 
     /**
      * Retrieves a node specified by name
@@ -1223,6 +1228,11 @@ class DOMNamedNodeMap implements Traversable {
      * @param $localName [optional]
      */
     public function removeNamedItemNS ($namespaceURI, $localName) {}
+
+    /**
+     * @since 7.2.0
+     */
+    public function count() {}
 
 }
 

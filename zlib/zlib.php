@@ -534,10 +534,18 @@ function inflate_init ($encoding, $options = array()) {}
 function inflate_add ($context, $encoded_data, $flush_mode = ZLIB_SYNC_FLUSH) {}
 
 /**
- * @param $resource
+ * @param resource $context
+ * @return bool
  * @since 7.2
  */
-function inflate_get_read_len ($resource){}
+function inflate_get_read_len ($context){}
+
+/**
+ * @param resource $context
+ * @return bool
+ * @since 7.2
+ */
+function  inflate_get_status() {}
 
 define ('FORCE_GZIP', 31);
 define ('FORCE_DEFLATE', 15);
