@@ -1321,6 +1321,13 @@ class ReflectionClass implements Reflector {
 	public function isIterateable () {}
 
 	/**
+	 * Checks if iterateable
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @since 7.2
+	 */
+	public function isIterable () {}
+
+	/**
 	 * Implements interface
 	 * @link http://php.net/manual/en/reflectionclass.implementsinterface.php
 	 * @param string $interface <p>

@@ -343,5 +343,17 @@ define('JSON_ERROR_INVALID_PROPERTY_NAME',9);
  */
 define('JSON_ERROR_UTF16',10);
 
+/**
+ * @since 7.2
+ **/
+define('JSON_INVALID_UTF8_IGNORE',1048576);
+
+/**
+ * @since 7.2
+ */
+define('JSON_INVALID_UTF8_SUBSTITUTE',2097152);
+
+
+
 // End of json v.1.3.1
 ?>

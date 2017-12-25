@@ -3,20 +3,22 @@
 // Start of ftp v.
 
 /**
- * @param $ftp
- * @param $remote_file
- * @param $local_file
- * @param $mode
+ * @param resource $ftp
+ * @param string $remote_file
+ * @param string $local_file
+ * @param int $mode
+ * @return bool
  * @since 7.2
  */
-function ftp_append ($ftp,  $remote_file,  $local_file,  $mode){}
+function ftp_append ($ftp,  $remote_file,  $local_file,  $mode = 0){}
 
 /**
- * @param $ftp
- * @param $directory
+ * @param resource $ftp
+ * @param string $directory
+ * @return array
  * @since 7.2
  */
-function ftp_mlsd ($ftp,  $directory){}
+function ftp_mlsd ($ftp,  $directory) {}
 
 /**
  * Opens an FTP connection
