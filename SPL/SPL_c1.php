@@ -1645,7 +1645,12 @@ class SplPriorityQueue implements Iterator, Countable {
     /**
      * @return bool
      */
-        public function isCorrupted() {}
+    public function isCorrupted() {}
+
+    /**
+     * @return int
+     */
+    public function getExtractFlags() {}
 
 }
 
