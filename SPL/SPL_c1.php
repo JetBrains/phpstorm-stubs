@@ -1359,6 +1359,11 @@ abstract class SplHeap implements Iterator, Countable {
          */
         abstract protected function compare ($value1, $value2);
 
+    /**
+     * @return bool
+     */
+        public function isCorrupted(){}
+
 }
 
 /**
@@ -1636,6 +1641,11 @@ class SplPriorityQueue implements Iterator, Countable {
          * @since 5.3.0
          */
         public function recoverFromCorruption () {}
+
+    /**
+     * @return bool
+     */
+        public function isCorrupted() {}
 
 }
 
