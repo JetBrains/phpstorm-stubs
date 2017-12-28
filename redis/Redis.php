@@ -412,6 +412,7 @@ class Redis
     /**
      * @see multi()
      * @link    http://redis.io/commands/exec
+     * @return  array
      */
     public function exec( ) {}
 
