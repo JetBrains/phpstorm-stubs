@@ -2159,11 +2159,15 @@ class DOMXPath  {
      * doing relative XPath queries. By default, the queries are relative to
      * the root element.
      * </p>
+     * @param bool $registerNodeNS [optional]
+     * <p>
+     * The optional registerNodeNS can be specified to disable automatic registration of the context node.
+     * </p>
      * @return mixed a typed result if possible or a DOMNodeList
      * containing all nodes matching the given XPath expression.
      * @since 5.1.0
      */
-    public function evaluate ($expression, $contextnode = null) {}
+    public function evaluate ($expression, $contextnode = null, $registerNodeNS = true) {}
 
     /**
      * Register PHP functions as XPath functions
