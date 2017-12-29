@@ -35,7 +35,7 @@ function error_get_last () {}
  * @since 4.0
  * @since 5.0
  */
-function call_user_func ($function, $parameter = null, $_ = null) {}
+function call_user_func ($function, ...$parameter) {}
 
 /**
  * Call a user function given with an array of parameters
