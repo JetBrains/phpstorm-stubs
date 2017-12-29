@@ -933,6 +933,12 @@ function str_rot13($str) { }
 function stream_get_filters() { }
 
 /**
+ * @param resource $name
+ * @since 7.2
+ */
+function stream_isatty($name) {}
+
+/**
  * Register a user defined stream filter
  * @link http://php.net/manual/en/function.stream-filter-register.php
  * @param string $filtername <p>
