@@ -89,6 +89,18 @@ function pg_pconnect ($connection_string, $connect_type = null) {}
 function pg_close ($connection = null) {}
 
 /**
+ * Poll the status of an in-progress asynchronous PostgreSQL connection attempt.
+ * @link http://php.net/manual/en/function.pg-connect-poll.php
+ * @param resource $connection <p>
+ * PostgreSQL database connection resource.
+ * </p>
+ * @return int <b>PGSQL_POLLING_FAILED</b>, <b>PGSQL_POLLING_READING</b>, <b>PGSQL_POLLING_WRITING</b>,
+ * <b>PGSQL_POLLING_OK</b>, or <b>PGSQL_POLLING_ACTIVE</b>.
+ * @since 5.6.0
+ */
+function pg_connect_poll ($connection = null) {}
+
+/**
  * Get connection status
  * @link http://php.net/manual/en/function.pg-connection-status.php
  * @param resource $connection <p>
@@ -124,6 +136,17 @@ function pg_connection_busy ($connection) {}
  * @since 5.0
  */
 function pg_connection_reset ($connection) {}
+
+/**
+ * Get a read only handle to the socket underlying a PostgreSQL connection
+ * @link http://php.net/manual/en/function.pg-socket.php
+ * @param resource $connection <p>
+ * PostgreSQL database connection resource.
+ * </p>
+ * @return resource A socket resource on success or <b>FALSE</b> on failure.
+ * @since 5.6.0
+ */
+function pg_socket ($connection) {}
 
 /**
  * Returns the host name associated with the connection
