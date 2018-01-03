@@ -256,7 +256,7 @@ class XMLWriter  {
 	 * @link http://php.net/manual/en/function.xmlwriter-start-cdata.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function startCData () {}
+	public function startCdata () {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -264,7 +264,7 @@ class XMLWriter  {
 	 * @link http://php.net/manual/en/function.xmlwriter-end-cdata.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function endCData () {}
+	public function endCdata () {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -275,7 +275,7 @@ class XMLWriter  {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function writeCData ($content) {}
+	public function writeCdata ($content) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
