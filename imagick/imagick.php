@@ -1147,18 +1147,18 @@ class Imagick implements Iterator, Countable {
 	public function getImageProperties ($pattern = "*", $only_names = true) {}
 
 	/**
-	 * (PECL imagick 2.0.0)<br/>
+	 * (PECL imagick 2.2.0)<br/>
 	 * Returns the image profiles
 	 * @link http://php.net/manual/en/imagick.getimageprofiles.php
 	 * @param string $pattern [optional] <p>
 	 * The pattern for profile names.
 	 * </p>
-	 * @param bool $only_names [optional] <p>
-	 * Whether to return only profile names. If <b>FALSE</b> then values are returned as well
+	 * @param bool $include_values [optional] <p>
+	 * Whether to return only profile names. If <b>FALSE</b> then only profile names will be returned.
 	 * </p>
 	 * @return array an array containing the image profiles or profile names.
 	 */
-	public function getImageProfiles ($pattern = "*", $only_names = true) {}
+	public function getImageProfiles ($pattern = "*", $include_values = true) {}
 
 	/**
 	 * (PECL imagick 2.0.1)<br/>
