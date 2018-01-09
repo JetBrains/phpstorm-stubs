@@ -653,7 +653,7 @@ class SoapFault extends Exception  {
      */
     public $faultactor;
     /**
-     * @var string
+     * @var mixed
      */
     public $detail;
     /**
@@ -661,7 +661,7 @@ class SoapFault extends Exception  {
      */
     public $faultname;
     /**
-     * @var string
+     * @var mixed
      */
     public $headerfault;
 
@@ -677,13 +677,13 @@ class SoapFault extends Exception  {
 	 * @param string $faultactor [optional] <p>
 	 * A string identifying the actor that caused the error.
 	 * </p>
-	 * @param string $detail [optional] <p>
+	 * @param mixed $detail [optional] <p>
 	 * More details about the cause of the error.
 	 * </p>
 	 * @param string $faultname [optional] <p>
 	 * Can be used to select the proper fault encoding from WSDL.
 	 * </p>
-	 * @param string $headerfault [optional] <p>
+	 * @param mixed $headerfault [optional] <p>
 	 * Can be used during SOAP header handling to report an error in the
 	 * response header.
 	 * </p>
