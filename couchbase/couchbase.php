@@ -595,6 +595,15 @@ namespace Couchbase {
      *   Start Using SDK
      */
     class Bucket {
+        /** Ping data (Key/Value) service. */
+        const PINGSVC_KV = 0x01;
+        /** Ping query (N1QL) service. */
+        const PINGSVC_N1QL = 0x02;
+        /** Ping views (Map/Reduce) service. */
+        const PINGSVC_VIEWS = 0x04;
+        /** Ping full text search (FTS) service. */
+        const PINGSVC_FTS = 0x08;
+
         /** @ignore */
         final private function __construct() {}
 
@@ -1246,6 +1255,34 @@ namespace Couchbase {
          *   Overview of Sub-Document Operations
          */
         public function queueRemove($id) {}
+
+        /**
+         * Try to reach specified services, and measure network latency.
+         *
+         * @param int $services bitwise mask of required services (and all services when zero)
+         * @param string $reportId custom identifier, which will be appended to "id" property in report
+         * @return array the report object
+         *
+         * @see \Couchbase\Bucket::PINGSVC_KV
+         * @see \Couchbase\Bucket::PINGSVC_N1QL
+         * @see \Couchbase\Bucket::PINGSVC_VIEWS
+         * @see \Couchbase\Bucket::PINGSVC_FTS
+         *
+         * @see https://github.com/couchbaselabs/sdk-rfcs/blob/master/rfc/0034-health-check.md
+         *   SDK RFC #34, which describes the feature and report layout.
+         */
+        public function ping($services = 0, $reportId = NULL) {}
+
+        /**
+         * Collect and return information about state of internal network connections.
+         *
+         * @param string $reportId custom identifier, which will be appended to "id" property in report
+         * @return array the report object
+         *
+         * @see https://github.com/couchbaselabs/sdk-rfcs/blob/master/rfc/0034-health-check.md
+         *   SDK RFC #34, which describes the feature and report layout.
+         */
+        public function diag($reportId = NULL) {}
     }
 
     /**
