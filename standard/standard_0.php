@@ -420,7 +420,7 @@ function wordwrap ($str, $width = 75, $break = "\n", $cut = false) {}
  * </p>
  * @return string The converted string.
  */
-function htmlspecialchars ($string, $flags = ENT_COMPAT, $encoding = 'UTF-8', $double_encode = true) {}
+function htmlspecialchars ($string, $flags = ENT_COMPAT | ENT_HTML401, $encoding = 'UTF-8', $double_encode = true) {}
 
 /**
  * Convert all applicable characters to HTML entities
