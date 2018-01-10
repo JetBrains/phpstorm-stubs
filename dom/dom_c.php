@@ -2141,12 +2141,14 @@ class DOMXPath  {
      * doing relative XPath queries. By default, the queries are relative to
      * the root element.
      * </p>
+     * @param bool $registerNodeNS [optional] <p>The optional registerNodeNS can be specified to
+     * disable automatic registration of the context node.</p>
      * @return DOMNodeList a DOMNodeList containing all nodes matching
      * the given XPath expression. Any expression which do
      * not return nodes will return an empty DOMNodeList.
      * @since 5.0
      */
-    public function query ($expression, $contextnode = null) {}
+    public function query ($expression, $contextnode = null, $registerNodeNS = true) {}
 
     /**
      * Evaluates the given XPath expression and returns a typed result if possible.
