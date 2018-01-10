@@ -1222,11 +1222,10 @@ class ReflectionClass implements Reflector {
 	 * Accepts a variable number of arguments which are passed to the class
 	 * constructor, much like <b>call_user_func</b>.
 	 * </p>
-	 * @param mixed $_ [optional]
 	 * @return object
 	 * @since 5.0
 	 */
-	public function newInstance ($args = null, $_ = null) {}
+	public function newInstance (...$args) {}
 	/**
 	 * Creates a new class instance without invoking the constructor.
 	 * @link http://php.net/manual/en/reflectionclass.newinstancewithoutconstructor.php
