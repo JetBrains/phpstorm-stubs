@@ -1758,6 +1758,7 @@ class Imagick implements Iterator, Countable {
 	 * The path to an image to load or an array of paths. Paths can include
 	 * wildcards for file names, or can be URLs.
 	 * </p>
+	 * @throws ImagickException Throws ImagickException on error.
 	 */
 	public function __construct ($files = null) {}
 
@@ -1802,11 +1803,13 @@ class Imagick implements Iterator, Countable {
 	 * @link http://php.net/manual/en/imagick.readimage.php
 	 * @param string $filename
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException Throws ImagickException on error.
 	 */
 	public function readImage ($filename) {}
 
 	/**
 	 * @param $filenames
+	 * @throws ImagickException Throws ImagickException on error.
 	 */
 	public function readImages ($filenames) {}
 
@@ -1817,6 +1820,7 @@ class Imagick implements Iterator, Countable {
 	 * @param string $image
 	 * @param string $filename [optional]
 	 * @return bool <b>TRUE</b> on success.
+	 * @throws ImagickException Throws ImagickException on error.
 	 */
 	public function readImageBlob ($image, $filename = null) {}
 
@@ -3037,7 +3041,9 @@ class Imagick implements Iterator, Countable {
 	 * Provide a valid metric type constant. Refer to this
 	 * list of metric constants.
 	 * </p>
-	 * @return array <b>TRUE</b> on success.
+	 * @return array Array consisting of an Imagick object of the
+	 * reconstructed image and a double representing the difference.
+	 * @throws ImagickException Throws ImagickException on error.
 	 */
 	public function compareImages (Imagick $compare, $metric) {}
 
