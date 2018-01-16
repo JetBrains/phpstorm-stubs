@@ -108,6 +108,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * (e.g. <em>2010-01-28T15:00:00+02:00</em>).
      * </p> <p></p></blockquote>
      * @return DateTimeImmutable Returns a new DateTimeImmutable instance. Procedural style returns FALSE on failure.
+     * @throws Exception Emits Exception in case of an error.
      */
     public function __construct($time = "now", $timezone = NULL) { }
 
