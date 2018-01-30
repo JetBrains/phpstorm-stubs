@@ -1292,7 +1292,7 @@ class ReflectionClass implements Reflector {
 	 * @param string $name <p>
 	 * Property name.
 	 * </p>
-	 * @param string $value <p>
+	 * @param mixed $value <p>
 	 * New property value.
 	 * </p>
 	 * @return void No value is returned.
