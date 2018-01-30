@@ -379,12 +379,12 @@ function sodium_crypto_generichash_init(
  * Update the hash state with some data
  * BLAKE2b
  *
- * @param &string $hashState
+ * @param &string $state
  * @param string $append
  * @return bool
  */
 function sodium_crypto_generichash_update(
-    string &$hashState,
+    string &$state,
     string $append
 ): bool {
     unset($hashState, $append);
@@ -395,7 +395,7 @@ function sodium_crypto_generichash_update(
  * Get the final hash
  * BLAKE2b
  *
- * @param string $hashState
+ * @param string $state
  * @param int $length
  * @return string
  */

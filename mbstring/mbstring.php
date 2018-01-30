@@ -1313,7 +1313,7 @@ function mbereg_search_getpos () {}
 function mb_chr($cp, $encoding) {}
 
 /**
- * @param string $cp
+ * @param string $str
  * @param string $encoding
  * @return int|false
  * @since 7.2
@@ -1321,7 +1321,7 @@ function mb_chr($cp, $encoding) {}
 function mb_ord($str, $encoding) {}
 
 /**
- * @param string $cp
+ * @param string $str
  * @param string $encoding
  * @return string|false
  * @since 7.2

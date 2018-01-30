@@ -798,7 +798,7 @@ function key (array $array) {}
  * @since 4.0
  * @since 5.0
  */
-function min (array $value1, $value2 = null, ...$values) {}
+function min ($value1, $value2 = null, ...$values) {}
 
 /**
  * Find highest value
@@ -812,7 +812,7 @@ function min (array $value1, $value2 = null, ...$values) {}
  * @since 4.0
  * @since 5.0
  */
-function max (array $value1, $value2 = null, ...$values) {}
+function max ($value1, $value2 = null, ...$values) {}
 
 /**
  * Checks if a value exists in an array

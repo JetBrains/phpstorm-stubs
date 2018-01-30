@@ -2549,7 +2549,7 @@ function curl_multi_errno($mh) {}
  * @since 7.1
  * @return int
  */
-function curl_share_errno(resource $rh) {}
+function curl_share_errno($rh) {}
 
 /**
  * @param int $errno
