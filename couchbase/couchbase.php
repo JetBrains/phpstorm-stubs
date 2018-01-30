@@ -1194,7 +1194,7 @@ namespace Couchbase {
          *
          * @param string $id ID of the document
          * @param mixed $value value to look for
-         * @reuturn bool true if the list contains the value
+         * @return bool true if the list contains the value
          *
          * @see https://developer.couchbase.com/documentation/server/current/sdk/php/datastructures.html
          *   More details on Data Structures
