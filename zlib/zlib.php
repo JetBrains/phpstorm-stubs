@@ -545,7 +545,7 @@ function inflate_get_read_len ($context){}
  * @return bool
  * @since 7.2
  */
-function  inflate_get_status() {}
+function  inflate_get_status($context) {}
 
 define ('FORCE_GZIP', 31);
 define ('FORCE_DEFLATE', 15);

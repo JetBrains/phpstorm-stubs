@@ -195,7 +195,7 @@ class SQLite3  {
 	 * this parameter is negative, then the SQL function may take
 	 * any number of arguments.
 	 * </p>
-	 * @param int $flag [optional]
+	 * @param int $flags [optional]
 	 * <p>A bitwise conjunction of flags.
 	 * Currently, only <b>SQLITE3_DETERMINISTIC</b> is supported, which specifies that the function always returns
 	 * the same result given the same inputs within a single SQL statement.</p>
@@ -258,7 +258,7 @@ class SQLite3  {
 	 * <p>Either <b>SQLITE3_OPEN_READONLY</b> or <b>SQLITE3_OPEN_READWRITE</b> to open the stream for reading only, or for reading and writing, respectively.</p?
 	 * @return resource|bool Returns a stream resource, or FALSE on failure.
 	 */
-	public function openBlob ($table, $column, $rowid, $dbname, int $falgs = SQLITE3_OPEN_READONLY) {}
+	public function openBlob ($table, $column, $rowid, $dbname, int $flags = SQLITE3_OPEN_READONLY) {}
 
 	/**
 	 * @param $enableExceptions

@@ -30,7 +30,6 @@ function error_get_last () {}
  * ]]>
  * &example.outputs;
  * </p>
- * @param mixed $_ [optional] 
  * @return mixed the function result, or false on error.
  * @since 4.0
  * @since 5.0
@@ -332,7 +331,7 @@ function register_tick_function ($function, $arg = null, $_ = null) {}
  * @since 4.0.3
  * @since 5.0
  */
-function unregister_tick_function ($function_name) {}
+function unregister_tick_function ($function) {}
 
 /**
  * Syntax highlighting of a file
