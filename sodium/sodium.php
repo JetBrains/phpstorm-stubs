@@ -1014,3 +1014,35 @@ function sodium_crypto_scalarmult_base(
  * @see http://php.net/manual/en/function.sodium-crypto-secretbox-keygen.php
  */
 function sodium_crypto_secretbox_keygen(): string {}
+
+/**
+ * Creates a random key
+ *
+ * It is equivalent to calling random_bytes() but improves code clarity and can
+ * prevent misuse by ensuring that the provided key length is always be correct.
+ *
+ * @since 7.2.0
+ * @see http://php.net/manual/en/function.sodium-crypto-aead-aes256gcm-keygen.php
+ */
+function sodium_crypto_aead_aes256gcm_keygen(): string {}
+
+/**
+ * Creates a random key
+ * It is equivalent to calling random_bytes() but improves code clarity and can
+ * prevent misuse by ensuring that the provided key length is always be correct.
+ *
+ * @since 7.2.0
+ * @see http://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-keygen.php
+ */
+function sodium_crypto_aead_chacha20poly1305_keygen(): string {}
+
+/**
+ * Creates a random key
+ *
+ * It is equivalent to calling random_bytes() but improves code clarity and can
+ * prevent misuse by ensuring that the provided key length is always be correct.
+ *
+ * @since 7.2.0
+ * @see http://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-ietf-keygen.php
+ */
+function sodium_crypto_aead_chacha20poly1305_ietf_keygen(): string {}
