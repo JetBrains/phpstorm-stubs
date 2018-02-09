@@ -125,7 +125,7 @@ function sodium_crypto_aead_chacha20poly1305_decrypt(
     string $nonce,
     string $key
 ): string {
-    unset($msg, $ad, $nonce, $key);
+    unset($ciphertext, $ad, $nonce, $key);
     return '';
 }
 
@@ -165,7 +165,7 @@ function sodium_crypto_aead_chacha20poly1305_ietf_decrypt(
     string $nonce,
     string $key
 ): string {
-    unset($msg, $ad, $nonce, $key);
+    unset($ciphertext, $ad, $nonce, $key);
     return '';
 }
 
