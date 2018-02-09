@@ -150,8 +150,8 @@ function sodium_crypto_aead_chacha20poly1305_encrypt(
 }
 
 /**
- * Authenticated Encryption with Associated Data (decrypt) (IETF version)
- * ChaCha20 + Poly1305
+ * Authenticated Encryption with Associated Data (decrypt)
+ * ChaCha20 + Poly1305 (IETF version)
  *
  * @param string $ciphertext encrypted message
  * @param string $ad additional data
@@ -170,8 +170,8 @@ function sodium_crypto_aead_chacha20poly1305_ietf_decrypt(
 }
 
 /**
- * Authenticated Encryption with Associated Data (encrypt) (IETF version)
- * ChaCha20 + Poly1305
+ * Authenticated Encryption with Associated Data (encrypt)
+ * ChaCha20 + Poly1305 (IETF version)
  *
  * @param string $msg plaintext message
  * @param string $ad additional data
