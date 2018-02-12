@@ -2409,11 +2409,11 @@ function mysqli_stat ($link) {}
  * Used for establishing secure connections using SSL
  * @link http://www.php.net/manual/en/mysqli.ssl-set.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @param $key The path name to the key file
- * @param $cert The path name to the certificate file
- * @param $ca The path name to the certificate authority file
- * @param $capath The pathname to a directory that contains trusted SSL CA certificates in PEM format
- * @param $cipher A list of allowable ciphers to use for SSL encryption
+ * @param string $key The path name to the key file
+ * @param string $cert The path name to the certificate file
+ * @param string $ca The path name to the certificate authority file
+ * @param string $capath The pathname to a directory that contains trusted SSL CA certificates in PEM format
+ * @param string $cipher A list of allowable ciphers to use for SSL encryption
  * @return bool This function always returns TRUE value.
  * @since 5.0
  */
