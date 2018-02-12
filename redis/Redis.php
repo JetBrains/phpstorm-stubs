@@ -655,7 +655,7 @@ class Redis
      * @param   string $value1  String, value to push in key
      * @param   string $value2  Optional
      * @param   string $valueN  Optional
-     * @return  int    The new length of the list in case of success, FALSE in case of Failure.
+     * @return  int|bool    The new length of the list in case of success, FALSE in case of Failure.
      * @link    http://redis.io/commands/lpush
      * @example
      * <pre>
@@ -680,7 +680,7 @@ class Redis
      * @param   string  $value1 String, value to push in key
      * @param   string  $value2 Optional
      * @param   string  $valueN Optional
-     * @return  int     The new length of the list in case of success, FALSE in case of Failure.
+     * @return  int|bool     The new length of the list in case of success, FALSE in case of Failure.
      * @link    http://redis.io/commands/rpush
      * @example
      * <pre>
@@ -2717,9 +2717,10 @@ class Redis
      * @param string $key
      * @param string $hashKey
      * @param string $value
-     * @return int
+     * @return int|bool
      * 1 if value didn't exist and was added successfully,
-     * 0 if the value was already present and was replaced, FALSE if there was an error.
+     * 0 if the value was already present and was replaced,
+     * FALSE if there was an error.
      * @link    http://redis.io/commands/hset
      * @example
      * <pre>
@@ -2786,7 +2787,7 @@ class Redis
      * @param   string  $hashKey1
      * @param   string  $hashKey2
      * @param   string  $hashKeyN
-     * @return  int     Number of deleted fields
+     * @return  int|bool     Number of deleted fields, FALSE if table or key doesn't exist
      * @link    http://redis.io/commands/hdel
      * @example
      * <pre>
@@ -3078,7 +3079,7 @@ class Redis
 
     /**
      * The last error message (if any)
-     * @return  string  A string with the last returned script based error message, or NULL if there is no error
+     * @return  string|null  A string with the last returned script based error message, or NULL if there is no error
      * @example
      * <pre>
      * $redis->eval('this-is-not-lua');
