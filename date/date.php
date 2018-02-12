@@ -289,7 +289,7 @@ function strtotime ($time, $now = 'time()') {}
  * @since 4.0
  * @since 5.0
  */
-function date ($format, $timestamp = null) {}
+function date ($format, $timestamp = 'time()') {}
 
 /**
  * Format a local time/date as integer
