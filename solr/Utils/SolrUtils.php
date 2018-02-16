@@ -68,7 +68,7 @@ abstract class SolrUtils {
 	 * @param $str <p>
 	 * The lucene phrase.
 	 * </p>
-	 * @return <p>
+	 * @return string <p>
 	 * Returns the phrase contained in double quotes.
 	 * </p>
 	 */
