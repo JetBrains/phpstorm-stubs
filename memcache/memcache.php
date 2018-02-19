@@ -94,7 +94,7 @@ class MemcachePool  {
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function addServer ($host, $port = 11211, $persistent = true, $weight = null, $timeout = 1, $retry_interval = 15, $status = true, callable $failure_callback = null, $timeoutms) {}
+    public function addServer ($host, $port = 11211, $persistent = true, $weight = null, $timeout = 1, $retry_interval = 15, $status = true, callable $failure_callback = null, $timeoutms = null) {}
 
     /**
      * (PECL memcache &gt;= 2.1.0)<br/>
@@ -127,7 +127,7 @@ class MemcachePool  {
      * </p>
      * @return boolean <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
      */
-    public function setServerParams ($host, $port = 11211, $timeout = 1, $retry_interval = 15, $status = true, callable $failure_callback) {}
+    public function setServerParams ($host, $port = 11211, $timeout = 1, $retry_interval = 15, $status = true, callable $failure_callback = null) {}
 
     /**
      *
@@ -172,7 +172,7 @@ class MemcachePool  {
      * You can also use Unix timestamp or a number of seconds starting from current time, but in the latter case the number of seconds may not exceed 2592000 (30 days).</p>
      * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure. Returns <b>FALSE</b> if such key already exist. For the rest Memcache::add() behaves similarly to Memcache::set().
      */
-    public function add ($key , $var, $flag, $expire) {}
+    public function add ($key , $var, $flag = null, $expire = null) {}
 
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
@@ -187,7 +187,7 @@ class MemcachePool  {
      * @param int $expire [optional] Expiration time of the item. If it's equal to zero, the item will never expire. You can also use Unix timestamp or a number of seconds starting from current time, but in the latter case the number of seconds may not exceed 2592000 (30 days).
      * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function set ($key, $var, $flag, $expire) {}
+    public function set ($key, $var, $flag = null, $expire = null) {}
 
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
@@ -199,7 +199,7 @@ class MemcachePool  {
      * @param int $expire [optional] <p>Expiration time of the item. If it's equal to zero, the item will never expire. You can also use Unix timestamp or a number of seconds starting from current time, but in the latter case the number of seconds may not exceed 2592000 (30 days).</p>
      * @return boolean Returns TRUE on success or FALSE on failure.
      */
-    public function replace ($key,  $var, $flag, $expire) {}
+    public function replace ($key,  $var, $flag = null, $expire = null) {}
 
 	public function cas () {}
 
@@ -230,7 +230,7 @@ class MemcachePool  {
      * <b>key</b> is an empty {@link http://php.net/manual/en/language.types.array.php array}.
      * </p>
      */
-    public function get ($key, &$flags) {}
+    public function get ($key, &$flags = null) {}
 
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
@@ -261,7 +261,7 @@ class MemcachePool  {
      * </p>
      * @return array|bool Returns an associative array of server statistics or <b>FALSE</b> on failure.
      */
-    public function getStats ($type, $slabid, $limit = 100) {}
+    public function getStats ($type = null, $slabid = null, $limit = 100) {}
 
     /**
      * (PECL memcache &gt;= 2.0.0)<br/>
@@ -279,7 +279,7 @@ class MemcachePool  {
      * Returns a two-dimensional associative array of server statistics or <b>FALSE</b>
      * on failure.
      */
-    public function getExtendedStats ($type, $slabid, $limit = 100) {}
+    public function getExtendedStats ($type = null, $slabid = null, $limit = 100) {}
 
     /**
      * (PECL memcache &gt;= 2.0.0)<br/>
