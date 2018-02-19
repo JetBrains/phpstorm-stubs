@@ -1044,6 +1044,22 @@ function imagecreatefromgd2part ($filename, $srcX, $srcY, $width, $height) {}
 function imagepng ($image, $filename = null, $quality = null, $filters = null) {}
 
 /**
+ * Output a WebP image to browser or file
+ * @link http://php.net/manual/en/function.imagewebp.php
+ * @param resource $image 
+ * @param string $to [optional] <p>
+ * The path to save the file to. If not set or &null;, the raw image stream
+ * will be outputted directly.
+ * </p>
+ * @param int $quality [optional] <p>
+ * quality ranges from 0 (worst quality, smaller file) to 100 (best quality, biggest file).
+ * </p>
+ * @return bool true on success or false on failure.
+ * @since 5.4
+ */
+function imagewebp ($image, $to = null, $quality = 80) {}
+
+/**
  * Output image to browser or file
  * @link http://php.net/manual/en/function.imagegif.php
  * @param resource $image 
