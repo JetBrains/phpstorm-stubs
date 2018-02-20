@@ -2206,8 +2206,10 @@ class MultipleIterator implements Iterator {
         /**
          * Gets the registered iterator instances
          * @link http://php.net/manual/en/multipleiterator.current.php
-         * @return array An array of all registered iterator instances,
-         * or false if no sub iterator is attached.
+         * @return array|false An array containing the current values of each attached iterator,
+         * or false if no iterators are attached.
+         * @throws \RuntimeException if mode MIT_NEED_ALL is set and at least one attached iterator is not valid.
+         * @throws \InvalidArgumentException if a key is NULL and MIT_KEYS_ASSOC is set.
          * @since 5.3.0
          */
         public function current () {}
