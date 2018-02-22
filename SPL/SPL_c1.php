@@ -2164,7 +2164,7 @@ class MultipleIterator implements Iterator {
          * @param Iterator $iterator <p>
          * The iterator to check.
          * </p>
-	     * @return bool true on success or false on failure.
+         * @return bool true on success or false on failure.
          * @since 5.3.0
          */
 	public function containsIterator (Iterator $iterator) {}
