@@ -495,7 +495,7 @@ class AssertionError extends Error {
  * @since 7.1
  * @see https://php.net/migration71.incompatible#migration71.incompatible.too-few-arguments-exception
  */
-class ArgumentCountError extends Error {}
+class ArgumentCountError extends TypeError {}
 
 /**
  * ArithmeticError is thrown when an error occurs while performing mathematical operations.
@@ -513,7 +513,7 @@ class ArithmeticError extends Error {
  * @link http://php.net/manual/en/class.divisionbyzeroerror.php
  * @since 7.0
  */
-class DivisionByZeroError extends Error {
+class DivisionByZeroError extends ArithmeticError {
 
 }
 
