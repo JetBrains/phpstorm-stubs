@@ -2164,7 +2164,7 @@ class MultipleIterator implements Iterator {
          * @param Iterator $iterator <p>
          * The iterator to check.
          * </p>
-	 * @return void true on success or false on failure.
+         * @return bool true on success or false on failure.
          * @since 5.3.0
          */
 	public function containsIterator (Iterator $iterator) {}
@@ -2172,7 +2172,7 @@ class MultipleIterator implements Iterator {
         /**
          * Gets the number of attached iterator instances
          * @link http://php.net/manual/en/multipleiterator.countiterators.php
-         * @return void The number of attached iterator instances (as an integer).
+         * @return int The number of attached iterator instances (as an integer).
          * @since 5.3.0
          */
         public function countIterators () {}
@@ -2188,7 +2188,7 @@ class MultipleIterator implements Iterator {
         /**
          * Checks the validity of sub iterators
          * @link http://php.net/manual/en/multipleiterator.valid.php
-         * @return void true if one or all sub iterators are valid depending on flags,
+         * @return boolean true if one or all sub iterators are valid depending on flags,
          * otherwise false
          * @since 5.3.0
          */
@@ -2206,8 +2206,10 @@ class MultipleIterator implements Iterator {
         /**
          * Gets the registered iterator instances
          * @link http://php.net/manual/en/multipleiterator.current.php
-         * @return void An array of all registered iterator instances,
-         * or false if no sub iterator is attached.
+         * @return array|false An array containing the current values of each attached iterator,
+         * or false if no iterators are attached.
+         * @throws \RuntimeException if mode MIT_NEED_ALL is set and at least one attached iterator is not valid.
+         * @throws \InvalidArgumentException if a key is NULL and MIT_KEYS_ASSOC is set.
          * @since 5.3.0
          */
         public function current () {}
