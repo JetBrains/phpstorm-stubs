@@ -156,7 +156,7 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	/**
 	 * Gets doc comment
 	 * @link http://php.net/manual/en/reflectionfunctionabstract.getdoccomment.php
-	 * @return string The doc comment if it exists, otherwise <b>FALSE</b>
+	 * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
 	 * @since 5.1.0
 	 */
 	public function getDocComment () {}
@@ -968,7 +968,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets doc comments
 	 * @link http://php.net/manual/en/reflectionclass.getdoccomment.php
-	 * @return string The doc comment if it exists, otherwise <b>FALSE</b>
+	 * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
 	 * @since 5.1.0
 	 */
 	public function getDocComment () {}
@@ -1585,7 +1585,7 @@ class ReflectionProperty implements Reflector {
 	/**
 	 * Gets doc comment
 	 * @link http://php.net/manual/en/reflectionproperty.getdoccomment.php
-	 * @return string The doc comment.
+	 * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
 	 * @since 5.1.0
 	 */
 	public function getDocComment () {}
@@ -2054,7 +2054,7 @@ class ReflectionClassConstant implements Reflector {
      * Gets doc comments
      * @since 7.1
      * @link http://php.net/manual/en/reflectionclassconstant.getdoccomment.php
-     * @return string
+     * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
      */
 	public function getDocComment() {}
 
