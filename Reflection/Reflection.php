@@ -2067,6 +2067,14 @@ class ReflectionClassConstant implements Reflector {
 	public function getModifiers() {}
 
     /**
+     * Get name of the constant
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.getname.php
+     * @return string
+     */
+	public function getName() {}
+
+    /**
      * Gets value
      * @since 7.1
      * @link http://php.net/manual/en/reflectionclassconstant.getvalue.php
