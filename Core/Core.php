@@ -601,8 +601,8 @@ function trigger_error ($error_msg, $error_type = E_USER_NOTICE) {}
 /**
  * Alias of <b>trigger_error</b>
  * @link http://php.net/manual/en/function.user-error.php
- * @param $message
- * @param $error_type [optional]
+ * @param string $message
+ * @param int    $error_type [optional]
  * @since 4.0
  * @since 5.0
  */
