@@ -313,9 +313,6 @@ function wordwrap ($str, $width = 75, $break = "\n", $cut = false) {}
  * <em><b>ENT_COMPAT | ENT_HTML401</b></em>.
  * </p><table>
  * <caption><b>Available <em>flags</em> constants</b></caption>
- * @since 4.0
- * @since 5.0
- *
  * <thead>
  * <tr>
  * <th>Constant Name</th>
@@ -419,6 +416,8 @@ function wordwrap ($str, $width = 75, $break = "\n", $cut = false) {}
  * encode existing html entities, the default is to convert everything.
  * </p>
  * @return string The converted string.
+ * @since 4.0
+ * @since 5.0
  */
 function htmlspecialchars ($string, $flags = ENT_COMPAT | ENT_HTML401, $encoding = 'UTF-8', $double_encode = true) {}
 
