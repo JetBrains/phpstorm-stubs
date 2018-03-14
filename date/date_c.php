@@ -129,7 +129,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @param DateTimeZone $timezone [optional]
      * @return DateTimeImmutable|boolean
      */
-    public static function createFromFormat($format, $time, DateTimeZone $timezone) { }
+    public static function createFromFormat($format, $time, DateTimeZone $timezone = null) { }
 
     /**
      * (PHP 5 &gt;=5.6.0)<br/>
