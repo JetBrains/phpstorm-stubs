@@ -935,10 +935,10 @@ function date_create_immutable ($time = null, DateTimeZone $timezone = null ) {}
  * @link http://php.net/manual/en/function.date-create-immutable-from-format.php
  * @param string $format
  * @param string $time
- * @param DateTimeZone $timezone
+ * @param DateTimeZone $timezone [optional]
  * @return DateTimeImmutable
  */
-function date_create_immutable_from_format ($format, $time, DateTimeZone $timezone) {}
+function date_create_immutable_from_format ($format, $time, DateTimeZone $timezone = null) {}
 
 /**
  * Alias:
