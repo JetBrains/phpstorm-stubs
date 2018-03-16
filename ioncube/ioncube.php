@@ -87,7 +87,7 @@ function ioncube_loader_iversion()
  * Recall that an enforced property is one that the Loader will attempt to match with an encoded
  * file property if the --license-check auto option is passed to the Encoder on the command line.
  * The return value of this function is FALSE if the calling file is not encoded or has no license file.
- * @return boolean|string
+ * @return boolean|array
  */
 function ioncube_license_properties()
 {
@@ -99,7 +99,7 @@ function ioncube_license_properties()
  * This function returns an array of server restriction specifications. These are the same strings
  * specified on the command line when the license was created.
  *
- * @return array
+ * @return array|boolean
  */
 function ioncube_licensed_servers()
 {
@@ -115,7 +115,7 @@ function ioncube_licensed_servers()
  * restricted to the user’s domain and server.
  * This function can be called from either an encoded or non-encoded script.
  *
- * @return boolean
+ * @return string
  */
 function ioncube_server_data()
 {
