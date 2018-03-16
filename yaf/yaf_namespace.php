@@ -2,18 +2,18 @@
 namespace
 {
     
-    define('YAF_VERSION', '3.0.6', true);
-    define('YAF_ENVIRON', 'product', true);
-    define('YAF_ERR_STARTUP_FAILED', 512, true);
-    define('YAF_ERR_ROUTE_FAILED', 513, true);
-    define('YAF_ERR_DISPATCH_FAILED', 514, true);
-    define('YAF_ERR_NOTFOUND_MODULE', 515, true);
-    define('YAF_ERR_NOTFOUND_CONTROLLER', 516, true);
-    define('YAF_ERR_NOTFOUND_ACTION', 517, true);
-    define('YAF_ERR_NOTFOUND_VIEW', 518, true);
-    define('YAF_ERR_CALL_FAILED', 519, true);
-    define('YAF_ERR_AUTOLOAD_FAILED', 520, true);
-    define('YAF_ERR_TYPE_ERROR', 521, true);
+    define('YAF\VERSION', '3.0.6', true);
+    define('YAF\ENVIRON', 'product', true);
+    define('YAF\ERR\STARTUP\FAILED', 512, true);
+    define('YAF\ERR\ROUTE\FAILED', 513, true);
+    define('YAF\ERR\DISPATCH\FAILED', 514, true);
+    define('YAF\ERR\NOTFOUND\MODULE', 515, true);
+    define('YAF\ERR\NOTFOUND\CONTROLLER', 516, true);
+    define('YAF\ERR\NOTFOUND\ACTION', 517, true);
+    define('YAF\ERR\NOTFOUND\VIEW', 518, true);
+    define('YAF\ERR\CALL\FAILED', 519, true);
+    define('YAF\ERR\AUTOLOAD\FAILED', 520, true);
+    define('YAF\ERR\TYPE\ERROR', 521, true);
 }
 
 namespace Yaf {
