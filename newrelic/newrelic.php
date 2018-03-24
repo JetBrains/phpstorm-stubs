@@ -102,7 +102,7 @@ function newrelic_custom_metric($metricName, $value) {}
  *
  * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-rum-disable
  *
- * @return true
+ * @return boolean
  */
 function newrelic_disable_autorum() {}
 
