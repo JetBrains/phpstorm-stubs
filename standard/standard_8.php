@@ -956,11 +956,11 @@ function array_fill_keys (array $keys, $value) {}
 /**
  * Create an array containing a range of elements
  * @link http://php.net/manual/en/function.range.php
- * @param mixed $low <p>
- * Low value.
+ * @param mixed $start <p>
+ * First value of the sequence.
  * </p>
- * @param mixed $high <p>
- * High value.
+ * @param mixed $end <p>
+ * The sequence is ended upon reaching the end value.
  * </p>
  * @param int|float $step [optional] <p>
  * If a step value is given, it will be used as the
@@ -968,13 +968,12 @@ function array_fill_keys (array $keys, $value) {}
  * should be given as a positive number. If not specified,
  * step will default to 1.
  * </p>
- * @return array an array of elements from low to
- * high, inclusive. If low > high, the sequence will
- * be from high to low.
+ * @return array an array of elements from start to
+ * end, inclusive.
  * @since 4.0
  * @since 5.0
  */
-function range ($low, $high, $step = null) {}
+function range ($start, $end, $step = 1) {}
 
 /**
  * Sort multiple or multi-dimensional arrays
