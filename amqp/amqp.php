@@ -1,7 +1,6 @@
 <?php
 /**
  * Stubs for AMQP
- * @since 2018-04-03T10:00:41+00:00
  * https://pecl.php.net/package/amqp
  * https://github.com/pdezwart/php-amqp
  */
