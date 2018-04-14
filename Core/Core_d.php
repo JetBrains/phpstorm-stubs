@@ -125,7 +125,7 @@ define ('E_USER_DEPRECATED', 16384);
  * <b>E_STRICT</b> prior to PHP 5.4.0.
  * @link http://php.net/manual/en/errorfunc.constants.php
  */
-define ('E_ALL', 30719);
+define ('E_ALL', 32767);
 define ('DEBUG_BACKTRACE_PROVIDE_OBJECT', 1);
 define ('DEBUG_BACKTRACE_IGNORE_ARGS', 2);
 define ('S_MEMORY', 1);
