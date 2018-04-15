@@ -2053,13 +2053,13 @@ function mysqli_ping ($link) {}
  * Poll connections
  * @link http://php.net/manual/en/mysqli.poll.php
  * @param array $read
- * @param array $write
  * @param array $error
+ * @param array $reject
  * @param int $sec
  * @param int $usec
  * @return int|bool Returns number of ready connections upon success, FALSE otherwise.
  */
-function mysqli_poll (array &$read = null, array &$write = null, &$error = null, $sec, $usec = 0) {}
+function mysqli_poll (array &$read = null, array &$error = null, &$reject = null, $sec, $usec = 0) {}
 
 /**
  * Prepare an SQL statement for execution
