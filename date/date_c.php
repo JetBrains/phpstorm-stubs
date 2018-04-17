@@ -115,8 +115,9 @@ class DateTimeImmutable implements DateTimeInterface {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Adds an amount of days, months, years, hours, minutes and seconds
+     * @link http://php.net/manual/en/datetimeimmutable.add.php
      * @param DateInterval $interval
-     * @return static
+     * @return \DateTimeImmutable|false
      */
     public function add(DateInterval $interval) { }
 
@@ -154,7 +155,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @link http://www.php.net/manual/en/datetimeimmutable.modify.php
      * @param string $modify  <p>A date/time string. Valid formats are explained in
      * {@link http://www.php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
-     * @return static
+     * @return \DateTimeImmutable|false
      * Returns the {@link http://www.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
 
@@ -177,7 +178,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @param int $year <p>Year of the date.</p>
      * @param int $month <p>Month of the date.</p>
      * @param int $day <p>Day of the date.</p>
-     * @return static|bool
+     * @return \DateTimeImmutable|false
      * Returns the {@link http://www.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      *
      */
@@ -186,11 +187,11 @@ class DateTimeImmutable implements DateTimeInterface {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Sets the ISO date
-     * @link http://php.net/manual/en/class.datetimeimmutable.php
+     * @link http://php.net/manual/en/datetimeimmutable.setisodate.php
      * @param int $year <p>Year of the date.</p>
      * @param int $week  <p>Week of the date.</p>
      * @param int $day [optional] <p>Offset from the first day of the week.</p>
-     * @return static|bool
+     * @return \DateTimeImmutable|false
      * Returns the {@link http://www.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
     public function setISODate($year, $week, $day = 1) { }
@@ -203,7 +204,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @param int $minute <p> Minute of the time. </p>
      * @param int $second [optional] <p> Second of the time. </p>
      * @param int $microseconds [optional] <p> Microseconds of the time. </p>
-     * @return static|false
+     * @return \DateTimeImmutable|false
      * @since 7.1.0 $microseconds parameter added.
      * Returns the {@link http://www.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
@@ -214,7 +215,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * Sets the date and time based on an Unix timestamp
      * @link http://www.php.net/manual/en/datetimeimmutable.settimestamp.php
      * @param int $unixtimestamp <p>Unix timestamp representing the date.</p>
-     * @return static|bool
+     * @return \DateTimeImmutable|false
      * Returns the {@link http://www.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
     public function setTimestamp($unixtimestamp) { }
@@ -227,7 +228,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * A {@link http://www.php.net/manual/en/class.datetimezone.php DateTimeZone} object representing the
      * desired time zone.
      * </p>
-     * @return static|bool
+     * @return \DateTimeImmutable|false
      * Returns the {@link http://www.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
     public function setTimezone(DateTimeZone $timezone) { }
