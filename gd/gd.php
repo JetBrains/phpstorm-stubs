@@ -2242,13 +2242,83 @@ function imagefilter ($image, $filtertype, $arg1 = null, $arg2 = null, $arg3 = n
 function imageconvolution ($image, array $matrix, $div, $offset) {}
 
 /**
- * @param resource $im
- * @param int $res_x
- * @param int $res_y
- * @return array
+ * @param resource $im An image resource, returned by one of the image creation functions, such as {@see imagecreatetruecolor()}.
+ * @param int $res_x [optional] The horizontal resolution in DPI.
+ * @param int $res_y [optional] The vertical resolution in DPI.
+ * @return array When used as getter (that is without the optional parameters), it returns <b>TRUE</b> on success, or <b>FALSE</b> on failure. When used as setter (that is with one or both optional parameters given), it returns an indexed array of the horizontal and vertical resolution on success, or <b>FALSE</b> on failure.
+ * @link http://php.net/manual/en/function.imageresolution.php
  * @since 7.2
  */
 function imageresolution ($im, $res_x = 96, $res_y = 96) {}
+
+
+/**
+ * <b>imagesetclip()</b> sets the current clipping rectangle, i.e. the area beyond which no pixels will be drawn.
+ * @param resource $im An image resource, returned by one of the image creation functions, such as {@see imagecreatetruecolor()}.
+ * @param int $x1 The x-coordinate of the upper left corner.
+ * @param int $y1 The y-coordinate of the upper left corner.
+ * @param int $x2 The x-coordinate of the lower right corner.
+ * @param int $y2 The y-coordinate of the lower right corner.
+ * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @link http://php.net/manual/en/function.imagesetclip.php
+ * @see imagegetclip()
+ * @since 7.2
+ */
+function imagesetclip ($im, $x1, $y1, $x2, $y2) {}
+
+/**
+ * <b>imagegetclip()</b> retrieves the current clipping rectangle, i.e. the area beyond which no pixels will be drawn.
+ * @param resource $im An image resource, returned by one of the image creation functions, such as {@see imagecreatetruecolor()}
+ * @return array
+ * @link http://php.net/manual/en/function.imagegetclip.php
+ * @see imagesetclip()
+ * @since 7.2
+ */
+function imagegetclip ($im) {}
+
+/**
+ * <b>imageopenpolygon()</b> draws an open polygon on the given <b>image.</b> Contrary to {@see imagepolygon()}, no line is drawn between the last and the first point.
+ * @param resource $image An image resource, returned by one of the image creation functions, such as {@see imagecreatetruecolor()}.
+ * @param array $points An array containing the polygon's vertices, e.g.:
+ * <pre>
+ * points[0]	= x0
+ * points[1]	= y0
+ * points[2]	= x1
+ * points[3]	= y1
+ * </pre>
+ * @param int $num_points Total number of points (vertices).
+ * @param int $color A color identifier created with {@see imagecolorallocate()}.
+ * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @link http://php.net/manual/en/function.imageopenpolygon.php
+ * @since 7.2
+ * @see imageplygon()
+ */
+function imageopenpolygon ($image , $points, $num_points, $color) {}
+
+/**
+ * <b>imagecreatefrombmp()</b> returns an image identifier representing the image obtained from the given filename.
+ * <b>TIP</b> A URL can be used as a filename with this function if the fopen wrappers have been enabled. See {@see fopen()} for more details on how to specify the filename. See the Supported Protocols and Wrappers for links to information about what abilities the various wrappers have, notes on their usage, and information on any predefined variables they may provide.
+ * @param string $filename Path to the BMP image.
+ * @return resource Returns an image resource identifier on success, <b>FALSE</b> on errors.
+ * @link http://php.net/manual/en/function.imagecreatefrombmp.php
+ * @see 7.2
+ */
+function imagecreatefrombmp($filename){}
+
+/**
+ * Outputs or saves a BMP version of the given <b>image</b>.
+ * @param resource $image An image resource, returned by one of the image creation functions, such as {@see imagecreatetruecolor()}.
+ * @param mixed $to The path or an open stream resource (which is automatically being closed after this function returns) to save the file to. If not set or <b>NULL</b>, the raw image stream will be outputted directly.
+ * <br />
+ * <b>Note:</b> <b>NULL</b> is invalid if the <b>compressed</b> arguments is not used.
+ * @param bool $compressed Whether the BMP should be compressed with run-length encoding (RLE), or not.
+ * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * <br />
+ * <b>Caution</b> However, if libgd fails to output the image, this function returns <b>TRUE</b>.
+ * @link http://php.net/manual/en/function.imagebmp.php
+ * @since 7.2
+ */
+function imagebmp ($image, $to = null, $compressed = true) {}
 
 
 /**
