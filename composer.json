@@ -12,5 +12,9 @@
         "inference",
         "code",
         "inspection"
-    ]
+    ],
+    "require-dev": {
+      "nikic/php-parser": "v4.0.1",
+      "phpdocumentor/reflection-docblock": "^4.3"
+    }
 }
