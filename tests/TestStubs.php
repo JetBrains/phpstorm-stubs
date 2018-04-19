@@ -23,7 +23,7 @@ class PhpStormStubsSingleton
 {
     private static $phpstormStubs = null;
 
-    public static function getPhpStormStubs(): array
+    public static function getPhpStormStubs(): stdClass
     {
         if (self::$phpstormStubs == null) {
             self::$phpstormStubs = getPhpStormStubs();
@@ -48,7 +48,7 @@ class TestStubs extends TestCase
     {
         $constantName = $constant->name;
         $constantValue = $constant->value;
-        $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()['constants'];
+        $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->constants;
         $this->assertArrayHasKey($constantName, $stubConstants, "Missing constant: const $constantName = $constantValue\n");
     }
 
@@ -66,12 +66,12 @@ class TestStubs extends TestCase
     function testFunctions($function)
     {
         $functionName = $function->name;
-        $stubFunctions = PhpStormStubsSingleton::getPhpStormStubs()['functions'];
+        $stubFunctions = PhpStormStubsSingleton::getPhpStormStubs()->functions;
         $params = $this->getParameterRepresentation($function);
         $this->assertArrayHasKey($functionName, $stubFunctions, "Missing function: function $functionName($params){}");
         $phpstormFunction = $stubFunctions[$functionName];
-        $this->assertFalse($function->is_deprecated && $phpstormFunction['is_deprecated'] != true, "Function $functionName is not deprecated in stubs");
-        $this->assertSameSize($function->parameters, $phpstormFunction['parameters'],
+        $this->assertFalse($function->is_deprecated && $phpstormFunction->is_deprecated != true, "Function $functionName is not deprecated in stubs");
+        $this->assertSameSize($function->parameters, $phpstormFunction->parameters,
             "Parameter number mismatch for function $functionName. Expected: " . $this->getParameterRepresentation($function));
     }
 
@@ -89,21 +89,21 @@ class TestStubs extends TestCase
     function testClasses($class)
     {
         $className = $class->name;
-        $stubClasses = PhpStormStubsSingleton::getPhpStormStubs()['classes'];
+        $stubClasses = PhpStormStubsSingleton::getPhpStormStubs()->classes;
         $this->assertArrayHasKey($className, $stubClasses, "Missing class $className: class $className {}");
         $stubClass = $stubClasses[$className];
         foreach ($class->constants as $constant) {
-            $this->assertArrayHasKey($constant->name, $stubClass['constants'], "Missing constant $className::{$constant->name}");
+            $this->assertArrayHasKey($constant->name, $stubClass->constants, "Missing constant $className::{$constant->name}");
         }
         foreach ($class->methods as $method) {
             $params = $this->getParameterRepresentation($method);
             $methodName = $method->name;
-            $this->assertArrayHasKey($method->name, $stubClass['methods'], "Missing method $className::$methodName($params){}");
+            $this->assertArrayHasKey($method->name, $stubClass->methods, "Missing method $className::$methodName($params){}");
             $stubMethod = $stubClass['methods'][$method->name];
-            $this->assertEquals($method->is_final, $stubMethod['is_final'], "Method $className::$methodName final modifier is incorrect");
-            $this->assertEquals($method->is_static, $stubMethod['is_static'], "Method $className::$methodName static modifier is incorrect");
-            $this->assertEquals($method->access, $stubMethod['access'], "Method $className::$methodName access modifier is incorrect");
-            $this->assertSameSize($method->parameters, $stubMethod['parameters'], "Parameter number mismatch for method $className::$methodName. Expected: " . $this->getParameterRepresentation($method));
+            $this->assertEquals($method->is_final, $stubMethod->is_final, "Method $className::$methodName final modifier is incorrect");
+            $this->assertEquals($method->is_static, $stubMethod->is_static, "Method $className::$methodName static modifier is incorrect");
+            $this->assertEquals($method->access, $stubMethod->access, "Method $className::$methodName access modifier is incorrect");
+            $this->assertSameSize($method->parameters, $stubMethod->parameters, "Parameter number mismatch for method $className::$methodName. Expected: " . $this->getParameterRepresentation($method));
         }
     }
 
