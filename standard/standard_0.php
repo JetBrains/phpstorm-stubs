@@ -561,11 +561,169 @@ function htmlspecialchars_decode ($string, $quote_style = null) {}
  * See the description
  * of these modes in htmlspecialchars.
  * </p>
+ * @param string $encoding <dd>
+ *
+ * <p>
+ * Encoding to use.
+ * If omitted, the default value for this argument is ISO-8859-1 in
+ * versions of PHP prior to 5.4.0, and UTF-8 from PHP 5.4.0 onwards.
+ * </p>
+ *
+ *
+ * <p>
+ * The following character sets are supported:
+ * </p><table class="doctable table">
+ * <caption><strong>Supported charsets</strong></caption>
+ *
+ * <thead>
+ * <tr>
+ * <th>Charset</th>
+ * <th>Aliases</th>
+ * <th>Description</th>
+ * </tr>
+ *
+ * </thead>
+ *
+ * <tbody class="tbody">
+ * <tr>
+ * <td>ISO-8859-1</td>
+ * <td>ISO8859-1</td>
+ * <td>
+ * Western European, Latin-1.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td>ISO-8859-5</td>
+ * <td>ISO8859-5</td>
+ * <td>
+ * Little used cyrillic charset (Latin/Cyrillic).
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td>ISO-8859-15</td>
+ * <td>ISO8859-15</td>
+ * <td>
+ * Western European, Latin-9. Adds the Euro sign, French and Finnish
+ * letters missing in Latin-1 (ISO-8859-1).
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td>UTF-8</td>
+ * <td class="empty">&nbsp;</td>
+ * <td>
+ * ASCII compatible multi-byte 8-bit Unicode.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td>cp866</td>
+ * <td>ibm866, 866</td>
+ * <td>
+ * DOS-specific Cyrillic charset.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td>cp1251</td>
+ * <td>Windows-1251, win-1251, 1251</td>
+ * <td>
+ * Windows-specific Cyrillic charset.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td>cp1252</td>
+ * <td>Windows-1252, 1252</td>
+ * <td>
+ * Windows specific charset for Western European.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td>KOI8-R</td>
+ * <td>koi8-ru, koi8r</td>
+ * <td>
+ * Russian.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td>BIG5</td>
+ * <td>950</td>
+ * <td>
+ * Traditional Chinese, mainly used in Taiwan.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td>GB2312</td>
+ * <td>936</td>
+ * <td>
+ * Simplified Chinese, national standard character set.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td>BIG5-HKSCS</td>
+ * <td class="empty">&nbsp;</td>
+ * <td>
+ * Big5 with Hong Kong extensions, Traditional Chinese.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td>Shift_JIS</td>
+ * <td>SJIS, SJIS-win, cp932, 932</td>
+ * <td>
+ * Japanese
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td>EUC-JP</td>
+ * <td>EUCJP, eucJP-win</td>
+ * <td>
+ * Japanese
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td>MacRoman</td>
+ * <td class="empty">&nbsp;</td>
+ * <td>
+ * Charset that was used by Mac OS.
+ * </td>
+ * </tr>
+ *
+ * <tr>
+ * <td><em>''</em></td>
+ * <td class="empty">&nbsp;</td>
+ * <td>
+ * An empty string activates detection from script encoding (Zend multibyte),
+ * {@link http://php.net/manual/en/ini.core.php#ini.default-charset default_charset} and current
+ * locale {@link http://php.net/manual/en/function.nl-langinfo.php nl_langinfo()} and
+ * {@link http://php.net/manual/en/function.setlocale.php setlocale()}), in this order. Not recommended.
+ * </td>
+ * </tr>
+ *
+ * </tbody>
+ *
+ * </table>
+ *
+ * <blockquote><p><strong>Note</strong>:
+ *
+ * Any other character sets are not recognized. The default encoding will be
+ * used instead and a warning will be emitted.
+ *
+ * </p></blockquote>
  * @return array the translation table as an array.
  * @since 4.0
  * @since 5.0
  */
-function get_html_translation_table ($table = null, $quote_style = null) {}
+function get_html_translation_table ($table = null, $quote_style = null, string $encoding = "UTF-8") {}
 
 /**
  * Calculate the sha1 hash of a string

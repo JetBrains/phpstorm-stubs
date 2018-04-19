@@ -546,6 +546,7 @@ class DateTimeZone {
     public function __wakeup(){}
 
 
+    public static function __set_state($an_array) {}
 }
 
 /**
@@ -633,6 +634,10 @@ class DateInterval {
      * @link http://php.net/manual/en/dateinterval.createfromdatestring.php
      */
     public static function createFromDateString ($time) {}
+
+    public function __wakeup() {}
+
+    public static function __set_state($an_array) {}
 }
 
 /**
@@ -732,5 +737,7 @@ class DatePeriod implements Traversable {
     public function getStartDate () {}
 
     public static function __set_state (){}
+
+    public function __wakeup() {}
 
 }
