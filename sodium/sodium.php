@@ -1181,3 +1181,7 @@ function sodium_crypto_aead_chacha20poly1305_keygen(): string {}
  * @see http://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-ietf-keygen.php
  */
 function sodium_crypto_aead_chacha20poly1305_ietf_keygen(): string {}
+
+class SodiumException extends Exception {
+
+}
