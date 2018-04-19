@@ -1131,7 +1131,7 @@ class DOMDocument extends DOMNode  {
  * The DOMNodeList class
  * @link http://php.net/manual/en/class.domnodelist.php
  */
-class DOMNodeList implements Traversable {
+class DOMNodeList implements Traversable, Countable {
 
     /**
      * @var int
@@ -1152,7 +1152,12 @@ class DOMNodeList implements Traversable {
 	 * index.
 	 * @since 5.0
    */
-        public function item ($index) {}
+    public function item ($index) {}
+
+    /**
+     * @since 7.2.0
+     */
+    public function count() {}
 
 }
 
@@ -1161,7 +1166,7 @@ class DOMNodeList implements Traversable {
  * @link http://php.net/manual/en/class.domnamednodemap.php
  * @property-read $length The number of nodes in the map. The range of valid child node indices is 0 to length - 1 inclusive.
  */
-class DOMNamedNodeMap implements Traversable {
+class DOMNamedNodeMap implements Traversable, Countable {
 
     /**
      * Retrieves a node specified by name
@@ -1223,6 +1228,11 @@ class DOMNamedNodeMap implements Traversable {
      * @param $localName [optional]
      */
     public function removeNamedItemNS ($namespaceURI, $localName) {}
+
+    /**
+     * @since 7.2.0
+     */
+    public function count() {}
 
 }
 
@@ -2131,12 +2141,14 @@ class DOMXPath  {
      * doing relative XPath queries. By default, the queries are relative to
      * the root element.
      * </p>
+     * @param bool $registerNodeNS [optional] <p>The optional registerNodeNS can be specified to
+     * disable automatic registration of the context node.</p>
      * @return DOMNodeList a DOMNodeList containing all nodes matching
      * the given XPath expression. Any expression which do
      * not return nodes will return an empty DOMNodeList.
      * @since 5.0
      */
-    public function query ($expression, $contextnode = null) {}
+    public function query ($expression, $contextnode = null, $registerNodeNS = true) {}
 
     /**
      * Evaluates the given XPath expression and returns a typed result if possible.
@@ -2149,11 +2161,15 @@ class DOMXPath  {
      * doing relative XPath queries. By default, the queries are relative to
      * the root element.
      * </p>
+     * @param bool $registerNodeNS [optional]
+     * <p>
+     * The optional registerNodeNS can be specified to disable automatic registration of the context node.
+     * </p>
      * @return mixed a typed result if possible or a DOMNodeList
      * containing all nodes matching the given XPath expression.
      * @since 5.1.0
      */
-    public function evaluate ($expression, $contextnode = null) {}
+    public function evaluate ($expression, $contextnode = null, $registerNodeNS = true) {}
 
     /**
      * Register PHP functions as XPath functions

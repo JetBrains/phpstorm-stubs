@@ -256,7 +256,7 @@ class XMLWriter  {
 	 * @link http://php.net/manual/en/function.xmlwriter-start-cdata.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function startCData () {}
+	public function startCdata () {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -264,7 +264,7 @@ class XMLWriter  {
 	 * @link http://php.net/manual/en/function.xmlwriter-end-cdata.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function endCData () {}
+	public function endCdata () {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -275,7 +275,7 @@ class XMLWriter  {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function writeCData ($content) {}
+	public function writeCdata ($content) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -767,7 +767,7 @@ function xmlwriter_start_element_ns ($xmlwriter, $prefix, $name, $uri) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_element ($xmwriter, $name, $content = null) {}
+function xmlwriter_write_element ($xmlwriter, $name, $content = null) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -840,7 +840,7 @@ function xmlwriter_end_pi ($xmlwriter) {}
  *
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_pi (resource $xmlwriter, $target, $content) {}
+function xmlwriter_write_pi ($xmlwriter, $target, $content) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
@@ -1040,7 +1040,7 @@ function xmlwriter_write_dtd ($xmlwriter, $name, $publicId = null, $systemId = n
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_dtd_element ($resource, $qualifiedName) {}
+function xmlwriter_start_dtd_element ($xmlwriter, $qualifiedName) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>

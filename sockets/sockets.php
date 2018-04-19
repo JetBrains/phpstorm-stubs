@@ -1303,10 +1303,11 @@ function socket_import_stream ($stream) {}
  * @link http://php.net/manual/en/function.socket-cmsg-space.php
  * @param int $level
  * @param int $type
+ * @param int $n [optional]
  * @return int
  * @since 5.5.0
  */
-function socket_cmsg_space ($level, $type) {}
+function socket_cmsg_space ($level, $type, $n = 0) {}
 
 /**
  * @param $socket

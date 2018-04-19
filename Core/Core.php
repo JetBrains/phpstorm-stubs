@@ -601,8 +601,8 @@ function trigger_error ($error_msg, $error_type = E_USER_NOTICE) {}
 /**
  * Alias of <b>trigger_error</b>
  * @link http://php.net/manual/en/function.user-error.php
- * @param $message
- * @param $error_type [optional]
+ * @param string $message
+ * @param int    $error_type [optional]
  * @since 4.0
  * @since 5.0
  */
@@ -750,6 +750,7 @@ function get_defined_vars () {}
  * @return string a unique function name as a string, or false on error.
  * @since 4.0.1
  * @since 5.0
+ * @deprecated 7.2
  */
 function create_function ($args, $code) {}
 
@@ -1100,3 +1101,28 @@ function sapi_windows_cp_is_utf8() {
  * @link https://wiki.php.net/rfc/iterable
  */
 function is_iterable($value) {}
+
+/**
+ * Encodes an ISO-8859-1 string to UTF-8
+ * @link http://php.net/manual/en/function.utf8-encode.php
+ * @param string $data <p>
+ * An ISO-8859-1 string.
+ * </p>
+ * @return string the UTF-8 translation of <i>data</i>.
+ * @since 4.0
+ * @since 5.0
+ */
+function utf8_encode ($data) {}
+
+/**
+ * Converts a string with ISO-8859-1 characters encoded with UTF-8
+ * @since 4.0
+ * @since 5.0
+to single-byte ISO-8859-1
+ * @link http://php.net/manual/en/function.utf8-decode.php
+ * @param string $data <p>
+ * An UTF-8 encoded string.
+ * </p>
+ * @return string the ISO-8859-1 translation of <i>data</i>.
+ */
+function utf8_decode ($data) {}

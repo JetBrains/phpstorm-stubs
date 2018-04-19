@@ -156,7 +156,7 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	/**
 	 * Gets doc comment
 	 * @link http://php.net/manual/en/reflectionfunctionabstract.getdoccomment.php
-	 * @return string The doc comment if it exists, otherwise <b>FALSE</b>
+	 * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
 	 * @since 5.1.0
 	 */
 	public function getDocComment () {}
@@ -968,7 +968,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets doc comments
 	 * @link http://php.net/manual/en/reflectionclass.getdoccomment.php
-	 * @return string The doc comment if it exists, otherwise <b>FALSE</b>
+	 * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
 	 * @since 5.1.0
 	 */
 	public function getDocComment () {}
@@ -1292,7 +1292,7 @@ class ReflectionClass implements Reflector {
 	 * @param string $name <p>
 	 * Property name.
 	 * </p>
-	 * @param string $value <p>
+	 * @param mixed $value <p>
 	 * New property value.
 	 * </p>
 	 * @return void No value is returned.
@@ -1319,6 +1319,13 @@ class ReflectionClass implements Reflector {
 	 * @since 5.0
 	 */
 	public function isIterateable () {}
+
+	/**
+	 * Checks if iterateable
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @since 7.2
+	 */
+	public function isIterable () {}
 
 	/**
 	 * Implements interface
@@ -1578,7 +1585,7 @@ class ReflectionProperty implements Reflector {
 	/**
 	 * Gets doc comment
 	 * @link http://php.net/manual/en/reflectionproperty.getdoccomment.php
-	 * @return string The doc comment.
+	 * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
 	 * @since 5.1.0
 	 */
 	public function getDocComment () {}
@@ -2047,7 +2054,7 @@ class ReflectionClassConstant implements Reflector {
      * Gets doc comments
      * @since 7.1
      * @link http://php.net/manual/en/reflectionclassconstant.getdoccomment.php
-     * @return string
+     * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
      */
 	public function getDocComment() {}
 
@@ -2058,6 +2065,14 @@ class ReflectionClassConstant implements Reflector {
      * @return int
      */
 	public function getModifiers() {}
+
+    /**
+     * Get name of the constant
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.getname.php
+     * @return string
+     */
+	public function getName() {}
 
     /**
      * Gets value

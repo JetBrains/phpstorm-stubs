@@ -1045,7 +1045,7 @@ function stream_is_local ($stream_or_url) {}
  * failure.
  * @since 5.0
  */
-function get_headers ($url, $format = null, resource $context) {}
+function get_headers ($url, $format = null, $context) {}
 
 /**
  * Set timeout period on a stream
@@ -1149,7 +1149,7 @@ function socket_set_timeout ($stream, $seconds, $microseconds = 0) {}
  * @since 4.3.0
  * @since 5.0
  */
-function socket_get_status (resource $stream) {}
+function socket_get_status ($stream) {}
 
 /**
  * Returns canonicalized absolute pathname

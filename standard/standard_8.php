@@ -702,7 +702,7 @@ function count ($var, $mode = COUNT_NORMAL) {}
 /**
  * Set the internal pointer of an array to its last element
  * @link http://php.net/manual/en/function.end.php
- * @param array|ArrayObject $array <p>
+ * @param array|object $array <p>
  * The array. This array is passed by reference because it is modified by
  * the function. This means you must pass it a real variable and not
  * a function returning an array because only actual variables may be
@@ -717,7 +717,7 @@ function end (array &$array) {}
 /**
  * Rewind the internal array pointer
  * @link http://php.net/manual/en/function.prev.php
- * @param array|ArrayObject $array <p>
+ * @param array|object $array <p>
  * The input array.
  * </p>
  * @return mixed the array value in the previous place that's pointed to by
@@ -731,7 +731,7 @@ function prev (array &$array) {}
 /**
  * Advance the internal array pointer of an array
  * @link http://php.net/manual/en/function.next.php
- * @param array|ArrayObject $array <p>
+ * @param array|object $array <p>
  * The array being affected.
  * </p>
  * @return mixed the array value in the next place that's pointed to by the
@@ -744,7 +744,7 @@ function next (array &$array) {}
 /**
  * Set the internal pointer of an array to its first element
  * @link http://php.net/manual/en/function.reset.php
- * @param array|ArrayObject $array <p>
+ * @param array|object $array <p>
  * The input array.
  * </p>
  * @return mixed the value of the first array element, or false if the array is
@@ -757,7 +757,7 @@ function reset (array &$array) {}
 /**
  * Return the current element in an array
  * @link http://php.net/manual/en/function.current.php
- * @param array|ArrayObject $array <p>
+ * @param array|object $array <p>
  * The array.
  * </p>
  * @return mixed The current function simply returns the
@@ -773,7 +773,7 @@ function current (array $array) {}
 /**
  * Fetch a key from an array
  * @link http://php.net/manual/en/function.key.php
- * @param array|ArrayObject $array <p>
+ * @param array|object $array <p>
  * The array.
  * </p>
  * @return int|string|null The key function simply returns the
@@ -798,7 +798,7 @@ function key (array $array) {}
  * @since 4.0
  * @since 5.0
  */
-function min (array $value1, $value2 = null, ...$values) {}
+function min ($value1, $value2 = null, ...$values) {}
 
 /**
  * Find highest value
@@ -812,7 +812,7 @@ function min (array $value1, $value2 = null, ...$values) {}
  * @since 4.0
  * @since 5.0
  */
-function max (array $value1, $value2 = null, ...$values) {}
+function max ($value1, $value2 = null, ...$values) {}
 
 /**
  * Checks if a value exists in an array
@@ -956,11 +956,11 @@ function array_fill_keys (array $keys, $value) {}
 /**
  * Create an array containing a range of elements
  * @link http://php.net/manual/en/function.range.php
- * @param mixed $low <p>
- * Low value.
+ * @param mixed $start <p>
+ * First value of the sequence.
  * </p>
- * @param mixed $high <p>
- * High value.
+ * @param mixed $end <p>
+ * The sequence is ended upon reaching the end value.
  * </p>
  * @param int|float $step [optional] <p>
  * If a step value is given, it will be used as the
@@ -968,13 +968,12 @@ function array_fill_keys (array $keys, $value) {}
  * should be given as a positive number. If not specified,
  * step will default to 1.
  * </p>
- * @return array an array of elements from low to
- * high, inclusive. If low > high, the sequence will
- * be from high to low.
+ * @return array an array of elements from start to
+ * end, inclusive.
  * @since 4.0
  * @since 5.0
  */
-function range ($low, $high, $step = null) {}
+function range ($start, $end, $step = 1) {}
 
 /**
  * Sort multiple or multi-dimensional arrays

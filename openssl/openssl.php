@@ -819,6 +819,7 @@ function openssl_pbkdf2($password, $salt, $key_length, $iterations, $digest_algo
  * You can specify a filename with <i>content</i> that will
  * be filled with the verified data, but with the signature information
  * stripped.
+ * @param string|null
  * </p>
  * @return mixed true if the signature is verified, false if it is not correct
  * (the message has been tampered with, or the signing certificate is invalid),
@@ -826,7 +827,7 @@ function openssl_pbkdf2($password, $salt, $key_length, $iterations, $digest_algo
  * @since 4.0.6
  * @since 5.0
  */
-function openssl_pkcs7_verify($filename, $flags, $outfilename = null, array $cainfo = null, $extracerts = null, $content = null) { }
+function openssl_pkcs7_verify($filename, $flags, $outfilename = null, array $cainfo = null, $extracerts = null, $content = null, $pk7 = null) { }
 
 /**
  * Decrypts an S/MIME encrypted message
@@ -1059,6 +1060,14 @@ function openssl_error_string() { }
 function openssl_get_cert_locations() { }
 
 function openssl_get_curve_names() {}
+
+/**
+ * @param string $P7B
+ * @param array $certs
+ * @return bool
+ * @since 7.2
+ */
+function openssl_pkcs7_read($P7B, &$certs) {}
 
 define ('OPENSSL_VERSION_TEXT', "OpenSSL 1.0.0e 6 Sep 2011");
 define ('OPENSSL_VERSION_NUMBER', 268435551);

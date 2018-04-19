@@ -60,12 +60,9 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * @param string $dirname <p>
 	 * The name of the empty directory to create in the phar archive
 	 * </p>
-	 * @param int $levels
-	 * The number of parent directories to go up.
-	 * This must be an integer greater than 0.
 	 * @return void no return value, exception is thrown on failure.
 	 */
-	public function addEmptyDir ($dirname, $levels = 1) {}
+	public function addEmptyDir ($dirname) {}
 
 	/**
 	 * (Unknown)<br/>

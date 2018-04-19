@@ -533,6 +533,20 @@ function inflate_init ($encoding, $options = array()) {}
  */
 function inflate_add ($context, $encoded_data, $flush_mode = ZLIB_SYNC_FLUSH) {}
 
+/**
+ * @param resource $context
+ * @return bool
+ * @since 7.2
+ */
+function inflate_get_read_len ($context){}
+
+/**
+ * @param resource $context
+ * @return bool
+ * @since 7.2
+ */
+function  inflate_get_status($context) {}
+
 define ('FORCE_GZIP', 31);
 define ('FORCE_DEFLATE', 15);
 define ('ZLIB_ENCODING_RAW', -15);
@@ -551,6 +565,16 @@ define ('ZLIB_HUFFMAN_ONLY', 2);
 define ('ZLIB_RLE', 3);
 define ('ZLIB_FIXED', 4);
 define ('ZLIB_DEFAULT_STRATEGY', 0);
+define ('ZLIB_OK', 0);
+define ('ZLIB_STREAM_END', 1);
+define ('ZLIB_NEED_DICT', 2);
+define ('ZLIB_ERRNO', -1);
+define ('ZLIB_STREAM_ERROR', -2);
+define ('ZLIB_DATA_ERROR', -3);
+define ('ZLIB_MEM_ERROR', -4);
+define ('ZLIB_BUF_ERROR', -5);
+define ('ZLIB_VERSION_ERROR', -6);
+
 
 define ('ZLIB_VERSION', 'zlib_version_string'); // This is set to the zlib version
 define ('ZLIB_VERNUM', 'zlib_version_string'); // This is set to the zlib version

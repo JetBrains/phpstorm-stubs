@@ -195,10 +195,14 @@ class SQLite3  {
 	 * this parameter is negative, then the SQL function may take
 	 * any number of arguments.
 	 * </p>
+	 * @param int $flags [optional]
+	 * <p>A bitwise conjunction of flags.
+	 * Currently, only <b>SQLITE3_DETERMINISTIC</b> is supported, which specifies that the function always returns
+	 * the same result given the same inputs within a single SQL statement.</p>
 	 * @return bool <b>TRUE</b> upon successful creation of the function, <b>FALSE</b> on failure.
 	 * @since 5.3.0
 	 */
-	public function createFunction ($name, $callback, $argument_count = -1) {}
+	public function createFunction ($name, $callback, $argument_count = -1, int $flags = 0) {}
 
 	/**
 	 * Registers a PHP function for use as an SQL aggregate function
@@ -244,12 +248,17 @@ class SQLite3  {
 	public function createCollation ($name, callable $callback) {}
 
 	/**
-	 * @param $table
-	 * @param $column
-	 * @param $rowid
-	 * @param $dbname [optional]
+	 * Opens a stream resource to read a BLOB
+	 * @link http://php.net/manual/en/sqlite3.openblob.php
+	 * @param $table <p>The table name.</p>
+	 * @param $column <p>The column name.</p>
+	 * @param $rowid <p>The row ID.</p>
+	 * @param $dbname [optional] <p>The symbolic name of the DB</p>
+	 * @param int $flags [optional]
+	 * <p>Either <b>SQLITE3_OPEN_READONLY</b> or <b>SQLITE3_OPEN_READWRITE</b> to open the stream for reading only, or for reading and writing, respectively.</p?
+	 * @return resource|bool Returns a stream resource, or FALSE on failure.
 	 */
-	public function openBlob ($table, $column, $rowid, $dbname) {}
+	public function openBlob ($table, $column, $rowid, $dbname, int $flags = SQLITE3_OPEN_READONLY) {}
 
 	/**
 	 * @param $enableExceptions

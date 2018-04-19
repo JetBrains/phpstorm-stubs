@@ -77,7 +77,43 @@ define("PASSWORD_BCRYPT_DEFAULT_COST", 10);
  */
 define("PASSWORD_BCRYPT", 1);
 
-define('PASSWORD_BCRYPT_DEFAULT_COST', 10);
+/**
+ *
+ * PASSWORD_ARGON2I is used to create new password hashes using the Argon2 algorithm.
+ *
+ * Supported Options:
+ * <ul>
+ * <li>memory_cost (integer) - Maximum memory (in bytes) that may be used to compute the Argon2 hash. Defaults to PASSWORD_ARGON2_DEFAULT_MEMORY_COST.</li>
+ *
+ * <li>time_cost (integer) - Maximum amount of time it may take to compute the Argon2 hash. Defaults to PASSWORD_ARGON2_DEFAULT_TIME_COST.</li>
+ *
+ * <li>threads (integer) - Number of threads to use for computing the Argon2 hash. Defaults to PASSWORD_ARGON2_DEFAULT_THREADS.</li>
+ * </ul>
+ * Available as of PHP 7.2.0.
+ * @since 7.2
+ */
+define('PASSWORD_ARGON2I', 2);
+
+/**
+ * Default amount of memory in bytes that Argon2lib will use while trying to compute a hash.
+ * Available as of PHP 7.2.0.
+ * @since 7.2
+ */
+define ('PASSWORD_ARGON2_DEFAULT_MEMORY_COST', 1024);
+
+/**
+ * Default amount of time that Argon2lib will spend trying to compute a hash.
+ * Available as of PHP 7.2.0.
+ * @since 7.2
+ */
+define ('PASSWORD_ARGON2_DEFAULT_TIME_COST', 2);
+
+/**
+ * Default number of threads that Argon2lib will use.
+ * Available as of PHP 7.2.0.
+ * @since 7.2
+ */
+define('PASSWORD_ARGON2_DEFAULT_THREADS', 2);
 
 /**
  * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>

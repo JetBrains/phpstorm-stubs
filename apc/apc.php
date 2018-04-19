@@ -1,4 +1,4 @@
-<?
+<?php
 
 /**
  * Stubs for APC 3.1.4

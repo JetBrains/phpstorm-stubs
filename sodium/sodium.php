@@ -8,6 +8,10 @@ const SODIUM_CRYPTO_AEAD_CHACHA20POLY1305_KEYBYTES = 32;
 const SODIUM_CRYPTO_AEAD_CHACHA20POLY1305_NSECBYTES = 0;
 const SODIUM_CRYPTO_AEAD_CHACHA20POLY1305_NPUBBYTES = 8;
 const SODIUM_CRYPTO_AEAD_CHACHA20POLY1305_ABYTES = 16;
+const SODIUM_CRYPTO_AEAD_CHACHA20POLY1305_IETF_KEYBYTES = 32;
+const SODIUM_CRYPTO_AEAD_CHACHA20POLY1305_IETF_NSECBYTES = 0;
+const SODIUM_CRYPTO_AEAD_CHACHA20POLY1305_IETF_NPUBBYTES = 12;
+const SODIUM_CRYPTO_AEAD_CHACHA20POLY1305_IETF_ABYTES = 16;
 const SODIUM_CRYPTO_AUTH_BYTES = 32;
 const SODIUM_CRYPTO_AUTH_KEYBYTES = 32;
 const SODIUM_CRYPTO_BOX_SEALBYTES = 16;
@@ -52,7 +56,20 @@ const SODIUM_CRYPTO_PWHASH_OPSLIMIT_MODERATE = 6;
 const SODIUM_CRYPTO_PWHASH_MEMLIMIT_MODERATE = 134217728;
 const SODIUM_CRYPTO_PWHASH_OPSLIMIT_SENSITIVE = 8;
 const SODIUM_CRYPTO_PWHASH_MEMLIMIT_SENSITIVE = 536870912;
-
+const SODIUM_LIBRARY_VERSION="1.0.11";
+const SODIUM_LIBRARY_MAJOR_VERSION = 9;
+const SODIUM_LIBRARY_MINOR_VERSION = 3;
+const SODIUM_CRYPTO_KDF_BYTES_MIN = 16;
+const SODIUM_CRYPTO_KDF_BYTES_MAX = 64;
+const SODIUM_CRYPTO_KDF_CONTEXTBYTES = 8;
+const SODIUM_CRYPTO_KDF_KEYBYTES = 32;
+const SODIUM_CRYPTO_KX_SEEDBYTES = 32;
+const SODIUM_CRYPTO_KX_SESSIONKEYBYTES = 32;
+const SODIUM_CRYPTO_KX_KEYPAIRBYTES = 64;
+const SODIUM_CRYPTO_PWHASH_ALG_ARGON2I13 = 1;
+const SODIUM_CRYPTO_PWHASH_ALG_DEFAULT = 1;
+const SODIUM_CRYPTO_PWHASH_SALTBYTES = 16;
+const SODIUM_CRYPTO_PWHASH_STRPREFIX = '$argon2i$';
 
 /**
  * Can you access AES-256-GCM? This is only available if you have supported
@@ -69,19 +86,19 @@ function sodium_crypto_aead_aes256gcm_is_available(): bool
  * Authenticated Encryption with Associated Data (decrypt)
  * AES-256-GCM
  *
- * @param string $msg encrypted message
+ * @param string $ciphertext encrypted message
+ * @param string $ad additional data
  * @param string $nonce
  * @param string $key
- * @param string $ad additional data (optional)
  * @return string
  */
 function sodium_crypto_aead_aes256gcm_decrypt(
-    string $msg,
+    string $ciphertext,
+    string $ad,
     string $nonce,
-    string $key,
-    string $ad = ''
+    string $key
 ): string {
-    unset($msg, $nonce, $key, $ad);
+    unset($msg, $ad, $nonce, $key);
     return '';
 }
 
@@ -90,18 +107,18 @@ function sodium_crypto_aead_aes256gcm_decrypt(
  * AES-256-GCM
  *
  * @param string $msg plaintext message
+ * @param string $ad
  * @param string $nonce
  * @param string $key
- * @param string $ad additional data (optional)
  * @return string
  */
 function sodium_crypto_aead_aes256gcm_encrypt(
     string $msg,
+    string $ad,
     string $nonce,
-    string $key,
-    string $ad = ''
+    string $key
 ): string {
-    unset($msg, $nonce, $key, $ad);
+    unset($msg, $ad, $nonce, $key);
     return '';
 }
 
@@ -109,19 +126,19 @@ function sodium_crypto_aead_aes256gcm_encrypt(
  * Authenticated Encryption with Associated Data (decrypt)
  * ChaCha20 + Poly1305
  *
- * @param string $msg encrypted message
+ * @param string $ciphertext encrypted message
+ * @param string $ad additional data
  * @param string $nonce
  * @param string $key
- * @param string $ad additional data (optional)
  * @return string
  */
 function sodium_crypto_aead_chacha20poly1305_decrypt(
-    string $msg,
+    string $ciphertext,
+    string $ad,
     string $nonce,
-    string $key,
-    string $ad = ''
+    string $key
 ): string {
-    unset($msg, $nonce, $key, $ad);
+    unset($ciphertext, $ad, $nonce, $key);
     return '';
 }
 
@@ -130,18 +147,58 @@ function sodium_crypto_aead_chacha20poly1305_decrypt(
  * ChaCha20 + Poly1305
  *
  * @param string $msg plaintext message
+ * @param string $ad additional data
  * @param string $nonce
  * @param string $key
- * @param string $ad additional data (optional)
  * @return string
  */
 function sodium_crypto_aead_chacha20poly1305_encrypt(
     string $msg,
+    string $ad,
     string $nonce,
-    string $key,
-    string $ad = ''
+    string $key
 ): string {
-    unset($msg, $nonce, $key, $ad);
+    unset($msg, $ad, $nonce, $key);
+    return '';
+}
+
+/**
+ * Authenticated Encryption with Associated Data (decrypt)
+ * ChaCha20 + Poly1305 (IETF version)
+ *
+ * @param string $ciphertext encrypted message
+ * @param string $ad additional data
+ * @param string $nonce
+ * @param string $key
+ * @return string
+ */
+function sodium_crypto_aead_chacha20poly1305_ietf_decrypt(
+    string $ciphertext,
+    string $ad,
+    string $nonce,
+    string $key
+): string {
+    unset($ciphertext, $ad, $nonce, $key);
+    return '';
+}
+
+/**
+ * Authenticated Encryption with Associated Data (encrypt)
+ * ChaCha20 + Poly1305 (IETF version)
+ *
+ * @param string $msg plaintext message
+ * @param string $ad additional data
+ * @param string $nonce
+ * @param string $key
+ * @return string
+ */
+function sodium_crypto_aead_chacha20poly1305_ietf_encrypt(
+    string $msg,
+    string $ad,
+    string $nonce,
+    string $key
+): string {
+    unset($msg, $ad, $nonce, $key);
     return '';
 }
 
@@ -379,12 +436,12 @@ function sodium_crypto_generichash_init(
  * Update the hash state with some data
  * BLAKE2b
  *
- * @param &string $hashState
+ * @param &string $state
  * @param string $append
  * @return bool
  */
 function sodium_crypto_generichash_update(
-    string &$hashState,
+    string &$state,
     string $append
 ): bool {
     unset($hashState, $append);
@@ -395,7 +452,7 @@ function sodium_crypto_generichash_update(
  * Get the final hash
  * BLAKE2b
  *
- * @param string $hashState
+ * @param string $state
  * @param int $length
  * @return string
  */
@@ -560,7 +617,7 @@ function sodium_crypto_secretbox(
  * @param string $ciphertext
  * @param string $nonce
  * @param string $key
- * @return string
+ * @return string|bool
  */
 function sodium_crypto_secretbox_open(
     string $ciphertext,
@@ -959,3 +1016,46 @@ function sodium_crypto_scalarmult_base(
 
     return '';
 }
+
+/**
+ * Creates a random key
+ *
+ * It is equivalent to calling random_bytes() but improves code clarity and can
+ * prevent misuse by ensuring that the provided key length is always be correct.
+ *
+ * @since 7.2.0
+ * @see http://php.net/manual/en/function.sodium-crypto-secretbox-keygen.php
+ */
+function sodium_crypto_secretbox_keygen(): string {}
+
+/**
+ * Creates a random key
+ *
+ * It is equivalent to calling random_bytes() but improves code clarity and can
+ * prevent misuse by ensuring that the provided key length is always be correct.
+ *
+ * @since 7.2.0
+ * @see http://php.net/manual/en/function.sodium-crypto-aead-aes256gcm-keygen.php
+ */
+function sodium_crypto_aead_aes256gcm_keygen(): string {}
+
+/**
+ * Creates a random key
+ * It is equivalent to calling random_bytes() but improves code clarity and can
+ * prevent misuse by ensuring that the provided key length is always be correct.
+ *
+ * @since 7.2.0
+ * @see http://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-keygen.php
+ */
+function sodium_crypto_aead_chacha20poly1305_keygen(): string {}
+
+/**
+ * Creates a random key
+ *
+ * It is equivalent to calling random_bytes() but improves code clarity and can
+ * prevent misuse by ensuring that the provided key length is always be correct.
+ *
+ * @since 7.2.0
+ * @see http://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-ietf-keygen.php
+ */
+function sodium_crypto_aead_chacha20poly1305_ietf_keygen(): string {}
