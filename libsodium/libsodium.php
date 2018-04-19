@@ -385,7 +385,7 @@ namespace Sodium;
      * Update the hash state with some data
      * BLAKE2b
      * 
-     * @param &string $hashState
+     * @param string &$hashState
      * @param string $append
      * @return bool
      */
@@ -422,7 +422,7 @@ namespace Sodium;
      * @param string $salt
      * @param int $opslimit
      * @param int $memlimit
-     * @return $string
+     * @return string
      */
     function crypto_pwhash(
         int $out_len,
@@ -442,7 +442,7 @@ namespace Sodium;
      * @param string $passwd
      * @param int $opslimit
      * @param int $memlimit
-     * @return $string
+     * @return string
      */
     function crypto_pwhash_str(
         string $passwd,
@@ -478,7 +478,7 @@ namespace Sodium;
      * @param string $salt
      * @param int $opslimit
      * @param int $memlimit
-     * @return $string
+     * @return string
      */
     function crypto_pwhash_scryptsalsa208sha256(
         int $out_len,
@@ -498,7 +498,7 @@ namespace Sodium;
      * @param string $passwd
      * @param int $opslimit
      * @param int $memlimit
-     * @return $string
+     * @return string
      */
     function crypto_pwhash_scryptsalsa208sha256_str(
         string $passwd,
@@ -879,7 +879,7 @@ namespace Sodium;
     /**
      * Increment a string in little-endian
      * 
-     * @param &string $nonce
+     * @param string &$nonce
      * @return string
      */
     function increment(
@@ -891,7 +891,7 @@ namespace Sodium;
     /**
      * Add the right operand to the left
      * 
-     * @param &string $left
+     * @param string &$left
      * @param string $right
      */
     function add(
@@ -935,7 +935,7 @@ namespace Sodium;
     /**
      * Wipe a buffer
      * 
-     * @param &string $nonce
+     * @param string &$nonce
      */
     function memzero(
         string &$target

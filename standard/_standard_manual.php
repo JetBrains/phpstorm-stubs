@@ -35,7 +35,8 @@ define("__COMPILER_HALT_OFFSET__",0);
  * @link http://php.net/manual/en/function.hex2bin.php
  * @param string $data Hexadecimal string to convert.
  * @return bool|string The binary representation of the given data or <b>FALSE</b> on failure.
- * @see bin2hex(), unpack()
+ * @see bin2hex()
+ * @see unpack()
  * @since 5.4.0
  */
 function hex2bin($data) {};
