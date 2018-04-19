@@ -1258,8 +1258,10 @@ function mbereg_replace ($pattern, $replacement, $string, $option) {}
  * @param $pattern
  * @param $replacement
  * @param $string
+ * @param string $option
+ * @return string
  */
-function mberegi_replace ($pattern, $replacement, $string) {}
+function mberegi_replace ($pattern, $replacement, $string, string $option = "msri") {}
 
 /**
  * @param $pattern
