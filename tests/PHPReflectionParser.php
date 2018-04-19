@@ -16,13 +16,6 @@ foreach (get_defined_functions()["internal"] as $name) {
 
 $data["functions"] = $functions;
 
-
-//$data["classes"]=get_declared_classes();
-
-
-//
-
-
 $classesWithMethods=[];
 
 foreach (get_declared_classes() as $it) {
@@ -30,10 +23,12 @@ foreach (get_declared_classes() as $it) {
     $STUBSClass = new STUBSClass($reflectionClass->name, $reflectionClass->getMethods(), $reflectionClass->getProperties(), $reflectionClass->getConstants());
     $classesWithMethods[]=$STUBSClass->serialize();
 }
-$data["classes"] = $classesWithMethods;
-echo json_encode($data, JSON_NUMERIC_CHECK);
 
-//echo json_encode(utf8ize($data));
+$data["classes"] = $classesWithMethods;
+$json = json_encode($data, JSON_NUMERIC_CHECK);
+$myfile = fopen("stub.json", "w");
+fwrite($myfile, $json);
+
 
 class STUBSClass{
     public $name;
@@ -201,8 +196,4 @@ class STUBSParameter {
     public function serialize() {
         return array("name" => $this->name, "type" => $this->type, "is_vararg" => $this->is_vararg, "is_passed_by_ref" => $this->is_passed_by_ref);
     }
-
-
 }
-
-//echo json_encode(utf8ize($data));

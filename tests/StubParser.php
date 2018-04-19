@@ -1,8 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '../vendor/autoload.php';
-
+require "vendor/autoload.php";
 
 use phpDocumentor\Reflection\DocBlockFactory;
 use PhpParser\Error;
@@ -69,9 +68,10 @@ class ASTVisitor extends NodeVisitorAbstract
 
     public function visitFunction(Function_ $node): void
     {
-        $function = ['name' => $node->name->name];
+        $functionName = $node->name->name;
+        $function = ['name' => $functionName];
 
-        $function['parameters'][] = $this->parseParams($node);
+        $function['parameters'] = $this->parseParams($node);
 
         if ($node->getDocComment() != NULL) {
             $phpDoc = $this->docFactory->create($node->getDocComment()->getText());
@@ -81,18 +81,19 @@ class ASTVisitor extends NodeVisitorAbstract
                 $function['is_deprecated'] = FALSE;
             }
         }
-        $this->stubs['functions'][] = $function;
+        $this->stubs['functions'][$functionName] = $function;
     }
 
     private function visitConstant(Const_ $node): void
     {
-        $const['name'] = $node->name->name;
+        $constName = $node->name->name;
+        $const['name'] = $constName;
         $const['value'] = $this->getConstValue($node);
         if ($node->getAttribute("parent") instanceof Node\Stmt\ClassConst) {
             $className = $node->getAttribute("parent")->getAttribute("parent")->name->name;
             $this->stubs['classes'][$className]['constants'][] = $const;
         } else {
-            $this->stubs['constants'][] = $const;
+            $this->stubs['constants'][$constName] = $const;
 
         }
     }
@@ -106,7 +107,7 @@ class ASTVisitor extends NodeVisitorAbstract
             }
             $const['name'] = $constName;
             $const['value'] = $this->getConstValue($node->args[1]);
-            $this->stubs['constants'][] = $const;
+            $this->stubs['constants'][$constName] = $const;
         }
     }
 
@@ -138,8 +139,6 @@ class ASTVisitor extends NodeVisitorAbstract
             $method['access'] = 'public';
         }
 
-        var_dump($node);
-
         $this->stubs['classes'][$className]['methods'][] = $method;
     }
 
@@ -148,6 +147,8 @@ class ASTVisitor extends NodeVisitorAbstract
         $className = $node->name->name;
         $class['name'] = $className;
         $this->stubs['classes'][$className] = $class;
+        $this->stubs['classes'][$className]['constants'] = [];
+        $this->stubs['classes'][$className]['methods'] = [];
     }
 
     private function parseParams(FunctionLike $node): array
@@ -156,51 +157,48 @@ class ASTVisitor extends NodeVisitorAbstract
         $parsedParams = [];
         /** @var Node\Param $param */
         foreach ($params as $param) {
-            $parsedParams['name'] = $param->var->name;
+            $parsedParam['name'] = $param->var->name;
             if ($param->type != NULL) {
                 if (!empty($param->type->name)) {
-                    $parsedParams['type'] = $param->type->name;
+                    $parsedParam['type'] = $param->type->name;
                 } else {
                     if (!empty($param->type->parts)) {
-                        $parsedParams['type'] = $param->type->parts[0];
+                        $parsedParam['type'] = $param->type->parts[0];
                     }
                 }
 
             } else {
-                $parsedParams['type'] = '';
+                $parsedParam['type'] = '';
             }
-            $parsedParams['is_vararg'] = $param->variadic;
-            $parsedParams['is_passed_by_ref'] = $param->byRef;
+            $parsedParam['is_vararg'] = $param->variadic;
+            $parsedParam['is_passed_by_ref'] = $param->byRef;
+            $parsedParams[] = $parsedParam;
         }
         return $parsedParams;
     }
 }
 
+function getPhpStormStubs()
+{
+    $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
+    $docFactory = \phpDocumentor\Reflection\DocBlockFactory::createInstance();
+    $stubs = [];
 
-$parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
-$docFactory = \phpDocumentor\Reflection\DocBlockFactory::createInstance();
-$stubs = [];
+    $stubsIterator =
+        new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator("./vendor/jetbrains/phpstorm-stubs", FilesystemIterator::SKIP_DOTS)
+        );
+    /** @var SplFileInfo $file */
+    foreach ($stubsIterator as $file) {
+        $code = file_get_contents($file->getRealPath());
 
-$stubsIterator =
-    new RecursiveIteratorIterator(
-        new RecursiveDirectoryIterator("./vendor/jetbrains/phpstorm-stubs", FilesystemIterator::SKIP_DOTS)
-    );
-/** @var SplFileInfo $file */
-foreach ($stubsIterator as $file) {
-    $code = file_get_contents($file->getRealPath());
-    try {
         $ast = $parser->parse($code);
-    } catch (Error $error) {
-        echo "Parse error: {$error->getMessage()}\n";
-        return;
+        $traverser = new NodeTraverser();
+
+        $traverser->addVisitor(new ParentConnector());
+        $traverser->addVisitor(new ASTVisitor($docFactory, $stubs));
+
+        $traverser->traverse($ast);
     }
-    $traverser = new NodeTraverser();
-
-    $traverser->addVisitor(new ParentConnector());
-    $traverser->addVisitor(new ASTVisitor($docFactory, $stubs));
-
-    $ast = $traverser->traverse($ast);
+    return $stubs;
 }
-
-
-var_dump($stubs);
