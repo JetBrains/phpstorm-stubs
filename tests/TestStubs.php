@@ -70,8 +70,9 @@ class TestStubs extends TestCase
         $params = $this->getParameterRepresentation($function);
         $this->assertArrayHasKey($functionName, $stubFunctions, "Missing function: function $functionName($params){}");
         $phpstormFunction = $stubFunctions[$functionName];
-        $this->assertEquals($function->is_deprecated, $phpstormFunction['is_deprecated']);
-        $this->assertSameSize($function->parameters, $phpstormFunction['parameters']);
+        $this->assertFalse($function->is_deprecated && $phpstormFunction['is_deprecated'] != true, "Function $functionName is not deprecated in stubs");
+        $this->assertSameSize($function->parameters, $phpstormFunction['parameters'],
+            "Parameter number mismatch for function $functionName. Expected: " . $this->getParameterRepresentation($function));
     }
 
 
@@ -96,12 +97,13 @@ class TestStubs extends TestCase
         }
         foreach ($class->methods as $method) {
             $params = $this->getParameterRepresentation($method);
-            $this->assertArrayHasKey($method->name, $stubClass['methods'], "Missing method $className::{$method->name}($params){}");
+            $methodName = $method->name;
+            $this->assertArrayHasKey($method->name, $stubClass['methods'], "Missing method $className::$methodName($params){}");
             $stubMethod = $stubClass['methods'][$method->name];
-            $this->assertEquals($method->is_final,$stubMethod['is_final']);
-            $this->assertEquals($method->is_static,$stubMethod['is_static']);
-            $this->assertEquals($method->access,$stubMethod['access']);
-            $this->assertSameSize($method->parameters,$stubMethod['parameters']);
+            $this->assertEquals($method->is_final, $stubMethod['is_final'], "Method $className::$methodName final modifier is incorrect");
+            $this->assertEquals($method->is_static, $stubMethod['is_static'], "Method $className::$methodName static modifier is incorrect");
+            $this->assertEquals($method->access, $stubMethod['access'], "Method $className::$methodName access modifier is incorrect");
+            $this->assertSameSize($method->parameters, $stubMethod['parameters'], "Parameter number mismatch for method $className::$methodName. Expected: " . $this->getParameterRepresentation($method));
         }
     }
 
