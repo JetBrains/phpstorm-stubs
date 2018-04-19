@@ -436,7 +436,7 @@ function sodium_crypto_generichash_init(
  * Update the hash state with some data
  * BLAKE2b
  *
- * @param &string $state
+ * @param string &$state
  * @param string $append
  * @return bool
  */
@@ -473,7 +473,7 @@ function sodium_crypto_generichash_final(
  * @param string $salt
  * @param int $opslimit
  * @param int $memlimit
- * @return $string
+ * @return string
  */
 function sodium_crypto_pwhash(
     int $out_len,
@@ -493,7 +493,7 @@ function sodium_crypto_pwhash(
  * @param string $passwd
  * @param int $opslimit
  * @param int $memlimit
- * @return $string
+ * @return string
  */
 function sodium_crypto_pwhash_str(
     string $passwd,
@@ -529,7 +529,7 @@ function sodium_crypto_pwhash_str_verify(
  * @param string $salt
  * @param int $opslimit
  * @param int $memlimit
- * @return $string
+ * @return string
  */
 function sodium_crypto_pwhash_scryptsalsa208sha256(
     int $out_len,
@@ -549,7 +549,7 @@ function sodium_crypto_pwhash_scryptsalsa208sha256(
  * @param string $passwd
  * @param int $opslimit
  * @param int $memlimit
- * @return $string
+ * @return string
  */
 function sodium_crypto_pwhash_scryptsalsa208sha256_str(
     string $passwd,
@@ -930,7 +930,7 @@ function sodium_hex2bin(
 /**
  * Increment a string in little-endian
  *
- * @param &string $nonce
+ * @param string &$nonce
  * @return string
  */
 function sodium_increment(
@@ -942,7 +942,7 @@ function sodium_increment(
 /**
  * Add the right operand to the left
  *
- * @param &string $left
+ * @param string &$left
  * @param string $right
  */
 function sodium_add(
@@ -986,7 +986,7 @@ function sodium_memcmp(
 /**
  * Wipe a buffer
  *
- * @param &string $nonce
+ * @param string &$nonce
  */
 function sodium_memzero(
     string &$target
