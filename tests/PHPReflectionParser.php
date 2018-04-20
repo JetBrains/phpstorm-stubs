@@ -20,8 +20,7 @@ foreach (get_declared_classes() as $class) {
 $data["classes"] = $classes;
 
 $json = json_encode($data, JSON_NUMERIC_CHECK);
-$outputFile = fopen("stub.json", "w");
-fwrite($outputFile, $json);
+echo $json;
 
 
 class PHPClass
