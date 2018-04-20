@@ -150,7 +150,7 @@ function curl_version ($age = null) {}
  * @param int $option <p>
  * The CURLOPT_XXX option to set.
  * </p>
- * @param mixed $value <p>
+ * @param mixed|callable $value <p>
  * The value to be set on option.
  * </p>
  * <p>
@@ -2549,7 +2549,7 @@ function curl_multi_errno($mh) {}
  * @since 7.1
  * @return int
  */
-function curl_share_errno(resource $rh) {}
+function curl_share_errno($rh) {}
 
 /**
  * @param int $errno

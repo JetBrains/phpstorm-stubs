@@ -156,7 +156,7 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	/**
 	 * Gets doc comment
 	 * @link http://php.net/manual/en/reflectionfunctionabstract.getdoccomment.php
-	 * @return string The doc comment if it exists, otherwise <b>FALSE</b>
+	 * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
 	 * @since 5.1.0
 	 */
 	public function getDocComment () {}
@@ -315,6 +315,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
 	 * @param mixed $name <p>
 	 * The name of the function to reflect or a closure.
 	 * </p>
+	 * @throws \ReflectionException if the function does not exist.
 	 * @since 5.0
 	 */
 	public function __construct ($name) {}
@@ -433,6 +434,7 @@ class ReflectionParameter implements Reflector {
 	 * @param string $parameter <p>
 	 * The parameter.
 	 * </p>
+	 * @throws \ReflectionException if the function or parameter does not exist.
 	 * @since 5.0
 	 */
 	public function __construct ($function, $parameter) {}
@@ -637,6 +639,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector {
 	 * @param string $name <p>
 	 * Name of the method, or the method FQN in the form 'Foo::bar' if $class argument missing
 	 * </p>
+	 * @throws \ReflectionException if the class or method does not exist.
 	 * @since 5.0
 	 */
 	public function __construct ($class, $name) {}
@@ -883,6 +886,7 @@ class ReflectionClass implements Reflector {
 	 * Either a string containing the name of the class to
 	 * reflect, or an object.
 	 * </p>
+	 * @throws \ReflectionException if the class does not exist.
 	 * @since 5.0
 	 */
 	public function __construct ($argument) {}
@@ -964,7 +968,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets doc comments
 	 * @link http://php.net/manual/en/reflectionclass.getdoccomment.php
-	 * @return string The doc comment if it exists, otherwise <b>FALSE</b>
+	 * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
 	 * @since 5.1.0
 	 */
 	public function getDocComment () {}
@@ -1054,6 +1058,25 @@ class ReflectionClass implements Reflector {
 	 * @since 5.0
 	 */
 	public function getProperties ($filter = null) {}
+
+	/**
+	 * Gets a ReflectionClassConstant for a class's property
+	 * @link http://php.net/manual/en/reflectionclass.getreflectionconstant.php
+	 * @param string $name <p>
+	 * The class constant name.
+	 * </p>
+	 * @return ReflectionClassConstant A ReflectionClassConstant.
+	 * @since 7.1
+	 */
+	public function getReflectionConstant ($name) {}
+
+	/**
+	 * Gets class constants
+	 * @link http://php.net/manual/en/reflectionclass.getreflectionconstants.php
+	 * @return ReflectionClassConstant[] An array of ReflectionClassConstant objects.
+	 * @since 7.1
+	 */
+	public function getReflectionConstants () {}
 
 	/**
 	 * Checks if constant is defined
@@ -1269,7 +1292,7 @@ class ReflectionClass implements Reflector {
 	 * @param string $name <p>
 	 * Property name.
 	 * </p>
-	 * @param string $value <p>
+	 * @param mixed $value <p>
 	 * New property value.
 	 * </p>
 	 * @return void No value is returned.
@@ -1296,6 +1319,13 @@ class ReflectionClass implements Reflector {
 	 * @since 5.0
 	 */
 	public function isIterateable () {}
+
+	/**
+	 * Checks if iterateable
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @since 7.2
+	 */
+	public function isIterable () {}
 
 	/**
 	 * Implements interface
@@ -1435,6 +1465,7 @@ class ReflectionProperty implements Reflector {
 	 * @param string $name <p>
 	 * The name of the property being reflected.
 	 * </p>
+	 * @throws \ReflectionException if the class or property does not exist.
 	 * @since 5.0
 	 */
 	public function __construct ($class, $name) {}
@@ -1554,7 +1585,7 @@ class ReflectionProperty implements Reflector {
 	/**
 	 * Gets doc comment
 	 * @link http://php.net/manual/en/reflectionproperty.getdoccomment.php
-	 * @return string The doc comment.
+	 * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
 	 * @since 5.1.0
 	 */
 	public function getDocComment () {}
@@ -1612,6 +1643,7 @@ class ReflectionExtension implements Reflector {
 	 * @param string $name <p>
 	 * Name of the extension.
 	 * </p>
+	 * @throws \ReflectionException if the extension does not exist.
 	 * @since 5.0
 	 */
 	public function __construct ($name) {}
@@ -1759,6 +1791,7 @@ class ReflectionZendExtension implements Reflector {
 	 * @link http://php.net/manual/en/reflectionzendextension.construct.php
 	 * @param string $name <p>
 	 * </p>
+	 * @throws \ReflectionException if the extension does not exist.
 	 * @since 5.4.0
 	 */
 	public function __construct ($name) {}
@@ -1963,10 +1996,136 @@ class ReflectionType
 	 * @link http://php.net/manual/en/reflectiontype.tostring.php
 	 * @return string Returns the type of the parameter.
 	 * @since 7.0
+	 * @deprecated 7.1.0:8.0.0 Please use getName()
+	 * @see \ReflectionType::getName()
 	 */
 	public function __toString()
 	{
 	}
+
+	/**
+	 * Get type of the parameter.
+	 * @return string Returns the type of the parameter.
+	 * @since 7.1.0
+	 */
+	public function getName()
+	{
+	}
+
+    public function __clone() {}
+
+}
+
+/**
+ * The ReflectionClassConstant class reports information about a class constant.
+ * @since 7.1
+ */
+class ReflectionClassConstant implements Reflector {
+
+    public $name ;
+    public $class ;
+
+    /**
+     * ReflectionClassConstant constructor.
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.construct.php
+     * @param mixed $class Either a string containing the name of the class to reflect, or an object.
+     * @param string $name The name of the class constant.
+     * @return ReflectionClassConstant
+     */
+    public function __construct($class, $name) {}
+
+    /**
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.export.php
+     * @param mixed $class The reflection to export.
+     * @param string $name The class constant name.
+     * @param bool $return Setting to TRUE will return the export, as opposed to emitting it. Setting to FALSE (the default) will do the opposite.
+     * @return string
+     */
+	public static function export($class, $name, $return) {}
+
+    /**
+     * Gets declaring class
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.getdeclaringclass.php
+     * @return ReflectionClass
+     */
+	public function getDeclaringClass() {}
+
+    /**
+     * Gets doc comments
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.getdoccomment.php
+     * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
+     */
+	public function getDocComment() {}
+
+    /**
+     * Gets the class constant modifiers
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.getmodifiers.php
+     * @return int
+     */
+	public function getModifiers() {}
+
+    /**
+     * Get name of the constant
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.getname.php
+     * @return string
+     */
+	public function getName() {}
+
+    /**
+     * Gets value
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.getvalue.php
+     * @return mixed
+     */
+	public function getValue() {}
+
+    /**
+     * Checks if class constant is private
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.isprivate.php
+     * @return bool
+     */
+	public function isPrivate() {}
+
+    /**
+     * Checks if class constant is protected
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.isprotected.php
+     * @return bool
+     */
+	public function isProtected() {}
+
+    /**
+     * Checks if class constant is public
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.ispublic.php
+     * @param bool
+     */
+	public function isPublic() {}
+
+    /**
+     * Returns the string representation of the ReflectionClassConstant object.
+     * @since 7.1
+     * @link http://php.net/manual/en/reflectionclassconstant.tostring.php
+     * @return string|void
+     */
+	public function __toString() {}
+
+    public function __clone() {}
+
+}
+
+/**
+ * @since 7.1
+ */
+class ReflectionNamedType extends ReflectionType{
+
 }
 
 // End of Reflection v.$Id: bcdcdaeea3aba34a8083bb62c6eda69ff3c3eab5 $

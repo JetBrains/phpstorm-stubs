@@ -185,7 +185,7 @@ function ssh2_connect ($host, $port = null, array $methods = null , array $callb
  * An SSH connection link identifier, obtained from a call to
  * ssh2_connect.
  * </p>
- * @return array 
+ * @return array
  */
 function ssh2_methods_negotiated ($session) {}
 
@@ -323,7 +323,7 @@ function ssh2_forward_accept () {}
  * SSH2_TERM_UNIT_CHARS or
  * SSH2_TERM_UNIT_PIXELS.
  * </p>
- * @return resource 
+ * @return resource
  */
 function ssh2_shell ($session, $term_type = null, array $env = null , $width = null, $height = null, $width_height_type = null) {}
 
@@ -370,7 +370,7 @@ function ssh2_exec ($session, $command, $pty = null, array $env = null , $width 
  * </p>
  * @param int $port <p>
  * </p>
- * @return resource 
+ * @return resource
  */
 function ssh2_tunnel ($session, $host, $port) {}
 
@@ -674,6 +674,32 @@ function ssh2_publickey_remove ($pkey, $algoname, $blob) {}
  */
 function ssh2_publickey_list ($pkey) {}
 
+/**
+ * (PECL ssh2 &gt;= 0.12)<br/>
+ * ssh2_sftp_chmod — Changes file mode
+ * @link http://php.net/manual/en/function.ssh2-sftp-chmod.php
+ * @param resource $sftp <p>An SSH2 SFTP resource opened by ssh2_sftp().</p>
+ * @param string $filename <p>Path to the file.</p>
+ * @param int $mode <p>Permissions on the file. See the chmod() for more details on this parameter.</p>
+ * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
+ */
+function ssh2_sftp_chmod ($sftp, $filename, $mode) {}
+
+/**
+ * (PECL ssh2 &gt;= 0.12)<br/>
+ * ssh2_auth_agent — Authenticate over SSH using the ssh agent
+ * @link http://php.net/manual/en/function.ssh2-auth-agent.php
+ * <p>
+ * Authenticate over SSH using the ssh agent
+ * </p>
+ * <p>
+ * Note: The ssh2_auth_agent() function will only be available when the ssh2 extension is compiled with libssh >= 1.2.3.
+ * </p>
+ * @param resource $session <p>An SSH connection link identifier, obtained from a call to ssh2_connect().</p>
+ * @param string $username <p>Remote user name.</p>
+ * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
+ */
+function ssh2_auth_agent ($session, $username) {}
 
 /**
  * Flag to ssh2_fingerprint requesting hostkey

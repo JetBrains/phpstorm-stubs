@@ -286,6 +286,8 @@ define ('FILTER_VALIDATE_FLOAT', 259);
  */
 define ('FILTER_VALIDATE_REGEXP', 272);
 
+define('FILTER_VALIDATE_DOMAIN', 277);
+
 /**
  * ID of "validate_url" filter.
  * @link http://php.net/manual/en/filter.constants.php
@@ -500,7 +502,7 @@ define ('FILTER_FLAG_NO_RES_RANGE', 4194304);
  */
 define ('FILTER_FLAG_NO_PRIV_RANGE', 8388608);
 
-
+define('FILTER_FLAG_HOSTNAME', 1048576);
 define('FILTER_FLAG_EMAIL_UNICODE', 1048576);
 // End of filter v.0.11.0
 ?>

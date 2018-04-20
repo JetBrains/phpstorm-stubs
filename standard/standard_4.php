@@ -30,12 +30,11 @@ function error_get_last () {}
  * ]]>
  * &example.outputs;
  * </p>
- * @param mixed $_ [optional] 
  * @return mixed the function result, or false on error.
  * @since 4.0
  * @since 5.0
  */
-function call_user_func ($function, $parameter = null, $_ = null) {}
+function call_user_func ($function, ...$parameter) {}
 
 /**
  * Call a user function given with an array of parameters
@@ -324,14 +323,15 @@ function register_tick_function ($function, $arg = null, $_ = null) {}
 /**
  * De-register a function for execution on each tick
  * @link http://php.net/manual/en/function.unregister-tick-function.php
- * @param string $function_name <p>
- * The function name, as a string.
+ * @param callable $function <p>
+ * The function name as a string, or an array consisting of an object and
+ * a method.
  * </p>
  * @return void 
  * @since 4.0.3
  * @since 5.0
  */
-function unregister_tick_function ($function_name) {}
+function unregister_tick_function ($function) {}
 
 /**
  * Syntax highlighting of a file
@@ -595,7 +595,7 @@ function restore_include_path () {}
  * @since 4.0
  * @since 5.0
  */
-function setcookie ($name, $value = null, $expire = null, $path = null, $domain = null, $secure = null, $httponly = null) {}
+function setcookie ($name, $value = "", $expire = 0, $path = "", $domain = "", $secure = false, $httponly = false) {}
 
 /**
  * Send a cookie without urlencoding the cookie value
@@ -610,7 +610,7 @@ function setcookie ($name, $value = null, $expire = null, $path = null, $domain 
  * @return bool true on success or false on failure.
  * @since 5.0
  */
-function setrawcookie ($name, $value = null, $expire = null, $path = null, $domain = null, $secure = null, $httponly = null) {}
+function setrawcookie ($name, $value = null, $expire = 0, $path = "", $domain = "", $secure = false, $httponly = false) {}
 
 /**
  * Send a raw HTTP header
@@ -763,7 +763,7 @@ function ignore_user_abort ($value = null) {}
  * @since 4.0
  * @since 5.0
  */
-function parse_ini_file ($filename, $process_sections = null, $scanner_mode = null) {}
+function parse_ini_file ($filename, $process_sections = false, $scanner_mode = INI_SCANNER_NORMAL) {}
 
 /**
  * Parse a configuration string
@@ -786,7 +786,7 @@ function parse_ini_file ($filename, $process_sections = null, $scanner_mode = nu
  * and false on failure.
  * @since 5.3.0
  */
-function parse_ini_string ($ini, $process_sections = null, $scanner_mode = null) {}
+function parse_ini_string ($ini, $process_sections = false, $scanner_mode = INI_SCANNER_NORMAL) {}
 
 /**
  * Tells whether the file was uploaded via HTTP POST
@@ -1146,4 +1146,4 @@ function getmxrr ($hostname, array &$mxhosts, array &$weight = null) {}
  * </table>
  * @since 5.0
  */
-function dns_get_record ($hostname, $type = null, array &$authns = null, array &$addtl = null, &$raw = false) {}
+function dns_get_record ($hostname, $type = DNS_ANY, array &$authns = null, array &$addtl = null, &$raw = false) {}

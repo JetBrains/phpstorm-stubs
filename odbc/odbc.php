@@ -1012,6 +1012,24 @@ define ('SQL_LONGVARBINARY', -4);
 define ('SQL_DATE', 9);
 define ('SQL_TIME', 10);
 define ('SQL_TIMESTAMP', 11);
+define ('SQL_TYPE_DATE', 91);
+define ('SQL_TYPE_TIME', 92);
+define ('SQL_TYPE_TIMESTAMP', 93);
+define ('SQL_WCHAR', -8);
+define ('SQL_WVARCHAR', -9);
+define ('SQL_WLONGVARCHAR', -10);
+define ('SQL_BEST_ROWID', 1);
+define ('SQL_ROWVER', 2);
+define ('SQL_SCOPE_CURROW', 0);
+define ('SQL_SCOPE_TRANSACTION', 1);
+define ('SQL_SCOPE_SESSION', 2);
+define ('SQL_NO_NULLS', 0);
+define ('SQL_NULLABLE', 1);
+define ('SQL_INDEX_UNIQUE', 0);
+define ('SQL_INDEX_ALL', 1);
+define ('SQL_ENSURE', 1);
+define ('SQL_QUICK', 0);
+
 
 // End of odbc v.1.0
 ?>

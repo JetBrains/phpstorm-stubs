@@ -14,7 +14,7 @@ class PharException extends Exception  {
  * phar archives.
  * @link http://php.net/manual/en/class.phar.php
  */
-class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, SeekableIterator, Traversable, Iterator, Countable, ArrayAccess {
+class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, SeekableIterator, Countable, ArrayAccess {
 	const BZ2 = 8192;
 	const GZ = 4096;
 	const NONE = 0;
@@ -60,12 +60,9 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * @param string $dirname <p>
 	 * The name of the empty directory to create in the phar archive
 	 * </p>
-	 * @param int $levels
-	 * The number of parent directories to go up.
-	 * This must be an integer greater than 0.
 	 * @return void no return value, exception is thrown on failure.
 	 */
-	public function addEmptyDir ($dirname, $levels = 1) {}
+	public function addEmptyDir ($dirname) {}
 
 	/**
 	 * (Unknown)<br/>
@@ -878,6 +875,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 */
 	public function seek ($position) {}
 
+    public function _bad_state_ex (){}
+
 }
 
 /**
@@ -1157,6 +1156,8 @@ class PharFileInfo extends SplFileInfo  {
 	 * @return void No value is returned.
 	 */
 	public function setMetadata ($metadata) {}
+
+    public function _bad_state_ex (){}
 
 }
 // End of Phar v.2.0.1

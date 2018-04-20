@@ -176,14 +176,14 @@ function array_pad(array $input, $pad_size, $pad_value) { }
 /**
  * Exchanges all keys with their associated values in an array
  * @link http://php.net/manual/en/function.array-flip.php
- * @param array $trans <p>
+ * @param array $array <p>
  * An array of key/value pairs to be flipped.
  * </p>
- * @return array|bool the flipped array on success and false on failure.
+ * @return array|null Returns the flipped array on success and NULL on failure.
  * @since 4.0
  * @since 5.0
  */
-function array_flip(array $trans) { }
+function array_flip(array $array) { }
 
 /**
  * Changes all keys in an array
@@ -232,13 +232,27 @@ function array_rand(array $input, $num_req = null) { }
  * </p>
  * <p>
  * Sorting type flags:
- * SORT_REGULAR - compare items normally
+ * </p><ul>
+ * <li>
+ * <b>SORT_REGULAR</b> - compare items normally
  * (don't change types)
+ * </li>
+ * <li>
+ * <b>SORT_NUMERIC</b> - compare items numerically
+ * </li>
+ * <li>
+ * <b>SORT_STRING</b> - compare items as strings
+ * </li>
+ * <li>
+ * <b>SORT_LOCALE_STRING</b> - compare items as strings,
+ * based on the current locale
+ * </li>
+ * </ul>
  * @return array the filtered array.
  * @since 4.0.1
  * @since 5.0
  */
-function array_unique(array $array, $sort_flags = null) { }
+function array_unique(array $array, $sort_flags = SORT_STRING) { }
 
 /**
  * Computes the intersection of arrays
@@ -917,6 +931,12 @@ function str_rot13($str) { }
  * @since 5.0
  */
 function stream_get_filters() { }
+
+/**
+ * @param resource $name
+ * @since 7.2
+ */
+function stream_isatty($name) {}
 
 /**
  * Register a user defined stream filter

@@ -451,7 +451,7 @@ define ('CURL_NETRC_REQUIRED', 2);
 define ('CURL_HTTP_VERSION_NONE', 0);
 define ('CURL_HTTP_VERSION_1_0', 1);
 define ('CURL_HTTP_VERSION_1_1', 2);
-define ('CURLOPT_HTTP_VERSION_2_0', 3);
+define ('CURL_HTTP_VERSION_2_0', 3);
 define ('CURLM_CALL_MULTI_PERFORM', -1);
 define ('CURLM_OK', 0);
 define ('CURLM_BAD_HANDLE', 1);
@@ -578,6 +578,18 @@ define('CURLAUTH_NTLM_WB', 32);
  * @since 7.0.7
  */
 define('CURL_HTTP_VERSION_2', 3);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURL_HTTP_VERSION_2TLS', 4);
+
+/**
+ * @link http://php.net/manual/en/curl.constants.php
+ * @since 7.0.7
+ */
+define('CURL_HTTP_VERSION_2_PRIOR_KNOWLEDGE', 5);
 
 /**
  * @link http://php.net/manual/en/curl.constants.php
@@ -832,3 +844,380 @@ define('CURL_PUSH_OK', 0);
  * @since 7.1
  */
 define('CURL_PUSH_DENY',1);
+
+
+/**
+ * @since 5.5
+ */
+
+define ('CURLOPT_FTP_RESPONSE_TIMEOUT', 112);
+/**
+ * @since 5.5
+ */
+define('CURLOPT_RESOLVE', 10203);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_APPEND', 50);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_DIRLISTONLY', 48);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_NEW_DIRECTORY_PERMS', 160);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_NEW_FILE_PERMS', 159);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_NETRC_FILE', 10118);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_PREQUOTE',10093);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_KRBLEVEL',10063);
+
+/**
+ * @since 5.5
+ */
+define ('CURLOPT_MAXFILESIZE', 114);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_FTP_ACCOUNT', 10134);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_COOKIELIST', 10135);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_LOCALPORT', 139);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_LOCALPORTRANGE', 140);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_FTP_ALTERNATIVE_TO_USER', 10147);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_SSL_SESSIONID_CACHE', 150);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_FTP_SSL_CCC', 154);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_HTTP_CONTENT_DECODING', 158);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_HTTP_TRANSFER_DECODING', 157);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_PROXY_TRANSFER_MODE', 166);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_ADDRESS_SCOPE', 171);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_CRLFILE', 10169);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_ISSUERCERT', 10170);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_USERNAME', 10173);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_PASSWORD', 10174);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_PROXYUSERNAME', 10175);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_PROXYPASSWORD', 10176);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_NOPROXY', 10177);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_SOCKS5_GSSAPI_NEC', 180);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_SOCKS5_GSSAPI_SERVICE', 10179);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_TFTP_BLKSIZE', 178);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_SSH_KNOWNHOSTS', 10183);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_FTP_USE_PRET', 188);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_MAIL_FROM', 10186);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_MAIL_RCPT', 10187);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_RTSP_CLIENT_CSEQ', 193);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_RTSP_SERVER_CSEQ', 194);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_RTSP_SESSION_ID', 10190);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_RTSP_STREAM_URI', 10191);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_RTSP_TRANSPORT', 10192);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_RTSP_REQUEST', 189);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_IGNORE_CONTENT_LENGTH', 136);
+/**
+ * @since 5.5
+ */
+define('CURLOPT_ACCEPT_ENCODING', 10102);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_TRANSFER_ENCODING', 207);
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_DNS_SERVERS', 10211);
+
+
+/**
+ * @since 5.5
+ */
+define('CURLOPT_USE_SSL', 119);
+
+define("CURLOPT_TELNETOPTIONS",10070);
+define("CURLE_BAD_DOWNLOAD_RESUME",36);
+define("CURLE_FTP_PARTIAL_FILE",18);
+define("CURLE_HTTP_RETURNED_ERROR",22);
+define("CURLE_OPERATION_TIMEDOUT",28);
+define("CURLE_SSL_PINNEDPUBKEYNOTMATCH",90);
+define("CURLINFO_LASTONE",45);
+define("CURLM_ADDED_ALREADY",7);
+define("CURLSHOPT_NONE",0);
+define("CURL_TIMECOND_NONE",0);
+define("CURLAUTH_NONE",0);
+define("CURLE_SSL_CACERT_BADFILE",77);
+/**
+ * @since 5.3
+ */
+define("CURLE_SSH",79);
+define("CURLFTPSSL_CCC_ACTIVE",2);
+define("CURLFTPSSL_CCC_NONE",0);
+define("CURLFTPSSL_CCC_PASSIVE",1);
+define("CURLUSESSL_ALL",3);
+define("CURLUSESSL_CONTROL",2);
+define("CURLUSESSL_NONE",0);
+define("CURLUSESSL_TRY",1);
+/**
+ * @since 5.5
+ */
+define("CURLPAUSE_ALL",5);
+/**
+ * @since 5.5
+ */
+define("CURLPAUSE_CONT",0);
+/**
+ * @since 5.5
+ */
+define("CURLPAUSE_RECV",1);
+/**
+ * @since 5.5
+ */
+define("CURLPAUSE_RECV_CONT",0);
+/**
+ * @since 5.5
+ */
+define("CURLPAUSE_SEND",4);
+/**
+ * @since 5.5
+ */
+define("CURLPAUSE_SEND_CONT",0);
+define("CURL_READFUNC_PAUSE",268435457);
+define("CURL_WRITEFUNC_PAUSE",268435457);
+/**
+ * @since 5.5.23
+ */
+define("CURLPROXY_SOCKS4A",6);
+/**
+ * @since 5.5.23
+ */
+define("CURLPROXY_SOCKS5_HOSTNAME",7);
+
+define("CURLSSH_AUTH_ANY",-1);
+define("CURLSSH_AUTH_DEFAULT",-1);
+define("CURLSSH_AUTH_HOST",4);
+define("CURLSSH_AUTH_KEYBOARD",8);
+define("CURLSSH_AUTH_NONE",0);
+define("CURLSSH_AUTH_PASSWORD",2);
+define("CURLSSH_AUTH_PUBLICKEY",1);
+define("CURLAUTH_DIGEST_IE",16);
+define("CURLPROTO_IMAP",4096);
+define("CURLPROTO_IMAPS",8192);
+define("CURLPROTO_POP3",16384);
+define("CURLPROTO_POP3S",32768);
+define("CURLPROTO_RTSP",262144);
+define("CURLPROTO_SMTP",65536);
+define("CURLPROTO_SMTPS",131072);
+define("CURL_RTSPREQ_ANNOUNCE",3);
+define("CURL_RTSPREQ_DESCRIBE",2);
+define("CURL_RTSPREQ_GET_PARAMETER",8);
+define("CURL_RTSPREQ_OPTIONS",1);
+define("CURL_RTSPREQ_PAUSE",6);
+define("CURL_RTSPREQ_PLAY",5);
+define("CURL_RTSPREQ_RECEIVE",11);
+define("CURL_RTSPREQ_RECORD",10);
+define("CURL_RTSPREQ_SET_PARAMETER",9);
+define("CURL_RTSPREQ_SETUP",4);
+define("CURL_RTSPREQ_TEARDOWN",7);
+define("CURLOPT_FNMATCH_FUNCTION",20200);
+define("CURLOPT_WILDCARDMATCH",197);
+define("CURLPROTO_RTMP",524288);
+define("CURLPROTO_RTMPE",2097152);
+define("CURLPROTO_RTMPS",8388608);
+define("CURLPROTO_RTMPT",1048576);
+define("CURLPROTO_RTMPTE",4194304);
+define("CURLPROTO_RTMPTS",16777216);
+define("CURL_FNMATCHFUNC_FAIL",2);
+define("CURL_FNMATCHFUNC_MATCH",0);
+define("CURL_FNMATCHFUNC_NOMATCH",1);
+define("CURLPROTO_GOPHER",33554432);
+define("CURLAUTH_ONLY",2147483648);
+define("CURLOPT_TLSAUTH_PASSWORD",10205);
+define("CURLOPT_TLSAUTH_TYPE",10206);
+define("CURLOPT_TLSAUTH_USERNAME",10204);
+define("CURL_TLSAUTH_SRP",1);
+define("CURLGSSAPI_DELEGATION_FLAG",2);
+define("CURLGSSAPI_DELEGATION_POLICY_FLAG",1);
+define("CURLOPT_GSSAPI_DELEGATION",210);
+define("CURLOPT_ACCEPTTIMEOUT_MS",212);
+define("CURLOPT_MAIL_AUTH",10217);
+/**
+ * @since 5.5.0
+ */
+define("CURLOPT_SSL_OPTIONS",216);
+define("CURLOPT_TCP_KEEPALIVE",213);
+define("CURLOPT_TCP_KEEPIDLE",214);
+define("CURLOPT_TCP_KEEPINTVL",215);
+/**
+ * @since 5.5.0
+ */
+define("CURLSSLOPT_ALLOW_BEAST",1);
+/**
+ * @since 5.5.24
+ */
+define("CURL_VERSION_HTTP2",65536);
+/**
+ * @since 7.0.7
+ */
+define("CURLSSLOPT_NO_REVOKE",2);
+/**
+ * @since 7.0.7
+ */
+define("CURLOPT_DEFAULT_PROTOCOL",10238);
+/**
+ * @since 7.0.7
+ */
+define("CURLOPT_STREAM_WEIGHT",239);
+/**
+ * @since 7.0.7
+ */
+define("CURLOPT_TFTP_NO_OPTIONS",242);
+/**
+ * @since 7.0.7
+ */
+define("CURLOPT_CONNECT_TO",10243);
+/**
+ * @since 7.0.7
+ */
+define("CURLOPT_TCP_FASTOPEN",244);

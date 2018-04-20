@@ -6,7 +6,7 @@
  * Represents an element in an XML document.
  * @link http://php.net/manual/en/class.simplexmlelement.php
  */
-class SimpleXMLElement implements Traversable {
+class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
 
 	/**
 	 * Creates a new SimpleXMLElement object
@@ -23,10 +23,11 @@ class SimpleXMLElement implements Traversable {
 
 	/**
      * Provides access to element's children
-     * @param $name child name
-     * @return SimpleXMLElement[]
+     * @access private Method not callable directly, stub exists for typehint only
+     * @param string $name child name
+     * @return SimpleXMLElement
      */
-    function __get($name) {}
+    private function __get($name) {}
 
 	/**
 	 * Return a well-formed XML string based on SimpleXML element
@@ -215,13 +216,45 @@ class SimpleXMLElement implements Traversable {
 	 */
 	public function count () {}
 
+    /**
+     * Class provides access to children by position, and attributes by name
+     * @access private Method not callable directly, stub exists for typehint only
+     * @param string|int $offset
+     * @return boolean true on success or false on failure.
+     */
+    private function offsetExists ($offset) {}
+
+    /**
+     * Class provides access to children by position, and attributes by name
+     * @access private Method not callable directly, stub exists for typehint only
+     * @param string|int $offset
+     * @return SimpleXMLElement Either a named attribute or an element from a list of children
+     */
+    private function offsetGet ($offset) {}
+
+    /**
+     * Class provides access to children by position, and attributes by name
+     * @access private Method not callable directly, stub exists for typehint only
+     * @param string|int $offset
+     * @param mixed $value
+     * @return void
+     */
+    private function offsetSet ($offset, $value) {}
+
+    /**
+     * Class provides access to children by position, and attributes by name
+     * @access private Method not callable directly, stub exists for typehint only
+     * @param string|int $offset
+     * @return void
+     */
+    private function offsetUnset ($offset) {}
 }
 
 /**
  * The SimpleXMLIterator provides recursive iteration over all nodes of a <b>SimpleXMLElement</b> object.
  * @link http://php.net/manual/en/class.simplexmliterator.php
  */
-class SimpleXMLIterator extends SimpleXMLElement implements Traversable, RecursiveIterator, Iterator, Countable {
+class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, Countable {
 
 	/**
 	 * Rewind to the first element

@@ -600,13 +600,13 @@ define ('FILE_BINARY', 0);
  * Disable backslash escaping.
  * @link http://php.net/manual/en/filesystem.constants.php
  */
-define ('FNM_NOESCAPE', 2);
+define ('FNM_NOESCAPE', 1);
 
 /**
  * Slash in string only matches slash in the given pattern.
  * @link http://php.net/manual/en/filesystem.constants.php
  */
-define ('FNM_PATHNAME', 1);
+define ('FNM_PATHNAME', 2);
 
 /**
  * Leading period in string must be exactly matched by period in the given pattern.
@@ -714,6 +714,8 @@ define ('RADIXCHAR', 65536);
 define ('THOUSEP', 65537);
 define ('YESEXPR', 327680);
 define ('NOEXPR', 327681);
+define ('YESSTR', 54);
+define ('NOSTR', 55);
 define ('CODESET', 14);
 define ('CRYPT_SALT_LENGTH', 123);
 define ('CRYPT_STD_DES', 1);
@@ -803,6 +805,7 @@ define ('ASSERT_CALLBACK', 2);
 define ('ASSERT_BAIL', 3);
 define ('ASSERT_WARNING', 4);
 define ('ASSERT_QUIET_EVAL', 5);
+define ('ASSERT_EXCEPTION', 6);
 
 /**
  * Flag indicating if the stream
@@ -1021,6 +1024,8 @@ define('IMAGETYPE_WEBP', 18);
  * @link http://php.net/manual/en/network.constants.php
  */
 define ('DNS_A', 1);
+
+define('DNS_CAA', 8192);
 
 /**
  * Authoritative Name Server Resource

@@ -631,7 +631,7 @@ function stream_supports_lock ($stream) {}
  * @param string $escape [optional] <p>
  * Set the escape character (one character only). Defaults as a backslash.
  * </p>
- * @return array an indexed array containing the fields read.
+ * @return array|null|false an indexed array containing the fields read.
  * </p>
  * <p>
  * A blank line in a CSV file will be returned as an array
@@ -646,7 +646,7 @@ function stream_supports_lock ($stream) {}
  * @since 4.0
  * @since 5.0
  */
-function fgetcsv ($handle, $length = null, $delimiter = null, $enclosure = null, $escape = null) {}
+function fgetcsv ($handle, $length = 0, $delimiter = ',', $enclosure = '"', $escape = '\\') {}
 
 /**
  * Format line as CSV and write to file pointer
@@ -1045,7 +1045,7 @@ function stream_is_local ($stream_or_url) {}
  * failure.
  * @since 5.0
  */
-function get_headers ($url, $format = null, resource $context) {}
+function get_headers ($url, $format = null, $context) {}
 
 /**
  * Set timeout period on a stream
@@ -1149,7 +1149,7 @@ function socket_set_timeout ($stream, $seconds, $microseconds = 0) {}
  * @since 4.3.0
  * @since 5.0
  */
-function socket_get_status (resource $stream) {}
+function socket_get_status ($stream) {}
 
 /**
  * Returns canonicalized absolute pathname

@@ -289,7 +289,7 @@ function strtotime ($time, $now = 'time()') {}
  * @since 4.0
  * @since 5.0
  */
-function date ($format, $timestamp = null) {}
+function date ($format, $timestamp = 'time()') {}
 
 /**
  * Format a local time/date as integer
@@ -446,6 +446,9 @@ function gmdate ($format, $timestamp = null) {}
  * As of PHP 5.1.0, this parameter became deprecated. As a result, the
  * new timezone handling features should be used instead.
  * </p>
+ * <p>
+ * This parameter has been removed in PHP 7.0.0.
+ * </p>
  * @return int|false mktime returns the Unix timestamp of the arguments
  * given.
  * If the arguments are invalid, the function returns false (before PHP 5.1
@@ -453,7 +456,7 @@ function gmdate ($format, $timestamp = null) {}
  * @since 4.0
  * @since 5.0
  */
-function mktime ($hour = null, $minute = null, $second = null, $month = null, $day = null, $year = null, $is_dst = null) {}
+function mktime ($hour = null, $minute = null, $second = null, $month = null, $day = null, $year = null, $is_dst = -1) {}
 
 /**
  * Get Unix timestamp for a GMT date
@@ -928,6 +931,16 @@ function date_create ($time = null, DateTimeZone $timezone = null ) {}
 function date_create_immutable ($time = null, DateTimeZone $timezone = null ) {}
 
 /**
+ * Returns new DateTimeImmutable object formatted according to the specified format
+ * @link http://php.net/manual/en/function.date-create-immutable-from-format.php
+ * @param string $format
+ * @param string $time
+ * @param DateTimeZone $timezone [optional]
+ * @return DateTimeImmutable
+ */
+function date_create_immutable_from_format ($format, $time, DateTimeZone $timezone = null) {}
+
+/**
  * Alias:
  * {@see DateTime::createFromFormat}
  * @link http://php.net/manual/en/function.date-create-from-format.php
@@ -1094,11 +1107,12 @@ function date_diff ($object, $object2, $absolute) {}
  * @param $hour
  * @param $minute
  * @param $second [optional]
+ * @parame $microseconds [optional]
  * @return DateTime|false <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  * @since 5.2.0
  */
-function date_time_set ($object, $hour, $minute, $second) {}
+function date_time_set ($object, $hour, $minute, $second, $microseconds) {}
 
 /**
  * &Alias; <methodname>DateTime::setDate</methodname>

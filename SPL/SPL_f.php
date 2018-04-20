@@ -190,4 +190,12 @@ function iterator_apply ($iterator, $function, array $args = null) {}
  * @since 5.4.0
  */
 function class_uses($class, bool $autoload = true ) {}
+
+/**
+ * @param object $obj
+ * @return int
+ * @since 7.2
+ */
+function spl_object_id($obj) {}
+
 ?>

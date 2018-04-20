@@ -213,10 +213,13 @@ class mysqli  {
 	/**
 	 * Commits the current transaction
 	 * @link http://php.net/manual/en/mysqli.commit.php
+	 * @param int $flags A bitmask of MYSQLI_TRANS_COR_* constants.
+	 * @param string $name If provided then COMMIT $name is executed.
 	 * @return bool true on success or false on failure.
+	 * @since 5.5 Added flags and name parameters.
 	 * @since 5.0
 	 */
-	public function commit () {}
+	public function commit ($flags = null, $name = null) {}
 
 	/**
 	 * @param $host [optional]
@@ -1133,7 +1136,7 @@ class mysqli_result implements Traversable  {
 	 * row or null if there are no more rows in resultset.
 	 * @since 5.0
 	 */
-	public function fetch_object ($class_name = null, array $params = null) {}
+	public function fetch_object ($class_name = 'stdClass', array $params = null) {}
 
 	/**
 	 * Get a result row as an enumerated array
@@ -1320,7 +1323,7 @@ class mysqli_stmt  {
 	 * @return bool true on success or false on failure.
 	 * @since 5.0
 	 */
-	public function bind_param ($types, &$var1, &$_ = null) {}
+	public function bind_param ($types, &$var1, &...$_) {}
 
 	/**
 	 * Binds variables to a prepared statement for result storage
@@ -1751,7 +1754,7 @@ function mysqli_fetch_assoc ($result) {}
  * To access the other column(s) of the same name,
  * you either need to access the result with numeric indices by using mysqli_fetch_row() or add alias names.
  */
-function mysqli_fetch_object ($result, $class_name = '', $params = null) {}
+function mysqli_fetch_object ($result, $class_name = 'stdClass', $params = null) {}
 
 /**
  * Get a result row as an enumerated array
@@ -1856,6 +1859,48 @@ function mysqli_get_client_version ($link) {}
  * @return string A character string representing the server hostname and the connection type.
  */
 function mysqli_get_host_info ($link) {}
+
+/**
+ * Return information about open and cached links
+ * @return array mysqli_get_links_stats() returns an associative array with three elements, keyed as follows:
+ * <p>
+ * <dl>
+ * <dt>
+ * <code>total</code></dt>
+ * <dd>
+ *
+ * <p>
+ * An integer indicating the total number of open links in
+ * any state.
+ * </p>
+ * </dd>
+ *
+ * <dt>
+ * <code>active_plinks</code></dt>
+ *
+ * <dd>
+ *
+ * <p>
+ * An integer representing the number of active persistent
+ * connections.
+ * </p>
+ * </dd>
+ *
+ * <dt>
+ * <code>cached_plinks</code>
+ *
+ * <dd>
+ *
+ * <p>
+ * An integer representing the number of inactive persistent
+ * connections.
+ * </p>
+ * </dd>
+ *
+ * </dl>
+ * </p>
+ */
+function mysqli_get_links_stats() {}
 
 /**
  * Returns the version of the MySQL protocol used
@@ -2008,13 +2053,13 @@ function mysqli_ping ($link) {}
  * Poll connections
  * @link http://php.net/manual/en/mysqli.poll.php
  * @param array $read
- * @param array $write
  * @param array $error
+ * @param array $reject
  * @param int $sec
  * @param int $usec
  * @return int|bool Returns number of ready connections upon success, FALSE otherwise.
  */
-function mysqli_poll (array &$read = null, array &$write = null, &$error = null, $sec, $usec = 0) {}
+function mysqli_poll (array &$read = null, array &$error = null, &$reject = null, $sec, $usec = 0) {}
 
 /**
  * Prepare an SQL statement for execution
@@ -2241,12 +2286,42 @@ function mysqli_stmt_send_long_data ($stmt, $param_nr, $data) {}
 /**
  * Binds variables to a prepared statement as parameters
  * @link http://php.net/manual/en/mysqli-stmt.bind-param.php
- * @param mysqli_stmt $stmt
- * @param string $types
- * @param mixed $var1
- * @return bool
+ * @param mysqli_stmt $stmt A statement identifier returned by mysqli_stmt_init()
+ * @param string $types <p>
+ * A string that contains one or more characters which specify the types
+ * for the corresponding bind variables:
+ * <table>
+ * Type specification chars
+ * <tr valign="top">
+ * <td>Character</td>
+ * <td>Description</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>i</td>
+ * <td>corresponding variable has type integer</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>d</td>
+ * <td>corresponding variable has type double</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>s</td>
+ * <td>corresponding variable has type string</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>b</td>
+ * <td>corresponding variable is a blob and will be sent in packets</td>
+ * </tr>
+ * </table>
+ * </p>
+ * @param mixed $var1 <p>
+ * The number of variables and length of string
+ * types must match the parameters in the statement.
+ * </p>
+ * @param mixed $_ [optional]
+ * @return bool true on success or false on failure.
  */
-function mysqli_stmt_bind_param ($stmt, $types, &$var1) {}
+function mysqli_stmt_bind_param ($stmt, $types, &$var1, &...$_) {}
 
 /**
  * Binds variables to a prepared statement for result storage
@@ -2334,11 +2409,11 @@ function mysqli_stat ($link) {}
  * Used for establishing secure connections using SSL
  * @link http://www.php.net/manual/en/mysqli.ssl-set.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @param $key The path name to the key file
- * @param $cert The path name to the certificate file
- * @param $ca The path name to the certificate authority file
- * @param $capath The pathname to a directory that contains trusted SSL CA certificates in PEM format
- * @param $cipher A list of allowable ciphers to use for SSL encryption
+ * @param string $key The path name to the key file
+ * @param string $cert The path name to the certificate file
+ * @param string $ca The path name to the certificate authority file
+ * @param string $capath The pathname to a directory that contains trusted SSL CA certificates in PEM format
+ * @param string $cipher A list of allowable ciphers to use for SSL encryption
  * @return bool This function always returns TRUE value.
  * @since 5.0
  */
@@ -3244,3 +3319,15 @@ define('MYSQLI_OPT_SSL_VERIFY_SERVER_CERT', 21);
 define('MYSQLI_SET_CHARSET_DIR', 6);
 /** @link http://php.net/manual/en/mysqli.constants.php */
 define('MYSQLI_SERVER_PS_OUT_PARAMS', 4096);
+
+define('MYSQLI_CLIENT_SSL_VERIFY_SERVER_CERT', 1073741824);
+
+define('MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT', 64);
+define('MYSQLI_CLIENT_CAN_HANDLE_EXPIRED_PASSWORDS', 4194304);
+define('MYSQLI_OPT_CAN_HANDLE_EXPIRED_PASSWORDS', 29);
+define('MYSQLI_STORE_RESULT_COPY_DATA', 16);
+define('MYSQLI_TYPE_JSON', 245);
+define('MYSQLI_TRANS_COR_AND_CHAIN', 1);
+define('MYSQLI_TRANS_COR_AND_NO_CHAIN', 2);
+define('MYSQLI_TRANS_COR_RELEASE', 4);
+define('MYSQLI_TRANS_COR_NO_RELEASE', 8);

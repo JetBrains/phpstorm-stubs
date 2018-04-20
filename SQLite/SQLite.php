@@ -231,7 +231,7 @@ class SQLiteDatabase  {
 /**
  * @link http://php.net/manual/en/ref.sqlite.php
  */
-final class SQLiteResult implements Iterator, Traversable, Countable {
+final class SQLiteResult implements Iterator, Countable {
 
 	/**
 	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
@@ -844,7 +844,7 @@ function sqlite_libencoding () {}
 /**
  * (PHP 5, PECL sqlite &gt;= 1.0.0)<br/>
  * Returns the number of rows that were changed by the most
-   recent SQL statement
+ * recent SQL statement
  * @link http://php.net/manual/en/function.sqlite-changes.php
  * @param $db
  * @return int the number of changed rows.
@@ -1395,4 +1395,12 @@ define ('SQLITE_ROW', 100);
  * @link http://php.net/manual/en/sqlite.constants.php
  */
 define ('SQLITE_DONE', 101);
+
+/**
+ * Specifies that a function created with {@see SQLite3::createFunction()} is deterministic,
+ * i.e. it always returns the same result given the same inputs within a single SQL statement.
+ * @since 7.1.4
+ * @link http://php.net/manual/en/sqlite.constants.php
+ */
+define('SQLITE3_DETERMINISTIC', 2048);
 

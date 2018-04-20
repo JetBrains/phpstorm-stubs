@@ -82,11 +82,12 @@ class Redis
     /**
      * Connects to a Redis instance.
      *
-     * @param  string    $host           can be a host, or the path to a unix domain socket
-     * @param  int       $port           optional
-     * @param  float     $timeout        value in seconds (optional, default is 0.0 meaning unlimited)
-     * @param  int       $retry_interval retry interval in milliseconds.
-     * @return bool                      TRUE on success, FALSE on error.
+     * @param string    $host       can be a host, or the path to a unix domain socket
+     * @param int       $port       optional
+     * @param float     $timeout    value in seconds (optional, default is 0.0 meaning unlimited)
+     * @param null      $reserved   should be null if $retry_interval is specified
+     * @param int       $retry_interval  retry interval in milliseconds.
+     * @return bool                 TRUE on success, FALSE on error.
      * @example
      * <pre>
      * $redis->connect('127.0.0.1', 6379);
@@ -95,7 +96,7 @@ class Redis
      * $redis->connect('/tmp/redis.sock');      // unix domain socket.
      * </pre>
      */
-    public function connect( $host, $port = 6379, $timeout = 0.0, $retry_interval = 0 ) {}
+    public function connect( $host, $port = 6379, $timeout = 0.0, $reserved = null, $retry_interval = 0 ) {}
 
     /**
      * Set the string value in argument as value of the key, with a time to live.
@@ -230,31 +231,34 @@ class Redis
      * many servers connecting to one redis server.
      *
      * Also more than one persistent connection can be made identified by either host + port + timeout
-     * or unix socket + timeout.
+     * or host + persistent_id or unix socket + timeout.
      *
      * This feature is not available in threaded versions. pconnect and popen then working like their non persistent
      * equivalents.
      *
-     * @param string    $host       can be a host, or the path to a unix domain socket
-     * @param int       $port       optional
-     * @param float     $timeout    value in seconds (optional, default is 0 meaning unlimited)
-     * @return bool                 TRUE on success, FALSE on ertcnror.
+     * @param string    $host          can be a host, or the path to a unix domain socket
+     * @param int       $port          optional
+     * @param float     $timeout       value in seconds (optional, default is 0 meaning unlimited)
+     * @param string    $persistent_id identity for the requested persistent connection
+     * @return bool                    TRUE on success, FALSE on ertcnror.
      * <pre>
-     * $redis->connect('127.0.0.1', 6379);
-     * $redis->connect('127.0.0.1');            // port 6379 by default
-     * $redis->connect('127.0.0.1', 6379, 2.5); // 2.5 sec timeout.
-     * $redis->connect('/tmp/redis.sock');      // unix domain socket.
+     * $redis->pconnect('127.0.0.1', 6379);
+     * $redis->pconnect('127.0.0.1');                 // port 6379 by default - same connection like before.
+     * $redis->pconnect('127.0.0.1', 6379, 2.5);      // 2.5 sec timeout and would be another connection than the two before.
+     * $redis->pconnect('127.0.0.1', 6379, 2.5, 'x'); // x is sent as persistent_id and would be another connection than the three before.
+     * $redis->pconnect('/tmp/redis.sock');           // unix domain socket - would be another connection than the four before.
      * </pre>
      */
-    public function pconnect( $host, $port = 6379, $timeout = 0.0 ) {}
+    public function pconnect( $host, $port = 6379, $timeout = 0.0, $persistent_id = null ) {}
 
     /**
      * @see pconnect()
      * @param string    $host
      * @param int       $port
      * @param float     $timeout
+     * @param string    $persistent_id
      */
-    public function popen( $host, $port = 6379, $timeout = 0.0 ) {}
+    public function popen( $host, $port = 6379, $timeout = 0.0, $persistent_id = null ) {}
 
     /**
      * Disconnects from the Redis instance, except when pconnect is used.
@@ -349,10 +353,10 @@ class Redis
     /**
      * Remove specified keys.
      *
-     * @param   int|array   $key1 An array of keys, or an undefined number of parameters, each a key: key1 key2 key3 ... keyN
-     * @param   string      $key2 ...
-     * @param   string      $key3 ...
-     * @return int Number of keys deleted.
+     * @param   string|string[] $key1 An array of keys, or an undefined number of parameters, each a key: key1 key2 key3 ... keyN
+     * @param   string          $key2 ...
+     * @param   string          $key3 ...
+     * @return  int             Number of keys deleted.
      * @link    http://redis.io/commands/del
      * @example
      * <pre>
@@ -368,9 +372,11 @@ class Redis
 
     /**
      * @see del()
-     * @param $key1
-     * @param null $key2
-     * @param null $key3
+     * @param   string|string[] $key1 An array of keys, or an undefined number of parameters, each a key: key1 key2 key3 ... keyN
+     * @param   string          $key2 ...
+     * @param   string          $key3 ...
+     * @return  int             Number of keys deleted.
+     * @link    http://redis.io/commands/del
      */
     public function delete( $key1, $key2 = null, $key3 = null ) {}
 
@@ -406,6 +412,7 @@ class Redis
     /**
      * @see multi()
      * @link    http://redis.io/commands/exec
+     * @return  array
      */
     public function exec( ) {}
 
@@ -648,7 +655,7 @@ class Redis
      * @param   string $value1  String, value to push in key
      * @param   string $value2  Optional
      * @param   string $valueN  Optional
-     * @return  int    The new length of the list in case of success, FALSE in case of Failure.
+     * @return  int|bool    The new length of the list in case of success, FALSE in case of Failure.
      * @link    http://redis.io/commands/lpush
      * @example
      * <pre>
@@ -673,7 +680,7 @@ class Redis
      * @param   string  $value1 String, value to push in key
      * @param   string  $value2 Optional
      * @param   string  $valueN Optional
-     * @return  int     The new length of the list in case of success, FALSE in case of Failure.
+     * @return  int|bool     The new length of the list in case of success, FALSE in case of Failure.
      * @link    http://redis.io/commands/rpush
      * @example
      * <pre>
@@ -2710,9 +2717,10 @@ class Redis
      * @param string $key
      * @param string $hashKey
      * @param string $value
-     * @return int
+     * @return int|bool
      * 1 if value didn't exist and was added successfully,
-     * 0 if the value was already present and was replaced, FALSE if there was an error.
+     * 0 if the value was already present and was replaced,
+     * FALSE if there was an error.
      * @link    http://redis.io/commands/hset
      * @example
      * <pre>
@@ -2779,7 +2787,7 @@ class Redis
      * @param   string  $hashKey1
      * @param   string  $hashKey2
      * @param   string  $hashKeyN
-     * @return  int     Number of deleted fields
+     * @return  int|bool     Number of deleted fields, FALSE if table or key doesn't exist
      * @link    http://redis.io/commands/hdel
      * @example
      * <pre>
@@ -3071,7 +3079,7 @@ class Redis
 
     /**
      * The last error message (if any)
-     * @return  string  A string with the last returned script based error message, or NULL if there is no error
+     * @return  string|null  A string with the last returned script based error message, or NULL if there is no error
      * @example
      * <pre>
      * $redis->eval('this-is-not-lua');

@@ -17,7 +17,7 @@ interface JsonSerializable  {
 	 * which is a value of any type other than a resource.
 	 * @since 5.4.0
 	 */
-    function jsonSerialize ();
+    public function jsonSerialize ();
 
 }
 
@@ -296,7 +296,7 @@ define ('JSON_OBJECT_AS_ARRAY', 1);
 define ('JSON_PARSER_NOTSTRICT', 4);
 
 /**
- * Encodes large integers as their original string value.
+ * Decodes large integers as their original string value.
  * @since 5.4.0
  * @link http://php.net/manual/en/json.constants.php
  */
@@ -315,7 +315,45 @@ define ('JSON_PRESERVE_ZERO_FRACTION', 1024);
  * @link http://php.net/manual/en/json.constants.php
  * @since 7.1
  */
-define('JSON_UNESCAPED_LINE_TERMINATORS', 2048)
+define('JSON_UNESCAPED_LINE_TERMINATORS', 2048);
+
+/**
+ * @since 7.2
+ */
+define('JSON_INVALID_UTF8_IGNORE', 1048576);
+
+/**
+ * @since 7.2
+ */
+define('JSON_INVALID_UTF8_SUBSTITUTE', 2097152);
+
+/**
+ * A key starting with \u0000 character was in the string passed to json_decode() when decoding a JSON object into a PHP object.
+ * Available since PHP 7.0.0.
+ * @link http://php.net/manual/en/json.constants.php
+ * @since 7.0
+ */
+define('JSON_ERROR_INVALID_PROPERTY_NAME',9);
+
+/**
+ * Single unpaired UTF-16 surrogate in unicode escape contained in the JSON string passed to json_encode().
+ * Available since PHP 7.0.0.
+ * @link http://php.net/manual/en/json.constants.php
+ * @since 7.0
+ */
+define('JSON_ERROR_UTF16',10);
+
+/**
+ * @since 7.2
+ **/
+define('JSON_INVALID_UTF8_IGNORE',1048576);
+
+/**
+ * @since 7.2
+ */
+define('JSON_INVALID_UTF8_SUBSTITUTE',2097152);
+
+
 
 // End of json v.1.3.1
 ?>

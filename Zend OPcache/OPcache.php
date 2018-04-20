@@ -55,7 +55,7 @@ function opcache_get_configuration() {}
  * This function checks if a PHP script has been cached in OPCache. 
  * This can be used to more easily detect the "warming" of the cache for a particular script.
  * @link https://secure.php.net/manual/en/function.opcache-is-script-cached.php
- * @param $file The path to the PHP script to be checked.
+ * @param string $file The path to the PHP script to be checked.
  * @return bool Returns TRUE if file is cached in OPCache, FALSE otherwise.
  */
 function opcache_is_script_cached($file) {}

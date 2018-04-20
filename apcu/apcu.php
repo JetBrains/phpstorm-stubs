@@ -136,16 +136,18 @@ function apcu_delete($key){}
 /**
  * Caches a variable in the data store, only if it's not already stored
  * @link http://php.net/manual/en/function.apcu-add.php
- * @param string $key Store the variable using this name. Keys are cache-unique,
+ * @param string|array $key Store the variable using this name. Keys are cache-unique,
  * so attempting to use apcu_add() to store data with a key that already exists will not
  * overwrite the existing data, and will instead return FALSE. (This is the only difference
  * between apcu_add() and apcu_store().)
+ * Array: Names in key, variables in value.
  * @param mixed $var The variable to store
  * @param int $ttl Time To Live; store var in the cache for ttl seconds. After the ttl has passed,
  * the stored variable will be expunged from the cache (on the next request). If no ttl is supplied
  * (or if the ttl is 0), the value will persist until it is removed from the cache manually,
  * or otherwise fails to exist in the cache (clear, restart, etc.).
- * @return bool
+ * @return bool|array Returns TRUE if something has effectively been added into the cache, FALSE otherwise.
+ * Second syntax returns array with error keys.
  */
 function apcu_add($key, $var, $ttl = 0){}
 

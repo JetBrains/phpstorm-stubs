@@ -287,6 +287,8 @@ function xdebug_dump_superglobals () {}
  */
 function xdebug_get_headers () {}
 
+function xdebug_get_formatted_function_stack() {}
+
 define ('XDEBUG_STACK_NO_DESC', 1);
 define ('XDEBUG_TRACE_APPEND', 1);
 define ('XDEBUG_TRACE_COMPUTERIZED', 2);

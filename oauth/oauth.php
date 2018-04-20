@@ -76,6 +76,7 @@ class OAuth {
      * @param string $consumer_secret
      * @param string $signature_method
      * @param int $auth_type
+     * @throws \OAuthException
      */
     public function __construct($consumer_key, $consumer_secret, $signature_method = OAUTH_SIG_METHOD_HMACSHA1, $auth_type = OAUTH_AUTH_TYPE_AUTHORIZATION) { }
 
@@ -128,6 +129,7 @@ class OAuth {
      * @param array $extra_parameters
      * @param string $http_method
      * @param array $http_headers
+     * @throws \OAuthException
      * @return mixed
      */
     public function fetch($protected_resource_url, $extra_parameters = array(), $http_method = null, $http_headers = array()) { }
@@ -137,6 +139,7 @@ class OAuth {
      * @param string $access_token_url
      * @param string $auth_session_handle
      * @param string $verifier_token
+     * @throws \OAuthException
      * @return array
      */
     public function getAccessToken($access_token_url, $auth_session_handle = null, $verifier_token = null) { }
@@ -178,6 +181,7 @@ class OAuth {
      * Fetch a request token
      * @param string $request_token_url
      * @param string $callback_url
+     * @throws \OAuthException
      * @return array
      */
     public function getRequestToken($request_token_url, $callback_url = null) { }
@@ -242,7 +246,7 @@ class OAuth {
 }
 
 /**
- * 
+ *
  */
 class OAuthException extends Exception {
 

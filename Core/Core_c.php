@@ -10,10 +10,15 @@ class stdClass {
 }
 
 /**
+ * @link https://wiki.php.net/rfc/iterable
+ */
+interface iterable {}
+
+/**
  * Interface to detect if a class is traversable using &foreach;.
  * @link http://php.net/manual/en/class.traversable.php
  */
-interface Traversable {
+interface Traversable extends iterable {
 }
 
 /**
@@ -260,6 +265,7 @@ class Exception implements Throwable {
 
     /**
      * Clone the exception
+     * Tries to clone the Exception, which results in Fatal error.
      * @link http://php.net/manual/en/exception.clone.php
      * @return void
      * @since 5.1.0
@@ -343,6 +349,8 @@ class Exception implements Throwable {
      * @since 5.1.0
      */
     public function __toString() { }
+
+    public function __wakeup() { }
 }
 
 /**
@@ -438,6 +446,16 @@ class Error implements Throwable {
      * @since 7.0
      */
     public function __toString(){}
+
+    /**
+     * Clone the error
+     * Error can not be clone, so this method results in fatal error.
+     * @return void
+     * @link http://php.net/manual/en/error.clone.php
+     */
+    private final function __clone(){}
+
+    public function __wakeup(){}
 }
 
 /**
@@ -471,6 +489,15 @@ class AssertionError extends Error {
 }
 
 /**
+ * ArgumentCountError is thrown when too few arguments are passed to a user
+ * defined routine.
+ *
+ * @since 7.1
+ * @see https://php.net/migration71.incompatible#migration71.incompatible.too-few-arguments-exception
+ */
+class ArgumentCountError extends TypeError {}
+
+/**
  * ArithmeticError is thrown when an error occurs while performing mathematical operations.
  * In PHP 7.0, these errors include attempting to perform a bitshift by a negative amount,
  * and any call to {@see intdiv()} that would result in a value outside the possible bounds of an integer.
@@ -486,7 +513,7 @@ class ArithmeticError extends Error {
  * @link http://php.net/manual/en/class.divisionbyzeroerror.php
  * @since 7.0
  */
-class DivisionByZeroError extends Error {
+class DivisionByZeroError extends ArithmeticError {
 
 }
 
@@ -549,7 +576,7 @@ final class Closure {
     public function __invoke(...$_) { }
 
     /**
-     * Closure::bindTo � Duplicates the closure with a new bound object and class scope
+     * Duplicates the closure with a new bound object and class scope
      * @link http://www.php.net/manual/en/closure.bindto.php
      * @param object $newthis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.
      * @param mixed $newscope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.
@@ -589,4 +616,23 @@ final class Closure {
      * @since 7.1
      */
     public static function fromCallable (callable $callable) {}
+}
+
+/**
+ * Classes implementing <b>Countable</b> can be used with the
+ * <b>count</b> function.
+ * @link http://php.net/manual/en/class.countable.php
+ */
+interface Countable {
+
+    /**
+     * Count elements of an object
+     * @link http://php.net/manual/en/countable.count.php
+     * @return int The custom count as an integer.
+     * </p>
+     * <p>
+     * The return value is cast to an integer.
+     * @since 5.1.0
+     */
+    public function count();
 }

@@ -758,7 +758,7 @@ class IntlChar {
      * @return mixed Returns another Unicode code point that may serve as a mirror-image substitute, or codepoint itself if there is no such mapping or codepoint does not have the Bidi_Mirrored property.
      * The return type will be integer unless the code point was passed as a UTF-8 string, in which case a string will be returned.
      */
-    public static function charMirror($codePoint) {}
+    public static function charMirror($codepoint) {}
 
     /**
      * Retrieve the name of a Unicode character

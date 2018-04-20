@@ -1,6 +1,20 @@
 <?php
 
 interface DateTimeInterface {
+    const ATOM = 'Y-m-d\TH:i:sP';
+    const COOKIE = 'l, d-M-y H:i:s T';
+    const ISO8601 = 'Y-m-d\TH:i:sO';
+    const RFC822 = 'D, d M y H:i:s O';
+    const RFC850 = 'l, d-M-y H:i:s T';
+    const RFC1036 = 'D, d M y H:i:s O';
+    const RFC1123 = 'D, d M Y H:i:s O';
+    const RFC2822 = 'D, d M Y H:i:s O';
+    const RFC3339 = 'Y-m-d\TH:i:sP';
+    const RFC3339_EXTENDED = 'Y-m-d\TH:i:s.vP';
+    const RFC7231 = 'D, d M Y H:i:s \G\M\T';
+    const RSS = 'D, d M Y H:i:s O';
+    const W3C = 'Y-m-d\TH:i:sP';
+    
     /* Methods */
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -94,6 +108,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * (e.g. <em>2010-01-28T15:00:00+02:00</em>).
      * </p> <p></p></blockquote>
      * @return DateTimeImmutable Returns a new DateTimeImmutable instance. Procedural style returns FALSE on failure.
+     * @throws Exception Emits Exception in case of an error.
      */
     public function __construct($time = "now", $timezone = NULL) { }
 
@@ -114,7 +129,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @param DateTimeZone $timezone [optional]
      * @return DateTimeImmutable|boolean
      */
-    public static function createFromFormat($format, $time, DateTimeZone $timezone) { }
+    public static function createFromFormat($format, $time, DateTimeZone $timezone = null) { }
 
     /**
      * (PHP 5 &gt;=5.6.0)<br/>
@@ -297,19 +312,6 @@ class DateTimeImmutable implements DateTimeInterface {
  * @link http://php.net/manual/en/class.datetime.php
  */
 class DateTime implements DateTimeInterface {
-    const ATOM = 'Y-m-d\TH:i:sP';
-    const COOKIE = 'l, d-M-y H:i:s T';
-    const ISO8601 = 'Y-m-d\TH:i:sO';
-    const RFC822 = 'D, d M y H:i:s O';
-    const RFC850 = 'l, d-M-y H:i:s T';
-    const RFC1036 = 'D, d M y H:i:s O';
-    const RFC1123 = 'D, d M Y H:i:s O';
-    const RFC2822 = 'D, d M Y H:i:s O';
-    const RFC3339 = 'Y-m-d\TH:i:sP';
-    const RSS = 'D, d M Y H:i:s O';
-    const W3C = 'Y-m-d\TH:i:sP';
-
-
     /**
      * @param string $time
      * @param DateTimeZone $timezone
@@ -537,6 +539,14 @@ class DateTimeZone {
      * @link http://php.net/manual/en/datetimezone.listidentifiers.php
      */
     public static function listIdentifiers ($what=DateTimeZone::ALL, $country=null) {}
+
+    /**
+     * @link http://php.net/manual/en/datetime.wakeup.php
+     */
+    public function __wakeup(){}
+
+
+    public static function __set_state($an_array) {}
 }
 
 /**
@@ -583,6 +593,13 @@ class DateInterval {
     public $s;
 
     /**
+     * Number of microseconds
+     * @since 7.1.0
+     * @var float
+     */
+    public $f;
+
+    /**
      * Is 1 if the interval is inverted and 0 otherwise
      * @var int
      */
@@ -617,6 +634,10 @@ class DateInterval {
      * @link http://php.net/manual/en/dateinterval.createfromdatestring.php
      */
     public static function createFromDateString ($time) {}
+
+    public function __wakeup() {}
+
+    public static function __set_state($an_array) {}
 }
 
 /**
@@ -626,7 +647,43 @@ class DateInterval {
  */
 class DatePeriod implements Traversable {
     const EXCLUDE_START_DATE = 1;
+    
+    /**
+     * Start date
+     * @var DateTimeInterface
+     */
+    public $start;
 
+    /**
+     * Current iterator value.
+     * @var DateTimeInterface|null
+     */
+    public $current;
+    
+    /**
+     * End date.
+     * @var DateTimeInterface|null
+     */
+    public $end;
+    
+    /**
+     * The interval
+     * @var DateInterval
+     */
+    public $interval;
+    
+    /**
+     * Number of recurrences.
+     * @var int
+     */
+    public $recurrences;
+    
+    /**
+     * Start of period.
+     * @var bool
+     */
+    public $include_start_date;
+    
     /**
      * @param DateTimeInterface $start
      * @param DateInterval $interval
@@ -665,7 +722,7 @@ class DatePeriod implements Traversable {
 
     /**
      * Gets the end date
-     * @return DateTimeInterface
+     * @return DateTimeInterface|null
      * @link http://php.net/manual/en/dateperiod.getenddate.php
      * @since 5.6.5
      */
@@ -678,4 +735,9 @@ class DatePeriod implements Traversable {
      * @since 5.6.5
      */
     public function getStartDate () {}
+
+    public static function __set_state (){}
+
+    public function __wakeup() {}
+
 }

@@ -270,6 +270,9 @@ class SplFileInfo  {
          */
         public function __toString () {}
 
+        public function _bad_state_ex (){}
+
+        public function __wakeup() {}
 }
 
 /**
@@ -277,7 +280,7 @@ class SplFileInfo  {
  * the contents of filesystem directories.
  * @link http://php.net/manual/en/class.directoryiterator.php
  */
-class DirectoryIterator extends SplFileInfo implements Iterator, Traversable, SeekableIterator {
+class DirectoryIterator extends SplFileInfo implements SeekableIterator {
 
         /**
          * Constructs a new directory iterator from a path
@@ -353,7 +356,7 @@ class DirectoryIterator extends SplFileInfo implements Iterator, Traversable, Se
  * The Filesystem iterator
  * @link http://php.net/manual/en/class.filesystemiterator.php
  */
-class FilesystemIterator extends DirectoryIterator implements SeekableIterator, Traversable, Iterator {
+class FilesystemIterator extends DirectoryIterator {
         const CURRENT_MODE_MASK = 240;
         const CURRENT_AS_PATHNAME = 32;
         const CURRENT_AS_FILEINFO = 0;
@@ -365,6 +368,7 @@ class FilesystemIterator extends DirectoryIterator implements SeekableIterator, 
         const NEW_CURRENT_AND_KEY = 256;
         const SKIP_DOTS = 4096;
         const UNIX_PATHS = 8192;
+        const OTHER_MODE_MASK = 12288;
 
         /**
          * Constructs a new filesystem iterator
@@ -435,7 +439,7 @@ class FilesystemIterator extends DirectoryIterator implements SeekableIterator, 
  * an interface for iterating recursively over filesystem directories.
  * @link http://php.net/manual/en/class.recursivedirectoryiterator.php
  */
-class RecursiveDirectoryIterator extends FilesystemIterator implements Iterator, Traversable, SeekableIterator, RecursiveIterator {
+class RecursiveDirectoryIterator extends FilesystemIterator implements RecursiveIterator {
 
 
         /**
@@ -522,7 +526,7 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Iterator,
  * <b>glob</b>.
  * @link http://php.net/manual/en/class.globiterator.php
  */
-class GlobIterator extends FilesystemIterator implements Iterator, Traversable, SeekableIterator, Countable {
+class GlobIterator extends FilesystemIterator implements Countable {
 
         /**
          * Construct a directory using glob
@@ -547,23 +551,41 @@ class GlobIterator extends FilesystemIterator implements Iterator, Traversable, 
  * The SplFileObject class offers an object oriented interface for a file.
  * @link http://php.net/manual/en/class.splfileobject.php
  */
-class SplFileObject extends SplFileInfo implements RecursiveIterator, Traversable, Iterator, SeekableIterator {
+class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIterator {
+        /**
+         * Drop newlines at the end of a line.
+         */
         const DROP_NEW_LINE = 1;
+        /**
+         * Read on rewind/next.
+         */
         const READ_AHEAD = 2;
-        const SKIP_EMPTY = 6;
+        /**
+         * Skip empty lines in the file. This requires the {@see READ_AHEAD} flag to work as expected.
+         */
+        const SKIP_EMPTY = 4;
+        /**
+         * Read lines as CSV rows.
+         */
         const READ_CSV = 8;
 
 
         /**
          * Construct a new file object.
-         * @link http://php.net/manual/en/splfileobject.construct.php
-         * @param $file_name
-         * @param $open_mode [optional]
-         * @param $use_include_path [optional]
-         * @param $context [optional]
+         *
+         * @link  http://php.net/manual/en/splfileobject.construct.php
+         *
+         * @param string   $file_name        The file to open
+         * @param string   $open_mode        [optional] The mode in which to open the file. See {@see fopen} for a list of allowed modes.
+         * @param bool     $use_include_path [optional] Whether to search in the include_path for filename
+         * @param resource $context          [optional] A valid context resource created with {@see stream_context_create}
+         *
+         * @throws RuntimeException When the filename cannot be opened
+         * @throws LogicException When the filename is a directory
+         *
          * @since 5.1.0
          */
-        public function __construct ($file_name, $open_mode, $use_include_path, $context) {}
+        public function __construct ($file_name, $open_mode = 'r', $use_include_path = false, $context = null) {}
 
         /**
          * Rewind the file to the first line
@@ -928,7 +950,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, Traversabl
  * The SplTempFileObject class offers an object oriented interface for a temporary file.
  * @link http://php.net/manual/en/class.spltempfileobject.php
  */
-class SplTempFileObject extends SplFileObject implements SeekableIterator, Iterator, Traversable, RecursiveIterator {
+class SplTempFileObject extends SplFileObject {
 
 
         /**
@@ -944,7 +966,7 @@ class SplTempFileObject extends SplFileObject implements SeekableIterator, Itera
  * The SplDoublyLinkedList class provides the main functionalities of a doubly linked list.
  * @link http://php.net/manual/en/class.spldoublylinkedlist.php
  */
-class SplDoublyLinkedList implements Iterator, Traversable, Countable, ArrayAccess {
+class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess {
         const IT_MODE_LIFO = 2;
         const IT_MODE_FIFO = 0;
         const IT_MODE_DELETE = 1;
@@ -1170,7 +1192,7 @@ class SplDoublyLinkedList implements Iterator, Traversable, Countable, ArrayAcce
  * The SplQueue class provides the main functionalities of a queue implemented using a doubly linked list.
  * @link http://php.net/manual/en/class.splqueue.php
  */
-class SplQueue extends SplDoublyLinkedList implements ArrayAccess, Countable, Traversable, Iterator {
+class SplQueue extends SplDoublyLinkedList {
 
 
         /**
@@ -1210,7 +1232,7 @@ class SplQueue extends SplDoublyLinkedList implements ArrayAccess, Countable, Tr
  * The SplStack class provides the main functionalities of a stack implemented using a doubly linked list.
  * @link http://php.net/manual/en/class.splstack.php
  */
-class SplStack extends SplDoublyLinkedList implements ArrayAccess, Countable, Traversable, Iterator {
+class SplStack extends SplDoublyLinkedList {
 
     /**
      * Sets the mode of iteration
@@ -1230,7 +1252,7 @@ class SplStack extends SplDoublyLinkedList implements ArrayAccess, Countable, Tr
  * The SplHeap class provides the main functionalities of an Heap.
  * @link http://php.net/manual/en/class.splheap.php
  */
-abstract class SplHeap implements Iterator, Traversable, Countable {
+abstract class SplHeap implements Iterator, Countable {
 
         /**
          * Extracts a node from top of the heap and sift up.
@@ -1340,13 +1362,18 @@ abstract class SplHeap implements Iterator, Traversable, Countable {
          */
         abstract protected function compare ($value1, $value2);
 
+    /**
+     * @return bool
+     */
+        public function isCorrupted(){}
+
 }
 
 /**
  * The SplMinHeap class provides the main functionalities of a heap, keeping the minimum on the top.
  * @link http://php.net/manual/en/class.splminheap.php
  */
-class SplMinHeap extends SplHeap implements Countable, Traversable, Iterator {
+class SplMinHeap extends SplHeap {
 
         /**
          * Compare elements in order to place them correctly in the heap while sifting up.
@@ -1462,7 +1489,7 @@ class SplMinHeap extends SplHeap implements Countable, Traversable, Iterator {
  * The SplMaxHeap class provides the main functionalities of a heap, keeping the maximum on the top.
  * @link http://php.net/manual/en/class.splmaxheap.php
  */
-class SplMaxHeap extends SplHeap implements Countable, Traversable, Iterator {
+class SplMaxHeap extends SplHeap {
 
     /**
      * Compare elements in order to place them correctly in the heap while sifting up.
@@ -1487,7 +1514,7 @@ class SplMaxHeap extends SplHeap implements Countable, Traversable, Iterator {
  * prioritized queue, implemented using a heap.
  * @link http://php.net/manual/en/class.splpriorityqueue.php
  */
-class SplPriorityQueue implements Iterator, Traversable, Countable {
+class SplPriorityQueue implements Iterator, Countable {
         const EXTR_BOTH = 3;
         const EXTR_PRIORITY = 2;
         const EXTR_DATA = 1;
@@ -1618,6 +1645,16 @@ class SplPriorityQueue implements Iterator, Traversable, Countable {
          */
         public function recoverFromCorruption () {}
 
+    /**
+     * @return bool
+     */
+    public function isCorrupted() {}
+
+    /**
+     * @return int
+     */
+    public function getExtractFlags() {}
+
 }
 
 /**
@@ -1628,7 +1665,7 @@ class SplPriorityQueue implements Iterator, Traversable, Countable {
  * implementation.
  * @link http://php.net/manual/en/class.splfixedarray.php
  */
-class SplFixedArray implements Iterator, Traversable, ArrayAccess, Countable {
+class SplFixedArray implements Iterator, ArrayAccess, Countable {
 
         /**
          * Constructs a new fixed array
@@ -1683,7 +1720,7 @@ class SplFixedArray implements Iterator, Traversable, ArrayAccess, Countable {
          * @param int $size <p>
          * The new array size.
          * </p>
-         * @return int 
+         * @return bool
          * @since 5.3.0
          */
         public function setSize ($size) {}
@@ -1775,6 +1812,11 @@ class SplFixedArray implements Iterator, Traversable, ArrayAccess, Countable {
          */
         public function valid () {}
 
+    public function __wakeup()
+    {
+    }
+
+
 }
 
 /**
@@ -1842,7 +1884,7 @@ interface SplSubject  {
  * cases involving the need to uniquely identify objects.
  * @link http://php.net/manual/en/class.splobjectstorage.php
  */
-class SplObjectStorage implements Countable, Iterator, Traversable, Serializable, ArrayAccess {
+class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess {
 
         /**
          * Adds an object in the storage
@@ -2063,7 +2105,7 @@ class SplObjectStorage implements Countable, Iterator, Traversable, Serializable
  * An Iterator that sequentially iterates over all attached iterators
  * @link http://php.net/manual/en/class.multipleiterator.php
  */
-class MultipleIterator implements Iterator, Traversable {
+class MultipleIterator implements Iterator {
         const MIT_NEED_ANY = 0;
         const MIT_NEED_ALL = 1;
         const MIT_KEYS_NUMERIC = 0;
@@ -2130,7 +2172,7 @@ class MultipleIterator implements Iterator, Traversable {
          * @param Iterator $iterator <p>
          * The iterator to check.
          * </p>
-	 * @return void true on success or false on failure.
+         * @return bool true on success or false on failure.
          * @since 5.3.0
          */
 	public function containsIterator (Iterator $iterator) {}
@@ -2138,7 +2180,7 @@ class MultipleIterator implements Iterator, Traversable {
         /**
          * Gets the number of attached iterator instances
          * @link http://php.net/manual/en/multipleiterator.countiterators.php
-         * @return void The number of attached iterator instances (as an integer).
+         * @return int The number of attached iterator instances (as an integer).
          * @since 5.3.0
          */
         public function countIterators () {}
@@ -2154,7 +2196,7 @@ class MultipleIterator implements Iterator, Traversable {
         /**
          * Checks the validity of sub iterators
          * @link http://php.net/manual/en/multipleiterator.valid.php
-         * @return void true if one or all sub iterators are valid depending on flags,
+         * @return boolean true if one or all sub iterators are valid depending on flags,
          * otherwise false
          * @since 5.3.0
          */
@@ -2172,8 +2214,10 @@ class MultipleIterator implements Iterator, Traversable {
         /**
          * Gets the registered iterator instances
          * @link http://php.net/manual/en/multipleiterator.current.php
-         * @return void An array of all registered iterator instances,
-         * or false if no sub iterator is attached.
+         * @return array|false An array containing the current values of each attached iterator,
+         * or false if no iterators are attached.
+         * @throws \RuntimeException if mode MIT_NEED_ALL is set and at least one attached iterator is not valid.
+         * @throws \InvalidArgumentException if a key is NULL and MIT_KEYS_ASSOC is set.
          * @since 5.3.0
          */
         public function current () {}

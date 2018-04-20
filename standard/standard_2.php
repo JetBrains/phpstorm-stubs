@@ -279,7 +279,7 @@ function str_getcsv ($input, $delimiter = ",", $enclosure = '"', $escape = "\\")
  * @since 4.0.1
  * @since 5.0
  */
-function str_pad ($input, $pad_length, $pad_string = null, $pad_type = null) {}
+function str_pad ($input, $pad_length, $pad_string = " ", $pad_type = STR_PAD_RIGHT) {}
 
 /**
  * &Alias; <function>rtrim</function>
@@ -860,7 +860,7 @@ function proc_close ($process) {}
  * @return bool the termination status of the process that was run.
  * @since 5.0
  */
-function proc_terminate ($process, $signal = null) {}
+function proc_terminate ($process, $signal = 15) {}
 
 /**
  * Get information about a process opened by <function>proc_open</function>
@@ -967,15 +967,21 @@ function rand ($min, $max) {}
 
 /**
  * Seed the random number generator
+ * <p><strong>Note</strong>: As of PHP 7.1.0, {@see srand()} has been made
+ * an alias of {@see mt_srand()}.
+ * </p>
  * @link http://php.net/manual/en/function.srand.php
  * @param int $seed [optional] <p>
  * Optional seed value
+ * </p>
+ * @param int $mode [optional] <p>
+ * Use one of the following constants to specify the implementation of the algorithm to use.
  * </p>
  * @return void 
  * @since 4.0
  * @since 5.0
  */
-function srand ($seed = null) {}
+function srand ($seed = null, $mode = MT_RAND_MT19937) {}
 
 /**
  * Show largest possible random value
@@ -1004,11 +1010,14 @@ function mt_rand ($min, $max) {}
  * @param int $seed [optional] <p>
  * An optional seed value
  * </p>
+ * @param int $mode [optional] <p>
+ * Use one of the following constants to specify the implementation of the algorithm to use.
+ * </p>
  * @return void 
  * @since 4.0
  * @since 5.0
  */
-function mt_srand ($seed = null) {}
+function mt_srand ($seed = null, $mode = MT_RAND_MT19937) {}
 
 /**
  * Show largest possible random value

@@ -640,6 +640,31 @@ class SoapServer  {
  * @link http://php.net/manual/en/class.soapfault.php
  */
 class SoapFault extends Exception  {
+    /**
+     * @var string
+     */
+	public $faultcode;
+    /**
+     * @var string
+     */
+	public $faultstring;
+    /**
+     * @var string
+     */
+    public $faultactor;
+    /**
+     * @var mixed
+     */
+    public $detail;
+    /**
+     * @var string
+     */
+    public $faultname;
+    /**
+     * @var mixed
+     */
+    public $headerfault;
+
 	/**
 	 * SoapFault constructor
 	 * @link http://php.net/manual/en/soapfault.soapfault.php
@@ -652,13 +677,13 @@ class SoapFault extends Exception  {
 	 * @param string $faultactor [optional] <p>
 	 * A string identifying the actor that caused the error.
 	 * </p>
-	 * @param string $detail [optional] <p>
+	 * @param mixed $detail [optional] <p>
 	 * More details about the cause of the error.
 	 * </p>
 	 * @param string $faultname [optional] <p>
 	 * Can be used to select the proper fault encoding from WSDL.
 	 * </p>
-	 * @param string $headerfault [optional] <p>
+	 * @param mixed $headerfault [optional] <p>
 	 * Can be used during SOAP header handling to report an error in the
 	 * response header.
 	 * </p>

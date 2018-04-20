@@ -135,7 +135,7 @@ function strncasecmp ($str1, $str2, $len) {}
 /**
  * Return the current key and value pair from an array and advance the array cursor
  * @link http://php.net/manual/en/function.each.php
- * @param array $array <p>
+ * @param array|ArrayObject $array <p>
  * The input array.
  * </p>
  * @return array the current key and value pair from the array
@@ -152,6 +152,7 @@ function strncasecmp ($str1, $str2, $len) {}
  * false.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.2
  */
 function each (array &$array) {}
 
@@ -600,8 +601,8 @@ function trigger_error ($error_msg, $error_type = E_USER_NOTICE) {}
 /**
  * Alias of <b>trigger_error</b>
  * @link http://php.net/manual/en/function.user-error.php
- * @param $message
- * @param $error_type [optional]
+ * @param string $message
+ * @param int    $error_type [optional]
  * @since 4.0
  * @since 5.0
  */
@@ -610,7 +611,7 @@ function user_error ($message, $error_type) {}
 /**
  * Sets a user-defined error handler function
  * @link http://php.net/manual/en/function.set-error-handler.php
- * @param callback $error_handler <p>
+ * @param callable $error_handler <p>
  * The user function needs to accept two parameters: the error code, and a
  * string describing the error. Then there are three optional parameters 
  * that may be supplied: the filename in which the error occurred, the
@@ -657,14 +658,15 @@ function restore_error_handler () {}
 /**
  * Sets a user-defined exception handler function
  * @link http://php.net/manual/en/function.set-exception-handler.php
- * @param callback $exception_handler <p>
+ * @param callable|null $exception_handler <p>
  * Name of the function to be called when an uncaught exception occurs.
  * This function must be defined before calling
  * <b>set_exception_handler</b>. This handler function
  * needs to accept one parameter, which will be the exception object that
  * was thrown.
+ * NULL may be passed instead, to reset this handler to its default state.
  * </p>
- * @return callback the name of the previously defined exception handler, or null on error. If
+ * @return callable|null the name of the previously defined exception handler, or null on error. If
  * no previous handler was defined, null is also returned.
  * @since 5.0
  */
@@ -716,6 +718,7 @@ function get_declared_traits() {}
 /**
  * Returns an array of all defined functions
  * @link http://php.net/manual/en/function.get-defined-functions.php
+ * @param bool $exclude_disabled [optional] Whether disabled functions should be excluded from the return value.
  * @return array an multidimensional array containing a list of all defined
  * functions, both built-in (internal) and user-defined. The internal
  * functions will be accessible via $arr["internal"], and
@@ -724,7 +727,7 @@ function get_declared_traits() {}
  * @since 4.0.4
  * @since 5.0
  */
-function get_defined_functions () {}
+function get_defined_functions ($exclude_disabled = FALSE) {}
 
 /**
  * Returns an array of all defined variables
@@ -747,6 +750,7 @@ function get_defined_vars () {}
  * @return string a unique function name as a string, or false on error.
  * @since 4.0.1
  * @since 5.0
+ * @deprecated 7.2
  */
 function create_function ($args, $code) {}
 
@@ -1097,3 +1101,28 @@ function sapi_windows_cp_is_utf8() {
  * @link https://wiki.php.net/rfc/iterable
  */
 function is_iterable($value) {}
+
+/**
+ * Encodes an ISO-8859-1 string to UTF-8
+ * @link http://php.net/manual/en/function.utf8-encode.php
+ * @param string $data <p>
+ * An ISO-8859-1 string.
+ * </p>
+ * @return string the UTF-8 translation of <i>data</i>.
+ * @since 4.0
+ * @since 5.0
+ */
+function utf8_encode ($data) {}
+
+/**
+ * Converts a string with ISO-8859-1 characters encoded with UTF-8
+ * @since 4.0
+ * @since 5.0
+to single-byte ISO-8859-1
+ * @link http://php.net/manual/en/function.utf8-decode.php
+ * @param string $data <p>
+ * An UTF-8 encoded string.
+ * </p>
+ * @return string the ISO-8859-1 translation of <i>data</i>.
+ */
+function utf8_decode ($data) {}

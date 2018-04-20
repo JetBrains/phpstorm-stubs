@@ -298,7 +298,7 @@ class XMLReader  {
 	 * @return string the contents of the current node as a string. Empty string on failure.
 	 * @since 5.2.0
 	 */
-	public function readInnerXml () {}
+	public function readInnerXML () {}
 
 	/**
 	 * Retrieve XML from current node, including it self
@@ -306,7 +306,7 @@ class XMLReader  {
 	 * @return string the contents of current node, including itself, as a string. Empty string on failure.
 	 * @since 5.2.0
 	 */
-	public function readOuterXml () {}
+	public function readOuterXML () {}
 
 	/**
 	 * Reads the contents of the current node as a string
