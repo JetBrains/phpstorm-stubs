@@ -1,0 +1,8 @@
+language: php
+php:
+  - '7.2'
+install:
+  - composer install
+script:
+  - php tests/PHPReflectionParser.php
+  - phpunit tests/TestStubs.php
