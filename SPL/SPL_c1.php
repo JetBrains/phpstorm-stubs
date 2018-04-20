@@ -271,6 +271,8 @@ class SplFileInfo  {
         public function __toString () {}
 
         public function _bad_state_ex (){}
+
+        public function __wakeup() {}
 }
 
 /**
