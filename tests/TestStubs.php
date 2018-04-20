@@ -12,7 +12,7 @@ class ReflectionStubsSingleton
     public static function getReflectionStubs(): stdClass
     {
         if (self::$reflectionStubs == null) {
-            $json = file_get_contents("./stub.json");
+            $json = file_get_contents(__DIR__ . "/stub.json");
             self::$reflectionStubs = json_decode($json);
         }
         return self::$reflectionStubs;
