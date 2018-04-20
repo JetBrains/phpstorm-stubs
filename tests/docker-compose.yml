@@ -1,7 +1,7 @@
 version: '2'
 services:
   php:
-    image: php:7.2
+    image: php:latest
     volumes:
      - .:/opt/project
     command: php /opt/project/PHPReflectionParser.php
