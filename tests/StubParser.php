@@ -6,9 +6,10 @@ require "vendor/autoload.php";
 use phpDocumentor\Reflection\DocBlockFactory;
 use PhpParser\Node;
 use PhpParser\Node\{
-    Const_, Expr\FuncCall, FunctionLike, Stmt\Class_, Stmt\ClassMethod, Stmt\Function_
+    Const_, Expr\FuncCall, FunctionLike, Stmt\Class_, Stmt\ClassMethod, Stmt\Function_, Stmt\Namespace_
 };
 
+use PhpParser\NodeAbstract;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitorAbstract;
 use PhpParser\ParserFactory;
@@ -67,8 +68,8 @@ class ASTVisitor extends NodeVisitorAbstract
 
     public function visitFunction(Function_ $node): void
     {
-        $functionName = $node->name->name;
         $function = new stdClass();
+        $functionName = $this->getFQN($node, $node->name->name);
         $function->name = $functionName;
 
         $function->parameters = $this->parseParams($node);
@@ -86,13 +87,13 @@ class ASTVisitor extends NodeVisitorAbstract
 
     private function visitConstant(Const_ $node): void
     {
-        $constName = $node->name->name;
         $const = new stdClass();
+        $constName = $this->getFQN($node, $node->name->name);
         $const->name = $constName;
         $const->value = $this->getConstValue($node);
         if ($node->getAttribute("parent") instanceof Node\Stmt\ClassConst) {
             $className = $node->getAttribute("parent")->getAttribute("parent")->name->name;
-            $this->stubs->classes[$className]->constants[] = $const;
+            $this->stubs->classes[$className]->constants[$constName] = $const;
         } else {
             $this->stubs->constants[$constName] = $const;
 
@@ -102,7 +103,7 @@ class ASTVisitor extends NodeVisitorAbstract
     private function visitDefine(FuncCall $node): void
     {
         if ($node->name->parts[0] == "define") {
-            $constName = $node->args[0]->value->value;
+            $constName = $this->getFQN($node, $node->args[0]->value->value);
             if (in_array($constName, ["null", "true", "false"])) {
                 return;
             }
@@ -131,7 +132,7 @@ class ASTVisitor extends NodeVisitorAbstract
         $className = $node->getAttribute("parent")->name->name;
         $method = new stdClass();
         $method->name = $node->name->name;
-        $method->parameter = $this->parseParams($node);
+        $method->parameters = $this->parseParams($node);
         $method->is_final = $node->isFinal();
         $method->is_static = $node->isStatic();
         if ($node->isPrivate()) {
@@ -142,14 +143,20 @@ class ASTVisitor extends NodeVisitorAbstract
             $method->access = 'public';
         }
 
-        $this->stubs->classes[$className]->methods[] = $method;
+        $this->stubs->classes[$className]->methods[$method->name] = $method;
     }
 
     private function visitClass(Class_ $node): void
     {
-        $className = $node->name->name;
         $class = new stdClass();
+        $className = $this->getFQN($node, $node->name->name);
         $class->name = $className;
+        if (!empty($node->extends)) {
+            $class->parentClass = $node->extends->parts[0];
+        } else {
+            $class->parentClass = null;
+        }
+        $class->interfaces = $node->implements;
         $this->stubs->classes[$className] = $class;
         $this->stubs->classes[$className]->constants = [];
         $this->stubs->classes[$className]->methods = [];
@@ -180,6 +187,15 @@ class ASTVisitor extends NodeVisitorAbstract
             $parsedParams[] = $parsedParam;
         }
         return $parsedParams;
+    }
+
+    private function getFQN(NodeAbstract $node, string $nodeName): string
+    {
+        $namespace = "";
+        if ($node->getAttribute("parent") instanceof Namespace_ && !empty($node->getAttribute("parent")->name)) {
+            $namespace = '\\' . implode('\\', $node->getAttribute("parent")->name->parts) . '\\';
+        }
+        return $namespace . $nodeName;
     }
 }
 

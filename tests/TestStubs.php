@@ -89,17 +89,24 @@ class TestStubs extends TestCase
     function testClasses($class)
     {
         $className = $class->name;
+        //exclude classes from PHPReflectionParser
+        if(substr( $className, 0, 3 ) == "PHP"){
+            $this->assertTrue(true);
+        }
         $stubClasses = PhpStormStubsSingleton::getPhpStormStubs()->classes;
         $this->assertArrayHasKey($className, $stubClasses, "Missing class $className: class $className {}");
         $stubClass = $stubClasses[$className];
+        $this->assertEquals($class->parentClass, $stubClass->parentClass, "Class $className should extend {$class->parentClass}");
         foreach ($class->constants as $constant) {
             $this->assertArrayHasKey($constant->name, $stubClass->constants, "Missing constant $className::{$constant->name}");
         }
+        // @todo check interfaces
+        // @todo check traits
         foreach ($class->methods as $method) {
             $params = $this->getParameterRepresentation($method);
             $methodName = $method->name;
-            $this->assertArrayHasKey($method->name, $stubClass->methods, "Missing method $className::$methodName($params){}");
-            $stubMethod = $stubClass['methods'][$method->name];
+            $this->assertArrayHasKey($methodName, $stubClass->methods, "Missing method $className::$methodName($params){}");
+            $stubMethod = $stubClass->methods[$methodName];
             $this->assertEquals($method->is_final, $stubMethod->is_final, "Method $className::$methodName final modifier is incorrect");
             $this->assertEquals($method->is_static, $stubMethod->is_static, "Method $className::$methodName static modifier is incorrect");
             $this->assertEquals($method->access, $stubMethod->access, "Method $className::$methodName access modifier is incorrect");
@@ -112,7 +119,7 @@ class TestStubs extends TestCase
     {
         $result = "";
         foreach ($function->parameters as $parameter) {
-            if ($parameter->type != "") {
+            if (!empty($parameter->type)) {
                 $result .= $parameter->type . " ";
             }
             if ($parameter->is_passed_by_ref) {
@@ -121,7 +128,7 @@ class TestStubs extends TestCase
             if ($parameter->is_vararg) {
                 $result .= "...";
             }
-            $result .= $parameter->name . ", ";
+            $result .= "$". $parameter->name . ", ";
         }
         $result = rtrim($result, ", ");
         return $result;
