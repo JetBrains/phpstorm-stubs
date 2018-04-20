@@ -1812,6 +1812,11 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable {
          */
         public function valid () {}
 
+    public function __wakeup()
+    {
+    }
+
+
 }
 
 /**
