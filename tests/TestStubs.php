@@ -79,7 +79,10 @@ class TestStubs extends TestCase
     public function classProvider()
     {
         foreach (ReflectionStubsSingleton::getReflectionStubs()->classes as $class) {
-            yield "class {$class->name}" => [$class];
+            //exclude classes from PHPReflectionParser
+            if(substr( $class->name, 0, 3 )!= "PHP") {
+                yield "class {$class->name}" => [$class];
+            }
         }
     }
 
@@ -89,10 +92,6 @@ class TestStubs extends TestCase
     function testClasses($class)
     {
         $className = $class->name;
-        //exclude classes from PHPReflectionParser
-        if(substr( $className, 0, 3 ) == "PHP"){
-            $this->assertTrue(true);
-        }
         $stubClasses = PhpStormStubsSingleton::getPhpStormStubs()->classes;
         $this->assertArrayHasKey($className, $stubClasses, "Missing class $className: class $className {}");
         $stubClass = $stubClasses[$className];
