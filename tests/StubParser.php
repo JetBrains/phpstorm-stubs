@@ -207,10 +207,13 @@ function getPhpStormStubs(): stdClass
 
     $stubsIterator =
         new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator("../vendor/jetbrains/phpstorm-stubs", FilesystemIterator::SKIP_DOTS)
+            new RecursiveDirectoryIterator(__DIR__ . "/../", FilesystemIterator::SKIP_DOTS)
         );
     /** @var SplFileInfo $file */
     foreach ($stubsIterator as $file) {
+        if(substr(dirname($file->getRealPath(),1),-5) == "tests" || strpos($file->getRealPath(),"vendor")){
+            continue;
+        }
         $code = file_get_contents($file->getRealPath());
 
         $ast = $parser->parse($code);
