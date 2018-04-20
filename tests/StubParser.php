@@ -104,10 +104,10 @@ class ASTVisitor extends NodeVisitorAbstract
     {
         if ($node->name->parts[0] == "define") {
             $constName = $this->getFQN($node, $node->args[0]->value->value);
-            if (in_array($constName, ["null", "true", "false"])) {
-                return;
-            }
             $const = new stdClass();
+            if (in_array($constName, ["null", "true", "false"])) {
+                $constName = strtoupper($constName);
+            }
             $const->name = $constName;
             $const->value = $this->getConstValue($node->args[1]);
             $this->stubs->constants[$constName] = $const;
