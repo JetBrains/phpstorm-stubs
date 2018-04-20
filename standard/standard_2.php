@@ -967,15 +967,21 @@ function rand ($min, $max) {}
 
 /**
  * Seed the random number generator
+ * <p><strong>Note</strong>: As of PHP 7.1.0, {@see srand()} has been made
+ * an alias of {@see mt_srand()}.
+ * </p>
  * @link http://php.net/manual/en/function.srand.php
  * @param int $seed [optional] <p>
  * Optional seed value
+ * </p>
+ * @param int $mode [optional] <p>
+ * Use one of the following constants to specify the implementation of the algorithm to use.
  * </p>
  * @return void 
  * @since 4.0
  * @since 5.0
  */
-function srand ($seed = null) {}
+function srand ($seed = null, $mode = MT_RAND_MT19937) {}
 
 /**
  * Show largest possible random value
