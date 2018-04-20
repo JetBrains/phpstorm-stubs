@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require "vendor/autoload.php";
+require __DIR__ . "/../vendor/autoload.php";
 
 use phpDocumentor\Reflection\DocBlockFactory;
 use PhpParser\Node;
@@ -207,7 +207,7 @@ function getPhpStormStubs(): stdClass
 
     $stubsIterator =
         new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator("./vendor/jetbrains/phpstorm-stubs", FilesystemIterator::SKIP_DOTS)
+            new RecursiveDirectoryIterator("../vendor/jetbrains/phpstorm-stubs", FilesystemIterator::SKIP_DOTS)
         );
     /** @var SplFileInfo $file */
     foreach ($stubsIterator as $file) {
