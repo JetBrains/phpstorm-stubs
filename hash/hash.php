@@ -375,5 +375,11 @@ define ('MHASH_FNV164', 31);
 define ('MHASH_FNV1A64', 32);
 define ('MHASH_JOAAT', 33);
 
+class HashContext
+{
+    private function __construct()
+    {
+    }
+}
 // End of hash v.1.0
 ?>
