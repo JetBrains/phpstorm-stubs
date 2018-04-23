@@ -76,7 +76,7 @@ class MutedProblems
     public function getMutedProblemsForMethod(string $className, $methodName): array
     {
         foreach ($this->mutedProblems->classes as $class) {
-            if ($class->name === $className) {
+            if ($class->name === $className && !empty($class->methods)) {
                 foreach ($class->methods as $method) {
                     if ($method->name === $methodName) {
                         return $method->problems;
@@ -90,7 +90,7 @@ class MutedProblems
     public function getMutedProblemsForClassConstants($className, $constantName)
     {
         foreach ($this->mutedProblems->classes as $class) {
-            if ($class->name === $className) {
+            if ($class->name === $className && !empty($class->constants)) {
                 foreach ($class->constants as $constant) {
                     if ($constant->name === $constantName) {
                         return $constant->problems;

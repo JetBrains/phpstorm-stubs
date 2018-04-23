@@ -457,8 +457,7 @@
             "parameter mismatch"
           ]
         }
-      ],
-      "constants": []
+      ]
     },
     {
       "name": "DatePeriod",
@@ -469,8 +468,7 @@
             "parameter mismatch"
           ]
         }
-      ],
-      "constants": []
+      ]
     },
     {
       "name": "DOMImplementation",
@@ -481,8 +479,7 @@
             "parameter mismatch"
           ]
         }
-      ],
-      "constants": []
+      ]
     },
     {
       "name": "DateTimeImmutable",
@@ -493,8 +490,7 @@
             "parameter mismatch"
           ]
         }
-      ],
-      "constants": []
+      ]
     },
     {
       "name": "DateTime",
@@ -505,8 +501,7 @@
             "parameter mismatch"
           ]
         }
-      ],
-      "constants": []
+      ]
     },
     {
       "name": "DOMXPath",
@@ -517,8 +512,7 @@
             "parameter mismatch"
           ]
         }
-      ],
-      "constants": []
+      ]
     },
     {
       "name": "SplHeap",
@@ -529,8 +523,7 @@
             "parameter mismatch"
           ]
         }
-      ],
-      "constants": []
+      ]
     },
     {
       "name": "PDO",
@@ -541,8 +534,7 @@
             "parameter mismatch"
           ]
         }
-      ],
-      "constants": []
+      ]
     },
     {
       "name": "XMLWriter",
@@ -553,8 +545,7 @@
             "parameter mismatch"
           ]
         }
-      ],
-      "constants": []
+      ]
     },
     {
       "name": "ReflectionMethod",
@@ -565,8 +556,7 @@
             "parameter mismatch"
           ]
         }
-      ],
-      "constants": []
+      ]
     },
     {
       "name": "DateTimeZone",
@@ -577,8 +567,7 @@
             "parameter mismatch"
           ]
         }
-      ],
-      "constants": []
+      ]
     },
     {
       "name": "DateInterval",
@@ -589,8 +578,7 @@
             "parameter mismatch"
           ]
         }
-      ],
-      "constants": []
+      ]
     },
     {
       "name": "PDOStatement",
@@ -601,8 +589,7 @@
             "parameter mismatch"
           ]
         }
-      ],
-      "constants": []
+      ]
     },
     {
       "name": "RecursiveTreeIterator",
@@ -613,8 +600,7 @@
             "parameter mismatch"
           ]
         }
-      ],
-      "constants": []
+      ]
     },
     {
       "name": "DOMDocument",
@@ -643,15 +629,13 @@
             "parameter mismatch"
           ]
         }
-      ],
-      "constants": []
+      ]
     },
     {
       "name": "PharData",
       "problems": [
         "wrong parent"
-      ],
-      "constants": []
+      ]
     }
   ]
 }
