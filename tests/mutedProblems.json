@@ -1,0 +1,56 @@
+{
+  "constants": [
+  ],
+  "functions": [
+    {
+      "name": "mktime",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "gmmktime",
+      "problems": [
+        "parameter mismatch"
+      ]
+    }
+  ],
+  "classes": [
+    {
+      "name": "ReflectionClass",
+      "methods": [
+        {
+          "name": "newInstance",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ],
+      "constants": []
+    },
+    {
+      "name": "DatePeriod",
+      "methods": [
+        {
+          "name": "__construct",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ],
+      "constants": []
+    },
+    {
+      "name": "DOMImplementation",
+      "methods": [
+        {
+          "name": "hasFeature",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ],
+      "constants": []
+    }
+  ]
+}
