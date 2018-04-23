@@ -133,6 +133,9 @@ class ASTVisitor extends NodeVisitorAbstract
         $className = $node->getAttribute('parent')->name->name;
         $method = new stdClass();
         $method->name = $node->name->name;
+        if(strncmp($method->name, 'PS_UNRESERVE_PREFIX_', 20) === 0){
+            $method->name = substr($method->name, strlen('PS_UNRESERVE_PREFIX_'));
+        }
         $method->parameters = $this->parseParams($node);
         $method->is_final = $node->isFinal();
         $method->is_static = $node->isStatic();
