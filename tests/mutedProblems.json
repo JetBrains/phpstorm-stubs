@@ -13,6 +13,438 @@
       "problems": [
         "parameter mismatch"
       ]
+    },
+    {
+      "name": "array_push",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_unshift",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_map",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect_uassoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff_ukey",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff_uassoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "var_dump",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "setlocale",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "sprintf",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "printf",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "min",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "max",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "compact",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_merge",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_replace",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_replace",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect_key",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff_key",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_udiff",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff_assoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_udiff_assoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_udiff_uassoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "xmlwriter_write_dtd_entity",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "register_tick_function",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "pack",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "fprintf",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "forward_static_call",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "register_shutdown_function",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_uintersect_uassoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect_ukey",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_uintersect",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_replace_recursive",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect_assoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_uintersect_assoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_push",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_unshift",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_map",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect_uassoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff_ukey",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff_uassoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "var_dump",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "setlocale",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "sprintf",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "printf",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "min",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "max",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "compact",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_merge",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_replace",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_replace",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect_key",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff_key",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_udiff",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff_assoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_udiff_assoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_udiff_uassoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "xmlwriter_write_dtd_entity",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "register_tick_function",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "pack",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "fprintf",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "forward_static_call",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "register_shutdown_function",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_uintersect_uassoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect_ukey",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_uintersect",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_replace_recursive",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect_assoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_uintersect_assoc",
+      "problems": [
+        "parameter mismatch"
+      ]
     }
   ],
   "classes": [
@@ -45,6 +477,168 @@
       "methods": [
         {
           "name": "hasFeature",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ],
+      "constants": []
+    },
+    {
+      "name": "DateTimeImmutable",
+      "methods": [
+        {
+          "name": "__set_state",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ],
+      "constants": []
+    },
+    {
+      "name": "DateTime",
+      "methods": [
+        {
+          "name": "__set_state",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ],
+      "constants": []
+    },
+    {
+      "name": "DOMXPath",
+      "methods": [
+        {
+          "name": "registerPhpFunctions",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ],
+      "constants": []
+    },
+    {
+      "name": "SplHeap",
+      "methods": [
+        {
+          "name": "compare",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ],
+      "constants": []
+    },
+    {
+      "name": "PDO",
+      "methods": [
+        {
+          "name": "query",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ],
+      "constants": []
+    },
+    {
+      "name": "XMLWriter",
+      "methods": [
+        {
+          "name": "writeDTDEntity",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ],
+      "constants": []
+    },
+    {
+      "name": "ReflectionMethod",
+      "methods": [
+        {
+          "name": "invoke",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ],
+      "constants": []
+    },
+    {
+      "name": "DateTimeZone",
+      "methods": [
+        {
+          "name": "__set_state",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ],
+      "constants": []
+    },
+    {
+      "name": "DateInterval",
+      "methods": [
+        {
+          "name": "__set_state",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ],
+      "constants": []
+    },
+    {
+      "name": "PDOStatement",
+      "methods": [
+        {
+          "name": "setFetchMode",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ],
+      "constants": []
+    },
+    {
+      "name": "RecursiveTreeIterator",
+      "methods": [
+        {
+          "name": "setPostfix",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ],
+      "constants": []
+    },
+    {
+      "name": "DOMDocument",
+      "methods": [
+        {
+          "name": "schemaValidate",
+          "problems": [
+            "parameter mismatch"
+          ]
+        },
+        {
+          "name": "saveHTML",
+          "problems": [
+            "parameter mismatch"
+          ]
+        },
+        {
+          "name": "save",
+          "problems": [
+            "parameter mismatch"
+          ]
+        },
+        {
+          "name": "schemaValidateSource",
           "problems": [
             "parameter mismatch"
           ]
