@@ -2011,6 +2011,9 @@ class ReflectionType
 	public function getName()
 	{
 	}
+
+    public function __clone() {}
+
 }
 
 /**
@@ -2113,6 +2116,9 @@ class ReflectionClassConstant implements Reflector {
      * @return string|void
      */
 	public function __toString() {}
+
+    public function __clone() {}
+
 }
 
 /**

@@ -769,12 +769,13 @@ function openssl_seal($data, &$sealed_data, array &$env_keys, array $pub_key_ids
  * </p>
  * @param string $env_key
  * @param mixed $priv_key_id
- * @param string $method [optional]
- * @return bool true on success or false on failure.
+ * @param string $method [optional] The cipher method.
+ * @param string $iv [optional] The initialization vector.
+ * @return void true on success or false on failure.
  * @since 4.0.4
  * @since 5.0
  */
-function openssl_open($sealed_data, &$open_data, $env_key, $priv_key_id, $method = null) { }
+function openssl_open($sealed_data, &$open_data, $env_key, $priv_key_id, $method = "RC4", string $iv) { }
 
 /**
  * Generates a PKCS5 v2 PBKDF2 string, defaults to SHA-1

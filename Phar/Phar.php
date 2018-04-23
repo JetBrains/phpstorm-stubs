@@ -875,6 +875,8 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 */
 	public function seek ($position) {}
 
+    public function _bad_state_ex (){}
+
 }
 
 /**
@@ -1154,6 +1156,8 @@ class PharFileInfo extends SplFileInfo  {
 	 * @return void No value is returned.
 	 */
 	public function setMetadata ($metadata) {}
+
+    public function _bad_state_ex (){}
 
 }
 // End of Phar v.2.0.1

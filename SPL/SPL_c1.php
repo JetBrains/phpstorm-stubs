@@ -270,6 +270,9 @@ class SplFileInfo  {
          */
         public function __toString () {}
 
+        public function _bad_state_ex (){}
+
+        public function __wakeup() {}
 }
 
 /**
@@ -1808,6 +1811,11 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable {
          * @since 5.3.0
          */
         public function valid () {}
+
+    public function __wakeup()
+    {
+    }
+
 
 }
 
