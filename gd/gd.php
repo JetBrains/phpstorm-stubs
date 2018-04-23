@@ -2301,7 +2301,7 @@ function imageopenpolygon ($image , $points, $num_points, $color) {}
  * @param string $filename Path to the BMP image.
  * @return resource Returns an image resource identifier on success, <b>FALSE</b> on errors.
  * @link http://php.net/manual/en/function.imagecreatefrombmp.php
- * @see 7.2
+ * @since 7.2
  */
 function imagecreatefrombmp($filename){}
 
