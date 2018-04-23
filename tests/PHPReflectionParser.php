@@ -45,8 +45,11 @@ class PHPClass
             $this->methods[$method->name] = (new PHPMethod())->serialize($method);
         }
 
-        foreach ($reflectionClass->getConstants() as $name => $value) {
-            $this->constants[] = (new PHPConst())->serialize($name, $value);
+        foreach ($reflectionClass->getReflectionConstants() as $constant){
+            if($constant->getDeclaringClass()->name !== $this->name){
+                continue;
+            }
+            $this->constants[$constant->name] = (new PHPConst())->serialize($constant->name, $constant->getValue());
         }
         return (array)$this;
     }
