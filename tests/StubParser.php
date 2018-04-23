@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require __DIR__ . "/../vendor/autoload.php";
+require __DIR__ . '/../vendor/autoload.php';
 
 use phpDocumentor\Reflection\DocBlockFactory;
 use PhpParser\Node;
@@ -74,12 +74,12 @@ class ASTVisitor extends NodeVisitorAbstract
 
         $function->parameters = $this->parseParams($node);
 
-        if ($node->getDocComment() != NULL) {
+        if ($node->getDocComment() !== null) {
             $phpDoc = $this->docFactory->create($node->getDocComment()->getText());
-            if (!empty($phpDoc->getTagsByName("deprecated"))) {
-                $function->is_deprecated = TRUE;
+            if (empty($phpDoc->getTagsByName('deprecated'))) {
+                $function->is_deprecated = false;
             } else {
-                $function->is_deprecated = FALSE;
+                $function->is_deprecated = true;
             }
         }
         $this->stubs->functions[$functionName] = $function;
@@ -91,8 +91,8 @@ class ASTVisitor extends NodeVisitorAbstract
         $constName = $this->getFQN($node, $node->name->name);
         $const->name = $constName;
         $const->value = $this->getConstValue($node);
-        if ($node->getAttribute("parent") instanceof Node\Stmt\ClassConst) {
-            $className = $node->getAttribute("parent")->getAttribute("parent")->name->name;
+        if ($node->getAttribute('parent') instanceof Node\Stmt\ClassConst) {
+            $className = $node->getAttribute('parent')->getAttribute('parent')->name->name;
             $this->stubs->classes[$className]->constants[$constName] = $const;
         } else {
             $this->stubs->constants[$constName] = $const;
@@ -102,10 +102,10 @@ class ASTVisitor extends NodeVisitorAbstract
 
     private function visitDefine(FuncCall $node): void
     {
-        if ($node->name->parts[0] == "define") {
+        if ($node->name->parts[0] === 'define') {
             $constName = $this->getFQN($node, $node->args[0]->value->value);
             $const = new stdClass();
-            if (in_array($constName, ["null", "true", "false"])) {
+            if (in_array($constName, ['null', 'true', 'false'])) {
                 $constName = strtoupper($constName);
             }
             $const->name = $constName;
@@ -116,20 +116,21 @@ class ASTVisitor extends NodeVisitorAbstract
 
     private function getConstValue($node)
     {
-        if (in_array("value", $node->value->getSubNodeNames())) {
+        if (in_array('value', $node->value->getSubNodeNames(), true)) {
             return $node->value->value;
         }
-        if (in_array("expr", $node->value->getSubNodeNames())) {
+        if (in_array('expr', $node->value->getSubNodeNames(), true)) {
             return $node->value->expr->value;
         }
-        if (in_array("name", $node->value->getSubNodeNames())) {
+        if (in_array('name', $node->value->getSubNodeNames(), true)) {
             return $node->value->name->parts[0];
         }
+        return null;
     }
 
     private function visitMethod(ClassMethod $node): void
     {
-        $className = $node->getAttribute("parent")->name->name;
+        $className = $node->getAttribute('parent')->name->name;
         $method = new stdClass();
         $method->name = $node->name->name;
         $method->parameters = $this->parseParams($node);
@@ -151,10 +152,10 @@ class ASTVisitor extends NodeVisitorAbstract
         $class = new stdClass();
         $className = $this->getFQN($node, $node->name->name);
         $class->name = $className;
-        if (!empty($node->extends)) {
-            $class->parentClass = $node->extends->parts[0];
-        } else {
+        if (empty($node->extends)) {
             $class->parentClass = null;
+        } else {
+            $class->parentClass = $node->extends->parts[0];
         }
         $class->interfaces = $node->implements;
         $this->stubs->classes[$className] = $class;
@@ -170,13 +171,13 @@ class ASTVisitor extends NodeVisitorAbstract
         foreach ($params as $param) {
             $parsedParam = new stdClass();
             $parsedParam->name = $param->var->name;
-            if ($param->type != NULL) {
-                if (!empty($param->type->name)) {
-                    $parsedParam->type = $param->type->name;
-                } else {
+            if ($param->type !== null) {
+                if (empty($param->type->name)) {
                     if (!empty($param->type->parts)) {
                         $parsedParam->type = $param->type->parts[0];
                     }
+                } else {
+                    $parsedParam->type = $param->type->name;
                 }
 
             } else {
@@ -191,9 +192,9 @@ class ASTVisitor extends NodeVisitorAbstract
 
     private function getFQN(NodeAbstract $node, string $nodeName): string
     {
-        $namespace = "";
-        if ($node->getAttribute("parent") instanceof Namespace_ && !empty($node->getAttribute("parent")->name)) {
-            $namespace = '\\' . implode('\\', $node->getAttribute("parent")->name->parts) . '\\';
+        $namespace = '';
+        if ($node->getAttribute('parent') instanceof Namespace_ && !empty($node->getAttribute('parent')->name)) {
+            $namespace = '\\' . implode('\\', $node->getAttribute('parent')->name->parts) . '\\';
         }
         return $namespace . $nodeName;
     }
@@ -207,11 +208,11 @@ function getPhpStormStubs(): stdClass
 
     $stubsIterator =
         new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator(__DIR__ . "/../", FilesystemIterator::SKIP_DOTS)
+            new RecursiveDirectoryIterator(__DIR__ . '/../', FilesystemIterator::SKIP_DOTS)
         );
     /** @var SplFileInfo $file */
     foreach ($stubsIterator as $file) {
-        if(substr(dirname($file->getRealPath(),1),-5) == "tests" || strpos($file->getRealPath(),"vendor")){
+        if (strpos($file->getRealPath(), 'vendor') || substr(dirname($file->getRealPath(), 1), -5) === 'tests') {
             continue;
         }
         $code = file_get_contents($file->getRealPath());

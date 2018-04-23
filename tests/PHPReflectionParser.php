@@ -1,23 +1,22 @@
 <?php
 
+$constants = [];
 foreach (get_defined_constants() as $name => $value) {
     $constants[] = (new PHPConst())->serialize($name, $value);
 }
-$data["constants"] = $constants;
+$data['constants'] = $constants;
 
-foreach (get_defined_functions()["internal"] as $name) {
+$functions = [];
+foreach (get_defined_functions()['internal'] as $name) {
     $functions[] = (new PHPFunction())->serialize(new ReflectionFunction($name));
 }
-$data["functions"] = $functions;
+$data['functions'] = $functions;
 
-/**
- * @todo Check interfaces
- * @todo Check traits
- */
+$classes = [];
 foreach (get_declared_classes() as $class) {
     $classes[] = (new PHPClass())->serialize(new ReflectionClass($class));
 }
-$data["classes"] = $classes;
+$data['classes'] = $classes;
 
 $json = json_encode($data, JSON_NUMERIC_CHECK);
 echo $json;
@@ -28,22 +27,22 @@ class PHPClass
     public $name;
     public $methods = [];
     public $constants = [];
-    public $parentClass = null;
+    public $parentClass;
     public $interfaces = [];
 
-    public function serialize(ReflectionClass $reflectionClass)
+    public function serialize(ReflectionClass $reflectionClass): array
     {
         $this->name = $reflectionClass->name;
         $parentClass = $reflectionClass->getParentClass();
-        if (!empty($parentClass)) {
+        if (null !== $parentClass) {
             $this->parentClass = $reflectionClass->getParentClass()->name;
         }
         $this->interfaces = $reflectionClass->getInterfaceNames();
         foreach ($reflectionClass->getMethods() as $method) {
-            if ($method->getDeclaringClass()->name != $this->name) {
+            if ($method->getDeclaringClass()->name !== $this->name) {
                 continue;
             }
-            $this->methods[] = (new PHPMethod())->serialize($method);
+            $this->methods[$method->name] = (new PHPMethod())->serialize($method);
         }
 
         foreach ($reflectionClass->getConstants() as $name => $value) {
@@ -59,10 +58,10 @@ class PHPConst
     public $name;
     public $value;
 
-    public function serialize($name, $value)
+    public function serialize($name, $value): array
     {
         $this->name = utf8_encode($name);
-        $this->value = is_resource($value) ? "PHPSTORM_RESOURCE" : utf8_encode($value);
+        $this->value = is_resource($value) ? 'PHPSTORM_RESOURCE' : utf8_encode($value);
         return (array)$this;
     }
 }
@@ -73,7 +72,7 @@ class PHPFunction
     public $is_deprecated;
     public $parameters = [];
 
-    public function serialize(ReflectionFunction $reflectionFunction)
+    public function serialize(ReflectionFunction $reflectionFunction): array
     {
 
         $this->name = $reflectionFunction->name;
@@ -94,7 +93,7 @@ class PHPMethod
     public $is_final;
     public $parameters = [];
 
-    public function serialize(ReflectionMethod $method)
+    public function serialize(ReflectionMethod $method): array
     {
         $this->name = $method->name;
         $this->is_static = $method->isStatic();
@@ -104,11 +103,11 @@ class PHPMethod
         }
 
         if ($method->isProtected()) {
-            $access = "protected";
+            $access = 'protected';
         } else if ($method->isPrivate()) {
-            $access = "private";
+            $access = 'private';
         } else {
-            $access = "public";
+            $access = 'public';
         }
         $this->access = $access;
         return (array)$this;
@@ -119,11 +118,11 @@ class PHPMethod
 class PHPParameter
 {
     public $name;
-    public $type = "";
+    public $type = '';
     public $is_vararg;
     public $is_passed_by_ref;
 
-    public function serialize(ReflectionParameter $parameter)
+    public function serialize(ReflectionParameter $parameter): array
     {
         $this->name = $parameter->name;
         if (!empty($parameter->getType())) {
