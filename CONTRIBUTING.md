@@ -10,6 +10,10 @@ Please check our [issue tracker] for issues corresponding to the problem you fix
 * Please try to match existing style for any particular file - formatting, spacing, naming conventions.
 * Please add corresponding @since tags
 
+## Tests
+ * Please make sure that tests pass for your Pull Request. 
+ * If necessary, please include changes to *mutedProblems.json*.
+
 ## Types of contribution
 As of 2017.1 Preview we gladly accept all "non-standard" extensions and IDE get a UI for per-project configuration.
 As of 2016.3 there is an [easy way to package your custom stubs/metadata] as a plugin.
