@@ -1157,8 +1157,6 @@ class PharFileInfo extends SplFileInfo  {
 	 */
 	public function setMetadata ($metadata) {}
 
-    public function _bad_state_ex (){}
-
 }
 // End of Phar v.2.0.1
 ?>

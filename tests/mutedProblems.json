@@ -445,9 +445,419 @@
       "problems": [
         "parameter mismatch"
       ]
+    },
+    {
+      "name":"session_set_save_handler",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name":"stream_context_set_option",
+      "problems": [
+        "parameter mismatch"
+      ]
     }
   ],
   "classes": [
+    {
+      "name": "RecursiveRegexIterator",
+      "methods": [
+        {
+          "name": "accept",
+          "problems": [
+            "missing method"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Phar",
+      "methods": [
+        {
+          "name":"getPath",
+          "problems": [
+            "missing method"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PharData",
+      "methods": [
+        {
+          "name": "__destruct",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name": "addEmptyDir",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"addFile",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"addFromString",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"buildFromDirectory",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"buildFromIterator",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"compressFiles",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"decompressFiles",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"compress",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"decompress",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"convertToExecutable",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"convertToData",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"copy",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"count",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"delete",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"delMetadata",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"extractTo",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name": "getAlias",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"getPath",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"getMetadata",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"getModified",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"getSignature",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"getStub",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"getVersion",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"hasMetadata",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"isBuffering",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"isCompressed",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"isFileFormat",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"isWritable",
+          "problems": [
+            "missing method"
+         ]
+        },
+        {
+          "name":"setAlias",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"setDefaultStub",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"setMetadata",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"setSignatureAlgorithm",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"setStub",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"startBuffering",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"stopBuffering",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"apiVersion",
+          "problems": [
+            "missing method"
+          ]
+        },
+
+        {
+          "name":"canCompress",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"canWrite",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"createDefaultStub",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"getSupportedCompression",
+          "problems": [
+            "missing method"
+          ]
+        },{
+          "name":"getSupportedSignatures",
+          "problems": [
+            "missing method"
+          ]
+        },
+
+        {
+          "name":"interceptFileFunc",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"isValidPharFilename",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"loadPhar",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"mapPhar",
+          "problems": [
+            "missing method"
+          ]
+        },
+
+        {
+          "name":"running",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"mount",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"mungServer",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"unlinkArchive",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"webPhar",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"interceptFileFuncs",
+          "problems": [
+            "missing method"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DirectoryIterator",
+      "methods": [
+        {
+          "name": "getFilename",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name": "getExtension",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name": "getBasename",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name": "__toString",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"getSignature",
+          "problems": [
+            "missing method"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReflectionNamedType",
+      "methods": [
+        {
+          "name": "getName",
+          "problems": [
+            "missing method"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReflectionProperty",
+      "methods": [
+        {
+          "name": "setValue",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
     {
       "name": "ReflectionClass",
       "methods": [
@@ -540,7 +950,7 @@
       "name": "XMLWriter",
       "methods": [
         {
-          "name": "writeDTDEntity",
+          "name": "writeDtdEntity",
           "problems": [
             "parameter mismatch"
           ]
