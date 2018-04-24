@@ -1,0 +1,19 @@
+sudo: required
+
+services:
+  - docker
+addons:
+  apt:
+    packages:
+      - docker-ce
+
+language: php
+php:
+  - '7.2'
+install:
+  - composer install
+script:
+  - docker-compose -f tests/docker-compose.yml pull
+  - docker-compose -f tests/docker-compose.yml build
+  - docker-compose -f tests/docker-compose.yml run php > ./tests/stub.json
+  - phpunit tests/TestStubs.php

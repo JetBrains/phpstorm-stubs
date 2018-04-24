@@ -1,0 +1,1051 @@
+{
+  "constants": [
+  ],
+  "functions": [
+    {
+      "name": "mktime",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "gmmktime",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_push",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_unshift",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_map",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect_uassoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff_ukey",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff_uassoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "var_dump",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "setlocale",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "sprintf",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "printf",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "min",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "max",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "compact",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_merge",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_replace",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_replace",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect_key",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff_key",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_udiff",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff_assoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_udiff_assoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_udiff_uassoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "xmlwriter_write_dtd_entity",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "register_tick_function",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "pack",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "fprintf",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "forward_static_call",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "register_shutdown_function",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_uintersect_uassoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect_ukey",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_uintersect",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_replace_recursive",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect_assoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_uintersect_assoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_push",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_unshift",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_map",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect_uassoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff_ukey",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff_uassoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "var_dump",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "setlocale",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "sprintf",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "printf",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "min",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "max",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "compact",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_merge",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_replace",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_replace",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect_key",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff_key",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_udiff",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff_assoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_udiff_assoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_udiff_uassoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "xmlwriter_write_dtd_entity",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "register_tick_function",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "pack",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "fprintf",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "forward_static_call",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "register_shutdown_function",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_uintersect_uassoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_diff",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect_ukey",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_uintersect",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_replace_recursive",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_intersect_assoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "array_uintersect_assoc",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name":"session_set_save_handler",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name":"stream_context_set_option",
+      "problems": [
+        "parameter mismatch"
+      ]
+    }
+  ],
+  "classes": [
+    {
+      "name": "RecursiveRegexIterator",
+      "methods": [
+        {
+          "name": "accept",
+          "problems": [
+            "missing method"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Phar",
+      "methods": [
+        {
+          "name":"getPath",
+          "problems": [
+            "missing method"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PharData",
+      "methods": [
+        {
+          "name": "__destruct",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name": "addEmptyDir",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"addFile",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"addFromString",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"buildFromDirectory",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"buildFromIterator",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"compressFiles",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"decompressFiles",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"compress",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"decompress",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"convertToExecutable",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"convertToData",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"copy",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"count",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"delete",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"delMetadata",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"extractTo",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name": "getAlias",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"getPath",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"getMetadata",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"getModified",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"getSignature",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"getStub",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"getVersion",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"hasMetadata",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"isBuffering",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"isCompressed",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"isFileFormat",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"isWritable",
+          "problems": [
+            "missing method"
+         ]
+        },
+        {
+          "name":"setAlias",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"setDefaultStub",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"setMetadata",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"setSignatureAlgorithm",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"setStub",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"startBuffering",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"stopBuffering",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"apiVersion",
+          "problems": [
+            "missing method"
+          ]
+        },
+
+        {
+          "name":"canCompress",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"canWrite",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"createDefaultStub",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"getSupportedCompression",
+          "problems": [
+            "missing method"
+          ]
+        },{
+          "name":"getSupportedSignatures",
+          "problems": [
+            "missing method"
+          ]
+        },
+
+        {
+          "name":"interceptFileFunc",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"isValidPharFilename",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"loadPhar",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"mapPhar",
+          "problems": [
+            "missing method"
+          ]
+        },
+
+        {
+          "name":"running",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"mount",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"mungServer",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"unlinkArchive",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"webPhar",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"interceptFileFuncs",
+          "problems": [
+            "missing method"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DirectoryIterator",
+      "methods": [
+        {
+          "name": "getFilename",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name": "getExtension",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name": "getBasename",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name": "__toString",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name":"getSignature",
+          "problems": [
+            "missing method"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReflectionNamedType",
+      "methods": [
+        {
+          "name": "getName",
+          "problems": [
+            "missing method"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReflectionProperty",
+      "methods": [
+        {
+          "name": "setValue",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReflectionClass",
+      "methods": [
+        {
+          "name": "newInstance",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DatePeriod",
+      "methods": [
+        {
+          "name": "__construct",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DOMImplementation",
+      "methods": [
+        {
+          "name": "hasFeature",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DateTimeImmutable",
+      "methods": [
+        {
+          "name": "__set_state",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DateTime",
+      "methods": [
+        {
+          "name": "__set_state",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DOMXPath",
+      "methods": [
+        {
+          "name": "registerPhpFunctions",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SplHeap",
+      "methods": [
+        {
+          "name": "compare",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PDO",
+      "methods": [
+        {
+          "name": "query",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "XMLWriter",
+      "methods": [
+        {
+          "name": "writeDtdEntity",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReflectionMethod",
+      "methods": [
+        {
+          "name": "invoke",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DateTimeZone",
+      "methods": [
+        {
+          "name": "__set_state",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DateInterval",
+      "methods": [
+        {
+          "name": "__set_state",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PDOStatement",
+      "methods": [
+        {
+          "name": "setFetchMode",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RecursiveTreeIterator",
+      "methods": [
+        {
+          "name": "setPostfix",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DOMDocument",
+      "methods": [
+        {
+          "name": "schemaValidate",
+          "problems": [
+            "parameter mismatch"
+          ]
+        },
+        {
+          "name": "saveHTML",
+          "problems": [
+            "parameter mismatch"
+          ]
+        },
+        {
+          "name": "save",
+          "problems": [
+            "parameter mismatch"
+          ]
+        },
+        {
+          "name": "schemaValidateSource",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PharData",
+      "problems": [
+        "wrong parent"
+      ]
+    }
+  ]
+}

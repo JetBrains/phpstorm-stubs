@@ -595,6 +595,7 @@ function sodium_crypto_generichash_final(
  * @param string $salt
  * @param int $opslimit
  * @param int $memlimit
+ * @param int $alg [optional]
  * @return string
  */
 function sodium_crypto_pwhash(
@@ -602,7 +603,8 @@ function sodium_crypto_pwhash(
     string $passwd,
     string $salt,
     int $opslimit,
-    int $memlimit
+    int $memlimit,
+    int $alg
 ): string {
     unset($out_len, $passwd, $salt, $opslimit, $memlimit);
     return '';
@@ -651,6 +653,7 @@ function sodium_crypto_pwhash_str_verify(
  * @param string $salt
  * @param int $opslimit
  * @param int $memlimit
+ * @param int $alg [optional]
  * @return string
  */
 function sodium_crypto_pwhash_scryptsalsa208sha256(
@@ -658,7 +661,8 @@ function sodium_crypto_pwhash_scryptsalsa208sha256(
     string $passwd,
     string $salt,
     int $opslimit,
-    int $memlimit
+    int $memlimit,
+    int $alg
 ): string {
     unset($out_len, $passwd, $salt, $opslimit, $memlimit);
     return '';
@@ -1040,10 +1044,11 @@ function sodium_compare(
  * Convert from hex without side-chanels
  *
  * @param string $binary
+ * @param string $ignore [optional]
  * @return string
  */
 function sodium_hex2bin(
-    string $hex
+    string $hex, string $ignore
 ): string {
     unset($hex);
     return '';
@@ -1109,9 +1114,10 @@ function sodium_memcmp(
  * Wipe a buffer
  *
  * @param string &$nonce
+ * @since 7.2
  */
 function sodium_memzero(
-    string &$target
+    &$reference, $length
 ) {
     $target = '';
 }
@@ -1128,11 +1134,12 @@ function sodium_version_string(): string {
 /**
  * Scalar multiplication of the base point and your key
  *
- * @param string $sk
+ * @param string $string_1
+ * @param string $string_2
  * @return string
  */
 function sodium_crypto_scalarmult_base(
-    string $sk
+    string $string_1, string $string_2
 ): string {
     unset($sk);
 

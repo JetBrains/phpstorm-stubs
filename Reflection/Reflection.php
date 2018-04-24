@@ -2012,7 +2012,7 @@ class ReflectionType
 	{
 	}
 
-    public function __clone() {}
+    private final function __clone() {}
 
 }
 
@@ -2117,7 +2117,7 @@ class ReflectionClassConstant implements Reflector {
      */
 	public function __toString() {}
 
-    public function __clone() {}
+    private final function __clone() {}
 
 }
 
