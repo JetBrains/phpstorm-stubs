@@ -14,6 +14,11 @@ IDE needs them for completion, code inspection, type inference, doc popups, etc.
 ### Updating the IDE
 TBD: Have a full copy of .git repo within IDE and add it as an external library "PHP Runtime" to the project. It should then be easilly updatable both way via normal git methods.
 
+### How to run tests
+1. Execute `composer install`
+2. Execute `docker-compose -f tests/docker-compose.yml run php > tests/stub.json`
+3. Run the test `phpunit tests/TestStubs.php`
+
 ### License
 [Apache 2]
 
