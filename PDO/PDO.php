@@ -714,10 +714,8 @@ class PDO  {
 	 * <p>
 	 * Disables SSL peer verification when set to FALSE.
 	 * </p>
-	 * <p>
-	 * Note, this constant is not yet documented on the php.net documentation.
-	 * </p>
-	 * @since 7.0.18 and 7.1.4
+	 * @since 7.0.18
+	 * @since 7.1.4
 	 * @link https://bugs.php.net/bug.php?id=71003
 	 */
 	const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1016;
