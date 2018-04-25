@@ -257,8 +257,8 @@ function session_unset () {}
  * <p>This callback is executed when a new session ID is required.
  * No parameters are provided, and the return value should be a string that is a valid
  * session ID for your handler.</p>
- * @param callback $validate_sid
- * @param callback $update_timestamp
+ * @param callback $validate_sid [optional]
+ * @param callback $update_timestamp [optional]
  * @return bool true on success or false on failure.
  * @since 4.0
  * @since 5.0
