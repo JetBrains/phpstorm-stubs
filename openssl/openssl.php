@@ -771,7 +771,7 @@ function openssl_seal($data, &$sealed_data, array &$env_keys, array $pub_key_ids
  * @param mixed $priv_key_id
  * @param string $method [optional] The cipher method.
  * @param string $iv [optional] The initialization vector.
- * @return void true on success or false on failure.
+ * @return bool true on success or false on failure.
  * @since 4.0.4
  * @since 5.0
  */
