@@ -2,7 +2,7 @@
 
 /**
  * Get the last occurred error
- * @link http://php.net/manual/en/function.error-get-last.php
+ * @link https://php.net/manual/en/function.error-get-last.php
  * @return array an associative array describing the last error with keys "type",
  * "message", "file" and "line". Returns &null; if there hasn't been an error
  * yet.
@@ -12,7 +12,7 @@ function error_get_last () {}
 
 /**
  * Call a user function given by the first parameter
- * @link http://php.net/manual/en/function.call-user-func.php
+ * @link https://php.net/manual/en/function.call-user-func.php
  * @param callback $function <p>
  * The function to be called. Class methods may also be invoked
  * statically using this function by passing
@@ -38,7 +38,7 @@ function call_user_func ($function, ...$parameter) {}
 
 /**
  * Call a user function given with an array of parameters
- * @link http://php.net/manual/en/function.call-user-func-array.php
+ * @link https://php.net/manual/en/function.call-user-func-array.php
  * @param callback $function <p>
  * The function to be called.
  * </p>
@@ -53,7 +53,7 @@ function call_user_func_array ($function, array $param_arr) {}
 
 /**
  * Call a user method on an specific object
- * @link http://php.net/manual/en/function.call-user-method.php
+ * @link https://php.net/manual/en/function.call-user-method.php
  * @deprecated 5.3 use call_user_func() instead
  * @param string $method_name
  * @param object $obj 
@@ -67,7 +67,7 @@ function call_user_method ($method_name, &$obj, $parameter = null, $_ = null) {}
 
 /**
  * Call a user method given with an array of parameters
- * @link http://php.net/manual/en/function.call-user-method-array.php
+ * @link https://php.net/manual/en/function.call-user-method-array.php
  * @deprecated 5.3 use call_user_func_array() instead
  * @param string $method_name
  * @param object $obj 
@@ -80,7 +80,7 @@ function call_user_method_array ($method_name, &$obj, array $params) {}
 
 /**
  * Call a static method
- * @link http://php.net/manual/en/function.forward-static-call.php
+ * @link https://php.net/manual/en/function.forward-static-call.php
  * @param callback $function <p>
  * The function or method to be called. This parameter may be an array,
  * with the name of the class, and the method, or a string, with a function
@@ -97,7 +97,7 @@ function forward_static_call ($function, $parameter = null, $_ = null) {}
 
 /**
  * Call a static method and pass the arguments as array
- * @link http://php.net/manual/en/function.forward-static-call-array.php
+ * @link https://php.net/manual/en/function.forward-static-call-array.php
  * @param callback $function <p>
  * The function or method to be called. This parameter may be an &array;,
  * with the name of the class, and the method, or a &string;, with a function
@@ -111,7 +111,7 @@ function forward_static_call_array ($function, array $parameters = null) {}
 
 /**
  * Generates a storable representation of a value
- * @link http://php.net/manual/en/function.serialize.php
+ * @link https://php.net/manual/en/function.serialize.php
  * @param mixed $value <p>
  * The value to be serialized. serialize
  * handles all types, except the resource-type.
@@ -141,7 +141,7 @@ function serialize ($value) {}
 
 /**
  * Creates a PHP value from a stored representation
- * @link http://php.net/manual/en/function.unserialize.php
+ * @link https://php.net/manual/en/function.unserialize.php
  * @param string $str <p>
  * The serialized string.
  * </p>
@@ -186,7 +186,7 @@ function unserialize ($str, array $options = null) {}
 
 /**
  * Dumps information about a variable
- * @link http://php.net/manual/en/function.var-dump.php
+ * @link https://php.net/manual/en/function.var-dump.php
  * @param mixed $expression <p>
  * The variable you want to export.
  * </p>
@@ -199,7 +199,7 @@ function var_dump ($expression, $_ = null) {}
 
 /**
  * Outputs or returns a parsable string representation of a variable
- * @link http://php.net/manual/en/function.var-export.php
+ * @link https://php.net/manual/en/function.var-export.php
  * @param mixed $expression <p>
  * The variable you want to export.
  * </p>
@@ -218,7 +218,7 @@ function var_export ($expression, $return = null) {}
 
 /**
  * Dumps a string representation of an internal zend value to output
- * @link http://php.net/manual/en/function.debug-zval-dump.php
+ * @link https://php.net/manual/en/function.debug-zval-dump.php
  * @param mixed $variable <p>
  * The variable being evaluated.
  * </p>
@@ -230,7 +230,7 @@ function debug_zval_dump ($variable) {}
 
 /**
  * Prints human-readable information about a variable
- * @link http://php.net/manual/en/function.print-r.php
+ * @link https://php.net/manual/en/function.print-r.php
  * @param mixed $expression <p>
  * The expression to be printed.
  * </p>
@@ -251,7 +251,7 @@ function print_r ($expression, $return = null) {}
 
 /**
  * Returns the amount of memory allocated to PHP
- * @link http://php.net/manual/en/function.memory-get-usage.php
+ * @link https://php.net/manual/en/function.memory-get-usage.php
  * @param bool $real_usage [optional] <p>
  * Set this to true to get the real size of memory allocated from
  * system. If not set or false only the memory used by
@@ -265,7 +265,7 @@ function memory_get_usage ($real_usage = null) {}
 
 /**
  * Returns the peak of memory allocated by PHP
- * @link http://php.net/manual/en/function.memory-get-peak-usage.php
+ * @link https://php.net/manual/en/function.memory-get-peak-usage.php
  * @param bool $real_usage [optional] <p>
  * Set this to true to get the real size of memory allocated from
  * system. If not set or false only the memory used by
@@ -278,7 +278,7 @@ function memory_get_peak_usage ($real_usage = null) {}
 
 /**
  * Register a function for execution on shutdown
- * @link http://php.net/manual/en/function.register-shutdown-function.php
+ * @link https://php.net/manual/en/function.register-shutdown-function.php
  * @param callback $function <p>
  * The shutdown function to register.
  * </p>
@@ -306,7 +306,7 @@ function register_shutdown_function ($function, $parameter = null, $_ = null) {}
 
 /**
  * Register a function for execution on each tick
- * @link http://php.net/manual/en/function.register-tick-function.php
+ * @link https://php.net/manual/en/function.register-tick-function.php
  * @param callback $function <p>
  * The function name as a string, or an array consisting of an object and
  * a method.
@@ -322,7 +322,7 @@ function register_tick_function ($function, $arg = null, $_ = null) {}
 
 /**
  * De-register a function for execution on each tick
- * @link http://php.net/manual/en/function.unregister-tick-function.php
+ * @link https://php.net/manual/en/function.unregister-tick-function.php
  * @param callable $function <p>
  * The function name as a string, or an array consisting of an object and
  * a method.
@@ -335,7 +335,7 @@ function unregister_tick_function ($function) {}
 
 /**
  * Syntax highlighting of a file
- * @link http://php.net/manual/en/function.highlight-file.php
+ * @link https://php.net/manual/en/function.highlight-file.php
  * @param string $filename <p>
  * Path to the PHP file to be highlighted.
  * </p>
@@ -353,7 +353,7 @@ function highlight_file ($filename, $return = null) {}
 
 /**
  * &Alias; <function>highlight_file</function>
- * @link http://php.net/manual/en/function.show-source.php
+ * @link https://php.net/manual/en/function.show-source.php
  * @param $file_name
  * @param $return [optional]
  * @since 4.0
@@ -363,7 +363,7 @@ function show_source ($file_name, $return) {}
 
 /**
  * Syntax highlighting of a string
- * @link http://php.net/manual/en/function.highlight-string.php
+ * @link https://php.net/manual/en/function.highlight-string.php
  * @param string $str <p>
  * The PHP code to be highlighted. This should include the opening tag.
  * </p>
@@ -381,7 +381,7 @@ function highlight_string ($str, $return = null) {}
 
 /**
  * Return source with stripped comments and whitespace
- * @link http://php.net/manual/en/function.php-strip-whitespace.php
+ * @link https://php.net/manual/en/function.php-strip-whitespace.php
  * @param string $filename <p>
  * Path to the PHP file.
  * </p>
@@ -399,7 +399,7 @@ function php_strip_whitespace ($filename) {}
 
 /**
  * Gets the value of a configuration option
- * @link http://php.net/manual/en/function.ini-get.php
+ * @link https://php.net/manual/en/function.ini-get.php
  * @param string $varname <p>
  * The configuration option name.
  * </p>
@@ -412,7 +412,7 @@ function ini_get ($varname) {}
 
 /**
  * Gets all configuration options
- * @link http://php.net/manual/en/function.ini-get-all.php
+ * @link https://php.net/manual/en/function.ini-get-all.php
  * @param string $extension [optional] <p>
  * An optional extension name. If set, the function return only options
  * specific for that extension.
@@ -448,7 +448,7 @@ function ini_get_all ($extension = null, $details = null) {}
 
 /**
  * Sets the value of a configuration option
- * @link http://php.net/manual/en/function.ini-set.php
+ * @link https://php.net/manual/en/function.ini-set.php
  * @param string $varname <p>
  * </p>
  * <p>
@@ -467,7 +467,7 @@ function ini_set ($varname, $newvalue) {}
 
 /**
  * &Alias; <function>ini_set</function>
- * @link http://php.net/manual/en/function.ini-alter.php
+ * @link https://php.net/manual/en/function.ini-alter.php
  * @param $varname
  * @param $newvalue
  * @since 4.0
@@ -477,7 +477,7 @@ function ini_alter ($varname, $newvalue) {}
 
 /**
  * Restores the value of a configuration option
- * @link http://php.net/manual/en/function.ini-restore.php
+ * @link https://php.net/manual/en/function.ini-restore.php
  * @param string $varname <p>
  * The configuration option name.
  * </p>
@@ -489,7 +489,7 @@ function ini_restore ($varname) {}
 
 /**
  * Gets the current include_path configuration option
- * @link http://php.net/manual/en/function.get-include-path.php
+ * @link https://php.net/manual/en/function.get-include-path.php
  * @return string the path, as a string.
  * @since 4.3.0
  * @since 5.0
@@ -498,7 +498,7 @@ function get_include_path () {}
 
 /**
  * Sets the include_path configuration option
- * @link http://php.net/manual/en/function.set-include-path.php
+ * @link https://php.net/manual/en/function.set-include-path.php
  * @param string $new_include_path <p>
  * The new value for the include_path
  * </p>
@@ -511,7 +511,7 @@ function set_include_path ($new_include_path) {}
 
 /**
  * Restores the value of the include_path configuration option
- * @link http://php.net/manual/en/function.restore-include-path.php
+ * @link https://php.net/manual/en/function.restore-include-path.php
  * @return void 
  * @since 4.3.0
  * @since 5.0
@@ -520,7 +520,7 @@ function restore_include_path () {}
 
 /**
  * Send a cookie
- * @link http://php.net/manual/en/function.setcookie.php
+ * @link https://php.net/manual/en/function.setcookie.php
  * @param string $name <p>
  * The name of the cookie.
  * </p>
@@ -599,7 +599,7 @@ function setcookie ($name, $value = "", $expire = 0, $path = "", $domain = "", $
 
 /**
  * Send a cookie without urlencoding the cookie value
- * @link http://php.net/manual/en/function.setrawcookie.php
+ * @link https://php.net/manual/en/function.setrawcookie.php
  * @param string $name 
  * @param string $value [optional] 
  * @param int $expire [optional] 
@@ -614,7 +614,7 @@ function setrawcookie ($name, $value = null, $expire = 0, $path = "", $domain = 
 
 /**
  * Send a raw HTTP header
- * @link http://php.net/manual/en/function.header.php
+ * @link https://php.net/manual/en/function.header.php
  * @param string $string <p>
  * The header string.
  * </p>
@@ -661,7 +661,7 @@ function header ($string, $replace = true, $http_response_code = null) {}
 
 /**
  * Remove previously set headers
- * @link http://php.net/manual/en/function.header-remove.php
+ * @link https://php.net/manual/en/function.header-remove.php
  * @param string $name [optional] <p>
  * The header name to be removed.
  * </p>
@@ -673,7 +673,7 @@ function header_remove ($name = null) {}
 
 /**
  * Checks if or where headers have been sent
- * @link http://php.net/manual/en/function.headers-sent.php
+ * @link https://php.net/manual/en/function.headers-sent.php
  * @param string $file [optional] <p>
  * If the optional file and
  * line parameters are set, 
@@ -693,7 +693,7 @@ function headers_sent (&$file = null, &$line = null) {}
 
 /**
  * Returns a list of response headers sent (or ready to send)
- * @link http://php.net/manual/en/function.headers-list.php
+ * @link https://php.net/manual/en/function.headers-list.php
  * @return array a numerically indexed array of headers.
  * @since 5.0
  */
@@ -701,7 +701,7 @@ function headers_list () {}
 
 /**
  * Check whether client disconnected
- * @link http://php.net/manual/en/function.connection-aborted.php
+ * @link https://php.net/manual/en/function.connection-aborted.php
  * @return int 1 if client disconnected, 0 otherwise.
  * @since 4.0
  * @since 5.0
@@ -710,7 +710,7 @@ function connection_aborted () {}
 
 /**
  * Returns connection status bitfield
- * @link http://php.net/manual/en/function.connection-status.php
+ * @link https://php.net/manual/en/function.connection-status.php
  * @return int the connection status bitfield, which can be used against the
  * CONNECTION_XXX constants to determine the connection
  * status.
@@ -721,7 +721,7 @@ function connection_status () {}
 
 /**
  * Set whether a client disconnect should abort script execution
- * @link http://php.net/manual/en/function.ignore-user-abort.php
+ * @link https://php.net/manual/en/function.ignore-user-abort.php
  * @param string $value [optional] <p>
  * If set, this function will set the ignore_user_abort ini setting
  * to the given value. If not, this function will
@@ -735,7 +735,7 @@ function ignore_user_abort ($value = null) {}
 
 /**
  * Parse a configuration file
- * @link http://php.net/manual/en/function.parse-ini-file.php
+ * @link https://php.net/manual/en/function.parse-ini-file.php
  * @param string $filename <p>
  * The filename of the ini file being parsed.
  * </p>
@@ -767,7 +767,7 @@ function parse_ini_file ($filename, $process_sections = false, $scanner_mode = I
 
 /**
  * Parse a configuration string
- * @link http://php.net/manual/en/function.parse-ini-string.php
+ * @link https://php.net/manual/en/function.parse-ini-string.php
  * @param string $ini <p>
  * The contents of the ini file being parsed.
  * </p>
@@ -790,7 +790,7 @@ function parse_ini_string ($ini, $process_sections = false, $scanner_mode = INI_
 
 /**
  * Tells whether the file was uploaded via HTTP POST
- * @link http://php.net/manual/en/function.is-uploaded-file.php
+ * @link https://php.net/manual/en/function.is-uploaded-file.php
  * @param string $filename <p>
  * The filename being checked.
  * </p>
@@ -802,7 +802,7 @@ function is_uploaded_file ($filename) {}
 
 /**
  * Moves an uploaded file to a new location
- * @link http://php.net/manual/en/function.move-uploaded-file.php
+ * @link https://php.net/manual/en/function.move-uploaded-file.php
  * @param string $filename <p>
  * The filename of the uploaded file.
  * </p>
@@ -826,7 +826,7 @@ function move_uploaded_file ($filename, $destination) {}
 
 /**
  * Get the Internet host name corresponding to a given IP address
- * @link http://php.net/manual/en/function.gethostbyaddr.php
+ * @link https://php.net/manual/en/function.gethostbyaddr.php
  * @param string $ip_address <p>
  * The host IP address.
  * </p>
@@ -839,7 +839,7 @@ function gethostbyaddr ($ip_address) {}
 
 /**
  * Get the IPv4 address corresponding to a given Internet host name
- * @link http://php.net/manual/en/function.gethostbyname.php
+ * @link https://php.net/manual/en/function.gethostbyname.php
  * @param string $hostname <p>
  * The host name.
  * </p>
@@ -855,7 +855,7 @@ function gethostbyname ($hostname) {}
  * @since 4.0
  * @since 5.0
    name
- * @link http://php.net/manual/en/function.gethostbynamel.php
+ * @link https://php.net/manual/en/function.gethostbynamel.php
  * @param string $hostname <p>
  * The host name.
  * </p>
@@ -866,7 +866,7 @@ function gethostbynamel ($hostname) {}
 
 /**
  * Gets the host name
- * @link http://php.net/manual/en/function.gethostname.php
+ * @link https://php.net/manual/en/function.gethostname.php
  * @return string a string with the hostname on success, otherwise false is 
  * returned.
  * @since 5.3.0
@@ -875,7 +875,7 @@ function gethostname () {}
 
 /**
  * &Alias; <function>checkdnsrr</function>
- * @link http://php.net/manual/en/function.dns-check-record.php
+ * @link https://php.net/manual/en/function.dns-check-record.php
  * @param $host <p>
  * <b>host</b> may either be the IP address in
  * dotted-quad notation or the host name.
@@ -891,7 +891,7 @@ function dns_check_record ($host, $type) {}
 
 /**
  * Check DNS records corresponding to a given Internet host name or IP address
- * @link http://php.net/manual/en/function.checkdnsrr.php
+ * @link https://php.net/manual/en/function.checkdnsrr.php
  * @param string $host <p>
  * host may either be the IP address in
  * dotted-quad notation or the host name.
@@ -909,7 +909,7 @@ function checkdnsrr ($host, $type = null) {}
 
 /**
  * &Alias; <function>getmxrr</function>
- * @link http://php.net/manual/en/function.dns-get-mx.php
+ * @link https://php.net/manual/en/function.dns-get-mx.php
  * @param $hostname
  * @param $mxhosts
  * @param $weight [optional]
@@ -919,7 +919,7 @@ function dns_get_mx ($hostname, &$mxhosts, &$weight) {}
 
 /**
  * Get MX records corresponding to a given Internet host name
- * @link http://php.net/manual/en/function.getmxrr.php
+ * @link https://php.net/manual/en/function.getmxrr.php
  * @param string $hostname <p>
  * The Internet host name.
  * </p>
@@ -940,7 +940,7 @@ function getmxrr ($hostname, array &$mxhosts, array &$weight = null) {}
 
 /**
  * Fetch DNS Resource Records associated with a hostname
- * @link http://php.net/manual/en/function.dns-get-record.php
+ * @link https://php.net/manual/en/function.dns-get-record.php
  * @param string $hostname <p>
  * hostname should be a valid DNS hostname such
  * as "www.example.com". Reverse lookups can be generated

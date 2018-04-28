@@ -5,86 +5,86 @@
  */
 
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_LIST_ACTIVE', 1);
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_LIST_DELETED', 2);
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_ITER_TYPE', 1);
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_ITER_KEY', 2);
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_ITER_FILENAME', 4);
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_ITER_DEVICE', 8);
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_ITER_INODE', 16);
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_ITER_VALUE', 32);
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_ITER_MD5', 64);
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_ITER_NUM_HITS', 128);
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_ITER_MTIME', 256);
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_ITER_CTIME', 512);
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_ITER_DTIME', 1024);
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_ITER_ATIME', 2048);
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_ITER_REFCOUNT', 4096);
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_ITER_MEM_SIZE', 8192);
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_ITER_TTL', 16384);
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_ITER_NONE', 0);
 /**
- * @link http://php.net/manual/en/apcu.constants.php
+ * @link https://php.net/manual/en/apcu.constants.php
  */
 define('APC_ITER_ALL', -1);
 
 
 /**
  * Clears the APCu cache
- * @link http://php.net/manual/en/function.apcu-clear-cache.php
+ * @link https://php.net/manual/en/function.apcu-clear-cache.php
  *
  * @return bool Returns TRUE always.
  */
@@ -92,7 +92,7 @@ function apcu_clear_cache(){}
 
 /**
  * Retrieves APCu Shared Memory Allocation information
- * @link http://php.net/manual/en/function.apcu-sma-info.php
+ * @link https://php.net/manual/en/function.apcu-sma-info.php
  * @param bool $limited When set to FALSE (default) apcu_sma_info() will
  * return a detailed information about each segment.
  *
@@ -102,7 +102,7 @@ function apcu_sma_info($limited = false){}
 
 /**
  * Cache a variable in the data store
- * @link http://php.net/manual/en/function.apcu-store.php
+ * @link https://php.net/manual/en/function.apcu-store.php
  * @param string|array $key String: Store the variable using this name. Keys are cache-unique,
  * so storing a second value with the same key will overwrite the original value.
  * Array: Names in key, variables in value.
@@ -117,7 +117,7 @@ function apcu_store($key, $var, $ttl = 0){}
 
 /**
  * Fetch a stored variable from the cache
- * @link http://php.net/manual/en/function.apcu-fetch.php
+ * @link https://php.net/manual/en/function.apcu-fetch.php
  * @param string|string[] $key The key used to store the value (with apcu_store()).
  * If an array is passed then each element is fetched and returned.
  * @param bool $success Set to TRUE in success and FALSE in failure.
@@ -127,7 +127,7 @@ function apcu_fetch($key, &$success = null){}
 
 /**
  * Removes a stored variable from the cache
- * @link http://php.net/manual/en/function.apcu-delete.php
+ * @link https://php.net/manual/en/function.apcu-delete.php
  * @param string|string[]|APCUIterator $key The key used to store the value (with apcu_store()).
  * @return bool|string[] Returns TRUE on success or FALSE on failure. For array of keys returns list of failed keys.
  */
@@ -135,7 +135,7 @@ function apcu_delete($key){}
 
 /**
  * Caches a variable in the data store, only if it's not already stored
- * @link http://php.net/manual/en/function.apcu-add.php
+ * @link https://php.net/manual/en/function.apcu-add.php
  * @param string|array $key Store the variable using this name. Keys are cache-unique,
  * so attempting to use apcu_add() to store data with a key that already exists will not
  * overwrite the existing data, and will instead return FALSE. (This is the only difference
@@ -153,7 +153,7 @@ function apcu_add($key, $var, $ttl = 0){}
 
 /**
  * Checks if APCu key exists
- * @link http://php.net/manual/en/function.apcu-exists.php
+ * @link https://php.net/manual/en/function.apcu-exists.php
  * @param string|string[] $keys A string, or an array of strings, that contain keys.
  * @return bool|string[] Returns TRUE if the key exists, otherwise FALSE
  * Or if an array was passed to keys, then an array is returned that
@@ -163,7 +163,7 @@ function apcu_exists($keys){}
 
 /**
  * Increase a stored number
- * @link http://php.net/manual/en/function.apcu-inc.php
+ * @link https://php.net/manual/en/function.apcu-inc.php
  * @param string $key The key of the value being increased.
  * @param int $step The step, or value to increase.
  * @param bool $success Optionally pass the success or fail boolean value to this referenced variable.
@@ -173,7 +173,7 @@ function apcu_inc($key, $step = 1, &$success = null){}
 
 /**
  * Decrease a stored number
- * @link http://php.net/manual/en/function.apcu-dec.php
+ * @link https://php.net/manual/en/function.apcu-dec.php
  * @param string $key The key of the value being decreased.
  * @param int $step The step, or value to decrease.
  * @param bool $success Optionally pass the success or fail boolean value to this referenced variable.
@@ -187,7 +187,7 @@ function apcu_dec($key, $step = 1, &$success = null){}
  * apcu_cas() updates an already existing integer value if the old parameter matches the currently stored value
  * with the value of the new parameter.
  *
- * @link http://php.net/manual/en/function.apcu-cas.php
+ * @link https://php.net/manual/en/function.apcu-cas.php
  * @param string $key The key of the value being updated.
  * @param int $old The old value (the value currently stored).
  * @param int $new The new value to update to.
@@ -210,7 +210,7 @@ function apcu_cas($key, $old, $new){}
  * since they will acquire the same lock.
  * </p>
  *
- * @link http://php.net/manual/en/function.apcu-entry.php
+ * @link https://php.net/manual/en/function.apcu-entry.php
  *
  * @param string $key Identity of cache entry
  * @param callable $generator A callable that accepts key as the only argument and returns the value to cache.
@@ -228,7 +228,7 @@ function apcu_entry($key, callable $generator, $ttl = 0){}
 /**
  * Retrieves cached information from APCu's data store
  *
- * @link http://php.net/manual/en/function.apcu-cache-info.php
+ * @link https://php.net/manual/en/function.apcu-cache-info.php
  * 
  * @param bool $limited If limited is TRUE, the return value will exclude the individual list of cache entries.
  * This is useful when trying to optimize calls for statistics gathering.
@@ -245,14 +245,14 @@ function apcu_cache_info($limited = false){}
  * the entire cache to grab 100 (the default) entries. Also, using regular expression matching is more
  * efficient as it's been moved to the C level.
  *
- * @link http://php.net/manual/en/class.apcuiterator.php
+ * @link https://php.net/manual/en/class.apcuiterator.php
  * @since APCu 5.0.0
  */
 class APCUIterator implements Iterator
 {
 	/**
 	 * Constructs an APCUIterator iterator object
-	 * @link http://php.net/manual/en/apcuiterator.construct.php
+	 * @link https://php.net/manual/en/apcuiterator.construct.php
 	 * @param string|string[]|null $search A PCRE regular expression that matches against APCu key names,
 	 * either as a string for a single regular expression, or as an array of regular expressions.
 	 * Or, optionally pass in NULL to skip the search.
@@ -264,55 +264,55 @@ class APCUIterator implements Iterator
 
 	/**
 	 * Rewinds back the iterator to the first element
-	 * @link http://php.net/manual/en/apcuiterator.rewind.php
+	 * @link https://php.net/manual/en/apcuiterator.rewind.php
 	 */
 	public function rewind(){}
 
 	/**
 	 * Checks if the current iterator position is valid
-	 * @link http://php.net/manual/en/apcuiterator.valid.php
+	 * @link https://php.net/manual/en/apcuiterator.valid.php
 	 * @return bool Returns TRUE if the current iterator position is valid, otherwise FALSE.
 	 */
 	public function valid(){}
 
 	/**
 	 * Gets the current item from the APCUIterator stack
-	 * @link http://php.net/manual/en/apcuiterator.current.php
+	 * @link https://php.net/manual/en/apcuiterator.current.php
 	 * @return mixed Returns the current item on success, or FALSE if no more items or exist, or on failure.
 	 */
 	public function current(){}
 
 	/**
 	 * Gets the current iterator key
-	 * @link http://php.net/manual/en/apcuiterator.key.php
+	 * @link https://php.net/manual/en/apcuiterator.key.php
 	 * @return string|int|bool Returns the key on success, or FALSE upon failure.
 	 */
 	public function key(){}
 
 	/**
 	 * Moves the iterator pointer to the next element
-	 * @link http://php.net/manual/en/apcuiterator.next.php
+	 * @link https://php.net/manual/en/apcuiterator.next.php
 	 * @return bool Returns TRUE on success or FALSE on failure.
 	 */
 	public function next(){}
 
 	/**
 	 * Gets the total number of cache hits
-	 * @link http://php.net/manual/en/apcuiterator.gettotalhits.php
+	 * @link https://php.net/manual/en/apcuiterator.gettotalhits.php
 	 * @return int|bool The number of hits on success, or FALSE on failure.
 	 */
 	public function getTotalHits(){}
 
 	/**
 	 * Gets the total cache size
-	 * @link http://php.net/manual/en/apcuiterator.gettotalsize.php
+	 * @link https://php.net/manual/en/apcuiterator.gettotalsize.php
 	 * @return int|bool The total cache size.
 	 */
 	public function getTotalSize(){}
 
 	/**
 	 * Get the total count
-	 * @link http://php.net/manual/en/apcuiterator.gettotalcount.php
+	 * @link https://php.net/manual/en/apcuiterator.gettotalcount.php
 	 * @return int|bool The total count.
 	 */
 	public function getTotalCount(){}

@@ -33,7 +33,7 @@ class HttpQueryStringException extends HttpException  {
 }
 
 /**
- * @link http://php.net/manual/en/class.httpdeflatestream.php
+ * @link https://php.net/manual/en/class.httpdeflatestream.php
  */
 class HttpDeflateStream  {
 	const TYPE_GZIP = 16;
@@ -55,7 +55,7 @@ class HttpDeflateStream  {
 	/**
 	 * (PECL pecl_http &gt;= 0.21.0)<br/>
 	 * HttpDeflateStream class constructor
-	 * @link http://php.net/manual/en/function.httpdeflatestream-construct.php
+	 * @link https://php.net/manual/en/function.httpdeflatestream-construct.php
 	 * @param int $flags [optional] <p>
 	 * initialization flags
 	 * </p>
@@ -66,7 +66,7 @@ class HttpDeflateStream  {
 	/**
 	 * (PECL pecl_http &gt;= 0.21.0)<br/>
 	 * Update deflate stream
-	 * @link http://php.net/manual/en/function.httpdeflatestream-update.php
+	 * @link https://php.net/manual/en/function.httpdeflatestream-update.php
 	 * @param string $data <p>
 	 * data to deflate
 	 * </p>
@@ -77,7 +77,7 @@ class HttpDeflateStream  {
 	/**
 	 * (PECL pecl_http &gt;= 0.21.0)<br/>
 	 * Flush deflate stream
-	 * @link http://php.net/manual/en/function.httpdeflatestream-flush.php
+	 * @link https://php.net/manual/en/function.httpdeflatestream-flush.php
 	 * @param string $data [optional] <p>
 	 * more data to deflate
 	 * </p>
@@ -88,7 +88,7 @@ class HttpDeflateStream  {
 	/**
 	 * (PECL pecl_http &gt;= 0.21.0)<br/>
 	 * Finalize deflate stream
-	 * @link http://php.net/manual/en/function.httpdeflatestream-finish.php
+	 * @link https://php.net/manual/en/function.httpdeflatestream-finish.php
 	 * @param string $data [optional] <p>
 	 * data to deflate
 	 * </p>
@@ -99,7 +99,7 @@ class HttpDeflateStream  {
 	/**
 	 * (PECL pecl_http &gt;= 1.4.0)<br/>
 	 * HttpDeflateStream class factory
-	 * @link http://php.net/manual/en/function.httpdeflatestream-factory.php
+	 * @link https://php.net/manual/en/function.httpdeflatestream-factory.php
 	 * @param int $flags [optional] <p>
 	 * initialization flags
 	 * </p>
@@ -113,7 +113,7 @@ class HttpDeflateStream  {
 }
 
 /**
- * @link http://php.net/manual/en/class.httpinflatestream.php
+ * @link https://php.net/manual/en/class.httpinflatestream.php
  */
 class HttpInflateStream  {
 	const FLUSH_NONE = 0;
@@ -124,7 +124,7 @@ class HttpInflateStream  {
 	/**
 	 * (PECL pecl_http &gt;= 1.0.0)<br/>
 	 * HttpInflateStream class constructor
-	 * @link http://php.net/manual/en/function.httpinflatestream-construct.php
+	 * @link https://php.net/manual/en/function.httpinflatestream-construct.php
 	 * @param int $flags [optional] <p>
 	 * initialization flags
 	 * </p>
@@ -135,7 +135,7 @@ class HttpInflateStream  {
 	/**
 	 * (PECL pecl_http &gt;= 0.21.0)<br/>
 	 * Update inflate stream
-	 * @link http://php.net/manual/en/function.httpinflatestream-update.php
+	 * @link https://php.net/manual/en/function.httpinflatestream-update.php
 	 * @param string $data <p>
 	 * data to inflate
 	 * </p>
@@ -146,7 +146,7 @@ class HttpInflateStream  {
 	/**
 	 * (PECL pecl_http &gt;= 0.21.0)<br/>
 	 * Flush inflate stream
-	 * @link http://php.net/manual/en/function.httpinflatestream-flush.php
+	 * @link https://php.net/manual/en/function.httpinflatestream-flush.php
 	 * @param string $data [optional] <p>
 	 * more data to inflate
 	 * </p>
@@ -157,7 +157,7 @@ class HttpInflateStream  {
 	/**
 	 * (PECL pecl_http &gt;= 0.21.0)<br/>
 	 * Finalize inflate stream
-	 * @link http://php.net/manual/en/function.httpinflatestream-finish.php
+	 * @link https://php.net/manual/en/function.httpinflatestream-finish.php
 	 * @param string $data [optional] <p>
 	 * data to inflate
 	 * </p>
@@ -168,7 +168,7 @@ class HttpInflateStream  {
 	/**
 	 * (PECL pecl_http &gt;= 1.4.0)<br/>
 	 * HttpInflateStream class factory
-	 * @link http://php.net/manual/en/function.httpinflatestream-factory.php
+	 * @link https://php.net/manual/en/function.httpinflatestream-factory.php
 	 * @param int $flags [optional] <p>
 	 * initialization flags
 	 * </p>
@@ -182,7 +182,7 @@ class HttpInflateStream  {
 }
 
 /**
- * @link http://php.net/manual/en/class.httpmessage.php
+ * @link https://php.net/manual/en/class.httpmessage.php
  */
 class HttpMessage implements Countable, Serializable, Iterator {
 	const TYPE_NONE = 0;
@@ -203,7 +203,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * HttpMessage constructor
-	 * @link http://php.net/manual/en/function.httpmessage-construct.php
+	 * @link https://php.net/manual/en/function.httpmessage-construct.php
 	 * @param string $message [optional] <p>
 	 * a single or several consecutive HTTP messages
 	 * </p>
@@ -214,7 +214,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get message body
-	 * @link http://php.net/manual/en/function.httpmessage-getbody.php
+	 * @link https://php.net/manual/en/function.httpmessage-getbody.php
 	 * @return string the message body as string.
 	 */
 	public function getBody () {}
@@ -222,7 +222,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.14.0)<br/>
 	 * Set message body
-	 * @link http://php.net/manual/en/function.httpmessage-setbody.php
+	 * @link https://php.net/manual/en/function.httpmessage-setbody.php
 	 * @param string $body <p>
 	 * the new body of the message
 	 * </p>
@@ -233,7 +233,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 1.1.0)<br/>
 	 * Get header
-	 * @link http://php.net/manual/en/function.httpmessage-getheader.php
+	 * @link https://php.net/manual/en/function.httpmessage-getheader.php
 	 * @param string $header <p>
 	 * header name
 	 * </p>
@@ -244,7 +244,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get message headers
-	 * @link http://php.net/manual/en/function.httpmessage-getheaders.php
+	 * @link https://php.net/manual/en/function.httpmessage-getheaders.php
 	 * @return array an associative array containing the messages HTTP headers.
 	 */
 	public function getHeaders () {}
@@ -252,7 +252,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set headers
-	 * @link http://php.net/manual/en/function.httpmessage-setheaders.php
+	 * @link https://php.net/manual/en/function.httpmessage-setheaders.php
 	 * @param array $headers <p>
 	 * associative array containing the new HTTP headers, which will replace all previous HTTP headers of the message
 	 * </p>
@@ -263,7 +263,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Add headers
-	 * @link http://php.net/manual/en/function.httpmessage-addheaders.php
+	 * @link https://php.net/manual/en/function.httpmessage-addheaders.php
 	 * @param array $headers <p>
 	 * associative array containing the additional HTTP headers to add to the messages existing headers
 	 * </p>
@@ -279,7 +279,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get message type
-	 * @link http://php.net/manual/en/function.httpmessage-gettype.php
+	 * @link https://php.net/manual/en/function.httpmessage-gettype.php
 	 * @return int the HttpMessage::TYPE.
 	 */
 	public function getType () {}
@@ -287,7 +287,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set message type
-	 * @link http://php.net/manual/en/function.httpmessage-settype.php
+	 * @link https://php.net/manual/en/function.httpmessage-settype.php
 	 * @param int $type <p>
 	 * the HttpMessage::TYPE
 	 * </p>
@@ -305,7 +305,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get response code
-	 * @link http://php.net/manual/en/function.httpmessage-getresponsecode.php
+	 * @link https://php.net/manual/en/function.httpmessage-getresponsecode.php
 	 * @return int the HTTP response code if the message is of type HttpMessage::TYPE_RESPONSE, else FALSE.
 	 */
 	public function getResponseCode () {}
@@ -313,7 +313,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set response code
-	 * @link http://php.net/manual/en/function.httpmessage-setresponsecode.php
+	 * @link https://php.net/manual/en/function.httpmessage-setresponsecode.php
 	 * @param int $code <p>
 	 * HTTP response code
 	 * </p>
@@ -325,7 +325,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.23.0)<br/>
 	 * Get response status
-	 * @link http://php.net/manual/en/function.httpmessage-getresponsestatus.php
+	 * @link https://php.net/manual/en/function.httpmessage-getresponsestatus.php
 	 * @return string the HTTP response status string if the message is of type 
 	 * HttpMessage::TYPE_RESPONSE, else FALSE.
 	 */
@@ -334,7 +334,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.23.0)<br/>
 	 * Set response status
-	 * @link http://php.net/manual/en/function.httpmessage-setresponsestatus.php
+	 * @link https://php.net/manual/en/function.httpmessage-setresponsestatus.php
 	 * @param string $status <p>
 	 * the response status text
 	 * </p>
@@ -346,7 +346,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get request method
-	 * @link http://php.net/manual/en/function.httpmessage-getrequestmethod.php
+	 * @link https://php.net/manual/en/function.httpmessage-getrequestmethod.php
 	 * @return string the request method name on success, or FALSE if the message is
 	 * not of type HttpMessage::TYPE_REQUEST.
 	 */
@@ -355,7 +355,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set request method
-	 * @link http://php.net/manual/en/function.httpmessage-setrequestmethod.php
+	 * @link https://php.net/manual/en/function.httpmessage-setrequestmethod.php
 	 * @param string $method <p>
 	 * the request method name
 	 * </p>
@@ -367,7 +367,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.21.0)<br/>
 	 * Get request URL
-	 * @link http://php.net/manual/en/function.httpmessage-getrequesturl.php
+	 * @link https://php.net/manual/en/function.httpmessage-getrequesturl.php
 	 * @return string the request URL as string on success, or FALSE if the message
 	 * is not of type HttpMessage::TYPE_REQUEST.
 	 */
@@ -376,7 +376,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.21.0)<br/>
 	 * Set request URL
-	 * @link http://php.net/manual/en/function.httpmessage-setrequesturl.php
+	 * @link https://php.net/manual/en/function.httpmessage-setrequesturl.php
 	 * @param string $url <p>
 	 * the request URL
 	 * </p>
@@ -388,7 +388,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get HTTP version
-	 * @link http://php.net/manual/en/function.httpmessage-gethttpversion.php
+	 * @link https://php.net/manual/en/function.httpmessage-gethttpversion.php
 	 * @return string the HTTP protocol version as string.
 	 */
 	public function getHttpVersion () {}
@@ -396,7 +396,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set HTTP version
-	 * @link http://php.net/manual/en/function.httpmessage-sethttpversion.php
+	 * @link https://php.net/manual/en/function.httpmessage-sethttpversion.php
 	 * @param string $version <p>
 	 * the HTTP protocol version
 	 * </p>
@@ -407,7 +407,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 1.0.0)<br/>
 	 * Guess content type
-	 * @link http://php.net/manual/en/function.httpmessage-guesscontenttype.php
+	 * @link https://php.net/manual/en/function.httpmessage-guesscontenttype.php
 	 * @param string $magic_file <p>
 	 * the magic.mime database to use
 	 * </p>
@@ -421,7 +421,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get parent message
-	 * @link http://php.net/manual/en/function.httpmessage-getparentmessage.php
+	 * @link https://php.net/manual/en/function.httpmessage-getparentmessage.php
 	 * @return HttpMessage the parent HttpMessage object.
 	 */
 	public function getParentMessage () {}
@@ -429,7 +429,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Send message
-	 * @link http://php.net/manual/en/function.httpmessage-send.php
+	 * @link https://php.net/manual/en/function.httpmessage-send.php
 	 * @return bool true on success or false on failure.
 	 */
 	public function send () {}
@@ -437,7 +437,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get string representation
-	 * @link http://php.net/manual/en/function.httpmessage-tostring.php
+	 * @link https://php.net/manual/en/function.httpmessage-tostring.php
 	 * @param bool $include_parent [optional] <p>
 	 * specifies whether the returned string should also contain any parent messages
 	 * </p>
@@ -448,7 +448,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.22.0)<br/>
 	 * Create HTTP object regarding message type
-	 * @link http://php.net/manual/en/function.httpmessage-tomessagetypeobject.php
+	 * @link https://php.net/manual/en/function.httpmessage-tomessagetypeobject.php
 	 * @return HttpRequest|HttpResponse either an HttpRequest or HttpResponse object on success, or NULL on failure.
 	 */
 	public function toMessageTypeObject () {}
@@ -480,7 +480,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 1.4.0)<br/>
 	 * Create HttpMessage from string
-	 * @link http://php.net/manual/en/function.httpmessage-factory.php
+	 * @link https://php.net/manual/en/function.httpmessage-factory.php
 	 * @param string $raw_message [optional] <p>
 	 * a single or several consecutive HTTP messages
 	 * </p>
@@ -494,7 +494,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http 0.10.0-1.3.3)<br/>
 	 * Create HttpMessage from string
-	 * @link http://php.net/manual/en/function.httpmessage-fromstring.php
+	 * @link https://php.net/manual/en/function.httpmessage-fromstring.php
 	 * @param string $raw_message [optional] <p>
 	 * a single or several consecutive HTTP messages
 	 * </p>
@@ -508,7 +508,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 1.5.0)<br/>
 	 * Create HttpMessage from environment
-	 * @link http://php.net/manual/en/function.httpmessage-fromenv.php
+	 * @link https://php.net/manual/en/function.httpmessage-fromenv.php
 	 * @param int $message_type <p>
 	 * The message type. See HttpMessage type constants.
 	 * </p>
@@ -522,7 +522,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.22.0)<br/>
 	 * Detach HttpMessage
-	 * @link http://php.net/manual/en/function.httpmessage-detach.php
+	 * @link https://php.net/manual/en/function.httpmessage-detach.php
 	 * @return HttpMessage detached HttpMessage object copy.
 	 */
 	public function detach () {}
@@ -530,7 +530,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.22.0)<br/>
 	 * Prepend message(s)
-	 * @link http://php.net/manual/en/function.httpmessage-prepend.php
+	 * @link https://php.net/manual/en/function.httpmessage-prepend.php
 	 * @param HttpMessage $message <p>
 	 * HttpMessage object to prepend
 	 * </p>
@@ -544,7 +544,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.23.0)<br/>
 	 * Reverse message chain
-	 * @link http://php.net/manual/en/function.httpmessage-reverse.php
+	 * @link https://php.net/manual/en/function.httpmessage-reverse.php
 	 * @return HttpMessage the most parent HttpMessage object.
 	 */
 	public function reverse () {}
@@ -552,7 +552,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 }
 
 /**
- * @link http://php.net/manual/en/class.httpquerystring.php
+ * @link https://php.net/manual/en/class.httpquerystring.php
  */
 class HttpQueryString implements Serializable, ArrayAccess {
 	const TYPE_BOOL = 3;
@@ -570,7 +570,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	/**
 	 * (PECL pecl_http &gt;= 0.22.0)<br/>
 	 * HttpQueryString constructor
-	 * @link http://php.net/manual/en/function.httpquerystring-construct.php
+	 * @link https://php.net/manual/en/function.httpquerystring-construct.php
 	 * @param bool $global [optional] <p>
 	 * whether to operate on $_GET and
 	 * $_SERVER['QUERY_STRING']
@@ -584,7 +584,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	/**
 	 * (PECL pecl_http &gt;= 0.22.0)<br/>
 	 * Get query string as array
-	 * @link http://php.net/manual/en/function.httpquerystring-toarray.php
+	 * @link https://php.net/manual/en/function.httpquerystring-toarray.php
 	 * @return array the array representation of the query string.
 	 */
 	public function toArray () {}
@@ -592,7 +592,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	/**
 	 * (PECL pecl_http &gt;= 0.22.0)<br/>
 	 * Get query string
-	 * @link http://php.net/manual/en/function.httpquerystring-tostring.php
+	 * @link https://php.net/manual/en/function.httpquerystring-tostring.php
 	 * @return string the string representation of the query string.
 	 */
 	public function toString () {}
@@ -605,7 +605,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	/**
 	 * (PECL pecl_http &gt;= 0.22.0)<br/>
 	 * Get (part of) query string
-	 * @link http://php.net/manual/en/function.httpquerystring-get.php
+	 * @link https://php.net/manual/en/function.httpquerystring-get.php
 	 * @param string $key [optional] <p>
 	 * key of the query string param to retrieve
 	 * </p>
@@ -625,7 +625,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	/**
 	 * (PECL pecl_http &gt;= 0.22.0)<br/>
 	 * Set query string params
-	 * @link http://php.net/manual/en/function.httpquerystring-set.php
+	 * @link https://php.net/manual/en/function.httpquerystring-set.php
 	 * @param mixed $params <p>
 	 * query string params to add
 	 * </p>
@@ -636,7 +636,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	/**
 	 * (PECL pecl_http &gt;= 1.1.0)<br/>
 	 * Modifiy query string copy
-	 * @link http://php.net/manual/en/function.httpquerystring-mod.php
+	 * @link https://php.net/manual/en/function.httpquerystring-mod.php
 	 * @param mixed $params <p>
 	 * query string params to add
 	 * </p>
@@ -696,7 +696,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	/**
 	 * (PECL pecl_http &gt;= 0.25.0)<br/>
 	 * HttpQueryString singleton
-	 * @link http://php.net/manual/en/function.httpquerystring-singleton.php
+	 * @link https://php.net/manual/en/function.httpquerystring-singleton.php
 	 * @param bool $global [optional] <p>
 	 * whether to operate on $_GET and
 	 * $_SERVER['QUERY_STRING']
@@ -708,7 +708,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	/**
 	 * (PECL pecl_http &gt;= 0.25.0)<br/>
 	 * Change query strings charset
-	 * @link http://php.net/manual/en/function.httpquerystring-xlate.php
+	 * @link https://php.net/manual/en/function.httpquerystring-xlate.php
 	 * @param string $ie <p>
 	 * input encoding
 	 * </p>
@@ -721,7 +721,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 
 	/**
 	 * String representation of object
-	 * @link http://php.net/manual/en/serializable.serialize.php
+	 * @link https://php.net/manual/en/serializable.serialize.php
 	 * @return string the string representation of the object or null
 	 * @since 5.1.0
 	 */
@@ -730,7 +730,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 
 	/**
 	 * Offset to retrieve
-	 * @link http://php.net/manual/en/arrayaccess.offsetget.php
+	 * @link https://php.net/manual/en/arrayaccess.offsetget.php
 	 * @param mixed $offset <p>
 	 * The offset to retrieve.
 	 * </p>
@@ -742,7 +742,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 
 	/**
 	 * Constructs the object
-	 * @link http://php.net/manual/en/serializable.unserialize.php
+	 * @link https://php.net/manual/en/serializable.unserialize.php
 	 * @param string $serialized <p>
 	 * The string representation of the object.
 	 * </p>
@@ -754,7 +754,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 
 	/**
 	 * Whether a offset exists
-	 * @link http://php.net/manual/en/arrayaccess.offsetexists.php
+	 * @link https://php.net/manual/en/arrayaccess.offsetexists.php
 	 * @param mixed $offset <p>
 	 * An offset to check for.
 	 * </p>
@@ -769,7 +769,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 
 	/**
 	 * Offset to set
-	 * @link http://php.net/manual/en/arrayaccess.offsetset.php
+	 * @link https://php.net/manual/en/arrayaccess.offsetset.php
 	 * @param mixed $offset <p>
 	 * The offset to assign the value to.
 	 * </p>
@@ -784,7 +784,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 
 	/**
 	 * Offset to unset
-	 * @link http://php.net/manual/en/arrayaccess.offsetunset.php
+	 * @link https://php.net/manual/en/arrayaccess.offsetunset.php
 	 * @param mixed $offset <p>
 	 * The offset to unset.
 	 * </p>
@@ -796,7 +796,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 }
 
 /**
- * @link http://php.net/manual/en/class.httprequest.php
+ * @link https://php.net/manual/en/class.httprequest.php
  */
 class HttpRequest  {
 	const METH_GET = 1;
@@ -867,7 +867,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * HttpRequest constructor
-	 * @link http://php.net/manual/en/function.httprequest-construct.php
+	 * @link https://php.net/manual/en/function.httprequest-construct.php
 	 * @param string $url [optional] <p>
 	 * the target request url
 	 * </p>
@@ -884,7 +884,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set options
-	 * @link http://php.net/manual/en/function.httprequest-setoptions.php
+	 * @link https://php.net/manual/en/function.httprequest-setoptions.php
 	 * @param array $options [optional] <p>
 	 * an associative array, which values will overwrite the 
 	 * currently set request options;
@@ -897,7 +897,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get options
-	 * @link http://php.net/manual/en/function.httprequest-getoptions.php
+	 * @link https://php.net/manual/en/function.httprequest-getoptions.php
 	 * @return array an associative array containing currently set options.
 	 */
 	public function getOptions () {}
@@ -905,7 +905,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set ssl options
-	 * @link http://php.net/manual/en/function.httprequest-setssloptions.php
+	 * @link https://php.net/manual/en/function.httprequest-setssloptions.php
 	 * @param array $options [optional] <p>
 	 * an associative array containing any SSL specific options;
 	 * if empty or omitted, the SSL options will be reset
@@ -917,7 +917,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get ssl options
-	 * @link http://php.net/manual/en/function.httprequest-getssloptions.php
+	 * @link https://php.net/manual/en/function.httprequest-getssloptions.php
 	 * @return array an associative array containing any previously set SSL options.
 	 */
 	public function getSslOptions () {}
@@ -925,7 +925,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.12.0)<br/>
 	 * Add ssl options
-	 * @link http://php.net/manual/en/function.httprequest-addssloptions.php
+	 * @link https://php.net/manual/en/function.httprequest-addssloptions.php
 	 * @param array $options <p>
 	 * an associative array as parameter containing additional SSL specific options
 	 * </p>
@@ -936,7 +936,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Add headers
-	 * @link http://php.net/manual/en/function.httprequest-addheaders.php
+	 * @link https://php.net/manual/en/function.httprequest-addheaders.php
 	 * @param array $headers <p>
 	 * an associative array as parameter containing additional header name/value pairs
 	 * </p>
@@ -947,7 +947,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get headers
-	 * @link http://php.net/manual/en/function.httprequest-getheaders.php
+	 * @link https://php.net/manual/en/function.httprequest-getheaders.php
 	 * @return array an associative array containing all currently set headers.
 	 */
 	public function getHeaders () {}
@@ -955,7 +955,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.12.0)<br/>
 	 * Set headers
-	 * @link http://php.net/manual/en/function.httprequest-setheaders.php
+	 * @link https://php.net/manual/en/function.httprequest-setheaders.php
 	 * @param array $headers [optional] <p>
 	 * an associative array as parameter containing header name/value pairs;
 	 * if empty or omitted, all previously set headers will be unset
@@ -967,7 +967,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Add cookies
-	 * @link http://php.net/manual/en/function.httprequest-addcookies.php
+	 * @link https://php.net/manual/en/function.httprequest-addcookies.php
 	 * @param array $cookies <p>
 	 * an associative array containing any cookie name/value pairs to add
 	 * </p>
@@ -978,7 +978,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get cookies
-	 * @link http://php.net/manual/en/function.httprequest-getcookies.php
+	 * @link https://php.net/manual/en/function.httprequest-getcookies.php
 	 * @return array an associative array containing any previously set cookies.
 	 */
 	public function getCookies () {}
@@ -986,7 +986,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.12.0)<br/>
 	 * Set cookies
-	 * @link http://php.net/manual/en/function.httprequest-setcookies.php
+	 * @link https://php.net/manual/en/function.httprequest-setcookies.php
 	 * @param array $cookies [optional] <p>
 	 * an associative array as parameter containing cookie name/value pairs;
 	 * if empty or omitted, all previously set cookies will be unset
@@ -998,7 +998,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 1.0.0)<br/>
 	 * Enable cookies
-	 * @link http://php.net/manual/en/function.httprequest-enablecookies.php
+	 * @link https://php.net/manual/en/function.httprequest-enablecookies.php
 	 * @return bool true on success or false on failure.
 	 */
 	public function enableCookies () {}
@@ -1006,7 +1006,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 1.0.0)<br/>
 	 * Reset cookies
-	 * @link http://php.net/manual/en/function.httprequest-resetcookies.php
+	 * @link https://php.net/manual/en/function.httprequest-resetcookies.php
 	 * @param bool $session_only [optional] <p>
 	 * whether only session cookies should be reset (needs libcurl >= v7.15.4, else libcurl >= v7.14.1)
 	 * </p>
@@ -1019,7 +1019,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set method
-	 * @link http://php.net/manual/en/function.httprequest-setmethod.php
+	 * @link https://php.net/manual/en/function.httprequest-setmethod.php
 	 * @param int $request_method <p>
 	 * the request method to use
 	 * </p>
@@ -1030,7 +1030,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get method
-	 * @link http://php.net/manual/en/function.httprequest-getmethod.php
+	 * @link https://php.net/manual/en/function.httprequest-getmethod.php
 	 * @return int the currently set request method.
 	 */
 	public function getMethod () {}
@@ -1038,7 +1038,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set URL
-	 * @link http://php.net/manual/en/function.httprequest-seturl.php
+	 * @link https://php.net/manual/en/function.httprequest-seturl.php
 	 * @param string $url <p>
 	 * the request url
 	 * </p>
@@ -1049,7 +1049,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get url
-	 * @link http://php.net/manual/en/function.httprequest-geturl.php
+	 * @link https://php.net/manual/en/function.httprequest-geturl.php
 	 * @return string the currently set request url as string.
 	 */
 	public function getUrl () {}
@@ -1057,7 +1057,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set content type
-	 * @link http://php.net/manual/en/function.httprequest-setcontenttype.php
+	 * @link https://php.net/manual/en/function.httprequest-setcontenttype.php
 	 * @param string $content_type <p>
 	 * the content type of the request (primary/secondary)
 	 * </p>
@@ -1069,7 +1069,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get content type
-	 * @link http://php.net/manual/en/function.httprequest-getcontenttype.php
+	 * @link https://php.net/manual/en/function.httprequest-getcontenttype.php
 	 * @return string the previously set content type as string.
 	 */
 	public function getContentType () {}
@@ -1077,7 +1077,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set query data
-	 * @link http://php.net/manual/en/function.httprequest-setquerydata.php
+	 * @link https://php.net/manual/en/function.httprequest-setquerydata.php
 	 * @param mixed $query_data <p>
 	 * a string or associative array parameter containing the pre-encoded 
 	 * query string or to be encoded query fields;
@@ -1090,7 +1090,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get query data
-	 * @link http://php.net/manual/en/function.httprequest-getquerydata.php
+	 * @link https://php.net/manual/en/function.httprequest-getquerydata.php
 	 * @return string a string containing the urlencoded query.
 	 */
 	public function getQueryData () {}
@@ -1098,7 +1098,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Add query data
-	 * @link http://php.net/manual/en/function.httprequest-addquerydata.php
+	 * @link https://php.net/manual/en/function.httprequest-addquerydata.php
 	 * @param array $query_params <p>
 	 * an associative array as parameter containing the query fields to add
 	 * </p>
@@ -1109,7 +1109,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set post fields
-	 * @link http://php.net/manual/en/function.httprequest-setpostfields.php
+	 * @link https://php.net/manual/en/function.httprequest-setpostfields.php
 	 * @param array $post_data <p>
 	 * an associative array containing the post fields;
 	 * if empty, the post data will be unset
@@ -1121,7 +1121,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get post fields
-	 * @link http://php.net/manual/en/function.httprequest-getpostfields.php
+	 * @link https://php.net/manual/en/function.httprequest-getpostfields.php
 	 * @return array the currently set post fields as associative array.
 	 */
 	public function getPostFields () {}
@@ -1129,7 +1129,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Add post fields
-	 * @link http://php.net/manual/en/function.httprequest-addpostfields.php
+	 * @link https://php.net/manual/en/function.httprequest-addpostfields.php
 	 * @param array $post_data <p>
 	 * an associative array as parameter containing the post fields
 	 * </p>
@@ -1152,7 +1152,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http 0.14.0-1.4.1)<br/>
 	 * Set raw post data
-	 * @link http://php.net/manual/en/function.httprequest-setrawpostdata.php
+	 * @link https://php.net/manual/en/function.httprequest-setrawpostdata.php
 	 * @param string $raw_post_data [optional] <p>
 	 * raw post data
 	 * </p>
@@ -1163,7 +1163,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http 0.14.0-1.4.1)<br/>
 	 * Get raw post data
-	 * @link http://php.net/manual/en/function.httprequest-getrawpostdata.php
+	 * @link https://php.net/manual/en/function.httprequest-getrawpostdata.php
 	 * @return string a string containing the currently set raw post data.
 	 */
 	public function getRawPostData () {}
@@ -1171,7 +1171,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http 0.14.0-1.4.1)<br/>
 	 * Add raw post data
-	 * @link http://php.net/manual/en/function.httprequest-addrawpostdata.php
+	 * @link https://php.net/manual/en/function.httprequest-addrawpostdata.php
 	 * @param string $raw_post_data <p>
 	 * the raw post data to concatenate
 	 * </p>
@@ -1182,7 +1182,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set post files
-	 * @link http://php.net/manual/en/function.httprequest-setpostfiles.php
+	 * @link https://php.net/manual/en/function.httprequest-setpostfiles.php
 	 * @param array $post_files <p>
 	 * an array containing the files to post;
 	 * if empty, the post files will be unset
@@ -1194,7 +1194,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Add post file
-	 * @link http://php.net/manual/en/function.httprequest-addpostfile.php
+	 * @link https://php.net/manual/en/function.httprequest-addpostfile.php
 	 * @param string $name <p>
 	 * the form element name
 	 * </p>
@@ -1212,7 +1212,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get post files
-	 * @link http://php.net/manual/en/function.httprequest-getpostfiles.php
+	 * @link https://php.net/manual/en/function.httprequest-getpostfiles.php
 	 * @return array an array containing currently set post files.
 	 */
 	public function getPostFiles () {}
@@ -1220,7 +1220,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set put file
-	 * @link http://php.net/manual/en/function.httprequest-setputfile.php
+	 * @link https://php.net/manual/en/function.httprequest-setputfile.php
 	 * @param string $file [optional] <p>
 	 * the path to the file to send;
 	 * if empty or omitted the put file will be unset
@@ -1232,7 +1232,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get put file
-	 * @link http://php.net/manual/en/function.httprequest-getputfile.php
+	 * @link https://php.net/manual/en/function.httprequest-getputfile.php
 	 * @return string a string containing the path to the currently set put file.
 	 */
 	public function getPutFile () {}
@@ -1240,7 +1240,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.25.0)<br/>
 	 * Set put data
-	 * @link http://php.net/manual/en/function.httprequest-setputdata.php
+	 * @link https://php.net/manual/en/function.httprequest-setputdata.php
 	 * @param string $put_data [optional] <p>
 	 * the data to upload
 	 * </p>
@@ -1251,7 +1251,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.25.0)<br/>
 	 * Get put data
-	 * @link http://php.net/manual/en/function.httprequest-getputdata.php
+	 * @link https://php.net/manual/en/function.httprequest-getputdata.php
 	 * @return string a string containing the currently set PUT data.
 	 */
 	public function getPutData () {}
@@ -1259,7 +1259,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.25.0)<br/>
 	 * Add put data
-	 * @link http://php.net/manual/en/function.httprequest-addputdata.php
+	 * @link https://php.net/manual/en/function.httprequest-addputdata.php
 	 * @param string $put_data <p>
 	 * the data to concatenate
 	 * </p>
@@ -1270,7 +1270,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Send request
-	 * @link http://php.net/manual/en/function.httprequest-send.php
+	 * @link https://php.net/manual/en/function.httprequest-send.php
 	 * @return HttpMessage the received response as HttpMessage object.
 	 */
 	public function send () {}
@@ -1278,7 +1278,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get response data
-	 * @link http://php.net/manual/en/function.httprequest-getresponsedata.php
+	 * @link https://php.net/manual/en/function.httprequest-getresponsedata.php
 	 * @return array an associative array with the key "headers" containing an associative
 	 * array holding all response headers, as well as the key "body" containing a
 	 * string with the response body.
@@ -1288,7 +1288,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get response header(s)
-	 * @link http://php.net/manual/en/function.httprequest-getresponseheader.php
+	 * @link https://php.net/manual/en/function.httprequest-getresponseheader.php
 	 * @param string $name [optional] <p>
 	 * header to read; if empty, all response headers will be returned
 	 * </p>
@@ -1300,7 +1300,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.23.0)<br/>
 	 * Get response cookie(s)
-	 * @link http://php.net/manual/en/function.httprequest-getresponsecookies.php
+	 * @link https://php.net/manual/en/function.httprequest-getresponsecookies.php
 	 * @param int $flags [optional] <p>
 	 * http_parse_cookie flags
 	 * </p>
@@ -1314,7 +1314,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get response code
-	 * @link http://php.net/manual/en/function.httprequest-getresponsecode.php
+	 * @link https://php.net/manual/en/function.httprequest-getresponsecode.php
 	 * @return int an int representing the response code.
 	 */
 	public function getResponseCode () {}
@@ -1322,7 +1322,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.23.0)<br/>
 	 * Get response status
-	 * @link http://php.net/manual/en/function.httprequest-getresponsestatus.php
+	 * @link https://php.net/manual/en/function.httprequest-getresponsestatus.php
 	 * @return string a string containing the response status text.
 	 */
 	public function getResponseStatus () {}
@@ -1330,7 +1330,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get response body
-	 * @link http://php.net/manual/en/function.httprequest-getresponsebody.php
+	 * @link https://php.net/manual/en/function.httprequest-getresponsebody.php
 	 * @return string a string containing the response body.
 	 */
 	public function getResponseBody () {}
@@ -1338,7 +1338,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get response info
-	 * @link http://php.net/manual/en/function.httprequest-getresponseinfo.php
+	 * @link https://php.net/manual/en/function.httprequest-getresponseinfo.php
 	 * @param string $name [optional] <p>
 	 * the info to read; if empty or omitted, an associative array containing
 	 * all available info will be returned
@@ -1352,7 +1352,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get response message
-	 * @link http://php.net/manual/en/function.httprequest-getresponsemessage.php
+	 * @link https://php.net/manual/en/function.httprequest-getresponsemessage.php
 	 * @return HttpMessage an HttpMessage object of the response.
 	 */
 	public function getResponseMessage () {}
@@ -1360,7 +1360,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.21.0)<br/>
 	 * Get raw response message
-	 * @link http://php.net/manual/en/function.httprequest-getrawresponsemessage.php
+	 * @link https://php.net/manual/en/function.httprequest-getrawresponsemessage.php
 	 * @return string the complete web server response, including the headers in a form of a string.
 	 */
 	public function getRawResponseMessage () {}
@@ -1368,7 +1368,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.11.0)<br/>
 	 * Get request message
-	 * @link http://php.net/manual/en/function.httprequest-getrequestmessage.php
+	 * @link https://php.net/manual/en/function.httprequest-getrequestmessage.php
 	 * @return HttpMessage an HttpMessage object representing the sent request.
 	 */
 	public function getRequestMessage () {}
@@ -1376,7 +1376,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.21.0)<br/>
 	 * Get raw request message
-	 * @link http://php.net/manual/en/function.httprequest-getrawrequestmessage.php
+	 * @link https://php.net/manual/en/function.httprequest-getrawrequestmessage.php
 	 * @return string an HttpMessage in a form of a string.
 	 */
 	public function getRawRequestMessage () {}
@@ -1384,7 +1384,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.15.0)<br/>
 	 * Get history
-	 * @link http://php.net/manual/en/function.httprequest-gethistory.php
+	 * @link https://php.net/manual/en/function.httprequest-gethistory.php
 	 * @return HttpMessage an HttpMessage object representing the complete request/response history.
 	 */
 	public function getHistory () {}
@@ -1392,7 +1392,7 @@ class HttpRequest  {
 	/**
 	 * (PECL pecl_http &gt;= 0.15.0)<br/>
 	 * Clear history
-	 * @link http://php.net/manual/en/function.httprequest-clearhistory.php
+	 * @link https://php.net/manual/en/function.httprequest-clearhistory.php
 	 * @return void 
 	 */
 	public function clearHistory () {}
@@ -1525,14 +1525,14 @@ class HttpRequestDataShare implements Countable {
 }
 
 /**
- * @link http://php.net/manual/en/class.httprequestpool.php
+ * @link https://php.net/manual/en/class.httprequestpool.php
  */
 class HttpRequestPool implements Countable, Iterator {
 
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * HttpRequestPool constructor
-	 * @link http://php.net/manual/en/function.httprequestpool-construct.php
+	 * @link https://php.net/manual/en/function.httprequestpool-construct.php
 	 * @param HttpRequest $request [optional] <p>
 	 * HttpRequest object to attach
 	 * </p>
@@ -1542,7 +1542,7 @@ class HttpRequestPool implements Countable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * HttpRequestPool destructor
-	 * @link http://php.net/manual/en/function.httprequestpool-destruct.php
+	 * @link https://php.net/manual/en/function.httprequestpool-destruct.php
 	 * @return void 
 	 */
 	public function __destruct () {}
@@ -1550,7 +1550,7 @@ class HttpRequestPool implements Countable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Attach HttpRequest
-	 * @link http://php.net/manual/en/function.httprequestpool-attach.php
+	 * @link https://php.net/manual/en/function.httprequestpool-attach.php
 	 * @param HttpRequest $request <p>
 	 * an HttpRequest object not already attached to any HttpRequestPool object
 	 * </p>
@@ -1561,7 +1561,7 @@ class HttpRequestPool implements Countable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Detach HttpRequest
-	 * @link http://php.net/manual/en/function.httprequestpool-detach.php
+	 * @link https://php.net/manual/en/function.httprequestpool-detach.php
 	 * @param HttpRequest $request <p>
 	 * an HttpRequest object attached to this HttpRequestPool object
 	 * </p>
@@ -1572,7 +1572,7 @@ class HttpRequestPool implements Countable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Send all requests
-	 * @link http://php.net/manual/en/function.httprequestpool-send.php
+	 * @link https://php.net/manual/en/function.httprequestpool-send.php
 	 * @return bool true on success or false on failure.
 	 */
 	public function send () {}
@@ -1580,7 +1580,7 @@ class HttpRequestPool implements Countable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Reset request pool
-	 * @link http://php.net/manual/en/function.httprequestpool-reset.php
+	 * @link https://php.net/manual/en/function.httprequestpool-reset.php
 	 * @return void 
 	 */
 	public function reset () {}
@@ -1588,7 +1588,7 @@ class HttpRequestPool implements Countable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.15.0)<br/>
 	 * Perform socket actions
-	 * @link http://php.net/manual/en/function.httprequestpool-socketperform.php
+	 * @link https://php.net/manual/en/function.httprequestpool-socketperform.php
 	 * @return bool TRUE until each request has finished its transaction.
 	 */
 	protected function socketPerform () {}
@@ -1596,7 +1596,7 @@ class HttpRequestPool implements Countable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Perform socket select
-	 * @link http://php.net/manual/en/function.httprequestpool-socketselect.php
+	 * @link https://php.net/manual/en/function.httprequestpool-socketselect.php
 	 * @return bool true on success or false on failure.
 	 */
 	protected function socketSelect () {}
@@ -1616,7 +1616,7 @@ class HttpRequestPool implements Countable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.16.0)<br/>
 	 * Get attached requests
-	 * @link http://php.net/manual/en/function.httprequestpool-getattachedrequests.php
+	 * @link https://php.net/manual/en/function.httprequestpool-getattachedrequests.php
 	 * @return array an array containing all currently attached HttpRequest objects.
 	 */
 	public function getAttachedRequests () {}
@@ -1624,7 +1624,7 @@ class HttpRequestPool implements Countable, Iterator {
 	/**
 	 * (PECL pecl_http &gt;= 0.16.0)<br/>
 	 * Get finished requests
-	 * @link http://php.net/manual/en/function.httprequestpool-getfinishedrequests.php
+	 * @link https://php.net/manual/en/function.httprequestpool-getfinishedrequests.php
 	 * @return array an array containing all attached HttpRequest objects that already have finished their work.
 	 */
 	public function getFinishedRequests () {}
@@ -1642,7 +1642,7 @@ class HttpRequestPool implements Countable, Iterator {
 }
 
 /**
- * @link http://php.net/manual/en/class.httpresponse.php
+ * @link https://php.net/manual/en/class.httpresponse.php
  */
 class HttpResponse  {
 	const REDIRECT = 0;
@@ -1672,7 +1672,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.12.0)<br/>
 	 * Set header
-	 * @link http://php.net/manual/en/function.httpresponse-setheader.php
+	 * @link https://php.net/manual/en/function.httpresponse-setheader.php
 	 * @param string $name <p>
 	 * the name of the header
 	 * </p>
@@ -1690,7 +1690,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.12.0)<br/>
 	 * Get header
-	 * @link http://php.net/manual/en/function.httpresponse-getheader.php
+	 * @link https://php.net/manual/en/function.httpresponse-getheader.php
 	 * @param string $name [optional] <p>
 	 * specifies the name of the header to read;
 	 * if empty or omitted, an associative array with all headers will be returned
@@ -1703,7 +1703,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set ETag
-	 * @link http://php.net/manual/en/function.httpresponse-setetag.php
+	 * @link https://php.net/manual/en/function.httpresponse-setetag.php
 	 * @param string $etag <p>
 	 * unquoted string as parameter containing the ETag
 	 * </p>
@@ -1714,7 +1714,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get ETag
-	 * @link http://php.net/manual/en/function.httpresponse-getetag.php
+	 * @link https://php.net/manual/en/function.httpresponse-getetag.php
 	 * @return string the calculated or previously set ETag as unquoted string.
 	 */
 	public static function getETag () {}
@@ -1722,7 +1722,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.12.0)<br/>
 	 * Set last modified
-	 * @link http://php.net/manual/en/function.httpresponse-setlastmodified.php
+	 * @link https://php.net/manual/en/function.httpresponse-setlastmodified.php
 	 * @param int $timestamp <p>
 	 * Unix timestamp representing the last modification time of the sent entity
 	 * </p>
@@ -1733,7 +1733,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.12.0)<br/>
 	 * Get last modified
-	 * @link http://php.net/manual/en/function.httpresponse-getlastmodified.php
+	 * @link https://php.net/manual/en/function.httpresponse-getlastmodified.php
 	 * @return int the calculated or previously set Unix timestamp.
 	 */
 	public static function getLastModified () {}
@@ -1741,7 +1741,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set content disposition
-	 * @link http://php.net/manual/en/function.httpresponse-setcontentdisposition.php
+	 * @link https://php.net/manual/en/function.httpresponse-setcontentdisposition.php
 	 * @param string $filename <p>
 	 * the file name the &quot;Save as...&quot; dialog should display
 	 * </p>
@@ -1756,7 +1756,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get content disposition
-	 * @link http://php.net/manual/en/function.httpresponse-getcontentdisposition.php
+	 * @link https://php.net/manual/en/function.httpresponse-getcontentdisposition.php
 	 * @return string the current content disposition as string like sent in a header.
 	 */
 	public static function getContentDisposition () {}
@@ -1764,7 +1764,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set content type
-	 * @link http://php.net/manual/en/function.httpresponse-setcontenttype.php
+	 * @link https://php.net/manual/en/function.httpresponse-setcontenttype.php
 	 * @param string $content_type <p>
 	 * the content type of the sent entity (primary/secondary)
 	 * </p>
@@ -1776,7 +1776,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get content type
-	 * @link http://php.net/manual/en/function.httpresponse-getcontenttype.php
+	 * @link https://php.net/manual/en/function.httpresponse-getcontenttype.php
 	 * @return string the currently set content type as string.
 	 */
 	public static function getContentType () {}
@@ -1784,7 +1784,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.13.0)<br/>
 	 * Guess content type
-	 * @link http://php.net/manual/en/function.httpresponse-guesscontenttype.php
+	 * @link https://php.net/manual/en/function.httpresponse-guesscontenttype.php
 	 * @param string $magic_file <p>
 	 * specifies the magic.mime database to use
 	 * </p>
@@ -1798,7 +1798,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set cache
-	 * @link http://php.net/manual/en/function.httpresponse-setcache.php
+	 * @link https://php.net/manual/en/function.httpresponse-setcache.php
 	 * @param bool $cache <p>
 	 * whether caching should be attempted
 	 * </p>
@@ -1809,7 +1809,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get cache
-	 * @link http://php.net/manual/en/function.httpresponse-getcache.php
+	 * @link https://php.net/manual/en/function.httpresponse-getcache.php
 	 * @return bool true if caching should be attempted, else false.
 	 */
 	public static function getCache () {}
@@ -1817,7 +1817,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set cache control
-	 * @link http://php.net/manual/en/function.httpresponse-setcachecontrol.php
+	 * @link https://php.net/manual/en/function.httpresponse-setcachecontrol.php
 	 * @param string $control <p>
 	 * the primary cache control setting
 	 * </p>
@@ -1834,7 +1834,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get cache control
-	 * @link http://php.net/manual/en/function.httpresponse-getcachecontrol.php
+	 * @link https://php.net/manual/en/function.httpresponse-getcachecontrol.php
 	 * @return string the current cache control setting as a string like sent in a header.
 	 */
 	public static function getCacheControl () {}
@@ -1842,7 +1842,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set gzip
-	 * @link http://php.net/manual/en/function.httpresponse-setgzip.php
+	 * @link https://php.net/manual/en/function.httpresponse-setgzip.php
 	 * @param bool $gzip <p>
 	 * whether GZip compression should be enabled
 	 * </p>
@@ -1853,7 +1853,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get gzip
-	 * @link http://php.net/manual/en/function.httpresponse-getgzip.php
+	 * @link https://php.net/manual/en/function.httpresponse-getgzip.php
 	 * @return bool true if GZip compression is enabled, else false.
 	 */
 	public static function getGzip () {}
@@ -1861,7 +1861,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set throttle delay
-	 * @link http://php.net/manual/en/function.httpresponse-setthrottledelay.php
+	 * @link https://php.net/manual/en/function.httpresponse-setthrottledelay.php
 	 * @param float $seconds <p>
 	 * seconds to sleep after each chunk sent
 	 * </p>
@@ -1872,7 +1872,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get throttle delay
-	 * @link http://php.net/manual/en/function.httpresponse-getthrottledelay.php
+	 * @link https://php.net/manual/en/function.httpresponse-getthrottledelay.php
 	 * @return double a double representing the throttle delay in seconds.
 	 */
 	public static function getThrottleDelay () {}
@@ -1880,7 +1880,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set buffer size
-	 * @link http://php.net/manual/en/function.httpresponse-setbuffersize.php
+	 * @link https://php.net/manual/en/function.httpresponse-setbuffersize.php
 	 * @param int $bytes <p>
 	 * the chunk size in bytes
 	 * </p>
@@ -1891,7 +1891,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get buffer size
-	 * @link http://php.net/manual/en/function.httpresponse-getbuffersize.php
+	 * @link https://php.net/manual/en/function.httpresponse-getbuffersize.php
 	 * @return int an int representing the current buffer size in bytes.
 	 */
 	public static function getBufferSize () {}
@@ -1899,7 +1899,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set data
-	 * @link http://php.net/manual/en/function.httpresponse-setdata.php
+	 * @link https://php.net/manual/en/function.httpresponse-setdata.php
 	 * @param mixed $data <p>
 	 * data to send
 	 * </p>
@@ -1910,7 +1910,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get data
-	 * @link http://php.net/manual/en/function.httpresponse-getdata.php
+	 * @link https://php.net/manual/en/function.httpresponse-getdata.php
 	 * @return string a string containing the previously set data to send.
 	 */
 	public static function getData () {}
@@ -1918,7 +1918,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set file
-	 * @link http://php.net/manual/en/function.httpresponse-setfile.php
+	 * @link https://php.net/manual/en/function.httpresponse-setfile.php
 	 * @param string $file <p>
 	 * the path to the file to send
 	 * </p>
@@ -1929,7 +1929,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get file
-	 * @link http://php.net/manual/en/function.httpresponse-getfile.php
+	 * @link https://php.net/manual/en/function.httpresponse-getfile.php
 	 * @return string the previously set path to the file to send as string.
 	 */
 	public static function getFile () {}
@@ -1937,7 +1937,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Set stream
-	 * @link http://php.net/manual/en/function.httpresponse-setstream.php
+	 * @link https://php.net/manual/en/function.httpresponse-setstream.php
 	 * @param resource $stream <p>
 	 * already opened stream from which the data to send will be read
 	 * </p>
@@ -1948,7 +1948,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get Stream
-	 * @link http://php.net/manual/en/function.httpresponse-getstream.php
+	 * @link https://php.net/manual/en/function.httpresponse-getstream.php
 	 * @return resource the previously set resource.
 	 */
 	public static function getStream () {}
@@ -1956,7 +1956,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Send response
-	 * @link http://php.net/manual/en/function.httpresponse-send.php
+	 * @link https://php.net/manual/en/function.httpresponse-send.php
 	 * @param bool $clean_ob [optional] <p>
 	 * whether to destroy all previously started output handlers and their buffers
 	 * </p>
@@ -1967,7 +1967,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Capture script output
-	 * @link http://php.net/manual/en/function.httpresponse-capture.php
+	 * @link https://php.net/manual/en/function.httpresponse-capture.php
 	 * @return void 
 	 */
 	public static function capture () {}
@@ -1975,7 +1975,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Redirect
-	 * @link http://php.net/manual/en/function.httpresponse-redirect.php
+	 * @link https://php.net/manual/en/function.httpresponse-redirect.php
 	 * @param string $url [optional] 
 	 * @param array $params [optional] 
 	 * @param bool $session [optional] 
@@ -1987,7 +1987,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.12.0)<br/>
 	 * Send HTTP response status
-	 * @link http://php.net/manual/en/function.httpresponse-status.php
+	 * @link https://php.net/manual/en/function.httpresponse-status.php
 	 * @param int $status 
 	 * @return bool 
 	 */
@@ -1996,7 +1996,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get request headers
-	 * @link http://php.net/manual/en/function.httpresponse-getrequestheaders.php
+	 * @link https://php.net/manual/en/function.httpresponse-getrequestheaders.php
 	 * @return array 
 	 */
 	public static function getRequestHeaders () {}
@@ -2004,7 +2004,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get request body
-	 * @link http://php.net/manual/en/function.httpresponse-getrequestbody.php
+	 * @link https://php.net/manual/en/function.httpresponse-getrequestbody.php
 	 * @return string 
 	 */
 	public static function getRequestBody () {}
@@ -2012,7 +2012,7 @@ class HttpResponse  {
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get request body stream
-	 * @link http://php.net/manual/en/function.httpresponse-getrequestbodystream.php
+	 * @link https://php.net/manual/en/function.httpresponse-getrequestbodystream.php
 	 * @return resource 
 	 */
 	public static function getRequestBodyStream () {}
@@ -2130,7 +2130,7 @@ class HttpUtil  {
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Compose HTTP RFC compliant date
- * @link http://php.net/manual/en/function.http-date.php
+ * @link https://php.net/manual/en/function.http-date.php
  * @param int $timestamp [optional] <p>
  * Unix timestamp; current time if omitted
  * </p>
@@ -2141,7 +2141,7 @@ function http_date ($timestamp = null) {}
 /**
  * (PECL pecl_http &gt;= 0.21.0)<br/>
  * Build an URL
- * @link http://php.net/manual/en/function.http-build-url.php
+ * @link https://php.net/manual/en/function.http-build-url.php
  * @param mixed $url [optional] <p>
  * (part(s) of) an URL in form of a string or associative array like parse_url returns
  * </p>
@@ -2162,7 +2162,7 @@ function http_build_url ($url = null, $parts = null, $flags = null,  array &$new
 /**
  * (PECL pecl_http &gt;= 0.23.0)<br/>
  * Build query string
- * @link http://php.net/manual/en/function.http-build-str.php
+ * @link https://php.net/manual/en/function.http-build-str.php
  * @param array $query <p>
  * associative array of query string parameters
  * </p>
@@ -2179,7 +2179,7 @@ function http_build_str (array $query, $prefix = null, $arg_separator = null) {}
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Negotiate clients preferred language
- * @link http://php.net/manual/en/function.http-negotiate-language.php
+ * @link https://php.net/manual/en/function.http-negotiate-language.php
  * @param array $supported <p>
  * array containing the supported languages as values
  * </p>
@@ -2193,7 +2193,7 @@ function http_negotiate_language (array $supported,  array &$result = null ) {}
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Negotiate clients preferred character set
- * @link http://php.net/manual/en/function.http-negotiate-charset.php
+ * @link https://php.net/manual/en/function.http-negotiate-charset.php
  * @param array $supported <p>
  * array containing the supported charsets as values
  * </p>
@@ -2207,7 +2207,7 @@ function http_negotiate_charset (array $supported,  array &$result = null ) {}
 /**
  * (PECL pecl_http &gt;= 0.19.0)<br/>
  * Negotiate clients preferred content type
- * @link http://php.net/manual/en/function.http-negotiate-content-type.php
+ * @link https://php.net/manual/en/function.http-negotiate-content-type.php
  * @param array $supported <p>
  * array containing the supported content types as values
  * </p>
@@ -2221,7 +2221,7 @@ function http_negotiate_content_type (array $supported,  array &$result = null )
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Issue HTTP redirect
- * @link http://php.net/manual/en/function.http-redirect.php
+ * @link https://php.net/manual/en/function.http-redirect.php
  * @param string $url [optional] <p>
  * the URL to redirect to
  * </p>
@@ -2242,7 +2242,7 @@ function http_redirect ($url = null,  array $params = null , $session = null, $s
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * HTTP throttling
- * @link http://php.net/manual/en/function.http-throttle.php
+ * @link https://php.net/manual/en/function.http-throttle.php
  * @param float $sec [optional] <p>
  * seconds to sleep after each chunk sent
  * </p>
@@ -2256,7 +2256,7 @@ function http_throttle ($sec = null, $bytes = null) {}
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Send HTTP response status
- * @link http://php.net/manual/en/function.http-send-status.php
+ * @link https://php.net/manual/en/function.http-send-status.php
  * @param int $status <p>
  * HTTP status code (100-599)
  * </p>
@@ -2267,7 +2267,7 @@ function http_send_status ($status) {}
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Send Last-Modified
- * @link http://php.net/manual/en/function.http-send-last-modified.php
+ * @link https://php.net/manual/en/function.http-send-last-modified.php
  * @param int $timestamp [optional] <p>
  * a Unix timestamp, converted to a valid HTTP date;
  * if omitted, the current time will be sent
@@ -2279,7 +2279,7 @@ function http_send_last_modified ($timestamp = null) {}
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * Send Content-Type
- * @link http://php.net/manual/en/function.http-send-content-type.php
+ * @link https://php.net/manual/en/function.http-send-content-type.php
  * @param string $content_type [optional] <p>
  * the desired content type (primary/secondary)
  * </p>
@@ -2290,7 +2290,7 @@ function http_send_content_type ($content_type = null) {}
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * Send Content-Disposition
- * @link http://php.net/manual/en/function.http-send-content-disposition.php
+ * @link https://php.net/manual/en/function.http-send-content-disposition.php
  * @param string $filename <p>
  * the file name the &quot;Save as...&quot; dialog should display
  * </p>
@@ -2305,7 +2305,7 @@ function http_send_content_disposition ($filename, $inline = null) {}
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Match last modification
- * @link http://php.net/manual/en/function.http-match-modified.php
+ * @link https://php.net/manual/en/function.http-match-modified.php
  * @param int $timestamp [optional] <p>
  * Unix timestamp; current time, if omitted
  * </p>
@@ -2319,7 +2319,7 @@ function http_match_modified ($timestamp = null, $for_range = null) {}
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Match ETag
- * @link http://php.net/manual/en/function.http-match-etag.php
+ * @link https://php.net/manual/en/function.http-match-etag.php
  * @param string $etag <p>
  * the ETag to match
  * </p>
@@ -2333,7 +2333,7 @@ function http_match_etag ($etag, $for_range = null) {}
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Caching by last modification
- * @link http://php.net/manual/en/function.http-cache-last-modified.php
+ * @link https://php.net/manual/en/function.http-cache-last-modified.php
  * @param int $timestamp_or_expires [optional] <p>
  * Unix timestamp
  * </p>
@@ -2345,7 +2345,7 @@ function http_cache_last_modified ($timestamp_or_expires = null) {}
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Caching by ETag
- * @link http://php.net/manual/en/function.http-cache-etag.php
+ * @link https://php.net/manual/en/function.http-cache-etag.php
  * @param string $etag [optional] <p>
  * custom ETag
  * </p>
@@ -2357,7 +2357,7 @@ function http_cache_etag ($etag = null) {}
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Send arbitrary data
- * @link http://php.net/manual/en/function.http-send-data.php
+ * @link https://php.net/manual/en/function.http-send-data.php
  * @param string $data <p>
  * data to send
  * </p>
@@ -2368,7 +2368,7 @@ function http_send_data ($data) {}
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Send file
- * @link http://php.net/manual/en/function.http-send-file.php
+ * @link https://php.net/manual/en/function.http-send-file.php
  * @param string $file <p>
  * the file to send
  * </p>
@@ -2379,7 +2379,7 @@ function http_send_file ($file) {}
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Send stream
- * @link http://php.net/manual/en/function.http-send-stream.php
+ * @link https://php.net/manual/en/function.http-send-stream.php
  * @param resource $stream <p>
  * stream to read from (must be seekable)
  * </p>
@@ -2390,7 +2390,7 @@ function http_send_stream ($stream) {}
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Decode chunked-encoded data
- * @link http://php.net/manual/en/function.http-chunked-decode.php
+ * @link https://php.net/manual/en/function.http-chunked-decode.php
  * @param string $encoded <p>
  * chunked encoded string
  * </p>
@@ -2401,7 +2401,7 @@ function http_chunked_decode ($encoded) {}
 /**
  * (PECL pecl_http &gt;= 0.12.0)<br/>
  * Parse HTTP messages
- * @link http://php.net/manual/en/function.http-parse-message.php
+ * @link https://php.net/manual/en/function.http-parse-message.php
  * @param string $message <p>
  * string containing a single HTTP message or several consecutive HTTP messages
  * </p>
@@ -2412,7 +2412,7 @@ function http_parse_message ($message) {}
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * Parse HTTP headers
- * @link http://php.net/manual/en/function.http-parse-headers.php
+ * @link https://php.net/manual/en/function.http-parse-headers.php
  * @param string $header <p>
  * string containing HTTP headers
  * </p>
@@ -2423,7 +2423,7 @@ function http_parse_headers ($header) {}
 /**
  * (PECL pecl_http &gt;= 0.20.0)<br/>
  * Parse HTTP cookie
- * @link http://php.net/manual/en/function.http-parse-cookie.php
+ * @link https://php.net/manual/en/function.http-parse-cookie.php
  * @param string $cookie <p>
  * string containing the value of a Set-Cookie response header
  * </p>
@@ -2441,7 +2441,7 @@ function http_parse_cookie ($cookie, $flags = null,  array $allowed_extras = nul
 /**
  * (PECL pecl_http &gt;= 1.2.0)<br/>
  * Build cookie string
- * @link http://php.net/manual/en/function.http-build-cookie.php
+ * @link https://php.net/manual/en/function.http-build-cookie.php
  * @param array $cookie <p>
  * a cookie list like returned from http_parse_cookie
  * </p>
@@ -2452,7 +2452,7 @@ function http_build_cookie (array $cookie) {}
 /**
  * (PECL pecl_http &gt;= 1.0.0)<br/>
  * Parse parameter list
- * @link http://php.net/manual/en/function.http-parse-params.php
+ * @link https://php.net/manual/en/function.http-parse-params.php
  * @param string $param <p>
  * Parameters
  * </p>
@@ -2466,7 +2466,7 @@ function http_parse_params ($param, $flags = null) {}
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * Get request headers as array
- * @link http://php.net/manual/en/function.http-get-request-headers.php
+ * @link https://php.net/manual/en/function.http-get-request-headers.php
  * @return array an associative array of incoming request headers.
  */
 function http_get_request_headers () {}
@@ -2474,7 +2474,7 @@ function http_get_request_headers () {}
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * Get request body as string
- * @link http://php.net/manual/en/function.http-get-request-body.php
+ * @link https://php.net/manual/en/function.http-get-request-body.php
  * @return string the raw request body as string on success or NULL on failure.
  */
 function http_get_request_body () {}
@@ -2482,7 +2482,7 @@ function http_get_request_body () {}
 /**
  * (PECL pecl_http &gt;= 0.22.0)<br/>
  * Get request body as stream
- * @link http://php.net/manual/en/function.http-get-request-body-stream.php
+ * @link https://php.net/manual/en/function.http-get-request-body-stream.php
  * @return resource the raw request body as stream on success or NULL on failure.
  */
 function http_get_request_body_stream () {}
@@ -2490,7 +2490,7 @@ function http_get_request_body_stream () {}
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * Match any header
- * @link http://php.net/manual/en/function.http-match-request-header.php
+ * @link https://php.net/manual/en/function.http-match-request-header.php
  * @param string $header <p>
  * the header name (case-insensitive)
  * </p>
@@ -2507,7 +2507,7 @@ function http_match_request_header ($header, $value, $match_case = null) {}
 /**
  * (PECL pecl_http &gt;= 1.5.0)<br/>
  * Stat persistent handles
- * @link http://php.net/manual/en/function.http-persistent-handles-count.php
+ * @link https://php.net/manual/en/function.http-persistent-handles-count.php
  * @return stdClass|object persistent handles statistics as stdClass object on success or false on failure.
  */
 function http_persistent_handles_count () {}
@@ -2515,7 +2515,7 @@ function http_persistent_handles_count () {}
 /**
  * (PECL pecl_http &gt;= 1.5.0)<br/>
  * Clean up persistent handles
- * @link http://php.net/manual/en/function.http-persistent-handles-clean.php
+ * @link https://php.net/manual/en/function.http-persistent-handles-clean.php
  * @param string $ident [optional] 
  * @return string 
  */
@@ -2524,7 +2524,7 @@ function http_persistent_handles_clean ($ident = null) {}
 /**
  * (PECL pecl_http &gt;= 1.5.0)<br/>
  * Get/set ident of persistent handles
- * @link http://php.net/manual/en/function.http-persistent-handles-ident.php
+ * @link https://php.net/manual/en/function.http-persistent-handles-ident.php
  * @param string $ident <p>
  * the identification string
  * </p>
@@ -2535,7 +2535,7 @@ function http_persistent_handles_ident ($ident) {}
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Perform GET request
- * @link http://php.net/manual/en/function.http-get.php
+ * @link https://php.net/manual/en/function.http-get.php
  * @param string $url <p>
  * URL
  * </p>
@@ -2552,7 +2552,7 @@ function http_get ($url, array $options = null ,  array &$info = null ) {}
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Perform HEAD request
- * @link http://php.net/manual/en/function.http-head.php
+ * @link https://php.net/manual/en/function.http-head.php
  * @param string $url [optional] <p>
  * URL
  * </p>
@@ -2569,7 +2569,7 @@ function http_head ($url = null, array $options = null ,  array &$info = null ) 
 /**
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Perform POST request with pre-encoded data
- * @link http://php.net/manual/en/function.http-post-data.php
+ * @link https://php.net/manual/en/function.http-post-data.php
  * @param string $url <p>
  * URL
  * </p>
@@ -2589,7 +2589,7 @@ function http_post_data ($url, $data = null, array $options = null ,  array &$in
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * Perform POST request with data to be encoded
- * @link http://php.net/manual/en/function.http-post-fields.php
+ * @link https://php.net/manual/en/function.http-post-fields.php
  * @param string $url <p>
  * URL
  * </p>
@@ -2612,7 +2612,7 @@ function http_post_fields ($url,  array $data = null ,  array $files = null , ar
 /**
  * (PECL pecl_http &gt;= 0.25.0)<br/>
  * Perform PUT request with data
- * @link http://php.net/manual/en/function.http-put-data.php
+ * @link https://php.net/manual/en/function.http-put-data.php
  * @param string $url <p>
  * URL
  * </p>
@@ -2632,7 +2632,7 @@ function http_put_data ($url, $data = null, array $options = null ,  array &$inf
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * Perform PUT request with file
- * @link http://php.net/manual/en/function.http-put-file.php
+ * @link https://php.net/manual/en/function.http-put-file.php
  * @param string $url <p>
  * URL
  * </p>
@@ -2652,7 +2652,7 @@ function http_put_file ($url, $file = null, array $options = null ,  array &$inf
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * Perform PUT request with stream
- * @link http://php.net/manual/en/function.http-put-stream.php
+ * @link https://php.net/manual/en/function.http-put-stream.php
  * @param string $url <p>
  * URL
  * </p>
@@ -2672,7 +2672,7 @@ function http_put_stream ($url, $stream = null, array $options = null ,  array &
 /**
  * (PECL pecl_http &gt;= 1.0.0)<br/>
  * Perform custom request
- * @link http://php.net/manual/en/function.http-request.php
+ * @link https://php.net/manual/en/function.http-request.php
  * @param int $method <p>
  * Request method
  * </p>
@@ -2695,7 +2695,7 @@ function http_request ($method, $url = null, $body = null, array $options = null
 /**
  * (PECL pecl_http &gt;= 1.0.0)<br/>
  * Encode request body
- * @link http://php.net/manual/en/function.http-request-body-encode.php
+ * @link https://php.net/manual/en/function.http-request-body-encode.php
  * @param array $fields <p>
  * POST fields
  * </p>
@@ -2709,7 +2709,7 @@ function http_request_body_encode (array $fields, array $files) {}
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * Register request method
- * @link http://php.net/manual/en/function.http-request-method-register.php
+ * @link https://php.net/manual/en/function.http-request-method-register.php
  * @param string $method <p>
  * the request method name to register
  * </p>
@@ -2720,7 +2720,7 @@ function http_request_method_register ($method) {}
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * Unregister request method
- * @link http://php.net/manual/en/function.http-request-method-unregister.php
+ * @link https://php.net/manual/en/function.http-request-method-unregister.php
  * @param mixed $method <p>
  * The request method name or ID
  * </p>
@@ -2731,7 +2731,7 @@ function http_request_method_unregister ($method) {}
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * Check whether request method exists
- * @link http://php.net/manual/en/function.http-request-method-exists.php
+ * @link https://php.net/manual/en/function.http-request-method-exists.php
  * @param mixed $method <p>
  * request method name or ID
  * </p>
@@ -2742,7 +2742,7 @@ function http_request_method_exists ($method) {}
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * Get request method name
- * @link http://php.net/manual/en/function.http-request-method-name.php
+ * @link https://php.net/manual/en/function.http-request-method-name.php
  * @param int $method <p>
  * request method ID
  * </p>
@@ -2753,7 +2753,7 @@ function http_request_method_name ($method) {}
 /**
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * ETag output handler
- * @link http://php.net/manual/en/function.ob-etaghandler.php
+ * @link https://php.net/manual/en/function.ob-etaghandler.php
  * @param string $data 
  * @param int $mode 
  * @return string 
@@ -2763,7 +2763,7 @@ function ob_etaghandler ($data, $mode) {}
 /**
  * (PECL pecl_http &gt;= 0.15.0)<br/>
  * Deflate data
- * @link http://php.net/manual/en/function.http-deflate.php
+ * @link https://php.net/manual/en/function.http-deflate.php
  * @param string $data <p>
  * String containing the data that should be encoded
  * </p>
@@ -2777,7 +2777,7 @@ function http_deflate ($data, $flags = null) {}
 /**
  * (PECL pecl_http &gt;= 0.15.0)<br/>
  * Inflate data
- * @link http://php.net/manual/en/function.http-inflate.php
+ * @link https://php.net/manual/en/function.http-inflate.php
  * @param string $data <p>
  * string containing the compressed data
  * </p>
@@ -2788,7 +2788,7 @@ function http_inflate ($data) {}
 /**
  * (PECL pecl_http &gt;= 0.21.0)<br/>
  * Deflate output handler
- * @link http://php.net/manual/en/function.ob-deflatehandler.php
+ * @link https://php.net/manual/en/function.ob-deflatehandler.php
  * @param string $data 
  * @param int $mode 
  * @return string 
@@ -2798,7 +2798,7 @@ function ob_deflatehandler ($data, $mode) {}
 /**
  * (PECL pecl_http &gt;= 0.21.0)<br/>
  * Inflate output handler
- * @link http://php.net/manual/en/function.ob-inflatehandler.php
+ * @link https://php.net/manual/en/function.ob-inflatehandler.php
  * @param string $data 
  * @param int $mode 
  * @return string 
@@ -2808,7 +2808,7 @@ function ob_inflatehandler ($data, $mode) {}
 /**
  * (PECL pecl_http &gt;= 0.15.0)<br/>
  * Check built-in HTTP support
- * @link http://php.net/manual/en/function.http-support.php
+ * @link https://php.net/manual/en/function.http-support.php
  * @param int $feature [optional] <p>
  * feature to probe for
  * </p>
@@ -2820,19 +2820,19 @@ function http_support ($feature = null) {}
 
 /**
  * don't urldecode values
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_COOKIE_PARSE_RAW', 1);
 
 /**
  * whether &quot;secure&quot; was found in the cookie's parameters list
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_COOKIE_SECURE', 16);
 
 /**
  * whether &quot;httpOnly&quot; was found in the cookie's parameter list
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_COOKIE_HTTPONLY', 32);
 define ('HTTP_DEFLATE_LEVEL_DEF', 0);
@@ -2849,128 +2849,128 @@ define ('HTTP_DEFLATE_STRATEGY_FIXED', 1024);
 
 /**
  * don't flush
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_ENCODING_STREAM_FLUSH_NONE', 0);
 
 /**
  * synchronized flush only
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_ENCODING_STREAM_FLUSH_SYNC', 1048576);
 
 /**
  * full data flush
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_ENCODING_STREAM_FLUSH_FULL', 2097152);
 
 /**
  * use &quot;basic&quot; authentication
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_AUTH_BASIC', 1);
 
 /**
  * use &quot;digest&quot; authentication
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_AUTH_DIGEST', 2);
 
 /**
  * use &quot;NTLM&quot; authentication
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_AUTH_NTLM', 8);
 
 /**
  * use &quot;GSS-NEGOTIATE&quot; authentication
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_AUTH_GSSNEG', 4);
 
 /**
  * try any authentication scheme
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_AUTH_ANY', -1);
 define ('HTTP_VERSION_NONE', 0);
 
 /**
  * HTTP version 1.0
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_VERSION_1_0', 1);
 
 /**
  * HTTP version 1.1
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_VERSION_1_1', 2);
 
 /**
  * no specific HTTP protocol version
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_VERSION_ANY', 0);
 
 /**
  * use TLSv1 only
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_SSL_VERSION_TLSv1', 1);
 
 /**
  * use SSLv2 only
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_SSL_VERSION_SSLv2', 2);
 
 /**
  * use SSLv3 only
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_SSL_VERSION_SSLv3', 3);
 
 /**
  * no specific SSL protocol version
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_SSL_VERSION_ANY', 0);
 
 /**
  * use IPv4 only for name lookups
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_IPRESOLVE_V4', 1);
 
 /**
  * use IPv6 only for name lookups
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_IPRESOLVE_V6', 2);
 
 /**
  * use any IP mechanism only for name lookups
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_IPRESOLVE_ANY', 0);
 
 /**
  * the proxy is a SOCKS4 type proxy
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_PROXY_SOCKS4', 4);
 
 /**
  * the proxy is a SOCKS5 type proxy
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_PROXY_SOCKS5', 5);
 
 /**
  * standard HTTP proxy
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_PROXY_HTTP', 0);
 define ('HTTP_METH_GET', 1);
@@ -3003,13 +3003,13 @@ define ('HTTP_METH_ACL', 27);
 
 /**
  * guess applicable redirect method
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_REDIRECT', 0);
 
 /**
  * permanent redirect (301 Moved permanently)
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_REDIRECT_PERM', 301);
 
@@ -3022,243 +3022,243 @@ define ('HTTP_REDIRECT_PERM', 301);
  * of the original request method. The status codes 303 and 307 have
  * been added for servers that wish to make unambiguously clear which
  * kind of reaction is expected of the client.
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_REDIRECT_FOUND', 302);
 
 /**
  * redirect applicable to POST requests (303 See other)
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_REDIRECT_POST', 303);
 
 /**
  * proxy redirect (305 Use proxy)
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_REDIRECT_PROXY', 305);
 
 /**
  * temporary redirect (307 Temporary Redirect)
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_REDIRECT_TEMP', 307);
 
 /**
  * querying for this constant will always return true
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_SUPPORT', 1);
 
 /**
  * whether support to issue HTTP requests is given, ie. libcurl support was compiled in
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_SUPPORT_REQUESTS', 2);
 
 /**
  * whether support to guess the Content-Type of HTTP messages is given, ie. libmagic support was compiled in
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_SUPPORT_MAGICMIME', 4);
 
 /**
  * whether support for zlib encodings is given, ie. libz support was compiled in
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_SUPPORT_ENCODINGS', 8);
 
 /**
  * whether support to issue HTTP requests over SSL is given, ie. linked libcurl was built with SSL support
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_SUPPORT_SSLREQUESTS', 32);
 define ('HTTP_SUPPORT_EVENTS', 128);
 
 /**
  * allow commands additionally to semicolons as separator
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_PARAMS_ALLOW_COMMA', 1);
 
 /**
  * continue parsing after an error occurred
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_PARAMS_ALLOW_FAILURE', 2);
 
 /**
  * raise PHP warnings on parse errors
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_PARAMS_RAISE_ERROR', 4);
 
 /**
  * all three values above, bitwise or'ed
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_PARAMS_DEFAULT', 7);
 
 /**
  * replace every part of the first URL when there's one of the second URL
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_URL_REPLACE', 0);
 
 /**
  * join relative paths
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_URL_JOIN_PATH', 1);
 
 /**
  * join query strings
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_URL_JOIN_QUERY', 2);
 
 /**
  * strip any user authentication information
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_URL_STRIP_USER', 4);
 
 /**
  * strip any password authentication information
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_URL_STRIP_PASS', 8);
 
 /**
  * strip any authentication information
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_URL_STRIP_AUTH', 12);
 
 /**
  * strip explicit port numbers
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_URL_STRIP_PORT', 32);
 
 /**
  * strip complete path
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_URL_STRIP_PATH', 64);
 
 /**
  * strip query string
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_URL_STRIP_QUERY', 128);
 
 /**
  * strip any fragments (#identifier)
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_URL_STRIP_FRAGMENT', 256);
 
 /**
  * strip anything but scheme and host
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_URL_STRIP_ALL', 492);
 define ('HTTP_URL_FROM_ENV', 4096);
 
 /**
  * runtime error
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_E_RUNTIME', 1);
 
 /**
  * an invalid parameter was passed
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_E_INVALID_PARAM', 2);
 
 /**
  * header() or similar operation failed
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_E_HEADER', 3);
 
 /**
  * HTTP header parse error
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_E_MALFORMED_HEADERS', 4);
 
 /**
  * unknown/invalid request method
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_E_REQUEST_METHOD', 5);
 
 /**
  * with operation incompatible message type
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_E_MESSAGE_TYPE', 6);
 
 /**
  * encoding/decoding error
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_E_ENCODING', 7);
 
 /**
  * request failure
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_E_REQUEST', 8);
 
 /**
  * request pool failure
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_E_REQUEST_POOL', 9);
 
 /**
  * socket exception
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_E_SOCKET', 10);
 
 /**
  * response failure
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_E_RESPONSE', 11);
 
 /**
  * invalid URL
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_E_URL', 12);
 
 /**
  * querystring operation failure
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_E_QUERYSTRING', 13);
 
 /**
  * the message is of no specific type
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_MSG_NONE', 0);
 
 /**
  * request style message
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_MSG_REQUEST', 1);
 
 /**
  * response style message
- * @link http://php.net/manual/en/http.constants.php
+ * @link https://php.net/manual/en/http.constants.php
  */
 define ('HTTP_MSG_RESPONSE', 2);
 define ('HTTP_QUERYSTRING_TYPE_BOOL', 3);

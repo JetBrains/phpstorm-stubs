@@ -11,7 +11,7 @@ class php_user_filter  {
 
 
     /**
-     * @link http://php.net/manual/en/php-user-filter.filter.php
+     * @link https://php.net/manual/en/php-user-filter.filter.php
      * @param resource $in <p> is a resource pointing to a <i>bucket brigade</i< which contains one or more <i>bucket</i> objects containing data to be filtered.</p>
      * @param resource $out <p>is a resource pointing to a second bucket brigade into which your modified buckets should be placed.</p>
      * @param int $consumed <p>which must <i>always</i> be declared by reference, should be incremented by the length of the data which your filter reads in and alters. In most cases this means you will increment consumed by <i>$bucket->datalen</i> for each <i>$bucket</i>.</p>
@@ -59,7 +59,7 @@ class php_user_filter  {
     }
 
     /**
-     * @link http://php.net/manual/en/php-user-filter.oncreate.php
+     * @link https://php.net/manual/en/php-user-filter.oncreate.php
      * @return bool
      */
     public function onCreate()
@@ -67,7 +67,7 @@ class php_user_filter  {
     }
 
     /**
-     * @link http://php.net/manual/en/php-user-filter.onclose.php
+     * @link https://php.net/manual/en/php-user-filter.onclose.php
      */
     public function onClose()
     {
@@ -119,7 +119,7 @@ class Directory  {
 
 /**
  * Returns the value of a constant
- * @link http://php.net/manual/en/function.constant.php
+ * @link https://php.net/manual/en/function.constant.php
  * @param string $name <p>
  * The constant name.
  * </p>
@@ -132,7 +132,7 @@ function constant ($name) {}
 
 /**
  * Convert binary data into hexadecimal representation
- * @link http://php.net/manual/en/function.bin2hex.php
+ * @link https://php.net/manual/en/function.bin2hex.php
  * @param string $str <p>
  * A character.
  * </p>
@@ -144,7 +144,7 @@ function bin2hex ($str) {}
 
 /**
  * Delay execution
- * @link http://php.net/manual/en/function.sleep.php
+ * @link https://php.net/manual/en/function.sleep.php
  * @param int $seconds <p>
  * Halt time in seconds.
  * </p>
@@ -158,7 +158,7 @@ function sleep ($seconds) {}
 
 /**
  * Delay execution in microseconds
- * @link http://php.net/manual/en/function.usleep.php
+ * @link https://php.net/manual/en/function.usleep.php
  * @param int $micro_seconds <p>
  * Halt time in micro seconds. A micro second is one millionth of a
  * second.
@@ -171,7 +171,7 @@ function usleep ($micro_seconds) {}
 
 /**
  * Delay for a number of seconds and nanoseconds
- * @link http://php.net/manual/en/function.time-nanosleep.php
+ * @link https://php.net/manual/en/function.time-nanosleep.php
  * @param int $seconds <p>
  * Must be a positive integer.
  * </p>
@@ -193,7 +193,7 @@ function time_nanosleep ($seconds, $nanoseconds) {}
 
 /**
  * Make the script sleep until the specified time
- * @link http://php.net/manual/en/function.time-sleep-until.php
+ * @link https://php.net/manual/en/function.time-sleep-until.php
  * @param float $timestamp <p>
  * The timestamp when the script should wake.
  * </p>
@@ -204,7 +204,7 @@ function time_sleep_until ($timestamp) {}
 
 /**
  * Parse a time/date generated with <function>strftime</function>
- * @link http://php.net/manual/en/function.strptime.php
+ * @link https://php.net/manual/en/function.strptime.php
  * @param string $date <p>
  * The string to parse (e.g. returned from strftime)
  * </p>
@@ -269,7 +269,7 @@ function strptime ($date, $format) {}
 
 /**
  * Flush the output buffer
- * @link http://php.net/manual/en/function.flush.php
+ * @link https://php.net/manual/en/function.flush.php
  * @return void 
  * @since 4.0
  * @since 5.0
@@ -278,7 +278,7 @@ function flush () {}
 
 /**
  * Wraps a string to a given number of characters
- * @link http://php.net/manual/en/function.wordwrap.php
+ * @link https://php.net/manual/en/function.wordwrap.php
  * @param string $str <p>
  * The input string.
  * </p>
@@ -303,7 +303,7 @@ function wordwrap ($str, $width = 75, $break = "\n", $cut = false) {}
 
 /**
  * Convert special characters to HTML entities
- * @link http://php.net/manual/en/function.htmlspecialchars.php
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
  * @param string $string <p>
  * The {@link http://www.php.net/manual/en/language.types.string.php string} being converted.
  * </p>
@@ -423,7 +423,7 @@ function htmlspecialchars ($string, $flags = ENT_COMPAT | ENT_HTML401, $encoding
 
 /**
  * Convert all applicable characters to HTML entities
- * @link http://php.net/manual/en/function.htmlentities.php
+ * @link https://php.net/manual/en/function.htmlentities.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -471,7 +471,7 @@ function htmlentities ($string, $quote_style = null, $charset = null, $double_en
 
 /**
  * Convert all HTML entities to their applicable characters
- * @link http://php.net/manual/en/function.html-entity-decode.php
+ * @link https://php.net/manual/en/function.html-entity-decode.php
  * @param string $string <p>
  * The input string.
  * </p>
@@ -514,7 +514,7 @@ function html_entity_decode ($string, $quote_style = null, $charset = null) {}
 
 /**
  * Convert special HTML entities back to characters
- * @link http://php.net/manual/en/function.htmlspecialchars-decode.php
+ * @link https://php.net/manual/en/function.htmlspecialchars-decode.php
  * @param string $string <p>
  * The string to decode
  * </p>
@@ -548,7 +548,7 @@ function htmlspecialchars_decode ($string, $quote_style = null) {}
 
 /**
  * Returns the translation table used by <function>htmlspecialchars</function> and <function>htmlentities</function>
- * @link http://php.net/manual/en/function.get-html-translation-table.php
+ * @link https://php.net/manual/en/function.get-html-translation-table.php
  * @param int $table [optional] <p>
  * There are two new constants (HTML_ENTITIES,
  * HTML_SPECIALCHARS) that allow you to specify the
@@ -703,9 +703,9 @@ function htmlspecialchars_decode ($string, $quote_style = null) {}
  * <td class="empty">&nbsp;</td>
  * <td>
  * An empty string activates detection from script encoding (Zend multibyte),
- * {@link http://php.net/manual/en/ini.core.php#ini.default-charset default_charset} and current
- * locale {@link http://php.net/manual/en/function.nl-langinfo.php nl_langinfo()} and
- * {@link http://php.net/manual/en/function.setlocale.php setlocale()}), in this order. Not recommended.
+ * {@link https://php.net/manual/en/ini.core.php#ini.default-charset default_charset} and current
+ * locale {@link https://php.net/manual/en/function.nl-langinfo.php nl_langinfo()} and
+ * {@link https://php.net/manual/en/function.setlocale.php setlocale()}), in this order. Not recommended.
  * </td>
  * </tr>
  *
@@ -727,7 +727,7 @@ function get_html_translation_table ($table = null, $quote_style = null, string 
 
 /**
  * Calculate the sha1 hash of a string
- * @link http://php.net/manual/en/function.sha1.php
+ * @link https://php.net/manual/en/function.sha1.php
  * @param string $str <p>
  * The input string.
  * </p>
@@ -745,7 +745,7 @@ function sha1 ($str, $raw_output = null) {}
 
 /**
  * Calculate the sha1 hash of a file
- * @link http://php.net/manual/en/function.sha1-file.php
+ * @link https://php.net/manual/en/function.sha1-file.php
  * @param string $filename <p>
  * The filename
  * </p>
@@ -761,7 +761,7 @@ function sha1_file ($filename, $raw_output = null) {}
 
 /**
  * Calculate the md5 hash of a string
- * @link http://php.net/manual/en/function.md5.php
+ * @link https://php.net/manual/en/function.md5.php
  * @param string $str <p>
  * The string.
  * </p>
@@ -778,7 +778,7 @@ function md5 ($str, $raw_output = null) {}
 
 /**
  * Calculates the md5 hash of a given file
- * @link http://php.net/manual/en/function.md5-file.php
+ * @link https://php.net/manual/en/function.md5-file.php
  * @param string $filename <p>
  * The filename
  * </p>
@@ -794,7 +794,7 @@ function md5_file ($filename, $raw_output = null) {}
 
 /**
  * Calculates the crc32 polynomial of a string
- * @link http://php.net/manual/en/function.crc32.php
+ * @link https://php.net/manual/en/function.crc32.php
  * @param string $str <p>
  * The data.
  * </p>
@@ -806,7 +806,7 @@ function crc32 ($str) {}
 
 /**
  * Parse a binary IPTC block into single tags.
- * @link http://php.net/manual/en/function.iptcparse.php
+ * @link https://php.net/manual/en/function.iptcparse.php
  * @param string $iptcblock <p>
  * A binary IPTC block.
  * </p>
@@ -819,7 +819,7 @@ function iptcparse ($iptcblock) {}
 
 /**
  * Embeds binary IPTC data into a JPEG image
- * @link http://php.net/manual/en/function.iptcembed.php
+ * @link https://php.net/manual/en/function.iptcembed.php
  * @param string $iptcdata <p>
  * The data to be written.
  * </p>
@@ -839,7 +839,7 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
 
 /**
  * Get the size of an image
- * @link http://php.net/manual/en/function.getimagesize.php
+ * @link https://php.net/manual/en/function.getimagesize.php
  * @param string $filename <p>
  * This parameter specifies the file you wish to retrieve information
  * about. It can reference a local file or (configuration permitting) a
@@ -1119,7 +1119,7 @@ function imagesetinterpolation ($image, $method = IMG_BILINEAR_FIXED) {}
  * @since 4.3.0
  * @since 5.0
    exif_read_data, exif_thumbnail, exif_imagetype
- * @link http://php.net/manual/en/function.image-type-to-mime-type.php
+ * @link https://php.net/manual/en/function.image-type-to-mime-type.php
  * @param int $imagetype <p>
  * One of the IMAGETYPE_XXX constants.
  * </p>
@@ -1206,7 +1206,7 @@ function image_type_to_mime_type ($imagetype) {}
 
 /**
  * Get file extension for image type
- * @link http://php.net/manual/en/function.image-type-to-extension.php
+ * @link https://php.net/manual/en/function.image-type-to-extension.php
  * @param int $imagetype <p>
  * One of the IMAGETYPE_XXX constant.
  * </p>
@@ -1220,7 +1220,7 @@ function image_type_to_extension ($imagetype, $include_dot = null) {}
 
 /**
  * Outputs lots of PHP information
- * @link http://php.net/manual/en/function.phpinfo.php
+ * @link https://php.net/manual/en/function.phpinfo.php
  * @param int $what [optional] <p>
  * The output may be customized by passing one or more of the
  * following constants bitwise values summed
@@ -1308,7 +1308,7 @@ function phpinfo ($what = null) {}
 
 /**
  * Gets the current PHP version
- * @link http://php.net/manual/en/function.phpversion.php
+ * @link https://php.net/manual/en/function.phpversion.php
  * @param string $extension [optional] <p>
  * An optional extension name.
  * </p>
@@ -1323,7 +1323,7 @@ function phpversion ($extension = null) {}
 
 /**
  * Prints out the credits for PHP
- * @link http://php.net/manual/en/function.phpcredits.php
+ * @link https://php.net/manual/en/function.phpcredits.php
  * @param int $flag [optional] <p>
  * To generate a custom credits page, you may want to use the
  * flag parameter.
@@ -1391,7 +1391,7 @@ function phpcredits ($flag = null) {}
 /**
  * @deprecated 5.5 Removed in PHP 5.5
  * Gets the logo guid
- * @link http://php.net/manual/en/function.php-logo-guid.php
+ * @link https://php.net/manual/en/function.php-logo-guid.php
  * @return string PHPE9568F34-D428-11d2-A769-00AA001ACF42.
  * @since 4.0
  * @since 5.0
@@ -1415,7 +1415,7 @@ function php_egg_logo_guid () {}
 /**
  * @deprecated 5.5 Removed in PHP 5.5
  * Gets the Zend guid
- * @link http://php.net/manual/en/function.zend-logo-guid.php
+ * @link https://php.net/manual/en/function.zend-logo-guid.php
  * @return string PHPE9568F35-D428-11d2-A769-00AA001ACF42.
  * @since 4.0
  * @since 5.0
@@ -1424,7 +1424,7 @@ function zend_logo_guid () {}
 
 /**
  * Returns the type of interface between web server and PHP
- * @link http://php.net/manual/en/function.php-sapi-name.php
+ * @link https://php.net/manual/en/function.php-sapi-name.php
  * @return string the interface type, as a lowercase string.
  * </p>
  * <p>
@@ -1445,7 +1445,7 @@ function php_sapi_name () {}
 
 /**
  * Returns information about the operating system PHP is running on
- * @link http://php.net/manual/en/function.php-uname.php
+ * @link https://php.net/manual/en/function.php-uname.php
  * @param string $mode [optional] <p>
  * mode is a single character that defines what
  * information is returned:
@@ -1459,7 +1459,7 @@ function php_uname ($mode = null) {}
 
 /**
  * Return a list of .ini files parsed from the additional ini dir
- * @link http://php.net/manual/en/function.php-ini-scanned-files.php
+ * @link https://php.net/manual/en/function.php-ini-scanned-files.php
  * @return string a comma-separated string of .ini files on success. Each comma is
  * followed by a newline. If the directive --with-config-file-scan-dir wasn't set,
  * false is returned. If it was set and the directory was empty, an
@@ -1474,7 +1474,7 @@ function php_ini_scanned_files () {}
 
 /**
  * Retrieve a path to the loaded php.ini file
- * @link http://php.net/manual/en/function.php-ini-loaded-file.php
+ * @link https://php.net/manual/en/function.php-ini-loaded-file.php
  * @return string The loaded &php.ini; path, or false if one is not loaded.
  * @since 5.2.4
  */
@@ -1482,7 +1482,7 @@ function php_ini_loaded_file () {}
 
 /**
  * String comparisons using a "natural order" algorithm
- * @link http://php.net/manual/en/function.strnatcmp.php
+ * @link https://php.net/manual/en/function.strnatcmp.php
  * @param string $str1 <p>
  * The first string.
  * </p>
@@ -1500,7 +1500,7 @@ function strnatcmp ($str1, $str2) {}
 
 /**
  * Case insensitive string comparisons using a "natural order" algorithm
- * @link http://php.net/manual/en/function.strnatcasecmp.php
+ * @link https://php.net/manual/en/function.strnatcasecmp.php
  * @param string $str1 <p>
  * The first string.
  * </p>
@@ -1518,7 +1518,7 @@ function strnatcasecmp ($str1, $str2) {}
 
 /**
  * Count the number of substring occurrences
- * @link http://php.net/manual/en/function.substr-count.php
+ * @link https://php.net/manual/en/function.substr-count.php
  * @param string $haystack <p>
  * The string to search in
  * </p>
@@ -1544,7 +1544,7 @@ function substr_count ($haystack, $needle, $offset = null, $length = null) {}
  * @since 4.0
  * @since 5.0
    entirely of characters contained within a given mask.
- * @link http://php.net/manual/en/function.strspn.php
+ * @link https://php.net/manual/en/function.strspn.php
  * @param string $subject <p>
  * The string to examine.
  * </p>
@@ -1595,7 +1595,7 @@ function strspn ($subject, $mask, $start = null, $length = null) {}
 
 /**
  * Find length of initial segment not matching mask
- * @link http://php.net/manual/en/function.strcspn.php
+ * @link https://php.net/manual/en/function.strcspn.php
  * @param string $str1 <p>
  * The first string.
  * </p>
@@ -1621,7 +1621,7 @@ function strcspn ($str1, $str2, $start = null, $length = null) {}
  * To start over, or to tokenize a new string you simply call strtok with the string argument again to initialize it.
  * Note that you may put multiple tokens in the token parameter.
  * The string will be tokenized when any one of the characters in the argument are found.
- * @link http://php.net/manual/en/function.strtok.php
+ * @link https://php.net/manual/en/function.strtok.php
  * @param string $str [optional] <p>
  * The string being split up into smaller strings (tokens).
  * </p>

@@ -4,7 +4,7 @@
 
 /**
  * Reads the EXIF headers from JPEG or TIFF
- * @link http://php.net/manual/en/function.exif-read-data.php
+ * @link https://php.net/manual/en/function.exif-read-data.php
  * @param string $filename <p>
  * The name of the image file being read. This cannot be an
  * URL.
@@ -81,7 +81,7 @@ function exif_read_data ($filename, $sections = null, $arrays = false, $thumbnai
 
 /**
  * Alias of <b>exif_read_data</b>
- * @link http://php.net/manual/en/function.read-exif-data.php
+ * @link https://php.net/manual/en/function.read-exif-data.php
  * @param $filename
  * @param $sections_needed [optional]
  * @param $sub_arrays [optional]
@@ -93,7 +93,7 @@ function read_exif_data ($filename, $sections_needed, $sub_arrays, $read_thumbna
 
 /**
  * Get the header name for an index
- * @link http://php.net/manual/en/function.exif-tagname.php
+ * @link https://php.net/manual/en/function.exif-tagname.php
  * @param int $index <p>
  * The Tag ID for which a Tag Name will be looked up.
  * </p>
@@ -106,7 +106,7 @@ function exif_tagname ($index) {}
 
 /**
  * Retrieve the embedded thumbnail of a TIFF or JPEG image
- * @link http://php.net/manual/en/function.exif-thumbnail.php
+ * @link https://php.net/manual/en/function.exif-thumbnail.php
  * @param string $filename <p>
  * The name of the image file being read. This image contains an
  * embedded thumbnail.
@@ -130,7 +130,7 @@ function exif_thumbnail ($filename, &$width = null, &$height = null, &$imagetype
 
 /**
  * Determine the type of an image
- * @link http://php.net/manual/en/function.exif-imagetype.php
+ * @link https://php.net/manual/en/function.exif-imagetype.php
  * @param string $filename The image being checked.
  * @return int When a correct signature is found, the appropriate constant value will be
  * returned otherwise the return value is <b>FALSE</b>. The return value is the

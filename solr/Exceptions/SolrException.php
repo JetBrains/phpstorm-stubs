@@ -10,7 +10,7 @@
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrException<br/>
  * This is the base class for all exception thrown by the Solr extension classes.
- * @link http://php.net/manual/en/class.solrexception.php
+ * @link https://php.net/manual/en/class.solrexception.php
  */
 class SolrException extends Exception {
 
@@ -26,7 +26,7 @@ class SolrException extends Exception {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns internal information where the Exception was thrown
-	 * @link http://php.net/manual/en/solrexception.getinternalinfo.php
+	 * @link https://php.net/manual/en/solrexception.getinternalinfo.php
 	 * @return array <p>
 	 * Returns an array containing internal information where the error was thrown. Used only for debugging by extension
 	 * developers.

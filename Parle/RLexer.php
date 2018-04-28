@@ -55,7 +55,7 @@ class RLexer
     /**
      * Processes the next rule and prepares the resulting token data.
      *
-     * @link http://php.net/manual/en/parle-rlexer.advance.php
+     * @link https://php.net/manual/en/parle-rlexer.advance.php
      * @return void
      */
     public function advance() : void {}
@@ -67,7 +67,7 @@ class RLexer
      * This method call has to be done after all the necessary rules was pushed.
      * The rule set becomes read only. The lexing can begin.
      *
-     * @link http://php.net/manual/en/parle-rlexer.build.php
+     * @link https://php.net/manual/en/parle-rlexer.build.php
      * @see RLexer::push()
      * @return void
      */
@@ -125,7 +125,7 @@ class RLexer
      * If the lexer instance is going to be passed to the parser, it has to be an id returned by Parle\RParser::tokenid().
      * @see RParser::tokenId()
      * @return void
-     * @link http://php.net/manual/en/parle-rlexer.push.php
+     * @link https://php.net/manual/en/parle-rlexer.push.php
      */
     public function push(string $regex, int $id) : void {}
 
@@ -150,7 +150,7 @@ class RLexer
      * identify the match. Note that even in the case an id is specified, the rule will finish first when all the
      * previous pushes popped.
      * @return void
-     * @link http://php.net/manual/en/parle-rlexer.push.php
+     * @link https://php.net/manual/en/parle-rlexer.push.php
      */
     public function push(string $state, string $regex, int $id, string $newState) : void {}
 
@@ -171,7 +171,7 @@ class RLexer
      * identify the match. Note that even in the case an id is specified, the rule will finish first when all the
      * previous pushes popped.
      * @return void
-     * @link http://php.net/manual/en/parle-rlexer.push.php
+     * @link https://php.net/manual/en/parle-rlexer.push.php
      */
     public function push(string $state, string $regex, string $newState) : void {}
 
@@ -182,7 +182,7 @@ class RLexer
      * Once a state pushed, it can be used with a suitable Parle\RLexer::push() signature variant.
      *
      * @see RLexer::push()
-     * @link http://php.net/manual/en/parle-rlexer.pushstate.php
+     * @link https://php.net/manual/en/parle-rlexer.pushstate.php
      * @param string $state Name of the state.
      * @return int
      */

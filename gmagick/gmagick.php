@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @link http://php.net/manual/en/class.gmagick.php
+ * @link https://php.net/manual/en/class.gmagick.php
  */
 class Gmagick
 {
@@ -328,7 +328,7 @@ class Gmagick
     /**
      * The Gmagick constructor.
      *
-     * @link http://php.net/manual/en/gmagick.construct.php
+     * @link https://php.net/manual/en/gmagick.construct.php
      *
      * @param string $filename [optional] The path to an image to load or array of paths.
      */
@@ -340,7 +340,7 @@ class Gmagick
      * Adds new image to Gmagick object from the current position of the source object.
      * After the operation iterator position is moved at the end of the list.
      *
-     * @link http://php.net/manual/en/gmagick.addimage.php
+     * @link https://php.net/manual/en/gmagick.addimage.php
      *
      * @param Gmagick $Gmagick The source Gmagick object.
      *
@@ -355,7 +355,7 @@ class Gmagick
     /**
      * Adds random noise to the image.
      *
-     * @link http://php.net/manual/en/gmagick.addnoiseimage.php
+     * @link https://php.net/manual/en/gmagick.addnoiseimage.php
      *
      * @param int $NOISE The type of the noise. One of the Gmagick::NOISE_* constants.
      *
@@ -370,7 +370,7 @@ class Gmagick
     /**
      * Annotates an image with text.
      *
-     * @link http://php.net/manual/en/gmagick.annotateimage.php
+     * @link https://php.net/manual/en/gmagick.annotateimage.php
      *
      * @param GmagickDraw $GmagickDraw The GmagickDraw object that contains settings for drawing the text.
      * @param float       $x           Horizontal offset in pixels to the left of text.
@@ -389,7 +389,7 @@ class Gmagick
     /**
      * Adds blur filter to image.
      *
-     * @link http://php.net/manual/en/gmagick.blurimage.php
+     * @link https://php.net/manual/en/gmagick.blurimage.php
      *
      * @param float $radius  Blur radius.
      * @param float $sigma   Standard deviation
@@ -406,7 +406,7 @@ class Gmagick
     /**
      * Surrounds the image with a border of the color defined by the bordercolor GmagickPixel object or a color string.
      *
-     * @link http://php.net/manual/en/gmagick.borderimage.php
+     * @link https://php.net/manual/en/gmagick.borderimage.php
      *
      * @param GmagickPixel $color  GmagickPixel object or a string containing the border color.
      * @param int          $width  Border width.
@@ -423,7 +423,7 @@ class Gmagick
     /**
      * Simulates a charcoal drawing.
      *
-     * @link http://php.net/manual/en/gmagick.charcoalimage.php
+     * @link https://php.net/manual/en/gmagick.charcoalimage.php
      *
      * @param float $radius The radius of the Gaussian, in pixels, not counting the center pixel.
      * @param float $sigma  The standard deviation of the Gaussian, in pixels.
@@ -439,7 +439,7 @@ class Gmagick
     /**
      * Removes a region of an image and collapses the image to occupy the removed portion.
      *
-     * @link http://php.net/manual/en/gmagick.chopimage.php
+     * @link https://php.net/manual/en/gmagick.chopimage.php
      *
      * @param int $width  Width of the chopped area.
      * @param int $height Height of the chopped area.
@@ -457,7 +457,7 @@ class Gmagick
     /**
      * Clears all resources associated to Gmagick object.
      *
-     * @link http://php.net/manual/en/gmagick.clear.php
+     * @link https://php.net/manual/en/gmagick.clear.php
      *
      * @return Gmagick The cleared Gmagick object.
      *
@@ -470,7 +470,7 @@ class Gmagick
     /**
      * Adds a comment to your image.
      *
-     * @link http://php.net/manual/en/gmagick.commentimage.php
+     * @link https://php.net/manual/en/gmagick.commentimage.php
      *
      * @param string $comment The comment to add.
      *
@@ -485,7 +485,7 @@ class Gmagick
     /**
      * Composite one image onto another at the specified offset.
      *
-     * @link http://php.net/manual/en/gmagick.compositeimage.php
+     * @link https://php.net/manual/en/gmagick.compositeimage.php
      *
      * @param Gmagick $source  Gmagick object which holds the composite image.
      * @param int     $COMPOSE Composite operator.
@@ -503,7 +503,7 @@ class Gmagick
     /**
      * Extracts a region of the image.
      *
-     * @link http://php.net/manual/en/gmagick.cropimage.php
+     * @link https://php.net/manual/en/gmagick.cropimage.php
      *
      * @param int $width  The width of the crop.
      * @param int $height The height of the crop.
@@ -521,7 +521,7 @@ class Gmagick
     /**
      * Creates a fixed size thumbnail by first scaling the image down and cropping a specified area from the center.
      *
-     * @link http://php.net/manual/en/gmagick.cropthumbnailimage.php
+     * @link https://php.net/manual/en/gmagick.cropthumbnailimage.php
      *
      * @param int $width  The width of the thumbnail.
      * @param int $height The Height of the thumbnail.
@@ -537,7 +537,7 @@ class Gmagick
     /**
      * Returns reference to the current gmagick object with image pointer at the correct sequence.
      *
-     * @link http://php.net/manual/en/gmagick.current.php
+     * @link https://php.net/manual/en/gmagick.current.php
      *
      * @return Gmagick Returns self on success.
      *
@@ -551,7 +551,7 @@ class Gmagick
      * Displaces an image's colormap by a given number of positions.
      * If you cycle the colormap a number of times you can produce a psychedelic effect.
      *
-     * @link http://php.net/manual/en/gmagick.cyclecolormapimage.php
+     * @link https://php.net/manual/en/gmagick.cyclecolormapimage.php
      *
      * @param int $displace The amount to displace the colormap.
      *
@@ -567,7 +567,7 @@ class Gmagick
      * Compares each image with the next in a sequence.
      * Returns the maximum bounding region of any pixel differences it discovers.
      *
-     * @link http://php.net/manual/en/gmagick.deconstructimages.php
+     * @link https://php.net/manual/en/gmagick.deconstructimages.php
      *
      * @return Gmagick Returns a new Gmagick object on success.
      *
@@ -580,7 +580,7 @@ class Gmagick
     /**
      * Reduces the speckle noise in an image while preserving the edges of the original image.
      *
-     * @link http://php.net/manual/en/gmagick.despeckleimage.php
+     * @link https://php.net/manual/en/gmagick.despeckleimage.php
      *
      * @return Gmagick The despeckled Gmagick object on success.
      *
@@ -593,7 +593,7 @@ class Gmagick
     /**
      * Destroys the Gmagick object and frees all resources associated with it.
      *
-     * @link http://php.net/manual/en/gmagick.destroy.php
+     * @link https://php.net/manual/en/gmagick.destroy.php
      *
      * @return bool Returns TRUE on success.
      *
@@ -606,7 +606,7 @@ class Gmagick
     /**
      * Renders the GmagickDraw object on the current image.
      *
-     * @link http://php.net/manual/en/gmagick.drawimage.php
+     * @link https://php.net/manual/en/gmagick.drawimage.php
      *
      * @param GmagickDraw $GmagickDraw The drawing operations to render on the image.
      *
@@ -622,7 +622,7 @@ class Gmagick
      * Enhance edges within the image with a convolution filter of the given radius.
      * Use radius 0 and it will be auto-selected.
      *
-     * @link http://php.net/manual/en/gmagick.edgeimage.php
+     * @link https://php.net/manual/en/gmagick.edgeimage.php
      *
      * @param float $radius The radius of the operation.
      *
@@ -640,7 +640,7 @@ class Gmagick
      * For reasonable results, radius should be larger than sigma.
      * Use a radius of 0 and it will choose a suitable radius for you.
      *
-     * @link http://php.net/manual/en/gmagick.embossimage.php
+     * @link https://php.net/manual/en/gmagick.embossimage.php
      *
      * @param float $radius The radius of the effect.
      * @param float $sigma  The sigma of the effect.
@@ -656,7 +656,7 @@ class Gmagick
     /**
      * Applies a digital filter that improves the quality of a noisy image.
      *
-     * @link http://php.net/manual/en/gmagick.enhanceimage.php
+     * @link https://php.net/manual/en/gmagick.enhanceimage.php
      *
      * @return Gmagick The enhanced Gmagick object.
      *
@@ -669,7 +669,7 @@ class Gmagick
     /**
      * Equalizes the image histogram.
      *
-     * @link http://php.net/manual/en/gmagick.equalizeimage.php
+     * @link https://php.net/manual/en/gmagick.equalizeimage.php
      *
      * @return Gmagick The equalized Gmagick object.
      *
@@ -682,7 +682,7 @@ class Gmagick
     /**
      * Creates a vertical mirror image by reflecting the pixels around the central x-axis.
      *
-     * @link http://php.net/manual/en/gmagick.flipimage.php
+     * @link https://php.net/manual/en/gmagick.flipimage.php
      *
      * @return Gmagick The flipped Gmagick object.
      *
@@ -695,7 +695,7 @@ class Gmagick
     /**
      * Creates a horizontal mirror image by reflecting the pixels around the central y-axis.
      *
-     * @link http://php.net/manual/en/gmagick.flopimage.php
+     * @link https://php.net/manual/en/gmagick.flopimage.php
      *
      * @return Gmagick The flopped Gmagick object.
      *
@@ -710,7 +710,7 @@ class Gmagick
      * The width and height specify the border width of the vertical and horizontal sides of the frame.
      * The inner and outer bevels indicate the width of the inner and outer shadows of the frame.
      *
-     * @link http://php.net/manual/en/gmagick.frameimage.php
+     * @link https://php.net/manual/en/gmagick.frameimage.php
      *
      * @param GmagickPixel $color       GmagickPixel object or a float representing the matte color.
      * @param int          $width       The width of the border.
@@ -732,7 +732,7 @@ class Gmagick
      * are represented on the screen. Specify individual gamma levels for the red, green, and blue channels,
      * or adjust all three with the gamma parameter. Values typically range from 0.8 to 2.3.
      *
-     * @link http://php.net/manual/en/gmagick.gammaimage.php
+     * @link https://php.net/manual/en/gmagick.gammaimage.php
      *
      * @param float $gamma The amount of gamma-correction.
      *
@@ -747,7 +747,7 @@ class Gmagick
     /**
      * Returns the GraphicsMagick API copyright as a string.
      *
-     * @link http://php.net/manual/en/gmagick.getcopyright.php
+     * @link https://php.net/manual/en/gmagick.getcopyright.php
      *
      * @return string Returns a string containing the copyright notice of GraphicsMagick and Magickwand C API.
      *
@@ -760,7 +760,7 @@ class Gmagick
     /**
      * Returns the filename associated with an image sequence.
      *
-     * @link http://php.net/manual/en/gmagick.getfilename.php
+     * @link https://php.net/manual/en/gmagick.getfilename.php
      *
      * @return string Returns a string on success.
      *
@@ -773,7 +773,7 @@ class Gmagick
     /**
      * Returns the image background color.
      *
-     * @link http://php.net/manual/en/gmagick.getimagebackgroundcolor.php
+     * @link https://php.net/manual/en/gmagick.getimagebackgroundcolor.php
      *
      * @return GmagickPixel Returns a GmagickPixel set to the background color of the image.
      *
@@ -786,7 +786,7 @@ class Gmagick
     /**
      * Returns the chromaticity blue primary point for the image.
      *
-     * @link http://php.net/manual/en/gmagick.getimageblueprimary.php
+     * @link https://php.net/manual/en/gmagick.getimageblueprimary.php
      *
      * @return array Array consisting of "x" and "y" coordinates of point.
      *
@@ -799,7 +799,7 @@ class Gmagick
     /**
      * Returns the image border color.
      *
-     * @link http://php.net/manual/en/gmagick.getimagebordercolor.php
+     * @link https://php.net/manual/en/gmagick.getimagebordercolor.php
      *
      * @return GmagickPixel GmagickPixel object representing the color of the border.
      *
@@ -812,7 +812,7 @@ class Gmagick
     /**
      * Gets the depth for a particular image channel.
      *
-     * @link http://php.net/manual/en/gmagick.getimagechanneldepth.php
+     * @link https://php.net/manual/en/gmagick.getimagechanneldepth.php
      *
      * @param int $channel_type
      *
@@ -827,7 +827,7 @@ class Gmagick
     /**
      * Returns the color of the specified colormap index.
      *
-     * @link http://php.net/manual/en/gmagick.getimagecolors.php
+     * @link https://php.net/manual/en/gmagick.getimagecolors.php
      *
      * @return int The number of colors in image.
      *
@@ -840,7 +840,7 @@ class Gmagick
     /**
      * Gets the image colorspace.
      *
-     * @link http://php.net/manual/en/gmagick.getimagecolorspace.php
+     * @link https://php.net/manual/en/gmagick.getimagecolorspace.php
      *
      * @return int Colorspace
      *
@@ -853,7 +853,7 @@ class Gmagick
     /**
      * Returns the composite operator associated with the image.
      *
-     * @link http://php.net/manual/en/gmagick.getimagecompose.php
+     * @link https://php.net/manual/en/gmagick.getimagecompose.php
      *
      * @return int Returns the composite operator associated with the image.
      *
@@ -866,7 +866,7 @@ class Gmagick
     /**
      * Gets the image delay.
      *
-     * @link http://php.net/manual/en/gmagick.getimagedelay.php
+     * @link https://php.net/manual/en/gmagick.getimagedelay.php
      *
      * @return int Returns the composite operator associated with the image.
      *
@@ -879,7 +879,7 @@ class Gmagick
     /**
      * Gets the depth of the image.
      *
-     * @link http://php.net/manual/en/gmagick.getimagedepth.php
+     * @link https://php.net/manual/en/gmagick.getimagedepth.php
      *
      * @return int Image depth.
      *
@@ -892,7 +892,7 @@ class Gmagick
     /**
      * Gets the image disposal method.
      *
-     * @link http://php.net/manual/en/gmagick.getimagedispose.php
+     * @link https://php.net/manual/en/gmagick.getimagedispose.php
      *
      * @return int Returns the dispose method on success.
      *
@@ -905,7 +905,7 @@ class Gmagick
     /**
      * Gets the extrema for the image.
      *
-     * @link http://php.net/manual/en/gmagick.getimageextrema.php
+     * @link https://php.net/manual/en/gmagick.getimageextrema.php
      *
      * @return array Returns an associative array with the keys "min" and "max".
      *
@@ -918,7 +918,7 @@ class Gmagick
     /**
      * Returns the filename of a particular image in a sequence.
      *
-     * @link http://php.net/manual/en/gmagick.getimagefilename.php
+     * @link https://php.net/manual/en/gmagick.getimagefilename.php
      *
      * @return string Returns a string with the filename of the image
      *
@@ -931,7 +931,7 @@ class Gmagick
     /**
      * Returns the format of a particular image in a sequence.
      *
-     * @link http://php.net/manual/en/gmagick.getimageformat.php
+     * @link https://php.net/manual/en/gmagick.getimageformat.php
      *
      * @return string Returns a string containing the image format on success.
      *
@@ -944,7 +944,7 @@ class Gmagick
     /**
      * Gets the image gamma.
      *
-     * @link http://php.net/manual/en/gmagick.getimagegamma.php
+     * @link https://php.net/manual/en/gmagick.getimagegamma.php
      *
      * @return float Returns the image gamma on success.
      *
@@ -957,7 +957,7 @@ class Gmagick
     /**
      * Returns the chromaticy green primary point.
      *
-     * @link http://php.net/manual/en/gmagick.getimagegreenprimary.php
+     * @link https://php.net/manual/en/gmagick.getimagegreenprimary.php
      *
      * @return array Returns an array with the keys "x" and "y" on success.
      *
@@ -970,7 +970,7 @@ class Gmagick
     /**
      * Returns the image height.
      *
-     * @link http://php.net/manual/en/gmagick.getimageheight.php
+     * @link https://php.net/manual/en/gmagick.getimageheight.php
      *
      * @return int Returns the image height in pixels.
      *
@@ -983,7 +983,7 @@ class Gmagick
     /**
      * Gets the image histogram.
      *
-     * @link http://php.net/manual/en/gmagick.getimagehistogram.php
+     * @link https://php.net/manual/en/gmagick.getimagehistogram.php
      *
      * @return array Returns the image histogram as an array of GmagickPixel objects.
      *
@@ -996,7 +996,7 @@ class Gmagick
     /**
      * Returns the index of the current active image within the Gmagick object.
      *
-     * @link http://php.net/manual/en/gmagick.getimageindex.php
+     * @link https://php.net/manual/en/gmagick.getimageindex.php
      *
      * @return int Index of current active image.
      *
@@ -1009,7 +1009,7 @@ class Gmagick
     /**
      * Gets the image interlace scheme.
      *
-     * @link http://php.net/manual/en/gmagick.getimageinterlacescheme.php
+     * @link https://php.net/manual/en/gmagick.getimageinterlacescheme.php
      *
      * @return int Returns the interlace scheme as an integer on success.
      *
@@ -1022,7 +1022,7 @@ class Gmagick
     /**
      * Gets the image iterations.
      *
-     * @link http://php.net/manual/en/gmagick.getimageiterations.php
+     * @link https://php.net/manual/en/gmagick.getimageiterations.php
      *
      * @return int Returns the image iterations as an integer.
      *
@@ -1035,7 +1035,7 @@ class Gmagick
     /**
      * Checks if the image has a matte channel.
      *
-     * @link http://php.net/manual/en/gmagick.getimagematte.php
+     * @link https://php.net/manual/en/gmagick.getimagematte.php
      *
      * @return int Returns TRUE if the image has a matte channel, otherwise FALSE.
      *
@@ -1048,7 +1048,7 @@ class Gmagick
     /**
      * Returns the image matte color.
      *
-     * @link http://php.net/manual/en/gmagick.getimagemattecolor.php
+     * @link https://php.net/manual/en/gmagick.getimagemattecolor.php
      *
      * @return GmagickPixel Returns GmagickPixel object on success.
      *
@@ -1061,7 +1061,7 @@ class Gmagick
     /**
      * Returns the named image profile.
      *
-     * @link http://php.net/manual/en/gmagick.getimageprofile.php
+     * @link https://php.net/manual/en/gmagick.getimageprofile.php
      *
      * @param string $name
      *
@@ -1076,7 +1076,7 @@ class Gmagick
     /**
      * Returns the chromaticity red primary point.
      *
-     * @link http://php.net/manual/en/gmagick.getimageredprimary.php
+     * @link https://php.net/manual/en/gmagick.getimageredprimary.php
      *
      * @return array Returns the chromaticity red primary point as an array with the keys "x" and "y".
      *
@@ -1089,7 +1089,7 @@ class Gmagick
     /**
      * Gets the image rendering intent.
      *
-     * @link http://php.net/manual/en/gmagick.getimagerenderingintent.php
+     * @link https://php.net/manual/en/gmagick.getimagerenderingintent.php
      *
      * @return int Extracts a region of the image and returns it as a a new wand.
      *
@@ -1102,7 +1102,7 @@ class Gmagick
     /**
      * Gets the image X and Y resolution.
      *
-     * @link http://php.net/manual/en/gmagick.getimageresolution.php
+     * @link https://php.net/manual/en/gmagick.getimageresolution.php
      *
      * @return array Returns the resolution as an array.
      *
@@ -1115,7 +1115,7 @@ class Gmagick
     /**
      * Gets the image scene.
      *
-     * @link http://php.net/manual/en/gmagick.getimagescene.php
+     * @link https://php.net/manual/en/gmagick.getimagescene.php
      *
      * @return int Returns the image scene.
      *
@@ -1128,7 +1128,7 @@ class Gmagick
     /**
      * Generates an SHA-256 message digest for the image pixel stream.
      *
-     * @link http://php.net/manual/en/gmagick.getimagesignature.php
+     * @link https://php.net/manual/en/gmagick.getimagesignature.php
      *
      * @return string Returns a string containing the SHA-256 hash of the file.
      *
@@ -1141,7 +1141,7 @@ class Gmagick
     /**
      * Gets the potential image type.
      *
-     * @link http://php.net/manual/en/gmagick.getimagetype.php
+     * @link https://php.net/manual/en/gmagick.getimagetype.php
      *
      * @return int Returns the potential image type.
      *
@@ -1154,7 +1154,7 @@ class Gmagick
     /**
      * Gets the image units of resolution.
      *
-     * @link http://php.net/manual/en/gmagick.getimageunits.php
+     * @link https://php.net/manual/en/gmagick.getimageunits.php
      *
      * @return int Returns the image units of resolution.
      */
@@ -1165,7 +1165,7 @@ class Gmagick
     /**
      * Returns the chromaticity white point.
      *
-     * @link http://php.net/manual/en/gmagick.getimagewhitepoint.php
+     * @link https://php.net/manual/en/gmagick.getimagewhitepoint.php
      *
      * @return array Returns the chromaticity white point as an associative array with the keys "x" and "y".
      *
@@ -1178,7 +1178,7 @@ class Gmagick
     /**
      * Returns the width of the image.
      *
-     * @link http://php.net/manual/en/gmagick.getimagewidth.php
+     * @link https://php.net/manual/en/gmagick.getimagewidth.php
      *
      * @return int Returns the image width.
      *
@@ -1191,7 +1191,7 @@ class Gmagick
     /**
      * Returns the GraphicsMagick package name.
      *
-     * @link http://php.net/manual/en/gmagick.getpackagename.php
+     * @link https://php.net/manual/en/gmagick.getpackagename.php
      *
      * @return string Returns the GraphicsMagick package name as a string.
      *
@@ -1204,7 +1204,7 @@ class Gmagick
     /**
      * Returns the Gmagick quantum depth.
      *
-     * @link http://php.net/manual/en/gmagick.getquantumdepth.php
+     * @link https://php.net/manual/en/gmagick.getquantumdepth.php
      *
      * @return array Returns the Gmagick quantum depth.
      *
@@ -1217,7 +1217,7 @@ class Gmagick
     /**
      * Returns the GraphicsMagick release date as a string.
      *
-     * @link http://php.net/manual/en/gmagick.getreleasedate.php
+     * @link https://php.net/manual/en/gmagick.getreleasedate.php
      *
      * @return string Returns the GraphicsMagick release date as a string.
      *
@@ -1230,7 +1230,7 @@ class Gmagick
     /**
      * Gets the horizontal and vertical sampling factor.
      *
-     * @link http://php.net/manual/en/gmagick.getsamplingfactors.php
+     * @link https://php.net/manual/en/gmagick.getsamplingfactors.php
      *
      * @return array Returns an associative array with the horizontal and vertical sampling factors of the image.
      *
@@ -1243,7 +1243,7 @@ class Gmagick
     /**
      * Returns the size associated with the Gmagick object.
      *
-     * @link http://php.net/manual/en/gmagick.getsize.php
+     * @link https://php.net/manual/en/gmagick.getsize.php
      *
      * @return array Returns the size associated with the Gmagick object as an array with the keys "columns" and "rows".
      *
@@ -1256,7 +1256,7 @@ class Gmagick
     /**
      * Returns the GraphicsMagick API version.
      *
-     * @link http://php.net/manual/en/gmagick.getversion.php
+     * @link https://php.net/manual/en/gmagick.getversion.php
      *
      * @return array Returns the GraphicsMagick API version as a string and as a number.
      *
@@ -1269,7 +1269,7 @@ class Gmagick
     /**
      * Checks if the object has more images.
      *
-     * @link http://php.net/manual/en/gmagick.hasnextimage.php
+     * @link https://php.net/manual/en/gmagick.hasnextimage.php
      *
      * @return mixed Returns TRUE if the object has more images when traversing the list in the forward direction, returns FALSE if there are none.
      *
@@ -1282,7 +1282,7 @@ class Gmagick
     /**
      * Checks if the object has a previous image.
      *
-     * @link http://php.net/manual/en/gmagick.haspreviousimage.php
+     * @link https://php.net/manual/en/gmagick.haspreviousimage.php
      *
      * @return mixed Returns TRUE if the object has more images when traversing the list in the reverse direction, returns FALSE if there are none.
      *
@@ -1295,7 +1295,7 @@ class Gmagick
     /**
      * Creates a new image that is a copy of an existing one with the image pixels "imploded" by the specified percentage.
      *
-     * @link http://php.net/manual/en/gmagick.implodeimage.php
+     * @link https://php.net/manual/en/gmagick.implodeimage.php
      *
      * @param float $radius The radius of the implode.
      *
@@ -1310,7 +1310,7 @@ class Gmagick
     /**
      * Adds a label to an image.
      *
-     * @link http://php.net/manual/en/gmagick.labelimage.php
+     * @link https://php.net/manual/en/gmagick.labelimage.php
      *
      * @param string $label The label to add.
      *
@@ -1331,7 +1331,7 @@ class Gmagick
      * specifies a gamma correction to apply to the image. White point specifies the lightest color in the image.
      * Colors brighter than the white point are set to the maximum quantum value.
      *
-     * @link http://php.net/manual/en/gmagick.levelimage.php
+     * @link https://php.net/manual/en/gmagick.levelimage.php
      *
      * @param float $blackPoint The image black point.
      * @param float $gamma      The gamma value.
@@ -1351,7 +1351,7 @@ class Gmagick
     /**
      * Scales an image proportionally 2x.
      *
-     * @link http://php.net/manual/en/gmagick.magnifyimage.php
+     * @link https://php.net/manual/en/gmagick.magnifyimage.php
      *
      * @return mixed Magnified Gmagick object.
      *
@@ -1364,7 +1364,7 @@ class Gmagick
     /**
      * Replaces the colors of an image with the closest color from a reference image.
      *
-     * @link http://php.net/manual/en/gmagick.mapimage.php
+     * @link https://php.net/manual/en/gmagick.mapimage.php
      *
      * @param gmagick $gmagick The reference image.
      * @param bool    $dither  Set this integer value to something other than zero to dither the mapped image.
@@ -1381,7 +1381,7 @@ class Gmagick
      * Applies a digital filter that improves the quality of a noisy image.
      * Each pixel is replaced by the median in a set of neighboring pixels as defined by radius.
      *
-     * @link http://php.net/manual/en/gmagick.medianfilterimage.php
+     * @link https://php.net/manual/en/gmagick.medianfilterimage.php
      *
      * @param float $radius The radius of the pixel neighborhood.
      *
@@ -1396,7 +1396,7 @@ class Gmagick
     /**
      * Scales an image proportionally to half its size.
      *
-     * @link http://php.net/manual/en/gmagick.minifyimage.php
+     * @link https://php.net/manual/en/gmagick.minifyimage.php
      *
      * @return Gmagick The Gmagick object on success.
      *
@@ -1409,7 +1409,7 @@ class Gmagick
     /**
      * Controls the brightness, saturation, and hue.
      *
-     * @link http://php.net/manual/en/gmagick.modulateimage.php
+     * @link https://php.net/manual/en/gmagick.modulateimage.php
      *
      * Lets you control the brightness, saturation, and hue of an image.
      * Hue is the percentage of absolute rotation from the current position.
@@ -1436,7 +1436,7 @@ class Gmagick
      * Use a radius of 0 and MotionBlurImage() selects a suitable radius for you.
      * Angle gives the angle of the blurring motion.
      *
-     * @link http://php.net/manual/en/gmagick.motionblurimage.php
+     * @link https://php.net/manual/en/gmagick.motionblurimage.php
      *
      * @param float $radius The radius of the Gaussian, in pixels, not counting the center pixel.
      * @param float $sigma  The standard deviation of the Gaussian, in pixels.
@@ -1453,7 +1453,7 @@ class Gmagick
     /**
      * Creates a new image.
      *
-     * @link http://php.net/manual/en/gmagick.newimage.php
+     * @link https://php.net/manual/en/gmagick.newimage.php
      *
      * @param int    $width      Width of the new image
      * @param int    $height     Height of the new image.
@@ -1473,7 +1473,7 @@ class Gmagick
      *
      * Associates the next image in the image list with an Gmagick object.
      *
-     * @link http://php.net/manual/en/gmagick.nextimage.php
+     * @link https://php.net/manual/en/gmagick.nextimage.php
      *
      * @return bool True on success, false on failure.
      */
@@ -1484,7 +1484,7 @@ class Gmagick
     /**
      * Enhances the contrast of a color image.
      *
-     * @link http://php.net/manual/en/gmagick.normalizeimage.php
+     * @link https://php.net/manual/en/gmagick.normalizeimage.php
      *
      * @param int $channel [optional] Identify which channel to normalize.
      *
@@ -1502,7 +1502,7 @@ class Gmagick
      * Applies a special effect filter that simulates an oil painting.
      * Each pixel is replaced by the most frequent color occurring in a circular region defined by radius.
      *
-     * @link http://php.net/manual/en/gmagick.oilpaintimage.php
+     * @link https://php.net/manual/en/gmagick.oilpaintimage.php
      *
      * @param float $radius The radius of the circular neighborhood.
      *
@@ -1519,7 +1519,7 @@ class Gmagick
      *
      * Assocates the previous image in an image list with the Gmagick object.
      *
-     * @link http://php.net/manual/en/gmagick.previousimage.php
+     * @link https://php.net/manual/en/gmagick.previousimage.php
      *
      * @return bool True on success, false on failure.
      *
@@ -1536,7 +1536,7 @@ class Gmagick
      * If the profile is NULL, it is removed from the image otherwise added.
      * Use a name of '*' and a profile of NULL to remove all profiles from the image.
      *
-     * @link http://php.net/manual/en/gmagick.profileimage.php
+     * @link https://php.net/manual/en/gmagick.profileimage.php
      *
      * @param string $name    Name of profile to add or remove: ICC, IPTC, or generic profile.
      * @param string $profile The profile.
@@ -1555,7 +1555,7 @@ class Gmagick
      * Analyzes the colors within a reference image and chooses a fixed number of colors to represent the image.
      * The goal of the algorithm is to minimize the color difference between the input and output image while minimizing the processing time.
      *
-     * @link http://php.net/manual/en/gmagick.quantizeimage.php
+     * @link https://php.net/manual/en/gmagick.quantizeimage.php
      *
      * @param int  $numColors    The number of colors.
      * @param int  $colorspace   Perform color reduction in this colorspace, typically RGBColorspace.
@@ -1587,7 +1587,7 @@ class Gmagick
      * Analyzes the colors within a sequence of images and chooses a fixed number of colors to represent the image.
      * The goal of the algorithm is to minimize the color difference between the input and output image while minimizing the processing time.
      *
-     * @link http://php.net/manual/en/gmagick.quantizeimages.php
+     * @link https://php.net/manual/en/gmagick.quantizeimages.php
      *
      * @param int  $numColors    The number of colors.
      * @param int  $colorspace   Perform color reduction in this colorspace, typically RGBColorspace.
@@ -1616,7 +1616,7 @@ class Gmagick
     /**
      * Returns an array representing the font metrics.
      *
-     * @link http://php.net/manual/en/gmagick.queryfontmetrics.php
+     * @link https://php.net/manual/en/gmagick.queryfontmetrics.php
      *
      * @param GmagickDraw $draw
      * @param string      $text
@@ -1632,7 +1632,7 @@ class Gmagick
     /**
      * Returns fonts supported by Gmagick.
      *
-     * @link http://php.net/manual/en/gmagick.queryfonts.php
+     * @link https://php.net/manual/en/gmagick.queryfonts.php
      *
      * @param string $pattern [optional]
      *
@@ -1647,7 +1647,7 @@ class Gmagick
     /**
      * Returns formats supported by Gmagick.
      *
-     * @link http://php.net/manual/en/gmagick.queryformats.php
+     * @link https://php.net/manual/en/gmagick.queryformats.php
      *
      * @param string $pattern [optional]
      *
@@ -1662,7 +1662,7 @@ class Gmagick
     /**
      * Radial blurs an image.
      *
-     * @link http://php.net/manual/en/gmagick.radialblurimage.php
+     * @link https://php.net/manual/en/gmagick.radialblurimage.php
      *
      * @param float $angle   The angle of the blur in degrees.
      * @param int   $channel [optional] Related channel.
@@ -1681,7 +1681,7 @@ class Gmagick
      * Creates a simulated three-dimensional button-like effect by lightening and darkening the edges of the image.
      * Members width and height of raise_info define the width of the vertical and horizontal edge of the effect.
      *
-     * @link http://php.net/manual/en/gmagick.raiseimage.php
+     * @link https://php.net/manual/en/gmagick.raiseimage.php
      *
      * @param int  $width  Width of the area to raise.
      * @param int  $height Height of the area to raise.
@@ -1702,7 +1702,7 @@ class Gmagick
      *
      * This is an alias for readimage().
      *
-     * @link http://php.net/manual/en/gmagick.read.php
+     * @link https://php.net/manual/en/gmagick.read.php
      *
      * @param string $filename The image filename.
      *
@@ -1717,7 +1717,7 @@ class Gmagick
     /**
      * Reads image from filename.
      *
-     * @link http://php.net/manual/en/gmagick.readimage.php
+     * @link https://php.net/manual/en/gmagick.readimage.php
      *
      * @param string $filename The image filename.
      *
@@ -1732,7 +1732,7 @@ class Gmagick
     /**
      * Reads image from a binary string.
      *
-     * @link http://php.net/manual/en/gmagick.readimageblob.php
+     * @link https://php.net/manual/en/gmagick.readimageblob.php
      *
      * @param string $imageContents Content of image.
      * @param string $filename      [optional] The image filename.
@@ -1748,7 +1748,7 @@ class Gmagick
     /**
      * Reads an image or image sequence from an open file descriptor.
      *
-     * @link http://php.net/manual/en/gmagick.readimagefile.php
+     * @link https://php.net/manual/en/gmagick.readimagefile.php
      *
      * @param resource $fp       The file descriptor.
      * @param string   $filename [optional]
@@ -1769,7 +1769,7 @@ class Gmagick
      * A neighbor is defined by radius.
      * Use a radius of 0 and Gmagick::reduceNoiseImage() selects a suitable radius for you.
      *
-     * @link http://php.net/manual/en/gmagick.reducenoiseimage.php
+     * @link https://php.net/manual/en/gmagick.reducenoiseimage.php
      *
      * @param float $radius The radius of the pixel neighborhood.
      *
@@ -1784,7 +1784,7 @@ class Gmagick
     /**
      * Removes an image from the image list.
      *
-     * @link http://php.net/manual/en/gmagick.removeimage.php
+     * @link https://php.net/manual/en/gmagick.removeimage.php
      *
      * @return Gmagick The Gmagick object on success.
      *
@@ -1797,7 +1797,7 @@ class Gmagick
     /**
      * Removes the named image profile and returns it.
      *
-     * @link http://php.net/manual/en/gmagick.removeimageprofile.php
+     * @link https://php.net/manual/en/gmagick.removeimageprofile.php
      *
      * @param string $name Name of profile to return: ICC, IPTC, or generic profile.
      *
@@ -1812,7 +1812,7 @@ class Gmagick
     /**
      * Resample image to desired resolution.
      *
-     * @link http://php.net/manual/en/gmagick.resampleimage.php
+     * @link https://php.net/manual/en/gmagick.resampleimage.php
      *
      * @param float $xResolution The new image x resolution.
      * @param float $yResolution The new image y resolution.
@@ -1830,7 +1830,7 @@ class Gmagick
     /**
      * Scales an image to the desired dimensions with a filter.
      *
-     * @link http://php.net/manual/en/gmagick.resizeimage.php
+     * @link https://php.net/manual/en/gmagick.resizeimage.php
      *
      * @param int   $width  The number of columns in the scaled image.
      * @param int   $height The number of rows in the scaled image.
@@ -1849,7 +1849,7 @@ class Gmagick
     /**
      * Offsets an image as defined by x and y.
      *
-     * @link http://php.net/manual/en/gmagick.rollimage.php
+     * @link https://php.net/manual/en/gmagick.rollimage.php
      *
      * @param int $x The x offset.
      * @param int $y The y offset.
@@ -1867,7 +1867,7 @@ class Gmagick
      *
      * Empty triangles left over from rotating the image are filled with the background color.
      *
-     * @link http://php.net/manual/en/gmagick.rotateimage.php
+     * @link https://php.net/manual/en/gmagick.rotateimage.php
      *
      * @param mixed $color   The background pixel.
      * @param float $degrees The number of degrees to rotate the image.
@@ -1885,7 +1885,7 @@ class Gmagick
      *
      * The other parameter will be calculated if 0 is passed as either param.
      *
-     * @link http://php.net/manual/en/gmagick.scaleimage.php
+     * @link https://php.net/manual/en/gmagick.scaleimage.php
      *
      * @param int  $width  The number of columns in the scaled image.
      * @param int  $height The number of rows in the scaled image.
@@ -1904,7 +1904,7 @@ class Gmagick
      *
      * A channel is a particular color component of each pixel in the image.
      *
-     * @link http://php.net/manual/en/gmagick.separateimagechannel.php
+     * @link https://php.net/manual/en/gmagick.separateimagechannel.php
      *
      * @param int $channel Identify which channel to extract:
      *                     RedChannel, GreenChannel, BlueChannel, OpacityChannel,
@@ -1921,7 +1921,7 @@ class Gmagick
     /**
      * Sets the object's default compression quality.
      *
-     * @link http://php.net/manual/en/gmagick.setcompressionquality.php
+     * @link https://php.net/manual/en/gmagick.setcompressionquality.php
      *
      * @param int $quality [optional]
      *
@@ -1937,7 +1937,7 @@ class Gmagick
     /**
      * Sets the filename before you read or write the image.
      *
-     * @link http://php.net/manual/en/gmagick.setfilename.php
+     * @link https://php.net/manual/en/gmagick.setfilename.php
      *
      * @param string $filename The image filename.
      *
@@ -1952,7 +1952,7 @@ class Gmagick
     /**
      * Sets the image background color.
      *
-     * @link http://php.net/manual/en/gmagick.setimagebackgroundcolor.php
+     * @link https://php.net/manual/en/gmagick.setimagebackgroundcolor.php
      *
      * @param GmagickPixel $color The background pixel wand.
      *
@@ -1967,7 +1967,7 @@ class Gmagick
     /**
      * Sets the image chromaticity blue primary point.
      *
-     * @link http://php.net/manual/en/gmagick.setimageblueprimary.php
+     * @link https://php.net/manual/en/gmagick.setimageblueprimary.php
      *
      * @param float $x The blue primary x-point.
      * @param float $y The blue primary y-point.
@@ -1983,7 +1983,7 @@ class Gmagick
     /**
      * Sets the image border color.
      *
-     * @link http://php.net/manual/en/gmagick.setimagebordercolor.php
+     * @link https://php.net/manual/en/gmagick.setimagebordercolor.php
      *
      * @param GmagickPixel $color The border pixel wand.
      *
@@ -1998,7 +1998,7 @@ class Gmagick
     /**
      * Sets the depth of a particular image channel.
      *
-     * @link http://php.net/manual/en/gmagick.setimagechanneldepth.php
+     * @link https://php.net/manual/en/gmagick.setimagechanneldepth.php
      *
      * @param int $channel Identify which channel to extract: RedChannel, GreenChannel, BlueChannel,
      *                     OpacityChannel, CyanChannel, MagentaChannel, YellowChannel, BlackChannel.
@@ -2015,7 +2015,7 @@ class Gmagick
     /**
      * Sets the image colorspace.
      *
-     * @link http://php.net/manual/en/gmagick.setimagecolorspace.php
+     * @link https://php.net/manual/en/gmagick.setimagecolorspace.php
      *
      * @param int $colorspace The image colorspace: UndefinedColorspace, RGBColorspace, GRAYColorspace,
      *                        TransparentColorspace, OHTAColorspace, XYZColorspace, YCbCrColorspace, YCCColorspace,
@@ -2033,7 +2033,7 @@ class Gmagick
     /**
      * Sets the image composite operator.
      *
-     * @link http://php.net/manual/en/gmagick.setimagecompose.php
+     * @link https://php.net/manual/en/gmagick.setimagecompose.php
      *
      * @param int $composite The image composite operator.
      *
@@ -2048,7 +2048,7 @@ class Gmagick
     /**
      * Sets the image delay.
      *
-     * @link http://php.net/manual/en/gmagick.setimagedelay.php
+     * @link https://php.net/manual/en/gmagick.setimagedelay.php
      *
      * @param int $delay The image delay in 1/100th of a second.
      *
@@ -2063,7 +2063,7 @@ class Gmagick
     /**
      * Sets the image depth.
      *
-     * @link http://php.net/manual/en/gmagick.setimagedepth.php
+     * @link https://php.net/manual/en/gmagick.setimagedepth.php
      *
      * @param int $depth The image depth in bits: 8, 16, or 32.
      *
@@ -2078,7 +2078,7 @@ class Gmagick
     /**
      * Sets the image disposal method.
      *
-     * @link http://php.net/manual/en/gmagick.setimagedispose.php
+     * @link https://php.net/manual/en/gmagick.setimagedispose.php
      *
      * @param int $disposeType The image disposal type.
      *
@@ -2093,7 +2093,7 @@ class Gmagick
     /**
      * Sets the filename of a particular image in a sequence.
      *
-     * @link http://php.net/manual/en/gmagick.setimagefilename.php
+     * @link https://php.net/manual/en/gmagick.setimagefilename.php
      *
      * @param string $filename The image filename.
      *
@@ -2108,7 +2108,7 @@ class Gmagick
     /**
      * Sets the format of a particular image in a sequence.
      *
-     * @link http://php.net/manual/en/gmagick.setimageformat.php
+     * @link https://php.net/manual/en/gmagick.setimageformat.php
      *
      * @param string $imageFormat The image format.
      *
@@ -2123,7 +2123,7 @@ class Gmagick
     /**
      * Sets the image gamma.
      *
-     * @link http://php.net/manual/en/gmagick.setimagegamma.php
+     * @link https://php.net/manual/en/gmagick.setimagegamma.php
      *
      * @param float $gamma The image gamma.
      *
@@ -2138,7 +2138,7 @@ class Gmagick
     /**
      * Sets the image chromaticity green primary point.
      *
-     * @link http://php.net/manual/en/gmagick.setimagegreenprimary.php
+     * @link https://php.net/manual/en/gmagick.setimagegreenprimary.php
      *
      * @param float $x The chromaticity green primary x-point.
      * @param float $y The chromaticity green primary y-point.
@@ -2154,7 +2154,7 @@ class Gmagick
     /**
      * Sets the iterator to the position in the image list specified with the index parameter.
      *
-     * @link http://php.net/manual/en/gmagick.setimageindex.php
+     * @link https://php.net/manual/en/gmagick.setimageindex.php
      *
      * @param int $index The scene number.
      *
@@ -2169,7 +2169,7 @@ class Gmagick
     /**
      * Sets the interlace scheme of the image.
      *
-     * @link http://php.net/manual/en/gmagick.setimageinterlacescheme.php
+     * @link https://php.net/manual/en/gmagick.setimageinterlacescheme.php
      *
      * @param int $interlace The image interlace scheme: NoInterlace, LineInterlace, PlaneInterlace, PartitionInterlace.
      *
@@ -2184,7 +2184,7 @@ class Gmagick
     /**
      * Sets the image iterations.
      *
-     * @link http://php.net/manual/en/gmagick.setimageiterations.php
+     * @link https://php.net/manual/en/gmagick.setimageiterations.php
      *
      * @param int $iterations
      *
@@ -2202,7 +2202,7 @@ class Gmagick
      * If a profile with the same name already exists, it is replaced.
      * This method differs from the Gmagick::profileimage() method in that it does not apply any CMS color profiles.
      *
-     * @link http://php.net/manual/en/gmagick.setimageprofile.php
+     * @link https://php.net/manual/en/gmagick.setimageprofile.php
      *
      * @param string $name    Name of profile to add or remove: ICC, IPTC, or generic profile.
      * @param string $profile The profile.
@@ -2218,7 +2218,7 @@ class Gmagick
     /**
      * Sets the image chromaticity red primary point.
      *
-     * @link http://php.net/manual/en/gmagick.setimageredprimary.php
+     * @link https://php.net/manual/en/gmagick.setimageredprimary.php
      *
      * @param float $x The red primary x-point.
      * @param float $y The red primary y-point.
@@ -2234,7 +2234,7 @@ class Gmagick
     /**
      * Sets the image rendering intent.
      *
-     * @link http://php.net/manual/en/gmagick.setimagerenderingintent.php
+     * @link https://php.net/manual/en/gmagick.setimagerenderingintent.php
      *
      * @param int $rendering_intent The image rendering intent: UndefinedIntent, SaturationIntent,
      *                              PerceptualIntent, AbsoluteIntent, or RelativeIntent.
@@ -2250,7 +2250,7 @@ class Gmagick
     /**
      * Sets the image resolution.
      *
-     * @link http://php.net/manual/en/gmagick.setimageresolution.php
+     * @link https://php.net/manual/en/gmagick.setimageresolution.php
      *
      * @param float $xResolution The image x resolution.
      * @param float $yResolution The image y resolution.
@@ -2266,7 +2266,7 @@ class Gmagick
     /**
      * Sets the image scene.
      *
-     * @link http://php.net/manual/en/gmagick.setimagescene.php
+     * @link https://php.net/manual/en/gmagick.setimagescene.php
      *
      * @param int $scene The image scene number.
      *
@@ -2281,7 +2281,7 @@ class Gmagick
     /**
      * Sets the image type.
      *
-     * @link http://php.net/manual/en/gmagick.setimagetype.php
+     * @link https://php.net/manual/en/gmagick.setimagetype.php
      *
      * @param int $imgType The image type: UndefinedType, BilevelType, GrayscaleType, GrayscaleMatteType, PaletteType,
      *                     PaletteMatteType, TrueColorType, TrueColorMatteType, ColorSeparationType,
@@ -2298,7 +2298,7 @@ class Gmagick
     /**
      * Sets the image units of resolution.
      *
-     * @link http://php.net/manual/en/gmagick.setimageunits.php
+     * @link https://php.net/manual/en/gmagick.setimageunits.php
      *
      * @param int $resolution The image units of resolution : Undefinedresolution, PixelsPerInchResolution,
      *                        or PixelsPerCentimeterResolution.
@@ -2314,7 +2314,7 @@ class Gmagick
     /**
      * Sets the image chromaticity white point.
      *
-     * @link http://php.net/manual/en/gmagick.setimagewhitepoint.php
+     * @link https://php.net/manual/en/gmagick.setimagewhitepoint.php
      *
      * @param float $x The white x-point.
      * @param float $y The white y-point.
@@ -2330,7 +2330,7 @@ class Gmagick
     /**
      * Sets the image sampling factors.
      *
-     * @link http://php.net/manual/en/gmagick.setsamplingfactors.php
+     * @link https://php.net/manual/en/gmagick.setsamplingfactors.php
      *
      * @param array $factors An array of doubles representing the sampling factor
      *                       for each color component (in RGB order).
@@ -2348,7 +2348,7 @@ class Gmagick
      *
      * Set it before you read a raw image format such as RGB, GRAY, or CMYK.
      *
-     * @link http://php.net/manual/en/gmagick.setsize.php
+     * @link https://php.net/manual/en/gmagick.setsize.php
      *
      * @param int $columns The width in pixels.
      * @param int $rows    The height in pixels.
@@ -2369,7 +2369,7 @@ class Gmagick
      * the Y axis, and similarly, for Y direction shears y_shear is measured relative to the X axis. Empty triangles
      * left over from shearing the image are filled with the background color.
      *
-     * @link http://php.net/manual/en/gmagick.shearimage.php
+     * @link https://php.net/manual/en/gmagick.shearimage.php
      *
      * @param mixed $color  The background pixel wand.
      * @param float $xShear The number of degrees to shear the image.
@@ -2390,7 +2390,7 @@ class Gmagick
      * exposing areas of photo sensitive paper to light. Threshold ranges from 0 to QuantumRange and is a measure of
      * the extent of the solarization.
      *
-     * @link http://php.net/manual/en/gmagick.solarizeimage.php
+     * @link https://php.net/manual/en/gmagick.solarizeimage.php
      *
      * @param int $threshold Define the extent of the solarization.
      *
@@ -2407,7 +2407,7 @@ class Gmagick
      *
      * Special effects method that randomly displaces each pixel in a block defined by the radius parameter.
      *
-     * @link http://php.net/manual/en/gmagick.spreadimage.php
+     * @link https://php.net/manual/en/gmagick.spreadimage.php
      *
      * @param float $radius Choose a random pixel in a neighborhood of this extent.
      *
@@ -2422,7 +2422,7 @@ class Gmagick
     /**
      * Strips an image of all profiles and comments.
      *
-     * @link http://php.net/manual/en/gmagick.stripimage.php
+     * @link https://php.net/manual/en/gmagick.stripimage.php
      *
      * @return Gmagick The Gmagick object on success.
      *
@@ -2438,7 +2438,7 @@ class Gmagick
      * Swirls the pixels about the center of the image, where degrees indicates the sweep of the arc through which
      * each pixel is moved. You get a more dramatic effect as the degrees move from 1 to 360.
      *
-     * @link http://php.net/manual/en/gmagick.swirlimage.php
+     * @link https://php.net/manual/en/gmagick.swirlimage.php
      *
      * @param float $degrees Define the tightness of the swirling effect.
      *
@@ -2457,7 +2457,7 @@ class Gmagick
      * If TRUE is given as a third parameter then columns and rows parameters are used as maximums for each side.
      * Both sides will be scaled down until the match or are smaller than the parameter given for the side.
      *
-     * @link http://php.net/manual/en/gmagick.thumbnailimage.php
+     * @link https://php.net/manual/en/gmagick.thumbnailimage.php
      *
      * @param int  $width  Image width.
      * @param int  $height Image height.
@@ -2474,7 +2474,7 @@ class Gmagick
     /**
      * Remove edges that are the background color from the image.
      *
-     * @link http://php.net/manual/en/gmagick.trimimage.php
+     * @link https://php.net/manual/en/gmagick.trimimage.php
      *
      * @param float $fuzz By default target must match a particular pixel color exactly. However, in many cases two
      *                    colors may differ by a small amount. The fuzz member of image defines how much tolerance is
@@ -2497,7 +2497,7 @@ class Gmagick
      *
      * This is an alias for writeimage().
      *
-     * @link http://php.net/manual/en/gmagick.write.php
+     * @link https://php.net/manual/en/gmagick.write.php
      *
      * @param string $filename The image filename.
      *
@@ -2515,7 +2515,7 @@ class Gmagick
      * Writes an image to the specified filename. If the filename parameter is NULL, the image is written to the
      * filename set by Gmagick::ReadImage() or Gmagick::SetImageFilename().
      *
-     * @link http://php.net/manual/en/gmagick.writeimage.php
+     * @link https://php.net/manual/en/gmagick.writeimage.php
      *
      * @param string $filename   The image filename.
      * @param bool   $all_frames [optional]
@@ -2530,14 +2530,14 @@ class Gmagick
 }
 
 /**
- * @link http://php.net/manual/en/class.gmagickdraw.php
+ * @link https://php.net/manual/en/class.gmagickdraw.php
  */
 class GmagickDraw
 {
     /**
      * Draws text on the image.
      *
-     * @link http://php.net/manual/en/gmagickdraw.annotate.php
+     * @link https://php.net/manual/en/gmagickdraw.annotate.php
      *
      * @param float  $x    x ordinate to left of text.
      * @param float  $y    y ordinate to text baseline.
@@ -2552,7 +2552,7 @@ class GmagickDraw
     /**
      * Draws an arc falling within a specified bounding rectangle on the image.
      *
-     * @link http://php.net/manual/en/gmagickdraw.arc.php
+     * @link https://php.net/manual/en/gmagickdraw.arc.php
      *
      * @param float $sx starting x ordinate of bounding rectangle.
      * @param float $sy starting y ordinate of bounding rectangle.
@@ -2570,7 +2570,7 @@ class GmagickDraw
     /**
      * Draws a bezier curve through a set of points on the image.
      *
-     * @link http://php.net/manual/en/gmagickdraw.bezier.php
+     * @link https://php.net/manual/en/gmagickdraw.bezier.php
      *
      * @param array $coordinate_array Coordinates array.
      *
@@ -2583,7 +2583,7 @@ class GmagickDraw
     /**
      * Draws an ellipse on the image.
      *
-     * @link http://php.net/manual/en/gmagickdraw.ellipse.php
+     * @link https://php.net/manual/en/gmagickdraw.ellipse.php
      *
      * @param float $ox    origin x ordinate.
      * @param float $oy    origin y ordinate.
@@ -2601,7 +2601,7 @@ class GmagickDraw
     /**
      * Returns the fill color used for drawing filled objects.
      *
-     * @link http://php.net/manual/en/gmagickdraw.getfillcolor.php
+     * @link https://php.net/manual/en/gmagickdraw.getfillcolor.php
      *
      * @return GmagickPixel The GmagickPixel fill color used for drawing filled objects.
      */
@@ -2612,7 +2612,7 @@ class GmagickDraw
     /**
      * Returns the opacity used when drawing.
      *
-     * @link http://php.net/manual/en/gmagickdraw.getfillopacity.php
+     * @link https://php.net/manual/en/gmagickdraw.getfillopacity.php
      *
      * @return float The opacity used when drawing using the fill color or fill texture. Fully opaque is 1.0.
      */
@@ -2623,7 +2623,7 @@ class GmagickDraw
     /**
      * Returns a string specifying the font used when annotating with text.
      *
-     * @link http://php.net/manual/en/gmagickdraw.getfont.php
+     * @link https://php.net/manual/en/gmagickdraw.getfont.php
      *
      * @return string|bool A string on success and false if no font is set.
      */
@@ -2634,7 +2634,7 @@ class GmagickDraw
     /**
      * Returns the font pointsize used when annotating with text.
      *
-     * @link http://php.net/manual/en/gmagickdraw.getfontsize.php
+     * @link https://php.net/manual/en/gmagickdraw.getfontsize.php
      *
      * @return float The font size associated with the current GmagickDraw object.
      */
@@ -2645,7 +2645,7 @@ class GmagickDraw
     /**
      * Returns the font style used when annotating with text.
      *
-     * @link http://php.net/manual/en/gmagickdraw.getfontstyle.php
+     * @link https://php.net/manual/en/gmagickdraw.getfontstyle.php
      *
      * @return int The font style constant (STYLE_) associated with the GmagickDraw object or 0 if no style is set.
      */
@@ -2656,7 +2656,7 @@ class GmagickDraw
     /**
      * Returns the font weight used when annotating with text.
      *
-     * @link http://php.net/manual/en/gmagickdraw.getfontweight.php
+     * @link https://php.net/manual/en/gmagickdraw.getfontweight.php
      *
      * @return int An int on success and 0 if no weight is set.
      */
@@ -2667,7 +2667,7 @@ class GmagickDraw
     /**
      * Returns the color used for stroking object outlines.
      *
-     * @link http://php.net/manual/en/gmagickdraw.getstrokecolor.php
+     * @link https://php.net/manual/en/gmagickdraw.getstrokecolor.php
      *
      * @return GmagickPixel Returns an GmagickPixel object which describes the color.
      */
@@ -2678,7 +2678,7 @@ class GmagickDraw
     /**
      * Returns the opacity of stroked object outlines.
      *
-     * @link http://php.net/manual/en/gmagickdraw.getstrokeopacity.php
+     * @link https://php.net/manual/en/gmagickdraw.getstrokeopacity.php
      *
      * @return float Returns a float describing the opacity.
      */
@@ -2689,7 +2689,7 @@ class GmagickDraw
     /**
      * Returns the width of the stroke used to draw object outlines.
      *
-     * @link http://php.net/manual/en/gmagickdraw.getstrokewidth.php
+     * @link https://php.net/manual/en/gmagickdraw.getstrokewidth.php
      *
      * @return float Returns a float describing the stroke width.
      */
@@ -2700,7 +2700,7 @@ class GmagickDraw
     /**
      * Returns the decoration applied when annotating with text.
      *
-     * @link http://php.net/manual/en/gmagickdraw.gettextdecoration.php
+     * @link https://php.net/manual/en/gmagickdraw.gettextdecoration.php
      *
      * @return int Returns one of the DECORATION_ constants and 0 if no decoration is set.
      */
@@ -2711,7 +2711,7 @@ class GmagickDraw
     /**
      * Returns the code set used for text annotations.
      *
-     * @link http://php.net/manual/en/gmagickdraw.gettextencoding.php
+     * @link https://php.net/manual/en/gmagickdraw.gettextencoding.php
      *
      * @return string|bool Returns a string specifying the code set or false if text encoding is not set.
      */
@@ -2722,7 +2722,7 @@ class GmagickDraw
     /**
      * Draws a line on the image using the current stroke color, stroke opacity, and stroke width.
      *
-     * @link http://php.net/manual/en/gmagickdraw.line.php
+     * @link https://php.net/manual/en/gmagickdraw.line.php
      *
      * @param float $sx starting x ordinate.
      * @param float $sy starting y ordinate.
@@ -2738,7 +2738,7 @@ class GmagickDraw
     /**
      * Draws a point using the current stroke color and stroke thickness at the specified coordinates.
      *
-     * @link http://php.net/manual/en/gmagickdraw.point.php
+     * @link https://php.net/manual/en/gmagickdraw.point.php
      *
      * @param float $x target x coordinate.
      * @param float $y target y coordinate.
@@ -2752,7 +2752,7 @@ class GmagickDraw
     /**
      * Draws a polygon using the current stroke, stroke width, and fill color or texture, using the specified array of coordinates.
      *
-     * @link http://php.net/manual/en/gmagickdraw.polygon.php
+     * @link https://php.net/manual/en/gmagickdraw.polygon.php
      *
      * @param array $coordinates The array of coordinates.
      *
@@ -2765,7 +2765,7 @@ class GmagickDraw
     /**
      * Draws a polyline using the current stroke, stroke width, and fill color or texture, using the specified array of coordinates.
      *
-     * @link http://php.net/manual/en/gmagickdraw.polyline.php
+     * @link https://php.net/manual/en/gmagickdraw.polyline.php
      *
      * @param array $coordinate_array The array of coordinates.
      *
@@ -2778,7 +2778,7 @@ class GmagickDraw
     /**
      * Draws a rectangle given two coordinates and using the current stroke, stroke width, and fill settings.
      *
-     * @link http://php.net/manual/en/gmagickdraw.rectangle.php
+     * @link https://php.net/manual/en/gmagickdraw.rectangle.php
      *
      * @param float $x1 x ordinate of first coordinate.
      * @param float $y1 y ordinate of first coordinate.
@@ -2794,7 +2794,7 @@ class GmagickDraw
     /**
      * Applies the specified rotation to the current coordinate space.
      *
-     * @link http://php.net/manual/en/gmagickdraw.rotate.php
+     * @link https://php.net/manual/en/gmagickdraw.rotate.php
      *
      * @param float $degrees degrees of rotation.
      *
@@ -2807,7 +2807,7 @@ class GmagickDraw
     /**
      * Draws a rounded rectangle given two coordinates, x and y corner radiuses and using the current stroke, stroke width, and fill settings.
      *
-     * @link http://php.net/manual/en/gmagickdraw.roundrectangle.php
+     * @link https://php.net/manual/en/gmagickdraw.roundrectangle.php
      *
      * @param float $x1 x ordinate of first coordinate.
      * @param float $y1 y ordinate of first coordinate.
@@ -2825,7 +2825,7 @@ class GmagickDraw
     /**
      * Adjusts the scaling factor to apply in the horizontal and vertical directions to the current coordinate space.
      *
-     * @link http://php.net/manual/en/gmagickdraw.scale.php
+     * @link https://php.net/manual/en/gmagickdraw.scale.php
      *
      * @param float $x horizontal scale factor.
      * @param float $y vertical scale factor.
@@ -2839,7 +2839,7 @@ class GmagickDraw
     /**
      * Sets the fill color to be used for drawing filled objects.
      *
-     * @link http://php.net/manual/en/gmagickdraw.setfillcolor.php
+     * @link https://php.net/manual/en/gmagickdraw.setfillcolor.php
      *
      * @param GmagickPixel|string $color GmagickPixel indicating color to use for filling.
      *
@@ -2852,7 +2852,7 @@ class GmagickDraw
     /**
      * Sets the opacity to use when drawing using the fill color or fill texture. Setting it to 1.0 will make fill full opaque.
      *
-     * @link http://php.net/manual/en/gmagickdraw.setfillopacity.php
+     * @link https://php.net/manual/en/gmagickdraw.setfillopacity.php
      *
      * @param float $fill_opacity The fill opacity.
      *
@@ -2865,7 +2865,7 @@ class GmagickDraw
     /**
      * Sets the fully-specified font to use when annotating with text.
      *
-     * @link http://php.net/manual/en/gmagickdraw.setfont.php
+     * @link https://php.net/manual/en/gmagickdraw.setfont.php
      *
      * @param string $font The font name.
      *
@@ -2878,7 +2878,7 @@ class GmagickDraw
     /**
      * Sets the font pointsize to use when annotating with text.
      *
-     * @link http://php.net/manual/en/gmagickdraw.setfontsize.php
+     * @link https://php.net/manual/en/gmagickdraw.setfontsize.php
      *
      * @param float $pointsize The text pointsize.
      *
@@ -2893,7 +2893,7 @@ class GmagickDraw
      *
      * The AnyStyle enumeration acts as a wild-card "don't care" option.
      *
-     * @link http://php.net/manual/en/gmagickdraw.setfontstyle.php
+     * @link https://php.net/manual/en/gmagickdraw.setfontstyle.php
      *
      * @param int $style The font style (NormalStyle, ItalicStyle, ObliqueStyle, AnyStyle).
      *
@@ -2906,7 +2906,7 @@ class GmagickDraw
     /**
      * Sets the font weight to use when annotating with text.
      *
-     * @link http://php.net/manual/en/gmagickdraw.setfontweight.php
+     * @link https://php.net/manual/en/gmagickdraw.setfontweight.php
      *
      * @param int $weight The font weight (valid range 100-900).
      *
@@ -2919,7 +2919,7 @@ class GmagickDraw
     /**
      * Sets the color used for stroking object outlines.
      *
-     * @link http://php.net/manual/en/gmagickdraw.setstrokecolor.php
+     * @link https://php.net/manual/en/gmagickdraw.setstrokecolor.php
      *
      * @param GmagickPixel|string $color GmagickPixel representing the color for the stroke.
      *
@@ -2932,7 +2932,7 @@ class GmagickDraw
     /**
      * Specifies the opacity of stroked object outlines.
      *
-     * @link http://php.net/manual/en/gmagickdraw.setstrokeopacity.php
+     * @link https://php.net/manual/en/gmagickdraw.setstrokeopacity.php
      *
      * @param float $stroke_opacity Stroke opacity. The value 1.0 is opaque.
      *
@@ -2945,7 +2945,7 @@ class GmagickDraw
     /**
      * Sets the width of the stroke used to draw object outlines.
      *
-     * @link http://php.net/manual/en/gmagickdraw.setstrokewidth.php
+     * @link https://php.net/manual/en/gmagickdraw.setstrokewidth.php
      *
      * @param float $width The stroke width.
      *
@@ -2958,7 +2958,7 @@ class GmagickDraw
     /**
      * Specifies a decoration to be applied when annotating with text.
      *
-     * @link http://php.net/manual/en/gmagickdraw.settextdecoration.php
+     * @link https://php.net/manual/en/gmagickdraw.settextdecoration.php
      *
      * @param int $decoration The text decoration.
      *                        One of NoDecoration, UnderlineDecoration, OverlineDecoration, or LineThroughDecoration.
@@ -2976,7 +2976,7 @@ class GmagickDraw
      * sequence of bytes. Specify an empty string to set text encoding to the system's default. Successful text
      * annotation using Unicode may require fonts designed to support Unicode.
      *
-     * @link http://php.net/manual/en/gmagickdraw.settextencoding.php
+     * @link https://php.net/manual/en/gmagickdraw.settextencoding.php
      *
      * @param string $encoding The text encoding.
      *
@@ -2992,7 +2992,7 @@ class GmagickException extends \Exception
 }
 
 /**
- * @link http://php.net/manual/en/class.gmagickpixel.php
+ * @link https://php.net/manual/en/class.gmagickpixel.php
  */
 class GmagickPixel
 {
@@ -3001,7 +3001,7 @@ class GmagickPixel
      *
      * If a color is specified, the object is constructed and then initialised with that color before being returned.
      *
-     * @link http://php.net/manual/en/gmagickpixel.construct.php
+     * @link https://php.net/manual/en/gmagickpixel.construct.php
      *
      * @param string $color [optional] The optional color string to use as the initial value of this object.
      */
@@ -3014,7 +3014,7 @@ class GmagickPixel
      *
      * If the color has an opacity channel set, this is provided as a fourth value in the list.
      *
-     * @link http://php.net/manual/en/gmagickpixel.getcolor.php
+     * @link https://php.net/manual/en/gmagickpixel.getcolor.php
      *
      * @param bool $as_array        [optional] True to indicate return of array instead of string.
      * @param bool $normalize_array [optional] Normalize the color values.
@@ -3030,7 +3030,7 @@ class GmagickPixel
     /**
      * Returns the color count associated with this color.
      *
-     * @link http://php.net/manual/en/gmagickpixel.getcolorcount.php
+     * @link https://php.net/manual/en/gmagickpixel.getcolorcount.php
      *
      * @return int The color count as an integer.
      *
@@ -3043,7 +3043,7 @@ class GmagickPixel
     /**
      * Gets the normalized value of the provided color channel.
      *
-     * @link http://php.net/manual/en/gmagickpixel.getcolorvalue.php
+     * @link https://php.net/manual/en/gmagickpixel.getcolorvalue.php
      *
      * @param int $color The channel to check, specified as one of the Gmagick channel constants.
      *
@@ -3061,7 +3061,7 @@ class GmagickPixel
      * Sets the color described by the GmagickPixel object,
      * with a string (e.g. "blue", "#0000ff", "rgb(0,0,255)", "cmyk(100,100,100,10)", etc.).
      *
-     * @link http://php.net/manual/en/gmagickpixel.setcolor.php
+     * @link https://php.net/manual/en/gmagickpixel.setcolor.php
      *
      * @param string $color The color definition to use in order to initialise the GmagickPixel object.
      *
@@ -3077,7 +3077,7 @@ class GmagickPixel
      * Sets the value of the specified channel of this object to the provided value, which should be between 0 and 1.
      * This function can be used to provide an opacity channel to a GmagickPixel object.
      *
-     * @link http://php.net/manual/en/gmagickpixel.setcolorvalue.php
+     * @link https://php.net/manual/en/gmagickpixel.setcolorvalue.php
      *
      * @param int   $color One of the Gmagick channel color constants.
      * @param float $value The value to set this channel to, ranging from 0 to 1.

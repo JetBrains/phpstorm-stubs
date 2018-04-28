@@ -5,7 +5,7 @@
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Open MS SQL server connection
- * @link http://php.net/manual/en/function.mssql-connect.php
+ * @link https://php.net/manual/en/function.mssql-connect.php
  * @param string $servername [optional] <p>
  * The MS SQL server. It can also include a port number, e.g.
  * hostname:port (Linux), or
@@ -32,7 +32,7 @@ function mssql_connect ($servername = null, $username = null, $password = null, 
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Open persistent MS SQL connection
- * @link http://php.net/manual/en/function.mssql-pconnect.php
+ * @link https://php.net/manual/en/function.mssql-pconnect.php
  * @param string $servername [optional] <p>
  * The MS SQL server. It can also include a port number. e.g. 
  * hostname:port.
@@ -60,7 +60,7 @@ function mssql_pconnect ($servername = null, $username = null, $password = null,
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Close MS SQL Server connection
- * @link http://php.net/manual/en/function.mssql-close.php
+ * @link https://php.net/manual/en/function.mssql-close.php
  * @param resource $link_identifier [optional] <p>
  * A MS SQL link identifier, returned by 
  * mssql_connect.
@@ -76,7 +76,7 @@ function mssql_close ($link_identifier = null) {}
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Select MS SQL database
- * @link http://php.net/manual/en/function.mssql-select-db.php
+ * @link https://php.net/manual/en/function.mssql-select-db.php
  * @param string $database_name <p>
  * The database name.
  * </p>
@@ -104,7 +104,7 @@ function mssql_select_db ($database_name, $link_identifier = null) {}
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Send MS SQL query
- * @link http://php.net/manual/en/function.mssql-query.php
+ * @link https://php.net/manual/en/function.mssql-query.php
  * @param string $query <p>
  * An SQL query.
  * </p>
@@ -129,7 +129,7 @@ function mssql_query ($query, $link_identifier = null, $batch_size = 0) {}
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Returns the next batch of records
- * @link http://php.net/manual/en/function.mssql-fetch-batch.php
+ * @link https://php.net/manual/en/function.mssql-fetch-batch.php
  * @param resource $result <p>
  * The result resource that is being evaluated. This result comes from a
  * call to mssql_query.
@@ -141,7 +141,7 @@ function mssql_fetch_batch ($result) {}
 /**
  * (PHP 4 &gt;= 4.0.4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Returns the number of records affected by the query
- * @link http://php.net/manual/en/function.mssql-rows-affected.php
+ * @link https://php.net/manual/en/function.mssql-rows-affected.php
  * @param resource $link_identifier <p>
  * A MS SQL link identifier, returned by 
  * mssql_connect or 
@@ -154,7 +154,7 @@ function mssql_rows_affected ($link_identifier) {}
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Free result memory
- * @link http://php.net/manual/en/function.mssql-free-result.php
+ * @link https://php.net/manual/en/function.mssql-free-result.php
  * @param resource $result <p>
  * The result resource that is being freed. This result comes from a
  * call to mssql_query.
@@ -166,7 +166,7 @@ function mssql_free_result ($result) {}
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Returns the last message from the server
- * @link http://php.net/manual/en/function.mssql-get-last-message.php
+ * @link https://php.net/manual/en/function.mssql-get-last-message.php
  * @return string last error message from server, or an empty string if 
  * no error messages are returned from MSSQL.
  */
@@ -175,7 +175,7 @@ function mssql_get_last_message () {}
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Gets the number of rows in result
- * @link http://php.net/manual/en/function.mssql-num-rows.php
+ * @link https://php.net/manual/en/function.mssql-num-rows.php
  * @param resource $result <p>
  * The result resource that is being evaluated. This result comes from a
  * call to mssql_query.
@@ -187,7 +187,7 @@ function mssql_num_rows ($result) {}
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Gets the number of fields in result
- * @link http://php.net/manual/en/function.mssql-num-fields.php
+ * @link https://php.net/manual/en/function.mssql-num-fields.php
  * @param resource $result <p>
  * The result resource that is being evaluated. This result comes from a
  * call to mssql_query.
@@ -199,7 +199,7 @@ function mssql_num_fields ($result) {}
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Get field information
- * @link http://php.net/manual/en/function.mssql-fetch-field.php
+ * @link https://php.net/manual/en/function.mssql-fetch-field.php
  * @param resource $result <p>
  * The result resource that is being evaluated. This result comes from a
  * call to mssql_query.
@@ -219,7 +219,7 @@ function mssql_fetch_field ($result, $field_offset = -1) {}
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Get row as enumerated array
- * @link http://php.net/manual/en/function.mssql-fetch-row.php
+ * @link https://php.net/manual/en/function.mssql-fetch-row.php
  * @param resource $result <p>
  * The result resource that is being evaluated. This result comes from a
  * call to mssql_query.
@@ -232,7 +232,7 @@ function mssql_fetch_row ($result) {}
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Fetch a result row as an associative array, a numeric array, or both
- * @link http://php.net/manual/en/function.mssql-fetch-array.php
+ * @link https://php.net/manual/en/function.mssql-fetch-array.php
  * @param resource $result <p>
  * The result resource that is being evaluated. This result comes from a
  * call to mssql_query.
@@ -251,7 +251,7 @@ function mssql_fetch_array ($result, $result_type = MSSQL_BOTH) {}
 /**
  * (PHP 4 &gt;= 4.2.0, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Returns an associative array of the current row in the result
- * @link http://php.net/manual/en/function.mssql-fetch-assoc.php
+ * @link https://php.net/manual/en/function.mssql-fetch-assoc.php
  * @param resource $result_id <p>
  * The result resource that is being evaluated. This result comes from a
  * call to mssql_query.
@@ -264,7 +264,7 @@ function mssql_fetch_assoc ($result_id) {}
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Fetch row as object
- * @link http://php.net/manual/en/function.mssql-fetch-object.php
+ * @link https://php.net/manual/en/function.mssql-fetch-object.php
  * @param resource $result <p>
  * The result resource that is being evaluated. This result comes from a
  * call to mssql_query.
@@ -277,7 +277,7 @@ function mssql_fetch_object ($result) {}
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Get the length of a field
- * @link http://php.net/manual/en/function.mssql-field-length.php
+ * @link https://php.net/manual/en/function.mssql-field-length.php
  * @param resource $result <p>
  * The result resource that is being evaluated. This result comes from a
  * call to mssql_query.
@@ -292,7 +292,7 @@ function mssql_field_length ($result, $offset = null) {}
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Get the name of a field
- * @link http://php.net/manual/en/function.mssql-field-name.php
+ * @link https://php.net/manual/en/function.mssql-field-name.php
  * @param resource $result <p>
  * The result resource that is being evaluated. This result comes from a
  * call to mssql_query.
@@ -307,7 +307,7 @@ function mssql_field_name ($result, $offset = -1) {}
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Gets the type of a field
- * @link http://php.net/manual/en/function.mssql-field-type.php
+ * @link https://php.net/manual/en/function.mssql-field-type.php
  * @param resource $result <p>
  * The result resource that is being evaluated. This result comes from a
  * call to mssql_query.
@@ -322,7 +322,7 @@ function mssql_field_type ($result, $offset = -1) {}
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Moves internal row pointer
- * @link http://php.net/manual/en/function.mssql-data-seek.php
+ * @link https://php.net/manual/en/function.mssql-data-seek.php
  * @param resource $result_identifier <p>
  * The result resource that is being evaluated. 
  * </p>
@@ -336,7 +336,7 @@ function mssql_data_seek ($result_identifier, $row_number) {}
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Seeks to the specified field offset
- * @link http://php.net/manual/en/function.mssql-field-seek.php
+ * @link https://php.net/manual/en/function.mssql-field-seek.php
  * @param resource $result <p>
  * The result resource that is being evaluated. This result comes from a
  * call to mssql_query.
@@ -351,7 +351,7 @@ function mssql_field_seek ($result, $field_offset) {}
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Get result data
- * @link http://php.net/manual/en/function.mssql-result.php
+ * @link https://php.net/manual/en/function.mssql-result.php
  * @param resource $result <p>
  * The result resource that is being evaluated. This result comes from a
  * call to mssql_query.
@@ -378,7 +378,7 @@ function mssql_result ($result, $row, $field) {}
 /**
  * (PHP 4 &gt;= 4.0.5, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Move the internal result pointer to the next result
- * @link http://php.net/manual/en/function.mssql-next-result.php
+ * @link https://php.net/manual/en/function.mssql-next-result.php
  * @param resource $result_id <p>
  * The result resource that is being evaluated. This result comes from a
  * call to mssql_query.
@@ -391,7 +391,7 @@ function mssql_next_result ($result_id) {}
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Sets the minimum error severity
- * @link http://php.net/manual/en/function.mssql-min-error-severity.php
+ * @link https://php.net/manual/en/function.mssql-min-error-severity.php
  * @param int $severity <p>
  * The new error severity.
  * </p>
@@ -402,7 +402,7 @@ function mssql_min_error_severity ($severity) {}
 /**
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Sets the minimum message severity
- * @link http://php.net/manual/en/function.mssql-min-message-severity.php
+ * @link https://php.net/manual/en/function.mssql-min-message-severity.php
  * @param int $severity <p>
  * The new message severity.
  * </p>
@@ -413,7 +413,7 @@ function mssql_min_message_severity ($severity) {}
 /**
  * (PHP 4 &gt;= 4.0.7, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Initializes a stored procedure or a remote stored procedure
- * @link http://php.net/manual/en/function.mssql-init.php
+ * @link https://php.net/manual/en/function.mssql-init.php
  * @param string $sp_name <p>
  * Stored procedure name, like ownew.sp_name or
  * otherdb.owner.sp_name. 
@@ -431,7 +431,7 @@ function mssql_init ($sp_name, $link_identifier = null) {}
 /**
  * (PHP 4 &gt;= 4.0.7, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Adds a parameter to a stored procedure or a remote stored procedure
- * @link http://php.net/manual/en/function.mssql-bind.php
+ * @link https://php.net/manual/en/function.mssql-bind.php
  * @param resource $stmt <p>
  * Statement resource, obtained with mssql_init.
  * </p>
@@ -477,7 +477,7 @@ function mssql_bind ($stmt, $param_name, &$var, $type, $is_output = false, $is_n
 /**
  * (PHP 4 &gt;= 4.0.7, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Executes a stored procedure on a MS SQL server database
- * @link http://php.net/manual/en/function.mssql-execute.php
+ * @link https://php.net/manual/en/function.mssql-execute.php
  * @param resource $stmt <p>
  * Statement handle obtained with mssql_init. 
  * </p>
@@ -491,7 +491,7 @@ function mssql_execute ($stmt, $skip_results = false) {}
 /**
  * (PHP 4 &gt;= 4.3.2, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Free statement memory
- * @link http://php.net/manual/en/function.mssql-free-statement.php
+ * @link https://php.net/manual/en/function.mssql-free-statement.php
  * @param resource $stmt <p>
  * Statement resource, obtained with mssql_init.
  * </p>
@@ -502,7 +502,7 @@ function mssql_free_statement ($stmt) {}
 /**
  * (PHP 4 &gt;= 4.0.7, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Converts a 16 byte binary GUID to a string
- * @link http://php.net/manual/en/function.mssql-guid-string.php
+ * @link https://php.net/manual/en/function.mssql-guid-string.php
  * @param string $binary <p>
  * A 16 byte binary GUID.
  * </p>
@@ -518,7 +518,7 @@ function mssql_guid_string ($binary, $short_format = null) {}
  * Return an associative array. Used on 
  * mssql_fetch_array's 
  * result_type parameter.
- * @link http://php.net/manual/en/mssql.constants.php
+ * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('MSSQL_ASSOC', 1);
 
@@ -526,7 +526,7 @@ define ('MSSQL_ASSOC', 1);
  * Return an array with numeric keys. Used on 
  * mssql_fetch_array's 
  * result_type parameter.
- * @link http://php.net/manual/en/mssql.constants.php
+ * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('MSSQL_NUM', 2);
 
@@ -535,7 +535,7 @@ define ('MSSQL_NUM', 2);
  * keys with their field name. This is the 
  * default value for mssql_fetch_array's 
  * result_type parameter.
- * @link http://php.net/manual/en/mssql.constants.php
+ * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('MSSQL_BOTH', 3);
 
@@ -543,7 +543,7 @@ define ('MSSQL_BOTH', 3);
  * Indicates the 'TEXT' type in MSSQL, used by 
  * mssql_bind's type 
  * parameter.
- * @link http://php.net/manual/en/mssql.constants.php
+ * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('SQLTEXT', 35);
 
@@ -551,7 +551,7 @@ define ('SQLTEXT', 35);
  * Indicates the 'VARCHAR' type in MSSQL, used by 
  * mssql_bind's type 
  * parameter.
- * @link http://php.net/manual/en/mssql.constants.php
+ * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('SQLVARCHAR', 39);
 
@@ -559,27 +559,27 @@ define ('SQLVARCHAR', 39);
  * Indicates the 'CHAR' type in MSSQL, used by 
  * mssql_bind's type 
  * parameter.
- * @link http://php.net/manual/en/mssql.constants.php
+ * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('SQLCHAR', 47);
 
 /**
  * Represents one byte, with a range of -128 to 127.
- * @link http://php.net/manual/en/mssql.constants.php
+ * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('SQLINT1', 48);
 
 /**
  * Represents two bytes, with a range of -32768 
  * to 32767.
- * @link http://php.net/manual/en/mssql.constants.php
+ * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('SQLINT2', 52);
 
 /**
  * Represents four bytes, with a range of -2147483648 
  * to 2147483647.
- * @link http://php.net/manual/en/mssql.constants.php
+ * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('SQLINT4', 56);
 
@@ -587,19 +587,19 @@ define ('SQLINT4', 56);
  * Indicates the 'BIT' type in MSSQL, used by 
  * mssql_bind's type 
  * parameter.
- * @link http://php.net/manual/en/mssql.constants.php
+ * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('SQLBIT', 50);
 
 /**
  * Represents an four byte float.
- * @link http://php.net/manual/en/mssql.constants.php
+ * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('SQLFLT4', 59);
 
 /**
  * Represents an eight byte float.
- * @link http://php.net/manual/en/mssql.constants.php
+ * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('SQLFLT8', 62);
 define ('SQLFLTN', 109);

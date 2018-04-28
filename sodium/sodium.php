@@ -220,20 +220,20 @@ function sodium_crypto_auth(
 
 /**
  * Get random bytes for key
- * @link http://php.net/manual/en/function.sodium-crypto-auth-keygen.php
+ * @link https://php.net/manual/en/function.sodium-crypto-auth-keygen.php
  * @return string
  */
 function sodium_crypto_auth_keygen(): string {}
 
 /**
- * @link http://php.net/manual/en/function.sodium-crypto-kx-keypair.php
+ * @link https://php.net/manual/en/function.sodium-crypto-kx-keypair.php
  * @since 7.2
  * @return string
  */
 function sodium_crypto_kx_keypair (): string {}
 
 /**
- * @link http://php.net/manual/en/function.sodium-crypto-kx-publickey.php
+ * @link https://php.net/manual/en/function.sodium-crypto-kx-publickey.php
  * @since 7.2
  * @param string $key
  * @return string
@@ -242,7 +242,7 @@ function sodium_crypto_kx_keypair (): string {}
 function sodium_crypto_kx_publickey (string $key): string {}
 
 /**
- * @link http://php.net/manual/en/function.sodium-crypto-kx-secretkey.php
+ * @link https://php.net/manual/en/function.sodium-crypto-kx-secretkey.php
  * @since 7.2
  * @param string $key
  * @return string
@@ -250,7 +250,7 @@ function sodium_crypto_kx_publickey (string $key): string {}
 function sodium_crypto_kx_secretkey (string $key): string {}
 
 /**
- * @link http://php.net/manual/en/function.sodium-crypto-kx-seed-keypair.php
+ * @link https://php.net/manual/en/function.sodium-crypto-kx-seed-keypair.php
  * @since 7.2
  * @param string $string
  * @return string
@@ -258,7 +258,7 @@ function sodium_crypto_kx_secretkey (string $key): string {}
 function sodium_crypto_kx_seed_keypair (string $string): string {}
 
 /**
- * @link http://php.net/manual/en/function.sodium-crypto-kx-server-session-keys.php
+ * @link https://php.net/manual/en/function.sodium-crypto-kx-server-session-keys.php
  * @since 7.2
  * @param string $server_keypair
  * @param string $client_key
@@ -268,7 +268,7 @@ function sodium_crypto_kx_server_session_keys (string $server_keypair , string $
 
 /**
  * Get random bytes for key
- * @link http://php.net/manual/en/function.sodium-crypto-generichash-keygen.php
+ * @link https://php.net/manual/en/function.sodium-crypto-generichash-keygen.php
  * @since 7.2
  * @return string
  */
@@ -277,7 +277,7 @@ function sodium_crypto_generichash_keygen(): string {}
 
 /**
  * @since 7.2
- * @link http://php.net/manual/en/function.sodium-crypto-kx-client-session-keys.php
+ * @link https://php.net/manual/en/function.sodium-crypto-kx-client-session-keys.php
  * @param string $client_keypair
  * @param string $server_key
  * @return array
@@ -285,7 +285,7 @@ function sodium_crypto_generichash_keygen(): string {}
 function sodium_crypto_kx_client_session_keys (string $client_keypair, string $server_key): array {}
 
 /**
- * @link http://php.net/manual/en/function.sodium-crypto-kdf-derive-from-key.php
+ * @link https://php.net/manual/en/function.sodium-crypto-kdf-derive-from-key.php
  * @since 7.2
  * @param int $subkey_len
  * @param int $subkey_id
@@ -297,7 +297,7 @@ function sodium_crypto_kdf_derive_from_key (int $subkey_len, int $subkey_id, str
 
 /**
  * Get random bytes for key
- * @link http://php.net/manual/en/function.sodium-crypto-kdf-keygen.php
+ * @link https://php.net/manual/en/function.sodium-crypto-kdf-keygen.php
  * @since 7.2
  * @return string
  */
@@ -305,7 +305,7 @@ function sodium_crypto_kdf_keygen(): string {}
 
 /**
  * Get random bytes for key
- * @link http://php.net/manual/en/function.sodium-crypto-shorthash-keygen.php
+ * @link https://php.net/manual/en/function.sodium-crypto-shorthash-keygen.php
  * @since 7.2
  * @return string
  */
@@ -313,7 +313,7 @@ function sodium_crypto_shorthash_keygen(): string {}
 
 /**
  * Get random bytes for key
- * @link http://php.net/manual/en/function.sodium-crypto-stream-keygen.php
+ * @link https://php.net/manual/en/function.sodium-crypto-stream-keygen.php
  * @since 7.2
  * @return string
  */
@@ -321,7 +321,7 @@ function sodium_crypto_stream_keygen(): string {}
 
 /**
  * Add padding data
- * @link http://php.net/manual/en/function.sodium-pad.php
+ * @link https://php.net/manual/en/function.sodium-pad.php
  * @since 7.2
  * @param $string
  * @param $length
@@ -331,7 +331,7 @@ function sodium_pad ($string, $length): string {}
 
 /**
  * Remove padding data
- * @link http://php.net/manual/en/function.sodium-unpad.php
+ * @link https://php.net/manual/en/function.sodium-unpad.php
  * @since 7.2
  * @param $string
  * @param $length

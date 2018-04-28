@@ -36,7 +36,7 @@ function opcache_reset() { }
 /**
  * (PHP 5 &gt;= 5.5.5, PECL ZendOpcache &gt;= 7.0.2 )<br/>
  * Get status information about the cache
- * @link http://php.net/manual/en/function.opcache-get-status.php
+ * @link https://php.net/manual/en/function.opcache-get-status.php
  * @param bool $get_scripts <p>Include script specific state information</p>
  * @return array <p>Returns an array of information, optionally containing script specific state information</p>
  */
@@ -45,7 +45,7 @@ function opcache_get_status ($get_scripts = TRUE) {}
 /**
  * (PHP 5 &gt;= 5.5.5, PECL ZendOpcache &gt;= 7.0.2 )<br/>
  * Get configuration information about the cache
- * @link http://php.net/manual/en/function.opcache-get-configuration.php
+ * @link https://php.net/manual/en/function.opcache-get-configuration.php
  * @return array <p>Returns an array of information, including ini, blacklist and version</p>
  */
 function opcache_get_configuration() {}

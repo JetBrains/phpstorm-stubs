@@ -121,7 +121,7 @@ define('EVBUFFER_TIMEOUT', 64);
  *
  * <p>Returns new event base, which can be used later in {@link event_base_set}(), {@link event_base_loop}() and other functions.</p>
  *
- * @link http://php.net/event_base_new
+ * @link https://php.net/event_base_new
  *
  * @return resource|bool returns valid event base resource on success or FALSE on error.
  */
@@ -134,7 +134,7 @@ function event_base_new(){}
  * <p>Destroys the specified event_base and frees all the resources associated.
  * Note that it's not possible to destroy an event base with events attached to it.</p>
  *
- * @link http://php.net/event_base_free
+ * @link https://php.net/event_base_free
  *
  * @param resource $event_base Valid event base resource.
  *
@@ -164,7 +164,7 @@ function event_base_free($event_base) {}
  * and run their callbacks if so.
  * </p>
  *
- * @link http://php.net/event_base_loop
+ * @link https://php.net/event_base_loop
  *
  * @param resource $event_base Valid event base resource.
  * @param int $flags [optional] Optional parameter, which can take any combination of EVLOOP_ONCE and EVLOOP_NONBLOCK.
@@ -185,7 +185,7 @@ function event_base_loop($event_base, $flags = null) {}
  * running callbacks for any active events, it will exit immediately after finishing the
  * one it's currently processing. The behaviour is similar to break statement.</p>
  *
- * @link http://php.net/event_base_loopbreak
+ * @link https://php.net/event_base_loopbreak
  *
  * @param resource $event_base Valid event base resource.
  *
@@ -204,7 +204,7 @@ function event_base_loopbreak($event_base) {}
  * of the event loop to stop right after the next round of callbacks are run (as if it had
  * been invoked with EVLOOP_ONCE).</p>
  *
- * @link http://php.net/event_base_loopexit
+ * @link https://php.net/event_base_loopexit
  *
  * @param resource $event_base <p>
  * Valid event base resource.
@@ -224,7 +224,7 @@ function event_base_loopexit($event_base, $timeout = -1) {}
  *
  * <p>Associates the event_base with the event.</p>
  *
- * @link http://php.net/event_base_set
+ * @link https://php.net/event_base_set
  *
  * @param resource $event Valid event resource.
  * @param resource $base Valid event base resource.
@@ -241,7 +241,7 @@ function event_base_set($event, $base) {}
  * Using {@link event_base_priority_init}() you can change the number of event priority
  * levels and then set a desired priority for each event.</p>
  *
- * @link http://php.net/event_base_priority_init
+ * @link https://php.net/event_base_priority_init
  *
  * @param resource $event_base Valid event base resource.
  * @param int $npriorities The number of event priority levels.
@@ -255,7 +255,7 @@ function event_base_priority_init($event_base, $npriorities) {}
  * <p>Creates and returns a new event resource.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
  *
- * @link http://php.net/event_new
+ * @link https://php.net/event_new
  *
  * @return resource|bool returns a new event resource on success or FALSE on error.
  */
@@ -265,7 +265,7 @@ function event_new() {}
  * <p>Free event resource.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
  *
- * @link http://php.net/event_free
+ * @link https://php.net/event_free
  *
  * @param resource $event Valid event resource.
  *
@@ -288,7 +288,7 @@ function event_free($event) {}
  * <p>If you call {@link event_add}() on an event that is already pending,
  * it will leave it pending, and reschedule it with the provided timeout.</p>
  *
- * @link http://php.net/event_add
+ * @link https://php.net/event_add
  *
  * @param resource $event <p>
  * Valid event resource.
@@ -330,7 +330,7 @@ function event_add($event, $timeout = -1) {}
  * </table>
  * </p>
  *
- * @link http://php.net/event_set
+ * @link https://php.net/event_set
  *
  * @param resource $event <p>
  * Valid event resource.
@@ -362,7 +362,7 @@ function event_set($event, $fd, $events, $callback, $arg = null) {}
  * <p>Calling {@link event_del}() on an initialized event makes it non-pending
  * and non-active. If the event was not pending or active, there is no effect.</p>
  *
- * @link http://php.net/event_del
+ * @link https://php.net/event_del
  *
  * @param resource $event Valid event resource.
  *
@@ -390,7 +390,7 @@ function event_del($event) {}
  * the application about non-data-oriented events, like when a connection is closed or
  * an error occurs.</p>
  *
- * @link http://php.net/event_buffer_new
+ * @link https://php.net/event_buffer_new
  *
  * @param resource      $stream  Valid PHP stream resource. Must be castable to file descriptor.
  * @param callback|null $readcb  Callback to invoke where there is data to read, or NULL if no callback is desired.
@@ -406,7 +406,7 @@ function event_buffer_new($stream, $readcb, $writecb, $errorcb, $arg = null) {}
  * <p>Destroys the specified buffered event and frees all the resources associated.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
  *
- * @link http://php.net/event_buffer_free
+ * @link https://php.net/event_buffer_free
  *
  * @param resource $bevent Valid buffered event resource.
  *
@@ -420,7 +420,7 @@ function event_buffer_free($bevent) {}
  *
  * <p>Assign the specified bevent to the event_base.</p>
  *
- * @link http://php.net/event_buffer_base_set
+ * @link https://php.net/event_buffer_base_set
  *
  * @param resource $bevent Valid buffered event resource.
  * @param resource $event_base Valid event base resource.
@@ -448,7 +448,7 @@ function event_buffer_base_set($bevent, $event_base) {}
  * <p>When you do not set the priority for an event, the default
  * is the number of queues in the event base, divided by 2.</p>
  *
- * @link http://php.net/event_buffer_priority_set
+ * @link https://php.net/event_buffer_priority_set
  *
  * @see event_base_priority_init
  *
@@ -471,7 +471,7 @@ function event_buffer_priority_set($bevent, $priority) {}
  * <p>The data is appended to the output buffer and written
  * to the descriptor when it becomes available for writing.</p>
  *
- * @link http://php.net/event_buffer_write
+ * @link https://php.net/event_buffer_write
  *
  * @param resource $bevent Valid buffered event resource.
  * @param string $data The data to be written.
@@ -485,7 +485,7 @@ function event_buffer_write($bevent, $data, $data_size = -1) {}
  * <p>Reads data from the input buffer of the buffered event.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
  *
- * @link http://php.net/event_buffer_read
+ * @link https://php.net/event_buffer_read
  *
  * @param resource $bevent Valid buffered event resource.
  * @param int $data_size Data size in bytes.
@@ -498,7 +498,7 @@ function event_buffer_read($bevent, $data_size) {}
  * <p>Enables the specified buffered event.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
  *
- * @link http://php.net/event_buffer_enable
+ * @link https://php.net/event_buffer_enable
  *
  * @param resource $bevent Valid buffered event resource.
  * @param int $events Any combination of EV_READ and EV_WRITE.
@@ -513,7 +513,7 @@ function event_buffer_enable($bevent, $events) {}
  *
  * <p>Disables the specified buffered event.</p>
  *
- * @link http://php.net/event_buffer_disable
+ * @link https://php.net/event_buffer_disable
  *
  * @param resource $bevent Valid buffered event resource.
  * @param int $events Any combination of EV_READ and EV_WRITE.
@@ -526,7 +526,7 @@ function event_buffer_disable($bevent, $events) {}
  * <p>Sets the read and write timeouts for the specified buffered event.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
  *
- * @link http://php.net/event_buffer_timeout_set
+ * @link https://php.net/event_buffer_timeout_set
  *
  * @param resource $bevent Valid buffered event resource.
  * @param int $read_timeout Read timeout (in seconds).
@@ -567,7 +567,7 @@ function event_buffer_timeout_set($bevent, $read_timeout, $write_timeout) {}
  * reading is stopped. On output, the write callback is invoked whenever
  * the buffered data falls below the lowmark.</p>
  *
- * @link http://php.net/event_buffer_watermark_set
+ * @link https://php.net/event_buffer_watermark_set
  *
  * @param resource $bevent   Valid buffered event resource.
  * @param int      $events   Any combination of EV_READ and EV_WRITE.
@@ -582,7 +582,7 @@ function event_buffer_watermark_set($bevent, $events, $lowmark, $highmark) {}
  * <p>Changes the file descriptor on which the buffered event operates.</p>
  * <p>(PECL libevent >= 0.0.1)</p>
  *
- * @link http://php.net/event_buffer_fd_set
+ * @link https://php.net/event_buffer_fd_set
  *
  * @param resource $bevent Valid buffered event resource.
  * @param resource $fd Valid PHP stream, must be castable to file descriptor.
@@ -597,7 +597,7 @@ function event_buffer_fd_set($bevent, $fd) {}
  *
  * <p>Sets or changes existing callbacks for the buffered event.</p>
  *
- * @link http://php.net/event_buffer_set_callback
+ * @link https://php.net/event_buffer_set_callback
  *
  * @param resource $bevent Valid buffered event resource.
  * @param callback|null $readcb Callback to invoke where there is data to read, or NULL if no callback is desired.

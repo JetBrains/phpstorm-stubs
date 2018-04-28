@@ -4,7 +4,7 @@
 
 /**
  * Open database
- * @link http://php.net/manual/en/function.dba-open.php
+ * @link https://php.net/manual/en/function.dba-open.php
  * @param string $path <p>
  * Commonly a regular path in your filesystem.
  * </p>
@@ -125,7 +125,7 @@ function dba_open ($path, $mode, $handler = null, $_ = null) {}
 
 /**
  * Open database persistently
- * @link http://php.net/manual/en/function.dba-popen.php
+ * @link https://php.net/manual/en/function.dba-popen.php
  * @param string $path <p>
  * Commonly a regular path in your filesystem.
  * </p>
@@ -150,7 +150,7 @@ function dba_popen ($path, $mode, $handler = null, $_ = null) {}
 
 /**
  * Close a DBA database
- * @link http://php.net/manual/en/function.dba-close.php
+ * @link https://php.net/manual/en/function.dba-close.php
  * @param resource $handle <p>
  * The database handler, returned by <b>dba_open</b> or
  * <b>dba_popen</b>.
@@ -163,7 +163,7 @@ function dba_close ($handle) {}
 
 /**
  * Delete DBA entry specified by key
- * @link http://php.net/manual/en/function.dba-delete.php
+ * @link https://php.net/manual/en/function.dba-delete.php
  * @param string $key <p>
  * The key of the entry which is deleted.
  * </p>
@@ -179,7 +179,7 @@ function dba_delete ($key, $handle) {}
 
 /**
  * Check whether key exists
- * @link http://php.net/manual/en/function.dba-exists.php
+ * @link https://php.net/manual/en/function.dba-exists.php
  * @param string $key <p>
  * The key the check is performed for.
  * </p>
@@ -195,7 +195,7 @@ function dba_exists ($key, $handle) {}
 
 /**
  * Fetch data specified by key
- * @link http://php.net/manual/en/function.dba-fetch.php
+ * @link https://php.net/manual/en/function.dba-fetch.php
  * @param string $key <p>
  * The key the data is specified by.
  * </p>
@@ -217,7 +217,7 @@ function dba_fetch ($key, $handle) {}
 
 /**
  * Insert entry
- * @link http://php.net/manual/en/function.dba-insert.php
+ * @link https://php.net/manual/en/function.dba-insert.php
  * @param string $key <p>
  * The key of the entry to be inserted. If this key already exist in the
  * database, this function will fail. Use <b>dba_replace</b>
@@ -238,7 +238,7 @@ function dba_insert ($key, $value, $handle) {}
 
 /**
  * Replace or insert entry
- * @link http://php.net/manual/en/function.dba-replace.php
+ * @link https://php.net/manual/en/function.dba-replace.php
  * @param string $key <p>
  * The key of the entry to be replaced.
  * </p>
@@ -257,7 +257,7 @@ function dba_replace ($key, $value, $handle) {}
 
 /**
  * Fetch first key
- * @link http://php.net/manual/en/function.dba-firstkey.php
+ * @link https://php.net/manual/en/function.dba-firstkey.php
  * @param resource $handle <p>
  * The database handler, returned by <b>dba_open</b> or
  * <b>dba_popen</b>.
@@ -270,7 +270,7 @@ function dba_firstkey ($handle) {}
 
 /**
  * Fetch next key
- * @link http://php.net/manual/en/function.dba-nextkey.php
+ * @link https://php.net/manual/en/function.dba-nextkey.php
  * @param resource $handle <p>
  * The database handler, returned by <b>dba_open</b> or
  * <b>dba_popen</b>.
@@ -283,7 +283,7 @@ function dba_nextkey ($handle) {}
 
 /**
  * Optimize database
- * @link http://php.net/manual/en/function.dba-optimize.php
+ * @link https://php.net/manual/en/function.dba-optimize.php
  * @param resource $handle <p>
  * The database handler, returned by <b>dba_open</b> or
  * <b>dba_popen</b>.
@@ -296,7 +296,7 @@ function dba_optimize ($handle) {}
 
 /**
  * Synchronize database
- * @link http://php.net/manual/en/function.dba-sync.php
+ * @link https://php.net/manual/en/function.dba-sync.php
  * @param resource $handle <p>
  * The database handler, returned by <b>dba_open</b> or
  * <b>dba_popen</b>.
@@ -309,7 +309,7 @@ function dba_sync ($handle) {}
 
 /**
  * List all the handlers available
- * @link http://php.net/manual/en/function.dba-handlers.php
+ * @link https://php.net/manual/en/function.dba-handlers.php
  * @param bool $full_info [optional] <p>
  * Turns on/off full information display in the result.
  * </p>
@@ -328,7 +328,7 @@ function dba_handlers ($full_info = false) {}
 
 /**
  * List all open database files
- * @link http://php.net/manual/en/function.dba-list.php
+ * @link https://php.net/manual/en/function.dba-list.php
  * @return array An associative array, in the form resourceid =&gt; filename.
  * @since 4.3.0
  * @since 5.0
@@ -337,7 +337,7 @@ function dba_list () {}
 
 /**
  * Splits a key in string representation into array representation
- * @link http://php.net/manual/en/function.dba-key-split.php
+ * @link https://php.net/manual/en/function.dba-key-split.php
  * @param mixed $key <p>
  * The key in string representation.
  * </p>

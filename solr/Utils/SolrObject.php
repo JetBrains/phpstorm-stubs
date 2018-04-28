@@ -11,28 +11,28 @@
  * Class SolrObject<br/>
  * This class represents an object whose properties can also by accessed using the array syntax. All its properties are
  * read-only.
- * @link http://php.net/manual/en/class.solrobject.php
+ * @link https://php.net/manual/en/class.solrobject.php
  */
 final class SolrObject implements ArrayAccess {
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * SolrObject constructor.
-	 * @link http://php.net/manual/en/solrobject.construct.php
+	 * @link https://php.net/manual/en/solrobject.construct.php
 	 */
 	public function __construct () {}
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Destructor
-	 * @link http://php.net/manual/en/solrobject.destruct.php
+	 * @link https://php.net/manual/en/solrobject.destruct.php
 	 */
 	public function __destruct() {}
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns an array of all the names of the properties
-	 * @link http://php.net/manual/en/solrobject.getpropertynames.php
+	 * @link https://php.net/manual/en/solrobject.getpropertynames.php
 	 * @return array <p>
 	 * Returns an array.
 	 * </p>
@@ -42,7 +42,7 @@ final class SolrObject implements ArrayAccess {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Checks if the property exists
-	 * @link http://php.net/manual/en/solrobject.offsetexists.php
+	 * @link https://php.net/manual/en/solrobject.offsetexists.php
 	 * @param string $property_name <p>
 	 * The name of the property.
 	 * </p>
@@ -55,7 +55,7 @@ final class SolrObject implements ArrayAccess {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Used to retrieve a property
-	 * @link http://php.net/manual/en/solrobject.offsetget.php
+	 * @link https://php.net/manual/en/solrobject.offsetget.php
 	 * @param string $property_name <p>
 	 * The name of the property.
 	 * </p>
@@ -68,7 +68,7 @@ final class SolrObject implements ArrayAccess {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Sets the value for a property
-	 * @link http://php.net/manual/en/solrobject.offsetset.php
+	 * @link https://php.net/manual/en/solrobject.offsetset.php
 	 * @param string $property_name <p>
 	 * The name of the property.
 	 * </p>
@@ -81,7 +81,7 @@ final class SolrObject implements ArrayAccess {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Unsets the value for the property
-	 * @link http://php.net/manual/en/solrobject.offsetunset.php
+	 * @link https://php.net/manual/en/solrobject.offsetunset.php
 	 * @param string $property_name <p>
 	 * The name of the property.
 	 * </p>

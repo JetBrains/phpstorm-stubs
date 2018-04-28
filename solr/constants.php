@@ -10,7 +10,7 @@
  * Solr Predefined Constants
  * The constants below are defined by this extension, and will only be available when the extension has either been
  * compiled into PHP or dynamically loaded at runtime.
- * @link http://php.net/manual/en/solr.constants.php
+ * @link https://php.net/manual/en/solr.constants.php
  */
 
 define('SOLR_MAJOR_VERSION', 2);
