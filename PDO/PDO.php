@@ -711,6 +711,16 @@ class PDO  {
 	const MYSQL_ATTR_MULTI_STATEMENTS = 1015;
 
 	/**
+	 * <p>
+	 * Disables SSL peer verification when set to FALSE.
+	 * </p>
+	 * @since 7.0.18
+	 * @since 7.1.4
+	 * @link https://bugs.php.net/bug.php?id=71003
+	 */
+	const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1016;
+
+	/**
 	 * @deprecated 5.6.0 Use PDO::ATTR_EMULATE_PREPARES instead.
 	 */
 	const PGSQL_ASSOC = 1;
