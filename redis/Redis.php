@@ -2976,11 +2976,11 @@ class Redis
      * @example
      * <pre>
      * $redis->delete('user:1');
-     * $redis->hMset('user:1', array('name' => 'Joe', 'salary' => 2000));
+     * $redis->hMSet('user:1', array('name' => 'Joe', 'salary' => 2000));
      * $redis->hIncrBy('user:1', 'salary', 100); // Joe earns 100 more now.
      * </pre>
      */
-    public function hMset( $key, $hashKeys ) {}
+    public function hMSet( $key, $hashKeys ) {}
 
     /**
      * Retirieve the values associated to the specified fields in the hash.
@@ -2995,7 +2995,7 @@ class Redis
      * $redis->delete('h');
      * $redis->hSet('h', 'field1', 'value1');
      * $redis->hSet('h', 'field2', 'value2');
-     * $redis->hmGet('h', array('field1', 'field2')); // returns array('field1' => 'value1', 'field2' => 'value2')
+     * $redis->hMGet('h', array('field1', 'field2')); // returns array('field1' => 'value1', 'field2' => 'value2')
      * </pre>
      */
     public function hMGet( $key, $hashKeys ) {}
