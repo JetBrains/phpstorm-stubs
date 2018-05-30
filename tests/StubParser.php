@@ -130,6 +130,11 @@ class ASTVisitor extends NodeVisitorAbstract
 
     private function visitMethod(ClassMethod $node): void
     {
+        //this will test PHPDocs
+        if($node->getDocComment() !== null) {
+            $this->docFactory->create($node->getDocComment()->getText());
+        }
+
         $className = $node->getAttribute('parent')->name->name;
         $method = new stdClass();
         $method->name = $node->name->name;
@@ -152,6 +157,11 @@ class ASTVisitor extends NodeVisitorAbstract
 
     private function visitClass(Class_ $node): void
     {
+        //this will test PHPDocs
+        if($node->getDocComment() !== null) {
+            $this->docFactory->create($node->getDocComment()->getText());
+        }
+
         $class = new stdClass();
         $className = $this->getFQN($node, $node->name->name);
         $class->name = $className;

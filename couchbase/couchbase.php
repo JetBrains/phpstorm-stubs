@@ -1656,7 +1656,7 @@ namespace Couchbase {
          * @param bool $group
          * @return ViewQuery
          *
-         * @see \Couchbase\ViewQuery#groupLevel
+         * @see \Couchbase\ViewQuery::groupLevel
          */
         public function group($group) {}
 
@@ -1670,7 +1670,7 @@ namespace Couchbase {
          * @param int $groupLevel the number of elements in the keys to use
          * @return ViewQuery
          *
-         * @see \Couchbase\ViewQuery#group
+         * @see \Couchbase\ViewQuery::group
          */
         public function groupLevel($groupLevel) {}
 
@@ -1793,8 +1793,8 @@ namespace Couchbase {
          * @param array $bbox bounding box coordinates expressed as a list of numeric values
          * @return SpatialViewQuery
          *
-         * @see \Couchbase\SpatialViewQuery#startRange()
-         * @see \Couchbase\SpatialViewQuery#endRange()
+         * @see \Couchbase\SpatialViewQuery::startRange()
+         * @see \Couchbase\SpatialViewQuery::endRange()
          */
         public function bbox($bbox) {}
 

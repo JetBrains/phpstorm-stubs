@@ -6329,7 +6329,7 @@ class ImagickPixelIterator implements Iterator {
 	 * @param int $columns
 	 * @param int $rows
 	 * @return bool a new ImagickPixelIterator on success; on failure, throws ImagickPixelIteratorException
-	 * @throws ImagickPixelIteratorException.
+	 * @throws ImagickPixelIteratorException
 	 */
 	public function newPixelRegionIterator (Imagick $wand, $x, $y, $columns, $rows) {}
 
