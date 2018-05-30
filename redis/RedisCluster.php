@@ -103,7 +103,7 @@ class RedisCluster {
      *
      * @param   string $key
      *
-     * @return  string|bool: If key didn't exist, FALSE is returned. Otherwise, the value related to this key is
+     * @return  string|bool If key didn't exist, FALSE is returned. Otherwise, the value related to this key is
      *                       returned.
      *
      * @link    http://redis.io/commands/get
@@ -235,7 +235,7 @@ class RedisCluster {
      * @param   int    $ttl
      * @param   string $value
      *
-     * @return  bool:   TRUE if the command is successful.
+     * @return  bool   TRUE if the command is successful.
      * @link    http://redis.io/commands/setex
      * @example
      * <pre>
@@ -252,7 +252,7 @@ class RedisCluster {
      * @param   int    $ttl
      * @param   string $value
      *
-     * @return  bool:   TRUE if the command is successful.
+     * @return  bool   TRUE if the command is successful.
      * @link    http://redis.io/commands/psetex
      * @example
      * <pre>
@@ -267,7 +267,7 @@ class RedisCluster {
      * @param   string $key
      * @param   string $value
      *
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool   TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/setnx
      * @example
      * <pre>
@@ -299,7 +299,7 @@ class RedisCluster {
      *
      * @param   string $key
      *
-     * @return  bool: If the key exists, return TRUE, otherwise return FALSE.
+     * @return  bool If the key exists, return TRUE, otherwise return FALSE.
      * @link    http://redis.io/commands/exists
      * @example
      * <pre>
@@ -1005,7 +1005,7 @@ class RedisCluster {
      * @param   string $key2 ...
      * @param   string $keyN ...
      *
-     * @return  array, contain the result of the intersection between those keys.
+     * @return  array contain the result of the intersection between those keys.
      * If the intersection between the different sets is empty, the return value will be empty array.
      * @link    http://redis.io/commands/sinterstore
      * @example
@@ -1043,7 +1043,7 @@ class RedisCluster {
      * @param   string $key2   ...
      * @param   string $keyN   ...
      *
-     * @return  int:    The cardinality of the resulting set, or FALSE in case of a missing key.
+     * @return  int    The cardinality of the resulting set, or FALSE in case of a missing key.
      * @link    http://redis.io/commands/sinterstore
      * @example
      * <pre>
@@ -1117,7 +1117,7 @@ class RedisCluster {
      * @param   string $key2   ...
      * @param   string $keyN   ...
      *
-     * @return  int:    The cardinality of the resulting set, or FALSE in case of a missing key.
+     * @return  int    The cardinality of the resulting set, or FALSE in case of a missing key.
      * @link    http://redis.io/commands/sdiffstore
      * @example
      * <pre>
@@ -1196,7 +1196,7 @@ class RedisCluster {
      *
      * @param   string $key
      *
-     * @return  bool:   TRUE if a timeout was removed, FALSE if the key didn’t exist or didn’t have an expiration timer.
+     * @return  bool   TRUE if a timeout was removed, FALSE if the key didn’t exist or didn’t have an expiration timer.
      * @link    http://redis.io/commands/persist
      * @example $redisCluster->persist('key');
      */
@@ -1211,7 +1211,7 @@ class RedisCluster {
      *
      * @param   string $key
      *
-     * @return  int,    the time left to live in seconds.
+     * @return  int    the time left to live in seconds.
      * @link    http://redis.io/commands/ttl
      * @example $redisCluster->ttl('key');
      */
@@ -1491,7 +1491,7 @@ class RedisCluster {
      * @param   string $key
      * @param   string $hashKey
      *
-     * @return  bool:   If the member exists in the hash table, return TRUE, otherwise return FALSE.
+     * @return  bool   If the member exists in the hash table, return TRUE, otherwise return FALSE.
      * @link    http://redis.io/commands/hexists
      * @example
      * <pre>
@@ -1809,7 +1809,7 @@ class RedisCluster {
      * @param   string $key The key that will disappear.
      * @param   int    $ttl The key's remaining Time To Live, in seconds.
      *
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool   TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/expire
      * @example
      * <pre>
@@ -1827,7 +1827,7 @@ class RedisCluster {
      * @param   string $key The key that will disappear.
      * @param   int    $ttl The key's remaining Time To Live, in milliseconds.
      *
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool   TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/pexpire
      * @example
      * <pre>
@@ -1845,7 +1845,7 @@ class RedisCluster {
      * @param   string $key       The key that will disappear.
      * @param   int    $timestamp Unix timestamp. The key's date of death, in seconds from Epoch time.
      *
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool   TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/expireat
      * @example
      * <pre>
@@ -1864,7 +1864,7 @@ class RedisCluster {
      * @param   string $key       The key that will disappear.
      * @param   int    $timestamp Unix timestamp. The key's date of death, in seconds from Epoch time.
      *
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool   TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/pexpireat
      * @example
      * <pre>
@@ -1882,7 +1882,7 @@ class RedisCluster {
      * @param   string $key
      * @param   string $value
      *
-     * @return  int:    Size of the value after the append
+     * @return  int    Size of the value after the append
      * @link    http://redis.io/commands/append
      * @example
      * <pre>
@@ -1899,7 +1899,7 @@ class RedisCluster {
      * @param   string $key
      * @param   int    $offset
      *
-     * @return  int:    the bit value (0 or 1)
+     * @return  int    the bit value (0 or 1)
      * @link    http://redis.io/commands/getbit
      * @example
      * <pre>
@@ -1917,7 +1917,7 @@ class RedisCluster {
      * @param   int      $offset
      * @param   bool|int $value bool or int (1 or 0)
      *
-     * @return  int:    0 or 1, the value of the bit before it was set.
+     * @return  int    0 or 1, the value of the bit before it was set.
      * @link    http://redis.io/commands/setbit
      * @example
      * <pre>
@@ -2022,7 +2022,7 @@ class RedisCluster {
      * @param   int    $start
      * @param   int    $end
      *
-     * @return  string: the substring
+     * @return  string the substring
      * @link    http://redis.io/commands/getrange
      * @example
      * <pre>
@@ -2113,7 +2113,7 @@ class RedisCluster {
      * @param   string $srcKey
      * @param   string $dstKey
      *
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool   TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/rename
      * @example
      * <pre>
@@ -2134,7 +2134,7 @@ class RedisCluster {
      * @param   string $srcKey
      * @param   string $dstKey
      *
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool   TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/renamenx
      * @example
      * <pre>
@@ -2200,7 +2200,7 @@ class RedisCluster {
      * @param   int    $offset
      * @param   string $value
      *
-     * @return  string: the length of the string after it was modified.
+     * @return  string the length of the string after it was modified.
      * @link    http://redis.io/commands/setrange
      * @example
      * <pre>
@@ -2818,7 +2818,7 @@ class RedisCluster {
      * @param   string $name  parameter name
      * @param   string $value parameter value
      *
-     * @return  bool:   TRUE on success, FALSE on error.
+     * @return  bool   TRUE on success, FALSE on error.
      * @example
      * <pre>
      * $redisCluster->setOption(RedisCluster::OPT_SERIALIZER, RedisCluster::SERIALIZER_NONE);        // don't serialize data
@@ -2967,7 +2967,7 @@ class RedisCluster {
      *
      * @param String | array $nodeParams key or [host,port]
      *
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool   TRUE in case of success, FALSE in case of failure.
      * If a save is already running, this command will fail and return FALSE.
      * @link    http://redis.io/commands/save
      * @example
@@ -2981,7 +2981,7 @@ class RedisCluster {
      *
      * @param String | array $nodeParams key or [host,port]
      *
-     * @return  bool:    TRUE in case of success, FALSE in case of failure.
+     * @return  bool    TRUE in case of success, FALSE in case of failure.
      * If a save is already running, this command will fail and return FALSE.
      * @link    http://redis.io/commands/bgsave
      */
@@ -2992,7 +2992,7 @@ class RedisCluster {
      *
      * @param String | array $nodeParams key or [host,port]
      *
-     * @return  bool: Always TRUE.
+     * @return  bool Always TRUE.
      * @link    http://redis.io/commands/flushdb
      */
     public function flushDB($nodeParams) { }
@@ -3002,7 +3002,7 @@ class RedisCluster {
      *
      * @param String | array $nodeParams key or [host,port]
      *
-     * @return  bool: Always TRUE.
+     * @return  bool Always TRUE.
      * @link    http://redis.io/commands/flushall
      */
     public function flushAll($nodeParams) { }
@@ -3012,7 +3012,7 @@ class RedisCluster {
      *
      * @param String | array $nodeParams key or [host,port]
      *
-     * @return int:     DB size, in number of keys.
+     * @return int     DB size, in number of keys.
      * @link    http://redis.io/commands/dbsize
      * @example
      * <pre>
@@ -3027,7 +3027,7 @@ class RedisCluster {
      *
      * @param String | array $nodeParams key or [host,port]
      *
-     * @return  bool:   TRUE in case of success, FALSE in case of failure.
+     * @return  bool   TRUE in case of success, FALSE in case of failure.
      * @link    http://redis.io/commands/bgrewriteaof
      * @example $redisCluster->bgrewriteaof('x');
      */
@@ -3038,7 +3038,7 @@ class RedisCluster {
      *
      * @param String | array $nodeParams key or [host,port]
      *
-     * @return  int:    timestamp.
+     * @return  int    timestamp.
      * @link    http://redis.io/commands/lastsave
      * @example $redisCluster->lastSave('x');
      */
@@ -3130,7 +3130,7 @@ class RedisCluster {
      *
      * @param String | array $nodeParams key or [host,port]
      *
-     * @return string: an existing key in redis.
+     * @return string an existing key in redis.
      * @link    http://redis.io/commands/randomkey
      * @example
      * <pre>
