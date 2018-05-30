@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/../vendor/autoload.php';
 
+use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use phpDocumentor\Reflection\DocBlockFactory;
 use PhpParser\Node;
 use PhpParser\Node\{
@@ -142,9 +143,14 @@ class ASTVisitor extends NodeVisitorAbstract
 
         //this will test PHPDocs
         $method->parseError = null;
+        $method->returnTag = null;
         if ($node->getDocComment() !== null) {
             try {
-                $this->docFactory->create($node->getDocComment()->getText());
+                $phpDoc = $this->docFactory->create($node->getDocComment()->getText());
+                $parsedReturnTag = $phpDoc->getTagsByName('return');
+                if(!empty($parsedReturnTag) && $parsedReturnTag[0] instanceof Return_){
+                    $method->returnTag = $parsedReturnTag[0]->getType() . "";
+                }
             } catch (Exception $e) {
                 $method->parseError = $e->getMessage();
             }

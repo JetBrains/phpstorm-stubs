@@ -255,7 +255,7 @@ class TestStubs extends TestCase
     {
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->classes as $className => $class) {
             foreach ($class->methods as $methodName => $method) {
-                yield "Method {$className}::{$methodName}" => [$method];
+                yield "Method {$className}::{$methodName}" => [$methodName, $method];
             }
         }
     }
@@ -263,8 +263,11 @@ class TestStubs extends TestCase
     /**
      * @dataProvider stubMethodProvider
      */
-    public function testMethodsPHPDocs(stdClass $method)
+    public function testMethodsPHPDocs(string $methodName, stdClass $method)
     {
+        if($methodName === "__construct"){
+            $this->assertNull($method->returnTag, "@return tag for __construct should be omitted");
+        }
         $this->assertNull($method->parseError, $method->parseError ?: "");
     }
 
