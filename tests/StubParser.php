@@ -61,7 +61,7 @@ class ASTVisitor extends NodeVisitorAbstract
             $this->visitDefine($node);
         } elseif ($node instanceof ClassMethod) {
             $this->visitMethod($node);
-        } elseif ($node instanceof Class_) {
+        } elseif ($node instanceof Node\Stmt\ClassLike) {
             $this->visitClass($node);
         }
     }
@@ -74,8 +74,14 @@ class ASTVisitor extends NodeVisitorAbstract
 
         $function->parameters = $this->parseParams($node);
 
+        $function->parseError = null;
         if ($node->getDocComment() !== null) {
-            $phpDoc = $this->docFactory->create($node->getDocComment()->getText());
+            try {
+                $phpDoc = $this->docFactory->create($node->getDocComment()->getText());
+            } catch (Exception $e) {
+                $function->parseError = $e->getMessage();
+                return;
+            }
             if (empty($phpDoc->getTagsByName('deprecated'))) {
                 $function->is_deprecated = false;
             } else {
@@ -92,7 +98,7 @@ class ASTVisitor extends NodeVisitorAbstract
         $const->name = $constName;
         $const->value = $this->getConstValue($node);
         if ($node->getAttribute('parent') instanceof Node\Stmt\ClassConst) {
-            $className = $node->getAttribute('parent')->getAttribute('parent')->name->name;
+            $className = $this->getFQN($node->getAttribute('parent')->getAttribute('parent'), $node->getAttribute('parent')->getAttribute('parent')->name->name);
             $this->stubs->classes[$className]->constants[$constName] = $const;
         } else {
             $this->stubs->constants[$constName] = $const;
@@ -130,15 +136,21 @@ class ASTVisitor extends NodeVisitorAbstract
 
     private function visitMethod(ClassMethod $node): void
     {
-        //this will test PHPDocs
-        if($node->getDocComment() !== null) {
-            $this->docFactory->create($node->getDocComment()->getText());
-        }
-
-        $className = $node->getAttribute('parent')->name->name;
+        $className = $this->getFQN($node->getAttribute('parent'), $node->getAttribute('parent')->name->name);
         $method = new stdClass();
         $method->name = $node->name->name;
-        if(strncmp($method->name, 'PS_UNRESERVE_PREFIX_', 20) === 0){
+
+        //this will test PHPDocs
+        $method->parseError = null;
+        if ($node->getDocComment() !== null) {
+            try {
+                $this->docFactory->create($node->getDocComment()->getText());
+            } catch (Exception $e) {
+                $method->parseError = $e->getMessage();
+            }
+        }
+
+        if (strncmp($method->name, 'PS_UNRESERVE_PREFIX_', 20) === 0) {
             $method->name = substr($method->name, strlen('PS_UNRESERVE_PREFIX_'));
         }
         $method->parameters = $this->parseParams($node);
@@ -155,22 +167,32 @@ class ASTVisitor extends NodeVisitorAbstract
         $this->stubs->classes[$className]->methods[$method->name] = $method;
     }
 
-    private function visitClass(Class_ $node): void
+    private function visitClass(Node\Stmt\ClassLike $node): void
     {
-        //this will test PHPDocs
-        if($node->getDocComment() !== null) {
-            $this->docFactory->create($node->getDocComment()->getText());
-        }
-
         $class = new stdClass();
         $className = $this->getFQN($node, $node->name->name);
+        //this will test PHPDocs
+        $class->parseError = null;
+        if ($node->getDocComment() !== null) {
+            try {
+                $this->docFactory->create($node->getDocComment()->getText());
+            } catch (Exception $e) {
+                $class->parseError = $e->getMessage();
+            }
+        }
         $class->name = $className;
         if (empty($node->extends)) {
             $class->parentClass = null;
         } else {
-            $class->parentClass = $node->extends->parts[0];
+            if($node instanceof Class_) {
+                $class->parentClass = $node->extends->parts[0];
+            } else{
+                //todo handle interface
+            }
         }
-        $class->interfaces = $node->implements;
+        if ($node instanceof Class_) {
+            $class->interfaces = $node->implements;
+        }
         $this->stubs->classes[$className] = $class;
         $this->stubs->classes[$className]->constants = [];
         $this->stubs->classes[$className]->methods = [];
