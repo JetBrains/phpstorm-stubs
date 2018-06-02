@@ -1249,7 +1249,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets parent class
 	 * @link http://php.net/manual/en/reflectionclass.getparentclass.php
-	 * @return ReflectionClass
+	 * @return ReflectionClass|false
 	 * @since 5.0
 	 */
 	public function getParentClass () {}
