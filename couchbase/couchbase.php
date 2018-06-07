@@ -523,9 +523,9 @@ namespace Couchbase {
      * Represents connection to the Couchbase Server
      *
      * @property int $operationTimeout
-     *   The operation timeout is the maximum amount of time the library will wait
-     *   for an operation to receive a response before invoking its callback with
-     *   a failure status.
+     *   The operation timeout (in microseconds) is the maximum amount of time the
+     *   library will wait for an operation to receive a response before invoking
+     *   its callback with a failure status.
      *
      *   An operation may timeout if:
      *
@@ -533,19 +533,20 @@ namespace Couchbase {
      *   * An updated cluster configuration has not been promptly received
      *
      * @property int $viewTimeout
-     *   The I/O timeout for HTTP requests to Couchbase Views API
+     *   The I/O timeout (in microseconds) for HTTP requests to Couchbase Views API
      *
      * @property int $n1qlTimeout
-     *   The I/O timeout for N1QL queries.
+     *   The I/O timeout (in microseconds) for N1QL queries.
      *
      * @property int $httpTimeout
-     *   The I/O timeout for HTTP queries (management API).
+     *   The I/O timeout (in microseconds) for HTTP queries (management API).
      *
      * @property int $configTimeout
-     *   How long the client will wait to obtain the initial configuration.
+     *   How long (in microseconds) the client will wait to obtain the initial
+     *   configuration.
      *
      * @property int $configNodeTimeout
-     *   Per-node configuration timeout.
+     *   Per-node configuration timeout (in microseconds).
      *
      *   This timeout sets the amount of time to wait for each node within
      *   the bootstrap/configuration process. This interval is a subset of
@@ -566,7 +567,7 @@ namespace Couchbase {
      *   timeout setting, then this value is likely optimal.
      *
      * @property int $htconfigIdleTimeout
-     *   Idling/Persistence for HTTP bootstrap
+     *   Idling/Persistence for HTTP bootstrap (in microseconds)
      *
      *   By default the behavior of the library for HTTP bootstrap is to keep
      *   the stream open at all times (opening a new stream on a different host
@@ -584,12 +585,13 @@ namespace Couchbase {
      *     the client) then a new stream is not opened.
      *
      * @property int $durabilityInterval
-     *   The time the client will wait between repeated probes to a given server.
+     *   The time (in microseconds) the client will wait between repeated probes
+     *   to a given server.
      *
      * @property int $durabilityTimeout
-     *   The time the client will spend sending repeated probes to a given key's
-     *   vBucket masters and replicas before they are deemed not to have satisfied
-     *   the durability requirements
+     *   The time (in microseconds) the client will spend sending repeated probes
+     *   to a given key's vBucket masters and replicas before they are deemed not
+     *   to have satisfied the durability requirements
      *
      * @see https://developer.couchbase.com/documentation/server/current/sdk/php/start-using-sdk.html
      *   Start Using SDK
@@ -621,6 +623,13 @@ namespace Couchbase {
          * @return int
          */
         final private function __set($name, $value) {}
+
+        /**
+         * Returns the name of the bucket for current connection
+         *
+         * @return string
+         */
+        public function getName() {}
 
         /**
          * Returns an instance of a CouchbaseBucketManager for performing management operations against a bucket.
@@ -1283,6 +1292,34 @@ namespace Couchbase {
          *   SDK RFC #34, which describes the feature and report layout.
          */
         public function diag($reportId = NULL) {}
+
+        /**
+         * Encrypt fields inside specified document.
+         *
+         * @param array $document document structure
+         * @param array $options specification for fields needed to be encrypted. Where 'alg' contains
+         *   a string with alias of the registed crypto provider, and 'name' contains the name of the field.
+         * @param string $prefix optional prefix for modified field (when null, the library will use "__crypt")
+         *
+         * @return array where the fields encrypted
+         *
+         * @see https://github.com/couchbase/php-couchbase-encryption
+         */
+        public function encryptFields($document, $fieldOptions, $prefix = null) {}
+
+        /**
+         * Decrypt fields inside specified document.
+         *
+         * @param array $document document structure
+         * @param array $options specification for fields needed to be decrypted. Where 'alg' contains
+         *   a string with alias of the registed crypto provider, and 'name' contains the name of the field.
+         * @param string $prefix optional prefix for modified field (when null, the library will use "__crypt")
+         *
+         * @return array where the fields decrypted
+         *
+         * @see https://github.com/couchbase/php-couchbase-encryption
+         */
+        public function decryptFields($document, $fieldOptions, $prefix = null) {}
     }
 
     /**
@@ -1871,6 +1908,19 @@ namespace Couchbase {
          */
         const STATEMENT_PLUS = 3;
 
+        /**
+         * Disables profiling. This is the default
+         */
+        const PROFILE_NONE = 'off';
+        /**
+         * Enables phase profiling.
+         */
+        const PROFILE_PHASES = 'phases';
+        /**
+         * Enables general timing profiling.
+         */
+        const PROFILE_TIMINGS = 'timings';
+
         /** @ignore */
         final private function __construct() {}
 
@@ -1951,6 +2001,16 @@ namespace Couchbase {
         public function consistency($consistency) {}
 
         /**
+         * Controls the profiling mode used during query execution
+         *
+         * @param string $profileType
+         * @returns N1qlQuery
+         * @see \Couchbase\N1qlQuery::PROFILE_NONE
+         * @see \Couchbase\N1qlQuery::PROFILE_PHASES
+         * @see \Couchbase\N1qlQuery::PROFILE_TIMINGS
+         */
+        public function profile($profileType) {}
+        /**
          * Sets mutation state the query should be consistent with
          *
          * @param MutationState $state the container of mutation tokens
@@ -1977,7 +2037,7 @@ namespace Couchbase {
          *  - UPSERT
          *  - DELETE
          *
-         * @param boolean $readonly true if readonly should be forced, false is the default and will use the server side default.
+         * @param bool $readonly true if readonly should be forced, false is the default and will use the server side default.
          * @return N1qlQuery
          */
         public function readonly($readonly) {}
@@ -3401,6 +3461,169 @@ namespace Couchbase {
          * @return NumericSearchFacet
          */
         public function addRange($name, $min, $max) {}
+    }
+
+    /**
+     * Base class for all FTS sort options in querying.
+     */
+    class SearchSort {
+        /** @ignore */
+        private function __construct() {}
+
+        /**
+         * Sort by the document identifier.
+         *
+         * @return SearchSortId
+         */
+        public static function id() {}
+
+        /**
+         * Sort by the hit score.
+         *
+         * @return SearchSortScore
+         */
+        public static function score() {}
+
+        /**
+         * Sort by a field in the hits.
+         *
+         * @param string $field the field name
+         *
+         * @return SearchSortField
+         */
+        public static function field($field) {}
+
+        /**
+         * Sort by geo location.
+         *
+         * @param string $field the field name
+         * @param float $longitude the longitude of the location
+         * @param float $latitude the latitude of the location
+         *
+         * @return SearchSortGeoDistance
+         */
+        public static function geoDistance($field, $longitude, $latitude) {}
+    }
+
+    /**
+     * Sort by the document identifier.
+     */
+    class SearchSortId extends SearchSort implements \JsonSerializable {
+        /** @ignore */
+        private function __construct() {}
+
+        /**
+         * Direction of the sort
+         *
+         * @param bool $descending
+         *
+         * @return SearchSortId
+         */
+        public function descending($descending) {}
+    }
+
+    /**
+     * Sort by the hit score.
+     */
+    class SearchSortScore extends SearchSort implements \JsonSerializable {
+        /** @ignore */
+        private function __construct() {}
+
+        /**
+         * Direction of the sort
+         *
+         * @param bool $descending
+         *
+         * @return SearchSortScore
+         */
+        public function descending($descending) {}
+    }
+
+    /**
+     * Sort by a field in the hits.
+     */
+    class SearchSortField extends SearchSort implements \JsonSerializable {
+        const TYPE_AUTO = "auto";
+        const TYPE_STRING = "string";
+        const TYPE_NUMBER = "number";
+        const TYPE_DATE = "date";
+
+        const MODE_DEFAULT = "default";
+        const MODE_MIN = "min";
+        const MODE_MAX = "max";
+
+        const MISSING_FIRST = "first";
+        const MISSING_LAST = "last";
+
+        /** @ignore */
+        private function __construct() {}
+
+        /**
+         * Direction of the sort
+         *
+         * @param bool $descending
+         *
+         * @return SearchSortField
+         */
+        public function descending($descending) {}
+
+        /**
+         * Set type of the field
+         *
+         * @param string type the type
+         *
+         * @see SearchSortField::TYPE_AUTO
+         * @see SearchSortField::TYPE_STRING
+         * @see SearchSortField::TYPE_NUMBER
+         * @see SearchSortField::TYPE_DATE
+         */
+        public function type($type) {}
+
+        /**
+         * Set mode of the sort
+         *
+         * @param string mode the mode
+         *
+         * @see SearchSortField::MODE_MIN
+         * @see SearchSortField::MODE_MAX
+         */
+        public function mode($mode) {}
+
+        /**
+         * Set where the hits with missing field will be inserted
+         *
+         * @param string missing strategy for hits with missing fields
+         *
+         * @see SearchSortField::MISSING_FIRST
+         * @see SearchSortField::MISSING_LAST
+         */
+        public function missing($missing) {}
+    }
+
+    /**
+     * Sort by a location and unit in the hits.
+     */
+    class SearchSortGeoDistance extends SearchSort implements \JsonSerializable {
+        /** @ignore */
+        private function __construct() {}
+
+        /**
+         * Direction of the sort
+         *
+         * @param bool $descending
+         *
+         * @return SearchSortGeoDistance
+         */
+        public function descending($descending) {}
+
+        /**
+         * Name of the units
+         *
+         * @param string $unit
+         *
+         * @return SearchSortGeoDistance
+         */
+        public function unit($unit) {}
     }
 
     /**
