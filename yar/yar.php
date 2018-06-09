@@ -1,13 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zhimiao
- * Date: 2018/5/11
- * Time: 下午9:40
- */
 
+/**
+ * Class Yar_Server
+ * Date 2018/6/9 下午3:02
+ * @Author weizhimiao001@lianjia.com
+ * @link http://php.net/manual/en/class.yar-server.php
+ */
 class Yar_Server {
-    /* 属性 */
+
     protected $_executor ;
 
     /**
@@ -16,7 +16,6 @@ class Yar_Server {
      *
      * Yar_Server constructor.
      * @param $obj object An Object, all public methods of its will be registered as RPC services.
-     * @return object An instance of Yar_Server.
      * @link http://php.net/manual/en/yar-server.construct.php
      */
     final public function __construct ($obj ) {}
@@ -36,7 +35,7 @@ class Yar_Server {
 
 
 class Yar_Client {
-    /* 属性 */
+
     protected $_protocol ;
     protected $_uri ;
     protected $_options ;
@@ -56,7 +55,6 @@ class Yar_Client {
      * Create a client
      * Yar_Client constructor.
      * @param $url string Yar Server URL.
-     * @return $instance object Yar_Client instance.
      * @link http://php.net/manual/en/yar-client.construct.php
      */
     final public function __construct ( $url ){}
@@ -78,7 +76,7 @@ class Yar_Client {
 }
 
 class Yar_Concurrent_Client {
-    /* 属性 */
+
     static $_callstack ;
     static $_callback ;
     static $_error_callback ;
@@ -89,7 +87,7 @@ class Yar_Concurrent_Client {
      * @param $method string Service name(aka the method name)
      * @param $parameters array Parameters
      * @param array ...$callback A function callback, which will be called while the response return.
-     * @return $id int An unique id, can be used to identified which call it is.
+     * @return int
      * @link http://php.net/manual/en/yar-concurrent-client.call.php
      */
     public static function call (  $uri ,  $method ,  $parameters, ...$callback ){}
@@ -101,7 +99,7 @@ class Yar_Concurrent_Client {
      *  Then, if user didn't specify callback when registering concurrent call, this callback will be used to handle response, otherwise, the callback specified while registering will be used.
      * @param $error_callback
      *  If this callback is set, then Yar will call this callback while error occurred.
-     * @return $bool boolean
+     * @return boolean
      * @link http://php.net/manual/en/yar-concurrent-client.loop.php
      */
     public static function loop ($callback , $error_callback) {}
@@ -109,30 +107,38 @@ class Yar_Concurrent_Client {
     /**
      * Clean all registered calls
      * Clean all registered calls
-     * @return $bool bool
+     * @return boolean
      * @link http://php.net/manual/en/yar-concurrent-client.reset.php
      */
     public static function reset (){}
 }
 
 /**
- * If service threw exceptions, A Yar_Server_Exception will be threw in client side.
  * Class Yar_Server_Exception
+ * Date 2018/6/9 下午3:06
+ * @Author weizhimiao001@lianjia.com
+ * @link http://php.net/manual/en/class.yar-server-exception.php
  */
 class Yar_Server_Exception extends Exception {
-    /* 属性 */
+
     protected $_type ;
 
     /**
      * Retrieve exception's type
      * Get the exception original type threw by server
-     * @return $type string
+     * @return string
      * @link http://php.net/manual/en/yar-server-exception.gettype.php
      */
     public function getType (){}
 
 }
 
+/**
+ * Class Yar_Client_Exception
+ * Date 2018/6/9 下午3:05
+ * @Author weizhimiao001@lianjia.com
+ * @link http://php.net/manual/en/class.yar-client-exception.php
+ */
 class Yar_Client_Exception extends Exception {
     /**
      * Retrieve exception's type
