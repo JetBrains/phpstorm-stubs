@@ -59,7 +59,6 @@ class HttpDeflateStream  {
 	 * @param int $flags [optional] <p>
 	 * initialization flags
 	 * </p>
-	 * @return void 
 	 */
 	public function __construct ($flags = null) {}
 
@@ -128,7 +127,6 @@ class HttpInflateStream  {
 	 * @param int $flags [optional] <p>
 	 * initialization flags
 	 * </p>
-	 * @return void 
 	 */
 	public function __construct ($flags = null) {}
 
@@ -207,7 +205,6 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @param string $message [optional] <p>
 	 * a single or several consecutive HTTP messages
 	 * </p>
-	 * @return void 
 	 */
 	public function __construct ($message = null) {}
 
@@ -877,7 +874,6 @@ class HttpRequest  {
 	 * @param array $options [optional] <p>
 	 * an associative array with request options
 	 * </p>
-	 * @return void 
 	 */
 	public function __construct ($url = null, $request_method = null, array $options = null ) {}
 

@@ -1249,7 +1249,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets parent class
 	 * @link http://php.net/manual/en/reflectionclass.getparentclass.php
-	 * @return ReflectionClass
+	 * @return ReflectionClass|false
 	 * @since 5.0
 	 */
 	public function getParentClass () {}
@@ -2031,7 +2031,6 @@ class ReflectionClassConstant implements Reflector {
      * @link http://php.net/manual/en/reflectionclassconstant.construct.php
      * @param mixed $class Either a string containing the name of the class to reflect, or an object.
      * @param string $name The name of the class constant.
-     * @return ReflectionClassConstant
      */
     public function __construct($class, $name) {}
 

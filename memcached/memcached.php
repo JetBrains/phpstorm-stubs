@@ -1,6 +1,6 @@
 <?php
 
-// Start of memcached v.2.1.0
+// Start of memcached v.3.0.4
 
 /**
  * Represents a connection to a set of memcached servers.
@@ -281,7 +281,19 @@ class Memcached  {
 	const OPT_USE_UDP = 27;
 	const OPT_NUMBER_OF_REPLICAS = 29;
 	const OPT_RANDOMIZE_REPLICA_READ = 30;
+	const OPT_CORK = 31;
 	const OPT_REMOVE_FAILED_SERVERS = 35;
+	const OPT_DEAD_TIMEOUT = 36;
+	const OPT_SERVER_TIMEOUT_LIMIT = 37;
+	const OPT_MAX = 38;
+	const OPT_IO_BYTES_WATERMARK = 23;
+	const OPT_IO_KEY_PREFETCH = 24;
+	const OPT_IO_MSG_WATERMARK = 22;
+	const OPT_LOAD_FROM_FILE = 34;
+	const OPT_SUPPORT_CAS = 7;
+	const OPT_TCP_KEEPIDLE = 33;
+	const OPT_USER_DATA = 11;
+
 
 	/**
 	 * <p>The operation was successful.</p>
@@ -417,6 +429,21 @@ class Memcached  {
 	const RES_AUTH_PROBLEM = 40;
 	const RES_AUTH_FAILURE = 41;
 	const RES_AUTH_CONTINUE = 42;
+	const RES_CONNECTION_FAILURE = 3;
+	const RES_CONNECTION_BIND_FAILURE = 4;
+	const RES_READ_FAILURE = 6;
+	const RES_DATA_DOES_NOT_EXIST = 13;
+	const RES_VALUE = 23;
+	const RES_FAIL_UNIX_SOCKET = 27;
+	const RES_NO_KEY_PROVIDED = 29;
+	const RES_INVALID_ARGUMENTS = 38;
+	const RES_PARSE_ERROR = 43;
+	const RES_PARSE_USER_ERROR = 44;
+	const RES_DEPRECATED = 45;
+	const RES_IN_PROGRESS = 46;
+	const RES_MAXIMUM_RETURN = 49;
+	const RES_CONNECTION_SOCKET_CREATE_FAILURE = 50;
+
 	
 	
 	/**
@@ -472,7 +499,7 @@ class Memcached  {
 	 * @param $persistent_id [optional]
 	 * @param $callback [optional]
 	 */
-	public function __construct ($persistent_id, $callback) {}
+	public function __construct ($persistent_id = '', $on_new_object_cb = null) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -500,14 +527,14 @@ class Memcached  {
 	 * @param callable $cache_cb [optional] <p>
 	 * Read-through caching callback or <b>NULL</b>.
 	 * </p>
-	 * @param float $cas_token [optional] <p>
-	 * The variable to store the CAS token in.
+	 * @param int $flags [optional] <p>
+	 * The flags for the get operation.
 	 * </p>
 	 * @return mixed the value stored in the cache or <b>FALSE</b> otherwise.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTFOUND</b> if the key does not exist.
 	 */
-	public function get ($key, callable $cache_cb = null, &$cas_token = null) {}
+	public function get ($key, callable $cache_cb = null, $flags = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -522,14 +549,14 @@ class Memcached  {
 	 * @param callable $cache_cb [optional] <p>
 	 * Read-through caching callback or <b>NULL</b>
 	 * </p>
-	 * @param float $cas_token [optional] <p>
-	 * The variable to store the CAS token in.
+	 * @param int $flags [optional] <p>
+	 * The flags for the get operation.
 	 * </p>
 	 * @return mixed the value stored in the cache or <b>FALSE</b> otherwise.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTFOUND</b> if the key does not exist.
 	 */
-	public function getByKey ($server_key, $key, callable $cache_cb = null, &$cas_token = null) {}
+	public function getByKey ($server_key, $key, callable $cache_cb = null, $flags = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -538,16 +565,13 @@ class Memcached  {
 	 * @param array $keys <p>
 	 * Array of keys to retrieve.
 	 * </p>
-	 * @param array $cas_tokens [optional] <p>
-	 * The variable to store the CAS tokens for the found items.
-	 * </p>
 	 * @param int $flags [optional] <p>
 	 * The flags for the get operation.
 	 * </p>
 	 * @return mixed the array of found items or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
-	public function getMulti (array $keys, array &$cas_tokens = null, $flags = null) {}
+	public function getMulti (array $keys, $flags = null) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -559,16 +583,13 @@ class Memcached  {
 	 * @param array $keys <p>
 	 * Array of keys to retrieve.
 	 * </p>
-	 * @param string $cas_tokens [optional] <p>
-	 * The variable to store the CAS tokens for the found items.
-	 * </p>
 	 * @param int $flags [optional] <p>
 	 * The flags for the get operation.
 	 * </p>
 	 * @return array the array of found items or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
-	public function getMultiByKey ($server_key, array $keys, &$cas_tokens = null, $flags = null) {}
+	public function getMultiByKey ($server_key, array $keys, $flags = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -644,7 +665,7 @@ class Memcached  {
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
-	public function set ($key, $value, $expiration = null) {}
+	public function set ($key, $value, $expiration = 0, $udf_flags = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -665,7 +686,7 @@ class Memcached  {
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
-	public function setByKey ($server_key, $key, $value, $expiration = null) {}
+	public function setByKey ($server_key, $key, $value, $expiration = 0, $udf_flags = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 2.0.0)<br/>
@@ -680,25 +701,9 @@ class Memcached  {
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
-	public function touch ($key, $expiration) {}
+	public function touch ($key, $expiration = 0) {}
 
-	/**
-	 * (PECL memcached &gt;= 2.0.0)<br/>
-	 * Set a new expiration on an item on a specific server
-	 * @link http://php.net/manual/en/memcached.touchbykey.php
-	 * @param string $server_key <p>
-	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
-	 * </p>
-	 * @param string $key <p>
-	 * The key under which to store the value.
-	 * </p>
-	 * @param int $expiration <p>
-	 * The expiration time, defaults to 0. See Expiration Times for more info.
-	 * </p>
-	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-	 * Use <b>Memcached::getResultCode</b> if necessary.
-	 */
-	public function touchByKey ($server_key, $key, $expiration) {}
+	public function touchbyKey($key, $expiration = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -713,7 +718,7 @@ class Memcached  {
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
-	public function setMulti (array $items, $expiration = null) {}
+	public function setMulti (array $items, $expiration = 0, $udf_flags = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -731,7 +736,7 @@ class Memcached  {
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
-	public function setMultiByKey ($server_key, array $items, $expiration = null) {}
+	public function setMultiByKey ($server_key, array $items, $expiration = 0, $udf_flags = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -754,7 +759,7 @@ class Memcached  {
 	 * <b>Memcached::RES_DATA_EXISTS</b> if the item you are trying
 	 * to store has been modified since you last fetched it.
 	 */
-	public function cas ($cas_token, $key, $value, $expiration = null) {}
+	public function cas ($cas_token, $key, $value, $expiration = 0, $udf_flags = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -780,7 +785,7 @@ class Memcached  {
 	 * <b>Memcached::RES_DATA_EXISTS</b> if the item you are trying
 	 * to store has been modified since you last fetched it.
 	 */
-	public function casByKey ($cas_token, $server_key, $key, $value, $expiration = null) {}
+	public function casByKey ($cas_token, $server_key, $key, $value, $expiration = 0, $udf_flags = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -799,7 +804,7 @@ class Memcached  {
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTSTORED</b> if the key already exists.
 	 */
-	public function add ($key, $value, $expiration = null) {}
+	public function add ($key, $value, $expiration = 0, $udf_flags = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -821,7 +826,7 @@ class Memcached  {
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTSTORED</b> if the key already exists.
 	 */
-	public function addByKey ($server_key, $key, $value, $expiration = null) {}
+	public function addByKey ($server_key, $key, $value, $expiration = 0, $udf_flags = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -910,7 +915,7 @@ class Memcached  {
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTSTORED</b> if the key does not exist.
 	 */
-	public function replace ($key, $value, $expiration = null) {}
+	public function replace ($key, $value, $expiration = null, $udf_flags = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -932,7 +937,7 @@ class Memcached  {
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTSTORED</b> if the key does not exist.
 	 */
-	public function replaceByKey ($server_key, $key, $value, $expiration = null) {}
+	public function replaceByKey ($server_key, $key, $value, $expiration = null, $udf_flags = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -1165,9 +1170,10 @@ class Memcached  {
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Get server pool statistics
 	 * @link http://php.net/manual/en/memcached.getstats.php
+	 * @param string $type
 	 * @return array Array of server statistics, one entry per server.
 	 */
-	public function getStats () {}
+	public function getStats ($type = null) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.5)<br/>
@@ -1247,6 +1253,22 @@ class Memcached  {
 	 */
 	public function isPristine () {}
 
+	public function flushBuffers () {}
+
+	public function setSaslAuthData ( $username, $password ) {}
+
+	public function setEncodingKey ( $key ) {}
+
+	public function getLastDisconnectedServer () {}
+
+	public function getLastErrorErrno () {}
+
+	public function getLastErrorCode () {}
+
+	public function getLastErrorMessage () {}
+
+	public function setBucket (array $host_map, array $forward_map, $replicas) {}
+
 }
 
 /**
@@ -1255,5 +1277,5 @@ class Memcached  {
 class MemcachedException extends RuntimeException  {
 
 }
-// End of memcached v.2.1.0
+// End of memcached v.3.0.4
 ?>

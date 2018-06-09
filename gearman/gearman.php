@@ -1362,7 +1362,6 @@ class GearmanClient {
      * server and submits tasks to complete.
      *
      * @link http://php.net/manual/en/gearmanclient.construct.php
-     * @return  A GearmanClient object
      */
     public function __construct() {}
 
@@ -1932,7 +1931,6 @@ class GearmanWorker {
      * server and accepts tasks to run.
      *
      * @link http://php.net/manual/en/gearmanworker.construct.php
-     * @return  A GearmanWorker object
      */
     public function __construct() {}
 

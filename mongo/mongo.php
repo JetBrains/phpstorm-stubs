@@ -98,8 +98,6 @@ class MongoClient
      *         </p>
      *         </li>
      *         </ul>
-     * @return MongoClient
-     * Returns a new database connection object*
      * @throws MongoConnectionException
      */
     public function __construct($server = "mongodb://localhost:27017", array $options = array("connect" => TRUE), $driver_options) {}
@@ -497,7 +495,6 @@ class MongoDB {
 	 * @param MongoClient $conn Database connection.
 	 * @param string $name Database name.
 	 * @throws Exception
-	 * @return MongoDB Returns the database.
      */
     public function __construct($conn, $name) {}
 
@@ -852,7 +849,6 @@ class MongoCollection {
 	 * @param MongoDB $db Parent database.
 	 * @param string $name Name for this collection.
 	 * @throws Exception
-	 * @return MongoCollection
 	 */
     public function __construct(MongoDB $db, $name) {}
 
@@ -1290,7 +1286,6 @@ class MongoCursor implements Iterator {
 	 * @param string $ns Full name of database and collection.
 	 * @param array $query Database query.
 	 * @param array $fields Fields to return.
-     * @return MongoCursor Returns the new cursor
 	 */
     public function __construct($connection, $ns, array $query = array(), array $fields = array()) {}
 
@@ -1689,7 +1684,6 @@ class MongoGridFS extends MongoCollection {
      * @param MongoDB $db Database
      * @param string $prefix [optional] <p>Optional collection name prefix.</p>
      * @param mixed $chunks  [optional]
-     * @return MongoGridFS
      */
     public function __construct($db, $prefix = "fs", $chunks = "fs") {}
 
@@ -1801,7 +1795,6 @@ class MongoGridFSFile {
      * @link http://php.net/manual/en/mongogridfsfile.construct.php
      * @param MongoGridFS $gridfs The parent MongoGridFS instance
      * @param array $file A file from the database
-     * @return MongoGridFSFile Returns a new MongoGridFSFile
      */
     public function __construct($gridfs, array $file) {}
 
@@ -1866,7 +1859,6 @@ class MongoGridFSCursor extends MongoCursor implements Traversable, Iterator {
      * @param string $ns Full name of database and collection
      * @param array $query Database query
      * @param array $fields Fields to return
-     * @return MongoGridFSCursor Returns the new cursor
      */
     public function __construct($gridfs, $connection, $ns, $query, $fields) {}
 
@@ -1909,7 +1901,6 @@ class MongoId {
 	 * Creates a new id
 	 * @link http://www.php.net/manual/en/mongoid.construct.php
 	 * @param string $id [optional] A string to use as the id. Must be 24 hexidecimal characters. If an invalid string is passed to this constructor, the constructor will ignore it and create a new id value.
-	 * @return MongoId <p>Returns a new id.</p>
      */
     public function __construct($id = NULL) {}
 
@@ -1992,7 +1983,6 @@ class MongoCode {
      * @link http://php.net/manual/en/mongocode.construct.php
      * @param string $code A string of code
      * @param array $scope The scope to use for the code
-     * @return MongoCode Returns a new code object
      */
     public function __construct($code, array $scope = array()) {}
 
@@ -2021,7 +2011,6 @@ class MongoRegex {
      *
      * @link http://php.net/manual/en/mongoregex.construct.php
      * @param string $regex Regular expression string of the form /expr/flags
-     * @return MongoRegex Returns a new regular expression
      */
     public function __construct($regex) {}
 
@@ -2051,7 +2040,6 @@ class MongoDate {
      * @link http://php.net/manual/en/mongodate.construct.php
      * @param int $sec Number of seconds since January 1st, 1970
      * @param int $usec Microseconds
-     * @return MongoDate Returns this new date
      */
     public function __construct($sec = 0, $usec = 0) {}
     
@@ -2133,7 +2121,6 @@ class MongoBinData {
      * @link http://php.net/manual/en/mongobindata.construct.php
      * @param string $data Binary data
      * @param int $type Data type
-     * @return MongoBinData Returns a new binary data object
      */
     public function __construct($data, $type = 2) {}
 

@@ -108,7 +108,6 @@ class Pool {
      * @param integer $size <p>The maximum number of Workers this Pool can create</p>
      * @param string $class <p>The class for new Workers</p>
      * @param array $ctor <p>An array of arguments to be passed to new Workers</p>
-     * @return Pool <p>the new Pool</p>
      */
     public function __construct( $size, $class, $ctor=[] ) {}
 

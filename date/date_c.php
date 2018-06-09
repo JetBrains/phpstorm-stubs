@@ -107,7 +107,6 @@ class DateTimeImmutable implements DateTimeInterface {
      * or specifies a timezone
      * (e.g. <em>2010-01-28T15:00:00+02:00</em>).
      * </p> <p></p></blockquote>
-     * @return DateTimeImmutable Returns a new DateTimeImmutable instance. Procedural style returns FALSE on failure.
      * @throws Exception Emits Exception in case of an error.
      */
     public function __construct($time = "now", $timezone = NULL) { }
@@ -315,7 +314,6 @@ class DateTime implements DateTimeInterface {
     /**
      * @param string $time
      * @param DateTimeZone $timezone
-     * @return DateTime
      * @link http://php.net/manual/en/datetime.construct.php
      */
     public function __construct ($time='now', DateTimeZone $timezone=null) {}

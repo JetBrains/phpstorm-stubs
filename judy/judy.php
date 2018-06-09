@@ -38,7 +38,6 @@ class Judy implements ArrayAccess {
      * Construct a new Judy object. A Judy object can be accessed like a PHP Array.
      * @link http://php.net/manual/en/judy.construct.php
      * @param int $judy_type <p>The Judy type to be used.</p>
-     * @return Judy <p>Return the new Judy instance.</p>
      */
     public function __construct($judy_type) {}
 

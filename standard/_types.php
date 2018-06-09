@@ -228,7 +228,6 @@ class object {
    * In order to run a parent constructor, a call to parent::__construct() within the child constructor is required.
    *
    * param [ mixed $args [, $... ]]
-   * @return void
    * @link http://php.net/manual/en/language.oop5.decon.php
    */
   public function __construct() {}
