@@ -17,7 +17,7 @@
  *
  * @return null
  */
-function xhprof_enable( $flags = 0, array $options )
+function xhprof_enable( $flags = 0, array $options = [] )
 {
 }
 
