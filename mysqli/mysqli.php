@@ -651,10 +651,13 @@ class mysqli  {
 	/**
 	 * Rolls back current transaction
 	 * @link http://php.net/manual/en/mysqli.rollback.php
+	 * @param int $flags A bitmask of MYSQLI_TRANS_COR_* constants.
+	 * @param string $name If provided then ROLLBACK $name is executed.
 	 * @return bool true on success or false on failure.
+	 * @since 5.5 Added flags and name parameters.
 	 * @since 5.0
 	 */
-	public function rollback () {}
+	public function rollback ($flags = null, $name = null) {}
 
     /**
      * Set a named transaction savepoint
