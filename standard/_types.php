@@ -188,10 +188,10 @@ namespace {
 
         /**
          * Throws an exception at the current suspension point in the generator.
-         * @param Exception $exception
+         * @param Throwable $exception
          * @return mixed
          */
-        function PS_UNRESERVE_PREFIX_throw(Exception $exception) {}
+        function PS_UNRESERVE_PREFIX_throw(Throwable $exception) {}
 
         /**
          * Returns whatever was passed to return or null if nothing.
