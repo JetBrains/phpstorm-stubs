@@ -12,7 +12,7 @@
  *                       href="http://php.net/manual/en/xhprof.constants.php">XHprof constants</a> for further
  *                       information about these flags, e.g., <strong>XHPROF_FLAGS_MEMORY</strong> to enable memory
  *                       profiling.</p>
- * @param array $options <p>An array of optional options, namely, the 'ignored_functions' option to pass in functions
+ * @param array $options [optional] <p>An array of optional options, namely, the 'ignored_functions' option to pass in functions
  *                       to be ignored during profiling.</p>
  *
  * @return null
