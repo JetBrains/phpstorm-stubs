@@ -263,7 +263,7 @@ class SoapClient  {
 	 * Calls a SOAP function (deprecated)
 	 * @link http://php.net/manual/en/soapclient.call.php
 	 * @param string $function_name
-	 * @param string $arguments
+	 * @param array $arguments
 	 * @return mixed
 	 * @since 5.0.1
 	 */
