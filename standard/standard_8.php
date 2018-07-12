@@ -268,7 +268,7 @@ function ob_end_clean () {}
 /**
  * Flush the output buffer, return it as a string and turn off output buffering
  * @link http://php.net/manual/en/function.ob-get-flush.php
- * @return string the output buffer or false if no buffering is active.
+ * @return string|false the output buffer or false if no buffering is active.
  * @since 4.3.0
  * @since 5.0
  */
@@ -277,7 +277,7 @@ function ob_get_flush () {}
 /**
  * Get current buffer contents and delete current output buffer
  * @link http://php.net/manual/en/function.ob-get-clean.php
- * @return string the contents of the output buffer and end output buffering.
+ * @return string|false the contents of the output buffer and end output buffering.
  * If output buffering isn't active then false is returned.
  * @since 4.3.0
  * @since 5.0
@@ -287,7 +287,7 @@ function ob_get_clean () {}
 /**
  * Return the length of the output buffer
  * @link http://php.net/manual/en/function.ob-get-length.php
- * @return int the length of the output buffer contents or false if no
+ * @return int|false the length of the output buffer contents or false if no
  * buffering is active.
  * @since 4.0.2
  * @since 5.0
@@ -374,7 +374,7 @@ function ob_get_status ($full_status = null) {}
 /**
  * Return the contents of the output buffer
  * @link http://php.net/manual/en/function.ob-get-contents.php
- * @return string This will return the contents of the output buffer or false, if output
+ * @return string|false This will return the contents of the output buffer or false, if output
  * buffering isn't active.
  * @since 4.0
  * @since 5.0
