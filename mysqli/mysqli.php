@@ -1111,7 +1111,7 @@ class mysqli_result implements Traversable  {
 	/**
 	 * Fetch a result row as an associative array
 	 * @link http://php.net/manual/en/mysqli-result.fetch-assoc.php
-	 * @return array an associative array of strings representing the fetched row in the result
+	 * @return array|null an associative array of strings representing the fetched row in the result
 	 * set, where each key in the array represents the name of one of the result
 	 * set's columns or null if there are no more rows in resultset.
 	 * </p>
