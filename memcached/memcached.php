@@ -1236,6 +1236,20 @@ class Memcached  {
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function setOptions (array $options) {}
+	
+	/**
+	 * (PECL memcached &gt;= 2.0.0)<br/>
+	 * Set the credentials to use for authentication
+	 * @link http://php.net/manual/en/memcached.setsaslauthdata.php
+	 * @param string $username <p>
+	 * The username to use for authentication.
+	 * </p>
+	 * @param string $password <p>
+	 * The password to use for authentication.
+	 * </p>
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 */
+	public function setSaslAuthData (string $username , string $password) {}
 
 	/**
 	 * (PECL memcached &gt;= 2.0.0)<br/>
