@@ -573,7 +573,7 @@ function stream_socket_pair ($domain, $type, $protocol) {}
  * @param int $offset [optional] <p>
  * The offset where to start to copy data
  * </p>
- * @return int the total count of bytes copied.
+ * @return int|false the total count of bytes copied, or false on failure.
  * @since 5.0
  */
 function stream_copy_to_stream ($source, $dest, $maxlength = null, $offset = null) {}
