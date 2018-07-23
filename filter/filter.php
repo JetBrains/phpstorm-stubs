@@ -457,12 +457,14 @@ define ('FILTER_FLAG_ALLOW_SCIENTIFIC', 16384);
 /**
  * Require scheme in "validate_url" filter.
  * @link http://php.net/manual/en/filter.constants.php
+ * @deprecated 7.3.0
  */
 define ('FILTER_FLAG_SCHEME_REQUIRED', 65536);
 
 /**
  * Require host in "validate_url" filter.
  * @link http://php.net/manual/en/filter.constants.php
+ * @deprecated 7.3.0
  */
 define ('FILTER_FLAG_HOST_REQUIRED', 131072);
 
