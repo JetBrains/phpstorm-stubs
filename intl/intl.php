@@ -4127,6 +4127,7 @@ function datefmt_set_timezone_id(MessageFormatter $mf, $zone) { }
  * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
  * Sets formatter's timezone
  * @link http://php.net/manual/en/intldateformatter.settimezone.php
+ * @param MessageFormatter $mf
  * @param mixed $zone <p>
  * The timezone to use for this formatter. This can be specified in the
  * following forms:
@@ -4161,7 +4162,7 @@ function datefmt_set_timezone_id(MessageFormatter $mf, $zone) { }
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function datefmt_set_timezone($zone) { }
+function datefmt_set_timezone(MessageFormatter $mf, $zone) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
