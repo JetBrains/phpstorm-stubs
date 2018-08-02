@@ -2,11 +2,14 @@
 
 // Start of oci8 v.2.0.7
 
+class_alias('__InternalOCILob', 'OCI-Lob');
+class_alias('__InternalOCICollection', 'OCI-Collection');
+
 /**
  * OCI8 LOB functionality for large binary (BLOB) and character (CLOB) objects.
  * @link http://php.net/manual/en/class.OCI-Lob.php
  */
-class OCI_Lob  {
+class __InternalOCILob {
 
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
@@ -276,7 +279,7 @@ class OCI_Lob  {
  * OCI8 Collection functionality.
  * @link http://php.net/manual/en/class.OCI-Collection.php
  */
-class OCI_Collection  {
+class __InternalOCICollection {
 
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
