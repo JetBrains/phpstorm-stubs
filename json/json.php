@@ -84,7 +84,7 @@ class JsonIncrementalParser  {
  * @param int $depth [optional] <p>
  * Set the maximum depth. Must be greater than zero.
  * </p>
- * @return string a JSON encoded string on success or <b>FALSE</b> on failure.
+ * @return string|false a JSON encoded string on success or <b>FALSE</b> on failure.
  */
 function json_encode ($value, $options = 0, $depth = 512) {}
 
