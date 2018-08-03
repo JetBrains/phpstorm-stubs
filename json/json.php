@@ -349,7 +349,7 @@ define('JSON_ERROR_UTF16',10);
 /**
  * @since 7.3
  */
-define('PHP_JSON_THROW_ON_ERROR', 4194304);
+define('JSON_THROW_ON_ERROR', 4194304);
 
 /**
  * Class JsonException
