@@ -77,7 +77,8 @@ class JsonIncrementalParser  {
  * <b>JSON_PRETTY_PRINT</b>,
  * <b>JSON_UNESCAPED_SLASHES</b>,
  * <b>JSON_FORCE_OBJECT</b>,
- * <b>JSON_UNESCAPED_UNICODE</b>. The behaviour of these
+ * <b>JSON_UNESCAPED_UNICODE</b>.
+ * <b>JSON_THROW_ON_ERROR</b> The behaviour of these
  * constants is described on
  * the JSON constants page.
  * </p>
@@ -113,6 +114,8 @@ function json_encode ($value, $options = 0, $depth = 512) {}
  * Bitmask of JSON decode options. Currently only
  * <b>JSON_BIGINT_AS_STRING</b>
  * is supported (default is to cast large integers as floats)
+ *
+ * <b>JSON_THROW_ON_ERROR</b> when passed this flag, the error behaviour of these functions is changed. The global error state is left untouched, and if an error occurs that would otherwise set it, these functions instead throw a JsonException
  * </p>
  * @return mixed the value encoded in <i>json</i> in appropriate
  * PHP type. Values true, false and
@@ -344,16 +347,25 @@ define('JSON_ERROR_INVALID_PROPERTY_NAME',9);
 define('JSON_ERROR_UTF16',10);
 
 /**
- * @since 7.2
- **/
-define('JSON_INVALID_UTF8_IGNORE',1048576);
+ * @since 7.3
+ */
+define('JSON_THROW_ON_ERROR', 4194304);
 
 /**
- * @since 7.2
+ * Class JsonException
+ *
+ * <p>A new flag has been added, JSON_THROW_ON_ERROR, which can be used with
+ * json_decode() or json_encode() and causes these functions to throw a
+ * JsonException upon an error, instead of setting the global error state that
+ * is retrieved with json_last_error(). JSON_PARTIAL_OUTPUT_ON_ERROR takes
+ * precedence over <b>JSON_THROW_ON_ERROR</b>.
+ * </p>
+ *
+ * @since 7.3.0
+ * @link https://wiki.php.net/rfc/json_throw_on_error
  */
-define('JSON_INVALID_UTF8_SUBSTITUTE',2097152);
-
-
+class JsonException extends \Exception {
+}
 
 // End of json v.1.3.1
 ?>
