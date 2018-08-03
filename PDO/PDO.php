@@ -1103,6 +1103,28 @@ class PDO  {
 	 */
 	public static function getAvailableDrivers () {}
 
+    /**
+     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo_sqlite &gt;= 1.0.0)<br/>
+     * Registers a User Defined Function for use in SQL statements
+     * @link http://php.net/manual/en/pdo.sqlitecreatefunction.php
+     * @param string $function_name <p>
+     * The name of the function used in SQL statements.
+     * </p>
+     * @param callable $callback <p>
+     * Callback function to handle the defined SQL function.
+     * </p>
+     * @param int $num_args [optional] <p>
+     * The number of arguments that the SQL function takes. If this parameter is -1,
+     * then the SQL function may take any number of arguments.
+     * </p>
+     * @param int $flags [optional] <p>
+     * A bitwise conjunction of flags. Currently, only <b>PDO::SQLITE_DETERMINISTIC</b> is supported,
+     * which specifies that the function always returns the same result given the same inputs within
+     * a single SQL statement.
+     * </p>
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function sqliteCreateFunction($function_name, $callback, $num_args = -1, $flags = 0) {}
 }
 
 /**
