@@ -1,6 +1,6 @@
 <?php
 
-// Start of zip v.1.11.0
+// Start of zip v.1.14.0
 
 /**
  * A file archive, compressed with Zip.
@@ -277,6 +277,30 @@ class ZipArchive  {
 	 * @link http://php.net/manual/en/zip.constants.php
 	 */
 	const ER_DELETED = 23;
+	
+	/**
+	 * No encryption
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
+	const EM_NONE = 0;
+	
+	/**
+	 * AES 128 encryption
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
+	const EM_AES_128 = 257;
+	
+	/**
+	 * AES 192 encryption
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
+	const EM_AES_192 = 258;
+	
+	/**
+	 * AES 256 encryption
+	 * @link http://php.net/manual/en/zip.constants.php
+	 */
+	const EM_AES_256 = 259;
 
     /**
      * Status of the Zip Archive
