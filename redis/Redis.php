@@ -3282,6 +3282,9 @@ class Redis
 
 class RedisException extends Exception {}
 
+/**
+ * @mixin \Redis
+ */
 class RedisArray {
     /**
      * Constructor
