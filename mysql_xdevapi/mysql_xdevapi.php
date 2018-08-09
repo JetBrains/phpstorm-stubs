@@ -1,10 +1,18 @@
 <?php
 /**
- * Start of mysql_xdevapi extension stubs v.0.1
+ * Start of mysql_xdevapi extension stubs
  * @link http://php.net/manual/en/book.mysql-xdevapi.php
+ * @version 0.2 2018-08-09
+ * @author Jorge Castro C jcastro@eftec.cl
+ * @todo It only adds the basic features.  It misses the rest of features.
  * @package mysql_xdevapi
  */
 namespace mysql_xdevapi;
+
+define('MYSQLX_LOCK_DEFAULT','');
+define('MYSQLX_LOCK_NOWAIT',1);
+define('MYSQLX_LOCK_SKIP_LOCKED',2);
+
 
 /**
  * @link http://php.net/manual/en/function.mysql-xdevapi-getsession.php
@@ -27,6 +35,22 @@ class Collection  {
      * @return \mysql_xdevapi\CollectionAdd
      */
     public function add($document) {}
+
+    /**
+     * Add or replace collection document
+     * @link http://php.net/manual/en/mysql-xdevapi-collection.addorreplaceone.php
+     * @param string $id
+     * @param mixed $document
+     * @return \mysql_xdevapi\Result
+     */
+    public function addOrReplaceOne($id,$document) {}
+
+    /**
+     * @link http://php.net/manual/en/mysql-xdevapi-collection.find.php
+     * @param string $search_condition
+     * @return \mysql_xdevapi\CollectionFind
+     */
+    public function find($search_condition) {}
 }
 
 /**
@@ -51,8 +75,81 @@ class Session {
      */
     public function createSchema($schema_name) {}
 
+    /**
+     * Close session
+     * @return bool
+     */
+    public function close() {
+
+    }
+
 }
 
+/**
+ * Interface Executable
+ * @package mysql_xdevapi
+ */
+interface Executable {
+
+}
+
+/**
+ * Interface CrudOperationBindable
+ * @package mysql_xdevapi
+ */
+interface CrudOperationBindable {
+
+}
+
+/**
+ * Interface CrudOperationLimitable
+ * @package mysql_xdevapi
+ */
+interface CrudOperationLimitable {
+
+}
+
+/**
+ * Interface CrudOperationSortable
+ * @package mysql_xdevapi
+ */
+interface CrudOperationSortable {
+
+}
+
+/**
+ * Class CollectionFind
+ * @http://php.net/manual/en/class.mysql-xdevapi-collectionfind.php
+ * @package mysql_xdevapi
+ */
+class CollectionFind  implements \mysql_xdevapi\Executable
+    , \mysql_xdevapi\CrudOperationBindable
+    , \mysql_xdevapi\CrudOperationLimitable
+    , \mysql_xdevapi\CrudOperationSortable
+{
+    /**
+     * Execute the statement
+     * @link http://php.net/manual/en/mysql-xdevapi-collectionfind.execute.php
+     * @return \mysql_xdevapi\DocResult
+     */
+    public function execute() {}
+
+    /**
+     * Execute operation with EXCLUSIVE LOCK
+     * @link http://php.net/manual/en/mysql-xdevapi-collectionfind.lockexclusive.php
+     * @param mixed $lock_waiting_option MYSQLX_LOCK_*
+     * @return \mysql_xdevapi\CollectionFind
+     */
+    public function lockExclusive($lock_waiting_option = null) {}
+
+    /**
+     * Execute operation with SHARED LOCK
+     * @link http://php.net/manual/en/mysql-xdevapi-collectionfind.lockshared.php
+     * @param mixed $lock_waiting_option MYSQLX_LOCK_*
+     * @return \mysql_xdevapi\CollectionFind
+     */
+    public function lockShared($lock_waiting_option = null) {}
+}
 /**
  * Class Schema
  * @package mysql_xdevapi
@@ -76,10 +173,55 @@ class Exception extends \RuntimeException implements \Throwable {
 }
 
 /**
- * Class Result
+ * interface BaseResult
+ * @link http://php.net/manual/en/class.mysql-xdevapi-baseresult.php
  * @package mysql_xdevapi
  */
-class Result {
+interface BaseResult {
+
+}
+
+/**
+ * Class DocResult
+ * @package mysql_xdevapi
+ */
+class DocResult implements \mysql_xdevapi\BaseResult , \Traversable {
+
+    /**
+     * Get one row
+     * @link http://php.net/manual/en/mysql-xdevapi-docresult.fetchone.php
+     * @return object
+     */
+    public function fetchOne() {}
+
+    /**
+     * Get all rows
+     * @link http://php.net/manual/en/mysql-xdevapi-docresult.fetchall.php
+     * @return array
+     */
+    public function fetchAll() {}
+}
+
+/**
+ * Class Result
+ * @http://php.net/manual/en/class.mysql-xdevapi-result.php
+ * @package mysql_xdevapi
+ */
+class Result implements \mysql_xdevapi\BaseResult , \Traversable   {
+
+    /**
+     * Get generated ids. The id is the type of "00005b650a8b000000000000000e"
+     * @link http://php.net/manual/en/mysql-xdevapi-result.getgeneratedids.php
+     * @return string[]
+     */
+    public function getGeneratedIds() {}
+
+    /**
+     * Get affected row count
+     * @link http://php.net/manual/en/mysql-xdevapi-sqlstatementresult.getaffecteditemscount.php
+     * @return integer
+     */
+    public function getAffectedItemsCount() {}
 
 }
 
