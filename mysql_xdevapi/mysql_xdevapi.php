@@ -51,6 +51,16 @@ class Collection  {
      * @return \mysql_xdevapi\CollectionFind
      */
     public function find($search_condition) {}
+
+    /**
+     * Get one document
+     * This is a shortcut for Collection.find("_id = :id").bind("id", id).execute().fetchOne();.
+     * @param $id
+     * @return mixed Null if object is not found
+     */
+    public function getOne($id) {
+
+    }
 }
 
 /**
@@ -162,6 +172,14 @@ class Schema {
      * @return \mysql_xdevapi\Collection
      */
     public function getCollection($name) {}
+
+    /**
+     * Add collection to schema
+     * @link http://php.net/manual/en/mysql-xdevapi-schema.createcollection.php
+     * @param $name
+     * @return \mysql_xdevapi\Collection
+     */
+    public function createCollection($name) {}
 }
 
 /**
