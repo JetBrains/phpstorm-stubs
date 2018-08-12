@@ -3,6 +3,10 @@
 // Start of standard v.5.3.2-0.dotdeb.1
 
 class __PHP_Incomplete_Class  {
+        /**
+         * @var string
+         */
+        public $__PHP_Incomplete_Class_Name;
 }
 
 class php_user_filter  {
