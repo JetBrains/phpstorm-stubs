@@ -721,7 +721,6 @@ class Memcached  {
 	 */
 	public function touchByKey ($server_key, $key, $expiration) {}
 
-
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Store multiple items
