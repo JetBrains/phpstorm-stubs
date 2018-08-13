@@ -6,7 +6,7 @@
 // http://www.wangafu.net/~nickm/libevent-book/
 
 // PHP Libevent extension documentation:
-// http://php.net/libevent
+// https://php.net/libevent
 
 
 // Event flags

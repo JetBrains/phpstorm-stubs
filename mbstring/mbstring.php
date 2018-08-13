@@ -1023,7 +1023,7 @@ function mb_ereg_replace ($pattern, $replacement, $string, $option = "msr") {}
 
 /**
  * Perform a regular expresssion seach and replace with multibyte support using a callback
- * @link http://www.php.net/manual/en/function.mb-ereg-replace-callback.php
+ * @link https://www.php.net/manual/en/function.mb-ereg-replace-callback.php
  * @param string $pattern <p>
  * The regular expression pattern.
  * </p>

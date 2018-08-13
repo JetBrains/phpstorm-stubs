@@ -78,7 +78,7 @@ class RLexer
      *
      * Define a callback to be invoked once lexer encounters a particular token.
      *
-     * @see http://php.net/manual/en/parle-rlexer.callout.php
+     * @see https://php.net/manual/en/parle-rlexer.callout.php
      * @param int $id Token id.
      * @param callable $callback Callable to be invoked. The callable doesn't receive any arguments and its return value is ignored.
      * @return void
@@ -90,7 +90,7 @@ class RLexer
      *
      * Consume the data for lexing.
      *
-     * @see http://php.net/manual/en/parle-rlexer.consume.php
+     * @see https://php.net/manual/en/parle-rlexer.consume.php
      * @param string $data Data to be lexed.
      * @return void
      */
@@ -101,7 +101,7 @@ class RLexer
      *
      * Dump the current state machine to stdout.
      *
-     * @see http://php.net/manual/en/parle-rlexer.dump.php
+     * @see https://php.net/manual/en/parle-rlexer.dump.php
      * @return void
      */
     public function dump() : void {}

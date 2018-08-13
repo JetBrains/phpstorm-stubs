@@ -858,7 +858,7 @@ define('POSIX_RLIMIT_LOCKS', 10);
 define('POSIX_RLIMIT_MSGQUEUE', 12);
 
 /**
- * The maximum value to which the process can be <a href="http://php.net/manual/en/function.pcntl-setpriority.php"> reniced</a> to. The value that will be used will be 20 - limit, as resource limit values cannot be negative.
+ * The maximum value to which the process can be <a href="https://php.net/manual/en/function.pcntl-setpriority.php"> reniced</a> to. The value that will be used will be 20 - limit, as resource limit values cannot be negative.
  * @link https://php.net/manual/en/posix.constants.setrlimit.php
  */
 define('POSIX_RLIMIT_NICE', 13);

@@ -111,7 +111,7 @@ class Lexer
     /**
      * Insert a regex macro, that can be later used as a shortcut and included in other regular expressions.
      *
-     * @see http://php.net/manual/en/parle-lexer.insertmacro.php
+     * @see https://php.net/manual/en/parle-lexer.insertmacro.php
      * @param string $name Name of the macros.
      * @param string $regex Regular expression.
      * @return void

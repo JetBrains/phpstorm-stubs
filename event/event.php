@@ -9,9 +9,9 @@
  * @property bool $pending
  *
  * @author Kazuaki MABUCHI
- * @copyright Сopyright (http://php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](http://creativecommons.org/licenses/by/3.0/).
+ * @copyright Сopyright (https://php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
  *
- * @see http://php.net/manual/en/class.event.php
+ * @see https://php.net/manual/en/class.event.php
  */
 final class Event
 {
@@ -34,7 +34,7 @@ final class Event
      * @param callable  $cb
      * @param mixed     $arg  = null
      *
-     * @see http://php.net/manual/en/event.construct.php
+     * @see https://php.net/manual/en/event.construct.php
      */
     public function __construct(EventBase $base, mixed $fd, int $what, callable $cb, mixed $arg = null)
     {
@@ -48,7 +48,7 @@ final class Event
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/event.add.php
+     * @see https://php.net/manual/en/event.add.php
      */
     public function add(double $timeout): bool
     {
@@ -62,7 +62,7 @@ final class Event
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/event.addsignal.php
+     * @see https://php.net/manual/en/event.addsignal.php
      */
     public function addSignal(double $timeout): bool
     {
@@ -76,7 +76,7 @@ final class Event
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/event.addtimer.php
+     * @see https://php.net/manual/en/event.addtimer.php
      */
     public function addTimer(double $timeout): bool
     {
@@ -88,7 +88,7 @@ final class Event
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/event.del.php
+     * @see https://php.net/manual/en/event.del.php
      */
     public function del(): bool
     {
@@ -100,7 +100,7 @@ final class Event
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/event.delsignal.php
+     * @see https://php.net/manual/en/event.delsignal.php
      */
     public function delSignal(): bool
     {
@@ -112,7 +112,7 @@ final class Event
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/event.deltimer.php
+     * @see https://php.net/manual/en/event.deltimer.php
      */
     public function delTimer(): bool
     {
@@ -122,7 +122,7 @@ final class Event
      * free.
      * Make event non-pending and free resources allocated for this event.
      *
-     * @see http://php.net/manual/en/event.free.php
+     * @see https://php.net/manual/en/event.free.php
      */
     public function free(): void
     {
@@ -134,7 +134,7 @@ final class Event
      *
      * @return array
      *
-     * @see http://php.net/manual/en/event.getsupportedmethods.php
+     * @see https://php.net/manual/en/event.getsupportedmethods.php
      */
     public static function getSupportedMethods(): array
     {
@@ -148,7 +148,7 @@ final class Event
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/event.pending.php
+     * @see https://php.net/manual/en/event.pending.php
      */
     public function pending(int $flags): bool
     {
@@ -166,7 +166,7 @@ final class Event
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/event.set.php
+     * @see https://php.net/manual/en/event.set.php
      */
     public function set(EventBase $base, mixed $fd, int $what, callable $cb, mixed $arg): bool
     {
@@ -178,7 +178,7 @@ final class Event
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/event.setpriority.php
+     * @see https://php.net/manual/en/event.setpriority.php
      */
     public function setPriority(int $priority): bool
     {
@@ -194,7 +194,7 @@ final class Event
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/event.settimer.php
+     * @see https://php.net/manual/en/event.settimer.php
      */
     public function setTimer(EventBase $base, callable $cb, mixed $arg): bool
     {
@@ -211,7 +211,7 @@ final class Event
      *
      * @return Event
      *
-     * @see http://php.net/manual/en/event.signal.php
+     * @see https://php.net/manual/en/event.signal.php
      */
     public static function signal(EventBase $base, int $signum, callable $cb, mixed $arg): Event
     {
@@ -227,7 +227,7 @@ final class Event
      *
      * @return Event
      *
-     * @see http://php.net/manual/en/event.timer.php
+     * @see https://php.net/manual/en/event.timer.php
      */
     public static function timer(EventBase $base, callable $cb, mixed $arg): Event
     {
@@ -242,9 +242,9 @@ final class Event
  * To configure event base to use, or avoid specific backend EventConfig class can be used.
  *
  * @author Kazuaki MABUCHI
- * @copyright Copyright (http://php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](http://creativecommons.org/licenses/by/3.0/).
+ * @copyright Copyright (https://php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
  *
- * @see http://php.net/manual/en/class.eventbase.php
+ * @see https://php.net/manual/en/class.eventbase.php
  */
 final class EventBase
 {
@@ -261,7 +261,7 @@ final class EventBase
      *
      * @param EventConfig $cfg
      *
-     * @see http://php.net/manual/en/eventbase.construct.php
+     * @see https://php.net/manual/en/eventbase.construct.php
      */
     public function __construct(EventConfig $cfg)
     {
@@ -271,7 +271,7 @@ final class EventBase
      * dispatch.
      * Dispatch pending events.
      *
-     * @see http://php.net/manual/en/eventbase.dispatch.php
+     * @see https://php.net/manual/en/eventbase.dispatch.php
      */
     public function dispatch(): void
     {
@@ -285,7 +285,7 @@ final class EventBase
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbase.exit.php
+     * @see https://php.net/manual/en/eventbase.exit.php
      */
     public function exit(double $timeout): bool
     {
@@ -295,7 +295,7 @@ final class EventBase
      * free.
      * Free resources allocated for this event base.
      *
-     * @see http://php.net/manual/en/eventbase.free.php
+     * @see https://php.net/manual/en/eventbase.free.php
      */
     public function free(): void
     {
@@ -307,7 +307,7 @@ final class EventBase
      *
      * @return int
      *
-     * @see http://php.net/manual/en/eventbase.getfeatures.php
+     * @see https://php.net/manual/en/eventbase.getfeatures.php
      */
     public function getFeatures(): int
     {
@@ -319,7 +319,7 @@ final class EventBase
      *
      * @return string
      *
-     * @see http://php.net/manual/en/eventbase.getmethod.php
+     * @see https://php.net/manual/en/eventbase.getmethod.php
      */
     public function getMethod(): string
     {
@@ -331,7 +331,7 @@ final class EventBase
      *
      * @return float
      *
-     * @see http://php.net/manual/en/eventbase.gettimeofdaycached.php
+     * @see https://php.net/manual/en/eventbase.gettimeofdaycached.php
      */
     public function getTimeOfDayCached(): double
     {
@@ -343,7 +343,7 @@ final class EventBase
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbase.gotexit.php
+     * @see https://php.net/manual/en/eventbase.gotexit.php
      */
     public function gotExit(): bool
     {
@@ -355,7 +355,7 @@ final class EventBase
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbase.gotstop.php
+     * @see https://php.net/manual/en/eventbase.gotstop.php
      */
     public function gotStop(): bool
     {
@@ -369,7 +369,7 @@ final class EventBase
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbase.loop.php
+     * @see https://php.net/manual/en/eventbase.loop.php
      */
     public function loop(int $flags): bool
     {
@@ -383,7 +383,7 @@ final class EventBase
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbase.priorityinit.php
+     * @see https://php.net/manual/en/eventbase.priorityinit.php
      */
     public function priorityInit(int $n_priorities): bool
     {
@@ -395,7 +395,7 @@ final class EventBase
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbase.reinit.php
+     * @see https://php.net/manual/en/eventbase.reinit.php
      */
     public function reInit(): bool
     {
@@ -407,7 +407,7 @@ final class EventBase
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbase.stop.php
+     * @see https://php.net/manual/en/eventbase.stop.php
      */
     public function stop(): bool
     {
@@ -424,9 +424,9 @@ final class EventBase
  * @property int $contiguous_space
  *
  * @author Kazuaki MABUCHI
- * @copyright Copyright (http://php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](http://creativecommons.org/licenses/by/3.0/).
+ * @copyright Copyright (https://php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
  *
- * @see http://php.net/manual/en/class.eventbuffer.php
+ * @see https://php.net/manual/en/class.eventbuffer.php
  */
 class EventBuffer
 {
@@ -444,7 +444,7 @@ class EventBuffer
      * __construct.
      * Constructs EventBuffer object.
      *
-     * @see http://php.net/manual/en/eventbuffer.construct.php
+     * @see https://php.net/manual/en/eventbuffer.construct.php
      */
     public function __construct()
     {
@@ -458,7 +458,7 @@ class EventBuffer
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbuffer.add.php
+     * @see https://php.net/manual/en/eventbuffer.add.php
      */
     public function add(string $data): bool
     {
@@ -472,7 +472,7 @@ class EventBuffer
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbuffer.addbuffer.php
+     * @see https://php.net/manual/en/eventbuffer.addbuffer.php
      */
     public function addBuffer(EventBuffer $buf): bool
     {
@@ -487,7 +487,7 @@ class EventBuffer
      *
      * @return int
      *
-     * @see http://php.net/manual/en/eventbuffer.appendfrom.php
+     * @see https://php.net/manual/en/eventbuffer.appendfrom.php
      */
     public function appendFrom(EventBuffer $buf, int $len): int
     {
@@ -502,7 +502,7 @@ class EventBuffer
      *
      * @return int
      *
-     * @see http://php.net/manual/en/eventbuffer.copyout.php
+     * @see https://php.net/manual/en/eventbuffer.copyout.php
      */
     public function copyout(string &$data, int $max_bytes): int
     {
@@ -516,7 +516,7 @@ class EventBuffer
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbuffer.drain.php
+     * @see https://php.net/manual/en/eventbuffer.drain.php
      */
     public function drain(int $len): bool
     {
@@ -525,7 +525,7 @@ class EventBuffer
     /**
      * enableLocking.
      *
-     * @see http://php.net/manual/en/eventbuffer.enablelocking.php
+     * @see https://php.net/manual/en/eventbuffer.enablelocking.php
      */
     public function enableLocking(): void
     {
@@ -539,7 +539,7 @@ class EventBuffer
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbuffer.expand.php
+     * @see https://php.net/manual/en/eventbuffer.expand.php
      */
     public function expand(int $len): bool
     {
@@ -553,7 +553,7 @@ class EventBuffer
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbuffer.freeze.php
+     * @see https://php.net/manual/en/eventbuffer.freeze.php
      */
     public function freeze(bool $at_front): bool
     {
@@ -563,7 +563,7 @@ class EventBuffer
      * lock.
      * Acquires a lock on buffer.
      *
-     * @see http://php.net/manual/en/eventbuffer.lock.php
+     * @see https://php.net/manual/en/eventbuffer.lock.php
      */
     public function lock(): void
     {
@@ -577,7 +577,7 @@ class EventBuffer
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbuffer.prepend.php
+     * @see https://php.net/manual/en/eventbuffer.prepend.php
      */
     public function prepend(string $data): bool
     {
@@ -591,7 +591,7 @@ class EventBuffer
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbuffer.prependbuffer.php
+     * @see https://php.net/manual/en/eventbuffer.prependbuffer.php
      */
     public function prependBuffer(EventBuffer $buf): bool
     {
@@ -605,7 +605,7 @@ class EventBuffer
      *
      * @return string
      *
-     * @see http://php.net/manual/en/eventbuffer.pullup.php
+     * @see https://php.net/manual/en/eventbuffer.pullup.php
      */
     public function pullup(int $size): string
     {
@@ -634,7 +634,7 @@ class EventBuffer
      *
      * @return int
      *
-     * @see http://php.net/manual/en/eventbuffer.readfrom.php
+     * @see https://php.net/manual/en/eventbuffer.readfrom.php
      */
     public function readFrom(mixed $fd, int $howmuch): int
     {
@@ -648,7 +648,7 @@ class EventBuffer
      *
      * @return string
      *
-     * @see http://php.net/manual/en/eventbuffer.readline.php
+     * @see https://php.net/manual/en/eventbuffer.readline.php
      */
     public function readLine(int $eol_style): string
     {
@@ -664,7 +664,7 @@ class EventBuffer
      *
      * @return mixed
      *
-     * @see http://php.net/manual/en/eventbuffer.search.php
+     * @see https://php.net/manual/en/eventbuffer.search.php
      */
     public function search(string $what, int $start = 1, int $end = 1): mixed
     {
@@ -679,7 +679,7 @@ class EventBuffer
      *
      * @return mixed
      *
-     * @see http://php.net/manual/en/eventbuffer.searcheol.php
+     * @see https://php.net/manual/en/eventbuffer.searcheol.php
      */
     public function searchEol(int $start = 1, int $eol_style = EOL_ANY): mixed
     {
@@ -694,7 +694,7 @@ class EventBuffer
      *
      * @return string
      *
-     * @see http://php.net/manual/en/eventbuffer.substr.php
+     * @see https://php.net/manual/en/eventbuffer.substr.php
      */
     public function substr(int $start, int $length): string
     {
@@ -708,7 +708,7 @@ class EventBuffer
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbuffer.unfreeze.php
+     * @see https://php.net/manual/en/eventbuffer.unfreeze.php
      */
     public function unfreeze(bool $at_front): bool
     {
@@ -720,7 +720,7 @@ class EventBuffer
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbuffer.unlock.php
+     * @see https://php.net/manual/en/eventbuffer.unlock.php
      */
     public function unlock(): bool
     {
@@ -735,7 +735,7 @@ class EventBuffer
      *
      * @return int
      *
-     * @see http://php.net/manual/en/eventbuffer.write.php
+     * @see https://php.net/manual/en/eventbuffer.write.php
      */
     public function write(mixed $fd, int $howmuch): int
     {
@@ -759,9 +759,9 @@ class EventBuffer
  * @property EventBuffer $output
  *
  * @author Kazuaki MABUCHI
- * @copyright Copyright (http://php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](http://creativecommons.org/licenses/by/3.0/).
+ * @copyright Copyright (https://php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
  *
- * @see http://php.net/manual/en/class.eventbufferevent.php
+ * @see https://php.net/manual/en/class.eventbufferevent.php
  */
 final class EventBufferEvent
 {
@@ -795,7 +795,7 @@ final class EventBufferEvent
      * @param callable  $writecb = null
      * @param callable  $eventcb = null
      *
-     * @see http://php.net/manual/en/eventbufferevent.construct.php
+     * @see https://php.net/manual/en/eventbufferevent.construct.php
      */
     public function __construct(EventBase $base, mixed $socket = null, int $options = 0, callable $readcb = null, callable $writecb = null, callable $eventcb = null)
     {
@@ -805,7 +805,7 @@ final class EventBufferEvent
      * close.
      * Closes file descriptor associated with the current buffer event.
      *
-     * @see http://php.net/manual/en/eventbufferevent.close.php
+     * @see https://php.net/manual/en/eventbufferevent.close.php
      */
     public function close(): void
     {
@@ -819,7 +819,7 @@ final class EventBufferEvent
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbufferevent.connect.php
+     * @see https://php.net/manual/en/eventbufferevent.connect.php
      */
     public function connect(string $addr): bool
     {
@@ -836,7 +836,7 @@ final class EventBufferEvent
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbufferevent.connecthost.php
+     * @see https://php.net/manual/en/eventbufferevent.connecthost.php
      */
     public function connectHost(EventDnsBase $dns_base, string $hostname, int $port, int $family = AF_UNSPEC): bool
     {
@@ -851,7 +851,7 @@ final class EventBufferEvent
      *
      * @return array
      *
-     * @see http://php.net/manual/en/eventbufferevent.createpair.php
+     * @see https://php.net/manual/en/eventbufferevent.createpair.php
      */
     public static function createPair(EventBase $base, int $options = 0): array
     {
@@ -865,7 +865,7 @@ final class EventBufferEvent
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbufferevent.disable.php
+     * @see https://php.net/manual/en/eventbufferevent.disable.php
      */
     public function disable(int $events): bool
     {
@@ -879,7 +879,7 @@ final class EventBufferEvent
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbufferevent.enable.php
+     * @see https://php.net/manual/en/eventbufferevent.enable.php
      */
     public function enable(int $events): bool
     {
@@ -889,7 +889,7 @@ final class EventBufferEvent
      * free.
      * Free a buffer event.
      *
-     * @see http://php.net/manual/en/eventbufferevent.free.php
+     * @see https://php.net/manual/en/eventbufferevent.free.php
      */
     public function free(): void
     {
@@ -901,7 +901,7 @@ final class EventBufferEvent
      *
      * @return string
      *
-     * @see http://php.net/manual/en/eventbufferevent.getdnserrorstring.php
+     * @see https://php.net/manual/en/eventbufferevent.getdnserrorstring.php
      */
     public function getDnsErrorString(): string
     {
@@ -913,7 +913,7 @@ final class EventBufferEvent
      *
      * @return int
      *
-     * @see http://php.net/manual/en/eventbufferevent.getenabled.php
+     * @see https://php.net/manual/en/eventbufferevent.getenabled.php
      */
     public function getEnabled(): int
     {
@@ -925,7 +925,7 @@ final class EventBufferEvent
      *
      * @return EventBuffer
      *
-     * @see http://php.net/manual/en/eventbufferevent.getinput.php
+     * @see https://php.net/manual/en/eventbufferevent.getinput.php
      */
     public function getInput(): EventBuffer
     {
@@ -937,7 +937,7 @@ final class EventBufferEvent
      *
      * @return EventBuffer
      *
-     * @see http://php.net/manual/en/eventbufferevent.getoutput.php
+     * @see https://php.net/manual/en/eventbufferevent.getoutput.php
      */
     public function getOutput(): EventBuffer
     {
@@ -951,7 +951,7 @@ final class EventBufferEvent
      *
      * @return string
      *
-     * @see http://php.net/manual/en/eventbufferevent.read.php
+     * @see https://php.net/manual/en/eventbufferevent.read.php
      */
     public function read(int $size): string
     {
@@ -965,7 +965,7 @@ final class EventBufferEvent
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbufferevent.readbuffer.php
+     * @see https://php.net/manual/en/eventbufferevent.readbuffer.php
      */
     public function readBuffer(EventBuffer $buf): bool
     {
@@ -980,7 +980,7 @@ final class EventBufferEvent
      * @param callable $eventcb
      * @param string   $arg     (optional)
      *
-     * @see http://php.net/manual/en/eventbufferevent.setcallbacks.php
+     * @see https://php.net/manual/en/eventbufferevent.setcallbacks.php
      */
     public function setCallbacks(callable $readcb, callable $writecb, callable $eventcb, string $arg): void
     {
@@ -994,7 +994,7 @@ final class EventBufferEvent
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbufferevent.setpriority.php
+     * @see https://php.net/manual/en/eventbufferevent.setpriority.php
      */
     public function setPriority(int $priority): bool
     {
@@ -1009,7 +1009,7 @@ final class EventBufferEvent
      *
      * @return bool
      *
-     * @see http://php.net/manual/en/eventbufferevent.settimeouts.php
+     * @see https://php.net/manual/en/eventbufferevent.settimeouts.php
      */
     public function setTimeouts(float $timeout_read, float $timeout_write): bool
     {
@@ -1023,7 +1023,7 @@ final class EventBufferEvent
      * @param int $lowmark
      * @param int $highmark
      *
-     * @see http://php.net/manual/en/eventbufferevent.setwatermark.php
+     * @see https://php.net/manual/en/eventbufferevent.setwatermark.php
      */
     public function setWatermark(int $events, int $lowmark, int $highmark): void
     {

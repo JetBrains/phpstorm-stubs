@@ -2,7 +2,7 @@
 /**
  * Stubs for PECL/rrd extension
  * Description taken from official documenation
- * @link     http://php.net/manual/en/book.rrd.php
+ * @link     https://php.net/manual/en/book.rrd.php
  * @author   Olegs Capligins <shader@dautkom.lv>
  */
 

@@ -5,7 +5,7 @@
 /**
  * Represents an error raised by PDO. You should not throw a
  * <b>PDOException</b> from your own code.
- * @see http://php.net/manual/en/language.exceptions.php Exceptions in PHP
+ * @see https://php.net/manual/en/language.exceptions.php Exceptions in PHP
  * @link https://php.net/manual/en/class.pdoexception.php
  */
 class PDOException extends RuntimeException  {
@@ -293,7 +293,7 @@ class PDO  {
 	const ATTR_TIMEOUT = 2;
 
 	/**
-	 * @see http://php.net/manual/en/pdo.error-handling.php Errors and error handling
+	 * @see https://php.net/manual/en/pdo.error-handling.php Errors and error handling
 	 * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.attr-errmode
 	 */
 	const ATTR_ERRMODE = 3;
@@ -352,7 +352,7 @@ class PDO  {
 
 	/**
 	 * Request a persistent connection, rather than creating a new connection.
-	 * @see http://php.net/manual/en/pdo.connections.php Connections and Connection Management
+	 * @see https://php.net/manual/en/pdo.connections.php Connections and Connection Management
 	 * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.attr-persistent
 	 */
 	const ATTR_PERSISTENT = 12;
@@ -422,21 +422,21 @@ class PDO  {
 	/**
 	 * Do not raise an error or exception if an error occurs. The developer is
 	 * expected to explicitly check for errors. This is the default mode.
-	 * @see http://php.net/manual/en/pdo.error-handling.php  Errors and Error Handling
+	 * @see https://php.net/manual/en/pdo.error-handling.php  Errors and Error Handling
 	 * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.errmode-silent
 	 */
 	const ERRMODE_SILENT = 0;
 
 	/**
 	 * Issue a PHP <b>E_WARNING</b> message if an error occurs.
-	 * @see http://php.net/manual/en/pdo.error-handling.php  Errors and Error Handling
+	 * @see https://php.net/manual/en/pdo.error-handling.php  Errors and Error Handling
 	 * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.errmode-warning
 	 */
 	const ERRMODE_WARNING = 1;
 
 	/**
 	 * Throw a <b>PDOException</b> if an error occurs.
-	 * @see http://php.net/manual/en/pdo.error-handling.php  Errors and Error Handling
+	 * @see https://php.net/manual/en/pdo.error-handling.php  Errors and Error Handling
 	 * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.errmode-exception
 	 */
 	const ERRMODE_EXCEPTION = 2;
@@ -1115,7 +1115,7 @@ class PDO  {
     /**
      * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo_sqlite &gt;= 1.0.0)<br/>
      * Registers a User Defined Function for use in SQL statements
-     * @link http://php.net/manual/en/pdo.sqlitecreatefunction.php
+     * @link https://php.net/manual/en/pdo.sqlitecreatefunction.php
      * @param string $function_name <p>
      * The name of the function used in SQL statements.
      * </p>

@@ -256,7 +256,7 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Sets the index-time boost value for a field
-	 * http://php.net/manual/en/solrinputdocument.setfieldboost.php
+	 * https://php.net/manual/en/solrinputdocument.setfieldboost.php
 	 * @param string $fieldName <p>
 	 * The name of the field.
 	 * </p>

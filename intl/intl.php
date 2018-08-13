@@ -1106,13 +1106,13 @@ class Normalizer {
 
     /**
      * Default normalization options
-     * @link http://www.php.net/manual/en/class.normalizer.php
+     * @link https://www.php.net/manual/en/class.normalizer.php
      */
     const OPTION_DEFAULT = "";
 
     /**
      * No decomposition/composition
-     * @link http://www.php.net/manual/en/class.normalizer.php
+     * @link https://www.php.net/manual/en/class.normalizer.php
      */
     const NONE = "1";
 

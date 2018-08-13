@@ -1,6 +1,6 @@
 <?php
 
-//TODO: copy proper descriptions for all constants from http://us.php.net/manual/en/function.curl-setopt.php
+//TODO: copy proper descriptions for all constants from https://php.net/manual/en/function.curl-setopt.php
 
 /**
  * A bitmask consisting of one or more of

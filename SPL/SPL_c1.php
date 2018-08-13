@@ -573,7 +573,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Construct a new file object.
          *
-         * @link  http://php.net/manual/en/splfileobject.construct.php
+         * @link  https://php.net/manual/en/splfileobject.construct.php
          *
          * @param string   $file_name        The file to open
          * @param string   $open_mode        [optional] The mode in which to open the file. See {@see fopen} for a list of allowed modes.
