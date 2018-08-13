@@ -10,7 +10,7 @@
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrDocumentField<br/>
  * This class represents a field in a Solr document. All its properties are read-only.
- * @link http://php.net/manual/en/class.solrdocumentfield.php
+ * @link https://php.net/manual/en/class.solrdocumentfield.php
  */
 final class SolrDocumentField {
 
@@ -26,14 +26,14 @@ final class SolrDocumentField {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * SolrDocument constructor.
-	 * @link http://php.net/manual/en/solrdocumentfield.construct.php
+	 * @link https://php.net/manual/en/solrdocumentfield.construct.php
 	 */
 	public function __construct () {}
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Destructor
-	 * @link http://php.net/manual/en/solrdocumentfield.destruct.php
+	 * @link https://php.net/manual/en/solrdocumentfield.destruct.php
 	 */
 	public function __destruct() {}
 

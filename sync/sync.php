@@ -1,7 +1,7 @@
 <?php
 /**
  * sync PECL extension stubs v.0.1
- * @link http://php.net/manual/en/book.sync.php
+ * @link https://php.net/manual/en/book.sync.php
  */
 /**
  * SyncMutex
@@ -9,7 +9,7 @@
  * A cross-platform, native implementation of named and unnamed countable mutex objects.
  * A mutex is a mutual exclusion object that restricts access to a shared resource (e.g. a file) to a single instance. Countable mutexes acquire the mutex a single time and internally track the number of times the mutex is locked. The mutex is unlocked as soon as it goes out of scope or is unlocked the same number of times that it was locked.
  *
- * @link http://php.net/manual/en/class.syncmutex.php
+ * @link https://php.net/manual/en/class.syncmutex.php
  */
 class SyncMutex {
     /**
@@ -19,7 +19,7 @@ class SyncMutex {
      *
      * @param string $name [optional] The name of the mutex if this is a named mutex object. If the name already exists, it must be able to be opened by the current user that the process is running as or an exception will be thrown with a meaningless error message.
      * @throws Exception if the mutex cannot be created or opened
-     * @link http://php.net/manual/en/syncmutex.construct.php
+     * @link https://php.net/manual/en/syncmutex.construct.php
      */
     public function __construct ( string $name ) {}
 
@@ -31,7 +31,7 @@ class SyncMutex {
      * @param int $wait [optional] The number of milliseconds to wait for the exclusive lock. A value of -1 is infinite.
      * @return bool TRUE if the lock was obtained, FALSE otherwise.
      * @see SyncMutex::unlock()
-     * @link http://php.net/manual/en/syncmutex.lock.php
+     * @link https://php.net/manual/en/syncmutex.lock.php
      */
     public function lock ( int $wait = -1 ) {}
 
@@ -43,7 +43,7 @@ class SyncMutex {
      * @param bool $all [optional] Specifies whether or not to set the internal counter to zero and therefore release the lock.
      * @return bool TRUE if the unlock operation was successful, FALSE otherwise.
      * @see SyncMutex::lock()
-     * @link http://php.net/manual/en/syncmutex.unlock.php
+     * @link https://php.net/manual/en/syncmutex.unlock.php
      */
     public function unlock ( bool $all = FALSE ) {}
     }
@@ -54,7 +54,7 @@ class SyncMutex {
  * A cross-platform, native implementation of named and unnamed sempahore objects.
  * A semaphore restricts access to a limited resource to a limited number of instances. Semaphores differ from mutexes in that they can allow more than one instance to access a resource at one time while a mutex only allows one instance at a time.
  *
- * @link http://php.net/manual/en/class.syncsemaphore.php
+ * @link https://php.net/manual/en/class.syncsemaphore.php
  */
 class SyncSemaphore {
     /**
@@ -66,7 +66,7 @@ class SyncSemaphore {
      * @param int    $initialval [optional] The initial value of the semaphore. This is the number of locks that may be obtained.
      * @param bool   $autounlock [optional] Specifies whether or not to automatically unlock the semaphore at the conclusion of the PHP script. Warning: If an object is: A named semaphore with an autounlock of FALSE, the object is locked, and the PHP script concludes before the object is unlocked, then the underlying semaphore will end up in an inconsistent state.
      * @throws Exception if the semaphore cannot be created or opened
-     * @link http://php.net/manual/en/syncsemaphore.construct.php
+     * @link https://php.net/manual/en/syncsemaphore.construct.php
      */
     public function __construct ( string $name, int $initialval = 1, bool $autounlock = TRUE ) {}
 
@@ -78,7 +78,7 @@ class SyncSemaphore {
      * @param int $wait The number of milliseconds to wait for the semaphore. A value of -1 is infinite.
      * @return bool TRUE if the lock operation was successful, FALSE otherwise.
      * @see SyncSemaphore::unlock()
-     * @link http://php.net/manual/en/syncsemaphore.lock.php
+     * @link https://php.net/manual/en/syncsemaphore.lock.php
      */
     public function lock ( int $wait = -1 ) {}
 
@@ -90,7 +90,7 @@ class SyncSemaphore {
      * @param int &$prevcount Returns the previous count of the semaphore.
      * @return bool TRUE if the unlock operation was successful, FALSE otherwise.
      * @see SyncSemaphore::lock()
-     * @link http://php.net/manual/en/syncsemaphore.unlock.php
+     * @link https://php.net/manual/en/syncsemaphore.unlock.php
      */
     public function unlock ( int &$prevcount ) {}
     }
@@ -101,7 +101,7 @@ class SyncSemaphore {
  * A cross-platform, native implementation of named and unnamed event objects. Both automatic and manual event objects are supported.
  * An event object waits, without polling, for the object to be fired/set. One instance waits on the event object while another instance fires/sets the event. Event objects are useful wherever a long-running process would otherwise poll a resource (e.g. checking to see if uploaded data needs to be processed).
  *
- * @link http://php.net/manual/en/class.syncevent.php
+ * @link https://php.net/manual/en/class.syncevent.php
  */
 class SyncEvent {
     /**
@@ -113,7 +113,7 @@ class SyncEvent {
      * @throws Exception if the event object cannot be created or opened
      * @since 1.0.0
      * @since 1.1.0 Added $prefire
-     * @link http://php.net/manual/en/syncevent.construct.php
+     * @link https://php.net/manual/en/syncevent.construct.php
      */
     public function __construct ( string $name, bool $manual = FALSE, bool $prefire = FALSE ) {}
 
@@ -124,7 +124,7 @@ class SyncEvent {
      *
      * @return bool TRUE if the event was fired, FALSE otherwise.
      * @see SyncEvent::wait()
-     * @link http://php.net/manual/en/syncevent.fire.php
+     * @link https://php.net/manual/en/syncevent.fire.php
      */
     public function fire () {}
 
@@ -134,7 +134,7 @@ class SyncEvent {
      * Resets a SyncEvent object that has been fired/set. Only valid for manual event objects.
      *
      * @return bool TRUE if the object was successfully reset, FALSE otherwise.
-     * @link http://php.net/manual/en/syncevent.reset.php
+     * @link https://php.net/manual/en/syncevent.reset.php
      */
     public function reset () {}
 
@@ -146,7 +146,7 @@ class SyncEvent {
      * @param int $wait The number of milliseconds to wait for the event to be fired. A value of -1 is infinite.
      * @return bool TRUE if the event was fired, FALSE otherwise.
      * @see SyncEvent::fire()
-     * @link http://php.net/manual/en/syncevent.wait.php
+     * @link https://php.net/manual/en/syncevent.wait.php
      */
     public function wait ( int $wait = -1 ) {}
     }
@@ -157,7 +157,7 @@ class SyncEvent {
  * A cross-platform, native implementation of named and unnamed reader-writer objects.
  * A reader-writer object allows many readers or one writer to access a resource. This is an efficient solution for managing resources where access will primarily be read-only but exclusive write access is occasionally necessary.
  *
- * @link http://php.net/manual/en/class.syncreaderwriter.php
+ * @link https://php.net/manual/en/class.syncreaderwriter.php
  */
 class SyncReaderWriter {
     /**
@@ -168,7 +168,7 @@ class SyncReaderWriter {
      * @param string $name       [optional] The name of the reader-writer if this is a named reader-writer object. Note: If the name already exists, it must be able to be opened by the current user that the process is running as or an exception will be thrown with a meaningless error message.
      * @param bool   $autounlock [optional] Specifies whether or not to automatically unlock the reader-writer at the conclusion of the PHP script. Warning: If an object is: A named reader-writer with an autounlock of FALSE, the object is locked for either reading or writing, and the PHP script concludes before the object is unlocked, then the underlying objects will end up in an inconsistent state.
      * @throws Exception if the reader-writer cannot be created or opened.
-     * @link http://php.net/manual/en/syncreaderwriter.construct.php
+     * @link https://php.net/manual/en/syncreaderwriter.construct.php
      */
     public function __construct ( string $name, bool $autounlock = TRUE ) {}
 
@@ -180,7 +180,7 @@ class SyncReaderWriter {
      * @param int $wait [optional] The number of milliseconds to wait for a lock. A value of -1 is infinite.
      * @return bool TRUE if the lock was obtained, FALSE otherwise.
      * @see SyncReaderWriter::readunlock()
-     * @link http://php.net/manual/en/syncreaderwriter.readlock.php
+     * @link https://php.net/manual/en/syncreaderwriter.readlock.php
      */
     public function readlock ( int $wait = -1 ) {}
 
@@ -191,7 +191,7 @@ class SyncReaderWriter {
      *
      * @return bool TRUE if the unlock operation was successful, FALSE otherwise.
      * @see SyncReaderWriter::readlock()
-     * @link http://php.net/manual/en/syncreaderwriter.readunlock.php
+     * @link https://php.net/manual/en/syncreaderwriter.readunlock.php
      */
     public function readunlock () {}
 
@@ -203,7 +203,7 @@ class SyncReaderWriter {
      * @param int $wait [optional] The number of milliseconds to wait for a lock. A value of -1 is infinite.
      * @return bool TRUE if the lock was obtained, FALSE otherwise.
      * @see SyncReaderWriter::writeunlock()
-     * @link http://php.net/manual/en/syncreaderwriter.writelock.php
+     * @link https://php.net/manual/en/syncreaderwriter.writelock.php
      */
     public function writelock ( int $wait = -1 ) {}
 
@@ -214,7 +214,7 @@ class SyncReaderWriter {
      *
      * @return bool TRUE if the unlock operation was successful, FALSE otherwise.
      * @see SyncReaderWriter::writelock()
-     * @link http://php.net/manual/en/syncreaderwriter.writeunlock.php
+     * @link https://php.net/manual/en/syncreaderwriter.writeunlock.php
      */
     public function writeunlock () {}
     }
@@ -227,7 +227,7 @@ class SyncReaderWriter {
  * Synchronization objects (e.g. SyncMutex) are still required to protect most uses of shared memory.
  *
  * @since 1.1.0
- * @link http://php.net/manual/en/class.syncsharedmemory.php
+ * @link https://php.net/manual/en/class.syncsharedmemory.php
  */
 class SyncSharedMemory {
     /**
@@ -238,7 +238,7 @@ class SyncSharedMemory {
      * @param string $name The name of the shared memory object. Note: If the name already exists, it must be able to be opened by the current user that the process is running as or an exception will be thrown with a meaningless error message.
      * @param int    $size The size, in bytes, of shared memory to reserve. Note: The amount of memory cannot be resized later. Request sufficient storage up front.
      * @throws Exception if the shared memory object cannot be created or opened.
-     * @link http://php.net/manual/en/syncsharedmemory.construct.php
+     * @link https://php.net/manual/en/syncsharedmemory.construct.php
      */
     public function __construct ( string $name, int $size ) {}
 
@@ -248,7 +248,7 @@ class SyncSharedMemory {
      * Retrieves the system-wide first instance status of a SyncSharedMemory object.
      *
      * @return bool TRUE if the object is the first instance system-wide, FALSE otherwise.
-     * @link http://php.net/manual/en/syncsharedmemory.first.php
+     * @link https://php.net/manual/en/syncsharedmemory.first.php
      */
     public function first () {}
 
@@ -261,7 +261,7 @@ class SyncSharedMemory {
      * @param int $length [optional] The number of bytes to read. Note: If unspecified, reading will stop at the end of the shared memory segment. If the value is negative, reading will stop the specified number of bytes from the end of the shared memory segment.
      * @return string containing the data read from shared memory.
      * @see SyncSharedMemory::write()
-     * @link http://php.net/manual/en/syncsharedmemory.read.php
+     * @link https://php.net/manual/en/syncsharedmemory.read.php
      */
     public function read ( int $start = 0, int $length ) {}
 
@@ -271,7 +271,7 @@ class SyncSharedMemory {
      * Retrieves the shared memory size of a SyncSharedMemory object.
      *
      * @return int containing the size of the shared memory. This will be the same size that was passed to the constructor.
-     * @link http://php.net/manual/en/syncsharedmemory.size.php
+     * @link https://php.net/manual/en/syncsharedmemory.size.php
      */
     public function size () {}
 
@@ -283,7 +283,7 @@ class SyncSharedMemory {
      * @param string $string The data to write to shared memoy. Note: If the size of the data exceeds the size of the shared memory, the number of bytes written returned will be less than the length of the input.
      * @param int    $start  The start/offset, in bytes, to begin writing. Note: If the value is negative, the starting position will begin at the specified number of bytes from the end of the shared memory segment.
      * @return int containing the number of bytes written to shared memory.
-     * @link http://php.net/manual/en/syncsharedmemory.write.php
+     * @link https://php.net/manual/en/syncsharedmemory.write.php
      */
     public function write ( string $string, int $start = 0 ) {}
     }

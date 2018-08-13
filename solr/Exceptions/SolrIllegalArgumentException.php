@@ -10,14 +10,14 @@
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrIllegalArgumentException<br/>
  * This object is thrown when an illegal or invalid argument is passed to a method.
- * @link http://php.net/manual/en/class.solrillegalargumentexception.php
+ * @link https://php.net/manual/en/class.solrillegalargumentexception.php
  */
 class SolrIllegalArgumentException extends SolrException {
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns internal information where the Exception was thrown
-	 * @link http://php.net/manual/en/solrillegalargumentexception.getinternalinfo.php
+	 * @link https://php.net/manual/en/solrillegalargumentexception.getinternalinfo.php
 	 * @return array <p>
 	 * Returns an array containing internal information where the error was thrown. Used only for debugging by extension
 	 * developers.

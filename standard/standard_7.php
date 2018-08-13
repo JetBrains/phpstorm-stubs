@@ -2,7 +2,7 @@
 
 /**
  * Open Internet or Unix domain socket connection
- * @link http://php.net/manual/en/function.fsockopen.php
+ * @link https://php.net/manual/en/function.fsockopen.php
  * @param string $hostname <p>
  * If you have compiled in OpenSSL support, you may prefix the
  * hostname with either ssl://
@@ -48,7 +48,7 @@ function fsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $t
 
 /**
  * Open persistent Internet or Unix domain socket connection
- * @link http://php.net/manual/en/function.pfsockopen.php
+ * @link https://php.net/manual/en/function.pfsockopen.php
  * @param string $hostname 
  * @param int $port [optional] 
  * @param int $errno [optional] 
@@ -62,7 +62,7 @@ function pfsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $
 
 /**
  * Pack data into binary string
- * @link http://php.net/manual/en/function.pack.php
+ * @link https://php.net/manual/en/function.pack.php
  * @param string $format <p>
  * The format string consists of format codes
  * followed by an optional repeater argument. The repeater argument can
@@ -171,7 +171,7 @@ function pack ($format, $args = null, $_ = null) {}
 
 /**
  * Unpack data from binary string
- * @link http://php.net/manual/en/function.unpack.php
+ * @link https://php.net/manual/en/function.unpack.php
  * @param string $format <p>
  * See pack for an explanation of the format codes.
  * </p>
@@ -188,7 +188,7 @@ function unpack ($format, $data, $offset) {}
 
 /**
  * Tells what the user's browser is capable of
- * @link http://php.net/manual/en/function.get-browser.php
+ * @link https://php.net/manual/en/function.get-browser.php
  * @param string $user_agent [optional] <p>
  * The User Agent to be analyzed. By default, the value of HTTP
  * User-Agent header is used; however, you can alter this (i.e., look up
@@ -219,7 +219,7 @@ function get_browser ($user_agent = null, $return_array = null) {}
 
 /**
  * One-way string encryption (hashing)
- * @link http://php.net/manual/en/function.crypt.php
+ * @link https://php.net/manual/en/function.crypt.php
  * @param string $str <p>
  * The string to be encrypted.
  * </p>
@@ -241,7 +241,7 @@ function crypt ($str, $salt = null) {}
 
 /**
  * Open directory handle
- * @link http://php.net/manual/en/function.opendir.php
+ * @link https://php.net/manual/en/function.opendir.php
  * @param string $path <p>
  * The directory path that is to be opened
  * </p>
@@ -269,7 +269,7 @@ function opendir ($path, $context = null) {}
 
 /**
  * Close directory handle
- * @link http://php.net/manual/en/function.closedir.php
+ * @link https://php.net/manual/en/function.closedir.php
  * @param resource $dir_handle [optional] <p>
  * The directory handle resource previously opened
  * with opendir. If the directory handle is 
@@ -284,7 +284,7 @@ function closedir ($dir_handle = null) {}
 
 /**
  * Change directory
- * @link http://php.net/manual/en/function.chdir.php
+ * @link https://php.net/manual/en/function.chdir.php
  * @param string $directory <p>
  * The new current directory
  * </p>
@@ -296,7 +296,7 @@ function chdir ($directory) {}
 
 /**
  * Change the root directory
- * @link http://php.net/manual/en/function.chroot.php
+ * @link https://php.net/manual/en/function.chroot.php
  * @param string $directory <p>
  * The new directory
  * </p>
@@ -308,7 +308,7 @@ function chroot ($directory) {}
 
 /**
  * Gets the current working directory
- * @link http://php.net/manual/en/function.getcwd.php
+ * @link https://php.net/manual/en/function.getcwd.php
  * @return string the current working directory on success, or false on
  * failure.
  * </p> 
@@ -325,7 +325,7 @@ function getcwd () {}
 
 /**
  * Rewind directory handle
- * @link http://php.net/manual/en/function.rewinddir.php
+ * @link https://php.net/manual/en/function.rewinddir.php
  * @param resource $dir_handle [optional] <p>
  * The directory handle resource previously opened
  * with opendir. If the directory handle is 
@@ -340,7 +340,7 @@ function rewinddir ($dir_handle = null) {}
 
 /**
  * Read entry from directory handle
- * @link http://php.net/manual/en/function.readdir.php
+ * @link https://php.net/manual/en/function.readdir.php
  * @param resource $dir_handle [optional] <p>
  * The directory handle resource previously opened
  * with opendir. If the directory handle is 
@@ -355,7 +355,7 @@ function readdir ($dir_handle = null) {}
 
 /**
  * Return an instance of the Directory class
- * @link http://php.net/manual/en/class.dir.php
+ * @link https://php.net/manual/en/class.dir.php
  * @param $directory
  * @param $context [optional]
  * @return Directory 
@@ -366,7 +366,7 @@ function dir ($directory, $context) {}
 
 /**
  * List files and directories inside the specified path
- * @link http://php.net/manual/en/function.scandir.php
+ * @link https://php.net/manual/en/function.scandir.php
  * @param string $directory <p>
  * The directory that will be scanned.
  * </p>
@@ -390,7 +390,7 @@ function scandir ($directory, $sorting_order = null, $context = null) {}
 
 /**
  * Find pathnames matching a pattern
- * @link http://php.net/manual/en/function.glob.php
+ * @link https://php.net/manual/en/function.glob.php
  * @param string $pattern <p>
  * The pattern. No tilde expansion or parameter substitution is done.
  * </p>
@@ -416,7 +416,7 @@ function glob ($pattern, $flags = null) {}
 
 /**
  * Gets last access time of file
- * @link http://php.net/manual/en/function.fileatime.php
+ * @link https://php.net/manual/en/function.fileatime.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -429,7 +429,7 @@ function fileatime ($filename) {}
 
 /**
  * Gets inode change time of file
- * @link http://php.net/manual/en/function.filectime.php
+ * @link https://php.net/manual/en/function.filectime.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -442,7 +442,7 @@ function filectime ($filename) {}
 
 /**
  * Gets file group
- * @link http://php.net/manual/en/function.filegroup.php
+ * @link https://php.net/manual/en/function.filegroup.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -457,7 +457,7 @@ function filegroup ($filename) {}
 
 /**
  * Gets file inode
- * @link http://php.net/manual/en/function.fileinode.php
+ * @link https://php.net/manual/en/function.fileinode.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -469,7 +469,7 @@ function fileinode ($filename) {}
 
 /**
  * Gets file modification time
- * @link http://php.net/manual/en/function.filemtime.php
+ * @link https://php.net/manual/en/function.filemtime.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -483,7 +483,7 @@ function filemtime ($filename) {}
 
 /**
  * Gets file owner
- * @link http://php.net/manual/en/function.fileowner.php
+ * @link https://php.net/manual/en/function.fileowner.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -497,7 +497,7 @@ function fileowner ($filename) {}
 
 /**
  * Gets file permissions
- * @link http://php.net/manual/en/function.fileperms.php
+ * @link https://php.net/manual/en/function.fileperms.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -509,7 +509,7 @@ function fileperms ($filename) {}
 
 /**
  * Gets file size
- * @link http://php.net/manual/en/function.filesize.php
+ * @link https://php.net/manual/en/function.filesize.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -522,7 +522,7 @@ function filesize ($filename) {}
 
 /**
  * Gets file type
- * @link http://php.net/manual/en/function.filetype.php
+ * @link https://php.net/manual/en/function.filetype.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -540,7 +540,7 @@ function filetype ($filename) {}
 
 /**
  * Checks whether a file or directory exists
- * @link http://php.net/manual/en/function.file-exists.php
+ * @link https://php.net/manual/en/function.file-exists.php
  * @param string $filename <p>
  * Path to the file or directory.
  * </p>
@@ -570,7 +570,7 @@ function file_exists ($filename) {}
 
 /**
  * Tells whether the filename is writable
- * @link http://php.net/manual/en/function.is-writable.php
+ * @link https://php.net/manual/en/function.is-writable.php
  * @param string $filename <p>
  * The filename being checked.
  * </p>
@@ -583,7 +583,7 @@ function is_writable ($filename) {}
 
 /**
  * &Alias; <function>is_writable</function>
- * @link http://php.net/manual/en/function.is-writeable.php
+ * @link https://php.net/manual/en/function.is-writeable.php
  * @param string $filename <p>
  * The filename being checked.
  * </p>
@@ -596,7 +596,7 @@ function is_writeable ($filename) {}
 
 /**
  * Tells whether a file exists and is readable
- * @link http://php.net/manual/en/function.is-readable.php
+ * @link https://php.net/manual/en/function.is-readable.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -609,7 +609,7 @@ function is_readable ($filename) {}
 
 /**
  * Tells whether the filename is executable
- * @link http://php.net/manual/en/function.is-executable.php
+ * @link https://php.net/manual/en/function.is-executable.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -622,7 +622,7 @@ function is_executable ($filename) {}
 
 /**
  * Tells whether the filename is a regular file
- * @link http://php.net/manual/en/function.is-file.php
+ * @link https://php.net/manual/en/function.is-file.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -635,7 +635,7 @@ function is_file ($filename) {}
 
 /**
  * Tells whether the filename is a directory
- * @link http://php.net/manual/en/function.is-dir.php
+ * @link https://php.net/manual/en/function.is-dir.php
  * @param string $filename <p>
  * Path to the file. If filename is a relative
  * filename, it will be checked relative to the current working
@@ -651,7 +651,7 @@ function is_dir ($filename) {}
 
 /**
  * Tells whether the filename is a symbolic link
- * @link http://php.net/manual/en/function.is-link.php
+ * @link https://php.net/manual/en/function.is-link.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -664,7 +664,7 @@ function is_link ($filename) {}
 
 /**
  * Gives information about a file
- * @link http://php.net/manual/en/function.stat.php
+ * @link https://php.net/manual/en/function.stat.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -757,7 +757,7 @@ function stat ($filename) {}
 
 /**
  * Gives information about a file or symbolic link
- * @link http://php.net/manual/en/function.lstat.php
+ * @link https://php.net/manual/en/function.lstat.php
  * @param string $filename <p>
  * Path to a file or a symbolic link.
  * </p>
@@ -774,7 +774,7 @@ function lstat ($filename) {}
 
 /**
  * Changes file owner
- * @link http://php.net/manual/en/function.chown.php
+ * @link https://php.net/manual/en/function.chown.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -789,7 +789,7 @@ function chown ($filename, $user) {}
 
 /**
  * Changes file group
- * @link http://php.net/manual/en/function.chgrp.php
+ * @link https://php.net/manual/en/function.chgrp.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -804,7 +804,7 @@ function chgrp ($filename, $group) {}
 
 /**
  * Changes user ownership of symlink
- * @link http://php.net/manual/en/function.lchown.php
+ * @link https://php.net/manual/en/function.lchown.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -818,7 +818,7 @@ function lchown ($filename, $user) {}
 
 /**
  * Changes group ownership of symlink
- * @link http://php.net/manual/en/function.lchgrp.php
+ * @link https://php.net/manual/en/function.lchgrp.php
  * @param string $filename <p>
  * Path to the symlink.
  * </p>
@@ -832,7 +832,7 @@ function lchgrp ($filename, $group) {}
 
 /**
  * Changes file mode
- * @link http://php.net/manual/en/function.chmod.php
+ * @link https://php.net/manual/en/function.chmod.php
  * @param string $filename <p>
  * Path to the file.
  * </p>
@@ -866,7 +866,7 @@ function chmod ($filename, $mode) {}
 
 /**
  * Sets access and modification time of file
- * @link http://php.net/manual/en/function.touch.php
+ * @link https://php.net/manual/en/function.touch.php
  * @param string $filename <p>
  * The name of the file being touched.
  * </p>
@@ -887,7 +887,7 @@ function touch ($filename, $time = null, $atime = null) {}
 
 /**
  * Clears file status cache
- * @link http://php.net/manual/en/function.clearstatcache.php
+ * @link https://php.net/manual/en/function.clearstatcache.php
  * @param bool $clear_realpath_cache [optional] <p>
  * Whenever to clear realpath cache or not.
  * </p>
@@ -903,7 +903,7 @@ function clearstatcache ($clear_realpath_cache = null, $filename = null) {}
 
 /**
  * Returns the total size of a directory
- * @link http://php.net/manual/en/function.disk-total-space.php
+ * @link https://php.net/manual/en/function.disk-total-space.php
  * @param string $directory <p>
  * A directory of the filesystem or disk partition.
  * </p>
@@ -916,7 +916,7 @@ function disk_total_space ($directory) {}
 
 /**
  * Returns available space in directory
- * @link http://php.net/manual/en/function.disk-free-space.php
+ * @link https://php.net/manual/en/function.disk-free-space.php
  * @param string $directory <p>
  * A directory of the filesystem or disk partition.
  * </p>
@@ -934,7 +934,7 @@ function disk_free_space ($directory) {}
 
 /**
  * &Alias; <function>disk_free_space</function>
- * @link http://php.net/manual/en/function.diskfreespace.php
+ * @link https://php.net/manual/en/function.diskfreespace.php
  * @param $path
  * @since 4.0
  * @since 5.0
@@ -943,7 +943,7 @@ function diskfreespace ($path) {}
 
 /**
  * Send mail
- * @link http://php.net/manual/en/function.mail.php
+ * @link https://php.net/manual/en/function.mail.php
  * @param string $to <p>
  * Receiver, or receivers of the mail.
  * </p>
@@ -1027,7 +1027,7 @@ function mail ($to, $subject, $message, $additional_headers = null, $additional_
 
 /**
  * Calculate the hash value needed by EZMLM
- * @link http://php.net/manual/en/function.ezmlm-hash.php
+ * @link https://php.net/manual/en/function.ezmlm-hash.php
  * @param string $addr <p>
  * The email address that's being hashed.
  * </p>
@@ -1039,7 +1039,7 @@ function ezmlm_hash ($addr) {}
 
 /**
  * Open connection to system logger
- * @link http://php.net/manual/en/function.openlog.php
+ * @link https://php.net/manual/en/function.openlog.php
  * @param string $ident <p>
  * The string ident is added to each message. 
  * </p>

@@ -4,7 +4,7 @@
 
 /**
  * Converts Julian Day Count to Gregorian date
- * @link http://php.net/manual/en/function.jdtogregorian.php
+ * @link https://php.net/manual/en/function.jdtogregorian.php
  * @param int $julianday <p>
  * A julian day number as integer
  * </p>
@@ -16,7 +16,7 @@ function jdtogregorian ($julianday) {}
 
 /**
  * Converts a Gregorian date to Julian Day Count
- * @link http://php.net/manual/en/function.gregoriantojd.php
+ * @link https://php.net/manual/en/function.gregoriantojd.php
  * @param int $month <p>
  * The month as a number from 1 (for January) to 12 (for December)
  * </p>
@@ -34,7 +34,7 @@ function gregoriantojd ($month, $day, $year) {}
 
 /**
  * Converts a Julian Day Count to a Julian Calendar Date
- * @link http://php.net/manual/en/function.jdtojulian.php
+ * @link https://php.net/manual/en/function.jdtojulian.php
  * @param int $julianday <p>
  * A julian day number as integer
  * </p>
@@ -46,7 +46,7 @@ function jdtojulian ($julianday) {}
 
 /**
  * Converts a Julian Calendar date to Julian Day Count
- * @link http://php.net/manual/en/function.juliantojd.php
+ * @link https://php.net/manual/en/function.juliantojd.php
  * @param int $month <p>
  * The month as a number from 1 (for January) to 12 (for December)
  * </p>
@@ -64,7 +64,7 @@ function juliantojd ($month, $day, $year) {}
 
 /**
  * Converts a Julian day count to a Jewish calendar date
- * @link http://php.net/manual/en/function.jdtojewish.php
+ * @link https://php.net/manual/en/function.jdtojewish.php
  * @param int $juliandaycount
  * @param bool $hebrew [optional] <p>
  * If the <i>hebrew</i> parameter is set to <b>TRUE</b>, the
@@ -85,7 +85,7 @@ function jdtojewish ($juliandaycount, $hebrew = false, $fl = 0) {}
 
 /**
  * Converts a date in the Jewish Calendar to Julian Day Count
- * @link http://php.net/manual/en/function.jewishtojd.php
+ * @link https://php.net/manual/en/function.jewishtojd.php
  * @param int $month <p>
  * The month as a number from 1 to 13
  * </p>
@@ -103,7 +103,7 @@ function jewishtojd ($month, $day, $year) {}
 
 /**
  * Converts a Julian Day Count to the French Republican Calendar
- * @link http://php.net/manual/en/function.jdtofrench.php
+ * @link https://php.net/manual/en/function.jdtofrench.php
  * @param int $juliandaycount
  * @return string The french revolution date as a string in the form "month/day/year"
  * @since 4.0
@@ -113,7 +113,7 @@ function jdtofrench ($juliandaycount) {}
 
 /**
  * Converts a date from the French Republican Calendar to a Julian Day Count
- * @link http://php.net/manual/en/function.frenchtojd.php
+ * @link https://php.net/manual/en/function.frenchtojd.php
  * @param int $month <p>
  * The month as a number from 1 (for Vendémiaire) to 13 (for the period of 5-6 days at the end of each year)
  * </p>
@@ -131,7 +131,7 @@ function frenchtojd ($month, $day, $year) {}
 
 /**
  * Returns the day of the week
- * @link http://php.net/manual/en/function.jddayofweek.php
+ * @link https://php.net/manual/en/function.jddayofweek.php
  * @param int $julianday <p>
  * A julian day number as integer
  * </p>
@@ -170,7 +170,7 @@ function jddayofweek ($julianday, $mode = CAL_DOW_DAYNO) {}
 
 /**
  * Returns a month name
- * @link http://php.net/manual/en/function.jdmonthname.php
+ * @link https://php.net/manual/en/function.jdmonthname.php
  * @param int $julianday
  * @param int $mode
  * @return string The month name for the given Julian Day and <i>calendar</i>.
@@ -181,7 +181,7 @@ function jdmonthname ($julianday, $mode) {}
 
 /**
  * Get Unix timestamp for midnight on Easter of a given year
- * @link http://php.net/manual/en/function.easter-date.php
+ * @link https://php.net/manual/en/function.easter-date.php
  * @param int $year [optional] <p>
  * The year as a number between 1970 an 2037
  * </p>
@@ -193,7 +193,7 @@ function easter_date ($year = null) {}
 
 /**
  * Get number of days after March 21 on which Easter falls for a given year
- * @link http://php.net/manual/en/function.easter-days.php
+ * @link https://php.net/manual/en/function.easter-days.php
  * @param int $year [optional] <p>
  * The year as a positive number
  * </p>
@@ -212,7 +212,7 @@ function easter_days ($year = null, $method = CAL_EASTER_DEFAULT) {}
 
 /**
  * Convert Unix timestamp to Julian Day
- * @link http://php.net/manual/en/function.unixtojd.php
+ * @link https://php.net/manual/en/function.unixtojd.php
  * @param int $timestamp [optional] defaults to time() <p>
  * A unix timestamp to convert.
  * </p>
@@ -224,7 +224,7 @@ function unixtojd ($timestamp = 0) {}
 
 /**
  * Convert Julian Day to Unix timestamp
- * @link http://php.net/manual/en/function.jdtounix.php
+ * @link https://php.net/manual/en/function.jdtounix.php
  * @param int $jday <p>
  * A julian day number between 2440588 and 2465342.
  * </p>
@@ -236,7 +236,7 @@ function jdtounix ($jday) {}
 
 /**
  * Converts from a supported calendar to Julian Day Count
- * @link http://php.net/manual/en/function.cal-to-jd.php
+ * @link https://php.net/manual/en/function.cal-to-jd.php
  * @param int $calendar <p>
  * Calendar to convert from, one of
  * <b>CAL_GREGORIAN</b>,
@@ -264,7 +264,7 @@ function cal_to_jd ($calendar, $month, $day, $year) {}
 
 /**
  * Converts from Julian Day Count to a supported calendar
- * @link http://php.net/manual/en/function.cal-from-jd.php
+ * @link https://php.net/manual/en/function.cal-from-jd.php
  * @param int $jd <p>
  * Julian day as integer
  * </p>
@@ -281,7 +281,7 @@ function cal_from_jd ($jd, $calendar) {}
 
 /**
  * Return the number of days in a month for a given year and calendar
- * @link http://php.net/manual/en/function.cal-days-in-month.php
+ * @link https://php.net/manual/en/function.cal-days-in-month.php
  * @param int $calendar <p>
  * Calendar to use for calculation
  * </p>
@@ -299,7 +299,7 @@ function cal_days_in_month ($calendar, $month, $year) {}
 
 /**
  * Returns information about a particular calendar
- * @link http://php.net/manual/en/function.cal-info.php
+ * @link https://php.net/manual/en/function.cal-info.php
  * @param int $calendar [optional] <p>
  * Calendar to return information for. If no calendar is specified
  * information about all calendars is returned.

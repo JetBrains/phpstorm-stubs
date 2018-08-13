@@ -1,6 +1,6 @@
 <?php
 /** GNUPG Constants
- * @link http://php.net/manual/en/gnupg.constants.php
+ * @link https://php.net/manual/en/gnupg.constants.php
  */
 define('GNUPG_SIG_MODE_NORMAL', 0);
 define('GNUPG_SIG_MODE_DETACH', 0);
@@ -30,14 +30,14 @@ define('GNUPG_ERROR_SILENT', 0);
 
 /**
  * GNUPG Encryption Class
- * @link http://php.net/manual/en/book.gnupg.php
+ * @link https://php.net/manual/en/book.gnupg.php
  * Class gnupg
  */
 
 class gnupg {
 	/**
 	 * Add a key for decryption
-	 * @link http://php.net/manual/en/function.gnupg-adddecryptkey.php
+	 * @link https://php.net/manual/en/function.gnupg-adddecryptkey.php
 	 * @phpstub
 	 *
 	 * @param string $fingerprint
@@ -51,7 +51,7 @@ class gnupg {
 
 	/**
 	 * Verifies a signed text
-	 * @link http://php.net/manual/en/function.gnupg-verify.php
+	 * @link https://php.net/manual/en/function.gnupg-verify.php
 	 * @phpstub
 	 *
 	 * * @param string $signed_text
@@ -67,7 +67,7 @@ class gnupg {
 
 	/**
 	 * Add a key for encryption
-	 * @link http://php.net/manual/en/function.gnupg-addencryptkey.php
+	 * @link https://php.net/manual/en/function.gnupg-addencryptkey.php
 	 * @phpstub
 	 *
 	 * @param string $fingerprint
@@ -80,7 +80,7 @@ class gnupg {
 
 	/**
 	 * Add a key for signing
-	 * @link http://php.net/manual/en/function.gnupg-addsignkey.php
+	 * @link https://php.net/manual/en/function.gnupg-addsignkey.php
 	 * @phpstub
 	 *
 	 * @param string $fingerprint
@@ -94,7 +94,7 @@ class gnupg {
 
 	/**
 	 * Removes all keys which were set for decryption before
-	 * @link http://php.net/manual/en/function.gnupg-cleardecryptkeys.php
+	 * @link https://php.net/manual/en/function.gnupg-cleardecryptkeys.php
 	 * @phpstub
 	 *
 	 * @return bool
@@ -105,7 +105,7 @@ class gnupg {
 
 	/**
 	 * Removes all keys which were set for encryption before
-	 * @link http://php.net/manual/en/function.gnupg-clearencryptkeys.php
+	 * @link https://php.net/manual/en/function.gnupg-clearencryptkeys.php
 	 * @phpstub
 	 *
 	 *
@@ -117,7 +117,7 @@ class gnupg {
 
 	/**
 	 * Removes all keys which were set for signing before
-	 * @link http://php.net/manual/en/function.gnupg-clearsignkeys.php
+	 * @link https://php.net/manual/en/function.gnupg-clearsignkeys.php
 	 * @phpstub
 	 *
 	 *
@@ -129,7 +129,7 @@ class gnupg {
 
 	/**
 	 * Decrypts a given text
-	 * @link http://php.net/manual/en/function.gnupg-decrypt.php
+	 * @link https://php.net/manual/en/function.gnupg-decrypt.php
 	 * @phpstub
 	 *
 	 * @param string $text
@@ -143,7 +143,7 @@ class gnupg {
 
 	/**
 	 * Decrypts and verifies a given text
-	 * @link http://php.net/manual/en/function.gnupg-decryptverify.php
+	 * @link https://php.net/manual/en/function.gnupg-decryptverify.php
 	 * @phpstub
 	 *
 	 * @param string $text
@@ -159,7 +159,7 @@ class gnupg {
 
 	/**
 	 * Encrypts a given text
-	 * @link http://php.net/manual/en/function.gnupg-encrypt.php
+	 * @link https://php.net/manual/en/function.gnupg-encrypt.php
 	 * @phpstub
 	 *
 	 * @param string $plaintext
@@ -173,7 +173,7 @@ class gnupg {
 
 	/**
 	 * Encrypts and signs a given text
-	 * @link http://php.net/manual/en/function.gnupg-encryptsign.php
+	 * @link https://php.net/manual/en/function.gnupg-encryptsign.php
 	 * @phpstub
 	 *
 	 * @param string $plaintext
@@ -187,7 +187,7 @@ class gnupg {
 
 	/**
 	 * Exports a key
-	 * @link http://php.net/manual/en/function.gnupg-export.php
+	 * @link https://php.net/manual/en/function.gnupg-export.php
 	 * @phpstub
 	 *
 	 * @param string $fingerprint
@@ -201,7 +201,7 @@ class gnupg {
 
 	/**
 	 * Returns the errortext, if a function fails
-	 * @link http://php.net/manual/en/function.gnupg-geterror.php
+	 * @link https://php.net/manual/en/function.gnupg-geterror.php
 	 * @phpstub
 	 *
 	 *
@@ -213,7 +213,7 @@ class gnupg {
 
 	/**
 	 * Returns the currently active protocol for all operations
-	 * @link http://php.net/manual/en/function.gnupg-getprotocol.php
+	 * @link https://php.net/manual/en/function.gnupg-getprotocol.php
 	 * @phpstub
 	 *
 	 *
@@ -227,7 +227,7 @@ class gnupg {
 
 	/**
 	 * Imports a key
-	 * @link http://php.net/manual/en/function.gnupg-import.php
+	 * @link https://php.net/manual/en/function.gnupg-import.php
 	 * @phpstub
 	 *
 	 * @param string $keydata
@@ -241,7 +241,7 @@ class gnupg {
 
 	/**
 	 * Initialize a connection
-	 * @link http://php.net/manual/en/function.gnupg-init.php
+	 * @link https://php.net/manual/en/function.gnupg-init.php
 	 * @phpstub
 	 *
 	 * @return resource A GnuPG ``resource`` connection used by other GnuPG functions.
@@ -252,7 +252,7 @@ class gnupg {
 
 	/**
 	 * Returns an array with information about all keys that matches the given pattern
-	 * @link http://php.net/manual/en/function.gnupg-keyinfo.php
+	 * @link https://php.net/manual/en/function.gnupg-keyinfo.php
 	 * @phpstub
 	 *
 	 * @param string $pattern
@@ -266,7 +266,7 @@ class gnupg {
 
 	/**
 	 * Toggle armored output
-	 * @link http://php.net/manual/en/function.gnupg-setarmor.php
+	 * @link https://php.net/manual/en/function.gnupg-setarmor.php
 	 * @phpstub
 	 *
 	 * @param int $armor
@@ -279,7 +279,7 @@ class gnupg {
 
 	/**
 	 * Sets the mode for error_reporting
-	 * @link http://php.net/manual/en/function.gnupg-seterrormode.php
+	 * @link https://php.net/manual/en/function.gnupg-seterrormode.php
 	 * @phpstub
 	 *
 	 * @param int $errormode
@@ -292,7 +292,7 @@ class gnupg {
 
 	/**
 	 * Sets the mode for signing
-	 * @link http://php.net/manual/en/function.gnupg-setsignmode.php
+	 * @link https://php.net/manual/en/function.gnupg-setsignmode.php
 	 * @phpstub
 	 *
 	 * @param int $signmode
@@ -305,7 +305,7 @@ class gnupg {
 
 	/**
 	 * Signs a given text
-	 * @link http://php.net/manual/en/function.gnupg-sign.php
+	 * @link https://php.net/manual/en/function.gnupg-sign.php
 	 * @phpstub
 	 *
 	 * @param string $plaintext

@@ -671,7 +671,7 @@ class IntlChar {
 
     /**
      * Check a binary Unicode property for a code point
-     * @link http://php.net/manual/ru/intlchar.hasbinaryproperty.php
+     * @link https://php.net/manual/ru/intlchar.hasbinaryproperty.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @param int $property The Unicode property to lookup (see the IntlChar::PROPERTY_* constants).
      * @return bool Returns TRUE or FALSE according to the binary Unicode property value for codepoint.
@@ -681,7 +681,7 @@ class IntlChar {
     static public function hasBinaryProperty($codepoint, $property){}
 
     /**
-     * @link http://php.net/manual/ru/intlchar.charage.php
+     * @link https://php.net/manual/ru/intlchar.charage.php
      * Get the "age" of the code point
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return array The Unicode version number, as an array. For example, version 1.3.31.2 would be represented as [1, 3, 31, 2].
@@ -690,7 +690,7 @@ class IntlChar {
     public static function charAge($codepoint) {}
 
     /**
-     * @link http://php.net/manual/ru/intlchar.chardigitvalue.php
+     * @link https://php.net/manual/ru/intlchar.chardigitvalue.php
      * Get the decimal digit value of a decimal digit character
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return int The decimal digit value of codepoint, or -1 if it is not a decimal digit character.
@@ -700,7 +700,7 @@ class IntlChar {
 
     /**
      * Get bidirectional category value for a code point
-     * @link http://php.net/manual/ru/intlchar.chardirection.php
+     * @link https://php.net/manual/ru/intlchar.chardirection.php
      * @param mixed $codepoint <p>The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")</p>
      * @return int <p>The bidirectional category value; one of the following constants:
      * </p>
@@ -734,7 +734,7 @@ class IntlChar {
     public static function charDirection($codepoint) {}
 
     /**
-     * @link http://php.net/manual/en/intlchar.charfromname.php
+     * @link https://php.net/manual/en/intlchar.charfromname.php
      * Find Unicode character by name and return its code point value
      * @param string $characterName <p>Full name of the Unicode character.</p>
      * @param int $nameChoice [optional] <p>
@@ -752,7 +752,7 @@ class IntlChar {
     public static function charFromName($characterName, $nameChoice = IntlChar::UNICODE_CHAR_NAME) {}
 
     /**
-     * @link http://php.net/manual/ru/intlchar.charmirror.php
+     * @link https://php.net/manual/ru/intlchar.charmirror.php
      * Get the "mirror-image" character for a code point
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return mixed Returns another Unicode code point that may serve as a mirror-image substitute, or codepoint itself if there is no such mapping or codepoint does not have the Bidi_Mirrored property.
@@ -762,7 +762,7 @@ class IntlChar {
 
     /**
      * Retrieve the name of a Unicode character
-     * @link http://php.net/manual/ru/intlchar.charname.php
+     * @link https://php.net/manual/ru/intlchar.charname.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @param int $nameChoice [optional] Which set of names to use for the lookup. Can be any of these constants: </p>
      * <ul>
@@ -779,7 +779,7 @@ class IntlChar {
 
     /**
      * Get the general category value for a code point
-     * @link http://php.net/manual/ru/intlchar.chartype.php
+     * @link https://php.net/manual/ru/intlchar.chartype.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return int Returns the general category type, which may be one of the following constants:
      * </p><ul>
@@ -823,7 +823,7 @@ class IntlChar {
 
     /**
      * Return Unicode character by code point value
-     * @link http://php.net/manual/ru/intlchar.chr.php
+     * @link https://php.net/manual/ru/intlchar.chr.php
      * @param mixed $codepoint <p>The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")</p>
      * @return string A string containing the single character specified by the Unicode code point value.
      * @since 7.0
@@ -835,7 +835,7 @@ class IntlChar {
 
     /**
      * Get the decimal digit value of a code point for a given radix
-     * @link http://php.net/manual/ru/intlchar.digit.php
+     * @link https://php.net/manual/ru/intlchar.digit.php
      * @param string $codepoint <p>The integer codepoint value (e.g. <em>0x2603</em> for <em>U+2603 SNOWMAN</em>), or the character encoded as a UTF-8 string (e.g. <em>"\u{2603}"</em>)</p>
      * @param int $radix <p>The radix (defaults to 10).</p>
      * @return int Returns the numeric value represented by the character in the specified radix, or <b>FALSE</b> if there is no value or if the value exceeds the radix.
@@ -845,7 +845,7 @@ class IntlChar {
 
     /**
      * Enumerate all assigned Unicode characters within a range
-     * @link http://php.net/manual/ru/intlchar.enumcharnames.php
+     * @link https://php.net/manual/ru/intlchar.enumcharnames.php
      * @param mixed $start The first code point in the enumeration range.
      * @param mixed $limit One more than the last code point in the enumeration range (the first one after the range).
      * @param callable $callback<p>
@@ -870,7 +870,7 @@ class IntlChar {
 
     /**
      * Enumerate all code points with their Unicode general categories
-     * @link http://php.net/manual/ru/intlchar.enumchartypes.php
+     * @link https://php.net/manual/ru/intlchar.enumchartypes.php
      * @param callable $callable <p>
      * The function that is to be called for each contiguous range of code points with the same general category.
      * The following three arguments will be passed into it:
@@ -885,7 +885,7 @@ class IntlChar {
 
     /**
      * Perform case folding on a code point
-     * @link http://php.net/manual/en/intlchar.foldcase.php
+     * @link https://php.net/manual/en/intlchar.foldcase.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @param int $options [optional] Either IntlChar::FOLD_CASE_DEFAULT (default) or IntlChar::FOLD_CASE_EXCLUDE_SPECIAL_I.
      * @return mixed Returns the Simple_Case_Folding of the code point, if any; otherwise the code point itself.
@@ -895,7 +895,7 @@ class IntlChar {
 
     /**
      * Get character representation for a given digit and radix
-     * @link http://php.net/manual/ru/intlchar.fordigit.php
+     * @link https://php.net/manual/ru/intlchar.fordigit.php
      * @param int $digit <p>The number to convert to a character.</p>
      * @param int $radix [optional] <p>The radix (defaults to 10).</p>
      * @return int The character representation (as a string) of the specified digit in the specified radix.
@@ -905,7 +905,7 @@ class IntlChar {
 
     /**
      * Get the paired bracket character for a code point
-     * @link http://php.net/manual/ru/intlchar.getbidipairedbracket.php
+     * @link https://php.net/manual/ru/intlchar.getbidipairedbracket.php
      * @param mixed $codepoint <p>The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")</p>
      * @return mixed  Returns the paired bracket code point, or <em>codepoint</em> itself if there is no such mapping.
      * The return type will be integer unless the code point was passed as a UTF-8 string, in which case a string will be returned.
@@ -915,7 +915,7 @@ class IntlChar {
 
     /**
      * Get the Unicode allocation block containing a code point
-     * @link http://php.net/manual/ru/intlchar.getblockcode.php
+     * @link https://php.net/manual/ru/intlchar.getblockcode.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return int Returns the block value for <em>codepoint</em>.
      * See the <em>IntlChar::BLOCK_CODE_*</em> constants for possible return values.
@@ -925,7 +925,7 @@ class IntlChar {
 
     /**
      * Get the combining class of a code point
-     * @link http://php.net/manual/ru/intlchar.getcombiningclass.php
+     * @link https://php.net/manual/ru/intlchar.getcombiningclass.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return int Returns the combining class of the character.
      * @since 7.0
@@ -934,7 +934,7 @@ class IntlChar {
 
     /**
      * Get the FC_NFKC_Closure property for a code point
-     * @link http://php.net/manual/ru/intlchar.getfc-nfkc-closure.php
+     * @link https://php.net/manual/ru/intlchar.getfc-nfkc-closure.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return string Returns the FC_NFKC_Closure property string for the codepoint, or an empty string if there is none.
      * @since 7.0
@@ -943,7 +943,7 @@ class IntlChar {
 
     /**
      * Get the max value for a Unicode property
-     * @link http://php.net/manual/ru/intlchar.getintpropertymaxvalue.php
+     * @link https://php.net/manual/ru/intlchar.getintpropertymaxvalue.php
      * @param int $property The Unicode property to lookup (see the IntlChar::PROPERTY_* constants).
      * @return int The maximum value returned by {@see IntlChar::getIntPropertyValue()} for a Unicode property. <=0 if the property selector is out of range.
      * @since 7.0
@@ -952,7 +952,7 @@ class IntlChar {
 
     /**
      * Get the min value for a Unicode property
-     * @link http://php.net/manual/ru/intlchar.getintpropertyminvalue.php
+     * @link https://php.net/manual/ru/intlchar.getintpropertyminvalue.php
      * @param int $property The Unicode property to lookup (see the IntlChar::PROPERTY_* constants).
      * @return int The maximum value returned by {@see IntlChar::getIntPropertyValue()} for a Unicode property. 0 if the property selector is out of range.
      * @since 7.0
@@ -961,7 +961,7 @@ class IntlChar {
 
     /**
      * Get the value for a Unicode property for a code point
-     * @link http://php.net/manual/ru/intlchar.getintpropertyvalue.php
+     * @link https://php.net/manual/ru/intlchar.getintpropertyvalue.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @param int $property The Unicode property to lookup (see the IntlChar::PROPERTY_* constants).
      * @return int <p>
@@ -984,7 +984,7 @@ class IntlChar {
 
     /**
      * Get the numeric value for a Unicode code point
-     * @link http://php.net/manual/ru/intlchar.getnumericvalue.php
+     * @link https://php.net/manual/ru/intlchar.getnumericvalue.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return float Numeric value of codepoint, or float(-123456789) if none is defined.
      * @since 7.0
@@ -993,7 +993,7 @@ class IntlChar {
 
     /**
      * Get the property constant value for a given property name
-     * @link http://php.net/manual/ru/intlchar.getpropertyenum.php
+     * @link https://php.net/manual/ru/intlchar.getpropertyenum.php
      * @param string $alias The property name to be matched. The name is compared using "loose matching" as described in PropertyAliases.txt.
      * @return int Returns an IntlChar::PROPERTY_ constant value, or <b>IntlChar::PROPERTY_INVALID_CODE</b> if the given name does not match any property.
      * @since 7.0
@@ -1002,7 +1002,7 @@ class IntlChar {
 
     /**
      * Get the Unicode name for a property
-     * @link http://php.net/manual/ru/intlchar.getpropertyname.php
+     * @link https://php.net/manual/ru/intlchar.getpropertyname.php
      * @param int $property <p>The Unicode property to lookup (see the IntlChar::PROPERTY_* constants).</p>
      * <p><b>IntlChar::PROPERTY_INVALID_CODE</b> should not be used. Also, if property is out of range, FALSE is returned.</p>
      * @param int $nameChoice <p> Selector for which name to get. If out of range, FALSE is returned.</p>
@@ -1023,7 +1023,7 @@ class IntlChar {
 
     /**
      * Get the property value for a given value name
-     * @link http://php.net/manual/ru/intlchar.getpropertyvalueenum.php
+     * @link https://php.net/manual/ru/intlchar.getpropertyvalueenum.php
      * @param int $property <p>The Unicode property to lookup (see the IntlChar::PROPERTY_* constants).
      * If out of range, or this method doesn't work with the given value, IntlChar::PROPERTY_INVALID_CODE is returned</p>
      * @param string $name <p> The value name to be matched. The name is compared using "loose matching" as described in PropertyValueAliases.txt.</p>
@@ -1034,7 +1034,7 @@ class IntlChar {
 
     /**
      * Get the Unicode name for a property value
-     * @link http://php.net/manual/ru/intlchar.getpropertyvaluename.php
+     * @link https://php.net/manual/ru/intlchar.getpropertyvaluename.php
      * @param int $property <p>
      * The Unicode property to lookup (see the IntlChar::PROPERTY_* constants).
      * If out of range, or this method doesn't work with the given value, FALSE is returned.
@@ -1064,7 +1064,7 @@ class IntlChar {
 
     /**
      * Get the Unicode version
-     * @link http://php.net/manual/ru/intlchar.getunicodeversion.php
+     * @link https://php.net/manual/ru/intlchar.getunicodeversion.php
      * @return array An array containing the Unicode version number.
      * @since 7.0
      */
@@ -1072,7 +1072,7 @@ class IntlChar {
 
     /**
      * Check if code point is an alphanumeric character
-     * @link http://php.net/manual/ru/intlchar.isalnum.php
+     * @link https://php.net/manual/ru/intlchar.isalnum.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint is an alphanumeric character, FALSE if not.
      * @since 7.0
@@ -1081,7 +1081,7 @@ class IntlChar {
 
     /**
      * Check if code point is a letter character
-     * @link http://php.net/manual/ru/intlchar.isalpha.php
+     * @link https://php.net/manual/ru/intlchar.isalpha.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint is a letter character, FALSE if not.
      * @since 7.0
@@ -1089,7 +1089,7 @@ class IntlChar {
     public static function isalpha ($codepoint) {}
     /**
      * Check if code point is a base character
-     * @link http://php.net/manual/ru/intlchar.isbase.php
+     * @link https://php.net/manual/ru/intlchar.isbase.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint is a base character, FALSE if not.
      * @since 7.0
@@ -1097,7 +1097,7 @@ class IntlChar {
     public static function isbase ($codepoint ){}
     /**
      * Check if code point is a "blank" or "horizontal space" character
-     * @link http://php.net/manual/ru/intlchar.isblank.php
+     * @link https://php.net/manual/ru/intlchar.isblank.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint is either a "blank" or "horizontal space" character, FALSE if not.
      * @since 7.0
@@ -1106,7 +1106,7 @@ class IntlChar {
 
     /**
      * Check if code point is a control character
-     * @link http://php.net/manual/ru/intlchar.iscntrl.php
+     * @link https://php.net/manual/ru/intlchar.iscntrl.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint is a control character, FALSE if not.
      * @since 7.0
@@ -1115,7 +1115,7 @@ class IntlChar {
 
     /**
      * Check whether the code point is defined
-     * @link http://php.net/manual/ru/intlchar.isdefined.php
+     * @link https://php.net/manual/ru/intlchar.isdefined.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint is a defined character, FALSE if not.
      * @since 7.0
@@ -1124,7 +1124,7 @@ class IntlChar {
 
     /**
      * Check if code point is a digit character
-     * @link http://php.net/manual/ru/intlchar.isdigit.php
+     * @link https://php.net/manual/ru/intlchar.isdigit.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint is a digit character, FALSE if not.
      * @since 7.0
@@ -1132,7 +1132,7 @@ class IntlChar {
     public static function isdigit ($codepoint) {}
     /**
      * Check if code point is a graphic character
-     * @link http://php.net/manual/ru/intlchar.isgraph.php
+     * @link https://php.net/manual/ru/intlchar.isgraph.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint is a "graphic" character, FALSE if not.
      * @since 7.0
@@ -1140,7 +1140,7 @@ class IntlChar {
     public static function isgraph ($codepoint ) {}
     /**
      * Check if code point is an ignorable character
-     * @link http://php.net/manual/ru/intlchar.isidignorable.php
+     * @link https://php.net/manual/ru/intlchar.isidignorable.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint is ignorable in identifiers, FALSE if not.
      * @since 7.0
@@ -1148,7 +1148,7 @@ class IntlChar {
     public static function isIDIgnorable ($codepoint ) {}
     /**
      * Check if code point is permissible in an identifier
-     * @link http://php.net/manual/ru/intlchar.isidpart.php
+     * @link https://php.net/manual/ru/intlchar.isidpart.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint is the code point may occur in an identifier, FALSE if not.
      * @since 7.0
@@ -1157,7 +1157,7 @@ class IntlChar {
 
     /**
      * Check if code point is permissible as the first character in an identifier
-     * @link http://php.net/manual/ru/intlchar.isidstart.php
+     * @link https://php.net/manual/ru/intlchar.isidstart.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint may start an identifier, FALSE if not.
      * @since 7.0
@@ -1165,7 +1165,7 @@ class IntlChar {
     public static function isIDStart ($codepoint ) {}
     /**
      * Check if code point is an ISO control code
-     * @link http://php.net/manual/ru/intlchar.isisocontrol.php
+     * @link https://php.net/manual/ru/intlchar.isisocontrol.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint is an ISO control code, FALSE if not.
      * @since 7.0
@@ -1173,7 +1173,7 @@ class IntlChar {
     public static function isISOControl ($codepoint ) {}
     /**
      * Check if code point is permissible in a Java identifier
-     * @link http://php.net/manual/ru/intlchar.isjavaidpart.php
+     * @link https://php.net/manual/ru/intlchar.isjavaidpart.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint may occur in a Java identifier, FALSE if not.
      * @since 7.0
@@ -1181,7 +1181,7 @@ class IntlChar {
     public static function isJavaIDPart ($codepoint ) {}
     /**
      * Check if code point is permissible as the first character in a Java identifier
-     * @link http://php.net/manual/ru/intlchar.isjavaidstart.php
+     * @link https://php.net/manual/ru/intlchar.isjavaidstart.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint may start a Java identifier, FALSE if not.
      * @since 7.0
@@ -1189,7 +1189,7 @@ class IntlChar {
     public static function isJavaIDStart ($codepoint ) {}
     /**
      * Check if code point is a space character according to Java
-     * @link http://php.net/manual/ru/intlchar.isjavaspacechar.php
+     * @link https://php.net/manual/ru/intlchar.isjavaspacechar.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint is a space character according to Java, FALSE if not.
      * @since 7.0
@@ -1198,7 +1198,7 @@ class IntlChar {
 
     /**
      * Check if code point is a lowercase letter
-     * @link http://php.net/manual/ru/intlchar.islower.php
+     * @link https://php.net/manual/ru/intlchar.islower.php
      * @param mixed $codepoint <p>The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN),
      * or the character encoded as a UTF-8 string (e.g. "\u{2603}")</p>
      * @return bool Returns TRUE if codepoint is an Ll lowercase letter, FALSE if not.
@@ -1207,7 +1207,7 @@ class IntlChar {
     public static function islower ($codepoint ) {}
     /**
      * Check if code point has the Bidi_Mirrored property
-     * @link http://php.net/manual/ru/intlchar.ismirrored.php
+     * @link https://php.net/manual/ru/intlchar.ismirrored.php
      * @param mixed $codepoint <p>The integer codepoint value (e.g. <em>0x2603</em> for <em>U+2603 SNOWMAN</em>), or the character encoded as a UTF-8 string (e.g. <em>"\u{2603}"</em>)</p>
      * @return bool Returns TRUE if codepoint has the Bidi_Mirrored property, FALSE if not.
      * @since 7.0
@@ -1216,7 +1216,7 @@ class IntlChar {
 
     /**
      * Check if code point is a printable character
-     * @link http://php.net/manual/ru/intlchar.isprint.php
+     * @link https://php.net/manual/ru/intlchar.isprint.php
      * @param mixed $codepoint <p>The integer codepoint value (e.g. <em>0x2603</em> for <em>U+2603 SNOWMAN</em>), or the character encoded as a UTF-8 string (e.g. <em>"\u{2603}"</em>)</p>
      * @return bool Returns TRUE if codepoint is a printable character, FALSE if not.
      * @since 7.0
@@ -1225,7 +1225,7 @@ class IntlChar {
 
     /**
      * Check if code point is punctuation character
-     * @link http://php.net/manual/ru/intlchar.ispunct.php
+     * @link https://php.net/manual/ru/intlchar.ispunct.php
      * @param mixed $codepoint <p>The integer codepoint value (e.g. <em>0x2603</em> for <em>U+2603 SNOWMAN</em>),
      * or the character encoded as a UTF-8 string (e.g. <em>"\u{2603}"</em>)</p>
      * @return bool Returns TRUE if codepoint is a punctuation character, FALSE if not.
@@ -1234,7 +1234,7 @@ class IntlChar {
     public static function ispunct ($codepoint ) {}
     /**
      * Check if code point is a space character
-     * @link http://php.net/manual/ru/intlchar.isspace.php
+     * @link https://php.net/manual/ru/intlchar.isspace.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint is a space character, FALSE if not.
      * @since 7.0
@@ -1242,7 +1242,7 @@ class IntlChar {
     public static function isspace ($codepoint ) {}
     /**
      * Check if code point is a titlecase letter
-     * @link http://php.net/manual/ru/intlchar.istitle.php
+     * @link https://php.net/manual/ru/intlchar.istitle.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return boolean Returns TRUE if codepoint is a titlecase letter, FALSE if not.
      * @since 7.0
@@ -1251,7 +1251,7 @@ class IntlChar {
 
     /**
      * Check if code point has the Alphabetic Unicode property
-     * @link http://php.net/manual/ru/intlchar.isualphabetic.php
+     * @link https://php.net/manual/ru/intlchar.isualphabetic.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint has the Alphabetic Unicode property, FALSE if not.
      * @since 7.0
@@ -1259,7 +1259,7 @@ class IntlChar {
     public static function isUAlphabetic ($codepoint ) {}
     /**
      * Check if code point has the Lowercase Unicode property
-     * @link http://php.net/manual/ru/intlchar.isulowercase.php
+     * @link https://php.net/manual/ru/intlchar.isulowercase.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint has the Lowercase Unicode property, FALSE if not.
      * @since 7.0
@@ -1267,7 +1267,7 @@ class IntlChar {
     public static function isULowercase ($codepoint ) {}
     /**
      * Check if code point has the general category "Lu" (uppercase letter)
-     * @link http://php.net/manual/ru/intlchar.isupper.php
+     * @link https://php.net/manual/ru/intlchar.isupper.php
      * @param mixed $codepoint <p>The integer codepoint value (e.g. <em>0x2603</em> for <em>U+2603 SNOWMAN</em>),
      * or the character encoded as a UTF-8 string (e.g. <em>"\u{2603}"</em>)</p>
      * @return bool Returns TRUE if codepoint is an Lu uppercase letter, FALSE if not.
@@ -1276,7 +1276,7 @@ class IntlChar {
     public static function isupper ($codepoint) {}
     /**
      * Check if code point has the Uppercase Unicode property
-     * @link http://php.net/manual/ru/intlchar.isuuppercase.php
+     * @link https://php.net/manual/ru/intlchar.isuuppercase.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint has the Uppercase Unicode property, FALSE if not.
      * @since 7.0
@@ -1284,7 +1284,7 @@ class IntlChar {
     public static function isUUppercase ($codepoint) {}
     /**
      * Check if code point has the White_Space Unicode property
-     * @link http://php.net/manual/ru/intlchar.isuwhitespace.php
+     * @link https://php.net/manual/ru/intlchar.isuwhitespace.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool Returns TRUE if codepoint has the White_Space Unicode property, FALSE if not.
      * @since 7.0
@@ -1292,7 +1292,7 @@ class IntlChar {
     public static function isUWhiteSpace ($codepoint ) {}
     /**
      * Check if code point is a whitespace character according to ICU
-     * @link http://php.net/manual/ru/intlchar.iswhitespace.php
+     * @link https://php.net/manual/ru/intlchar.iswhitespace.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return bool
      * @since 7.0
@@ -1309,7 +1309,7 @@ class IntlChar {
 
     /**
      * Return Unicode code point value of character
-     * @link http://php.net/manual/ru/intlchar.ord.php
+     * @link https://php.net/manual/ru/intlchar.ord.php
      * @param mixed $character <p>A Unicode character.</p>
      * @return int Returns the Unicode code point value as an integer.
      * @since 7.0
@@ -1318,7 +1318,7 @@ class IntlChar {
 
     /**
      * Make Unicode character lowercase
-     * @link http://php.net/manual/en/intlchar.tolower.php
+     * @link https://php.net/manual/en/intlchar.tolower.php
      * @param mixed $codepoint
      * @return mixed Returns the Simple_Lowercase_Mapping of the code point, if any; otherwise the code point itself.
      * The return type will be integer unless the code point was passed as a UTF-8 string, in which case a string will be returned.
@@ -1327,7 +1327,7 @@ class IntlChar {
     public static function tolower($codepoint) {}
     /**
      * Make Unicode character titlecase
-     * @link http://php.net/manual/ru/intlchar.totitle.php
+     * @link https://php.net/manual/ru/intlchar.totitle.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @return mixed  Returns the Simple_Titlecase_Mapping of the code point, if any; otherwise the code point itself.
      * The return type will be integer unless the code point was passed as a UTF-8 string, in which case a string will be returned.
@@ -1337,7 +1337,7 @@ class IntlChar {
 
     /**
      * Make Unicode character uppercase
-     * @link http://php.net/manual/ru/intlchar.toupper.php
+     * @link https://php.net/manual/ru/intlchar.toupper.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @since 7.0
      */

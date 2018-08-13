@@ -10,14 +10,14 @@
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrParams<br/>
  * This class represents a a collection of name-value pairs sent to the Solr server during a request.
- * @link http://php.net/manual/en/class.solrparams.php
+ * @link https://php.net/manual/en/class.solrparams.php
  */
 abstract class SolrParams implements Serializable {
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * This is an alias for SolrParams::addParam
-	 * @link http://php.net/manual/en/solrparams.add.php
+	 * @link https://php.net/manual/en/solrparams.add.php
 	 * @param string $name <p>
 	 * The name of the parameter
 	 * </p>
@@ -33,7 +33,7 @@ abstract class SolrParams implements Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Adds a parameter to the object
-	 * @link http://php.net/manual/en/solrparams.addparam.php
+	 * @link https://php.net/manual/en/solrparams.addparam.php
 	 * @param string $name <p>
 	 * The name of the parameter
 	 * </p>
@@ -49,7 +49,7 @@ abstract class SolrParams implements Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * This is an alias for SolrParams::getParam
-	 * @link http://php.net/manual/en/solrparams.get.php
+	 * @link https://php.net/manual/en/solrparams.get.php
 	 * @param string $param_name <p>
 	 * The name of the parameter
 	 * </p>
@@ -62,7 +62,7 @@ abstract class SolrParams implements Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns a parameter value
-	 * @link http://php.net/manual/en/solrparams.getparam.php
+	 * @link https://php.net/manual/en/solrparams.getparam.php
 	 * @param string $param_name <p>
 	 * The name of the parameter
 	 * </p>
@@ -75,7 +75,7 @@ abstract class SolrParams implements Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns an array of non URL-encoded parameters
-	 * @link http://php.net/manual/en/solrparams.getparams.php
+	 * @link https://php.net/manual/en/solrparams.getparams.php
 	 * @return array <p>
 	 * Returns an array of non URL-encoded parameters
 	 * </p>
@@ -85,7 +85,7 @@ abstract class SolrParams implements Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns an array of URL-encoded parameters
-	 * @link http://php.net/manual/en/solrparams.getpreparedparams.php
+	 * @link https://php.net/manual/en/solrparams.getpreparedparams.php
 	 * @return array <p>
 	 * Returns an array of URL-encoded parameters
 	 * </p>
@@ -95,7 +95,7 @@ abstract class SolrParams implements Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Used for custom serialization
-	 * @link http://php.net/manual/en/solrparams.serialize.php
+	 * @link https://php.net/manual/en/solrparams.serialize.php
 	 * @return string <p>
 	 * Used for custom serialization
 	 * </p>
@@ -105,7 +105,7 @@ abstract class SolrParams implements Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * An alias of SolrParams::setParam
-	 * @link http://php.net/manual/en/solrparams.set.php
+	 * @link https://php.net/manual/en/solrparams.set.php
 	 * @param string $name <p>
 	 * The name of the parameter
 	 * </p>
@@ -121,7 +121,7 @@ abstract class SolrParams implements Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Sets the parameter to the specified value
-	 * @link http://php.net/manual/en/solrparams.setparam.php
+	 * @link https://php.net/manual/en/solrparams.setparam.php
 	 * @param string $name <p>
 	 * The name of the parameter
 	 * </p>
@@ -137,7 +137,7 @@ abstract class SolrParams implements Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns all the name-value pair parameters in the object
-	 * @link http://php.net/manual/en/solrparams.tostring.php
+	 * @link https://php.net/manual/en/solrparams.tostring.php
 	 * @param bool $url_encode <p>
 	 * Whether to return URL-encoded values
 	 * </p>
@@ -150,7 +150,7 @@ abstract class SolrParams implements Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Used for custom serialization
-	 * @link http://php.net/manual/en/solrparams.unserialize.php
+	 * @link https://php.net/manual/en/solrparams.unserialize.php
 	 * @param string $serialized <p>
 	 * The serialized representation of the object
 	 * </p>

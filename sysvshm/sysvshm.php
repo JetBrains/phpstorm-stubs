@@ -4,7 +4,7 @@
 
 /**
  * Creates or open a shared memory segment
- * @link http://php.net/manual/en/function.shm-attach.php
+ * @link https://php.net/manual/en/function.shm-attach.php
  * @param int $key <p>
  * A numeric shared memory segment ID
  * </p>
@@ -24,7 +24,7 @@ function shm_attach ($key, $memsize = null, $perm = 0666) {}
 
 /**
  * Removes shared memory from Unix systems
- * @link http://php.net/manual/en/function.shm-remove.php
+ * @link https://php.net/manual/en/function.shm-remove.php
  * @param resource $shm_identifier <p>
  * The shared memory identifier as returned by
  * <b>shm_attach</b>
@@ -37,7 +37,7 @@ function shm_remove ($shm_identifier) {}
 
 /**
  * Disconnects from shared memory segment
- * @link http://php.net/manual/en/function.shm-detach.php
+ * @link https://php.net/manual/en/function.shm-detach.php
  * @param resource $shm_identifier <p>
  * A shared memory resource handle as returned by
  * <b>shm_attach</b>
@@ -50,7 +50,7 @@ function shm_detach ($shm_identifier) {}
 
 /**
  * Inserts or updates a variable in shared memory
- * @link http://php.net/manual/en/function.shm-put-var.php
+ * @link https://php.net/manual/en/function.shm-put-var.php
  * @param resource $shm_identifier <p>
  * A shared memory resource handle as returned by
  * <b>shm_attach</b>
@@ -72,7 +72,7 @@ function shm_put_var ($shm_identifier, $variable_key, $variable) {}
 
 /**
  * Check whether a specific entry exists
- * @link http://php.net/manual/en/function.shm-has-var.php
+ * @link https://php.net/manual/en/function.shm-has-var.php
  * @param resource $shm_identifier <p>
  * Shared memory segment, obtained from <b>shm_attach</b>.
  * </p>
@@ -86,7 +86,7 @@ function shm_has_var ($shm_identifier, $variable_key) {}
 
 /**
  * Returns a variable from shared memory
- * @link http://php.net/manual/en/function.shm-get-var.php
+ * @link https://php.net/manual/en/function.shm-get-var.php
  * @param resource $shm_identifier <p>
  * Shared memory segment, obtained from <b>shm_attach</b>.
  * </p>
@@ -101,7 +101,7 @@ function shm_get_var ($shm_identifier, $variable_key) {}
 
 /**
  * Removes a variable from shared memory
- * @link http://php.net/manual/en/function.shm-remove-var.php
+ * @link https://php.net/manual/en/function.shm-remove-var.php
  * @param resource $shm_identifier <p>
  * The shared memory identifier as returned by
  * <b>shm_attach</b>

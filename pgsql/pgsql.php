@@ -4,7 +4,7 @@
 
 /**
  * Open a PostgreSQL connection
- * @link http://php.net/manual/en/function.pg-connect.php
+ * @link https://php.net/manual/en/function.pg-connect.php
  * @param string $connection_string <p>
  * The <i>connection_string</i> can be empty to use all default parameters, or it
  * can contain one or more parameter settings separated by whitespace.
@@ -42,7 +42,7 @@ function pg_connect ($connection_string, $connect_type = null) {}
 
 /**
  * Open a persistent PostgreSQL connection
- * @link http://php.net/manual/en/function.pg-pconnect.php
+ * @link https://php.net/manual/en/function.pg-pconnect.php
  * @param string $connection_string <p>
  * The <i>connection_string</i> can be empty to use all default parameters, or it
  * can contain one or more parameter settings separated by whitespace.
@@ -75,7 +75,7 @@ function pg_pconnect ($connection_string, $connect_type = null) {}
 
 /**
  * Closes a PostgreSQL connection
- * @link http://php.net/manual/en/function.pg-close.php
+ * @link https://php.net/manual/en/function.pg-close.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -90,7 +90,7 @@ function pg_close ($connection = null) {}
 
 /**
  * Poll the status of an in-progress asynchronous PostgreSQL connection attempt.
- * @link http://php.net/manual/en/function.pg-connect-poll.php
+ * @link https://php.net/manual/en/function.pg-connect-poll.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -102,7 +102,7 @@ function pg_connect_poll ($connection = null) {}
 
 /**
  * Get connection status
- * @link http://php.net/manual/en/function.pg-connection-status.php
+ * @link https://php.net/manual/en/function.pg-connection-status.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -115,7 +115,7 @@ function pg_connection_status ($connection) {}
 
 /**
  * Get connection is busy or not
- * @link http://php.net/manual/en/function.pg-connection-busy.php
+ * @link https://php.net/manual/en/function.pg-connection-busy.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -127,7 +127,7 @@ function pg_connection_busy ($connection) {}
 
 /**
  * Reset connection (reconnect)
- * @link http://php.net/manual/en/function.pg-connection-reset.php
+ * @link https://php.net/manual/en/function.pg-connection-reset.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -139,7 +139,7 @@ function pg_connection_reset ($connection) {}
 
 /**
  * Get a read only handle to the socket underlying a PostgreSQL connection
- * @link http://php.net/manual/en/function.pg-socket.php
+ * @link https://php.net/manual/en/function.pg-socket.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -150,7 +150,7 @@ function pg_socket ($connection) {}
 
 /**
  * Returns the host name associated with the connection
- * @link http://php.net/manual/en/function.pg-host.php
+ * @link https://php.net/manual/en/function.pg-host.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -166,7 +166,7 @@ function pg_host ($connection = null) {}
 
 /**
  * Get the database name
- * @link http://php.net/manual/en/function.pg-dbname.php
+ * @link https://php.net/manual/en/function.pg-dbname.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -182,7 +182,7 @@ function pg_dbname ($connection = null) {}
 
 /**
  * Return the port number associated with the connection
- * @link http://php.net/manual/en/function.pg-port.php
+ * @link https://php.net/manual/en/function.pg-port.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -199,7 +199,7 @@ function pg_port ($connection = null) {}
 
 /**
  * Return the TTY name associated with the connection
- * @link http://php.net/manual/en/function.pg-tty.php
+ * @link https://php.net/manual/en/function.pg-tty.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -215,7 +215,7 @@ function pg_tty ($connection = null) {}
 
 /**
  * Get the options associated with the connection
- * @link http://php.net/manual/en/function.pg-options.php
+ * @link https://php.net/manual/en/function.pg-options.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -231,7 +231,7 @@ function pg_options ($connection = null) {}
 
 /**
  * Returns an array with client, protocol and server version (when available)
- * @link http://php.net/manual/en/function.pg-version.php
+ * @link https://php.net/manual/en/function.pg-version.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -247,7 +247,7 @@ function pg_version ($connection = null) {}
 
 /**
  * Ping database connection
- * @link http://php.net/manual/en/function.pg-ping.php
+ * @link https://php.net/manual/en/function.pg-ping.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -262,7 +262,7 @@ function pg_ping ($connection = null) {}
 
 /**
  * Looks up a current parameter setting of the server.
- * @link http://php.net/manual/en/function.pg-parameter-status.php
+ * @link https://php.net/manual/en/function.pg-parameter-status.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -284,7 +284,7 @@ function pg_parameter_status ($connection = null, $param_name) {}
 
 /**
  * Returns the current in-transaction status of the server.
- * @link http://php.net/manual/en/function.pg-transaction-status.php
+ * @link https://php.net/manual/en/function.pg-transaction-status.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -301,7 +301,7 @@ function pg_transaction_status ($connection) {}
 
 /**
  * Execute a query
- * @link http://php.net/manual/en/function.pg-query.php
+ * @link https://php.net/manual/en/function.pg-query.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -333,7 +333,7 @@ function pg_query ($connection = null, $query) {}
 
 /**
  * Submits a command to the server and waits for the result, with the ability to pass parameters separately from the SQL command text.
- * @link http://php.net/manual/en/function.pg-query-params.php
+ * @link https://php.net/manual/en/function.pg-query-params.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -372,7 +372,7 @@ function pg_query_params ($connection = null, $query, array $params) {}
  * Submits a request to create a prepared statement with the 
  * @since 5.1.0
 given parameters, and waits for completion.
- * @link http://php.net/manual/en/function.pg-prepare.php
+ * @link https://php.net/manual/en/function.pg-prepare.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -395,7 +395,7 @@ function pg_prepare ($connection = null, $stmtname, $query) {}
 
 /**
  * Sends a request to execute a prepared statement with given parameters, and waits for the result.
- * @link http://php.net/manual/en/function.pg-execute.php
+ * @link https://php.net/manual/en/function.pg-execute.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -424,7 +424,7 @@ function pg_execute ($connection = null, $stmtname, array $params) {}
 
 /**
  * Sends asynchronous query
- * @link http://php.net/manual/en/function.pg-send-query.php
+ * @link https://php.net/manual/en/function.pg-send-query.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -444,7 +444,7 @@ function pg_send_query ($connection, $query) {}
 
 /**
  * Submits a command and separate parameters to the server without waiting for the result(s).
- * @link http://php.net/manual/en/function.pg-send-query-params.php
+ * @link https://php.net/manual/en/function.pg-send-query-params.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -467,7 +467,7 @@ function pg_send_query_params ($connection, $query, array $params) {}
 
 /**
  * Sends a request to create a prepared statement with the given parameters, without waiting for completion.
- * @link http://php.net/manual/en/function.pg-send-prepare.php
+ * @link https://php.net/manual/en/function.pg-send-prepare.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -492,7 +492,7 @@ function pg_send_prepare ($connection, $stmtname, $query) {}
 
 /**
  * Sends a request to execute a prepared statement with given parameters, without waiting for the result(s).
- * @link http://php.net/manual/en/function.pg-send-execute.php
+ * @link https://php.net/manual/en/function.pg-send-execute.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -519,7 +519,7 @@ function pg_send_execute ($connection, $stmtname, array $params) {}
 
 /**
  * Cancel an asynchronous query
- * @link http://php.net/manual/en/function.pg-cancel-query.php
+ * @link https://php.net/manual/en/function.pg-cancel-query.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -531,7 +531,7 @@ function pg_cancel_query ($connection) {}
 
 /**
  * Returns values from a result resource
- * @link http://php.net/manual/en/function.pg-fetch-result.php
+ * @link https://php.net/manual/en/function.pg-fetch-result.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -562,7 +562,7 @@ function pg_fetch_result ($result, $row = null, $field) {}
 
 /**
  * Get a row as an enumerated array
- * @link http://php.net/manual/en/function.pg-fetch-row.php
+ * @link https://php.net/manual/en/function.pg-fetch-row.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -587,7 +587,7 @@ function pg_fetch_row ($result, $row = null, $result_type = null) {}
 
 /**
  * Fetch a row as an associative array
- * @link http://php.net/manual/en/function.pg-fetch-assoc.php
+ * @link https://php.net/manual/en/function.pg-fetch-assoc.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -612,7 +612,7 @@ function pg_fetch_assoc ($result, $row = null) {}
 
 /**
  * Fetch a row as an array
- * @link http://php.net/manual/en/function.pg-fetch-array.php
+ * @link https://php.net/manual/en/function.pg-fetch-array.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -650,7 +650,7 @@ function pg_fetch_array ($result, $row = null, $result_type = PGSQL_BOTH) {}
 
 /**
  * Fetch a row as an object
- * @link http://php.net/manual/en/function.pg-fetch-object.php
+ * @link https://php.net/manual/en/function.pg-fetch-object.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -677,7 +677,7 @@ function pg_fetch_object ($result, $row = null, $result_type = PGSQL_ASSOC) {}
 
 /**
  * Fetches all rows from a result as an array
- * @link http://php.net/manual/en/function.pg-fetch-all.php
+ * @link https://php.net/manual/en/function.pg-fetch-all.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -708,7 +708,7 @@ function pg_fetch_all ($result, $result_type) {}
 
 /**
  * Fetches all rows in a particular result column as an array
- * @link http://php.net/manual/en/function.pg-fetch-all-columns.php
+ * @link https://php.net/manual/en/function.pg-fetch-all-columns.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -729,7 +729,7 @@ function pg_fetch_all_columns ($result, $column = 0) {}
 
 /**
  * Returns number of affected records (tuples)
- * @link http://php.net/manual/en/function.pg-affected-rows.php
+ * @link https://php.net/manual/en/function.pg-affected-rows.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -744,7 +744,7 @@ function pg_affected_rows ($result) {}
 
 /**
  * Get asynchronous query result
- * @link http://php.net/manual/en/function.pg-get-result.php
+ * @link https://php.net/manual/en/function.pg-get-result.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -756,7 +756,7 @@ function pg_get_result ($connection = null) {}
 
 /**
  * Set internal row offset in result resource
- * @link http://php.net/manual/en/function.pg-result-seek.php
+ * @link https://php.net/manual/en/function.pg-result-seek.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -774,7 +774,7 @@ function pg_result_seek ($result, $offset) {}
 
 /**
  * Get status of query result
- * @link http://php.net/manual/en/function.pg-result-status.php
+ * @link https://php.net/manual/en/function.pg-result-status.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -798,7 +798,7 @@ function pg_result_status ($result, $type = PGSQL_STATUS_LONG) {}
 
 /**
  * Free result memory
- * @link http://php.net/manual/en/function.pg-free-result.php
+ * @link https://php.net/manual/en/function.pg-free-result.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -812,7 +812,7 @@ function pg_free_result ($result) {}
 
 /**
  * Returns the last row's OID
- * @link http://php.net/manual/en/function.pg-last-oid.php
+ * @link https://php.net/manual/en/function.pg-last-oid.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -828,7 +828,7 @@ function pg_last_oid ($result) {}
 
 /**
  * Returns the number of rows in a result
- * @link http://php.net/manual/en/function.pg-num-rows.php
+ * @link https://php.net/manual/en/function.pg-num-rows.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -842,7 +842,7 @@ function pg_num_rows ($result) {}
 
 /**
  * Returns the number of fields in a result
- * @link http://php.net/manual/en/function.pg-num-fields.php
+ * @link https://php.net/manual/en/function.pg-num-fields.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -856,7 +856,7 @@ function pg_num_fields ($result) {}
 
 /**
  * Returns the name of a field
- * @link http://php.net/manual/en/function.pg-field-name.php
+ * @link https://php.net/manual/en/function.pg-field-name.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -873,7 +873,7 @@ function pg_field_name ($result, $field_number) {}
 
 /**
  * Returns the field number of the named field
- * @link http://php.net/manual/en/function.pg-field-num.php
+ * @link https://php.net/manual/en/function.pg-field-num.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -890,7 +890,7 @@ function pg_field_num ($result, $field_name) {}
 
 /**
  * Returns the internal storage size of the named field
- * @link http://php.net/manual/en/function.pg-field-size.php
+ * @link https://php.net/manual/en/function.pg-field-size.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -908,7 +908,7 @@ function pg_field_size ($result, $field_number) {}
 
 /**
  * Returns the type name for the corresponding field number
- * @link http://php.net/manual/en/function.pg-field-type.php
+ * @link https://php.net/manual/en/function.pg-field-type.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -926,7 +926,7 @@ function pg_field_type ($result, $field_number) {}
 
 /**
  * Returns the type ID (OID) for the corresponding field number
- * @link http://php.net/manual/en/function.pg-field-type-oid.php
+ * @link https://php.net/manual/en/function.pg-field-type-oid.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -942,7 +942,7 @@ function pg_field_type_oid ($result, $field_number) {}
 
 /**
  * Returns the printed length
- * @link http://php.net/manual/en/function.pg-field-prtlen.php
+ * @link https://php.net/manual/en/function.pg-field-prtlen.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -958,7 +958,7 @@ function pg_field_prtlen ($result, $row_number, $field_name_or_number) {}
 
 /**
  * Test if a field is SQL NULL
- * @link http://php.net/manual/en/function.pg-field-is-null.php
+ * @link https://php.net/manual/en/function.pg-field-is-null.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -981,7 +981,7 @@ function pg_field_is_null ($result, $row, $field) {}
 
 /**
  * Returns the name or oid of the tables field
- * @link http://php.net/manual/en/function.pg-field-table.php
+ * @link https://php.net/manual/en/function.pg-field-table.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -1002,7 +1002,7 @@ function pg_field_table ($result, $field_number, $oid_only = false) {}
 
 /**
  * Gets SQL NOTIFY message
- * @link http://php.net/manual/en/function.pg-get-notify.php
+ * @link https://php.net/manual/en/function.pg-get-notify.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -1027,7 +1027,7 @@ function pg_get_notify ($connection, $result_type = null) {}
 
 /**
  * Gets the backend's process ID
- * @link http://php.net/manual/en/function.pg-get-pid.php
+ * @link https://php.net/manual/en/function.pg-get-pid.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -1039,7 +1039,7 @@ function pg_get_pid ($connection) {}
 
 /**
  * Get error message associated with result
- * @link http://php.net/manual/en/function.pg-result-error.php
+ * @link https://php.net/manual/en/function.pg-result-error.php
  * @param resource $result <p>
  * PostgreSQL query result resource, returned by <b>pg_query</b>,
  * <b>pg_query_params</b> or <b>pg_execute</b>
@@ -1054,7 +1054,7 @@ function pg_result_error ($result) {}
 
 /**
  * Returns an individual field of an error report.
- * @link http://php.net/manual/en/function.pg-result-error-field.php
+ * @link https://php.net/manual/en/function.pg-result-error-field.php
  * @param resource $result <p>
  * A PostgreSQL query result resource from a previously executed
  * statement.
@@ -1078,7 +1078,7 @@ function pg_result_error_field ($result, $fieldcode) {}
 
 /**
  * Get the last error message string of a connection
- * @link http://php.net/manual/en/function.pg-last-error.php
+ * @link https://php.net/manual/en/function.pg-last-error.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -1094,7 +1094,7 @@ function pg_last_error ($connection = null) {}
 
 /**
  * Returns the last notice message from PostgreSQL server
- * @link http://php.net/manual/en/function.pg-last-notice.php
+ * @link https://php.net/manual/en/function.pg-last-notice.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -1108,7 +1108,7 @@ function pg_last_notice ($connection, $operation) {}
 
 /**
  * Send a NULL-terminated string to PostgreSQL backend
- * @link http://php.net/manual/en/function.pg-put-line.php
+ * @link https://php.net/manual/en/function.pg-put-line.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -1127,7 +1127,7 @@ function pg_put_line ($connection = null, $data) {}
 
 /**
  * Sync with PostgreSQL backend
- * @link http://php.net/manual/en/function.pg-end-copy.php
+ * @link https://php.net/manual/en/function.pg-end-copy.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -1142,7 +1142,7 @@ function pg_end_copy ($connection = null) {}
 
 /**
  * Copy a table to an array
- * @link http://php.net/manual/en/function.pg-copy-to.php
+ * @link https://php.net/manual/en/function.pg-copy-to.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -1166,7 +1166,7 @@ function pg_copy_to ($connection, $table_name, $delimiter = null, $null_as = nul
 
 /**
  * Insert records into a table from an array
- * @link http://php.net/manual/en/function.pg-copy-from.php
+ * @link https://php.net/manual/en/function.pg-copy-from.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -1195,7 +1195,7 @@ function pg_copy_from ($connection, $table_name, array $rows, $delimiter = null,
 
 /**
  * Enable tracing a PostgreSQL connection
- * @link http://php.net/manual/en/function.pg-trace.php
+ * @link https://php.net/manual/en/function.pg-trace.php
  * @param string $pathname <p>
  * The full path and file name of the file in which to write the
  * trace log. Same as in <b>fopen</b>.
@@ -1218,7 +1218,7 @@ function pg_trace ($pathname, $mode = "w", $connection = null) {}
 
 /**
  * Disable tracing of a PostgreSQL connection
- * @link http://php.net/manual/en/function.pg-untrace.php
+ * @link https://php.net/manual/en/function.pg-untrace.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -1233,7 +1233,7 @@ function pg_untrace ($connection = null) {}
 
 /**
  * Create a large object
- * @link http://php.net/manual/en/function.pg-lo-create.php
+ * @link https://php.net/manual/en/function.pg-lo-create.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -1255,7 +1255,7 @@ function pg_lo_create ($connection = null, $object_id = null) {}
 
 /**
  * Delete a large object
- * @link http://php.net/manual/en/function.pg-lo-unlink.php
+ * @link https://php.net/manual/en/function.pg-lo-unlink.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -1273,7 +1273,7 @@ function pg_lo_unlink ($connection, $oid) {}
 
 /**
  * Open a large object
- * @link http://php.net/manual/en/function.pg-lo-open.php
+ * @link https://php.net/manual/en/function.pg-lo-open.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -1295,7 +1295,7 @@ function pg_lo_open ($connection, $oid, $mode) {}
 
 /**
  * Close a large object
- * @link http://php.net/manual/en/function.pg-lo-close.php
+ * @link https://php.net/manual/en/function.pg-lo-close.php
  * @param resource $large_object
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 4.2.0
@@ -1305,7 +1305,7 @@ function pg_lo_close ($large_object) {}
 
 /**
  * Read a large object
- * @link http://php.net/manual/en/function.pg-lo-read.php
+ * @link https://php.net/manual/en/function.pg-lo-read.php
  * @param resource $large_object <p>
  * PostgreSQL large object (LOB) resource, returned by <b>pg_lo_open</b>.
  * </p>
@@ -1321,7 +1321,7 @@ function pg_lo_read ($large_object, $len = 8192) {}
 
 /**
  * Write to a large object
- * @link http://php.net/manual/en/function.pg-lo-write.php
+ * @link https://php.net/manual/en/function.pg-lo-write.php
  * @param resource $large_object <p>
  * PostgreSQL large object (LOB) resource, returned by <b>pg_lo_open</b>.
  * </p>
@@ -1343,7 +1343,7 @@ function pg_lo_write ($large_object, $data, $len = null) {}
 
 /**
  * Reads an entire large object and send straight to browser
- * @link http://php.net/manual/en/function.pg-lo-read-all.php
+ * @link https://php.net/manual/en/function.pg-lo-read-all.php
  * @param resource $large_object <p>
  * PostgreSQL large object (LOB) resource, returned by <b>pg_lo_open</b>.
  * </p>
@@ -1355,7 +1355,7 @@ function pg_lo_read_all ($large_object) {}
 
 /**
  * Import a large object from file
- * @link http://php.net/manual/en/function.pg-lo-import.php
+ * @link https://php.net/manual/en/function.pg-lo-import.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -1382,7 +1382,7 @@ function pg_lo_import ($connection = null, $pathname, $object_id = null) {}
 
 /**
  * Export a large object to file
- * @link http://php.net/manual/en/function.pg-lo-export.php
+ * @link https://php.net/manual/en/function.pg-lo-export.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -1404,7 +1404,7 @@ function pg_lo_export ($connection = null, $oid, $pathname) {}
 
 /**
  * Seeks position within a large object
- * @link http://php.net/manual/en/function.pg-lo-seek.php
+ * @link https://php.net/manual/en/function.pg-lo-seek.php
  * @param resource $large_object <p>
  * PostgreSQL large object (LOB) resource, returned by <b>pg_lo_open</b>.
  * </p>
@@ -1424,7 +1424,7 @@ function pg_lo_seek ($large_object, $offset, $whence = PGSQL_SEEK_CUR) {}
 
 /**
  * Returns current seek position a of large object
- * @link http://php.net/manual/en/function.pg-lo-tell.php
+ * @link https://php.net/manual/en/function.pg-lo-tell.php
  * @param resource $large_object <p>
  * PostgreSQL large object (LOB) resource, returned by <b>pg_lo_open</b>.
  * </p>
@@ -1437,7 +1437,7 @@ function pg_lo_tell ($large_object) {}
 
 /**
  * Escape a string for query
- * @link http://php.net/manual/en/function.pg-escape-string.php
+ * @link https://php.net/manual/en/function.pg-escape-string.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -1455,7 +1455,7 @@ function pg_escape_string ($connection = null, $data) {}
 
 /**
  * Escape a string for insertion into a bytea field
- * @link http://php.net/manual/en/function.pg-escape-bytea.php
+ * @link https://php.net/manual/en/function.pg-escape-bytea.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -1474,7 +1474,7 @@ function pg_escape_bytea ($connection = null, $data) {}
 
 /**
  * Escape a identifier for insertion into a text field
- * @link http://php.net/manual/en/function.pg-escape-identifier.php
+ * @link https://php.net/manual/en/function.pg-escape-identifier.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -1491,7 +1491,7 @@ function pg_escape_identifier ($connection = null, $data) {}
 
 /**
  * Escape a literal for insertion into a text field
- * @link http://php.net/manual/en/function.pg-escape-literal.php
+ * @link https://php.net/manual/en/function.pg-escape-literal.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -1508,7 +1508,7 @@ function pg_escape_literal ($connection = null, $data) {}
 
 /**
  * Unescape binary for bytea type
- * @link http://php.net/manual/en/function.pg-unescape-bytea.php
+ * @link https://php.net/manual/en/function.pg-unescape-bytea.php
  * @param string $data <p>
  * A string containing PostgreSQL bytea data to be converted into
  * a PHP binary string.
@@ -1523,7 +1523,7 @@ function pg_unescape_bytea ($data) {}
  * Determines the verbosity of messages returned by <b>pg_last_error</b> 
  * @since 5.1.0
 and <b>pg_result_error</b>.
- * @link http://php.net/manual/en/function.pg-set-error-verbosity.php
+ * @link https://php.net/manual/en/function.pg-set-error-verbosity.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -1543,7 +1543,7 @@ function pg_set_error_verbosity ($connection = null, $verbosity) {}
 
 /**
  * Gets the client encoding
- * @link http://php.net/manual/en/function.pg-client-encoding.php
+ * @link https://php.net/manual/en/function.pg-client-encoding.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -1558,7 +1558,7 @@ function pg_client_encoding ($connection = null) {}
 
 /**
  * Set the client encoding
- * @link http://php.net/manual/en/function.pg-set-client-encoding.php
+ * @link https://php.net/manual/en/function.pg-set-client-encoding.php
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource. When
  * <i>connection</i> is not present, the default connection
@@ -1584,7 +1584,7 @@ function pg_set_client_encoding ($connection = null, $encoding) {}
 
 /**
  * Get meta data for table
- * @link http://php.net/manual/en/function.pg-meta-data.php
+ * @link https://php.net/manual/en/function.pg-meta-data.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -1599,7 +1599,7 @@ function pg_meta_data ($connection, $table_name) {}
 
 /**
  * Convert associative array values into suitable for SQL statement
- * @link http://php.net/manual/en/function.pg-convert.php
+ * @link https://php.net/manual/en/function.pg-convert.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -1622,7 +1622,7 @@ function pg_convert ($connection, $table_name, array $assoc_array, $options = 0)
 
 /**
  * Insert array into table
- * @link http://php.net/manual/en/function.pg-insert.php
+ * @link https://php.net/manual/en/function.pg-insert.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -1651,7 +1651,7 @@ function pg_insert ($connection, $table_name, array $assoc_array, $options = PGS
 
 /**
  * Update table
- * @link http://php.net/manual/en/function.pg-update.php
+ * @link https://php.net/manual/en/function.pg-update.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -1682,7 +1682,7 @@ function pg_update ($connection, $table_name, array $data, array $condition, $op
 
 /**
  * Deletes records
- * @link http://php.net/manual/en/function.pg-delete.php
+ * @link https://php.net/manual/en/function.pg-delete.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -1709,7 +1709,7 @@ function pg_delete ($connection, $table_name, array $assoc_array, $options = PGS
 
 /**
  * Select records
- * @link http://php.net/manual/en/function.pg-select.php
+ * @link https://php.net/manual/en/function.pg-select.php
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -1921,49 +1921,49 @@ define ('PGSQL_LIBPQ_VERSION_STR', "PostgreSQL 9.1.10 on x86_64-unknown-linux-gn
 /**
  * Passed to <b>pg_connect</b> to force the creation of a new connection,
  * rather than re-using an existing identical connection.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_CONNECT_FORCE_NEW', 2);
 
 /**
  * Passed to <b>pg_fetch_array</b>. Return an associative array of field
  * names and values.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_ASSOC', 1);
 
 /**
  * Passed to <b>pg_fetch_array</b>. Return a numerically indexed array of field
  * numbers and values.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_NUM', 2);
 
 /**
  * Passed to <b>pg_fetch_array</b>. Return an array of field values
  * that is both numerically indexed (by field number) and associated (by field name).
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_BOTH', 3);
 
 /**
  * Returned by <b>pg_connection_status</b> indicating that the database
  * connection is in an invalid state.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_CONNECTION_BAD', 1);
 
 /**
  * Returned by <b>pg_connection_status</b> indicating that the database
  * connection is in a valid state.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_CONNECTION_OK', 0);
 
 /**
  * Returned by <b>pg_transaction_status</b>. Connection is
  * currently idle, not in a transaction.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_TRANSACTION_IDLE', 0);
 
@@ -1971,28 +1971,28 @@ define ('PGSQL_TRANSACTION_IDLE', 0);
  * Returned by <b>pg_transaction_status</b>. A command
  * is in progress on the connection. A query has been sent via the connection
  * and not yet completed.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_TRANSACTION_ACTIVE', 1);
 
 /**
  * Returned by <b>pg_transaction_status</b>. The connection
  * is idle, in a transaction block.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_TRANSACTION_INTRANS', 2);
 
 /**
  * Returned by <b>pg_transaction_status</b>. The connection
  * is idle, in a failed transaction block.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_TRANSACTION_INERROR', 3);
 
 /**
  * Returned by <b>pg_transaction_status</b>. The connection
  * is bad.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_TRANSACTION_UNKNOWN', 4);
 
@@ -2000,7 +2000,7 @@ define ('PGSQL_TRANSACTION_UNKNOWN', 4);
  * Passed to <b>pg_set_error_verbosity</b>.
  * Specified that returned messages include severity, primary text,
  * and position only; this will normally fit on a single line.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_ERRORS_TERSE', 0);
 
@@ -2009,105 +2009,105 @@ define ('PGSQL_ERRORS_TERSE', 0);
  * The default mode produces messages that include the above
  * plus any detail, hint, or context fields (these may span
  * multiple lines).
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_ERRORS_DEFAULT', 1);
 
 /**
  * Passed to <b>pg_set_error_verbosity</b>.
  * The verbose mode includes all available fields.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_ERRORS_VERBOSE', 2);
 
 /**
  * Passed to <b>pg_lo_seek</b>. Seek operation is to begin
  * from the start of the object.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_SEEK_SET', 0);
 
 /**
  * Passed to <b>pg_lo_seek</b>. Seek operation is to begin
  * from the current position.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_SEEK_CUR', 1);
 
 /**
  * Passed to <b>pg_lo_seek</b>. Seek operation is to begin
  * from the end of the object.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_SEEK_END', 2);
 
 /**
  * Passed to <b>pg_result_status</b>. Indicates that
  * numerical result code is desired.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_STATUS_LONG', 1);
 
 /**
  * Passed to <b>pg_result_status</b>. Indicates that
  * textual result command tag is desired.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_STATUS_STRING', 2);
 
 /**
  * Returned by <b>pg_result_status</b>. The string sent to the server
  * was empty.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_EMPTY_QUERY', 0);
 
 /**
  * Returned by <b>pg_result_status</b>. Successful completion of a
  * command returning no data.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_COMMAND_OK', 1);
 
 /**
  * Returned by <b>pg_result_status</b>. Successful completion of a command
  * returning data (such as a SELECT or SHOW).
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_TUPLES_OK', 2);
 
 /**
  * Returned by <b>pg_result_status</b>. Copy Out (from server) data
  * transfer started.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_COPY_OUT', 3);
 
 /**
  * Returned by <b>pg_result_status</b>. Copy In (to server) data
  * transfer started.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_COPY_IN', 4);
 
 /**
  * Returned by <b>pg_result_status</b>. The server's response
  * was not understood.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_BAD_RESPONSE', 5);
 
 /**
  * Returned by <b>pg_result_status</b>. A nonfatal error
  * (a notice or warning) occurred.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_NONFATAL_ERROR', 6);
 
 /**
  * Returned by <b>pg_result_status</b>. A fatal error
  * occurred.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_FATAL_ERROR', 7);
 
@@ -2118,7 +2118,7 @@ define ('PGSQL_FATAL_ERROR', 7);
  * WARNING, NOTICE, DEBUG,
  * INFO, or LOG (in a notice message), or a localized
  * translation of one of these. Always present.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_DIAG_SEVERITY', 83);
 
@@ -2128,21 +2128,21 @@ define ('PGSQL_DIAG_SEVERITY', 83);
  * that has occurred; it can be used by front-end applications to perform specific
  * operations (such as error handling) in response to a particular database error.
  * This field is not localizable, and is always present.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_DIAG_SQLSTATE', 67);
 
 /**
  * Passed to <b>pg_result_error_field</b>.
  * The primary human-readable error message (typically one line). Always present.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_DIAG_MESSAGE_PRIMARY', 77);
 
 /**
  * Passed to <b>pg_result_error_field</b>.
  * Detail: an optional secondary error message carrying more detail about the problem. May run to multiple lines.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_DIAG_MESSAGE_DETAIL', 68);
 
@@ -2150,7 +2150,7 @@ define ('PGSQL_DIAG_MESSAGE_DETAIL', 68);
  * Passed to <b>pg_result_error_field</b>.
  * Hint: an optional suggestion what to do about the problem. This is intended to differ from detail in that it
  * offers advice (potentially inappropriate) rather than hard facts. May run to multiple lines.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_DIAG_MESSAGE_HINT', 72);
 
@@ -2158,7 +2158,7 @@ define ('PGSQL_DIAG_MESSAGE_HINT', 72);
  * Passed to <b>pg_result_error_field</b>.
  * A string containing a decimal integer indicating an error cursor position as an index into the original
  * statement string. The first character has index 1, and positions are measured in characters not bytes.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_DIAG_STATEMENT_POSITION', 80);
 
@@ -2169,7 +2169,7 @@ define ('PGSQL_DIAG_STATEMENT_POSITION', 80);
  * command rather than the one submitted by the client. The
  * <b>PG_DIAG_INTERNAL_QUERY</b> field will always appear when this
  * field appears.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_DIAG_INTERNAL_POSITION', 112);
 
@@ -2177,7 +2177,7 @@ define ('PGSQL_DIAG_INTERNAL_POSITION', 112);
  * Passed to <b>pg_result_error_field</b>.
  * The text of a failed internally-generated command. This could be, for example, a
  * SQL query issued by a PL/pgSQL function.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_DIAG_INTERNAL_QUERY', 113);
 
@@ -2187,7 +2187,7 @@ define ('PGSQL_DIAG_INTERNAL_QUERY', 113);
  * this includes a call stack traceback of active procedural language
  * functions and internally-generated queries. The trace is one entry
  * per line, most recent first.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_DIAG_CONTEXT', 87);
 
@@ -2195,7 +2195,7 @@ define ('PGSQL_DIAG_CONTEXT', 87);
  * Passed to <b>pg_result_error_field</b>.
  * The file name of the PostgreSQL source-code location where the error
  * was reported.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_DIAG_SOURCE_FILE', 70);
 
@@ -2203,35 +2203,35 @@ define ('PGSQL_DIAG_SOURCE_FILE', 70);
  * Passed to <b>pg_result_error_field</b>.
  * The line number of the PostgreSQL source-code location where the
  * error was reported.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_DIAG_SOURCE_LINE', 76);
 
 /**
  * Passed to <b>pg_result_error_field</b>.
  * The name of the PostgreSQL source-code function reporting the error.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_DIAG_SOURCE_FUNCTION', 82);
 
 /**
  * Passed to <b>pg_convert</b>.
  * Ignore default values in the table during conversion.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_CONV_IGNORE_DEFAULT', 2);
 
 /**
  * Passed to <b>pg_convert</b>.
  * Use SQL NULL in place of an empty string.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_CONV_FORCE_NULL', 4);
 
 /**
  * Passed to <b>pg_convert</b>.
  * Ignore conversion of <b>NULL</b> into SQL NOT NULL columns.
- * @link http://php.net/manual/en/pgsql.constants.php
+ * @link https://php.net/manual/en/pgsql.constants.php
  */
 define ('PGSQL_CONV_IGNORE_NOT_NULL', 8);
 define ('PGSQL_DML_NO_CONV', 256);
@@ -2240,19 +2240,19 @@ define ('PGSQL_DML_ASYNC', 1024);
 define ('PGSQL_DML_STRING', 2048);
 
 /**
- * @link http://php.net/manual/en/function.pg-last-notice.php
+ * @link https://php.net/manual/en/function.pg-last-notice.php
  * @since 7.1
  */
 define ('PGSQL_NOTICE_LAST', 1);
 
 /**
- * @link http://php.net/manual/en/function.pg-last-notice.php
+ * @link https://php.net/manual/en/function.pg-last-notice.php
  * @since 7.1
  */
 define('PGSQL_NOTICE_ALL', 2);
 
 /**
- * @link http://php.net/manual/en/function.pg-last-notice.php
+ * @link https://php.net/manual/en/function.pg-last-notice.php
  * @since 7.1
  */
 define('PGSQL_NOTICE_CLEAR', 3);

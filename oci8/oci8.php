@@ -4,14 +4,14 @@
 
 /**
  * OCI8 LOB functionality for large binary (BLOB) and character (CLOB) objects.
- * @link http://php.net/manual/en/class.OCI-Lob.php
+ * @link https://php.net/manual/en/class.OCI-Lob.php
  */
 class OCI_Lob  {
 
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Returns large object's contents
-	 * @link http://php.net/manual/en/oci-lob.load.php
+	 * @link https://php.net/manual/en/oci-lob.load.php
 	 * @return string the contents of the object, or <b>FALSE</b> on errors.
 	 */
 	public function load () {}
@@ -19,7 +19,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Returns the current position of internal pointer of large object
-	 * @link http://php.net/manual/en/oci-lob.tell.php
+	 * @link https://php.net/manual/en/oci-lob.tell.php
 	 * @return int current position of a LOB's internal pointer or <b>FALSE</b> if an
 	 * error occurred.
 	 */
@@ -28,7 +28,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Truncates large object
-	 * @link http://php.net/manual/en/oci-lob.truncate.php
+	 * @link https://php.net/manual/en/oci-lob.truncate.php
 	 * @param int $length [optional] <p>
 	 * If provided, this method will truncate the LOB to
 	 * <i>length</i> bytes. Otherwise, it will completely
@@ -41,7 +41,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Erases a specified portion of the internal LOB data
-	 * @link http://php.net/manual/en/oci-lob.erase.php
+	 * @link https://php.net/manual/en/oci-lob.erase.php
 	 * @param int $offset [optional]
 	 * @param int $length [optional]
 	 * @return int the actual number of characters/bytes erased or <b>FALSE</b> on failure.
@@ -51,7 +51,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Flushes/writes buffer of the LOB to the server
-	 * @link http://php.net/manual/en/oci-lob.flush.php
+	 * @link https://php.net/manual/en/oci-lob.flush.php
 	 * @param int $flag [optional] <p>
 	 * By default, resources are not freed, but using flag
 	 * <b>OCI_LOB_BUFFER_FREE</b> you can do it explicitly.
@@ -71,7 +71,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Changes current state of buffering for the large object
-	 * @link http://php.net/manual/en/oci-lob.setbuffering.php
+	 * @link https://php.net/manual/en/oci-lob.setbuffering.php
 	 * @param bool $on_off <p>
 	 * <b>TRUE</b> for on and <b>FALSE</b> for off.
 	 * </p>
@@ -83,7 +83,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Returns current state of buffering for the large object
-	 * @link http://php.net/manual/en/oci-lob.getbuffering.php
+	 * @link https://php.net/manual/en/oci-lob.getbuffering.php
 	 * @return bool <b>FALSE</b> if buffering for the large object is off and <b>TRUE</b> if
 	 * buffering is used.
 	 */
@@ -92,7 +92,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Moves the internal pointer to the beginning of the large object
-	 * @link http://php.net/manual/en/oci-lob.rewind.php
+	 * @link https://php.net/manual/en/oci-lob.rewind.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function rewind () {}
@@ -100,7 +100,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Reads part of the large object
-	 * @link http://php.net/manual/en/oci-lob.read.php
+	 * @link https://php.net/manual/en/oci-lob.read.php
 	 * @param int $length <p>
 	 * The length of data to read, in bytes. Large values will be rounded down to 1 MB.
 	 * </p>
@@ -111,7 +111,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Tests for end-of-file on a large object's descriptor
-	 * @link http://php.net/manual/en/oci-lob.eof.php
+	 * @link https://php.net/manual/en/oci-lob.eof.php
 	 * @return bool <b>TRUE</b> if internal pointer of large object is at the end of LOB.
 	 * Otherwise returns <b>FALSE</b>.
 	 */
@@ -120,7 +120,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Sets the internal pointer of the large object
-	 * @link http://php.net/manual/en/oci-lob.seek.php
+	 * @link https://php.net/manual/en/oci-lob.seek.php
 	 * @param int $offset <p>
 	 * Indicates the amount of bytes, on which internal pointer should be
 	 * moved from the position, pointed by <i>whence</i>.
@@ -142,7 +142,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Writes data to the large object
-	 * @link http://php.net/manual/en/oci-lob.write.php
+	 * @link https://php.net/manual/en/oci-lob.write.php
 	 * @param string $data <p>
 	 * The data to write in the LOB.
 	 * </p>
@@ -158,7 +158,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Appends data from the large object to another large object
-	 * @link http://php.net/manual/en/oci-lob.append.php
+	 * @link https://php.net/manual/en/oci-lob.append.php
 	 * @param OCI_Lob $lob_from <p>
 	 * The copied LOB.
 	 * </p>
@@ -169,7 +169,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Returns size of large object
-	 * @link http://php.net/manual/en/oci-lob.size.php
+	 * @link https://php.net/manual/en/oci-lob.size.php
 	 * @return int length of large object value or <b>FALSE</b> on failure.
 	 * Empty objects have zero length.
 	 */
@@ -178,7 +178,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Alias of {@see OCI_Lob::export}
-	 * @link http://php.net/manual/en/oci-lob.writetofile.php
+	 * @link https://php.net/manual/en/oci-lob.writetofile.php
 	 * @param $filename
 	 * @param $start [optional]
 	 * @param $length [optional]
@@ -189,7 +189,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Exports LOB's contents to a file
-	 * @link http://php.net/manual/en/oci-lob.export.php
+	 * @link https://php.net/manual/en/oci-lob.export.php
 	 * @param string $filename <p>
 	 * Path to the file.
 	 * </p>
@@ -206,7 +206,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Imports file data to the LOB
-	 * @link http://php.net/manual/en/oci-lob.import.php
+	 * @link https://php.net/manual/en/oci-lob.import.php
 	 * @param string $filename <p>
 	 * Path to the file.
 	 * </p>
@@ -217,7 +217,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Writes a temporary large object
-	 * @link http://php.net/manual/en/oci-lob.writetemporary.php
+	 * @link https://php.net/manual/en/oci-lob.writetemporary.php
 	 * @param string $data <p>
 	 * The data to write.
 	 * </p>
@@ -234,7 +234,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Closes LOB descriptor
-	 * @link http://php.net/manual/en/oci-lob.close.php
+	 * @link https://php.net/manual/en/oci-lob.close.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function close () {}
@@ -242,7 +242,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Saves data to the large object
-	 * @link http://php.net/manual/en/oci-lob.save.php
+	 * @link https://php.net/manual/en/oci-lob.save.php
 	 * @param string $data <p>
 	 * The data to be saved.
 	 * </p>
@@ -256,7 +256,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Alias of {@see OCI_Lob::import}
-	 * @link http://php.net/manual/en/oci-lob.savefile.php
+	 * @link https://php.net/manual/en/oci-lob.savefile.php
 	 * @param $filename
      * @return bool Return true on success and false on failure
 	 */
@@ -265,7 +265,7 @@ class OCI_Lob  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Frees resources associated with the LOB descriptor
-	 * @link http://php.net/manual/en/oci-lob.free.php
+	 * @link https://php.net/manual/en/oci-lob.free.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function free () {}
@@ -274,14 +274,14 @@ class OCI_Lob  {
 
 /**
  * OCI8 Collection functionality.
- * @link http://php.net/manual/en/class.OCI-Collection.php
+ * @link https://php.net/manual/en/class.OCI-Collection.php
  */
 class OCI_Collection  {
 
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Appends element to the collection
-	 * @link http://php.net/manual/en/oci-collection.append.php
+	 * @link https://php.net/manual/en/oci-collection.append.php
 	 * @param mixed $value <p>
 	 * The value to be added to the collection. Can be a string or a number.
 	 * </p>
@@ -292,7 +292,7 @@ class OCI_Collection  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Returns value of the element
-	 * @link http://php.net/manual/en/oci-collection.getelem.php
+	 * @link https://php.net/manual/en/oci-collection.getelem.php
 	 * @param int $index <p>
 	 * The element index. First index is 0.
 	 * </p>
@@ -305,7 +305,7 @@ class OCI_Collection  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Assigns a value to the element of the collection
-	 * @link http://php.net/manual/en/oci-collection.assignelem.php
+	 * @link https://php.net/manual/en/oci-collection.assignelem.php
 	 * @param int $index <p>
 	 * The element index. First index is 0.
 	 * </p>
@@ -319,7 +319,7 @@ class OCI_Collection  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Assigns a value to the collection from another existing collection
-	 * @link http://php.net/manual/en/oci-collection.assign.php
+	 * @link https://php.net/manual/en/oci-collection.assign.php
 	 * @param OCI_Collection $from <p>
 	 * An instance of OCI-Collection.
 	 * </p>
@@ -330,7 +330,7 @@ class OCI_Collection  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Returns size of the collection
-	 * @link http://php.net/manual/en/oci-collection.size.php
+	 * @link https://php.net/manual/en/oci-collection.size.php
 	 * @return int the number of elements in the collection or <b>FALSE</b> on error.
 	 */
 	public function size () {}
@@ -338,7 +338,7 @@ class OCI_Collection  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Returns the maximum number of elements in the collection
-	 * @link http://php.net/manual/en/oci-collection.max.php
+	 * @link https://php.net/manual/en/oci-collection.max.php
 	 * @return int the maximum number as an integer, or <b>FALSE</b> on errors.
 	 * </p>
 	 * <p>
@@ -349,7 +349,7 @@ class OCI_Collection  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Trims elements from the end of the collection
-	 * @link http://php.net/manual/en/oci-collection.trim.php
+	 * @link https://php.net/manual/en/oci-collection.trim.php
 	 * @param int $num <p>
 	 * The number of elements to be trimmed.
 	 * </p>
@@ -360,7 +360,7 @@ class OCI_Collection  {
 	/**
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Frees the resources associated with the collection object
-	 * @link http://php.net/manual/en/oci-collection.free.php
+	 * @link https://php.net/manual/en/oci-collection.free.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function free () {}
@@ -370,7 +370,7 @@ class OCI_Collection  {
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Associates a PHP variable with a column for query fetches
- * @link http://php.net/manual/en/function.oci-define-by-name.php
+ * @link https://php.net/manual/en/function.oci-define-by-name.php
  * @param resource $statement A valid OCI8 statement
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
@@ -403,7 +403,7 @@ function oci_define_by_name ($statement, $column_name, &$variable, $type = SQLT_
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Binds a PHP variable to an Oracle placeholder
- * @link http://php.net/manual/en/function.oci-bind-by-name.php
+ * @link https://php.net/manual/en/function.oci-bind-by-name.php
  * @param resource $statement <p>
  * A valid OCI8 statement identifer.
  * </p>
@@ -451,7 +451,7 @@ function oci_bind_by_name ($statement, $bv_name, &$variable, $maxlength = -1, $t
 /**
  * (PHP 5 &gt;= 5.1.2, PECL OCI8 &gt;= 1.2.0)<br/>
  * Binds a PHP array to an Oracle PL/SQL array parameter
- * @link http://php.net/manual/en/function.oci-bind-array-by-name.php
+ * @link https://php.net/manual/en/function.oci-bind-array-by-name.php
  * @param resource $statement <p>
  * A valid OCI statement identifier.
  * </p>
@@ -484,7 +484,7 @@ function oci_bind_array_by_name ($statement, $name, array &$var_array, $max_tabl
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Checks if the field is <b>NULL</b>
- * @link http://php.net/manual/en/function.oci-field-is-null.php
+ * @link https://php.net/manual/en/function.oci-field-is-null.php
  * @param resource $statement <p>
  * A valid OCI statement identifier.
  * </p>
@@ -498,7 +498,7 @@ function oci_field_is_null ($statement, $field) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Returns the name of a field from the statement
- * @link http://php.net/manual/en/function.oci-field-name.php
+ * @link https://php.net/manual/en/function.oci-field-name.php
  * @param resource $statement <p>
  * A valid OCI statement identifier.
  * </p>
@@ -512,7 +512,7 @@ function oci_field_name ($statement, $field) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Returns field's size
- * @link http://php.net/manual/en/function.oci-field-size.php
+ * @link https://php.net/manual/en/function.oci-field-size.php
  * @param resource $statement <p>
  * A valid OCI statement identifier.
  * </p>
@@ -527,7 +527,7 @@ function oci_field_size ($statement, $field) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Tell the scale of the field
- * @link http://php.net/manual/en/function.oci-field-scale.php
+ * @link https://php.net/manual/en/function.oci-field-scale.php
  * @param resource $statement <p>
  * A valid OCI statement identifier.
  * </p>
@@ -541,7 +541,7 @@ function oci_field_scale ($statement, $field) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Tell the precision of a field
- * @link http://php.net/manual/en/function.oci-field-precision.php
+ * @link https://php.net/manual/en/function.oci-field-precision.php
  * @param resource $statement <p>
  * A valid OCI statement identifier.
  * </p>
@@ -555,7 +555,7 @@ function oci_field_precision ($statement, $field) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Returns field's data type
- * @link http://php.net/manual/en/function.oci-field-type.php
+ * @link https://php.net/manual/en/function.oci-field-type.php
  * @param resource $statement <p>
  * A valid OCI statement identifier.
  * </p>
@@ -569,7 +569,7 @@ function oci_field_type ($statement, $field) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Tell the raw Oracle data type of the field
- * @link http://php.net/manual/en/function.oci-field-type-raw.php
+ * @link https://php.net/manual/en/function.oci-field-type-raw.php
  * @param resource $statement <p>
  * A valid OCI statement identifier.
  * </p>
@@ -583,7 +583,7 @@ function oci_field_type_raw ($statement, $field) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Executes a statement
- * @link http://php.net/manual/en/function.oci-execute.php
+ * @link https://php.net/manual/en/function.oci-execute.php
  * @param resource $statement <p>
  * A valid OCI statement identifier.
  * </p>
@@ -651,7 +651,7 @@ function oci_execute ($statement, $mode = OCI_COMMIT_ON_SUCCESS) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Cancels reading from cursor
- * @link http://php.net/manual/en/function.oci-cancel.php
+ * @link https://php.net/manual/en/function.oci-cancel.php
  * @param resource $statement <p>
  * An OCI statement.
  * </p>
@@ -662,7 +662,7 @@ function oci_cancel ($statement) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Fetches the next row from a query into internal buffers
- * @link http://php.net/manual/en/function.oci-fetch.php
+ * @link https://php.net/manual/en/function.oci-fetch.php
  * @param resource $statement A valid OCI8 statement
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
@@ -675,7 +675,7 @@ function oci_fetch ($statement) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Returns the next row from a query as an object
- * @link http://php.net/manual/en/function.oci-fetch-object.php
+ * @link https://php.net/manual/en/function.oci-fetch-object.php
  * @param resource $statement A valid OCI8 statement
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
@@ -710,7 +710,7 @@ function oci_fetch_object ($statement) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Returns the next row from a query as a numeric array
- * @link http://php.net/manual/en/function.oci-fetch-row.php
+ * @link https://php.net/manual/en/function.oci-fetch-row.php
  * @param resource $statement A valid OCI8 statement
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
@@ -723,7 +723,7 @@ function oci_fetch_row ($statement) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Returns the next row from a query as an associative array
- * @link http://php.net/manual/en/function.oci-fetch-assoc.php
+ * @link https://php.net/manual/en/function.oci-fetch-assoc.php
  * @param resource $statement A valid OCI8 statement
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
@@ -736,7 +736,7 @@ function oci_fetch_assoc ($statement) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Returns the next row from a query as an associative or numeric array
- * @link http://php.net/manual/en/function.oci-fetch-array.php
+ * @link https://php.net/manual/en/function.oci-fetch-array.php
  * @param resource $statement A valid OCI8 statement
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
@@ -824,7 +824,7 @@ function oci_fetch_array ($statement, $mode = null) {}
  * Obsolete variant of {@see oci_fetch_array}, {@see oci_fetch_object},
  * {@see oci_fetch_assoc} and
  * {@see oci_fetch_row}
- * @link http://php.net/manual/en/function.ocifetchinto.php
+ * @link https://php.net/manual/en/function.ocifetchinto.php
  * @param resource $statement_resource
  * @param array &$result
  * @param int $mode [optional]
@@ -835,7 +835,7 @@ function ocifetchinto ($statement_resource, &$result, $mode = null) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Fetches multiple rows from a query into a two-dimensional array
- * @link http://php.net/manual/en/function.oci-fetch-all.php
+ * @link https://php.net/manual/en/function.oci-fetch-all.php
  * @param resource $statement A valid OCI8 statement
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
@@ -925,7 +925,7 @@ function oci_fetch_all ($statement, array &$output, $skip = 0, $maxrows = -1, $f
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Frees all resources associated with statement or cursor
- * @link http://php.net/manual/en/function.oci-free-statement.php
+ * @link https://php.net/manual/en/function.oci-free-statement.php
  * @param resource $statement <p>
  * A valid OCI statement identifier.
  * </p>
@@ -936,7 +936,7 @@ function oci_free_statement ($statement) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Enables or disables internal debug output
- * @link http://php.net/manual/en/function.oci-internal-debug.php
+ * @link https://php.net/manual/en/function.oci-internal-debug.php
  * @param bool $onoff <p>
  * Set this to <b>FALSE</b> to turn debug output off or <b>TRUE</b> to turn it on.
  * </p>
@@ -947,7 +947,7 @@ function oci_internal_debug ($onoff) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Returns the number of result columns in a statement
- * @link http://php.net/manual/en/function.oci-num-fields.php
+ * @link https://php.net/manual/en/function.oci-num-fields.php
  * @param resource $statement <p>
  * A valid OCI statement identifier.
  * </p>
@@ -958,7 +958,7 @@ function oci_num_fields ($statement) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Prepares an Oracle statement for execution
- * @link http://php.net/manual/en/function.oci-parse.php
+ * @link https://php.net/manual/en/function.oci-parse.php
  * @param resource $connection <p>
  * An Oracle connection identifier, returned by
  * {@see oci_connect}, {@see oci_pconnect}, or {@see oci_new_connect}.
@@ -979,7 +979,7 @@ function oci_parse ($connection, $sql_text) {}
 /**
  * (PECL OCI8 &gt;= 2.0.0)<br/>
  * Returns the next child statement resource from a parent statement resource that has Oracle Database 12c Implicit Result Sets
- * @link http://php.net/manual/en/function.oci-get-implicit-resultset.php
+ * @link https://php.net/manual/en/function.oci-get-implicit-resultset.php
  * @param resource $statement <p>A valid OCI8 statement identifier created
  * by {@see oci_parse} and executed
  * by {@see oci_execute}. The statement
@@ -997,7 +997,7 @@ function oci_get_implicit_resultset ($statement) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Allocates and returns a new cursor (statement handle)
- * @link http://php.net/manual/en/function.oci-new-cursor.php
+ * @link https://php.net/manual/en/function.oci-new-cursor.php
  * @param resource $connection <p>
  * An Oracle connection identifier, returned by
  * {@see oci_connect} or {@see oci_pconnect}.
@@ -1009,7 +1009,7 @@ function oci_new_cursor ($connection) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Returns field's value from the fetched row
- * @link http://php.net/manual/en/function.oci-result.php
+ * @link https://php.net/manual/en/function.oci-result.php
  * @param resource $statement
  * @param mixed $field <p>
  * Can be either use the column number (1-based) or the column name.
@@ -1025,7 +1025,7 @@ function oci_result ($statement, $field) {}
 /**
  * (PHP 5.3.7, PECL OCI8 &gt;= 1.4.6)<br/>
  * Returns the Oracle client library version
- * @link http://php.net/manual/en/function.oci-client-version.php
+ * @link https://php.net/manual/en/function.oci-client-version.php
  * @return string the version number as a string.
  */
 function oci_client_version () {}
@@ -1033,7 +1033,7 @@ function oci_client_version () {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Returns the Oracle Database version
- * @link http://php.net/manual/en/function.oci-server-version.php
+ * @link https://php.net/manual/en/function.oci-server-version.php
  * @param resource $connection
  * @return string the version information as a string or <b>FALSE</b> on error.
  */
@@ -1042,7 +1042,7 @@ function oci_server_version ($connection) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Returns the type of a statement
- * @link http://php.net/manual/en/function.oci-statement-type.php
+ * @link https://php.net/manual/en/function.oci-statement-type.php
  * @param resource $statement <p>
  * A valid OCI8 statement identifier from {@see oci_parse}.
  * </p>
@@ -1108,7 +1108,7 @@ function oci_statement_type ($statement) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Returns number of rows affected during statement execution
- * @link http://php.net/manual/en/function.oci-num-rows.php
+ * @link https://php.net/manual/en/function.oci-num-rows.php
  * @param resource $statement <p>
  * A valid OCI statement identifier.
  * </p>
@@ -1119,7 +1119,7 @@ function oci_num_rows ($statement) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Closes an Oracle connection
- * @link http://php.net/manual/en/function.oci-close.php
+ * @link https://php.net/manual/en/function.oci-close.php
  * @param resource $connection <p>
  * An Oracle connection identifier returned by
  * {@see oci_connect}, {@see oci_pconnect},
@@ -1132,7 +1132,7 @@ function oci_close ($connection) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Connect to an Oracle database
- * @link http://php.net/manual/en/function.oci-connect.php
+ * @link https://php.net/manual/en/function.oci-connect.php
  * @param string $username <p>
  * The Oracle user name.
  * </p>
@@ -1217,7 +1217,7 @@ function oci_connect ($username, $password, $connection_string = null, $characte
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Connect to the Oracle server using a unique connection
- * @link http://php.net/manual/en/function.oci-new-connect.php
+ * @link https://php.net/manual/en/function.oci-new-connect.php
  * @param string $username <p>
  * The Oracle user name.
  * </p>
@@ -1302,7 +1302,7 @@ function oci_new_connect ($username, $password, $connection_string = null, $char
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Connect to an Oracle database using a persistent connection
- * @link http://php.net/manual/en/function.oci-pconnect.php
+ * @link https://php.net/manual/en/function.oci-pconnect.php
  * @param string $username <p>
  * The Oracle user name.
  * </p>
@@ -1387,7 +1387,7 @@ function oci_pconnect ($username, $password, $connection_string = null, $charact
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Returns the last error found
- * @link http://php.net/manual/en/function.oci-error.php
+ * @link https://php.net/manual/en/function.oci-error.php
  * @param resource $resource [optional] <p>
  * For most errors, <i>resource</i> is the
  * resource handle that was passed to the failing function call.
@@ -1444,7 +1444,7 @@ function oci_error ($resource = null) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Frees a descriptor
- * @link http://php.net/manual/en/function.oci-free-descriptor.php
+ * @link https://php.net/manual/en/function.oci-free-descriptor.php
  * @param resource $descriptor
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
@@ -1453,7 +1453,7 @@ function oci_free_descriptor ($descriptor) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Compares two LOB/FILE locators for equality
- * @link http://php.net/manual/en/function.oci-lob-is-equal.php
+ * @link https://php.net/manual/en/function.oci-lob-is-equal.php
  * @param OCI_Lob $lob1 <p>
  * A LOB identifier.
  * </p>
@@ -1467,7 +1467,7 @@ function oci_lob_is_equal (OCI_Lob $lob1, OCI_Lob $lob2) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Copies large object
- * @link http://php.net/manual/en/function.oci-lob-copy.php
+ * @link https://php.net/manual/en/function.oci-lob-copy.php
  * @param OCI_Lob $lob_to <p>
  * The destination LOB.
  * </p>
@@ -1484,7 +1484,7 @@ function oci_lob_copy (OCI_Lob $lob_to, OCI_Lob $lob_from, $length = 0) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Commits the outstanding database transaction
- * @link http://php.net/manual/en/function.oci-commit.php
+ * @link https://php.net/manual/en/function.oci-commit.php
  * @param resource $connection <p>
  * An Oracle connection identifier, returned by
  * {@see oci_connect}, {@see oci_pconnect}, or {@see oci_new_connect}.
@@ -1496,7 +1496,7 @@ function oci_commit ($connection) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Rolls back the outstanding database transaction
- * @link http://php.net/manual/en/function.oci-rollback.php
+ * @link https://php.net/manual/en/function.oci-rollback.php
  * @param resource $connection <p>
  * An Oracle connection identifier, returned by
  * {@see oci_connect}, {@see oci_pconnect}
@@ -1509,7 +1509,7 @@ function oci_rollback ($connection) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Initializes a new empty LOB or FILE descriptor
- * @link http://php.net/manual/en/function.oci-new-descriptor.php
+ * @link https://php.net/manual/en/function.oci-new-descriptor.php
  * @param resource $connection <p>
  * An Oracle connection identifier, returned by
  * {@see oci_connect} or {@see oci_pconnect}.
@@ -1526,7 +1526,7 @@ function oci_new_descriptor ($connection, $type = OCI_DTYPE_LOB) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Sets number of rows to be prefetched by queries
- * @link http://php.net/manual/en/function.oci-set-prefetch.php
+ * @link https://php.net/manual/en/function.oci-set-prefetch.php
  * @param resource $statement A valid OCI8 statement
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
@@ -1541,7 +1541,7 @@ function oci_set_prefetch ($statement, $rows) {}
 /**
  * (PHP 5.3.2, PECL OCI8 &gt;= 1.4.0)<br/>
  * Sets the client identifier
- * @link http://php.net/manual/en/function.oci-set-client-identifier.php
+ * @link https://php.net/manual/en/function.oci-set-client-identifier.php
  * @param resource $connection An Oracle connection identifier,
  * returned by {@see oci_connect}, {@see oci_pconnect},
  * or {@see oci_new_connect}.</p>
@@ -1555,7 +1555,7 @@ function oci_set_client_identifier ($connection, $client_identifier) {}
 /**
  * (PHP 5.3.2, PECL OCI8 &gt;= 1.4.0)<br/>
  * Sets the database edition
- * @link http://php.net/manual/en/function.oci-set-edition.php
+ * @link https://php.net/manual/en/function.oci-set-edition.php
  * @param string $edition <p>
  * Oracle Database edition name previously created with the SQL
  * "CREATE EDITION" command.
@@ -1567,7 +1567,7 @@ function oci_set_edition ($edition) {}
 /**
  * (PHP 5.3.2, PECL OCI8 &gt;= 1.4.0)<br/>
  * Sets the module name
- * @link http://php.net/manual/en/function.oci-set-module-name.php
+ * @link https://php.net/manual/en/function.oci-set-module-name.php
  * @param resource $connection An Oracle connection identifier,
  * returned by {@see oci_connect}, {@see oci_pconnect},
  * or {@see oci_new_connect}.</p>
@@ -1581,7 +1581,7 @@ function oci_set_module_name ($connection, $module_name) {}
 /**
  * (PHP 5.3.2, PECL OCI8 &gt;= 1.4.0)<br/>
  * Sets the action name
- * @link http://php.net/manual/en/function.oci-set-action.php
+ * @link https://php.net/manual/en/function.oci-set-action.php
  * @param resource $connection An Oracle connection identifier,
  * returned by {@see oci_connect}, {@see oci_pconnect},
  * or {@see oci_new_connect}.</p>
@@ -1595,7 +1595,7 @@ function oci_set_action ($connection, $action_name) {}
 /**
  * (PHP 5.3.2, PECL OCI8 &gt;= 1.4.0)<br/>
  * Sets the client information
- * @link http://php.net/manual/en/function.oci-set-client-info.php
+ * @link https://php.net/manual/en/function.oci-set-client-info.php
  * @param resource $connection An Oracle connection identifier,
  * returned by {@see oci_connect}, {@see oci_pconnect},
  * or {@see oci_new_connect}.</p>
@@ -1609,7 +1609,7 @@ function oci_set_client_info ($connection, $client_info) {}
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Changes password of Oracle's user
- * @link http://php.net/manual/en/function.oci-password-change.php
+ * @link https://php.net/manual/en/function.oci-password-change.php
  * @param resource $connection <p>
  * An Oracle connection identifier, returned by
  * {@see oci_connect} or {@see oci_pconnect}.
@@ -1630,7 +1630,7 @@ function oci_password_change ($connection, $username, $old_password, $new_passwo
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Allocates new collection object
- * @link http://php.net/manual/en/function.oci-new-collection.php
+ * @link https://php.net/manual/en/function.oci-new-collection.php
  * @param resource $connection <p>
  * An Oracle connection identifier, returned by
  * {@see oci_connect} or {@see oci_pconnect}.
@@ -1649,7 +1649,7 @@ function oci_new_collection ($connection, $tdo, $schema = null) {}
 
 /**
  * Alias of {@see oci_free_statement()}
- * @link http://php.net/manual/en/function.ocifreecursor.php
+ * @link https://php.net/manual/en/function.ocifreecursor.php
  * @param $statement_resource
  * @return bool Returns TRUE on success or FALSE on failure.
  */
@@ -1659,7 +1659,7 @@ function oci_free_cursor ($statement_resource) {}
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see oci_free_statement}
- * @link http://php.net/manual/en/function.ocifreecursor.php
+ * @link https://php.net/manual/en/function.ocifreecursor.php
  * @param resource $statement_resource
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
@@ -1668,7 +1668,7 @@ function ocifreecursor ($statement_resource) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_bind_by_name}
- * @link http://php.net/manual/en/function.ocibindbyname.php
+ * @link https://php.net/manual/en/function.ocibindbyname.php
  * @param resource $statement
  * @param $column_name
  * @param $variable
@@ -1681,7 +1681,7 @@ function ocibindbyname ($statement, $column_name, &$variable, $maximum_length = 
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_define_by_name}
- * @link http://php.net/manual/en/function.ocidefinebyname.php
+ * @link https://php.net/manual/en/function.ocidefinebyname.php
  * @param resource $statement <p>A valid OCI8 statement identifier created by {@see oci_parse()} and executed by {@see oci_execute()}, or a REF CURSOR statement identifier.</p>
  * @param string $column_name <p>The column name used in the query. Use uppercase for Oracle's default, non-case sensitive column names. Use the exact column name case for case-sensitive column names.</p>
  * @param mixed $variable <p>The PHP variable that will contain the returned column value.</p>
@@ -1694,7 +1694,7 @@ function ocidefinebyname ($statement, $column_name, &$variable, $type = SQLT_CHR
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_field_is_null}
- * @link http://php.net/manual/en/function.ocicolumnisnull.php
+ * @link https://php.net/manual/en/function.ocicolumnisnull.php
  * @param resource $statement
  * @param mixed $column_number_or_name
  * @return bool Returns TRUE if field is NULL, FALSE otherwise.
@@ -1704,7 +1704,7 @@ function ocicolumnisnull ($statement, $column_number_or_name) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_field_name}
- * @link http://php.net/manual/en/function.ocicolumnname.php
+ * @link https://php.net/manual/en/function.ocicolumnname.php
  * @param resource $statement
  * @param mixed $column_number
  * @return string|bool Returns the name as a string, or FALSE on errors.
@@ -1714,7 +1714,7 @@ function ocicolumnname ($statement, $column_number) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_field_size}
- * @link http://php.net/manual/en/function.ocicolumnsize.php
+ * @link https://php.net/manual/en/function.ocicolumnsize.php
  * @param resource $statement
  * @param mixed $column_number_or_name
  * @return int|bool Returns the size of a field in bytes, or <b>FALSE</b> on errors.
@@ -1724,7 +1724,7 @@ function ocicolumnsize ($statement, $column_number_or_name) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_field_scale}
- * @link http://php.net/manual/en/function.ocicolumnscale.php
+ * @link https://php.net/manual/en/function.ocicolumnscale.php
  * @param resource $statement_resource
  * @param $column_number
  * @return int|bool Returns the scale as an integer, or <b>FALSE</b> on errors.
@@ -1734,7 +1734,7 @@ function ocicolumnscale ($statement_resource, $column_number) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_field_precision}
- * @link http://php.net/manual/en/function.ocicolumnprecision.php
+ * @link https://php.net/manual/en/function.ocicolumnprecision.php
  * @param statement_resource
  * @param column_number
  * @return int|bool Returns the precision  as an integer, or <b>FALSE</b> on errors.
@@ -1744,7 +1744,7 @@ function ocicolumnprecision ($statement_resource, $column_number) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_field_type}
- * @link http://php.net/manual/en/function.ocicolumntype.php
+ * @link https://php.net/manual/en/function.ocicolumntype.php
  * @param statement_resource
  * @param column_number
  * @return mixed|bool Returns the field data type as a string, or FALSE on errors.
@@ -1754,7 +1754,7 @@ function ocicolumntype ($statement_resource, $column_number) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_field_type_raw}
- * @link http://php.net/manual/en/function.ocicolumntyperaw.php
+ * @link https://php.net/manual/en/function.ocicolumntyperaw.php
  * @param statement_resource
  * @param column_number
  * @return int|bool Returns Oracle's raw data type as a number, or FALSE on errors.
@@ -1764,7 +1764,7 @@ function ocicolumntyperaw ($statement_resource, $column_number) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_execute}
- * @link http://php.net/manual/en/function.ociexecute.php
+ * @link https://php.net/manual/en/function.ociexecute.php
  * @param $statement_resource
  * @param $mode [optional]
  * @return bool Returns TRUE on success or FALSE on failure
@@ -1774,7 +1774,7 @@ function ociexecute ($statement_resource, $mode = OCI_COMMIT_ON_SUCCESS) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_cancel}
- * @link http://php.net/manual/en/function.ocicancel.php
+ * @link https://php.net/manual/en/function.ocicancel.php
  * @param resource $statement_resource
  * @return bool Returns TRUE on success or FALSE on failure
  */
@@ -1783,7 +1783,7 @@ function ocicancel ($statement_resource) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_fetch}
- * @link http://php.net/manual/en/function.ocifetch.php
+ * @link https://php.net/manual/en/function.ocifetch.php
  * @param resource $statement_resource
  * @return bool Returns TRUE on success or FALSE if there are no more rows in the statement.
  */
@@ -1792,7 +1792,7 @@ function ocifetch ($statement_resource) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_fetch_all}
- * @link http://php.net/manual/en/function.ocifetchstatement.php
+ * @link https://php.net/manual/en/function.ocifetchstatement.php
  * @param statement_resource
  * @param output
  * @param $skip [optional]
@@ -1805,7 +1805,7 @@ function ocifetchstatement ($statement_resource, &$output, $skip, $maximum_rows,
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_free_statement}
- * @link http://php.net/manual/en/function.ocifreestatement.php
+ * @link https://php.net/manual/en/function.ocifreestatement.php
  * @param resource $statement_resource
  * @return bool Returns TRUE on success or FALSE on failure.
  */
@@ -1814,7 +1814,7 @@ function ocifreestatement ($statement_resource) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_internal_debug}
- * @link http://php.net/manual/en/function.ociinternaldebug.php
+ * @link https://php.net/manual/en/function.ociinternaldebug.php
  * @param bool $mode
  */
 function ociinternaldebug ($mode) {}
@@ -1822,7 +1822,7 @@ function ociinternaldebug ($mode) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_num_fields}
- * @link http://php.net/manual/en/function.ocinumcols.php
+ * @link https://php.net/manual/en/function.ocinumcols.php
  * @param resource $statement_resource
  * @return int|bool Returns the number of columns as an integer, or FALSE on errors.
  */
@@ -1831,7 +1831,7 @@ function ocinumcols ($statement_resource) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_parse}
- * @link http://php.net/manual/en/function.ociparse.php
+ * @link https://php.net/manual/en/function.ociparse.php
  * @param resource $connection_resource
  * @param string $sql_text
  * @return resource|bool Returns a statement handle on success, or FALSE on error.
@@ -1841,7 +1841,7 @@ function ociparse ($connection_resource, $sql_text) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_new_cursor}
- * @link http://php.net/manual/en/function.ocinewcursor.php
+ * @link https://php.net/manual/en/function.ocinewcursor.php
  * @param resource $connection_resource
  * @return resource|bool Returns a new statement handle, or FALSE on error.
  */
@@ -1850,7 +1850,7 @@ function ocinewcursor ($connection_resource) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_result}
- * @link http://php.net/manual/en/function.ociresult.php
+ * @link https://php.net/manual/en/function.ociresult.php
  * @param resource $statement_resource
  * @param $column_number_or_name
  * @return bool|mixed Returns everything as strings except for abstract types (ROWIDs, LOBs and FILEs). Returns FALSE on error.
@@ -1860,7 +1860,7 @@ function ociresult ($statement_resource, $column_number_or_name) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_server_version}
- * @link http://php.net/manual/en/function.ociserverversion.php
+ * @link https://php.net/manual/en/function.ociserverversion.php
  * @param $connection_resource
  * @return string|bool Returns the version information as a string or FALSE on error.
  */
@@ -1869,7 +1869,7 @@ function ociserverversion ($connection_resource) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_statement_type}
- * @link http://php.net/manual/en/function.ocistatementtype.php
+ * @link https://php.net/manual/en/function.ocistatementtype.php
  * @param resource $statement_resource
  * @return string Returns everything as strings except for abstract types (ROWIDs, LOBs and FILEs). Returns FALSE on error.
  */
@@ -1878,7 +1878,7 @@ function ocistatementtype ($statement_resource) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_num_rows}
- * @link http://php.net/manual/en/function.ocirowcount.php
+ * @link https://php.net/manual/en/function.ocirowcount.php
  * @param resource $statement_resource
  * @return int|bool Returns the number of rows affected as an integer, or FALSE on errors.
  */
@@ -1887,7 +1887,7 @@ function ocirowcount ($statement_resource) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_close}
- * @link http://php.net/manual/en/function.ocilogoff.php
+ * @link https://php.net/manual/en/function.ocilogoff.php
  * @param resource $connection_resource
  * @return bool Returns TRUE on success or FALSE on failure.
  */
@@ -1896,7 +1896,7 @@ function ocilogoff ($connection_resource) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_connect}
- * @link http://php.net/manual/en/function.ocilogon.php
+ * @link https://php.net/manual/en/function.ocilogon.php
  * @param string $username
  * @param string $password
  * @param string $connection_string[optional]
@@ -1910,7 +1910,7 @@ function ocilogon ($username, $password, $connection_string, $character_set, $se
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see oci_new_connect}
- * @link http://php.net/manual/en/function.ocinlogon.php
+ * @link https://php.net/manual/en/function.ocinlogon.php
  * @param $username
  * @param $password
  * @param $connection_string [optional]
@@ -1924,7 +1924,7 @@ function ocinlogon ($username, $password, $connection_string, $character_set, $s
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see oci_pconnect}
- * @link http://php.net/manual/en/function.ociplogon.php
+ * @link https://php.net/manual/en/function.ociplogon.php
  * @param string $username <p>The Oracle user name.</p>
  * @param string $password <p> The password for username</p>
  * @param $connection_string [optional]
@@ -1938,7 +1938,7 @@ function ociplogon ($username, $password, $connection_string, $character_set, $s
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see oci_error}
- * @link http://php.net/manual/en/function.ocierror.php
+ * @link https://php.net/manual/en/function.ocierror.php
  * @param resource $connection_or_statement_resource [optional] For most errors, resource is the resource handle that was passed to the failing function call.
  * For connection errors with oci_connect(), oci_new_connect() or oci_pconnect() do not pass resource.
  * @return array|bool If no error is found, oci_error() returns FALSE. Otherwise, oci_error() returns the error information as an associative array.
@@ -1949,7 +1949,7 @@ function ocierror ($connection_or_statement_resource) {}
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see OCI-Lob::free}
- * @link http://php.net/manual/en/function.ocifreedesc.php
+ * @link https://php.net/manual/en/function.ocifreedesc.php
  * @param $lob_descriptor
  * @return boolean <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
  */
@@ -1959,7 +1959,7 @@ function ocifreedesc ($lob_descriptor) {}
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see OCI-Lob::save}
- * @link http://php.net/manual/en/function.ocisavelob.php
+ * @link https://php.net/manual/en/function.ocisavelob.php
  * @param OCI_Lob $lob_descriptor
  * @param string $data
  * @param int $offset [optional]
@@ -1971,7 +1971,7 @@ function ocisavelob ($lob_descriptor, $data, $offset) {}
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see OCI_Lob::import}
- * @link http://php.net/manual/en/function.ocisavelobfile.php
+ * @link https://php.net/manual/en/function.ocisavelobfile.php
  * @param OCI_Lob $lob_descriptor
  * @param string $filename
  * @return bool
@@ -1982,7 +1982,7 @@ function ocisavelobfile ($lob_descriptor, $filename) {}
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see OCI_Lob::export}
- * @link http://php.net/manual/en/function.ociwritelobtofile.php
+ * @link https://php.net/manual/en/function.ociwritelobtofile.php
  * @param OCI_Lob $lob_descriptor
  * @param string $filename <p>Path to the file.</p>
  * @param int $start [optional] <p>Indicates from where to start exporting.</p>
@@ -1995,7 +1995,7 @@ function ociwritelobtofile ($lob_descriptor, $filename, $start, $length) {}
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see OCI_Lob::load}
- * @link http://php.net/manual/en/function.ociloadlob.php
+ * @link https://php.net/manual/en/function.ociloadlob.php
  * @param OCI_Lob $lob_descriptor
  * @return string|bool <p>Returns the contents of the object, or <b>FALSE</b> on errors.</p>
  */
@@ -2005,7 +2005,7 @@ function ociloadlob ($lob_descriptor) {}
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see oci_commit}
- * @link http://php.net/manual/en/function.ocicommit.php
+ * @link https://php.net/manual/en/function.ocicommit.php
  * @param $connection_resource <p>
  * An Oracle connection identifier, returned by
  * {@see oci_connect()},
@@ -2019,7 +2019,7 @@ function ocicommit ($connection_resource) {}
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see oci_rollback}
- * @link http://php.net/manual/en/function.ocirollback.php
+ * @link https://php.net/manual/en/function.ocirollback.php
  * @param resource $connection_resource
  * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
  */
@@ -2029,7 +2029,7 @@ function ocirollback ($connection_resource) {}
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see oci_new_descriptor}
- * @link http://php.net/manual/en/function.ocinewdescriptor.php
+ * @link https://php.net/manual/en/function.ocinewdescriptor.php
  * @param resource $connection_resource <p>
  * An Oracle connection identifier, returned by
  * {@see oci_connect()} or {@see oci_pconnect()}.
@@ -2042,7 +2042,7 @@ function ocinewdescriptor ($connection_resource, $type = OCI_DTYPE_LOB) {}
 /**
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_set_prefetch}
- * @link http://php.net/manual/en/function.ocisetprefetch.php
+ * @link https://php.net/manual/en/function.ocisetprefetch.php
  * @param resource $statement_resource <p>A valid OCI8 statement
  * identifier created by
  * {@see oci_parse()} and executed
@@ -2069,7 +2069,7 @@ function ocipasswordchange ($connection_resource_or_connection_string_or_dbname,
 /**
  * (PHP 4 &gt;= 4.0.7, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see OCI_Collection::free}
- * @link http://php.net/manual/en/function.ocifreecollection.php
+ * @link https://php.net/manual/en/function.ocifreecollection.php
  * @param OCI_Collection $collection
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
@@ -2079,7 +2079,7 @@ function ocifreecollection ($collection) {}
  * (PHP 4 &gt;= 4.0.6, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see oci_new_collection}
- * @link http://php.net/manual/en/function.ocinewcollection.php
+ * @link https://php.net/manual/en/function.ocinewcollection.php
  * @param $connection_resource <p>
  * An Oracle connection identifier, returned by
  * {@see oci_connect()} or
@@ -2095,7 +2095,7 @@ function ocinewcollection ($connection_resource, $tdo, $schema = null) {}
  * (PHP 4 &gt;= 4.0.6, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * (@see OCI_Collection::append)
- * @link http://php.net/manual/en/function.ocicollappend.php
+ * @link https://php.net/manual/en/function.ocicollappend.php
  * @param OCI_Collection $collection
  * @param mixed $value <p>The value to be added to the collection. Can be a string or a number.</p>
  * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
@@ -2106,7 +2106,7 @@ function ocicollappend ($collection, $value) {}
  * (PHP 4 &gt;= 4.0.6, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see OCI_COLLection::getElem}
- * @link http://php.net/manual/en/function.ocicollgetelem.php
+ * @link https://php.net/manual/en/function.ocicollgetelem.php
  * @param OCI_Collection $collection
  * @param int $index <p>The element index. First index is 0.</p>
  * @return mixed <p>Returns <b>FALSE</b> if such element doesn't exist; <b>NULL</b> if element is <b>NULL</b>; string if element is column of a string datatype or number if element is numeric field.
@@ -2116,7 +2116,7 @@ function ocicollgetelem ($collection, $index) {}
 /**
  * (PHP 4 &gt;= 4.0.6, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see OCI_Collection::assignElem}
- * @link http://php.net/manual/en/function.ocicollassignelem.php
+ * @link https://php.net/manual/en/function.ocicollassignelem.php
  * @param OCI_Collection $collection
  * @param $index <p>The element index. First index is 0.</p>
  * @param $value <p>Can be a string or a number.</p>
@@ -2128,7 +2128,7 @@ function ocicollassignelem ($collection, $index, $value) {}
  * (PHP 4 &gt;= 4.0.6, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see OCI_COLLection::size}
- * @link http://php.net/manual/en/function.ocicollsize.php
+ * @link https://php.net/manual/en/function.ocicollsize.php
  * @param OCI_Collection $collection
  * @return int <p>Returns the number of elements in the collection or <b>FALSE</b> on error.</p>
  */
@@ -2138,7 +2138,7 @@ function ocicollsize ($collection) {}
  * (PHP 4 &gt;= 4.0.6, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see OCI_COLLection::max}
- * @link http://php.net/manual/en/function.ocicollmax.php
+ * @link https://php.net/manual/en/function.ocicollmax.php
  * @param OCI_Collection $collection
  * @return int <p> Returns the maximum number as an integer, or <b>FALSE</b> on errors.
  * If the returned value is 0, then the number of elements is not limited.
@@ -2149,7 +2149,7 @@ function ocicollmax ($collection) {}
  * (PHP 4 &gt;= 4.0.6, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of
  * {@see OCI_Collection::trim}
- * @link http://php.net/manual/en/function.ocicolltrim.php
+ * @link https://php.net/manual/en/function.ocicolltrim.php
  * @param collection
  * @param int|float
  * @return bool Returns <b>TRUE</b> or <b>FALSE</b> on failure.
@@ -2161,7 +2161,7 @@ function ocicolltrim ($collection, $number) {}
  * (PHP 4 &gt;= 4.0.6, PECL OCI8 1.0)
  * Writes a temporary large object
  * Alias of {@see OCI-Lob::writeTemporary()}
- * @link http://php.net/manual/en/function.ociwritetemporarylob.php
+ * @link https://php.net/manual/en/function.ociwritetemporarylob.php
  * @param OCI_Lob $lob_descriptor
  * @param string $data <p>The data to write.</p>
  * @param int $lob_type <p>
@@ -2182,7 +2182,7 @@ function ociwritetemporarylob($lob_descriptor, $data, $lob_type = OCI_TEMP_CLOB 
 /**
  * (PHP 4 &gt;= 4.0.6, PECL OCI8 1.0)
  * Alias of {@see OCI-Lob::close()}
- * @link http://php.net/manual/en/function.ocicloselob.php
+ * @link https://php.net/manual/en/function.ocicloselob.php
  * @param OCI_Lob $lob_descriptor
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
  */
@@ -2192,7 +2192,7 @@ function ocicloselob($lob_descriptor){}
  * (PHP 4 >= 4.0.6, PECL OCI8 1.0)
  * Alias of {@see OCI-Collection::assign()}
  * Assigns a value to the collection from another existing collection
- * @link http://php.net/manual/en/function.ocicollassign.php
+ * @link https://php.net/manual/en/function.ocicollassign.php
  * @param OCI_Collection $to
  * @param OCI_Collection $from An instance of OCI-Collection.
  * @return bool <p>Returns TRUE on success or FALSE on failure.</p>
@@ -2200,7 +2200,7 @@ function ocicloselob($lob_descriptor){}
 function ocicollassign($to, $from ) {}
 /**
  * See <b>OCI_NO_AUTO_COMMIT</b>.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_DEFAULT', 0);
 
@@ -2209,7 +2209,7 @@ define ('OCI_DEFAULT', 0);
  * the SYSOPER privilege. The <i>php.ini</i> setting
  * oci8.privileged_connect
  * should be enabled to use this.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_SYSOPER', 4);
 
@@ -2218,7 +2218,7 @@ define ('OCI_SYSOPER', 4);
  * the SYSDBA privilege. The <i>php.ini</i> setting
  * oci8.privileged_connect
  * should be enabled to use this.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_SYSDBA', 2);
 
@@ -2226,7 +2226,7 @@ define ('OCI_SYSDBA', 2);
  * Used with {@see oci_connect} for using
  * Oracles' External or OS authentication. Introduced in PHP
  * 5.3 and PECL OCI8 1.3.4.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_CRED_EXT', -2147483648);
 
@@ -2235,7 +2235,7 @@ define ('OCI_CRED_EXT', -2147483648);
  * for {@see oci_execute}. Use this mode if you
  * want meta data such as the column names but don't want to
  * fetch rows from the query.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_DESCRIBE_ONLY', 16);
 
@@ -2243,7 +2243,7 @@ define ('OCI_DESCRIBE_ONLY', 16);
  * Statement execution mode for {@see oci_execute}
  * call. Automatically commit changes when the statement has
  * succeeded.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_COMMIT_ON_SUCCESS', 32);
 
@@ -2254,7 +2254,7 @@ define ('OCI_COMMIT_ON_SUCCESS', 32);
  * readability in new code, use this value instead of the
  * older, equivalent <b>OCI_DEFAULT</b> constant.
  * Introduced in PHP 5.3.2 (PECL OCI8 1.4).
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_NO_AUTO_COMMIT', 0);
 
@@ -2265,87 +2265,87 @@ define ('OCI_NO_AUTO_COMMIT', 0);
  * later mode. The cursor is canceled after the desired rows
  * are fetched which may result in reduced server-side
  * resource usage.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_EXACT_FETCH', 2);
 
 /**
  * Used with to set the seek position.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_SEEK_SET', 0);
 
 /**
  * Used with to set the seek position.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_SEEK_CUR', 1);
 
 /**
  * Used with to set the seek position.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_SEEK_END', 2);
 
 /**
  * Used with to free
  * buffers used.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_LOB_BUFFER_FREE', 1);
 
 /**
  * The same as <b>OCI_B_BFILE</b>.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_BFILEE', 114);
 
 /**
  * The same as <b>OCI_B_CFILEE</b>.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_CFILEE', 115);
 
 /**
  * The same as <b>OCI_B_CLOB</b>.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_CLOB', 112);
 
 /**
  * The same as <b>OCI_B_BLOB</b>.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_BLOB', 113);
 
 /**
  * The same as <b>OCI_B_ROWID</b>.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_RDD', 104);
 
 /**
  * The same as <b>OCI_B_INT</b>.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_INT', 3);
 
 /**
  * The same as <b>OCI_B_NUM</b>.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_NUM', 2);
 
 /**
  * The same as <b>OCI_B_CURSOR</b>.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_RSET', 116);
 
 /**
  * Used with {@see oci_bind_array_by_name} to bind arrays of
  * CHAR.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_AFC', 96);
 
@@ -2353,85 +2353,85 @@ define ('SQLT_AFC', 96);
  * Used with {@see oci_bind_array_by_name} to bind arrays of
  * VARCHAR2.
  * Also used with {@see oci_bind_by_name}.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_CHR', 1);
 
 /**
  * Used with {@see oci_bind_array_by_name} to bind arrays of
  * VARCHAR.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_VCS', 9);
 
 /**
  * Used with {@see oci_bind_array_by_name} to bind arrays of
  * VARCHAR2.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_AVC', 97);
 
 /**
  * Used with {@see oci_bind_array_by_name} to bind arrays of
  * STRING.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_STR', 5);
 
 /**
  * Used with {@see oci_bind_array_by_name} to bind arrays of
  * LONG VARCHAR.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_LVC', 94);
 
 /**
  * Used with {@see oci_bind_array_by_name} to bind arrays of
  * FLOAT.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_FLT', 4);
 
 /**
  * Not supported.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_UIN', 68);
 
 /**
  * Used with {@see oci_bind_by_name} to bind LONG values.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_LNG', 8);
 
 /**
  * Used with {@see oci_bind_by_name} to bind LONG RAW values.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_LBI', 24);
 
 /**
  * The same as <b>OCI_B_BIN</b>.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_BIN', 23);
 
 /**
  * Used with {@see oci_bind_array_by_name} to bind arrays of
  * LONG.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_ODT', 156);
 
 /**
  * Not supported.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_BDOUBLE', 22);
 
 /**
  * Not supported.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_BFLOAT', 21);
 
@@ -2439,54 +2439,54 @@ define ('SQLT_BFLOAT', 21);
  * Used with {@see oci_bind_by_name} when binding
  * named data types. Note: in PHP &lt; 5.0 it was called
  * <b>OCI_B_SQLT_NTY</b>.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_NTY', 108);
 
 /**
  * The same as <b>OCI_B_NTY</b>.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_NTY', 108);
 
 /**
  * Obsolete.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_SYSDATE', "SYSDATE");
 
 /**
  * Used with {@see oci_bind_by_name} when binding
  * BFILEs.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_BFILE', 114);
 
 /**
  * Used with {@see oci_bind_by_name} when binding
  * CFILEs.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_CFILEE', 115);
 
 /**
  * Used with {@see oci_bind_by_name} when binding
  * CLOBs.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_CLOB', 112);
 
 /**
  * Used with {@see oci_bind_by_name} when
  * binding BLOBs.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_BLOB', 113);
 
 /**
  * Used with {@see oci_bind_by_name} when binding
  * ROWIDs.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_ROWID', 104);
 
@@ -2494,39 +2494,39 @@ define ('OCI_B_ROWID', 104);
  * Used with {@see oci_bind_by_name} when binding
  * cursors, previously allocated
  * with {@see oci_new_descriptor}.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_CURSOR', 116);
 
 /**
  * Used with {@see oci_bind_by_name} to bind RAW values.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_BIN', 23);
 
 /**
  * Used with {@see oci_bind_array_by_name} to bind arrays of
  * INTEGER.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_INT', 3);
 
 /**
  * Used with {@see oci_bind_array_by_name} to bind arrays of
  * NUMBER.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_NUM', 2);
 
 /**
  * Default mode of {@see oci_fetch_all}.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_FETCHSTATEMENT_BY_COLUMN', 16);
 
 /**
  * Alternative mode of {@see oci_fetch_all}.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_FETCHSTATEMENT_BY_ROW', 32);
 
@@ -2534,7 +2534,7 @@ define ('OCI_FETCHSTATEMENT_BY_ROW', 32);
  * Used with {@see oci_fetch_all} and
  * {@see oci_fetch_array} to get results as an associative
  * array.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_ASSOC', 1);
 
@@ -2542,7 +2542,7 @@ define ('OCI_ASSOC', 1);
  * Used with {@see oci_fetch_all} and
  * {@see oci_fetch_array} to get results as an
  * enumerated array.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_NUM', 2);
 
@@ -2550,81 +2550,81 @@ define ('OCI_NUM', 2);
  * Used with {@see oci_fetch_all} and
  * {@see oci_fetch_array} to get results as an
  * array with both associative and number indices.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_BOTH', 3);
 
 /**
  * Used with {@see oci_fetch_array} to get empty
  * array elements if the row items value is <b>NULL</b>.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_RETURN_NULLS', 4);
 
 /**
  * Used with {@see oci_fetch_array} to get the
  * data value of the LOB instead of the descriptor.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_RETURN_LOBS', 8);
 
 /**
  * This flag tells {@see oci_new_descriptor} to
  * initialize a new FILE descriptor.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_DTYPE_FILE', 56);
 
 /**
  * This flag tells {@see oci_new_descriptor} to
  * initialize a new LOB descriptor.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_DTYPE_LOB', 50);
 
 /**
  * This flag tells {@see oci_new_descriptor} to
  * initialize a new ROWID descriptor.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_DTYPE_ROWID', 54);
 
 /**
  * The same as <b>OCI_DTYPE_FILE</b>.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_D_FILE', 56);
 
 /**
  * The same as <b>OCI_DTYPE_LOB</b>.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_D_LOB', 50);
 
 /**
  * The same as <b>OCI_DTYPE_ROWID</b>.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_D_ROWID', 54);
 
 /**
  * Used with
  * to indicate that a temporary CLOB should be created.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_TEMP_CLOB', 2);
 
 /**
  * Used with
  * to indicate that a temporary BLOB should be created.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_TEMP_BLOB', 1);
 
 /**
  * (PECL OCI8 &gt;= 2.0.7)<br/>
  * The same as <b>OCI_B_BOL</b>.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('SQLT_BOL', 252);
 
@@ -2632,7 +2632,7 @@ define ('SQLT_BOL', 252);
  * (PECL OCI8 &gt;= 2.0.7)<br/>
  * Used with {@see oci_bind_by_name} when
  * binding PL/SQL BOOLEAN.
- * @link http://php.net/manual/en/oci8.constants.php
+ * @link https://php.net/manual/en/oci8.constants.php
  */
 define ('OCI_B_BOL', 252);
 

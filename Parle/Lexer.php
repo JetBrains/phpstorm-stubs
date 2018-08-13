@@ -54,7 +54,7 @@ class Lexer
     /**
      * Processes the next rule and prepares the resulting token data.
      *
-     * @link http://php.net/manual/en/parle-lexer.advance.php
+     * @link https://php.net/manual/en/parle-lexer.advance.php
      * @return void
      */
     public function advance() : void {}
@@ -67,7 +67,7 @@ class Lexer
      * The rule set becomes read only. The lexing can begin.
      *
      * @see Lexer::push()
-     * @link http://php.net/manual/en/parle-lexer.build.php
+     * @link https://php.net/manual/en/parle-lexer.build.php
      * @return void
      */
     public function build() : void {}
@@ -77,7 +77,7 @@ class Lexer
      *
      * Define a callback to be invoked once lexer encounters a particular token.
      *
-     * @link http://php.net/manual/en/parle-lexer.callout.php
+     * @link https://php.net/manual/en/parle-lexer.callout.php
      * @param int $id Token id.
      * @param callable $callback Callable to be invoked. The callable doesn't receive any arguments and its return value is ignored.
      * @return void
@@ -87,7 +87,7 @@ class Lexer
     /**
      * Consume the data for lexing.
      *
-     * @link http://php.net/manual/en/parle-lexer.consume.php
+     * @link https://php.net/manual/en/parle-lexer.consume.php
      * @param string $data Data to be lexed.
      * @return void
      */
@@ -96,7 +96,7 @@ class Lexer
     /**
      * Dump the current state machine to stdout.
      *
-     * @link http://php.net/manual/en/parle-lexer.dump.php
+     * @link https://php.net/manual/en/parle-lexer.dump.php
      * @return void
      */
     public function dump() : void {}

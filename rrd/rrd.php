@@ -10,7 +10,7 @@
 
 /**
  * Returns latest global rrd error message.
- * @link http://php.net/manual/en/function.rrd-error.php
+ * @link https://php.net/manual/en/function.rrd-error.php
  * @return string Latest error message.
  * @since PECL rrd >= 0.9.0
  */
@@ -18,7 +18,7 @@ function rrd_error() {}
 
 /**
  * Creates rrd database file
- * @link http://php.net/manual/en/function.rrd-create.php
+ * @link https://php.net/manual/en/function.rrd-create.php
  * @param string $filename <p>
  * Filename for newly created rrd file.
  * </p>
@@ -32,7 +32,7 @@ function rrd_create($filename, $options) {}
 
 /**
  * Gets data for graph output from RRD database file as array. This function has same result as rrd_graph(), but fetched data are returned as array, no image file is created.
- * @link http://php.net/manual/en/function.rrd-fetch.php
+ * @link https://php.net/manual/en/function.rrd-fetch.php
  * @param string $filename <p>
  * RRD database file name.
  * </p>
@@ -46,7 +46,7 @@ function rrd_fetch($filename, $options) {}
 
 /**
  * Gets the timestamp of the first sample from from the specified RRA of the RRD file.
- * @link http://php.net/manual/en/function.rrd-first.php
+ * @link https://php.net/manual/en/function.rrd-first.php
  * @param string $file <p>
  * RRD database file name.
  * </p>
@@ -60,7 +60,7 @@ function rrd_first($file, $raaindex = 0) {}
 
 /**
  * Creates image from a data.
- * @link http://php.net/manual/en/function.rrd-graph.php
+ * @link https://php.net/manual/en/function.rrd-graph.php
  * @param string $filename <p>
  * The filename to output the graph to. This will generally end in either .png, .svg or .eps, depending on the format you want to output.
  * </p>
@@ -74,7 +74,7 @@ function rrd_graph($filename, $options) {}
 
 /**
  * Returns information about particular RRD database file.
- * @link http://php.net/manual/en/function.rrd-info.php
+ * @link https://php.net/manual/en/function.rrd-info.php
  * @param string $filename <p>
  * RRD database file name.
  * </p>
@@ -85,7 +85,7 @@ function rrd_info($filename) {}
 
 /**
  * Returns the UNIX timestamp of the most recent update of the RRD database.
- * @link http://php.net/manual/en/function.rrd-last.php
+ * @link https://php.net/manual/en/function.rrd-last.php
  * @param string $filename <p>
  * RRD database file name.
  * </p>
@@ -96,7 +96,7 @@ function rrd_last($filename) {}
 
 /**
  * Gets array of the UNIX timestamp and the values stored for each date in the most recent update of the RRD database file.
- * @link http://php.net/manual/en/function.rrd-lastupdate.php
+ * @link https://php.net/manual/en/function.rrd-lastupdate.php
  * @param string $filename <p>
  * RRD database file name.
  * </p>
@@ -107,7 +107,7 @@ function rrd_lastupdate($filename) {}
 
 /**
  * Restores the RRD file from the XML dump.
- * @link http://php.net/manual/en/function.rrd-restore.php
+ * @link https://php.net/manual/en/function.rrd-restore.php
  * @param string $xml_file <p>
  * XML filename with the dump of the original RRD database file.
  * </p>
@@ -124,7 +124,7 @@ function rrd_restore($xml_file, $rrd_file, $options = array()) {}
 
 /**
  * Change some options in the RRD dabase header file. E.g. renames the source for the data etc.
- * @link http://php.net/manual/en/function.rrd-tune.php
+ * @link https://php.net/manual/en/function.rrd-tune.php
  * @param string $filename <p>
  * RRD database file name.
  * </p>
@@ -138,7 +138,7 @@ function rrd_tune($filename, $options) {}
 
 /**
  * Updates the RRD database file. The input data is time interpolated according to the properties of the RRD database file.
- * @link http://php.net/manual/en/function.rrd-update.php
+ * @link https://php.net/manual/en/function.rrd-update.php
  * @param string $filename <p>
  * RRD database file name. This database will be updated.
  * </p>
@@ -152,7 +152,7 @@ function rrd_update($filename, $options) {}
 
 /**
  * Returns information about underlying rrdtool library.
- * @link http://php.net/manual/en/function.rrd-version.php
+ * @link https://php.net/manual/en/function.rrd-version.php
  * @return string String with rrdtool version number e.g. "1.4.3".
  * @since PECL rrd >= 1.0.0
  */
@@ -160,7 +160,7 @@ function rrd_version() {}
 
 /**
  * Exports the information about RRD database file. This data can be converted to XML file via user space PHP script and then restored back as RRD database file.
- * @link http://php.net/manual/en/function.rrd-xport.php
+ * @link https://php.net/manual/en/function.rrd-xport.php
  * @param array $options <p>
  * Array of options for the export, see rrd xport man page.
  * </p>
@@ -173,7 +173,7 @@ function rrd_xport($options) {}
  * Close any outstanding connection to rrd caching daemon <p>
  * This function is automatically called when the whole PHP process is terminated. It depends on used SAPI. For example, it's called automatically at the end of command line script.</p><p>
  * It's up user whether he wants to call this function at the end of every request or otherwise.</p>
- * @link http://php.net/manual/en/function.rrdc-disconnect.php
+ * @link https://php.net/manual/en/function.rrdc-disconnect.php
  * @return void
  * @since PECL rrd >= 1.1.2
  */
@@ -181,7 +181,7 @@ function rrd_disconnect() {}
 
 /**
  * Class for creation of RRD database file.
- * @link http://php.net/manual/en/class.rrdcreator.php
+ * @link https://php.net/manual/en/class.rrdcreator.php
  * @since PECL rrd >= 0.9.0
  */
 class RRDCreator {
@@ -190,7 +190,7 @@ class RRDCreator {
      * Adds RRA - archive of data values for each data source. <p>
      * Archive consists of a number of data values or statistics for each of the defined data-sources (DS). Data sources are defined by method RRDCreator::addDataSource(). You need call this method for each requested archive.
      * </p>
-     * @link http://php.net/manual/en/rrdcreator.addarchive.php
+     * @link https://php.net/manual/en/rrdcreator.addarchive.php
      * @see RRDCreator::addDataSource()
      * @param string $description <p>
      * Class for creation of RRD database file.
@@ -204,7 +204,7 @@ class RRDCreator {
      * Adds data source definition for RRD database.<p>
      * RRD can accept input from several data sources (DS), e.g incomming and outgoing traffic. This method adds data source by description. You need call this method for each data source.
      * </p>
-     * @link http://php.net/manual/en/rrdcreator.adddatasource.php
+     * @link https://php.net/manual/en/rrdcreator.adddatasource.php
      * @param string $description <p>
      * Definition of data source - DS. This has same format as DS definition in rrd create command. See man page of rrd create for more details.
      * </p>
@@ -215,7 +215,7 @@ class RRDCreator {
 
     /**
      * Creates new RRDCreator instance.
-     * @link http://php.net/manual/en/rrdcreator.construct.php
+     * @link https://php.net/manual/en/rrdcreator.construct.php
      * @param string $path <p>
      * Path for newly created RRD database file.
      * </p>
@@ -231,7 +231,7 @@ class RRDCreator {
 
     /**
      * Saves the RRD database into file, which name is defined by RRDCreator::__construct()
-     * @link http://php.net/manual/en/rrdcreator.save.php
+     * @link https://php.net/manual/en/rrdcreator.save.php
      * @see RRDCreator::__construct()
      * @return bool TRUE on success or FALSE on failure.
      * @since PECL rrd >= 0.9.0
@@ -242,14 +242,14 @@ class RRDCreator {
 
 /**
  * Class for exporting data from RRD database to image file.
- * @link http://php.net/manual/en/class.rrdgraph.php
+ * @link https://php.net/manual/en/class.rrdgraph.php
  * @since PECL rrd >= 0.9.0
  */
 class RRDGraph {
 
     /**
      * Creates new RRDGraph instance. This instance is responsible for rendering the result of RRD database query into image.
-     * @link http://php.net/manual/en/rrdgraph.construct.php
+     * @link https://php.net/manual/en/rrdgraph.construct.php
      * @param string $path <p>
      * Full path for the newly created image.
      * </p>
@@ -259,7 +259,7 @@ class RRDGraph {
 
     /**
      * Saves the result of RRD database query into image defined by RRDGraph::__construct().
-     * @link http://php.net/manual/en/rrdgraph.save.php
+     * @link https://php.net/manual/en/rrdgraph.save.php
      * @return array Array with information about generated image is returned, FALSE if error occurs.
      * @since PECL rrd >= 0.9.0
      */
@@ -269,7 +269,7 @@ class RRDGraph {
      * Saves the RRD database query into image and returns the verbose information about generated graph. <p>
      * If "-" is used as image filename, image data are also returned in result array.
      * </p>
-     * @link http://php.net/manual/en/rrdgraph.saveverbose.php
+     * @link https://php.net/manual/en/rrdgraph.saveverbose.php
      * @return array Array with detailed information about generated image is returned, optionally with image data, FALSE if error occurs.
      * @since PECL rrd >= 0.9.0
      */
@@ -277,7 +277,7 @@ class RRDGraph {
 
     /**
      * Sets the options for rrd graph export
-     * @link http://php.net/manual/en/rrdgraph.setoptions.php
+     * @link https://php.net/manual/en/rrdgraph.setoptions.php
      * @param array $options <p>
      * List of options for the image generation from the RRD database file. It can be list of strings or list of strings with keys for better readability. Read the rrd graph man pages for list of available options.
      * </p>
@@ -290,7 +290,7 @@ class RRDGraph {
 
 /**
  * Class for updating RDD database file.
- * @link http://php.net/manual/en/class.rrdupdater.php
+ * @link https://php.net/manual/en/class.rrdupdater.php
  * @since PECL rrd >= 0.9.0
  */
 class RRDUpdater {
@@ -298,7 +298,7 @@ class RRDUpdater {
     /**
      * Creates new RRDUpdater instance. This instance is responsible for updating the RRD database file.
      * RRDUpdater constructor.
-     * @link http://php.net/manual/en/rrdupdater.construct.php
+     * @link https://php.net/manual/en/rrdupdater.construct.php
      * @param string $path <p>
      * Filesystem path for RRD database file, which will be updated.
      * </p>
@@ -308,7 +308,7 @@ class RRDUpdater {
 
     /**
      * Update the RRD file defined via RRDUpdater::__construct(). The file is updated with a specific values.
-     * @link http://php.net/manual/en/rrdupdater.update.php
+     * @link https://php.net/manual/en/rrdupdater.update.php
      * @param array $values <p>
      * Data for update. Key is data source name.
      * </p>

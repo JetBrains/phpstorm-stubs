@@ -5,14 +5,14 @@
  * In order to pass a custom session handler to
  * session_set_save_handler() using its OOP invocation,
  * the class must implement this interface.
- * @link http://php.net/manual/en/class.sessionhandlerinterface.php
+ * @link https://php.net/manual/en/class.sessionhandlerinterface.php
  * @since 5.4.0
  */
 interface SessionHandlerInterface {
 
 	/**
 	 * Close the session
-	 * @link http://php.net/manual/en/sessionhandlerinterface.close.php
+	 * @link https://php.net/manual/en/sessionhandlerinterface.close.php
 	 * @return bool <p>
 	 * The return value (usually TRUE on success, FALSE on failure).
 	 * Note this value is returned internally to PHP for processing.
@@ -23,7 +23,7 @@ interface SessionHandlerInterface {
 
 	/**
 	 * Destroy a session
-	 * @link http://php.net/manual/en/sessionhandlerinterface.destroy.php
+	 * @link https://php.net/manual/en/sessionhandlerinterface.destroy.php
 	 * @param string $session_id The session ID being destroyed.
 	 * @return bool <p>
 	 * The return value (usually TRUE on success, FALSE on failure).
@@ -35,7 +35,7 @@ interface SessionHandlerInterface {
 
 	/**
 	 * Cleanup old sessions
-	 * @link http://php.net/manual/en/sessionhandlerinterface.gc.php
+	 * @link https://php.net/manual/en/sessionhandlerinterface.gc.php
 	 * @param int $maxlifetime <p>
 	 * Sessions that have not updated for
 	 * the last maxlifetime seconds will be removed.
@@ -50,7 +50,7 @@ interface SessionHandlerInterface {
 
 	/**
 	 * Initialize session
-	 * @link http://php.net/manual/en/sessionhandlerinterface.open.php
+	 * @link https://php.net/manual/en/sessionhandlerinterface.open.php
 	 * @param string $save_path The path where to store/retrieve the session.
 	 * @param string $name The session name.
 	 * @return bool <p>
@@ -64,7 +64,7 @@ interface SessionHandlerInterface {
 
 	/**
 	 * Read session data
-	 * @link http://php.net/manual/en/sessionhandlerinterface.read.php
+	 * @link https://php.net/manual/en/sessionhandlerinterface.read.php
 	 * @param string $session_id The session id to read data for.
 	 * @return string <p>
 	 * Returns an encoded string of the read data.
@@ -77,7 +77,7 @@ interface SessionHandlerInterface {
 
 	/**
 	 * Write session data
-	 * @link http://php.net/manual/en/sessionhandlerinterface.write.php
+	 * @link https://php.net/manual/en/sessionhandlerinterface.write.php
 	 * @param string $session_id The session id.
 	 * @param string $session_data <p>
 	 * The encoded session data. This data is the
@@ -141,14 +141,14 @@ interface SessionUpdateTimestampHandlerInterface {
  * files by default. Other internal session save handlers are provided by
  * PHP extensions such as SQLite (as sqlite),
  * Memcache (as memcache), and Memcached (as memcached).
- * @link http://php.net/manual/en/class.reflectionzendextension.php
+ * @link https://php.net/manual/en/class.reflectionzendextension.php
  * @since 5.4.0
  */
 class SessionHandler implements SessionHandlerInterface, SessionUpdateTimestampHandlerInterface {
 
 	/**
 	 * Close the session
-	 * @link http://php.net/manual/en/sessionhandler.close.php
+	 * @link https://php.net/manual/en/sessionhandler.close.php
 	 * @return bool <p>
 	 * The return value (usually TRUE on success, FALSE on failure).
 	 * Note this value is returned internally to PHP for processing.
@@ -159,7 +159,7 @@ class SessionHandler implements SessionHandlerInterface, SessionUpdateTimestampH
 
     /**
      * Return a new session ID
-     * @link http://php.net/manual/en/sessionhandler.create-sid.php
+     * @link https://php.net/manual/en/sessionhandler.create-sid.php
      * @return string <p>A session ID valid for the default session handler.</p>
      * @since 5.5.1
      */
@@ -167,7 +167,7 @@ class SessionHandler implements SessionHandlerInterface, SessionUpdateTimestampH
 
 	/**
 	 * Destroy a session
-	 * @link http://php.net/manual/en/sessionhandler.destroy.php
+	 * @link https://php.net/manual/en/sessionhandler.destroy.php
 	 * @param string $session_id The session ID being destroyed.
 	 * @return bool <p>
 	 * The return value (usually TRUE on success, FALSE on failure).
@@ -179,7 +179,7 @@ class SessionHandler implements SessionHandlerInterface, SessionUpdateTimestampH
 
 	/**
 	 * Cleanup old sessions
-	 * @link http://php.net/manual/en/sessionhandler.gc.php
+	 * @link https://php.net/manual/en/sessionhandler.gc.php
 	 * @param int $maxlifetime <p>
 	 * Sessions that have not updated for
 	 * the last maxlifetime seconds will be removed.
@@ -194,7 +194,7 @@ class SessionHandler implements SessionHandlerInterface, SessionUpdateTimestampH
 
 	/**
 	 * Initialize session
-	 * @link http://php.net/manual/en/sessionhandler.open.php
+	 * @link https://php.net/manual/en/sessionhandler.open.php
 	 * @param string $save_path The path where to store/retrieve the session.
 	 * @param string $session_name The session name.
 	 * @return bool <p>
@@ -208,7 +208,7 @@ class SessionHandler implements SessionHandlerInterface, SessionUpdateTimestampH
 
 	/**
 	 * Read session data
-	 * @link http://php.net/manual/en/sessionhandler.read.php
+	 * @link https://php.net/manual/en/sessionhandler.read.php
 	 * @param string $session_id The session id to read data for.
 	 * @return string <p>
 	 * Returns an encoded string of the read data.
@@ -221,7 +221,7 @@ class SessionHandler implements SessionHandlerInterface, SessionUpdateTimestampH
 
 	/**
 	 * Write session data
-	 * @link http://php.net/manual/en/sessionhandler.write.php
+	 * @link https://php.net/manual/en/sessionhandler.write.php
 	 * @param string $session_id The session id.
 	 * @param string $session_data <p>
 	 * The encoded session data. This data is the

@@ -6,7 +6,7 @@
  * (PHP &gt;= 5.2.0, PECL xhprof &gt;= 0.9.0)<br/>
  * Start xhprof profiling.
  *
- * @link http://php.net/manual/en/function.xhprof-enable.php
+ * @link https://php.net/manual/en/function.xhprof-enable.php
  *
  * @param int   $flags   <p>Optional flags to add additional information to the profiling. See the a
  *                       href="http://php.net/manual/en/xhprof.constants.php">XHprof constants</a> for further
@@ -25,7 +25,7 @@ function xhprof_enable( $flags = 0, array $options = [] )
  * (PHP &gt;= 5.2.0, PECL xhprof &gt;= 0.9.0)<br/>
  * Stops the profiler, and returns xhprof data from the run.
  *
- * @link http://php.net/manual/en/function.xhprof-disable.php
+ * @link https://php.net/manual/en/function.xhprof-disable.php
  * @return array an array of xhprof data, from the run.
  */
 function xhprof_disable()
@@ -38,7 +38,7 @@ function xhprof_disable()
  * is 0.1 seconds, and samples record the full function call stack. The main use case is when lower overhead is
  * required when doing performance monitoring and diagnostics.
  *
- * @link http://php.net/manual/en/function.xhprof-sample-enable.php
+ * @link https://php.net/manual/en/function.xhprof-sample-enable.php
  * @return null
  */
 function xhprof_sample_enable()
@@ -49,7 +49,7 @@ function xhprof_sample_enable()
  * (PHP &gt;= 5.2.0, PECL xhprof &gt;= 0.9.0)<br/>
  * Stops the sample mode xhprof profiler, and returns xhprof data from the run.
  *
- * @link http://php.net/manual/en/function.xhprof-sample-disable.php
+ * @link https://php.net/manual/en/function.xhprof-sample-disable.php
  * @return array an array of xhprof sample data, from the run.
  */
 function xhprof_sample_disable()
@@ -58,17 +58,17 @@ function xhprof_sample_disable()
 
 /**
  * @type int
- * @link http://php.net/manual/en/xhprof.constants.php#constant.xhprof-flags-no-builtins
+ * @link https://php.net/manual/en/xhprof.constants.php#constant.xhprof-flags-no-builtins
  */
 const XHPROF_FLAGS_NO_BUILTINS = 1;
 /**
  * @type int
- * @link http://php.net/manual/en/xhprof.constants.php#constant.xhprof-flags-cpu
+ * @link https://php.net/manual/en/xhprof.constants.php#constant.xhprof-flags-cpu
  */
 const XHPROF_FLAGS_CPU = 2;
 /**
  * @type int
- * @link http://php.net/manual/en/xhprof.constants.php##constant.xhprof-flags-memory
+ * @link https://php.net/manual/en/xhprof.constants.php##constant.xhprof-flags-memory
  */
 const XHPROF_FLAGS_MEMORY = 4;
 

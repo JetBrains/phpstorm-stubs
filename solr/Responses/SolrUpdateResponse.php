@@ -10,21 +10,21 @@
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrUpdateResponse<br/>
  * This class represents a response to an update request.
- * @link http://php.net/manual/en/class.solrupdateresponse.php
+ * @link https://php.net/manual/en/class.solrupdateresponse.php
  */
 final class SolrUpdateResponse extends SolrResponse {
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * SolrUpdateResponse constructor.
-	 * @link http://php.net/manual/en/solrupdateresponse.construct.php
+	 * @link https://php.net/manual/en/solrupdateresponse.construct.php
 	 */
 	public function __construct() {}
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Destructor
-	 * @link http://php.net/manual/en/solrupdateresponse.destruct.php
+	 * @link https://php.net/manual/en/solrupdateresponse.destruct.php
 	 */
 	public function __destruct() {}
 

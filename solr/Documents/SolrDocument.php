@@ -10,7 +10,7 @@
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrDocument<br/>
  * This class represents a Solr document retrieved from a query response.
- * @link http://php.net/manual/en/class.solrinputdocument.php
+ * @link https://php.net/manual/en/class.solrinputdocument.php
  */
 final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 
@@ -35,7 +35,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Adds a field to the document
-	 * @link http://php.net/manual/en/solrdocument.addfield.php
+	 * @link https://php.net/manual/en/solrdocument.addfield.php
 	 * @param string $fieldName <p>
 	 * The name of the field
 	 * </p>
@@ -51,7 +51,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Drops all the fields in the document
-	 * @link http://php.net/manual/en/solrdocument.clear.php
+	 * @link https://php.net/manual/en/solrdocument.clear.php
 	 * @return bool <p>
 	 * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * </p>
@@ -61,21 +61,21 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Creates a copy of a SolrDocument object
-	 * @link http://php.net/manual/en/solrdocument.clone.php
+	 * @link https://php.net/manual/en/solrdocument.clone.php
 	 */
 	public function __clone() {}
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * SolrDocument constructor.
-	 * @link http://php.net/manual/en/solrdocument.construct.php
+	 * @link https://php.net/manual/en/solrdocument.construct.php
 	 */
 	public function __construct () {}
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Retrieves the current field
-	 * @link http://php.net/manual/en/solrdocument.current.php
+	 * @link https://php.net/manual/en/solrdocument.current.php
 	 * @return SolrDocumentField <p>
 	 * Returns the field
 	 * </p>
@@ -85,7 +85,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Removes a field from the document
-	 * @link http://php.net/manual/en/solrdocument.deletefield.php
+	 * @link https://php.net/manual/en/solrdocument.deletefield.php
 	 * @param string $fieldName <p>
 	 * The name of the field.
 	 * </p>
@@ -98,14 +98,14 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Destructor
-	 * @link http://php.net/manual/en/solrdocument.destruct.php
+	 * @link https://php.net/manual/en/solrdocument.destruct.php
 	 */
 	public function __destruct() {}
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Checks if a field exists in the document
-	 * @link http://php.net/manual/en/solrdocument.fieldexists.php
+	 * @link https://php.net/manual/en/solrdocument.fieldexists.php
 	 * @param string $fieldName <p>
 	 * Name of the field.
 	 * </p>
@@ -118,7 +118,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Access the field as a property
-	 * @link http://php.net/manual/en/solrdocument.get.php
+	 * @link https://php.net/manual/en/solrdocument.get.php
 	 * @param string $fieldName <p>
 	 * The name of the field.
 	 * <p/>
@@ -131,7 +131,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 2.3.0)<br/>
 	 * Returns an array of child documents (SolrInputDocument)
-	 * @link http://php.net/manual/en/solrdocument.getchilddocuments.php
+	 * @link https://php.net/manual/en/solrdocument.getchilddocuments.php
 	 * @return SolrInputDocument[]
 	 */
 	public function getChildDocuments() {}
@@ -139,7 +139,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 2.3.0)<br/>
 	 * Returns the number of child documents
-	 * @link http://php.net/manual/en/solrdocument.getchilddocumentscount.php
+	 * @link https://php.net/manual/en/solrdocument.getchilddocumentscount.php
 	 * @return int
 	 */
 	public function getChildDocumentsCount() {}
@@ -147,7 +147,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Retrieves a field by name
-	 * @link http://php.net/manual/en/solrdocument.getfield.php
+	 * @link https://php.net/manual/en/solrdocument.getfield.php
 	 * @param string $fieldName <p>
 	 * The name of the field.
 	 * </p>
@@ -158,7 +158,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the number of fields in this document
-	 * @link http://php.net/manual/en/solrdocument.getfieldcount.php
+	 * @link https://php.net/manual/en/solrdocument.getfieldcount.php
 	 * @return int <p>
 	 * Returns an integer on success and <b>FALSE</b> on failure.
 	 * </p>
@@ -168,7 +168,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns an array containing all the fields in the document
-	 * @link http://php.net/manual/en/solrdocument.getfieldnames.php
+	 * @link https://php.net/manual/en/solrdocument.getfieldnames.php
 	 * @return array <p>
 	 * Returns an array on success and <b>FALSE</b> on failure.
 	 * </p>
@@ -178,7 +178,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns a SolrInputDocument equivalent of the object
-	 * @link http://php.net/manual/en/solrdocument.getinputdocument.php
+	 * @link https://php.net/manual/en/solrdocument.getinputdocument.php
 	 * @return SolrInputDocument <p>
 	 * Returns a SolrInputDocument on success and <b>NULL</b> on failure.
 	 * </p>
@@ -188,7 +188,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 2.3.0)<br/>
 	 * Checks whether the document has any child documents
-	 * @link http://php.net/manual/en/solrdocument.haschilddocuments.php
+	 * @link https://php.net/manual/en/solrdocument.haschilddocuments.php
 	 * @return bool <p>
 	 * Returns <b>TRUE</b> if the document has any child documents
 	 * </p>
@@ -198,7 +198,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Checks if a field exists
-	 * @link http://php.net/manual/en/solrdocument.isset.php
+	 * @link https://php.net/manual/en/solrdocument.isset.php
 	 * @param string $fieldName <p>
 	 * Name of the field.
 	 * </p>
@@ -211,7 +211,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Retrieves the current key
-	 * @link http://php.net/manual/en/solrdocument.key.php
+	 * @link https://php.net/manual/en/solrdocument.key.php
 	 * @return string <p>
 	 * Returns the current key.
 	 * </p>
@@ -221,7 +221,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Merges one input document into another
-	 * @link http://php.net/manual/en/solrdocument.merge.php
+	 * @link https://php.net/manual/en/solrdocument.merge.php
 	 * @param SolrDocument $sourceDoc <p>
 	 * The source document.
 	 * </p>
@@ -237,14 +237,14 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Moves the internal pointer to the next field
-	 * @link http://php.net/manual/en/solrdocument.next.php
+	 * @link https://php.net/manual/en/solrdocument.next.php
 	 */
 	public function next() {}
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Checks if a particular field exists
-	 * @link http://php.net/manual/en/solrdocument.offsetexists.php
+	 * @link https://php.net/manual/en/solrdocument.offsetexists.php
 	 * @param string $fieldName <p>
 	 * The name of the field.
 	 * </p>
@@ -257,7 +257,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Retrieves a field
-	 * @link http://php.net/manual/en/solrdocument.offsetget.php
+	 * @link https://php.net/manual/en/solrdocument.offsetget.php
 	 * @param string $fieldName <p>
 	 * The name of the field.
 	 * </p>
@@ -270,7 +270,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Adds a field to the document
-	 * @link http://php.net/manual/en/solrdocument.offsetset.php
+	 * @link https://php.net/manual/en/solrdocument.offsetset.php
 	 * @param string $fieldName <p>
 	 * The name of the field.
 	 * </p>
@@ -284,7 +284,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Removes a field
-	 * @link http://php.net/manual/en/solrdocument.offsetunset.php
+	 * @link https://php.net/manual/en/solrdocument.offsetunset.php
 	 * @param string $fieldName <p>
 	 * The name of the field.
 	 * </p>
@@ -294,7 +294,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * This is an alias of SolrDocument::clear
-	 * @link http://php.net/manual/en/solrdocument.reset.php
+	 * @link https://php.net/manual/en/solrdocument.reset.php
 	 * @return bool <p>
 	 * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * </p>
@@ -304,14 +304,14 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Resets the internal pointer to the beginning
-	 * @link http://php.net/manual/en/solrdocument.rewind.php
+	 * @link https://php.net/manual/en/solrdocument.rewind.php
 	 */
 	public function rewind() {}
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Used for custom serialization
-	 * @link http://php.net/manual/en/solrdocument.serialize.php
+	 * @link https://php.net/manual/en/solrdocument.serialize.php
 	 * @return string <p>
 	 * Returns a string representing the serialized Solr document.
 	 * </p>
@@ -321,7 +321,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Adds another field to the document
-	 * @link http://php.net/manual/en/solrdocument.set.php
+	 * @link https://php.net/manual/en/solrdocument.set.php
 	 * @param string $fieldName <p>
 	 * Name of the field.
 	 * </p>
@@ -337,7 +337,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Sorts the fields within the document
-	 * @link http://php.net/manual/en/solrdocument.sort.php
+	 * @link https://php.net/manual/en/solrdocument.sort.php
 	 * @param int $sortOrderBy <p>
 	 * The sort criteria, must be one of :
 	 * <ul>
@@ -373,7 +373,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Custom serialization of SolrDocument objects
-	 * @link http://php.net/manual/en/solrdocument.unserialize.php
+	 * @link https://php.net/manual/en/solrdocument.unserialize.php
 	 * @param string $serialized <p>
 	 * An XML representation of the document.
 	 * </p>
@@ -383,7 +383,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Removes a field from the document
-	 * @link http://php.net/manual/en/solrdocument.unset.php
+	 * @link https://php.net/manual/en/solrdocument.unset.php
 	 * @param string $fieldName <p>
 	 * The name of the field.
 	 * </p>
@@ -396,7 +396,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Checks if the current position internally is still valid
-	 * @link http://php.net/manual/en/solrdocument.valid.php
+	 * @link https://php.net/manual/en/solrdocument.valid.php
 	 * @return bool <p>
 	 * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * </p>

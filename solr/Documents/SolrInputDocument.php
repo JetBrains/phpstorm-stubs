@@ -10,7 +10,7 @@
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrInputDocument<br/>
  * This class represents a Solr document that is about to be submitted to the Solr index.
- * @link http://php.net/manual/en/class.solrinputdocument.php
+ * @link https://php.net/manual/en/class.solrinputdocument.php
  */
 final class SolrInputDocument {
 
@@ -35,7 +35,7 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 2.3.0)<br/>
 	 * Adds a child document for block indexing
-	 * @link http://php.net/manual/en/solrinputdocument.addchilddocument.php
+	 * @link https://php.net/manual/en/solrinputdocument.addchilddocument.php
 	 * @param SolrInputDocument $child <p>
 	 * A SolrInputDocument object.
 	 * </p>
@@ -47,7 +47,7 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 2.3.0)<br/>
 	 * Adds an array of child documents
-	 * @link http://php.net/manual/en/solrinputdocument.addchilddocuments.php
+	 * @link https://php.net/manual/en/solrinputdocument.addchilddocuments.php
 	 * @param array $docs <p>
 	 * An array of SolrInputDocument objects.
 	 * </p>
@@ -59,7 +59,7 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Adds a field to the document
-	 * @link http://php.net/manual/en/solrinputdocument.addfield.php
+	 * @link https://php.net/manual/en/solrinputdocument.addfield.php
 	 * @param string $fieldName <p>
 	 * The name of the field
 	 * </p>
@@ -79,7 +79,7 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Resets the input document
-	 * @link http://php.net/manual/en/solrinputdocument.clear.php
+	 * @link https://php.net/manual/en/solrinputdocument.clear.php
 	 * @return bool <p>
 	 * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * </p>
@@ -89,21 +89,21 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Creates a copy of a SolrDocument
-	 * @link http://php.net/manual/en/solrinputdocument.clone.php
+	 * @link https://php.net/manual/en/solrinputdocument.clone.php
 	 */
 	public function __clone() {}
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * SolrInputDocument constructor.
-	 * @link http://php.net/manual/en/solrinputdocument.construct.php
+	 * @link https://php.net/manual/en/solrinputdocument.construct.php
 	 */
 	public function __construct () {}
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Removes a field from the document
-	 * @link http://php.net/manual/en/solrinputdocument.construct.php
+	 * @link https://php.net/manual/en/solrinputdocument.construct.php
 	 * @param string $fieldName <p>
 	 * The name of the field.
 	 * </p>
@@ -116,14 +116,14 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Destructor
-	 * @link http://php.net/manual/en/solrinputdocument.destruct.php
+	 * @link https://php.net/manual/en/solrinputdocument.destruct.php
 	 */
 	public function __destruct() {}
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Checks if a field exists
-	 * @link http://php.net/manual/en/solrinputdocument.fieldexists.php
+	 * @link https://php.net/manual/en/solrinputdocument.fieldexists.php
 	 * @param string $fieldName <p>
 	 * Name of the field.
 	 * </p>
@@ -136,7 +136,7 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Retrieves the current boost value for the document
-	 * @link http://php.net/manual/en/solrinputdocument.getboost.php
+	 * @link https://php.net/manual/en/solrinputdocument.getboost.php
 	 * @return float <p>
 	 * Returns the boost value on success and <b>FALSE</b> on failure.
 	 * </p>
@@ -146,7 +146,7 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 2.3.0)<br/>
 	 * Returns an array of child documents (SolrInputDocument)
-	 * @link http://php.net/manual/en/solrinputdocument.getchilddocuments.php
+	 * @link https://php.net/manual/en/solrinputdocument.getchilddocuments.php
 	 * @return SolrInputDocument[]
 	 */
 	public function getChildDocuments() {}
@@ -154,7 +154,7 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 2.3.0)<br/>
 	 * Returns the number of child documents
-	 * @link http://php.net/manual/en/solrinputdocument.getchilddocumentscount.php
+	 * @link https://php.net/manual/en/solrinputdocument.getchilddocumentscount.php
 	 * @return int
 	 */
 	public function getChildDocumentsCount() {}
@@ -162,7 +162,7 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Retrieves a field by name
-	 * @link http://php.net/manual/en/solrinputdocument.getfield.php
+	 * @link https://php.net/manual/en/solrinputdocument.getfield.php
 	 * @param string $fieldName <p>
 	 * The name of the field.
 	 * </p>
@@ -173,7 +173,7 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Retrieves the boost value for a particular field
-	 * @link http://php.net/manual/en/solrinputdocument.getfieldboost.php
+	 * @link https://php.net/manual/en/solrinputdocument.getfieldboost.php
 	 * @param string $fieldName <p>
 	 * The name of the field.
 	 * </p>
@@ -186,7 +186,7 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the number of fields in the document
-	 * @link http://php.net/manual/en/solrinputdocument.getfieldcount.php
+	 * @link https://php.net/manual/en/solrinputdocument.getfieldcount.php
 	 * @return int <p>
 	 * Returns an integer on success or <b>FALSE</b> on failure.
 	 * </p>
@@ -196,7 +196,7 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns an array containing all the fields in the document
-	 * @link http://php.net/manual/en/solrinputdocument.getfieldnames.php
+	 * @link https://php.net/manual/en/solrinputdocument.getfieldnames.php
 	 * @return array <p>
 	 * Returns an array on success and <b>FALSE</b> on failure.
 	 * </p>
@@ -206,7 +206,7 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 2.3.0)<br/>
 	 * Checks whether the document has any child documents
-	 * @link http://php.net/manual/en/solrinputdocument.haschilddocuments.php
+	 * @link https://php.net/manual/en/solrinputdocument.haschilddocuments.php
 	 * @return bool <p>
 	 * Returns <b>TRUE</b> if the document has any child documents
 	 * </p>
@@ -216,7 +216,7 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Merges one input document into another
-	 * @link http://php.net/manual/en/solrinputdocument.merge.php
+	 * @link https://php.net/manual/en/solrinputdocument.merge.php
 	 * @param SolrInputDocument $sourceDoc <p>
 	 * The source document.
 	 * </p>
@@ -233,7 +233,7 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * This is an alias of SolrInputDocument::clear
-	 * @link http://php.net/manual/en/solrinputdocument.reset.php
+	 * @link https://php.net/manual/en/solrinputdocument.reset.php
 	 * @return bool <p>
 	 * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * </p>
@@ -243,7 +243,7 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Sets the boost value for this document
-	 * @link http://php.net/manual/en/solrinputdocument.setboost.php
+	 * @link https://php.net/manual/en/solrinputdocument.setboost.php
 	 * @param float $documentBoostValue <p>
 	 * The index-time boost value for this document.
 	 * </p>
@@ -269,7 +269,7 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Sorts the fields within the document
-	 * @link http://php.net/manual/en/solrinputdocument.sort.php
+	 * @link https://php.net/manual/en/solrinputdocument.sort.php
 	 * @param int $sortOrderBy <p>
 	 * The sort criteria, must be one of :
 	 * <ul>
@@ -295,7 +295,7 @@ final class SolrInputDocument {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns an array representation of the input document
-	 * @link http://php.net/manual/en/solrinputdocument.toarray.php
+	 * @link https://php.net/manual/en/solrinputdocument.toarray.php
 	 * @return array <p>
 	 * Returns an array containing the fields. It returns FALSE on failure.
 	 * </p>

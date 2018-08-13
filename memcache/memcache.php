@@ -7,7 +7,7 @@ class MemcachePool  {
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Open memcached server connection
-     * @link http://php.net/manual/en/memcache.connect.php
+     * @link https://php.net/manual/en/memcache.connect.php
      * @param string $host <p>
      * Point to the host where memcached is listening for connections. This parameter
      * may also specify other transports like <em>unix:///path/to/memcached.sock</em>
@@ -20,7 +20,7 @@ class MemcachePool  {
      * </p>
      * <p>
      * Please note: <b>port</b> defaults to
-     * {@link http://php.net/manual/ru/memcache.ini.php#ini.memcache.default-port memcache.default_port}
+     * {@link https://php.net/manual/ru/memcache.ini.php#ini.memcache.default-port memcache.default_port}
      * if not specified. For this reason it is wise to specify the port
      * explicitly in this method call.
      * </p>
@@ -32,7 +32,7 @@ class MemcachePool  {
     /**
      * (PECL memcache &gt;= 2.0.0)<br/>
      * Add a memcached server to connection pool
-     * @link http://php.net/manual/en/memcache.addserver.php
+     * @link https://php.net/manual/en/memcache.addserver.php
      * @param string $host <p>
      * Point to the host where memcached is listening for connections. This parameter
      * may also specify other transports like unix:///path/to/memcached.sock
@@ -137,7 +137,7 @@ class MemcachePool  {
     /**
      * (PECL memcache &gt;= 2.1.0)<br/>
      * Returns server status
-     * @link http://php.net/manual/en/memcache.getserverstatus.php
+     * @link https://php.net/manual/en/memcache.getserverstatus.php
      * @param string $host Point to the host where memcached is listening for connections.
      * @param int $port Point to the port where memcached is listening for connections.
      * @return int Returns a the servers status. 0 if server is failed, non-zero otherwise
@@ -152,7 +152,7 @@ class MemcachePool  {
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Return version of the server
-     * @link http://php.net/manual/en/memcache.getversion.php
+     * @link https://php.net/manual/en/memcache.getversion.php
      * @return string|boolean Returns a string of server version number or <b>FALSE</b> on failure.
      */
     public function getVersion () {}
@@ -160,7 +160,7 @@ class MemcachePool  {
     /**
      * (PECL memcache &gt;= 2.0.0)<br/>
      * Add an item to the server. If the key already exists, the value will not be added and <b>FALSE</b> will be returned.
-     * @link http://php.net/manual/en/memcache.add.php
+     * @link https://php.net/manual/en/memcache.add.php
      * @param string $key The key that will be associated with the item.
      * @param mixed $var The variable to store. Strings and integers are stored as is, other types are stored serialized.
      * @param int $flag [optional] <p>
@@ -180,7 +180,7 @@ class MemcachePool  {
      * If it's 0, the item never expires (but memcached server doesn't guarantee this item to be stored all the time,
      * it could be deleted from the cache to make place for other items).
      * You can use MEMCACHE_COMPRESSED constant as flag value if you want to use on-the-fly compression (uses zlib).
-     * @link http://php.net/manual/en/memcache.set.php
+     * @link https://php.net/manual/en/memcache.set.php
      * @param string $key The key that will be associated with the item.
      * @param mixed $var The variable to store. Strings and integers are stored as is, other types are stored serialized.
      * @param int $flag [optional] Use MEMCACHE_COMPRESSED to store the item compressed (uses zlib).
@@ -192,7 +192,7 @@ class MemcachePool  {
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Replace value of the existing item
-     * @link http://php.net/manual/en/memcache.replace.php
+     * @link https://php.net/manual/en/memcache.replace.php
      * @param string $key <p>The key that will be associated with the item.</p>
      * @param mixed $var <p>The variable to store. Strings and integers are stored as is, other types are stored serialized.</p>
      * @param int $flag [optional] <p>Use <b>MEMCACHE_COMPRESSED</b> to store the item compressed (uses zlib).</p>
@@ -213,21 +213,21 @@ class MemcachePool  {
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Retrieve item from the server
-     * @link http://php.net/manual/en/memcache.get.php
+     * @link https://php.net/manual/en/memcache.get.php
      * @param string|array $key <p>
      * The key or array of keys to fetch.
      * </p>
      * @param int|array $flags [optional] <p>
      * If present, flags fetched along with the values will be written to this parameter. These
-     * flags are the same as the ones given to for example {@link http://php.net/manual/en/memcache.set.php Memcache::set()}.
+     * flags are the same as the ones given to for example {@link https://php.net/manual/en/memcache.set.php Memcache::set()}.
      * The lowest byte of the int is reserved for pecl/memcache internal usage (e.g. to indicate
      * compression and serialization status).
      * </p>
      * @return string|array <p>
      * Returns the string associated with the <b>key</b> or
-     * an array of found key-value pairs when <b>key</b> is an {@link http://php.net/manual/en/language.types.array.php array}.
+     * an array of found key-value pairs when <b>key</b> is an {@link https://php.net/manual/en/language.types.array.php array}.
      * Returns <b>FALSE</b> on failure, <b>key</b> is not found or
-     * <b>key</b> is an empty {@link http://php.net/manual/en/language.types.array.php array}.
+     * <b>key</b> is an empty {@link https://php.net/manual/en/language.types.array.php array}.
      * </p>
      */
     public function get ($key, &$flags = null) {}
@@ -245,7 +245,7 @@ class MemcachePool  {
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Get statistics of the server
-     * @link http://php.net/manual/ru/memcache.getstats.php
+     * @link https://php.net/manual/ru/memcache.getstats.php
      * @param string $type [optional] <p>
      * The type of statistics to fetch.
      * Valid values are {reset, malloc, maps, cachedump, slabs, items, sizes}.
@@ -266,7 +266,7 @@ class MemcachePool  {
     /**
      * (PECL memcache &gt;= 2.0.0)<br/>
      * Get statistics from all servers in pool
-     * @link http://php.net/manual/en/memcache.getextendedstats.php
+     * @link https://php.net/manual/en/memcache.getextendedstats.php
      * @param string $type [optional] <p>The type of statistics to fetch. Valid values are {reset, malloc, maps, cachedump, slabs, items, sizes}. According to the memcached protocol spec these additional arguments "are subject to change for the convenience of memcache developers".</p>
      * @param int $slabid [optional] <p>
      * Used in conjunction with <b>type</b> set to
@@ -284,7 +284,7 @@ class MemcachePool  {
     /**
      * (PECL memcache &gt;= 2.0.0)<br/>
      * Enable automatic compression of large values
-     * @link http://php.net/manual/en/memcache.setcompressthreshold.php
+     * @link https://php.net/manual/en/memcache.setcompressthreshold.php
      * @param int $thresold <p>Controls the minimum value length before attempting to compress automatically.</p>
      * @param float $min_saving [optional] <p>Specifies the minimum amount of savings to actually store the value compressed. The supplied value must be between 0 and 1. Default value is 0.2 giving a minimum 20% compression savings.</p>
      * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -293,7 +293,7 @@ class MemcachePool  {
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Increment item's value
-     * @link http://php.net/manual/en/memcache.increment.php
+     * @link https://php.net/manual/en/memcache.increment.php
      * @param $key string Key of the item to increment.
      * @param $value int [optional] increment the item by <b>value</b>
      * @return int|boolean Returns new items value on success or <b>FALSE</b> on failure.
@@ -303,7 +303,7 @@ class MemcachePool  {
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Decrement item's value
-     * @link http://php.net/manual/en/memcache.decrement.php
+     * @link https://php.net/manual/en/memcache.decrement.php
      * @param $key string Key of the item do decrement.
      * @param $value int Decrement the item by <b>value</b>.
      * @return int|boolean Returns item's new value on success or <b>FALSE</b> on failure.
@@ -313,7 +313,7 @@ class MemcachePool  {
     /**
      * (PECL memcache &gt;= 0.4.0)<br/>
      * Close memcached server connection
-     * @link http://php.net/manual/en/memcache.close.php
+     * @link https://php.net/manual/en/memcache.close.php
      * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function close () {}
@@ -321,7 +321,7 @@ class MemcachePool  {
     /**
      * (PECL memcache &gt;= 1.0.0)<br/>
      * Flush all existing items at the server
-     * @link http://php.net/manual/en/memcache.flush.php
+     * @link https://php.net/manual/en/memcache.flush.php
      * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function flush () {}
@@ -330,7 +330,7 @@ class MemcachePool  {
 
 /**
  * Represents a connection to a set of memcache servers.
- * @link http://php.net/manual/en/class.memcache.php
+ * @link https://php.net/manual/en/class.memcache.php
  */
 class Memcache extends MemcachePool  {
 
@@ -338,7 +338,7 @@ class Memcache extends MemcachePool  {
 	/**
 	 * (PECL memcache &gt;= 0.4.0)<br/>
 	 * Open memcached server persistent connection
-	 * @link http://php.net/manual/en/memcache.pconnect.php
+	 * @link https://php.net/manual/en/memcache.pconnect.php
 	 * @param string $host <p>
 	 * Point to the host where memcached is listening for connections. This parameter
 	 * may also specify other transports like unix:///path/to/memcached.sock
@@ -364,7 +364,7 @@ class Memcache extends MemcachePool  {
 /**
  * (PECL memcache >= 0.2.0)</br>
  * Memcache::connect — Open memcached server connection
- * @link http://php.net/manual/en/memcache.connect.php
+ * @link https://php.net/manual/en/memcache.connect.php
  * @param string $host <p>
  * Point to the host where memcached is listening for connections.
  * This parameter may also specify other transports like
@@ -388,7 +388,7 @@ function memcache_connect ($host, $port, $timeout = 1) {}
  * (PECL memcache >= 0.4.0)
  * Memcache::pconnect — Open memcached server persistent connection
  * 
- * @link http://php.net/manual/en/memcache.pconnect.php#example-5242
+ * @link https://php.net/manual/en/memcache.pconnect.php#example-5242
  * @param      $host
  * @param null $port
  * @param int  $timeout
@@ -425,7 +425,7 @@ function memcache_delete () {}
 /**
  * (PECL memcache &gt;= 0.2.0)<br/>
  * Turn debug output on/off
- * @link http://php.net/manual/en/function.memcache-debug.php
+ * @link https://php.net/manual/en/function.memcache-debug.php
  * @param bool $on_off <p>
  * Turns debug output on if equals to <b>TRUE</b>.
  * Turns debug output off if equals to <b>FALSE</b>.

@@ -5,19 +5,19 @@
 /**
  * (PECL mailparse >= 0.9.0)</br>
  * Figures out the best way of encoding the content read from the given file pointer.
- * @link http://php.net/manual/en/function.mailparse-determine-best-xfer-encoding.php
+ * @link https://php.net/manual/en/function.mailparse-determine-best-xfer-encoding.php
  * @param resource $fp <p>
  * A valid file pointer, which must be seek-able.
  * </p>
  * @return string Returns one of the character encodings supported by the
- * {@link http://php.net/manual/en/ref.mbstring.php mbstring} module.
+ * {@link https://php.net/manual/en/ref.mbstring.php mbstring} module.
  */
 function mailparse_determine_best_xfer_encoding ($fp) {}
 
 /**
  * (PECL mailparse >= 0.9.0)</br>
  * Create a MIME mail resource.
- * @link http://php.net/manual/en/function.mailparse-msg-create.php
+ * @link https://php.net/manual/en/function.mailparse-msg-create.php
  * @return resource Returns a handle that can be used to parse a message.
  */
 function mailparse_msg_create () {}
@@ -27,9 +27,9 @@ function mailparse_msg_create () {}
  * Extracts/decodes a message section from the supplied filename.
  * The contents of the section will be decoded according to their transfer encoding - base64, quoted-printable and
  * uuencoded text are supported.
- * @link http://php.net/manual/en/function.mailparse-msg-extract-part-file.php
+ * @link https://php.net/manual/en/function.mailparse-msg-extract-part-file.php
  * @param resource $mimemail <p>
- * A valid MIME resource, created with {@link http://php.net/manual/en/function.mailparse-msg-create.php mailparse_msg_create()}.
+ * A valid MIME resource, created with {@link https://php.net/manual/en/function.mailparse-msg-create.php mailparse_msg_create()}.
  * </p>
  * @param mixed $filename <p>
  * Can be a file name or a valid stream resource.
@@ -56,7 +56,7 @@ function mailparse_msg_extract_part_file ($mimemail, $filename, $callbackfunc) {
 /**
  * (PECL mailparse >= 0.9.0)</br>
  * Extracts/decodes a message section
- * @link http://php.net/manual/en/function.mailparse-msg-extract-part.php
+ * @link https://php.net/manual/en/function.mailparse-msg-extract-part.php
  * @param resource $mimemail <p>
  * A valid MIME resource.
  * </p>
@@ -69,7 +69,7 @@ function mailparse_msg_extract_part ($mimemail, $msgbody, $callbackfunc) {}
 /**
  * (PECL mailparse >= 0.9.0)</br>
  * Extracts a message section including headers without decoding the transfer encoding
- * @link http://php.net/manual/en/function.mailparse-msg-extract-whole-part-file.php
+ * @link https://php.net/manual/en/function.mailparse-msg-extract-whole-part-file.php
  * @param resource $mimemail <p>
  * A valid MIME resource
  * </p>
@@ -82,11 +82,11 @@ function mailparse_msg_extract_whole_part_file ($mimemail, $filename, $callbackf
 /**
  * (PECL mailparse >= 0.9.0)</br>
  * Frees a MIME resource.
- * @link http://php.net/manual/en/function.mailparse-msg-free.php
+ * @link https://php.net/manual/en/function.mailparse-msg-free.php
  * @param resource $mimemail <p>
  * A valid MIME resource allocated by
- * {@link http://php.net/manual/en/function.mailparse-msg-create.php mailparse_msg_create()} or
- * {@link http://php.net/manual/en/function.mailparse-msg-parse-file.php mailparse_msg_parse_file()}.
+ * {@link https://php.net/manual/en/function.mailparse-msg-create.php mailparse_msg_create()} or
+ * {@link https://php.net/manual/en/function.mailparse-msg-parse-file.php mailparse_msg_parse_file()}.
  * </p>
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
@@ -95,7 +95,7 @@ function mailparse_msg_free ($mimemail) {}
 /**
  * (PECL mailparse >= 0.9.0)</br>
  * Returns an associative array of info about the message
- * @link http://php.net/manual/en/function.mailparse-msg-get-part-data.php
+ * @link https://php.net/manual/en/function.mailparse-msg-get-part-data.php
  * @param resource $mimemail <p>
  * A valid MIME resource.
  * </p>
@@ -106,7 +106,7 @@ function mailparse_msg_get_part_data ($mimemail) {}
 /**
  * (PECL mailparse >= 0.9.0)</br>
  * Returns a handle on a given section in a mimemessage
- * @link http://php.net/manual/en/function.mailparse-msg-get-part.php
+ * @link https://php.net/manual/en/function.mailparse-msg-get-part.php
  * @param resource $mimemail <p>
  * A valid MIME resource.
  * </p>
@@ -118,7 +118,7 @@ function mailparse_msg_get_part ($mimemail, $mimesection) {}
 /**
  * (PECL mailparse >= 0.9.0)</br>
  * Returns an array of mime section names in the supplied message
- * @link http://php.net/manual/en/function.mailparse-msg-get-structure.php
+ * @link https://php.net/manual/en/function.mailparse-msg-get-structure.php
  * @param resource $mimemail <p>
  * A valid MIME resource.
  * </p>
@@ -129,7 +129,7 @@ function mailparse_msg_get_structure ($mimemail) {}
 /**
  * (PECL mailparse >= 0.9.0)</br>
  * Parses a file. This is the optimal way of parsing a mail file that you have on disk.
- * @link http://php.net/manual/en/function.mailparse-msg-parse-file.php
+ * @link https://php.net/manual/en/function.mailparse-msg-parse-file.php
  * @param string $filename <p>
  * Path to the file holding the message. The file is opened and streamed through the parser.
  * </p>
@@ -141,7 +141,7 @@ function mailparse_msg_parse_file ($filename) {}
  * (PECL mailparse >= 0.9.0)</br>
  * Incrementally parse data into the supplied mime mail resource.
  * This function allow you to stream portions of a file at a time, rather than read and parse the whole thing.
- * @link http://php.net/manual/en/function.mailparse-msg-parse.php
+ * @link https://php.net/manual/en/function.mailparse-msg-parse.php
  * @param resource $mimemail <p>
  * A valid MIME resource.
  * </p>
@@ -153,7 +153,7 @@ function mailparse_msg_parse ($mimemail, $data) {}
 /**
  * (PECL mailparse >= 0.9.0)</br>
  * Parses a {@link http://www.faqs.org/rfcs/rfc822 RFC 822} compliant recipient list, such as that found in the To: header.
- * @link http://php.net/manual/en/function.mailparse-rfc822-parse-addresses.php
+ * @link https://php.net/manual/en/function.mailparse-rfc822-parse-addresses.php
  * @param string $addresses <p>
  * A string containing addresses, like in: Wez Furlong <wez@example.com>, doe@example.com
  * Note: This string must not include the header name.
@@ -181,7 +181,7 @@ function mailparse_rfc822_parse_addresses ($addresses) {}
 /**
  * (PECL mailparse >= 0.9.0)</br>
  * Streams data from the source file pointer, apply encoding and write to the destination file pointer.
- * @link http://php.net/manual/en/function.mailparse-stream-encode.php
+ * @link https://php.net/manual/en/function.mailparse-stream-encode.php
  * @param resource $sourcefp <p>
  * A valid file handle. The file is streamed through the parser.
  * </p>
@@ -189,7 +189,7 @@ function mailparse_rfc822_parse_addresses ($addresses) {}
  * The destination file handle in which the encoded data will be written.
  * </p>
  * @param string $encoding <p>
- * One of the character encodings supported by the {@link http://php.net/manual/en/ref.mbstring.php mbstring} module.
+ * One of the character encodings supported by the {@link https://php.net/manual/en/ref.mbstring.php mbstring} module.
  * </p>
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
@@ -198,7 +198,7 @@ function mailparse_stream_encode ($sourcefp, $destfp, $encoding) {}
 /**
  * (PECL mailparse >= 0.9.0)</br>
  * Scans the data from the given file pointer and extract each embedded uuencoded file into a temporary file.
- * @link http://php.net/manual/en/function.mailparse-uudecode-all.php
+ * @link https://php.net/manual/en/function.mailparse-uudecode-all.php
  * @param resource $fp <p>
  * A valid file pointer.
  * </p>

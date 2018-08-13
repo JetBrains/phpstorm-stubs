@@ -71,7 +71,7 @@ class CURLFile {
 }
 /**
  * Initialize a cURL session
- * @link http://php.net/manual/en/function.curl-init.php
+ * @link https://php.net/manual/en/function.curl-init.php
  * @param string $url [optional] <p>
  * If provided, the CURLOPT_URL option will be set
  * to its value. You can manually set this using the 
@@ -85,7 +85,7 @@ function curl_init ($url = null) {}
 
 /**
  * Copy a cURL handle along with all of its preferences
- * @link http://php.net/manual/en/function.curl-copy-handle.php
+ * @link https://php.net/manual/en/function.curl-copy-handle.php
  * @param resource $ch 
  * @return resource a new cURL handle.
  * @since 5.0
@@ -94,7 +94,7 @@ function curl_copy_handle ($ch) {}
 
 /**
  * Gets cURL version information
- * @link http://php.net/manual/en/function.curl-version.php
+ * @link https://php.net/manual/en/function.curl-version.php
  * @param int $age [optional] <p>
  * </p>
  * @return array an associative array with the following elements: 
@@ -145,7 +145,7 @@ function curl_version ($age = null) {}
 
 /**
  * Set an option for a cURL transfer
- * @link http://php.net/manual/en/function.curl-setopt.php
+ * @link https://php.net/manual/en/function.curl-setopt.php
  * @param resource $ch 
  * @param int $option <p>
  * The CURLOPT_XXX option to set.
@@ -2115,7 +2115,7 @@ function curl_setopt ($ch, $option, $value) {}
 
 /**
  * Set multiple options for a cURL transfer
- * @link http://php.net/manual/en/function.curl-setopt-array.php
+ * @link https://php.net/manual/en/function.curl-setopt-array.php
  * @param resource $ch 
  * @param array $options <p>
  * An array specifying which options to set and their values.
@@ -2258,7 +2258,7 @@ function curl_strerror ($errornum ) {}
 function  curl_unescape ($ch, $str)  {}
 /**
  * Perform a cURL session
- * @link http://php.net/manual/en/function.curl-exec.php
+ * @link https://php.net/manual/en/function.curl-exec.php
  * @param resource $ch 
  * @return mixed true on success or false on failure. However, if the CURLOPT_RETURNTRANSFER
  * option is set, it will return the result on success, false on failure.
@@ -2269,7 +2269,7 @@ function curl_exec ($ch) {}
 
 /**
  * Get information regarding a specific transfer
- * @link http://php.net/manual/en/function.curl-getinfo.php
+ * @link https://php.net/manual/en/function.curl-getinfo.php
  * @param resource $ch 
  * @param int $opt [optional] <p>
  * This may be one of the following constants:
@@ -2304,7 +2304,7 @@ function curl_getinfo ($ch, $opt = null) {}
 
 /**
  * Return a string containing the last error for the current session
- * @link http://php.net/manual/en/function.curl-error.php
+ * @link https://php.net/manual/en/function.curl-error.php
  * @param resource $ch 
  * @return string the error message or '' (the empty string) if no
  * error occurred.
@@ -2315,7 +2315,7 @@ function curl_error ($ch) {}
 
 /**
  * Return the last error number
- * @link http://php.net/manual/en/function.curl-errno.php
+ * @link https://php.net/manual/en/function.curl-errno.php
  * @param resource $ch 
  * @return int the error number or 0 (zero) if no error
  * occurred.
@@ -2352,7 +2352,7 @@ function curl_file_create($filename, $mimetype, $postname) {}
 
 /**
  * Close a cURL session
- * @link http://php.net/manual/en/function.curl-close.php
+ * @link https://php.net/manual/en/function.curl-close.php
  * @param resource $ch 
  * @return void 
  * @since 4.0.2
@@ -2362,7 +2362,7 @@ function curl_close ($ch) {}
 
 /**
  * Returns a new cURL multi handle
- * @link http://php.net/manual/en/function.curl-multi-init.php
+ * @link https://php.net/manual/en/function.curl-multi-init.php
  * @return resource a cURL multi handle resource on success, false on failure.
  * @since 5.0
  */
@@ -2370,7 +2370,7 @@ function curl_multi_init () {}
 
 /**
  * Add a normal cURL handle to a cURL multi handle
- * @link http://php.net/manual/en/function.curl-multi-add-handle.php
+ * @link https://php.net/manual/en/function.curl-multi-add-handle.php
  * @param resource $mh 
  * @param resource $ch 
  * @return int 0 on success, or one of the CURLM_XXX errors
@@ -2381,7 +2381,7 @@ function curl_multi_add_handle ($mh, $ch) {}
 
 /**
  * Remove a multi handle from a set of cURL handles
- * @link http://php.net/manual/en/function.curl-multi-remove-handle.php
+ * @link https://php.net/manual/en/function.curl-multi-remove-handle.php
  * @param resource $mh 
  * @param resource $ch 
  * @return int On success, returns a cURL handle, false on failure.
@@ -2391,7 +2391,7 @@ function curl_multi_remove_handle ($mh, $ch) {}
 
 /**
  * Wait for activity on any curl_multi connection
- * @link http://php.net/manual/en/function.curl-multi-select.php
+ * @link https://php.net/manual/en/function.curl-multi-select.php
  * @param resource $mh 
  * @param float $timeout [optional] <p>
  * Time, in seconds, to wait for a response.
@@ -2414,7 +2414,7 @@ function curl_multi_select ($mh, $timeout = null) {}
  * The value to be set on <em>option</em>.
  * </p>
  * <p>
- * <em>value</em> should be an {@link http://php.net/manual/en/language.types.integer.php int} for the
+ * <em>value</em> should be an {@link https://php.net/manual/en/language.types.integer.php int} for the
  * following values of the <em>option</em> parameter:
  * </p><table>
  *
@@ -2492,7 +2492,7 @@ function curl_reset ($ch) {}
 
 /**
  * Run the sub-connections of the current cURL handle
- * @link http://php.net/manual/en/function.curl-multi-exec.php
+ * @link https://php.net/manual/en/function.curl-multi-exec.php
  * @param resource $mh 
  * @param int $still_running <p>
  * A reference to a flag to tell whether the operations are still running.
@@ -2509,7 +2509,7 @@ function curl_multi_exec ($mh, &$still_running) {}
 
 /**
  * Return the content of a cURL handle if <constant>CURLOPT_RETURNTRANSFER</constant> is set
- * @link http://php.net/manual/en/function.curl-multi-getcontent.php
+ * @link https://php.net/manual/en/function.curl-multi-getcontent.php
  * @param resource $ch 
  * @return string Return the content of a cURL handle if CURLOPT_RETURNTRANSFER is set.
  * @since 5.0
@@ -2518,7 +2518,7 @@ function curl_multi_getcontent ($ch) {}
 
 /**
  * Get information about the current transfers
- * @link http://php.net/manual/en/function.curl-multi-info-read.php
+ * @link https://php.net/manual/en/function.curl-multi-info-read.php
  * @param resource $mh 
  * @param int $msgs_in_queue [optional] <p>
  * Number of messages that are still in the queue
@@ -2530,7 +2530,7 @@ function curl_multi_info_read ($mh, &$msgs_in_queue = null) {}
 
 /**
  * Close a set of cURL handles
- * @link http://php.net/manual/en/function.curl-multi-close.php
+ * @link https://php.net/manual/en/function.curl-multi-close.php
  * @param resource $mh 
  * @return void 
  * @since 5.0
