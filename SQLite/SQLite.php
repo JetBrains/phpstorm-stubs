@@ -68,7 +68,7 @@ class SQLiteDatabase  {
 	 * <p>The column names returned by
 	 * <b>SQLITE_ASSOC</b> and <b>SQLITE_BOTH</b> will be
 	 * case-folded according to the value of the
-	 * {@see sqlite.assoc_case} configuration
+	 * {@link http://php.net/manual/en/sqlite.configuration.php#ini.sqlite.assoc-case sqlite.assoc_case} configuration
 	 * option.</p>
 	 */
 	public function queryExec ($query, &$error_message) {}

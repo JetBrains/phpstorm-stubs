@@ -760,7 +760,7 @@ function passthru ($command, &$return_var = null) {}
  * @param string $cmd <p>
  * The command that will be executed.
  * </p>
- * @return string The output from the executed command.
+ * @return string|null The output from the executed command or NULL if an error occurred or the command produces no output.
  * @since 4.0
  * @since 5.0
  */

@@ -711,6 +711,16 @@ class PDO  {
 	const MYSQL_ATTR_MULTI_STATEMENTS = 1015;
 
 	/**
+	 * <p>
+	 * Disables SSL peer verification when set to FALSE.
+	 * </p>
+	 * @since 7.0.18
+	 * @since 7.1.4
+	 * @link https://bugs.php.net/bug.php?id=71003
+	 */
+	const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1016;
+
+	/**
 	 * @deprecated 5.6.0 Use PDO::ATTR_EMULATE_PREPARES instead.
 	 */
 	const PGSQL_ASSOC = 1;
@@ -786,8 +796,17 @@ class PDO  {
 	const SQLSRV_ENCODING_SYSTEM = 3;
 	const SQLSRV_ENCODING_UTF8 = 65001;
 	const SQLSRV_ENCODING_DEFAULT = 1;
+	const SQLSRV_ATTR_ENCODING = 1000;
 	const SQLSRV_ATTR_QUERY_TIMEOUT = 1001;
 	const SQLSRV_ATTR_DIRECT_QUERY = 1002;
+	const SQLSRV_ATTR_CURSOR_SCROLL_TYPE = 1003;
+	const SQLSRV_ATTR_CLIENT_BUFFER_MAX_KB_SIZE = 1004;
+	const SQLSRV_ATTR_FETCHES_NUMERIC_TYPE = 1005;
+	const SQLSRV_PARAM_OUT_DEFAULT_SIZE = -1;
+	const SQLSRV_CURSOR_KEYSET = 1;
+	const SQLSRV_CURSOR_DYNAMIC = 2;
+	const SQLSRV_CURSOR_STATIC = 3;
+	const SQLSRV_CURSOR_BUFFERED = 42;
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -1093,6 +1112,28 @@ class PDO  {
 	 */
 	public static function getAvailableDrivers () {}
 
+    /**
+     * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo_sqlite &gt;= 1.0.0)<br/>
+     * Registers a User Defined Function for use in SQL statements
+     * @link http://php.net/manual/en/pdo.sqlitecreatefunction.php
+     * @param string $function_name <p>
+     * The name of the function used in SQL statements.
+     * </p>
+     * @param callable $callback <p>
+     * Callback function to handle the defined SQL function.
+     * </p>
+     * @param int $num_args [optional] <p>
+     * The number of arguments that the SQL function takes. If this parameter is -1,
+     * then the SQL function may take any number of arguments.
+     * </p>
+     * @param int $flags [optional] <p>
+     * A bitwise conjunction of flags. Currently, only <b>PDO::SQLITE_DETERMINISTIC</b> is supported,
+     * which specifies that the function always returns the same result given the same inputs within
+     * a single SQL statement.
+     * </p>
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function sqliteCreateFunction($function_name, $callback, $num_args = -1, $flags = 0) {}
 }
 
 /**

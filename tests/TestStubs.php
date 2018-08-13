@@ -221,6 +221,55 @@ class TestStubs extends TestCase
 
     }
 
+    public function stubFunctionProvider()
+    {
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->functions as $functionName => $function) {
+            yield "function {$functionName}" => [$function];
+        }
+    }
+
+    /**
+     * @dataProvider stubFunctionProvider
+     */
+    public function testFunctionPHPDocs(stdClass $function)
+    {
+        $this->assertNull($function->parseError, $function->parseError ?: "");
+    }
+
+    public function stubClassProvider()
+    {
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->classes as $className => $class) {
+            yield "class {$className}" => [$class];
+        }
+    }
+
+    /**
+     * @dataProvider stubClassProvider
+     */
+    public function testClassesPHPDocs(stdClass $class)
+    {
+        $this->assertNull($class->parseError, $class->parseError ?: "");
+    }
+
+    public function stubMethodProvider()
+    {
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->classes as $className => $class) {
+            foreach ($class->methods as $methodName => $method) {
+                yield "Method {$className}::{$methodName}" => [$methodName, $method];
+            }
+        }
+    }
+
+    /**
+     * @dataProvider stubMethodProvider
+     */
+    public function testMethodsPHPDocs(string $methodName, stdClass $method)
+    {
+        if($methodName === "__construct"){
+            $this->assertNull($method->returnTag, "@return tag for __construct should be omitted");
+        }
+        $this->assertNull($method->parseError, $method->parseError ?: "");
+    }
 
     private function getParameterRepresentation(stdClass $function): string
     {

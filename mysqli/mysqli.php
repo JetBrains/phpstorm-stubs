@@ -651,10 +651,13 @@ class mysqli  {
 	/**
 	 * Rolls back current transaction
 	 * @link https://php.net/manual/en/mysqli.rollback.php
+	 * @param int $flags A bitmask of MYSQLI_TRANS_COR_* constants.
+	 * @param string $name If provided then ROLLBACK $name is executed.
 	 * @return bool true on success or false on failure.
+	 * @since 5.5 Added flags and name parameters.
 	 * @since 5.0
 	 */
-	public function rollback () {}
+	public function rollback ($flags = null, $name = null) {}
 
     /**
      * Set a named transaction savepoint
@@ -1108,7 +1111,7 @@ class mysqli_result implements Traversable  {
 	/**
 	 * Fetch a result row as an associative array
 	 * @link https://php.net/manual/en/mysqli-result.fetch-assoc.php
-	 * @return array an associative array of strings representing the fetched row in the result
+	 * @return array|null an associative array of strings representing the fetched row in the result
 	 * set, where each key in the array represents the name of one of the result
 	 * set's columns or null if there are no more rows in resultset.
 	 * </p>

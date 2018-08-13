@@ -188,10 +188,10 @@ namespace {
 
         /**
          * Throws an exception at the current suspension point in the generator.
-         * @param Exception $exception
+         * @param Throwable $exception
          * @return mixed
          */
-        function PS_UNRESERVE_PREFIX_throw(Exception $exception) {}
+        function PS_UNRESERVE_PREFIX_throw(Throwable $exception) {}
 
         /**
          * Returns whatever was passed to return or null if nothing.
@@ -228,7 +228,6 @@ class object {
    * In order to run a parent constructor, a call to parent::__construct() within the child constructor is required.
    *
    * param [ mixed $args [, $... ]]
-   * @return void
    * @link https://php.net/manual/en/language.oop5.decon.php
    */
   public function __construct() {}

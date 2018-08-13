@@ -1117,7 +1117,7 @@ function sodium_memcmp(
  * @since 7.2
  */
 function sodium_memzero(
-    &$reference, $length
+    &$reference
 ) {
     $target = '';
 }

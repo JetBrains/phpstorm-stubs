@@ -299,7 +299,6 @@ class OAuthProvider {
 
     /**
      * @param array $params_array
-     * @return OAuthProvider
      */
     public function __construct($params_array) { }
 

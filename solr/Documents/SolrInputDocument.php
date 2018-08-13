@@ -166,9 +166,7 @@ final class SolrInputDocument {
 	 * @param string $fieldName <p>
 	 * The name of the field.
 	 * </p>
-	 * @return SolrDocumentField<p>
-	 * Returns a SolrDocumentField object on success and <b>FALSE</b> on failure.
-	 * </p>
+	 * @return SolrDocumentField Returns a SolrDocumentField object on success and <b>FALSE</b> on failure.
 	 */
 	public function getField($fieldName) {}
 

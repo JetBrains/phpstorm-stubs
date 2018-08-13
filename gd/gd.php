@@ -2152,6 +2152,7 @@ function png2wbmp ($pngname, $wbmpname, $dest_height, $dest_width, $threshold) {
  * @return bool true on success or false on failure.
  * @since 4.0.5
  * @since 5.0
+ * @deprecated 7.3.0
  */
 function image2wbmp ($image, $filename = null, $threshold = null) {}
 

@@ -225,7 +225,6 @@ class RRDCreator {
      * @param int $step <p>
      * Base interval in seconds with which data will be fed into the RRD database.
      * </p>
-     * @return RRDCreator
      * @since PECL rrd >= 0.9.0
      */
     public function __construct($path, $startTime='', $step=0) {}
@@ -254,7 +253,6 @@ class RRDGraph {
      * @param string $path <p>
      * Full path for the newly created image.
      * </p>
-     * @return RRDGraph
      * @since PECL rrd >= 0.9.0
      */
     public function __construct($path) {}
@@ -304,7 +302,6 @@ class RRDUpdater {
      * @param string $path <p>
      * Filesystem path for RRD database file, which will be updated.
      * </p>
-     * @return RRDUpdater
      * @since PECL rrd >= 0.9.0
      */
     public function __construct($path) {}
