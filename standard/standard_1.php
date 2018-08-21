@@ -191,7 +191,7 @@ function hebrevc ($hebrew_text, $max_chars_per_line = null) {}
  * @since 4.0
  * @since 5.0
  */
-function nl2br ($string, $is_xhtml = null) {}
+function nl2br ($string, $is_xhtml = true) {}
 
 /**
  * Returns filename component of path
