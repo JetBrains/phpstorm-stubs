@@ -442,7 +442,6 @@ class Memcached  {
 	const RES_DEPRECATED = 45;
 	const RES_IN_PROGRESS = 46;
 	const RES_MAXIMUM_RETURN = 49;
-	const RES_CONNECTION_SOCKET_CREATE_FAILURE = 50;
 
 	
 	
@@ -1284,8 +1283,6 @@ class Memcached  {
 	public function isPristine () {}
 
 	public function flushBuffers () {}
-
-	public function setSaslAuthData ( $username, $password ) {}
 
 	public function setEncodingKey ( $key ) {}
 
