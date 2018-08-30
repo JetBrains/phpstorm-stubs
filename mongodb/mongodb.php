@@ -1139,6 +1139,45 @@ namespace MongoDB {}
             public function __toString()
             {
             }
+            
+            /**
+             * Returns the timestamp component of this ObjectId
+             * @since 1.2.0
+             * @link https://secure.php.net/manual/en/mongodb-bson-objectid.gettimestamp.php
+             * @return int
+             */
+            public function getTimestamp()
+            {
+            }
+            
+            /**
+             * Returns a representation that can be converted to JSON
+             * @since 1.2.0
+             * @link https://secure.php.net/manual/en/mongodb-bson-objectid.jsonserialize.php
+             * @return mixed
+             */
+            public function jsonSerialize()
+            {
+            }
+
+            /**
+             * Serialize an ObjectId
+             * @since 1.2.0
+             * @link https://secure.php.net/manual/en/mongodb-bson-objectid.serialize.php
+             * @return string
+             */
+            public function serialize()
+            {
+            }
+            
+            /**
+             * Unserialize an ObjectId
+             * @since 1.2.0
+             * @link https://secure.php.net/manual/en/mongodb-bson-objectid.unserialize.php
+             */
+            public function unserialize(string $serialized)
+            {
+            }
         }
 
         /**
