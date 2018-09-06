@@ -955,6 +955,342 @@ namespace MongoDB {}
     }
 
     /**
+     * @link http://php.net/manual/en/mongodb.monitoring.php
+     */
+    namespace MongoDB\Driver\Monitoring {
+
+        /**
+         * Registers a new monitoring event subscriber with the driver.
+         * Registered subscribers will be notified of monitoring events through specific methods.
+         * Note: If the object is already registered, this function is a no-op.
+         * @link http://php.net/manual/en/function.mongodb.driver.monitoring.addsubscriber.php
+         * @param $subscriber Subscriber A monitoring event subscriber object to register.
+         * @return void
+         * @throws \InvalidArgumentException on argument parsing errors.
+         * @since 1.3.0
+         */
+        function addSubscriber(Subscriber $subscriber)
+        {
+        }
+
+        /**
+         * Unregisters an existing monitoring event subscriber from the driver.
+         * Unregistered subscribers will no longer be notified of monitoring events.
+         * Note: If the object is not registered, this function is a no-op.
+         * @link http://php.net/manual/en/function.mongodb.driver.monitoring.removesubscriber.php
+         * @param $subscriber Subscriber A monitoring event subscriber object to register.
+         * @throws \InvalidArgumentException on argument parsing errors.
+         * @since 1.3.0
+         */
+        function removeSubscriber(Subscriber $subscriber)
+        {
+        }
+
+        /**
+         * Base interface for event subscribers.
+         * This is used for type-hinting MongoDB\Driver\Monitoring\addSubscriber() and MongoDB\Driver\Monitoring\removeSubscriber() and should not be implemented directly.
+         * This interface has no methods. Its only purpose is to be the base interface for all event subscribers.
+         * @link http://php.net/manual/en/class.mongodb-driver-monitoring-subscriber.php
+         * @since 1.3.0
+         */
+        interface Subscriber
+        {
+        }
+
+        /**
+         * Classes may implement this interface to register an event subscriber that is notified for each started, successful, and failed command event.
+         * @see http://php.net/manual/en/mongodb.tutorial.apm.php
+         * @link http://php.net/manual/en/class.mongodb-driver-monitoring-commandsubscriber.php
+         * @since 1.3.0
+         */
+        interface CommandSubscriber extends Subscriber
+        {
+
+            /**
+             * Notification method for a failed command.
+             * If the subscriber has been registered with MongoDB\Driver\Monitoring\addSubscriber(), the driver will call this method when a command has failed.
+             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandsubscriber.commandfailed.php
+             * @param CommandFailedEvent $event An event object encapsulating information about the failed command.
+             * @return void
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            public function commandFailed(CommandFailedEvent $event);
+
+            /**
+             * Notification method for a started command.
+             * If the subscriber has been registered with MongoDB\Driver\Monitoring\addSubscriber(), the driver will call this method when a command has started.
+             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandsubscriber.commandstarted.php
+             * @param CommandStartedEvent $event An event object encapsulating information about the started command.
+             * @return void
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            public function commandStarted(CommandStartedEvent $event);
+
+            /**
+             * Notification method for a successful command.
+             * If the subscriber has been registered with MongoDB\Driver\Monitoring\addSubscriber(), the driver will call this method when a command has succeeded.
+             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandsubscriber.commandsucceeded.php
+             * @param CommandSucceededEvent $event An event object encapsulating information about the successful command.
+             * @return void
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            public function commandSucceeded(CommandSucceededEvent $event);
+        }
+
+
+        /**
+         * Encapsulates information about a successful command.
+         * @link http://php.net/manual/en/class.mongodb-driver-monitoring-commandsucceededevent.php
+         * @since 1.3.0
+         */
+        class CommandSucceededEvent
+        {
+            /**
+             * Returns the command name.
+             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getcommandname.php
+             * @return string The command name (e.g. "find", "aggregate").
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            final public function getCommandName()
+            {
+            }
+
+            /**
+             * Returns the command's duration in microseconds
+             * The command's duration is a calculated value that includes the time to send the message and receive the reply from the server.
+             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getdurationmicros.php
+             * @return int the command's duration in microseconds.
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            final public function getDurationMicros()
+            {
+            }
+
+            /**
+             * Returns the command's operation ID.
+             * The operation ID is generated by the driver and may be used to link events together such as bulk write operations, which may have been split across several commands at the protocol level.
+             * Note: Since multiple commands may share the same operation ID, it is not reliable to use this value to associate event objects with each other. The request ID returned by MongoDB\Driver\Monitoring\CommandSucceededEvent::getRequestId() should be used instead.
+             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getoperationid.php
+             * @return string the command's operation ID.
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            final public function getOperationId()
+            {
+            }
+
+            /**
+             * Returns the command reply document.
+             * The reply document will be converted from BSON to PHP using the default deserialization rules (e.g. BSON documents will be converted to stdClass).
+             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getreply.php
+             * @return object the command reply document as a stdClass object.
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            final public function getReply()
+            {
+            }
+
+            /**
+             * Returns the command's request ID.
+             * The request ID is generated by the driver and may be used to associate this CommandSucceededEvent with a previous CommandStartedEvent.
+             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getrequestid.php
+             * @return string the command's request ID.
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            final public function getRequestId()
+            {
+            }
+
+            /**
+             * Returns the Server on which the command was executed.
+             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getserver.php
+             * @return \MongoDB\Driver\Server on which the command was executed.
+             * @since 1.3.0
+             */
+            final public function getServer()
+            {
+            }
+        }
+
+        /**
+         * Encapsulates information about a failed command.
+         * @link http://php.net/manual/en/class.mongodb-driver-monitoring-commandfailedevent.php
+         * @since 1.3.0
+         */
+        class CommandFailedEvent
+        {
+            /**
+             * Returns the command name.
+             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getcommandname.php
+             * @return string The command name (e.g. "find", "aggregate").
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            final public function getCommandName()
+            {
+            }
+
+            /**
+             * Returns the command's duration in microseconds
+             * The command's duration is a calculated value that includes the time to send the message and receive the reply from the server.
+             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getdurationmicros.php
+             * @return int the command's duration in microseconds.
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            final public function getDurationMicros()
+            {
+            }
+
+            /**
+             * Returns the Exception associated with the failed command
+             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.geterror.php
+             * @return \Exception
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            final public function getError()
+            {
+            }
+
+            /**
+             * Returns the command's operation ID.
+             * The operation ID is generated by the driver and may be used to link events together such as bulk write operations, which may have been split across several commands at the protocol level.
+             * Note: Since multiple commands may share the same operation ID, it is not reliable to use this value to associate event objects with each other. The request ID returned by MongoDB\Driver\Monitoring\CommandSucceededEvent::getRequestId() should be used instead.
+             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getoperationid.php
+             * @return string the command's operation ID.
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            final public function getOperationId()
+            {
+            }
+
+            /**
+             * Returns the command reply document.
+             * The reply document will be converted from BSON to PHP using the default deserialization rules (e.g. BSON documents will be converted to stdClass).
+             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getreply.php
+             * @return object the command reply document as a stdClass object.
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            final public function getReply()
+            {
+            }
+
+            /**
+             * Returns the command's request ID.
+             * The request ID is generated by the driver and may be used to associate this CommandSucceededEvent with a previous CommandStartedEvent.
+             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getrequestid.php
+             * @return string the command's request ID.
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            final public function getRequestId()
+            {
+            }
+
+            /**
+             * Returns the Server on which the command was executed.
+             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getserver.php
+             * @return \MongoDB\Driver\Server on which the command was executed.
+             * @since 1.3.0
+             */
+            final public function getServer()
+            {
+            }
+        }
+
+        /**
+         * Encapsulates information about a failed command.
+         * @link http://php.net/manual/en/class.mongodb-driver-monitoring-commandstartedevent.php
+         * @since 1.3.0
+         */
+        class CommandStartedEvent
+        {
+
+            /**
+             * Returns the command document
+             * The reply document will be converted from BSON to PHP using the default deserialization rules (e.g. BSON documents will be converted to stdClass).
+             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getcommand.php
+             * @return string the command document as a stdClass object.
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            final public function getCommand()
+            {
+
+            }
+
+            /**
+             * Returns the command name.
+             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getcommandname.php
+             * @return string The command name (e.g. "find", "aggregate").
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            final public function getCommandName()
+            {
+            }
+
+            /**
+             * Returns the database on which the command was executed.
+             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getdatabasename.php
+             * @return string the database on which the command was executed.
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            final public function getDatabaseName()
+            {
+            }
+
+            /**
+             * Returns the command's operation ID.
+             * The operation ID is generated by the driver and may be used to link events together such as bulk write operations, which may have been split across several commands at the protocol level.
+             * Note: Since multiple commands may share the same operation ID, it is not reliable to use this value to associate event objects with each other. The request ID returned by MongoDB\Driver\Monitoring\CommandSucceededEvent::getRequestId() should be used instead.
+             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getoperationid.php
+             * @return string the command's operation ID.
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            final public function getOperationId()
+            {
+            }
+
+
+            /**
+             * Returns the command's request ID.
+             * The request ID is generated by the driver and may be used to associate this CommandSucceededEvent with a previous CommandStartedEvent.
+             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getrequestid.php
+             * @return string the command's request ID.
+             * @throws \InvalidArgumentException on argument parsing errors.
+             * @since 1.3.0
+             */
+            final public function getRequestId()
+            {
+            }
+
+            /**
+             * Returns the Server on which the command was executed.
+             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getserver.php
+             * @return \MongoDB\Driver\Server on which the command was executed.
+             * @since 1.3.0
+             */
+            final public function getServer()
+            {
+            }
+        }
+
+    }
+
+    /**
      * @link https://php.net/manual/en/book.bson.php
      */
     namespace MongoDB\BSON {
