@@ -493,6 +493,7 @@ namespace MongoDB {}
              * Checks if a cursor is still alive
              * @link https://php.net/manual/en/mongodb-driver-cursor.isdead.php
              * @return boolean
+             * @throws InvalidArgumentException On argument parsing errors
              */
             final public function isDead()
             {
@@ -500,8 +501,13 @@ namespace MongoDB {}
 
             /**
              * Sets a type map to use for BSON unserialization
+             *
              * @link https://php.net/manual/en/mongodb-driver-cursor.settypemap.php
+             *
              * @param array $typemap
+             * @return void
+             * @throws InvalidArgumentException On argument parsing errors or if a class in the type map cannot
+             * be instantiated or does not implement MongoDB\BSON\Unserializable
              */
             final public function setTypeMap(array $typemap)
             {
@@ -511,6 +517,7 @@ namespace MongoDB {}
              * Returns an array of all result documents for this cursor
              * @link https://php.net/manual/en/mongodb-driver-cursor.toarray.php
              * @return array
+             * @throws InvalidArgumentException On argument parsing errors
              */
             final public function toArray()
             {
