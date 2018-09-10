@@ -1784,6 +1784,105 @@ namespace MongoDB {}
         }
 
         /**
+         * BSON type for the "Undefined" type. This BSON type is deprecated, and this class can not be instantiated. It will be created
+         * from a BSON undefined type while converting BSON to PHP, and can also be converted back into BSON while storing documents in the database.
+         *
+         * @deprecated
+         * @link https://secure.php.net/manual/en/class.mongodb-bson-undefined.php
+         */
+        class Undefined implements Type,\Serializable, \JsonSerializable
+        {
+
+            /**
+             * String representation of object
+             *
+             * @link  https://php.net/manual/en/serializable.serialize.php
+             * @return string the string representation of the object or null
+             * @since 5.1.0
+             */
+            public function serialize()
+            {
+            }
+
+            /**
+             * Constructs the object
+             *
+             * @link  https://php.net/manual/en/serializable.unserialize.php
+             *
+             * @param string $serialized <p>
+             *                           The string representation of the object.
+             *                           </p>
+             *
+             * @return void
+             * @since 5.1.0
+             */
+            public function unserialize($serialized)
+            {
+            }
+
+            /**
+             * Specify data which should be serialized to JSON
+             *
+             * @link  https://php.net/manual/en/jsonserializable.jsonserialize.php
+             * @return mixed data which can be serialized by <b>json_encode</b>,
+             * which is a value of any type other than a resource.
+             * @since 5.4.0
+             */
+            public function jsonSerialize()
+            {
+            }
+        }
+
+        /**
+         * BSON type for the "Symbol" type. This BSON type is deprecated, and this class can not be instantiated. It will be created from a
+         * BSON symbol type while converting BSON to PHP, and can also be converted back into BSON while storing documents in the database.
+         *
+         * @deprecated
+         * @link https://secure.php.net/manual/en/class.mongodb-bson-symbol.php
+         */
+        class Symbol implements Type,\Serializable, \JsonSerializable
+        {
+            /**
+             * String representation of object
+             *
+             * @link  https://php.net/manual/en/serializable.serialize.php
+             * @return string the string representation of the object or null
+             * @since 5.1.0
+             */
+            public function serialize()
+            {
+            }
+
+            /**
+             * Constructs the object
+             *
+             * @link  https://php.net/manual/en/serializable.unserialize.php
+             *
+             * @param string $serialized <p>
+             *                           The string representation of the object.
+             *                           </p>
+             *
+             * @return void
+             * @since 5.1.0
+             */
+            public function unserialize($serialized)
+            {
+            }
+
+            /**
+             * Specify data which should be serialized to JSON
+             *
+             * @link  https://php.net/manual/en/jsonserializable.jsonserialize.php
+             * @return mixed data which can be serialized by <b>json_encode</b>,
+             * which is a value of any type other than a resource.
+             * @since 5.4.0
+             */
+            public function jsonSerialize()
+            {
+            }
+        }
+
+            /**
          * Classes may implement this interface to take advantage of automatic ODM (object document mapping) behavior in the driver.
          * @link https://php.net/manual/en/class.mongodb-bson-persistable.php
          */
