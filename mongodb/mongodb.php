@@ -189,15 +189,16 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-server.executebulkwrite.php
              * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
              * @param BulkWrite $zwrite The MongoDB\Driver\BulkWrite to execute.
-             * @param WriteConcern $writeConcern Optionally, a MongoDB\Driver\WriteConcern. If none given, default to the Write Concern set by the MongoDB Connection URI.
+             * @param array $options
              * @throws BulkWriteException on any write failure (e.g. write error, failure to apply a write concern).
              * @throws InvalidArgumentException on argument parsing errors.
              * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
              * @throws AuthenticationException if authentication is needed and fails.
              * @throws RuntimeException on other errors.
              * @return WriteResult
+             * @since 1.0.0
              */
-            final public function executeBulkWrite($namespace, BulkWrite $zwrite, WriteConcern $writeConcern = null)
+            final public function executeBulkWrite($namespace, BulkWrite $zwrite, $options = [])
             {
             }
 
