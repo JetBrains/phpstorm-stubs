@@ -145,6 +145,19 @@ namespace MongoDB {}
             final public function selectServer(ReadPreference $readPreference = null)
             {
             }
+
+            /**
+             * Start a new client session for use with this client
+             * @param array $options
+             * @return \MongoDB\Driver\Session
+             * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors
+             * @throws \MongoDB\Driver\Exception\RuntimeException If the session could not be created (e.g. libmongoc does not support crypto).
+             * @link https://secure.php.net/manual/en/mongodb-driver-manager.startsession.php
+             * @since 1.4.0
+             */
+            final public function startSession(array $options = [])
+            {
+            }
         }
 
         /**
