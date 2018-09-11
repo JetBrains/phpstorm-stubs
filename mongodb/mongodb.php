@@ -212,8 +212,60 @@ namespace MongoDB {}
              * @throws AuthenticationException if authentication is needed and fails.
              * @throws RuntimeException on other errors (e.g. invalid command, issuing a write command to a secondary).
              * @return Cursor
+             * @since 1.0.0
              */
             final public function executeCommand($db, Command $command, ReadPreference $readPreference = null)
+            {
+            }
+
+            /**
+             * Execute a database command that reads on this server
+             * @link https://secure.php.net/manual/en/mongodb-driver-server.executereadcommand.php
+             * @param                         $db
+             * @param \MongoDB\Driver\Command $command
+             * @param array                   $option
+             * @return Cursor
+             * @throws InvalidArgumentException On argument parsing errors or  if the "session" option is used with an associated transaction in combination with a "readConcern" or "writeConcern" option.
+             * @throws ConnectionException If connection to the server fails (for reasons other than authentication).
+             * @throws AuthenticationException If authentication is needed and fails.
+             * @throws RuntimeException On other errors (e.g. invalid command).
+             * @since 1.4.0
+             */
+            final public function executeReadCommand($db, Command $command, array $option = [])
+            {
+            }
+
+            /**
+             * Execute a database command that reads and writes on this server
+             * @link https://secure.php.net/manual/en/mongodb-driver-server.executereadwritecommand.php
+             * @param                         $db
+             * @param \MongoDB\Driver\Command $command
+             * @param array                   $option
+             * @return Cursor
+             * @throws InvalidArgumentException On argument parsing errors OR if the "session" option is used with an associated transaction in combination with a "readConcern" or "writeConcern" option OR if the "session" option is used in combination with an unacknowledged write concern
+             * @throws ConnectionException If connection to the server fails (for reasons other than authentication).
+             * @throws AuthenticationException If authentication is needed and fails.
+             * @throws RuntimeException On other errors (e.g. invalid command).
+             * @since 1.4.0
+             */
+            final public function executeReadWriteCommand($db, Command $command, array $option = [])
+            {
+            }
+
+            /**
+             * Execute a database command that writes on this server
+             * @link https://secure.php.net/manual/en/mongodb-driver-server.executewritecommand.php
+             * @param                         $db
+             * @param \MongoDB\Driver\Command $command
+             * @param array                   $option
+             * @return Cursor
+             * @throws InvalidArgumentException On argument parsing errors or  if the "session" option is used with an associated transaction in combination with a "readConcern" or "writeConcern" option.
+             * @throws ConnectionException If connection to the server fails (for reasons other than authentication).
+             * @throws AuthenticationException If authentication is needed and fails.
+             * @throws RuntimeException On other errors (e.g. invalid command).
+             * @since 1.4.0
+             */
+            final public function executeWriteCommand($db, Command $command, array $option = [])
             {
             }
 
