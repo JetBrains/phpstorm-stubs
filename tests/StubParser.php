@@ -253,12 +253,17 @@ function getPhpStormStubs(): stdClass
         );
     /** @var SplFileInfo $file */
     foreach ($stubsIterator as $file) {
-        if (strpos($file->getRealPath(), 'vendor') || substr(dirname($file->getRealPath(), 1), -5) === 'tests') {
+        if (strpos($file->getRealPath(), 'vendor') || strpos($file->getRealPath(), '.git') || substr(dirname($file->getRealPath(), 1), -5) === 'tests') {
             continue;
         }
         $code = file_get_contents($file->getRealPath());
 
-        $ast = $parser->parse($code);
+        try {
+            $ast = $parser->parse($code);
+        } catch (\PhpParser\Error $error){
+            $error->setRawMessage($error->getRawMessage() . "\n" . $file->getRealPath());
+            throw $error;
+        }
         $traverser = new NodeTraverser();
 
         $traverser->addVisitor(new ParentConnector());
