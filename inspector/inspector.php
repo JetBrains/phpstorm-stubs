@@ -175,7 +175,7 @@ namespace Inspector
         public function getBreakPoint() {}
 
         /**
-         * @param array<int> $which
+         * @param array $which array<int>
          */
         public function getFlags($which) {}
     }
