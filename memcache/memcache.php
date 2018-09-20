@@ -435,19 +435,46 @@ function memcache_delete () {}
  */
 function memcache_debug ($on_off) {}
 
-function memcache_get_stats () {}
+/**
+ * @var object $memcache
+ */
+function memcache_get_stats ($memcache) {}
 
-function memcache_get_extended_stats () {}
+/**
+ * @var object $memcache
+ */
+function memcache_get_extended_stats ($memcache) {}
 
-function memcache_set_compress_threshold () {}
+/**
+ * @var object $memcache
+ * @var int $treshold
+ * @var float $min_savings a float in the 0..1 range
+ */
+function memcache_set_compress_threshold ($memcache, $threshold, $min_savings=0.2) {}
 
-function memcache_increment () {}
+/**
+ * @var object $memcache
+ * @var string $key
+ * @var int $value
+ */
+function memcache_increment ($memcache, $key, $value=1) {}
 
-function memcache_decrement () {}
+/**
+ * @var object $memcache
+ * @var string $key
+ * @var int $value
+ */
+function memcache_decrement ($memcache, $key, $value=1) {}
 
-function memcache_close () {}
+/**
+ * @var object $memcache
+ */
+function memcache_close ($memcache) {}
 
-function memcache_flush () {}
+/**
+ * @var object $memcache
+ */
+function memcache_flush ($memcache) {}
 
 define ('MEMCACHE_COMPRESSED', 2);
 define ('MEMCACHE_USER1', 65536);
