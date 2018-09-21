@@ -360,6 +360,11 @@ function newrelic_start_transaction($appName, $license = null) {}
 /**
  * Records a datastore segment.
  *
+ * Records a datastore segment. Datastore segments appear in the Breakdown table and Databases tab of the Transactions
+ * page in the New Relic UI.
+ * This function allows an unsupported datastore to be instrumented in the same way as the PHP agent automatically
+ * instruments its supported datastores.
+ * 
  * @since 7.5.0.199
  * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelic_record_datastore_segment
  *
@@ -446,4 +451,3 @@ function newrelic_start_transaction($appName, $license = null) {}
  * @return mixed|false The return value of $callback is returned. If an error occurs, false is returned, and
  * an error at the E_WARNING level will be triggered
  */
-function newrelic_record_datastore_segment(callable $func, array $parameters) {}
