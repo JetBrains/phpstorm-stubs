@@ -178,6 +178,18 @@
 function ssh2_connect ($host, $port = null, array $methods = null , array $callbacks = null ) {}
 
 /**
+ * (PECL ssh2 &gt;= 1.0)<br/>
+ * Close a connection to a remote SSH server
+ * @link http://php.net/manual/en/function.ssh2-disconnect.php
+ * @param resource $session <p>
+ * An SSH connection link identifier, obtained from a call to
+ * ssh2_connect.
+ * </p>
+ * return bool
+ */
+function ssh2_disconnect ($session) {}
+
+/**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Return list of negotiated methods
  * @link https://php.net/manual/en/function.ssh2-methods-negotiated.php
