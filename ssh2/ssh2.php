@@ -185,7 +185,7 @@ function ssh2_connect ($host, $port = null, array $methods = null , array $callb
  * An SSH connection link identifier, obtained from a call to
  * ssh2_connect.
  * </p>
- * return bool
+ * @return bool
  */
 function ssh2_disconnect ($session) {}
 
