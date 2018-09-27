@@ -180,7 +180,7 @@ function ssh2_connect ($host, $port = null, array $methods = null , array $callb
 /**
  * (PECL ssh2 &gt;= 1.0)<br/>
  * Close a connection to a remote SSH server
- * @link http://php.net/manual/en/function.ssh2-disconnect.php
+ * @link https://php.net/manual/en/function.ssh2-disconnect.php
  * @param resource $session <p>
  * An SSH connection link identifier, obtained from a call to
  * ssh2_connect.
