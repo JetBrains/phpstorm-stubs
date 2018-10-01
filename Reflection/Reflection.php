@@ -1517,15 +1517,6 @@ class ReflectionProperty implements Reflector {
 	public function setValue ($object, $value) {}
 
 	/**
-	 * Set static property value
-	 * @link https://php.net/manual/en/reflectionproperty.setvalue.php
-	 * @param mixed $value The new value.
-	 * @return void No value is returned.
-	 * @since 5.0
-	 */
-	public function setValue ($value) {}
-
-	/**
 	 * Checks if property is public
 	 * @link https://php.net/manual/en/reflectionproperty.ispublic.php
 	 * @return bool <b>TRUE</b> if the property is public, <b>FALSE</b> otherwise.
