@@ -2254,10 +2254,11 @@ function mysqli_stmt_field_count ($stmt) {}
 
 /**
  * Initializes a statement and returns an object for use with mysqli_stmt_prepare
- * @link http://fr2.php.net/manual/en/mysqli.stmt-init.php
+ * @link https://php.net/manual/en/mysqli.stmt-init.php
+ * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
  * @return mysqli_stmt
  */
-function mysqli_stmt_init () {}
+function mysqli_stmt_init ($link) {}
 
 /**
  * Prepare an SQL statement for execution
