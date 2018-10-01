@@ -1094,11 +1094,11 @@ function sapi_windows_cp_is_utf8() {
 }
 
 /**
- * true if a value is iterable and will be accepted by the iterable pseudo-type, false for other values.
+ * Verify that the contents of a variable is accepted by the iterable pseudo-type, i.e. that it is an array or an object implementing Traversable
  * @param mixed $value
- * @return true
+ * @return bool
  * @since 7.1
- * @link https://wiki.php.net/rfc/iterable
+ * @link https://php.net/manual/en/function.is-iterable.php
  */
 function is_iterable($value) {}
 
