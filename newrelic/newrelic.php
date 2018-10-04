@@ -356,3 +356,98 @@ function newrelic_set_user_attributes($user, $account, $product) {}
  * @return boolean
  */
 function newrelic_start_transaction($appName, $license = null) {}
+
+/**
+ * Records a datastore segment.
+ *
+ * Records a datastore segment. Datastore segments appear in the Breakdown table and Databases tab of the Transactions
+ * page in the New Relic UI.
+ * This function allows an unsupported datastore to be instrumented in the same way as the PHP agent automatically
+ * instruments its supported datastores.
+ * 
+ * @since 7.5.0.199
+ * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelic_record_datastore_segment
+ *
+ * @param callable $func The function that should be timed to create the datastore segment.
+ * @param array    $parameters An associative array of parameters describing the datastore call
+ * <p>The supported keys in the $parameters array are as follows:</p>
+ * <table>
+ * <tr valign="top">
+ * <th>Key</th>
+ * <th>Description</th>
+ * </tr>
+ * <tr valign="top">
+ * <td>product
+ * <p><em>string</em></p>
+ * </td>
+ * <td>Required. The name of the datastore product being used: for example, `MySQL` to indicate that the segment
+ * represents a query against a MySQL database.</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>collection
+ * <p><em>string</em></p>
+ * </td>
+ * <td>Optional. The table or collection being used or queried against.</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>operation
+ * <p><em>string</em></p>
+ * </td>
+ * <td>
+ * <p>Optional. The operation being performed: for example, `select` for an SQL SELECT query, or `set` for a Memcached
+ * set operation.</p>
+ * <p>While operations may be specified with any case, New Relic suggests using lowercase to better line up with the
+ * operation names used by the PHP agent's automated datastore instrumentation.</p>
+ * </td>
+ * </tr>
+ * <tr valign="top">
+ * <td>host
+ * <p><em>string</em></p>
+ * </td>
+ * <td>Optional. The datastore host name.</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>portPathOrId
+ * <p><em>string</em></p>
+ * </td>
+ * <td>Optional. The port or socket used to connect to the datastore.</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>databaseName
+ * <p><em>string</em></p>
+ * </td>
+ * <td>Optional. The database name or number in use.</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>query
+ * <p><em>string</em></p>
+ * </td>
+ * <td>
+ * <p>Optional. The query that was sent to the server.</p>
+ * <p>For security reasons, this value is only used if you set `product` to a supported datastore. This allows the agent
+ * to correctly obfuscate the query. The supported product values (which are matched in a case insensitive manner) are:
+ * `MySQL`, `MSSQL`, `Oracle`, `Postgres`, `SQLite`, `Firebird`, `Sybase`, and `Informix`.</p>
+ * </td>
+ * </tr>
+ * <tr valign="top">
+ * <td>inputQueryLabel
+ * <p><em>string</em></p>
+ * </td>
+ * <td>Optional. The name of the ORM in use (for example: `Doctrine`).</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>inputQuery
+ * <p><em>string</em></p>
+ * </td>
+ * <td>
+ * <p>Optional. The input query that was provided to the ORM.</p>
+ * <p>For security reasons, and as with the `query` parameter, this value will be ignored if the product is not
+ * a supported datastore.</p>
+ * <p></p>
+ * </td>
+ * </tr>
+ * </table>
+ *
+ * @return mixed|false The return value of $callback is returned. If an error occurs, false is returned, and
+ * an error at the E_WARNING level will be triggered
+ */
