@@ -848,7 +848,10 @@ class mysqli_result implements Traversable  {
 	public function __construct () {}
 
 	/**
-	 * Close (no docs available)
+	 * Frees the memory associated with a result
+	 * @return void
+	 * @link https://php.net/manual/en/mysqli-result.free.php
+	 * @since 5.0
  	 */
 	public function close () {}
 
@@ -1163,7 +1166,10 @@ class mysqli_result implements Traversable  {
 	public function field_seek ($fieldnr) {}
 
 	/**
-	 * Free a result set (No docs available)
+	 * Frees the memory associated with a result
+	 * @return void
+	 * @link https://php.net/manual/en/mysqli-result.free.php
+	 * @since 5.0
 	 */
 	public function free_result () {}
 
