@@ -61,6 +61,7 @@ namespace PHPSTORM_META {
   override(\array_change_key_case(0), type(0));
   override(\array_rand(0), elementType(0));
   override(\array_unique(0), type(0));
+  override(\array_intersect(0), type(0));
 
 //should be changed later to map values when map type is supported
   override(\array_values(0), type(0));
