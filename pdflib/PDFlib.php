@@ -3,7 +3,6 @@ class PDFlib
 {
 	/**
 	 * Activates a previously created structure element or other content item.
-	 * @param $pdf
 	 * @param $id
 	 *
 	 * @return bool
@@ -123,7 +122,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-add-textflow.php
 	 */
-	function add_textflow($pdf , $textflow , $text , $optlist){}
+	function add_textflow($textflow, $text, $optlist){}
 
 	/**
 	 * Adds an existing image as thumbnail for the current page.
@@ -359,7 +358,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-clip.php
 	 */
-	function clip($pdf){}
+	function clip(){}
 
 	/**
 	 * @param int $image
@@ -400,7 +399,7 @@ class PDFlib
 	 *
 	 * @deprecated This function is deprecated since PDFlib version 6, use PDF_end_document() instead.
 	 */
-	function close($pdf){}
+	function close(){}
 
 	/**
 	 *
@@ -408,7 +407,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-closepath-fill-stroke.php
 	 */
-	function closepath_fill_stroke($pdf){}
+	function closepath_fill_stroke(){}
 
 	/**
 	 *
@@ -416,7 +415,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-closepath-stroke.php
 	 */
-	function closepath_stroke($pdf){}
+	function closepath_stroke(){}
 
 	/**
 	 *
@@ -424,7 +423,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-closepath.php
 	 */
-	function closepath($pdf){}
+	function closepath(){}
 
 	/**
 	 * @param float $a
@@ -606,7 +605,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-delete.php
 	 */
-	function delete($pdf){}
+	function delete(){}
 
 	/**
 	 * @param string $encoding
@@ -635,7 +634,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-end-font.php
 	 */
-	function end_font($pdf){}
+	function end_font(){}
 
 	/**
 	 *
@@ -643,7 +642,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-end-glyph.php
 	 */
-	function end_glyph($pdf){}
+	function end_glyph(){}
 
 	/**
 	 * @param int $id
@@ -660,7 +659,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-end-layer.php
 	 */
-	function end_layer($pdf){}
+	function end_layer(){}
 
 	/**
 	 * @param string $optlist
@@ -733,7 +732,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-fill-stroke.php
 	 */
-	function fill_stroke($pdf){}
+	function fill_stroke(){}
 
 	/**
 	 * @param int $page
@@ -755,7 +754,7 @@ class PDFlib
 	 * @link https://secure.php.net/manual/en/function.pdf-fill.php
 
 	 */
-	function fill($pdf){}
+	function fill(){}
 	/**
 	 * @param string $fontname
 	 * @param string $encoding
@@ -838,7 +837,7 @@ class PDFlib
 	 * @link https://secure.php.net/manual/en/function.pdf-get-apiname.php
 
 	 */
-	function get_apiname($pdf){}
+	function get_apiname(){}
 	/**
 	 *
 	 * @return string
@@ -846,7 +845,7 @@ class PDFlib
 	 * @link https://secure.php.net/manual/en/function.pdf-get-buffer.php
 
 	 */
-	function get_buffer($pdf){}
+	function get_buffer(){}
 	/**
 	 *
 	 * @return string
@@ -854,7 +853,7 @@ class PDFlib
 	 * @link https://secure.php.net/manual/en/function.pdf-get-errmsg.php
 
 	 */
-	function get_errmsg($pdf){}
+	function get_errmsg(){}
 	/**
 	 *
 	 * @return int
@@ -862,7 +861,7 @@ class PDFlib
 	 * @link https://secure.php.net/manual/en/function.pdf-get-errnum.php
 
 	 */
-	function get_errnum($pdf){}
+	function get_errnum(){}
 	/**
 	 * @param void $
 	 *
@@ -985,7 +984,7 @@ class PDFlib
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-initgraphics.php
 	 */
-	function initgraphics($pdf){}
+	function initgraphics(){}
 
 	/**
 	 * @param float $x
