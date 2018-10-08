@@ -44,7 +44,7 @@ namespace PHPSTORM_META {
   }
 
   override(\array_shift(0), elementType(0));
-  override(\array_reverse(0), elementType(0));
+  override(\array_reverse(0), type(0));
   override(\array_pop(0), elementType(0));
 //  override(\array_map(0), type(1));
   override(\array_filter(0), type(0));
