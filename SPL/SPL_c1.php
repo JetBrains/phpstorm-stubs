@@ -194,7 +194,7 @@ class SplFileInfo  {
         /**
          * Gets absolute path to file
          * @link https://php.net/manual/en/splfileinfo.getrealpath.php
-         * @return string the path to the file.
+         * @return string|false the path to the file, or <b>FALSE</b> if the file does not exist.
          * @since 5.2.2
          */
         public function getRealPath () {}
