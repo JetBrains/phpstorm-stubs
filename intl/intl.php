@@ -4547,7 +4547,7 @@ function idn_to_ascii($domain, $options = 0, $variant = INTL_IDNA_VARIANT_2003, 
  * either has or would have changed the result and 'errors',
  * which is an int representing a bitset of the error constants IDNA_ERROR_*.
  * </p>
- * @return string The UTF-8 encoded version of the domain name or <b>FALSE</b> on failure.
+ * @return string|false The UTF-8 encoded version of the domain name or <b>FALSE</b> on failure.
  * RFC 3490 4.2 states though "ToUnicode never fails. If any step fails, then the original input
  * sequence is returned immediately in that step."
  */
