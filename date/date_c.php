@@ -126,7 +126,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @param string $format
      * @param string $time
      * @param DateTimeZone $timezone [optional]
-     * @return DateTimeImmutable|boolean
+     * @return DateTimeImmutable|false
      */
     public static function createFromFormat($format, $time, DateTimeZone $timezone = null) { }
 
