@@ -2260,7 +2260,7 @@ function  curl_unescape ($ch, $str)  {}
  * Perform a cURL session
  * @link https://php.net/manual/en/function.curl-exec.php
  * @param resource $ch 
- * @return mixed true on success or false on failure. However, if the CURLOPT_RETURNTRANSFER
+ * @return string|bool true on success or false on failure. However, if the CURLOPT_RETURNTRANSFER
  * option is set, it will return the result on success, false on failure.
  * @since 4.0.2
  * @since 5.0
