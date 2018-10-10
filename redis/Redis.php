@@ -316,7 +316,13 @@ class Redis
      *
      * @param   string  $key
      * @param   string  $value
-     * @param   int   $timeout [optional] Calling setex() is preferred if you want a timeout.
+     * @param   int|array   $timeout [optional] Calling setex() is preferred if you want a timeout.<br>
+     *                      Since 2.6.12 it also supports different flags inside an array. Example ['NX', 'EX' => 60]<br>
+     *                      EX seconds -- Set the specified expire time, in seconds.<br>
+     *                      PX milliseconds -- Set the specified expire time, in milliseconds.<br>
+     *                      PX milliseconds -- Set the specified expire time, in milliseconds.<br>
+     *                      NX -- Only set the key if it does not already exist.<br>
+     *                      XX -- Only set the key if it already exist.<br>
      * @return  bool    TRUE if the command is successful.
      * @link    https://redis.io/commands/set
      * @example $redis->set('key', 'value');
