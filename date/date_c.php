@@ -107,6 +107,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * or specifies a timezone
      * (e.g. <em>2010-01-28T15:00:00+02:00</em>).
      * </p> <p></p></blockquote>
+     * @return DateTimeImmutable|false
      * @throws Exception Emits Exception in case of an error.
      */
     public function __construct($time = "now", $timezone = NULL) { }
@@ -312,9 +313,33 @@ class DateTimeImmutable implements DateTimeInterface {
  */
 class DateTime implements DateTimeInterface {
     /**
-     * @param string $time
-     * @param DateTimeZone $timezone
-     * @link https://php.net/manual/en/datetime.construct.php
+     * (PHP 5 &gt;=5.2.0)<br/>
+     * @link http://www.php.net/manual/en/datetime.construct.php
+     * @param string $time [optional]
+     * <p>A date/time string. Valid formats are explained in {@link www.php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
+     * <p>
+     * Enter <b>now</b> here to obtain the current time when using
+     * the <em>$timezone</em> parameter.
+     * </p>
+     * @param DateTimeZone $timezone [optional] <p>
+     * A {@link http://www.php.net/manual/en/class.datetimezone.php DateTimeZone} object representing the
+     * timezone of <em>$time</em>.
+     * </p>
+     * <p>
+     * If <em>$timezone</em> is omitted,
+     * the current timezone will be used.
+     * </p>
+     * <blockquote><p><b>Note</b>:
+     * </p><p>
+     * The <em>$timezone</em> parameter
+     * and the current timezone are ignored when the
+     *<em>$time</em> parameter either
+     * is a UNIX timestamp (e.g. <em>@946684800</em>)
+     * or specifies a timezone
+     * (e.g. <em>2010-01-28T15:00:00+02:00</em>).
+     * </p> <p></p></blockquote>
+     * @return DateTime|false
+     * @throws Exception Emits Exception in case of an error.
      */
     public function __construct ($time='now', DateTimeZone $timezone=null) {}
 
