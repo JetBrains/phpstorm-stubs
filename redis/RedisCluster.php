@@ -26,11 +26,10 @@ class RedisCluster {
     /**
      * Cluster options
      */
-    const REDIS_OPT_FAILOVER = 5;
-    const REDIS_FAILOVER_NONE = 0;
-    const REDIS_FAILOVER_ERROR = 1;
-    const REDIS_FAILOVER_DISTRIBUTE = 2;
-    const REDIS_FAILOVER_DISTRIBUTE_SLAVES = 3;
+    const FAILOVER_NONE = 0;
+    const FAILOVER_ERROR = 1;
+    const FAILOVER_DISTRIBUTE = 2;
+    const FAILOVER_DISTRIBUTE_SLAVES = 3;
 
     /**
      * SCAN options
