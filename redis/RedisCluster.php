@@ -5,7 +5,7 @@
  * Based on the phpredis-phpdoc by Max Kamashev (https://github.com/ukko/phpredis-phpdoc)
  *
  * @author Tommy Zheng <tommy@vlv.pw>
- * @link   https://github.com/zgb7mtr/phpredis-cluster-phpdoc
+ * @link   https://github.com/zgb7mtr/phpredis_cluster_phpdoc
  *
  * @method mixed eval($script, $args = array(), $numKeys = 0)
  *
@@ -70,6 +70,7 @@ class RedisCluster {
      * @param float         $timeout
      * @param float         $readTimeout
      * @param bool          $persistent
+     * @throws RedisClusterException
      *
      * @example
      * <pre>
@@ -3468,3 +3469,5 @@ class RedisCluster {
     public function geoRadiusByMember($key, $member, $radius, $radiusUnit, array $options) { }
 
 }
+
+class RedisClusterException extends Exception {}
