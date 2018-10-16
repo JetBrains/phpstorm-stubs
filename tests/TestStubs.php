@@ -224,6 +224,39 @@ class TestStubs extends TestCase
 
     }
 
+    public function stubClassConstantProvider(){
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->classes as $className => $class) {
+            foreach ($class->constants as $constantName => $constant) {
+                yield "Constant {$className}::{$constantName}" => [$className, $constant];
+            }
+        }
+    }
+
+    /**
+     * @dataProvider stubClassConstantProvider
+     */
+    public function testClassConstantsPHPDocs(string $className, stdClass $constant)
+    {
+        $this->assertNull($constant->parseError, $constant->parseError ?: "");
+        $this->checkLinks($constant, "constant $className::$constant->name");
+    }
+
+    public function stubConstantProvider()
+    {
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->constants as $constantName => $constant) {
+            yield "constant {$constantName}" => [$constant];
+        }
+    }
+
+    /**
+     * @dataProvider stubConstantProvider
+     */
+    public function testConstantsPHPDocs(stdClass $constant)
+    {
+        $this->assertNull($constant->parseError, $constant->parseError ?: "");
+        $this->checkLinks($constant, "function $constant->name");
+    }
+
     public function stubFunctionProvider()
     {
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->functions as $functionName => $function) {
