@@ -346,7 +346,7 @@ function wordwrap ($str, $width = 75, $break = "\n", $cut = false) {}
  * <td>
  * Silently discard invalid code unit sequences instead of returning
  * an empty string. Using this flag is discouraged as it
- * {@link http://unicode.org/reports/tr36/#Deletion_of_Noncharacters »&nbsp;may have security implications}.
+ * {@link https://unicode.org/reports/tr36/#Deletion_of_Noncharacters »&nbsp;may have security implications}.
  * </td>
  * </tr>
  *

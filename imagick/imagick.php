@@ -4578,7 +4578,7 @@ class Imagick implements Iterator, Countable {
 	public static function getQuantum () { }
 
 	/**
-	 * Replaces any embedded formatting characters with the appropriate image property and returns the interpreted text. See http://www.imagemagick.org/script/escape.php for escape sequences.
+	 * Replaces any embedded formatting characters with the appropriate image property and returns the interpreted text. See https://www.imagemagick.org/script/escape.php for escape sequences.
 	 * @link https://php.net/manual/en/imagick.identifyformat.php
 	 * @see https://www.imagemagick.org/script/escape.php
 	 * @param string $embedText A string containing formatting sequences e.g. "Trim box: %@ number of unique colors: %k".
@@ -4739,7 +4739,7 @@ class Imagick implements Iterator, Countable {
 	public function setImageChannelMask ($channel) {}
 
 	/**
-	 * Merge multiple images of the same size together with the selected operator. http://www.imagemagick.org/Usage/layers/#evaluate-sequence
+	 * Merge multiple images of the same size together with the selected operator. https://www.imagemagick.org/Usage/layers/#evaluate-sequence
 	 * @param int $EVALUATE_CONSTANT
 	 * @return bool
 	 * @see https://www.imagemagick.org/Usage/layers/#evaluate-sequence
@@ -6693,7 +6693,7 @@ class ImagickKernel {
 	public function addUnityKernel() { }
 
 	/**
-	 * Create a kernel from a builtin in kernel. See http://www.imagemagick.org/Usage/morphology/#kernel for examples.<br>
+	 * Create a kernel from a builtin in kernel. See https://www.imagemagick.org/Usage/morphology/#kernel for examples.<br>
 	 * Currently the 'rotation' symbols are not supported. Example: $diamondKernel = ImagickKernel::fromBuiltIn(\Imagick::KERNEL_DIAMOND, "2");
 	 * @link https://php.net/manual/en/imagickkernel.frombuiltin.php
 	 * @param string $kernelType The type of kernel to build e.g. \Imagick::KERNEL_DIAMOND
@@ -6704,7 +6704,7 @@ class ImagickKernel {
 	public static function fromBuiltin($kernelType, $kernelString) { }
 
 	/**
-	 * Create a kernel from a builtin in kernel. See http://www.imagemagick.org/Usage/morphology/#kernel for examples.<br>
+	 * Create a kernel from a builtin in kernel. See https://www.imagemagick.org/Usage/morphology/#kernel for examples.<br>
 	 * Currently the 'rotation' symbols are not supported. Example: $diamondKernel = ImagickKernel::fromBuiltIn(\Imagick::KERNEL_DIAMOND, "2");
 	 * @link https://php.net/manual/en/imagickkernel.frombuiltin.php
 	 * @see https://www.imagemagick.org/Usage/morphology/#kernel
@@ -6725,7 +6725,7 @@ class ImagickKernel {
 
 	/**
 	 * ScaleKernelInfo() scales the given kernel list by the given amount, with or without normalization of the sum of the kernel values (as per given flags).<br>
-	 * The exact behaviour of this function depends on the normalization type being used please see http://www.imagemagick.org/api/morphology.php#ScaleKernelInfo for details.<br>
+	 * The exact behaviour of this function depends on the normalization type being used please see https://www.imagemagick.org/api/morphology.php#ScaleKernelInfo for details.<br>
 	 * Flag should be one of Imagick::NORMALIZE_KERNEL_VALUE, Imagick::NORMALIZE_KERNEL_CORRELATE, Imagick::NORMALIZE_KERNEL_PERCENT or not set.
 	 * @link https://php.net/manual/en/imagickkernel.scale.php
 	 * @see https://www.imagemagick.org/api/morphology.php#ScaleKernelInfo

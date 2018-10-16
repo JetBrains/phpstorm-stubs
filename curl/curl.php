@@ -2236,7 +2236,7 @@ function curl_share_setopt ($sh, $option, $value ) {}
  * Return string describing the given error code
  * @link https://secure.php.net/manual/en/function.curl-strerror.php
  * @param int $errornum <p>
- * One of the {@link http://curl.haxx.se/libcurl/c/libcurl-errors.html &nbsp;cURL error codes} constants.
+ * One of the {@link https://curl.haxx.se/libcurl/c/libcurl-errors.html &nbsp;cURL error codes} constants.
  * </p>
  * @return string|NULL Returns error description or <b>NULL</b> for invalid error code.
  * @since 5.5.0
@@ -2460,7 +2460,7 @@ function curl_multi_setopt ($mh, $option, $value) {}
  * Return string describing error code
  * @link https://secure.php.net/manual/en/function.curl-multi-strerror.php
  * @param int $errornum <p>
- * One of the {@link http://curl.haxx.se/libcurl/c/libcurl-errors.html CURLM error codes} constants.
+ * One of the {@link https://curl.haxx.se/libcurl/c/libcurl-errors.html CURLM error codes} constants.
  * </p>
  * @return string|NULL Returns error string for valid error code, NULL otherwise.
  * @since 5.5.0

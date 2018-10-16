@@ -1170,7 +1170,7 @@ final class EventBufferEvent
  * Represents configuration structure which could be used in construction of the EventBase .
  *
  * @author Kazuaki MABUCHI
- * @copyright Copyright (https://secure.php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](http://creativecommons.org/licenses/by/3.0/).
+ * @copyright Copyright (https://secure.php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
  *
  * @see https://secure.php.net/manual/en/class.eventconfig.php
  */
@@ -1239,7 +1239,7 @@ final class EventConfig
  * Represents Libevent's DNS base structure. Used to resolve DNS asyncronously, parse configuration files like resolv.conf etc.
  *
  * @author Kazuaki MABUCHI
- * @copyright Copyright (https://secure.php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](http://creativecommons.org/licenses/by/3.0/).
+ * @copyright Copyright (https://secure.php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
  *
  * @see https://secure.php.net/manual/en/class.eventdnsbase.php
  */
@@ -1377,7 +1377,7 @@ final class EventDnsBase
  * Represents HTTP server.
  *
  * @author Kazuaki MABUCHI
- * @copyright Copyright (https://secure.php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](http://creativecommons.org/licenses/by/3.0/).
+ * @copyright Copyright (https://secure.php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
  *
  * @see https://secure.php.net/manual/en/class.eventhttp.php
  */
@@ -1533,7 +1533,7 @@ final class EventHttp
  * Represents an HTTP connection.
  *
  * @author Kazuaki MABUCHI
- * @copyright Copyright (https://secure.php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](http://creativecommons.org/licenses/by/3.0/).
+ * @copyright Copyright (https://secure.php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
  *
  * @see https://secure.php.net/manual/en/class.eventhttpconnection.php
  */
@@ -1795,7 +1795,7 @@ class EventHttpRequest
  * @property int $fd
  *
  * @author Kazuaki MABUCHI
- * @copyright Copyright (https://secure.php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](http://creativecommons.org/licenses/by/3.0/).
+ * @copyright Copyright (https://secure.php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
  *
  * @see https://secure.php.net/manual/en/class.eventlistener.php
  */
@@ -1910,7 +1910,7 @@ final class EventListener
  * @property string $local_pk
  *
  * @author Kazuaki MABUCHI
- * @copyright Copyright (https://secure.php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](http://creativecommons.org/licenses/by/3.0/).
+ * @copyright Copyright (https://secure.php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
  *
  * @see https://secure.php.net/manual/en/class.eventsslcontext.php
  */
@@ -1957,7 +1957,7 @@ final class EventSslContext
  * EventUtil is a singleton with supplimentary methods and constants.
  *
  * @author Kazuaki MABUCHI
- * @copyright Copyright (https://secure.php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](http://creativecommons.org/licenses/by/3.0/).
+ * @copyright Copyright (https://secure.php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
  *
  * @see https://secure.php.net/manual/en/class.eventutil.php
  */

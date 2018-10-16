@@ -871,7 +871,7 @@ class MongoCollection {
      * (PECL mongo &gt;= 1.3.0)<br/>
      * <p>
      * The MongoDB
-     * {@link http://docs.mongodb.org/manual/applications/aggregation/ aggregation framework}
+     * {@link https://docs.mongodb.org/manual/applications/aggregation/ aggregation framework}
      * provides a means to calculate aggregated values without having to use
      * MapReduce. While MapReduce is powerful, it is often more difficult than
      * necessary for many simple aggregation tasks, such as totaling or averaging
@@ -1346,7 +1346,7 @@ class MongoCursor implements Iterator {
      * Which flag to set. You can not set flag 6 (EXHAUST) as the driver does
      * not know how to handle them. You will get a warning if you try to use
      * this flag. For available flags, please refer to the wire protocol
-     * {@link http://www.mongodb.org/display/DOCS/Mongo+Wire+Protocol#MongoWireProtocol-OPQUERY documentation}.
+     * {@link https://www.mongodb.org/display/DOCS/Mongo+Wire+Protocol#MongoWireProtocol-OPQUERY documentation}.
      * </p>
      * @param bool $set [optional] <p>Whether the flag should be set (<b>TRUE</b>) or unset (<b>FALSE</b>).</p>
      * @return MongoCursor

@@ -944,7 +944,7 @@ function date_create_immutable_from_format ($format, $time, DateTimeZone $timezo
  * Alias:
  * {@see DateTime::createFromFormat}
  * @link https://php.net/manual/en/function.date-create-from-format.php
- * @param string $format Format accepted by  <a href="http://us.php.net/manual/en/function.date.php">date()</a>.
+ * @param string $format Format accepted by  <a href="https://secure.php.net/manual/en/function.date.php">date()</a>.
  * <p>If format does not contain the character ! then portions of the generated time which are not specified in format will be set to the current system time.
  * <p>If format contains the character !, then portions of the generated time not provided in format, as well as values to the left-hand side of the !, will be set to corresponding values from the Unix epoch.
  * <p>The Unix epoch is 1970-01-01 00:00:00 UTC.
