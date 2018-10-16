@@ -5,7 +5,7 @@
 /**
  * Deprecated: Encrypt/decrypt data in ECB mode
  * @link https://php.net/manual/en/function.mcrypt-ecb.php
- * @deprecated 5.5 http://www.php.net/manual/en/migration55.deprecated.php
+ * @deprecated 5.5 https://secure.php.net/manual/en/migration55.deprecated.php
  * @param string|int $cipher
  * @param string $key 
  * @param string $data 
@@ -19,7 +19,7 @@ function mcrypt_ecb ($cipher, $key, $data, $mode) {}
 /**
  * Encrypt/decrypt data in CBC mode
  * @link https://php.net/manual/en/function.mcrypt-cbc.php
- * @deprecated 5.5 http://www.php.net/manual/en/migration55.deprecated.php
+ * @deprecated 5.5 https://secure.php.net/manual/en/migration55.deprecated.php
  * @param int|string $cipher
  * @param string $key 
  * @param string $data 
@@ -34,7 +34,7 @@ function mcrypt_cbc ($cipher, $key, $data, $mode, $iv = null) {}
 /**
  * Encrypt/decrypt data in CFB mode
  * @link https://php.net/manual/en/function.mcrypt-cfb.php
- * @deprecated 5.5 http://www.php.net/manual/en/migration55.deprecated.php
+ * @deprecated 5.5 https://secure.php.net/manual/en/migration55.deprecated.php
  * @param int|string $cipher
  * @param string $key 
  * @param string $data 
@@ -49,7 +49,7 @@ function mcrypt_cfb ($cipher, $key, $data, $mode, $iv = null) {}
 /**
  * Encrypt/decrypt data in OFB mode
  * @link https://php.net/manual/en/function.mcrypt-ofb.php
- * @deprecated 5.5 http://www.php.net/manual/en/migration55.deprecated.php
+ * @deprecated 5.5 https://secure.php.net/manual/en/migration55.deprecated.php
  * @param int|string $cipher
  * @param string $key 
  * @param string $data 

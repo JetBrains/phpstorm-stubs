@@ -101,7 +101,7 @@ function array_count_values(array $input) { }
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Return the values from a single column in the input array
- * @link http://www.php.net/manual/en/function.array-column.php
+ * @link https://secure.php.net/manual/en/function.array-column.php
  * @param array $array <p>A multi-dimensional array (record set) from which to pull a column of values.</p>
  * @param mixed $column <p>The column of values to return. This value may be the integer key of the column you wish to retrieve, or it may be the string key name for an associative array. It may also be NULL to return complete arrays (useful together with index_key to reindex the array).</p>
  * @param mixed $index_key [optional] <p>The column to use as the index/keys for the returned array. This value may be the integer key of the column, or it may be the string key name.</p>
@@ -788,7 +788,7 @@ function assert($assertion, $description) { }
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Returns the current process title
- * @link http://www.php.net/manual/en/function.cli-get-process-title.php
+ * @link https://secure.php.net/manual/en/function.cli-get-process-title.php
  * @return string
  */
 function cli_get_process_title() { }

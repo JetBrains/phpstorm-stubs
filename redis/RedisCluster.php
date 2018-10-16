@@ -2238,7 +2238,7 @@ class RedisCluster {
      *
      * @return  bool    If the operation is successful, return TRUE.
      * If the srcKey and/or dstKey didn't exist, and/or the member didn't exist in srcKey, FALSE is returned.
-     * @link    http://redis.io/commands/smove
+     * @link    https://redis.io/commands/smove
      * @example
      * <pre>
      * $redisCluster->sAdd('key1' , 'set11');
@@ -2266,7 +2266,7 @@ class RedisCluster {
      * @param   bool   $withscores
      *
      * @return  array   Array containing the values in specified range.
-     * @link    http://redis.io/commands/zrange
+     * @link    https://redis.io/commands/zrange
      * @example
      * <pre>
      * $redisCluster->zAdd('key1', 0, 'val0');
@@ -2293,7 +2293,7 @@ class RedisCluster {
      * @param   bool   $withscore
      *
      * @return  array   Array containing the values in specified range.
-     * @link    http://redis.io/commands/zrevrange
+     * @link    https://redis.io/commands/zrevrange
      * @example
      * <pre>
      * $redisCluster->zAdd('key', 0, 'val0');
@@ -2322,7 +2322,7 @@ class RedisCluster {
      *                          - and limit => array($offset, $count)
      *
      * @return  array   Array containing the values in specified range.
-     * @link    http://redis.io/commands/zrangebyscore
+     * @link    https://redis.io/commands/zrangebyscore
      * @example
      * <pre>
      * $redisCluster->zAdd('key', 0, 'val0');
@@ -2364,7 +2364,7 @@ class RedisCluster {
      * @param   int    $limit  Optional argument if you wish to limit the number of elements returned.
      *
      * @return  array   Array containing the values in the specified range.
-     * @link    http://redis.io/commands/zrangebylex
+     * @link    https://redis.io/commands/zrangebylex
      * @example
      * <pre>
      * foreach (array('a', 'b', 'c', 'd', 'e', 'f', 'g') as $k => $char) {
@@ -2388,7 +2388,7 @@ class RedisCluster {
      * @param   int    $limit
      *
      * @return  array
-     * @link    http://redis.io/commands/zrevrangebylex
+     * @link    https://redis.io/commands/zrevrangebylex
      */
     public function zRevRangeByLex($key, $min, $max, $offset = null, $limit = null) { }
 
@@ -2400,7 +2400,7 @@ class RedisCluster {
      * @param   int    $max
      *
      * @return  int The number of elements in the specified score range.
-     * @link    http://redis.io/commands/zlexcount
+     * @link    https://redis.io/commands/zlexcount
      * @example
      * <pre>
      * foreach (array('a', 'b', 'c', 'd', 'e', 'f', 'g') as $k => $char) {
@@ -2419,7 +2419,7 @@ class RedisCluster {
      * @param   int    $max The maximum alphanumeric value you wish to get.
      *
      * @return  array    the number of elements removed.
-     * @link    http://redis.io/commands/zremrangebylex
+     * @link    https://redis.io/commands/zremrangebylex
      * @example
      * <pre>
      * foreach (array('a', 'b', 'c', 'd', 'e', 'f', 'g') as $k => $char) {
@@ -2442,7 +2442,7 @@ class RedisCluster {
      *                                  duplicate entries during the zUnion.
      *
      * @return int The number of values in the new sorted set.
-     * @link    http://redis.io/commands/zunionstore
+     * @link    https://redis.io/commands/zunionstore
      * @example
      * <pre>
      * $redisCluster->del('k1');
@@ -2477,7 +2477,7 @@ class RedisCluster {
      *                                    defines the behaviour to use on duplicate entries during the zInterStore.
      *
      * @return  int     The number of values in the new sorted set.
-     * @link    http://redis.io/commands/zinterstore
+     * @link    https://redis.io/commands/zinterstore
      * @example
      * <pre>
      * $redisCluster->del('k1');
@@ -2515,7 +2515,7 @@ class RedisCluster {
      * @param   string $memberN
      *
      * @return  int     Number of deleted values
-     * @link    http://redis.io/commands/zrem
+     * @link    https://redis.io/commands/zrem
      * @example
      * <pre>
      * $redisCluster->zAdd('z', 1, 'v1', 2, 'v2', 3, 'v3', 4, 'v4' );  // int(2)
@@ -2545,7 +2545,7 @@ class RedisCluster {
      *
      * @return  array
      * An array of values, or a number corresponding to the number of elements stored if that was used.
-     * @link    http://redis.io/commands/sort
+     * @link    https://redis.io/commands/sort
      * @example
      * <pre>
      * $redisCluster->del('s');
@@ -2574,7 +2574,7 @@ class RedisCluster {
      * @param   string $key
      *
      * @return  string  for "encoding", int for "refcount" and "idletime", FALSE if the key doesn't exist.
-     * @link    http://redis.io/commands/object
+     * @link    https://redis.io/commands/object
      * @example
      * <pre>
      * $redisCluster->object("encoding", "l"); // → ziplist
@@ -2593,7 +2593,7 @@ class RedisCluster {
      *                                 name, and the message.
      *
      * @return mixed            Any non-null return value in the callback will be returned to the caller.
-     * @link    http://redis.io/commands/subscribe
+     * @link    https://redis.io/commands/subscribe
      * @example
      * <pre>
      * function f($redisCluster, $chan, $msg) {
@@ -2626,7 +2626,7 @@ class RedisCluster {
      *
      * @return  mixed           Any non-null return value in the callback will be returned to the caller.
      *
-     * @link    http://redis.io/commands/psubscribe
+     * @link    https://redis.io/commands/psubscribe
      * @example
      * <pre>
      * function psubscribe($redisCluster, $pattern, $chan, $msg) {
@@ -2665,7 +2665,7 @@ class RedisCluster {
      *
      * @return  mixed   @see eval()
      * @see     eval()
-     * @link    http://redis.io/commands/evalsha
+     * @link    https://redis.io/commands/evalsha
      * @example
      * <pre>
      * $script = 'return 1';
@@ -2683,7 +2683,7 @@ class RedisCluster {
      * @param  int    $count    Count of keys per iteration (only a suggestion to Redis).
      *
      * @return array            This function will return an array of keys or FALSE if there are no more keys.
-     * @link   http://redis.io/commands/scan
+     * @link   https://redis.io/commands/scan
      * @example
      * <pre>
      * $iterator = null;
@@ -2705,7 +2705,7 @@ class RedisCluster {
      * @param   int    $count    How many members to return at a time (Redis might return a different amount).
      *
      * @return  array   PHPRedis will return an array of keys or FALSE when we're done iterating.
-     * @link    http://redis.io/commands/sscan
+     * @link    https://redis.io/commands/sscan
      * @example
      * <pre>
      * $iterator = null;
@@ -2727,7 +2727,7 @@ class RedisCluster {
      * @param   int    $count    How many keys to return per iteration (Redis might return a different number).
      *
      * @return  array   PHPRedis will return matching keys from Redis, or FALSE when iteration is complete.
-     * @link    http://redis.io/commands/zscan
+     * @link    https://redis.io/commands/zscan
      * @example
      * <pre>
      * $iterator = null;
@@ -2749,7 +2749,7 @@ class RedisCluster {
      * @param   int    $count   How many keys to return in a go (only a sugestion to Redis).
      *
      * @return  array     An array of members that match our pattern.
-     * @link    http://redis.io/commands/hscan
+     * @link    https://redis.io/commands/hscan
      * @example
      * <pre>
      * $iterator = null;
@@ -2904,7 +2904,7 @@ class RedisCluster {
      *
      * @return Redis returns the Redis instance and enters multi-mode.
      * Once in multi-mode, all subsequent method calls return the same object until exec() is called.
-     * @link    http://redis.io/commands/multi
+     * @link    https://redis.io/commands/multi
      * @example
      * <pre>
      * $ret = $redisCluster->multi()
@@ -2926,13 +2926,13 @@ class RedisCluster {
     /**
      * @see     multi()
      * @return void|array
-     * @link    http://redis.io/commands/exec
+     * @link    https://redis.io/commands/exec
      */
     public function exec() { }
 
     /**
      * @see     multi()
-     * @link    http://redis.io/commands/discard
+     * @link    https://redis.io/commands/discard
      */
     public function discard() { }
 
@@ -2943,7 +2943,7 @@ class RedisCluster {
      * @param string | array $key : a list of keys
      *
      * @return void
-     * @link    http://redis.io/commands/watch
+     * @link    https://redis.io/commands/watch
      * @example
      * <pre>
      * $redisCluster->watch('x');
@@ -2958,7 +2958,7 @@ class RedisCluster {
 
     /**
      * @see     watch()
-     * @link    http://redis.io/commands/unwatch
+     * @link    https://redis.io/commands/unwatch
      */
     public function unwatch() { }
 
@@ -2969,7 +2969,7 @@ class RedisCluster {
      *
      * @return  bool   TRUE in case of success, FALSE in case of failure.
      * If a save is already running, this command will fail and return FALSE.
-     * @link    http://redis.io/commands/save
+     * @link    https://redis.io/commands/save
      * @example
      * $redisCluster->save('x'); //key
      * $redisCluster->save(['127.0.0.1',6379]); //[host,port]
@@ -2983,7 +2983,7 @@ class RedisCluster {
      *
      * @return  bool    TRUE in case of success, FALSE in case of failure.
      * If a save is already running, this command will fail and return FALSE.
-     * @link    http://redis.io/commands/bgsave
+     * @link    https://redis.io/commands/bgsave
      */
     public function bgsave($nodeParams) { }
 
@@ -2993,7 +2993,7 @@ class RedisCluster {
      * @param String | array $nodeParams key or [host,port]
      *
      * @return  bool Always TRUE.
-     * @link    http://redis.io/commands/flushdb
+     * @link    https://redis.io/commands/flushdb
      */
     public function flushDB($nodeParams) { }
 
@@ -3003,7 +3003,7 @@ class RedisCluster {
      * @param String | array $nodeParams key or [host,port]
      *
      * @return  bool Always TRUE.
-     * @link    http://redis.io/commands/flushall
+     * @link    https://redis.io/commands/flushall
      */
     public function flushAll($nodeParams) { }
 
@@ -3013,7 +3013,7 @@ class RedisCluster {
      * @param String | array $nodeParams key or [host,port]
      *
      * @return int     DB size, in number of keys.
-     * @link    http://redis.io/commands/dbsize
+     * @link    https://redis.io/commands/dbsize
      * @example
      * <pre>
      * $count = $redisCluster->dbSize('x');
@@ -3028,7 +3028,7 @@ class RedisCluster {
      * @param String | array $nodeParams key or [host,port]
      *
      * @return  bool   TRUE in case of success, FALSE in case of failure.
-     * @link    http://redis.io/commands/bgrewriteaof
+     * @link    https://redis.io/commands/bgrewriteaof
      * @example $redisCluster->bgrewriteaof('x');
      */
     public function bgrewriteaof($nodeParams) { }
@@ -3039,7 +3039,7 @@ class RedisCluster {
      * @param String | array $nodeParams key or [host,port]
      *
      * @return  int    timestamp.
-     * @link    http://redis.io/commands/lastsave
+     * @link    https://redis.io/commands/lastsave
      * @example $redisCluster->lastSave('x');
      */
     public function lastSave($nodeParams) { }
@@ -3095,7 +3095,7 @@ class RedisCluster {
      * - vm_enabled
      * - role
      *
-     * @link    http://redis.io/commands/info
+     * @link    https://redis.io/commands/info
      * @return string
      * @example
      * <pre>
@@ -3116,7 +3116,7 @@ class RedisCluster {
      * @param String | array $nodeParams key or [host,port]
      *
      * @return array
-     * @link   http://redis.io/commands/role
+     * @link   https://redis.io/commands/role
      * @example
      * <pre>
      * $redisCluster->role(['127.0.0.1',6379]);
@@ -3131,7 +3131,7 @@ class RedisCluster {
      * @param String | array $nodeParams key or [host,port]
      *
      * @return string an existing key in redis.
-     * @link    http://redis.io/commands/randomkey
+     * @link    https://redis.io/commands/randomkey
      * @example
      * <pre>
      * $key = $redisCluster->randomKey('x');
@@ -3147,7 +3147,7 @@ class RedisCluster {
      *
      * @return  array If successfully, the time will come back as an associative array with element zero being the
      * unix timestamp, and element one being microseconds.
-     * @link    http://redis.io/commands/time
+     * @link    https://redis.io/commands/time
      * @example
      * <pre>
      * var_dump( $redisCluster->time('x') );
@@ -3168,7 +3168,7 @@ class RedisCluster {
      *
      * @return  string STRING: +PONG on success. Throws a RedisException object on connectivity error, as described
      *                 above.
-     * @link    http://redis.io/commands/ping
+     * @link    https://redis.io/commands/ping
      */
     public function ping($nodeParams) { }
 
@@ -3231,12 +3231,12 @@ class RedisCluster {
      *
      * @param String | array $nodeParams key or [host,port]
      * @param string         $operation  either `GET` or `SET`
-     * @param string         $key        for `SET`, glob-pattern for `GET`. See http://redis.io/commands/config-get for examples.
+     * @param string         $key        for `SET`, glob-pattern for `GET`. See https://redis.io/commands/config-get for examples.
      * @param string         $value      optional string (only for `SET`)
      *
      * @return  array   Associative array for `GET`, key -> value
-     * @link    http://redis.io/commands/config-get
-     * @link    http://redis.io/commands/config-set
+     * @link    https://redis.io/commands/config-get
+     * @link    https://redis.io/commands/config-set
      * @example
      * <pre>
      * $redisCluster->config(['127.0.0.1',6379], "GET", "*max-*-entries*");
@@ -3260,7 +3260,7 @@ class RedisCluster {
      *                          - numsub    Returns a key/value array where the keys are channel names and
      *                                      values are their counts.
      *                          - numpat    Integer return containing the number active pattern subscriptions.
-     * @link    http://redis.io/commands/pubsub
+     * @link    https://redis.io/commands/pubsub
      * @example
      * <pre>
      * $redisCluster->pubsub(['127.0.0.1',6379], 'channels'); // All channels
@@ -3280,10 +3280,10 @@ class RedisCluster {
      * @param   string         $script
      *
      * @return  mixed
-     * @link    http://redis.io/commands/script-load
-     * @link    http://redis.io/commands/script-kill
-     * @link    http://redis.io/commands/script-flush
-     * @link    http://redis.io/commands/script-exists
+     * @link    https://redis.io/commands/script-load
+     * @link    https://redis.io/commands/script-kill
+     * @link    https://redis.io/commands/script-flush
+     * @link    https://redis.io/commands/script-exists
      * @example
      * <pre>
      * $redisCluster->script(['127.0.0.1',6379], 'load', $script);

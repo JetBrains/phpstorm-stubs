@@ -72,7 +72,7 @@ function closelog () {}
  * Registers a function that will be called when PHP starts sending output.
  * The callback is executed just after PHP prepares all headers to be sent,<br>
  * and before any other output is sent, creating a window to manipulate the outgoing headers before being sent.
- * @link http://www.php.net/manual/en/function.header-register-callback.php
+ * @linkhttps://secure.php.net/manual/en/function.header-register-callback.php
  * @param callable $callback Function called just before the headers are sent.
  * @return bool true on success or false on failure.
  * @since 4.0
@@ -83,7 +83,7 @@ function header_register_callback ( callable $callback ) {}
 /**
  * PHP > 5.4.0<br/>
  * Get the size of an image from a string.
- * @link http://www.php.net/manual/en/function.getimagesizefromstring.php
+ * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
  * @param string $imagedata The image data, as a string.
  * @param array $imageinfo This optional parameter allows you to extract<br>
  * some extended information from the image file. Currently, this will <br>
@@ -103,7 +103,7 @@ function getimagesizefromstring ($imagedata , array &$imageinfo = null) {}
 /**
  * PHP > 5.4.0<br/>
  * Set the stream chunk size.
- * @link http://www.php.net/manual/en/function.stream-set-chunk-size.php
+ * @link https://secure.php.net/manual/en/function.stream-set-chunk-size.php
  * @param resource $fp The target stream.
  * @param int $chunk_size The desired new chunk size.
  * @return int Returns the previous chunk size on success.<br>
@@ -114,7 +114,7 @@ function stream_set_chunk_size ($fp , $chunk_size) {}
 /**
  * PHP > 5.4.0<br/>
  * Import a stream.
- * @link http://www.php.net/manual/en/function.socket-import-stream.php
+ * @link https://secure.php.net/manual/en/function.socket-import-stream.php
  * @param resource $stream The stream resource to import.
  * @return void|bool|null Returns <b>FALSE</b> or <b>NULL</b> on failure.
  */

@@ -779,7 +779,7 @@ function openssl_open($sealed_data, &$open_data, $env_key, $priv_key_id, $method
 
 /**
  * Generates a PKCS5 v2 PBKDF2 string, defaults to SHA-1
- * @link http://www.php.net/manual/en/function.openssl-pbkdf2.php
+ * @link https://secure.php.net/manual/en/function.openssl-pbkdf2.php
  * @param string $password
  * @param string $salt
  * @param int $key_length

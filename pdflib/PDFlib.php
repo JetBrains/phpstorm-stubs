@@ -593,9 +593,9 @@ class PDFlib
 	/**
 	 * @param int $textflow
 	 *
-	 * @return bool https://secure.php.net/manual/en/function.pdf-delete-textflow.php
+	 * @return bool
 	 *
-	 * @link
+	 * @link https://secure.php.net/manual/en/function.pdf-delete-textflow.php
 	 */
 	function delete_textflow($textflow){}
 
@@ -2315,10 +2315,10 @@ function PDF_delete_table($pdf, $table, $optlist){}
 /**
  * @param resource $pdf
  * @param int $textflow
- * 
- * @return bool https://secure.php.net/manual/en/function.pdf-delete-textflow.php
- * 
- * @link
+ *
+ * @return bool
+ *
+ * @link https://secure.php.net/manual/en/function.pdf-delete-textflow.php
  */
 function PDF_delete_textflow($pdf, $textflow){}
 

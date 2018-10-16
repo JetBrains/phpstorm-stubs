@@ -1944,7 +1944,7 @@ class Imagick implements Iterator, Countable {
 	public function getImageFormat () {}
 
 	/**
-	 * @link http://lv.php.net/manual/en/imagick.getimagemimetype.php
+	 * @link https://secure.php.net/manual/en/imagick.getimagemimetype.php
 	 * @return string Returns the image mime-type.
 	 */
 	public function getImageMimeType () {}
@@ -4580,7 +4580,7 @@ class Imagick implements Iterator, Countable {
 	/**
 	 * Replaces any embedded formatting characters with the appropriate image property and returns the interpreted text. See http://www.imagemagick.org/script/escape.php for escape sequences.
 	 * @link https://php.net/manual/en/imagick.identifyformat.php
-	 * @see http://www.imagemagick.org/script/escape.php
+	 * @see https://www.imagemagick.org/script/escape.php
 	 * @param string $embedText A string containing formatting sequences e.g. "Trim box: %@ number of unique colors: %k".
 	 * @return bool
 	 * @since 3.3.0
@@ -4742,7 +4742,7 @@ class Imagick implements Iterator, Countable {
 	 * Merge multiple images of the same size together with the selected operator. http://www.imagemagick.org/Usage/layers/#evaluate-sequence
 	 * @param int $EVALUATE_CONSTANT
 	 * @return bool
-	 * @see http://www.imagemagick.org/Usage/layers/#evaluate-sequence
+	 * @see https://www.imagemagick.org/Usage/layers/#evaluate-sequence
 	 * @since 3.4.0
 	 */
 	public function evaluateImages ($EVALUATE_CONSTANT) { }
@@ -6707,7 +6707,7 @@ class ImagickKernel {
 	 * Create a kernel from a builtin in kernel. See http://www.imagemagick.org/Usage/morphology/#kernel for examples.<br>
 	 * Currently the 'rotation' symbols are not supported. Example: $diamondKernel = ImagickKernel::fromBuiltIn(\Imagick::KERNEL_DIAMOND, "2");
 	 * @link https://php.net/manual/en/imagickkernel.frombuiltin.php
-	 * @see http://www.imagemagick.org/Usage/morphology/#kernel
+	 * @see https://www.imagemagick.org/Usage/morphology/#kernel
 	 * @param array $matrix A matrix (i.e. 2d array) of values that define the kernel. Each element should be either a float value, or FALSE if that element shouldn't be used by the kernel.
 	 * @param array $origin [optional] Which element of the kernel should be used as the origin pixel. e.g. For a 3x3 matrix specifying the origin as [2, 2] would specify that the bottom right element should be the origin pixel.
 	 * @return ImagickKernel
@@ -6728,7 +6728,7 @@ class ImagickKernel {
 	 * The exact behaviour of this function depends on the normalization type being used please see http://www.imagemagick.org/api/morphology.php#ScaleKernelInfo for details.<br>
 	 * Flag should be one of Imagick::NORMALIZE_KERNEL_VALUE, Imagick::NORMALIZE_KERNEL_CORRELATE, Imagick::NORMALIZE_KERNEL_PERCENT or not set.
 	 * @link https://php.net/manual/en/imagickkernel.scale.php
-	 * @see http://www.imagemagick.org/api/morphology.php#ScaleKernelInfo
+	 * @see https://www.imagemagick.org/api/morphology.php#ScaleKernelInfo
 	 * @return void
 	 * @since 3.3.0
 	 */

@@ -1750,7 +1750,7 @@ class ReflectionExtension implements Reflector {
 }
 
 /**
- * @link http://www.php.net/manual/en/class.reflectionzendextension.php
+ * @link https://secure.php.net/manual/en/class.reflectionzendextension.php
  * @since 5.4.0
  */
 class ReflectionZendExtension implements Reflector {

@@ -1,14 +1,14 @@
 <?php
 /**
  * Radius constants
- * @link http://php.net/manual/en/radius.constants.php
+ * @link https://secure.php.net/manual/en/radius.constants.php
  */
 /** The maximum length of MPPE keys. */
 define('RADIUS_MPPE_KEY_LEN ', 16);
 
 /**
  * RADIUS Options
- * @link http://php.net/manual/en/radius.constants.options.php
+ * @link https://secure.php.net/manual/en/radius.constants.options.php
  */
 
 /** When set, this option will result in the attribute value being salt-encrypted. */
@@ -18,7 +18,7 @@ define('RADIUS_OPTION_SALT', 2);
 
 /**
  * RADIUS Packet Types
- * @link http://php.net/manual/en/radius.constants.packets.php
+ * @link https://secure.php.net/manual/en/radius.constants.packets.php
  */
 
 /** An Access-Request, used to authenticate a user against a RADIUS server. Access request packets must include a <b>RADIUS_NAS_IP_ADDRESS</b> or a <b>RADIUS_NAS_IDENTIFIER</b> attribute, must also include a <b>RADIUS_USER_PASSWORD</b>, <b>RADIUS_CHAP_PASSWORD</b> or a <b>RADIUS_STATE</b> attribute, and should include a <b>RADIUS_USER_NAME</b> attribute. */
@@ -77,7 +77,7 @@ define('RADIUS_COA_NAK', 45);
 
 /**
  * RADIUS Attribute Types
- * @link http://php.net/manual/en/radius.constants.attributes.php
+ * @link https://secure.php.net/manual/en/radius.constants.attributes.php
  */
 
 /** The User-Name attribute. The attribute value is expected to be a string containing the name of the user being authenticated, and can be set using {@see radius_put_attr()}. */
@@ -320,7 +320,7 @@ define('RADIUS_OPTION_SALT', RADIUS_OPTION_SALT);
 
 /**
  * Creates a Radius handle for accounting
- * @link http://php.net/manual/en/function.radius-acct-open.php
+ * @link https://secure.php.net/manual/en/function.radius-acct-open.php
  * @return resource|bool Returns a handle on success, <b>FALSE</b> on error. This function only fails if insufficient memory is available.
  * @since 1.1.0
  */
@@ -328,7 +328,7 @@ function radius_acct_open() { }
 
 /**
  * <b>radius_add_server()</b> may be called multiple times, and it may be used together with {@see radius_config()}. At most 10 servers may be specified. When multiple servers are given, they are tried in round-robin fashion until a valid response is received, or until each server's max_tries limit has been reached.
- * @link http://php.net/manual/en/function.radius-add-server.php
+ * @link https://secure.php.net/manual/en/function.radius-add-server.php
  * @param resource $radius_handle
  * @param string $hostname The <b>hostname</b> parameter specifies the server host, either as a fully qualified domain name or as a dotted-quad IP address in text form.
  * @param int $port The <b>port</b> specifies the UDP port to contact on the server.<br>
@@ -345,7 +345,7 @@ function radius_add_server($radius_handle , $hostname, $port , $secret, $timeout
 
 /**
  * Creates a Radius handle for authentication
- * @link http://php.net/manual/en/function.radius-auth-open.php
+ * @link https://secure.php.net/manual/en/function.radius-auth-open.php
  * @return resource|bool Returns a handle on success, <b>FALSE</b> on error. This function only fails if insufficient memory is available.
  * @since 1.1.0
  */
@@ -353,7 +353,7 @@ function radius_auth_open() { }
 
 /**
  * Free all ressources. It is not needed to call this function because php frees all resources at the end of each request.
- * @link http://php.net/manual/en/function.radius-close.php
+ * @link https://secure.php.net/manual/en/function.radius-close.php
  * @param resource $radius_handle
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 1.1.0
@@ -362,7 +362,7 @@ function radius_close($radius_handle) { }
 
 /**
  * Before issuing any Radius requests, the library must be made aware of the servers it can contact. The easiest way to configure the library is to call <b>radius_config()</b>. <b>radius_config()</b> causes the library to read a configuration file whose format is described in radius.conf.
- * @link http://php.net/manual/en/function.radius-config.php
+ * @link https://secure.php.net/manual/en/function.radius-config.php
  * @link https://www.freebsd.org/cgi/man.cgi?query=radius.conf
  * @param resource $radius_handle
  * @param string $file The pathname of the configuration file is passed as the file argument to {@see radius_config()}. The library can also be configured programmatically by calls to <b>{@see radius_add_server()}</b>.
@@ -375,7 +375,7 @@ function radius_config($radius_handle, $file) { }
 /**
  * A Radius request consists of a code specifying the kind of request, and zero or more attributes which provide additional information. To begin constructing a new request, call <b>radius_create_request()</b>.<br />
  * <b>Note:</b> Attention: You must call this function, before you can put any attribute!
- * @link http://php.net/manual/en/function.radius-create-request.php
+ * @link https://secure.php.net/manual/en/function.radius-create-request.php
  * @param resource $radius_handle
  * @param int $type Type is <b>RADIUS_ACCESS_REQUEST</b> or <b>RADIUS_ACCOUNTING_REQUEST</b>.
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.

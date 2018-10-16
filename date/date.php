@@ -1009,7 +1009,7 @@ function date_format ($object, $format) {}
  * {@see DateTime::modify}
  * @link https://php.net/manual/en/function.date-modify.php
  * @param DateTime $object A DateTime object returned by date_create(). The function modifies this object.
- * @param string $modify A date/time string. Valid formats are explained in {@link http://www.php.net/manual/en/datetime.formats.php Date and Time Formats}.
+ * @param string $modify A date/time string. Valid formats are explained in {@link https://secure.php.net/manual/en/datetime.formats.php Date and Time Formats}.
  * @return DateTime|false Returns the DateTime object for method chaining or <b>FALSE</b> on failure.
  * @since 5.2.0
  */

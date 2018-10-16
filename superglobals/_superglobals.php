@@ -5,7 +5,7 @@
  *   The keys of this array are the names of the global variables.
  *   $GLOBALS has existed since PHP 3.
  *
- * <p><a href="http://www.php.net/manual/en/reserved.variables.php">http://us2.php.net/manual/en/reserved.variables.php</a>
+ * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">http://us2.php.net/manual/en/reserved.variables.php</a>
  */
 $GLOBALS = array();
 
@@ -14,7 +14,7 @@ $GLOBALS = array();
  * Variables provided to the script via HTTP cookies. Analogous to the old $HTTP_COOKIE_VARS array
  * (which is still available, but deprecated).
  *
- * <p><a href="http://www.php.net/manual/en/reserved.variables.php">
+ * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * http://us2.php.net/manual/en/reserved.variables.php</a>
  */
 $_COOKIE = array();
@@ -26,7 +26,7 @@ $_COOKIE = array();
  * Variables provided to the script via the environment.
  * Analogous to the old $HTTP_ENV_VARS array (which is still available, but deprecated).
  *
- * <p><a href="http://www.php.net/manual/en/reserved.variables.php">
+ * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * http://us2.php.net/manual/en/reserved.variables.php</a>
  */
 $_ENV = array();
@@ -43,7 +43,7 @@ $HTTP_ENV_VARS = array();
  * (which is still available, but deprecated).
  * See POST method uploads for more information.
  *
- * <p><a href="http://www.php.net/manual/en/reserved.variables.php">
+ * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * http://us2.php.net/manual/en/reserved.variables.php</a>
  */
 $_FILES = array();
@@ -60,7 +60,7 @@ $HTTP_POST_FILES = array();
  * Variables provided to the script via URL query string.
  *  Analogous to the old $HTTP_GET_VARS array (which is still available, but deprecated).
  *
- * <p><a href="http://www.php.net/manual/en/reserved.variables.php">
+ * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * http://us2.php.net/manual/en/reserved.variables.php</a>
  */
 $_GET = array();
@@ -75,9 +75,9 @@ $HTTP_GET_VARS = array();
  *
  * Variables provided to the script via HTTP POST. Analogous to the old $HTTP_POST_VARS array
  * (which is still available, but deprecated).
- * @link http://www.php.net/manual/en/language.variables.predefined.php
+ * @link https://secure.php.net/manual/en/language.variables.predefined.php
  *
- * <p><a href="http://www.php.net/manual/en/reserved.variables.php">
+ * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * http://us2.php.net/manual/en/reserved.variables.php</a>
  */
 $_POST = array();
@@ -101,7 +101,7 @@ $HTTP_POST_VARS = array();
  * Note: When running on the command line , this will not include the argv and argc entries; these are present in the $_SERVER array.
  *
  *
- * <p><a href="http://www.php.net/manual/en/reserved.variables.php">
+ * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * http://us2.php.net/manual/en/reserved.variables.php</a>
  */
 $_REQUEST = array();
@@ -113,7 +113,7 @@ $_REQUEST = array();
  * Variables set by the web server or otherwise directly related to the execution environment of the current script.
  * Analogous to the old $HTTP_SERVER_VARS array (which is still available, but deprecated).
  *
- * <p><a href="http://www.php.net/manual/en/reserved.variables.php">
+ * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * http://us2.php.net/manual/en/reserved.variables.php</a>
  */
 $_SERVER = array();
@@ -168,7 +168,7 @@ $_SERVER['ORIG_PATH_INFO'] = '';
  * Analogous to the old $HTTP_SESSION_VARS array (which is still available, but deprecated).
  * See the Session handling functions section for more information.
  *
- * <p><a href="http://www.php.net/manual/en/reserved.variables.php">
+ * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * http://us2.php.net/manual/en/reserved.variables.php</a>
  */
 $_SESSION = array();
@@ -182,7 +182,7 @@ $HTTP_SESSION_VARS = array();
  *
  * The number of arguments passed to script
  *
- * <p><a href="http://www.php.net/manual/en/reserved.variables.php">
+ * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * http://us2.php.net/manual/en/reserved.variables.php</a>
  */
 $argc = 0;
@@ -192,7 +192,7 @@ $argc = 0;
  *
  * Array of arguments passed to script
  *
- * <p><a href="http://www.php.net/manual/en/reserved.variables.php">
+ * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * http://us2.php.net/manual/en/reserved.variables.php</a>
  */
 $argv = array();
@@ -202,7 +202,7 @@ $argv = array();
  *
  * Raw POST data
  *
- * <p><a href="http://www.php.net/manual/en/reserved.variables.php">
+ * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * http://us2.php.net/manual/en/reserved.variables.php</a>
  * 
  * @deprecated 5.6.0 Deprecated as of PHP 5.6.0. Use the php://input stream instead.
@@ -214,7 +214,7 @@ $HTTP_RAW_POST_DATA = '';
  *
  * HTTP response headers
  *
- * <p><a href="http://www.php.net/manual/en/reserved.variables.php">
+ * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * http://us2.php.net/manual/en/reserved.variables.php</a>
  */
 $http_response_header = array();
@@ -223,7 +223,7 @@ $http_response_header = array();
  * @xglobal $php_errormsg string
  *  The previous error message
  *
- * <p><a href="http://www.php.net/manual/en/reserved.variables.php">
+ * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * http://us2.php.net/manual/en/reserved.variables.php</a>
  */
 $php_errormsg = '';

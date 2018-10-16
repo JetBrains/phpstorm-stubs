@@ -2,7 +2,7 @@
 /**
  * MongoDB Extension Stub File
  * @version 1.1.9
- * Documentation taken from http://php.net/manual/en/set.mongodb.php
+ * Documentation taken from https://secure.php.net/manual/en/set.mongodb.php
  * @author Anton Tuyakhov <atuyakhov@gmail.com>
  */
 
@@ -134,7 +134,7 @@ namespace MongoDB {}
 
             /**
              * Preselect a MongoDB node based on provided readPreference. This can be useful to gurantee a command runs on a specific server when operating in a mixed version cluster.
-             * http://php.net/manual/en/mongodb-driver-manager.selectserver.php
+             * https://secure.php.net/manual/en/mongodb-driver-manager.selectserver.php
              * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to route the command to. If none given, defaults to the Read Preferences set by the MongoDB Connection URI.
              * @throws InvalidArgumentException on argument parsing errors.
              * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
@@ -932,14 +932,14 @@ namespace MongoDB {}
         /**
          * Class Session
          *
-         * @link http://www.php.net/manual/en/class.mongodb-driver-session.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-session.php
          * @since 1.4.0
          */
         final class Session
         {
             /**
              * Create a new Session (not used)
-             * @link http://www.php.net/manual/en/mongodb-driver-session.construct.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-session.construct.php
              * @since 1.4.0
              */
             final private function __construct()
@@ -948,7 +948,7 @@ namespace MongoDB {}
 
             /**
              * Aborts a transaction
-             * @link http://www.php.net/manual/en/mongodb-driver-session.aborttransaction.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-session.aborttransaction.php
              * @return void
              * @since 1.5.0
              */
@@ -958,7 +958,7 @@ namespace MongoDB {}
 
             /**
              * Advances the cluster time for this session
-             * @link http://www.php.net/manual/en/mongodb-driver-session.advanceclustertime.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-session.advanceclustertime.php
              * @return void
              * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors
              * @since 1.4.0
@@ -969,7 +969,7 @@ namespace MongoDB {}
 
             /**
              * Advances the operation time for this session
-             * @link http://www.php.net/manual/en/mongodb-driver-session.advanceoperationtime.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-session.advanceoperationtime.php
              * @param \MongoDB\BSON\TimestampInterface $operationTime
              * @return void
              * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors
@@ -980,7 +980,7 @@ namespace MongoDB {}
             }
 
             /**
-             * @link http://www.php.net/manual/en/mongodb-driver-session.committransaction.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-session.committransaction.php
              * @return void
              * @throws InvalidArgumentException On argument parsing errors
              * @throws CommandException If the server could not commit the transaction (e.g. due to conflicts,
@@ -999,7 +999,7 @@ namespace MongoDB {}
              * This method closes an existing session. If a transaction was associated with this session, this transaction is also aborted,
              * and all its operations are rolled back.
              *
-             * @link http://www.php.net/manual/en/mongodb-driver-session.endsession.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-session.endsession.php
              * @return void
              * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors
              * @since 1.5.0
@@ -1010,7 +1010,7 @@ namespace MongoDB {}
 
             /**
              * Returns the cluster time for this session
-             * @link http://www.php.net/manual/en/mongodb-driver-session.getclustertime.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-session.getclustertime.php
              * @return object|null
              * @throws \MongoDB\Driver\Exception\InvalidArgumentException
              * @since 1.4.0
@@ -1021,7 +1021,7 @@ namespace MongoDB {}
 
             /**
              * Returns the logical session ID for this session
-             * @link http://www.php.net/manual/en/mongodb-driver-session.getlogicalsessionid.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-session.getlogicalsessionid.php
              * @return object Returns the logical session ID for this session
              * @throws \MongoDB\Driver\Exception\InvalidArgumentException
              * @since 1.4.0
@@ -1032,7 +1032,7 @@ namespace MongoDB {}
 
             /**
              * Returns the operation time for this session, or NULL if the session has no operation time
-             * @link http://www.php.net/manual/en/mongodb-driver-session.getoperationtime.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-session.getoperationtime.php
              * @return \MongoDB\BSON\Timestamp|null
              * @throws \MongoDB\Driver\Exception\InvalidArgumentException
              * @since 1.4.0
@@ -1043,7 +1043,7 @@ namespace MongoDB {}
 
             /**
              * Starts a transaction
-             * @link http://www.php.net/manual/en/mongodb-driver-session.starttransaction.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-session.starttransaction.php
              * @param array|object $options
              * @return void
              * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors
@@ -1143,7 +1143,7 @@ namespace MongoDB {}
          * Base class for exceptions thrown by the server. The code of this exception and its subclasses will correspond to the original
          * error code from the server.
          *
-         * @link http://www.php.net/manual/en/class.mongodb-driver-exception-serverexception.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-exception-serverexception.php
          * @since 1.5.0
          */
         class ServerException extends RuntimeException implements Exception
@@ -1228,7 +1228,7 @@ namespace MongoDB {}
     }
 
     /**
-     * @link http://php.net/manual/en/mongodb.monitoring.php
+     * @link https://secure.php.net/manual/en/mongodb.monitoring.php
      */
     namespace MongoDB\Driver\Monitoring {
 
@@ -1236,7 +1236,7 @@ namespace MongoDB {}
          * Registers a new monitoring event subscriber with the driver.
          * Registered subscribers will be notified of monitoring events through specific methods.
          * Note: If the object is already registered, this function is a no-op.
-         * @link http://php.net/manual/en/function.mongodb.driver.monitoring.addsubscriber.php
+         * @link https://secure.php.net/manual/en/function.mongodb.driver.monitoring.addsubscriber.php
          * @param $subscriber Subscriber A monitoring event subscriber object to register.
          * @return void
          * @throws \InvalidArgumentException on argument parsing errors.
@@ -1250,7 +1250,7 @@ namespace MongoDB {}
          * Unregisters an existing monitoring event subscriber from the driver.
          * Unregistered subscribers will no longer be notified of monitoring events.
          * Note: If the object is not registered, this function is a no-op.
-         * @link http://php.net/manual/en/function.mongodb.driver.monitoring.removesubscriber.php
+         * @link https://secure.php.net/manual/en/function.mongodb.driver.monitoring.removesubscriber.php
          * @param $subscriber Subscriber A monitoring event subscriber object to register.
          * @throws \InvalidArgumentException on argument parsing errors.
          * @since 1.3.0
@@ -1263,7 +1263,7 @@ namespace MongoDB {}
          * Base interface for event subscribers.
          * This is used for type-hinting MongoDB\Driver\Monitoring\addSubscriber() and MongoDB\Driver\Monitoring\removeSubscriber() and should not be implemented directly.
          * This interface has no methods. Its only purpose is to be the base interface for all event subscribers.
-         * @link http://php.net/manual/en/class.mongodb-driver-monitoring-subscriber.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-monitoring-subscriber.php
          * @since 1.3.0
          */
         interface Subscriber
@@ -1272,8 +1272,8 @@ namespace MongoDB {}
 
         /**
          * Classes may implement this interface to register an event subscriber that is notified for each started, successful, and failed command event.
-         * @see http://php.net/manual/en/mongodb.tutorial.apm.php
-         * @link http://php.net/manual/en/class.mongodb-driver-monitoring-commandsubscriber.php
+         * @see https://secure.php.net/manual/en/mongodb.tutorial.apm.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-monitoring-commandsubscriber.php
          * @since 1.3.0
          */
         interface CommandSubscriber extends Subscriber
@@ -1282,7 +1282,7 @@ namespace MongoDB {}
             /**
              * Notification method for a failed command.
              * If the subscriber has been registered with MongoDB\Driver\Monitoring\addSubscriber(), the driver will call this method when a command has failed.
-             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandsubscriber.commandfailed.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-monitoring-commandsubscriber.commandfailed.php
              * @param CommandFailedEvent $event An event object encapsulating information about the failed command.
              * @return void
              * @throws \InvalidArgumentException on argument parsing errors.
@@ -1293,7 +1293,7 @@ namespace MongoDB {}
             /**
              * Notification method for a started command.
              * If the subscriber has been registered with MongoDB\Driver\Monitoring\addSubscriber(), the driver will call this method when a command has started.
-             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandsubscriber.commandstarted.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-monitoring-commandsubscriber.commandstarted.php
              * @param CommandStartedEvent $event An event object encapsulating information about the started command.
              * @return void
              * @throws \InvalidArgumentException on argument parsing errors.
@@ -1304,7 +1304,7 @@ namespace MongoDB {}
             /**
              * Notification method for a successful command.
              * If the subscriber has been registered with MongoDB\Driver\Monitoring\addSubscriber(), the driver will call this method when a command has succeeded.
-             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandsubscriber.commandsucceeded.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-monitoring-commandsubscriber.commandsucceeded.php
              * @param CommandSucceededEvent $event An event object encapsulating information about the successful command.
              * @return void
              * @throws \InvalidArgumentException on argument parsing errors.
@@ -1316,14 +1316,14 @@ namespace MongoDB {}
 
         /**
          * Encapsulates information about a successful command.
-         * @link http://php.net/manual/en/class.mongodb-driver-monitoring-commandsucceededevent.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-monitoring-commandsucceededevent.php
          * @since 1.3.0
          */
         class CommandSucceededEvent
         {
             /**
              * Returns the command name.
-             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getcommandname.php
+             * @link   https://secure.php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getcommandname.php
              * @return string The command name (e.g. "find", "aggregate").
              * @throws \InvalidArgumentException on argument parsing errors.
              * @since 1.3.0
@@ -1335,7 +1335,7 @@ namespace MongoDB {}
             /**
              * Returns the command's duration in microseconds
              * The command's duration is a calculated value that includes the time to send the message and receive the reply from the server.
-             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getdurationmicros.php
+             * @link   https://secure.php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getdurationmicros.php
              * @return int the command's duration in microseconds.
              * @throws \InvalidArgumentException on argument parsing errors.
              * @since 1.3.0
@@ -1348,7 +1348,7 @@ namespace MongoDB {}
              * Returns the command's operation ID.
              * The operation ID is generated by the driver and may be used to link events together such as bulk write operations, which may have been split across several commands at the protocol level.
              * Note: Since multiple commands may share the same operation ID, it is not reliable to use this value to associate event objects with each other. The request ID returned by MongoDB\Driver\Monitoring\CommandSucceededEvent::getRequestId() should be used instead.
-             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getoperationid.php
+             * @link   https://secure.php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getoperationid.php
              * @return string the command's operation ID.
              * @throws \InvalidArgumentException on argument parsing errors.
              * @since 1.3.0
@@ -1360,7 +1360,7 @@ namespace MongoDB {}
             /**
              * Returns the command reply document.
              * The reply document will be converted from BSON to PHP using the default deserialization rules (e.g. BSON documents will be converted to stdClass).
-             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getreply.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getreply.php
              * @return object the command reply document as a stdClass object.
              * @throws \InvalidArgumentException on argument parsing errors.
              * @since 1.3.0
@@ -1372,7 +1372,7 @@ namespace MongoDB {}
             /**
              * Returns the command's request ID.
              * The request ID is generated by the driver and may be used to associate this CommandSucceededEvent with a previous CommandStartedEvent.
-             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getrequestid.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getrequestid.php
              * @return string the command's request ID.
              * @throws \InvalidArgumentException on argument parsing errors.
              * @since 1.3.0
@@ -1383,7 +1383,7 @@ namespace MongoDB {}
 
             /**
              * Returns the Server on which the command was executed.
-             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getserver.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-monitoring-commandsucceededevent.getserver.php
              * @return \MongoDB\Driver\Server on which the command was executed.
              * @since 1.3.0
              */
@@ -1394,14 +1394,14 @@ namespace MongoDB {}
 
         /**
          * Encapsulates information about a failed command.
-         * @link http://php.net/manual/en/class.mongodb-driver-monitoring-commandfailedevent.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-monitoring-commandfailedevent.php
          * @since 1.3.0
          */
         class CommandFailedEvent
         {
             /**
              * Returns the command name.
-             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getcommandname.php
+             * @link   https://secure.php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getcommandname.php
              * @return string The command name (e.g. "find", "aggregate").
              * @throws \InvalidArgumentException on argument parsing errors.
              * @since 1.3.0
@@ -1413,7 +1413,7 @@ namespace MongoDB {}
             /**
              * Returns the command's duration in microseconds
              * The command's duration is a calculated value that includes the time to send the message and receive the reply from the server.
-             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getdurationmicros.php
+             * @link   https://secure.php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getdurationmicros.php
              * @return int the command's duration in microseconds.
              * @throws \InvalidArgumentException on argument parsing errors.
              * @since 1.3.0
@@ -1424,7 +1424,7 @@ namespace MongoDB {}
 
             /**
              * Returns the Exception associated with the failed command
-             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.geterror.php
+             * @link   https://secure.php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.geterror.php
              * @return \Exception
              * @throws \InvalidArgumentException on argument parsing errors.
              * @since 1.3.0
@@ -1437,7 +1437,7 @@ namespace MongoDB {}
              * Returns the command's operation ID.
              * The operation ID is generated by the driver and may be used to link events together such as bulk write operations, which may have been split across several commands at the protocol level.
              * Note: Since multiple commands may share the same operation ID, it is not reliable to use this value to associate event objects with each other. The request ID returned by MongoDB\Driver\Monitoring\CommandSucceededEvent::getRequestId() should be used instead.
-             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getoperationid.php
+             * @link   https://secure.php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getoperationid.php
              * @return string the command's operation ID.
              * @throws \InvalidArgumentException on argument parsing errors.
              * @since 1.3.0
@@ -1449,7 +1449,7 @@ namespace MongoDB {}
             /**
              * Returns the command reply document.
              * The reply document will be converted from BSON to PHP using the default deserialization rules (e.g. BSON documents will be converted to stdClass).
-             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getreply.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getreply.php
              * @return object the command reply document as a stdClass object.
              * @throws \InvalidArgumentException on argument parsing errors.
              * @since 1.3.0
@@ -1461,7 +1461,7 @@ namespace MongoDB {}
             /**
              * Returns the command's request ID.
              * The request ID is generated by the driver and may be used to associate this CommandSucceededEvent with a previous CommandStartedEvent.
-             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getrequestid.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getrequestid.php
              * @return string the command's request ID.
              * @throws \InvalidArgumentException on argument parsing errors.
              * @since 1.3.0
@@ -1472,7 +1472,7 @@ namespace MongoDB {}
 
             /**
              * Returns the Server on which the command was executed.
-             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getserver.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-monitoring-commandfailedevent.getserver.php
              * @return \MongoDB\Driver\Server on which the command was executed.
              * @since 1.3.0
              */
@@ -1483,7 +1483,7 @@ namespace MongoDB {}
 
         /**
          * Encapsulates information about a failed command.
-         * @link http://php.net/manual/en/class.mongodb-driver-monitoring-commandstartedevent.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-monitoring-commandstartedevent.php
          * @since 1.3.0
          */
         class CommandStartedEvent
@@ -1492,7 +1492,7 @@ namespace MongoDB {}
             /**
              * Returns the command document
              * The reply document will be converted from BSON to PHP using the default deserialization rules (e.g. BSON documents will be converted to stdClass).
-             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getcommand.php
+             * @link   https://secure.php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getcommand.php
              * @return string the command document as a stdClass object.
              * @throws \InvalidArgumentException on argument parsing errors.
              * @since 1.3.0
@@ -1504,7 +1504,7 @@ namespace MongoDB {}
 
             /**
              * Returns the command name.
-             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getcommandname.php
+             * @link   https://secure.php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getcommandname.php
              * @return string The command name (e.g. "find", "aggregate").
              * @throws \InvalidArgumentException on argument parsing errors.
              * @since 1.3.0
@@ -1515,7 +1515,7 @@ namespace MongoDB {}
 
             /**
              * Returns the database on which the command was executed.
-             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getdatabasename.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getdatabasename.php
              * @return string the database on which the command was executed.
              * @throws \InvalidArgumentException on argument parsing errors.
              * @since 1.3.0
@@ -1528,7 +1528,7 @@ namespace MongoDB {}
              * Returns the command's operation ID.
              * The operation ID is generated by the driver and may be used to link events together such as bulk write operations, which may have been split across several commands at the protocol level.
              * Note: Since multiple commands may share the same operation ID, it is not reliable to use this value to associate event objects with each other. The request ID returned by MongoDB\Driver\Monitoring\CommandSucceededEvent::getRequestId() should be used instead.
-             * @link   http://php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getoperationid.php
+             * @link   https://secure.php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getoperationid.php
              * @return string the command's operation ID.
              * @throws \InvalidArgumentException on argument parsing errors.
              * @since 1.3.0
@@ -1541,7 +1541,7 @@ namespace MongoDB {}
             /**
              * Returns the command's request ID.
              * The request ID is generated by the driver and may be used to associate this CommandSucceededEvent with a previous CommandStartedEvent.
-             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getrequestid.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getrequestid.php
              * @return string the command's request ID.
              * @throws \InvalidArgumentException on argument parsing errors.
              * @since 1.3.0
@@ -1552,7 +1552,7 @@ namespace MongoDB {}
 
             /**
              * Returns the Server on which the command was executed.
-             * @link http://php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getserver.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getserver.php
              * @return \MongoDB\Driver\Server on which the command was executed.
              * @since 1.3.0
              */
@@ -1934,7 +1934,7 @@ namespace MongoDB {}
             /**
              * Returns the increment component of this TimestampInterface
              *
-             * @link http://www.php.net/manual/en/mongodb-bson-timestampinterface.getincrement.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-timestampinterface.getincrement.php
              * @return int
              */
             public function getIncrement()
@@ -1944,7 +1944,7 @@ namespace MongoDB {}
             /**
              * Returns the timestamp component of this TimestampInterface
              *
-             * @link http://www.php.net/manual/en/mongodb-bson-timestampinterface.gettimestamp.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-timestampinterface.gettimestamp.php
              * @return int
              */
             public function getTimestamp()
@@ -2105,14 +2105,14 @@ namespace MongoDB {}
         /**
          * Interface TimestampInterface
          *
-         * @link http://php.net/manual/en/class.mongodb-bson-timestampinterface.php
+         * @link https://secure.php.net/manual/en/class.mongodb-bson-timestampinterface.php
          * @since 1.3.0
          */
         interface TimestampInterface
         {
             /**
              * Returns the increment component of this TimestampInterface
-             * @link http://www.php.net/manual/en/mongodb-bson-timestampinterface.getincrement.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-timestampinterface.getincrement.php
              * @return int
              * @since 1.3.0
              */
@@ -2120,7 +2120,7 @@ namespace MongoDB {}
 
             /**
              * Returns the timestamp component of this TimestampInterface
-             * @link http://www.php.net/manual/en/mongodb-bson-timestampinterface.gettimestamp.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-timestampinterface.gettimestamp.php
              * @return int
              * @since 1.3.0
              */
@@ -2128,7 +2128,7 @@ namespace MongoDB {}
 
             /**
              * Returns the string representation of this TimestampInterface
-             * @link http://www.php.net/manual/en/mongodb-bson-timestampinterface.tostring.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-timestampinterface.tostring.php
              * @return string
              * @since 1.3.0
              */

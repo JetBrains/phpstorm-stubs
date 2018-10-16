@@ -76,6 +76,8 @@ class ASTVisitor extends NodeVisitorAbstract
         $function->parameters = $this->parseParams($node);
 
         $function->parseError = null;
+        $function->links = [];
+        $function->see = [];
         if ($node->getDocComment() !== null) {
             try {
                 $phpDoc = $this->docFactory->create($node->getDocComment()->getText());
@@ -83,6 +85,8 @@ class ASTVisitor extends NodeVisitorAbstract
                 $function->parseError = $e->getMessage();
                 return;
             }
+            $function->links = $phpDoc->getTagsByName('link');
+            $function->see = $phpDoc->getTagsByName('see');
             if (empty($phpDoc->getTagsByName('deprecated'))) {
                 $function->is_deprecated = false;
             } else {
@@ -144,6 +148,8 @@ class ASTVisitor extends NodeVisitorAbstract
         //this will test PHPDocs
         $method->parseError = null;
         $method->returnTag = null;
+        $method->links = [];
+        $method->see = [];
         if ($node->getDocComment() !== null) {
             try {
                 $phpDoc = $this->docFactory->create($node->getDocComment()->getText());
@@ -151,6 +157,8 @@ class ASTVisitor extends NodeVisitorAbstract
                 if(!empty($parsedReturnTag) && $parsedReturnTag[0] instanceof Return_){
                     $method->returnTag = $parsedReturnTag[0]->getType() . "";
                 }
+                $method->links = $phpDoc->getTagsByName("link");
+                $method->see = $phpDoc->getTagsByName("see");
             } catch (Exception $e) {
                 $method->parseError = $e->getMessage();
             }
@@ -169,7 +177,6 @@ class ASTVisitor extends NodeVisitorAbstract
         } else {
             $method->access = 'public';
         }
-
         $this->stubs->classes[$className]->methods[$method->name] = $method;
     }
 
@@ -179,9 +186,13 @@ class ASTVisitor extends NodeVisitorAbstract
         $className = $this->getFQN($node, $node->name->name);
         //this will test PHPDocs
         $class->parseError = null;
+        $class->links = [];
+        $class->see = [];
         if ($node->getDocComment() !== null) {
             try {
-                $this->docFactory->create($node->getDocComment()->getText());
+                $phpDoc = $this->docFactory->create($node->getDocComment()->getText());
+                $class->links = $phpDoc->getTagsByName("link");
+                $class->see = $phpDoc->getTagsByName("see");
             } catch (Exception $e) {
                 $class->parseError = $e->getMessage();
             }
