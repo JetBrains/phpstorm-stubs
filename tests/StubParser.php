@@ -76,6 +76,7 @@ class ASTVisitor extends NodeVisitorAbstract
         $function->parameters = $this->parseParams($node);
 
         $function->parseError = null;
+        $this->collectLinks($node, $function);
         if ($node->getDocComment() !== null) {
             try {
                 $phpDoc = $this->docFactory->create($node->getDocComment()->getText());
@@ -98,6 +99,8 @@ class ASTVisitor extends NodeVisitorAbstract
         $constName = $this->getFQN($node, $node->name->name);
         $const->name = $constName;
         $const->value = $this->getConstValue($node);
+        $const->parseError = null;
+        $this->collectLinks($node, $const);
         if ($node->getAttribute('parent') instanceof Node\Stmt\ClassConst) {
             $className = $this->getFQN($node->getAttribute('parent')->getAttribute('parent'), $node->getAttribute('parent')->getAttribute('parent')->name->name);
             $this->stubs->classes[$className]->constants[$constName] = $const;
@@ -117,7 +120,24 @@ class ASTVisitor extends NodeVisitorAbstract
             }
             $const->name = $constName;
             $const->value = $this->getConstValue($node->args[1]);
+            $const->parseError = null;
+            $this->collectLinks($node, $const);
             $this->stubs->constants[$constName] = $const;
+        }
+    }
+
+    private function collectLinks(NodeAbstract $node, stdClass $stub){
+        $stub->links = [];
+        $stub->see = [];
+        if ($node->getDocComment() !== null) {
+            try {
+                $phpDoc = $this->docFactory->create($node->getDocComment()->getText());
+                $stub->links = $phpDoc->getTagsByName('link');
+                $stub->see = $phpDoc->getTagsByName('see');
+            } catch (Exception $e) {
+                $stub->parseError = $e->getMessage();
+                return;
+            }
         }
     }
 
@@ -144,6 +164,7 @@ class ASTVisitor extends NodeVisitorAbstract
         //this will test PHPDocs
         $method->parseError = null;
         $method->returnTag = null;
+        $this->collectLinks($node, $method);
         if ($node->getDocComment() !== null) {
             try {
                 $phpDoc = $this->docFactory->create($node->getDocComment()->getText());
@@ -169,7 +190,6 @@ class ASTVisitor extends NodeVisitorAbstract
         } else {
             $method->access = 'public';
         }
-
         $this->stubs->classes[$className]->methods[$method->name] = $method;
     }
 
@@ -179,6 +199,7 @@ class ASTVisitor extends NodeVisitorAbstract
         $className = $this->getFQN($node, $node->name->name);
         //this will test PHPDocs
         $class->parseError = null;
+        $this->collectLinks($node, $class);
         if ($node->getDocComment() !== null) {
             try {
                 $this->docFactory->create($node->getDocComment()->getText());

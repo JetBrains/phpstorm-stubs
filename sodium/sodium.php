@@ -1153,7 +1153,7 @@ function sodium_crypto_scalarmult_base(
  * prevent misuse by ensuring that the provided key length is always be correct.
  *
  * @since 7.2.0
- * @see http://php.net/manual/en/function.sodium-crypto-secretbox-keygen.php
+ * @see https://secure.php.net/manual/en/function.sodium-crypto-secretbox-keygen.php
  */
 function sodium_crypto_secretbox_keygen(): string {}
 
@@ -1164,7 +1164,7 @@ function sodium_crypto_secretbox_keygen(): string {}
  * prevent misuse by ensuring that the provided key length is always be correct.
  *
  * @since 7.2.0
- * @see http://php.net/manual/en/function.sodium-crypto-aead-aes256gcm-keygen.php
+ * @see https://secure.php.net/manual/en/function.sodium-crypto-aead-aes256gcm-keygen.php
  */
 function sodium_crypto_aead_aes256gcm_keygen(): string {}
 
@@ -1174,7 +1174,7 @@ function sodium_crypto_aead_aes256gcm_keygen(): string {}
  * prevent misuse by ensuring that the provided key length is always be correct.
  *
  * @since 7.2.0
- * @see http://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-keygen.php
+ * @see https://secure.php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-keygen.php
  */
 function sodium_crypto_aead_chacha20poly1305_keygen(): string {}
 
@@ -1185,7 +1185,7 @@ function sodium_crypto_aead_chacha20poly1305_keygen(): string {}
  * prevent misuse by ensuring that the provided key length is always be correct.
  *
  * @since 7.2.0
- * @see http://php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-ietf-keygen.php
+ * @see https://secure.php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-ietf-keygen.php
  */
 function sodium_crypto_aead_chacha20poly1305_ietf_keygen(): string {}
 

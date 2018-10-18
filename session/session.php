@@ -97,7 +97,7 @@ function session_regenerate_id ($delete_old_session = false) {}
 /**
  * PHP > 5.4.0 <br/>
  * Session shutdown function
- * @link http://www.php.net/manual/en/function.session-register-shutdown.php
+ * @link https://secure.php.net/manual/en/function.session-register-shutdown.php
  */
 function session_register_shutdown  () {}
 

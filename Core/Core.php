@@ -405,7 +405,7 @@ function property_exists ($class, $property) {}
  * @param string $traitname Name of the trait to check
  * @param bool $autoload [optional] Whether to autoload if not already loaded.
  * @return boolean Returns TRUE if trait exists, FALSE if not, NULL in case of an error.
- * @link http://www.php.net/manual/en/function.trait-exists.php
+ * @link https://secure.php.net/manual/en/function.trait-exists.php
  * @since 5.4.0
  */
 function trait_exists($traitname, $autoload ) {}
@@ -709,7 +709,7 @@ function get_declared_interfaces () {}
 /**
  * Returns an array of all declared traits
  * @return array with names of all declared traits in values. Returns NULL in case of a failure.
- * @link http://www.php.net/manual/en/function.get-declared-traits.php
+ * @link https://secure.php.net/manual/en/function.get-declared-traits.php
  * @see class_uses()
  * @since 5.4.0
  */

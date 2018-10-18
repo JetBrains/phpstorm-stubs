@@ -80,7 +80,7 @@ define ('CURLOPT_FTPAPPEND', 50);
 define ('CURLOPT_NETRC', 51);
 
 /**
- * @link http://us.php.net/manual/en/function.curl-setopt.php
+ * @link https://secure.php.net/manual/en/function.curl-setopt.php
  * @since 5.3.2
  */
 define ('CURLOPT_POSTREDIR', 161);

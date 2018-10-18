@@ -1,7 +1,7 @@
 <?php
 /**
  * Start of mysql_xdevapi extension stubs
- * @link http://php.net/manual/en/book.mysql-xdevapi.php
+ * @link https://secure.php.net/manual/en/book.mysql-xdevapi.php
  * @version 0.2 2018-08-09
  * @author Jorge Castro C jcastro@eftec.cl
  * @todo It only adds the basic features.  It misses the rest of features.
@@ -15,7 +15,7 @@ define('MYSQLX_LOCK_SKIP_LOCKED',2);
 
 
 /**
- * @link http://php.net/manual/en/function.mysql-xdevapi-getsession.php
+ * @link https://secure.php.net/manual/en/function.mysql-xdevapi-getsession.php
  * @param string $uri The URI to the MySQL server, such as mysqlx://user:password@host.
  * @return \mysql_xdevapi\Session
  */
@@ -30,7 +30,7 @@ class Collection  {
 
     /**
      * Adds a document to the collection
-     * @link http://php.net/manual/en/mysql-xdevapi-collection.add.php
+     * @link https://secure.php.net/manual/en/mysql-xdevapi-collection.add.php
      * @param mixed $document
      * @return \mysql_xdevapi\CollectionAdd
      */
@@ -38,7 +38,7 @@ class Collection  {
 
     /**
      * Add or replace collection document
-     * @link http://php.net/manual/en/mysql-xdevapi-collection.addorreplaceone.php
+     * @link https://secure.php.net/manual/en/mysql-xdevapi-collection.addorreplaceone.php
      * @param string $id
      * @param mixed $document
      * @return \mysql_xdevapi\Result
@@ -46,7 +46,7 @@ class Collection  {
     public function addOrReplaceOne($id,$document) {}
 
     /**
-     * @link http://php.net/manual/en/mysql-xdevapi-collection.find.php
+     * @link https://secure.php.net/manual/en/mysql-xdevapi-collection.find.php
      * @param string $search_condition
      * @return \mysql_xdevapi\CollectionFind
      */
@@ -70,7 +70,7 @@ class Collection  {
 class Session {
     /**
      * Get the schema
-     * @link http://php.net/manual/en/mysql-xdevapi-session.getschema.php
+     * @link https://secure.php.net/manual/en/mysql-xdevapi-session.getschema.php
      * @param string $schema_name name of the schema
      * @return \mysql_xdevapi\Schema
      */
@@ -78,7 +78,7 @@ class Session {
 
     /**
      * Creates a the schema
-     * @link http://php.net/manual/en/mysql-xdevapi-session.createschema.php
+     * @link https://secure.php.net/manual/en/mysql-xdevapi-session.createschema.php
      * @param string $schema_name name of the schema
      * @return \mysql_xdevapi\Schema
      * @throws \mysql_xdevapi\Exception
@@ -129,7 +129,7 @@ interface CrudOperationSortable {
 
 /**
  * Class CollectionFind
- * @http://php.net/manual/en/class.mysql-xdevapi-collectionfind.php
+ * @https://secure.php.net/manual/en/class.mysql-xdevapi-collectionfind.php
  * @package mysql_xdevapi
  */
 class CollectionFind  implements \mysql_xdevapi\Executable
@@ -139,14 +139,14 @@ class CollectionFind  implements \mysql_xdevapi\Executable
 {
     /**
      * Execute the statement
-     * @link http://php.net/manual/en/mysql-xdevapi-collectionfind.execute.php
+     * @link https://secure.php.net/manual/en/mysql-xdevapi-collectionfind.execute.php
      * @return \mysql_xdevapi\DocResult
      */
     public function execute() {}
 
     /**
      * Execute operation with EXCLUSIVE LOCK
-     * @link http://php.net/manual/en/mysql-xdevapi-collectionfind.lockexclusive.php
+     * @link https://secure.php.net/manual/en/mysql-xdevapi-collectionfind.lockexclusive.php
      * @param mixed $lock_waiting_option MYSQLX_LOCK_*
      * @return \mysql_xdevapi\CollectionFind
      */
@@ -154,7 +154,7 @@ class CollectionFind  implements \mysql_xdevapi\Executable
 
     /**
      * Execute operation with SHARED LOCK
-     * @link http://php.net/manual/en/mysql-xdevapi-collectionfind.lockshared.php
+     * @link https://secure.php.net/manual/en/mysql-xdevapi-collectionfind.lockshared.php
      * @param mixed $lock_waiting_option MYSQLX_LOCK_*
      * @return \mysql_xdevapi\CollectionFind
      */
@@ -167,7 +167,7 @@ class CollectionFind  implements \mysql_xdevapi\Executable
 class Schema {
     /**
      * Get collection from schema
-     * @link http://php.net/manual/en/mysql-xdevapi-schema.getcollection.php
+     * @link https://secure.php.net/manual/en/mysql-xdevapi-schema.getcollection.php
      * @param string $name name of the collection
      * @return \mysql_xdevapi\Collection
      */
@@ -175,7 +175,7 @@ class Schema {
 
     /**
      * Add collection to schema
-     * @link http://php.net/manual/en/mysql-xdevapi-schema.createcollection.php
+     * @link https://secure.php.net/manual/en/mysql-xdevapi-schema.createcollection.php
      * @param $name
      * @return \mysql_xdevapi\Collection
      */
@@ -192,7 +192,7 @@ class Exception extends \RuntimeException implements \Throwable {
 
 /**
  * interface BaseResult
- * @link http://php.net/manual/en/class.mysql-xdevapi-baseresult.php
+ * @link https://secure.php.net/manual/en/class.mysql-xdevapi-baseresult.php
  * @package mysql_xdevapi
  */
 interface BaseResult {
@@ -207,14 +207,14 @@ class DocResult implements \mysql_xdevapi\BaseResult , \Traversable {
 
     /**
      * Get one row
-     * @link http://php.net/manual/en/mysql-xdevapi-docresult.fetchone.php
+     * @link https://secure.php.net/manual/en/mysql-xdevapi-docresult.fetchone.php
      * @return object
      */
     public function fetchOne() {}
 
     /**
      * Get all rows
-     * @link http://php.net/manual/en/mysql-xdevapi-docresult.fetchall.php
+     * @link https://secure.php.net/manual/en/mysql-xdevapi-docresult.fetchall.php
      * @return array
      */
     public function fetchAll() {}
@@ -222,21 +222,21 @@ class DocResult implements \mysql_xdevapi\BaseResult , \Traversable {
 
 /**
  * Class Result
- * @http://php.net/manual/en/class.mysql-xdevapi-result.php
+ * @https://secure.php.net/manual/en/class.mysql-xdevapi-result.php
  * @package mysql_xdevapi
  */
 class Result implements \mysql_xdevapi\BaseResult , \Traversable   {
 
     /**
      * Get generated ids. The id is the type of "00005b650a8b000000000000000e"
-     * @link http://php.net/manual/en/mysql-xdevapi-result.getgeneratedids.php
+     * @link https://secure.php.net/manual/en/mysql-xdevapi-result.getgeneratedids.php
      * @return string[]
      */
     public function getGeneratedIds() {}
 
     /**
      * Get affected row count
-     * @link http://php.net/manual/en/mysql-xdevapi-sqlstatementresult.getaffecteditemscount.php
+     * @link https://secure.php.net/manual/en/mysql-xdevapi-sqlstatementresult.getaffecteditemscount.php
      * @return integer
      */
     public function getAffectedItemsCount() {}
@@ -245,14 +245,14 @@ class Result implements \mysql_xdevapi\BaseResult , \Traversable   {
 
 /**
  * Class CollectionAdd
- * @link http://php.net/manual/en/class.mysql-xdevapi-collectionadd.php
+ * @link https://secure.php.net/manual/en/class.mysql-xdevapi-collectionadd.php
  * @package mysql_xdevapi
  */
 class CollectionAdd {
 
     /**
      * Execute the statement
-     * @link http://php.net/manual/en/mysql-xdevapi-collectionadd.execute.php
+     * @link https://secure.php.net/manual/en/mysql-xdevapi-collectionadd.execute.php
      * @return \mysql_xdevapi\Result
      */
     public function execute() {}

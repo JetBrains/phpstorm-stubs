@@ -5,7 +5,7 @@
  * Parsed from documentation
  * Generated at 2017-08-24 16:06:54
  *
- * @see http://mapserver.org/mapscript/php/phpmapscript.html
+ * @see https://mapserver.org/mapscript/php/phpmapscript.html
  * @see https://raw.githubusercontent.com/mapserver/docs/branch-7-0/en/mapscript/php/phpmapscript.txt
  */
 
