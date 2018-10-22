@@ -565,6 +565,7 @@ class ReflectionParameter implements Reflector {
 	 * Gets default parameter value
 	 * @link https://php.net/manual/en/reflectionparameter.getdefaultvalue.php
 	 * @return mixed The parameters default value.
+	 * @throws \ReflectionException if the parameter is not optional
 	 * @since 5.0.3
 	 */
 	public function getDefaultValue () {}
@@ -579,6 +580,7 @@ class ReflectionParameter implements Reflector {
     /**
 	 * Returns the default value's constant name if default value is constant or null
      * @return string
+     * @throws \ReflectionException if the parameter is not optional
 	 * @since 5.4.6
      */
 	public function getDefaultValueConstantName () {}
