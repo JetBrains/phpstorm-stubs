@@ -1925,7 +1925,7 @@ function mysqli_get_server_info ($link) {}
  * Returns the version of the MySQL server as an integer
  * @link https://php.net/manual/en/mysqli.get-server-version.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @return string An integer representing the server version.
+ * @return int An integer representing the server version.
  * The form of this version number is main_version * 10000 + minor_version * 100 + sub_version (i.e. version 4.1.0 is 40100).
  */
 function mysqli_get_server_version ($link) {}
