@@ -24,7 +24,7 @@
  * @param string $str <p>
  * The string to be converted.
  * </p>
- * @return string the converted string or <b>FALSE</b> on failure.
+ * @return string|false the converted string or <b>FALSE</b> on failure.
  * @since 4.0.5
  * @since 5.0
  */

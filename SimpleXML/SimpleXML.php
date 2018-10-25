@@ -341,7 +341,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
  * Libxml 2 unescapes the URI, so if you want to pass e.g.
  * b&#38;#38;c as the URI parameter a,
  * you have to call
- * simplexml_load_file(rawurlencode('http://example.com/?a=' .
+ * simplexml_load_file(rawurlencode('https://example.com/?a=' .
  * urlencode('b&#38;#38;c'))). Since PHP 5.1.0 you don't need to do
  * this because PHP will do it for you.
  * </p>

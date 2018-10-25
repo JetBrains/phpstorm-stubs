@@ -27,7 +27,7 @@ define('YAF_ERR_TYPE_ERROR', 521, true);
  * Yaf_Application implements the singleton pattern, and Yaf_Application can not be serialized or un-serialized which will cause problem when you try to use PHPUnit to write some test case for Yaf.<br/>
  * You may use &#64;backupGlobals annotation of PHPUnit to control the backup and restore operations for global variables. thus can solve this problem.
  * </p>
- * @link http://www.php.net/manual/en/class.yaf-application.php
+ * @link https://secure.php.net/manual/en/class.yaf-application.php
  */
 final class Yaf_Application {
 
@@ -67,7 +67,7 @@ final class Yaf_Application {
     protected $_err_msg = "";
 
     /**
-     * @link http://www.php.net/manual/en/yaf-application.construct.php
+     * @link https://secure.php.net/manual/en/yaf-application.construct.php
      *
      * @param string|array $config A ini config file path, or a config array
      * <p>
@@ -119,7 +119,7 @@ final class Yaf_Application {
      * Run a Yaf_Application, let the Yaf_Application accept a request, and route the request, dispatch to controller/action, and render response.
      * return response to client finally.
      *
-     * @link http://www.php.net/manual/en/yaf-application.run.php
+     * @link https://secure.php.net/manual/en/yaf-application.run.php
      * @throws Yaf_Exception_StartupError
      */
     public function run(){ }
@@ -128,7 +128,7 @@ final class Yaf_Application {
      * This method is typically used to run Yaf_Application in a crontab work.
      * Make the crontab work can also use the autoloader and Bootstrap mechanism.
      *
-     * @link http://www.php.net/manual/en/yaf-application.execute.php
+     * @link https://secure.php.net/manual/en/yaf-application.execute.php
      *
      * @param callable $entry a valid callback
      * @param string $_ parameters will pass to the callback
@@ -138,7 +138,7 @@ final class Yaf_Application {
     /**
      * Retrieve the Yaf_Application instance, alternatively, we also could use Yaf_Dispatcher::getApplication().
      *
-     * @link http://www.php.net/manual/en/yaf-application.app.php
+     * @link https://secure.php.net/manual/en/yaf-application.app.php
      *
      * @return Yaf_Application|NULL an Yaf_Application instance, if no Yaf_Application initialized before, NULL will be returned.
      */
@@ -147,7 +147,7 @@ final class Yaf_Application {
     /**
      * Retrieve environ which was defined in yaf.environ which has a default value "product".
      *
-     * @link http://www.php.net/manual/en/yaf-application.environ.php
+     * @link https://secure.php.net/manual/en/yaf-application.environ.php
      *
      * @return string
      */
@@ -156,7 +156,7 @@ final class Yaf_Application {
     /**
      * Run a Bootstrap, all the methods defined in the Bootstrap and named with prefix "_init" will be called according to their declaration order, if the parameter bootstrap is not supplied, Yaf will look for a Bootstrap under application.directory.
      *
-     * @link http://www.php.net/manual/en/yaf-application.bootstrap.php
+     * @link https://secure.php.net/manual/en/yaf-application.bootstrap.php
      *
      * @param Yaf_Bootstrap_Abstract $bootstrap A Yaf_Bootstrap_Abstract instance
      * @return Yaf_Application
@@ -164,7 +164,7 @@ final class Yaf_Application {
     public function bootstrap(Yaf_Bootstrap_Abstract $bootstrap = null){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-application.getconfig.php
+     * @link https://secure.php.net/manual/en/yaf-application.getconfig.php
      *
      * @return Yaf_Config_Abstract
      */
@@ -173,14 +173,14 @@ final class Yaf_Application {
     /**
      * Get the modules list defined in config, if no one defined, there will always be a module named "Index".
      *
-     * @link http://www.php.net/manual/en/yaf-application.getmodules.php
+     * @link https://secure.php.net/manual/en/yaf-application.getmodules.php
      *
      * @return array
      */
     public function getModules(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-application.getdispatcher.php
+     * @link https://secure.php.net/manual/en/yaf-application.getdispatcher.php
      *
      * @return Yaf_Dispatcher
      */
@@ -190,7 +190,7 @@ final class Yaf_Application {
      * Change the application directory
      *
      * @since 2.1.4
-     * @link http://www.php.net/manual/en/yaf-application.setappdirectory.php
+     * @link https://secure.php.net/manual/en/yaf-application.setappdirectory.php
      *
      * @param string $directory
      * @return Yaf_Application
@@ -199,7 +199,7 @@ final class Yaf_Application {
 
     /**
      * @since 2.1.4
-     * @link http://www.php.net/manual/en/yaf-application.getappdirectory.php
+     * @link https://secure.php.net/manual/en/yaf-application.getappdirectory.php
      *
      * @return string
      */
@@ -207,7 +207,7 @@ final class Yaf_Application {
 
     /**
      * @since 2.1.2
-     * @link http://www.php.net/manual/en/yaf-application.getlasterrorno.php
+     * @link https://secure.php.net/manual/en/yaf-application.getlasterrorno.php
      *
      * @return int
      */
@@ -215,7 +215,7 @@ final class Yaf_Application {
 
     /**
      * @since 2.1.2
-     * @link http://www.php.net/manual/en/yaf-application.getlasterrormsg.php
+     * @link https://secure.php.net/manual/en/yaf-application.getlasterrormsg.php
      *
      * @return string
      */
@@ -224,31 +224,31 @@ final class Yaf_Application {
     /**
      *
      * @since 2.1.2
-     * @link http://www.php.net/manual/en/yaf-application.clearlasterror.php
+     * @link https://secure.php.net/manual/en/yaf-application.clearlasterror.php
      */
     public function clearLastError(){ }
 
     /**
      *
-     * @link http://www.php.net/manual/en/yaf-application.destruct.php
+     * @link https://secure.php.net/manual/en/yaf-application.destruct.php
      */
     public function __destruct(){ }
 
     /**
      *
-     * @link http://www.php.net/manual/en/yaf-application.clone.php
+     * @link https://secure.php.net/manual/en/yaf-application.clone.php
      */
     private function __clone(){ }
 
     /**
      *
-     * @link http://www.php.net/manual/en/yaf-application.sleep.php
+     * @link https://secure.php.net/manual/en/yaf-application.sleep.php
      */
     private function __sleep(){ }
 
     /**
      *
-     * @link http://www.php.net/manual/en/yaf-application.wakeup.php
+     * @link https://secure.php.net/manual/en/yaf-application.wakeup.php
      */
     private function __wakeup(){ }
 }
@@ -257,7 +257,7 @@ final class Yaf_Application {
  * <p><b>Yaf_Dispatcher</b> purpose is to initialize the request environment, route the incoming request, and then dispatch any discovered actions; it aggregates any responses and returns them when the process is complete.</p><br/>
  * <p><b>Yaf_Dispatcher</b> also implements the Singleton pattern, meaning only a single instance of it may be available at any given time. This allows it to also act as a registry on which the other objects in the dispatch process may draw.</p>
  *
- * @link http://www.php.net/manual/en/class.yaf-dispatcher.php
+ * @link https://secure.php.net/manual/en/class.yaf-dispatcher.php
  */
 final class Yaf_Dispatcher {
 
@@ -307,29 +307,29 @@ final class Yaf_Dispatcher {
     protected $_default_action;
 
     /**
-     * @link http://www.php.net/manual/en/yaf-dispatcher.construct.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.construct.php
      */
     private function __construct(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-dispatcher.clone.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.clone.php
      */
     private function __clone(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-dispatcher.sleep.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.sleep.php
      */
     private function __sleep(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-dispatcher.wakeup.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.wakeup.php
      */
     private function __wakeup(){ }
 
     /**
      * enable view rendering
      *
-     * @link http://www.php.net/manual/en/yaf-dispatcher.enableview.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.enableview.php
      *
      * @return Yaf_Dispatcher
      */
@@ -340,7 +340,7 @@ final class Yaf_Dispatcher {
      * <b>Note:</b>
      * <p>you can simply return FALSE in a action to prevent the auto-rendering of that action</p>
      *
-     * @link http://www.php.net/manual/en/yaf-dispatcher.disableview.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.disableview.php
      *
      * @return bool
      */
@@ -349,7 +349,7 @@ final class Yaf_Dispatcher {
     /**
      * Initialize view and return it
      *
-     * @link http://www.php.net/manual/en/yaf-dispatcher.initview.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.initview.php
      *
      * @param string $templates_dir
      * @param array $options
@@ -360,7 +360,7 @@ final class Yaf_Dispatcher {
     /**
      * This method provides a solution for that if you want use a custom view engine instead of Yaf_View_Simple
      *
-     * @link http://www.php.net/manual/en/yaf-dispatcher.setview.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.setview.php
      *
      * @param Yaf_View_Interface $view A Yaf_View_Interface instance
      * @return Yaf_Dispatcher
@@ -369,7 +369,7 @@ final class Yaf_Dispatcher {
 
     /**
      *
-     * @link http://www.php.net/manual/en/yaf-dispatcher.setrequest.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.setrequest.php
      *
      * @param Yaf_Request_Abstract $request
      * @return Yaf_Dispatcher
@@ -379,20 +379,20 @@ final class Yaf_Dispatcher {
     /**
      * Retrieve the Yaf_Application instance. same as Yaf_Application::app().
      *
-     * @link http://www.php.net/manual/en/yaf-dispatcher.getapplication.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.getapplication.php
      * @return Yaf_Application
      */
     public function getApplication(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-dispatcher.getrouter.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.getrouter.php
      *
      * @return Yaf_Router
      */
     public function getRouter(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-dispatcher.getrequest.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.getrequest.php
      *
      * @return Yaf_Request_Abstract
      */
@@ -402,7 +402,7 @@ final class Yaf_Dispatcher {
      * <p>Set error handler for Yaf. when application.dispatcher.throwException is off, Yaf will trigger catch-able error while unexpected errors occurred.</p><br/>
      * <p>Thus, this error handler will be called while the error raise.</p>
      *
-     * @link http://www.php.net/manual/en/yaf-dispatcher.seterrorhandler.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.seterrorhandler.php
      *
      * @param callable $callback a callable callback
      * @param int $error_types YAF_ERR_* constants mask
@@ -414,7 +414,7 @@ final class Yaf_Dispatcher {
     /**
      * Change default module name
      *
-     * @link http://www.php.net/manual/en/yaf-dispatcher.setdefaultmodule.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.setdefaultmodule.php
      *
      * @param string $module
      * @return Yaf_Dispatcher
@@ -424,7 +424,7 @@ final class Yaf_Dispatcher {
     /**
      * Change default controller name
      *
-     * @link http://www.php.net/manual/en/yaf-dispatcher.setdefaultcontroller.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.setdefaultcontroller.php
      *
      * @param string $controller
      * @return Yaf_Dispatcher
@@ -434,7 +434,7 @@ final class Yaf_Dispatcher {
     /**
      * Change default action name
      *
-     * @link http://www.php.net/manual/en/yaf-dispatcher.setdefaultaction.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.setdefaultaction.php
      *
      * @param string $action
      * @return Yaf_Dispatcher
@@ -442,7 +442,7 @@ final class Yaf_Dispatcher {
     public function setDefaultAction($action){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-dispatcher.returnresponse.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.returnresponse.php
      *
      * @param bool $flag
      * @return Yaf_Dispatcher
@@ -454,7 +454,7 @@ final class Yaf_Dispatcher {
      * <b>Note:</b>
      * <p>you can simply return FALSE in a action to prevent the auto-rendering of that action</p>
      *
-     * @link http://www.php.net/manual/en/yaf-dispatcher.autorender.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.autorender.php
      *
      * @param bool $flag since 2.2.0, if this parameter is not given, then the current state will be set
      * @return Yaf_Dispatcher
@@ -464,7 +464,7 @@ final class Yaf_Dispatcher {
     /**
      * Switch on/off the instant flushing
      *
-     * @link http://www.php.net/manual/en/yaf-dispatcher.flushinstantly.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.flushinstantly.php
      *
      * @param bool $flag since 2.2.0, if this parameter is not given, then the current state will be set
      * @return Yaf_Dispatcher
@@ -472,7 +472,7 @@ final class Yaf_Dispatcher {
     public function flushInstantly($flag = null){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-dispatcher.getinstance.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.getinstance.php
      *
      * @return Yaf_Dispatcher
      */
@@ -488,7 +488,7 @@ final class Yaf_Dispatcher {
      * </ul>
      * <p>Routing takes place exactly once, using the values in the request object when dispatch() is called. Dispatching takes place in a loop; a request may either indicate multiple actions to dispatch, or the controller or a plugin may reset the request object to force additional actions to dispatch(see Yaf_Plugin_Abstract. When all is done, the Yaf_Dispatcher returns a response.</p>
      *
-     * @link http://www.php.net/manual/en/yaf-dispatcher.dispatch.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.dispatch.php
      *
      * @param Yaf_Request_Abstract $request
      *
@@ -507,7 +507,7 @@ final class Yaf_Dispatcher {
      * <p>Switch on/off exception throwing while unexpected error occurring. When this is on, Yaf will throwing exceptions instead of triggering catchable errors.</p><br/>
      * <p>You can also use application.dispatcher.throwException to achieve the same purpose.</p>
      *
-     * @link http://www.php.net/manual/en/yaf-dispatcher.throwexception.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.throwexception.php
      *
      * @param bool $flag
      * @return Yaf_Dispatcher
@@ -518,7 +518,7 @@ final class Yaf_Dispatcher {
      * <p>While the application.dispatcher.throwException is On(you can also calling to <b>Yaf_Dispatcher::throwException(TRUE)</b> to enable it), Yaf will throw Exception whe error occurs instead of trigger error.</p><br/>
      * <p>then if you enable <b>Yaf_Dispatcher::catchException()</b>(also can enabled by set application.dispatcher.catchException), all uncaught Exceptions will be caught by ErrorController::error if you have defined one.</p>
      *
-     * @link http://www.php.net/manual/en/yaf-dispatcher.catchexception.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.catchexception.php
      *
      * @param bool $flag
      * @return Yaf_Dispatcher
@@ -528,7 +528,7 @@ final class Yaf_Dispatcher {
     /**
      * Register a plugin(see Yaf_Plugin_Abstract). Generally, we register plugins in Bootstrap(see Yaf_Bootstrap_Abstract).
      *
-     * @link http://www.php.net/manual/en/yaf-dispatcher.registerplugin.php
+     * @link https://secure.php.net/manual/en/yaf-dispatcher.registerplugin.php
      *
      * @param Yaf_Plugin_Abstract $plugin
      * @return Yaf_Dispatcher
@@ -547,7 +547,7 @@ final class Yaf_Dispatcher {
  * <p>Please keep yaf.use_spl_autoload Off unless there is some library have their own autoload mechanism and impossible to rewrite it.</p>
  * <br/>
  * <p>If you want <b>Yaf_Loader</b> search some classes(libraries) in the local class directory(which is defined in application.ini, and by default, it is application.directory . "/library"), you should register the class prefix using the Yaf_Loader::registerLocalNameSpace()</p>
- * @link http://www.php.net/manual/en/class.yaf-loader.php
+ * @link https://secure.php.net/manual/en/class.yaf-loader.php
  *
  */
 class Yaf_Loader {
@@ -571,27 +571,27 @@ class Yaf_Loader {
     protected static $_instance;
 
     /**
-     * @link http://www.php.net/manual/en/yaf-loader.construct.php
+     * @link https://secure.php.net/manual/en/yaf-loader.construct.php
      */
     private function __construct(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-loader.clone.php
+     * @link https://secure.php.net/manual/en/yaf-loader.clone.php
      */
     private function __clone(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-loader.sleep.php
+     * @link https://secure.php.net/manual/en/yaf-loader.sleep.php
      */
     private function __sleep(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-loader.wakeup.php
+     * @link https://secure.php.net/manual/en/yaf-loader.wakeup.php
      */
     private function __wakeup(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-loader.autoload.php
+     * @link https://secure.php.net/manual/en/yaf-loader.autoload.php
      *
      * @param string $class_name
      *
@@ -600,7 +600,7 @@ class Yaf_Loader {
     public function autoload($class_name){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-loader.getinstance.php
+     * @link https://secure.php.net/manual/en/yaf-loader.getinstance.php
      *
      * @param string $local_library_path
      * @param string $global_library_path
@@ -616,7 +616,7 @@ class Yaf_Loader {
      * <br/>
      * <b>Note:</b>
      * <p>If yaf.library is not configured, then the global library directory is assumed to be the local library directory. in that case, all autoloading will look for local library directory. But if you want your Yaf application be strong, then always register your own classes as local classes.</p>
-     * @link http://www.php.net/manual/en/yaf-loader.registerlocalnamespace.php
+     * @link https://secure.php.net/manual/en/yaf-loader.registerlocalnamespace.php
      *
      * @param string|string[] $name_prefix a string or a array of class name prefix. all class prefix with these prefix will be loaded in local library path.
      *
@@ -625,19 +625,19 @@ class Yaf_Loader {
     public function registerLocalNamespace($name_prefix){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-loader.getlocalnamespace.php
+     * @link https://secure.php.net/manual/en/yaf-loader.getlocalnamespace.php
      *
      * @return string
      */
     public function getLocalNamespace(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-loader.clearlocalnamespace.php
+     * @link https://secure.php.net/manual/en/yaf-loader.clearlocalnamespace.php
      */
     public function clearLocalNamespace(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-loader.islocalname.php
+     * @link https://secure.php.net/manual/en/yaf-loader.islocalname.php
      *
      * @param string $class_name
      *
@@ -646,7 +646,7 @@ class Yaf_Loader {
     public function isLocalName($class_name){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-loader.import.php
+     * @link https://secure.php.net/manual/en/yaf-loader.import.php
      *
      * @param string $file
      *
@@ -656,7 +656,7 @@ class Yaf_Loader {
 
     /**
      * @since 2.1.4
-     * @link http://www.php.net/manual/en/yaf-loader.setlibrarypath.php
+     * @link https://secure.php.net/manual/en/yaf-loader.setlibrarypath.php
      *
      * @param string $directory
      * @param bool $global
@@ -667,7 +667,7 @@ class Yaf_Loader {
 
     /**
      * @since 2.1.4
-     * @link http://www.php.net/manual/en/yaf-loader.getlibrarypath.php
+     * @link https://secure.php.net/manual/en/yaf-loader.getlibrarypath.php
      *
      * @param bool $is_global
      *
@@ -678,7 +678,7 @@ class Yaf_Loader {
 
 /**
  * <p>All methods of <b>Yaf_Registry</b> declared as static, making it universally accessible. This provides the ability to get or set any custom data from anyway in your code as necessary.</p>
- * @link http://www.php.net/manual/en/class.yaf-registry.php
+ * @link https://secure.php.net/manual/en/class.yaf-registry.php
  */
 final class Yaf_Registry {
 
@@ -692,19 +692,19 @@ final class Yaf_Registry {
     protected $_entries;
 
     /**
-     * @link http://www.php.net/manual/en/yaf-registry.construct.php
+     * @link https://secure.php.net/manual/en/yaf-registry.construct.php
      */
     private function __construct(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-registry.clone.php
+     * @link https://secure.php.net/manual/en/yaf-registry.clone.php
      */
     private function __clone(){ }
 
     /**
      * Retrieve an item from registry
      *
-     * @link http://www.php.net/manual/en/yaf-registry.get.php
+     * @link https://secure.php.net/manual/en/yaf-registry.get.php
      *
      * @param string $name
      *
@@ -715,7 +715,7 @@ final class Yaf_Registry {
     /**
      * Check whether an item exists
      *
-     * @link http://www.php.net/manual/en/yaf-registry.has.php
+     * @link https://secure.php.net/manual/en/yaf-registry.has.php
      *
      * @param string $name
      *
@@ -724,7 +724,7 @@ final class Yaf_Registry {
     public static function has($name){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-registry.set.php
+     * @link https://secure.php.net/manual/en/yaf-registry.set.php
      *
      * @param string $name
      * @param mixed $value
@@ -734,7 +734,7 @@ final class Yaf_Registry {
     public static function set($name, $value){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-registry.del.php
+     * @link https://secure.php.net/manual/en/yaf-registry.del.php
      *
      * @param string $name
      *
@@ -744,7 +744,7 @@ final class Yaf_Registry {
 }
 
 /**
- * @link http://www.php.net/manual/en/class.yaf-session.php
+ * @link https://secure.php.net/manual/en/class.yaf-session.php
  * @version 2.2.9
  */
 final class Yaf_Session implements Iterator, Traversable, ArrayAccess, Countable {
@@ -763,34 +763,34 @@ final class Yaf_Session implements Iterator, Traversable, ArrayAccess, Countable
     protected $_started = true;
 
     /**
-     * @link http://www.php.net/manual/en/yaf-session.construct.php
+     * @link https://secure.php.net/manual/en/yaf-session.construct.php
      */
     private function __construct(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-session.clone.php
+     * @link https://secure.php.net/manual/en/yaf-session.clone.php
      */
     private function __clone(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-session.sleep.php
+     * @link https://secure.php.net/manual/en/yaf-session.sleep.php
      */
     private function __sleep(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-session.wakeup.php
+     * @link https://secure.php.net/manual/en/yaf-session.wakeup.php
      */
     private function __wakeup(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-session.getinstance.php
+     * @link https://secure.php.net/manual/en/yaf-session.getinstance.php
      *
      * @return Yaf_Session
      */
     public static function getInstance(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-session.start.php
+     * @link https://secure.php.net/manual/en/yaf-session.start.php
      *
      * @return Yaf_Session
      */
@@ -798,7 +798,7 @@ final class Yaf_Session implements Iterator, Traversable, ArrayAccess, Countable
 
 
     /**
-     * @link http://www.php.net/manual/en/yaf-session.get.php
+     * @link https://secure.php.net/manual/en/yaf-session.get.php
      *
      * @param string $name
      *
@@ -807,7 +807,7 @@ final class Yaf_Session implements Iterator, Traversable, ArrayAccess, Countable
     public function get($name){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-session.has.php
+     * @link https://secure.php.net/manual/en/yaf-session.has.php
      *
      * @param string $name
      *
@@ -816,7 +816,7 @@ final class Yaf_Session implements Iterator, Traversable, ArrayAccess, Countable
     public function has($name){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-session.set.php
+     * @link https://secure.php.net/manual/en/yaf-session.set.php
      *
      * @param string $name
      * @param mixed $value
@@ -826,7 +826,7 @@ final class Yaf_Session implements Iterator, Traversable, ArrayAccess, Countable
     public function set($name, $value){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-session.del.php
+     * @link https://secure.php.net/manual/en/yaf-session.del.php
      *
      * @param string $name
      *
@@ -919,7 +919,7 @@ final class Yaf_Session implements Iterator, Traversable, ArrayAccess, Countable
  * <p>Module name must be defined in config, considering application.module="Index,Foo,Bar", in this case, only index, foo and bar can be considered as a module name. if doesn't config, there is only one module named "Index".</p>
  * <br/>
  * <p>** See examples by opening the external documentation</p>
- * @link http://www.php.net/manual/en/class.yaf-router.php
+ * @link https://secure.php.net/manual/en/class.yaf-router.php
  */
 class Yaf_Router {
 
@@ -933,7 +933,7 @@ class Yaf_Router {
     protected $_current;
 
     /**
-     * @link http://www.php.net/manual/en/yaf-router.construct.php
+     * @link https://secure.php.net/manual/en/yaf-router.construct.php
      */
     public function __construct(){ }
 
@@ -942,7 +942,7 @@ class Yaf_Router {
      * <br/>
      * <p>the newer route will be called before the older(route stack), and if the newer router return TRUE, the router process will be end. otherwise, the older one will be called.</p>
      *
-     * @link http://www.php.net/manual/en/yaf-router.addroute.php
+     * @link https://secure.php.net/manual/en/yaf-router.addroute.php
      *
      * @param string $name
      * @param Yaf_Route_Interface $route
@@ -954,7 +954,7 @@ class Yaf_Router {
     /**
      * <p>Add routes defined by configs into Yaf_Router's route stack</p>
      *
-     * @link http://www.php.net/manual/en/yaf-router.addconfig.php
+     * @link https://secure.php.net/manual/en/yaf-router.addconfig.php
      *
      * @param Yaf_Config_Abstract $config
      *
@@ -963,7 +963,7 @@ class Yaf_Router {
     public function addConfig(Yaf_Config_Abstract $config){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-router.route.php
+     * @link https://secure.php.net/manual/en/yaf-router.route.php
      *
      * @param Yaf_Request_Abstract $request
      *
@@ -974,7 +974,7 @@ class Yaf_Router {
     /**
      * <p>Retrieve a route by name, see also Yaf_Router::getCurrentRoute()</p>
      *
-     * @link http://www.php.net/manual/en/yaf-router.getroute.php
+     * @link https://secure.php.net/manual/en/yaf-router.getroute.php
      *
      * @param string $name
      *
@@ -983,7 +983,7 @@ class Yaf_Router {
     public function getRoute($name){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-router.getroutes.php
+     * @link https://secure.php.net/manual/en/yaf-router.getroutes.php
      *
      * @return Yaf_Route_Interface[]
      */
@@ -995,7 +995,7 @@ class Yaf_Router {
      * <b>Note:</b>
      * <p>You should call this method after the route process finished, since before that, this method will always return NULL.</p>
      *
-     * @link http://www.php.net/manual/en/yaf-router.getcurrentroute.php
+     * @link https://secure.php.net/manual/en/yaf-router.getcurrentroute.php
      *
      * @return string the name of the effective route.
      */
@@ -1007,7 +1007,7 @@ class Yaf_Router {
  * <p>User may define their own Bootstrap class by inheriting <b>Yaf_Bootstrap_Abstract</b><br/><br/></p>
  * <p>Any method declared in Bootstrap class with leading "_init", will be called by Yaf_Application::bootstrap() one by one according to their defined order<br/><br/></p>
  *
- * @link http://www.php.net/manual/en/class.yaf-bootstrap-abstract.php
+ * @link https://secure.php.net/manual/en/class.yaf-bootstrap-abstract.php
  */
 abstract class Yaf_Bootstrap_Abstract {
 
@@ -1027,7 +1027,7 @@ abstract class Yaf_Bootstrap_Abstract {
  * <b>Note:</b>
  * <p>These arguments are directly fetched without filtering, it should be carefully processed before use them.</p>
  *
- * @link http://www.php.net/manual/en/class.yaf-controller-abstract.php
+ * @link https://secure.php.net/manual/en/class.yaf-controller-abstract.php
  */
 abstract class Yaf_Controller_Abstract {
 
@@ -1062,7 +1062,7 @@ abstract class Yaf_Controller_Abstract {
     protected $_view;
 
     /**
-     * @link http://www.php.net/manual/en/yaf-controller-abstract.render.php
+     * @link https://secure.php.net/manual/en/yaf-controller-abstract.render.php
      *
      * @param string $tpl
      * @param array $parameters
@@ -1072,7 +1072,7 @@ abstract class Yaf_Controller_Abstract {
     protected function render($tpl, array $parameters = null){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-controller-abstract.display.php
+     * @link https://secure.php.net/manual/en/yaf-controller-abstract.display.php
      *
      * @param string $tpl
      * @param array $parameters
@@ -1084,7 +1084,7 @@ abstract class Yaf_Controller_Abstract {
     /**
      * retrieve current request object
      *
-     * @link http://www.php.net/manual/en/yaf-controller-abstract.getrequest.php
+     * @link https://secure.php.net/manual/en/yaf-controller-abstract.getrequest.php
      *
      * @return Yaf_Request_Abstract
      */
@@ -1093,7 +1093,7 @@ abstract class Yaf_Controller_Abstract {
     /**
      * retrieve current response object
      *
-     * @link http://www.php.net/manual/en/yaf-controller-abstract.getresponse.php
+     * @link https://secure.php.net/manual/en/yaf-controller-abstract.getresponse.php
      *
      * @return Yaf_Response_Abstract
      */
@@ -1102,7 +1102,7 @@ abstract class Yaf_Controller_Abstract {
     /**
      * get the controller's module name
      *
-     * @link http://www.php.net/manual/en/yaf-controller-abstract.getmodulename.php
+     * @link https://secure.php.net/manual/en/yaf-controller-abstract.getmodulename.php
      *
      * @return string
      */
@@ -1111,7 +1111,7 @@ abstract class Yaf_Controller_Abstract {
     /**
      * retrieve view engine
      *
-     * @link http://www.php.net/manual/en/yaf-controller-abstract.getview.php
+     * @link https://secure.php.net/manual/en/yaf-controller-abstract.getview.php
      *
      * @return Yaf_View_Interface
      */
@@ -1119,7 +1119,7 @@ abstract class Yaf_Controller_Abstract {
 
     /**
      * @deprecated not_implemented
-     * @link http://www.php.net/manual/en/yaf-controller-abstract.initview.php
+     * @link https://secure.php.net/manual/en/yaf-controller-abstract.initview.php
      *
      * @param array $options
      *
@@ -1128,7 +1128,7 @@ abstract class Yaf_Controller_Abstract {
     public function initView(array $options = null){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-controller-abstract.setviewpath.php
+     * @link https://secure.php.net/manual/en/yaf-controller-abstract.setviewpath.php
      *
      * @param string $view_directory
      *
@@ -1137,7 +1137,7 @@ abstract class Yaf_Controller_Abstract {
     public function setViewpath($view_directory){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-controller-abstract.getviewpath.php
+     * @link https://secure.php.net/manual/en/yaf-controller-abstract.getviewpath.php
      *
      * @return string
      */
@@ -1154,7 +1154,7 @@ abstract class Yaf_Controller_Abstract {
      * <p>Yaf_Controller_Abstract::forward ( string $controller , string $action [, array $parameters ] )</p>
      * <p>Yaf_Controller_Abstract::forward ( string $action [, array $parameters ] )</p>
      *
-     * @link http://www.php.net/manual/en/yaf-controller-abstract.forward.php
+     * @link https://secure.php.net/manual/en/yaf-controller-abstract.forward.php
      *
      * @param string $module destination module name, if NULL was given, then default module name is assumed
      * @param string $controller destination controller name
@@ -1168,7 +1168,7 @@ abstract class Yaf_Controller_Abstract {
     /**
      * redirect to a URL by sending a 302 header
      *
-     * @link http://www.php.net/manual/en/yaf-controller-abstract.redirect.php
+     * @link https://secure.php.net/manual/en/yaf-controller-abstract.redirect.php
      *
      * @param string $url a location URL
      *
@@ -1177,14 +1177,14 @@ abstract class Yaf_Controller_Abstract {
     public function redirect($url){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-controller-abstract.getinvokeargs.php
+     * @link https://secure.php.net/manual/en/yaf-controller-abstract.getinvokeargs.php
      *
      * @return array
      */
     public function getInvokeArgs(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-controller-abstract.getinvokearg.php
+     * @link https://secure.php.net/manual/en/yaf-controller-abstract.getinvokearg.php
      * @param string $name
      *
      * @return null|mixed
@@ -1194,7 +1194,7 @@ abstract class Yaf_Controller_Abstract {
     /**
      * <p>Yaf_Controller_Abstract::__construct() is final, which means users can not override it. but users can define <b>Yaf_Controller_Abstract::init()</b>, which will be called after controller object is instantiated.</p>
      *
-     * @link http://www.php.net/manual/en/yaf-controller-abstract.init.php
+     * @link https://secure.php.net/manual/en/yaf-controller-abstract.init.php
      *
      */
     public function init(){ }
@@ -1203,7 +1203,7 @@ abstract class Yaf_Controller_Abstract {
      * <b>Yaf_Controller_Abstract</b>::__construct() is final, which means it can not be overridden. You may want to see Yaf_Controller_Abstract::init() instead.
      *
      * @see Yaf_Controller_Abstract::init()
-     * @link http://www.php.net/manual/en/yaf-controller-abstract.construct.php
+     * @link https://secure.php.net/manual/en/yaf-controller-abstract.construct.php
      *
      * @param Yaf_Request_Abstract $request
      * @param Yaf_Response_Abstract $response
@@ -1213,7 +1213,7 @@ abstract class Yaf_Controller_Abstract {
     final public function __construct(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response, Yaf_View_Interface $view, array $invokeArgs = null){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-controller-abstract.clone.php
+     * @link https://secure.php.net/manual/en/yaf-controller-abstract.clone.php
      */
     final private function __clone(){ }
 }
@@ -1223,7 +1223,7 @@ abstract class Yaf_Controller_Abstract {
  * <br/>
  * <p>Since there should be a entry point which can be called by Yaf (as of PHP 5.3, there is a new magic method __invoke, but Yaf is not only works with PHP 5.3+, Yaf choose another magic method execute), you must implement the abstract method Yaf_Action_Abstract::execute() in your custom action class.</p>
  *
- * @link http://www.php.net/manual/en/class.yaf-action-abstract.php
+ * @link https://secure.php.net/manual/en/class.yaf-action-abstract.php
  *
  */
 abstract class Yaf_Action_Abstract extends Yaf_Controller_Abstract {
@@ -1238,7 +1238,7 @@ abstract class Yaf_Action_Abstract extends Yaf_Controller_Abstract {
      * <br/>
      * <b>Note:</b>
      * <p>The value retrieved from the request is not safe. you should do some filtering work before you use it.</p>
-     * @link http://www.php.net/manual/en/yaf-action-abstract.execute.php
+     * @link https://secure.php.net/manual/en/yaf-action-abstract.execute.php
      *
      * @param mixed ... unlimited number of arguments
      * @return mixed
@@ -1248,7 +1248,7 @@ abstract class Yaf_Action_Abstract extends Yaf_Controller_Abstract {
     /**
      * retrieve current controller object.
      *
-     * @link http://www.php.net/manual/en/yaf-action-abstract.getcontroller.php
+     * @link https://secure.php.net/manual/en/yaf-action-abstract.getcontroller.php
      *
      * @return Yaf_Controller_Abstract
      */
@@ -1256,7 +1256,7 @@ abstract class Yaf_Action_Abstract extends Yaf_Controller_Abstract {
 }
 
 /**
- * @link http://www.php.net/manual/en/class.yaf-config-abstract.php
+ * @link https://secure.php.net/manual/en/class.yaf-config-abstract.php
  */
 abstract class Yaf_Config_Abstract {
 
@@ -1270,7 +1270,7 @@ abstract class Yaf_Config_Abstract {
     protected $_readonly = true;
 
     /**
-     * @link http://www.php.net/manual/en/yaf-config-abstract.get.php
+     * @link https://secure.php.net/manual/en/yaf-config-abstract.get.php
      *
      * @param string $name
      * @return mixed
@@ -1278,7 +1278,7 @@ abstract class Yaf_Config_Abstract {
     abstract public function get($name = null);
 
     /**
-     * @link http://www.php.net/manual/en/yaf-config-abstract.set.php
+     * @link https://secure.php.net/manual/en/yaf-config-abstract.set.php
      *
      * @param string $name
      * @param mixed $value
@@ -1287,14 +1287,14 @@ abstract class Yaf_Config_Abstract {
     abstract public function set($name, $value);
 
     /**
-     * @link http://www.php.net/manual/en/yaf-config-abstract.readonly.php
+     * @link https://secure.php.net/manual/en/yaf-config-abstract.readonly.php
      *
      * @return bool
      */
     abstract public function readonly();
 
     /**
-     * @link http://www.php.net/manual/en/yaf-config-abstract.toarray.php
+     * @link https://secure.php.net/manual/en/yaf-config-abstract.toarray.php
      *
      * @return array
      */
@@ -1302,7 +1302,7 @@ abstract class Yaf_Config_Abstract {
 }
 
 /**
- * @link http://www.php.net/manual/en/class.yaf-request-abstract.php
+ * @link https://secure.php.net/manual/en/class.yaf-request-abstract.php
  */
 abstract class Yaf_Request_Abstract {
 
@@ -1354,56 +1354,56 @@ abstract class Yaf_Request_Abstract {
     protected $routed = "";
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.isget.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.isget.php
      *
      * @return bool
      */
     public function isGet(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.ispost.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.ispost.php
      *
      * @return bool
      */
     public function isPost(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.isput.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.isput.php
      *
      * @return bool
      */
     public function isPut(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.ishead.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.ishead.php
      *
      * @return bool
      */
     public function isHead(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.isoptions.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.isoptions.php
      *
      * @return bool
      */
     public function isOptions(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.iscli.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.iscli.php
      *
      * @return bool
      */
     public function isCli(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.isdispached.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.isdispached.php
      *
      * @return bool
      */
     public function isDispatched(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.isrouted.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.isrouted.php
      *
      * @return bool
      */
@@ -1411,7 +1411,7 @@ abstract class Yaf_Request_Abstract {
 
     /**
      *
-     * @link http://www.php.net/manual/en/yaf-request-abstract.isxmlhttprequest.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.isxmlhttprequest.php
      *
      * @return bool false
      */
@@ -1420,7 +1420,7 @@ abstract class Yaf_Request_Abstract {
     /**
      * Retrieve $_SERVER variable
      *
-     * @link http://www.php.net/manual/en/yaf-request-abstract.getserver.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.getserver.php
      *
      * @param string $name the variable name, if not provided returns all
      * @param mixed $default if this parameter is provide, this will be returned if the variable can not be found
@@ -1432,7 +1432,7 @@ abstract class Yaf_Request_Abstract {
     /**
      * Retrieve $_ENV variable
      *
-     * @link http://www.php.net/manual/en/yaf-request-abstract.getenv.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.getenv.php
      *
      * @param string $name the variable name, if not provided returns all
      * @param mixed $default if this parameter is provide, this will be returned if the variable can not be found
@@ -1443,7 +1443,7 @@ abstract class Yaf_Request_Abstract {
 
     /**
      *
-     * @link http://www.php.net/manual/en/yaf-request-abstract.getparam.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.getparam.php
      *
      * @param string $name
      * @param mixed $default
@@ -1454,42 +1454,42 @@ abstract class Yaf_Request_Abstract {
 
     /**
      *
-     * @link http://www.php.net/manual/en/yaf-request-abstract.getparams.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.getparams.php
      *
      * @return array
      */
     public function getParams(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.getexception.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.getexception.php
      *
      * @return Yaf_Exception
      */
     public function getException(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.getmoudlename.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.getmoudlename.php
      *
      * @return string
      */
     public function getModuleName(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.getcontrollername.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.getcontrollername.php
      *
      * @return string
      */
     public function getControllerName(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.getactionname.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.getactionname.php
      *
      * @return string
      */
     public function getActionName(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.setparam.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.setparam.php
      *
      * @param string|array $name the variable name, or an array of key=>value pairs
      * @param string $value
@@ -1499,7 +1499,7 @@ abstract class Yaf_Request_Abstract {
     public function setParam($name, $value = null){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.setmodulename.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.setmodulename.php
      *
      * @param string $module
      *
@@ -1508,7 +1508,7 @@ abstract class Yaf_Request_Abstract {
     public function setModuleName($module){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.setcontrollername.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.setcontrollername.php
      *
      * @param string $controller
      *
@@ -1517,7 +1517,7 @@ abstract class Yaf_Request_Abstract {
     public function setControllerName($controller){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.setactionname.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.setactionname.php
      *
      * @param string $action
      *
@@ -1526,14 +1526,14 @@ abstract class Yaf_Request_Abstract {
     public function setActionName($action){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.getmethod.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.getmethod.php
      *
      * @return string
      */
     public function getMethod(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.getlanguage.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.getlanguage.php
      *
      * @return string
      */
@@ -1545,7 +1545,7 @@ abstract class Yaf_Request_Abstract {
      * <b>Note:</b>
      * <p>generally, you don't need to set this, Yaf will determine it automatically.</p>
      *
-     * @link http://www.php.net/manual/en/yaf-request-abstract.setbaseuri.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.setbaseuri.php
      *
      * @param string $uri base URI
      *
@@ -1554,14 +1554,14 @@ abstract class Yaf_Request_Abstract {
     public function setBaseUri($uri){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.getbaseuri.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.getbaseuri.php
      *
      * @return string
      */
     public function getBaseUri(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-abstract.getrequesturi.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.getrequesturi.php
      *
      * @return string
      */
@@ -1569,7 +1569,7 @@ abstract class Yaf_Request_Abstract {
 
     /**
      * @since 2.1.0
-     * @link http://www.php.net/manual/en/yaf-request-abstract.setrequesturi.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.setrequesturi.php
      *
      * @param string $uri request URI
      */
@@ -1578,7 +1578,7 @@ abstract class Yaf_Request_Abstract {
     /**
      * Set request as dispatched
      *
-     * @link http://www.php.net/manual/en/yaf-request-abstract.setdispatched.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.setdispatched.php
      *
      * @return bool
      */
@@ -1587,7 +1587,7 @@ abstract class Yaf_Request_Abstract {
     /**
      * Set request as routed
      *
-     * @link http://www.php.net/manual/en/yaf-request-abstract.setrouted.php
+     * @link https://secure.php.net/manual/en/yaf-request-abstract.setrouted.php
      *
      * @return Yaf_Request_Abstract|bool
      */
@@ -1600,14 +1600,14 @@ abstract class Yaf_Request_Abstract {
  * <p>Plugins are classes. The actual class definition will vary based on the component -- you may need to implement this interface, but the fact remains that the plugin is itself a class.</p>
  * <br/>
  * <p>A plugin could be loaded into Yaf by using Yaf_Dispatcher::registerPlugin(), after registered, All the methods which the plugin implemented according to this interface, will be called at the proper time.</p>
- * @link http://www.php.net/manual/en/class.yaf-plugin-abstract.php
+ * @link https://secure.php.net/manual/en/class.yaf-plugin-abstract.php
  */
 abstract class Yaf_Plugin_Abstract {
 
     /**
      * This is the earliest hook in Yaf plugin hook system, if a custom plugin implement this method, then it will be called before routing a request.
      *
-     * @link http://www.php.net/manual/en/yaf-plugin-abstract.routerstartup.php
+     * @link https://secure.php.net/manual/en/yaf-plugin-abstract.routerstartup.php
      *
      * @param Yaf_Request_Abstract $request
      * @param Yaf_Response_Abstract $response
@@ -1619,7 +1619,7 @@ abstract class Yaf_Plugin_Abstract {
     /**
      * This hook will be trigged after the route process finished, this hook is usually used for login check.
      *
-     * @link http://www.php.net/manual/en/yaf-plugin-abstract.routershutdown.php
+     * @link https://secure.php.net/manual/en/yaf-plugin-abstract.routershutdown.php
      *
      * @param Yaf_Request_Abstract $request
      * @param Yaf_Response_Abstract $response
@@ -1629,7 +1629,7 @@ abstract class Yaf_Plugin_Abstract {
     public function routerShutdown(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-plugin-abstract.dispatchloopstartup.php
+     * @link https://secure.php.net/manual/en/yaf-plugin-abstract.dispatchloopstartup.php
      *
      * @param Yaf_Request_Abstract $request
      * @param Yaf_Response_Abstract $response
@@ -1641,7 +1641,7 @@ abstract class Yaf_Plugin_Abstract {
     /**
      * This is the latest hook in Yaf plugin hook system, if a custom plugin implement this method, then it will be called after the dispatch loop finished.
      *
-     * @link http://www.php.net/manual/en/yaf-plugin-abstract.dispatchloopshutdown.php
+     * @link https://secure.php.net/manual/en/yaf-plugin-abstract.dispatchloopshutdown.php
      *
      * @param Yaf_Request_Abstract $request
      * @param Yaf_Response_Abstract $response
@@ -1651,7 +1651,7 @@ abstract class Yaf_Plugin_Abstract {
     public function dispatchLoopShutdown(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-plugin-abstract.predispatch.php
+     * @link https://secure.php.net/manual/en/yaf-plugin-abstract.predispatch.php
      *
      * @param Yaf_Request_Abstract $request
      * @param Yaf_Response_Abstract $response
@@ -1661,7 +1661,7 @@ abstract class Yaf_Plugin_Abstract {
     public function preDispatch(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-plugin-abstract.postdispatch.php
+     * @link https://secure.php.net/manual/en/yaf-plugin-abstract.postdispatch.php
      *
      * @param Yaf_Request_Abstract $request
      * @param Yaf_Response_Abstract $response
@@ -1671,7 +1671,7 @@ abstract class Yaf_Plugin_Abstract {
     public function postDispatch(Yaf_Request_Abstract $request, Yaf_Response_Abstract $response){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-plugin-abstract.preresponse.php
+     * @link https://secure.php.net/manual/en/yaf-plugin-abstract.preresponse.php
      *
      * @param Yaf_Request_Abstract $request
      * @param Yaf_Response_Abstract $response
@@ -1682,7 +1682,7 @@ abstract class Yaf_Plugin_Abstract {
 }
 
 /**
- * @link http://www.php.net/manual/en/class.yaf-response-abstract.php
+ * @link https://secure.php.net/manual/en/class.yaf-response-abstract.php
  */
 abstract class Yaf_Response_Abstract {
 
@@ -1701,29 +1701,29 @@ abstract class Yaf_Response_Abstract {
     protected $_sendheader;
 
     /**
-     * @link http://www.php.net/manual/en/yaf-response-abstract.construct.php
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.construct.php
      */
     public function __construct(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-response-abstract.destruct.php
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.destruct.php
      */
     public function __destruct(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-response-abstract.clone.php
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.clone.php
      */
     private function __clone(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-response-abstract.tostring.php
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.tostring.php
      */
     private function __toString(){ }
 
     /**
      * Set content to response
      *
-     * @link http://www.php.net/manual/en/yaf-response-abstract.setbody.php
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.setbody.php
      *
      * @param string $content content string
      * @param string $key <p>the content key, you can set a content with a key, if you don't specific, then Yaf_Response_Abstract::DEFAULT_BODY will be used</p>
@@ -1738,7 +1738,7 @@ abstract class Yaf_Response_Abstract {
     /**
      * append a content to a exists content block
      *
-     * @link http://www.php.net/manual/en/yaf-response-abstract.appendbody.php
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.appendbody.php
      *
      * @param string $content content string
      * @param string $key <p>the content key, you can set a content with a key, if you don't specific, then Yaf_Response_Abstract::DEFAULT_BODY will be used</p>
@@ -1753,7 +1753,7 @@ abstract class Yaf_Response_Abstract {
     /**
      * prepend a content to a exists content block
      *
-     * @link http://www.php.net/manual/en/yaf-response-abstract.prependbody.php
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.prependbody.php
      *
      * @param string $content content string
      * @param string $key <p>the content key, you can set a content with a key, if you don't specific, then Yaf_Response_Abstract::DEFAULT_BODY will be used</p>
@@ -1768,7 +1768,7 @@ abstract class Yaf_Response_Abstract {
     /**
      * Clear existing content
      *
-     * @link http://www.php.net/manual/en/yaf-response-abstract.clearbody.php
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.clearbody.php
      *
      * @param string $key <p>the content key, you can set a content with a key, if you don't specific, then Yaf_Response_Abstract::DEFAULT_BODY will be used</p>
      * <br/>
@@ -1782,7 +1782,7 @@ abstract class Yaf_Response_Abstract {
     /**
      * Retrieve an existing content
      *
-     * @link http://www.php.net/manual/en/yaf-response-abstract.getbody.php
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.getbody.php
      *
      * @param null|string $key <p>the content key, if you don't specific, then Yaf_Response_Abstract::DEFAULT_BODY will be used. if you pass in a NULL, then all contents will be returned as a array</p>
      * <br/>
@@ -1797,14 +1797,14 @@ abstract class Yaf_Response_Abstract {
 /**
  * Yaf provides a ability for developers to use custom view engine instead of build-in engine which is Yaf_View_Simple. There is a example to explain how to do this, please see Yaf_Dispatcher::setView()
  *
- * @link http://www.php.net/manual/en/class.yaf-view-interface.php
+ * @link https://secure.php.net/manual/en/class.yaf-view-interface.php
  */
 interface Yaf_View_Interface {
 
     /**
      * Assign values to View engine, then the value can access directly by name in template.
      *
-     * @link http://www.php.net/manual/en/yaf-view-interface.assign.php
+     * @link https://secure.php.net/manual/en/yaf-view-interface.assign.php
      *
      * @param string|array $name
      * @param mixed $value
@@ -1815,7 +1815,7 @@ interface Yaf_View_Interface {
     /**
      * Render a template and output the result immediately.
      *
-     * @link http://www.php.net/manual/en/yaf-view-interface.display.php
+     * @link https://secure.php.net/manual/en/yaf-view-interface.display.php
      *
      * @param string $tpl
      * @param array $tpl_vars
@@ -1824,7 +1824,7 @@ interface Yaf_View_Interface {
     function display($tpl, array $tpl_vars = null);
 
     /**
-     * @link http://www.php.net/manual/en/yaf-view-interface.getscriptpath.php
+     * @link https://secure.php.net/manual/en/yaf-view-interface.getscriptpath.php
      *
      * @return string
      */
@@ -1833,7 +1833,7 @@ interface Yaf_View_Interface {
     /**
      * Render a template and return the result.
      *
-     * @link http://www.php.net/manual/en/yaf-view-interface.render.php
+     * @link https://secure.php.net/manual/en/yaf-view-interface.render.php
      *
      * @param string $tpl
      * @param array $tpl_vars
@@ -1844,7 +1844,7 @@ interface Yaf_View_Interface {
     /**
      * Set the templates base directory, this is usually called by Yaf_Dispatcher
      *
-     * @link http://www.php.net/manual/en/yaf-view-interface.setscriptpath.php
+     * @link https://secure.php.net/manual/en/yaf-view-interface.setscriptpath.php
      *
      * @param string $template_dir An absolute path to the template directory, by default, Yaf_Dispatcher use application.directory . "/views" as this parameter.
      */
@@ -1854,7 +1854,7 @@ interface Yaf_View_Interface {
 /**
  * <b>Yaf_Route_Interface</b> used for developer defined their custom route.
  *
- * @link http://www.php.net/manual/en/class.yaf-route-interface.php
+ * @link https://secure.php.net/manual/en/class.yaf-route-interface.php
  */
 interface Yaf_Route_Interface {
 
@@ -1864,7 +1864,7 @@ interface Yaf_Route_Interface {
      * <p>This method would set the route result to the parameter request, by calling Yaf_Request_Abstract::setControllerName(), Yaf_Request_Abstract::setActionName() and Yaf_Request_Abstract::setModuleName().</p><br/>
      * <p>This method should also call Yaf_Request_Abstract::setRouted() to make the request routed at last.</p>
      *
-     * @link http://www.php.net/manual/en/yaf-route-interface.route.php
+     * @link https://secure.php.net/manual/en/yaf-route-interface.route.php
      *
      * @param Yaf_Request_Abstract $request
      * @return bool
@@ -1876,7 +1876,7 @@ interface Yaf_Route_Interface {
      * <p>this method returns a url according to the argument info, and append query strings to the url according to the argument query.</p>
      * <p>a route should implement this method according to its own route rules, and do a reverse progress.</p>
      *
-     * @link http://www.php.net/manual/en/yaf-route-interface.assemble.php
+     * @link https://secure.php.net/manual/en/yaf-route-interface.assemble.php
      *
      * @param array $info
      * @param array $query
@@ -1886,7 +1886,7 @@ interface Yaf_Route_Interface {
 }
 
 /**
- * @link http://www.php.net/manual/en/class.yaf-exception.php
+ * @link https://secure.php.net/manual/en/class.yaf-exception.php
  */
 class Yaf_Exception extends Exception {
 
@@ -1914,7 +1914,7 @@ class Yaf_Response_Http extends Yaf_Response_Abstract {
 
 
     /**
-     * @link http://www.php.net/manual/en/yaf-response-abstract.setheader.php
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.setheader.php
      *
      * @param string $name
      * @param string $value
@@ -1926,7 +1926,7 @@ class Yaf_Response_Http extends Yaf_Response_Abstract {
     public function setHeader($name,$value,$replace = false,$response_code = 0){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-response-abstract.setallheaders.php
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.setallheaders.php
      *
      * @param array $headers
      *
@@ -1935,7 +1935,7 @@ class Yaf_Response_Http extends Yaf_Response_Abstract {
     protected function setAllHeaders(array $headers){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-response-abstract.getheader.php
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.getheader.php
      *
      * @param string $name
      *
@@ -1944,7 +1944,7 @@ class Yaf_Response_Http extends Yaf_Response_Abstract {
     public function getHeader($name = null){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-response-abstract.clearheaders.php
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.clearheaders.php
      *
      * @param string $name
      *
@@ -1953,7 +1953,7 @@ class Yaf_Response_Http extends Yaf_Response_Abstract {
     public function clearHeaders($name = null){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-response-abstract.setredirect.php
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.setredirect.php
      *
      * @param string $url
      *
@@ -1964,7 +1964,7 @@ class Yaf_Response_Http extends Yaf_Response_Abstract {
     /**
      * send response
      *
-     * @link http://www.php.net/manual/en/yaf-response-abstract.response.php
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.response.php
      *
      * @return bool
      */
@@ -1988,14 +1988,14 @@ class Yaf_Response_Cli extends Yaf_Response_Abstract {
 }
 
 /**
- * @link http://www.php.net/manual/en/class.yaf-request-http.php
+ * @link https://secure.php.net/manual/en/class.yaf-request-http.php
  */
 class Yaf_Request_Http extends Yaf_Request_Abstract {
 
     /**
      * Retrieve $_GET variable
      *
-     * @link http://www.php.net/manual/en/yaf-request-http.getquery.php
+     * @link https://secure.php.net/manual/en/yaf-request-http.getquery.php
      *
      * @param string $name the variable name, if not provided returns all
      * @param mixed $default if this parameter is provide, this will be returned if the variable can not be found
@@ -2007,7 +2007,7 @@ class Yaf_Request_Http extends Yaf_Request_Abstract {
     /**
      * Retrieve $_REQUEST variable
      *
-     * @link http://www.php.net/manual/en/yaf-request-http.getrequest.php
+     * @link https://secure.php.net/manual/en/yaf-request-http.getrequest.php
      *
      * @param string $name the variable name, if not provided returns all
      * @param mixed $default if this parameter is provide, this will be returned if the variable can not be found
@@ -2019,7 +2019,7 @@ class Yaf_Request_Http extends Yaf_Request_Abstract {
     /**
      * Retrieve $_POST variable
      *
-     * @link http://www.php.net/manual/en/yaf-request-http.getpost.php
+     * @link https://secure.php.net/manual/en/yaf-request-http.getpost.php
      *
      * @param string $name the variable name, if not provided returns all
      * @param mixed $default if this parameter is provide, this will be returned if the variable can not be found
@@ -2031,7 +2031,7 @@ class Yaf_Request_Http extends Yaf_Request_Abstract {
     /**
      * Retrieve $_COOKIE variable
      *
-     * @link http://www.php.net/manual/en/yaf-request-http.getcookie.php
+     * @link https://secure.php.net/manual/en/yaf-request-http.getcookie.php
      *
      * @param string $name the variable name, if not provided returns all
      * @param mixed $default if this parameter is provide, this will be returned if the variable can not be found
@@ -2043,7 +2043,7 @@ class Yaf_Request_Http extends Yaf_Request_Abstract {
     /**
      * Retrieve $_FILES variable
      *
-     * @link http://www.php.net/manual/en/yaf-request-http.getfiles.php
+     * @link https://secure.php.net/manual/en/yaf-request-http.getfiles.php
      *
      * @param string $name the variable name, if not provided returns all
      * @param mixed $default if this parameter is provide, this will be returned if the variable can not be found
@@ -2055,7 +2055,7 @@ class Yaf_Request_Http extends Yaf_Request_Abstract {
     /**
      * Retrieve variable from client, this method will search the name in $_REQUEST params, if the name is not found, then will search in $_POST, $_GET, $_COOKIE, $_SERVER
      *
-     * @link http://www.php.net/manual/en/yaf-request-http.get.php
+     * @link https://secure.php.net/manual/en/yaf-request-http.get.php
      *
      * @param string $name the variable name
      * @param string $default if this parameter is provide, this will be returned if the variable can not be found
@@ -2072,14 +2072,14 @@ class Yaf_Request_Http extends Yaf_Request_Abstract {
      * <p>
      * This method depends on the request header: HTTP_X_REQUESTED_WITH, some Javascript library doesn't set this header while doing Ajax request
      * </p>
-     * @link http://www.php.net/manual/en/yaf-request-http.isxmlhttprequest.php
+     * @link https://secure.php.net/manual/en/yaf-request-http.isxmlhttprequest.php
      *
      * @return bool
      */
     public function isXmlHttpRequest(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-http.construct.php
+     * @link https://secure.php.net/manual/en/yaf-request-http.construct.php
      *
      * @param string $request_uri
      * @param string $base_uri
@@ -2088,21 +2088,21 @@ class Yaf_Request_Http extends Yaf_Request_Abstract {
     public function __construct($request_uri, $base_uri){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-http.clone.php
+     * @link https://secure.php.net/manual/en/yaf-request-http.clone.php
      */
     private function __clone(){ }
 }
 
 /**
  * <b>Yaf_Request_Simple</b> is particularly used for test purpose. ie. simulate a spacial request under CLI mode.
- * @link http://www.php.net/manual/en/class.yaf-request-simple.php
+ * @link https://secure.php.net/manual/en/class.yaf-request-simple.php
  */
 class Yaf_Request_Simple extends Yaf_Request_Abstract {
 
     /**
      * Retrieve $_GET variable
      *
-     * @link http://www.php.net/manual/en/yaf-request-simple.getquery.php
+     * @link https://secure.php.net/manual/en/yaf-request-simple.getquery.php
      *
      * @param string $name the variable name, if not provided returns all
      * @param string $default if this parameter is provide, this will be returned if the variable can not be found
@@ -2114,7 +2114,7 @@ class Yaf_Request_Simple extends Yaf_Request_Abstract {
     /**
      * Retrieve $_REQUEST variable
      *
-     * @link http://www.php.net/manual/en/yaf-request-simple.getrequest.php
+     * @link https://secure.php.net/manual/en/yaf-request-simple.getrequest.php
      *
      * @param string $name the variable name, if not provided returns all
      * @param string $default if this parameter is provide, this will be returned if the variable can not be found
@@ -2126,7 +2126,7 @@ class Yaf_Request_Simple extends Yaf_Request_Abstract {
     /**
      * Retrieve $_POST variable
      *
-     * @link http://www.php.net/manual/en/yaf-request-simple.getpost.php
+     * @link https://secure.php.net/manual/en/yaf-request-simple.getpost.php
      *
      * @param string $name the variable name, if not provided returns all
      * @param string $default if this parameter is provide, this will be returned if the variable can not be found
@@ -2138,7 +2138,7 @@ class Yaf_Request_Simple extends Yaf_Request_Abstract {
     /**
      * Retrieve $_Cookie variable
      *
-     * @link http://www.php.net/manual/en/yaf-request-simple.getcookie.php
+     * @link https://secure.php.net/manual/en/yaf-request-simple.getcookie.php
      *
      * @param string $name the variable name, if not provided returns all
      * @param string $default if this parameter is provide, this will be returned if the variable can not be found
@@ -2158,7 +2158,7 @@ class Yaf_Request_Simple extends Yaf_Request_Abstract {
     /**
      * Retrieve variable from client, this method will search the name in $_REQUEST params, if the name is not found, then will search in $_POST, $_GET, $_COOKIE, $_SERVER
      *
-     * @link http://www.php.net/manual/en/yaf-request-simple.get.php
+     * @link https://secure.php.net/manual/en/yaf-request-simple.get.php
      *
      * @param string $name the variable name
      * @param string $default if this parameter is provide, this will be returned if the variable can not be found
@@ -2175,14 +2175,14 @@ class Yaf_Request_Simple extends Yaf_Request_Abstract {
      * <p>
      * This method depends on the request header: HTTP_X_REQUESTED_WITH, some Javascript library doesn't set this header while doing Ajax request
      * </p>
-     * @link http://www.php.net/manual/en/yaf-request-simple.isxmlhttprequest.php
+     * @link https://secure.php.net/manual/en/yaf-request-simple.isxmlhttprequest.php
      *
      * @return bool
      */
     public function isXmlHttpRequest(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-simple.construct.php
+     * @link https://secure.php.net/manual/en/yaf-request-simple.construct.php
      *
      * @param string $method
      * @param string $controller
@@ -2194,7 +2194,7 @@ class Yaf_Request_Simple extends Yaf_Request_Abstract {
     public function __construct($method, $controller, $action, $params = null){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-request-simple.clone.php
+     * @link https://secure.php.net/manual/en/yaf-request-simple.clone.php
      */
     private function __clone(){ }
 }
@@ -2203,7 +2203,7 @@ class Yaf_Request_Simple extends Yaf_Request_Abstract {
  * <p>Yaf_Config_Ini enables developers to store configuration data in a familiar INI format and read them in the application by using nested object property syntax. The INI format is specialized to provide both the ability to have a hierarchy of configuration data keys and inheritance between configuration data sections. Configuration data hierarchies are supported by separating the keys with the dot or period character ("."). A section may extend or inherit from another section by following the section name with a colon character (":") and the name of the section from which data are to be inherited.</p><br/>
  * <b>Note:</b>
  * <p>Yaf_Config_Ini utilizes the » parse_ini_file() PHP function. Please review this documentation to be aware of its specific behaviors, which propagate to Yaf_Config_Ini, such as how the special values of "TRUE", "FALSE", "yes", "no", and "NULL" are handled.</p>
- * @link http://www.php.net/manual/en/class.yaf-config-ini.php
+ * @link https://secure.php.net/manual/en/class.yaf-config-ini.php
  */
 class Yaf_Config_Ini extends Yaf_Config_Abstract implements Iterator, Traversable, ArrayAccess, Countable {
 
@@ -2239,7 +2239,7 @@ class Yaf_Config_Ini extends Yaf_Config_Abstract implements Iterator, Traversabl
     public function readonly(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-config-ini.construct.php
+     * @link https://secure.php.net/manual/en/yaf-config-ini.construct.php
      *
      * @param string $config_file path to an INI configure file
      * @param string $section which section in that INI file you want to be parsed
@@ -2249,7 +2249,7 @@ class Yaf_Config_Ini extends Yaf_Config_Abstract implements Iterator, Traversabl
     public function __construct($config_file, $section = null){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-config-ini.isset.php
+     * @link https://secure.php.net/manual/en/yaf-config-ini.isset.php
      * @param string $name
      */
     public function __isset($name){ }
@@ -2307,7 +2307,7 @@ class Yaf_Config_Ini extends Yaf_Config_Abstract implements Iterator, Traversabl
 }
 
 /**
- * @link http://www.php.net/manual/en/class.yaf-config-simple.php
+ * @link https://secure.php.net/manual/en/class.yaf-config-simple.php
  */
 class Yaf_Config_Simple extends Yaf_Config_Abstract implements Iterator, Traversable, ArrayAccess, Countable {
 
@@ -2342,7 +2342,7 @@ class Yaf_Config_Simple extends Yaf_Config_Abstract implements Iterator, Travers
     public function readonly(){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-config-simple.construct.php
+     * @link https://secure.php.net/manual/en/yaf-config-simple.construct.php
      *
      * @param array $array
      * @param string $readonly
@@ -2351,7 +2351,7 @@ class Yaf_Config_Simple extends Yaf_Config_Abstract implements Iterator, Travers
     public function __construct(array $array, $readonly = null){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-config-simple.isset.php
+     * @link https://secure.php.net/manual/en/yaf-config-simple.isset.php
      * @param string $name
      */
     public function __isset($name){ }
@@ -2409,11 +2409,11 @@ class Yaf_Config_Simple extends Yaf_Config_Abstract implements Iterator, Travers
 
 /**
  * <b>Yaf_View_Simple</b> is the built-in template engine in Yaf, it is a simple but fast template engine, and only support PHP script template.
- * @link http://www.php.net/manual/en/class.yaf-view-simple.php
+ * @link https://secure.php.net/manual/en/class.yaf-view-simple.php
  *
  * @method void|bool eval(string $tpl_str, array $vars = null) <p>Render a string template and return the result.</p>
  *
- * @link http://www.php.net/manual/en/yaf-view-simple.eval.php
+ * @link https://secure.php.net/manual/en/yaf-view-simple.eval.php
  *
  * @param string $tpl_str string template
  * @param array $vars
@@ -2436,7 +2436,7 @@ class Yaf_View_Simple implements Yaf_View_Interface {
     protected $_options;
 
     /**
-     * @link http://www.php.net/manual/en/yaf-view-simple.construct.php
+     * @link https://secure.php.net/manual/en/yaf-view-simple.construct.php
      *
      * @param string $template_dir The base directory of the templates, by default, it is APPLICATION . "/views" for Yaf.
      * @param array $options <p>Options for the engine, as of Yaf 2.1.13, you can use short tag
@@ -2449,7 +2449,7 @@ class Yaf_View_Simple implements Yaf_View_Interface {
     final public function __construct($template_dir, array $options = null){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-view-simple.isset.php
+     * @link https://secure.php.net/manual/en/yaf-view-simple.isset.php
      *
      * @param string $name
      */
@@ -2458,7 +2458,7 @@ class Yaf_View_Simple implements Yaf_View_Interface {
     /**
      * assign variable to view engine
      *
-     * @link http://www.php.net/manual/en/yaf-view-simple.assign.php
+     * @link https://secure.php.net/manual/en/yaf-view-simple.assign.php
      *
      * @param string|array $name A string or an array.<br/>if is string, then the next argument $value is required.
      * @param mixed $value mixed value
@@ -2467,7 +2467,7 @@ class Yaf_View_Simple implements Yaf_View_Interface {
     public function assign($name, $value = null){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-view-simple.render.php
+     * @link https://secure.php.net/manual/en/yaf-view-simple.render.php
      *
      * @param string $tpl
      * @param array $tpl_vars
@@ -2481,7 +2481,7 @@ class Yaf_View_Simple implements Yaf_View_Interface {
     /**
      * <p>Render a template and display the result instantly.</p>
      *
-     * @link http://www.php.net/manual/en/yaf-view-simple.display.php
+     * @link https://secure.php.net/manual/en/yaf-view-simple.display.php
      *
      * @param string $tpl
      * @param array $tpl_vars
@@ -2494,7 +2494,7 @@ class Yaf_View_Simple implements Yaf_View_Interface {
 
     /**
      * <p>unlike Yaf_View_Simple::assign(), this method assign a ref value to engine.</p>
-     * @link http://www.php.net/manual/en/yaf-view-simple.assignref.php
+     * @link https://secure.php.net/manual/en/yaf-view-simple.assignref.php
      *
      * @param string $name A string name which will be used to access the value in the template.
      * @param mixed $value mixed value
@@ -2505,7 +2505,7 @@ class Yaf_View_Simple implements Yaf_View_Interface {
 
     /**
      * clear assigned variable
-     * @link http://www.php.net/manual/en/yaf-view-simple.clear.php
+     * @link https://secure.php.net/manual/en/yaf-view-simple.clear.php
      *
      * @param string $name assigned variable name. <br/>if empty, will clear all assigned variables.
      *
@@ -2514,7 +2514,7 @@ class Yaf_View_Simple implements Yaf_View_Interface {
     public function clear($name = null){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-view-simple.setscriptpath.php
+     * @link https://secure.php.net/manual/en/yaf-view-simple.setscriptpath.php
      *
      * @param string $template_dir
      *
@@ -2523,7 +2523,7 @@ class Yaf_View_Simple implements Yaf_View_Interface {
     public function setScriptPath($template_dir){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-view-simple.getscriptpath.php
+     * @link https://secure.php.net/manual/en/yaf-view-simple.getscriptpath.php
      *
      * @return string
      */
@@ -2534,7 +2534,7 @@ class Yaf_View_Simple implements Yaf_View_Interface {
      * <br/>
      * <b>Note:</b>
      * <p>$name parameter can be empty since 2.1.11</p>
-     * @link http://www.php.net/manual/en/yaf-view-simple.get.php
+     * @link https://secure.php.net/manual/en/yaf-view-simple.get.php
      *
      * @param null $name <p>the assigned variable name</p>
      * <br/>
@@ -2547,7 +2547,7 @@ class Yaf_View_Simple implements Yaf_View_Interface {
     /**
      * <p>This is a alternative and easier way to Yaf_View_Simple::assign().</p>
      *
-     * @link http://www.php.net/manual/en/yaf-view-simple.set.php
+     * @link https://secure.php.net/manual/en/yaf-view-simple.set.php
      *
      * @param string $name A string value name.
      * @param mixed $value mixed value
@@ -2563,14 +2563,14 @@ class Yaf_View_Simple implements Yaf_View_Interface {
  * <b>Note:</b>
  * <p> it is unnecessary to instance a <b>Yaf_Route_Static</b>, also unnecessary to add it into Yaf_Router's routes stack, since there is always be one in Yaf_Router's routes stack, and always be called at the last time.</p>
  *
- * @link http://www.php.net/manual/en/class.yaf-route-static.php
+ * @link https://secure.php.net/manual/en/class.yaf-route-static.php
  *
  */
 class Yaf_Route_Static implements Yaf_Route_Interface {
 
     /**
      * @deprecated not_implemented
-     * @link http://www.php.net/manual/en/yaf-route-static.match.php
+     * @link https://secure.php.net/manual/en/yaf-route-static.match.php
      *
      * @param string $uri
      *
@@ -2579,7 +2579,7 @@ class Yaf_Route_Static implements Yaf_Route_Interface {
     public function match($uri){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-route-static.route.php
+     * @link https://secure.php.net/manual/en/yaf-route-static.route.php
      *
      * @param Yaf_Request_Abstract $request
      *
@@ -2590,7 +2590,7 @@ class Yaf_Route_Static implements Yaf_Route_Interface {
     /**
      * <p><b>Yaf_Route_Static::assemble()</b> - Assemble a url
      *
-     * @link http://www.php.net/manual/en/yaf-route-static.assemble.php
+     * @link https://secure.php.net/manual/en/yaf-route-static.assemble.php
      *
      * @param array $info
      * @param array $query
@@ -2606,7 +2606,7 @@ class Yaf_Route_Static implements Yaf_Route_Interface {
  * <br/>
  * <p>Yaf_Route_Simple::route() will always return TRUE, so it is important put <b>Yaf_Route_Simple</b> in the front of the Route stack, otherwise all the other routes will not be called</p>
  *
- * @link http://www.php.net/manual/en/class.yaf-route-simple.php
+ * @link https://secure.php.net/manual/en/class.yaf-route-simple.php
  */
 final class Yaf_Route_Simple implements Yaf_Route_Interface {
 
@@ -2626,7 +2626,7 @@ final class Yaf_Route_Simple implements Yaf_Route_Interface {
     /**
      * <p>Yaf_Route_Simple will get route info from query string. and the parameters of this constructor will used as keys while searching for the route info in $_GET.</p>
      *
-     * @link http://www.php.net/manual/en/yaf-route-simple.construct.php
+     * @link https://secure.php.net/manual/en/yaf-route-simple.construct.php
      *
      * @param string $module_name
      * @param string $controller_name
@@ -2639,7 +2639,7 @@ final class Yaf_Route_Simple implements Yaf_Route_Interface {
     /**
      * <p>see Yaf_Route_Simple::__construct()</p>
      *
-     * @link http://www.php.net/manual/en/yaf-route-simple.route.php
+     * @link https://secure.php.net/manual/en/yaf-route-simple.route.php
      *
      * @param Yaf_Request_Abstract $request
      *
@@ -2650,7 +2650,7 @@ final class Yaf_Route_Simple implements Yaf_Route_Interface {
     /**
      * <p><b>Yaf_Route_Simple::assemble()</b> - Assemble a url
      *
-     * @link http://www.php.net/manual/en/yaf-route-simple.assemble.php
+     * @link https://secure.php.net/manual/en/yaf-route-simple.assemble.php
      *
      * @param array $info
      * @param array $query
@@ -2660,7 +2660,7 @@ final class Yaf_Route_Simple implements Yaf_Route_Interface {
 }
 
 /**
- * @link http://www.php.net/manual/en/class.yaf-route-supervar.php
+ * @link https://secure.php.net/manual/en/class.yaf-route-supervar.php
  */
 final class Yaf_Route_Supervar implements Yaf_Route_Interface {
 
@@ -2672,7 +2672,7 @@ final class Yaf_Route_Supervar implements Yaf_Route_Interface {
     /**
      * <p>Yaf_Route_Supervar is similar to Yaf_Route_Static, the difference is that Yaf_Route_Supervar will look for path info in query string, and the parameter supervar_name is the key.</p>
      *
-     * @link http://www.php.net/manual/en/yaf-route-supervar.construct.php
+     * @link https://secure.php.net/manual/en/yaf-route-supervar.construct.php
      *
      * @param string $supervar_name The name of key.
      *
@@ -2681,7 +2681,7 @@ final class Yaf_Route_Supervar implements Yaf_Route_Interface {
     public function __construct($supervar_name){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-route-supervar.route.php
+     * @link https://secure.php.net/manual/en/yaf-route-supervar.route.php
      *
      * @param Yaf_Request_Abstract $request
      *
@@ -2692,7 +2692,7 @@ final class Yaf_Route_Supervar implements Yaf_Route_Interface {
     /**
      * <p><b>Yaf_Route_Supervar::assemble()</b> - Assemble a url
      *
-     * @link http://www.php.net/manual/en/yaf-route-supervar.assemble.php
+     * @link https://secure.php.net/manual/en/yaf-route-supervar.assemble.php
      *
      * @param array $info
      * @param array $query
@@ -2704,7 +2704,7 @@ final class Yaf_Route_Supervar implements Yaf_Route_Interface {
 /**
  * <p>For usage, please see the example section of Yaf_Route_Rewrite::__construct()</p>
  *
- * @link http://www.php.net/manual/en/class.yaf-route-rewrite.php
+ * @link https://secure.php.net/manual/en/class.yaf-route-rewrite.php
  */
 final class Yaf_Route_Rewrite extends Yaf_Router implements Yaf_Route_Interface {
 
@@ -2722,7 +2722,7 @@ final class Yaf_Route_Rewrite extends Yaf_Router implements Yaf_Route_Interface 
     protected $_verify;
 
     /**
-     * @link http://www.php.net/manual/en/yaf-route-rewrite.construct.php
+     * @link https://secure.php.net/manual/en/yaf-route-rewrite.construct.php
      *
      * @param string $match A pattern, will be used to match a request uri, if doesn't matched, Yaf_Route_Rewrite will return FALSE.
      * @param array $route <p>When the match pattern matches the request uri, Yaf_Route_Rewrite will use this to decide which m/c/a to routed.</p>
@@ -2736,7 +2736,7 @@ final class Yaf_Route_Rewrite extends Yaf_Router implements Yaf_Route_Interface 
     public function __construct($match, array $route, array $verify = null, $reverse = null){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-route-rewrite.route.php
+     * @link https://secure.php.net/manual/en/yaf-route-rewrite.route.php
      *
      * @param Yaf_Request_Abstract $request
      *
@@ -2747,7 +2747,7 @@ final class Yaf_Route_Rewrite extends Yaf_Router implements Yaf_Route_Interface 
     /**
      * <p><b>Yaf_Route_Rewrite::assemble()</b> - Assemble a url
      *
-     * @link http://www.php.net/manual/en/yaf-route-rewrite.assemble.php
+     * @link https://secure.php.net/manual/en/yaf-route-rewrite.assemble.php
      *
      * @param array $info
      * @param array $query
@@ -2759,7 +2759,7 @@ final class Yaf_Route_Rewrite extends Yaf_Router implements Yaf_Route_Interface 
 /**
  * <p><b>Yaf_Route_Regex</b> is the most flexible route among the Yaf built-in routes.</p>
  *
- * @link http://www.php.net/manual/en/class.yaf-route-regex.php
+ * @link https://secure.php.net/manual/en/class.yaf-route-regex.php
  */
 final class Yaf_Route_Regex extends Yaf_Router implements Yaf_Route_Interface {
 
@@ -2785,7 +2785,7 @@ final class Yaf_Route_Regex extends Yaf_Router implements Yaf_Route_Interface {
     protected $_reverse;
 
     /**
-     * @link http://www.php.net/manual/en/yaf-route-regex.construct.php
+     * @link https://secure.php.net/manual/en/yaf-route-regex.construct.php
      *
      * @param string $match A complete Regex pattern, will be used to match a request uri, if doesn't matched, Yaf_Route_Regex will return FALSE.
      * @param array $route <p>When the match pattern matches the request uri, Yaf_Route_Regex will use this to decide which m/c/a to routed.</p>
@@ -2802,7 +2802,7 @@ final class Yaf_Route_Regex extends Yaf_Router implements Yaf_Route_Interface {
     /**
      * Route a incoming request.
      *
-     * @link http://www.php.net/manual/en/yaf-route-regex.route.php
+     * @link https://secure.php.net/manual/en/yaf-route-regex.route.php
      *
      * @param Yaf_Request_Abstract $request
      *
@@ -2813,7 +2813,7 @@ final class Yaf_Route_Regex extends Yaf_Router implements Yaf_Route_Interface {
     /**
      * <p><b>Yaf_Route_Regex::assemble()</b> - Assemble a url
      *
-     * @link http://www.php.net/manual/en/yaf-route-regex.assemble.php
+     * @link https://secure.php.net/manual/en/yaf-route-regex.assemble.php
      *
      * @param array $info
      * @param array $query
@@ -2827,7 +2827,7 @@ final class Yaf_Route_Regex extends Yaf_Router implements Yaf_Route_Interface {
  * <br/>
  * <p>If the second parameter of Yaf_Route_Map::__construct() is specified, then only the part before delimiter of URI will used to routing, the part after it is used to routing request parameters (see the example section of Yaf_Route_Map::__construct()).</p>
  *
- * @link http://www.php.net/manual/en/class.yaf-route-map.php
+ * @link https://secure.php.net/manual/en/class.yaf-route-map.php
  */
 final class Yaf_Route_Map implements Yaf_Route_Interface {
 
@@ -2841,7 +2841,7 @@ final class Yaf_Route_Map implements Yaf_Route_Interface {
     protected $_delimiter;
 
     /**
-     * @link http://www.php.net/manual/en/yaf-route-map.construct.php
+     * @link https://secure.php.net/manual/en/yaf-route-map.construct.php
      *
      * @param bool $controller_prefer Whether the result should considering as controller or action
      * @param string $delimiter
@@ -2849,7 +2849,7 @@ final class Yaf_Route_Map implements Yaf_Route_Interface {
     public function __construct($controller_prefer = false, $delimiter = ''){ }
 
     /**
-     * @link http://www.php.net/manual/en/yaf-route-map.route.php
+     * @link https://secure.php.net/manual/en/yaf-route-map.route.php
      *
      * @param Yaf_Request_Abstract $request
      *
@@ -2860,7 +2860,7 @@ final class Yaf_Route_Map implements Yaf_Route_Interface {
     /**
      * <p><b>Yaf_Route_Map::assemble()</b> - Assemble a url
      *
-     * @link http://www.php.net/manual/en/yaf-route-map.assemble.php
+     * @link https://secure.php.net/manual/en/yaf-route-map.assemble.php
      *
      * @param array $info
      * @param array $query
@@ -2870,63 +2870,63 @@ final class Yaf_Route_Map implements Yaf_Route_Interface {
 }
 
 /**
- * @link http://www.php.net/manual/en/class.yaf-exception-typeerror.php
+ * @link https://secure.php.net/manual/en/class.yaf-exception-typeerror.php
  */
 class Yaf_Exception_TypeError extends Yaf_Exception {
 
 }
 
 /**
- * @link http://www.php.net/manual/en/class.yaf-exception-startuperror.php
+ * @link https://secure.php.net/manual/en/class.yaf-exception-startuperror.php
  */
 class Yaf_Exception_StartupError extends Yaf_Exception {
 
 }
 
 /**
- * @link http://www.php.net/manual/en/class.yaf-exception-routefaild.php
+ * @link https://secure.php.net/manual/en/class.yaf-exception-routefaild.php
  */
 class Yaf_Exception_RouterFailed extends Yaf_Exception {
 
 }
 
 /**
- * @link http://www.php.net/manual/en/class.yaf-exception-dispatchfaild.php
+ * @link https://secure.php.net/manual/en/class.yaf-exception-dispatchfaild.php
  */
 class Yaf_Exception_DispatchFailed extends Yaf_Exception {
 
 }
 
 /**
- * @link http://www.php.net/manual/en/class.yaf-exception-loadfaild.php
+ * @link https://secure.php.net/manual/en/class.yaf-exception-loadfaild.php
  */
 class Yaf_Exception_LoadFailed extends Yaf_Exception {
 
 }
 
 /**
- * @link http://www.php.net/manual/en/class.yaf-exception-loadfaild-module.php
+ * @link https://secure.php.net/manual/en/class.yaf-exception-loadfaild-module.php
  */
 class Yaf_Exception_LoadFailed_Module extends Yaf_Exception_LoadFailed {
 
 }
 
 /**
- * @link http://www.php.net/manual/en/class.yaf-exception-loadfaild-controller.php
+ * @link https://secure.php.net/manual/en/class.yaf-exception-loadfaild-controller.php
  */
 class Yaf_Exception_LoadFailed_Controller extends Yaf_Exception_LoadFailed {
 
 }
 
 /**
- * @link http://www.php.net/manual/en/class.yaf-exception-loadfaild-action.php
+ * @link https://secure.php.net/manual/en/class.yaf-exception-loadfaild-action.php
  */
 class Yaf_Exception_LoadFailed_Action extends Yaf_Exception_LoadFailed {
 
 }
 
 /**
- * @link http://www.php.net/manual/en/class.yaf-exception-loadfaild-view.php
+ * @link https://secure.php.net/manual/en/class.yaf-exception-loadfaild-view.php
  */
 class Yaf_Exception_LoadFailed_View extends Yaf_Exception_LoadFailed {
 

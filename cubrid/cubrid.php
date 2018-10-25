@@ -102,7 +102,7 @@ function cubrid_pconnect ($host, $port, $dbname, $userid = 'PUBLIC', $passwd = '
 /**
  * (PHP 5, CUBRID &gt;= 8.3.1)<br/>
  * Open a persistent connection to CUBRID server
- * @link http://www.php.net/manual/en/function.cubrid-pconnect-with-url.php
+ * @link https://secure.php.net/manual/en/function.cubrid-pconnect-with-url.php
  * @param string $conn_url <p>
  * A character string that contains server connection information.<br />
  * Syntax: 'CUBRID:&gt;host&lt;:&gt;port&lt;:&gt;dbname&lt;:&gt;username&lt;:&gt;password&lt;:?&gt;params&lt;'.<br />
@@ -968,7 +968,7 @@ function cubrid_get_server_info ($conn_identifier) {}
 /**
  * (PHP 5, CUBRID &gt;= 8.3.0)<br/>
  * Returns the CUBRID database parameters
- * @link http://www.php.net/manual/en/function.cubrid-get-db-parameter.php
+ * @link https://secure.php.net/manual/en/function.cubrid-get-db-parameter.php
  * @param resource $conn_identifier <p>
  * Connection identifier.
  * </p>
@@ -996,7 +996,7 @@ function cubrid_get_autocommit ($conn_identifier) {}
 /**
  * (PHP 5, CUBRID &gt;= 8.3.0)<br/>
  * Return the current CUBRID connection charset
- * @link http://www.php.net/manual/en/function.cubrid-get-charset.php
+ * @link https://secure.php.net/manual/en/function.cubrid-get-charset.php
  * @param resource $conn_identifier <p>
  * Connection identifier.
  * </p>
@@ -1342,7 +1342,7 @@ function cubrid_lob_size ($lob_identifier) {}
  * (PHP 5, CUBRID &gt;= 8.4.1)<br/>
  * Bind a lob object or a string as a lob object to a
  * prepared statement as parameters.
- * @link http://www.php.net/manual/en/function.cubrid-lob2-bind.php
+ * @link https://secure.php.net/manual/en/function.cubrid-lob2-bind.php
  * @param resource $req_identifier <p>
  * Reqeust identifier.
  * </p>

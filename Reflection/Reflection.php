@@ -1503,27 +1503,18 @@ class ReflectionProperty implements Reflector {
 	/**
 	 * Set property value
 	 * @link https://php.net/manual/en/reflectionproperty.setvalue.php
-	 * @param object $object [optional]<p>
+	 * @param mixed $objectOrValue <p>
 	 * If the property is non-static an object must be provided to change
 	 * the property on. If the property is static this parameter is left
 	 * out and only <i>value</i> needs to be provided.
 	 * </p>
-	 * @param mixed $value <p>
+	 * @param mixed $value [optional] <p>
 	 * The new value.
 	 * </p>
 	 * @return void No value is returned.
 	 * @since 5.0
 	 */
-	public function setValue ($object, $value) {}
-
-	/**
-	 * Set static property value
-	 * @link https://php.net/manual/en/reflectionproperty.setvalue.php
-	 * @param mixed $value The new value.
-	 * @return void No value is returned.
-	 * @since 5.0
-	 */
-	public function setValue ($value) {}
+	public function setValue ($objectOrValue, $value) {}
 
 	/**
 	 * Checks if property is public
@@ -1759,7 +1750,7 @@ class ReflectionExtension implements Reflector {
 }
 
 /**
- * @link http://www.php.net/manual/en/class.reflectionzendextension.php
+ * @link https://secure.php.net/manual/en/class.reflectionzendextension.php
  * @since 5.4.0
  */
 class ReflectionZendExtension implements Reflector {

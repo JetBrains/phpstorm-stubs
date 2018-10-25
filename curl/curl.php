@@ -7,7 +7,7 @@ class CURLFile {
 
     /**
      * Create a CURLFile object
-     * @link http://www.php.net/manual/en/curlfile.construct.php
+     * @link https://secure.php.net/manual/en/curlfile.construct.php
      * @param string $filename <p>Path to the file which will be uploaded.</p>
      * @param string $mimetype [optional] <p>Mimetype of the file.</p>
      * @param string $postname [optional] <p>Name of the file.</p>
@@ -18,7 +18,7 @@ class CURLFile {
 
     /**
      * Get file name
-     * @link http://www.php.net/manual/en/curlfile.getfilename.php
+     * @link https://secure.php.net/manual/en/curlfile.getfilename.php
      * @return string Returns file name.
      * @since 5.5.0
      */
@@ -27,7 +27,7 @@ class CURLFile {
 
     /**
      * Get MIME type
-     * @link http://www.php.net/manual/en/curlfile.getmimetype.php
+     * @link https://secure.php.net/manual/en/curlfile.getmimetype.php
      * @return string Returns MIME type.
      * @since 5.5.0
      */
@@ -36,7 +36,7 @@ class CURLFile {
 
     /**
      * Get file name for POST
-     * @link http://www.php.net/manual/en/curlfile.getpostfilename.php
+     * @link https://secure.php.net/manual/en/curlfile.getpostfilename.php
      * @return string Returns file name for POST.
      * @since 5.5.0
      */
@@ -45,7 +45,7 @@ class CURLFile {
 
     /**
      * Set MIME type
-     * @link http://www.php.net/manual/en/curlfile.setmimetype.php
+     * @link https://secure.php.net/manual/en/curlfile.setmimetype.php
      * @param string $mime
      * @since 5.5.0
      */
@@ -54,7 +54,7 @@ class CURLFile {
 
     /**
      * Set file name for POST
-     * http://www.php.net/manual/en/curlfile.setpostfilename.php
+     * https://secure.php.net/manual/en/curlfile.setpostfilename.php
      * @param string $postname
      * @since 5.5.0
      */
@@ -62,7 +62,7 @@ class CURLFile {
     }
 
     /**
-     * @link http://www.php.net/manual/en/curlfile.wakeup.php
+     * @link https://secure.php.net/manual/en/curlfile.wakeup.php
      * Unserialization handler
      * @since 5.5.0
      */
@@ -2132,9 +2132,9 @@ function curl_setopt_array ($ch, array $options) {}
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Close a cURL share handle
- * @link http://www.php.net/manual/en/function.curl-share-close.php
+ * @link https://secure.php.net/manual/en/function.curl-share-close.php
  * @param resource $sh <p>
- * A cURL share handle returned by  {@link http://www.php.net/manual/en/function.curl-share-init.php curl_share_init()}
+ * A cURL share handle returned by  {@link https://secure.php.net/manual/en/function.curl-share-init.php curl_share_init()}
  * </p>
  * @return void
  * @since 5.5.0
@@ -2144,7 +2144,7 @@ function curl_share_close ($sh) {}
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Initialize a cURL share handle
- * @link http://www.php.net/manual/en/function.curl-share-init.php
+ * @link https://secure.php.net/manual/en/function.curl-share-init.php
  * @return resource Returns resource of type "cURL Share Handle".
  * @since 5.5.0
  */
@@ -2153,9 +2153,9 @@ function curl_share_init () {}
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Set an option for a cURL share handle.
- * @link http://www.php.net/manual/en/function.curl-share-setopt.php
+ * @link https://secure.php.net/manual/en/function.curl-share-setopt.php
  * @param resource $sh <p>
- * A cURL share handle returned by  {@link http://www.php.net/manual/en/function.curl-share-init.php curl_share_init()}.
+ * A cURL share handle returned by  {@link https://secure.php.net/manual/en/function.curl-share-init.php curl_share_init()}.
  * </p>
  * @param int $option <table>
  *
@@ -2234,9 +2234,9 @@ function curl_share_setopt ($sh, $option, $value ) {}
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Return string describing the given error code
- * @link http://www.php.net/manual/en/function.curl-strerror.php
+ * @link https://secure.php.net/manual/en/function.curl-strerror.php
  * @param int $errornum <p>
- * One of the {@link http://curl.haxx.se/libcurl/c/libcurl-errors.html &nbsp;cURL error codes} constants.
+ * One of the {@link https://curl.haxx.se/libcurl/c/libcurl-errors.html &nbsp;cURL error codes} constants.
  * </p>
  * @return string|NULL Returns error description or <b>NULL</b> for invalid error code.
  * @since 5.5.0
@@ -2246,9 +2246,9 @@ function curl_strerror ($errornum ) {}
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Decodes the given URL encoded string
- * @link http://www.php.net/manual/en/function.curl-unescape.php
+ * @link https://secure.php.net/manual/en/function.curl-unescape.php
  * @param resource $ch <p>A cURL handle returned by
- * {@link http://www.php.net/manual/en/function.curl-init.php curl_init()}.</p>
+ * {@link https://secure.php.net/manual/en/function.curl-init.php curl_init()}.</p>
  * @param string $str <p>
  * The URL encoded string to be decoded.
  * </p>
@@ -2260,7 +2260,7 @@ function  curl_unescape ($ch, $str)  {}
  * Perform a cURL session
  * @link https://php.net/manual/en/function.curl-exec.php
  * @param resource $ch 
- * @return mixed true on success or false on failure. However, if the CURLOPT_RETURNTRANSFER
+ * @return string|bool true on success or false on failure. However, if the CURLOPT_RETURNTRANSFER
  * option is set, it will return the result on success, false on failure.
  * @since 4.0.2
  * @since 5.0
@@ -2326,10 +2326,10 @@ function curl_errno ($ch) {}
 
 /**
  * URL encodes the given string
- * @link http://www.php.net/manual/en/function.curl-escape.php
+ * @link https://secure.php.net/manual/en/function.curl-escape.php
  * @param resource $ch <p>
  * A cURL handle returned by
- * {@link http://www.php.net/manual/en/function.curl-init.php curl_init()}.</p>
+ * {@link https://secure.php.net/manual/en/function.curl-init.php curl_init()}.</p>
  * @param string $str <p>
  * The string to be encoded.</p>
  * @return string|boolean Returns escaped string or FALSE on failure.
@@ -2340,12 +2340,12 @@ function curl_escape($ch, $str) {}
 /**
  * (PHP 5 >= 5.5.0) <br/>
  * Create a CURLFile object
- * @link http://www.php.net/manual/en/curlfile.construct.php
+ * @link https://secure.php.net/manual/en/curlfile.construct.php
  * @param string $filename <p> Path to the file which will be uploaded.</p>
  * @param string $mimetype [optional] <p>Mimetype of the file.</p>
  * @param string $postname [optional] <p>Name of the file.</p>
  * @return CURLFile
- * Returns a {@link http://www.php.net/manual/en/class.curlfile.php CURLFile} object.
+ * Returns a {@link https://secure.php.net/manual/en/class.curlfile.php CURLFile} object.
  * @since 5.5.0
  */
 function curl_file_create($filename, $mimetype, $postname) {}
@@ -2405,7 +2405,7 @@ function curl_multi_select ($mh, $timeout = null) {}
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Set an option for the cURL multi handle
- * @link www.php.net/manual/en/function.curl-multi-setopt.php
+ * @link https://secure.php.net/manual/en/function.curl-multi-setopt.php
  * @param resource $mh
  * @param int $option <p>
  * One of the <b>CURLMOPT_*</b> constants.
@@ -2458,9 +2458,9 @@ function curl_multi_setopt ($mh, $option, $value) {}
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Return string describing error code
- * @link http://www.php.net/manual/en/function.curl-multi-strerror.php
+ * @link https://secure.php.net/manual/en/function.curl-multi-strerror.php
  * @param int $errornum <p>
- * One of the {@link http://curl.haxx.se/libcurl/c/libcurl-errors.html CURLM error codes} constants.
+ * One of the {@link https://curl.haxx.se/libcurl/c/libcurl-errors.html CURLM error codes} constants.
  * </p>
  * @return string|NULL Returns error string for valid error code, NULL otherwise.
  * @since 5.5.0
@@ -2470,9 +2470,9 @@ function curl_multi_strerror ($errornum) {}
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Pause and unpause a connection
- * @link http://www.php.net/manual/en/function.curl-pause.php
+ * @link https://secure.php.net/manual/en/function.curl-pause.php
  * @param resource $ch
- * <p>A cURL handle returned by {@link http://www.php.net/manual/en/function.curl-init.php curl_init()}.</p>
+ * <p>A cURL handle returned by {@link https://secure.php.net/manual/en/function.curl-init.php curl_init()}.</p>
  * @param int $bitmask <p>One of <b>CURLPAUSE_*</b> constants.</p>
  * @return int Returns an error code (<b>CURLE_OK</b> for no error).
  * @since 5.5.0
@@ -2482,9 +2482,9 @@ function curl_pause ($ch, $bitmask ) {}
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Reset all options of a libcurl session handle
- * @link www.php.net/manual/en/function.curl-reset.php
+ * @link https://secure.php.net/manual/en/function.curl-reset.php
  * @param resource $ch <p>A cURL handle returned by
- * {@link www.php.net/manual/en/function.curl-init.php curl_init()}.</p>
+ * {@link https://secure.php.net/manual/en/function.curl-init.php curl_init()}.</p>
  * @return void
  * @since 5.5.0
  */

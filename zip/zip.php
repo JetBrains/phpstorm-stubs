@@ -280,28 +280,28 @@ class ZipArchive  {
 	
 	/**
 	 * No encryption
-	 * @link http://php.net/manual/en/zip.constants.php
+	 * @link https://secure.php.net/manual/en/zip.constants.php
 	 * @since 7.2
 	 */
 	const EM_NONE = 0;
 	
 	/**
 	 * AES 128 encryption
-	 * @link http://php.net/manual/en/zip.constants.php
+	 * @link https://secure.php.net/manual/en/zip.constants.php
 	 * @since 7.2
 	 */
 	const EM_AES_128 = 257;
 	
 	/**
 	 * AES 192 encryption
-	 * @link http://php.net/manual/en/zip.constants.php
+	 * @link https://secure.php.net/manual/en/zip.constants.php
 	 * @since 7.2
 	 */
 	const EM_AES_192 = 258;
 	
 	/**
 	 * AES 256 encryption
-	 * @link http://php.net/manual/en/zip.constants.php
+	 * @link https://secure.php.net/manual/en/zip.constants.php
 	 * @since 7.2
 	 */
 	const EM_AES_256 = 259;
@@ -596,7 +596,7 @@ class ZipArchive  {
 
 	/**
 	 * Set the compression method of an entry defined by its name
-	 * http://php.net/manual/en/ziparchive.setcompressionname.php
+	 * https://secure.php.net/manual/en/ziparchive.setcompressionname.php
 	 * @param string $name Name of the entry.
 	 * @param int $comp_method The compression method. Either ZipArchive::CM_DEFAULT, ZipArchive::CM_STORE or ZipArchive::CM_DEFLATE.
 	 * @param int $comp_flags [optional] Compression flags. Currently unused.

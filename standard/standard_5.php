@@ -1040,7 +1040,7 @@ function file ($filename, $flags = null, $context = null) {}
  * Maximum length of data read. The default is to read until end
  * of file is reached.
  * </p>
- * @return string|bool The function returns the read data or false on failure.
+ * @return string|false The function returns the read data or false on failure.
  * @since 4.3.0
  * @since 5.0
  */

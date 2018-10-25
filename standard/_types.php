@@ -149,7 +149,7 @@ namespace {
 
     /**
      * Generator objects are returned from generators, cannot be instantiated via new.
-     * @link http://www.php.net/manual/en/class.generator.php
+     * @link https://secure.php.net/manual/en/class.generator.php
      * @link https://wiki.php.net/rfc/generators
      */
     final class Generator implements Iterator {

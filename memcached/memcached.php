@@ -1255,7 +1255,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 2.0.0)<br/>
 	 * Set the credentials to use for authentication
-	 * @link http://php.net/manual/en/memcached.setsaslauthdata.php
+	 * @link https://secure.php.net/manual/en/memcached.setsaslauthdata.php
 	 * @param string $username <p>
 	 * The username to use for authentication.
 	 * </p>

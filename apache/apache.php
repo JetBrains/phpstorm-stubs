@@ -138,7 +138,7 @@ function getallheaders () {}
  * virtual() is an Apache-specific function which is similar to <!--#include virtual...--> in mod_include. It performs an Apache sub-request. It is useful for including CGI scripts or .shtml files, or anything else that you would parse through Apache. Note that for a CGI script, the script must generate valid CGI headers. At the minimum that means it must generate a Content-Type header.
  * To run the sub-request, all buffers are terminated and flushed to the browser, pending headers are sent too.
  * This function is supported when PHP is installed as an Apache module or by the NSAPI server module in Netscape/iPlanet/SunONE webservers.
- * @link hhttp://php.net/manual/en/function.virtual.php
+ * @link https://secure.php.net/manual/en/function.virtual.php
  * @param string $filename <p>
  * The file that the virtual command will be performed on.
  * </p>

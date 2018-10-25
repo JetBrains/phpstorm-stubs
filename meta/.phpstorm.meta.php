@@ -44,7 +44,7 @@ namespace PHPSTORM_META {
   }
 
   override(\array_shift(0), elementType(0));
-  override(\array_reverse(0), elementType(0));
+  override(\array_reverse(0), type(0));
   override(\array_pop(0), elementType(0));
 //  override(\array_map(0), type(1));
   override(\array_filter(0), type(0));
@@ -61,6 +61,15 @@ namespace PHPSTORM_META {
   override(\array_change_key_case(0), type(0));
   override(\array_rand(0), elementType(0));
   override(\array_unique(0), type(0));
+
+  override(\array_intersect(0), type(0));
+  override(\array_intersect_assoc(0), type(0));
+  override(\array_intersect_key(0), type(0));
+  override(\array_intersect_uassoc(0), type(0));
+  override(\array_intersect_ukey(0), type(0));
+  override(\array_uintersect(0), type(0));
+  override(\array_uintersect_assoc(0), type(0));
+  override(\array_uintersect_uassoc(0), type(0));
 
 //should be changed later to map values when map type is supported
   override(\array_values(0), type(0));

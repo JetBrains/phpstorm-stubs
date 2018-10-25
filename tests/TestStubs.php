@@ -1,5 +1,8 @@
 <?php
 
+use phpDocumentor\Reflection\DocBlock\Tags\Link;
+use phpDocumentor\Reflection\DocBlock\Tags\Reference\Url;
+use phpDocumentor\Reflection\DocBlock\Tags\See;
 use PHPUnit\Framework\TestCase;
 
 include __DIR__ . '/StubParser.php';
@@ -221,6 +224,39 @@ class TestStubs extends TestCase
 
     }
 
+    public function stubClassConstantProvider(){
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->classes as $className => $class) {
+            foreach ($class->constants as $constantName => $constant) {
+                yield "Constant {$className}::{$constantName}" => [$className, $constant];
+            }
+        }
+    }
+
+    /**
+     * @dataProvider stubClassConstantProvider
+     */
+    public function testClassConstantsPHPDocs(string $className, stdClass $constant)
+    {
+        $this->assertNull($constant->parseError, $constant->parseError ?: "");
+        $this->checkLinks($constant, "constant $className::$constant->name");
+    }
+
+    public function stubConstantProvider()
+    {
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->constants as $constantName => $constant) {
+            yield "constant {$constantName}" => [$constant];
+        }
+    }
+
+    /**
+     * @dataProvider stubConstantProvider
+     */
+    public function testConstantsPHPDocs(stdClass $constant)
+    {
+        $this->assertNull($constant->parseError, $constant->parseError ?: "");
+        $this->checkLinks($constant, "function $constant->name");
+    }
+
     public function stubFunctionProvider()
     {
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->functions as $functionName => $function) {
@@ -234,6 +270,7 @@ class TestStubs extends TestCase
     public function testFunctionPHPDocs(stdClass $function)
     {
         $this->assertNull($function->parseError, $function->parseError ?: "");
+        $this->checkLinks($function, "function $function->name");
     }
 
     public function stubClassProvider()
@@ -249,6 +286,7 @@ class TestStubs extends TestCase
     public function testClassesPHPDocs(stdClass $class)
     {
         $this->assertNull($class->parseError, $class->parseError ?: "");
+        $this->checkLinks($class, "class $class->name");
     }
 
     public function stubMethodProvider()
@@ -265,10 +303,11 @@ class TestStubs extends TestCase
      */
     public function testMethodsPHPDocs(string $methodName, stdClass $method)
     {
-        if($methodName === "__construct"){
+        if ($methodName === "__construct") {
             $this->assertNull($method->returnTag, "@return tag for __construct should be omitted");
         }
         $this->assertNull($method->parseError, $method->parseError ?: "");
+        $this->checkLinks($method, "method $methodName");
     }
 
     private function getParameterRepresentation(stdClass $function): string
@@ -288,5 +327,21 @@ class TestStubs extends TestCase
         }
         $result = rtrim($result, ', ');
         return $result;
+    }
+
+    private function checkLinks($element, $elementName): void
+    {
+        foreach ($element->links as $link) {
+            if ($link instanceof Link) {
+                $this->assertStringStartsWith('https', $link->getLink(), "In $elementName @link doesn't start with https");
+            }
+        }
+        foreach ($element->see as $see) {
+            if ($see instanceof See && $see->getReference() instanceof Url) {
+                if (strpos($see, 'http') === 0) {
+                    $this->assertStringStartsWith('https', $see, "In $elementName @see doesn't start with https");
+                }
+            }
+        }
     }
 }
