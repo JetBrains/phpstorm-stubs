@@ -81,7 +81,7 @@ function bcmul ($left_operand, $right_operand, $scale = 0) {}
  * set globally with the {@link bcscale()} function, or fallback to 0 if
  * this has not been set.
  * </p>
- * @return string the result of the division as a string, or <b>NULL</b> if
+ * @return string|null the result of the division as a string, or <b>NULL</b> if
  * <i>divisor</i> is 0.
  * @since 4.0
  * @since 5.0
@@ -104,7 +104,7 @@ function bcdiv ($dividend, $divisor, $scale = 0) {}
  * set globally with the {@link bcscale()} function, or fallback to 0 if
  * this has not been set.
  * </p>
- * @return string the modulus as a string, or <b>NULL</b> if
+ * @return string|null the modulus as a string, or <b>NULL</b> if
  * <i>divisor</i> is 0.
  * @since 4.0
  * @since 5.0
@@ -207,7 +207,7 @@ function bccomp ($left_operand, $right_operand, $scale = 0) {}
  * set globally with the {@link bcscale()} function, or fallback to 0 if
  * this has not been set.
  * </p>
- * @return string the result as a string, or <b>NULL</b> if <i>modulus</i>
+ * @return string|null the result as a string, or <b>NULL</b> if <i>modulus</i>
  * is 0 or <i>exponent</i> is negative.
  * @since 5.0
  * @since 7.0
