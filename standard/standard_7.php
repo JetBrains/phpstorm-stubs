@@ -360,7 +360,7 @@ function readdir ($dir_handle = null) {}
  * Directory to open
  * </p>
  * @param resource $context [optional]
- * @return Directory an instance of Directory, or <b>NULL</b> with wrong
+ * @return Directory|null|false an instance of Directory, or <b>NULL</b> with wrong
  * parameters, or <b>FALSE</b> in case of another error
  * @since 4.0
  * @since 5.0
