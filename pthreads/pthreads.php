@@ -477,7 +477,7 @@ class Thread extends Threaded implements Countable, Traversable, ArrayAccess {
      * @link https://secure.php.net/manual/en/thread.start.php
      * @param int $options [optional] <p>An optional mask of inheritance
      * constants, by default <b>{@link PTHREADS_INHERIT_ALL}</b></p>
-     * @return boolean <p>A boolean indication of success</p>
+     * @return bool <p>A boolean indication of success</p>
      */
     public function start( $options = PTHREADS_INHERIT_ALL ) {}
 }
@@ -523,7 +523,7 @@ class Worker extends Thread implements Traversable, Countable, ArrayAccess {
      * (PECL pthreads &gt;= 2.0.0)<br/>
      * Whether the worker has been shutdown or not
      * @link https://secure.php.net/manual/en/worker.isshutdown.php
-     * @return boolean <p>Returns whether the worker has been shutdown or not</p>
+     * @return bool <p>Returns whether the worker has been shutdown or not</p>
      */
     public function isShutdown() {}
 
@@ -676,7 +676,7 @@ class Cond {
     final public static function create() {}
 
     /**
-     * (PECL pthreads &lt;= 3.0.0)<br/>
+     * (PECL pthreads &lt; 3.0.0)<br/>
      * Destroying Condition Variable handles must be carried out explicitly by the
      * programmer when they are finished with the Condition Variable. No Threads should
      * be blocking on a call to Cond::wait() when the call to Cond::destroy() takes place.
@@ -698,7 +698,7 @@ class Cond {
     final public static function signal( $condition ) {}
 
     /**
-     * (PECL pthreads &lt;= 3.0.0)<br/>
+     * (PECL pthreads &lt; 3.0.0)<br/>
      * Wait for a signal on a Condition Variable, optionally specifying a timeout to
      * limit waiting time.
      * @link https://secure.php.net/manual/en/cond.wait.php
