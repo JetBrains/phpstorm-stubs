@@ -355,14 +355,17 @@ function readdir ($dir_handle = null) {}
 
 /**
  * Return an instance of the Directory class
- * @link https://php.net/manual/en/class.dir.php
- * @param $directory
- * @param $context [optional]
- * @return Directory 
+ * @link https://php.net/manual/en/function.dir.php
+ * @param string $directory <p>
+ * Directory to open
+ * </p>
+ * @param resource $context [optional]
+ * @return Directory an instance of Directory, or <b>NULL</b> with wrong
+ * parameters, or <b>FALSE</b> in case of another error
  * @since 4.0
  * @since 5.0
  */
-function dir ($directory, $context) {}
+function dir ($directory, $context = null) {}
 
 /**
  * List files and directories inside the specified path
