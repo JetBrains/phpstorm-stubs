@@ -315,6 +315,7 @@ class DateTime implements DateTimeInterface {
      * @param string $time
      * @param DateTimeZone $timezone
      * @link https://php.net/manual/en/datetime.construct.php
+     * @throws Exception Emits Exception in case of an error.
      */
     public function __construct ($time='now', DateTimeZone $timezone=null) {}
 
