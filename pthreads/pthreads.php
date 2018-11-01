@@ -200,10 +200,10 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
      * (PECL pthreads &gt;= 2.0.8)<br/>
      * Makes thread safe standard class at runtime
      * @link https://secure.php.net/manual/en/threaded.extend.php
-     * @param $class <p>The class to extend</p>
+     * @param string $class <p>The class to extend</p>
      * @return bool <p>A boolean indication of success</p>
      */
-    public function extend( $class ) {}
+    public static function extend( $class ) {}
 
     /**
      * (PECL pthreads &lt; 3.0.0)<br/>
