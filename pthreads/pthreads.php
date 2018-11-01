@@ -178,6 +178,13 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
     protected $worker;
 
     /**
+     * (PECL pthreads &gt;= 3.0.0)<br/>
+     * Increments the internal number of references to a Threaded object
+     * @return void
+     */
+    public function addRef() {}
+
+    /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
      * Fetches a chunk of the objects property table of the given size,
      * optionally preserving keys
@@ -197,6 +204,13 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
     public function count() {}
 
     /**
+     * (PECL pthreads &gt;= 3.0.0)<br/>
+     * Decrements the internal number of references to a Threaded object
+     * @return void
+     */
+    public function delRef() {}
+
+    /**
      * (PECL pthreads &gt;= 2.0.8)<br/>
      * Makes thread safe standard class at runtime
      * @link https://secure.php.net/manual/en/threaded.extend.php
@@ -204,6 +218,13 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
      * @return bool <p>A boolean indication of success</p>
      */
     public static function extend( $class ) {}
+
+    /**
+     * (PECL pthreads &gt;= 3.0.0)<br/>
+     * Retrieves the internal number of references to a Threaded object
+     * @return int <p>The number of references to the Threaded object</p>
+     */
+    public function getRefCount() {}
 
     /**
      * (PECL pthreads &lt; 3.0.0)<br/>
