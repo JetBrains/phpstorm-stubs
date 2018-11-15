@@ -1002,6 +1002,7 @@ class ReflectionClass implements Reflector {
 	 * The method name to reflect.
 	 * </p>
 	 * @return ReflectionMethod A <b>ReflectionMethod</b>.
+	 * @throws \ReflectionException if the method does not exist.
 	 * @since 5.0
 	 */
 	public function getMethod ($name) {}
