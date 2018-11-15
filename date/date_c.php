@@ -529,11 +529,11 @@ class DateTimeZone {
 
     /**
      * Returns the timezone offset from GMT
-     * @param DateTime $datetime
+     * @param DateTimeInterface $datetime
      * @return int
      * @link https://php.net/manual/en/datetimezone.getoffset.php
      */
-    public function getOffset (DateTime $datetime) {}
+    public function getOffset (DateTimeInterface $datetime) {}
 
     /**
      * Returns all transitions for the timezone
