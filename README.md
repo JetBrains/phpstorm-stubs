@@ -9,6 +9,10 @@ STUBS are normal, syntactically correct PHP files that contain function & class 
 
 IDE needs them for completion, code inspection, type inference, doc popups, etc. Quality of most of this services depend on quality of the stubs (basically their PHPDOC @annotations).
 
+Note that the stubs for “non-standard” extensions are provided as is. (Non-Standard extensions are the ones that are not part of PHP Core or are not Bundled/External - see the complete list [here](http://php.net/manual/en/extensions.membership.php).)
+
+The support for such “non-standard” stubs is community-driven, and we only validate their PHPDoc. We do not check whether a stub matches the actual extension or whether the provided descriptions are correct.
+
 [Relevant open issues]
 
 ### Contribution process
@@ -16,6 +20,9 @@ IDE needs them for completion, code inspection, type inference, doc popups, etc.
 
 ### Updating the IDE
 TBD: Have a full copy of .git repo within IDE and add it as an external library "PHP Runtime" to the project. It should then be easilly updatable both way via normal git methods.
+
+### Extensions enabled by default
+The set of extensions enabled by default in PhpStorm can change anytime without prior notice. To learn how to view the enabled extensions, refer [here](https://blog.jetbrains.com/phpstorm/2017/03/per-project-php-extension-settings-in-phpstorm-2017-1/).
 
 ### How to run tests
 1. Execute `composer install`
