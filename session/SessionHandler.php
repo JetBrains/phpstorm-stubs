@@ -96,6 +96,20 @@ interface SessionHandlerInterface {
 }
 
 /**
+ * <b>SessionIdInterface</b>
+ * @link https://php.net/manual/en/class.sessionidinterface.php
+ * @since 5.5.1
+ */
+interface SessionIdInterface {
+    /**
+     * Create session ID
+     * @link https://php.net/manual/en/sessionidinterface.create-sid.php
+     * @return string
+     */
+    public function create_sid();
+}
+
+/**
  * <b>SessionUpdateTimestampHandlerInterface</b> is an interface which
  * defines a prototype for updating the life time of an existing session.
  * In order to use the lazy_write option must be enabled and a custom session
