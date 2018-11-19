@@ -3305,7 +3305,7 @@ class Redis
      * @return string The added message ID.
      * @example
      * <pre>
-     * $obj_redis->xAdd('mystream', "\*", ['field' => 'value']);
+     * $obj_redis->xAdd('mystream', "*", ['field' => 'value']);
      * </pre>
      */
     public function xAdd($str_key, $str_id, $arr_message) {}
