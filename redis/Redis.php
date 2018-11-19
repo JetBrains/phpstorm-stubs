@@ -3315,7 +3315,8 @@ class Redis
      * @param string $str_key
      * @param string $str_group
      * @param string $str_consumer
-     * @param array $ids
+     * @param int $min_idle_time
+     * @param array $arr_ids
      * @param array $arr_options ['IDLE' => $value, 'TIME' => $value, 'RETRYCOUNT' => $value, 'FORCE', 'JUSTID']
      * @return array Either an array of message IDs along with corresponding data, or just an array of IDs (if the 'JUSTID' option was passed).
      * @example
@@ -3323,11 +3324,11 @@ class Redis
      * $ids = ['1530113681011-0', '1530113681011-1', '1530113681011-2'];
      *
      * // Without any options
-     * $obj_redis->xClaim('mystream', 'group1', 'myconsumer1', $ids);
+     * $obj_redis->xClaim('mystream', 'group1', 'myconsumer1', 0, $ids);
      *
      * // With options
      * $obj_redis->xClaim(
-     *     'mystream', 'group1', 'myconsumer2', $ids,
+     *     'mystream', 'group1', 'myconsumer2', 0, $ids,
      *     [
      *         'IDLE' => time() * 1000,
      *         'RETRYCOUNT' => 5,
@@ -3337,7 +3338,7 @@ class Redis
      * );
      * </pre>
      */
-    public function xClaim($str_key, $str_group, $str_consumer, $ids, $arr_options = []) {}
+    public function xClaim($str_key, $str_group, $str_consumer, $min_idle_time, $arr_ids, $arr_options = []) {}
 
     /**
      * Delete one or more messages from a stream.
