@@ -1630,43 +1630,43 @@ class IntlDateFormatter {
 
     /**
      * Completely specified style (Tuesday, April 12, 1952 AD or 3:30:42pm PST)
-     * @link https://php.net/manual/en/intl.intldateformatter-constants.php
+     * @link https://php.net/manual/en/class.intldateformatter.php#intl.intldateformatter-constants
      */
     const FULL = 0;
 
     /**
      * Long style (January 12, 1952 or 3:30:32pm)
-     * @link https://php.net/manual/en/intl.intldateformatter-constants.php
+     * @link https://php.net/manual/en/class.intldateformatter.php#intl.intldateformatter-constants
      */
     const LONG = 1;
 
     /**
      * Medium style (Jan 12, 1952)
-     * @link https://php.net/manual/en/intl.intldateformatter-constants.php
+     * @link https://php.net/manual/en/class.intldateformatter.php#intl.intldateformatter-constants
      */
     const MEDIUM = 2;
 
     /**
      * Most abbreviated style, only essential data (12/13/52 or 3:30pm)
-     * @link https://php.net/manual/en/intl.intldateformatter-constants.php
+     * @link https://php.net/manual/en/class.intldateformatter.php#intl.intldateformatter-constants
      */
     const SHORT = 3;
 
     /**
      * Do not include this element
-     * @link https://php.net/manual/en/intl.intldateformatter-constants.php
+     * @link https://php.net/manual/en/class.intldateformatter.php#intl.intldateformatter-constants
      */
     const NONE = -1;
 
     /**
      * Gregorian Calendar
-     * @link https://php.net/manual/en/intl.intldateformatter-constants.php
+     * @link https://php.net/manual/en/class.intldateformatter.php#intl.intldateformatter-constants
      */
     const GREGORIAN = 1;
 
     /**
      * Non-Gregorian Calendar
-     * @link https://php.net/manual/en/intl.intldateformatter-constants.php
+     * @link https://php.net/manual/en/class.intldateformatter.php#intl.intldateformatter-constants
      */
     const TRADITIONAL = 0;
 
