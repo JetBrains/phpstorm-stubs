@@ -265,7 +265,7 @@ class Redis
      * @param float     $read_timeout
      * @return bool
      */
-    public function popen( $host, $port = 6379, $timeout = 0.0, $persistent_id = null, $retry_interval = 0, , $read_timeout = 0.0 ) {}
+    public function popen( $host, $port = 6379, $timeout = 0.0, $persistent_id = null, $retry_interval = 0, $read_timeout = 0.0 ) {}
 
     /**
      * Disconnects from the Redis instance, except when pconnect is used.
