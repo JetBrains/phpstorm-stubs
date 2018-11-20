@@ -220,9 +220,10 @@ class Redis
      * @param int       $port
      * @param float     $timeout
      * @param int       $retry_interval
+     * @param float     $read_timeout
      * @return bool
      */
-    public function open( $host, $port = 6379, $timeout = 0.0, $retry_interval = 0 ) {}
+    public function open( $host, $port = 6379, $timeout = 0.0, $retry_interval = 0, $read_timeout = 0.0 ) {}
 
     /**
      * Connects to a Redis instance or reuse a connection already established with pconnect/popen.
