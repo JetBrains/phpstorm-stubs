@@ -303,7 +303,7 @@ class Redis
      *
      * @param   string  $message
      * @return  string  Returns message.
-     * @link    http://redis.io/commands/echo
+     * @link    https://redis.io/commands/echo
      */
     public function echo( $message ) {}
 
