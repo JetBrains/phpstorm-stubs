@@ -18,6 +18,12 @@ foreach (get_declared_classes() as $class) {
 }
 $data['classes'] = $classes;
 
+$interfaces = [];
+foreach (get_declared_interfaces() as $interface) {
+    $interfaces[] = (new PHPInterface())->serialize(new ReflectionClass($interface));
+}
+$data['interfaces'] = $interfaces;
+
 $json = json_encode($data, JSON_NUMERIC_CHECK);
 echo $json;
 
@@ -32,21 +38,21 @@ class PHPClass
 
     public function serialize(ReflectionClass $reflectionClass): array
     {
-        $this->name = $reflectionClass->name;
+        $this->name = $reflectionClass->getName();
         $parentClass = $reflectionClass->getParentClass();
-        if (null !== $parentClass) {
-            $this->parentClass = $reflectionClass->getParentClass()->name;
+        if (false !== $parentClass) {
+            $this->parentClass = $reflectionClass->getParentClass()->getName();
         }
         $this->interfaces = $reflectionClass->getInterfaceNames();
         foreach ($reflectionClass->getMethods() as $method) {
-            if ($method->getDeclaringClass()->name !== $this->name) {
+            if ($method->getDeclaringClass()->getName() !== $this->name) {
                 continue;
             }
             $this->methods[$method->name] = (new PHPMethod())->serialize($method);
         }
 
-        foreach ($reflectionClass->getReflectionConstants() as $constant){
-            if($constant->getDeclaringClass()->name !== $this->name){
+        foreach ($reflectionClass->getReflectionConstants() as $constant) {
+            if ($constant->getDeclaringClass()->getName() !== $this->name) {
                 continue;
             }
             $this->constants[$constant->name] = (new PHPConst())->serialize($constant->name, $constant->getValue());
@@ -133,6 +139,33 @@ class PHPParameter
         }
         $this->is_vararg = $parameter->isVariadic();
         $this->is_passed_by_ref = $parameter->isPassedByReference();
+        return (array)$this;
+    }
+}
+
+class PHPInterface
+{
+    public $name;
+    public $methods = [];
+    public $constants = [];
+    public $parentInterfaces = [];
+
+    public function serialize(ReflectionClass $reflectionClass): array
+    {
+        $this->name = $reflectionClass->getName();
+        foreach ($reflectionClass->getMethods() as $method) {
+            if ($method->getDeclaringClass()->getName() !== $this->name) {
+                continue;
+            }
+            $this->methods[$method->name] = (new PHPMethod())->serialize($method);
+        }
+        $this->parentInterfaces = $reflectionClass->getInterfaceNames();
+        foreach ($reflectionClass->getReflectionConstants() as $constant) {
+            if ($constant->getDeclaringClass()->getName() !== $this->name) {
+                continue;
+            }
+            $this->constants[$constant->name] = (new PHPConst())->serialize($constant->name, $constant->getValue());
+        }
         return (array)$this;
     }
 }

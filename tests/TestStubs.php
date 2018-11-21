@@ -103,6 +103,16 @@ class MutedProblems
         }
         return [];
     }
+
+    public function getMutedProblemsForInterface($interfaceName)
+    {
+        foreach ($this->mutedProblems->interfaces as $interface) {
+            if ($interface->name === $interfaceName && !empty($interface->problems)) {
+                return $interface->problems;
+            }
+        }
+        return [];
+    }
 }
 
 class TestStubs extends TestCase
@@ -199,8 +209,7 @@ class TestStubs extends TestCase
                 $this->assertArrayHasKey($constant->name, $stubClass->constants, "Missing constant $className::{$constant->name}");
             }
         }
-        // @todo check interfaces
-        // @todo check traits
+
         foreach ($class->methods as $method) {
             $params = $this->getParameterRepresentation($method);
             $methodName = $method->name;
@@ -224,10 +233,66 @@ class TestStubs extends TestCase
 
     }
 
+    public function interfaceProvider()
+    {
+        foreach (ReflectionStubsSingleton::getReflectionStubs()->interfaces as $interface) {
+            yield "interface {$interface->name}" => [$interface];
+        }
+    }
+
+    /**
+     * @dataProvider interfaceProvider
+     */
+    public function testInterfaces(stdClass $interface)
+    {
+        $interfaceName = $interface->name;
+        $stubInterfaces = PhpStormStubsSingleton::getPhpStormStubs()->interfaces;
+        if (in_array('missing interface', self::$mutedProblems->getMutedProblemsForInterface($interfaceName), true)) {
+            $this->markTestSkipped('interface is skipped');
+        }
+        $this->assertArrayHasKey($interfaceName, $stubInterfaces, "Missing interface $interfaceName: interface $interfaceName {}");
+        $stubInterface = $stubInterfaces[$interfaceName];
+        if (!in_array('wrong parent', self::$mutedProblems->getMutedProblemsForInterface($interfaceName), true)) {
+            $this->assertEquals($stubInterface->parentInterfaces, $interface->parentInterfaces);
+        }
+        foreach ($interface->constants as $constant) {
+            if (!in_array('missing constant', self::$mutedProblems->getMutedProblemsForClassConstants($interfaceName, $constant->name), true)) {
+                $this->assertArrayHasKey($constant->name, $stubInterface->constants, "Missing constant $interfaceName::{$constant->name}");
+            }
+        }
+        foreach ($interface->methods as $method) {
+            $params = $this->getParameterRepresentation($method);
+            $methodName = $method->name;
+            if (!in_array('missing method', self::$mutedProblems->getMutedProblemsForMethod($interfaceName, $methodName), true)) {
+                $this->assertArrayHasKey($methodName, $stubInterface->methods, "Missing method $interfaceName::$methodName($params){}");
+                $stubMethod = $stubInterface->methods[$methodName];
+                if (!in_array('not final', self::$mutedProblems->getMutedProblemsForMethod($interfaceName, $methodName), true)) {
+                    $this->assertEquals($method->is_final, $stubMethod->is_final, "Method $interfaceName::$methodName final modifier is incorrect");
+                }
+                if (!in_array('not static', self::$mutedProblems->getMutedProblemsForMethod($interfaceName, $methodName), true)) {
+                    $this->assertEquals($method->is_static, $stubMethod->is_static, "Method $interfaceName::$methodName static modifier is incorrect");
+                }
+                if (!in_array('access modifiers', self::$mutedProblems->getMutedProblemsForMethod($interfaceName, $methodName), true)) {
+                    $this->assertEquals($method->access, $stubMethod->access, "Method $interfaceName::$methodName access modifier is incorrect");
+                }
+                if (!in_array('parameter mismatch', self::$mutedProblems->getMutedProblemsForMethod($interfaceName, $methodName), true)) {
+                    $this->assertSameSize($method->parameters, $stubMethod->parameters, "Parameter number mismatch for method $interfaceName::$methodName. Expected: " . $this->getParameterRepresentation($method));
+                }
+            }
+        }
+    }
+
+
     public function stubClassConstantProvider(){
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->classes as $className => $class) {
             foreach ($class->constants as $constantName => $constant) {
                 yield "Constant {$className}::{$constantName}" => [$className, $constant];
+            }
+        }
+
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->interfaces as $interfaceName => $interface) {
+            foreach ($interface->constants as $constantName => $constant) {
+                yield "Constant {$interfaceName}::{$constantName}" => [$interfaceName, $constant];
             }
         }
     }
@@ -278,6 +343,10 @@ class TestStubs extends TestCase
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->classes as $className => $class) {
             yield "class {$className}" => [$class];
         }
+
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->interfaces as $interfaceName => $interface) {
+            yield "interface {$interfaceName}" => [$interface];
+        }
     }
 
     /**
@@ -294,6 +363,12 @@ class TestStubs extends TestCase
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->classes as $className => $class) {
             foreach ($class->methods as $methodName => $method) {
                 yield "Method {$className}::{$methodName}" => [$methodName, $method];
+            }
+        }
+
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->interfaces as $interfaceName => $interface) {
+            foreach ($interface->methods as $methodName => $method) {
+                yield "Method {$interfaceName}::{$methodName}" => [$methodName, $method];
             }
         }
     }

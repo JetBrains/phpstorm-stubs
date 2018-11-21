@@ -6,10 +6,14 @@ require __DIR__ . '/../vendor/autoload.php';
 use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use phpDocumentor\Reflection\DocBlockFactory;
 use PhpParser\Node;
-use PhpParser\Node\{
-    Const_, Expr\FuncCall, FunctionLike, Stmt\Class_, Stmt\ClassMethod, Stmt\Function_, Stmt\Namespace_
-};
-
+use PhpParser\Node\{Const_,
+    Expr\FuncCall,
+    FunctionLike,
+    Stmt\Class_,
+    Stmt\ClassMethod,
+    Stmt\Function_,
+    Stmt\Interface_,
+    Stmt\Namespace_};
 use PhpParser\NodeAbstract;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitorAbstract;
@@ -62,7 +66,9 @@ class ASTVisitor extends NodeVisitorAbstract
             $this->visitDefine($node);
         } elseif ($node instanceof ClassMethod) {
             $this->visitMethod($node);
-        } elseif ($node instanceof Node\Stmt\ClassLike) {
+        } elseif ($node instanceof Interface_) {
+            $this->visitInterface($node);
+        } elseif ($node instanceof Class_) {
             $this->visitClass($node);
         }
     }
@@ -102,8 +108,13 @@ class ASTVisitor extends NodeVisitorAbstract
         $const->parseError = null;
         $this->collectLinks($node, $const);
         if ($node->getAttribute('parent') instanceof Node\Stmt\ClassConst) {
-            $className = $this->getFQN($node->getAttribute('parent')->getAttribute('parent'), $node->getAttribute('parent')->getAttribute('parent')->name->name);
-            $this->stubs->classes[$className]->constants[$constName] = $const;
+            $parentName = $this->getFQN($node->getAttribute('parent')->getAttribute('parent'),
+                $node->getAttribute('parent')->getAttribute('parent')->name->name);
+            if (array_key_exists($parentName, $this->stubs->classes)) {
+                $this->stubs->classes[$parentName]->constants[$constName] = $const;
+            } else {
+                $this->stubs->interfaces[$parentName]->constants[$constName] = $const;
+            }
         } else {
             $this->stubs->constants[$constName] = $const;
 
@@ -157,7 +168,7 @@ class ASTVisitor extends NodeVisitorAbstract
 
     private function visitMethod(ClassMethod $node): void
     {
-        $className = $this->getFQN($node->getAttribute('parent'), $node->getAttribute('parent')->name->name);
+        $parentName = $this->getFQN($node->getAttribute('parent'), $node->getAttribute('parent')->name->name);
         $method = new stdClass();
         $method->name = $node->name->name;
 
@@ -190,10 +201,14 @@ class ASTVisitor extends NodeVisitorAbstract
         } else {
             $method->access = 'public';
         }
-        $this->stubs->classes[$className]->methods[$method->name] = $method;
+        if (array_key_exists($parentName, $this->stubs->classes)) {
+            $this->stubs->classes[$parentName]->methods[$method->name] = $method;
+        } else {
+            $this->stubs->interfaces[$parentName]->methods[$method->name] = $method;
+        }
     }
 
-    private function visitClass(Node\Stmt\ClassLike $node): void
+    private function visitClass(Class_ $node): void
     {
         $class = new stdClass();
         $className = $this->getFQN($node, $node->name->name);
@@ -211,18 +226,54 @@ class ASTVisitor extends NodeVisitorAbstract
         if (empty($node->extends)) {
             $class->parentClass = null;
         } else {
-            if($node instanceof Class_) {
-                $class->parentClass = $node->extends->parts[0];
-            } else{
-                //todo handle interface
-            }
+            $class->parentClass = $this->getFQN($node, $node->extends->parts[0]);
         }
-        if ($node instanceof Class_) {
-            $class->interfaces = $node->implements;
-        }
+        $class->interfaces = $node->implements;
         $this->stubs->classes[$className] = $class;
         $this->stubs->classes[$className]->constants = [];
         $this->stubs->classes[$className]->methods = [];
+    }
+
+    private function visitInterface(Interface_ $node): void
+    {
+        $interface = new stdClass();
+        $interfaceName = $this->getFQN($node, $node->name->name);
+        //this will test PHPDocs
+        $interface->parseError = null;
+        $this->collectLinks($node, $interface);
+        if ($node->getDocComment() !== null) {
+            try {
+                $this->docFactory->create($node->getDocComment()->getText());
+            } catch (Exception $e) {
+                $interface->parseError = $e->getMessage();
+            }
+        }
+        $interface->name = $interfaceName;
+        $interface->parentInterfaces = [];
+        if (!empty($node->extends)) {
+            foreach ($node->extends[0]->parts as $part) {
+                array_push($interface->parentInterfaces, $this->getFQN($node, $part));
+            }
+        }
+        $this->stubs->interfaces[$interfaceName] = $interface;
+        $this->stubs->interfaces[$interfaceName]->constants = [];
+        $this->stubs->interfaces[$interfaceName]->methods = [];
+    }
+
+    public function combineParentInterfaces($interface): array
+    {
+        $parents = [];
+        if (empty($interface->parentInterfaces)) {
+            return $parents;
+        } else {
+            foreach ($interface->parentInterfaces as $parentInterface) {
+                array_push($parents, $parentInterface);
+                foreach ($this->combineParentInterfaces($this->stubs->interfaces[$parentInterface]) as $value) {
+                    array_push($parents, $value);
+                }
+            }
+        }
+        return $parents;
     }
 
     private function parseParams(FunctionLike $node): array
@@ -267,6 +318,7 @@ function getPhpStormStubs(): stdClass
     $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
     $docFactory = \phpDocumentor\Reflection\DocBlockFactory::createInstance();
     $stubs = new stdClass();
+    $visitor = new ASTVisitor($docFactory, $stubs);
 
     $stubsIterator =
         new RecursiveIteratorIterator(
@@ -288,9 +340,11 @@ function getPhpStormStubs(): stdClass
         $traverser = new NodeTraverser();
 
         $traverser->addVisitor(new ParentConnector());
-        $traverser->addVisitor(new ASTVisitor($docFactory, $stubs));
-
+        $traverser->addVisitor($visitor);
         $traverser->traverse($ast);
+    }
+    foreach ($stubs->interfaces as $interface) {
+        $interface->parentInterfaces = $visitor->combineParentInterfaces($interface);
     }
     return $stubs;
 }
