@@ -77,7 +77,7 @@ class CURLFile {
  * to its value. You can manually set this using the 
  * curl_setopt function.
  * </p>
- * @return resource a cURL handle on success, false on errors.
+ * @return resource|false a cURL handle on success, false on errors.
  * @since 4.0.2
  * @since 5.0
  */
