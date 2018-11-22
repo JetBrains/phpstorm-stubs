@@ -715,7 +715,7 @@ function array_chunk(array $input, $size, $preserve_keys = null) { }
  * @param array $values <p>
  * Array of values to be used
  * </p>
- * @return array the combined array, false if the number of elements
+ * @return array|false the combined array, false if the number of elements
  * for each array isn't equal or if the arrays are empty.
  * @since 5.0
  */
