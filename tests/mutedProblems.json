@@ -1090,12 +1090,6 @@
       "problems": [
         "wrong parent"
       ]
-    },
-    {
-      "name": "SessionIdInterface",
-      "problems": [
-        "missing interface"
-      ]
     }
   ]
 }
