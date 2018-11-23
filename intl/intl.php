@@ -2999,7 +2999,7 @@ class IntlIterator implements Iterator {
 }
 
 class IntlException extends Exception {
-    
+
 }
 
 class IntlTimeZone {
@@ -3014,7 +3014,7 @@ class IntlTimeZone {
      * Get the number of IDs in the equivalency group that includes the given ID
      * @link https://secure.php.net/manual/en/intltimezone.countequivalentids.php
      * @param string $zoneId
-     * @return int
+     * @return int|false number of IDs or <b>FALSE</b> on failure
      */
     public static function countEquivalentIDs($zoneId) { }
 
@@ -3028,25 +3028,39 @@ class IntlTimeZone {
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
+     * Get an enumeration over time zone IDs associated with the given country or offset
      * @link https://secure.php.net/manual/en/intltimezone.createenumeration.php
      * @param mixed $countryOrRawOffset [optional]
-     * @return IntlIterator
+     * @return IntlIterator|false an iterator or <b>FALSE</b> on failure
      */
     public static function createEnumeration($countryOrRawOffset) { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
+     * Create a timezone object for the given ID
      * @link https://secure.php.net/manual/en/intltimezone.createtimezone.php
      * @param string $zoneId
-     * @return IntlTimeZone
+     * @return IntlTimeZone|null a timezone object or <b>NULL</b> on failure
      */
     public static function createTimeZone($zoneId) { }
 
     /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get an enumeration over system time zone IDs with the given filter conditions
+     * @link https://secure.php.net/manual/en/intltimezone.createtimezoneidenumeration.php
+     * @param int $zoneType
+     * @param string|null $region [optional]
+     * @param int $rawOffset [optional]
+     * @return IntlIterator|false an iterator or <b>FALSE</b> on failure
+     */
+    public static function createTimeZoneIDEnumeration($zoneType, $region = null, $rawOffset = 0) { }
+
+    /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
+     * Create a timezone object from DateTimeZone
      * @link https://secure.php.net/manual/en/intltimezone.fromdatetimezone.php
      * @param DateTimeZone $zoneId
-     * @return IntlTimeZone
+     * @return IntlTimeZone|null a timezone object or <b>NULL</b> on failure
      */
     public static function  fromDateTimeZone($zoneId) { }
 
@@ -3056,7 +3070,7 @@ class IntlTimeZone {
      * @link https://secure.php.net/manual/en/intltimezone.getcanonicalid.php
      * @param string $zoneId
      * @param bool $isSystemID [optional]
-     * @return string
+     * @return string|false the timezone ID or <b>FALSE</b> on failure
      */
     public static function getCanonicalID($zoneId, &$isSystemID) { }
 
@@ -3066,7 +3080,7 @@ class IntlTimeZone {
      * @param bool $isDaylight [optional]
      * @param int $style [optional]
      * @param string $locale [optional]
-     * @return string
+     * @return string|false the timezone name or <b>FALSE</b> on failure
      */
     public function getDisplayName($isDaylight, $style, $locale) { }
 
@@ -3084,7 +3098,7 @@ class IntlTimeZone {
      * @link https://secure.php.net/manual/en/intltimezone.getequivalentid.php
      * @param string $zoneId
      * @param int $index
-     * @return string
+     * @return string|false the time zone ID or <b>FALSE</b> on failure
      */
     public static function getEquivalentID($zoneId, $index) { }
 
@@ -3124,19 +3138,39 @@ class IntlTimeZone {
      * Get the time zone raw and GMT offset for the given moment in time
      * @link https://secure.php.net/manual/en/intltimezone.getoffset.php
      * @param float $date
+     *   moment in time for which to return offsets, in units of milliseconds from
+     *   January 1, 1970 0:00 GMT, either GMT time or local wall time, depending on
+     *   `local'.
      * @param bool $local
-     * @param int $rawOffset
-     * @param int $dstOffset
-     * @return int
+     *   if true, `date' is local wall time; otherwise it is in GMT time.
+     * @param int &$rawOffset
+     *   output parameter to receive the raw offset, that is, the offset not
+     *   including DST adjustments
+     * @param int &$dstOffset
+     *   output parameter to receive the DST offset, that is, the offset to be added
+     *   to `rawOffset' to obtain the total offset between local and GMT time. If
+     *   DST is not in effect, this value is zero; otherwise it is a positive value,
+     *   typically one hour.
+     * @return bool boolean indication of success
      */
     public function getOffset($date, $local, &$rawOffset, &$dstOffset) { }
 
     /**
+     * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get the raw GMT offset (before taking daylight savings time into account
      * @link https://secure.php.net/manual/en/intltimezone.getrawoffset.php
      * @return int
      */
     public function  getRawOffset() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get the region code associated with the given system time zone ID
+     * @link https://secure.php.net/manual/en/intltimezone.getregion.php
+     * @param string $zoneId
+     * @return string|false region or <b>FALSE</b> on failure
+     */
+    public static function getRegion($zoneId) { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3145,6 +3179,24 @@ class IntlTimeZone {
      * @return string
      */
     public static function getTZDataVersion() { }
+
+    /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get the "unknown" time zone
+     * @link https://secure.php.net/manual/en/intltimezone.getunknown.php
+     * @return IntlTimeZone
+     */
+    public static function getUnknown() { }
+
+    /**
+     * (PHP 7 &gt;=7.1.0)<br/>
+     * Translates a system timezone (e.g. "America/Los_Angeles") into a Windows
+     * timezone (e.g. "Pacific Standard Time").
+     * @link https://secure.php.net/manual/en/intltimezone.getwindowsid.php
+     * @param string $timezone
+     * @return string|false the Windows timezone or <b>FALSE</b> on failure
+     */
+    public static function getWindowsID($timezone) { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -3159,7 +3211,7 @@ class IntlTimeZone {
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Convert to DateTimeZone object
      * @link https://secure.php.net/manual/ru/intltimezone.todatetimezone.php
-     * @return DateTimeZone
+     * @return DateTimeZone|false the DateTimeZone object or <b>FALSE</b> on failure
      */
     public function toDateTimeZone() { }
 
