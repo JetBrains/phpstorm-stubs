@@ -737,6 +737,30 @@ function array_combine(array $keys, array $values) { }
 function array_key_exists($key, array $search) { }
 
 /**
+ * Gets the first key of an array
+ *
+ * Get the first key of the given array without affecting the internal array pointer.
+ *
+ * @link https://secure.php.net/array_key_first
+ * @param array $array An array
+ * @return mixed Returns the first key of array if the array is not empty; NULL otherwise.
+ * @since 7.3
+ */
+function array_key_first(array $array) { }
+
+/**
+ * Gets the last key of an array
+ *
+ * Get the last key of the given array without affecting the internal array pointer.
+ *
+ * @link https://secure.php.net/array_key_last
+ * @param array $array An array
+ * @return mixed Returns the last key of array if the array is not empty; NULL otherwise.
+ * @since 7.3
+ */
+function array_key_last(array $array) { }
+
+/**
  * &Alias; <function>current</function>
  * @link https://php.net/manual/en/function.pos.php
  * @param $arg
