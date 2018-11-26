@@ -3401,25 +3401,25 @@ class Redis
      * Get information about pending messages in a given stream.
      * @param   string      $str_stream
      * @param   string      $str_group
-     * @param   int|string  $i_start
-     * @param   int|string  $i_end
-     * @param   int|string  $i_count
+     * @param   string      $i_start
+     * @param   string      $i_end
+     * @param   int         $i_count
      * @param   string      $str_consumer
      * @return  array       Information about the pending messages, in various forms depending on the specific invocation of XPENDING.
      * @link    https://redis.io/commands/xpending
      * @example
      * <pre>
      * $obj_redis->xPending('mystream', 'mygroup');
-     * $obj_redis->xPending('mystream', 'mygroup', 0, '+', 1, 'consumer-1');
+     * $obj_redis->xPending('mystream', 'mygroup', '-', '+', 1, 'consumer-1');
      * </pre>
      */
-    public function xPending($str_stream, $str_group, $i_start = null, $i_end = null, $i_count = null, $str_consumer = null) {}
+    public function xPending($str_stream, $str_group, $str_start = null, $str_end = null, $i_count = null, $str_consumer = null) {}
 
     /**
      * Get a range of messages from a given stream.
      * @param   string  $str_stream
-     * @param   int     $i_start
-     * @param   int     $i_end
+     * @param   string  $str_start
+     * @param   string  $str_end
      * @param   int     $i_count
      * @return  array   The messages in the stream within the requested range.
      * @link    https://redis.io/commands/xrange
@@ -3431,7 +3431,7 @@ class Redis
      * $obj_redis->xRange('mystream', '-', '+', 2);
      * </pre>
      */
-    public function xRange($str_stream, $i_start, $i_end, $i_count = null) {}
+    public function xRange($str_stream, $str_start, $str_end, $i_count = null) {}
 
     /**
      * Read data from one or more streams and only return IDs greater than sent in the command.
@@ -3469,9 +3469,9 @@ class Redis
     /**
      * This is identical to xRange except the results come back in reverse order. Also note that Redis reverses the order of "start" and "end".
      * @param   string      $str_stream
-     * @param   int|string  $i_end
-     * @param   int|string  $i_start
-     * @param   int|string  $i_count
+     * @param   string      $str_end
+     * @param   string      $str_start
+     * @param   int         $i_count
      * @return  array       The messages in the range specified.
      * @link    https://redis.io/commands/xrevrange
      * @example
@@ -3479,7 +3479,7 @@ class Redis
      * $obj_redis->xRevRange('mystream', '+', '-');
      * </pre>
      */
-    public function xRevRange($str_stream, $i_end, $i_start, $i_count = null) {}
+    public function xRevRange($str_stream, $str_end, $str_start, $i_count = null) {}
 
     /**
      * Trim the stream length to a given maximum. If the "approximate" flag is pasesed, Redis will use your size as a hint but only trim trees in whole nodes (this is more efficient)..
