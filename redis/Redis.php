@@ -4,8 +4,6 @@
  * @author Max Kamashev <max.kamashev@gmail.com>
  * @link https://github.com/ukko/phpredis-phpdoc
  *
- * @method string echo(string $string) Sends a string to Redis, which replies with the same string
- *
  * @method mixed eval($script, $args = array(), $numKeys = 0)
  *  Evaluate a LUA script serverside
  *  @param  string  $script
@@ -306,6 +304,15 @@ class Redis
      * @link    https://redis.io/commands/ping
      */
     public function ping( ) {}
+
+    /**
+     * Echo the given string
+     *
+     * @param   string  $message
+     * @return  string  Returns message.
+     * @link    https://redis.io/commands/echo
+     */
+    public function echo( $message ) {}
 
     /**
      * Get the value related to the specified key
