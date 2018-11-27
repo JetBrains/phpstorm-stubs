@@ -1053,5 +1053,43 @@
         "wrong parent"
       ]
     }
+  ],
+  "interfaces": [
+    {
+      "name": "Traversable",
+      "problems": [
+        "wrong parent"
+      ]
+    },
+    {
+      "name": "IteratorAggregate",
+      "problems": [
+        "wrong parent"
+      ]
+    },
+    {
+      "name": "Iterator",
+      "problems": [
+        "wrong parent"
+      ]
+    },
+    {
+      "name": "RecursiveIterator",
+      "problems": [
+        "wrong parent"
+      ]
+    },
+    {
+      "name": "OuterIterator",
+      "problems": [
+        "wrong parent"
+      ]
+    },
+    {
+      "name": "SeekableIterator",
+      "problems": [
+        "wrong parent"
+      ]
+    }
   ]
 }
