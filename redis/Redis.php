@@ -82,12 +82,13 @@ class Redis
     /**
      * Connects to a Redis instance.
      *
-     * @param string    $host       can be a host, or the path to a unix domain socket
-     * @param int       $port       optional
-     * @param float     $timeout    value in seconds (optional, default is 0.0 meaning unlimited)
-     * @param null      $reserved   should be null if $retry_interval is specified
-     * @param int       $retry_interval  retry interval in milliseconds.
-     * @return bool                 TRUE on success, FALSE on error.
+     * @param string    $host           can be a host, or the path to a unix domain socket
+     * @param int       $port           optional
+     * @param float     $timeout        value in seconds (optional, default is 0.0 meaning unlimited)
+     * @param null      $reserved       should be null if $retry_interval is specified
+     * @param int       $retry_interval retry interval in milliseconds.
+     * @param float     $read_timeout   value in seconds (optional, default is 0 meaning unlimited)
+     * @return bool                     TRUE on success, FALSE on error.
      * @example
      * <pre>
      * $redis->connect('127.0.0.1', 6379);
@@ -96,7 +97,7 @@ class Redis
      * $redis->connect('/tmp/redis.sock');      // unix domain socket.
      * </pre>
      */
-    public function connect( $host, $port = 6379, $timeout = 0.0, $reserved = null, $retry_interval = 0 ) {}
+    public function connect( $host, $port = 6379, $timeout = 0.0, $reserved = null, $retry_interval = 0, $read_timeout = 0.0 ) {}
 
     /**
      * Set the string value in argument as value of the key, with a time to live.
@@ -219,9 +220,10 @@ class Redis
      * @param int       $port
      * @param float     $timeout
      * @param int       $retry_interval
+     * @param float     $read_timeout
      * @return bool
      */
-    public function open( $host, $port = 6379, $timeout = 0.0, $retry_interval = 0 ) {}
+    public function open( $host, $port = 6379, $timeout = 0.0, $retry_interval = 0, $read_timeout = 0.0 ) {}
 
     /**
      * Connects to a Redis instance or reuse a connection already established with pconnect/popen.
@@ -236,11 +238,13 @@ class Redis
      * This feature is not available in threaded versions. pconnect and popen then working like their non persistent
      * equivalents.
      *
-     * @param string    $host          can be a host, or the path to a unix domain socket
-     * @param int       $port          optional
-     * @param float     $timeout       value in seconds (optional, default is 0 meaning unlimited)
-     * @param string    $persistent_id identity for the requested persistent connection
-     * @return bool                    TRUE on success, FALSE on ertcnror.
+     * @param string    $host           can be a host, or the path to a unix domain socket
+     * @param int       $port           optional
+     * @param float     $timeout        value in seconds (optional, default is 0 meaning unlimited)
+     * @param string    $persistent_id  identity for the requested persistent connection
+     * @param int       $retry_interval retry interval in milliseconds.
+     * @param float     $read_timeout   value in seconds (optional, default is 0 meaning unlimited)
+     * @return bool                     TRUE on success, FALSE on ertcnror.
      * <pre>
      * $redis->pconnect('127.0.0.1', 6379);
      * $redis->pconnect('127.0.0.1');                 // port 6379 by default - same connection like before.
@@ -249,7 +253,7 @@ class Redis
      * $redis->pconnect('/tmp/redis.sock');           // unix domain socket - would be another connection than the four before.
      * </pre>
      */
-    public function pconnect( $host, $port = 6379, $timeout = 0.0, $persistent_id = null ) {}
+    public function pconnect( $host, $port = 6379, $timeout = 0.0, $persistent_id = null, $retry_interval = 0, $read_timeout = 0.0 ) {}
 
     /**
      * @see pconnect()
@@ -257,8 +261,11 @@ class Redis
      * @param int       $port
      * @param float     $timeout
      * @param string    $persistent_id
+     * @param int       $retry_interval
+     * @param float     $read_timeout
+     * @return bool
      */
-    public function popen( $host, $port = 6379, $timeout = 0.0, $persistent_id = null ) {}
+    public function popen( $host, $port = 6379, $timeout = 0.0, $persistent_id = null, $retry_interval = 0, $read_timeout = 0.0 ) {}
 
     /**
      * Disconnects from the Redis instance, except when pconnect is used.
