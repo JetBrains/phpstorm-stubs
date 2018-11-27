@@ -881,6 +881,7 @@ class Redis
     /**
      * @see     lLen()
      * @param   string    $key
+     * @return  int       The size of the list identified by Key exists.
      * @link    https://redis.io/commands/llen
      */
     public function lSize( $key ) {}
