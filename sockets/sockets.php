@@ -674,7 +674,7 @@ function socket_send ($socket, $buf, $len, $flags) {}
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Send a message
- * @link https://https://secure.php.net/manual/en/function.socket-sendmsg.php
+ * @link https://secure.php.net/manual/en/function.socket-sendmsg.php
  * @param resource $socket
  * @param array $message
  * @param int $flags
@@ -761,7 +761,7 @@ function socket_recvfrom ($socket, &$buf, $len, $flags, &$name, &$port = null) {
 
 /**
  * Read a message
- * @link https://https://secure.php.net/manual/en/function.socket-recvmsg.php
+ * @link https://secure.php.net/manual/en/function.socket-recvmsg.php
  * @param resource $socket
  * @param string $message
  * @param int $flags [optional]

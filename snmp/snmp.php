@@ -9,7 +9,7 @@
 class SNMP  {
     /**
      * @var int Maximum OID per GET/SET/GETBULK request
-     * @link https://https://secure.php.net/manual/en/class.snmp.php#snmp.props.max-oids
+     * @link https://secure.php.net/manual/en/class.snmp.php#snmp.props.max-oids
      */
     public $max_oids;
 
@@ -20,21 +20,21 @@ class SNMP  {
      * <dt>SNMP_VALUE_PLAIN	<dd>The return values will be the plain value without the SNMP type hint.
      * <dt>SNMP_VALUE_OBJECT	 <dd>The return values will be objects with the properties "value" and "type", where the latter is one of the SNMP_OCTET_STR, SNMP_COUNTER etc. constants. The way "value" is returned is based on which one of SNMP_VALUE_LIBRARY, SNMP_VALUE_PLAIN is set
      * <dl>
-     * @link https://https://secure.php.net/manual/en/class.snmp.php#snmp.props.max-oids
+     * @link https://secure.php.net/manual/en/class.snmp.php#snmp.props.max-oids
      */
     public $valueretrieval;
 
     /**
      * @var bool Value of quick_print within the NET-SNMP library
      * <p>Sets the value of quick_print within the NET-SNMP library. When this is set (1), the SNMP library will return 'quick printed' values. This means that just the value will be printed. When quick_print is not enabled (default) the UCD SNMP library prints extra information including the type of the value (i.e. IpAddress or OID). Additionally, if quick_print is not enabled, the library prints additional hex values for all strings of three characters or less.
-     * @link https://https://secure.php.net/manual/en/class.snmp.php#snmp.props.quick-print
+     * @link https://secure.php.net/manual/en/class.snmp.php#snmp.props.quick-print
      */
     public $quick_print;
 
     /**
      * @var bool Controls the way enum values are printed
      * <p>Parameter toggles if walk/get etc. should automatically lookup enum values in the MIB and return them together with their human readable string.
-     * @link https://https://secure.php.net/manual/en/class.snmp.php#snmp.props.enum-print
+     * @link https://secure.php.net/manual/en/class.snmp.php#snmp.props.enum-print
      */
     public $enum_print;
 
@@ -49,26 +49,26 @@ class SNMP  {
      * <dt>SNMP_OID_OUTPUT_UCD	<dd>system.sysUpTime.sysUpTimeInstance
      * <dt>SNMP_OID_OUTPUT_NONE	<dd>Undefined
      * </dl>
-     * @link https://https://secure.php.net/manual/en/class.snmp.php#snmp.props.oid-output-format
+     * @link https://secure.php.net/manual/en/class.snmp.php#snmp.props.oid-output-format
      */
     public $oid_output_format;
 
     /**
      * @var bool Controls disabling check for increasing OID while walking OID tree
      * <p> Some SNMP agents are known for returning OIDs out of order but can complete the walk anyway. Other agents return OIDs that are out of order and can cause SNMP::walk() to loop indefinitely until memory limit will be reached. PHP SNMP library by default performs OID increasing check and stops walking on OID tree when it detects possible loop with issuing warning about non-increasing OID faced. Set oid_increasing_check to <b>FALSE</b> to disable this check.
-     * @link https://https://secure.php.net/manual/en/class.snmp.php#snmp.props.oid-increasing-check
+     * @link https://secure.php.net/manual/en/class.snmp.php#snmp.props.oid-increasing-check
      */
     public $oid_increasing_check;
 
     /**
      * @var int Controls which failures will raise SNMPException instead of warning. Use bitwise OR'ed SNMP::ERRNO_* constants. By default all SNMP exceptions are disabled.
-     * @link https://https://secure.php.net/manual/en/class.snmp.php#snmp.props.exceptions-enabled
+     * @link https://secure.php.net/manual/en/class.snmp.php#snmp.props.exceptions-enabled
      */
     public $exceptions_enabled;
 
     /**
      * @var array Read-only property with remote agent configuration: hostname, port, default timeout, default retries count
-     * @link https://https://secure.php.net/manual/en/class.snmp.php#snmp.props.info
+     * @link https://secure.php.net/manual/en/class.snmp.php#snmp.props.info
      */
     public $info;
 
