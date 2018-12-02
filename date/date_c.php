@@ -115,7 +115,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * (PHP 5 &gt;=5.5.0)<br/>
      * Adds an amount of days, months, years, hours, minutes and seconds
      * @param DateInterval $interval
-     * @return static
+     * @return DateTimeImmutable
      */
     public function add(DateInterval $interval) { }
 
@@ -238,7 +238,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @param DateInterval $interval <p>
      * A {@link https://secure.php.net/manual/en/class.dateinterval.php DateInterval} object
      * </p>
-     * @return static|bool
+     * @return DateTimeImmutable|bool
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
     public function sub(DateInterval $interval) { }
@@ -368,7 +368,7 @@ class DateTime implements DateTimeInterface {
     /**
      * Adds an amount of days, months, years, hours, minutes and seconds to a DateTime object
      * @param DateInterval $interval
-     * @return static
+     * @return DateTime
      * @link https://php.net/manual/en/datetime.add.php
      */
     public function add (DateInterval $interval) {}
@@ -376,7 +376,7 @@ class DateTime implements DateTimeInterface {
     /**
      * Subtracts an amount of days, months, years, hours, minutes and seconds from a DateTime object
      * @param DateInterval $interval
-     * @return static
+     * @return DateTime
      * @link https://php.net/manual/en/datetime.sub.php
      */
     public function sub (DateInterval $interval) {}
