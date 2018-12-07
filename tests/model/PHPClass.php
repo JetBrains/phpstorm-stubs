@@ -16,7 +16,7 @@ class PHPClass extends BasePHPClass
      */
     public function serialize($clazz): self
     {
-        try{
+        try {
             $reflectionClass = new ReflectionClass($clazz);
             $this->name = $reflectionClass->getName();
             $parentClass = $reflectionClass->getParentClass();
@@ -37,7 +37,7 @@ class PHPClass extends BasePHPClass
                 }
                 $this->constants[$constant->name] = (new PHPConst($constant->name))->serialize($constant->getValue());
             }
-        }catch (ReflectionException $ex){
+        } catch (ReflectionException $ex) {
             $this->parseError = $ex;
         }
         return $this;
