@@ -17,5 +17,15 @@
       "nikic/php-parser": "v4.0.1",
       "phpdocumentor/reflection-docblock": "^4.3",
       "phpunit/phpunit": "7.1.4"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "": "tests/",
+            "Model\\": "tests/model",
+            "Parsers\\": "tests/parser",
+            "Parsers\\Visitor\\": "tests/parser/visitor",
+            "TestData\\": "tests/testdata",
+            "TestData\\Providers\\": "tests/testdata"
+        }
     }
 }

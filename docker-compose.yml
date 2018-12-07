@@ -4,4 +4,4 @@ services:
     image: php:latest
     volumes:
      - .:/opt/project
-    command: php /opt/project/PHPReflectionParser.php
+    command: /opt/project/vendor/bin/phpunit /opt/project/tests/TestStubs.php

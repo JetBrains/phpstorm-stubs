@@ -2,6 +2,10 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/tests/parser/visitor" isTestSource="true" packagePrefix="Parsers\Visitor\" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/testdata" isTestSource="true" packagePrefix="TestData\" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/parser" isTestSource="true" packagePrefix="Parsers\" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/model" isTestSource="true" packagePrefix="Model\" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
