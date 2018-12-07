@@ -733,7 +733,7 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-writeconcern.getjournal.php
              * @return bool|null
              */
-            final public function getJurnal()
+            final public function getJournal()
             {
             }
 
