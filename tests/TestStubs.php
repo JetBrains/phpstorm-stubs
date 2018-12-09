@@ -1,7 +1,5 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
-
 use Model\BasePHPClass;
 use Model\PHPClass;
 use Model\PHPConst;

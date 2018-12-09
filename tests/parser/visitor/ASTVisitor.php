@@ -10,6 +10,7 @@ use Model\PHPElementWithPHPDoc;
 use Model\PHPFunction;
 use Model\PHPInterface;
 use Model\PHPMethod;
+use Model\PHPParameter;
 use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use phpDocumentor\Reflection\DocBlockFactory;
 use PhpParser\Node;
@@ -23,7 +24,6 @@ use PhpParser\Node\{Const_,
     Stmt\Namespace_};
 use PhpParser\NodeAbstract;
 use PhpParser\NodeVisitorAbstract;
-use stdClass;
 
 class ASTVisitor extends NodeVisitorAbstract
 {
@@ -267,7 +267,7 @@ class ASTVisitor extends NodeVisitorAbstract
         $parsedParams = [];
         /** @var Node\Param $param */
         foreach ($params as $param) {
-            $parsedParam = new stdClass();
+            $parsedParam = new PHPParameter();
             $parsedParam->name = $param->var->name;
             if ($param->type !== null) {
                 if (empty($param->type->name)) {
