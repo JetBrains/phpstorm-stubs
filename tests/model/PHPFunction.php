@@ -12,7 +12,6 @@ use ReflectionFunction;
 
 class PHPFunction extends PHPElementWithPHPDoc
 {
-    public $name;
     public $is_deprecated;
     public $parameters = [];
     public $returnTag;
