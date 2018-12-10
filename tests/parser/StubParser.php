@@ -3,12 +3,14 @@
 namespace Parsers;
 
 use FilesystemIterator;
+use Model\PHPClass;
 use Model\PHPInterface;
 use parser\visitor\ParentConnector;
 use Parsers\Visitor\ASTVisitor;
 use phpDocumentor\Reflection\DocBlockFactory;
 use PhpParser\Error;
 use PhpParser\NodeTraverser;
+use PhpParser\NodeVisitor\NameResolver;
 use PhpParser\ParserFactory;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -19,9 +21,10 @@ class StubParser
     public static function getPhpStormStubs(): array
     {
         $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
-        $docFactory = DocBlockFactory::createInstance();
+        $nameResolver = new NameResolver;
+
         $stubs = array();
-        $visitor = new ASTVisitor($docFactory, $stubs);
+        $visitor = new ASTVisitor($stubs);
 
         $stubsIterator =
             new RecursiveIteratorIterator(
@@ -29,7 +32,8 @@ class StubParser
             );
         /** @var SplFileInfo $file */
         foreach ($stubsIterator as $file) {
-            if (strpos($file->getRealPath(), 'vendor') || strpos($file->getRealPath(), '.git') || strpos($file->getRealPath(), 'tests') || strpos($file->getRealPath(), '.idea')) {
+            if (strpos($file->getRealPath(), 'vendor') || strpos($file->getRealPath(),
+                    '.git') || strpos($file->getRealPath(), 'tests') || strpos($file->getRealPath(), '.idea')) {
                 continue;
             }
             $code = file_get_contents($file->getRealPath());
@@ -43,13 +47,16 @@ class StubParser
             $traverser = new NodeTraverser();
 
             $traverser->addVisitor(new ParentConnector());
+            $traverser->addVisitor($nameResolver);
             $traverser->addVisitor($visitor);
             $traverser->traverse($ast);
         }
         foreach ($stubs[PHPInterface::class] as $interface) {
             $stubs[PHPInterface::class][$interface->name]->parentInterfaces = $visitor->combineParentInterfaces($interface);
         }
-
+        foreach ($stubs[PHPClass::class] as $class) {
+            $stubs[PHPClass::class][$class->name]->interfaces = ASTVisitor::flattenArray($visitor->combineImplementedInterfaces($class));
+        }
         return $stubs;
     }
 }

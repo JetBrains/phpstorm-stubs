@@ -21,19 +21,20 @@ class PHPReflectionParser
         $const_groups = iterator_to_array(new RecursiveIteratorIterator(new RecursiveArrayIterator($const_groups)), true);
         $data[PHPConst::class] = [];
         foreach ($const_groups as $name => $value) {
-            array_push($data[PHPConst::class], (new PHPConst($name))->serialize($value));
+            array_push($data[PHPConst::class], (new PHPConst())->readObjectFromReflection([$name, $value]));
         }
 
         $data[PHPFunction::class] = [];
         foreach (get_defined_functions()['internal'] as $function) {
-            array_push($data[PHPFunction::class], (new PHPFunction())->serialize($function));
+            array_push($data[PHPFunction::class], (new PHPFunction())->readObjectFromReflection($function));
         }
 
         $data[PHPClass::class] = [];
-        foreach (get_declared_classes() as $class) {
-            $reflectionClass = new ReflectionClass($class);
+        $cl = get_declared_classes();
+        foreach ($cl as $clazz) {
+            $reflectionClass = new ReflectionClass($clazz);
             if ($reflectionClass->isInternal()) {
-                array_push($data[PHPClass::class], (new PHPClass())->serialize($class));
+                array_push($data[PHPClass::class], (new PHPClass())->readObjectFromReflection($clazz));
             }
         }
 
@@ -41,7 +42,7 @@ class PHPReflectionParser
         foreach (get_declared_interfaces() as $interface) {
             $reflectionInterface = new ReflectionClass($interface);
             if ($reflectionInterface->isInternal()) {
-                array_push($data[PHPInterface::class], (new PHPInterface())->serialize($interface));
+                array_push($data[PHPInterface::class], (new PHPInterface())->readObjectFromReflection($interface));
             }
         }
 

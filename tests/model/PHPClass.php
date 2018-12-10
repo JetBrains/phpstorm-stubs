@@ -2,6 +2,7 @@
 
 namespace Model;
 
+use Exception;
 use ReflectionClass;
 use ReflectionException;
 
@@ -14,7 +15,7 @@ class PHPClass extends BasePHPClass
      * @param mixed $clazz
      * @return PHPClass
      */
-    public function serialize($clazz): self
+    public function readObjectFromReflection($clazz): self
     {
         try {
             $reflectionClass = new ReflectionClass($clazz);
@@ -28,14 +29,14 @@ class PHPClass extends BasePHPClass
                 if ($method->getDeclaringClass()->getName() !== $this->name) {
                     continue;
                 }
-                $this->methods[$method->name] = (new PHPMethod())->serialize($method);
+                $this->methods[$method->name] = (new PHPMethod())->readObjectFromReflection($method);
             }
 
             foreach ($reflectionClass->getReflectionConstants() as $constant) {
                 if ($constant->getDeclaringClass()->getName() !== $this->name) {
                     continue;
                 }
-                $this->constants[$constant->name] = (new PHPConst($constant->name))->serialize($constant->getValue());
+                $this->constants[$constant->name] = (new PHPConst())->readObjectFromReflection([$constant->name, $constant->getValue()]);
             }
         } catch (ReflectionException $ex) {
             $this->parseError = $ex;
@@ -43,4 +44,34 @@ class PHPClass extends BasePHPClass
         return $this;
     }
 
+    public function readObjectFromStubNode($node): self
+    {
+        $className = $this->getFQN($node);
+        //this will test PHPDocs
+        $this->parseError = null;
+        $this->collectLinks($node);
+        $this->name = $className;
+        if (empty($node->extends)) {
+            $this->parentClass = null;
+        } else {
+            $this->parentClass = "";
+            foreach ($node->extends->parts as $part) {
+                $this->parentClass .= "\\$part";
+            }
+            $this->parentClass = ltrim($this->parentClass, "\\");
+        }
+        if (!empty($node->implements)) {
+            foreach ($node->implements as $interfaceObject) {
+                $interfaceFQN = "";
+                foreach ($interfaceObject->parts as $interface) {
+                    $interfaceFQN .= "\\$interface";
+                }
+                array_push($this->interfaces, ltrim($interfaceFQN, "\\"));
+            }
+        }
+
+        $this->constants = [];
+        $this->methods = [];
+        return $this;
+    }
 }

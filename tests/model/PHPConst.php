@@ -2,20 +2,34 @@
 
 namespace Model;
 
-class PHPConst extends PHPElementWithPHPDoc
+use PhpParser\Node\Stmt\ClassConst;
+use ReflectionClassConstant;
+
+class PHPConst extends BasePHPConstant
 {
+    public $parentName;
 
-    public $value;
-
-    public function __construct($aName)
+    /**
+     * @param array $constant
+     * @return PHPConst
+     */
+    public function readObjectFromReflection($constant): self
     {
-        $this->name = $aName;
+        $this->name = utf8_encode($constant[0]);
+        $this->value = is_resource($constant[1]) ? 'PHPSTORM_RESOURCE' : utf8_encode($constant[1]);
+        return $this;
     }
 
-    public function serialize($value): self
+    public function readObjectFromStubNode($node)
     {
-        $this->name = utf8_encode($this->name);
-        $this->value = is_resource($value) ? 'PHPSTORM_RESOURCE' : utf8_encode($value);
+        $constName = $this->getConstantFQN($node, $node->name->name);
+        $this->name = $constName;
+        $this->value = $this->getConstValue($node);
+        $this->parseError = null;
+        $this->collectLinks($node);
+        if ($node->getAttribute('parent') instanceof ClassConst) {
+            $this->parentName = $this->getFQN($node->getAttribute('parent')->getAttribute('parent'));
+        }
         return $this;
     }
 }

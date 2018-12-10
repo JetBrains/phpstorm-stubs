@@ -3,13 +3,19 @@
 namespace Model;
 
 
+use ReflectionParameter;
+
 class PHPParameter extends BasePHPElement
 {
     public $type = '';
     public $is_vararg;
     public $is_passed_by_ref;
 
-    public function serialize($parameter): self
+    /**
+     * @param ReflectionParameter $parameter
+     * @return PHPParameter
+     */
+    public function readObjectFromReflection($parameter): self
     {
         $this->name = $parameter->name;
         if (!empty($parameter->getType())) {
@@ -18,5 +24,14 @@ class PHPParameter extends BasePHPElement
         $this->is_vararg = $parameter->isVariadic();
         $this->is_passed_by_ref = $parameter->isPassedByReference();
         return $this;
+    }
+
+    /**
+     * @param mixed $node
+     * @return mixed
+     */
+    public function readObjectFromStubNode($node)
+    {
+        // TODO: Implement readObjectFromStubNode() method.
     }
 }
