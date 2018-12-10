@@ -10,16 +10,8 @@ abstract class BasePHPElement
     public $name;
     public $parseError;
 
-    /**
-     * @param mixed $object
-     * @return mixed
-     */
     public abstract function readObjectFromReflection($object);
 
-    /**
-     * @param mixed $node
-     * @return mixed
-     */
     public abstract function readObjectFromStubNode($node);
 
     protected function getConstantFQN(NodeAbstract $node, string $nodeName): string
@@ -37,9 +29,10 @@ abstract class BasePHPElement
         $fqn = "";
         if ($node->namespacedName == null) {
             $fqn = $node->name->parts[0];
-        }
-        foreach ($node->namespacedName->parts as $part) {
-            $fqn .= "$part\\";
+        } else {
+            foreach ($node->namespacedName->parts as $part) {
+                $fqn .= "$part\\";
+            }
         }
         return rtrim($fqn, "\\");
     }

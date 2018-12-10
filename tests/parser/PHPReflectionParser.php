@@ -4,6 +4,7 @@ namespace Parsers;
 
 use Model\PHPClass;
 use Model\PHPConst;
+use Model\PHPDefineConstant;
 use Model\PHPFunction;
 use Model\PHPInterface;
 use RecursiveArrayIterator;
@@ -21,7 +22,7 @@ class PHPReflectionParser
         $const_groups = iterator_to_array(new RecursiveIteratorIterator(new RecursiveArrayIterator($const_groups)), true);
         $data[PHPConst::class] = [];
         foreach ($const_groups as $name => $value) {
-            array_push($data[PHPConst::class], (new PHPConst())->readObjectFromReflection([$name, $value]));
+            array_push($data[PHPConst::class], (new PHPDefineConstant())->readObjectFromReflection([$name, $value]));
         }
 
         $data[PHPFunction::class] = [];

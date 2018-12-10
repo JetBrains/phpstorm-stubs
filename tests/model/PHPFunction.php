@@ -3,9 +3,10 @@
 namespace Model;
 
 use Exception;
+use Parsers\DocFactoryProvider;
 use phpDocumentor\Reflection\DocBlock\Tags\Return_;
-use phpDocumentor\Reflection\DocBlockFactory;
 use PhpParser\Node\FunctionLike;
+use PhpParser\Node\Stmt\Function_;
 use ReflectionException;
 use ReflectionFunction;
 
@@ -16,6 +17,10 @@ class PHPFunction extends PHPElementWithPHPDoc
     public $parameters = [];
     public $returnTag;
 
+    /**
+     * @param ReflectionFunction $function
+     * @return $this
+     */
     public function readObjectFromReflection($function)
     {
         try {
@@ -31,12 +36,18 @@ class PHPFunction extends PHPElementWithPHPDoc
         return $this;
     }
 
+    /**
+     * @param Function_ $node
+     * @return $this
+     */
     public function readObjectFromStubNode($node)
     {
         $functionName = $this->getFQN($node);
         $this->name = $functionName;
 
-        $this->parameters = $this->parseParams($node);
+        foreach ($node->getParams() as $parameter) {
+            array_push($this->parameters, (new PHPParameter())->readObjectFromStubNode($parameter));
+        }
 
         $this->parseError = null;
         $this->collectLinks($node);
@@ -45,42 +56,11 @@ class PHPFunction extends PHPElementWithPHPDoc
         return $this;
     }
 
-    protected function parseParams(FunctionLike $node): array
-    {
-        $params = $node->getParams();
-        $parsedParams = [];
-        /** @var Node\Param $param */
-        foreach ($params as $param) {
-            $parsedParam = new PHPParameter();
-            $parsedParam->name = $param->var->name;
-            if ($param->type !== null) {
-                if (empty($param->type->name)) {
-                    if (!empty($param->type->parts)) {
-                        $parsedParam->type = $param->type->parts[0];
-                    }
-                } else {
-                    $parsedParam->type = $param->type->name;
-                }
-
-            } else {
-                $parsedParam->type = '';
-            }
-            $parsedParam->is_vararg = $param->variadic;
-            $parsedParam->is_passed_by_ref = $param->byRef;
-            $parsedParams[] = $parsedParam;
-        }
-
-        return $parsedParams;
-    }
-
     protected function checkDeprecationTag(FunctionLike $node)
     {
-        if (self::$docFactory === null) {
-            self::$docFactory = DocBlockFactory::createInstance();
-        }
         if ($node->getDocComment() !== null) {
             try {
-                $phpDoc = self::$docFactory->create($node->getDocComment()->getText());
+                $phpDoc = DocFactoryProvider::getDocFactory()->create($node->getDocComment()->getText());
                 if (empty($phpDoc->getTagsByName('deprecated'))) {
                     $this->is_deprecated = false;
                 } else {
@@ -94,12 +74,9 @@ class PHPFunction extends PHPElementWithPHPDoc
 
     protected function checkReturnTag(FunctionLike $node)
     {
-        if (self::$docFactory === null) {
-            self::$docFactory = DocBlockFactory::createInstance();
-        }
         if ($node->getDocComment() !== null) {
             try {
-                $phpDoc = self::$docFactory->create($node->getDocComment()->getText());
+                $phpDoc = DocFactoryProvider::getDocFactory()->create($node->getDocComment()->getText());
                 $parsedReturnTag = $phpDoc->getTagsByName('return');
                 if (!empty($parsedReturnTag) && $parsedReturnTag[0] instanceof Return_) {
                     $this->returnTag = $parsedReturnTag[0]->getType() . "";

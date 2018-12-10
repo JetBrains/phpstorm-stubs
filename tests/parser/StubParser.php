@@ -7,7 +7,6 @@ use Model\PHPClass;
 use Model\PHPInterface;
 use parser\visitor\ParentConnector;
 use Parsers\Visitor\ASTVisitor;
-use phpDocumentor\Reflection\DocBlockFactory;
 use PhpParser\Error;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitor\NameResolver;

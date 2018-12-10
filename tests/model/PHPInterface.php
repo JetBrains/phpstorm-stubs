@@ -2,7 +2,7 @@
 
 namespace Model;
 
-use Exception;
+use PhpParser\Node\Stmt\Interface_;
 use ReflectionClass;
 use ReflectionException;
 
@@ -11,8 +11,8 @@ class PHPInterface extends BasePHPClass
     public $parentInterfaces = [];
 
     /**
-     * @param mixed $interface
-     * @return PHPInterface
+     * @param ReflectionClass $interface
+     * @return $this
      */
     public function readObjectFromReflection($interface): self
     {
@@ -30,7 +30,7 @@ class PHPInterface extends BasePHPClass
                 if ($constant->getDeclaringClass()->getName() !== $this->name) {
                     continue;
                 }
-                $this->constants[$constant->name] = (new PHPConst())->readObjectFromReflection([$constant->name, $constant->getValue()]);
+                $this->constants[$constant->name] = (new PHPConst())->readObjectFromReflection($constant);
             }
         } catch (ReflectionException $ex) {
             $this->parseError = $ex;
@@ -38,21 +38,20 @@ class PHPInterface extends BasePHPClass
         return $this;
     }
 
+    /**
+     * @param Interface_ $node
+     * @return $this
+     */
     public function readObjectFromStubNode($node)
     {
-        $interfaceName = $this->getFQN($node);
-        //this will test PHPDocs
-        $this->parseError = null;
+        $this->name = $this->getFQN($node);
         $this->collectLinks($node);
-        $this->name = $interfaceName;
         $this->parentInterfaces = [];
         if (!empty($node->extends)) {
             foreach ($node->extends[0]->parts as $part) {
                 array_push($this->parentInterfaces, $part);
             }
         }
-        $this->constants = [];
-        $this->methods = [];
         return $this;
     }
 }

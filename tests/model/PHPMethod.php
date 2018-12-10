@@ -2,9 +2,7 @@
 
 namespace Model;
 
-use Exception;
-use phpDocumentor\Reflection\DocBlock\Tags\Return_;
-use ReflectionMethod;
+use PhpParser\Node\Stmt\ClassMethod;
 
 class PHPMethod extends PHPFunction
 {
@@ -13,6 +11,10 @@ class PHPMethod extends PHPFunction
     public $is_final;
     public $parentName = null;
 
+    /**
+     * @param \ReflectionMethod $method
+     * @return $this
+     */
     public function readObjectFromReflection($method)
     {
         $this->name = $method->name;
@@ -34,8 +36,8 @@ class PHPMethod extends PHPFunction
     }
 
     /**
-     * @param ReflectionMethod $node
-     * @return $this|mixed|PHPFunction
+     * @param ClassMethod $node
+     * @return $this
      */
     public function readObjectFromStubNode($node)
     {
@@ -52,7 +54,10 @@ class PHPMethod extends PHPFunction
         if (strncmp($this->name, 'PS_UNRESERVE_PREFIX_', 20) === 0) {
             $this->name = substr($this->name, strlen('PS_UNRESERVE_PREFIX_'));
         }
-        $this->parameters = $this->parseParams($node);
+        foreach ($node->getParams() as $parameter) {
+            array_push($this->parameters, (new PHPParameter())->readObjectFromStubNode($parameter));
+        }
+
         $this->is_final = $node->isFinal();
         $this->is_static = $node->isStatic();
         if ($node->isPrivate()) {

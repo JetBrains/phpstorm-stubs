@@ -1,37 +1,35 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ifedorov
- * Date: 2018-12-08
- * Time: 21:28
- */
 
 namespace Model;
 
+use PhpParser\Node\Expr\FuncCall;
 
-class PHPDefineConstant extends BasePHPConstant
+class PHPDefineConstant extends PHPConst
 {
-    public function readObjectFromStubNode($node)
+    /**
+     * @param array $constant
+     * @return $this
+     */
+    public function readObjectFromReflection($constant)
     {
-        if ($node->name->parts[0] === 'define') {
-            $constName = $this->getConstantFQN($node, $node->args[0]->value->value);
-            if (in_array($constName, ['null', 'true', 'false'])) {
-                $constName = strtoupper($constName);
-            }
-            $this->name = $constName;
-            $this->value = $this->getConstValue($node->args[1]);
-            $this->parseError = null;
-            $this->collectLinks($node);
-        }
+        $this->name = utf8_encode($constant[0]);
+        $this->value = is_resource($constant[1]) ? 'PHPSTORM_RESOURCE' : utf8_encode($constant[1]);
         return $this;
     }
 
     /**
-     * @param mixed $object
-     * @return mixed
+     * @param FuncCall $node
+     * @return $this
      */
-    public function readObjectFromReflection($object)
+    public function readObjectFromStubNode($node)
     {
-        // TODO: Implement readObjectFromReflection() method.
+        $constName = $this->getConstantFQN($node, $node->args[0]->value->value);
+        if (in_array($constName, ['null', 'true', 'false'])) {
+            $constName = strtoupper($constName);
+        }
+        $this->name = $constName;
+        $this->value = $this->getConstValue($node->args[1]);
+        $this->collectLinks($node);
+        return $this;
     }
 }

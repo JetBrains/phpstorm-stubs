@@ -2,7 +2,7 @@
 
 namespace Model;
 
-use Exception;
+use PhpParser\Node\Stmt\Class_;
 use ReflectionClass;
 use ReflectionException;
 
@@ -12,10 +12,10 @@ class PHPClass extends BasePHPClass
     public $interfaces = [];
 
     /**
-     * @param mixed $clazz
-     * @return PHPClass
+     * @param ReflectionClass $clazz
+     * @return $this
      */
-    public function readObjectFromReflection($clazz): self
+    public function readObjectFromReflection($clazz)
     {
         try {
             $reflectionClass = new ReflectionClass($clazz);
@@ -36,7 +36,7 @@ class PHPClass extends BasePHPClass
                 if ($constant->getDeclaringClass()->getName() !== $this->name) {
                     continue;
                 }
-                $this->constants[$constant->name] = (new PHPConst())->readObjectFromReflection([$constant->name, $constant->getValue()]);
+                $this->constants[$constant->name] = (new PHPConst())->readObjectFromReflection($constant);
             }
         } catch (ReflectionException $ex) {
             $this->parseError = $ex;
@@ -44,13 +44,14 @@ class PHPClass extends BasePHPClass
         return $this;
     }
 
-    public function readObjectFromStubNode($node): self
+    /**
+     * @param Class_ $node
+     * @return $this
+     */
+    public function readObjectFromStubNode($node)
     {
-        $className = $this->getFQN($node);
-        //this will test PHPDocs
-        $this->parseError = null;
+        $this->name = $this->getFQN($node);
         $this->collectLinks($node);
-        $this->name = $className;
         if (empty($node->extends)) {
             $this->parentClass = null;
         } else {
@@ -70,8 +71,6 @@ class PHPClass extends BasePHPClass
             }
         }
 
-        $this->constants = [];
-        $this->methods = [];
         return $this;
     }
 }

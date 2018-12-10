@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace Parsers\Visitor;
 
-use function memory_get_usage;
 use Model\PHPClass;
 use Model\PHPConst;
 use Model\PHPDefineConstant;
@@ -34,7 +33,7 @@ class ASTVisitor extends NodeVisitorAbstract
     public function enterNode(Node $node)
     {
         if ($node instanceof Function_) {
-            $function = (new PHPFunction())->readObjectFromStubNode($node); //3878
+            $function = (new PHPFunction())->readObjectFromStubNode($node);
             $this->stubs[PHPFunction::class][$function->name] = $function;
         } elseif ($node instanceof Const_) {
             $constant = (new PHPConst())->readObjectFromStubNode($node);
@@ -48,8 +47,10 @@ class ASTVisitor extends NodeVisitorAbstract
                 }
             }
         } elseif ($node instanceof FuncCall) {
-            $constant = (new PHPDefineConstant())->readObjectFromStubNode($node);
-            $this->stubs[PHPConst::class][$constant->name] = $constant;
+            if ($node->name->parts[0] === 'define') {
+                $constant = (new PHPDefineConstant())->readObjectFromStubNode($node);
+                $this->stubs[PHPConst::class][$constant->name] = $constant;
+            }
         } elseif ($node instanceof ClassMethod) {
             $method = (new PHPMethod())->readObjectFromStubNode($node);
             if (array_key_exists($method->parentName, $this->stubs[PHPClass::class])) {

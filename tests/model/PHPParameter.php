@@ -3,6 +3,7 @@
 namespace Model;
 
 
+use PhpParser\Node\Param;
 use ReflectionParameter;
 
 class PHPParameter extends BasePHPElement
@@ -13,9 +14,9 @@ class PHPParameter extends BasePHPElement
 
     /**
      * @param ReflectionParameter $parameter
-     * @return PHPParameter
+     * @return $this
      */
-    public function readObjectFromReflection($parameter): self
+    public function readObjectFromReflection($parameter)
     {
         $this->name = $parameter->name;
         if (!empty($parameter->getType())) {
@@ -27,11 +28,25 @@ class PHPParameter extends BasePHPElement
     }
 
     /**
-     * @param mixed $node
-     * @return mixed
+     * @param Param $node
+     * @return $this
      */
     public function readObjectFromStubNode($node)
     {
-        // TODO: Implement readObjectFromStubNode() method.
+        $this->name = $node->var->name;
+        if ($node->type !== null) {
+            if (empty($node->type->name)) {
+                if (!empty($node->type->parts)) {
+                    $this->type = $node->type->parts[0];
+                }
+            } else {
+                $this->type = $node->type->name;
+            }
+        } else {
+            $this->type = '';
+        }
+        $this->is_vararg = $node->variadic;
+        $this->is_passed_by_ref = $node->byRef;
+        return $this;
     }
 }

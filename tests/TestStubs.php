@@ -1,10 +1,8 @@
 <?php
 
 use Model\BasePHPClass;
-use Model\BasePHPConstant;
 use Model\PHPClass;
 use Model\PHPConst;
-use Model\PHPDefineConstant;
 use Model\PHPFunction;
 use Model\PHPInterface;
 use Model\PHPMethod;
@@ -104,7 +102,7 @@ class TestStubs extends TestCase
         }
         foreach ($class->interfaces as $interface) {
             if (!in_array('wrong interface', self::$mutedProblems->getMutedProblemsForClass($className), true)) {
-                $this->assertContains($interface, $stubClass->interfaces);
+                $this->assertContains($interface, $stubClass->interfaces, "Class $className doesn't implement interface $interface");
             }
         }
     }
@@ -163,7 +161,7 @@ class TestStubs extends TestCase
     /**
      * @dataProvider \TestData\Providers\StubsTestDataProviders::stubConstantProvider
      */
-    public function testConstantsPHPDocs(BasePHPConstant $constant)
+    public function testConstantsPHPDocs(PHPConst $constant)
     {
         $this->assertNull($constant->parseError, $constant->parseError ?: "");
         $this->checkLinks($constant, "function $constant->name");
