@@ -1,17 +1,19 @@
 <?php
 
-use Model\BasePHPClass;
-use Model\PHPClass;
-use Model\PHPConst;
-use Model\PHPFunction;
-use Model\PHPInterface;
-use Model\PHPMethod;
+namespace StubTests;
+
 use phpDocumentor\Reflection\DocBlock\Tags\Link;
 use phpDocumentor\Reflection\DocBlock\Tags\Reference\Url;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
 use PHPUnit\Framework\TestCase;
-use TestData\MutedProblems;
-use TestData\Providers\PhpStormStubsSingleton;
+use StubTests\Model\BasePHPClass;
+use StubTests\Model\PHPClass;
+use StubTests\Model\PHPConst;
+use StubTests\Model\PHPFunction;
+use StubTests\Model\PHPInterface;
+use StubTests\Model\PHPMethod;
+use StubTests\TestData\MutedProblems;
+use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
 
 class TestStubs extends TestCase
@@ -19,13 +21,14 @@ class TestStubs extends TestCase
     /** @var MutedProblems */
     private static $mutedProblems;
 
-    public static function setUpBeforeClass()/* The :void return type declaration that should be here would cause a BC issue */
+    public static function setUpBeforeClass()
     {
+        parent::setUpBeforeClass();
         self::$mutedProblems = new MutedProblems();
     }
 
     /**
-     * @dataProvider \TestData\Providers\ReflectionTestDataProviders::constantProvider
+     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
      */
     public function testConstants(PHPConst $constant)
     {
@@ -39,7 +42,7 @@ class TestStubs extends TestCase
     }
 
     /**
-     * @dataProvider \TestData\Providers\ReflectionTestDataProviders::functionProvider
+     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::functionProvider
      */
     public function testFunctions(PHPFunction $function)
     {
@@ -61,7 +64,7 @@ class TestStubs extends TestCase
     }
 
     /**
-     * @dataProvider \TestData\Providers\ReflectionTestDataProviders::classProvider
+     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::classProvider
      */
     public function testClasses(PHPClass $class)
     {
@@ -108,7 +111,7 @@ class TestStubs extends TestCase
     }
 
     /**
-     * @dataProvider \TestData\Providers\ReflectionTestDataProviders::interfaceProvider
+     * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::interfaceProvider
      */
     public function testInterfaces(PHPInterface $interface)
     {
@@ -150,50 +153,50 @@ class TestStubs extends TestCase
     }
 
     /**
-     * @dataProvider \TestData\Providers\StubsTestDataProviders::stubClassConstantProvider
+     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubClassConstantProvider
      */
     public function testClassConstantsPHPDocs(string $className, PHPConst $constant)
     {
-        $this->assertNull($constant->parseError, $constant->parseError ?: "");
+        $this->assertNull($constant->parseError, $constant->parseError ?: '');
         $this->checkLinks($constant, "constant $className::$constant->name");
     }
 
     /**
-     * @dataProvider \TestData\Providers\StubsTestDataProviders::stubConstantProvider
+     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubConstantProvider
      */
     public function testConstantsPHPDocs(PHPConst $constant)
     {
-        $this->assertNull($constant->parseError, $constant->parseError ?: "");
+        $this->assertNull($constant->parseError, $constant->parseError ?: '');
         $this->checkLinks($constant, "function $constant->name");
     }
 
     /**
-     * @dataProvider \TestData\Providers\StubsTestDataProviders::stubFunctionProvider
+     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubFunctionProvider
      */
     public function testFunctionPHPDocs(PHPFunction $function)
     {
-        $this->assertNull($function->parseError, $function->parseError ?: "");
+        $this->assertNull($function->parseError, $function->parseError ?: '');
         $this->checkLinks($function, "function $function->name");
     }
 
     /**
-     * @dataProvider \TestData\Providers\StubsTestDataProviders::stubClassProvider
+     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubClassProvider
      */
     public function testClassesPHPDocs(BasePHPClass $class)
     {
-        $this->assertNull($class->parseError, $class->parseError ?: "");
+        $this->assertNull($class->parseError, $class->parseError ?: '');
         $this->checkLinks($class, "class $class->name");
     }
 
     /**
-     * @dataProvider \TestData\Providers\StubsTestDataProviders::stubMethodProvider
+     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodProvider
      */
     public function testMethodsPHPDocs(string $methodName, PHPMethod $method)
     {
-        if ($methodName === "__construct") {
-            $this->assertNull($method->returnTag, "@return tag for __construct should be omitted");
+        if ($methodName === '__construct') {
+            $this->assertNull($method->returnTag, '@return tag for __construct should be omitted');
         }
-        $this->assertNull($method->parseError, $method->parseError ?: "");
+        $this->assertNull($method->parseError, $method->parseError ?: '');
         $this->checkLinks($method, "method $methodName");
     }
 

@@ -1,20 +1,24 @@
 <?php
 declare(strict_types=1);
 
-namespace Parsers\Visitor;
+namespace StubTests\Parsers\Visitors;
 
-use Model\PHPClass;
-use Model\PHPConst;
-use Model\PHPDefineConstant;
-use Model\PHPFunction;
-use Model\PHPInterface;
-use Model\PHPMethod;
 use PhpParser\Node;
-use PhpParser\Node\{Const_, Expr\FuncCall, Stmt\Class_, Stmt\ClassMethod, Stmt\Function_, Stmt\Interface_};
+use PhpParser\Node\Const_;
+use PhpParser\Node\Expr\FuncCall;
+use PhpParser\Node\Stmt\Class_;
+use PhpParser\Node\Stmt\ClassMethod;
+use PhpParser\Node\Stmt\Function_;
+use PhpParser\Node\Stmt\Interface_;
 use PhpParser\NodeVisitorAbstract;
 use RecursiveArrayIterator;
 use RecursiveIteratorIterator;
-use function array_push;
+use StubTests\Model\PHPClass;
+use StubTests\Model\PHPConst;
+use StubTests\Model\PHPDefineConstant;
+use StubTests\Model\PHPFunction;
+use StubTests\Model\PHPInterface;
+use StubTests\Model\PHPMethod;
 use function key_exists;
 
 class ASTVisitor extends NodeVisitorAbstract
@@ -37,7 +41,7 @@ class ASTVisitor extends NodeVisitorAbstract
             $this->stubs[PHPFunction::class][$function->name] = $function;
         } elseif ($node instanceof Const_) {
             $constant = (new PHPConst())->readObjectFromStubNode($node);
-            if ($constant->parentName == null) {
+            if ($constant->parentName === null) {
                 $this->stubs[PHPConst::class][$constant->name] = $constant;
             } else {
                 if (array_key_exists($constant->parentName, $this->stubs[PHPClass::class])) {
@@ -73,35 +77,40 @@ class ASTVisitor extends NodeVisitorAbstract
         if (empty($interface->parentInterfaces)) {
             return $parents;
         } else {
+            /**@var PHPInterface $parentInterface */
             foreach ($interface->parentInterfaces as $parentInterface) {
-                array_push($parents, $parentInterface);
+                $parents[] = $parentInterface;
                 if (key_exists($parentInterface, $this->stubs[PHPInterface::class])) {
                     foreach ($this->combineParentInterfaces($this->stubs[PHPInterface::class][$parentInterface]) as $value) {
-                        array_push($parents, $value);
+                        $parents[] = $value;
                     }
                 }
             }
         }
-
         return $parents;
     }
 
     public function combineImplementedInterfaces($class): array
     {
         $interfaces = [];
+        /**@var PHPInterface $interface */
         foreach ($class->interfaces as $interface) {
-            array_push($interfaces, $interface);
+            $interfaces[] = $interface;
             if (key_exists($interface, $this->stubs[PHPInterface::class])) {
-                array_push($interfaces, $this->stubs[PHPInterface::class][$interface]->parentInterfaces);
+                $interfaces[] = $this->stubs[PHPInterface::class][$interface]->parentInterfaces;
             }
         }
-        if ($class->parentClass == null) {
+        if ($class->parentClass === null) {
             return $interfaces;
         } else {
-            if (key_exists($class->parentClass,
-                    $this->stubs[PHPClass::class]) && $this->stubs[PHPClass::class][$class->parentClass] != null) {
-                $inherited = $this->combineImplementedInterfaces($this->stubs[PHPClass::class][$class->parentClass]);
-                array_push($interfaces, self::flattenArray($inherited));
+            if (key_exists(
+                    $class->parentClass,
+                    $this->stubs[PHPClass::class]
+                )
+                && $this->stubs[PHPClass::class][$class->parentClass] !== null
+            ) {
+                $inherited    = $this->combineImplementedInterfaces($this->stubs[PHPClass::class][$class->parentClass]);
+                $interfaces[] = self::flattenArray($inherited);
             }
         }
         return $interfaces;
@@ -111,6 +120,4 @@ class ASTVisitor extends NodeVisitorAbstract
     {
         return iterator_to_array(new RecursiveIteratorIterator(new RecursiveArrayIterator($arr)), false);
     }
-
 }
-

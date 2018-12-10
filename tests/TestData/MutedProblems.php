@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace TestData;
+namespace StubTests\TestData;
 
 
 use stdClass;

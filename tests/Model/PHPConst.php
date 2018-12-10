@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace Model;
+namespace StubTests\Model;
 
 use PhpParser\Node\Const_;
 use PhpParser\Node\Stmt\ClassConst;
@@ -28,7 +29,7 @@ class PHPConst extends PHPElementWithPHPDoc
      */
     public function readObjectFromStubNode($node)
     {
-        $this->name = $this->getConstantFQN($node, $node->name->name);;
+        $this->name  = $this->getConstantFQN($node, $node->name->name);
         $this->value = $this->getConstValue($node);
         $this->collectLinks($node);
         if ($node->getAttribute('parent') instanceof ClassConst) {

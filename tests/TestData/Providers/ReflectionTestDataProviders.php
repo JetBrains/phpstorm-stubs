@@ -1,18 +1,20 @@
 <?php
+declare(strict_types=1);
 
-namespace TestData\Providers;
+namespace StubTests\TestData\Providers;
 
-use Model\PHPClass;
-use Model\PHPConst;
-use Model\PHPFunction;
-use Model\PHPInterface;
-use Parsers\PHPReflectionParser;
+use StubTests\Model\PHPClass;
+use StubTests\Model\PHPConst;
+use StubTests\Model\PHPFunction;
+use StubTests\Model\PHPInterface;
+use StubTests\Parsers\PHPReflectionParser;
 
 class ReflectionTestDataProviders
 {
 
     public static function constantProvider()
     {
+        /**@var PHPConst $constant */
         foreach (ReflectionStubsSingleton::getReflectionStubs()[PHPConst::class] as $constant) {
             yield "constant {$constant->name}" => [$constant];
         }
@@ -20,6 +22,7 @@ class ReflectionTestDataProviders
 
     public static function functionProvider()
     {
+        /**@var PHPFunction $function */
         foreach (ReflectionStubsSingleton::getReflectionStubs()[PHPFunction::class] as $function) {
             yield "function {$function->name}" => [$function];
         }
@@ -27,9 +30,10 @@ class ReflectionTestDataProviders
 
     public static function classProvider()
     {
+        /**@var PHPClass $class */
         foreach (ReflectionStubsSingleton::getReflectionStubs()[PHPClass::class] as $class) {
             //exclude classes from PHPReflectionParser
-            if (0 !== strncmp($class->name, 'PHP', 3)) {
+            if (strncmp($class->name, 'PHP', 3) !== 0) {
                 yield "class {$class->name}" => [$class];
             }
         }
@@ -37,11 +41,11 @@ class ReflectionTestDataProviders
 
     public static function interfaceProvider()
     {
+        /**@var PHPInterface $interface */
         foreach (ReflectionStubsSingleton::getReflectionStubs()[PHPInterface::class] as $interface) {
             yield "interface {$interface->name}" => [$interface];
         }
     }
-
 }
 
 class ReflectionStubsSingleton

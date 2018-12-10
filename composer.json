@@ -1,31 +1,33 @@
 {
-    "name": "jetbrains/phpstorm-stubs",
-    "description": "PHP runtime & extensions header files for PhpStorm",
-    "homepage": "https://www.jetbrains.com/phpstorm",
-    "license": "Apache-2.0",
-    "keywords": [
-        "JetBrains",
-        "PHPStorm",
-        "stubs",
-        "autocomplete",
-        "type",
-        "inference",
-        "code",
-        "inspection"
-    ],
-    "require-dev": {
-      "nikic/php-parser": "v4.0.1",
-      "phpdocumentor/reflection-docblock": "^4.3",
-      "phpunit/phpunit": "7.1.4"
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "": "tests/",
-            "Model\\": "tests/model",
-            "Parsers\\": "tests/parser",
-            "Parsers\\Visitor\\": "tests/parser/visitor",
-            "TestData\\": "tests/testdata",
-            "TestData\\Providers\\": "tests/testdata"
-        }
+  "name": "jetbrains/phpstorm-stubs",
+  "description": "PHP runtime & extensions header files for PhpStorm",
+  "homepage": "https://www.jetbrains.com/phpstorm",
+  "license": "Apache-2.0",
+  "keywords": [
+    "JetBrains",
+    "PHPStorm",
+    "stubs",
+    "autocomplete",
+    "type",
+    "inference",
+    "code",
+    "inspection"
+  ],
+  "require-dev": {
+    "nikic/php-parser": "v4.0.1",
+    "phpdocumentor/reflection-docblock": "^4.3",
+    "phpunit/phpunit": "7.1.4",
+    "squizlabs/php_codesniffer": "@stable",
+    "friendsofphp/php-cs-fixer": "@stable"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "StubTests\\": "tests/",
+      "Model\\": "tests/Model",
+      "Parsers\\": "tests/Parsers",
+      "Parsers\\Visitors\\": "tests/Parsers/Visitors",
+      "TestData\\": "tests/TestData",
+      "TestData\\Providers\\": "tests/TestData/Providers"
     }
+  }
 }

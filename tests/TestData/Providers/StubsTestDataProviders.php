@@ -1,36 +1,41 @@
 <?php
+declare(strict_types=1);
 
-namespace TestData\Providers;
+namespace StubTests\TestData\Providers;
 
-use Model\PHPClass;
-use Model\PHPConst;
-use Model\PHPFunction;
-use Model\PHPInterface;
-use Parsers\StubParser;
+use StubTests\Model\PHPClass;
+use StubTests\Model\PHPConst;
+use StubTests\Model\PHPFunction;
+use StubTests\Model\PHPInterface;
+use StubTests\Model\PHPMethod;
+use StubTests\Parsers\StubParser;
 
 class StubsTestDataProviders
 {
 
     public static function stubClassConstantProvider()
     {
+        /**@var PHPClass $class */
         foreach (PhpStormStubsSingleton::getPhpStormStubs()[PHPClass::class] as $class) {
-            if ($class->constants != null) {
+            if ($class->constants !== null) {
                 foreach ($class->constants as $constant) {
-                    yield "Constant {$class->name}::{$constant->name}" => [$class->name, $constant];
+                    yield "constant {$class->name}::{$constant->name}" => [$class->name, $constant];
                 }
             }
 
         }
 
+        /**@var PHPInterface $interface */
         foreach (PhpStormStubsSingleton::getPhpStormStubs()[PHPInterface::class] as $interfaceName => $interface) {
             foreach ($interface->constants as $constantName => $constant) {
-                yield "Constant {$interfaceName}::{$constantName}" => [$interfaceName, $constant];
+                yield "constant {$interfaceName}::{$constantName}" => [$interfaceName, $constant];
             }
         }
     }
 
     public static function stubConstantProvider()
     {
+        /**@var PHPConst $constant */
         foreach (PhpStormStubsSingleton::getPhpStormStubs()[PHPConst::class] as $constantName => $constant) {
             yield "constant {$constantName}" => [$constant];
         }
@@ -38,6 +43,7 @@ class StubsTestDataProviders
 
     public static function stubFunctionProvider()
     {
+        /**@var PHPFunction $function */
         foreach (PhpStormStubsSingleton::getPhpStormStubs()[PHPFunction::class] as $functionName => $function) {
             yield "function {$functionName}" => [$function];
         }
@@ -45,10 +51,12 @@ class StubsTestDataProviders
 
     public static function stubClassProvider()
     {
+        /**@var PHPClass $class */
         foreach (PhpStormStubsSingleton::getPhpStormStubs()[PHPClass::class] as $class) {
             yield "class {$class->name}" => [$class];
         }
 
+        /**@var PHPInterface $interface */
         foreach (PhpStormStubsSingleton::getPhpStormStubs()[PHPInterface::class] as $interface) {
             yield "interface {$interface->name}" => [$interface];
         }
@@ -56,15 +64,19 @@ class StubsTestDataProviders
 
     public static function stubMethodProvider()
     {
+        /**@var PHPClass $class */
         foreach (PhpStormStubsSingleton::getPhpStormStubs()[PHPClass::class] as $className => $class) {
+            /**@var PHPMethod $method */
             foreach ($class->methods as $methodName => $method) {
-                yield "Method {$className}::{$methodName}" => [$methodName, $method];
+                yield "method {$className}::{$methodName}" => [$methodName, $method];
             }
         }
 
+        /**@var PHPInterface $interface */
         foreach (PhpStormStubsSingleton::getPhpStormStubs()[PHPInterface::class] as $interfaceName => $interface) {
+            /**@var PHPMethod $method */
             foreach ($interface->methods as $methodName => $method) {
-                yield "Method {$interfaceName}::{$methodName}" => [$methodName, $method];
+                yield "interface {$interfaceName}::{$methodName}" => [$methodName, $method];
             }
         }
     }

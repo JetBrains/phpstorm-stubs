@@ -1,15 +1,18 @@
 <?php
+declare(strict_types=1);
 
-namespace Model;
+namespace StubTests\Model;
 
 use PhpParser\Node\Stmt\ClassMethod;
+use ReflectionParameter;
 
 class PHPMethod extends PHPFunction
 {
     public $is_static;
     public $access;
     public $is_final;
-    public $parentName = null;
+
+    public $parentName;
 
     /**
      * @param \ReflectionMethod $method
@@ -20,16 +23,19 @@ class PHPMethod extends PHPFunction
         $this->name = $method->name;
         $this->is_static = $method->isStatic();
         $this->is_final = $method->isFinal();
+        /**@var ReflectionParameter $parameter */
         foreach ($method->getParameters() as $parameter) {
             $this->parameters[] = (new PHPParameter())->readObjectFromReflection($parameter);
         }
 
         if ($method->isProtected()) {
             $access = 'protected';
-        } else if ($method->isPrivate()) {
-            $access = 'private';
         } else {
-            $access = 'public';
+            if ($method->isPrivate()) {
+                $access = 'private';
+            } else {
+                $access = 'public';
+            }
         }
         $this->access = $access;
         return $this;
@@ -55,7 +61,7 @@ class PHPMethod extends PHPFunction
             $this->name = substr($this->name, strlen('PS_UNRESERVE_PREFIX_'));
         }
         foreach ($node->getParams() as $parameter) {
-            array_push($this->parameters, (new PHPParameter())->readObjectFromStubNode($parameter));
+            $this->parameters[] = (new PHPParameter())->readObjectFromStubNode($parameter);
         }
 
         $this->is_final = $node->isFinal();

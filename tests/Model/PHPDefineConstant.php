@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+namespace StubTests\Model;
 
 use PhpParser\Node\Expr\FuncCall;
 

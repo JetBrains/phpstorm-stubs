@@ -1,14 +1,16 @@
 <?php
+declare(strict_types=1);
 
-namespace Model;
+namespace StubTests\Model;
 
 use Exception;
-use Parsers\DocFactoryProvider;
 use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Stmt\Function_;
 use ReflectionException;
 use ReflectionFunction;
+use ReflectionParameter;
+use StubTests\Parsers\DocFactoryProvider;
 
 class PHPFunction extends PHPElementWithPHPDoc
 {
@@ -26,6 +28,7 @@ class PHPFunction extends PHPElementWithPHPDoc
             $reflectionFunction = new ReflectionFunction($function);
             $this->name = $reflectionFunction->name;
             $this->is_deprecated = $reflectionFunction->isDeprecated();
+            /**@var ReflectionParameter $parameter */
             foreach ($reflectionFunction->getParameters() as $parameter) {
                 $this->parameters[] = (new PHPParameter())->readObjectFromReflection($parameter);
             }
@@ -45,7 +48,7 @@ class PHPFunction extends PHPElementWithPHPDoc
         $this->name = $functionName;
 
         foreach ($node->getParams() as $parameter) {
-            array_push($this->parameters, (new PHPParameter())->readObjectFromStubNode($parameter));
+            $this->parameters[] = (new PHPParameter())->readObjectFromStubNode($parameter);
         }
 
         $this->parseError = null;
@@ -55,7 +58,7 @@ class PHPFunction extends PHPElementWithPHPDoc
         return $this;
     }
 
-    protected function checkDeprecationTag(FunctionLike $node)
+    protected function checkDeprecationTag(FunctionLike $node): void
     {
         if ($node->getDocComment() !== null) {
             try {
@@ -71,14 +74,14 @@ class PHPFunction extends PHPElementWithPHPDoc
         }
     }
 
-    protected function checkReturnTag(FunctionLike $node)
+    protected function checkReturnTag(FunctionLike $node): void
     {
         if ($node->getDocComment() !== null) {
             try {
                 $phpDoc = DocFactoryProvider::getDocFactory()->create($node->getDocComment()->getText());
                 $parsedReturnTag = $phpDoc->getTagsByName('return');
                 if (!empty($parsedReturnTag) && $parsedReturnTag[0] instanceof Return_) {
-                    $this->returnTag = $parsedReturnTag[0]->getType() . "";
+                    $this->returnTag = $parsedReturnTag[0]->getType() . '';
                 }
             } catch (Exception $e) {
                 $this->parseError = $e->getMessage();

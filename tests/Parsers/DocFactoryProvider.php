@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace Parsers;
+namespace StubTests\Parsers;
 
 use phpDocumentor\Reflection\DocBlockFactory;
 

@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace Model;
+namespace StubTests\Model;
 
 
 use PhpParser\Node\Param;
@@ -16,7 +17,7 @@ class PHPParameter extends BasePHPElement
      * @param ReflectionParameter $parameter
      * @return $this
      */
-    public function readObjectFromReflection($parameter)
+    public function readObjectFromReflection($parameter): self
     {
         $this->name = $parameter->name;
         if (!empty($parameter->getType())) {
@@ -31,7 +32,7 @@ class PHPParameter extends BasePHPElement
      * @param Param $node
      * @return $this
      */
-    public function readObjectFromStubNode($node)
+    public function readObjectFromStubNode($node): self
     {
         $this->name = $node->var->name;
         if ($node->type !== null) {

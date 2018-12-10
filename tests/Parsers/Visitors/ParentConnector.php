@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace Parser\Visitor;
+namespace StubTests\Parsers\Visitors;
 
 use PhpParser\Node;
 use PhpParser\NodeVisitorAbstract;
