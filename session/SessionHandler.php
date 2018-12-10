@@ -158,7 +158,8 @@ interface SessionUpdateTimestampHandlerInterface {
  * @link https://php.net/manual/en/class.reflectionzendextension.php
  * @since 5.4.0
  */
-class SessionHandler implements SessionHandlerInterface, SessionUpdateTimestampHandlerInterface {
+class SessionHandler implements SessionHandlerInterface, SessionIdInterface
+{
 
 	/**
 	 * Close the session
