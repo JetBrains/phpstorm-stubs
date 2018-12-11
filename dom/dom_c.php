@@ -28,7 +28,7 @@ class DOMNode  {
      * @var int
      * @since 5.0
      * Gets the type of the node. One of the predefined
-     * <a href="https://https://secure.php.net/manual/en/dom.constants.php">XML_xxx_NODE</a> constants
+     * <a href="https://secure.php.net/manual/en/dom.constants.php">XML_xxx_NODE</a> constants
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.nodetype
      */
     public $nodeType;
@@ -321,7 +321,7 @@ class DOMNode  {
     /**
      * Gets an XPath location path for the node
      * @return string the XPath, or NULL in case of an error.
-     * @link https://https://secure.php.net/manual/en/domnode.getnodepath.php
+     * @link https://secure.php.net/manual/en/domnode.getnodepath.php
      * @since 5.3.0
      */
     public function getNodePath () {}
@@ -1877,14 +1877,14 @@ class DOMConfiguration  {
 
 /**
  * The DOMCdataSection inherits from DOMText for textural representation of CData constructs.
- * @link https://https://secure.php.net/manual/en/class.domcdatasection.php
+ * @link https://secure.php.net/manual/en/class.domcdatasection.php
  */
 class DOMCdataSection extends DOMText  {
 
     /**
      * The value of the CDATA node. If not supplied, an empty CDATA node is created.
      * @param string $value The value of the CDATA node. If not supplied, an empty CDATA node is created.
-     * @link https://https://secure.php.net/manual/en/domcdatasection.construct.php
+     * @link https://secure.php.net/manual/en/domcdatasection.construct.php
      * @since 5.0
      */
     public function __construct ($value) {}
