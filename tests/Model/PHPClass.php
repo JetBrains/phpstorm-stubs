@@ -58,9 +58,7 @@ class PHPClass extends BasePHPClass
     {
         $this->name = $this->getFQN($node);
         $this->collectLinks($node);
-        if (empty($node->extends)) {
-            $this->parentClass = null;
-        } else {
+        if (!empty($node->extends)) {
             $this->parentClass = '';
             foreach ($node->extends->parts as $part) {
                 $this->parentClass .= "\\$part";

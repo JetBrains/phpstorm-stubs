@@ -51,7 +51,6 @@ class PHPInterface extends BasePHPClass
     {
         $this->name = $this->getFQN($node);
         $this->collectLinks($node);
-        $this->parentInterfaces = [];
         if (!empty($node->extends)) {
             foreach ($node->extends[0]->parts as $part) {
                 $this->parentInterfaces[] = $part;

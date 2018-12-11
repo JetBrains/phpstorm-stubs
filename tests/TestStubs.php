@@ -30,10 +30,11 @@ class TestStubs extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
+     * @param PHPConst $constant
      */
     public function testConstants(PHPConst $constant): void
     {
-        $constantName  = $constant->name;
+        $constantName = $constant->name;
         $constantValue = $constant->value;
         $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()[PHPConst::class];
         if (in_array('missing constant', self::$mutedProblems->getMutedProblemsForConstant($constantName), true)) {
@@ -48,11 +49,13 @@ class TestStubs extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
+     * @param PHPConst $constant
      */
     public function testConstantsValues(PHPConst $constant): void
     {
-        $constantName  = $constant->name;
+        $constantName = $constant->name;
         $constantValue = $constant->value;
+        /**@var PHPConst[] $stubConstants */
         $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()[PHPConst::class];
         if (in_array('wrong value', self::$mutedProblems->getMutedProblemsForConstant($constantName), true)) {
             static::markTestSkipped('constant is excluded');
@@ -68,16 +71,18 @@ class TestStubs extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::functionProvider
+     * @param PHPFunction $function
      */
     public function testFunctions(PHPFunction $function): void
     {
-        $functionName  = $function->name;
+        $functionName = $function->name;
         $stubFunctions = PhpStormStubsSingleton::getPhpStormStubs()[PHPFunction::class];
-        $params        = $this->getParameterRepresentation($function);
+        $params = $this->getParameterRepresentation($function);
         if (in_array('missing function', self::$mutedProblems->getMutedProblemsForFunction($functionName), true)) {
             static::markTestSkipped('function is excluded');
         }
         static::assertArrayHasKey($functionName, $stubFunctions, "Missing function: function $functionName($params){}");
+        /**@var PHPFunction $phpstormFunction */
         $phpstormFunction = $stubFunctions[$functionName];
         if (!in_array('deprecated function', self::$mutedProblems->getMutedProblemsForFunction($functionName), true)) {
             static::assertFalse(
@@ -97,15 +102,17 @@ class TestStubs extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::classProvider
+     * @param PHPClass $class
      */
     public function testClasses(PHPClass $class): void
     {
-        $className   = $class->name;
+        $className = $class->name;
         $stubClasses = PhpStormStubsSingleton::getPhpStormStubs()[PHPClass::class];
         if (in_array('missing class', self::$mutedProblems->getMutedProblemsForClass($className), true)) {
             static::markTestSkipped('class is skipped');
         }
         static::assertArrayHasKey($className, $stubClasses, "Missing class $className: class $className {}");
+        /**@var PHPClass $stubClass */
         $stubClass = $stubClasses[$className];
         if (!in_array('wrong parent', self::$mutedProblems->getMutedProblemsForClass($className), true)) {
             static::assertEquals(
@@ -124,7 +131,7 @@ class TestStubs extends TestCase
             }
         }
         foreach ($class->methods as $method) {
-            $params     = $this->getParameterRepresentation($method);
+            $params = $this->getParameterRepresentation($method);
             $methodName = $method->name;
             if (!in_array('missing method', self::$mutedProblems->getMutedProblemsForMethod($className, $methodName), true)) {
                 static::assertArrayHasKey(
@@ -177,10 +184,12 @@ class TestStubs extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::interfaceProvider
+     * @param PHPInterface $interface
      */
     public function testInterfaces(PHPInterface $interface): void
     {
-        $interfaceName  = $interface->name;
+        $interfaceName = $interface->name;
+        /**@var PHPInterface[] $stubInterfaces */
         $stubInterfaces = PhpStormStubsSingleton::getPhpStormStubs()[PHPInterface::class];
         if (in_array('missing interface', self::$mutedProblems->getMutedProblemsForInterface($interfaceName), true)) {
             static::markTestSkipped('interface is skipped');
@@ -204,7 +213,7 @@ class TestStubs extends TestCase
             }
         }
         foreach ($interface->methods as $method) {
-            $params     = $this->getParameterRepresentation($method);
+            $params = $this->getParameterRepresentation($method);
             $methodName = $method->name;
             if (!in_array('missing method', self::$mutedProblems->getMutedProblemsForMethod($interfaceName, $methodName), true)) {
                 static::assertArrayHasKey(
@@ -248,6 +257,8 @@ class TestStubs extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubClassConstantProvider
+     * @param string $className
+     * @param PHPConst $constant
      */
     public function testClassConstantsPHPDocs(string $className, PHPConst $constant): void
     {
@@ -257,6 +268,7 @@ class TestStubs extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubConstantProvider
+     * @param PHPConst $constant
      */
     public function testConstantsPHPDocs(PHPConst $constant): void
     {
@@ -266,6 +278,7 @@ class TestStubs extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubFunctionProvider
+     * @param PHPFunction $function
      */
     public function testFunctionPHPDocs(PHPFunction $function): void
     {
@@ -275,6 +288,7 @@ class TestStubs extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubClassProvider
+     * @param BasePHPClass $class
      */
     public function testClassesPHPDocs(BasePHPClass $class): void
     {
@@ -284,6 +298,8 @@ class TestStubs extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodProvider
+     * @param string $methodName
+     * @param PHPMethod $method
      */
     public function testMethodsPHPDocs(string $methodName, PHPMethod $method): void
     {

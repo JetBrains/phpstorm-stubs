@@ -42,8 +42,6 @@ class PHPParameter extends BasePHPElement
             } else {
                 $this->type = $node->type->name;
             }
-        } else {
-            $this->type = '';
         }
         $this->is_vararg = $node->variadic;
         $this->is_passed_by_ref = $node->byRef;

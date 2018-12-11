@@ -17,10 +17,8 @@ class StubsTestDataProviders
     {
         /**@var PHPClass $class */
         foreach (PhpStormStubsSingleton::getPhpStormStubs()[PHPClass::class] as $class) {
-            if ($class->constants !== null) {
-                foreach ($class->constants as $constant) {
-                    yield "constant {$class->name}::{$constant->name}" => [$class->name, $constant];
-                }
+            foreach ($class->constants as $constant) {
+                yield "constant {$class->name}::{$constant->name}" => [$class->name, $constant];
             }
         }
 

@@ -8,10 +8,9 @@ use ReflectionParameter;
 
 class PHPMethod extends PHPFunction
 {
-    public $is_static;
     public $access;
+    public $is_static;
     public $is_final;
-
     public $parentName;
 
     /**
@@ -48,9 +47,6 @@ class PHPMethod extends PHPFunction
         $this->parentName = $this->getFQN($node->getAttribute('parent'));
         $this->name = $node->name->name;
 
-        //this will test PHPDocs
-        $this->parseError = null;
-        $this->returnTag = null;
         $this->collectLinks($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);

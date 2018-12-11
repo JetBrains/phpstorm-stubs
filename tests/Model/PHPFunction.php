@@ -5,6 +5,7 @@ namespace StubTests\Model;
 
 use Exception;
 use phpDocumentor\Reflection\DocBlock\Tags\Return_;
+use phpDocumentor\Reflection\Type;
 use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Stmt\Function_;
 use ReflectionException;
@@ -14,8 +15,17 @@ use StubTests\Parsers\DocFactoryProvider;
 
 class PHPFunction extends PHPElementWithPHPDoc
 {
+    /**
+     * @var boolean $is_deprecated
+     */
     public $is_deprecated;
+    /**
+     * @var PHPParameter[]
+     */
     public $parameters = [];
+    /**
+     * @var Type $returnTag
+     */
     public $returnTag;
 
     /**
@@ -51,7 +61,6 @@ class PHPFunction extends PHPElementWithPHPDoc
             $this->parameters[] = (new PHPParameter())->readObjectFromStubNode($parameter);
         }
 
-        $this->parseError = null;
         $this->collectLinks($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);
