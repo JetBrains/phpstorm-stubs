@@ -31,11 +31,8 @@ class StubParser
             );
         /** @var SplFileInfo $file */
         foreach ($stubsIterator as $file) {
-            if (strpos($file->getRealPath(), 'vendor')
-                || strpos($file->getRealPath(), '.git')
-                || strpos($file->getRealPath(), 'tests')
-                || strpos($file->getRealPath(), '.idea')
-            ) {
+            if (strpos($file->getRealPath(), 'vendor') || strpos($file->getRealPath(), '.git') ||
+                strpos($file->getRealPath(), 'tests') || strpos($file->getRealPath(), '.idea')) {
                 continue;
             }
             $code = file_get_contents($file->getRealPath());

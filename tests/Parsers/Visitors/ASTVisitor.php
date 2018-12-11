@@ -79,8 +79,8 @@ class ASTVisitor extends NodeVisitorAbstract
         foreach ($interface->parentInterfaces as $parentInterface) {
             $parents[] = $parentInterface;
             if (key_exists($parentInterface, $this->stubs[PHPInterface::class])) {
-                foreach ($this->combineParentInterfaces($this->stubs[PHPInterface::class][$parentInterface]) as $value)
-                {
+                /**@var PHPInterface $parentInterface */
+                foreach ($this->combineParentInterfaces($this->stubs[PHPInterface::class][$parentInterface]) as $value) {
                     $parents[] = $value;
                 }
             }
