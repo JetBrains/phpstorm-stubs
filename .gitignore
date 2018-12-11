@@ -11,9 +11,6 @@ rest-client.private.env.json
 .idea/workspace.xml
 .idea/shelf
 
-#Test temporary file
-tests/stub.json
-
 #Composer
 vendor
 composer.lock

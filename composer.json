@@ -16,18 +16,11 @@
   "require-dev": {
     "nikic/php-parser": "v4.0.1",
     "phpdocumentor/reflection-docblock": "^4.3",
-    "phpunit/phpunit": "7.1.4",
-    "squizlabs/php_codesniffer": "@stable",
-    "friendsofphp/php-cs-fixer": "@stable"
+    "phpunit/phpunit": "7.1.4"
   },
   "autoload-dev": {
     "psr-4": {
-      "StubTests\\": "tests/",
-      "Model\\": "tests/Model",
-      "Parsers\\": "tests/Parsers",
-      "Parsers\\Visitors\\": "tests/Parsers/Visitors",
-      "TestData\\": "tests/TestData",
-      "TestData\\Providers\\": "tests/TestData/Providers"
+      "StubTests\\": "tests/"
     }
   }
 }
