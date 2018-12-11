@@ -548,17 +548,24 @@ class Redis
     public function pubsub( $keyword, $argument ) {}
 
     /**
-     * Verify if the specified key exists.
+     * Verify if the specified key/keys exists.
      *
-     * @param   string $key
-     * @return  bool  If the key exists, return TRUE, otherwise return FALSE.
+     * @param   string|string[] $key
+     * @return  int    The number of keys tested that do exist
      * @link    https://redis.io/commands/exists
+     * @ling    https://github.com/phpredis/phpredis#exists
      * @example
      * <pre>
      * $redis->set('key', 'value');
-     * $redis->exists('key');               //  TRUE
-     * $redis->exists('NonExistingKey');    // FALSE
+     * $redis->exists('key'); // 1
+     * $redis->exists('NonExistingKey'); // 0
+     *
+     * $redis->mset(['foo' => 'foo', 'bar' => 'bar', 'baz' => 'baz']);
+     * $redis->exists(['foo', 'bar', 'baz]); // 3
+     * $redis->exists('foo', 'bar', 'baz'); // 3
      * </pre>
+     * 
+     * This function took a single argument and returned TRUE or FALSE in phpredis versions < 4.0.0.
      */
     public function exists( $key ) {}
 
