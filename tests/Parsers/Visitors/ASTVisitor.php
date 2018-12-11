@@ -11,14 +11,13 @@ use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Function_;
 use PhpParser\Node\Stmt\Interface_;
 use PhpParser\NodeVisitorAbstract;
-use RecursiveArrayIterator;
-use RecursiveIteratorIterator;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPConst;
 use StubTests\Model\PHPDefineConstant;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
+use StubTests\Parsers\Utils;
 use function key_exists;
 
 class ASTVisitor extends NodeVisitorAbstract
@@ -105,13 +104,8 @@ class ASTVisitor extends NodeVisitorAbstract
             && $this->stubs[PHPClass::class][$class->parentClass] !== null
         ) {
             $inherited = $this->combineImplementedInterfaces($this->stubs[PHPClass::class][$class->parentClass]);
-            $interfaces[] = self::flattenArray($inherited);
+            $interfaces[] = Utils::flattenArray($inherited, false);
         }
         return $interfaces;
-    }
-
-    public static function flattenArray(array $arr)
-    {
-        return iterator_to_array(new RecursiveIteratorIterator(new RecursiveArrayIterator($arr)), false);
     }
 }

@@ -48,7 +48,7 @@ class StubParser
         }
         /**@var PHPClass $class */
         foreach ($stubs[PHPClass::class] as $class) {
-            $stubs[PHPClass::class][$class->name]->interfaces = ASTVisitor::flattenArray($visitor->combineImplementedInterfaces($class));
+            $stubs[PHPClass::class][$class->name]->interfaces = Utils::flattenArray($visitor->combineImplementedInterfaces($class), false);
         }
         return $stubs;
     }

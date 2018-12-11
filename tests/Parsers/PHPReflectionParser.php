@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace StubTests\Parsers;
 
-use RecursiveArrayIterator;
-use RecursiveIteratorIterator;
 use ReflectionClass;
 use ReflectionFunction;
 use StubTests\Model\PHPClass;
@@ -22,10 +20,7 @@ class PHPReflectionParser
 
         $const_groups = get_defined_constants(true);
         unset($const_groups['user']);
-        $const_groups          = iterator_to_array(
-            new RecursiveIteratorIterator(new RecursiveArrayIterator($const_groups)),
-            true
-        );
+        $const_groups = Utils::flattenArray($const_groups, true);
         $data[PHPConst::class] = [];
         foreach ($const_groups as $name => $value) {
             $data[PHPConst::class][] = (new PHPDefineConstant())->readObjectFromReflection([$name, $value]);
@@ -38,7 +33,7 @@ class PHPReflectionParser
         }
 
         $data[PHPClass::class] = [];
-        $cl                    = get_declared_classes();
+        $cl = get_declared_classes();
         foreach ($cl as $clazz) {
             $reflectionClass = new ReflectionClass($clazz);
             if ($reflectionClass->isInternal()) {
