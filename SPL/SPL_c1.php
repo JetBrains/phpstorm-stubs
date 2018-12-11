@@ -966,7 +966,8 @@ class SplTempFileObject extends SplFileObject {
  * The SplDoublyLinkedList class provides the main functionalities of a doubly linked list.
  * @link https://php.net/manual/en/class.spldoublylinkedlist.php
  */
-class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess {
+class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializable
+{
         const IT_MODE_LIFO = 2;
         const IT_MODE_FIFO = 0;
         const IT_MODE_DELETE = 1;
