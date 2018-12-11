@@ -15,6 +15,7 @@ use StubTests\Model\PHPInterface;
 
 class PHPReflectionParser
 {
+
     public static function getStubs(): array
     {
         $data = [];
@@ -37,7 +38,7 @@ class PHPReflectionParser
         }
 
         $data[PHPClass::class] = [];
-        $cl = get_declared_classes();
+        $cl                    = get_declared_classes();
         foreach ($cl as $clazz) {
             $reflectionClass = new ReflectionClass($clazz);
             if ($reflectionClass->isInternal()) {

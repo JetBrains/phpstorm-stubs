@@ -30,12 +30,10 @@ class PHPMethod extends PHPFunction
 
         if ($method->isProtected()) {
             $access = 'protected';
+        } elseif ($method->isPrivate()) {
+            $access = 'private';
         } else {
-            if ($method->isPrivate()) {
-                $access = 'private';
-            } else {
-                $access = 'public';
-            }
+            $access = 'public';
         }
         $this->access = $access;
         return $this;

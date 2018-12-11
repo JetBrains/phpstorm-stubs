@@ -9,7 +9,7 @@ class DocFactoryProvider
 {
     private static $docFactory;
 
-    public static function getDocFactory()
+    public static function getDocFactory(): DocBlockFactory
     {
         if (self::$docFactory === null) {
             self::$docFactory = DocBlockFactory::createInstance();

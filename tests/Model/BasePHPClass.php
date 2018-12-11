@@ -5,7 +5,6 @@ namespace StubTests\Model;
 
 abstract class BasePHPClass extends PHPElementWithPHPDoc
 {
-
     /**
      * @var PHPMethod[]
      */

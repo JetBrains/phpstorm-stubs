@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
-
 use PhpParser\Node\Param;
 use ReflectionParameter;
 

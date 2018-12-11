@@ -10,7 +10,6 @@ use StubTests\Parsers\DocFactoryProvider;
 
 abstract class PHPElementWithPHPDoc extends BasePHPElement
 {
-
     /**
      * @var Tag[]
      */

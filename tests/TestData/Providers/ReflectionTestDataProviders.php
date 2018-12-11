@@ -58,7 +58,6 @@ class ReflectionStubsSingleton
     public static function getReflectionStubs(): array
     {
         if (self::$reflectionStubs === null) {
-
             self::$reflectionStubs = PHPReflectionParser::getStubs();
         }
         return self::$reflectionStubs;

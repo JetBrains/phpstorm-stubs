@@ -22,7 +22,6 @@ class StubsTestDataProviders
                     yield "constant {$class->name}::{$constant->name}" => [$class->name, $constant];
                 }
             }
-
         }
 
         /**@var PHPInterface $interface */

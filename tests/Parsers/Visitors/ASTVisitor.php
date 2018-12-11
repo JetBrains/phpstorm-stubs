@@ -43,12 +43,10 @@ class ASTVisitor extends NodeVisitorAbstract
             $constant = (new PHPConst())->readObjectFromStubNode($node);
             if ($constant->parentName === null) {
                 $this->stubs[PHPConst::class][$constant->name] = $constant;
+            } elseif (array_key_exists($constant->parentName, $this->stubs[PHPClass::class])) {
+                $this->stubs[PHPClass::class][$constant->parentName]->constants[$constant->name] = $constant;
             } else {
-                if (array_key_exists($constant->parentName, $this->stubs[PHPClass::class])) {
-                    $this->stubs[PHPClass::class][$constant->parentName]->constants[$constant->name] = $constant;
-                } else {
-                    $this->stubs[PHPInterface::class][$constant->parentName]->constants[$constant->name] = $constant;
-                }
+                $this->stubs[PHPInterface::class][$constant->parentName]->constants[$constant->name] = $constant;
             }
         } elseif ($node instanceof FuncCall) {
             if ($node->name->parts[0] === 'define') {
@@ -76,14 +74,14 @@ class ASTVisitor extends NodeVisitorAbstract
         $parents = [];
         if (empty($interface->parentInterfaces)) {
             return $parents;
-        } else {
-            /**@var PHPInterface $parentInterface */
-            foreach ($interface->parentInterfaces as $parentInterface) {
-                $parents[] = $parentInterface;
-                if (key_exists($parentInterface, $this->stubs[PHPInterface::class])) {
-                    foreach ($this->combineParentInterfaces($this->stubs[PHPInterface::class][$parentInterface]) as $value) {
-                        $parents[] = $value;
-                    }
+        }
+        /**@var PHPInterface $parentInterface */
+        foreach ($interface->parentInterfaces as $parentInterface) {
+            $parents[] = $parentInterface;
+            if (key_exists($parentInterface, $this->stubs[PHPInterface::class])) {
+                foreach ($this->combineParentInterfaces($this->stubs[PHPInterface::class][$parentInterface]) as $value)
+                {
+                    $parents[] = $value;
                 }
             }
         }
@@ -102,16 +100,12 @@ class ASTVisitor extends NodeVisitorAbstract
         }
         if ($class->parentClass === null) {
             return $interfaces;
-        } else {
-            if (key_exists(
-                    $class->parentClass,
-                    $this->stubs[PHPClass::class]
-                )
-                && $this->stubs[PHPClass::class][$class->parentClass] !== null
-            ) {
-                $inherited    = $this->combineImplementedInterfaces($this->stubs[PHPClass::class][$class->parentClass]);
-                $interfaces[] = self::flattenArray($inherited);
-            }
+        }
+        if (key_exists($class->parentClass, $this->stubs[PHPClass::class])
+            && $this->stubs[PHPClass::class][$class->parentClass] !== null
+        ) {
+            $inherited = $this->combineImplementedInterfaces($this->stubs[PHPClass::class][$class->parentClass]);
+            $interfaces[] = self::flattenArray($inherited);
         }
         return $interfaces;
     }
