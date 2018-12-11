@@ -3947,7 +3947,6 @@ function msgfmt_format(MessageFormatter $fmt, array $args) { }
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Quick format message
  * @link https://php.net/manual/en/messageformatter.formatmessage.php
- * @param MessageFormatter $fmt
  * @param string $locale <p>
  * The locale to use for formatting locale-dependent parts
  * </p>
@@ -3962,7 +3961,7 @@ function msgfmt_format(MessageFormatter $fmt, array $args) { }
  * </p>
  * @return string The formatted pattern string or <b>FALSE</b> if an error occurred
  */
-function msgfmt_format_message(MessageFormatter $fmt, $locale, $pattern, array $args) { }
+function msgfmt_format_message(string $locale, string $pattern, array $args) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
