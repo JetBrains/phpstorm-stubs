@@ -8,6 +8,7 @@ use ReflectionClass;
 use ReflectionClassConstant;
 use ReflectionException;
 use ReflectionMethod;
+use stdClass;
 
 class PHPClass extends BasePHPClass
 {
@@ -71,10 +72,46 @@ class PHPClass extends BasePHPClass
                 foreach ($interfaceObject->parts as $interface) {
                     $interfaceFQN .= "\\$interface";
                 }
+
                 $this->interfaces[] = ltrim($interfaceFQN, "\\");
             }
         }
 
         return $this;
+    }
+
+    public function readStubProblems($jsonData)
+    {
+        /**@var stdClass $class */
+        foreach ($jsonData->classes as $class) {
+            if ($class->name === $this->name) {
+                if (!empty($class->problems)) {
+                    /**@var stdClass $problem */
+                    foreach ($class->problems as $problem) {
+                        switch ($problem) {
+                            case 'wrong parent':
+                                $this->relatedStubProblems[] = StubProblemType::WRONG_PARENT;
+                                break;
+                            case 'wrong interface':
+                                $this->relatedStubProblems[] = StubProblemType::WRONG_INTERFACE;
+                                break;
+                            case 'missing class':
+                                $this->relatedStubProblems[] = StubProblemType::STUB_IS_MISSED;
+                                break;
+                            default:
+                                $this->relatedStubProblems[] = -1;
+                                break;
+                        }
+                    }
+                }
+                /**@var stdClass $method */
+                foreach ($class->methods as $method) {
+                    if ($method->name === $methodName) {
+                        return $method->problems;
+                    }
+                }
+            }
+            return;
+        }
     }
 }

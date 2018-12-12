@@ -47,4 +47,9 @@ class PHPParameter extends BasePHPElement
         $this->is_passed_by_ref = $node->byRef;
         return $this;
     }
+
+    public function readStubProblems($jsonData)
+    {
+        // TODO: Implement readStubProblems() method.
+    }
 }

@@ -8,7 +8,7 @@ use stdClass;
 class MutedProblems
 {
     /** @var stdClass */
-    private $mutedProblems;
+    private $mutedProblems; //This can also be the class like one in StubParser::$stubs and PHPReflectionParser::$data
 
     public function __construct()
     {

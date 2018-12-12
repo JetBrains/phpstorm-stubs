@@ -22,6 +22,8 @@ class StubParser
         $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
         $nameResolver = new NameResolver;
 
+        //I believe we should move one step forward but better in a separate pull request. We can use a class instead of the map here.
+        //So instead of $this->stubs[PHPFunction::class] you could use $this->stubs->getFunctions()
         $stubs   = [];
         $visitor = new ASTVisitor($stubs);
 

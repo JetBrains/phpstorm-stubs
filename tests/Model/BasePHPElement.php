@@ -10,6 +10,7 @@ abstract class BasePHPElement
 {
     public $name;
     public $parseError;
+    protected $relatedStubProblems = [];
 
     /**
      * @param mixed $object
@@ -24,6 +25,8 @@ abstract class BasePHPElement
      * @return mixed
      */
     abstract public function readObjectFromStubNode($node);
+
+    abstract public function readStubProblems($jsonData);
 
     protected function getConstantFQN(NodeAbstract $node, string $nodeName): string
     {
@@ -41,11 +44,16 @@ abstract class BasePHPElement
         if ($node->namespacedName === null) {
             $fqn = $node->name->parts[0];
         } else {
-            /**@var string $part*/
+            /**@var string $part */
             foreach ($node->namespacedName->parts as $part) {
                 $fqn .= "$part\\";
             }
         }
         return rtrim($fqn, "\\");
+    }
+
+    public function relatedStubHasProblem($stubProblemType): bool
+    {
+        return in_array($stubProblemType, $this->relatedStubProblems, true);
     }
 }

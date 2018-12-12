@@ -13,21 +13,12 @@ use StubTests\Model\PHPConst;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
+use StubTests\Model\StubProblemType;
 use StubTests\TestData\MutedProblems;
 use StubTests\TestData\providers\PhpStormStubsSingleton;
 
 class TestStubs extends TestCase
 {
-
-    /** @var MutedProblems */
-    private static $mutedProblems;
-
-    public static function setUpBeforeClass()
-    {
-        parent::setUpBeforeClass();
-        self::$mutedProblems = new MutedProblems();
-    }
-
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
      * @param PHPConst $constant
@@ -37,7 +28,7 @@ class TestStubs extends TestCase
         $constantName = $constant->name;
         $constantValue = $constant->value;
         $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()[PHPConst::class];
-        if (in_array('missing constant', self::$mutedProblems->getMutedProblemsForConstant($constantName), true)) {
+        if ($constant->relatedStubHasProblem(StubProblemType::STUB_IS_MISSED)) {
             static::markTestSkipped('constant is excluded');
         }
         static::assertArrayHasKey(
@@ -57,7 +48,7 @@ class TestStubs extends TestCase
         $constantValue = $constant->value;
         /**@var PHPConst[] $stubConstants */
         $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()[PHPConst::class];
-        if (in_array('wrong value', self::$mutedProblems->getMutedProblemsForConstant($constantName), true)) {
+        if ($constant->relatedStubHasProblem(StubProblemType::WRONG_CONSTANT_VALUE)) {
             static::markTestSkipped('constant is excluded');
         }
 
@@ -78,19 +69,19 @@ class TestStubs extends TestCase
         $functionName = $function->name;
         $stubFunctions = PhpStormStubsSingleton::getPhpStormStubs()[PHPFunction::class];
         $params = $this->getParameterRepresentation($function);
-        if (in_array('missing function', self::$mutedProblems->getMutedProblemsForFunction($functionName), true)) {
+        if ($function->relatedStubHasProblem(StubProblemType::STUB_IS_MISSED)) {
             static::markTestSkipped('function is excluded');
         }
         static::assertArrayHasKey($functionName, $stubFunctions, "Missing function: function $functionName($params){}");
         /**@var PHPFunction $phpstormFunction */
         $phpstormFunction = $stubFunctions[$functionName];
-        if (!in_array('deprecated function', self::$mutedProblems->getMutedProblemsForFunction($functionName), true)) {
+        if (!$function->relatedStubHasProblem(StubProblemType::FUNCTION_IS_DEPRECATED)) {
             static::assertFalse(
                 $function->is_deprecated && $phpstormFunction->is_deprecated !== true,
                 "Function $functionName is not deprecated in stubs"
             );
         }
-        if (!in_array('parameter mismatch', self::$mutedProblems->getMutedProblemsForFunction($functionName), true)) {
+        if (!$function->relatedStubHasProblem(StubProblemType::FUNCTION_PARAMETER_MISMATCH)) {
             static::assertSameSize(
                 $function->parameters,
                 $phpstormFunction->parameters,
@@ -108,13 +99,13 @@ class TestStubs extends TestCase
     {
         $className = $class->name;
         $stubClasses = PhpStormStubsSingleton::getPhpStormStubs()[PHPClass::class];
-        if (in_array('missing class', self::$mutedProblems->getMutedProblemsForClass($className), true)) {
+        if ($class->relatedStubHasProblem(StubProblemType::STUB_IS_MISSED)) {
             static::markTestSkipped('class is skipped');
         }
         static::assertArrayHasKey($className, $stubClasses, "Missing class $className: class $className {}");
         /**@var PHPClass $stubClass */
         $stubClass = $stubClasses[$className];
-        if (!in_array('wrong parent', self::$mutedProblems->getMutedProblemsForClass($className), true)) {
+        if (!$class->relatedStubHasProblem(StubProblemType::WRONG_PARENT)) {
             static::assertEquals(
                 $class->parentClass,
                 $stubClass->parentClass,
@@ -122,7 +113,7 @@ class TestStubs extends TestCase
             );
         }
         foreach ($class->constants as $constant) {
-            if (!in_array('missing constant', self::$mutedProblems->getMutedProblemsForClassConstants($className, $constant->name), true)) {
+            if (!$constant->relatedStubHasProblem(StubProblemType::STUB_IS_MISSED)) {
                 static::assertArrayHasKey(
                     $constant->name,
                     $stubClass->constants,
@@ -133,35 +124,35 @@ class TestStubs extends TestCase
         foreach ($class->methods as $method) {
             $params = $this->getParameterRepresentation($method);
             $methodName = $method->name;
-            if (!in_array('missing method', self::$mutedProblems->getMutedProblemsForMethod($className, $methodName), true)) {
+            if (!$method->relatedStubHasProblem(StubProblemType::STUB_IS_MISSED)) {
                 static::assertArrayHasKey(
                     $methodName,
                     $stubClass->methods,
                     "Missing method $className::$methodName($params){}"
                 );
                 $stubMethod = $stubClass->methods[$methodName];
-                if (!in_array('not final', self::$mutedProblems->getMutedProblemsForMethod($className, $methodName), true)) {
+                if (!$method->relatedStubHasProblem(StubProblemType::FUNCTION_IS_FINAL)) {
                     static::assertEquals(
                         $method->is_final,
                         $stubMethod->is_final,
                         "Method $className::$methodName final modifier is incorrect"
                     );
                 }
-                if (!in_array('not static', self::$mutedProblems->getMutedProblemsForMethod($className, $methodName), true)) {
+                if (!$method->relatedStubHasProblem(StubProblemType::FUNCTION_IS_STATIC)) {
                     static::assertEquals(
                         $method->is_static,
                         $stubMethod->is_static,
                         "Method $className::$methodName static modifier is incorrect"
                     );
                 }
-                if (!in_array('access modifiers', self::$mutedProblems->getMutedProblemsForMethod($className, $methodName), true)) {
+                if (!$method->relatedStubHasProblem(StubProblemType::FUNCTION_ACCESS)) {
                     static::assertEquals(
                         $method->access,
                         $stubMethod->access,
                         "Method $className::$methodName access modifier is incorrect"
                     );
                 }
-                if (!in_array('parameter mismatch', self::$mutedProblems->getMutedProblemsForMethod($className, $methodName), true)) {
+                if (!$method->relatedStubHasProblem(StubProblemType::FUNCTION_PARAMETER_MISMATCH)) {
                     static::assertSameSize(
                         $method->parameters,
                         $stubMethod->parameters,
@@ -172,7 +163,7 @@ class TestStubs extends TestCase
             }
         }
         foreach ($class->interfaces as $interface) {
-            if (!in_array('wrong interface', self::$mutedProblems->getMutedProblemsForClass($className), true)) {
+            if (!$class->relatedStubHasProblem(StubProblemType::WRONG_INTERFACE)) {
                 static::assertContains(
                     $interface,
                     $stubClass->interfaces,
@@ -191,7 +182,7 @@ class TestStubs extends TestCase
         $interfaceName = $interface->name;
         /**@var PHPInterface[] $stubInterfaces */
         $stubInterfaces = PhpStormStubsSingleton::getPhpStormStubs()[PHPInterface::class];
-        if (in_array('missing interface', self::$mutedProblems->getMutedProblemsForInterface($interfaceName), true)) {
+        if ($interface->relatedStubHasProblem(StubProblemType::STUB_IS_MISSED)) {
             static::markTestSkipped('interface is skipped');
         }
         static::assertArrayHasKey(
@@ -200,11 +191,11 @@ class TestStubs extends TestCase
             "Missing interface $interfaceName: interface $interfaceName {}"
         );
         $stubInterface = $stubInterfaces[$interfaceName];
-        if (!in_array('wrong parent', self::$mutedProblems->getMutedProblemsForInterface($interfaceName), true)) {
+        if (!$interface->relatedStubHasProblem(StubProblemType::WRONG_PARENT)) {
             static::assertEquals($stubInterface->parentInterfaces, $interface->parentInterfaces);
         }
         foreach ($interface->constants as $constant) {
-            if (!in_array('missing constant', self::$mutedProblems->getMutedProblemsForClassConstants($interfaceName, $constant->name), true)) {
+            if (!$constant->relatedStubHasProblem(StubProblemType::STUB_IS_MISSED)) {
                 static::assertArrayHasKey(
                     $constant->name,
                     $stubInterface->constants,
@@ -215,35 +206,35 @@ class TestStubs extends TestCase
         foreach ($interface->methods as $method) {
             $params = $this->getParameterRepresentation($method);
             $methodName = $method->name;
-            if (!in_array('missing method', self::$mutedProblems->getMutedProblemsForMethod($interfaceName, $methodName), true)) {
+            if (!$method->relatedStubHasProblem(StubProblemType::STUB_IS_MISSED)) {
                 static::assertArrayHasKey(
                     $methodName,
                     $stubInterface->methods,
                     "Missing method $interfaceName::$methodName($params){}"
                 );
                 $stubMethod = $stubInterface->methods[$methodName];
-                if (!in_array('not final', self::$mutedProblems->getMutedProblemsForMethod($interfaceName, $methodName), true)) {
+                if (!$method->relatedStubHasProblem(StubProblemType::FUNCTION_IS_FINAL)) {
                     static::assertEquals(
                         $method->is_final,
                         $stubMethod->is_final,
                         "Method $interfaceName::$methodName final modifier is incorrect"
                     );
                 }
-                if (!in_array('not static', self::$mutedProblems->getMutedProblemsForMethod($interfaceName, $methodName), true)) {
+                if (!$method->relatedStubHasProblem(StubProblemType::FUNCTION_IS_STATIC)) {
                     static::assertEquals(
                         $method->is_static,
                         $stubMethod->is_static,
                         "Method $interfaceName::$methodName static modifier is incorrect"
                     );
                 }
-                if (!in_array('access modifiers', self::$mutedProblems->getMutedProblemsForMethod($interfaceName, $methodName), true)) {
+                if (!$method->relatedStubHasProblem(StubProblemType::FUNCTION_ACCESS)) {
                     static::assertEquals(
                         $method->access,
                         $stubMethod->access,
                         "Method $interfaceName::$methodName access modifier is incorrect"
                     );
                 }
-                if (!in_array('parameter mismatch', self::$mutedProblems->getMutedProblemsForMethod($interfaceName, $methodName), true)) {
+                if (!$method->relatedStubHasProblem(StubProblemType::FUNCTION_PARAMETER_MISMATCH)) {
                     static::assertSameSize(
                         $method->parameters,
                         $stubMethod->parameters,

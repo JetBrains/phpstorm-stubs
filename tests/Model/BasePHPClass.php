@@ -14,4 +14,6 @@ abstract class BasePHPClass extends PHPElementWithPHPDoc
      * @var PHPConst[]
      */
     public $constants = [];
+
+
 }

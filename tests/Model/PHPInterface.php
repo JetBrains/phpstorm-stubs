@@ -8,6 +8,7 @@ use ReflectionClass;
 use ReflectionClassConstant;
 use ReflectionException;
 use ReflectionMethod;
+use stdClass;
 
 class PHPInterface extends BasePHPClass
 {
@@ -57,5 +58,28 @@ class PHPInterface extends BasePHPClass
             }
         }
         return $this;
+    }
+
+    public function readStubProblems($jsonData)
+    {
+        /**@var stdClass $interface */
+        foreach ($jsonData->interfaces as $interface) {
+            if ($interface->name === $this->name && !empty($interface->problems)) {
+                /**@var stdClass $problem */
+                foreach ($interface->problems as $problem) {
+                    switch ($problem) {
+                        case 'wrong parent':
+                            $this->relatedStubProblems[] = StubProblemType::WRONG_PARENT;
+                            break;
+                        case 'missing interface':
+                            $this->relatedStubProblems[] = StubProblemType::STUB_IS_MISSED;
+                            break;
+                        default:
+                            $this->relatedStubProblems[] = -1;
+                            break;
+                    }
+                }
+            }
+        }
     }
 }

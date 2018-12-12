@@ -16,37 +16,47 @@ class PHPReflectionParser
 
     public static function getStubs(): array
     {
+        //A class will be better than a map here. This should be done in a separate pull request though.
         $data = [];
+        $data[PHPConst::class] = [];
+        $data[PHPFunction::class] = [];
+        $data[PHPClass::class] = [];
+        $data[PHPInterface::class] = [];
 
+        $jsonData = json_decode(file_get_contents(__DIR__ . '/../TestData/mutedProblems.json'));
         $const_groups = get_defined_constants(true);
         unset($const_groups['user']);
         $const_groups = Utils::flattenArray($const_groups, true);
-        $data[PHPConst::class] = [];
         foreach ($const_groups as $name => $value) {
-            $data[PHPConst::class][] = (new PHPDefineConstant())->readObjectFromReflection([$name, $value]);
+            $constant = (new PHPDefineConstant())->readObjectFromReflection([$name, $value]);
+            $constant->readStubProblems($jsonData);
+            $data[PHPConst::class][] = $constant;
         }
 
-        $data[PHPFunction::class] = [];
         /**@var ReflectionFunction $function */
         foreach (get_defined_functions()['internal'] as $function) {
-            $data[PHPFunction::class][] = (new PHPFunction())->readObjectFromReflection($function);
+            $phpFunction = (new PHPFunction())->readObjectFromReflection($function);
+            $phpFunction->readStubProblems($jsonData);
+            $data[PHPFunction::class][] = $phpFunction;
         }
 
-        $data[PHPClass::class] = [];
-        $cl = get_declared_classes();
-        foreach ($cl as $clazz) {
+        /**@var ReflectionClass $clazz */
+        foreach (get_declared_classes() as $clazz) {
             $reflectionClass = new ReflectionClass($clazz);
             if ($reflectionClass->isInternal()) {
-                $data[PHPClass::class][] = (new PHPClass())->readObjectFromReflection($clazz);
+                $class = (new PHPClass())->readObjectFromReflection($clazz);
+                $class->readStubProblems($jsonData);
+                $data[PHPClass::class][] = $class;
             }
         }
 
-        $data[PHPInterface::class] = [];
         /**@var ReflectionClass $interface */
         foreach (get_declared_interfaces() as $interface) {
             $reflectionInterface = new ReflectionClass($interface);
             if ($reflectionInterface->isInternal()) {
-                $data[PHPInterface::class][] = (new PHPInterface())->readObjectFromReflection($interface);
+                $phpInterface = (new PHPInterface())->readObjectFromReflection($interface);
+                $phpInterface->readStubProblems($jsonData);
+                $data[PHPInterface::class][] = $phpInterface;
             }
         }
 

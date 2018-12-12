@@ -11,6 +11,7 @@ use PhpParser\Node\Stmt\Function_;
 use ReflectionException;
 use ReflectionFunction;
 use ReflectionParameter;
+use stdClass;
 use StubTests\Parsers\DocFactoryProvider;
 
 class PHPFunction extends PHPElementWithPHPDoc
@@ -94,6 +95,33 @@ class PHPFunction extends PHPElementWithPHPDoc
                 }
             } catch (Exception $e) {
                 $this->parseError = $e->getMessage();
+            }
+        }
+    }
+
+    public function readStubProblems($jsonData)
+    {
+        /**@var stdClass $function */
+        foreach ($jsonData->functions as $function) {
+            if ($function->name === $this->name) {
+                /**@var stdClass $problem */
+                foreach ($function->problems as $problem) {
+                    switch ($problem) {
+                        case 'parameter mismatch':
+                            $this->relatedStubProblems[] = StubProblemType::FUNCTION_PARAMETER_MISMATCH;
+                            break;
+                        case 'missing function':
+                            $this->relatedStubProblems[] = StubProblemType::STUB_IS_MISSED;
+                            break;
+                        case 'deprecated function':
+                            $this->relatedStubProblems[] = StubProblemType::FUNCTION_IS_DEPRECATED;
+                            break;
+                        default:
+                            $this->relatedStubProblems[] = -1;
+                            break;
+                    }
+                }
+                return;
             }
         }
     }
