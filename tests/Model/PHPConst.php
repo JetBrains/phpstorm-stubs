@@ -8,8 +8,10 @@ use PhpParser\Node\Stmt\ClassConst;
 use ReflectionClassConstant;
 use stdClass;
 
-class PHPConst extends PHPElementWithPHPDoc
+class PHPConst extends BasePHPElement
 {
+    use PHPDocElement;
+
     public $parentName;
     public $value;
 
@@ -30,7 +32,7 @@ class PHPConst extends PHPElementWithPHPDoc
      */
     public function readObjectFromStubNode($node)
     {
-        $this->name  = $this->getConstantFQN($node, $node->name->name);
+        $this->name = $this->getConstantFQN($node, $node->name->name);
         $this->value = $this->getConstValue($node);
         $this->collectLinks($node);
         if ($node->getAttribute('parent') instanceof ClassConst) {
@@ -56,7 +58,7 @@ class PHPConst extends PHPElementWithPHPDoc
     public function readStubProblems($jsonData): void
     {
         /**@var stdClass $constant */
-        foreach ($jsonData->constants as $constant) {
+        foreach ($jsonData as $constant) {
             if ($constant->name === $this->name) {
                 /**@var stdClass $problem */
                 foreach ($constant->problems as $problem) {

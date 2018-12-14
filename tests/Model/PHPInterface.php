@@ -60,10 +60,10 @@ class PHPInterface extends BasePHPClass
         return $this;
     }
 
-    public function readStubProblems($jsonData)
+    public function readStubProblems($jsonData): void
     {
         /**@var stdClass $interface */
-        foreach ($jsonData->interfaces as $interface) {
+        foreach ($jsonData as $interface) {
             if ($interface->name === $this->name && !empty($interface->problems)) {
                 /**@var stdClass $problem */
                 foreach ($interface->problems as $problem) {
@@ -79,6 +79,17 @@ class PHPInterface extends BasePHPClass
                             break;
                     }
                 }
+                if (!empty($interface->methods)) {
+                    foreach ($this->methods as $method) {
+                        $method->readStubProblems($interface->methods);
+                    }
+                }
+                if (!empty($interface->constants)) {
+                    foreach ($this->constants as $constant) {
+                        $constant->readStubProblems($interface->constants);
+                    }
+                }
+                return;
             }
         }
     }

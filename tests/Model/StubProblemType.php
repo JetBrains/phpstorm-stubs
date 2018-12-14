@@ -14,4 +14,7 @@ interface StubProblemType
     public const FUNCTION_IS_STATIC = 6;
     public const FUNCTION_ACCESS = 7;
     public const WRONG_INTERFACE = 8;
+    public const PARAMETER_TYPE_MISMATCH = 9;
+    public const PARAMETER_REFERENCE = 10;
+    public const PARAMETER_VARARG = 11;
 }

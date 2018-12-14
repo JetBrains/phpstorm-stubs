@@ -80,10 +80,10 @@ class PHPClass extends BasePHPClass
         return $this;
     }
 
-    public function readStubProblems($jsonData)
+    public function readStubProblems($jsonData): void
     {
         /**@var stdClass $class */
-        foreach ($jsonData->classes as $class) {
+        foreach ($jsonData as $class) {
             if ($class->name === $this->name) {
                 if (!empty($class->problems)) {
                     /**@var stdClass $problem */
@@ -104,14 +104,18 @@ class PHPClass extends BasePHPClass
                         }
                     }
                 }
-                /**@var stdClass $method */
-                foreach ($class->methods as $method) {
-                    if ($method->name === $methodName) {
-                        return $method->problems;
+                if (!empty($class->methods)) {
+                    foreach ($this->methods as $method) {
+                        $method->readStubProblems($class->methods);
                     }
                 }
+                if (!empty($class->constants)) {
+                    foreach ($this->constants as $constant) {
+                        $constant->readStubProblems($class->constants);
+                    }
+                }
+                return;
             }
-            return;
         }
     }
 }

@@ -5,6 +5,7 @@ namespace StubTests\Model;
 
 use PhpParser\Node\Stmt\ClassMethod;
 use ReflectionParameter;
+use stdClass;
 
 class PHPMethod extends PHPFunction
 {
@@ -68,5 +69,32 @@ class PHPMethod extends PHPFunction
             $this->access = 'public';
         }
         return $this;
+    }
+
+    public function readStubProblems($jsonData): void
+    {
+        /**@var stdClass $method */
+        foreach ($jsonData as $method) {
+            if ($method->name === $this->name) {
+                /**@var stdClass $problem */
+                foreach ($method->problems as $problem) {
+                    switch ($problem) {
+                        case 'parameter mismatch':
+                            $this->relatedStubProblems[] = StubProblemType::FUNCTION_PARAMETER_MISMATCH;
+                            break;
+                        case 'missing method':
+                            $this->relatedStubProblems[] = StubProblemType::STUB_IS_MISSED;
+                            break;
+                        case 'deprecated method':
+                            $this->relatedStubProblems[] = StubProblemType::FUNCTION_IS_DEPRECATED;
+                            break;
+                        default:
+                            $this->relatedStubProblems[] = -1;
+                            break;
+                    }
+                }
+                return;
+            }
+        }
     }
 }

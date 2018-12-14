@@ -8,7 +8,7 @@ use phpDocumentor\Reflection\DocBlock\Tag;
 use PhpParser\Node;
 use StubTests\Parsers\DocFactoryProvider;
 
-abstract class PHPElementWithPHPDoc extends BasePHPElement //Maybe make this one a trait? I have no strong opinion about this one though so up to you
+trait PHPDocElement
 {
     /**
      * @var Tag[]

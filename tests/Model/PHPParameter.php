@@ -5,6 +5,7 @@ namespace StubTests\Model;
 
 use PhpParser\Node\Param;
 use ReflectionParameter;
+use stdClass;
 
 class PHPParameter extends BasePHPElement
 {
@@ -48,8 +49,30 @@ class PHPParameter extends BasePHPElement
         return $this;
     }
 
-    public function readStubProblems($jsonData)
+    public function readStubProblems($jsonData): void
     {
-        // TODO: Implement readStubProblems() method.
+        /**@var stdClass $parameter */
+        foreach ($jsonData as $parameter) {
+            if ($parameter->name === $this->name) {
+                /**@var stdClass $problem */
+                foreach ($parameter->problems as $problem) {
+                    switch ($problem) {
+                        case 'parameter type mismatch':
+                            $this->relatedStubProblems[] = StubProblemType::PARAMETER_TYPE_MISMATCH;
+                            break;
+                        case 'parameter reference':
+                            $this->relatedStubProblems[] = StubProblemType::PARAMETER_REFERENCE;
+                            break;
+                        case 'parameter vararg':
+                            $this->relatedStubProblems[] = StubProblemType::PARAMETER_VARARG;
+                            break;
+                        default:
+                            $this->relatedStubProblems[] = -1;
+                            break;
+                    }
+                }
+                return;
+            }
+        }
     }
 }

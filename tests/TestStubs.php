@@ -7,6 +7,7 @@ use phpDocumentor\Reflection\DocBlock\Tags\Link;
 use phpDocumentor\Reflection\DocBlock\Tags\Reference\Url;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use StubTests\Model\BasePHPClass;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPConst;
@@ -14,7 +15,6 @@ use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\StubProblemType;
-use StubTests\TestData\MutedProblems;
 use StubTests\TestData\providers\PhpStormStubsSingleton;
 
 class TestStubs extends TestCase
@@ -22,12 +22,13 @@ class TestStubs extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
      * @param PHPConst $constant
+     * @throws InvalidArgumentException
      */
     public function testConstants(PHPConst $constant): void
     {
         $constantName = $constant->name;
         $constantValue = $constant->value;
-        $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()[PHPConst::class];
+        $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getConstants();
         if ($constant->relatedStubHasProblem(StubProblemType::STUB_IS_MISSED)) {
             static::markTestSkipped('constant is excluded');
         }
@@ -41,13 +42,14 @@ class TestStubs extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
      * @param PHPConst $constant
+     * @throws InvalidArgumentException
      */
     public function testConstantsValues(PHPConst $constant): void
     {
         $constantName = $constant->name;
         $constantValue = $constant->value;
         /**@var PHPConst[] $stubConstants */
-        $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()[PHPConst::class];
+        $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getConstants();
         if ($constant->relatedStubHasProblem(StubProblemType::WRONG_CONSTANT_VALUE)) {
             static::markTestSkipped('constant is excluded');
         }
@@ -63,12 +65,13 @@ class TestStubs extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::functionProvider
      * @param PHPFunction $function
+     * @throws InvalidArgumentException
      */
     public function testFunctions(PHPFunction $function): void
     {
         $functionName = $function->name;
-        $stubFunctions = PhpStormStubsSingleton::getPhpStormStubs()[PHPFunction::class];
-        $params = $this->getParameterRepresentation($function);
+        $stubFunctions = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions();
+        $params = self::getParameterRepresentation($function);
         if ($function->relatedStubHasProblem(StubProblemType::STUB_IS_MISSED)) {
             static::markTestSkipped('function is excluded');
         }
@@ -86,7 +89,7 @@ class TestStubs extends TestCase
                 $function->parameters,
                 $phpstormFunction->parameters,
                 "Parameter number mismatch for function $functionName. 
-                Expected: " . $this->getParameterRepresentation($function)
+                Expected: " . self::getParameterRepresentation($function)
             );
         }
     }
@@ -94,11 +97,12 @@ class TestStubs extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::classProvider
      * @param PHPClass $class
+     * @throws InvalidArgumentException
      */
     public function testClasses(PHPClass $class): void
     {
         $className = $class->name;
-        $stubClasses = PhpStormStubsSingleton::getPhpStormStubs()[PHPClass::class];
+        $stubClasses = PhpStormStubsSingleton::getPhpStormStubs()->getClasses();
         if ($class->relatedStubHasProblem(StubProblemType::STUB_IS_MISSED)) {
             static::markTestSkipped('class is skipped');
         }
@@ -122,7 +126,7 @@ class TestStubs extends TestCase
             }
         }
         foreach ($class->methods as $method) {
-            $params = $this->getParameterRepresentation($method);
+            $params = self::getParameterRepresentation($method);
             $methodName = $method->name;
             if (!$method->relatedStubHasProblem(StubProblemType::STUB_IS_MISSED)) {
                 static::assertArrayHasKey(
@@ -157,7 +161,7 @@ class TestStubs extends TestCase
                         $method->parameters,
                         $stubMethod->parameters,
                         "Parameter number mismatch for method $className::$methodName. 
-                        Expected: " . $this->getParameterRepresentation($method)
+                        Expected: " . self::getParameterRepresentation($method)
                     );
                 }
             }
@@ -176,12 +180,13 @@ class TestStubs extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::interfaceProvider
      * @param PHPInterface $interface
+     * @throws InvalidArgumentException
      */
     public function testInterfaces(PHPInterface $interface): void
     {
         $interfaceName = $interface->name;
         /**@var PHPInterface[] $stubInterfaces */
-        $stubInterfaces = PhpStormStubsSingleton::getPhpStormStubs()[PHPInterface::class];
+        $stubInterfaces = PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces();
         if ($interface->relatedStubHasProblem(StubProblemType::STUB_IS_MISSED)) {
             static::markTestSkipped('interface is skipped');
         }
@@ -204,7 +209,7 @@ class TestStubs extends TestCase
             }
         }
         foreach ($interface->methods as $method) {
-            $params = $this->getParameterRepresentation($method);
+            $params = self::getParameterRepresentation($method);
             $methodName = $method->name;
             if (!$method->relatedStubHasProblem(StubProblemType::STUB_IS_MISSED)) {
                 static::assertArrayHasKey(
@@ -239,7 +244,7 @@ class TestStubs extends TestCase
                         $method->parameters,
                         $stubMethod->parameters,
                         "Parameter number mismatch for method $interfaceName::$methodName. 
-                        Expected: " . $this->getParameterRepresentation($method)
+                        Expected: " . self::getParameterRepresentation($method)
                     );
                 }
             }
@@ -250,6 +255,7 @@ class TestStubs extends TestCase
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubClassConstantProvider
      * @param string $className
      * @param PHPConst $constant
+     * @throws InvalidArgumentException
      */
     public function testClassConstantsPHPDocs(string $className, PHPConst $constant): void
     {
@@ -260,6 +266,7 @@ class TestStubs extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubConstantProvider
      * @param PHPConst $constant
+     * @throws InvalidArgumentException
      */
     public function testConstantsPHPDocs(PHPConst $constant): void
     {
@@ -270,6 +277,7 @@ class TestStubs extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubFunctionProvider
      * @param PHPFunction $function
+     * @throws InvalidArgumentException
      */
     public function testFunctionPHPDocs(PHPFunction $function): void
     {
@@ -280,6 +288,7 @@ class TestStubs extends TestCase
     /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubClassProvider
      * @param BasePHPClass $class
+     * @throws InvalidArgumentException
      */
     public function testClassesPHPDocs(BasePHPClass $class): void
     {
@@ -291,6 +300,7 @@ class TestStubs extends TestCase
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodProvider
      * @param string $methodName
      * @param PHPMethod $method
+     * @throws InvalidArgumentException
      */
     public function testMethodsPHPDocs(string $methodName, PHPMethod $method): void
     {
@@ -301,7 +311,7 @@ class TestStubs extends TestCase
         $this->checkLinks($method, "method $methodName");
     }
 
-    private function getParameterRepresentation(PHPFunction $function): string
+    private static function getParameterRepresentation(PHPFunction $function): string
     {
         $result = '';
         foreach ($function->parameters as $parameter) {

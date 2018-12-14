@@ -14,8 +14,10 @@ use ReflectionParameter;
 use stdClass;
 use StubTests\Parsers\DocFactoryProvider;
 
-class PHPFunction extends PHPElementWithPHPDoc
+class PHPFunction extends BasePHPElement
 {
+    use PHPDocElement;
+
     /**
      * @var boolean $is_deprecated
      */
@@ -99,10 +101,10 @@ class PHPFunction extends PHPElementWithPHPDoc
         }
     }
 
-    public function readStubProblems($jsonData)
+    public function readStubProblems($jsonData): void
     {
         /**@var stdClass $function */
-        foreach ($jsonData->functions as $function) {
+        foreach ($jsonData as $function) {
             if ($function->name === $this->name) {
                 /**@var stdClass $problem */
                 foreach ($function->problems as $problem) {
