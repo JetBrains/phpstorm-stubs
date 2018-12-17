@@ -105,7 +105,7 @@ class PHPFunction extends BasePHPElement
     {
         /**@var stdClass $function */
         foreach ($jsonData as $function) {
-            if ($function->name === $this->name) {
+            if ($function->name === $this->name && !empty($function->problems)) {
                 /**@var stdClass $problem */
                 foreach ($function->problems as $problem) {
                     switch ($problem) {

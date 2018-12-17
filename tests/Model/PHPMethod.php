@@ -75,7 +75,7 @@ class PHPMethod extends PHPFunction
     {
         /**@var stdClass $method */
         foreach ($jsonData as $method) {
-            if ($method->name === $this->name) {
+            if ($method->name === $this->name && !empty($method->problems)) {
                 /**@var stdClass $problem */
                 foreach ($method->problems as $problem) {
                     switch ($problem) {

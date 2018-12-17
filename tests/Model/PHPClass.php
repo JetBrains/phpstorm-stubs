@@ -72,7 +72,6 @@ class PHPClass extends BasePHPClass
                 foreach ($interfaceObject->parts as $interface) {
                     $interfaceFQN .= "\\$interface";
                 }
-
                 $this->interfaces[] = ltrim($interfaceFQN, "\\");
             }
         }

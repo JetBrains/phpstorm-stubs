@@ -53,7 +53,7 @@ class PHPParameter extends BasePHPElement
     {
         /**@var stdClass $parameter */
         foreach ($jsonData as $parameter) {
-            if ($parameter->name === $this->name) {
+            if ($parameter->name === $this->name && !empty($parameter->problems)) {
                 /**@var stdClass $problem */
                 foreach ($parameter->problems as $problem) {
                     switch ($problem) {

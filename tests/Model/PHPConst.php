@@ -59,7 +59,7 @@ class PHPConst extends BasePHPElement
     {
         /**@var stdClass $constant */
         foreach ($jsonData as $constant) {
-            if ($constant->name === $this->name) {
+            if ($constant->name === $this->name && !empty($constant->problems)) {
                 /**@var stdClass $problem */
                 foreach ($constant->problems as $problem) {
                     switch ($problem) {

@@ -64,19 +64,21 @@ class PHPInterface extends BasePHPClass
     {
         /**@var stdClass $interface */
         foreach ($jsonData as $interface) {
-            if ($interface->name === $this->name && !empty($interface->problems)) {
-                /**@var stdClass $problem */
-                foreach ($interface->problems as $problem) {
-                    switch ($problem) {
-                        case 'wrong parent':
-                            $this->relatedStubProblems[] = StubProblemType::WRONG_PARENT;
-                            break;
-                        case 'missing interface':
-                            $this->relatedStubProblems[] = StubProblemType::STUB_IS_MISSED;
-                            break;
-                        default:
-                            $this->relatedStubProblems[] = -1;
-                            break;
+            if ($interface->name === $this->name) {
+                if (!empty($interface->problems)) {
+                    /**@var stdClass $problem */
+                    foreach ($interface->problems as $problem) {
+                        switch ($problem) {
+                            case 'wrong parent':
+                                $this->relatedStubProblems[] = StubProblemType::WRONG_PARENT;
+                                break;
+                            case 'missing interface':
+                                $this->relatedStubProblems[] = StubProblemType::STUB_IS_MISSED;
+                                break;
+                            default:
+                                $this->relatedStubProblems[] = -1;
+                                break;
+                        }
                     }
                 }
                 if (!empty($interface->methods)) {
