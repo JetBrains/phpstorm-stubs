@@ -1333,6 +1333,9 @@
             "missing method"
           ]
         }
+      ],
+      "problems": [
+        "wrong parent"
       ]
     },
     {
@@ -1573,12 +1576,6 @@
             "parameter mismatch"
           ]
         }
-      ]
-    },
-    {
-      "name": "PharData",
-      "problems": [
-        "wrong parent"
       ]
     }
   ],

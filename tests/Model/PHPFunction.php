@@ -11,10 +11,13 @@ use PhpParser\Node\Stmt\Function_;
 use ReflectionException;
 use ReflectionFunction;
 use ReflectionParameter;
+use stdClass;
 use StubTests\Parsers\DocFactoryProvider;
 
-class PHPFunction extends PHPElementWithPHPDoc
+class PHPFunction extends BasePHPElement
 {
+    use PHPDocElement;
+
     /**
      * @var boolean $is_deprecated
      */
@@ -94,6 +97,33 @@ class PHPFunction extends PHPElementWithPHPDoc
                 }
             } catch (Exception $e) {
                 $this->parseError = $e->getMessage();
+            }
+        }
+    }
+
+    public function readMutedProblems($jsonData): void
+    {
+        /**@var stdClass $function */
+        foreach ($jsonData as $function) {
+            if ($function->name === $this->name && !empty($function->problems)) {
+                /**@var stdClass $problem */
+                foreach ($function->problems as $problem) {
+                    switch ($problem) {
+                        case 'parameter mismatch':
+                            $this->mutedProblems[] = StubProblemType::FUNCTION_PARAMETER_MISMATCH;
+                            break;
+                        case 'missing function':
+                            $this->mutedProblems[] = StubProblemType::STUB_IS_MISSED;
+                            break;
+                        case 'deprecated function':
+                            $this->mutedProblems[] = StubProblemType::FUNCTION_IS_DEPRECATED;
+                            break;
+                        default:
+                            $this->mutedProblems[] = -1;
+                            break;
+                    }
+                }
+                return;
             }
         }
     }

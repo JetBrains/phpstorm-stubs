@@ -6,9 +6,12 @@ namespace StubTests\Model;
 use PhpParser\Node\Const_;
 use PhpParser\Node\Stmt\ClassConst;
 use ReflectionClassConstant;
+use stdClass;
 
-class PHPConst extends PHPElementWithPHPDoc
+class PHPConst extends BasePHPElement
 {
+    use PHPDocElement;
+
     public $parentName;
     public $value;
 
@@ -29,7 +32,7 @@ class PHPConst extends PHPElementWithPHPDoc
      */
     public function readObjectFromStubNode($node)
     {
-        $this->name  = $this->getConstantFQN($node, $node->name->name);
+        $this->name = $this->getConstantFQN($node, $node->name->name);
         $this->value = $this->getConstValue($node);
         $this->collectLinks($node);
         if ($node->getAttribute('parent') instanceof ClassConst) {
@@ -50,5 +53,29 @@ class PHPConst extends PHPElementWithPHPDoc
             return $node->value->name->parts[0];
         }
         return null;
+    }
+
+    public function readMutedProblems($jsonData): void
+    {
+        /**@var stdClass $constant */
+        foreach ($jsonData as $constant) {
+            if ($constant->name === $this->name && !empty($constant->problems)) {
+                /**@var stdClass $problem */
+                foreach ($constant->problems as $problem) {
+                    switch ($problem) {
+                        case 'wrong value':
+                            $this->mutedProblems[] = StubProblemType::WRONG_CONSTANT_VALUE;
+                            break;
+                        case 'missing constant':
+                            $this->mutedProblems[] = StubProblemType::STUB_IS_MISSED;
+                            break;
+                        default:
+                            $this->mutedProblems[] = -1;
+                            break;
+                    }
+                }
+                return;
+            }
+        }
     }
 }

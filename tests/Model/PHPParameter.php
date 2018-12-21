@@ -5,6 +5,7 @@ namespace StubTests\Model;
 
 use PhpParser\Node\Param;
 use ReflectionParameter;
+use stdClass;
 
 class PHPParameter extends BasePHPElement
 {
@@ -46,5 +47,32 @@ class PHPParameter extends BasePHPElement
         $this->is_vararg = $node->variadic;
         $this->is_passed_by_ref = $node->byRef;
         return $this;
+    }
+
+    public function readMutedProblems($jsonData): void
+    {
+        /**@var stdClass $parameter */
+        foreach ($jsonData as $parameter) {
+            if ($parameter->name === $this->name && !empty($parameter->problems)) {
+                /**@var stdClass $problem */
+                foreach ($parameter->problems as $problem) {
+                    switch ($problem) {
+                        case 'parameter type mismatch':
+                            $this->mutedProblems[] = StubProblemType::PARAMETER_TYPE_MISMATCH;
+                            break;
+                        case 'parameter reference':
+                            $this->mutedProblems[] = StubProblemType::PARAMETER_REFERENCE;
+                            break;
+                        case 'parameter vararg':
+                            $this->mutedProblems[] = StubProblemType::PARAMETER_VARARG;
+                            break;
+                        default:
+                            $this->mutedProblems[] = -1;
+                            break;
+                    }
+                }
+                return;
+            }
+        }
     }
 }

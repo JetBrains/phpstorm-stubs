@@ -3,8 +3,10 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
-abstract class BasePHPClass extends PHPElementWithPHPDoc
+abstract class BasePHPClass extends BasePHPElement
 {
+    use PHPDocElement;
+
     /**
      * @var PHPMethod[]
      */

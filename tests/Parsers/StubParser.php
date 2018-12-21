@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace StubTests\Parsers;
 
@@ -9,20 +10,19 @@ use PhpParser\ParserFactory;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use SplFileInfo;
-use StubTests\Model\PHPClass;
-use StubTests\Model\PHPInterface;
+use StubTests\Model\StubsContainer;
 use StubTests\Parsers\Visitors\ASTVisitor;
 use StubTests\Parsers\Visitors\ParentConnector;
 
 class StubParser
 {
-    public static function getPhpStormStubs(): array
+    public static function getPhpStormStubs(): StubsContainer
     {
         /** @noinspection PhpUnhandledExceptionInspection */
         $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
         $nameResolver = new NameResolver;
 
-        $stubs   = [];
+        $stubs = new StubsContainer();
         $visitor = new ASTVisitor($stubs);
 
         $stubsIterator =
@@ -42,13 +42,14 @@ class StubParser
             $traverser->addVisitor($visitor);
             $traverser->traverse($parser->parse($code, new StubsParserErrorHandler()));
         }
-        /**@var PHPInterface $interface */
-        foreach ($stubs[PHPInterface::class] as $interface) {
-            $stubs[PHPInterface::class][$interface->name]->parentInterfaces = $visitor->combineParentInterfaces($interface);
+
+        foreach ($stubs->getInterfaces() as $interface) {
+            $interface->parentInterfaces = $visitor->combineParentInterfaces($interface);
         }
-        /**@var PHPClass $class */
-        foreach ($stubs[PHPClass::class] as $class) {
-            $stubs[PHPClass::class][$class->name]->interfaces = Utils::flattenArray($visitor->combineImplementedInterfaces($class), false);
+
+        foreach ($stubs->getClasses() as $class) {
+            $class->interfaces =
+                Utils::flattenArray($visitor->combineImplementedInterfaces($class), false);
         }
         return $stubs;
     }
