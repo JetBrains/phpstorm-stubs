@@ -24,14 +24,14 @@ class PHPReflectionParser
         $const_groups = Utils::flattenArray($const_groups, true);
         foreach ($const_groups as $name => $value) {
             $constant = (new PHPDefineConstant())->readObjectFromReflection([$name, $value]);
-            $constant->readStubProblems($jsonData->constants);
+            $constant->readMutedProblems($jsonData->constants);
             $stubs->addConstant($constant);
         }
 
         /**@var ReflectionFunction $function */
         foreach (get_defined_functions()['internal'] as $function) {
             $phpFunction = (new PHPFunction())->readObjectFromReflection($function);
-            $phpFunction->readStubProblems($jsonData->functions);
+            $phpFunction->readMutedProblems($jsonData->functions);
             $stubs->addFunction($phpFunction);
         }
 
@@ -40,7 +40,7 @@ class PHPReflectionParser
             $reflectionClass = new ReflectionClass($clazz);
             if ($reflectionClass->isInternal()) {
                 $class = (new PHPClass())->readObjectFromReflection($clazz);
-                $class->readStubProblems($jsonData->classes);
+                $class->readMutedProblems($jsonData->classes);
                 $stubs->addClass($class);
             }
         }
@@ -50,7 +50,7 @@ class PHPReflectionParser
             $reflectionInterface = new ReflectionClass($interface);
             if ($reflectionInterface->isInternal()) {
                 $phpInterface = (new PHPInterface())->readObjectFromReflection($interface);
-                $phpInterface->readStubProblems($jsonData->interfaces);
+                $phpInterface->readMutedProblems($jsonData->interfaces);
                 $stubs->addInterface($phpInterface);
             }
         }

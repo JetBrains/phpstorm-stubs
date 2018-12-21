@@ -44,11 +44,11 @@ class StubParser
         }
 
         foreach ($stubs->getInterfaces() as $interface) {
-            $stubs->getInterface($interface->name)->parentInterfaces = $visitor->combineParentInterfaces($interface);
+            $interface->parentInterfaces = $visitor->combineParentInterfaces($interface);
         }
 
         foreach ($stubs->getClasses() as $class) {
-            $stubs->getClass($class->name)->interfaces =
+            $class->interfaces =
                 Utils::flattenArray($visitor->combineImplementedInterfaces($class), false);
         }
         return $stubs;

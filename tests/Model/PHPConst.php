@@ -55,7 +55,7 @@ class PHPConst extends BasePHPElement
         return null;
     }
 
-    public function readStubProblems($jsonData): void
+    public function readMutedProblems($jsonData): void
     {
         /**@var stdClass $constant */
         foreach ($jsonData as $constant) {
@@ -64,13 +64,13 @@ class PHPConst extends BasePHPElement
                 foreach ($constant->problems as $problem) {
                     switch ($problem) {
                         case 'wrong value':
-                            $this->relatedStubProblems[] = StubProblemType::WRONG_CONSTANT_VALUE;
+                            $this->mutedProblems[] = StubProblemType::WRONG_CONSTANT_VALUE;
                             break;
                         case 'missing constant':
-                            $this->relatedStubProblems[] = StubProblemType::STUB_IS_MISSED;
+                            $this->mutedProblems[] = StubProblemType::STUB_IS_MISSED;
                             break;
                         default:
-                            $this->relatedStubProblems[] = -1;
+                            $this->mutedProblems[] = -1;
                             break;
                     }
                 }

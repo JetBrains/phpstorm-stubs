@@ -101,7 +101,7 @@ class PHPFunction extends BasePHPElement
         }
     }
 
-    public function readStubProblems($jsonData): void
+    public function readMutedProblems($jsonData): void
     {
         /**@var stdClass $function */
         foreach ($jsonData as $function) {
@@ -110,16 +110,16 @@ class PHPFunction extends BasePHPElement
                 foreach ($function->problems as $problem) {
                     switch ($problem) {
                         case 'parameter mismatch':
-                            $this->relatedStubProblems[] = StubProblemType::FUNCTION_PARAMETER_MISMATCH;
+                            $this->mutedProblems[] = StubProblemType::FUNCTION_PARAMETER_MISMATCH;
                             break;
                         case 'missing function':
-                            $this->relatedStubProblems[] = StubProblemType::STUB_IS_MISSED;
+                            $this->mutedProblems[] = StubProblemType::STUB_IS_MISSED;
                             break;
                         case 'deprecated function':
-                            $this->relatedStubProblems[] = StubProblemType::FUNCTION_IS_DEPRECATED;
+                            $this->mutedProblems[] = StubProblemType::FUNCTION_IS_DEPRECATED;
                             break;
                         default:
-                            $this->relatedStubProblems[] = -1;
+                            $this->mutedProblems[] = -1;
                             break;
                     }
                 }

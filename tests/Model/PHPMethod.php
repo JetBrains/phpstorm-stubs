@@ -71,7 +71,7 @@ class PHPMethod extends PHPFunction
         return $this;
     }
 
-    public function readStubProblems($jsonData): void
+    public function readMutedProblems($jsonData): void
     {
         /**@var stdClass $method */
         foreach ($jsonData as $method) {
@@ -80,16 +80,16 @@ class PHPMethod extends PHPFunction
                 foreach ($method->problems as $problem) {
                     switch ($problem) {
                         case 'parameter mismatch':
-                            $this->relatedStubProblems[] = StubProblemType::FUNCTION_PARAMETER_MISMATCH;
+                            $this->mutedProblems[] = StubProblemType::FUNCTION_PARAMETER_MISMATCH;
                             break;
                         case 'missing method':
-                            $this->relatedStubProblems[] = StubProblemType::STUB_IS_MISSED;
+                            $this->mutedProblems[] = StubProblemType::STUB_IS_MISSED;
                             break;
                         case 'deprecated method':
-                            $this->relatedStubProblems[] = StubProblemType::FUNCTION_IS_DEPRECATED;
+                            $this->mutedProblems[] = StubProblemType::FUNCTION_IS_DEPRECATED;
                             break;
                         default:
-                            $this->relatedStubProblems[] = -1;
+                            $this->mutedProblems[] = -1;
                             break;
                     }
                 }

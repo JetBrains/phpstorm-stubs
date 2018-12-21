@@ -49,7 +49,7 @@ class PHPParameter extends BasePHPElement
         return $this;
     }
 
-    public function readStubProblems($jsonData): void
+    public function readMutedProblems($jsonData): void
     {
         /**@var stdClass $parameter */
         foreach ($jsonData as $parameter) {
@@ -58,16 +58,16 @@ class PHPParameter extends BasePHPElement
                 foreach ($parameter->problems as $problem) {
                     switch ($problem) {
                         case 'parameter type mismatch':
-                            $this->relatedStubProblems[] = StubProblemType::PARAMETER_TYPE_MISMATCH;
+                            $this->mutedProblems[] = StubProblemType::PARAMETER_TYPE_MISMATCH;
                             break;
                         case 'parameter reference':
-                            $this->relatedStubProblems[] = StubProblemType::PARAMETER_REFERENCE;
+                            $this->mutedProblems[] = StubProblemType::PARAMETER_REFERENCE;
                             break;
                         case 'parameter vararg':
-                            $this->relatedStubProblems[] = StubProblemType::PARAMETER_VARARG;
+                            $this->mutedProblems[] = StubProblemType::PARAMETER_VARARG;
                             break;
                         default:
-                            $this->relatedStubProblems[] = -1;
+                            $this->mutedProblems[] = -1;
                             break;
                     }
                 }

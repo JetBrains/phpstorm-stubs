@@ -60,7 +60,7 @@ class PHPInterface extends BasePHPClass
         return $this;
     }
 
-    public function readStubProblems($jsonData): void
+    public function readMutedProblems($jsonData): void
     {
         /**@var stdClass $interface */
         foreach ($jsonData as $interface) {
@@ -70,25 +70,25 @@ class PHPInterface extends BasePHPClass
                     foreach ($interface->problems as $problem) {
                         switch ($problem) {
                             case 'wrong parent':
-                                $this->relatedStubProblems[] = StubProblemType::WRONG_PARENT;
+                                $this->mutedProblems[] = StubProblemType::WRONG_PARENT;
                                 break;
                             case 'missing interface':
-                                $this->relatedStubProblems[] = StubProblemType::STUB_IS_MISSED;
+                                $this->mutedProblems[] = StubProblemType::STUB_IS_MISSED;
                                 break;
                             default:
-                                $this->relatedStubProblems[] = -1;
+                                $this->mutedProblems[] = -1;
                                 break;
                         }
                     }
                 }
                 if (!empty($interface->methods)) {
                     foreach ($this->methods as $method) {
-                        $method->readStubProblems($interface->methods);
+                        $method->readMutedProblems($interface->methods);
                     }
                 }
                 if (!empty($interface->constants)) {
                     foreach ($this->constants as $constant) {
-                        $constant->readStubProblems($interface->constants);
+                        $constant->readMutedProblems($interface->constants);
                     }
                 }
                 return;

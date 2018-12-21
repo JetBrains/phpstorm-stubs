@@ -79,7 +79,7 @@ class PHPClass extends BasePHPClass
         return $this;
     }
 
-    public function readStubProblems($jsonData): void
+    public function readMutedProblems($jsonData): void
     {
         /**@var stdClass $class */
         foreach ($jsonData as $class) {
@@ -89,28 +89,28 @@ class PHPClass extends BasePHPClass
                     foreach ($class->problems as $problem) {
                         switch ($problem) {
                             case 'wrong parent':
-                                $this->relatedStubProblems[] = StubProblemType::WRONG_PARENT;
+                                $this->mutedProblems[] = StubProblemType::WRONG_PARENT;
                                 break;
                             case 'wrong interface':
-                                $this->relatedStubProblems[] = StubProblemType::WRONG_INTERFACE;
+                                $this->mutedProblems[] = StubProblemType::WRONG_INTERFACE;
                                 break;
                             case 'missing class':
-                                $this->relatedStubProblems[] = StubProblemType::STUB_IS_MISSED;
+                                $this->mutedProblems[] = StubProblemType::STUB_IS_MISSED;
                                 break;
                             default:
-                                $this->relatedStubProblems[] = -1;
+                                $this->mutedProblems[] = -1;
                                 break;
                         }
                     }
                 }
                 if (!empty($class->methods)) {
                     foreach ($this->methods as $method) {
-                        $method->readStubProblems($class->methods);
+                        $method->readMutedProblems($class->methods);
                     }
                 }
                 if (!empty($class->constants)) {
                     foreach ($this->constants as $constant) {
-                        $constant->readStubProblems($class->constants);
+                        $constant->readMutedProblems($class->constants);
                     }
                 }
                 return;
