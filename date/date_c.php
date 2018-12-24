@@ -373,6 +373,13 @@ class DateTime implements DateTimeInterface {
      */
     public function add (DateInterval $interval) {}
 
+
+    /**
+     * @since 7.3
+     * @return DateTime
+     */
+    public static function createFromImmutable(DateTimeImmutable $datetTimeImmutable) {}
+
     /**
      * Subtracts an amount of days, months, years, hours, minutes and seconds from a DateTime object
      * @param DateInterval $interval
@@ -757,7 +764,7 @@ class DatePeriod implements Traversable {
      */
     public function getStartDate () {}
 
-    public static function __set_state (){}
+    public static function __set_state ($array){}
 
     public function __wakeup() {}
 

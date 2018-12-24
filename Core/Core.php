@@ -1059,6 +1059,11 @@ function gc_enable () {}
 function gc_disable () {}
 
 /**
+ * @since 7.3
+ */
+function gc_status () {}
+
+/**
  * @param string $kind
  * @return int
  * @since 7.1
