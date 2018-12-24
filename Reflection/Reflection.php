@@ -1045,6 +1045,7 @@ class ReflectionClass implements Reflector {
 	 * The property name.
 	 * </p>
 	 * @return ReflectionProperty A <b>ReflectionProperty</b>.
+	 * @throws ReflectionException If no property exists by that name.
 	 * @since 5.0
 	 */
 	public function getProperty ($name) {}
