@@ -774,6 +774,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * @return string a string containing the next line of the file with HTML and PHP
          * code stripped, or false on error.
          * @since 5.1.0
+         * @deprecated 7.3
          */
         public function fgetss ($allowable_tags = null) {}
 

@@ -380,6 +380,16 @@ function show_source ($file_name, $return) {}
 function highlight_string ($str, $return = null) {}
 
 /**
+ * Get the system's high resolution time
+ * @link https://secure.php.net/manual/en/function.hrtime.php
+ * @param bool $get_as_number <p>Whether the high resolution time should be returned as array or number.<p>
+ * @since 7.3
+ * @return mixed Returns an array of integers in the form [seconds, nanoseconds], if the parameter get_as_number is false.
+ * Otherwise the nanoseconds are returned as integer (64bit platforms) or float (32bit platforms).
+ */
+function hrtime($get_as_number = FALSE) {}
+
+/**
  * Return source with stripped comments and whitespace
  * @link https://php.net/manual/en/function.php-strip-whitespace.php
  * @param string $filename <p>
@@ -823,6 +833,11 @@ function is_uploaded_file ($filename) {}
  * @since 5.0
  */
 function move_uploaded_file ($filename, $destination) {}
+
+/**
+ * @since 7.3
+ */
+function net_get_interfaces() {}
 
 /**
  * Get the Internet host name corresponding to a given IP address

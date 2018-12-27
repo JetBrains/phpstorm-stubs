@@ -536,6 +536,7 @@ function fgets ($handle, $length = null) {}
  * If an error occurs, returns false.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.3
  */
 function fgetss ($handle, $length = null, $allowable_tags = null) {}
 

@@ -1221,3 +1221,204 @@ define("CURLOPT_CONNECT_TO",10243);
  * @since 7.0.7
  */
 define("CURLOPT_TCP_FASTOPEN",244);
+
+/**
+ * @since 7.3
+ */
+define('CURLE_WEIRD_SERVER_REPLY', 8);
+/**
+ * @since 7.3
+ */
+define('CURLOPT_KEEP_SENDING_ON_ERROR', 245);
+/**
+ * @since 7.3
+ */
+define('CURL_SSLVERSION_TLSv1_3', 7);
+
+/**
+ * @since 7.3
+ */
+define('CURL_VERSION_HTTPS_PROXY', 2097152);
+
+
+/**
+ * @since 7.3
+ */
+define('CURLINFO_PROTOCOL', 2097200);
+
+/**
+ * @since 7.3
+ */
+define('CURL_VERSION_ASYNCHDNS', 128);
+
+/**
+ * @since 7.3
+ */
+define('CURL_VERSION_CONV', 4096);
+
+/**
+ * @since 7.3
+ */
+define('CURL_VERSION_DEBUG', 64);
+
+/**
+ * @since 7.3
+ */
+define('CURL_VERSION_GSSNEGOTIATE', 32);
+
+/**
+ * @since 7.3
+ */
+define('CURL_VERSION_IDN', 1024);
+
+/**
+ * @since 7.3
+ */
+define('CURL_VERSION_LARGEFILE', 512);
+
+/**
+ * @since 7.3
+ */
+define('CURL_VERSION_NTLM', 16);
+
+/**
+ * @since 7.3
+ */
+define('CURL_VERSION_SPNEGO', 256);
+
+/**
+ * @since 7.3
+ */
+define('CURL_VERSION_SSPI', 2048);
+
+/**
+ * @since 7.3
+ */
+define('CURL_VERSION_TLSAUTH_SRP', 16384);
+
+/**
+ * @since 7.3
+ */
+define('CURL_VERSION_NTLM_WB', 32768);
+
+/**
+ * @since 7.3
+ */
+define('CURL_VERSION_GSSAPI', 131072);
+
+/**
+ * @since 7.3
+ */
+define('CURL_VERSION_KERBEROS5', 262144);
+
+/**
+ * @since 7.3
+ */
+define('CURLOPT_PROXY_CAINFO', 10246);
+
+/**
+ * @since 7.3
+ */
+define ('CURLOPT_PROXY_CAPATH', 10247);
+
+/**
+ * @since 7.3
+ */
+define('CURLOPT_PROXY_CRLFILE', 10260);
+
+/**
+ * @since 7.3
+ */
+define('CURLOPT_PROXY_KEYPASSWD', 10258);
+
+/**
+ * @since 7.3
+ */
+define('CURLOPT_PROXY_SSLCERTTYPE', 10255);
+
+/**
+ * @since 7.3
+ */
+define('CURLOPT_PROXY_SSLKEYTYPE', 10257);
+
+/**
+ * @since 7.3
+ */
+define('CURLOPT_PROXY_SSLVERSION', 250);
+
+/**
+ * @since 7.3
+ */
+define('CURLOPT_PROXY_TLSAUTH_USERNAME' ,10251);
+/**
+ * @since 7.3
+ */
+define('CURLOPT_PROXY_TLSAUTH_PASSWORD', 10252);
+
+/**
+ * @since 7.3
+ */
+define('CURLOPT_PROXY_TLSAUTH_TYPE', 10253);
+
+/**
+ * @since 7.3
+ */
+define('CURLPROXY_HTTPS', 2);
+
+/**
+ * @since 7.3
+ */
+define('CURLOPT_PROXY_PINNEDPUBLICKEY', 10263);
+
+/**
+ * @since 7.3
+ */
+define('CURLOPT_PROXY_SSLKEY', 10256);
+
+/**
+ * @since 7.3
+ */
+define('CURLOPT_PROXY_SSL_CIPHER_LIST', 10259);
+
+/**
+ * @since 7.3
+ */
+define('CURLOPT_PROXY_SSL_OPTIONS', 261);
+
+/**
+ * @since 7.3
+ */
+define('CURLOPT_PROXY_SSL_VERIFYHOST', 249);
+
+/**
+ * @since 7.3
+ */
+define('CURLOPT_PROXY_SSL_VERIFYPEER', 248);
+
+/**
+ * @since 7.3
+ */
+define('CURLOPT_PROXY_SSLCERT', 10254);
+
+/**
+ * @since 7.3
+ */
+define('CURLINFO_SCHEME', 1048625);
+
+/**
+ * @since 7.3
+ */
+define('CURL_VERSION_UNIX_SOCKETS', 524288);
+
+/**
+ * @since 7.3
+ */
+define('CURLINFO_HTTP_VERSION', 2097198);
+/**
+ * @since 7.3
+ */
+define('CURLOPT_PRE_PROXY', 10262);
+/**
+ * @since 7.3
+ */
+define('CURLINFO_PROXY_SSL_VERIFYRESULT', 2097199);
