@@ -1,7 +1,7 @@
 <?php
 /**
  * Couchbase extension stubs
- * Gathered from http://docs.couchbase.com/sdk-api/couchbase-php-client-2.3.0/index.html
+ * Gathered from https://docs.couchbase.com/sdk-api/couchbase-php-client-2.3.0/index.html
  * Maintainer: sergey@couchbase.com
  *
  * https://github.com/couchbase/php-couchbase/tree/master/api

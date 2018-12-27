@@ -4,7 +4,7 @@
 
 /**
  * Create an XML parser
- * @link http://php.net/manual/en/function.xml-parser-create.php
+ * @link https://php.net/manual/en/function.xml-parser-create.php
  * @param string $encoding [optional] <p>
  * The optional <i>encoding</i> specifies the character
  * encoding for the input/output in PHP 4. Starting from PHP 5, the input
@@ -26,7 +26,7 @@ function xml_parser_create ($encoding = null) {}
 
 /**
  * Create an XML parser with namespace support
- * @link http://php.net/manual/en/function.xml-parser-create-ns.php
+ * @link https://php.net/manual/en/function.xml-parser-create-ns.php
  * @param string $encoding [optional] <p>
  * The optional <i>encoding</i> specifies the character
  * encoding for the input/output in PHP 4. Starting from PHP 5, the input
@@ -51,7 +51,7 @@ function xml_parser_create_ns ($encoding = null, $separator = ':') {}
 
 /**
  * Use XML Parser within an object
- * @link http://php.net/manual/en/function.xml-set-object.php
+ * @link https://php.net/manual/en/function.xml-set-object.php
  * @param resource $parser <p>
  * A reference to the XML parser to use inside the object.
  * </p>
@@ -66,7 +66,7 @@ function xml_set_object ($parser, &$object) {}
 
 /**
  * Set up start and end element handlers
- * @link http://php.net/manual/en/function.xml-set-element-handler.php
+ * @link https://php.net/manual/en/function.xml-set-element-handler.php
  * @param resource $parser <p>
  * A reference to the XML parser to set up start and end element handler functions.
  * </p>
@@ -97,7 +97,7 @@ function xml_set_element_handler ($parser, callable $start_element_handler, call
 
 /**
  * Set up character data handler
- * @link http://php.net/manual/en/function.xml-set-character-data-handler.php
+ * @link https://php.net/manual/en/function.xml-set-character-data-handler.php
  * @param resource $parser <p>
  * A reference to the XML parser to set up character data handler function.
  * </p>
@@ -123,7 +123,7 @@ function xml_set_character_data_handler ($parser, callable $handler) {}
 
 /**
  * Set up processing instruction (PI) handler
- * @link http://php.net/manual/en/function.xml-set-processing-instruction-handler.php
+ * @link https://php.net/manual/en/function.xml-set-processing-instruction-handler.php
  * @param resource $parser <p>
  * A reference to the XML parser to set up processing instruction (PI) handler function.
  * </p>
@@ -150,7 +150,7 @@ function xml_set_processing_instruction_handler ($parser, callable $handler) {}
 
 /**
  * Set up default handler
- * @link http://php.net/manual/en/function.xml-set-default-handler.php
+ * @link https://php.net/manual/en/function.xml-set-default-handler.php
  * @param resource $parser <p>
  * A reference to the XML parser to set up default handler function.
  * </p>
@@ -176,7 +176,7 @@ function xml_set_default_handler ($parser, callable $handler) {}
 
 /**
  * Set up unparsed entity declaration handler
- * @link http://php.net/manual/en/function.xml-set-unparsed-entity-decl-handler.php
+ * @link https://php.net/manual/en/function.xml-set-unparsed-entity-decl-handler.php
  * @param resource $parser <p>
  * A reference to the XML parser to set up unparsed entity declaration handler function.
  * </p>
@@ -207,7 +207,7 @@ function xml_set_unparsed_entity_decl_handler ($parser, callable $handler) {}
 
 /**
  * Set up notation declaration handler
- * @link http://php.net/manual/en/function.xml-set-notation-decl-handler.php
+ * @link https://php.net/manual/en/function.xml-set-notation-decl-handler.php
  * @param resource $parser <p>
  * A reference to the XML parser to set up notation declaration handler function.
  * </p>
@@ -236,7 +236,7 @@ function xml_set_notation_decl_handler ($parser, callable $handler) {}
 
 /**
  * Set up external entity reference handler
- * @link http://php.net/manual/en/function.xml-set-external-entity-ref-handler.php
+ * @link https://php.net/manual/en/function.xml-set-external-entity-ref-handler.php
  * @param resource $parser <p>
  * A reference to the XML parser to set up external entity reference handler function.
  * </p>
@@ -269,7 +269,7 @@ function xml_set_external_entity_ref_handler ($parser, callable $handler) {}
 
 /**
  * Set up start namespace declaration handler
- * @link http://php.net/manual/en/function.xml-set-start-namespace-decl-handler.php
+ * @link https://php.net/manual/en/function.xml-set-start-namespace-decl-handler.php
  * @param resource $parser <p>
  * A reference to the XML parser.
  * </p>
@@ -300,7 +300,7 @@ function xml_set_start_namespace_decl_handler ($parser, callable $handler) {}
 
 /**
  * Set up end namespace declaration handler
- * @link http://php.net/manual/en/function.xml-set-end-namespace-decl-handler.php
+ * @link https://php.net/manual/en/function.xml-set-end-namespace-decl-handler.php
  * @param resource $parser <p>
  * A reference to the XML parser.
  * </p>
@@ -330,7 +330,7 @@ function xml_set_end_namespace_decl_handler ($parser, callable $handler) {}
 
 /**
  * Start parsing an XML document
- * @link http://php.net/manual/en/function.xml-parse.php
+ * @link https://php.net/manual/en/function.xml-parse.php
  * @param resource $parser <p>
  * A reference to the XML parser to use.
  * </p>
@@ -364,7 +364,7 @@ function xml_parse ($parser, $data, $is_final = false) {}
 
 /**
  * Parse XML data into an array structure
- * @link http://php.net/manual/en/function.xml-parse-into-struct.php
+ * @link https://php.net/manual/en/function.xml-parse-into-struct.php
  * @param resource $parser <p>
  * A reference to the XML parser.
  * </p>
@@ -387,7 +387,7 @@ function xml_parse_into_struct ($parser, $data, array &$values, array &$index = 
 
 /**
  * Get XML parser error code
- * @link http://php.net/manual/en/function.xml-get-error-code.php
+ * @link https://php.net/manual/en/function.xml-get-error-code.php
  * @param resource $parser <p>
  * A reference to the XML parser to get error code from.
  * </p>
@@ -402,7 +402,7 @@ function xml_get_error_code ($parser) {}
 
 /**
  * Get XML parser error string
- * @link http://php.net/manual/en/function.xml-error-string.php
+ * @link https://php.net/manual/en/function.xml-error-string.php
  * @param int $code <p>
  * An error code from <b>xml_get_error_code</b>.
  * </p>
@@ -415,7 +415,7 @@ function xml_error_string ($code) {}
 
 /**
  * Get current line number for an XML parser
- * @link http://php.net/manual/en/function.xml-get-current-line-number.php
+ * @link https://php.net/manual/en/function.xml-get-current-line-number.php
  * @param resource $parser <p>
  * A reference to the XML parser to get line number from.
  * </p>
@@ -429,7 +429,7 @@ function xml_get_current_line_number ($parser) {}
 
 /**
  * Get current column number for an XML parser
- * @link http://php.net/manual/en/function.xml-get-current-column-number.php
+ * @link https://php.net/manual/en/function.xml-get-current-column-number.php
  * @param resource $parser <p>
  * A reference to the XML parser to get column number from.
  * </p>
@@ -445,7 +445,7 @@ function xml_get_current_column_number ($parser) {}
 
 /**
  * Get current byte index for an XML parser
- * @link http://php.net/manual/en/function.xml-get-current-byte-index.php
+ * @link https://php.net/manual/en/function.xml-get-current-byte-index.php
  * @param resource $parser <p>
  * A reference to the XML parser to get byte index from.
  * </p>
@@ -459,7 +459,7 @@ function xml_get_current_byte_index ($parser) {}
 
 /**
  * Free an XML parser
- * @link http://php.net/manual/en/function.xml-parser-free.php
+ * @link https://php.net/manual/en/function.xml-parser-free.php
  * @param resource $parser A reference to the XML parser to free.
  * @return bool This function returns <b>FALSE</b> if <i>parser</i> does not
  * refer to a valid parser, or else it frees the parser and returns <b>TRUE</b>.
@@ -470,7 +470,7 @@ function xml_parser_free ($parser) {}
 
 /**
  * Set options in an XML parser
- * @link http://php.net/manual/en/function.xml-parser-set-option.php
+ * @link https://php.net/manual/en/function.xml-parser-set-option.php
  * @param resource $parser <p>
  * A reference to the XML parser to set an option in.
  * </p>
@@ -535,7 +535,7 @@ function xml_parser_set_option ($parser, $option, $value) {}
 
 /**
  * Get options from an XML parser
- * @link http://php.net/manual/en/function.xml-parser-get-option.php
+ * @link https://php.net/manual/en/function.xml-parser-get-option.php
  * @param resource $parser A reference to the XML parser to get an option from.
  * @param int $option Which option to fetch. <b>XML_OPTION_CASE_FOLDING</b>
  * and <b>XML_OPTION_TARGET_ENCODING</b> are available.
@@ -579,7 +579,7 @@ define ('XML_OPTION_SKIP_WHITE', 4);
 /**
  * Holds the SAX implementation method.
  * Can be libxml or expat.
- * @link http://php.net/manual/en/xml.constants.php
+ * @link https://php.net/manual/en/xml.constants.php
  */
 define ('XML_SAX_IMPL', "libxml");
 

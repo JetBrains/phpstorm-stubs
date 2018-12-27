@@ -4,7 +4,7 @@
 
 /**
  * Create or attach to a message queue
- * @link http://php.net/manual/en/function.msg-get-queue.php
+ * @link https://php.net/manual/en/function.msg-get-queue.php
  * @param int $key <p>
  * Message queue numeric ID
  * </p>
@@ -20,7 +20,7 @@ function msg_get_queue ($key, $perms = 0666) {}
 
 /**
  * Send a message to a message queue
- * @link http://php.net/manual/en/function.msg-send.php
+ * @link https://php.net/manual/en/function.msg-send.php
  * @param resource $queue
  * @param int $msgtype
  * @param mixed $message
@@ -60,7 +60,7 @@ function msg_send ($queue, $msgtype, $message, $serialize = true, $blocking = tr
 
 /**
  * Receive a message from a message queue
- * @link http://php.net/manual/en/function.msg-receive.php
+ * @link https://php.net/manual/en/function.msg-receive.php
  * @param resource $queue
  * @param int $desiredmsgtype <p>
  * If <i>desiredmsgtype</i> is 0, the message from the front
@@ -149,7 +149,7 @@ function msg_receive ($queue, $desiredmsgtype, &$msgtype, $maxsize, &$message, $
 
 /**
  * Destroy a message queue
- * @link http://php.net/manual/en/function.msg-remove-queue.php
+ * @link https://php.net/manual/en/function.msg-remove-queue.php
  * @param resource $queue <p>
  * Message queue resource handle
  * </p>
@@ -161,7 +161,7 @@ function msg_remove_queue ($queue) {}
 
 /**
  * Returns information from the message queue data structure
- * @link http://php.net/manual/en/function.msg-stat-queue.php
+ * @link https://php.net/manual/en/function.msg-stat-queue.php
  * @param resource $queue <p>
  * Message queue resource handle
  * </p>
@@ -239,7 +239,7 @@ function msg_stat_queue ($queue) {}
 
 /**
  * Set information in the message queue data structure
- * @link http://php.net/manual/en/function.msg-set-queue.php
+ * @link https://php.net/manual/en/function.msg-set-queue.php
  * @param resource $queue <p>
  * Message queue resource handle
  * </p>
@@ -255,7 +255,7 @@ function msg_set_queue ($queue, array $data) {}
 
 /**
  * Check whether a message queue exists
- * @link http://php.net/manual/en/function.msg-queue-exists.php
+ * @link https://php.net/manual/en/function.msg-queue-exists.php
  * @param int $key <p>
  * Queue key.
  * </p>

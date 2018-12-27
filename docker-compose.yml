@@ -1,0 +1,7 @@
+version: '2'
+services:
+  php:
+    image: php:7.2
+    volumes:
+     - .:/opt/project
+    command: /opt/project/vendor/bin/phpunit /opt/project/tests/TestStubs.php

@@ -10,7 +10,7 @@
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrResponse<br/>
  * This class represents a response from the Solr server.
- * @link http://php.net/manual/en/class.solrresponse.php
+ * @link https://php.net/manual/en/class.solrresponse.php
  */
 abstract class SolrResponse  {
 
@@ -53,7 +53,7 @@ abstract class SolrResponse  {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the XML response as serialized PHP data
-	 * @link http://php.net/manual/en/solrresponse.getdigestedresponse.php
+	 * @link https://php.net/manual/en/solrresponse.getdigestedresponse.php
 	 * @return string <p>
 	 * Returns the XML response as serialized PHP data
 	 * </p>
@@ -63,7 +63,7 @@ abstract class SolrResponse  {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the HTTP status of the response
-	 * @link http://php.net/manual/en/solrresponse.gethttpstatus.php
+	 * @link https://php.net/manual/en/solrresponse.gethttpstatus.php
 	 * @return int <p>
 	 * Returns the HTTP status of the response.
 	 * </p>
@@ -73,7 +73,7 @@ abstract class SolrResponse  {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns more details on the HTTP status
-	 * @link http://php.net/manual/en/solrresponse.gethttpstatusmessage.php
+	 * @link https://php.net/manual/en/solrresponse.gethttpstatusmessage.php
 	 * @return string <p>
 	 * Returns more details on the HTTP status
 	 * </p>
@@ -83,7 +83,7 @@ abstract class SolrResponse  {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the raw request sent to the Solr server
-	 * @link http://php.net/manual/en/solrresponse.getrawrequest.php
+	 * @link https://php.net/manual/en/solrresponse.getrawrequest.php
 	 * @return string <p>
 	 * Returns the raw request sent to the Solr server
 	 * </p>
@@ -93,7 +93,7 @@ abstract class SolrResponse  {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the raw request headers sent to the Solr server
-	 * @link http://php.net/manual/en/solrresponse.getrawrequestheaders.php
+	 * @link https://php.net/manual/en/solrresponse.getrawrequestheaders.php
 	 * @return string <p>
 	 * Returns the raw request headers sent to the Solr server
 	 * </p>
@@ -103,7 +103,7 @@ abstract class SolrResponse  {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the raw response from the server
-	 * @link http://php.net/manual/en/solrresponse.getrawresponse.php
+	 * @link https://php.net/manual/en/solrresponse.getrawresponse.php
 	 * @return string <p>
 	 * Returns the raw response from the server.
 	 * </p>
@@ -113,7 +113,7 @@ abstract class SolrResponse  {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the raw response headers from the server
-	 * @link http://php.net/manual/en/solrresponse.getrawresponseheaders.php
+	 * @link https://php.net/manual/en/solrresponse.getrawresponseheaders.php
 	 * @return string <p>
 	 * Returns the raw response headers from the server.
 	 * </p>
@@ -123,7 +123,7 @@ abstract class SolrResponse  {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the full URL the request was sent to
-	 * @link http://php.net/manual/en/solrresponse.getrequesturl.php
+	 * @link https://php.net/manual/en/solrresponse.getrequesturl.php
 	 * @return string <p>
 	 * Returns the full URL the request was sent to
 	 * </p>
@@ -133,7 +133,7 @@ abstract class SolrResponse  {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns a SolrObject representing the XML response from the server
-	 * @link http://php.net/manual/en/solrresponse.getresponse.php
+	 * @link https://php.net/manual/en/solrresponse.getresponse.php
 	 * @return SolrObject <p>
 	 * Returns a SolrObject representing the XML response from the server
 	 * </p>
@@ -143,7 +143,7 @@ abstract class SolrResponse  {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Sets the parse mode
-	 * @link http://php.net/manual/en/solrresponse.setparsemode.php
+	 * @link https://php.net/manual/en/solrresponse.setparsemode.php
 	 * @param int $parser_mode <ul>
 	 * <li>SolrResponse::PARSE_SOLR_DOC parses documents in SolrDocument instances. </li>
 	 * <li>SolrResponse::PARSE_SOLR_OBJ parses document into SolrObjects.</li>
@@ -157,7 +157,7 @@ abstract class SolrResponse  {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Was the request a success
-	 * @link http://php.net/manual/en/solrresponse.success.php
+	 * @link https://php.net/manual/en/solrresponse.success.php
 	 * @return bool <p>
 	 * Returns <b>TRUE</b> if it was successful and <b>FALSE</b> if it was not.
 	 * </p>

@@ -13,7 +13,7 @@ function strtr ($str, array $replace_pairs) {};
  * Byte position of the data start can be determined by the __COMPILER_HALT_OFFSET__ constant
  * which is defined only if there is a __halt_compiler() presented in the file.
  * <p> Note: __halt_compiler() can only be used from the outermost scope.
- * @link http://php.net/manual/en/function.halt-compiler.php
+ * @link https://php.net/manual/en/function.halt-compiler.php
  * @return void
  */
 function PS_UNRESERVE_PREFIX___halt_compiler(){}
@@ -21,7 +21,7 @@ function PS_UNRESERVE_PREFIX___halt_compiler(){}
 /**
  * (PHP 5.1)<br/>
  * Byte position of the data start, defined only if there is a __halt_compiler() presented in the file.
- * @link http://php.net/manual/en/function.halt-compiler.php
+ * @link https://php.net/manual/en/function.halt-compiler.php
  * @return void
  */
 define("__COMPILER_HALT_OFFSET__",0);
@@ -32,7 +32,7 @@ define("__COMPILER_HALT_OFFSET__",0);
  *
  * If the hexadecimal input string is of odd length or invalid hexadecimal string an <code>E_WARNING</code> level error is emitted.
  *
- * @link http://php.net/manual/en/function.hex2bin.php
+ * @link https://php.net/manual/en/function.hex2bin.php
  * @param string $data Hexadecimal string to convert.
  * @return bool|string The binary representation of the given data or <b>FALSE</b> on failure.
  * @see bin2hex()
@@ -45,7 +45,7 @@ function hex2bin($data) {};
  * This function flushes all response data to the client and finishes the request.
  * This allows for time consuming tasks to be performed without leaving the connection to the client open.
  * @return boolean Returns TRUE on success or FALSE on failure.
- * @link http://php.net/manual/en/install.fpm.php
+ * @link https://php.net/manual/en/install.fpm.php
  * @since 5.3.3
  */
 function fastcgi_finish_request() {};

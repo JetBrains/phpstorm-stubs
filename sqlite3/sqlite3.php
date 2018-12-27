@@ -4,13 +4,13 @@
 
 /**
  * A class that interfaces SQLite 3 databases.
- * @link http://php.net/manual/en/class.sqlite3.php
+ * @link https://php.net/manual/en/class.sqlite3.php
  */
 class SQLite3  {
 
 	/**
 	 * Opens an SQLite database
-	 * @link http://php.net/manual/en/sqlite3.open.php
+	 * @link https://php.net/manual/en/sqlite3.open.php
 	 * @param string $filename <p>
 	 * Path to the SQLite database, or :memory: to use in-memory database.
 	 * </p>
@@ -32,7 +32,7 @@ class SQLite3  {
 
 	/**
 	 * Closes the database connection
-	 * @link http://php.net/manual/en/sqlite3.close.php
+	 * @link https://php.net/manual/en/sqlite3.close.php
 	 * @return bool <b>TRUE</b> on success, <b>FALSE</b> on failure.
 	 * @since 5.3.0
 	 */
@@ -40,7 +40,7 @@ class SQLite3  {
 
 	/**
 	 * Executes a result-less query against a given database
-	 * @link http://php.net/manual/en/sqlite3.exec.php
+	 * @link https://php.net/manual/en/sqlite3.exec.php
 	 * @param string $query <p>
 	 * The SQL query to execute (typically an INSERT, UPDATE, or DELETE
 	 * query).
@@ -52,7 +52,7 @@ class SQLite3  {
 
 	/**
 	 * Returns the SQLite3 library version as a string constant and as a number
-	 * @link http://php.net/manual/en/sqlite3.version.php
+	 * @link https://php.net/manual/en/sqlite3.version.php
 	 * @return array an associative array with the keys "versionString" and
 	 * "versionNumber".
 	 * @since 5.3.0
@@ -61,7 +61,7 @@ class SQLite3  {
 
 	/**
 	 * Returns the row ID of the most recent INSERT into the database
-	 * @link http://php.net/manual/en/sqlite3.lastinsertrowid.php
+	 * @link https://php.net/manual/en/sqlite3.lastinsertrowid.php
 	 * @return int the row ID of the most recent INSERT into the database
 	 * @since 5.3.0
 	 */
@@ -69,7 +69,7 @@ class SQLite3  {
 
 	/**
 	 * Returns the numeric result code of the most recent failed SQLite request
-	 * @link http://php.net/manual/en/sqlite3.lasterrorcode.php
+	 * @link https://php.net/manual/en/sqlite3.lasterrorcode.php
 	 * @return int an integer value representing the numeric result code of the most
 	 * recent failed SQLite request.
 	 * @since 5.3.0
@@ -78,7 +78,7 @@ class SQLite3  {
 
 	/**
 	 * Returns English text describing the most recent failed SQLite request
-	 * @link http://php.net/manual/en/sqlite3.lasterrormsg.php
+	 * @link https://php.net/manual/en/sqlite3.lasterrormsg.php
 	 * @return string an English string describing the most recent failed SQLite request.
 	 * @since 5.3.0
 	 */
@@ -86,7 +86,7 @@ class SQLite3  {
 
 	/**
 	 * Sets the busy connection handler
-	 * @link http://php.net/manual/en/sqlite3.busytimeout.php
+	 * @link https://php.net/manual/en/sqlite3.busytimeout.php
 	 * @param int $msecs <p>
 	 * The milliseconds to sleep. Setting this value to a value less than
 	 * or equal to zero, will turn off an already set timeout handler.
@@ -98,7 +98,7 @@ class SQLite3  {
 
 	/**
 	 * Attempts to load an SQLite extension library
-	 * @link http://php.net/manual/en/sqlite3.loadextension.php
+	 * @link https://php.net/manual/en/sqlite3.loadextension.php
 	 * @param string $shared_library <p>
 	 * The name of the library to load. The library must be located in the
 	 * directory specified in the configure option sqlite3.extension_dir.
@@ -112,7 +112,7 @@ class SQLite3  {
 	 * Returns the number of database rows that were changed (or inserted or
 	 * deleted) by the most recent SQL statement
 	 * @since 5.3.0
-	 * @link http://php.net/manual/en/sqlite3.changes.php
+	 * @link https://php.net/manual/en/sqlite3.changes.php
 	 * @return int an integer value corresponding to the number of
 	 * database rows changed (or inserted or deleted) by the most recent SQL
 	 * statement.
@@ -121,7 +121,7 @@ class SQLite3  {
 
 	/**
 	 * Returns a string that has been properly escaped
-	 * @link http://php.net/manual/en/sqlite3.escapestring.php
+	 * @link https://php.net/manual/en/sqlite3.escapestring.php
 	 * @param string $value <p>
 	 * The string to be escaped.
 	 * </p>
@@ -133,7 +133,7 @@ class SQLite3  {
 
 	/**
 	 * Prepares an SQL statement for execution
-	 * @link http://php.net/manual/en/sqlite3.prepare.php
+	 * @link https://php.net/manual/en/sqlite3.prepare.php
 	 * @param string $query <p>
 	 * The SQL query to prepare.
 	 * </p>
@@ -144,7 +144,7 @@ class SQLite3  {
 
 	/**
 	 * Executes an SQL query
-	 * @link http://php.net/manual/en/sqlite3.query.php
+	 * @link https://php.net/manual/en/sqlite3.query.php
 	 * @param string $query <p>
 	 * The SQL query to execute.
 	 * </p>
@@ -156,7 +156,7 @@ class SQLite3  {
 
 	/**
 	 * Executes a query and returns a single result
-	 * @link http://php.net/manual/en/sqlite3.querysingle.php
+	 * @link https://php.net/manual/en/sqlite3.querysingle.php
 	 * @param string $query <p>
 	 * The SQL query to execute.
 	 * </p>
@@ -182,7 +182,7 @@ class SQLite3  {
 
 	/**
 	 * Registers a PHP function for use as an SQL scalar function
-	 * @link http://php.net/manual/en/sqlite3.createfunction.php
+	 * @link https://php.net/manual/en/sqlite3.createfunction.php
 	 * @param string $name <p>
 	 * Name of the SQL function to be created or redefined.
 	 * </p>
@@ -206,7 +206,7 @@ class SQLite3  {
 
 	/**
 	 * Registers a PHP function for use as an SQL aggregate function
-	 * @link http://php.net/manual/en/sqlite3.createaggregate.php
+	 * @link https://php.net/manual/en/sqlite3.createaggregate.php
 	 * @param string $name <p>
 	 * Name of the SQL aggregate to be created or redefined.
 	 * </p>
@@ -231,7 +231,7 @@ class SQLite3  {
 
 	/**
 	 * Registers a PHP function for use as an SQL collating function
-	 * @link http://php.net/manual/en/sqlite3.createcollation.php
+	 * @link https://php.net/manual/en/sqlite3.createcollation.php
 	 * @param string $name <p>
 	 * Name of the SQL collating function to be created or redefined
 	 * </p>
@@ -249,7 +249,7 @@ class SQLite3  {
 
 	/**
 	 * Opens a stream resource to read a BLOB
-	 * @link http://php.net/manual/en/sqlite3.openblob.php
+	 * @link https://php.net/manual/en/sqlite3.openblob.php
 	 * @param $table <p>The table name.</p>
 	 * @param $column <p>The column name.</p>
 	 * @param $rowid <p>The row ID.</p>
@@ -267,7 +267,7 @@ class SQLite3  {
 
 	/**
 	 * Instantiates an SQLite3 object and opens an SQLite 3 database
-	 * @link http://php.net/manual/en/sqlite3.construct.php
+	 * @link https://php.net/manual/en/sqlite3.construct.php
 	 * @param string $filename <p>
 	 * Path to the SQLite database, or :memory: to use in-memory database.
 	 * </p>
@@ -290,13 +290,13 @@ class SQLite3  {
 
 /**
  * A class that handles prepared statements for the SQLite 3 extension.
- * @link http://php.net/manual/en/class.sqlite3stmt.php
+ * @link https://php.net/manual/en/class.sqlite3stmt.php
  */
 class SQLite3Stmt  {
 
 	/**
 	 * Returns the number of parameters within the prepared statement
-	 * @link http://php.net/manual/en/sqlite3stmt.paramcount.php
+	 * @link https://php.net/manual/en/sqlite3stmt.paramcount.php
 	 * @return int the number of parameters within the prepared statement.
 	 * @since 5.3.0
 	 */
@@ -304,7 +304,7 @@ class SQLite3Stmt  {
 
 	/**
 	 * Closes the prepared statement
-	 * @link http://php.net/manual/en/sqlite3stmt.close.php
+	 * @link https://php.net/manual/en/sqlite3stmt.close.php
 	 * @return bool <b>TRUE</b>
 	 * @since 5.3.0
 	 */
@@ -312,7 +312,7 @@ class SQLite3Stmt  {
 
 	/**
 	 * Resets the prepared statement
-	 * @link http://php.net/manual/en/sqlite3stmt.reset.php
+	 * @link https://php.net/manual/en/sqlite3stmt.reset.php
 	 * @return bool <b>TRUE</b> if the statement is successfully reset, <b>FALSE</b> on failure.
 	 * @since 5.3.0
 	 */
@@ -320,7 +320,7 @@ class SQLite3Stmt  {
 
 	/**
 	 * Clears all current bound parameters
-	 * @link http://php.net/manual/en/sqlite3stmt.clear.php
+	 * @link https://php.net/manual/en/sqlite3stmt.clear.php
 	 * @return bool <b>TRUE</b> on successful clearing of bound parameters, <b>FALSE</b> on
 	 * failure.
 	 * @since 5.3.0
@@ -329,7 +329,7 @@ class SQLite3Stmt  {
 
 	/**
 	 * Executes a prepared statement and returns a result set object
-	 * @link http://php.net/manual/en/sqlite3stmt.execute.php
+	 * @link https://php.net/manual/en/sqlite3stmt.execute.php
 	 * @return SQLite3Result an <b>SQLite3Result</b> object on successful execution of the prepared
 	 * statement, <b>FALSE</b> on failure.
 	 * @since 5.3.0
@@ -338,7 +338,7 @@ class SQLite3Stmt  {
 
 	/**
 	 * Binds a parameter to a statement variable
-	 * @link http://php.net/manual/en/sqlite3stmt.bindparam.php
+	 * @link https://php.net/manual/en/sqlite3stmt.bindparam.php
 	 * @param string $sql_param <p>
 	 * An string identifying the statement variable to which the
 	 * parameter should be bound.
@@ -361,7 +361,7 @@ class SQLite3Stmt  {
 
 	/**
 	 * Binds the value of a parameter to a statement variable
-	 * @link http://php.net/manual/en/sqlite3stmt.bindvalue.php
+	 * @link https://php.net/manual/en/sqlite3stmt.bindvalue.php
 	 * @param string $sql_param <p>
 	 * An string identifying the statement variable to which the
 	 * value should be bound.
@@ -393,13 +393,13 @@ class SQLite3Stmt  {
 
 /**
  * A class that handles result sets for the SQLite 3 extension.
- * @link http://php.net/manual/en/class.sqlite3result.php
+ * @link https://php.net/manual/en/class.sqlite3result.php
  */
 class SQLite3Result  {
 
 	/**
 	 * Returns the number of columns in the result set
-	 * @link http://php.net/manual/en/sqlite3result.numcolumns.php
+	 * @link https://php.net/manual/en/sqlite3result.numcolumns.php
 	 * @return int the number of columns in the result set.
 	 * @since 5.3.0
 	 */
@@ -407,7 +407,7 @@ class SQLite3Result  {
 
 	/**
 	 * Returns the name of the nth column
-	 * @link http://php.net/manual/en/sqlite3result.columnname.php
+	 * @link https://php.net/manual/en/sqlite3result.columnname.php
 	 * @param int $column_number <p>
 	 * The numeric zero-based index of the column.
 	 * </p>
@@ -419,7 +419,7 @@ class SQLite3Result  {
 
 	/**
 	 * Returns the type of the nth column
-	 * @link http://php.net/manual/en/sqlite3result.columntype.php
+	 * @link https://php.net/manual/en/sqlite3result.columntype.php
 	 * @param int $column_number <p>
 	 * The numeric zero-based index of the column.
 	 * </p>
@@ -434,7 +434,7 @@ class SQLite3Result  {
 
 	/**
 	 * Fetches a result row as an associative or numerically indexed array or both
-	 * @link http://php.net/manual/en/sqlite3result.fetcharray.php
+	 * @link https://php.net/manual/en/sqlite3result.fetcharray.php
 	 * @param int $mode [optional] <p>
 	 * Controls how the next row will be returned to the caller. This value
 	 * must be one of either SQLITE3_ASSOC,
@@ -451,7 +451,7 @@ class SQLite3Result  {
 
 	/**
 	 * Resets the result set back to the first row
-	 * @link http://php.net/manual/en/sqlite3result.reset.php
+	 * @link https://php.net/manual/en/sqlite3result.reset.php
 	 * @return bool <b>TRUE</b> if the result set is successfully reset
 	 * back to the first row, <b>FALSE</b> on failure.
 	 * @since 5.3.0
@@ -460,7 +460,7 @@ class SQLite3Result  {
 
 	/**
 	 * Closes the result set
-	 * @link http://php.net/manual/en/sqlite3result.finalize.php
+	 * @link https://php.net/manual/en/sqlite3result.finalize.php
 	 * @return bool <b>TRUE</b>.
 	 * @since 5.3.0
 	 */
@@ -474,7 +474,7 @@ class SQLite3Result  {
  * Specifies that the <b>Sqlite3Result::fetchArray</b>
  * method shall return an array indexed by column name as returned in the
  * corresponding result set.
- * @link http://php.net/manual/en/sqlite3.constants.php
+ * @link https://php.net/manual/en/sqlite3.constants.php
  */
 define ('SQLITE3_ASSOC', 1);
 
@@ -482,7 +482,7 @@ define ('SQLITE3_ASSOC', 1);
  * Specifies that the <b>Sqlite3Result::fetchArray</b>
  * method shall return an array indexed by column number as returned in the
  * corresponding result set, starting at column 0.
- * @link http://php.net/manual/en/sqlite3.constants.php
+ * @link https://php.net/manual/en/sqlite3.constants.php
  */
 define ('SQLITE3_NUM', 2);
 
@@ -490,56 +490,56 @@ define ('SQLITE3_NUM', 2);
  * Specifies that the <b>Sqlite3Result::fetchArray</b>
  * method shall return an array indexed by both column name and number as
  * returned in the corresponding result set, starting at column 0.
- * @link http://php.net/manual/en/sqlite3.constants.php
+ * @link https://php.net/manual/en/sqlite3.constants.php
  */
 define ('SQLITE3_BOTH', 3);
 
 /**
  * Represents the SQLite3 INTEGER storage class.
- * @link http://php.net/manual/en/sqlite3.constants.php
+ * @link https://php.net/manual/en/sqlite3.constants.php
  */
 define ('SQLITE3_INTEGER', 1);
 
 /**
  * Represents the SQLite3 REAL (FLOAT) storage class.
- * @link http://php.net/manual/en/sqlite3.constants.php
+ * @link https://php.net/manual/en/sqlite3.constants.php
  */
 define ('SQLITE3_FLOAT', 2);
 
 /**
  * Represents the SQLite3 TEXT storage class.
- * @link http://php.net/manual/en/sqlite3.constants.php
+ * @link https://php.net/manual/en/sqlite3.constants.php
  */
 define ('SQLITE3_TEXT', 3);
 
 /**
  * Represents the SQLite3 BLOB storage class.
- * @link http://php.net/manual/en/sqlite3.constants.php
+ * @link https://php.net/manual/en/sqlite3.constants.php
  */
 define ('SQLITE3_BLOB', 4);
 
 /**
  * Represents the SQLite3 NULL storage class.
- * @link http://php.net/manual/en/sqlite3.constants.php
+ * @link https://php.net/manual/en/sqlite3.constants.php
  */
 define ('SQLITE3_NULL', 5);
 
 /**
  * Specifies that the SQLite3 database be opened for reading only.
- * @link http://php.net/manual/en/sqlite3.constants.php
+ * @link https://php.net/manual/en/sqlite3.constants.php
  */
 define ('SQLITE3_OPEN_READONLY', 1);
 
 /**
  * Specifies that the SQLite3 database be opened for reading and writing.
- * @link http://php.net/manual/en/sqlite3.constants.php
+ * @link https://php.net/manual/en/sqlite3.constants.php
  */
 define ('SQLITE3_OPEN_READWRITE', 2);
 
 /**
  * Specifies that the SQLite3 database be created if it does not already
  * exist.
- * @link http://php.net/manual/en/sqlite3.constants.php
+ * @link https://php.net/manual/en/sqlite3.constants.php
  */
 define ('SQLITE3_OPEN_CREATE', 4);
 

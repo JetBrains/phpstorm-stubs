@@ -10,14 +10,14 @@
  * (PECL solr &gt;= 0.9.2)<br/>
  * Class SolrIllegalOperationException<br/>
  * This object is thrown when an illegal or unsupported operation is performed on an object.
- * @link http://php.net/manual/en/class.solrillegaloperationexception.php
+ * @link https://php.net/manual/en/class.solrillegaloperationexception.php
  */
 class SolrIllegalOperationException extends SolrException {
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns internal information where the Exception was thrown
-	 * @link http://php.net/manual/en/solrillegaloperationexception.getinternalinfo.php
+	 * @link https://php.net/manual/en/solrillegaloperationexception.getinternalinfo.php
 	 * @return array <p>
 	 * Returns an array containing internal information where the error was thrown. Used only for debugging by extension
 	 * developers.

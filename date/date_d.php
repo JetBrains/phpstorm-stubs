@@ -18,19 +18,19 @@ define ('DATE_W3C', "Y-m-d\TH:i:sP");
 
 /**
  * Timestamp
- * @link http://php.net/manual/en/datetime.constants.php
+ * @link https://php.net/manual/en/datetime.constants.php
  */
 define ('SUNFUNCS_RET_TIMESTAMP', 0);
 
 /**
  * Hours:minutes (example: 08:02)
- * @link http://php.net/manual/en/datetime.constants.php
+ * @link https://php.net/manual/en/datetime.constants.php
  */
 define ('SUNFUNCS_RET_STRING', 1);
 
 /**
  * Hours as floating point number (example 8.75)
- * @link http://php.net/manual/en/datetime.constants.php
+ * @link https://php.net/manual/en/datetime.constants.php
  */
 define ('SUNFUNCS_RET_DOUBLE', 2);
 

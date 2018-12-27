@@ -37,7 +37,7 @@ class Parser
     /**
      * Process next parser rule.
      *
-     * @link http://php.net/manual/en/parle-parser.advance.php
+     * @link https://php.net/manual/en/parle-parser.advance.php
      * @return void
      */
     public function advance() : void {}
@@ -48,7 +48,7 @@ class Parser
      * Any tokens and grammar rules previously added are finalized.
      * The rule set becomes readonly and the parser is ready to start.
      *
-     * @link http://php.net/manual/en/parle-parser.build.php
+     * @link https://php.net/manual/en/parle-parser.build.php
      * @return void
      */
     public function build() : void {}
@@ -56,7 +56,7 @@ class Parser
     /**
      * Consume the data for parsing.
      *
-     * @link http://php.net/manual/en/parle-parser.consume.php
+     * @link https://php.net/manual/en/parle-parser.consume.php
      * @param string $data Data to be parsed.
      * @param Lexer $lexer A lexer object containing the lexing rules prepared for the particular grammar.
      * @return void
@@ -66,7 +66,7 @@ class Parser
     /**
      * Dump the current grammar to stdout.
      *
-     * @link http://php.net/manual/en/parle-parser.dump.php
+     * @link https://php.net/manual/en/parle-parser.dump.php
      * @return void
      */
     public function dump() : void {}
@@ -74,7 +74,7 @@ class Parser
     /**
      * Retrieve the error information in case Parle\Parser::action() returned the error action.
      *
-     * @link http://php.net/manual/en/parle-parser.errorinfo.php
+     * @link https://php.net/manual/en/parle-parser.errorinfo.php
      * @return ErrorInfo
      */
     public function errorInfo() : ErrorInfo {}
@@ -82,7 +82,7 @@ class Parser
     /**
      * Declare a terminal with left associativity.
      *
-     * @link http://php.net/manual/en/parle-parser.left.php
+     * @link https://php.net/manual/en/parle-parser.left.php
      * @param string $token Token name.
      * @return void
      */
@@ -91,7 +91,7 @@ class Parser
     /**
      * Declare a terminal, that cannot appear more than once in the row.
      *
-     * @link http://php.net/manual/en/parle-parser.nonassoc.php
+     * @link https://php.net/manual/en/parle-parser.nonassoc.php
      * @param string $token Token name.
      * @return void
      */
@@ -101,7 +101,7 @@ class Parser
      * Declares a precedence rule for a fictitious terminal symbol.
      * This rule can be later used in the specific grammar rules.
      *
-     * @link http://php.net/manual/en/parle-parser.precedence.php
+     * @link https://php.net/manual/en/parle-parser.precedence.php
      * @param string $token
      * @return void
      */
@@ -111,7 +111,7 @@ class Parser
      * Push a grammar rule.
      * The production id returned can be used later in the parsing process to identify the rule matched.
      *
-     * @link http://php.net/manual/en/parle-parser.push.php
+     * @link https://php.net/manual/en/parle-parser.push.php
      * @param string $name Rule name.
      * @param string $rule The rule to be added. The syntax is Bison compatible.
      * @return int Returns integer representing the rule index.
@@ -121,7 +121,7 @@ class Parser
     /**
      * Reset parser state using the given token id.
      *
-     * @link http://php.net/manual/en/parle-parser.reset.php
+     * @link https://php.net/manual/en/parle-parser.reset.php
      * @param int $tokenId Token id.
      * @return void
      */
@@ -130,7 +130,7 @@ class Parser
     /**
      * Declare a token with right-associativity
      *
-     * @link http://php.net/manual/en/parle-parser.right.php
+     * @link https://php.net/manual/en/parle-parser.right.php
      * @param string $token Token name.
      * @return void
      */
@@ -140,7 +140,7 @@ class Parser
      * Retrieve a part of the match by a rule.
      * This method is equivalent to the pseudo variable functionality in Bison.
      *
-     * @link http://php.net/manual/en/parle-parser.sigil.php
+     * @link https://php.net/manual/en/parle-parser.sigil.php
      * @param array $idx Match index, zero based. [ int $idx ]
      * @return string Returns a string with the matched part.
      */
@@ -149,7 +149,7 @@ class Parser
     /**
      * Declare a terminal to be used in the grammar.
      *
-     * @link http://php.net/manual/en/parle-parser.token.php
+     * @link https://php.net/manual/en/parle-parser.token.php
      * @param string $token Token name.
      * @return void
      */
@@ -158,7 +158,7 @@ class Parser
     /**
      * Retrieve the id of the named token.
      *
-     * @link http://php.net/manual/en/parle-parser.tokenid.php
+     * @link https://php.net/manual/en/parle-parser.tokenid.php
      * @param string $token Name of the token as used in Parle\Parser::token().
      * @return int Returns integer representing the token id.
      * @see Parser::token()
@@ -169,7 +169,7 @@ class Parser
      * Retrieve the current parser operation description.
      * This can be especially useful for studying the parser and to optimize the grammar.
      *
-     * @link http://php.net/manual/en/parle-parser.trace.php
+     * @link https://php.net/manual/en/parle-parser.trace.php
      * @return string Returns a string with the trace information.
      */
     public function trace() : string {}
@@ -178,7 +178,7 @@ class Parser
      * Validate an input string.
      * The string is parsed internally, thus this method is useful for the quick input validation.
      *
-     * @link http://php.net/manual/en/parle-parser.validate.php
+     * @link https://php.net/manual/en/parle-parser.validate.php
      * @param string $data String to be validated.
      * @param Lexer $lexer A lexer object containing the lexing rules prepared for the particular grammar.
      * @return bool Returns boolean witnessing whether the input chimes or not with the defined rules.

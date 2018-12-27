@@ -6,7 +6,7 @@
  * Objects of this class can be traversed, yielding the entries stored in the respective RAR archive.
  * Those entries can also be obtained through {@see \RarArchive::getEntry} and {@see \RarArchive::getEntries}.
  *
- * @link http://php.net/manual/ru/class.rararchive.php
+ * @link https://php.net/manual/ru/class.rararchive.php
  */
 final class RarArchive implements Traversable
 {
@@ -24,7 +24,7 @@ final class RarArchive implements Traversable
      *      volume. Specifying this parameter omits the notice that would otherwise be emitted whenever a volume is
      *      not found; an implementation that only returns NULL can therefore be used to merely omit such notices
      *
-     * @link http://php.net/manual/en/rararchive.open.php
+     * @link https://php.net/manual/en/rararchive.open.php
      *
      * @return RarArchive the requested RarArchive instance or FALSE on failure.
      */
@@ -34,7 +34,7 @@ final class RarArchive implements Traversable
     /**
      * Close RAR archive and free all resources
      *
-     * @link http://php.net/manual/en/rararchive.close.php
+     * @link https://php.net/manual/en/rararchive.close.php
      *
      * @return bool TRUE on success or FALSE on failure
      */
@@ -44,7 +44,7 @@ final class RarArchive implements Traversable
     /**
      * Get comment text from the RAR archive
      *
-     * @link http://php.net/manual/en/rararchive.getcomment.php
+     * @link https://php.net/manual/en/rararchive.getcomment.php
      *
      * @return string the comment or NULL if there is none
      */
@@ -64,7 +64,7 @@ final class RarArchive implements Traversable
      *
      * Get entry object (file or directory) from the RAR archive
      *
-     * @link http://php.net/manual/en/rararchive.getentry.php
+     * @link https://php.net/manual/en/rararchive.getentry.php
      *
      * @param string $entryname Path to the entry within the RAR archive
      *
@@ -78,7 +78,7 @@ final class RarArchive implements Traversable
      *
      * This function determines whether an archive is incomplete, i.e., if a volume is missing or a volume is truncated.
      *
-     * @link http://php.net/manual/en/rararchive.isbroken.php
+     * @link https://php.net/manual/en/rararchive.isbroken.php
      *
      * @return bool Returns TRUE if the archive is broken, FALSE otherwise. This function may also return FALSE if
      *         the passed file has already been closed. The only way to tell the two cases apart is to enable
@@ -93,7 +93,7 @@ final class RarArchive implements Traversable
      *
      * Check whether the RAR archive is solid. Individual file extraction is slower on solid archives
      *
-     * @link http://php.net/manual/enrararchive.issolid.php
+     * @link https://php.net/manual/enrararchive.issolid.php
      *
      * @return bool TRUE if the archive is solid, FALSE otherwise
      */
@@ -107,7 +107,7 @@ final class RarArchive implements Traversable
      * archive entries will fail. Broken archives are archives for which no error is detected when the file is
      * opened but an error occurs when reading the entries.
      *
-     * @link http://php.net/manual/ru/rararchive.setallowbroken.php
+     * @link https://php.net/manual/ru/rararchive.setallowbroken.php
      *
      * @param bool $allow_broken Whether to allow reading broken files (TRUE) or not (FALSE)
      *
@@ -136,7 +136,7 @@ final class RarArchive implements Traversable
 /**
  * A RAR entry, representing a directory or a compressed file inside a RAR archive
  *
- * @link http://php.net/manual/en/class.rarentry.php
+ * @link https://php.net/manual/en/class.rarentry.php
  */
 final class RarEntry
 {
@@ -367,7 +367,7 @@ final class RarEntry
      * extracts the entry's data. It will create new file in the specified dir with the name identical to the entry's
      * name, unless the second argument is specified.
      *
-     * @link http://php.net/manual/en/rarentry.extract.php
+     * @link https://php.net/manual/en/rarentry.extract.php
      *
      * @param string $dir Path to the directory where files should be extracted. This parameter is considered if and
      *      only if filepath is not. If both parameters are empty an extraction to the current directory
@@ -393,7 +393,7 @@ final class RarEntry
      *
      * Returns the OS-dependent attributes of the archive entry
      *
-     * @link http://php.net/manual/en/rarentry.getattr.php
+     * @link https://php.net/manual/en/rarentry.getattr.php
      *
      * @return int the attributes or FALSE on error
      */
@@ -405,7 +405,7 @@ final class RarEntry
      *
      * Returns an hexadecimal string representation of the CRC of the archive entry.
      *
-     * @link http://php.net/manual/en/rarentry.getcrc.php
+     * @link https://php.net/manual/en/rarentry.getcrc.php
      *
      * @return string the CRC of the archive entry or FALSE on error
      */
@@ -415,7 +415,7 @@ final class RarEntry
     /**
      * Get entry last modification time
      *
-     * @link http://php.net/manual/en/rarentry.getfiletime.php
+     * @link https://php.net/manual/en/rarentry.getfiletime.php
      *
      * @return string entry last modification time as string in format YYYY-MM-DD HH:II:SS, or FALSE on errors
      */
@@ -427,7 +427,7 @@ final class RarEntry
      *
      * Returns the code of the host OS of the archive entry
      *
-     * @link http://php.net/manual/en/rarentry.gethostos.php
+     * @link https://php.net/manual/en/rarentry.gethostos.php
      *
      * @return int the code of the host OS, or FALSE on error
      */
@@ -439,7 +439,7 @@ final class RarEntry
      *
      * returns number of the method used when adding current archive entry
      *
-     * @link http://php.net/manual/en/rarentry.getmethod.php
+     * @link https://php.net/manual/en/rarentry.getmethod.php
      *
      * @return int the method number or FALSE on error
      */
@@ -451,7 +451,7 @@ final class RarEntry
      *
      * Returns the name (with path) of the archive entry.
      *
-     * @link http://php.net/manual/en/rarentry.getname.php
+     * @link https://php.net/manual/en/rarentry.getname.php
      *
      * @return string the entry name as a string, or FALSE on error.
      */
@@ -461,7 +461,7 @@ final class RarEntry
     /**
      * Get packed size of the entry
      *
-     * @link http://php.net/manual/en/rarentry.getpackedsize.php
+     * @link https://php.net/manual/en/rarentry.getpackedsize.php
      *
      * @return int the packed size, or FALSE on error
      */
@@ -474,7 +474,7 @@ final class RarEntry
      * Returns a file handler that supports read operations. This handler provides on-the-fly decompression for
      * this entry. The handler is not invalidated by calling {@see rar_close()}.
      *
-     * @link http://php.net/manual/en/rarentry.getstream.php
+     * @link https://php.net/manual/en/rarentry.getstream.php
      *
      * @param string $password The password used to encrypt this entry. If the entry is not encrypted, this value will
      *      not be used and can be omitted. If this parameter is omitted and the entry is encrypted,
@@ -490,7 +490,7 @@ final class RarEntry
     }
     /**
      * Get unpacked size of the entry
-     * @link http://php.net/manual/en/rarentry.getunpackedsize.php
+     * @link https://php.net/manual/en/rarentry.getunpackedsize.php
      * @return int the unpacked size, or FALSE on error
      */
     public function getUnpackedSize()
@@ -502,7 +502,7 @@ final class RarEntry
      * Returns minimum version of RAR program (e.g. WinRAR) required to unpack the entry. It is encoded as
      * 10 * major version + minor version.
      *
-     * @link http://php.net/manual/en/rarentry.getversion.php
+     * @link https://php.net/manual/en/rarentry.getversion.php
      *
      * @return int the version or FALSE on error
      */
@@ -512,7 +512,7 @@ final class RarEntry
     /**
      * Test whether an entry represents a directory
      *
-     * @link http://php.net/manual/en/rarentry.isdirectory.php
+     * @link https://php.net/manual/en/rarentry.isdirectory.php
      *
      * @return bool TRUE if this entry is a directory and FALSE otherwise.
      */
@@ -522,7 +522,7 @@ final class RarEntry
     /**
      * Test whether an entry is encrypted
      *
-     * @link http://php.net/manual/en/rarentry.isencrypted.php
+     * @link https://php.net/manual/en/rarentry.isencrypted.php
      *
      * @return bool TRUE if the current entry is encrypted and FALSE otherwise
      */
@@ -536,7 +536,7 @@ final class RarEntry
      * (symbolic links and other special objects will be treated as files), the UTF-8 name of the entry and its CRC.
      * The form and content of this representation may be changed in the future, so they cannot be relied upon.
      *
-     * @link http://php.net/manual/en/rarentry.tostring.php
+     * @link https://php.net/manual/en/rarentry.tostring.php
      *
      * @return string A textual representation for the entry
      */
@@ -565,14 +565,14 @@ final class RarEntry
  * <li>22 - password required but not given</li>
  * </ul>
  *
- * @link http://php.net/manual/en/class.rarexception.php
+ * @link https://php.net/manual/en/class.rarexception.php
  */
 final class RarException extends Exception
 {
     /**
      * Check whether error handling with exceptions is in use
      *
-     * @link http://php.net/manual/en/rarexception.isusingexceptions.php
+     * @link https://php.net/manual/en/rarexception.isusingexceptions.php
      *
      * @return bool TRUE if exceptions are being used, FALSE otherwise
      */
@@ -582,7 +582,7 @@ final class RarException extends Exception
     /**
      * Activate and deactivate error handling with exceptions
      *
-     * @link http://php.net/manual/en/rarexception.setusingexceptions.php
+     * @link https://php.net/manual/en/rarexception.setusingexceptions.php
      *
      * @param bool $using_exceptions Should be TRUE to activate exception throwing, FALSE to deactivate (the default)
      */

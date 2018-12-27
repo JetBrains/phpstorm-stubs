@@ -37,7 +37,7 @@ class Collator {
      * F=ON cote &lt; côte &lt; coté &lt; côté
      * </p>
      * </p>
-     * @link http://php.net/manual/en/intl.collator-constants.php
+     * @link https://php.net/manual/en/intl.collator-constants.php
      */
     const FRENCH_COLLATION = 0;
 
@@ -82,7 +82,7 @@ class Collator {
      * S=4, A=S di Silva &lt; diSilva &lt; Di Silva &lt; U.S.A. &lt; USA
      * </p>
      * </p>
-     * @link http://php.net/manual/en/intl.collator-constants.php
+     * @link https://php.net/manual/en/intl.collator-constants.php
      */
     const ALTERNATE_HANDLING = 1;
 
@@ -116,7 +116,7 @@ class Collator {
      * C=U "China" &lt; "china" &lt; "Denmark" &lt; "denmark"
      * </p>
      * </p>
-     * @link http://php.net/manual/en/intl.collator-constants.php
+     * @link https://php.net/manual/en/intl.collator-constants.php
      */
     const CASE_FIRST = 2;
 
@@ -142,7 +142,7 @@ class Collator {
      * S=1, E=O role = rôle &lt; Role
      * </p>
      * </p>
-     * @link http://php.net/manual/en/intl.collator-constants.php
+     * @link https://php.net/manual/en/intl.collator-constants.php
      */
     const CASE_LEVEL = 3;
 
@@ -168,7 +168,7 @@ class Collator {
      * <b>Collator::ON</b>
      * <b>Collator::DEFAULT_VALUE</b>
      * </p>
-     * @link http://php.net/manual/en/intl.collator-constants.php
+     * @link https://php.net/manual/en/intl.collator-constants.php
      */
     const NORMALIZATION_MODE = 4;
 
@@ -191,7 +191,7 @@ class Collator {
      * <b>Collator::IDENTICAL</b>
      * <b>Collator::DEFAULT_VALUE</b>
      * </p>
-     * @link http://php.net/manual/en/intl.collator-constants.php
+     * @link https://php.net/manual/en/intl.collator-constants.php
      */
     const STRENGTH = 5;
 
@@ -210,7 +210,7 @@ class Collator {
      * <b>Collator::ON</b>
      * <b>Collator::DEFAULT_VALUE</b>
      * </p>
-     * @link http://php.net/manual/en/intl.collator-constants.php
+     * @link https://php.net/manual/en/intl.collator-constants.php
      */
     const HIRAGANA_QUATERNARY_MODE = 6;
 
@@ -226,7 +226,7 @@ class Collator {
      * <b>Collator::ON</b>
      * <b>Collator::DEFAULT_VALUE</b>
      * </p>
-     * @link http://php.net/manual/en/intl.collator-constants.php
+     * @link https://php.net/manual/en/intl.collator-constants.php
      */
     const NUMERIC_COLLATION = 7;
     const SORT_REGULAR = 0;
@@ -237,7 +237,7 @@ class Collator {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Create a collator
-     * @link http://php.net/manual/en/collator.construct.php
+     * @link https://php.net/manual/en/collator.construct.php
      * @param string $locale
      */
     public function __construct($locale) { }
@@ -245,7 +245,7 @@ class Collator {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Create a collator
-     * @link http://php.net/manual/en/collator.create.php
+     * @link https://php.net/manual/en/collator.create.php
      * @param string $locale <p>
      * The locale containing the required collation rules. Special values for
      * locales can be passed in - if null is passed for the locale, the
@@ -260,7 +260,7 @@ class Collator {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Compare two Unicode strings
-     * @link http://php.net/manual/en/collator.compare.php
+     * @link https://php.net/manual/en/collator.compare.php
      * @param string $str1 <p>
      * The first string to compare.
      * </p>
@@ -291,7 +291,7 @@ class Collator {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Sort array using specified collator
-     * @link http://php.net/manual/en/collator.sort.php
+     * @link https://php.net/manual/en/collator.sort.php
      * @param array $arr <p>
      * Array of strings to sort.
      * </p>
@@ -310,7 +310,7 @@ class Collator {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Sort array using specified collator and sort keys
-     * @link http://php.net/manual/en/collator.sortwithsortkeys.php
+     * @link https://php.net/manual/en/collator.sortwithsortkeys.php
      * @param array $arr <p>Array of strings to sort</p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
@@ -319,7 +319,7 @@ class Collator {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Sort array maintaining index association
-     * @link http://php.net/manual/en/collator.asort.php
+     * @link https://php.net/manual/en/collator.asort.php
      * @param array $arr <p>Array of strings to sort.</p>
      * @param int $sort_flag [optional] <p>
      * Optional sorting type, one of the following:
@@ -334,7 +334,7 @@ class Collator {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get collation attribute value
-     * @link http://php.net/manual/en/collator.getattribute.php
+     * @link https://php.net/manual/en/collator.getattribute.php
      * @param int $attr <p>
      * Attribute to get value for.
      * </p>
@@ -345,7 +345,7 @@ class Collator {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Set collation attribute
-     * @link http://php.net/manual/en/collator.setattribute.php
+     * @link https://php.net/manual/en/collator.setattribute.php
      * @param int $attr <p>Attribute.</p>
      * @param int $val <p>
      * Attribute value.
@@ -357,7 +357,7 @@ class Collator {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get current collation strength
-     * @link http://php.net/manual/en/collator.getstrength.php
+     * @link https://php.net/manual/en/collator.getstrength.php
      * @return int current collation strength, or boolean <b>FALSE</b> on error.
      */
     public function getStrength() { }
@@ -365,7 +365,7 @@ class Collator {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Set collation strength
-     * @link http://php.net/manual/en/collator.setstrength.php
+     * @link https://php.net/manual/en/collator.setstrength.php
      * @param int $strength <p>Strength to set.</p>
      * <p>
      * Possible values are:
@@ -379,7 +379,7 @@ class Collator {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get the locale name of the collator
-     * @link http://php.net/manual/en/collator.getlocale.php
+     * @link https://php.net/manual/en/collator.getlocale.php
      * @param int $type [optional] <p>
      * You can choose between valid and actual locale (
      * <b>Locale::VALID_LOCALE</b> and
@@ -395,7 +395,7 @@ class Collator {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get collator's last error code
-     * @link http://php.net/manual/en/collator.geterrorcode.php
+     * @link https://php.net/manual/en/collator.geterrorcode.php
      * @return int Error code returned by the last Collator API function call.
      */
     public function getErrorCode() { }
@@ -403,7 +403,7 @@ class Collator {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get text for collator's last error code
-     * @link http://php.net/manual/en/collator.geterrormessage.php
+     * @link https://php.net/manual/en/collator.geterrormessage.php
      * @return string Description of an error occurred in the last Collator API function call.
      */
     public function getErrorMessage() { }
@@ -411,7 +411,7 @@ class Collator {
     /**
      * (No version information available, might only be in SVN)<br/>
      * Get sorting key for a string
-     * @link http://php.net/manual/en/collator.getsortkey.php
+     * @link https://php.net/manual/en/collator.getsortkey.php
      * @param string $str <p>
      * The string to produce the key from.
      * </p>
@@ -424,91 +424,91 @@ class NumberFormatter {
 
     /**
      * Decimal format defined by pattern
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const PATTERN_DECIMAL = 0;
 
     /**
      * Decimal format
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const DECIMAL = 1;
 
     /**
      * Currency format
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const CURRENCY = 2;
 
     /**
      * Percent format
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const PERCENT = 3;
 
     /**
      * Scientific format
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const SCIENTIFIC = 4;
 
     /**
      * Spellout rule-based format
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const SPELLOUT = 5;
 
     /**
      * Ordinal rule-based format
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const ORDINAL = 6;
 
     /**
      * Duration rule-based format
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const DURATION = 7;
 
     /**
      * Rule-based format defined by pattern
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const PATTERN_RULEBASED = 9;
 
     /**
      * Alias for PATTERN_DECIMAL
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const IGNORE = 0;
 
     /**
      * Default format for the locale
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const DEFAULT_STYLE = 1;
 
     /**
      * Rounding mode to round towards positive infinity.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const ROUND_CEILING = 0;
 
     /**
      * Rounding mode to round towards negative infinity.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const ROUND_FLOOR = 1;
 
     /**
      * Rounding mode to round towards zero.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const ROUND_DOWN = 2;
 
     /**
      * Rounding mode to round away from zero.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const ROUND_UP = 3;
 
@@ -516,209 +516,209 @@ class NumberFormatter {
      * Rounding mode to round towards the "nearest neighbor" unless both
      * neighbors are equidistant, in which case, round towards the even
      * neighbor.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const ROUND_HALFEVEN = 4;
 
     /**
      * Rounding mode to round towards "nearest neighbor" unless both neighbors
      * are equidistant, in which case round down.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const ROUND_HALFDOWN = 5;
 
     /**
      * Rounding mode to round towards "nearest neighbor" unless both neighbors
      * are equidistant, in which case round up.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const ROUND_HALFUP = 6;
 
     /**
      * Pad characters inserted before the prefix.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const PAD_BEFORE_PREFIX = 0;
 
     /**
      * Pad characters inserted after the prefix.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const PAD_AFTER_PREFIX = 1;
 
     /**
      * Pad characters inserted before the suffix.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const PAD_BEFORE_SUFFIX = 2;
 
     /**
      * Pad characters inserted after the suffix.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const PAD_AFTER_SUFFIX = 3;
 
     /**
      * Parse integers only.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const PARSE_INT_ONLY = 0;
 
     /**
      * Use grouping separator.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const GROUPING_USED = 1;
 
     /**
      * Always show decimal point.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const DECIMAL_ALWAYS_SHOWN = 2;
 
     /**
      * Maximum integer digits.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const MAX_INTEGER_DIGITS = 3;
 
     /**
      * Minimum integer digits.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const MIN_INTEGER_DIGITS = 4;
 
     /**
      * Integer digits.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const INTEGER_DIGITS = 5;
 
     /**
      * Maximum fraction digits.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const MAX_FRACTION_DIGITS = 6;
 
     /**
      * Minimum fraction digits.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const MIN_FRACTION_DIGITS = 7;
 
     /**
      * Fraction digits.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const FRACTION_DIGITS = 8;
 
     /**
      * Multiplier.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const MULTIPLIER = 9;
 
     /**
      * Grouping size.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const GROUPING_SIZE = 10;
 
     /**
      * Rounding Mode.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const ROUNDING_MODE = 11;
 
     /**
      * Rounding increment.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const ROUNDING_INCREMENT = 12;
 
     /**
      * The width to which the output of format() is padded.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const FORMAT_WIDTH = 13;
 
     /**
      * The position at which padding will take place. See pad position
      * constants for possible argument values.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const PADDING_POSITION = 14;
 
     /**
      * Secondary grouping size.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const SECONDARY_GROUPING_SIZE = 15;
 
     /**
      * Use significant digits.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const SIGNIFICANT_DIGITS_USED = 16;
 
     /**
      * Minimum significant digits.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const MIN_SIGNIFICANT_DIGITS = 17;
 
     /**
      * Maximum significant digits.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const MAX_SIGNIFICANT_DIGITS = 18;
 
     /**
      * Lenient parse mode used by rule-based formats.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const LENIENT_PARSE = 19;
 
     /**
      * Positive prefix.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const POSITIVE_PREFIX = 0;
 
     /**
      * Positive suffix.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const POSITIVE_SUFFIX = 1;
 
     /**
      * Negative prefix.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const NEGATIVE_PREFIX = 2;
 
     /**
      * Negative suffix.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const NEGATIVE_SUFFIX = 3;
 
     /**
      * The character used to pad to the format width.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const PADDING_CHARACTER = 4;
 
     /**
      * The ISO currency code.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const CURRENCY_CODE = 5;
 
     /**
      * The default rule set. This is only available with rule-based
      * formatters.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const DEFAULT_RULESET = 6;
 
@@ -727,145 +727,145 @@ class NumberFormatter {
      * formatters. This is a read-only attribute. The public rulesets are
      * returned as a single string, with each ruleset name delimited by ';'
      * (semicolon).
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const PUBLIC_RULESETS = 7;
 
     /**
      * The decimal separator.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const DECIMAL_SEPARATOR_SYMBOL = 0;
 
     /**
      * The grouping separator.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const GROUPING_SEPARATOR_SYMBOL = 1;
 
     /**
      * The pattern separator.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const PATTERN_SEPARATOR_SYMBOL = 2;
 
     /**
      * The percent sign.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const PERCENT_SYMBOL = 3;
 
     /**
      * Zero.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const ZERO_DIGIT_SYMBOL = 4;
 
     /**
      * Character representing a digit in the pattern.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const DIGIT_SYMBOL = 5;
 
     /**
      * The minus sign.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const MINUS_SIGN_SYMBOL = 6;
 
     /**
      * The plus sign.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const PLUS_SIGN_SYMBOL = 7;
 
     /**
      * The currency symbol.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const CURRENCY_SYMBOL = 8;
 
     /**
      * The international currency symbol.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const INTL_CURRENCY_SYMBOL = 9;
 
     /**
      * The monetary separator.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const MONETARY_SEPARATOR_SYMBOL = 10;
 
     /**
      * The exponential symbol.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const EXPONENTIAL_SYMBOL = 11;
 
     /**
      * Per mill symbol.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const PERMILL_SYMBOL = 12;
 
     /**
      * Escape padding character.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const PAD_ESCAPE_SYMBOL = 13;
 
     /**
      * Infinity symbol.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const INFINITY_SYMBOL = 14;
 
     /**
      * Not-a-number symbol.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const NAN_SYMBOL = 15;
 
     /**
      * Significant digit symbol.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const SIGNIFICANT_DIGIT_SYMBOL = 16;
 
     /**
      * The monetary grouping separator.
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const MONETARY_GROUPING_SEPARATOR_SYMBOL = 17;
 
     /**
      * Derive the type from variable type
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const TYPE_DEFAULT = 0;
 
     /**
      * Format/parse as 32-bit integer
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const TYPE_INT32 = 1;
 
     /**
      * Format/parse as 64-bit integer
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const TYPE_INT64 = 2;
 
     /**
      * Format/parse as floating point value
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const TYPE_DOUBLE = 3;
 
     /**
      * Format/parse as currency value
-     * @link http://php.net/manual/en/intl.numberformatter-constants.php
+     * @link https://php.net/manual/en/intl.numberformatter-constants.php
      */
     const TYPE_CURRENCY = 4;
 
@@ -880,7 +880,7 @@ class NumberFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Create a number formatter
-     * @link http://php.net/manual/en/numberformatter.create.php
+     * @link https://php.net/manual/en/numberformatter.create.php
      * @param string $locale <p>
      * Locale in which the number would be formatted (locale name, e.g. en_CA).
      * </p>
@@ -906,7 +906,7 @@ class NumberFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Format a number
-     * @link http://php.net/manual/en/numberformatter.format.php
+     * @link https://php.net/manual/en/numberformatter.format.php
      * @param int|float $value <p>
      * The value to format. Can be integer or float,
      * other values will be converted to a numeric value.
@@ -922,7 +922,7 @@ class NumberFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Parse a number
-     * @link http://php.net/manual/en/numberformatter.parse.php
+     * @link https://php.net/manual/en/numberformatter.parse.php
      * @param string $value
      * @param int $type [optional] <p>
      * The
@@ -940,7 +940,7 @@ class NumberFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Format a currency value
-     * @link http://php.net/manual/en/numberformatter.formatcurrency.php
+     * @link https://php.net/manual/en/numberformatter.formatcurrency.php
      * @param float $value <p>
      * The numeric currency value.
      * </p>
@@ -954,7 +954,7 @@ class NumberFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Parse a currency number
-     * @link http://php.net/manual/en/numberformatter.parsecurrency.php
+     * @link https://php.net/manual/en/numberformatter.parsecurrency.php
      * @param string $value
      * @param string $currency <p>
      * Parameter to receive the currency name (3-letter ISO 4217 currency
@@ -971,7 +971,7 @@ class NumberFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Set an attribute
-     * @link http://php.net/manual/en/numberformatter.setattribute.php
+     * @link https://php.net/manual/en/numberformatter.setattribute.php
      * @param int $attr <p>
      * Attribute specifier - one of the
      * numeric attribute constants.
@@ -986,7 +986,7 @@ class NumberFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get an attribute
-     * @link http://php.net/manual/en/numberformatter.getattribute.php
+     * @link https://php.net/manual/en/numberformatter.getattribute.php
      * @param int $attr <p>
      * Attribute specifier - one of the
      * numeric attribute constants.
@@ -998,7 +998,7 @@ class NumberFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Set a text attribute
-     * @link http://php.net/manual/en/numberformatter.settextattribute.php
+     * @link https://php.net/manual/en/numberformatter.settextattribute.php
      * @param int $attr <p>
      * Attribute specifier - one of the
      * text attribute
@@ -1014,7 +1014,7 @@ class NumberFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get a text attribute
-     * @link http://php.net/manual/en/numberformatter.gettextattribute.php
+     * @link https://php.net/manual/en/numberformatter.gettextattribute.php
      * @param int $attr <p>
      * Attribute specifier - one of the
      * text attribute constants.
@@ -1026,7 +1026,7 @@ class NumberFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Set a symbol value
-     * @link http://php.net/manual/en/numberformatter.setsymbol.php
+     * @link https://php.net/manual/en/numberformatter.setsymbol.php
      * @param int $attr <p>
      * Symbol specifier, one of the
      * format symbol constants.
@@ -1041,7 +1041,7 @@ class NumberFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get a symbol value
-     * @link http://php.net/manual/en/numberformatter.getsymbol.php
+     * @link https://php.net/manual/en/numberformatter.getsymbol.php
      * @param int $attr <p>
      * Symbol specifier, one of the
      * format symbol constants.
@@ -1053,7 +1053,7 @@ class NumberFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Set formatter pattern
-     * @link http://php.net/manual/en/numberformatter.setpattern.php
+     * @link https://php.net/manual/en/numberformatter.setpattern.php
      * @param string $pattern <p>
      * Pattern in syntax described in
      * ICU DecimalFormat
@@ -1066,7 +1066,7 @@ class NumberFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get formatter pattern
-     * @link http://php.net/manual/en/numberformatter.getpattern.php
+     * @link https://php.net/manual/en/numberformatter.getpattern.php
      * @return string Pattern string that is used by the formatter, or <b>FALSE</b> if an error happens.
      */
     public function getPattern() { }
@@ -1074,7 +1074,7 @@ class NumberFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get formatter locale
-     * @link http://php.net/manual/en/numberformatter.getlocale.php
+     * @link https://php.net/manual/en/numberformatter.getlocale.php
      * @param int $type [optional] <p>
      * You can choose between valid and actual locale (
      * <b>Locale::VALID_LOCALE</b>,
@@ -1088,7 +1088,7 @@ class NumberFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get formatter's last error code.
-     * @link http://php.net/manual/en/numberformatter.geterrorcode.php
+     * @link https://php.net/manual/en/numberformatter.geterrorcode.php
      * @return int error code from last formatter call.
      */
     public function getErrorCode() { }
@@ -1096,7 +1096,7 @@ class NumberFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get formatter's last error message.
-     * @link http://php.net/manual/en/numberformatter.geterrormessage.php
+     * @link https://php.net/manual/en/numberformatter.geterrormessage.php
      * @return string error message from last formatter call.
      */
     public function getErrorMessage() { }
@@ -1106,26 +1106,26 @@ class Normalizer {
 
     /**
      * Default normalization options
-     * @link http://www.php.net/manual/en/class.normalizer.php
+     * @link https://secure.php.net/manual/en/class.normalizer.php
      */
     const OPTION_DEFAULT = "";
 
     /**
      * No decomposition/composition
-     * @link http://www.php.net/manual/en/class.normalizer.php
+     * @link https://secure.php.net/manual/en/class.normalizer.php
      */
     const NONE = "1";
 
     /**
      * Normalization Form D (NFD) - Canonical Decomposition
-     * @link http://www.php.net/manual/en/class.normalizer.php
+     * @link https://secure.php.net/manual/en/class.normalizer.php
      */
     const FORM_D = "2";
     const NFD = 2;
 
     /**
      * Normalization Form KD (NFKD) - Compatibility Decomposition
-     * @link http://www.php.net/manual/en/class.normalizer.php
+     * @link https://secure.php.net/manual/en/class.normalizer.php
      */
     const FORM_KD = "3";
     const NFKD = 3;
@@ -1133,7 +1133,7 @@ class Normalizer {
     /**
      * Normalization Form C (NFC) - Canonical Decomposition followed by
      * Canonical Composition
-     * @link http://www.php.net/manual/en/class.normalizer.php
+     * @link https://secure.php.net/manual/en/class.normalizer.php
      */
     const FORM_C = "4";
     const NFC = 4;
@@ -1141,7 +1141,7 @@ class Normalizer {
     /**
      * Normalization Form KC (NFKC) - Compatibility Decomposition, followed by
      * Canonical Composition
-     * @link http://www.php.net/manual/en/class.normalizer.php
+     * @link https://secure.php.net/manual/en/class.normalizer.php
      */
     const FORM_KC = "5";
     const NFKC = 5;
@@ -1150,7 +1150,7 @@ class Normalizer {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Normalizes the input provided and returns the normalized string
-     * @link http://php.net/manual/en/normalizer.normalize.php
+     * @link https://php.net/manual/en/normalizer.normalize.php
      * @param string $input <p>The input string to normalize</p>
      * @param string $form [optional] <p>One of the normalization forms.</p>
      * @return string The normalized string or <b>NULL</b> if an error occurred.
@@ -1160,7 +1160,7 @@ class Normalizer {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Checks if the provided string is already in the specified normalization form.
-     * @link http://php.net/manual/en/normalizer.isnormalized.php
+     * @link https://php.net/manual/en/normalizer.isnormalized.php
      * @param string $input <p>The input string to normalize</p>
      * @param string $form [optional] <p>
      * One of the normalization forms.
@@ -1174,13 +1174,13 @@ class Locale {
 
     /**
      * This is locale the data actually comes from.
-     * @link http://php.net/manual/en/intl.locale-constants.php
+     * @link https://php.net/manual/en/intl.locale-constants.php
      */
     const ACTUAL_LOCALE = 0;
 
     /**
      * This is the most specific locale supported by ICU.
-     * @link http://php.net/manual/en/intl.locale-constants.php
+     * @link https://php.net/manual/en/intl.locale-constants.php
      */
     const VALID_LOCALE = 1;
 
@@ -1188,49 +1188,49 @@ class Locale {
      * Used as locale parameter with the methods of the various locale affected classes,
      * such as NumberFormatter. This constant would make the methods to use default
      * locale.
-     * @link http://php.net/manual/en/intl.locale-constants.php
+     * @link https://php.net/manual/en/intl.locale-constants.php
      */
     const DEFAULT_LOCALE = null;
 
     /**
      * Language subtag
-     * @link http://php.net/manual/en/intl.locale-constants.php
+     * @link https://php.net/manual/en/intl.locale-constants.php
      */
     const LANG_TAG = "language";
 
     /**
      * Extended language subtag
-     * @link http://php.net/manual/en/intl.locale-constants.php
+     * @link https://php.net/manual/en/intl.locale-constants.php
      */
     const EXTLANG_TAG = "extlang";
 
     /**
      * Script subtag
-     * @link http://php.net/manual/en/intl.locale-constants.php
+     * @link https://php.net/manual/en/intl.locale-constants.php
      */
     const SCRIPT_TAG = "script";
 
     /**
      * Region subtag
-     * @link http://php.net/manual/en/intl.locale-constants.php
+     * @link https://php.net/manual/en/intl.locale-constants.php
      */
     const REGION_TAG = "region";
 
     /**
      * Variant subtag
-     * @link http://php.net/manual/en/intl.locale-constants.php
+     * @link https://php.net/manual/en/intl.locale-constants.php
      */
     const VARIANT_TAG = "variant";
 
     /**
      * Grandfathered Language subtag
-     * @link http://php.net/manual/en/intl.locale-constants.php
+     * @link https://php.net/manual/en/intl.locale-constants.php
      */
     const GRANDFATHERED_LANG_TAG = "grandfathered";
 
     /**
      * Private subtag
-     * @link http://php.net/manual/en/intl.locale-constants.php
+     * @link https://php.net/manual/en/intl.locale-constants.php
      */
     const PRIVATE_TAG = "private";
 
@@ -1238,7 +1238,7 @@ class Locale {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Gets the default locale value from the INTL global 'default_locale'
-     * @link http://php.net/manual/en/locale.getdefault.php
+     * @link https://php.net/manual/en/locale.getdefault.php
      * @return string The current runtime locale
      */
     public static function getDefault() { }
@@ -1246,7 +1246,7 @@ class Locale {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * sets the default runtime locale
-     * @link http://php.net/manual/en/locale.setdefault.php
+     * @link https://php.net/manual/en/locale.setdefault.php
      * @param string $locale <p>
      * Is a BCP 47 compliant language tag containing the
      * </p>
@@ -1257,7 +1257,7 @@ class Locale {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Gets the primary language for the input locale
-     * @link http://php.net/manual/en/locale.getprimarylanguage.php
+     * @link https://php.net/manual/en/locale.getprimarylanguage.php
      * @param string $locale <p>
      * The locale to extract the primary language code from
      * </p>
@@ -1268,7 +1268,7 @@ class Locale {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Gets the script for the input locale
-     * @link http://php.net/manual/en/locale.getscript.php
+     * @link https://php.net/manual/en/locale.getscript.php
      * @param string $locale <p>
      * The locale to extract the script code from
      * </p>
@@ -1279,7 +1279,7 @@ class Locale {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Gets the region for the input locale
-     * @link http://php.net/manual/en/locale.getregion.php
+     * @link https://php.net/manual/en/locale.getregion.php
      * @param string $locale <p>
      * The locale to extract the region code from
      * </p>
@@ -1290,7 +1290,7 @@ class Locale {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Gets the keywords for the input locale
-     * @link http://php.net/manual/en/locale.getkeywords.php
+     * @link https://php.net/manual/en/locale.getkeywords.php
      * @param string $locale <p>
      * The locale to extract the keywords from
      * </p>
@@ -1301,7 +1301,7 @@ class Locale {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Returns an appropriately localized display name for script of the input locale
-     * @link http://php.net/manual/en/locale.getdisplayscript.php
+     * @link https://php.net/manual/en/locale.getdisplayscript.php
      * @param string $locale <p>
      * The locale to return a display script for
      * </p>
@@ -1316,7 +1316,7 @@ class Locale {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Returns an appropriately localized display name for region of the input locale
-     * @link http://php.net/manual/en/locale.getdisplayregion.php
+     * @link https://php.net/manual/en/locale.getdisplayregion.php
      * @param string $locale <p>
      * The locale to return a display region for.
      * </p>
@@ -1331,7 +1331,7 @@ class Locale {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Returns an appropriately localized display name for the input locale
-     * @link http://php.net/manual/en/locale.getdisplayname.php
+     * @link https://php.net/manual/en/locale.getdisplayname.php
      * @param string $locale <p>
      * The locale to return a display name for.
      * </p>
@@ -1343,7 +1343,7 @@ class Locale {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Returns an appropriately localized display name for language of the inputlocale
-     * @link http://php.net/manual/en/locale.getdisplaylanguage.php
+     * @link https://php.net/manual/en/locale.getdisplaylanguage.php
      * @param string $locale <p>
      * The locale to return a display language for
      * </p>
@@ -1358,7 +1358,7 @@ class Locale {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Returns an appropriately localized display name for variants of the input locale
-     * @link http://php.net/manual/en/locale.getdisplayvariant.php
+     * @link https://php.net/manual/en/locale.getdisplayvariant.php
      * @param string $locale <p>
      * The locale to return a display variant for
      * </p>
@@ -1373,7 +1373,7 @@ class Locale {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Returns a correctly ordered and delimited locale ID
-     * @link http://php.net/manual/en/locale.composelocale.php
+     * @link https://php.net/manual/en/locale.composelocale.php
      * @param array $subtags <p>
      * an array containing a list of key-value pairs, where the keys identify
      * the particular locale ID subtags, and the values are the associated
@@ -1399,7 +1399,7 @@ class Locale {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Returns a key-value array of locale ID subtag elements.
-     * @link http://php.net/manual/en/locale.parselocale.php
+     * @link https://php.net/manual/en/locale.parselocale.php
      * @param string $locale <p>
      * The locale to extract the subtag array from. Note: The 'variant' and
      * 'private' subtags can take maximum 15 values whereas 'extlang' can take
@@ -1417,7 +1417,7 @@ class Locale {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Gets the variants for the input locale
-     * @link http://php.net/manual/en/locale.getallvariants.php
+     * @link https://php.net/manual/en/locale.getallvariants.php
      * @param string $locale <p>
      * The locale to extract the variants from
      * </p>
@@ -1429,7 +1429,7 @@ class Locale {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Checks if a language tag filter matches with locale
-     * @link http://php.net/manual/en/locale.filtermatches.php
+     * @link https://php.net/manual/en/locale.filtermatches.php
      * @param string $langtag <p>
      * The language tag to check
      * </p>
@@ -1447,7 +1447,7 @@ class Locale {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Searches the language tag list for the best match to the language
-     * @link http://php.net/manual/en/locale.lookup.php
+     * @link https://php.net/manual/en/locale.lookup.php
      * @param array $langtag <p>
      * An array containing a list of language tags to compare to
      * <i>locale</i>. Maximum 100 items allowed.
@@ -1467,7 +1467,7 @@ class Locale {
     public static function lookup(array $langtag, $locale, $canonicalize = false, $default = null) { }
 
     /**
-     * @link http://php.net/manual/en/locale.canonicalize.php
+     * @link https://php.net/manual/en/locale.canonicalize.php
      * @param string $locale
      * @return string
      */
@@ -1476,7 +1476,7 @@ class Locale {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Tries to find out best available locale based on HTTP "Accept-Language" header
-     * @link http://php.net/manual/en/locale.acceptfromhttp.php
+     * @link https://php.net/manual/en/locale.acceptfromhttp.php
      * @param string $header <p>
      * The string containing the "Accept-Language" header according to format in RFC 2616.
      * </p>
@@ -1490,7 +1490,7 @@ class MessageFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Constructs a new Message Formatter
-     * @link http://php.net/manual/en/messageformatter.create.php
+     * @link https://php.net/manual/en/messageformatter.create.php
      * @param string $locale <p>
      * The locale to use when formatting arguments
      * </p>
@@ -1506,7 +1506,7 @@ class MessageFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Constructs a new Message Formatter
-     * @link http://php.net/manual/en/messageformatter.create.php
+     * @link https://php.net/manual/en/messageformatter.create.php
      * @param string $locale <p>
      * The locale to use when formatting arguments
      * </p>
@@ -1523,7 +1523,7 @@ class MessageFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Format the message
-     * @link http://php.net/manual/en/messageformatter.format.php
+     * @link https://php.net/manual/en/messageformatter.format.php
      * @param array $args <p>
      * Arguments to insert into the format string
      * </p>
@@ -1534,7 +1534,7 @@ class MessageFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Quick format message
-     * @link http://php.net/manual/en/messageformatter.formatmessage.php
+     * @link https://php.net/manual/en/messageformatter.formatmessage.php
      * @param string $locale <p>
      * The locale to use for formatting locale-dependent parts
      * </p>
@@ -1554,7 +1554,7 @@ class MessageFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Parse input string according to pattern
-     * @link http://php.net/manual/en/messageformatter.parse.php
+     * @link https://php.net/manual/en/messageformatter.parse.php
      * @param string $value <p>
      * The string to parse
      * </p>
@@ -1565,7 +1565,7 @@ class MessageFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Quick parse input string
-     * @link http://php.net/manual/en/messageformatter.parsemessage.php
+     * @link https://php.net/manual/en/messageformatter.parsemessage.php
      * @param string $locale <p>
      * The locale to use for parsing locale-dependent parts
      * </p>
@@ -1582,7 +1582,7 @@ class MessageFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Set the pattern used by the formatter
-     * @link http://php.net/manual/en/messageformatter.setpattern.php
+     * @link https://php.net/manual/en/messageformatter.setpattern.php
      * @param string $pattern <p>
      * The pattern string to use in this message formatter.
      * The pattern uses an 'apostrophe-friendly' syntax; it is run through
@@ -1596,7 +1596,7 @@ class MessageFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get the pattern used by the formatter
-     * @link http://php.net/manual/en/messageformatter.getpattern.php
+     * @link https://php.net/manual/en/messageformatter.getpattern.php
      * @return string The pattern string for this message formatter
      */
     public function getPattern() { }
@@ -1604,7 +1604,7 @@ class MessageFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get the locale for which the formatter was created.
-     * @link http://php.net/manual/en/messageformatter.getlocale.php
+     * @link https://php.net/manual/en/messageformatter.getlocale.php
      * @return string The locale name
      */
     public function getLocale() { }
@@ -1612,7 +1612,7 @@ class MessageFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get the error code from last operation
-     * @link http://php.net/manual/en/messageformatter.geterrorcode.php
+     * @link https://php.net/manual/en/messageformatter.geterrorcode.php
      * @return int The error code, one of UErrorCode values. Initial value is U_ZERO_ERROR.
      */
     public function getErrorCode() { }
@@ -1620,7 +1620,7 @@ class MessageFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get the error text from the last operation
-     * @link http://php.net/manual/en/messageformatter.geterrormessage.php
+     * @link https://php.net/manual/en/messageformatter.geterrormessage.php
      * @return string Description of the last error.
      */
     public function getErrorMessage() { }
@@ -1630,43 +1630,43 @@ class IntlDateFormatter {
 
     /**
      * Completely specified style (Tuesday, April 12, 1952 AD or 3:30:42pm PST)
-     * @link http://php.net/manual/en/intl.intldateformatter-constants.php
+     * @link https://php.net/manual/en/class.intldateformatter.php#intl.intldateformatter-constants
      */
     const FULL = 0;
 
     /**
      * Long style (January 12, 1952 or 3:30:32pm)
-     * @link http://php.net/manual/en/intl.intldateformatter-constants.php
+     * @link https://php.net/manual/en/class.intldateformatter.php#intl.intldateformatter-constants
      */
     const LONG = 1;
 
     /**
      * Medium style (Jan 12, 1952)
-     * @link http://php.net/manual/en/intl.intldateformatter-constants.php
+     * @link https://php.net/manual/en/class.intldateformatter.php#intl.intldateformatter-constants
      */
     const MEDIUM = 2;
 
     /**
      * Most abbreviated style, only essential data (12/13/52 or 3:30pm)
-     * @link http://php.net/manual/en/intl.intldateformatter-constants.php
+     * @link https://php.net/manual/en/class.intldateformatter.php#intl.intldateformatter-constants
      */
     const SHORT = 3;
 
     /**
      * Do not include this element
-     * @link http://php.net/manual/en/intl.intldateformatter-constants.php
+     * @link https://php.net/manual/en/class.intldateformatter.php#intl.intldateformatter-constants
      */
     const NONE = -1;
 
     /**
      * Gregorian Calendar
-     * @link http://php.net/manual/en/intl.intldateformatter-constants.php
+     * @link https://php.net/manual/en/class.intldateformatter.php#intl.intldateformatter-constants
      */
     const GREGORIAN = 1;
 
     /**
      * Non-Gregorian Calendar
-     * @link http://php.net/manual/en/intl.intldateformatter-constants.php
+     * @link https://php.net/manual/en/class.intldateformatter.php#intl.intldateformatter-constants
      */
     const TRADITIONAL = 0;
 
@@ -1684,7 +1684,7 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Create a date formatter
-     * @link http://php.net/manual/en/intldateformatter.create.php
+     * @link https://php.net/manual/en/intldateformatter.create.php
      * @param string $locale <p>
      * Locale to use when formatting or parsing.
      * </p>
@@ -1721,7 +1721,7 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get the datetype used for the IntlDateFormatter
-     * @link http://php.net/manual/en/intldateformatter.getdatetype.php
+     * @link https://php.net/manual/en/intldateformatter.getdatetype.php
      * @return int The current date type value of the formatter.
      */
     public function getDateType() { }
@@ -1729,7 +1729,7 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get the timetype used for the IntlDateFormatter
-     * @link http://php.net/manual/en/intldateformatter.gettimetype.php
+     * @link https://php.net/manual/en/intldateformatter.gettimetype.php
      * @return int The current date type value of the formatter.
      */
     public function getTimeType() { }
@@ -1737,7 +1737,7 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get the calendar used for the IntlDateFormatter
-     * @link http://php.net/manual/en/intldateformatter.getcalendar.php
+     * @link https://php.net/manual/en/intldateformatter.getcalendar.php
      * @return int The calendar being used by the formatter.
      */
     public function getCalendar() { }
@@ -1745,7 +1745,7 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * sets the calendar used to the appropriate calendar, which must be
-     * @link http://php.net/manual/en/intldateformatter.setcalendar.php
+     * @link https://php.net/manual/en/intldateformatter.setcalendar.php
      * @param int $which <p>
      * The calendar to use.
      * Default is <b>IntlDateFormatter::GREGORIAN</b>.
@@ -1757,7 +1757,7 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get the timezone-id used for the IntlDateFormatter
-     * @link http://php.net/manual/en/intldateformatter.gettimezoneid.php
+     * @link https://php.net/manual/en/intldateformatter.gettimezoneid.php
      * @return string ID string for the time zone used by this formatter.
      */
     public function getTimeZoneId() { }
@@ -1765,7 +1765,7 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
      * Get copy of formatter's calendar object
-     * @link http://www.php.net/manual/en/intldateformatter.getcalendarobject.php
+     * @link https://secure.php.net/manual/en/intldateformatter.getcalendarobject.php
      * @return IntlCalendar A copy of the internal calendar object used by this formatter.
      */
     public function getCalendarObject() { }
@@ -1773,7 +1773,7 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
      *  Get formatter's timezone
-     * @link http://www.php.net/manual/en/intldateformatter.gettimezone.php
+     * @link https://secure.php.net/manual/en/intldateformatter.gettimezone.php
      * @return IntlTimeZone|bool The associated IntlTimeZone object or FALSE on failure.
      */
     public function getTimeZone() { }
@@ -1781,20 +1781,20 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Sets the time zone to use
-     * @link http://php.net/manual/en/intldateformatter.settimezoneid.php
+     * @link https://php.net/manual/en/intldateformatter.settimezoneid.php
      * @param string $zone <p>
      * The time zone ID string of the time zone to use.
      * If <b>NULL</b> or the empty string, the default time zone for the runtime is used.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * @deprecated 5.5 http://www.php.net/manual/en/migration55.deprecated.php
+     * @deprecated 5.5 https://secure.php.net/manual/en/migration55.deprecated.php
      */
     public function setTimeZoneId($zone) { }
 
     /**
      * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
      * Sets formatter's timezone
-     * @link http://php.net/manual/en/intldateformatter.settimezone.php
+     * @link https://php.net/manual/en/intldateformatter.settimezone.php
      * @param mixed $zone <p>
      * The timezone to use for this formatter. This can be specified in the
      * following forms:
@@ -1802,26 +1802,26 @@ class IntlDateFormatter {
      * <li>
      * <p>
      * <b>NULL</b>, in which case the default timezone will be used, as specified in
-     * the ini setting {@link "http://php.net/manual/en/datetime.configuration.php#ini.date.timezone" date.timezone} or
-     * through the function  {@link "http://php.net/manual/en/function.date-default-timezone-set.php" date_default_timezone_set()} and as
-     * returned by {@link "http://php.net/manual/en/function.date-default-timezone-get.php" date_default_timezone_get()}.
+     * the ini setting {@link "https://secure.php.net/manual/en/datetime.configuration.php#ini.date.timezone" date.timezone} or
+     * through the function  {@link "https://secure.php.net/manual/en/function.date-default-timezone-set.php" date_default_timezone_set()} and as
+     * returned by {@link "https://secure.php.net/manual/en/function.date-default-timezone-get.php" date_default_timezone_get()}.
      * </p>
      * </li>
      * <li>
      * <p>
-     * An {@link "http://php.net/manual/en/class.intltimezone.php" IntlTimeZone}, which will be used directly.
+     * An {@link "https://secure.php.net/manual/en/class.intltimezone.php" IntlTimeZone}, which will be used directly.
      * </p>
      * </li>
      * <li>
      * <p>
-     * A {@link "http://php.net/manual/en/class.datetimezone.php" DateTimeZone}. Its identifier will be extracted
+     * A {@link "https://secure.php.net/manual/en/class.datetimezone.php" DateTimeZone}. Its identifier will be extracted
      * and an ICU timezone object will be created; the timezone will be backed
      * by ICU's database, not PHP's.
      * </p>
      * </li>
      *<li>
      * <p>
-     * A {@link "http://php.net/manual/en/language.types.string.php" string}, which should be a valid ICU timezone identifier.
+     * A {@link "https://secure.php.net/manual/en/language.types.string.php" string}, which should be a valid ICU timezone identifier.
      * See <b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw offsets such as <em>"GMT+08:30"</em> are also accepted.
      * </p>
      * </li>
@@ -1834,7 +1834,7 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Set the pattern used for the IntlDateFormatter
-     * @link http://php.net/manual/en/intldateformatter.setpattern.php
+     * @link https://php.net/manual/en/intldateformatter.setpattern.php
      * @param string $pattern <p>
      * New pattern string to use.
      * Possible patterns are documented at http://userguide.icu-project.org/formatparse/datetime.
@@ -1847,7 +1847,7 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get the pattern used for the IntlDateFormatter
-     * @link http://php.net/manual/en/intldateformatter.getpattern.php
+     * @link https://php.net/manual/en/intldateformatter.getpattern.php
      * @return string The pattern string being used to format/parse.
      */
     public function getPattern() { }
@@ -1855,7 +1855,7 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get the locale used by formatter
-     * @link http://php.net/manual/en/intldateformatter.getlocale.php
+     * @link https://php.net/manual/en/intldateformatter.getlocale.php
      * @param int $which [optional]
      * @return string the locale of this formatter or 'false' if error
      */
@@ -1864,7 +1864,7 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Set the leniency of the parser
-     * @link http://php.net/manual/en/intldateformatter.setlenient.php
+     * @link https://php.net/manual/en/intldateformatter.setlenient.php
      * @param bool $lenient <p>
      * Sets whether the parser is lenient or not, default is <b>TRUE</b> (lenient).
      * </p>
@@ -1875,7 +1875,7 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get the lenient used for the IntlDateFormatter
-     * @link http://php.net/manual/en/intldateformatter.islenient.php
+     * @link https://php.net/manual/en/intldateformatter.islenient.php
      * @return bool <b>TRUE</b> if parser is lenient, <b>FALSE</b> if parser is strict. By default the parser is lenient.
      */
     public function isLenient() { }
@@ -1883,7 +1883,7 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Format the date/time value as a string
-     * @link http://php.net/manual/en/intldateformatter.format.php
+     * @link https://php.net/manual/en/intldateformatter.format.php
      * @param mixed $value <p>
      * Value to format. This may be a <b>DateTime</b> object,
      * an integer representing a Unix timestamp value (seconds
@@ -1897,12 +1897,12 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
      * Formats an object
-     * @link http://www.php.net/manual/en/intldateformatter.formatobject.php
+     * @link https://secure.php.net/manual/en/intldateformatter.formatobject.php
      * @param object $object <p>
-     * An object of type {@link "http://www.php.net/manual/en/class.intlcalendar.php" IntlCalendar} or {@link "http://www.php.net/manual/en/class.datetime.php" DateTime}. The timezone information in the object will be used.
+     * An object of type {@link "https://secure.php.net/manual/en/class.intlcalendar.php" IntlCalendar} or {@link "https://secure.php.net/manual/en/class.datetime.php" DateTime}. The timezone information in the object will be used.
      * </p>
      * @param mixed $format [optional] <p>
-     * How to format the date/time. This can either be an {@link "http://www.php.net/manual/en/language.types.array.php" array} with
+     * How to format the date/time. This can either be an {@link "https://secure.php.net/manual/en/language.types.array.php" array} with
      * two elements (first the date style, then the time style, these being one
      * of the constants <b>IntlDateFormatter::NONE</b>,
      * <b>IntlDateFormatter::SHORT</b>,
@@ -1910,12 +1910,12 @@ class IntlDateFormatter {
      * <b>IntlDateFormatter::LONG</b>,
      * <b>IntlDateFormatter::FULL</b>), a long with
      * the value of one of these constants (in which case it will be used both
-     * for the time and the date) or a {@link "http://www.php.net/manual/en/language.types.string.php" string} with the format
+     * for the time and the date) or a {@link "https://secure.php.net/manual/en/language.types.string.php" string} with the format
      * described in {@link "http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details" the ICU documentation}.
      * If <br>NULL</br>, the default style will be used.
      * </p>
      * @param string $locale [optional] <p>
-     * The locale to use, or <b>NULL</b> to use the {@link "http://www.php.net/manual/en/intl.configuration.php#ini.intl.default-locale"default one}.</p>
+     * The locale to use, or <b>NULL</b> to use the {@link "https://secure.php.net/manual/en/intl.configuration.php#ini.intl.default-locale"default one}.</p>
      * @return string A string with result or <b>FALSE</b> on failure.
      */
     public static function formatObject($object, $format = NULL, $locale = NULL) { }
@@ -1923,7 +1923,7 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Parse string to a timestamp value
-     * @link http://php.net/manual/en/intldateformatter.parse.php
+     * @link https://php.net/manual/en/intldateformatter.parse.php
      * @param string $value <p>
      * string to convert to a time
      * </p>
@@ -1941,7 +1941,7 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Parse string to a field-based time value
-     * @link http://php.net/manual/en/intldateformatter.localtime.php
+     * @link https://php.net/manual/en/intldateformatter.localtime.php
      * @param string $value <p>
      * string to convert to a time
      * </p>
@@ -1958,7 +1958,7 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get the error code from last operation
-     * @link http://php.net/manual/en/intldateformatter.geterrorcode.php
+     * @link https://php.net/manual/en/intldateformatter.geterrorcode.php
      * @return int The error code, one of UErrorCode values. Initial value is U_ZERO_ERROR.
      */
     public function getErrorCode() { }
@@ -1966,7 +1966,7 @@ class IntlDateFormatter {
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get the error text from the last operation.
-     * @link http://php.net/manual/en/intldateformatter.geterrormessage.php
+     * @link https://php.net/manual/en/intldateformatter.geterrormessage.php
      * @return string Description of the last error.
      */
     public function getErrorMessage() { }
@@ -1984,7 +1984,7 @@ class ResourceBundle implements Traversable {
     /**
      * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
      * Create a resource bundle
-     * @link http://php.net/manual/en/resourcebundle.create.php
+     * @link https://php.net/manual/en/resourcebundle.create.php
      * @param string $locale <p>
      * Locale for which the resources should be loaded (locale name, e.g. en_CA).
      * </p>
@@ -2001,7 +2001,7 @@ class ResourceBundle implements Traversable {
     /**
      * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
      * Get data from the bundle
-     * @link http://php.net/manual/en/resourcebundle.get.php
+     * @link https://php.net/manual/en/resourcebundle.get.php
      * @param string|int $index <p>
      * Data index, must be string or integer.
      * </p>
@@ -2014,7 +2014,7 @@ class ResourceBundle implements Traversable {
     /**
      * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
      * Get number of elements in the bundle
-     * @link http://php.net/manual/en/resourcebundle.count.php
+     * @link https://php.net/manual/en/resourcebundle.count.php
      * @return int number of elements in the bundle.
      */
     public function count() { }
@@ -2022,7 +2022,7 @@ class ResourceBundle implements Traversable {
     /**
      * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
      * Get supported locales
-     * @link http://php.net/manual/en/resourcebundle.locales.php
+     * @link https://php.net/manual/en/resourcebundle.locales.php
      * @param string $bundlename <p>
      * Path of ResourceBundle for which to get available locales, or
      * empty string for default locales list.
@@ -2034,7 +2034,7 @@ class ResourceBundle implements Traversable {
     /**
      * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
      * Get bundle's last error code.
-     * @link http://php.net/manual/en/resourcebundle.geterrorcode.php
+     * @link https://php.net/manual/en/resourcebundle.geterrorcode.php
      * @return int error code from last bundle object call.
      */
     public function getErrorCode() { }
@@ -2042,7 +2042,7 @@ class ResourceBundle implements Traversable {
     /**
      * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
      * Get bundle's last error message.
-     * @link http://php.net/manual/en/resourcebundle.geterrormessage.php
+     * @link https://php.net/manual/en/resourcebundle.geterrormessage.php
      * @return string error message from last bundle object's call.
      */
     public function getErrorMessage() { }
@@ -2058,14 +2058,14 @@ class Transliterator {
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Private constructor to deny instantiation
-     * @link http://php.net/manual/en/transliterator.construct.php
+     * @link https://php.net/manual/en/transliterator.construct.php
      */
     final private function __construct() { }
 
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Create a transliterator
-     * @link http://php.net/manual/en/transliterator.create.php
+     * @link https://php.net/manual/en/transliterator.create.php
      * @param string $id <p>
      * The id.
      * </p>
@@ -2083,7 +2083,7 @@ class Transliterator {
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Create transliterator from rules
-     * @link http://php.net/manual/en/transliterator.createfromrules.php
+     * @link https://php.net/manual/en/transliterator.createfromrules.php
      * @param string $rules <p>
      * The rules.
      * </p>
@@ -2101,7 +2101,7 @@ class Transliterator {
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Create an inverse transliterator
-     * @link http://php.net/manual/en/transliterator.createinverse.php
+     * @link https://php.net/manual/en/transliterator.createinverse.php
      * @return Transliterator a <b>Transliterator</b> object on success,
      * or <b>NULL</b> on failure
      */
@@ -2110,7 +2110,7 @@ class Transliterator {
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Get transliterator IDs
-     * @link http://php.net/manual/en/transliterator.listids.php
+     * @link https://php.net/manual/en/transliterator.listids.php
      * @return array An array of registered transliterator IDs on success,
      * or <b>FALSE</b> on failure.
      */
@@ -2119,7 +2119,7 @@ class Transliterator {
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Transliterate a string
-     * @link http://php.net/manual/en/transliterator.transliterate.php
+     * @link https://php.net/manual/en/transliterator.transliterate.php
      * @param string $subject <p>
      * The string to be transformed.
      * </p>
@@ -2140,7 +2140,7 @@ class Transliterator {
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Get last error code
-     * @link http://php.net/manual/en/transliterator.geterrorcode.php
+     * @link https://php.net/manual/en/transliterator.geterrorcode.php
      * @return int The error code on success,
      * or <b>FALSE</b> if none exists, or on failure.
      */
@@ -2149,7 +2149,7 @@ class Transliterator {
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Get last error message
-     * @link http://php.net/manual/en/transliterator.geterrormessage.php
+     * @link https://php.net/manual/en/transliterator.geterrormessage.php
      * @return string The error code on success,
      * or <b>FALSE</b> if none exists, or on failure.
      */
@@ -2157,7 +2157,7 @@ class Transliterator {
 }
 
 /**
- * @link http://php.net/manual/en/class.spoofchecker.php
+ * @link https://php.net/manual/en/class.spoofchecker.php
  */
 class Spoofchecker {
     const SINGLE_SCRIPT_CONFUSABLE = 1;
@@ -2172,14 +2172,14 @@ class Spoofchecker {
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Constructor
-     * @link http://php.net/manual/en/spoofchecker.construct.php
+     * @link https://php.net/manual/en/spoofchecker.construct.php
      */
     public function __construct() { }
 
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Checks if a given text contains any suspicious characters
-     * @link http://php.net/manual/en/spoofchecker.issuspicious.php
+     * @link https://php.net/manual/en/spoofchecker.issuspicious.php
      * @param string $text <p>
      * </p>
      * @param string $error [optional] <p>
@@ -2191,7 +2191,7 @@ class Spoofchecker {
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Checks if a given text contains any confusable characters
-     * @link http://php.net/manual/en/spoofchecker.areconfusable.php
+     * @link https://php.net/manual/en/spoofchecker.areconfusable.php
      * @param string $s1 <p>
      * </p>
      * @param string $s2 <p>
@@ -2205,7 +2205,7 @@ class Spoofchecker {
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Locales to use when running checks
-     * @link http://php.net/manual/en/spoofchecker.setallowedlocales.php
+     * @link https://php.net/manual/en/spoofchecker.setallowedlocales.php
      * @param string $locale_list <p>
      * </p>
      * @return void
@@ -2215,7 +2215,7 @@ class Spoofchecker {
     /**
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Set the checks to run
-     * @link http://php.net/manual/en/spoofchecker.setchecks.php
+     * @link https://php.net/manual/en/spoofchecker.setchecks.php
      * @param string $checks <p>
      * </p>
      * @return void
@@ -2297,9 +2297,9 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Add a (signed) amount of time to a field
-     * @link http://www.php.net/manual/en/intlcalendar.add.php
+     * @link https://secure.php.net/manual/en/intlcalendar.add.php
      * @param int $field <p>
-     * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
      * These are integer values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
@@ -2312,26 +2312,26 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Whether this object's time is after that of the passed object
-     * http://www.php.net/manual/en/intlcalendar.after.php
+     * https://secure.php.net/manual/en/intlcalendar.after.php
      * @param IntlCalendar $calendar <p>The calendar whose time will be checked against this object's time.</p>
      * @return bool
      * Returns <b>TRUE</b> if this object's current time is after that of the
      * <em>calendar</em> argument's time. Returns <b>FALSE</b> otherwise.
-     * Also returns <b>FALSE</b> on failure. You can use {@link http://www.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or
-     * {@link http://www.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to detect error conditions.
+     * Also returns <b>FALSE</b> on failure. You can use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or
+     * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to detect error conditions.
      */
     public function after(IntlCalendar $calendar) { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Whether this object's time is before that of the passed object
-     * @link http://www.php.net/manual/en/intlcalendar.before.php
+     * @link https://secure.php.net/manual/en/intlcalendar.before.php
      * @param IntlCalendar $calendar <p> The calendar whose time will be checked against this object's time.</p>
      * @return bool
      * Returns <b>TRUE</B> if this object's current time is before that of the
      * <em>calendar</em> argument's time. Returns <b>FALSE</b> otherwise.
-     * Also returns <b>FALSE</b> on failure. You can use {@link http://www.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or
-     * {@link http://www.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to detect error conditions.
+     * Also returns <b>FALSE</b> on failure. You can use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or
+     * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to detect error conditions.
      * </p>
      */
     public function before(IntlCalendar $calendar) { }
@@ -2339,9 +2339,9 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Clear a field or all fields
-     * @link http://www.php.net/manual/en/intlcalendar.clear.php
+     * @link https://secure.php.net/manual/en/intlcalendar.clear.php
      * @param int $field [optional] <p>
-     * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
@@ -2352,7 +2352,7 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Private constructor for disallowing instantiation
-     * @link http://www.php.net/manual/en/intlcalendar.construct.php
+     * @link https://secure.php.net/manual/en/intlcalendar.construct.php
      *
      */
     private function __construct() { }
@@ -2361,7 +2361,7 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Create a new IntlCalendar
-     * @link http://www.php.net/manual/en/intlcalendar.createinstance.php
+     * @link https://secure.php.net/manual/en/intlcalendar.createinstance.php
      * @param mixed $timeZone [optional] <p> <p>
      * The timezone to use.
      * </p>
@@ -2370,26 +2370,26 @@ class IntlCalendar {
      * <li>
      * <p>
      * <b>NULL</b>, in which case the default timezone will be used, as specified in
-     * the ini setting {@link http://www.php.net/manual/en/datetime.configuration.php#ini.date.timezone date.timezone} or
-     * through the function  {@link http://www.php.net/manual/en/function.date-default-timezone-set.php date_default_timezone_set()} and as
-     * returned by {@link http://www.php.net/manual/en/function.date-default-timezone-get.php date_default_timezone_get()}.
+     * the ini setting {@link https://secure.php.net/manual/en/datetime.configuration.php#ini.date.timezone date.timezone} or
+     * through the function  {@link https://secure.php.net/manual/en/function.date-default-timezone-set.php date_default_timezone_set()} and as
+     * returned by {@link https://secure.php.net/manual/en/function.date-default-timezone-get.php date_default_timezone_get()}.
      * </p>
      * </li>
      * <li>
      * <p>
-     * An {@link http://www.php.net/manual/en/class.intltimezone.php IntlTimeZone}, which will be used directly.
+     * An {@link https://secure.php.net/manual/en/class.intltimezone.php IntlTimeZone}, which will be used directly.
      * </p>
      * </li>
      * <li>
      * <p>
-     * A {@link http://www.php.net/manual/en/class.datetimezone.php DateTimeZone}. Its identifier will be extracted
+     * A {@link https://secure.php.net/manual/en/class.datetimezone.php DateTimeZone}. Its identifier will be extracted
      * and an ICU timezone object will be created; the timezone will be backed
      * by ICU's database, not PHP's.
      * </p>
      * </li>
      * <li>
      * <p>
-     * A {@link http://www.php.net/manual/en/language.types.string.php string}, which should be a valid ICU timezone identifier.
+     * A {@link https://secure.php.net/manual/en/language.types.string.php string}, which should be a valid ICU timezone identifier.
      * See  <b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw
      * offsets such as <em>"GMT+08:30"</em> are also accepted.
      * </p>
@@ -2397,10 +2397,10 @@ class IntlCalendar {
      * </ul>
      * </p>
      * @param string $locale [optional] <p>
-     * A locale to use or <b>NULL</b> to use {@link http://www.php.net/manual/en/intl.configuration.php#ini.intl.default-locale the default locale}.
+     * A locale to use or <b>NULL</b> to use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.default-locale the default locale}.
      * </p>
      * @return IntlCalendar
-     * The created {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} instance or <b>NULL</b> on
+     * The created {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} instance or <b>NULL</b> on
      * failure.
      */
     public static function createInstance($timeZone = NULL, $locale = NULL) { }
@@ -2408,14 +2408,14 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Compare time of two IntlCalendar objects for equality
-     * @link http://www.php.net/manual/en/intlcalendar.equals.php
+     * @link https://secure.php.net/manual/en/intlcalendar.equals.php
      * @param IntlCalendar $calendar
      * @return bool <p>
      * Returns <b>TRUE</b> if the current time of both this and the passed in
-     * {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} object are the same, or <b>FALSE</b>
+     * {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} object are the same, or <b>FALSE</b>
      * otherwise. The value <b>FALSE</b> can also be returned on failure. This can only
      * happen if bad arguments are passed in. In any case, the two cases can be
-     * distinguished by calling  {@link http://www.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()}.
+     * distinguished by calling  {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()}.
      * </p>
      */
     public function equals($calendar) { }
@@ -2423,7 +2423,7 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Calculate difference between given time and this object's time
-     * @link http://www.php.net/manual/en/intlcalendar.fielddifference.php
+     * @link https://secure.php.net/manual/en/intlcalendar.fielddifference.php
      * @param float $when <p>
      * The time against which to compare the quantity represented by the
      * <em>field</em>. For the result to be positive, the time
@@ -2435,7 +2435,7 @@ class IntlCalendar {
      * </p>
      *
      * <p>
-     * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
@@ -2448,24 +2448,24 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a2)<br/>
      * Create an IntlCalendar from a DateTime object or string
-     * @link http://www.php.net/manual/en/intlcalendar.fromdatetime.php
+     * @link https://secure.php.net/manual/en/intlcalendar.fromdatetime.php
      * @param mixed $dateTime <p>
-     * A {@link http://www.php.net/manual/en/class.datetime.php DateTime} object or a {@link http://www.php.net/manual/en/language.types.string.php string} that
-     * can be passed to  {@link http://www.php.net/manual/en/datetime.construct.php DateTime::__construct()}.
+     * A {@link https://secure.php.net/manual/en/class.datetime.php DateTime} object or a {@link https://secure.php.net/manual/en/language.types.string.php string} that
+     * can be passed to  {@link https://secure.php.net/manual/en/datetime.construct.php DateTime::__construct()}.
      * </p>
      * @return IntlCalendar
-     * The created {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} object or <b>NULL</b> in case of
-     * failure. If a {@link http://www.php.net/manual/en/language.types.string.php string} is passed, any exception that occurs
-     * inside the {@link http://www.php.net/manual/en/class.datetime.php DateTime} constructor is propagated.
+     * The created {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} object or <b>NULL</b> in case of
+     * failure. If a {@link https://secure.php.net/manual/en/language.types.string.php string} is passed, any exception that occurs
+     * inside the {@link https://secure.php.net/manual/en/class.datetime.php DateTime} constructor is propagated.
      */
     public static function fromDateTime($dateTime) { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get the value for a field
-     * @link http://www.php.net/manual/en/intlcalendar.get.php
+     * @link https://secure.php.net/manual/en/intlcalendar.get.php
      * @param int $field <p>
-     * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
@@ -2476,14 +2476,14 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * The maximum value for a field, considering the object's current time
-     * @link http://www.php.net/manual/en/intlcalendar.getactualmaximum.php
+     * @link https://secure.php.net/manual/en/intlcalendar.getactualmaximum.php
      * @param int $field <p>
-     * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
      * @return int
-     * An {@link http://www.php.net/manual/en/language.types.integer.php int} representing the maximum value in the units associated
+     * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing the maximum value in the units associated
      * with the given <em>field</em> or <b>FALSE</b> on failure.
      */
     public function getActualMaximum($field) { }
@@ -2491,14 +2491,14 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * The minimum value for a field, considering the object's current time
-     * @link http://www.php.net/manual/en/intlcalendar.getactualminimum.php
+     * @link https://secure.php.net/manual/en/intlcalendar.getactualminimum.php
      * @param int $field <p>
-     * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
      * These are integer values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
      * @return int
-     * An {@link http://www.php.net/manual/en/language.types.integer.php int} representing the minimum value in the field's
+     * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing the minimum value in the field's
      * unit or <b>FALSE</b> on failure.
      */
     public function getActualMinimum($field) { }
@@ -2506,7 +2506,7 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get array of locales for which there is data
-     * @link http://www.php.net/manual/en/intlcalendar.getavailablelocales.php
+     * @link https://secure.php.net/manual/en/intlcalendar.getavailablelocales.php
      * @return array An array of strings, one for which locale.
      */
 
@@ -2533,7 +2533,7 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get last error code on the object
-     * @link http://www.php.net/manual/en/intlcalendar.geterrorcode.php
+     * @link https://secure.php.net/manual/en/intlcalendar.geterrorcode.php
      * @return int An ICU error code indicating either success, failure or a warning.
      *
      */
@@ -2542,7 +2542,7 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get last error message on the object
-     * @link http://www.php.net/manual/en/intlcalendar.geterrormessage.php
+     * @link https://secure.php.net/manual/en/intlcalendar.geterrormessage.php
      * @return string The error message associated with last error that occurred in a function call on this object, or a string indicating the non-existance of an error.
      */
     public function getErrorMessage() { }
@@ -2550,7 +2550,7 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get the first day of the week for the calendar's locale
-     * @link http://www.php.net/manual/en/intlcalendar.getfirstdayofweek.php
+     * @link https://secure.php.net/manual/en/intlcalendar.getfirstdayofweek.php
      * @return int
      * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
      * <b>IntlCalendar::DOW_MONDAY</b>, ...,
@@ -2562,13 +2562,13 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get the largest local minimum value for a field
-     * @link http://www.php.net/manual/en/intlcalendar.getgreatestminimum.php
+     * @link https://secure.php.net/manual/en/intlcalendar.getgreatestminimum.php
      * @param int $field <p>
-     * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * @return int
-     * An {@link http://www.php.net/manual/en/language.types.integer.php int} representing a field value, in the field's
+     * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing a field value, in the field's
      * unit, or <b>FALSE</b> on failure.
      */
     public function getGreatestMinimum($field) { }
@@ -2594,14 +2594,14 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get the smallest local maximum for a field
-     * @link http://www.php.net/manual/en/intlcalendar.getleastmaximum.php
+     * @link https://secure.php.net/manual/en/intlcalendar.getleastmaximum.php
      * @param int $field <p>
-     * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
      * @return int
-     * An {@link http://www.php.net/manual/en/language.types.integer.ph int} representing a field value in the field's
+     * An {@link https://secure.php.net/manual/en/language.types.integer.ph int} representing a field value in the field's
      * unit or <b>FALSE</b> on failure.
      * </p>
      */
@@ -2610,7 +2610,7 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get the locale associated with the object
-     * @link http://www.php.net/manual/en/intlcalendar.getlocale.php
+     * @link https://secure.php.net/manual/en/intlcalendar.getlocale.php
      * @param int $localeType <p>
      * Whether to fetch the actual locale (the locale from which the calendar
      * data originates, with <b>Locale::ACTUAL_LOCALE</b>) or the
@@ -2628,9 +2628,9 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get the global maximum value for a field
-     * @link http://www.php.net/manual/en/intlcalendar.getmaximum.php
+     * @link https://secure.php.net/manual/en/intlcalendar.getmaximum.php
      * @param int $field <p>
-     * One of the {@link www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
@@ -2642,18 +2642,18 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get minimal number of days the first week in a year or month can have
-     * @link http://www.php.net/manual/en/intlcalendar.getminimaldaysinfirstweek.php
+     * @link https://secure.php.net/manual/en/intlcalendar.getminimaldaysinfirstweek.php
      * @return int
-     * An {@link http://www.php.net/manual/en/language.types.integer.php  int} representing a number of days or <b>FALSE</b> on failure.
+     * An {@link https://secure.php.net/manual/en/language.types.integer.php  int} representing a number of days or <b>FALSE</b> on failure.
      */
     public function getMinimalDaysInFirstWeek() { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get the global minimum value for a field
-     * @link http://www.php.net/manual/en/intlcalendar.getminimum.php
+     * @link https://secure.php.net/manual/en/intlcalendar.getminimum.php
      * @param int $field <p>
-     * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field}. These are integer
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field}. These are integer
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
@@ -2672,7 +2672,7 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get behavior for handling repeating wall time
-     * @link http://www.php.net/manual/en/intlcalendar.getrepeatedwalltimeoption.php
+     * @link https://secure.php.net/manual/en/intlcalendar.getrepeatedwalltimeoption.php
      * @return int
      * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b> or
      * <b>IntlCalendar::WALLTIME_LAST</b>.
@@ -2683,7 +2683,7 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get behavior for handling skipped wall time
-     * @link http://www.php.net/manual/en/intlcalendar.getskippedwalltimeoption.php
+     * @link https://secure.php.net/manual/en/intlcalendar.getskippedwalltimeoption.php
      * @return int
      * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b>,
      * <b>IntlCalendar::WALLTIME_LAST</b> or
@@ -2695,7 +2695,7 @@ class IntlCalendar {
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get time currently represented by the object
      * @return float
-     * A {@link http://www.php.net/manual/en/language.types.float.php float} representing the number of milliseconds elapsed since the
+     * A {@link https://secure.php.net/manual/en/language.types.float.php float} representing the number of milliseconds elapsed since the
      * reference time (1 Jan 1970 00:00:00 UTC).
      */
     public function getTime() { }
@@ -2703,9 +2703,9 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get the object's timezone
-     * @link http://www.php.net/manual/en/intlcalendar.gettimezone.php
+     * @link https://secure.php.net/manual/en/intlcalendar.gettimezone.php
      * @return IntlTimeZone
-     * An {@link http://www.php.net/manual/en/class.intltimezone.php IntlTimeZone} object corresponding to the one used
+     * An {@link https://secure.php.net/manual/en/class.intltimezone.php IntlTimeZone} object corresponding to the one used
      * internally in this object.
      */
     public function getTimeZone() { }
@@ -2713,9 +2713,9 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get the calendar type
-     * @link http://www.php.net/manual/en/intlcalendar.gettype.php
+     * @link https://secure.php.net/manual/en/intlcalendar.gettype.php
      * @return string
-     * A {@link http://www.php.net/manual/en/language.types.string.php string} representing the calendar type, such as
+     * A {@link https://secure.php.net/manual/en/language.types.string.php string} representing the calendar type, such as
      * <em>'gregorian'</em>, <em>'islamic'</em>, etc.
      */
     public function getType() { }
@@ -2723,7 +2723,7 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get time of the day at which weekend begins or ends
-     * @link http://www.php.net/manual/en/intlcalendar.getweekendtransition.php
+     * @link https://secure.php.net/manual/en/intlcalendar.getweekendtransition.php
      * @param string $dayOfWeek <p>
      * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
      * <b>IntlCalendar::DOW_MONDAY</b>, ...,
@@ -2738,19 +2738,19 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Whether the object's time is in Daylight Savings Time
-     * @link http://www.php.net/manual/en/intlcalendar.indaylighttime.php
+     * @link https://secure.php.net/manual/en/intlcalendar.indaylighttime.php
      * @return bool
      * Returns <b>TRUE</b> if the date is in Daylight Savings Time, <b>FALSE</b> otherwise.
      * The value <b>FALSE</b> may also be returned on failure, for instance after
-     * specifying invalid field values on non-lenient mode; use {@link http://www.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or query
-     * {@link http://www.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.
+     * specifying invalid field values on non-lenient mode; use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or query
+     * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.
      */
     public function inDaylightTime() { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Whether another calendar is equal but for a different time
-     * @link http://www.php.net/manual/en/intlcalendar.isequivalentto.php
+     * @link https://secure.php.net/manual/en/intlcalendar.isequivalentto.php
      * @param IntlCalendar $calendar The other calendar against which the comparison is to be made.
      * @return bool
      * Assuming there are no argument errors, returns <b>TRUE</b> iif the calendars are equivalent except possibly for their set time.
@@ -2760,39 +2760,39 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Whether date/time interpretation is in lenient mode
-     * @link http://www.php.net/manual/en/intlcalendar.islenient.php
+     * @link https://secure.php.net/manual/en/intlcalendar.islenient.php
      * @return bool
-     * A {@link http://www.php.net/manual/en/language.types.boolean.php bool} representing whether the calendar is set to lenient mode.
+     * A {@link https://secure.php.net/manual/en/language.types.boolean.php bool} representing whether the calendar is set to lenient mode.
      */
     public function isLenient() { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Whether a certain date/time is in the weekend
-     * @link http://www.php.net/manual/en/intlcalendar.isweekend.php
+     * @link https://secure.php.net/manual/en/intlcalendar.isweekend.php
      * @param float $date [optional] <p>
      * An optional timestamp representing the number of milliseconds since the
      * epoch, excluding leap seconds. If <b>NULL</b>, this object's current time is
      * used instead.
      * </p>
      * @return bool
-     * <p> A {@link http://www.php.net/manual/en/language.types.boolean.php bool} indicating whether the given or this object's time occurs
+     * <p> A {@link https://secure.php.net/manual/en/language.types.boolean.php bool} indicating whether the given or this object's time occurs
      * in a weekend.
      * </p>
      * <p>
      * The value <b>FALSE</b> may also be returned on failure, for instance after giving
-     * a date out of bounds on non-lenient mode; use {@link http://www.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or query
-     * {@link http://www.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.</p>
+     * a date out of bounds on non-lenient mode; use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or query
+     * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.</p>
      */
     public function isWeekend($date = NULL) { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Add value to field without carrying into more significant fields
-     * @link http://www.php.net/manual/en/intlcalendar.roll.php
+     * @link https://secure.php.net/manual/en/intlcalendar.roll.php
      * @param int $field
-     * <p>One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time
-     * {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * <p>One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time
+     * {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
@@ -2809,10 +2809,10 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Whether a field is set
-     * @link http://www.php.net/manual/en/intlcalendar.isset.php
+     * @link https://secure.php.net/manual/en/intlcalendar.isset.php
      * @param int $field <p>
-     * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time
-     * {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time
+     * {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
      * These are integer values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
@@ -2823,9 +2823,9 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Set a time field or several common fields at once
-     * @link http://www.php.net/manual/en/intlcalendar.set.php
+     * @link https://secure.php.net/manual/en/intlcalendar.set.php
      * @param int $year <p>
-     * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+     * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
@@ -2856,7 +2856,7 @@ class IntlCalendar {
     /**
      * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
      * Set a time field or several common fields at once
-     * @link http://www.php.net/manual/en/intlcalendar.set.php
+     * @link https://secure.php.net/manual/en/intlcalendar.set.php
      * @param int $field One of the IntlCalendar date/time field constants. These are integer values between 0 and IntlCalendar::FIELD_COUNT.
      * @param int $value The new value of the given field.
      * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
@@ -2866,7 +2866,7 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Set the day on which the week is deemed to start
-     * @link http://www.php.net/manual/en/intlcalendar.setfirstdayofweek.php
+     * @link https://secure.php.net/manual/en/intlcalendar.setfirstdayofweek.php
      * @param int $dayOfWeek <p>
      * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
      * <b>IntlCalendar::DOW_MONDAY</b>, ...,
@@ -2879,7 +2879,7 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Set whether date/time interpretation is to be lenient
-     * @link http://www.php.net/manual/en/intlcalendar.setlenient.php
+     * @link https://secure.php.net/manual/en/intlcalendar.setlenient.php
      * @param string $isLenient <p>
      * Use <b>TRUE</b> to activate the lenient mode; <b>FALSE</b> otherwise.
      * </p>
@@ -2890,7 +2890,7 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Set behavior for handling repeating wall times at negative timezone offset transitions
-     * @link http://www.php.net/manual/en/intlcalendar.setrepeatedwalltimeoption.php
+     * @link https://secure.php.net/manual/en/intlcalendar.setrepeatedwalltimeoption.php
      * @param int $wallTimeOption <p>
      * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b> or
      * <b>IntlCalendar::WALLTIME_LAST</b>.
@@ -2904,7 +2904,7 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Set behavior for handling skipped wall times at positive timezone offset transitions
-     * @link http://www.php.net/manual/en/intlcalendar.setskippedwalltimeoption.php
+     * @link https://secure.php.net/manual/en/intlcalendar.setskippedwalltimeoption.php
      * @param int $wallTimeOption <p>
      * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b>,
      * <b>IntlCalendar::WALLTIME_LAST</b> or
@@ -2920,7 +2920,7 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Set the calendar time in milliseconds since the epoch
-     * @link http://www.php.net/manual/en/intlcalendar.settime.php
+     * @link https://secure.php.net/manual/en/intlcalendar.settime.php
      * @param float $date <p>
      * An instant represented by the number of number of milliseconds between
      * such instant and the epoch, ignoring leap seconds.
@@ -2933,7 +2933,7 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Set the timezone used by this calendar
-     * @link http://www.php.net/manual/en/intlcalendar.settimezone.php
+     * @link https://secure.php.net/manual/en/intlcalendar.settimezone.php
      * @param mixed $timeZone <p>
      * The new timezone to be used by this calendar. It can be specified in the
      * following ways:
@@ -2942,26 +2942,26 @@ class IntlCalendar {
      * <li>
      * <p>
      * <b>NULL</b>, in which case the default timezone will be used, as specified in
-     * the ini setting {@link http://www.php.net/manual/en/datetime.configuration.php#ini.date.timezone date.timezone} or
-     * through the function  {@link http://www.php.net/manual/en/function.date-default-timezone-set.php date_default_timezone_set()} and as
-     * returned by  {@link http://www.php.net/manual/en/function.date-default-timezone-get.php date_default_timezone_get()}.
+     * the ini setting {@link https://secure.php.net/manual/en/datetime.configuration.php#ini.date.timezone date.timezone} or
+     * through the function  {@link https://secure.php.net/manual/en/function.date-default-timezone-set.php date_default_timezone_set()} and as
+     * returned by  {@link https://secure.php.net/manual/en/function.date-default-timezone-get.php date_default_timezone_get()}.
      * </p>
      * </li>
      * <li>
      * <p>
-     * An {@link http://www.php.net/manual/en/class.intltimezone.php IntlTimeZone}, which will be used directly.
+     * An {@link https://secure.php.net/manual/en/class.intltimezone.php IntlTimeZone}, which will be used directly.
      * </p>
      * </li>
      * <li>
      * <p>
-     * A {@link http://www.php.net/manual/en/class.datetimezone.php DateTimeZone}. Its identifier will be extracted
+     * A {@link https://secure.php.net/manual/en/class.datetimezone.php DateTimeZone}. Its identifier will be extracted
      * and an ICU timezone object will be created; the timezone will be backed
      * by ICU's database, not PHP's.
      * </p>
      * </li>
      * <li>
      * <p>
-     * A {@link http://www.php.net/manual/en/language.types.string.php string}, which should be a valid ICU timezone identifier.
+     * A {@link https://secure.php.net/manual/en/language.types.string.php string}, which should be a valid ICU timezone identifier.
      * See  b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw
      * offsets such as <em>"GMT+08:30"</em> are also accepted.
      * </p>
@@ -2974,9 +2974,9 @@ class IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a2)<br/>
      * Convert an IntlCalendar into a DateTime object
-     * @link http://www.php.net/manual/en/intlcalendar.todatetime.php
+     * @link https://secure.php.net/manual/en/intlcalendar.todatetime.php
      * @return DateTime|bool
-     * A {@link http://www.php.net/manual/en/class.datetime.php DateTime} object with the same timezone as this
+     * A {@link https://secure.php.net/manual/en/class.datetime.php DateTime} object with the same timezone as this
      * object (though using PHP's database instead of ICU's) and the same time,
      * except for the smaller precision (second precision instead of millisecond).
      * Returns <b>FALSE</b> on failure.
@@ -2999,7 +2999,7 @@ class IntlIterator implements Iterator {
 }
 
 class IntlException extends Exception {
-    
+
 }
 
 class IntlTimeZone {
@@ -3012,51 +3012,65 @@ class IntlTimeZone {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get the number of IDs in the equivalency group that includes the given ID
-     * @link http://www.php.net/manual/en/intltimezone.countequivalentids.php
+     * @link https://secure.php.net/manual/en/intltimezone.countequivalentids.php
      * @param string $zoneId
-     * @return int
+     * @return int|false number of IDs or <b>FALSE</b> on failure
      */
     public static function countEquivalentIDs($zoneId) { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Create a new copy of the default timezone for this host
-     * @link http://www.php.net/manual/en/intltimezone.createdefault.php
+     * @link https://secure.php.net/manual/en/intltimezone.createdefault.php
      * @return IntlTimeZone
      */
     public static function createDefault() { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
-     * @link http://www.php.net/manual/en/intltimezone.createenumeration.php
+     * Get an enumeration over time zone IDs associated with the given country or offset
+     * @link https://secure.php.net/manual/en/intltimezone.createenumeration.php
      * @param mixed $countryOrRawOffset [optional]
-     * @return IntlIterator
+     * @return IntlIterator|false an iterator or <b>FALSE</b> on failure
      */
     public static function createEnumeration($countryOrRawOffset) { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
-     * @link http://www.php.net/manual/en/intltimezone.createtimezone.php
+     * Create a timezone object for the given ID
+     * @link https://secure.php.net/manual/en/intltimezone.createtimezone.php
      * @param string $zoneId
-     * @return IntlTimeZone
+     * @return IntlTimeZone|null a timezone object or <b>NULL</b> on failure
      */
     public static function createTimeZone($zoneId) { }
 
     /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get an enumeration over system time zone IDs with the given filter conditions
+     * @link https://secure.php.net/manual/en/intltimezone.createtimezoneidenumeration.php
+     * @param int $zoneType
+     * @param string|null $region [optional]
+     * @param int $rawOffset [optional]
+     * @return IntlIterator|false an iterator or <b>FALSE</b> on failure
+     */
+    public static function createTimeZoneIDEnumeration($zoneType, $region = null, $rawOffset = 0) { }
+
+    /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
-     * @link http://www.php.net/manual/en/intltimezone.fromdatetimezone.php
+     * Create a timezone object from DateTimeZone
+     * @link https://secure.php.net/manual/en/intltimezone.fromdatetimezone.php
      * @param DateTimeZone $zoneId
-     * @return IntlTimeZone
+     * @return IntlTimeZone|null a timezone object or <b>NULL</b> on failure
      */
     public static function  fromDateTimeZone($zoneId) { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get the canonical system timezone ID or the normalized custom time zone ID for the given time zone ID
-     * @link www.php.net/manual/en/intltimezone.getcanonicalid.php
+     * @link https://secure.php.net/manual/en/intltimezone.getcanonicalid.php
      * @param string $zoneId
      * @param bool $isSystemID [optional]
-     * @return string
+     * @return string|false the timezone ID or <b>FALSE</b> on failure
      */
     public static function getCanonicalID($zoneId, &$isSystemID) { }
 
@@ -3066,14 +3080,14 @@ class IntlTimeZone {
      * @param bool $isDaylight [optional]
      * @param int $style [optional]
      * @param string $locale [optional]
-     * @return string
+     * @return string|false the timezone name or <b>FALSE</b> on failure
      */
     public function getDisplayName($isDaylight, $style, $locale) { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get the amount of time to be added to local standard time to get local wall clock time
-     * @link http://www.php.net/manual/en/intltimezone.getequivalentid.php
+     * @link https://secure.php.net/manual/en/intltimezone.getequivalentid.php
      * @return int
      */
     public function  getDSTSavings() { }
@@ -3081,17 +3095,17 @@ class IntlTimeZone {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get an ID in the equivalency group that includes the given ID
-     * @link http://www.php.net/manual/en/intltimezone.getequivalentid.php
+     * @link https://secure.php.net/manual/en/intltimezone.getequivalentid.php
      * @param string $zoneId
      * @param int $index
-     * @return string
+     * @return string|false the time zone ID or <b>FALSE</b> on failure
      */
     public static function getEquivalentID($zoneId, $index) { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get last error code on the object
-     * @link http://www.php.net/manual/en/intltimezone.geterrorcode.php
+     * @link https://secure.php.net/manual/en/intltimezone.geterrorcode.php
      * @return int
      */
     public function getErrorCode() { }
@@ -3099,7 +3113,7 @@ class IntlTimeZone {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get last error message on the object
-     * @link http://www.php.net/manual/en/intltimezone.geterrormessage.php
+     * @link https://secure.php.net/manual/en/intltimezone.geterrormessage.php
      * @return string
      */
     public function getErrorMessage() { }
@@ -3107,7 +3121,7 @@ class IntlTimeZone {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Create GMT (UTC) timezone
-     * @link http://www.php.net/manual/en/intltimezone.getgmt.php
+     * @link https://secure.php.net/manual/en/intltimezone.getgmt.php
      * @return IntlTimeZone
      */
     public static function getGMT() { }
@@ -3122,34 +3136,72 @@ class IntlTimeZone {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get the time zone raw and GMT offset for the given moment in time
-     * @link http://www.php.net/manual/en/intltimezone.getoffset.php
+     * @link https://secure.php.net/manual/en/intltimezone.getoffset.php
      * @param float $date
+     *   moment in time for which to return offsets, in units of milliseconds from
+     *   January 1, 1970 0:00 GMT, either GMT time or local wall time, depending on
+     *   `local'.
      * @param bool $local
-     * @param int $rawOffset
-     * @param int $dstOffset
-     * @return int
+     *   if true, `date' is local wall time; otherwise it is in GMT time.
+     * @param int &$rawOffset
+     *   output parameter to receive the raw offset, that is, the offset not
+     *   including DST adjustments
+     * @param int &$dstOffset
+     *   output parameter to receive the DST offset, that is, the offset to be added
+     *   to `rawOffset' to obtain the total offset between local and GMT time. If
+     *   DST is not in effect, this value is zero; otherwise it is a positive value,
+     *   typically one hour.
+     * @return bool boolean indication of success
      */
     public function getOffset($date, $local, &$rawOffset, &$dstOffset) { }
 
     /**
+     * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get the raw GMT offset (before taking daylight savings time into account
-     * @link http://www.php.net/manual/en/intltimezone.getrawoffset.php
+     * @link https://secure.php.net/manual/en/intltimezone.getrawoffset.php
      * @return int
      */
     public function  getRawOffset() { }
 
     /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get the region code associated with the given system time zone ID
+     * @link https://secure.php.net/manual/en/intltimezone.getregion.php
+     * @param string $zoneId
+     * @return string|false region or <b>FALSE</b> on failure
+     */
+    public static function getRegion($zoneId) { }
+
+    /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get the timezone data version currently used by ICU
-     * @link http://www.php.net/manual/en/intltimezone.gettzdataversion.php
+     * @link https://secure.php.net/manual/en/intltimezone.gettzdataversion.php
      * @return string
      */
     public static function getTZDataVersion() { }
 
     /**
+     * (PHP 5 &gt;=5.5.0)<br/>
+     * Get the "unknown" time zone
+     * @link https://secure.php.net/manual/en/intltimezone.getunknown.php
+     * @return IntlTimeZone
+     */
+    public static function getUnknown() { }
+
+    /**
+     * (PHP 7 &gt;=7.1.0)<br/>
+     * Translates a system timezone (e.g. "America/Los_Angeles") into a Windows
+     * timezone (e.g. "Pacific Standard Time").
+     * @link https://secure.php.net/manual/en/intltimezone.getwindowsid.php
+     * @param string $timezone
+     * @return string|false the Windows timezone or <b>FALSE</b> on failure
+     */
+    public static function getWindowsID($timezone) { }
+
+    /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Check if this zone has the same rules and offset as another zone
-     * @link http://www.php.net/manual/en/intltimezone.hassamerules.php
+     * @link https://secure.php.net/manual/en/intltimezone.hassamerules.php
      * @param IntlTimeZone $otherTimeZone
      * @return bool
      */
@@ -3158,15 +3210,15 @@ class IntlTimeZone {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Convert to DateTimeZone object
-     * @link http://www.php.net/manual/ru/intltimezone.todatetimezone.php
-     * @return DateTimeZone
+     * @link https://secure.php.net/manual/ru/intltimezone.todatetimezone.php
+     * @return DateTimeZone|false the DateTimeZone object or <b>FALSE</b> on failure
      */
     public function toDateTimeZone() { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Check if this time zone uses daylight savings time
-     * @link http://www.php.net/manual/ru/intltimezone.usedaylighttime.php
+     * @link https://secure.php.net/manual/ru/intltimezone.usedaylighttime.php
      * @return bool
      */
     public function useDaylightTime() { }
@@ -3175,7 +3227,7 @@ class IntlTimeZone {
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Create a collator
- * @link http://php.net/manual/en/collator.create.php
+ * @link https://php.net/manual/en/collator.create.php
  * @param string $locale <p>
  * The locale containing the required collation rules. Special values for
  * locales can be passed in - if null is passed for the locale, the
@@ -3190,7 +3242,7 @@ function collator_create($locale) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Compare two Unicode strings
- * @link http://php.net/manual/en/collator.compare.php
+ * @link https://php.net/manual/en/collator.compare.php
  * @param Collator $object
  * @param string $str1 <p>
  * The first string to compare.
@@ -3222,7 +3274,7 @@ function collator_compare(Collator $object, $str1, $str2) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get collation attribute value
- * @link http://php.net/manual/en/collator.getattribute.php
+ * @link https://php.net/manual/en/collator.getattribute.php
  * @param Collator $object
  * @param int $attr <p>
  * Attribute to get value for.
@@ -3234,7 +3286,7 @@ function collator_get_attribute(Collator $object, $attr) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set collation attribute
- * @link http://php.net/manual/en/collator.setattribute.php
+ * @link https://php.net/manual/en/collator.setattribute.php
  * @param Collator $object
  * @param int $attr <p>Attribute.</p>
  * @param int $val <p>
@@ -3247,7 +3299,7 @@ function collator_set_attribute(Collator $object, $attr, $val) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get current collation strength
- * @link http://php.net/manual/en/collator.getstrength.php
+ * @link https://php.net/manual/en/collator.getstrength.php
  * @param Collator $object
  * @return int current collation strength, or boolean <b>FALSE</b> on error.
  */
@@ -3256,7 +3308,7 @@ function collator_get_strength(Collator $object) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set collation strength
- * @link http://php.net/manual/en/collator.setstrength.php
+ * @link https://php.net/manual/en/collator.setstrength.php
  * @param Collator $object
  * @param int $strength <p>Strength to set.</p>
  * <p>
@@ -3271,7 +3323,7 @@ function collator_set_strength(Collator $object, $strength) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Sort array using specified collator
- * @link http://php.net/manual/en/collator.sort.php
+ * @link https://php.net/manual/en/collator.sort.php
  * @param Collator $object
  * @param array $arr <p>
  * Array of strings to sort.
@@ -3291,7 +3343,7 @@ function collator_sort(Collator $object, array &$arr, $sort_flag = null) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Sort array using specified collator and sort keys
- * @link http://php.net/manual/en/collator.sortwithsortkeys.php
+ * @link https://php.net/manual/en/collator.sortwithsortkeys.php
  * @param Collator $object
  * @param array $arr <p>Array of strings to sort</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -3301,7 +3353,7 @@ function collator_sort_with_sort_keys(Collator $object, array &$arr) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Sort array maintaining index association
- * @link http://php.net/manual/en/collator.asort.php
+ * @link https://php.net/manual/en/collator.asort.php
  * @param Collator $object
  * @param array $arr <p>Array of strings to sort.</p>
  * @param int $sort_flag [optional] <p>
@@ -3317,7 +3369,7 @@ function collator_asort(Collator $object, array &$arr, $sort_flag = null) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the locale name of the collator
- * @link http://php.net/manual/en/collator.getlocale.php
+ * @link https://php.net/manual/en/collator.getlocale.php
  * @param Collator $object
  * @param int $type [optional] <p>
  * You can choose between valid and actual locale (
@@ -3334,7 +3386,7 @@ function collator_get_locale(Collator $object, $type = null) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get collator's last error code
- * @link http://php.net/manual/en/collator.geterrorcode.php
+ * @link https://php.net/manual/en/collator.geterrorcode.php
  * @param Collator $object
  * @return int Error code returned by the last Collator API function call.
  */
@@ -3343,7 +3395,7 @@ function collator_get_error_code(Collator $object) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get text for collator's last error code
- * @link http://php.net/manual/en/collator.geterrormessage.php
+ * @link https://php.net/manual/en/collator.geterrormessage.php
  * @param Collator $object
  * @return string Description of an error occurred in the last Collator API function call.
  */
@@ -3352,7 +3404,7 @@ function collator_get_error_message(Collator $object) { }
 /**
  * (No version information available, might only be in SVN)<br/>
  * Get sorting key for a string
- * @link http://php.net/manual/en/collator.getsortkey.php
+ * @link https://php.net/manual/en/collator.getsortkey.php
  * @param Collator $object
  * @param string $str <p>
  * The string to produce the key from.
@@ -3364,7 +3416,7 @@ function collator_get_sort_key(Collator $object, $str) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Create a number formatter
- * @link http://php.net/manual/en/numberformatter.create.php
+ * @link https://php.net/manual/en/numberformatter.create.php
  * @param string $locale <p>
  * Locale in which the number would be formatted (locale name, e.g. en_CA).
  * </p>
@@ -3390,7 +3442,7 @@ function numfmt_create($locale, $style, $pattern = null) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Format a number
- * @link http://php.net/manual/en/numberformatter.format.php
+ * @link https://php.net/manual/en/numberformatter.format.php
  * @param NumberFormatter $fmt
  * @param int|float $value <p>
  * The value to format. Can be integer or float,
@@ -3407,7 +3459,7 @@ function numfmt_format(NumberFormatter $fmt, $value, $type = null) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Parse a number
- * @link http://php.net/manual/en/numberformatter.parse.php
+ * @link https://php.net/manual/en/numberformatter.parse.php
  * @param NumberFormatter $fmt
  * @param string $value
  * @param int $type [optional] <p>
@@ -3426,7 +3478,7 @@ function numfmt_parse(NumberFormatter $fmt, $value, $type = null, &$position = n
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Format a currency value
- * @link http://php.net/manual/en/numberformatter.formatcurrency.php
+ * @link https://php.net/manual/en/numberformatter.formatcurrency.php
  * @param NumberFormatter $fmt
  * @param float $value <p>
  * The numeric currency value.
@@ -3441,7 +3493,7 @@ function numfmt_format_currency(NumberFormatter $fmt, $value, $currency) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Parse a currency number
- * @link http://php.net/manual/en/numberformatter.parsecurrency.php
+ * @link https://php.net/manual/en/numberformatter.parsecurrency.php
  * @param NumberFormatter $fmt
  * @param string $value
  * @param string $currency <p>
@@ -3459,7 +3511,7 @@ function numfmt_parse_currency(NumberFormatter $fmt, $value, &$currency, &$posit
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set an attribute
- * @link http://php.net/manual/en/numberformatter.setattribute.php
+ * @link https://php.net/manual/en/numberformatter.setattribute.php
  * @param NumberFormatter $fmt
  * @param int $attr <p>
  * Attribute specifier - one of the
@@ -3475,7 +3527,7 @@ function numfmt_set_attribute(NumberFormatter $fmt, $attr, $value) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get an attribute
- * @link http://php.net/manual/en/numberformatter.getattribute.php
+ * @link https://php.net/manual/en/numberformatter.getattribute.php
  * @param NumberFormatter $fmt
  * @param int $attr <p>
  * Attribute specifier - one of the
@@ -3488,7 +3540,7 @@ function numfmt_get_attribute(NumberFormatter $fmt, $attr) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set a text attribute
- * @link http://php.net/manual/en/numberformatter.settextattribute.php
+ * @link https://php.net/manual/en/numberformatter.settextattribute.php
  * @param NumberFormatter $fmt
  * @param int $attr <p>
  * Attribute specifier - one of the
@@ -3505,7 +3557,7 @@ function numfmt_set_text_attribute(NumberFormatter $fmt, $attr, $value) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get a text attribute
- * @link http://php.net/manual/en/numberformatter.gettextattribute.php
+ * @link https://php.net/manual/en/numberformatter.gettextattribute.php
  * @param NumberFormatter $fmt
  * @param int $attr <p>
  * Attribute specifier - one of the
@@ -3518,7 +3570,7 @@ function numfmt_get_text_attribute(NumberFormatter $fmt, $attr) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set a symbol value
- * @link http://php.net/manual/en/numberformatter.setsymbol.php
+ * @link https://php.net/manual/en/numberformatter.setsymbol.php
  * @param NumberFormatter $fmt
  * @param int $attr <p>
  * Symbol specifier, one of the
@@ -3534,7 +3586,7 @@ function numfmt_set_symbol(NumberFormatter $fmt, $attr, $value) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get a symbol value
- * @link http://php.net/manual/en/numberformatter.getsymbol.php
+ * @link https://php.net/manual/en/numberformatter.getsymbol.php
  * @param NumberFormatter $fmt
  * @param int $attr <p>
  * Symbol specifier, one of the
@@ -3547,7 +3599,7 @@ function numfmt_get_symbol(NumberFormatter $fmt, $attr) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set formatter pattern
- * @link http://php.net/manual/en/numberformatter.setpattern.php
+ * @link https://php.net/manual/en/numberformatter.setpattern.php
  * @param NumberFormatter $fmt
  * @param string $pattern <p>
  * Pattern in syntax described in
@@ -3561,7 +3613,7 @@ function numfmt_set_pattern(NumberFormatter $fmt, $pattern) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get formatter pattern
- * @link http://php.net/manual/en/numberformatter.getpattern.php
+ * @link https://php.net/manual/en/numberformatter.getpattern.php
  * @param NumberFormatter $fmt
  * @param $nf
  * @return string Pattern string that is used by the formatter, or <b>FALSE</b> if an error happens.
@@ -3571,7 +3623,7 @@ function numfmt_get_pattern(NumberFormatter $fmt, $nf) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get formatter locale
- * @link http://php.net/manual/en/numberformatter.getlocale.php
+ * @link https://php.net/manual/en/numberformatter.getlocale.php
  * @param NumberFormatter $fmt
  * @param int $type [optional] <p>
  * You can choose between valid and actual locale (
@@ -3586,7 +3638,7 @@ function numfmt_get_locale(NumberFormatter $fmt, $type = null) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get formatter's last error code.
- * @link http://php.net/manual/en/numberformatter.geterrorcode.php
+ * @link https://php.net/manual/en/numberformatter.geterrorcode.php
  * @param NumberFormatter $fmt
  * @param $nf
  * @return int error code from last formatter call.
@@ -3596,7 +3648,7 @@ function numfmt_get_error_code(NumberFormatter $fmt, $nf) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get formatter's last error message.
- * @link http://php.net/manual/en/numberformatter.geterrormessage.php
+ * @link https://php.net/manual/en/numberformatter.geterrormessage.php
  * @param NumberFormatter $fmt
  * @param $nf
  * @return string error message from last formatter call.
@@ -3606,7 +3658,7 @@ function numfmt_get_error_message(NumberFormatter $fmt, $nf) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Normalizes the input provided and returns the normalized string
- * @link http://php.net/manual/en/normalizer.normalize.php
+ * @link https://php.net/manual/en/normalizer.normalize.php
  * @param string $input <p>The input string to normalize</p>
  * @param string $form [optional] <p>One of the normalization forms.</p>
  * @return string The normalized string or <b>NULL</b> if an error occurred.
@@ -3617,7 +3669,7 @@ function normalizer_normalize($input, $form = Normalizer::FORM_C) { }
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Checks if the provided string is already in the specified normalization
 form.
- * @link http://php.net/manual/en/normalizer.isnormalized.php
+ * @link https://php.net/manual/en/normalizer.isnormalized.php
  * @param string $input <p>The input string to normalize</p>
  * @param string $form [optional] <p>
  * One of the normalization forms.
@@ -3628,7 +3680,7 @@ function normalizer_is_normalized($input, $form = Normalizer::FORM_C) { }
 
 /**
  * Get the default Locale
- * @link http://php.net/manual/en/function.locale-get-default.php
+ * @link https://php.net/manual/en/function.locale-get-default.php
  * @return string a string with the current Locale.
  */
 function locale_get_default() { }
@@ -3636,7 +3688,7 @@ function locale_get_default() { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set the default Locale
- * @link http://php.net/manual/en/function.locale-set-default.php
+ * @link https://php.net/manual/en/function.locale-set-default.php
  * @param string $name <p>
  * The new Locale name. A comprehensive list of the supported locales is
  * available at .
@@ -3648,7 +3700,7 @@ function locale_set_default($name) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Gets the primary language for the input locale
- * @link http://php.net/manual/en/locale.getprimarylanguage.php
+ * @link https://php.net/manual/en/locale.getprimarylanguage.php
  * @param string $locale <p>
  * The locale to extract the primary language code from
  * </p>
@@ -3659,7 +3711,7 @@ function locale_get_primary_language($locale) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Gets the script for the input locale
- * @link http://php.net/manual/en/locale.getscript.php
+ * @link https://php.net/manual/en/locale.getscript.php
  * @param string $locale <p>
  * The locale to extract the script code from
  * </p>
@@ -3670,7 +3722,7 @@ function locale_get_script($locale) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Gets the region for the input locale
- * @link http://php.net/manual/en/locale.getregion.php
+ * @link https://php.net/manual/en/locale.getregion.php
  * @param string $locale <p>
  * The locale to extract the region code from
  * </p>
@@ -3681,7 +3733,7 @@ function locale_get_region($locale) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Gets the keywords for the input locale
- * @link http://php.net/manual/en/locale.getkeywords.php
+ * @link https://php.net/manual/en/locale.getkeywords.php
  * @param string $locale <p>
  * The locale to extract the keywords from
  * </p>
@@ -3692,7 +3744,7 @@ function locale_get_keywords($locale) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Returns an appropriately localized display name for script of the input locale
- * @link http://php.net/manual/en/locale.getdisplayscript.php
+ * @link https://php.net/manual/en/locale.getdisplayscript.php
  * @param string $locale <p>
  * The locale to return a display script for
  * </p>
@@ -3707,7 +3759,7 @@ function locale_get_display_script($locale, $in_locale = null) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Returns an appropriately localized display name for region of the input locale
- * @link http://php.net/manual/en/locale.getdisplayregion.php
+ * @link https://php.net/manual/en/locale.getdisplayregion.php
  * @param string $locale <p>
  * The locale to return a display region for.
  * </p>
@@ -3722,7 +3774,7 @@ function locale_get_display_region($locale, $in_locale = null) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Returns an appropriately localized display name for the input locale
- * @link http://php.net/manual/en/locale.getdisplayname.php
+ * @link https://php.net/manual/en/locale.getdisplayname.php
  * @param string $locale <p>
  * The locale to return a display name for.
  * </p>
@@ -3734,7 +3786,7 @@ function locale_get_display_name($locale, $in_locale = null) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Returns an appropriately localized display name for language of the inputlocale
- * @link http://php.net/manual/en/locale.getdisplaylanguage.php
+ * @link https://php.net/manual/en/locale.getdisplaylanguage.php
  * @param string $locale <p>
  * The locale to return a display language for
  * </p>
@@ -3749,7 +3801,7 @@ function locale_get_display_language($locale, $in_locale = null) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Returns an appropriately localized display name for variants of the input locale
- * @link http://php.net/manual/en/locale.getdisplayvariant.php
+ * @link https://php.net/manual/en/locale.getdisplayvariant.php
  * @param string $locale <p>
  * The locale to return a display variant for
  * </p>
@@ -3764,7 +3816,7 @@ function locale_get_display_variant($locale, $in_locale = null) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Returns a correctly ordered and delimited locale ID
- * @link http://php.net/manual/en/locale.composelocale.php
+ * @link https://php.net/manual/en/locale.composelocale.php
  * @param array $subtags <p>
  * an array containing a list of key-value pairs, where the keys identify
  * the particular locale ID subtags, and the values are the associated
@@ -3790,7 +3842,7 @@ function locale_compose(array $subtags) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Returns a key-value array of locale ID subtag elements.
- * @link http://php.net/manual/en/locale.parselocale.php
+ * @link https://php.net/manual/en/locale.parselocale.php
  * @param string $locale <p>
  * The locale to extract the subtag array from. Note: The 'variant' and
  * 'private' subtags can take maximum 15 values whereas 'extlang' can take
@@ -3808,7 +3860,7 @@ function locale_parse($locale) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Gets the variants for the input locale
- * @link http://php.net/manual/en/locale.getallvariants.php
+ * @link https://php.net/manual/en/locale.getallvariants.php
  * @param string $locale <p>
  * The locale to extract the variants from
  * </p>
@@ -3820,7 +3872,7 @@ function locale_get_all_variants($locale) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Checks if a language tag filter matches with locale
- * @link http://php.net/manual/en/locale.filtermatches.php
+ * @link https://php.net/manual/en/locale.filtermatches.php
  * @param string $langtag <p>
  * The language tag to check
  * </p>
@@ -3843,7 +3895,7 @@ function locale_canonicalize($arg1) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Searches the language tag list for the best match to the language
- * @link http://php.net/manual/en/locale.lookup.php
+ * @link https://php.net/manual/en/locale.lookup.php
  * @param array $langtag <p>
  * An array containing a list of language tags to compare to
  * <i>locale</i>. Maximum 100 items allowed.
@@ -3865,7 +3917,7 @@ function locale_lookup(array $langtag, $locale, $canonicalize = false, $default 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Tries to find out best available locale based on HTTP "Accept-Language" header
- * @link http://php.net/manual/en/locale.acceptfromhttp.php
+ * @link https://php.net/manual/en/locale.acceptfromhttp.php
  * @param string $header <p>
  * The string containing the "Accept-Language" header according to format in RFC 2616.
  * </p>
@@ -3882,7 +3934,7 @@ function msgfmt_create($locale, $pattern) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Format the message
- * @link http://php.net/manual/en/messageformatter.format.php
+ * @link https://php.net/manual/en/messageformatter.format.php
  * @param MessageFormatter $fmt
  * @param array $args <p>
  * Arguments to insert into the format string
@@ -3894,8 +3946,7 @@ function msgfmt_format(MessageFormatter $fmt, array $args) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Quick format message
- * @link http://php.net/manual/en/messageformatter.formatmessage.php
- * @param MessageFormatter $fmt
+ * @link https://php.net/manual/en/messageformatter.formatmessage.php
  * @param string $locale <p>
  * The locale to use for formatting locale-dependent parts
  * </p>
@@ -3910,12 +3961,12 @@ function msgfmt_format(MessageFormatter $fmt, array $args) { }
  * </p>
  * @return string The formatted pattern string or <b>FALSE</b> if an error occurred
  */
-function msgfmt_format_message(MessageFormatter $fmt, $locale, $pattern, array $args) { }
+function msgfmt_format_message(string $locale, string $pattern, array $args) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Parse input string according to pattern
- * @link http://php.net/manual/en/messageformatter.parse.php
+ * @link https://php.net/manual/en/messageformatter.parse.php
  * @param MessageFormatter $fmt
  * @param string $value <p>
  * The string to parse
@@ -3927,7 +3978,7 @@ function msgfmt_parse(MessageFormatter $fmt, $value) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Quick parse input string
- * @link http://php.net/manual/en/messageformatter.parsemessage.php
+ * @link https://php.net/manual/en/messageformatter.parsemessage.php
  * @param MessageFormatter $fmt
  * @param string $locale <p>
  * The locale to use for parsing locale-dependent parts
@@ -3945,7 +3996,7 @@ function msgfmt_parse_message(MessageFormatter $fmt, $locale, $pattern, $source)
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set the pattern used by the formatter
- * @link http://php.net/manual/en/messageformatter.setpattern.php
+ * @link https://php.net/manual/en/messageformatter.setpattern.php
  * @param MessageFormatter $fmt
  * @param string $pattern <p>
  * The pattern string to use in this message formatter.
@@ -3960,7 +4011,7 @@ function msgfmt_set_pattern(MessageFormatter $fmt, $pattern) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the pattern used by the formatter
- * @link http://php.net/manual/en/messageformatter.getpattern.php
+ * @link https://php.net/manual/en/messageformatter.getpattern.php
  * @param MessageFormatter $fmt
  * @param $mf
  * @return string The pattern string for this message formatter
@@ -3970,7 +4021,7 @@ function msgfmt_get_pattern(MessageFormatter $fmt, $mf) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the locale for which the formatter was created.
- * @link http://php.net/manual/en/messageformatter.getlocale.php
+ * @link https://php.net/manual/en/messageformatter.getlocale.php
  * @param MessageFormatter $fmt
  * @param $mf
  * @return string The locale name
@@ -3980,7 +4031,7 @@ function msgfmt_get_locale(MessageFormatter $fmt, $mf) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the error code from last operation
- * @link http://php.net/manual/en/messageformatter.geterrorcode.php
+ * @link https://php.net/manual/en/messageformatter.geterrorcode.php
  * @param MessageFormatter $fmt
  * @param $nf
  * @return int The error code, one of UErrorCode values. Initial value is U_ZERO_ERROR.
@@ -3990,7 +4041,7 @@ function msgfmt_get_error_code(MessageFormatter $fmt, $nf) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the error text from the last operation
- * @link http://php.net/manual/en/messageformatter.geterrormessage.php
+ * @link https://php.net/manual/en/messageformatter.geterrormessage.php
  * @param MessageFormatter $fmt
  * @param $coll
  * @return string Description of the last error.
@@ -4000,7 +4051,7 @@ function msgfmt_get_error_message(MessageFormatter $fmt, $coll) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Create a date formatter
- * @link http://php.net/manual/en/intldateformatter.create.php
+ * @link https://php.net/manual/en/intldateformatter.create.php
  * @param string $locale <p>
  * Locale to use when formatting or parsing.
  * </p>
@@ -4037,7 +4088,7 @@ function datefmt_create($locale, $datetype, $timetype, $timezone = null, $calend
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the datetype used for the IntlDateFormatter
- * @link http://php.net/manual/en/intldateformatter.getdatetype.php
+ * @link https://php.net/manual/en/intldateformatter.getdatetype.php
  * @param $mf
  * @return int The current date type value of the formatter.
  */
@@ -4046,7 +4097,7 @@ function datefmt_get_datetype(MessageFormatter $mf) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the timetype used for the IntlDateFormatter
- * @link http://php.net/manual/en/intldateformatter.gettimetype.php
+ * @link https://php.net/manual/en/intldateformatter.gettimetype.php
  * @param $mf
  * @return int The current date type value of the formatter.
  */
@@ -4055,7 +4106,7 @@ function datefmt_get_timetype(MessageFormatter $mf) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the calendar used for the IntlDateFormatter
- * @link http://php.net/manual/en/intldateformatter.getcalendar.php
+ * @link https://php.net/manual/en/intldateformatter.getcalendar.php
  * @param $mf
  * @return int The calendar being used by the formatter.
  */
@@ -4064,7 +4115,7 @@ function datefmt_get_calendar(MessageFormatter $mf) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * sets the calendar used to the appropriate calendar, which must be
- * @link http://php.net/manual/en/intldateformatter.setcalendar.php
+ * @link https://php.net/manual/en/intldateformatter.setcalendar.php
  * @param MessageFormatter $mf
  * @param int $which <p>
  * The calendar to use.
@@ -4077,7 +4128,7 @@ function datefmt_set_calendar(MessageFormatter $mf, $which) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the locale used by formatter
- * @link http://php.net/manual/en/intldateformatter.getlocale.php
+ * @link https://php.net/manual/en/intldateformatter.getlocale.php
  * @param MessageFormatter $mf
  * @param int $which [optional]
  * @return string the locale of this formatter or 'false' if error
@@ -4087,7 +4138,7 @@ function datefmt_get_locale(MessageFormatter $mf, $which = null) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the timezone-id used for the IntlDateFormatter
- * @link http://php.net/manual/en/intldateformatter.gettimezoneid.php
+ * @link https://php.net/manual/en/intldateformatter.gettimezoneid.php
  * @param $mf
  * @return string ID string for the time zone used by this formatter.
  */
@@ -4096,7 +4147,7 @@ function datefmt_get_timezone_id(MessageFormatter $mf) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 3.0.0)<br/>
  * Get copy of formatter's calendar object
- * @link http://www.php.net/manual/en/intldateformatter.getcalendarobject.php
+ * @link https://secure.php.net/manual/en/intldateformatter.getcalendarobject.php
  * @return IntlCalendar A copy of the internal calendar object used by this formatter.
  */
 function datefmt_get_calendar_object() { }
@@ -4104,7 +4155,7 @@ function datefmt_get_calendar_object() { }
 /**
  * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
  *  Get formatter's timezone
- * @link http://www.php.net/manual/en/intldateformatter.gettimezone.php
+ * @link https://secure.php.net/manual/en/intldateformatter.gettimezone.php
  * @return IntlTimeZone|bool The associated IntlTimeZone object or FALSE on failure.
  */
 function datefmt_get_timezone() { }
@@ -4112,21 +4163,22 @@ function datefmt_get_timezone() { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Sets the time zone to use
- * @link http://php.net/manual/en/intldateformatter.settimezoneid.php
+ * @link https://php.net/manual/en/intldateformatter.settimezoneid.php
  * @param MessageFormatter $mf
  * @param string $zone <p>
  * The time zone ID string of the time zone to use.
  * If <b>NULL</b> or the empty string, the default time zone for the runtime is used.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @deprecated 5.5 http://www.php.net/manual/en/migration55.deprecated.php
+ * @deprecated 5.5 https://secure.php.net/manual/en/migration55.deprecated.php
  */
 function datefmt_set_timezone_id(MessageFormatter $mf, $zone) { }
 
 /**
  * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
  * Sets formatter's timezone
- * @link http://php.net/manual/en/intldateformatter.settimezone.php
+ * @link https://php.net/manual/en/intldateformatter.settimezone.php
+ * @param MessageFormatter $mf
  * @param mixed $zone <p>
  * The timezone to use for this formatter. This can be specified in the
  * following forms:
@@ -4134,26 +4186,26 @@ function datefmt_set_timezone_id(MessageFormatter $mf, $zone) { }
  * <li>
  * <p>
  * <b>NULL</b>, in which case the default timezone will be used, as specified in
- * the ini setting {@link "http://php.net/manual/en/datetime.configuration.php#ini.date.timezone" date.timezone} or
- * through the function  {@link "http://php.net/manual/en/function.date-default-timezone-set.php" date_default_timezone_set()} and as
- * returned by {@link "http://php.net/manual/en/function.date-default-timezone-get.php" date_default_timezone_get()}.
+ * the ini setting {@link "https://secure.php.net/manual/en/datetime.configuration.php#ini.date.timezone" date.timezone} or
+ * through the function  {@link "https://secure.php.net/manual/en/function.date-default-timezone-set.php" date_default_timezone_set()} and as
+ * returned by {@link "https://secure.php.net/manual/en/function.date-default-timezone-get.php" date_default_timezone_get()}.
  * </p>
  * </li>
  * <li>
  * <p>
- * An {@link "http://php.net/manual/en/class.intltimezone.php" IntlTimeZone}, which will be used directly.
+ * An {@link "https://secure.php.net/manual/en/class.intltimezone.php" IntlTimeZone}, which will be used directly.
  * </p>
  * </li>
  * <li>
  * <p>
- * A {@link "http://php.net/manual/en/class.datetimezone.php" DateTimeZone}. Its identifier will be extracted
+ * A {@link "https://secure.php.net/manual/en/class.datetimezone.php" DateTimeZone}. Its identifier will be extracted
  * and an ICU timezone object will be created; the timezone will be backed
  * by ICU's database, not PHP's.
  * </p>
  * </li>
  * <li>
  * <p>
- * A {@link "http://php.net/manual/en/language.types.string.php" string}, which should be a valid ICU timezone identifier.
+ * A {@link "https://secure.php.net/manual/en/language.types.string.php" string}, which should be a valid ICU timezone identifier.
  * See <b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw offsets such as <em>"GMT+08:30"</em> are also accepted.
  * </p>
  * </li>
@@ -4161,12 +4213,12 @@ function datefmt_set_timezone_id(MessageFormatter $mf, $zone) { }
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function datefmt_set_timezone($zone) { }
+function datefmt_set_timezone(MessageFormatter $mf, $zone) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the pattern used for the IntlDateFormatter
- * @link http://php.net/manual/en/intldateformatter.getpattern.php
+ * @link https://php.net/manual/en/intldateformatter.getpattern.php
  * @param $mf
  * @return string The pattern string being used to format/parse.
  */
@@ -4175,7 +4227,7 @@ function datefmt_get_pattern(MessageFormatter $mf) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set the pattern used for the IntlDateFormatter
- * @link http://php.net/manual/en/intldateformatter.setpattern.php
+ * @link https://php.net/manual/en/intldateformatter.setpattern.php
  * @param MessageFormatter $mf
  * @param string $pattern <p>
  * New pattern string to use.
@@ -4189,7 +4241,7 @@ function datefmt_set_pattern(MessageFormatter $mf, $pattern) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the lenient used for the IntlDateFormatter
- * @link http://php.net/manual/en/intldateformatter.islenient.php
+ * @link https://php.net/manual/en/intldateformatter.islenient.php
  * @param $mf
  * @return bool <b>TRUE</b> if parser is lenient, <b>FALSE</b> if parser is strict. By default the parser is lenient.
  */
@@ -4198,7 +4250,7 @@ function datefmt_is_lenient(MessageFormatter $mf) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set the leniency of the parser
- * @link http://php.net/manual/en/intldateformatter.setlenient.php
+ * @link https://php.net/manual/en/intldateformatter.setlenient.php
  * @param MessageFormatter $mf
  * @param bool $lenient <p>
  * Sets whether the parser is lenient or not, default is <b>TRUE</b> (lenient).
@@ -4210,7 +4262,7 @@ function datefmt_set_lenient(MessageFormatter $mf, $lenient) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Format the date/time value as a string
- * @link http://php.net/manual/en/intldateformatter.format.php
+ * @link https://php.net/manual/en/intldateformatter.format.php
  * @param MessageFormatter $mf
  * @param mixed $value <p>
  * Value to format. This may be a <b>DateTime</b> object,
@@ -4225,12 +4277,12 @@ function datefmt_format(MessageFormatter $mf, $value) { }
 /**
  * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
  * Formats an object
- * @link http://www.php.net/manual/en/intldateformatter.formatobject.php
+ * @link https://secure.php.net/manual/en/intldateformatter.formatobject.php
  * @param object $object <p>
  * An object of type IntlCalendar or DateTime. The timezone information in the object will be used.
  * </p>
  * @param mixed $format [optional] <p>
- * How to format the date/time. This can either be an {http://www.php.net/manual/en/language.types.array.php array}  with
+ * How to format the date/time. This can either be an {https://secure.php.net/manual/en/language.types.array.php array}  with
  * two elements (first the date style, then the time style, these being one
  * of the constants <b>IntlDateFormatter::NONE</b>,
  * <b>IntlDateFormatter::SHORT</b>,
@@ -4238,7 +4290,7 @@ function datefmt_format(MessageFormatter $mf, $value) { }
  * <b>IntlDateFormatter::LONG</b>,
  * <b>IntlDateFormatter::FULL</b>), a long with
  * the value of one of these constants (in which case it will be used both
- * for the time and the date) or a {@link http://www.php.net/manual/en/language.types.string.php} with the format
+ * for the time and the date) or a {@link https://secure.php.net/manual/en/language.types.string.php} with the format
  * described in {@link http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details the ICU documentation}
  * documentation. If <b>NULL</b>, the default style will be used.
  * </p>
@@ -4251,7 +4303,7 @@ function datefmt_format_object($object, $format = NULL, $locale = NULL) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Parse string to a timestamp value
- * @link http://php.net/manual/en/intldateformatter.parse.php
+ * @link https://php.net/manual/en/intldateformatter.parse.php
  * @param MessageFormatter $mf
  * @param string $value <p>
  * string to convert to a time
@@ -4270,7 +4322,7 @@ function datefmt_parse(MessageFormatter $mf, $value, &$position = null) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Parse string to a field-based time value
- * @link http://php.net/manual/en/intldateformatter.localtime.php
+ * @link https://php.net/manual/en/intldateformatter.localtime.php
  * @param MessageFormatter $mf
  * @param string $value <p>
  * string to convert to a time
@@ -4288,7 +4340,7 @@ function datefmt_localtime(MessageFormatter $mf, $value, &$position = null) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the error code from last operation
- * @link http://php.net/manual/en/intldateformatter.geterrorcode.php
+ * @link https://php.net/manual/en/intldateformatter.geterrorcode.php
  * @param MessageFormatter $mf
  * @return int The error code, one of UErrorCode values. Initial value is U_ZERO_ERROR.
  */
@@ -4297,7 +4349,7 @@ function datefmt_get_error_code(MessageFormatter $mf) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the error text from the last operation.
- * @link http://php.net/manual/en/intldateformatter.geterrormessage.php
+ * @link https://php.net/manual/en/intldateformatter.geterrormessage.php
  * @param MessageFormatter $mf
  * @param $coll
  * @return string Description of the last error.
@@ -4307,7 +4359,7 @@ function datefmt_get_error_message(MessageFormatter $mf, $coll) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get string length in grapheme units
- * @link http://php.net/manual/en/function.grapheme-strlen.php
+ * @link https://php.net/manual/en/function.grapheme-strlen.php
  * @param string $input <p>
  * The string being measured for length. It must be a valid UTF-8 string.
  * </p>
@@ -4318,7 +4370,7 @@ function grapheme_strlen($input) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Find position (in grapheme units) of first occurrence of a string
- * @link http://php.net/manual/en/function.grapheme-strpos.php
+ * @link https://php.net/manual/en/function.grapheme-strpos.php
  * @param string $haystack <p>
  * The string to look in. Must be valid UTF-8.
  * </p>
@@ -4338,7 +4390,7 @@ function grapheme_strpos($haystack, $needle, $offset = 0) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Find position (in grapheme units) of first occurrence of a case-insensitive string
- * @link http://php.net/manual/en/function.grapheme-stripos.php
+ * @link https://php.net/manual/en/function.grapheme-stripos.php
  * @param string $haystack <p>
  * The string to look in. Must be valid UTF-8.
  * </p>
@@ -4358,7 +4410,7 @@ function grapheme_stripos($haystack, $needle, $offset = 0) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Find position (in grapheme units) of last occurrence of a string
- * @link http://php.net/manual/en/function.grapheme-strrpos.php
+ * @link https://php.net/manual/en/function.grapheme-strrpos.php
  * @param string $haystack <p>
  * The string to look in. Must be valid UTF-8.
  * </p>
@@ -4378,7 +4430,7 @@ function grapheme_strrpos($haystack, $needle, $offset = 0) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Find position (in grapheme units) of last occurrence of a case-insensitive string
- * @link http://php.net/manual/en/function.grapheme-strripos.php
+ * @link https://php.net/manual/en/function.grapheme-strripos.php
  * @param string $haystack <p>
  * The string to look in. Must be valid UTF-8.
  * </p>
@@ -4398,7 +4450,7 @@ function grapheme_strripos($haystack, $needle, $offset = 0) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Return part of a string
- * @link http://php.net/manual/en/function.grapheme-substr.php
+ * @link https://php.net/manual/en/function.grapheme-substr.php
  * @param string $string <p>
  * The input string. Must be valid UTF-8.
  * </p>
@@ -4427,7 +4479,7 @@ function grapheme_substr($string, $start, $length = null) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Returns part of haystack string from the first occurrence of needle to the end of haystack.
- * @link http://php.net/manual/en/function.grapheme-strstr.php
+ * @link https://php.net/manual/en/function.grapheme-strstr.php
  * @param string $haystack <p>
  * The input string. Must be valid UTF-8.
  * </p>
@@ -4445,7 +4497,7 @@ function grapheme_strstr($haystack, $needle, $before_needle = false) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Returns part of haystack string from the first occurrence of case-insensitive needle to the end of haystack.
- * @link http://php.net/manual/en/function.grapheme-stristr.php
+ * @link https://php.net/manual/en/function.grapheme-stristr.php
  * @param string $haystack <p>
  * The input string. Must be valid UTF-8.
  * </p>
@@ -4463,7 +4515,7 @@ function grapheme_stristr($haystack, $needle, $before_needle = false) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Function to extract a sequence of default grapheme clusters from a text buffer, which must be encoded in UTF-8.
- * @link http://php.net/manual/en/function.grapheme-extract.php
+ * @link https://php.net/manual/en/function.grapheme-extract.php
  * @param string $haystack <p>
  * String to search.
  * </p>
@@ -4499,7 +4551,7 @@ function grapheme_extract($haystack, $size, $extract_type = null, $start = 0, &$
 /**
  * (PHP 5 &gt;= 5.3.0, PHP 7, PECL intl &gt;= 1.0.2, PHP 7, PECL idn &gt;= 0.1)<br/>
  * Convert domain name to IDNA ASCII form.
- * @link http://php.net/manual/en/function.idn-to-ascii.php
+ * @link https://php.net/manual/en/function.idn-to-ascii.php
  * @param string $domain <p>
  * Domain to convert. In PHP 5 must be UTF-8 encoded.
  * If e.g. an ISO-8859-1 (aka Western Europe latin1) encoded string is
@@ -4527,7 +4579,7 @@ function idn_to_ascii($domain, $options = 0, $variant = INTL_IDNA_VARIANT_2003, 
 /**
  * (PHP 5 &gt;= 5.3.0, PHP 7, PECL intl &gt;= 1.0.2, PHP 7, PECL idn &gt;= 0.1)<br/>
  * Convert domain name from IDNA ASCII to Unicode.
- * @link http://php.net/manual/en/function.idn-to-utf8.php
+ * @link https://php.net/manual/en/function.idn-to-utf8.php
  * @param string $domain <p>
  * Domain to convert in IDNA ASCII-compatible format.
  * The ASCII encoded domain name. Looks like "xn--..." if the it originally contained non-ASCII characters.
@@ -4546,7 +4598,7 @@ function idn_to_ascii($domain, $options = 0, $variant = INTL_IDNA_VARIANT_2003, 
  * either has or would have changed the result and 'errors',
  * which is an int representing a bitset of the error constants IDNA_ERROR_*.
  * </p>
- * @return string The UTF-8 encoded version of the domain name or <b>FALSE</b> on failure.
+ * @return string|false The UTF-8 encoded version of the domain name or <b>FALSE</b> on failure.
  * RFC 3490 4.2 states though "ToUnicode never fails. If any step fails, then the original input
  * sequence is returned immediately in that step."
  */
@@ -4555,7 +4607,7 @@ function idn_to_utf8($domain, $options = 0, $variant = INTL_IDNA_VARIANT_2003, a
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Create a new IntlCalendar
- * @link http://www.php.net/manual/en/intlcalendar.createinstance.php
+ * @link https://secure.php.net/manual/en/intlcalendar.createinstance.php
  * @param mixed $timeZone [optional] <p> <p>
  * The timezone to use.
  * </p>
@@ -4564,26 +4616,26 @@ function idn_to_utf8($domain, $options = 0, $variant = INTL_IDNA_VARIANT_2003, a
  * <li>
  * <p>
  * <b>NULL</b>, in which case the default timezone will be used, as specified in
- * the ini setting {@link http://www.php.net/manual/en/datetime.configuration.php#ini.date.timezone date.timezone} or
- * through the function  {@link http://www.php.net/manual/en/function.date-default-timezone-set.php date_default_timezone_set()} and as
- * returned by {@link http://www.php.net/manual/en/function.date-default-timezone-get.php date_default_timezone_get()}.
+ * the ini setting {@link https://secure.php.net/manual/en/datetime.configuration.php#ini.date.timezone date.timezone} or
+ * through the function  {@link https://secure.php.net/manual/en/function.date-default-timezone-set.php date_default_timezone_set()} and as
+ * returned by {@link https://secure.php.net/manual/en/function.date-default-timezone-get.php date_default_timezone_get()}.
  * </p>
  * </li>
  * <li>
  * <p>
- * An {@link http://www.php.net/manual/en/class.intltimezone.php IntlTimeZone}, which will be used directly.
+ * An {@link https://secure.php.net/manual/en/class.intltimezone.php IntlTimeZone}, which will be used directly.
  * </p>
  * </li>
  * <li>
  * <p>
- * A {@link http://www.php.net/manual/en/class.datetimezone.php DateTimeZone}. Its identifier will be extracted
+ * A {@link https://secure.php.net/manual/en/class.datetimezone.php DateTimeZone}. Its identifier will be extracted
  * and an ICU timezone object will be created; the timezone will be backed
  * by ICU's database, not PHP's.
  * </p>
  * </li>
  * <li>
  * <p>
- * A {@link http://www.php.net/manual/en/language.types.string.php string}, which should be a valid ICU timezone identifier.
+ * A {@link https://secure.php.net/manual/en/language.types.string.php string}, which should be a valid ICU timezone identifier.
  * See  <b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw
  * offsets such as <em>"GMT+08:30"</em> are also accepted.
  * </p>
@@ -4591,10 +4643,10 @@ function idn_to_utf8($domain, $options = 0, $variant = INTL_IDNA_VARIANT_2003, a
  * </ul>
  * </p>
  * @param string $locale [optional] <p>
- * A locale to use or <b>NULL</b> to use {@link http://www.php.net/manual/en/intl.configuration.php#ini.intl.default-locale the default locale}.
+ * A locale to use or <b>NULL</b> to use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.default-locale the default locale}.
  * </p>
  * @return IntlCalendar
- * The created {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} instance or <b>NULL</b> on
+ * The created {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} instance or <b>NULL</b> on
  * failure.
  */
 function intlcal_create_instance($timeZone = NULL, $locale = NULL) { }
@@ -4620,7 +4672,7 @@ function intlcal_get_keyword_values_for_locale($key, $locale, $commonlyUsed) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get number representing the current time
- * @link http://www.php.net/manual/en/intlcalendar.getnow.php
+ * @link https://secure.php.net/manual/en/intlcalendar.getnow.php
  * @return float A float representing a number of milliseconds since the epoch, not counting leap seconds.
  */
 function intlcal_get_now() { }
@@ -4628,7 +4680,7 @@ function intlcal_get_now() { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get array of locales for which there is data
- * @link http://www.php.net/manual/en/intlcalendar.getavailablelocales.php
+ * @link https://secure.php.net/manual/en/intlcalendar.getavailablelocales.php
  * @return array An array of strings, one for which locale.
  */
 
@@ -4637,12 +4689,12 @@ function intlcal_get_available_locales() { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get the value for a field
- * @link http://www.php.net/manual/en/intlcalendar.get.php
+ * @link https://secure.php.net/manual/en/intlcalendar.get.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @param int $field <p>
- * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
  * values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
@@ -4655,7 +4707,7 @@ function intl_get($calendar, $field) { }
  * Get time currently represented by the object
  * @param IntlCalendar $calendar <p>The calendar whose time will be checked against this object's time.</p>
  * @return float
- * A {@link http://www.php.net/manual/en/language.types.float.php float} representing the number of milliseconds elapsed since the
+ * A {@link https://secure.php.net/manual/en/language.types.float.php float} representing the number of milliseconds elapsed since the
  * reference time (1 Jan 1970 00:00:00 UTC).
  */
 function intlcal_get_time($calendar) { }
@@ -4663,7 +4715,7 @@ function intlcal_get_time($calendar) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Set the calendar time in milliseconds since the epoch
- * @link http://www.php.net/manual/en/intlcalendar.settime.php
+ * @link https://secure.php.net/manual/en/intlcalendar.settime.php
  * @param float $date <p>
  * An instant represented by the number of number of milliseconds between
  * such instant and the epoch, ignoring leap seconds.
@@ -4676,12 +4728,12 @@ function intlcal_set_time($date) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Add a (signed) amount of time to a field
- * @link http://www.php.net/manual/en/intlcalendar.add.php
+ * @link https://secure.php.net/manual/en/intlcalendar.add.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @param int $field <p>
- * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
  * These are integer values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
@@ -4694,7 +4746,7 @@ function intlcal_add($calendar, $field, $amount) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Set the timezone used by this calendar
- * @link http://www.php.net/manual/en/intlcalendar.settimezone.php
+ * @link https://secure.php.net/manual/en/intlcalendar.settimezone.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
@@ -4706,26 +4758,26 @@ function intlcal_add($calendar, $field, $amount) { }
  * <li>
  * <p>
  * <b>NULL</b>, in which case the default timezone will be used, as specified in
- * the ini setting {@link http://www.php.net/manual/en/datetime.configuration.php#ini.date.timezone date.timezone} or
- * through the function  {@link http://www.php.net/manual/en/function.date-default-timezone-set.php date_default_timezone_set()} and as
- * returned by  {@link http://www.php.net/manual/en/function.date-default-timezone-get.php date_default_timezone_get()}.
+ * the ini setting {@link https://secure.php.net/manual/en/datetime.configuration.php#ini.date.timezone date.timezone} or
+ * through the function  {@link https://secure.php.net/manual/en/function.date-default-timezone-set.php date_default_timezone_set()} and as
+ * returned by  {@link https://secure.php.net/manual/en/function.date-default-timezone-get.php date_default_timezone_get()}.
  * </p>
  * </li>
  * <li>
  * <p>
- * An {@link http://www.php.net/manual/en/class.intltimezone.php IntlTimeZone}, which will be used directly.
+ * An {@link https://secure.php.net/manual/en/class.intltimezone.php IntlTimeZone}, which will be used directly.
  * </p>
  * </li>
  * <li>
  * <p>
- * A {@link http://www.php.net/manual/en/class.datetimezone.php DateTimeZone}. Its identifier will be extracted
+ * A {@link https://secure.php.net/manual/en/class.datetimezone.php DateTimeZone}. Its identifier will be extracted
  * and an ICU timezone object will be created; the timezone will be backed
  * by ICU's database, not PHP's.
  * </p>
  * </li>
  * <li>
  * <p>
- * A {@link http://www.php.net/manual/en/language.types.string.php string}, which should be a valid ICU timezone identifier.
+ * A {@link https://secure.php.net/manual/en/language.types.string.php string}, which should be a valid ICU timezone identifier.
  * See  <b>IntlTimeZone::createTimeZoneIDEnumeration()</b>. Raw
  * offsets such as <em>"GMT+08:30"</em> are also accepted.
  * </p>
@@ -4738,7 +4790,7 @@ function intlcal_set_time_zone($calendar, $timeZone) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Whether this object's time is after that of the passed object
- * http://www.php.net/manual/en/intlcalendar.after.php
+ * https://secure.php.net/manual/en/intlcalendar.after.php
  * @param IntlCalendar $calendarObject <p>
  * The calendar object, on the procedural style interface.
  * </p>
@@ -4746,15 +4798,15 @@ function intlcal_set_time_zone($calendar, $timeZone) { }
  * @return bool
  * Returns <b>TRUE</b> if this object's current time is after that of the
  * <em>calendar</em> argument's time. Returns <b>FALSE</b> otherwise.
- * Also returns <b>FALSE</b> on failure. You can use {@link http://www.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or
- * {@link http://www.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to detect error conditions.
+ * Also returns <b>FALSE</b> on failure. You can use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or
+ * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to detect error conditions.
  */
 function intlcal_after(IntlCalendar $calendarObject, IntlCalendar $calendar) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Whether this object's time is before that of the passed object
- * @link http://www.php.net/manual/en/intlcalendar.before.php
+ * @link https://secure.php.net/manual/en/intlcalendar.before.php
  * @param IntlCalendar $calendarObject <p>
  * The calendar object, on the procedural style interface.
  * </p>
@@ -4762,8 +4814,8 @@ function intlcal_after(IntlCalendar $calendarObject, IntlCalendar $calendar) { }
  * @return bool
  * Returns <b>TRUE</B> if this object's current time is before that of the
  * <em>calendar</em> argument's time. Returns <b>FALSE</b> otherwise.
- * Also returns <b>FALSE</b> on failure. You can use {@link http://www.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or
- * {@link http://www.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to detect error conditions.
+ * Also returns <b>FALSE</b> on failure. You can use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or
+ * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to detect error conditions.
  * </p>
  */
 function intlcal_before(IntlCalendar $calendarObject, IntlCalendar $calendar) { }
@@ -4772,12 +4824,12 @@ function intlcal_before(IntlCalendar $calendarObject, IntlCalendar $calendar) { 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Set a time field or several common fields at once
- * @link http://www.php.net/manual/en/intlcalendar.set.php
+ * @link https://secure.php.net/manual/en/intlcalendar.set.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @param int $year <p>
- * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
  * values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
@@ -4808,13 +4860,13 @@ function intlcal_set($calendar, $year, $month, $dayOfMonth = NULL, $hour = NULL,
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Add value to field without carrying into more significant fields
- * @link http://www.php.net/manual/en/intlcalendar.roll.php
+ * @link https://secure.php.net/manual/en/intlcalendar.roll.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @param int $field <p>One of the
- * {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time
- * {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
+ * {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time
+ * {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
  * These are integer values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
@@ -4830,12 +4882,12 @@ function intlcal_roll($calendar, $field, $amountOrUpOrDown) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Clear a field or all fields
- * @link http://www.php.net/manual/en/intlcalendar.clear.php
+ * @link https://secure.php.net/manual/en/intlcalendar.clear.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @param int $field [optional] <p>
- * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
  * values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
@@ -4846,7 +4898,7 @@ function intlcal_clear($calendar, $field = NULL) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Calculate difference between given time and this object's time
- * @link http://www.php.net/manual/en/intlcalendar.fielddifference.php
+ * @link https://secure.php.net/manual/en/intlcalendar.fielddifference.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
@@ -4861,7 +4913,7 @@ function intlcal_clear($calendar, $field = NULL) { }
  * </p>
  *
  * <p>
- * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
  * values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
@@ -4875,17 +4927,17 @@ function intlcal_field_difference($calendar, $when, $field) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * The maximum value for a field, considering the object's current time
- * @link http://www.php.net/manual/en/intlcalendar.getactualmaximum.php
+ * @link https://secure.php.net/manual/en/intlcalendar.getactualmaximum.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @param int $field <p>
- * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
  * values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
  * @return int
- * An {@link http://www.php.net/manual/en/language.types.integer.php int} representing the maximum value in the units associated
+ * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing the maximum value in the units associated
  * with the given <em>field</em> or <b>FALSE</b> on failure.
  */
 function intlcal_get_actual_maximum($calendar, $field) { }
@@ -4893,24 +4945,24 @@ function intlcal_get_actual_maximum($calendar, $field) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * The minimum value for a field, considering the object's current time
- * @link http://www.php.net/manual/en/intlcalendar.getactualminimum.php
+ * @link https://secure.php.net/manual/en/intlcalendar.getactualminimum.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @param int $field <p>
- * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}.
  * These are integer values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
  * @return int
- * An {@link http://www.php.net/manual/en/language.types.integer.php int} representing the minimum value in the field's
+ * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing the minimum value in the field's
  * unit or <b>FALSE</b> on failure.
  */
 function intlcal_get_actual_minimum($calendar, $field) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
- * @link http://www.php.net/manual/en/intlcalendar.getdayofweektype.php
+ * @link https://secure.php.net/manual/en/intlcalendar.getdayofweektype.php
  * Tell whether a day is a weekday, weekend or a day that has a transition between the two
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
@@ -4933,7 +4985,7 @@ function intlcal_get_day_of_week_type($calendar, $dayOfWeek) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get the first day of the week for the calendar's locale
- * @link http://www.php.net/manual/en/intlcalendar.getfirstdayofweek.php
+ * @link https://secure.php.net/manual/en/intlcalendar.getfirstdayofweek.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
@@ -4948,16 +5000,16 @@ function intlcal_get_first_day_of_week($calendar) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get the largest local minimum value for a field
- * @link http://www.php.net/manual/en/intlcalendar.getgreatestminimum.php
+ * @link https://secure.php.net/manual/en/intlcalendar.getgreatestminimum.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @param int $field <p>
- * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
  * values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * @return int
- * An {@link http://www.php.net/manual/en/language.types.integer.php int} representing a field value, in the field's
+ * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing a field value, in the field's
  * unit, or <b>FALSE</b> on failure.
  */
 function intlcal_greates_minimum($calendar, $field) { }
@@ -4965,7 +5017,7 @@ function intlcal_greates_minimum($calendar, $field) { }
 /**
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
  * Get data from the bundle
- * @link http://php.net/manual/en/resourcebundle.get.php
+ * @link https://php.net/manual/en/resourcebundle.get.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
@@ -4981,17 +5033,17 @@ function intlcal_get($calendar, $index) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get the smallest local maximum for a field
- * @link http://www.php.net/manual/en/intlcalendar.getleastmaximum.php
+ * @link https://secure.php.net/manual/en/intlcalendar.getleastmaximum.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @param int $field <p>
- * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
  * values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
  * @return int
- * An {@link http://www.php.net/manual/en/language.types.integer.ph int} representing a field value in the field's
+ * An {@link https://secure.php.net/manual/en/language.types.integer.ph int} representing a field value in the field's
  * unit or <b>FALSE</b> on failure.
  * </p>
  */
@@ -5000,16 +5052,16 @@ function intlcal_get_least_maximum($calendar, $field) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get the largest local minimum value for a field
- * @link http://www.php.net/manual/en/intlcalendar.getgreatestminimum.php
+ * @link https://secure.php.net/manual/en/intlcalendar.getgreatestminimum.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @param int $field <p>
- * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
  * values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * @return int
- * An {@link http://www.php.net/manual/en/language.types.integer.php int} representing a field value, in the field's
+ * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing a field value, in the field's
  * unit, or <b>FALSE</b> on failure.
  */
 function intlcal_get_greatest_minimum($calendar, $field) { }
@@ -5017,7 +5069,7 @@ function intlcal_get_greatest_minimum($calendar, $field) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get the locale associated with the object
- * @link http://www.php.net/manual/en/intlcalendar.getlocale.php
+ * @link https://secure.php.net/manual/en/intlcalendar.getlocale.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
@@ -5038,12 +5090,12 @@ function intlcal_get_locale($calendar, $localeType) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get the global maximum value for a field
- * @link http://www.php.net/manual/en/intlcalendar.getmaximum.php
+ * @link https://secure.php.net/manual/en/intlcalendar.getmaximum.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @param int $field <p>
- * One of the {@link www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
  * values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
@@ -5055,25 +5107,25 @@ function intcal_get_maximum($calendar, $field) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
- * @link http://www.php.net/manual/en/intlcalendar.getminimaldaysinfirstweek.php
+ * @link https://secure.php.net/manual/en/intlcalendar.getminimaldaysinfirstweek.php
  * Get minimal number of days the first week in a year or month can have
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @return int
- * An {@link http://www.php.net/manual/en/language.types.integer.php  int} representing a number of days or <b>FALSE</b> on failure.
+ * An {@link https://secure.php.net/manual/en/language.types.integer.php  int} representing a number of days or <b>FALSE</b> on failure.
  */
 function intlcal_get_minimal_days_in_first_week($calendar) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get the global minimum value for a field
- * @link http://www.php.net/manual/en/intlcalendar.getminimum.php
+ * @link https://secure.php.net/manual/en/intlcalendar.getminimum.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @param int $field <p>
- * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field}. These are integer
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field}. These are integer
  * values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
@@ -5085,12 +5137,12 @@ function intlcal_get_minimum($calendar, $field) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get the object's timezone
- * @link http://www.php.net/manual/en/intlcalendar.gettimezone.php
+ * @link https://secure.php.net/manual/en/intlcalendar.gettimezone.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @return IntlTimeZone
- * An {@link http://www.php.net/manual/en/class.intltimezone.php IntlTimeZone} object corresponding to the one used
+ * An {@link https://secure.php.net/manual/en/class.intltimezone.php IntlTimeZone} object corresponding to the one used
  * internally in this object.
  */
 function intlcal_get_time_zone($calendar) { }
@@ -5098,12 +5150,12 @@ function intlcal_get_time_zone($calendar) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get the calendar type
- * @link http://www.php.net/manual/en/intlcalendar.gettype.php
+ * @link https://secure.php.net/manual/en/intlcalendar.gettype.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @return string
- * A {@link http://www.php.net/manual/en/language.types.string.php string} representing the calendar type, such as
+ * A {@link https://secure.php.net/manual/en/language.types.string.php string} representing the calendar type, such as
  * <em>'gregorian'</em>, <em>'islamic'</em>, etc.
  */
 function intlcal_get_type($calendar) { }
@@ -5111,7 +5163,7 @@ function intlcal_get_type($calendar) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get time of the day at which weekend begins or ends
- * @link http://www.php.net/manual/en/intlcalendar.getweekendtransition.php
+ * @link https://secure.php.net/manual/en/intlcalendar.getweekendtransition.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
@@ -5129,39 +5181,39 @@ function intlcal_get_weekend_transition($calendar, $dayOfWeek) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Whether the object's time is in Daylight Savings Time
- * @link http://www.php.net/manual/en/intlcalendar.indaylighttime.php
+ * @link https://secure.php.net/manual/en/intlcalendar.indaylighttime.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @return bool
  * Returns <b>TRUE</b> if the date is in Daylight Savings Time, <b>FALSE</b> otherwise.
  * The value <b>FALSE</b> may also be returned on failure, for instance after
- * specifying invalid field values on non-lenient mode; use {@link http://www.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or query
- * {@link http://www.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.
+ * specifying invalid field values on non-lenient mode; use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or query
+ * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.
  */
 function intlcal_in_daylight_time($calendar) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Whether date/time interpretation is in lenient mode
- * @link http://www.php.net/manual/en/intlcalendar.islenient.php
+ * @link https://secure.php.net/manual/en/intlcalendar.islenient.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @return bool
- * A {@link http://www.php.net/manual/en/language.types.boolean.php bool} representing whether the calendar is set to lenient mode.
+ * A {@link https://secure.php.net/manual/en/language.types.boolean.php bool} representing whether the calendar is set to lenient mode.
  */
 function intlcal_is_lenient($calendar) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Whether a field is set
- * @link http://www.php.net/manual/en/intlcalendar.isset.php
+ * @link https://secure.php.net/manual/en/intlcalendar.isset.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @param int $field <p>
- * One of the {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
  * values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
@@ -5172,12 +5224,12 @@ function intlcal_is_set($calendar, $field) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get the global maximum value for a field
- * @link http://www.php.net/manual/en/intlcalendar.getmaximum.php
+ * @link https://secure.php.net/manual/en/intlcalendar.getmaximum.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @param int $field <p>
- * One of the {@link www.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link http://www.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
+ * One of the {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} date/time {@link https://secure.php.net/manual/en/class.intlcalendar.php#intlcalendar.constants field constants}. These are integer
  * values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
@@ -5189,7 +5241,7 @@ function intlcal_get_maximum($calendar, $field) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Whether another calendar is equal but for a different time
- * @link http://www.php.net/manual/en/intlcalendar.isequivalentto.php
+ * @link https://secure.php.net/manual/en/intlcalendar.isequivalentto.php
  * @param IntlCalendar $calendarObject <p>
  * The calendar object, on the procedural style interface.
  * </p>
@@ -5202,7 +5254,7 @@ function intlcal_is_equivalent_to(IntlCalendar $calendarObject, IntlCalendar $ca
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Whether a certain date/time is in the weekend
- * @link http://www.php.net/manual/en/intlcalendar.isweekend.php
+ * @link https://secure.php.net/manual/en/intlcalendar.isweekend.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
@@ -5212,13 +5264,13 @@ function intlcal_is_equivalent_to(IntlCalendar $calendarObject, IntlCalendar $ca
  * used instead.
  * </p>
  * @return bool
- * <p> A {@link http://www.php.net/manual/en/language.types.boolean.php bool} indicating whether the given or this object's time occurs
+ * <p> A {@link https://secure.php.net/manual/en/language.types.boolean.php bool} indicating whether the given or this object's time occurs
  * in a weekend.
  * </p>
  * <p>
  * The value <b>FALSE</b> may also be returned on failure, for instance after giving
- * a date out of bounds on non-lenient mode; use {@link http://www.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or query
- * {@link http://www.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.</p>
+ * a date out of bounds on non-lenient mode; use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or query
+ * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.</p>
  */
 function intlcal_is_weekend($calendar, $date = NULL) { }
 
@@ -5226,7 +5278,7 @@ function intlcal_is_weekend($calendar, $date = NULL) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Set the day on which the week is deemed to start
- * @link http://www.php.net/manual/en/intlcalendar.setfirstdayofweek.php
+ * @link https://secure.php.net/manual/en/intlcalendar.setfirstdayofweek.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
@@ -5242,7 +5294,7 @@ function intlcal_set_first_day_of_week($calendar, $dayOfWeek) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Set whether date/time interpretation is to be lenient
- * @link http://www.php.net/manual/en/intlcalendar.setlenient.php
+ * @link https://secure.php.net/manual/en/intlcalendar.setlenient.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
@@ -5257,7 +5309,7 @@ function intlcal_set_lenient($calendar, $isLenient) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get behavior for handling repeating wall time
- * @link http://www.php.net/manual/en/intlcalendar.getrepeatedwalltimeoption.php
+ * @link https://secure.php.net/manual/en/intlcalendar.getrepeatedwalltimeoption.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
@@ -5271,17 +5323,17 @@ function intlcal_get_repeated_wall_time_option($calendar) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Compare time of two IntlCalendar objects for equality
- * @link http://www.php.net/manual/en/intlcalendar.equals.php
+ * @link https://secure.php.net/manual/en/intlcalendar.equals.php
  * @param IntlCalendar $calendarObject <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @param IntlCalendar $calendar
  * @return bool <p>
  * Returns <b>TRUE</b> if the current time of both this and the passed in
- * {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} object are the same, or <b>FALSE</b>
+ * {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} object are the same, or <b>FALSE</b>
  * otherwise. The value <b>FALSE</b> can also be returned on failure. This can only
  * happen if bad arguments are passed in. In any case, the two cases can be
- * distinguished by calling  {@link http://www.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()}.
+ * distinguished by calling  {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()}.
  * </p>
  */
 function intlcal_equals($calendarObject, $calendar) { }
@@ -5289,7 +5341,7 @@ function intlcal_equals($calendarObject, $calendar) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get behavior for handling skipped wall time
- * @link http://www.php.net/manual/en/intlcalendar.getskippedwalltimeoption.php
+ * @link https://secure.php.net/manual/en/intlcalendar.getskippedwalltimeoption.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
@@ -5303,7 +5355,7 @@ function intlcal_get_skipped_wall_time_option($calendar) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Set behavior for handling repeating wall times at negative timezone offset transitions
- * @link http://www.php.net/manual/en/intlcalendar.setrepeatedwalltimeoption.php
+ * @link https://secure.php.net/manual/en/intlcalendar.setrepeatedwalltimeoption.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
@@ -5320,7 +5372,7 @@ function intlcal_set_repeated_wall_time_option($calendar, $wallTimeOption) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Set behavior for handling skipped wall times at positive timezone offset transitions
- * @link http://www.php.net/manual/en/intlcalendar.setskippedwalltimeoption.php
+ * @link https://secure.php.net/manual/en/intlcalendar.setskippedwalltimeoption.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
@@ -5339,15 +5391,15 @@ function intlcal_set_skipped_wall_time_option($calendar, $wallTimeOption) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a2)<br/>
  * Create an IntlCalendar from a DateTime object or string
- * @link http://www.php.net/manual/en/intlcalendar.fromdatetime.php
+ * @link https://secure.php.net/manual/en/intlcalendar.fromdatetime.php
  * @param mixed $dateTime <p>
- * A {@link http://www.php.net/manual/en/class.datetime.php DateTime} object or a {@link http://www.php.net/manual/en/language.types.string.php string} that
- * can be passed to  {@link http://www.php.net/manual/en/datetime.construct.php DateTime::__construct()}.
+ * A {@link https://secure.php.net/manual/en/class.datetime.php DateTime} object or a {@link https://secure.php.net/manual/en/language.types.string.php string} that
+ * can be passed to  {@link https://secure.php.net/manual/en/datetime.construct.php DateTime::__construct()}.
  * </p>
  * @return IntlCalendar
- * The created {@link http://www.php.net/manual/en/class.intlcalendar.php IntlCalendar} object or <b>NULL</b> in case of
- * failure. If a {@link http://www.php.net/manual/en/language.types.string.php string} is passed, any exception that occurs
- * inside the {@link http://www.php.net/manual/en/class.datetime.php DateTime} constructor is propagated.
+ * The created {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} object or <b>NULL</b> in case of
+ * failure. If a {@link https://secure.php.net/manual/en/language.types.string.php string} is passed, any exception that occurs
+ * inside the {@link https://secure.php.net/manual/en/class.datetime.php DateTime} constructor is propagated.
  */
 function intlcal_from_date_time($dateTime) { }
 
@@ -5355,12 +5407,12 @@ function intlcal_from_date_time($dateTime) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a2)<br/>
  * Convert an IntlCalendar into a DateTime object
- * @link http://www.php.net/manual/en/intlcalendar.todatetime.php
+ * @link https://secure.php.net/manual/en/intlcalendar.todatetime.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
  * @return DateTime|bool
- * A {@link http://www.php.net/manual/en/class.datetime.php DateTime} object with the same timezone as this
+ * A {@link https://secure.php.net/manual/en/class.datetime.php DateTime} object with the same timezone as this
  * object (though using PHP's database instead of ICU's) and the same time,
  * except for the smaller precision (second precision instead of millisecond).
  * Returns <b>FALSE</b> on failure.
@@ -5371,7 +5423,7 @@ function intlcal_to_date_time($calendar) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get last error code on the object
- * @link http://www.php.net/manual/en/intlcalendar.geterrorcode.php
+ * @link https://secure.php.net/manual/en/intlcalendar.geterrorcode.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
@@ -5383,7 +5435,7 @@ function intlcal_get_error_code($calendar) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get last error message on the object
- * @link http://www.php.net/manual/en/intlcalendar.geterrormessage.php
+ * @link https://secure.php.net/manual/en/intlcalendar.geterrormessage.php
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
@@ -5395,7 +5447,7 @@ function intlcal_get_error_message($calendar) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get the number of IDs in the equivalency group that includes the given ID
- * @link http://www.php.net/manual/en/intltimezone.countequivalentids.php
+ * @link https://secure.php.net/manual/en/intltimezone.countequivalentids.php
  * @param string $zoneId
  * @return int
  */
@@ -5404,14 +5456,14 @@ function intltz_count_equivalent_ids($zoneId) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Create a new copy of the default timezone for this host
- * @link http://www.php.net/manual/en/intltimezone.createdefault.php
+ * @link https://secure.php.net/manual/en/intltimezone.createdefault.php
  * @return IntlTimeZone
  */
 function intlz_create_default() { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
- * @link http://www.php.net/manual/en/intltimezone.createenumeration.php
+ * @link https://secure.php.net/manual/en/intltimezone.createenumeration.php
  * @param mixed $countryOrRawOffset [optional]
  * @return IntlIterator
  */
@@ -5419,7 +5471,7 @@ function intltz_create_enumeration($countryOrRawOffset) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
- * @link http://www.php.net/manual/en/intltimezone.createtimezone.php
+ * @link https://secure.php.net/manual/en/intltimezone.createtimezone.php
  * @param string $zoneId
  * @return IntlTimeZone
  */
@@ -5427,7 +5479,7 @@ function intltz_create_time_zone($zoneId) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
- * @link http://www.php.net/manual/en/intltimezone.fromdatetimezone.php
+ * @link https://secure.php.net/manual/en/intltimezone.fromdatetimezone.php
  * @param DateTimeZone $zoneId
  * @return IntlTimeZone
  */
@@ -5436,7 +5488,7 @@ function intltz_from_date_time_zone($zoneId) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get the canonical system timezone ID or the normalized custom time zone ID for the given time zone ID
- * @link www.php.net/manual/en/intltimezone.getcanonicalid.php
+ * @link https://secure.php.net/manual/en/intltimezone.getcanonicalid.php
  * @param string $zoneId
  * @param bool $isSystemID [optional]
  * @return string
@@ -5462,7 +5514,7 @@ function intltz_get_display_name($obj, $isDaylight, $style, $locale) { }
  * @param IntlTimeZone $obj - <p>
  * The time zone object, on the procedural style interface.
  * </p>
- * @link http://www.php.net/manual/en/intltimezone.getequivalentid.php
+ * @link https://secure.php.net/manual/en/intltimezone.getequivalentid.php
  * @return int
  */
 function intltz_get_dst_savings($obj) { }
@@ -5470,7 +5522,7 @@ function intltz_get_dst_savings($obj) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get an ID in the equivalency group that includes the given ID
- * @link http://www.php.net/manual/en/intltimezone.getequivalentid.php
+ * @link https://secure.php.net/manual/en/intltimezone.getequivalentid.php
  * @param string $zoneId
  * @param int $index
  * @return string
@@ -5480,7 +5532,7 @@ function intltz_get_equivalent_id($zoneId, $index) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get last error code on the object
- * @link http://www.php.net/manual/en/intltimezone.geterrorcode.php
+ * @link https://secure.php.net/manual/en/intltimezone.geterrorcode.php
  * @param IntlTimeZone $obj - <p>
  * The time zone object, on the procedural style interface.
  * </p>
@@ -5491,7 +5543,7 @@ function intltz_get_error_code($obj) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get last error message on the object
- * @link http://www.php.net/manual/en/intltimezone.geterrormessage.php
+ * @link https://secure.php.net/manual/en/intltimezone.geterrormessage.php
  * @param IntlTimeZone $obj - <p>
  * The time zone object, on the procedural style interface.
  * </p>
@@ -5502,7 +5554,7 @@ function intltz_get_error_message($obj) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Create GMT (UTC) timezone
- * @link http://www.php.net/manual/en/intltimezone.getgmt.php
+ * @link https://secure.php.net/manual/en/intltimezone.getgmt.php
  * @return IntlTimeZone
  */
 function intltz_getGMT() { }
@@ -5510,7 +5562,7 @@ function intltz_getGMT() { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get timezone ID
- * @link http://www.php.net/manual/en/intltimezone.getid.php
+ * @link https://secure.php.net/manual/en/intltimezone.getid.php
  * @param IntlTimeZone $obj
  * @return string
  */
@@ -5519,7 +5571,7 @@ function intltz_get_id($obj) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get the time zone raw and GMT offset for the given moment in time
- * @link http://www.php.net/manual/en/intltimezone.getoffset.php
+ * @link https://secure.php.net/manual/en/intltimezone.getoffset.php
  * @param IntlTimeZone $obj
  * @param float $date
  * @param bool $local
@@ -5531,7 +5583,7 @@ function intltz_get_offset($obj, $date, $local, &$rawOffset, &$dstOffset) { }
 
 /**
  * Get the raw GMT offset (before taking daylight savings time into account
- * @link http://www.php.net/manual/en/intltimezone.getrawoffset.php
+ * @link https://secure.php.net/manual/en/intltimezone.getrawoffset.php
  * @param IntlTimeZone $obj
  * @return int
  */
@@ -5540,7 +5592,7 @@ function intltz_get_raw_offset($obj) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get the timezone data version currently used by ICU
- * @link http://www.php.net/manual/en/intltimezone.gettzdataversion.php
+ * @link https://secure.php.net/manual/en/intltimezone.gettzdataversion.php
  * @param IntlTimeZone $obj
  * @return string
  */
@@ -5549,7 +5601,7 @@ function intltz_get_tz_data_version($obj) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Check if this zone has the same rules and offset as another zone
- * @link http://www.php.net/manual/en/intltimezone.hassamerules.php
+ * @link https://secure.php.net/manual/en/intltimezone.hassamerules.php
  * @param IntlTimeZone $obj
  * @param IntlTimeZone $otherTimeZone
  * @return bool
@@ -5559,7 +5611,7 @@ function intltz_has_same_rules($obj, $otherTimeZone) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Convert to DateTimeZone object
- * @link http://www.php.net/manual/ru/intltimezone.todatetimezone.php
+ * @link https://secure.php.net/manual/ru/intltimezone.todatetimezone.php
  * @param $obj
  * @return DateTimeZone
  */
@@ -5568,7 +5620,7 @@ function intltz_to_date_time_zone($obj) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Check if this time zone uses daylight savings time
- * @link http://www.php.net/manual/ru/intltimezone.usedaylighttime.php
+ * @link https://secure.php.net/manual/ru/intltimezone.usedaylighttime.php
  * @param $obj
  * @return bool
  */
@@ -5606,7 +5658,7 @@ function intlgregcal_is_leap_year($year) { }
 /**
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
  * Create a resource bundle
- * @link http://php.net/manual/en/resourcebundle.create.php
+ * @link https://php.net/manual/en/resourcebundle.create.php
  * @param string $locale <p>
  * Locale for which the resources should be loaded (locale name, e.g. en_CA).
  * </p>
@@ -5623,7 +5675,7 @@ function resourcebundle_create($locale, $bundlename, $fallback = null) { }
 /**
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
  * Get data from the bundle
- * @link http://php.net/manual/en/resourcebundle.get.php
+ * @link https://php.net/manual/en/resourcebundle.get.php
  * @param ResourceBundle $r
  * @param string|int $index <p>
  * Data index, must be string or integer.
@@ -5637,7 +5689,7 @@ function resourcebundle_get(ResourceBundle $r, $index) { }
 /**
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
  * Get number of elements in the bundle
- * @link http://php.net/manual/en/resourcebundle.count.php
+ * @link https://php.net/manual/en/resourcebundle.count.php
  * @param ResourceBundle $r
  * @param $bundle
  * @return int number of elements in the bundle.
@@ -5647,7 +5699,7 @@ function resourcebundle_count(ResourceBundle $r, $bundle) { }
 /**
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
  * Get supported locales
- * @link http://php.net/manual/en/resourcebundle.locales.php
+ * @link https://php.net/manual/en/resourcebundle.locales.php
  * @param ResourceBundle $r
  * @param string $bundlename <p>
  * Path of ResourceBundle for which to get available locales, or
@@ -5660,7 +5712,7 @@ function resourcebundle_locales(ResourceBundle $r, $bundlename) { }
 /**
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
  * Get bundle's last error code.
- * @link http://php.net/manual/en/resourcebundle.geterrorcode.php
+ * @link https://php.net/manual/en/resourcebundle.geterrorcode.php
  * @param $bundle
  * @return int error code from last bundle object call.
  */
@@ -5669,7 +5721,7 @@ function resourcebundle_get_error_code(ResourceBundle $bundle) { }
 /**
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
  * Get bundle's last error message.
- * @link http://php.net/manual/en/resourcebundle.geterrormessage.php
+ * @link https://php.net/manual/en/resourcebundle.geterrormessage.php
  * @param $bundle
  * @return string error message from last bundle object's call.
  */
@@ -5678,7 +5730,7 @@ function resourcebundle_get_error_message(ResourceBundle $bundle) { }
 /**
  * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
  * Create a transliterator
- * @link http://php.net/manual/en/transliterator.create.php
+ * @link https://php.net/manual/en/transliterator.create.php
  * @param string $id <p>
  * The id.
  * </p>
@@ -5696,7 +5748,7 @@ function transliterator_create($id, $direction = null) { }
 /**
  * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
  * Create transliterator from rules
- * @link http://php.net/manual/en/transliterator.createfromrules.php
+ * @link https://php.net/manual/en/transliterator.createfromrules.php
  * @param string $rules <p>
  * The rules.
  * </p>
@@ -5714,7 +5766,7 @@ function transliterator_create_from_rules($rules, $direction = null) { }
 /**
  * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
  * Get transliterator IDs
- * @link http://php.net/manual/en/transliterator.listids.php
+ * @link https://php.net/manual/en/transliterator.listids.php
  * @return array An array of registered transliterator IDs on success,
  * or <b>FALSE</b> on failure.
  */
@@ -5723,7 +5775,7 @@ function transliterator_list_ids() { }
 /**
  * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
  * Create an inverse transliterator
- * @link http://php.net/manual/en/transliterator.createinverse.php
+ * @link https://php.net/manual/en/transliterator.createinverse.php
  * @param Transliterator $orig_trans
  * @return Transliterator a <b>Transliterator</b> object on success,
  * or <b>NULL</b> on failure
@@ -5733,7 +5785,7 @@ function transliterator_create_inverse(Transliterator $orig_trans) { }
 /**
  * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
  * Transliterate a string
- * @link http://php.net/manual/en/transliterator.transliterate.php
+ * @link https://php.net/manual/en/transliterator.transliterate.php
  * @param Transliterator|string $transliterator
  * @param string $subject <p>
  * The string to be transformed.
@@ -5755,7 +5807,7 @@ function transliterator_transliterate($transliterator, $subject, $start = null, 
 /**
  * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
  * Get last error code
- * @link http://php.net/manual/en/transliterator.geterrorcode.php
+ * @link https://php.net/manual/en/transliterator.geterrorcode.php
  * @param Transliterator $trans
  * @return int The error code on success,
  * or <b>FALSE</b> if none exists, or on failure.
@@ -5765,7 +5817,7 @@ function transliterator_get_error_code(Transliterator $trans) { }
 /**
  * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
  * Get last error message
- * @link http://php.net/manual/en/transliterator.geterrormessage.php
+ * @link https://php.net/manual/en/transliterator.geterrormessage.php
  * @param Transliterator $trans
  * @return string The error code on success,
  * or <b>FALSE</b> if none exists, or on failure.
@@ -5775,7 +5827,7 @@ function transliterator_get_error_message(Transliterator $trans) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the last error code
- * @link http://php.net/manual/en/function.intl-get-error-code.php
+ * @link https://php.net/manual/en/function.intl-get-error-code.php
  * @return int Error code returned by the last API function call.
  */
 function intl_get_error_code() { }
@@ -5783,7 +5835,7 @@ function intl_get_error_code() { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get description of the last error
- * @link http://php.net/manual/en/function.intl-get-error-message.php
+ * @link https://php.net/manual/en/function.intl-get-error-message.php
  * @return string Description of an error occurred in the last API function call.
  */
 function intl_get_error_message() { }
@@ -5791,7 +5843,7 @@ function intl_get_error_message() { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Check whether the given error code indicates failure
- * @link http://php.net/manual/en/function.intl-is-failure.php
+ * @link https://php.net/manual/en/function.intl-is-failure.php
  * @param int $error_code <p>
  * is a value that returned by functions:
  * <b>intl_get_error_code</b>,
@@ -5805,7 +5857,7 @@ function intl_is_failure($error_code) { }
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get symbolic name for a given error code
- * @link http://php.net/manual/en/function.intl-error-name.php
+ * @link https://php.net/manual/en/function.intl-error-name.php
  * @param int $error_code <p>
  * ICU error code.
  * </p>
@@ -5818,7 +5870,7 @@ function intl_error_name($error_code) { }
 /**
  * Limit on locale length, set to 80 in PHP code. Locale names longer
  * than this limit will not be accepted.
- * @link http://php.net/manual/en/intl.constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  */
 define ('INTL_MAX_LOCALE_LEN', 80);
 define ('INTL_ICU_VERSION', "4.8.1.1");
@@ -5973,33 +6025,33 @@ define ('U_ERROR_LIMIT', 66818);
 /**
  * Prohibit processing of unassigned codepoints in the input for IDN
  * functions and do not check if the input conforms to domain name ASCII rules.
- * @link http://php.net/manual/en/intl.constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  */
 define ('IDNA_DEFAULT', 0);
 
 /**
  * Allow processing of unassigned codepoints in the input for IDN functions.
- * @link http://php.net/manual/en/intl.constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  */
 define ('IDNA_ALLOW_UNASSIGNED', 1);
 
 /**
  * Check if the input for IDN functions conforms to domain name ASCII rules.
- * @link http://php.net/manual/en/intl.constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  */
 define ('IDNA_USE_STD3_RULES', 2);
 
 /**
  * Check whether the input conforms to the BiDi rules.
  * Ignored by the IDNA2003 implementation, which always performs this check.
- * @link http://php.net/manual/en/intl.constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  */
 define ('IDNA_CHECK_BIDI', 4);
 
 /**
  * Check whether the input conforms to the CONTEXTJ rules.
  * Ignored by the IDNA2003 implementation, as this check is new in IDNA2008.
- * @link http://php.net/manual/en/intl.constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  */
 define ('IDNA_CHECK_CONTEXTJ', 8);
 
@@ -6007,7 +6059,7 @@ define ('IDNA_CHECK_CONTEXTJ', 8);
  * Option for nontransitional processing in
  * <b>idn_to_ascii</b>. Transitional processing is activated
  * by default. This option is ignored by the IDNA2003 implementation.
- * @link http://php.net/manual/en/intl.constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  */
 define ('IDNA_NONTRANSITIONAL_TO_ASCII', 16);
 
@@ -6015,21 +6067,21 @@ define ('IDNA_NONTRANSITIONAL_TO_ASCII', 16);
  * Option for nontransitional processing in
  * <b>idn_to_utf8</b>. Transitional processing is activated
  * by default. This option is ignored by the IDNA2003 implementation.
- * @link http://php.net/manual/en/intl.constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  */
 define ('IDNA_NONTRANSITIONAL_TO_UNICODE', 32);
 
 /**
  * Use IDNA 2003 algorithm in <b>idn_to_utf8</b> and
  * <b>idn_to_ascii</b>. This is the default.
- * @link http://php.net/manual/en/intl.constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  */
 define ('INTL_IDNA_VARIANT_2003', 0);
 
 /**
  * Use UTS #46 algorithm in <b>idn_to_utf8</b> and
  * <b>idn_to_ascii</b>.
- * @link http://php.net/manual/en/intl.constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  */
 define ('INTL_IDNA_VARIANT_UTS46', 1);
 
@@ -6037,66 +6089,66 @@ define ('INTL_IDNA_VARIANT_UTS46', 1);
  * Errors reported in a bitset returned by the UTS #46 algorithm in
  * <b>idn_to_utf8</b> and
  * <b>idn_to_ascii</b>.
- * @link http://php.net/manual/en/intl.constants.php
+ * @link https://php.net/manual/en/intl.constants.php
  */
 define ('IDNA_ERROR_EMPTY_LABEL', 1);
 /**
- * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
  * @since 5.4
  */
 define ('IDNA_ERROR_LABEL_TOO_LONG', 2);
 /**
- * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
  * @since 5.4
  */
 define ('IDNA_ERROR_DOMAIN_NAME_TOO_LONG', 4);
 /**
- * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
  * @since 5.4
  */
 define ('IDNA_ERROR_LEADING_HYPHEN', 8);
 /**
- * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
  * @since 5.4
  */
 define ('IDNA_ERROR_TRAILING_HYPHEN', 16);
 /**
- * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
  * @since 5.4
  */
 define ('IDNA_ERROR_HYPHEN_3_4', 32);
 /**
- * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
  * @since 5.4
  */
 define ('IDNA_ERROR_LEADING_COMBINING_MARK', 64);
 /**
- * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
  * @since 5.4
  */
 define ('IDNA_ERROR_DISALLOWED', 128);
 /**
- * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
  * @since 5.4
  */
 define ('IDNA_ERROR_PUNYCODE', 256);
 /**
- * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
  * @since 5.4
  */
 define ('IDNA_ERROR_LABEL_HAS_DOT', 512);
 /**
- * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
  * @since 5.4
  */
 define ('IDNA_ERROR_INVALID_ACE_LABEL', 1024);
 /**
- * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
  * @since 5.4
  */
 define ('IDNA_ERROR_BIDI', 2048);
 /**
- * @link http://www.php.net/manual/en/migration54.global-constants.php
+ * @link https://secure.php.net/manual/en/migration54.global-constants.php
  * @since 5.4
  */
 define ('IDNA_ERROR_CONTEXTJ', 4096);
@@ -6134,7 +6186,7 @@ class IntlBreakIterator implements Traversable {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for boundaries of combining character sequences
-     * @link http://www.php.net/manual/en/intlbreakiterator.createcharacterinstance.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createcharacterinstance.php
      * @param string $locale
      * @return IntlBreakIterator
      */
@@ -6143,7 +6195,7 @@ class IntlBreakIterator implements Traversable {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for boundaries of code points
-     * @link http://www.php.net/manual/en/intlbreakiterator.createcodepointinstance.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createcodepointinstance.php
      * @return IntlBreakIterator
      */
     public static function createCodePointInstance() { }
@@ -6151,7 +6203,7 @@ class IntlBreakIterator implements Traversable {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for logically possible line breaks
-     * @link http://www.php.net/manual/en/intlbreakiterator.createlineinstance.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createlineinstance.php
      * @param string $locale
      * @return IntlBreakIterator
      */
@@ -6160,7 +6212,7 @@ class IntlBreakIterator implements Traversable {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for sentence breaks
-     * @link http://www.php.net/manual/en/intlbreakiterator.createsentenceinstance.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createsentenceinstance.php
      * @param string $locale
      * @return IntlBreakIterator
      */
@@ -6169,7 +6221,7 @@ class IntlBreakIterator implements Traversable {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for title-casing breaks
-     * @link http://www.php.net/manual/en/intlbreakiterator.createtitleinstance.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createtitleinstance.php
      * @param string $locale
      * @return IntlBreakIterator
      */
@@ -6178,7 +6230,7 @@ class IntlBreakIterator implements Traversable {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for word breaks
-     * @link http://www.php.net/manual/en/intlbreakiterator.createwordinstance.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createwordinstance.php
      * @param string $locale
      * @return IntlBreakIterator
      */
@@ -6187,7 +6239,7 @@ class IntlBreakIterator implements Traversable {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get index of current position
-     * @link http://www.php.net/manual/en/intlbreakiterator.current.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.current.php
      * @return int
      */
     public function current() { }
@@ -6195,14 +6247,14 @@ class IntlBreakIterator implements Traversable {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Set position to the first character in the text
-     * @link http://www.php.net/manual/en/intlbreakiterator.first.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.first.php
      */
     public function first() { }
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Advance the iterator to the first boundary following specified offset
-     * @link http://www.php.net/manual/en/intlbreakiterator.following.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.following.php
      * @param int $offset
      */
     public function following($offset) { }
@@ -6210,7 +6262,7 @@ class IntlBreakIterator implements Traversable {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get last error code on the object
-     * @link http://www.php.net/manual/en/intlbreakiterator.geterrorcode.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.geterrorcode.php
      * @return int
      */
     public function getErrorCode() { }
@@ -6218,7 +6270,7 @@ class IntlBreakIterator implements Traversable {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get last error message on the object
-     * @link http://www.php.net/manual/en/intlbreakiterator.geterrormessage.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.geterrormessage.php
      * @return string
      */
     public function getErrorMessage() { }
@@ -6227,7 +6279,7 @@ class IntlBreakIterator implements Traversable {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get the locale associated with the object
-     * @link http://www.php.net/manual/en/intlbreakiterator.getlocale.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.getlocale.php
      * @param string $locale_type
      */
     public function getLocale($locale_type) { }
@@ -6235,7 +6287,7 @@ class IntlBreakIterator implements Traversable {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create iterator for navigating fragments between boundaries
-     * @link http://www.php.net/manual/en/intlbreakiterator.getpartsiterator.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.getpartsiterator.php
      * @param string $key_type [optional]
      */
     public function getPartsIterator($key_type) { }
@@ -6243,14 +6295,14 @@ class IntlBreakIterator implements Traversable {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get the text being scanned
-     * @link http://www.php.net/manual/en/intlbreakiterator.gettext.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.gettext.php
      */
     public function getText() { }
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Tell whether an offset is a boundary's offset
-     * @link http://www.php.net/manual/en/intlbreakiterator.isboundary.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.isboundary.php
      * @param string $offset
      */
     public function isBoundary($offset) { }
@@ -6258,14 +6310,14 @@ class IntlBreakIterator implements Traversable {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Set the iterator position to index beyond the last character
-     * @link http://www.php.net/manual/en/intlbreakiterator.last.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.last.php
      * @return int
      */
     public function last() { }
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
-     * @link http://www.php.net/manual/en/intlbreakiterator.next.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.next.php
      * @param string $offset [optional]
      * @return int
      */
@@ -6273,7 +6325,7 @@ class IntlBreakIterator implements Traversable {
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
-     * @link http://www.php.net/manual/en/intlbreakiterator.preceding.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.preceding.php
      * @param int $offset
      */
     public function preceding($offset) { }
@@ -6281,7 +6333,7 @@ class IntlBreakIterator implements Traversable {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Set the iterator position to the boundary immediately before the current
-     * @link http://www.php.net/manual/en/intlbreakiterator.previous.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.previous.php
      * @return int
      */
     public function previous() { }
@@ -6289,7 +6341,7 @@ class IntlBreakIterator implements Traversable {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Set the text being scanned
-     * @link http://www.php.net/manual/en/intlbreakiterator.settext.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.settext.php
      * @param string $text
      */
     public function setText($text) { }
@@ -6300,7 +6352,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
     /* Methods */
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
-     * @link http://www.php.net/manual/en/intlbreakiterator.construct.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.construct.php
      * @param string $rules
      * @param string $areCompiled [optional]
      */
@@ -6309,7 +6361,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for boundaries of combining character sequences
-     * @link http://www.php.net/manual/en/intlbreakiterator.createcharacterinstance.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createcharacterinstance.php
      * @param string $locale
      * @return IntlRuleBasedBreakIterator
      */
@@ -6318,7 +6370,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
     /*
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for boundaries of code points
-     * @link http://www.php.net/manual/en/intlbreakiterator.createcodepointinstance.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createcodepointinstance.php
      * @return IntlRuleBasedBreakIterator
      */
     public static function createCodePointInstance() { }
@@ -6326,7 +6378,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for logically possible line breaks
-     * @link http://www.php.net/manual/en/intlbreakiterator.createlineinstance.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createlineinstance.php
      * @param string $locale
      * @return IntlRuleBasedBreakIterator
      */
@@ -6335,7 +6387,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for sentence breaks
-     * @link http://www.php.net/manual/en/intlbreakiterator.createsentenceinstance.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createsentenceinstance.php
      * @param string $locale
      * @return IntlRuleBasedBreakIterator
      */
@@ -6344,7 +6396,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for title-casing breaks
-     * @link http://www.php.net/manual/en/intlbreakiterator.createtitleinstance.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createtitleinstance.php
      * @param string $locale
      * @return IntlRuleBasedBreakIterator
      */
@@ -6353,7 +6405,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create break iterator for word breaks
-     * @link http://www.php.net/manual/en/intlbreakiterator.createwordinstance.php
+     * @link https://secure.php.net/manual/en/intlbreakiterator.createwordinstance.php
      * @param string $locale
      * @return IntlRuleBasedBreakIterator
      */
@@ -6361,7 +6413,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
-     * @link http://www.php.net/manual/en/intlrulebasedbreakiterator.getbinaryrules.php
+     * @link https://secure.php.net/manual/en/intlrulebasedbreakiterator.getbinaryrules.php
      * Get the binary form of compiled rules
      * @return string
      */
@@ -6369,7 +6421,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
-     * @link http://www.php.net/manual/en/intlrulebasedbreakiterator.getrules.php
+     * @link https://secure.php.net/manual/en/intlrulebasedbreakiterator.getrules.php
      * Get the rule set used to create this object
      * @return string
      */
@@ -6377,7 +6429,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
-     * @link http://www.php.net/manual/en/intlrulebasedbreakiterator.getrulesstatus.php
+     * @link https://secure.php.net/manual/en/intlrulebasedbreakiterator.getrulesstatus.php
      * Get the largest status value from the break rules that determined the current break position
      * @return int
      */
@@ -6385,7 +6437,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
-     * @link http://www.php.net/manual/en/intlrulebasedbreakiterator.getrulestatusvec.php
+     * @link https://secure.php.net/manual/en/intlrulebasedbreakiterator.getrulestatusvec.php
      * Get the status values from the break rules that determined the current break position
      * @return array
      */
@@ -6398,7 +6450,7 @@ class IntlCodePointBreakIterator extends IntlBreakIterator implements Traversabl
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get last code point passed over after advancing or receding the iterator
-     * @link http://www.php.net/manual/en/intlcodepointbreakiterator.getlastcodepoint.php
+     * @link https://secure.php.net/manual/en/intlcodepointbreakiterator.getlastcodepoint.php
      * @return int
      */
     public function getLastCodePoint() { }
@@ -6453,7 +6505,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create UConverter object
-     * @link http://php.net/manual/en/uconverter.construct.php
+     * @link https://php.net/manual/en/uconverter.construct.php
      * @param string $destination_encoding
      * @param string $source_encoding
      */
@@ -6462,7 +6514,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Convert string from one charset to anothe
-     * @link http://php.net/manual/en/uconverter.convert.php
+     * @link https://php.net/manual/en/uconverter.convert.php
      * @param string $str
      * @param bool $reverse
      * @return string
@@ -6472,7 +6524,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Default "from" callback function
-     * @link http://php.net/manual/en/uconverter.fromucallback.php
+     * @link https://php.net/manual/en/uconverter.fromucallback.php
      * @param int $reason
      * @param string $source
      * @param string $codePoint
@@ -6484,7 +6536,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get the aliases of the given name
-     * @link http://php.net/manual/en/uconverter.getaliases.php
+     * @link https://php.net/manual/en/uconverter.getaliases.php
      * @param string $name
      * @return array
      */
@@ -6493,7 +6545,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get the available canonical converter names
-     * @link http://php.net/manual/en/uconverter.getavailable.php
+     * @link https://php.net/manual/en/uconverter.getavailable.php
      * @return array
      */
     public static function getAvailable() { }
@@ -6501,7 +6553,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get the destination encoding
-     * @link http://php.net/manual/en/uconverter.getdestinationencoding.php
+     * @link https://php.net/manual/en/uconverter.getdestinationencoding.php
      * @return string
      */
     public function getDestinationEncoding() { }
@@ -6509,7 +6561,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get the destination converter type
-     * @link http://php.net/manual/en/uconverter.getdestinationtype.php
+     * @link https://php.net/manual/en/uconverter.getdestinationtype.php
      * @return int
      */
     public function getDestinationType() { }
@@ -6517,7 +6569,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get last error code on the object
-     * @link http://php.net/manual/en/uconverter.geterrorcode.php
+     * @link https://php.net/manual/en/uconverter.geterrorcode.php
      * @return int
      */
     public function getErrorCode() { }
@@ -6525,7 +6577,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get last error message on the object
-     * @link http://php.net/manual/en/uconverter.geterrormessage.php
+     * @link https://php.net/manual/en/uconverter.geterrormessage.php
      * @return string
      */
     public function getErrorMessage() { }
@@ -6533,7 +6585,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get the source encoding
-     * @link http://php.net/manual/en/uconverter.getsourceencoding.php
+     * @link https://php.net/manual/en/uconverter.getsourceencoding.php
      * @return string
      */
     public function getSourceEncoding() { }
@@ -6541,7 +6593,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get the source convertor type
-     * @link http://php.net/manual/en/uconverter.getsourcetype.php
+     * @link https://php.net/manual/en/uconverter.getsourcetype.php
      * @return int
      */
     public function getSourceType() { }
@@ -6549,7 +6601,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get standards associated to converter names
-     * @link http://php.net/manual/en/uconverter.getstandards.php
+     * @link https://php.net/manual/en/uconverter.getstandards.php
      * @return array
      */
     public static function getStandards() { }
@@ -6557,7 +6609,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get substitution chars
-     * @link http://php.net/manual/en/uconverter.getsubstchars.php
+     * @link https://php.net/manual/en/uconverter.getsubstchars.php
      * @return string
      */
     public function getSubstChars() { }
@@ -6565,7 +6617,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Get string representation of the callback reason
-     * @link http://php.net/manual/en/uconverter.reasontext.php
+     * @link https://php.net/manual/en/uconverter.reasontext.php
      * @param int $reason
      * @return string
      */
@@ -6574,7 +6626,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Set the destination encoding
-     * @link http://php.net/manual/en/uconverter.setdestinationencoding.php
+     * @link https://php.net/manual/en/uconverter.setdestinationencoding.php
      * @param string $encoding
      * @return void
      */
@@ -6583,7 +6635,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Set the source encoding
-     * @link http://php.net/manual/en/uconverter.setsourceencoding.php
+     * @link https://php.net/manual/en/uconverter.setsourceencoding.php
      * @param string $encoding
      * @return void
      */
@@ -6592,7 +6644,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Set the substitution chars
-     * @link http://php.net/manual/en/uconverter.setsubstchars.php
+     * @link https://php.net/manual/en/uconverter.setsubstchars.php
      * @param string $chars
      * @return void
      */
@@ -6601,7 +6653,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Default "to" callback function
-     * @link http://php.net/manual/en/uconverter.toucallback.php
+     * @link https://php.net/manual/en/uconverter.toucallback.php
      * @param int $reason
      * @param string $source
      * @param string $codeUnits
@@ -6613,7 +6665,7 @@ class UConverter {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Convert string from one charset to another
-     * @link http://php.net/manual/en/uconverter.transcode.php
+     * @link https://php.net/manual/en/uconverter.transcode.php
      * @param string $str
      * @param string $toEncoding
      * @param string $fromEncoding

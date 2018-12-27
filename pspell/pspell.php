@@ -4,7 +4,7 @@
 
 /**
  * Load a new dictionary
- * @link http://php.net/manual/en/function.pspell-new.php
+ * @link https://php.net/manual/en/function.pspell-new.php
  * @param string $language <p>
  * The language parameter is the language code which consists of the
  * two letter ISO 639 language code and an optional two letter ISO
@@ -40,7 +40,7 @@ function pspell_new ($language, $spelling = null, $jargon = null, $encoding = nu
 
 /**
  * Load a new dictionary with personal wordlist
- * @link http://php.net/manual/en/function.pspell-new-personal.php
+ * @link https://php.net/manual/en/function.pspell-new-personal.php
  * @param string $personal <p>
  * The file where words added to the personal list will be stored.
  * It should be an absolute filename beginning with '/' because otherwise
@@ -79,7 +79,7 @@ function pspell_new_personal ($personal, $language, $spelling = null, $jargon = 
 
 /**
  * Load a new dictionary with settings based on a given config
- * @link http://php.net/manual/en/function.pspell-new-config.php
+ * @link https://php.net/manual/en/function.pspell-new-config.php
  * @param int $config <p>
  * The <i>config</i> parameter is the one returned by
  * <b>pspell_config_create</b> when the config was created.
@@ -92,7 +92,7 @@ function pspell_new_config ($config) {}
 
 /**
  * Check a word
- * @link http://php.net/manual/en/function.pspell-check.php
+ * @link https://php.net/manual/en/function.pspell-check.php
  * @param int $dictionary_link
  * @param string $word <p>
  * The tested word.
@@ -105,7 +105,7 @@ function pspell_check ($dictionary_link, $word) {}
 
 /**
  * Suggest spellings of a word
- * @link http://php.net/manual/en/function.pspell-suggest.php
+ * @link https://php.net/manual/en/function.pspell-suggest.php
  * @param int $dictionary_link
  * @param string $word <p>
  * The tested word.
@@ -118,7 +118,7 @@ function pspell_suggest ($dictionary_link, $word) {}
 
 /**
  * Store a replacement pair for a word
- * @link http://php.net/manual/en/function.pspell-store-replacement.php
+ * @link https://php.net/manual/en/function.pspell-store-replacement.php
  * @param int $dictionary_link <p>
  * A dictionary link identifier, opened with
  * <b>pspell_new_personal</b>
@@ -137,7 +137,7 @@ function pspell_store_replacement ($dictionary_link, $misspelled, $correct) {}
 
 /**
  * Add the word to a personal wordlist
- * @link http://php.net/manual/en/function.pspell-add-to-personal.php
+ * @link https://php.net/manual/en/function.pspell-add-to-personal.php
  * @param int $dictionary_link
  * @param string $word <p>
  * The added word.
@@ -150,7 +150,7 @@ function pspell_add_to_personal ($dictionary_link, $word) {}
 
 /**
  * Add the word to the wordlist in the current session
- * @link http://php.net/manual/en/function.pspell-add-to-session.php
+ * @link https://php.net/manual/en/function.pspell-add-to-session.php
  * @param int $dictionary_link
  * @param string $word <p>
  * The added word.
@@ -163,7 +163,7 @@ function pspell_add_to_session ($dictionary_link, $word) {}
 
 /**
  * Clear the current session
- * @link http://php.net/manual/en/function.pspell-clear-session.php
+ * @link https://php.net/manual/en/function.pspell-clear-session.php
  * @param int $dictionary_link
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 4.0.2
@@ -173,7 +173,7 @@ function pspell_clear_session ($dictionary_link) {}
 
 /**
  * Save the personal wordlist to a file
- * @link http://php.net/manual/en/function.pspell-save-wordlist.php
+ * @link https://php.net/manual/en/function.pspell-save-wordlist.php
  * @param int $dictionary_link <p>
  * A dictionary link identifier opened with
  * <b>pspell_new_personal</b>.
@@ -186,7 +186,7 @@ function pspell_save_wordlist ($dictionary_link) {}
 
 /**
  * Create a config used to open a dictionary
- * @link http://php.net/manual/en/function.pspell-config-create.php
+ * @link https://php.net/manual/en/function.pspell-config-create.php
  * @param string $language <p>
  * The language parameter is the language code which consists of the
  * two letter ISO 639 language code and an optional two letter ISO
@@ -217,7 +217,7 @@ function pspell_config_create ($language, $spelling = null, $jargon = null, $enc
 
 /**
  * Consider run-together words as valid compounds
- * @link http://php.net/manual/en/function.pspell-config-runtogether.php
+ * @link https://php.net/manual/en/function.pspell-config-runtogether.php
  * @param int $dictionary_link
  * @param bool $flag <p>
  * <b>TRUE</b> if run-together words should be treated as legal compounds,
@@ -231,7 +231,7 @@ function pspell_config_runtogether ($dictionary_link, $flag) {}
 
 /**
  * Change the mode number of suggestions returned
- * @link http://php.net/manual/en/function.pspell-config-mode.php
+ * @link https://php.net/manual/en/function.pspell-config-mode.php
  * @param int $dictionary_link
  * @param int $mode <p>
  * The mode parameter is the mode in which spellchecker will work.
@@ -246,7 +246,7 @@ function pspell_config_mode ($dictionary_link, $mode) {}
 
 /**
  * Ignore words less than N characters long
- * @link http://php.net/manual/en/function.pspell-config-ignore.php
+ * @link https://php.net/manual/en/function.pspell-config-ignore.php
  * @param int $dictionary_link
  * @param int $n <p>
  * Words less than <i>n</i> characters will be skipped.
@@ -259,7 +259,7 @@ function pspell_config_ignore ($dictionary_link, $n) {}
 
 /**
  * Set a file that contains personal wordlist
- * @link http://php.net/manual/en/function.pspell-config-personal.php
+ * @link https://php.net/manual/en/function.pspell-config-personal.php
  * @param int $dictionary_link
  * @param string $file <p>
  * The personal wordlist. If the file does not exist, it will be created.
@@ -273,7 +273,7 @@ function pspell_config_personal ($dictionary_link, $file) {}
 
 /**
  * Location of the main word list
- * @link http://php.net/manual/en/function.pspell-config-dict-dir.php
+ * @link https://php.net/manual/en/function.pspell-config-dict-dir.php
  * @param int $conf
  * @param string $directory
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -283,7 +283,7 @@ function pspell_config_dict_dir ($conf, $directory) {}
 
 /**
  * location of language data files
- * @link http://php.net/manual/en/function.pspell-config-data-dir.php
+ * @link https://php.net/manual/en/function.pspell-config-data-dir.php
  * @param int $conf
  * @param string $directory
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -293,7 +293,7 @@ function pspell_config_data_dir ($conf, $directory) {}
 
 /**
  * Set a file that contains replacement pairs
- * @link http://php.net/manual/en/function.pspell-config-repl.php
+ * @link https://php.net/manual/en/function.pspell-config-repl.php
  * @param int $dictionary_link
  * @param string $file <p>
  * The file should be writable by whoever PHP runs as (e.g. nobody).
@@ -309,7 +309,7 @@ function pspell_config_repl ($dictionary_link, $file) {}
  * @since 4.0.2
  * @since 5.0
 along with the wordlist
- * @link http://php.net/manual/en/function.pspell-config-save-repl.php
+ * @link https://php.net/manual/en/function.pspell-config-save-repl.php
  * @param int $dictionary_link
  * @param bool $flag <p>
  * <b>TRUE</b> if replacement pairs should be saved, <b>FALSE</b> otherwise.

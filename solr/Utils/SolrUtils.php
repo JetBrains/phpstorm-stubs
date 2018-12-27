@@ -11,14 +11,14 @@
  * Class SolrUtils<br/>
  * Contains utility methods for retrieving the current extension version and preparing query phrases.
  * Also contains method for escaping query strings and parsing XML responses.
- * @link http://php.net/manual/en/class.solrutils.php
+ * @link https://php.net/manual/en/class.solrutils.php
  */
 abstract class SolrUtils {
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Parses an response XML string into a SolrObject
-	 * @link http://php.net/manual/en/solrutils.digestxmlresponse.php
+	 * @link https://php.net/manual/en/solrutils.digestxmlresponse.php
 	 * @param string $xmlresponse <p>
 	 * The XML response string from the Solr server.
 	 * </p>
@@ -41,7 +41,7 @@ abstract class SolrUtils {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Escapes a lucene query string
-	 * @link http://php.net/manual/en/solrutils.escapequerychars.php
+	 * @link https://php.net/manual/en/solrutils.escapequerychars.php
 	 * @param string $str <p>
 	 * This is the query string to be escaped.
 	 * </p>
@@ -54,7 +54,7 @@ abstract class SolrUtils {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the current version of the Solr extension
-	 * @link http://php.net/manual/en/solrutils.getsolrversion.php
+	 * @link https://php.net/manual/en/solrutils.getsolrversion.php
 	 * @return string <p>
 	 * The current version of the Apache Solr extension.
 	 * </p>
@@ -64,7 +64,7 @@ abstract class SolrUtils {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Prepares a phrase from an unescaped lucene string
-	 * @link http://php.net/manual/en/solrutils.queryphrase.php
+	 * @link https://php.net/manual/en/solrutils.queryphrase.php
 	 * @param $str <p>
 	 * The lucene phrase.
 	 * </p>
