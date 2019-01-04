@@ -314,6 +314,11 @@ define ('FILTER_VALIDATE_MAC', 276);
 define ('FILTER_DEFAULT', 516);
 
 /**
+ * @since 7.3
+ */
+define('FILTER_SANITIZE_ADD_SLASHES', 523);
+
+/**
  * ID of "unsafe_raw" filter.
  * @link https://php.net/manual/en/filter.constants.php
  */

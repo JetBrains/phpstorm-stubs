@@ -1025,6 +1025,14 @@ function openssl_get_cipher_methods($aliases = false) { }
 function openssl_dh_compute_key($pub_key, $dh_key) { }
 
 /**
+ * @param $peer_pub_key
+ * @param $priv_key
+ * @param $keylen
+ * @since 7.3
+ */
+function openssl_pkey_derive($peer_pub_key, $priv_key, $keylen) {}
+
+/**
  * Generates a string of pseudo-random bytes, with the number of bytes determined by the length parameter.
  * <p>It also indicates if a cryptographically strong algorithm was used to produce the pseudo-random bytes,
  * and does this via the optional crypto_strong parameter. It's rare for this to be FALSE, but some systems may be broken or old.
@@ -1234,3 +1242,8 @@ define("STREAM_CRYPTO_METHOD_TLSv1_1_CLIENT", 17);
 define("STREAM_CRYPTO_METHOD_TLSv1_1_SERVER", 16);
 define("STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT", 33);
 define("STREAM_CRYPTO_METHOD_TLSv1_2_SERVER", 32);
+
+define("STREAM_CRYPTO_PROTO_SSLv3", 4);
+define("STREAM_CRYPTO_PROTO_TLSv1_0", 8);
+define("STREAM_CRYPTO_PROTO_TLSv1_1", 16);
+define("STREAM_CRYPTO_PROTO_TLSv1_2", 32);
