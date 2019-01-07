@@ -4,4 +4,10 @@ services:
     image: php:7.3
     volumes:
      - .:/opt/project
-    command: /opt/project/vendor/bin/phpunit /opt/project/tests/TestStubs.php
+  composer:
+    restart: 'no'
+    image: composer:1.8
+    command: install
+    working_dir: /opt/project
+    volumes:
+      - .:/opt/project
