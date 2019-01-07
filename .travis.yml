@@ -6,9 +6,6 @@ addons:
   apt:
     packages:
       - docker-ce
-
-install:
-  - composer install
 script:
   - docker-compose -f docker-compose.yml pull
   - docker-compose -f docker-compose.yml build
