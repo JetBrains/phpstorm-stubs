@@ -363,7 +363,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns an array representation of the document
-	 * @link SolrDocument
+	 * @link https://secure.php.net/manual/en/solrdocument.toarray.php
 	 * @return array <p>
 	 * Returns an array representation of the document.
 	 * </p>

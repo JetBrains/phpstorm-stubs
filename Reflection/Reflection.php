@@ -565,6 +565,7 @@ class ReflectionParameter implements Reflector {
 	 * Gets default parameter value
 	 * @link https://php.net/manual/en/reflectionparameter.getdefaultvalue.php
 	 * @return mixed The parameters default value.
+	 * @throws \ReflectionException if the parameter is not optional
 	 * @since 5.0.3
 	 */
 	public function getDefaultValue () {}
@@ -579,6 +580,7 @@ class ReflectionParameter implements Reflector {
     /**
 	 * Returns the default value's constant name if default value is constant or null
      * @return string
+     * @throws \ReflectionException if the parameter is not optional
 	 * @since 5.4.6
      */
 	public function getDefaultValueConstantName () {}
@@ -1000,6 +1002,7 @@ class ReflectionClass implements Reflector {
 	 * The method name to reflect.
 	 * </p>
 	 * @return ReflectionMethod A <b>ReflectionMethod</b>.
+	 * @throws \ReflectionException if the method does not exist.
 	 * @since 5.0
 	 */
 	public function getMethod ($name) {}
@@ -1042,6 +1045,7 @@ class ReflectionClass implements Reflector {
 	 * The property name.
 	 * </p>
 	 * @return ReflectionProperty A <b>ReflectionProperty</b>.
+	 * @throws ReflectionException If no property exists by that name.
 	 * @since 5.0
 	 */
 	public function getProperty ($name) {}
@@ -1750,7 +1754,7 @@ class ReflectionExtension implements Reflector {
 }
 
 /**
- * @link http://www.php.net/manual/en/class.reflectionzendextension.php
+ * @link https://secure.php.net/manual/en/class.reflectionzendextension.php
  * @since 5.4.0
  */
 class ReflectionZendExtension implements Reflector {

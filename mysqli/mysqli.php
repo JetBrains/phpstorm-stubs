@@ -121,7 +121,7 @@ class mysqli  {
 
     /**
      * @var array A list of errors, each as an associative array containing the errno, error, and sqlstate.
-     * @link http://www.php.net/manual/en/mysqli.error-list.php
+     * @link https://secure.php.net/manual/en/mysqli.error-list.php
      */
     public $error_list;
 
@@ -159,7 +159,7 @@ class mysqli  {
 
     /**
      * Starts a transaction
-     * @link http://www.php.net/manual/en/mysqli.begin-transaction.php
+     * @link https://secure.php.net/manual/en/mysqli.begin-transaction.php
      * @param int $flags [optional]
      * @param string $name [optional]
      * @return bool true on success or false on failure.
@@ -621,7 +621,7 @@ class mysqli  {
 	 * @param string $escapestr The string to be escaped.
 	 * Characters encoded are NUL (ASCII 0), \n, \r, \, ', ", and Control-Z.
 	 * @return string
-	 * @link http://www.php.net/manual/en/mysqli.real-escape-string.php
+	 * @link https://secure.php.net/manual/en/mysqli.real-escape-string.php
 	 */
 	public function escape_string ($escapestr) {}
 
@@ -661,7 +661,7 @@ class mysqli  {
 
     /**
      * Set a named transaction savepoint
-     * @link http://www.php.net/manual/en/mysqli.savepoint.php
+     * @link https://secure.php.net/manual/en/mysqli.savepoint.php
      * @param string $name
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 5.5.0
@@ -699,7 +699,7 @@ class mysqli  {
 
 	/**
 	 * Used for establishing secure connections using SSL
-	 * @link http://www.php.net/manual/en/mysqli.ssl-set.php
+	 * @link https://secure.php.net/manual/en/mysqli.ssl-set.php
 	 * @param $key <p>
 	 * The path name to the key file.
 	 * </p>
@@ -1512,7 +1512,7 @@ class mysqli_stmt  {
 /**
  * (PHP 5)<p>
  * Gets the number of affected rows in a previous MySQL operation
- * @link http://www.php.net/manual/en/mysqli.affected-rows.php
+ * @link https://secure.php.net/manual/en/mysqli.affected-rows.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
  * @return int An integer greater than zero indicates the number of rows affected or retrieved.
  * Zero indicates that no records where updated for an UPDATE statement,
@@ -1522,7 +1522,7 @@ function mysqli_affected_rows ($link) {}
 
 /**
  * Turns on or off auto-committing database modifications
- * @link http://www.php.net/manual/en/mysqli.autocommit.php
+ * @link https://secure.php.net/manual/en/mysqli.autocommit.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
  * @param bool $mode Whether to turn on auto-commit or not.
  * @return bool
@@ -1531,7 +1531,7 @@ function mysqli_autocommit ($link, $mode) {}
 
 /**
  * Starts a transaction
- * @link http://www.php.net/manual/en/mysqli.begin-transaction.php
+ * @link https://secure.php.net/manual/en/mysqli.begin-transaction.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
  * @param int $flags [optional]
  * @param string $name [optional]
@@ -1648,7 +1648,7 @@ function mysqli_error_list ($link) {}
 /**
  * Returns a list of errors from the last statement executed
  * PHP > 5.4.0 </br>
- * @link http://docs.php.net/manual/da/mysqli-stmt.error-list.php
+ * @link https://secure.php.net/manual/en/mysqli-stmt.error-list.php
  * @param mysqli_stmt $stmt A statement identifier returned by mysqli_stmt_init().
  * @return array A list of errors, each as an associative array containing the errno, error, and sqlstate.
  */
@@ -1656,7 +1656,7 @@ function mysqli_stmt_error_list ($stmt) {}
 
 /**
  * Returns a string description of the last error
- * @link http://docs.php.net/manual/da/mysqli.error.php
+ * @link https://secure.php.net/manual/en/mysqli.error.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string
  */
@@ -1682,7 +1682,7 @@ function mysqli_execute ($stmt) {}
 
 /**
  * Returns the next field in the result set
- * @link http://fr2.php.net/manual/en/mysqli-result.fetch-field.php
+ * @link https://secure.php.net/manual/en/mysqli-result.fetch-field.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
  * @return object|bool Returns an object which contains field definition information or FALSE if no field information is available.
@@ -1691,7 +1691,7 @@ function mysqli_fetch_field ($result) {}
 
 /**
  * Returns an array of objects representing the fields in a result set
- * @link http://fr2.php.net/manual/en/mysqli-result.fetch-fields.php
+ * @link https://secure.php.net/manual/en/mysqli-result.fetch-fields.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
  * @return array|bool Returns an array of objects which contains field definition information or FALSE if no field information is available.
@@ -1700,7 +1700,7 @@ function mysqli_fetch_fields ($result) {}
 
 /**
  * Fetch meta-data for a single field
- * @link http://fr2.php.net/manual/en/mysqli-result.fetch-field-direct.php
+ * @link https://secure.php.net/manual/en/mysqli-result.fetch-field-direct.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
  * @param int $fieldnr The field number. This value must be in the range from 0 to number of fields - 1.
@@ -1931,7 +1931,7 @@ function mysqli_get_server_info ($link) {}
  * Returns the version of the MySQL server as an integer
  * @link https://php.net/manual/en/mysqli.get-server-version.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @return string An integer representing the server version.
+ * @return int An integer representing the server version.
  * The form of this version number is main_version * 10000 + minor_version * 100 + sub_version (i.e. version 4.1.0 is 40100).
  */
 function mysqli_get_server_version ($link) {}
@@ -2179,7 +2179,7 @@ function mysqli_reap_async_query ($link) {}
 
 /**
  * Set a named transaction savepoint
- * @link http://www.php.net/manual/en/mysqli.release-savepoint.php
+ * @link https://secure.php.net/manual/en/mysqli.release-savepoint.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $name
  * @return bool Returns TRUE on success or FALSE on failure.
@@ -2197,7 +2197,7 @@ function mysqli_rollback ($link) {}
 
 /**
  * Set a named transaction savepoint
- * @link http://www.php.net/manual/en/mysqli.savepoint.php
+ * @link https://secure.php.net/manual/en/mysqli.savepoint.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $name
  * @return bool Returns TRUE on success or FALSE on failure.
@@ -2417,7 +2417,7 @@ function mysqli_stat ($link) {}
 
 /**
  * Used for establishing secure connections using SSL
- * @link http://www.php.net/manual/en/mysqli.ssl-set.php
+ * @link https://secure.php.net/manual/en/mysqli.ssl-set.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $key The path name to the key file
  * @param string $cert The path name to the certificate file

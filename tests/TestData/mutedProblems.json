@@ -1,5 +1,533 @@
 {
   "constants": [
+    {
+      "name": "E_ALL",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "DEBUG_BACKTRACE_PROVIDE_OBJECT",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "DEBUG_BACKTRACE_IGNORE_ARGS",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "TRUE",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "FALSE",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "ZEND_THREAD_SAFE",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "ZEND_DEBUG_BUILD",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "NULL",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_VERSION",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_MAJOR_VERSION",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_MINOR_VERSION",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_RELEASE_VERSION",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_EXTRA_VERSION",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_VERSION_ID",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "DEFAULT_INCLUDE_PATH",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PEAR_INSTALL_DIR",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PEAR_EXTENSION_DIR",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_PREFIX",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_BINDIR",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_MANDIR",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_LIBDIR",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_DATADIR",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_SYSCONFDIR",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_LOCALSTATEDIR",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_EXTENSION_DIR",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_CONFIG_FILE_PATH",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_CONFIG_FILE_SCAN_DIR",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_INT_MIN",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_BINARY",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_OUTPUT_HANDLER_CONT",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PHP_OUTPUT_HANDLER_END",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "STDIN",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "STDOUT",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "STDERR",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "DATE_COOKIE",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "LIBXML_VERSION",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "LIBXML_DOTTED_VERSION",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "LIBXML_LOADED_VERSION",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "LIBXML_BIGLINES",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "OPENSSL_VERSION_TEXT",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "OPENSSL_VERSION_NUMBER",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "OPENSSL_DEFAULT_STREAM_CIPHERS",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "PCRE_VERSION",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "ZLIB_ENCODING_RAW",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "ZLIB_VERSION",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "ZLIB_VERNUM",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "ZLIB_ERRNO",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "ZLIB_STREAM_ERROR",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "ZLIB_DATA_ERROR",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "ZLIB_BUF_ERROR",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "ZLIB_VERSION_ERROR",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "ZLIB_MEM_ERROR",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "CURLINFO_LASTONE",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "CURLM_CALL_MULTI_PERFORM",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "CURLAUTH_ANY",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "CURLAUTH_ANYSAFE",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "CURLOPT_MAX_RECV_SPEED_LARGE",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "CURLOPT_MAX_SEND_SPEED_LARGE",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "CURLSSH_AUTH_ANY",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "CURLSSH_AUTH_DEFAULT",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "CURLOPT_CERTINFO",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "CURLOPT_PROTOCOLS",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "CURLOPT_REDIR_PROTOCOLS",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "CURLPROTO_ALL",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "CURLOPT_SAFE_UPLOAD",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "FILEINFO_EXTENSION",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "FILTER_SANITIZE_FULL_SPECIAL_CHARS",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "FTP_AUTORESUME",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "ICONV_VERSION",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "POSIX_RLIMIT_AS",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "POSIX_RLIMIT_MEMLOCK",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "POSIX_RLIMIT_NOFILE",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "POSIX_RLIMIT_NPROC",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "POSIX_RLIMIT_INFINITY",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "STREAM_CRYPTO_METHOD_SSLv2_CLIENT",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "STREAM_CRYPTO_METHOD_SSLv3_CLIENT",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "STREAM_CRYPTO_METHOD_SSLv23_CLIENT",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "STREAM_CRYPTO_METHOD_TLS_CLIENT",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "STREAM_CRYPTO_METHOD_SSLv2_SERVER",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "STREAM_CRYPTO_METHOD_SSLv3_SERVER",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "STREAM_CRYPTO_METHOD_SSLv23_SERVER",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "STREAM_CRYPTO_METHOD_TLS_SERVER",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "FNM_NOESCAPE",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "FNM_PATHNAME",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "IMAGETYPE_COUNT",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "DNS_ALL",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "SODIUM_CRYPTO_BOX_SEALBYTES",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_OPSLIMIT_INTERACTIVE",
+      "problems": [
+        "wrong value"
+      ]
+    }
   ],
   "functions": [
     {
@@ -805,6 +1333,9 @@
             "missing method"
           ]
         }
+      ],
+      "problems": [
+        "wrong parent"
       ]
     },
     {
@@ -1046,9 +1577,41 @@
           ]
         }
       ]
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "Traversable",
+      "problems": [
+        "wrong parent"
+      ]
     },
     {
-      "name": "PharData",
+      "name": "IteratorAggregate",
+      "problems": [
+        "wrong parent"
+      ]
+    },
+    {
+      "name": "Iterator",
+      "problems": [
+        "wrong parent"
+      ]
+    },
+    {
+      "name": "RecursiveIterator",
+      "problems": [
+        "wrong parent"
+      ]
+    },
+    {
+      "name": "OuterIterator",
+      "problems": [
+        "wrong parent"
+      ]
+    },
+    {
+      "name": "SeekableIterator",
       "problems": [
         "wrong parent"
       ]

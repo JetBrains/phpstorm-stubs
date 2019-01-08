@@ -435,7 +435,7 @@ function vfprintf ($handle, $format, array $args) {}
  * i stands for integer with base detection.
  * n stands for number of characters processed so far.
  * </p>
- * @param mixed $_ [optional] 
+ * @param mixed ...$_
  * @return mixed If only
  * two parameters were passed to this function, the values parsed
  * will be returned as an array. Otherwise, if optional parameters are passed,
@@ -444,7 +444,7 @@ function vfprintf ($handle, $format, array $args) {}
  * @since 4.0.1
  * @since 5.0
  */
-function sscanf ($str, $format, &$_ = null) {}
+function sscanf ($str, $format, &...$_) {}
 
 /**
  * Parses input from a file according to a format

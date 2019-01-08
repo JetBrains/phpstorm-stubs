@@ -382,6 +382,7 @@ function str_shuffle ($str) {}
  * Specify the return value of this function. The current supported values
  * are:
  * 0 - returns the number of words found
+ * </p>
  * @param string $charlist [optional] <p>
  * A list of additional characters which will be considered as 'word'
  * </p>

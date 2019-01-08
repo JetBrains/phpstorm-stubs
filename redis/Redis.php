@@ -4,8 +4,6 @@
  * @author Max Kamashev <max.kamashev@gmail.com>
  * @link https://github.com/ukko/phpredis-phpdoc
  *
- * @method string echo(string $string) Sends a string to Redis, which replies with the same string
- *
  * @method mixed eval($script, $args = array(), $numKeys = 0)
  *  Evaluate a LUA script serverside
  *  @param  string  $script
@@ -82,12 +80,13 @@ class Redis
     /**
      * Connects to a Redis instance.
      *
-     * @param string    $host       can be a host, or the path to a unix domain socket
-     * @param int       $port       optional
-     * @param float     $timeout    value in seconds (optional, default is 0.0 meaning unlimited)
-     * @param null      $reserved   should be null if $retry_interval is specified
-     * @param int       $retry_interval  retry interval in milliseconds.
-     * @return bool                 TRUE on success, FALSE on error.
+     * @param string    $host           can be a host, or the path to a unix domain socket
+     * @param int       $port           optional
+     * @param float     $timeout        value in seconds (optional, default is 0.0 meaning unlimited)
+     * @param null      $reserved       should be null if $retry_interval is specified
+     * @param int       $retry_interval retry interval in milliseconds.
+     * @param float     $read_timeout   value in seconds (optional, default is 0 meaning unlimited)
+     * @return bool                     TRUE on success, FALSE on error.
      * @example
      * <pre>
      * $redis->connect('127.0.0.1', 6379);
@@ -96,7 +95,7 @@ class Redis
      * $redis->connect('/tmp/redis.sock');      // unix domain socket.
      * </pre>
      */
-    public function connect( $host, $port = 6379, $timeout = 0.0, $reserved = null, $retry_interval = 0 ) {}
+    public function connect( $host, $port = 6379, $timeout = 0.0, $reserved = null, $retry_interval = 0, $read_timeout = 0.0 ) {}
 
     /**
      * Set the string value in argument as value of the key, with a time to live.
@@ -219,9 +218,10 @@ class Redis
      * @param int       $port
      * @param float     $timeout
      * @param int       $retry_interval
+     * @param float     $read_timeout
      * @return bool
      */
-    public function open( $host, $port = 6379, $timeout = 0.0, $retry_interval = 0 ) {}
+    public function open( $host, $port = 6379, $timeout = 0.0, $retry_interval = 0, $read_timeout = 0.0 ) {}
 
     /**
      * Connects to a Redis instance or reuse a connection already established with pconnect/popen.
@@ -236,11 +236,13 @@ class Redis
      * This feature is not available in threaded versions. pconnect and popen then working like their non persistent
      * equivalents.
      *
-     * @param string    $host          can be a host, or the path to a unix domain socket
-     * @param int       $port          optional
-     * @param float     $timeout       value in seconds (optional, default is 0 meaning unlimited)
-     * @param string    $persistent_id identity for the requested persistent connection
-     * @return bool                    TRUE on success, FALSE on ertcnror.
+     * @param string    $host           can be a host, or the path to a unix domain socket
+     * @param int       $port           optional
+     * @param float     $timeout        value in seconds (optional, default is 0 meaning unlimited)
+     * @param string    $persistent_id  identity for the requested persistent connection
+     * @param int       $retry_interval retry interval in milliseconds.
+     * @param float     $read_timeout   value in seconds (optional, default is 0 meaning unlimited)
+     * @return bool                     TRUE on success, FALSE on ertcnror.
      * <pre>
      * $redis->pconnect('127.0.0.1', 6379);
      * $redis->pconnect('127.0.0.1');                 // port 6379 by default - same connection like before.
@@ -249,7 +251,7 @@ class Redis
      * $redis->pconnect('/tmp/redis.sock');           // unix domain socket - would be another connection than the four before.
      * </pre>
      */
-    public function pconnect( $host, $port = 6379, $timeout = 0.0, $persistent_id = null ) {}
+    public function pconnect( $host, $port = 6379, $timeout = 0.0, $persistent_id = null, $retry_interval = 0, $read_timeout = 0.0 ) {}
 
     /**
      * @see pconnect()
@@ -257,8 +259,11 @@ class Redis
      * @param int       $port
      * @param float     $timeout
      * @param string    $persistent_id
+     * @param int       $retry_interval
+     * @param float     $read_timeout
+     * @return bool
      */
-    public function popen( $host, $port = 6379, $timeout = 0.0, $persistent_id = null ) {}
+    public function popen( $host, $port = 6379, $timeout = 0.0, $persistent_id = null, $retry_interval = 0, $read_timeout = 0.0 ) {}
 
     /**
      * Disconnects from the Redis instance, except when pconnect is used.
@@ -301,6 +306,15 @@ class Redis
     public function ping( ) {}
 
     /**
+     * Echo the given string
+     *
+     * @param   string  $message
+     * @return  string  Returns message.
+     * @link    https://redis.io/commands/echo
+     */
+    public function echo( $message ) {}
+
+    /**
      * Get the value related to the specified key
      *
      * @param   string  $key
@@ -316,7 +330,13 @@ class Redis
      *
      * @param   string  $key
      * @param   string  $value
-     * @param   int   $timeout [optional] Calling setex() is preferred if you want a timeout.
+     * @param   int|array   $timeout [optional] Calling setex() is preferred if you want a timeout.<br>
+     *                      Since 2.6.12 it also supports different flags inside an array. Example ['NX', 'EX' => 60]<br>
+     *                      EX seconds -- Set the specified expire time, in seconds.<br>
+     *                      PX milliseconds -- Set the specified expire time, in milliseconds.<br>
+     *                      PX milliseconds -- Set the specified expire time, in milliseconds.<br>
+     *                      NX -- Only set the key if it does not already exist.<br>
+     *                      XX -- Only set the key if it already exist.<br>
      * @return  bool    TRUE if the command is successful.
      * @link    https://redis.io/commands/set
      * @example $redis->set('key', 'value');
@@ -528,17 +548,24 @@ class Redis
     public function pubsub( $keyword, $argument ) {}
 
     /**
-     * Verify if the specified key exists.
+     * Verify if the specified key/keys exists.
      *
-     * @param   string $key
-     * @return  bool  If the key exists, return TRUE, otherwise return FALSE.
+     * @param   string|string[] $key
+     * @return  int    The number of keys tested that do exist
      * @link    https://redis.io/commands/exists
+     * @ling    https://github.com/phpredis/phpredis#exists
      * @example
      * <pre>
      * $redis->set('key', 'value');
-     * $redis->exists('key');               //  TRUE
-     * $redis->exists('NonExistingKey');    // FALSE
+     * $redis->exists('key'); // 1
+     * $redis->exists('NonExistingKey'); // 0
+     *
+     * $redis->mset(['foo' => 'foo', 'bar' => 'bar', 'baz' => 'baz']);
+     * $redis->exists(['foo', 'bar', 'baz]); // 3
+     * $redis->exists('foo', 'bar', 'baz'); // 3
      * </pre>
+     * 
+     * This function took a single argument and returned TRUE or FALSE in phpredis versions < 4.0.0.
      */
     public function exists( $key ) {}
 
@@ -875,6 +902,7 @@ class Redis
     /**
      * @see     lLen()
      * @param   string    $key
+     * @return  int       The size of the list identified by Key exists.
      * @link    https://redis.io/commands/llen
      */
     public function lSize( $key ) {}
@@ -2415,7 +2443,6 @@ class Redis
      * $redis->zAdd('key', 10, 'val10');
      * $redis->zRangeByScore('key', 0, 3);                                          // array('val0', 'val2')
      * $redis->zRangeByScore('key', 0, 3, array('withscores' => TRUE);              // array('val0' => 0, 'val2' => 2)
-     * $redis->zRangeByScore('key', 0, 3, array('limit' => array(1, 1));                        // array('val2' => 2)
      * $redis->zRangeByScore('key', 0, 3, array('limit' => array(1, 1));                        // array('val2')
      * $redis->zRangeByScore('key', 0, 3, array('withscores' => TRUE, 'limit' => array(1, 1));  // array('val2' => 2)
      * </pre>
@@ -3278,10 +3305,227 @@ class Redis
      * @example $redis->getMode();
      */
     public function getMode() {}
+
+    /**
+     * Acknowledge one or more messages on behalf of a consumer group.
+     * @param   string  $stream
+     * @param   string  $group
+     * @param   array   $arr_messages
+     * @return  int     The number of messages Redis reports as acknowledged.
+     * @link    https://redis.io/commands/xack
+     * @example
+     * <pre>
+     * $obj_redis->xAck('stream', 'group1', ['1530063064286-0', '1530063064286-1']);
+     * </pre>
+     */
+    public function xAck($stream, $group, $arr_messages) {}
+
+    /**
+     * Add a message to a stream.
+     * @param   string  $str_key
+     * @param   string  $str_id
+     * @param   array   $arr_message
+     * @return  string  The added message ID.
+     * @link    https://redis.io/commands/xadd
+     * @example
+     * <pre>
+     * $obj_redis->xAdd('mystream', "*", ['field' => 'value']);
+     * </pre>
+     */
+    public function xAdd($str_key, $str_id, $arr_message) {}
+
+    /**
+     * Claim ownership of one or more pending messages.
+     * @param   string  $str_key
+     * @param   string  $str_group
+     * @param   string  $str_consumer
+     * @param   int     $min_idle_time
+     * @param   array   $arr_ids
+     * @param   array   $arr_options ['IDLE' => $value, 'TIME' => $value, 'RETRYCOUNT' => $value, 'FORCE', 'JUSTID']
+     * @return  array   Either an array of message IDs along with corresponding data, or just an array of IDs (if the 'JUSTID' option was passed).
+     * @link    https://redis.io/commands/xclaim
+     * @example
+     * <pre>
+     * $ids = ['1530113681011-0', '1530113681011-1', '1530113681011-2'];
+     *
+     * // Without any options
+     * $obj_redis->xClaim('mystream', 'group1', 'myconsumer1', 0, $ids);
+     *
+     * // With options
+     * $obj_redis->xClaim(
+     *     'mystream', 'group1', 'myconsumer2', 0, $ids,
+     *     [
+     *         'IDLE' => time() * 1000,
+     *         'RETRYCOUNT' => 5,
+     *         'FORCE',
+     *         'JUSTID'
+     *     ]
+     * );
+     * </pre>
+     */
+    public function xClaim($str_key, $str_group, $str_consumer, $min_idle_time, $arr_ids, $arr_options = []) {}
+
+    /**
+     * Delete one or more messages from a stream.
+     * @param   string  $str_key
+     * @param   array   $arr_ids
+     * @return  int     The number of messages removed.
+     * @link    https://redis.io/commands/xdel
+     * @example
+     * <pre>
+     * $obj_redis->xDel('mystream', ['1530115304877-0', '1530115305731-0']);
+     * </pre>
+     */
+    public function xDel($str_key, $arr_ids) {}
+
+    /**
+     * @param   string  $operation  e.g.: 'HELP', 'SETID', 'DELGROUP', 'CREATE', 'DELCONSUMER'
+     * @param   string  $str_key
+     * @param   string  $str_group
+     * @param   string  $str_msg_id
+     * @return  mixed   This command returns different types depending on the specific XGROUP command executed.
+     * @link    https://redis.io/commands/xgroup
+     * @example
+     * <pre>
+     * $obj_redis->xGroup('CREATE', 'mystream', 'mygroup');
+     * $obj_redis->xGroup('DELGROUP', 'mystream', 'mygroup');
+     * </pre>
+     */
+    public function xGroup($operation, $str_key, $str_group, $str_msg_id) {}
+
+    /**
+     * Get information about a stream or consumer groups.
+     * @param   string  $operation  e.g.: 'CONSUMERS', 'GROUPS', 'STREAM', 'HELP'
+     * @param   string  $str_stream
+     * @param   string  $str_group
+     * @return  mixed   This command returns different types depending on which subcommand is used.
+     * @link    https://redis.io/commands/xinfo
+     * @example
+     * <pre>
+     * $obj_redis->xInfo('STREAM', 'mystream');
+     * </pre>
+     */
+    public function xInfo($operation, $str_stream, $str_group) {}
+
+    /**
+     * Get the length of a given stream.
+     * @param   string  $str_stream
+     * @return  int     The number of messages in the stream.
+     * @link    https://redis.io/commands/xlen
+     * @example
+     * <pre>
+     * $obj_redis->xLen('mystream');
+     * </pre>
+     */
+    public function xLen($str_stream) {}
+
+    /**
+     * Get information about pending messages in a given stream.
+     * @param   string      $str_stream
+     * @param   string      $str_group
+     * @param   string      $i_start
+     * @param   string      $i_end
+     * @param   int         $i_count
+     * @param   string      $str_consumer
+     * @return  array       Information about the pending messages, in various forms depending on the specific invocation of XPENDING.
+     * @link    https://redis.io/commands/xpending
+     * @example
+     * <pre>
+     * $obj_redis->xPending('mystream', 'mygroup');
+     * $obj_redis->xPending('mystream', 'mygroup', '-', '+', 1, 'consumer-1');
+     * </pre>
+     */
+    public function xPending($str_stream, $str_group, $str_start = null, $str_end = null, $i_count = null, $str_consumer = null) {}
+
+    /**
+     * Get a range of messages from a given stream.
+     * @param   string  $str_stream
+     * @param   string  $str_start
+     * @param   string  $str_end
+     * @param   int     $i_count
+     * @return  array   The messages in the stream within the requested range.
+     * @link    https://redis.io/commands/xrange
+     * @example
+     * <pre>
+     * // Get everything in this stream
+     * $obj_redis->xRange('mystream', '-', '+');
+     * // Only the first two messages
+     * $obj_redis->xRange('mystream', '-', '+', 2);
+     * </pre>
+     */
+    public function xRange($str_stream, $str_start, $str_end, $i_count = null) {}
+
+    /**
+     * Read data from one or more streams and only return IDs greater than sent in the command.
+     * @param   array       $arr_streams
+     * @param   int|string  $i_count
+     * @param   int|string  $i_block
+     * @return  array       The messages in the stream newer than the IDs passed to Redis (if any).
+     * @link    https://redis.io/commands/xread
+     * @example
+     * <pre>
+     * $obj_redis->xRead(['stream1' => '1535222584555-0', 'stream2' => '1535222584555-0']);
+     * </pre>
+     */
+    public function xRead($arr_streams, $i_count = null, $i_block = null) {}
+
+    /**
+     * This method is similar to xRead except that it supports reading messages for a specific consumer group.
+     * @param   string      $str_group
+     * @param   string      $str_consumer
+     * @param   array       $arr_streams
+     * @param   int|string  $i_count
+     * @param   int|string  $i_block
+     * @return  array       The messages delivered to this consumer group (if any).
+     * @link    https://redis.io/commands/xreadgroup
+     * @example
+     * <pre>
+     * // Consume messages for 'mygroup', 'consumer1'
+     * $obj_redis->xReadGroup('mygroup', 'consumer1', ['s1' => 0, 's2' => 0]);
+     * // Read a single message as 'consumer2' for up to a second until a message arrives.
+     * $obj_redis->xReadGroup('mygroup', 'consumer2', ['s1' => 0, 's2' => 0], 1, 1000);
+     * </pre>
+     */
+    public function xReadGroup($str_group, $str_consumer, $arr_streams, $i_count, $i_block = null) {}
+
+    /**
+     * This is identical to xRange except the results come back in reverse order. Also note that Redis reverses the order of "start" and "end".
+     * @param   string      $str_stream
+     * @param   string      $str_end
+     * @param   string      $str_start
+     * @param   int         $i_count
+     * @return  array       The messages in the range specified.
+     * @link    https://redis.io/commands/xrevrange
+     * @example
+     * <pre>
+     * $obj_redis->xRevRange('mystream', '+', '-');
+     * </pre>
+     */
+    public function xRevRange($str_stream, $str_end, $str_start, $i_count = null) {}
+
+    /**
+     * Trim the stream length to a given maximum. If the "approximate" flag is pasesed, Redis will use your size as a hint but only trim trees in whole nodes (this is more efficient)..
+     * @param   string  $str_stream
+     * @param   int     $i_max_len
+     * @param   bool    $boo_approximate
+     * @return  int     The number of messages trimed from the stream.
+     * @link    https://redis.io/commands/xtrim
+     * @example
+     * <pre>
+     * // Trim to exactly 100 messages
+     * $obj_redis->xTrim('mystream', 100);
+     * // Let Redis approximate the trimming
+     * $obj_redis->xTrim('mystream', 100, true);
+     * </pre>
+     */
+    public function xTrim($str_stream, $i_max_len, $boo_approximate) {}
 }
 
 class RedisException extends Exception {}
 
+/**
+ * @mixin \Redis
+ */
 class RedisArray {
     /**
      * Constructor

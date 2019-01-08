@@ -1023,7 +1023,7 @@ function mb_ereg_replace ($pattern, $replacement, $string, $option = "msr") {}
 
 /**
  * Perform a regular expresssion seach and replace with multibyte support using a callback
- * @link https://www.php.net/manual/en/function.mb-ereg-replace-callback.php
+ * @link https://secure.php.net/manual/en/function.mb-ereg-replace-callback.php
  * @param string $pattern <p>
  * The regular expression pattern.
  * </p>
@@ -1212,6 +1212,7 @@ function mb_ereg_search_getregs () {}
  * @return int 
  * @since 4.2.0
  * @since 5.0
+ * @deprecated 7.3
  */
 function mb_ereg_search_getpos () {}
 
@@ -1229,6 +1230,7 @@ function mb_ereg_search_setpos ($position) {}
 
 /**
  * @param $encoding [optional]
+ * @deprecated 7.3 use {@see mb_regex_encoding} instead
  */
 function mbregex_encoding ($encoding) {}
 
@@ -1236,6 +1238,7 @@ function mbregex_encoding ($encoding) {}
  * @param $pattern
  * @param $string
  * @param $registers [optional]
+ * @deprecated 7.3 use {@see mb_ereg} instead
  */
 function mbereg ($pattern, $string, &$registers) {}
 
@@ -1243,6 +1246,7 @@ function mbereg ($pattern, $string, &$registers) {}
  * @param $pattern
  * @param $string
  * @param $registers [optional]
+ * @deprecated 7.3 use {@see mb_eregi} instead
  */
 function mberegi ($pattern, $string, &$registers) {}
 
@@ -1251,6 +1255,7 @@ function mberegi ($pattern, $string, &$registers) {}
  * @param $replacement
  * @param $string
  * @param $option [optional]
+ * @deprecated 7.3 use {@see mb_ereg_replace} instead
  */
 function mbereg_replace ($pattern, $replacement, $string, $option) {}
 
@@ -1260,6 +1265,7 @@ function mbereg_replace ($pattern, $replacement, $string, $option) {}
  * @param $string
  * @param string $option
  * @return string
+ * @deprecated 7.3 use {@see mb_eregi_replace} instead
  */
 function mberegi_replace ($pattern, $replacement, $string, string $option = "msri") {}
 
@@ -1267,6 +1273,7 @@ function mberegi_replace ($pattern, $replacement, $string, string $option = "msr
  * @param $pattern
  * @param $string
  * @param $limit [optional]
+ * @deprecated 7.3 use {@see mb_split} instead
  */
 function mbsplit ($pattern, $string, $limit) {}
 
@@ -1274,24 +1281,28 @@ function mbsplit ($pattern, $string, $limit) {}
  * @param $pattern
  * @param $string
  * @param $option [optional]
+ * @deprecated 7.3 use {@see mb_ereg_match} instead
  */
 function mbereg_match ($pattern, $string, $option) {}
 
 /**
  * @param $pattern [optional]
  * @param $option [optional]
+ * @deprecated 7.3 use {@see mb_ereg_search} instead
  */
 function mbereg_search ($pattern, $option) {}
 
 /**
  * @param $pattern [optional]
  * @param $option [optional]
+ * @deprecated 7.3 use {@see mb_ereg_search_pos} instead
  */
 function mbereg_search_pos ($pattern, $option) {}
 
 /**
  * @param $pattern [optional]
  * @param $option [optional]
+ * @deprecated 7.3 use {@see mb_ereg_search_regs} instead
  */
 function mbereg_search_regs ($pattern, $option) {}
 
@@ -1299,11 +1310,18 @@ function mbereg_search_regs ($pattern, $option) {}
  * @param $string
  * @param $pattern [optional]
  * @param $option [optional]
+ * @deprecated 7.3 use {@see mb_ereg_search_init} instead
  */
 function mbereg_search_init ($string, $pattern, $option) {}
 
+/**
+ * @deprecated 7.3 use {@see mb_ereg_search_getregs} instead
+ */
 function mbereg_search_getregs () {}
 
+/**
+ * @deprecated 7.3 use {@see mb_ereg_search_getpos} instead
+ */
 function mbereg_search_getpos () {}
 
 /**
@@ -1332,6 +1350,7 @@ function mb_scrub($str, $encoding) {}
 
 /**
  * @param $position
+ * @deprecated 7.3 use {@see mb_ereg_search_setpos} instead
  */
 function mbereg_search_setpos ($position) {}
 
@@ -1341,6 +1360,11 @@ define ('MB_OVERLOAD_REGEX', 4);
 define ('MB_CASE_UPPER', 0);
 define ('MB_CASE_LOWER', 1);
 define ('MB_CASE_TITLE', 2);
+define('MB_CASE_FOLD', 3);
+define('MB_CASE_UPPER_SIMPLE', 4);
+define('MB_CASE_LOWER_SIMPLE', 5);
+define('MB_CASE_TITLE_SIMPLE', 6);
+define('MB_CASE_FOLD_SIMPLE', 7);
 
 // End of mbstring v.
 ?>

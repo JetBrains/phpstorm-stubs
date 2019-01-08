@@ -12,7 +12,7 @@ class OCI_Lob  {
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Returns large object's contents
 	 * @link https://php.net/manual/en/oci-lob.load.php
-	 * @return string the contents of the object, or <b>FALSE</b> on errors.
+	 * @return string|false The contents of the object, or <b>FALSE</b> on errors.
 	 */
 	public function load () {}
 
@@ -20,7 +20,7 @@ class OCI_Lob  {
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Returns the current position of internal pointer of large object
 	 * @link https://php.net/manual/en/oci-lob.tell.php
-	 * @return int current position of a LOB's internal pointer or <b>FALSE</b> if an
+	 * @return int|false Current position of a LOB's internal pointer or <b>FALSE</b> if an
 	 * error occurred.
 	 */
 	public function tell () {}
@@ -44,7 +44,7 @@ class OCI_Lob  {
 	 * @link https://php.net/manual/en/oci-lob.erase.php
 	 * @param int $offset [optional]
 	 * @param int $length [optional]
-	 * @return int the actual number of characters/bytes erased or <b>FALSE</b> on failure.
+	 * @return int|false The actual number of characters/bytes erased or <b>FALSE</b> on failure.
 	 */
 	public function erase ($offset = null, $length = null) {}
 
@@ -104,7 +104,7 @@ class OCI_Lob  {
 	 * @param int $length <p>
 	 * The length of data to read, in bytes. Large values will be rounded down to 1 MB.
 	 * </p>
-	 * @return string the contents as a string, or <b>FALSE</b> on failure.
+	 * @return string|false The contents as a string, or <b>FALSE</b> on failure.
 	 */
 	public function read ($length) {}
 
@@ -151,7 +151,7 @@ class OCI_Lob  {
 	 * <i>length</i> bytes have been written or the end of
 	 * <i>data</i> is reached, whichever comes first.
 	 * </p>
-	 * @return int the number of bytes written or <b>FALSE</b> on failure.
+	 * @return int|false The number of bytes written or <b>FALSE</b> on failure.
 	 */
 	public function write ($data, $length = null) {}
 
@@ -170,7 +170,7 @@ class OCI_Lob  {
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Returns size of large object
 	 * @link https://php.net/manual/en/oci-lob.size.php
-	 * @return int length of large object value or <b>FALSE</b> on failure.
+	 * @return int|false Length of large object value or <b>FALSE</b> on failure.
 	 * Empty objects have zero length.
 	 */
 	public function size () {}
@@ -331,7 +331,7 @@ class OCI_Collection  {
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Returns size of the collection
 	 * @link https://php.net/manual/en/oci-collection.size.php
-	 * @return int the number of elements in the collection or <b>FALSE</b> on error.
+	 * @return int|false The number of elements in the collection or <b>FALSE</b> on error.
 	 */
 	public function size () {}
 
@@ -339,7 +339,7 @@ class OCI_Collection  {
 	 * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
 	 * Returns the maximum number of elements in the collection
 	 * @link https://php.net/manual/en/oci-collection.max.php
-	 * @return int the maximum number as an integer, or <b>FALSE</b> on errors.
+	 * @return int|false The maximum number as an integer, or <b>FALSE</b> on errors.
 	 * </p>
 	 * <p>
 	 * If the returned value is 0, then the number of elements is not limited.
@@ -505,7 +505,7 @@ function oci_field_is_null ($statement, $field) {}
  * @param int $field <p>
  * Can be the field's index (1-based) or name.
  * </p>
- * @return string the name as a string, or <b>FALSE</b> on errors.
+ * @return string|false The name as a string, or <b>FALSE</b> on errors.
  */
 function oci_field_name ($statement, $field) {}
 
@@ -519,7 +519,7 @@ function oci_field_name ($statement, $field) {}
  * @param mixed $field <p>
  * Can be the field's index (1-based) or name.
  * </p>
- * @return int the size of a <i>field</i> in bytes, or <b>FALSE</b> on
+ * @return int|false The size of a <i>field</i> in bytes, or <b>FALSE</b> on
  * errors.
  */
 function oci_field_size ($statement, $field) {}
@@ -534,7 +534,7 @@ function oci_field_size ($statement, $field) {}
  * @param int $field <p>
  * Can be the field's index (1-based) or name.
  * </p>
- * @return int the scale as an integer, or <b>FALSE</b> on errors.
+ * @return int|false The scale as an integer, or <b>FALSE</b> on errors.
  */
 function oci_field_scale ($statement, $field) {}
 
@@ -548,7 +548,7 @@ function oci_field_scale ($statement, $field) {}
  * @param int $field <p>
  * Can be the field's index (1-based) or name.
  * </p>
- * @return int the precision as an integer, or <b>FALSE</b> on errors.
+ * @return int|false The precision as an integer, or <b>FALSE</b> on errors.
  */
 function oci_field_precision ($statement, $field) {}
 
@@ -576,7 +576,7 @@ function oci_field_type ($statement, $field) {}
  * @param int $field <p>
  * Can be the field's index (1-based) or name.
  * </p>
- * @return int Oracle's raw data type as a string, or <b>FALSE</b> on errors.
+ * @return int|false Oracle's raw data type as a string, or <b>FALSE</b> on errors.
  */
 function oci_field_type_raw ($statement, $field) {}
 
@@ -680,7 +680,7 @@ function oci_fetch ($statement) {}
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
- * @return object an object. Each attribute of the object corresponds to a
+ * @return object|false An object. Each attribute of the object corresponds to a
  * column of the row. If there are no more rows in
  * the <i>statement</i> then <b>FALSE</b> is returned.
  * </p>
@@ -715,7 +715,7 @@ function oci_fetch_object ($statement) {}
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
- * @return array a numerically indexed array. If there are no more rows in
+ * @return array|false A numerically indexed array. If there are no more rows in
  * the <i>statement</i> then <b>FALSE</b> is returned.
  */
 function oci_fetch_row ($statement) {}
@@ -728,7 +728,7 @@ function oci_fetch_row ($statement) {}
  * identifier created by {@see oci_parse} and executed
  * by {@see oci_execute}, or a REF
  * CURSOR statement identifier.</p>
- * @return array an associative array. If there are no more rows in
+ * @return array|false An associative array. If there are no more rows in
  * the <i>statement</i> then <b>FALSE</b> is returned.
  */
 function oci_fetch_assoc ($statement) {}
@@ -789,7 +789,7 @@ function oci_fetch_assoc ($statement) {}
  * Use the addition operator &#x00022;+&#x00022; to specify more than
  * one mode at a time.
  * </p>
- * @return array an array with associative and/or numeric indices. If there
+ * @return array|false An array with associative and/or numeric indices. If there
  * are no more rows in the <i>statement</i> then
  * <b>FALSE</b> is returned.
  * </p>
@@ -917,7 +917,7 @@ function ocifetchinto ($statement_resource, &$result, $mode = null) {}
  * should use column aliases. Otherwise only one of the columns
  * will appear in an associative array.
  * </p>
- * @return int the number of rows in <i>output</i>, which
+ * @return int|false The number of rows in <i>output</i>, which
  * may be 0 or more, or <b>FALSE</b> on failure.
  */
 function oci_fetch_all ($statement, array &$output, $skip = 0, $maxrows = -1, $flags = OCI_FETCHSTATEMENT_BY_COLUMN | OCI_ASSOC) {}
@@ -951,7 +951,7 @@ function oci_internal_debug ($onoff) {}
  * @param resource $statement <p>
  * A valid OCI statement identifier.
  * </p>
- * @return int the number of columns as an integer, or <b>FALSE</b> on errors.
+ * @return int|false The number of columns as an integer, or <b>FALSE</b> on errors.
  */
 function oci_num_fields ($statement) {}
 
@@ -972,7 +972,7 @@ function oci_num_fields ($statement) {}
  * statements should end with a semi-colon
  * (&#x00022;;&#x00022;).
  * </p>
- * @return resource a statement handle on success, or <b>FALSE</b> on error.
+ * @return resource|false A statement handle on success, or <b>FALSE</b> on error.
  */
 function oci_parse ($connection, $sql_text) {}
 
@@ -986,7 +986,7 @@ function oci_parse ($connection, $sql_text) {}
  * identifier may or may not be associated with a SQL statement
  * that returns Implicit Result Sets.
  * </p>
- * @return resource a statement handle for the next child statement available
+ * @return resource|false A statement handle for the next child statement available
  * on <i>statement</i>. Returns <b>FALSE</b> when child
  * statements do not exist, or all child statements have been returned
  * by previous calls
@@ -1002,7 +1002,7 @@ function oci_get_implicit_resultset ($statement) {}
  * An Oracle connection identifier, returned by
  * {@see oci_connect} or {@see oci_pconnect}.
  * </p>
- * @return resource a new statement handle, or <b>FALSE</b> on error.
+ * @return resource|false A new statement handle, or <b>FALSE</b> on error.
  */
 function oci_new_cursor ($connection) {}
 
@@ -1035,7 +1035,7 @@ function oci_client_version () {}
  * Returns the Oracle Database version
  * @link https://php.net/manual/en/function.oci-server-version.php
  * @param resource $connection
- * @return string the version information as a string or <b>FALSE</b> on error.
+ * @return string|false The version information as a string or <b>FALSE</b> on error.
  */
 function oci_server_version ($connection) {}
 
@@ -1046,7 +1046,7 @@ function oci_server_version ($connection) {}
  * @param resource $statement <p>
  * A valid OCI8 statement identifier from {@see oci_parse}.
  * </p>
- * @return string the type of <i>statement</i> as one of the
+ * @return string|false The type of <i>statement</i> as one of the
  * following strings.
  * <table>
  * Statement type
@@ -1112,7 +1112,7 @@ function oci_statement_type ($statement) {}
  * @param resource $statement <p>
  * A valid OCI statement identifier.
  * </p>
- * @return int the number of rows affected as an integer, or <b>FALSE</b> on errors.
+ * @return int|false The number of rows affected as an integer, or <b>FALSE</b> on errors.
  */
 function oci_num_rows ($statement) {}
 
@@ -1210,7 +1210,7 @@ function oci_close ($connection) {}
  * <b>OCI_CRED_EXT</b> is not supported on Windows for
  * security reasons.
  * </p>
- * @return resource a connection identifier or <b>FALSE</b> on error.
+ * @return resource|false A connection identifier or <b>FALSE</b> on error.
  */
 function oci_connect ($username, $password, $connection_string = null, $character_set = null, $session_mode = null) {}
 
@@ -1295,7 +1295,7 @@ function oci_connect ($username, $password, $connection_string = null, $characte
  * <b>OCI_CRED_EXT</b> is not supported on Windows for
  * security reasons.
  * </p>
- * @return resource a connection identifier or <b>FALSE</b> on error.
+ * @return resource|false A connection identifier or <b>FALSE</b> on error.
  */
 function oci_new_connect ($username, $password, $connection_string = null, $character_set = null, $session_mode = null) {}
 
@@ -1380,7 +1380,7 @@ function oci_new_connect ($username, $password, $connection_string = null, $char
  * <b>OCI_CRED_EXT</b> is not supported on Windows for
  * security reasons.
  * </p>
- * @return resource a connection identifier or <b>FALSE</b> on error.
+ * @return resource|false A connection identifier or <b>FALSE</b> on error.
  */
 function oci_pconnect ($username, $password, $connection_string = null, $character_set = null, $session_mode = null) {}
 
@@ -1395,7 +1395,7 @@ function oci_pconnect ($username, $password, $connection_string = null, $charact
  * {@see oci_new_connect} or
  * {@see oci_pconnect} do not pass <i>resource</i>.
  * </p>
- * @return array If no error is found, {@see oci_error} returns
+ * @return array|false If no error is found, {@see oci_error} returns
  * <b>FALSE</b>. Otherwise, {@see oci_error} returns the
  * error information as an associative array.
  * </p>
@@ -1519,7 +1519,7 @@ function oci_rollback ($connection) {}
  * <b>OCI_DTYPE_FILE</b>, <b>OCI_DTYPE_LOB</b> and
  * <b>OCI_DTYPE_ROWID</b>.
  * </p>
- * @return OCI_Lob a new LOB or FILE descriptor on success, <b>FALSE</b> on error.
+ * @return OCI_Lob|false A new LOB or FILE descriptor on success, <b>FALSE</b> on error.
  */
 function oci_new_descriptor ($connection, $type = OCI_DTYPE_LOB) {}
 
@@ -1642,7 +1642,7 @@ function oci_password_change ($connection, $username, $old_password, $new_passwo
  * Should point to the scheme, where the named type was created. The name
  * of the current user is the default value.
  * </p>
- * @return OCI_Collection a new <b>OCICollection</b> object or <b>FALSE</b> on
+ * @return OCI_Collection|false A new <b>OCICollection</b> object or <b>FALSE</b> on
  * error.
  */
 function oci_new_collection ($connection, $tdo, $schema = null) {}
@@ -1735,8 +1735,8 @@ function ocicolumnscale ($statement_resource, $column_number) {}
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_field_precision}
  * @link https://php.net/manual/en/function.ocicolumnprecision.php
- * @param statement_resource
- * @param column_number
+ * @param resource $statement_resource
+ * @param string|int $column_number
  * @return int|bool Returns the precision  as an integer, or <b>FALSE</b> on errors.
  */
 function ocicolumnprecision ($statement_resource, $column_number) {}
@@ -1745,8 +1745,8 @@ function ocicolumnprecision ($statement_resource, $column_number) {}
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_field_type}
  * @link https://php.net/manual/en/function.ocicolumntype.php
- * @param statement_resource
- * @param column_number
+ * @param resource $statement_resource
+ * @param string|int $column_number
  * @return mixed|bool Returns the field data type as a string, or FALSE on errors.
  */
 function ocicolumntype ($statement_resource, $column_number) {}
@@ -1755,8 +1755,8 @@ function ocicolumntype ($statement_resource, $column_number) {}
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_field_type_raw}
  * @link https://php.net/manual/en/function.ocicolumntyperaw.php
- * @param statement_resource
- * @param column_number
+ * @param resource $statement_resource
+ * @param string|int $column_number
  * @return int|bool Returns Oracle's raw data type as a number, or FALSE on errors.
  */
 function ocicolumntyperaw ($statement_resource, $column_number) {}
@@ -1916,7 +1916,7 @@ function ocilogon ($username, $password, $connection_string, $character_set, $se
  * @param $connection_string [optional]
  * @param $character_set [optional]
  * @param $session_mode [optional]
- * @return resource <p>Returns a connection identifier or <b>FALSE</b> on error.</p>
+ * @return resource|false <p>Returns a connection identifier or <b>FALSE</b> on error.</p>
  */
 function ocinlogon ($username, $password, $connection_string, $character_set, $session_mode) {}
 
@@ -1930,7 +1930,7 @@ function ocinlogon ($username, $password, $connection_string, $character_set, $s
  * @param $connection_string [optional]
  * @param $character_set [optional]
  * @param $session_mode [optional]
- * @return resource <p>Returns a connection identifier or <b>FALSE</b> on error.</p>
+ * @return resource|false <p>Returns a connection identifier or <b>FALSE</b> on error.</p>
  */
 function ociplogon ($username, $password, $connection_string, $character_set, $session_mode) {}
 
@@ -1941,7 +1941,7 @@ function ociplogon ($username, $password, $connection_string, $character_set, $s
  * @link https://php.net/manual/en/function.ocierror.php
  * @param resource $connection_or_statement_resource [optional] For most errors, resource is the resource handle that was passed to the failing function call.
  * For connection errors with oci_connect(), oci_new_connect() or oci_pconnect() do not pass resource.
- * @return array|bool If no error is found, oci_error() returns FALSE. Otherwise, oci_error() returns the error information as an associative array.
+ * @return array|false If no error is found, oci_error() returns FALSE. Otherwise, oci_error() returns the error information as an associative array.
  */
 function ocierror ($connection_or_statement_resource) {}
 
@@ -2130,7 +2130,7 @@ function ocicollassignelem ($collection, $index, $value) {}
  * {@see OCI_COLLection::size}
  * @link https://php.net/manual/en/function.ocicollsize.php
  * @param OCI_Collection $collection
- * @return int <p>Returns the number of elements in the collection or <b>FALSE</b> on error.</p>
+ * @return int|false <p>Returns the number of elements in the collection or <b>FALSE</b> on error.</p>
  */
 function ocicollsize ($collection) {}
 
@@ -2140,7 +2140,7 @@ function ocicollsize ($collection) {}
  * {@see OCI_COLLection::max}
  * @link https://php.net/manual/en/function.ocicollmax.php
  * @param OCI_Collection $collection
- * @return int <p> Returns the maximum number as an integer, or <b>FALSE</b> on errors.
+ * @return int|false <p> Returns the maximum number as an integer, or <b>FALSE</b> on errors.
  * If the returned value is 0, then the number of elements is not limited.
  */
 function ocicollmax ($collection) {}
@@ -2150,7 +2150,7 @@ function ocicollmax ($collection) {}
  * Alias of
  * {@see OCI_Collection::trim}
  * @link https://php.net/manual/en/function.ocicolltrim.php
- * @param collection
+ * @param OCI_Collection $collection
  * @param int|float
  * @return bool Returns <b>TRUE</b> or <b>FALSE</b> on failure.
  */

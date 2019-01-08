@@ -194,7 +194,7 @@ class SplFileInfo  {
         /**
          * Gets absolute path to file
          * @link https://php.net/manual/en/splfileinfo.getrealpath.php
-         * @return string the path to the file.
+         * @return string|false the path to the file, or <b>FALSE</b> if the file does not exist.
          * @since 5.2.2
          */
         public function getRealPath () {}
@@ -774,6 +774,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * @return string a string containing the next line of the file with HTML and PHP
          * code stripped, or false on error.
          * @since 5.1.0
+         * @deprecated 7.3
          */
         public function fgetss ($allowable_tags = null) {}
 
@@ -966,7 +967,8 @@ class SplTempFileObject extends SplFileObject {
  * The SplDoublyLinkedList class provides the main functionalities of a doubly linked list.
  * @link https://php.net/manual/en/class.spldoublylinkedlist.php
  */
-class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess {
+class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializable
+{
         const IT_MODE_LIFO = 2;
         const IT_MODE_FIFO = 0;
         const IT_MODE_DELETE = 1;

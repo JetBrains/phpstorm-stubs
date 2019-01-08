@@ -574,7 +574,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	/**
 	 * (PECL solr &gt;= 2.2.0)<br/>
 	 * Returns true if grouping is enabled
-	 * http://php.net/manual/en/solrquery.getgroup.php
+	 * https://secure.php.net/manual/en/solrquery.getgroup.php
 	 * @return bool <p>
 	 * Returns true if grouping is enabled
 	 * </p>

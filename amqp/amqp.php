@@ -532,7 +532,7 @@ class AMQPConnection
      *      'write_timeout' => Timeout in for outcome activity. Note: 0 or greater seconds. May be fractional.
      *      'connect_timeout' => Connection timeout. Note: 0 or greater seconds. May be fractional.
      *
-     *      Connection tuning options (see http://www.rabbitmq.com/amqp-0-9-1-reference.html#connection.tune for details):
+     *      Connection tuning options (see https://www.rabbitmq.com/amqp-0-9-1-reference.html#connection.tune for details):
      *      'channel_max' => Specifies highest channel number that the server permits. 0 means standard extension limit
      *                       (see PHP_AMQP_MAX_CHANNELS constant)
      *      'frame_max'   => The largest frame size that the server proposes for the connection, including frame header

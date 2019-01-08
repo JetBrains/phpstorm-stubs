@@ -348,6 +348,16 @@ function is_scalar ($var) {}
 function is_callable ($var, $syntax_only = null, &$callable_name = null) {}
 
 /**
+ * Verify that the contents of a variable is a countable value
+ * @link https://secure.php.net/is_countable
+ *
+ * @param mixed $var The value to check
+ * @return bool <b>TRUE</b> if $var is countable, <b>FALSE</b> otherwise.
+ * @since 7.3
+ */
+function is_countable($var) {}
+
+/**
  * Closes process file pointer
  * @link https://php.net/manual/en/function.pclose.php
  * @param resource $handle <p>
@@ -526,6 +536,7 @@ function fgets ($handle, $length = null) {}
  * If an error occurs, returns false.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.3
  */
 function fgetss ($handle, $length = null, $allowable_tags = null) {}
 
@@ -1040,7 +1051,7 @@ function file ($filename, $flags = null, $context = null) {}
  * Maximum length of data read. The default is to read until end
  * of file is reached.
  * </p>
- * @return string|bool The function returns the read data or false on failure.
+ * @return string|false The function returns the read data or false on failure.
  * @since 4.3.0
  * @since 5.0
  */

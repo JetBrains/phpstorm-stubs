@@ -944,7 +944,7 @@ function date_create_immutable_from_format ($format, $time, DateTimeZone $timezo
  * Alias:
  * {@see DateTime::createFromFormat}
  * @link https://php.net/manual/en/function.date-create-from-format.php
- * @param string $format Format accepted by  <a href="http://us.php.net/manual/en/function.date.php">date()</a>.
+ * @param string $format Format accepted by  <a href="https://secure.php.net/manual/en/function.date.php">date()</a>.
  * <p>If format does not contain the character ! then portions of the generated time which are not specified in format will be set to the current system time.
  * <p>If format contains the character !, then portions of the generated time not provided in format, as well as values to the left-hand side of the !, will be set to corresponding values from the Unix epoch.
  * <p>The Unix epoch is 1970-01-01 00:00:00 UTC.
@@ -1009,7 +1009,7 @@ function date_format ($object, $format) {}
  * {@see DateTime::modify}
  * @link https://php.net/manual/en/function.date-modify.php
  * @param DateTime $object A DateTime object returned by date_create(). The function modifies this object.
- * @param string $modify A date/time string. Valid formats are explained in {@link http://www.php.net/manual/en/datetime.formats.php Date and Time Formats}.
+ * @param string $modify A date/time string. Valid formats are explained in {@link https://secure.php.net/manual/en/datetime.formats.php Date and Time Formats}.
  * @return DateTime|false Returns the DateTime object for method chaining or <b>FALSE</b> on failure.
  * @since 5.2.0
  */

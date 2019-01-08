@@ -6,7 +6,7 @@
  */
 /**
  * Class ZMQ
- * @link http://www.php.net/manual/en/class.zmq.php
+ * @link https://secure.php.net/manual/en/class.zmq.php
  */
 class ZMQ
 {
@@ -274,7 +274,7 @@ class ZMQ
     const ERR_ETERM = 156384765;
     /**
      * Private constructor to prevent direct initialization. This class holds the constants for ZMQ extension.
-     * @link http://www.php.net/manual/en/zmq.construct.php
+     * @link https://secure.php.net/manual/en/zmq.construct.php
      */
     private function __construct()
     {
@@ -282,7 +282,7 @@ class ZMQ
 }
 /**
  * Class ZMQContext
- * @link http://www.php.net/manual/en/class.zmqcontext.php
+ * @link https://secure.php.net/manual/en/class.zmqcontext.php
  */
 class ZMQContext
 {
@@ -290,7 +290,7 @@ class ZMQContext
      * Constructs a new ZMQ context. The context is used to initialize sockets.
      * A persistent context is required to initialize persistent sockets.
      *
-     * @link http://www.php.net/manual/en/zmqcontext.construct.php
+     * @link https://secure.php.net/manual/en/zmqcontext.construct.php
      *
      * @param int $io_threads Number of io-threads in the context
      * @param bool $is_persistent Whether the context is persistent. Persistent context is stored over multiple requests and is a requirement for persistent sockets.
@@ -302,7 +302,7 @@ class ZMQContext
      * (PECL zmq &gt;= 1.0.4)
      * Returns the value of a context option.
      *
-     * @link http://www.php.net/manual/en/zmqcontext.getopt.php
+     * @link https://secure.php.net/manual/en/zmqcontext.getopt.php
      *
      * @param string $key An int representing the option. See the <b>ZMQ::CTXOPT_*</b> constants.
      * @return string|int Returns either a string or an integer depending on key. Throws ZMQContextException on error.
@@ -318,7 +318,7 @@ class ZMQContext
      * and the socket falls back to being non-persistent.
      * The on_new_socket is called only when a new underlying socket structure is created.
      *
-     * @link http://www.php.net/manual/en/zmqcontext.getsocket.php
+     * @link https://secure.php.net/manual/en/zmqcontext.getsocket.php
      *
      * @param int $type <b>ZMQ::SOCKET_*</b> constant to specify socket type.
      * @param string $persistent_id If persistent_id is specified the socket will be persisted over multiple requests.
@@ -334,7 +334,7 @@ class ZMQContext
      * Whether the context is persistent.
      * Persistent context is needed for persistent connections as each socket is allocated from a context.
      *
-     * @link http://www.php.net/manual/en/zmqcontext.ispersistent.php
+     * @link https://secure.php.net/manual/en/zmqcontext.ispersistent.php
      *
      * @return bool Returns <b>TRUE</b> if the context is persistent and <b>FALSE</b> if the context is non-persistent.
      */
@@ -346,7 +346,7 @@ class ZMQContext
      * Sets a ZMQ context option. The type of the value depends on the key.
      * See ZMQ Constant Types for more information.
      *
-     * @link http://www.php.net/manual/en/zmqcontext.setopt.php
+     * @link https://secure.php.net/manual/en/zmqcontext.setopt.php
      *
      * @param int $key One of the <b>ZMQ::CTXOPT_*<b> constants.
      * @param mixed $value The value of the parameter.
@@ -359,7 +359,7 @@ class ZMQContext
 }
 /**
  * Class ZMQSocket
- * @link http://www.php.net/manual/en/class.zmqsocket.php
+ * @link https://secure.php.net/manual/en/class.zmqsocket.php
  */
 class ZMQSocket
 {
@@ -371,7 +371,7 @@ class ZMQSocket
      * The persistent_id parameter can be used to recall the same socket over multiple requests.
      * The on_new_socket is called only when a new underlying socket structure is created.
      *
-     * @link http://www.php.net/manual/en/zmqsocket.construct.php
+     * @link https://secure.php.net/manual/en/zmqsocket.construct.php
      *
      * @param ZMQContext $context <p>ZMQContext to build this object</p>
      * @param int $type <p>The type of the socket. See ZMQ::SOCKET_* constants.</p>
@@ -389,7 +389,7 @@ class ZMQSocket
      * The endpoint is defined in format transport://address
      * where transport is one of the following: inproc, ipc, tcp, pgm or epgm.
      *
-     * @link http://www.php.net/manual/en/zmqsocket.bind.php
+     * @link https://secure.php.net/manual/en/zmqsocket.bind.php
      *
      * @param string $dsn The bind dsn, for example transport://address.
      * @param bool $force Tries to bind even if the socket has already been bound to the given endpoint.
@@ -406,7 +406,7 @@ class ZMQSocket
      * The endpoint is defined in format transport://address
      * where transport is one of the following: inproc, ipc, tcp, pgm or epgm.
      *
-     * @link http://www.php.net/manual/en/zmqsocket.connect.php
+     * @link https://secure.php.net/manual/en/zmqsocket.connect.php
      *
      * @param string $dsn The bind dsn, for example transport://address.
      * @param bool $force Tries to bind even if the socket has already been bound to the given endpoint.
@@ -423,7 +423,7 @@ class ZMQSocket
      * The endpoint is defined in format transport://address
      * where transport is one of the following: inproc, ipc, tcp, pgm or epgm.
      *
-     * @link http://www.php.net/manual/en/zmqsocket.disconnect.php
+     * @link https://secure.php.net/manual/en/zmqsocket.disconnect.php
      *
      * @param string $dsn The bind dsn, for example transport://address.
      *
@@ -436,7 +436,7 @@ class ZMQSocket
     /**
      * Returns a list of endpoints where the socket is connected or bound to.
      *
-     * @link http://www.php.net/manual/en/zmqsocket.getendpoints.php
+     * @link https://secure.php.net/manual/en/zmqsocket.getendpoints.php
      *
      * @return array contains two sub-arrays: 'connect' and 'bind'
      * @throws ZMQSocketException
@@ -447,7 +447,7 @@ class ZMQSocket
     /**
      * Returns the persistent id string assigned of the object and NULL if socket is not persistent.
      *
-     * @link http://www.php.net/manual/en/zmqsocket.getpersistentid.php
+     * @link https://secure.php.net/manual/en/zmqsocket.getpersistentid.php
      *
      * @return string|null <p>
      * Returns the persistent id string assigned of the object and <b>NULL</b> if socket is not persistent.
@@ -460,7 +460,7 @@ class ZMQSocket
      * Returns the value of a socket option.
      * This method is available if ZMQ extension has been compiled against ZMQ version 2.0.7 or higher
      *
-     * @link http://www.php.net/manual/en/zmqsocket.getsockopt.php
+     * @link https://secure.php.net/manual/en/zmqsocket.getsockopt.php
      *
      * @since 0MQ 2.0.7
      * @param int $key An int representing the option. See the <b>ZMQ::SOCKOPT_*</b> constants.
@@ -478,7 +478,7 @@ class ZMQSocket
      * Return the socket type.
      * The socket type can be compared against ZMQ::SOCKET_* constants.
      *
-     * @link http://www.php.net/manual/en/zmqsocket.getsockettype.php
+     * @link https://secure.php.net/manual/en/zmqsocket.getsockettype.php
      *
      * @return int <p>
      * Returns an integer representing the socket type. The integer can be compared against
@@ -491,7 +491,7 @@ class ZMQSocket
     /**
      * Check whether the socket is persistent.
      *
-     * @link http://www.php.net/manual/en/zmqsocket.ispersistent.php
+     * @link https://secure.php.net/manual/en/zmqsocket.ispersistent.php
      *
      * @return bool <p>Returns a boolean based on whether the socket is persistent or not.</p>
      */
@@ -505,7 +505,7 @@ class ZMQSocket
      * Returns the message.
      * If <b>ZMQ::MODE_NOBLOCK</b> is used and the operation would block bool false shall be returned.
      *
-     * @link http://www.php.net/manual/en/zmqsocket.recv.php
+     * @link https://secure.php.net/manual/en/zmqsocket.recv.php
      * @see ZMQSocket::setSockOpt()
      *
      * @param int $mode Pass mode flags to receive multipart messages or non-blocking operation. See ZMQ::MODE_* constants.
@@ -522,7 +522,7 @@ class ZMQSocket
      * Returns the array of message parts.
      * If <b>ZMQ::MODE_NOBLOCK</b> is used and the operation would block bool false shall be returned.
      *
-     * @link http://www.php.net/manual/en/zmqsocket.recvmulti.php
+     * @link https://secure.php.net/manual/en/zmqsocket.recvmulti.php
      *
      * @param int $mode Pass mode flags to receive multipart messages or non-blocking operation. See ZMQ::MODE_* constants.
      *
@@ -536,7 +536,7 @@ class ZMQSocket
      * Send a message using the socket. The operation can block unless ZMQ::MODE_NOBLOCK is used.
      * If <b>ZMQ::MODE_NOBLOCK</b> is used and the operation would block bool false shall be returned.
      *
-     * @link http://www.php.net/manual/en/zmqsocket.send.php
+     * @link https://secure.php.net/manual/en/zmqsocket.send.php
      *
      * @param string $message The message to send
      * @param int $mode Pass mode flags to receive multipart messages or non-blocking operation. See ZMQ::MODE_* constants.     *
@@ -551,7 +551,7 @@ class ZMQSocket
      * Send a multipart message using the socket. The operation can block unless ZMQ::MODE_NOBLOCK is used.
      * If <b>ZMQ::MODE_NOBLOCK</b> is used and the operation would block bool false shall be returned.
      *
-     * @link http://www.php.net/manual/en/zmqsocket.sendmulti.php
+     * @link https://secure.php.net/manual/en/zmqsocket.sendmulti.php
      *
      * @param array $message The message to send - an array of strings
      * @param int $mode Pass mode flags to receive multipart messages or non-blocking operation. See ZMQ::MODE_* constants.     *
@@ -566,7 +566,7 @@ class ZMQSocket
      * Sets a ZMQ socket option. The type of the value depends on the key.
      * @see ZMQ Constant Types for more information.
      *
-     * @link http://www.php.net/manual/en/zmqsocket.setsockopt.php
+     * @link https://secure.php.net/manual/en/zmqsocket.setsockopt.php
      *
      * @param int $key One of the <b>ZMQ::SOCKOPT_*</b> constants.
      * @param mixed $value The value of the parameter.
@@ -582,7 +582,7 @@ class ZMQSocket
      * The endpoint is defined in format transport://address
      * where transport is one of the following: inproc, ipc, tcp, pgm or epgm.
      *
-     * @link http://www.php.net/manual/en/zmqsocket.unbind.php
+     * @link https://secure.php.net/manual/en/zmqsocket.unbind.php
      *
      * @param string $dsn The previously bound dsn, for example transport://address.
      *
@@ -595,7 +595,7 @@ class ZMQSocket
 }
 /**
  * Class ZMQPoll
- * @link http://www.php.net/manual/en/class.zmqpoll.php
+ * @link https://secure.php.net/manual/en/class.zmqpoll.php
  */
 class ZMQPoll
 {
@@ -605,7 +605,7 @@ class ZMQPoll
      * The item can be removed from the poll set using the returned string id.
      * Returns a string id of the added item which can be later used to remove the item.
      *
-     * @link http://www.php.net/manual/en/zmqpoll.add.php
+     * @link https://secure.php.net/manual/en/zmqpoll.add.php
      *
      * @param ZMQSocket $entry ZMQSocket object or a PHP stream resource
      * @param int $type Defines what activity the socket is polled for. See <b>ZMQ::POLL_IN</b> and <b>ZMQ::POLL_OUT</b> constants.
@@ -620,7 +620,7 @@ class ZMQPoll
      * (PECL zmq &gt;= 1.0.4)
      * Clears all elements from the poll set.
      *
-     * @link http://www.php.net/manual/en/zmqpoll.clear.php
+     * @link https://secure.php.net/manual/en/zmqpoll.clear.php
      *
      * @return ZMQPoll Returns the current object.
      */
@@ -631,7 +631,7 @@ class ZMQPoll
      * (PECL zmq &gt;= 0.5.0)
      * Count the items in the poll set.
      *
-     * @link http://www.php.net/manual/en/zmqpoll.count.php
+     * @link https://secure.php.net/manual/en/zmqpoll.count.php
      *
      * @return int Returns an integer representing the amount of items in the poll set.
      */
@@ -644,7 +644,7 @@ class ZMQPoll
      * Returns an array containing ids for the items that had errors in the last poll.
      * Empty array is returned if there were no errors.
      *
-     * @link http://www.php.net/manual/en/zmqpoll.getlasterrors.php
+     * @link https://secure.php.net/manual/en/zmqpoll.getlasterrors.php
      *
      * @return int[]
      */
@@ -658,7 +658,7 @@ class ZMQPoll
      * ZMQPoll::getLastErrors() can be used to check if there were errors.
      * Returns an int representing amount of items with activity.
      *
-     * @link http://www.php.net/manual/en/zmqpoll.poll.php
+     * @link https://secure.php.net/manual/en/zmqpoll.poll.php
      *
      * @param array &$readable Array where readable ZMQSockets/PHP streams are returned. The array will be cleared at the beginning of the operation.
      * @param array &$writable Array where writable ZMQSockets/PHP streams are returned. The array will be cleared at the beginning of the operation.
@@ -676,7 +676,7 @@ class ZMQPoll
      * The item parameter can be ZMQSocket object, a stream resource or the id returned from ZMQPoll::add() method.
      * Returns true if the item was removed and false if the object with given id does not exist in the poll set.
      *
-     * @link http://www.php.net/manual/en/zmqpoll.remove.php
+     * @link https://secure.php.net/manual/en/zmqpoll.remove.php
      *
      * @param ZMQSocket|string|mixed $item The ZMQSocket object, PHP stream or string id of the item.
      * @return bool Returns true if the item was removed and false if the object with given id does not exist in the poll set.
@@ -687,7 +687,7 @@ class ZMQPoll
 }
 /**
  * Class ZMQDevice
- * @link http://www.php.net/manual/en/class.zmqdevice.php
+ * @link https://secure.php.net/manual/en/class.zmqdevice.php
  */
 class ZMQDevice
 {
@@ -698,7 +698,7 @@ class ZMQDevice
      * to define above the message and socket layers." -- zguide
      * Call to this method will prepare the device. Usually devices are very long running processes so running this method from interactive script is not recommended. This method throw ZMQDeviceException if the device cannot be started.
      *
-     * @link http://www.php.net/manual/en/zmqdevice.construct.php
+     * @link https://secure.php.net/manual/en/zmqdevice.construct.php
      *
      * @param ZMQSocket $frontend Frontend parameter for the devices. Usually where there messages are coming.
      * @param ZMQSocket $backend Backend parameter for the devices. Usually where there messages going to.
@@ -712,7 +712,7 @@ class ZMQDevice
      * This method returns the idle callback timeout value.
      * Added in ZMQ extension version 1.1.0.
      *
-     * @link http://www.php.net/manual/en/zmqdevice.getidletimeout.php
+     * @link https://secure.php.net/manual/en/zmqdevice.getidletimeout.php
      *
      * @return int This method returns the idle callback timeout value.
      */
@@ -723,7 +723,7 @@ class ZMQDevice
      * Gets the timer callback timeout value.
      * Added in ZMQ extension version 1.1.0.
      *
-     * @link http://www.php.net/manual/en/zmqdevice.gettimertimeout.php
+     * @link https://secure.php.net/manual/en/zmqdevice.gettimertimeout.php
      *
      * @return int This method returns the timer timeout value.
      */
@@ -735,7 +735,7 @@ class ZMQDevice
      * Call to this method will block until the device is running.
      * It is not recommended that devices are used from interactive scripts.
      *
-     * @link http://www.php.net/manual/en/zmqdevice.run.php
+     * @link https://secure.php.net/manual/en/zmqdevice.run.php
      *
      * @throws ZMQDeviceException
      */
@@ -748,7 +748,7 @@ class ZMQDevice
      * without events. If the callback function returns false or a value that evaluates to false the device is stopped.
      * The callback function signature is callback (mixed $user_data).
      *
-     * @link http://www.php.net/manual/en/zmqdevice.setidlecallback.php
+     * @link https://secure.php.net/manual/en/zmqdevice.setidlecallback.php
      *
      * @param callable $cb_func Callback function to invoke when the device is idle. Returning false or a value that evaluates to false from this function will cause the device to stop.
      * @param int $timeout How often to invoke the idle callback in milliseconds. The idle callback is invoked periodically when there is no activity on the device. The timeout value guarantees that there is at least this amount of milliseconds between invocations of the callback function.
@@ -763,7 +763,7 @@ class ZMQDevice
      * Sets the idle callback timeout value. The idle callback is invoked periodically when the device is idle.
      * On success this method returns the current object.
      *
-     * @link http://www.php.net/manual/en/zmqdevice.setidletimeout.php
+     * @link https://secure.php.net/manual/en/zmqdevice.setidletimeout.php
      *
      * @param int $timeout The idle callback timeout value in milliseconds
      *
@@ -778,7 +778,7 @@ class ZMQDevice
      * The callback function signature is callback (mixed $user_data).
      * Added in ZMQ extension version 1.1.0.
      *
-     * @link http://www.php.net/manual/en/zmqdevice.settimercallback.php
+     * @link https://secure.php.net/manual/en/zmqdevice.settimercallback.php
      *
      * @param callable $cb_func Callback function to invoke when the device is idle. Returning false or a value that evaluates to false from this function will cause the device to stop.
      * @param int $timeout How often to invoke the idle callback in milliseconds. The idle callback is invoked periodically when there is no activity on the device. The timeout value guarantees that there is at least this amount of milliseconds between invocations of the callback function.
@@ -793,7 +793,7 @@ class ZMQDevice
      * Sets the timer callback timeout value. The timer callback is invoked periodically if it's set.
      * Added in ZMQ extension version 1.1.0.
      *
-     * @link http://www.php.net/manual/en/zmqdevice.settimertimeout.php
+     * @link https://secure.php.net/manual/en/zmqdevice.settimertimeout.php
      *
      * @param int $timeout The timer callback timeout value.
      *

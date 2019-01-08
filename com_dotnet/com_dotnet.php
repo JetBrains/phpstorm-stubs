@@ -1,6 +1,6 @@
 <?php
 
-// Start of com v.
+// Start of com_dotnet v.
 
 /**
  * The COM class allows you to instantiate an OLE compatible COM object and call its methods and access its properties.

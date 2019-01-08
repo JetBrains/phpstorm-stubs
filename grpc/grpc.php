@@ -6,7 +6,7 @@
  */
 /**
  * Grpc
- * @see http://grpc.io
+ * @see https://grpc.io
  * @see https://github.com/grpc/grpc/tree/master/src/php/ext/grpc
  */
 namespace Grpc

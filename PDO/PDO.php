@@ -71,6 +71,26 @@ class PDO  {
 	const SQLITE_DETERMINISTIC = 2048;
 
 	/**
+	 * @since 7.3
+	 */
+	const SQLITE_OPEN_READONLY = 1;
+
+	/**
+	 * @since 7.3
+	 */
+	const SQLITE_OPEN_READWRITE = 2;
+
+	/**
+	 * @since 7.3
+	 */
+	const SQLITE_OPEN_CREATE = 4;
+
+	/**
+	 * @since 7.3
+	 */
+	const SQLITE_ATTR_OPEN_FLAGS = 1000;
+
+	/**
 	 * Represents the SQL large object data type.
 	 * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.param-lob
 	 */
@@ -958,7 +978,7 @@ class PDO  {
 	 * Arguments of custom class constructor when the <i>mode</i>
 	 * parameter is set to <b>PDO::FETCH_CLASS</b>.
 	 * </p>
-	 * @return PDOStatement|bool <b>PDO::query</b> returns a PDOStatement object, or <b>FALSE</b>
+	 * @return PDOStatement|false <b>PDO::query</b> returns a PDOStatement object, or <b>FALSE</b>
 	 * on failure.
 	 * @see PDOStatement::setFetchMode For a full description of the second and following parameters.
 	 */
