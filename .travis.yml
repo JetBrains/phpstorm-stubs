@@ -8,7 +8,7 @@ addons:
       - docker-ce
 
 install:
-  - composer install
+  - composer install --ignore-platform-reqs
 script:
   - docker-compose -f docker-compose.yml pull
   - docker-compose -f docker-compose.yml build
