@@ -286,6 +286,8 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator {
          * Constructs a new directory iterator from a path
          * @link https://php.net/manual/en/directoryiterator.construct.php
          * @param $path
+         * @throws UnexpectedValueException if the path cannot be opened.
+         * @throws RuntimeException if the path is an empty string.
          * @since 5.0
          */
         public function __construct ($path) {}
@@ -375,6 +377,7 @@ class FilesystemIterator extends DirectoryIterator {
          * @link https://php.net/manual/en/filesystemiterator.construct.php
          * @param $path
          * @param $flags [optional]
+         * @throws UnexpectedValueException if the path cannot be found.
          * @since 5.3.0
          */
         public function __construct ($path, $flags) {}
@@ -447,6 +450,7 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
          * @link https://php.net/manual/en/recursivedirectoryiterator.construct.php
          * @param $path
          * @param $flags [optional]
+         * @throws UnexpectedValueException if the path cannot be found or is not a directory.
          * @since 5.1.2
          */
         public function __construct ($path, $flags) {}
@@ -958,6 +962,7 @@ class SplTempFileObject extends SplFileObject {
          * Construct a new temporary file object
          * @link https://php.net/manual/en/spltempfileobject.construct.php
          * @param $max_memory [optional]
+         * @throws RuntimeException if an error occurs.
          * @since 5.1.2
          */
         public function __construct ($max_memory) {}
