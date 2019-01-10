@@ -836,6 +836,7 @@ class PDO  {
 	 * @param string $username [optional]
 	 * @param string $passwd [optional]
 	 * @param array $options [optional]
+	 * @throws PDOException if the attempt to connect to the requested database fails.
 	 */
 	public function __construct ($dsn, $username, $passwd, $options) {}
 
@@ -899,6 +900,7 @@ class PDO  {
 	 * Commits a transaction
 	 * @link https://php.net/manual/en/pdo.commit.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @throws PDOException if there is no active transaction.
 	 */
 	public function commit () {}
 
@@ -907,6 +909,7 @@ class PDO  {
 	 * Rolls back a transaction
 	 * @link https://php.net/manual/en/pdo.rollback.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @throws PDOException if there is no active transaction.
 	 */
 	public function rollBack () {}
 
