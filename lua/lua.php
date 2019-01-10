@@ -22,9 +22,12 @@ class Lua  {
     /**
      * @link https://secure.php.net/manual/en/lua.assign.php
      * 
+     * @param string $name
+     * @param mixed $value
+     *
      * @return $this|null Returns $this or NULL on failure.
      */
-    public function assign(string $name, string $value): void {}
+    public function assign(string $name, $value) {}
     
     /**
      * @link https://secure.php.net/manual/en/lua.call.php
