@@ -4,7 +4,6 @@
 // The actual lua version is different from the PECL package version
 
 /**
- * Represents a connection to a set of memcached servers.
  * @link https://secure.php.net/manual/en/class.lua.php
  */
 class Lua  {
