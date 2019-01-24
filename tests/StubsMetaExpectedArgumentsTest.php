@@ -2,13 +2,18 @@
 
 namespace StubTests;
 
+use PhpParser\Node\Expr\ClassConstFetch;
+use PhpParser\Node\Expr\ConstFetch;
+use PhpParser\Node\Expr\FuncCall;
+use PhpParser\Node\Expr\StaticCall;
 use PHPUnit\Framework\TestCase;
+use StubTests\Model\PHPConst;
 use StubTests\Model\StubsContainer;
 use StubTests\Parsers\ExpectedFunctionArgumentsInfo;
 use StubTests\Parsers\MetaExpectedArgumentsCollector;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
-class TestStubsMetaExpectedArguments extends TestCase
+class StubsMetaExpectedArgumentsTest extends TestCase
 {
     /**
      * @var ExpectedFunctionArgumentsInfo[]
@@ -25,7 +30,7 @@ class TestStubsMetaExpectedArguments extends TestCase
         self::$functionsFqns = array_map(function (Model\PHPFunction $func) {
             return self::toPresentableFqn((string)$func->name);
         }, $stubs->getFunctions());
-        self::$methodsFqns = self::getMethodsFqns($stubs);;
+        self::$methodsFqns = self::getMethodsFqns($stubs);
         self::$constantsFqns = self::getConstantsFqns($stubs);
     }
 
@@ -40,7 +45,7 @@ class TestStubsMetaExpectedArguments extends TestCase
 
     public static function getConstantsFqns(StubsContainer $stubs): array
     {
-        $constants = array_map(function (\StubTests\Model\PHPConst $constant) {
+        $constants = array_map(function (PHPConst $constant) {
             return self::toPresentableFqn((string)$constant->name);
         }, $stubs->getConstants());
         foreach ($stubs->getClasses() as $class) {
@@ -67,10 +72,10 @@ class TestStubsMetaExpectedArguments extends TestCase
     {
         foreach (self::$expectedArguments as $argument) {
             $expr = $argument->getFunctionReference();
-            if ($expr instanceof \PhpParser\Node\Expr\FuncCall) {
+            if ($expr instanceof FuncCall) {
                 $fqn = self::toPresentableFqn($expr->name);
                 self::assertArrayHasKey($fqn, self::$functionsFqns, "Can't resolve function " . $fqn);
-            } else if ($expr instanceof \PhpParser\Node\Expr\StaticCall) {
+            } else if ($expr instanceof StaticCall) {
                 if ((string)$expr->name !== '__construct') {
                     $fqn = self::getClassMemberFqn($expr->class, $expr->name);
                     self::assertArrayHasKey($fqn, self::$methodsFqns, "Can't resolve method " . $fqn);
@@ -87,10 +92,10 @@ class TestStubsMetaExpectedArguments extends TestCase
             $expectedArguments = $argument->getExpectedArguments();
             self::assertNotEmpty($expectedArguments, 'Expected arguments should not be empty for ' . $argument);
             foreach ($expectedArguments as $constantReference) {
-                if ($constantReference instanceof \PhpParser\Node\Expr\ClassConstFetch) {
+                if ($constantReference instanceof ClassConstFetch) {
                     $fqn = self::getClassMemberFqn($constantReference->class, $constantReference->name);
                     self::assertArrayHasKey($fqn, self::$constantsFqns, "Can't resolve class constant " . $fqn);
-                } else if ($constantReference instanceof \PhpParser\Node\Expr\ConstFetch) {
+                } else if ($constantReference instanceof ConstFetch) {
                     $fqn = self::toPresentableFqn((string)$constantReference->name);
                     self::assertArrayHasKey($fqn, self::$constantsFqns, "Can't resolve constant " . $fqn);
                 }
