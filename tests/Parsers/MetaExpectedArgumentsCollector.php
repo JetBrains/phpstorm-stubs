@@ -49,7 +49,7 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
     }
 
     /**
-     * @param Expr[] $args
+     * @param Expr[] $expressions
      * @return Expr[]
      */
     private function unpackArguments(array $expressions): array
