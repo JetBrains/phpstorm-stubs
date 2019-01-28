@@ -14,6 +14,7 @@ use SplFileInfo;
 class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
 {
     private const EXPECTED_ARGUMENTS = 'expectedArguments';
+    private const REGISTER_ARGUMENTS_SET_NAME = 'registerArgumentsSet';
     /**
      * @var ExpectedFunctionArgumentsInfo[]
      */
@@ -30,12 +31,12 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
             if ((string)$node->name === self::EXPECTED_ARGUMENTS) {
                 $args = $node->args;
                 if ($args < 3) throw new RuntimeException('Expected at least 3 arguments for expectedArguments call');
-                $expressions = array_map(function (Arg $arg) {
-                    return $arg->value;
-                }, array_slice($args, 2));
-                $this->expectedArgumentsInfos[] = new ExpectedFunctionArgumentsInfo($args[0]->value, $this->unpackArguments($expressions));
+                $this->expectedArgumentsInfos[] = $this->getExpectedArgumentsInfo($args[0]->value, array_slice($args, 2));
+            } else if ((string)$node->name === self::REGISTER_ARGUMENTS_SET_NAME) {
+                $args = $node->args;
+                if ($args < 2) throw new RuntimeException('Expected at least 2 arguments for registerArgumentsSet call');
+                $this->expectedArgumentsInfos[] = $this->getExpectedArgumentsInfo(null, array_slice($args, 1));
             }
-
         }
     }
 
@@ -75,5 +76,18 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
             return $file->getFilename() === '.phpstorm.meta.php';
         });
         return $visitor->getExpectedArgumentsInfos();
+    }
+
+    /**
+     * @param Expr|null $functionReference
+     * @param $args
+     * @return ExpectedFunctionArgumentsInfo
+     */
+    private function getExpectedArgumentsInfo($functionReference, $args): ExpectedFunctionArgumentsInfo
+    {
+        $expressions = array_map(function (Arg $arg) {
+            return $arg->value;
+        }, $args);
+        return new ExpectedFunctionArgumentsInfo($functionReference, $this->unpackArguments($expressions));
     }
 }

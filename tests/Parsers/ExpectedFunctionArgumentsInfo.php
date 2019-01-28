@@ -1,24 +1,26 @@
 <?php
 declare(strict_types=1);
 namespace StubTests\Parsers;
+use PhpParser\Node\Expr;
+
 class ExpectedFunctionArgumentsInfo
 {
     /**
-     * @var \PhpParser\Node\Expr
+     * @var Expr|null
      */
     private $functionReference;
 
     /**
-     * @var \PhpParser\Node\Expr[]
+     * @var Expr[]
      */
     private $expectedArguments;
 
     /**
      * ExpectedFunctionArgumentsInfo constructor.
-     * @param \PhpParser\Node\Expr $functionReference
-     * @param \PhpParser\Node\Expr[] $expectedArguments
+     * @param Expr $functionReference
+     * @param Expr[] $expectedArguments
      */
-    public function __construct(\PhpParser\Node\Expr $functionReference, array $expectedArguments)
+    public function __construct(?Expr $functionReference, array $expectedArguments)
     {
         $this->functionReference = $functionReference;
         $this->expectedArguments = $expectedArguments;
@@ -26,23 +28,23 @@ class ExpectedFunctionArgumentsInfo
 
 
     /**
-     * @return \PhpParser\Node\Expr
+     * @return Expr|null
      */
-    public function getFunctionReference(): \PhpParser\Node\Expr
+    public function getFunctionReference(): ?Expr
     {
         return $this->functionReference;
     }
 
     /**
-     * @param \PhpParser\Node\Expr $functionReference
+     * @param Expr $functionReference
      */
-    public function setFunctionReference(\PhpParser\Node\Expr $functionReference): void
+    public function setFunctionReference(Expr $functionReference): void
     {
         $this->functionReference = $functionReference;
     }
 
     /**
-     * @return \PhpParser\Node\Expr[]
+     * @return Expr[]
      */
     public function getExpectedArguments(): array
     {
@@ -50,7 +52,7 @@ class ExpectedFunctionArgumentsInfo
     }
 
     /**
-     * @param \PhpParser\Node\Expr[] $expectedArguments
+     * @param Expr[] $expectedArguments
      */
     public function setExpectedArguments(array $expectedArguments): void
     {
@@ -59,6 +61,9 @@ class ExpectedFunctionArgumentsInfo
 
     public function __toString()
     {
+        if ($this->functionReference === null) {
+            return '';
+        }
         if (property_exists($this->functionReference, 'name')) {
             return (string)$this->functionReference->name;
         }

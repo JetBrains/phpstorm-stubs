@@ -75,7 +75,7 @@ class TestStubsMetaExpectedArguments extends TestCase
                     $fqn = self::getClassMemberFqn($expr->class, $expr->name);
                     self::assertArrayHasKey($fqn, self::$methodsFqns, "Can't resolve method " . $fqn);
                 }
-            } else {
+            } else if ($expr !== null) {
                 self::fail('First argument should be function reference or method reference, got: ' . get_class($expr));
             }
         }
