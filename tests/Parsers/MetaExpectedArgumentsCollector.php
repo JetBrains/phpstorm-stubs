@@ -30,10 +30,9 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
             if ((string)$node->name === self::EXPECTED_ARGUMENTS) {
                 $args = $node->args;
                 if ($args < 3) throw new RuntimeException('Expected at least 3 arguments for expectedArguments call');
-                $expressions = array_slice(
-                    array_map(function (Arg $arg) {
-                        return $arg->value;
-                    }, $args), 2);
+                $expressions = array_map(function (Arg $arg) {
+                    return $arg->value;
+                }, array_slice($args, 2));
                 $this->expectedArgumentsInfos[] = new ExpectedFunctionArgumentsInfo($args[0]->value, $this->unpackArguments($expressions));
             }
 
