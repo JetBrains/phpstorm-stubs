@@ -17,7 +17,7 @@ use StubTests\Model\PHPMethod;
 use StubTests\Model\StubProblemType;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
-class TestStubs extends TestCase
+class StubsTest extends TestCase
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
