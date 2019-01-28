@@ -2,6 +2,11 @@
 declare(strict_types=1);
 namespace StubTests\Parsers;
 
+use PhpParser\Node;
+use PhpParser\Node\Arg;
+use PhpParser\Node\Expr;
+use PhpParser\Node\Expr\BinaryOp\BitwiseOr;
+use PhpParser\Node\Expr\FuncCall;
 use PhpParser\NodeVisitorAbstract;
 use RuntimeException;
 use SplFileInfo;
@@ -19,14 +24,14 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
         $this->expectedArgumentsInfos = array();
     }
 
-    public function enterNode(\PhpParser\Node $node)
+    public function enterNode(Node $node)
     {
-        if ($node instanceof \PhpParser\Node\Expr\FuncCall) {
+        if ($node instanceof FuncCall) {
             if ((string)$node->name === self::EXPECTED_ARGUMENTS) {
                 $args = $node->args;
                 if ($args < 3) throw new RuntimeException('Expected at least 3 arguments for expectedArguments call');
                 $expressions = array_slice(
-                    array_map(function (\PhpParser\Node\Arg $arg) {
+                    array_map(function (Arg $arg) {
                         return $arg->value;
                     }, $args), 2);
                 $this->expectedArgumentsInfos[] = new ExpectedFunctionArgumentsInfo($args[0]->value, $this->unpackArguments($expressions));
@@ -44,14 +49,14 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
     }
 
     /**
-     * @param \PhpParser\Node\Expr[] $args
-     * @return \PhpParser\Node\Expr[]
+     * @param Expr[] $args
+     * @return Expr[]
      */
     private function unpackArguments(array $expressions): array
     {
         $result = array();
         foreach ($expressions as $expr) {
-            if ($expr instanceof \PhpParser\Node\Expr\BinaryOp\BitwiseOr) {
+            if ($expr instanceof BitwiseOr) {
                 /** @noinspection SlowArrayOperationsInLoopInspection */
                 $result = array_merge($result, $this->unpackArguments(array($expr->left, $expr->right)));
             } else {
