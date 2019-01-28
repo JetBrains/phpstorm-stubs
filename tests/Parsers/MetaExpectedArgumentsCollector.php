@@ -2,6 +2,11 @@
 declare(strict_types=1);
 namespace StubTests\Parsers;
 
+use PhpParser\Node;
+use PhpParser\Node\Arg;
+use PhpParser\Node\Expr;
+use PhpParser\Node\Expr\BinaryOp\BitwiseOr;
+use PhpParser\Node\Expr\FuncCall;
 use PhpParser\NodeVisitorAbstract;
 use RuntimeException;
 use SplFileInfo;
@@ -9,6 +14,7 @@ use SplFileInfo;
 class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
 {
     private const EXPECTED_ARGUMENTS = 'expectedArguments';
+    private const REGISTER_ARGUMENTS_SET_NAME = 'registerArgumentsSet';
     /**
      * @var ExpectedFunctionArgumentsInfo[]
      */
@@ -19,19 +25,18 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
         $this->expectedArgumentsInfos = array();
     }
 
-    public function enterNode(\PhpParser\Node $node)
+    public function enterNode(Node $node)
     {
-        if ($node instanceof \PhpParser\Node\Expr\FuncCall) {
+        if ($node instanceof FuncCall) {
             if ((string)$node->name === self::EXPECTED_ARGUMENTS) {
                 $args = $node->args;
                 if ($args < 3) throw new RuntimeException('Expected at least 3 arguments for expectedArguments call');
-                $expressions = array_slice(
-                    array_map(function (\PhpParser\Node\Arg $arg) {
-                        return $arg->value;
-                    }, $args), 2);
-                $this->expectedArgumentsInfos[] = new ExpectedFunctionArgumentsInfo($args[0]->value, $this->unpackArguments($expressions));
+                $this->expectedArgumentsInfos[] = $this->getExpectedArgumentsInfo($args[0]->value, array_slice($args, 2));
+            } else if ((string)$node->name === self::REGISTER_ARGUMENTS_SET_NAME) {
+                $args = $node->args;
+                if ($args < 2) throw new RuntimeException('Expected at least 2 arguments for registerArgumentsSet call');
+                $this->expectedArgumentsInfos[] = $this->getExpectedArgumentsInfo(null, array_slice($args, 1));
             }
-
         }
     }
 
@@ -44,14 +49,14 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
     }
 
     /**
-     * @param \PhpParser\Node\Expr[] $args
-     * @return \PhpParser\Node\Expr[]
+     * @param Expr[] $expressions
+     * @return Expr[]
      */
     private function unpackArguments(array $expressions): array
     {
         $result = array();
         foreach ($expressions as $expr) {
-            if ($expr instanceof \PhpParser\Node\Expr\BinaryOp\BitwiseOr) {
+            if ($expr instanceof BitwiseOr) {
                 /** @noinspection SlowArrayOperationsInLoopInspection */
                 $result = array_merge($result, $this->unpackArguments(array($expr->left, $expr->right)));
             } else {
@@ -71,5 +76,18 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
             return $file->getFilename() === '.phpstorm.meta.php';
         });
         return $visitor->getExpectedArgumentsInfos();
+    }
+
+    /**
+     * @param Expr|null $functionReference
+     * @param $args
+     * @return ExpectedFunctionArgumentsInfo
+     */
+    private function getExpectedArgumentsInfo($functionReference, $args): ExpectedFunctionArgumentsInfo
+    {
+        $expressions = array_map(function (Arg $arg) {
+            return $arg->value;
+        }, $args);
+        return new ExpectedFunctionArgumentsInfo($functionReference, $this->unpackArguments($expressions));
     }
 }
