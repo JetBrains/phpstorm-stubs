@@ -383,6 +383,7 @@ namespace PHPSTORM_META {
     expectedArguments(\ini_set(), 0, argumentsSet("ini_values"));
     expectedArguments(\ini_alter(), 0, argumentsSet("ini_values"));
     expectedArguments(\ini_restore(), 0, argumentsSet("ini_values"));
+    expectedArguments(\get_cfg_var(), 0, argumentsSet("ini_values"));
 
 
 //  override( \ServiceLocatorInterface::get(0),
