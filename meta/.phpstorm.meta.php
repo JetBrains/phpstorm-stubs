@@ -80,6 +80,14 @@ namespace PHPSTORM_META {
         return "expectedArguments " . $functionReference . "at " . $argumentIndex . ": " . $values;
     }
 
+    function registerArgumentsSet($setName, $values) {
+        return "registerArgumentsSet " . $setName . ": "  . $values;
+    }
+
+    function argumentsSet($setName, $values) {
+        return "argumentsSet " . $setName . ": "  . $values;
+    }
+
     expectedArguments(\count(), 1, COUNT_NORMAL, COUNT_RECURSIVE);
     expectedArguments(\apc_bin_dumpfile(), 3, FILE_USE_INCLUDE_PATH, FILE_APPEND, LOCK_EX);
     expectedArguments(\apc_bin_load(), 3, APC_BIN_VERIFY_CRC32|APC_BIN_VERIFY_MD5);
