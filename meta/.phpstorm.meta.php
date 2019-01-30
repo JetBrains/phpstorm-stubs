@@ -128,6 +128,8 @@ namespace PHPSTORM_META {
 
     expectedArguments(\imap_close(), 1, CL_EXPUNGE);
     expectedArguments(\event_base_loop(), 1, EVLOOP_ONCE|EVLOOP_NONBLOCK);
+    expectedArguments(\json_encode(), 1, \JSON_HEX_QUOT|\JSON_HEX_TAG|\JSON_HEX_AMP|\JSON_HEX_APOS|\JSON_NUMERIC_CHECK|\JSON_PRETTY_PRINT|\JSON_UNESCAPED_SLASHES|\JSON_FORCE_OBJECT|\JSON_UNESCAPED_UNICODE|\JSON_THROW_ON_ERROR);
+    expectedArguments(\json_decode(), 3, \JSON_BIGINT_AS_STRING|\JSON_THROW_ON_ERROR);
     expectedArguments(\mb_convert_case(), 1, MB_CASE_UPPER,MB_CASE_LOWER,MB_CASE_TITLE);
 	expectedArguments(\mb_get_info(), 0, 'all', 'http_output', 'http_input', 'internal_encoding', 'func_overload');
 	expectedArguments(\mb_language(), 0, 'Japanese', 'ja', 'English', 'en', 'uni');
