@@ -400,6 +400,9 @@ namespace PHPSTORM_META {
     expectedArguments(\ini_restore(), 0, argumentsSet("ini_values"));
     expectedArguments(\get_cfg_var(), 0, argumentsSet("ini_values"));
 
+    expectedArguments(\json_encode(), 1, JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_NUMERIC_CHECK | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_FORCE_OBJECT | JSON_PRESERVE_ZERO_FRACTION | JSON_UNESCAPED_UNICODE | JSON_PARTIAL_OUTPUT_ON_ERROR | JSON_UNESCAPED_LINE_TERMINATORS | JSON_THROW_ON_ERROR);
+    expectedArguments(\json_decode(), 3, JSON_BIGINT_AS_STRING | JSON_OBJECT_AS_ARRAY | JSON_THROW_ON_ERROR);
+
 
 //  override( \ServiceLocatorInterface::get(0),
 //    map( [
