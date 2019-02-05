@@ -9,7 +9,7 @@
 /**
  * Unlike the mongo extension, this extension supports both PHP and HHVM and is developed atop the » libmongoc and » libbson libraries. It provides a minimal API for core driver functionality: commands, queries, writes, connection management, and BSON serialization.
  * Userland PHP libraries that depend on this extension may provide higher level APIs, such as query builders, individual command helper methods, and GridFS. Application developers should consider using this extension in conjunction with the » MongoDB PHP library, which implements the same higher level APIs found in MongoDB drivers for other languages. This separation of concerns allows the driver to focus on essential features for which an extension implementation is paramount for performance.
- * @link https://php.net/manual/en/set.mongodb.php
+ * @link https://secure.php.net/manual/en/set.mongodb.php
  */
 namespace MongoDB {}
 
@@ -30,13 +30,13 @@ namespace MongoDB {}
          * The MongoDB\Driver\Manager is the main entry point to the extension. It is responsible for maintaining connections to MongoDB (be it standalone server, replica set, or sharded cluster).
          * No connection to MongoDB is made upon instantiating the Manager. This means the MongoDB\Driver\Manager can always be constructed, even though one or more MongoDB servers are down.
          * Any write or query can throw connection exceptions as connections are created lazily. A MongoDB server may also become unavailable during the life time of the script. It is therefore important that all actions on the Manager to be wrapped in try/catch statements.
-         * @link https://php.net/manual/en/class.mongodb-driver-manager.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-manager.php
          */
         final class Manager
         {
             /**
              * Manager constructor.
-             * @link https://php.net/manual/en/mongodb-driver-manager.construct.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-manager.construct.php
              * @param string $uri A mongodb:// connection URI
              * @param array $options Connection string options
              * @param array $driverOptions Any driver-specific options not included in MongoDB connection spec.
@@ -49,7 +49,7 @@ namespace MongoDB {}
 
             /**
              * Execute one or more write operations
-             * @link https://php.net/manual/en/mongodb-driver-manager.executebulkwrite.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-manager.executebulkwrite.php
              * @param string $namespace A fully qualified namespace (databaseName.collectionName)
              * @param BulkWrite $bulk The MongoDB\Driver\BulkWrite to execute.
              * @param WriteConcern $writeConcern Optionally, a MongoDB\Driver\WriteConcern. If none given, default to the Write Concern set by the MongoDB Connection URI.
@@ -60,7 +60,7 @@ namespace MongoDB {}
             }
 
             /**
-             * @link https://php.net/manual/en/mongodb-driver-manager.executecommand.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-manager.executecommand.php
              * @param string $db The name of the database on which to execute the command.
              * @param Command $command The command document.
              * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to route the command to. If none given, defaults to the Read Preferences set by the MongoDB Connection URI.
@@ -78,7 +78,7 @@ namespace MongoDB {}
 
             /**
              * Execute a MongoDB query
-             * @link https://php.net/manual/en/mongodb-driver-manager.executequery.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-manager.executequery.php
              * @param string $namespace A fully qualified namespace (databaseName.collectionName)
              * @param Query $query A MongoDB\Driver\Query to execute.
              * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to route the command to. If none given, defaults to the Read Preferences set by the MongoDB Connection URI.
@@ -94,7 +94,7 @@ namespace MongoDB {}
 
             /**
              * Return the servers to which this manager is connected
-             * @link https://php.net/manual/en/mongodb-driver-manager.getservers.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-manager.getservers.php
              * @throws InvalidArgumentException on argument parsing errors
              * @return Server[]
              */
@@ -104,7 +104,7 @@ namespace MongoDB {}
 
             /**
              * Return the ReadConcern for the Manager
-             * @link https://php.net/manual/en/mongodb-driver-manager.getreadconcern.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-manager.getreadconcern.php
              * @throws InvalidArgumentException on argument parsing errors.
              * @return ReadConcern
              */
@@ -114,7 +114,7 @@ namespace MongoDB {}
 
             /**
              * Return the ReadPreference for the Manager
-             * @link https://php.net/manual/en/mongodb-driver-manager.getreadpreference.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-manager.getreadpreference.php
              * @throws InvalidArgumentException
              * @return ReadPreference
              */
@@ -124,7 +124,7 @@ namespace MongoDB {}
 
             /**
              * Return the WriteConcern for the Manager
-             * @link https://php.net/manual/en/mongodb-driver-manager.getwriteconcern.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-manager.getwriteconcern.php
              * @throws InvalidArgumentException on argument parsing errors.
              * @return WriteConcern
              */
@@ -161,7 +161,7 @@ namespace MongoDB {}
         }
 
         /**
-         * @link https://php.net/manual/en/class.mongodb-driver-server.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-server.php
          */
         final class Server
         {
@@ -177,7 +177,7 @@ namespace MongoDB {}
 
             /**
              * Server constructor.
-             * @link https://php.net/manual/en/mongodb-driver-server.construct.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-server.construct.php
              * @throws RuntimeException (can only be created internally)
              */
             final private function __construct()
@@ -186,7 +186,7 @@ namespace MongoDB {}
 
             /**
              * Execute one or more write operations on this server
-             * @link https://php.net/manual/en/mongodb-driver-server.executebulkwrite.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-server.executebulkwrite.php
              * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
              * @param BulkWrite $zwrite The MongoDB\Driver\BulkWrite to execute.
              * @param array $options
@@ -204,7 +204,7 @@ namespace MongoDB {}
 
             /**
              * Execute a database command on this server
-             * @link https://php.net/manual/en/mongodb-driver-server.executecommand.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-server.executecommand.php
              * @param string $db The name of the database on which to execute the command.
              * @param Command $command The MongoDB\Driver\Command to execute.
              * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to select the server for this operation. If none is given, the read preference from the MongoDB Connection URI will be used.
@@ -272,7 +272,7 @@ namespace MongoDB {}
 
             /**
              * Execute a database query on this server
-             * @link https://php.net/manual/en/mongodb-driver-server.executequery.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-server.executequery.php
              * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
              * @param Query $query The MongoDB\Driver\Query to execute.
              * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to select the server for this operation. If none is given, the read preference from the MongoDB Connection URI will be used.
@@ -288,7 +288,7 @@ namespace MongoDB {}
 
             /**
              * Returns the hostname of this server
-             * @link https://php.net/manual/en/mongodb-driver-server.gethost.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-server.gethost.php
              * @throws InvalidArgumentException on argument parsing errors.
              * @return string
              */
@@ -298,7 +298,7 @@ namespace MongoDB {}
 
             /**
              * Returns an array of information about this server
-             * @link https://php.net/manual/en/mongodb-driver-server.getinfo.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-server.getinfo.php
              * @throws InvalidArgumentException on argument parsing errors.
              * @return array
              */
@@ -308,7 +308,7 @@ namespace MongoDB {}
 
             /**
              * Returns the latency of this server
-             * @link https://php.net/manual/en/mongodb-driver-server.getlatency.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-server.getlatency.php
              * @throws InvalidArgumentException on argument parsing errors.
              * @return integer
              */
@@ -318,7 +318,7 @@ namespace MongoDB {}
 
             /**
              * Returns the port on which this server is listening
-             * @link https://php.net/manual/en/mongodb-driver-server.getport.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-server.getport.php
              * @throws InvalidArgumentException on argument parsing errors.
              * @return integer
              */
@@ -328,7 +328,7 @@ namespace MongoDB {}
 
             /**
              * Returns an array of tags describing this server in a replica set
-             * @link https://php.net/manual/en/mongodb-driver-server.gettags.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-server.gettags.php
              * @throws InvalidArgumentException on argument parsing errors.
              * @return array An array of tags used to describe this server in a replica set. The array will contain zero or more string key and value pairs.
              */
@@ -338,7 +338,7 @@ namespace MongoDB {}
 
             /**
              * Returns an integer denoting the type of this server
-             * @link https://php.net/manual/en/mongodb-driver-server.gettype.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-server.gettype.php
              * @throws InvalidArgumentException on argument parsing errors.
              * @return integer denoting the type of this server
              */
@@ -348,7 +348,7 @@ namespace MongoDB {}
 
             /**
              * Checks if this server is an arbiter member of a replica set
-             * @link https://php.net/manual/en/mongodb-driver-server.isarbiter.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-server.isarbiter.php
              * @throws InvalidArgumentException on argument parsing errors.
              * @return boolean
              */
@@ -358,7 +358,7 @@ namespace MongoDB {}
 
             /**
              * Checks if this server is a hidden member of a replica set
-             * @link https://php.net/manual/en/mongodb-driver-server.ishidden.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-server.ishidden.php
              * @throws InvalidArgumentException on argument parsing errors.
              * @return boolean
              */
@@ -368,7 +368,7 @@ namespace MongoDB {}
 
             /**
              * Checks if this server is a passive member of a replica set
-             * @link https://php.net/manual/en/mongodb-driver-server.ispassive.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-server.ispassive.php
              * @throws InvalidArgumentException on argument parsing errors.
              * @return boolean
              */
@@ -378,7 +378,7 @@ namespace MongoDB {}
 
             /**
              * Checks if this server is a primary member of a replica set
-             * @link https://php.net/manual/en/mongodb-driver-server.isprimary.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-server.isprimary.php
              * @throws InvalidArgumentException on argument parsing errors.
              * @return boolean
              */
@@ -388,7 +388,7 @@ namespace MongoDB {}
 
             /**
              * Checks if this server is a secondary member of a replica set
-             * @link https://php.net/manual/en/mongodb-driver-server.issecondary.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-server.issecondary.php
              * @throws InvalidArgumentException on argument parsing errors.
              * @return boolean
              */
@@ -399,13 +399,13 @@ namespace MongoDB {}
 
         /**
          * The MongoDB\Driver\Query class is a value object that represents a database query.
-         * @link https://php.net/manual/en/class.mongodb-driver-query.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-query.php
          */
         final class Query
         {
             /**
              * Construct new Query
-             * @link https://php.net/manual/en/mongodb-driver-query.construct.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-query.construct.php
              * @param array|object $filter The search filter.
              * @param array $queryOptions
              * @throws InvalidArgumentException on argument parsing errors.
@@ -418,7 +418,7 @@ namespace MongoDB {}
         /**
          * The MongoDB\Driver\Command class is a value object that represents a database command.
          * To provide "Command Helpers" the MongoDB\Driver\Command object should be composed.
-         * @link https://php.net/manual/en/class.mongodb-driver-command.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-command.php
          * @since 1.0.0
          */
         final class Command
@@ -438,7 +438,7 @@ namespace MongoDB {}
 
         /**
          * Class ReadPreference
-         * @link https://php.net/manual/en/class.mongodb-driver-readpreference.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-readpreference.php
          */
         final class ReadPreference implements Serializable
         {
@@ -450,7 +450,7 @@ namespace MongoDB {}
 
             /**
              * Construct immutable ReadPreference
-             * @link https://php.net/manual/en/mongodb-driver-readpreference.construct.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-readpreference.construct.php
              * @param int $mode
              * @param array $tagSets
              * @throws InvalidArgumentException if mode is invalid or if tagSets is provided for a primary read preference.
@@ -461,7 +461,7 @@ namespace MongoDB {}
 
             /**
              * Returns the ReadPreference's "mode" option
-             * @link https://php.net/manual/en/mongodb-driver-readpreference.getmode.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-readpreference.getmode.php
              * @return integer
              */
             final public function  getMode()
@@ -470,7 +470,7 @@ namespace MongoDB {}
 
             /**
              * Returns the ReadPreference's "tagSets" option
-             * @link https://php.net/manual/en/mongodb-driver-readpreference.gettagsets.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-readpreference.gettagsets.php
              * @return array
              */
             final public function getTagSets()
@@ -479,7 +479,7 @@ namespace MongoDB {}
 
             /**
              * Returns an object for BSON serialization
-             * @link https://php.net/manual/en/mongodb-driver-readpreference.bsonserialize.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-readpreference.bsonserialize.php
              * @return object
              */
             final public function bsonSerialize()
@@ -489,7 +489,7 @@ namespace MongoDB {}
 
         /**
          * MongoDB\Driver\ReadConcern controls the level of isolation for read operations for replica sets and replica set shards. This option requires the WiredTiger storage engine and MongoDB 3.2 or later.
-         * @link https://php.net/manual/en/class.mongodb-driver-readconcern.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-readconcern.php
          * @since 1.1.0
          */
         final class ReadConcern implements Serializable
@@ -501,7 +501,7 @@ namespace MongoDB {}
 
             /**
              * Construct immutable ReadConcern
-             * @link https://php.net/manual/en/mongodb-driver-readconcern.construct.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-readconcern.construct.php
              * @param string $level
              */
             final public function __construct($level = null)
@@ -510,7 +510,7 @@ namespace MongoDB {}
 
             /**
              * Returns the ReadConcern's "level" option
-             * @link https://php.net/manual/en/mongodb-driver-readconcern.getlevel.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-readconcern.getlevel.php
              * @return string|null
              * @since 1.0.0
              */
@@ -520,7 +520,7 @@ namespace MongoDB {}
 
             /**
              * Returns an object for BSON serialization
-             * @link https://php.net/manual/en/mongodb-driver-readconcern.bsonserialize.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-readconcern.bsonserialize.php
              * @return object
              * @since 1.2.0
              */
@@ -542,14 +542,14 @@ namespace MongoDB {}
 
         /**
          * The MongoDB\Driver\Cursor class encapsulates the results of a MongoDB command or query and may be returned by MongoDB\Driver\Manager::executeCommand() or MongoDB\Driver\Manager::executeQuery(), respectively.
-         * @link https://php.net/manual/en/class.mongodb-driver-cursor.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-cursor.php
          */
         final class Cursor implements \Traversable
         {
             /**
              * Create a new Cursor
              * MongoDB\Driver\Cursor objects are returned as the result of an executed command or query and cannot be constructed directly.
-             * @link https://php.net/manual/en/mongodb-driver-cursor.construct.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-cursor.construct.php
              */
             final private function __construct()
             {
@@ -557,7 +557,7 @@ namespace MongoDB {}
 
             /**
              * Returns the MongoDB\Driver\CursorId associated with this cursor. A cursor ID cursor uniquely identifies the cursor on the server.
-             * @link https://php.net/manual/en/mongodb-driver-cursor.getid.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-cursor.getid.php
              * @return CursorId for this Cursor
              * @throws InvalidArgumentException on argument parsing errors.
              */
@@ -567,7 +567,7 @@ namespace MongoDB {}
 
             /**
              * Returns the MongoDB\Driver\Server associated with this cursor. This is the server that executed the query or command.
-             * @link https://php.net/manual/en/mongodb-driver-cursor.getserver.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-cursor.getserver.php
              * @return Server for this Cursor
              * @throws InvalidArgumentException on argument parsing errors.
              */
@@ -577,7 +577,7 @@ namespace MongoDB {}
 
             /**
              * Checks if a cursor is still alive
-             * @link https://php.net/manual/en/mongodb-driver-cursor.isdead.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-cursor.isdead.php
              * @return boolean
              * @throws InvalidArgumentException On argument parsing errors
              */
@@ -588,7 +588,7 @@ namespace MongoDB {}
             /**
              * Sets a type map to use for BSON unserialization
              *
-             * @link https://php.net/manual/en/mongodb-driver-cursor.settypemap.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-cursor.settypemap.php
              *
              * @param array $typemap
              * @return void
@@ -601,7 +601,7 @@ namespace MongoDB {}
 
             /**
              * Returns an array of all result documents for this cursor
-             * @link https://php.net/manual/en/mongodb-driver-cursor.toarray.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-cursor.toarray.php
              * @return array
              * @throws InvalidArgumentException On argument parsing errors
              */
@@ -612,14 +612,14 @@ namespace MongoDB {}
 
         /**
          * Class CursorId
-         * @link https://php.net/manual/en/class.mongodb-driver-cursorid.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-cursorid.php
          */
         final class CursorId
         {
             /**
              * Create a new CursorId (not used)
              * CursorId objects are returned from Cursor::getId() and cannot be constructed directly.
-             * @link https://php.net/manual/en/mongodb-driver-cursorid.construct.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-cursorid.construct.php
              * @see Cursor::getId()
              */
             final private function __construct()
@@ -628,7 +628,7 @@ namespace MongoDB {}
 
             /**
              * String representation of the cursor ID
-             * @link https://php.net/manual/en/mongodb-driver-cursorid.tostring.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-cursorid.tostring.php
              * @return string representation of the cursor ID.
              * @throws InvalidArgumentException on argument parsing errors.
              */
@@ -651,7 +651,7 @@ namespace MongoDB {}
             /**
              * Create a new BulkWrite
              * Constructs a new ordered (default) or unordered BulkWrite.
-             * @link https://php.net/manual/en/mongodb-driver-bulkwrite.construct.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-bulkwrite.construct.php
              * @param array $options
              * @throws InvalidArgumentException on argument parsing errors.
              */
@@ -662,7 +662,7 @@ namespace MongoDB {}
             /**
              * Count expected roundtrips for executing the bulk
              * Returns the expected number of client-to-server roundtrips required to execute all write operations in the BulkWrite.
-             * @link https://php.net/manual/en/mongodb-driver-bulkwrite.count.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-bulkwrite.count.php
              * @return int number of expected roundtrips to execute the BulkWrite.
              * @throws InvalidArgumentException on argument parsing errors.
              */
@@ -672,7 +672,7 @@ namespace MongoDB {}
 
             /**
              * Add a delete operation to the bulk
-             * @link https://php.net/manual/en/mongodb-driver-bulkwrite.delete.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-bulkwrite.delete.php
              * @param array|object $filter The search filter
              * @param array $deleteOptions
              * @throws InvalidArgumentException on argument parsing errors.
@@ -684,7 +684,7 @@ namespace MongoDB {}
             /**
              * Add an insert operation to the bulk
              * If the document did not have an _id, a MongoDB\BSON\ObjectId will be generated and returned; otherwise, no value is returned.
-             * @link https://php.net/manual/en/mongodb-driver-bulkwrite.insert.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-bulkwrite.insert.php
              * @param array|object $document
              * @return mixed
              * @Throws MongoDB\Driver\InvalidArgumentException on argument parsing errors.
@@ -695,7 +695,7 @@ namespace MongoDB {}
 
             /**
              * Add an update operation to the bulk
-             * @link https://php.net/manual/en/mongodb-driver-bulkwrite.update.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-bulkwrite.update.php
              * @param array|object $filter The search filter
              * @param array|object $newObj A document containing either update operators (e.g. $set) or a replacement document (i.e. only field:value expressions)
              * @param array $updateOptions
@@ -718,7 +718,7 @@ namespace MongoDB {}
 
             /**
              * Construct immutable WriteConcern
-             * @link https://php.net/manual/en/mongodb-driver-writeconcern.construct.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeconcern.construct.php
              * @param string|integer $w
              * @param integer $wtimeout How long to wait (in milliseconds) for secondaries before failing.
              * @param boolean $journal Wait until mongod has applied the write to the journal.
@@ -730,7 +730,7 @@ namespace MongoDB {}
 
             /**
              * Returns the WriteConcern's "journal" option
-             * @link https://php.net/manual/en/mongodb-driver-writeconcern.getjournal.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeconcern.getjournal.php
              * @return bool|null
              */
             final public function getJournal()
@@ -739,7 +739,7 @@ namespace MongoDB {}
 
             /**
              * Returns the WriteConcern's "w" option
-             * @link https://php.net/manual/en/mongodb-driver-writeconcern.getw.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeconcern.getw.php
              * @return string|int|null
              */
             final public function getW()
@@ -748,7 +748,7 @@ namespace MongoDB {}
 
             /**
              * Returns the WriteConcern's "wtimeout" option
-             * @link https://php.net/manual/en/mongodb-driver-writeconcern.getwtimeout.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeconcern.getwtimeout.php
              * @return int
              */
             final public function getWtimeout()
@@ -758,13 +758,13 @@ namespace MongoDB {}
 
         /**
          * The MongoDB\Driver\WriteResult class encapsulates information about an executed MongoDB\Driver\BulkWrite and may be returned by MongoDB\Driver\Manager::executeBulkWrite().
-         * @link https://php.net/manual/en/class.mongodb-driver-writeresult.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-writeresult.php
          */
         final class WriteResult
         {
             /**
              * Returns the number of documents deleted
-             * @link https://php.net/manual/en/mongodb-driver-writeresult.getdeletedcount.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeresult.getdeletedcount.php
              * @return integer|null
              */
             final public function getDeletedCount()
@@ -773,7 +773,7 @@ namespace MongoDB {}
 
             /**
              * Returns the number of documents inserted (excluding upserts)
-             * @link https://php.net/manual/en/mongodb-driver-writeresult.getinsertedcount.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeresult.getinsertedcount.php
              * @return integer|null
              */
             final public function getInsertedCount()
@@ -782,7 +782,7 @@ namespace MongoDB {}
 
             /**
              * Returns the number of documents selected for update
-             * @link https://php.net/manual/en/mongodb-driver-writeresult.getmatchedcount.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeresult.getmatchedcount.php
              * @return integer|null
              */
             final public function getMatchedCount()
@@ -791,7 +791,7 @@ namespace MongoDB {}
 
             /**
              * Returns the number of existing documents updated
-             * @link https://php.net/manual/en/mongodb-driver-writeresult.getmodifiedcount.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeresult.getmodifiedcount.php
              * @return integer|null
              */
             final public function getModifiedCount()
@@ -800,7 +800,7 @@ namespace MongoDB {}
 
             /**
              * Returns the server associated with this write result
-             * @link https://php.net/manual/en/mongodb-driver-writeresult.getserver.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeresult.getserver.php
              * @return Server
              */
             final public function getServer()
@@ -809,7 +809,7 @@ namespace MongoDB {}
 
             /**
              * Returns the number of documents inserted by an upsert
-             * @link https://php.net/manual/en/mongodb-driver-writeresult.getupsertedcount.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeresult.getupsertedcount.php
              * @return integer|null
              */
             final public function getUpsertedCount()
@@ -818,7 +818,7 @@ namespace MongoDB {}
 
             /**
              * Returns an array of identifiers for upserted documents
-             * @link https://php.net/manual/en/mongodb-driver-writeresult.getupsertedids.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeresult.getupsertedids.php
              * @return array
              */
             final public function getUpsertedIds()
@@ -827,7 +827,7 @@ namespace MongoDB {}
 
             /**
              * Returns any write concern error that occurred
-             * @link https://php.net/manual/en/mongodb-driver-writeresult.getwriteconcernerror.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeresult.getwriteconcernerror.php
              * @return WriteConcernError|null
              */
             final public function getWriteConcernError()
@@ -836,7 +836,7 @@ namespace MongoDB {}
 
             /**
              * Returns any write errors that occurred
-             * @link https://php.net/manual/en/mongodb-driver-writeresult.getwriteerrors.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeresult.getwriteerrors.php
              * @return WriteError[]
              */
             final public function getWriteErrors()
@@ -845,7 +845,7 @@ namespace MongoDB {}
 
             /**
              * Returns whether the write was acknowledged
-             * @link https://php.net/manual/en/mongodb-driver-writeresult.isacknowledged.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeresult.isacknowledged.php
              * @return boolean
              */
             final public function isAcknowledged()
@@ -860,7 +860,7 @@ namespace MongoDB {}
         {
             /**
              * Returns the WriteError's error code
-             * @link https://php.net/manual/en/mongodb-driver-writeerror.getcode.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeerror.getcode.php
              * @return int
              */
             final public function getCode()
@@ -869,7 +869,7 @@ namespace MongoDB {}
 
             /**
              * Returns the index of the write operation corresponding to this WriteError
-             * @link https://php.net/manual/en/mongodb-driver-writeerror.getindex.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeerror.getindex.php
              * @return int
              */
             final public function getIndex()
@@ -878,7 +878,7 @@ namespace MongoDB {}
 
             /**
              * Returns additional metadata for the WriteError
-             * @link https://php.net/manual/en/mongodb-driver-writeerror.getinfo.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeerror.getinfo.php
              * @return mixed
              */
             final public function getInfo()
@@ -887,7 +887,7 @@ namespace MongoDB {}
 
             /**
              * Returns the WriteError's error message
-             * @link https://php.net/manual/en/mongodb-driver-writeerror.getmessage.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeerror.getmessage.php
              * @return string
              */
             final public function getMessage()
@@ -897,13 +897,13 @@ namespace MongoDB {}
 
         /**
          * The MongoDB\Driver\WriteConcernError class encapsulates information about a write concern error and may be returned by MongoDB\Driver\WriteResult::getWriteConcernError().
-         * @link https://php.net/manual/en/class.mongodb-driver-writeconcernerror.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-writeconcernerror.php
          */
         final class WriteConcernError
         {
             /**
              * Returns the WriteConcernError's error code
-             * @link https://php.net/manual/en/mongodb-driver-writeconcernerror.getcode.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeconcernerror.getcode.php
              * @return int
              */
             final public function getCode()
@@ -912,7 +912,7 @@ namespace MongoDB {}
 
             /**
              * Returns additional metadata for the WriteConcernError
-             * @link https://php.net/manual/en/mongodb-driver-writeconcernerror.getinfo.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeconcernerror.getinfo.php
              * @return mixed
              */
             final public function getInfo()
@@ -921,7 +921,7 @@ namespace MongoDB {}
 
             /**
              * Returns the WriteConcernError's error message
-             * @link https://php.net/manual/en/mongodb-driver-writeconcernerror.getmessage.php
+             * @link https://secure.php.net/manual/en/mongodb-driver-writeconcernerror.getmessage.php
              * @return string
              */
             final public function getMessage()
@@ -1063,7 +1063,7 @@ namespace MongoDB {}
 
         /**
          * Thrown when the driver encounters a runtime error (e.g. internal error from » libmongoc).
-         * @link https://php.net/manual/en/class.mongodb-driver-exception-runtimeexception.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-exception-runtimeexception.php
          * @since 1.0.0
          */
         class RuntimeException extends \RuntimeException implements Exception
@@ -1087,7 +1087,7 @@ namespace MongoDB {}
 
         /**
          * Common interface for all driver exceptions. This may be used to catch only exceptions originating from the driver itself.
-         * @link https://php.net/manual/en/class.mongodb-driver-exception-exception.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-exception-exception.php
          */
         interface Exception
         {
@@ -1095,7 +1095,7 @@ namespace MongoDB {}
 
         /**
          * Thrown when the driver fails to authenticate with the server.
-         * @link https://php.net/manual/en/class.mongodb-driver-exception-authenticationexception.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-exception-authenticationexception.php
          * @since 1.0.0
          */
         class AuthenticationException extends ConnectionException implements Exception
@@ -1104,7 +1104,7 @@ namespace MongoDB {}
 
         /**
          * Base class for exceptions thrown when the driver fails to establish a database connection.
-         * @link https://php.net/manual/en/class.mongodb-driver-exception-connectionexception.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-exception-connectionexception.php
          * @since 1.0.0
          */
         class ConnectionException extends RuntimeException implements Exception
@@ -1113,7 +1113,7 @@ namespace MongoDB {}
 
         /**
          * Thrown when a driver method is given invalid arguments (e.g. invalid option types).
-         * @link https://php.net/manual/en/class.mongodb-driver-exception-invalidargumentexception.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-exception-invalidargumentexception.php
          * @since 1.0.0
          */
         class InvalidArgumentException extends \InvalidArgumentException
@@ -1123,7 +1123,7 @@ namespace MongoDB {}
         /**
          * Thrown when a command fails
          *
-         * @link https://php.net/manual/en/class.mongodb-driver-exception-commandexception.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-exception-commandexception.php
          * @since 1.5.0
          */
         class CommandException extends ServerException
@@ -1153,7 +1153,7 @@ namespace MongoDB {}
         /**
          * Base class for exceptions thrown by a failed write operation.
          * The exception encapsulates a MongoDB\Driver\WriteResult object.
-         * @link https://php.net/manual/en/class.mongodb-driver-exception-writeexception.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-exception-writeexception.php
          * @since 1.0.0
          */
         abstract class WriteException extends RuntimeException implements Exception
@@ -1178,7 +1178,7 @@ namespace MongoDB {}
 
         /**
          * Thrown when the driver encounters an unexpected value (e.g. during BSON serialization or deserialization).
-         * @link https://php.net/manual/en/class.mongodb-driver-exception-unexpectedvalueexception.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-exception-unexpectedvalueexception.php
          * @since 1.0.0
          */
         class UnexpectedValueException extends \UnexpectedValueException implements Exception
@@ -1187,7 +1187,7 @@ namespace MongoDB {}
 
         /**
          * Thrown when a bulk write operation fails.
-         * @link https://php.net/manual/en/class.mongodb-driver-exception-bulkwriteexception.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-exception-bulkwriteexception.php
          * @since 1.0.0
          */
         class BulkWriteException extends WriteException implements Exception
@@ -1196,7 +1196,7 @@ namespace MongoDB {}
 
         /**
          * Thrown when the driver fails to establish a database connection within a specified time limit (e.g. connectTimeoutMS).
-         * @link https://php.net/manual/en/class.mongodb-driver-exception-connectiontimeoutexception.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-exception-connectiontimeoutexception.php
          */
         class ConnectionTimeoutException extends ConnectionException implements Exception
         {
@@ -1204,7 +1204,7 @@ namespace MongoDB {}
 
         /**
          * Thrown when a query or command fails to complete within a specified time limit (e.g. maxTimeMS).
-         * @link https://php.net/manual/en/class.mongodb-driver-exception-executiontimeoutexception.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-exception-executiontimeoutexception.php
          */
         class ExecutionTimeoutException extends RuntimeException implements Exception
         {
@@ -1212,7 +1212,7 @@ namespace MongoDB {}
 
         /**
          * Thrown when the driver is incorrectly used (e.g. rewinding a cursor).
-         * @link https://php.net/manual/en/class.mongodb-driver-exception-logicexception.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-exception-logicexception.php
          */
         class LogicException extends \LogicException implements Exception
         {
@@ -1220,7 +1220,7 @@ namespace MongoDB {}
 
         /**
          * Thrown when the driver fails to establish an SSL connection with the server.
-         * @link https://php.net/manual/en/class.mongodb-driver-exception-sslconnectionexception.php
+         * @link https://secure.php.net/manual/en/class.mongodb-driver-exception-sslconnectionexception.php
          */
         class SSLConnectionException extends ConnectionException implements Exception
         {
@@ -1564,7 +1564,7 @@ namespace MongoDB {}
     }
 
     /**
-     * @link https://php.net/manual/en/book.bson.php
+     * @link https://secure.php.net/manual/en/book.bson.php
      */
     namespace MongoDB\BSON {
 
@@ -1574,7 +1574,7 @@ namespace MongoDB {}
         /**
          * Returns the BSON representation of a JSON value
          * Converts an extended JSON string to its BSON representation.
-         * @link https://php.net/manual/en/function.mongodb.bson-fromjson.php
+         * @link https://secure.php.net/manual/en/function.mongodb.bson-fromjson.php
          * @param string $json JSON value to be converted.
          * @return string The serialized BSON document as a binary string.
          * @throws UnexpectedValueException if the JSON value cannot be converted to BSON (e.g. due to a syntax error).
@@ -1586,7 +1586,7 @@ namespace MongoDB {}
         /**
          * Returns the BSON representation of a PHP value
          * Serializes a PHP array or object (e.g. document) to its BSON representation. The returned binary string will describe a BSON document.
-         * @link https://php.net/manual/en/function.mongodb.bson-fromphp.php
+         * @link https://secure.php.net/manual/en/function.mongodb.bson-fromphp.php
          * @param array|object $value PHP value to be serialized.
          * @return string The serialized BSON document as a binary string
          * @throws UnexpectedValueException if the PHP value cannot be converted to BSON.
@@ -1598,7 +1598,7 @@ namespace MongoDB {}
         /**
          * Returns the JSON representation of a BSON value
          * Converts a BSON string to its extended JSON representation.
-         * @link https://php.net/manual/en/function.mongodb.bson-tojson.php
+         * @link https://secure.php.net/manual/en/function.mongodb.bson-tojson.php
          * @param string $bson BSON value to be converted
          * @return string The converted JSON value.
          * @see https://docs.mongodb.org/manual/reference/mongodb-extended-json/
@@ -1612,7 +1612,7 @@ namespace MongoDB {}
          * Returns the PHP representation of a BSON value
          * Unserializes a BSON document (i.e. binary string) to its PHP representation.
          * The typeMap paramater may be used to control the PHP types used for converting BSON arrays and documents (both root and embedded).
-         * @link https://php.net/manual/en/function.mongodb.bson-tophp.php
+         * @link https://secure.php.net/manual/en/function.mongodb.bson-tophp.php
          * @param string $bson BSON value to be unserialized.
          * @param array $typeMap
          * @return object The unserialized PHP value
@@ -1625,7 +1625,7 @@ namespace MongoDB {}
 
         /**
          * Class Binary
-         * @link https://php.net/manual/en/class.mongodb-bson-binary.php
+         * @link https://secure.php.net/manual/en/class.mongodb-bson-binary.php
          */
         class Binary implements Type
         {
@@ -1639,7 +1639,7 @@ namespace MongoDB {}
 
             /**
              * Binary constructor.
-             * @link https://php.net/manual/en/mongodb-bson-binary.construct.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-binary.construct.php
              * @param string $data
              * @param integer $type
              */
@@ -1649,7 +1649,7 @@ namespace MongoDB {}
 
             /**
              * Returns the Binary's data
-             * @link https://php.net/manual/en/mongodb-bson-binary.getdata.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-binary.getdata.php
              * @return string
              */
             public function getData()
@@ -1658,7 +1658,7 @@ namespace MongoDB {}
 
             /**
              * Returns the Binary's type
-             * @link https://php.net/manual/en/mongodb-bson-binary.gettype.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-binary.gettype.php
              * @return integer
              */
             public function getType()
@@ -1668,13 +1668,13 @@ namespace MongoDB {}
 
         /**
          * BSON type for the Decimal128 floating-point format, which supports numbers with up to 34 decimal digits (i.e. significant digits) and an exponent range of −6143 to +6144.
-         * @link https://php.net/manual/en/class.mongodb-bson-decimal128.php
+         * @link https://secure.php.net/manual/en/class.mongodb-bson-decimal128.php
          */
         class Decimal128 implements Type
         {
             /**
              * Construct a new Decimal128
-             * @link https://php.net/manual/en/mongodb-bson-decimal128.construct.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-decimal128.construct.php
              * @param string $value A decimal string.
              */
             final public function __construct($value = '')
@@ -1683,7 +1683,7 @@ namespace MongoDB {}
 
             /**
              * Returns the string representation of this Decimal128
-             * @link https://php.net/manual/en/mongodb-bson-decimal128.tostring.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-decimal128.tostring.php
              * @return string
              */
             final public function __toString()
@@ -1693,13 +1693,13 @@ namespace MongoDB {}
 
         /**
          * Class Javascript
-         * @link https://php.net/manual/en/class.mongodb-bson-javascript.php
+         * @link https://secure.php.net/manual/en/class.mongodb-bson-javascript.php
          */
         class Javascript implements Type
         {
             /**
              * Construct a new Javascript
-             * @link https://php.net/manual/en/mongodb-bson-javascript.construct.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-javascript.construct.php
              * @param string $code
              * @param array|object $scope
              */
@@ -1710,7 +1710,7 @@ namespace MongoDB {}
 
         /**
          * Class MaxKey
-         * @link https://php.net/manual/en/class.mongodb-bson-maxkey.php
+         * @link https://secure.php.net/manual/en/class.mongodb-bson-maxkey.php
          */
         class MaxKey implements Type
         {
@@ -1718,7 +1718,7 @@ namespace MongoDB {}
 
         /**
          * Class MinKey
-         * @link https://php.net/manual/en/class.mongodb-bson-minkey.php
+         * @link https://secure.php.net/manual/en/class.mongodb-bson-minkey.php
          */
         class MinKey implements Type
         {
@@ -1726,13 +1726,13 @@ namespace MongoDB {}
 
         /**
          * Class ObjectId
-         * @link https://php.net/manual/en/class.mongodb-bson-objectid.php
+         * @link https://secure.php.net/manual/en/class.mongodb-bson-objectid.php
          */
         class ObjectId implements Type
         {
             /**
              * Construct a new ObjectId
-             * @link https://php.net/manual/en/mongodb-bson-objectid.construct.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-objectid.construct.php
              * @param string $id A 24-character hexadecimal string. If not provided, the driver will generate an ObjectId.
              * @throws InvalidArgumentException if id is not a 24-character hexadecimal string.
              */
@@ -1742,7 +1742,7 @@ namespace MongoDB {}
 
             /**
              * Returns the hexidecimal representation of this ObjectId
-             * @link https://php.net/manual/en/mongodb-bson-objectid.tostring.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-objectid.tostring.php
              * @return string
              */
             public function __toString()
@@ -1792,13 +1792,13 @@ namespace MongoDB {}
 
         /**
          * Class Regex
-         * @link https://php.net/manual/en/class.mongodb-bson-regex.php
+         * @link https://secure.php.net/manual/en/class.mongodb-bson-regex.php
          */
         class Regex implements Type
         {
             /**
              * Construct a new Regex
-             * @link https://php.net/manual/en/mongodb-bson-regex.construct.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-regex.construct.php
              * @param string $pattern
              * @param string $flags [optional]
              */
@@ -1808,7 +1808,7 @@ namespace MongoDB {}
 
             /**
              * Returns the Regex's flags
-             * @link https://php.net/manual/en/mongodb-bson-regex.getflags.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-regex.getflags.php
              */
             public function getFlags()
             {
@@ -1816,7 +1816,7 @@ namespace MongoDB {}
 
             /**
              * Returns the Regex's pattern
-             * @link https://php.net/manual/en/mongodb-bson-regex.getpattern.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-regex.getpattern.php
              * @return string
              */
             public function getPattern()
@@ -1825,7 +1825,7 @@ namespace MongoDB {}
 
             /**
              * Returns the string representation of this Regex
-             * @link https://php.net/manual/en/mongodb-bson-regex.tostring.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-regex.tostring.php
              * @return string
              */
             public function __toString()
@@ -1835,13 +1835,13 @@ namespace MongoDB {}
 
         /**
          * Represents a BSON timestamp, which is an internal MongoDB type not intended for general date storage.
-         * @link https://php.net/manual/en/class.mongodb-bson-timestamp.php
+         * @link https://secure.php.net/manual/en/class.mongodb-bson-timestamp.php
          */
         class Timestamp implements Type
         {
             /**
              * Construct a new Timestamp
-             * @link https://php.net/manual/en/mongodb-bson-timestamp.construct.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-timestamp.construct.php
              * @param integer $increment
              * @param integer $timestamp
              */
@@ -1851,7 +1851,7 @@ namespace MongoDB {}
 
             /**
              * Returns the string representation of this Timestamp
-             * @link https://php.net/manual/en/mongodb-bson-timestamp.tostring.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-timestamp.tostring.php
              * @return string
              */
             final public function __toString()
@@ -1861,13 +1861,13 @@ namespace MongoDB {}
 
         /**
          * Represents a BSON date.
-         * @link https://php.net/manual/en/class.mongodb-bson-utcdatetime.php
+         * @link https://secure.php.net/manual/en/class.mongodb-bson-utcdatetime.php
          */
         class UTCDateTime implements Type, TimestampInterface, \Serializable, \JsonSerializable
         {
             /**
              * Construct a new UTCDateTime
-             * @link https://php.net/manual/en/mongodb-bson-utcdatetime.construct.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-utcdatetime.construct.php
              * @param integer $milliseconds
              */
             final public function __construct($milliseconds=null)
@@ -1876,7 +1876,7 @@ namespace MongoDB {}
 
             /**
              * Returns the DateTime representation of this UTCDateTime
-             * @link https://php.net/manual/en/mongodb-bson-utcdatetime.todatetime.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-utcdatetime.todatetime.php
              * @return \DateTime
              */
             final public function toDateTime()
@@ -1885,7 +1885,7 @@ namespace MongoDB {}
 
             /**
              * Returns the string representation of this UTCDateTime
-             * @link https://php.net/manual/en/mongodb-bson-utcdatetime.tostring.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-utcdatetime.tostring.php
              * @return string
              */
             final public function __toString()
@@ -1895,7 +1895,7 @@ namespace MongoDB {}
             /**
              * String representation of object
              *
-             * @link  https://php.net/manual/en/serializable.serialize.php
+             * @link  https://secure.php.net/manual/en/serializable.serialize.php
              * @return string the string representation of the object or null
              * @since 5.1.0
              */
@@ -1906,7 +1906,7 @@ namespace MongoDB {}
             /**
              * Constructs the object
              *
-             * @link  https://php.net/manual/en/serializable.unserialize.php
+             * @link  https://secure.php.net/manual/en/serializable.unserialize.php
              *
              * @param string $serialized <p>
              *                           The string representation of the object.
@@ -1922,7 +1922,7 @@ namespace MongoDB {}
             /**
              * Specify data which should be serialized to JSON
              *
-             * @link  https://php.net/manual/en/jsonserializable.jsonserialize.php
+             * @link  https://secure.php.net/manual/en/jsonserializable.jsonserialize.php
              * @return mixed data which can be serialized by <b>json_encode</b>,
              * which is a value of any type other than a resource.
              * @since 5.4.0
@@ -1965,7 +1965,7 @@ namespace MongoDB {}
             /**
              * String representation of object
              *
-             * @link  https://php.net/manual/en/serializable.serialize.php
+             * @link  https://secure.php.net/manual/en/serializable.serialize.php
              * @return string the string representation of the object or null
              * @since 5.1.0
              */
@@ -1976,7 +1976,7 @@ namespace MongoDB {}
             /**
              * Constructs the object
              *
-             * @link  https://php.net/manual/en/serializable.unserialize.php
+             * @link  https://secure.php.net/manual/en/serializable.unserialize.php
              *
              * @param string $serialized <p>
              *                           The string representation of the object.
@@ -1992,7 +1992,7 @@ namespace MongoDB {}
             /**
              * Specify data which should be serialized to JSON
              *
-             * @link  https://php.net/manual/en/jsonserializable.jsonserialize.php
+             * @link  https://secure.php.net/manual/en/jsonserializable.jsonserialize.php
              * @return mixed data which can be serialized by <b>json_encode</b>,
              * which is a value of any type other than a resource.
              * @since 5.4.0
@@ -2014,7 +2014,7 @@ namespace MongoDB {}
             /**
              * String representation of object
              *
-             * @link  https://php.net/manual/en/serializable.serialize.php
+             * @link  https://secure.php.net/manual/en/serializable.serialize.php
              * @return string the string representation of the object or null
              * @since 5.1.0
              */
@@ -2025,7 +2025,7 @@ namespace MongoDB {}
             /**
              * Constructs the object
              *
-             * @link  https://php.net/manual/en/serializable.unserialize.php
+             * @link  https://secure.php.net/manual/en/serializable.unserialize.php
              *
              * @param string $serialized <p>
              *                           The string representation of the object.
@@ -2041,7 +2041,7 @@ namespace MongoDB {}
             /**
              * Specify data which should be serialized to JSON
              *
-             * @link  https://php.net/manual/en/jsonserializable.jsonserialize.php
+             * @link  https://secure.php.net/manual/en/jsonserializable.jsonserialize.php
              * @return mixed data which can be serialized by <b>json_encode</b>,
              * which is a value of any type other than a resource.
              * @since 5.4.0
@@ -2053,7 +2053,7 @@ namespace MongoDB {}
 
             /**
          * Classes may implement this interface to take advantage of automatic ODM (object document mapping) behavior in the driver.
-         * @link https://php.net/manual/en/class.mongodb-bson-persistable.php
+         * @link https://secure.php.net/manual/en/class.mongodb-bson-persistable.php
          */
         interface Persistable extends Unserializable, Serializable
         {
@@ -2061,7 +2061,7 @@ namespace MongoDB {}
 
         /**
          * Classes that implement this interface may return data to be serialized as a BSON array or document in lieu of the object's public properties
-         * @link https://php.net/manual/en/class.mongodb-bson-serializable.php
+         * @link https://secure.php.net/manual/en/class.mongodb-bson-serializable.php
          */
         interface Serializable extends Type
         {
@@ -2071,7 +2071,7 @@ namespace MongoDB {}
              * Called during serialization of the object to BSON. The method must return an array or stdClass.
              * Root documents (e.g. a MongoDB\BSON\Serializable passed to MongoDB\BSON\fromPHP()) will always be serialized as a BSON document.
              * For field values, associative arrays and stdClass instances will be serialized as a BSON document and sequential arrays (i.e. sequential, numeric indexes starting at 0) will be serialized as a BSON array.
-             * @link https://php.net/manual/en/mongodb-bson-serializable.bsonserialize.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-serializable.bsonserialize.php
              * @return array|object An array or stdClass to be serialized as a BSON array or document.
              */
             public function  bsonSerialize();
@@ -2079,7 +2079,7 @@ namespace MongoDB {}
 
         /**
          * Classes that implement this interface may be specified in a type map for unserializing BSON arrays and documents (both root and embedded).
-         * @link https://php.net/manual/en/class.mongodb-bson-unserializable.php
+         * @link https://secure.php.net/manual/en/class.mongodb-bson-unserializable.php
          */
         interface Unserializable extends Type
         {
@@ -2088,7 +2088,7 @@ namespace MongoDB {}
              * Constructs the object from a BSON array or document
              * Called during unserialization of the object from BSON.
              * The properties of the BSON array or document will be passed to the method as an array.
-             * @link https://php.net/manual/en/mongodb-bson-unserializable.bsonunserialize.php
+             * @link https://secure.php.net/manual/en/mongodb-bson-unserializable.bsonunserialize.php
              * @param array $data Properties within the BSON array or document.
              */
             public function bsonUnserialize(array $data);
@@ -2096,7 +2096,7 @@ namespace MongoDB {}
 
         /**
          * Interface Type
-         * @link https://php.net/manual/en/class.mongodb-bson-type.php
+         * @link https://secure.php.net/manual/en/class.mongodb-bson-type.php
          */
         interface Type
         {

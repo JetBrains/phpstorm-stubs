@@ -5,13 +5,13 @@
 /**
  * The SoapClient class provides a client for SOAP 1.1, SOAP 1.2 servers. It can be used in WSDL
  * or non-WSDL mode.
- * @link https://php.net/manual/en/class.soapclient.php
+ * @link https://secure.php.net/manual/en/class.soapclient.php
  */
 class SoapClient  {
 
 	/**
 	 * SoapClient constructor
-	 * @link https://php.net/manual/en/soapclient.soapclient.php
+	 * @link https://secure.php.net/manual/en/soapclient.soapclient.php
 	 * @param mixed $wsdl <p>
 	 * URI of the WSDL file or <b>NULL</b> if working in
 	 * non-WSDL mode.
@@ -136,7 +136,7 @@ class SoapClient  {
 
     /**
      * SoapClient constructor
-     * @link https://php.net/manual/en/soapclient.soapclient.php
+     * @link https://secure.php.net/manual/en/soapclient.soapclient.php
      * @param mixed $wsdl <p>
      * URI of the WSDL file or <b>NULL</b> if working in
      * non-WSDL mode.
@@ -262,7 +262,7 @@ class SoapClient  {
 
 	/**
 	 * Calls a SOAP function (deprecated)
-	 * @link https://php.net/manual/en/soapclient.call.php
+	 * @link https://secure.php.net/manual/en/soapclient.call.php
 	 * @param string $function_name
 	 * @param array $arguments
 	 * @return mixed
@@ -272,7 +272,7 @@ class SoapClient  {
 
 	/**
 	 * Calls a SOAP function
-	 * @link https://php.net/manual/en/soapclient.soapcall.php
+	 * @link https://secure.php.net/manual/en/soapclient.soapcall.php
 	 * @param string $function_name <p>
 	 * The name of the SOAP function to call.
 	 * </p>
@@ -315,7 +315,7 @@ class SoapClient  {
 
 	/**
 	 * Returns last SOAP request
-	 * @link https://php.net/manual/en/soapclient.getlastrequest.php
+	 * @link https://secure.php.net/manual/en/soapclient.getlastrequest.php
 	 * @return string The last SOAP request, as an XML string.
 	 * @since 5.0.1
 	 */
@@ -323,7 +323,7 @@ class SoapClient  {
 
 	/**
 	 * Returns last SOAP response
-	 * @link https://php.net/manual/en/soapclient.getlastresponse.php
+	 * @link https://secure.php.net/manual/en/soapclient.getlastresponse.php
 	 * @return string The last SOAP response, as an XML string.
 	 * @since 5.0.1
 	 */
@@ -331,7 +331,7 @@ class SoapClient  {
 
 	/**
 	 * Returns the SOAP headers from the last request
-	 * @link https://php.net/manual/en/soapclient.getlastrequestheaders.php
+	 * @link https://secure.php.net/manual/en/soapclient.getlastrequestheaders.php
 	 * @return string The last SOAP request headers.
 	 * @since 5.0.1
 	 */
@@ -339,7 +339,7 @@ class SoapClient  {
 
 	/**
 	 * Returns the SOAP headers from the last response
-	 * @link https://php.net/manual/en/soapclient.getlastresponseheaders.php
+	 * @link https://secure.php.net/manual/en/soapclient.getlastresponseheaders.php
 	 * @return string The last SOAP response headers.
 	 * @since 5.0.1
 	 */
@@ -347,7 +347,7 @@ class SoapClient  {
 
 	/**
 	 * Returns list of available SOAP functions
-	 * @link https://php.net/manual/en/soapclient.getfunctions.php
+	 * @link https://secure.php.net/manual/en/soapclient.getfunctions.php
 	 * @return array The array of SOAP function prototypes, detailing the return type,
 	 * the function name and type-hinted paramaters.
 	 * @since 5.0.1
@@ -356,7 +356,7 @@ class SoapClient  {
 
 	/**
 	 * Returns a list of SOAP types
-	 * @link https://php.net/manual/en/soapclient.gettypes.php
+	 * @link https://secure.php.net/manual/en/soapclient.gettypes.php
 	 * @return array The array of SOAP types, detailing all structures and types.
 	 * @since 5.0.1
 	 */
@@ -364,7 +364,7 @@ class SoapClient  {
 
 	/**
 	 * Performs a SOAP request
-	 * @link https://php.net/manual/en/soapclient.dorequest.php
+	 * @link https://secure.php.net/manual/en/soapclient.dorequest.php
 	 * @param string $request <p>
 	 * The XML SOAP request.
 	 * </p>
@@ -388,7 +388,7 @@ class SoapClient  {
 
 	/**
 	 * The __setCookie purpose
-	 * @link https://php.net/manual/en/soapclient.setcookie.php
+	 * @link https://secure.php.net/manual/en/soapclient.setcookie.php
 	 * @param string $name <p>
 	 * The name of the cookie.
 	 * </p>
@@ -402,7 +402,7 @@ class SoapClient  {
 
 	/**
 	 * Sets the location of the Web service to use
-	 * @link https://php.net/manual/en/soapclient.setlocation.php
+	 * @link https://secure.php.net/manual/en/soapclient.setlocation.php
 	 * @param string $new_location [optional] <p>
 	 * The new endpoint URL.
 	 * </p>
@@ -413,7 +413,7 @@ class SoapClient  {
 
 	/**
 	 * Sets SOAP headers for subsequent calls
-	 * @link https://php.net/manual/en/soapclient.setsoapheaders.php
+	 * @link https://secure.php.net/manual/en/soapclient.setsoapheaders.php
 	 * @param mixed $soapheaders [optional] <p>
 	 * The headers to be set. It could be <b>SoapHeader</b>
 	 * object or array of <b>SoapHeader</b> objects.
@@ -428,13 +428,13 @@ class SoapClient  {
 
 /**
  * A class representing a variable or object for use with SOAP services.
- * @link https://php.net/manual/en/class.soapvar.php
+ * @link https://secure.php.net/manual/en/class.soapvar.php
  */
 class SoapVar  {
 
 	/**
 	 * SoapVar constructor
-	 * @link https://php.net/manual/en/soapvar.soapvar.php
+	 * @link https://secure.php.net/manual/en/soapvar.soapvar.php
 	 * @param mixed $data <p>
 	 * The data to pass or return.
 	 * </p>
@@ -461,13 +461,13 @@ class SoapVar  {
 
 /**
  * The SoapServer class provides a server for the SOAP 1.1 and SOAP 1.2 protocols. It can be used with or without a WSDL service description.
- * @link https://php.net/manual/en/class.soapserver.php
+ * @link https://secure.php.net/manual/en/class.soapserver.php
  */
 class SoapServer  {
 
 	/**
 	 * SoapServer constructor
-	 * @link https://php.net/manual/en/soapserver.soapserver.php
+	 * @link https://secure.php.net/manual/en/soapserver.soapserver.php
 	 * @param mixed $wsdl <p>
 	 * To use the SoapServer in WSDL mode, pass the URI of a WSDL file.
 	 * Otherwise, pass <b>NULL</b> and set the uri option to the
@@ -509,7 +509,7 @@ class SoapServer  {
 
 	/**
 	 * Sets SoapServer persistence mode
-	 * @link https://php.net/manual/en/soapserver.setpersistence.php
+	 * @link https://secure.php.net/manual/en/soapserver.setpersistence.php
 	 * @param int $mode <p>
 	 * One of the SOAP_PERSISTENCE_XXX constants.
 	 * </p>
@@ -531,7 +531,7 @@ class SoapServer  {
 
 	/**
 	 * Sets the class which handles SOAP requests
-	 * @link https://php.net/manual/en/soapserver.setclass.php
+	 * @link https://secure.php.net/manual/en/soapserver.setclass.php
 	 * @param string $class_name <p>
 	 * The name of the exported class.
 	 * </p>
@@ -547,7 +547,7 @@ class SoapServer  {
 
 	/**
 	 * Sets the object which will be used to handle SOAP requests
-	 * @link https://php.net/manual/en/soapserver.setobject.php
+	 * @link https://secure.php.net/manual/en/soapserver.setobject.php
 	 * @param object $object <p>
 	 * The object to handle the requests.
 	 * </p>
@@ -558,7 +558,7 @@ class SoapServer  {
 
 	/**
 	 * Adds one or more functions to handle SOAP requests
-	 * @link https://php.net/manual/en/soapserver.addfunction.php
+	 * @link https://secure.php.net/manual/en/soapserver.addfunction.php
 	 * @param mixed $functions <p>
 	 * To export one function, pass the function name into this parameter as
 	 * a string.
@@ -582,7 +582,7 @@ class SoapServer  {
 
 	/**
 	 * Returns list of defined functions
-	 * @link https://php.net/manual/en/soapserver.getfunctions.php
+	 * @link https://secure.php.net/manual/en/soapserver.getfunctions.php
 	 * @return array An array of the defined functions.
 	 * @since 5.0.1
 	 */
@@ -590,7 +590,7 @@ class SoapServer  {
 
 	/**
 	 * Handles a SOAP request
-	 * @link https://php.net/manual/en/soapserver.handle.php
+	 * @link https://secure.php.net/manual/en/soapserver.handle.php
 	 * @param string $soap_request [optional] <p>
 	 * The SOAP request. If this argument is omitted, the request is assumed to be
 	 * in the raw POST data of the HTTP request.
@@ -602,7 +602,7 @@ class SoapServer  {
 
 	/**
 	 * Issue SoapServer fault indicating an error
-	 * @link https://php.net/manual/en/soapserver.fault.php
+	 * @link https://secure.php.net/manual/en/soapserver.fault.php
 	 * @param string $code <p>
 	 * The error code to return
 	 * </p>
@@ -625,7 +625,7 @@ class SoapServer  {
 
 	/**
 	 * Add a SOAP header to the response
-	 * @link https://php.net/manual/en/soapserver.addsoapheader.php
+	 * @link https://secure.php.net/manual/en/soapserver.addsoapheader.php
 	 * @param SoapHeader $object <p>
 	 * The header to be returned.
 	 * </p>
@@ -638,7 +638,7 @@ class SoapServer  {
 
 /**
  * Represents a SOAP fault.
- * @link https://php.net/manual/en/class.soapfault.php
+ * @link https://secure.php.net/manual/en/class.soapfault.php
  */
 class SoapFault extends Exception  {
     /**
@@ -668,7 +668,7 @@ class SoapFault extends Exception  {
 
 	/**
 	 * SoapFault constructor
-	 * @link https://php.net/manual/en/soapfault.soapfault.php
+	 * @link https://secure.php.net/manual/en/soapfault.soapfault.php
 	 * @param string $faultcode <p>
 	 * The error code of the <b>SoapFault</b>.
 	 * </p>
@@ -694,7 +694,7 @@ class SoapFault extends Exception  {
 
 	/**
 	 * Obtain a string representation of a SoapFault
-	 * @link https://php.net/manual/en/soapfault.tostring.php
+	 * @link https://secure.php.net/manual/en/soapfault.tostring.php
 	 * @return string A string describing the SoapFault.
 	 * @since 5.0.1
 	 */
@@ -705,13 +705,13 @@ class SoapFault extends Exception  {
 
 /**
  * Represents parameter to a SOAP call.
- * @link https://php.net/manual/en/class.soapparam.php
+ * @link https://secure.php.net/manual/en/class.soapparam.php
  */
 class SoapParam  {
 
 	/**
 	 * SoapParam constructor
-	 * @link https://php.net/manual/en/soapparam.soapparam.php
+	 * @link https://secure.php.net/manual/en/soapparam.soapparam.php
 	 * @param mixed $data <p>
 	 * The data to pass or return. This parameter can be passed directly as PHP
 	 * value, but in this case it will be named as paramN and
@@ -728,13 +728,13 @@ class SoapParam  {
 
 /**
  * Represents a SOAP header.
- * @link https://php.net/manual/en/class.soapheader.php
+ * @link https://secure.php.net/manual/en/class.soapheader.php
  */
 class SoapHeader  {
 
 	/**
 	 * SoapHeader constructor
-	 * @link https://php.net/manual/en/soapheader.soapheader.php
+	 * @link https://secure.php.net/manual/en/soapheader.soapheader.php
 	 * @param string $namespace <p>
 	 * The namespace of the SOAP header element.
 	 * </p>
@@ -758,7 +758,7 @@ class SoapHeader  {
 
 /**
  * Set whether to use the SOAP error handler
- * @link https://php.net/manual/en/function.use-soap-error-handler.php
+ * @link https://secure.php.net/manual/en/function.use-soap-error-handler.php
  * @param bool $handler [optional] <p>
  * Set to <b>TRUE</b> to send error details to clients.
  * </p>
@@ -768,7 +768,7 @@ function use_soap_error_handler ($handler = true) {}
 
 /**
  * Checks if a SOAP call has failed
- * @link https://php.net/manual/en/function.is-soap-fault.php
+ * @link https://secure.php.net/manual/en/function.is-soap-fault.php
  * @param mixed $object <p>
  * The object to test.
  * </p>
@@ -855,25 +855,25 @@ define ('WSDL_CACHE_MEMORY', 2);
 define ('WSDL_CACHE_BOTH', 3);
 
 /**
- * @link https://php.net/manual/en/soap.constants.php
+ * @link https://secure.php.net/manual/en/soap.constants.php
  * @since 5.5.0
  */
 define ('SOAP_SSL_METHOD_TLS', 0);
 
 /**
- * @link https://php.net/manual/en/soap.constants.php
+ * @link https://secure.php.net/manual/en/soap.constants.php
  * @since 5.5.0
  */
 define ('SOAP_SSL_METHOD_SSLv2', 1);
 
 /**
- * @link https://php.net/manual/en/soap.constants.php
+ * @link https://secure.php.net/manual/en/soap.constants.php
  * @since 5.5.0
  */
 define ('SOAP_SSL_METHOD_SSLv3', 2);
 
 /**
- * @link https://php.net/manual/en/soap.constants.php
+ * @link https://secure.php.net/manual/en/soap.constants.php
  * @since 5.5.0
  */
 define ('SOAP_SSL_METHOD_SSLv23', 3);

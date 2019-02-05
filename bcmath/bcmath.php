@@ -2,7 +2,7 @@
 
 /**
  * Add two arbitrary precision numbers
- * @link https://php.net/manual/en/function.bcadd.php
+ * @link https://secure.php.net/manual/en/function.bcadd.php
  * @param string $left_operand <p>
  * The left operand, as a string.
  * </p>
@@ -24,7 +24,7 @@ function bcadd ($left_operand, $right_operand, $scale = 0) {}
 
 /**
  * Subtract one arbitrary precision number from another
- * @link https://php.net/manual/en/function.bcsub.php
+ * @link https://secure.php.net/manual/en/function.bcsub.php
  * @param string $left_operand <p>
  * The left operand, as a string.
  * </p>
@@ -46,7 +46,7 @@ function bcsub ($left_operand, $right_operand, $scale = 0) {}
 
 /**
  * Multiply two arbitrary precision numbers
- * @link https://php.net/manual/en/function.bcmul.php
+ * @link https://secure.php.net/manual/en/function.bcmul.php
  * @param string $left_operand <p>
  * The left operand, as a string.
  * </p>
@@ -68,7 +68,7 @@ function bcmul ($left_operand, $right_operand, $scale = 0) {}
 
 /**
  * Divide two arbitrary precision numbers
- * @link https://php.net/manual/en/function.bcdiv.php
+ * @link https://secure.php.net/manual/en/function.bcdiv.php
  * @param string $dividend <p>
  * The dividend, as a string.
  * </p>
@@ -91,7 +91,7 @@ function bcdiv ($dividend, $divisor, $scale = 0) {}
 
 /**
  * Get modulus of an arbitrary precision number
- * @link https://php.net/manual/en/function.bcmod.php
+ * @link https://secure.php.net/manual/en/function.bcmod.php
  * @param string $dividend <p>
  * The dividend, as a string.
  * </p>
@@ -115,7 +115,7 @@ function bcmod ($dividend, $divisor, $scale = 0) {}
 
 /**
  * Raise an arbitrary precision number to another
- * @link https://php.net/manual/en/function.bcpow.php
+ * @link https://secure.php.net/manual/en/function.bcpow.php
  * @param string $base <p>
  * The base, as a string.
  * </p>
@@ -139,7 +139,7 @@ function bcpow ($base, $exponent, $scale = 0) {}
 
 /**
  * Get the square root of an arbitrary precision number
- * @link https://php.net/manual/en/function.bcsqrt.php
+ * @link https://secure.php.net/manual/en/function.bcsqrt.php
  * @param string $operand <p>
  * The operand, as a string.
  * </p>
@@ -154,7 +154,7 @@ function bcsqrt ($operand, $scale = null) {}
 
 /**
  * Set default scale parameter for all bc math functions
- * @link https://php.net/manual/en/function.bcscale.php
+ * @link https://secure.php.net/manual/en/function.bcscale.php
  * @param int $scale <p>
  * The scale factor.
  * </p>
@@ -167,7 +167,7 @@ function bcscale ($scale) {}
 
 /**
  * Compare two arbitrary precision numbers
- * @link https://php.net/manual/en/function.bccomp.php
+ * @link https://secure.php.net/manual/en/function.bccomp.php
  * @param string $left_operand <p>
  * The left operand, as a string.
  * </p>
@@ -190,7 +190,7 @@ function bccomp ($left_operand, $right_operand, $scale = 0) {}
 
 /**
  * Raise an arbitrary precision number to another, reduced by a specified modulus
- * @link https://php.net/manual/en/function.bcpowmod.php
+ * @link https://secure.php.net/manual/en/function.bcpowmod.php
  * @param string $base <p>
  * The base, as an integral string (i.e. the scale has to be zero).
  * </p>
