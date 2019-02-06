@@ -413,6 +413,7 @@ namespace PHPSTORM_META {
     expectedArguments(\debug_print_backtrace(), 0, DEBUG_BACKTRACE_IGNORE_ARGS);
     expectedArguments(\debug_backtrace(), 0, DEBUG_BACKTRACE_PROVIDE_OBJECT|DEBUG_BACKTRACE_IGNORE_ARGS);
 
+    expectedArguments(\geoip_database_info(), 0, GEOIP_COUNTRY_EDITION);
 
 //  override( \ServiceLocatorInterface::get(0),
 //    map( [
