@@ -200,7 +200,7 @@ function imagecharup ($image, $font, $x, $y, $c, $color) {}
  * @param int $y <p>
  * y-coordinate of the point.
  * </p>
- * @return int the index of the color.
+ * @return int|false the index of the color or <b>FALSE</b> on failure
  * @since 4.0
  * @since 5.0
  */
@@ -213,7 +213,7 @@ function imagecolorat ($image, $x, $y) {}
  * @param int $red <p>Value of red component.</p>
  * @param int $green <p>Value of green component.</p>
  * @param int $blue <p>Value of blue component.</p>
- * @return int A color identifier or <b>FALSE</b> if the allocation failed.
+ * @return int|false A color identifier or <b>FALSE</b> if the allocation failed.
  * @since 4.0
  * @since 5.0
  */
@@ -240,7 +240,7 @@ function imagepalettecopy ($destination, $source) {}
  * @param string $image <p>
  * A string containing the image data.
  * </p>
- * @return resource An image resource will be returned on success. <b>FALSE</b> is returned if
+ * @return resource|false An image resource will be returned on success. <b>FALSE</b> is returned if
  * the image type is unsupported, the data is not in a recognised format,
  * or the image is corrupt and cannot be loaded.
  * @since 4.0.4
@@ -255,8 +255,8 @@ function imagecreatefromstring ($image) {}
  * @param int $red <p>Value of red component.</p>
  * @param int $green <p>Value of green component.</p>
  * @param int $blue <p>Value of blue component.</p>
- * @return int the index of the closest color, in the palette of the image, to
- * the specified one
+ * @return int|false the index of the closest color, in the palette of the image, to
+ * the specified one or <b>FALSE</b> on failure
  * @since 4.0
  * @since 5.0
  */
@@ -269,8 +269,8 @@ function imagecolorclosest ($image, $red, $green, $blue) {}
  * @param int $red <p>Value of red component.</p>
  * @param int $green <p>Value of green component.</p>
  * @param int $blue <p>Value of blue component.</p>
- * @return int an integer with the index of the color which has 
- * the hue, white and blackness nearest the given color.
+ * @return int|false an integer with the index of the color which has 
+ * the hue, white and blackness nearest the given color or <b>FALSE</b> on failure
  * @since 4.0.1
  * @since 5.0
  */
@@ -296,7 +296,7 @@ function imagecolordeallocate ($image, $color) {}
  * @param int $red <p>Value of red component.</p>
  * @param int $green <p>Value of green component.</p>
  * @param int $blue <p>Value of blue component.</p>
- * @return int a color index.
+ * @return int|false a color index or <b>FALSE</b> on failure
  * @since 4.0
  * @since 5.0
  */
@@ -309,8 +309,8 @@ function imagecolorresolve ($image, $red, $green, $blue) {}
  * @param int $red <p>Value of red component.</p>
  * @param int $green <p>Value of green component.</p>
  * @param int $blue <p>Value of blue component.</p>
- * @return int the index of the specified color in the palette, or -1 if the
- * color does not exist.
+ * @return int|false the index of the specified color in the palette, -1 if the
+ * color does not exist, or <b>FALSE</b> on failure
  * @since 4.0
  * @since 5.0
  */
@@ -343,10 +343,10 @@ function imagecolorset ($image, $index, $red, $green, $blue, $alpha = 0) {}
  * A color identifier created with 
  * <b>imagecolorallocate</b>.
  * </p>
- * @return int The identifier of the new (or current, if none is specified)
+ * @return int|false The identifier of the new (or current, if none is specified)
  * transparent color is returned. If <i>color</i>
  * is not specified, and the image has no transparent color, the
- * returned identifier will be -1.
+ * returned identifier will be -1. If an error occurs, <b>FALSE</b> is returned.
  * @since 4.0
  * @since 5.0
  */
@@ -359,8 +359,8 @@ function imagecolortransparent ($image, $color = null) {}
  * An image resource, returned by one of the image creation functions, such
  * as <b>imagecreatefromgif</b>.
  * </p>
- * @return int the number of colors in the specified image's palette or 0 for
- * truecolor images.
+ * @return int|false the number of colors in the specified image's palette, 0 for
+ * truecolor images, or <b>FALSE</b> on failure
  * @since 4.0
  * @since 5.0
  */
@@ -373,8 +373,8 @@ function imagecolorstotal ($image) {}
  * @param int $index <p>
  * The color index.
  * </p>
- * @return array an associative array with red, green, blue and alpha keys that
- * contain the appropriate values for the specified color index.
+ * @return array|false an associative array with red, green, blue and alpha keys that
+ * contain the appropriate values for the specified color index or <b>FALSE</b> on failure
  * @since 4.0
  * @since 5.0
  */
@@ -537,7 +537,7 @@ function imagecopyresized ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $src_
  * @param int $height <p>
  * The image height.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0
  * @since 5.0
  */
@@ -552,7 +552,7 @@ function imagecreate ($width, $height) {}
  * @param int $height <p>
  * Image height.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0.6
  * @since 5.0
  */
@@ -708,7 +708,7 @@ function imagesavealpha ($image, $saveflag) {}
  * 0 indicates completely opaque while 
  * 127 indicates completely transparent.
  * </p>
- * @return int A color identifier or false if the allocation failed.
+ * @return int|false A color identifier or false if the allocation failed.
  * @since 4.3.2
  * @since 5.0
  */
@@ -732,7 +732,7 @@ function imagecolorallocatealpha ($image, $red, $green, $blue, $alpha) {}
  * 0 indicates completely opaque while 
  * 127 indicates completely transparent.
  * </p>
- * @return int a color index.
+ * @return int|false a color index or <b>FALSE</b> on failure
  * @since 4.0.6
  * @since 5.0
  */
@@ -756,7 +756,8 @@ function imagecolorresolvealpha ($image, $red, $green, $blue, $alpha) {}
  * 0 indicates completely opaque while 
  * 127 indicates completely transparent.
  * </p>
- * @return int the index of the closest color in the palette.
+ * @return int|false the index of the closest color in the palette or
+ * <b>FALSE</b> on failure
  * @since 4.0.6
  * @since 5.0
  */
@@ -780,8 +781,9 @@ function imagecolorclosestalpha ($image, $red, $green, $blue, $alpha) {}
  * 0 indicates completely opaque while 
  * 127 indicates completely transparent.
  * </p>
- * @return int the index of the specified color+alpha in the palette of the
- * image, or -1 if the color does not exist in the image's palette.
+ * @return int|false the index of the specified color+alpha in the palette of the
+ * image, -1 if the color does not exist in the image's palette, or <b>FALSE</b>
+ * on failure
  * @since 4.0.6
  * @since 5.0
  */
@@ -835,7 +837,7 @@ function imagecopyresampled ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $sr
  * @param int $ignore_transparent [optional] <p>
  * If set and non-zero, transparent colors are ignored (otherwise kept).
  * </p>
- * @return resource 
+ * @return resource|false the rotated image or <b>FALSE</b> on failure
  * @since 4.3.0
  * @since 5.0
  */
@@ -901,7 +903,7 @@ function imagesetstyle ($image, array $style) {}
  * @param string $filename <p>
  * Path to the PNG image.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0
  * @since 5.0
  */
@@ -913,7 +915,7 @@ function imagecreatefrompng ($filename) {}
  * @param string $filename <p>
  * Path to the GIF image.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0
  * @since 5.0
  */
@@ -925,7 +927,7 @@ function imagecreatefromgif ($filename) {}
  * @param string $filename <p>
  * Path to the JPEG image.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0
  * @since 5.0
  */
@@ -937,7 +939,7 @@ function imagecreatefromjpeg ($filename) {}
  * @param string $filename <p>
  * Path to the WBMP image.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0.1
  * @since 5.0
  */
@@ -945,11 +947,22 @@ function imagecreatefromwbmp ($filename) {}
 
 /**
  * Create a new image from file or URL
+ * @link https://php.net/manual/en/function.imagecreatefromwebp.php
+ * @param string $filename <p>
+ * Path to the WebP image.
+ * </p>
+ * @return resource|false an image resource identifier on success, false on errors.
+ * @since 5.4.0
+ */
+function imagecreatefromwebp ($filename) {}
+
+/**
+ * Create a new image from file or URL
  * @link https://php.net/manual/en/function.imagecreatefromxbm.php
  * @param string $filename <p>
  * Path to the XBM image.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0.1
  * @since 5.0
  */
@@ -961,7 +974,7 @@ function imagecreatefromxbm ($filename) {}
  * @param string $filename <p>
  * Path to the XPM image.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0.1
  * @since 5.0
  */
@@ -973,7 +986,7 @@ function imagecreatefromxpm ($filename) {}
  * @param string $filename <p>
  * Path to the GD file.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0.7
  * @since 5.0
  */
@@ -985,7 +998,7 @@ function imagecreatefromgd ($filename) {}
  * @param string $filename <p>
  * Path to the GD2 image.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0.7
  * @since 5.0
  */
@@ -1009,7 +1022,7 @@ function imagecreatefromgd2 ($filename) {}
  * @param int $height <p>
  * Source height.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0.7
  * @since 5.0
  */
@@ -1296,7 +1309,8 @@ function imagefontheight ($font) {}
  * If non-zero, the image will be interlaced, else the interlace bit is
  * turned off.
  * </p>
- * @return int 1 if the interlace bit is set for the image, 0 otherwise.
+ * @return int|false 1 if the interlace bit is set for the image,
+ * 0 if it is not, or <b>FALSE</b> on failure
  * @since 4.0
  * @since 5.0
  */
@@ -1376,7 +1390,7 @@ function imageline ($image, $x1, $y1, $x2, $y2, $color) {}
  * </tr>
  * </table>
  * </p>
- * @return int The font identifier which is always bigger than 5 to avoid conflicts with
+ * @return int|false The font identifier which is always bigger than 5 to avoid conflicts with
  * built-in fonts or false on errors.
  * @since 4.0
  * @since 5.0
@@ -1518,7 +1532,7 @@ function imagestringup ($image, $font, $x, $y, $string, $color) {}
  * Get image width
  * @link https://php.net/manual/en/function.imagesx.php
  * @param resource $image 
- * @return int Return the width of the image or false on 
+ * @return int|false Return the width of the image or false on 
  * errors.
  * @since 4.0
  * @since 5.0
@@ -1529,7 +1543,7 @@ function imagesx ($image) {}
  * Get image height
  * @link https://php.net/manual/en/function.imagesy.php
  * @param resource $image 
- * @return int Return the height of the image or false on 
+ * @return int|false Return the height of the image or false on 
  * errors.
  * @since 4.0
  * @since 5.0
@@ -1556,9 +1570,10 @@ function imagesy ($image) {}
  * The fill color. A color identifier created with 
  * imagecolorallocate.
  * </p>
- * @return bool Always returns true
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 4.0
  * @since 5.0
+ * @deprecated Use combination of imagesetstyle() and imageline() instead
  */
 function imagedashedline ($image, $x1, $y1, $x2, $y2, $color) {}
 
@@ -1581,7 +1596,7 @@ function imagedashedline ($image, $x1, $y1, $x2, $y2, $color) {}
  * @param string $text <p>
  * The string to be measured.
  * </p>
- * @return array imagettfbbox returns an array with 8
+ * @return array|false imagettfbbox returns an array with 8
  * elements representing four points making the bounding box of the
  * text on success and false on error.
  * <tr valign="top">
@@ -1701,7 +1716,7 @@ function imagettfbbox ($size, $angle, $fontfile, $text) {}
  * If a character is used in the string which is not supported by the
  * font, a hollow rectangle will replace the character.
  * </p>
- * @return array an array with 8 elements representing four points making the
+ * @return array|false an array with 8 elements representing four points making the
  * bounding box of the text. The order of the points is lower left, lower 
  * right, upper right, upper left. The points are relative to the text
  * regardless of the angle, so "upper left" means in the top left-hand 
@@ -1747,7 +1762,7 @@ function imagettftext ($image, $size, $angle, $x, $y, $color, $fontfile, $text) 
  * </tr>
  * </table>
  * </p>
- * @return array imageftbbox returns an array with 8
+ * @return array|false imageftbbox returns an array with 8
  * elements representing four points making the bounding box of the
  * text:
  * <tr valign="top">
@@ -1787,6 +1802,7 @@ function imagettftext ($image, $size, $angle, $x, $y, $color, $fontfile, $text) 
  * The points are relative to the text regardless of the
  * angle, so "upper left" means in the top left-hand 
  * corner seeing the text horizontally.
+ * Returns false on error.
  * @since 4.0.7
  * @since 5.0
  */
@@ -1861,7 +1877,7 @@ function imageftbbox ($size, $angle, $fontfile, $text, $extrainfo = null ) {}
  * </tr>
  * </table>
  * </p>
- * @return array This function returns an array defining the four points of the box, starting in the lower left and moving counter-clockwise:
+ * @return array|false This function returns an array defining the four points of the box, starting in the lower left and moving counter-clockwise:
  * <tr valign="top">
  * <td>0</td>
  * <td>lower left x-coordinate</td>
@@ -1894,6 +1910,7 @@ function imageftbbox ($size, $angle, $fontfile, $text, $extrainfo = null ) {}
  * <td>7</td>
  * <td>upper left y-coordinate</td>
  * </tr>
+ * Returns false on error.
  * @since 4.0.7
  * @since 5.0
  */
@@ -1905,10 +1922,11 @@ function imagefttext ($image, $size, $angle, $x, $y, $color, $fontfile, $text, $
  * @param string $filename <p>
  * Path to the Postscript font file.
  * </p>
- * @return resource In the case everything went right, a valid font index will be returned and
+ * @return resource|false In the case everything went right, a valid font index will be returned and
  * can be used for further purposes. Otherwise the function returns false.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.0.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepsloadfont ($filename) {}
 
@@ -1921,6 +1939,7 @@ function imagepsloadfont ($filename) {}
  * @return bool true on success or false on failure.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.0.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepsfreefont ($font_index) {}
 
@@ -1939,6 +1958,7 @@ function imagepsfreefont ($font_index) {}
  * @return bool true on success or false on failure.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.0.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepsencodefont ($font_index, $encodingfile) {}
 
@@ -1954,6 +1974,7 @@ function imagepsencodefont ($font_index, $encodingfile) {}
  * @return bool true on success or false on failure.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.0.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepsextendfont ($font_index, $extend) {}
 
@@ -1969,6 +1990,7 @@ function imagepsextendfont ($font_index, $extend) {}
  * @return bool true on success or false on failure.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.0.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepsslantfont ($font_index, $slant) {}
 
@@ -2023,7 +2045,7 @@ function imagepsslantfont ($font_index, $slant) {}
  * quite visible. With bigger sizes, use 4. It's less computationally
  * intensive.
  * </p>
- * @return array This function returns an array containing the following elements:
+ * @return array|false This function returns an array containing the following elements:
  * <tr valign="top">
  * <td>0</td>
  * <td>lower left x-coordinate</td>
@@ -2040,8 +2062,10 @@ function imagepsslantfont ($font_index, $slant) {}
  * <td>3</td>
  * <td>upper right y-coordinate</td>
  * </tr>
+ * Returns false on error.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.0.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepstext ($image, $text, $font_index, $size, $foreground, $background, $x, $y, $space = null, $tightness = null, $angle = null, $antialias_steps = null) {}
 
@@ -2055,7 +2079,7 @@ function imagepstext ($image, $text, $font_index, $size, $foreground, $backgroun
  * @param int $size <p>
  * size is expressed in pixels.
  * </p>
- * @return array an array containing the following elements:
+ * @return array|false an array containing the following elements:
  * <tr valign="top">
  * <td>0</td>
  * <td>left x-coordinate</td>
@@ -2072,8 +2096,10 @@ function imagepstext ($image, $text, $font_index, $size, $foreground, $backgroun
  * <td>3</td>
  * <td>lower y-coordinate</td>
  * </tr>
+ * Returns false on error.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.0.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepsbbox ($text, $font, $size) {}
 
@@ -2082,9 +2108,7 @@ function imagepsbbox ($text, $font, $size) {}
  * @link https://php.net/manual/en/function.imagetypes.php
  * @return int a bit-field corresponding to the image formats supported by the
  * version of GD linked into PHP. The following bits are returned, 
- * IMG_GIF | IMG_JPG |
- * IMG_PNG | IMG_WBMP | 
- * IMG_XPM.
+ * IMG_BMP | IMG_GIF | IMG_JPG | IMG_PNG | IMG_WBMP | IMG_XPM | IMG_WEBP
  * @since 4.0.2
  * @since 5.0
  */
@@ -2111,6 +2135,7 @@ function imagetypes () {}
  * @return bool true on success or false on failure.
  * @since 4.0.5
  * @since 5.0
+ * @deprecated 7.2.0 Use imagecreatefromjpeg() and imagewbmp() instead
  */
 function jpeg2wbmp ($jpegname, $wbmpname, $dest_height, $dest_width, $threshold) {}
 
@@ -2135,6 +2160,7 @@ function jpeg2wbmp ($jpegname, $wbmpname, $dest_height, $dest_width, $threshold)
  * @return bool true on success or false on failure.
  * @since 4.0.5
  * @since 5.0
+ * @deprecated 7.2.0 Use imagecreatefrompng() and imagewbmp() instead
  */
 function png2wbmp ($pngname, $wbmpname, $dest_height, $dest_width, $threshold) {}
 
@@ -2152,7 +2178,7 @@ function png2wbmp ($pngname, $wbmpname, $dest_height, $dest_width, $threshold) {
  * @return bool true on success or false on failure.
  * @since 4.0.5
  * @since 5.0
- * @deprecated 7.3.0
+ * @deprecated 7.3.0 Use imagewbmp() instead
  */
 function image2wbmp ($image, $filename = null, $threshold = null) {}
 
@@ -2246,7 +2272,7 @@ function imageconvolution ($image, array $matrix, $div, $offset) {}
  * @param resource $im An image resource, returned by one of the image creation functions, such as {@see imagecreatetruecolor()}.
  * @param int $res_x [optional] The horizontal resolution in DPI.
  * @param int $res_y [optional] The vertical resolution in DPI.
- * @return array When used as getter (that is without the optional parameters), it returns <b>TRUE</b> on success, or <b>FALSE</b> on failure. When used as setter (that is with one or both optional parameters given), it returns an indexed array of the horizontal and vertical resolution on success, or <b>FALSE</b> on failure.
+ * @return array|bool When used as getter (that is without the optional parameters), it returns <b>TRUE</b> on success, or <b>FALSE</b> on failure. When used as setter (that is with one or both optional parameters given), it returns an indexed array of the horizontal and vertical resolution on success, or <b>FALSE</b> on failure.
  * @link https://php.net/manual/en/function.imageresolution.php
  * @since 7.2
  */
@@ -2270,7 +2296,14 @@ function imagesetclip ($im, $x1, $y1, $x2, $y2) {}
 /**
  * <b>imagegetclip()</b> retrieves the current clipping rectangle, i.e. the area beyond which no pixels will be drawn.
  * @param resource $im An image resource, returned by one of the image creation functions, such as {@see imagecreatetruecolor()}
- * @return array
+ * @return array|false an indexed array with the coordinates of the clipping rectangle which has the following entries:
+ * <ul>
+ * <li>x-coordinate of the upper left corner</li>
+ * <li>y-coordinate of the upper left corner</li>
+ * <li>x-coordinate of the lower right corner</li>
+ * <li>y-coordinate of the lower right corner</li>
+ * </ul>
+ * Returns <b>FALSE</b> on error.
  * @link https://php.net/manual/en/function.imagegetclip.php
  * @see imagesetclip()
  * @since 7.2
@@ -2300,7 +2333,7 @@ function imageopenpolygon ($image , $points, $num_points, $color) {}
  * <b>imagecreatefrombmp()</b> returns an image identifier representing the image obtained from the given filename.
  * <b>TIP</b> A URL can be used as a filename with this function if the fopen wrappers have been enabled. See {@see fopen()} for more details on how to specify the filename. See the Supported Protocols and Wrappers for links to information about what abilities the various wrappers have, notes on their usage, and information on any predefined variables they may provide.
  * @param string $filename Path to the BMP image.
- * @return resource Returns an image resource identifier on success, <b>FALSE</b> on errors.
+ * @return resource|false Returns an image resource identifier on success, <b>FALSE</b> on errors.
  * @link https://php.net/manual/en/function.imagecreatefrombmp.php
  * @since 7.2
  */
@@ -2323,526 +2356,575 @@ function imagebmp ($image, $to = null, $compressed = true) {}
 
 
 /**
- * Used as a return value by imagetypes
- * @link https://php.net/manual/en/image.constants.php
+ * Used as a return value by {@see imagetypes()}
+ * @link https://php.net/manual/en/image.constants.php#constant.img-gif
  */
 define ('IMG_GIF', 1);
 
 /**
- * Used as a return value by imagetypes
- * @link https://php.net/manual/en/image.constants.php
+ * Used as a return value by {@see imagetypes()}
+ * @link https://php.net/manual/en/image.constants.php#constant.img-jpg
  */
 define ('IMG_JPG', 2);
 
 /**
- * Used as a return value by imagetypes
+ * Used as a return value by {@see imagetypes()}
  * <p>
- * This constant has the same value as IMG_JPG
+ * This constant has the same value as {@see IMG_JPG}
  * </p>
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://php.net/manual/en/image.constants.php#constant.img-jpeg
  */
 define ('IMG_JPEG', 2);
 
 /**
- * Used as a return value by imagetypes
- * @link https://php.net/manual/en/image.constants.php
+ * Used as a return value by {@see imagetypes()}
+ * @link https://php.net/manual/en/image.constants.php#constant.img-png
  */
 define ('IMG_PNG', 4);
 
 /**
- * Used as a return value by imagetypes
- * @link https://php.net/manual/en/image.constants.php
+ * Used as a return value by {@see imagetypes()}
+ * @link https://php.net/manual/en/image.constants.php#constant.img-wbmp
  */
 define ('IMG_WBMP', 8);
 
 /**
- * Used as a return value by imagetypes
- * @link https://php.net/manual/en/image.constants.php
+ * Used as a return value by {@see imagetypes()}
+ * @link https://php.net/manual/en/image.constants.php#constant.img-xpm
  */
 define ('IMG_XPM', 16);
 
 /**
- * Used as a return value by imagetypes() Available as of PHP 5.6.25 and PHP 7.0.10, respectively.
- * @link https://php.net/manual/en/image.constants.php
+ * Used as a return value by {@see imagetypes()}
+ * @since 5.6.25
+ * @since 7.0.10
+ * @link https://php.net/manual/en/image.constants.php#constant.img-webp
  */
 define('IMG_WEBP', 32);
 
 /**
- * Special color option which can be used in stead of color allocated with
- * imagecolorallocate or
- * imagecolorallocatealpha
- * @link https://php.net/manual/en/image.constants.php
+ * Used as a return value by {@see imagetypes()}
+ * @since 7.2.0
+ * @link https://php.net/manual/en/image.constants.php#constant.img-bmp
+ */
+define('IMG_BMP', 64);
+
+/**
+ * Special color option which can be used instead of color allocated with
+ * {@see imagecolorallocate()} or {@see imagecolorallocatealpha()}
+ * @link https://php.net/manual/en/image.constants.php#constant.img-color-tiled
  */
 define ('IMG_COLOR_TILED', -5);
 
 /**
- * Special color option which can be used in stead of color allocated with
- * imagecolorallocate or
- * imagecolorallocatealpha
- * @link https://php.net/manual/en/image.constants.php
+ * Special color option which can be used instead of color allocated with
+ * {@see imagecolorallocate()} or {@see imagecolorallocatealpha()}
+ * @link https://php.net/manual/en/image.constants.php#constant.img-color-styled
  */
 define ('IMG_COLOR_STYLED', -2);
 
 /**
- * Special color option which can be used in stead of color allocated with
- * imagecolorallocate or
- * imagecolorallocatealpha
- * @link https://php.net/manual/en/image.constants.php
+ * Special color option which can be used instead of color allocated with
+ * {@see imagecolorallocate()} or {@see imagecolorallocatealpha()}
+ * @link https://php.net/manual/en/image.constants.php#constant.img-color-brushed
  */
 define ('IMG_COLOR_BRUSHED', -3);
 
 /**
- * Special color option which can be used in stead of color allocated with
- * imagecolorallocate or
- * imagecolorallocatealpha
- * @link https://php.net/manual/en/image.constants.php
+ * Special color option which can be used instead of color allocated with
+ * {@see imagecolorallocate()} or {@see imagecolorallocatealpha()}
+ * @link https://php.net/manual/en/image.constants.php#constant.img-color-styledbrushed
  */
 define ('IMG_COLOR_STYLEDBRUSHED', -4);
 
 /**
- * Special color option which can be used in stead of color allocated with
- * imagecolorallocate or
- * imagecolorallocatealpha
- * @link https://php.net/manual/en/image.constants.php
+ * Special color option which can be used instead of color allocated with
+ * {@see imagecolorallocate()} or {@see imagecolorallocatealpha()}
+ * @link https://php.net/manual/en/image.constants.php#constant.img-color-transparent
  */
 define ('IMG_COLOR_TRANSPARENT', -6);
 
 /**
- * A style constant used by the imagefilledarc function.
+ * A style constant used by the {@see imagefilledarc()} function.
  * <p>
- * This constant has the same value as IMG_ARC_PIE
+ * This constant has the same value as {@see IMG_ARC_PIE}
  * </p>
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://php.net/manual/en/image.constants.php#constant.img-arc-rounded
  */
 define ('IMG_ARC_ROUNDED', 0);
 
 /**
- * A style constant used by the imagefilledarc function.
- * @link https://php.net/manual/en/image.constants.php
+ * A style constant used by the {@see imagefilledarc()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-arc-pie
  */
 define ('IMG_ARC_PIE', 0);
 
 /**
- * A style constant used by the imagefilledarc function.
- * @link https://php.net/manual/en/image.constants.php
+ * A style constant used by the {@see imagefilledarc()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-arc-chord
  */
 define ('IMG_ARC_CHORD', 1);
 
 /**
- * A style constant used by the imagefilledarc function.
- * @link https://php.net/manual/en/image.constants.php
+ * A style constant used by the {@see imagefilledarc()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-arc-nofill
  */
 define ('IMG_ARC_NOFILL', 2);
 
 /**
- * A style constant used by the imagefilledarc function.
- * @link https://php.net/manual/en/image.constants.php
+ * A style constant used by the {@see imagefilledarc()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-arc-edged
  */
 define ('IMG_ARC_EDGED', 4);
 
 /**
- * A type constant used by the imagegd2 function.
- * @link https://php.net/manual/en/image.constants.php
+ * A type constant used by the {@see imagegd2()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-gd2-raw
  */
 define ('IMG_GD2_RAW', 1);
 
 /**
- * A type constant used by the imagegd2 function.
- * @link https://php.net/manual/en/image.constants.php
+ * A type constant used by the {@see imagegd2()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-gd2-compressed
  */
 define ('IMG_GD2_COMPRESSED', 2);
 
 /**
- * Alpha blending effect used by the imagelayereffect function.
- * @link https://php.net/manual/en/image.constants.php
+ * Alpha blending effect used by the {@see imagelayereffect()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-effect-replace
  */
 define ('IMG_EFFECT_REPLACE', 0);
 
 /**
- * Alpha blending effect used by the imagelayereffect function.
- * @link https://php.net/manual/en/image.constants.php
+ * Alpha blending effect used by the {@see imagelayereffect()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-effect-alphablend
  */
 define ('IMG_EFFECT_ALPHABLEND', 1);
 
 /**
- * Alpha blending effect used by the imagelayereffect function.
- * @link https://php.net/manual/en/image.constants.php
+ * Alpha blending effect used by the {@see imagelayereffect()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-effect-normal
  */
 define ('IMG_EFFECT_NORMAL', 2);
 
 /**
- * Alpha blending effect used by the imagelayereffect function.
- * @link https://php.net/manual/en/image.constants.php
+ * Alpha blending effect used by the {@see imagelayereffect()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-effect-overlay
  */
 define ('IMG_EFFECT_OVERLAY', 3);
 
 /**
- * When the bundled version of GD is used this is 1 otherwise 
- * its set to 0.
+ * Alpha blending effect used by the {@see imagelayereffect()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-effect-multiply
+ * @since 7.2.0
+ */
+define ('IMG_EFFECT_MULTIPLY', 4);
+
+/**
+ * When the bundled version of GD is used this is 1 otherwise
+ * it's set to 0.
  * @link https://php.net/manual/en/image.constants.php
  */
 define ('GD_BUNDLED', 1);
 
 /**
- * Special GD filter used by the imagefilter function.
- * @link https://php.net/manual/en/image.constants.php
+ * Special GD filter used by the {@see imagefilter()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-filter-negate
  */
 define ('IMG_FILTER_NEGATE', 0);
 
 /**
- * Special GD filter used by the imagefilter function.
- * @link https://php.net/manual/en/image.constants.php
+ * Special GD filter used by the {@see imagefilter()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-filter-grayscale
  */
 define ('IMG_FILTER_GRAYSCALE', 1);
 
 /**
- * Special GD filter used by the imagefilter function.
- * @link https://php.net/manual/en/image.constants.php
+ * Special GD filter used by the {@see imagefilter()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-filter-brightness
  */
 define ('IMG_FILTER_BRIGHTNESS', 2);
 
 /**
- * Special GD filter used by the imagefilter function.
- * @link https://php.net/manual/en/image.constants.php
+ * Special GD filter used by the {@see imagefilter()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-filter-contrast
  */
 define ('IMG_FILTER_CONTRAST', 3);
 
 /**
- * Special GD filter used by the imagefilter function.
- * @link https://php.net/manual/en/image.constants.php
+ * Special GD filter used by the {@see imagefilter()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-filter-colorize
  */
 define ('IMG_FILTER_COLORIZE', 4);
 
 /**
- * Special GD filter used by the imagefilter function.
- * @link https://php.net/manual/en/image.constants.php
+ * Special GD filter used by the {@see imagefilter()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-filter-edgedetect
  */
 define ('IMG_FILTER_EDGEDETECT', 5);
 
 /**
- * Special GD filter used by the imagefilter function.
- * @link https://php.net/manual/en/image.constants.php
+ * Special GD filter used by the {@see imagefilter()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-filter-gaussian-blur
  */
 define ('IMG_FILTER_GAUSSIAN_BLUR', 7);
 
 /**
- * Special GD filter used by the imagefilter function.
- * @link https://php.net/manual/en/image.constants.php
+ * Special GD filter used by the {@see imagefilter()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-filter-selective-blur
  */
 define ('IMG_FILTER_SELECTIVE_BLUR', 8);
 
 /**
- * Special GD filter used by the imagefilter function.
- * @link https://php.net/manual/en/image.constants.php
+ * Special GD filter used by the {@see imagefilter()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-filter-emboss
  */
 define ('IMG_FILTER_EMBOSS', 6);
 
 /**
- * Special GD filter used by the imagefilter function.
- * @link https://php.net/manual/en/image.constants.php
+ * Special GD filter used by the {@see imagefilter()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-filter-mean-removal
  */
 define ('IMG_FILTER_MEAN_REMOVAL', 9);
 
 /**
- * Special GD filter used by the imagefilter function.
- * @link https://php.net/manual/en/image.constants.php
+ * Special GD filter used by the {@see imagefilter()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-filter-smooth
  */
 define ('IMG_FILTER_SMOOTH', 10);
 
 /**
- * Special GD filter used by the imagefilter function. 
- * (Available as of PHP 5.3.0)
- * @link https://php.net/manual/en/image.constants.php
+ * Special GD filter used by the {@see imagefilter()} function.
+ * @since 5.3.0
+ * @link https://php.net/manual/en/image.constants.php#constant.img-filter-pixelate
  */
 define ('IMG_FILTER_PIXELATE', 11);
 
 /**
  * The GD version PHP was compiled against.
- * (Available as of PHP 5.2.4)
- * @link https://php.net/manual/en/image.constants.php
+ * @since 5.2.4
+ * @link https://php.net/manual/en/image.constants.php#constant.gd-version
  */
 define ('GD_VERSION', "2.0.35");
 
 /**
  * The GD major version PHP was compiled against.
- * (Available as of PHP 5.2.4)
- * @link https://php.net/manual/en/image.constants.php
+ * @since 5.2.4
+ * @link https://php.net/manual/en/image.constants.php#constant.gd-major-version
  */
 define ('GD_MAJOR_VERSION', 2);
 
 /**
  * The GD minor version PHP was compiled against.
- * (Available as of PHP 5.2.4)
- * @link https://php.net/manual/en/image.constants.php
+ * @since 5.2.4
+ * @link https://php.net/manual/en/image.constants.php#constant.gd-minor-version
  */
 define ('GD_MINOR_VERSION', 0);
 
 /**
  * The GD release version PHP was compiled against.
- * (Available as of PHP 5.2.4)
- * @link https://php.net/manual/en/image.constants.php
+ * @since 5.2.4
+ * @link https://php.net/manual/en/image.constants.php#constant.gd-release-version
  */
 define ('GD_RELEASE_VERSION', 35);
 
 /**
  * The GD "extra" version (beta/rc..) PHP was compiled against.
- * (Available as of PHP 5.2.4)
- * @link https://php.net/manual/en/image.constants.php
+ * @since 5.2.4
+ * @link https://php.net/manual/en/image.constants.php#constant.gd-extra-version
  */
 define ('GD_EXTRA_VERSION', "");
 
 /**
- * A special PNG filter, used by the imagepng function.
- * @link https://php.net/manual/en/image.constants.php
+ * When the bundled version of GD is used this is 1 otherwise its set to 0.
+ * @link https://php.net/manual/en/image.constants.php#constant.gd-bundled
+ */
+define ('GD_BUNDLED', 1);
+
+/**
+ * A special PNG filter, used by the {@see imagepng()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.png-no-filter
  */
 define ('PNG_NO_FILTER', 0);
 
 /**
- * A special PNG filter, used by the imagepng function.
- * @link https://php.net/manual/en/image.constants.php
+ * A special PNG filter, used by the {@see imagepng()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.png-filter-none
  */
 define ('PNG_FILTER_NONE', 8);
 
 /**
- * A special PNG filter, used by the imagepng function.
- * @link https://php.net/manual/en/image.constants.php
+ * A special PNG filter, used by the {@see imagepng()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.png-filter-sub
  */
 define ('PNG_FILTER_SUB', 16);
 
 /**
- * A special PNG filter, used by the imagepng function.
- * @link https://php.net/manual/en/image.constants.php
+ * A special PNG filter, used by the {@see imagepng()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.png-filter-up
  */
 define ('PNG_FILTER_UP', 32);
 
 /**
- * A special PNG filter, used by the imagepng function.
- * @link https://php.net/manual/en/image.constants.php
+ * A special PNG filter, used by the {@see imagepng()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.png-filter-avg
  */
 define ('PNG_FILTER_AVG', 64);
 
 /**
- * A special PNG filter, used by the imagepng function.
- * @link https://php.net/manual/en/image.constants.php
+ * A special PNG filter, used by the {@see imagepng()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.png-filter-paeth
  */
 define ('PNG_FILTER_PAETH', 128);
 
 /**
- * A special PNG filter, used by the imagepng function.
- * @link https://php.net/manual/en/image.constants.php
+ * A special PNG filter, used by the {@see imagepng()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.png-all-filters
  */
 define ('PNG_ALL_FILTERS', 248);
 
 /**
+ * An affine transformation type constant used by the {@see imageaffinematrixget()} function.
  * @since 5.5.0
+ * @link https://php.net/manual/en/image.constants.php#constant.img-affine-translate
  */
-define('IMG_AFFINE_TRANSLATE',0);
+define('IMG_AFFINE_TRANSLATE', 0);
 
 /**
+ * An affine transformation type constant used by the {@see imageaffinematrixget()} function.
  * @since 5.5.0
+ * @link https://php.net/manual/en/image.constants.php#constant.img-affine-scale
  */
-define('IMG_AFFINE_SCALE',1);
+define('IMG_AFFINE_SCALE', 1);
 
 /**
+ * An affine transformation type constant used by the {@see imageaffinematrixget()} function.
  * @since 5.5.0
+ * @link https://php.net/manual/en/image.constants.php#constant.img-affine-rotate
  */
-define('IMG_AFFINE_ROTATE',2);
+define('IMG_AFFINE_ROTATE', 2);
 
 /**
+ * An affine transformation type constant used by the {@see imageaffinematrixget()} function.
  * @since 5.5.0
+ * @link https://php.net/manual/en/image.constants.php#constant.img-affine-shear-horizontal
  */
-define('IMG_AFFINE_SHEAR_HORIZONTAL',3);
+define('IMG_AFFINE_SHEAR_HORIZONTAL', 3);
 
 /**
+ * An affine transformation type constant used by the {@see imageaffinematrixget()} function.
  * @since 5.5.0
+ * @link https://php.net/manual/en/image.constants.php#constant.img-affine-shear-vertical
  */
-define('IMG_AFFINE_SHEAR_VERTICAL',4);
+define('IMG_AFFINE_SHEAR_VERTICAL', 4);
 
 /**
+ * Same as {@see IMG_CROP_TRANSPARENT}. Before PHP 7.4.0, the bundled libgd fell back to
+ * {@see IMG_CROP_SIDES}, if the image had no transparent color.
+ * Used together with {@see imagecropauto()}.
  * @since 5.5.0
  */
-define('IMG_CROP_DEFAULT',0);
+define('IMG_CROP_DEFAULT', 0);
 
 /**
+ * Crops out a transparent background.
+ * Used together with {@see imagecropauto()}.
  * @since 5.5.0
  */
-define('IMG_CROP_TRANSPARENT',1);
+define('IMG_CROP_TRANSPARENT', 1);
 
 /**
+ * Crops out a black background.
+ * Used together with {@see imagecropauto()}.
  * @since 5.5.0
  */
-define('IMG_CROP_BLACK',2);
+define('IMG_CROP_BLACK', 2);
 
 /**
+ * Crops out a white background.
+ * Used together with {@see imagecropauto()}.
  * @since 5.5.0
  */
-define('IMG_CROP_WHITE',3);
+define('IMG_CROP_WHITE', 3);
 
 /**
+ * Uses the 4 corners of the image to attempt to detect the background to crop.
+ * Used together with {@see imagecropauto()}.
  * @since 5.5.0
  */
-define('IMG_CROP_SIDES',4);
+define('IMG_CROP_SIDES', 4);
 
 /**
+ * Crops an image using the given <b>threshold</b> and <b>color</b>.
+ * Used together with {@see imagecropauto()}.
  * @since 5.5.0
  */
-define('IMG_FLIP_BOTH',3);
+define('IMG_CROP_THRESHOLD', 5);
 
 /**
+ * Used together with {@see imageflip()}
  * @since 5.5.0
+ * @link https://php.net/manual/en/image.constants.php#constant.img-flip-both
  */
-define('IMG_FLIP_HORIZONTAL',1);
+define('IMG_FLIP_BOTH', 3);
 
 /**
+ * Used together with {@see imageflip()}
  * @since 5.5.0
+ * @link https://php.net/manual/en/image.constants.php#constant.img-flip-horizontal
  */
-define('IMG_FLIP_VERTICAL',2);
+define('IMG_FLIP_HORIZONTAL', 1);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imageflip()}
+ * @since 5.5.0
+ * @link https://php.net/manual/en/image.constants.php#constant.img-flip-vertical
+ */
+define('IMG_FLIP_VERTICAL', 2);
+
+/**
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-bell
  * @since 5.5.0
  */
 define('IMG_BELL', 1);
 
-define('IMG_CROP_THRESHOLD',5);
-
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-bessel
  * @since 5.5.0
  */
 define('IMG_BESSEL', 2);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-bicubic
  * @since 5.5.0
  */
 define('IMG_BICUBIC', 4);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-bicubic-fixed
  * @since 5.5.0
  */
 define('IMG_BICUBIC_FIXED', 5);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-bilinear-fixed
  * @since 5.5.0
  */
 define('IMG_BILINEAR_FIXED', 3);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-blackman
  * @since 5.5.0
  */
 define('IMG_BLACKMAN', 6);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-box
  * @since 5.5.0
  */
 define('IMG_BOX', 7);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-bspline
  * @since 5.5.0
  */
 define('IMG_BSPLINE', 8);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-catmullrom
  * @since 5.5.0
  */
 define('IMG_CATMULLROM', 9);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-gaussian
  * @since 5.5.0
  */
 define('IMG_GAUSSIAN', 10);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-generalized-cubic
  * @since 5.5.0
  */
 define('IMG_GENERALIZED_CUBIC', 11);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-hermite
  * @since 5.5.0
  */
 define('IMG_HERMITE', 12);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-hamming
  * @since 5.5.0
  */
 define('IMG_HAMMING', 13);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-hanning
  * @since 5.5.0
  */
 define('IMG_HANNING', 14);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-mitchell
  * @since 5.5.0
  */
 define('IMG_MITCHELL', 15);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-power
  * @since 5.5.0
  */
 define('IMG_POWER', 17);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-quadratic
  * @since 5.5.0
  */
 define('IMG_QUADRATIC', 18);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-sinc
  * @since 5.5.0
  */
 define('IMG_SINC', 19);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-nearest-neighbour
  * @since 5.5.0
  */
 define('IMG_NEAREST_NEIGHBOUR', 16);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-weighted4
  * @since 5.5.0
  */
 define('IMG_WEIGHTED4', 21);
 
 /**
- * Used together with imagesetinterpolation().
- * @link https://php.net/manual/en/image.constants.php
+ * Used together with {@see imagesetinterpolation()}.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-triangle
  * @since 5.5.0
  */
 define('IMG_TRIANGLE', 20);

@@ -6,6 +6,7 @@ use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\StaticCall;
+use PhpParser\Node\Scalar\String_;
 use PHPUnit\Framework\TestCase;
 use StubTests\Model\PHPConst;
 use StubTests\Model\StubsContainer;
@@ -102,6 +103,18 @@ class StubsMetaExpectedArgumentsTest extends TestCase
             }
         }
     }
+
+    public function testStringLiteralsSingleQuoted()
+    {
+        foreach (self::$expectedArguments as $argument) {
+            foreach ($argument->getExpectedArguments() as $literalArgument) {
+                if ($literalArgument instanceof String_) {
+                    self::assertEquals(String_::KIND_SINGLE_QUOTED, $literalArgument->getAttribute('kind'), 'String literals as expectedArguments should be single-quoted');
+                }
+            }
+        }
+    }
+
 
     private static function getClassMemberFqn($className, $memberName): string
     {
