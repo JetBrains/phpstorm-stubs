@@ -1553,7 +1553,7 @@ class SplPriorityQueue implements Iterator, Countable {
          * @param mixed $priority <p>
          * The associated priority.
          * </p>
-         * @return bool 
+         * @return true
          * @since 5.3.0
          */
         public function insert ($value, $priority) {}
