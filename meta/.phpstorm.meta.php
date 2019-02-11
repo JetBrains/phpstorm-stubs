@@ -84,8 +84,8 @@ namespace PHPSTORM_META {
         return "registerArgumentsSet " . $setName . ": "  . $values;
     }
 
-    function argumentsSet($setName, $values) {
-        return "argumentsSet " . $setName . ": "  . $values;
+    function argumentsSet($setName) {
+        return "argumentsSet " . $setName;
     }
 
     expectedArguments(\count(), 1, COUNT_NORMAL, COUNT_RECURSIVE);
