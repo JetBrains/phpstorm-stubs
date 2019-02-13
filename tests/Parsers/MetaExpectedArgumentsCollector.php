@@ -20,10 +20,18 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
      * @var ExpectedFunctionArgumentsInfo[]
      */
     private $expectedArgumentsInfos;
+    /**
+     * @var String[]
+     */
+    private $registeredArgumentsSet;
 
     public function __construct()
     {
         $this->expectedArgumentsInfos = array();
+        $this->registeredArgumentsSet = array();
+        StubParser::processStubs($this, function (SplFileInfo $file) {
+            return $file->getFilename() === '.phpstorm.meta.php';
+        });
     }
 
     public function enterNode(Node $node)
@@ -37,6 +45,8 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
                 $args = $node->args;
                 if (count($args) < 2) throw new RuntimeException('Expected at least 2 arguments for registerArgumentsSet call');
                 $this->expectedArgumentsInfos[] = $this->getExpectedArgumentsInfo(null, array_slice($args, 1));
+                $name = $args[0]->value->value;
+                $this->registeredArgumentsSet[$name] = $name;
             } else if ((string)$node->name === self::EXPECTED_RETURN_VALUES) {
                 $args = $node->args;
                 if (count($args) < 2) throw new RuntimeException('Expected at least 2 arguments for expectedReturnValues call');
@@ -51,6 +61,14 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
     public function getExpectedArgumentsInfos(): array
     {
         return $this->expectedArgumentsInfos;
+    }
+
+    /**
+     * @return String[]
+     */
+    public function getRegisteredArgumentsSet(): array
+    {
+        return $this->registeredArgumentsSet;
     }
 
     /**
@@ -69,18 +87,6 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
             }
         }
         return $result;
-    }
-
-    /**
-     * @return ExpectedFunctionArgumentsInfo[]
-     */
-    public static function getMetaExpectedArguments(): array
-    {
-        $visitor = new MetaExpectedArgumentsCollector();
-        StubParser::processStubs($visitor, function (SplFileInfo $file) {
-            return $file->getFilename() === '.phpstorm.meta.php';
-        });
-        return $visitor->getExpectedArgumentsInfos();
     }
 
     /**

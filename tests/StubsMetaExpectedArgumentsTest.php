@@ -20,13 +20,19 @@ class StubsMetaExpectedArgumentsTest extends TestCase
      * @var ExpectedFunctionArgumentsInfo[]
      */
     private static $expectedArguments;
+    /**
+     * @var String[]
+     */
+    private static $registeredArgumentsSet;
     private static $functionsFqns;
     private static $methodsFqns;
     private static $constantsFqns;
 
     public static function setUpBeforeClass()
     {
-        self::$expectedArguments = MetaExpectedArgumentsCollector::getMetaExpectedArguments();
+        $argumentsCollector = new MetaExpectedArgumentsCollector();
+        self::$expectedArguments = $argumentsCollector->getExpectedArgumentsInfos();
+        self::$registeredArgumentsSet = $argumentsCollector->getRegisteredArgumentsSet();
         $stubs = PhpStormStubsSingleton::getPhpStormStubs();
         self::$functionsFqns = array_map(function (Model\PHPFunction $func) {
             return self::toPresentableFqn((string)$func->name);
@@ -103,6 +109,21 @@ class StubsMetaExpectedArgumentsTest extends TestCase
             }
         }
     }
+
+    public function testRegisteredArgumentsSetExists()
+    {
+        foreach (self::$expectedArguments as $argument) {
+            foreach ($argument->getExpectedArguments() as $argumentsSet) {
+                if ($argumentsSet instanceof FuncCall && ((string)$argumentsSet->name) === 'argumentsSet') {
+                    $args = $argumentsSet->args;
+                    self::assertGreaterThanOrEqual(1, count($args), 'argumentsSet call should provide set name');
+                    $name = $args[0]->value->value;
+                    self::assertArrayHasKey($name, self::$registeredArgumentsSet, 'Can\'t find registered argument set: ' . $name);
+                }
+            }
+        }
+    }
+
 
     public function testStringLiteralsSingleQuoted()
     {
