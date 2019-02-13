@@ -31,15 +31,15 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
         if ($node instanceof FuncCall) {
             if ((string)$node->name === self::EXPECTED_ARGUMENTS) {
                 $args = $node->args;
-                if ($args < 3) throw new RuntimeException('Expected at least 3 arguments for expectedArguments call');
+                if (count($args) < 3) throw new RuntimeException('Expected at least 3 arguments for expectedArguments call');
                 $this->expectedArgumentsInfos[] = $this->getExpectedArgumentsInfo($args[0]->value, array_slice($args, 2));
             } else if ((string)$node->name === self::REGISTER_ARGUMENTS_SET_NAME) {
                 $args = $node->args;
-                if ($args < 2) throw new RuntimeException('Expected at least 2 arguments for registerArgumentsSet call');
+                if (count($args) < 2) throw new RuntimeException('Expected at least 2 arguments for registerArgumentsSet call');
                 $this->expectedArgumentsInfos[] = $this->getExpectedArgumentsInfo(null, array_slice($args, 1));
             } else if ((string)$node->name === self::EXPECTED_RETURN_VALUES) {
                 $args = $node->args;
-                if ($args < 2) throw new RuntimeException('Expected at least 2 arguments for expectedReturnValues call');
+                if (count($args) < 2) throw new RuntimeException('Expected at least 2 arguments for expectedReturnValues call');
                 $this->expectedArgumentsInfos[] = $this->getExpectedArgumentsInfo($args[0]->value, array_slice($args, 1));
             }
         }
