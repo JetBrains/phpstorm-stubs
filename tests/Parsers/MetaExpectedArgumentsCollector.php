@@ -14,6 +14,7 @@ use SplFileInfo;
 class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
 {
     private const EXPECTED_ARGUMENTS = 'expectedArguments';
+    private const EXPECTED_RETURN_VALUES = 'expectedReturnValues';
     private const REGISTER_ARGUMENTS_SET_NAME = 'registerArgumentsSet';
     /**
      * @var ExpectedFunctionArgumentsInfo[]
@@ -36,6 +37,10 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
                 $args = $node->args;
                 if ($args < 2) throw new RuntimeException('Expected at least 2 arguments for registerArgumentsSet call');
                 $this->expectedArgumentsInfos[] = $this->getExpectedArgumentsInfo(null, array_slice($args, 1));
+            } else if ((string)$node->name === self::EXPECTED_RETURN_VALUES) {
+                $args = $node->args;
+                if ($args < 2) throw new RuntimeException('Expected at least 2 arguments for expectedReturnValues call');
+                $this->expectedArgumentsInfos[] = $this->getExpectedArgumentsInfo($args[0]->value, array_slice($args, 1));
             }
         }
     }
