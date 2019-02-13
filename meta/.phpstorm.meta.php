@@ -427,7 +427,7 @@ namespace PHPSTORM_META {
     expectedArguments(\mysqli_options(), 1, argumentsSet("mysqliOptions"));
 
     registerArgumentsSet("mysqliAttributesSet", MYSQLI_STMT_ATTR_UPDATE_MAX_LENGTH, MYSQLI_STMT_ATTR_CURSOR_TYPE, MYSQLI_STMT_ATTR_PREFETCH_ROWS);
-    expectedArguments(\mysqli::attr_set(), 0, argumentsSet("mysqliAttributesSet"));
+    expectedArguments(\mysqli_stmt::attr_set(), 0, argumentsSet("mysqliAttributesSet"));
     expectedArguments(\mysqli_stmt_attr_set(), 1, argumentsSet("mysqliAttributesSet"));
 
     expectedArguments(\oci_execute(), 1, OCI_COMMIT_ON_SUCCESS, OCI_DESCRIBE_ONLY, OCI_NO_AUTO_COMMIT);
