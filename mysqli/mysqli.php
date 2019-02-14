@@ -283,7 +283,7 @@ class mysqli  {
 	/**
 	 * Returns statistics about the client connection
 	 * @link https://php.net/manual/en/mysqli.get-connection-stats.php
-	 * @return bool an array with connection stats if success, false otherwise.
+	 * @return array|false an array with connection stats if success, false otherwise.
 	 * @since 5.3.0
 	 */
 	public function get_connection_stats () {}
@@ -603,7 +603,7 @@ class mysqli  {
 	 * @param int $usec [optional] <p>
 	 * Number of microseconds to wait, must be non-negative.
 	 * </p>
-	 * @return int number of ready connections in success, false otherwise.
+	 * @return int|false number of ready connections in success, false otherwise.
 	 * @since 5.3.0
 	 */
 	public function poll (array &$read , array &$error , array &$reject , $sec, $usec = null) {}
@@ -611,7 +611,7 @@ class mysqli  {
 	/**
 	 * Get result from async query
 	 * @link https://php.net/manual/en/mysqli.reap-async-query.php
-	 * @return mysqli_result mysqli_result in success, false otherwise.
+	 * @return mysqli_result|false mysqli_result in success, false otherwise.
 	 * @since 5.3.0
 	 */
 	public function reap_async_query () {}
@@ -1503,7 +1503,7 @@ class mysqli_stmt  {
 	/**
 	 * Gets a result set from a prepared statement
 	 * @link https://php.net/manual/en/mysqli-stmt.get-result.php
-	 * @return mysqli_result|bool Returns a resultset or FALSE on failure
+	 * @return mysqli_result|false Returns a resultset or FALSE on failure
  	 */
 	public function get_result () {}
 
@@ -1585,7 +1585,7 @@ function mysqli_commit ($link) {}
  * @param string $database If provided will specify the default database to be used when performing queries.
  * @param string $port Specifies the port number to attempt to connect to the MySQL server.
  * @param string $socket Specifies the socket or named pipe that should be used.
- * @return mysqli object which represents the connection to a MySQL Server.
+ * @return mysqli|false object which represents the connection to a MySQL Server or false if an error occurred.
  */
 function mysqli_connect ($host = '', $user = '', $password = '', $database = '', $port = '', $socket = '') {}
 
@@ -1818,7 +1818,7 @@ function mysqli_free_result ($result) {}
  * Available only with mysqlnd.
  * @link https://php.net/manual/en/mysqli.get-cache-stats.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @return array|bool an array with client Zval cache stats if success, false otherwise.
+ * @return array|false an array with client Zval cache stats if success, false otherwise.
  */
 function mysqli_get_cache_stats ($link) {}
 
@@ -1826,7 +1826,7 @@ function mysqli_get_cache_stats ($link) {}
  * Returns statistics about the client connection
  * @link https://php.net/manual/en/mysqli.get-connection-stats.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @return array|bool Returns an array with connection stats if successful, FALSE otherwise.
+ * @return array|false an array with connection stats if successful, FALSE otherwise.
  */
 function mysqli_get_connection_stats ($link) {}
 
@@ -1834,7 +1834,7 @@ function mysqli_get_connection_stats ($link) {}
  * Returns client per-process statistics
  * @since 5.3.0
  * @link https://php.net/manual/en/mysqli.get-client-stats.php
- * @return array|bool an array with client stats if success, false otherwise.
+ * @return array|false an array with client stats if success, false otherwise.
  */
 function mysqli_get_client_stats () {}
 
@@ -1854,10 +1854,10 @@ function mysqli_get_charset ($link) {}
 function mysqli_get_client_info () {}
 
 /**
- * Returns the MySQL client version as a string
+ * Returns the MySQL client version as an integer
  * @link https://php.net/manual/en/mysqli.get-client-version.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @return string
+ * @return int
  */
 function mysqli_get_client_version ($link) {}
 
@@ -2066,7 +2066,7 @@ function mysqli_ping ($link) {}
  * @param array $reject
  * @param int $sec
  * @param int $usec
- * @return int|bool Returns number of ready connections upon success, FALSE otherwise.
+ * @return int|false number of ready connections upon success, FALSE otherwise.
  */
 function mysqli_poll (array &$read = null, array &$error = null, &$reject = null, $sec, $usec = 0) {}
 
@@ -2173,7 +2173,7 @@ function mysqli_real_query ($link, $query) {}
  * @link https://php.net/manual/en/mysqli.reap-async-query.php
  * @see mysqli_poll()
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @return mysqli_result|bool Returns mysqli_result in success, FALSE otherwise.
+ * @return mysqli_result|false mysqli_result in success, FALSE otherwise.
  */
 function mysqli_reap_async_query ($link) {}
 
@@ -2363,7 +2363,7 @@ function mysqli_stmt_free_result ($stmt) {}
  * Gets a result set from a prepared statement
  * @link https://php.net/manual/en/mysqli-stmt.get-result.php
  * @param mysqli_stmt $stmt
- * @return mysqli_result|bool Returns a resultset or FALSE on failure.
+ * @return mysqli_result|false Returns a resultset or FALSE on failure.
  */
 function mysqli_stmt_get_result ($stmt) {}
 
@@ -2450,7 +2450,7 @@ function mysqli_stmt_data_seek ($stmt, $offset) {}
  * Returns the error code for the most recent statement call
  * @link https://php.net/manual/en/mysqli-stmt.errno.php
  * @param mysqli_stmt $stmt
- * @return bool
+ * @return int
  */
 function mysqli_stmt_errno ($stmt) {}
 

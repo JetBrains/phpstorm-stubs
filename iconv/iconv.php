@@ -143,7 +143,7 @@ function iconv_strlen ($str, $charset = 'ini_get("iconv.internal_encoding")') {}
  * <i>charset</i>, whilst the counterpart
  * <b>substr</b> always takes these for byte offsets.
  * </p>
- * @return string the portion of <i>str</i> specified by the
+ * @return string|false the portion of <i>str</i> specified by the
  * <i>offset</i> and <i>length</i> parameters.
  * </p>
  * <p>
@@ -171,7 +171,7 @@ function iconv_substr ($str, $offset, $length = 'iconv_strlen($str, $charset)', 
  * <i>string</i> are assumed to be encoded in
  * iconv.internal_encoding.
  * </p>
- * @return int the numeric position of the first occurrence of
+ * @return int|false the numeric position of the first occurrence of
  * <i>needle</i> in <i>haystack</i>.
  * </p>
  * <p>
@@ -195,7 +195,7 @@ function iconv_strpos ($haystack, $needle, $offset = 0, $charset = 'ini_get("ico
  * <i>string</i> are assumed to be encoded in
  * iconv.internal_encoding.
  * </p>
- * @return int the numeric position of the last occurrence of
+ * @return int|false the numeric position of the last occurrence of
  * <i>needle</i> in <i>haystack</i>.
  * </p>
  * <p>
@@ -300,7 +300,7 @@ function iconv_strrpos ($haystack, $needle, $charset = 'ini_get("iconv.internal_
  * </tr>
  * </table>
  * </p>
- * @return string an encoded MIME field on success,
+ * @return string|false an encoded MIME field on success,
  * or <b>FALSE</b> if an error occurs during the encoding.
  * @since 5.0
  */
@@ -352,7 +352,7 @@ function iconv_mime_encode ($field_name, $field_value, array $preferences = null
  * iconv.internal_encoding
  * will be used.
  * </p>
- * @return string a decoded MIME field on success,
+ * @return string|false a decoded MIME field on success,
  * or <b>FALSE</b> if an error occurs during the decoding.
  * @since 5.0
  */
@@ -404,7 +404,7 @@ function iconv_mime_decode ($encoded_header, $mode = 0, $charset = 'ini_get("ico
  * iconv.internal_encoding
  * will be used.
  * </p>
- * @return array an associative array that holds a whole set of
+ * @return array|false an associative array that holds a whole set of
  * MIME header fields specified by
  * <i>encoded_headers</i> on success, or <b>FALSE</b>
  * if an error occurs during the decoding.

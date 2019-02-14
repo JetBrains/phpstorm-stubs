@@ -190,7 +190,7 @@ function session_create_id($prefix) {}
 
 /**
  * Perform session data garbage collection
- * @return int number of deleted session data for success, FALSE for failure.
+ * @return int|false number of deleted session data for success, false for failure.
  * @since 7.1
  */
 function session_gc() {}
