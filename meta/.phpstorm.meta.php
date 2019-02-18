@@ -84,8 +84,8 @@ namespace PHPSTORM_META {
         return "registerArgumentsSet " . $setName . ": "  . $values;
     }
 
-    function argumentsSet($setName, $values) {
-        return "argumentsSet " . $setName . ": "  . $values;
+    function argumentsSet($setName) {
+        return "argumentsSet " . $setName;
     }
 
     expectedArguments(\count(), 1, COUNT_NORMAL, COUNT_RECURSIVE);
@@ -122,6 +122,7 @@ namespace PHPSTORM_META {
 	expectedArguments(\htmlspecialchars(), 2, 'ISO-8859-1', 'ISO-8859-5', 'ISO-8859-15', 'UTF-8', 'cp866', 'cp1251', 'cp1252', 'KOI8-R', 'BIG5', 'GB2312', 'BIG5-HKSCS', 'Shift_JIS', 'EUC-JP', 'MacRoman');
 	expectedArguments(\html_entity_decode(), 1, ENT_COMPAT | ENT_QUOTES | ENT_NOQUOTES | ENT_HTML401 | ENT_XML1 | ENT_XHTML | ENT_HTML5);
 	expectedArguments(\html_entity_decode(), 2, 'ISO-8859-1', 'ISO-8859-5', 'ISO-8859-15', 'UTF-8', 'cp866', 'cp1251', 'cp1252', 'KOI8-R', 'BIG5', 'GB2312', 'BIG5-HKSCS', 'Shift_JIS', 'EUC-JP', 'MacRoman');
+    expectedArguments(\htmlspecialchars_decode(), 1, ENT_COMPAT | ENT_QUOTES | ENT_NOQUOTES | ENT_HTML401 | ENT_XML1 | ENT_XHTML | ENT_HTML5);
 
     expectedArguments(\iconv_mime_decode(), 1, ICONV_MIME_DECODE_STRICT,ICONV_MIME_DECODE_CONTINUE_ON_ERROR);
     expectedArguments(\iconv_mime_decode_headers(), 1, ICONV_MIME_DECODE_STRICT,ICONV_MIME_DECODE_CONTINUE_ON_ERROR);
@@ -195,12 +196,14 @@ namespace PHPSTORM_META {
 
     expectedArguments(\FilesystemIterator::setFlags(), 0, \FilesystemIterator::CURRENT_MODE_MASK,\FilesystemIterator::CURRENT_AS_PATHNAME,\FilesystemIterator::CURRENT_AS_FILEINFO,\FilesystemIterator::CURRENT_AS_SELF,\FilesystemIterator::KEY_MODE_MASK,\FilesystemIterator::KEY_AS_PATHNAME,\FilesystemIterator::FOLLOW_SYMLINKS,\FilesystemIterator::KEY_AS_FILENAME,\FilesystemIterator::NEW_CURRENT_AND_KEY,\FilesystemIterator::SKIP_DOTS,\FilesystemIterator::UNIX_PATHS,\FilesystemIterator::OTHER_MODE_MASK);
 
-    expectedArguments(\SplFileObject::setFlags(), 0, \SplFileObject::DROP_NEW_LINE|\SplFileObject::READ_AHEAD|\SplFileObject::SKIP_EMPTY|\SplFileObject::READ_CSV);
+    registerArgumentsSet("splFileObjectFlags", \SplFileObject::DROP_NEW_LINE|\SplFileObject::READ_AHEAD|\SplFileObject::SKIP_EMPTY|\SplFileObject::READ_CSV);
+    expectedArguments(\SplFileObject::setFlags(), 0, argumentsSet("splFileObjectFlags"));
     expectedArguments(\SplDoublyLinkedList::setIteratorMode(), 0, \SplDoublyLinkedList::IT_MODE_LIFO|\SplDoublyLinkedList::IT_MODE_FIFO|\SplDoublyLinkedList::IT_MODE_DELETE|\SplDoublyLinkedList::IT_MODE_KEEP);
     expectedArguments(\SplQueue::setIteratorMode(), 0, \SplDoublyLinkedList::IT_MODE_LIFO|\SplDoublyLinkedList::IT_MODE_FIFO|\SplDoublyLinkedList::IT_MODE_DELETE|\SplDoublyLinkedList::IT_MODE_KEEP);
     expectedArguments(\SplStack::setIteratorMode(), 0, \SplDoublyLinkedList::IT_MODE_LIFO|\SplDoublyLinkedList::IT_MODE_FIFO|\SplDoublyLinkedList::IT_MODE_DELETE|\SplDoublyLinkedList::IT_MODE_KEEP);
     expectedArguments(\SplPriorityQueue::setExtractFlags(), 0, \SplPriorityQueue::EXTR_DATA,\SplPriorityQueue::EXTR_PRIORITY,\SplPriorityQueue::EXTR_BOTH);
-    expectedArguments(\MultipleIterator::setFlags(), 0, \MultipleIterator::MIT_NEED_ANY|\MultipleIterator::MIT_NEED_ALL|\MultipleIterator::MIT_KEYS_NUMERIC|\MultipleIterator::MIT_KEYS_ASSOC);
+    registerArgumentsSet("multipleIteratorFlags", \MultipleIterator::MIT_NEED_ANY|\MultipleIterator::MIT_NEED_ALL|\MultipleIterator::MIT_KEYS_NUMERIC|\MultipleIterator::MIT_KEYS_ASSOC);
+    expectedArguments(\MultipleIterator::setFlags(), 0, argumentsSet("multipleIteratorFlags"));
 
     expectedArguments(\SQLite3::open(), 1, SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE|SQLITE3_OPEN_READONLY);
     expectedArguments(\SQLite3::createFunction(), 3, SQLITE3_DETERMINISTIC);
@@ -212,6 +215,7 @@ namespace PHPSTORM_META {
     expectedArguments(\htmlspecialchars(), 1, ENT_COMPAT|ENT_QUOTES|ENT_NOQUOTES|ENT_IGNORE|ENT_SUBSTITUTE|ENT_DISALLOWED|ENT_HTML401|ENT_XML1|ENT_XHTML|ENT_HTML5);
     expectedArguments(\imagecropauto(), 1, IMG_CROP_BLACK,IMG_CROP_DEFAULT,IMG_CROP_SIDES,IMG_CROP_THRESHOLD,IMG_CROP_TRANSPARENT,IMG_CROP_WHITE);
     expectedArguments(\srand(), 1, MT_RAND_MT19937,MT_RAND_PHP);
+    expectedArguments(\mt_srand(), 1, MT_RAND_MT19937,MT_RAND_PHP);
     expectedArguments(\round(), 2, PHP_ROUND_HALF_UP,PHP_ROUND_HALF_DOWN,PHP_ROUND_HALF_EVEN,PHP_ROUND_HALF_ODD);
     expectedArguments(\file_put_contents(), 2, FILE_USE_INCLUDE_PATH|FILE_APPEND|LOCK_EX);
     expectedArguments(\stream_socket_client(), 4, STREAM_CLIENT_CONNECT|STREAM_CLIENT_ASYNC_CONNECT|STREAM_CLIENT_PERSISTENT);
@@ -414,6 +418,34 @@ namespace PHPSTORM_META {
     expectedArguments(\debug_backtrace(), 0, DEBUG_BACKTRACE_PROVIDE_OBJECT|DEBUG_BACKTRACE_IGNORE_ARGS);
 
     expectedArguments(\geoip_database_info(), 0, GEOIP_COUNTRY_EDITION);
+    expectedArguments(\count_chars(), 1, 0, 1, 2, 3, 4);
+    expectedArguments(\cubrid_fetch_array(), 1, CUBRID_NUM, CUBRID_ASSOC, CUBRID_BOTH);
+    expectedArguments(\imagelayereffect(), 1, IMG_EFFECT_REPLACE, IMG_EFFECT_ALPHABLEND, IMG_EFFECT_NORMAL, IMG_EFFECT_OVERLAY, IMG_EFFECT_MULTIPLY);
+    expectedArguments(\db2_autocommit(), 1, DB2_AUTOCOMMIT_OFF, DB2_AUTOCOMMIT_ON);
+
+    registerArgumentsSet("mysqliOptions", MYSQLI_OPT_CONNECT_TIMEOUT, MYSQLI_OPT_LOCAL_INFILE, MYSQLI_INIT_COMMAND, MYSQLI_READ_DEFAULT_FILE, MYSQLI_READ_DEFAULT_GROUP, MYSQLI_SERVER_PUBLIC_KEY, MYSQLI_OPT_NET_CMD_BUFFER_SIZE, MYSQLI_OPT_NET_READ_BUFFER_SIZE, MYSQLI_OPT_INT_AND_FLOAT_NATIVE, MYSQLI_OPT_SSL_VERIFY_SERVER_CERT);
+    expectedArguments(\mysqli::options(), 0, argumentsSet("mysqliOptions"));
+    expectedArguments(\mysqli_options(), 1, argumentsSet("mysqliOptions"));
+
+    registerArgumentsSet("mysqliAttributesSet", MYSQLI_STMT_ATTR_UPDATE_MAX_LENGTH, MYSQLI_STMT_ATTR_CURSOR_TYPE, MYSQLI_STMT_ATTR_PREFETCH_ROWS);
+    expectedArguments(\mysqli_stmt::attr_set(), 0, argumentsSet("mysqliAttributesSet"));
+    expectedArguments(\mysqli_stmt_attr_set(), 1, argumentsSet("mysqliAttributesSet"));
+
+    expectedArguments(\oci_execute(), 1, OCI_COMMIT_ON_SUCCESS, OCI_DESCRIBE_ONLY, OCI_NO_AUTO_COMMIT);
+    expectedArguments(\SolrClient::setServlet(), 0, \SolrClient::SEARCH_SERVLET_TYPE, \SolrClient::UPDATE_SERVLET_TYPE, \SolrClient::THREADS_SERVLET_TYPE, \SolrClient::PING_SERVLET_TYPE, \SolrClient::TERMS_SERVLET_TYPE);
+    expectedArguments(\stream_socket_shutdown(), 1, STREAM_SHUT_RD, STREAM_SHUT_WR, STREAM_SHUT_RDWR);
+
+    function expectedReturnValues($functionReference, $values) {
+        return "expectedReturnValues " . $functionReference . ": " . $values;
+    }
+    expectedReturnValues(\fseek(), 0, -1);
+    expectedReturnValues(\SplFileObject::getFlags(), argumentsSet("splFileObjectFlags"));
+    expectedReturnValues(\MultipleIterator::getFlags(), argumentsSet("multipleIteratorFlags"));
+    expectedReturnValues(\json_last_error(), JSON_ERROR_NONE, JSON_ERROR_DEPTH, JSON_ERROR_STATE_MISMATCH, JSON_ERROR_CTRL_CHAR, JSON_ERROR_SYNTAX, JSON_ERROR_UTF8, JSON_ERROR_RECURSION, JSON_ERROR_INF_OR_NAN, JSON_ERROR_UNSUPPORTED_TYPE, JSON_ERROR_INVALID_PROPERTY_NAME, JSON_ERROR_UTF16);
+    expectedReturnValues(\preg_last_error(), PREG_NO_ERROR,PREG_INTERNAL_ERROR,PREG_BACKTRACK_LIMIT_ERROR,PREG_RECURSION_LIMIT_ERROR,PREG_BAD_UTF8_ERROR,PREG_BAD_UTF8_OFFSET_ERROR);
+
+    expectedArguments(\password_hash(), 1, PASSWORD_DEFAULT, PASSWORD_BCRYPT, PASSWORD_ARGON2I, PASSWORD_ARGON2ID);
+    expectedArguments(\password_needs_rehash(), 1, PASSWORD_DEFAULT, PASSWORD_BCRYPT, PASSWORD_ARGON2I, PASSWORD_ARGON2ID);
 
 //  override( \ServiceLocatorInterface::get(0),
 //    map( [

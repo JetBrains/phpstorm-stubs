@@ -957,7 +957,10 @@ function str_rot13($str) { }
 function stream_get_filters() { }
 
 /**
+ * Check if a stream is a TTY
+ * @link https://php.net/manual/en/function.stream-isatty.php
  * @param resource $name
+ * @return bool
  * @since 7.2
  */
 function stream_isatty($name) {}

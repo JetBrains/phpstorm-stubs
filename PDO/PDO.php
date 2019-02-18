@@ -1193,6 +1193,7 @@ class PDOStatement implements Traversable {
 	 * fail and an error is emitted.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @throws \PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
 	 */
 	public function execute ($input_parameters = null) {}
 
