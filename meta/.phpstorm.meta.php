@@ -122,7 +122,6 @@ namespace PHPSTORM_META {
 	expectedArguments(\htmlspecialchars(), 2, 'ISO-8859-1', 'ISO-8859-5', 'ISO-8859-15', 'UTF-8', 'cp866', 'cp1251', 'cp1252', 'KOI8-R', 'BIG5', 'GB2312', 'BIG5-HKSCS', 'Shift_JIS', 'EUC-JP', 'MacRoman');
 	expectedArguments(\html_entity_decode(), 1, ENT_COMPAT | ENT_QUOTES | ENT_NOQUOTES | ENT_HTML401 | ENT_XML1 | ENT_XHTML | ENT_HTML5);
 	expectedArguments(\html_entity_decode(), 2, 'ISO-8859-1', 'ISO-8859-5', 'ISO-8859-15', 'UTF-8', 'cp866', 'cp1251', 'cp1252', 'KOI8-R', 'BIG5', 'GB2312', 'BIG5-HKSCS', 'Shift_JIS', 'EUC-JP', 'MacRoman');
-    expectedArguments(\htmlspecialchars_decode(), 1, ENT_COMPAT | ENT_QUOTES | ENT_NOQUOTES | ENT_HTML401 | ENT_XML1 | ENT_XHTML | ENT_HTML5);
 
     expectedArguments(\iconv_mime_decode(), 1, ICONV_MIME_DECODE_STRICT,ICONV_MIME_DECODE_CONTINUE_ON_ERROR);
     expectedArguments(\iconv_mime_decode_headers(), 1, ICONV_MIME_DECODE_STRICT,ICONV_MIME_DECODE_CONTINUE_ON_ERROR);
@@ -196,14 +195,12 @@ namespace PHPSTORM_META {
 
     expectedArguments(\FilesystemIterator::setFlags(), 0, \FilesystemIterator::CURRENT_MODE_MASK,\FilesystemIterator::CURRENT_AS_PATHNAME,\FilesystemIterator::CURRENT_AS_FILEINFO,\FilesystemIterator::CURRENT_AS_SELF,\FilesystemIterator::KEY_MODE_MASK,\FilesystemIterator::KEY_AS_PATHNAME,\FilesystemIterator::FOLLOW_SYMLINKS,\FilesystemIterator::KEY_AS_FILENAME,\FilesystemIterator::NEW_CURRENT_AND_KEY,\FilesystemIterator::SKIP_DOTS,\FilesystemIterator::UNIX_PATHS,\FilesystemIterator::OTHER_MODE_MASK);
 
-    registerArgumentsSet("splFileObjectFlags", \SplFileObject::DROP_NEW_LINE|\SplFileObject::READ_AHEAD|\SplFileObject::SKIP_EMPTY|\SplFileObject::READ_CSV);
-    expectedArguments(\SplFileObject::setFlags(), 0, argumentsSet("splFileObjectFlags"));
+    expectedArguments(\SplFileObject::setFlags(), 0, \SplFileObject::DROP_NEW_LINE|\SplFileObject::READ_AHEAD|\SplFileObject::SKIP_EMPTY|\SplFileObject::READ_CSV);
     expectedArguments(\SplDoublyLinkedList::setIteratorMode(), 0, \SplDoublyLinkedList::IT_MODE_LIFO|\SplDoublyLinkedList::IT_MODE_FIFO|\SplDoublyLinkedList::IT_MODE_DELETE|\SplDoublyLinkedList::IT_MODE_KEEP);
     expectedArguments(\SplQueue::setIteratorMode(), 0, \SplDoublyLinkedList::IT_MODE_LIFO|\SplDoublyLinkedList::IT_MODE_FIFO|\SplDoublyLinkedList::IT_MODE_DELETE|\SplDoublyLinkedList::IT_MODE_KEEP);
     expectedArguments(\SplStack::setIteratorMode(), 0, \SplDoublyLinkedList::IT_MODE_LIFO|\SplDoublyLinkedList::IT_MODE_FIFO|\SplDoublyLinkedList::IT_MODE_DELETE|\SplDoublyLinkedList::IT_MODE_KEEP);
     expectedArguments(\SplPriorityQueue::setExtractFlags(), 0, \SplPriorityQueue::EXTR_DATA,\SplPriorityQueue::EXTR_PRIORITY,\SplPriorityQueue::EXTR_BOTH);
-    registerArgumentsSet("multipleIteratorFlags", \MultipleIterator::MIT_NEED_ANY|\MultipleIterator::MIT_NEED_ALL|\MultipleIterator::MIT_KEYS_NUMERIC|\MultipleIterator::MIT_KEYS_ASSOC);
-    expectedArguments(\MultipleIterator::setFlags(), 0, argumentsSet("multipleIteratorFlags"));
+    expectedArguments(\MultipleIterator::setFlags(), 0, \MultipleIterator::MIT_NEED_ANY|\MultipleIterator::MIT_NEED_ALL|\MultipleIterator::MIT_KEYS_NUMERIC|\MultipleIterator::MIT_KEYS_ASSOC);
 
     expectedArguments(\SQLite3::open(), 1, SQLITE3_OPEN_READWRITE|SQLITE3_OPEN_CREATE|SQLITE3_OPEN_READONLY);
     expectedArguments(\SQLite3::createFunction(), 3, SQLITE3_DETERMINISTIC);
@@ -215,7 +212,6 @@ namespace PHPSTORM_META {
     expectedArguments(\htmlspecialchars(), 1, ENT_COMPAT|ENT_QUOTES|ENT_NOQUOTES|ENT_IGNORE|ENT_SUBSTITUTE|ENT_DISALLOWED|ENT_HTML401|ENT_XML1|ENT_XHTML|ENT_HTML5);
     expectedArguments(\imagecropauto(), 1, IMG_CROP_BLACK,IMG_CROP_DEFAULT,IMG_CROP_SIDES,IMG_CROP_THRESHOLD,IMG_CROP_TRANSPARENT,IMG_CROP_WHITE);
     expectedArguments(\srand(), 1, MT_RAND_MT19937,MT_RAND_PHP);
-    expectedArguments(\mt_srand(), 1, MT_RAND_MT19937,MT_RAND_PHP);
     expectedArguments(\round(), 2, PHP_ROUND_HALF_UP,PHP_ROUND_HALF_DOWN,PHP_ROUND_HALF_EVEN,PHP_ROUND_HALF_ODD);
     expectedArguments(\file_put_contents(), 2, FILE_USE_INCLUDE_PATH|FILE_APPEND|LOCK_EX);
     expectedArguments(\stream_socket_client(), 4, STREAM_CLIENT_CONNECT|STREAM_CLIENT_ASYNC_CONNECT|STREAM_CLIENT_PERSISTENT);
@@ -417,7 +413,7 @@ namespace PHPSTORM_META {
     expectedArguments(\debug_print_backtrace(), 0, DEBUG_BACKTRACE_IGNORE_ARGS);
     expectedArguments(\debug_backtrace(), 0, DEBUG_BACKTRACE_PROVIDE_OBJECT|DEBUG_BACKTRACE_IGNORE_ARGS);
 
-    expectedArguments(\geoip_database_info(), 0, GEOIP_COUNTRY_EDITION);
+    expectedArguments(\geoip_database_info(), 0, GEOIP_COUNTRY_EDITION,GEOIP_REGION_EDITION_REV0,GEOIP_CITY_EDITION_REV0,GEOIP_ORG_EDITION,GEOIP_ISP_EDITION,GEOIP_CITY_EDITION_REV1,GEOIP_REGION_EDITION_REV1,GEOIP_PROXY_EDITION,GEOIP_ASNUM_EDITION,GEOIP_NETSPEED_EDITION,GEOIP_DOMAIN_EDITION);
     expectedArguments(\count_chars(), 1, 0, 1, 2, 3, 4);
     expectedArguments(\cubrid_fetch_array(), 1, CUBRID_NUM, CUBRID_ASSOC, CUBRID_BOTH);
     expectedArguments(\imagelayereffect(), 1, IMG_EFFECT_REPLACE, IMG_EFFECT_ALPHABLEND, IMG_EFFECT_NORMAL, IMG_EFFECT_OVERLAY, IMG_EFFECT_MULTIPLY);
