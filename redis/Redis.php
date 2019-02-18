@@ -564,7 +564,7 @@ class Redis
      * $redis->exists(['foo', 'bar', 'baz]); // 3
      * $redis->exists('foo', 'bar', 'baz'); // 3
      * </pre>
-     * 
+     *
      * This function took a single argument and returned TRUE or FALSE in phpredis versions < 4.0.0.
      */
     public function exists( $key ) {}
@@ -800,9 +800,8 @@ class Redis
      * Il all the list identified by the keys passed in arguments are empty, blPop will block
      * during the specified timeout until an element is pushed to one of those lists. This element will be popped.
      *
-     * @param array $keys    Array containing the keys of the lists
-     * Or STRING Key1 STRING Key2 STRING Key3 ... STRING Keyn
-     * @param int   $timeout Timeout
+     * @param string|string[] $keys    String array containing the keys of the lists OR variadic list of strings
+     * @param int             $timeout Timeout is always the required final parameter
      *
      * @return  array array('listName', 'element')
      * @link    https://redis.io/commands/blpop
@@ -834,7 +833,7 @@ class Redis
      * // array('key1', 'A') is returned
      * </pre>
      */
-    public function blPop( array $keys, $timeout) {}
+    public function blPop($keys, $timeout) {}
 
     /**
      * Is a blocking rPop primitive. If at least one of the lists contains at least one element,
@@ -843,9 +842,8 @@ class Redis
      * block during the specified timeout until an element is pushed to one of those lists. T
      * his element will be popped.
      *
-     * @param array $keys    Array containing the keys of the lists
-     * Or STRING Key1 STRING Key2 STRING Key3 ... STRING Keyn
-     * @param int   $timeout Timeout
+     * @param string|string[] $keys String array containing the keys of the lists OR variadic list of strings
+     * @param int             $timeout Timeout is always the required final parameter
      * @return  array array('listName', 'element')
      * @link    https://redis.io/commands/brpop
      * @example
@@ -876,7 +874,7 @@ class Redis
      * // array('key1', 'A') is returned
      * </pre>
      */
-    public function brPop( array $keys, $timeout ) {}
+    public function brPop($keys, $timeout ) {}
 
 
     /**
