@@ -1147,7 +1147,7 @@ class DOMNodeList implements Traversable, Countable {
 	 * @param int $index <p>
 	 * Index of the node into the collection.
 	 * </p>
-	 * @return DOMElement The node at the indexth position in the 
+	 * @return DOMNode|null The node at the indexth position in the 
 	 * DOMNodeList, or &null; if that is not a valid
 	 * index.
 	 * @since 5.0
