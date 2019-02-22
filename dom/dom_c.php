@@ -977,11 +977,11 @@ class DOMDocument extends DOMNode  {
     /**
      * Creates a new DOMDocument object
      * @link https://php.net/manual/domdocument.construct.php
-     * @param $version [optional] The version number of the document as part of the XML declaration.
-     * @param $encoding [optional] The encoding of the document as part of the XML declaration.
+     * @param string $version [optional] The version number of the document as part of the XML declaration.
+     * @param string $encoding [optional] The encoding of the document as part of the XML declaration.
      * @since 5.0
      */
-    public function __construct ($version, $encoding) {}
+    public function __construct ($version = '', $encoding = '') {}
 
     /**
      * Validates the document based on its DTD
