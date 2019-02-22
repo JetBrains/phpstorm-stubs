@@ -1539,7 +1539,7 @@ class PDOStatement implements Traversable {
 	 * @param array $ctorarfg [optional] <p> Constructor arguments. </p>
 	 * @return bool 1 on success or <b>FALSE</b> on failure.
 	 */
-	public function setFetchMode ($mode, $classNameObject = null, $ctorarfg = array()) {}
+	public function setFetchMode ($mode, $classNameObject = null, array $ctorarfg = array()) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
