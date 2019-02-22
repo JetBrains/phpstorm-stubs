@@ -263,7 +263,7 @@ function session_unset () {}
  * @since 4.0
  * @since 5.0
  */
-function session_set_save_handler ($open, $close, $read, $write, $destroy, $gc, $create_sid, $validate_sid,  $update_timestamp) {}
+function session_set_save_handler ($open, $close, $read, $write, $destroy, $gc, $create_sid = null, $validate_sid = null,  $update_timestamp = null) {}
 
 /**
  * (PHP 5.4)<br/>
