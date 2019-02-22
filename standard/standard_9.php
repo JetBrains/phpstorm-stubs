@@ -772,13 +772,13 @@ function pos(&$arg) { }
 /**
  * &Alias; <function>count</function>
  * @link https://php.net/manual/en/function.sizeof.php
- * @param $var
- * @param $mode [optional]
+ * @param array|Countable $var
+ * @param int $mode [optional]
  * @return int
  * @since 4.0
  * @since 5.0
  */
-function sizeof($var, $mode) { }
+function sizeof($var, $mode = COUNT_NORMAL) { }
 
 /**
  * Checks if the given key or index exists in the array. The name of this function is array_key_exists() in PHP > 4.0.6.
