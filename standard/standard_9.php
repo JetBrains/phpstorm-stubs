@@ -807,7 +807,7 @@ function key_exists($key, $search) { }
  * @since 4.0
  * @since 5.0
  */
-function assert($assertion, $description) { }
+function assert($assertion, $description = '') { }
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
