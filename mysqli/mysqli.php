@@ -138,12 +138,12 @@ class mysqli  {
 	 * @since 5.0
 	 */
 	public function __construct (
-		$host,
-		$username,
-		$passwd,
-		$dbname,
-		$port,
-		$socket
+		$host = null,
+		$username = null,
+		$passwd = null,
+		$dbname = null,
+		$port = null,
+		$socket = null
 	) {}
 
 	/**
