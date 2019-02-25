@@ -893,7 +893,7 @@ function fwrite ($handle, $string, $length = null) {}
  * @since 4.0
  * @since 5.0
  */
-function fputs ($handle, $string, $length) {}
+function fputs ($handle, $string, $length = null) {}
 
 /**
  * Attempts to create the directory specified by pathname.
