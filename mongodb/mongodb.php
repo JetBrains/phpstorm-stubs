@@ -104,6 +104,7 @@ namespace MongoDB {}
              * @throws RuntimeException on other errors (invalid command, command arguments, ...)
              * @throws WriteException on Write Error
              * @throws WriteConcernException on Write Concern failure
+             * @since 1.4.0
              */
             final public function executeReadCommand($db, Command $command, array $options = [])
             {
@@ -121,6 +122,7 @@ namespace MongoDB {}
              * @throws RuntimeException on other errors (invalid command, command arguments, ...)
              * @throws WriteException on Write Error
              * @throws WriteConcernException on Write Concern failure
+             * @since 1.4.0
              */
             final public function executeReadWriteCommand($db, Command $command, array $options = [])
             {
@@ -138,6 +140,7 @@ namespace MongoDB {}
              * @throws RuntimeException on other errors (invalid command, command arguments, ...)
              * @throws WriteException on Write Error
              * @throws WriteConcernException on Write Concern failure
+             * @since 1.4.0
              */
             final public function executeWriteCommand($db, Command $command, array $options = [])
             {
