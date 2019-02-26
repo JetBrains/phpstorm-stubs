@@ -54,6 +54,7 @@ namespace MongoDB {}
              * @param BulkWrite $bulk The MongoDB\Driver\BulkWrite to execute.
              * @param array $options
              * @return WriteResult
+             * @since 1.4.0 added $options argument, removed $writeConcern argument
              */
             final public function executeBulkWrite($namespace, BulkWrite $bulk, array $options = [])
             {
@@ -71,6 +72,7 @@ namespace MongoDB {}
              * @throws RuntimeException on other errors (invalid command, command arguments, ...)
              * @throws WriteException on Write Error
              * @throws WriteConcernException on Write Concern failure
+             * @since 1.4.0 added $options argument, removed $readPreference argument
              */
             final public function executeCommand($db, Command $command, array $options = [])
             {
@@ -87,6 +89,7 @@ namespace MongoDB {}
              * @throws AuthenticationException if authentication is needed and fails
              * @throws ConnectionException if connection to the server fails for other then authentication reasons
              * @throws RuntimeException on other errors (invalid command, command arguments, ...)
+             * @since 1.4.0 added $options argument, removed $readPreference argument
              */
             final public function executeQuery($namespace, Query $query, array $options = [])
             {
