@@ -185,7 +185,7 @@ function pack ($format, $args = null, $_ = null) {}
  * @since 4.0
  * @since 5.0
  */
-function unpack ($format, $data, $offset) {}
+function unpack ($format, $data, $offset = 0) {}
 
 /**
  * Tells what the user's browser is capable of
