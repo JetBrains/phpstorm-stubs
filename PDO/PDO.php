@@ -838,7 +838,7 @@ class PDO  {
 	 * @param array $options [optional]
 	 * @throws PDOException if the attempt to connect to the requested database fails.
 	 */
-	public function __construct ($dsn, $username, $passwd, $options) {}
+	public function __construct ($dsn, $username = null, $passwd = null, $options = null) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
