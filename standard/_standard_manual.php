@@ -55,4 +55,4 @@ function fastcgi_finish_request() {};
  * @param int $response_code [optional] The optional response_code will set the response code.
  * @return int The current response code. By default the return value is int(200).
  */
-function http_response_code($response_code) {}
+function http_response_code($response_code = null) {}
