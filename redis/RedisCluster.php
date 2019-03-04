@@ -2678,11 +2678,12 @@ class RedisCluster {
     /**
      * Scan the keyspace for keys.
      *
-     * @param  int    $iterator Iterator, initialized to NULL.
-     * @param  string $pattern  Pattern to match.
-     * @param  int    $count    Count of keys per iteration (only a suggestion to Redis).
+     * @param  int          &$iterator Iterator, initialized to NULL.
+     * @param  string|array $node      Node identified by key or host/port array
+     * @param  string       $pattern   Pattern to match.
+     * @param  int          $count     Count of keys per iteration (only a suggestion to Redis).
      *
-     * @return array            This function will return an array of keys or FALSE if there are no more keys.
+     * @return array|false             This function will return an array of keys or FALSE if there are no more keys.
      * @link   https://redis.io/commands/scan
      * @example
      * <pre>
@@ -2694,7 +2695,7 @@ class RedisCluster {
      * }
      * </pre>
      */
-    public function scan(&$iterator, $pattern = null, $count = 0) { }
+    public function scan(&$iterator, $node, $pattern = null, $count = 0) { }
 
     /**
      * Scan a set for members.

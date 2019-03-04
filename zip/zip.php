@@ -551,7 +551,7 @@ class ZipArchive  {
 	 * If flags is set to <b>ZipArchive::FL_UNCHANGED</b>, the original unchanged
 	 * comment is returned.
 	 * </p>
-	 * @return string the Zip archive comment or <b>FALSE</b> on failure.
+	 * @return string|false the Zip archive comment or <b>FALSE</b> on failure.
 	 */
 	public function getArchiveComment ($flags = null) {}
 
@@ -645,7 +645,7 @@ class ZipArchive  {
 	 * If flags is set to <b>ZipArchive::FL_UNCHANGED</b>, the original unchanged
 	 * comment is returned.
 	 * </p>
-	 * @return string the comment on success or <b>FALSE</b> on failure.
+	 * @return string|false the comment on success or <b>FALSE</b> on failure.
 	 */
 	public function getCommentIndex ($index, $flags = null) {}
 
@@ -701,7 +701,7 @@ class ZipArchive  {
 	 * <p>
 	 * <b>ZipArchive::FL_NOCASE</b>
 	 * </p>
-	 * @return array an array containing the entry details or <b>FALSE</b> on failure.
+	 * @return array|false an array containing the entry details or <b>FALSE</b> on failure.
 	 */
 	public function statName ($name, $flags = null) {}
 
@@ -717,7 +717,7 @@ class ZipArchive  {
 	 * information about the original file in the archive,
 	 * ignoring any changes made.
 	 * </p>
-	 * @return array an array containing the entry details or <b>FALSE</b> on failure.
+	 * @return array|false an array containing the entry details or <b>FALSE</b> on failure.
 	 */
 	public function statIndex ($index, $flags = null) {}
 
@@ -734,7 +734,7 @@ class ZipArchive  {
 	 * <p>
 	 * <b>ZipArchive::FL_NOCASE</b>
 	 * </p>
-	 * @return int the index of the entry on success or <b>FALSE</b> on failure.
+	 * @return int|false the index of the entry on success or <b>FALSE</b> on failure.
 	 */
 	public function locateName ($name, $flags = null) {}
 
@@ -749,7 +749,7 @@ class ZipArchive  {
 	 * If flags is set to <b>ZipArchive::FL_UNCHANGED</b>, the original unchanged
 	 * name is returned.
 	 * </p>
-	 * @return string the name on success or <b>FALSE</b> on failure.
+	 * @return string|false the name on success or <b>FALSE</b> on failure.
 	 */
 	public function getNameIndex ($index, $flags = null) {}
 
@@ -823,7 +823,7 @@ class ZipArchive  {
 	 * <p>
 	 * <b>ZipArchive::FL_UNCHANGED</b>
 	 * </p>
-	 * @return string the contents of the entry on success or <b>FALSE</b> on failure.
+	 * @return string|false the contents of the entry on success or <b>FALSE</b> on failure.
 	 */
 	public function getFromName ($name, $length = 0, $flags = null) {}
 
@@ -844,7 +844,7 @@ class ZipArchive  {
 	 * <p>
 	 * <b>ZipArchive::FL_UNCHANGED</b>
 	 * </p>
-	 * @return string the contents of the entry on success or <b>FALSE</b> on failure.
+	 * @return string|false the contents of the entry on success or <b>FALSE</b> on failure.
 	 */
 	public function getFromIndex ($index, $length = 0, $flags = null) {}
 
@@ -953,7 +953,7 @@ function zip_entry_close ($zip_entry) {}
  * <p>
  * This should be the uncompressed length you wish to read.
  * </p>
- * @return string the data read, empty string on end of a file, or <b>FALSE</b> on error.
+ * @return string|false the data read, empty string on end of a file, or <b>FALSE</b> on error.
  */
 function zip_entry_read ($zip_entry, $length = 1024) {}
 
