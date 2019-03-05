@@ -307,7 +307,7 @@ function chop ($str, $character_mask) {}
  * @param bool $part [optional] If TRUE, strstr() returns the part of the haystack before the first occurrence of the needle (excluding the needle).
  * @return string Returns the portion of string, or FALSE if needle is not found.
  */
-function strchr ($haystack, $needle, $part) {}
+function strchr ($haystack, $needle, $part = false) {}
 
 /**
  * Return a formatted string
