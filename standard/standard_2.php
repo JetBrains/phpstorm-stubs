@@ -993,7 +993,7 @@ function srand ($seed = null, $mode = MT_RAND_MT19937) {}
 function getrandmax () {}
 
 /**
- * Generate a better random value
+ * Generate a random value via the Mersenne Twister Random Number Generator
  * @link https://php.net/manual/en/function.mt-rand.php
  * @param $min [optional]
  * @param $max [optional]
@@ -1002,7 +1002,7 @@ function getrandmax () {}
  * @since 4.0
  * @since 5.0
  */
-function mt_rand ($min, $max) {}
+function mt_rand ($min = 0, $max = null) {}
 
 /**
  * Seed the better random number generator
