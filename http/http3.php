@@ -159,7 +159,7 @@ class Client implements \SplSubject, \Countable {
 	 * @throws http\Exception\InvalidArgumentException
 	 * @throws http\Exception\UnexpectedValueException
 	 * @return http\Client self.
-	 * @@deprecated
+	 * @deprecated
 	 */
 	function enableEvents($enable = true) {}
 	/**
@@ -172,7 +172,7 @@ class Client implements \SplSubject, \Countable {
 	 * @throws http\Exception\InvalidArgumentException
 	 * @throws http\Exception\UnexpectedValueException
 	 * @return http\Client self.
-	 * @@deprecated
+	 * @deprecated
 	 */
 	function enablePipelining($enable = true) {}
 	/**
