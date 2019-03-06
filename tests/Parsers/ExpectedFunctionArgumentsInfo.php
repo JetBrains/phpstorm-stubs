@@ -14,16 +14,22 @@ class ExpectedFunctionArgumentsInfo
      * @var Expr[]
      */
     private $expectedArguments;
+    /**
+     * @var int
+     */
+    private $index;
 
     /**
      * ExpectedFunctionArgumentsInfo constructor.
      * @param Expr $functionReference
      * @param Expr[] $expectedArguments
+     * @param int $index
      */
-    public function __construct(?Expr $functionReference, array $expectedArguments)
+    public function __construct(?Expr $functionReference, array $expectedArguments, int $index)
     {
         $this->functionReference = $functionReference;
         $this->expectedArguments = $expectedArguments;
+        $this->index = $index;
     }
 
 
@@ -57,6 +63,14 @@ class ExpectedFunctionArgumentsInfo
     public function setExpectedArguments(array $expectedArguments): void
     {
         $this->expectedArguments = $expectedArguments;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIndex(): int
+    {
+        return $this->index;
     }
 
     public function __toString()
