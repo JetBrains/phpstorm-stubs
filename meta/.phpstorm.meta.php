@@ -130,6 +130,32 @@ namespace PHPSTORM_META {
     expectedArguments(\Imagick::setImageAlphaChannel(), 0, \Imagick::ALPHACHANNEL_ACTIVATE,\Imagick::ALPHACHANNEL_BACKGROUND,\Imagick::ALPHACHANNEL_COPY,\Imagick::ALPHACHANNEL_DEACTIVATE,\Imagick::ALPHACHANNEL_EXTRACT,\Imagick::ALPHACHANNEL_FLATTEN,\Imagick::ALPHACHANNEL_DEACTIVATE,\Imagick::ALPHACHANNEL_OPAQUE,\Imagick::ALPHACHANNEL_REMOVE,\Imagick::ALPHACHANNEL_RESET,\Imagick::ALPHACHANNEL_SET,\Imagick::ALPHACHANNEL_SHAPE,\Imagick::ALPHACHANNEL_TRANSPARENT,\Imagick::ALPHACHANNEL_UNDEFINED); //todo introduce byPrefix
     expectedArguments(\Imagick::montageImage(), 3, \Imagick::MONTAGEMODE_FRAME,\Imagick::MONTAGEMODE_UNFRAME,\Imagick::MONTAGEMODE_CONCATENATE);
 
+    registerArgumentsSet('imagetypes',
+        IMAGETYPE_GIF,
+        IMAGETYPE_JPEG,
+        IMAGETYPE_PNG,
+        IMAGETYPE_SWF,
+        IMAGETYPE_PSD,
+        IMAGETYPE_BMP,
+        IMAGETYPE_TIFF_II,
+        IMAGETYPE_TIFF_MM,
+        IMAGETYPE_JPC,
+        IMAGETYPE_JP2,
+        IMAGETYPE_JPX,
+        IMAGETYPE_JB2,
+        IMAGETYPE_SWC,
+        IMAGETYPE_IFF,
+        IMAGETYPE_WBMP,
+        IMAGETYPE_XBM,
+        IMAGETYPE_ICO,
+        IMAGETYPE_WEBP
+    );
+    expectedArguments(\image_type_to_extension(), 0, argumentsSet('imagetypes'));
+    expectedArguments(\image_type_to_mime_type(), 0, argumentsSet('imagetypes'));
+    expectedReturnValues(\exif_imagetype(), argumentsSet('imagetypes'));
+    
+    expectedArguments(\exif_read_data(), 1, 'FILE', 'COMPUTED', 'ANY_TAG', 'IFD0', 'THUMBNAIL', 'COMMENT', 'EXIF');
+
     expectedArguments(\imap_close(), 1, CL_EXPUNGE);
     expectedArguments(\event_base_loop(), 1, EVLOOP_ONCE|EVLOOP_NONBLOCK);
     expectedArguments(\mb_convert_case(), 1, MB_CASE_UPPER,MB_CASE_LOWER,MB_CASE_TITLE);
