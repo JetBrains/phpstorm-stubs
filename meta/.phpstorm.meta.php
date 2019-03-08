@@ -50,6 +50,14 @@ namespace PHPSTORM_META {
   override(\array_filter(0), type(0));
   override(\array_reduce(0), elementType(0));
   override(\array_slice(0), type(0));
+  override(\array_diff(0), type(0));
+  override(\array_diff_assoc(0), type(0));
+  override(\array_diff_uassoc(0), type(0));
+  override(\array_diff_key(0), type(0));
+  override(\array_diff_ukey(0), type(0));
+  override(\array_udiff(0), type(0));
+  override(\array_udiff_assoc(0), type(0));
+  override(\array_udiff_uassoc(0), type(0));
 
   override(\current(0), elementType(0));
   override(\reset(0), elementType(0));
