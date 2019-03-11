@@ -1045,7 +1045,7 @@ function stream_is_local ($stream_or_url) {}
  * failure.
  * @since 5.0
  */
-function get_headers ($url, $format = null, $context) {}
+function get_headers ($url, $format = null, $context = null) {}
 
 /**
  * Set timeout period on a stream
