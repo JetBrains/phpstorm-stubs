@@ -56,7 +56,7 @@ namespace MongoDB {}
              * @return WriteResult
              * @since 1.4.0 added $options argument
              */
-            final public function executeBulkWrite($namespace, BulkWrite $bulk, array $options = [])
+            final public function executeBulkWrite($namespace, BulkWrite $bulk, $options = [])
             {
             }
 
@@ -74,7 +74,7 @@ namespace MongoDB {}
              * @throws WriteConcernException on Write Concern failure
              * @since 1.4.0 added $options argument
              */
-            final public function executeCommand($db, Command $command, array $options = [])
+            final public function executeCommand($db, Command $command, $options = [])
             {
             }
 
@@ -91,7 +91,7 @@ namespace MongoDB {}
              * @throws RuntimeException on other errors (invalid command, command arguments, ...)
              * @since 1.4.0 added $options argument
              */
-            final public function executeQuery($namespace, Query $query, array $options = [])
+            final public function executeQuery($namespace, Query $query, $options = [])
             {
             }
 
