@@ -52,7 +52,7 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-manager.executebulkwrite.php
              * @param string $namespace A fully qualified namespace (databaseName.collectionName)
              * @param BulkWrite $bulk The MongoDB\Driver\BulkWrite to execute.
-             * @param array $options
+             * @param array|WriteConcern $options WriteConcern type for backwards compatibility
              * @return WriteResult
              * @since 1.4.0 added $options argument, removed $writeConcern argument
              */
@@ -64,7 +64,7 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-manager.executecommand.php
              * @param string $db The name of the database on which to execute the command.
              * @param Command $command The command document.
-             * @param array $options
+             * @param array|ReadPreference $options ReadPreference type for backwards compatibility
              * @return Cursor
              * @throws Exception
              * @throws AuthenticationException if authentication is needed and fails
@@ -83,7 +83,7 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-manager.executequery.php
              * @param string $namespace A fully qualified namespace (databaseName.collectionName)
              * @param Query $query A MongoDB\Driver\Query to execute.
-             * @param array $options
+             * @param array|ReadPreference $options ReadPreference type for backwards compatibility
              * @return Cursor
              * @throws Exception
              * @throws AuthenticationException if authentication is needed and fails
