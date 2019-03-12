@@ -995,10 +995,10 @@ function getrandmax () {}
 /**
  * Generate a random value via the Mersenne Twister Random Number Generator
  * @link https://php.net/manual/en/function.mt-rand.php
- * @param $min [optional] <p>
+ * @param int $min [optional] <p>
  * Optional lowest value to be returned (default: 0)
  * </p>
- * @param $max [optional] <p>
+ * @param int $max [optional] <p>
  * Optional highest value to be returned (default: mt_getrandmax())
  * </p>
  * @return int A random integer value between min (or 0)
