@@ -41,7 +41,7 @@ class Client implements \SplSubject, \Countable {
 	 * Attached observers.
 	 * 
 	 * @private
-	 * @var SplObjectStorage
+	 * @var \SplObjectStorage
 	 */
 	private $observers = NULL;
 	/**
@@ -55,7 +55,7 @@ class Client implements \SplSubject, \Countable {
 	 * Request/response history.
 	 * 
 	 * @protected
-	 * @var http\Message
+	 * @var \http\Message
 	 */
 	protected $history = NULL;
 	/**
@@ -73,39 +73,39 @@ class Client implements \SplSubject, \Countable {
 	 * 
 	 * @param string $driver The HTTP client driver to employ. Currently only the default driver, "curl", is supported.
 	 * @param string $persistent_handle_id If supplied, created curl handles will be persisted with this identifier for later reuse.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
-	 * @throws http\Exception\RuntimeException
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
+	 * @throws \http\Exception\RuntimeException
 	 */
-	function __construct($driver = NULL, $persistent_handle_id = NULL) {}
+	function __construct(string $driver = NULL, string $persistent_handle_id = NULL) {}
 	/**
 	 * Add custom cookies.
 	 * See http\Client::setCookies().
 	 * 
 	 * @param array $cookies Custom cookies to add.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Client self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Client self.
 	 */
-	function addCookies($cookies = NULL) {}
+	function addCookies(array $cookies = NULL) {}
 	/**
 	 * Add specific SSL options.
 	 * See http\Client::setSslOptions(), http\Client::setOptions() and http\Client\Curl\$ssl options.
 	 * 
 	 * @param array $ssl_options Add this SSL options.
-	 * @throws http\Exceptionc\InvalidArgumentException
-	 * @return http\Client self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Client self.
 	 */
-	function addSslOptions($ssl_options = NULL) {}
+	function addSslOptions(array $ssl_options = NULL) {}
 	/**
 	 * Implements SplSubject. Attach another observer.
 	 * Attached observers will be notified with progress of each transfer.
 	 * 
-	 * @param SplObserver $observer An implementation of SplObserver.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
-	 * @return http\Client self.
+	 * @param \SplObserver $observer An implementation of SplObserver.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
+	 * @return \http\Client self.
 	 */
-	function attach($observer) {}
+	function attach(\SplObserver $observer) {}
 	/**
 	 * Configure the client's low level options.
 	 * 
@@ -114,11 +114,11 @@ class Client implements \SplSubject, \Countable {
 	 * 
 	 * @param array $configuration Key/value pairs of low level options.
 	 *    See f.e. the [configuration options for the Curl driver](http/Client/Curl#Configuration:).
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
-	 * @return http\Client self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
+	 * @return \http\Client self.
 	 */
-	function configure($configuration) {}
+	function configure(array $configuration) {}
 	/**
 	 * Implements Countable. Retrieve the number of enqueued requests.
 	 * 
@@ -133,22 +133,22 @@ class Client implements \SplSubject, \Countable {
 	 * 
 	 * See http\Client::requeue(), if you want to requeue the request, instead of calling http\Client::dequeue() and then http\Client::enqueue().
 	 * 
-	 * @param http\Client\Request $request The request to cancel.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\BadMethodCallException
-	 * @throws http\Exception\RuntimeException
-	 * @return http\Client self.
+	 * @param \http\Client\Request $request The request to cancel.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\BadMethodCallException
+	 * @throws \http\Exception\RuntimeException
+	 * @return \http\Client self.
 	 */
-	function dequeue($request) {}
+	function dequeue(\http\Client\Request $request) {}
 	/**
 	 * Implements SplSubject. Detach $observer, which has been previously attached.
 	 * 
-	 * @param SplObserver $observer Previously attached instance of SplObserver implementation.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
-	 * @return http\Client self.
+	 * @param \SplObserver $observer Previously attached instance of SplObserver implementation.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
+	 * @return \http\Client self.
 	 */
-	function detach($observer) {}
+	function detach(\SplObserver $observer) {}
 	/**
 	 * Enable usage of an event library like libevent, which might improve performance with big socket sets.
 	 * 
@@ -156,12 +156,12 @@ class Client implements \SplSubject, \Countable {
 	 * > This method has been deprecated in 2.3.0, please use http\Client::configure() instead.
 	 * 
 	 * @param bool $enable Whether to enable libevent usage.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
-	 * @return http\Client self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
+	 * @return \http\Client self.
 	 * @deprecated
 	 */
-	function enableEvents($enable = true) {}
+	function enableEvents(bool $enable = true) {}
 	/**
 	 * Enable sending pipelined requests to the same host if the driver supports it.
 	 * 
@@ -169,19 +169,19 @@ class Client implements \SplSubject, \Countable {
 	 * > This method has been deprecated in 2.3.0, please use http\Client::configure() instead.
 	 * 
 	 * @param bool $enable Whether to enable pipelining.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
-	 * @return http\Client self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
+	 * @return \http\Client self.
 	 * @deprecated
 	 */
-	function enablePipelining($enable = true) {}
+	function enablePipelining(bool $enable = true) {}
 	/**
 	 * Add another http\Client\Request to the request queue.
 	 * If the optional callback $cb returns true, the request will be automatically dequeued.
 	 * 
 	 * > ***Note:***
 	 * > The http\Client\Response object resulting from the request is always stored
-	 * > internally to be retreived at a later time, __even__ when $cb is used.
+	 * > internally to be retrieved at a later time, __even__ when $cb is used.
 	 * >
 	 * > If you are about to send a lot of requests and do __not__ need the response
 	 * > after executing the callback, you can use http\Client::getResponse() within
@@ -189,21 +189,22 @@ class Client implements \SplSubject, \Countable {
 	 * 
 	 * See http\Client::dequeue() and http\Client::send().
 	 * 
-	 * @param http\Client\Request $request The request to enqueue.
-	 * @param callable $cb A callback to automatically call when the request has finished.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\BadMethodCallException
-	 * @throws http\Exception\RuntimeException
-	 * @return http\Client self.
+	 * @param \http\Client\Request $request The request to enqueue.
+	 * @param callable $cb as function(\http\Response $response) : ?bool
+	 *   A callback to automatically call when the request has finished.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\BadMethodCallException
+	 * @throws \http\Exception\RuntimeException
+	 * @return \http\Client self.
 	 */
-	function enqueue($request, $cb = NULL) {}
+	function enqueue(\http\Client\Request $request, callable $cb = NULL) {}
 	/**
 	 * Get a list of available configuration options and their default values.
 	 * 
 	 * See f.e. the [configuration options for the Curl driver](http/Client/Curl#Configuration:).
 	 * 
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return array list of key/value pairs of available configuarion options and their default values.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return array list of key/value pairs of available configuration options and their default values.
 	 */
 	function getAvailableConfiguration() {}
 	/**
@@ -217,7 +218,7 @@ class Client implements \SplSubject, \Countable {
 	 * 
 	 * See f.e. the [request options for the Curl driver](http/Client/Curl#Options:).
 	 * 
-	 * @throws http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\InvalidArgumentException
 	 * @return array list of key/value pairs of available request options and their default values.
 	 */
 	function getAvailableOptions() {}
@@ -234,16 +235,16 @@ class Client implements \SplSubject, \Countable {
 	 * > ***NOTE:***
 	 * > The history is only recorded while http\Client::$recordHistory is true.
 	 * 
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Message the request/response message chain representing the client's history.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Message the request/response message chain representing the client's history.
 	 */
 	function getHistory() {}
 	/**
 	 * Returns the SplObjectStorage holding attached observers.
 	 * 
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
-	 * @return SplObjectStorage observer storage.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
+	 * @return \SplObjectStorage observer storage.
 	 */
 	function getObservers() {}
 	/**
@@ -256,26 +257,26 @@ class Client implements \SplSubject, \Countable {
 	/**
 	 * Retrieve the progress information for $request.
 	 * 
-	 * @param http\Client\Request $request The request to retrieve the current progress information for.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
-	 * @return object|NULL stdClass instance holding progress information.
-	 * 	 or NULL if $request is not enqueued.
+	 * @param \http\Client\Request $request The request to retrieve the current progress information for.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
+	 * @return object|NULL object stdClass instance holding progress information.
+	 * 		 or NULL if $request is not enqueued.
 	 */
-	function getProgressInfo($request) {}
+	function getProgressInfo(\http\Client\Request $request) {}
 	/**
-	 * Retrieve the corresponding reponse of an already finished request, or the last received response if $request is not set.
+	 * Retrieve the corresponding response of an already finished request, or the last received response if $request is not set.
 	 * 
 	 * > ***NOTE:***
 	 * > If $request is NULL, then the response is removed from the internal storage (stack-like operation).
 	 * 
-	 * @param http\Client\Request $request The request to fetch the stored response for.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
-	 * @return http\Client\Response|NULL the stored response for the request, or the last that was received.
-	 * 	 or NULL if no more response was available to pop, when no $request was given.
+	 * @param \http\Client\Request $request The request to fetch the stored response for.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
+	 * @return \http\Client\Response|NULL \http\Client\Response the stored response for the request, or the last that was received.
+	 * 		 or NULL if no more response was available to pop, when no $request was given.
 	 */
-	function getResponse($request = NULL) {}
+	function getResponse(\http\Client\Request $request = NULL) {}
 	/**
 	 * Retrieve priorly set SSL options.
 	 * See http\Client::getOptions() and http\Client::setSslOptions().
@@ -284,24 +285,24 @@ class Client implements \SplSubject, \Countable {
 	 */
 	function getSslOptions() {}
 	/**
-	 * Get transfer related informatioin for a running or finished request.
+	 * Get transfer related information for a running or finished request.
 	 * 
-	 * @param http\Client\Request $request The request to probe for transfer info.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
+	 * @param \http\Client\Request $request The request to probe for transfer info.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
 	 * @return object stdClass instance holding transfer related information.
 	 */
-	function getTransferInfo($request) {}
+	function getTransferInfo(\http\Client\Request $request) {}
 	/**
 	 * Implements SplSubject. Notify attached observers about progress with $request.
 	 * 
-	 * @param http\Client\Request $request The request to notify about.
+	 * @param \http\Client\Request $request The request to notify about.
 	 * @param object $progress stdClass instance holding progress information.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
-	 * @return http\Client self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
+	 * @return \http\Client self.
 	 */
-	function notify($request = NULL, $progress = NULL) {}
+	function notify(\http\Client\Request $request = NULL, $progress = NULL) {}
 	/**
 	 * Perform outstanding transfer actions.
 	 * See http\Client::wait() for the completing interface.
@@ -314,25 +315,27 @@ class Client implements \SplSubject, \Countable {
 	 * 
 	 * The difference simply is, that this method, in contrast to http\Client::enqueue(), does not throw an http\Exception when the request to queue is already enqueued and dequeues it automatically prior enqueueing it again.
 	 * 
-	 * @param http\Client\Request $request The request to queue.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\RuntimeException
-	 * @return http\Client self.
+	 * @param \http\Client\Request $request The request to queue.
+	 * @param callable $cb as function(\http\Response $response) : ?bool
+	 *   A callback to automatically call when the request has finished.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\RuntimeException
+	 * @return \http\Client self.
 	 */
-	function requeue($request) {}
+	function requeue(\http\Client\Request $request, callable $cb = NULL) {}
 	/**
 	 * Reset the client to the initial state.
 	 * 
-	 * @return http\Client self.
+	 * @return \http\Client self.
 	 */
 	function reset() {}
 	/**
 	 * Send all enqueued requests.
 	 * See http\Client::once() and http\Client::wait() for a more fine grained interface.
 	 * 
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\RuntimeException
-	 * @return http\Client self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\RuntimeException
+	 * @return \http\Client self.
 	 */
 	function send() {}
 	/**
@@ -340,10 +343,10 @@ class Client implements \SplSubject, \Countable {
 	 * See http\Client::addCookies() and http\Client::getCookies().
 	 * 
 	 * @param array $cookies Set the custom cookies to this array.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Client self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Client self.
 	 */
-	function setCookies($cookies = NULL) {}
+	function setCookies(array $cookies = NULL) {}
 	/**
 	 * Set client debugging callback.
 	 * 
@@ -352,10 +355,10 @@ class Client implements \SplSubject, \Countable {
 	 * 
 	 * @param callable $callback as function(http\Client $c, http\Client\Request $r, int $type, string $data)
 	 *   The debug callback. For $type see http\Client::DEBUG_* constants.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Client self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Client self.
 	 */
-	function setDebug($callback) {}
+	function setDebug(callable $callback) {}
 	/**
 	 * Set client options.
 	 * See http\Client\Curl.
@@ -364,19 +367,19 @@ class Client implements \SplSubject, \Countable {
 	 * > Only options specified prior enqueueing a request are applied to the request.
 	 * 
 	 * @param array $options The options to set.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Client self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Client self.
 	 */
-	function setOptions($options = NULL) {}
+	function setOptions(array $options = NULL) {}
 	/**
 	 * Specifically set SSL options.
 	 * See http\Client::setOptions() and http\Client\Curl\$ssl options.
 	 * 
 	 * @param array $ssl_options Set SSL options to this array.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Client self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Client self.
 	 */
-	function setSslOptions($ssl_options = NULL) {}
+	function setSslOptions(array $ssl_options = NULL) {}
 	/**
 	 * Wait for $timeout seconds for transfers to provide data.
 	 * This is the completion call to http\Client::once().
@@ -384,7 +387,7 @@ class Client implements \SplSubject, \Countable {
 	 * @param float $timeout Seconds to wait for data on open sockets.
 	 * @return bool success.
 	 */
-	function wait($timeout = 0) {}
+	function wait(float $timeout = 0) {}
 }
 /**
  * A class representing a list of cookies with specific attributes.
@@ -408,10 +411,10 @@ class Cookie  {
 	 * @param mixed $cookies The string or list of cookies to parse or set.
 	 * @param int $flags Parse flags. See http\Cookie::PARSE_* constants.
 	 * @param array $allowed_extras List of extra attribute names to recognize.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\RuntimeException
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\RuntimeException
 	 */
-	function __construct($cookies = NULL, $flags = 0, $allowed_extras = NULL) {}
+	function __construct($cookies = NULL, int $flags = 0, array $allowed_extras = NULL) {}
 	/**
 	 * String cast handler. Alias of http\Cookie::toString().
 	 * 
@@ -424,47 +427,47 @@ class Cookie  {
 	 * 
 	 * @param string $cookie_name The key of the cookie.
 	 * @param string $cookie_value The value of the cookie.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Cookie self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Cookie self.
 	 */
-	function addCookie($cookie_name, $cookie_value) {}
+	function addCookie(string $cookie_name, string $cookie_value) {}
 	/**
 	 * (Re)set the cookies.
 	 * See http\Cookie::setCookies().
 	 * 
 	 * @param array $cookies Add cookies of this array of form ["name" => "value"].
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Cookie self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Cookie self.
 	 */
-	function addCookies($cookies) {}
+	function addCookies(array $cookies) {}
 	/**
 	 * Add an extra attribute to the cookie list.
 	 * See http\Cookie::setExtra().
 	 * 
 	 * @param string $extra_name The key of the extra attribute.
 	 * @param string $extra_value The value of the extra attribute.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Cookie self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Cookie self.
 	 */
-	function addExtra($extra_name, $extra_value) {}
+	function addExtra(string $extra_name, string $extra_value) {}
 	/**
 	 * Add several extra attributes.
 	 * See http\Cookie::addExtra().
 	 * 
 	 * @param array $extras A list of extra attributes of the form ["key" => "value"].
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Cookie self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Cookie self.
 	 */
-	function addExtras($extras) {}
+	function addExtras(array $extras) {}
 	/**
 	 * Retrieve a specific cookie value.
 	 * See http\Cookie::setCookie().
 	 * 
 	 * @param string $cookie_name The key of the cookie to look up.
-	 * @return string|NULL the cookie value.
-	 * 	 or NULL if $cookie_name could not be found.
+	 * @return string|NULL string the cookie value.
+	 * 		 or NULL if $cookie_name could not be found.
 	 */
-	function getCookie($cookie_name) {}
+	function getCookie(string $cookie_name) {}
 	/**
 	 * Get the list of cookies.
 	 * See http\Cookie::setCookies().
@@ -496,7 +499,7 @@ class Cookie  {
 	 * @param string $name The key of the extra attribute.
 	 * @return string the value of the extra attribute.
 	 */
-	function getExtra($name) {}
+	function getExtra(string $name) {}
 	/**
 	 * Retrieve the list of extra attributes.
 	 * See http\Cookie::setExtras().
@@ -537,37 +540,37 @@ class Cookie  {
 	 * 
 	 * @param string $cookie_name The key of the cookie.
 	 * @param string $cookie_value The value of the cookie.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Cookie self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Cookie self.
 	 */
-	function setCookie($cookie_name, $cookie_value) {}
+	function setCookie(string $cookie_name, string $cookie_value) {}
 	/**
 	 * (Re)set the cookies.
 	 * See http\Cookie::addCookies().
 	 * 
 	 * @param array $cookies Set the cookies to this array.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Cookie self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Cookie self.
 	 */
-	function setCookies($cookies = NULL) {}
+	function setCookies(array $cookies = NULL) {}
 	/**
 	 * Set the effective domain of the cookie list.
 	 * See http\Cookie::setPath().
 	 * 
 	 * @param string $value The domain the cookie(s) belong to.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Cookie self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Cookie self.
 	 */
-	function setDomain($value = NULL) {}
+	function setDomain(string $value = NULL) {}
 	/**
 	 * Set the traditional expires timestamp.
 	 * See http\Cookie::setMaxAge() for a safer alternative.
 	 * 
 	 * @param int $value The expires timestamp as seconds since the epoch.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Cookie self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Cookie self.
 	 */
-	function setExpires($value = -1) {}
+	function setExpires(int $value = -1) {}
 	/**
 	 * (Re)set an extra attribute.
 	 * See http\Cookie::addExtra().
@@ -577,47 +580,47 @@ class Cookie  {
 	 * 
 	 * @param string $extra_name The key of the extra attribute.
 	 * @param string $extra_value The value of the extra attribute.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Cookie self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Cookie self.
 	 */
-	function setExtra($extra_name, $extra_value = NULL) {}
+	function setExtra(string $extra_name, string $extra_value = NULL) {}
 	/**
 	 * (Re)set the extra attributes.
 	 * See http\Cookie::addExtras().
 	 * 
 	 * @param array $extras Set the extra attributes to this array.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Cookie self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Cookie self.
 	 */
-	function setExtras($extras = NULL) {}
+	function setExtras(array $extras = NULL) {}
 	/**
 	 * Set the flags to specified $value.
 	 * See http\Cookie::SECURE and http\Cookie::HTTPONLY constants.
 	 * 
 	 * @param int $value The new flags bitmask.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Cookie self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Cookie self.
 	 */
-	function setFlags($value = 0) {}
+	function setFlags(int $value = 0) {}
 	/**
 	 * Set the maximum age the cookie may have on the client side.
 	 * This is a client clock departure safe alternative to the "expires" attribute.
 	 * See http\Cookie::setExpires().
 	 * 
 	 * @param int $value The max-age in seconds.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Cookie self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Cookie self.
 	 */
-	function setMaxAge($value = -1) {}
+	function setMaxAge(int $value = -1) {}
 	/**
 	 * Set the path the cookie(s) of this cookie list should be effective at.
 	 * See http\Cookie::setDomain().
 	 * 
 	 * @param string $path The URL path the cookie(s) should take effect within.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Cookie self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Cookie self.
 	 */
-	function setPath($path = NULL) {}
+	function setPath(string $path = NULL) {}
 	/**
 	 * Get the cookie list as array.
 	 * 
@@ -642,21 +645,23 @@ namespace http;
  */
 class Env  {
 	/**
-	 * Retreive the current HTTP request's body.
+	 * Retrieve the current HTTP request's body.
 	 * 
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
-	 * @return http\Message\Body instance representing the request body
+	 * @param string $body_class_name A user class extending http\Message\Body.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
+	 * @return \http\Message\Body instance representing the request body
 	 */
-	function getRequestBody() {}
+	function getRequestBody(string $body_class_name = NULL) {}
 	/**
 	 * Retrieve one or all headers of the current HTTP request.
 	 * 
-	 * @return NULL|string|array if $header_name was not found
-	 * 	 or string the compound header when $header_name was found
-	 * 	 or array of all headers if $header_name was not specified
+	 * @param string $header_name The key of a header to retrieve.
+	 * @return NULL|string|array NULL if $header_name was not found
+	 * 		 or string the compound header when $header_name was found
+	 * 		 or array of all headers if $header_name was not specified
 	 */
-	function getRequestHeader() {}
+	function getRequestHeader(string $header_name = NULL) {}
 	/**
 	 * Get the HTTP response code to send.
 	 * 
@@ -666,11 +671,12 @@ class Env  {
 	/**
 	 * Get one or all HTTP response headers to be sent.
 	 * 
-	 * @return string|NULL|array the compound value of the response header to send
-	 * 	 or NULL if the header was not found
-	 * 	 or array of all response headers, if $header_name was not specified
+	 * @param string $header_name The name of the response header to retrieve.
+	 * @return string|NULL|array string the compound value of the response header to send
+	 * 		 or NULL if the header was not found
+	 * 		 or array of all response headers, if $header_name was not specified
 	 */
-	function getResponseHeader() {}
+	function getResponseHeader(string $header_name = NULL) {}
 	/**
 	 * Retrieve a list of all known HTTP response status.
 	 * 
@@ -684,74 +690,79 @@ class Env  {
 	/**
 	 * Retrieve the string representation of specified HTTP response code.
 	 * 
-	 * @return string|empty the HTTP response status message
-	 * 	 or empty string, if no message for this code was found
+	 * @param int $code The HTTP response code to get the string representation for.
+	 * @return string the HTTP response status message (may be empty, if no message for this code was found)
 	 */
-	function getResponseStatusForCode() {}
+	function getResponseStatusForCode(int $code) {}
 	/**
 	 * Generic negotiator. For specific client negotiation see http\Env::negotiateContentType() and related methods.
 	 * 
 	 * > ***NOTE:***
-	 * > The first elemement of $supported serves as a default if no operand matches.
+	 * > The first element of $supported serves as a default if no operand matches.
 	 * 
 	 * @param string $params HTTP header parameter's value to negotiate.
 	 * @param array $supported List of supported negotiation operands.
 	 * @param string $prim_typ_sep A "primary type separator", i.e. that would be a hyphen for content language negotiation (en-US, de-DE, etc.).
-	 * @return NULL|string if negotiation fails.
-	 * 	 or string the closest match negotiated, or the default (first entry of $supported).
+	 * @param array $result Out parameter recording negotiation results.
+	 * @return NULL|string NULL if negotiation fails.
+	 * 		 or string the closest match negotiated, or the default (first entry of $supported).
 	 */
-	function negotiate($params, $supported, $prim_typ_sep = NULL) {}
+	function negotiate(string $params, array $supported, string $prim_typ_sep = NULL, array &$result = NULL) {}
 	/**
 	 * Negotiate the client's preferred character set.
 	 * 
 	 * > ***NOTE:***
-	 * > The first elemement of $supported character sets serves as a default if no character set matches.
+	 * > The first element of $supported character sets serves as a default if no character set matches.
 	 * 
 	 * @param array $supported List of supported content character sets.
-	 * @return NULL|string if negotiation fails.
-	 * 	 or string the negotiated character set.
+	 * @param array $result Out parameter recording negotiation results.
+	 * @return NULL|string NULL if negotiation fails.
+	 * 		 or string the negotiated character set.
 	 */
-	function negotiateCharset($supported) {}
+	function negotiateCharset(array $supported, array &$result = NULL) {}
 	/**
 	 * Negotiate the client's preferred MIME content type.
 	 * 
 	 * > ***NOTE:***
-	 * > The first elemement of $supported content types serves as a default if no content-type matches.
+	 * > The first element of $supported content types serves as a default if no content-type matches.
 	 * 
 	 * @param array $supported List of supported MIME content types.
-	 * @return NULL|string if negotiation fails.
-	 * 	 or string the negotiated content type.
+	 * @param array $result Out parameter recording negotiation results.
+	 * @return NULL|string NULL if negotiation fails.
+	 * 		 or string the negotiated content type.
 	 */
-	function negotiateContentType($supported) {}
+	function negotiateContentType(array $supported, array &$result = NULL) {}
 	/**
 	 * Negotiate the client's preferred encoding.
 	 * 
 	 * > ***NOTE:***
-	 * > The first elemement of $supported encodings serves as a default if no encoding matches.
+	 * > The first element of $supported encodings serves as a default if no encoding matches.
 	 * 
 	 * @param array $supported List of supported content encodings.
-	 * @return NULL|string if negotiation fails.
-	 * 	 or string the negotiated encoding.
+	 * @param array $result Out parameter recording negotiation results.
+	 * @return NULL|string NULL if negotiation fails.
+	 * 		 or string the negotiated encoding.
 	 */
-	function negotiateEncoding($supported) {}
+	function negotiateEncoding(array $supported, array &$result = NULL) {}
 	/**
 	 * Negotiate the client's preferred language.
 	 * 
 	 * > ***NOTE:***
-	 * > The first elemement of $supported languages serves as a default if no language matches.
+	 * > The first element of $supported languages serves as a default if no language matches.
 	 * 
 	 * @param array $supported List of supported content languages.
-	 * @return NULL|string if negotiation fails.
-	 * 	 or string the negotiated language.
+	 * @param array $result Out parameter recording negotiation results.
+	 * @return NULL|string NULL if negotiation fails.
+	 * 		 or string the negotiated language.
 	 */
-	function negotiateLanguage($supported) {}
+	function negotiateLanguage(array $supported, array &$result = NULL) {}
 	/**
 	 * Set the HTTP response code to send.
 	 * 
 	 * @param int $code The HTTP response status code.
 	 * @return bool Success.
 	 */
-	function setResponseCode($code) {}
+	function setResponseCode(int $code) {}
 	/**
 	 * Set a response header, either replacing a prior set header, or appending the new header value, depending on $replace.
 	 * 
@@ -759,9 +770,13 @@ class Env  {
 	 * 
 	 * If $response_code is not 0, the response status code is updated accordingly.
 	 * 
+	 * @param string $header_name
+	 * @param mixed $header_value
+	 * @param int $response_code
+	 * @param bool $replace
 	 * @return bool Success.
 	 */
-	function setResponseHeader() {}
+	function setResponseHeader(string $header_name, $header_value = NULL, int $response_code = NULL, bool $replace = NULL) {}
 }
 /**
  * The http extension's Exception interface.
@@ -807,7 +822,7 @@ class Header implements \Serializable {
 	 * The value of the HTTP header.
 	 * 
 	 * @public
-	 * @var mixed
+	 * @var 
 	 */
 	public $value = NULL;
 	/**
@@ -818,7 +833,7 @@ class Header implements \Serializable {
 	 * 
 	 * # Throws:
 	 */
-	function __construct($name = NULL, $value = NULL) {}
+	function __construct(string $name = NULL, $value = NULL) {}
 	/**
 	 * String cast handler. Alias of http\Header::serialize().
 	 * 
@@ -832,9 +847,9 @@ class Header implements \Serializable {
 	 * @param mixed $as The argument separator(s).
 	 * @param mixed $vs The value separator(s).
 	 * @param int $flags The modus operandi. See http\Params constants.
-	 * @return http\Params instance
+	 * @return \http\Params instance
 	 */
-	function getParams($ps = NULL, $as = NULL, $vs = NULL, $flags = NULL) {}
+	function getParams($ps = NULL, $as = NULL, $vs = NULL, int $flags = NULL) {}
 	/**
 	 * Match the HTTP header's value against provided $value according to $flags.
 	 * 
@@ -842,7 +857,7 @@ class Header implements \Serializable {
 	 * @param int $flags The modus operandi. See http\Header constants.
 	 * @return bool whether $value matches the header value according to $flags.
 	 */
-	function match($value, $flags = NULL) {}
+	function match(string $value, int $flags = NULL) {}
 	/**
 	 * Negotiate the header's value against a list of supported values in $supported.
 	 * Negotiation operation is adopted according to the header name, i.e. if the
@@ -851,23 +866,24 @@ class Header implements \Serializable {
 	 * used instead.
 	 * 
 	 * > ***NOTE:***
-	 * > The first elemement of $supported serves as a default if no operand matches.
+	 * > The first element of $supported serves as a default if no operand matches.
 	 * 
 	 * @param array $supported The list of supported values to negotiate.
-	 * @return NULL|string if negotiation fails.
-	 * 	 or string the closest match negotiated, or the default (first entry of $supported).
+	 * @param array $result Out parameter recording the negotiation results.
+	 * @return NULL|string NULL if negotiation fails.
+	 * 		 or string the closest match negotiated, or the default (first entry of $supported).
 	 */
-	function negotiate($supported) {}
+	function negotiate(array $supported, array &$result = NULL) {}
 	/**
 	 * Parse HTTP headers.
 	 * See also http\Header\Parser.
 	 * 
 	 * @param string $header The complete string of headers.
 	 * @param string $header_class A class extending http\Header.
-	 * @return array|false of parsed headers, where the elements are instances of $header_class if specified.
-	 * 	 or false if parsing fails.
+	 * @return array|false array of parsed headers, where the elements are instances of $header_class if specified.
+	 * 		 or false if parsing fails.
 	 */
-	function parse($header, $header_class = NULL) {}
+	function parse(string $header, string $header_class = NULL) {}
 	/**
 	 * Implements Serializable.
 	 * 
@@ -911,12 +927,12 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * @protected
 	 * @var int
 	 */
-	protected $type = http\Message::TYPE_NONE;
+	protected $type = \http\Message::TYPE_NONE;
 	/**
 	 * The message's body.
 	 * 
 	 * @protected
-	 * @var http\Message\Body
+	 * @var \http\Message\Body
 	 */
 	protected $body = NULL;
 	/**
@@ -934,7 +950,7 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 */
 	protected $requestUrl = "";
 	/**
-	 * The respose status phrase if the message is of type response.
+	 * The response status phrase if the message is of type response.
 	 * 
 	 * @protected
 	 * @var string
@@ -965,7 +981,7 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * Any parent message.
 	 * 
 	 * @protected
-	 * @var http\Message
+	 * @var \http\Message
 	 */
 	protected $parentMessage;
 	/**
@@ -973,10 +989,10 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * 
 	 * @param mixed $message Either a resource or a string, representing the HTTP message.
 	 * @param bool $greedy Whether to read from a $message resource until EOF.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\BadMessageException
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\BadMessageException
 	 */
-	function __construct($message = NULL, $greedy = true) {}
+	function __construct($message = NULL, bool $greedy = true) {}
 	/**
 	 * Retrieve the message serialized to a string.
 	 * Alias of http\Message::toString().
@@ -988,28 +1004,28 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * Append the data of $body to the message's body.
 	 * See http\Message::setBody() and http\Message\Body::append().
 	 * 
-	 * @param http\Message\Body $body The message body to add.
-	 * @return http\Message self.
+	 * @param \http\Message\Body $body The message body to add.
+	 * @return \http\Message self.
 	 */
-	function addBody($body) {}
+	function addBody(\http\Message\Body $body) {}
 	/**
 	 * Add an header, appending to already existing headers.
 	 * See http\Message::addHeaders() and http\Message::setHeader().
 	 * 
 	 * @param string $name The header name.
 	 * @param mixed $value The header value.
-	 * @return http\Message self.
+	 * @return \http\Message self.
 	 */
-	function addHeader($name, $value) {}
+	function addHeader(string $name, $value) {}
 	/**
 	 * Add headers, optionally appending values, if header keys already exist.
 	 * See http\Message::addHeader() and http\Message::setHeaders().
 	 * 
 	 * @param array $headers The HTTP headers to add.
 	 * @param bool $append Whether to append values for existing headers.
-	 * @return http\Message self.
+	 * @return \http\Message self.
 	 */
-	function addHeaders($headers, $append = false) {}
+	function addHeaders(array $headers, bool $append = false) {}
 	/**
 	 * Implements Countable.
 	 * 
@@ -1020,23 +1036,23 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * Implements iterator.
 	 * See http\Message::valid() and http\Message::rewind().
 	 * 
-	 * @return http\Message the current message in the iterated message chain.
+	 * @return \http\Message the current message in the iterated message chain.
 	 */
 	function current() {}
 	/**
 	 * Detach a clone of this message from any message chain.
 	 * 
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Message clone.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Message clone.
 	 */
 	function detach() {}
 	/**
 	 * Retrieve the message's body.
 	 * See http\Message::setBody().
 	 * 
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueEcxeption
-	 * @return http\Message\Body the message body.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
+	 * @return \http\Message\Body the message body.
 	 */
 	function getBody() {}
 	/**
@@ -1044,10 +1060,10 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * 
 	 * @param string $header The header's name.
 	 * @param string $into_class The name of a class extending http\Header.
-	 * @return mixed|http\Header the header value if $into_class is NULL.
-	 * 	 or http\Header descendant.
+	 * @return mixed|\http\Header mixed the header value if $into_class is NULL.
+	 * 		 or \http\Header descendant.
 	 */
-	function getHeader($header, $into_class = NULL) {}
+	function getHeader(string $header, string $into_class = NULL) {}
 	/**
 	 * Retrieve all message headers.
 	 * See http\Message::setHeaders() and http\Message::getHeader().
@@ -1056,7 +1072,7 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 */
 	function getHeaders() {}
 	/**
-	 * Retreive the HTTP protocol version of the message.
+	 * Retrieve the HTTP protocol version of the message.
 	 * See http\Message::setHttpVersion().
 	 * 
 	 * @return string the HTTP protocol version, e.g. "1.0"; defaults to "1.1".
@@ -1072,47 +1088,50 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * * http\Message::getResponseStatus()
 	 * * http\Message::getRequestMethod()
 	 * * http\Message::getRequestUrl()
+	 * 
+	 * @return string|NULL string the HTTP message information.
+	 * 		 or NULL if the message is neither of type request nor response.
 	 */
 	function getInfo() {}
 	/**
 	 * Retrieve any parent message.
 	 * See http\Message::reverse().
 	 * 
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\BadMethodCallException
-	 * @return http /Message, the parent message.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\BadMethodCallException
+	 * @return \http\Message the parent message.
 	 */
 	function getParentMessage() {}
 	/**
 	 * Retrieve the request method of the message.
 	 * See http\Message::setRequestMethod() and http\Message::getRequestUrl().
 	 * 
-	 * @return string|false the request method.
-	 * 	 or false if the message was not of type request.
+	 * @return string|false string the request method.
+	 * 		 or false if the message was not of type request.
 	 */
 	function getRequestMethod() {}
 	/**
 	 * Retrieve the request URL of the message.
 	 * See http\Message::setRequestUrl().
 	 * 
-	 * @return string|false the request URL; usually the path and the querystring.
-	 * 	 or false if the message was not of type request.
+	 * @return string|false string the request URL; usually the path and the querystring.
+	 * 		 or false if the message was not of type request.
 	 */
 	function getRequestUrl() {}
 	/**
 	 * Retrieve the response code of the message.
 	 * See http\Message::setResponseCode() and http\Message::getResponseStatus().
 	 * 
-	 * @return int|false the response status code.
-	 * 	 or false if the message is not of type response.
+	 * @return int|false int the response status code.
+	 * 		 or false if the message is not of type response.
 	 */
 	function getResponseCode() {}
 	/**
 	 * Retrieve the response status of the message.
 	 * See http\Message::setResponseStatus() and http\Message::getResponseCode().
 	 * 
-	 * @return string|false the response status phrase.
-	 * 	 or false if the message is not of type response.
+	 * @return string|false string the response status phrase.
+	 * 		 or false if the message is not of type response.
 	 */
 	function getResponseStatus() {}
 	/**
@@ -1128,9 +1147,10 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * 
 	 * See http\Message::splitMultipartBody().
 	 * 
+	 * @param string $boundary A reference where the boundary string will be stored.
 	 * @return bool whether this is a message with a multipart "Content-Type".
 	 */
-	function isMultipart() {}
+	function isMultipart(string &$boundary = NULL) {}
 	/**
 	 * Implements Iterator.
 	 * See http\Message::current() and http\Message::rewind().
@@ -1149,13 +1169,13 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * > ***NOTE:***
 	 * > The message chains must not overlap.
 	 * 
-	 * @param http\Message $message The message (chain) to prepend as parent messages.
+	 * @param \http\Message $message The message (chain) to prepend as parent messages.
 	 * @param bool $top Whether to prepend to the top-most parent message.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
-	 * @return http\Message self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
+	 * @return \http\Message self.
 	 */
-	function prepend($message, $top = true) {}
+	function prepend(\http\Message $message, bool $top = true) {}
 	/**
 	 * Reverse the message chain and return the former top-most message.
 	 * 
@@ -1164,8 +1184,8 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * >
 	 * > This call re-orders the messages of the chain and returns the message that was parsed first with any later parsed messages re-parentized.
 	 * 
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Message the other end of the message chain.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Message the other end of the message chain.
 	 */
 	function reverse() {}
 	/**
@@ -1182,12 +1202,12 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * Set the message's body.
 	 * See http\Message::getBody() and http\Message::addBody().
 	 * 
-	 * @param http\Message\Body $body The new message body.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
-	 * @return http\Message self.
+	 * @param \http\Message\Body $body The new message body.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
+	 * @return \http\Message self.
 	 */
-	function setBody($body) {}
+	function setBody(\http\Message\Body $body) {}
 	/**
 	 * Set a single header.
 	 * See http\Message::getHeader() and http\Message::addHeader().
@@ -1198,9 +1218,9 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * 
 	 * @param string $header The header's name.
 	 * @param mixed $value The header's value. Removes the header if NULL.
-	 * @return http\Message self.
+	 * @return \http\Message self.
 	 */
-	function setHeader($header, $value = NULL) {}
+	function setHeader(string $header, $value = NULL) {}
 	/**
 	 * Set the message headers.
 	 * See http\Message::getHeaders() and http\Message::addHeaders().
@@ -1210,49 +1230,49 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * > header with values concatenated by comma.
 	 * 
 	 * @param array $headers The message's headers.
-	 * @return http\Message null.
+	 * @return \http\Message null.
 	 */
-	function setHeaders($headers = NULL) {}
+	function setHeaders(array $headers = NULL) {}
 	/**
 	 * Set the HTTP protocol version of the message.
 	 * See http\Message::getHttpVersion().
 	 * 
 	 * @param string $http_version The protocol version, e.g. "1.1", optionally prefixed by "HTTP/".
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\BadHeaderException
-	 * @return http\Message self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\BadHeaderException
+	 * @return \http\Message self.
 	 */
-	function setHttpVersion($http_version) {}
+	function setHttpVersion(string $http_version) {}
 	/**
 	 * Set the complete message info, i.e. type and response resp. request information, at once.
 	 * See http\Message::getInfo().
 	 * 
 	 * @param string $http_info The message info (first line of an HTTP message).
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\BadHeaderException
-	 * @return http\Message self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\BadHeaderException
+	 * @return \http\Message self.
 	 */
-	function setInfo($http_info) {}
+	function setInfo(string $http_info) {}
 	/**
 	 * Set the request method of the message.
 	 * See http\Message::getRequestMethod() and http\Message::setRequestUrl().
 	 * 
 	 * @param string $method The request method.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\BadMethodCallException
-	 * @return http\Message self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\BadMethodCallException
+	 * @return \http\Message self.
 	 */
-	function setRequestMethod($method) {}
+	function setRequestMethod(string $method) {}
 	/**
 	 * Set the request URL of the message.
 	 * See http\Message::getRequestUrl() and http\Message::setRequestMethod().
 	 * 
 	 * @param string $url The request URL.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\BadMethodCallException
-	 * @return http\Message self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\BadMethodCallException
+	 * @return \http\Message self.
 	 */
-	function setRequestUrl($url) {}
+	function setRequestUrl(string $url) {}
 	/**
 	 * Set the response status code.
 	 * See http\Message::getResponseCode() and http\Message::setResponseStatus().
@@ -1262,64 +1282,60 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * 
 	 * @param int $response_code The response code.
 	 * @param bool $strict Whether to check that the response code is between 100 and 599 inclusive.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\BadMethodCallException
-	 * @return http\Message self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\BadMethodCallException
+	 * @return \http\Message self.
 	 */
-	function setResponseCode($response_code, $strict = true) {}
+	function setResponseCode(int $response_code, bool $strict = true) {}
 	/**
 	 * Set the response status phrase.
 	 * See http\Message::getResponseStatus() and http\Message::setResponseCode().
 	 * 
 	 * @param string $response_status The status phrase.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\BadMethodCallException
-	 * @return http\Message self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\BadMethodCallException
+	 * @return \http\Message self.
 	 */
-	function setResponseStatus($response_status) {}
+	function setResponseStatus(string $response_status) {}
 	/**
 	 * Set the message type and reset the message info.
 	 * See http\Message::getType() and http\Message::setInfo().
 	 * 
 	 * @param int $type The desired message type. See the http\Message::TYPE_* constants.
-	 * @return http\Message self.
+	 * @return \http\Message self.
 	 */
-	function setType($type) {}
+	function setType(int $type) {}
 	/**
 	 * Splits the body of a multipart message.
 	 * See http\Message::isMultipart() and http\Message\Body::addPart().
 	 * 
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\BadMethodCallException
-	 * @throws http\Exception\BadMessageException
-	 * @return http\Message a message chain of all messages of the multipart body.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\BadMethodCallException
+	 * @throws \http\Exception\BadMessageException
+	 * @return \http\Message a message chain of all messages of the multipart body.
 	 */
 	function splitMultipartBody() {}
 	/**
 	 * Stream the message through a callback.
 	 * 
 	 * @param callable $callback The callback of the form function(http\Message $from, string $data).
-	 * @param int $offset Start to stream from this offset.
-	 * @param int $maxlen Stream at most $maxlen bytes, or all if $maxlen is less than 1.
-	 * @return http\Message self.
+	 * @return \http\Message self.
 	 */
-	function toCallback($callback, $offset = 0, $maxlen = 0) {}
+	function toCallback(callable $callback) {}
 	/**
 	 * Stream the message into stream $stream, starting from $offset, streaming $maxlen at most.
 	 * 
 	 * @param resource $stream The resource to write to.
-	 * @param int $offset The starting offset.
-	 * @param int $maxlen The maximum amount of data to stream. All content if less than 1.
-	 * @return http\Message self.
+	 * @return \http\Message self.
 	 */
-	function toStream($stream, $offset = 0, $maxlen = 0) {}
+	function toStream($stream) {}
 	/**
 	 * Retrieve the message serialized to a string.
 	 * 
 	 * @param bool $include_parent Whether to include all parent messages.
 	 * @return string the HTTP message chain serialized to a string.
 	 */
-	function toString($include_parent = false) {}
+	function toString(bool $include_parent = false) {}
 	/**
 	 * Implements Serializable.
 	 * 
@@ -1363,6 +1379,10 @@ class Params implements \ArrayAccess {
 	 */
 	const PARSE_DEFAULT = 17;
 	/**
+	 * Parse backslash escaped (quoted) strings.
+	 */
+	const PARSE_ESCAPED = 1;
+	/**
 	 * Urldecode single units of parameters, arguments and values.
 	 */
 	const PARSE_URLENCODED = 4;
@@ -1395,28 +1415,28 @@ class Params implements \ArrayAccess {
 	 * @public
 	 * @var array
 	 */
-	public $param_sep = http\Params::DEF_PARAM_SEP;
+	public $param_sep = \http\Params::DEF_PARAM_SEP;
 	/**
 	 * The argument separator(s).
 	 * 
 	 * @public
 	 * @var array
 	 */
-	public $arg_sep = http\Params::DEF_ARG_SEP;
+	public $arg_sep = \http\Params::DEF_ARG_SEP;
 	/**
 	 * The value separator(s).
 	 * 
 	 * @public
 	 * @var array
 	 */
-	public $val_sep = http\Params::DEF_VAL_SEP;
+	public $val_sep = \http\Params::DEF_VAL_SEP;
 	/**
 	 * The modus operandi of the parser. See http\Params::PARSE_* constants.
 	 * 
 	 * @public
 	 * @var int
 	 */
-	public $flags = http\Params::PARSE_DEFAULT;
+	public $flags = \http\Params::PARSE_DEFAULT;
 	/**
 	 * Instantiate a new HTTP (header) parameter set.
 	 * 
@@ -1425,10 +1445,10 @@ class Params implements \ArrayAccess {
 	 * @param mixed $as The argument separator(s).
 	 * @param mixed $vs The value separator(s).
 	 * @param int $flags The modus operandi. See http\Params::PARSE_* constants.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\RuntimeException
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\RuntimeException
 	 */
-	function __construct($params = NULL, $ps = NULL, $as = NULL, $vs = NULL, $flags = NULL) {}
+	function __construct($params = NULL, $ps = NULL, $as = NULL, $vs = NULL, int $flags = NULL) {}
 	/**
 	 * String cast handler. Alias of http\Params::toString().
 	 * Returns a stringified version of the parameters.
@@ -1466,7 +1486,7 @@ class Params implements \ArrayAccess {
 	/**
 	 * Convenience method that simply returns http\Params::$params.
 	 * 
-	 * @return array of paramters.
+	 * @return array of parameters.
 	 */
 	function toArray() {}
 	/**
@@ -1508,7 +1528,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate {
 	 * The global instance. See http\QueryString::getGlobalInstance().
 	 * 
 	 * @private
-	 * @var http\QueryString
+	 * @var \http\QueryString
 	 */
 	private $instance = NULL;
 	/**
@@ -1522,9 +1542,15 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate {
 	 * Create an independent querystring instance.
 	 * 
 	 * @param mixed $params The query parameters to use or parse.
-	 * @throws http\Exception\BadQueryStringException
+	 * @throws \http\Exception\BadQueryStringException
 	 */
 	function __construct($params = NULL) {}
+	/**
+	 * Get the string representation of the querystring (x-www-form-urlencoded).
+	 * 
+	 * @return string the x-www-form-urlencoded querystring.
+	 */
+	function __toString() {}
 	/**
 	 * Retrieve an querystring value.
 	 * 
@@ -1534,48 +1560,48 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate {
 	 * @param mixed $type The type to cast the value to. See http\QueryString::TYPE_* constants.
 	 * @param mixed $defval The default value to return if the key $name does not exist.
 	 * @param bool $delete Whether to delete the entry from the querystring after retrieval.
-	 * @return http\QueryString|string|mixed if called without arguments.
-	 * 	 or string the whole querystring if $name is of zero length.
-	 * 	 or mixed $defval if the key $name does not exist.
-	 * 	 or mixed the querystring value cast to $type if $type was specified and the key $name exists.
-	 * 	 or string the querystring value if the key $name exists and $type is not specified or equals http\QueryString::TYPE_STRING.
+	 * @return \http\QueryString|string|mixed|mixed|string \http\QueryString if called without arguments.
+	 * 		 or string the whole querystring if $name is of zero length.
+	 * 		 or mixed $defval if the key $name does not exist.
+	 * 		 or mixed the querystring value cast to $type if $type was specified and the key $name exists.
+	 * 		 or string the querystring value if the key $name exists and $type is not specified or equals http\QueryString::TYPE_STRING.
 	 */
-	function get($name = NULL, $type = NULL, $defval = NULL, $delete = false) {}
+	function get(string $name = NULL, $type = NULL, $defval = NULL, bool $delete = false) {}
 	/**
 	 * Retrieve an array value with at offset $name.
 	 * 
 	 * @param string $name The key to look up.
 	 * @param mixed $defval The default value to return if the offset $name does not exist.
 	 * @param bool $delete Whether to remove the key and value from the querystring after retrieval.
-	 * @return array|mixed the (casted) value.
-	 * 	 or mixed $defval if offset $name does not exist.
+	 * @return array|mixed array the (casted) value.
+	 * 		 or mixed $defval if offset $name does not exist.
 	 */
-	function getArray($name, $defval = NULL, $delete = false) {}
+	function getArray(string $name, $defval = NULL, bool $delete = false) {}
 	/**
 	 * Retrieve a boolean value at offset $name.
 	 * 
 	 * @param string $name The key to look up.
 	 * @param mixed $defval The default value to return if the offset $name does not exist.
 	 * @param bool $delete Whether to remove the key and value from the querystring after retrieval.
-	 * @return bool|mixed the (casted) value.
-	 * 	 or mixed $defval if offset $name does not exist.
+	 * @return bool|mixed bool the (casted) value.
+	 * 		 or mixed $defval if offset $name does not exist.
 	 */
-	function getBool($name, $defval = NULL, $delete = false) {}
+	function getBool(string $name, $defval = NULL, bool $delete = false) {}
 	/**
 	 * Retrieve a float value at offset $name.
 	 * 
 	 * @param string $name The key to look up.
 	 * @param mixed $defval The default value to return if the offset $name does not exist.
 	 * @param bool $delete Whether to remove the key and value from the querystring after retrieval.
-	 * @return float|mixed the (casted) value.
-	 * 	 or mixed $defval if offset $name does not exist.
+	 * @return float|mixed float the (casted) value.
+	 * 		 or mixed $defval if offset $name does not exist.
 	 */
-	function getFloat($name, $defval = NULL, $delete = false) {}
+	function getFloat(string $name, $defval = NULL, bool $delete = false) {}
 	/**
 	 * Retrieve the global querystring instance referencing $_GET.
 	 * 
-	 * @throws http\Exception\UnexpectedValueException
-	 * @return http\QueryString the http\QueryString::$instance
+	 * @throws \http\Exception\UnexpectedValueException
+	 * @return \http\QueryString the http\QueryString::$instance
 	 */
 	function getGlobalInstance() {}
 	/**
@@ -1584,15 +1610,15 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate {
 	 * @param string $name The key to look up.
 	 * @param mixed $defval The default value to return if the offset $name does not exist.
 	 * @param bool $delete Whether to remove the key and value from the querystring after retrieval.
-	 * @return int|mixed the (casted) value.
-	 * 	 or mixed $defval if offset $name does not exist.
+	 * @return int|mixed int the (casted) value.
+	 * 		 or mixed $defval if offset $name does not exist.
 	 */
-	function getInt($name, $defval = NULL, $delete = false) {}
+	function getInt(string $name, $defval = NULL, bool $delete = false) {}
 	/**
 	 * Implements IteratorAggregate.
 	 * 
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws InvalidArgumentException
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \InvalidArgumentException
 	 */
 	function getIterator() {}
 	/**
@@ -1601,20 +1627,20 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate {
 	 * @param string $name The key to look up.
 	 * @param mixed $defval The default value to return if the offset $name does not exist.
 	 * @param bool $delete Whether to remove the key and value from the querystring after retrieval.
-	 * @return object|mixed the (casted) value.
-	 * 	 or mixed $defval if offset $name does not exist.
+	 * @return object|mixed object the (casted) value.
+	 * 		 or mixed $defval if offset $name does not exist.
 	 */
-	function getObject($name, $defval = NULL, $delete = false) {}
+	function getObject(string $name, $defval = NULL, bool $delete = false) {}
 	/**
 	 * Retrieve a string value with at offset $name.
 	 * 
 	 * @param string $name The key to look up.
 	 * @param mixed $defval The default value to return if the offset $name does not exist.
 	 * @param bool $delete Whether to remove the key and value from the querystring after retrieval.
-	 * @return string|mixed the (casted) value.
-	 * 	 or mixed $defval if offset $name does not exist.
+	 * @return string|mixed string the (casted) value.
+	 * 		 or mixed $defval if offset $name does not exist.
 	 */
-	function getString($name, $defval = NULL, $delete = false) {}
+	function getString(string $name, $defval = NULL, bool $delete = false) {}
 	/**
 	 * Set additional $params to a clone of this instance.
 	 * See http\QueryString::set().
@@ -1623,8 +1649,8 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate {
 	 * > This method returns a clone (copy) of this instance.
 	 * 
 	 * @param mixed $params Additional params as object, array or string to parse.
-	 * @throws http\Exception\BadQueryStringException
-	 * @return http\QueryString clone.
+	 * @throws \http\Exception\BadQueryStringException
+	 * @return \http\QueryString clone.
 	 */
 	function mod($params = NULL) {}
 	/**
@@ -1638,8 +1664,8 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate {
 	 * Implements ArrayAccess.
 	 * 
 	 * @param mixed $offset The offset to look up.
-	 * @return mixed|NULL the value locate at offset $name.
-	 * 	 or NULL if key $name could not be found.
+	 * @return mixed|NULL mixed the value locate at offset $name.
+	 * 		 or NULL if key $name could not be found.
 	 */
 	function offsetGet($offset) {}
 	/**
@@ -1666,7 +1692,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate {
 	 * Set additional querystring entries.
 	 * 
 	 * @param mixed $params Additional params as object, array or string to parse.
-	 * @return http\QueryString self.
+	 * @return \http\QueryString self.
 	 */
 	function set($params) {}
 	/**
@@ -1676,7 +1702,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate {
 	 */
 	function toArray() {}
 	/**
-	 * Get the string represenation of the querystring (x-www-form-urlencoded).
+	 * Get the string representation of the querystring (x-www-form-urlencoded).
 	 * 
 	 * @return string the x-www-form-urlencoded querystring.
 	 */
@@ -1685,7 +1711,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate {
 	 * Implements Serializable.
 	 * 
 	 * @param string $serialized The x-www-form-urlencoded querystring.
-	 * @throws http\Exception
+	 * @throws \http\Exception
 	 */
 	function unserialize($serialized) {}
 	/**
@@ -1696,11 +1722,11 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate {
 	 * 
 	 * @param string $from_enc The encoding to convert from.
 	 * @param string $to_enc The encoding to convert to.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\BadConversionException
-	 * @return http\QueryString self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\BadConversionException
+	 * @return \http\QueryString self.
 	 */
-	function xlate($from_enc, $to_enc) {}
+	function xlate(string $from_enc, string $to_enc) {}
 }
 /**
  * The http\Url class provides versatile means to parse, construct and manipulate URLs.
@@ -1759,7 +1785,7 @@ class Url  {
 	 */
 	const SANITIZE_PATH = 8192;
 	/**
-	 * Parse UTF-8 encododed multibyte sequences.
+	 * Parse UTF-8 encoded multibyte sequences.
 	 */
 	const PARSE_MBUTF8 = 131072;
 	/**
@@ -1862,10 +1888,10 @@ class Url  {
 	 * @param mixed $old_url Initial URL parts. Either an array, object, http\Url instance or string to parse.
 	 * @param mixed $new_url Overriding URL parts. Either an array, object, http\Url instance or string to parse.
 	 * @param int $flags The modus operandi of constructing the url. See http\Url constants.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\BadUrlException
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\BadUrlException
 	 */
-	function __construct($old_url = NULL, $new_url = NULL, $flags = 0) {}
+	function __construct($old_url = NULL, $new_url = NULL, int $flags = 0) {}
 	/**
 	 * String cast handler. Alias of http\Url::toString().
 	 * 
@@ -1880,11 +1906,11 @@ class Url  {
 	 * 
 	 * @param mixed $parts New URL parts.
 	 * @param int $flags Modus operandi of URL construction. See http\Url constants.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\BadUrlException
-	 * @return http\Url clone.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\BadUrlException
+	 * @return \http\Url clone.
 	 */
-	function mod($parts, $flags = http\Url::JOIN_PATH|http\Url::JOIN_QUERY|http\Url::SANITIZE_PATH) {}
+	function mod($parts, int $flags = \http\Url::JOIN_PATH|http\Url::JOIN_QUERY|http\Url::SANITIZE_PATH) {}
 	/**
 	 * Retrieve the URL parts as array.
 	 * 
@@ -1912,7 +1938,7 @@ const FEATURES = 4179869;
  *   e.g. "libcurl/7.50.0 OpenSSL/1.0.2h zlib/1.2.8 libidn/1.32 nghttp2/1.12.0".
  *   See http\Client\Curl\Versions namespace.
  */
-const VERSIONS = 'libcurl/7.64.0 OpenSSL/1.1.1a zlib/1.2.11 libidn2/2.1.1 libpsl/0.20.2 (+libidn2/2.1.1) libssh2/1.8.0 nghttp2/1.36.0';
+const VERSIONS = 'libcurl/7.64.0 OpenSSL/1.1.1b zlib/1.2.11 libidn2/2.0.5 libpsl/0.20.2 (+libidn2/2.0.5) libssh2/1.8.0 nghttp2/1.36.0 librtmp/2.3';
 /**
  * Use HTTP/1.0 protocol version.
  */
@@ -1922,9 +1948,13 @@ const HTTP_VERSION_1_0 = 1;
  */
 const HTTP_VERSION_1_1 = 2;
 /**
- * Use HTTP/2 protocol version. Available if libcurl is v7.33.0 or more recent and was built with nghttp2 support.
+ * Attempt to use HTTP/2 protocol version. Available if libcurl is v7.33.0 or more recent and was built with nghttp2 support.
  */
 const HTTP_VERSION_2_0 = 3;
+/**
+ * Attempt to use version 2 for HTTPS, version 1.1 for HTTP. Available if libcurl is v7.47.0 or more recent and was built with nghttp2 support.
+ */
+const HTTP_VERSION_2TLS = 4;
 /**
  * Use any HTTP protocol version.
  */
@@ -1960,7 +1990,7 @@ const SSL_VERSION_ANY = 0;
 /**
  * Use TLS SRP authentication. Available if libcurl is v7.21.4 or more recent and was built with gnutls or openssl with TLS-SRP support.
  */
-const TLS_AUTH_SRP = NULL;
+const TLSAUTH_SRP = 1;
 /**
  * Use IPv4 resolver.
  */
@@ -2061,19 +2091,19 @@ class Request extends \http\Message {
 	 * @param string $meth The request method.
 	 * @param string $url The request URL.
 	 * @param array $headers HTTP headers.
-	 * @param http\Message\Body $body Request body.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
+	 * @param \http\Message\Body $body Request body.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
 	 */
-	function __construct($meth = NULL, $url = NULL, $headers = NULL, $body = NULL) {}
+	function __construct(string $meth = NULL, string $url = NULL, array $headers = NULL, \http\Message\Body $body = NULL) {}
 	/**
 	 * Add querystring data.
 	 * See http\Client\Request::setQuery() and http\Message::setRequestUrl().
 	 * 
 	 * @param mixed $query_data Additional querystring data.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\BadQueryStringException
-	 * @return http\Client\Request self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\BadQueryStringException
+	 * @return \http\Client\Request self.
 	 */
 	function addQuery($query_data) {}
 	/**
@@ -2081,16 +2111,16 @@ class Request extends \http\Message {
 	 * See http\Client\Request::setSslOptions(), http\Client\Request::setOptions() and http\Client\Curl\$ssl options.
 	 * 
 	 * @param array $ssl_options Add this SSL options.
-	 * @throws http\Client\InvalidArgumentException
-	 * @return http\Client\Request self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Client\Request self.
 	 */
-	function addSslOptions($ssl_options = NULL) {}
+	function addSslOptions(array $ssl_options = NULL) {}
 	/**
 	 * Extract the currently set "Content-Type" header.
 	 * See http\Client\Request::setContentType().
 	 * 
-	 * @return string|NULL the currently set content type.
-	 * 	 or NULL if no "Content-Type" header is set.
+	 * @return string|NULL string the currently set content type.
+	 * 		 or NULL if no "Content-Type" header is set.
 	 */
 	function getContentType() {}
 	/**
@@ -2103,8 +2133,8 @@ class Request extends \http\Message {
 	/**
 	 * Retrieve the currently set querystring.
 	 * 
-	 * @return string|NULL the currently set querystring.
-	 * 	 or NULL if no querystring is set.
+	 * @return string|NULL string the currently set querystring.
+	 * 		 or NULL if no querystring is set.
 	 */
 	function getQuery() {}
 	/**
@@ -2118,11 +2148,11 @@ class Request extends \http\Message {
 	 * Set the MIME content type of the request message.
 	 * 
 	 * @param string $content_type The MIME type used as "Content-Type".
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
-	 * @return http\Client\Request self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
+	 * @return \http\Client\Request self.
 	 */
-	function setContentType($content_type) {}
+	function setContentType(string $content_type) {}
 	/**
 	 * Set client options.
 	 * See http\Client::setOptions() and http\Client\Curl.
@@ -2133,18 +2163,18 @@ class Request extends \http\Message {
 	 * > Only options specified prior enqueueing a request are applied to the request.
 	 * 
 	 * @param array $options The options to set.
-	 * @throws http\Client\InvalidArgumentException
-	 * @return http\Client\Request self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Client\Request self.
 	 */
-	function setOptions($options = NULL) {}
+	function setOptions(array $options = NULL) {}
 	/**
 	 * (Re)set the querystring.
 	 * See http\Client\Request::addQuery() and http\Message::setRequestUrl().
 	 * 
 	 * @param mixed $query_data
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\BadQueryStringException
-	 * @return http\Client\Request self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\BadQueryStringException
+	 * @return \http\Client\Request self.
 	 */
 	function setQuery($query_data) {}
 	/**
@@ -2152,10 +2182,10 @@ class Request extends \http\Message {
 	 * See http\Client\Request::setOptions() and http\Client\Curl\$ssl options.
 	 * 
 	 * @param array $ssl_options Set SSL options to this array.
-	 * @throws http\Client\InvalidArgumentException
-	 * @return http\Client\Request self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Client\Request self.
 	 */
-	function setSslOptions($ssl_options = NULL) {}
+	function setSslOptions(array $ssl_options = NULL) {}
 }
 /**
  * The http\Client\Response class represents an HTTP message the client returns as answer from a server to an http\Client\Request.
@@ -2169,19 +2199,19 @@ class Response extends \http\Message {
 	 * @param array $allowed_extras List of keys treated as extras.
 	 * @return array list of http\Cookie instances.
 	 */
-	function getCookies($flags = 0, $allowed_extras = NULL) {}
+	function getCookies(int $flags = 0, array $allowed_extras = NULL) {}
 	/**
 	 * Retrieve transfer related information after the request has completed.
 	 * See http\Client::getTransferInfo().
 	 * 
 	 * @param string $name A key to retrieve out of the transfer info.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\BadMethodCallException
-	 * @throws http\Exception\UnexpectedValueException
-	 * @return object|mixed stdClass instance with all transfer info if $name was not given.
-	 * 	 or mixed the specific transfer info for $name.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\BadMethodCallException
+	 * @throws \http\Exception\UnexpectedValueException
+	 * @return object|mixed object stdClass instance with all transfer info if $name was not given.
+	 * 		 or mixed the specific transfer info for $name.
 	 */
-	function getTransferInfo($name = NULL) {}
+	function getTransferInfo(string $name = NULL) {}
 }
 namespace http\Client\Curl;
 /**
@@ -2221,7 +2251,7 @@ interface User  {
 	 * > ***NOTE***:
 	 * > The callback should be run when a timeout occurs or a watched socket needs action.
 	 */
-	function init($run);
+	function init(callable $run);
 	/**
 	 * Run the loop as long as it does not block.
 	 * 
@@ -2242,13 +2272,13 @@ interface User  {
 	 * @param resource $socket The socket descriptor to watch.
 	 * @param int $poll http\Client\Curl\User::POLL_* constant.
 	 */
-	function socket($socket, $poll);
+	function socket($socket, int $poll);
 	/**
 	 * Register a timeout watcher.
 	 * 
 	 * @param int $timeout_ms Desired maximum timeout in milliseconds.
 	 */
-	function timer($timeout_ms);
+	function timer(int $timeout_ms);
 	/**
 	 * Wait/poll/select (block the loop) until events fire.
 	 * 
@@ -2257,7 +2287,7 @@ interface User  {
 	 * 
 	 * @param int $timeout_ms Block for at most this milliseconds.
 	 */
-	function wait($timeout_ms = null);
+	function wait(int $timeout_ms = null);
 }
 /**
  * CURL feature constants.
@@ -2352,7 +2382,7 @@ const CURL = '7.64.0';
 /**
  * Version string of the SSL/TLS library, e.g. "OpenSSL/1.0.2h".
  */
-const SSL = 'OpenSSL/1.1.1a';
+const SSL = 'OpenSSL/1.1.1b';
 /**
  * Version string of the zlib compression library, e.g. "1.2.8".
  */
@@ -2371,7 +2401,7 @@ namespace http\Encoding;
  */
 abstract class Stream  {
 	/**
-	 * Do no intermittend flushes.
+	 * Do no intermittent flushes.
 	 */
 	const FLUSH_NONE = 0;
 	/**
@@ -2386,10 +2416,10 @@ abstract class Stream  {
 	 * Base constructor for encoding stream implementations.
 	 * 
 	 * @param int $flags See http\Encoding\Stream and implementation specific constants.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\RuntimeException
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\RuntimeException
 	 */
-	function __construct($flags = 0) {}
+	function __construct(int $flags = 0) {}
 	/**
 	 * Check whether the encoding stream is already done.
 	 * 
@@ -2416,9 +2446,24 @@ abstract class Stream  {
 	 * @param string $data The data to pass through the stream.
 	 * @return string processed data.
 	 */
-	function update($data) {}
+	function update(string $data) {}
 }
 namespace http\Encoding\Stream;
+/**
+ * A [brotli](https://brotli.org) decoding stream.
+ * 
+ * > ***NOTE:***
+ * > This class has been added in v3.2.0.
+ */
+class Debrotli extends \http\Encoding\Stream {
+	/**
+	 * Decode brotli encoded data.
+	 * 
+	 * @param string $data The data to uncompress.
+	 * @return string the uncompressed data.
+	 */
+	function decode(string $data) {}
+}
 /**
  * A stream decoding data encoded with chunked transfer encoding.
  */
@@ -2429,12 +2474,12 @@ class Dechunk extends \http\Encoding\Stream {
 	 * @param string $data The data to decode.
 	 * @param int $decoded_len Out parameter with the length of $data that's been decoded.
 	 *   Should be ```strlen($data)``` if not truncated.
-	 * @return string|false the decoded data.
-	 * 	 or string the unencoded data.
-	 * 	 or string the truncated decoded data.
-	 * 	 or false if $data cannot be decoded.
+	 * @return string|string|string|false string the decoded data.
+	 * 		 or string the unencoded data.
+	 * 		 or string the truncated decoded data.
+	 * 		 or false if $data cannot be decoded.
 	 */
-	function decode($data, $decoded_len = 0) {}
+	function decode(string $data, int &$decoded_len = 0) {}
 }
 /**
  * A deflate stream supporting deflate, zlib and gzip encodings.
@@ -2507,7 +2552,59 @@ class Deflate extends \http\Encoding\Stream {
 	 * @param int $flags Any compression tuning flags. See http\Encoding\Stream\Deflate and http\Encoding\Stream constants.
 	 * @return string the compressed data.
 	 */
-	function encode($data, $flags = 0) {}
+	function encode(string $data, int $flags = 0) {}
+}
+/**
+ * A [brotli](https://brotli.org) encoding stream.
+ * 
+ * > ***NOTE:***
+ * > This class has been added in v3.2.0.
+ */
+class Enbrotli extends \http\Encoding\Stream {
+	/**
+	 * Default compression level.
+	 */
+	const LEVEL_DEF = NULL;
+	/**
+	 * Least compression level.
+	 */
+	const LEVEL_MIN = NULL;
+	/**
+	 * Greatest compression level.
+	 */
+	const LEVEL_MAX = NULL;
+	/**
+	 * Default window bits.
+	 */
+	const WBITS_DEF = NULL;
+	/**
+	 * Minimum window bits.
+	 */
+	const WBITS_MIN = NULL;
+	/**
+	 * Maximum window bits.
+	 */
+	const WBITS_MAX = NULL;
+	/**
+	 * Default compression mode.
+	 */
+	const MODE_GENERIC = NULL;
+	/**
+	 * Compression mode for UTF-8 formatted text.
+	 */
+	const MODE_TEXT = NULL;
+	/**
+	 * Compression mode used in WOFF 2.0.
+	 */
+	const MODE_FONT = NULL;
+	/**
+	 * Encode data with brotli encoding.
+	 * 
+	 * @param string $data The data to compress.
+	 * @param int $flags Any compression tuning flags. See http\Encoding\Stream\Enbrotli and http\Encoding\Stream constants.
+	 * @return string the compressed data.
+	 */
+	function encode(string $data, int $flags = 0) {}
 }
 /**
  * A inflate stream supporting deflate, zlib and gzip encodings.
@@ -2519,7 +2616,7 @@ class Inflate extends \http\Encoding\Stream {
 	 * @param string $data The data to uncompress.
 	 * @return string the uncompressed data.
 	 */
-	function decode($data) {}
+	function decode(string $data) {}
 }
 namespace http\Env;
 /**
@@ -2532,14 +2629,14 @@ class Request extends \http\Message {
 	 * The request's query parameters. ($_GET)
 	 * 
 	 * @protected
-	 * @var http\QueryString
+	 * @var \http\QueryString
 	 */
 	protected $query = NULL;
 	/**
 	 * The request's form parameters. ($_POST)
 	 * 
 	 * @protected
-	 * @var http\QueryString
+	 * @var \http\QueryString
 	 */
 	protected $form = NULL;
 	/**
@@ -2559,12 +2656,12 @@ class Request extends \http\Message {
 	/**
 	 * Create an instance of the server's current HTTP request.
 	 * 
-	 * Upon construction, the http\Env\Request acquires http\QueryString instances of  query paramters ($\_GET) and form parameters ($\_POST).
+	 * Upon construction, the http\Env\Request acquires http\QueryString instances of query parameters ($\_GET) and form parameters ($\_POST).
 	 * 
 	 * It also compiles an array of uploaded files ($\_FILES) more comprehensive than the original $\_FILES array, see http\Env\Request::getFiles() for that matter.
 	 * 
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
 	 */
 	function __construct() {}
 	/**
@@ -2576,13 +2673,13 @@ class Request extends \http\Message {
 	 * @param mixed $type The type to cast the value to. See http\QueryString::TYPE_* constants.
 	 * @param mixed $defval The default value to return if the key $name does not exist.
 	 * @param bool $delete Whether to delete the entry from the querystring after retrieval.
-	 * @return http\QueryString|string|mixed if called without arguments.
-	 * 	 or string the whole querystring if $name is of zero length.
-	 * 	 or mixed $defval if the key $name does not exist.
-	 * 	 or mixed the querystring value cast to $type if $type was specified and the key $name exists.
-	 * 	 or string the querystring value if the key $name exists and $type is not specified or equals http\QueryString::TYPE_STRING.
+	 * @return \http\QueryString|string|mixed|mixed|string \http\QueryString if called without arguments.
+	 * 		 or string the whole querystring if $name is of zero length.
+	 * 		 or mixed $defval if the key $name does not exist.
+	 * 		 or mixed the querystring value cast to $type if $type was specified and the key $name exists.
+	 * 		 or string the querystring value if the key $name exists and $type is not specified or equals http\QueryString::TYPE_STRING.
 	 */
-	function getCookie($name = NULL, $type = NULL, $defval = NULL, $delete = false) {}
+	function getCookie(string $name = NULL, $type = NULL, $defval = NULL, bool $delete = false) {}
 	/**
 	 * Retrieve the uploaded files list ($_FILES).
 	 * 
@@ -2598,13 +2695,13 @@ class Request extends \http\Message {
 	 * @param mixed $type The type to cast the value to. See http\QueryString::TYPE_* constants.
 	 * @param mixed $defval The default value to return if the key $name does not exist.
 	 * @param bool $delete Whether to delete the entry from the querystring after retrieval.
-	 * @return http\QueryString|string|mixed if called without arguments.
-	 * 	 or string the whole querystring if $name is of zero length.
-	 * 	 or mixed $defval if the key $name does not exist.
-	 * 	 or mixed the querystring value cast to $type if $type was specified and the key $name exists.
-	 * 	 or string the querystring value if the key $name exists and $type is not specified or equals http\QueryString::TYPE_STRING.
+	 * @return \http\QueryString|string|mixed|mixed|string \http\QueryString if called without arguments.
+	 * 		 or string the whole querystring if $name is of zero length.
+	 * 		 or mixed $defval if the key $name does not exist.
+	 * 		 or mixed the querystring value cast to $type if $type was specified and the key $name exists.
+	 * 		 or string the querystring value if the key $name exists and $type is not specified or equals http\QueryString::TYPE_STRING.
 	 */
-	function getForm($name = NULL, $type = NULL, $defval = NULL, $delete = false) {}
+	function getForm(string $name = NULL, $type = NULL, $defval = NULL, bool $delete = false) {}
 	/**
 	 * Retrieve an URL query value ($_GET).
 	 * 
@@ -2614,13 +2711,13 @@ class Request extends \http\Message {
 	 * @param mixed $type The type to cast the value to. See http\QueryString::TYPE_* constants.
 	 * @param mixed $defval The default value to return if the key $name does not exist.
 	 * @param bool $delete Whether to delete the entry from the querystring after retrieval.
-	 * @return http\QueryString|string|mixed if called without arguments.
-	 * 	 or string the whole querystring if $name is of zero length.
-	 * 	 or mixed $defval if the key $name does not exist.
-	 * 	 or mixed the querystring value cast to $type if $type was specified and the key $name exists.
-	 * 	 or string the querystring value if the key $name exists and $type is not specified or equals http\QueryString::TYPE_STRING.
+	 * @return \http\QueryString|string|mixed|mixed|string \http\QueryString if called without arguments.
+	 * 		 or string the whole querystring if $name is of zero length.
+	 * 		 or mixed $defval if the key $name does not exist.
+	 * 		 or mixed the querystring value cast to $type if $type was specified and the key $name exists.
+	 * 		 or string the querystring value if the key $name exists and $type is not specified or equals http\QueryString::TYPE_STRING.
 	 */
-	function getQuery($name = NULL, $type = NULL, $defval = NULL, $delete = false) {}
+	function getQuery(string $name = NULL, $type = NULL, $defval = NULL, bool $delete = false) {}
 }
 /**
  * The http\Env\Response class' instances represent the server's current HTTP response.
@@ -2652,7 +2749,7 @@ class Response extends \http\Message {
 	 * A request instance which overrides the environments default request.
 	 * 
 	 * @protected
-	 * @var http\Env\Request
+	 * @var \http\Env\Request
 	 */
 	protected $request = NULL;
 	/**
@@ -2721,8 +2818,8 @@ class Response extends \http\Message {
 	/**
 	 * Create a new env response message instance.
 	 * 
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
 	 */
 	function __construct() {}
 	/**
@@ -2733,7 +2830,7 @@ class Response extends \http\Message {
 	 * @param int $ob_flags Output buffering flags passed from the output buffering control layer.
 	 * @return bool success.
 	 */
-	function __invoke($data, $ob_flags = 0) {}
+	function __invoke(string $data, int $ob_flags = 0) {}
 	/**
 	 * Manually test the header $header_name of the environment's request for a cache hit.
 	 * http\Env\Response::send() checks that itself, though.
@@ -2741,7 +2838,7 @@ class Response extends \http\Message {
 	 * @param string $header_name The request header to test.
 	 * @return int a http\Env\Response::CACHE_* constant.
 	 */
-	function isCachedByEtag($header_name = "If-None-Match") {}
+	function isCachedByEtag(string $header_name = "If-None-Match") {}
 	/**
 	 * Manually test the header $header_name of the environment's request for a cache hit.
 	 * http\Env\Response::send() checks that itself, though.
@@ -2749,7 +2846,7 @@ class Response extends \http\Message {
 	 * @param string $header_name The request header to test.
 	 * @return int a http\Env\Response::CACHE_* constant.
 	 */
-	function isCachedByLastModified($header_name = "If-Modified-Since") {}
+	function isCachedByLastModified(string $header_name = "If-Modified-Since") {}
 	/**
 	 * Send the response through the SAPI or $stream.
 	 * Flushes all output buffers.
@@ -2762,52 +2859,52 @@ class Response extends \http\Message {
 	 * Make suggestions to the client how it should cache the response.
 	 * 
 	 * @param string $cache_control (A) "Cache-Control" header value(s).
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Env\Response self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Env\Response self.
 	 */
-	function setCacheControl($cache_control) {}
+	function setCacheControl(string $cache_control) {}
 	/**
 	 * Set the reponse's content disposition parameters.
 	 * 
 	 * @param array $disposition_params MIME content disposition as http\Params array.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Env\Response self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Env\Response self.
 	 */
-	function setContentDisposition($disposition_params) {}
+	function setContentDisposition(array $disposition_params) {}
 	/**
 	 * Enable support for "Accept-Encoding" requests with deflate or gzip.
 	 * The response will be compressed if the client indicates support and wishes that.
 	 * 
 	 * @param int $content_encoding See http\Env\Response::CONTENT_ENCODING_* constants.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Env\Response self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Env\Response self.
 	 */
-	function setContentEncoding($content_encoding) {}
+	function setContentEncoding(int $content_encoding) {}
 	/**
 	 * Set the MIME content type of the response.
 	 * 
-	 * @param string $conten_type The response's content type.
-	 * @throws http\Env\InvalidArgumentException
-	 * @return http\Env\Response self.
+	 * @param string $content_type The response's content type.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Env\Response self.
 	 */
-	function setContentType($conten_type) {}
+	function setContentType(string $content_type) {}
 	/**
 	 * Add cookies to the response to send.
 	 * 
 	 * @param mixed $cookie The cookie to send.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
-	 * @return http\Env\Response self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
+	 * @return \http\Env\Response self.
 	 */
 	function setCookie($cookie) {}
 	/**
 	 * Override the environment's request.
 	 * 
-	 * @param http\Message $env_request The overriding request message.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Env\Response self.
+	 * @param \http\Message $env_request The overriding request message.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Env\Response self.
 	 */
-	function setEnvRequest($env_request) {}
+	function setEnvRequest(\http\Message $env_request) {}
 	/**
 	 * Set a custom ETag.
 	 * 
@@ -2815,10 +2912,10 @@ class Response extends \http\Message {
 	 * > This will be used for caching and pre-condition checks.
 	 * 
 	 * @param string $etag A ETag.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Env\Response self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Env\Response self.
 	 */
-	function setEtag($etag) {}
+	function setEtag(string $etag) {}
 	/**
 	 * Set a custom last modified time stamp.
 	 * 
@@ -2826,10 +2923,10 @@ class Response extends \http\Message {
 	 * > This will be used for caching and pre-condition checks.
 	 * 
 	 * @param int $last_modified A unix timestamp.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @return http\Env\Response self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @return \http\Env\Response self.
 	 */
-	function setLastModified($last_modified) {}
+	function setLastModified(int $last_modified) {}
 	/**
 	 * Enable throttling.
 	 * Send $chunk_size bytes every $delay seconds.
@@ -2839,9 +2936,9 @@ class Response extends \http\Message {
 	 * 
 	 * @param int $chunk_size Bytes to send.
 	 * @param float $delay Seconds to sleep.
-	 * @return http\Env\Response self.
+	 * @return \http\Env\Response self.
 	 */
-	function setThrottleRate($chunk_size, $delay = 1) {}
+	function setThrottleRate(int $chunk_size, float $delay = 1) {}
 }
 /**
  * URL class using the HTTP environment by default.
@@ -2946,7 +3043,7 @@ class Parser  {
 	 * Retrieve the current state of the parser.
 	 * See http\Header\Parser::STATE_* constants.
 	 * 
-	 * @throws http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\InvalidArgumentException
 	 * @return int http\Header\Parser::STATE_* constant.
 	 */
 	function getState() {}
@@ -2955,20 +3052,22 @@ class Parser  {
 	 * 
 	 * @param string $data The (part of the) header to parse.
 	 * @param int $flags Any combination of [parser flags](http/Header/Parser#Parser.flags:).
-	 * @throws http\Exception\InvalidArgumentException
+	 * @param array $header Successfully parsed headers.
+	 * @throws \http\Exception\InvalidArgumentException
 	 * @return int http\Header\Parser::STATE_* constant.
 	 */
-	function parse($data, $flags) {}
+	function parse(string $data, int $flags, array &$header = NULL) {}
 	/**
 	 * Parse a stream.
 	 * 
-	 * @param stream $resource The header stream to parse from.
+	 * @param resource $stream The header stream to parse from.
 	 * @param int $flags Any combination of [parser flags](http/Header/Parser#Parser.flags:).
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
+	 * @param array $headers The headers parsed.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
 	 * @return int http\Header\Parser::STATE_* constant.
 	 */
-	function stream($resource, $flags) {}
+	function stream($stream, int $flags, array &$headers) {}
 }
 namespace http\Message;
 /**
@@ -2982,8 +3081,8 @@ class Body implements \Serializable {
 	 * Create a new message body, optionally referencing $stream.
 	 * 
 	 * @param resource $stream A stream to be used as message body.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
 	 */
 	function __construct($stream = NULL) {}
 	/**
@@ -3031,43 +3130,43 @@ class Body implements \Serializable {
 	 *     ]
 	 * 
 	 * As you can see, a file structure must contain a "file" entry, which holds a file path, and an optional "data" entry, which may either contain a resource to read from or the actual data as string.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\RuntimeException
-	 * @return http\Message\Body self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\RuntimeException
+	 * @return \http\Message\Body self.
 	 */
-	function addForm($fields = NULL, $files = NULL) {}
+	function addForm(array $fields = NULL, array $files = NULL) {}
 	/**
 	 * Add a part to a multipart body.
 	 * 
-	 * @param http\Message $part The message part.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\RuntimeException
-	 * @return http\Message\Body self.
+	 * @param \http\Message $part The message part.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\RuntimeException
+	 * @return \http\Message\Body self.
 	 */
-	function addPart($part) {}
+	function addPart(\http\Message $part) {}
 	/**
 	 * Append plain bytes to the message body.
 	 * 
 	 * @param string $data The data to append to the body.
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\RuntimeException
-	 * @return http\Message\Body self.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\RuntimeException
+	 * @return \http\Message\Body self.
 	 */
-	function append($data) {}
+	function append(string $data) {}
 	/**
 	 * Retrieve the ETag of the body.
 	 * 
-	 * @return string|false an Apache style ETag of inode, mtime and size in hex concatenated by hyphens if the message body stream is stat-able.
-	 * 	 or string a content hash (which algorithm is determined by INI http.etag.mode) if the stream is not stat-able.
-	 * 	 or false if http.etag.mode is not a known hash algorithm.
+	 * @return string|string|false string an Apache style ETag of inode, mtime and size in hex concatenated by hyphens if the message body stream is stat-able.
+	 * 		 or string a content hash (which algorithm is determined by INI http.etag.mode) if the stream is not stat-able.
+	 * 		 or false if http.etag.mode is not a known hash algorithm.
 	 */
 	function etag() {}
 	/**
 	 * Retrieve any boundary of the message body.
 	 * See http\Message::splitMultipartBody().
 	 * 
-	 * @return string|NULL the message body boundary.
-	 * 	 or NULL if this message body has no boundary.
+	 * @return string|NULL string the message body boundary.
+	 * 		 or NULL if this message body has no boundary.
 	 */
 	function getBoundary() {}
 	/**
@@ -3087,28 +3186,28 @@ class Body implements \Serializable {
 	 * Stat size, atime, mtime and/or ctime.
 	 * 
 	 * @param string $field A single stat field to retrieve.
-	 * @return int|object the requested stat field.
-	 * 	 or object stdClass instance holding all four stat fields.
+	 * @return int|object int the requested stat field.
+	 * 		 or object stdClass instance holding all four stat fields.
 	 */
-	function stat($field = NULL) {}
+	function stat(string $field = NULL) {}
 	/**
 	 * Stream the message body through a callback.
 	 * 
 	 * @param callable $callback The callback of the form function(http\Message\Body $from, string $data).
 	 * @param int $offset Start to stream from this offset.
 	 * @param int $maxlen Stream at most $maxlen bytes, or all if $maxlen is less than 1.
-	 * @return http\Message\Body self.
+	 * @return \http\Message\Body self.
 	 */
-	function toCallback($callback, $offset = 0, $maxlen = 0) {}
+	function toCallback(callable $callback, int $offset = 0, int $maxlen = 0) {}
 	/**
-	 * Stream the message body into antother stream $stream, starting from $offset, streaming $maxlen at most.
+	 * Stream the message body into another stream $stream, starting from $offset, streaming $maxlen at most.
 	 * 
 	 * @param resource $stream The resource to write to.
 	 * @param int $offset The starting offset.
 	 * @param int $maxlen The maximum amount of data to stream. All content if less than 1.
-	 * @return http\Message\Body self.
+	 * @return \http\Message\Body self.
 	 */
-	function toStream($stream, $offset = 0, $maxlen = 0) {}
+	function toStream($stream, int $offset = 0, int $maxlen = 0) {}
 	/**
 	 * Retrieve the message body serialized to a string.
 	 * Alias of http\Message\Body::__toString().
@@ -3126,7 +3225,7 @@ class Body implements \Serializable {
 /**
  * The parser which is underlying http\Message.
  * 
- * > ***NOTE:****
+ * > ***NOTE:***
  * > This class was added in v2.2.0.
  */
 class Parser  {
@@ -3171,7 +3270,7 @@ class Parser  {
 	 */
 	const STATE_BODY_DUMB = 4;
 	/**
-	 * Reading body as indicated by `Content-Lenght` or `Content-Range`.
+	 * Reading body as indicated by `Content-Length` or `Content-Range`.
 	 */
 	const STATE_BODY_LENGTH = 5;
 	/**
@@ -3183,6 +3282,10 @@ class Parser  {
 	 */
 	const STATE_BODY_DONE = 7;
 	/**
+	 * Updating Content-Length based on body size.
+	 */
+	const STATE_UPDATE_CL = 8;
+	/**
 	 * Finished parsing the message.
 	 * 
 	 * > ***NOTE:***
@@ -3193,7 +3296,7 @@ class Parser  {
 	 * Retrieve the current state of the parser.
 	 * See http\Message\Parser::STATE_* constants.
 	 * 
-	 * @throws http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\InvalidArgumentException
 	 * @return int http\Message\Parser::STATE_* constant.
 	 */
 	function getState() {}
@@ -3202,18 +3305,20 @@ class Parser  {
 	 * 
 	 * @param string $data The (part of the) message to parse.
 	 * @param int $flags Any combination of [parser flags](http/Message/Parser#Parser.flags:).
-	 * @throws http\Exception\InvalidArgumentException
+	 * @param \http\Message $message The current state of the message parsed.
+	 * @throws \http\Exception\InvalidArgumentException
 	 * @return int http\Message\Parser::STATE_* constant.
 	 */
-	function parse($data, $flags) {}
+	function parse(string $data, int $flags, \http\Message &$message) {}
 	/**
 	 * Parse a stream.
 	 * 
-	 * @param stream $resource The message stream to parse from.
+	 * @param resource $stream The message stream to parse from.
 	 * @param int $flags Any combination of [parser flags](http/Message/Parser#Parser.flags:).
-	 * @throws http\Exception\InvalidArgumentException
-	 * @throws http\Exception\UnexpectedValueException
+	 * @param \http\Message $message The current state of the message parsed.
+	 * @throws \http\Exception\InvalidArgumentException
+	 * @throws \http\Exception\UnexpectedValueException
 	 * @return int http\Message\Parser::STATE_* constant.
 	 */
-	function stream($resource, $flags) {}
+	function stream($stream, int $flags, \http\Message &$message) {}
 }
