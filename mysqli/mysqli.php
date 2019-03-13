@@ -138,12 +138,12 @@ class mysqli  {
 	 * @since 5.0
 	 */
 	public function __construct (
-		$host,
-		$username,
-		$passwd,
-		$dbname,
-		$port,
-		$socket
+		$host = null,
+		$username = null,
+		$passwd = null,
+		$dbname = null,
+		$port = null,
+		$socket = null
 	) {}
 
 	/**
@@ -337,14 +337,14 @@ class mysqli  {
 	public function multi_query ($query) {}
 
 	/**
-	 * @param $host [optional]
-	 * @param $user [optional]
-	 * @param $password [optional]
-	 * @param $database [optional]
-	 * @param $port [optional]
-	 * @param $socket [optional]
+	 * @param string $host [optional]
+	 * @param string $user [optional]
+	 * @param string $password [optional]
+	 * @param string $database [optional]
+	 * @param int $port [optional]
+	 * @param string $socket [optional]
 	 */
-	public function mysqli ($host, $user, $password, $database, $port, $socket) {}
+	public function mysqli ($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null) {}
 
 	/**
 	 * Check if there are any more query results from a multi query

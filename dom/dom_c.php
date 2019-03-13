@@ -977,11 +977,11 @@ class DOMDocument extends DOMNode  {
     /**
      * Creates a new DOMDocument object
      * @link https://php.net/manual/domdocument.construct.php
-     * @param $version [optional] The version number of the document as part of the XML declaration.
-     * @param $encoding [optional] The encoding of the document as part of the XML declaration.
+     * @param string $version [optional] The version number of the document as part of the XML declaration.
+     * @param string $encoding [optional] The encoding of the document as part of the XML declaration.
      * @since 5.0
      */
-    public function __construct ($version, $encoding) {}
+    public function __construct ($version = '', $encoding = '') {}
 
     /**
      * Validates the document based on its DTD
@@ -1147,7 +1147,7 @@ class DOMNodeList implements Traversable, Countable {
 	 * @param int $index <p>
 	 * Index of the node into the collection.
 	 * </p>
-	 * @return DOMElement The node at the indexth position in the 
+	 * @return DOMNode|null The node at the indexth position in the 
 	 * DOMNodeList, or &null; if that is not a valid
 	 * index.
 	 * @since 5.0
@@ -2143,9 +2143,10 @@ class DOMXPath  {
      * </p>
      * @param bool $registerNodeNS [optional] <p>The optional registerNodeNS can be specified to
      * disable automatic registration of the context node.</p>
-     * @return DOMNodeList a DOMNodeList containing all nodes matching
-     * the given XPath expression. Any expression which do
-     * not return nodes will return an empty DOMNodeList.
+     * @return DOMNodeList|false a DOMNodeList containing all nodes matching
+     * the given XPath expression. Any expression which does not return nodes
+     * will return an empty DOMNodeList. The return is false if the expression
+     * is malformed or the contextnode is invalid.
      * @since 5.0
      */
     public function query ($expression, $contextnode = null, $registerNodeNS = true) {}

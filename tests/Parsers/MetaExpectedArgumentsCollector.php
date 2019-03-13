@@ -40,13 +40,13 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
             if ((string)$node->name === self::EXPECTED_ARGUMENTS) {
                 $args = $node->args;
                 if (count($args) < 3) throw new RuntimeException('Expected at least 3 arguments for expectedArguments call');
-                $this->expectedArgumentsInfos[] = $this->getExpectedArgumentsInfo($args[0]->value, array_slice($args, 2));
+                $this->expectedArgumentsInfos[] = $this->getExpectedArgumentsInfo($args[0]->value, array_slice($args, 2), $args[1]->value->value);
             } else if ((string)$node->name === self::REGISTER_ARGUMENTS_SET_NAME) {
                 $args = $node->args;
                 if (count($args) < 2) throw new RuntimeException('Expected at least 2 arguments for registerArgumentsSet call');
                 $this->expectedArgumentsInfos[] = $this->getExpectedArgumentsInfo(null, array_slice($args, 1));
                 $name = $args[0]->value->value;
-                $this->registeredArgumentsSet[$name] = $name;
+                $this->registeredArgumentsSet[] = $name;
             } else if ((string)$node->name === self::EXPECTED_RETURN_VALUES) {
                 $args = $node->args;
                 if (count($args) < 2) throw new RuntimeException('Expected at least 2 arguments for expectedReturnValues call');
@@ -91,14 +91,15 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
 
     /**
      * @param Expr|null $functionReference
+     * @param $index
      * @param $args
      * @return ExpectedFunctionArgumentsInfo
      */
-    private function getExpectedArgumentsInfo($functionReference, $args): ExpectedFunctionArgumentsInfo
+    private function getExpectedArgumentsInfo($functionReference, $args, $index = -1): ExpectedFunctionArgumentsInfo
     {
         $expressions = array_map(function (Arg $arg) {
             return $arg->value;
         }, $args);
-        return new ExpectedFunctionArgumentsInfo($functionReference, $this->unpackArguments($expressions));
+        return new ExpectedFunctionArgumentsInfo($functionReference, $this->unpackArguments($expressions), $index);
     }
 }

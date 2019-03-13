@@ -307,7 +307,7 @@ function chop ($str, $character_mask) {}
  * @param bool $part [optional] If TRUE, strstr() returns the part of the haystack before the first occurrence of the needle (excluding the needle).
  * @return string Returns the portion of string, or FALSE if needle is not found.
  */
-function strchr ($haystack, $needle, $part) {}
+function strchr ($haystack, $needle, $part = false) {}
 
 /**
  * Return a formatted string
@@ -956,14 +956,14 @@ function proc_nice ($increment) {}
 /**
  * Generate a random integer
  * @link https://php.net/manual/en/function.rand.php
- * @param $min [optional]
- * @param $max [optional]
+ * @param int $min [optional]
+ * @param int $max [optional]
  * @return int A pseudo random value between min
  * (or 0) and max (or getrandmax, inclusive).
  * @since 4.0
  * @since 5.0
  */
-function rand ($min, $max) {}
+function rand ($min = 0, $max = null) {}
 
 /**
  * Seed the random number generator

@@ -2,6 +2,7 @@
 
 namespace StubTests;
 
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\FuncCall;
@@ -118,7 +119,7 @@ class StubsMetaExpectedArgumentsTest extends TestCase
                     $args = $argumentsSet->args;
                     self::assertGreaterThanOrEqual(1, count($args), 'argumentsSet call should provide set name');
                     $name = $args[0]->value->value;
-                    self::assertArrayHasKey($name, self::$registeredArgumentsSet, 'Can\'t find registered argument set: ' . $name);
+                    self::assertContains($name, self::$registeredArgumentsSet, 'Can\'t find registered argument set: ' . $name);
                 }
             }
         }
@@ -136,6 +137,47 @@ class StubsMetaExpectedArgumentsTest extends TestCase
         }
     }
 
+    public function testExpectedArgumentsAreUnique()
+    {
+        $functionsFqnsWithIndeces = [];
+        foreach (self::$expectedArguments as $argument) {
+            if ($argument->getIndex() < 0) {
+                continue;
+            }
+            $functionReferenceFqn = self::getFqn($argument->getFunctionReference());
+            $index = $argument->getIndex();
+            if (array_key_exists($functionReferenceFqn, $functionsFqnsWithIndeces)) {
+                $indices = $functionsFqnsWithIndeces[$functionReferenceFqn];
+                self::assertNotContains($index, $indices, 'Expected arguments for ' . $functionReferenceFqn . ' with index ' . ((string)$index) . ' already registered');
+                $indices[] = $index;
+            } else {
+                $functionsFqnsWithIndeces[$functionReferenceFqn] = [$index];
+            }
+        }
+    }
+
+    public function testExpectedReturnValuesAreUnique()
+    {
+        $expectedReturnValuesFunctionsFqns = [];
+        foreach (self::$expectedArguments as $argument) {
+            if ($argument->getIndex() >= 0 || $argument->getFunctionReference() === null) {
+                continue;
+            }
+            $functionReferenceFqn = self::getFqn($argument->getFunctionReference());
+            self::assertArrayNotHasKey($functionReferenceFqn, $expectedReturnValuesFunctionsFqns, 'Expected return values for ' . $functionReferenceFqn . ' already registered');
+            $expectedReturnValuesFunctionsFqns[$functionReferenceFqn] = $functionReferenceFqn;
+        }
+    }
+
+    public function testRegisteredArgumentsSetAreUnique()
+    {
+        $registeredArgumentsSet = [];
+        foreach(self::$registeredArgumentsSet as $name) {
+            self::assertArrayNotHasKey($name, $registeredArgumentsSet, 'Set with name ' . $name . ' already registered');
+            $registeredArgumentsSet[$name] = $name;
+        }
+    }
+
 
     private static function getClassMemberFqn($className, $memberName): string
     {
@@ -148,5 +190,14 @@ class StubsMetaExpectedArgumentsTest extends TestCase
             return substr($name, 1);
         }
         return $name;
+    }
+
+    private static function getFqn(?Expr $expr): string
+    {
+        if ($expr instanceof StaticCall) {
+            return self::getClassMemberFqn($expr->class, $expr->name);
+        } else {
+            return self::toPresentableFqn($expr->name);
+        }
     }
 }
