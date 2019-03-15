@@ -96,6 +96,7 @@ namespace PHPSTORM_META {
         return "argumentsSet " . $setName;
     }
 
+    expectedArguments(\array_change_key_case(), 1, CASE_LOWER,CASE_UPPER);
     expectedArguments(\apc_bin_dumpfile(), 3, FILE_USE_INCLUDE_PATH, FILE_APPEND, LOCK_EX);
     expectedArguments(\apc_bin_load(), 3, APC_BIN_VERIFY_CRC32|APC_BIN_VERIFY_MD5);
     expectedArguments(\apc_bin_loadfile(), 3, APC_BIN_VERIFY_CRC32|APC_BIN_VERIFY_MD5);
