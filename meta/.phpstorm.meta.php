@@ -486,6 +486,13 @@ namespace PHPSTORM_META {
     expectedArguments(\password_hash(), 1, PASSWORD_DEFAULT, PASSWORD_BCRYPT, PASSWORD_ARGON2I, PASSWORD_ARGON2ID);
     expectedArguments(\password_needs_rehash(), 1, PASSWORD_DEFAULT, PASSWORD_BCRYPT, PASSWORD_ARGON2I, PASSWORD_ARGON2ID);
 
+    registerArgumentsSet('pgResultTypes', PGSQL_ASSOC, PGSQL_NUM, PGSQL_BOTH);
+    expectedArguments(pg_fetch_all(), 1, argumentsSet('pgResultTypes'));
+    expectedArguments(pg_fetch_array(), 2, argumentsSet('pgResultTypes'));
+    expectedArguments(pg_get_notify(), 1, argumentsSet('pgResultTypes'));
+    expectedArguments(pg_select(), 3, PGSQL_CONV_FORCE_NULL | PGSQL_DML_NO_CONV | PGSQL_DML_EXEC | PGSQL_DML_ASYNC | PGSQL_DML_STRING);
+    expectedArguments(pg_select(), 4, argumentsSet('pgResultTypes'));
+
 //  override( \ServiceLocatorInterface::get(0),
 //    map( [
 //      "A" => \Exception::class,
