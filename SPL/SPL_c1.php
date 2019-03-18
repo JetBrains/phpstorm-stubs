@@ -448,12 +448,15 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
         /**
          * Constructs a RecursiveDirectoryIterator
          * @link https://php.net/manual/en/recursivedirectoryiterator.construct.php
-         * @param $path
-         * @param $flags [optional]
+         * @param string $path
+         * @param int $flags [optional]
          * @throws UnexpectedValueException if the path cannot be found or is not a directory.
          * @since 5.1.2
          */
-        public function __construct ($path, $flags) {}
+        public function __construct (
+                $path, 
+                $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO
+        ) {}
 
         /**
          * Returns whether current entry is a directory and not '.' or '..'
