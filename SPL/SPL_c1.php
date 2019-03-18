@@ -380,7 +380,7 @@ class FilesystemIterator extends DirectoryIterator {
          * @throws UnexpectedValueException if the path cannot be found.
          * @since 5.3.0
          */
-        public function __construct ($path, $flags) {}
+        public function __construct ($path, $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::SKIP_DOTS) {}
 
         /**
          * Rewinds back to the beginning
@@ -453,7 +453,7 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
          * @throws UnexpectedValueException if the path cannot be found or is not a directory.
          * @since 5.1.2
          */
-        public function __construct ($path, $flags) {}
+        public function __construct ($path, $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO) {}
 
         /**
          * Returns whether current entry is a directory and not '.' or '..'
@@ -539,7 +539,7 @@ class GlobIterator extends FilesystemIterator implements Countable {
          * @param $flags [optional]
          * @since 5.3.0
          */
-        public function __construct ($path, $flags) {}
+        public function __construct ($path, $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO) {}
 
         /**
          * Get the number of directories and files
@@ -2125,7 +2125,7 @@ class MultipleIterator implements Iterator {
          * @param $flags [optional] Defaults to MultipleIterator::MIT_NEED_ALL | MultipleIterator::MIT_KEYS_NUMERIC
          * @since 5.3.0
          */
-        public function __construct ($flags) {}
+        public function __construct ($flags = MultipleIterator::MIT_NEED_ALL | MultipleIterator::MIT_KEYS_NUMERIC) {}
 
         /**
          * Gets the flag information
