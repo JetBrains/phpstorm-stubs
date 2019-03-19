@@ -493,6 +493,8 @@ namespace PHPSTORM_META {
     expectedArguments(\pg_select(), 3, PGSQL_CONV_FORCE_NULL | PGSQL_DML_NO_CONV | PGSQL_DML_EXEC | PGSQL_DML_ASYNC | PGSQL_DML_STRING);
     expectedArguments(\pg_select(), 4, argumentsSet('pgResultTypes'));
 
+    expectedArguments(\checkdnsrr(), 1, 'A', 'MX', 'NS', 'SOA', 'PTR', 'CNAME', 'AAAA', 'A6', 'SRV', 'NAPTR', 'TXT', 'ANY');
+
 //  override( \ServiceLocatorInterface::get(0),
 //    map( [
 //      "A" => \Exception::class,
