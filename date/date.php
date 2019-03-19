@@ -1098,7 +1098,7 @@ function date_offset_get ($object) {}
  * @return DateInterval|false The DateInterval object representing the difference between the two dates or FALSE on failure.
  * @since 5.3.0
  */
-function date_diff ($object, $object2, $absolute) {}
+function date_diff ($object, $object2, $absolute = false) {}
 
 /**
  * &Alias; <methodname>DateTime::setTime</methodname>
@@ -1107,12 +1107,12 @@ function date_diff ($object, $object2, $absolute) {}
  * @param $hour
  * @param $minute
  * @param $second [optional]
- * @parame $microseconds [optional]
+ * @param $microseconds [optional]
  * @return DateTime|false <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  * @since 5.2.0
  */
-function date_time_set ($object, $hour, $minute, $second, $microseconds) {}
+function date_time_set ($object, $hour, $minute, $second = 0, $microseconds = 0) {}
 
 /**
  * &Alias; <methodname>DateTime::setDate</methodname>

@@ -993,10 +993,14 @@ function srand ($seed = null, $mode = MT_RAND_MT19937) {}
 function getrandmax () {}
 
 /**
- * Generate a better random value
+ * Generate a random value via the Mersenne Twister Random Number Generator
  * @link https://php.net/manual/en/function.mt-rand.php
- * @param $min [optional]
- * @param $max [optional]
+ * @param int $min [optional] <p>
+ * Optional lowest value to be returned (default: 0)
+ * </p>
+ * @param int $max [optional] <p>
+ * Optional highest value to be returned (default: mt_getrandmax())
+ * </p>
  * @return int A random integer value between min (or 0)
  * and max (or mt_getrandmax, inclusive)
  * @since 4.0

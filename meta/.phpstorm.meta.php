@@ -96,6 +96,7 @@ namespace PHPSTORM_META {
         return "argumentsSet " . $setName;
     }
 
+    expectedArguments(\array_change_key_case(), 1, CASE_LOWER,CASE_UPPER);
     expectedArguments(\apc_bin_dumpfile(), 3, FILE_USE_INCLUDE_PATH, FILE_APPEND, LOCK_EX);
     expectedArguments(\apc_bin_load(), 3, APC_BIN_VERIFY_CRC32|APC_BIN_VERIFY_MD5);
     expectedArguments(\apc_bin_loadfile(), 3, APC_BIN_VERIFY_CRC32|APC_BIN_VERIFY_MD5);
@@ -484,6 +485,13 @@ namespace PHPSTORM_META {
 
     expectedArguments(\password_hash(), 1, PASSWORD_DEFAULT, PASSWORD_BCRYPT, PASSWORD_ARGON2I, PASSWORD_ARGON2ID);
     expectedArguments(\password_needs_rehash(), 1, PASSWORD_DEFAULT, PASSWORD_BCRYPT, PASSWORD_ARGON2I, PASSWORD_ARGON2ID);
+
+    registerArgumentsSet('pgResultTypes', PGSQL_ASSOC, PGSQL_NUM, PGSQL_BOTH);
+    expectedArguments(pg_fetch_all(), 1, argumentsSet('pgResultTypes'));
+    expectedArguments(pg_fetch_array(), 2, argumentsSet('pgResultTypes'));
+    expectedArguments(pg_get_notify(), 1, argumentsSet('pgResultTypes'));
+    expectedArguments(pg_select(), 3, PGSQL_CONV_FORCE_NULL | PGSQL_DML_NO_CONV | PGSQL_DML_EXEC | PGSQL_DML_ASYNC | PGSQL_DML_STRING);
+    expectedArguments(pg_select(), 4, argumentsSet('pgResultTypes'));
 
 //  override( \ServiceLocatorInterface::get(0),
 //    map( [
