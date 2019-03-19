@@ -96,6 +96,7 @@ namespace PHPSTORM_META {
         return "argumentsSet " . $setName;
     }
 
+    expectedArguments(\array_change_key_case(), 1, CASE_LOWER,CASE_UPPER);
     expectedArguments(\apc_bin_dumpfile(), 3, FILE_USE_INCLUDE_PATH, FILE_APPEND, LOCK_EX);
     expectedArguments(\apc_bin_load(), 3, APC_BIN_VERIFY_CRC32|APC_BIN_VERIFY_MD5);
     expectedArguments(\apc_bin_loadfile(), 3, APC_BIN_VERIFY_CRC32|APC_BIN_VERIFY_MD5);
@@ -111,6 +112,14 @@ namespace PHPSTORM_META {
     expectedArguments(\EventBase::loop(), 0, \EventBase::LOOP_ONCE, \EventBase::LOOP_NONBLOCK, \EventBase::NOLOCK, \EventBase::STARTUP_IOCP, \EventBase::NO_CACHE_TIME, \EventBase::EPOLL_USE_CHANGELIST);
 
 	expectedArguments(\extension_loaded(), 0, 'amqp', 'apache', 'apc', 'apd', 'bbcode', 'bcmath', 'bcompiler', 'bz2', 'cairo', 'calendar', 'chdb', 'classkit', 'com', 'crack', 'ctype', 'cubrid', 'curl', 'cyrus', 'dba', 'dbase', 'dbplus', 'dbx', 'dio', 'dom', 'dotnet', 'eio', 'enchant', 'ev', 'event', 'exif', 'expect', 'fam', 'fbsql', 'fdf', 'fileinfo', 'filepro', 'filter', 'fribidi', 'ftp', 'gearman', 'gender', 'geoip', 'gettext', 'gmagick', 'gmp', 'gnupg', 'gupnp', 'haru', 'htscanner', 'pecl_http', 'hyperwave', 'hwapi', 'interbase', 'ibm_db2', 'iconv', 'id3', 'informix', 'iisfunc', 'gd', 'imagick', 'imap', 'inclued', 'ingres', 'inotify', 'intl', 'java', 'json', 'judy', 'kadm5', 'ktaglib', 'lapack', 'ldap', 'libevent', 'libxml', 'lua', 'lzf', 'mailparse', 'maxdb', 'mbstring', 'mcrypt', 'mcve', 'memcache', 'memcached', 'memtrack', 'mhash', 'ming', 'mnogosearch', 'mongo', 'mqseries', 'msession', 'msql', 'mssql', 'mysql', 'mysqli', 'mysqlnd', 'mysqlnd_memcache', 'mysqlnd_ms', 'mysqlnd_mux', 'mysqlnd_qc', 'mysqlnd_uh', 'ncurses', 'net_gopher', 'newt', 'notes', 'nsapi', 'oauth', 'oci8', 'oggvorbis', 'openal', 'openssl', 'ovrimos', 'paradox', 'parsekit', 'pcntl', 'pcre', 'pdflib', 'pdo', 'pdo_4d', 'pdo_cubrid', 'pdo_dblib', 'pdo_firebird', 'pdo_ibm', 'pdo_informix', 'pdo_mysql', 'pdo_oci', 'pdo_odbc', 'pdo_pgsql', 'pdo_sqlite', 'pdo_sqlsrv', 'pdo_pgsql', 'phar', 'posix', 'printer', 'proctitle', 'ps', 'pspell', 'pthreads', 'qtdom', 'quickhash', 'radius', 'rar', 'readline', 'recode', 'rpmreader', 'rrd', 'runkit', 'sam', 'sca', 'scream', 'sca_sdo', 'sysvmsg', 'session', 'session_pgsql', 'shmop', 'simplexml', 'snmp', 'soap', 'sockets', 'solr', 'sphinx', 'spl_types', 'spplus', 'sqlite', 'sqlite3', 'sqlsrv', 'ssdeep', 'ssh2', 'stats', 'stomp', 'svm', 'svn', 'swf', 'swish', 'sybase', 'taint', 'tcpwrap', 'tidy', 'tokenizer', 'tokyo_tyrant', 'trader', 'odbc', 'v8js', 'varnish', 'vpopmail', 'w32api', 'wddx', 'weakref', 'win32ps', 'win32service', 'wincache', 'xattr', 'xdiff', 'xhprof', 'xml', 'xmlreader', 'xmlrpc', 'xmlwriter', 'xsl', 'xslt', 'yaf', 'yaml', 'yaz', 'zip', 'zlib');
+    
+    registerArgumentsSet('error_levels', E_ALL|E_ERROR|E_WARNING|E_PARSE|E_NOTICE|E_STRICT|E_RECOVERABLE_ERROR|E_DEPRECATED|E_CORE_ERROR|E_CORE_WARNING|E_COMPILE_ERROR|E_COMPILE_WARNING|E_USER_ERROR|E_USER_WARNING|E_USER_NOTICE|E_USER_DEPRECATED);
+    expectedArguments(\error_reporting(), 0, argumentsSet('error_levels'));
+    expectedReturnValues(\error_reporting(), argumentsSet('error_levels'));
+
+    registerArgumentsSet('user_error_levels', E_USER_NOTICE,E_USER_WARNING,E_USER_ERROR,E_USER_DEPRECATED);
+    expectedArguments(\trigger_error(), 1, argumentsSet('user_error_levels'));
+    expectedArguments(\user_error(), 1, argumentsSet('user_error_levels'));
 
     expectedArguments(\ftp_get(), 3, FTP_ASCII,FTP_BINARY);
     expectedArguments(\ftp_fget(), 3, FTP_ASCII,FTP_BINARY);
@@ -476,6 +485,13 @@ namespace PHPSTORM_META {
 
     expectedArguments(\password_hash(), 1, PASSWORD_DEFAULT, PASSWORD_BCRYPT, PASSWORD_ARGON2I, PASSWORD_ARGON2ID);
     expectedArguments(\password_needs_rehash(), 1, PASSWORD_DEFAULT, PASSWORD_BCRYPT, PASSWORD_ARGON2I, PASSWORD_ARGON2ID);
+
+    registerArgumentsSet('pgResultTypes', PGSQL_ASSOC, PGSQL_NUM, PGSQL_BOTH);
+    expectedArguments(pg_fetch_all(), 1, argumentsSet('pgResultTypes'));
+    expectedArguments(pg_fetch_array(), 2, argumentsSet('pgResultTypes'));
+    expectedArguments(pg_get_notify(), 1, argumentsSet('pgResultTypes'));
+    expectedArguments(pg_select(), 3, PGSQL_CONV_FORCE_NULL | PGSQL_DML_NO_CONV | PGSQL_DML_EXEC | PGSQL_DML_ASYNC | PGSQL_DML_STRING);
+    expectedArguments(pg_select(), 4, argumentsSet('pgResultTypes'));
 
 //  override( \ServiceLocatorInterface::get(0),
 //    map( [
