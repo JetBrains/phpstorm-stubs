@@ -291,7 +291,7 @@ function str_pad ($input, $pad_length, $pad_string = " ", $pad_type = STR_PAD_RI
  * @since 4.0
  * @since 5.0
  */
-function chop ($str, $character_mask) {}
+function chop ($str, $character_mask = null) {}
 
 /**
  * &Alias; <function>strstr</function>
@@ -660,7 +660,7 @@ function link (string $target , string $link):bool {}
  * @since 4.0
  * @since 5.0
  */
-function unlink ($filename, $context = null) {}
+function unlink ($filename, $context = null):bool {}
 
 /**
  * Execute an external program

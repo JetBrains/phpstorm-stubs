@@ -969,7 +969,7 @@ function stream_wrapper_register ($protocol, $classname, $flags = null) {}
  * @since 4.3.0
  * @since 5.0
  */
-function stream_register_wrapper ($protocol, $classname, $flags) {}
+function stream_register_wrapper ($protocol, $classname, $flags = 0) {}
 
 /**
  * Resolve filename against the include path according to the same rules as fopen()/include().
