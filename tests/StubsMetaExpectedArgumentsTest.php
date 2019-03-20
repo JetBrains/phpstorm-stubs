@@ -7,6 +7,7 @@ use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\StaticCall;
+use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\String_;
 use PHPUnit\Framework\TestCase;
 use StubTests\Model\PHPConst;
@@ -175,6 +176,17 @@ class StubsMetaExpectedArgumentsTest extends TestCase
         foreach(self::$registeredArgumentsSet as $name) {
             self::assertArrayNotHasKey($name, $registeredArgumentsSet, 'Set with name ' . $name . ' already registered');
             $registeredArgumentsSet[$name] = $name;
+        }
+    }
+
+    public function testReferencesAreAbsolute()
+    {
+        foreach (self::$expectedArguments as $argument) {
+            $expr = $argument->getFunctionReference();
+            if ($expr !== null) {
+                $name = $expr instanceof StaticCall ? $expr->class : $expr->name;
+                self::assertTrue($name->getAttribute('originalName')->isFullyQualified(), self::getFqn($expr) . ' should be fully qualified');
+            }
         }
     }
 

@@ -44,7 +44,7 @@ class StubParser
     public static function processStubs(NodeVisitorAbstract $visitor, callable $fileCondition): void
     {
         $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
-        $nameResolver = new NameResolver;
+        $nameResolver = new NameResolver(null, ['preserveOriginalNames' => true]);
 
         $stubsIterator =
             new RecursiveIteratorIterator(
