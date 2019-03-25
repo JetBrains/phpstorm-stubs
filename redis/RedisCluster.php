@@ -225,7 +225,7 @@ class RedisCluster {
      * $redisCluster->del(array('key3', 'key4'));   // return 2
      * </pre>
      */
-    public function del($key1, $key2 = null, $key3 = null) { }
+    public function del($key1, ...$otherKeys) { }
 
     /**
      * Set the string value in argument as value of the key, with a time to live.
