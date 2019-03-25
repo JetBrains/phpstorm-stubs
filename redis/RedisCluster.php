@@ -209,10 +209,9 @@ class RedisCluster {
     /**
      * Remove specified keys.
      *
-     * @param   int | array $key1 An array of keys, or an undefined number of parameters, each a key: key1 key2 key3
+     * @param int|string|array $key1 An array of keys, or an undefined number of parameters, each a key: key1 key2 key3
      *                            ... keyN
-     * @param   string      $key2 ...
-     * @param   string      $key3 ...
+     * @param int|string ...$otherKeys
      *
      * @return int Number of keys deleted.
      * @link    https://redis.io/commands/del
