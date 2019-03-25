@@ -443,8 +443,8 @@ class Memcached  {
 	const RES_IN_PROGRESS = 46;
 	const RES_MAXIMUM_RETURN = 49;
 
-	
-	
+
+
 	/**
 	 * <p>Failed to create network socket.</p>
 	 * @link https://php.net/manual/en/memcached.constants.php
@@ -980,7 +980,7 @@ class Memcached  {
 	 * @param int $time [optional] <p>
 	 * The amount of time the server will wait to delete the items.
 	 * </p>
-	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return array Returns array indexed by keys and where values are indicating whether operation succeeded or not.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTFOUND</b> if the key does not exist.
 	 */
@@ -1251,7 +1251,7 @@ class Memcached  {
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function setOptions (array $options) {}
-	
+
 	/**
 	 * (PECL memcached &gt;= 2.0.0)<br/>
 	 * Set the credentials to use for authentication
