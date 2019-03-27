@@ -4,7 +4,7 @@
 /**
  * The constants below are defined by this extension,
  * and will only be available when the extension has either been compiled into PHP or dynamically loaded at runtime.
- * @link http://php.net/manual/en/yar.constants.php
+ * @link https://secure.php.net/manual/en/yar.constants.php
  */
 define('YAR_VERSION', '	2.0.5', true);
 define('YAR_CLIENT_PROTOCOL_HTTP', 1, true);
