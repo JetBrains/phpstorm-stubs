@@ -971,7 +971,7 @@ function rand ($min = 0, $max = null) {}
  * an alias of {@see mt_srand()}.
  * </p>
  * @link https://php.net/manual/en/function.srand.php
- * @param int $seed [optional] <p>
+ * @param int|null $seed [optional] <p>
  * Optional seed value
  * </p>
  * @param int $mode [optional] <p>
