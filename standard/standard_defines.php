@@ -285,9 +285,29 @@ define ('LC_MESSAGES', 5);
 define ('SEEK_SET', 0);
 define ('SEEK_CUR', 1);
 define ('SEEK_END', 2);
+
+/**
+ * Acquire a shared lock (reader).
+ * @link https://www.php.net/manual/en/function.flock.php
+ */
 define ('LOCK_SH', 1);
+
+/**
+ * Acquire an exclusive lock (writer).
+ * @link https://www.php.net/manual/en/function.flock.php
+ */
 define ('LOCK_EX', 2);
+
+/**
+ * Release lock (shared or exclusive).
+ * @link https://www.php.net/manual/en/function.flock.php
+ */
 define ('LOCK_UN', 3);
+
+/**
+ * Non-blocking operation while locking.
+ * @link https://www.php.net/manual/en/function.flock.php
+ */
 define ('LOCK_NB', 4);
 
 /**
