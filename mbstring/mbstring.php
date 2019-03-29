@@ -1360,10 +1360,25 @@ define ('MB_OVERLOAD_REGEX', 4);
 define ('MB_CASE_UPPER', 0);
 define ('MB_CASE_LOWER', 1);
 define ('MB_CASE_TITLE', 2);
+/**
+ * @since 7.3
+ */
 define('MB_CASE_FOLD', 3);
+/**
+ * @since 7.3
+ */
 define('MB_CASE_UPPER_SIMPLE', 4);
+/**
+ * @since 7.3
+ */
 define('MB_CASE_LOWER_SIMPLE', 5);
+/**
+ * @since 7.3
+ */
 define('MB_CASE_TITLE_SIMPLE', 6);
+/**
+ * @since 7.3
+ */
 define('MB_CASE_FOLD_SIMPLE', 7);
 
 // End of mbstring v.
