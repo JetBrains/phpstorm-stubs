@@ -281,7 +281,6 @@ define ('ENT_NOQUOTES', 0);
  * @since 5.3.0
  */
 define ('ENT_IGNORE', 4);
-
 define ('STR_PAD_LEFT', 0);
 define ('STR_PAD_RIGHT', 1);
 define ('STR_PAD_BOTH', 2);
