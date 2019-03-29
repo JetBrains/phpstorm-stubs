@@ -255,10 +255,29 @@ define ('CREDITS_QA', 64);
 define ('CREDITS_ALL', 4294967295);
 define ('HTML_SPECIALCHARS', 0);
 define ('HTML_ENTITIES', 1);
-define ('ENT_COMPAT', 2);
-define ('ENT_QUOTES', 3);
-define ('ENT_NOQUOTES', 0);
+
 /**
+ * Will convert double-quotes and leave single-quotes alone.
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
+ */
+define ('ENT_COMPAT', 2);
+
+/**
+ * Will convert both double and single quotes.
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
+ */
+define ('ENT_QUOTES', 3);
+
+/**
+ * Will leave both double and single quotes unconverted.
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
+ */
+define ('ENT_NOQUOTES', 0);
+
+/**
+ * Silently discard invalid code unit sequences instead of returning an empty string.
+ * Using this flag is discouraged as it may have security implications.
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
  * @since 5.3.0
  */
 define ('ENT_IGNORE', 4);
