@@ -2770,7 +2770,7 @@ class IntlCalendar {
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Whether a certain date/time is in the weekend
      * @link https://secure.php.net/manual/en/intlcalendar.isweekend.php
-     * @param float $date [optional] <p>
+     * @param float|null $date [optional] <p>
      * An optional timestamp representing the number of milliseconds since the
      * epoch, excluding leap seconds. If <b>NULL</b>, this object's current time is
      * used instead.
@@ -2883,7 +2883,7 @@ class IntlCalendar {
      * @param string $isLenient <p>
      * Use <b>TRUE</b> to activate the lenient mode; <b>FALSE</b> otherwise.
      * </p>
-     * @return boolean Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+     * @return bool Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
      */
     public function setLenient($isLenient) { }
 
@@ -5258,7 +5258,7 @@ function intlcal_is_equivalent_to(IntlCalendar $calendarObject, IntlCalendar $ca
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
- * @param float $date [optional] <p>
+ * @param float|null $date [optional] <p>
  * An optional timestamp representing the number of milliseconds since the
  * epoch, excluding leap seconds. If <b>NULL</b>, this object's current time is
  * used instead.
@@ -5301,7 +5301,7 @@ function intlcal_set_first_day_of_week($calendar, $dayOfWeek) { }
  * @param string $isLenient <p>
  * Use <b>TRUE</b> to activate the lenient mode; <b>FALSE</b> otherwise.
  * </p>
- * @return boolean Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+ * @return bool Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
  */
 function intlcal_set_lenient($calendar, $isLenient) { }
 

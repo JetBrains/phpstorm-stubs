@@ -19,7 +19,7 @@
  * @param string                       $key
  * @param boolean|float|integer|string $value
  *
- * @return boolean
+ * @return bool
  */
 function newrelic_add_custom_parameter($key, $value) {}
 
@@ -37,7 +37,7 @@ function newrelic_add_custom_parameter($key, $value) {}
  *
  * @param string $functionName
  *
- * @return boolean
+ * @return bool
  */
 function newrelic_add_custom_tracer($functionName) {}
 
@@ -90,7 +90,7 @@ function newrelic_capture_params($enable = true) {}
  * @param string $metricName
  * @param float  $value
  *
- * @return boolean
+ * @return bool
  */
 function newrelic_custom_metric($metricName, $value) {}
 
@@ -147,7 +147,7 @@ function newrelic_end_of_transaction() {}
  *
  * @param boolean $ignore [optional]
  *
- * @return boolean
+ * @return bool
  */
 function newrelic_end_transaction($ignore = false) {}
 
@@ -229,7 +229,7 @@ function newrelic_ignore_transaction() {}
  *
  * @param string $name
  *
- * @return boolean
+ * @return bool
  */
 function newrelic_name_transaction($name) {}
 
@@ -315,7 +315,7 @@ function newrelic_record_custom_event($name, array $attributes) {}
  * @param string  $license [optional] defaults to ini_get('newrelic.license')
  * @param boolean $xmit    [optional]
  *
- * @return boolean
+ * @return bool
  */
 function newrelic_set_appname($name, $license = null, $xmit = false) {}
 
@@ -333,7 +333,7 @@ function newrelic_set_appname($name, $license = null, $xmit = false) {}
  * @param string $account
  * @param string $product
  *
- * @return boolean
+ * @return bool
  */
 function newrelic_set_user_attributes($user, $account, $product) {}
 
@@ -353,7 +353,7 @@ function newrelic_set_user_attributes($user, $account, $product) {}
  * @param string $appName
  * @param string $license [optional] defaults to ini_get('newrelic.license')
  *
- * @return boolean
+ * @return bool
  */
 function newrelic_start_transaction($appName, $license = null) {}
 

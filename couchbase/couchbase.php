@@ -245,7 +245,7 @@ namespace Couchbase {
         public $cas;
 
         /**
-         * @var MutationToken
+         * @var MutationToken|null
          * The optional, opaque mutation token set after a successful mutation.
          *
          * Note that the mutation token is always NULL, unless they are explicitly enabled on the
@@ -281,7 +281,7 @@ namespace Couchbase {
         public $cas;
 
         /**
-         * @var MutationToken
+         * @var MutationToken|null
          * The optional, opaque mutation token related to updated document the environment.
          *
          * Note that the mutation token is always NULL, unless they are explicitly enabled on the
@@ -326,8 +326,8 @@ namespace Couchbase {
         /**
          * Open management connection to the Couchbase cluster.
          *
-         * @param string $username Name of the administrator to override authenticator or NULL.
-         * @param string $password Password of the administrator to override authenticator or NULL.
+         * @param string|null $username Name of the administrator to override authenticator or NULL.
+         * @param string|null $password Password of the administrator to override authenticator or NULL.
          * @return ClusterManager
          *
          * @see \Couchbase\Authenticator

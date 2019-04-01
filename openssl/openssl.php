@@ -202,7 +202,7 @@ function openssl_get_publickey($certificate) { }
  * </p>
  * @param string $challenge <p>The challenge associated to associate with the SPKAC</p>
  * @param int $algorithm <p>The digest algorithm. See openssl_get_md_method().</p>
- * @return string Returns a signed public key and challenge string or NULL on failure.
+ * @return string|null Returns a signed public key and challenge string or NULL on failure.
  * @since 5.6.0
  */
 function openssl_spki_new(&$privkey, &$challenge, $algorithm = 0) {}
@@ -212,7 +212,7 @@ function openssl_spki_new(&$privkey, &$challenge, $algorithm = 0) {}
  * Verifies a signed public key and challenge
  * @link https://php.net/manual/en/function.openssl-spki-verify.php
  * @param string $spkac <p>Expects a valid signed public key and challenge</p>
- * @return boolean Returns a boolean on success or failure.
+ * @return bool Returns a boolean on success or failure.
  * @since 5.6.0
  */
 function openssl_spki_verify(&$spkac) {}
@@ -221,7 +221,7 @@ function openssl_spki_verify(&$spkac) {}
  * Exports the challenge assoicated with a signed public key and challenge
  * @link https://php.net/manual/en/function.openssl-spki-export-challenge.php
  * @param string $spkac <p>Expects a valid signed public key and challenge</p>
- * @return string|NULL Returns the associated challenge string or NULL on failure.
+ * @return string|null Returns the associated challenge string or NULL on failure.
  * @since 5.6.0
  */
 function openssl_spki_export_challenge (&$spkac ) {}
@@ -230,7 +230,7 @@ function openssl_spki_export_challenge (&$spkac ) {}
  * Exports a valid PEM formatted public key signed public key and challenge
  * @link https://php.net/manual/en/function.openssl-spki-export.php
  * @param string $spkac <p>Expects a valid signed public key and challenge</p>
- * @return string|NULL Returns the associated PEM formatted public key or NULL on failure.
+ * @return string|null Returns the associated PEM formatted public key or NULL on failure.
  * @since 5.6.0
  */
 function openssl_spki_export (&$spkac ) {}

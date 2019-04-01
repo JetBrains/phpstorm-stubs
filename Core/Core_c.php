@@ -71,7 +71,7 @@ interface Iterator extends Traversable {
     /**
      * Checks if current position is valid
      * @link https://php.net/manual/en/iterator.valid.php
-     * @return boolean The return value will be casted to boolean and then evaluated.
+     * @return bool The return value will be casted to boolean and then evaluated.
      * Returns true on success or false on failure.
      * @since 5.0.0
      */
@@ -98,7 +98,7 @@ interface ArrayAccess {
      * @param mixed $offset <p>
      * An offset to check for.
      * </p>
-     * @return boolean true on success or false on failure.
+     * @return bool true on success or false on failure.
      * </p>
      * <p>
      * The return value will be casted to boolean if non-boolean was returned.
@@ -152,7 +152,7 @@ interface Serializable {
     /**
      * String representation of object
      * @link https://php.net/manual/en/serializable.serialize.php
-     * @return string the string representation of the object or null
+     * @return string|null the string representation of the object or null
      * @since 5.1.0
      */
     public function serialize();
@@ -587,7 +587,7 @@ final class Closure {
     /**
      * Duplicates the closure with a new bound object and class scope
      * @link https://secure.php.net/manual/en/closure.bindto.php
-     * @param object $newthis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.
+     * @param object|null $newthis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.
      * @param mixed $newscope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.
      * If an object is given, the type of the object will be used instead.
      * This determines the visibility of protected and private methods of the bound object.
@@ -601,7 +601,7 @@ final class Closure {
      * @static
      * @link https://secure.php.net/manual/en/closure.bind.php
      * @param Closure $closure The anonymous functions to bind.
-     * @param object $newthis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.
+     * @param object|null $newthis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.
      * @param mixed $newscope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.
      * If an object is given, the type of the object will be used instead.
      * This determines the visibility of protected and private methods of the bound object.

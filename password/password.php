@@ -195,7 +195,7 @@ function password_needs_rehash ($hash, $algo, $options = null) {}
  * @link https://secure.php.net/manual/en/function.password-verify.php
  * @param string $password The user's password.
  * @param string $hash A hash created by password_hash().
- * @return boolean Returns TRUE if the password and hash match, or FALSE otherwise.
+ * @return bool Returns TRUE if the password and hash match, or FALSE otherwise.
  * @since 5.5.0
  */
 function password_verify ($password, $hash) {}

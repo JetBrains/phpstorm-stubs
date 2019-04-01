@@ -27,7 +27,7 @@ function hash ($algo, $data, $raw_output = false) {}
  * @link https://php.net/manual/en/function.hash-equals.php
  * @param string $known_string <p>The string of known length to compare against</p>
  * @param string $user_string <p>The user-supplied string</p>
- * @return boolean <p>Returns <b>TRUE</b> when the two strings are equal, <b>FALSE</b> otherwise.</p>
+ * @return bool <p>Returns <b>TRUE</b> when the two strings are equal, <b>FALSE</b> otherwise.</p>
  * @since 5.6.0
  */
 function hash_equals($known_string, $user_string) {}

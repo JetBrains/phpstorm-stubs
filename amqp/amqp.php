@@ -364,7 +364,7 @@ class AMQPChannel
      *
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
     public function setPrefetchCount($count) { }
 
@@ -511,7 +511,7 @@ class AMQPConnection
      * This method will initiate a connection with the AMQP broker.
      *
      * @throws AMQPConnectionException
-     * @return boolean TRUE on success or throw an exception on failure.
+     * @return bool TRUE on success or throw an exception on failure.
      */
     public function connect() { }
 
@@ -559,7 +559,7 @@ class AMQPConnection
      *
      * This method will close an open connection with the AMQP broker.
      *
-     * @return boolean true if connection was successfully closed, false otherwise.
+     * @return bool TRUE if connection was successfully closed, FALSE otherwise.
      */
     public function disconnect() { }
 
@@ -603,7 +603,7 @@ class AMQPConnection
      *
      * It does so by checking the return status of the last connect-command.
      *
-     * @return boolean True if connected, false otherwise.
+     * @return bool TRUE if connected, FALSE otherwise.
      */
     public function isConnected() { }
 
@@ -614,7 +614,7 @@ class AMQPConnection
      * or reuse an existing one if present.
      *
      * @throws AMQPConnectionException
-     * @return boolean TRUE on success or throws an exception on failure.
+     * @return bool TRUE on success or throws an exception on failure.
      */
     public function pconnect() { }
 
@@ -624,8 +624,8 @@ class AMQPConnection
      * This method will close an open persistent connection with the AMQP
      * broker.
      *
-     * @return boolean true if connection was found and closed,
-     *                 false if no persistent connection with this host,
+     * @return bool TRUE if connection was found and closed,
+     *                 FALSE if no persistent connection with this host,
      *                 port, vhost and login could be found,
      */
     public function pdisconnect() { }
@@ -633,14 +633,14 @@ class AMQPConnection
     /**
      * Close any open transient connections and initiate a new one with the AMQP broker.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
     public function reconnect() { }
 
     /**
      * Close any open persistent connections and initiate a new one with the AMQP broker.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
     public function preconnect() { }
 
@@ -652,7 +652,7 @@ class AMQPConnection
      *
      * @throws AMQPConnectionException If host is longer then 1024 characters.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
     public function setHost($host) { }
 
@@ -664,7 +664,7 @@ class AMQPConnection
      *
      * @throws AMQPConnectionException If login is longer then 32 characters.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
     public function setLogin($login) { }
 
@@ -676,7 +676,7 @@ class AMQPConnection
      *
      * @throws AMQPConnectionException If password is longer then 32characters.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
     public function setPassword($password) { }
 
@@ -688,7 +688,7 @@ class AMQPConnection
      * @throws AMQPConnectionException If port is longer not between
      *                                 1 and 65535.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
     public function setPort($port) { }
 
@@ -700,7 +700,7 @@ class AMQPConnection
      *
      * @throws AMQPConnectionException If host is longer then 32 characters.
      *
-     * @return boolean true on success or false on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
     public function setVhost($vhost) { }
 
@@ -963,7 +963,7 @@ class AMQPEnvelope extends AMQPBasicProperties
      *
      * @param string $header_key Name of the header to check.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasHeader($header_key) { }
 }
@@ -1003,7 +1003,7 @@ class AMQPExchange
      * @throws AMQPExchangeException   On failure.
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
-     * @return boolean true on success or false on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
     public function bind($exchange_name, $routing_key = '', array $arguments = array()) { }
 
@@ -1019,7 +1019,7 @@ class AMQPExchange
      * @throws AMQPExchangeException   On failure.
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
-     * @return boolean true on success or false on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
     public function unbind($exchange_name, $routing_key = '', array $arguments = array()) { }
 
@@ -1046,7 +1046,7 @@ class AMQPExchange
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
     public function declareExchange() { }
 
@@ -1063,7 +1063,7 @@ class AMQPExchange
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return boolean true on success or false on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
     public function delete($exchangeName = null, $flags = AMQP_NOPARAM) { }
 
@@ -1134,7 +1134,7 @@ class AMQPExchange
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
     public function publish(
         $message,
@@ -1150,7 +1150,7 @@ class AMQPExchange
      * @param string         $key   Name of the argument to set.
      * @param string|integer $value Value of the argument to set.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
     public function setArgument($key, $value) { }
 
@@ -1159,7 +1159,7 @@ class AMQPExchange
      *
      * @param array $arguments An array of key/value pairs of arguments.
      *
-     * @return boolean TRUE on success or FALSE on failure.
+     * @return bool TRUE on success or FALSE on failure.
      */
     public function setArguments(array $arguments) { }
 
@@ -1238,7 +1238,7 @@ class AMQPQueue
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return boolean
+     * @return bool
      */
     public function ack($delivery_tag, $flags = AMQP_NOPARAM) { }
 
@@ -1252,7 +1252,7 @@ class AMQPQueue
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return boolean
+     * @return bool
      */
     public function bind($exchange_name, $routing_key = null, array $arguments = array()) { }
 
@@ -1436,7 +1436,7 @@ class AMQPQueue
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return boolean
+     * @return bool
      */
     public function nack($delivery_tag, $flags = AMQP_NOPARAM) { }
 
@@ -1455,7 +1455,7 @@ class AMQPQueue
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return boolean
+     * @return bool
      */
     public function reject($delivery_tag, $flags = AMQP_NOPARAM) { }
 
@@ -1465,7 +1465,7 @@ class AMQPQueue
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return boolean
+     * @return bool
      */
     public function purge() { }
 
@@ -1475,7 +1475,7 @@ class AMQPQueue
      * @param string $key   The key to set.
      * @param mixed  $value The value to set.
      *
-     * @return boolean
+     * @return bool
      */
     public function setArgument($key, $value) { }
 
@@ -1486,7 +1486,7 @@ class AMQPQueue
      *
      * @param array $arguments An array of key/value pairs of arguments.
      *
-     * @return boolean
+     * @return bool
      */
     public function setArguments(array $arguments) { }
 
@@ -1495,7 +1495,7 @@ class AMQPQueue
      *
      * @param string $key   The key to check.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasArgument($key) { }
 
@@ -1506,7 +1506,7 @@ class AMQPQueue
      *                       AMQP_DURABLE, AMQP_PASSIVE,
      *                       AMQP_EXCLUSIVE, AMQP_AUTODELETE.
      *
-     * @return boolean
+     * @return bool
      */
     public function setFlags($flags) { }
 
@@ -1515,7 +1515,7 @@ class AMQPQueue
      *
      * @param string $queue_name The name of the queue.
      *
-     * @return boolean
+     * @return bool
      */
     public function setName($queue_name) { }
 
@@ -1531,7 +1531,7 @@ class AMQPQueue
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return boolean
+     * @return bool
      */
     public function unbind($exchange_name, $routing_key = null, array $arguments = array()) { }
 

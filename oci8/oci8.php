@@ -1951,7 +1951,7 @@ function ocierror ($connection_or_statement_resource) {}
  * {@see OCI-Lob::free}
  * @link https://php.net/manual/en/function.ocifreedesc.php
  * @param $lob_descriptor
- * @return boolean <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
+ * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
  */
 function ocifreedesc ($lob_descriptor) {}
 

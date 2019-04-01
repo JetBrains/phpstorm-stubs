@@ -2238,7 +2238,7 @@ function curl_share_setopt ($sh, $option, $value ) {}
  * @param int $errornum <p>
  * One of the {@link https://curl.haxx.se/libcurl/c/libcurl-errors.html &nbsp;cURL error codes} constants.
  * </p>
- * @return string|NULL Returns error description or <b>NULL</b> for invalid error code.
+ * @return string|null Returns error description or <b>NULL</b> for invalid error code.
  * @since 5.5.0
  */
 function curl_strerror ($errornum ) {}
@@ -2450,7 +2450,7 @@ function curl_multi_select ($mh, $timeout = null) {}
  * </tr>
  * </tbody>
  * </table>
- * @return boolean Returns TRUE on success or FALSE on failure.
+ * @return bool Returns TRUE on success or FALSE on failure.
  * @since 5.5.0
  */
 function curl_multi_setopt ($mh, $option, $value) {}
@@ -2462,7 +2462,7 @@ function curl_multi_setopt ($mh, $option, $value) {}
  * @param int $errornum <p>
  * One of the {@link https://curl.haxx.se/libcurl/c/libcurl-errors.html CURLM error codes} constants.
  * </p>
- * @return string|NULL Returns error string for valid error code, NULL otherwise.
+ * @return string|null Returns error string for valid error code, NULL otherwise.
  * @since 5.5.0
  */
 function curl_multi_strerror ($errornum) {}

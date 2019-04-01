@@ -140,7 +140,7 @@ class XMLReader  {
 	 * @param int $index <p>
 	 * The position of the attribute.
 	 * </p>
-	 * @return string|NULL The value of the attribute, or <b>NULL</b> if no attribute exists
+	 * @return string|null The value of the attribute, or <b>NULL</b> if no attribute exists
 	 * at <i>index</i> or not positioned of element.
 	 * @since 5.1.2
 	 */
@@ -155,7 +155,7 @@ class XMLReader  {
 	 * @param string $namespaceURI <p>
 	 * The namespace URI.
 	 * </p>
-	 * @return string|NULL The value of the attribute, or <b>NULL</b> if no attribute with the
+	 * @return string|null The value of the attribute, or <b>NULL</b> if no attribute with the
 	 * given <i>localName</i> and
 	 * <i>namespaceURI</i> is found or not positioned of element.
 	 * @since 5.1.2

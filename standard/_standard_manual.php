@@ -44,7 +44,7 @@ function hex2bin($data) {};
 /**
  * This function flushes all response data to the client and finishes the request.
  * This allows for time consuming tasks to be performed without leaving the connection to the client open.
- * @return boolean Returns TRUE on success or FALSE on failure.
+ * @return bool Returns TRUE on success or FALSE on failure.
  * @link https://php.net/manual/en/install.fpm.php
  * @since 5.3.3
  */

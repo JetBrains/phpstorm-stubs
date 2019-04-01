@@ -25,7 +25,7 @@ class MemcachePool  {
      * explicitly in this method call.
      * </p>
      * @param int $timeout [optional] <p>Value in seconds which will be used for connecting to the daemon. Think twice before changing the default value of 1 second - you can lose all the advantages of caching if your connection is too slow.</p>
-     * @return boolean <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
+     * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
      */
     public function connect ($host, $port, $timeout = 1) {}
 
@@ -125,7 +125,7 @@ class MemcachePool  {
      * Allows the user to specify a callback function to run upon encountering an error. The callback is run before failover is attempted.
      * The function takes two parameters, the hostname and port of the failed server.
      * </p>
-     * @return boolean <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
+     * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
      */
     public function setServerParams ($host, $port = 11211, $timeout = 1, $retry_interval = 15, $status = true, callable $failure_callback = null) {}
 
@@ -170,7 +170,7 @@ class MemcachePool  {
      * @param int $expire [optional] <p>Expiration time of the item.
      * If it's equal to zero, the item will never expire.
      * You can also use Unix timestamp or a number of seconds starting from current time, but in the latter case the number of seconds may not exceed 2592000 (30 days).</p>
-     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure. Returns <b>FALSE</b> if such key already exist. For the rest Memcache::add() behaves similarly to Memcache::set().
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure. Returns <b>FALSE</b> if such key already exist. For the rest Memcache::add() behaves similarly to Memcache::set().
      */
     public function add ($key , $var, $flag = null, $expire = null) {}
 
@@ -185,7 +185,7 @@ class MemcachePool  {
      * @param mixed $var The variable to store. Strings and integers are stored as is, other types are stored serialized.
      * @param int $flag [optional] Use MEMCACHE_COMPRESSED to store the item compressed (uses zlib).
      * @param int $expire [optional] Expiration time of the item. If it's equal to zero, the item will never expire. You can also use Unix timestamp or a number of seconds starting from current time, but in the latter case the number of seconds may not exceed 2592000 (30 days).
-     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function set ($key, $var, $flag = null, $expire = null) {}
 
@@ -197,7 +197,7 @@ class MemcachePool  {
      * @param mixed $var <p>The variable to store. Strings and integers are stored as is, other types are stored serialized.</p>
      * @param int $flag [optional] <p>Use <b>MEMCACHE_COMPRESSED</b> to store the item compressed (uses zlib).</p>
      * @param int $expire [optional] <p>Expiration time of the item. If it's equal to zero, the item will never expire. You can also use Unix timestamp or a number of seconds starting from current time, but in the latter case the number of seconds may not exceed 2592000 (30 days).</p>
-     * @return boolean Returns TRUE on success or FALSE on failure.
+     * @return bool Returns TRUE on success or FALSE on failure.
      */
     public function replace ($key,  $var, $flag = null, $expire = null) {}
 
@@ -238,7 +238,7 @@ class MemcachePool  {
      * https://secure.php.net/manual/ru/memcache.delete.php
      * @param $key string The key associated with the item to delete.
      * @param $timeout int [optional] This deprecated parameter is not supported, and defaults to 0 seconds. Do not use this parameter.
-     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function delete ($key, $timeout = 0 ) {}
 
@@ -287,7 +287,7 @@ class MemcachePool  {
      * @link https://php.net/manual/en/memcache.setcompressthreshold.php
      * @param int $thresold <p>Controls the minimum value length before attempting to compress automatically.</p>
      * @param float $min_saving [optional] <p>Specifies the minimum amount of savings to actually store the value compressed. The supplied value must be between 0 and 1. Default value is 0.2 giving a minimum 20% compression savings.</p>
-     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function setCompressThreshold ($thresold, $min_saving = 0.2) {}
     /**
@@ -314,7 +314,7 @@ class MemcachePool  {
      * (PECL memcache &gt;= 0.4.0)<br/>
      * Close memcached server connection
      * @link https://php.net/manual/en/memcache.close.php
-     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function close () {}
 
@@ -322,7 +322,7 @@ class MemcachePool  {
      * (PECL memcache &gt;= 1.0.0)<br/>
      * Flush all existing items at the server
      * @link https://php.net/manual/en/memcache.flush.php
-     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function flush () {}
 

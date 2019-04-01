@@ -2773,7 +2773,7 @@ class RedisCluster {
     /**
      * The last error message (if any)
      *
-     * @return  string  A string with the last returned script based error message, or NULL if there is no error
+     * @return  string|null  A string with the last returned script based error message, or NULL if there is no error
      * @example
      * <pre>
      * $redisCluster->eval('this-is-not-lua');

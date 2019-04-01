@@ -1244,7 +1244,7 @@ class IntlChar {
      * Check if code point is a titlecase letter
      * @link https://php.net/manual/ru/intlchar.istitle.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
-     * @return boolean Returns TRUE if codepoint is a titlecase letter, FALSE if not.
+     * @return bool Returns TRUE if codepoint is a titlecase letter, FALSE if not.
      * @since 7.0
      */
     public static function istitle ($codepoint ){}

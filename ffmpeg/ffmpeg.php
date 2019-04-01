@@ -146,13 +146,13 @@ class ffmpeg_movie
 	{ }
 
 	/** Return boolean value indicating whether the movie has an audio stream.
-	 * @return boolean
+	 * @return bool
 	 */
 	public function hasAudio()
 	{ }
 
 	/** Return boolean value indicating whether the movie has a video stream.
-	 * @return boolean
+	 * @return bool
 	 */
 	public function hasVideo()
 	{ }

@@ -147,7 +147,7 @@ final class Application
      *
      * @link https://secure.php.net/manual/en/yaf-application.app.php
      *
-     * @return \Yaf\Application|NULL an \Yaf\Application instance, if no \Yaf\Application initialized before, NULL will be returned.
+     * @return \Yaf\Application|null an \Yaf\Application instance, if no \Yaf\Application initialized before, NULL will be returned.
      */
     public static function app()
     {

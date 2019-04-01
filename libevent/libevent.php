@@ -602,7 +602,7 @@ function event_buffer_fd_set($bevent, $fd) {}
  * @param resource $bevent Valid buffered event resource.
  * @param callback|null $readcb Callback to invoke where there is data to read, or NULL if no callback is desired.
  * @param callback|null $writecb Callback to invoke where the descriptor is ready for writing, or NULL if no callback is desired.
- * @param callback|null $errorcb Callback to invoke where there is an error on the descriptor, cannot be NULL.
+ * @param callback $errorcb Callback to invoke where there is an error on the descriptor, cannot be NULL.
  * @param mixed $arg An argument that will be passed to each of the callbacks (optional).
  *
  * @return bool returns TRUE on success or FALSE on error.

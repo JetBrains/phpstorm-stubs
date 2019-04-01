@@ -70,7 +70,7 @@ function wincache_fcache_meminfo() {}
  * <p>Controls whether the scope of the lock is system-wide or local. Local locks
  * are scoped to the application pool in IIS FastCGI case or to all php processes
  * that have the same parent process identifier. </p>
- * @return boolean Returns TRUE on success or FALSE on failure.
+ * @return bool Returns TRUE on success or FALSE on failure.
  */
 function wincache_lock($key, $isglobal = false) {}
 
@@ -128,7 +128,7 @@ function wincache_ocache_meminfo() {}
  * @param array $files [optional]
  * <p>An array of file names for files that need to be refreshed. An absolute
  * or relative file paths can be used.</p>
- * @return boolean Returns TRUE on success or FALSE on failure.
+ * @return bool Returns TRUE on success or FALSE on failure.
  */
 function wincache_refresh_if_changed(array $files) {}
 
@@ -234,7 +234,7 @@ function wincache_scache_meminfo() {}
  * cache. This parameter takes a default value of 0 which means the variable
  * will stay in the cache unless explicitly deleted by using wincache_ucache_delete()
  * or wincache_ucache_clear() functions.</p>
- * @return boolean If key is string, the function returns TRUE on success and FALSE on failure.
+ * @return bool If key is string, the function returns TRUE on success and FALSE on failure.
  * <p>If key is an array, the function returns:
  * <ul>
  * <li>If all the name =&gt; value pairs in the array can be set, function returns an empty array;</li>
@@ -255,7 +255,7 @@ function wincache_ucache_add($key, $value, $ttl = 0) {}
  * The value should be of type long, otherwise the function returns FALSE.
  * @param int $new_value New value which will get assigned to variable pointer by key
  * if a match is found. The value should be of type long, otherwise the function returns FALSE.
- * @return boolean Returns TRUE on success or FALSE on failure.
+ * @return bool Returns TRUE on success or FALSE on failure.
  */
 function wincache_ucache_cas($key, $old_value, $new_value) {}
 
@@ -263,7 +263,7 @@ function wincache_ucache_cas($key, $old_value, $new_value) {}
  * (PHP 5.2+; PECL wincache &gt;= 1.1.0)<br/>
  * Clears/deletes all the values stored in the user cache.
  * @link https://secure.php.net/manual/en/function.wincache-ucache-clear.php
- * @return boolean Returns TRUE on success or FALSE on failure.
+ * @return bool Returns TRUE on success or FALSE on failure.
  */
 function wincache_ucache_clear() {}
 
@@ -289,7 +289,7 @@ function wincache_ucache_dec($key, $dec_by = 1, &$success) {}
  * @link https://secure.php.net/manual/en/function.wincache-ucache-delete.php
  * @param mixed $key <p>The key that was used to store the variable in the cache.
  * key is case sensitive. key can be an array of keys.</p>
- * @return boolean Returns TRUE on success or FALSE on failure.
+ * @return bool Returns TRUE on success or FALSE on failure.
  * <p>If key is an array then the function returns FALSE if every element of
  * the array fails to get deleted from the user cache, otherwise returns an
  * array which consists of all the keys that are deleted.</p>
@@ -301,7 +301,7 @@ function wincache_ucache_delete($key) {}
  * Checks if a variable with the key exists in the user cache or not.
  * @link https://secure.php.net/manual/en/function.wincache-ucache-exists.php
  * @param string $key The key that was used to store the variable in the cache. key is case sensitive.
- * @return boolean Returns TRUE if variable with the key exitsts, otherwise returns FALSE.
+ * @return bool Returns TRUE if variable with the key exitsts, otherwise returns FALSE.
  */
 function wincache_ucache_exists($key) {}
 
@@ -414,7 +414,7 @@ function wincache_ucache_meminfo() {}
  * parameter takes a default value of 0 which means the variable will stay in the
  * cache unless explicitly deleted by using wincache_ucache_delete() or
  * wincache_ucache_clear() functions.</p>
- * @return boolean <p>
+ * @return bool <p>
  * If key is string, the function returns TRUE on success and FALSE on failure.</p>
  * <p>If key is an array, the function returns:
  * <ul style="list-style: square;">
@@ -434,7 +434,7 @@ function wincache_ucache_set($key, $value, $ttl = 0) {}
  * <p>If any other process was blocked waiting for the lock on this key, that process will be able to obtain the lock.</p>
  * @link https://secure.php.net/manual/en/function.wincache-unlock.php
  * @param string $key Name of the key in the cache to release the lock on.
- * @return boolean Returns TRUE on success or FALSE on failure.
+ * @return bool Returns TRUE on success or FALSE on failure.
  */
 function wincache_unlock($key) {}
 ?>

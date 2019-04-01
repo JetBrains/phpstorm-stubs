@@ -50,7 +50,7 @@ class DOMNode  {
     public $childNodes;
 
     /**
-     * @var DOMNode
+     * @var DOMNode|null
      * @since 5.0
      * The first child of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.firstchild
@@ -58,7 +58,7 @@ class DOMNode  {
     public $firstChild;
 
     /**
-     * @var DOMNode
+     * @var DOMNode|null
      * @since 5.0
      * The last child of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.lastchild
@@ -66,7 +66,7 @@ class DOMNode  {
     public $lastChild;
 
     /**
-     * @var DOMNode
+     * @var DOMNode|null
      * @since 5.0
      * The node immediately preceding this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
@@ -74,7 +74,7 @@ class DOMNode  {
     public $previousSibling;
 
     /**
-     * @var DOMNode
+     * @var DOMNode|null
      * @since 5.0
      * The node immediately following this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
@@ -82,7 +82,7 @@ class DOMNode  {
     public $nextSibling;
 
     /**
-     * @var DOMNamedNodeMap
+     * @var DOMNamedNodeMap|null
      * @since 5.0
      * A <classname>DOMNamedNodeMap</classname> containing the attributes of this node (if it is a <classname>DOMElement</classname>) or NULL otherwise.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.attributes
@@ -98,7 +98,7 @@ class DOMNode  {
     public $ownerDocument;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The namespace URI of this node, or NULL if it is unspecified.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
@@ -106,7 +106,7 @@ class DOMNode  {
     public $namespaceURI;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The namespace prefix of this node, or NULL if it is unspecified.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.prefix
@@ -122,7 +122,7 @@ class DOMNode  {
     public $localName;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The absolute base URI of this node or NULL if the implementation wasn't able to obtain an absolute URI.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.baseuri
@@ -294,7 +294,7 @@ class DOMNode  {
 
     /**
      * @param DOMNode $arg
-     * @return boolean
+     * @return bool
      */
     public function isEqualNode (DOMNode $arg) {}
 
@@ -320,7 +320,7 @@ class DOMNode  {
 
     /**
      * Gets an XPath location path for the node
-     * @return string the XPath, or NULL in case of an error.
+     * @return string|null the XPath, or NULL in case of an error.
      * @link https://secure.php.net/manual/en/domnode.getnodepath.php
      * @since 5.3.0
      */
@@ -677,7 +677,7 @@ class DOMDocument extends DOMNode  {
     public $version ;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * An attribute specifying, as part of the XML declaration, the encoding of this document. This is NULL when
      * unspecified or when it is not known, such as when the Document was created in memory.
@@ -1362,7 +1362,7 @@ class DOMAttr extends DOMNode
     public $ownerElement;
 
     /**
-     * @var bool
+     * @var null
      * (PHP5)<br/>
      * Not implemented yet, always is NULL
      * @link https://php.net/manual/en/class.domattr.php#domattr.props.schematypeinfo
@@ -1370,7 +1370,7 @@ class DOMAttr extends DOMNode
     public $schemaTypeInfo;
 
     /**
-     * @var bool
+     * @var null
      * (PHP5)<br/>
      * Not implemented yet, always is NULL
      * @link https://php.net/manual/en/class.domattr.php#domattr.props.specified
@@ -1419,7 +1419,7 @@ class DOMElement extends DOMNode  {
     public $parentNode;
 
     /**
-     * @var DOMElement
+     * @var DOMElement|null
      * @since 5.0
      * The first child of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.firstchild
@@ -1427,7 +1427,7 @@ class DOMElement extends DOMNode  {
     public $firstChild;
 
     /**
-     * @var DOMElement
+     * @var DOMElement|null
      * @since 5.0
      * The last child of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.lastchild
@@ -1435,7 +1435,7 @@ class DOMElement extends DOMNode  {
     public $lastChild;
 
     /**
-     * @var DOMElement
+     * @var DOMElement|null
      * @since 5.0
      * The node immediately preceding this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
@@ -1443,7 +1443,7 @@ class DOMElement extends DOMNode  {
     public $previousSibling;
 
     /**
-     * @var DOMElement
+     * @var DOMElement|null
      * @since 5.0
      * The node immediately following this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
@@ -1451,20 +1451,12 @@ class DOMElement extends DOMNode  {
     public $nextSibling;
 
     /**
-     * @var bool
-     * @since 5.0
-     * Not implemented yet, always return NULL
-     * @link https://php.net/manual/en/class.domelement.php#domelement.props.schematypeinfo
-     */
-    public $schemaTypeInfo ;
-
-    /**
      * @var string
      * @since 5.0
      * The element name
      * @link https://php.net/manual/en/class.domelement.php#domelement.props.tagname
      */
-    public $tagName ;
+    public $tagName;
 
     /**
      * Returns value of attribute
@@ -2003,7 +1995,7 @@ class DOMEntity extends DOMNode  {
     public $notationName ;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * An attribute specifying the encoding used for this entity at the time of parsing, when it is an external
      * parsed entity. This is NULL if it an entity from the internal subset or if it is not known.
@@ -2012,7 +2004,7 @@ class DOMEntity extends DOMNode  {
     public $actualEncoding ;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * An attribute specifying, as part of the text declaration, the encoding of this entity, when it is an external
      * parsed entity. This is NULL otherwise.
@@ -2021,7 +2013,7 @@ class DOMEntity extends DOMNode  {
     public $encoding ;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * An attribute specifying, as part of the text declaration, the version number of this entity, when it is an
      * external parsed entity. This is NULL otherwise.

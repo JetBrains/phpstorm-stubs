@@ -236,7 +236,7 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	/**
 	 * Gets the specified return type of a function
 	 * @link https://php.net/manual/en/reflectionfunctionabstract.getreturntype.php
-	 * @return ReflectionType|NULL Returns a ReflectionType object if a return type is specified, NULL otherwise.
+	 * @return ReflectionType|null Returns a ReflectionType object if a return type is specified, NULL otherwise.
 	 * @since 7.0
 	 */
 	public function getReturnType () {}
@@ -458,7 +458,7 @@ class ReflectionParameter implements Reflector {
 	/**
 	 * Gets a parameter's type
 	 * @link https://php.net/manual/en/reflectionparameter.gettype.php
-	 * @return ReflectionType|NULL Returns a ReflectionType object if a parameter type is specified, NULL otherwise.
+	 * @return ReflectionType|null Returns a ReflectionType object if a parameter type is specified, NULL otherwise.
 	 * @since 7.0
 	 */
 	public function getType() {}
@@ -524,7 +524,7 @@ class ReflectionParameter implements Reflector {
     /**
      * Returns whether parameter MUST be callable
      * @link https://php.net/manual/en/reflectionparameter.iscallable.php
-     * @return bool Returns TRUE if the parameter is callable, FALSE if it is not or NULL on failure.
+     * @return bool|null Returns TRUE if the parameter is callable, FALSE if it is not or NULL on failure.
 	 * @since 5.4.0
      */
     public function isCallable () {}
@@ -572,7 +572,7 @@ class ReflectionParameter implements Reflector {
 
     /**
 	 * Returns whether the default value of this parameter is constant
-	 * @return boolean
+	 * @return bool
 	 * @since 5.4.6
      */
     public function isDefaultValueConstant () {}

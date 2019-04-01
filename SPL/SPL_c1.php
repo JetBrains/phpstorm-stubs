@@ -2198,7 +2198,7 @@ class MultipleIterator implements Iterator {
         /**
          * Checks the validity of sub iterators
          * @link https://php.net/manual/en/multipleiterator.valid.php
-         * @return boolean true if one or all sub iterators are valid depending on flags,
+         * @return bool true if one or all sub iterators are valid depending on flags,
          * otherwise false
          * @since 5.3.0
          */

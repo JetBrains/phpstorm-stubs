@@ -234,7 +234,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @param string $header <p>
 	 * header name
 	 * </p>
-	 * @return string the header value on success or NULL if the header does not exist.
+	 * @return string|null the header value on success or NULL if the header does not exist.
 	 */
 	public function getHeader ($header) {}
 
@@ -446,7 +446,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * (PECL pecl_http &gt;= 0.22.0)<br/>
 	 * Create HTTP object regarding message type
 	 * @link https://php.net/manual/en/function.httpmessage-tomessagetypeobject.php
-	 * @return HttpRequest|HttpResponse either an HttpRequest or HttpResponse object on success, or NULL on failure.
+	 * @return HttpRequest|HttpResponse|null either an HttpRequest or HttpResponse object on success, or NULL on failure.
 	 */
 	public function toMessageTypeObject () {}
 
@@ -484,7 +484,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @param string $class_name [optional] <p>
 	 * a class extending HttpMessage
 	 * </p>
-	 * @return HttpMessage an HttpMessage object on success or NULL on failure.
+	 * @return HttpMessage|null an HttpMessage object on success or NULL on failure.
 	 */
 	public static function factory ($raw_message = null, $class_name = null) {}
 
@@ -498,7 +498,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @param string $class_name [optional] <p>
 	 * a class extending HttpMessage
 	 * </p>
-	 * @return HttpMessage an HttpMessage object on success or NULL on failure.
+	 * @return HttpMessage|null an HttpMessage object on success or NULL on failure.
 	 */
 	public static function fromString ($raw_message = null, $class_name = null) {}
 
@@ -512,7 +512,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @param string $class_name [optional] <p>
 	 * a class extending HttpMessage
 	 * </p>
-	 * @return HttpMessage an HttpMessage object on success or NULL on failure.
+	 * @return HttpMessage|null an HttpMessage object on success or NULL on failure.
 	 */
 	public static function fromEnv ($message_type, $class_name = null) {}
 
@@ -755,7 +755,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	 * @param mixed $offset <p>
 	 * An offset to check for.
 	 * </p>
-	 * @return boolean true on success or false on failure.
+	 * @return bool true on success or false on failure.
 	 * </p>
 	 * <p>
 	 * The return value will be casted to boolean if non-boolean was returned.
@@ -2471,7 +2471,7 @@ function http_get_request_headers () {}
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * Get request body as string
  * @link https://php.net/manual/en/function.http-get-request-body.php
- * @return string the raw request body as string on success or NULL on failure.
+ * @return string|null the raw request body as string on success or NULL on failure.
  */
 function http_get_request_body () {}
 
@@ -2479,7 +2479,7 @@ function http_get_request_body () {}
  * (PECL pecl_http &gt;= 0.22.0)<br/>
  * Get request body as stream
  * @link https://php.net/manual/en/function.http-get-request-body-stream.php
- * @return resource the raw request body as stream on success or NULL on failure.
+ * @return resource|null the raw request body as stream on success or NULL on failure.
  */
 function http_get_request_body_stream () {}
 
@@ -2766,7 +2766,7 @@ function ob_etaghandler ($data, $mode) {}
  * @param int $flags [optional] <p>
  * deflate options
  * </p>
- * @return string the encoded string on success, or NULL on failure.
+ * @return string|null the encoded string on success, or NULL on failure.
  */
 function http_deflate ($data, $flags = null) {}
 
@@ -2777,7 +2777,7 @@ function http_deflate ($data, $flags = null) {}
  * @param string $data <p>
  * string containing the compressed data
  * </p>
- * @return string the decoded string on success, or NULL on failure.
+ * @return string|null the decoded string on success, or NULL on failure.
  */
 function http_inflate ($data) {}
 

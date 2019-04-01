@@ -46,7 +46,7 @@ final class RarArchive implements Traversable
      *
      * @link https://php.net/manual/en/rararchive.getcomment.php
      *
-     * @return string the comment or NULL if there is none
+     * @return string|null the comment or NULL if there is none
      */
     public function getComment()
     {

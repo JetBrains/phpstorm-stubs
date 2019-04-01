@@ -404,7 +404,7 @@ function property_exists ($class, $property) {}
  * Checks if the trait exists
  * @param string $traitname Name of the trait to check
  * @param bool $autoload [optional] Whether to autoload if not already loaded.
- * @return boolean Returns TRUE if trait exists, FALSE if not, NULL in case of an error.
+ * @return bool|null Returns TRUE if trait exists, FALSE if not, NULL in case of an error.
  * @link https://secure.php.net/manual/en/function.trait-exists.php
  * @since 5.4.0
  */
@@ -558,7 +558,7 @@ function get_class_vars ($class_name) {}
  * @param object $object <p>
  * An object instance.
  * </p>
- * @return array an associative array of defined object accessible non-static properties 
+ * @return array|null an associative array of defined object accessible non-static properties
  * for the specified <i>object</i> in scope. If a property have
  * not been assigned a value, it will be returned with a null value.
  * @since 4.0
@@ -572,7 +572,7 @@ function get_object_vars ($object) {}
  * @param mixed $class_name <p>
  * The class name or an object instance
  * </p>
- * @return array an array of method names defined for the class specified by
+ * @return array|null an array of method names defined for the class specified by
  * <i>class_name</i>. In case of an error, it returns null.
  * @since 4.0
  * @since 5.0
@@ -708,7 +708,7 @@ function get_declared_interfaces () {}
 
 /**
  * Returns an array of all declared traits
- * @return array with names of all declared traits in values. Returns NULL in case of a failure.
+ * @return array|null with names of all declared traits in values. Returns NULL in case of a failure.
  * @link https://secure.php.net/manual/en/function.get-declared-traits.php
  * @see class_uses()
  * @since 5.4.0

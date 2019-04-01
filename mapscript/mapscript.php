@@ -955,7 +955,7 @@ final class labelcacheObj
      * Free the label cache. Always returns MS_SUCCESS.
      * Ex : map->labelcache->freeCache();
      *
-     * @return boolean
+     * @return bool
      */
     final public function freeCache() {}
 
@@ -1692,7 +1692,7 @@ final class layerObj
      * Returns the :ref:`expression <expressions>` for this layer or NULL
      * on error.
      *
-     * @return string
+     * @return string|null
      */
     final public function getFilterString() {}
 
@@ -1806,7 +1806,7 @@ final class layerObj
      * Returns MS_TRUE/MS_FALSE depending on whether the layer is
      * currently visible in the map (i.e. turned on, in scale, etc.).
      *
-     * @return boolean
+     * @return bool
      */
     final public function isVisible() {}
 
@@ -1955,7 +1955,7 @@ final class layerObj
      * available.
      *
      * @param int $index
-     * @return classObj
+     * @return classObj|null
      */
     final public function removeClass($index) {}
 
@@ -2504,7 +2504,7 @@ final class mapObj
     /**
      * Render map and return an image object or NULL on error.
      *
-     * @return imageObj
+     * @return imageObj|null
      */
     final public function draw() {}
 
@@ -2526,7 +2526,7 @@ final class mapObj
     /**
      * Render a query map and return an image object or NULL on error.
      *
-     * @return imageObj
+     * @return imageObj|null
      */
     final public function drawQuery() {}
 
@@ -4215,7 +4215,7 @@ final class shapeObj
      * Returns MS_TRUE if the point is inside the shape, MS_FALSE otherwise.
      *
      * @param pointObj $point
-     * @return boolean
+     * @return bool
      */
     final public function contains(pointObj $point) {}
 
@@ -4346,7 +4346,7 @@ final class shapeObj
      * Returns MS_TRUE if the two shapes intersect, MS_FALSE otherwise.
      *
      * @param shapeObj $shape
-     * @return boolean
+     * @return bool
      */
     final public function intersects(shapeObj $shape) {}
 
@@ -4402,7 +4402,7 @@ final class shapeObj
      * (>=3.0).
      *
      * @param double $tolerance
-     * @return shapeObj
+     * @return shapeObj|null
      */
     final public function simplify($tolerance) {}
 
@@ -4422,7 +4422,7 @@ final class shapeObj
      * (>=3.0).
      *
      * @param double $tolerance
-     * @return shapeObj
+     * @return shapeObj|null
      */
     final public function topologyPreservingSimplify($tolerance) {}
 

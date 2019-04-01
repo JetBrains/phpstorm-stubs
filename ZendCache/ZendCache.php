@@ -9,7 +9,7 @@
  * @param  $value mixed can be any PHP object that can be serialized.
  * @param  $ttl   int  [optional] time to live in seconds. ZendCache keeps the objects in the cache as long as the TTL is no expired, once expired it will be removed from the cache
  *
- * @return boolean FALSE when stored failed, TRUE otherwise
+ * @return bool FALSE when stored failed, TRUE otherwise
  */
 function zend_shm_cache_store($key, $value, $ttl = 0) {}
 
@@ -19,7 +19,7 @@ function zend_shm_cache_store($key, $value, $ttl = 0) {}
  *
  * @param $key string the data's key. Possibly prefixed with namespace
  *
- * @return NULL|mixed NULL when no data matching the key is found, else it returns the stored data
+ * @return null|mixed NULL when no data matching the key is found, else it returns the stored data
  */
 function zend_shm_cache_fetch($key) {}
 
@@ -28,7 +28,7 @@ function zend_shm_cache_fetch($key) {}
  *
  * @param $key string the data's key. Possibly prefixed with namespace
  *
- * @return NULL|mixed when no data matching the key is found, else it returns the stored data
+ * @return null|mixed when no data matching the key is found, else it returns the stored data
  */
 function zend_shm_cache_delete($key) {}
 
@@ -37,7 +37,7 @@ function zend_shm_cache_delete($key) {}
  *
  * @param $namespace string [optional] Namespace to clear. If blank or is not passed, it will clear entire cache.
  *
- * @return boolean TRUE on success, FALSE otherwise
+ * @return bool TRUE on success, FALSE otherwise
  */
 function zend_shm_cache_clear($namespace = '') {}
 
@@ -48,7 +48,7 @@ function zend_shm_cache_clear($namespace = '') {}
  * @param  $value mixed can be any PHP object that can be serialized
  * @param  $ttl [optional] int time to live in seconds. ZendCache keeps the objects in the cache as long as the TTL is no expired, once expired it will be removed from the cache
  *
- * @return boolean FALSE when stored failed, TRUE otherwise
+ * @return bool FALSE when stored failed, TRUE otherwise
  */
 function zend_disk_cache_store($key, $value, $ttl = 0) {}
 
@@ -57,7 +57,7 @@ function zend_disk_cache_store($key, $value, $ttl = 0) {}
  *
  * @param $key string NULL when no data matching the key is found, else it returns the stored data
  *
- * @return NULL|mixed NULL when no data matching the key is found, else it returns the stored data
+ * @return null|mixed NULL when no data matching the key is found, else it returns the stored data
  */
 function zend_disk_cache_fetch($key) {}
 
@@ -66,7 +66,7 @@ function zend_disk_cache_fetch($key) {}
  *
  * @param $key string the data's key. Possibly prefixed with namespace
  *
- * @return NULL|mixed when no data matching the key is found, else it returns the stored data
+ * @return null|mixed when no data matching the key is found, else it returns the stored data
  */
 function zend_disk_cache_delete($key) {}
 
@@ -75,7 +75,7 @@ function zend_disk_cache_delete($key) {}
  *
  * @param $namespace string [optional] Namespace to clear. If blank or is not passed, it will clear entire cache.
  *
- * @return boolean TRUE on success, FALSE otherwise
+ * @return bool TRUE on success, FALSE otherwise
  */
 function zend_disk_cache_clear($namespace = '') {}
 
