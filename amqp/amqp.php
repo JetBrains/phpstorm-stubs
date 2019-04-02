@@ -1387,7 +1387,7 @@ class AMQPQueue
      *
      * @param string $key The key to look up.
      *
-     * @return string|integer|bool The string or integer value associated
+     * @return string|integer|false The string or integer value associated
      *                             with the given key, or false if the key
      *                             is not set.
      */
