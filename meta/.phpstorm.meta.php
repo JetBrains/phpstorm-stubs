@@ -105,13 +105,9 @@ namespace PHPSTORM_META {
 
     expectedArguments(\DOMDocument::schemaValidateSource(), 1, LIBXML_SCHEMA_CREATE);
     
-    registerArgumentsSet('common_dirname_constants', __DIR__, __FILE__);
-    expectedArguments(\dirname(), 0, argumentsSet('common_dirname_constants'));
-
-    // this allows completion for "dirname()" inside dirname(<caret>)
     registerArgumentsSet('common_dirname_return', __DIR__);
-    expectedArguments(\dirname(), 0, argumentsSet('common_dirname_return'));
-    expectedReturnValues(\dirname(), argumentsSet('common_dirname_return'));
+    expectedArguments(\dirname(), 0, argumentsSet('common_dirname_return'), __FILE__);
+    expectedReturnValues(\dirname(), argumentsSet('common_dirname_return'));    // this allows completion for "dirname()" inside dirname(<caret>)
     
     expectedArguments(\EvLoop::__construct(), 0, \Ev::FLAG_AUTO,\Ev::FLAG_NOENV,\Ev::FLAG_FORKCHECK,\Ev::FLAG_NOINOTIFY,\Ev::FLAG_SIGNALFD,\Ev::FLAG_NOSIGMASK); //todo support
     expectedArguments(\Ev::run(), 0, \Ev::FLAG_AUTO,\Ev::FLAG_NOENV,\Ev::FLAG_FORKCHECK,\Ev::FLAG_NOINOTIFY,\Ev::FLAG_SIGNALFD,\Ev::FLAG_NOSIGMASK);
