@@ -147,7 +147,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Decompresses all files in the current Phar archive
 	 * @link https://php.net/manual/en/phar.decompressfiles.php
-	 * @return bool|false <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function decompressFiles () {}
 
