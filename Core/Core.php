@@ -708,7 +708,7 @@ function get_declared_interfaces () {}
 
 /**
  * Returns an array of all declared traits
- * @return array|null with names of all declared traits in values. Returns NULL in case of a failure.
+ * @return string[]|null with names of all declared traits in values. Returns NULL in case of a failure.
  * @link https://secure.php.net/manual/en/function.get-declared-traits.php
  * @see class_uses()
  * @since 5.4.0
