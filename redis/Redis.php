@@ -1107,7 +1107,7 @@ class Redis
      *
      * @param   string  $key        Required key
      * @param   array   $values      Required values
-     * @return  bool The number of elements added to the set
+     * @return  bool
      * @link    https://redis.io/commands/sadd
      * @link    https://github.com/phpredis/phpredis/commit/3491b188e0022f75b938738f7542603c7aae9077
      * @since   phpredis 2.2.8
