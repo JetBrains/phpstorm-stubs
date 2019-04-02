@@ -1378,7 +1378,7 @@ class AMQPQueue
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return AMQPEnvelope|bool
+     * @return AMQPEnvelope|false
      */
     public function get($flags = AMQP_NOPARAM) { }
 
