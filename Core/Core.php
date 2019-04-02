@@ -831,7 +831,7 @@ function extension_loaded ($name) {}
  * <p>
  * This parameter must be in lowercase.
  * </p>
- * @return array|false an array with all the functions, or false if
+ * @return string[]|false an array with all the functions, or false if
  * <i>module_name</i> is not a valid extension.
  * @since 4.0
  * @since 5.0
