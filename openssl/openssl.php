@@ -646,10 +646,10 @@ function openssl_digest($data, $method, $raw_output = false) { }
  * The data.
  * </p>
  * @param string $method <p>
- * The cipher method.
+ * The cipher method. For a list of available cipher methods, use {@see openssl_get_cipher_methods()}.
  * </p>
  * @param string $key <p>
- * The key. For a list of available cipher methods, use {@see openssl_get_cipher_methods()}.
+ * The key. 
  * </p>
  * @param int $options [optional] <p>
  * options is a bitwise disjunction of the flags OPENSSL_RAW_DATA and OPENSSL_ZERO_PADDING.

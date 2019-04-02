@@ -12,7 +12,7 @@
  * @param int $port [optional] <p>
  * The port number.
  * </p>
- * @param int $errno [optional] <p>
+ * @param int &$errno [optional] <p>
  * If provided, holds the system level error number that occurred in the
  * system-level connect() call.
  * </p>
@@ -23,7 +23,7 @@
  * connect() call. This is most likely due to a
  * problem initializing the socket.
  * </p>
- * @param string $errstr [optional] <p>
+ * @param string &$errstr [optional] <p>
  * The error message as a string.
  * </p>
  * @param float $timeout [optional] <p>
@@ -36,7 +36,7 @@
  * fsockopen only applies while connecting the
  * socket.
  * </p>
- * @return resource fsockopen returns a file pointer which may be used
+ * @return resource|false fsockopen returns a file pointer which may be used
  * together with the other file functions (such as
  * fgets, fgetss,
  * fwrite, fclose, and
@@ -49,12 +49,13 @@ function fsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $t
 /**
  * Open persistent Internet or Unix domain socket connection
  * @link https://php.net/manual/en/function.pfsockopen.php
- * @param string $hostname 
- * @param int $port [optional] 
- * @param int $errno [optional] 
- * @param string $errstr [optional] 
- * @param float $timeout [optional] 
- * @return resource 
+ * @see fsockopen
+ * @param string $hostname
+ * @param int $port [optional]
+ * @param int &$errno [optional]
+ * @param string &$errstr [optional]
+ * @param float $timeout [optional]
+ * @return resource|false
  * @since 4.0
  * @since 5.0
  */
@@ -163,7 +164,7 @@ function pfsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $
  * @param mixed $args [optional] <p>
  * </p>
  * @param mixed $_ [optional] 
- * @return string a binary string containing data.
+ * @return string|false a binary string containing data or false if the format string contains errors
  * @since 4.0
  * @since 5.0
  */
@@ -179,12 +180,12 @@ function pack ($format, $args = null, $_ = null) {}
  * The packed data.
  * </p>
  * @param int $offset [optional]
- * @return array an associative array containing unpacked elements of binary
- * string.
+ * @return array|false an associative array containing unpacked elements of binary
+ * string or false if the format string contains errors
  * @since 4.0
  * @since 5.0
  */
-function unpack ($format, $data, $offset) {}
+function unpack ($format, $data, $offset = 0) {}
 
 /**
  * Tells what the user's browser is capable of
@@ -201,7 +202,7 @@ function unpack ($format, $data, $offset) {}
  * If set to true, this function will return an array
  * instead of an object.
  * </p>
- * @return mixed The information is returned in an object or an array which will contain
+ * @return array|object|false Returns false if browscap.ini can't be loaded or the user agent can't be found, otherwise the information is returned in an object or an array which will contain
  * various data elements representing, for instance, the browser's major and
  * minor version numbers and ID string; true/false values for features
  * such as frames, JavaScript, and cookies; and so forth.
@@ -233,7 +234,7 @@ function get_browser ($user_agent = null, $return_array = null) {}
  * is generated once. If you are calling this function repeatedly, this
  * may impact both appearance and security.
  * </p>
- * @return string the encrypted string.
+ * @return string|null the encrypted string or <b>NULL</b> if an error occurs
  * @since 4.0
  * @since 5.0
  */
@@ -309,15 +310,16 @@ function chroot ($directory) {}
 /**
  * Gets the current working directory
  * @link https://php.net/manual/en/function.getcwd.php
- * @return string|false the current working directory on success, or false on
- * failure.
- * </p> 
- * <p>
+ * @return string|false <p>
+ * the current working directory on success, or false on
+ * failure. <br>
+ * <br>
  * On some Unix variants, getcwd will return
  * false if any one of the parent directories does not have the
  * readable or search mode set, even if the current directory
  * does. See chmod for more information on
  * modes and permissions.
+ * </p>
  * @since 4.0
  * @since 5.0
  */
@@ -383,7 +385,7 @@ function dir ($directory, $context = null) {}
  * refer to the streams section of
  * the manual.
  * </p>
- * @return array|false an array of filenames on success, or false on
+ * @return array|false an array of filenames on success, or false on 
  * failure. If directory is not a directory, then 
  * boolean false is returned, and an error of level 
  * E_WARNING is generated.
@@ -761,10 +763,11 @@ function stat ($filename) {}
 /**
  * Gives information about a file or symbolic link
  * @link https://php.net/manual/en/function.lstat.php
+ * @see stat
  * @param string $filename <p>
  * Path to a file or a symbolic link.
  * </p>
- * @return array See the manual page for stat for information on
+ * @return array|false See the manual page for stat for information on
  * the structure of the array that lstat returns.
  * This function is identical to the stat function
  * except that if the filename parameter is a symbolic
@@ -936,13 +939,14 @@ function disk_total_space ($directory) {}
 function disk_free_space ($directory) {}
 
 /**
- * &Alias; <function>disk_free_space</function>
+ * Alias of disk_free_space()
  * @link https://php.net/manual/en/function.diskfreespace.php
- * @param $path
+ * @see disk_free_space
+ * @param $directory
  * @since 4.0
  * @since 5.0
  */
-function diskfreespace ($path) {}
+function diskfreespace ($directory) {}
 
 /**
  * Send mail

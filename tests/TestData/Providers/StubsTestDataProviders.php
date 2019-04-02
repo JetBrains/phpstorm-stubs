@@ -3,9 +3,6 @@ declare(strict_types=1);
 
 namespace StubTests\TestData\Providers;
 
-use StubTests\Model\StubsContainer;
-use StubTests\Parsers\StubParser;
-
 class StubsTestDataProviders
 {
     public static function stubClassConstantProvider()
@@ -61,18 +58,5 @@ class StubsTestDataProviders
                 yield "interface {$interfaceName}::{$methodName}" => [$methodName, $method];
             }
         }
-    }
-}
-
-class PhpStormStubsSingleton
-{
-    private static $phpstormStubs;
-
-    public static function getPhpStormStubs(): StubsContainer
-    {
-        if (self::$phpstormStubs === null) {
-            self::$phpstormStubs = StubParser::getPhpStormStubs();
-        }
-        return self::$phpstormStubs;
     }
 }

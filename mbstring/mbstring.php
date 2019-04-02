@@ -361,7 +361,7 @@ function mb_strripos ($haystack, $needle, $offset = 0, $encoding = null) {}
  * @param string $needle <p>
  * The string to find in haystack
  * </p>
- * @param bool $part [optional] <p>
+ * @param bool $before_needle [optional] <p>
  * Determines which portion of haystack
  * this function returns. 
  * If set to true, it returns all of haystack
@@ -377,7 +377,7 @@ function mb_strripos ($haystack, $needle, $offset = 0, $encoding = null) {}
  * or false if needle is not found.
  * @since 5.2.0
  */
-function mb_strstr ($haystack, $needle, $part = null, $encoding = null) {}
+function mb_strstr ($haystack, $needle, $before_needle = false, $encoding = null) {}
 
 /**
  * Finds the last occurrence of a character in a string within another
@@ -389,7 +389,7 @@ function mb_strstr ($haystack, $needle, $part = null, $encoding = null) {}
  * @param string $needle <p>
  * The string to find in haystack
  * </p>
- * @param bool $part [optional] <p>
+ * @param bool $before_needle [optional] <p>
  * Determines which portion of haystack
  * this function returns. 
  * If set to true, it returns all of haystack
@@ -405,7 +405,7 @@ function mb_strstr ($haystack, $needle, $part = null, $encoding = null) {}
  * or false if needle is not found.
  * @since 5.2.0
  */
-function mb_strrchr ($haystack, $needle, $part = null, $encoding = null) {}
+function mb_strrchr ($haystack, $needle, $before_needle = false, $encoding = null) {}
 
 /**
  * Finds first occurrence of a string within another, case insensitive
@@ -417,9 +417,9 @@ function mb_strrchr ($haystack, $needle, $part = null, $encoding = null) {}
  * @param string $needle <p>
  * The string to find in haystack
  * </p>
- * @param bool $part [optional] <p>
+ * @param bool $before_needle [optional] <p>
  * Determines which portion of haystack
- * this function returns. 
+ * this function returns.
  * If set to true, it returns all of haystack
  * from the beginning to the first occurrence of needle.
  * If set to false, it returns all of haystack
@@ -433,7 +433,7 @@ function mb_strrchr ($haystack, $needle, $part = null, $encoding = null) {}
  * or false if needle is not found.
  * @since 5.2.0
  */
-function mb_stristr ($haystack, $needle, $part = null, $encoding = null) {}
+function mb_stristr ($haystack, $needle, $before_needle = false, $encoding = null) {}
 
 /**
  * Finds the last occurrence of a character in a string within another, case insensitive
@@ -445,7 +445,7 @@ function mb_stristr ($haystack, $needle, $part = null, $encoding = null) {}
  * @param string $needle <p>
  * The string to find in haystack
  * </p>
- * @param bool $part [optional] <p>
+ * @param bool $before_needle [optional] <p>
  * Determines which portion of haystack
  * this function returns. 
  * If set to true, it returns all of haystack
@@ -461,7 +461,7 @@ function mb_stristr ($haystack, $needle, $part = null, $encoding = null) {}
  * or false if needle is not found.
  * @since 5.2.0
  */
-function mb_strrichr ($haystack, $needle, $part = null, $encoding = null) {}
+function mb_strrichr ($haystack, $needle, $before_needle = false, $encoding = null) {}
 
 /**
  * Count the number of substring occurrences
@@ -1360,10 +1360,25 @@ define ('MB_OVERLOAD_REGEX', 4);
 define ('MB_CASE_UPPER', 0);
 define ('MB_CASE_LOWER', 1);
 define ('MB_CASE_TITLE', 2);
+/**
+ * @since 7.3
+ */
 define('MB_CASE_FOLD', 3);
+/**
+ * @since 7.3
+ */
 define('MB_CASE_UPPER_SIMPLE', 4);
+/**
+ * @since 7.3
+ */
 define('MB_CASE_LOWER_SIMPLE', 5);
+/**
+ * @since 7.3
+ */
 define('MB_CASE_TITLE_SIMPLE', 6);
+/**
+ * @since 7.3
+ */
 define('MB_CASE_FOLD_SIMPLE', 7);
 
 // End of mbstring v.

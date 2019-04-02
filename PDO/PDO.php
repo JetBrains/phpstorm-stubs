@@ -836,8 +836,9 @@ class PDO  {
 	 * @param string $username [optional]
 	 * @param string $passwd [optional]
 	 * @param array $options [optional]
+	 * @throws PDOException if the attempt to connect to the requested database fails.
 	 */
-	public function __construct ($dsn, $username, $passwd, $options) {}
+	public function __construct ($dsn, $username = null, $passwd = null, $options = null) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -899,6 +900,7 @@ class PDO  {
 	 * Commits a transaction
 	 * @link https://php.net/manual/en/pdo.commit.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @throws PDOException if there is no active transaction.
 	 */
 	public function commit () {}
 
@@ -907,6 +909,7 @@ class PDO  {
 	 * Rolls back a transaction
 	 * @link https://php.net/manual/en/pdo.rollback.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @throws PDOException if there is no active transaction.
 	 */
 	public function rollBack () {}
 
@@ -1190,6 +1193,7 @@ class PDOStatement implements Traversable {
 	 * fail and an error is emitted.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @throws \PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
 	 */
 	public function execute ($input_parameters = null) {}
 
@@ -1535,7 +1539,7 @@ class PDOStatement implements Traversable {
 	 * @param array $ctorarfg [optional] <p> Constructor arguments. </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function setFetchMode ($mode, $classNameObject, array $ctorarfg) {}
+	public function setFetchMode ($mode, $classNameObject = null, array $ctorarfg = array()) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>

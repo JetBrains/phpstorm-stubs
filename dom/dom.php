@@ -4,9 +4,8 @@
 
 
 /**
- * Gets a <b>DOMElement</b> object from a
+ * Gets a <b>DOMElement</b> object from a <b>SimpleXMLElement</b> object
  * @since 5.0
-<b>SimpleXMLElement</b> object
  * @link https://php.net/manual/en/function.dom-import-simplexml.php
  * @param SimpleXMLElement $node <p>
  * The <b>SimpleXMLElement</b> node.

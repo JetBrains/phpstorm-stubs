@@ -1637,7 +1637,7 @@ function SQLSRV_SQLTYPE_BINARY($byteCount){}
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
- * @param int $byteCount Must be between 1 and 8000.
+ * @param int|string $byteCount Must be between 1 and 8000 or 'max'.
  * @return int Value to use in any place that accepts a SQLSRV_SQLTYPE_* constant to represent the varbinary data type.
  */
 function SQLSRV_SQLTYPE_VARBINARY($byteCount){}
@@ -1651,7 +1651,7 @@ function SQLSRV_SQLTYPE_VARBINARY($byteCount){}
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  *
- * @param int $charCount Must be between 1 and 8000.
+ * @param int|string $charCount Must be between 1 and 8000 or 'max'.
  *
  * @return int Value to use in any place that accepts a SQLSRV_SQLTYPE_* constant to represent the varchar data type.
  */
@@ -1692,7 +1692,7 @@ function SQLSRV_SQLTYPE_NCHAR($charCount){}
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
- * @param int $charCount Must be between 1 and 4000.
+ * @param int|string $charCount Must be between 1 and 4000 or 'max'.
  * @return int Value to use in any place that accepts a SQLSRV_SQLTYPE_* constant to represent the nvarchar data type.
  */
 function SQLSRV_SQLTYPE_NVARCHAR($charCount){}

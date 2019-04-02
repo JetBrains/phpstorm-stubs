@@ -38,12 +38,12 @@ namespace MongoDB {}
              * Manager constructor.
              * @link https://php.net/manual/en/mongodb-driver-manager.construct.php
              * @param string $uri A mongodb:// connection URI
-             * @param array $options Connection string options
+             * @param array $uriOptions Connection string options
              * @param array $driverOptions Any driver-specific options not included in MongoDB connection spec.
              * @throws InvalidArgumentException on argument parsing errors
              * @throws RuntimeException if the uri format is invalid
              */
-            final public function __construct($uri, array $options = [], array $driverOptions = [])
+            final public function __construct($uri, array $uriOptions = [], array $driverOptions = [])
             {
             }
 
@@ -52,10 +52,11 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-manager.executebulkwrite.php
              * @param string $namespace A fully qualified namespace (databaseName.collectionName)
              * @param BulkWrite $bulk The MongoDB\Driver\BulkWrite to execute.
-             * @param WriteConcern $writeConcern Optionally, a MongoDB\Driver\WriteConcern. If none given, default to the Write Concern set by the MongoDB Connection URI.
+             * @param array|WriteConcern $options WriteConcern type for backwards compatibility
              * @return WriteResult
+             * @since 1.4.0 added $options argument
              */
-            final public function executeBulkWrite($namespace, BulkWrite $bulk, WriteConcern $writeConcern = null)
+            final public function executeBulkWrite($namespace, BulkWrite $bulk, $options = [])
             {
             }
 
@@ -63,7 +64,7 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-manager.executecommand.php
              * @param string $db The name of the database on which to execute the command.
              * @param Command $command The command document.
-             * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to route the command to. If none given, defaults to the Read Preferences set by the MongoDB Connection URI.
+             * @param array|ReadPreference $options ReadPreference type for backwards compatibility
              * @return Cursor
              * @throws Exception
              * @throws AuthenticationException if authentication is needed and fails
@@ -71,8 +72,9 @@ namespace MongoDB {}
              * @throws RuntimeException on other errors (invalid command, command arguments, ...)
              * @throws WriteException on Write Error
              * @throws WriteConcernException on Write Concern failure
+             * @since 1.4.0 added $options argument
              */
-            final public function executeCommand($db, Command $command, ReadPreference $readPreference = null)
+            final public function executeCommand($db, Command $command, $options = [])
             {
             }
 
@@ -81,24 +83,69 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-manager.executequery.php
              * @param string $namespace A fully qualified namespace (databaseName.collectionName)
              * @param Query $query A MongoDB\Driver\Query to execute.
-             * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to route the command to. If none given, defaults to the Read Preferences set by the MongoDB Connection URI.
+             * @param array|ReadPreference $options ReadPreference type for backwards compatibility
              * @return Cursor
              * @throws Exception
              * @throws AuthenticationException if authentication is needed and fails
              * @throws ConnectionException if connection to the server fails for other then authentication reasons
              * @throws RuntimeException on other errors (invalid command, command arguments, ...)
+             * @since 1.4.0 added $options argument
              */
-            final public function executeQuery($namespace, Query $query, ReadPreference $readPreference = null)
+            final public function executeQuery($namespace, Query $query, $options = [])
             {
             }
 
             /**
-             * Return the servers to which this manager is connected
-             * @link https://php.net/manual/en/mongodb-driver-manager.getservers.php
-             * @throws InvalidArgumentException on argument parsing errors
-             * @return Server[]
+             * @link https://php.net/manual/en/mongodb-driver-manager.executereadcommand.php
+             * @param string $db The name of the database on which to execute the command that reads.
+             * @param Command $command The command document.
+             * @param array $options
+             * @return Cursor
+             * @throws Exception
+             * @throws AuthenticationException if authentication is needed and fails
+             * @throws ConnectionException if connection to the server fails for other then authentication reasons
+             * @throws RuntimeException on other errors (invalid command, command arguments, ...)
+             * @throws WriteException on Write Error
+             * @throws WriteConcernException on Write Concern failure
+             * @since 1.4.0
              */
-            final public function getServers()
+            final public function executeReadCommand($db, Command $command, array $options = [])
+            {
+            }
+
+            /**
+             * @link https://php.net/manual/en/mongodb-driver-manager.executereadwritecommand.php
+             * @param string $db The name of the database on which to execute the command that reads.
+             * @param Command $command The command document.
+             * @param array $options
+             * @return Cursor
+             * @throws Exception
+             * @throws AuthenticationException if authentication is needed and fails
+             * @throws ConnectionException if connection to the server fails for other then authentication reasons
+             * @throws RuntimeException on other errors (invalid command, command arguments, ...)
+             * @throws WriteException on Write Error
+             * @throws WriteConcernException on Write Concern failure
+             * @since 1.4.0
+             */
+            final public function executeReadWriteCommand($db, Command $command, array $options = [])
+            {
+            }
+
+            /**
+             * @link https://php.net/manual/en/mongodb-driver-manager.executewritecommand.php
+             * @param string $db The name of the database on which to execute the command that reads.
+             * @param Command $command The command document.
+             * @param array $options
+             * @return Cursor
+             * @throws Exception
+             * @throws AuthenticationException if authentication is needed and fails
+             * @throws ConnectionException if connection to the server fails for other then authentication reasons
+             * @throws RuntimeException on other errors (invalid command, command arguments, ...)
+             * @throws WriteException on Write Error
+             * @throws WriteConcernException on Write Concern failure
+             * @since 1.4.0
+             */
+            final public function executeWriteCommand($db, Command $command, array $options = [])
             {
             }
 
@@ -119,6 +166,16 @@ namespace MongoDB {}
              * @return ReadPreference
              */
             final public function getReadPreference()
+            {
+            }
+
+            /**
+             * Return the servers to which this manager is connected
+             * @link https://php.net/manual/en/mongodb-driver-manager.getservers.php
+             * @throws InvalidArgumentException on argument parsing errors
+             * @return Server[]
+             */
+            final public function getServers()
             {
             }
 

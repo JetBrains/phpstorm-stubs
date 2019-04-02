@@ -15,7 +15,10 @@ class stdClass {
 interface iterable {}
 
 /**
- * Interface to detect if a class is traversable using &foreach;.
+ * Interface to detect if a class is traversable using foreach.
+ * Abstract base interface that cannot be implemented alone.
+ * Instead it must be implemented by either {@see IteratorAggregate} or {@see Iterator}.
+ *
  * @link https://php.net/manual/en/class.traversable.php
  */
 interface Traversable extends iterable {

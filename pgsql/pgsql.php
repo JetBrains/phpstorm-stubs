@@ -704,7 +704,7 @@ function pg_fetch_object ($result, $row = null, $result_type = PGSQL_ASSOC) {}
  * @since 4.3.0
  * @since 5.0
  */
-function pg_fetch_all ($result, $result_type) {}
+function pg_fetch_all ($result, $result_type = PGSQL_ASSOC) {}
 
 /**
  * Fetches all rows in a particular result column as an array

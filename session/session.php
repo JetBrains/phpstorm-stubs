@@ -190,7 +190,7 @@ function session_create_id($prefix) {}
 
 /**
  * Perform session data garbage collection
- * @return int|false number of deleted session data for success, FALSE for failure.
+ * @return int|false number of deleted session data for success, false for failure.
  * @since 7.1
  */
 function session_gc() {}
@@ -263,7 +263,7 @@ function session_unset () {}
  * @since 4.0
  * @since 5.0
  */
-function session_set_save_handler ($open, $close, $read, $write, $destroy, $gc, $create_sid, $validate_sid,  $update_timestamp) {}
+function session_set_save_handler ($open, $close, $read, $write, $destroy, $gc, $create_sid = null, $validate_sid = null,  $update_timestamp = null) {}
 
 /**
  * (PHP 5.4)<br/>

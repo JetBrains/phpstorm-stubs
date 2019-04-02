@@ -313,7 +313,7 @@ class DateTimeImmutable implements DateTimeInterface {
 class DateTime implements DateTimeInterface {
     /**
      * (PHP 5 &gt;=5.2.0)<br/>
-     * @link https://www.php.net/manual/en/datetime.construct.php
+     * @link https://php.net/manual/en/datetime.construct.php
      * @param string $time [optional]
      * <p>A date/time string. Valid formats are explained in {@link www.php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
      * <p>
@@ -321,7 +321,7 @@ class DateTime implements DateTimeInterface {
      * the <em>$timezone</em> parameter.
      * </p>
      * @param DateTimeZone $timezone [optional] <p>
-     * A {@link https://www.php.net/manual/en/class.datetimezone.php DateTimeZone} object representing the
+     * A {@link https://php.net/manual/en/class.datetimezone.php DateTimeZone} object representing the
      * timezone of <em>$time</em>.
      * </p>
      * <p>

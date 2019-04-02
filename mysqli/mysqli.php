@@ -138,12 +138,12 @@ class mysqli  {
 	 * @since 5.0
 	 */
 	public function __construct (
-		$host,
-		$username,
-		$passwd,
-		$dbname,
-		$port,
-		$socket
+		$host = null,
+		$username = null,
+		$passwd = null,
+		$dbname = null,
+		$port = null,
+		$socket = null
 	) {}
 
 	/**
@@ -283,7 +283,7 @@ class mysqli  {
 	/**
 	 * Returns statistics about the client connection
 	 * @link https://php.net/manual/en/mysqli.get-connection-stats.php
-	 * @return bool an array with connection stats if success, false otherwise.
+	 * @return array|false an array with connection stats if success, false otherwise.
 	 * @since 5.3.0
 	 */
 	public function get_connection_stats () {}
@@ -337,14 +337,14 @@ class mysqli  {
 	public function multi_query ($query) {}
 
 	/**
-	 * @param $host [optional]
-	 * @param $user [optional]
-	 * @param $password [optional]
-	 * @param $database [optional]
-	 * @param $port [optional]
-	 * @param $socket [optional]
+	 * @param string $host [optional]
+	 * @param string $user [optional]
+	 * @param string $password [optional]
+	 * @param string $database [optional]
+	 * @param int $port [optional]
+	 * @param string $socket [optional]
 	 */
-	public function mysqli ($host, $user, $password, $database, $port, $socket) {}
+	public function mysqli ($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null) {}
 
 	/**
 	 * Check if there are any more query results from a multi query
@@ -1585,7 +1585,7 @@ function mysqli_commit ($link) {}
  * @param string $database If provided will specify the default database to be used when performing queries.
  * @param string $port Specifies the port number to attempt to connect to the MySQL server.
  * @param string $socket Specifies the socket or named pipe that should be used.
- * @return mysqli object which represents the connection to a MySQL Server.
+ * @return mysqli|false object which represents the connection to a MySQL Server or false if an error occurred.
  */
 function mysqli_connect ($host = '', $user = '', $password = '', $database = '', $port = '', $socket = '') {}
 
@@ -1826,7 +1826,7 @@ function mysqli_get_cache_stats ($link) {}
  * Returns statistics about the client connection
  * @link https://php.net/manual/en/mysqli.get-connection-stats.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @return array|false Returns an array with connection stats if successful, FALSE otherwise.
+ * @return array|false an array with connection stats if successful, FALSE otherwise.
  */
 function mysqli_get_connection_stats ($link) {}
 
@@ -1854,10 +1854,10 @@ function mysqli_get_charset ($link) {}
 function mysqli_get_client_info () {}
 
 /**
- * Returns the MySQL client version as a string
+ * Returns the MySQL client version as an integer
  * @link https://php.net/manual/en/mysqli.get-client-version.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @return string
+ * @return int
  */
 function mysqli_get_client_version ($link) {}
 
@@ -2173,7 +2173,7 @@ function mysqli_real_query ($link, $query) {}
  * @link https://php.net/manual/en/mysqli.reap-async-query.php
  * @see mysqli_poll()
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @return mysqli_result|false Returns mysqli_result in success, FALSE otherwise.
+ * @return mysqli_result|false mysqli_result in success, FALSE otherwise.
  */
 function mysqli_reap_async_query ($link) {}
 
@@ -2450,7 +2450,7 @@ function mysqli_stmt_data_seek ($stmt, $offset) {}
  * Returns the error code for the most recent statement call
  * @link https://php.net/manual/en/mysqli-stmt.errno.php
  * @param mysqli_stmt $stmt
- * @return bool
+ * @return int
  */
 function mysqli_stmt_errno ($stmt) {}
 

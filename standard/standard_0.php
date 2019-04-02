@@ -100,7 +100,7 @@ class Directory  {
      * @param resource $dir_handle [optional]
      * @link https://secure.php.net/manual/en/directory.close.php
      */
-    public function close ( $dir_handle ) {}
+    public function close ($dir_handle = null) {}
 
     /**
      *  Rewind directory handle.
@@ -108,7 +108,7 @@ class Directory  {
      * @param resource $dir_handle [optional]
      * @link https://secure.php.net/manual/en/directory.rewind.php
      */
-    public function rewind ( $dir_handle ) {}
+    public function rewind ($dir_handle = null) {}
 
     /**
      * Read entry from directory handle.
@@ -117,7 +117,7 @@ class Directory  {
      * @return string
      * @link https://secure.php.net/manual/en/directory.read.php
      */
-    public function read ( $dir_handle) { }
+    public function read ($dir_handle = null) { }
 
 }
 

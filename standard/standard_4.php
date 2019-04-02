@@ -349,7 +349,7 @@ function unregister_tick_function ($function) {}
  * @since 4.0
  * @since 5.0
  */
-function highlight_file ($filename, $return = null) {}
+function highlight_file ($filename, $return = false) {}
 
 /**
  * &Alias; <function>highlight_file</function>
@@ -359,7 +359,7 @@ function highlight_file ($filename, $return = null) {}
  * @since 4.0
  * @since 5.0
  */
-function show_source ($file_name, $return) {}
+function show_source ($file_name, $return = false) {}
 
 /**
  * Syntax highlighting of a string
@@ -377,7 +377,7 @@ function show_source ($file_name, $return) {}
  * @since 4.0
  * @since 5.0
  */
-function highlight_string ($str, $return = null) {}
+function highlight_string ($str, $return = false) {}
 
 /**
  * Get the system's high resolution time
@@ -902,7 +902,7 @@ function gethostname () {}
  * @return bool Returns <b>TRUE</b> if any records are found; returns <b>FALSE</b> if no records were found or if an error occurred.
  * @since 5.0
  */
-function dns_check_record ($host, $type) {}
+function dns_check_record ($host, $type = 'MX') {}
 
 /**
  * Check DNS records corresponding to a given Internet host name or IP address
@@ -930,7 +930,7 @@ function checkdnsrr ($host, $type = null) {}
  * @param $weight [optional]
  * @since 5.0
  */
-function dns_get_mx ($hostname, &$mxhosts, &$weight) {}
+function dns_get_mx ($hostname, array &$mxhosts, array &$weight = null) {}
 
 /**
  * Get MX records corresponding to a given Internet host name

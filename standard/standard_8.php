@@ -385,13 +385,13 @@ function ob_get_contents () {}
  * Turn implicit flush on/off
  * @link https://php.net/manual/en/function.ob-implicit-flush.php
  * @param int $flag [optional] <p>
- * true to turn implicit flushing on, false otherwise.
+ * 1 to turn implicit flushing on, 0 otherwise.
  * </p>
  * @return void 
  * @since 4.0
  * @since 5.0
  */
-function ob_implicit_flush ($flag = null) {}
+function ob_implicit_flush ($flag = 1) {}
 
 /**
  * List all output handlers in use
@@ -999,20 +999,18 @@ function range ($start, $end, $step = 1) {}
 function array_multisort (array &$arr, $arg = null, $arg = null, $_ = null) {}
 
 /**
- * Push one or more elements onto the end of array
+ * Push elements onto the end of array
  * @link https://php.net/manual/en/function.array-push.php
  * @param array $array <p>
  * The input array.
  * </p>
- * @param mixed $var <p>
- * The pushed value.
+ * @param mixed $vars [optional] <p>
+ * The pushed variables.
  * </p>
- * @param mixed $_ [optional] 
- * @return int the new number of elements in the array.
- * @since 4.0
- * @since 5.0
+ * @return int the number of elements in the array.
+ * @since 7.3
  */
-function array_push (array &$array, $var, $_ = null) {}
+function array_push (array &$array, ...$vars) {}
 
 /**
  * Pop the element off the end of array
@@ -1042,20 +1040,18 @@ function array_pop (array &$array) {}
 function array_shift (array &$array) {}
 
 /**
- * Prepend one or more elements to the beginning of an array
+ * Prepend elements to the beginning of an array
  * @link https://php.net/manual/en/function.array-unshift.php
  * @param array $array <p>
  * The input array.
  * </p>
- * @param mixed $var <p>
- * The prepended variable.
+ * @param mixed $vars [optional] <p>
+ * The prepended variables.
  * </p>
- * @param mixed $_ [optional] 
- * @return int the new number of elements in the array.
- * @since 4.0
- * @since 5.0
+ * @return int the number of elements in the array.
+ * @since 7.3
  */
-function array_unshift (array &$array, $var, $_ = null) {}
+function array_unshift (array &$array, ...$vars) {}
 
 /**
  * Remove a portion of the array and replace it with something else
