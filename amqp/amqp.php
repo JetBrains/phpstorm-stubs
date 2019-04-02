@@ -1072,7 +1072,7 @@ class AMQPExchange
      *
      * @param string $key The key to look up.
      *
-     * @return string|integer|bool The string or integer value associated
+     * @return string|integer|false The string or integer value associated
      *                             with the given key, or FALSE if the key
      *                             is not set.
      */
