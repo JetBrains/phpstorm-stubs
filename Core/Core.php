@@ -558,7 +558,7 @@ function get_class_vars ($class_name) {}
  * @param object $object <p>
  * An object instance.
  * </p>
- * @return array|null an associative array of defined object accessible non-static properties
+ * @return string[]|null an associative array of defined object accessible non-static properties
  * for the specified <i>object</i> in scope. If a property have
  * not been assigned a value, it will be returned with a null value.
  * @since 4.0
