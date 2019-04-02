@@ -572,7 +572,7 @@ function get_object_vars ($object) {}
  * @param mixed $class_name <p>
  * The class name or an object instance
  * </p>
- * @return array|null an array of method names defined for the class specified by
+ * @return string[]|null an array of method names defined for the class specified by
  * <i>class_name</i>. In case of an error, it returns null.
  * @since 4.0
  * @since 5.0
