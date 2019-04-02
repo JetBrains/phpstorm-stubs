@@ -391,7 +391,7 @@ function xml_parse_into_struct ($parser, $data, array &$values, array &$index = 
  * @param resource $parser <p>
  * A reference to the XML parser to get error code from.
  * </p>
- * @return int This function returns <b>FALSE</b> if <i>parser</i> does
+ * @return int|false This function returns <b>FALSE</b> if <i>parser</i> does
  * not refer to a valid parser, or else it returns one of the error
  * codes listed in the error codes
  * section.
@@ -419,7 +419,7 @@ function xml_error_string ($code) {}
  * @param resource $parser <p>
  * A reference to the XML parser to get line number from.
  * </p>
- * @return int This function returns <b>FALSE</b> if <i>parser</i> does
+ * @return int|false This function returns <b>FALSE</b> if <i>parser</i> does
  * not refer to a valid parser, or else it returns which line the
  * parser is currently at in its data buffer.
  * @since 4.0
@@ -433,7 +433,7 @@ function xml_get_current_line_number ($parser) {}
  * @param resource $parser <p>
  * A reference to the XML parser to get column number from.
  * </p>
- * @return int This function returns <b>FALSE</b> if <i>parser</i> does
+ * @return int|false This function returns <b>FALSE</b> if <i>parser</i> does
  * not refer to a valid parser, or else it returns which column on
  * the current line (as given by
  * <b>xml_get_current_line_number</b>) the parser is
@@ -449,7 +449,7 @@ function xml_get_current_column_number ($parser) {}
  * @param resource $parser <p>
  * A reference to the XML parser to get byte index from.
  * </p>
- * @return int This function returns <b>FALSE</b> if <i>parser</i> does
+ * @return int|false This function returns <b>FALSE</b> if <i>parser</i> does
  * not refer to a valid parser, or else it returns which byte index
  * the parser is currently at in its data buffer (starting at 0).
  * @since 4.0
@@ -540,7 +540,7 @@ function xml_parser_set_option ($parser, $option, $value) {}
  * @param int $option Which option to fetch. <b>XML_OPTION_CASE_FOLDING</b>
  * and <b>XML_OPTION_TARGET_ENCODING</b> are available.
  * See <b>xml_parser_set_option</b> for their description.
- * @return mixed This function returns <b>FALSE</b> if <i>parser</i> does
+ * @return mixed|false This function returns <b>FALSE</b> if <i>parser</i> does
  * not refer to a valid parser or if <i>option</i> isn't
  * valid (generates also a <b>E_WARNING</b>).
  * Else the option's value is returned.

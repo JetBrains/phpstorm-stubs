@@ -388,8 +388,8 @@ final class Ev
 /**
  * Class EvWatcher
  *
- * @property-read $is_active boolean TRUE if the watcher is active. FALSE otherwise.
- * @property-read $is_pending boolean TRUE if the watcher is pending, i.e. it has outstanding events, but its callback
+ * @property-read $is_active bool TRUE if the watcher is active. FALSE otherwise.
+ * @property-read $is_pending bool TRUE if the watcher is pending, i.e. it has outstanding events, but its callback
  *      has not yet been invoked. FALSE otherwise. As long, as a watcher is pending (but not active), one must not
  *      change its priority.
  */

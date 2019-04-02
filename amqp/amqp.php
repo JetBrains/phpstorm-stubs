@@ -953,7 +953,7 @@ class AMQPEnvelope extends AMQPBasicProperties
      *
      * @param string $header_key Name of the header to get the value from.
      *
-     * @return string|boolean The contents of the specified header or FALSE
+     * @return string|false The contents of the specified header or FALSE
      *                        if not set.
      */
     public function getHeader($header_key) { }
@@ -1072,9 +1072,9 @@ class AMQPExchange
      *
      * @param string $key The key to look up.
      *
-     * @return string|integer|boolean The string or integer value associated
-     *                                with the given key, or FALSE if the key
-     *                                is not set.
+     * @return string|integer|bool The string or integer value associated
+     *                             with the given key, or FALSE if the key
+     *                             is not set.
      */
     public function getArgument($key) { }
 
@@ -1292,7 +1292,7 @@ class AMQPQueue
      * Blocking function that will retrieve the next message from the queue as
      * it becomes available and will pass it off to the callback.
      *
-     * @param callable | null $callback    A callback function to which the
+     * @param callable|null $callback    A callback function to which the
      *                              consumed message will be passed. The
      *                              function must accept at a minimum
      *                              one parameter, an AMQPEnvelope object,
@@ -1378,7 +1378,7 @@ class AMQPQueue
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return AMQPEnvelope|boolean
+     * @return AMQPEnvelope|bool
      */
     public function get($flags = AMQP_NOPARAM) { }
 
@@ -1387,9 +1387,9 @@ class AMQPQueue
      *
      * @param string $key The key to look up.
      *
-     * @return string|integer|boolean The string or integer value associated
-     *                                with the given key, or false if the key
-     *                                is not set.
+     * @return string|integer|bool The string or integer value associated
+     *                             with the given key, or false if the key
+     *                             is not set.
      */
     public function getArgument($key) { }
 
@@ -1552,7 +1552,7 @@ class AMQPQueue
     /**
      * Get latest consumer tag. If no consumer available or the latest on was canceled null will be returned.
      *
-     * @return string | null
+     * @return string|null
      */
     public function getConsumerTag() { }
 

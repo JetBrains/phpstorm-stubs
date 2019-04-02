@@ -2435,7 +2435,7 @@ namespace Couchbase {
         /**
          * Change the expiry of the enclosing document as part of the mutation.
          *
-         * @param expiry the new expiry to apply (or 0 to avoid changing the expiry)
+         * @param mixed $expiry the new expiry to apply (or 0 to avoid changing the expiry)
          * @return MutateInBuilder
          */
         public function withExpiry($expiry) {}
@@ -2736,7 +2736,7 @@ namespace Couchbase {
          * If no sort is provided, it is equal to sort("-_score"), since the server will sort it by score in descending
          * order.
          *
-         * @param sort the fields that should take part in the sorting.
+         * @param mixed $sort the fields that should take part in the sorting.
          * @return SearchQuery
          */
         public function sort(...$sort) {}
@@ -3570,7 +3570,7 @@ namespace Couchbase {
         /**
          * Set type of the field
          *
-         * @param string type the type
+         * @param string $type the type
          *
          * @see SearchSortField::TYPE_AUTO
          * @see SearchSortField::TYPE_STRING
@@ -3582,7 +3582,7 @@ namespace Couchbase {
         /**
          * Set mode of the sort
          *
-         * @param string mode the mode
+         * @param string $mode the mode
          *
          * @see SearchSortField::MODE_MIN
          * @see SearchSortField::MODE_MAX
@@ -3592,7 +3592,7 @@ namespace Couchbase {
         /**
          * Set where the hits with missing field will be inserted
          *
-         * @param string missing strategy for hits with missing fields
+         * @param string $missing strategy for hits with missing fields
          *
          * @see SearchSortField::MISSING_FIRST
          * @see SearchSortField::MISSING_LAST

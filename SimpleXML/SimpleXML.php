@@ -66,7 +66,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
 	 * @param string $path <p>
 	 * An XPath path
 	 * </p>
-	 * @return SimpleXMLElement[] an array of SimpleXMLElement objects or <b>FALSE</b> in
+	 * @return SimpleXMLElement[]|false an array of SimpleXMLElement objects or <b>FALSE</b> in
 	 * case of an error.
 	 * @since 5.2.0
 	 */
@@ -283,7 +283,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 	/**
 	 * Return current key
 	 * @link https://php.net/manual/en/simplexmliterator.key.php
-	 * @return mixed the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object or <b>FALSE</b>
+	 * @return mixed|false the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object or <b>FALSE</b>
 	 * @since 5.1.0
 	 */
 	public function key () {}

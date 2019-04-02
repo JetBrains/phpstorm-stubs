@@ -17,7 +17,7 @@
  * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-custom-param
  *
  * @param string                       $key
- * @param boolean|float|integer|string $value
+ * @param bool|float|integer|string $value
  *
  * @return bool
  */
@@ -49,7 +49,7 @@ function newrelic_add_custom_tracer($functionName) {}
  *
  * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-bg
  *
- * @param boolean $flag [optional]
+ * @param bool $flag [optional]
  *
  * @return void
  */
@@ -64,7 +64,7 @@ function newrelic_background_job($flag = true) {}
  *
  * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-capture-params
  *
- * @param boolean $enable [optional]
+ * @param bool $enable [optional]
  *
  * @return void
  */
@@ -145,7 +145,7 @@ function newrelic_end_of_transaction() {}
  *
  * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-end-txn
  *
- * @param boolean $ignore [optional]
+ * @param bool $ignore [optional]
  *
  * @return bool
  */
@@ -313,7 +313,7 @@ function newrelic_record_custom_event($name, array $attributes) {}
  *
  * @param string  $name
  * @param string  $license [optional] defaults to ini_get('newrelic.license')
- * @param boolean $xmit    [optional]
+ * @param bool $xmit    [optional]
  *
  * @return bool
  */

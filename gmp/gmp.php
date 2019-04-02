@@ -455,7 +455,7 @@ function gmp_gcdext ($a, $b) {}
  * numeric string given that it is possible to convert the latter to a number.</p>
  * @param resource|string $b It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
- * @return resource A GMP number on success or <b>FALSE</b> if an inverse does not exist.
+ * @return resource|false A GMP number on success or <b>FALSE</b> if an inverse does not exist.
  * @since 4.0.4
  * @since 5.0
  */
@@ -705,7 +705,7 @@ function gmp_hamdist ($a, $b) {}
  * @param integer $word_size Default value is 1. The number of bytes in each chunk of binary
  * data. This is mainly used in conjunction with the options parameter.</p>
  * @param integer $options Default value is GMP_MSW_FIRST | GMP_NATIVE_ENDIAN.
- * @return GMP|bool Returns a GMP number or FALSE on failure.
+ * @return GMP|false Returns a GMP number or FALSE on failure.
  * @since 5.6.1
  */
 function gmp_import ($data, $word_size = 1, $options = GMP_MSW_FIRST | GMP_NATIVE_ENDIAN) {}
@@ -717,7 +717,7 @@ function gmp_import ($data, $word_size = 1, $options = GMP_MSW_FIRST | GMP_NATIV
  * @param integer $word_size Default value is 1. The number of bytes in each chunk of binary
  * data. This is mainly used in conjunction with the options parameter.</p>
  * @param integer $options Default value is GMP_MSW_FIRST | GMP_NATIVE_ENDIAN.
- * @return string|bool Returns a string or FALSE on failure.
+ * @return string|false Returns a string or FALSE on failure.
  * @since 5.6.1
  */
 function gmp_export (GMP $gmpnumber, $word_size = 1, $options = GMP_MSW_FIRST | GMP_NATIVE_ENDIAN) {}

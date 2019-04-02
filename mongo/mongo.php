@@ -108,7 +108,7 @@ class MongoClient
      * This method does not need to be called, except in unusual circumstances.
      * The driver will cleanly close the database connection when the Mongo object goes out of scope.
      * @link https://secure.php.net/manual/en/mongoclient.close.php
-     * @param  boolean|string $connection [optional] <p>
+     * @param  bool|string $connection [optional] <p>
      * If connection is not given, or <b>FALSE</b> then connection that would be selected for writes would be closed. In a single-node configuration, that is then the whole connection, but if you are connected to a replica set, close() will only close the connection to the primary server.
      * If connection is <b>TRUE</b> then all connections as known by the connection manager will be closed. This can include connections that are not referenced in the connection string used to create the object that you are calling close on.
      * If connection is a string argument, then it will only close the connection identified by this hash. Hashes are identifiers for a connection and can be obtained by calling {@see MongoClient::getConnections()}.
@@ -1030,7 +1030,7 @@ class MongoCollection {
 	 * @param array $a An array of arrays.
 	 * @param array $options Options for the inserts.
 	 * @throws MongoCursorException
-	 * @return mixed f "safe" is set, returns an associative array with the status of the inserts ("ok") and any error that may have occured ("err"). Otherwise, returns TRUE if the batch insert was successfully sent, FALSE otherwise.
+	 * @return array|bool if "safe" is set, returns an associative array with the status of the inserts ("ok") and any error that may have occured ("err"). Otherwise, returns TRUE if the batch insert was successfully sent, FALSE otherwise.
 	 */
     public function batchInsert(array $a, array $options = array()) {}
 
@@ -1122,7 +1122,7 @@ class MongoCollection {
      * @link https://secure.php.net/manual/ru/mongocollection.distinct.php
      * @param string $key The key to use.
      * @param array $query An optional query parameters
-     * @return array|bool Returns an array of distinct values, or <b>FALSE</b> on failure
+     * @return array|false Returns an array of distinct values, or <b>FALSE</b> on failure
      */
     public function distinct ($key, array $query = NULL) {}
 
@@ -1216,7 +1216,7 @@ class MongoCollection {
 	 * @throws MongoException if the inserted document is empty or if it contains zero-length keys. Attempting to insert an object with protected and private properties will cause a zero-length key error.
 	 * @throws MongoCursorException if the "w" option is set and the write fails.
 	 * @throws MongoCursorTimeoutException if the "w" option is set to a value greater than one and the operation takes longer than MongoCursor::$timeout milliseconds to complete. This does not kill the operation on the server, it is a client-side timeout. The operation in MongoCollection::$wtimeout is milliseconds.
-	 * @return array|boolean If w was set, returns an array containing the status of the save.
+	 * @return array|bool If w was set, returns an array containing the status of the save.
      * Otherwise, returns a boolean representing if the array was not empty (an empty array will not be inserted).
 	 */
     public function save($a, array $options = array()) {}
@@ -1375,7 +1375,7 @@ class MongoCursor implements Iterator {
 	 * Sets whether this query can be done on a slave
 	 * This method will override the static class variable slaveOkay.
 	 * @link https://secure.php.net/manual/en/mongocursor.slaveOkay.php
-	 * @param boolean $okay If it is okay to query the slave.
+	 * @param bool $okay If it is okay to query the slave.
 	 * @throws MongoCursorException
      * @return MongoCursor Returns this cursor
 	 */

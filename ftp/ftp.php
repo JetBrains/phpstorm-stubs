@@ -37,7 +37,7 @@ function ftp_mlsd ($ftp,  $directory) {}
  * queried at any time with <b>ftp_set_option</b> and
  * <b>ftp_get_option</b>.
  * </p>
- * @return resource a FTP stream on success or <b>FALSE</b> on error.
+ * @return resource|false a FTP stream on success or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -60,7 +60,7 @@ function ftp_connect ($host, $port = 21, $timeout = 90) {}
  * queried at any time with <b>ftp_set_option</b> and
  * <b>ftp_get_option</b>.
  * </p>
- * @return resource a SSL-FTP stream on success or <b>FALSE</b> on error.
+ * @return resource|false a SSL-FTP stream on success or <b>FALSE</b> on error.
  * @since 4.3.0
  * @since 5.0
  */
@@ -200,7 +200,7 @@ function ftp_rmdir ($ftp_stream, $directory) {}
  * @param string $filename <p>
  * The remote file.
  * </p>
- * @return int the new file permissions on success or <b>FALSE</b> on error.
+ * @return int|false the new file permissions on success or <b>FALSE</b> on error.
  * @since 5.0
  */
 function ftp_chmod ($ftp_stream, $mode, $filename) {}
@@ -547,7 +547,7 @@ function ftp_set_option ($ftp_stream, $option, $value) {}
  * </tr>
  * </table>
  * </p>
- * @return mixed the value on success or <b>FALSE</b> if the given
+ * @return mixed|false the value on success or <b>FALSE</b> if the given
  * <i>option</i> is not supported. In the latter case, a
  * warning message is also thrown.
  * @since 4.2.0

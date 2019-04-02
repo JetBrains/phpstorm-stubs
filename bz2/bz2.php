@@ -11,7 +11,7 @@
  * and 'w' (write) are supported. Everything else will cause bzopen
  * to return <b>FALSE</b>.
  * </p>
- * @return resource If the open fails, <b>bzopen</b> returns <b>FALSE</b>, otherwise
+ * @return resource|false If the open fails, <b>bzopen</b> returns <b>FALSE</b>, otherwise
  * it returns a pointer to the newly opened file.
  * @since 4.0.4
  * @since 5.0
@@ -51,7 +51,7 @@ function bzread ($bz, $length = 1024) {}
  * (uncompressed) bytes have been written or the end of
  * <i>data</i> is reached, whichever comes first.
  * </p>
- * @return int the number of bytes written, or <b>FALSE</b> on error.
+ * @return int|false the number of bytes written, or <b>FALSE</b> on error.
  * @since 4.0.4
  * @since 5.0
  */
@@ -64,7 +64,7 @@ function bzwrite ($bz, $data, $length = null) {}
  * The file pointer. It must be valid and must point to a file
  * successfully opened by <b>bzopen</b>.
  * </p>
- * @return int <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 4.0.4
  * @since 5.0
  */
@@ -77,7 +77,7 @@ function bzflush ($bz) {}
  * The file pointer. It must be valid and must point to a file
  * successfully opened by <b>bzopen</b>.
  * </p>
- * @return int <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 4.0.4
  * @since 5.0
  */

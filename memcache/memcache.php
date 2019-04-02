@@ -153,7 +153,7 @@ class MemcachePool  {
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Return version of the server
      * @link https://php.net/manual/en/memcache.getversion.php
-     * @return string|boolean Returns a string of server version number or <b>FALSE</b> on failure.
+     * @return string|false Returns a string of server version number or <b>FALSE</b> on failure.
      */
     public function getVersion () {}
 
@@ -223,7 +223,7 @@ class MemcachePool  {
      * The lowest byte of the int is reserved for pecl/memcache internal usage (e.g. to indicate
      * compression and serialization status).
      * </p>
-     * @return string|array <p>
+     * @return string|array|false <p>
      * Returns the string associated with the <b>key</b> or
      * an array of found key-value pairs when <b>key</b> is an {@link https://php.net/manual/en/language.types.array.php array}.
      * Returns <b>FALSE</b> on failure, <b>key</b> is not found or
@@ -259,7 +259,7 @@ class MemcachePool  {
      * @param int $limit [optional] <p>
      * Used in conjunction with <b>type</b> set to cachedump to limit the number of entries to dump.
      * </p>
-     * @return array|bool Returns an associative array of server statistics or <b>FALSE</b> on failure.
+     * @return array|false Returns an associative array of server statistics or <b>FALSE</b> on failure.
      */
     public function getStats ($type = null, $slabid = null, $limit = 100) {}
 
@@ -275,7 +275,7 @@ class MemcachePool  {
      * debugging purposes.
      * </p>
      * @param int $limit Used in conjunction with type set to cachedump to limit the number of entries to dump.
-     * @return array|bool Returns a two-dimensional associative array of server statistics or <b>FALSE</b>
+     * @return array|false Returns a two-dimensional associative array of server statistics or <b>FALSE</b>
      * Returns a two-dimensional associative array of server statistics or <b>FALSE</b>
      * on failure.
      */
@@ -296,7 +296,7 @@ class MemcachePool  {
      * @link https://php.net/manual/en/memcache.increment.php
      * @param $key string Key of the item to increment.
      * @param $value int [optional] increment the item by <b>value</b>
-     * @return int|boolean Returns new items value on success or <b>FALSE</b> on failure.
+     * @return int|false Returns new items value on success or <b>FALSE</b> on failure.
      */
     public function increment ($key, $value = 1) {}
 
@@ -306,7 +306,7 @@ class MemcachePool  {
      * @link https://php.net/manual/en/memcache.decrement.php
      * @param $key string Key of the item do decrement.
      * @param $value int Decrement the item by <b>value</b>.
-     * @return int|boolean Returns item's new value on success or <b>FALSE</b> on failure.
+     * @return int|false Returns item's new value on success or <b>FALSE</b> on failure.
      */
     public function decrement ($key, $value = 1) {}
 
@@ -354,7 +354,7 @@ class Memcache extends MemcachePool  {
 	 * twice before changing the default value of 1 second - you can lose all
 	 * the advantages of caching if your connection is too slow.
 	 * </p>
-	 * @return mixed a Memcache object or <b>FALSE</b> on failure.
+	 * @return mixed|false a Memcache object or <b>FALSE</b> on failure.
 	 */
 	public function pconnect ($host, $port, $timeout = 1) {}
 }

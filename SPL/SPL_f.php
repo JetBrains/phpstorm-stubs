@@ -73,7 +73,7 @@ function spl_autoload_unregister ($autoload_function) {}
 /**
  * Return all registered __autoload() functions
  * @link https://php.net/manual/en/function.spl-autoload-functions.php
- * @return array An array of all registered __autoload functions.
+ * @return array|false An array of all registered __autoload functions.
  * If the autoload stack is not activated then the return value is false.
  * If no function is registered the return value will be an empty array.
  * @since 5.1.2
@@ -102,7 +102,7 @@ function spl_autoload_call ($class_name) {}
  * the __autoload magic
  * method.
  * </p>
- * @return array An array on success, or false on error.
+ * @return array|false An array on success, or false on error.
  * @since 5.1.0
  */
 function class_parents ($class, $autoload = null) {}
@@ -118,7 +118,7 @@ function class_parents ($class, $autoload = null) {}
  * the __autoload magic
  * method.
  * </p>
- * @return array An array on success, or false on error.
+ * @return array|false An array on success, or false on error.
  * @since 5.1.0
  */
 function class_implements ($class, $autoload = null) {}
@@ -183,7 +183,7 @@ function iterator_apply ($iterator, $function, array $args = null) {}
  * Return the traits used by the given class
  * @param mixed $class An object (class instance) or a string (class name).
  * @param bool $autoload Whether to allow this function to load the class automatically through the __autoload() magic method.
- * @return array Array on success, or FALSE on error.
+ * @return array|false Array on success, or FALSE on error.
  * @link https://php.net/manual/en/function.class-uses.php
  * @see class_parents()
  * @see get_declared_traits()

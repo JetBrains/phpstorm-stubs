@@ -3,7 +3,7 @@ class ffmpeg_movie
 {
 	/**  Open a video or audio file and return it as an object.
 	 * @param string $path_to_media - File path of video or audio file to open.
-	 * @param boolean $persistent - Whether to open this media as a persistent resource. See the PHP documentation for more info about persistent resources
+	 * @param bool $persistent - Whether to open this media as a persistent resource. See the PHP documentation for more info about persistent resources
 	 */
 	public function __construct($path_to_media, $persistent)
 	{ }
@@ -159,13 +159,13 @@ class ffmpeg_movie
 
 	/** Returns a frame from the movie as an ffmpeg_frame object. Returns false if the frame was not found.
 	 * @param int $framenumber - Frame from the movie to return. If no framenumber is specified, returns the next frame of the movie.
-	 * @return ffmpeg_frame
+	 * @return ffmpeg_frame|false
 	 */
 	public function getFrame($framenumber)
 	{ }
 
 	/** Returns the next key frame from the movie as an ffmpeg_frame object. Returns false if the frame was not found.
-	 * @return ffmpeg_frame
+	 * @return ffmpeg_frame|false
 	 */
 	public function getNextKeyFrame()
 	{ }

@@ -147,7 +147,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Decompresses all files in the current Phar archive
 	 * @link https://php.net/manual/en/phar.decompressfiles.php
-	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool|false <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function decompressFiles () {}
 
@@ -389,7 +389,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>
 	 * Returns Phar::GZ or PHAR::BZ2 if the entire phar archive is compressed (.tar.gz/tar.bz and so on)
 	 * @link https://php.net/manual/en/phar.iscompressed.php
-	 * @return mixed Phar::GZ, Phar::BZ2 or <b>FALSE</b>
+	 * @return mixed|false Phar::GZ, Phar::BZ2 or <b>FALSE</b>
 	 */
 	public function isCompressed () {}
 

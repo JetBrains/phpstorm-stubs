@@ -407,7 +407,7 @@ class RecursiveIteratorIterator implements OuterIterator {
     /**
      * Get max depth
      * @link https://php.net/manual/en/recursiveiteratoriterator.getmaxdepth.php
-     * @return mixed The maximum accepted depth, or false if any depth is allowed.
+     * @return mixed|false The maximum accepted depth, or false if any depth is allowed.
      * @since 5.1.0
      */
     public function getMaxDepth() { }
@@ -1580,7 +1580,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @param mixed $index <p>
      * The index with the value.
      * </p>
-     * @return mixed The value at the specified index or false.
+     * @return mixed|false The value at the specified index or false.
      * @since 5.0.0
      */
     public function offsetGet($index) { }

@@ -213,7 +213,7 @@ function imagecolorat ($image, $x, $y) {}
  * @param int $red <p>Value of red component.</p>
  * @param int $green <p>Value of green component.</p>
  * @param int $blue <p>Value of blue component.</p>
- * @return int A color identifier or <b>FALSE</b> if the allocation failed.
+ * @return int|false A color identifier or <b>FALSE</b> if the allocation failed.
  * @since 4.0
  * @since 5.0
  */
@@ -240,7 +240,7 @@ function imagepalettecopy ($destination, $source) {}
  * @param string $image <p>
  * A string containing the image data.
  * </p>
- * @return resource An image resource will be returned on success. <b>FALSE</b> is returned if
+ * @return resource|false An image resource will be returned on success. <b>FALSE</b> is returned if
  * the image type is unsupported, the data is not in a recognised format,
  * or the image is corrupt and cannot be loaded.
  * @since 4.0.4
@@ -537,7 +537,7 @@ function imagecopyresized ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $src_
  * @param int $height <p>
  * The image height.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0
  * @since 5.0
  */
@@ -552,7 +552,7 @@ function imagecreate ($width, $height) {}
  * @param int $height <p>
  * Image height.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0.6
  * @since 5.0
  */
@@ -708,7 +708,7 @@ function imagesavealpha ($image, $saveflag) {}
  * 0 indicates completely opaque while 
  * 127 indicates completely transparent.
  * </p>
- * @return int A color identifier or false if the allocation failed.
+ * @return int|false A color identifier or false if the allocation failed.
  * @since 4.3.2
  * @since 5.0
  */
@@ -901,7 +901,7 @@ function imagesetstyle ($image, array $style) {}
  * @param string $filename <p>
  * Path to the PNG image.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0
  * @since 5.0
  */
@@ -913,7 +913,7 @@ function imagecreatefrompng ($filename) {}
  * @param string $filename <p>
  * Path to the GIF image.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0
  * @since 5.0
  */
@@ -925,7 +925,7 @@ function imagecreatefromgif ($filename) {}
  * @param string $filename <p>
  * Path to the JPEG image.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0
  * @since 5.0
  */
@@ -937,7 +937,7 @@ function imagecreatefromjpeg ($filename) {}
  * @param string $filename <p>
  * Path to the WBMP image.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0.1
  * @since 5.0
  */
@@ -949,7 +949,7 @@ function imagecreatefromwbmp ($filename) {}
  * @param string $filename <p>
  * Path to the XBM image.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0.1
  * @since 5.0
  */
@@ -961,7 +961,7 @@ function imagecreatefromxbm ($filename) {}
  * @param string $filename <p>
  * Path to the XPM image.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0.1
  * @since 5.0
  */
@@ -973,7 +973,7 @@ function imagecreatefromxpm ($filename) {}
  * @param string $filename <p>
  * Path to the GD file.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0.7
  * @since 5.0
  */
@@ -985,7 +985,7 @@ function imagecreatefromgd ($filename) {}
  * @param string $filename <p>
  * Path to the GD2 image.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0.7
  * @since 5.0
  */
@@ -1009,7 +1009,7 @@ function imagecreatefromgd2 ($filename) {}
  * @param int $height <p>
  * Source height.
  * </p>
- * @return resource an image resource identifier on success, false on errors.
+ * @return resource|false an image resource identifier on success, false on errors.
  * @since 4.0.7
  * @since 5.0
  */
@@ -1518,7 +1518,7 @@ function imagestringup ($image, $font, $x, $y, $string, $color) {}
  * Get image width
  * @link https://php.net/manual/en/function.imagesx.php
  * @param resource $image 
- * @return int Return the width of the image or false on 
+ * @return int|false Return the width of the image or false on
  * errors.
  * @since 4.0
  * @since 5.0
@@ -1529,7 +1529,7 @@ function imagesx ($image) {}
  * Get image height
  * @link https://php.net/manual/en/function.imagesy.php
  * @param resource $image 
- * @return int Return the height of the image or false on 
+ * @return int|false Return the height of the image or false on
  * errors.
  * @since 4.0
  * @since 5.0
@@ -1701,7 +1701,7 @@ function imagettfbbox ($size, $angle, $fontfile, $text) {}
  * If a character is used in the string which is not supported by the
  * font, a hollow rectangle will replace the character.
  * </p>
- * @return array an array with 8 elements representing four points making the
+ * @return array|false an array with 8 elements representing four points making the
  * bounding box of the text. The order of the points is lower left, lower 
  * right, upper right, upper left. The points are relative to the text
  * regardless of the angle, so "upper left" means in the top left-hand 
@@ -1905,7 +1905,7 @@ function imagefttext ($image, $size, $angle, $x, $y, $color, $fontfile, $text, $
  * @param string $filename <p>
  * Path to the Postscript font file.
  * </p>
- * @return resource In the case everything went right, a valid font index will be returned and
+ * @return resource|false In the case everything went right, a valid font index will be returned and
  * can be used for further purposes. Otherwise the function returns false.
  * @since 4.0
  * @since 5.0
@@ -2246,7 +2246,7 @@ function imageconvolution ($image, array $matrix, $div, $offset) {}
  * @param resource $im An image resource, returned by one of the image creation functions, such as {@see imagecreatetruecolor()}.
  * @param int $res_x [optional] The horizontal resolution in DPI.
  * @param int $res_y [optional] The vertical resolution in DPI.
- * @return array When used as getter (that is without the optional parameters), it returns <b>TRUE</b> on success, or <b>FALSE</b> on failure. When used as setter (that is with one or both optional parameters given), it returns an indexed array of the horizontal and vertical resolution on success, or <b>FALSE</b> on failure.
+ * @return array|bool When used as getter (that is without the optional parameters), it returns <b>TRUE</b> on success, or <b>FALSE</b> on failure. When used as setter (that is with one or both optional parameters given), it returns an indexed array of the horizontal and vertical resolution on success, or <b>FALSE</b> on failure.
  * @link https://php.net/manual/en/function.imageresolution.php
  * @since 7.2
  */
@@ -2300,7 +2300,7 @@ function imageopenpolygon ($image , $points, $num_points, $color) {}
  * <b>imagecreatefrombmp()</b> returns an image identifier representing the image obtained from the given filename.
  * <b>TIP</b> A URL can be used as a filename with this function if the fopen wrappers have been enabled. See {@see fopen()} for more details on how to specify the filename. See the Supported Protocols and Wrappers for links to information about what abilities the various wrappers have, notes on their usage, and information on any predefined variables they may provide.
  * @param string $filename Path to the BMP image.
- * @return resource Returns an image resource identifier on success, <b>FALSE</b> on errors.
+ * @return resource|false Returns an image resource identifier on success, <b>FALSE</b> on errors.
  * @link https://php.net/manual/en/function.imagecreatefrombmp.php
  * @since 7.2
  */

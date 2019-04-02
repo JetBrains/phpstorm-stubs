@@ -43,7 +43,7 @@ function shmop_open ($key, $flags, $mode, $size) {}
  * @param int $count <p>
  * The number of bytes to read
  * </p>
- * @return string the data or <b>FALSE</b> on failure.
+ * @return string|false the data or <b>FALSE</b> on failure.
  * @since 4.0.4
  * @since 5.0
  */
@@ -90,7 +90,7 @@ function shmop_size ($shmid) {}
  * Specifies where to start writing data inside the shared memory
  * segment.
  * </p>
- * @return int The size of the written <i>data</i>, or <b>FALSE</b> on
+ * @return int|false The size of the written <i>data</i>, or <b>FALSE</b> on
  * failure.
  * @since 4.0.4
  * @since 5.0

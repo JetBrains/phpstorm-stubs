@@ -195,7 +195,7 @@ function array_flip(array $array) { }
  * Either CASE_UPPER or
  * CASE_LOWER (default)
  * </p>
- * @return array an array with its keys lower or uppercased, or false if
+ * @return array|false an array with its keys lower or uppercased, or false if
  * input is not an array.
  * @since 4.2.0
  * @since 5.0
@@ -875,7 +875,7 @@ function cli_set_process_title($title) { }
  * @param mixed $value [optional] <p>
  * An optional new value for the option.
  * </p>
- * @return mixed the original setting of any option or false on errors.
+ * @return mixed|false the original setting of any option or false on errors.
  * @since 4.0
  * @since 5.0
  */

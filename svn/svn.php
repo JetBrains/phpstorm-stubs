@@ -522,7 +522,7 @@ function svn_status ($path, $flags = 0) {}
  * @param bool $recurse [optional] <p>
  * Whether or not to recursively update directories.
  * </p>
- * @return int new revision number on success, returns <b>FALSE</b> on failure.
+ * @return int|false new revision number on success, returns <b>FALSE</b> on failure.
  */
 function svn_update ($path, $revno = SVN_REVISION_HEAD, $recurse = true) {}
 

@@ -152,7 +152,7 @@ function bin2hex ($str) {}
  * @param int $seconds <p>
  * Halt time in seconds.
  * </p>
- * @return int zero on success, or false on errors. If the call was interrupted
+ * @return int|false zero on success, or false on errors. If the call was interrupted
  * by a signal, sleep returns the number of seconds left
  * to sleep.
  * @since 4.0
@@ -220,7 +220,7 @@ function time_sleep_until ($timestamp) {}
  * For more information about the format options, read the
  * strftime page.
  * </p>
- * @return array|bool an array or false on failure.
+ * @return array|false an array or false on failure.
  * </p>
  * <p>
  * <table>
@@ -757,7 +757,7 @@ function sha1 ($str, $raw_output = null) {}
  * When true, returns the digest in raw binary format with a length of
  * 20.
  * </p>
- * @return string a string on success, false otherwise.
+ * @return string|false a string on success, false otherwise.
  * @since 4.3.0
  * @since 5.0
  */
@@ -790,7 +790,7 @@ function md5 ($str, $raw_output = null) {}
  * When true, returns the digest in raw binary format with a length of
  * 16.
  * </p>
- * @return string a string on success, false otherwise.
+ * @return string|false a string on success, false otherwise.
  * @since 4.2.0
  * @since 5.0
  */
@@ -814,7 +814,7 @@ function crc32 ($str) {}
  * @param string $iptcblock <p>
  * A binary IPTC block.
  * </p>
- * @return array an array using the tagmarker as an index and the value as the
+ * @return array|false an array using the tagmarker as an index and the value as the
  * value. It returns false on error or if no IPTC data was found.
  * @since 4.0
  * @since 5.0
@@ -834,7 +834,7 @@ function iptcparse ($iptcblock) {}
  * Spool flag. If the spool flag is over 2 then the JPEG will be 
  * returned as a string.
  * </p>
- * @return mixed If success and spool flag is lower than 2 then the JPEG will not be 
+ * @return mixed|false If success and spool flag is lower than 2 then the JPEG will not be
  * returned as a string, false on errors.
  * @since 4.0
  * @since 5.0
@@ -859,7 +859,7 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
  * You can use the iptcparse function to parse the
  * binary APP13 marker into something readable.
  * </p>
- * @return array|bool an array with 7 elements.
+ * @return array|false an array with 7 elements.
  * </p>
  * <p>
  * Index 0 and 1 contains respectively the width and the height of the image.
@@ -914,7 +914,7 @@ function getimagesize ($filename, array &$imageinfo = null) {}
  * such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.</p>
  * @param array $affine <p>Array with keys 0 to 5.</p>
  * @param array $clip [optional] <p>Array with keys "x", "y", "width" and "height".</p>
- * @return resource|bool Return affined image resource on success or FALSE on failure.
+ * @return resource|false Return affined image resource on success or FALSE on failure.
  */
 function imageaffine($image, $affine, $clip = null) {}
 
@@ -923,7 +923,7 @@ function imageaffine($image, $affine, $clip = null) {}
  * @link https://secure.php.net/manual/en/function.imageaffinematrixconcat.php
  * @param array $m1 <p>Array with keys 0 to 5.</p>
  * @param array $m2 <p>Array with keys 0 to 5.</p>
- * @return array|bool Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
+ * @return array|false Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
  * @since 5.5.0
  */
 function imageaffinematrixconcat(array $m1, array $m2) {}
@@ -933,7 +933,7 @@ function imageaffinematrixconcat(array $m1, array $m2) {}
  * @link https://secure.php.net/manual/en/function.imageaffinematrixget.php
  * @param int $type <p> One of <b>IMG_AFFINE_*</b> constants.
  * @param mixed $options [optional]
- * @return array|bool Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
+ * @return array|false Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
  * @since 5.5.0
  */
 
@@ -946,7 +946,7 @@ function imageaffinematrixget ($type, $options = null) {}
  * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
  * </p>
  * @param array $rect <p>Array with keys "x", "y", "width" and "height".</p>
- * @return resource|bool Return cropped image resource on success or FALSE on failure.
+ * @return resource|false Return cropped image resource on success or FALSE on failure.
  * @since 5.5.0
  */
 function imagecrop ($image, $rect) {}
@@ -967,7 +967,7 @@ function imagecrop ($image, $rect) {}
  * <p>
  * Used in <b>IMG_CROP_THRESHOLD</b> mode.
  * </p>
- * @return resource|bool Return cropped image resource on success or <b>FALSE</b> on failure.
+ * @return resource|false Return cropped image resource on success or <b>FALSE</b> on failure.
  * @since 5.5.0
  */
 function imagecropauto ($image, $mode = -1, $threshold = .5, $color = -1) {}
@@ -1034,7 +1034,7 @@ function imagepalettetotruecolor ($image) {}
  * @param int $new_width
  * @param int $new_height [optional]
  * @param int $mode [optional] One of <b>IMG_NEAREST_NEIGHBOUR</b>, <b>IMG_BILINEAR_FIXED</b>, <b>IMG_BICUBIC</b>, <b>IMG_BICUBIC_FIXED</b> or anything else (will use two pass).
- * @return resource|bool Return scaled image resource on success or <b>FALSE</b> on failure.
+ * @return resource|false Return scaled image resource on success or <b>FALSE</b> on failure.
  */
 
 function imagescale ($image, $new_width, $new_height = -1, $mode = IMG_BILINEAR_FIXED) {}
@@ -1479,7 +1479,7 @@ function php_ini_scanned_files () {}
 /**
  * Retrieve a path to the loaded php.ini file
  * @link https://php.net/manual/en/function.php-ini-loaded-file.php
- * @return string The loaded &php.ini; path, or false if one is not loaded.
+ * @return string|false The loaded &php.ini; path, or false if one is not loaded.
  * @since 5.2.4
  */
 function php_ini_loaded_file () {}

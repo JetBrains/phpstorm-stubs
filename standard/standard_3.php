@@ -3,7 +3,7 @@
 /**
  * Gets time of last page modification
  * @link https://php.net/manual/en/function.getlastmod.php
- * @return int the time of the last modification of the current
+ * @return int|false the time of the last modification of the current
  * page. The value returned is a Unix timestamp, suitable for
  * feeding to date. Returns false on error.
  * @since 4.0
@@ -21,7 +21,7 @@ function getlastmod () {}
  * Returns false if input contains character from outside the base64
  * alphabet.
  * </p>
- * @return string|bool the original data or false on failure. The returned data may be
+ * @return string|false the original data or false on failure. The returned data may be
  * binary.
  * @since 4.0
  * @since 5.0
@@ -730,7 +730,7 @@ function fmod ($x, $y) {}
  * @param string $in_addr <p>
  * A 32bit IPv4, or 128bit IPv6 address.
  * </p>
- * @return string|bool a string representation of the address or false on failure.
+ * @return string|false a string representation of the address or false on failure.
  * @since 5.1.0
  */
 function inet_ntop ($in_addr) {}
@@ -753,7 +753,7 @@ function inet_pton ($address) {}
  * @param string $ip_address <p>
  * A standard format address.
  * </p>
- * @return int the IPv4 address or false if ip_address
+ * @return int|false the IPv4 address or false if ip_address
  * is invalid.
  * @since 4.0
  * @since 5.0
@@ -820,7 +820,7 @@ function putenv ($setting) {}
  * option --opt.
  * Prior to PHP5.3.0 this parameter was only available on few systems
  * @param int $optind If the optind parameter is present, then the index where argument parsing stopped will be written to this variable.
- * @return array This function will return an array of option / argument pairs or false on
+ * @return array|false This function will return an array of option / argument pairs or false on
  * failure.
  * @since 4.3.0
  * @since 5.0

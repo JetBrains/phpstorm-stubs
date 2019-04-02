@@ -26,7 +26,7 @@ function func_num_args () {}
  * The argument offset. Function arguments are counted starting from
  * zero.
  * </p>
- * @return mixed the specified argument, or false on error.
+ * @return mixed|false the specified argument, or false on error.
  * @since 4.0
  * @since 5.0
  */
@@ -329,7 +329,7 @@ function defined ($name) {}
  * @param object $object [optional] <p>
  * The tested object. This parameter may be omitted when inside a class.
  * </p>
- * @return string the name of the class of which <i>object</i> is an
+ * @return string|false the name of the class of which <i>object</i> is an
  * instance. Returns false if <i>object</i> is not an
  * object.
  * </p>
@@ -355,7 +355,7 @@ function get_called_class () {}
  * @param mixed $object [optional] <p>
  * The tested object or class name
  * </p>
- * @return string the name of the parent class of the class of which
+ * @return string|false the name of the parent class of the class of which
  * <i>object</i> is an instance or the name.
  * </p>
  * <p>
@@ -831,7 +831,7 @@ function extension_loaded ($name) {}
  * <p>
  * This parameter must be in lowercase.
  * </p>
- * @return array an array with all the functions, or false if 
+ * @return array|false an array with all the functions, or false if
  * <i>module_name</i> is not a valid extension.
  * @since 4.0
  * @since 5.0

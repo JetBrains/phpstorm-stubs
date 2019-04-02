@@ -19,15 +19,17 @@ class PHPFunction extends BasePHPElement
     use PHPDocElement;
 
     /**
-     * @var boolean $is_deprecated
+     * @var bool
      */
     public $is_deprecated;
+
     /**
      * @var PHPParameter[]
      */
     public $parameters = [];
+
     /**
-     * @var Type $returnTag
+     * @var Type
      */
     public $returnTag;
 

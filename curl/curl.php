@@ -2252,7 +2252,7 @@ function curl_strerror ($errornum ) {}
  * @param string $str <p>
  * The URL encoded string to be decoded.
  * </p>
- * @return string|bool Returns decoded string or FALSE on failure.
+ * @return string|false Returns decoded string or FALSE on failure.
  * @since 5.5.0
  */
 function  curl_unescape ($ch, $str)  {}
@@ -2332,7 +2332,7 @@ function curl_errno ($ch) {}
  * {@link https://secure.php.net/manual/en/function.curl-init.php curl_init()}.</p>
  * @param string $str <p>
  * The string to be encoded.</p>
- * @return string|boolean Returns escaped string or FALSE on failure.
+ * @return string|false Returns escaped string or FALSE on failure.
  * @since 5.5.0
  */
 function curl_escape($ch, $str) {}
@@ -2363,7 +2363,7 @@ function curl_close ($ch) {}
 /**
  * Returns a new cURL multi handle
  * @link https://php.net/manual/en/function.curl-multi-init.php
- * @return resource a cURL multi handle resource on success, false on failure.
+ * @return resource|false a cURL multi handle resource on success, false on failure.
  * @since 5.0
  */
 function curl_multi_init () {}
@@ -2384,7 +2384,7 @@ function curl_multi_add_handle ($mh, $ch) {}
  * @link https://php.net/manual/en/function.curl-multi-remove-handle.php
  * @param resource $mh 
  * @param resource $ch 
- * @return int On success, returns a cURL handle, false on failure.
+ * @return int Returns 0 on success, or one of the CURLM_XXX error codes.
  * @since 5.0
  */
 function curl_multi_remove_handle ($mh, $ch) {}
@@ -2523,7 +2523,7 @@ function curl_multi_getcontent ($ch) {}
  * @param int $msgs_in_queue [optional] <p>
  * Number of messages that are still in the queue
  * </p>
- * @return array On success, returns an associative array for the message, false on failure.
+ * @return array|false On success, returns an associative array for the message, false on failure.
  * @since 5.0
  */
 function curl_multi_info_read ($mh, &$msgs_in_queue = null) {}

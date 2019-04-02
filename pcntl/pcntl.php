@@ -322,7 +322,7 @@ function pcntl_errno () {}
  * @link https://php.net/manual/en/function.pcntl-strerror.php
  * @param int $errno <p>
  * </p>
- * @return string error description on success or <b>FALSE</b> on failure.
+ * @return string|false error description on success or <b>FALSE</b> on failure.
  * @since 5.3.4
  */
 function pcntl_strerror ($errno) {}

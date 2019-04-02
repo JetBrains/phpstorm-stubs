@@ -21,7 +21,7 @@
  * Associative array of options or bitwise disjunction of flags. If filter
  * accepts options, flags can be provided in "flags" field of array.
  * </p>
- * @return mixed Value of the requested variable on success, <b>FALSE</b> if the filter fails,
+ * @return mixed|false Value of the requested variable on success, <b>FALSE</b> if the filter fails,
  * or <b>NULL</b> if the <i>variable_name</i> variable is not set.
  * If the flag <b>FILTER_NULL_ON_FAILURE</b> is used, it
  * returns <b>FALSE</b> if the variable is not set and <b>NULL</b> if the filter fails.
@@ -80,7 +80,7 @@ function filter_input ($type, $variable_name, $filter = FILTER_DEFAULT, $options
  * $var = filter_var('Doe, Jane Sue', FILTER_CALLBACK, array('options' => 'foo'));
  * </code>
  * </p>
- * @return mixed the filtered data, or <b>FALSE</b> if the filter fails.
+ * @return mixed|false the filtered data, or <b>FALSE</b> if the filter fails.
  * @since 5.2.0
  */
 function filter_var ($variable, $filter = FILTER_DEFAULT, $options = null) {}
@@ -110,7 +110,7 @@ function filter_var ($variable, $filter = FILTER_DEFAULT, $options = null) {}
  * @param bool $add_empty [optional] <p>
  * Add missing keys as <b>NULL</b> to the return value.
  * </p>
- * @return mixed An array containing the values of the requested variables on success, or <b>FALSE</b>
+ * @return mixed|false An array containing the values of the requested variables on success, or <b>FALSE</b>
  * on failure. An array value will be <b>FALSE</b> if the filter fails, or <b>NULL</b> if
  * the variable is not set. Or if the flag <b>FILTER_NULL_ON_FAILURE</b>
  * is used, it returns <b>FALSE</b> if the variable is not set and <b>NULL</b> if the filter
@@ -143,7 +143,7 @@ function filter_input_array ($type, $definition = null, $add_empty = true) {}
  * @param bool $add_empty [optional] <p>
  * Add missing keys as <b>NULL</b> to the return value.
  * </p>
- * @return mixed An array containing the values of the requested variables on success, or <b>FALSE</b>
+ * @return mixed|false An array containing the values of the requested variables on success, or <b>FALSE</b>
  * on failure. An array value will be <b>FALSE</b> if the filter fails, or <b>NULL</b> if
  * the variable is not set.
  * @since 5.2.0
@@ -182,7 +182,7 @@ function filter_has_var ($type, $variable_name) {}
  * @param string $filtername <p>
  * Name of a filter to get.
  * </p>
- * @return int ID of a filter on success or <b>FALSE</b> if filter doesn't exist.
+ * @return int|false ID of a filter on success or <b>FALSE</b> if filter doesn't exist.
  * @since 5.2.0
  */
 function filter_id ($filtername) {}

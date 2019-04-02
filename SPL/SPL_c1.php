@@ -614,7 +614,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Gets line from file
          * @link https://php.net/manual/en/splfileobject.fgets.php
-         * @return string a string containing the next line from the file, or false on error.
+         * @return string|false a string containing the next line from the file, or false on error.
          * @since 5.1.0
          */
         public function fgets () {}
@@ -625,7 +625,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * @param int $length <p>
          * The number of bytes to read.
          * </p>
-         * @return string returns the string read from the file or FALSE on failure.
+         * @return string|false returns the string read from the file or FALSE on failure.
          * @since 5.5.11
          */
         public function fread ($length) {}
@@ -642,7 +642,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * @param string $escape [optional] <p>
 	 * The escape character (one character only). Defaults as a backslash (\) or the value set using <b>SplFileObject::setCsvControl</b>.
          * </p>
-         * @return array an indexed array containing the fields read, or false on error.
+         * @return array|false an indexed array containing the fields read, or false on error.
          * </p>
          * <p>
          * A blank line in a CSV file will be returned as an array
@@ -664,7 +664,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * The field enclosure character (one character only). Defaults as a double quotation mark or the value set using <b>SplFileObject::setCsvControl</b>.
      * </p>
      * @param string $escape_char The optional escape_char parameter sets the escape character (one character only).
-     * @return int Returns the length of the written string or FALSE on failure.
+     * @return int|false Returns the length of the written string or FALSE on failure.
      * @since 5.4.0
      *</p>
      */
@@ -720,7 +720,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Return current file position
          * @link https://php.net/manual/en/splfileobject.ftell.php
-         * @return int the position of the file pointer as an integer, or false on error.
+         * @return int|false the position of the file pointer as an integer, or false on error.
          * @since 5.1.0
          */
         public function ftell () {}
@@ -750,7 +750,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Gets character from file
          * @link https://php.net/manual/en/splfileobject.fgetc.php
-         * @return string a string containing a single character read from the file or false on EOF.
+         * @return string|false a string containing a single character read from the file or false on EOF.
          * @since 5.1.0
          */
         public function fgetc () {}
@@ -933,7 +933,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
 	     * Alias of <b>SplFileObject::fgets</b>
          * @link https://php.net/manual/en/splfileobject.getcurrentline.php
-         * @return string Returns a string containing the next line from the file, or FALSE on error.
+         * @return string|false Returns a string containing the next line from the file, or FALSE on error.
          * @since 5.1.2
          */
         public function getCurrentLine () {}

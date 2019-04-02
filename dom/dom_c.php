@@ -163,7 +163,7 @@ class DOMNode  {
      * @param DOMNode $oldnode <p>
      * The old node.
      * </p>
-     * @return DOMNode The old node or false if an error occur.
+     * @return DOMNode|false The old node or false if an error occur.
      * @since 5.0
      */
     public function replaceChild (DOMNode $newnode , DOMNode $oldnode ) {}
@@ -352,7 +352,7 @@ class DOMNode  {
      * @param $with_comments [optional]  Retain comments in output.
      * @param $xpath [optional] An array of xpaths to filter the nodes by.
      * @param $ns_prefixes [optional] An array of namespace prefixes to filter the nodes by.
-     * @return int Number of bytes written or FALSE on failure
+     * @return int|false Number of bytes written or FALSE on failure
      */
     public function C14NFile ($uri, $exclusive, array $with_comments, array $xpath = null, $ns_prefixes = null) {}
 
@@ -713,7 +713,7 @@ class DOMDocument extends DOMNode  {
      * The value of the element. By default, an empty element will be created.
      * You can also set the value later with DOMElement->nodeValue.
      * </p>
-     * @return DOMElement a new instance of class DOMElement or false
+     * @return DOMElement|false a new instance of class DOMElement or false
      * if an error occured.
      * @since 5.0
      */
@@ -722,7 +722,7 @@ class DOMDocument extends DOMNode  {
     /**
      * Create new document fragment
      * @link https://php.net/manual/domdocument.createdocumentfragment.php
-     * @return DOMDocumentFragment The new DOMDocumentFragment or false if an error occured.
+     * @return DOMDocumentFragment|false The new DOMDocumentFragment or false if an error occured.
      * @since 5.0
      */
     public function createDocumentFragment () {}
@@ -733,7 +733,7 @@ class DOMDocument extends DOMNode  {
      * @param string $content <p>
      * The content of the text.
      * </p>
-     * @return DOMText The new DOMText or false if an error occured.
+     * @return DOMText|false The new DOMText or false if an error occured.
      * @since 5.0
      */
     public function createTextNode ($content) {}
@@ -744,7 +744,7 @@ class DOMDocument extends DOMNode  {
      * @param string $data <p>
      * The content of the comment.
      * </p>
-     * @return DOMComment The new DOMComment or false if an error occured.
+     * @return DOMComment|false The new DOMComment or false if an error occured.
      * @since 5.0
      */
     public function createComment ($data) {}
@@ -755,7 +755,7 @@ class DOMDocument extends DOMNode  {
      * @param string $data <p>
      * The content of the cdata.
      * </p>
-     * @return DOMCDATASection The new DOMCDATASection or false if an error occured.
+     * @return DOMCDATASection|false The new DOMCDATASection or false if an error occured.
      * @since 5.0
      */
     public function createCDATASection ($data) {}
@@ -769,7 +769,7 @@ class DOMDocument extends DOMNode  {
      * @param string $data [optional] <p>
      * The content of the processing instruction.
      * </p>
-     * @return DOMProcessingInstruction The new DOMProcessingInstruction or false if an error occured.
+     * @return DOMProcessingInstruction|false The new DOMProcessingInstruction or false if an error occured.
      * @since 5.0
      */
     public function createProcessingInstruction ($target, $data = null) {}
@@ -780,7 +780,7 @@ class DOMDocument extends DOMNode  {
      * @param string $name <p>
      * The name of the attribute.
      * </p>
-     * @return DOMAttr The new DOMAttr or false if an error occured.
+     * @return DOMAttr|false The new DOMAttr or false if an error occured.
      * @since 5.0
      */
     public function createAttribute ($name) {}
@@ -793,7 +793,7 @@ class DOMDocument extends DOMNode  {
      * the leading &amp; and the trailing
      * ; characters.
      * </p>
-     * @return DOMEntityReference The new DOMEntityReference or false if an error
+     * @return DOMEntityReference|false The new DOMEntityReference or false if an error
      * occured.
      * @since 5.0
      */
@@ -825,7 +825,7 @@ class DOMDocument extends DOMNode  {
      * <p>
      * To copy the nodes attributes deep needs to be set to true
      * </p>
-     * @return DOMNode The copied node or false, if it cannot be copied.
+     * @return DOMNode|false The copied node or false, if it cannot be copied.
      * @since 5.0
      */
     public function importNode (DOMNode $importedNode , $deep = null) {}
@@ -843,7 +843,7 @@ class DOMDocument extends DOMNode  {
      * The value of the element. By default, an empty element will be created.
      * You can also set the value later with DOMElement->nodeValue.
      * </p>
-     * @return DOMElement The new DOMElement or false if an error occured.
+     * @return DOMElement|false The new DOMElement or false if an error occured.
      * @since 5.0
      */
     public function createElementNS ($namespaceURI, $qualifiedName, $value = null) {}
@@ -857,7 +857,7 @@ class DOMDocument extends DOMNode  {
      * @param string $qualifiedName <p>
      * The tag name and prefix of the attribute, as prefix:tagname.
      * </p>
-     * @return DOMAttr The new DOMAttr or false if an error occured.
+     * @return DOMAttr|false The new DOMAttr or false if an error occured.
      * @since 5.0
      */
     public function createAttributeNS ($namespaceURI, $qualifiedName) {}
@@ -921,7 +921,7 @@ class DOMDocument extends DOMNode  {
      * Bitwise OR
      * of the libxml option constants.
      * </p>
-     * @return mixed true on success or false on failure. If called statically, returns a
+     * @return DOMDocument|bool true on success or false on failure. If called statically, returns a
      * DOMDocument and issues E_STRICT
      * warning.
      * @since 5.0
@@ -937,7 +937,7 @@ class DOMDocument extends DOMNode  {
      * @param int $options [optional] <p>
      * Additional Options. Currently only LIBXML_NOEMPTYTAG is supported.
      * </p>
-     * @return int the number of bytes written or false if an error occurred.
+     * @return int|false the number of bytes written or false if an error occurred.
      * @since 5.0
      */
     public function save ($filename, $options = null) {}
@@ -952,7 +952,7 @@ class DOMDocument extends DOMNode  {
      * Bitwise OR
      * of the libxml option constants.
      * </p>
-     * @return mixed true on success or false on failure. If called statically, returns a
+     * @return DOMDocument|bool true on success or false on failure. If called statically, returns a
      * DOMDocument and issues E_STRICT
      * warning.
      * @since 5.0
@@ -1053,7 +1053,7 @@ class DOMDocument extends DOMNode  {
      * @param string $filename <p>
      * The path to the saved HTML document.
      * </p>
-     * @return int the number of bytes written or false if an error occurred.
+     * @return int|false the number of bytes written or false if an error occurred.
      * @since 5.0
      */
     public function saveHTMLFile ($filename) {}
@@ -1479,7 +1479,7 @@ class DOMElement extends DOMNode  {
      * @param string $value <p>
      * The value of the attribute.
      * </p>
-     * @return DOMAttr The new DOMAttr or false if an error occured.
+     * @return DOMAttr|false The new DOMAttr or false if an error occured.
      * @since 5.0
      */
     public function setAttribute ($name, $value) {}
@@ -1737,7 +1737,7 @@ class DOMElement extends DOMNode  {
      * @param DOMNode $oldnode <p>
      * The old node.
      * </p>
-     * @return DOMNode The old node or false if an error occur.
+     * @return DOMNode|false The old node or false if an error occur.
      * @since 5.0
      */
     public function replaceChild (DOMNode $newnode , DOMNode $oldnode ) {}

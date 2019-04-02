@@ -32,7 +32,7 @@
  * There are several modes available:
  * <b>PSPELL_FAST</b> - Fast mode (least number of
  * suggestions)
- * @return int the dictionary link identifier on success or <b>FALSE</b> on failure.
+ * @return int|false the dictionary link identifier on success or <b>FALSE</b> on failure.
  * @since 4.0.2
  * @since 5.0
  */
@@ -209,7 +209,7 @@ function pspell_save_wordlist ($dictionary_link) {}
  * 32'. This parameter is largely untested, so be careful when
  * using.
  * </p>
- * @return int Retuns a pspell config identifier, or <b>FALSE</b> on error.
+ * @return int|false Retuns a pspell config identifier, or <b>FALSE</b> on error.
  * @since 4.0.2
  * @since 5.0
  */

@@ -173,7 +173,7 @@
  * </tr>
  * </table>
  * </p>
- * @return resource a resource on success, or false on error.
+ * @return resource|false a resource on success, or false on error.
  */
 function ssh2_connect ($host, $port = null, array $methods = null , array $callbacks = null ) {}
 
@@ -366,7 +366,7 @@ function ssh2_shell ($session, $term_type = null, array $env = null , $width = n
  * SSH2_TERM_UNIT_CHARS or
  * SSH2_TERM_UNIT_PIXELS.
  * </p>
- * @return resource a stream on success or false on failure.
+ * @return resource|false a stream on success or false on failure.
  */
 function ssh2_exec ($session, $command, $pty = null, array $env = null , $width = null, $height = null, $width_height_type = null) {}
 

@@ -11,7 +11,7 @@
  * @param string $comment [optional] <p>
  * An optional comment string that appears in the packet header.
  * </p>
- * @return string the WDDX packet, or <b>FALSE</b> on error.
+ * @return string|false the WDDX packet, or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -25,7 +25,7 @@ function wddx_serialize_value ($var, $comment = null) {}
  * strings naming the variables or another array, etc.
  * </p>
  * @param mixed $_ [optional]
- * @return string the WDDX packet, or <b>FALSE</b> on error.
+ * @return string|false the WDDX packet, or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -37,7 +37,7 @@ function wddx_serialize_vars ($var_name, $_ = null) {}
  * @param string $comment [optional] <p>
  * An optional comment string.
  * </p>
- * @return resource a packet ID for use in later functions, or <b>FALSE</b> on error.
+ * @return resource|false a packet ID for use in later functions, or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */

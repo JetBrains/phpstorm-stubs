@@ -2728,7 +2728,7 @@ final class mapObj
      * MS_SUCCESS/MS_FAILURE.
      *
      * @param string $filename
-     * @param boolean $unique_layer_name
+     * @param bool $unique_layer_name
      * @return int
      */
     final public function loadMapContext($filename, $unique_layer_name) {}
@@ -2825,7 +2825,7 @@ final class mapObj
      * .. _processtemplate:
      *
      * @param array $params
-     * @param boolean $generateimages
+     * @param bool $generateimages
      * @return string
      */
     final public function processQueryTemplate(array $params, $generateimages) {}
@@ -2849,7 +2849,7 @@ final class mapObj
      * $map->processtemplate($tmparray, MS_FALSE);
      *
      * @param array $params
-     * @param boolean $generateimages
+     * @param bool $generateimages
      * @return string
      */
     final public function processTemplate(array $params, $generateimages) {}
@@ -3111,7 +3111,7 @@ final class mapObj
      * set at MS_FALSE.
      *
      * @param string $proj_params
-     * @param boolean $bSetUnitsAndExtents
+     * @param bool $bSetUnitsAndExtents
      * @return int
      */
     final public function setProjection($proj_params, $bSetUnitsAndExtents) {}
@@ -3156,7 +3156,7 @@ final class mapObj
      * setWKTProjection requires GDAL support
      *
      * @param string $proj_params
-     * @param boolean $bSetUnitsAndExtents
+     * @param bool $bSetUnitsAndExtents
      * @return int
      */
     final public function setWKTProjection($proj_params, $bSetUnitsAndExtents) {}

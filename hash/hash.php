@@ -225,7 +225,7 @@ function hash_algos () {}
  * If <b>length</b> is 0, the output length will default to the chosen hash function size.
  * @param string $info [optional] <p>Application/context-specific info string.</p>
  * @param string $salt [optional] <p>Salt to use during derivation. While optional, adding random salt significantly improves the strength of HKDF.</p>
- * @return string <p>Returns a string containing a raw binary representation of the derived key (also known as output keying material - OKM); or <b>FALSE</b> on failure.</p>
+ * @return string|false <p>Returns a string containing a raw binary representation of the derived key (also known as output keying material - OKM); or <b>FALSE</b> on failure.</p>
  */
 function hash_hkdf(string $algo , string $ikm, int $length = 0, string $info = '', string $salt = '') {}
 
@@ -272,7 +272,7 @@ function hash_pbkdf2 ($algo, $password, $salt, $iterations, $length, $raw_output
  * @param int $bytes <p>
  * The key length, in bytes.
  * </p>
- * @return string the generated key as a string, or <b>FALSE</b> on error.
+ * @return string|false the generated key as a string, or <b>FALSE</b> on error.
  * @since 4.0.4
  * @since 5.0
  */
@@ -284,7 +284,7 @@ function mhash_keygen_s2k ($hash, $password, $salt, $bytes) {}
  * @param int $hash <p>
  * The hash ID. One of the <b>MHASH_hashname</b> constants.
  * </p>
- * @return int the size in bytes or <b>FALSE</b>, if the <i>hash</i>
+ * @return int|false the size in bytes or <b>FALSE</b>, if the <i>hash</i>
  * does not exist.
  * @since 4.0
  * @since 5.0
@@ -297,7 +297,7 @@ function mhash_get_block_size ($hash) {}
  * @param int $hash <p>
  * The hash ID. One of the <b>MHASH_hashname</b> constants.
  * </p>
- * @return string the name of the hash or <b>FALSE</b>, if the hash does not exist.
+ * @return string|false the name of the hash or <b>FALSE</b>, if the hash does not exist.
  * @since 4.0
  * @since 5.0
  */

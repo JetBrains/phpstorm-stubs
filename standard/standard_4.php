@@ -30,7 +30,7 @@ function error_get_last () {}
  * ]]>
  * &example.outputs;
  * </p>
- * @return mixed the function result, or false on error.
+ * @return mixed|false the function result, or false on error.
  * @since 4.0
  * @since 5.0
  */
@@ -45,7 +45,7 @@ function call_user_func ($function, ...$parameter) {}
  * @param array $param_arr <p>
  * The parameters to be passed to the function, as an indexed array.
  * </p>
- * @return mixed the function result, or false on error.
+ * @return mixed|false the function result, or false on error.
  * @since 4.0.4
  * @since 5.0
  */
@@ -90,7 +90,7 @@ function call_user_method_array ($method_name, &$obj, array $params) {}
  * Zero or more parameters to be passed to the function.
  * </p>
  * @param mixed $_ [optional] 
- * @return mixed the function result, or false on error.
+ * @return mixed|false the function result, or false on error.
  * @since 5.3.0
  */
 function forward_static_call ($function, $parameter = null, $_ = null) {}
@@ -104,7 +104,7 @@ function forward_static_call ($function, $parameter = null, $_ = null) {}
  * name.
  * </p>
  * @param array $parameters [optional] 
- * @return mixed the function result, or false on error.
+ * @return mixed|false the function result, or false on error.
  * @since 5.3.0
  */
 function forward_static_call_array ($function, array $parameters = null) {}
@@ -469,7 +469,7 @@ function ini_get_all ($extension = null, $details = null) {}
  * @param string $newvalue <p>
  * The new value for the option.
  * </p>
- * @return string|bool the old value on success, false on failure.
+ * @return string|false the old value on success, false on failure.
  * @since 4.0
  * @since 5.0
  */
@@ -768,7 +768,7 @@ function ignore_user_abort ($value = null) {}
  * and <em>"none"</em> are considered <b>FALSE</b>. <em>"null"</em> is converted to <b>NULL</b>
  * in typed mode. Also, all numeric strings are converted to integer type if it is possible.
  * </p>
- * @return array|bool The settings are returned as an associative array on success,
+ * @return array|false The settings are returned as an associative array on success,
  * and false on failure.
  * @since 4.0
  * @since 5.0
@@ -792,7 +792,7 @@ function parse_ini_file ($filename, $process_sections = false, $scanner_mode = I
  * INI_SCANNER_RAW. If INI_SCANNER_RAW 
  * is supplied, then option values will not be parsed.
  * </p>
- * @return array|bool The settings are returned as an associative array on success,
+ * @return array|false The settings are returned as an associative array on success,
  * and false on failure.
  * @since 5.3.0
  */
@@ -874,7 +874,7 @@ function gethostbyname ($hostname) {}
  * @param string $hostname <p>
  * The host name.
  * </p>
- * @return array an array of IPv4 addresses or false if
+ * @return array|false an array of IPv4 addresses or false if
  * hostname could not be resolved.
  */
 function gethostbynamel ($hostname) {}
@@ -882,7 +882,7 @@ function gethostbynamel ($hostname) {}
 /**
  * Gets the host name
  * @link https://php.net/manual/en/function.gethostname.php
- * @return string a string with the hostname on success, otherwise false is 
+ * @return string|false a string with the hostname on success, otherwise false is
  * returned.
  * @since 5.3.0
  */

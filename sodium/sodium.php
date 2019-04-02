@@ -743,7 +743,7 @@ function sodium_crypto_secretbox(
  * @param string $ciphertext
  * @param string $nonce
  * @param string $key
- * @return string|bool
+ * @return string|false
  */
 function sodium_crypto_secretbox_open(
     string $ciphertext,

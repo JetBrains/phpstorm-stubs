@@ -156,7 +156,7 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	/**
 	 * Gets doc comment
 	 * @link https://php.net/manual/en/reflectionfunctionabstract.getdoccomment.php
-	 * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
+	 * @return string|false The doc comment if it exists, otherwise <b>FALSE</b>
 	 * @since 5.1.0
 	 */
 	public function getDocComment () {}
@@ -164,7 +164,7 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	/**
 	 * Gets end line number
 	 * @link https://php.net/manual/en/reflectionfunctionabstract.getendline.php
-	 * @return int The ending line number of the user defined function, or <b>FALSE</b> if unknown.
+	 * @return int|false The ending line number of the user defined function, or <b>FALSE</b> if unknown.
 	 * @since 5.0
 	 */
 	public function getEndLine () {}
@@ -944,7 +944,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets the filename of the file in which the class has been defined
 	 * @link https://php.net/manual/en/reflectionclass.getfilename.php
-	 * @return string the filename of the file in which the class has been defined.
+	 * @return string|false the filename of the file in which the class has been defined.
 	 * If the class is defined in the PHP core or in a PHP extension, <b>FALSE</b>
 	 * is returned.
 	 * @since 5.0
@@ -962,7 +962,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets end line
 	 * @link https://php.net/manual/en/reflectionclass.getendline.php
-	 * @return int The ending line number of the user defined class, or <b>FALSE</b> if unknown.
+	 * @return int|false The ending line number of the user defined class, or <b>FALSE</b> if unknown.
 	 * @since 5.0
 	 */
 	public function getEndLine () {}
@@ -970,7 +970,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets doc comments
 	 * @link https://php.net/manual/en/reflectionclass.getdoccomment.php
-	 * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
+	 * @return string|false The doc comment if it exists, otherwise <b>FALSE</b>
 	 * @since 5.1.0
 	 */
 	public function getDocComment () {}
@@ -1354,7 +1354,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets the name of the extension which defined the class
 	 * @link https://php.net/manual/en/reflectionclass.getextensionname.php
-	 * @return string The name of the extension which defined the class, or <b>FALSE</b> for user-defined classes.
+	 * @return string|false The name of the extension which defined the class, or <b>FALSE</b> for user-defined classes.
 	 * @since 5.0
 	 */
 	public function getExtensionName () {}
@@ -1580,7 +1580,7 @@ class ReflectionProperty implements Reflector {
 	/**
 	 * Gets doc comment
 	 * @link https://php.net/manual/en/reflectionproperty.getdoccomment.php
-	 * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
+	 * @return string|false The doc comment if it exists, otherwise <b>FALSE</b>
 	 * @since 5.1.0
 	 */
 	public function getDocComment () {}
@@ -2051,7 +2051,7 @@ class ReflectionClassConstant implements Reflector {
      * Gets doc comments
      * @since 7.1
      * @link https://php.net/manual/en/reflectionclassconstant.getdoccomment.php
-     * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
+     * @return string|false The doc comment if it exists, otherwise <b>FALSE</b>
      */
 	public function getDocComment() {}
 
@@ -2099,7 +2099,7 @@ class ReflectionClassConstant implements Reflector {
      * Checks if class constant is public
      * @since 7.1
      * @link https://php.net/manual/en/reflectionclassconstant.ispublic.php
-     * @param bool
+     * @return bool
      */
 	public function isPublic() {}
 

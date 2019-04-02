@@ -6,7 +6,7 @@
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * create a new broker object capable of requesting
  * @link https://php.net/manual/en/function.enchant-broker-init.php
- * @return resource a broker resource on success or <b>FALSE</b>.
+ * @return resource|false a broker resource on success or <b>FALSE</b>.
  */
 function enchant_broker_init () {}
 
@@ -28,7 +28,7 @@ function enchant_broker_free ($broker) {}
  * @param resource $broker <p>
  * Broker resource.
  * </p>
- * @return string Return the msg string if an error was found or <b>FALSE</b>
+ * @return string|false Return the msg string if an error was found or <b>FALSE</b>
  */
 function enchant_broker_get_error ($broker) {}
 
@@ -52,7 +52,7 @@ function enchant_broker_get_dict_path ($broker, $name) {}
  * @param resource $broker <p>
  * Broker resource
  * </p>
- * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return array
  */
 function enchant_broker_list_dicts ($broker) {}
 
@@ -66,7 +66,7 @@ function enchant_broker_list_dicts ($broker) {}
  * @param string $tag <p>
  * A tag describing the locale, for example en_US, de_DE
  * </p>
- * @return resource a dictionary resource on success or <b>FALSE</b> on failure.
+ * @return resource|false a dictionary resource on success or <b>FALSE</b> on failure.
  */
 function enchant_broker_request_dict ($broker, $tag) {}
 
@@ -80,7 +80,7 @@ function enchant_broker_request_dict ($broker, $tag) {}
  * @param string $filename <p>
  * Path to the PWL file.
  * </p>
- * @return resource a dictionary resource on success or <b>FALSE</b> on failure.
+ * @return resource|false a dictionary resource on success or <b>FALSE</b> on failure.
  */
 function enchant_broker_request_pwl_dict ($broker, $filename) {}
 
@@ -135,7 +135,7 @@ function enchant_broker_set_ordering ($broker, $tag, $ordering) {}
  * @param resource $broker <p>
  * Broker resource
  * </p>
- * @return array <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return array
  */
 function enchant_broker_describe ($broker) {}
 
@@ -177,7 +177,7 @@ function enchant_dict_suggest ($dict, $word) {}
  * @param string $word <p>
  * The word to add
  * </p>
- * @return void <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return void
  */
 function enchant_dict_add_to_personal ($dict, $word) {}
 
@@ -222,7 +222,7 @@ function enchant_dict_is_in_session ($dict, $word) {}
  * @param string $cor <p>
  * The correct word
  * </p>
- * @return void <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return void
  */
 function enchant_dict_store_replacement ($dict, $mis, $cor) {}
 
@@ -244,7 +244,7 @@ function enchant_dict_get_error ($dict) {}
  * @param resource $dict <p>
  * Dictionary resource
  * </p>
- * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return array
  */
 function enchant_dict_describe ($dict) {}
 

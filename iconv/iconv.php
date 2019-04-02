@@ -171,7 +171,7 @@ function iconv_substr ($str, $offset, $length = 'iconv_strlen($str, $charset)', 
  * <i>string</i> are assumed to be encoded in
  * iconv.internal_encoding.
  * </p>
- * @return int the numeric position of the first occurrence of
+ * @return int|false the numeric position of the first occurrence of
  * <i>needle</i> in <i>haystack</i>.
  * </p>
  * <p>
@@ -195,7 +195,7 @@ function iconv_strpos ($haystack, $needle, $offset = 0, $charset = 'ini_get("ico
  * <i>string</i> are assumed to be encoded in
  * iconv.internal_encoding.
  * </p>
- * @return int the numeric position of the last occurrence of
+ * @return int|false the numeric position of the last occurrence of
  * <i>needle</i> in <i>haystack</i>.
  * </p>
  * <p>

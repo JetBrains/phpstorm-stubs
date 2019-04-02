@@ -115,7 +115,7 @@ function fann_clear_scaling_params($ann)
  *
  * @param resource $ann
  *
- * @return resource Returns a copy of neural network resource on success, or false on error
+ * @return resource|false Returns a copy of neural network resource on success, or false on error
  */
 function fann_copy($ann)
 {
@@ -142,7 +142,7 @@ function fann_create_from_file($configuration_file)
  * @param int $num_layers
  * @param array $layers
  *
- * @return resource Returns a neural network resource on success, or false on error.
+ * @return resource|false Returns a neural network resource on success, or false on error.
  */
 function fann_create_shortcut_array($num_layers, $layers)
 {
@@ -159,7 +159,7 @@ function fann_create_shortcut_array($num_layers, $layers)
  * @param int $num_neurons2
  * @param int $_
  *
- * @return reference Returns a neural network resource on success, or false on error.
+ * @return resource|false Returns a neural network resource on success, or false on error.
  */
 function fann_create_shortcut($num_layers, $num_neurons1, $num_neurons2, $_ = NULL)
 {
@@ -174,7 +174,7 @@ function fann_create_shortcut($num_layers, $num_neurons1, $num_neurons2, $_ = NU
  * @param int $num_layers
  * @param array $layers
  *
- * @return ReturnType Returns a neural network resource on success, or false on error.
+ * @return resource|false Returns a neural network resource on success, or false on error.
  */
 function fann_create_sparse_array($connection_rate, $num_layers, $layers)
 {
@@ -192,7 +192,7 @@ function fann_create_sparse_array($connection_rate, $num_layers, $layers)
  * @param int $num_neurons2
  * @param int $_
  *
- * @return ReturnType Returns a neural network resource on success, or false on error.
+ * @return resource|false Returns a neural network resource on success, or false on error.
  */
 function fann_create_sparse($connection_rate, $num_layers, $num_neurons1, $num_neurons2, $_ = NULL)
 {
@@ -206,7 +206,7 @@ function fann_create_sparse($connection_rate, $num_layers, $num_neurons1, $num_n
  * @param int $num_layers
  * @param array $layers
  *
- * @return resource Returns a neural network resource on success, or false on error.
+ * @return resource|false Returns a neural network resource on success, or false on error.
  */
 function fann_create_standard_array($num_layers, $layers)
 {
@@ -223,7 +223,7 @@ function fann_create_standard_array($num_layers, $layers)
  * @param int $num_neurons2
  * @param int $_
  *
- * @return resource Returns a neural network resource on success, or false on error.
+ * @return resource|false Returns a neural network resource on success, or false on error.
  */
 function fann_create_standard($num_layers, $num_neurons1, $num_neurons2, $_ = NULL)
 {
@@ -350,7 +350,7 @@ function fann_duplicate_train_data($data)
  * @param int $layer
  * @param int $neuron
  *
- * @return int constant or -1 if the neuron is not defined in the neural network, or false on error.
+ * @return int|false constant or -1 if the neuron is not defined in the neural network, or false on error.
  */
 function fann_get_activation_function($ann, $layer, $neuron)
 {
@@ -365,7 +365,7 @@ function fann_get_activation_function($ann, $layer, $neuron)
  * @param int $layer
  * @param int $neuron
  *
- * @return float The activation steepness for the neuron or -1 if the neuron is not defined in the neural network, or false on error.
+ * @return float|false The activation steepness for the neuron or -1 if the neuron is not defined in the neural network, or false on error.
  */
 function fann_get_activation_steepness($ann, $layer, $neuron)
 {
@@ -391,7 +391,7 @@ function fann_get_bias_array($ann)
  *
  * @param resource $ann
  *
- * @return float The bit fail limit, or false on error.
+ * @return float|false The bit fail limit, or false on error.
  */
 function fann_get_bit_fail_limit($ann)
 {
@@ -404,7 +404,7 @@ function fann_get_bit_fail_limit($ann)
  *
  * @param resource $ann
  *
- * @return int The number of bits fail, or false on error.
+ * @return int|false The number of bits fail, or false on error.
  */
 function fann_get_bit_fail($ann)
 {
@@ -417,7 +417,7 @@ function fann_get_bit_fail($ann)
  *
  * @param resource $ann
  *
- * @return int The number of cascade activation functions, or false on error.
+ * @return int|false The number of cascade activation functions, or false on error.
  */
 function fann_get_cascade_activation_functions_count($ann)
 {
@@ -430,7 +430,7 @@ function fann_get_cascade_activation_functions_count($ann)
  *
  * @param resource $ann
  *
- * @return array The cascade activation functions, or false on error.
+ * @return array|false The cascade activation functions, or false on error.
  */
 function fann_get_cascade_activation_functions($ann)
 {
@@ -443,7 +443,7 @@ function fann_get_cascade_activation_functions($ann)
  *
  * @param resource $ann
  *
- * @return int The number of activation steepnesses, or false on error.
+ * @return int|false The number of activation steepnesses, or false on error.
  */
 function fann_get_cascade_activation_steepnesses_count($ann)
 {
@@ -456,7 +456,7 @@ function fann_get_cascade_activation_steepnesses_count($ann)
  *
  * @param resource $ann
  *
- * @return array The cascade activation steepnesses, or false on error.
+ * @return array|false The cascade activation steepnesses, or false on error.
  */
 function fann_get_cascade_activation_steepnesses($ann)
 {
@@ -469,7 +469,7 @@ function fann_get_cascade_activation_steepnesses($ann)
  *
  * @param resource $ann
  *
- * @return float The cascade candidate change fraction, or false on error.
+ * @return float|false The cascade candidate change fraction, or false on error.
  */
 function fann_get_cascade_candidate_change_fraction($ann)
 {
@@ -482,7 +482,7 @@ function fann_get_cascade_candidate_change_fraction($ann)
  *
  * @param resource $ann
  *
- * @return float The candidate limit, or false on error.
+ * @return float|false The candidate limit, or false on error.
  */
 function fann_get_cascade_candidate_limit($ann)
 {
@@ -495,7 +495,7 @@ function fann_get_cascade_candidate_limit($ann)
  *
  * @param resource $ann
  *
- * @return float The number of cascade candidate stagnation epochs, or false on error.
+ * @return float|false The number of cascade candidate stagnation epochs, or false on error.
  */
 function fann_get_cascade_candidate_stagnation_epochs($ann)
 {
@@ -508,7 +508,7 @@ function fann_get_cascade_candidate_stagnation_epochs($ann)
  *
  * @param resource $ann
  *
- * @return int The maximum candidate epochs, or false on error.
+ * @return int|false The maximum candidate epochs, or false on error.
  */
 function fann_get_cascade_max_cand_epochs($ann)
 {
@@ -521,7 +521,7 @@ function fann_get_cascade_max_cand_epochs($ann)
  *
  * @param resource $ann
  *
- * @return int The maximum out epochs, or false on error.
+ * @return int|false The maximum out epochs, or false on error.
  */
 function fann_get_cascade_max_out_epochs($ann)
 {
@@ -534,7 +534,7 @@ function fann_get_cascade_max_out_epochs($ann)
  *
  * @param resource $ann
  *
- * @return int The minimum candidate epochs, or false on error.
+ * @return int|false The minimum candidate epochs, or false on error.
  */
 function fann_get_cascade_min_cand_epochs($ann)
 {
@@ -547,7 +547,7 @@ function fann_get_cascade_min_cand_epochs($ann)
  *
  * @param resource $ann
  *
- * @return int The minimum out epochs, or false on error.
+ * @return int|false The minimum out epochs, or false on error.
  */
 function fann_get_cascade_min_out_epochs($ann)
 {
@@ -560,7 +560,7 @@ function fann_get_cascade_min_out_epochs($ann)
  *
  * @param resource $ann
  *
- * @return int The number of candidate groups, or false on error.
+ * @return int|false The number of candidate groups, or false on error.
  */
 function fann_get_cascade_num_candidate_groups($ann)
 {
@@ -573,7 +573,7 @@ function fann_get_cascade_num_candidate_groups($ann)
  *
  * @param resource $ann
  *
- * @return int The number of candidates used during training, or false on error.
+ * @return int|false The number of candidates used during training, or false on error.
  */
 function fann_get_cascade_num_candidates($ann)
 {
@@ -586,7 +586,7 @@ function fann_get_cascade_num_candidates($ann)
  *
  * @param resource $ann
  *
- * @return float The cascade output change fraction, or false on error.
+ * @return float|false The cascade output change fraction, or false on error.
  */
 function fann_get_cascade_output_change_fraction($ann)
 {
@@ -599,7 +599,7 @@ function fann_get_cascade_output_change_fraction($ann)
  *
  * @param resource $ann
  *
- * @return int The number of cascade output stagnation epochs, or false on error.
+ * @return int|false The number of cascade output stagnation epochs, or false on error.
  */
 function fann_get_cascade_output_stagnation_epochs($ann)
 {
@@ -612,7 +612,7 @@ function fann_get_cascade_output_stagnation_epochs($ann)
  *
  * @param resource $ann
  *
- * @return float The weight multiplier, or false on error.
+ * @return float|false The weight multiplier, or false on error.
  */
 function fann_get_cascade_weight_multiplier($ann)
 {
@@ -638,7 +638,7 @@ function fann_get_connection_array($ann)
  *
  * @param resource $ann
  *
- * @return float The connection rate used when the network was created, or false on error.
+ * @return float|false The connection rate used when the network was created, or false on error.
  */
 function fann_get_connection_rate($ann)
 {
@@ -651,7 +651,7 @@ function fann_get_connection_rate($ann)
  *
  * @param resource $errdat
  *
- * @return int The error number, or false on error.
+ * @return int|false The error number, or false on error.
  */
 function fann_get_errno($errdat)
 {
@@ -664,7 +664,7 @@ function fann_get_errno($errdat)
  *
  * @param resource $errdat
  *
- * @return string The last error string, or false on error.
+ * @return string|false The last error string, or false on error.
  */
 function fann_get_errstr($errdat)
 {
@@ -690,7 +690,7 @@ function fann_get_layer_array($ann)
  *
  * @param resource $ann
  *
- * @return float The learning momentum, or false on error.
+ * @return float|false The learning momentum, or false on error.
  */
 function fann_get_learning_momentum($ann)
 {
@@ -703,7 +703,7 @@ function fann_get_learning_momentum($ann)
  *
  * @param resource $ann
  *
- * @return float The learning rate, or false on error.
+ * @return float|false The learning rate, or false on error.
  */
 function fann_get_learning_rate($ann)
 {
@@ -716,7 +716,7 @@ function fann_get_learning_rate($ann)
  *
  * @param resource $ann
  *
- * @return float The mean square error, or false on error.
+ * @return float|false The mean square error, or false on error.
  */
 function fann_get_MSE($ann)
 {
@@ -729,7 +729,7 @@ function fann_get_MSE($ann)
  *
  * @param resource $ann
  *
- * @return int constant, or false on error.
+ * @return int|false constant, or false on error.
  */
 function fann_get_network_type($ann)
 {
@@ -742,7 +742,7 @@ function fann_get_network_type($ann)
  *
  * @param resource $ann
  *
- * @return int Number of input neurons, or false on error
+ * @return int|false Number of input neurons, or false on error
  */
 function fann_get_num_input($ann)
 {
@@ -755,7 +755,7 @@ function fann_get_num_input($ann)
  *
  * @param resource $ann
  *
- * @return int The number of leayers in the neural network, or false on error.
+ * @return int|false The number of leayers in the neural network, or false on error.
  */
 function fann_get_num_layers($ann)
 {
@@ -768,7 +768,7 @@ function fann_get_num_layers($ann)
  *
  * @param resource $ann
  *
- * @return int Number of output neurons, or false on error
+ * @return int|false Number of output neurons, or false on error
  */
 function fann_get_num_output($ann)
 {
@@ -781,7 +781,7 @@ function fann_get_num_output($ann)
  *
  * @param resource $ann
  *
- * @return float The decay, or false on error.
+ * @return float|false The decay, or false on error.
  */
 function fann_get_quickprop_decay($ann)
 {
@@ -794,7 +794,7 @@ function fann_get_quickprop_decay($ann)
  *
  * @param resource $ann
  *
- * @return float The mu factor, or false on error.
+ * @return float|false The mu factor, or false on error.
  */
 function fann_get_quickprop_mu($ann)
 {
@@ -807,7 +807,7 @@ function fann_get_quickprop_mu($ann)
  *
  * @param resource $ann
  *
- * @return float The decrease factor, or false on error.
+ * @return float|false The decrease factor, or false on error.
  */
 function fann_get_rprop_decrease_factor($ann)
 {
@@ -820,7 +820,7 @@ function fann_get_rprop_decrease_factor($ann)
  *
  * @param resource $ann
  *
- * @return float The maximum step-size, or false on error.
+ * @return float|false The maximum step-size, or false on error.
  */
 function fann_get_rprop_delta_max($ann)
 {
@@ -833,7 +833,7 @@ function fann_get_rprop_delta_max($ann)
  *
  * @param resource $ann
  *
- * @return float The minimum step-size, or false on error.
+ * @return float|false The minimum step-size, or false on error.
  */
 function fann_get_rprop_delta_min($ann)
 {
@@ -846,7 +846,7 @@ function fann_get_rprop_delta_min($ann)
  *
  * @param resource $ann
  *
- * @return ReturnType The initial step-size, or false on error.
+ * @return int|false The initial step-size, or false on error.
  */
 function fann_get_rprop_delta_zero($ann)
 {
@@ -859,7 +859,7 @@ function fann_get_rprop_delta_zero($ann)
  *
  * @param resource $ann
  *
- * @return float The increase factor, or false on error.
+ * @return float|false The increase factor, or false on error.
  */
 function fann_get_rprop_increase_factor($ann)
 {
@@ -872,7 +872,7 @@ function fann_get_rprop_increase_factor($ann)
  *
  * @param resource $ann
  *
- * @return float The sarprop step error shift , or false on error.
+ * @return float|false The sarprop step error shift , or false on error.
  */
 function fann_get_sarprop_step_error_shift($ann)
 {
@@ -885,7 +885,7 @@ function fann_get_sarprop_step_error_shift($ann)
  *
  * @param resource $ann
  *
- * @return float The sarprop step error threshold factor, or false on error.
+ * @return float|false The sarprop step error threshold factor, or false on error.
  */
 function fann_get_sarprop_step_error_threshold_factor($ann)
 {
@@ -898,7 +898,7 @@ function fann_get_sarprop_step_error_threshold_factor($ann)
  *
  * @param resource $ann
  *
- * @return float The sarprop temperature, or false on error.
+ * @return float|false The sarprop temperature, or false on error.
  */
 function fann_get_sarprop_temperature($ann)
 {
@@ -911,7 +911,7 @@ function fann_get_sarprop_temperature($ann)
  *
  * @param resource $ann
  *
- * @return float The sarprop weight decay shift, or false on error.
+ * @return float|false The sarprop weight decay shift, or false on error.
  */
 function fann_get_sarprop_weight_decay_shift($ann)
 {
@@ -924,7 +924,7 @@ function fann_get_sarprop_weight_decay_shift($ann)
  *
  * @param resource $ann
  *
- * @return int Total number of connections in the entire network, or false on error
+ * @return int|false Total number of connections in the entire network, or false on error
  */
 function fann_get_total_connections($ann)
 {
@@ -937,7 +937,7 @@ function fann_get_total_connections($ann)
  *
  * @param resource $ann
  *
- * @return int Total number of neurons in the entire network, or false on error.
+ * @return int|false Total number of neurons in the entire network, or false on error.
  */
 function fann_get_total_neurons($ann)
 {
@@ -950,7 +950,7 @@ function fann_get_total_neurons($ann)
  *
  * @param resource $ann
  *
- * @return int The  constant, or false on error.
+ * @return int|false The constant, or false on error.
  */
 function fann_get_train_error_function($ann)
 {
@@ -963,7 +963,7 @@ function fann_get_train_error_function($ann)
  *
  * @param resource $ann
  *
- * @return int constant, or false on error.
+ * @return int|false constant, or false on error.
  */
 function fann_get_training_algorithm($ann)
 {
@@ -976,7 +976,7 @@ function fann_get_training_algorithm($ann)
  *
  * @param resource $ann
  *
- * @return int The  constant, or false on error.
+ * @return int|false The constant, or false on error.
  */
 function fann_get_train_stop_function($ann)
 {
@@ -1003,7 +1003,7 @@ function fann_init_weights($ann, $train_data)
  *
  * @param resource $data
  *
- * @return int Number of elements in the train data ``resource``, or false on error.
+ * @return int|false Number of elements in the train data ``resource``, or false on error.
  */
 function fann_length_train_data($data)
 {
@@ -1017,7 +1017,7 @@ function fann_length_train_data($data)
  * @param resource $data1
  * @param resource $data2
  *
- * @return resource New merged train data ``resource``, or false on error.
+ * @return resource|false New merged train data ``resource``, or false on error.
  */
 function fann_merge_train_data($data1, $data2)
 {
@@ -1030,7 +1030,7 @@ function fann_merge_train_data($data1, $data2)
  *
  * @param resource $data
  *
- * @return int The number of inputs, or false on error.
+ * @return int|false The number of inputs, or false on error.
  */
 function fann_num_input_train_data($data)
 {
@@ -1043,7 +1043,7 @@ function fann_num_input_train_data($data)
  *
  * @param resource $data
  *
- * @return int The number of outputs, or false on error.
+ * @return int|false The number of outputs, or false on error.
  */
 function fann_num_output_train_data($data)
 {
@@ -1137,7 +1137,7 @@ function fann_reset_MSE($ann)
  * @param resource $ann
  * @param array $input
  *
- * @return array Array of output values, or false on error
+ * @return array|false Array of output values, or false on error
  */
 function fann_run($ann, $input)
 {
@@ -1940,7 +1940,7 @@ function fann_subset_train_data($data, $pos, $length)
  * @param resource $ann
  * @param resource $data
  *
- * @return float The updated MSE, or false on error.
+ * @return float|false The updated MSE, or false on error.
  */
 function fann_test_data($ann, $data)
 {
@@ -1969,7 +1969,7 @@ function fann_test($ann, $input, $desired_output)
  * @param resource $ann
  * @param resource $data
  *
- * @return float The MSE, or false on error.
+ * @return float|false The MSE, or false on error.
  */
 function fann_train_epoch($ann, $data)
 {

@@ -140,7 +140,7 @@
  * <tr valign="top">
  * <td>P_SIGN_POSN</td>
  * Returns 0 if parentheses surround the quantity and CURRENCY_SYMBOL.
- * @return string the element as a string, or false if item
+ * @return string|false the element as a string, or false if item
  * is not valid.
  * @since 4.1.0
  * @since 5.0
@@ -305,7 +305,7 @@ function chop ($str, $character_mask) {}
  * @param string $haystack The input string.
  * @param mixed $needle If needle is not a string, it is converted to an integer and applied as the ordinal value of a character.
  * @param bool $part [optional] If TRUE, strstr() returns the part of the haystack before the first occurrence of the needle (excluding the needle).
- * @return string Returns the portion of string, or FALSE if needle is not found.
+ * @return string|false Returns the portion of string, or FALSE if needle is not found.
  */
 function strchr ($haystack, $needle, $part) {}
 
@@ -479,7 +479,7 @@ function fscanf ($handle, $format, &$_ = null) {}
  * or PHP_URL_FRAGMENT to retrieve just a specific
  * URL component as a string.
  * </p>
- * @return mixed On seriously malformed URLs, parse_url() may return FALSE.
+ * @return mixed|false On seriously malformed URLs, parse_url() may return FALSE.
  * If the component parameter is omitted, an associative array is returned.
  * At least one element will be present within the array. Potential keys within this array are:
  * scheme - e.g. http
@@ -603,7 +603,7 @@ function http_build_query ($query_data, $numeric_prefix = null, $arg_separator =
  * @param string $path <p>
  * The symbolic link path.
  * </p>
- * @return string the contents of the symbolic link path or false on error.
+ * @return string|false the contents of the symbolic link path or false on error.
  * @since 4.0
  * @since 5.0
  */
@@ -615,7 +615,7 @@ function readlink ($path) {}
  * @param string $path <p>
  * Path to the link.
  * </p>
- * @return int linkinfo returns the st_dev field
+ * @return int|false linkinfo returns the st_dev field
  * of the Unix C stat structure returned by the lstat
  * system call. Returns 0 or false in case of error.
  * @since 4.0
@@ -707,7 +707,7 @@ function exec ($command, array &$output = null, &$return_var = null) {}
  * return status of the executed command will be written to this
  * variable.
  * </p>
- * @return string|bool the last line of the command output on success, and false
+ * @return string|false the last line of the command output on success, and false
  * on failure.
  * @since 4.0
  * @since 5.0
@@ -823,7 +823,7 @@ function shell_exec ($cmd) {}
  * binary_pipes: open pipes in binary mode, instead
  * of using the usual stream_encoding
  * </p>
- * @return resource|bool a resource representing the process, which should be freed using
+ * @return resource|false a resource representing the process, which should be freed using
  * proc_close when you are finished with it. On failure
  * returns false.
  * @since 4.3.0
@@ -869,7 +869,7 @@ function proc_terminate ($process, $signal = 15) {}
  * The proc_open resource that will
  * be evaluated.
  * </p>
- * @return array|bool An array of collected information on success, and false
+ * @return array|false An array of collected information on success, and false
  * on failure. The returned array contains the following elements:
  * </p>
  * <p>
@@ -1038,7 +1038,7 @@ function mt_getrandmax () {}
  * protocol is either "tcp"
  * or "udp" (in lowercase).
  * </p>
- * @return int the port number, or false if service or
+ * @return int|false the port number, or false if service or
  * protocol is not found.
  * @since 4.0
  * @since 5.0
@@ -1088,7 +1088,7 @@ function getprotobynumber ($number) {}
 /**
  * Gets PHP script owner's UID
  * @link https://php.net/manual/en/function.getmyuid.php
- * @return int the user ID of the current script, or false on error.
+ * @return int|false the user ID of the current script, or false on error.
  * @since 4.0
  * @since 5.0
  */
@@ -1097,7 +1097,7 @@ function getmyuid () {}
 /**
  * Get PHP script owner's GID
  * @link https://php.net/manual/en/function.getmygid.php
- * @return int the group ID of the current script, or false on error.
+ * @return int|false the group ID of the current script, or false on error.
  * @since 4.1.0
  * @since 5.0
  */
@@ -1106,7 +1106,7 @@ function getmygid () {}
 /**
  * Gets PHP's process ID
  * @link https://php.net/manual/en/function.getmypid.php
- * @return int the current PHP process ID, or false on error.
+ * @return int|false the current PHP process ID, or false on error.
  * @since 4.0
  * @since 5.0
  */
@@ -1115,7 +1115,7 @@ function getmypid () {}
 /**
  * Gets the inode of the current script
  * @link https://php.net/manual/en/function.getmyinode.php
- * @return int the current script's inode as an integer, or false on error.
+ * @return int|false the current script's inode as an integer, or false on error.
  * @since 4.0
  * @since 5.0
  */

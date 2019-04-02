@@ -11,7 +11,7 @@
  * @param SimpleXMLElement $node <p>
  * The <b>SimpleXMLElement</b> node.
  * </p>
- * @return DOMElement The <b>DOMElement</b> node added or <b>FALSE</b> if any errors occur.
+ * @return DOMElement|false The <b>DOMElement</b> node added or <b>FALSE</b> if any errors occur.
  */
 function dom_import_simplexml (SimpleXMLElement $node) {}
 

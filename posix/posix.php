@@ -253,7 +253,7 @@ function posix_times () {}
 /**
  * Get path name of controlling terminal
  * @link https://php.net/manual/en/function.posix-ctermid.php
- * @return string Upon successful completion, returns string of the pathname to
+ * @return string|false Upon successful completion, returns string of the pathname to
  * the current controlling terminal. Otherwise <b>FALSE</b> is returned and errno
  * is set, which can be checked with <b>posix_get_last_error</b>.
  * @since 4.0
@@ -267,7 +267,7 @@ function posix_ctermid () {}
  * @param int $fd <p>
  * The file descriptor.
  * </p>
- * @return string On success, returns a string of the absolute path of the
+ * @return string|false On success, returns a string of the absolute path of the
  * <i>fd</i>. On failure, returns <b>FALSE</b>
  * @since 4.0
  * @since 5.0

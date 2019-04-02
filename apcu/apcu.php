@@ -96,7 +96,7 @@ function apcu_clear_cache(){}
  * @param bool $limited When set to FALSE (default) apcu_sma_info() will
  * return a detailed information about each segment.
  *
- * @return array|bool Array of Shared Memory Allocation data; FALSE on failure.
+ * @return array|false Array of Shared Memory Allocation data; FALSE on failure.
  */
 function apcu_sma_info($limited = false){}
 
@@ -121,7 +121,7 @@ function apcu_store($key, $var, $ttl = 0){}
  * @param string|string[] $key The key used to store the value (with apcu_store()).
  * If an array is passed then each element is fetched and returned.
  * @param bool $success Set to TRUE in success and FALSE in failure.
- * @return mixed The stored variable or array of variables on success; FALSE on failure.
+ * @return mixed|false The stored variable or array of variables on success; FALSE on failure.
  */
 function apcu_fetch($key, &$success = null){}
 
@@ -167,7 +167,7 @@ function apcu_exists($keys){}
  * @param string $key The key of the value being increased.
  * @param int $step The step, or value to increase.
  * @param bool $success Optionally pass the success or fail boolean value to this referenced variable.
- * @return int|bool Returns the current value of key's value on success, or FALSE on failure.
+ * @return int|false Returns the current value of key's value on success, or FALSE on failure.
  */
 function apcu_inc($key, $step = 1, &$success = null){}
 
@@ -177,7 +177,7 @@ function apcu_inc($key, $step = 1, &$success = null){}
  * @param string $key The key of the value being decreased.
  * @param int $step The step, or value to decrease.
  * @param bool $success Optionally pass the success or fail boolean value to this referenced variable.
- * @return int|bool Returns the current value of key's value on success, or FALSE on failure.
+ * @return int|false Returns the current value of key's value on success, or FALSE on failure.
  */
 function apcu_dec($key, $step = 1, &$success = null){}
 
@@ -232,7 +232,7 @@ function apcu_entry($key, callable $generator, $ttl = 0){}
  * 
  * @param bool $limited If limited is TRUE, the return value will exclude the individual list of cache entries.
  * This is useful when trying to optimize calls for statistics gathering.
- * @return array|bool Array of cached data (and meta-data) or FALSE on failure
+ * @return array|false Array of cached data (and meta-data) or FALSE on failure
  */
 function apcu_cache_info($limited = false){}
 
@@ -278,14 +278,14 @@ class APCUIterator implements Iterator
 	/**
 	 * Gets the current item from the APCUIterator stack
 	 * @link https://php.net/manual/en/apcuiterator.current.php
-	 * @return mixed Returns the current item on success, or FALSE if no more items or exist, or on failure.
+	 * @return mixed|false Returns the current item on success, or FALSE if no more items or exist, or on failure.
 	 */
 	public function current(){}
 
 	/**
 	 * Gets the current iterator key
 	 * @link https://php.net/manual/en/apcuiterator.key.php
-	 * @return string|int|bool Returns the key on success, or FALSE upon failure.
+	 * @return string|int|false Returns the key on success, or FALSE upon failure.
 	 */
 	public function key(){}
 
@@ -299,21 +299,21 @@ class APCUIterator implements Iterator
 	/**
 	 * Gets the total number of cache hits
 	 * @link https://php.net/manual/en/apcuiterator.gettotalhits.php
-	 * @return int|bool The number of hits on success, or FALSE on failure.
+	 * @return int|false The number of hits on success, or FALSE on failure.
 	 */
 	public function getTotalHits(){}
 
 	/**
 	 * Gets the total cache size
 	 * @link https://php.net/manual/en/apcuiterator.gettotalsize.php
-	 * @return int|bool The total cache size.
+	 * @return int|false The total cache size.
 	 */
 	public function getTotalSize(){}
 
 	/**
 	 * Get the total count
 	 * @link https://php.net/manual/en/apcuiterator.gettotalcount.php
-	 * @return int|bool The total count.
+	 * @return int|false The total count.
 	 */
 	public function getTotalCount(){}
 }
