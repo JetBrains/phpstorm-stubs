@@ -4,8 +4,22 @@ declare(strict_types=1);
 namespace StubTests\Model;
 
 use Exception;
+use function get_class;
 use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use phpDocumentor\Reflection\Type;
+use phpDocumentor\Reflection\Types\Array_;
+use phpDocumentor\Reflection\Types\Boolean;
+use phpDocumentor\Reflection\Types\Callable_;
+use phpDocumentor\Reflection\Types\Compound;
+use phpDocumentor\Reflection\Types\Float_;
+use phpDocumentor\Reflection\Types\Integer;
+use phpDocumentor\Reflection\Types\Mixed_;
+use phpDocumentor\Reflection\Types\Null_;
+use phpDocumentor\Reflection\Types\Object_;
+use phpDocumentor\Reflection\Types\Resource_;
+use phpDocumentor\Reflection\Types\Scalar;
+use phpDocumentor\Reflection\Types\String_;
+use phpDocumentor\Reflection\Types\Void_;
 use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Stmt\Function_;
 use ReflectionException;
@@ -32,6 +46,11 @@ class PHPFunction extends BasePHPElement
      * @var Type
      */
     public $returnTag;
+
+    /**
+     * @var string|string[]
+     */
+    public $returnType;
 
     /**
      * @param ReflectionFunction $function
@@ -88,6 +107,65 @@ class PHPFunction extends BasePHPElement
         }
     }
 
+    /**
+     * @param Type $type
+     *
+     * @return string|string[]
+     */
+    protected static function parseDocTypeObject(Type $type)
+    {
+        if ($type instanceof Object_) {
+            return (string) $type->getFqsen();
+        }
+        if ($type instanceof Array_) {
+            /*
+            $value = $type->getValueType();
+            if ($value instanceof Mixed_) {
+                return 'mixed';
+            }
+            */
+            return 'array';
+        }
+        if ($type instanceof Null_) {
+            return 'null';
+        }
+        if ($type instanceof Mixed_) {
+            return 'mixed';
+        }
+        if ($type instanceof Scalar) {
+            return 'string|int|float|bool';
+        }
+        if ($type instanceof Boolean) {
+            return 'bool';
+        }
+        if ($type instanceof Callable_) {
+            return 'callable';
+        }
+        if ($type instanceof Compound) {
+            $types = [];
+            foreach ($type as $subType) {
+                $types[] = self::parseDocTypeObject($subType);
+            }
+            return $types;
+        }
+        if ($type instanceof Float_) {
+            return 'float';
+        }
+        if ($type instanceof String_) {
+            return 'string';
+        }
+        if ($type instanceof Integer) {
+            return 'int';
+        }
+        if ($type instanceof Void_) {
+            return 'void';
+        }
+        if ($type instanceof Resource_) {
+            return 'resource';
+        }
+        throw new \Exception('Unhandled PhpDoc type: ' . get_class($type));
+    }
+
     protected function checkReturnTag(FunctionLike $node): void
     {
         if ($node->getDocComment() !== null) {
@@ -95,7 +173,11 @@ class PHPFunction extends BasePHPElement
                 $phpDoc = DocFactoryProvider::getDocFactory()->create($node->getDocComment()->getText());
                 $parsedReturnTag = $phpDoc->getTagsByName('return');
                 if (!empty($parsedReturnTag) && $parsedReturnTag[0] instanceof Return_) {
-                    $this->returnTag = $parsedReturnTag[0]->getType() . '';
+                    /** @var Return_ $parsedReturnTagReturn */
+                    $parsedReturnTagReturn = $parsedReturnTag[0];
+                    $type = $parsedReturnTagReturn->getType();
+                    $this->returnTag = $type . '';
+                    $this->returnType = self::parseDocTypeObject($type);
                 }
             } catch (Exception $e) {
                 $this->parseError = $e->getMessage();

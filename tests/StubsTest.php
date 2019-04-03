@@ -19,6 +19,13 @@ use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
 class StubsTest extends TestCase
 {
+    protected static $call_map_vimeo_psalm = [];
+
+    public static function setUpBeforeClass()
+    {
+        self::$call_map_vimeo_psalm = include __DIR__ . '/../vendor/vimeo/psalm/src/Psalm/Internal/CallMap.php';
+    }
+
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
      * @param PHPConst $constant
@@ -305,6 +312,40 @@ class StubsTest extends TestCase
         }
         static::assertNull($method->parseError, $method->parseError ?: '');
         $this->checkLinks($method, "method $methodName");
+    }
+
+    /**
+     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubFunctionProvider
+     * @param PHPFunction $function
+     * @throws InvalidArgumentException
+     */
+    public function testReturnPHPDocs(PHPFunction $function): void
+    {
+        $functionName = $function->name;
+
+        if (isset(self::$call_map_vimeo_psalm[$functionName])) {
+            $returnType = self::$call_map_vimeo_psalm[$functionName][0];
+            if (is_array($function->returnType)) {
+                $returnTypeFromPhpDoc = implode('|', $function->returnType);
+            } else {
+                $returnTypeFromPhpDoc = $function->returnType;
+            }
+
+            if ($function->returnType) {
+                static::assertSame(
+                    ltrim($returnType, '\\'),
+                    ltrim($returnTypeFromPhpDoc, '\\'),
+                    $functionName . ': Failed asserting that "' . $returnType . '" === "' . $returnTypeFromPhpDoc . '"'
+                );
+
+                return;
+            }
+
+            // TODO
+            var_dump('TODO? ' . $functionName . ': return type is missing? ' . print_r(self::$call_map_vimeo_psalm[$functionName], true));
+        }
+
+        static::markTestSkipped('no return type found: ' . $functionName);
     }
 
     private static function getParameterRepresentation(PHPFunction $function): string
