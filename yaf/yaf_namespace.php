@@ -2282,19 +2282,22 @@ class Http extends \Yaf\Response_Abstract
     /**
      * @link https://secure.php.net/manual/en/yaf-response-abstract.getheader.php
      *
+     * @param string $name
+     *
      * @return mixed
      */
-    public function getHeader()
+    public function getHeader($name = null)
     {
     }
 
     /**
      * @link https://secure.php.net/manual/en/yaf-response-abstract.clearheaders.php
      *
+     * @param string $name
      *
      * @return \Yaf\Response_Abstract|false
      */
-    public function clearHeaders()
+    public function clearHeaders($name = null)
     {
     }
 
