@@ -34,15 +34,18 @@ function strtotime ($time, $now = 'time()') {}
  * The following characters are recognized in the
  * format parameter string
  * <table>
+ * <thead>
  * <tr valign="top">
- * <td>format character</td>
- * <td>Description</td>
- * <td>Example returned values</td>
+ * <th>Format character</th>
+ * <th>Description</th>
+ * <th>Example returned values</th>
  * </tr>
+ * </thead>
+ * <tbody>
  * <tr valign="top">
- * Day</td>
- * <td>---</td>
- * <td>---</td>
+ * <th>Day</th>
+ * <th>---</th>
+ * <th>---</th>
  * </tr>
  * <tr valign="top">
  * <td>d</td>
@@ -88,20 +91,24 @@ function strtotime ($time, $now = 'time()') {}
  * <td>The day of the year (starting from 0)</td>
  * <td>0 through 365</td>
  * </tr>
+ * </tbody>
+ * <tbody>
  * <tr valign="top">
- * Week</td>
- * <td>---</td>
- * <td>---</td>
+ * <th>Week</th>
+ * <th>---</th>
+ * <th>---</th>
  * </tr>
  * <tr valign="top">
  * <td>W</td>
  * <td>ISO-8601 week number of year, weeks starting on Monday (added in PHP 4.1.0)</td>
  * <td>Example: 42 (the 42nd week in the year)</td>
  * </tr>
+ * </tbody>
+ * <tbody>
  * <tr valign="top">
- * Month</td>
- * <td>---</td>
- * <td>---</td>
+ * <th>Month</th>
+ * <th>---</th>
+ * <th>---</th>
  * </tr>
  * <tr valign="top">
  * <td>F</td>
@@ -128,10 +135,12 @@ function strtotime ($time, $now = 'time()') {}
  * <td>Number of days in the given month</td>
  * <td>28 through 31</td>
  * </tr>
+ * </tbody>
+ * <tbody>
  * <tr valign="top">
- * Year</td>
- * <td>---</td>
- * <td>---</td>
+ * <th>Year</th>
+ * <th>---</th>
+ * <th>---</th>
  * </tr>
  * <tr valign="top">
  * <td>L</td>
@@ -156,10 +165,12 @@ function strtotime ($time, $now = 'time()') {}
  * <td>A two digit representation of a year</td>
  * <td>Examples: 99 or 03</td>
  * </tr>
+ * </tbody>
+ * <tbody>
  * <tr valign="top">
- * Time</td>
- * <td>---</td>
- * <td>---</td>
+ * <th>Time</th>
+ * <th>---</th>
+ * <th>---</th>
  * </tr>
  * <tr valign="top">
  * <td>a</td>
@@ -211,10 +222,12 @@ function strtotime ($time, $now = 'time()') {}
  * <td>Microseconds (added in PHP 5.2.2)</td>
  * <td>Example: 654321</td>
  * </tr>
+ * </tbody>
+ * <tbody>
  * <tr valign="top">
- * Timezone</td>
- * <td>---</td>
- * <td>---</td>
+ * <th>Timezone</th>
+ * <th>---</th>
+ * <th>---</th>
  * </tr>
  * <tr valign="top">
  * <td>e</td>
@@ -247,10 +260,12 @@ function strtotime ($time, $now = 'time()') {}
  * negative, and for those east of UTC is always positive.</td>
  * <td>-43200 through 50400</td>
  * </tr>
+ * </tbody>
+ * <tbody>
  * <tr valign="top">
- * Full Date/Time</td>
- * <td>---</td>
- * <td>---</td>
+ * <th>Full Date/Time</th>
+ * <th>---</th>
+ * <th>---</th>
  * </tr>
  * <tr valign="top">
  * <td>c</td>
@@ -267,6 +282,7 @@ function strtotime ($time, $now = 'time()') {}
  * <td>Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)</td>
  * <td>See also time</td>
  * </tr>
+ * </tbody>
  * </table>
  * </p>
  * <p>
@@ -295,13 +311,16 @@ function date ($format, $timestamp = 'time()') {}
  * Format a local time/date as integer
  * @link https://php.net/manual/en/function.idate.php
  * @param string $format <p>
- * <table>
  * The following characters are recognized in the
  * format parameter string
+ * <table>
+ * <thead>
  * <tr valign="top">
- * <td>format character</td>
- * <td>Description</td>
+ * <th>format character</th>
+ * <th>Description</th>
  * </tr>
+ * </thead>
+ * <tbody>
  * <tr valign="top">
  * <td>B</td>
  * <td>Swatch Beat/Internet Time</td>
@@ -374,6 +393,7 @@ function date ($format, $timestamp = 'time()') {}
  * <td>Z</td>
  * <td>Timezone offset in seconds</td>
  * </tr>
+ * </tbody>
  * </table>
  * </p>
  * @param int $timestamp [optional] 
@@ -514,13 +534,16 @@ function checkdate ($month, $day, $year) {}
  * The following characters are recognized in the
  * format parameter string
  * <table>
+ * <thead>
  * <tr valign="top">
- * <td>format</td>
- * <td>Description</td>
- * <td>Example returned values</td>
+ * <th>format</th>
+ * <th>Description</th>
+ * <th>Example returned values</th>
  * </tr>
- * <th valign="top" colspan="3" bgcolor="silver">
- * Day</th>
+ * </thead>
+ * <tbody>
+ * <tr>
+ * <th valign="top" colspan="3" bgcolor="silver">Day</th>
  * </tr>
  * <tr valign="top">
  * <td>%a</td>
@@ -581,6 +604,8 @@ function checkdate ($month, $day, $year) {}
  * <td>46 (for the 46th week of the year beginning
  * with a Monday)</td>
  * </tr>
+ * </tbody>
+ * <tbody>
  * <tr valign="top">
  * <th colspan="3" bgcolor="silver">Month</th>
  * </tr>
@@ -604,6 +629,8 @@ function checkdate ($month, $day, $year) {}
  * <td>Two digit representation of the month</td>
  * <td>01 (for January) through 12 (for December)</td>
  * </tr>
+ * </tbody>
+ * <tbody>
  * <tr valign="top">
  * <th colspan="3" bgcolor="silver">Year</th>
  * </tr>
@@ -632,6 +659,8 @@ function checkdate ($month, $day, $year) {}
  * <td>Four digit representation for the year</td>
  * <td>Example: 2038</td>
  * </tr>
+ * </tbody>
+ * <tbody>
  * <tr valign="top">
  * <th colspan="3" bgcolor="silver">Time</th>
  * </tr>
@@ -702,6 +731,8 @@ function checkdate ($month, $day, $year) {}
  * on operating system)</td>
  * <td>Example: -0500 or EST for Eastern Time</td>
  * </tr>
+ * </tbody>
+ * <tbody>
  * <tr valign="top">
  * <th colspan="3" bgcolor="silver">Time and Date Stamps</th>
  * </tr>
@@ -732,6 +763,8 @@ function checkdate ($month, $day, $year) {}
  * <td>Preferred date representation based on locale, without the time</td>
  * <td>Example: 02/05/09 for February 5, 2009</td>
  * </tr>
+ * </tbody>
+ * <tbody>
  * <tr valign="top">
  * <th colspan="3" bgcolor="silver">Miscellaneous</th>
  * </tr>
@@ -750,6 +783,7 @@ function checkdate ($month, $day, $year) {}
  * <td>A literal percentage character ("%")</td>
  * <td>---</td>
  * </tr>
+ * </tbody>
  * </table>
  * </p>
  * <p>
@@ -826,13 +860,16 @@ function localtime ($timestamp = null, $is_associative = null) {}
  * associative array are as follows:
  * </p>
  * <p>
- * <table>
  * Key elements of the returned associative array
+ * <table>
+ * <thead>
  * <tr valign="top">
- * <td>Key</td>
- * <td>Description</td>
- * <td>Example returned values</td>
+ * <th>Key</th>
+ * <th>Description</th>
+ * <th>Example returned values</th>
  * </tr>
+ * </thead>
+ * <tbody>
  * <tr valign="top">
  * <td>"seconds"</td>
  * <td>Numeric representation of seconds</td>
@@ -894,6 +931,7 @@ function localtime ($timestamp = null, $is_associative = null) {}
  * 2147483647.
  * </td>
  * </tr>
+ * </tbody>
  * </table>
  * @since 4.0
  * @since 5.0
@@ -1336,13 +1374,16 @@ function date_default_timezone_get () {}
  * time is taken.
  * </p>
  * @param int $format [optional] <p>
- * <table>
  * format constants
+ * <table>
+ * <thead>
  * <tr valign="top">
- * <td>constant</td>
- * <td>description</td>
- * <td>example</td>
+ * <th>constant</th>
+ * <th>description</th>
+ * <th>example</th>
  * </tr>
+ * </thead>
+ * <tbody>
  * <tr valign="top">
  * <td>SUNFUNCS_RET_STRING</td>
  * <td>returns the result as string</td>
@@ -1358,6 +1399,7 @@ function date_default_timezone_get () {}
  * <td>returns the result as integer (timestamp)</td>
  * <td>1095034606</td>
  * </tr>
+ * </tbody>
  * </table>
  * </p>
  * @param float $latitude [optional] <p>
@@ -1386,13 +1428,16 @@ function date_sunrise ($timestamp, $format = null, $latitude = null, $longitude 
  * time is taken.
  * </p>
  * @param int $format [optional] <p>
- * <table>
  * format constants
+ * <table>
+ * <thead>
  * <tr valign="top">
- * <td>constant</td>
- * <td>description</td>
- * <td>example</td>
+ * <th>constant</th>
+ * <th>description</th>
+ * <th>example</th>
  * </tr>
+ * </thead>
+ * <tbody>
  * <tr valign="top">
  * <td>SUNFUNCS_RET_STRING</td>
  * <td>returns the result as string</td>
@@ -1408,6 +1453,7 @@ function date_sunrise ($timestamp, $format = null, $latitude = null, $longitude 
  * <td>returns the result as integer (timestamp)</td>
  * <td>1095034606</td>
  * </tr>
+ * </tbody>
  * </table>
  * </p>
  * @param float $latitude [optional] <p>
