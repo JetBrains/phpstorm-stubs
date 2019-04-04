@@ -1010,19 +1010,20 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets an array of methods
 	 * @link https://php.net/manual/en/reflectionclass.getmethods.php
-	 * @param string $filter [optional] <p>
+	 * @param int $filter [optional] <p>
 	 * Filter the results to include only methods with certain attributes. Defaults
 	 * to no filtering.
 	 * </p>
 	 * <p>
-	 * Any combination of <b>ReflectionMethod::IS_STATIC</b>,
+	 * Any bitwise disjunction of <b>ReflectionMethod::IS_STATIC</b>,
 	 * <b>ReflectionMethod::IS_PUBLIC</b>,
 	 * <b>ReflectionMethod::IS_PROTECTED</b>,
 	 * <b>ReflectionMethod::IS_PRIVATE</b>,
 	 * <b>ReflectionMethod::IS_ABSTRACT</b>,
-	 * <b>ReflectionMethod::IS_FINAL</b>.
+	 * <b>ReflectionMethod::IS_FINAL</b>,
+	 * so that all methods with <em>any</em> of the given attributes will be returned.
 	 * </p>
-         * @return ReflectionMethod[] An array of methods.
+         * @return ReflectionMethod[] An array of ReflectionMethod objects reflecting each method.
 	 * @since 5.0
 	 */
 	public function getMethods ($filter = null) {}
