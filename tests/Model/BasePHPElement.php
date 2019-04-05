@@ -11,6 +11,7 @@ abstract class BasePHPElement
     public $name;
     public $parseError;
     protected $mutedProblems = [];
+    public $returnType;
 
     /**
      * @param mixed $object

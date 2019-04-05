@@ -45,9 +45,10 @@ class Yar_Client {
      * Call service
      * Issue a call to remote RPC method.
      *
+     * @link https://secure.php.net/manual/en/yar-client.call.php
      * @param $method string Remote RPC method name.
      * @param $parameters array Parameters.
-     * @link https://secure.php.net/manual/en/yar-client.call.php
+     * @return void
      */
     public function __call ( $method , $parameters ){}
 

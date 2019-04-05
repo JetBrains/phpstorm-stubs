@@ -8,6 +8,7 @@ use phpDocumentor\Reflection\DocBlock\Tags\See;
 use PHPUnit\Framework\TestCase;
 use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use StubTests\Model\BasePHPClass;
+use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPConst;
 use StubTests\Model\PHPDocElement;
@@ -335,13 +336,41 @@ class StubsTest extends TestCase
     public function testMethodsReturnPHPDocs(string $methodName, PHPMethod $method): void
     {
         if ($methodName === '__construct') {
+            static::assertTrue(true);
+
             return;
         }
+
+        if (!$method->parentName) {
+            static::markTestSkipped('TODO: no class found: ' . $method->parentName . ' | ' . print_r($method, true));
+
+            return;
+        }
+
 
         // init
         $methodNameWithClass = $method->parentName . '::' . $methodName;
 
-        // TODO ...
+        if (isset(self::$call_map_vimeo_psalm[$methodNameWithClass])) {
+            $returnTypeFromPsalm = $this->getTypeFromPsalm($methodNameWithClass);
+            $returnTypeFromPhpDoc = $this->getTypeFromPhpElement($method);
+
+            if ($returnTypeFromPhpDoc) {
+                static::assertEquals(
+                    $returnTypeFromPsalm,
+                    $returnTypeFromPhpDoc,
+                    $methodNameWithClass . ': Failed asserting that (psalm-data) "' . print_r($returnTypeFromPsalm, true) . '" == (phpdoc-data) "' . print_r($returnTypeFromPhpDoc, true) . '"'
+                );
+
+                return;
+            }
+
+            static::markTestSkipped('TODO: ' . $methodNameWithClass . ': return type is missing? | psalm-data: ' . print_r(self::$call_map_vimeo_psalm[$methodNameWithClass], true) . ' | phpdoc-data: ' . print_r($function));
+
+            return;
+        }
+
+        static::markTestSkipped('TODO: no return data found in psalm: ' . $methodNameWithClass);
     }
 
     /**
@@ -387,7 +416,7 @@ class StubsTest extends TestCase
 
         if (isset(self::$call_map_vimeo_psalm[$functionName])) {
             $returnTypeFromPsalm = $this->getTypeFromPsalm($functionName);
-            $returnTypeFromPhpDoc = $this->getTypeFromPhpFunction($function);
+            $returnTypeFromPhpDoc = $this->getTypeFromPhpElement($function);
 
             if ($returnTypeFromPhpDoc) {
                 static::assertEquals(
@@ -521,11 +550,11 @@ class StubsTest extends TestCase
     }
 
     /**
-     * @param \StubTests\Model\PHPFunction $function
+     * @param \StubTests\Model\BasePHPElement $function
      *
      * @return array
      */
-    private function getTypeFromPhpFunction(PHPFunction $function): array
+    private function getTypeFromPhpElement(BasePHPElement $function): array
     {
         $returnTypeFromPhpDoc = explode('|', ltrim($function->returnType, '\\'));
         foreach ($returnTypeFromPhpDoc as &$returnTypeFromPhpDocTmp) {
