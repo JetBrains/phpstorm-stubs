@@ -149,7 +149,7 @@ function eregi_replace ($pattern, $replacement, $string) {}
  * last element containing the whole rest of
  * <i>string</i>.
  * </p>
- * @return array|false an array of strings, each of which is a substring of
+ * @return string[]|false an array of strings, each of which is a substring of
  * <i>string</i> formed by splitting it on boundaries formed
  * by the case-sensitive regular expression <i>pattern</i>.
  * </p>
@@ -192,7 +192,7 @@ function split ($pattern, $string, $limit = -1) {}
  * last element containing the whole rest of
  * <i>string</i>.
  * </p>
- * @return array|false an array of strings, each of which is a substring of
+ * @return string[]|false an array of strings, each of which is a substring of
  * <i>string</i> formed by splitting it on boundaries formed
  * by the case insensitive regular expression <i>pattern</i>.
  * </p>

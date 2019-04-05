@@ -123,7 +123,7 @@ function finfo_set_flags ($finfo, $options) {}
  * @param resource $context [optional] <p>
  * For a description of contexts, refer to .
  * </p>
- * @return mixed a textual description of the contents of the
+ * @return string|false a textual description of the contents of the
  * <i>filename</i> argument, or <b>FALSE</b> if an error occurred.
  */
 function finfo_file ($finfo, $file_name, $options = null, $context = null) {}
@@ -148,7 +148,7 @@ function finfo_file ($finfo, $file_name, $options = null, $context = null) {}
  * @param int $options [optional] One or disjunction of more
  * <a href="https://php.net/manual/en/fileinfo.constants.php">Fileinfo</a> constants.
  * @param resource $context [optional] 
- * @return string a textual description of the <i>string</i>
+ * @return string|false a textual description of the <i>string</i>
  * argument, or <b>FALSE</b> if an error occurred.
  */
 function finfo_buffer ($finfo ,$string, $options = FILEINFO_NONE, $context = NULL) {}
@@ -159,7 +159,7 @@ function finfo_buffer ($finfo ,$string, $options = FILEINFO_NONE, $context = NUL
  * @param string $filename <p>
  * Path to the tested file.
  * </p>
- * @return string the content type in MIME format, like 
+ * @return string|false the content type in MIME format, like
  * text/plain or application/octet-stream.
  * @since 4.3.0
  * @since 5.0

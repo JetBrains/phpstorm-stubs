@@ -91,7 +91,7 @@ function imap_close ($imap_stream, $flag = 0) {}
  * Gets the number of messages in the current mailbox
  * @link https://php.net/manual/en/function.imap-num-msg.php
  * @param resource $imap_stream 
- * @return int Return the number of messages in the current mailbox, as an integer.
+ * @return int|false Return the number of messages in the current mailbox, as an integer, or FALSE on error.
  * @since 4.0
  * @since 5.0
  */
@@ -101,8 +101,8 @@ function imap_num_msg ($imap_stream) {}
  * Gets the number of recent messages in current mailbox
  * @link https://php.net/manual/en/function.imap-num-recent.php
  * @param resource $imap_stream 
- * @return int the number of recent messages in the current mailbox, as an
- * integer.
+ * @return int|false the number of recent messages in the current mailbox, as an
+ * integer or FALSE on error.
  * @since 4.0
  * @since 5.0
  */
@@ -112,8 +112,8 @@ function imap_num_recent ($imap_stream) {}
  * Returns headers for all messages in a mailbox
  * @link https://php.net/manual/en/function.imap-headers.php
  * @param resource $imap_stream 
- * @return array an array of string formatted with header info. One
- * element per mail message.
+ * @return array|false an array of string formatted with header info. One
+ * element per mail message. Or return FALSE on error.
  * @since 4.0
  * @since 5.0
  */
@@ -127,7 +127,7 @@ function imap_headers ($imap_stream) {}
  * @param int $from_length [optional] Number of characters for the fetchfrom property. Must be greater than or equal to zero.
  * @param int $subject_length [optional] Number of characters for the fetchsubject property Must be greater than or equal to zero.
  * @param $default_host [optional]
- * @return object Returns the information in an object with following properties:
+ * @return stdClass|false Returns the information in an object with following properties:
  * <dl>
  * <dt>toaddress <dd>full to: line, up to 1024 characters
  * <dt>to <dd>an array of objects from the To: line, with the following properties: personal, adl, mailbox, and host
@@ -180,7 +180,7 @@ function imap_headerinfo ($stream_id, $msg_no, $from_length = 0, $subject_length
  * @param string $defaulthost [optional] <p>
  * The default host name
  * </p>
- * @return object an object similar to the one returned by
+ * @return stdClass an object similar to the one returned by
  * <b>imap_header</b>, except for the flags and other
  * properties that come from the IMAP server.
  * @since 4.0
@@ -201,7 +201,7 @@ function imap_rfc822_parse_headers ($headers, $defaulthost = "UNKNOWN") {}
  * @param string $personal <p>
  * The name of the account owner
  * </p>
- * @return string a string properly formatted email address as defined in RFC2822.
+ * @return string|false a string properly formatted email address as defined in RFC2822.
  * @since 4.0
  * @since 5.0
  */
@@ -239,7 +239,7 @@ function imap_rfc822_parse_adrlist ($address, $default_host) {}
  * The optional <i>options</i> are a bit mask
  * with one or more of the following:
  * <b>FT_UID</b> - The <i>msg_number</i> is a UID
- * @return string the body of the specified message, as a string.
+ * @return string|false the body of the specified message, as a string.
  * @since 4.0
  * @since 5.0
  */
@@ -255,7 +255,7 @@ function imap_body ($imap_stream, $msg_number, $options = 0) {}
  * @param string $section <p>
  * The body section to read
  * </p>
- * @return object the information in an object, for a detailed description
+ * @return stdClass|false the information in an object, for a detailed description
  * of the object structure and properties see 
  * <b>imap_fetchstructure</b>.
  * @since 4.0
@@ -277,7 +277,7 @@ function imap_bodystruct ($imap_stream, $msg_number, $section) {}
  * @param int $options [optional] <p>
  * A bitmask with one or more of the following:
  * <b>FT_UID</b> - The <i>msg_number</i> is a UID
- * @return string a particular section of the body of the specified messages as a
+ * @return string|false a particular section of the body of the specified messages as a
  * text string.
  * @since 4.0
  * @since 5.0
@@ -298,7 +298,7 @@ function imap_fetchbody ($imap_stream, $msg_number, $section, $options = 0) {}
  * @param int $options [optional] <p>
  * A bitmask with one or more of the following:
  * <b>FT_UID</b> - The <i>msg_number</i> is a UID
- * @return string the MIME headers of a particular section of the body of the specified messages as a
+ * @return string|false the MIME headers of a particular section of the body of the specified messages as a
  * text string.
  * @since 5.3.6
  */
@@ -338,7 +338,7 @@ function imap_savebody ($imap_stream, $file, $msg_number, $part_number = "", $op
  * The possible <i>options</i> are:
  * <b>FT_UID</b> - The <i>msgno</i>
  * argument is a UID
- * @return string the header of the specified message as a text string.
+ * @return string|false the header of the specified message as a text string.
  * @since 4.0
  * @since 5.0
  */
@@ -357,7 +357,7 @@ function imap_fetchheader ($imap_stream, $msg_number, $options = 0) {}
  * <i>msg_number</i> argument as a
  * UID.
  * </p>
- * @return object an object includes the envelope, internal date, size, flags and
+ * @return stdClass|false an object includes the envelope, internal date, size, flags and
  * body structure along with a similar object for each mime attachment. The
  * structure of the returned objects is as follows:
  * </p>
@@ -532,7 +532,7 @@ function imap_undelete ($imap_stream, $msg_number, $flags = 0) {}
  * Check current mailbox
  * @link https://php.net/manual/en/function.imap-check.php
  * @param resource $imap_stream 
- * @return object|false the information in an object with following properties:
+ * @return stdClass|false the information in an object with following properties:
  * <b>Date</b> - current system time formatted according to RFC2822
  * <b>Driver</b> - protocol used to access this mailbox:
  * POP3, IMAP, NNTP
@@ -570,7 +570,7 @@ function imap_check ($imap_stream) {}
  * @param string $content <p>
  * The searched string
  * </p>
- * @return array an array containing the names of the mailboxes that have
+ * @return array|false an array containing the names of the mailboxes that have
  * <i>content</i> in the text of the mailbox.
  * @since 4.0
  * @since 5.0
@@ -637,7 +637,7 @@ function imap_mail_move ($imap_stream, $msglist, $mailbox, $options = 0) {}
  * "description", "disposition.type", "disposition", "contents.data",
  * "lines", "bytes" and "md5".
  * </p>
- * @return string the MIME message.
+ * @return string|false the MIME message.
  * @since 4.0
  * @since 5.0
  */
@@ -763,7 +763,7 @@ function imap_ping ($imap_stream) {}
  * @param string $text <p>
  * The encoded text
  * </p>
- * @return string the decoded message as a string.
+ * @return string|false the decoded message as a string.
  * @since 4.0
  * @since 5.0
  */
@@ -775,7 +775,7 @@ function imap_base64 ($text) {}
  * @param string $string <p>
  * A quoted-printable string
  * </p>
- * @return string an 8 bits string.
+ * @return string|false an 8 bits string.
  * @since 4.0
  * @since 5.0
  */
@@ -787,7 +787,7 @@ function imap_qprint ($string) {}
  * @param string $string <p>
  * The 8bit string to convert
  * </p>
- * @return string a quoted-printable string.
+ * @return string|false a quoted-printable string.
  * @since 4.0
  * @since 5.0
  */
@@ -799,7 +799,7 @@ function imap_8bit ($string) {}
  * @param string $string <p>
  * The 8bit string
  * </p>
- * @return string a base64 encoded string.
+ * @return string|false a base64 encoded string.
  * @since 4.0
  * @since 5.0
  */
@@ -830,7 +830,7 @@ function imap_utf8 ($mime_encoded_text) {}
  * Valid flags are:
  * <b>SA_MESSAGES</b> - set $status->messages to the
  * number of messages in the mailbox
- * @return object This function returns an object containing status information.
+ * @return stdClass|false This function returns an object containing status information.
  * The object has the following properties: messages,
  * recent, unseen, 
  * uidnext, and uidvalidity. 
@@ -853,7 +853,7 @@ function imap_status_current ($stream_id, $options) {}
  * Get information about the current mailbox
  * @link https://php.net/manual/en/function.imap-mailboxmsginfo.php
  * @param resource $imap_stream 
- * @return object|false the information in an object with following properties:
+ * @return stdClass|false the information in an object with following properties:
  * <table>
  * Mailbox properties
  * <tr valign="top">
@@ -962,7 +962,7 @@ function imap_clearflag_full ($imap_stream, $sequence, $flag, $options = 0) {}
  * <b>SE_UID</b> - Return UIDs instead of sequence numbers
  * @param string $search_criteria [optional]
  * @param string $charset [optional]
- * @return array an array of message numbers sorted by the given
+ * @return array|false an array of message numbers sorted by the given
  * parameters.
  * @since 4.0
  * @since 5.0
@@ -976,7 +976,7 @@ function imap_sort ($imap_stream, $criteria, $reverse, $options = 0, $search_cri
  * @param int $msg_number <p>
  * The message number.
  * </p>
- * @return int The UID of the given message.
+ * @return int|false The UID of the given message.
  * @since 4.0
  * @since 5.0
  */
@@ -989,7 +989,7 @@ function imap_uid ($imap_stream, $msg_number) {}
  * @param int $uid <p>
  * The message UID
  * </p>
- * @return int the message sequence number for the given 
+ * @return int|false the message sequence number for the given
  * <i>uid</i>.
  * @since 4.0
  * @since 5.0
@@ -1016,7 +1016,7 @@ function imap_msgno ($imap_stream, $uid) {}
  * &#x00027;&#37;&#x00027; as the <i>pattern</i>
  * parameter will return only the top level
  * mailboxes; &#x00027;~/mail/&#37;&#x00027; on UW_IMAPD will return every mailbox in the ~/mail directory, but none in subfolders of that directory.</p>
- * @return array an array containing the names of the mailboxes.
+ * @return array|false an array containing the names of the mailboxes.
  * @since 4.0
  * @since 5.0
  */
@@ -1042,7 +1042,7 @@ function imap_list ($imap_stream, $ref, $pattern) {}
  * &#x00027;&#37;&#x00027; as the <i>pattern</i>
  * parameter will return only the top level
  * mailboxes; &#x00027;~/mail/&#37;&#x00027; on UW_IMAPD will return every mailbox in the ~/mail directory, but none in subfolders of that directory.</p>
- * @return array an array of all the subscribed mailboxes.
+ * @return array|false an array of all the subscribed mailboxes.
  * @since 4.0
  * @since 5.0
  */
@@ -1062,7 +1062,7 @@ function imap_lsub ($imap_stream, $ref, $pattern) {}
  * indices or UIDs, if this parameter is set to 
  * <b>FT_UID</b>.
  * </p>
- * @return array an array of objects describing one message header each.
+ * @return array|false an array of objects describing one message header each.
  * The object will only define a property if it exists. The possible
  * properties are:
  * subject - the messages subject
@@ -1151,7 +1151,7 @@ function imap_search ($imap_stream, $criteria, $options = SE_FREE, $charset = NI
  * A modified UTF-7 encoding string, as defined in RFC 2060, section 5.1.3 (original UTF-7
  * was defined in RFC1642).
  * </p>
- * @return string a string that is encoded in ISO-8859-1 and consists of the same
+ * @return string|false a string that is encoded in ISO-8859-1 and consists of the same
  * sequence of characters in <i>text</i>, or <b>FALSE</b>
  * if <i>text</i> contains invalid modified UTF-7 sequence
  * or <i>text</i> contains a character that is not part of
@@ -1181,7 +1181,7 @@ function imap_utf7_encode ($data) {}
  * @param string $text <p>
  * The MIME text
  * </p>
- * @return array The decoded elements are returned in an array of objects, where each
+ * @return array|false The decoded elements are returned in an array of objects, where each
  * object has two properties, charset and 
  * text.
  * </p>
@@ -1342,7 +1342,7 @@ function imap_setacl ($imap_stream, $mailbox, $id, $rights) {}
  * The mailbox name, see <b>imap_open</b> for more
  * information
  * </p>
- * @return array an associative array of "folder" => "acl" pairs.
+ * @return array|false an associative array of "folder" => "acl" pairs.
  * @since 5.0
  */
 function imap_getacl ($imap_stream, $mailbox) {}
@@ -1408,7 +1408,7 @@ function imap_mail ($to, $subject, $message, $additional_headers = null, $cc = n
  * @param int $from_length [optional] Number of characters for the fetchfrom property. Must be greater than or equal to zero.
  * @param int $subject_length [optional] Number of characters for the fetchsubject property Must be greater than or equal to zero.
  * @param $default_host [optional]
- * @return object Returns the information in an object with following properties:
+ * @return stdClass|false Returns the information in an object with following properties:
  * <dl>
  * <dt>toaddress <dd>full to: line, up to 1024 characters
  * <dt>to <dd>an array of objects from the To: line, with the following properties: personal, adl, mailbox, and host
@@ -1483,7 +1483,7 @@ function imap_listmailbox ($stream_id, $ref, $pattern) {}
  * &#x00027;&#37;&#x00027; as the <i>pattern</i>
  * parameter will return only the top level
  * mailboxes; &#x00027;~/mail/&#37;&#x00027; on UW_IMAPD will return every mailbox in the ~/mail directory, but none in subfolders of that directory.</p>
- * @return array an array of objects containing mailbox information. Each
+ * @return array|false an array of objects containing mailbox information. Each
  * object has the attributes <i>name</i>, specifying
  * the full name of the mailbox; <i>delimiter</i>,
  * which is the hierarchy delimiter for the part of the hierarchy
@@ -1557,7 +1557,7 @@ function imap_listsubscribed ($stream_id, $ref, $pattern) {}
  * &#x00027;&#37;&#x00027; as the <i>pattern</i>
  * parameter will return only the top level
  * mailboxes; &#x00027;~/mail/&#37;&#x00027; on UW_IMAPD will return every mailbox in the ~/mail directory, but none in subfolders of that directory.</p>
- * @return array an array of objects containing mailbox information. Each
+ * @return array|false an array of objects containing mailbox information. Each
  * object has the attributes <i>name</i>, specifying
  * the full name of the mailbox; <i>delimiter</i>,
  * which is the hierarchy delimiter for the part of the hierarchy
@@ -1586,7 +1586,7 @@ function imap_getsubscribed ($imap_stream, $ref, $pattern) {}
  * <li>FT_UID - The msg_number is a UID
  * <li>FT_PEEK - Do not set the \Seen flag if not already set
  * <li>FT_INTERNAL - The return string is in internal format, will not canonicalize to CRLF.</ul><p>
- * @return string body of the specified message
+ * @return string|false body of the specified message
  */
 function imap_fetchtext ($stream, $msg_no, $options = 0) {}
 

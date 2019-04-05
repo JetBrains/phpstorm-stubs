@@ -79,7 +79,7 @@ namespace Sodium;
      * @param string $nonce
      * @param string $key
      * @param string $ad additional data (optional)
-     * @return string
+     * @return string|false
      */
     function crypto_aead_aes256gcm_decrypt(
         string $msg,
@@ -682,7 +682,7 @@ namespace Sodium;
      * 
      * @param string $signed_message
      * @param string $publickey
-     * @return string
+     * @return string|false
      */
     function crypto_sign_open(
         string $signed_message,
@@ -815,7 +815,7 @@ namespace Sodium;
      * Generate a 16-bit integer
      * /dev/urandom
      * 
-     * @return int
+     * @return int|string
      */
     function randombytes_random16(): string {
         return '';

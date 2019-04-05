@@ -290,7 +290,7 @@ function ibase_free_query ($query) {}
  * @param string $generator 
  * @param int $increment [optional] 
  * @param resource $link_identifier [optional] 
- * @return mixed new generator value as integer, or as string if the value is too big.
+ * @return int|string new generator value as integer, or as string if the value is too big.
  * @since 5.0
  */
 function ibase_gen_id ($generator, $increment = null, $link_identifier = null) {}
@@ -520,7 +520,7 @@ function ibase_blob_cancel ($blob_handle) {}
  * A BLOB handle opened with ibase_blob_create or
  * ibase_blob_open.
  * </p>
- * @return mixed|false If the BLOB was being read, this function returns true on success, if
+ * @return string|bool If the BLOB was being read, this function returns true on success, if
  * the BLOB was being written to, this function returns a string containing
  * the BLOB id that has been assigned to it by the database. On failure, this
  * function returns false.

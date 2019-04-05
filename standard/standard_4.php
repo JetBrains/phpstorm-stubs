@@ -208,7 +208,7 @@ function var_dump ($expression, $_ = null) {}
  * the variable representation instead of outputing it.
  * </p>
  * &note.uses-ob;
- * @return mixed the variable representation when the return 
+ * @return null|string the variable representation when the return
  * parameter is used and evaluates to true. Otherwise, this function will
  * return &null;.
  * @since 4.2.0
@@ -240,7 +240,7 @@ function debug_zval_dump ($variable) {}
  * to true, print_r will return its output, instead of
  * printing it (which it does by default).
  * </p>
- * @return mixed If given a string, integer or float,
+ * @return string|true If given a string, integer or float,
  * the value itself will be printed. If given an array, values
  * will be presented in a format that shows keys and elements. Similar
  * notation is used for objects.
@@ -384,7 +384,7 @@ function highlight_string ($str, $return = false) {}
  * @link https://secure.php.net/manual/en/function.hrtime.php
  * @param bool $get_as_number <p>Whether the high resolution time should be returned as array or number.<p>
  * @since 7.3
- * @return mixed Returns an array of integers in the form [seconds, nanoseconds], if the parameter get_as_number is false.
+ * @return int[]|float|int Returns an array of integers in the form [seconds, nanoseconds], if the parameter get_as_number is false.
  * Otherwise the nanoseconds are returned as integer (64bit platforms) or float (32bit platforms).
  */
 function hrtime($get_as_number = FALSE) {}
@@ -410,11 +410,13 @@ function php_strip_whitespace ($filename) {}
 /**
  * Gets the value of a configuration option
  * @link https://php.net/manual/en/function.ini-get.php
+ *
  * @param string $varname <p>
  * The configuration option name.
  * </p>
- * @return string the value of the configuration option as a string on success, or
- * an empty string on failure or for null values.
+ *
+ * @return string|false Returns the value of the configuration option as a string on success, or
+ * an empty string for null values. Returns FALSE if the configuration option doesn't exist.
  * @since 4.0
  * @since 5.0
  */
@@ -512,7 +514,7 @@ function get_include_path () {}
  * @param string $new_include_path <p>
  * The new value for the include_path
  * </p>
- * @return string|bool the old include_path on
+ * @return string|false the old include_path on
  * success or false on failure.
  * @since 4.3.0
  * @since 5.0
@@ -704,7 +706,7 @@ function headers_sent (&$file = null, &$line = null) {}
 /**
  * Returns a list of response headers sent (or ready to send)
  * @link https://php.net/manual/en/function.headers-list.php
- * @return array a numerically indexed array of headers.
+ * @return string[] a numerically indexed array of headers.
  * @since 5.0
  */
 function headers_list () {}
@@ -845,7 +847,7 @@ function net_get_interfaces() {}
  * @param string $ip_address <p>
  * The host IP address.
  * </p>
- * @return string the host name or the unmodified ip_address
+ * @return string|false the host name or the unmodified ip_address
  * on failure.
  * @since 4.0
  * @since 5.0
@@ -1000,7 +1002,7 @@ function getmxrr ($hostname, array &$mxhosts, array &$weight = null) {}
  * In case of raw mode, we query only the requested type
  * instead of looping type by type before going with the additional info stuff.
  * </p>
- * @return array This function returns an array of associative arrays. Each associative array contains
+ * @return array|false This function returns an array of associative arrays. Each associative array contains
  * at minimum the following keys:
  * <table>
  * Basic DNS attributes

@@ -24,6 +24,18 @@ class StubsTest extends TestCase
     public static function setUpBeforeClass()
     {
         self::$call_map_vimeo_psalm = include __DIR__ . '/../vendor/vimeo/psalm/src/Psalm/Internal/CallMap.php';
+
+        $call_map_vimeo_psalm_7_1 = include __DIR__ . '/../vendor/vimeo/psalm/src/Psalm/Internal/CallMap_71_delta.php';
+        self::$call_map_vimeo_psalm += $call_map_vimeo_psalm_7_1['new'];
+
+        $call_map_vimeo_psalm_7_2 = include __DIR__ . '/../vendor/vimeo/psalm/src/Psalm/Internal/CallMap_72_delta.php';
+        self::$call_map_vimeo_psalm += $call_map_vimeo_psalm_7_2['new'];
+
+        $call_map_vimeo_psalm_7_3 = include __DIR__ . '/../vendor/vimeo/psalm/src/Psalm/Internal/CallMap_73_delta.php';
+        self::$call_map_vimeo_psalm += $call_map_vimeo_psalm_7_3['new'];
+
+        $call_map_vimeo_psalm_7_4 = include __DIR__ . '/../vendor/vimeo/psalm/src/Psalm/Internal/CallMap_74_delta.php';
+        self::$call_map_vimeo_psalm += $call_map_vimeo_psalm_7_4['new'];
     }
 
     /**
@@ -315,37 +327,84 @@ class StubsTest extends TestCase
     }
 
     /**
+     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodProvider
+     * @param string $methodName
+     * @param PHPMethod $method
+     * @throws InvalidArgumentException
+     */
+    public function testMethodsReturnPHPDocs(string $methodName, PHPMethod $method): void
+    {
+        if ($methodName === '__construct') {
+            return;
+        }
+
+        // init
+        $methodNameWithClass = $method->parentName . '::' . $methodName;
+
+        // TODO ...
+    }
+
+    /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubFunctionProvider
      * @param PHPFunction $function
      * @throws InvalidArgumentException
      */
-    public function testReturnPHPDocs(PHPFunction $function): void
+    public function testFunctionReturnPHPDocs(PHPFunction $function): void
     {
+        // init
         $functionName = $function->name;
 
-        if (isset(self::$call_map_vimeo_psalm[$functionName])) {
-            $returnType = self::$call_map_vimeo_psalm[$functionName][0];
-            if (is_array($function->returnType)) {
-                $returnTypeFromPhpDoc = implode('|', $function->returnType);
-            } else {
-                $returnTypeFromPhpDoc = $function->returnType;
-            }
+        $ignoreErrors = [
+            'abs', // return type depends on parameter usage
+            'ceil', // "ceil() is still of type float as the value range of float is usually bigger than that of integer"?
+            'version_compare', // return type depends on parameter usage
+            'microtime', // return type depends on parameter usage
+            'getenv', // return type depends on parameter usage
+            'fscanf', // return type depends on parameter usage
+            'print_r', // return type depends on parameter usage
+            'hrtime', // return type depends on parameter usage
+            'gettimeofday', // return type depends on parameter usage
+            'apc_store', // return type depends on parameter usage
+            'apc_delete', // return type depends on parameter usage
+            'apc_add', // return type depends on parameter usage
+            'apc_exists', // return type depends on parameter usage
+            'apcu_store', // return type depends on parameter usage
+            'apcu_delete', // return type depends on parameter usage
+            'apcu_add', // return type depends on parameter usage
+            'apcu_exists', // return type depends on parameter usage
+        ];
+        if (in_array($functionName, $ignoreErrors, true)) {
+            static::assertTrue(true);
 
-            if ($function->returnType) {
-                static::assertSame(
-                    ltrim($returnType, '\\'),
-                    ltrim($returnTypeFromPhpDoc, '\\'),
-                    $functionName . ': Failed asserting that "' . $returnType . '" === "' . $returnTypeFromPhpDoc . '"'
+            return;
+        }
+
+        if (!$function->returnType) {
+            static::markTestSkipped('TODO: no return data found in phpdoc: ' . $functionName . ' | ' . print_r($function, true));
+
+            return;
+        }
+
+        if (isset(self::$call_map_vimeo_psalm[$functionName])) {
+            $returnTypeFromPsalm = $this->getTypeFromPsalm($functionName);
+            $returnTypeFromPhpDoc = $this->getTypeFromPhpFunction($function);
+
+            if ($returnTypeFromPhpDoc) {
+                static::assertEquals(
+                    $returnTypeFromPsalm,
+                    $returnTypeFromPhpDoc,
+                    $functionName . ': Failed asserting that (psalm-data) "' . print_r($returnTypeFromPsalm, true) . '" == (phpdoc-data) "' . print_r($returnTypeFromPhpDoc, true) . '"'
                 );
 
                 return;
             }
 
-            // TODO
-            var_dump('TODO? ' . $functionName . ': return type is missing? ' . print_r(self::$call_map_vimeo_psalm[$functionName], true));
+            static::markTestSkipped('TODO: ' . $functionName . ': return type is missing? | psalm-data: ' . print_r(self::$call_map_vimeo_psalm[$functionName], true) . ' | phpdoc-data: ' . print_r($function));
+
+            return;
         }
 
-        static::markTestSkipped('no return type found: ' . $functionName);
+        static::markTestSkipped('TODO: no return data found in psalm: ' . $functionName);
     }
 
     private static function getParameterRepresentation(PHPFunction $function): string
@@ -389,5 +448,93 @@ class StubsTest extends TestCase
                 static::assertStringStartsWith('https', $see, "In $elementName @see doesn't start with https");
             }
         }
+    }
+
+    /**
+     * @param string $returnTypeFromPsalm
+     *
+     * @return string
+     */
+    private function convertPsalmTypeHelper(string $returnTypeFromPsalm): string
+    {
+        // hack for "OCI-Lob" != "OCI_Lob"
+        $returnTypeFromPsalm = str_replace('OCI-', 'OCI_', $returnTypeFromPsalm);
+
+        if ($returnTypeFromPsalm === '') {
+            return 'mixed';
+        }
+
+        if ($returnTypeFromPsalm === 'class-string') {
+            return 'string';
+        }
+
+        if (preg_match('/array{.*}/', $returnTypeFromPsalm)) {
+            return 'array';
+        }
+
+        preg_match('/array<.*?,(?<type>.*)>/', $returnTypeFromPsalm, $outputTmp);
+        if ($outputTmp && count($outputTmp) > 0) {
+            if (strpos($outputTmp['type'], 'array') !== false) {
+                return 'array';
+            }
+
+            $returnTmp = $outputTmp['type'] . '[]';
+            if ($returnTmp === 'mixed[]') {
+                return 'array';
+            }
+
+            return $returnTmp;
+        }
+
+        preg_match('/\?(?<type>.*)/', $returnTypeFromPsalm, $outputTmp);
+        if ($outputTmp && count($outputTmp) > 0) {
+            return $outputTmp['type'] . '|null';
+        }
+
+        return $returnTypeFromPsalm;
+    }
+
+    private function getTypeFromPsalm(string $functionName): array
+    {
+        $returnTypeFromPsalmInput = ltrim(self::$call_map_vimeo_psalm[$functionName][0], '\\');
+
+        preg_match_all('/(?:[^<|]|<[^>]*>)+/', $returnTypeFromPsalmInput, $returnTypeFromPsalm);
+        $returnTypeFromPsalm = $returnTypeFromPsalm[0];
+        foreach ($returnTypeFromPsalm as &$retrunTmp) {
+            $retrunTmp = $this->convertPsalmTypeHelper($retrunTmp);
+        }
+        unset($retrunTmp);
+        /* the inner empty array covers cases when no loops were made */
+        $returnTypeFromPsalmInner = [];
+        foreach ($returnTypeFromPsalm as $key => &$retrunTmp) {
+            if (strpos($retrunTmp, '|') !== false) {
+                unset($returnTypeFromPsalm[$key]);
+                $returnTypeFromPsalmInner[] = explode('|', $retrunTmp);
+            }
+        }
+        unset($retrunTmp);
+
+        $returnTypeFromPsalm = array_unique(array_merge($returnTypeFromPsalm, ...$returnTypeFromPsalmInner));
+        sort($returnTypeFromPsalm);
+
+        return $returnTypeFromPsalm;
+    }
+
+    /**
+     * @param \StubTests\Model\PHPFunction $function
+     *
+     * @return array
+     */
+    private function getTypeFromPhpFunction(PHPFunction $function): array
+    {
+        $returnTypeFromPhpDoc = explode('|', ltrim($function->returnType, '\\'));
+        foreach ($returnTypeFromPhpDoc as &$returnTypeFromPhpDocTmp) {
+            $returnTypeFromPhpDocTmp = ltrim($returnTypeFromPhpDocTmp, '\\');
+        }
+        unset($returnTypeFromPhpDocTmp);
+
+        sort($returnTypeFromPhpDoc);
+
+        return $returnTypeFromPhpDoc;
     }
 }

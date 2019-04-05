@@ -70,7 +70,7 @@
  * When set to <b>TRUE</b> the thumbnail itself is read. Otherwise, only the
  * tagged data is read.
  * </p>
- * @return array It returns an associative array where the array indexes are
+ * @return array|false It returns an associative array where the array indexes are
  * the header names and the array values are the values associated with
  * those headers. If no data can be returned,
  * <b>exif_read_data</b> will return <b>FALSE</b>.

@@ -23,6 +23,14 @@
   "autoload-dev": {
     "psr-4": {
       "StubTests\\": "tests/"
-    }
+    },
+    "files": [
+      "tests/Model/types/ArrayArray.php",
+      "tests/Model/types/ArrayFloat.php",
+      "tests/Model/types/ArrayInt.php",
+      "tests/Model/types/ArrayString.php",
+      "tests/Model/types/BooleanFalse.php",
+      "tests/Model/types/BooleanTrue.php"
+    ]
   }
 }

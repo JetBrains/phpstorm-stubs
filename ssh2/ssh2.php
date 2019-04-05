@@ -231,7 +231,7 @@ function ssh2_fingerprint ($session, $flags = null) {}
  * @param string $username <p>
  * Remote user name.
  * </p>
- * @return mixed true if the server does accept "none" as an authentication
+ * @return string[]|true true if the server does accept "none" as an authentication
  * method, or an array of accepted authentication methods on failure.
  */
 function ssh2_auth_none ($session, $username) {}
@@ -531,7 +531,7 @@ function ssh2_sftp_rmdir ($sftp, $dirname) {}
  * </p>
  * @param string $path <p>
  * </p>
- * @return array See the documentation for stat for details on the
+ * @return array|false See the documentation for stat for details on the
  * values which may be returned.
  */
 function ssh2_sftp_stat ($sftp, $path) {}
@@ -599,7 +599,7 @@ function ssh2_sftp_realpath ($sftp, $filename) {}
  * @link https://php.net/manual/en/function.ssh2-publickey-init.php
  * @param resource $session <p>
  * </p>
- * @return resource an SSH2 Publickey Subsystem resource for use
+ * @return resource|false an SSH2 Publickey Subsystem resource for use
  * with all other ssh2_publickey_*() methods or false on failure.
  */
 function ssh2_publickey_init ($session) {}

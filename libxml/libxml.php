@@ -8,7 +8,7 @@
  * xmlError API documentation.
  * @link https://php.net/manual/en/class.libxmlerror.php
  */
-class LibXMLError  {
+class libXMLError  {
 	/**
 	 * <p style="margin-top:0;">
 	 * the severity of the error (one of the following constants:
@@ -87,7 +87,7 @@ function libxml_use_internal_errors ($use_errors = false) {}
 /**
  * Retrieve last error from libxml
  * @link https://php.net/manual/en/function.libxml-get-last-error.php
- * @return LibXMLError a LibXMLError object if there is any error in the
+ * @return libXMLError|false a libXMLError object if there is any error in the
  * buffer, <b>FALSE</b> otherwise.
  * @since 5.1.0
  */
@@ -104,7 +104,7 @@ function libxml_clear_errors () {}
 /**
  * Retrieve array of errors
  * @link https://php.net/manual/en/function.libxml-get-errors.php
- * @return array an array with LibXMLError objects if there are any
+ * @return libXMLError[] an array with libXMLError objects if there are any
  * errors in the buffer, or an empty array otherwise.
  * @since 5.1.0
  */
@@ -132,7 +132,7 @@ function libxml_disable_entity_loader ($disable = true) {}
  * This callback should return a resource, a string from which a resource can be
  * opened, or <b>NULL</b>.
  * </p>
- * @return void No value is returned.
+ * @return bool
  * @since 5.4.0
  */
 function libxml_set_external_entity_loader (callable $resolver_function) {}

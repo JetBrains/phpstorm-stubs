@@ -71,7 +71,7 @@ function pspell_new ($language, $spelling = null, $jargon = null, $encoding = nu
  * The mode in which spellchecker will work. There are several modes available:
  * <b>PSPELL_FAST</b> - Fast mode (least number of
  * suggestions)
- * @return int the dictionary link identifier for use in other pspell functions.
+ * @return int|false the dictionary link identifier for use in other pspell functions.
  * @since 4.0.2
  * @since 5.0
  */
@@ -84,7 +84,7 @@ function pspell_new_personal ($personal, $language, $spelling = null, $jargon = 
  * The <i>config</i> parameter is the one returned by
  * <b>pspell_config_create</b> when the config was created.
  * </p>
- * @return int a dictionary link identifier on success.
+ * @return int|false a dictionary link identifier on success.
  * @since 4.0.2
  * @since 5.0
  */

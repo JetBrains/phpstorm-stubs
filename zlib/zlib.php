@@ -13,7 +13,7 @@
  * You can set this optional parameter to 1, if you
  * want to search for the file in the include_path too.
  * </p>
- * @return int the number of (uncompressed) bytes read from the file. If
+ * @return int|false the number of (uncompressed) bytes read from the file. If
  * an error occurs, <b>FALSE</b> is returned and unless the function was
  * called as @readgzfile, an error message is
  * printed.
@@ -166,7 +166,7 @@ function gzopen ($filename, $mode, $use_include_path = 0) {}
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
  * </p>
- * @return int The number of uncompressed characters read from <i>gz</i>
+ * @return int|false The number of uncompressed characters read from <i>gz</i>
  * and passed through to the input, or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
@@ -424,7 +424,7 @@ function zlib_decode ($data, $max_decoded_len = null) {}
 /**
  * Returns the coding type used for output compression
  * @link https://php.net/manual/en/function.zlib-get-coding-type.php
- * @return string Possible return values are gzip, deflate,
+ * @return string|false Possible return values are gzip, deflate,
  * or <b>FALSE</b>.
  * @since 4.3.2
  * @since 5.0
@@ -436,7 +436,7 @@ function zlib_get_coding_type () {}
  * @link https://php.net/manual/en/function.ob-gzhandler.php
  * @param string $buffer
  * @param int $mode
- * @return string
+ * @return string|false
  * @since 4.0.4
  * @since 5.0
  */
@@ -457,7 +457,7 @@ function ob_gzhandler ($buffer, $mode) {}
  * <b>ZLIB_RLE</b>, <b>ZLIB_FIXED</b> or <b>ZLIB_DEFAULT_STRATEGY</b> (the
  * default). <b>dictionary</b>A string or an array of strings of the preset
  * dictionary (default: no preset dictionary).</p>
- * @return resource <p>
+ * @return resource|false <p>
  * Returns a deflate context resource (zlib.deflate) on success, or
  * <b>FALSE</b> on failure.
  * </p>
@@ -503,7 +503,7 @@ function deflate_add ($context, $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
  * <b>ZLIB_RLE</b>, <b>ZLIB_FIXED</b> or <b>ZLIB_DEFAULT_STRATEGY</b> (the
  * default). <b>dictionary</b>A string or an array of strings of the preset
  * dictionary (default: no preset dictionary).</p>
- * @return resource <p>
+ * @return resource|false <p>
  * Returns an inflate context resource (zlib.inflate) on success, or
  * <b>FALSE</b> on failure.
  * </p>
@@ -536,14 +536,14 @@ function inflate_add ($context, $encoded_data, $flush_mode = ZLIB_SYNC_FLUSH) {}
 
 /**
  * @param resource $context
- * @return bool
+ * @return int|false
  * @since 7.2
  */
 function inflate_get_read_len ($context){}
 
 /**
  * @param resource $context
- * @return bool
+ * @return int|false
  * @since 7.2
  */
 function  inflate_get_status($context) {}

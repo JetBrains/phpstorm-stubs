@@ -34,7 +34,7 @@ function xmlrpc_decode ($xml, $encoding = "iso-8859-1") {}
  * @param string $xml
  * @param string $method
  * @param string $encoding [optional]
- * @return mixed
+ * @return array|null
  * @since 4.1.0
  * @since 5.0
  */

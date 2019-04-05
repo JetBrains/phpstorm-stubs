@@ -1348,7 +1348,7 @@ function sqlsrv_fetch_array($stmt, $fetch_type = null, $row=null, $offset=null){
  * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.
  * @param int|null $offset [optional] Used with SQLSRV_SCROLL_ABSOLUTE and SQLSRV_SCROLL_RELATIVE to specify the row to
  * retrieve. The first record in the result set is 0.
- * @return object|false|null A PHP object with properties that correspond to result set field names. Property values are
+ * @return object|null|false A PHP object with properties that correspond to result set field names. Property values are
  * populated with the corresponding result set field values. If the class specified with the optional $className
  * parameter does not exist or if there is no active result set associated with the specified statement, false is
  * returned. If there are no more rows to retrieve, null is returned.<br /><br />

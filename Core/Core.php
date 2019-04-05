@@ -636,7 +636,7 @@ function user_error ($message, $error_type) {}
  * <i>error_handler</i> will be called for every error
  * regardless to the setting of the error_reporting setting.
  * </p>
- * @return mixed a string containing the previously defined error handler (if any). If
+ * @return callable|null a string containing the previously defined error handler (if any). If
  * the built-in error handler is used null is returned. null is also returned
  * in case of an error such as an invalid callback. If the previous error handler
  * was a class method, this function will return an indexed array with the class
@@ -666,7 +666,7 @@ function restore_error_handler () {}
  * was thrown.
  * NULL may be passed instead, to reset this handler to its default state.
  * </p>
- * @return callable|null the name of the previously defined exception handler, or null on error. If
+ * @return callable(Throwable):void|null the name of the previously defined exception handler, or null on error. If
  * no previous handler was defined, null is also returned.
  * @since 5.0
  */
@@ -683,7 +683,7 @@ function restore_exception_handler () {}
 /**
  * Returns an array with the name of the defined classes
  * @link https://php.net/manual/en/function.get-declared-classes.php
- * @return array an array of the names of the declared classes in the current
+ * @return string[] an array of the names of the declared classes in the current
  * script.
  * </p>
  * <p>
@@ -700,7 +700,7 @@ function get_declared_classes () {}
 /**
  * Returns an array of all declared interfaces
  * @link https://php.net/manual/en/function.get-declared-interfaces.php
- * @return array an array of the names of the declared interfaces in the current
+ * @return string[] an array of the names of the declared interfaces in the current
  * script.
  * @since 5.0
  */
@@ -780,7 +780,7 @@ function get_resource_type ($handle) {}
  * Only return Zend extensions, if not then regular extensions, like
  * mysqli are listed. Defaults to false (return regular extensions).
  * </p>
- * @return array an indexed array of all the modules names.
+ * @return string[] an indexed array of all the modules names.
  * @since 4.0
  * @since 5.0
  */

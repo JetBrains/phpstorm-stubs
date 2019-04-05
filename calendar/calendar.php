@@ -228,7 +228,7 @@ function unixtojd ($timestamp = 0) {}
  * @param int $jday <p>
  * A julian day number between 2440588 and 2465342.
  * </p>
- * @return int The unix timestamp for the start of the given julian day.
+ * @return int|false The unix timestamp for the start of the given julian day.
  * @since 4.0
  * @since 5.0
  */

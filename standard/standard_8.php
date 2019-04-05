@@ -112,15 +112,6 @@ function getimagesizefromstring ($imagedata , array &$imageinfo = null) {}
 function stream_set_chunk_size ($fp , $chunk_size) {}
 
 /**
- * PHP > 5.4.0<br/>
- * Import a stream.
- * @link https://secure.php.net/manual/en/function.socket-import-stream.php
- * @param resource $stream The stream resource to import.
- * @return void|bool|null Returns <b>FALSE</b> or <b>NULL</b> on failure.
- */
-function socket_import_stream ($stream) {}
-
-/**
  * Initializes all syslog related variables
  * @link https://php.net/manual/en/function.define-syslog-variables.php
  * @deprecated 5.3
@@ -228,7 +219,7 @@ function ob_start ($output_callback = null, $chunk_size = null, $erase = null) {
 /**
  * Flush (send) the output buffer
  * @link https://php.net/manual/en/function.ob-flush.php
- * @return void 
+ * @return bool
  * @since 4.2.0
  * @since 5.0
  */
@@ -237,7 +228,7 @@ function ob_flush () {}
 /**
  * Clean (erase) the output buffer
  * @link https://php.net/manual/en/function.ob-clean.php
- * @return void 
+ * @return bool
  * @since 4.2.0
  * @since 5.0
  */
@@ -396,7 +387,7 @@ function ob_implicit_flush ($flag = 1) {}
 /**
  * List all output handlers in use
  * @link https://php.net/manual/en/function.ob-list-handlers.php
- * @return array This will return an array with the output handlers in use (if any). If
+ * @return array|false This will return an array with the output handlers in use (if any). If
  * output_buffering is enabled or
  * an anonymous function was used with ob_start,
  * ob_list_handlers will return "default output
@@ -978,25 +969,39 @@ function range ($start, $end, $step = 1) {}
 /**
  * Sort multiple or multi-dimensional arrays
  * @link https://php.net/manual/en/function.array-multisort.php
- * @param array $arr <p>
+ *
+ * @param array $rw_array1 <p>
  * An array being sorted.
  * </p>
- * @param mixed $arg [optional] <p>
- * Optionally another array, or sort options for the
- * previous array argument: 
- * SORT_ASC, 
- * SORT_DESC, 
- * SORT_REGULAR,
- * SORT_NUMERIC,
- * SORT_STRING.
+ * @param array|int $array1_sort_order [opional] <p>
+ * Optionally another array, or sort order for the
+ * previous array argument:<br>
+ * <ul>
+ * <li><b>SORT_ASC</b> - to sort ascendingly</li>
+ * <li><b>SORT_DESC</b> - to sort descendingly</li>
+ * </ul>
  * </p>
- * @param mixed $arg [optional] 
- * @param mixed $_ [optional] 
+ * @param array|int array1_sort_flags, [optional]
+ * Optionally another array, or sort flags for the
+ * previous array argument:<br>
+ * <ul>
+ * <li><b>SORT_REGULAR</b> - compare items normally (don't change types)</li>
+ * <li><b>SORT_NUMERIC</b> - compare items numerically</li>
+ * <li><b>SORT_STRING</b> - compare items as strings</li>
+ * <li><b>SORT_LOCALE_STRING</b> - compare items as strings, based on the current locale.
+ *                        It uses the locale, which can be changed using setlocale()
+ * </li>
+ * <li><b>SORT_NATURAL</b> - compare items as strings using "natural ordering" like natsort()</li>
+ * <li><b>SORT_FLAG_CASE</b> - can be combined (bitwise OR) with SORT_STRING or SORT_NATURAL
+ *                     to sort strings case-insensitively</li>
+ * </ul>
+ * @param array|int ...$_ [optional]
+ *
  * @return bool true on success or false on failure.
  * @since 4.0
  * @since 5.0
  */
-function array_multisort (array &$arr, $arg = null, $arg = null, $_ = null) {}
+function array_multisort (array &$rw_array1, $array1_sort_order, $array1_sort_flags, ...$_) {}
 
 /**
  * Push elements onto the end of array

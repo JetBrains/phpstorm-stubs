@@ -299,7 +299,7 @@ function ldap_count_entries ($link_identifier, $result_identifier) {}
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
  * @param resource $result_identifier
- * @return resource the result entry identifier for the first entry on success and
+ * @return resource|false the result entry identifier for the first entry on success and
  * <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
@@ -328,7 +328,7 @@ function ldap_next_entry ($link_identifier, $result_entry_identifier) {}
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
  * @param resource $result_identifier
- * @return array a complete result information in a multi-dimensional array on
+ * @return array|false a complete result information in a multi-dimensional array on
  * success and <b>FALSE</b> on error.
  * </p>
  * <p>
@@ -386,7 +386,7 @@ function ldap_next_attribute ($link_identifier, $result_entry_identifier) {}
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
  * @param resource $result_entry_identifier
- * @return array a complete entry information in a multi-dimensional array
+ * @return array|false a complete entry information in a multi-dimensional array
  * on success and <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
@@ -460,7 +460,7 @@ function ldap_get_dn ($link_identifier, $result_entry_identifier) {}
  * attribute=value format) set <i>with_attrib</i> to 0
  * and to get only values set it to 1.
  * </p>
- * @return array an array of all DN components.
+ * @return array|false an array of all DN components.
  * The first element in this array has count key and
  * represents the number of returned values, next elements are numerically
  * indexed DN components.
@@ -638,7 +638,7 @@ function ldap_error ($link_identifier) {}
  * @param string $value <p>
  * The compared value.
  * </p>
- * @return mixed <b>TRUE</b> if <i>value</i> matches otherwise returns
+ * @return bool|int <b>TRUE</b> if <i>value</i> matches otherwise returns
  * <b>FALSE</b>. Returns -1 on error.
  * @since 4.0.2
  * @since 5.0
@@ -872,7 +872,7 @@ function ldap_set_option ($link_identifier, $option, $newval) {}
  * @link https://php.net/manual/en/function.ldap-first-reference.php
  * @param resource $link
  * @param resource $result
- * @return resource
+ * @return resource|false
  * @since 4.0.5
  * @since 5.0
  */
@@ -883,7 +883,7 @@ function ldap_first_reference ($link, $result) {}
  * @link https://php.net/manual/en/function.ldap-next-reference.php
  * @param resource $link
  * @param resource $entry
- * @return resource
+ * @return resource|false
  * @since 4.0.5
  * @since 5.0
  */

@@ -652,7 +652,7 @@ function event_timer_new() {}
  * Optional callback parameter.
  * </p>
  *
- * @return void
+ * @return bool
  */
 function event_timer_set($event, $callback, $arg = null) {}
 

@@ -207,7 +207,7 @@ function session_destroy () {}
 /**
  * Free all session variables
  * @link https://php.net/manual/en/function.session-unset.php
- * @return void
+ * @return bool
  * @since 4.0
  * @since 5.0
  */
@@ -383,7 +383,7 @@ function session_cache_expire ($new_cache_expire = null) {}
  * httponly
  * flag when setting the session cookie.
  * </p>
- * @return void
+ * @return bool
  * @since 4.0
  * @since 5.0
  */
@@ -412,7 +412,7 @@ function session_get_cookie_params () {}
 /**
  * Write session data and end session
  * @link https://php.net/manual/en/function.session-write-close.php
- * @return void
+ * @return bool
  * @since 4.0.4
  * @since 5.0
  */

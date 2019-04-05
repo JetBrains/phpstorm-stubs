@@ -1316,7 +1316,7 @@ function phpinfo ($what = null) {}
  * @param string $extension [optional] <p>
  * An optional extension name.
  * </p>
- * @return string If the optional extension parameter is
+ * @return string|false If the optional extension parameter is
  * specified, phpversion returns the version of that
  * extension, or false if there is no version information associated or
  * the extension isn't enabled.
@@ -1632,7 +1632,7 @@ function strcspn ($str1, $str2, $start = null, $length = null) {}
  * @param string $token <p>
  * The delimiter used when splitting up str.
  * </p>
- * @return string A string token.
+ * @return string|false A string token.
  * @since 4.0
  * @since 5.0
  */

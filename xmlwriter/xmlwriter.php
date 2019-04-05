@@ -517,11 +517,11 @@ class XMLWriter  {
  * @param string $uri <p>
  * The URI of the resource for the output.
  * </p>
- * @return bool Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return resource Returns a new xmlwriter resource for later use with the
+ * xmlwriter functions on success, <b>FALSE</b> on error.
  * </p>
  * <p>
- * Procedural style: Returns a new xmlwriter resource for later use with the
- * xmlwriter functions on success, <b>FALSE</b> on error.
+ * Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function xmlwriter_open_uri ($uri) {}
 
@@ -529,11 +529,11 @@ function xmlwriter_open_uri ($uri) {}
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Create new xmlwriter using memory for string output
  * @link https://php.net/manual/en/function.xmlwriter-open-memory.php
- * @return bool Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return resource Returns a new xmlwriter resource for later use with the
+ * xmlwriter functions on success, <b>FALSE</b> on error.
  * </p>
  * <p>
- * Procedural style: Returns a new xmlwriter resource for later use with the
- * xmlwriter functions on success, <b>FALSE</b> on error.
+ * Object oriented style: Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function xmlwriter_open_memory () {}
 

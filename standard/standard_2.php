@@ -455,7 +455,7 @@ function sscanf ($str, $format, &...$_) {}
  * sprintf documentation.
  * </p>
  * @param mixed $_ [optional] 
- * @return mixed If only two parameters were passed to this function, the values parsed will be
+ * @return array|int If only two parameters were passed to this function, the values parsed will be
  * returned as an array. Otherwise, if optional parameters are passed, the
  * function will return the number of assigned values. The optional
  * parameters must be passed by reference.
@@ -1059,7 +1059,7 @@ function getservbyname ($service, $protocol) {}
  * protocol is either "tcp"
  * or "udp" (in lowercase).
  * </p>
- * @return string the Internet service name as a string.
+ * @return string|false the Internet service name as a string.
  * @since 4.0
  * @since 5.0
  */
@@ -1071,7 +1071,7 @@ function getservbyport ($port, $protocol) {}
  * @param string $name <p>
  * The protocol name.
  * </p>
- * @return int the protocol number or -1 if the protocol is not found.
+ * @return int|false the protocol number or -1 if the protocol is not found.
  * @since 4.0
  * @since 5.0
  */

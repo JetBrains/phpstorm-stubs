@@ -777,7 +777,7 @@ function ftruncate ($handle, $size) {}
  * Gets information about a file using an open file pointer
  * @link https://php.net/manual/en/function.fstat.php
  * @param resource $handle &fs.file.pointer;
- * @return array an array with the statistics of the file; the format of the array
+ * @return array|false an array with the statistics of the file; the format of the array
  * is described in detail on the stat manual page.
  * @since 4.0
  * @since 5.0
@@ -1015,7 +1015,7 @@ function tmpfile () {}
  * <p>
  * &note.context-support;
  * </p>
- * @return array|false the file in an array. Each element of the array corresponds to a
+ * @return string[]|false the file in an array. Each element of the array corresponds to a
  * line in the file, with the newline still attached. Upon failure,
  * file returns false.
  * </p>

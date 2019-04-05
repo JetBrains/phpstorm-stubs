@@ -115,7 +115,7 @@ function hash_hmac_file ($algo, $filename, $key, $raw_output = false) {}
  * a shared secret key to be used with the HMAC hashing method must be supplied in this
  * parameter.
  * </p>
- * @return resource a Hashing Context resource for use with <b>hash_update</b>,
+ * @return HashContext a Hashing Context resource for use with <b>hash_update</b>,
  * <b>hash_update_stream</b>, <b>hash_update_file</b>,
  * and <b>hash_final</b>.
  */
@@ -193,7 +193,7 @@ function hash_final ($context, $raw_output = false) {}
  * @param resource $context <p>
  * Hashing context returned by <b>hash_init</b>.
  * </p>
- * @return resource a copy of Hashing Context resource.
+ * @return HashContext a copy of Hashing Context resource.
  * @since 5.3.0
  */
 function hash_copy ($context) {}
@@ -245,7 +245,7 @@ function hash_hmac_algos() {}
  * @param $iterations
  * @param $length [optional]
  * @param $raw_output [optional]
- * @return mixed a string containing the derived key as lowercase hexits unless
+ * @return string a string containing the derived key as lowercase hexits unless
  * <i>raw_output</i> is set to <b>TRUE</b> in which case the raw
  * binary representation of the derived key is returned.
  * @since 5.5.0

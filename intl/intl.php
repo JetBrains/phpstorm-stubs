@@ -3471,7 +3471,7 @@ function numfmt_format(NumberFormatter $fmt, $value, $type = null) { }
  * Offset in the string at which to begin parsing. On return, this value
  * will hold the offset at which parsing ended.
  * </p>
- * @return mixed|false The value of the parsed number or <b>FALSE</b> on error.
+ * @return float|int|false The value of the parsed number or <b>FALSE</b> on error.
  */
 function numfmt_parse(NumberFormatter $fmt, $value, $type = null, &$position = null) { }
 
@@ -3486,7 +3486,7 @@ function numfmt_parse(NumberFormatter $fmt, $value, $type = null, &$position = n
  * @param string $currency <p>
  * The 3-letter ISO 4217 currency code indicating the currency to use.
  * </p>
- * @return string String representing the formatted currency value.
+ * @return string|false String representing the formatted currency value.
  */
 function numfmt_format_currency(NumberFormatter $fmt, $value, $currency) { }
 
@@ -3737,7 +3737,7 @@ function locale_get_region($locale) { }
  * @param string $locale <p>
  * The locale to extract the keywords from
  * </p>
- * @return array Associative array containing the keyword-value pairs for this locale
+ * @return array|false Associative array containing the keyword-value pairs for this locale
  */
 function locale_get_keywords($locale) { }
 
@@ -3835,7 +3835,7 @@ function locale_get_display_variant($locale, $in_locale = null) { }
  * (e.g. 'variant0', 'variant1', etc.).
  * </p>
  * </p>
- * @return string The corresponding locale identifier.
+ * @return string|false The corresponding locale identifier.
  */
 function locale_compose(array $subtags) { }
 
@@ -3921,7 +3921,7 @@ function locale_lookup(array $langtag, $locale, $canonicalize = false, $default 
  * @param string $header <p>
  * The string containing the "Accept-Language" header according to format in RFC 2616.
  * </p>
- * @return string The corresponding locale identifier.
+ * @return string|false The corresponding locale identifier.
  */
 function locale_accept_from_http($header) { }
 
@@ -4255,7 +4255,7 @@ function datefmt_is_lenient(MessageFormatter $mf) { }
  * @param bool $lenient <p>
  * Sets whether the parser is lenient or not, default is <b>TRUE</b> (lenient).
  * </p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return bool|null <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function datefmt_set_lenient(MessageFormatter $mf, $lenient) { }
 
@@ -4315,7 +4315,7 @@ function datefmt_format_object($object, $format = NULL, $locale = NULL) { }
  * This variable will contain the end position if the parse fails.
  * If $parse_pos > strlen($value), the parse fails immediately.
  * </p>
- * @return int timestamp parsed value
+ * @return int|false timestamp parsed value
  */
 function datefmt_parse(MessageFormatter $mf, $value, &$position = null) { }
 
@@ -4333,7 +4333,7 @@ function datefmt_parse(MessageFormatter $mf, $value, &$position = null) { }
  * otherwise it will contain the position at which parsing ended .
  * If $parse_pos > strlen($value), the parse fails immediately.
  * </p>
- * @return array Localtime compatible array of integers : contains 24 hour clock value in tm_hour field
+ * @return array|false Localtime compatible array of integers : contains 24 hour clock value in tm_hour field
  */
 function datefmt_localtime(MessageFormatter $mf, $value, &$position = null) { }
 
@@ -4363,7 +4363,7 @@ function datefmt_get_error_message(MessageFormatter $mf, $coll) { }
  * @param string $input <p>
  * The string being measured for length. It must be a valid UTF-8 string.
  * </p>
- * @return int The length of the string on success, and 0 if the string is empty.
+ * @return int|false The length of the string on success, and 0 if the string is empty.
  */
 function grapheme_strlen($input) { }
 
@@ -4543,7 +4543,7 @@ function grapheme_stristr($haystack, $needle, $before_needle = false) { }
  * Reference to a value that will be set to the next starting position.
  * When the call returns, this may point to the first byte position past the end of the string.
  * </p>
- * @return string A string starting at offset $start and ending on a default grapheme cluster
+ * @return string|false A string starting at offset $start and ending on a default grapheme cluster
  * boundary that conforms to the $size and $extract_type specified.
  */
 function grapheme_extract($haystack, $size, $extract_type = null, $start = 0, &$next = null) { }
@@ -5233,8 +5233,7 @@ function intlcal_is_set($calendar, $field) { }
  * values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
- * @return string
- * A locale string or <b>FALSE</b> on failure.
+ * @return int|false
  */
 function intlcal_get_maximum($calendar, $field) { }
 
@@ -5668,7 +5667,7 @@ function intlgregcal_is_leap_year($year) { }
  * @param bool $fallback [optional] <p>
  * Whether locale should match exactly or fallback to parent locale is allowed.
  * </p>
- * @return ResourceBundle|false <b>ResourceBundle</b> object or <b>FALSE</b> on error.
+ * @return ResourceBundle|null <b>ResourceBundle</b> object or <b>NULL</b> on error.
  */
 function resourcebundle_create($locale, $bundlename, $fallback = null) { }
 
@@ -5740,7 +5739,7 @@ function resourcebundle_get_error_message(ResourceBundle $bundle) { }
  * May also be set to
  * Transliterator::REVERSE.
  * </p>
- * @return Transliterator a <b>Transliterator</b> object on success,
+ * @return Transliterator|null a <b>Transliterator</b> object on success,
  * or <b>NULL</b> on failure.
  */
 function transliterator_create($id, $direction = null) { }
@@ -5758,7 +5757,7 @@ function transliterator_create($id, $direction = null) { }
  * May also be set to
  * Transliterator::REVERSE.
  * </p>
- * @return Transliterator a <b>Transliterator</b> object on success,
+ * @return Transliterator|null a <b>Transliterator</b> object on success,
  * or <b>NULL</b> on failure.
  */
 function transliterator_create_from_rules($rules, $direction = null) { }

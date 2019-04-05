@@ -67,7 +67,7 @@ function array_replace_recursive(array $array, array $array1, array $array2 = nu
  * @param bool $strict [optional] <p>
  * Determines if strict comparison (===) should be used during the search.
  * </p>
- * @return array an array of all the keys in input.
+ * @return int[]|string[] an array of all the keys in input.
  * @since 4.0
  * @since 5.0
  */
@@ -91,7 +91,7 @@ function array_values(array $input) { }
  * @param array $input <p>
  * The array of values to count
  * </p>
- * @return array an associative array of values from input as
+ * @return int[] an associative array of values from input as
  * keys and their count as value.
  * @since 4.0
  * @since 5.0
@@ -211,7 +211,7 @@ function array_change_key_case(array $input, $case = null) { }
  * @param int $num_req [optional] <p>
  * Specifies how many entries you want to pick.
  * </p>
- * @return mixed If you are picking only one entry, array_rand
+ * @return int|int[]|string|string[] If you are picking only one entry, array_rand
  * returns the key for a random entry. Otherwise, it returns an array
  * of keys for the random entries. This is done so that you can pick
  * random keys as well as values out of the array.
@@ -698,7 +698,7 @@ function array_map($callback, array $arr1, array $_ = null) { }
  * When set to true keys will be preserved.
  * Default is false which will reindex the chunk numerically
  * </p>
- * @return array a multidimensional numerically indexed array, starting with zero,
+ * @return array[] a multidimensional numerically indexed array, starting with zero,
  * with each dimension containing size elements.
  * @since 4.2.0
  * @since 5.0
@@ -743,7 +743,7 @@ function array_key_exists($key, array $search) { }
  *
  * @link https://secure.php.net/array_key_first
  * @param array $array An array
- * @return mixed Returns the first key of array if the array is not empty; NULL otherwise.
+ * @return int|null|string Returns the first key of array if the array is not empty; NULL otherwise.
  * @since 7.3
  */
 function array_key_first(array $array) { }
@@ -755,7 +755,7 @@ function array_key_first(array $array) { }
  *
  * @link https://secure.php.net/array_key_last
  * @param array $array An array
- * @return mixed Returns the last key of array if the array is not empty; NULL otherwise.
+ * @return int|null|string Returns the last key of array if the array is not empty; NULL otherwise.
  * @since 7.3
  */
 function array_key_last(array $array) { }
@@ -905,7 +905,7 @@ function assert_options($what, $value = null) { }
  * <p>
  * This parameter is case-sensitive, so values should be lowercase.
  * </p>
- * @return mixed By default, version_compare returns
+ * @return int|bool By default, version_compare returns
  * -1 if the first version is lower than the second,
  * 0 if they are equal, and
  * 1 if the second is lower.
@@ -1105,7 +1105,7 @@ function stream_bucket_prepend($brigade, $bucket) { }
  * Append bucket to brigade
  * @link https://php.net/manual/en/function.stream-bucket-append.php
  * @param resource $brigade
- * @param object $bucket
+ * @param resource $bucket
  * @return void
  * @since 5.0
  */
@@ -1116,7 +1116,7 @@ function stream_bucket_append($brigade, $bucket) { }
  * @link https://php.net/manual/en/function.stream-bucket-new.php
  * @param resource $stream
  * @param string $buffer
- * @return object
+ * @return resource|false
  * @since 5.0
  */
 function stream_bucket_new($stream, $buffer) { }

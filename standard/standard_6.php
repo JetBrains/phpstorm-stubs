@@ -67,7 +67,7 @@
  * @param int $tv_usec [optional] <p>
  * See tv_sec description.
  * </p>
- * @return int On success stream_select returns the number of
+ * @return int|false On success stream_select returns the number of
  * stream resources contained in the modified arrays, which may be zero if
  * the timeout expires before anything interesting happens. On error false
  * is returned and a warning raised (this can happen if the system call is
@@ -229,7 +229,7 @@ function stream_context_set_default (array $options) {}
  * called first during stream operations. To add a filter to the end of the
  * list, use stream_filter_append.
  * </p>
- * @return resource a resource which can be used to refer to this filter
+ * @return resource|false a resource which can be used to refer to this filter
  * instance during a call to stream_filter_remove.
  * @since 4.3.0
  * @since 5.0
@@ -265,7 +265,7 @@ function stream_filter_prepend ($stream, $filtername, $read_write = null, $param
  * To add a filter to the beginning of the list, use
  * stream_filter_prepend.
  * </p>
- * @return resource a resource which can be used to refer to this filter
+ * @return resource|false a resource which can be used to refer to this filter
  * instance during a call to stream_filter_remove.
  * @since 4.3.0
  * @since 5.0
@@ -503,7 +503,7 @@ function stream_socket_sendto ($socket, $data, $flags = null, $address = null) {
  * @param resource $session_stream [optional] <p>
  * Seed the stream with settings from session_stream.
  * </p>
- * @return mixed true on success, false if negotiation has failed or
+ * @return bool|int true on success, false if negotiation has failed or
  * 0 if there isn't enough data and you should try again
  * (only for non-blocking sockets).
  * @since 5.1.0
@@ -552,7 +552,7 @@ function stream_socket_shutdown ($stream, $how) {}
  * STREAM_IPPROTO_TCP or
  * STREAM_IPPROTO_UDP 
  * </p>
- * @return array|false an array with the two socket resources on success, or
+ * @return resource[]|false an array with the two socket resources on success, or
  * false on failure.
  * @since 5.1.0
  */

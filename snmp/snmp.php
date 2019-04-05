@@ -869,7 +869,7 @@ function snmp3_walk ($host, $sec_name, $sec_level, $auth_protocol, $auth_passphr
  * @param string $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
- * @return array an associative array of the
+ * @return array|false an associative array of the
  * SNMP object ids and their values on success or <b>FALSE</b> on error.
  * In case of an error, an E_WARNING message is shown.
  * @since 4.0

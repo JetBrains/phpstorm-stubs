@@ -287,7 +287,11 @@ function svn_auth_get_parameter ($key) {}
  */
 function svn_client_version () {}
 
-function svn_config_ensure () {}
+/**
+ * @param string $config_path
+ * @return bool
+ */
+function svn_config_ensure (string $config_path) {}
 
 /**
  * (PECL svn &gt;= 0.1.0)<br/>
@@ -353,7 +357,12 @@ function svn_cleanup ($workingdir) {}
  */
 function svn_revert ($path, $recursive = false) {}
 
-function svn_resolved () {}
+/**
+ * @param string $path
+ * @param bool $recursive
+ * @return bool
+ */
+function svn_resolved (string $path, bool $recursive = false) {}
 
 /**
  * (PECL svn &gt;= 0.1.0)<br/>
@@ -387,9 +396,21 @@ function svn_resolved () {}
  */
 function svn_commit ($log, array $targets, $recursive = true) {}
 
-function svn_lock () {}
+/**
+ * @param string $comment
+ * @param mixed $targets
+ * @param bool $steal_lock
+ * @return bool
+ */
+function svn_lock (string $comment, $targets, bool $steal_lock) {}
 
-function svn_unlock () {}
+/**
+ * @param mixed $targets
+ * @param bool $break_lock
+ *
+ * @return bool
+ */
+function svn_unlock ($targets, bool $break_lock) {}
 
 /**
  * (PECL svn &gt;= 0.1.0)<br/>

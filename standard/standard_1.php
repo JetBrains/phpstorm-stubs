@@ -254,7 +254,7 @@ function dirname ($path, $levels = 1) {}
  * PATHINFO_FILENAME. It
  * defaults to return all elements.
  * </p>
- * @return mixed The following associative array elements are returned:
+ * @return array|string The following associative array elements are returned:
  * dirname, basename,
  * extension (if any), and filename.
  * </p>
@@ -386,7 +386,7 @@ function str_shuffle ($str) {}
  * @param string $charlist [optional] <p>
  * A list of additional characters which will be considered as 'word'
  * </p>
- * @return mixed an array or an integer, depending on the
+ * @return array|int an array or an integer, depending on the
  * format chosen.
  * @since 4.3.0
  * @since 5.0
@@ -402,7 +402,7 @@ function str_word_count ($string, $format = null, $charlist = null) {}
  * @param int $split_length [optional] <p>
  * Maximum length of the chunk.
  * </p>
- * @return array If the optional split_length parameter is
+ * @return string[]|false If the optional split_length parameter is
  * specified, the returned array will be broken down into chunks with each
  * being split_length in length, otherwise each chunk
  * will be one character in length.
@@ -451,7 +451,7 @@ function strpbrk ($haystack, $char_list) {}
  * If case_insensitivity is true, comparison is
  * case insensitive.
  * </p>
- * @return int &lt; 0 if main_str from position
+ * @return int|false &lt; 0 if main_str from position
  * offset is less than str, &gt;
  * 0 if it is greater than str, and 0 if they are equal.
  * If offset is equal to or greater than the length of
@@ -584,7 +584,7 @@ function substr ($string, $start, $length = null) {}
  * string at the given
  * start offset.
  * </p>
- * @return mixed The result string is returned. If string is an
+ * @return array|string The result string is returned. If string is an
  * array then array is returned.
  * @since 4.0
  * @since 5.0
@@ -761,7 +761,7 @@ function rtrim ($str, $charlist = " \t\n\r\0\x0B") {}
  * well.
  * </p>
  * @param int $count [optional] If passed, this will hold the number of matched and replaced needles.
- * @return mixed This function returns a string or an array with the replaced values.
+ * @return array|string This function returns a string or an array with the replaced values.
  * @since 4.0
  * @since 5.0
  */
@@ -787,7 +787,7 @@ function str_replace ($search, $replace, $subject, &$count = null) {}
  * be returned in count which is passed by
  * reference.
  * </p>
- * @return mixed a string or an array of replacements.
+ * @return string|string[] a string or an array of replacements.
  * @since 5.0
  */
 function str_ireplace ($search, $replace, $subject, &$count = null) {}
@@ -967,7 +967,7 @@ function similar_text ($first, $second, &$percent = null) {}
  * <p>
  * If the limit parameter is zero, then this is treated as 1.
  * </p>
- * @return array|false If delimiter is an empty string (""),
+ * @return string[]|false If delimiter is an empty string (""),
  * explode will return false.
  * If delimiter contains a value that is not
  * contained in string and a negative

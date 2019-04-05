@@ -2218,6 +2218,7 @@ function http_negotiate_content_type (array $supported,  array &$result = null )
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Issue HTTP redirect
  * @link https://php.net/manual/en/function.http-redirect.php
+ *
  * @param string $url [optional] <p>
  * the URL to redirect to
  * </p>
@@ -2230,7 +2231,9 @@ function http_negotiate_content_type (array $supported,  array &$result = null )
  * @param int $status [optional] <p>
  * custom response status code
  * </p>
- * @return void
+ *
+ * @return int|false Returns FALSE or exits on success with the specified redirection status code. See the INI
+ *                   setting http.force_exit for what "exits" means.
  */
 function http_redirect ($url = null,  array $params = null , $session = null, $status = null) {}
 

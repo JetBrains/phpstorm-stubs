@@ -91,7 +91,7 @@ function ftp_login ($ftp_stream, $username, $password) {}
  * @param resource $ftp_stream <p>
  * The link identifier of the FTP connection.
  * </p>
- * @return string the current directory name or <b>FALSE</b> on error.
+ * @return string|false the current directory name or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -166,7 +166,7 @@ function ftp_raw ($ftp_stream, $command) {}
  * @param string $directory <p>
  * The name of the directory that will be created.
  * </p>
- * @return string the newly created directory name on success or <b>FALSE</b> on error.
+ * @return string|false the newly created directory name on success or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -235,7 +235,7 @@ function ftp_alloc ($ftp_stream, $filesize, &$result = null) {}
  * Note that this parameter isn't escaped so there may be some issues with
  * filenames containing spaces and other characters.
  * </p>
- * @return array an array of filenames from the specified directory on success or
+ * @return array|false an array of filenames from the specified directory on success or
  * <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
@@ -255,7 +255,7 @@ function ftp_nlist ($ftp_stream, $directory) {}
  * @param bool $recursive [optional] <p>
  * If set to <b>TRUE</b>, the issued command will be LIST -R.
  * </p>
- * @return array an array where each element corresponds to one line of text.
+ * @return array|false an array where each element corresponds to one line of text.
  * </p>
  * <p>
  * The output is not parsed in any way. The system type identifier returned by
@@ -272,7 +272,7 @@ function ftp_rawlist ($ftp_stream, $directory, $recursive = false) {}
  * @param resource $ftp_stream <p>
  * The link identifier of the FTP connection.
  * </p>
- * @return string the remote system type, or <b>FALSE</b> on error.
+ * @return string|false the remote system type, or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */

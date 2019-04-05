@@ -362,7 +362,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
  * <b>TRUE</b> if <i>ns</i> is a prefix, <b>FALSE</b> if it's a URI;
  * defaults to <b>FALSE</b>.
  * </p>
- * @return SimpleXMLElement an object of class SimpleXMLElement with
+ * @return SimpleXMLElement|false an object of class SimpleXMLElement with
  * properties containing the data held within the XML document, or <b>FALSE</b> on failure.
  * @since 5.0
  */
@@ -391,7 +391,7 @@ function simplexml_load_file ($filename, $class_name = "SimpleXMLElement", $opti
  * <b>TRUE</b> if <i>ns</i> is a prefix, <b>FALSE</b> if it's a URI;
  * defaults to <b>FALSE</b>.
  * </p>
- * @return SimpleXMLElement an object of class SimpleXMLElement with
+ * @return SimpleXMLElement|false an object of class SimpleXMLElement with
  * properties containing the data held within the xml document, or <b>FALSE</b> on failure.
  * @since 5.0
  */
@@ -409,7 +409,7 @@ function simplexml_load_string ($data, $class_name = "SimpleXMLElement", $option
  * the specified class. That class should extend the
  * SimpleXMLElement class.
  * </p>
- * @return SimpleXMLElement a SimpleXMLElement or <b>FALSE</b> on failure.
+ * @return SimpleXMLElement|false a SimpleXMLElement or <b>FALSE</b> on failure.
  * @since 5.0
  */
 function simplexml_import_dom (DOMNode $node, $class_name = "SimpleXMLElement") {}

@@ -15,7 +15,7 @@
  * MB_CASE_TITLE.
  * </p>
  * @param string $encoding [optional] &mbstring.encoding.parameter;
- * @return string A case folded version of string converted in the
+ * @return string|false A case folded version of string converted in the
  * way specified by mode.
  * @since 4.3.0
  * @since 5.0
@@ -29,7 +29,7 @@ function mb_convert_case ($str, $mode, $encoding = null) {}
  * The string being uppercased.
  * </p>
  * @param string $encoding [optional] &mbstring.encoding.parameter;
- * @return string str with all alphabetic characters converted to uppercase.
+ * @return string|false str with all alphabetic characters converted to uppercase.
  * @since 4.3.0
  * @since 5.0
  */
@@ -42,7 +42,7 @@ function mb_strtoupper ($str, $encoding = null) {}
  * The string being lowercased.
  * </p>
  * @param string $encoding [optional] &mbstring.encoding.parameter;
- * @return string str with all alphabetic characters converted to lowercase.
+ * @return string|false str with all alphabetic characters converted to lowercase.
  * @since 4.3.0
  * @since 5.0
  */
@@ -232,7 +232,7 @@ function mb_output_handler ($contents, $status) {}
  * @param string $encoding <p>
  * The encoding being checked.
  * </p>
- * @return string The MIME charset string for character encoding
+ * @return string|false The MIME charset string for character encoding
  * encoding.
  * @since 4.0.6
  * @since 5.0
@@ -246,7 +246,7 @@ function mb_preferred_mime_name ($encoding) {}
  * The string being checked for length.
  * </p>
  * @param string $encoding [optional] &mbstring.encoding.parameter;
- * @return int the number of characters in
+ * @return int|false the number of characters in
  * string str having character encoding
  * encoding. A multi-byte character is
  * counted as 1.
@@ -473,7 +473,7 @@ function mb_strrichr ($haystack, $needle, $before_needle = false, $encoding = nu
  * The string being found.
  * </p>
  * @param string $encoding [optional] &mbstring.encoding.parameter;
- * @return int The number of times the
+ * @return int|false The number of times the
  * needle substring occurs in the
  * haystack string.
  * @since 4.3.0
@@ -494,7 +494,7 @@ function mb_substr_count ($haystack, $needle, $encoding = null) {}
  * The maximum length of the returned string.
  * </p>
  * @param string $encoding [optional] &mbstring.encoding.parameter;
- * @return string mb_substr returns the portion of
+ * @return string|false mb_substr returns the portion of
  * str specified by the
  * start and
  * length parameters.
@@ -516,7 +516,7 @@ function mb_substr ($str, $start, $length = null, $encoding = null) {}
  * The string being decoded.
  * </p>
  * @param string $encoding [optional] &mbstring.encoding.parameter;
- * @return string mb_strcut returns the portion of
+ * @return string|false mb_strcut returns the portion of
  * str specified by the
  * start and
  * length parameters.
@@ -532,7 +532,7 @@ function mb_strcut ($str, $start, $length = null, $encoding = null) {}
  * The string being decoded.
  * </p>
  * @param string $encoding [optional] &mbstring.encoding.parameter;
- * @return int The width of string str.
+ * @return int|false The width of string str.
  * @since 4.0.6
  * @since 5.0
  */
@@ -556,7 +556,7 @@ function mb_strwidth ($str, $encoding = null) {}
  * when string is truncated.
  * </p>
  * @param string $encoding [optional] &mbstring.encoding.parameter;
- * @return string The truncated string. If trimmarker is set,
+ * @return string|false The truncated string. If trimmarker is set,
  * trimmarker is appended to the return value.
  * @since 4.0.6
  * @since 5.0
@@ -582,7 +582,7 @@ function mb_strimwidth ($str, $start, $width, $trimmarker = null, $encoding = nu
  * "auto" may be used, which expands to 
  * "ASCII,JIS,UTF-8,EUC-JP,SJIS".
  * </p>
- * @return string The encoded string.
+ * @return string|false The encoded string.
  * @since 4.0.6
  * @since 5.0
  */
@@ -744,7 +744,7 @@ function mb_encoding_aliases ($encoding) {}
  * </table>
  * </p>
  * @param string $encoding [optional] &mbstring.encoding.parameter;
- * @return string The converted string.
+ * @return string|false The converted string.
  * @since 4.0.6
  * @since 5.0
  */
@@ -780,7 +780,7 @@ function mb_convert_kana ($str, $option = null, $encoding = null) {}
  * Indentation of the first line (number of characters in the header
  * before str).
  * </p>
- * @return string A converted version of the string represented in ASCII.
+ * @return string|false A converted version of the string represented in ASCII.
  * @since 4.0.6
  * @since 5.0
  */
@@ -835,7 +835,7 @@ function mb_convert_variables ($to_encoding, $from_encoding, &...$vars) {}
  * </p>
  * @param string $encoding &mbstring.encoding.parameter;
  * @param bool $is_hex [optional]
- * @return string The converted string.
+ * @return string|false The converted string.
  * @since 4.0.6
  * @since 5.0
  */
@@ -852,7 +852,7 @@ function mb_encode_numericentity ($str, array $convmap, $encoding = null, $is_he
  * the code area to convert.
  * </p>
  * @param string $encoding &mbstring.encoding.parameter;
- * @return string The converted string.
+ * @return string|false The converted string.
  * @since 4.0.6
  * @since 5.0
  */
@@ -965,7 +965,7 @@ function mb_regex_set_options ($options = null) {}
  * @param string[] $regs [optional] <p>
  * Contains a substring of the matched string.
  * </p>
- * @return int 
+ * @return int|false
  * @since 4.2.0
  * @since 5.0
  */
@@ -983,7 +983,7 @@ function mb_ereg ($pattern, $string, array $regs = null) {}
  * @param string[] $regs [optional] <p>
  * Contains a substring of the matched string.
  * </p>
- * @return int 
+ * @return int|false
  * @since 4.2.0
  * @since 5.0
  */

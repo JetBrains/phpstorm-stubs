@@ -90,7 +90,7 @@ function sodium_crypto_aead_aes256gcm_is_available(): bool
  * @param string $ad additional data
  * @param string $nonce
  * @param string $key
- * @return string
+ * @return string|false
  */
 function sodium_crypto_aead_aes256gcm_decrypt(
     string $ciphertext,
@@ -170,7 +170,7 @@ function sodium_crypto_aead_chacha20poly1305_encrypt(
  * @param string $ad additional data
  * @param string $nonce
  * @param string $key
- * @return string
+ * @return string[]|false
  */
 function sodium_crypto_aead_chacha20poly1305_ietf_decrypt(
     string $ciphertext,
@@ -262,7 +262,7 @@ function sodium_crypto_kx_seed_keypair (string $string): string {}
  * @since 7.2
  * @param string $server_keypair
  * @param string $client_key
- * @return array
+ * @return string[]
  */
 function sodium_crypto_kx_server_session_keys (string $server_keypair , string $client_key): array {}
 
@@ -280,7 +280,7 @@ function sodium_crypto_generichash_keygen(): string {}
  * @link https://php.net/manual/en/function.sodium-crypto-kx-client-session-keys.php
  * @param string $client_keypair
  * @param string $server_key
- * @return array
+ * @return string[]
  */
 function sodium_crypto_kx_client_session_keys (string $client_keypair, string $server_key): array {}
 
@@ -420,7 +420,7 @@ function sodium_crypto_box_keypair_from_secretkey_and_publickey(
  * @param string $msg
  * @param string $nonce
  * @param string $keypair
- * @return string
+ * @return string|false
  */
 function sodium_crypto_box_open(
     string $msg,
@@ -479,7 +479,7 @@ function sodium_crypto_box_seal(
  *
  * @param string $encrypted
  * @param string $keypair
- * @return string
+ * @return string|false
  */
 function sodium_crypto_box_seal_open(
     string $encrypted,
@@ -859,7 +859,7 @@ function sodium_crypto_sign_keypair_from_secretkey_and_publickey(
  *
  * @param string $signed_message
  * @param string $publickey
- * @return string
+ * @return string|false
  */
 function sodium_crypto_sign_open(
     string $signed_message,
@@ -992,7 +992,7 @@ function sodium_randombytes_buf(
  * Generate a 16-bit integer
  * /dev/urandom
  *
- * @return int
+ * @return int|string
  */
 function sodium_randombytes_random16(): string {
     return '';

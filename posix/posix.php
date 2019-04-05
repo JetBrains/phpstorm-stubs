@@ -372,7 +372,7 @@ function posix_access ($file, $mode = POSIX_F_OK) {}
  * Return info about a group by name
  * @link https://php.net/manual/en/function.posix-getgrnam.php
  * @param string $name <p>The name of the group</p>
- * @return array The array elements returned are:
+ * @return array|false The array elements returned are:
  * <table>
  * The group information array
  * <tr valign="top">
@@ -472,7 +472,7 @@ function posix_getgrgid ($gid) {}
  * @param string $username <p>
  * An alphanumeric username.
  * </p>
- * @return array On success an array with the following elements is returned, else
+ * @return array|false On success an array with the following elements is returned, else
  * <b>FALSE</b> is returned:
  * <table>
  * The user information array

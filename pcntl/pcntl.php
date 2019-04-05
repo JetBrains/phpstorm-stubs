@@ -281,7 +281,7 @@ function pcntl_wstopsig ($status) {}
  * the key being the name of the environmental variable and the value being
  * the value of that variable.
  * </p>
- * @return void <b>FALSE</b> on error and does not return on success.
+ * @return void|false <b>FALSE</b> on error and does not return on success.
  * @since 4.2.0
  * @since 5.0
  */
@@ -464,8 +464,10 @@ function pcntl_sigtimedwait (array $set, array &$siginfo = null, $seconds = 0, $
 function pcntl_async_signals($on) {}
 
 /**
+ * Get the current handler for specified signal
+ * @link https://www.php.net/manual/en/function.pcntl-signal-get-handler.php
  * @param int $signo
- * @return bool
+ * @return int|string
  * @since 7.1
  */
 function pcntl_signal_get_handler($signo) {}

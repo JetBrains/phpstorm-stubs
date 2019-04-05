@@ -549,7 +549,7 @@ function tidy_get_output (tidy $object) {}
  * @param tidy $object <p>
  * The <b>Tidy</b> object.
  * </p>
- * @return mixed the error buffer as a string.
+ * @return string the error buffer as a string.
  */
 function tidy_get_error_buffer (tidy $object) {}
 

@@ -38,7 +38,7 @@ function opcache_reset() { }
  * Get status information about the cache
  * @link https://php.net/manual/en/function.opcache-get-status.php
  * @param bool $get_scripts <p>Include script specific state information</p>
- * @return array <p>Returns an array of information, optionally containing script specific state information</p>
+ * @return array|false <p>Returns an array of information, optionally containing script specific state information</p>
  */
 function opcache_get_status ($get_scripts = TRUE) {}
 

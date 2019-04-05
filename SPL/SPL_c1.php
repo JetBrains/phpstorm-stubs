@@ -36,8 +36,8 @@ class SplFileInfo  {
         /**
          * Gets the file extension
          * @link https://php.net/manual/en/splfileinfo.getextension.php
-	 * @return string a string containing the file extension, or an
-	 * empty string if the file has no extension.
+         * @return string a string containing the file extension, or an
+         * empty string if the file has no extension.
          * @since 5.3.6
          */
         public function getExtension () {}
@@ -203,9 +203,9 @@ class SplFileInfo  {
          * Gets an SplFileInfo object for the file
          * @link https://php.net/manual/en/splfileinfo.getfileinfo.php
          * @param string $class_name [optional] <p>
-	 * Name of an <b>SplFileInfo</b> derived class to use.
+         * Name of an <b>SplFileInfo</b> derived class to use.
          * </p>
-	 * @return SplFileInfo An <b>SplFileInfo</b> object created for the file.
+         * @return SplFileInfo An <b>SplFileInfo</b> object created for the file.
          * @since 5.1.2
          */
         public function getFileInfo ($class_name = null) {}
@@ -214,9 +214,9 @@ class SplFileInfo  {
          * Gets an SplFileInfo object for the path
          * @link https://php.net/manual/en/splfileinfo.getpathinfo.php
          * @param string $class_name [optional] <p>
-	 * Name of an <b>SplFileInfo</b> derived class to use.
+         * Name of an <b>SplFileInfo</b> derived class to use.
          * </p>
-	 * @return SplFileInfo an <b>SplFileInfo</b> object for the parent path of the file.
+         * @return SplFileInfo an <b>SplFileInfo</b> object for the parent path of the file.
          * @since 5.1.2
          */
         public function getPathInfo ($class_name = null) {}
@@ -225,7 +225,7 @@ class SplFileInfo  {
          * Gets an SplFileObject object for the file
          * @link https://php.net/manual/en/splfileinfo.openfile.php
          * @param string $open_mode [optional] <p>
-	 * The mode for opening the file. See the <b>fopen</b>
+         * The mode for opening the file. See the <b>fopen</b>
          * documentation for descriptions of possible modes. The default 
          * is read only.
          * </p>
@@ -235,13 +235,13 @@ class SplFileInfo  {
          * @param resource $context [optional] <p>
          * &parameter.context;
          * </p>
-	 * @return SplFileObject The opened file as an <b>SplFileObject</b> object.
+         * @return SplFileObject The opened file as an <b>SplFileObject</b> object.
          * @since 5.1.2
          */
 	public function openFile ($open_mode = 'r', $use_include_path = false, $context = null) {}
 
         /**
-	 * Sets the class name used with <b>SplFileInfo::openFile</b>
+         * Sets the class name used with <b>SplFileInfo::openFile</b>
          * @link https://php.net/manual/en/splfileinfo.setfileclass.php
          * @param string $class_name [optional] <p>
          * The class name to use when openFile() is called. 
@@ -298,7 +298,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator {
          * @link https://php.net/manual/en/directoryiterator.isdot.php
          * @return bool true if the entry is . or ..,
          * otherwise false
-	 * @since 5.0
+         * @since 5.0
          */
         public function isDot () {}
 
@@ -321,7 +321,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator {
         /**
          * Return the key for the current DirectoryIterator item
          * @link https://php.net/manual/en/directoryiterator.key.php
-	 * @return string The key for the current <b>DirectoryIterator</b> item.
+         * @return string The key for the current <b>DirectoryIterator</b> item.
          * @since 5.0
          */
         public function key () {}
@@ -329,7 +329,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator {
         /**
          * Return the current DirectoryIterator item.
          * @link https://php.net/manual/en/directoryiterator.current.php
-	 * @return DirectoryIterator The current <b>DirectoryIterator</b> item.
+         * @return DirectoryIterator The current <b>DirectoryIterator</b> item.
          * @since 5.0
          */
         public function current () {}
@@ -349,7 +349,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator {
          * The zero-based numeric position to seek to.
          * </p>
          * @return void 
-	 * @since 5.3.0
+         * @since 5.3.0
          */
         public function seek ($position) {}
 }
@@ -544,7 +544,7 @@ class GlobIterator extends FilesystemIterator implements Countable {
         /**
          * Get the number of directories and files
          * @link https://php.net/manual/en/globiterator.count.php
-	 * @return int The number of returned directories and files, as an
+         * @return int The number of returned directories and files, as an
          * integer.
          * @since 5.3.0
          */
@@ -602,7 +602,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Reached end of file
          * @link https://php.net/manual/en/splfileobject.eof.php
-	 * @return bool true if file is at EOF, false otherwise.
+         * @return bool true if file is at EOF, false otherwise.
          * @since 5.1.0
          */
         public function eof () {}
@@ -638,19 +638,19 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * Gets line from file and parse as CSV fields
          * @link https://php.net/manual/en/splfileobject.fgetcsv.php
          * @param string $delimiter [optional] <p>
-	 * The field delimiter (one character only). Defaults as a comma or the value set using <b>SplFileObject::setCsvControl</b>.
+         * The field delimiter (one character only). Defaults as a comma or the value set using <b>SplFileObject::setCsvControl</b>.
          * </p>
          * @param string $enclosure [optional] <p>
-	 * The field enclosure character (one character only). Defaults as a double quotation mark or the value set using <b>SplFileObject::setCsvControl</b>.
+         * The field enclosure character (one character only). Defaults as a double quotation mark or the value set using <b>SplFileObject::setCsvControl</b>.
          * </p>
          * @param string $escape [optional] <p>
-	 * The escape character (one character only). Defaults as a backslash (\) or the value set using <b>SplFileObject::setCsvControl</b>.
+         * The escape character (one character only). Defaults as a backslash (\) or the value set using <b>SplFileObject::setCsvControl</b>.
          * </p>
          * @return array|false an indexed array containing the fields read, or false on error.
          * </p>
          * <p>
          * A blank line in a CSV file will be returned as an array
-	 * comprising a single null field unless using <b>SplFileObject::SKIP_EMPTY | SplFileObject::DROP_NEW_LINE</b>,
+         * comprising a single null field unless using <b>SplFileObject::SKIP_EMPTY | SplFileObject::DROP_NEW_LINE</b>,
          * in which case empty lines are skipped.
          * @since 5.1.0
          */
@@ -703,12 +703,12 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * Portable file locking
          * @link https://php.net/manual/en/splfileobject.flock.php
          * @param int $operation <p>
-	 * <i>operation</i> is one of the following:
-	 * <b>LOCK_SH</b> to acquire a shared lock (reader).
+         * <i>operation</i> is one of the following:
+         * <b>LOCK_SH</b> to acquire a shared lock (reader).
          * @param int $wouldblock [optional] <p>
          * Set to true if the lock would block (EWOULDBLOCK errno condition).
          * </p>
-	 * @return bool true on success or false on failure.
+         * @return bool true on success or false on failure.
          * @since 5.1.0
          */
         public function flock ($operation, &$wouldblock = null) {}
@@ -716,7 +716,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Flushes the output to the file
          * @link https://php.net/manual/en/splfileobject.fflush.php
-	 * @return bool true on success or false on failure.
+         * @return bool true on success or false on failure.
          * @since 5.1.0
          */
         public function fflush () {}
@@ -734,16 +734,16 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * @link https://php.net/manual/en/splfileobject.fseek.php
          * @param int $offset <p>
          * The offset. A negative value can be used to move backwards through the file which
-	 * is useful when SEEK_END is used as the <i>whence</i> value.
+         * is useful when SEEK_END is used as the <i>whence</i> value.
          * </p>
          * @param int $whence [optional] <p>
-	 * <i>whence</i> values are:
-	 * <b>SEEK_SET</b> - Set position equal to <i>offset</i> bytes.
-	 * <b>SEEK_CUR</b> - Set position to current location plus <i>offset</i>.
-	 * <b>SEEK_END</b> - Set position to end-of-file plus <i>offset</i>.
+         * <i>whence</i> values are:
+         * <b>SEEK_SET</b> - Set position equal to <i>offset</i> bytes.
+         * <b>SEEK_CUR</b> - Set position to current location plus <i>offset</i>.
+         * <b>SEEK_END</b> - Set position to end-of-file plus <i>offset</i>.
          * </p>
          * <p>
-	 * If <i>whence</i> is not specified, it is assumed to be <b>SEEK_SET</b>.
+         * If <i>whence</i> is not specified, it is assumed to be <b>SEEK_SET</b>.
          * </p>
          * @return int 0 if the seek was successful, -1 otherwise. Note that seeking
          * past EOF is not considered an error.
@@ -762,7 +762,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Output all remaining data on a file pointer
          * @link https://php.net/manual/en/splfileobject.fpassthru.php
-	 * @return int the number of characters read from <i>handle</i>
+         * @return int the number of characters read from <i>handle</i>
          * and passed through to the output.
          * @since 5.1.0
          */
@@ -786,12 +786,12 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * Parses input from file according to a format
          * @link https://php.net/manual/en/splfileobject.fscanf.php
          * @param string $format <p>
-	 * The specified format as described in the <b>sprintf</b> documentation.
+         * The specified format as described in the <b>sprintf</b> documentation.
          * </p>
-	 * @param mixed $_ [optional] <p>
-	 * The optional assigned values.
-	 * </p>
-	 * @return mixed If only one parameter is passed to this method, the values parsed will be
+         * @param mixed $_ [optional] <p>
+         * The optional assigned values.
+         * </p>
+         * @return array|int If only one parameter is passed to this method, the values parsed will be
          * returned as an array. Otherwise, if optional parameters are passed, the
          * function will return the number of assigned values. The optional
          * parameters must be passed by reference.
@@ -806,12 +806,12 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * The string to be written to the file.
          * </p>
          * @param int $length [optional] <p>
-	 * If the <i>length</i> argument is given, writing will
-	 * stop after <i>length</i> bytes have been written or
-	 * the end of <i>string</i> is reached, whichever comes
+         * If the <i>length</i> argument is given, writing will
+         * stop after <i>length</i> bytes have been written or
+         * the end of <i>string</i> is reached, whichever comes
          * first.
          * </p>
-	 * @return int the number of bytes written, or null on error.
+             * @return int the number of bytes written, or null on error.
          * @since 5.1.0
          */
         public function fwrite ($str, $length = null) {}
@@ -820,7 +820,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * Gets information about the file
          * @link https://php.net/manual/en/splfileobject.fstat.php
          * @return array an array with the statistics of the file; the format of the array
-	 * is described in detail on the <b>stat</b> manual page.
+             * is described in detail on the <b>stat</b> manual page.
          * @since 5.1.0
          */
         public function fstat () {}
@@ -832,12 +832,12 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * The size to truncate to.
          * </p>
          * <p>
-	 * If <i>size</i> is larger than the file it is extended with null bytes.
+         * If <i>size</i> is larger than the file it is extended with null bytes.
          * </p>
          * <p>
-	 * If <i>size</i> is smaller than the file, the extra data will be lost.
+         * If <i>size</i> is smaller than the file, the extra data will be lost.
          * </p>
-	 * @return bool true on success or false on failure.
+         * @return bool true on success or false on failure.
          * @since 5.1.0
          */
         public function ftruncate ($size) {}
@@ -845,7 +845,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Retrieve current line of file
          * @link https://php.net/manual/en/splfileobject.current.php
-	 * @return string|array|false Retrieves the current line of the file. If the <b>SplFileObject::READ_CSV</b> flag is set, this method returns an array containing the current line parsed as CSV data.
+         * @return string|array|false Retrieves the current line of the file. If the <b>SplFileObject::READ_CSV</b> flag is set, this method returns an array containing the current line parsed as CSV data.
          * @since 5.1.0
          */
         public function current () {}
@@ -902,7 +902,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * Get maximum line length
          * @link https://php.net/manual/en/splfileobject.getmaxlinelen.php
          * @return int the maximum line length if one has been set with
-	 * <b>SplFileObject::setMaxLineLen</b>, default is 0.
+         * <b>SplFileObject::setMaxLineLen</b>, default is 0.
          * @since 5.1.0
          */
         public function getMaxLineLen () {}
@@ -935,7 +935,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         public function seek ($line_pos) {}
 
         /**
-	     * Alias of <b>SplFileObject::fgets</b>
+             * Alias of <b>SplFileObject::fgets</b>
          * @link https://php.net/manual/en/splfileobject.getcurrentline.php
          * @return string|false Returns a string containing the next line from the file, or FALSE on error.
          * @since 5.1.2
@@ -943,7 +943,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         public function getCurrentLine () {}
 
         /**
-	 * Alias of <b>SplFileObject::current</b>
+         * Alias of <b>SplFileObject::current</b>
          * @link https://php.net/manual/en/splfileobject.tostring.php
          * @since 5.1.0
          */
@@ -1067,7 +1067,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
          * There are two orthogonal sets of modes that can be set:
          * </p>
          * The direction of the iteration (either one or the other):
-	 * <b>SplDoublyLinkedList::IT_MODE_LIFO</b> (Stack style)
+         * <b>SplDoublyLinkedList::IT_MODE_LIFO</b> (Stack style)
          * @return void 
          * @since 5.3.0
          */
@@ -1087,7 +1087,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
          * @param mixed $index <p>
          * The index being checked.
          * </p>
-	 * @return bool true if the requested <i>index</i> exists, otherwise false
+         * @return bool true if the requested <i>index</i> exists, otherwise false
          * @since 5.3.0
          */
         public function offsetExists ($index) {}
@@ -1098,7 +1098,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
          * @param mixed $index <p>
          * The index with the value.
          * </p>
-	 * @return mixed The value at the specified <i>index</i>.
+         * @return mixed The value at the specified <i>index</i>.
          * @since 5.3.0
          */
         public function offsetGet ($index) {}
@@ -1110,7 +1110,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
          * The index being set.
          * </p>
          * @param mixed $newval <p>
-	 * The new value for the <i>index</i>.
+         * The new value for the <i>index</i>.
          * </p>
          * @return void 
          * @since 5.3.0
@@ -1281,7 +1281,7 @@ abstract class SplHeap implements Iterator, Countable {
         public function insert ($value) {}
 
         /**
-	 * Peeks at the node from the top of the heap
+         * Peeks at the node from the top of the heap
          * @link https://php.net/manual/en/splheap.top.php
          * @return mixed The value of the node on the top.
          * @since 5.3.0
@@ -1361,7 +1361,7 @@ abstract class SplHeap implements Iterator, Countable {
          * @param mixed $value2 <p>
          * The value of the second node being compared.
          * </p>
-	 * @return int Result of the comparison, positive integer if <i>value1</i> is greater than <i>value2</i>, 0 if they are equal, negative integer otherwise.
+         * @return int Result of the comparison, positive integer if <i>value1</i> is greater than <i>value2</i>, 0 if they are equal, negative integer otherwise.
          * </p>
          * <p>
          * Having multiple elements with the same value in a Heap is not recommended. They will end up in an arbitrary relative position.
@@ -1391,7 +1391,7 @@ class SplMinHeap extends SplHeap {
          * @param mixed $value2 <p>
          * The value of the second node being compared.
          * </p>
-	 * @return void Result of the comparison, positive integer if <i>value1</i> is lower than <i>value2</i>, 0 if they are equal, negative integer otherwise.
+         * @return void Result of the comparison, positive integer if <i>value1</i> is lower than <i>value2</i>, 0 if they are equal, negative integer otherwise.
          * </p>
          * <p>
          * Having multiple elements with the same value in a Heap is not recommended. They will end up in an arbitrary relative position.
@@ -1419,7 +1419,7 @@ class SplMinHeap extends SplHeap {
         public function insert ($value) {}
 
         /**
-	 * Peeks at the node from the top of the heap
+         * Peeks at the node from the top of the heap
          * @link https://php.net/manual/en/splheap.top.php
          * @return mixed The value of the node on the top.
          * @since 5.3.0
@@ -1536,7 +1536,7 @@ class SplPriorityQueue implements Iterator, Countable {
          * @param mixed $priority2 <p>
          * The priority of the second node being compared.
          * </p>
-	 * @return int Result of the comparison, positive integer if <i>priority1</i> is greater than <i>priority2</i>, 0 if they are equal, negative integer otherwise.
+         * @return int Result of the comparison, positive integer if <i>priority1</i> is greater than <i>priority2</i>, 0 if they are equal, negative integer otherwise.
          * </p>
          * <p>
          * Multiple elements with the same priority will get dequeued in no particular order.
@@ -1562,18 +1562,18 @@ class SplPriorityQueue implements Iterator, Countable {
          * Sets the mode of extraction
          * @link https://php.net/manual/en/splpriorityqueue.setextractflags.php
          * @param int $flags <p>
-	 * Defines what is extracted by <b>SplPriorityQueue::current</b>,
-	 * <b>SplPriorityQueue::top</b> and
- 	 * <b>SplPriorityQueue::extract</b>.
+         * Defines what is extracted by <b>SplPriorityQueue::current</b>,
+         * <b>SplPriorityQueue::top</b> and
+          * <b>SplPriorityQueue::extract</b>.
         * </p>
-	 * <b>SplPriorityQueue::EXTR_DATA</b> (0x00000001): Extract the data
+         * <b>SplPriorityQueue::EXTR_DATA</b> (0x00000001): Extract the data
          * @return void 
          * @since 5.3.0
          */
         public function setExtractFlags ($flags) {}
 
         /**
-	 * Peeks at the node from the top of the queue
+         * Peeks at the node from the top of the queue
          * @link https://php.net/manual/en/splpriorityqueue.top.php
          * @return mixed The value or priority (or both) of the top node, depending on the extract flag.
          * @since 5.3.0
@@ -1699,15 +1699,15 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable {
         public function toArray () {}
 
         /**
-	 * Import a PHP array in a <b>SplFixedArray</b> instance
+         * Import a PHP array in a <b>SplFixedArray</b> instance
          * @link https://php.net/manual/en/splfixedarray.fromarray.php
          * @param array $array <p>
          * The array to import.
          * </p>
-	 * @param bool $save_indexes [optional] <p>
+         * @param bool $save_indexes [optional] <p>
          * Try to save the numeric indexes used in the original array. 
          * </p>
-	 * @return SplFixedArray an instance of <b>SplFixedArray</b>
+         * @return SplFixedArray an instance of <b>SplFixedArray</b>
          * containing the array content.
          * @since 5.3.0
          */
@@ -1738,7 +1738,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable {
          * @param int $index <p>
          * The index being checked.
          * </p>
-	 * @return bool true if the requested <i>index</i> exists, otherwise false
+         * @return bool true if the requested <i>index</i> exists, otherwise false
          * @since 5.3.0
          */
         public function offsetExists ($index) {}
@@ -1749,7 +1749,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable {
          * @param int $index <p>
          * The index with the value.
          * </p>
-	 * @return mixed The value at the specified <i>index</i>.
+         * @return mixed The value at the specified <i>index</i>.
          * @since 5.3.0
          */
         public function offsetGet ($index) {}
@@ -1761,7 +1761,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable {
          * The index being set.
          * </p>
          * @param mixed $newval <p>
-	 * The new value for the <i>index</i>.
+         * The new value for the <i>index</i>.
          * </p>
          * @return void 
          * @since 5.3.0
@@ -1837,7 +1837,7 @@ interface SplObserver  {
          * Receive update from subject
          * @link https://php.net/manual/en/splobserver.update.php
          * @param SplSubject $subject <p>
-	 * The <b>SplSubject</b> notifying the observer of an update.
+         * The <b>SplSubject</b> notifying the observer of an update.
          * </p>
          * @return void 
          * @since 5.1.0
@@ -1857,7 +1857,7 @@ interface SplSubject  {
          * Attach an SplObserver
          * @link https://php.net/manual/en/splsubject.attach.php
          * @param SplObserver $observer <p>
-	 * The <b>SplObserver</b> to attach.
+         * The <b>SplObserver</b> to attach.
          * </p>
          * @return void 
          * @since 5.1.0
@@ -1868,7 +1868,7 @@ interface SplSubject  {
          * Detach an observer
          * @link https://php.net/manual/en/splsubject.detach.php
          * @param SplObserver $observer <p>
-	 * The <b>SplObserver</b> to detach.
+         * The <b>SplObserver</b> to detach.
          * </p>
          * @return void 
          * @since 5.1.0
@@ -1908,7 +1908,7 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
         public function attach ($object, $data = null) {}
 
         /**
-	 * Removes an object from the storage
+         * Removes an object from the storage
          * @link https://php.net/manual/en/splobjectstorage.detach.php
          * @param object $object <p>
          * The object to remove.
@@ -1924,7 +1924,7 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
          * @param object $object <p>
          * The object to look for.
          * </p>
-	 * @return bool true if the object is in the storage, false otherwise.
+         * @return bool true if the object is in the storage, false otherwise.
          * @since 5.1.0
          */
         public function contains ($object) {}
@@ -1952,14 +1952,14 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
 	public function removeAll ($storage) {}
 
         /**
-	 * Removes all objects except for those contained in another storage from the current storage
-	 * @link https://php.net/manual/en/splobjectstorage.removeallexcept.php
-	 * @param SplObjectStorage $storage <p>
-	 * The storage containing the elements to retain in the current storage.
-	 * </p>
-	 * @return void
-	 * @since 5.3.6
-	 */
+         * Removes all objects except for those contained in another storage from the current storage
+         * @link https://php.net/manual/en/splobjectstorage.removeallexcept.php
+         * @param SplObjectStorage $storage <p>
+         * The storage containing the elements to retain in the current storage.
+         * </p>
+         * @return void
+         * @since 5.3.6
+         */
 	public function removeAllExcept ($storage) {}
 
 	/**
@@ -2000,7 +2000,7 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
         /**
          * Returns if the current iterator entry is valid
          * @link https://php.net/manual/en/splobjectstorage.valid.php
-	 * @return bool true if the iterator entry is valid, false otherwise.
+         * @return bool true if the iterator entry is valid, false otherwise.
          * @since 5.1.0
          */
         public function valid () {}
@@ -2054,7 +2054,7 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
          * @param object $object <p>
          * The object to look for.
          * </p>
-	 * @return bool true if the object exists in the storage,
+         * @return bool true if the object exists in the storage,
          * and false otherwise.
          * @since 5.3.0
          */
@@ -2066,7 +2066,7 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
          * @param object $object <p>
          * The object to associate data with.
          * </p>
-	 * @param mixed $data [optional] <p>
+         * @param mixed $data [optional] <p>
          * The data to associate with the object.
          * </p>
          * @return void 
@@ -2138,7 +2138,7 @@ class MultipleIterator implements Iterator {
         /**
          * Sets flags
          * @link https://php.net/manual/en/multipleiterator.setflags.php
-	 * @param int $flags <p>
+         * @param int $flags <p>
          * The flags to set, according to the
          * Flag Constants
          * </p>
@@ -2155,7 +2155,7 @@ class MultipleIterator implements Iterator {
          * </p>
          * @param string $infos [optional] <p>
          * The associative information for the Iterator, which must be an
-	 * integer, a string, or null.
+         * integer, a string, or null.
          * </p>
          * @return void Description...
          * @since 5.3.0

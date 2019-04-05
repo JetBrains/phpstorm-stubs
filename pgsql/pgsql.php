@@ -597,7 +597,7 @@ function pg_fetch_row ($result, $row = null, $result_type = null) {}
  * Row number in result to fetch. Rows are numbered from 0 upwards. If
  * omitted or <b>NULL</b>, the next row is fetched.
  * </p>
- * @return array An array indexed associatively (by field name).
+ * @return array|false An array indexed associatively (by field name).
  * Each value in the array is represented as a
  * string. Database NULL
  * values are returned as <b>NULL</b>.
@@ -634,7 +634,7 @@ function pg_fetch_assoc ($result, $row = null) {}
  * while <b>PGSQL_BOTH</b>, the default, will return both
  * numerical and associative indices.
  * </p>
- * @return array An array indexed numerically (beginning with 0) or
+ * @return array|false An array indexed numerically (beginning with 0) or
  * associatively (indexed by field name), or both.
  * Each value in the array is represented as a
  * string. Database NULL
@@ -695,7 +695,7 @@ function pg_fetch_object ($result, $row = null, $result_type = PGSQL_ASSOC) {}
  * while <b>PGSQL_BOTH</b>, the default, will return both
  * numerical and associative indices.
  * </p>
- * @return array An array with all rows in the result. Each row is an array
+ * @return array|false An array with all rows in the result. Each row is an array
  * of field values indexed by field name.
  * </p>
  * <p>
@@ -718,7 +718,7 @@ function pg_fetch_all ($result, $result_type = PGSQL_ASSOC) {}
  * Column number, zero-based, to be retrieved from the result resource. Defaults
  * to the first column if not specified.
  * </p>
- * @return array An array with all values in the result column.
+ * @return array|false An array with all values in the result column.
  * </p>
  * <p>
  * <b>FALSE</b> is returned if <i>column</i> is larger than the number
@@ -1031,7 +1031,7 @@ function pg_get_notify ($connection, $result_type = null) {}
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
- * @return int The backend database process ID.
+ * @return int|false The backend database process ID.
  * @since 4.3.0
  * @since 5.0
  */
@@ -1045,7 +1045,7 @@ function pg_get_pid ($connection) {}
  * <b>pg_query_params</b> or <b>pg_execute</b>
  * (among others).
  * </p>
- * @return string a string if there is an error associated with the
+ * @return string|false a string if there is an error associated with the
  * <i>result</i> parameter, <b>FALSE</b> otherwise.
  * @since 4.2.0
  * @since 5.0
@@ -1099,7 +1099,7 @@ function pg_last_error ($connection = null) {}
  * PostgreSQL database connection resource.
  * </p>
  * @param $operation [optional]
- * @return string A string containing the last notice on the
+ * @return array|string|bool A string containing the last notice on the
  * given <i>connection</i>, or <b>FALSE</b> on error.
  * @since 4.0.6
  * @since 5.0

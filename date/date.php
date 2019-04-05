@@ -483,7 +483,7 @@ function mktime ($hour = null, $minute = null, $second = null, $month = null, $d
  * Parameters always represent a GMT date so is_dst
  * doesn't influence the result.
  * </p>
- * @return int a integer Unix timestamp.
+ * @return int|false a integer Unix timestamp.
  * @since 4.0
  * @since 5.0
  */
@@ -1246,7 +1246,7 @@ function timezone_transitions_get ($object, $timestamp_begin, $timestamp_end) {}
  * &Alias; {@see DateTimeZone::getLocation}
  * @link https://php.net/manual/en/function.timezone-location-get.php
  * @param $object <p>Procedural style only: A {@see DateTimeZone} object returned by {@see timezone_open()}
- * @return array <p>Array containing location information about timezone.</p>
+ * @return array|false <p>Array containing location information about timezone.</p>
  * @since 5.3.0
  */
 function timezone_location_get ($object) {}
@@ -1298,9 +1298,9 @@ function date_interval_create_from_date_string ($time) {}
 /**
  * &Alias; <methodname>DateInterval::format</methodname>
  * @link https://php.net/manual/en/function.date-interval-format.php
- * @param $object
- * @param $format
- * @return DateInterval
+ * @param DateInterval $object
+ * @param string $format
+ * @return string
  * @since 5.3.0
  */
 function date_interval_format ($object, $format) {}

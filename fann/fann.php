@@ -846,7 +846,7 @@ function fann_get_rprop_delta_min($ann)
  *
  * @param resource $ann
  *
- * @return int|false The initial step-size, or false on error.
+ * @return float|false The initial step-size, or false on error.
  */
 function fann_get_rprop_delta_zero($ann)
 {

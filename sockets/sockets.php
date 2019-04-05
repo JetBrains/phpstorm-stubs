@@ -31,7 +31,7 @@
  * <b>socket_select</b> can block indefinitely.
  * </p>
  * @param int $tv_usec [optional]
- * @return int On success <b>socket_select</b> returns the number of
+ * @return int|false On success <b>socket_select</b> returns the number of
  * socket resources contained in the modified arrays, which may be zero if
  * the timeout expires before anything interesting happens. On error <b>FALSE</b>
  * is returned. The error code can be retrieved with
@@ -184,7 +184,7 @@ function socket_select (array &$read, array &$write, array &$except, $tv_sec, $t
  * </td>
  * </tr>
  * </table>
- * @return resource <b>socket_create</b> returns a socket resource on success,
+ * @return resource|false <b>socket_create</b> returns a socket resource on success,
  * or <b>FALSE</b> on error. The actual error code can be retrieved by calling
  * <b>socket_last_error</b>. This error code may be passed to
  * <b>socket_strerror</b> to get a textual explanation of the
@@ -196,6 +196,7 @@ function socket_create ($domain, $type, $protocol) {}
 
 /**
  * @param resource $socket
+ * @return resource|false
  */
 function socket_export_stream($socket) {}
 
@@ -212,7 +213,7 @@ function socket_export_stream($socket) {}
  * <i>backlog</i> parameter, see
  * <b>socket_listen</b> for more information.
  * </p>
- * @return resource <b>socket_create_listen</b> returns a new socket resource
+ * @return resource|false <b>socket_create_listen</b> returns a new socket resource
  * on success or <b>FALSE</b> on error. The error code can be retrieved with
  * <b>socket_last_error</b>. This code may be passed to
  * <b>socket_strerror</b> to get a textual explanation of the
@@ -390,7 +391,7 @@ function socket_write ($socket, $buffer, $length = 0) {}
  * Optional <i>type</i> parameter is a named constant:
  * <b>PHP_BINARY_READ</b> (Default) - use the system
  * recv() function. Safe for reading binary data.
- * @return string <b>socket_read</b> returns the data as a string on success,
+ * @return string|false <b>socket_read</b> returns the data as a string on success,
  * or <b>FALSE</b> on error (including if the remote host has closed the
  * connection). The error code can be retrieved with
  * <b>socket_last_error</b>. This code may be passed to
@@ -607,7 +608,7 @@ function socket_bind ($socket, $address, $port = 0) {}
  * </td>
  * </tr>
  * </table>
- * @return int <b>socket_recv</b> returns the number of bytes received,
+ * @return int|false <b>socket_recv</b> returns the number of bytes received,
  * or <b>FALSE</b> if there was an error. The actual error code can be retrieved by
  * calling <b>socket_last_error</b>. This error code may be
  * passed to <b>socket_strerror</b> to get a textual explanation
@@ -678,7 +679,7 @@ function socket_send ($socket, $buf, $len, $flags) {}
  * @param resource $socket
  * @param array $message
  * @param int $flags
- * @return int
+ * @return int|false
  * @since 5.5.0
  */
 function socket_sendmsg ($socket, array $message, $flags ) {}
@@ -749,7 +750,7 @@ function socket_sendmsg ($socket, array $message, $flags ) {}
  * from which the data is received. If the socket is connection-oriented,
  * <i>port</i> will be <b>NULL</b>.
  * </p>
- * @return int <b>socket_recvfrom</b> returns the number of bytes received,
+ * @return int|false <b>socket_recvfrom</b> returns the number of bytes received,
  * or <b>FALSE</b> if there was an error. The actual error code can be retrieved by
  * calling <b>socket_last_error</b>. This error code may be
  * passed to <b>socket_strerror</b> to get a textual explanation
@@ -765,7 +766,7 @@ function socket_recvfrom ($socket, &$buf, $len, $flags, &$name, &$port = null) {
  * @param resource $socket
  * @param string $message
  * @param int $flags [optional]
- * @return int
+ * @return int|false
  * @since 5.5.0
  */
 function socket_recvmsg ($socket , $message, $flags) {}
@@ -823,7 +824,7 @@ function socket_recvmsg ($socket , $message, $flags) {}
  * <i>port</i> is the remote port number at which the data
  * will be sent.
  * </p>
- * @return int <b>socket_sendto</b> returns the number of bytes sent to the
+ * @return int|false <b>socket_sendto</b> returns the number of bytes sent to the
  * remote host, or <b>FALSE</b> if an error occurred.
  * @since 4.1.0
  * @since 5.0
@@ -1313,6 +1314,7 @@ function socket_cmsg_space ($level, $type, $n = 0) {}
  * @param $socket
  * @param $level
  * @param $optname
+ * @return mixed
  */
 function socket_getopt ($socket, $level, $optname) {}
 
@@ -1321,6 +1323,7 @@ function socket_getopt ($socket, $level, $optname) {}
  * @param $level
  * @param $optname
  * @param $optval
+ * @return void
  */
 function socket_setopt ($socket, $level, $optname, $optval) {}
 

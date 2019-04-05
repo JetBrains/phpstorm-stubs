@@ -741,7 +741,7 @@ function inet_ntop ($in_addr) {}
  * @param string $address <p>
  * A human readable IPv4 or IPv6 address.
  * </p>
- * @return string the in_addr representation of the given
+ * @return string|false the in_addr representation of the given
  * address
  * @since 5.1.0
  */
@@ -781,7 +781,7 @@ function long2ip ($proper_address) {}
  * @param bool $local_only [optional] <p>
  * Set to true to only return local environment variables (set by the operating system or putenv).
  * </p>
- * @return string|array|false the value of the environment variable
+ * @return string|string[]|false the value of the environment variable
  * varname or an associative array with all environment variables if no variable name
  * is provided, or false on an error.
  * @since 4.0
@@ -820,7 +820,7 @@ function putenv ($setting) {}
  * option --opt.
  * Prior to PHP5.3.0 this parameter was only available on few systems
  * @param int $optind If the optind parameter is present, then the index where argument parsing stopped will be written to this variable.
- * @return array|false This function will return an array of option / argument pairs or false on
+ * @return array|false[]|string[]|false This function will return an array of option / argument pairs or false on
  * failure.
  * @since 4.3.0
  * @since 5.0
@@ -862,7 +862,7 @@ function microtime ($get_as_float = null) {}
  * @param bool $return_float [optional] <p>
  * When set to true, a float instead of an array is returned.
  * </p>
- * @return mixed By default an array is returned. If return_float
+ * @return array|float By default an array is returned. If return_float
  * is set, then a float is returned.
  * </p>
  * <p>
@@ -983,7 +983,7 @@ function set_time_limit ($seconds) {}
  * @param string $option <p>
  * The configuration option name.
  * </p>
- * @return string the current value of the PHP configuration variable specified by
+ * @return string|false the current value of the PHP configuration variable specified by
  * option, or false if an error occurs.
  * @since 4.0
  * @since 5.0
@@ -1017,7 +1017,7 @@ function set_magic_quotes_runtime ($new_setting) {}
 /**
  * Gets the current configuration setting of magic quotes gpc
  * @link https://php.net/manual/en/function.get-magic-quotes-gpc.php
- * @return int 0 if magic quotes gpc are off, 1 otherwise.
+ * @return int|false 0 if magic quotes gpc are off, 1 otherwise.
  * @since 4.0
  * @since 5.0
  */
@@ -1026,7 +1026,7 @@ function get_magic_quotes_gpc () {}
 /**
  * Gets the current active configuration setting of magic_quotes_runtime
  * @link https://php.net/manual/en/function.get-magic-quotes-runtime.php
- * @return int 0 if magic quotes runtime is off, 1 otherwise.
+ * @return int|false 0 if magic quotes runtime is off, 1 otherwise.
  * @since 4.0
  * @since 5.0
  */
