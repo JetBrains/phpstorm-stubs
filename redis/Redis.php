@@ -3471,8 +3471,8 @@ class Redis
      * @param   string      $str_group
      * @param   string      $str_consumer
      * @param   array       $arr_streams
-     * @param   int|string  $i_count
-     * @param   int|string  $i_block
+     * @param   int|null    $i_count
+     * @param   int|null    $i_block
      * @return  array       The messages delivered to this consumer group (if any).
      * @link    https://redis.io/commands/xreadgroup
      * @example
@@ -3483,7 +3483,7 @@ class Redis
      * $obj_redis->xReadGroup('mygroup', 'consumer2', ['s1' => 0, 's2' => 0], 1, 1000);
      * </pre>
      */
-    public function xReadGroup($str_group, $str_consumer, $arr_streams, $i_count, $i_block = null) {}
+    public function xReadGroup($str_group, $str_consumer, $arr_streams, $i_count = null, $i_block = null) {}
 
     /**
      * This is identical to xRange except the results come back in reverse order. Also note that Redis reverses the order of "start" and "end".
