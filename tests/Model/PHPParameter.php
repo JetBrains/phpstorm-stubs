@@ -3,13 +3,16 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
+use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Param;
+use PhpParser\Node\Stmt\Function_;
 use ReflectionParameter;
 use stdClass;
 
 class PHPParameter extends BasePHPElement
 {
     public $type = '';
+    public $type_from_php_doc = '';
     public $is_vararg;
     public $is_passed_by_ref;
 
@@ -28,24 +31,63 @@ class PHPParameter extends BasePHPElement
         return $this;
     }
 
-    /**
-     * @param Param $node
-     * @return $this
-     */
-    public function readObjectFromStubNode($node): self
+    protected function checkParameter(FunctionLike $node, Param $parameter): void
     {
-        $this->name = $node->var->name;
-        if ($node->type !== null) {
-            if (empty($node->type->name)) {
-                if (!empty($node->type->parts)) {
-                    $this->type = $node->type->parts[0];
+        if ($node->getDocComment() !== null) {
+            try {
+                $phpDoc = StubsHelper::createDocBlockInstance()->create($node->getDocComment()->getText());
+                $parsedParamTags = $phpDoc->getTagsByName('param');
+
+                if (!empty($parsedParamTags)) {
+
+                    foreach ($parsedParamTags as $parsedParamTag) {
+                        if ($parsedParamTag instanceof \phpDocumentor\Reflection\DocBlock\Tags\Param) {
+
+                            // check only the current "param"-tag
+                            if ($parameter->var->name !== $parsedParamTag->getVariableName()) {
+                                continue;
+                            }
+
+                            $type = $parsedParamTag->getType();
+
+                            $returnTypeTmp = StubsHelper::parseDocTypeObject($type);
+                            if (is_array($returnTypeTmp)) {
+                                $this->type_from_php_doc = implode('|', StubsHelper::parseDocTypeObject($type));
+                            } else {
+                                $this->type_from_php_doc = $returnTypeTmp;
+                            }
+
+                        }
+                    }
                 }
-            } else {
-                $this->type = $node->type->name;
+            } catch (Exception $e) {
+                $this->parseError = $e->getMessage();
             }
         }
-        $this->is_vararg = $node->variadic;
-        $this->is_passed_by_ref = $node->byRef;
+    }
+
+    /**
+     * @param Param     $parameter
+     * @param Function_ $node
+     *
+     * @return $this
+     */
+    public function readObjectFromStubNode($parameter, $node = null): self
+    {
+        $this->checkParameter($node, $parameter);
+
+        $this->name = $parameter->var->name;
+        if ($parameter->type !== null) {
+            if (empty($parameter->type->name)) {
+                if (!empty($parameter->type->parts)) {
+                    $this->type = $parameter->type->parts[0];
+                }
+            } else {
+                $this->type = $parameter->type->name;
+            }
+        }
+        $this->is_vararg = $parameter->variadic;
+        $this->is_passed_by_ref = $parameter->byRef;
         return $this;
     }
 

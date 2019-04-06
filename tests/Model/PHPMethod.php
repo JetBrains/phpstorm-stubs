@@ -41,9 +41,10 @@ class PHPMethod extends PHPFunction
 
     /**
      * @param ClassMethod $node
+     * @param null $dummy
      * @return $this
      */
-    public function readObjectFromStubNode($node)
+    public function readObjectFromStubNode($node, $dummy = null)
     {
         $this->parentName = $this->getFQN($node->getAttribute('parent'));
         $this->name = $node->name->name;
@@ -56,7 +57,7 @@ class PHPMethod extends PHPFunction
             $this->name = substr($this->name, strlen('PS_UNRESERVE_PREFIX_'));
         }
         foreach ($node->getParams() as $parameter) {
-            $this->parameters[] = (new PHPParameter())->readObjectFromStubNode($parameter);
+            $this->parameters[] = (new PHPParameter())->readObjectFromStubNode($parameter, $node);
         }
 
         $this->is_final = $node->isFinal();

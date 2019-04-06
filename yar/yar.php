@@ -70,7 +70,7 @@ class Yar_Client {
      * - YAR_OPT_CONNECT_TIMEOUT
      * - YAR_OPT_HEADER (Since 2.0.4)
      * @param $value
-     * @return object|false Returns $this on success or FALSE on failure.
+     * @return Yar_Client|false Returns $this on success or FALSE on failure.
      * @link https://secure.php.net/manual/en/yar-client.setopt.php
      */
     public function setOpt ($name , $value ){}

@@ -46,9 +46,10 @@ class PHPInterface extends BasePHPClass
 
     /**
      * @param Interface_ $node
+     * @param null $dummy
      * @return $this
      */
-    public function readObjectFromStubNode($node): self
+    public function readObjectFromStubNode($node, $dummy = null): self
     {
         $this->name = $this->getFQN($node);
         $this->collectLinks($node);

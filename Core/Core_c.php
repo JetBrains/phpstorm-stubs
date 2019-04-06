@@ -66,7 +66,7 @@ interface Iterator extends Traversable {
     /**
      * Return the key of the current element
      * @link https://php.net/manual/en/iterator.key.php
-     * @return mixed scalar on success, or null on failure.
+     * @return int|string|null key on success, or null on failure.
      * @since 5.0.0
      */
     public function key();
@@ -193,7 +193,7 @@ interface Throwable
     /**
      * Gets the exception code
      * @link https://php.net/manual/en/throwable.getcode.php
-     * @return int <p>
+     * @return int|string <p>
      * Returns the exception code as integer in
      * {@see Exception} but possibly as other type in
      * {@see Exception} descendants (for example as
@@ -241,7 +241,7 @@ interface Throwable
     /**
      * Returns the previous Throwable
      * @link https://php.net/manual/en/throwable.getprevious.php
-     * @return Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
+     * @return Throwable|null Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
      * @since 7.0
      */
     public function getPrevious();

@@ -19,9 +19,10 @@ class PHPDefineConstant extends PHPConst
 
     /**
      * @param FuncCall $node
+     * @param null $dummy
      * @return $this
      */
-    public function readObjectFromStubNode($node)
+    public function readObjectFromStubNode($node, $dummy = null)
     {
         $constName = $this->getConstantFQN($node, $node->args[0]->value->value);
         if (in_array($constName, ['null', 'true', 'false'])) {

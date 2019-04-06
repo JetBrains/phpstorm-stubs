@@ -856,7 +856,7 @@ class PDO  {
 	 * Some drivers have driver specific options that may be set at
 	 * prepare-time.
 	 * </p>
-	 * @return PDOStatement|bool If the database server successfully prepares the statement,
+	 * @return PDOStatement|false If the database server successfully prepares the statement,
 	 * <b>PDO::prepare</b> returns a
 	 * <b>PDOStatement</b> object.
 	 * If the database server cannot successfully prepare the statement,
@@ -1016,7 +1016,7 @@ class PDO  {
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
 	 * Fetch the SQLSTATE associated with the last operation on the database handle
 	 * @link https://php.net/manual/en/pdo.errorcode.php
-	 * @return mixed an SQLSTATE, a five characters alphanumeric identifier defined in
+	 * @return string|null an SQLSTATE, a five characters alphanumeric identifier defined in
 	 * the ANSI SQL-92 standard. Briefly, an SQLSTATE consists of a
 	 * two characters class value followed by a three characters subclass value. A
 	 * class value of 01 indicates a warning and is accompanied by a return code

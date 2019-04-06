@@ -53,7 +53,7 @@ namespace MongoDB {}
              * @param string $namespace A fully qualified namespace (databaseName.collectionName)
              * @param BulkWrite $bulk The MongoDB\Driver\BulkWrite to execute.
              * @param array|WriteConcern $options WriteConcern type for backwards compatibility
-             * @return WriteResult
+             * @return \MongoDB\Driver\WriteResult
              * @since 1.4.0 added $options argument
              */
             final public function executeBulkWrite($namespace, BulkWrite $bulk, $options = [])
@@ -65,7 +65,7 @@ namespace MongoDB {}
              * @param string $db The name of the database on which to execute the command.
              * @param Command $command The command document.
              * @param array|ReadPreference $options ReadPreference type for backwards compatibility
-             * @return Cursor
+             * @return \MongoDB\Driver\Cursor
              * @throws Exception
              * @throws AuthenticationException if authentication is needed and fails
              * @throws ConnectionException if connection to the server fails for other then authentication reasons
@@ -84,7 +84,7 @@ namespace MongoDB {}
              * @param string $namespace A fully qualified namespace (databaseName.collectionName)
              * @param Query $query A MongoDB\Driver\Query to execute.
              * @param array|ReadPreference $options ReadPreference type for backwards compatibility
-             * @return Cursor
+             * @return \MongoDB\Driver\Cursor
              * @throws Exception
              * @throws AuthenticationException if authentication is needed and fails
              * @throws ConnectionException if connection to the server fails for other then authentication reasons
@@ -100,7 +100,7 @@ namespace MongoDB {}
              * @param string $db The name of the database on which to execute the command that reads.
              * @param Command $command The command document.
              * @param array $options
-             * @return Cursor
+             * @return \MongoDB\Driver\Cursor
              * @throws Exception
              * @throws AuthenticationException if authentication is needed and fails
              * @throws ConnectionException if connection to the server fails for other then authentication reasons
@@ -118,7 +118,7 @@ namespace MongoDB {}
              * @param string $db The name of the database on which to execute the command that reads.
              * @param Command $command The command document.
              * @param array $options
-             * @return Cursor
+             * @return \MongoDB\Driver\Cursor
              * @throws Exception
              * @throws AuthenticationException if authentication is needed and fails
              * @throws ConnectionException if connection to the server fails for other then authentication reasons
@@ -136,7 +136,7 @@ namespace MongoDB {}
              * @param string $db The name of the database on which to execute the command that reads.
              * @param Command $command The command document.
              * @param array $options
-             * @return Cursor
+             * @return \MongoDB\Driver\Cursor
              * @throws Exception
              * @throws AuthenticationException if authentication is needed and fails
              * @throws ConnectionException if connection to the server fails for other then authentication reasons
@@ -153,7 +153,7 @@ namespace MongoDB {}
              * Return the ReadConcern for the Manager
              * @link https://php.net/manual/en/mongodb-driver-manager.getreadconcern.php
              * @throws InvalidArgumentException on argument parsing errors.
-             * @return ReadConcern
+             * @return \MongoDB\Driver\ReadConcern
              */
             final public function getReadConcern()
             {
@@ -163,7 +163,7 @@ namespace MongoDB {}
              * Return the ReadPreference for the Manager
              * @link https://php.net/manual/en/mongodb-driver-manager.getreadpreference.php
              * @throws InvalidArgumentException
-             * @return ReadPreference
+             * @return \MongoDB\Driver\ReadPreference
              */
             final public function getReadPreference()
             {
@@ -173,7 +173,7 @@ namespace MongoDB {}
              * Return the servers to which this manager is connected
              * @link https://php.net/manual/en/mongodb-driver-manager.getservers.php
              * @throws InvalidArgumentException on argument parsing errors
-             * @return Server[]
+             * @return \MongoDB\Driver\Server[]
              */
             final public function getServers()
             {
@@ -183,7 +183,7 @@ namespace MongoDB {}
              * Return the WriteConcern for the Manager
              * @link https://php.net/manual/en/mongodb-driver-manager.getwriteconcern.php
              * @throws InvalidArgumentException on argument parsing errors.
-             * @return WriteConcern
+             * @return \MongoDB\Driver\WriteConcern
              */
             final public function getWriteConcern()
             {
@@ -197,7 +197,7 @@ namespace MongoDB {}
              * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
              * @throws AuthenticationException if authentication is needed and fails.
              * @throws RuntimeException if a server matching the read preference could not be found.
-             * @return Server
+             * @return \MongoDB\Driver\Server
              */
             final public function selectServer(ReadPreference $readPreference = null)
             {
@@ -252,7 +252,7 @@ namespace MongoDB {}
              * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
              * @throws AuthenticationException if authentication is needed and fails.
              * @throws RuntimeException on other errors.
-             * @return WriteResult
+             * @return \MongoDB\Driver\WriteResult
              * @since 1.0.0
              */
             final public function executeBulkWrite($namespace, BulkWrite $zwrite, $options = [])
@@ -269,7 +269,7 @@ namespace MongoDB {}
              * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
              * @throws AuthenticationException if authentication is needed and fails.
              * @throws RuntimeException on other errors (e.g. invalid command, issuing a write command to a secondary).
-             * @return Cursor
+             * @return \MongoDB\Driver\Cursor
              * @since 1.0.0
              */
             final public function executeCommand($db, Command $command, ReadPreference $readPreference = null)
@@ -282,7 +282,7 @@ namespace MongoDB {}
              * @param                         $db
              * @param \MongoDB\Driver\Command $command
              * @param array                   $option
-             * @return Cursor
+             * @return \MongoDB\Driver\Cursor
              * @throws InvalidArgumentException On argument parsing errors or  if the "session" option is used with an associated transaction in combination with a "readConcern" or "writeConcern" option.
              * @throws ConnectionException If connection to the server fails (for reasons other than authentication).
              * @throws AuthenticationException If authentication is needed and fails.
@@ -299,7 +299,7 @@ namespace MongoDB {}
              * @param                         $db
              * @param \MongoDB\Driver\Command $command
              * @param array                   $option
-             * @return Cursor
+             * @return \MongoDB\Driver\Cursor
              * @throws InvalidArgumentException On argument parsing errors OR if the "session" option is used with an associated transaction in combination with a "readConcern" or "writeConcern" option OR if the "session" option is used in combination with an unacknowledged write concern
              * @throws ConnectionException If connection to the server fails (for reasons other than authentication).
              * @throws AuthenticationException If authentication is needed and fails.
@@ -316,7 +316,7 @@ namespace MongoDB {}
              * @param                         $db
              * @param \MongoDB\Driver\Command $command
              * @param array                   $option
-             * @return Cursor
+             * @return \MongoDB\Driver\Cursor
              * @throws InvalidArgumentException On argument parsing errors or  if the "session" option is used with an associated transaction in combination with a "readConcern" or "writeConcern" option.
              * @throws ConnectionException If connection to the server fails (for reasons other than authentication).
              * @throws AuthenticationException If authentication is needed and fails.
@@ -337,7 +337,7 @@ namespace MongoDB {}
              * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
              * @throws AuthenticationException if authentication is needed and fails.
              * @throws RuntimeException on other errors (e.g. invalid command, issuing a write command to a secondary).
-             * @return Cursor
+             * @return \MongoDB\Driver\Cursor
              */
             final public function executeQuery($namespace, Query $query, ReadPreference $readPreference = null)
             {
@@ -367,7 +367,7 @@ namespace MongoDB {}
              * Returns the latency of this server
              * @link https://php.net/manual/en/mongodb-driver-server.getlatency.php
              * @throws InvalidArgumentException on argument parsing errors.
-             * @return integer
+             * @return int
              */
             final public function getLatency()
             {
@@ -377,7 +377,7 @@ namespace MongoDB {}
              * Returns the port on which this server is listening
              * @link https://php.net/manual/en/mongodb-driver-server.getport.php
              * @throws InvalidArgumentException on argument parsing errors.
-             * @return integer
+             * @return int
              */
             final public function getPort()
             {
@@ -397,7 +397,7 @@ namespace MongoDB {}
              * Returns an integer denoting the type of this server
              * @link https://php.net/manual/en/mongodb-driver-server.gettype.php
              * @throws InvalidArgumentException on argument parsing errors.
-             * @return integer denoting the type of this server
+             * @return int denoting the type of this server
              */
             final public function getType()
             {
@@ -519,7 +519,7 @@ namespace MongoDB {}
             /**
              * Returns the ReadPreference's "mode" option
              * @link https://php.net/manual/en/mongodb-driver-readpreference.getmode.php
-             * @return integer
+             * @return int
              */
             final public function  getMode()
             {
@@ -615,7 +615,7 @@ namespace MongoDB {}
             /**
              * Returns the MongoDB\Driver\CursorId associated with this cursor. A cursor ID cursor uniquely identifies the cursor on the server.
              * @link https://php.net/manual/en/mongodb-driver-cursor.getid.php
-             * @return CursorId for this Cursor
+             * @return \MongoDB\Driver\CursorId for this Cursor
              * @throws InvalidArgumentException on argument parsing errors.
              */
             final public function getId()
@@ -625,7 +625,7 @@ namespace MongoDB {}
             /**
              * Returns the MongoDB\Driver\Server associated with this cursor. This is the server that executed the query or command.
              * @link https://php.net/manual/en/mongodb-driver-cursor.getserver.php
-             * @return Server for this Cursor
+             * @return \MongoDB\Driver\Server for this Cursor
              * @throws InvalidArgumentException on argument parsing errors.
              */
             final public function getServer()
@@ -732,6 +732,7 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-bulkwrite.delete.php
              * @param array|object $filter The search filter
              * @param array $deleteOptions
+             * @return void
              * @throws InvalidArgumentException on argument parsing errors.
              */
             public function delete($filter, array $deleteOptions = [])
@@ -743,7 +744,7 @@ namespace MongoDB {}
              * If the document did not have an _id, a MongoDB\BSON\ObjectId will be generated and returned; otherwise, no value is returned.
              * @link https://php.net/manual/en/mongodb-driver-bulkwrite.insert.php
              * @param array|object $document
-             * @return mixed
+             * @return void|\MongoDB\BSON\ObjectId
              * @Throws MongoDB\Driver\InvalidArgumentException on argument parsing errors.
              */
             public function insert($document)
@@ -756,6 +757,7 @@ namespace MongoDB {}
              * @param array|object $filter The search filter
              * @param array|object $newObj A document containing either update operators (e.g. $set) or a replacement document (i.e. only field:value expressions)
              * @param array $updateOptions
+             * @return void
              * @throws InvalidArgumentException on argument parsing errors.
              */
             public function update($filter, $newObj, array $updateOptions = [])
@@ -822,7 +824,7 @@ namespace MongoDB {}
             /**
              * Returns the number of documents deleted
              * @link https://php.net/manual/en/mongodb-driver-writeresult.getdeletedcount.php
-             * @return integer|null
+             * @return int|null
              */
             final public function getDeletedCount()
             {
@@ -831,7 +833,7 @@ namespace MongoDB {}
             /**
              * Returns the number of documents inserted (excluding upserts)
              * @link https://php.net/manual/en/mongodb-driver-writeresult.getinsertedcount.php
-             * @return integer|null
+             * @return int|null
              */
             final public function getInsertedCount()
             {
@@ -840,7 +842,7 @@ namespace MongoDB {}
             /**
              * Returns the number of documents selected for update
              * @link https://php.net/manual/en/mongodb-driver-writeresult.getmatchedcount.php
-             * @return integer|null
+             * @return int|null
              */
             final public function getMatchedCount()
             {
@@ -849,7 +851,7 @@ namespace MongoDB {}
             /**
              * Returns the number of existing documents updated
              * @link https://php.net/manual/en/mongodb-driver-writeresult.getmodifiedcount.php
-             * @return integer|null
+             * @return int|null
              */
             final public function getModifiedCount()
             {
@@ -858,7 +860,7 @@ namespace MongoDB {}
             /**
              * Returns the server associated with this write result
              * @link https://php.net/manual/en/mongodb-driver-writeresult.getserver.php
-             * @return Server
+             * @return \MongoDB\Driver\Server
              */
             final public function getServer()
             {
@@ -867,7 +869,7 @@ namespace MongoDB {}
             /**
              * Returns the number of documents inserted by an upsert
              * @link https://php.net/manual/en/mongodb-driver-writeresult.getupsertedcount.php
-             * @return integer|null
+             * @return int|null
              */
             final public function getUpsertedCount()
             {
@@ -885,7 +887,7 @@ namespace MongoDB {}
             /**
              * Returns any write concern error that occurred
              * @link https://php.net/manual/en/mongodb-driver-writeresult.getwriteconcernerror.php
-             * @return WriteConcernError|null
+             * @return \MongoDB\Driver\WriteConcernError|null
              */
             final public function getWriteConcernError()
             {
@@ -894,7 +896,7 @@ namespace MongoDB {}
             /**
              * Returns any write errors that occurred
              * @link https://php.net/manual/en/mongodb-driver-writeresult.getwriteerrors.php
-             * @return WriteError[]
+             * @return \MongoDB\Driver\WriteError[]
              */
             final public function getWriteErrors()
             {
@@ -1221,7 +1223,7 @@ namespace MongoDB {}
             protected $writeResult;
 
             /**
-             * @return WriteResult for the failed write operation
+             * @return \MongoDB\Driver\WriteResult for the failed write operation
              * @since 1.0.0
              */
             final public function  getWriteResult()
@@ -1308,7 +1310,7 @@ namespace MongoDB {}
          * Unregistered subscribers will no longer be notified of monitoring events.
          * Note: If the object is not registered, this function is a no-op.
          * @link https://secure.php.net/manual/en/function.mongodb.driver.monitoring.removesubscriber.php
-         * @param $subscriber Subscriber A monitoring event subscriber object to register.
+         * @param \MongoDB\Driver\Monitoring\Subscriber $subscriber Subscriber A monitoring event subscriber object to register.
          * @return void
          * @throws \InvalidArgumentException on argument parsing errors.
          * @since 1.3.0
@@ -1717,7 +1719,7 @@ namespace MongoDB {}
             /**
              * Returns the Binary's type
              * @link https://php.net/manual/en/mongodb-bson-binary.gettype.php
-             * @return integer
+             * @return int
              */
             public function getType()
             {
@@ -1867,6 +1869,7 @@ namespace MongoDB {}
             /**
              * Returns the Regex's flags
              * @link https://php.net/manual/en/mongodb-bson-regex.getflags.php
+             * @return string
              */
             public function getFlags()
             {
@@ -2148,6 +2151,7 @@ namespace MongoDB {}
              * The properties of the BSON array or document will be passed to the method as an array.
              * @link https://php.net/manual/en/mongodb-bson-unserializable.bsonunserialize.php
              * @param array $data Properties within the BSON array or document.
+             * @return void
              */
             public function bsonUnserialize(array $data);
         }

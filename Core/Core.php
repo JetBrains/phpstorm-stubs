@@ -666,7 +666,7 @@ function restore_error_handler () {}
  * was thrown.
  * NULL may be passed instead, to reset this handler to its default state.
  * </p>
- * @return callable(Throwable):void|null the name of the previously defined exception handler, or null on error. If
+ * @return callable|null the name of the previously defined exception handler, or null on error. If
  * no previous handler was defined, null is also returned.
  * @since 5.0
  */

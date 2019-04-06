@@ -50,7 +50,7 @@ function array_replace(array $array, array $array1, array $array2 = null, array 
  * </p>
  * @param array $array2 [optional]
  * @param array $_ [optional]
- * @return array an array, or &null; if an error occurs.
+ * @return array|null an array, or &null; if an error occurs.
  * @since 5.3.0
  */
 function array_replace_recursive(array $array, array $array1, array $array2 = null, array $_ = null) { }

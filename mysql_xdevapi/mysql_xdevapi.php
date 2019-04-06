@@ -237,7 +237,7 @@ class Result implements \mysql_xdevapi\BaseResult , \Traversable   {
     /**
      * Get affected row count
      * @link https://secure.php.net/manual/en/mysql-xdevapi-sqlstatementresult.getaffecteditemscount.php
-     * @return integer
+     * @return int
      */
     public function getAffectedItemsCount() {}
 

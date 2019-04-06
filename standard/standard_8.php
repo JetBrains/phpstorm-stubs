@@ -1037,7 +1037,7 @@ function array_pop (array &$array) {}
  * @param array $array <p>
  * The input array.
  * </p>
- * @return mixed the shifted value, or &null; if array is
+ * @return mixed|null the shifted value, or &null; if array is
  * empty or is not an array.
  * @since 4.0
  * @since 5.0

@@ -53,9 +53,11 @@ class PHPClass extends BasePHPClass
 
     /**
      * @param Class_ $node
+     * @param
+     *
      * @return $this
      */
-    public function readObjectFromStubNode($node): self
+    public function readObjectFromStubNode($node, $dummy = null): self
     {
         $this->name = $this->getFQN($node);
         $this->collectLinks($node);

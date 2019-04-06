@@ -1635,16 +1635,41 @@ class MongoCommandCursor implements MongoCursorInterface {
 
 interface MongoCursorInterface extends Iterator
 {
+    /**
+     * @param int $batchSize
+     *
+     * @return \MongoCursorInterface
+     */
     function batchSize(int $batchSize):MongoCursorInterface;
 
+    /**
+     * @return bool
+     */
     function dead():bool;
 
+    /**
+     * @return array
+     */
     function info():array;
 
+    /**
+     * @return array
+     */
     function getReadPreference():array;
 
+    /**
+     * @param string     $read_preference
+     * @param array|null $tags
+     *
+     * @return \MongoCursorInterface
+     */
     function setReadPreference(string $read_preference, array $tags = null):MongoCursorInterface;
 
+    /**
+     * @param int $ms
+     *
+     * @return \MongoCursorInterface
+     */
     function timeout(int $ms):MongoCursorInterface;
 }
 

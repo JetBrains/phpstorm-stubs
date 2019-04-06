@@ -248,6 +248,7 @@ final class Ev
      *
      * @param int $signum Signal number. See signal(7) man page for details. You can use constants exported by pcntl
      *      extension.
+     * @return void
      */
     final public static function feedSignal($signum) {}
 
@@ -259,6 +260,7 @@ final class Ev
      *
      * @param int $signum Signal number. See signal(7) man page for details. See also constants exported by pcntl
      *      extension.
+     * @return void
      */
     final public static function feedSignalEvent($signum) {}
 
@@ -290,6 +292,8 @@ final class Ev
      *
      * This method is rarely useful, but when some event callback runs for a very long time without entering the event
      * loop, updating libev's consideration of the current time is a good idea.
+     *
+     * @return void
      */
     final public static function nowUpdate() {}
 
@@ -318,6 +322,8 @@ final class Ev
      * Also it is not allowed to call Ev::resume() without a previous call to Ev::suspend().
      *
      * Calling suspend / resume has the side effect of updating the event loop time (see Ev::nowUpdate()).
+     *
+     * @return void
      */
     final public static function resume() {}
 
@@ -330,6 +336,7 @@ final class Ev
      * return value can generally be interpreted as if TRUE, there is more work left to do.
      *
      * @param int $flags One of the Ev::FLAG_* flags
+     * @return void
      */
     final public static function run($flags = self::FLAG_AUTO) {}
 
@@ -337,6 +344,7 @@ final class Ev
      * Block the process for the given number of seconds.
      *
      * @param float $seconds Fractional number of seconds
+     * @return void
      */
     final public static function sleep($seconds) {}
 
@@ -344,6 +352,7 @@ final class Ev
      * Stops the default event loop
      *
      * @param int $how One of the Ev::BREAK_* constants
+     * @return void
      */
     final public static function stop($how = self::BREAK_ONE) {}
 
@@ -364,6 +373,8 @@ final class Ev
      *
      * After calling Ev::suspend() it is not allowed to call any function on the given loop other than Ev::resume().
      * Also it is not allowed to call Ev::resume() without a previous call to Ev::suspend().
+     *
+     * @return void
      */
     final public static function suspend() {}
 
@@ -381,6 +392,8 @@ final class Ev
      *
      * Performs internal consistency checks (for debugging libev) and abort the program if any data structures were
      * found to be corrupted.
+     *
+     * @return void
      */
     final public static function verify() {}
 }
@@ -429,6 +442,7 @@ abstract class EvWatcher
      * Feeds the given revents set into the event loop, as if the specified event had happened for the watcher.
      *
      * @param int $events Bit mask of watcher received events.
+     * @return void
      */
     public function feed($events) {}
 
@@ -443,6 +457,7 @@ abstract class EvWatcher
      * Invokes the watcher callback with the given received events bit mask.
      *
      * @param int $events Bit mask of watcher received events.
+     * @return void
      */
     public function invoke($events) {}
 
@@ -466,6 +481,7 @@ abstract class EvWatcher
      * Sets new callback for the watcher.
      *
      * @param callable $callback void callback ([ object $watcher = NULL [, int $revents = NULL ]] )
+     * @return void
      */
     public function setCallback(callable $callback) {}
 
@@ -473,6 +489,8 @@ abstract class EvWatcher
      * Starts the watcher.
      *
      * Marks the watcher as active. Note that only active watchers will receive events.
+     *
+     * @return void
      */
     public function start() {}
 
@@ -480,6 +498,8 @@ abstract class EvWatcher
      * Stops the watcher.
      *
      * Marks the watcher as inactive. Note that only active watchers will receive events.
+     *
+     * @return void
      */
     public function stop() {}
 }
@@ -589,6 +609,7 @@ final class EvChild extends EvWatcher
      * @param int $pid  Wait for status changes of process PID(or any process if PID is specified as 0 ).
      * @param bool $trace If FALSE, only activate the watcher when the process terminates. Otherwise(TRUE) additionally
      *      activate the watcher when the process is stopped or continued.
+     * @return void
      */
     public function set($pid, $trace) {}
 }
@@ -625,11 +646,14 @@ final class EvEmbed extends EvWatcher
      * Configures the watcher.
      *
      * @param EvLoop $embed The loop to embed, this loop must be embeddable(see Ev::embeddableBackends()).
+     * @return void
      */
     public function set(EvLoop $embed) {}
 
     /**
      * Make a single, non-blocking sweep over the embedded loop.
+     *
+     * @return void
      */
     public function sweep() {}
 
@@ -693,6 +717,7 @@ final class EvIo extends EvWatcher
      *
      * @param resource $fd  A stream opened with fopen() or similar functions, numeric file descriptor, or socket.
      * @param int $events Ev::READ and/or Ev::WRITE. See the bit masks.
+     * @return void
      */
     public function set($fd, $events) {}
 
@@ -773,6 +798,7 @@ final class EvPeriodic extends EvWatcher
      * Simply stops and restarts the periodic watcher again.
      *
      * Simply stops and restarts the periodic watcher again. This is only useful when attributes are changed.
+     * @return void
      */
     public function again() {}
 
@@ -894,6 +920,7 @@ final class EvSignal extends EvWatcher
      * Configures the watcher.
      *
      * @param int $signum Signal number. See the constants exported by pcntl extension. See also signal(7) man page.
+     * @return void
      */
     public function set($signum) {}
 
@@ -971,6 +998,7 @@ final class EvStat extends EvWatcher
      * @param string $path The path to wait for status changes on.
      * @param double $interval Hint on how quickly a change is expected to be detected and should normally be specified
      *      as 0.0 to let libev choose a suitable value.
+     * @return void
      */
     public function set($path, $interval) {}
 
@@ -1063,6 +1091,7 @@ final class EvTimer extends EvWatcher
      * - if the timer is started but non-repeating, stop it (as if it timed out).
      * - if the timer is repeating, either start it if necessary (with the repeat value), or reset the running timer to
      *   the repeat value.
+     * @return void
      */
     public function again() {}
 
@@ -1073,6 +1102,7 @@ final class EvTimer extends EvWatcher
      * @param double $repeat If repeat is 0.0, then it will automatically be stopped once the timeout is reached. If it
      *      is positive, then the timer will automatically be configured to trigger again every repeat seconds later,
      *      until stopped manually.
+     * @return void
      */
     public function set($after, $repeat) {}
 
@@ -1290,6 +1320,8 @@ final class EvLoop
 
     /**
      * Invoke all pending watchers while resetting their pending state.
+     *
+     * @return void
      */
     public function invokePending() {}
 
@@ -1301,6 +1333,8 @@ final class EvLoop
      * @param callable $callback
      * @param mixed $data
      * @param int $priority
+     *
+     * @return EvIo
      */
     public function io($fd, $events, callable $callback, $data = null, $priority = 0) {}
 
@@ -1310,6 +1344,8 @@ final class EvLoop
      * Must be called after a fork in the child, before entering or continuing the event loop. An alternative is to use
      * Ev::FLAG_FORKCHECK which calls this function automatically, at some performance loss (refer to the libev
      * documentation).
+     *
+     * @return void
      */
     public function loopFork() {}
 
@@ -1333,6 +1369,8 @@ final class EvLoop
      *
      * This method is rarely useful, but when some event callback runs for a very long time without entering the event
      * loop, updating libev's consideration of the current time is a good idea.
+     *
+     * @return void
      */
     public function nowUpdate() {}
 
@@ -1353,6 +1391,8 @@ final class EvLoop
      * @param callable $callback
      * @param mixed $data
      * @param int $priority
+     *
+     * @return EvPrepare
      */
     public function prepare(callable $callback, $data = null, $priority = 0) {}
 
@@ -1360,6 +1400,8 @@ final class EvLoop
      * Resume previously suspended default event loop.
      *
      * EvLoop::suspend() and EvLoop::resume() methods suspend and resume a loop correspondingly.
+     *
+     * @return void
      */
     public function resume() {}
 
@@ -1372,6 +1414,7 @@ final class EvLoop
      * The return value can generally be interpreted as if TRUE, there is more work left to do.
      *
      * @param int $flags One of the Ev::RUN_* flags.
+     * @return void
      */
     public function run($flags = Ev::FLAG_AUTO) {}
 
@@ -1402,6 +1445,7 @@ final class EvLoop
      * Stops the event loop.
      *
      * @param int $how One of the Ev::BREAK_* flags.
+     * @return void
      */
     public function stop($how = Ev::BREAK_ALL) {}
 
@@ -1409,6 +1453,8 @@ final class EvLoop
      * Suspend the loop.
      *
      * EvLoop::suspend() and EvLoop::resume() methods suspend and resume a loop correspondingly.
+     *
+     * @return void
      */
     public function suspend() {}
 
@@ -1429,6 +1475,8 @@ final class EvLoop
      *
      * Performs internal consistency checks (for debugging libev) and abort the program if any data structures were
      * found to be corrupted.
+     *
+     * @return void
      */
     public function verify() {}
 
@@ -1442,6 +1490,8 @@ final class EvLoop
      * @param mixed $data
      * @param float $io_interval
      * @param float $timeout_interval
+     *
+     * @return EvLoop
      */
     public static function defaultLoop(
         $flags = Ev::FLAG_AUTO, $data = null, $io_interval = 0.0, $timeout_interval = 0.0

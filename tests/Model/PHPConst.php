@@ -28,9 +28,10 @@ class PHPConst extends BasePHPElement
 
     /**
      * @param Const_ $node
+     * @param null $dummy
      * @return $this
      */
-    public function readObjectFromStubNode($node)
+    public function readObjectFromStubNode($node, $dummy = null)
     {
         $this->name = $this->getConstantFQN($node, $node->name->name);
         $this->value = $this->getConstValue($node);

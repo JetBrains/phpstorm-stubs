@@ -139,7 +139,7 @@ function gmp_mul ($a, $b) {}
  * See the <b>gmp_div_q</b> function for description
  * of the <i>round</i> argument.
  * </p>
- * @return array an array, with the first
+ * @return GMP[] an array, with the first
  * element being [n/d] (the integer result of the
  * division) and the second being (n - [n/d] * d)
  * (the remainder of the division).
@@ -442,7 +442,7 @@ function gmp_gcd ($a, $b) {}
  * numeric string given that it is possible to convert the latter to a number.</p>
  * @param resource|string $b It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
- * @return array An array of GMP numbers.
+ * @return GMP[] An array of GMP numbers.
  * @since 4.0.4
  * @since 5.0
  */
@@ -692,7 +692,7 @@ function gmp_popcount ($a) {}
  * <p>
  * It should be positive.
  * </p>
- * @return int A GMP number resource.
+ * @return GMP A GMP number resource.
  * @since 4.0.4
  * @since 5.0
  */

@@ -2987,14 +2987,29 @@ class IntlCalendar {
 
 class IntlIterator implements Iterator {
 
+    /**
+     * @return mixed
+     */
     public function current() { }
 
+    /**
+     * @return string
+     */
     public function key() { }
 
+    /**
+     * @return void
+     */
     public function next() { }
 
+    /**
+     * @return void
+     */
     public function rewind() { }
 
+    /**
+     * @return bool
+     */
     public function valid() { }
 }
 

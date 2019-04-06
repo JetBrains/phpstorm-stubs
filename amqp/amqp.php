@@ -192,7 +192,7 @@ class AMQPBasicProperties
     /**
      * Get the delivery mode of the message.
      *
-     * @return integer The delivery mode of the message.
+     * @return int The delivery mode of the message.
      */
     public function getDeliveryMode() { }
 
@@ -310,7 +310,7 @@ class AMQPChannel
     /**
      * Return internal channel ID
      *
-     * @return integer
+     * @return int
      */
     public function getChannelId() { }
 
@@ -371,7 +371,7 @@ class AMQPChannel
     /**
      * Get the number of messages to prefetch from the broker.
      *
-     * @return integer
+     * @return int
      */
     public function getPrefetchCount() { }
 
@@ -396,7 +396,7 @@ class AMQPChannel
     /**
      * Get the window size to prefetch from the broker.
      *
-     * @return integer
+     * @return int
      */
     public function getPrefetchSize() { }
 
@@ -1337,7 +1337,7 @@ class AMQPQueue
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return integer the message count.
+     * @return int the message count.
      */
     public function declareQueue() { }
 
@@ -1354,7 +1354,7 @@ class AMQPQueue
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return integer The number of deleted messages.
+     * @return int The number of deleted messages.
      */
     public function delete($flags = AMQP_NOPARAM) { }
 

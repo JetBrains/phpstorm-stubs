@@ -92,7 +92,9 @@ class ffmpeg_movie
 	public function getFrameWidth()
 	{ }
 
-	/** Return the pixel format of the movie.*/
+    /**
+     * Return the pixel format of the movie.
+     */
 	public function getPixelFormat()
 	{ }
 

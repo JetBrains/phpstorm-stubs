@@ -775,7 +775,8 @@ class mysqli  {
 	public function use_result () {}
 
 	/**
-	 * @param $options
+	 * @param int $options
+     * @return bool
 	 */
 	public function refresh ($options) {}
 
@@ -948,7 +949,7 @@ class mysqli_result implements Traversable  {
 	/**
 	 * Returns an array of objects representing the fields in a result set
 	 * @link https://php.net/manual/en/mysqli-result.fetch-fields.php
-	 * @return array an array of objects which contains field definition information or
+	 * @return array|false an array of objects which contains field definition information or
 	 * false if no field information is available.
 	 * </p>
 	 * <p>
@@ -1083,7 +1084,7 @@ class mysqli_result implements Traversable  {
 	 * this parameter are the constants MYSQLI_ASSOC,
 	 * MYSQLI_NUM, or MYSQLI_BOTH.
 	 * </p>
-	 * @return mixed an array of associative or numeric arrays holding result rows.
+	 * @return array an array of associative or numeric arrays holding result rows.
 	 * @since 5.3.0
 	 */
 	public function fetch_all ($resulttype = null) {}
@@ -1105,7 +1106,7 @@ class mysqli_result implements Traversable  {
 	 * <b>MYSQLI_BOTH</b> will create a single array with the
 	 * attributes of both.
 	 * </p>
-	 * @return mixed an array of strings that corresponds to the fetched row or null if there
+	 * @return array|null an array of strings that corresponds to the fetched row or null if there
 	 * are no more rows in resultset.
 	 * @since 5.0
 	 */
@@ -1114,7 +1115,7 @@ class mysqli_result implements Traversable  {
 	/**
 	 * Fetch a result row as an associative array
 	 * @link https://php.net/manual/en/mysqli-result.fetch-assoc.php
-	 * @return array|null an associative array of strings representing the fetched row in the result
+	 * @return string[]|null an associative array of strings representing the fetched row in the result
 	 * set, where each key in the array represents the name of one of the result
 	 * set's columns or null if there are no more rows in resultset.
 	 * </p>
@@ -1138,7 +1139,7 @@ class mysqli_result implements Traversable  {
 	 * An optional array of parameters to pass to the constructor
 	 * for <i>class_name</i> objects.
 	 * </p>
-	 * @return stdClass|object an object with string properties that corresponds to the fetched
+	 * @return stdClass|object|null an object with string properties that corresponds to the fetched
 	 * row or null if there are no more rows in resultset.
 	 * @since 5.0
 	 */
@@ -1147,7 +1148,7 @@ class mysqli_result implements Traversable  {
 	/**
 	 * Get a result row as an enumerated array
 	 * @link https://php.net/manual/en/mysqli-result.fetch-row.php
-	 * @return mixed mysqli_fetch_row returns an array of strings that corresponds to the fetched row
+	 * @return array|null mysqli_fetch_row returns an array of strings that corresponds to the fetched row
 	 * or &null; if there are no more rows in result set.
 	 * @since 5.0
 	 */
@@ -1375,7 +1376,18 @@ class mysqli_stmt  {
 	/**
 	 * Fetch results from a prepared statement into the bound variables
 	 * @link https://php.net/manual/en/mysqli-stmt.fetch.php
-	 * @return bool
+     * @return bool|null
+     *                  <ul>
+     *                  <li>
+     *                  <b>TRUE</b> => Success. Data has been fetched
+     *                  </li>
+     *                  <li>
+     *                  <b>FALSE</b> => Error occurred
+     *                  </li>
+     *                  <li>
+     *                  <b>NULL</b> => No more rows/data exists or data truncation occurred
+     *                  </li>
+     *                  </ul>
 	 * @since 5.0
 	 */
 	public function fetch () {}
@@ -1487,7 +1499,7 @@ class mysqli_stmt  {
 	 * Manipulation Language (DML) statements, and not in Data Definition Language
 	 * (DDL) statements.
 	 * </p>
-	 * @return bool|mixed true on success or false on failure.
+	 * @return bool true on success or false on failure.
 	 * @since 5.0
 	 */
 	public function prepare ($query) {}

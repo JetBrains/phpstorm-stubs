@@ -8,7 +8,6 @@ use phpDocumentor\Reflection\DocBlock\Tags\See;
 use PHPUnit\Framework\TestCase;
 use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use StubTests\Model\BasePHPClass;
-use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPConst;
 use StubTests\Model\PHPDocElement;
@@ -20,6 +19,9 @@ use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
 class StubsTest extends TestCase
 {
+    /**
+     * @var array
+     */
     protected static $call_map_vimeo_psalm = [];
 
     public static function setUpBeforeClass()
@@ -333,6 +335,67 @@ class StubsTest extends TestCase
      * @param PHPMethod $method
      * @throws InvalidArgumentException
      */
+    public function testMethodsParameterPHPDocs(string $methodName, PHPMethod $method): void
+    {
+        if ($methodName === '__construct') {
+            static::assertTrue(true);
+
+            return;
+        }
+
+        if (!$method->parentName) {
+            static::markTestSkipped('TODO: no class found: ' . $method->parentName . ' | ' . print_r($method, true));
+
+            return;
+        }
+
+        if (count($method->parameters) === 0) {
+            static::assertTrue(true);
+        }
+
+        $methodNameWithClass = $method->parentName . '::' . $methodName;
+
+        if (isset(self::$call_map_vimeo_psalm[$methodNameWithClass])) {
+
+            foreach ($method->parameters as $count => $parameter) {
+
+                if (!isset(self::$call_map_vimeo_psalm[$methodNameWithClass][$parameter->name])) {
+                    static::markTestSkipped('TODO: parameter error: ' . $methodNameWithClass . ' | parameter: ' . $parameter->name . ' | psalm: ' . print_r(self::$call_map_vimeo_psalm[$methodNameWithClass], true));
+
+                    return;
+                }
+
+                $parameterTypeFromPsalm = ltrim(self::$call_map_vimeo_psalm[$methodNameWithClass][$parameter->name], '\\');
+                $parameterTypeFromPsalm = $this->getTypeFromPsalm($parameterTypeFromPsalm);
+
+                $parameterTypeFromPhpDoc = $this->getTypeFromPhpElement($parameter->type_from_php_doc);
+
+                if ($parameterTypeFromPhpDoc) {
+                    static::assertEquals(
+                        $parameterTypeFromPsalm,
+                        $parameterTypeFromPhpDoc,
+                        $methodNameWithClass . ' - parameter ' . $parameter->name . ': Failed asserting that (psalm-data) "' . print_r($parameterTypeFromPsalm, true) . '" == (phpdoc-data) "' . print_r($parameterTypeFromPhpDoc, true) . '" | ' . print_r($method->parameters, true)
+                    );
+
+                    continue;
+                }
+
+                static::markTestSkipped('TODO: ' . $methodNameWithClass . ' - parameter ' . $parameter->name . ': parameter type is missing? | psalm-data: ' . print_r(self::$call_map_vimeo_psalm[$methodNameWithClass], true) . ' | phpdoc-data: ' . print_r($method, true));
+
+                return;
+            }
+
+        } else {
+            static::markTestSkipped('TODO: no parameter data found in psalm: ' . $methodNameWithClass);
+        }
+    }
+
+    /**
+     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodProvider
+     * @param string $methodName
+     * @param PHPMethod $method
+     * @throws InvalidArgumentException
+     */
     public function testMethodsReturnPHPDocs(string $methodName, PHPMethod $method): void
     {
         if ($methodName === '__construct') {
@@ -347,13 +410,20 @@ class StubsTest extends TestCase
             return;
         }
 
-
-        // init
         $methodNameWithClass = $method->parentName . '::' . $methodName;
 
+        if (!$method->type_from_php_doc) {
+            static::markTestSkipped('TODO: no return type found for: ' . $methodNameWithClass);
+
+            return;
+        }
+
         if (isset(self::$call_map_vimeo_psalm[$methodNameWithClass])) {
-            $returnTypeFromPsalm = $this->getTypeFromPsalm($methodNameWithClass);
-            $returnTypeFromPhpDoc = $this->getTypeFromPhpElement($method);
+
+            $returnTypeFromPsalm = ltrim(self::$call_map_vimeo_psalm[$methodNameWithClass][0], '\\');
+            $returnTypeFromPsalm = $this->getTypeFromPsalm($returnTypeFromPsalm);
+
+            $returnTypeFromPhpDoc = $this->getTypeFromPhpElement($method->type_from_php_doc);
 
             if ($returnTypeFromPhpDoc) {
                 static::assertEquals(
@@ -365,7 +435,7 @@ class StubsTest extends TestCase
                 return;
             }
 
-            static::markTestSkipped('TODO: ' . $methodNameWithClass . ': return type is missing? | psalm-data: ' . print_r(self::$call_map_vimeo_psalm[$methodNameWithClass], true) . ' | phpdoc-data: ' . print_r($function));
+            static::markTestSkipped('TODO: ' . $methodNameWithClass . ': return type is missing? | psalm-data: ' . print_r(self::$call_map_vimeo_psalm[$methodNameWithClass], true) . ' | phpdoc-data: ' . print_r($method, true));
 
             return;
         }
@@ -378,9 +448,56 @@ class StubsTest extends TestCase
      * @param PHPFunction $function
      * @throws InvalidArgumentException
      */
+    public function testFunctionParameterPHPDocs(PHPFunction $function): void
+    {
+        $functionName = $function->name;
+
+        if (count($function->parameters) === 0) {
+            static::assertTrue(true);
+        }
+
+        if (isset(self::$call_map_vimeo_psalm[$functionName])) {
+
+            foreach ($function->parameters as $count => $parameter) {
+
+                if (!isset(self::$call_map_vimeo_psalm[$functionName][$parameter->name])) {
+                    static::markTestSkipped('TODO: parameter error: ' . $functionName . ' | parameter: ' . $parameter->name . ' | psalm: ' . print_r(self::$call_map_vimeo_psalm[$functionName], true));
+
+                    return;
+                }
+
+                $parameterTypeFromPsalm = ltrim(self::$call_map_vimeo_psalm[$functionName][$parameter->name], '\\');
+                $parameterTypeFromPsalm = $this->getTypeFromPsalm($parameterTypeFromPsalm);
+
+                $parameterTypeFromPhpDoc = $this->getTypeFromPhpElement($parameter->type_from_php_doc);
+
+                if ($parameterTypeFromPhpDoc) {
+                    static::assertEquals(
+                        $parameterTypeFromPsalm,
+                        $parameterTypeFromPhpDoc,
+                        $functionName . ' - parameter ' . $parameter->name . ': Failed asserting that (psalm-data) "' . print_r($parameterTypeFromPsalm, true) . '" == (phpdoc-data) "' . print_r($parameterTypeFromPhpDoc, true) . '" | ' . print_r($function->parameters, true)
+                    );
+
+                    continue;
+                }
+
+                static::markTestSkipped('TODO: ' . $functionName . ' - parameter ' . $parameter->name . ': parameter type is missing? | psalm-data: ' . print_r(self::$call_map_vimeo_psalm[$functionName], true) . ' | phpdoc-data: ' . print_r($function, true));
+
+                return;
+            }
+
+        } else {
+            static::markTestSkipped('TODO: no parameter data found in psalm: ' . $functionName);
+        }
+    }
+
+    /**
+     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubFunctionProvider
+     * @param PHPFunction $function
+     * @throws InvalidArgumentException
+     */
     public function testFunctionReturnPHPDocs(PHPFunction $function): void
     {
-        // init
         $functionName = $function->name;
 
         $ignoreErrors = [
@@ -408,15 +525,18 @@ class StubsTest extends TestCase
             return;
         }
 
-        if (!$function->returnType) {
+        if (!$function->type_from_php_doc) {
             static::markTestSkipped('TODO: no return data found in phpdoc: ' . $functionName . ' | ' . print_r($function, true));
 
             return;
         }
 
         if (isset(self::$call_map_vimeo_psalm[$functionName])) {
-            $returnTypeFromPsalm = $this->getTypeFromPsalm($functionName);
-            $returnTypeFromPhpDoc = $this->getTypeFromPhpElement($function);
+
+            $returnTypeFromPsalm = ltrim(self::$call_map_vimeo_psalm[$functionName][0], '\\');
+            $returnTypeFromPsalm = $this->getTypeFromPsalm($returnTypeFromPsalm);
+
+            $returnTypeFromPhpDoc = $this->getTypeFromPhpElement($function->type_from_php_doc);
 
             if ($returnTypeFromPhpDoc) {
                 static::assertEquals(
@@ -428,7 +548,7 @@ class StubsTest extends TestCase
                 return;
             }
 
-            static::markTestSkipped('TODO: ' . $functionName . ': return type is missing? | psalm-data: ' . print_r(self::$call_map_vimeo_psalm[$functionName], true) . ' | phpdoc-data: ' . print_r($function));
+            static::markTestSkipped('TODO: ' . $functionName . ': return type is missing? | psalm-data: ' . print_r(self::$call_map_vimeo_psalm[$functionName], true) . ' | phpdoc-data: ' . print_r($function, true));
 
             return;
         }
@@ -479,91 +599,87 @@ class StubsTest extends TestCase
         }
     }
 
-    /**
-     * @param string $returnTypeFromPsalm
-     *
-     * @return string
-     */
-    private function convertPsalmTypeHelper(string $returnTypeFromPsalm): string
+    private function convertPsalmTypeHelper(string $typeFromPsalm): string
     {
         // hack for "OCI-Lob" != "OCI_Lob"
-        $returnTypeFromPsalm = str_replace('OCI-', 'OCI_', $returnTypeFromPsalm);
+        $typeFromPsalm = str_replace('OCI-', 'OCI_', $typeFromPsalm);
 
-        if ($returnTypeFromPsalm === '') {
+        // hack to convert e.g. "callable(Foo):void" into "callable"
+        $typeFromPsalm = preg_replace('/\(.*\):.*/', '', $typeFromPsalm);
+
+        if ($typeFromPsalm === '') {
             return 'mixed';
         }
 
-        if ($returnTypeFromPsalm === 'class-string') {
+        if ($typeFromPsalm === 'class-string') {
             return 'string';
         }
 
-        if (preg_match('/array{.*}/', $returnTypeFromPsalm)) {
+        if (preg_match('/array{.*}/', $typeFromPsalm)) {
             return 'array';
         }
 
-        preg_match('/array<.*?,(?<type>.*)>/', $returnTypeFromPsalm, $outputTmp);
+        preg_match('/array<.*?,(?<type>.*)>/', $typeFromPsalm, $outputTmp);
         if ($outputTmp && count($outputTmp) > 0) {
             if (strpos($outputTmp['type'], 'array') !== false) {
                 return 'array';
             }
 
-            $returnTmp = $outputTmp['type'] . '[]';
-            if ($returnTmp === 'mixed[]') {
+            $typeTmp = trim($outputTmp['type']) . '[]';
+            if ($typeTmp === 'mixed[]') {
                 return 'array';
             }
 
-            return $returnTmp;
+            return $typeTmp;
         }
 
-        preg_match('/\?(?<type>.*)/', $returnTypeFromPsalm, $outputTmp);
+        preg_match('/\?(?<type>.*)/', $typeFromPsalm, $outputTmp);
         if ($outputTmp && count($outputTmp) > 0) {
             return $outputTmp['type'] . '|null';
         }
 
-        return $returnTypeFromPsalm;
+        return $typeFromPsalm;
     }
 
-    private function getTypeFromPsalm(string $functionName): array
+    private function getTypeFromPsalm(string $typeFromPsalmInput): array
     {
-        $returnTypeFromPsalmInput = ltrim(self::$call_map_vimeo_psalm[$functionName][0], '\\');
-
-        preg_match_all('/(?:[^<|]|<[^>]*>)+/', $returnTypeFromPsalmInput, $returnTypeFromPsalm);
-        $returnTypeFromPsalm = $returnTypeFromPsalm[0];
-        foreach ($returnTypeFromPsalm as &$retrunTmp) {
-            $retrunTmp = $this->convertPsalmTypeHelper($retrunTmp);
+        preg_match_all('/(?:[^<|]|<[^>]*>)+/', $typeFromPsalmInput, $typeFromPsalm);
+        $typeFromPsalm = $typeFromPsalm[0];
+        foreach ($typeFromPsalm as &$typeTmp) {
+            $typeTmp = $this->convertPsalmTypeHelper($typeTmp);
         }
-        unset($retrunTmp);
+        unset($typeTmp);
         /* the inner empty array covers cases when no loops were made */
-        $returnTypeFromPsalmInner = [];
-        foreach ($returnTypeFromPsalm as $key => &$retrunTmp) {
-            if (strpos($retrunTmp, '|') !== false) {
-                unset($returnTypeFromPsalm[$key]);
-                $returnTypeFromPsalmInner[] = explode('|', $retrunTmp);
+        $typeFromPsalmInner = [];
+        foreach ($typeFromPsalm as $key => &$typeTmp) {
+            if (strpos($typeTmp, '|') !== false) {
+                unset($typeFromPsalm[$key]);
+                $typeFromPsalmInner[] = explode('|', $typeTmp);
             }
         }
-        unset($retrunTmp);
+        unset($typeTmp);
 
-        $returnTypeFromPsalm = array_unique(array_merge($returnTypeFromPsalm, ...$returnTypeFromPsalmInner));
-        sort($returnTypeFromPsalm);
+        /** @noinspection KeysFragmentationWithArrayFunctionsInspection */
+        $typeFromPsalm = array_unique(array_merge($typeFromPsalm, ...$typeFromPsalmInner));
+        sort($typeFromPsalm);
 
-        return $returnTypeFromPsalm;
+        return $typeFromPsalm;
     }
 
-    /**
-     * @param \StubTests\Model\BasePHPElement $function
-     *
-     * @return array
-     */
-    private function getTypeFromPhpElement(BasePHPElement $function): array
+    private function getTypeFromPhpElement(string $typeFromPhpDoc): array
     {
-        $returnTypeFromPhpDoc = explode('|', ltrim($function->returnType, '\\'));
-        foreach ($returnTypeFromPhpDoc as &$returnTypeFromPhpDocTmp) {
-            $returnTypeFromPhpDocTmp = ltrim($returnTypeFromPhpDocTmp, '\\');
+        $typeFromPhpDoc = explode('|', ltrim($typeFromPhpDoc, '\\'));
+        foreach ($typeFromPhpDoc as $key => &$typeFromPhpDocTmp) {
+            $typeFromPhpDocTmp = ltrim($typeFromPhpDocTmp, '\\');
+
+            if ($typeFromPhpDocTmp === '') {
+                unset($typeFromPhpDoc[$key]);
+            }
         }
-        unset($returnTypeFromPhpDocTmp);
+        unset($typeFromPhpDocTmp);
 
-        sort($returnTypeFromPhpDoc);
+        sort($typeFromPhpDoc);
 
-        return $returnTypeFromPhpDoc;
+        return $typeFromPhpDoc;
     }
 }

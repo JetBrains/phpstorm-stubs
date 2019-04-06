@@ -885,7 +885,7 @@ class DOMDocument extends DOMNode  {
      * @param string $elementId <p>
      * The unique id value for an element.
      * </p>
-     * @return DOMElement the DOMElement or &null; if the element is
+     * @return DOMElement|null the DOMElement or &null; if the element is
      * not found.
      * @since 5.0
      */
@@ -1042,7 +1042,7 @@ class DOMDocument extends DOMNode  {
      * Dumps the internal document into a string using HTML formatting
      * @link https://php.net/manual/domdocument.savehtml.php
      * @param DOMNode $node [optional] parameter to output a subset of the document.
-     * @return string the HTML, or false if an error occurred.
+     * @return string|false the HTML, or false if an error occurred.
      * @since 5.0
      */
     public function saveHTML (DOMNode $node = NULL) {}
@@ -1155,6 +1155,7 @@ class DOMNodeList implements Traversable, Countable {
     public function item ($index) {}
 
     /**
+     * @return int
      * @since 7.2.0
      */
     public function count() {}
@@ -1174,7 +1175,7 @@ class DOMNamedNodeMap implements Traversable, Countable {
      * @param string $name <p>
      * The nodeName of the node to retrieve.
      * </p>
-     * @return DOMNode A node (of any type) with the specified nodeName, or
+     * @return DOMNode|null A node (of any type) with the specified nodeName, or
      * &null; if no node is found.
      * @since 5.0
      */
@@ -1196,7 +1197,7 @@ class DOMNamedNodeMap implements Traversable, Countable {
      * @param int $index <p>
      * Index into this map.
      * </p>
-     * @return DOMNode The node at the indexth position in the map, or &null;
+     * @return DOMNode|null The node at the indexth position in the map, or &null;
      * if that is not a valid index (greater than or equal to the number of nodes
      * in this map).
      * @since 5.0
@@ -1212,7 +1213,7 @@ class DOMNamedNodeMap implements Traversable, Countable {
      * @param string $localName <p>
      * The local name of the node to retrieve.
      * </p>
-     * @return DOMNode A node (of any type) with the specified local name and namespace URI, or
+     * @return DOMNode|null A node (of any type) with the specified local name and namespace URI, or
      * &null; if no node is found.
      * @since 5.0
      */
@@ -1789,6 +1790,9 @@ class DOMText extends DOMCharacterData  {
      */
     public function isWhitespaceInElementContent () {}
 
+    /**
+     * @return bool
+     */
     public function isElementContentWhitespace () {}
 
     /**

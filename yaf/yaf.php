@@ -1847,6 +1847,7 @@ interface Yaf_View_Interface {
      * @link https://secure.php.net/manual/en/yaf-view-interface.setscriptpath.php
      *
      * @param string $template_dir An absolute path to the template directory, by default, Yaf_Dispatcher use application.directory . "/views" as this parameter.
+     * @return void
      */
     function setScriptPath($template_dir);
 }
@@ -1880,7 +1881,7 @@ interface Yaf_Route_Interface {
      *
      * @param array $info
      * @param array $query
-     * @return bool
+     * @return string
      */
     function assemble(array $info, array $query = null);
 }

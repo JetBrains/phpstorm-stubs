@@ -37,7 +37,7 @@ class Reflection  {
 	 * Setting to <b>TRUE</b> will return the export,
 	 * as opposed to emitting it. Setting to <b>FALSE</b> (the default) will do the opposite.
 	 * </p>
-	 * @return string If the <i>return</i> parameter
+	 * @return string|null If the <i>return</i> parameter
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @since 5.0
@@ -56,7 +56,7 @@ interface Reflector  {
 	/**
 	 * Exports
 	 * @link https://php.net/manual/en/reflector.export.php
-	 * @return string
+	 * @return string|null
 	 * @since 5.0
 	 */
 	static function export ();
@@ -91,6 +91,7 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	/**
 	 * To string
 	 * @link https://php.net/manual/en/reflectionfunctionabstract.tostring.php
+	 * @return string
 	 * @since 5.0
 	 */
 	abstract public function __toString ();
@@ -188,7 +189,7 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	/**
 	 * Gets file name
 	 * @link https://php.net/manual/en/reflectionfunctionabstract.getfilename.php
-	 * @return string The file name.
+	 * @return string|false The file name.
 	 * @since 5.0
 	 */
 	public function getFileName () {}
@@ -252,7 +253,7 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	/**
 	 * Gets starting line number
 	 * @link https://php.net/manual/en/reflectionfunctionabstract.getstartline.php
-	 * @return int The starting line number.
+	 * @return int|false The starting line number.
 	 * @since 5.0
 	 */
 	public function getStartLine () {}
@@ -339,7 +340,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
 	 * Setting to <b>TRUE</b> will return the export,
 	 * as opposed to emitting it. Setting to <b>FALSE</b> (the default) will do the opposite.
 	 * </p>
-	 * @return string If the <i>return</i> parameter
+	 * @return string|null If the <i>return</i> parameter
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @since 5.0
@@ -382,7 +383,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
 	/**
 	 * Returns a dynamically created closure for the function
 	 * @link https://php.net/manual/en/reflectionfunction.getclosure.php
-	 * @return Closure <b>Closure</b>.
+	 * @return Closure|null <b>Closure</b>.
 	 * Returns <b>NULL</b> in case of an error.
 	 * @since 5.0
 	 */
@@ -420,7 +421,7 @@ class ReflectionParameter implements Reflector {
 	 * Setting to <b>TRUE</b> will return the export,
 	 * as opposed to emitting it. Setting to <b>FALSE</b> (the default) will do the opposite.
 	 * </p>
-	 * @return string The exported reflection.
+	 * @return string|null The exported reflection.
 	 * @since 5.0
 	 */
 	public static function export ($function, $parameter, $return = null) {}
@@ -500,7 +501,7 @@ class ReflectionParameter implements Reflector {
 	/**
 	 * Gets declaring class
 	 * @link https://php.net/manual/en/reflectionparameter.getdeclaringclass.php
-	 * @return ReflectionClass A <b>ReflectionClass</b> object.
+	 * @return ReflectionClass|null A <b>ReflectionClass</b> object.
 	 * @since 5.0
 	 */
 	public function getDeclaringClass () {}
@@ -508,7 +509,7 @@ class ReflectionParameter implements Reflector {
 	/**
 	 * Get class
 	 * @link https://php.net/manual/en/reflectionparameter.getclass.php
-	 * @return ReflectionClass A <b>ReflectionClass</b> object.
+	 * @return ReflectionClass|null A <b>ReflectionClass</b> object.
 	 * @since 5.0
 	 */
 	public function getClass () {}
@@ -625,7 +626,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector {
 	 * Setting to <b>TRUE</b> will return the export,
 	 * as opposed to emitting it. Setting to <b>FALSE</b> (the default) will do the opposite.
 	 * </p>
-	 * @return string If the <i>return</i> parameter
+	 * @return string|null If the <i>return</i> parameter
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @since 5.0
@@ -722,7 +723,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector {
 	 * Returns a dynamically created closure for the method
 	 * @link https://php.net/manual/en/reflectionmethod.getclosure.php
 	 * @param object $object [optional] Forbidden for static methods, required for other methods.
-	 * @return Closure <b>Closure</b>.
+	 * @return Closure|null <b>Closure</b>.
 	 * Returns <b>NULL</b> in case of an error.
 	 * @since 5.4.0
 	 */
@@ -874,7 +875,7 @@ class ReflectionClass implements Reflector {
 	 * Setting to <b>TRUE</b> will return the export,
 	 * as opposed to emitting it. Setting to <b>FALSE</b> (the default) will do the opposite.
 	 * </p>
-	 * @return string If the <i>return</i> parameter
+	 * @return string|null If the <i>return</i> parameter
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @since 5.0
@@ -954,7 +955,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets starting line number
 	 * @link https://php.net/manual/en/reflectionclass.getstartline.php
-	 * @return int The starting line number, as an integer.
+	 * @return int|false The starting line number, as an integer.
 	 * @since 5.0
 	 */
 	public function getStartLine () {}
@@ -978,7 +979,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets the constructor of the class
 	 * @link https://php.net/manual/en/reflectionclass.getconstructor.php
-	 * @return ReflectionMethod A <b>ReflectionMethod</b> object reflecting the class' constructor, or <b>NULL</b> if the class
+	 * @return ReflectionMethod|null A <b>ReflectionMethod</b> object reflecting the class' constructor, or <b>NULL</b> if the class
 	 * has no constructor.
 	 * @since 5.0
 	 */
@@ -1069,7 +1070,7 @@ class ReflectionClass implements Reflector {
 	 * @param string $name <p>
 	 * The class constant name.
 	 * </p>
-	 * @return ReflectionClassConstant A ReflectionClassConstant.
+	 * @return ReflectionClassConstant|false A ReflectionClassConstant.
 	 * @since 7.1
 	 */
 	public function getReflectionConstant ($name) {}
@@ -1116,7 +1117,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets the interfaces
 	 * @link https://php.net/manual/en/reflectionclass.getinterfaces.php
-         * @return ReflectionClass[] An associative array of interfaces, with keys as interface
+	 * @return ReflectionClass[] An associative array of interfaces, with keys as interface
 	 * names and the array values as <b>ReflectionClass</b> objects.
 	 * @since 5.0
 	 */
@@ -1125,7 +1126,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets the interface names
 	 * @link https://php.net/manual/en/reflectionclass.getinterfacenames.php
-	 * @return array A numerical array with interface names as the values.
+	 * @return string[] A numerical array with interface names as the values.
 	 * @since 5.2.0
 	 */
 	public function getInterfaceNames () {}
@@ -1158,7 +1159,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Returns an array of names of traits used by this class
 	 * @link https://php.net/manual/en/reflectionclass.gettraitnames.php
-	 * @return array an array with trait names in values.
+	 * @return string[]|null an array with trait names in values.
 	 * Returns <b>NULL</b> in case of an error.
 	 * @since 5.4.0
 	 */
@@ -1167,7 +1168,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Returns an array of trait aliases
 	 * @link https://php.net/manual/en/reflectionclass.gettraitaliases.php
-	 * @return array an array with new method names in keys and original names (in the
+	 * @return string[]|null an array with new method names in keys and original names (in the
 	 * format "TraitName::original") in values.
 	 * Returns <b>NULL</b> in case of an error.
 	 * @since 5.4.0
@@ -1272,7 +1273,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets static properties
 	 * @link https://php.net/manual/en/reflectionclass.getstaticproperties.php
-	 * @return array The static properties, as an array.
+	 * @return ReflectionProperty[] The static properties, as an array.
 	 * @since 5.0
 	 */
 	public function getStaticProperties () {}
@@ -1345,7 +1346,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets a <b>ReflectionExtension</b> object for the extension which defined the class
 	 * @link https://php.net/manual/en/reflectionclass.getextension.php
-	 * @return ReflectionExtension A <b>ReflectionExtension</b> object representing the extension which defined the class,
+	 * @return ReflectionExtension|null A <b>ReflectionExtension</b> object representing the extension which defined the class,
 	 * or <b>NULL</b> for user-defined classes.
 	 * @since 5.0
 	 */
@@ -1402,7 +1403,7 @@ class ReflectionObject extends ReflectionClass implements Reflector {
 	 * Setting to <b>TRUE</b> will return the export,
 	 * as opposed to emitting it. Setting to <b>FALSE</b> (the default) will do the opposite.
 	 * </p>
-	 * @return string If the <i>return</i> parameter
+	 * @return string|null If the <i>return</i> parameter
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @since 5.0
@@ -1455,7 +1456,7 @@ class ReflectionProperty implements Reflector {
 	 * Setting to <b>TRUE</b> will return the export,
 	 * as opposed to emitting it. Setting to <b>FALSE</b> (the default) will do the opposite.
 	 * </p>
-	 * @return string
+	 * @return string|null
 	 * @since 5.0
 	 */
 	public static function export ($class, $name, $return = null) {}
@@ -1625,7 +1626,7 @@ class ReflectionExtension implements Reflector {
 	 * Setting to <b>TRUE</b> will return the export,
 	 * as opposed to emitting it. Setting to <b>FALSE</b> (the default) will do the opposite.
 	 * </p>
-	 * @return string If the <i>return</i> parameter
+	 * @return string|null If the <i>return</i> parameter
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @since 5.0
@@ -1708,7 +1709,7 @@ class ReflectionExtension implements Reflector {
 	/**
 	 * Gets class names
 	 * @link https://php.net/manual/en/reflectionextension.getclassnames.php
-	 * @return array An array of class names, as defined in the extension.
+	 * @return string[] An array of class names, as defined in the extension.
 	 * If no classes are defined, an empty array is returned.
 	 * @since 5.0
 	 */
@@ -1717,9 +1718,8 @@ class ReflectionExtension implements Reflector {
 	/**
 	 * Gets dependencies
 	 * @link https://php.net/manual/en/reflectionextension.getdependencies.php
-	 * @return array An associative array with dependencies as keys and
-	 * either Required, Optional
-	 * or Conflicts as the values.
+	 * @return string[] An associative array with dependencies as keys and
+	 * either Required, Optional or Conflicts as the values.
 	 * @since 5.0
 	 */
 	public function getDependencies () {}

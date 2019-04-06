@@ -127,7 +127,7 @@ class Directory  {
  * @param string $name <p>
  * The constant name.
  * </p>
- * @return mixed the value of the constant, or &null; if the constant is not
+ * @return mixed|null the value of the constant, or &null; if the constant is not
  * defined.
  * @since 4.0.4
  * @since 5.0
