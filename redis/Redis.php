@@ -3380,7 +3380,7 @@ class Redis
      * @param   string  $str_key
      * @param   string  $str_group
      * @param   string  $str_msg_id
-     * @param   bool    $mkstream
+     * @param   bool    $boo_mkstream
      * @return  mixed   This command returns different types depending on the specific XGROUP command executed.
      * @link    https://redis.io/commands/xgroup
      * @example
@@ -3390,7 +3390,7 @@ class Redis
      * $obj_redis->xGroup('DESTROY', 'mystream', 'mygroup');
      * </pre>
      */
-    public function xGroup($operation, $str_key, $str_group, $str_msg_id = '', $mkstream = false) {}
+    public function xGroup($operation, $str_key, $str_group, $str_msg_id = '', $boo_mkstream = false) {}
 
     /**
      * Get information about a stream or consumer groups.
