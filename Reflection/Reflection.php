@@ -785,7 +785,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector {
 	/**
 	 * Invoke
 	 * @link https://php.net/manual/en/reflectionmethod.invoke.php
-	 * @param object $object <p>
+	 * @param object|null $object <p>
 	 * The object to invoke the method on. For static methods, pass
 	 * null to this parameter.
 	 * </p>
@@ -802,7 +802,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector {
 	/**
 	 * Invoke args
 	 * @link https://php.net/manual/en/reflectionmethod.invokeargs.php
-	 * @param object $object <p>
+	 * @param object|null $object <p>
 	 * The object to invoke the method on. In case of static methods, you can pass
 	 * null to this parameter.
 	 * </p>
@@ -868,7 +868,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Exports a class
 	 * @link https://php.net/manual/en/reflectionclass.export.php
-	 * @param mixed $argument <p>
+	 * @param object|string $argument <p>
 	 * The reflection to export.
 	 * </p>
 	 * @param bool $return [optional] <p>
@@ -1262,7 +1262,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Checks if a subclass
 	 * @link https://php.net/manual/en/reflectionclass.issubclassof.php
-	 * @param string $class <p>
+	 * @param string|ReflectionClass $class <p>
 	 * The class name being checked against.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -1727,7 +1727,7 @@ class ReflectionExtension implements Reflector {
 	/**
 	 * Gets extension info
 	 * @link https://php.net/manual/en/reflectionextension.info.php
-	 * @return string Information about the extension.
+	 * @return void Information about the extension.
 	 * @since 5.0
 	 */
 	public function info () {}
@@ -1735,8 +1735,7 @@ class ReflectionExtension implements Reflector {
 	/**
 	 * Returns whether this extension is persistent
 	 * @link https://php.net/manual/en/reflectionextension.ispersistent.php
-	 * @return bool <b>TRUE</b> for extensions loaded by extension, <b>FALSE</b>
-	 * otherwise.
+	 * @return bool
 	 * @since 5.4.0
 	 */
 	public function isPersistent () {}
@@ -1776,7 +1775,7 @@ class ReflectionZendExtension implements Reflector {
 	 * </p>
 	 * @param string $return [optional] <p>
 	 * </p>
-	 * @return string
+	 * @return string|null
 	 * @since 5.4.0
 	 */
 	public static function export ($name, $return = null) {}
@@ -2107,7 +2106,7 @@ class ReflectionClassConstant implements Reflector {
      * Returns the string representation of the ReflectionClassConstant object.
      * @since 7.1
      * @link https://php.net/manual/en/reflectionclassconstant.tostring.php
-     * @return string|void
+     * @return string
      */
 	public function __toString() {}
 

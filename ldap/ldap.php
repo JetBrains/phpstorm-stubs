@@ -207,7 +207,7 @@ function ldap_list ($link_identifier, $base_dn, $filter, array $attributes = nul
 /**
  * Search LDAP tree
  * @link https://php.net/manual/en/function.ldap-search.php
- * @param resource $link_identifier <p>
+ * @param resource|resource[] $link_identifier <p>
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
  * @param string $base_dn <p>

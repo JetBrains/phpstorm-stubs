@@ -784,7 +784,7 @@ function lstat ($filename) {}
  * @param string $filename <p>
  * Path to the file.
  * </p>
- * @param mixed $user <p>
+ * @param string|int $user <p>
  * A user name or number.
  * </p>
  * @return bool true on success or false on failure.
@@ -799,7 +799,7 @@ function chown ($filename, $user) {}
  * @param string $filename <p>
  * Path to the file.
  * </p>
- * @param mixed $group <p>
+ * @param string|int $group <p>
  * A group name or number.
  * </p>
  * @return bool true on success or false on failure.
@@ -814,7 +814,7 @@ function chgrp ($filename, $group) {}
  * @param string $filename <p>
  * Path to the file.
  * </p>
- * @param mixed $user <p>
+ * @param string|int $user <p>
  * User name or number.
  * </p>
  * @return bool true on success or false on failure.
@@ -828,7 +828,7 @@ function lchown ($filename, $user) {}
  * @param string $filename <p>
  * Path to the symlink.
  * </p>
- * @param mixed $group <p>
+ * @param string|int $group <p>
  * The group specified by name or number.
  * </p>
  * @return bool true on success or false on failure.

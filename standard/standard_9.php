@@ -708,7 +708,7 @@ function array_chunk(array $input, $size, $preserve_keys = null) { }
 /**
  * Creates an array by using one array for keys and another for its values
  * @link https://php.net/manual/en/function.array-combine.php
- * @param array $keys <p>
+ * @param int[]|string[] $keys <p>
  * Array of keys to be used. Illegal values for key will be
  * converted to string.
  * </p>
@@ -724,7 +724,7 @@ function array_combine(array $keys, array $values) { }
 /**
  * Checks if the given key or index exists in the array
  * @link https://php.net/manual/en/function.array-key-exists.php
- * @param mixed $key <p>
+ * @param int|string $key <p>
  * Value to check.
  * </p>
  * @param array|ArrayObject $search <p>
@@ -783,7 +783,7 @@ function sizeof($var, $mode = COUNT_NORMAL) { }
 /**
  * Checks if the given key or index exists in the array. The name of this function is array_key_exists() in PHP > 4.0.6.
  * @link https://php.net/manual/en/function.array-key-exists.php
- * @param mixed $key <p>
+ * @param int|string $key <p>
  * Value to check.
  * </p>
  * @param array $search <p>
@@ -798,7 +798,7 @@ function key_exists($key, $search) { }
 /**
  * Checks if assertion is &false;
  * @link https://php.net/manual/en/function.assert.php
- * @param mixed $assertion <p>
+ * @param string|bool $assertion <p>
  * The assertion.
  * </p>
  * @param string $description [optional]

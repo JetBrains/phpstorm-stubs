@@ -354,7 +354,7 @@ class Memcache extends MemcachePool  {
 	 * twice before changing the default value of 1 second - you can lose all
 	 * the advantages of caching if your connection is too slow.
 	 * </p>
-	 * @return mixed|false a Memcache object or <b>FALSE</b> on failure.
+	 * @return Memcache|false a Memcache object or <b>FALSE</b> on failure.
 	 */
 	public function pconnect ($host, $port, $timeout = 1) {}
 }

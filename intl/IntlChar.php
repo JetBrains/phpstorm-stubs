@@ -746,7 +746,7 @@ class IntlChar {
      * <li><b> IntlChar::CHAR_NAME_ALIAS </b></li>
      * <li><b> IntlChar::CHAR_NAME_CHOICE_COUNT </b></li>
      * </ul>
-     * @return int|false The Unicode value of the code point with the given name (as an integer), or FALSE if there is no such code point.
+     * @return int|null The Unicode value of the code point with the given name (as an integer), or NULL if there is no such code point.
      * @since 7.0
      */
     public static function charFromName($characterName, $nameChoice = IntlChar::UNICODE_CHAR_NAME) {}
@@ -888,7 +888,7 @@ class IntlChar {
      * @link https://php.net/manual/en/intlchar.foldcase.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
      * @param int $options [optional] Either IntlChar::FOLD_CASE_DEFAULT (default) or IntlChar::FOLD_CASE_EXCLUDE_SPECIAL_I.
-     * @return mixed Returns the Simple_Case_Folding of the code point, if any; otherwise the code point itself.
+     * @return int|string Returns the Simple_Case_Folding of the code point, if any; otherwise the code point itself.
      * @since 7.0
      */
     public static function foldCase ($codepoint, $options = IntlChar::FOLD_CASE_DEFAULT ) {}

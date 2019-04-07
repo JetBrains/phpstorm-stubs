@@ -31,7 +31,7 @@ function strtolower ($str) {}
  * @param string $haystack <p>
  * The string to search in
  * </p>
- * @param mixed $needle <p>
+ * @param string|int $needle <p>
  * If <b>needle</b> is not a string, it is converted
  * to an integer and applied as the ordinal value of a character.
  * </p>
@@ -59,7 +59,7 @@ function strpos ($haystack, $needle, $offset = 0) {}
  * @param string $haystack <p>
  * The string to search in
  * </p>
- * @param string $needle <p>
+ * @param string|int $needle <p>
  * Note that the needle may be a string of one or
  * more characters.
  * </p>
@@ -85,7 +85,7 @@ function stripos ($haystack, $needle, $offset = null) {}
  * @param string $haystack <p>
  * The string to search in.
  * </p>
- * @param string $needle <p>
+ * @param string|int $needle <p>
  * If <b>needle</b> is not a string, it is converted to an integer and applied as the ordinal value of a character.
  * </p>
  * @param int $offset [optional] <p>
@@ -742,15 +742,15 @@ function rtrim ($str, $charlist = " \t\n\r\0\x0B") {}
 /**
  * Replace all occurrences of the search string with the replacement string
  * @link https://php.net/manual/en/function.str-replace.php
- * @param mixed $search <p>
+ * @param string|array $search <p>
  * The value being searched for, otherwise known as the needle.
  * An array may be used to designate multiple needles.
  * </p>
- * @param mixed $replace <p>
+ * @param string|array $replace <p>
  * The replacement value that replaces found search
  * values. An array may be used to designate multiple replacements.
  * </p>
- * @param mixed $subject <p>
+ * @param string|array $subject <p>
  * The string or array being searched and replaced on,
  * otherwise known as the haystack.
  * </p>
@@ -761,7 +761,7 @@ function rtrim ($str, $charlist = " \t\n\r\0\x0B") {}
  * well.
  * </p>
  * @param int $count [optional] If passed, this will hold the number of matched and replaced needles.
- * @return array|string This function returns a string or an array with the replaced values.
+ * @return string|string[] This function returns a string or an array with the replaced values.
  * @since 4.0
  * @since 5.0
  */
@@ -770,13 +770,13 @@ function str_replace ($search, $replace, $subject, &$count = null) {}
 /**
  * Case-insensitive version of <function>str_replace</function>.
  * @link https://php.net/manual/en/function.str-ireplace.php
- * @param mixed $search <p>
+ * @param string|array $search <p>
  * Every replacement with search array is
  * performed on the result of previous replacement.
  * </p>
- * @param mixed $replace <p>
+ * @param string|array $replace <p>
  * </p>
- * @param mixed $subject <p>
+ * @param string|array $subject <p>
  * If subject is an array, then the search and
  * replace is performed with every entry of 
  * subject, and the return value is an array as
@@ -1052,7 +1052,7 @@ function join ($glue = "", $pieces) {}
  *
  * </li>
  * </ul>
- * @param string|array $locale <p>
+ * @param string|array|null $locale <p>
  * If locale is &null; or the empty string
  * "", the locale names will be set from the
  * values of environment variables with the same names as the above

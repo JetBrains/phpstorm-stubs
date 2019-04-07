@@ -28,7 +28,7 @@ class SQLiteDatabase  {
 	 * @param $result_type [optional]
 	 * <p>The optional <i>result_type</i> parameter accepts a constant and determines how the returned array will be indexed. Using <b>SQLITE_ASSOC</b> will return only associative indices (named fields) while <b>SQLITE_NUM</b> will return only numerical indices (ordinal field numbers). <b>SQLITE_BOTH</b> will return both associative and numerical indices. <b>SQLITE_BOTH</b> is the default for this function.</p>
 	 * @param $error_message [optional] <p>The specified variable will be filled if an error occurs. This is specially important because SQL syntax errors can't be fetched using the {@see sqlite_last_error()} function.</p>
-	 * @return resource|false <p>
+	 * @return SQLiteResult|false <p>
 	 * This function will return a result handle or <b>FALSE</b> on failure.
 	 * For queries that return rows, the result handle can then be used with
 	 * functions such as {@see sqlite_fetch_array()} and
@@ -132,7 +132,7 @@ class SQLiteDatabase  {
 	 * Using <b>SQLITE_ASSOC</b> will return only associative indices (named fields) while <b>SQLITE_NUM</b> will return only numerical indices (ordinal field numbers).
 	 * <b>SQLITE_BOTH</b> will return both associative and numerical indices. <b>SQLITE_BOTH</b> is the default for this function.
 	 * @param $error_message [optional]
-	 * @return resource Returns a result handle or <b>FALSE</b> on failure.
+	 * @return SQLiteUnbuffered|false Returns a result handle or <b>FALSE</b> on failure.
 	 * {@see sqlite_unbuffered_query()} returns a sequential forward-only result set that can only be used to read each row, one after the other.
 	 */
 	public function unbufferedQuery ($query, $result_type = SQLITE_BOTH, &$error_message) {}
@@ -286,12 +286,12 @@ final class SQLiteResult implements Iterator, Countable {
 
 	/**
 	 * (PHP 5 &lt; 5.4.0)
-	 * Fetches the next row from a result set as an object
-	 * @link https://php.net/manual/en/function.sqlite-fetch-object.php
+	 * Fetches all rows from a result set as an array of arrays
+	 * @link https://www.php.net/manual/en/function.sqlite-fetch-all.php
 	 * @param resource $result_type [optional]
 	 * @param array $ctor_params [optional]
 	 * @param bool $decode_binary [optional]
-	 * @return object
+	 * @return array
 	 */
 	public function fetchAll ($result_type, array $ctor_params,  $decode_binary = true) {}
 
@@ -367,7 +367,7 @@ final class SQLiteResult implements Iterator, Countable {
 	/**
 	 * Return the key of the current element
 	 * @link https://php.net/manual/en/iterator.key.php
-	 * @return mixed scalar on success, or null on failure.
+	 * @return mixed|null scalar on success, or null on failure.
 	 * @since 5.0.0
 	 */
 	public function key () {}
@@ -613,7 +613,7 @@ function sqlite_close ($dbhandle) {}
  * <p>
  * Data inside the query should be properly escaped.
  * </p>
- * @param resource|string $dbhandle The SQLite Database resource; returned from sqlite_open() when used procedurally. This parameter is not required when using the object-oriented method.
+ * @param resource $dbhandle The SQLite Database resource; returned from sqlite_open() when used procedurally. This parameter is not required when using the object-oriented method.
  * @param int $result_type [optional] &sqlite.result-type;<p>The optional <i>result_type</i>
  * parameter accepts a constant and determines how the returned array will be
  * indexed. Using <b>SQLITE_ASSOC</b> will return only associative

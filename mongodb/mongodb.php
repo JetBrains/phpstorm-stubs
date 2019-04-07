@@ -51,30 +51,29 @@ namespace MongoDB {}
              * Execute one or more write operations
              * @link https://php.net/manual/en/mongodb-driver-manager.executebulkwrite.php
              * @param string $namespace A fully qualified namespace (databaseName.collectionName)
-             * @param BulkWrite $bulk The MongoDB\Driver\BulkWrite to execute.
+             * @param \MongoDB\Driver\BulkWrite $bulk The MongoDB\Driver\BulkWrite to execute.
              * @param array|WriteConcern $options WriteConcern type for backwards compatibility
              * @return \MongoDB\Driver\WriteResult
              * @since 1.4.0 added $options argument
              */
-            final public function executeBulkWrite($namespace, BulkWrite $bulk, $options = [])
+            final public function executeBulkWrite($namespace, \MongoDB\Driver\BulkWrite $bulk, $options = [])
             {
             }
 
             /**
              * @link https://php.net/manual/en/mongodb-driver-manager.executecommand.php
              * @param string $db The name of the database on which to execute the command.
-             * @param Command $command The command document.
+             * @param \MongoDB\Driver\Command $command The command document.
              * @param array|ReadPreference $options ReadPreference type for backwards compatibility
              * @return \MongoDB\Driver\Cursor
-             * @throws Exception
-             * @throws AuthenticationException if authentication is needed and fails
-             * @throws ConnectionException if connection to the server fails for other then authentication reasons
-             * @throws RuntimeException on other errors (invalid command, command arguments, ...)
-             * @throws WriteException on Write Error
-             * @throws WriteConcernException on Write Concern failure
+             * @throws \MongoDB\Driver\Exception\AuthenticationException if authentication is needed and fails
+             * @throws \MongoDB\Driver\Exception\ConnectionException if connection to the server fails for other then authentication reasons
+             * @throws \MongoDB\Driver\Exception\RuntimeException on other errors (invalid command, command arguments, ...)
+             * @throws \MongoDB\Driver\Exception\WriteException on Write Error
+             * @throws \MongoDB\Driver\Exception\WriteConcernException on Write Concern failure
              * @since 1.4.0 added $options argument
              */
-            final public function executeCommand($db, Command $command, $options = [])
+            final public function executeCommand($db, \MongoDB\Driver\Command $command, $options = [])
             {
             }
 
@@ -82,77 +81,73 @@ namespace MongoDB {}
              * Execute a MongoDB query
              * @link https://php.net/manual/en/mongodb-driver-manager.executequery.php
              * @param string $namespace A fully qualified namespace (databaseName.collectionName)
-             * @param Query $query A MongoDB\Driver\Query to execute.
+             * @param \MongoDB\Driver\Query $query A MongoDB\Driver\Query to execute.
              * @param array|ReadPreference $options ReadPreference type for backwards compatibility
              * @return \MongoDB\Driver\Cursor
-             * @throws Exception
-             * @throws AuthenticationException if authentication is needed and fails
-             * @throws ConnectionException if connection to the server fails for other then authentication reasons
-             * @throws RuntimeException on other errors (invalid command, command arguments, ...)
+             * @throws \MongoDB\Driver\Exception\AuthenticationException if authentication is needed and fails
+             * @throws \MongoDB\Driver\Exception\ConnectionException if connection to the server fails for other then authentication reasons
+             * @throws \MongoDB\Driver\Exception\RuntimeException on other errors (invalid command, command arguments, ...)
              * @since 1.4.0 added $options argument
              */
-            final public function executeQuery($namespace, Query $query, $options = [])
+            final public function executeQuery($namespace, \MongoDB\Driver\Query $query, $options = [])
             {
             }
 
             /**
              * @link https://php.net/manual/en/mongodb-driver-manager.executereadcommand.php
              * @param string $db The name of the database on which to execute the command that reads.
-             * @param Command $command The command document.
+             * @param \MongoDB\Driver\Command $command The command document.
              * @param array $options
              * @return \MongoDB\Driver\Cursor
-             * @throws Exception
-             * @throws AuthenticationException if authentication is needed and fails
-             * @throws ConnectionException if connection to the server fails for other then authentication reasons
-             * @throws RuntimeException on other errors (invalid command, command arguments, ...)
-             * @throws WriteException on Write Error
-             * @throws WriteConcernException on Write Concern failure
+             * @throws \MongoDB\Driver\Exception\AuthenticationException if authentication is needed and fails
+             * @throws \MongoDB\Driver\Exception\ConnectionException if connection to the server fails for other then authentication reasons
+             * @throws \MongoDB\Driver\Exception\RuntimeException on other errors (invalid command, command arguments, ...)
+             * @throws \MongoDB\Driver\Exception\WriteException on Write Error
+             * @throws \MongoDB\Driver\Exception\WriteConcernException on Write Concern failure
              * @since 1.4.0
              */
-            final public function executeReadCommand($db, Command $command, array $options = [])
+            final public function executeReadCommand($db, \MongoDB\Driver\Command $command, array $options = [])
             {
             }
 
             /**
              * @link https://php.net/manual/en/mongodb-driver-manager.executereadwritecommand.php
              * @param string $db The name of the database on which to execute the command that reads.
-             * @param Command $command The command document.
+             * @param \MongoDB\Driver\Command $command The command document.
              * @param array $options
              * @return \MongoDB\Driver\Cursor
-             * @throws Exception
-             * @throws AuthenticationException if authentication is needed and fails
-             * @throws ConnectionException if connection to the server fails for other then authentication reasons
-             * @throws RuntimeException on other errors (invalid command, command arguments, ...)
-             * @throws WriteException on Write Error
-             * @throws WriteConcernException on Write Concern failure
+             * @throws \MongoDB\Driver\Exception\AuthenticationException if authentication is needed and fails
+             * @throws \MongoDB\Driver\Exception\ConnectionException if connection to the server fails for other then authentication reasons
+             * @throws \MongoDB\Driver\Exception\RuntimeException on other errors (invalid command, command arguments, ...)
+             * @throws \MongoDB\Driver\Exception\WriteException on Write Error
+             * @throws \MongoDB\Driver\Exception\WriteConcernException on Write Concern failure
              * @since 1.4.0
              */
-            final public function executeReadWriteCommand($db, Command $command, array $options = [])
+            final public function executeReadWriteCommand($db, \MongoDB\Driver\Command $command, array $options = [])
             {
             }
 
             /**
              * @link https://php.net/manual/en/mongodb-driver-manager.executewritecommand.php
              * @param string $db The name of the database on which to execute the command that reads.
-             * @param Command $command The command document.
+             * @param \MongoDB\Driver\Command $command The command document.
              * @param array $options
              * @return \MongoDB\Driver\Cursor
-             * @throws Exception
-             * @throws AuthenticationException if authentication is needed and fails
-             * @throws ConnectionException if connection to the server fails for other then authentication reasons
-             * @throws RuntimeException on other errors (invalid command, command arguments, ...)
-             * @throws WriteException on Write Error
-             * @throws WriteConcernException on Write Concern failure
+             * @throws \MongoDB\Driver\Exception\AuthenticationException if authentication is needed and fails
+             * @throws \MongoDB\Driver\Exception\ConnectionException if connection to the server fails for other then authentication reasons
+             * @throws \MongoDB\Driver\Exception\RuntimeException on other errors (invalid command, command arguments, ...)
+             * @throws \MongoDB\Driver\Exception\WriteException on Write Error
+             * @throws \MongoDB\Driver\Exception\WriteConcernException on Write Concern failure
              * @since 1.4.0
              */
-            final public function executeWriteCommand($db, Command $command, array $options = [])
+            final public function executeWriteCommand($db, \MongoDB\Driver\Command $command, array $options = [])
             {
             }
 
             /**
              * Return the ReadConcern for the Manager
              * @link https://php.net/manual/en/mongodb-driver-manager.getreadconcern.php
-             * @throws InvalidArgumentException on argument parsing errors.
+             * @throws \MongoDB\Driver\Exception\InvalidArgumentException on argument parsing errors.
              * @return \MongoDB\Driver\ReadConcern
              */
             final public function getReadConcern()
@@ -162,7 +157,7 @@ namespace MongoDB {}
             /**
              * Return the ReadPreference for the Manager
              * @link https://php.net/manual/en/mongodb-driver-manager.getreadpreference.php
-             * @throws InvalidArgumentException
+             * @throws \MongoDB\Driver\Exception\InvalidArgumentException
              * @return \MongoDB\Driver\ReadPreference
              */
             final public function getReadPreference()
@@ -172,7 +167,7 @@ namespace MongoDB {}
             /**
              * Return the servers to which this manager is connected
              * @link https://php.net/manual/en/mongodb-driver-manager.getservers.php
-             * @throws InvalidArgumentException on argument parsing errors
+             * @throws \MongoDB\Driver\Exception\InvalidArgumentException on argument parsing errors
              * @return \MongoDB\Driver\Server[]
              */
             final public function getServers()
@@ -182,7 +177,7 @@ namespace MongoDB {}
             /**
              * Return the WriteConcern for the Manager
              * @link https://php.net/manual/en/mongodb-driver-manager.getwriteconcern.php
-             * @throws InvalidArgumentException on argument parsing errors.
+             * @throws \MongoDB\Driver\Exception\InvalidArgumentException on argument parsing errors.
              * @return \MongoDB\Driver\WriteConcern
              */
             final public function getWriteConcern()
@@ -192,14 +187,14 @@ namespace MongoDB {}
             /**
              * Preselect a MongoDB node based on provided readPreference. This can be useful to gurantee a command runs on a specific server when operating in a mixed version cluster.
              * https://secure.php.net/manual/en/mongodb-driver-manager.selectserver.php
-             * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to route the command to. If none given, defaults to the Read Preferences set by the MongoDB Connection URI.
-             * @throws InvalidArgumentException on argument parsing errors.
-             * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
-             * @throws AuthenticationException if authentication is needed and fails.
-             * @throws RuntimeException if a server matching the read preference could not be found.
+             * @param \MongoDB\Driver\ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to route the command to. If none given, defaults to the Read Preferences set by the MongoDB Connection URI.
+             * @throws \MongoDB\Driver\Exception\InvalidArgumentException on argument parsing errors.
+             * @throws \MongoDB\Driver\Exception\ConnectionException if connection to the server fails (for reasons other than authentication).
+             * @throws \MongoDB\Driver\Exception\AuthenticationException if authentication is needed and fails.
+             * @throws \MongoDB\Driver\Exception\RuntimeException if a server matching the read preference could not be found.
              * @return \MongoDB\Driver\Server
              */
-            final public function selectServer(ReadPreference $readPreference = null)
+            final public function selectServer(\MongoDB\Driver\ReadPreference $readPreference = null)
             {
             }
 
@@ -263,8 +258,8 @@ namespace MongoDB {}
              * Execute a database command on this server
              * @link https://php.net/manual/en/mongodb-driver-server.executecommand.php
              * @param string $db The name of the database on which to execute the command.
-             * @param Command $command The MongoDB\Driver\Command to execute.
-             * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to select the server for this operation. If none is given, the read preference from the MongoDB Connection URI will be used.
+             * @param \MongoDB\Driver\Command $command The MongoDB\Driver\Command to execute.
+             * @param \MongoDB\Driver\ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to select the server for this operation. If none is given, the read preference from the MongoDB Connection URI will be used.
              * @throws InvalidArgumentException on argument parsing errors.
              * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
              * @throws AuthenticationException if authentication is needed and fails.
@@ -272,7 +267,7 @@ namespace MongoDB {}
              * @return \MongoDB\Driver\Cursor
              * @since 1.0.0
              */
-            final public function executeCommand($db, Command $command, ReadPreference $readPreference = null)
+            final public function executeCommand($db, \MongoDB\Driver\Command $command, \MongoDB\Driver\ReadPreference $readPreference = null)
             {
             }
 
@@ -289,7 +284,7 @@ namespace MongoDB {}
              * @throws RuntimeException On other errors (e.g. invalid command).
              * @since 1.4.0
              */
-            final public function executeReadCommand($db, Command $command, array $option = [])
+            final public function executeReadCommand($db, \MongoDB\Driver\Command $command, array $option = [])
             {
             }
 
@@ -306,7 +301,7 @@ namespace MongoDB {}
              * @throws RuntimeException On other errors (e.g. invalid command).
              * @since 1.4.0
              */
-            final public function executeReadWriteCommand($db, Command $command, array $option = [])
+            final public function executeReadWriteCommand($db, \MongoDB\Driver\Command $command, array $option = [])
             {
             }
 
@@ -323,7 +318,7 @@ namespace MongoDB {}
              * @throws RuntimeException On other errors (e.g. invalid command).
              * @since 1.4.0
              */
-            final public function executeWriteCommand($db, Command $command, array $option = [])
+            final public function executeWriteCommand($db, \MongoDB\Driver\Command $command, array $option = [])
             {
             }
 
@@ -331,15 +326,15 @@ namespace MongoDB {}
              * Execute a database query on this server
              * @link https://php.net/manual/en/mongodb-driver-server.executequery.php
              * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
-             * @param Query $query The MongoDB\Driver\Query to execute.
-             * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to select the server for this operation. If none is given, the read preference from the MongoDB Connection URI will be used.
+             * @param \MongoDB\Driver\Query $query The MongoDB\Driver\Query to execute.
+             * @param \MongoDB\Driver\ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to select the server for this operation. If none is given, the read preference from the MongoDB Connection URI will be used.
              * @throws InvalidArgumentException on argument parsing errors.
              * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
              * @throws AuthenticationException if authentication is needed and fails.
              * @throws RuntimeException on other errors (e.g. invalid command, issuing a write command to a secondary).
              * @return \MongoDB\Driver\Cursor
              */
-            final public function executeQuery($namespace, Query $query, ReadPreference $readPreference = null)
+            final public function executeQuery($namespace, \MongoDB\Driver\Query $query, \MongoDB\Driver\ReadPreference $readPreference = null)
             {
             }
 
@@ -1128,7 +1123,7 @@ namespace MongoDB {}
         class RuntimeException extends \RuntimeException implements Exception
         {
             /**
-             * @var boolean
+             * @var bool
              * @since 1.6.0
              */
             protected $errorLabels;

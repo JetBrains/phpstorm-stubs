@@ -61,6 +61,8 @@ class PHPParameter extends BasePHPElement
                     }
                 }
             } catch (Exception $e) {
+                throw new $e;
+
                 $this->parseError = $e->getMessage();
             }
         }

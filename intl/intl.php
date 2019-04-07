@@ -2093,7 +2093,7 @@ class Transliterator {
      * May also be set to
      * Transliterator::REVERSE.
      * </p>
-     * @return Transliterator a <b>Transliterator</b> object on success,
+     * @return Transliterator|null a <b>Transliterator</b> object on success,
      * or <b>NULL</b> on failure.
      */
     public static function createFromRules($rules, $direction = null) { }
@@ -2634,8 +2634,8 @@ class IntlCalendar {
      * values between <em>0</em> and
      * <b>IntlCalendar::FIELD_COUNT</b>.
      * </p>
-     * @return string
-     * A locale string or <b>FALSE</b> on failure.
+     * @return int|false
+     * An int representing a field value in the fieldʼs unit or FALSE on failure.
      */
     public function getMaximum($field) { }
 
@@ -3166,7 +3166,7 @@ class IntlTimeZone {
      *   to `rawOffset' to obtain the total offset between local and GMT time. If
      *   DST is not in effect, this value is zero; otherwise it is a positive value,
      *   typically one hour.
-     * @return bool boolean indication of success
+     * @return int
      */
     public function getOffset($date, $local, &$rawOffset, &$dstOffset) { }
 
@@ -5406,7 +5406,7 @@ function intlcal_set_skipped_wall_time_option($calendar, $wallTimeOption) { }
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a2)<br/>
  * Create an IntlCalendar from a DateTime object or string
  * @link https://secure.php.net/manual/en/intlcalendar.fromdatetime.php
- * @param mixed $dateTime <p>
+ * @param DateTime|string $dateTime <p>
  * A {@link https://secure.php.net/manual/en/class.datetime.php DateTime} object or a {@link https://secure.php.net/manual/en/language.types.string.php string} that
  * can be passed to  {@link https://secure.php.net/manual/en/datetime.construct.php DateTime::__construct()}.
  * </p>
@@ -6642,7 +6642,7 @@ class UConverter {
      * Set the destination encoding
      * @link https://php.net/manual/en/uconverter.setdestinationencoding.php
      * @param string $encoding
-     * @return void
+     * @return bool
      */
     public function setDestinationEncoding($encoding) { }
 
@@ -6651,7 +6651,7 @@ class UConverter {
      * Set the source encoding
      * @link https://php.net/manual/en/uconverter.setsourceencoding.php
      * @param string $encoding
-     * @return void
+     * @return bool
      */
     public function setSourceEncoding($encoding) { }
 
@@ -6660,7 +6660,7 @@ class UConverter {
      * Set the substitution chars
      * @link https://php.net/manual/en/uconverter.setsubstchars.php
      * @param string $chars
-     * @return void
+     * @return bool
      */
     public function setSubstChars($chars) { }
 

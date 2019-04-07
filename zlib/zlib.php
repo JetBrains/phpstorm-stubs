@@ -399,8 +399,10 @@ function gzdecode ($data, $length = null) {}
  * Compress data with the specified encoding
  * @link https://php.net/manual/en/function.zlib-encode.php
  * @param string $data <p>
+ * The data to compress.
  * </p>
- * @param string $encoding <p>
+ * @param int $encoding <p>
+ * The compression algorithm. Either ZLIB_ENCODING_RAW, ZLIB_ENCODING_DEFLATE or ZLIB_ENCODING_GZIP.
  * </p>
  * @param string $level [optional] default -1 <p>
  * </p>

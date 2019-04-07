@@ -5,7 +5,7 @@
 /**
  * Create GMP number
  * @link https://php.net/manual/en/function.gmp-init.php
- * @param mixed $number <p>
+ * @param int|string $number <p>
  * An integer or a string. The string representation can be decimal,
  * hexadecimal or octal.
  * </p>

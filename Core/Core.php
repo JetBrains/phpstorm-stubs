@@ -371,7 +371,7 @@ function get_parent_class ($object = null) {}
 /**
  * Checks if the class method exists
  * @link https://php.net/manual/en/function.method-exists.php
- * @param mixed $object <p>
+ * @param object|string $object <p>
  * An object instance or a class name
  * </p>
  * @param string $method_name <p>
@@ -611,9 +611,14 @@ function user_error ($message, $error_type) {}
 /**
  * Sets a user-defined error handler function
  * @link https://php.net/manual/en/function.set-error-handler.php
- * @param callable $error_handler <p>
+ *
+ * @param callable|null $error_handler <p>
+ * A callback with the following signature. NULL may be passed instead,
+ * to reset this handler to its default state. Instead of a function name,
+ * an array containing an object reference and a method name can also be supplied.
+ * <br><br>
  * The user function needs to accept two parameters: the error code, and a
- * string describing the error. Then there are three optional parameters 
+ * string describing the error. Then there are three optional parameters
  * that may be supplied: the filename in which the error occurred, the
  * line number in which the error occurred, and the context in which the
  * error occurred (an array that points to the active symbol table at the

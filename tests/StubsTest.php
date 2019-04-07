@@ -26,18 +26,18 @@ class StubsTest extends TestCase
 
     public static function setUpBeforeClass()
     {
-        self::$call_map_vimeo_psalm = include __DIR__ . '/../vendor/vimeo/psalm/src/Psalm/Internal/CallMap.php';
+        self::$call_map_vimeo_psalm = include __DIR__ . '/TestData/psalm/CallMap.php';
 
-        $call_map_vimeo_psalm_7_1 = include __DIR__ . '/../vendor/vimeo/psalm/src/Psalm/Internal/CallMap_71_delta.php';
+        $call_map_vimeo_psalm_7_1 = include __DIR__ . '/TestData/psalm/CallMap_71_delta.php';
         self::$call_map_vimeo_psalm += $call_map_vimeo_psalm_7_1['new'];
 
-        $call_map_vimeo_psalm_7_2 = include __DIR__ . '/../vendor/vimeo/psalm/src/Psalm/Internal/CallMap_72_delta.php';
+        $call_map_vimeo_psalm_7_2 = include __DIR__ . '/TestData/psalm/CallMap_72_delta.php';
         self::$call_map_vimeo_psalm += $call_map_vimeo_psalm_7_2['new'];
 
-        $call_map_vimeo_psalm_7_3 = include __DIR__ . '/../vendor/vimeo/psalm/src/Psalm/Internal/CallMap_73_delta.php';
+        $call_map_vimeo_psalm_7_3 = include __DIR__ . '/TestData/psalm/CallMap_73_delta.php';
         self::$call_map_vimeo_psalm += $call_map_vimeo_psalm_7_3['new'];
 
-        $call_map_vimeo_psalm_7_4 = include __DIR__ . '/../vendor/vimeo/psalm/src/Psalm/Internal/CallMap_74_delta.php';
+        $call_map_vimeo_psalm_7_4 = include __DIR__ . '/TestData/psalm/CallMap_74_delta.php';
         self::$call_map_vimeo_psalm += $call_map_vimeo_psalm_7_4['new'];
     }
 
@@ -122,6 +122,15 @@ class StubsTest extends TestCase
     public function testClasses(PHPClass $class): void
     {
         $className = $class->name;
+
+        if ($className === 'LibXMLError') {
+            $className = 'libXMLError';
+        }
+
+        if ($className === 'APCuIterator') {
+            $className = 'APCUIterator';
+        }
+
         $stubClasses = PhpStormStubsSingleton::getPhpStormStubs()->getClasses();
         if ($class->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
             static::markTestSkipped('class is skipped');
@@ -374,20 +383,23 @@ class StubsTest extends TestCase
                     static::assertEquals(
                         $parameterTypeFromPsalm,
                         $parameterTypeFromPhpDoc,
-                        $methodNameWithClass . ' - parameter ' . $parameter->name . ': Failed asserting that (psalm-data) "' . print_r($parameterTypeFromPsalm, true) . '" == (phpdoc-data) "' . print_r($parameterTypeFromPhpDoc, true) . '" | ' . print_r($method->parameters, true)
+                        $methodNameWithClass . ' - parameter -->' . $parameter->name . '<--: Failed asserting that (psalm-data) "' . print_r($parameterTypeFromPsalm, true) . '" == (phpdoc-data) "' . print_r($parameterTypeFromPhpDoc, true) . '" | ' . print_r($method->parameters, true)
                     );
 
                     continue;
                 }
 
-                static::markTestSkipped('TODO: ' . $methodNameWithClass . ' - parameter ' . $parameter->name . ': parameter type is missing? | psalm-data: ' . print_r(self::$call_map_vimeo_psalm[$methodNameWithClass], true) . ' | phpdoc-data: ' . print_r($method, true));
+                static::markTestSkipped('TODO: ' . $methodNameWithClass . ' - parameter -->' . $parameter->name . '<--: parameter type is missing? | psalm-data: ' . print_r(self::$call_map_vimeo_psalm[$methodNameWithClass], true) . ' | phpdoc-data: ' . print_r($method, true));
 
                 return;
             }
 
-        } else {
-            static::markTestSkipped('TODO: no parameter data found in psalm: ' . $methodNameWithClass);
+            static::markTestSkipped('TODO: ' . $methodNameWithClass . ' - parameter not found? | psalm-data: ' . print_r(self::$call_map_vimeo_psalm[$methodNameWithClass], true) . ' | phpdoc-data: ' . print_r($method, true));
+
+            return;
         }
+
+        static::markTestSkipped('TODO: no parameter data found in psalm: ' . $methodNameWithClass);
     }
 
     /**
@@ -452,6 +464,12 @@ class StubsTest extends TestCase
     {
         $functionName = $function->name;
 
+        if (in_array($functionName, $this->getIgnoredFunctionNames(), true)) {
+            static::assertTrue(true);
+
+            return;
+        }
+
         if (count($function->parameters) === 0) {
             static::assertTrue(true);
         }
@@ -475,20 +493,23 @@ class StubsTest extends TestCase
                     static::assertEquals(
                         $parameterTypeFromPsalm,
                         $parameterTypeFromPhpDoc,
-                        $functionName . ' - parameter ' . $parameter->name . ': Failed asserting that (psalm-data) "' . print_r($parameterTypeFromPsalm, true) . '" == (phpdoc-data) "' . print_r($parameterTypeFromPhpDoc, true) . '" | ' . print_r($function->parameters, true)
+                        $functionName . ' - parameter -->' . $parameter->name . '<--: Failed asserting that (psalm-data) "' . print_r($parameterTypeFromPsalm, true) . '" == (phpdoc-data) "' . print_r($parameterTypeFromPhpDoc, true) . '" | ' . print_r($function->parameters, true)
                     );
 
                     continue;
                 }
 
-                static::markTestSkipped('TODO: ' . $functionName . ' - parameter ' . $parameter->name . ': parameter type is missing? | psalm-data: ' . print_r(self::$call_map_vimeo_psalm[$functionName], true) . ' | phpdoc-data: ' . print_r($function, true));
+                static::markTestSkipped('TODO: ' . $functionName . ' - parameter -->' . $parameter->name . '<--: parameter type is missing? | psalm-data: ' . print_r(self::$call_map_vimeo_psalm[$functionName], true) . ' | phpdoc-data: ' . print_r($function, true));
 
                 return;
             }
 
-        } else {
-            static::markTestSkipped('TODO: no parameter data found in psalm: ' . $functionName);
+            static::markTestSkipped('TODO: ' . $functionName . ' - parameter not found? | psalm-data: ' . print_r(self::$call_map_vimeo_psalm[$functionName], true) . ' | phpdoc-data: ' . print_r($function, true));
+
+            return;
         }
+
+        static::markTestSkipped('TODO: no parameter data found in psalm: ' . $functionName);
     }
 
     /**
@@ -500,26 +521,7 @@ class StubsTest extends TestCase
     {
         $functionName = $function->name;
 
-        $ignoreErrors = [
-            'abs', // return type depends on parameter usage
-            'ceil', // "ceil() is still of type float as the value range of float is usually bigger than that of integer"?
-            'version_compare', // return type depends on parameter usage
-            'microtime', // return type depends on parameter usage
-            'getenv', // return type depends on parameter usage
-            'fscanf', // return type depends on parameter usage
-            'print_r', // return type depends on parameter usage
-            'hrtime', // return type depends on parameter usage
-            'gettimeofday', // return type depends on parameter usage
-            'apc_store', // return type depends on parameter usage
-            'apc_delete', // return type depends on parameter usage
-            'apc_add', // return type depends on parameter usage
-            'apc_exists', // return type depends on parameter usage
-            'apcu_store', // return type depends on parameter usage
-            'apcu_delete', // return type depends on parameter usage
-            'apcu_add', // return type depends on parameter usage
-            'apcu_exists', // return type depends on parameter usage
-        ];
-        if (in_array($functionName, $ignoreErrors, true)) {
+        if (in_array($functionName, $this->getIgnoredFunctionNames(), true)) {
             static::assertTrue(true);
 
             return;
@@ -681,5 +683,33 @@ class StubsTest extends TestCase
         sort($typeFromPhpDoc);
 
         return $typeFromPhpDoc;
+    }
+
+    /**
+     * @return array
+     */
+    private function getIgnoredFunctionNames(): array
+    {
+        $ignoreErrors = [
+            'abs', // return type depends on parameter usage
+            'ceil', // "ceil() is still of type float as the value range of float is usually bigger than that of integer"?
+            'setlocale', // return type depends on parameter usage
+            'version_compare', // return type depends on parameter usage
+            'microtime', // return type depends on parameter usage
+            'getenv', // return type depends on parameter usage
+            'fscanf', // return type depends on parameter usage
+            'print_r', // return type depends on parameter usage
+            'hrtime', // return type depends on parameter usage
+            'gettimeofday', // return type depends on parameter usage
+            'apc_store', // return type depends on parameter usage
+            'apc_delete', // return type depends on parameter usage
+            'apc_add', // return type depends on parameter usage
+            'apc_exists', // return type depends on parameter usage
+            'apcu_store', // return type depends on parameter usage
+            'apcu_delete', // return type depends on parameter usage
+            'apcu_add', // return type depends on parameter usage
+            'apcu_exists', // return type depends on parameter usage
+        ];
+        return $ignoreErrors;
     }
 }

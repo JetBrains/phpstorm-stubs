@@ -338,7 +338,7 @@ function dba_list () {}
 /**
  * Splits a key in string representation into array representation
  * @link https://php.net/manual/en/function.dba-key-split.php
- * @param mixed $key <p>
+ * @param string $key <p>
  * The key in string representation.
  * </p>
  * @return array|false an array of the form array(0 =&gt; group, 1 =&gt;

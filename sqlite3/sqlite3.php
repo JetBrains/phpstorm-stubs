@@ -148,7 +148,7 @@ class SQLite3  {
 	 * @param string $query <p>
 	 * The SQL query to execute.
 	 * </p>
-	 * @return SQLite3Result an <b>SQLite3Result</b> object if the query returns results. Otherwise,
+	 * @return SQLite3Result|false an <b>SQLite3Result</b> object if the query returns results. Otherwise,
 	 * returns <b>TRUE</b> if the query succeeded, <b>FALSE</b> on failure.
 	 * @since 5.3.0
 	 */
