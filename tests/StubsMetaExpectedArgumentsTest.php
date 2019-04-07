@@ -115,12 +115,15 @@ class StubsMetaExpectedArgumentsTest extends TestCase
     public function testRegisteredArgumentsSetExists()
     {
         foreach (self::$expectedArguments as $argument) {
+            $usedArgumentsSet = [];
             foreach ($argument->getExpectedArguments() as $argumentsSet) {
                 if ($argumentsSet instanceof FuncCall && ((string)$argumentsSet->name) === 'argumentsSet') {
                     $args = $argumentsSet->args;
                     self::assertGreaterThanOrEqual(1, count($args), 'argumentsSet call should provide set name');
                     $name = $args[0]->value->value;
                     self::assertContains($name, self::$registeredArgumentsSet, 'Can\'t find registered argument set: ' . $name);
+                    self::assertArrayNotHasKey($name, $usedArgumentsSet, $name . ' argumentsSet used more then once for ' . self::getFqn($argument->getFunctionReference()));
+                    $usedArgumentsSet[$name] = $name;
                 }
             }
         }
