@@ -606,7 +606,7 @@ function trigger_error ($error_msg, $error_type = E_USER_NOTICE) {}
  * @since 4.0
  * @since 5.0
  */
-function user_error ($message, $error_type) {}
+function user_error ($message, $error_type = E_USER_NOTICE) {}
 
 /**
  * Sets a user-defined error handler function
