@@ -2137,7 +2137,7 @@ function mysqli_report ($flags) {}
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $query An SQL query
  * @param int $resultmode
- * @return mysqli_result|false
+ * @return mysqli_result|bool
  * For successful SELECT, SHOW, DESCRIBE or EXPLAIN queries, mysqli_query() will return a mysqli_result object.
  * For other successful queries mysqli_query() will return TRUE.
  * Returns FALSE on failure.
