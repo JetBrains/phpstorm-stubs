@@ -768,4 +768,12 @@ class DatePeriod implements Traversable {
 
     public function __wakeup() {}
 
+    /**
+     * Get the number of recurrences
+     * @return int
+     * @link https://www.php.net/manual/en/dateperiod.getrecurrences.php
+     * @since 7.2.17
+     * @since 7.3.4
+     */
+    public function getRecurrences () {}
 }
