@@ -58,7 +58,7 @@ class Parser
      *
      * @link https://php.net/manual/en/parle-parser.consume.php
      * @param string $data Data to be parsed.
-     * @param Lexer $lexer A lexer object containing the lexing rules prepared for the particular grammar.
+     * @param \Parle\Lexer $lexer A lexer object containing the lexing rules prepared for the particular grammar.
      * @return void
      */
     public function consume(string $data, Lexer $lexer) : void {}
@@ -180,7 +180,7 @@ class Parser
      *
      * @link https://php.net/manual/en/parle-parser.validate.php
      * @param string $data String to be validated.
-     * @param Lexer $lexer A lexer object containing the lexing rules prepared for the particular grammar.
+     * @param \Parle\Lexer $lexer A lexer object containing the lexing rules prepared for the particular grammar.
      * @return bool Returns boolean witnessing whether the input chimes or not with the defined rules.
      */
     public function validate(string $data, Lexer $lexer) : bool {}
