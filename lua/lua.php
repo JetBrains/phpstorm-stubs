@@ -25,7 +25,7 @@ class Lua  {
      * @param string $name
      * @param mixed $value
      *
-     * @return $this|null Returns $this or NULL on failure.
+     * @return Lua|null Returns Lua or NULL on failure.
      */
     public function assign(string $name, $value) {}
     
@@ -71,7 +71,7 @@ class Lua  {
      * @param string $name
      * @param callable $function A valid PHP function callback
      * 
-     * @return $this|null|false Returns $this, NULL for wrong arguments or FALSE on other failure.
+     * @return Lua|null|false Returns Lua, NULL for wrong arguments or FALSE on other failure.
      */
     public function registerCallback(string $name, callable $function) {}
 }

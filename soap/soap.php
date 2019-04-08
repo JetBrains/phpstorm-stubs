@@ -438,7 +438,7 @@ class SoapVar  {
 	 * @param mixed $data <p>
 	 * The data to pass or return.
 	 * </p>
-	 * @param string $encoding <p>
+	 * @param int $encoding <p>
 	 * The encoding ID, one of the XSD_... constants.
 	 * </p>
 	 * @param string $type_name [optional] <p>
@@ -468,7 +468,7 @@ class SoapServer  {
 	/**
 	 * SoapServer constructor
 	 * @link https://php.net/manual/en/soapserver.soapserver.php
-	 * @param mixed $wsdl <p>
+	 * @param string|null $wsdl <p>
 	 * To use the SoapServer in WSDL mode, pass the URI of a WSDL file.
 	 * Otherwise, pass <b>NULL</b> and set the uri option to the
 	 * target namespace for the server.

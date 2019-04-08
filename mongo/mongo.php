@@ -1434,7 +1434,7 @@ class MongoCursor implements Iterator {
    /**
 	* Gives the database a hint about the query
 	* @link https://secure.php.net/manual/en/mongocursor.hint.php
-	* @param mixed $key_pattern Indexes to use for the query.
+	* @param string|array|object $key_pattern Indexes to use for the query.
 	* @throws MongoCursorException
     * @return MongoCursor Returns this cursor
     */

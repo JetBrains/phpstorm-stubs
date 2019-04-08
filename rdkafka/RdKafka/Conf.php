@@ -25,7 +25,7 @@ class Conf
     }
 
     /**
-     * @param TopicConf $topic_conf
+     * @param \RdKafka\TopicConf $topic_conf
      *
      * @return void
      */

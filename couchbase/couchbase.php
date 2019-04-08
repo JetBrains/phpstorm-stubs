@@ -337,7 +337,7 @@ namespace Couchbase {
         /**
          * Associate authenticator with Cluster
          *
-         * @param Authenticator $authenticator
+         * @param \Couchbase\Authenticator $authenticator
          * @return null
          *
          * @see \Couchbase\Authenticator
@@ -997,7 +997,7 @@ namespace Couchbase {
         /**
          * Performs a query to Couchbase Server
          *
-         * @param N1qlQuery|ViewQuery|SpatialViewQuery|SearchQuery|AnalyticsQuery $query
+         * @param \Couchbase\N1qlQuery|\Couchbase\ViewQuery|\Couchbase\SpatialViewQuery|\Couchbase\SearchQuery|\Couchbase\AnalyticsQuery $query
          * @param bool $jsonAsArray if true, the values in the result rows (or hits) will be represented as
          *    PHP arrays, otherwise they will be instances of the `stdClass`
          * @return object Query-specific result object.
@@ -1556,7 +1556,7 @@ namespace Couchbase {
         /**
          * Create container from the given mutation token holders.
          *
-         * @param array|Document|DocumentFragment $source anything that can have attached MutationToken
+         * @param array|\Couchbase\Document|\Couchbase\DocumentFragment $source anything that can have attached MutationToken
          * @return \Couchbase\MutationState
          *
          * @see \Couchbase\MutationToken
@@ -1566,7 +1566,7 @@ namespace Couchbase {
         /**
          * Update container with the given mutation token holders.
          *
-         * @param array|Document|DocumentFragment $source anything that can have attached MutationToken
+         * @param array|\Couchbase\Document|\Couchbase\DocumentFragment $source anything that can have attached MutationToken
          *
          * @see \Couchbase\MutationToken
          */
@@ -2013,7 +2013,7 @@ namespace Couchbase {
         /**
          * Sets mutation state the query should be consistent with
          *
-         * @param MutationState $state the container of mutation tokens
+         * @param \Couchbase\MutationState $state the container of mutation tokens
          * @return \Couchbase\N1qlQuery
          *
          * @see \Couchbase\MutationState

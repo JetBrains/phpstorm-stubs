@@ -21,7 +21,7 @@ class ConsumerTopic extends Topic
     /**
      * @param int   $partition
      * @param int   $offset
-     * @param Queue $queue
+     * @param \RdKafka\Queue $queue
      *
      * @return void
      */
