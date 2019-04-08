@@ -191,7 +191,8 @@ function posix_setpgid ($pid, $pgid) {}
  * @param int $pid <p>
  * The process id.
  * </p>
- * @return int the identifier, as an integer.
+ * @return int|false Returns the process group identifier of the process pid
+ * or FALSE on failure.
  * @since 4.0
  * @since 5.0
  */
