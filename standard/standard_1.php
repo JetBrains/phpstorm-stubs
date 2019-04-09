@@ -440,6 +440,7 @@ function strpbrk ($haystack, $char_list) {}
 /**
  * Binary safe comparison of 2 strings from an offset, up to length characters
  * @link https://php.net/manual/en/function.substr-compare.php
+ *
  * @param string $main_str <p>
  * The main string being compared.
  * </p>
@@ -457,13 +458,17 @@ function strpbrk ($haystack, $char_list) {}
  * If case_insensitivity is true, comparison is
  * case insensitive.
  * </p>
- * @return int|false &lt; 0 if main_str from position
+ *
+ * @return int|false
+ * <p>
+ * &lt; 0 if main_str from position
  * offset is less than str, &gt;
  * 0 if it is greater than str, and 0 if they are equal.
  * If offset is equal to or greater than the length of
  * main_str or length is set and
  * is less than 1, substr_compare prints a warning and returns
  * false.
+ * </p>
  * @since 5.0
  */
 function substr_compare ($main_str, $str, $offset, $length = null, $case_insensitivity = null) {}
@@ -471,16 +476,21 @@ function substr_compare ($main_str, $str, $offset, $length = null, $case_insensi
 /**
  * Locale based string comparison
  * @link https://php.net/manual/en/function.strcoll.php
+ *
  * @param string $str1 <p>
  * The first string.
  * </p>
  * @param string $str2 <p>
  * The second string.
  * </p>
- * @return int &lt; 0 if str1 is less than
+ *
+ * @return int
+ * <p>
+ * &lt; 0 if str1 is less than
  * str2; &gt; 0 if
  * str1 is greater than
  * str2, and 0 if they are equal.
+ * </p>
  * @since 4.0.5
  * @since 5.0
  */

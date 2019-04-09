@@ -34,6 +34,36 @@ class ZipArchive  {
 	const OVERWRITE = 8;
 
 	/**
+	 * Guess string encoding (is default).
+	 * @since 7.0.8
+	 */
+	const FL_ENC_GUESS = 0;
+
+	/**
+	 * Get unmodified string.
+	 * @since 7.0.8
+	 */
+	const FL_ENC_RAW = 64;
+
+	/**
+	 * Follow specification strictly.
+	 * @since 7.0.8
+	 */
+	const FL_ENC_STRICT = 128;
+
+	/**
+	 * String is UTF-8 encoded.
+	 * @since 7.0.8
+	 */
+	const FL_ENC_UTF_8 = 2048;
+
+	/**
+	 * String is CP437 encoded.
+	 * @since 7.0.8
+	 */
+	const FL_ENC_CP437 = 4096;
+
+	/**
 	 * Ignore case on name lookup
 	 * @link https://php.net/manual/en/zip.constants.php
 	 */

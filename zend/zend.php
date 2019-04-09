@@ -29,7 +29,7 @@ class ZendAPI_Queue {
         its new job ID and status will be set in the Job object
          * If the returned job id is 0 it means the job could be added to the queue
          *
-     * @param Job $job The Job we want to insert to the queue (by ref.)
+     * @param ZendAPI_Job $job The Job we want to insert to the queue (by ref.)
      * @return int The inserted job id
      */
     function addJob(&$job) {}
@@ -39,7 +39,7 @@ class ZendAPI_Queue {
      * Return a Job object that describing a job in the queue
          *
      * @param int $job_id The job id
-     * @return Job Object describing a job in the queue
+     * @return ZendAPI_Job Object describing a job in the queue
      */
     function getJob($job_id) {}
 
@@ -47,7 +47,7 @@ class ZendAPI_Queue {
      * Update an existing job in the queue with it's new properties. If job doesn't exists, 
         a new job will be added. Job is passed by reference and it's updated from the queue.
      *
-     * @param Job $job The Job object, the ID of the given job is the id of the job we try to update.
+     * @param ZendAPI_Job $job The Job object, the ID of the given job is the id of the job we try to update.
         If the given Job doesn't have an assigned ID, a new job will be added
      * @return int The id of the updated job
      */
@@ -83,7 +83,7 @@ class ZendAPI_Queue {
     /**
      * Requeue failed job back to the queue.
      *
-     * @param Job $job  job object to re-query
+     * @param ZendAPI_Job $job  job object to re-query
      * @return bool - true or false.
      */
     function requeueJob($job) {}
@@ -163,8 +163,8 @@ class ZendAPI_Queue {
      * Jobs are sorted by job id descending.
      *
      * @param int $status. Filter to jobs by status, 1-success, 0-failed either logical or execution.
-     * @param $start_time UNIX timestamp. Get only jobs finished after $start_time.
-     * @param $end_time UNIX timestamp. Get only jobs finished before $end_time.
+     * @param int $start_time UNIX timestamp. Get only jobs finished after $start_time.
+     * @param int $end_time UNIX timestamp. Get only jobs finished before $end_time.
      * @param int $index. Get jobs starting from the $index-th place.
      * @param int $count. Get only $count jobs.
      * @param int $total. Pass by reference. Return the total number of jobs statisifed the query criteria. 
@@ -351,8 +351,8 @@ class ZendAPI_Job {
     /**
      * Instantiate a Job object, describe all the information and properties of a job
      *
-     * @param script $script relative path (relative to document root supplied in ini file) of the script this job should call when it's executing
-     * @return Job
+     * @param string $script relative path (relative to document root supplied in ini file) of the script this job should call when it's executing
+     * @return ZendAPI_Job
      */
     function ZendAPI_Job($script) {}
     
@@ -400,7 +400,7 @@ class ZendAPI_Job {
     /**
      * Get the job output
      *
-     * @return An HTML representing the job output
+     * @return string An HTML representing the job output
      */
     function getOutput() {}
     

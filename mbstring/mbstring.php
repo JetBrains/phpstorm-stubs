@@ -566,7 +566,7 @@ function mb_strimwidth ($str, $start, $width, $trimmarker = null, $encoding = nu
 /**
  * Convert character encoding
  * @link https://php.net/manual/en/function.mb-convert-encoding.php
- * @param string|array $str <p>
+ * @param string $str <p>
  * The string being encoded.
  * </p>
  * @param string $to_encoding <p>

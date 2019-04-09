@@ -474,10 +474,10 @@ function pcntl_signal_get_handler($signo) {}
 
 define ('WNOHANG', 1);
 define ('WUNTRACED', 2);
-define ('WCONTINUED', 16);
+define ('WCONTINUED', 8);
 define ('SIG_IGN', 1);
 define ('SIG_DFL', 0);
-define ('SIG_ERR', -1);
+define ('SIG_ERR', 1);
 define ('SIGHUP', 1);
 define ('SIGINT', 2);
 define ('SIGQUIT', 3);
@@ -513,6 +513,8 @@ define ('SIGIO', 29);
 define ('SIGPWR', 30);
 define ('SIGSYS', 31);
 define ('SIGBABY', 31);
+define ('SIGRTMIN', 34);
+define ('SIGRTMAX', 64);
 define ('PRIO_PGRP', 1);
 define ('PRIO_USER', 2);
 define ('PRIO_PROCESS', 0);

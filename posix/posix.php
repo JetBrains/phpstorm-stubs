@@ -265,8 +265,12 @@ function posix_ctermid () {}
 /**
  * Determine terminal device name
  * @link https://php.net/manual/en/function.posix-ttyname.php
- * @param int $fd <p>
- * The file descriptor.
+ * @param int|resource $fd <p>
+ * The file descriptor, which is expected to be either a file resource or an integer.
+ * An integer will be assumed to be a file descriptor that can be passed directly
+ * to the underlying system call.
+ * <br><br>
+ * In almost all cases, you will want to provide a file resource.
  * </p>
  * @return string|false On success, returns a string of the absolute path of the
  * <i>fd</i>. On failure, returns <b>FALSE</b>
@@ -278,7 +282,7 @@ function posix_ttyname ($fd) {}
 /**
  * Determine if a file descriptor is an interactive terminal
  * @link https://php.net/manual/en/function.posix-isatty.php
- * @param mixed $fd <p>
+ * @param int|resource $fd <p>
  * The file descriptor, which is expected to be either a file resource or an integer.
  * An integer will be assumed to be a file descriptor that can be passed
  * directly to the underlying system call.<br />

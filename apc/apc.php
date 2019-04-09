@@ -146,7 +146,7 @@ function apc_store($key, $var, $ttl = 0){}
  * @param string|string[] $key The key used to store the value (with apc_store()).
  * If an array is passed then each element is fetched and returned.
  * @param bool $success Set to TRUE in success and FALSE in failure.
- * @return mixed|false The stored variable or array of variables on success; FALSE on failure.
+ * @return mixed|array|false The stored variable or array of variables on success; FALSE on failure.
  */
 function apc_fetch($key, &$success = null){}
 
@@ -154,7 +154,7 @@ function apc_fetch($key, &$success = null){}
  * Removes a stored variable from the cache
  * @link https://php.net/manual/en/function.apc-delete.php
  * @param string|string[]|APCIterator $key The key used to store the value (with apc_store()).
- * @return bool|string[] Returns TRUE on success or FALSE on failure. For array of keys returns list of failed keys.
+ * @return bool|bool[] Returns TRUE on success or FALSE on failure. For array of keys returns list of failed keys.
  */
 function apc_delete($key){}
 
@@ -197,7 +197,7 @@ function apc_add($key, $var, $ttl = 0){}
 /**
  * Stores a file in the bytecode cache, bypassing all filters
  * @link https://php.net/manual/en/function.apc-compile-file.php
- * @param string|string[] $filename Full or relative path to a PHP file that will be
+ * @param string $filename Full or relative path to a PHP file that will be
  * compiled and stored in the bytecode cache.
  * @param bool $atomic
  * @return bool Returns TRUE on success or FALSE on failure.

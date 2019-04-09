@@ -193,7 +193,7 @@ function hash_final ($context, $raw_output = false) {}
  * @param resource $context <p>
  * Hashing context returned by <b>hash_init</b>.
  * </p>
- * @return HashContext a copy of Hashing Context resource.
+ * @return resource a copy of Hashing Context resource.
  * @since 5.3.0
  */
 function hash_copy ($context) {}

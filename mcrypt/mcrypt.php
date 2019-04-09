@@ -6,7 +6,7 @@
  * Deprecated: Encrypt/decrypt data in ECB mode
  * @link https://php.net/manual/en/function.mcrypt-ecb.php
  * @deprecated 5.5 https://secure.php.net/manual/en/migration55.deprecated.php
- * @param string|int $cipher
+ * @param int|string $cipher
  * @param string $key 
  * @param string $data 
  * @param int $mode 
@@ -76,7 +76,7 @@ function mcrypt_get_key_size ($cipher, $mode) {}
 /**
  * Get the block size of the specified cipher
  * @link https://php.net/manual/en/function.mcrypt-get-block-size.php
- * @param string|int $cipher <p>
+ * @param int|string $cipher <p>
  * One of the MCRYPT_ciphername constants or the name
  * of the algorithm as string.
  * </p>
@@ -168,7 +168,7 @@ function mcrypt_list_modes ($lib_dir = null) {}
 /**
  * Returns the size of the IV belonging to a specific cipher/mode combination
  * @link https://php.net/manual/en/function.mcrypt-get-iv-size.php
- * @param string $cipher <p>
+ * @param int|string $cipher <p>
  * One of the MCRYPT_ciphername constants of the name
  * of the algorithm as string.
  * </p>

@@ -921,10 +921,12 @@ class StubsTest extends TestCase
             'hrtime', // return type depends on parameter usage
             'gettimeofday', // return type depends on parameter usage
             'apc_store', // return type depends on parameter usage
+            'apc_fetch', // return type depends on parameter usage
             'apc_delete', // return type depends on parameter usage
             'apc_add', // return type depends on parameter usage
             'apc_exists', // return type depends on parameter usage
             'apcu_store', // return type depends on parameter usage
+            'apcu_fetch', // return type depends on parameter usage
             'apcu_delete', // return type depends on parameter usage
             'apcu_add', // return type depends on parameter usage
             'apcu_exists', // return type depends on parameter usage

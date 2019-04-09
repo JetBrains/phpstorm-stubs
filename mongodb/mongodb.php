@@ -1291,7 +1291,7 @@ namespace MongoDB {}
          * Registered subscribers will be notified of monitoring events through specific methods.
          * Note: If the object is already registered, this function is a no-op.
          * @link https://secure.php.net/manual/en/function.mongodb.driver.monitoring.addsubscriber.php
-         * @param $subscriber Subscriber A monitoring event subscriber object to register.
+         * @param \MongoDB\Driver\Monitoring\Subscriber $subscriber Subscriber A monitoring event subscriber object to register.
          * @return void
          * @throws \InvalidArgumentException on argument parsing errors.
          * @since 1.3.0

@@ -1398,6 +1398,7 @@ define ('SOMAXCONN', 128);
  * @link https://php.net/manual/en/sockets.constants.php
  */
 define ('TCP_NODELAY', 1);
+
 define ('PHP_NORMAL_READ', 1);
 define ('PHP_BINARY_READ', 2);
 define ('MCAST_JOIN_GROUP', 42);
@@ -1412,7 +1413,11 @@ define ('IP_MULTICAST_LOOP', 34);
 define ('IPV6_MULTICAST_IF', 17);
 define ('IPV6_MULTICAST_HOPS', 18);
 define ('IPV6_MULTICAST_LOOP', 19);
-define ('IPV6_V6ONLY', 27);
+
+/**
+ * @since 7.0
+ */
+define ('IPV6_V6ONLY', 26);
 
 /**
  * Operation not permitted.

@@ -1396,7 +1396,7 @@ function fann_set_bit_fail_limit($ann, $bit_fail_limit)
  * @stub
  *
  * @param resource $ann
- * @param collable $callback
+ * @param callable $callback
  *
  * @return bool
  */

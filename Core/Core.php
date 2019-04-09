@@ -58,16 +58,20 @@ function strlen ($string) {}
 /**
  * Binary safe string comparison
  * @link https://php.net/manual/en/function.strcmp.php
+ *
  * @param string $str1 <p>
  * The first string.
  * </p>
  * @param string $str2 <p>
  * The second string.
  * </p>
- * @return int &lt; 0 if <i>str1</i> is less than
+ *
+ * @return int
+ * <p>&lt; 0 if <i>str1</i> is less than
  * <i>str2</i>; &gt; 0 if <i>str1</i>
  * is greater than <i>str2</i>, and 0 if they are
  * equal.
+ * </p>
  * @since 4.0
  * @since 5.0
  */
@@ -76,6 +80,7 @@ function strcmp ($str1, $str2) {}
 /**
  * Binary safe string comparison of the first n characters
  * @link https://php.net/manual/en/function.strncmp.php
+ *
  * @param string $str1 <p>
  * The first string.
  * </p>
@@ -85,10 +90,14 @@ function strcmp ($str1, $str2) {}
  * @param int $len <p>
  * Number of characters to use in the comparison.
  * </p>
- * @return int &lt; 0 if <i>str1</i> is less than
+ *
+ * @return int
+ * <p>
+ * &lt; 0 if <i>str1</i> is less than
  * <i>str2</i>; &gt; 0 if <i>str1</i>
  * is greater than <i>str2</i>, and 0 if they are
  * equal.
+ * </p>
  * @since 4.0
  * @since 5.0
  */
@@ -97,16 +106,21 @@ function strncmp ($str1, $str2, $len) {}
 /**
  * Binary safe case-insensitive string comparison
  * @link https://php.net/manual/en/function.strcasecmp.php
+ *
  * @param string $str1 <p>
  * The first string
  * </p>
  * @param string $str2 <p>
  * The second string
  * </p>
- * @return int &lt; 0 if <i>str1</i> is less than
+ *
+ * @return int
+ * <p>
+ * &lt; 0 if <i>str1</i> is less than
  * <i>str2</i>; &gt; 0 if <i>str1</i>
  * is greater than <i>str2</i>, and 0 if they are
  * equal.
+ * </p>
  * @since 4.0
  * @since 5.0
  */
@@ -115,6 +129,7 @@ function strcasecmp ($str1, $str2) {}
 /**
  * Binary safe case-insensitive string comparison of the first n characters
  * @link https://php.net/manual/en/function.strncasecmp.php
+ *
  * @param string $str1 <p>
  * The first string.
  * </p>
@@ -124,9 +139,13 @@ function strcasecmp ($str1, $str2) {}
  * @param int $len <p>
  * The length of strings to be used in the comparison.
  * </p>
- * @return int &lt; 0 if <i>str1</i> is less than
+ *
+ * @return int
+ * <p>
+ * &lt; 0 if <i>str1</i> is less than
  * <i>str2</i>; &gt; 0 if <i>str1</i> is
  * greater than <i>str2</i>, and 0 if they are equal.
+ * </p>
  * @since 4.0.4
  * @since 5.0
  */

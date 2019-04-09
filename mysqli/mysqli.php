@@ -606,7 +606,7 @@ class mysqli  {
 	 * @return int|false number of ready connections in success, false otherwise.
 	 * @since 5.3.0
 	 */
-	public function poll (array &$read , array &$error , array &$reject , $sec, $usec = null) {}
+	public static function poll (array &$read , array &$error , array &$reject , $sec, $usec = null) {}
 
 	/**
 	 * Get result from async query
@@ -1583,9 +1583,11 @@ function mysqli_close ($link) {}
  * Commits the current transaction
  * @link https://php.net/manual/en/mysqli.commit.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param int $flags [optional] A bitmask of MYSQLI_TRANS_COR_* constants.
+ * @param string $name [optional] If provided then COMMIT/"name" is executed.
  * @return bool
  */
-function mysqli_commit ($link) {}
+function mysqli_commit ($link, $flags, $name) {}
 
 /**
  * Open a new connection to the MySQL server
@@ -2203,6 +2205,8 @@ function mysqli_release_savepoint ($link ,$name) {}
  * Rolls back current transaction
  * @link https://php.net/manual/en/mysqli.rollback.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param int $flags [optional] A bitmask of MYSQLI_TRANS_COR_* constants.
+ * @param string $name [optional] If provided then ROLLBACK/"name" is executed.
  * @return bool
  */
 function mysqli_rollback ($link) {}
@@ -2692,11 +2696,20 @@ define ('MYSQLI_OPT_LOCAL_INFILE', 8);
 
 /**
  * <p>
+ * This is similar to MYSQLI_OPT_CONNECT_TIMEOUT in theory, but has a slightly different application.
+ * Connection timeout only specifies the wait time for the initial TCP connection.
+ * </p>
+ * @link https://www.php.net/manual/de/mysqli.options.php
+ */
+define ('MYSQLI_OPT_READ_TIMEOUT', 11);
+
+/**
+ * <p>
  * RSA public key file used with the SHA-256 based authentication.
  * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
-define ('MYSQLI_SERVER_PUBLIC_KEY', 27);
+define ('MYSQLI_SERVER_PUBLIC_KEY', 35);
 
 /**
  * <p>
@@ -3256,7 +3269,7 @@ define ('MYSQLI_REPORT_OFF', 0);
  * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
-define ('MYSQLI_DEBUG_TRACE_ENABLED', 1);
+define ('MYSQLI_DEBUG_TRACE_ENABLED', 0);
 
 /**
  * <p>
@@ -3329,7 +3342,7 @@ define ('MYSQLI_REFRESH_SLAVE', 64);
 define ('MYSQLI_REFRESH_MASTER', 128);
 
 
-define ('MYSQLI_SERVER_QUERY_WAS_SLOW', 1024);
+define ('MYSQLI_SERVER_QUERY_WAS_SLOW', 2048);
 define ('MYSQLI_REFRESH_BACKUP_LOG', 2097152);
 
 // End of mysqli v.0.1
@@ -3346,7 +3359,7 @@ define('MYSQLI_CLIENT_SSL_VERIFY_SERVER_CERT', 1073741824);
 
 define('MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT', 64);
 define('MYSQLI_CLIENT_CAN_HANDLE_EXPIRED_PASSWORDS', 4194304);
-define('MYSQLI_OPT_CAN_HANDLE_EXPIRED_PASSWORDS', 29);
+define('MYSQLI_OPT_CAN_HANDLE_EXPIRED_PASSWORDS', 37);
 define('MYSQLI_STORE_RESULT_COPY_DATA', 16);
 define('MYSQLI_TYPE_JSON', 245);
 define('MYSQLI_TRANS_COR_AND_CHAIN', 1);
