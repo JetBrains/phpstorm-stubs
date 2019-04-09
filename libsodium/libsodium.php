@@ -866,7 +866,7 @@ namespace Sodium;
     /**
      * Convert from hex without side-chanels
      * 
-     * @param string $binary
+     * @param string $hex
      * @return string
      */
     function hex2bin(

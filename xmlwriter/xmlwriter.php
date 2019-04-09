@@ -1046,7 +1046,7 @@ function xmlwriter_start_dtd_element ($xmlwriter, $qualifiedName) {}
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * End current DTD element
  * @link https://php.net/manual/en/function.xmlwriter-end-dtd-element.php
- * @param $xmlwriter
+ * @param resource $xmlwriter
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function xmlwriter_end_dtd_element ($xmlwriter) {}

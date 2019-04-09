@@ -1228,7 +1228,7 @@ function sqlsrv_query($conn, $tsql, $params=array(), $options=array()){}
  *
  * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-fetch
- * @param resource|null $stmt A statement resource corresponding to an executed statement.
+ * @param resource $stmt A statement resource corresponding to an executed statement.
  * @param int|null $row [optional]: One of the following values, specifying the row to access in a result set that uses a
  * scrollable cursor: SQLSRV_SCROLL_NEXT, SQLSRV_SCROLL_PRIOR, SQLSRV_SCROLL_FIRST, SQLSRV_SCROLL_LAST,
  * SQLSRV_SCROLL_ABSOLUTE, SQLSRV_SCROLL_RELATIVE. <br />
@@ -1237,7 +1237,7 @@ function sqlsrv_query($conn, $tsql, $params=array(), $options=array()){}
  * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.
  * @param int|null $offset [optional] Used with SQLSRV_SCROLL_ABSOLUTE and SQLSRV_SCROLL_RELATIVE to specify the row to
  * retrieve. The first record in the result set is 0.
- * @return array|null|false If the next row of the result set was successfully retrieved, true is returned. If there are
+ * @return bool|null If the next row of the result set was successfully retrieved, true is returned. If there are
  * no more results in the result set, null is returned. If an error occurred, false is returned.
  */
 function sqlsrv_fetch($stmt, $row=null, $offset=null){}
@@ -1305,7 +1305,7 @@ function sqlsrv_get_field($stmt, $field_index, $get_as_type){}
  * {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-fetch-array
- * @param resource|null $stmt A statement resource corresponding to an executed statement.
+ * @param resource $stmt A statement resource corresponding to an executed statement.
  * @param int $fetch_type [optional] A predefined constant. This parameter can take on one of the values listed in the
  * following table:
  * <ul><li>SQLSRV_FETCH_NUMERIC - The next row of data is returned as a numeric array.</li>
@@ -1508,7 +1508,7 @@ function sqlsrv_cancel($stmt){}
  * {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-free-stmt
- * @param resource|null $stmt The statement to be closed.
+ * @param resource $stmt The statement to be closed.
  * @return bool The Boolean value true unless the function is called with an invalid parameter. If the function is
  * called with an invalid parameter, false is returned.
  */

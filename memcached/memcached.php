@@ -495,8 +495,8 @@ class Memcached  {
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Create a Memcached instance
 	 * @link https://php.net/manual/en/memcached.construct.php
-	 * @param $persistent_id [optional]
-	 * @param $callback [optional]
+	 * @param string $persistent_id [optional]
+	 * @param callable $callback [optional]
 	 */
 	public function __construct ($persistent_id = '', $on_new_object_cb = null) {}
 

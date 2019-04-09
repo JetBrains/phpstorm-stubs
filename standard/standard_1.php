@@ -106,30 +106,36 @@ function stripos ($haystack, $needle, $offset = null) {}
 function strrpos ($haystack, $needle, $offset = 0) {}
 
 /**
- * Find position of last occurrence of a case-insensitive string in a string
+ * Find the position of the last occurrence of a case-insensitive substring in a string
  * @link https://php.net/manual/en/function.strripos.php
  * @param string $haystack <p>
  * The string to search in
  * </p>
- * @param string $needle <p>
- * Note that the needle may be a string of one or
- * more characters.
+ * @param int|string $needle <p>
+ * If <b>needle</b> is not a string, it is converted to an integer and applied as
+ * the ordinal value of a character. This behavior is deprecated as
+ * of PHP 7.3.0, and relying on it is highly discouraged. Depending
+ * on the intended behavior, the <b>needle</b> should either be explicitly
+ * cast to string, or an explicit call to chr() should be performed.
  * </p>
  * @param int $offset [optional] <p>
- * The offset parameter may be specified to begin
- * searching an arbitrary number of characters into the string.
+ * If specified, search will start this number of characters counted from
+ * the beginning of the string.
  * </p>
  * <p>
- * Negative offset values will start the search at
- * offset characters from the
- * start of the string.
+ * If the value is negative, search will
+ * instead start from that many characters from the end of the string,
+ * searching backwards.
  * </p>
- * @return int|false the numerical position of the last occurrence of
- * needle. Also note that string positions start at 0,
- * and not 1.
+ *
+ * @return int|false <p>
+ * Returns the position where the needle exists relative
+ * to the beginnning of the <b>haystack</b> string (independent of search direction or offset).
+ * Also note that string positions start at 0, and not 1.
  * </p>
  * <p>
  * If needle is not found, false is returned.
+ * </p>
  * @since 5.0
  */
 function strripos ($haystack, $needle, $offset = null) {}

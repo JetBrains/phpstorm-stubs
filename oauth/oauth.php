@@ -88,7 +88,7 @@ class OAuth {
 
     /**
      * Turn off redirects
-     * @return void
+     * @return bool
      */
     public function disableRedirects() { }
 
@@ -140,7 +140,7 @@ class OAuth {
      * @param string $auth_session_handle
      * @param string $verifier_token
      * @throws \OAuthException
-     * @return array
+     * @return array|false
      */
     public function getAccessToken($access_token_url, $auth_session_handle = null, $verifier_token = null) { }
 
@@ -182,7 +182,7 @@ class OAuth {
      * @param string $request_token_url
      * @param string $callback_url
      * @throws \OAuthException
-     * @return array
+     * @return array|false
      */
     public function getRequestToken($request_token_url, $callback_url = null) { }
 

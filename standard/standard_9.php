@@ -1095,7 +1095,7 @@ function stream_bucket_make_writeable($brigade) { }
  * Prepend bucket to brigade
  * @link https://php.net/manual/en/function.stream-bucket-prepend.php
  * @param resource $brigade
- * @param resource $bucket
+ * @param object $bucket
  * @return void
  * @since 5.0
  */
@@ -1105,7 +1105,7 @@ function stream_bucket_prepend($brigade, $bucket) { }
  * Append bucket to brigade
  * @link https://php.net/manual/en/function.stream-bucket-append.php
  * @param resource $brigade
- * @param resource $bucket
+ * @param object $bucket
  * @return void
  * @since 5.0
  */

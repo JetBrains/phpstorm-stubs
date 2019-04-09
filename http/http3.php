@@ -1560,7 +1560,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate {
 	 * @param mixed $type The type to cast the value to. See http\QueryString::TYPE_* constants.
 	 * @param mixed $defval The default value to return if the key $name does not exist.
 	 * @param bool $delete Whether to delete the entry from the querystring after retrieval.
-	 * @return \http\QueryString|string|mixed|mixed|string \http\QueryString if called without arguments.
+	 * @return \http\QueryString|string|mixed \http\QueryString if called without arguments.
 	 * 		 or string the whole querystring if $name is of zero length.
 	 * 		 or mixed $defval if the key $name does not exist.
 	 * 		 or mixed the querystring value cast to $type if $type was specified and the key $name exists.
@@ -1914,7 +1914,7 @@ class Url  {
 	/**
 	 * Retrieve the URL parts as array.
 	 * 
-	 * @return array the URL parts.
+	 * @return string[] the URL parts.
 	 */
 	function toArray() {}
 	/**
@@ -2673,7 +2673,7 @@ class Request extends \http\Message {
 	 * @param mixed $type The type to cast the value to. See http\QueryString::TYPE_* constants.
 	 * @param mixed $defval The default value to return if the key $name does not exist.
 	 * @param bool $delete Whether to delete the entry from the querystring after retrieval.
-	 * @return \http\QueryString|string|mixed|mixed|string \http\QueryString if called without arguments.
+	 * @return \http\QueryString|string|mixed \http\QueryString if called without arguments.
 	 * 		 or string the whole querystring if $name is of zero length.
 	 * 		 or mixed $defval if the key $name does not exist.
 	 * 		 or mixed the querystring value cast to $type if $type was specified and the key $name exists.
@@ -2695,7 +2695,7 @@ class Request extends \http\Message {
 	 * @param mixed $type The type to cast the value to. See http\QueryString::TYPE_* constants.
 	 * @param mixed $defval The default value to return if the key $name does not exist.
 	 * @param bool $delete Whether to delete the entry from the querystring after retrieval.
-	 * @return \http\QueryString|string|mixed|mixed|string \http\QueryString if called without arguments.
+	 * @return \http\QueryString|string|mixed \http\QueryString if called without arguments.
 	 * 		 or string the whole querystring if $name is of zero length.
 	 * 		 or mixed $defval if the key $name does not exist.
 	 * 		 or mixed the querystring value cast to $type if $type was specified and the key $name exists.
@@ -2711,7 +2711,7 @@ class Request extends \http\Message {
 	 * @param mixed $type The type to cast the value to. See http\QueryString::TYPE_* constants.
 	 * @param mixed $defval The default value to return if the key $name does not exist.
 	 * @param bool $delete Whether to delete the entry from the querystring after retrieval.
-	 * @return \http\QueryString|string|mixed|mixed|string \http\QueryString if called without arguments.
+	 * @return \http\QueryString|string|mixed \http\QueryString if called without arguments.
 	 * 		 or string the whole querystring if $name is of zero length.
 	 * 		 or mixed $defval if the key $name does not exist.
 	 * 		 or mixed the querystring value cast to $type if $type was specified and the key $name exists.

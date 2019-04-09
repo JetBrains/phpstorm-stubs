@@ -3903,7 +3903,8 @@ function locale_get_all_variants($locale) { }
 function locale_filter_matches($langtag, $locale, $canonicalize = false) { }
 
 /**
- * @param $arg1
+ * @param string $arg1
+ * @return string
  */
 function locale_canonicalize($arg1) { }
 
@@ -3941,8 +3942,9 @@ function locale_lookup(array $langtag, $locale, $canonicalize = false, $default 
 function locale_accept_from_http($header) { }
 
 /**
- * @param $locale
- * @param $pattern
+ * @param string $locale
+ * @param string $pattern
+ * @return MessageFormatter
  */
 function msgfmt_create($locale, $pattern) { }
 
@@ -5626,7 +5628,7 @@ function intltz_has_same_rules($obj, $otherTimeZone) { }
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Convert to DateTimeZone object
  * @link https://secure.php.net/manual/ru/intltimezone.todatetimezone.php
- * @param $obj
+ * @param IntlTimeZone $obj
  * @return DateTimeZone
  */
 function intltz_to_date_time_zone($obj) { }
@@ -5635,7 +5637,7 @@ function intltz_to_date_time_zone($obj) { }
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Check if this time zone uses daylight savings time
  * @link https://secure.php.net/manual/ru/intltimezone.usedaylighttime.php
- * @param $obj
+ * @param IntlTimeZone $obj
  * @return bool
  */
 function intltz_use_daylight_time($obj) { }

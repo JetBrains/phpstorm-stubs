@@ -323,8 +323,8 @@ function sodium_crypto_stream_keygen(): string {}
  * Add padding data
  * @link https://php.net/manual/en/function.sodium-pad.php
  * @since 7.2
- * @param $string
- * @param $length
+ * @param string $string
+ * @param int $length
  * @return string
  */
 function sodium_pad ($string, $length): string {}
@@ -333,8 +333,8 @@ function sodium_pad ($string, $length): string {}
  * Remove padding data
  * @link https://php.net/manual/en/function.sodium-unpad.php
  * @since 7.2
- * @param $string
- * @param $length
+ * @param string $string
+ * @param int $length
  */
 function sodium_unpad ($string, $length): string {}
 

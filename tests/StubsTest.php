@@ -370,6 +370,8 @@ class StubsTest extends TestCase
 
         if (count($method->parameters) === 0) {
             static::assertTrue(true);
+
+            return;
         }
 
         $methodNameWithClass = $method->parentName . '::' . $methodName;
@@ -398,8 +400,6 @@ class StubsTest extends TestCase
 
                     continue;
                 }
-
-                static::markTestSkipped('TODO: ' . $methodNameWithClass . ' - parameter -->' . $parameter->name . '<--: parameter type is missing? | phpstan-data: ' . print_r(self::$call_map_phpstan[$methodNameWithClass], true) . ' | phpdoc-data: ' . print_r($method, true));
 
                 return;
             }
@@ -482,6 +482,8 @@ class StubsTest extends TestCase
 
         if (count($function->parameters) === 0) {
             static::assertTrue(true);
+
+            return;
         }
 
         if (isset(self::$call_map_phpstan[$functionName])) {
@@ -508,8 +510,6 @@ class StubsTest extends TestCase
 
                     continue;
                 }
-
-                static::markTestSkipped('TODO: ' . $functionName . ' - parameter -->' . $parameter->name . '<--: parameter type is missing? | phpstan-data: ' . print_r(self::$call_map_phpstan[$functionName], true) . ' | phpdoc-data: ' . print_r($function, true));
 
                 return;
             }
@@ -590,6 +590,8 @@ class StubsTest extends TestCase
 
         if (count($method->parameters) === 0) {
             static::assertTrue(true);
+
+            return;
         }
 
         $methodNameWithClass = $method->parentName . '::' . $methodName;
@@ -615,16 +617,8 @@ class StubsTest extends TestCase
                         $parameterTypeFromPhpDoc,
                         $methodNameWithClass . ' - parameter -->' . $parameter->name . '<--: Failed asserting that (psalm-data) "' . print_r($parameterTypeFromStaticAnalyseTool, true) . '" == (phpdoc-data) "' . print_r($parameterTypeFromPhpDoc, true) . '" | ' . print_r($method->parameters, true)
                     );
-
-                    continue;
                 }
-
-                static::markTestSkipped('TODO: ' . $methodNameWithClass . ' - parameter -->' . $parameter->name . '<--: parameter type is missing? | psalm-data: ' . print_r(self::$call_map_vimeo_psalm[$methodNameWithClass], true) . ' | phpdoc-data: ' . print_r($method, true));
-
-                return;
             }
-
-            static::markTestSkipped('TODO: ' . $methodNameWithClass . ' - parameter not found? | psalm-data: ' . print_r(self::$call_map_vimeo_psalm[$methodNameWithClass], true) . ' | phpdoc-data: ' . print_r($method, true));
 
             return;
         }
@@ -702,6 +696,8 @@ class StubsTest extends TestCase
 
         if (count($function->parameters) === 0) {
             static::assertTrue(true);
+
+            return;
         }
 
         if (isset(self::$call_map_vimeo_psalm[$functionName])) {
@@ -725,16 +721,9 @@ class StubsTest extends TestCase
                         $parameterTypeFromPhpDoc,
                         $functionName . ' - parameter -->' . $parameter->name . '<--: Failed asserting that (psalm-data) "' . print_r($parameterTypeFromStaticAnalyseTool, true) . '" == (phpdoc-data) "' . print_r($parameterTypeFromPhpDoc, true) . '" | ' . print_r($function->parameters, true)
                     );
-
-                    continue;
                 }
 
-                static::markTestSkipped('TODO: ' . $functionName . ' - parameter -->' . $parameter->name . '<--: parameter type is missing? | psalm-data: ' . print_r(self::$call_map_vimeo_psalm[$functionName], true) . ' | phpdoc-data: ' . print_r($function, true));
-
-                return;
             }
-
-            static::markTestSkipped('TODO: ' . $functionName . ' - parameter not found? | psalm-data: ' . print_r(self::$call_map_vimeo_psalm[$functionName], true) . ' | phpdoc-data: ' . print_r($function, true));
 
             return;
         }
@@ -939,6 +928,8 @@ class StubsTest extends TestCase
             'apcu_delete', // return type depends on parameter usage
             'apcu_add', // return type depends on parameter usage
             'apcu_exists', // return type depends on parameter usage
+            'wincache_ucache_add', // return type depends on parameter usage
+            'wincache_ucache_set', // return type depends on parameter usage
         ];
         return $ignoreErrors;
     }

@@ -46,8 +46,8 @@ class Yar_Client {
      * Issue a call to remote RPC method.
      *
      * @link https://secure.php.net/manual/en/yar-client.call.php
-     * @param $method string Remote RPC method name.
-     * @param $parameters array Parameters.
+     * @param string $method Remote RPC method name.
+     * @param array $parameters Parameters.
      * @return void
      */
     public function __call ( $method , $parameters ){}
@@ -55,7 +55,7 @@ class Yar_Client {
     /**
      * Create a client
      * Yar_Client constructor.
-     * @param $url string Yar Server URL.
+     * @param string $url Yar Server URL.
      * @link https://secure.php.net/manual/en/yar-client.construct.php
      */
     final public function __construct ( $url ){}
@@ -63,7 +63,7 @@ class Yar_Client {
     /**
      * Set calling contexts
      *
-     * @param $name int it can be:
+     * @param int $name it can be:
      * - YAR_OPT_PACKAGER,
      * - YAR_OPT_PERSISTENT (Need server support),
      * - YAR_OPT_TIMEOUT,
@@ -84,9 +84,9 @@ class Yar_Concurrent_Client {
 
     /**
      * Register a concurrent call
-     * @param $uri string The RPC server URI(http, tcp)
-     * @param $method string Service name(aka the method name)
-     * @param $parameters array Parameters
+     * @param string $uri The RPC server URI(http, tcp)
+     * @param string $method Service name(aka the method name)
+     * @param array $parameters Parameters
      * @param array ...$callback A function callback, which will be called while the response return.
      * @return int
      * @link https://secure.php.net/manual/en/yar-concurrent-client.call.php
@@ -95,10 +95,10 @@ class Yar_Concurrent_Client {
 
     /**
      * Send all calls
-     * @param $callback
+     * @param callable $callback
      *  If this callback is set, then Yar will call this callback after all calls are sent and before any response return, with a $callinfo NULL.
      *  Then, if user didn't specify callback when registering concurrent call, this callback will be used to handle response, otherwise, the callback specified while registering will be used.
-     * @param $error_callback
+     * @param callable $error_callback
      *  If this callback is set, then Yar will call this callback while error occurred.
      * @return bool
      * @link https://secure.php.net/manual/en/yar-concurrent-client.loop.php

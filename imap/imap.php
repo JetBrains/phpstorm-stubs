@@ -191,14 +191,14 @@ function imap_rfc822_parse_headers ($headers, $defaulthost = "UNKNOWN") {}
 /**
  * Returns a properly formatted email address given the mailbox, host, and personal info
  * @link https://php.net/manual/en/function.imap-rfc822-write-address.php
- * @param string $mailbox <p>
+ * @param string|null $mailbox <p>
  * The mailbox name, see <b>imap_open</b> for more
  * information
  * </p>
- * @param string $host <p>
+ * @param string|null $host <p>
  * The email host part
  * </p>
- * @param string $personal <p>
+ * @param string|null $personal <p>
  * The name of the account owner
  * </p>
  * @return string|false a string properly formatted email address as defined in RFC2822.

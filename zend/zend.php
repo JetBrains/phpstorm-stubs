@@ -451,7 +451,7 @@ class ZendAPI_Job {
 
 /**
  * Disable/enable the Code Acceleration functionality at run time.
- * @param $status bool If false, Acceleration is disabled, if true - enabled
+ * @param bool $status If false, Acceleration is disabled, if true - enabled
  * @return void
  */ 
 function accelerator_set_status($status) {}
@@ -472,55 +472,55 @@ function output_cache_disable_compression() {}
 
 /**
  * Gets the code’s return value from the cache if it is there, if not - run function and cache the value.
- * @param $key string cache key
- * @param $function string PHP expression
- * @param $lifetime int data lifetime in cache (seconds)
+ * @param string $key cache key
+ * @param string $function PHP expression
+ * @param int $lifetime data lifetime in cache (seconds)
  * @return string function's return
  */
 function output_cache_fetch($key, $function, $lifetime) {}
 
 /**
  * If they cache for the key exists, output it, otherwise capture expression output, cache and pass it out.
- * @param $key string cache key
- * @param $function string PHP expression
- * @param $lifetime int data lifetime in cache (seconds)
- * @return expression output
+ * @param string $key cache key
+ * @param string $function PHP expression
+ * @param int $lifetime data lifetime in cache (seconds)
+ * @return string expression output
  */
 function output_cache_output($key, $function, $lifetime) {}
 
 /**
  * Removes all the cache data for the given filename.
- * @param $filename string full script path on local filesystem
+ * @param string $filename full script path on local filesystem
  * @return bool true if OK, false if something went wrong
  */
 function output_cache_remove($filename) {}
 
 /**
  * Remove cache data for the script with given URL (all dependent data is removed)
- * @param $url string the local url for the script
+ * @param string $url the local url for the script
  * @return bool true if OK
  */
 function output_cache_remove_url($url) {}
 
 /**
  * Remove item from PHP API cache by key
- * @param $key string cache key as given to output_cache_get/output_cache_put
+ * @param string $key cache key as given to output_cache_get/output_cache_put
  * @return bool true if OK
  */
 function output_cache_remove_key($key) {}
 
 /**
  * Puts data in cache according to the assigned key.
- * @param $key string cache key
- * @param $data mixed cached data (must not contain objects or resources)
+ * @param string $key cache key
+ * @param mixed $data cached data (must not contain objects or resources)
  * @return bool true if OK
  */
 function output_cache_put($key, $data) {}
 
 /**
  * Gets cached data according to the assigned key.
- * @param $key string cache key
- * @param $lifetime int cache validity time (seconds)
+ * @param string $key cache key
+ * @param int $lifetime cache validity time (seconds)
  * @return mixed|false cached data if cache exists, false otherwise
  */
 function output_cache_get($key, $lifetime) {}
@@ -528,8 +528,8 @@ function output_cache_get($key, $lifetime) {}
 /**
  * If data for assigned key exists, this function outputs it and returns a value of true.
  * If not, it starts capturing the output. To be used in pair with output_cache_stop.
- * @param $key string cache key
- * @param $lifetime int cache validity time (seconds)
+ * @param string $key cache key
+ * @param int $lifetime cache validity time (seconds)
  * @return bool true if cached data exists
  */
 function output_cache_exists($key, $lifetime) {}
@@ -547,10 +547,10 @@ function output_cache_stop() {}
  * The user function needs to accept two parameters: the error code, and a string describing the error.
  * Then there are two optional parameters that may be supplied: the filename in which the error occurred
  * and the line number  in which the error occurred.
- * @param $errno int
- * @param $errstr string
- * @param $errfile string
- * @param $errline integer
+ * @param int $errno
+ * @param string $errstr
+ * @param string $errfile
+ * @param int $errline
  * @return void
  */
 function monitor_pass_error($errno, $errstr, $errfile, $errline) {}
@@ -620,9 +620,9 @@ function zend_send_file($filename, $mime_type, $custom_headers) {}
 
 /**
  * Send a buffer using ZDS
- * @param $buffer string the content that will be send
- * @param $mime_type string [optional] MIME type of the buffer, if omitted, taken from configured MIME types file
- * @param $custom_headers string [optional] user defined headers that will be send instead of regular ZDS headers. few basic essential headers will be send anyway
+ * @param string $buffer the content that will be send
+ * @param string $mime_type [optional] MIME type of the buffer, if omitted, taken from configured MIME types file
+ * @param string $custom_headers [optional] user defined headers that will be send instead of regular ZDS headers. few basic essential headers will be send anyway
  * @return void|false FALSE if sending file failed, does not return otherwise
  */
 function zend_send_buffer($buffer, $mime_type, $custom_headers) {}

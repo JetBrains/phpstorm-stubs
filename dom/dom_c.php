@@ -347,7 +347,7 @@ class DOMNode  {
 
     /**
      * Canonicalize nodes to a file.
-     * @param $uri Number of bytes written or FALSE on failure
+     * @param string $uri
      * @param $exclusive [optional] Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.
      * @param $with_comments [optional]  Retain comments in output.
      * @param $xpath [optional] An array of xpaths to filter the nodes by.
@@ -1705,9 +1705,9 @@ class DOMElement extends DOMNode  {
     /**
      * Creates a new DOMElement object
      * @link https://php.net/manual/en/domelement.construct.php
-     * @param $name string The tag name of the element. When also passing in namespaceURI, the element name may take a prefix to be associated with the URI.
-     * @param $value string [optional] The value of the element.
-     * @param $uri string [optional] A namespace URI to create the element within a specific namespace.
+     * @param string $name The tag name of the element. When also passing in namespaceURI, the element name may take a prefix to be associated with the URI.
+     * @param string $value [optional] The value of the element.
+     * @param string $uri [optional] A namespace URI to create the element within a specific namespace.
      * @since 5.0
      */
     public function __construct ($name, $value, $uri) {}
@@ -2036,7 +2036,7 @@ class DOMEntityReference extends DOMNode  {
     /**
      * Creates a new DOMEntityReference object
      * @link https://php.net/manual/en/domentityreference.construct.php
-     * @param $name string The name of the entity reference.
+     * @param string $name The name of the entity reference.
      * @since 5.0
      */
     public function __construct ($name) {}
@@ -2066,8 +2066,8 @@ class DOMProcessingInstruction extends DOMNode  {
     /**
      * Creates a new <classname>DOMProcessingInstruction</classname> object
      * @link https://php.net/manual/en/domprocessinginstruction.construct.php
-     * @param $name string The tag name of the processing instruction.
-     * @param $value string [optional] The value of the processing instruction.
+     * @param string $name The tag name of the processing instruction.
+     * @param string $value [optional] The value of the processing instruction.
      * @since 5.0
      */
     public function __construct ($name, $value) {}

@@ -1219,7 +1219,7 @@ function socket_get_option ($socket, $level, $optname) {}
  * The available socket options are the same as those for the
  * <b>socket_get_option</b> function.
  * </p>
- * @param mixed $optval <p>
+ * @param array|int|string $optval <p>
  * The option value.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -1311,18 +1311,18 @@ function socket_import_stream ($stream) {}
 function socket_cmsg_space ($level, $type, $n = 0) {}
 
 /**
- * @param $socket
- * @param $level
- * @param $optname
+ * @param resource $socket
+ * @param int $level
+ * @param int $optname
  * @return mixed
  */
 function socket_getopt ($socket, $level, $optname) {}
 
 /**
- * @param $socket
- * @param $level
- * @param $optname
- * @param $optval
+ * @param resource $socket
+ * @param int $level
+ * @param int $optname
+ * @param int|string|array $optval
  * @return void
  */
 function socket_setopt ($socket, $level, $optname, $optval) {}

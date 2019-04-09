@@ -169,7 +169,7 @@ class SQLiteDatabase  {
 	 * Registers a "regular" User Defined Function for use in SQL statements
 	 * @link https://php.net/manual/en/function.sqlite-create-function.php
 	 * @param $function_name <p>The name of the function used in SQL statements.</p>
-	 * @param $callback <p>
+	 * @param callable $callback <p>
 	 * Callback function to handle the defined SQL function.
 	 * </p>
 	 * <blockquote><p><b>Note</b>:
@@ -391,7 +391,7 @@ final class SQLiteResult implements Iterator, Countable {
 	/**
 	 * Rewind the Iterator to the first element
 	 * @link https://php.net/manual/en/iterator.rewind.php
-	 * @return void Any returned value is ignored.
+	 * @return bool Returns FALSE if there are no rows in the result set, TRUE otherwise.
 	 * @since 5.0.0
 	 */
 	public function rewind () {}

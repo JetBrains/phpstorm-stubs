@@ -3334,10 +3334,10 @@ class RedisCluster {
     /**
      * Returns members of a geospatial index as standard geohash strings
      *
-     * @param $key     string
-     * @param $member1 string
-     * @param $member2 string
-     * @param $memberN string
+     * @param string $key
+     * @param string $member1
+     * @param string $member2
+     * @param string $memberN
      *
      * @example
      * <pre>
@@ -3351,10 +3351,10 @@ class RedisCluster {
     /**
      * Returns longitude and latitude of members of a geospatial index
      *
-     * @param $key     string
-     * @param $member1 string
-     * @param $member2 string
-     * @param $memberN string
+     * @param string $key
+     * @param string $member1
+     * @param string $member2
+     * @param string $memberN
      *
      * @example
      * <pre>

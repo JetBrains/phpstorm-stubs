@@ -1393,7 +1393,7 @@ class PDOStatement implements Traversable {
 	 * @param array $ctor_args [optional] <p>
 	 * Elements of this array are passed to the constructor.
 	 * </p>
-	 * @return mixed an instance of the required class with property names that
+	 * @return mixed|false an instance of the required class with property names that
 	 * correspond to the column names or <b>FALSE</b> on failure.
 	 */
 	public function fetchObject ($class_name = "stdClass", array $ctor_args = array()) {}

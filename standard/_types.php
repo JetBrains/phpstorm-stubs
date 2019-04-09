@@ -253,8 +253,8 @@ class object {
   /**
    * is triggered when invoking inaccessible methods in an object context.
    *
-   * @param $name string
-   * @param $arguments array
+   * @param string $name
+   * @param array $arguments
    * @return mixed
    * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.methods
    */
@@ -263,8 +263,8 @@ class object {
   /**
    * is triggered when invoking inaccessible methods in a static context.
    *
-   * @param $name string
-   * @param $arguments array
+   * @param string $name
+   * @param array $arguments
    * @return mixed
    * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.methods
    */
@@ -273,7 +273,7 @@ class object {
   /**
    * is utilized for reading data from inaccessible members.
    *
-   * @param $name string
+   * @param string $name
    * @return mixed
    * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
    */
@@ -282,8 +282,8 @@ class object {
   /**
    * run when writing data to inaccessible members.
    *
-   * @param $name string
-   * @param $value mixed
+   * @param string $name
+   * @param mixed $value
    * @return void
    * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
    */
@@ -292,7 +292,7 @@ class object {
   /**
    * is triggered by calling isset() or empty() on inaccessible members.
    *
-   * @param $name string
+   * @param string $name
    * @return bool
    * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
    */
@@ -300,7 +300,7 @@ class object {
   /**
    * is invoked when unset() is used on inaccessible members.
    *
-   * @param $name string
+   * @param string $name
    * @return void
    * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
    */
@@ -361,7 +361,7 @@ class object {
    * The only parameter of this method is an array containing exported properties in the form array('property' => value, ...).
    * @since 5.1.0
    *
-   * @param $an_array array
+   * @param array $an_array
    * @return mixed
    * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.set-state
    */

@@ -1623,6 +1623,7 @@ function pg_convert ($connection, $table_name, array $assoc_array, $options = 0)
 /**
  * Insert array into table
  * @link https://php.net/manual/en/function.pg-insert.php
+ *
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
@@ -1642,8 +1643,9 @@ function pg_convert ($connection, $table_name, array $assoc_array, $options = 0)
  * <b>PGSQL_DML_STRING</b> combined. If <b>PGSQL_DML_STRING</b> is part of the
  * <i>options</i> then query string is returned.
  * </p>
- * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure. Returns string if <b>PGSQL_DML_STRING</b> is passed
- * via <i>options</i>.
+ *
+ * @return resource|string|false Returns the connection resource on success, or FALSE on failure. Returns string if
+ * PGSQL_DML_STRING is passed via options.
  * @since 4.3.0
  * @since 5.0
  */
@@ -1700,7 +1702,7 @@ function pg_update ($connection, $table_name, array $data, array $condition, $op
  * <b>PGSQL_DML_STRING</b> combined. If <b>PGSQL_DML_STRING</b> is part of the
  * <i>options</i> then query string is returned.
  * </p>
- * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure. Returns string if <b>PGSQL_DML_STRING</b> is passed
+ * @return bool|string <b>TRUE</b> on success or <b>FALSE</b> on failure. Returns string if <b>PGSQL_DML_STRING</b> is passed
  * via <i>options</i>.
  * @since 4.3.0
  * @since 5.0
@@ -1740,7 +1742,7 @@ function pg_delete ($connection, $table_name, array $assoc_array, $options = PGS
  * while <b>PGSQL_BOTH</b>, the default, will return both
  * numerical and associative indices.
  * </p>
- * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure. Returns string if <b>PGSQL_DML_STRING</b> is passed
+ * @return bool|string <b>TRUE</b> on success or <b>FALSE</b> on failure. Returns string if <b>PGSQL_DML_STRING</b> is passed
  * via <i>options</i>.
  * @since 4.3.0
  * @since 5.0
