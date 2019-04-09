@@ -466,21 +466,24 @@ define ('STREAM_CLIENT_CONNECT', 4);
 
 /**
  * Used with stream_socket_shutdown to disable
- * further receptions. Added in PHP 5.2.1.
+ * further receptions.
+ * @since 5.2.1
  * @link https://php.net/manual/en/stream.constants.php
  */
 define ('STREAM_SHUT_RD', 0);
 
 /**
  * Used with stream_socket_shutdown to disable
- * further transmissions. Added in PHP 5.2.1.
+ * further transmissions.
+ * @since 5.2.1
  * @link https://php.net/manual/en/stream.constants.php
  */
 define ('STREAM_SHUT_WR', 1);
 
 /**
  * Used with stream_socket_shutdown to disable
- * further receptions and transmissions. Added in PHP 5.2.1.
+ * further receptions and transmissions.
+ * @since 5.2.1
  * @link https://php.net/manual/en/stream.constants.php
  */
 define ('STREAM_SHUT_RDWR', 2);
@@ -816,7 +819,9 @@ define ('SORT_STRING', 2);
 
 /**
  * SORT_LOCALE_STRING is used to compare items as
- * strings, based on the current locale. Added in PHP 4.4.0 and 5.0.2.
+ * strings, based on the current locale.
+ * @since 4.4.0
+ * @since 5.0.2
  * @link https://php.net/manual/en/array.constants.php
  */
 define ('SORT_LOCALE_STRING', 5);
@@ -1253,47 +1258,55 @@ define('PHP_SESSION_ACTIVE', 2);
 
 
 /**
- * Joins a multicast group. (added in PHP 5.4)
+ * Joins a multicast group.
+ * @since 5.4.0
  * @link https://php.net/manual/en/function.socket-get-option.php
  */
 define('MCAST_JOIN_GROUP', 42);
 /**
- * Leaves a multicast group. (added in PHP 5.4)
+ * Leaves a multicast group.
+ * @since 5.4.0
  * @link https://php.net/manual/en/function.socket-get-option.php
  */
 define('MCAST_LEAVE_GROUP', 45);
 /**
  * Blocks packets arriving from a specific source to a specific multicast group,
- * which must have been previously joined. (added in PHP 5.4)
+ * which must have been previously joined.
+ * @since 5.4.0
  * @link https://php.net/manual/en/function.socket-get-option.php
  */
 define('MCAST_BLOCK_SOURCE', 43);
 /**
  * Unblocks (start receiving again) packets arriving from
  * a specific source address to a specific multicast group,
- * which must have been previously joined. (added in PHP 5.4)
+ * which must have been previously joined.
+ * @since 5.4.0
  * @link https://php.net/manual/en/function.socket-get-option.php
  */
 define('MCAST_UNBLOCK_SOURCE', 44);
 /**
  * Receive packets destined to a specific multicast group
- * whose source address matches a specific value. (added in PHP 5.4)
+ * whose source address matches a specific value.
+ * @since 5.4.0
  * @link https://php.net/manual/en/function.socket-get-option.php
  */
 define('MCAST_JOIN_SOURCE_GROUP', 46);
 /**
  * Stop receiving packets destined to a specific multicast group
- * whose soure address matches a specific value. (added in PHP 5.4)
+ * whose soure address matches a specific value.
+ * @since 5.4.0
  * @link https://php.net/manual/en/function.socket-get-option.php
  */
 define('MCAST_LEAVE_SOURCE_GROUP', 47);
 /**
- * The outgoing interface for IPv4 multicast packets. (added in PHP 5.4)
+ * The outgoing interface for IPv4 multicast packets.
+ * @since 5.4.0
  * @link https://php.net/manual/en/function.socket-get-option.php
  */
 define('IP_MULTICAST_IF', 32);
 /**
- * The outgoing interface for IPv6 multicast packets. (added in PHP 5.4)
+ * The outgoing interface for IPv6 multicast packets.
+ * @since 5.4.0
  * @link https://php.net/manual/en/function.socket-get-option.php
  */
 define('IP_MULTICAST_TTL', 33);
@@ -1301,25 +1314,29 @@ define('IP_MULTICAST_TTL', 33);
  * The multicast loopback policy for IPv4 packets,
  * which determines whether multicast packets sent by this socket
  * also reach receivers in the same host that have joined the same multicast group
- * on the outgoing interface used by this socket. This is the case by default. (added in PHP 5.4)
+ * on the outgoing interface used by this socket. This is the case by default.
+ * @since 5.4.0
  * @link https://php.net/manual/en/function.socket-get-option.php
  */
 define('IP_MULTICAST_LOOP', 34);
 /**
- * Analogous to IP_MULTICAST_LOOP, but for IPv6. (added in PHP 5.4)
+ * Analogous to IP_MULTICAST_LOOP, but for IPv6.
+ * @since 5.4.0
  * @link https://php.net/manual/en/function.socket-get-option.php
  */
 define('IPV6_MULTICAST_IF', 17);
 /**
  * The time-to-live of outgoing IPv4 multicast packets.
  * This should be a value between 0 (don't leave the interface) and 255.
- * The default value is 1 (only the local network is reached). (added in PHP 5.4)
+ * The default value is 1 (only the local network is reached).
+ * @since 5.4.0
  * @link https://php.net/manual/en/function.socket-get-option.php
  */
 define('IPV6_MULTICAST_HOPS', 18);
 /**
  * Analogous to IP_MULTICAST_TTL, but for IPv6 packets.
- * The value -1 is also accepted, meaning the route default should be used. (added in PHP 5.4)
+ * The value -1 is also accepted, meaning the route default should be used.
+ * @since 5.4.0
  * @link https://php.net/manual/en/function.socket-get-option.php
  */
 define('IPV6_MULTICAST_LOOP', 19);
@@ -1334,8 +1351,8 @@ define('IPPROTO_IPV6', 41);
 /**
  * Replace invalid code unit sequences with a Unicode Replacement Character
  * U+FFFD (UTF-8) or &#FFFD; (otherwise) instead of returning an empty string.
- * @link https://php.net/manual/en/function.htmlspecialchars.php
  * @since 5.4.0
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_SUBSTITUTE', 8);
 /**
@@ -1344,32 +1361,32 @@ define('ENT_SUBSTITUTE', 8);
  * (otherwise) instead of leaving them as is. This may be useful,
  * for instance, to ensure the well-formedness of XML documents
  * with embedded external content.
- * @link https://php.net/manual/en/function.htmlspecialchars.php
  * @since 5.4.0
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_DISALLOWED', 128);
 /**
  * Handle code as HTML 4.01.
- * @link https://php.net/manual/en/function.htmlspecialchars.php
  * @since 5.4.0
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_HTML401', 0);
 /**
  * Handle code as XML 1.
- * @link https://php.net/manual/en/function.htmlspecialchars.php
  * @since 5.4.0
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_XML1', 16);
 /**
  * Handle code as XHTML.
- * @link https://php.net/manual/en/function.htmlspecialchars.php
  * @since 5.4.0
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_XHTML', 32);
 /**
  * Handle code as HTML 5.
- * @link https://php.net/manual/en/function.htmlspecialchars.php
  * @since 5.4.0
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_HTML5', 48);
 
@@ -1384,12 +1401,14 @@ define('SCANDIR_SORT_NONE', 2);
 
 
 /**
- * SORT_NATURAL is used to compare items as strings using "natural ordering" like natsort(). Added in PHP 5.4.0.
+ * SORT_NATURAL is used to compare items as strings using "natural ordering" like natsort().
+ * @since 5.4.0
  * @link https://php.net/manual/en/array.constants.php
  */
 define('SORT_NATURAL', 6);
 /**
- * SORT_FLAG_CASE can be combined (bitwise OR) with SORT_STRING or SORT_NATURAL to sort strings case-insensitively. Added in PHP 5.4.0.
+ * SORT_FLAG_CASE can be combined (bitwise OR) with SORT_STRING or SORT_NATURAL to sort strings case-insensitively.
+ * @since 5.4.0
  * @link https://php.net/manual/en/array.constants.php
  */
 define('SORT_FLAG_CASE', 8);
