@@ -366,6 +366,12 @@ class StubsTest extends TestCase
 
         $methodNameWithClass = $method->parentName . '::' . $methodName;
 
+        if (in_array($methodNameWithClass, $this->getIgnoredCalls(), true)) {
+            static::assertTrue(true);
+
+            return;
+        }
+
         if (isset(self::$call_map_vimeo_psalm[$methodNameWithClass])) {
 
             foreach ($method->parameters as $count => $parameter) {
@@ -376,13 +382,13 @@ class StubsTest extends TestCase
                     return;
                 }
 
-                if (!isset(self::$call_map_vimeo_psalm[$methodNameWithClass][rtrim($parameter->name, '=')])) {
+                if (!isset(self::$call_map_vimeo_psalm[$methodNameWithClass][trim($parameter->name, '&=.')])) {
                     static::markTestSkipped('TODO: parameter error in psalm: ' . $methodNameWithClass . ' | parameter: ' . $parameter->name . ' | psalm: ' . print_r(self::$call_map_vimeo_psalm[$methodNameWithClass], true));
 
                     return;
                 }
 
-                $parameterTypeFromStaticAnalyseTool = ltrim(self::$call_map_vimeo_psalm[$methodNameWithClass][rtrim($parameter->name, '=')], '\\');
+                $parameterTypeFromStaticAnalyseTool = ltrim(self::$call_map_vimeo_psalm[$methodNameWithClass][trim($parameter->name, '&=.')], '\\');
                 $parameterTypeFromStaticAnalyseTool = $this->getTypeFromStaticAnalyse($parameterTypeFromStaticAnalyseTool);
 
                 $parameterTypeFromPhpDoc = $this->getTypeFromPhpElement($parameter->type_from_php_doc);
@@ -424,6 +430,12 @@ class StubsTest extends TestCase
 
         $methodNameWithClass = $method->parentName . '::' . $methodName;
 
+        if (in_array($methodNameWithClass, $this->getIgnoredCalls(), true)) {
+            static::assertTrue(true);
+
+            return;
+        }
+
         if (!$method->type_from_php_doc) {
             static::markTestSkipped('TODO: no return type found for: ' . $methodNameWithClass);
 
@@ -464,7 +476,7 @@ class StubsTest extends TestCase
     {
         $functionName = $function->name;
 
-        if (in_array($functionName, $this->getIgnoredFunctionNames(), true)) {
+        if (in_array($functionName, $this->getIgnoredCalls(), true)) {
             static::assertTrue(true);
 
             return;
@@ -486,13 +498,13 @@ class StubsTest extends TestCase
                     return;
                 }
 
-                if (!isset(self::$call_map_vimeo_psalm[$functionName][rtrim($parameter->name, '=')])) {
+                if (!isset(self::$call_map_vimeo_psalm[$functionName][trim($parameter->name, '&=.')])) {
                     static::markTestSkipped('TODO: parameter error in psalm: ' . $functionName . ' | parameter: ' . $parameter->name . ' | psalm: ' . print_r(self::$call_map_vimeo_psalm[$functionName], true));
 
                     return;
                 }
 
-                $parameterTypeFromStaticAnalyseTool = ltrim(self::$call_map_vimeo_psalm[$functionName][rtrim($parameter->name, '=')], '\\');
+                $parameterTypeFromStaticAnalyseTool = ltrim(self::$call_map_vimeo_psalm[$functionName][trim($parameter->name, '&=.')], '\\');
                 $parameterTypeFromStaticAnalyseTool = $this->getTypeFromStaticAnalyse($parameterTypeFromStaticAnalyseTool);
 
                 $parameterTypeFromPhpDoc = $this->getTypeFromPhpElement($parameter->type_from_php_doc);
@@ -522,7 +534,7 @@ class StubsTest extends TestCase
     {
         $functionName = $function->name;
 
-        if (in_array($functionName, $this->getIgnoredFunctionNames(), true)) {
+        if (in_array($functionName, $this->getIgnoredCalls(), true)) {
             static::assertTrue(true);
 
             return;
@@ -612,6 +624,10 @@ class StubsTest extends TestCase
 
         if ($typeFromPsalm === '') {
             return 'mixed';
+        }
+
+        if ($typeFromPsalm === 'long') {
+            return 'int';
         }
 
         if (
@@ -709,9 +725,10 @@ class StubsTest extends TestCase
     /**
      * @return array
      */
-    private function getIgnoredFunctionNames(): array
+    private function getIgnoredCalls(): array
     {
         $ignoreErrors = [
+            'SimpleXMLElement::asXML', // return type depends on parameter usage
             'abs', // return type depends on parameter usage
             'ceil', // "ceil() is still of type float as the value range of float is usually bigger than that of integer"?
             'setlocale', // return type depends on parameter usage

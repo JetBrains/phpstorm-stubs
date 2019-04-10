@@ -610,7 +610,7 @@ class ZMQPoll
      * @param ZMQSocket $entry ZMQSocket object or a PHP stream resource
      * @param int $type Defines what activity the socket is polled for. See <b>ZMQ::POLL_IN</b> and <b>ZMQ::POLL_OUT</b> constants.
      *
-     * @return int Returns a string id of the added item which can be later used to remove the item. Throws ZMQPollException on error.
+     * @return string Returns a string id of the added item which can be later used to remove the item. Throws ZMQPollException on error.
      * @throws ZMQPollException if the object has not been initialized with polling
      */
     public function add(ZMQSocket $entry, $type)
@@ -646,7 +646,7 @@ class ZMQPoll
      *
      * @link https://secure.php.net/manual/en/zmqpoll.getlasterrors.php
      *
-     * @return int[]
+     * @return array
      */
     public function getLastErrors()
     {

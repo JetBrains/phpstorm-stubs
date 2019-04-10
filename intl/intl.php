@@ -252,7 +252,7 @@ class Collator {
      * default locale collation rules will be used. If empty string ("") or
      * "root" are passed, UCA rules will be used.
      * </p>
-     * @return Collator Return new instance of <b>Collator</b> object, or <b>NULL</b>
+     * @return Collator|null Return new instance of <b>Collator</b> object, or <b>NULL</b>
      * on error.
      */
     public static function create($locale) { }
@@ -267,7 +267,7 @@ class Collator {
      * @param string $str2 <p>
      * The second string to compare.
      * </p>
-     * @return int Return comparison result:</p>
+     * @return int|false Return comparison result:</p>
      * <p>
      * <p>
      * 1 if <i>str1</i> is greater than
@@ -415,7 +415,7 @@ class Collator {
      * @param string $str <p>
      * The string to produce the key from.
      * </p>
-     * @return string the collation key for the string. Collation keys can be compared directly instead of strings.
+     * @return string|false the collation key for the string. Collation keys can be compared directly instead of strings.
      */
     public function getSortKey($str) { }
 }
@@ -933,7 +933,7 @@ class NumberFormatter {
      * Offset in the string at which to begin parsing. On return, this value
      * will hold the offset at which parsing ended.
      * </p>
-     * @return mixed|false The value of the parsed number or <b>FALSE</b> on error.
+     * @return float|false The value of the parsed number or <b>FALSE</b> on error.
      */
     public function parse($value, $type = null, &$position = null) { }
 
@@ -1294,7 +1294,7 @@ class Locale {
      * @param string $locale <p>
      * The locale to extract the keywords from
      * </p>
-     * @return array Associative array containing the keyword-value pairs for this locale
+     * @return array|false Associative array containing the keyword-value pairs for this locale
      */
     public static function getKeywords($locale) { }
 
@@ -1480,7 +1480,7 @@ class Locale {
      * @param string $header <p>
      * The string containing the "Accept-Language" header according to format in RFC 2616.
      * </p>
-     * @return string The corresponding locale identifier.
+     * @return string|false The corresponding locale identifier.
      */
     public static function acceptFromHttp($header) { }
 }
@@ -1934,7 +1934,7 @@ class IntlDateFormatter {
      * This variable will contain the end position if the parse fails.
      * If $parse_pos > strlen($value), the parse fails immediately.
      * </p>
-     * @return int timestamp parsed value
+     * @return int|false timestamp parsed value
      */
     public function parse($value, &$position = null) { }
 
@@ -1994,7 +1994,7 @@ class ResourceBundle implements Traversable {
      * @param bool $fallback [optional] <p>
      * Whether locale should match exactly or fallback to parent locale is allowed.
      * </p>
-     * @return ResourceBundle|false <b>ResourceBundle</b> object or <b>FALSE</b> on error.
+     * @return ResourceBundle|null <b>ResourceBundle</b> object or <b>NULL</b> on error.
      */
     public static function create($locale, $bundlename, $fallback = null) { }
 
@@ -2075,7 +2075,7 @@ class Transliterator {
      * May also be set to
      * Transliterator::REVERSE.
      * </p>
-     * @return Transliterator a <b>Transliterator</b> object on success,
+     * @return Transliterator|null a <b>Transliterator</b> object on success,
      * or <b>NULL</b> on failure.
      */
     public static function create($id, $direction = null) { }
@@ -2216,7 +2216,7 @@ class Spoofchecker {
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Set the checks to run
      * @link https://php.net/manual/en/spoofchecker.setchecks.php
-     * @param string $checks <p>
+     * @param int $checks <p>
      * </p>
      * @return void
      */
@@ -2449,7 +2449,7 @@ class IntlCalendar {
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a2)<br/>
      * Create an IntlCalendar from a DateTime object or string
      * @link https://secure.php.net/manual/en/intlcalendar.fromdatetime.php
-     * @param mixed $dateTime <p>
+     * @param DateTime|string $dateTime <p>
      * A {@link https://secure.php.net/manual/en/class.datetime.php DateTime} object or a {@link https://secure.php.net/manual/en/language.types.string.php string} that
      * can be passed to  {@link https://secure.php.net/manual/en/datetime.construct.php DateTime::__construct()}.
      * </p>
@@ -5699,7 +5699,7 @@ function resourcebundle_create($locale, $bundlename, $fallback = null) { }
  * @param string|int $index <p>
  * Data index, must be string or integer.
  * </p>
- * @return mixed the data located at the index or <b>NULL</b> on error. Strings, integers and binary data strings
+ * @return mixed|null the data located at the index or <b>NULL</b> on error. Strings, integers and binary data strings
  * are returned as corresponding PHP types, integer array is returned as PHP array. Complex types are
  * returned as <b>ResourceBundle</b> object.
  */

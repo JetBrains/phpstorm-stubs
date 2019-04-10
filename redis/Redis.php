@@ -1024,7 +1024,7 @@ class Redis
      * @param   string  $key
      * @param   string  $value
      * @param   int     $count
-     * @return  int     the number of elements to remove
+     * @return  int|false the number of elements to remove,
      * bool FALSE if the value identified by key is not a list.
      * @link    https://redis.io/commands/lrem
      * @example
@@ -1224,7 +1224,7 @@ class Redis
      * Removes and returns a random element from the set value at Key.
      *
      * @param   string  $key
-     * @return  string  "popped" value
+     * @return  string|false  "popped" value
      * bool FALSE if set identified by key is empty or doesn't exist.
      * @link    https://redis.io/commands/spop
      * @example
@@ -1244,7 +1244,7 @@ class Redis
      *
      * @param   string        $key
      * @param   int           $count [optional]
-     * @return  string|array  value(s) from the set
+     * @return  string|array|false  value(s) from the set
      * bool FALSE if set identified by key is empty or doesn't exist and count argument isn't passed.
      * @link    https://redis.io/commands/srandmember
      * @example

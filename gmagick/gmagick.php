@@ -1037,7 +1037,7 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.getimagematte.php
      *
-     * @return bool Returns TRUE if the image has a matte channel, otherwise FALSE.
+     * @return int
      *
      * @throws GmagickException On error.
      */

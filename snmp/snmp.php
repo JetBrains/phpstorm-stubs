@@ -494,7 +494,7 @@ function snmp_get_quick_print () {}
  * Set the value of <i>quick_print</i> within the UCD SNMP library
  * @link https://php.net/manual/en/function.snmp-set-quick-print.php
  * @param bool $quick_print
- * @return bool No value is returned.
+ * @return bool
  * @since 4.0
  * @since 5.0
  */
@@ -528,7 +528,7 @@ function snmp_set_enum_print ($enum_print) {}
  * <tr valign="top"><td><b>SNMP_OID_OUTPUT_NONE</b></td><td>Undefined</td></tr>
  * </table>
  * </p>
- * @return bool No value is returned.
+ * @return bool
  * @since 5.2.0
  */
 function snmp_set_oid_output_format ($oid_format = SNMP_OID_OUTPUT_MODULE) {}

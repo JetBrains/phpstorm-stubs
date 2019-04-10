@@ -1478,7 +1478,7 @@ class MongoCursor implements Iterator {
 	 * @link https://secure.php.net/manual/en/mongocursor.next.php
 	 * @throws MongoConnectionException
 	 * @throws MongoCursorTimeoutException
-	 * @return void
+	 * @return array
 	 */
     public function next() {}
 
@@ -2562,7 +2562,7 @@ class MongoLog {
      *
      * <p>The log message itself.</p></li>
      * <ul>
-     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return void
      */
     public static function setCallback ( callable $log_function ) {}
 

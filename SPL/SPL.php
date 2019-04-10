@@ -1909,7 +1909,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Get flags
      * @link https://php.net/manual/en/arrayiterator.getflags.php
-     * @return string The current flags.
+     * @return mixed The current flags.
      * @since 5.1.0
      */
     public function getFlags() { }
@@ -1988,7 +1988,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @param string $serialized <p>
      * The serialized ArrayIterator object to be unserialized.
      * </p>
-     * @return string The <b>ArrayIterator</b>.
+     * @return void
      * @since 5.3.0
      */
     public function unserialize($serialized) { }

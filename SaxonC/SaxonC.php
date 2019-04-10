@@ -18,7 +18,7 @@ class SaxonProcessor {
      * Create an Xdm Atomic value from any of the main primitive types (i.e. bool, int, float, double, string)
      *
      * @param bool|int|float|string $primitive_type_val
-     * @return XdmValue
+     * @return \Saxon\XdmValue
      */
     public function createAtomicValue($primitive_type_val) {}
 
@@ -26,7 +26,7 @@ class SaxonProcessor {
      * Create an {@link XdmNode} object.
      *
      * @param string $value The $value is a lexical representation of the XML document.
-     * @return XdmNode
+     * @return \Saxon\XdmNode
      */
     public function parseXmlFromString($value) {}
 
@@ -34,7 +34,7 @@ class SaxonProcessor {
      * Create an {@link XdmNode} object.
      *
      * @param string $fileName Value is a string type and the file name to the XML document. File name can be relative or absolute. IF relative the cwd is used to resolve the file.
-     * @return XdmNode
+     * @return \Saxon\XdmNode
      */
     public function parseXmlFromFile($fileName) {}
 
@@ -68,28 +68,28 @@ class SaxonProcessor {
     /**
      * Create an {@link XsltProcessor} in the PHP environment. An {@link XsltProcessor} is used to compile and execute XSLT sytlesheets
      *
-     * @return XsltProcessor
+     * @return \Saxon\XsltProcessor
      */
     public function newXsltProcessor() {}
 
     /**
      * Create an {@link XQueryProcessor} in the PHP environment. An {@link XQueryProcessor} is used to compile and execute XQuery queries
      *
-     * @return XQueryProcessor
+     * @return \Saxon\XQueryProcessor
      */
     public function newXQueryProcessor() {}
 
     /**
      * Create an {@link XPathProcessor} in the PHP environment. An {@link XPathProcessor} is used to compile and execute XPath queries
      *
-     * @return XPathProcessor
+     * @return \Saxon\XPathProcessor
      */
     public function newXPathProcessor() {}
 
     /**
      * Create a {@link SchemaValidator} in the PHP environment. A {@link SchemaValidator} provides capabilities to load and cache XML schema definitions. You can also validate source documents with registered XML schema definitions
      *
-     * @return SchemaValidator
+     * @return \Saxon\SchemaValidator
      */
     public function newSchemaValidator() {}
 
@@ -137,7 +137,7 @@ class XsltProcessor {
      * Perform a one shot transformation. The result is returned as an {@link XdmValue}.
      *
      * @param string $fileName
-     * @return XdmValue
+     * @return \Saxon\XdmValue
      */
     public function transformFileToValue($fileName) {}
 
@@ -156,7 +156,7 @@ class XsltProcessor {
     /**
      * Perform the transformation based upon cached stylesheet and any source document. Result returned as an {@link XdmValue} object. If there are failures then a null is returned
      *
-     * @return XdmValue|null
+     * @return \Saxon\XdmValue|null
      */
     public function transformToValue() {}
 
@@ -179,7 +179,7 @@ class XsltProcessor {
     /**
      * Compile a stylesheet received as an {@link XdmNode}.
      *
-     * @param XdmNode $node
+     * @param \Saxon\XdmNode $node
      * @return void
      */
     public function compileFromValue($node) {}
@@ -195,7 +195,7 @@ class XsltProcessor {
     /**
      * The source used for a query or stylesheet. Requires an {@link XdmValue} object
      *
-     * @param XdmValue $value
+     * @param \Saxon\XdmValue $value
      * @return void
      */
     public function setSourceFromXdmValue($value) {}
@@ -212,7 +212,7 @@ class XsltProcessor {
      * Set the parameters required for XSLT stylesheet
      *
      * @param string $name
-     * @param XdmValue $value
+     * @param \Saxon\XdmValue $value
      * @return void
      */
     public function setParameter($name, $value) {}
@@ -279,7 +279,7 @@ class XQueryProcessor {
     /**
      * Compile and evaluate the query. Result returned as an XdmValue object. If there are failures then a null is returned
      *
-     * @return XdmValue|null
+     * @return \Saxon\XdmValue|null
      */
     public function runQueryToValue() {}
 
@@ -332,7 +332,7 @@ class XQueryProcessor {
      * Set the initial context item for the query.
      * Any one of the objects are accepted: {@link XdmValue}, {@link XdmItem}, {@link XdmNode} and {@link XdmAtomicValue}.
      *
-     * @param XdmValue|XdmItem|XdmNode|XdmAtomicValue $obj
+     * @param \Saxon\XdmValue|XdmItem|XdmNode|XdmAtomicValue $obj
      * @return void
      */
     public function setContextItem($obj) {}
@@ -358,7 +358,7 @@ class XQueryProcessor {
      * Set the parameters required for XQuery Processor
      *
      * @param string $name
-     * @param XdmValue $value
+     * @param \Saxon\XdmValue $value
      * @return void
      */
     public function setParameter($name, $value) {}
@@ -450,7 +450,7 @@ class XPathProcessor {
      * Compile and evaluate an XPath expression, supplied as a character string. Result is an {@link XdmValue}
      *
      * @param string $xpathStr
-     * @return XdmValue
+     * @return \Saxon\XdmValue
      */
     public function evaluate($xpathStr) {}
 
@@ -458,7 +458,7 @@ class XPathProcessor {
      * Compile and evaluate an XPath expression whose result is expected to be a single item, with a given context item. The expression is supplied as a character string.
      *
      * @param string $xpathStr
-     * @return XdmItem
+     * @return \Saxon\XdmItem
      */
     public function evaluateSingle($xpathStr) {}
 
@@ -483,7 +483,7 @@ class XPathProcessor {
      * Set the parameters required for XQuery Processor
      *
      * @param string $name
-     * @param XdmValue $value
+     * @param \Saxon\XdmValue $value
      * @return void
      */
     public function setParameter($name, $value) {}
@@ -550,7 +550,7 @@ class SchemaValidator {
     /**
      * The instance document to be validated. Supplied as an Xdm Node
      *
-     * @param XdmNode $node
+     * @param \Saxon\XdmNode $node
      * @return void
      */
     public function setSourceNode($node) {}
@@ -591,14 +591,14 @@ class SchemaValidator {
      * Validate an instance document supplied as a Source object with the validated document returned to the calling program.
      *
      * @param string|null $filename The name of the file to be validated. $filename can be null, in that case it is assumed source document has already been supplied through accessor methods
-     * @return XdmNode
+     * @return \Saxon\XdmNode
      */
     public function validateToNode($filename = null) {}
 
     /**
      * Get the validation report produced after validating the source document. The reporting feature is switched on via setting the property on the {@link SchemaValidator): $validator->setProperty('report', 'true').
      *
-     * @return XdmNode
+     * @return \Saxon\XdmNode
      */
     public function getValidationReport() {}
 
@@ -606,7 +606,7 @@ class SchemaValidator {
      * Set the parameters required for XQuery Processor
      *
      * @param string $name
-     * @param XdmValue $value
+     * @param \Saxon\XdmValue $value
      * @return void
      */
     public function setParameter($name, $value) {}
@@ -673,7 +673,7 @@ class XdmValue {
     /**
      * Get the first item in the sequence
      *
-     * @return XdmItem
+     * @return \Saxon\XdmItem
      */
     public function getHead() {}
 
@@ -681,7 +681,7 @@ class XdmValue {
      * Get the n'th item in the value, counting from zero
      *
      * @param int $index
-     * @return XdmItem
+     * @return \Saxon\XdmItem
      */
     public function itemAt($index) {}
 
@@ -729,14 +729,14 @@ class XdmItem extends XdmValue {
     /**
      * Provided the item is an atomic value we return the {@link XdmAtomicValue} otherwise return null
      *
-     * @return XdmAtomicValue|null
+     * @return \Saxon\XdmAtomicValue|null
      */
     public function getAtomicValue() {}
 
     /**
      * Provided the item is a node value we return the {@link XdmNode} otherwise return null
      *
-     * @return XdmNode|null
+     * @return \Saxon\XdmNode|null
      */
     public function getNodeValue() {}
 }
@@ -792,14 +792,14 @@ class XdmNode extends XdmItem {
      * Get the n'th child node at this node. If the child node selected does not exist then return null
      *
      * @param int $index
-     * @return XdmNode|null
+     * @return \Saxon\XdmNode|null
      */
     public function getChildNode($index) {}
 
     /**
      * Get the parent of this node. If parent node does not exist then return null
      *
-     * @return XdmNode|null
+     * @return \Saxon\XdmNode|null
      */
     public function getParent() {}
 
@@ -807,7 +807,7 @@ class XdmNode extends XdmItem {
      * Get the n'th attribute node at this node. If the attribute node selected does not exist then return null
      *
      * @param int $index
-     * @return XdmNode|null
+     * @return \Saxon\XdmNode|null
      */
     public function getAttributeNode($index) {}
 

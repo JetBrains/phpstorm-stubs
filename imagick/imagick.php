@@ -1423,7 +1423,7 @@ class Imagick implements Iterator, Countable {
 	 * The gravity property. Refer to the list of
 	 * gravity constants.
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setGravity ($gravity) {}
 
@@ -1481,7 +1481,7 @@ class Imagick implements Iterator, Countable {
 	 * The gravity property. Refer to the list of
 	 * gravity constants.
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setImageGravity ($gravity) {}
 
@@ -4582,7 +4582,7 @@ class Imagick implements Iterator, Countable {
 	 * @link https://php.net/manual/en/imagick.identifyformat.php
 	 * @see https://www.imagemagick.org/script/escape.php
 	 * @param string $embedText A string containing formatting sequences e.g. "Trim box: %@ number of unique colors: %k".
-	 * @return bool
+	 * @return string|false
 	 * @since 3.3.0
 	 */
 	public function identifyFormat ($embedText) { }
@@ -4843,7 +4843,7 @@ class ImagickDraw  {
 	 * @param ImagickPixel $fill_pixel <p>
 	 * ImagickPixel to use to set the color
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setFillColor (ImagickPixel $fill_pixel) {}
 
@@ -4854,7 +4854,7 @@ class ImagickDraw  {
 	 * @param float $opacity <p>
 	 * fill alpha
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setFillAlpha ($opacity) {}
 
@@ -4871,7 +4871,7 @@ class ImagickDraw  {
 	 * @param ImagickPixel $stroke_pixel <p>
 	 * the stroke color
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setStrokeColor (ImagickPixel $stroke_pixel) {}
 
@@ -4882,7 +4882,7 @@ class ImagickDraw  {
 	 * @param float $opacity <p>
 	 * opacity
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setStrokeAlpha ($opacity) {}
 
@@ -4893,7 +4893,7 @@ class ImagickDraw  {
 	 * @param float $stroke_width <p>
 	 * stroke width
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setStrokeWidth ($stroke_width) {}
 
@@ -4921,7 +4921,7 @@ class ImagickDraw  {
 	 * @param float $py <p>
 	 * perimeter y coordinate
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function circle ($ox, $oy, $px, $py) {}
 
@@ -4938,7 +4938,7 @@ class ImagickDraw  {
 	 * @param string $text <p>
 	 * The text to draw on the image
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function annotation ($x, $y, $text) {}
 
@@ -4947,7 +4947,7 @@ class ImagickDraw  {
 	 * Controls whether text is antialiased
 	 * @link https://php.net/manual/en/imagickdraw.settextantialias.php
 	 * @param bool $antiAlias
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setTextAntialias ($antiAlias) {}
 
@@ -4958,7 +4958,7 @@ class ImagickDraw  {
 	 * @param string $encoding <p>
 	 * the encoding name
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setTextEncoding ($encoding) {}
 
@@ -4989,7 +4989,7 @@ class ImagickDraw  {
 	 * @param float $pointsize <p>
 	 * the point size
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setFontSize ($pointsize) {}
 
@@ -5000,7 +5000,7 @@ class ImagickDraw  {
 	 * @param int $style <p>
 	 * STYLETYPE_ constant
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setFontStyle ($style) {}
 
@@ -5058,7 +5058,7 @@ class ImagickDraw  {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Frees all associated resources
 	 * @link https://php.net/manual/en/imagickdraw.destroy.php
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function destroy () {}
 
@@ -5078,7 +5078,7 @@ class ImagickDraw  {
 	 * @param float $y2 <p>
 	 * y coordinate of the bottom right corner
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function rectangle ($x1, $y1, $x2, $y2) {}
 
@@ -5104,7 +5104,7 @@ class ImagickDraw  {
 	 * @param float $ry <p>
 	 * y rounding
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function roundRectangle ($x1, $y1, $x2, $y2, $rx, $ry) {}
 
@@ -5118,7 +5118,7 @@ class ImagickDraw  {
 	 * @param float $ry
 	 * @param float $start
 	 * @param float $end
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function ellipse ($ox, $oy, $rx, $ry, $start, $end) {}
 
@@ -5129,7 +5129,7 @@ class ImagickDraw  {
 	 * @param float $degrees <p>
 	 * degrees to skew
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function skewX ($degrees) {}
 
@@ -5140,7 +5140,7 @@ class ImagickDraw  {
 	 * @param float $degrees <p>
 	 * degrees to skew
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function skewY ($degrees) {}
 
@@ -5154,7 +5154,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * vertical translation
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function translate ($x, $y) {}
 
@@ -5174,7 +5174,7 @@ class ImagickDraw  {
 	 * @param float $ey <p>
 	 * ending y coordinate
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function line ($sx, $sy, $ex, $ey) {}
 
@@ -5200,7 +5200,7 @@ class ImagickDraw  {
 	 * @param float $ed <p>
 	 * ending degrees of rotation
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function arc ($sx, $sy, $ex, $ey, $sd, $ed) {}
 
@@ -5242,7 +5242,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * point's y coordinate
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function point ($x, $y) {}
 
@@ -5273,7 +5273,7 @@ class ImagickDraw  {
 	 * @param int $fontStretch <p>
 	 * STRETCH_ constant
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setFontStretch ($fontStretch) {}
 
@@ -5284,7 +5284,7 @@ class ImagickDraw  {
 	 * @param bool $stroke_antialias <p>
 	 * the antialias setting
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setStrokeAntialias ($stroke_antialias) {}
 
@@ -5295,7 +5295,7 @@ class ImagickDraw  {
 	 * @param int $alignment <p>
 	 * ALIGN_ constant
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setTextAlignment ($alignment) {}
 
@@ -5306,7 +5306,7 @@ class ImagickDraw  {
 	 * @param int $decoration <p>
 	 * DECORATION_ constant
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setTextDecoration ($decoration) {}
 
@@ -5317,7 +5317,7 @@ class ImagickDraw  {
 	 * @param ImagickPixel $under_color <p>
 	 * the under color
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setTextUnderColor (ImagickPixel $under_color) {}
 
@@ -5337,7 +5337,7 @@ class ImagickDraw  {
 	 * @param int $y2 <p>
 	 * right y coordinate
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setViewbox ($x1, $y1, $x2, $y2) {}
 
@@ -5348,7 +5348,7 @@ class ImagickDraw  {
 	 * @param array $affine <p>
 	 * Affine matrix parameters
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function affine (array $affine) {}
 
@@ -5360,7 +5360,7 @@ class ImagickDraw  {
 	 * Multidimensional array like array( array( 'x' => 1, 'y' => 2 ),
 	 * array( 'x' => 3, 'y' => 4 ) )
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function bezier (array $coordinates) {}
 
@@ -5403,7 +5403,7 @@ class ImagickDraw  {
 	 * @param int $paintMethod <p>
 	 * one of the PAINT_ constants
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function color ($x, $y, $paintMethod) {}
 
@@ -5414,7 +5414,7 @@ class ImagickDraw  {
 	 * @param string $comment <p>
 	 * The comment string to add to vector output stream
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function comment ($comment) {}
 
@@ -5583,7 +5583,7 @@ class ImagickDraw  {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Adds a path element to the current path
 	 * @link https://php.net/manual/en/imagickdraw.pathclose.php
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathClose () {}
 
@@ -5609,7 +5609,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * y coordinate of the curve end
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathCurveToAbsolute ($x1, $y1, $x2, $y2, $x, $y) {}
 
@@ -5635,7 +5635,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * ending y coordinate
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathCurveToRelative ($x1, $y1, $x2, $y2, $x, $y) {}
 
@@ -5655,7 +5655,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * y coordinate of the end point
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathCurveToQuadraticBezierAbsolute ($x1, $y1, $x, $y) {}
 
@@ -5675,7 +5675,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * ending y coordinate
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathCurveToQuadraticBezierRelative ($x1, $y1, $x, $y) {}
 
@@ -5689,7 +5689,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * ending y coordinate
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathCurveToQuadraticBezierSmoothAbsolute ($x, $y) {}
 
@@ -5703,7 +5703,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * ending y coordinate
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathCurveToQuadraticBezierSmoothRelative ($x, $y) {}
 
@@ -5723,7 +5723,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * y coordinate of the ending point
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathCurveToSmoothAbsolute ($x2, $y2, $x, $y) {}
 
@@ -5743,7 +5743,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * y coordinate of the ending point
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathCurveToSmoothRelative ($x2, $y2, $x, $y) {}
 
@@ -5772,7 +5772,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * y coordinate
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathEllipticArcAbsolute ($rx, $ry, $x_axis_rotation, $large_arc_flag, $sweep_flag, $x, $y) {}
 
@@ -5801,7 +5801,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * y coordinate
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathEllipticArcRelative ($rx, $ry, $x_axis_rotation, $large_arc_flag, $sweep_flag, $x, $y) {}
 
@@ -5809,7 +5809,7 @@ class ImagickDraw  {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Terminates the current path
 	 * @link https://php.net/manual/en/imagickdraw.pathfinish.php
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathFinish () {}
 
@@ -5823,7 +5823,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * ending x coordinate
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathLineToAbsolute ($x, $y) {}
 
@@ -5837,7 +5837,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * starting y coordinate
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathLineToRelative ($x, $y) {}
 
@@ -5848,7 +5848,7 @@ class ImagickDraw  {
 	 * @param float $x <p>
 	 * x coordinate
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathLineToHorizontalAbsolute ($x) {}
 
@@ -5859,7 +5859,7 @@ class ImagickDraw  {
 	 * @param float $x <p>
 	 * x coordinate
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathLineToHorizontalRelative ($x) {}
 
@@ -5870,7 +5870,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * y coordinate
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathLineToVerticalAbsolute ($y) {}
 
@@ -5881,7 +5881,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * y coordinate
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathLineToVerticalRelative ($y) {}
 
@@ -5895,7 +5895,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * y coordinate of the starting point
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathMoveToAbsolute ($x, $y) {}
 
@@ -5909,7 +5909,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * target y coordinate
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathMoveToRelative ($x, $y) {}
 
@@ -5917,7 +5917,7 @@ class ImagickDraw  {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Declares the start of a path drawing list
 	 * @link https://php.net/manual/en/imagickdraw.pathstart.php
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pathStart () {}
 
@@ -5936,7 +5936,7 @@ class ImagickDraw  {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Terminates a clip path definition
 	 * @link https://php.net/manual/en/imagickdraw.popclippath.php
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function popClipPath () {}
 
@@ -5944,7 +5944,7 @@ class ImagickDraw  {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Terminates a definition list
 	 * @link https://php.net/manual/en/imagickdraw.popdefs.php
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function popDefs () {}
 
@@ -5963,7 +5963,7 @@ class ImagickDraw  {
 	 * @param string $clip_mask_id <p>
 	 * Clip mask Id
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pushClipPath ($clip_mask_id) {}
 
@@ -5971,7 +5971,7 @@ class ImagickDraw  {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Indicates that following commands create named elements for early processing
 	 * @link https://php.net/manual/en/imagickdraw.pushdefs.php
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function pushDefs () {}
 
@@ -6013,7 +6013,7 @@ class ImagickDraw  {
 	 * @param float $degrees <p>
 	 * degrees to rotate
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function rotate ($degrees) {}
 
@@ -6027,7 +6027,7 @@ class ImagickDraw  {
 	 * @param float $y <p>
 	 * vertical factor
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function scale ($x, $y) {}
 
@@ -6038,7 +6038,7 @@ class ImagickDraw  {
 	 * @param string $clip_mask <p>
 	 * the clipping path name
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setClipPath ($clip_mask) {}
 
@@ -6049,7 +6049,7 @@ class ImagickDraw  {
 	 * @param int $fill_rule <p>
 	 * FILLRULE_ constant
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setClipRule ($fill_rule) {}
 
@@ -6060,7 +6060,7 @@ class ImagickDraw  {
 	 * @param int $clip_units <p>
 	 * the number of clip units
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setClipUnits ($clip_units) {}
 
@@ -6071,7 +6071,7 @@ class ImagickDraw  {
 	 * @param float $fillOpacity <p>
 	 * the fill opacity
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setFillOpacity ($fillOpacity) {}
 
@@ -6093,7 +6093,7 @@ class ImagickDraw  {
 	 * @param int $fill_rule <p>
 	 * FILLRULE_ constant
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setFillRule ($fill_rule) {}
 
@@ -6104,7 +6104,7 @@ class ImagickDraw  {
 	 * @param int $gravity <p>
 	 * GRAVITY_ constant
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setGravity ($gravity) {}
 
@@ -6126,7 +6126,7 @@ class ImagickDraw  {
 	 * @param float $dash_offset <p>
 	 * dash offset
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setStrokeDashOffset ($dash_offset) {}
 
@@ -6137,7 +6137,7 @@ class ImagickDraw  {
 	 * @param int $linecap <p>
 	 * LINECAP_ constant
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setStrokeLineCap ($linecap) {}
 
@@ -6148,7 +6148,7 @@ class ImagickDraw  {
 	 * @param int $linejoin <p>
 	 * LINEJOIN_ constant
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setStrokeLineJoin ($linejoin) {}
 
@@ -6159,7 +6159,7 @@ class ImagickDraw  {
 	 * @param int $miterlimit <p>
 	 * the miter limit
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setStrokeMiterLimit ($miterlimit) {}
 
@@ -6170,7 +6170,7 @@ class ImagickDraw  {
 	 * @param float $stroke_opacity <p>
 	 * stroke opacity. 1.0 is fully opaque
 	 * </p>
-	 * @return bool No value is returned.
+	 * @return bool
 	 */
 	public function setStrokeOpacity ($stroke_opacity) {}
 
@@ -6698,7 +6698,7 @@ class ImagickKernel {
 	 * @link https://php.net/manual/en/imagickkernel.frombuiltin.php
 	 * @param string $kernelType The type of kernel to build e.g. \Imagick::KERNEL_DIAMOND
 	 * @param string $kernelString A string that describes the parameters e.g. "4,2.5"
-	 * @return void
+	 * @return ImagickKernel
 	 * @since 3.3.0
 	 */
 	public static function fromBuiltin($kernelType, $kernelString) { }

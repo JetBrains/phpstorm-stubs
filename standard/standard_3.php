@@ -719,7 +719,7 @@ function number_format ($number , $decimals = 0 , $dec_point = '.' , $thousands_
  * @param float $y <p>
  * The divisor
  * </p>
- * @return float The floating point remainder of 
+ * @return float The floating point remainder of
  * x/y
  */
 function fmod ($x, $y) {}

@@ -128,7 +128,7 @@ class XMLReader  {
 	 * @param string $name <p>
 	 * The name of the attribute.
 	 * </p>
-	 * @return string The value of the attribute, or <b>NULL</b> if no attribute with the given
+	 * @return string|null The value of the attribute, or <b>NULL</b> if no attribute with the given
 	 * <i>name</i> is found or not positioned on an element node.
 	 * @since 5.1.2
 	 */

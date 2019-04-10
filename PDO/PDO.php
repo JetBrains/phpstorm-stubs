@@ -1335,6 +1335,7 @@ class PDOStatement implements Traversable {
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
 	 * Returns an array containing all of the result set rows
 	 * @link https://php.net/manual/en/pdostatement.fetchall.php
+	 *
 	 * @param int $fetch_style [optional] <p>
 	 * Controls the contents of the returned array as documented in
 	 * <b>PDOStatement::fetch</b>.
@@ -1368,10 +1369,14 @@ class PDOStatement implements Traversable {
 	 * Arguments of custom class constructor when the <i>fetch_style</i>
 	 * parameter is <b>PDO::FETCH_CLASS</b>.
 	 * </p>
-	 * @return array <b>PDOStatement::fetchAll</b> returns an array containing
-	 * all of the remaining rows in the result set. The array represents each
-	 * row as either an array of column values or an object with properties
-	 * corresponding to each column name.
+	 *
+	 * @return array|false
+	 * <p>
+	 * Returns an array containing all of the remaining rows in the result set.
+	 * The array represents each row as either an array of column values or an
+	 * object with properties corresponding to each column name.
+	 * An empty array is returned if there are zero results to fetch,
+	 * or <b>FALSE</b> on failure.
 	 * </p>
 	 * <p>
 	 * Using this method to fetch large result sets will result in a heavy
@@ -1561,7 +1566,7 @@ class PDOStatement implements Traversable {
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.9.0)<br/>
 	 * Dump an SQL prepared command
 	 * @link https://php.net/manual/en/pdostatement.debugdumpparams.php
-	 * @return bool No value is returned.
+	 * @return void No value is returned.
 	 */
 	public function debugDumpParams () {}
 

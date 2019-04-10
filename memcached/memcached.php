@@ -567,7 +567,7 @@ class Memcached  {
 	 * @param int $flags [optional] <p>
 	 * The flags for the get operation.
 	 * </p>
-	 * @return mixed|false the array of found items or <b>FALSE</b> on failure.
+	 * @return array|false the array of found items or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
 	public function getMulti (array $keys, $flags = null) {}

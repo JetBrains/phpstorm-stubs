@@ -2017,7 +2017,7 @@ class GearmanWorker {
      * the list of available workers.
      *
      * @link https://php.net/manual/en/gearmanworker.setid.php
-     * @param int $id A string identifier
+     * @param string $id A string identifier
      * @return bool Returns TRUE on success or FALSE on failure
      */
     public function setId($id) {}

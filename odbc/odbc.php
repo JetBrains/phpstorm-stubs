@@ -5,13 +5,17 @@
 /**
  * Toggle autocommit behaviour
  * @link https://php.net/manual/en/function.odbc-autocommit.php
+ *
  * @param resource $connection_id The ODBC connection identifier,
  * see <b>odbc_connect</b> for details.</p>
  * @param bool $OnOff [optional] <p>
  * If <i>OnOff</i> is <b>TRUE</b>, auto-commit is enabled, if
  * it is <b>FALSE</b> auto-commit is disabled.
  * </p>
- * @return mixed|false Without the <i>OnOff</i> parameter, this function returns
+ *
+ * @return mixed
+ * <p>
+ * Without the <i>OnOff</i> parameter, this function returns
  * auto-commit status for <i>connection_id</i>. Non-zero is
  * returned if auto-commit is on, 0 if it is off, or <b>FALSE</b> if an error
  * occurs.
@@ -19,6 +23,7 @@
  * <p>
  * If <i>OnOff</i> is set, this function returns <b>TRUE</b> on
  * success and <b>FALSE</b> on failure.
+ * </p>
  * @since 4.0
  * @since 5.0
  */

@@ -466,7 +466,7 @@ namespace Grpc
          * Watch the connectivity state of the channel until it changed
          *
          * @param int     $last_state   The previous connectivity state of the channel
-         * @param Timeval $deadline_obj The deadline this function should wait until
+         * @param \Grpc\Timeval $deadline_obj The deadline this function should wait until
          *
          * @return bool If the connectivity state changes from last_state
          *              before deadline
@@ -498,7 +498,7 @@ namespace Grpc
         /**
          * Create a default channel credentials object.
          *
-         * @return ChannelCredentials The new default channel credentials object
+         * @return \Grpc\ChannelCredentials The new default channel credentials object
          */
         public static function createDefault() {}
 
@@ -509,7 +509,7 @@ namespace Grpc
          * @param string $pem_private_key PEM encoding of the client's private key
          * @param string $pem_cert_chain  PEM encoding of the client's certificate chain
          *
-         * @return ChannelCredentials The new SSL credentials object
+         * @return \Grpc\ChannelCredentials The new SSL credentials object
          * @throws \InvalidArgumentException
          */
         public static function createSsl(
@@ -521,10 +521,10 @@ namespace Grpc
         /**
          * Create composite credentials from two existing credentials.
          *
-         * @param ChannelCredentials $cred1 The first credential
-         * @param CallCredentials    $cred2 The second credential
+         * @param \Grpc\ChannelCredentials $cred1 The first credential
+         * @param \Grpc\CallCredentials    $cred2 The second credential
          *
-         * @return ChannelCredentials The new composite credentials object
+         * @return \Grpc\ChannelCredentials The new composite credentials object
          * @throws \InvalidArgumentException
          */
         public static function createComposite(
@@ -552,7 +552,7 @@ namespace Grpc
          * @param Channel $channel           The channel to associate the call with.
          *                                   Must not be closed.
          * @param string  $method            The method to call
-         * @param Timeval $absolute_deadline The deadline for completing the call
+         * @param \Grpc\Timeval $absolute_deadline The deadline for completing the call
          *
          * @throws \InvalidArgumentException
          */
@@ -577,7 +577,7 @@ namespace Grpc
         /**
          * Set the CallCredentials for this call.
          *
-         * @param CallCredentials $creds_obj The CallCredentials object
+         * @param \Grpc\CallCredentials $creds_obj The CallCredentials object
          *
          * @return int The error code
          * @throws \InvalidArgumentException
@@ -607,10 +607,10 @@ namespace Grpc
         /**
          * Create composite credentials from two existing credentials.
          *
-         * @param CallCredentials $cred1 The first credential
-         * @param CallCredentials $cred2 The second credential
+         * @param \Grpc\CallCredentials $cred1 The first credential
+         * @param \Grpc\CallCredentials $cred2 The second credential
          *
-         * @return CallCredentials The new composite credentials object
+         * @return \Grpc\CallCredentials The new composite credentials object
          * @throws \InvalidArgumentException
          */
         public static function createComposite(
@@ -623,7 +623,7 @@ namespace Grpc
          *
          * @param \Closure $callback The callback function
          *
-         * @return CallCredentials The new call credentials object
+         * @return \Grpc\CallCredentials The new call credentials object
          * @throws \InvalidArgumentException
          */
         public static function createFromPlugin(\Closure $callback) {}
@@ -647,9 +647,9 @@ namespace Grpc
          * Adds another Timeval to this one and returns the sum. Calculations saturate
          * at infinities.
          *
-         * @param Timeval $other The other Timeval object to add
+         * @param \Grpc\Timeval $other The other Timeval object to add
          *
-         * @return Timeval A new Timeval object containing the sum
+         * @return \Grpc\Timeval A new Timeval object containing the sum
          * @throws \InvalidArgumentException
          */
         public function add(Timeval $other) {}
@@ -658,8 +658,8 @@ namespace Grpc
          * Return negative, 0, or positive according to whether a < b, a == b, or a > b
          * respectively.
          *
-         * @param Timeval $a The first time to compare
-         * @param Timeval $b The second time to compare
+         * @param \Grpc\Timeval $a The first time to compare
+         * @param \Grpc\Timeval $b The second time to compare
          *
          * @return int
          * @throws \InvalidArgumentException
@@ -669,30 +669,30 @@ namespace Grpc
         /**
          * Returns the infinite future time value as a timeval object
          *
-         * @return Timeval Infinite future time value
+         * @return \Grpc\Timeval Infinite future time value
          */
         public static function infFuture() {}
 
         /**
          * Returns the infinite past time value as a timeval object
          *
-         * @return Timeval Infinite past time value
+         * @return \Grpc\Timeval Infinite past time value
          */
         public static function infPast() {}
 
         /**
          * Returns the current time as a timeval object
          *
-         * @return Timeval The current time
+         * @return \Grpc\Timeval The current time
          */
         public static function now() {}
 
         /**
          * Checks whether the two times are within $threshold of each other
          *
-         * @param Timeval $a         The first time to compare
-         * @param Timeval $b         The second time to compare
-         * @param Timeval $threshold The threshold to check against
+         * @param \Grpc\Timeval $a         The first time to compare
+         * @param \Grpc\Timeval $b         The second time to compare
+         * @param \Grpc\Timeval $threshold The threshold to check against
          *
          * @return bool True if $a and $b are within $threshold, False otherwise
          * @throws \InvalidArgumentException
@@ -708,9 +708,9 @@ namespace Grpc
          * Subtracts another Timeval from this one and returns the difference.
          * Calculations saturate at infinities.
          *
-         * @param Timeval $other The other Timeval object to subtract
+         * @param \Grpc\Timeval $other The other Timeval object to subtract
          *
-         * @return Timeval A new Timeval object containing the sum
+         * @return \Grpc\Timeval A new Timeval object containing the sum
          * @throws \InvalidArgumentException
          */
         public function subtract(Timeval $other) {}
@@ -718,7 +718,7 @@ namespace Grpc
         /**
          * Returns the zero time interval as a timeval object
          *
-         * @return Timeval Zero length time interval
+         * @return \Grpc\Timeval Zero length time interval
          */
         public static function zero() {}
     }

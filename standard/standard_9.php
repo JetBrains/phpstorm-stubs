@@ -671,7 +671,7 @@ function array_filter(array $input, $callback = null, $flag = 0) { }
 /**
  * Applies the callback to the elements of the given arrays
  * @link https://php.net/manual/en/function.array-map.php
- * @param callback $callback <p>
+ * @param callback|null $callback <p>
  * Callback function to run for each element in each array.
  * </p>
  * @param array $arr1 <p>

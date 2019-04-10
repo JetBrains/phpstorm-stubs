@@ -517,7 +517,7 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
         /**
          * The current file
          * @link https://php.net/manual/en/filesystemiterator.current.php
-         * @return mixed The filename, file information, or $this depending on the set flags.
+         * @return string|SplFileInfo|FilesystemIterator The filename, file information, or $this depending on the set flags.
          * See the FilesystemIterator constants.
          * @since 5.3.0
          */
@@ -762,7 +762,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Output all remaining data on a file pointer
          * @link https://php.net/manual/en/splfileobject.fpassthru.php
-         * @return int the number of characters read from <i>handle</i>
+         * @return int|false the number of characters read from <i>handle</i>
          * and passed through to the output.
          * @since 5.1.0
          */
@@ -819,8 +819,8 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Gets information about the file
          * @link https://php.net/manual/en/splfileobject.fstat.php
-         * @return array an array with the statistics of the file; the format of the array
-             * is described in detail on the <b>stat</b> manual page.
+         * @return array|false an array with the statistics of the file; the format of the array
+         * is described in detail on the <b>stat</b> manual page.
          * @since 5.1.0
          */
         public function fstat () {}
