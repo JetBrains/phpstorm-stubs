@@ -344,7 +344,7 @@ class StubsTest extends TestCase
      * @param PHPMethod $method
      * @throws InvalidArgumentException
      */
-    public function testMethodsParameterViaPsalm(string $methodName, PHPMethod $method): void
+    public function _testMethodsParameterViaPsalm(string $methodName, PHPMethod $method): void
     {
         if ($methodName === '__construct') {
             static::assertTrue(true);
@@ -414,7 +414,7 @@ class StubsTest extends TestCase
      * @param PHPMethod $method
      * @throws InvalidArgumentException
      */
-    public function testMethodsReturnViaPsalm(string $methodName, PHPMethod $method): void
+    public function _testMethodsReturnViaPsalm(string $methodName, PHPMethod $method): void
     {
         if ($methodName === '__construct') {
             static::assertTrue(true);
@@ -472,7 +472,7 @@ class StubsTest extends TestCase
      * @param PHPFunction $function
      * @throws InvalidArgumentException
      */
-    public function testFunctionParameterViaPsalm(PHPFunction $function): void
+    public function _testFunctionParameterViaPsalm(PHPFunction $function): void
     {
         $functionName = $function->name;
 
@@ -530,7 +530,7 @@ class StubsTest extends TestCase
      * @param PHPFunction $function
      * @throws InvalidArgumentException
      */
-    public function testFunctionReturnViaPsalm(PHPFunction $function): void
+    public function _testFunctionReturnViaPsalm(PHPFunction $function): void
     {
         $functionName = $function->name;
 
