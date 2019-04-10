@@ -804,7 +804,7 @@ function mb_decode_mimeheader ($str) {}
  * @param string $to_encoding <p>
  * The encoding that the string is being converted to.
  * </p>
- * @param string|string[] $from_encoding <p>
+ * @param string|array $from_encoding <p>
  * from_encoding is specified as an array
  * or comma separated string, it tries to detect encoding from
  * from-coding. When from_encoding 

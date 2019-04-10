@@ -23,7 +23,7 @@ abstract class RdKafka
      * @param int   $timeout_ms
      *
      * @throws Exception
-     * @return Metadata
+     * @return \RdKafka\Metadata
      */
     public function getMetadata($all_topics, $only_topic = null, $timeout_ms)
     {
@@ -37,7 +37,7 @@ abstract class RdKafka
     }
 
     /**
-     * @return Queue
+     * @return \RdKafka\Queue
      */
     public function newQueue()
     {
@@ -47,7 +47,7 @@ abstract class RdKafka
      * @param string    $topic_name
      * @param TopicConf $topic_conf
      *
-     * @return Topic
+     * @return \RdKafka\Topic
      */
     public function newTopic($topic_name, TopicConf $topic_conf = null)
     {

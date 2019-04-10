@@ -383,7 +383,7 @@ final class RarEntry
      * @param bool $extended_data If TRUE, extended information such as NTFS ACLs and Unix owner information will be
      *      set in the extract files, as long as it's present in the archive.
      *
-     * @return TRUE on success or FALSE on failure
+     * @return bool TRUE on success or FALSE on failure
      */
     public function  extract($dir, $filepath = "", $password = null, $extended_data = false)
     {

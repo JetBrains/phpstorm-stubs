@@ -280,7 +280,7 @@ class Mongo extends MongoClient {
      * (PECL mongo &gt;= 1.1.0)<br/>
      * Returns the address being used by this for slaveOkay reads
      * @link https://php.net/manual/en/mongo.getslave.php
-     * @return bool <p>The address of the secondary this connection is using for reads.
+     * @return string|null <p>The address of the secondary this connection is using for reads.
      * </p>
      * <p>
      * This returns <b>NULL</b> if this is not connected to a replica set or not yet

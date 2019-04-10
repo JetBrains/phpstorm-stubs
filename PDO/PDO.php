@@ -1322,7 +1322,7 @@ class PDOStatement implements Traversable {
 	 * no value is supplied, <b>PDOStatement::fetchColumn</b>
 	 * fetches the first column.
 	 * </p>
-	 * @return mixed Returns a single column from the next row of a result
+	 * @return string|null|false Returns a single column from the next row of a result
 	 * set or FALSE if there are no more rows.
 	 * </p>
 	 * <p>

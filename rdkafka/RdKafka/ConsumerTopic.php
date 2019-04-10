@@ -12,7 +12,7 @@ class ConsumerTopic extends Topic
      * @param int $partition
      * @param int $timeout_ms
      *
-     * @return Message
+     * @return \RdKafka\Message
      */
     public function consume($partition, $timeout_ms)
     {

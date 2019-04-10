@@ -46,7 +46,7 @@ class KafkaConsumer
      *
      * @throws Exception
      * @throws \InvalidArgumentException
-     * @return Message
+     * @return \RdKafka\Message
      */
     public function consume($timeout_ms)
     {
@@ -54,7 +54,7 @@ class KafkaConsumer
 
     /**
      * @throws Exception
-     * @return TopicPartition[]
+     * @return \RdKafka\TopicPartition[]
      */
     public function getAssignment()
     {
@@ -62,11 +62,11 @@ class KafkaConsumer
 
     /**
      * @param bool               $all_topics
-     * @param KafkaConsumerTopic $only_topic
+     * @param \RdKafka\KafkaConsumerTopic $only_topic
      * @param int                $timeout_ms
      *
      * @throws Exception
-     * @return Metadata
+     * @return \RdKafka\Metadata
      */
     public function getMetadata($all_topics, $only_topic = null, $timeout_ms)
     {

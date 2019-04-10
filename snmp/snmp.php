@@ -360,7 +360,7 @@ function snmpgetnext ($host, $community, $object_id, $timeout = 1000000, $retrie
  * The number of microseconds until the first timeout.
  * </p>
  * @param int $retries [optional] <p>The number of times to retry if timeouts occur.</p>
- * @return array an array of SNMP object values starting from the
+ * @return array|false an array of SNMP object values starting from the
  * <i>object_id</i> as root or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
@@ -406,7 +406,7 @@ function snmprealwalk ($host, $community, $object_id, $timeout = 1000000, $retri
  * @param int $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
- * @return array an associative array with object ids and their respective
+ * @return array|false an associative array with object ids and their respective
  * object value starting from the <i>object_id</i>
  * as root or <b>FALSE</b> on error.
  * @since 4.0
@@ -614,7 +614,7 @@ function snmp2_getnext ($host, $community, $object_id, $timeout = 1000000, $retr
  * @param int $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
- * @return array an array of SNMP object values starting from the
+ * @return array|false an array of SNMP object values starting from the
  * <i>object_id</i> as root or <b>FALSE</b> on error.
  * @since 5.2.0
  */
@@ -828,7 +828,7 @@ function snmp3_getnext ($host, $sec_name, $sec_level, $auth_protocol, $auth_pass
  * @param int $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
- * @return array an array of SNMP object values starting from the
+ * @return array|false an array of SNMP object values starting from the
  * <i>object_id</i> as root or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0

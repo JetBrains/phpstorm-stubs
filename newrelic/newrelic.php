@@ -258,7 +258,7 @@ function newrelic_name_transaction($name) {}
  * @param string|integer   $messageOrUnused    [optional]
  * @param Exception|string $exceptionOrMessage [optional]
  * @param string           $unused2            [optional]
- * @param integer          $unused3            [optional]
+ * @param int          $unused3            [optional]
  * @param mixed            $unused4            [optional]
  *
  * @return void

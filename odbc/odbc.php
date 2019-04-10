@@ -11,7 +11,7 @@
  * If <i>OnOff</i> is <b>TRUE</b>, auto-commit is enabled, if
  * it is <b>FALSE</b> auto-commit is disabled.
  * </p>
- * @return mixed Without the <i>OnOff</i> parameter, this function returns
+ * @return mixed|false Without the <i>OnOff</i> parameter, this function returns
  * auto-commit status for <i>connection_id</i>. Non-zero is
  * returned if auto-commit is on, 0 if it is off, or <b>FALSE</b> if an error
  * occurs.

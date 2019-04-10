@@ -69,7 +69,7 @@ class Yar_Client {
      * - YAR_OPT_TIMEOUT,
      * - YAR_OPT_CONNECT_TIMEOUT
      * - YAR_OPT_HEADER (Since 2.0.4)
-     * @param $value
+     * @param mixed $value
      * @return Yar_Client|false Returns $this on success or FALSE on failure.
      * @link https://secure.php.net/manual/en/yar-client.setopt.php
      */
@@ -87,7 +87,7 @@ class Yar_Concurrent_Client {
      * @param string $uri The RPC server URI(http, tcp)
      * @param string $method Service name(aka the method name)
      * @param array $parameters Parameters
-     * @param array ...$callback A function callback, which will be called while the response return.
+     * @param callable ...$callback A function callback, which will be called while the response return.
      * @return int
      * @link https://secure.php.net/manual/en/yar-concurrent-client.call.php
      */

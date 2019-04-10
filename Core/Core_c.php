@@ -331,7 +331,7 @@ class Exception implements Throwable {
     /**
      * Returns previous Exception
      * @link https://php.net/manual/en/exception.getprevious.php
-     * @return Exception the previous <b>Exception</b> if available
+     * @return Exception|Throwable|null the previous <b>Exception</b> if available
      * or null otherwise.
      * @since 5.3.0
      */
@@ -438,10 +438,11 @@ class Error implements Throwable {
     /**
      * Returns the previous Throwable
      * @link https://php.net/manual/en/throwable.getprevious.php
-     * @return Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
+     * @return Error|Throwable|null Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
      * @since 7.0
      */
     public final function getPrevious(){}
+
     /**
      * Gets a string representation of the thrown object
      * @link https://php.net/manual/en/throwable.tostring.php

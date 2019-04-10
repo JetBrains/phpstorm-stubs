@@ -8,14 +8,14 @@ use RdKafka\Metadata\Topic;
 class Metadata
 {
     /**
-     * @return Collection
+     * @return \RdKafka\Metadata\Collection
      */
     public function getBrokers()
     {
     }
 
     /**
-     * @return Collection|Topic[]
+     * @return \RdKafka\Metadata\Collection|\RdKafka\Metadata\Topic[]
      */
     public function getTopics()
     {

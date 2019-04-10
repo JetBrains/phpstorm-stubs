@@ -962,7 +962,7 @@ class DOMDocument extends DOMNode  {
     /**
      * Dumps the internal XML tree back into a string
      * @link https://php.net/manual/domdocument.savexml.php
-     * @param DOMNode $node [optional] <p>
+     * @param DOMNode|null $node [optional] <p>
      * Use this parameter to output only a specific node without XML declaration
      * rather than the entire document.
      * </p>

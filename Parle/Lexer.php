@@ -104,7 +104,7 @@ class Lexer
     /**
      * Retrieve the current token.
      *
-     * @return Token
+     * @return \Parle\Token
      */
     public function getToken() : Token {}
 

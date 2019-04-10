@@ -1448,7 +1448,7 @@ function sqlsrv_rows_affected($stmt){}
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-client-info
  * @param resource $conn The connection resource by which the client is connected.
- * @return array|null An associative array with keys described in the table below, or false if the connection resource
+ * @return array|false An associative array with keys described in the table below, or false if the connection resource
  * is null.<br />
  * <ul><li>DriverDllName - SQLNCLI10.DLL (Microsoft Drivers for PHP for SQL Server version 2.0)</li>
  * <li>DriverODBCVer - ODBC version (xx.yy)</li>

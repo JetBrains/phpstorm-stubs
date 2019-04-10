@@ -846,9 +846,11 @@ class IntlChar {
     /**
      * Enumerate all assigned Unicode characters within a range
      * @link https://php.net/manual/ru/intlchar.enumcharnames.php
+     *
      * @param mixed $start The first code point in the enumeration range.
      * @param mixed $limit One more than the last code point in the enumeration range (the first one after the range).
-     * @param callable $callback<p>
+     * @param callable $callback
+     * <p>
      * The function that is to be called for each character name.  The following three arguments will be passed into it:
      * </p><ul>
      * <li>integer</a> <em>$codepoint</em> - The numeric code point value</li>
@@ -864,6 +866,7 @@ class IntlChar {
      * <li><b>IntlChar::CHAR_NAME_ALIAS</b></li>
      * <li><b>IntlChar::CHAR_NAME_CHOICE_COUNT</b></li>
      * </ul>
+     *
      * @since 7.0
      */
     public static function enumCharNames ($start, $limit, $callback, $nameChoice = IntlChar::UNICODE_CHAR_NAME) {}

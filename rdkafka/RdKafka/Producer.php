@@ -5,7 +5,7 @@ namespace RdKafka;
 class Producer extends \RdKafka
 {
     /**
-     * @param Conf $conf
+     * @param \RdKafka\Conf $conf
      */
     public function __construct(Conf $conf = null)
     {
@@ -13,9 +13,9 @@ class Producer extends \RdKafka
 
     /**
      * @param string    $topic_name
-     * @param TopicConf $topic_conf
+     * @param \RdKafka\TopicConf $topic_conf
      *
-     * @return ProducerTopic
+     * @return \RdKafka\ProducerTopic
      */
     public function newTopic($topic_name, TopicConf $topic_conf = null)
     {

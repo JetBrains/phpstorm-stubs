@@ -398,13 +398,14 @@ function wincache_ucache_meminfo() {}
  * live expires or it is deleted by using wincache_ucache_delete() or
  * wincache_ucache_clear() functions.</p>
  * @link https://secure.php.net/manual/en/function.wincache-ucache-set.php
+ *
  * @param string|array $key <p>
  * Store the variable using this key name. If a variable with same key is already
  * present the function will overwrite the previous value with the new one. key
  * is case sensitive. key can also take array of name =&gt; value pairs where
  * names will be used as keys. This can be used to add multiple values in the
  * cache in one operation, thus avoiding race condition.</p>
- * @param mixed|null $value<p>
+ * @param mixed|null $value <p>
  * Value of a variable to store. Value supports all data types except resources,
  * such as file handles. This paramter is ignored if first argument is an array.
  * A general guidance is to pass NULL as value while using array as key.</p>
@@ -414,6 +415,7 @@ function wincache_ucache_meminfo() {}
  * parameter takes a default value of 0 which means the variable will stay in the
  * cache unless explicitly deleted by using wincache_ucache_delete() or
  * wincache_ucache_clear() functions.</p>
+ *
  * @return bool <p>
  * If key is string, the function returns TRUE on success and FALSE on failure.</p>
  * <p>If key is an array, the function returns:

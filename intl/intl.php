@@ -2233,13 +2233,13 @@ class IntlGregorianCalendar {
     public static function createInstance($timeZone = NULL, $locale = NULL) { }
 
     /**
-     * @param double $change
+     * @param float $change
      *
      */
     public function setGregorianChange($change) { }
 
     /**
-     * @return double $change
+     * @return float $change
      */
     public function getGregorianChange() { }
 
@@ -4098,7 +4098,10 @@ function msgfmt_get_error_message(MessageFormatter $fmt, $coll) { }
  * Optional pattern to use when formatting or parsing.
  * Possible patterns are documented at http://userguide.icu-project.org/formatparse/datetime.
  * </p>
- * @return IntlDateFormatter
+ * @return IntlDateFormatter|false
+ * <p>
+ * The created IntlDateFormatter or FALSE in case of failure.
+ * </p>
  */
 function datefmt_create($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = null) { }
 
@@ -5653,14 +5656,14 @@ function intlgregcal_create_instance($timeZone = NULL, $locale = NULL) { }
 
 /**
  * @param IntlGregorianCalendar $obj
- * @param double $change
+ * @param float $change
  *
  */
 function intlgregcal_set_gregorian_change($obj, $change) { }
 
 /**
  * @param IntlGregorianCalendar $obj
- * @return double $change
+ * @return float $change
  */
 function intlgregcal_get_gregorian_change($obj) { }
 

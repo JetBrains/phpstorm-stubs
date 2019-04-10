@@ -468,7 +468,7 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
         /**
          * Returns an iterator for the current entry if it is a directory
          * @link https://php.net/manual/en/recursivedirectoryiterator.getchildren.php
-         * @return object An iterator for the current entry, if it is a directory.
+         * @return RecursiveDirectoryIterator An iterator for the current entry, if it is a directory.
          * @since 5.1.0
          */
         public function getChildren () {}
@@ -775,7 +775,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * You can use the optional third parameter to specify tags which should
          * not be stripped.
          * </p>
-         * @return string a string containing the next line of the file with HTML and PHP
+         * @return string|false a string containing the next line of the file with HTML and PHP
          * code stripped, or false on error.
          * @since 5.1.0
          * @deprecated 7.3
@@ -1369,9 +1369,9 @@ abstract class SplHeap implements Iterator, Countable {
          */
         abstract protected function compare ($value1, $value2);
 
-    /**
-     * @return bool
-     */
+        /**
+         * @return bool
+         */
         public function isCorrupted(){}
 
 }

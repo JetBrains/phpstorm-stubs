@@ -72,7 +72,7 @@ class RParser
      * Retrieve the error information in case Parle\RParser::action() returned the error action.
      *
      * @link https://php.net/manual/en/parle-rparser.errorinfo.php
-     * @return ErrorInfo
+     * @return \Parle\ErrorInfo
      */
     public function errorInfo() : ErrorInfo {}
 

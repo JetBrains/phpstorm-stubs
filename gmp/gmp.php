@@ -702,9 +702,9 @@ function gmp_hamdist ($a, $b) {}
  * Import from a binary string
  * @link https://php.net/manual/en/function.gmp-import.php
  * @param string $data The binary string being imported
- * @param integer $word_size Default value is 1. The number of bytes in each chunk of binary
+ * @param int $word_size Default value is 1. The number of bytes in each chunk of binary
  * data. This is mainly used in conjunction with the options parameter.</p>
- * @param integer $options Default value is GMP_MSW_FIRST | GMP_NATIVE_ENDIAN.
+ * @param int $options Default value is GMP_MSW_FIRST | GMP_NATIVE_ENDIAN.
  * @return GMP|false Returns a GMP number or FALSE on failure.
  * @since 5.6.1
  */
@@ -714,9 +714,9 @@ function gmp_import ($data, $word_size = 1, $options = GMP_MSW_FIRST | GMP_NATIV
  * Export to a binary string
  * @link https://php.net/manual/en/function.gmp-export.php
  * @param GMP $gmpnumber The GMP number being exported
- * @param integer $word_size Default value is 1. The number of bytes in each chunk of binary
+ * @param int $word_size Default value is 1. The number of bytes in each chunk of binary
  * data. This is mainly used in conjunction with the options parameter.</p>
- * @param integer $options Default value is GMP_MSW_FIRST | GMP_NATIVE_ENDIAN.
+ * @param int $options Default value is GMP_MSW_FIRST | GMP_NATIVE_ENDIAN.
  * @return string|false Returns a string or FALSE on failure.
  * @since 5.6.1
  */
@@ -727,7 +727,7 @@ function gmp_export (GMP $gmpnumber, $word_size = 1, $options = GMP_MSW_FIRST | 
  * @link https://php.net/manual/en/function.gmp-root.php
  * @param GMP $a Either a GMP number resource in PHP 5.5 and earlier, a GMP object in PHP 5.6
  * and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
- * @param integer $nth The positive root to take of a.
+ * @param int $nth The positive root to take of a.
  * @return GMP The integer component of the resultant root, as a GMP number.
  * @since 5.6.0
  */
@@ -738,7 +738,7 @@ function gmp_root (GMP $a, $nth) {}
  * @link https://php.net/manual/en/function.gmp-rootrem.php
  * @param GMP $a Either a GMP number resource in PHP 5.5 and earlier, a GMP object in PHP 5.6
  * and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
- * @param integer $nth The positive root to take of a.
+ * @param int $nth The positive root to take of a.
  * @return GMP[] A two element array, where the first element is the integer component of
  * the root, and the second element is the remainder, both represented as GMP numbers.</p>
  * @since 5.6.0

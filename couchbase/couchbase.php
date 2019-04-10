@@ -1733,7 +1733,7 @@ namespace Couchbase {
          * @param mixed $startKey
          * @param mixed $endKey
          * @param bool $inclusiveEnd
-         * @return ViewQuery
+         * @return \Couchbase\ViewQuery
          */
         public function range($startKey, $endKey, $inclusiveEnd = false) {}
 

@@ -331,7 +331,7 @@ class RecursiveIteratorIterator implements OuterIterator {
     /**
      * Get inner iterator
      * @link https://php.net/manual/en/recursiveiteratoriterator.getinneriterator.php
-     * @return Iterator The current active sub iterator.
+     * @return RecursiveIterator The current active sub iterator.
      * @since 5.1.0
      */
     public function getInnerIterator() { }
@@ -407,7 +407,7 @@ class RecursiveIteratorIterator implements OuterIterator {
     /**
      * Get max depth
      * @link https://php.net/manual/en/recursiveiteratoriterator.getmaxdepth.php
-     * @return mixed|false The maximum accepted depth, or false if any depth is allowed.
+     * @return int|false The maximum accepted depth, or false if any depth is allowed.
      * @since 5.1.0
      */
     public function getMaxDepth() { }
@@ -452,7 +452,7 @@ class IteratorIterator implements OuterIterator {
     /**
      * Get the inner iterator
      * @link https://php.net/manual/en/iteratoriterator.getinneriterator.php
-     * @return Iterator The inner iterator as passed to IteratorIterator::__construct.
+     * @return Traversable The inner iterator as passed to IteratorIterator::__construct.
      * @since 5.1.0
      */
     public function getInnerIterator() { }
@@ -1580,7 +1580,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @param mixed $index <p>
      * The index with the value.
      * </p>
-     * @return mixed|false The value at the specified index or false.
+     * @return mixed|null The value at the specified index or NULL.
      * @since 5.0.0
      */
     public function offsetGet($index) { }

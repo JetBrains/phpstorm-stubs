@@ -75,7 +75,7 @@ class Parser
      * Retrieve the error information in case Parle\Parser::action() returned the error action.
      *
      * @link https://php.net/manual/en/parle-parser.errorinfo.php
-     * @return ErrorInfo
+     * @return \Parle\ErrorInfo
      */
     public function errorInfo() : ErrorInfo {}
 

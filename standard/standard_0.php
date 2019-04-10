@@ -932,7 +932,7 @@ function imageaffinematrixconcat(array $m1, array $m2) {}
  * Return an image containing the affine tramsformed src image, using an optional clipping area
  * @link https://secure.php.net/manual/en/function.imageaffinematrixget.php
  * @param int $type <p> One of <b>IMG_AFFINE_*</b> constants.
- * @param mixed $options [optional]
+ * @param array|float $options [optional]
  * @return array|false Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
  * @since 5.5.0
  */

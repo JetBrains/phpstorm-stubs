@@ -36,7 +36,7 @@ class finfo  {
 	 * @param resource $context [optional] <p>
 	 * For a description of contexts, refer to .
 	 * </p>
-	 * @return string a textual description of the contents of the
+	 * @return string|false a textual description of the contents of the
 	 * <i>filename</i> argument, or <b>FALSE</b> if an error occurred.
 	 */
 	public function file ($file_name = null, $options = FILEINFO_NONE, $context = null) {}
@@ -53,7 +53,7 @@ class finfo  {
 	 * constants.
 	 * </p>
 	 * @param resource $context [optional]
-	 * @return string a textual description of the <i>string</i>
+	 * @return string|false a textual description of the <i>string</i>
 	 * argument, or <b>FALSE</b> if an error occurred.
 	 */
 	public function buffer ($string = null, $options = FILEINFO_NONE, $context = null) {}

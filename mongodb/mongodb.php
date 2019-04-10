@@ -774,7 +774,7 @@ namespace MongoDB {}
              * Construct immutable WriteConcern
              * @link https://php.net/manual/en/mongodb-driver-writeconcern.construct.php
              * @param string|integer $w
-             * @param integer $wtimeout How long to wait (in milliseconds) for secondaries before failing.
+             * @param int $wtimeout How long to wait (in milliseconds) for secondaries before failing.
              * @param bool $journal Wait until mongod has applied the write to the journal.
              * @throws InvalidArgumentException on argument parsing errors.
              */
@@ -1696,7 +1696,7 @@ namespace MongoDB {}
              * Binary constructor.
              * @link https://php.net/manual/en/mongodb-bson-binary.construct.php
              * @param string $data
-             * @param integer $type
+             * @param int $type
              */
             public function __construct($data, $type)
             {
@@ -1898,8 +1898,8 @@ namespace MongoDB {}
             /**
              * Construct a new Timestamp
              * @link https://php.net/manual/en/mongodb-bson-timestamp.construct.php
-             * @param integer $increment
-             * @param integer $timestamp
+             * @param int $increment
+             * @param int $timestamp
              */
             final public function __construct($increment, $timestamp)
             {
@@ -1924,7 +1924,7 @@ namespace MongoDB {}
             /**
              * Construct a new UTCDateTime
              * @link https://php.net/manual/en/mongodb-bson-utcdatetime.construct.php
-             * @param integer $milliseconds
+             * @param int $milliseconds
              */
             final public function __construct($milliseconds=null)
             {

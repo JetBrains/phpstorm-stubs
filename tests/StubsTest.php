@@ -24,12 +24,6 @@ class StubsTest extends TestCase
      */
     protected static $call_map_vimeo_psalm = [];
 
-
-    /**
-     * @var array
-     */
-    protected static $call_map_phpstan = [];
-
     public static function setUpBeforeClass()
     {
         self::$call_map_vimeo_psalm = include __DIR__ . '/TestData/psalm/CallMap.php';
@@ -45,10 +39,6 @@ class StubsTest extends TestCase
 
         $call_map_vimeo_psalm_7_4 = include __DIR__ . '/TestData/psalm/CallMap_74_delta.php';
         self::$call_map_vimeo_psalm += $call_map_vimeo_psalm_7_4['new'];
-
-        // ---
-
-        self::$call_map_phpstan = include __DIR__ . '/TestData/phpstan/functionMap.php';
     }
 
     /**
@@ -354,226 +344,6 @@ class StubsTest extends TestCase
      * @param PHPMethod $method
      * @throws InvalidArgumentException
      */
-    public function testMethodsParameterViaPhpStan(string $methodName, PHPMethod $method): void
-    {
-        if ($methodName === '__construct') {
-            static::assertTrue(true);
-
-            return;
-        }
-
-        if (!$method->parentName) {
-            static::markTestSkipped('TODO: no class found: ' . $method->parentName . ' | ' . print_r($method, true));
-
-            return;
-        }
-
-        if (count($method->parameters) === 0) {
-            static::assertTrue(true);
-
-            return;
-        }
-
-        $methodNameWithClass = $method->parentName . '::' . $methodName;
-
-        if (isset(self::$call_map_phpstan[$methodNameWithClass])) {
-
-            foreach ($method->parameters as $count => $parameter) {
-
-                if (!isset(self::$call_map_phpstan[$methodNameWithClass][$parameter->name])) {
-                    static::markTestSkipped('TODO: parameter error: ' . $methodNameWithClass . ' | parameter: ' . $parameter->name . ' | phpstan: ' . print_r(self::$call_map_phpstan[$methodNameWithClass], true));
-
-                    return;
-                }
-
-                $parameterTypeFromStaticAnalyseTool = ltrim(self::$call_map_phpstan[$methodNameWithClass][$parameter->name], '\\');
-                $parameterTypeFromStaticAnalyseTool = $this->getTypeFromStaticAnalyse($parameterTypeFromStaticAnalyseTool);
-
-                $parameterTypeFromPhpDoc = $this->getTypeFromPhpElement($parameter->type_from_php_doc);
-
-                if ($parameterTypeFromPhpDoc) {
-                    static::assertEquals(
-                        $parameterTypeFromStaticAnalyseTool,
-                        $parameterTypeFromPhpDoc,
-                        $methodNameWithClass . ' - parameter -->' . $parameter->name . '<--: Failed asserting that (phpstan-data) "' . print_r($parameterTypeFromStaticAnalyseTool, true) . '" == (phpdoc-data) "' . print_r($parameterTypeFromPhpDoc, true) . '" | ' . print_r($method->parameters, true)
-                    );
-
-                    continue;
-                }
-
-                return;
-            }
-
-            static::markTestSkipped('TODO: ' . $methodNameWithClass . ' - parameter not found? | phpstan-data: ' . print_r(self::$call_map_phpstan[$methodNameWithClass], true) . ' | phpdoc-data: ' . print_r($method, true));
-
-            return;
-        }
-
-        static::markTestSkipped('TODO: no parameter data found in phpstan: ' . $methodNameWithClass);
-    }
-
-    /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodProvider
-     * @param string $methodName
-     * @param PHPMethod $method
-     * @throws InvalidArgumentException
-     */
-    public function testMethodsReturnViaPhpStan(string $methodName, PHPMethod $method): void
-    {
-        if ($methodName === '__construct') {
-            static::assertTrue(true);
-
-            return;
-        }
-
-        if (!$method->parentName) {
-            static::markTestSkipped('TODO: no class found: ' . $method->parentName . ' | ' . print_r($method, true));
-
-            return;
-        }
-
-        $methodNameWithClass = $method->parentName . '::' . $methodName;
-
-        if (!$method->type_from_php_doc) {
-            static::markTestSkipped('TODO: no return type found for: ' . $methodNameWithClass);
-
-            return;
-        }
-
-        if (isset(self::$call_map_phpstan[$methodNameWithClass])) {
-
-            $returnTypeFromPsalm = ltrim(self::$call_map_phpstan[$methodNameWithClass][0], '\\');
-            $returnTypeFromPsalm = $this->getTypeFromStaticAnalyse($returnTypeFromPsalm);
-
-            $returnTypeFromPhpDoc = $this->getTypeFromPhpElement($method->type_from_php_doc);
-
-            if ($returnTypeFromPhpDoc) {
-                static::assertEquals(
-                    $returnTypeFromPsalm,
-                    $returnTypeFromPhpDoc,
-                    $methodNameWithClass . ': Failed asserting that (phpstan-data) "' . print_r($returnTypeFromPsalm, true) . '" == (phpdoc-data) "' . print_r($returnTypeFromPhpDoc, true) . '"'
-                );
-
-                return;
-            }
-
-            static::markTestSkipped('TODO: ' . $methodNameWithClass . ': return type is missing? | phpstan-data: ' . print_r(self::$call_map_phpstan[$methodNameWithClass], true) . ' | phpdoc-data: ' . print_r($method, true));
-
-            return;
-        }
-
-        static::markTestSkipped('TODO: no return data found in phpstan: ' . $methodNameWithClass);
-    }
-
-    /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubFunctionProvider
-     * @param PHPFunction $function
-     * @throws InvalidArgumentException
-     */
-    public function testFunctionParameterViaPhpStan(PHPFunction $function): void
-    {
-        $functionName = $function->name;
-
-        if (in_array($functionName, $this->getIgnoredFunctionNames(), true)) {
-            static::assertTrue(true);
-
-            return;
-        }
-
-        if (count($function->parameters) === 0) {
-            static::assertTrue(true);
-
-            return;
-        }
-
-        if (isset(self::$call_map_phpstan[$functionName])) {
-
-            foreach ($function->parameters as $count => $parameter) {
-
-                if (!isset(self::$call_map_phpstan[$functionName][$parameter->name])) {
-                    static::markTestSkipped('TODO: parameter error: ' . $functionName . ' | parameter: ' . $parameter->name . ' | phpstan: ' . print_r(self::$call_map_phpstan[$functionName], true));
-
-                    return;
-                }
-
-                $parameterTypeFromStaticAnalyseTool = ltrim(self::$call_map_phpstan[$functionName][$parameter->name], '\\');
-                $parameterTypeFromStaticAnalyseTool = $this->getTypeFromStaticAnalyse($parameterTypeFromStaticAnalyseTool);
-
-                $parameterTypeFromPhpDoc = $this->getTypeFromPhpElement($parameter->type_from_php_doc);
-
-                if ($parameterTypeFromPhpDoc) {
-                    static::assertEquals(
-                        $parameterTypeFromStaticAnalyseTool,
-                        $parameterTypeFromPhpDoc,
-                        $functionName . ' - parameter -->' . $parameter->name . '<--: Failed asserting that (phpstan-data) "' . print_r($parameterTypeFromStaticAnalyseTool, true) . '" == (phpdoc-data) "' . print_r($parameterTypeFromPhpDoc, true) . '" | ' . print_r($function->parameters, true)
-                    );
-
-                    continue;
-                }
-
-                return;
-            }
-
-            static::markTestSkipped('TODO: ' . $functionName . ' - parameter not found? | phpstan-data: ' . print_r(self::$call_map_phpstan[$functionName], true) . ' | phpdoc-data: ' . print_r($function, true));
-
-            return;
-        }
-
-        static::markTestSkipped('TODO: no parameter data found in phpstan: ' . $functionName);
-    }
-
-    /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubFunctionProvider
-     * @param PHPFunction $function
-     * @throws InvalidArgumentException
-     */
-    public function testFunctionReturnViaPhpStan(PHPFunction $function): void
-    {
-        $functionName = $function->name;
-
-        if (in_array($functionName, $this->getIgnoredFunctionNames(), true)) {
-            static::assertTrue(true);
-
-            return;
-        }
-
-        if (!$function->type_from_php_doc) {
-            static::markTestSkipped('TODO: no return data found in phpdoc: ' . $functionName . ' | ' . print_r($function, true));
-
-            return;
-        }
-
-        if (isset(self::$call_map_phpstan[$functionName])) {
-
-            $returnTypeFromPsalm = ltrim(self::$call_map_phpstan[$functionName][0], '\\');
-            $returnTypeFromPsalm = $this->getTypeFromStaticAnalyse($returnTypeFromPsalm);
-
-            $returnTypeFromPhpDoc = $this->getTypeFromPhpElement($function->type_from_php_doc);
-
-            if ($returnTypeFromPhpDoc) {
-                static::assertEquals(
-                    $returnTypeFromPsalm,
-                    $returnTypeFromPhpDoc,
-                    $functionName . ': Failed asserting that (phpstan-data) "' . print_r($returnTypeFromPsalm, true) . '" == (phpdoc-data) "' . print_r($returnTypeFromPhpDoc, true) . '"'
-                );
-
-                return;
-            }
-
-            static::markTestSkipped('TODO: ' . $functionName . ': return type is missing? | phpstan-data: ' . print_r(self::$call_map_phpstan[$functionName], true) . ' | phpdoc-data: ' . print_r($function, true));
-
-            return;
-        }
-
-        static::markTestSkipped('TODO: no return data found in phpstan: ' . $functionName);
-    }
-
-    /**
-     * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodProvider
-     * @param string $methodName
-     * @param PHPMethod $method
-     * @throws InvalidArgumentException
-     */
     public function testMethodsParameterViaPsalm(string $methodName, PHPMethod $method): void
     {
         if ($methodName === '__construct') {
@@ -600,13 +370,19 @@ class StubsTest extends TestCase
 
             foreach ($method->parameters as $count => $parameter) {
 
-                if (!isset(self::$call_map_vimeo_psalm[$methodNameWithClass][$parameter->name])) {
-                    static::markTestSkipped('TODO: parameter error: ' . $methodNameWithClass . ' | parameter: ' . $parameter->name . ' | psalm: ' . print_r(self::$call_map_vimeo_psalm[$methodNameWithClass], true));
+                if (!$parameter->type_from_php_doc) {
+                    static::markTestSkipped('TODO: parameter error in phpdoc: ' . $methodNameWithClass . ' | parameter: ' . $parameter->name . ' | psalm: ' . print_r($parameter, true));
 
                     return;
                 }
 
-                $parameterTypeFromStaticAnalyseTool = ltrim(self::$call_map_vimeo_psalm[$methodNameWithClass][$parameter->name], '\\');
+                if (!isset(self::$call_map_vimeo_psalm[$methodNameWithClass][rtrim($parameter->name, '=')])) {
+                    static::markTestSkipped('TODO: parameter error in psalm: ' . $methodNameWithClass . ' | parameter: ' . $parameter->name . ' | psalm: ' . print_r(self::$call_map_vimeo_psalm[$methodNameWithClass], true));
+
+                    return;
+                }
+
+                $parameterTypeFromStaticAnalyseTool = ltrim(self::$call_map_vimeo_psalm[$methodNameWithClass][rtrim($parameter->name, '=')], '\\');
                 $parameterTypeFromStaticAnalyseTool = $this->getTypeFromStaticAnalyse($parameterTypeFromStaticAnalyseTool);
 
                 $parameterTypeFromPhpDoc = $this->getTypeFromPhpElement($parameter->type_from_php_doc);
@@ -704,13 +480,19 @@ class StubsTest extends TestCase
 
             foreach ($function->parameters as $count => $parameter) {
 
-                if (!isset(self::$call_map_vimeo_psalm[$functionName][$parameter->name])) {
-                    static::markTestSkipped('TODO: parameter error: ' . $functionName . ' | parameter: ' . $parameter->name . ' | psalm: ' . print_r(self::$call_map_vimeo_psalm[$functionName], true));
+                if (!$parameter->type_from_php_doc) {
+                    static::markTestSkipped('TODO: parameter error in phpdoc: ' . $functionName . ' | parameter: ' . $parameter->name . ' | psalm: ' . print_r($parameter, true));
 
                     return;
                 }
 
-                $parameterTypeFromStaticAnalyseTool = ltrim(self::$call_map_vimeo_psalm[$functionName][$parameter->name], '\\');
+                if (!isset(self::$call_map_vimeo_psalm[$functionName][rtrim($parameter->name, '=')])) {
+                    static::markTestSkipped('TODO: parameter error in psalm: ' . $functionName . ' | parameter: ' . $parameter->name . ' | psalm: ' . print_r(self::$call_map_vimeo_psalm[$functionName], true));
+
+                    return;
+                }
+
+                $parameterTypeFromStaticAnalyseTool = ltrim(self::$call_map_vimeo_psalm[$functionName][rtrim($parameter->name, '=')], '\\');
                 $parameterTypeFromStaticAnalyseTool = $this->getTypeFromStaticAnalyse($parameterTypeFromStaticAnalyseTool);
 
                 $parameterTypeFromPhpDoc = $this->getTypeFromPhpElement($parameter->type_from_php_doc);
@@ -832,7 +614,15 @@ class StubsTest extends TestCase
             return 'mixed';
         }
 
-        if ($typeFromPsalm === 'class-string') {
+        if (
+            $typeFromPsalm === 'class-string'
+            ||
+            $typeFromPsalm === 'callable-string'
+            ||
+            $typeFromPsalm === 'numeric-string'
+            ||
+            $typeFromPsalm === 'html-escaped-string'
+        ) {
             return 'string';
         }
 
@@ -849,6 +639,18 @@ class StubsTest extends TestCase
             $typeTmp = trim($outputTmp['type']) . '[]';
             if ($typeTmp === 'mixed[]') {
                 return 'array';
+            }
+
+            if (
+                $typeTmp === 'class-string[]'
+                ||
+                $typeTmp === 'callable-string[]'
+                ||
+                $typeTmp === 'numeric-string[]'
+                ||
+                $typeTmp === 'html-escaped-string[]'
+            ) {
+                return 'string[]';
             }
 
             return $typeTmp;

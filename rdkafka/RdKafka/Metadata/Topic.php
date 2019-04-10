@@ -12,7 +12,7 @@ class Topic
     }
 
     /**
-     * @return Partition[]
+     * @return \RdKafka\Metadata\Partition[]
      */
     public function getPartitions()
     {

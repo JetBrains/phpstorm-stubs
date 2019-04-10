@@ -531,7 +531,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns all the facet queries
 	 * @link https://php.net/manual/en/solrquery.getfacetqueries.php
-	 * @return string|null <p>
+	 * @return array|null <p>
 	 * Returns an array on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -555,7 +555,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the list of fields that will be returned in the response
 	 * @link https://php.net/manual/en/solrquery.getfields.php
-	 * @return string|null <p>
+	 * @return array|null <p>
 	 * Returns an array on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -565,7 +565,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns an array of filter queries
 	 * @link https://php.net/manual/en/solrquery.getfilterqueries.php
-	 * @return string|null <p>
+	 * @return array|null <p>
 	 * Returns an array on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1042,7 +1042,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns all the sort fields
 	 * @link https://php.net/manual/en/solrquery.getsortfields.php
-	 * @return array <p>
+	 * @return array|null <p>
 	 * Returns an array on success and <b>NULL</b> if none of the parameters was set.
 	 * </p>
 	 */
@@ -1461,7 +1461,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 2.2.0)<br/>
 	 * Sets the number of rows to display in each group (expand.rows). Server Default 5
 	 * @link https://php.net/manual/en/solrquery.setexpandrows.php
-	 * @param integer $value
+	 * @param int $value
 	 * @return SolrQuery <p>
 	 * Returns the current SolrQuery object, if the return value is used.
 	 * </p>
@@ -1530,7 +1530,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Maps to facet.date.hardend
 	 * @link https://php.net/manual/en/solrquery.setfacetdatehardend.php
-	 * @param string $value <p>
+	 * @param bool $value <p>
 	 * See facet.date.hardend
 	 * </p>
 	 * @param string $field_override [optional] <p>
@@ -1799,10 +1799,13 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Enables or disables highlighting
 	 * @link https://php.net/manual/en/solrquery.sethighlight.php
-	 * @param bool $flag<p>
-	 * Setting it to <b>TRUE</b> enables highlighted snippets to be generated in the query response.<br/>
+     *
+     * @param bool $flag
+     * <p>
+     * Setting it to <b>TRUE</b> enables highlighted snippets to be generated in the query response.<br/>
 	 * Setting it to <b>FALSE</b> disables highlighting
 	 * </p>
+	 *
 	 * @return SolrQuery <p>
 	 * Returns the current SolrQuery object, if the return value is used.
 	 * </p>

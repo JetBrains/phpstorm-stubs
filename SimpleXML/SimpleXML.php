@@ -36,7 +36,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
 	 * If specified, the function writes the data to the file rather than
 	 * returning it.
 	 * </p>
-	 * @return mixed If the <i>filename</i> isn't specified, this function
+	 * @return bool|string If the <i>filename</i> isn't specified, this function
 	 * returns a string on success and <b>FALSE</b> on error. If the
 	 * parameter is specified, it returns <b>TRUE</b> if the file was written
 	 * successfully and <b>FALSE</b> otherwise.
@@ -98,7 +98,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
 	 * @param bool $is_prefix [optional] <p>
 	 * Default to <b>FALSE</b>
 	 * </p>
-	 * @return SimpleXMLElement a <b>SimpleXMLElement</b> object that can be
+	 * @return SimpleXMLElement|null a <b>SimpleXMLElement</b> object that can be
 	 * iterated over to loop through the attributes on the tag.
 	 * </p>
 	 * <p>
@@ -133,7 +133,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
 	 * If specified, returns all namespaces used in parent and child nodes.
 	 * Otherwise, returns only namespaces used in root node.
 	 * </p>
-	 * @return array The getNamespaces method returns an array of
+	 * @return string[] The getNamespaces method returns an array of
 	 * namespace names with their associated URIs.
 	 * @since 5.1.2
 	 */
@@ -150,7 +150,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
 	 * Allows you to recursively check namespaces under a child node instead of
 	 * from the root of the XML doc.
 	 * </p>
-	 * @return array The getDocNamespaces method returns an array
+	 * @return string[] The getDocNamespaces method returns an array
 	 * of namespace names with their associated URIs.
 	 * @since 5.1.2
 	 */

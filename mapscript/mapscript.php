@@ -866,7 +866,7 @@ final class imageObj
      * stdout.
      *
      * @param string $filename
-     * @param MapObj $oMap
+     * @param mapObj $oMap
      * @return int
      */
     final public function saveImage($filename, MapObj $oMap) {}
@@ -1550,7 +1550,7 @@ final class layerObj
     /**
      * Old style constructor
      *
-     * @param MapObj $map
+     * @param mapObj $map
      * @param layerObj $layer
      * @return layerObj
      */
@@ -1914,7 +1914,7 @@ final class layerObj
      *
      * @param pointObj $point
      * @param int $mode
-     * @param double $buffer
+     * @param float $buffer
      * @return int
      */
     final public function queryByPoint(pointObj $point, $mode, $buffer) {}
@@ -2189,7 +2189,7 @@ final class lineObj
     /**
      * Old style constructor
      *
-     * @return LineObj
+     * @return lineObj
      */
     final public function ms_newLineObj() {}
 
@@ -2207,9 +2207,9 @@ final class lineObj
      * the 3rd parameter m is used for measured shape files only.
      * It is not mandatory.
      *
-     * @param double $x
-     * @param double $y
-     * @param double $m
+     * @param float $x
+     * @param float $y
+     * @param float $m
      * @return int
      */
     final public function addXY($x, $y, $m) {}
@@ -2220,10 +2220,10 @@ final class lineObj
      * the 4th parameter m is used for measured shape files only.
      * It is not mandatory.
      *
-     * @param double $x
-     * @param double $y
-     * @param double $z
-     * @param double $m
+     * @param float $x
+     * @param float $y
+     * @param float $z
+     * @param float $m
      * @return int
      */
     final public function addXYZ($x, $y, $z, $m) {}
@@ -2232,7 +2232,7 @@ final class lineObj
      * Returns a reference to point number i.
      *
      * @param int $i
-     * @return PointObj
+     * @return pointObj
      */
     final public function point($i) {}
 
@@ -2769,8 +2769,8 @@ final class mapObj
      * Offset the map extent based on the given distances in map coordinates.
      * Returns MS_SUCCESS or MS_FAILURE.
      *
-     * @param double $x
-     * @param double $y
+     * @param float $x
+     * @param float $y
      * @return int
      */
     final public function offsetExtent($x, $y) {}
@@ -2899,7 +2899,7 @@ final class mapObj
      *
      * @param pointObj $point
      * @param int $mode
-     * @param double $buffer
+     * @param float $buffer
      * @return int
      */
     final public function queryByPoint(pointObj $point, $mode, $buffer) {}
@@ -2993,9 +2993,9 @@ final class mapObj
      * minscaledenom and/or maxscaledenom is 0 then the parameter is not
      * taken into account.  Returns MS_SUCCESS or MS_FAILURE.
      *
-     * @param double $zoomfactor
-     * @param double $minscaledenom
-     * @param double $maxscaledenom
+     * @param float $zoomfactor
+     * @param float $minscaledenom
+     * @param float $maxscaledenom
      * @return int
      */
     final public function scaleExtent($zoomfactor, $minscaledenom, $maxscaledenom) {}
@@ -3018,10 +3018,10 @@ final class mapObj
      * Appends outputformat object in the map object.
      * Returns the new numoutputformats value.
      *
-     * @param outputFormatObj $outputFormat
+     * @param outputformatObj $outputFormat
      * @return int
      */
-    final public function appendOutputFormat(outputFormatObj $outputFormat) {}
+    final public function appendOutputFormat(outputformatObj $outputFormat) {}
 
     /**
      * Remove outputformat from the map.
@@ -3036,7 +3036,7 @@ final class mapObj
      * Returns the outputformat at index position.
      *
      * @param int $index
-     * @return outputFormatObj
+     * @return outputformatObj|null
      */
     final public function getOutputFormat($index) {}
 
@@ -3071,10 +3071,10 @@ final class mapObj
      * Set the map extents using the georef extents passed in argument.
      * Returns MS_SUCCESS or MS_FAILURE on error.
      *
-     * @param double $minx
-     * @param double $miny
-     * @param double $maxx
-     * @param double $maxy
+     * @param float $minx
+     * @param float $miny
+     * @param float $maxx
+     * @param float $maxy
      * @return void
      */
     final public function setExtent($minx, $miny, $maxx, $maxy) {}
@@ -3123,7 +3123,7 @@ final class mapObj
      * will be rotated by the angle in the clockwise direction.
      * Returns MS_SUCCESS or MS_FAILURE.
      *
-     * @param double $rotation_angle
+     * @param float $rotation_angle
      * @return int
      */
     final public function setRotation($rotation_angle) {}
@@ -3216,7 +3216,7 @@ final class mapObj
      * If provided then it will be impossible to zoom/pan outside of
      * those extents.
      *
-     * @param double $nScaleDenom
+     * @param float $nScaleDenom
      * @param pointObj $oPixelPos
      * @param int $nImageWidth
      * @param int $nImageHeight
@@ -3431,7 +3431,7 @@ final class pointObj
     /**
      * Old style constructor
      *
-     * @return PointObj
+     * @return pointObj
      */
     final public function ms_newPointObj() {}
 
@@ -3441,7 +3441,7 @@ final class pointObj
      *
      * @param pointObj $p1
      * @param pointObj $p2
-     * @return double
+     * @return float
      */
     final public function distanceToLine(pointObj $p1, pointObj $p2) {}
 
@@ -3449,7 +3449,7 @@ final class pointObj
      * Calculates distance between two points.
      *
      * @param pointObj $poPoint
-     * @return double
+     * @return float
      */
     final public function distanceToPoint(pointObj $poPoint) {}
 
@@ -3457,7 +3457,7 @@ final class pointObj
      * Calculates the minimum distance between a point and a shape.
      *
      * @param shapeObj $shape
-     * @return double
+     * @return float
      */
     final public function distanceToShape(shapeObj $shape) {}
 
@@ -3492,9 +3492,9 @@ final class pointObj
      * the 3rd parameter m is used for measured shape files only.
      * It is not mandatory.
      *
-     * @param double $x
-     * @param double $y
-     * @param double $m
+     * @param float $x
+     * @param float $y
+     * @param float $m
      * @return int
      */
     final public function setXY($x, $y, $m) {}
@@ -3505,10 +3505,10 @@ final class pointObj
      * the 4th parameter m is used for measured shape files only.
      * It is not mandatory.
      *
-     * @param double $x
-     * @param double $y
-     * @param double $z
-     * @param double $m
+     * @param float $x
+     * @param float $y
+     * @param float $z
+     * @param float $m
      * @return int
      */
     final public function setXYZ($x, $y, $z, $m) {}
@@ -3539,7 +3539,7 @@ final class projectionObj
      * Old style constructor
      *
      * @param string $projectionString
-     * @return ProjectionObj
+     * @return projectionObj
      */
     final public function ms_newProjectionObj($projectionString) {}
 
@@ -3651,7 +3651,7 @@ final class rectObj
     /**
      * Old style constructor
      *
-     * @return RectObj
+     * @return rectObj
      */
     final public function ms_newRectObj() {}
 
@@ -3675,7 +3675,7 @@ final class rectObj
      *
      * @param int $width
      * @param int $height
-     * @return double
+     * @return float
      */
     final public function fit($width, $height) {}
 
@@ -3701,10 +3701,10 @@ final class rectObj
     /**
      * Set the rectangle extents.
      *
-     * @param double $minx
-     * @param double $miny
-     * @param double $maxx
-     * @param double $maxy
+     * @param float $minx
+     * @param float $miny
+     * @param float $maxx
+     * @param float $maxy
      * @return void
      */
     final public function setextent($minx, $miny, $maxx, $maxy) {}
@@ -4167,7 +4167,7 @@ final class shapeObj
      * Old style constructor
      *
      * @param string $wkt
-     * @return ShapeObj
+     * @return shapeObj
      */
     final public function ms_shapeObjFromWkt($wkt) {}
 
@@ -4282,7 +4282,7 @@ final class shapeObj
      * Returns the area of the shape (if applicable).
      * Only available if php/mapscript is built with GEOS library.
      *
-     * @return double
+     * @return float
      */
     final public function getArea() {}
 
@@ -4310,7 +4310,7 @@ final class shapeObj
      * nearest point on the shape object. Return a point object
      * of this point with the m value set.
      *
-     * @return double
+     * @return float
      */
     final public function getLength() {}
 
@@ -4318,7 +4318,7 @@ final class shapeObj
      * Apply only on Measured shape files. Given a measure m, retun the
      * corresponding XY location on the shapeobject.
      *
-     * @param double $m
+     * @param float $m
      * @return pointObj
      */
     final public function getPointUsingMeasure($m) {}
@@ -4354,7 +4354,7 @@ final class shapeObj
      * Returns a reference to line number i.
      *
      * @param int $i
-     * @return LineObj
+     * @return lineObj
      */
     final public function line($i) {}
 
@@ -4401,7 +4401,7 @@ final class shapeObj
      * error.  Only available if php/mapscript is built with GEOS library
      * (>=3.0).
      *
-     * @param double $tolerance
+     * @param float $tolerance
      * @return shapeObj|null
      */
     final public function simplify($tolerance) {}
@@ -4421,7 +4421,7 @@ final class shapeObj
      * error.  Only available if php/mapscript is built with GEOS library
      * (>=3.0).
      *
-     * @param double $tolerance
+     * @param float $tolerance
      * @return shapeObj|null
      */
     final public function topologyPreservingSimplify($tolerance) {}

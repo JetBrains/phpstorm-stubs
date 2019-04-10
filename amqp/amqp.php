@@ -329,8 +329,8 @@ class AMQPChannel
      * flag set, the client will not do any prefetching of data, regardless of
      * the QOS settings.
      *
-     * @param integer $size  The window size, in octets, to prefetch.
-     * @param integer $count The number of messages to prefetch.
+     * @param int $size  The window size, in octets, to prefetch.
+     * @param int $count The number of messages to prefetch.
      *
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
@@ -360,7 +360,7 @@ class AMQPChannel
      * automatically set the prefetch window size to 0, meaning that the
      * prefetch window size setting will be ignored.
      *
-     * @param integer $count The number of messages to prefetch.
+     * @param int $count The number of messages to prefetch.
      *
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
@@ -385,7 +385,7 @@ class AMQPChannel
      * AMQPQueue::consume() or AMQPQueue::get() is done with the AMQP_AUTOACK
      * flag set, this setting will be ignored.
      *
-     * @param integer $size The window size, in octets, to prefetch.
+     * @param int $size The window size, in octets, to prefetch.
      *
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
@@ -683,7 +683,7 @@ class AMQPConnection
     /**
      * Set the port used to connect to the AMQP broker.
      *
-     * @param integer $port The port used to connect to the AMQP broker.
+     * @param int $port The port used to connect to the AMQP broker.
      *
      * @throws AMQPConnectionException If port is longer not between
      *                                 1 and 65535.
@@ -772,7 +772,7 @@ class AMQPConnection
      * When connection is connected, effective connection value returned, which is normally the same as original
      * correspondent value passed to constructor, otherwise original value passed to constructor returned.
      *
-     * @return int
+     * @return int|null
      */
     public function getMaxChannels() { }
 
@@ -801,7 +801,7 @@ class AMQPConnection
      *
      * When connection is not connected, boolean false always returned
      *
-     * @return bool
+     * @return bool|null
      */
     public function isPersistent() { }
 
@@ -1054,7 +1054,7 @@ class AMQPExchange
      * Delete the exchange from the broker.
      *
      * @param string  $exchangeName Optional name of exchange to delete.
-     * @param integer $flags        Optionally AMQP_IFUNUSED can be specified
+     * @param int $flags        Optionally AMQP_IFUNUSED can be specified
      *                              to indicate the exchange should not be
      *                              deleted until no clients are connected to
      *                              it.
@@ -1123,7 +1123,7 @@ class AMQPExchange
      * @param string  $message     The message to publish.
      * @param string  $routing_key The optional routing key to which to
      *                             publish to.
-     * @param integer $flags       One or more of AMQP_MANDATORY and
+     * @param int $flags       One or more of AMQP_MANDATORY and
      *                             AMQP_IMMEDIATE.
      * @param array   $attributes  One of content_type, content_encoding,
      *                             message_id, user_id, app_id, delivery_mode,
@@ -1166,12 +1166,12 @@ class AMQPExchange
     /**
      * Set the flags on an exchange.
      *
-     * @param integer $flags A bitmask of flags. This call currently only
+     * @param int $flags A bitmask of flags. This call currently only
      *                       considers the following flags:
      *                       AMQP_DURABLE, AMQP_PASSIVE
      *                       (and AMQP_DURABLE, if librabbitmq version >= 0.5.3)
      *
-     * @return void
+     * @return bool
      */
     public function setFlags($flags) { }
 
@@ -1180,7 +1180,7 @@ class AMQPExchange
      *
      * @param string $exchange_name The name of the exchange to set as string.
      *
-     * @return void
+     * @return bool
      */
     public function setName($exchange_name) { }
 
@@ -1192,7 +1192,7 @@ class AMQPExchange
      *
      * @param string $exchange_type The type of exchange as a string.
      *
-     * @return void
+     * @return bool
      */
     public function setType($exchange_type) { }
 
@@ -1232,7 +1232,7 @@ class AMQPQueue
      *
      * @param string  $delivery_tag The message delivery tag of which to
      *                              acknowledge receipt.
-     * @param integer $flags        The only valid flag that can be passed is
+     * @param int $flags        The only valid flag that can be passed is
      *                              AMQP_MULTIPLE.
      *
      * @throws AMQPChannelException    If the channel is not open.
@@ -1307,7 +1307,7 @@ class AMQPQueue
      *                              be made available to the first real callback
      *                              registered. That allows one to have a single
      *                              callback consuming from multiple queues.
-     * @param integer $flags        A bitmask of any of the flags: AMQP_AUTOACK,
+     * @param int $flags        A bitmask of any of the flags: AMQP_AUTOACK,
      *                              AMQP_JUST_CONSUME. Note: when AMQP_JUST_CONSUME
      *                              flag used all other flags are ignored and
      *                              $consumerTag parameter has no sense.
@@ -1346,7 +1346,7 @@ class AMQPQueue
      *
      * This includes its entire contents of unread or unacknowledged messages.
      *
-     * @param integer $flags        Optionally AMQP_IFUNUSED can be specified
+     * @param int $flags        Optionally AMQP_IFUNUSED can be specified
      *                              to indicate the queue should not be
      *                              deleted until no clients are connected to
      *                              it.
@@ -1369,7 +1369,7 @@ class AMQPQueue
      * automatically be marked as acknowledged by the broker as soon as the
      * frames are sent to the client.
      *
-     * @param integer $flags A bitmask of supported flags for the
+     * @param int $flags A bitmask of supported flags for the
      *                       method call. Currently, the only the
      *                       supported flag is AMQP_AUTOACK. If this
      *                       value is not provided, it will use the
@@ -1429,7 +1429,7 @@ class AMQPQueue
      * undefined.
      *
      * @param string  $delivery_tag Delivery tag of last message to reject.
-     * @param integer $flags        AMQP_REQUEUE to requeue the message(s),
+     * @param int $flags        AMQP_REQUEUE to requeue the message(s),
      *                              AMQP_MULTIPLE to nack all previous
      *                              unacked messages as well.
      *
@@ -1450,7 +1450,7 @@ class AMQPQueue
      * flag are not eligible.
      *
      * @param string  $delivery_tag Delivery tag of the message to reject.
-     * @param integer $flags        AMQP_REQUEUE to requeue the message(s).
+     * @param int $flags        AMQP_REQUEUE to requeue the message(s).
      *
      * @throws AMQPChannelException    If the channel is not open.
      * @throws AMQPConnectionException If the connection to the broker was lost.
@@ -1502,7 +1502,7 @@ class AMQPQueue
     /**
      * Set the flags on the queue.
      *
-     * @param integer $flags A bitmask of flags:
+     * @param int $flags A bitmask of flags:
      *                       AMQP_DURABLE, AMQP_PASSIVE,
      *                       AMQP_EXCLUSIVE, AMQP_AUTODELETE.
      *

@@ -778,10 +778,10 @@ final class EvPeriodic extends EvWatcher
      * Constructs EvPeriodic watcher object and starts it automatically. EvPeriodic::createStopped() method creates
      * stopped periodic watcher.
      *
-     * @param double $offset When repeating, this contains the offset value, otherwise this is the absolute point in
+     * @param float $offset When repeating, this contains the offset value, otherwise this is the absolute point in
      *      time (the offset value passed to EvPeriodic::set(), although libev might modify this value for better
      *      numerical stability).
-     * @param double $interval The current interval value. Can be modified any time, but changes only take effect when
+     * @param float $interval The current interval value. Can be modified any time, but changes only take effect when
      *      the periodic timer fires or EvPeriodic::again() is being called.
      * @param callable $reschedule_cb If set, tt must return the next time to trigger, based on the passed time value
      *      (that is, the lowest time value larger than or equal to the second argument). It will usually be called just
@@ -809,7 +809,7 @@ final class EvPeriodic extends EvWatcher
      * the same as the offset argument to EvPeriodic::set() or EvPeriodic::__construct(), but indeed works even in
      * interval mode.
      *
-     * @return double Rhe absolute time this watcher is supposed to trigger next in seconds.
+     * @return float Rhe absolute time this watcher is supposed to trigger next in seconds.
      */
     public function at() {}
 
@@ -818,10 +818,10 @@ final class EvPeriodic extends EvWatcher
      *
      * Create EvPeriodic object. Unlike EvPeriodic::__construct() this method doesn't start the watcher automatically.
      *
-     * @param double $offset When repeating, this contains the offset value, otherwise this is the absolute point in
+     * @param float $offset When repeating, this contains the offset value, otherwise this is the absolute point in
      *      time (the offset value passed to EvPeriodic::set(), although libev might modify this value for better
      *      numerical stability).
-     * @param double $interval The current interval value. Can be modified any time, but changes only take effect when
+     * @param float $interval The current interval value. Can be modified any time, but changes only take effect when
      *      the periodic timer fires or EvPeriodic::again() is being called.
      * @param callable $reschedule_cb If set, tt must return the next time to trigger, based on the passed time value
      *      (that is, the lowest time value larger than or equal to the second argument). It will usually be called just
@@ -974,7 +974,7 @@ final class EvStat extends EvWatcher
      * Constructs EvStat watcher object and starts the watcher automatically.
      *
      * @param string $path The path to wait for status changes on.
-     * @param double $interval Hint on how quickly a change is expected to be detected and should normally be specified
+     * @param float $interval Hint on how quickly a change is expected to be detected and should normally be specified
      *      as 0.0 to let libev choose a suitable value.
      * @param callable $callback
      * @param mixed $data
@@ -996,7 +996,7 @@ final class EvStat extends EvWatcher
      * Configures the watcher.
      *
      * @param string $path The path to wait for status changes on.
-     * @param double $interval Hint on how quickly a change is expected to be detected and should normally be specified
+     * @param float $interval Hint on how quickly a change is expected to be detected and should normally be specified
      *      as 0.0 to let libev choose a suitable value.
      * @return void
      */
@@ -1018,7 +1018,7 @@ final class EvStat extends EvWatcher
      * Creates EvStat watcher object, but doesn't start it automatically (unlike EvStat::__construct()).
      *
      * @param string $path The path to wait for status changes on.
-     * @param double $interval Hint on how quickly a change is expected to be detected and should normally be specified
+     * @param float $interval Hint on how quickly a change is expected to be detected and should normally be specified
      *      as 0.0 to let libev choose a suitable value.
      * @param callable $callback
      * @param mixed $data
@@ -1072,8 +1072,8 @@ final class EvTimer extends EvWatcher
     /**
      * Constructs an EvTimer watcher object.
      *
-     * @param double $after Configures the timer to trigger after $after seconds.
-     * @param double $repeat If repeat is 0.0, then it will automatically be stopped once the timeout is reached. If it
+     * @param float $after Configures the timer to trigger after $after seconds.
+     * @param float $repeat If repeat is 0.0, then it will automatically be stopped once the timeout is reached. If it
      *      is positive, then the timer will automatically be configured to trigger again every repeat seconds later,
      *      until stopped manually.
      * @param callable $callback
@@ -1098,8 +1098,8 @@ final class EvTimer extends EvWatcher
     /**
      * Configures the watcher.
      *
-     * @param double $after Configures the timer to trigger after $after seconds.
-     * @param double $repeat If repeat is 0.0, then it will automatically be stopped once the timeout is reached. If it
+     * @param float $after Configures the timer to trigger after $after seconds.
+     * @param float $repeat If repeat is 0.0, then it will automatically be stopped once the timeout is reached. If it
      *      is positive, then the timer will automatically be configured to trigger again every repeat seconds later,
      *      until stopped manually.
      * @return void
@@ -1109,8 +1109,8 @@ final class EvTimer extends EvWatcher
     /**
      * Creates a stopped EvTimer watcher object.
      *
-     * @param double $after Configures the timer to trigger after $after seconds.
-     * @param double $repeat If repeat is 0.0, then it will automatically be stopped once the timeout is reached. If it
+     * @param float $after Configures the timer to trigger after $after seconds.
+     * @param float $repeat If repeat is 0.0, then it will automatically be stopped once the timeout is reached. If it
      *      is positive, then the timer will automatically be configured to trigger again every repeat seconds later,
      *      until stopped manually.
      * @param callable $callback
@@ -1357,7 +1357,7 @@ final class EvLoop
      * used for relative timers. You can treat it as the timestamp of the event occurring (or more correctly, libev
      * finding out about it).
      *
-     * @return double Time of the event loop in (fractional) seconds.
+     * @return float Time of the event loop in (fractional) seconds.
      */
     public function now() {}
 
@@ -1377,8 +1377,8 @@ final class EvLoop
     /**
      * Creates EvPeriodic object associated with the current event loop instance.
      *
-     * @param double $offset
-     * @param double $interval
+     * @param float $offset
+     * @param float $interval
      * @param callable $callback
      * @param mixed $data
      * @param int $priority
@@ -1433,7 +1433,7 @@ final class EvLoop
      * Creates EvStats object associated with the current event loop instance.
      *
      * @param string $path
-     * @param double $interval
+     * @param float $interval
      * @param callable $callback
      * @param mixed $data
      * @param int $priority
@@ -1461,8 +1461,8 @@ final class EvLoop
     /**
      * Creates EvTimer object associated with the current event loop instance.
      *
-     * @param double $after
-     * @param double $repeat
+     * @param float $after
+     * @param float $repeat
      * @param callable $callback
      * @param mixed $data
      * @param int $priority

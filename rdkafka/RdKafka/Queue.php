@@ -11,7 +11,7 @@ class Queue
     /**
      * @param string $timeout_ms
      *
-     * @return Message|null
+     * @return \RdKafka\Message|null
      */
     public function consume($timeout_ms)
     {
