@@ -136,6 +136,25 @@ namespace PHPSTORM_META {
 	expectedArguments(\fopen(), 1, 'r', 'r+', 'w', 'w+', 'a', 'a+', 'x', 'x+', 'c', 'c+', 'e');
 	expectedArguments(\popen(), 1, 'r', 'r+', 'w', 'w+', 'a', 'a+', 'x', 'x+', 'c', 'c+', 'e');
 	expectedArguments(\SplFileInfo::openFile(), 0, 'r', 'r+', 'w', 'w+', 'a', 'a+', 'x', 'x+', 'c', 'c+', 'e');
+	
+	expectedArguments(\fopen(), 0, 'php://stdout', 'php://stderr', 'php://stdin', 'php://input', 'php://output', 'php://fd/', 'php://memory', 'php://temp', 'php://temp/maxmemory=', 'php://filter/resource=', 'php://filter/read=', 'php://filter/write=', 'file://', 'http://', 'ftp://', 'ftps://', 'zip://', 'compress.zlib://', 'compress.bzip2://', 'data://text/plain,', 'data://text/plain;base64,', 'phar://', 'ssh2.shell://', 'ssh2.exec://', 'ssh2.tunnel://', 'ssh2.sftp://',  'ssh2.scp://', 'rar://', 'ogg://', 'expect://');
+	expectedArguments(\readfile(), 0, 'php://stdin', 'php://input', 'php://output', 'php://fd/', 'php://temp', 'php://temp/maxmemory=', 'php://filter/resource=', 'php://filter/read=', 'file://', 'http://', 'ftp://', 'ftps://', 'zip://', 'compress.zlib://', 'compress.bzip2://', 'data://text/plain,', 'data://text/plain;base64,', 'phar://', 'ssh2.shell://', 'ssh2.exec://', 'ssh2.tunnel://', 'ssh2.sftp://', 'ssh2.scp://', 'rar://', 'ogg://', 'expect://');
+	expectedArguments(\file(), 0, 'php://stdin', 'php://input', 'php://output', 'php://fd/', 'php://temp', 'php://temp/maxmemory=', 'php://filter/resource=', 'php://filter/read=', 'file://', 'http://', 'ftp://', 'ftps://', 'zip://', 'compress.zlib://', 'compress.bzip2://', 'data://text/plain,', 'data://text/plain;base64,', 'phar://', 'ssh2.shell://', 'ssh2.exec://', 'ssh2.tunnel://', 'ssh2.sftp://', 'ssh2.scp://', 'rar://', 'ogg://', 'expect://');
+	expectedArguments(\file_get_contents(), 0, 'php://stdin', 'php://input', 'php://fd/', 'php://temp', 'php://temp/maxmemory=', 'php://filter/resource=', 'php://filter/read=', 'file://', 'http://', 'ftp://', 'ftps://', 'zip://', 'compress.zlib://', 'compress.bzip2://', 'data://text/plain,', 'data://text/plain;base64,', 'phar://', 'ssh2.shell://', 'ssh2.exec://', 'ssh2.tunnel://', 'ssh2.sftp://', 'ssh2.scp://', 'rar://', 'ogg://', 'expect://');
+	expectedArguments(\file_put_contents(), 0, 'php://stdout', 'php://stderr', 'php://output', 'php://fd/', 'php://temp', 'php://temp/maxmemory=', 'php://filter/resource=', 'php://filter/write=', 'file://', 'ftp://', 'ftps://', 'compress.zlib://', 'compress.bzip2://', 'phar://', 'ssh2.shell://', 'ssh2.exec://', 'ssh2.tunnel://', 'ssh2.sftp://', 'ogg://', 'expect://');
+	expectedArguments(\DirectoryIterator::__construct(), 0, 'glob://', 'rar://', 'phar://');
+	expectedArguments(\RecursiveDirectoryIterator::__construct(), 0, 'glob://', 'rar://', 'phar://');
+	expectedArguments(\glob(), 0, 'phar://');
+
+	expectedArguments(\fwrite(), 0, STDOUT, STDERR);
+	expectedArguments(\fputs(), 0, STDOUT, STDERR);
+	expectedArguments(\fputcsv(), 0, STDOUT, STDERR);
+	expectedArguments(\fgets(), 0, STDIN);
+	expectedArguments(\fgetss(), 0, STDIN);
+	expectedArguments(\fgetc(), 0, STDIN);
+	expectedArguments(\fgetcsv(), 0, STDIN);
+	expectedArguments(\fread(), 0, STDIN);
+	expectedArguments(\fscanf(), 0, STDIN);
 
 	expectedArguments(\htmlentities(), 1, ENT_COMPAT | ENT_QUOTES | ENT_NOQUOTES | ENT_IGNORE | ENT_SUBSTITUTE | ENT_DISALLOWED | ENT_HTML401 | ENT_XML1 | ENT_XHTML | ENT_HTML5);
 	expectedArguments(\htmlentities(), 2, 'ISO-8859-1', 'ISO-8859-5', 'ISO-8859-15', 'UTF-8', 'cp866', 'cp1251', 'cp1252', 'KOI8-R', 'BIG5', 'GB2312', 'BIG5-HKSCS', 'Shift_JIS', 'EUC-JP', 'MacRoman');
