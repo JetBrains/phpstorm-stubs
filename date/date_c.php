@@ -55,7 +55,7 @@ interface DateTimeInterface {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Gets the Unix timestamp
-     * @return int
+     * @return int|false
      * Returns the Unix timestamp representing the date.
      */
     public function getTimestamp();
@@ -281,7 +281,7 @@ class DateTimeImmutable implements DateTimeInterface {
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * Gets the Unix timestamp
-     * @return int
+     * @return int|false
      * Returns the Unix timestamp representing the date.
      */
     public function getTimestamp() { }
@@ -452,7 +452,7 @@ class DateTime implements DateTimeInterface {
 
     /**
      * Gets the Unix timestamp.
-     * @return int
+     * @return int|false
      * @link https://php.net/manual/en/datetime.gettimestamp.php
      */
     public function getTimestamp () {}
