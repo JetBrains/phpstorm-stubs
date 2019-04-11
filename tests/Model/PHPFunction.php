@@ -19,28 +19,20 @@ class PHPFunction extends BasePHPElement
     use PHPDocElement;
 
     /**
-     * @var bool
+     * @var boolean $is_deprecated
      */
     public $is_deprecated;
-
     /**
      * @var PHPParameter[]
      */
     public $parameters = [];
-
     /**
-     * @var Type
+     * @var Type $returnTag
      */
     public $returnTag;
 
     /**
-     * @var string|null
-     */
-    public $type_from_php_doc;
-
-    /**
      * @param ReflectionFunction $function
-     *
      * @return $this
      */
     public function readObjectFromReflection($function)
@@ -61,16 +53,15 @@ class PHPFunction extends BasePHPElement
 
     /**
      * @param Function_ $node
-     * @param null      $dummy
-     *
      * @return $this
      */
-    public function readObjectFromStubNode($node, $dummy = null)
+    public function readObjectFromStubNode($node)
     {
-        $this->name = $this->getFQN($node);
+        $functionName = $this->getFQN($node);
+        $this->name = $functionName;
 
         foreach ($node->getParams() as $parameter) {
-            $this->parameters[] = (new PHPParameter())->readObjectFromStubNode($parameter, $node);
+            $this->parameters[] = (new PHPParameter())->readObjectFromStubNode($parameter);
         }
 
         $this->collectLinks($node);
@@ -99,21 +90,10 @@ class PHPFunction extends BasePHPElement
     {
         if ($node->getDocComment() !== null) {
             try {
-                $phpDoc = StubsHelper::createDocBlockInstance()->create($node->getDocComment()->getText());
+                $phpDoc = DocFactoryProvider::getDocFactory()->create($node->getDocComment()->getText());
                 $parsedReturnTag = $phpDoc->getTagsByName('return');
                 if (!empty($parsedReturnTag) && $parsedReturnTag[0] instanceof Return_) {
-                    /** @var Return_ $parsedReturnTagReturn */
-                    $parsedReturnTagReturn = $parsedReturnTag[0];
-                    $type = $parsedReturnTagReturn->getType();
-                    $this->returnTag = $type . '';
-
-                    $returnTypeTmp = StubsHelper::parseDocTypeObject($type);
-                    if (is_array($returnTypeTmp)) {
-                        $this->type_from_php_doc = implode('|', StubsHelper::parseDocTypeObject($type));
-                    } else {
-                        $this->type_from_php_doc = $returnTypeTmp;
-                    }
-
+                    $this->returnTag = $parsedReturnTag[0]->getType() . '';
                 }
             } catch (Exception $e) {
                 $this->parseError = $e->getMessage();

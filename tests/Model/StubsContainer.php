@@ -58,7 +58,7 @@ class StubsContainer
 
     /**
      * @param string $name
-     * @return PHPClass|null
+     * @return PHPClass | null
      */
     public function getClass(string $name): ?PHPClass
     {
@@ -87,7 +87,7 @@ class StubsContainer
 
     /**
      * @param string $name
-     * @return PHPInterface|null
+     * @return PHPInterface | null
      */
     public function getInterface(string $name): ?PHPInterface
     {
