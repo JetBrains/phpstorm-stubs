@@ -100,6 +100,15 @@ class StubsTest extends TestCase
     public function testClasses(PHPClass $class): void
     {
         $className = $class->name;
+
+        if ($className === 'LibXMLError') {
+            $className = 'libXMLError';
+        }
+
+        if ($className === 'APCuIterator') {
+            $className = 'APCUIterator';
+        }
+
         $stubClasses = PhpStormStubsSingleton::getPhpStormStubs()->getClasses();
         if ($class->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
             static::markTestSkipped('class is skipped');
