@@ -833,7 +833,7 @@ function mb_convert_variables ($to_encoding, $from_encoding, &...$vars) {}
  * convmap is array specifies code area to
  * convert.
  * </p>
- * @param string $encoding &mbstring.encoding.parameter;
+ * @param string $encoding [optional] &mbstring.encoding.parameter;
  * @param bool $is_hex [optional]
  * @return string|false The converted string.
  * @since 4.0.6
@@ -851,7 +851,7 @@ function mb_encode_numericentity ($str, array $convmap, $encoding = null, $is_he
  * convmap is an array that specifies
  * the code area to convert.
  * </p>
- * @param string $encoding &mbstring.encoding.parameter;
+ * @param string $encoding [optional] &mbstring.encoding.parameter;
  * @return string|false The converted string.
  * @since 4.0.6
  * @since 5.0

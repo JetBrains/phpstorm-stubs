@@ -93,7 +93,7 @@ function iconv_set_encoding ($type, $charset) {}
  * <i>str</i> is assumed to be encoded in
  * iconv.internal_encoding.
  * </p>
- * @return int the character count of <i>str</i>, as an integer.
+ * @return int|false the character count of <i>str</i>, as an integer. False on error.
  * @since 5.0
  */
 function iconv_strlen ($str, $charset = 'ini_get("iconv.internal_encoding")') {}
