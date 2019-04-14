@@ -4383,7 +4383,8 @@ function datefmt_get_error_message(MessageFormatter $mf, $coll) { }
  * @param string $input <p>
  * The string being measured for length. It must be a valid UTF-8 string.
  * </p>
- * @return int|false The length of the string on success, and 0 if the string is empty.
+ * @return int|false|null The length of the string on success, and 0 if the string is empty or <b>FALSE<b/> on error.
+ *                        And <b>NULL</b> if there was a problem with the string encoding.
  */
 function grapheme_strlen($input) { }
 
