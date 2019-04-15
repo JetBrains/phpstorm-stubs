@@ -3240,10 +3240,9 @@ function imagescale ($image, $new_width, $new_height = -1, $mode = IMG_BILINEAR_
 function imagesetinterpolation ($image, $method = IMG_BILINEAR_FIXED) {}
 
 /**
- * Get Mime-Type for image-type returned by getimagesize,
+ * Get Mime-Type for image-type returned by getimagesize, exif_read_data, exif_thumbnail, exif_imagetype
  * @since 4.3.0
  * @since 5.0
-exif_read_data, exif_thumbnail, exif_imagetype
  * @link https://php.net/manual/en/function.image-type-to-mime-type.php
  * @param int $imagetype <p>
  * One of the IMAGETYPE_XXX constants.
