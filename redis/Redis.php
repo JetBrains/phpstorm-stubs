@@ -3380,15 +3380,17 @@ class Redis
      * @param   string  $str_key
      * @param   string  $str_group
      * @param   string  $str_msg_id
+     * @param   bool    $boo_mkstream
      * @return  mixed   This command returns different types depending on the specific XGROUP command executed.
      * @link    https://redis.io/commands/xgroup
      * @example
      * <pre>
-     * $obj_redis->xGroup('CREATE', 'mystream', 'mygroup');
-     * $obj_redis->xGroup('DELGROUP', 'mystream', 'mygroup');
+     * $obj_redis->xGroup('CREATE', 'mystream', 'mygroup', 0);
+     * $obj_redis->xGroup('CREATE', 'mystream', 'mygroup', 0, true); // create stream
+     * $obj_redis->xGroup('DESTROY', 'mystream', 'mygroup');
      * </pre>
      */
-    public function xGroup($operation, $str_key, $str_group, $str_msg_id) {}
+    public function xGroup($operation, $str_key, $str_group, $str_msg_id = '', $boo_mkstream = false) {}
 
     /**
      * Get information about a stream or consumer groups.
