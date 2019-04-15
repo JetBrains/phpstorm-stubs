@@ -2306,14 +2306,14 @@ class Redis
     /**
      * Adds the specified member with a given score to the sorted set stored at key.
      *
-     * @param   string  $key     Required key
+     * @param   string  $key    Required key
      * @param   array   $options Options if needed
-     * @param   float   $score1  Required score
-     * @param   string  $value1  Required value
-     * @param   float   $score2  Optional score
-     * @param   string  $value2  Optional value
-     * @param   float   $scoreN  Optional score
-     * @param   string  $valueN  Optional value
+     * @param   float   $score1 Required score
+     * @param   string  $value1 Required value
+     * @param   float   $score2 Optional score
+     * @param   string  $value2 Optional value
+     * @param   float   $scoreN Optional score
+     * @param   string  $valueN Optional value
      * @return  int     Number of values added
      * @link    https://redis.io/commands/zadd
      * @example
