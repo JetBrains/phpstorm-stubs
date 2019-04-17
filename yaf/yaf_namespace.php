@@ -2294,11 +2294,10 @@ class Http extends \Yaf\Response_Abstract
     /**
      * @link https://secure.php.net/manual/en/yaf-response-abstract.clearheaders.php
      *
-     * @param string $name
      *
      * @return \Yaf\Response_Abstract|false
      */
-    public function clearHeaders($name = null)
+    public function clearHeaders()
     {
     }
 

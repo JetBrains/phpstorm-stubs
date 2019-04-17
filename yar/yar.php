@@ -1,5 +1,30 @@
 <?php
 
+
+/**
+ * The constants below are defined by this extension,
+ * and will only be available when the extension has either been compiled into PHP or dynamically loaded at runtime.
+ * @link https://secure.php.net/manual/en/yar.constants.php
+ */
+define('YAR_VERSION', '2.0.5');
+define('YAR_CLIENT_PROTOCOL_HTTP', 1);
+define('YAR_OPT_PACKAGER', 1);
+define('YAR_OPT_TIMEOUT', 4);
+define('YAR_OPT_CONNECT_TIMEOUT', 8);
+/**
+ * @since 2.0.4
+ */
+define('YAR_OPT_HEADER', 16);
+define('YAR_PACKAGER_PHP', 'PHP');
+define('YAR_PACKAGER_JSON', 'JSON');
+define('YAR_ERR_OUTPUT', 8);
+define('YAR_ERR_OKEY', 0);
+define('YAR_ERR_TRANSPORT', 16);
+define('YAR_ERR_REQUEST', 4);
+define('YAR_ERR_PROTOCOL', 2);
+define('YAR_ERR_PACKAGER', 1);
+define('YAR_ERR_EXCEPTION', 64);
+
 /**
  * Class Yar_Server
  * Date 2018/6/9 下午3:02
