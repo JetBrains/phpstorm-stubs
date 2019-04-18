@@ -529,7 +529,7 @@ class DateTimeZone {
 
     /**
      * Returns location information for a timezone
-     * @return array
+     * @return array|false
      * @link https://php.net/manual/en/datetimezone.getlocation.php
      */
     public function getLocation () {}
@@ -537,7 +537,7 @@ class DateTimeZone {
     /**
      * Returns the timezone offset from GMT
      * @param DateTimeInterface $datetime
-     * @return int
+     * @return int|false
      * @link https://php.net/manual/en/datetimezone.getoffset.php
      */
     public function getOffset (DateTimeInterface $datetime) {}
@@ -546,7 +546,7 @@ class DateTimeZone {
      * Returns all transitions for the timezone
      * @param int $timestamp_begin [optional]
      * @param int $timestamp_end [optional]
-     * @return array
+     * @return array|false
      * @link https://php.net/manual/en/datetimezone.gettransitions.php
      */
     public function getTransitions ($timestamp_begin=null, $timestamp_end=null) {}
@@ -554,7 +554,7 @@ class DateTimeZone {
 
     /**
      * Returns associative array containing dst, offset and the timezone name
-     * @return array
+     * @return array|false
      * @link https://php.net/manual/en/datetimezone.listabbreviations.php
      */
     public static function listAbbreviations () {}
@@ -563,7 +563,7 @@ class DateTimeZone {
      * Returns a numerically indexed array with all timezone identifiers
      * @param int $what
      * @param string $country
-     * @return array
+     * @return array|false
      * @link https://php.net/manual/en/datetimezone.listidentifiers.php
      */
     public static function listIdentifiers ($what=DateTimeZone::ALL, $country=null) {}
