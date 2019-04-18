@@ -17,13 +17,23 @@ use StubTests\Parsers\Visitors\ParentConnector;
 
 class StubParser
 {
+    private const ROOT_DIRECTORY = __DIR__ . '/../../';
+
+    private const SKIPPED_DIRECTORIES = [
+        '.git',
+        '.idea',
+        '.github',
+        'vendor',
+        'tests',
+    ];
+
     public static function getPhpStormStubs(): StubsContainer
     {
         /** @noinspection PhpUnhandledExceptionInspection */
 
         $stubs = new StubsContainer();
         $visitor = new ASTVisitor($stubs);
-        self::processStubs($visitor, function ($file) {
+        self::processStubs($visitor, static function ($file) {
             return true;
         });
         foreach ($stubs->getInterfaces() as $interface) {
@@ -48,15 +58,15 @@ class StubParser
 
         $stubsIterator =
             new RecursiveIteratorIterator(
-                new RecursiveDirectoryIterator(__DIR__ . '/../../', FilesystemIterator::SKIP_DOTS)
+                new RecursiveDirectoryIterator(self::ROOT_DIRECTORY, FilesystemIterator::SKIP_DOTS)
             );
+
         /** @var SplFileInfo $file */
         foreach ($stubsIterator as $file) {
-            if (!$fileCondition($file) ||
-                strpos($file->getRealPath(), 'vendor') || strpos($file->getRealPath(), '.git') ||
-                strpos($file->getRealPath(), 'tests') || strpos($file->getRealPath(), '.idea')) {
+            if (!$fileCondition($file) || self::shouldSkip($file)) {
                 continue;
             }
+
             $code = file_get_contents($file->getRealPath());
             $traverser = new NodeTraverser();
             $traverser->addVisitor(new ParentConnector());
@@ -64,5 +74,21 @@ class StubParser
             $traverser->addVisitor($visitor);
             $traverser->traverse($parser->parse($code, new StubsParserErrorHandler()));
         }
+    }
+
+
+    /**
+     * @param SplFileInfo $file
+     * @return bool
+     */
+    private static function shouldSkip(SplFileInfo $file): bool
+    {
+        foreach (self::SKIPPED_DIRECTORIES as $ignored) {
+            if (strpos($file->getRealPath(), $ignored)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
