@@ -2930,39 +2930,6 @@ define('IMG_WEIGHTED4', 21);
 define('IMG_TRIANGLE', 20);
 
 /**
- * Parse a binary IPTC block into single tags.
- * @link https://php.net/manual/en/function.iptcparse.php
- * @param string $iptcblock <p>
- * A binary IPTC block.
- * </p>
- * @return array an array using the tagmarker as an index and the value as the
- * value. It returns false on error or if no IPTC data was found.
- * @since 4.0
- * @since 5.0
- */
-function iptcparse ($iptcblock) {}
-
-/**
- * Embeds binary IPTC data into a JPEG image
- * @link https://php.net/manual/en/function.iptcembed.php
- * @param string $iptcdata <p>
- * The data to be written.
- * </p>
- * @param string $jpeg_file_name <p>
- * Path to the JPEG image.
- * </p>
- * @param int $spool [optional] <p>
- * Spool flag. If the spool flag is over 2 then the JPEG will be
- * returned as a string.
- * </p>
- * @return mixed If success and spool flag is lower than 2 then the JPEG will not be
- * returned as a string, false on errors.
- * @since 4.0
- * @since 5.0
- */
-function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
-
-/**
  * Get the size of an image
  * @link https://php.net/manual/en/function.getimagesize.php
  * @param string $filename <p>
@@ -2980,7 +2947,7 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
  * You can use the iptcparse function to parse the
  * binary APP13 marker into something readable.
  * </p>
- * @return array|bool an array with 7 elements.
+ * @return array|false an array with 7 elements.
  * </p>
  * <p>
  * Index 0 and 1 contains respectively the width and the height of the image.

@@ -809,6 +809,41 @@ function md5_file ($filename, $raw_output = null) {}
 function crc32 ($str) {}
 
 /**
+ * Parse a binary IPTC block into single tags.
+ * Note: This function does not require the GD image library.
+ * @link https://php.net/manual/en/function.iptcparse.php
+ * @param string $iptcblock <p>
+ * A binary IPTC block.
+ * </p>
+ * @return array|false an array using the tagmarker as an index and the value as the
+ * value. It returns false on error or if no IPTC data was found.
+ * @since 4.0
+ * @since 5.0
+ */
+function iptcparse ($iptcblock) {}
+
+/**
+ * Embeds binary IPTC data into a JPEG image.
+ * Note: This function does not require the GD image library.
+ * @link https://php.net/manual/en/function.iptcembed.php
+ * @param string $iptcdata <p>
+ * The data to be written.
+ * </p>
+ * @param string $jpeg_file_name <p>
+ * Path to the JPEG image.
+ * </p>
+ * @param int $spool [optional] <p>
+ * Spool flag. If the spool flag is over 2 then the JPEG will be
+ * returned as a string.
+ * </p>
+ * @return mixed If success and spool flag is lower than 2 then the JPEG will not be
+ * returned as a string, false on errors.
+ * @since 4.0
+ * @since 5.0
+ */
+function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
+
+/**
  * Outputs lots of PHP information
  * @link https://php.net/manual/en/function.phpinfo.php
  * @param int $what [optional] <p>
