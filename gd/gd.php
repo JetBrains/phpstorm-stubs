@@ -3005,7 +3005,6 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
  * This information can be used to deliver images with correct the HTTP
  * Content-type header:
  * getimagesize and MIME types
- * ]]>
  * </p>
  * <p>
  * channels will be 3 for RGB pictures and 4 for CMYK
