@@ -1033,7 +1033,7 @@ define('IMAGETYPE_COUNT', 18);
  */
 define ('DNS_A', 1);
 
-define ('DNS_CAA', 8192);
+define('DNS_CAA', 8192);
 
 /**
  * Authoritative Name Server Resource
