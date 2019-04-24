@@ -810,11 +810,12 @@ function crc32 ($str) {}
 
 /**
  * Parse a binary IPTC block into single tags.
+ * Note: This function does not require the GD image library.
  * @link https://php.net/manual/en/function.iptcparse.php
  * @param string $iptcblock <p>
  * A binary IPTC block.
  * </p>
- * @return array an array using the tagmarker as an index and the value as the
+ * @return array|false an array using the tagmarker as an index and the value as the
  * value. It returns false on error or if no IPTC data was found.
  * @since 4.0
  * @since 5.0
@@ -822,7 +823,8 @@ function crc32 ($str) {}
 function iptcparse ($iptcblock) {}
 
 /**
- * Embeds binary IPTC data into a JPEG image
+ * Embeds binary IPTC data into a JPEG image.
+ * Note: This function does not require the GD image library.
  * @link https://php.net/manual/en/function.iptcembed.php
  * @param string $iptcdata <p>
  * The data to be written.
@@ -859,7 +861,7 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
  * You can use the iptcparse function to parse the
  * binary APP13 marker into something readable.
  * </p>
- * @return array|bool an array with 7 elements.
+ * @return array|false an array with 7 elements.
  * </p>
  * <p>
  * Index 0 and 1 contains respectively the width and the height of the image.
@@ -884,7 +886,6 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
  * This information can be used to deliver images with correct the HTTP 
  * Content-type header:
  * getimagesize and MIME types
- * ]]>
  * </p>
  * <p>
  * channels will be 3 for RGB pictures and 4 for CMYK
@@ -908,221 +909,9 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
 function getimagesize ($filename, array &$imageinfo = null) {}
 
 /**
- * Return an image containing the affine tramsformed src image, using an optional clipping area
- * @link https://secure.php.net/manual/en/function.imageaffine.php
- * @param resource $image <p>An image resource, returned by one of the image creation functions,
- * such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.</p>
- * @param array $affine <p>Array with keys 0 to 5.</p>
- * @param array $clip [optional] <p>Array with keys "x", "y", "width" and "height".</p>
- * @return resource|bool Return affined image resource on success or FALSE on failure.
- */
-function imageaffine($image, $affine, $clip = null) {}
-
-/**
- * Concat two matrices (as in doing many ops in one go)
- * @link https://secure.php.net/manual/en/function.imageaffinematrixconcat.php
- * @param array $m1 <p>Array with keys 0 to 5.</p>
- * @param array $m2 <p>Array with keys 0 to 5.</p>
- * @return array|bool Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
- * @since 5.5.0
- */
-function imageaffinematrixconcat(array $m1, array $m2) {}
-
-/**
- * Return an image containing the affine tramsformed src image, using an optional clipping area
- * @link https://secure.php.net/manual/en/function.imageaffinematrixget.php
- * @param int $type <p> One of <b>IMG_AFFINE_*</b> constants.
- * @param mixed $options [optional]
- * @return array|bool Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
- * @since 5.5.0
- */
-
-function imageaffinematrixget ($type, $options = null) {}
-
-/**
- * Crop an image using the given coordinates and size, x, y, width and height
- * @link https://secure.php.net/manual/en/function.imagecrop.php
- * @param resource $image <p>
- * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
- * </p>
- * @param array $rect <p>Array with keys "x", "y", "width" and "height".</p>
- * @return resource|bool Return cropped image resource on success or FALSE on failure.
- * @since 5.5.0
- */
-function imagecrop ($image, $rect) {}
-
-/**
- * Crop an image automatically using one of the available modes
- * @link https://secure.php.net/manual/en/function.imagecropauto.php
- * @param resource $image <p>
- * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
- * </p>
- * @param int $mode [optional] <p>
- * One of <b>IMG_CROP_*</b> constants.
- * </p>
- * @param float $threshold [optional] <p>
- * Used <b>IMG_CROP_THRESHOLD</b> mode.
- * </p>
- * @param int $color [optional]
- * <p>
- * Used in <b>IMG_CROP_THRESHOLD</b> mode.
- * </p>
- * @return resource|bool Return cropped image resource on success or <b>FALSE</b> on failure.
- * @since 5.5.0
- */
-function imagecropauto ($image, $mode = -1, $threshold = .5, $color = -1) {}
-
-/**
- * Flips an image using a given mode
- * @link https://secure.php.net/manual/en/function.imageflip.php
- * @param resource $image <p>
- * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
- * </p>
- * @param int $mode <p>
- * Flip mode, this can be one of the <b>IMG_FLIP_*</b> constants:
- * </p>
- * <table>
- * <thead>
- * <tr>
- * <th>Constant</th>
- * <th>Meaning</th>
- * </tr>
- * </thead>
- * <tr>
- * <td><b>IMG_FLIP_HORIZONTAL</b></td>
- * <td>
- * Flips the image horizontally.
- * </td>
- * </tr>
- * <tr>
- * <td><b>IMG_FLIP_VERTICAL</b></td>
- * <td>
- * Flips the image vertically.
- * </td>
- * </tr>
- * <tr>
- * <td><b>IMG_FLIP_BOTH</b></td>
- * <td>
- * Flips the image both horizontally and vertically.
- * </td>
- * </tr>
- * </tbody>
- * </table>
- * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.5.0
- */
-function imageflip ($image, $mode) {}
-
-/**
- * Converts a palette based image to true color
- * @link https://secure.php.net/manual/en/function.imagepalettetotruecolor.php
- * @param resource $image <p>
- * An image resource, returnd by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
- * </p>
- * @return bool Returns <b>TRUE</b> if the convertion was complete, or if the source image already is a true color image, otherwise <b>FALSE</b> is returned.
- * @since 5.5.0
- */
-function imagepalettetotruecolor ($image) {}
-
-/**
- * @since 5.5.0
- * Scale an image using the given new width and height
- * @link https://secure.php.net/manual/en/function.imagescale.php
- * @param resource $image <p>
- * An image resource, returnd by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
- * </p>
- * @param int $new_width
- * @param int $new_height [optional]
- * @param int $mode [optional] One of <b>IMG_NEAREST_NEIGHBOUR</b>, <b>IMG_BILINEAR_FIXED</b>, <b>IMG_BICUBIC</b>, <b>IMG_BICUBIC_FIXED</b> or anything else (will use two pass).
- * @return resource|bool Return scaled image resource on success or <b>FALSE</b> on failure.
- */
-
-function imagescale ($image, $new_width, $new_height = -1, $mode = IMG_BILINEAR_FIXED) {}
-
-/**
- * Set the interpolation method
- * @link https://secure.php.net/manual/en/function.imagesetinterpolation.php
- * @param resource $image <p>
- * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
- * </p>
- * @param int $method <p>
- * The interpolation method, which can be one of the following:
- * <ul>
- * <li>
- * IMG_BELL: Bell filter.
- * </li>
- * <li>
- * IMG_BESSEL: Bessel filter.
- * </li>
- * <li>
- * IMG_BICUBIC: Bicubic interpolation.
- * </li>
- * <li>
- * IMG_BICUBIC_FIXED: Fixed point implementation of the bicubic interpolation.
- * </li>
- * <li>
- * IMG_BILINEAR_FIXED: Fixed point implementation of the  bilinear interpolation (<em>default (also on image creation)</em>).
- * </li>
- * <li>
- * IMG_BLACKMAN: Blackman window function.
- * </li>
- * <li>
- * IMG_BOX: Box blur filter.
- * </li>
- * <li>
- * IMG_BSPLINE: Spline interpolation.
- * </li>
- * <li>
- * IMG_CATMULLROM: Cubbic Hermite spline interpolation.
- * </li>
- * <li>
- * IMG_GAUSSIAN: Gaussian function.
- * </li>
- * <li>
- * IMG_GENERALIZED_CUBIC: Generalized cubic spline fractal interpolation.
- * </li>
- * <li>
- * IMG_HERMITE: Hermite interpolation.
- * </li>
- * <li>
- * IMG_HAMMING: Hamming filter.
- * </li>
- * <li>
- * IMG_HANNING: Hanning filter.
- * </li>
- * <li>
- * IMG_MITCHELL: Mitchell filter.
- * </li>
- * <li>
- * IMG_POWER: Power interpolation.
- * </li>
- * <li>
- * IMG_QUADRATIC: Inverse quadratic interpolation.
- * </li>
- * <li>
- * IMG_SINC: Sinc function.
- * </li>
- * <li>
- * IMG_NEAREST_NEIGHBOUR: Nearest neighbour interpolation.
- * </li>
- * <li>
- * IMG_WEIGHTED4: Weighting filter.
- * </li>
- * <li>
- * IMG_TRIANGLE: Triangle interpolation.
- * </li>
- * </ul>
- * </p>
- * @return bool Returns TRUE on success or FALSE on failure.
- * @since 5.5.0
- */
-function imagesetinterpolation ($image, $method = IMG_BILINEAR_FIXED) {}
-
-/**
- * Get Mime-Type for image-type returned by getimagesize,
+ * Get Mime-Type for image-type returned by getimagesize, exif_read_data, exif_thumbnail, exif_imagetype
  * @since 4.3.0
  * @since 5.0
-   exif_read_data, exif_thumbnail, exif_imagetype
  * @link https://php.net/manual/en/function.image-type-to-mime-type.php
  * @param int $imagetype <p>
  * One of the IMAGETYPE_XXX constants.
