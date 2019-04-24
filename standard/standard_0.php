@@ -849,14 +849,14 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
  * @param string $filename <p>
  * This parameter specifies the file you wish to retrieve information
  * about. It can reference a local file or (configuration permitting) a
- * remote file using one of the supported streams.
+ * remote file using one of the supported streams. 
  * </p>
  * @param array $imageinfo [optional] <p>
  * This optional parameter allows you to extract some extended
  * information from the image file. Currently, this will return the
  * different JPG APP markers as an associative array.
- * Some programs use these APP markers to embed text information in
- * images. A very common one is to embed
+ * Some programs use these APP markers to embed text information in 
+ * images. A very common one is to embed 
  * IPTC information in the APP13 marker.
  * You can use the iptcparse function to parse the
  * binary APP13 marker into something readable.
@@ -873,17 +873,17 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
  * zero for width and height in these cases.
  * </p>
  * <p>
- * Index 2 is one of the IMAGETYPE_XXX constants indicating
+ * Index 2 is one of the IMAGETYPE_XXX constants indicating 
  * the type of the image.
  * </p>
  * <p>
- * Index 3 is a text string with the correct
+ * Index 3 is a text string with the correct 
  * height="yyy" width="xxx" string that can be used
  * directly in an IMG tag.
  * </p>
  * <p>
  * mime is the correspondant MIME type of the image.
- * This information can be used to deliver images with correct the HTTP
+ * This information can be used to deliver images with correct the HTTP 
  * Content-type header:
  * getimagesize and MIME types
  * </p>
