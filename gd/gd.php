@@ -2936,7 +2936,7 @@ define('IMG_TRIANGLE', 20);
  * such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.</p>
  * @param array $affine <p>Array with keys 0 to 5.</p>
  * @param array $clip [optional] <p>Array with keys "x", "y", "width" and "height".</p>
- * @return resource|bool Return affined image resource on success or FALSE on failure.
+ * @return resource|false Return affined image resource on success or FALSE on failure.
  */
 function imageaffine($image, $affine, $clip = null) {}
 
@@ -2945,7 +2945,7 @@ function imageaffine($image, $affine, $clip = null) {}
  * @link https://secure.php.net/manual/en/function.imageaffinematrixconcat.php
  * @param array $m1 <p>Array with keys 0 to 5.</p>
  * @param array $m2 <p>Array with keys 0 to 5.</p>
- * @return array|bool Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
+ * @return array|false Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
  * @since 5.5.0
  */
 function imageaffinematrixconcat(array $m1, array $m2) {}
@@ -2955,7 +2955,7 @@ function imageaffinematrixconcat(array $m1, array $m2) {}
  * @link https://secure.php.net/manual/en/function.imageaffinematrixget.php
  * @param int $type <p> One of <b>IMG_AFFINE_*</b> constants.
  * @param mixed $options [optional]
- * @return array|bool Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
+ * @return array|false Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
  * @since 5.5.0
  */
 
@@ -2968,7 +2968,7 @@ function imageaffinematrixget ($type, $options = null) {}
  * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
  * </p>
  * @param array $rect <p>Array with keys "x", "y", "width" and "height".</p>
- * @return resource|bool Return cropped image resource on success or FALSE on failure.
+ * @return resource|false Return cropped image resource on success or FALSE on failure.
  * @since 5.5.0
  */
 function imagecrop ($image, $rect) {}
@@ -2989,7 +2989,7 @@ function imagecrop ($image, $rect) {}
  * <p>
  * Used in <b>IMG_CROP_THRESHOLD</b> mode.
  * </p>
- * @return resource|bool Return cropped image resource on success or <b>FALSE</b> on failure.
+ * @return resource|false Return cropped image resource on success or <b>FALSE</b> on failure.
  * @since 5.5.0
  */
 function imagecropauto ($image, $mode = -1, $threshold = .5, $color = -1) {}
@@ -3056,7 +3056,7 @@ function imagepalettetotruecolor ($image) {}
  * @param int $new_width
  * @param int $new_height [optional]
  * @param int $mode [optional] One of <b>IMG_NEAREST_NEIGHBOUR</b>, <b>IMG_BILINEAR_FIXED</b>, <b>IMG_BICUBIC</b>, <b>IMG_BICUBIC_FIXED</b> or anything else (will use two pass).
- * @return resource|bool Return scaled image resource on success or <b>FALSE</b> on failure.
+ * @return resource|false Return scaled image resource on success or <b>FALSE</b> on failure.
  */
 
 function imagescale ($image, $new_width, $new_height = -1, $mode = IMG_BILINEAR_FIXED) {}
