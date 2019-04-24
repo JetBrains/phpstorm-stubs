@@ -1452,6 +1452,14 @@ class DOMElement extends DOMNode  {
     public $nextSibling;
 
     /**
+     * @var null
+     * @since 5.0
+     * Not implemented yet, always return NULL
+     * @link https://php.net/manual/en/class.domelement.php#domelement.props.schematypeinfo
+     */
+    public $schemaTypeInfo ;
+
+    /**
      * @var string
      * @since 5.0
      * The element name

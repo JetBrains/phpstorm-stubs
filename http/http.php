@@ -2218,7 +2218,6 @@ function http_negotiate_content_type (array $supported,  array &$result = null )
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Issue HTTP redirect
  * @link https://php.net/manual/en/function.http-redirect.php
- *
  * @param string $url [optional] <p>
  * the URL to redirect to
  * </p>
@@ -2231,7 +2230,6 @@ function http_negotiate_content_type (array $supported,  array &$result = null )
  * @param int $status [optional] <p>
  * custom response status code
  * </p>
- *
  * @return int|false Returns FALSE or exits on success with the specified redirection status code. See the INI
  *                   setting http.force_exit for what "exits" means.
  */
@@ -2332,16 +2330,11 @@ function http_match_etag ($etag, $for_range = null) {}
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Caching by last modification
  * @link https://php.net/manual/en/function.http-cache-last-modified.php
- *
  * @param int $timestamp_or_expires [optional] <p>
  * Unix timestamp
  * </p>
- *
- * @return bool
- * <p>
- * &returns.http.false.orexits; with 304 Not Modified if the entity is cached.
+ * @return bool &returns.http.false.orexits; with 304 Not Modified if the entity is cached.
  * &see.http.configuration.force_exit;
- * </p>
  */
 function http_cache_last_modified ($timestamp_or_expires = null) {}
 
@@ -2349,16 +2342,11 @@ function http_cache_last_modified ($timestamp_or_expires = null) {}
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Caching by ETag
  * @link https://php.net/manual/en/function.http-cache-etag.php
- *
  * @param string $etag [optional] <p>
  * custom ETag
  * </p>
- *
- * @return bool
- * <p>
- * &returns.http.false.orexits; with 304 Not Modified if the entity is cached.
+ * @return bool &returns.http.false.orexits; with 304 Not Modified if the entity is cached.
  * &see.http.configuration.force_exit;
- * </p>
  */
 function http_cache_etag ($etag = null) {}
 
@@ -2544,7 +2532,6 @@ function http_persistent_handles_ident ($ident) {}
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Perform GET request
  * @link https://php.net/manual/en/function.http-get.php
- *
  * @param string $url <p>
  * URL
  * </p>
@@ -2554,11 +2541,7 @@ function http_persistent_handles_ident ($ident) {}
  * @param array $info [optional] <p>
  * Will be filled with request/response information
  * </p>
- *
- * @return string
- * <p>
- * &returns.http.response;
- * </p>
+ * @return string &returns.http.response;
  */
 function http_get ($url, array $options = null ,  array &$info = null ) {}
 
@@ -2566,7 +2549,6 @@ function http_get ($url, array $options = null ,  array &$info = null ) {}
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Perform HEAD request
  * @link https://php.net/manual/en/function.http-head.php
- *
  * @param string $url [optional] <p>
  * URL
  * </p>
@@ -2576,11 +2558,7 @@ function http_get ($url, array $options = null ,  array &$info = null ) {}
  * @param array $info [optional] <p>
  * &link.http.request.info;
  * </p>
- *
- * @return string
- * <p>
- * &returns.http.response;
- * </p>
+ * @return string &returns.http.response;
  */
 function http_head ($url = null, array $options = null ,  array &$info = null ) {}
 
@@ -2588,7 +2566,6 @@ function http_head ($url = null, array $options = null ,  array &$info = null ) 
  * (PECL pecl_http &gt;= 0.1.0)<br/>
  * Perform POST request with pre-encoded data
  * @link https://php.net/manual/en/function.http-post-data.php
- *
  * @param string $url <p>
  * URL
  * </p>
@@ -2601,11 +2578,7 @@ function http_head ($url = null, array $options = null ,  array &$info = null ) 
  * @param array $info [optional] <p>
  * &link.http.request.info;
  * </p>
- *
- * @return string
- * <p>
- * &returns.http.response;
- * </p>
+ * @return string &returns.http.response;
  */
 function http_post_data ($url, $data = null, array $options = null ,  array &$info = null ) {}
 
@@ -2613,7 +2586,6 @@ function http_post_data ($url, $data = null, array $options = null ,  array &$in
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * Perform POST request with data to be encoded
  * @link https://php.net/manual/en/function.http-post-fields.php
- *
  * @param string $url <p>
  * URL
  * </p>
@@ -2629,11 +2601,7 @@ function http_post_data ($url, $data = null, array $options = null ,  array &$in
  * @param array $info [optional] <p>
  * &link.http.request.info;
  * </p>
- *
- * @return string
- * <p>
- * &returns.http.response;
- * </p>
+ * @return string &returns.http.response;
  */
 function http_post_fields ($url,  array $data = null ,  array $files = null , array $options = null ,  array &$info = null ) {}
 
@@ -2641,7 +2609,6 @@ function http_post_fields ($url,  array $data = null ,  array $files = null , ar
  * (PECL pecl_http &gt;= 0.25.0)<br/>
  * Perform PUT request with data
  * @link https://php.net/manual/en/function.http-put-data.php
- *
  * @param string $url <p>
  * URL
  * </p>
@@ -2654,11 +2621,7 @@ function http_post_fields ($url,  array $data = null ,  array $files = null , ar
  * @param array $info [optional] <p>
  * &link.http.request.info;
  * </p>
- *
- * @return string
- * <p>
- * &returns.http.response;
- * </p>
+ * @return string &returns.http.response;
  */
 function http_put_data ($url, $data = null, array $options = null ,  array &$info = null ) {}
 
@@ -2666,7 +2629,6 @@ function http_put_data ($url, $data = null, array $options = null ,  array &$inf
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * Perform PUT request with file
  * @link https://php.net/manual/en/function.http-put-file.php
- *
  * @param string $url <p>
  * URL
  * </p>
@@ -2679,11 +2641,7 @@ function http_put_data ($url, $data = null, array $options = null ,  array &$inf
  * @param array $info [optional] <p>
  * &link.http.request.info;
  * </p>
- *
- * @return string
- * <p>
- * &returns.http.response;
- * </p>
+ * @return string &returns.http.response;
  */
 function http_put_file ($url, $file = null, array $options = null ,  array &$info = null ) {}
 
@@ -2691,7 +2649,6 @@ function http_put_file ($url, $file = null, array $options = null ,  array &$inf
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * Perform PUT request with stream
  * @link https://php.net/manual/en/function.http-put-stream.php
- *
  * @param string $url <p>
  * URL
  * </p>
@@ -2704,11 +2661,7 @@ function http_put_file ($url, $file = null, array $options = null ,  array &$inf
  * @param array $info [optional] <p>
  * &link.http.request.info;
  * </p>
- *
- * @return string
- * <p>
- * &returns.http.response;
- * </p>
+ * @return string &returns.http.response;
  */
 function http_put_stream ($url, $stream = null, array $options = null ,  array &$info = null ) {}
 
@@ -2716,7 +2669,6 @@ function http_put_stream ($url, $stream = null, array $options = null ,  array &
  * (PECL pecl_http &gt;= 1.0.0)<br/>
  * Perform custom request
  * @link https://php.net/manual/en/function.http-request.php
- *
  * @param int $method <p>
  * Request method
  * </p>
@@ -2732,11 +2684,7 @@ function http_put_stream ($url, $stream = null, array $options = null ,  array &
  * @param array $info [optional] <p>
  * &link.http.request.info;
  * </p>
- *
- * @return string
- * <p>
- * &returns.http.response;
- * </p>
+ * @return string &returns.http.response;
  */
 function http_request ($method, $url = null, $body = null, array $options = null ,  array &$info = null ) {}
 

@@ -1073,8 +1073,8 @@ class AMQPExchange
      * @param string $key The key to look up.
      *
      * @return string|integer|false The string or integer value associated
-     *                             with the given key, or FALSE if the key
-     *                             is not set.
+     *                                with the given key, or FALSE if the key
+     *                                is not set.
      */
     public function getArgument($key) { }
 
@@ -1388,8 +1388,8 @@ class AMQPQueue
      * @param string $key The key to look up.
      *
      * @return string|integer|false The string or integer value associated
-     *                             with the given key, or false if the key
-     *                             is not set.
+     *                                with the given key, or false if the key
+     *                                is not set.
      */
     public function getArgument($key) { }
 
