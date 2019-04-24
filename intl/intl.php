@@ -2223,7 +2223,7 @@ class Spoofchecker {
     public function setChecks($checks) { }
 }
 
-class IntlGregorianCalendar {
+class IntlGregorianCalendar extends IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * @param mixed $timeZone
