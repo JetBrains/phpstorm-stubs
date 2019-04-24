@@ -1946,11 +1946,10 @@ class Yaf_Response_Http extends Yaf_Response_Abstract {
     /**
      * @link https://secure.php.net/manual/en/yaf-response-abstract.clearheaders.php
      *
-     * @param string $name
      *
      * @return Yaf_Response_Abstract|false
      */
-    public function clearHeaders($name = null){ }
+    public function clearHeaders(){ }
 
     /**
      * @link https://secure.php.net/manual/en/yaf-response-abstract.setredirect.php

@@ -27,7 +27,6 @@ function error_get_last () {}
  * Note that the parameters for call_user_func are
  * not passed by reference.
  * call_user_func example and references
- * ]]>
  * &example.outputs;
  * </p>
  * @return mixed the function result, or false on error.
@@ -638,17 +637,11 @@ function setrawcookie ($name, $value = null, $expire = 0, $path = "", $domain = 
  * make sure that your script generates the proper status code.
  * </p>
  * <p>
- * ]]>
- * </p>
- * <p>
  * The second special case is the "Location:" header. Not only does
  * it send this header back to the browser, but it also returns a
  * REDIRECT (302) status code to the browser
  * unless the 201 or
  * a 3xx status code has already been set.
- * </p>
- * <p>
- * ]]>
  * </p>
  * @param bool $replace [optional] <p>
  * The optional replace parameter indicates
@@ -656,9 +649,6 @@ function setrawcookie ($name, $value = null, $expire = 0, $path = "", $domain = 
  * add a second header of the same type. By default it will replace,
  * but if you pass in false as the second argument you can force
  * multiple headers of the same type. For example:
- * </p>
- * <p>
- * ]]>
  * </p>
  * @param int $http_response_code [optional] <p>
  * Forces the HTTP response code to the specified value.
