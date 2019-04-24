@@ -667,12 +667,12 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * @param string $enclosure [optional] <p>
      * The field enclosure character (one character only). Defaults as a double quotation mark or the value set using <b>SplFileObject::setCsvControl</b>.
      * </p>
-     * @param string $escape_char The optional escape_char parameter sets the escape character (one character only).
+     * @param string $escape The optional escape parameter sets the escape character (one character only).
      * @return int Returns the length of the written string or FALSE on failure.
      * @since 5.4.0
      *</p>
      */
-	public function fputcsv (array $fields, $delimiter = ',' , $enclosure = '"', $escape_char = "\\") {}
+	public function fputcsv (array $fields, $delimiter = ',' , $enclosure = '"', $escape = "\\") {}
 
         /**
          * Set the delimiter and enclosure character for CSV
