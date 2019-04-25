@@ -133,7 +133,7 @@ namespace MongoDB {}
 
             /**
              * @link https://php.net/manual/en/mongodb-driver-manager.executewritecommand.php
-             * @param string $db The name of the database on which to execute the command that reads.
+             * @param string $db The name of the database on which to execute the command that writes.
              * @param Command $command The command document.
              * @param array $options
              * @return Cursor
