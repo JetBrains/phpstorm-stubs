@@ -969,7 +969,7 @@ class DOMDocument extends DOMNode  {
      * @param int $options [optional] <p>
      * Additional Options. Currently only LIBXML_NOEMPTYTAG is supported.
      * </p>
-     * @return string the XML, or false if an error occurred.
+     * @return string|false the XML, or false if an error occurred.
      * @since 5.0
      */
     public function saveXML (DOMNode $node = null , $options = null) {}

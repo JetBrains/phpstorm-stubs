@@ -52,7 +52,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
    	 * If specified, the function writes the data to the file rather than
    	 * returning it.
    	 * </p>
-     * @return mixed If the <i>filename</i> isn't specified, this function
+     * @return bool|string If the <i>filename</i> isn't specified, this function
    	 * returns a string on success and false on error. If the
    	 * parameter is specified, it returns true if the file was written
    	 * successfully and false otherwise.
