@@ -401,19 +401,19 @@ function wordwrap ($str, $width = 75, $break = "\n", $cut = false) {}
  *
  * </table>
  * @param string $encoding [optional] <p>
- * Defines encoding used in conversion.
- * If omitted, the default value for this argument is ISO-8859-1 in
- * versions of PHP prior to 5.4.0, and UTF-8 from PHP 5.4.0 onwards.
- * </p>
- * <p>
- * For the purposes of this function, the encodings
- * <em>ISO-8859-1</em>, <em>ISO-8859-15</em>,
- * <em>UTF-8</em>, <em>cp866</em>,
- * <em>cp1251</em>, <em>cp1252</em>, and
- * <em>KOI8-R</em> are effectively equivalent, provided the
- * <em><b>string</b></em> itself is valid for the encoding, as
- * the characters affected by  <b>htmlspecialchars()</b> occupy
- * the same positions in all of these encodings.
+ * An optional argument defining the encoding used when converting characters.
+ * <br><br>
+ * If omitted, the default value of the encoding varies depending on the PHP version in use. In PHP 5.6 and later,
+ * the default_charset configuration option is used as the default value. PHP 5.4 and 5.5 will use UTF-8 as
+ * the default. Earlier versions of PHP use ISO-8859-1.
+ * <br><br>
+ * Although this argument is technically optional, you are highly encouraged to specify the correct value for
+ * your code if you are using PHP 5.5 or earlier, or if your default_charset configuration option may be set
+ * incorrectly for the given input.
+ * <br><br>
+ * For the purposes of this function, the encodings ISO-8859-1, ISO-8859-15, UTF-8, cp866, cp1251, cp1252,
+ * and KOI8-R are effectively equivalent, provided the string itself is valid for the encoding,
+ * as the characters affected by htmlspecialchars() occupy the same positions in all of these encodings.
  * </p>
  * @param bool $double_encode [optional] <p>
  * When <em><b>double_encode</b></em> is turned off PHP will not
@@ -423,7 +423,7 @@ function wordwrap ($str, $width = 75, $break = "\n", $cut = false) {}
  * @since 4.0
  * @since 5.0
  */
-function htmlspecialchars ($string, $flags = ENT_COMPAT | ENT_HTML401, $encoding = 'UTF-8', $double_encode = true) {}
+function htmlspecialchars ($string, $flags = ENT_COMPAT | ENT_HTML401, $encoding = 'ini_get("default_charset")', $double_encode = true) {}
 
 /**
  * Convert all applicable characters to HTML entities
@@ -456,11 +456,16 @@ function htmlspecialchars ($string, $flags = ENT_COMPAT | ENT_HTML401, $encoding
  * </tr>
  * </table>
  * </p>
- * @param string $charset [optional] <p>
- * Like htmlspecialchars, it takes an optional
- * third argument charset which defines character
- * set used in conversion.
- * Presently, the ISO-8859-1 character set is used as the default.
+ * @param string $encoding [optional] <p>
+ * An optional argument defining the encoding used when converting characters.
+ * <br><br>
+ * If omitted, the default value of the <b>encoding</b> varies depending on the PHP version in use. In PHP 5.6 and later,
+ * the default_charset configuration option is used as the default value. PHP 5.4 and 5.5 will use UTF-8 as
+ * the default. Earlier versions of PHP use ISO-8859-1.
+ * <br><br>
+ * Although this argument is technically optional, you are highly encouraged to specify the correct value for
+ * your code if you are using PHP 5.5 or earlier, or if your default_charset configuration option may be set
+ * incorrectly for the given input.
  * </p>
  * &reference.strings.charsets;
  * @param bool $double_encode [optional] <p>
@@ -471,7 +476,7 @@ function htmlspecialchars ($string, $flags = ENT_COMPAT | ENT_HTML401, $encoding
  * @since 4.0
  * @since 5.0
  */
-function htmlentities ($string, $quote_style = null, $charset = null, $double_encode = true) {}
+function htmlentities ($string, $quote_style = null, $encoding = 'ini_get("default_charset")', $double_encode = true) {}
 
 /**
  * Convert all HTML entities to their applicable characters
@@ -504,17 +509,23 @@ function htmlentities ($string, $quote_style = null, $charset = null, $double_en
  * </tr>
  * </table>
  * </p>
- * @param string $charset [optional] <p>
- * The ISO-8859-1 character set is used as default for the optional third
- * charset. This defines the character set used in
- * conversion.
+ * @param string $encoding [optional] <p>
+ * An optional argument defining the encoding used when converting characters.
+ * <br><br>
+ * If omitted, the default value of the encoding varies depending on the PHP version in use. In PHP 5.6 and later,
+ * the default_charset configuration option is used as the default value. PHP 5.4 and 5.5 will use UTF-8 as the
+ * default. Earlier versions of PHP use ISO-8859-1.
+ * <br><br>
+ * Although this argument is technically optional, you are highly encouraged to specify the correct value for
+ * your code if you are using PHP 5.5 or earlier, or if your default_charset configuration option may be
+ * set incorrectly for the given input.
  * </p>
  * &reference.strings.charsets;
  * @return string the decoded string.
  * @since 4.3.0
  * @since 5.0
  */
-function html_entity_decode ($string, $quote_style = null, $charset = null) {}
+function html_entity_decode ($string, $quote_style = null, $encoding = 'ini_get("default_charset")') {}
 
 /**
  * Convert special HTML entities back to characters
