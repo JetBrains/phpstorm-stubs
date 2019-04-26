@@ -66,7 +66,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
 	 * @param string $path <p>
 	 * An XPath path
 	 * </p>
-	 * @return static[] an array of SimpleXMLElement (or derived) objects or <b>FALSE</b> in
+	 * @return SimpleXMLElement[] an array of SimpleXMLElement objects or <b>FALSE</b> in
 	 * case of an error.
 	 * @since 5.2.0
 	 */
