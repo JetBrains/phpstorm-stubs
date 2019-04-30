@@ -509,10 +509,11 @@ namespace MongoDB {}
              * Construct immutable ReadPreference
              * @link https://php.net/manual/en/mongodb-driver-readpreference.construct.php
              * @param int $mode
-             * @param array $tagSets
+             * @param array|null $tagSets
+             * @param array $options
              * @throws InvalidArgumentException if mode is invalid or if tagSets is provided for a primary read preference.
              */
-            final public function __construct($mode, array $tagSets = [])
+            final public function __construct($mode, array $tagSets = null, array $options = [] )
             {
             }
 
