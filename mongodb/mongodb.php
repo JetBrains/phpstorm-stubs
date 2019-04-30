@@ -1894,7 +1894,7 @@ namespace MongoDB {}
          * Represents a BSON timestamp, which is an internal MongoDB type not intended for general date storage.
          * @link https://php.net/manual/en/class.mongodb-bson-timestamp.php
          */
-        class Timestamp implements Type
+        class Timestamp implements TimestampInterface, Type
         {
             /**
              * Construct a new Timestamp
@@ -1912,6 +1912,26 @@ namespace MongoDB {}
              * @return string
              */
             final public function __toString()
+            {
+            }
+
+            /**
+             * Returns the increment component of this TimestampInterface
+             * @link https://secure.php.net/manual/en/mongodb-bson-timestampinterface.getincrement.php
+             * @return int
+             * @since 1.3.0
+             */
+            public function getIncrement()
+            {
+            }
+
+            /**
+             * Returns the timestamp component of this TimestampInterface
+             * @link https://secure.php.net/manual/en/mongodb-bson-timestampinterface.gettimestamp.php
+             * @return int
+             * @since 1.3.0
+             */
+            public function getTimestamp()
             {
             }
         }
