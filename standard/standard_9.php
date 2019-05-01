@@ -34,7 +34,7 @@ function array_merge_recursive(array $array1, array $_ = null) { }
  * </p>
  * @param array $array2 [optional]
  * @param array $_ [optional]
- * @return array or null if an error occurs.
+ * @return array|null an array, or &null; if an error occurs.
  * @since 5.3.0
  */
 function array_replace(array $array, array $array1, array $array2 = null, array $_ = null) { }
