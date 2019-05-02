@@ -803,13 +803,13 @@ function shell_exec ($cmd) {}
  * </p>
  * @param string $cwd [optional] <p>
  * The initial working dir for the command. This must be an
- * absolute directory path, or &null;
+ * absolute directory path, or null
  * if you want to use the default value (the working dir of the current
  * PHP process)
  * </p>
  * @param array $env [optional] <p>
  * An array with the environment variables for the command that will be
- * run, or &null; to use the same environment as the current PHP process
+ * run, or null to use the same environment as the current PHP process
  * </p>
  * @param array $other_options [optional] <p>
  * Allows you to specify additional options. Currently supported options

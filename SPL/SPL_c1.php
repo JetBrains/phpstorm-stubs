@@ -811,7 +811,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * the end of <i>string</i> is reached, whichever comes
          * first.
          * </p>
-             * @return int the number of bytes written, or null on error.
+         * @return int|null the number of bytes written, or null on error.
          * @since 5.1.0
          */
         public function fwrite ($str, $length = null) {}
@@ -2153,7 +2153,7 @@ class MultipleIterator implements Iterator {
          * @param Iterator $iterator <p>
          * The new iterator to attach.
          * </p>
-         * @param string $infos [optional] <p>
+         * @param int|string|null $infos [optional] <p>
          * The associative information for the Iterator, which must be an
          * integer, a string, or null.
          * </p>

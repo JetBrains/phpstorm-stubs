@@ -295,7 +295,7 @@ function cubrid_close_request ($req_identifier) {}
  * @param string $attr_name <p>
  * Attribute name that you want to read from the instance.
  * </p>
- * @return array <ul><li>
+ * @return array|false|null <ul><li>
  * Array (0-based numerical array) containing the
  * elements requested, when process is successful;
  * </li>
@@ -655,7 +655,7 @@ function cubrid_fetch_assoc ($result, $type = null) {}
  * Type can only be CUBRID_LOB, this parameter will be used
  * only when you need to operate the lob object.
  * </p>
- * @return object <p>
+ * @return object|false|null <p>
  * an object with string properties
  * that correspond to the fetched row, or false if there
  * are no more rows, or NULL, when process is unsuccessful.

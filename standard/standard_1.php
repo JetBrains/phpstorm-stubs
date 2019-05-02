@@ -507,7 +507,7 @@ function strcoll ($str1, $str2) {}
  * </p>
  * @return string the formatted string. Characters before and after the formatting
  * string will be returned unchanged.
- * Non-numeric number causes returning &null; and
+ * Non-numeric number causes returning null and
  * emitting E_WARNING.
  * @since 4.3.0
  * @since 5.0
@@ -558,7 +558,7 @@ function money_format ($format, $number) {}
  * </p>
  * <p>
  * If length is given and is 0,
- * false or &null; an empty string will be returned.
+ * false or null an empty string will be returned.
  * </p>
  * Using a negative length
  * ]]>
@@ -1069,7 +1069,7 @@ function join ($glue = "", $pieces) {}
  * </li>
  * </ul>
  * @param string|array|null $locale <p>
- * If locale is &null; or the empty string
+ * If locale is null or the empty string
  * "", the locale names will be set from the
  * values of environment variables with the same names as the above
  * categories, or from "LANG".

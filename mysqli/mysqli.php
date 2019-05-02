@@ -131,7 +131,7 @@ class mysqli  {
 	 * </p>
 	 * @param string $host [optional] Can be either a host name or an IP address. Passing the NULL value or the string "localhost" to this parameter, the local host is assumed. When possible, pipes will be used instead of the TCP/IP protocol. Prepending host by p: opens a persistent connection. mysqli_change_user() is automatically called on connections opened from the connection pool. Defaults to ini_get("mysqli.default_host")
 	 * @param string $username [optional] The MySQL user name. Defaults to ini_get("mysqli.default_user")
-	 * @param string $passwd [optional] If not provided or NULL, the MySQL server will attempt to authenticate the user against those user records which have no password only. This allows one username to be used with different permissions (depending on if a password as provided or not). Defaults to ini_get("mysqli.default_pw")
+	 * @param string|null $passwd [optional] If not provided or NULL, the MySQL server will attempt to authenticate the user against those user records which have no password only. This allows one username to be used with different permissions (depending on if a password as provided or not). Defaults to ini_get("mysqli.default_pw")
 	 * @param string $dbname [optional] If provided will specify the default database to be used when performing queries. Defaults to ""
 	 * @param int $port [optional] Specifies the port number to attempt to connect to the MySQL server. Defaults to ini_get("mysqli.default_port")
 	 * @param string $socket [optional] Specifies the socket or named pipe that should be used. Defaults to ini_get("mysqli.default_socket")
@@ -506,7 +506,7 @@ class mysqli  {
 	 * @param string $username [optional] <p>
 	 * The MySQL user name.
 	 * </p>
-	 * @param string $passwd [optional] <p>
+	 * @param string|null $passwd [optional] <p>
 	 * If provided or null, the MySQL server will attempt to authenticate
 	 * the user against those user records which have no password only. This
 	 * allows one username to be used with different permissions (depending
@@ -1149,7 +1149,7 @@ class mysqli_result implements Traversable  {
 	 * Get a result row as an enumerated array
 	 * @link https://php.net/manual/en/mysqli-result.fetch-row.php
 	 * @return array|null mysqli_fetch_row returns an array of strings that corresponds to the fetched row
-	 * or &null; if there are no more rows in result set.
+	 * or null if there are no more rows in result set.
 	 * @since 5.0
 	 */
 	public function fetch_row () {}
@@ -1595,7 +1595,7 @@ function mysqli_commit ($link, $flags, $name) {}
  * @link https://php.net/manual/en/mysqli.construct.php
  * @param string $host Can be either a host name or an IP address. Passing the NULL value or the string "localhost" to this parameter, the local host is assumed. When possible, pipes will be used instead of the TCP/IP protocol.
  * @param string $user The MySQL user name.
- * @param string $password If not provided or NULL, the MySQL server will attempt to authenticate the user against those user records which have no password only.
+ * @param string|null $password If not provided or NULL, the MySQL server will attempt to authenticate the user against those user records which have no password only.
  * @param string $database If provided will specify the default database to be used when performing queries.
  * @param string $port Specifies the port number to attempt to connect to the MySQL server.
  * @param string $socket Specifies the socket or named pipe that should be used.
@@ -1786,7 +1786,7 @@ function mysqli_fetch_object ($result, $class_name = 'stdClass', $params = null)
  * mysqli_store_result() or mysqli_use_result().
  * @link https://php.net/manual/en/mysqli-result.fetch-row.php
  * @return array|null mysqli_fetch_row returns an array of strings that corresponds to the fetched row
- * or &null; if there are no more rows in result set.
+ * or null if there are no more rows in result set.
  */
 function mysqli_fetch_row ($result) {}
 

@@ -196,7 +196,7 @@ function unpack ($format, $data, $offset = 0) {}
  * another browser's info) by passing this parameter.
  * </p>
  * <p>
- * You can bypass this parameter with a &null; value.
+ * You can bypass this parameter with a null value.
  * </p>
  * @param bool $return_array [optional] <p>
  * If set to true, this function will return an array

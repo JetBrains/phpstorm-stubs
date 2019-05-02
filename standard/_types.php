@@ -165,12 +165,12 @@ namespace {
         function valid() {}
         /**
          * Returns whatever was passed to yield or null if nothing was passed or the generator is already closed.
-         * @return mixed
+         * @return mixed|null
          */
         function current() {}
         /**
          * Returns the yielded key or, if none was specified, an auto-incrementing key or null if the generator is already closed.
-         * @return mixed
+         * @return mixed|null
          */
         function key() {}
         /**

@@ -129,7 +129,7 @@ class EmptyIterator implements Iterator {
     /**
      * Return the key of the current element
      * @link https://php.net/manual/en/iterator.key.php
-     * @return mixed scalar on success, or null on failure.
+     * @return mixed|null scalar on success, or null on failure.
      * @since 5.0.0
      */
     public function key() { }
@@ -705,7 +705,7 @@ class LimitIterator extends IteratorIterator {
     /**
      * Get current element
      * @link https://php.net/manual/en/limititerator.current.php
-     * @return mixed the current element or null if there is none.
+     * @return mixed|null the current element or null if there is none.
      * @since 5.1.0
      */
     public function current() { }
@@ -1074,7 +1074,7 @@ class AppendIterator extends IteratorIterator {
     /**
      * Gets the current key
      * @link https://php.net/manual/en/appenditerator.key.php
-     * @return mixed The current key if it is valid or null otherwise.
+     * @return mixed|null The current key if it is valid or null otherwise.
      * @since 5.1.0
      */
     public function key() { }
@@ -1082,7 +1082,7 @@ class AppendIterator extends IteratorIterator {
     /**
      * Gets the current value
      * @link https://php.net/manual/en/appenditerator.current.php
-     * @return mixed The current value if it is valid or &null; otherwise.
+     * @return mixed The current value if it is valid or null otherwise.
      * @since 5.1.0
      */
     public function current() { }

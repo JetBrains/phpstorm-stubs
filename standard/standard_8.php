@@ -176,7 +176,7 @@ function metaphone ($str, $phonemes = 0) {}
  * </p>
  * <p>
  * The output_callback parameter may be bypassed
- * by passing a &null; value.
+ * by passing a null value.
  * </p>
  * <p>
  * ob_end_clean, ob_end_flush,
@@ -678,7 +678,7 @@ function array_walk_recursive (array &$input, $funcname, $userdata = null) {}
  * If var is not an array or an object with
  * implemented Countable interface,
  * 1 will be returned.
- * There is one exception, if var is &null;,
+ * There is one exception, if var is null,
  * 0 will be returned.
  * </p>
  * <p>
@@ -771,7 +771,7 @@ function current (array $array) {}
  * key of the array element that's currently being pointed to by the
  * internal pointer. It does not move the pointer in any way. If the
  * internal pointer points beyond the end of the elements list or the array is 
- * empty, key returns &null;.
+ * empty, key returns null.
  * @since 4.0
  * @since 5.0
  */
@@ -1028,7 +1028,7 @@ function array_push (array &$array, ...$vars) {}
  * </p>
  * @return mixed the last value of array.
  * If array is empty (or is not an array),
- * &null; will be returned.
+ * null will be returned.
  * @since 4.0
  * @since 5.0
  */
@@ -1040,7 +1040,7 @@ function array_pop (array &$array) {}
  * @param array $array <p>
  * The input array.
  * </p>
- * @return mixed|null the shifted value, or &null; if array is
+ * @return mixed|null the shifted value, or null if array is
  * empty or is not an array.
  * @since 4.0
  * @since 5.0

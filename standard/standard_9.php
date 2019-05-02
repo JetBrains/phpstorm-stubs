@@ -34,7 +34,7 @@ function array_merge_recursive(array $array1, array $_ = null) { }
  * </p>
  * @param array $array2 [optional]
  * @param array $_ [optional]
- * @return array|null an array, or &null; if an error occurs.
+ * @return array|null an array, or null if an error occurs.
  * @since 5.3.0
  */
 function array_replace(array $array, array $array1, array $array2 = null, array $_ = null) { }
@@ -50,7 +50,7 @@ function array_replace(array $array, array $array1, array $array2 = null, array 
  * </p>
  * @param array $array2 [optional]
  * @param array $_ [optional]
- * @return array|null an array, or &null; if an error occurs.
+ * @return array|null an array, or null if an error occurs.
  * @since 5.3.0
  */
 function array_replace_recursive(array $array, array $array1, array $array2 = null, array $_ = null) { }
@@ -139,11 +139,11 @@ function array_reverse(array $array, $preserve_keys = null) { }
  * be used at the beginning of the process, or as a final result in case
  * the array is empty.
  * </p>
- * @return mixed the resulting value.
+ * @return mixed|null the resulting value.
  * </p>
  * <p>
  * If the array is empty and initial is not passed,
- * array_reduce returns &null;.
+ * array_reduce returns null.
  * @since 4.0.5
  * @since 5.0
  */
@@ -851,7 +851,7 @@ function assert($assertion, $description = '') { }
  * <tr valign="top">
  * <td>ASSERT_CALLBACK</td>
  * <td>assert.callback</td>
- * <td)<&null;)</td>
+ * <td>null</td>
  * <td>Callback to call on failed assertions</td>
  * </tr>
  * </table>

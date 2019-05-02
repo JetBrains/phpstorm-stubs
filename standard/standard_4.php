@@ -4,7 +4,7 @@
  * Get the last occurred error
  * @link https://php.net/manual/en/function.error-get-last.php
  * @return array an associative array describing the last error with keys "type",
- * "message", "file" and "line". Returns &null; if there hasn't been an error
+ * "message", "file" and "line". Returns null if there hasn't been an error
  * yet.
  * @since 5.2.0
  */
@@ -209,7 +209,7 @@ function var_dump ($expression, $_ = null) {}
  * &note.uses-ob;
  * @return null|string the variable representation when the return
  * parameter is used and evaluates to true. Otherwise, this function will
- * return &null;.
+ * return null.
  * @since 4.2.0
  * @since 5.0
  */

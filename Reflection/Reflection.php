@@ -580,7 +580,7 @@ class ReflectionParameter implements Reflector {
 
     /**
 	 * Returns the default value's constant name if default value is constant or null
-     * @return string
+     * @return string|null
      * @throws \ReflectionException if the parameter is not optional
 	 * @since 5.4.6
      */

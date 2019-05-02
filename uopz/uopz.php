@@ -134,7 +134,7 @@ function uopz_get_mock (string $class) {}
  * @link https://secure.php.net/manual/en/function.uopz-get-property.php
  * @param string|object $class The name of the class or the object instance
  * @param string $property The name of the property
- * @return mixed The value of the class or instance property, or NULL if the property is not defined
+ * @return mixed|null The value of the class or instance property, or NULL if the property is not defined
  */
 function uopz_get_property ($class, string $property) {}
 

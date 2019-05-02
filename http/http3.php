@@ -260,7 +260,7 @@ class Client implements \SplSubject, \Countable {
 	 * @param \http\Client\Request $request The request to retrieve the current progress information for.
 	 * @throws \http\Exception\InvalidArgumentException
 	 * @throws \http\Exception\UnexpectedValueException
-	 * @return object|NULL object stdClass instance holding progress information.
+	 * @return object|null object stdClass instance holding progress information.
 	 * 		 or NULL if $request is not enqueued.
 	 */
 	function getProgressInfo(\http\Client\Request $request) {}
@@ -273,7 +273,7 @@ class Client implements \SplSubject, \Countable {
 	 * @param \http\Client\Request $request The request to fetch the stored response for.
 	 * @throws \http\Exception\InvalidArgumentException
 	 * @throws \http\Exception\UnexpectedValueException
-	 * @return \http\Client\Response|NULL \http\Client\Response the stored response for the request, or the last that was received.
+	 * @return \http\Client\Response|null \http\Client\Response the stored response for the request, or the last that was received.
 	 * 		 or NULL if no more response was available to pop, when no $request was given.
 	 */
 	function getResponse(\http\Client\Request $request = NULL) {}
@@ -464,7 +464,7 @@ class Cookie  {
 	 * See http\Cookie::setCookie().
 	 * 
 	 * @param string $cookie_name The key of the cookie to look up.
-	 * @return string|NULL string the cookie value.
+	 * @return string|null string the cookie value.
 	 * 		 or NULL if $cookie_name could not be found.
 	 */
 	function getCookie(string $cookie_name) {}
@@ -657,7 +657,7 @@ class Env  {
 	 * Retrieve one or all headers of the current HTTP request.
 	 * 
 	 * @param string $header_name The key of a header to retrieve.
-	 * @return NULL|string|array NULL if $header_name was not found
+	 * @return null|string|array NULL if $header_name was not found
 	 * 		 or string the compound header when $header_name was found
 	 * 		 or array of all headers if $header_name was not specified
 	 */
@@ -672,7 +672,7 @@ class Env  {
 	 * Get one or all HTTP response headers to be sent.
 	 * 
 	 * @param string $header_name The name of the response header to retrieve.
-	 * @return string|NULL|array string the compound value of the response header to send
+	 * @return string|null|array string the compound value of the response header to send
 	 * 		 or NULL if the header was not found
 	 * 		 or array of all response headers, if $header_name was not specified
 	 */
@@ -704,7 +704,7 @@ class Env  {
 	 * @param array $supported List of supported negotiation operands.
 	 * @param string $prim_typ_sep A "primary type separator", i.e. that would be a hyphen for content language negotiation (en-US, de-DE, etc.).
 	 * @param array $result Out parameter recording negotiation results.
-	 * @return NULL|string NULL if negotiation fails.
+	 * @return null|string NULL if negotiation fails.
 	 * 		 or string the closest match negotiated, or the default (first entry of $supported).
 	 */
 	function negotiate(string $params, array $supported, string $prim_typ_sep = NULL, array &$result = NULL) {}
@@ -716,7 +716,7 @@ class Env  {
 	 * 
 	 * @param array $supported List of supported content character sets.
 	 * @param array $result Out parameter recording negotiation results.
-	 * @return NULL|string NULL if negotiation fails.
+	 * @return null|string NULL if negotiation fails.
 	 * 		 or string the negotiated character set.
 	 */
 	function negotiateCharset(array $supported, array &$result = NULL) {}
@@ -728,7 +728,7 @@ class Env  {
 	 * 
 	 * @param array $supported List of supported MIME content types.
 	 * @param array $result Out parameter recording negotiation results.
-	 * @return NULL|string NULL if negotiation fails.
+	 * @return null|string NULL if negotiation fails.
 	 * 		 or string the negotiated content type.
 	 */
 	function negotiateContentType(array $supported, array &$result = NULL) {}
@@ -740,7 +740,7 @@ class Env  {
 	 * 
 	 * @param array $supported List of supported content encodings.
 	 * @param array $result Out parameter recording negotiation results.
-	 * @return NULL|string NULL if negotiation fails.
+	 * @return null|string NULL if negotiation fails.
 	 * 		 or string the negotiated encoding.
 	 */
 	function negotiateEncoding(array $supported, array &$result = NULL) {}
@@ -752,7 +752,7 @@ class Env  {
 	 * 
 	 * @param array $supported List of supported content languages.
 	 * @param array $result Out parameter recording negotiation results.
-	 * @return NULL|string NULL if negotiation fails.
+	 * @return null|string NULL if negotiation fails.
 	 * 		 or string the negotiated language.
 	 */
 	function negotiateLanguage(array $supported, array &$result = NULL) {}
@@ -870,7 +870,7 @@ class Header implements \Serializable {
 	 * 
 	 * @param array $supported The list of supported values to negotiate.
 	 * @param array $result Out parameter recording the negotiation results.
-	 * @return NULL|string NULL if negotiation fails.
+	 * @return null|string NULL if negotiation fails.
 	 * 		 or string the closest match negotiated, or the default (first entry of $supported).
 	 */
 	function negotiate(array $supported, array &$result = NULL) {}
@@ -1089,7 +1089,7 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * * http\Message::getRequestMethod()
 	 * * http\Message::getRequestUrl()
 	 * 
-	 * @return string|NULL string the HTTP message information.
+	 * @return string|null string the HTTP message information.
 	 * 		 or NULL if the message is neither of type request nor response.
 	 */
 	function getInfo() {}
@@ -1664,7 +1664,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate {
 	 * Implements ArrayAccess.
 	 * 
 	 * @param mixed $offset The offset to look up.
-	 * @return mixed|NULL mixed the value locate at offset $name.
+	 * @return mixed|null mixed the value locate at offset $name.
 	 * 		 or NULL if key $name could not be found.
 	 */
 	function offsetGet($offset) {}
@@ -2119,7 +2119,7 @@ class Request extends \http\Message {
 	 * Extract the currently set "Content-Type" header.
 	 * See http\Client\Request::setContentType().
 	 * 
-	 * @return string|NULL string the currently set content type.
+	 * @return string|null string the currently set content type.
 	 * 		 or NULL if no "Content-Type" header is set.
 	 */
 	function getContentType() {}
@@ -2133,7 +2133,7 @@ class Request extends \http\Message {
 	/**
 	 * Retrieve the currently set querystring.
 	 * 
-	 * @return string|NULL string the currently set querystring.
+	 * @return string|null string the currently set querystring.
 	 * 		 or NULL if no querystring is set.
 	 */
 	function getQuery() {}
@@ -3165,7 +3165,7 @@ class Body implements \Serializable {
 	 * Retrieve any boundary of the message body.
 	 * See http\Message::splitMultipartBody().
 	 * 
-	 * @return string|NULL string the message body boundary.
+	 * @return string|null string the message body boundary.
 	 * 		 or NULL if this message body has no boundary.
 	 */
 	function getBoundary() {}

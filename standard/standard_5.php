@@ -138,7 +138,7 @@ function gettype ($var) {}
 function settype (&$var, $type) {}
 
 /**
- * Finds whether a variable is &null;
+ * Finds whether a variable is null
  * @link https://php.net/manual/en/function.is-null.php
  * @param mixed $var <p>
  * The variable being evaluated.
@@ -1042,7 +1042,7 @@ function file ($filename, $flags = null, $context = null) {}
  * @param resource $context [optional] <p>
  * A valid context resource created with 
  * stream_context_create. If you don't need to use a
- * custom context, you can skip this parameter by &null;.
+ * custom context, you can skip this parameter by null.
  * </p>
  * @param int $offset [optional] <p>
  * The offset where the reading starts.

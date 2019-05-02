@@ -1140,7 +1140,7 @@ function ncurses_keyok ($keycode, $enable) {}
  * Returns terminals (short)-name
  * @link https://php.net/manual/en/function.ncurses-termname.php
  * @return string the shortname of the terminal, truncated to 14 characters.
- * On errors, returns &null;.
+ * On errors, returns null.
  * </p>
  */
 function ncurses_termname () {}
@@ -1149,7 +1149,7 @@ function ncurses_termname () {}
  * Returns terminals description
  * @link https://php.net/manual/en/function.ncurses-longname.php
  * @return string the description, as a string truncated to 128 characters.
- * On errors, returns &null;.
+ * On errors, returns null.
  * </p>
  */
 function ncurses_longname () {}

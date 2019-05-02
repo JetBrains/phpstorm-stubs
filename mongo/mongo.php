@@ -1598,7 +1598,7 @@ class MongoCommandCursor implements MongoCursorInterface {
     /**
      * Return the key of the current element
      * @link https://php.net/manual/en/iterator.key.php
-     * @return mixed scalar on success, or null on failure.
+     * @return mixed|null scalar on success, or null on failure.
      * @since 5.0.0
      */
     public function key(){}

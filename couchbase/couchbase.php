@@ -225,7 +225,7 @@ namespace Couchbase {
      */
     class Document {
         /**
-         * @var Exception exception object in case of error, or NULL
+         * @var Exception|null exception object in case of error, or NULL
          */
         public $error;
 
@@ -266,7 +266,7 @@ namespace Couchbase {
      */
     class DocumentFragment {
         /**
-         * @var Exception exception object in case of error, or NULL
+         * @var Exception|null exception object in case of error, or NULL
          */
         public $error;
 

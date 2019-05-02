@@ -27,7 +27,7 @@
  * </p>
  * You do not need to pass every array to
  * stream_select. You can leave it out and use an
- * empty array or &null; instead. Also do not forget that those arrays are
+ * empty array or null instead. Also do not forget that those arrays are
  * passed by reference and will be modified after
  * stream_select returns.
  * @param int $tv_sec <p>
@@ -43,7 +43,7 @@
  * current status of the streams.
  * </p>
  * <p>
- * If tv_sec is &null; stream_select
+ * If tv_sec is null stream_select
  * can block indefinitely, returning only when an event on one of the
  * watched streams occurs (or if a signal interrupts the system call).
  * </p>
@@ -640,7 +640,7 @@ function stream_supports_lock ($stream) {}
  * </p>
  * &note.line-endings;
  * <p>
- * fgetcsv returns &null; if an invalid
+ * fgetcsv returns null if an invalid
  * handle is supplied or false on other errors,
  * including end of file.
  * @since 4.0

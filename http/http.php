@@ -719,7 +719,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	/**
 	 * String representation of object
 	 * @link https://php.net/manual/en/serializable.serialize.php
-	 * @return string the string representation of the object or null
+	 * @return string|null the string representation of the object or null
 	 * @since 5.1.0
 	 */
 	public function serialize()

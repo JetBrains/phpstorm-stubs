@@ -1153,7 +1153,7 @@ function sqlite_create_function ($dbhandle, $function_name, $callback, $num_args
  * Passed by reference and is set to hold a descriptive error message
  * explaining why the database could not be opened if there was an error.
  * </p>
- * @return SQLiteDatabase a SQLiteDatabase object on success, &null; on error.
+ * @return SQLiteDatabase a SQLiteDatabase object on success, null on error.
  * @since 5.0
  */
 function sqlite_factory ($filename, $mode = null, &$error_message = null) {}

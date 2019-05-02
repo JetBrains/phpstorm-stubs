@@ -479,7 +479,7 @@ class DOMImplementation  {
      * The external subset system identifier.
      * </p>
      * @return DOMDocumentType A new DOMDocumentType node with its
-     * ownerDocument set to &null;.
+     * ownerDocument set to null.
      * @since 5.0
      */
     public function createDocumentType ($qualifiedName = null, $publicId = null, $systemId = null) {}
@@ -493,8 +493,8 @@ class DOMImplementation  {
      * @param string $qualifiedName [optional] <p>
      * The qualified name of the document element to create.
      * </p>
-     * @param DOMDocumentType $doctype [optional] <p>
-     * The type of document to create or &null;.
+     * @param DOMDocumentType|null $doctype [optional] <p>
+     * The type of document to create or null.
      * </p>
      * @return DOMDocument A new DOMDocument object. If
      * namespaceURI, qualifiedName,
@@ -885,7 +885,7 @@ class DOMDocument extends DOMNode  {
      * @param string $elementId <p>
      * The unique id value for an element.
      * </p>
-     * @return DOMElement|null the DOMElement or &null; if the element is
+     * @return DOMElement|null the DOMElement or null if the element is
      * not found.
      * @since 5.0
      */
@@ -1116,7 +1116,7 @@ class DOMDocument extends DOMNode  {
      * classes in the chapter introduction.
      * </p>
      * @param string $extendedclass <p>
-     * Your extended class name. If &null; is provided, any previously
+     * Your extended class name. If null is provided, any previously
      * registered class extending baseclass will
      * be removed.
      * </p>
@@ -1148,7 +1148,7 @@ class DOMNodeList implements Traversable, Countable {
 	 * Index of the node into the collection.
 	 * </p>
 	 * @return DOMNode|null The node at the indexth position in the 
-	 * DOMNodeList, or &null; if that is not a valid
+	 * DOMNodeList, or null if that is not a valid
 	 * index.
 	 * @since 5.0
    */
@@ -1176,7 +1176,7 @@ class DOMNamedNodeMap implements Traversable, Countable {
      * The nodeName of the node to retrieve.
      * </p>
      * @return DOMNode|null A node (of any type) with the specified nodeName, or
-     * &null; if no node is found.
+     * null if no node is found.
      * @since 5.0
      */
     public function getNamedItem ($name) {}
@@ -1197,7 +1197,7 @@ class DOMNamedNodeMap implements Traversable, Countable {
      * @param int $index <p>
      * Index into this map.
      * </p>
-     * @return DOMNode|null The node at the indexth position in the map, or &null;
+     * @return DOMNode|null The node at the indexth position in the map, or null
      * if that is not a valid index (greater than or equal to the number of nodes
      * in this map).
      * @since 5.0
@@ -1214,7 +1214,7 @@ class DOMNamedNodeMap implements Traversable, Countable {
      * The local name of the node to retrieve.
      * </p>
      * @return DOMNode|null A node (of any type) with the specified local name and namespace URI, or
-     * &null; if no node is found.
+     * null if no node is found.
      * @since 5.0
      */
     public function getNamedItemNS ($namespaceURI, $localName) {}
@@ -1521,7 +1521,7 @@ class DOMElement extends DOMNode  {
      * @param DOMAttr $attr <p>
      * The attribute node.
      * </p>
-     * @return DOMAttr old node if the attribute has been replaced or &null;.
+     * @return DOMAttr|null old node if the attribute has been replaced or null.
      * @since 5.0
      */
     public function setAttributeNode (DOMAttr $attr) {}
@@ -1942,7 +1942,7 @@ class DOMDocumentType extends DOMNode
     public $notations;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The internal subset as a string, or null if there is none. This is does not contain the delimiting square brackets.
      * @link https://php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props.internalsubset
