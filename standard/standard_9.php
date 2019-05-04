@@ -179,7 +179,7 @@ function array_pad(array $input, $pad_size, $pad_value) { }
  * @param array $array <p>
  * An array of key/value pairs to be flipped.
  * </p>
- * @return array|null Returns the flipped array on success and NULL on failure.
+ * @return array Returns the flipped array.
  * @since 4.0
  * @since 5.0
  */
