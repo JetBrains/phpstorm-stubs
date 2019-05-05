@@ -2132,7 +2132,7 @@ class Redis
      * - vm_enabled
      * - role
      * @link    https://redis.io/commands/info
-     * @return string
+     * @return string|array
      * @example
      * <pre>
      * $redis->info();
