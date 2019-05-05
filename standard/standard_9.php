@@ -195,8 +195,7 @@ function array_flip(array $array) { }
  * Either CASE_UPPER or
  * CASE_LOWER (default)
  * </p>
- * @return array|false an array with its keys lower or uppercased, or false if
- * input is not an array.
+ * @return array an array with its keys lower or uppercased
  * @since 4.2.0
  * @since 5.0
  */
