@@ -58,29 +58,74 @@ function cli_set_process_title ($title) {}
 function cli_get_process_title () {}
 
 /**
- * Reclaims memory used by the Zend Engine memory manager
- * @link https://php.net/manual/en/function.gc-mem-caches.php
- * @return int Returns the number of bytes freed.
- * @since 7.0
+ * Verify that the contents of a variable is accepted by the iterable pseudo-type, i.e. that it is an array or an object implementing Traversable
+ * @param mixed $value
+ * @return bool
+ * @since 7.1
+ * @link https://php.net/manual/en/function.is-iterable.php
  */
-function gc_mem_caches () {}
+function is_iterable($value) {}
 
 /**
- * Returns active resources
- * @link https://php.net/manual/en/function.get-resources.php
- * @param string $type [optional]<p>
- *
- * If defined, this will cause get_resources() to only return resources of the given type. A list of resource types is available.
- *
- * If the string Unknown is provided as the type, then only resources that are of an unknown type will be returned.
- *
- * If omitted, all resources will be returned.
+ * Encodes an ISO-8859-1 string to UTF-8
+ * @link https://php.net/manual/en/function.utf8-encode.php
+ * @param string $data <p>
+ * An ISO-8859-1 string.
  * </p>
- * @return array Returns an array of currently active resources, indexed by resource number.
+ * @return string the UTF-8 translation of <i>data</i>.
+ * @since 4.0
+ * @since 5.0
+ */
+function utf8_encode ($data) {}
+
+/**
+ * Converts a string with ISO-8859-1 characters encoded with UTF-8
+ * @since 4.0
+ * @since 5.0
+to single-byte ISO-8859-1
+ * @link https://php.net/manual/en/function.utf8-decode.php
+ * @param string $data <p>
+ * An UTF-8 encoded string.
+ * </p>
+ * @return string the ISO-8859-1 translation of <i>data</i>.
+ */
+function utf8_decode ($data) {}
+
+/**
+ * Clear the most recent error
+ * @link https://php.net/manual/en/function.error-clear-last.php
  * @since 7.0
  */
-function get_resources ($type) {}
+function error_clear_last () {}
 
+/**
+ * @param string $kind
+ * @return int
+ * @since 7.1
+ */
+function sapi_windows_cp_get($kind) {}
+
+/**
+ * @param int $cp
+ * @return bool
+ * @since 7.1
+ */
+function sapi_windows_cp_set($cp) {}
+
+/**
+ * @param int|string $in_codepage
+ * @param int|string $out_codepage
+ * @param string $subject
+ * @return string
+ * @since 7.1
+ */
+function sapi_windows_cp_conv($in_codepage, $out_codepage, $subject) {}
+
+/**
+ * @return bool
+ * @since 7.1
+ */
+function sapi_windows_cp_is_utf8() {}
 
 /**
  * The full path and filename of the file. If used inside an include,

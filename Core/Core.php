@@ -992,12 +992,6 @@ function get_defined_constants ($categorize = false) {}
  */
 function debug_backtrace ($options = DEBUG_BACKTRACE_PROVIDE_OBJECT, $limit = 0) {}
 
-/**
- * Clear the most recent error
- * @link https://php.net/manual/en/function.error-clear-last.php
- * @since 7.0
- */
-function error_clear_last () {}
 const DEBUG_BACKTRACE_PROVIDE_OBJECT = 0;
 const DEBUG_BACKTRACE_IGNORE_ARGS = 0;
 
@@ -1064,70 +1058,25 @@ function gc_disable () {}
 function gc_status () {}
 
 /**
- * @param string $kind
- * @return int
- * @since 7.1
+ * Reclaims memory used by the Zend Engine memory manager
+ * @link https://php.net/manual/en/function.gc-mem-caches.php
+ * @return int Returns the number of bytes freed.
+ * @since 7.0
  */
-function sapi_windows_cp_get($kind) {
-
-}
+function gc_mem_caches () {}
 
 /**
- * @param int $cp
- * @return bool
- * @since 7.1
- */
-function sapi_windows_cp_set($cp) {
-
-}
-
-/**
- * @param int|string $in_codepage
- * @param int|string $out_codepage
- * @param string $subject
- * @return string
- * @since 7.1
- */
-function sapi_windows_cp_conv($in_codepage, $out_codepage, $subject) {}
-
-/**
- * @return bool
- * @since 7.1
- */
-function sapi_windows_cp_is_utf8() {
-
-}
-
-/**
- * Verify that the contents of a variable is accepted by the iterable pseudo-type, i.e. that it is an array or an object implementing Traversable
- * @param mixed $value
- * @return bool
- * @since 7.1
- * @link https://php.net/manual/en/function.is-iterable.php
- */
-function is_iterable($value) {}
-
-/**
- * Encodes an ISO-8859-1 string to UTF-8
- * @link https://php.net/manual/en/function.utf8-encode.php
- * @param string $data <p>
- * An ISO-8859-1 string.
+ * Returns active resources
+ * @link https://php.net/manual/en/function.get-resources.php
+ * @param string $type [optional]<p>
+ *
+ * If defined, this will cause get_resources() to only return resources of the given type. A list of resource types is available.
+ *
+ * If the string Unknown is provided as the type, then only resources that are of an unknown type will be returned.
+ *
+ * If omitted, all resources will be returned.
  * </p>
- * @return string the UTF-8 translation of <i>data</i>.
- * @since 4.0
- * @since 5.0
+ * @return array Returns an array of currently active resources, indexed by resource number.
+ * @since 7.0
  */
-function utf8_encode ($data) {}
-
-/**
- * Converts a string with ISO-8859-1 characters encoded with UTF-8
- * @since 4.0
- * @since 5.0
-to single-byte ISO-8859-1
- * @link https://php.net/manual/en/function.utf8-decode.php
- * @param string $data <p>
- * An UTF-8 encoded string.
- * </p>
- * @return string the ISO-8859-1 translation of <i>data</i>.
- */
-function utf8_decode ($data) {}
+function get_resources ($type) {}
