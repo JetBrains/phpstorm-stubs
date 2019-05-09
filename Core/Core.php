@@ -1003,4 +1003,4 @@ function gc_mem_caches () {}
  * @return array Returns an array of currently active resources, indexed by resource number.
  * @since 7.0
  */
-function get_resources ($type) {}
+function get_resources ($type = null) {}
