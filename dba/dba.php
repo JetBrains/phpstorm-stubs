@@ -117,7 +117,7 @@
  * can act on behalf of them.
  * </p>
  * @param mixed $_ [optional]
- * @return resource a positive handle on success or <b>FALSE</b> on failure.
+ * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  * @since 4.0
  * @since 5.0
  */
@@ -142,7 +142,7 @@ function dba_open ($path, $mode, $handler = null, $_ = null) {}
  * can act on behalf of them.
  * </p>
  * @param mixed $_ [optional]
- * @return resource a positive handle on success or <b>FALSE</b> on failure.
+ * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  * @since 4.0
  * @since 5.0
  */
@@ -262,7 +262,7 @@ function dba_replace ($key, $value, $handle) {}
  * The database handler, returned by <b>dba_open</b> or
  * <b>dba_popen</b>.
  * </p>
- * @return string the key on success or <b>FALSE</b> on failure.
+ * @return string|false the key on success or <b>FALSE</b> on failure.
  * @since 4.0
  * @since 5.0
  */

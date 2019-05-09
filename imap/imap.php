@@ -1199,7 +1199,7 @@ function imap_mime_header_decode ($text) {}
  * @link https://php.net/manual/en/function.imap-thread.php
  * @param resource $imap_stream 
  * @param int $options [optional]
- * @return array <b>imap_thread</b> returns an associative array containing
+ * @return array|false <b>imap_thread</b> returns an associative array containing
  * a tree of messages threaded by REFERENCES, or <b>FALSE</b>
  * on error.
  * </p>

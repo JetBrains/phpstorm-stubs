@@ -406,7 +406,7 @@ function xml_get_error_code ($parser) {}
  * @param int $code <p>
  * An error code from <b>xml_get_error_code</b>.
  * </p>
- * @return string a string with a textual description of the error
+ * @return string|false a string with a textual description of the error
  * <i>code</i>, or <b>FALSE</b> if no description was found.
  * @since 4.0
  * @since 5.0
