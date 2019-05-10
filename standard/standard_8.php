@@ -112,15 +112,6 @@ function getimagesizefromstring ($imagedata , array &$imageinfo = null) {}
 function stream_set_chunk_size ($fp , $chunk_size) {}
 
 /**
- * PHP > 5.4.0<br/>
- * Import a stream.
- * @link https://secure.php.net/manual/en/function.socket-import-stream.php
- * @param resource $stream The stream resource to import.
- * @return void|bool|null Returns <b>FALSE</b> or <b>NULL</b> on failure.
- */
-function socket_import_stream ($stream) {}
-
-/**
  * Initializes all syslog related variables
  * @link https://php.net/manual/en/function.define-syslog-variables.php
  * @deprecated 5.3
