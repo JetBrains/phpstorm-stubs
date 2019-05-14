@@ -71,7 +71,7 @@ function yaml_emit_file($filename,$data,$encoding=YAML_ANY_ENCODING,$linebreak=Y
  * @param array $callbacks [optional] Content handlers for YAML nodes. Associative array of YAML tag => callable mappings. See parse callbacks for more details.
  * @return string Returns a YAML encoded string on success.
  */
-function yaml_emit($data,$encoding,$linebreak,$callbacks=array()) {}
+function yaml_emit($data,$encoding=YAML_ANY_ENCODING,$linebreak=YAML_ANY_BREAK,$callbacks=array()) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0, PECL yaml &gt;= 0.4.0)<br/>
