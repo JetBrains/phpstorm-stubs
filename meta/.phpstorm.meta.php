@@ -502,6 +502,9 @@ namespace PHPSTORM_META {
 
     expectedArguments(\checkdnsrr(), 1, 'A', 'MX', 'NS', 'SOA', 'PTR', 'CNAME', 'AAAA', 'A6', 'SRV', 'NAPTR', 'TXT', 'ANY');
 
+    expectedArguments(\yaml_emit(), 1, YAML_ANY_ENCODING, YAML_UTF8_ENCODING, YAML_UTF16LE_ENCODING, YAML_UTF16BE_ENCODING);
+    expectedArguments(\yaml_emit(), 2, YAML_ANY_BREAK, YAML_CR_BREAK, YAML_LN_BREAK, YAML_CRLN_BREAK);
+
 //  override( \ServiceLocatorInterface::get(0),
 //    map( [
 //      "A" => \Exception::class,
