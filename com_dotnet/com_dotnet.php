@@ -73,6 +73,12 @@ class VARIANT {
 }
 
 /**
+ * This extension will throw instances of the class com_exception whenever there is a potentially fatal error reported by COM. All COM exceptions have a well-defined code property that corresponds to the HRESULT return value from the various COM operations. You may use this code to make programmatic decisions on how to handle the exception.
+ * @link https://php.net/manual/en/com.error-handling.php
+ */
+class com_exception extends \Exception {}
+
+/**
  * (PHP 5, PHP 7)<br/>
  * Generate a globally unique identifier (GUID)
  * @link https://php.net/manual/en/function.com-create-guid.php
