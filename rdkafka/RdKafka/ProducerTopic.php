@@ -19,4 +19,17 @@ class ProducerTopic extends Topic
     public function produce($partition, $msgflags, $payload, $key = null)
     {
     }
+
+    /**
+     * @param int         $partition
+     * @param int         $msgflags
+     * @param string|null $payload
+     * @param string|null $key
+     * @param array|null  $headers
+     *
+     * @return void
+     */
+    public function producev($partition, $msgflags, $payload = null, $key = null, $headers = null)
+    {
+    }
 }
