@@ -3,9 +3,6 @@
 namespace parallel;
 
 use parallel\Future\Error;
-use parallel\Future\Error\Killed;
-use parallel\Future\Error\Cancelled;
-use parallel\Future\Error\Foreign;
 use Throwable;
 
 final class Future
@@ -14,9 +11,9 @@ final class Future
      * Shall return (and if necessary wait for) return from task.
      *
      * @throws Error if waiting failed (internal error).
-     * @throws Killed if the Runtime executing task was killed.
-     * @throws Cancelled if task was already cancelled.
-     * @throws Foreign if task raised an unrecognized uncaught exception.
+     * @throws Error\Killed if the Runtime executing task was killed.
+     * @throws Error\Cancelled if task was already cancelled.
+     * @throws Error\Foreign if task raised an unrecognized uncaught exception.
      * @throws Throwable Shall rethrow \Throwable uncaught in task
      *
      * @return mixed
@@ -40,8 +37,8 @@ final class Future
     /**
      * Shall try to cancel the task
      *
-     * @throws Killed if the Runtime executing task was killed.
-     * @throws Cancelled if task was already cancelled.
+     * @throws Error\Killed if the Runtime executing task was killed.
+     * @throws Error\Cancelled if task was already cancelled.
      *
      * @return bool
      */
