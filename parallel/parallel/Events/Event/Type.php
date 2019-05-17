@@ -8,21 +8,45 @@ namespace parallel\Events\Event;
  */
 final class Type
 {
-    /* Event::$object was read into Event::$value */
+    /**
+     * Event::$object was read into Event::$value
+     *
+     * @var int
+     */
     public const Read = null;
 
-    /* Input for Event::$source written to Event::$object */
+    /**
+     * Input for Event::$source written to Event::$object
+     *
+     * @var int
+     */
     public const Write = null;
 
-    /* Event::$object (Channel) was closed */
+    /**
+     * Event::$object (Channel) was closed
+     *
+     * @var int
+     */
     public const Close = null;
 
-    /* Event::$object (Future) was cancelled */
+    /**
+     * Event::$object (Future) was cancelled
+     *
+     * @var int
+     */
     public const Cancel = null;
 
-    /* Runtime executing Event::$object (Future) was killed */
+    /**
+     * Runtime executing Event::$object (Future) was killed
+     *
+     * @var int
+     */
     public const Kill = null;
 
-    /* Event::$object (Future) raised error */
+    /**
+     * Event::$object (Future) raised error
+     *
+     * @var int
+     */
     public const Error = null;
 }
