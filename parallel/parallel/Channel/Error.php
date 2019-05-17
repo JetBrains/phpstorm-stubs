@@ -2,8 +2,8 @@
 
 namespace parallel\Channel;
 
-use Exception;
+use parallel\Error as ParallelError;
 
-class Error extends Exception
+class Error extends ParallelError
 {
 }
