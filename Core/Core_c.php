@@ -621,7 +621,7 @@ final class Closure {
      * @return mixed
      * @since 7.0
      */
-    function call ($newThis, ...$parameters) {}
+    function call ($newthis, ...$parameters) {}
     
     /**
      * @param callable $callable
