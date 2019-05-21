@@ -266,7 +266,11 @@ class Redis
     public function popen( $host, $port = 6379, $timeout = 0.0, $persistent_id = null, $retry_interval = 0, $read_timeout = 0.0 ) {}
 
     /**
-     * Disconnects from the Redis instance, except when pconnect is used.
+     * Disconnects from the Redis instance.
+     *
+     * Note: Closing a persistent connection requires PhpRedis >= 4.2.0.
+     *
+     * @return bool TRUE on success, FALSE on error.
      */
     public function close( ) {}
 
