@@ -810,6 +810,15 @@ function key_exists($key, $search) { }
 function assert($assertion, $description = '') { }
 
 /**
+ * AssertionError is thrown when an assertion made via {@see assert()} fails.
+ * @link https://php.net/manual/en/class.assertionerror.php
+ * @since 7.0
+ */
+class AssertionError extends Error {
+
+}
+
+/**
  * Set/get the various assert flags
  * @link https://php.net/manual/en/function.assert-options.php
  * @param int $what <p>
