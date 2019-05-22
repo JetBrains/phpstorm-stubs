@@ -35,6 +35,11 @@ class Message
     public $offset;
 
     /**
+     * @var array
+     */
+    public $headers;
+
+    /**
      * @return string
      */
     public function errstr()
