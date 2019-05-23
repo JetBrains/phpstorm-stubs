@@ -156,6 +156,7 @@ function finfo_buffer ($finfo ,$string, $options = FILEINFO_NONE, $context = NUL
 /**
  * Detect MIME Content-type for a file
  * @link https://php.net/manual/en/function.mime-content-type.php
+ * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
  * @param string $filename <p>
  * Path to the tested file.
  * </p>
