@@ -624,6 +624,7 @@ function setrawcookie ($name, $value = null, $expire = 0, $path = "", $domain = 
 /**
  * Send a raw HTTP header
  * @link https://php.net/manual/en/function.header.php
+ * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
  * @param string $string <p>
  * The header string.
  * </p>
@@ -662,6 +663,7 @@ function header ($string, $replace = true, $http_response_code = null) {}
 /**
  * Remove previously set headers
  * @link https://php.net/manual/en/function.header-remove.php
+ * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
  * @param string $name [optional] <p>
  * The header name to be removed.
  * </p>
@@ -674,6 +676,7 @@ function header_remove ($name = null) {}
 /**
  * Checks if or where headers have been sent
  * @link https://php.net/manual/en/function.headers-sent.php
+ * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
  * @param string $file [optional] <p>
  * If the optional file and
  * line parameters are set, 
@@ -694,6 +697,7 @@ function headers_sent (&$file = null, &$line = null) {}
 /**
  * Returns a list of response headers sent (or ready to send)
  * @link https://php.net/manual/en/function.headers-list.php
+ * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
  * @return array a numerically indexed array of headers.
  * @since 5.0
  */
