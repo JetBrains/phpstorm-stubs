@@ -846,6 +846,7 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
 /**
  * Get the size of an image
  * @link https://php.net/manual/en/function.getimagesize.php
+ * @link https://www.iana.org/assignments/media-types/media-types.xhtml#image
  * @param string $filename <p>
  * This parameter specifies the file you wish to retrieve information
  * about. It can reference a local file or (configuration permitting) a
@@ -913,6 +914,7 @@ function getimagesize ($filename, array &$imageinfo = null) {}
  * @since 4.3.0
  * @since 5.0
  * @link https://php.net/manual/en/function.image-type-to-mime-type.php
+ * @link https://www.iana.org/assignments/media-types/media-types.xhtml#image
  * @param int $imagetype <p>
  * One of the IMAGETYPE_XXX constants.
  * </p>
