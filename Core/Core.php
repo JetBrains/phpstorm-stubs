@@ -1080,7 +1080,7 @@ function gc_mem_caches () {}
  *
  * If omitted, all resources will be returned.
  * </p>
- * @return array Returns an array of currently active resources, indexed by resource number.
+ * @return resource[] Returns an array of currently active resources, indexed by resource number.
  * @since 7.0
  */
 function get_resources ($type) {}
