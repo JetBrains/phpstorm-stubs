@@ -2123,5 +2123,23 @@ class ReflectionNamedType extends ReflectionType{
 
 }
 
+/**
+ * @since 7.4
+ */
+final class ReflectionReference
+{
+	/**
+	 * @param array $array
+	 * @param int|string $key
+	 * @return self|null
+	 */
+	public static function fromArrayElement($array, $key) {}
+	
+	/**
+	 * @return int|string
+	 */
+	public function getId() {}
+}
+
 // End of Reflection v.$Id: bcdcdaeea3aba34a8083bb62c6eda69ff3c3eab5 $
 ?>
