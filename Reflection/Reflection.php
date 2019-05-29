@@ -2129,6 +2129,7 @@ class ReflectionNamedType extends ReflectionType{
 final class ReflectionReference
 {
 	/**
+	 * Returns ReflectionReference if array element is a reference, null otherwise
 	 * @param array $array
 	 * @param int|string $key
 	 * @return self|null
@@ -2136,9 +2137,14 @@ final class ReflectionReference
 	public static function fromArrayElement($array, $key) {}
 	
 	/**
+	 * Returns unique identifier for the reference. The return value format is unspecified
 	 * @return int|string
 	 */
 	public function getId() {}
+	
+	private function __construct() {}
+	
+	private function __clone() {}
 }
 
 // End of Reflection v.$Id: bcdcdaeea3aba34a8083bb62c6eda69ff3c3eab5 $
