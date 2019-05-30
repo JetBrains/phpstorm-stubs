@@ -409,7 +409,7 @@ function php_strip_whitespace ($filename) {}
 /**
  * Gets the value of a configuration option
  * @link https://php.net/manual/en/function.ini-get.php
- *
+ * @link https://php.net/manual/en/ini.list.php
  * @param string $varname <p>
  * The configuration option name.
  * </p>
@@ -424,6 +424,7 @@ function ini_get ($varname) {}
 /**
  * Gets all configuration options
  * @link https://php.net/manual/en/function.ini-get-all.php
+ * @link https://php.net/manual/en/ini.list.php
  * @param string $extension [optional] <p>
  * An optional extension name. If set, the function return only options
  * specific for that extension.
@@ -460,6 +461,7 @@ function ini_get_all ($extension = null, $details = null) {}
 /**
  * Sets the value of a configuration option
  * @link https://php.net/manual/en/function.ini-set.php
+ * @link https://php.net/manual/en/ini.list.php
  * @param string $varname <p>
  * </p>
  * <p>
@@ -479,6 +481,7 @@ function ini_set ($varname, $newvalue) {}
 /**
  * &Alias; <function>ini_set</function>
  * @link https://php.net/manual/en/function.ini-alter.php
+ * @link https://php.net/manual/en/ini.list.php
  * @param $varname
  * @param $newvalue
  * @since 4.0
@@ -489,6 +492,7 @@ function ini_alter ($varname, $newvalue) {}
 /**
  * Restores the value of a configuration option
  * @link https://php.net/manual/en/function.ini-restore.php
+ * @link https://php.net/manual/en/ini.list.php
  * @param string $varname <p>
  * The configuration option name.
  * </p>

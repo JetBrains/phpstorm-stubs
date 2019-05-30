@@ -17,6 +17,11 @@ class Message
     /**
      * @var int
      */
+    public $timestamp;
+
+    /**
+     * @var int
+     */
     public $partition;
 
     /**
