@@ -294,7 +294,7 @@ class SoapClient  {
 	 * <p>
 	 * The soapaction option is the action to call.
 	 * </p>
-	 * @param mixed $input_headers [optional] <p>
+	 * @param SoapHeader|array $input_headers [optional] <p>
 	 * An array of headers to be sent along with the SOAP request.
 	 * </p>
 	 * @param array $output_headers [optional] <p>

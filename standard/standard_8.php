@@ -665,7 +665,7 @@ function array_walk_recursive (array &$input, $funcname, $userdata = null) {}
  * The interface has exactly one method, {@see Countable::count()}, which returns the return value for the count() function.
  * Please see the {@see Array} section of the manual for a detailed explanation of how arrays are implemented and used in PHP.
  * @link https://php.net/manual/en/function.count.php
- * @param array|Countable $var  The array or the object.
+ * @param Countable|array|SimpleXMLElement|ResourceBundle $var  The array or the object.
  * @param int $mode [optional] If the optional mode parameter is set to
  * COUNT_RECURSIVE (or 1), count
  * will recursively count the array. This is particularly useful for

@@ -328,15 +328,13 @@ function strchr ($haystack, $needle, $part = false) {}
  * (- or +) to be used on a number. By default, only the - sign is used
  * on a number if it's negative. This specifier forces positive numbers
  * to have the + sign attached as well, and was added in PHP 4.3.0.
- * @param mixed $args [optional] <p>
- * </p>
- * @param mixed $_ [optional] 
+ * @param string|int|float|bool ...$args [optional] <p>
  * @return string a string produced according to the formatting string
  * format.
  * @since 4.0
  * @since 5.0
  */
-function sprintf ($format, $args = null, $_ = null) {}
+function sprintf ($format, ...$args) {}
 
 /**
  * Output a formatted string
@@ -345,14 +343,13 @@ function sprintf ($format, $args = null, $_ = null) {}
  * See sprintf for a description of
  * format.
  * </p>
- * @param mixed $args [optional] <p>
+ * @param string|int|float $args [optional] <p>
  * </p>
- * @param mixed $_ [optional] 
  * @return int the length of the outputted string.
  * @since 4.0
  * @since 5.0
  */
-function printf ($format, $args = null, $_ = null) {}
+function printf ($format, ...$args) {}
 
 /**
  * Output a formatted string
@@ -394,13 +391,12 @@ function vsprintf ($format, array $args) {}
  * See sprintf for a description of 
  * format.
  * </p>
- * @param mixed $args [optional] <p>
+ * @param string|int|float $args [optional] <p>
  * </p>
- * @param mixed $_ [optional] 
  * @return int the length of the string written.
  * @since 5.0
  */
-function fprintf ($handle, $format, $args = null, $_ = null) {}
+function fprintf ($handle, $format, ...$args) {}
 
 /**
  * Write a formatted string to a stream
@@ -435,7 +431,7 @@ function vfprintf ($handle, $format, array $args) {}
  * i stands for integer with base detection.
  * n stands for number of characters processed so far.
  * </p>
- * @param mixed ...$_
+ * @param string|int|float ...$_
  * @return mixed If only
  * two parameters were passed to this function, the values parsed
  * will be returned as an array. Otherwise, if optional parameters are passed,
@@ -454,7 +450,7 @@ function sscanf ($str, $format, &...$_) {}
  * The specified format as described in the 
  * sprintf documentation.
  * </p>
- * @param mixed $_ [optional] 
+ * @param string|int|float $_ [optional]
  * @return array|int If only two parameters were passed to this function, the values parsed will be
  * returned as an array. Otherwise, if optional parameters are passed, the
  * function will return the number of assigned values. The optional
@@ -462,7 +458,7 @@ function sscanf ($str, $format, &...$_) {}
  * @since 4.0.1
  * @since 5.0
  */
-function fscanf ($handle, $format, &$_ = null) {}
+function fscanf ($handle, $format, &...$_) {}
 
 /**
  * Parse a URL and return its components
