@@ -1672,14 +1672,14 @@ class IntlDateFormatter {
 
 
     /**
-     * @param $locale
-     * @param $datetype
-     * @param $timetype
-     * @param $timezone [optional]
-     * @param $calendar [optional]
-     * @param $pattern [optional]
+     * @param string $locale
+     * @param int $datetype
+     * @param int $timetype
+     * @param mixed|null $timezone [optional]
+     * @param mixed|null $calendar [optional]
+     * @param string $pattern [optional]
      */
-    public function __construct($locale, $datetype, $timetype, $timezone, $calendar, $pattern) { }
+    public function __construct($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = '') { }
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
