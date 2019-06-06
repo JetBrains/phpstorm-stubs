@@ -3348,6 +3348,8 @@ class Redis
      * @example
      * <pre>
      * $obj_redis->xAdd('mystream', "*", ['field' => 'value']);
+     * $obj_redis->xAdd('mystream', "*", ['field' => 'value'], 10);
+     * $obj_redis->xAdd('mystream', "*", ['field' => 'value'], 10, true);
      * </pre>
      */
     public function xAdd($str_key, $str_id, $arr_message, $i_maxlen = 0, $boo_approximate = false) {}
