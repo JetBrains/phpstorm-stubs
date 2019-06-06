@@ -1745,7 +1745,7 @@ function pg_delete ($connection, $table_name, array $assoc_array, $options = PGS
  * @since 4.3.0
  * @since 5.0
  */
-function pg_select ($connection, $table_name, array $assoc_array, $options = PGSQL_DML_EXEC, $result_type) {}
+function pg_select ($connection, $table_name, array $assoc_array, $options = PGSQL_DML_EXEC, $result_type = PGSQL_ASSOC) {}
 
 /**
  * @param $connection [optional]
