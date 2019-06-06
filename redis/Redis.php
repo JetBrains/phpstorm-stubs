@@ -3341,6 +3341,8 @@ class Redis
      * @param   string  $str_key
      * @param   string  $str_id
      * @param   array   $arr_message
+     * @param   int     $i_maxlen
+     * @param   bool    $boo_approximate
      * @return  string  The added message ID.
      * @link    https://redis.io/commands/xadd
      * @example
@@ -3348,7 +3350,7 @@ class Redis
      * $obj_redis->xAdd('mystream', "*", ['field' => 'value']);
      * </pre>
      */
-    public function xAdd($str_key, $str_id, $arr_message) {}
+    public function xAdd($str_key, $str_id, $arr_message, $i_maxlen = 0, $boo_approximate = false) {}
 
     /**
      * Claim ownership of one or more pending messages.
