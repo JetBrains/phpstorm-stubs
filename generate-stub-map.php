@@ -7,13 +7,13 @@ namespace JetBrains\PHPStormStub;
 
 use DirectoryIterator;
 use Exception;
-use const PHP_EOL;
 use PhpParser\Node;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitor\NameResolver;
 use PhpParser\NodeVisitorAbstract;
 use PhpParser\ParserFactory;
 use PhpParser\PrettyPrinter\Standard;
+use RuntimeException;
 use function array_map;
 use function count;
 use function file_get_contents;
@@ -21,20 +21,20 @@ use function file_put_contents;
 use function in_array;
 use function ksort;
 use function preg_match;
-use RuntimeException;
 use function sprintf;
 use function str_replace;
 use function strlen;
 use function strtolower;
 use function substr;
 use function var_export;
+use const PHP_EOL;
 
-(function () : void {
+(function (): void {
     require __DIR__ . '/vendor/autoload.php';
 
     class InvalidConstantNode extends RuntimeException
     {
-        public static function create(Node $node) : self
+        public static function create(Node $node): self
         {
             return new self(sprintf(
                 'Invalid constant node (first 50 characters: %s)',
@@ -50,18 +50,18 @@ use function var_export;
     /**
      * @throws InvalidFileLocation
      */
-    function assertReadableFile(string $filename) : void
+    function assertReadableFile(string $filename): void
     {
         if (empty($filename)) {
             throw new InvalidFileLocation('Filename was empty');
         }
-        if (! file_exists($filename)) {
+        if (!file_exists($filename)) {
             throw new InvalidFileLocation(sprintf('File "%s" does not exist', $filename));
         }
-        if (! is_readable($filename)) {
+        if (!is_readable($filename)) {
             throw new InvalidFileLocation(sprintf('File "%s" is not readable', $filename));
         }
-        if (! is_file($filename)) {
+        if (!is_file($filename)) {
             throw new InvalidFileLocation(sprintf('"%s" is not a file', $filename));
         }
     }
@@ -69,18 +69,18 @@ use function var_export;
     /**
      * @throws InvalidConstantNode
      */
-    function assertValidDefineFunctionCall(Node\Expr\FuncCall $node) : void
+    function assertValidDefineFunctionCall(Node\Expr\FuncCall $node): void
     {
-        if (! ($node->name instanceof Node\Name)) {
+        if (!($node->name instanceof Node\Name)) {
             throw InvalidConstantNode::create($node);
         }
         if ($node->name->toLowerString() !== 'define') {
             throw InvalidConstantNode::create($node);
         }
-        if (! in_array(count($node->args), [2, 3], true)) {
+        if (!in_array(count($node->args), [2, 3], true)) {
             throw InvalidConstantNode::create($node);
         }
-        if (! ($node->args[0]->value instanceof Node\Scalar\String_)) {
+        if (!($node->args[0]->value instanceof Node\Scalar\String_)) {
             throw InvalidConstantNode::create($node);
         }
         $valueNode = $node->args[1]->value;
@@ -108,7 +108,7 @@ use function var_export;
         /**
          * {@inheritdoc}
          */
-        public function enterNode(Node $node) : ?int
+        public function enterNode(Node $node): ?int
         {
             if ($node instanceof Node\Stmt\ClassLike) {
                 $this->classNames[] = $node->namespacedName->toString();
@@ -156,7 +156,7 @@ use function var_export;
         /**
          * @return string[]
          */
-        public function getClassNames() : array
+        public function getClassNames(): array
         {
             return $this->classNames;
         }
@@ -164,7 +164,7 @@ use function var_export;
         /**
          * @return string[]
          */
-        public function getFunctionNames() : array
+        public function getFunctionNames(): array
         {
             return $this->functionNames;
         }
@@ -172,14 +172,14 @@ use function var_export;
         /**
          * @return string[]
          */
-        public function getConstantNames() : array
+        public function getConstantNames(): array
         {
             return $this->constantNames;
         }
 
-        public function clear() : void
+        public function clear(): void
         {
-            $this->classNames    = [];
+            $this->classNames = [];
             $this->functionNames = [];
             $this->constantNames = [];
         }
@@ -199,7 +199,7 @@ use function var_export;
             continue;
         }
 
-        if (! $directoryInfo->isDir()) {
+        if (!$directoryInfo->isDir()) {
             continue;
         }
 
@@ -213,13 +213,13 @@ use function var_export;
                 continue;
             }
 
-            if (! preg_match('/\.php$/', $fileInfo->getBasename())) {
+            if (!preg_match('/\.php$/', $fileInfo->getBasename())) {
                 continue;
             }
 
             assertReadableFile($fileInfo->getPathname());
 
-            echo sprintf('Parsing "%s"', $fileInfo->getPathname()).PHP_EOL;
+            echo sprintf('Parsing "%s"', $fileInfo->getPathname()) . PHP_EOL;
 
             $ast = $phpParser->parse(file_get_contents($fileInfo->getPathname()));
 
@@ -249,7 +249,7 @@ use function var_export;
         }, $files);
     }, $map);
 
-    $exportedClasses   = var_export($mapWithRelativeFilePaths['classes'], true);
+    $exportedClasses = var_export($mapWithRelativeFilePaths['classes'], true);
     $exportedFunctions = var_export($mapWithRelativeFilePaths['functions'], true);
     $exportedConstants = var_export($mapWithRelativeFilePaths['constants'], true);
 
@@ -277,5 +277,5 @@ PHP;
         throw new Exception(sprintf('File "%s" is not writeable.', $mapFile));
     }
 
-    exit('Done');
+    exit('Done' . PHP_EOL);
 })();

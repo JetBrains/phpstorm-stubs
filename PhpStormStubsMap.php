@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace JetBrains\PHPStormStub;
 
-/**
- * @internal
- */
 final class PhpStormStubsMap
 {
 const CLASSES = array (
