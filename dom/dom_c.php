@@ -82,7 +82,7 @@ class DOMNode  {
     public $nextSibling;
 
     /**
-     * @var DOMNamedNodeMap
+     * @var DOMNamedNodeMap|null
      * @since 5.0
      * A <classname>DOMNamedNodeMap</classname> containing the attributes of this node (if it is a <classname>DOMElement</classname>) or NULL otherwise.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.attributes
@@ -98,7 +98,7 @@ class DOMNode  {
     public $ownerDocument;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The namespace URI of this node, or NULL if it is unspecified.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
@@ -106,7 +106,7 @@ class DOMNode  {
     public $namespaceURI;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The namespace prefix of this node, or NULL if it is unspecified.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.prefix
@@ -122,7 +122,7 @@ class DOMNode  {
     public $localName;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The absolute base URI of this node or NULL if the implementation wasn't able to obtain an absolute URI.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.baseuri
@@ -320,7 +320,7 @@ class DOMNode  {
 
     /**
      * Gets an XPath location path for the node
-     * @return string the XPath, or NULL in case of an error.
+     * @return string|null the XPath, or NULL in case of an error.
      * @link https://secure.php.net/manual/en/domnode.getnodepath.php
      * @since 5.3.0
      */
@@ -574,12 +574,12 @@ class DOMDocument extends DOMNode  {
     public $documentElement;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The location of the document or NULL if undefined.
      * @link https://php.net/manual/class.domdocument.php#domdocument.props.documenturi
      */
-    public $documentURI ;
+    public $documentURI;
 
     /**
      * @var string
@@ -885,7 +885,7 @@ class DOMDocument extends DOMNode  {
      * @param string $elementId <p>
      * The unique id value for an element.
      * </p>
-     * @return DOMElement the DOMElement or &null; if the element is
+     * @return DOMElement|null The DOMElement or &null; if the element is
      * not found.
      * @since 5.0
      */
@@ -1174,7 +1174,7 @@ class DOMNamedNodeMap implements Traversable, Countable {
      * @param string $name <p>
      * The nodeName of the node to retrieve.
      * </p>
-     * @return DOMNode A node (of any type) with the specified nodeName, or
+     * @return DOMNode|null A node (of any type) with the specified nodeName, or
      * &null; if no node is found.
      * @since 5.0
      */
@@ -1196,7 +1196,7 @@ class DOMNamedNodeMap implements Traversable, Countable {
      * @param int $index <p>
      * Index into this map.
      * </p>
-     * @return DOMNode The node at the indexth position in the map, or &null;
+     * @return DOMNode|null The node at the indexth position in the map, or &null;
      * if that is not a valid index (greater than or equal to the number of nodes
      * in this map).
      * @since 5.0
@@ -1212,7 +1212,7 @@ class DOMNamedNodeMap implements Traversable, Countable {
      * @param string $localName <p>
      * The local name of the node to retrieve.
      * </p>
-     * @return DOMNode A node (of any type) with the specified local name and namespace URI, or
+     * @return DOMNode|null A node (of any type) with the specified local name and namespace URI, or
      * &null; if no node is found.
      * @since 5.0
      */
@@ -1520,7 +1520,7 @@ class DOMElement extends DOMNode  {
      * @param DOMAttr $attr <p>
      * The attribute node.
      * </p>
-     * @return DOMAttr old node if the attribute has been replaced or &null;.
+     * @return DOMAttr|null Old node if the attribute has been replaced or &null;.
      * @since 5.0
      */
     public function setAttributeNode (DOMAttr $attr) {}
@@ -1938,7 +1938,7 @@ class DOMDocumentType extends DOMNode
     public $notations;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The internal subset as a string, or null if there is none. This is does not contain the delimiting square brackets.
      * @link https://php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props.internalsubset
