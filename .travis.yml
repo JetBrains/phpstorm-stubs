@@ -9,6 +9,12 @@ addons:
 
 install:
   - composer install --ignore-platform-reqs
+  - php generate-stub-map.php
 script:
   - docker-compose -f docker-compose.yml pull
   - docker-compose -f docker-compose.yml run php /opt/project/vendor/bin/phpunit /opt/project/tests/
+  - |
+    if [[ -n $(git status -s) ]] then
+      echo "The commited map is not up to date. Run 'php generate-stub-map.php' to generate the map and commit it.\n";
+      exit 1;
+    fi
