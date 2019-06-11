@@ -1577,6 +1577,17 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Closure",
+      "methods": [
+        {
+          "name": "__invoke",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
     }
   ],
   "interfaces": [
