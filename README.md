@@ -26,7 +26,7 @@ The set of extensions enabled by default in PhpStorm can change anytime without 
 
 ### How to run tests
 1. Execute `composer install`
-2. Execute `docker-compose -f docker-compose.yml run php`
+2. Execute `docker-compose -f docker-compose.yml run php /opt/project/vendor/bin/phpunit /opt/project/tests/`
 
 ### License
 [Apache 2]
