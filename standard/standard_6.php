@@ -782,7 +782,7 @@ function set_file_buffer ($fp, $buffer) {}
  * @link https://php.net/manual/en/function.set-socket-blocking.php
  * @deprecated 5.3 use stream_set_blocking() instead
  * @param resource $socket
- * @param int $mode If mode is 0, the given stream will be switched to non-blocking mode, and if 1, it will be switched to blocking mode.
+ * @param bool $mode If mode is FALSE, the given stream will be switched to non-blocking mode, and if TRUE, it will be switched to blocking mode.
  * This affects calls like fgets() and fread() that read from the stream.
  * In non-blocking mode an fgets() call will always return right away while in blocking mode it will wait for data to become available on the stream.
  * @return bool Returns TRUE on success or FALSE on failure.
@@ -797,9 +797,9 @@ function set_socket_blocking ($socket, $mode) {}
  * @param resource $stream <p>
  * The stream.
  * </p>
- * @param int $mode <p>
- * If mode is 0, the given stream
- * will be switched to non-blocking mode, and if 1, it
+ * @param bool $mode <p>
+ * If mode is FALSE, the given stream
+ * will be switched to non-blocking mode, and if TRUE, it
  * will be switched to blocking mode. This affects calls like
  * fgets and fread
  * that read from the stream. In non-blocking mode an
@@ -819,9 +819,9 @@ function stream_set_blocking ($stream, $mode) {}
  * @param resource $socket <p>
  * The stream.
  * </p>
- * @param int $mode <p>
- * If mode is 0, the given stream
- * will be switched to non-blocking mode, and if 1, it
+ * @param bool $mode <p>
+ * If mode is FALSE, the given stream
+ * will be switched to non-blocking mode, and if TRUE, it
  * will be switched to blocking mode. This affects calls like
  * fgets and fread
  * that read from the stream. In non-blocking mode an
