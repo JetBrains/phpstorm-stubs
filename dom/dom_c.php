@@ -34,9 +34,9 @@ class DOMNode  {
     public $nodeType;
 
     /**
-     * @var DOMNode
+     * @var DOMNode|null
      * @since 5.0
-     * The parent of this node
+     * The parent of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.parentnode
      */
     public $parentNode;
@@ -50,7 +50,7 @@ class DOMNode  {
     public $childNodes;
 
     /**
-     * @var DOMNode
+     * @var DOMNode|null
      * @since 5.0
      * The first child of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.firstchild
@@ -58,7 +58,7 @@ class DOMNode  {
     public $firstChild;
 
     /**
-     * @var DOMNode
+     * @var DOMNode|null
      * @since 5.0
      * The last child of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.lastchild
@@ -66,7 +66,7 @@ class DOMNode  {
     public $lastChild;
 
     /**
-     * @var DOMNode
+     * @var DOMNode|null
      * @since 5.0
      * The node immediately preceding this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
@@ -74,7 +74,7 @@ class DOMNode  {
     public $previousSibling;
 
     /**
-     * @var DOMNode
+     * @var DOMNode|null
      * @since 5.0
      * The node immediately following this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
@@ -90,9 +90,9 @@ class DOMNode  {
     public $attributes;
 
     /**
-     * @var DOMDocument
+     * @var DOMDocument|null
      * @since 5.0
-     * The <classname>DOMDocument</classname> object associated with this node.
+     * The <classname>DOMDocument</classname> object associated with this node, or NULL if this node is a <classname>DOMDocument</classname>.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
      */
     public $ownerDocument;
