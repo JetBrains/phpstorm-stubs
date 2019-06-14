@@ -721,10 +721,10 @@ class Rand {
     /**
      * Mixes bytes in $buf into PRNG state
      * @param string $buf
-     * @param float $entropy
+     * @param float $entropy [optional] The default value is (float) strlen($buf)
      * @return null
      */
-    public static function seed($buf, $entropy = (float) strlen($buf)) {}
+    public static function seed($buf, $entropy) {}
     
     /**
      * Cleans up PRNG state
