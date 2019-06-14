@@ -99,5 +99,5 @@ final class Events
      *
      * @throws Timeout if timeout is used and reached.
      */
-    public function poll(): ?Event {}
+    public function poll(): Event {}
 }

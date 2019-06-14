@@ -32,4 +32,4 @@ function bootstrap(string $file) {}
  * @throws Runtime\Error\IllegalParameter if task accepts or argv contains illegal variables.
  * @throws Runtime\Error\IllegalReturn if task returns illegally.
  */
-function run(Closure $task, array $argv = null) : ?Future {}
+function run(Closure $task, array $argv = null) : Future {}

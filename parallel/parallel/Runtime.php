@@ -60,7 +60,7 @@ final class Runtime
      * @throws Error\IllegalParameter if task accepts or argv contains illegal variables.
      * @throws Error\IllegalReturn if task returns illegally.
      */
-    public function run(Closure $task , ?array $argv = null) : ?Future {}
+    public function run(Closure $task , array $argv = null) : Future {}
 
     /**
      * Shall request that the runtime shutsdown.
