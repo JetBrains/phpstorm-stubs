@@ -1411,15 +1411,15 @@ class DOMElement extends DOMNode  {
 
 
     /**
-     * @var DOMElement
+     * @var DOMElement|null
      * @since 5.0
-     * The parent of this node
+     * The parent of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.parentnode
      */
     public $parentNode;
 
     /**
-     * @var DOMElement
+     * @var DOMElement|null
      * @since 5.0
      * The first child of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.firstchild
@@ -1427,7 +1427,7 @@ class DOMElement extends DOMNode  {
     public $firstChild;
 
     /**
-     * @var DOMElement
+     * @var DOMElement|null
      * @since 5.0
      * The last child of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.lastchild
@@ -1435,7 +1435,7 @@ class DOMElement extends DOMNode  {
     public $lastChild;
 
     /**
-     * @var DOMElement
+     * @var DOMElement|null
      * @since 5.0
      * The node immediately preceding this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
@@ -1443,7 +1443,7 @@ class DOMElement extends DOMNode  {
     public $previousSibling;
 
     /**
-     * @var DOMElement
+     * @var DOMElement|null
      * @since 5.0
      * The node immediately following this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
