@@ -243,12 +243,12 @@ function xdebug_start_code_coverage ($options = 0) {}
 
 /**
  * This function stops collecting information, the information in memory will be destroyed.
- * If you pass "false" as argument, then the code coverage information will not be destroyed so that you can resume
+ * If you pass 0 ("false") as argument, then the code coverage information will not be destroyed so that you can resume
  * the gathering of information with the xdebug_start_code_coverage() function again.
- * @param bool $cleanup Destroy collected information in memory
+ * @param int $cleanup Destroy collected information in memory
  * @return void
  */
-function xdebug_stop_code_coverage ($cleanup = true) {}
+function xdebug_stop_code_coverage ($cleanup = 1) {}
 
 /**
  * Returns whether code coverage is active.
