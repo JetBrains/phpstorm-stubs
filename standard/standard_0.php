@@ -1334,9 +1334,7 @@ function substr_count ($haystack, $needle, $offset = null, $length = null) {}
 
 /**
  * Finds the length of the first segment of a string consisting
- * @since 4.0
- * @since 5.0
-   entirely of characters contained within a given mask.
+ * entirely of characters contained within a given mask.
  * @link https://php.net/manual/en/function.strspn.php
  * @param string $subject <p>
  * The string to examine.
@@ -1383,6 +1381,8 @@ function substr_count ($haystack, $needle, $offset = null, $length = null) {}
  * </p>
  * @return int the length of the initial segment of str1
  * which consists entirely of characters in str2.
+ * @since 4.0
+ * @since 5.0
  */
 function strspn ($subject, $mask, $start = null, $length = null) {}
 
