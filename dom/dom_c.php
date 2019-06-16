@@ -1978,7 +1978,7 @@ class DOMNotation  extends DOMNode{
 class DOMEntity extends DOMNode  {
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The public identifier associated with the entity if specified, and NULL otherwise.
      * @link https://php.net/manual/en/class.domentity.php#domentity.props.publicid
@@ -1986,7 +1986,7 @@ class DOMEntity extends DOMNode  {
     public $publicId ;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The system identifier associated with the entity if specified, and NULL otherwise. This may be an
      * absolute URI or not.
@@ -1995,7 +1995,7 @@ class DOMEntity extends DOMNode  {
     public $systemId ;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * For unparsed entities, the name of the notation for the entity. For parsed entities, this is NULL.
      * @link https://php.net/manual/en/class.domentity.php#domentity.props.notationname
@@ -2003,7 +2003,7 @@ class DOMEntity extends DOMNode  {
     public $notationName ;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * An attribute specifying the encoding used for this entity at the time of parsing, when it is an external
      * parsed entity. This is NULL if it an entity from the internal subset or if it is not known.
@@ -2012,7 +2012,7 @@ class DOMEntity extends DOMNode  {
     public $actualEncoding ;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * An attribute specifying, as part of the text declaration, the encoding of this entity, when it is an external
      * parsed entity. This is NULL otherwise.
@@ -2021,7 +2021,7 @@ class DOMEntity extends DOMNode  {
     public $encoding ;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * An attribute specifying, as part of the text declaration, the version number of this entity, when it is an
      * external parsed entity. This is NULL otherwise.
