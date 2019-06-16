@@ -1080,26 +1080,3 @@ function gc_mem_caches () {}
  * @since 7.0
  */
 function get_resources ($type) {}
-
-/**
- * Get or set VT100 support for the specified stream associated to an output buffer of a Windows console.
- *
- * At startup, PHP tries to enable the VT100 feature of the STDOUT/STDERR streams.
- * By the way, if those streams are redirected to a file, the VT100 features may not be enabled.
- *
- * If VT100 support is enabled, it is possible to use control sequences as they are known from the VT100 terminal.
- * They allow the modification of the terminal's output. On Windows these sequences are called Console Virtual Terminal Sequences.
- * @link https://php.net/manual/en/function.sapi-windows-vt100-support.php
- * @param resource $stream
- * @param bool $enable [optional]<p>
- *
- * If <i>enable</i> is omitted, the function returns TRUE if the stream stream has VT100 control codes enabled, FALSE otherwise.
- *
- * If <i>enable</i> is specified, the function will try to enable or disable the VT100 features of the stream stream.
- * If the feature has been successfully enabled (or disabled), the function will return TRUE, or FALSE otherwise.
- * </p>
- * @return bool If <i>enable</i> is not specified: returns TRUE if the VT100 feature is enabled, FALSE otherwise.
- * If <i>enable</i> is specified: Returns TRUE on success or FALSE on failure.
- * @since 7.2
- */
-function sapi_windows_vt100_support ($stream, $enable) {}
