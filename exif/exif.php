@@ -83,13 +83,14 @@ function exif_read_data ($filename, $sections = null, $arrays = false, $thumbnai
  * Alias of <b>exif_read_data</b>
  * @link https://php.net/manual/en/function.read-exif-data.php
  * @param $filename
- * @param $sections_needed [optional]
- * @param $sub_arrays [optional]
- * @param $read_thumbnail [optional]
+ * @param $sections [optional]
+ * @param $arrays [optional]
+ * @param $thumbnail [optional]
  * @since 4.0.1
  * @since 5.0
+ * @deprecated 7.2
  */
-function read_exif_data ($filename, $sections_needed, $sub_arrays, $read_thumbnail) {}
+function read_exif_data ($filename, $sections = null, $arrays = false, $thumbnail = false) {}
 
 /**
  * Get the header name for an index
