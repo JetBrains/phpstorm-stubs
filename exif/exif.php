@@ -88,6 +88,7 @@ function exif_read_data ($filename, $sections = null, $arrays = false, $thumbnai
  * @param $thumbnail [optional]
  * @since 4.0.1
  * @since 5.0
+ * @deprecated 7.2
  */
 function read_exif_data ($filename, $sections = null, $arrays = false, $thumbnail = false) {}
 
