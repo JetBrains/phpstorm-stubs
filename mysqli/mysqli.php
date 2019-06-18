@@ -1329,7 +1329,7 @@ class mysqli_stmt  {
 	 * The number of variables and length of string
 	 * types must match the parameters in the statement.
 	 * </p>
-	 * @param mixed $_ [optional]
+	 * @param mixed ...$_ [optional]
 	 * @return bool true on success or false on failure.
 	 * @since 5.0
 	 */
@@ -2344,7 +2344,7 @@ function mysqli_stmt_send_long_data ($stmt, $param_nr, $data) {}
  * The number of variables and length of string
  * types must match the parameters in the statement.
  * </p>
- * @param mixed $_ [optional]
+ * @param mixed ...$_ [optional]
  * @return bool true on success or false on failure.
  */
 function mysqli_stmt_bind_param ($stmt, $types, &$var1, &...$_) {}

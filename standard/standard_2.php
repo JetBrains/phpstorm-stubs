@@ -450,7 +450,7 @@ function sscanf ($str, $format, &...$_) {}
  * The specified format as described in the 
  * sprintf documentation.
  * </p>
- * @param string|int|float $_ [optional]
+ * @param string|int|float ...$_ [optional]
  * @return array|int If only two parameters were passed to this function, the values parsed will be
  * returned as an array. Otherwise, if optional parameters are passed, the
  * function will return the number of assigned values. The optional

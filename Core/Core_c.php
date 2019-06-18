@@ -573,7 +573,7 @@ final class Closure {
     /**
      * This is for consistency with other classes that implement calling magic,
      * as this method is not used for calling the function.
-     * @param mixed $_ [optional]
+     * @param mixed ...$_ [optional]
      * @return mixed
      * @link https://secure.php.net/manual/en/class.closure.php
      */
