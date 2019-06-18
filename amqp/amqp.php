@@ -1138,7 +1138,7 @@ class AMQPExchange
      */
     public function publish(
         $message,
-        $routing_key = null,
+        $routing_key = '',
         $flags = AMQP_NOPARAM,
         array $attributes = array()
     ) {

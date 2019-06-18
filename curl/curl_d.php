@@ -1252,6 +1252,11 @@ define('CURLINFO_PROTOCOL', 2097200);
 define('CURL_VERSION_ASYNCHDNS', 128);
 
 /**
+ * @since 7.3.6
+ */
+define('CURL_VERSION_CURLDEBUG', 8192);
+
+/**
  * @since 7.3
  */
 define('CURL_VERSION_CONV', 4096);

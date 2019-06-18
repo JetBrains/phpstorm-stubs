@@ -34,9 +34,9 @@ class DOMNode  {
     public $nodeType;
 
     /**
-     * @var DOMNode
+     * @var DOMNode|null
      * @since 5.0
-     * The parent of this node
+     * The parent of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.parentnode
      */
     public $parentNode;
@@ -90,9 +90,9 @@ class DOMNode  {
     public $attributes;
 
     /**
-     * @var DOMDocument
+     * @var DOMDocument|null
      * @since 5.0
-     * The <classname>DOMDocument</classname> object associated with this node.
+     * The <classname>DOMDocument</classname> object associated with this node, or NULL if this node is a <classname>DOMDocument</classname>.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
      */
     public $ownerDocument;
@@ -574,12 +574,12 @@ class DOMDocument extends DOMNode  {
     public $documentElement;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The location of the document or NULL if undefined.
      * @link https://php.net/manual/class.domdocument.php#domdocument.props.documenturi
      */
-    public $documentURI ;
+    public $documentURI;
 
     /**
      * @var string
@@ -885,7 +885,7 @@ class DOMDocument extends DOMNode  {
      * @param string $elementId <p>
      * The unique id value for an element.
      * </p>
-     * @return DOMElement|null the DOMElement or null if the element is
+     * @return DOMElement|null The DOMElement or null if the element is
      * not found.
      * @since 5.0
      */
@@ -1412,9 +1412,9 @@ class DOMElement extends DOMNode  {
 
 
     /**
-     * @var DOMElement
+     * @var DOMElement|null
      * @since 5.0
-     * The parent of this node
+     * The parent of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.parentnode
      */
     public $parentNode;
@@ -1521,7 +1521,7 @@ class DOMElement extends DOMNode  {
      * @param DOMAttr $attr <p>
      * The attribute node.
      * </p>
-     * @return DOMAttr|null old node if the attribute has been replaced or null.
+     * @return DOMAttr|null Old node if the attribute has been replaced or null.
      * @since 5.0
      */
     public function setAttributeNode (DOMAttr $attr) {}
@@ -1982,7 +1982,7 @@ class DOMNotation  extends DOMNode{
 class DOMEntity extends DOMNode  {
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The public identifier associated with the entity if specified, and NULL otherwise.
      * @link https://php.net/manual/en/class.domentity.php#domentity.props.publicid
@@ -1990,7 +1990,7 @@ class DOMEntity extends DOMNode  {
     public $publicId ;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The system identifier associated with the entity if specified, and NULL otherwise. This may be an
      * absolute URI or not.
@@ -1999,7 +1999,7 @@ class DOMEntity extends DOMNode  {
     public $systemId ;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * For unparsed entities, the name of the notation for the entity. For parsed entities, this is NULL.
      * @link https://php.net/manual/en/class.domentity.php#domentity.props.notationname
