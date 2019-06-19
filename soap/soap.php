@@ -311,7 +311,7 @@ class SoapClient  {
 	 * option set to <b>FALSE</b>, a SoapFault object will be returned.
 	 * @since 5.0.1
 	 */
-	public function __soapCall ($function_name, array $arguments, array $options = null, $input_headers = null, array &$output_headers = null) {}
+	public function __soapCall ($function_name, $arguments, $options = null, $input_headers = null, &$output_headers = null) {}
 
 	/**
 	 * Returns last SOAP request
