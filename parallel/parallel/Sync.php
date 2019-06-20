@@ -2,11 +2,6 @@
 
 namespace parallel;
 
-use parallel\Events\Error;
-use parallel\Events\Error\Existence;
-use parallel\Events\Error\Timeout;
-use parallel\Events\Event;
-use parallel\Events\Input;
 use parallel\Sync\Error\IllegalValue;
 
 /**
