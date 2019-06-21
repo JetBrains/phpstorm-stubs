@@ -30,7 +30,9 @@ use function var_export;
 use const PHP_EOL;
 
 (function (): void {
-    require __DIR__ . '/vendor/autoload.php';
+    require __DIR__.'/../vendor/autoload.php';
+
+    $mapFile = __DIR__.'/../PhpStormStubsMap.php';
 
     class InvalidConstantNode extends RuntimeException
     {
@@ -260,6 +262,9 @@ declare(strict_types=1);
 
 namespace JetBrains\PHPStormStub;
 
+/**
+ * This is a generated file, do not modify it directly!
+ */
 final class PhpStormStubsMap
 {
 const CLASSES = {$exportedClasses};
@@ -270,9 +275,8 @@ const CONSTANTS = {$exportedConstants};
 }
 PHP;
 
-    $mapFile = __DIR__ . '/PhpStormStubsMap.php';
+    $bytesWritten = @file_put_contents($mapFile, $output, LOCK_EX);
 
-    $bytesWritten = @file_put_contents($mapFile, $output);
     if ($bytesWritten === false) {
         throw new Exception(sprintf('File "%s" is not writeable.', $mapFile));
     }

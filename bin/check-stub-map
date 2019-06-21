@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -Eeuox pipefail
+
+function get_stub_map_hash()
+{
+    return $(md5sum PhpStormStubsMap.php | awk '{ print $1 }');
+}
+
+readonly CURRENT_FILE_HASH=$(get_stub_map_hash)
+
+# Generate the stub map again
+docker-compose -f docker-compose.yml run php /opt/project/bin/generate-stub-map
+
+readonly NEW_FILE_HASH=$(get_stub_map_hash)
+
+if [[ "${CURRENT_FILE_HASH}" != "${NEW_FILE_HASH}" ]]; then
+    echo "The commited stub map is not up to date.";
+
+    exit 1;
+fi
