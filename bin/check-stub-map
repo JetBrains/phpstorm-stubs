@@ -2,17 +2,12 @@
 
 set -Eeuox pipefail
 
-function get_stub_map_hash()
-{
-    return $(md5sum PhpStormStubsMap.php | awk '{ print $1 }');
-}
-
-readonly CURRENT_FILE_HASH=$(get_stub_map_hash)
+readonly CURRENT_FILE_HASH=$(md5sum PhpStormStubsMap.php | awk '{ print $1 }')
 
 # Generate the stub map again
 php bin/generate-stub-map
 
-readonly NEW_FILE_HASH=$(get_stub_map_hash)
+readonly NEW_FILE_HASH=$(md5sum PhpStormStubsMap.php | awk '{ print $1 }')
 
 if [[ "${CURRENT_FILE_HASH}" != "${NEW_FILE_HASH}" ]]; then
     echo "The commited stub map is not up to date.";
