@@ -2400,7 +2400,7 @@ function curl_multi_remove_handle ($mh, $ch) {}
  * the descriptor sets. On failure, this function will return -1 on a select failure or timeout (from the underlying select system call).
  * @since 5.0
  */
-function curl_multi_select ($mh, $timeout = null) {}
+function curl_multi_select ($mh, $timeout = 1.0) {}
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
