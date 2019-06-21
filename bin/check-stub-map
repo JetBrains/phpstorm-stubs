@@ -10,7 +10,7 @@ function get_stub_map_hash()
 readonly CURRENT_FILE_HASH=$(get_stub_map_hash)
 
 # Generate the stub map again
-docker-compose -f docker-compose.yml run php /opt/project/bin/generate-stub-map
+php bin/generate-stub-map
 
 readonly NEW_FILE_HASH=$(get_stub_map_hash)
 
