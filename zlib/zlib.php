@@ -550,9 +550,12 @@ function  inflate_get_status($context) {}
 
 define ('FORCE_GZIP', 31);
 define ('FORCE_DEFLATE', 15);
-define ('ZLIB_ENCODING_RAW', -15);
-define ('ZLIB_ENCODING_GZIP', 31);
-define ('ZLIB_ENCODING_DEFLATE', 15);
+/** @link https://php.net/manual/en/zlib.constants.php */
+define('ZLIB_ENCODING_RAW', -15);
+/** @link https://php.net/manual/en/zlib.constants.php */
+define('ZLIB_ENCODING_GZIP', 31);
+/** @link https://php.net/manual/en/zlib.constants.php */
+define('ZLIB_ENCODING_DEFLATE', 15);
 
 define ('ZLIB_NO_FLUSH', 0);
 define ('ZLIB_PARTIAL_FLUSH', 1);

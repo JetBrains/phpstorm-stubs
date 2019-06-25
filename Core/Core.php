@@ -992,9 +992,6 @@ function get_defined_constants ($categorize = false) {}
  */
 function debug_backtrace ($options = DEBUG_BACKTRACE_PROVIDE_OBJECT, $limit = 0) {}
 
-const DEBUG_BACKTRACE_PROVIDE_OBJECT = 0;
-const DEBUG_BACKTRACE_IGNORE_ARGS = 0;
-
 /**
  * Prints a backtrace
  * @link https://php.net/manual/en/function.debug-print-backtrace.php
