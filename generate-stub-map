@@ -30,9 +30,9 @@ use function var_export;
 use const PHP_EOL;
 
 (function (): void {
-    require __DIR__.'/../vendor/autoload.php';
+    require __DIR__ . './vendor/autoload.php';
 
-    $mapFile = __DIR__.'/../PhpStormStubsMap.php';
+    $mapFile = __DIR__ . './PhpStormStubsMap.php';
 
     class InvalidConstantNode extends RuntimeException
     {
