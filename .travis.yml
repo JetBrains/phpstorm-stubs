@@ -17,4 +17,4 @@ install:
 script:
   - docker-compose -f docker-compose.yml pull
   - docker-compose -f docker-compose.yml run php /opt/project/phpstorm-stubs/vendor/bin/phpunit /opt/project/phpstorm-stubs/tests/
-  - ./check-stub-map
+  - ./tests/check-stub-map
