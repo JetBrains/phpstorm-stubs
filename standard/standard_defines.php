@@ -1161,36 +1161,6 @@ define('PHP_OUTPUT_HANDLER_DISABLED', 8192);
 
 
 
-/** @link https://php.net/manual/en/libxml.constants.php */
-define('LIBXML_PEDANTIC', 128);
-
-
-
-
-/** @link https://php.net/manual/en/zlib.constants.php */
-define('ZLIB_ENCODING_RAW', -15);
-/** @link https://php.net/manual/en/zlib.constants.php */
-define('ZLIB_ENCODING_GZIP', 31);
-/** @link https://php.net/manual/en/zlib.constants.php */
-define('ZLIB_ENCODING_DEFLATE', 15);
-
-
-
-/**
- * Equivalent to calling htmlspecialchars() with ENT_QUOTES set.
- * Encoding quotes can be disabled by setting FILTER_FLAG_NO_ENCODE_QUOTES.
- * Like htmlspecialchars(), this filter is aware of the default_charset
- * and if a sequence of bytes is detected that makes up an invalid character
- * in the current character set then the entire string is rejected resulting in
- * a 0-length string.
- * @link https://php.net/manual/en/filter.filters.sanitize.php
- */
-define('FILTER_SANITIZE_FULL_SPECIAL_CHARS', 515);
-
-
-
-
-
 /**
  * (PHP4, PHP5)
  * <p>Constant containing either the session name and session ID in the form of "name=ID" or
@@ -1218,99 +1188,6 @@ define('PHP_SESSION_NONE', 1);
  * @link https://php.net/manual/en/function.session-status.php
  */
 define('PHP_SESSION_ACTIVE', 2);
-
-
-
-/**
- * Joins a multicast group.
- * @since 5.4.0
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('MCAST_JOIN_GROUP', 42);
-/**
- * Leaves a multicast group.
- * @since 5.4.0
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('MCAST_LEAVE_GROUP', 45);
-/**
- * Blocks packets arriving from a specific source to a specific multicast group,
- * which must have been previously joined.
- * @since 5.4.0
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('MCAST_BLOCK_SOURCE', 43);
-/**
- * Unblocks (start receiving again) packets arriving from
- * a specific source address to a specific multicast group,
- * which must have been previously joined.
- * @since 5.4.0
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('MCAST_UNBLOCK_SOURCE', 44);
-/**
- * Receive packets destined to a specific multicast group
- * whose source address matches a specific value.
- * @since 5.4.0
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('MCAST_JOIN_SOURCE_GROUP', 46);
-/**
- * Stop receiving packets destined to a specific multicast group
- * whose soure address matches a specific value.
- * @since 5.4.0
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('MCAST_LEAVE_SOURCE_GROUP', 47);
-/**
- * The outgoing interface for IPv4 multicast packets.
- * @since 5.4.0
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('IP_MULTICAST_IF', 32);
-/**
- * The outgoing interface for IPv6 multicast packets.
- * @since 5.4.0
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('IP_MULTICAST_TTL', 33);
-/**
- * The multicast loopback policy for IPv4 packets,
- * which determines whether multicast packets sent by this socket
- * also reach receivers in the same host that have joined the same multicast group
- * on the outgoing interface used by this socket. This is the case by default.
- * @since 5.4.0
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('IP_MULTICAST_LOOP', 34);
-/**
- * Analogous to IP_MULTICAST_LOOP, but for IPv6.
- * @since 5.4.0
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('IPV6_MULTICAST_IF', 17);
-/**
- * The time-to-live of outgoing IPv4 multicast packets.
- * This should be a value between 0 (don't leave the interface) and 255.
- * The default value is 1 (only the local network is reached).
- * @since 5.4.0
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('IPV6_MULTICAST_HOPS', 18);
-/**
- * Analogous to IP_MULTICAST_TTL, but for IPv6 packets.
- * The value -1 is also accepted, meaning the route default should be used.
- * @since 5.4.0
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('IPV6_MULTICAST_LOOP', 19);
-
-
-
-define('IPPROTO_IP', 0);
-define('IPPROTO_IPV6', 41);
-
-
 
 /**
  * Replace invalid code unit sequences with a Unicode Replacement Character

@@ -3,4 +3,4 @@ services:
   php:
     image: php:7.3
     volumes:
-     - .:/opt/project
+      - .:/opt/project/phpstorm-stubs

@@ -1,5 +1,9 @@
 sudo: required
 
+language: php
+php:
+  - '7.3'
+
 services:
   - docker
 addons:
@@ -9,6 +13,8 @@ addons:
 
 install:
   - composer install --ignore-platform-reqs
+
 script:
   - docker-compose -f docker-compose.yml pull
-  - docker-compose -f docker-compose.yml run php /opt/project/vendor/bin/phpunit /opt/project/tests/
+  - docker-compose -f docker-compose.yml run php /opt/project/phpstorm-stubs/vendor/bin/phpunit /opt/project/phpstorm-stubs/tests/
+  - ./tests/check-stub-map
