@@ -3,9 +3,6 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
-use PhpParser\Node\Stmt\Namespace_;
-use PhpParser\NodeAbstract;
-
 abstract class BasePHPElement
 {
     public $name;
@@ -27,16 +24,6 @@ abstract class BasePHPElement
     abstract public function readObjectFromStubNode($node);
 
     abstract public function readMutedProblems($jsonData);
-
-    protected function getConstantFQN(NodeAbstract $node, string $nodeName): string
-    {
-        $namespace = '';
-        if ($node->getAttribute('parent') instanceof Namespace_ && !empty($node->getAttribute('parent')->name)) {
-            $namespace = '\\' . implode('\\', $node->getAttribute('parent')->name->parts) . '\\';
-        }
-
-        return $namespace . $nodeName;
-    }
 
     protected function getFQN($node): string
     {
