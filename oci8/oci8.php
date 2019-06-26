@@ -1707,7 +1707,7 @@ function ocicolumnisnull ($statement, $column_number_or_name) {}
  * @link https://php.net/manual/en/function.ocicolumnname.php
  * @param resource $statement
  * @param mixed $column_number
- * @return string|bool Returns the name as a string, or FALSE on errors.
+ * @return string|false Returns the name as a string, or FALSE on errors.
  */
 function ocicolumnname ($statement, $column_number) {}
 
@@ -1717,7 +1717,7 @@ function ocicolumnname ($statement, $column_number) {}
  * @link https://php.net/manual/en/function.ocicolumnsize.php
  * @param resource $statement
  * @param mixed $column_number_or_name
- * @return int|bool Returns the size of a field in bytes, or <b>FALSE</b> on errors.
+ * @return int|false Returns the size of a field in bytes, or <b>FALSE</b> on errors.
  */
 function ocicolumnsize ($statement, $column_number_or_name) {}
 
@@ -1727,7 +1727,7 @@ function ocicolumnsize ($statement, $column_number_or_name) {}
  * @link https://php.net/manual/en/function.ocicolumnscale.php
  * @param resource $statement_resource
  * @param $column_number
- * @return int|bool Returns the scale as an integer, or <b>FALSE</b> on errors.
+ * @return int|false Returns the scale as an integer, or <b>FALSE</b> on errors.
  */
 function ocicolumnscale ($statement_resource, $column_number) {}
 
@@ -1737,7 +1737,7 @@ function ocicolumnscale ($statement_resource, $column_number) {}
  * @link https://php.net/manual/en/function.ocicolumnprecision.php
  * @param resource $statement_resource
  * @param string|int $column_number
- * @return int|bool Returns the precision  as an integer, or <b>FALSE</b> on errors.
+ * @return int|false Returns the precision  as an integer, or <b>FALSE</b> on errors.
  */
 function ocicolumnprecision ($statement_resource, $column_number) {}
 
@@ -1747,7 +1747,7 @@ function ocicolumnprecision ($statement_resource, $column_number) {}
  * @link https://php.net/manual/en/function.ocicolumntype.php
  * @param resource $statement_resource
  * @param string|int $column_number
- * @return mixed|bool Returns the field data type as a string, or FALSE on errors.
+ * @return mixed|false Returns the field data type as a string, or FALSE on errors.
  */
 function ocicolumntype ($statement_resource, $column_number) {}
 
@@ -1757,7 +1757,7 @@ function ocicolumntype ($statement_resource, $column_number) {}
  * @link https://php.net/manual/en/function.ocicolumntyperaw.php
  * @param resource $statement_resource
  * @param string|int $column_number
- * @return int|bool Returns Oracle's raw data type as a number, or FALSE on errors.
+ * @return int|false Returns Oracle's raw data type as a number, or FALSE on errors.
  */
 function ocicolumntyperaw ($statement_resource, $column_number) {}
 
@@ -1793,12 +1793,12 @@ function ocifetch ($statement_resource) {}
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_fetch_all}
  * @link https://php.net/manual/en/function.ocifetchstatement.php
- * @param statement_resource
- * @param output
+ * @param $statement_resource
+ * @param $output
  * @param $skip [optional]
  * @param $maximum_rows [optional]
  * @param $flags [optional]
- * @return int|bool Returns the number of rows in output, which may be 0 or more, or FALSE on failure.
+ * @return int|false Returns the number of rows in output, which may be 0 or more, or FALSE on failure.
  */
 function ocifetchstatement ($statement_resource, &$output, $skip, $maximum_rows, $flags) {}
 
@@ -1824,7 +1824,7 @@ function ociinternaldebug ($mode) {}
  * Alias of {@see oci_num_fields}
  * @link https://php.net/manual/en/function.ocinumcols.php
  * @param resource $statement_resource
- * @return int|bool Returns the number of columns as an integer, or FALSE on errors.
+ * @return int|false Returns the number of columns as an integer, or FALSE on errors.
  */
 function ocinumcols ($statement_resource) {}
 
@@ -1834,7 +1834,7 @@ function ocinumcols ($statement_resource) {}
  * @link https://php.net/manual/en/function.ociparse.php
  * @param resource $connection_resource
  * @param string $sql_text
- * @return resource|bool Returns a statement handle on success, or FALSE on error.
+ * @return resource|false Returns a statement handle on success, or FALSE on error.
  */
 function ociparse ($connection_resource, $sql_text) {}
 
@@ -1843,7 +1843,7 @@ function ociparse ($connection_resource, $sql_text) {}
  * Alias of {@see oci_new_cursor}
  * @link https://php.net/manual/en/function.ocinewcursor.php
  * @param resource $connection_resource
- * @return resource|bool Returns a new statement handle, or FALSE on error.
+ * @return resource|false Returns a new statement handle, or FALSE on error.
  */
 function ocinewcursor ($connection_resource) {}
 
@@ -1853,7 +1853,7 @@ function ocinewcursor ($connection_resource) {}
  * @link https://php.net/manual/en/function.ociresult.php
  * @param resource $statement_resource
  * @param $column_number_or_name
- * @return bool|mixed Returns everything as strings except for abstract types (ROWIDs, LOBs and FILEs). Returns FALSE on error.
+ * @return false|mixed Returns everything as strings except for abstract types (ROWIDs, LOBs and FILEs). Returns FALSE on error.
  */
 function ociresult ($statement_resource, $column_number_or_name) {}
 
@@ -1862,7 +1862,7 @@ function ociresult ($statement_resource, $column_number_or_name) {}
  * Alias of {@see oci_server_version}
  * @link https://php.net/manual/en/function.ociserverversion.php
  * @param $connection_resource
- * @return string|bool Returns the version information as a string or FALSE on error.
+ * @return string|false Returns the version information as a string or FALSE on error.
  */
 function ociserverversion ($connection_resource) {}
 
@@ -1880,7 +1880,7 @@ function ocistatementtype ($statement_resource) {}
  * Alias of {@see oci_num_rows}
  * @link https://php.net/manual/en/function.ocirowcount.php
  * @param resource $statement_resource
- * @return int|bool Returns the number of rows affected as an integer, or FALSE on errors.
+ * @return int|false Returns the number of rows affected as an integer, or FALSE on errors.
  */
 function ocirowcount ($statement_resource) {}
 
@@ -1902,7 +1902,7 @@ function ocilogoff ($connection_resource) {}
  * @param string $connection_string[optional]
  * @param string $character_set[optional]
  * @param int $session_mode[optional]
- * @return resource|bool Returns a connection identifier or FALSE on error.
+ * @return resource|false Returns a connection identifier or FALSE on error.
  */
 function ocilogon ($username, $password, $connection_string, $character_set, $session_mode) {}
 
@@ -1951,7 +1951,7 @@ function ocierror ($connection_or_statement_resource) {}
  * {@see OCI-Lob::free}
  * @link https://php.net/manual/en/function.ocifreedesc.php
  * @param $lob_descriptor
- * @return boolean <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
+ * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
  */
 function ocifreedesc ($lob_descriptor) {}
 
@@ -1997,7 +1997,7 @@ function ociwritelobtofile ($lob_descriptor, $filename, $start, $length) {}
  * {@see OCI_Lob::load}
  * @link https://php.net/manual/en/function.ociloadlob.php
  * @param OCI_Lob $lob_descriptor
- * @return string|bool <p>Returns the contents of the object, or <b>FALSE</b> on errors.</p>
+ * @return string|false <p>Returns the contents of the object, or <b>FALSE</b> on errors.</p>
  */
 function ociloadlob ($lob_descriptor) {}
 
@@ -2035,7 +2035,7 @@ function ocirollback ($connection_resource) {}
  * {@see oci_connect()} or {@see oci_pconnect()}.
  * </p>
  * @param $type [optional] <p>Valid values for type are: <b>OCI_DTYPE_FILE</b>, <b>OCI_DTYPE_LOB</b> and <b>OCI_DTYPE_ROWID</b>.</p>
- * @return OCI_LOB|bool Returns a new LOB or FILE descriptor on success, FALSE on error.
+ * @return OCI_LOB|false Returns a new LOB or FILE descriptor on success, FALSE on error.
  */
 function ocinewdescriptor ($connection_resource, $type = OCI_DTYPE_LOB) {}
 
@@ -2062,7 +2062,7 @@ function ocisetprefetch ($statement_resource, $number_of_rows) {}
  * @param string $username <p>The Oracle user name.</p>
  * @param string $old_password <p>The new password to be set.</p>
  * @param string $new_password <p>The new password to be set.</p>
- * @return bool|resource <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
+ * @return resource|bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure or <b>resource</b>, depending on the function parameters.</p>
  */
 function ocipasswordchange ($connection_resource_or_connection_string_or_dbname, $username, $old_password, $new_password) {}
 
@@ -2087,7 +2087,7 @@ function ocifreecollection ($collection) {}
  * @param $tdo <p>Should be a valid named type (uppercase).</p>
  * @param $schema <p>Should point to the scheme, where the named type was created. The name of the current user is the default value.</p>
  * </p>
- * @return OCI_Collection|bool <p>Returns a new OCI_Collection object or FALSE on error.</p>
+ * @return OCI_Collection|false <p>Returns a new OCI_Collection object or FALSE on error.</p>
  */
 function ocinewcollection ($connection_resource, $tdo, $schema = null) {}
 
@@ -2151,7 +2151,7 @@ function ocicollmax ($collection) {}
  * {@see OCI_Collection::trim}
  * @link https://php.net/manual/en/function.ocicolltrim.php
  * @param OCI_Collection $collection
- * @param int|float
+ * @param int|float $number
  * @return bool Returns <b>TRUE</b> or <b>FALSE</b> on failure.
  */
 function ocicolltrim ($collection, $number) {}

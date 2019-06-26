@@ -618,7 +618,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Gets line from file
          * @link https://php.net/manual/en/splfileobject.fgets.php
-         * @return string a string containing the next line from the file, or false on error.
+         * @return string|false a string containing the next line from the file, or false on error.
          * @since 5.1.0
          */
         public function fgets () {}
@@ -629,7 +629,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * @param int $length <p>
          * The number of bytes to read.
          * </p>
-         * @return string returns the string read from the file or FALSE on failure.
+         * @return string|false returns the string read from the file or FALSE on failure.
          * @since 5.5.11
          */
         public function fread ($length) {}
@@ -668,7 +668,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * The field enclosure character (one character only). Defaults as a double quotation mark or the value set using <b>SplFileObject::setCsvControl</b>.
      * </p>
      * @param string $escape The optional escape parameter sets the escape character (one character only).
-     * @return int Returns the length of the written string or FALSE on failure.
+     * @return int|false Returns the length of the written string or FALSE on failure.
      * @since 5.4.0
      *</p>
      */
@@ -724,7 +724,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Return current file position
          * @link https://php.net/manual/en/splfileobject.ftell.php
-         * @return int the position of the file pointer as an integer, or false on error.
+         * @return int|false the position of the file pointer as an integer, or false on error.
          * @since 5.1.0
          */
         public function ftell () {}
@@ -754,7 +754,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Gets character from file
          * @link https://php.net/manual/en/splfileobject.fgetc.php
-         * @return string a string containing a single character read from the file or false on EOF.
+         * @return string|false a string containing a single character read from the file or false on EOF.
          * @since 5.1.0
          */
         public function fgetc () {}
@@ -762,7 +762,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Output all remaining data on a file pointer
          * @link https://php.net/manual/en/splfileobject.fpassthru.php
-	 * @return int the number of characters read from <i>handle</i>
+         * @return int|false the number of characters read from <i>handle</i>
          * and passed through to the output.
          * @since 5.1.0
          */
@@ -775,7 +775,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * You can use the optional third parameter to specify tags which should
          * not be stripped.
          * </p>
-         * @return string a string containing the next line of the file with HTML and PHP
+         * @return string|false a string containing the next line of the file with HTML and PHP
          * code stripped, or false on error.
          * @since 5.1.0
          * @deprecated 7.3
@@ -937,7 +937,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
 	     * Alias of <b>SplFileObject::fgets</b>
          * @link https://php.net/manual/en/splfileobject.getcurrentline.php
-         * @return string Returns a string containing the next line from the file, or FALSE on error.
+         * @return string|false Returns a string containing the next line from the file, or FALSE on error.
          * @since 5.1.2
          */
         public function getCurrentLine () {}
@@ -2153,7 +2153,7 @@ class MultipleIterator implements Iterator {
          * @param Iterator $iterator <p>
          * The new iterator to attach.
          * </p>
-         * @param string $infos [optional] <p>
+         * @param int|string|null $infos [optional] <p>
          * The associative information for the Iterator, which must be an
 	 * integer, a string, or null.
          * </p>
@@ -2203,7 +2203,7 @@ class MultipleIterator implements Iterator {
         /**
          * Checks the validity of sub iterators
          * @link https://php.net/manual/en/multipleiterator.valid.php
-         * @return boolean true if one or all sub iterators are valid depending on flags,
+         * @return bool true if one or all sub iterators are valid depending on flags,
          * otherwise false
          * @since 5.3.0
          */

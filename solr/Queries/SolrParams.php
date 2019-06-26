@@ -24,7 +24,7 @@ abstract class SolrParams implements Serializable {
 	 * @param string $value <p>
 	 * The value of the parameter
 	 * </p>
-	 * @return SolrParams <p>
+	 * @return SolrParams|false <p>
 	 * Returns a SolrParams instance on success and <b>FALSE</b> on failure.
 	 * </p>
 	 */
@@ -40,7 +40,7 @@ abstract class SolrParams implements Serializable {
 	 * @param string $value <p>
 	 * The value of the parameter
 	 * </p>
-	 * @return SolrParams <p>
+	 * @return SolrParams|false <p>
 	 * Returns a SolrParams instance on success and <b>FALSE</b> on failure.
 	 * </p>
 	 */
@@ -112,7 +112,7 @@ abstract class SolrParams implements Serializable {
 	 * @param $value <p>
 	 * The parameter value
 	 * </p>
-	 * @return SolrParams <p>
+	 * @return SolrParams|false <p>
 	 * Returns a SolrParams instance on success and <b>FALSE</b> on failure.
 	 * </p>
 	 */
@@ -128,7 +128,7 @@ abstract class SolrParams implements Serializable {
 	 * @param $value <p>
 	 * The parameter value
 	 * </p>
-	 * @return SolrParams <p>
+	 * @return SolrParams|false <p>
 	 * Returns a SolrParams instance on success and <b>FALSE</b> on failure.
 	 * </p>
 	 */
@@ -141,7 +141,7 @@ abstract class SolrParams implements Serializable {
 	 * @param bool $url_encode <p>
 	 * Whether to return URL-encoded values
 	 * </p>
-	 * @return string <p>
+	 * @return string|false <p>
 	 * Returns a string on success and <b>FALSE</b> on failure.
 	 * </p>
 	 */

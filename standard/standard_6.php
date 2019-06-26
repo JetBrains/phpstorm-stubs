@@ -317,7 +317,7 @@ function stream_filter_remove ($stream_filter) {}
  * @param resource $context [optional] <p>
  * A valid context resource created with stream_context_create.
  * </p>
- * @return resource|bool On success a stream resource is returned which may
+ * @return resource|false On success a stream resource is returned which may
  * be used together with the other file functions (such as
  * fgets, fgetss,
  * fwrite, fclose, and
@@ -372,7 +372,7 @@ function stream_socket_client ($remote_socket, &$errno = null, &$errstr = null, 
  * </p>
  * @param resource $context [optional] <p>
  * </p>
- * @return resource the created stream, or false on error.
+ * @return resource|false the created stream, or false on error.
  * @since 5.0
  */
 function stream_socket_server ($local_socket, &$errno = null, &$errstr = null, $flags = null, $context = null) {}
@@ -393,7 +393,7 @@ function stream_socket_server ($local_socket, &$errno = null, &$errstr = null, $
  * Can also be determined later using
  * stream_socket_get_name.
  * </p>
- * @return resource|bool Returns a stream to the accepted socket connection or FALSE on failure.
+ * @return resource|false Returns a stream to the accepted socket connection or FALSE on failure.
  * @since 5.0
  */
 function stream_socket_accept ($server_socket, $timeout = null, &$peername = null) {}
@@ -552,7 +552,7 @@ function stream_socket_shutdown ($stream, $how) {}
  * STREAM_IPPROTO_TCP or
  * STREAM_IPPROTO_UDP 
  * </p>
- * @return array|bool an array with the two socket resources on success, or
+ * @return array|false an array with the two socket resources on success, or
  * false on failure.
  * @since 5.1.0
  */
@@ -591,7 +591,7 @@ function stream_copy_to_stream ($source, $dest, $maxlength = null, $offset = nul
  * @param int $offset [optional] <p>
  * Seek to the specified offset before reading.
  * </p>
- * @return string|bool a string or false on failure.
+ * @return string|false a string or false on failure.
  * @since 5.0
  */
 function stream_get_contents ($handle, $maxlength = null, $offset = null) {}
@@ -664,7 +664,7 @@ function fgetcsv ($handle, $length = 0, $delimiter = ',', $enclosure = '"', $esc
  * enclosure (one character only).
  * </p>
  * @param string $escape_char The optional escape_char parameter sets the escape character (one character only).
- * @return int|bool the length of the written string or false on failure.
+ * @return int|false the length of the written string or false on failure.
  * @since 5.1.0
  */
 function fputcsv ($handle, array $fields, $delimiter = ",", $enclosure = '"', $escape_char = "\\") {}
@@ -913,7 +913,7 @@ function stream_get_meta_data ($stream) {}
  * @param string $ending [optional] <p>
  * An optional string delimiter.
  * </p>
- * @return string a string of up to length bytes read from the file
+ * @return string|false a string of up to length bytes read from the file
  * pointed to by handle.
  * </p>
  * <p>
@@ -976,7 +976,7 @@ function stream_register_wrapper ($protocol, $classname, $flags = 0) {}
  * @link https://php.net/manual/en/function.stream-resolve-include-path.php
  * @param string $filename The filename to resolve.<p>
  * </p>
- * @return string|bool containing the resolved absolute filename, or FALSE on failure.
+ * @return string|false containing the resolved absolute filename, or FALSE on failure.
  * @since 5.3.2
  */
 function stream_resolve_include_path ($filename) {}
@@ -1041,7 +1041,7 @@ function stream_is_local ($stream_or_url) {}
  * array's keys.
  * </p>
  * @param resource $context [optional]
- * @return array an indexed or associative array with the headers, or false on
+ * @return array|false an indexed or associative array with the headers, or false on
  * failure.
  * @since 5.0
  */
@@ -1157,7 +1157,7 @@ function socket_get_status ($stream) {}
  * @param string $path <p>
  * The path being checked.
  * </p>
- * @return string|bool the canonicalized absolute pathname on success. The resulting path 
+ * @return string|false the canonicalized absolute pathname on success. The resulting path
  * will have no symbolic link, '/./' or '/../' components.
  * </p>
  * <p>

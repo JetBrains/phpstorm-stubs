@@ -746,7 +746,7 @@ class IntlChar {
      * <li><b> IntlChar::CHAR_NAME_ALIAS </b></li>
      * <li><b> IntlChar::CHAR_NAME_CHOICE_COUNT </b></li>
      * </ul>
-     * @return int The Unicode value of the code point with the given name (as an integer), or FALSE if there is no such code point.
+     * @return int|false The Unicode value of the code point with the given name (as an integer), or FALSE if there is no such code point.
      * @since 7.0
      */
     public static function charFromName($characterName, $nameChoice = IntlChar::UNICODE_CHAR_NAME) {}
@@ -838,7 +838,7 @@ class IntlChar {
      * @link https://php.net/manual/ru/intlchar.digit.php
      * @param string $codepoint <p>The integer codepoint value (e.g. <em>0x2603</em> for <em>U+2603 SNOWMAN</em>), or the character encoded as a UTF-8 string (e.g. <em>"\u{2603}"</em>)</p>
      * @param int $radix <p>The radix (defaults to 10).</p>
-     * @return int Returns the numeric value represented by the character in the specified radix, or <b>FALSE</b> if there is no value or if the value exceeds the radix.
+     * @return int|false Returns the numeric value represented by the character in the specified radix, or <b>FALSE</b> if there is no value or if the value exceeds the radix.
      * @since 7.0
      */
     public static function digit ($codepoint,$radix = 10 ) {}
@@ -1007,7 +1007,7 @@ class IntlChar {
      * <p><b>IntlChar::PROPERTY_INVALID_CODE</b> should not be used. Also, if property is out of range, FALSE is returned.</p>
      * @param int $nameChoice <p> Selector for which name to get. If out of range, FALSE is returned.</p>
      * <p>All properties have a long name. Most have a short name, but some do not. Unicode allows for additional names; if present these will be returned by adding 1, 2, etc. to <b>IntlChar::LONG_PROPERTY_NAME</b>.</p>
-     * @return string <p>
+     * @return string|false <p>
      * Returns the name, or <b>FALSE</b> if either the <em>property</em> or the <em>nameChoice</em>
      * is out of range.
      * </p>
@@ -1056,7 +1056,7 @@ class IntlChar {
      * Selector for which name to get. If out of range, FALSE is returned.
      * All values have a long name. Most have a short name, but some do not. Unicode allows for additional names; if present these will be returned by adding 1, 2, etc. to IntlChar::LONG_PROPERTY_NAME.
      * </p>
-     * @return  string Returns the name, or FALSE if either the property or the nameChoice is out of range.
+     * @return  string|false Returns the name, or FALSE if either the property or the nameChoice is out of range.
      * If a given nameChoice returns FALSE, then all larger values of nameChoice will return FALSE, with one exception: if FALSE is returned for IntlChar::SHORT_PROPERTY_NAME, then IntlChar::LONG_PROPERTY_NAME (and higher) may still return a non-FALSE value.
      * @since 7.0
      */
@@ -1244,7 +1244,7 @@ class IntlChar {
      * Check if code point is a titlecase letter
      * @link https://php.net/manual/ru/intlchar.istitle.php
      * @param mixed $codepoint The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")
-     * @return boolean Returns TRUE if codepoint is a titlecase letter, FALSE if not.
+     * @return bool Returns TRUE if codepoint is a titlecase letter, FALSE if not.
      * @since 7.0
      */
     public static function istitle ($codepoint ){}

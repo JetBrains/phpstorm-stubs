@@ -263,7 +263,7 @@ function socket_create_pair ($domain, $type, $protocol, array &$fd) {}
  * @param resource $socket <p>
  * A valid socket resource created with <b>socket_create</b>.
  * </p>
- * @return resource a new socket resource on success, or <b>FALSE</b> on error. The actual
+ * @return resource|false a new socket resource on success, or <b>FALSE</b> on error. The actual
  * error code can be retrieved by calling
  * <b>socket_last_error</b>. This error code may be passed to
  * <b>socket_strerror</b> to get a textual explanation of the
@@ -356,7 +356,7 @@ function socket_close ($socket) {}
  * greater then the buffer length, it is silently truncated to the length
  * of the buffer.
  * </p>
- * @return int the number of bytes successfully written to the socket or <b>FALSE</b> on failure.
+ * @return int|false the number of bytes successfully written to the socket or <b>FALSE</b> on failure.
  * The error code can be retrieved with
  * <b>socket_last_error</b>. This code may be passed to
  * <b>socket_strerror</b> to get a textual explanation of the
@@ -665,7 +665,7 @@ function socket_recv ($socket, &$buf, $len, $flags) {}
  * </tr>
  * </table>
  * </p>
- * @return int <b>socket_send</b> returns the number of bytes sent, or <b>FALSE</b> on error.
+ * @return int|false <b>socket_send</b> returns the number of bytes sent, or <b>FALSE</b> on error.
  * @since 4.1.0
  * @since 5.0
  */
@@ -1293,7 +1293,7 @@ function socket_clear_error ($socket = null) {}
  * @param resource $stream <p>
  * The stream resource to import.
  * </p>
- * @return resource <b>FALSE</b> or <b>NULL</b> on failure.
+ * @return resource|false|null <b>FALSE</b> or <b>NULL</b> on failure.
  * @since 5.4.0
  */
 function socket_import_stream ($stream) {}

@@ -140,7 +140,7 @@
  * <tr valign="top">
  * <td>P_SIGN_POSN</td>
  * Returns 0 if parentheses surround the quantity and CURRENCY_SYMBOL.
- * @return string the element as a string, or false if item
+ * @return string|false the element as a string, or false if item
  * is not valid.
  * @since 4.1.0
  * @since 5.0
@@ -305,7 +305,7 @@ function chop ($str, $character_mask = null) {}
  * @param string $haystack The input string.
  * @param mixed $needle If needle is not a string, it is converted to an integer and applied as the ordinal value of a character.
  * @param bool $part [optional] If TRUE, strstr() returns the part of the haystack before the first occurrence of the needle (excluding the needle).
- * @return string Returns the portion of string, or FALSE if needle is not found.
+ * @return string|false Returns the portion of string, or FALSE if needle is not found.
  */
 function strchr ($haystack, $needle, $part = false) {}
 
@@ -603,7 +603,7 @@ function http_build_query ($query_data, $numeric_prefix = null, $arg_separator =
  * @param string $path <p>
  * The symbolic link path.
  * </p>
- * @return string the contents of the symbolic link path or false on error.
+ * @return string|false the contents of the symbolic link path or false on error.
  * @since 4.0
  * @since 5.0
  */
@@ -707,7 +707,7 @@ function exec ($command, array &$output = null, &$return_var = null) {}
  * return status of the executed command will be written to this
  * variable.
  * </p>
- * @return string|bool the last line of the command output on success, and false
+ * @return string|false the last line of the command output on success, and false
  * on failure.
  * @since 4.0
  * @since 5.0
@@ -823,7 +823,7 @@ function shell_exec ($cmd) {}
  * binary_pipes: open pipes in binary mode, instead
  * of using the usual stream_encoding
  * </p>
- * @return resource|bool a resource representing the process, which should be freed using
+ * @return resource|false a resource representing the process, which should be freed using
  * proc_close when you are finished with it. On failure
  * returns false.
  * @since 4.3.0
@@ -869,7 +869,7 @@ function proc_terminate ($process, $signal = 15) {}
  * The proc_open resource that will
  * be evaluated.
  * </p>
- * @return array|bool An array of collected information on success, and false
+ * @return array|false An array of collected information on success, and false
  * on failure. The returned array contains the following elements:
  * </p>
  * <p>

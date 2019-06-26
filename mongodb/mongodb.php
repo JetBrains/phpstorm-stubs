@@ -407,7 +407,7 @@ namespace MongoDB {}
              * Checks if this server is an arbiter member of a replica set
              * @link https://php.net/manual/en/mongodb-driver-server.isarbiter.php
              * @throws InvalidArgumentException on argument parsing errors.
-             * @return boolean
+             * @return bool
              */
             final public function isArbiter()
             {
@@ -417,7 +417,7 @@ namespace MongoDB {}
              * Checks if this server is a hidden member of a replica set
              * @link https://php.net/manual/en/mongodb-driver-server.ishidden.php
              * @throws InvalidArgumentException on argument parsing errors.
-             * @return boolean
+             * @return bool
              */
             final public function isHidden()
             {
@@ -427,7 +427,7 @@ namespace MongoDB {}
              * Checks if this server is a passive member of a replica set
              * @link https://php.net/manual/en/mongodb-driver-server.ispassive.php
              * @throws InvalidArgumentException on argument parsing errors.
-             * @return boolean
+             * @return bool
              */
             final public function isPassive()
             {
@@ -437,7 +437,7 @@ namespace MongoDB {}
              * Checks if this server is a primary member of a replica set
              * @link https://php.net/manual/en/mongodb-driver-server.isprimary.php
              * @throws InvalidArgumentException on argument parsing errors.
-             * @return boolean
+             * @return bool
              */
             final public function isPrimary()
             {
@@ -447,7 +447,7 @@ namespace MongoDB {}
              * Checks if this server is a secondary member of a replica set
              * @link https://php.net/manual/en/mongodb-driver-server.issecondary.php
              * @throws InvalidArgumentException on argument parsing errors.
-             * @return boolean
+             * @return bool
              */
             final public function isSecondary()
             {
@@ -589,7 +589,7 @@ namespace MongoDB {}
             /**
              * Checks if this is the default read concern
              * @link https://secure.php.net/manual/en/mongodb-driver-readconcern.isdefault.php
-             * @return boolean
+             * @return bool
              * @since 1.3.0
              * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors.
              */
@@ -636,7 +636,7 @@ namespace MongoDB {}
             /**
              * Checks if a cursor is still alive
              * @link https://php.net/manual/en/mongodb-driver-cursor.isdead.php
-             * @return boolean
+             * @return bool
              * @throws InvalidArgumentException On argument parsing errors
              */
             final public function isDead()
@@ -779,7 +779,7 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-writeconcern.construct.php
              * @param string|integer $w
              * @param integer $wtimeout How long to wait (in milliseconds) for secondaries before failing.
-             * @param boolean $journal Wait until mongod has applied the write to the journal.
+             * @param bool $journal Wait until mongod has applied the write to the journal.
              * @throws InvalidArgumentException on argument parsing errors.
              */
             final public function __construct($w, $wtimeout = 0, $journal = false)
@@ -904,7 +904,7 @@ namespace MongoDB {}
             /**
              * Returns whether the write was acknowledged
              * @link https://php.net/manual/en/mongodb-driver-writeresult.isacknowledged.php
-             * @return boolean
+             * @return bool
              */
             final public function isAcknowledged()
             {
@@ -1136,7 +1136,7 @@ namespace MongoDB {}
              *
              * @param string $errorLabel
              * @since 1.6.0
-             * @return boolean
+             * @return bool
              */
             final public function hasErrorLabel($errorLabel)
             {

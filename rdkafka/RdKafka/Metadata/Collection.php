@@ -26,7 +26,7 @@ class Collection implements \Iterator, \Countable
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function valid()
     {

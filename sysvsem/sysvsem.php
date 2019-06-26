@@ -19,7 +19,7 @@
  * Specifies if the semaphore should be automatically released on request
  * shutdown.
  * </p>
- * @return resource a positive semaphore identifier on success, or <b>FALSE</b> on
+ * @return resource|false a positive semaphore identifier on success, or <b>FALSE</b> on
  * error.
  * @since 4.0
  * @since 5.0

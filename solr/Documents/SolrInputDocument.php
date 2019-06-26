@@ -137,7 +137,7 @@ final class SolrInputDocument {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Retrieves the current boost value for the document
 	 * @link https://php.net/manual/en/solrinputdocument.getboost.php
-	 * @return float <p>
+	 * @return float|false <p>
 	 * Returns the boost value on success and <b>FALSE</b> on failure.
 	 * </p>
 	 */
@@ -166,7 +166,7 @@ final class SolrInputDocument {
 	 * @param string $fieldName <p>
 	 * The name of the field.
 	 * </p>
-	 * @return SolrDocumentField Returns a SolrDocumentField object on success and <b>FALSE</b> on failure.
+	 * @return SolrDocumentField|false Returns a SolrDocumentField object on success and <b>FALSE</b> on failure.
 	 */
 	public function getField($fieldName) {}
 
@@ -177,7 +177,7 @@ final class SolrInputDocument {
 	 * @param string $fieldName <p>
 	 * The name of the field.
 	 * </p>
-	 * @return float <p>
+	 * @return float|false <p>
 	 * Returns the boost value for the field or <b>FALSE</b> if there was an error.
 	 * </p>
 	 */
@@ -187,7 +187,7 @@ final class SolrInputDocument {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the number of fields in the document
 	 * @link https://php.net/manual/en/solrinputdocument.getfieldcount.php
-	 * @return int <p>
+	 * @return int|false <p>
 	 * Returns an integer on success or <b>FALSE</b> on failure.
 	 * </p>
 	 */
@@ -197,7 +197,7 @@ final class SolrInputDocument {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns an array containing all the fields in the document
 	 * @link https://php.net/manual/en/solrinputdocument.getfieldnames.php
-	 * @return array <p>
+	 * @return array|false <p>
 	 * Returns an array on success and <b>FALSE</b> on failure.
 	 * </p>
 	 */
@@ -296,7 +296,7 @@ final class SolrInputDocument {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns an array representation of the input document
 	 * @link https://php.net/manual/en/solrinputdocument.toarray.php
-	 * @return array <p>
+	 * @return array|false <p>
 	 * Returns an array containing the fields. It returns FALSE on failure.
 	 * </p>
 	 */

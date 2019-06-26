@@ -11,7 +11,7 @@
  * @param string $string <p>
  * The string to be recoded
  * </p>
- * @return string the recoded string or <b>FALSE</b>, if unable to
+ * @return string|false the recoded string or <b>FALSE</b>, if unable to
  * perform the recode request.
  * @since 4.0
  * @since 5.0

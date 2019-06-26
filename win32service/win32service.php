@@ -306,7 +306,7 @@ define( "WIN32_REALTIME_PRIORITY_CLASS", 0x00000100 );
  * @param string $serviceName The short name of the service.
  * @param string $machine     Optional machine name. If omitted, the local machine is used.
  *
- * @return int Returns WIN32_NO_ERROR on success, FALSE if there is a problem with the parameters or a Win32 Error Code
+ * @return int|false Returns WIN32_NO_ERROR on success, FALSE if there is a problem with the parameters or a Win32 Error Code
  *             on failure.
  */
 function win32_continue_service( $serviceName, $machine = "" ) { }
@@ -408,7 +408,7 @@ function win32_continue_service( $serviceName, $machine = "" ) { }
  * @param string $machine       The optional machine name on which you want to create a service. If omitted, it will
  *                              use the local machine.
  *
- * @return int Returns WIN32_NO_ERROR on success, FALSE if there is a problem with the parameters or a Win32 Error Code
+ * @return int|false Returns WIN32_NO_ERROR on success, FALSE if there is a problem with the parameters or a Win32 Error Code
  *             on failure.
  */
 
@@ -423,7 +423,7 @@ function win32_create_service( $details, $machine = "" ) { }
  * @param string $serviceName The short name of the service.
  * @param string $machine     Optional machine name. If omitted, the local machine is used.
  *
- * @return int Returns WIN32_NO_ERROR on success, FALSE if there is a problem with the parameters or a Win32 Error Code
+ * @return int|false Returns WIN32_NO_ERROR on success, FALSE if there is a problem with the parameters or a Win32 Error Code
  *             on failure.
  */
 function win32_delete_service( $serviceName, $machine = "" ) { }
@@ -448,7 +448,7 @@ function win32_get_last_control_message() { }
  * @param string $serviceName The short name of the service.
  * @param string $machine     Optional machine name. If omitted, the local machine is used.
  *
- * @return int Returns WIN32_NO_ERROR on success, FALSE if there is a problem with the parameters or a Win32 Error Code
+ * @return int|false Returns WIN32_NO_ERROR on success, FALSE if there is a problem with the parameters or a Win32 Error Code
  *             on failure.
  *
  */
@@ -460,7 +460,7 @@ function win32_pause_service( $serviceName, $machine = "" ) { }
  * @param string $serviceName The short name of the service.
  * @param string $machine     Optional machine name. If omitted, the local machine is used.
  *
- * @return array Returns an array consisting of the following information on success, FALSE if there is a problem with
+ * @return array|false Returns an array consisting of the following information on success, FALSE if there is a problem with
  *               the parameters or a Win32 Error Code on failure.
  *               <ul>
  *                   <li>
@@ -564,7 +564,7 @@ function win32_start_service_ctrl_dispatcher( $name ) { }
  * @param string $serviceName The short name of the service.
  * @param string $machine     Optional machine name. If omitted, the local machine is used.
  *
- * @return int Returns WIN32_NO_ERROR on success, FALSE if there is a problem with the parameters or a Win32 Error Code
+ * @return int|false Returns WIN32_NO_ERROR on success, FALSE if there is a problem with the parameters or a Win32 Error Code
  *             on failure.
  *
  */
@@ -576,7 +576,7 @@ function win32_start_service( $serviceName, $machine = "" ) { }
  * @param string $serviceName The short name of the service.
  * @param string $machine     Optional machine name. If omitted, the local machine is used.
  *
- * @return int Returns WIN32_NO_ERROR on success, FALSE if there is a problem with the parameters or a Win32 Error Code
+ * @return int|false Returns WIN32_NO_ERROR on success, FALSE if there is a problem with the parameters or a Win32 Error Code
  *             on failure.
  */
 function win32_stop_service( $serviceName, $machine = "" ) { }

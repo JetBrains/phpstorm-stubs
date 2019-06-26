@@ -1037,7 +1037,7 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.getimagematte.php
      *
-     * @return int Returns TRUE if the image has a matte channel, otherwise FALSE.
+     * @return bool Returns TRUE if the image has a matte channel, otherwise FALSE.
      *
      * @throws GmagickException On error.
      */
@@ -2625,7 +2625,7 @@ class GmagickDraw
      *
      * @link https://php.net/manual/en/gmagickdraw.getfont.php
      *
-     * @return string|bool A string on success and false if no font is set.
+     * @return string|false A string on success and false if no font is set.
      */
     public function getfont()
     {
@@ -2713,7 +2713,7 @@ class GmagickDraw
      *
      * @link https://php.net/manual/en/gmagickdraw.gettextencoding.php
      *
-     * @return string|bool Returns a string specifying the code set or false if text encoding is not set.
+     * @return string|false Returns a string specifying the code set or false if text encoding is not set.
      */
     public function gettextencoding()
     {

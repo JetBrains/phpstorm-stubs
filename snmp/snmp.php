@@ -131,7 +131,7 @@ class SNMP  {
 	/**
 	 * Close SNMP session
 	 * @link https://php.net/manual/en/snmp.close.php
-	 * @return mixed <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * @since 5.4.0
 	 */
 	public function close () {}
@@ -182,7 +182,7 @@ class SNMP  {
      * @param $suffix_as_keys bool [optional] <p>By default full OID notation is used for keys in output array. If set to <b>TRUE</b> subtree prefix will be removed from keys leaving only suffix of object_id.</p>
      * @param $max_repetitions int [optional] <p>This specifies the maximum number of iterations over the repeating variables. The default is to use this value from SNMP object.</p>
      * @param $non_repeaters int [optional] <p>This specifies the number of supplied variables that should not be iterated over. The default is to use this value from SNMP object.</p>
-     * @return array associative array of the SNMP object ids and their values on success or <b>FALSE</b> on error.
+     * @return array|false associative array of the SNMP object ids and their values on success or <b>FALSE</b> on error.
 	 * When a SNMP error occures <b>SNMP::getErrno</b> and
 	 * <b>SNMP::getError</b> can be used for retrieving error
 	 * number (specific to SNMP extension, see class constants) and error message
@@ -318,7 +318,7 @@ class SNMPException extends RuntimeException  {
  * @param int $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
- * @return string SNMP object value on success or <b>FALSE</b> on error.
+ * @return string|false SNMP object value on success or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -332,7 +332,7 @@ function snmpget ($hostname, $community, $object_id, $timeout = 1000000, $retrie
  * @param string $object_id <p>The SNMP object id which precedes the wanted one.</p>
  * @param int $timeout [optional] <p>The number of microseconds until the first timeout.</p>
  * @param int $retries [optional] <p>The number of times to retry if timeouts occur.</p>
- * @return string SNMP object value on success or <b>FALSE</b> on error.
+ * @return string|false SNMP object value on success or <b>FALSE</b> on error.
  * In case of an error, an E_WARNING message is shown.
  * @since 5.0
  */
@@ -375,7 +375,7 @@ function snmpwalk ($hostname, $community, $object_id, $timeout = 1000000, $retri
  * @param string $object_id <p>The SNMP object id which precedes the wanted one.</p>
  * @param int $timeout [optional] <p>The number of microseconds until the first timeout.</p>
  * @param int $retries [optional] <p>The number of times to retry if timeouts occur.</p>
- * @return array an associative array of the SNMP object ids and their values on success or <b>FALSE</b> on error.
+ * @return array|false an associative array of the SNMP object ids and their values on success or <b>FALSE</b> on error.
  * In case of an error, an E_WARNING message is shown.
  * @since 4.0
  * @since 5.0
@@ -561,7 +561,7 @@ function snmp_set_oid_numeric_print ($oid_format) {}
  * @param int $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
- * @return string SNMP object value on success or <b>FALSE</b> on error.
+ * @return string|false SNMP object value on success or <b>FALSE</b> on error.
  * @since 5.2.0
  */
 function snmp2_get ($host, $community, $object_id, $timeout = 1000000, $retries = 5) {}
@@ -584,7 +584,7 @@ function snmp2_get ($host, $community, $object_id, $timeout = 1000000, $retries 
  * @param int $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
- * @return string SNMP object value on success or <b>FALSE</b> on error.
+ * @return string|false SNMP object value on success or <b>FALSE</b> on error.
  * In case of an error, an E_WARNING message is shown.
  * @since 5.2.0
  */
@@ -638,7 +638,7 @@ function snmp2_walk ($host, $community, $object_id, $timeout = 1000000, $retries
  * @param int $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
- * @return array an associative array of the SNMP object ids and their values on success or <b>FALSE</b> on error.
+ * @return array|false an associative array of the SNMP object ids and their values on success or <b>FALSE</b> on error.
  * In case of an error, an E_WARNING message is shown.
  * @since 5.2.0
  */
@@ -743,7 +743,7 @@ function snmp2_set ($host, $community, $object_id, $type, $value, $timeout = 100
  * @param int $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
- * @return string SNMP object value on success or <b>FALSE</b> on error.
+ * @return string|false SNMP object value on success or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -783,7 +783,7 @@ function snmp3_get ($host, $sec_name, $sec_level, $auth_protocol, $auth_passphra
  * @param int $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
- * @return string SNMP object value on success or <b>FALSE</b> on error.
+ * @return string|false SNMP object value on success or <b>FALSE</b> on error.
  * In case of an error, an E_WARNING message is shown.
  * @since 5.0
  */

@@ -471,7 +471,7 @@ function ini_get_all ($extension = null, $details = null) {}
  * @param string $newvalue <p>
  * The new value for the option.
  * </p>
- * @return string|bool the old value on success, false on failure.
+ * @return string|false the old value on success, false on failure.
  * @since 4.0
  * @since 5.0
  */
@@ -808,7 +808,7 @@ function ignore_user_abort ($value = null) {}
  * and <em>"none"</em> are considered <b>FALSE</b>. <em>"null"</em> is converted to <b>NULL</b>
  * in typed mode. Also, all numeric strings are converted to integer type if it is possible.
  * </p>
- * @return array|bool The settings are returned as an associative array on success,
+ * @return array|false The settings are returned as an associative array on success,
  * and false on failure.
  * @since 4.0
  * @since 5.0
@@ -832,7 +832,7 @@ function parse_ini_file ($filename, $process_sections = false, $scanner_mode = I
  * INI_SCANNER_RAW. If INI_SCANNER_RAW 
  * is supplied, then option values will not be parsed.
  * </p>
- * @return array|bool The settings are returned as an associative array on success,
+ * @return array|false The settings are returned as an associative array on success,
  * and false on failure.
  * @since 5.3.0
  */
@@ -922,7 +922,7 @@ function gethostbynamel ($hostname) {}
 /**
  * Gets the host name
  * @link https://php.net/manual/en/function.gethostname.php
- * @return string a string with the hostname on success, otherwise false is 
+ * @return string|false a string with the hostname on success, otherwise false is
  * returned.
  * @since 5.3.0
  */

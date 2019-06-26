@@ -294,7 +294,7 @@ class DOMNode  {
 
     /**
      * @param DOMNode $arg
-     * @return boolean
+     * @return bool
      */
     public function isEqualNode (DOMNode $arg) {}
 
@@ -352,7 +352,7 @@ class DOMNode  {
      * @param $with_comments [optional]  Retain comments in output.
      * @param $xpath [optional] An array of xpaths to filter the nodes by.
      * @param $ns_prefixes [optional] An array of namespace prefixes to filter the nodes by.
-     * @return int Number of bytes written or FALSE on failure
+     * @return int|false Number of bytes written or FALSE on failure
      */
     public function C14NFile ($uri, $exclusive, array $with_comments, array $xpath = null, $ns_prefixes = null) {}
 
@@ -1147,7 +1147,7 @@ class DOMNodeList implements Traversable, Countable {
 	 * @param int $index <p>
 	 * Index of the node into the collection.
 	 * </p>
-	 * @return DOMNode|null The node at the indexth position in the 
+	 * @return DOMNode|null The node at the indexth position in the
 	 * DOMNodeList, or &null; if that is not a valid
 	 * index.
 	 * @since 5.0

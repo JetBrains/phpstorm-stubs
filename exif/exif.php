@@ -98,7 +98,7 @@ function read_exif_data ($filename, $sections = null, $arrays = false, $thumbnai
  * @param int $index <p>
  * The Tag ID for which a Tag Name will be looked up.
  * </p>
- * @return string the header name, or <b>FALSE</b> if <i>index</i> is
+ * @return string|false the header name, or <b>FALSE</b> if <i>index</i> is
  * not a defined EXIF tag id.
  * @since 4.2.0
  * @since 5.0
@@ -122,7 +122,7 @@ function exif_tagname ($index) {}
  * The returned image type of the returned thumbnail. This is either
  * TIFF or JPEG.
  * </p>
- * @return string the embedded thumbnail, or <b>FALSE</b> if the image contains no
+ * @return string|false the embedded thumbnail, or <b>FALSE</b> if the image contains no
  * thumbnail.
  * @since 4.2.0
  * @since 5.0
@@ -133,7 +133,7 @@ function exif_thumbnail ($filename, &$width = null, &$height = null, &$imagetype
  * Determine the type of an image
  * @link https://php.net/manual/en/function.exif-imagetype.php
  * @param string $filename The image being checked.
- * @return int When a correct signature is found, the appropriate constant value will be
+ * @return int|false When a correct signature is found, the appropriate constant value will be
  * returned otherwise the return value is <b>FALSE</b>. The return value is the
  * same value that <b>getimagesize</b> returns in index 2 but
  * <b>exif_imagetype</b> is much faster.

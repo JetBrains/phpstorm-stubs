@@ -133,7 +133,7 @@ function mailparse_msg_get_structure ($mimemail) {}
  * @param string $filename <p>
  * Path to the file holding the message. The file is opened and streamed through the parser.
  * </p>
- * @return resource Returns a MIME resource representing the structure, or <bFALSE</b> on error.
+ * @return resource|false Returns a MIME resource representing the structure, or <bFALSE</b> on error.
  */
 function mailparse_msg_parse_file ($filename) {}
 

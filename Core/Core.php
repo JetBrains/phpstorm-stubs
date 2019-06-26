@@ -404,7 +404,7 @@ function property_exists ($class, $property) {}
  * Checks if the trait exists
  * @param string $traitname Name of the trait to check
  * @param bool $autoload [optional] Whether to autoload if not already loaded.
- * @return boolean Returns TRUE if trait exists, FALSE if not, NULL in case of an error.
+ * @return bool Returns TRUE if trait exists, FALSE if not, NULL in case of an error.
  * @link https://secure.php.net/manual/en/function.trait-exists.php
  * @since 5.4.0
  */
@@ -558,7 +558,7 @@ function get_class_vars ($class_name) {}
  * @param object $object <p>
  * An object instance.
  * </p>
- * @return array an associative array of defined object accessible non-static properties 
+ * @return array an associative array of defined object accessible non-static properties
  * for the specified <i>object</i> in scope. If a property have
  * not been assigned a value, it will be returned with a null value.
  * @since 4.0
@@ -831,7 +831,7 @@ function extension_loaded ($name) {}
  * <p>
  * This parameter must be in lowercase.
  * </p>
- * @return array an array with all the functions, or false if 
+ * @return array an array with all the functions, or false if
  * <i>module_name</i> is not a valid extension.
  * @since 4.0
  * @since 5.0

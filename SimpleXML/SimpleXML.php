@@ -220,7 +220,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
      * Class provides access to children by position, and attributes by name
      * @access private Method not callable directly, stub exists for typehint only
      * @param string|int $offset
-     * @return boolean true on success or false on failure.
+     * @return bool true on success or false on failure.
      */
     private function offsetExists ($offset) {}
 

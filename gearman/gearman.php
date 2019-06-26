@@ -1606,7 +1606,7 @@ class GearmanClient {
      * @param string $workload
      * @param mixed $context
      * @param string $unique
-     * @return GearmanTask A GearmanTask object or false if the task could not be added
+     * @return GearmanTask|false A GearmanTask object or false if the task could not be added
      */
     public function addTask($function_name, $workload, $context = null, $unique = null) {}
 
@@ -1621,7 +1621,7 @@ class GearmanClient {
      * @param string $workload
      * @param mixed $context
      * @param string $unique
-     * @return GearmanTask A GearmanTask object or false if the task could not be added
+     * @return GearmanTask|false A GearmanTask object or false if the task could not be added
      */
     public function addTaskHigh($function_name, $workload, $context = null, $unique = null) {}
 
@@ -1636,7 +1636,7 @@ class GearmanClient {
      * @param string $workload
      * @param mixed $context
      * @param string $unique
-     * @return GearmanTask A GearmanTask object or false if the task could not be added
+     * @return GearmanTask|false A GearmanTask object or false if the task could not be added
      */
     public function addTaskLow($function_name, $workload, $context = null, $unique = null) {}
 
@@ -1650,7 +1650,7 @@ class GearmanClient {
      * @param string $workload
      * @param mixed $context
      * @param string $unique
-     * @return GearmanTask A GearmanTask object or false if the task could not be added
+     * @return GearmanTask|false A GearmanTask object or false if the task could not be added
      */
     public function addTaskBackground($function_name, $workload, $context = null, $unique = null) {}
 
@@ -1665,7 +1665,7 @@ class GearmanClient {
      * @param string $workload
      * @param mixed $context
      * @param string $unique
-     * @return GearmanTask A GearmanTask object or false if the task could not be added
+     * @return GearmanTask|false A GearmanTask object or false if the task could not be added
      */
     public function addTaskHighBackground($function_name, $workload, $context = null, $unique = null) {}
 
@@ -1680,7 +1680,7 @@ class GearmanClient {
      * @param string $workload
      * @param mixed $context
      * @param string $unique
-     * @return GearmanTask A GearmanTask object or false if the task could not be added
+     * @return GearmanTask|false A GearmanTask object or false if the task could not be added
      */
     public function addTaskLowBackground($function_name, $workload, $context = null, $unique = null) {}
 
@@ -1837,7 +1837,7 @@ class GearmanTask {
      * server.
      *
      * @link https://php.net/manual/en/gearmantask.unique.php
-     * @return string The unique identifier, or false if no identifier is assigned
+     * @return string|false The unique identifier, or false if no identifier is assigned
      */
     public function unique() {}
 
@@ -1871,7 +1871,7 @@ class GearmanTask {
      * as a fraction.
      *
      * @link https://php.net/manual/en/gearmantask.tasknumerator.php
-     * @return int A number between 0 and 100, or false if cannot be determined
+     * @return int|false A number between 0 and 100, or false if cannot be determined
      */
     public function taskNumerator() {}
 
@@ -1880,7 +1880,7 @@ class GearmanTask {
      * as a fraction.
      *
      * @link https://php.net/manual/en/gearmantask.taskdenominator.php
-     * @return int A number between 0 and 100, or false if cannot be determined
+     * @return int|false A number between 0 and 100, or false if cannot be determined
      */
     public function taskDenominator() {}
 
@@ -1889,7 +1889,7 @@ class GearmanTask {
      *
      * @link https://php.net/manual/en/gearmantask.sendworkload.php
      * @param string $data Data to send to the worker
-     * @return int The length of data sent, or false if the send failed
+     * @return int|false The length of data sent, or false if the send failed
      */
     public function sendWorkload($data) {}
 
@@ -1897,7 +1897,7 @@ class GearmanTask {
      * Returns data being returned for a task by a worker.
      *
      * @link https://php.net/manual/en/gearmantask.data.php
-     * @return string The serialized data, or false if no data is present
+     * @return string|false The serialized data, or false if no data is present
      */
     public function data() {}
 
@@ -1905,7 +1905,7 @@ class GearmanTask {
      * Returns the size of the data being returned for a task.
      *
      * @link https://php.net/manual/en/gearmantask.datasize.php
-     * @return int The data size, or false if there is no data
+     * @return int|false The data size, or false if there is no data
      */
     public function dataSize() {}
 
@@ -1914,7 +1914,7 @@ class GearmanTask {
      *
      * @link https://php.net/manual/en/gearmantask.recvdata.php
      * @param int $data_len Length of data to be read
-     * @return array An array whose first element is the length of data read and the second is
+     * @return array|false An array whose first element is the length of data read and the second is
      *         the data buffer. Returns false if the read failed
      */
     public function recvData($data_len) {}
