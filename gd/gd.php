@@ -2635,11 +2635,6 @@ define ('GD_RELEASE_VERSION', 35);
  */
 define ('GD_EXTRA_VERSION', "");
 
-/**
- * When the bundled version of GD is used this is 1 otherwise its set to 0.
- * @link https://php.net/manual/en/image.constants.php#constant.gd-bundled
- */
-define ('GD_BUNDLED', 1);
 
 /**
  * A special PNG filter, used by the {@see imagepng()} function.
