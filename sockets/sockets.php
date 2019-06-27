@@ -1390,6 +1390,14 @@ define ('SOL_SOCKET', 1);
 define ('SOMAXCONN', 128);
 
 /**
+ * Used to disable Nagle TCP algorithm.
+ * Added in PHP 5.2.7.
+ * @link https://php.net/manual/en/sockets.constants.php
+ */
+define ('TCP_NODELAY', 1);
+define ('PHP_NORMAL_READ', 1);
+define ('PHP_BINARY_READ', 2);
+/**
  * Joins a multicast group.
  * @since 5.4.0
  * @link https://php.net/manual/en/function.socket-get-option.php
@@ -1472,6 +1480,7 @@ define('IPV6_MULTICAST_HOPS', 18);
  * @link https://php.net/manual/en/function.socket-get-option.php
  */
 define('IPV6_MULTICAST_LOOP', 19);
+define ('IPV6_V6ONLY', 27);
 
 /**
  * Operation not permitted.
