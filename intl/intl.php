@@ -1672,21 +1672,21 @@ class IntlDateFormatter {
 
 
     /**
-     * @param $locale
-     * @param $datetype
-     * @param $timetype
-     * @param $timezone [optional]
-     * @param $calendar [optional]
-     * @param $pattern [optional]
+     * @param string|null $locale
+     * @param int $datetype
+     * @param int $timetype
+     * @param mixed|null $timezone [optional]
+     * @param mixed|null $calendar [optional]
+     * @param string $pattern [optional]
      */
-    public function __construct($locale, $datetype, $timetype, $timezone, $calendar, $pattern) { }
+    public function __construct($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = '') { }
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Create a date formatter
      * @link https://php.net/manual/en/intldateformatter.create.php
      * @param string $locale <p>
-     * Locale to use when formatting or parsing.
+     * Locale to use when formatting or parsing; default is specified in the ini setting intl.default_locale.
      * </p>
      * @param int $datetype <p>
      * Date type to use (<b>none</b>,
@@ -1716,7 +1716,7 @@ class IntlDateFormatter {
      * </p>
      * @return IntlDateFormatter
      */
-    public static function create($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = null) { }
+    public static function create($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = '') { }
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4052,7 +4052,7 @@ function msgfmt_get_error_message(MessageFormatter $fmt, $coll) { }
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Create a date formatter
  * @link https://php.net/manual/en/intldateformatter.create.php
- * @param string $locale <p>
+ * @param string|null $locale <p>
  * Locale to use when formatting or parsing.
  * </p>
  * @param int $datetype <p>
@@ -4069,10 +4069,10 @@ function msgfmt_get_error_message(MessageFormatter $fmt, $coll) { }
  * This is one of the
  * IntlDateFormatter constants.
  * </p>
- * @param string $timezone [optional] <p>
+ * @param string|null $timezone [optional] <p>
  * Time zone ID, default is system default.
  * </p>
- * @param int $calendar [optional] <p>
+ * @param int|null $calendar [optional] <p>
  * Calendar to use for formatting or parsing; default is Gregorian.
  * This is one of the
  * IntlDateFormatter calendar constants.
@@ -4083,7 +4083,7 @@ function msgfmt_get_error_message(MessageFormatter $fmt, $coll) { }
  * </p>
  * @return IntlDateFormatter
  */
-function datefmt_create($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = null) { }
+function datefmt_create($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = '') { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
