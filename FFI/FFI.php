@@ -228,10 +228,10 @@ namespace {
          * array of C chars.
          *
          * @param CData $source
-         * @param int|null $size
+         * @param int $size [optional]
          * @return string
          */
-        public static function string(CData &$source, int $size = null): string {}
+        public static function string(CData &$source, int $size = 0): string {}
     }
 }
 
