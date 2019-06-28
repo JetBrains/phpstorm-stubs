@@ -14,7 +14,7 @@ namespace {
      * access native variables and create/access data structures defined
      * in C language.
      *
-     * @since 8.0
+     * @since 7.4
      */
     class FFI
     {
@@ -239,7 +239,7 @@ namespace FFI {
     /**
      * Class Exception
      *
-     * @since 8.0
+     * @since 7.4
      */
     class Exception extends \Error
     {
@@ -248,7 +248,7 @@ namespace FFI {
     /**
      * Class ParserException
      *
-     * @since 8.0
+     * @since 7.4
      */
     class ParserException extends Exception
     {
@@ -259,7 +259,7 @@ namespace FFI {
      *
      * Proxy object that provides access to compiled structures.
      *
-     * @since 8.0
+     * @since 7.4
      */
     class CData
     {
@@ -270,7 +270,7 @@ namespace FFI {
      *
      * Class containing C type information.
      *
-     * @since 8.0
+     * @since 7.4
      */
     class CType
     {
