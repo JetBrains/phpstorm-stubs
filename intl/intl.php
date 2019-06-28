@@ -1679,7 +1679,7 @@ class IntlDateFormatter {
      * @param mixed|null $calendar [optional]
      * @param string $pattern [optional]
      */
-    public function __construct($locale = null, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = '') { }
+    public function __construct($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = '') { }
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1716,7 +1716,7 @@ class IntlDateFormatter {
      * </p>
      * @return IntlDateFormatter
      */
-    public static function create($locale = null, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = '') { }
+    public static function create($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = '') { }
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4083,7 +4083,7 @@ function msgfmt_get_error_message(MessageFormatter $fmt, $coll) { }
  * </p>
  * @return IntlDateFormatter
  */
-function datefmt_create($locale = null, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = '') { }
+function datefmt_create($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = '') { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
