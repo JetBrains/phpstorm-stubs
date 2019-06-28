@@ -540,7 +540,7 @@ class ErrorException extends Exception {
      * @param Exception $previous [optional] The previous exception used for the exception chaining.
      * @since 5.1.0
      */
-    public function __construct($message = "", $code = 0, $severity = 1, $filename = __FILE__, $lineno = __LINE__, $previous) { }
+    public function __construct($message = "", $code = 0, $severity = 1, $filename = __FILE__, $lineno = __LINE__, $previous = null) { }
 
     /**
      * Gets the exception severity
