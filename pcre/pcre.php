@@ -316,7 +316,7 @@ function preg_replace_callback ($pattern, callable $callback, $subject, $limit =
  * @return string|string[]|null  <p>preg_replace_callback_array() returns an array if the subject parameter is an array, or a string otherwise. On errors the return value is NULL</p>
  * <p>If matches are found, the new subject will be returned, otherwise subject will be returned unchanged.</p>
  */
-function preg_replace_callback_array ($patterns_and_callbacks, $subject , $limit = -1, &$count ) {}
+function preg_replace_callback_array ($patterns_and_callbacks, $subject , $limit = -1, &$count = null) {}
 
 /**
  * Perform a regular expression search and replace

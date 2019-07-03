@@ -1397,18 +1397,89 @@ define ('SOMAXCONN', 128);
 define ('TCP_NODELAY', 1);
 define ('PHP_NORMAL_READ', 1);
 define ('PHP_BINARY_READ', 2);
-define ('MCAST_JOIN_GROUP', 42);
-define ('MCAST_LEAVE_GROUP', 45);
-define ('MCAST_BLOCK_SOURCE', 43);
-define ('MCAST_UNBLOCK_SOURCE', 44);
-define ('MCAST_JOIN_SOURCE_GROUP', 46);
-define ('MCAST_LEAVE_SOURCE_GROUP', 47);
-define ('IP_MULTICAST_IF', 32);
-define ('IP_MULTICAST_TTL', 33);
-define ('IP_MULTICAST_LOOP', 34);
-define ('IPV6_MULTICAST_IF', 17);
-define ('IPV6_MULTICAST_HOPS', 18);
-define ('IPV6_MULTICAST_LOOP', 19);
+/**
+ * Joins a multicast group.
+ * @since 5.4.0
+ * @link https://php.net/manual/en/function.socket-get-option.php
+ */
+define('MCAST_JOIN_GROUP', 42);
+/**
+ * Leaves a multicast group.
+ * @since 5.4.0
+ * @link https://php.net/manual/en/function.socket-get-option.php
+ */
+define('MCAST_LEAVE_GROUP', 45);
+/**
+ * Blocks packets arriving from a specific source to a specific multicast group,
+ * which must have been previously joined.
+ * @since 5.4.0
+ * @link https://php.net/manual/en/function.socket-get-option.php
+ */
+define('MCAST_BLOCK_SOURCE', 43);
+/**
+ * Unblocks (start receiving again) packets arriving from
+ * a specific source address to a specific multicast group,
+ * which must have been previously joined.
+ * @since 5.4.0
+ * @link https://php.net/manual/en/function.socket-get-option.php
+ */
+define('MCAST_UNBLOCK_SOURCE', 44);
+/**
+ * Receive packets destined to a specific multicast group
+ * whose source address matches a specific value.
+ * @since 5.4.0
+ * @link https://php.net/manual/en/function.socket-get-option.php
+ */
+define('MCAST_JOIN_SOURCE_GROUP', 46);
+/**
+ * Stop receiving packets destined to a specific multicast group
+ * whose soure address matches a specific value.
+ * @since 5.4.0
+ * @link https://php.net/manual/en/function.socket-get-option.php
+ */
+define('MCAST_LEAVE_SOURCE_GROUP', 47);
+/**
+ * The outgoing interface for IPv4 multicast packets.
+ * @since 5.4.0
+ * @link https://php.net/manual/en/function.socket-get-option.php
+ */
+define('IP_MULTICAST_IF', 32);
+/**
+ * The outgoing interface for IPv6 multicast packets.
+ * @since 5.4.0
+ * @link https://php.net/manual/en/function.socket-get-option.php
+ */
+define('IP_MULTICAST_TTL', 33);
+/**
+ * The multicast loopback policy for IPv4 packets,
+ * which determines whether multicast packets sent by this socket
+ * also reach receivers in the same host that have joined the same multicast group
+ * on the outgoing interface used by this socket. This is the case by default.
+ * @since 5.4.0
+ * @link https://php.net/manual/en/function.socket-get-option.php
+ */
+define('IP_MULTICAST_LOOP', 34);
+/**
+ * Analogous to IP_MULTICAST_LOOP, but for IPv6.
+ * @since 5.4.0
+ * @link https://php.net/manual/en/function.socket-get-option.php
+ */
+define('IPV6_MULTICAST_IF', 17);
+/**
+ * The time-to-live of outgoing IPv4 multicast packets.
+ * This should be a value between 0 (don't leave the interface) and 255.
+ * The default value is 1 (only the local network is reached).
+ * @since 5.4.0
+ * @link https://php.net/manual/en/function.socket-get-option.php
+ */
+define('IPV6_MULTICAST_HOPS', 18);
+/**
+ * Analogous to IP_MULTICAST_TTL, but for IPv6 packets.
+ * The value -1 is also accepted, meaning the route default should be used.
+ * @since 5.4.0
+ * @link https://php.net/manual/en/function.socket-get-option.php
+ */
+define('IPV6_MULTICAST_LOOP', 19);
 define ('IPV6_V6ONLY', 27);
 
 /**

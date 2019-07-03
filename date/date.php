@@ -769,7 +769,7 @@ function checkdate ($month, $day, $year) {}
  * @since 4.0
  * @since 5.0
  */
-function strftime ($format, $timestamp) {}
+function strftime ($format, $timestamp = null) {}
 
 /**
  * Format a GMT/UTC time/date according to locale settings

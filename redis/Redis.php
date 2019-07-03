@@ -266,7 +266,11 @@ class Redis
     public function popen( $host, $port = 6379, $timeout = 0.0, $persistent_id = null, $retry_interval = 0, $read_timeout = 0.0 ) {}
 
     /**
-     * Disconnects from the Redis instance, except when pconnect is used.
+     * Disconnects from the Redis instance.
+     *
+     * Note: Closing a persistent connection requires PhpRedis >= 4.2.0.
+     *
+     * @return bool TRUE on success, FALSE on error.
      */
     public function close( ) {}
 
@@ -2307,6 +2311,7 @@ class Redis
      * Adds the specified member with a given score to the sorted set stored at key.
      *
      * @param   string  $key    Required key
+     * @param   array   $options Options if needed
      * @param   float   $score1 Required score
      * @param   string  $value1 Required value
      * @param   float   $score2 Optional score
@@ -2318,18 +2323,32 @@ class Redis
      * @example
      * <pre>
      * <pre>
-     * $redis->zAdd('z', 1, 'v2', 2, 'v2', 3, 'v3', 4, 'v4' );  // int(2)
+     * $redis->zAdd('z', 1, 'v1', 2, 'v2', 3, 'v3', 4, 'v4' );  // int(2)
      * $redis->zRem('z', 'v2', 'v3');                           // int(2)
+     * $redis->zAdd('z', ['NX'], 5, 'v5');                      // int(1)
+     * $redis->zAdd('z', ['NX'], 6, 'v5');                      // int(0)
+     * $redis->zAdd('z', 7, 'v6');                              // int(1)
+     * $redis->zAdd('z', 8, 'v6');                              // int(0)
      * var_dump( $redis->zRange('z', 0, -1) );
      * //// Output:
-     * // array(2) {
+     * // array(4) {
      * //   [0]=> string(2) "v1"
      * //   [1]=> string(2) "v4"
+     * //   [2]=> string(2) "v5"
+     * //   [3]=> string(2) "v8"
+     * // }
+     * var_dump( $redis->zRange('z', 0, -1, true) );
+     * //// Output:
+     * // array(4) {
+     * //   ["v1"]=> float(1)
+     * //   ["v4"]=> float(4)
+     * //   ["v5"]=> float(5)
+     * //   ["v6"]=> float(8)
      * // }
      * </pre>
      * </pre>
      */
-    public function zAdd( $key, $score1, $value1, $score2 = null, $value2 = null, $scoreN = null, $valueN = null ) {}
+    public function zAdd( $key, $options, $score1, $value1, $score2 = null, $value2 = null, $scoreN = null, $valueN = null ) {}
 
     /**
      * Returns a range of elements from the ordered set stored at the specified key,
@@ -3322,14 +3341,18 @@ class Redis
      * @param   string  $str_key
      * @param   string  $str_id
      * @param   array   $arr_message
+     * @param   int     $i_maxlen
+     * @param   bool    $boo_approximate
      * @return  string  The added message ID.
      * @link    https://redis.io/commands/xadd
      * @example
      * <pre>
      * $obj_redis->xAdd('mystream', "*", ['field' => 'value']);
+     * $obj_redis->xAdd('mystream', "*", ['field' => 'value'], 10);
+     * $obj_redis->xAdd('mystream', "*", ['field' => 'value'], 10, true);
      * </pre>
      */
-    public function xAdd($str_key, $str_id, $arr_message) {}
+    public function xAdd($str_key, $str_id, $arr_message, $i_maxlen = 0, $boo_approximate = false) {}
 
     /**
      * Claim ownership of one or more pending messages.
@@ -3380,15 +3403,17 @@ class Redis
      * @param   string  $str_key
      * @param   string  $str_group
      * @param   string  $str_msg_id
+     * @param   bool    $boo_mkstream
      * @return  mixed   This command returns different types depending on the specific XGROUP command executed.
      * @link    https://redis.io/commands/xgroup
      * @example
      * <pre>
-     * $obj_redis->xGroup('CREATE', 'mystream', 'mygroup');
-     * $obj_redis->xGroup('DELGROUP', 'mystream', 'mygroup');
+     * $obj_redis->xGroup('CREATE', 'mystream', 'mygroup', 0);
+     * $obj_redis->xGroup('CREATE', 'mystream', 'mygroup', 0, true); // create stream
+     * $obj_redis->xGroup('DESTROY', 'mystream', 'mygroup');
      * </pre>
      */
-    public function xGroup($operation, $str_key, $str_group, $str_msg_id) {}
+    public function xGroup($operation, $str_key, $str_group, $str_msg_id = '', $boo_mkstream = false) {}
 
     /**
      * Get information about a stream or consumer groups.
@@ -3471,8 +3496,8 @@ class Redis
      * @param   string      $str_group
      * @param   string      $str_consumer
      * @param   array       $arr_streams
-     * @param   int|string  $i_count
-     * @param   int|string  $i_block
+     * @param   int|null    $i_count
+     * @param   int|null    $i_block
      * @return  array       The messages delivered to this consumer group (if any).
      * @link    https://redis.io/commands/xreadgroup
      * @example
@@ -3483,7 +3508,7 @@ class Redis
      * $obj_redis->xReadGroup('mygroup', 'consumer2', ['s1' => 0, 's2' => 0], 1, 1000);
      * </pre>
      */
-    public function xReadGroup($str_group, $str_consumer, $arr_streams, $i_count, $i_block = null) {}
+    public function xReadGroup($str_group, $str_consumer, $arr_streams, $i_count = null, $i_block = null) {}
 
     /**
      * This is identical to xRange except the results come back in reverse order. Also note that Redis reverses the order of "start" and "end".

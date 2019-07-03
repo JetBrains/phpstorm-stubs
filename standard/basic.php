@@ -58,29 +58,97 @@ function cli_set_process_title ($title) {}
 function cli_get_process_title () {}
 
 /**
- * Reclaims memory used by the Zend Engine memory manager
- * @link https://php.net/manual/en/function.gc-mem-caches.php
- * @return int Returns the number of bytes freed.
- * @since 7.0
+ * Verify that the contents of a variable is accepted by the iterable pseudo-type, i.e. that it is an array or an object implementing Traversable
+ * @param mixed $value
+ * @return bool
+ * @since 7.1
+ * @link https://php.net/manual/en/function.is-iterable.php
  */
-function gc_mem_caches () {}
+function is_iterable($value) {}
 
 /**
- * Returns active resources
- * @link https://php.net/manual/en/function.get-resources.php
- * @param string $type [optional]<p>
- *
- * If defined, this will cause get_resources() to only return resources of the given type. A list of resource types is available.
- *
- * If the string Unknown is provided as the type, then only resources that are of an unknown type will be returned.
- *
- * If omitted, all resources will be returned.
+ * Encodes an ISO-8859-1 string to UTF-8
+ * @link https://php.net/manual/en/function.utf8-encode.php
+ * @param string $data <p>
+ * An ISO-8859-1 string.
  * </p>
- * @return array Returns an array of currently active resources, indexed by resource number.
+ * @return string the UTF-8 translation of <i>data</i>.
+ * @since 4.0
+ * @since 5.0
+ */
+function utf8_encode ($data) {}
+
+/**
+ * Converts a string with ISO-8859-1 characters encoded with UTF-8
+ * @since 4.0
+ * @since 5.0
+to single-byte ISO-8859-1
+ * @link https://php.net/manual/en/function.utf8-decode.php
+ * @param string $data <p>
+ * An UTF-8 encoded string.
+ * </p>
+ * @return string the ISO-8859-1 translation of <i>data</i>.
+ */
+function utf8_decode ($data) {}
+
+/**
+ * Clear the most recent error
+ * @link https://php.net/manual/en/function.error-clear-last.php
  * @since 7.0
  */
-function get_resources ($type) {}
+function error_clear_last () {}
 
+/**
+ * @param string $kind
+ * @return int
+ * @since 7.1
+ */
+function sapi_windows_cp_get($kind) {}
+
+/**
+ * @param int $cp
+ * @return bool
+ * @since 7.1
+ */
+function sapi_windows_cp_set($cp) {}
+
+/**
+ * @param int|string $in_codepage
+ * @param int|string $out_codepage
+ * @param string $subject
+ * @return string
+ * @since 7.1
+ */
+function sapi_windows_cp_conv($in_codepage, $out_codepage, $subject) {}
+
+/**
+ * @return bool
+ * @since 7.1
+ */
+function sapi_windows_cp_is_utf8() {}
+
+/**
+ * Get or set VT100 support for the specified stream associated to an output buffer of a Windows console.
+ *
+ * At startup, PHP tries to enable the VT100 feature of the STDOUT/STDERR streams.
+ * By the way, if those streams are redirected to a file, the VT100 features may not be enabled.
+ *
+ * If VT100 support is enabled, it is possible to use control sequences as they are known from the VT100 terminal.
+ * They allow the modification of the terminal's output. On Windows these sequences are called Console Virtual Terminal Sequences.
+ * @link https://php.net/manual/en/function.sapi-windows-vt100-support.php
+ * @param resource $stream
+ * @param bool $enable [optional]<p>
+ *
+ * If <i>enable</i> is omitted, the function returns TRUE if the stream stream has VT100 control codes enabled, FALSE otherwise.
+ *
+ * If <i>enable</i> is specified, the function will try to enable or disable the VT100 features of the stream stream.
+ * If the feature has been successfully enabled (or disabled), the function will return TRUE, or FALSE otherwise.
+ * </p>
+ * @return bool If <i>enable</i> is not specified: returns TRUE if the VT100 feature is enabled, FALSE otherwise.
+ * If <i>enable</i> is specified: Returns TRUE on success or FALSE on failure.
+ * @since 7.2
+ */
+function sapi_windows_vt100_support ($stream, $enable) {}
 
 /**
  * The full path and filename of the file. If used inside an include,

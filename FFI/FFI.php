@@ -14,7 +14,7 @@ namespace {
      * access native variables and create/access data structures defined
      * in C language.
      *
-     * @since 8.0
+     * @since 7.4
      */
     class FFI
     {
@@ -114,7 +114,7 @@ namespace {
          * @param CData $pointer
          * @return void
          */
-        public static function free(CData $pointer): void {}
+        public static function free(CData &$pointer): void {}
 
         /**
          * Casts given $pointer to another C type, specified by C declaration
@@ -129,7 +129,7 @@ namespace {
          * @param CData $pointer
          * @return CData
          */
-        public static function cast($type, CData $pointer): CData {}
+        public static function cast($type, CData &$pointer): CData {}
 
         /**
          * This function creates and returns a FFI\CType object, representng
@@ -140,10 +140,10 @@ namespace {
          * first argument may reuse all type and tag names defined in
          * FFI::cdef().
          *
-         * @param string $type
+         * @param string|CType $type
          * @return CType
          */
-        public static function type(string $type): CType {}
+        public static function type($type): CType {}
 
         /**
          * This function returns a FFI\CType object, representing the type of
@@ -152,7 +152,7 @@ namespace {
          * @param CData $pointer
          * @return CType
          */
-        public static function typeof(CData $pointer): CType {}
+        public static function typeof(CData &$pointer): CType {}
 
         /**
          * Constructs a new C array type with elements of $type and
@@ -174,7 +174,7 @@ namespace {
          * @param CData $pointer
          * @return CData
          */
-        public static function addr(CData $pointer): CData {}
+        public static function addr(CData &$pointer): CData {}
 
         /**
          * Returns size of C data type of the given FFI\CData or FFI\CType.
@@ -182,7 +182,7 @@ namespace {
          * @param CData|CType $pointer
          * @return int
          */
-        public static function sizeof($pointer): int {}
+        public static function sizeof(&$pointer): int {}
 
         /**
          * Returns size of C data type of the given FFI\CData or FFI\CType.
@@ -190,7 +190,7 @@ namespace {
          * @param CData|CType $pointer
          * @return int
          */
-        public static function alignof($pointer): int {}
+        public static function alignof(&$pointer): int {}
 
         /**
          * Copies $size bytes from memory area $source to memory area $target.
@@ -200,7 +200,7 @@ namespace {
          * @param mixed $source
          * @param int $size
          */
-        public static function memcpy(CData $target, $source, int $size): void {}
+        public static function memcpy(CData &$target, &$source, int $size): void {}
 
         /**
          * Compares $size bytes from memory area $a and $b.
@@ -210,7 +210,7 @@ namespace {
          * @param int $size
          * @return int
          */
-        public static function memcmp($a, $b, int $size): int {}
+        public static function memcmp(&$a, &$b, int $size): int {}
 
         /**
          * Fills the $size bytes of the memory area pointed to by $target with
@@ -220,7 +220,7 @@ namespace {
          * @param int $byte
          * @param int $size
          */
-        public static function memset(CData $target, int $byte, int $size): void {}
+        public static function memset(CData &$target, int $byte, int $size): void {}
 
         /**
          * Creates a PHP string from $size bytes of memory area pointed by
@@ -228,10 +228,10 @@ namespace {
          * array of C chars.
          *
          * @param CData $source
-         * @param int $size
+         * @param int $size [optional]
          * @return string
          */
-        public static function string(CData $source, int $size): string {}
+        public static function string(CData &$source, int $size = 0): string {}
     }
 }
 
@@ -239,7 +239,7 @@ namespace FFI {
     /**
      * Class Exception
      *
-     * @since 8.0
+     * @since 7.4
      */
     class Exception extends \Error
     {
@@ -248,7 +248,7 @@ namespace FFI {
     /**
      * Class ParserException
      *
-     * @since 8.0
+     * @since 7.4
      */
     class ParserException extends Exception
     {
@@ -259,7 +259,7 @@ namespace FFI {
      *
      * Proxy object that provides access to compiled structures.
      *
-     * @since 8.0
+     * @since 7.4
      */
     class CData
     {
@@ -270,7 +270,7 @@ namespace FFI {
      *
      * Class containing C type information.
      *
-     * @since 8.0
+     * @since 7.4
      */
     class CType
     {

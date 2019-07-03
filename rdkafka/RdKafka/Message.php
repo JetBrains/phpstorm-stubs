@@ -17,6 +17,11 @@ class Message
     /**
      * @var int
      */
+    public $timestamp;
+
+    /**
+     * @var int
+     */
     public $partition;
 
     /**
@@ -33,6 +38,11 @@ class Message
      * @var int
      */
     public $offset;
+
+    /**
+     * @var array
+     */
+    public $headers;
 
     /**
      * @return string

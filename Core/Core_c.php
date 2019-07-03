@@ -483,15 +483,6 @@ class ParseError extends CompileError {
 }
 
 /**
- * AssertionError is thrown when an assertion made via {@see assert()} fails.
- * @link https://php.net/manual/en/class.assertionerror.php
- * @since 7.0
- */
-class AssertionError extends Error {
-
-}
-
-/**
  * ArgumentCountError is thrown when too few arguments are passed to a user
  * defined routine.
  *
@@ -549,7 +540,7 @@ class ErrorException extends Exception {
      * @param Exception $previous [optional] The previous exception used for the exception chaining.
      * @since 5.1.0
      */
-    public function __construct($message = "", $code = 0, $severity = 1, $filename = __FILE__, $lineno = __LINE__, $previous) { }
+    public function __construct($message = "", $code = 0, $severity = 1, $filename = __FILE__, $lineno = __LINE__, $previous = null) { }
 
     /**
      * Gets the exception severity
@@ -620,7 +611,7 @@ final class Closure {
      * @return mixed
      * @since 7.0
      */
-    function call ($newThis, ...$parameters) {}
+    function call ($newthis, ...$parameters) {}
     
     /**
      * @param callable $callable

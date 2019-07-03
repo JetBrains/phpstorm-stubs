@@ -1010,19 +1010,20 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets an array of methods
 	 * @link https://php.net/manual/en/reflectionclass.getmethods.php
-	 * @param string $filter [optional] <p>
+	 * @param int $filter [optional] <p>
 	 * Filter the results to include only methods with certain attributes. Defaults
 	 * to no filtering.
 	 * </p>
 	 * <p>
-	 * Any combination of <b>ReflectionMethod::IS_STATIC</b>,
+	 * Any bitwise disjunction of <b>ReflectionMethod::IS_STATIC</b>,
 	 * <b>ReflectionMethod::IS_PUBLIC</b>,
 	 * <b>ReflectionMethod::IS_PROTECTED</b>,
 	 * <b>ReflectionMethod::IS_PRIVATE</b>,
 	 * <b>ReflectionMethod::IS_ABSTRACT</b>,
-	 * <b>ReflectionMethod::IS_FINAL</b>.
+	 * <b>ReflectionMethod::IS_FINAL</b>,
+	 * so that all methods with <em>any</em> of the given attributes will be returned.
 	 * </p>
-         * @return ReflectionMethod[] An array of methods.
+         * @return ReflectionMethod[] An array of ReflectionMethod objects reflecting each method.
 	 * @since 5.0
 	 */
 	public function getMethods ($filter = null) {}
@@ -2120,6 +2121,30 @@ class ReflectionClassConstant implements Reflector {
  */
 class ReflectionNamedType extends ReflectionType{
 
+}
+
+/**
+ * @since 7.4
+ */
+final class ReflectionReference
+{
+	/**
+	 * Returns ReflectionReference if array element is a reference, null otherwise
+	 * @param array $array
+	 * @param int|string $key
+	 * @return self|null
+	 */
+	public static function fromArrayElement($array, $key) {}
+	
+	/**
+	 * Returns unique identifier for the reference. The return value format is unspecified
+	 * @return int|string
+	 */
+	public function getId() {}
+	
+	private function __construct() {}
+	
+	private function __clone() {}
 }
 
 // End of Reflection v.$Id: bcdcdaeea3aba34a8083bb62c6eda69ff3c3eab5 $

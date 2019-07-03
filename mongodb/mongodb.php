@@ -133,7 +133,7 @@ namespace MongoDB {}
 
             /**
              * @link https://php.net/manual/en/mongodb-driver-manager.executewritecommand.php
-             * @param string $db The name of the database on which to execute the command that reads.
+             * @param string $db The name of the database on which to execute the command that writes.
              * @param Command $command The command document.
              * @param array $options
              * @return Cursor
@@ -509,10 +509,11 @@ namespace MongoDB {}
              * Construct immutable ReadPreference
              * @link https://php.net/manual/en/mongodb-driver-readpreference.construct.php
              * @param int $mode
-             * @param array $tagSets
+             * @param array|null $tagSets
+             * @param array $options
              * @throws InvalidArgumentException if mode is invalid or if tagSets is provided for a primary read preference.
              */
-            final public function __construct($mode, array $tagSets = [])
+            final public function __construct($mode, array $tagSets = null, array $options = [] )
             {
             }
 
@@ -1894,7 +1895,7 @@ namespace MongoDB {}
          * Represents a BSON timestamp, which is an internal MongoDB type not intended for general date storage.
          * @link https://php.net/manual/en/class.mongodb-bson-timestamp.php
          */
-        class Timestamp implements Type
+        class Timestamp implements TimestampInterface, Type
         {
             /**
              * Construct a new Timestamp
@@ -1912,6 +1913,26 @@ namespace MongoDB {}
              * @return string
              */
             final public function __toString()
+            {
+            }
+
+            /**
+             * Returns the increment component of this TimestampInterface
+             * @link https://secure.php.net/manual/en/mongodb-bson-timestampinterface.getincrement.php
+             * @return int
+             * @since 1.3.0
+             */
+            public function getIncrement()
+            {
+            }
+
+            /**
+             * Returns the timestamp component of this TimestampInterface
+             * @link https://secure.php.net/manual/en/mongodb-bson-timestampinterface.gettimestamp.php
+             * @return int
+             * @since 1.3.0
+             */
+            public function getTimestamp()
             {
             }
         }

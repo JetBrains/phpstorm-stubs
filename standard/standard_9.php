@@ -810,20 +810,13 @@ function key_exists($key, $search) { }
 function assert($assertion, $description = '') { }
 
 /**
- * (PHP 5 &gt;=5.5.0)<br/>
- * Returns the current process title
- * @link https://secure.php.net/manual/en/function.cli-get-process-title.php
- * @return string
+ * AssertionError is thrown when an assertion made via {@see assert()} fails.
+ * @link https://php.net/manual/en/class.assertionerror.php
+ * @since 7.0
  */
-function cli_get_process_title() { }
+class AssertionError extends Error {
 
-/**
- * (PHP 5 &gt;=5.5.0)<br/>
- * Sets the process title
- * @param string $title <p>The new title</p>
- * @return bool Returns TRUE on success or FALSE on failure.
- */
-function cli_set_process_title($title) { }
+}
 
 /**
  * Set/get the various assert flags

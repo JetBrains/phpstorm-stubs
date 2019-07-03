@@ -27,7 +27,6 @@ function error_get_last () {}
  * Note that the parameters for call_user_func are
  * not passed by reference.
  * call_user_func example and references
- * ]]>
  * &example.outputs;
  * </p>
  * @return mixed the function result, or false on error.
@@ -410,6 +409,7 @@ function php_strip_whitespace ($filename) {}
 /**
  * Gets the value of a configuration option
  * @link https://php.net/manual/en/function.ini-get.php
+ * @link https://php.net/manual/en/ini.list.php
  * @param string $varname <p>
  * The configuration option name.
  * </p>
@@ -423,6 +423,7 @@ function ini_get ($varname) {}
 /**
  * Gets all configuration options
  * @link https://php.net/manual/en/function.ini-get-all.php
+ * @link https://php.net/manual/en/ini.list.php
  * @param string $extension [optional] <p>
  * An optional extension name. If set, the function return only options
  * specific for that extension.
@@ -459,6 +460,7 @@ function ini_get_all ($extension = null, $details = null) {}
 /**
  * Sets the value of a configuration option
  * @link https://php.net/manual/en/function.ini-set.php
+ * @link https://php.net/manual/en/ini.list.php
  * @param string $varname <p>
  * </p>
  * <p>
@@ -478,6 +480,7 @@ function ini_set ($varname, $newvalue) {}
 /**
  * &Alias; <function>ini_set</function>
  * @link https://php.net/manual/en/function.ini-alter.php
+ * @link https://php.net/manual/en/ini.list.php
  * @param $varname
  * @param $newvalue
  * @since 4.0
@@ -488,6 +491,7 @@ function ini_alter ($varname, $newvalue) {}
 /**
  * Restores the value of a configuration option
  * @link https://php.net/manual/en/function.ini-restore.php
+ * @link https://php.net/manual/en/ini.list.php
  * @param string $varname <p>
  * The configuration option name.
  * </p>
@@ -608,6 +612,29 @@ function restore_include_path () {}
 function setcookie ($name, $value = "", $expire = 0, $path = "", $domain = "", $secure = false, $httponly = false) {}
 
 /**
+ * Send a cookie
+ *
+ * @link  https://php.net/manual/en/function.setcookie.php
+ *
+ * @param string $name    The name of the cookie.
+ * @param string $value   [optional] The value of the cookie. This value is stored on the clients
+ *                        computer; do not store sensitive information.
+ *                        Assuming the name is 'cookiename', this value is retrieved through $_COOKIE['cookiename']
+ * @param array  $options [optional] An associative array which may have any of the keys expires, path, domain, secure,
+ *                        httponly and samesite. The values have the same meaning as described for the parameters with
+ *                        the same name. The value of the samesite element should be either Lax or Strict.
+ *                        If any of the allowed options are not given, their default values are the same
+ *                        as the default values of the explicit parameters. If the samesite element is omitted,
+ *                        no SameSite cookie attribute is set.
+ *
+ * @return bool           If output exists prior to calling this function, setcookie will fail and return false. If
+ *                        setcookie successfully runs, it will return true.
+ *                        This does not indicate whether the user accepted the cookie.
+ * @since 7.3
+ */
+function setcookie($name, $value = '', array $options = []) {}
+
+/**
  * Send a cookie without urlencoding the cookie value
  * @link https://php.net/manual/en/function.setrawcookie.php
  * @param string $name 
@@ -620,7 +647,29 @@ function setcookie ($name, $value = "", $expire = 0, $path = "", $domain = "", $
  * @return bool true on success or false on failure.
  * @since 5.0
  */
-function setrawcookie ($name, $value = null, $expire = 0, $path = "", $domain = "", $secure = false, $httponly = false) {}
+function setrawcookie ($name, $value = '', $expire = 0, $path = "", $domain = "", $secure = false, $httponly = false) {}
+
+/**
+ * Send a cookie without urlencoding the cookie value
+ *
+ * @link https://php.net/manual/en/function.setrawcookie.php
+ *
+ * @param string $name    The name of the cookie.
+ * @param string $value   [optional] The value of the cookie. This value is stored on the clients
+ *                        computer; do not store sensitive information.
+ *                        Assuming the name is 'cookiename', this value is retrieved through $_COOKIE['cookiename']
+ * @param array  $options [optional] An associative array which may have any of the keys expires, path, domain, secure,
+ *                        httponly and samesite. The values have the same meaning as described for the parameters with
+ *                        the same name. The value of the samesite element should be either Lax or Strict.
+ *                        If any of the allowed options are not given, their default values are the same
+ *                        as the default values of the explicit parameters. If the samesite element is omitted,
+ *                        no SameSite cookie attribute is set.
+ *
+ * @return bool           If output exists prior to calling this function, setcookie will fail and return false. If
+ *                        setcookie successfully runs, it will return true.
+ *                        This does not indicate whether the user accepted the cookie.
+ */
+function setrawcookie ($name, $value = '', array $options = []) {}
 
 /**
  * Send a raw HTTP header
@@ -638,17 +687,11 @@ function setrawcookie ($name, $value = null, $expire = 0, $path = "", $domain = 
  * make sure that your script generates the proper status code.
  * </p>
  * <p>
- * ]]>
- * </p>
- * <p>
  * The second special case is the "Location:" header. Not only does
  * it send this header back to the browser, but it also returns a
  * REDIRECT (302) status code to the browser
  * unless the 201 or
  * a 3xx status code has already been set.
- * </p>
- * <p>
- * ]]>
  * </p>
  * @param bool $replace [optional] <p>
  * The optional replace parameter indicates
@@ -656,9 +699,6 @@ function setrawcookie ($name, $value = null, $expire = 0, $path = "", $domain = 
  * add a second header of the same type. By default it will replace,
  * but if you pass in false as the second argument you can force
  * multiple headers of the same type. For example:
- * </p>
- * <p>
- * ]]>
  * </p>
  * @param int $http_response_code [optional] <p>
  * Forces the HTTP response code to the specified value.
