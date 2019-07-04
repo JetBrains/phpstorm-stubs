@@ -46,6 +46,7 @@ class Redis
     const SERIALIZER_NONE       = 0;
     const SERIALIZER_PHP        = 1;
     const SERIALIZER_IGBINARY   = 2;
+    const SERIALIZER_MSGPACK    = 3;
 
     /**
      * Multi
