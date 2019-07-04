@@ -1009,9 +1009,9 @@ function sodium_randombytes_buf(
  * Generate a 16-bit integer
  * /dev/urandom
  *
- * @return int|string
+ * @return int
  */
-function sodium_randombytes_random16(): string {
+function sodium_randombytes_random16(): int {
     return '';
 }
 

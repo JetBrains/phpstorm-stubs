@@ -1162,7 +1162,7 @@ class MongoCollection {
 	 * @link https://secure.php.net/manual/en/mongocollection.ensureindex.php
 	 * @param array $keys Field or fields to use as index.
 	 * @param array $options [optional] This parameter is an associative array of the form array("optionname" => <boolean>, ...).
-	 * @return bool always true
+	 * @return true always true
 	 */
     public function ensureIndex(array $keys, array $options = array()) {}
 

@@ -135,7 +135,7 @@ function enchant_broker_set_ordering ($broker, $tag, $ordering) {}
  * @param resource $broker <p>
  * Broker resource
  * </p>
- * @return array
+ * @return array|false
  */
 function enchant_broker_describe ($broker) {}
 
@@ -163,7 +163,7 @@ function enchant_dict_check ($dict, $word) {}
  * @param string $word <p>
  * Word to use for the suggestions.
  * </p>
- * @return array Will returns an array of suggestions if the word is bad spelled.
+ * @return array|false Will returns an array of suggestions if the word is bad spelled.
  */
 function enchant_dict_suggest ($dict, $word) {}
 

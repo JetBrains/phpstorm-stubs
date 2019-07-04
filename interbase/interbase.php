@@ -128,7 +128,7 @@ function ibase_drop_db ($connection = null) {}
  * </p>
  * @param int $bind_args [optional] <p>
  * </p>
- * @return resource|false If the query raises an error, returns false. If it is successful and
+ * @return resource|bool If the query raises an error, returns false. If it is successful and
  * there is a (possibly empty) result set (such as with a SELECT query),
  * returns a result identifier. If the query was successful and there were
  * no results, returns true.
@@ -257,7 +257,7 @@ function ibase_prepare ($query) {}
  * @param mixed $bind_arg [optional] <p>
  * </p>
  * @param mixed $_ [optional] 
- * @return resource|false If the query raises an error, returns false. If it is successful and
+ * @return resource|bool If the query raises an error, returns false. If it is successful and
  * there is a (possibly empty) result set (such as with a SELECT query),
  * returns a result identifier. If the query was successful and there were
  * no results, returns true.

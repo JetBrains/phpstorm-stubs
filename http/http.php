@@ -2230,7 +2230,7 @@ function http_negotiate_content_type (array $supported,  array &$result = null )
  * @param int $status [optional] <p>
  * custom response status code
  * </p>
- * @return void
+ * @return void returns false or exits with the specified redirection status code
  */
 function http_redirect ($url = null,  array $params = null , $session = null, $status = null) {}
 

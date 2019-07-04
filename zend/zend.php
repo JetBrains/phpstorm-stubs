@@ -620,9 +620,9 @@ function zend_send_file($filename, $mime_type, $custom_headers) {}
 
 /**
  * Send a buffer using ZDS
- * @param $buffer string the content that will be send
- * @param $mime_type string[optional] MIME type of the buffer, if omitted, taken from configured MIME types file
- * @param $custom_headers string[optional] user defined headers that will be send instead of regular ZDS headers. few basic essential headers will be send anyway
+ * @param string $buffer the content that will be send
+ * @param string $mime_type [optional] MIME type of the buffer, if omitted, taken from configured MIME types file
+ * @param string $custom_headers [optional] user defined headers that will be send instead of regular ZDS headers. few basic essential headers will be send anyway
  * @return void|false FALSE if sending file failed, does not return otherwise
  */
 function zend_send_buffer($buffer, $mime_type, $custom_headers) {}

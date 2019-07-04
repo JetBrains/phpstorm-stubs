@@ -131,7 +131,7 @@ function geoip_isp_by_name ($hostname) {}
  * various constants defined with
  * this extension (ie: GEOIP_*_EDITION).
  * </p>
- * @return bool|false <b>TRUE</b> is database exists, <b>FALSE</b> if not found, or <b>NULL</b> on error.
+ * @return bool|null <b>TRUE</b> is database exists, <b>FALSE</b> if not found, or <b>NULL</b> on error.
  */
 function geoip_db_avail ($database) {}
 

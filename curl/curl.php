@@ -2384,7 +2384,7 @@ function curl_multi_add_handle ($mh, $ch) {}
  * @link https://php.net/manual/en/function.curl-multi-remove-handle.php
  * @param resource $mh 
  * @param resource $ch 
- * @return int Returns 0 on success, or one of the CURLM_XXX error codes.
+ * @return int|false On success, returns one of the CURLM_XXX error codes, false on failure.
  * @since 5.0
  */
 function curl_multi_remove_handle ($mh, $ch) {}
