@@ -1063,6 +1063,8 @@ function ldap_escape($subject, $ignore = null, $escape = null) {}
  * any value for <em>modtype</em> must be one of the
  * <b>LDAP_MODIFY_BATCH_*</b> constants listed above.
  * </p></p>
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 5.4.0
  */
 function ldap_modify_batch ( $link_identifier , $dn , $entry) {}
 
