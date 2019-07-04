@@ -52,7 +52,7 @@ class Yar_Server {
      *  Usual RPC calls will be issued as HTTP POST requests.
      *  If a HTTP GET request is issued to the uri,
      *  the service information (commented section above) will be printed on the page
-     * @return boolean
+     * @return bool
      * @link https://secure.php.net/manual/en/yar-server.handle.php
      */
     public function handle () {}
@@ -94,7 +94,7 @@ class Yar_Client {
      * - YAR_OPT_CONNECT_TIMEOUT
      * - YAR_OPT_HEADER (Since 2.0.4)
      * @param $value
-     * @return object Returns $this on success or FALSE on failure.
+     * @return object|false Returns $this on success or FALSE on failure.
      * @link https://secure.php.net/manual/en/yar-client.setopt.php
      */
     public function setOpt ($name , $value ){}
@@ -124,7 +124,7 @@ class Yar_Concurrent_Client {
      *  Then, if user didn't specify callback when registering concurrent call, this callback will be used to handle response, otherwise, the callback specified while registering will be used.
      * @param $error_callback
      *  If this callback is set, then Yar will call this callback while error occurred.
-     * @return boolean
+     * @return bool
      * @link https://secure.php.net/manual/en/yar-concurrent-client.loop.php
      */
     public static function loop ($callback , $error_callback) {}
@@ -132,7 +132,7 @@ class Yar_Concurrent_Client {
     /**
      * Clean all registered calls
      * Clean all registered calls
-     * @return boolean
+     * @return bool
      * @link https://secure.php.net/manual/en/yar-concurrent-client.reset.php
      */
     public static function reset (){}

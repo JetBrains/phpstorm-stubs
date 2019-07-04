@@ -182,7 +182,7 @@ function filter_has_var ($type, $variable_name) {}
  * @param string $filtername <p>
  * Name of a filter to get.
  * </p>
- * @return int ID of a filter on success or <b>FALSE</b> if filter doesn't exist.
+ * @return int|false ID of a filter on success or <b>FALSE</b> if filter doesn't exist.
  * @since 5.2.0
  */
 function filter_id ($filtername) {}

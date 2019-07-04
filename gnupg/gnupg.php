@@ -58,7 +58,7 @@ class gnupg {
 	 * @param string $signature
 	 * @param string $plaintext
 	 *
-	 * @return array On success, this function returns information about the signature.
+	 * @return array|false On success, this function returns information about the signature.
 	 *               On failure, this function returns false.
 	 */
 	function verify($signed_text, $signature, &$plaintext = NULL)
@@ -134,7 +134,7 @@ class gnupg {
 	 *
 	 * @param string $text
 	 *
-	 * @return string On success, this function returns the decrypted text.
+	 * @return string|false On success, this function returns the decrypted text.
 	 *                On failure, this function returns false.
 	 */
 	function decrypt($text)
@@ -149,7 +149,7 @@ class gnupg {
 	 * @param string $text
 	 * @param string $plaintext
 	 *
-	 * @return array On success, this function returns information about the signature and
+	 * @return array|false On success, this function returns information about the signature and
 	 *               fills the  parameter with the decrypted text.
 	 *               On failure, this function returns false.
 	 */
@@ -164,7 +164,7 @@ class gnupg {
 	 *
 	 * @param string $plaintext
 	 *
-	 * @return string On success, this function returns the encrypted text.
+	 * @return string|false On success, this function returns the encrypted text.
 	 *                On failure, this function returns false.
 	 */
 	function encrypt($plaintext)
@@ -178,7 +178,7 @@ class gnupg {
 	 *
 	 * @param string $plaintext
 	 *
-	 * @return string On success, this function returns the encrypted and signed text.
+	 * @return string|false On success, this function returns the encrypted and signed text.
 	 *                On failure, this function returns false.
 	 */
 	function encryptsign($plaintext)
@@ -192,7 +192,7 @@ class gnupg {
 	 *
 	 * @param string $fingerprint
 	 *
-	 * @return string On success, this function returns the keydata.
+	 * @return string|false On success, this function returns the keydata.
 	 *                On failure, this function returns false.
 	 */
 	function export($fingerprint)
@@ -205,7 +205,7 @@ class gnupg {
 	 * @phpstub
 	 *
 	 *
-	 * @return string Returns an errortext, if an error has occurred, otherwise false.
+	 * @return string|false Returns an errortext, if an error has occurred, otherwise false.
 	 */
 	function geterror()
 	{
@@ -232,7 +232,7 @@ class gnupg {
 	 *
 	 * @param string $keydata
 	 *
-	 * @return array On success, this function returns and info-array about the importprocess.
+	 * @return array|false On success, this function returns and info-array about the importprocess.
 	 *               On failure, this function returns false.
 	 */
 	function import($keydata)
@@ -310,7 +310,7 @@ class gnupg {
 	 *
 	 * @param string $plaintext
 	 *
-	 * @return string On success, this function returns the signed text or the signature.
+	 * @return string|false On success, this function returns the signed text or the signature.
 	 *                On failure, this function returns false.
 	 */
 	function sign($plaintext)

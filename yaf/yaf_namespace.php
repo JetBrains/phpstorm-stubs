@@ -147,7 +147,7 @@ final class Application
      *
      * @link https://secure.php.net/manual/en/yaf-application.app.php
      *
-     * @return \Yaf\Application|NULL an \Yaf\Application instance, if no \Yaf\Application initialized before, NULL will be returned.
+     * @return \Yaf\Application|null an \Yaf\Application instance, if no \Yaf\Application initialized before, NULL will be returned.
      */
     public static function app()
     {
@@ -955,7 +955,7 @@ final class Session implements \Iterator, \Traversable, \ArrayAccess, \Countable
      * @param string $name
      * @param mixed $value
      *
-     * @return bool|\Yaf\Session return FALSE on failure
+     * @return \Yaf\Session|false return FALSE on failure
      */
     public function set($name, $value)
     {
@@ -966,7 +966,7 @@ final class Session implements \Iterator, \Traversable, \ArrayAccess, \Countable
      *
      * @param string $name
      *
-     * @return bool|\Yaf\Session return FALSE on failure
+     * @return \Yaf\Session|false return FALSE on failure
      */
     public function del($name)
     {
@@ -1111,7 +1111,7 @@ class Router
      * @param string $name
      * @param \Yaf\Route_Interface $route
      *
-     * @return bool|\Yaf\Router return FALSE on failure
+     * @return \Yaf\Router|false return FALSE on failure
      */
     public function addRoute($name, \Yaf\Route_Interface $route)
     {
@@ -1124,7 +1124,7 @@ class Router
      *
      * @param \Yaf\Config_Abstract $config
      *
-     * @return bool|\Yaf\Router return FALSE on failure
+     * @return \Yaf\Router|false return FALSE on failure
      */
     public function addConfig(\Yaf\Config_Abstract $config)
     {
@@ -1135,7 +1135,7 @@ class Router
      *
      * @param \Yaf\Request_Abstract $request
      *
-     * @return bool|\Yaf\Router return FALSE on failure
+     * @return \Yaf\Router|false return FALSE on failure
      */
     public function route(\Yaf\Request_Abstract $request)
     {
@@ -2887,7 +2887,7 @@ namespace Yaf\View {
  * @param string $tpl_str string template
  * @param array $vars
  *
- * @return void|bool return FALSE on failure
+ * @return void|false return FALSE on failure
  */
 class Simple implements \Yaf\View_Interface
 {

@@ -44,7 +44,7 @@
  * Connection parameters, the following (string) keys maybe used
  * to set one or more connection parameters:
  * DISABLE_AUTHENTICATOR - Disable authentication properties
- * @return resource an IMAP stream on success or <b>FALSE</b> on error.
+ * @return resource|false an IMAP stream on success or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -532,7 +532,7 @@ function imap_undelete ($imap_stream, $msg_number, $flags = 0) {}
  * Check current mailbox
  * @link https://php.net/manual/en/function.imap-check.php
  * @param resource $imap_stream 
- * @return object the information in an object with following properties:
+ * @return object|false the information in an object with following properties:
  * <b>Date</b> - current system time formatted according to RFC2822
  * <b>Driver</b> - protocol used to access this mailbox:
  * POP3, IMAP, NNTP
@@ -853,7 +853,7 @@ function imap_status_current ($stream_id, $options) {}
  * Get information about the current mailbox
  * @link https://php.net/manual/en/function.imap-mailboxmsginfo.php
  * @param resource $imap_stream 
- * @return object the information in an object with following properties:
+ * @return object|false the information in an object with following properties:
  * <table>
  * Mailbox properties
  * <tr valign="top">
@@ -1089,7 +1089,7 @@ function imap_fetch_overview ($imap_stream, $sequence, $options = 0) {}
 /**
  * Returns all IMAP alert messages that have occurred
  * @link https://php.net/manual/en/function.imap-alerts.php
- * @return array an array of all of the IMAP alert messages generated or <b>FALSE</b> if
+ * @return array|false an array of all of the IMAP alert messages generated or <b>FALSE</b> if
  * no alert messages are available.
  * @since 4.0
  * @since 5.0
@@ -1099,7 +1099,7 @@ function imap_alerts () {}
 /**
  * Returns all of the IMAP errors that have occurred
  * @link https://php.net/manual/en/function.imap-errors.php
- * @return array This function returns an array of all of the IMAP error messages
+ * @return array|false This function returns an array of all of the IMAP error messages
  * generated since the last <b>imap_errors</b> call,
  * or the beginning of the page. Returns <b>FALSE</b> if no error messages are
  * available.
@@ -1111,7 +1111,7 @@ function imap_errors () {}
 /**
  * Gets the last IMAP error that occurred during this page request
  * @link https://php.net/manual/en/function.imap-last-error.php
- * @return string the full text of the last IMAP error message that occurred on the
+ * @return string|false the full text of the last IMAP error message that occurred on the
  * current page. Returns <b>FALSE</b> if no error messages are available.
  * @since 4.0
  * @since 5.0
@@ -1134,7 +1134,7 @@ function imap_last_error () {}
  * contain UIDs instead of messages sequence numbers.
  * </p>
  * @param string $charset [optional]
- * @return array an array of message numbers or UIDs.
+ * @return array|false an array of message numbers or UIDs.
  * </p>
  * <p>
  * Return <b>FALSE</b> if it does not understand the search
@@ -1233,7 +1233,7 @@ function imap_thread ($imap_stream, $options = SE_FREE) {}
  * @param int $timeout [optional] <p>
  * The timeout, in seconds.
  * </p>
- * @return mixed If the <i>timeout</i> parameter is set, this function
+ * @return int|bool If the <i>timeout</i> parameter is set, this function
  * returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
  * </p>
  * <p>
@@ -1254,7 +1254,7 @@ function imap_timeout ($timeout_type, $timeout = -1) {}
  * user.name where name is the mailbox you wish to
  * retrieve information about.
  * </p>
- * @return array an array with integer values limit and usage for the given
+ * @return array|false an array with integer values limit and usage for the given
  * mailbox. The value of limit represents the total amount of space
  * allowed for this mailbox. The usage value represents the mailboxes
  * current level of capacity. Will return <b>FALSE</b> in the case of failure.
@@ -1283,7 +1283,7 @@ function imap_get_quota ($imap_stream, $quota_root) {}
  * <i>quota_root</i> should normally be in the form of
  * which mailbox (i.e. INBOX).
  * </p>
- * @return array an array of integer values pertaining to the specified user
+ * @return array|false an array of integer values pertaining to the specified user
  * mailbox. All values contain a key based upon the resource name, and a
  * corresponding array with the usage and limit values within.
  * </p>

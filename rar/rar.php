@@ -26,7 +26,7 @@ final class RarArchive implements Traversable
      *
      * @link https://php.net/manual/en/rararchive.open.php
      *
-     * @return RarArchive the requested RarArchive instance or FALSE on failure.
+     * @return RarArchive|false the requested RarArchive instance or FALSE on failure.
      */
     public static function open($filename, $password = null, callable $volume_callback = null)
     {
@@ -46,7 +46,7 @@ final class RarArchive implements Traversable
      *
      * @link https://php.net/manual/en/rararchive.getcomment.php
      *
-     * @return string the comment or NULL if there is none
+     * @return string|null the comment or NULL if there is none
      */
     public function getComment()
     {
@@ -54,7 +54,7 @@ final class RarArchive implements Traversable
     /**
      * Get full list of entries from the RAR archive
      *
-     * @return RarEntry[] array of {@see RarEntry} objects or FALSE on failure
+     * @return RarEntry[]|false array of {@see RarEntry} objects or FALSE on failure
      */
     public function getEntries()
     {
@@ -68,7 +68,7 @@ final class RarArchive implements Traversable
      *
      * @param string $entryname Path to the entry within the RAR archive
      *
-     * @return RarEntry the matching RarEntry object or FALSE on failure
+     * @return RarEntry|false the matching RarEntry object or FALSE on failure
      */
     public function getEntry($entryname)
     {
@@ -395,7 +395,7 @@ final class RarEntry
      *
      * @link https://php.net/manual/en/rarentry.getattr.php
      *
-     * @return int the attributes or FALSE on error
+     * @return int|false the attributes or FALSE on error
      */
     public function getAttr()
     {
@@ -407,7 +407,7 @@ final class RarEntry
      *
      * @link https://php.net/manual/en/rarentry.getcrc.php
      *
-     * @return string the CRC of the archive entry or FALSE on error
+     * @return string|false the CRC of the archive entry or FALSE on error
      */
     public function getCrc()
     {
@@ -417,7 +417,7 @@ final class RarEntry
      *
      * @link https://php.net/manual/en/rarentry.getfiletime.php
      *
-     * @return string entry last modification time as string in format YYYY-MM-DD HH:II:SS, or FALSE on errors
+     * @return string|false entry last modification time as string in format YYYY-MM-DD HH:II:SS, or FALSE on errors
      */
     public function getFileTime()
     {
@@ -429,7 +429,7 @@ final class RarEntry
      *
      * @link https://php.net/manual/en/rarentry.gethostos.php
      *
-     * @return int the code of the host OS, or FALSE on error
+     * @return int|false the code of the host OS, or FALSE on error
      */
     public function getHostOs()
     {
@@ -441,7 +441,7 @@ final class RarEntry
      *
      * @link https://php.net/manual/en/rarentry.getmethod.php
      *
-     * @return int the method number or FALSE on error
+     * @return int|false the method number or FALSE on error
      */
     public function getMethod()
     {
@@ -453,7 +453,7 @@ final class RarEntry
      *
      * @link https://php.net/manual/en/rarentry.getname.php
      *
-     * @return string the entry name as a string, or FALSE on error.
+     * @return string|false the entry name as a string, or FALSE on error.
      */
     public function getName()
     {
@@ -463,7 +463,7 @@ final class RarEntry
      *
      * @link https://php.net/manual/en/rarentry.getpackedsize.php
      *
-     * @return int the packed size, or FALSE on error
+     * @return int|false the packed size, or FALSE on error
      */
     public function getPackedSize()
     {
@@ -483,7 +483,7 @@ final class RarEntry
      *      If no password is given and one is required, this method will fail and return FALSE. You can check
      *      whether an entry is encrypted with {@see RarEntry::isEncrypted()}.
      *
-     * @return resource file handler or FALSE on failure
+     * @return resource|false file handler or FALSE on failure
      */
     public function getStream($password = '')
     {
@@ -491,7 +491,7 @@ final class RarEntry
     /**
      * Get unpacked size of the entry
      * @link https://php.net/manual/en/rarentry.getunpackedsize.php
-     * @return int the unpacked size, or FALSE on error
+     * @return int|false the unpacked size, or FALSE on error
      */
     public function getUnpackedSize()
     {
@@ -504,7 +504,7 @@ final class RarEntry
      *
      * @link https://php.net/manual/en/rarentry.getversion.php
      *
-     * @return int the version or FALSE on error
+     * @return int|false the version or FALSE on error
      */
     public function getVersion()
     {

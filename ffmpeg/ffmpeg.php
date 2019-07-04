@@ -3,7 +3,7 @@ class ffmpeg_movie
 {
 	/**  Open a video or audio file and return it as an object.
 	 * @param string $path_to_media - File path of video or audio file to open.
-	 * @param boolean $persistent - Whether to open this media as a persistent resource. See the PHP documentation for more info about persistent resources
+	 * @param bool $persistent - Whether to open this media as a persistent resource. See the PHP documentation for more info about persistent resources
 	 */
 	public function __construct($path_to_media, $persistent)
 	{ }
@@ -146,13 +146,13 @@ class ffmpeg_movie
 	{ }
 
 	/** Return boolean value indicating whether the movie has an audio stream.
-	 * @return boolean
+	 * @return bool
 	 */
 	public function hasAudio()
 	{ }
 
 	/** Return boolean value indicating whether the movie has a video stream.
-	 * @return boolean
+	 * @return bool
 	 */
 	public function hasVideo()
 	{ }

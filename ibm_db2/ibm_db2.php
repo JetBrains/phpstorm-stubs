@@ -1548,7 +1548,7 @@ function db2_free_result ($stmt) {}
 /**
  * Set options for connection or statement resources
  * @link https://php.net/manual/en/function.db2-set-option.php
- * @param resource resource <p>
+ * @param resource $resource <p>
  * A valid statement resource as returned from
  * db2_prepare or a valid connection resource as
  * returned from db2_connect or
@@ -1672,7 +1672,7 @@ function db2_lob_read ($stmt, $colnum, $length) {}
 /**
  * Retrieves an option value for a statement resource or a connection resource
  * @link https://php.net/manual/en/function.db2-get-option.php
- * @param resource resource <p>
+ * @param resource $resource <p>
  * A valid statement resource as returned from
  * db2_prepare or a valid connection resource as
  * returned from db2_connect or

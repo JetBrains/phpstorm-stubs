@@ -34,7 +34,7 @@
  * is created, even if the <i>connection_string</i> is identical to
  * an existing connection.
  * </p>
- * @return resource PostgreSQL connection resource on success, <b>FALSE</b> on failure.
+ * @return resource|false PostgreSQL connection resource on success, <b>FALSE</b> on failure.
  * @since 4.0
  * @since 5.0
  */
@@ -67,7 +67,7 @@ function pg_connect ($connection_string, $connect_type = null) {}
  * is created, even if the <i>connection_string</i> is identical to
  * an existing connection.
  * </p>
- * @return resource PostgreSQL connection resource on success, <b>FALSE</b> on failure.
+ * @return resource|false PostgreSQL connection resource on success, <b>FALSE</b> on failure.
  * @since 4.0
  * @since 5.0
  */
@@ -143,7 +143,7 @@ function pg_connection_reset ($connection) {}
  * @param resource $connection <p>
  * PostgreSQL database connection resource.
  * </p>
- * @return resource A socket resource on success or <b>FALSE</b> on failure.
+ * @return resource|false A socket resource on success or <b>FALSE</b> on failure.
  * @since 5.6.0
  */
 function pg_socket ($connection) {}
@@ -157,7 +157,7 @@ function pg_socket ($connection) {}
  * is used. The default connection is the last connection made by
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
- * @return string A string containing the name of the host the
+ * @return string|false A string containing the name of the host the
  * <i>connection</i> is to, or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
@@ -173,7 +173,7 @@ function pg_host ($connection = null) {}
  * is used. The default connection is the last connection made by
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
- * @return string A string containing the name of the database the
+ * @return string|false A string containing the name of the database the
  * <i>connection</i> is to, or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
@@ -276,7 +276,7 @@ function pg_ping ($connection = null) {}
  * DateStyle, TimeZone, and
  * integer_datetimes.
  * </p>
- * @return string A string containing the value of the parameter, <b>FALSE</b> on failure or invalid
+ * @return string|false A string containing the value of the parameter, <b>FALSE</b> on failure or invalid
  * <i>param_name</i>.
  * @since 5.0
  */
@@ -325,7 +325,7 @@ function pg_transaction_status ($connection) {}
  * Any user-supplied data substituted directly into a query string should
  * be properly escaped.
  * </p>
- * @return resource A query result resource on success or <b>FALSE</b> on failure.
+ * @return resource|false A query result resource on success or <b>FALSE</b> on failure.
  * @since 4.2.0
  * @since 5.0
  */
@@ -363,7 +363,7 @@ function pg_query ($connection = null, $query) {}
  * parameters. Use <b>pg_escape_bytea</b> instead, or use the
  * large object functions.
  * </p>
- * @return resource A query result resource on success or <b>FALSE</b> on failure.
+ * @return resource|false A query result resource on success or <b>FALSE</b> on failure.
  * @since 5.1.0
  */
 function pg_query_params ($connection = null, $query, array $params) {}
@@ -389,7 +389,7 @@ given parameters, and waits for completion.
  * (multiple statements separated by semi-colons are not allowed.) If any parameters
  * are used, they are referred to as $1, $2, etc.
  * </p>
- * @return resource A query result resource on success or <b>FALSE</b> on failure.
+ * @return resource|false A query result resource on success or <b>FALSE</b> on failure.
  */
 function pg_prepare ($connection = null, $stmtname, $query) {}
 
@@ -417,7 +417,7 @@ function pg_prepare ($connection = null, $stmtname, $query) {}
  * <p>
  * Elements are converted to strings by calling this function.
  * </p>
- * @return resource A query result resource on success or <b>FALSE</b> on failure.
+ * @return resource|false A query result resource on success or <b>FALSE</b> on failure.
  * @since 5.1.0
  */
 function pg_execute ($connection = null, $stmtname, array $params) {}
@@ -748,7 +748,7 @@ function pg_affected_rows ($result) {}
  * @param resource $connection [optional] <p>
  * PostgreSQL database connection resource.
  * </p>
- * @return resource The result resource, or <b>FALSE</b> if no more results are available.
+ * @return resource|false The result resource, or <b>FALSE</b> if no more results are available.
  * @since 4.2.0
  * @since 5.0
  */
@@ -865,7 +865,7 @@ function pg_num_fields ($result) {}
  * @param int $field_number <p>
  * Field number, starting from 0.
  * </p>
- * @return string The field name, or <b>FALSE</b> on error.
+ * @return string|false The field name, or <b>FALSE</b> on error.
  * @since 4.2.0
  * @since 5.0
  */
@@ -917,7 +917,7 @@ function pg_field_size ($result, $field_number) {}
  * @param int $field_number <p>
  * Field number, starting from 0.
  * </p>
- * @return string A string containing the base name of the field's type, or <b>FALSE</b>
+ * @return string|false A string containing the base name of the field's type, or <b>FALSE</b>
  * on error.
  * @since 4.2.0
  * @since 5.0
@@ -935,7 +935,7 @@ function pg_field_type ($result, $field_number) {}
  * @param int $field_number <p>
  * Field number, starting from 0.
  * </p>
- * @return int The OID of the field's base type. <b>FALSE</b> is returned on error.
+ * @return int|false The OID of the field's base type. <b>FALSE</b> is returned on error.
  * @since 5.1.0
  */
 function pg_field_type_oid ($result, $field_number) {}
@@ -950,7 +950,7 @@ function pg_field_type_oid ($result, $field_number) {}
  * </p>
  * @param int $row_number
  * @param mixed $field_name_or_number
- * @return int The field printed length, or <b>FALSE</b> on error.
+ * @return int|false The field printed length, or <b>FALSE</b> on error.
  * @since 4.2.0
  * @since 5.0
  */
@@ -1018,7 +1018,7 @@ function pg_field_table ($result, $field_number, $oid_only = false) {}
  * while <b>PGSQL_BOTH</b>, the default, will return both
  * numerical and associative indices.
  * </p>
- * @return array An array containing the NOTIFY message name and backend PID.
+ * @return array|false An array containing the NOTIFY message name and backend PID.
  * Otherwise if no NOTIFY is waiting, then <b>FALSE</b> is returned.
  * @since 4.3.0
  * @since 5.0
@@ -1070,7 +1070,7 @@ function pg_result_error ($result) {}
  * <b>PGSQL_DIAG_SOURCE_LINE</b> or
  * <b>PGSQL_DIAG_SOURCE_FUNCTION</b>.
  * </p>
- * @return string A string containing the contents of the error field, <b>NULL</b> if the field does not exist or <b>FALSE</b>
+ * @return string|null|false A string containing the contents of the error field, <b>NULL</b> if the field does not exist or <b>FALSE</b>
  * on failure.
  * @since 5.1.0
  */
@@ -1157,7 +1157,7 @@ function pg_end_copy ($connection = null) {}
  * How SQL NULL values are represented in the
  * <i>rows</i>. Default is \N ("\\N").
  * </p>
- * @return array An array with one element for each line of COPY data.
+ * @return array|false An array with one element for each line of COPY data.
  * It returns <b>FALSE</b> on failure.
  * @since 4.2.0
  * @since 5.0
@@ -1247,7 +1247,7 @@ function pg_untrace ($connection = null) {}
  * was added in PHP 5.3 and relies on functionality that first
  * appeared in PostgreSQL 8.1.
  * </p>
- * @return int A large object OID or <b>FALSE</b> on error.
+ * @return int|false A large object OID or <b>FALSE</b> on error.
  * @since 4.2.0
  * @since 5.0
  */
@@ -1287,7 +1287,7 @@ function pg_lo_unlink ($connection, $oid) {}
  * Can be either "r" for read-only, "w" for write only or "rw" for read and
  * write.
  * </p>
- * @return resource A large object resource or <b>FALSE</b> on error.
+ * @return resource|false A large object resource or <b>FALSE</b> on error.
  * @since 4.2.0
  * @since 5.0
  */
@@ -1335,7 +1335,7 @@ function pg_lo_read ($large_object, $len = 8192) {}
  * and no greater than the length of <i>data</i>. Defaults to
  * the length of <i>data</i>.
  * </p>
- * @return int The number of bytes written to the large object, or <b>FALSE</b> on error.
+ * @return int|false The number of bytes written to the large object, or <b>FALSE</b> on error.
  * @since 4.2.0
  * @since 5.0
  */
@@ -1347,7 +1347,7 @@ function pg_lo_write ($large_object, $data, $len = null) {}
  * @param resource $large_object <p>
  * PostgreSQL large object (LOB) resource, returned by <b>pg_lo_open</b>.
  * </p>
- * @return int Number of bytes read or <b>FALSE</b> on error.
+ * @return int|false Number of bytes read or <b>FALSE</b> on error.
  * @since 4.2.0
  * @since 5.0
  */
@@ -1550,7 +1550,7 @@ function pg_set_error_verbosity ($connection = null, $verbosity) {}
  * is used. The default connection is the last connection made by
  * <b>pg_connect</b> or <b>pg_pconnect</b>.
  * </p>
- * @return string The client encoding, or <b>FALSE</b> on error.
+ * @return string|false The client encoding, or <b>FALSE</b> on error.
  * @since 4.0.3
  * @since 5.0
  */

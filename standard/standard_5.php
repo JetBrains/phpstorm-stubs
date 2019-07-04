@@ -4,7 +4,7 @@
  * (PHP 5.5.0)<br/>
  * Get the boolean value of a variable
  * @param mixed $var <p>the scalar value being converted to a boolean.</p>
- * @return boolean The boolean value of var.
+ * @return bool The boolean value of var.
  * @since 5.5.0
  */
 function boolval($var) {}
@@ -382,7 +382,7 @@ function pclose ($handle) {}
  * @param string $mode <p>
  * The mode
  * </p>
- * @return bool|resource a file pointer identical to that returned by
+ * @return resource|false a file pointer identical to that returned by
  * fopen, except that it is unidirectional (may
  * only be used for reading or writing) and must be closed with
  * pclose. This pointer may be used with
@@ -484,7 +484,7 @@ function feof ($handle) {}
  * Gets character from file pointer
  * @link https://php.net/manual/en/function.fgetc.php
  * @param resource $handle The file pointer must be valid, and must point to a file successfully opened by fopen() or fsockopen() (and not yet closed by fclose()).
- * @return bool|string a string containing a single character read from the file pointed
+ * @return string|false a string containing a single character read from the file pointed
  * to by handle. Returns false on EOF.
  * @since 4.0
  * @since 5.0
@@ -507,7 +507,7 @@ function fgetc ($handle) {}
  * it is more resource efficient for your script to specify the maximum
  * line length.
  * </p>
- * @return bool|string a string of up to length - 1 bytes read from
+ * @return string|false a string of up to length - 1 bytes read from
  * the file pointed to by handle.
  * </p>
  * <p>
@@ -528,7 +528,7 @@ function fgets ($handle, $length = null) {}
  * You can use the optional third parameter to specify tags which should
  * not be stripped.
  * </p>
- * @return bool|string a string of up to length - 1 bytes read from
+ * @return string|false a string of up to length - 1 bytes read from
  * the file pointed to by handle, with all HTML and PHP
  * code stripped.
  * </p>
@@ -547,7 +547,7 @@ function fgetss ($handle, $length = null, $allowable_tags = null) {}
  * @param int $length <p>
  * Up to length number of bytes read.
  * </p>
- * @return string|bool the read string or false on failure.
+ * @return string|false the read string or false on failure.
  * @since 4.0
  * @since 5.0
  */
@@ -728,7 +728,7 @@ function fread ($handle, $length) {}
  * include_path, too.
  * </p>
  * @param resource $context [optional] &note.context-support;
- * @return bool|resource a file pointer resource on success, or false on error.
+ * @return resource|false a file pointer resource on success, or false on error.
  * @since 4.0
  * @since 5.0
  */
@@ -738,7 +738,7 @@ function fopen ($filename, $mode, $use_include_path = null, $context = null) {}
  * Output all remaining data on a file pointer
  * @link https://php.net/manual/en/function.fpassthru.php
  * @param resource $handle The file pointer must be valid, and must point to a file successfully opened by fopen() or fsockopen() (and not yet closed by fclose()).
- * @return bool|int If an error occurs, fpassthru returns
+ * @return int|false If an error occurs, fpassthru returns
  * false. Otherwise, fpassthru returns
  * the number of characters read from handle
  * and passed through to the output.
@@ -823,7 +823,7 @@ function fseek ($handle, $offset, $whence = SEEK_SET) {}
  * ftell gives undefined results for append-only streams
  * (opened with "a" flag).
  * </p>
- * @return bool|int the position of the file pointer referenced by
+ * @return int|false the position of the file pointer referenced by
  * handle as an integer; i.e., its offset into the file stream.
  * </p>
  * <p>
@@ -862,7 +862,7 @@ function fflush ($handle) {}
  * configuration option will be ignored and no slashes will be
  * stripped from string.
  * </p>
- * @return bool|int the number of bytes written, or <b>FALSE</b> on error.
+ * @return int|false the number of bytes written, or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -889,7 +889,7 @@ function fwrite ($handle, $string, $length = null) {}
  * configuration option will be ignored and no slashes will be
  * stripped from string.
  * </p>
- * @return bool|int the number of bytes written, or <b>FALSE</b> on error.
+ * @return int|false the number of bytes written, or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -979,7 +979,7 @@ function copy ($source, $dest, $context = null) {}
  * The prefix of the generated temporary filename.
  * </p>
  * Windows use only the first three characters of prefix.
- * @return bool|string the new temporary filename, or false on
+ * @return string|false the new temporary filename, or false on
  * failure.
  * @since 4.0
  * @since 5.0
@@ -989,7 +989,7 @@ function tempnam ($dir, $prefix) {}
 /**
  * Creates a temporary file
  * @link https://php.net/manual/en/function.tmpfile.php
- * @return resource|bool a file handle, similar to the one returned by
+ * @return resource|false a file handle, similar to the one returned by
  * fopen, for the new file or false on failure.
  * @since 4.0
  * @since 5.0
@@ -1015,7 +1015,7 @@ function tmpfile () {}
  * <p>
  * &note.context-support;
  * </p>
- * @return array|bool the file in an array. Each element of the array corresponds to a
+ * @return array|false the file in an array. Each element of the array corresponds to a
  * line in the file, with the newline still attached. Upon failure,
  * file returns false.
  * </p>
@@ -1126,7 +1126,7 @@ function file_get_contents ($filename, $use_include_path = false, $context = nul
  * A valid context resource created with 
  * stream_context_create.
  * </p>
- * @return int|bool The function returns the number of bytes that were written to the file, or
+ * @return int|false The function returns the number of bytes that were written to the file, or
  * false on failure.
  * @since 5.0
  */

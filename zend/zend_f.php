@@ -22,7 +22,7 @@ function jobqueue_license_info(){};
  * Create Java object
  *
  * @return object
- * @param  class string
+ * @param string $class
  * @vararg ...
  */
 function java($class) {}
@@ -42,7 +42,7 @@ function java_last_exception_clear() {}
 
 /**
  * Set case sensitivity for Java calls.
- * @param ignore bool if set, Java attribute and method names would be resolved disregarding case. NOTE: this does not make any Java functions case insensi
+ * @param bool $ignore if set, Java attribute and method names would be resolved disregarding case. NOTE: this does not make any Java functions case insensi
 tive, just things like $foo->bar and $foo->bar() would match Bar too.
  * @return void
  */
@@ -50,14 +50,14 @@ function java_set_ignore_case($ignore) {}
 
 /**
  * Set encoding for strings received by Java from PHP. Default is UTF-8.
- * @param encoding string
+ * @param string $encoding
  * @return array
  */
 function java_set_encoding($encoding) {}
 
 /**
  * Control if exceptions are thrown on Java exception. Only for PHP5.
- * @param throw bool If true, PHP exception is thrown when Java exception happens. If set to false, use java_last_exception_get() to check for exception.
+ * @param bool $throw If true, PHP exception is thrown when Java exception happens. If set to false, use java_last_exception_get() to check for exception.
  * @return void
  */
 function java_throw_exceptions($throw) {}
@@ -66,7 +66,7 @@ function java_throw_exceptions($throw) {}
  * Reload Jar's that were dynamically loaded
  *
  * @return array
- * @param  new_jarpath string
+ * @param string $new_jarpath
  */
 function java_reload($new_jarpath) {}
 
@@ -74,7 +74,7 @@ function java_reload($new_jarpath) {}
  * Add to Java's classpath in runtime
  *
  * @return array
- * @param  new_classpath string
+ * @param string $new_classpath
  */
 function java_require($new_classpath) {}
 
@@ -105,22 +105,22 @@ function zend_loader_current_file() {}
 
 /**
  * Dynamically loads a license for applications encoded with Zend SafeGuard. The Override controls if it will override old licenses for the same product.
- * @param license_file string
- * @param override bool[optional]
+ * @param string $license_file
+ * @param bool $override [optional]
  * @return bool
  */
 function zend_loader_install_license($license_file, $override) {}
 
 /**
  * Obfuscate and return the given function name with the internal obfuscation function.
- * @param function_name string
+ * @param string $function_name
  * @return string
  */
 function zend_obfuscate_function_name($function_name) {}
 
 /**
  * Obfuscate and return the given class name with the internal obfuscation function.
- * @param class_name string
+ * @param string $class_name
  * @return string
  */
 function zend_obfuscate_class_name($class_name) {}
@@ -139,7 +139,7 @@ function zend_runtime_obfuscate() {}
 
 /**
  * Returns array of the host ids. If all_ids is true, then all IDs are returned, otehrwise only IDs considered "primary" are returned.
- * @param all_ids bool[optional]
+ * @param bool $all_ids [optional]
  * @return array
  */
 function zend_get_id($all_ids = false) {}

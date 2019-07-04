@@ -91,7 +91,7 @@ function header_register_callback ( callable $callback ) {}
  * Some programs use these APP markers to embed text information in images. <br>
  * A very common one is to embed » IPTC information in the APP13 marker. <br>
  * You can use the iptcparse() function to parse the binary APP13 marker into something readable.
- * @return array|bool Returns an array with 7 elements.<br>
+ * @return array|false Returns an array with 7 elements.<br>
  * Index 0 and 1 contains respectively the width and the height of the image.<br>
  * Index 2 is one of the <b>IMAGETYPE_XXX</b> constants indicating the type of the image.<br>
  * Index 3 is a text string with the correct <b>height="yyy" width="xxx"</b> string<br>
@@ -106,7 +106,7 @@ function getimagesizefromstring ($imagedata , array &$imageinfo = null) {}
  * @link https://secure.php.net/manual/en/function.stream-set-chunk-size.php
  * @param resource $fp The target stream.
  * @param int $chunk_size The desired new chunk size.
- * @return int Returns the previous chunk size on success.<br>
+ * @return int|false Returns the previous chunk size on success.<br>
  * Will return <b>FALSE</b> if chunk_size is less than 1 or greater than <b>PHP_INT_MAX</b>.
  */
 function stream_set_chunk_size ($fp , $chunk_size) {}
@@ -140,7 +140,7 @@ function lcg_value () {}
  * This parameter restricts the returned metaphone key to phonemes characters in length.
  * The default value of 0 means no restriction.
  * </p>
- * @return string|bool the metaphone key as a string, or FALSE on failure
+ * @return string|false the metaphone key as a string, or FALSE on failure
  * @since 4.0
  * @since 5.0
  */
