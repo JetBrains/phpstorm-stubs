@@ -273,7 +273,7 @@ function openssl_x509_free($x509cert) { }
  * fields will be indexed with the short name form, otherwise, the long name
  * form will be used - e.g.: CN is the shortname form of commonName.
  * </p>
- * @return array The structure of the returned data is (deliberately) not
+ * @return array|false The structure of the returned data is (deliberately) not
  * yet documented, as it is still subject to change.
  * @since 4.0.6
  * @since 5.0
@@ -337,7 +337,7 @@ function openssl_x509_parse($x509cert, $shortnames = true) { }
  * certificates that can be used to help verify the certificate, although
  * no trust is placed in the certificates that come from that file.
  * </p>
- * @return int true if the certificate can be used for the intended purpose,
+ * @return int|bool true if the certificate can be used for the intended purpose,
  * false if it cannot, or -1 on error.
  * @since 4.0.6
  * @since 5.0
@@ -532,7 +532,7 @@ function openssl_pkcs12_read($pkcs12, array &$certs, $pass) { }
  * <i>extraattribs</i> are associative arrays whose keys are
  * converted to OIDs and applied to the relevant part of the request.
  * </p>
- * @return mixed the CSR.
+ * @return false|resource the CSR.
  * @since 4.2.0
  * @since 5.0
  */
@@ -606,7 +606,7 @@ function openssl_csr_sign($csr, $cacert, $priv_key, $days, array $configargs = n
  * @link https://php.net/manual/en/function.openssl-csr-get-subject.php
  * @param mixed $csr
  * @param bool $use_shortnames [optional]
- * @return array
+ * @return array|false
  * @since 5.2.0
  */
 function openssl_csr_get_subject($csr, $use_shortnames = true) { }
@@ -616,7 +616,7 @@ function openssl_csr_get_subject($csr, $use_shortnames = true) { }
  * @link https://php.net/manual/en/function.openssl-csr-get-public-key.php
  * @param mixed $csr
  * @param bool $use_shortnames [optional]
- * @return resource
+ * @return resource|false
  * @since 5.2.0
  */
 function openssl_csr_get_public_key($csr, $use_shortnames = true) { }
@@ -822,7 +822,7 @@ function openssl_pbkdf2($password, $salt, $key_length, $iterations, $digest_algo
  * stripped.
  * @param string|null $pk7 [optional]
  * </p>
- * @return mixed true if the signature is verified, false if it is not correct
+ * @return bool|int true if the signature is verified, false if it is not correct
  * (the message has been tampered with, or the signing certificate is invalid),
  * or -1 on error.
  * @since 4.0.6
