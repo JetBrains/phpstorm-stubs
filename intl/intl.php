@@ -4363,7 +4363,7 @@ function datefmt_get_error_message(MessageFormatter $mf, $coll) { }
  * @param string $input <p>
  * The string being measured for length. It must be a valid UTF-8 string.
  * </p>
- * @return int The length of the string on success, and 0 if the string is empty.
+ * @return int|false|null The length of the string on success, and 0 if the string is empty.
  */
 function grapheme_strlen($input) { }
 
@@ -4543,7 +4543,7 @@ function grapheme_stristr($haystack, $needle, $before_needle = false) { }
  * Reference to a value that will be set to the next starting position.
  * When the call returns, this may point to the first byte position past the end of the string.
  * </p>
- * @return string A string starting at offset $start and ending on a default grapheme cluster
+ * @return string|false A string starting at offset $start and ending on a default grapheme cluster
  * boundary that conforms to the $size and $extract_type specified.
  */
 function grapheme_extract($haystack, $size, $extract_type = null, $start = 0, &$next = null) { }
@@ -5740,7 +5740,7 @@ function resourcebundle_get_error_message(ResourceBundle $bundle) { }
  * May also be set to
  * Transliterator::REVERSE.
  * </p>
- * @return Transliterator a <b>Transliterator</b> object on success,
+ * @return Transliterator|null a <b>Transliterator</b> object on success,
  * or <b>NULL</b> on failure.
  */
 function transliterator_create($id, $direction = null) { }

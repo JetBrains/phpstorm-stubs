@@ -1237,7 +1237,7 @@ function sqlsrv_query($conn, $tsql, $params=array(), $options=array()){}
  * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.
  * @param int|null $offset [optional] Used with SQLSRV_SCROLL_ABSOLUTE and SQLSRV_SCROLL_RELATIVE to specify the row to
  * retrieve. The first record in the result set is 0.
- * @return array|null|false If the next row of the result set was successfully retrieved, true is returned. If there are
+ * @return bool|null If the next row of the result set was successfully retrieved, true is returned. If there are
  * no more results in the result set, null is returned. If an error occurred, false is returned.
  */
 function sqlsrv_fetch($stmt, $row=null, $offset=null){}
@@ -1448,7 +1448,7 @@ function sqlsrv_rows_affected($stmt){}
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-client-info
  * @param resource $conn The connection resource by which the client is connected.
- * @return array|null An associative array with keys described in the table below, or false if the connection resource
+ * @return array|false An associative array with keys described in the table below, or false if the connection resource
  * is null.<br />
  * <ul><li>DriverDllName - SQLNCLI10.DLL (Microsoft Drivers for PHP for SQL Server version 2.0)</li>
  * <li>DriverODBCVer - ODBC version (xx.yy)</li>

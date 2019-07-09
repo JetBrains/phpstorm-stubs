@@ -1724,7 +1724,7 @@ function mysqli_fetch_lengths ($result) {}
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
  * @param int $resulttype
- * @return array|null Returns an array of associative or numeric arrays holding result rows.
+ * @return array Returns an array of associative or numeric arrays holding result rows.
  */
 function mysqli_fetch_all ($result, $resulttype = MYSQLI_NUM) {}
 
@@ -1743,7 +1743,7 @@ function mysqli_fetch_array ($result, $resulttype = MYSQLI_BOTH) {}
  * @link https://php.net/manual/en/mysqli-result.fetch-assoc.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
- * @return array|null Returns an associative array of strings representing the fetched row in the result set,
+ * @return string[]|null Returns an associative array of strings representing the fetched row in the result set,
  * where each key in the array represents the name of one of the result set's columns or NULL if there are no more rows in resultset.
  * If two or more columns of the result have the same field names, the last column will take precedence.
  * To access the other column(s) of the same name,
@@ -2506,7 +2506,7 @@ function mysqli_stmt_store_result ($stmt) {}
  * Transfers a result set from the last query
  * @link https://php.net/manual/en/mysqli.store-result.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @return mysqli_result|bool
+ * @return mysqli_result|false
  */
 function mysqli_store_result ($link) {}
 
@@ -2529,7 +2529,7 @@ function mysqli_thread_safe () {}
  * Initiate a result set retrieval
  * @link https://php.net/manual/en/mysqli.use-result.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @return mysqli_result|bool
+ * @return mysqli_result|false
  */
 function mysqli_use_result ($link) {}
 

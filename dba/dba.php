@@ -341,7 +341,7 @@ function dba_list () {}
  * @param mixed $key <p>
  * The key in string representation.
  * </p>
- * @return mixed an array of the form array(0 =&gt; group, 1 =&gt;
+ * @return array|false an array of the form array(0 =&gt; group, 1 =&gt;
  * value_name). This function will return <b>FALSE</b> if
  * <i>key</i> is <b>NULL</b> or <b>FALSE</b>.
  * @since 5.0

@@ -10,7 +10,7 @@
  * @param SimpleXMLElement $node <p>
  * The <b>SimpleXMLElement</b> node.
  * </p>
- * @return DOMElement The <b>DOMElement</b> node added or <b>FALSE</b> if any errors occur.
+ * @return DOMElement|false The <b>DOMElement</b> node added or <b>FALSE</b> if any errors occur.
  */
 function dom_import_simplexml (SimpleXMLElement $node) {}
 
@@ -116,7 +116,7 @@ define ('DOM_PHP_ERR', 0);
 define ('DOM_INDEX_SIZE_ERR', 1);
 
 /**
- * If the specified range of text does not fit into a 
+ * If the specified range of text does not fit into a
  * <b>DOMString</b>.
  * @link https://php.net/manual/en/dom.constants.php
  */
@@ -189,7 +189,7 @@ define ('DOM_SYNTAX_ERR', 12);
 define ('DOM_INVALID_MODIFICATION_ERR', 13);
 
 /**
- * If an attempt is made to create or change an object in a way which is 
+ * If an attempt is made to create or change an object in a way which is
  * incorrect with regard to namespaces.
  * @link https://php.net/manual/en/dom.constants.php
  */
@@ -203,7 +203,7 @@ define ('DOM_INVALID_ACCESS_ERR', 15);
 
 /**
  * If a call to a method such as insertBefore or removeChild would make the Node
- * invalid with respect to "partial validity", this exception would be raised and 
+ * invalid with respect to "partial validity", this exception would be raised and
  * the operation would not be done.
  * @link https://php.net/manual/en/dom.constants.php
  */
