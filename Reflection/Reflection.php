@@ -1999,15 +1999,6 @@ class ReflectionType
 	{
 	}
 
-	/**
-	 * Get type of the parameter.
-	 * @return string Returns the type of the parameter.
-	 * @since 7.1.0
-	 */
-	public function getName()
-	{
-	}
-
     private final function __clone() {}
 
 }
@@ -2119,8 +2110,15 @@ class ReflectionClassConstant implements Reflector {
 /**
  * @since 7.1
  */
-class ReflectionNamedType extends ReflectionType{
-
+class ReflectionNamedType extends ReflectionType
+{
+	/**
+	 * Get the text of the type hint.
+	 * @return string Returns the text of the type hint.
+	 */
+	public function getName()
+	{
+	}
 }
 
 /**
