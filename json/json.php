@@ -86,7 +86,6 @@ class JsonIncrementalParser  {
  * Set the maximum depth. Must be greater than zero.
  * </p>
  * @return string|false a JSON encoded string on success or <b>FALSE</b> on failure.
- * @throws \JsonException exception is thrown when {@see JSON_THROW_ON_ERROR} is set and $value can't be encoded
  */
 function json_encode ($value, $options = 0, $depth = 512) {}
 
@@ -124,7 +123,6 @@ function json_encode ($value, $options = 0, $depth = 512) {}
  * and <b>NULL</b> respectively. <b>NULL</b> is returned if the
  * <i>json</i> cannot be decoded or if the encoded
  * data is deeper than the recursion limit.
- * @throws \JsonException exception is thrown when {@see JSON_THROW_ON_ERROR} is set and $json can't be decoded
  */
 function json_decode ($json, $assoc = false, $depth = 512, $options = 0) {}
 
