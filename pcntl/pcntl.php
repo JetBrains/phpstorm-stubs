@@ -456,15 +456,28 @@ function pcntl_sigwaitinfo (array $set, array &$siginfo = null) {}
 function pcntl_sigtimedwait (array $set, array &$siginfo = null, $seconds = 0, $nanoseconds = 0) {}
 
 /**
+ * Enable/disable asynchronous signal handling or return the old setting.<br>
+ * If the <b>on</b> parameter is omitted, it returns whether asynchronous
+ * signal handling is enabled.
+ * @link https://www.php.net/manual/en/function.pcntl-async-signals.php
  *
- * @param bool $on
+ * @param bool $on [optional] <p>
+ * Whether asynchronous signal handling should be enabled.
+ * </p>
+ *
  * @return bool
  * @since 7.1
  */
-function pcntl_async_signals($on) {}
+function pcntl_async_signals($on = null) {}
 
 /**
- * @param int $signo
+ * Get the current handler for specified signal.
+ * @link https://www.php.net/manual/en/function.pcntl-signal-get-handler.php
+ *
+ * @param int $signo <p>
+ * The signal number.
+ * </p>
+ *
  * @return bool
  * @since 7.1
  */
