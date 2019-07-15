@@ -1040,7 +1040,6 @@ function array_shift (array &$array) {}
  * The prepended variables.
  * </p>
  * @return int the number of elements in the array.
- * @since 7.3
  */
 function array_unshift (array &$array, ...$vars) {}
 
