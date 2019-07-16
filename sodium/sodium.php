@@ -67,15 +67,15 @@ const SODIUM_CRYPTO_SIGN_SECRETKEYBYTES = 64;
 const SODIUM_CRYPTO_SIGN_KEYPAIRBYTES = 96;
 const SODIUM_CRYPTO_STREAM_KEYBYTES = 32;
 const SODIUM_CRYPTO_STREAM_NONCEBYTES = 24;
-const SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE = 4;
-const SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE = 33554432;
-const SODIUM_CRYPTO_PWHASH_OPSLIMIT_MODERATE = 6;
-const SODIUM_CRYPTO_PWHASH_MEMLIMIT_MODERATE = 134217728;
-const SODIUM_CRYPTO_PWHASH_OPSLIMIT_SENSITIVE = 8;
-const SODIUM_CRYPTO_PWHASH_MEMLIMIT_SENSITIVE = 536870912;
-const SODIUM_LIBRARY_VERSION="1.0.11";
-const SODIUM_LIBRARY_MAJOR_VERSION = 9;
-const SODIUM_LIBRARY_MINOR_VERSION = 3;
+const SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE = 2;
+const SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE = 67108864;
+const SODIUM_CRYPTO_PWHASH_OPSLIMIT_MODERATE = 3;
+const SODIUM_CRYPTO_PWHASH_MEMLIMIT_MODERATE = 268435456;
+const SODIUM_CRYPTO_PWHASH_OPSLIMIT_SENSITIVE = 4;
+const SODIUM_CRYPTO_PWHASH_MEMLIMIT_SENSITIVE = 1073741824;
+const SODIUM_LIBRARY_VERSION="1.0.17";
+const SODIUM_LIBRARY_MAJOR_VERSION = 10;
+const SODIUM_LIBRARY_MINOR_VERSION = 2;
 const SODIUM_CRYPTO_KDF_BYTES_MIN = 16;
 const SODIUM_CRYPTO_KDF_BYTES_MAX = 64;
 const SODIUM_CRYPTO_KDF_CONTEXTBYTES = 8;
@@ -84,9 +84,9 @@ const SODIUM_CRYPTO_KX_SEEDBYTES = 32;
 const SODIUM_CRYPTO_KX_SESSIONKEYBYTES = 32;
 const SODIUM_CRYPTO_KX_KEYPAIRBYTES = 64;
 const SODIUM_CRYPTO_PWHASH_ALG_ARGON2I13 = 1;
-const SODIUM_CRYPTO_PWHASH_ALG_DEFAULT = 1;
+const SODIUM_CRYPTO_PWHASH_ALG_DEFAULT = 2;
 const SODIUM_CRYPTO_PWHASH_SALTBYTES = 16;
-const SODIUM_CRYPTO_PWHASH_STRPREFIX = '$argon2i$';
+const SODIUM_CRYPTO_PWHASH_STRPREFIX = '$argon2id$';
 
 /**
  * Can you access AES-256-GCM? This is only available if you have supported
@@ -1205,6 +1205,82 @@ function sodium_crypto_aead_chacha20poly1305_keygen(): string {}
  * @see https://secure.php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-ietf-keygen.php
  */
 function sodium_crypto_aead_chacha20poly1305_ietf_keygen(): string {}
+
+/**
+ * @since 7.2.0
+ * @see https://www.php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-decrypt.php
+ */
+function sodium_crypto_aead_xchacha20poly1305_ietf_decrypt(string $ciphertext,string $ad,string $nonce,string $key): string {}
+
+/**
+ * @since 7.2.0
+ * https://www.php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-encrypt.php
+ */
+function sodium_crypto_aead_xchacha20poly1305_ietf_encrypt(string $msg, string $ad, string $nonce, string $key): string{}
+
+/**
+ * @since 7.2.0
+ * @see https://www.php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-keygen.php
+ */
+function sodium_crypto_aead_xchacha20poly1305_ietf_keygen():string {}
+
+/**
+ * @since 7.2.0
+ * @see https://www.php.net/manual/en/function.sodium-crypto-pwhash-str-needs-rehash.php
+ */
+function sodium_crypto_pwhash_str_needs_rehash(string $password, int $opslimit, int $memlimit): bool{}
+
+/**
+ * @since 7.2.0
+ * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-keygen.php
+ */
+function sodium_crypto_secretstream_xchacha20poly1305_keygen(): string {}
+
+/**
+ * @since 7.2.0
+ * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-init-push.php
+ */
+function sodium_crypto_secretstream_xchacha20poly1305_init_push(string $key): array{}
+
+/**
+ * @param string $state
+ * @param string $msg
+ * @param string $ad [optional]
+ * @param int $tag [optional]
+ * @since 7.2.0
+ * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-push.php
+ */
+function sodium_crypto_secretstream_xchacha20poly1305_push(string &$state, string $msg, string $ad, int $tag): string{}
+
+/**
+ * @since 7.2.0
+ * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-init-pull.php
+ */
+function sodium_crypto_secretstream_xchacha20poly1305_init_pull($header, $key): string{}
+
+/**
+ * @since 7.2.0
+ * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-pull.php
+ */
+function sodium_crypto_secretstream_xchacha20poly1305_pull(string &$state, string $c, string $ad = ''): array {}
+
+/**
+ * @since 7.2.0
+ * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-rekey.php
+ */
+function sodium_crypto_secretstream_xchacha20poly1305_rekey(string &$state): void{}
+
+/**
+ * @since 7.2.0
+ * @see https://www.php.net/manual/en/function.sodium-bin2base64.php
+ */
+function sodium_bin2base64(string $bin, int $id): string {}
+
+/**
+ * @since 7.2.0
+ * @see https://www.php.net/manual/en/function.sodium-base642bin.php
+ */
+function sodium_base642bin(string $b64, int $id, string $ignore = ''){}
 
 class SodiumException extends Exception {
 
