@@ -335,7 +335,7 @@ class Redis
      * Set the string value in argument as value of the key.
      *
      * @param   string  $key
-     * @param   string  $value
+     * @param   mixed  $value
      * @param   int|array   $timeout [optional] Calling setex() is preferred if you want a timeout.<br>
      *                      Since 2.6.12 it also supports different flags inside an array. Example ['NX', 'EX' => 60]<br>
      *                      EX seconds -- Set the specified expire time, in seconds.<br>
@@ -354,7 +354,7 @@ class Redis
      *
      * @param   string  $key
      * @param   int     $ttl
-     * @param   string  $value
+     * @param   mixed  $value
      * @return  bool    TRUE if the command is successful.
      * @link    https://redis.io/commands/setex
      * @example $redis->setex('key', 3600, 'value'); // sets key → value, with 1h TTL.
@@ -365,7 +365,7 @@ class Redis
      * Set the string value in argument as value of the key if the key doesn't already exist in the database.
      *
      * @param   string  $key
-     * @param   string  $value
+     * @param   mixed  $value
      * @return  bool    TRUE in case of success, FALSE in case of failure.
      * @link    https://redis.io/commands/setnx
      * @example
