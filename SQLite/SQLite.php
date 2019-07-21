@@ -28,7 +28,7 @@ class SQLiteDatabase  {
 	 * @param $result_type [optional]
 	 * <p>The optional <i>result_type</i> parameter accepts a constant and determines how the returned array will be indexed. Using <b>SQLITE_ASSOC</b> will return only associative indices (named fields) while <b>SQLITE_NUM</b> will return only numerical indices (ordinal field numbers). <b>SQLITE_BOTH</b> will return both associative and numerical indices. <b>SQLITE_BOTH</b> is the default for this function.</p>
 	 * @param $error_message [optional] <p>The specified variable will be filled if an error occurs. This is specially important because SQL syntax errors can't be fetched using the {@see sqlite_last_error()} function.</p>
-	 * @return resource|bool <p>
+	 * @return resource|false <p>
 	 * This function will return a result handle or <b>FALSE</b> on failure.
 	 * For queries that return rows, the result handle can then be used with
 	 * functions such as {@see sqlite_fetch_array()} and
@@ -61,7 +61,7 @@ class SQLiteDatabase  {
 	 * </p>
 	 * @param string $error_message [optional] <p>The specified variable will be filled if an error occurs. This is specially important because SQL syntax errors can't be fetched using the
 	 * {@see sqlite_last_error()} function.</p>
-	 * @return boolean <p>
+	 * @return bool <p>
 	 * This function will return a boolean result; <b>TRUE</b> for success or <b>FALSE</b> for failure.
 	 * If you need to run a query that returns rows, see {@see sqlite_query()}.
 	 * </p>
@@ -381,7 +381,7 @@ final class SQLiteResult implements Iterator, Countable {
 	/**
 	 * Checks if current position is valid
 	 * @link https://php.net/manual/en/iterator.valid.php
-	 * @return boolean <p>
+	 * @return bool <p>
 	 * Returns <b>TRUE</b> if there are more rows available from the
 	 * <i>result</i> handle, or <b>FALSE</b> otherwise.
 	 * </p>
@@ -411,7 +411,7 @@ final class SQLiteResult implements Iterator, Countable {
 	/**
 	 * Seek to the previous row number of a result set
 	 * @link https://php.net/manual/en/function.sqlite-prev.php
-	 * @return boolean <p> Returns <b>TRUE</b> on success, or <b>FALSE</b> if there are no more previous rows.
+	 * @return bool <p> Returns <b>TRUE</b> on success, or <b>FALSE</b> if there are no more previous rows.
 	 * </p>
 	 * @since 5.4.0
 	 */
@@ -562,7 +562,7 @@ final class SQLiteException extends RuntimeException  {
  * Passed by reference and is set to hold a descriptive error message
  * explaining why the database could not be opened if there was an error.
  * </p>
- * @return resource a resource (database handle) on success, false on error.
+ * @return resource|false a resource (database handle) on success, false on error.
  */
 function sqlite_open ($filename, $mode = null, &$error_message = null) {}
 
@@ -586,7 +586,7 @@ function sqlite_open ($filename, $mode = null, &$error_message = null) {}
  * Passed by reference and is set to hold a descriptive error message
  * explaining why the database could not be opened if there was an error.
  * </p>
- * @return resource <p>a resource (database handle) on success, false on error.</p>
+ * @return resource|false <p>a resource (database handle) on success, false on error.</p>
  */
 function sqlite_popen ($filename, $mode = null, &$error_message = null) {}
 
@@ -627,7 +627,7 @@ function sqlite_close ($dbhandle) {}
  * the
  * {@see sqlite_last_error} function.
  * </p>
- * @return resource  This function will return a result handle or <b>FALSE</b> on failure.
+ * @return resource|false  This function will return a result handle or <b>FALSE</b> on failure.
  * For queries that return rows, the result handle can then be used with
  * functions such as
  * {@see sqlite_fetch_array} and
@@ -703,7 +703,7 @@ function sqlite_exec ($dbhandle, $query, &$error_msg = null) {}
  * {@link sqlite_escape_string()}.  You should normally leave this
  * value at its default, unless you are interoperating with databases created by
  * other sqlite capable applications.</p>
- * @return array an array of the entire result set; false otherwise.
+ * @return array|false an array of the entire result set; false otherwise.
  * <p>The column names returned by
  * <b>SQLITE_ASSOC</b> and <b>SQLITE_BOTH</b> will be
  * case-folded according to the value of the
@@ -731,7 +731,7 @@ function sqlite_single_query ($db, $query, $first_row_only = null, $decode_binar
  * @param resource $result <p>The SQLite result resource. This parameter is not required when using the object-oriented method.</p>
  * @param int $result_type [optional] &sqlite.result-type;
  * @param bool $decode_binary [optional] &sqlite.decode-bin;
- * @return array <p>an array of the next row from a result set; false if the
+ * @return array|false <p>an array of the next row from a result set; false if the
  * next position is beyond the final row.</p>
  */
 function sqlite_fetch_array ($result, $result_type = SQLITE_BOTH, $decode_binary = null) {}
@@ -802,7 +802,7 @@ function sqlite_fetch_all ($result_type = null, $decode_binary = null) {}
  * @param resource $result <p>The SQLite result resource. This parameter is not required when using the object-oriented method.</p>
  * @param int $result_type [optional] <p>The optional result_type parameter accepts a constant and determines how the returned array will be indexed. Using <b>SQLITE_ASSOC</b> will return only associative indices (named fields) while <b>SQLITE_NUM</b> will return only numerical indices (ordinal field numbers). <b>SQLITE_BOTH</b> will return both associative and numerical indices. <b>SQLITE_BOTH</b> is the default for this function.</p>
  * @param bool $decode_binary [optional] <p>When the decode_binary parameter is set to <b>TRUE</b> (the default), PHP will decode the binary encoding it applied to the data if it was encoded using the sqlite_escape_string(). You should normally leave this value at its default, unless you are interoperating with databases created by other sqlite capable applications.</p>
- * @return array an array of the current row from a result set; false if the
+ * @return array|false an array of the current row from a result set; false if the
  * current position is beyond the final row.
  */
 function sqlite_current ($result, $result_type = null, $decode_binary = null) {}
@@ -1081,7 +1081,7 @@ function sqlite_error_string ($error_code) {}
  * specially important because SQL syntax errors can't be fetched using
  * the sqlite_last_error function.
  * </p>
- * @return SQLiteUnbuffered a result handle or false on failure.
+ * @return SQLiteUnbuffered|false a result handle or false on failure.
  * </p>
  * <p>
  * sqlite_unbuffered_query returns a sequential
@@ -1201,7 +1201,7 @@ function sqlite_udf_decode_binary ($data) {}
  * numerical indices. <b>SQLITE_ASSOC</b> is the default for
  * this function.
  * </p>
- * @return array an array of column data types; false on error.
+ * @return array|false an array of column data types; false on error.
  * @since 5.0
  */
 function sqlite_fetch_column_types ($dbhandle, $table_name, $result_type = null) {}

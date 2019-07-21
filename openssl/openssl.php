@@ -23,7 +23,7 @@ function openssl_pkey_free($key) { }
  * <b>openssl_csr_new</b> for more information about
  * <i>configargs</i>.
  * </p>
- * @return resource a resource identifier for the pkey on success, or false on
+ * @return resource|false a resource identifier for the pkey on success, or false on
  * error.
  * @since 4.2.0
  * @since 5.0
@@ -90,7 +90,7 @@ function openssl_pkey_export_to_file($key, $outfilename, $passphrase = null, arr
  * The optional parameter <b><em>passphrase</em></b> must be used
  * if the specified key is encrypted (protected by a passphrase).
  * </p>
- * @return resource|bool Returns a positive key resource identifier on success, or <b>FALSE</b> on error.
+ * @return resource|false Returns a positive key resource identifier on success, or <b>FALSE</b> on error.
  * @since 4.2.0
  * @since 5.0
  */
@@ -109,7 +109,7 @@ function openssl_pkey_get_private($key, $passphrase = "") { }
  * </li>
  * <li>A PEM formatted public key.</li>
  * </ol></p>
- * @return resource a positive key resource identifier on success, or false on error.
+ * @return resource|false a positive key resource identifier on success, or false on error.
  * @since 4.2.0
  * @since 5.0
  */
@@ -121,7 +121,7 @@ function openssl_pkey_get_public($certificate) { }
  * @param resource $key <p>
  * Resource holding the key.
  * </p>
- * @return array an array with the key details in success or false in failure.
+ * @return array|false an array with the key details in success or false in failure.
  * Returned array has indexes bits (number of bits),
  * key (string representation of the public key) and
  * type (type of the key which is one of
@@ -164,7 +164,7 @@ function openssl_free_key($key_identifier) { }
  * The optional parameter <b><em>passphrase</em></b> must be used
  * if the specified key is encrypted (protected by a passphrase).
  * </p>
- * @return resource|bool Returns a positive key resource identifier on success, or <b>FALSE</b> on error.
+ * @return resource|false Returns a positive key resource identifier on success, or <b>FALSE</b> on error.
  * @since 4.0.4
  * @since 5.0
  */
@@ -184,7 +184,7 @@ function openssl_get_privatekey($key, $passphrase) { }
  * </li>
  * <li>A PEM formatted public key.</li>
  * </ol> </p>
- * @return resource a positive key resource identifier on success, or FALSE on error.
+ * @return resource|false a positive key resource identifier on success, or FALSE on error.
  * @since 4.0.4
  * @since 5.0
  */
@@ -202,7 +202,7 @@ function openssl_get_publickey($certificate) { }
  * </p>
  * @param string $challenge <p>The challenge associated to associate with the SPKAC</p>
  * @param int $algorithm <p>The digest algorithm. See openssl_get_md_method().</p>
- * @return string Returns a signed public key and challenge string or NULL on failure.
+ * @return string|null Returns a signed public key and challenge string or NULL on failure.
  * @since 5.6.0
  */
 function openssl_spki_new(&$privkey, &$challenge, $algorithm = 0) {}
@@ -212,7 +212,7 @@ function openssl_spki_new(&$privkey, &$challenge, $algorithm = 0) {}
  * Verifies a signed public key and challenge
  * @link https://php.net/manual/en/function.openssl-spki-verify.php
  * @param string $spkac <p>Expects a valid signed public key and challenge</p>
- * @return boolean Returns a boolean on success or failure.
+ * @return bool Returns a boolean on success or failure.
  * @since 5.6.0
  */
 function openssl_spki_verify(&$spkac) {}
@@ -221,7 +221,7 @@ function openssl_spki_verify(&$spkac) {}
  * Exports the challenge assoicated with a signed public key and challenge
  * @link https://php.net/manual/en/function.openssl-spki-export-challenge.php
  * @param string $spkac <p>Expects a valid signed public key and challenge</p>
- * @return string|NULL Returns the associated challenge string or NULL on failure.
+ * @return string|null Returns the associated challenge string or NULL on failure.
  * @since 5.6.0
  */
 function openssl_spki_export_challenge (&$spkac ) {}
@@ -230,7 +230,7 @@ function openssl_spki_export_challenge (&$spkac ) {}
  * Exports a valid PEM formatted public key signed public key and challenge
  * @link https://php.net/manual/en/function.openssl-spki-export.php
  * @param string $spkac <p>Expects a valid signed public key and challenge</p>
- * @return string|NULL Returns the associated PEM formatted public key or NULL on failure.
+ * @return string|null Returns the associated PEM formatted public key or NULL on failure.
  * @since 5.6.0
  */
 function openssl_spki_export (&$spkac ) {}
@@ -241,7 +241,7 @@ function openssl_spki_export (&$spkac ) {}
 it
  * @link https://php.net/manual/en/function.openssl-x509-read.php
  * @param mixed $x509certdata
- * @return resource a resource identifier on success or false on failure.
+ * @return resource|false a resource identifier on success or false on failure.
  */
 function openssl_x509_read($x509certdata) { }
 
@@ -249,7 +249,7 @@ function openssl_x509_read($x509certdata) { }
  * @param string $x509
  * @param string $type [optional] hash method
  * @param bool $binary [optional]
- * @return string|boolean <b>FALSE</b> on failure
+ * @return string|false <b>FALSE</b> on failure
  * @since 5.6.0
  */
 function openssl_x509_fingerprint($x509, $type, $binary) {}
@@ -273,7 +273,7 @@ function openssl_x509_free($x509cert) { }
  * fields will be indexed with the short name form, otherwise, the long name
  * form will be used - e.g.: CN is the shortname form of commonName.
  * </p>
- * @return array The structure of the returned data is (deliberately) not
+ * @return array|false The structure of the returned data is (deliberately) not
  * yet documented, as it is still subject to change.
  * @since 4.0.6
  * @since 5.0
@@ -337,7 +337,7 @@ function openssl_x509_parse($x509cert, $shortnames = true) { }
  * certificates that can be used to help verify the certificate, although
  * no trust is placed in the certificates that come from that file.
  * </p>
- * @return int true if the certificate can be used for the intended purpose,
+ * @return int|bool true if the certificate can be used for the intended purpose,
  * false if it cannot, or -1 on error.
  * @since 4.0.6
  * @since 5.0
@@ -532,7 +532,7 @@ function openssl_pkcs12_read($pkcs12, array &$certs, $pass) { }
  * <i>extraattribs</i> are associative arrays whose keys are
  * converted to OIDs and applied to the relevant part of the request.
  * </p>
- * @return mixed the CSR.
+ * @return false|resource the CSR.
  * @since 4.2.0
  * @since 5.0
  */
@@ -595,7 +595,7 @@ function openssl_csr_export_to_file($csr, $outfilename, $notext = true) { }
  * An optional the serial number of issued certificate. If not specified
  * it will default to 0.
  * </p>
- * @return resource an x509 certificate resource on success, false on failure.
+ * @return resource|false an x509 certificate resource on success, false on failure.
  * @since 4.2.0
  * @since 5.0
  */
@@ -606,7 +606,7 @@ function openssl_csr_sign($csr, $cacert, $priv_key, $days, array $configargs = n
  * @link https://php.net/manual/en/function.openssl-csr-get-subject.php
  * @param mixed $csr
  * @param bool $use_shortnames [optional]
- * @return array
+ * @return array|false
  * @since 5.2.0
  */
 function openssl_csr_get_subject($csr, $use_shortnames = true) { }
@@ -616,7 +616,7 @@ function openssl_csr_get_subject($csr, $use_shortnames = true) { }
  * @link https://php.net/manual/en/function.openssl-csr-get-public-key.php
  * @param mixed $csr
  * @param bool $use_shortnames [optional]
- * @return resource
+ * @return resource|false
  * @since 5.2.0
  */
 function openssl_csr_get_public_key($csr, $use_shortnames = true) { }
@@ -634,7 +634,7 @@ function openssl_csr_get_public_key($csr, $use_shortnames = true) { }
  * Setting to true will return as raw output data, otherwise the return
  * value is binhex encoded.
  * </p>
- * @return string the digested hash value on success or false on failure.
+ * @return string|false the digested hash value on success or false on failure.
  * @since 5.3.0
  */
 function openssl_digest($data, $method, $raw_output = false) { }
@@ -662,7 +662,7 @@ function openssl_digest($data, $method, $raw_output = false) { }
  * @param int $tag_length [optional] <p>
  * The length of the authentication tag. Its value can be between 4 and 16 for GCM mode.
  * </p>
- * @return string the encrypted string on success or false on failure.
+ * @return string|false the encrypted string on success or false on failure.
  * @since 5.3.0
  */
 function openssl_encrypt($data, $method, $key, $options = 0, $iv = "", &$tag = NULL, $aad = "", $tag_length = 16) { }
@@ -691,7 +691,7 @@ function openssl_encrypt($data, $method, $key, $options = 0, $iv = "", &$tag = N
  * The authentication tag in AEAD cipher mode. If it is incorrect, the authentication fails and the function returns <b>FALSE</b>.
  * </p>
  * @param string $aad [optional] <p>Additional authentication data.</p>
- * @return string The decrypted string on success or false on failure.
+ * @return string|false The decrypted string on success or false on failure.
  * @since 5.3.0
  */
 function openssl_decrypt($data, $method, $password, $options = 1, $iv = "", $tag = "",  $aad = "") { }
@@ -703,7 +703,7 @@ function openssl_decrypt($data, $method, $password, $options = 1, $iv = "", $tag
  * @param string $method <p>
  * The method.
  * </p>
- * @return int the cipher length on success, or false on failure.
+ * @return int|false the cipher length on success, or false on failure.
  */
 function openssl_cipher_iv_length($method) { }
 
@@ -750,7 +750,7 @@ function openssl_verify($data, $signature, $pub_key_id, $signature_alg = OPENSSL
  * @param array $pub_key_ids
  * @param string $method [optional]
  * @param string $iv [optional]
- * @return int the length of the sealed data on success, or false on error.
+ * @return int|false the length of the sealed data on success, or false on error.
  * If successful the sealed data is returned in
  * <i>sealed_data</i>, and the envelope keys in
  * <i>env_keys</i>.
@@ -785,7 +785,7 @@ function openssl_open($sealed_data, &$open_data, $env_key, $priv_key_id, $method
  * @param int $key_length
  * @param int $iterations
  * @param string $digest_algorithm [optional]
- * @return string|bool Returns string or FALSE on failure.
+ * @return string|false Returns string or FALSE on failure.
  * @since 5.5.0
  */
 function openssl_pbkdf2($password, $salt, $key_length, $iterations, $digest_algorithm) { }
@@ -820,9 +820,9 @@ function openssl_pbkdf2($password, $salt, $key_length, $iterations, $digest_algo
  * You can specify a filename with <i>content</i> that will
  * be filled with the verified data, but with the signature information
  * stripped.
- * @param string|null
+ * @param string|null $pk7 [optional]
  * </p>
- * @return mixed true if the signature is verified, false if it is not correct
+ * @return bool|int true if the signature is verified, false if it is not correct
  * (the message has been tampered with, or the signing certificate is invalid),
  * or -1 on error.
  * @since 4.0.6
@@ -1020,7 +1020,7 @@ function openssl_get_cipher_methods($aliases = false) { }
  * @param resource $dh_key <p>
  * DH key
  * </p>
- * @return string computed key on success or false on failure.
+ * @return string|false computed key on success or false on failure.
  */
 function openssl_dh_compute_key($pub_key, $dh_key) { }
 
@@ -1046,7 +1046,7 @@ function openssl_pkey_derive($peer_pub_key, $priv_key, $keylen) {}
  * if the algorithm used was "cryptographically strong", e.g., safe for usage with GPG,
  * passwords, etc. true if it did, otherwise false
  * </p>
- * @return string the generated &string; of bytes on success, or false on failure.
+ * @return string|false the generated &string; of bytes on success, or false on failure.
  * @since 5.3.0
  */
 function openssl_random_pseudo_bytes($length, &$crypto_strong = null) { }
@@ -1054,7 +1054,7 @@ function openssl_random_pseudo_bytes($length, &$crypto_strong = null) { }
 /**
  * Return openSSL error message
  * @link https://php.net/manual/en/function.openssl-error-string.php
- * @return string an error message string, or false if there are no more error
+ * @return string|false an error message string, or false if there are no more error
  * messages to return.
  * @since 4.0.6
  */

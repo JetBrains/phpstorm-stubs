@@ -2238,7 +2238,7 @@ function curl_share_setopt ($sh, $option, $value ) {}
  * @param int $errornum <p>
  * One of the {@link https://curl.haxx.se/libcurl/c/libcurl-errors.html &nbsp;cURL error codes} constants.
  * </p>
- * @return string|NULL Returns error description or <b>NULL</b> for invalid error code.
+ * @return string|null Returns error description or <b>NULL</b> for invalid error code.
  * @since 5.5.0
  */
 function curl_strerror ($errornum ) {}
@@ -2252,7 +2252,7 @@ function curl_strerror ($errornum ) {}
  * @param string $str <p>
  * The URL encoded string to be decoded.
  * </p>
- * @return string|bool Returns decoded string or FALSE on failure.
+ * @return string|false Returns decoded string or FALSE on failure.
  * @since 5.5.0
  */
 function  curl_unescape ($ch, $str)  {}
@@ -2332,7 +2332,7 @@ function curl_errno ($ch) {}
  * {@link https://secure.php.net/manual/en/function.curl-init.php curl_init()}.</p>
  * @param string $str <p>
  * The string to be encoded.</p>
- * @return string|boolean Returns escaped string or FALSE on failure.
+ * @return string|false Returns escaped string or FALSE on failure.
  * @since 5.5.0
  */
 function curl_escape($ch, $str) {}
@@ -2363,7 +2363,7 @@ function curl_close ($ch) {}
 /**
  * Returns a new cURL multi handle
  * @link https://php.net/manual/en/function.curl-multi-init.php
- * @return resource a cURL multi handle resource on success, false on failure.
+ * @return resource|false a cURL multi handle resource on success, false on failure.
  * @since 5.0
  */
 function curl_multi_init () {}
@@ -2384,7 +2384,7 @@ function curl_multi_add_handle ($mh, $ch) {}
  * @link https://php.net/manual/en/function.curl-multi-remove-handle.php
  * @param resource $mh 
  * @param resource $ch 
- * @return int On success, returns a cURL handle, false on failure.
+ * @return int|false On success, returns one of the CURLM_XXX error codes, false on failure.
  * @since 5.0
  */
 function curl_multi_remove_handle ($mh, $ch) {}
@@ -2450,7 +2450,7 @@ function curl_multi_select ($mh, $timeout = 1.0) {}
  * </tr>
  * </tbody>
  * </table>
- * @return boolean Returns TRUE on success or FALSE on failure.
+ * @return bool Returns TRUE on success or FALSE on failure.
  * @since 5.5.0
  */
 function curl_multi_setopt ($mh, $option, $value) {}
@@ -2462,7 +2462,7 @@ function curl_multi_setopt ($mh, $option, $value) {}
  * @param int $errornum <p>
  * One of the {@link https://curl.haxx.se/libcurl/c/libcurl-errors.html CURLM error codes} constants.
  * </p>
- * @return string|NULL Returns error string for valid error code, NULL otherwise.
+ * @return string|null Returns error string for valid error code, NULL otherwise.
  * @since 5.5.0
  */
 function curl_multi_strerror ($errornum) {}

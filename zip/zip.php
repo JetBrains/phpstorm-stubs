@@ -411,7 +411,7 @@ class ZipArchive  {
 	/**
 	 * Returns the status error message, system and/or zip messages
 	 * @link https://php.net/manual/en/ziparchive.getstatusstring.php
-	 * @return string a string with the status message on success or <b>FALSE</b> on failure.
+	 * @return string|false a string with the status message on success or <b>FALSE</b> on failure.
 	 * @since 5.2.7
 	 */
 	public function getStatusString () {}
@@ -630,7 +630,7 @@ class ZipArchive  {
     /**
      * (PHP 5 &gt;= 5.6.0, PECL zip &gt;= 1.12.0)<br/>
      * @param $password
-     * @return boolean
+     * @return bool
      */
     public function setPassword($password) {}
 
@@ -660,7 +660,7 @@ class ZipArchive  {
 	 * If flags is set to <b>ZipArchive::FL_UNCHANGED</b>, the original unchanged
 	 * comment is returned.
 	 * </p>
-	 * @return string the comment on success or <b>FALSE</b> on failure.
+	 * @return string|false the comment on success or <b>FALSE</b> on failure.
 	 */
 	public function getCommentName ($name, $flags = null) {}
 
@@ -855,7 +855,7 @@ class ZipArchive  {
 	 * @param string $name <p>
 	 * The name of the entry to use.
 	 * </p>
-	 * @return resource a file pointer (resource) on success or <b>FALSE</b> on failure.
+	 * @return resource|false a file pointer (resource) on success or <b>FALSE</b> on failure.
 	 */
 	public function getStream ($name) {}
 

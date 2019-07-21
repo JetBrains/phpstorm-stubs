@@ -84,7 +84,7 @@ function odbc_close_all () {}
  * @param string $column_name [optional] <p>
  * The column name.
  * </p>
- * @return resource an ODBC result identifier or <b>FALSE</b> on failure.
+ * @return resource|false an ODBC result identifier or <b>FALSE</b> on failure.
  * </p>
  * <p>
  * The result set has the following columns:
@@ -141,7 +141,7 @@ function odbc_commit ($connection_id) {}
  * The following constants are defined for cursortype:
  * <p>
  * SQL_CUR_USE_IF_NEEDED
- * @return resource an ODBC connection or (<b>FALSE</b>) on error.
+ * @return resource|false an ODBC connection or (<b>FALSE</b>) on error.
  * @since 4.0
  * @since 5.0
  */
@@ -170,7 +170,7 @@ function odbc_cursor ($result_id) {}
  * Use <b>SQL_FETCH_FIRST</b> the first time this function is
  * called, thereafter use the <b>SQL_FETCH_NEXT</b>.
  * </p>
- * @return array <b>FALSE</b> on error, and an array upon success.
+ * @return array|false <b>FALSE</b> on error, and an array upon success.
  * @since 4.3.0
  * @since 5.0
  */
@@ -267,7 +267,7 @@ function odbc_exec ($connection_id, $query_string, $flags = null) {}
  * @param int $rownumber [optional] <p>
  * Optionally choose which row number to retrieve.
  * </p>
- * @return array an array that corresponds to the fetched row, or <b>FALSE</b> if there
+ * @return array|false an array that corresponds to the fetched row, or <b>FALSE</b> if there
  * are no more rows.
  * @since 4.0.2
  * @since 5.0
@@ -283,7 +283,7 @@ function odbc_fetch_array ($result, $rownumber = null) {}
  * @param int $rownumber [optional] <p>
  * Optionally choose which row number to retrieve.
  * </p>
- * @return object an object that corresponds to the fetched row, or <b>FALSE</b> if there
+ * @return object|false an object that corresponds to the fetched row, or <b>FALSE</b> if there
  * are no more rows.
  * @since 4.0.2
  * @since 5.0
@@ -348,7 +348,7 @@ function odbc_fetch_into ($result_id, array &$result_array, $rownumber = null) {
  * @param int $field_number <p>
  * The field number. Field numbering starts at 1.
  * </p>
- * @return int the field name as a string, or <b>FALSE</b> on error.
+ * @return int|false the field name as a string, or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -363,7 +363,7 @@ function odbc_field_len ($result_id, $field_number) {}
  * @param int $field_number <p>
  * The field number. Field numbering starts at 1.
  * </p>
- * @return int the field scale as a integer, or <b>FALSE</b> on error.
+ * @return int|false the field scale as a integer, or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -378,7 +378,7 @@ function odbc_field_scale ($result_id, $field_number) {}
  * @param int $field_number <p>
  * The field number. Field numbering starts at 1.
  * </p>
- * @return string the field name as a string, or <b>FALSE</b> on error.
+ * @return string|false the field name as a string, or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -393,7 +393,7 @@ function odbc_field_name ($result_id, $field_number) {}
  * @param int $field_number <p>
  * The field number. Field numbering starts at 1.
  * </p>
- * @return string the field type as a string, or <b>FALSE</b> on error.
+ * @return string|false the field type as a string, or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -408,7 +408,7 @@ function odbc_field_type ($result_id, $field_number) {}
  * @param string $field_name <p>
  * The field name.
  * </p>
- * @return int the field number as a integer, or <b>FALSE</b> on error.
+ * @return int|false the field number as a integer, or <b>FALSE</b> on error.
  * Field numbering starts at 1.
  * @since 4.0
  * @since 5.0
@@ -525,7 +525,7 @@ function odbc_num_rows ($result_id) {}
  * @param string $user
  * @param string $password
  * @param int $cursor_type [optional]
- * @return resource an ODBC connection id or 0 (<b>FALSE</b>) on
+ * @return resource|false an ODBC connection id or 0 (<b>FALSE</b>) on
  * error.
  * @since 4.0
  * @since 5.0
@@ -540,7 +540,7 @@ function odbc_pconnect ($dsn, $user, $password, $cursor_type = null) {}
  * @param string $query_string <p>
  * The query string statement being prepared.
  * </p>
- * @return resource an ODBC result identifier if the SQL command was prepared
+ * @return resource|false an ODBC result identifier if the SQL command was prepared
  * successfully. Returns <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
@@ -574,7 +574,7 @@ function odbc_result ($result_id, $field) {}
  * @param string $format [optional] <p>
  * Additional overall table formatting.
  * </p>
- * @return int the number of rows in the result or <b>FALSE</b> on error.
+ * @return int|false the number of rows in the result or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -643,7 +643,7 @@ function odbc_setoption ($id, $function, $option, $param) {}
  * @param int $nullable <p>
  * The nullable option.
  * </p>
- * @return resource an ODBC result identifier or <b>FALSE</b> on
+ * @return resource|false an ODBC result identifier or <b>FALSE</b> on
  * failure.
  * </p>
  * <p>
@@ -681,7 +681,7 @@ function odbc_specialcolumns ($connection_id, $type, $qualifier, $owner, $table,
  * @param int $accuracy <p>
  * The accuracy.
  * </p>
- * @return resource an ODBC result identifier or <b>FALSE</b> on failure.
+ * @return resource|false an ODBC result identifier or <b>FALSE</b> on failure.
  * </p>
  * <p>
  * The result set has the following columns:
@@ -751,7 +751,7 @@ function odbc_tables ($connection_id, $qualifier = null, $owner = null, $name = 
  * @param string $qualifier
  * @param string $owner
  * @param string $table
- * @return resource an ODBC result identifier or <b>FALSE</b> on failure.
+ * @return resource|false an ODBC result identifier or <b>FALSE</b> on failure.
  * </p>
  * <p>
  * The result set has the following columns:
@@ -785,7 +785,7 @@ function odbc_primarykeys ($connection_id, $qualifier, $owner, $table) {}
  * patterns ('%' to match zero or more characters and '_' to match a
  * single character).
  * </p>
- * @return resource an ODBC result identifier or <b>FALSE</b> on failure.
+ * @return resource|false an ODBC result identifier or <b>FALSE</b> on failure.
  * This result identifier can be used to fetch a list of columns and
  * associated privileges.
  * </p>
@@ -823,7 +823,7 @@ function odbc_columnprivileges ($connection_id, $qualifier, $owner, $table_name,
  * The name. Accepts the following search patterns:
  * ('%' to match zero or more characters and '_' to match a single character)
  * </p>
- * @return resource An ODBC result identifier or <b>FALSE</b> on failure.
+ * @return resource|false An ODBC result identifier or <b>FALSE</b> on failure.
  * </p>
  * <p>
  * The result set has the following columns:
@@ -862,7 +862,7 @@ function odbc_tableprivileges ($connection_id, $qualifier, $owner, $name) {}
  * @param string $fk_table <p>
  * The foreign key table.
  * </p>
- * @return resource an ODBC result identifier or <b>FALSE</b> on failure.
+ * @return resource|false an ODBC result identifier or <b>FALSE</b> on failure.
  * </p>
  * <p>
  * The result set has the following columns:
@@ -927,7 +927,7 @@ function odbc_procedures ($connection_id) {}
  * @link https://php.net/manual/en/function.odbc-procedurecolumns.php
  * @param resource $connection_id The ODBC connection identifier,
  * see <b>odbc_connect</b> for details.</p>
- * @return resource the list of input and output parameters, as well as the
+ * @return resource|false the list of input and output parameters, as well as the
  * columns that make up the result set for the specified procedures.
  * Returns an ODBC result identifier or <b>FALSE</b> on failure.
  * </p>

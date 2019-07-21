@@ -7,7 +7,7 @@
  * @param $password string[optional]
  * @param $charset string[optional]
  * @param $appname string[optional]
- * @return resource a positive Sybase link identifier on success, or false on
+ * @return resource|false a positive Sybase link identifier on success, or false on
  */
 function sybase_connect ($servername = null, $username = null, $password = null, $charset = null, $appname = null) {}
 
@@ -55,7 +55,7 @@ function sybase_query ($query, $link_identifier = null) {}
  * @param $query string
  * @param $link_identifier resource
  * @param $store_result bool[optional]
- * @return resource a positive Sybase result identifier on success, or false on
+ * @return resource|false a positive Sybase result identifier on success, or false on
  */
 function sybase_unbuffered_query ($query, $link_identifier, $store_result = null) {}
 
@@ -94,7 +94,7 @@ function sybase_num_fields ($result) {}
  * Get a result row as an enumerated array
  * @link https://php.net/manual/en/function.sybase-fetch-row.php
  * @param $result resource
- * @return array an array that corresponds to the fetched row, or false if there
+ * @return array|false an array that corresponds to the fetched row, or false if there
  */
 function sybase_fetch_row ($result) {}
 
@@ -102,7 +102,7 @@ function sybase_fetch_row ($result) {}
  * Fetch row as array
  * @link https://php.net/manual/en/function.sybase-fetch-array.php
  * @param $result resource
- * @return array an array that corresponds to the fetched row, or false if there
+ * @return array|false an array that corresponds to the fetched row, or false if there
  */
 function sybase_fetch_array ($result) {}
 
@@ -110,7 +110,7 @@ function sybase_fetch_array ($result) {}
  * Fetch a result row as an associative array
  * @link https://php.net/manual/en/function.sybase-fetch-assoc.php
  * @param $result resource
- * @return array an array that corresponds to the fetched row, or false if there
+ * @return array|false an array that corresponds to the fetched row, or false if there
  */
 function sybase_fetch_assoc ($result) {}
 

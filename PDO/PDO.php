@@ -941,7 +941,7 @@ class PDO  {
 	 * <p>
 	 * Data inside the query should be properly escaped.
 	 * </p>
-	 * @return int <b>PDO::exec</b> returns the number of rows that were modified
+	 * @return int|false <b>PDO::exec</b> returns the number of rows that were modified
 	 * or deleted by the SQL statement you issued. If no rows were affected,
 	 * <b>PDO::exec</b> returns 0.
 	 * </p>
@@ -1116,7 +1116,7 @@ class PDO  {
 	 * @param int $parameter_type [optional] <p>
 	 * Provides a data type hint for drivers that have alternate quoting styles.
 	 * </p>
-	 * @return string a quoted string that is theoretically safe to pass into an
+	 * @return string|false a quoted string that is theoretically safe to pass into an
 	 * SQL statement. Returns <b>FALSE</b> if the driver does not support quoting in
 	 * this way.
 	 */
@@ -1471,7 +1471,7 @@ class PDOStatement implements Traversable {
 	 * @param int $column <p>
 	 * The 0-indexed column in the result set.
 	 * </p>
-	 * @return array an associative array containing the following values representing
+	 * @return array|false an associative array containing the following values representing
 	 * the metadata for a single column:
 	 * </p>
 	 * <table>
@@ -1537,7 +1537,7 @@ class PDOStatement implements Traversable {
 	 * Class name or object
 	 * </p>
 	 * @param array $ctorarfg [optional] <p> Constructor arguments. </p>
-	 * @return bool 1 on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function setFetchMode ($mode, $classNameObject = null, array $ctorarfg = array()) {}
 

@@ -14,7 +14,7 @@
  * @param int $port [optional] <p>
  * The port to connect to. Not used when using URLs.
  * </p>
- * @return resource a positive LDAP link identifier on success, or <b>FALSE</b> on error.
+ * @return resource|false a positive LDAP link identifier on success, or <b>FALSE</b> on error.
  * When OpenLDAP 2.x.x is used, <b>ldap_connect</b> will always
  * return a resource as it does not actually connect but just
  * initializes the connecting parameters. The actual connect happens with
@@ -139,7 +139,7 @@ function ldap_unbind ($link_identifier) {}
  * one of the following:
  * <b>LDAP_DEREF_NEVER</b> - (default) aliases are never
  * dereferenced.
- * @return resource a search result identifier or <b>FALSE</b> on error.
+ * @return resource|false a search result identifier or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -198,7 +198,7 @@ function ldap_read ($link_identifier, $base_dn, $filter, array $attributes = nul
  * one of the following:
  * <b>LDAP_DEREF_NEVER</b> - (default) aliases are never
  * dereferenced.
- * @return resource a search result identifier or <b>FALSE</b> on error.
+ * @return resource|false a search result identifier or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -261,7 +261,7 @@ function ldap_list ($link_identifier, $base_dn, $filter, array $attributes = nul
  * one of the following:
  * <b>LDAP_DEREF_NEVER</b> - (default) aliases are never
  * dereferenced.
- * @return resource a search result identifier or <b>FALSE</b> on error.
+ * @return resource|false a search result identifier or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -286,7 +286,7 @@ function ldap_free_result ($result_identifier) {}
  * @param resource $result_identifier <p>
  * The internal LDAP result.
  * </p>
- * @return int number of entries in the result or <b>FALSE</b> on error.
+ * @return int|false number of entries in the result or <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -313,7 +313,7 @@ function ldap_first_entry ($link_identifier, $result_identifier) {}
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
  * @param resource $result_entry_identifier
- * @return resource entry identifier for the next entry in the result whose entries
+ * @return resource|false entry identifier for the next entry in the result whose entries
  * are being read starting with <b>ldap_first_entry</b>. If
  * there are no more entries in the result then it returns <b>FALSE</b>.
  * @since 4.0
@@ -358,7 +358,7 @@ function ldap_get_entries ($link_identifier, $result_identifier) {}
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
  * @param resource $result_entry_identifier
- * @return string the first attribute in the entry on success and <b>FALSE</b> on
+ * @return string|false the first attribute in the entry on success and <b>FALSE</b> on
  * error.
  * @since 4.0
  * @since 5.0
@@ -372,7 +372,7 @@ function ldap_first_attribute ($link_identifier, $result_entry_identifier) {}
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
  * @param resource $result_entry_identifier
- * @return string the next attribute in an entry on success and <b>FALSE</b> on
+ * @return string|false the next attribute in an entry on success and <b>FALSE</b> on
  * error.
  * @since 4.0
  * @since 5.0
@@ -401,7 +401,7 @@ function ldap_get_attributes ($link_identifier, $result_entry_identifier) {}
  * </p>
  * @param resource $result_entry_identifier
  * @param string $attribute
- * @return array an array of values for the attribute on success and <b>FALSE</b> on
+ * @return array|false an array of values for the attribute on success and <b>FALSE</b> on
  * error. The number of values can be found by indexing "count" in the
  * resultant array. Individual values are accessed by integer index in the
  * array. The first index is 0.
@@ -426,7 +426,7 @@ function ldap_get_values ($link_identifier, $result_entry_identifier, $attribute
  * </p>
  * @param resource $result_entry_identifier
  * @param string $attribute
- * @return array an array of values for the attribute on success and <b>FALSE</b> on
+ * @return array|false an array of values for the attribute on success and <b>FALSE</b> on
  * error. Individual values are accessed by integer index in the array. The
  * first index is 0. The number of values can be found by indexing "count"
  * in the resultant array.
@@ -442,7 +442,7 @@ function ldap_get_values_len ($link_identifier, $result_entry_identifier, $attri
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
  * @param resource $result_entry_identifier
- * @return string the DN of the result entry and <b>FALSE</b> on error.
+ * @return string|false the DN of the result entry and <b>FALSE</b> on error.
  * @since 4.0
  * @since 5.0
  */
@@ -1063,6 +1063,8 @@ function ldap_escape($subject, $ignore = null, $escape = null) {}
  * any value for <em>modtype</em> must be one of the
  * <b>LDAP_MODIFY_BATCH_*</b> constants listed above.
  * </p></p>
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 5.4.0
  */
 function ldap_modify_batch ( $link_identifier , $dn , $entry) {}
 

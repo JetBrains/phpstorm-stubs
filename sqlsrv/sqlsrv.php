@@ -1213,7 +1213,7 @@ function sqlsrv_execute($stmt){}
  * <li>SQLSRV_CURSOR_DYNAMIC</li>
  * <li>SQLSRV_CURSOR_KEYSET</li>
  * <li>SQLSRV_CURSOR_CLIENT_BUFFERED</li></ul>
- * @return resource|bool A statement resource. If the statement cannot be created and/or executed, false is returned.
+ * @return resource|false A statement resource. If the statement cannot be created and/or executed, false is returned.
  */
 function sqlsrv_query($conn, $tsql, $params=array(), $options=array()){}
 
@@ -1237,7 +1237,7 @@ function sqlsrv_query($conn, $tsql, $params=array(), $options=array()){}
  * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.
  * @param int|null $offset [optional] Used with SQLSRV_SCROLL_ABSOLUTE and SQLSRV_SCROLL_RELATIVE to specify the row to
  * retrieve. The first record in the result set is 0.
- * @return array|null|false If the next row of the result set was successfully retrieved, true is returned. If there are
+ * @return bool|null If the next row of the result set was successfully retrieved, true is returned. If there are
  * no more results in the result set, null is returned. If an error occurred, false is returned.
  */
 function sqlsrv_fetch($stmt, $row=null, $offset=null){}
@@ -1383,7 +1383,7 @@ function sqlsrv_has_rows($stmt){}
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-num-fields
  * @param resource $stmt The statement on which the targeted result set is active.
- * @return int|bool An integer value that represents the number of fields in the active result set. If an error occurs,
+ * @return int|false An integer value that represents the number of fields in the active result set. If an error occurs,
  * the Boolean value false is returned.
  */
 function sqlsrv_num_fields($stmt){}
@@ -1419,7 +1419,7 @@ function sqlsrv_next_result($stmt){}
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-num-rows
  * @param resource $stmt The result set for which to count the rows.
- * @return int|bool False if there was an error calculating the number of rows. Otherwise, returns the number of rows in the result set.
+ * @return int|false False if there was an error calculating the number of rows. Otherwise, returns the number of rows in the result set.
  */
 function sqlsrv_num_rows($stmt){}
 
@@ -1433,7 +1433,7 @@ function sqlsrv_num_rows($stmt){}
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-rows-affected
  * @param resource $stmt A statement resource corresponding to an executed statement.
- * @return int|bool An integer indicating the number of rows modified by the last executed statement. If no rows were
+ * @return int|false An integer indicating the number of rows modified by the last executed statement. If no rows were
  * modified, zero (0) is returned. If no information about the number of modified rows is available, negative one (-1)
  * is returned. If an error occurred in retrieving the number of modified rows, false is returned.
  */
@@ -1448,7 +1448,7 @@ function sqlsrv_rows_affected($stmt){}
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-client-info
  * @param resource $conn The connection resource by which the client is connected.
- * @return array|null An associative array with keys described in the table below, or false if the connection resource
+ * @return array|false An associative array with keys described in the table below, or false if the connection resource
  * is null.<br />
  * <ul><li>DriverDllName - SQLNCLI10.DLL (Microsoft Drivers for PHP for SQL Server version 2.0)</li>
  * <li>DriverODBCVer - ODBC version (xx.yy)</li>
@@ -1527,7 +1527,7 @@ function sqlsrv_free_stmt($stmt){}
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-field-metadata
  * @param resource $stmt A statement resource for which field metadata is sought.
- * @return array|bool An array of arrays or false. The array consists of one array for each field in the result set.
+ * @return array|false An array of arrays or false. The array consists of one array for each field in the result set.
  * Each sub-array has keys as described in the table below. If there is an error in retrieving field metadata, false is
  * returned.
  * <ul><li>Name - Name of the column to which the field corresponds.</li>

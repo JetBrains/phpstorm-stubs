@@ -22,7 +22,7 @@ function geoip_database_info ($database = GEOIP_COUNTRY_EDITION) {}
  * @param string $hostname <p>
  * The hostname or IP address whose location is to be looked-up.
  * </p>
- * @return string the two letter ISO country code on success, or <b>FALSE</b>
+ * @return string|false the two letter ISO country code on success, or <b>FALSE</b>
  * if the address cannot be found in the database.
  */
 function geoip_country_code_by_name ($hostname) {}
@@ -34,7 +34,7 @@ function geoip_country_code_by_name ($hostname) {}
  * @param string $hostname <p>
  * The hostname or IP address whose location is to be looked-up.
  * </p>
- * @return string the three letter country code on success, or <b>FALSE</b>
+ * @return string|false the three letter country code on success, or <b>FALSE</b>
  * if the address cannot be found in the database.
  */
 function geoip_country_code3_by_name ($hostname) {}
@@ -46,7 +46,7 @@ function geoip_country_code3_by_name ($hostname) {}
  * @param string $hostname <p>
  * The hostname or IP address whose location is to be looked-up.
  * </p>
- * @return string the country name on success, or <b>FALSE</b> if the address cannot
+ * @return string|false the country name on success, or <b>FALSE</b> if the address cannot
  * be found in the database.
  */
 function geoip_country_name_by_name ($hostname) {}
@@ -58,7 +58,7 @@ function geoip_country_name_by_name ($hostname) {}
  * @param string $hostname <p>
  * The hostname or IP address whose location is to be looked-up.
  * </p>
- * @return string the two letter continent code on success, or <b>FALSE</b> if the
+ * @return string|false the two letter continent code on success, or <b>FALSE</b> if the
  * address cannot be found in the database.
  */
 function geoip_continent_code_by_name ($hostname) {}
@@ -70,7 +70,7 @@ function geoip_continent_code_by_name ($hostname) {}
  * @param string $hostname <p>
  * The hostname or IP address.
  * </p>
- * @return string the organization name on success, or <b>FALSE</b> if the address
+ * @return string|false the organization name on success, or <b>FALSE</b> if the address
  * cannot be found in the database.
  */
 function geoip_org_by_name ($hostname) {}
@@ -82,7 +82,7 @@ function geoip_org_by_name ($hostname) {}
  * @param string $hostname <p>
  * The hostname or IP address whose record is to be looked-up.
  * </p>
- * @return array the associative array on success, or <b>FALSE</b> if the address
+ * @return array|false the associative array on success, or <b>FALSE</b> if the address
  * cannot be found in the database.
  */
 function geoip_record_by_name ($hostname) {}
@@ -105,7 +105,7 @@ function geoip_id_by_name ($hostname) {}
  * @param string $hostname <p>
  * The hostname or IP address whose region is to be looked-up.
  * </p>
- * @return array the associative array on success, or <b>FALSE</b> if the address
+ * @return array|false the associative array on success, or <b>FALSE</b> if the address
  * cannot be found in the database.
  */
 function geoip_region_by_name ($hostname) {}
@@ -117,7 +117,7 @@ function geoip_region_by_name ($hostname) {}
  * @param string $hostname <p>
  * The hostname or IP address.
  * </p>
- * @return string the ISP name on success, or <b>FALSE</b> if the address
+ * @return string|false the ISP name on success, or <b>FALSE</b> if the address
  * cannot be found in the database.
  */
 function geoip_isp_by_name ($hostname) {}
@@ -131,7 +131,7 @@ function geoip_isp_by_name ($hostname) {}
  * various constants defined with
  * this extension (ie: GEOIP_*_EDITION).
  * </p>
- * @return bool <b>TRUE</b> is database exists, <b>FALSE</b> if not found, or <b>NULL</b> on error.
+ * @return bool|null <b>TRUE</b> is database exists, <b>FALSE</b> if not found, or <b>NULL</b> on error.
  */
 function geoip_db_avail ($database) {}
 
@@ -168,7 +168,7 @@ function geoip_db_filename ($database) {}
  * The two-letter (or digit) region code (see
  * <b>geoip_region_by_name</b>)
  * </p>
- * @return string the region name on success, or <b>FALSE</b> if the country and region code
+ * @return string|false the region name on success, or <b>FALSE</b> if the country and region code
  * combo cannot be found.
  */
 function geoip_region_name_by_code ($country_code, $region_code) {}
@@ -185,7 +185,7 @@ function geoip_region_name_by_code ($country_code, $region_code) {}
  * The two-letter (or digit) region code (see
  * <b>geoip_region_by_name</b>)
  * </p>
- * @return string the time zone on success, or <b>FALSE</b> if the country and region code
+ * @return string|false the time zone on success, or <b>FALSE</b> if the country and region code
  * combo cannot be found.
  */
 function geoip_time_zone_by_country_and_region ($country_code, $region_code = null) {}

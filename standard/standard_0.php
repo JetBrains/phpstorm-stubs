@@ -220,7 +220,7 @@ function time_sleep_until ($timestamp) {}
  * For more information about the format options, read the
  * strftime page.
  * </p>
- * @return array|bool an array or false on failure.
+ * @return array|false an array or false on failure.
  * </p>
  * <p>
  * <table>
@@ -757,7 +757,7 @@ function sha1 ($str, $raw_output = null) {}
  * When true, returns the digest in raw binary format with a length of
  * 20.
  * </p>
- * @return string a string on success, false otherwise.
+ * @return string|false a string on success, false otherwise.
  * @since 4.3.0
  * @since 5.0
  */
@@ -790,7 +790,7 @@ function md5 ($str, $raw_output = null) {}
  * When true, returns the digest in raw binary format with a length of
  * 16.
  * </p>
- * @return string a string on success, false otherwise.
+ * @return string|false a string on success, false otherwise.
  * @since 4.2.0
  * @since 5.0
  */
@@ -836,7 +836,7 @@ function iptcparse ($iptcblock) {}
  * Spool flag. If the spool flag is over 2 then the JPEG will be 
  * returned as a string.
  * </p>
- * @return mixed If success and spool flag is lower than 2 then the JPEG will not be 
+ * @return mixed If success and spool flag is lower than 2 then the JPEG will not be
  * returned as a string, false on errors.
  * @since 4.0
  * @since 5.0
@@ -1268,7 +1268,7 @@ function php_ini_scanned_files () {}
 /**
  * Retrieve a path to the loaded php.ini file
  * @link https://php.net/manual/en/function.php-ini-loaded-file.php
- * @return string The loaded &php.ini; path, or false if one is not loaded.
+ * @return string|false The loaded &php.ini; path, or false if one is not loaded.
  * @since 5.2.4
  */
 function php_ini_loaded_file () {}

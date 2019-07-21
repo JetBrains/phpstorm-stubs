@@ -367,7 +367,7 @@ class ZendAPI_Job {
      * 
      * @param string $jobqueue_url Full address of the queue we want to connect to
      * @param string $password For authentication, the queue password
-     * @return int The added job id or false on failure
+     * @return int|false The added job id or false on failure
      */
     function addJobToQueue($jobqueue_url, $password) {}
 
@@ -426,7 +426,7 @@ class ZendAPI_Job {
      * The status is one of the constants with the "JOB_QUEUE_STATUS_" prefix. 
      * E.g. job was performed and failed, job is waiting etc.
      *
-     * @return int
+     * @return int|false
      */
     function getJobStatus() {}
 
@@ -557,26 +557,26 @@ function monitor_pass_error($errno, $errstr, $errfile, $errline) {}
 
 /**
  * Limited in the database to 255 chars
- * @param hint string
+ * @param string $hint
  * @return void
  */
 function monitor_set_aggregation_hint($hint) {}
 
 /**
  * Creates a custom event with class $class, text $text and possibly severity and other user data
- * @param class string
- * @param text string
- * @param severe int[optional]
- * @param user_data mixed[optional]
+ * @param string $class
+ * @param string $text
+ * @param int $severe [optional]
+ * @param mixed $user_data [optional]
  * @return void
  */
 function monitor_custom_event($class, $text, $severe = null, $user_data = null) {}
 
 /**
  * Create an HTTPERROR event
- * @param error_code int the http error code to be associated with this event
- * @param url string the URL to be associated with this event
- * @param severe int[optional] the severety of the event: 0 - not severe, 1 - severe
+ * @param int $error_code the http error code to be associated with this event
+ * @param string $url the URL to be associated with this event
+ * @param int $severe [optional] the severety of the event: 0 - not severe, 1 - severe
  * @return void
  */
 function monitor_httperror_event($error_code, $url, $severe = null) {}
@@ -594,36 +594,36 @@ function monitor_license_info() {}
  * all the user event handler are called and the return value from the handler is saved in
  * an array keyed by the name the event handler was registered under. The event handlers
  * results array is saved in the event_extra_data table.
- * @param event_handler_func string The callback function that will be call when the event is triggered, object methods may also be invoked statically using t
+ * @param string $event_handler_func The callback function that will be call when the event is triggered, object methods may also be invoked statically using t
 his function by passing array($objectname, $methodname) to the function parameter
- * @param handler_register_name string[optional] The name this function is registered under - if none is supplied, the function will be registerd under it's own name
- * @param event_type_mask int The mask of event types that the handler should be called on by default it's set to MONITOR_EVENT_ALL.
+ * @param string $handler_register_name [optional] The name this function is registered under - if none is supplied, the function will be registerd under it's own name
+ * @param int $event_type_mask The mask of event types that the handler should be called on by default it's set to MONITOR_EVENT_ALL.
  * @return bool TRUE on sucess and FALSE if an error occurs.
  */
 function register_event_handler($event_handler_func, $handler_register_name, $event_type_mask) {}
 
 /**
  * Allow you to unregister an event handler.
- * @param handler_name string the name you registered with the handler you now wish to unregister.
+ * @param string $handler_name the name you registered with the handler you now wish to unregister.
  * @return bool TRUE on sucess and FALSE if no handler we registered under the given name.
  */
 function unregister_event_handler($handler_name) {}
 
 /**
  * Send a file using ZDS
- * @param filename string path to the file
- * @param mime_type string[optional] MIME type of the file, if omitted, taken from configured MIME types file
- * @param custom_headers string[optional] user defined headers that will be send instead of regular ZDS headers. few basic essential headers will be send anyway
- * @return bool FALSE if sending file failed, does not return otherwise
+ * @param string $filename path to the file
+ * @param string $mime_type [optional] MIME type of the file, if omitted, taken from configured MIME types file
+ * @param string $custom_headers [optional] user defined headers that will be send instead of regular ZDS headers. few basic essential headers will be send anyway
+ * @return void|false FALSE if sending file failed, does not return otherwise
  */
 function zend_send_file($filename, $mime_type, $custom_headers) {}
 
 /**
  * Send a buffer using ZDS
- * @param buffer string the content that will be send
- * @param mime_type string[optional] MIME type of the buffer, if omitted, taken from configured MIME types file
- * @param custom_headers string[optional] user defined headers that will be send instead of regular ZDS headers. few basic essential headers will be send anyway
- * @return bool FALSE if sending file failed, does not return otherwise
+ * @param string $buffer the content that will be send
+ * @param string $mime_type [optional] MIME type of the buffer, if omitted, taken from configured MIME types file
+ * @param string $custom_headers [optional] user defined headers that will be send instead of regular ZDS headers. few basic essential headers will be send anyway
+ * @return void|false FALSE if sending file failed, does not return otherwise
  */
 function zend_send_buffer($buffer, $mime_type, $custom_headers) {}
 
@@ -633,7 +633,7 @@ class java {
      * Create Java object
      *
      * @return java
-     * @param  classname string
+     * @param  $classname string
      * @vararg ...
      */
     function java($classname) {}

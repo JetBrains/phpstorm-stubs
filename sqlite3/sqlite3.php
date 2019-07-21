@@ -137,7 +137,7 @@ class SQLite3  {
 	 * @param string $query <p>
 	 * The SQL query to prepare.
 	 * </p>
-	 * @return SQLite3Stmt an <b>SQLite3Stmt</b> object on success or <b>FALSE</b> on failure.
+	 * @return SQLite3Stmt|false an <b>SQLite3Stmt</b> object on success or <b>FALSE</b> on failure.
 	 * @since 5.3.0
 	 */
 	public function prepare ($query) {}
@@ -256,7 +256,7 @@ class SQLite3  {
 	 * @param $dbname [optional] <p>The symbolic name of the DB</p>
 	 * @param int $flags [optional]
 	 * <p>Either <b>SQLITE3_OPEN_READONLY</b> or <b>SQLITE3_OPEN_READWRITE</b> to open the stream for reading only, or for reading and writing, respectively.</p?
-	 * @return resource|bool Returns a stream resource, or FALSE on failure.
+	 * @return resource|false Returns a stream resource, or FALSE on failure.
 	 */
 	public function openBlob ($table, $column, $rowid, $dbname, int $flags = SQLITE3_OPEN_READONLY) {}
 
@@ -443,7 +443,7 @@ class SQLite3Result  {
 	 * SQLITE3_ASSOC: returns an array indexed by column
 	 * name as returned in the corresponding result set
 	 * </p>
-	 * @return array a result row as an associatively or numerically indexed array or
+	 * @return array|false a result row as an associatively or numerically indexed array or
 	 * both. Alternately will return <b>FALSE</b> if there are no more rows.
 	 * @since 5.3.0
 	 */

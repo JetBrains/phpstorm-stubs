@@ -96,7 +96,7 @@ function mcrypt_get_block_size ($cipher, $mode) {}
  * One of the MCRYPT_ciphername constants or the name
  * of the algorithm as string.
  * </p>
- * @return string This function returns the name of the cipher or false, if the cipher does
+ * @return string|false This function returns the name of the cipher or false, if the cipher does
  * not exist.
  * @since 4.0
  * @since 5.0
@@ -128,7 +128,7 @@ function mcrypt_get_cipher_name ($cipher) {}
  * number generator; it is not seeded automatically like
  * rand is.
  * </p>
- * @return string the initialization vector, or false on error.
+ * @return string|false the initialization vector, or false on error.
  * @since 4.0
  * @since 5.0
  * @deprecated 7.1
@@ -179,7 +179,7 @@ function mcrypt_list_modes ($lib_dir = null) {}
  * have the same IV (think: starting point) both at encryption and
  * decryption stages, otherwise your encryption will fail.
  * </p>
- * @return int the size of the Initialisation Vector (IV) in bytes. On error the
+ * @return int|false the size of the Initialisation Vector (IV) in bytes. On error the
  * function returns false. If the IV is ignored in the specified cipher/mode
  * combination zero is returned.
  * @since 4.0.2
@@ -288,7 +288,7 @@ function mcrypt_decrypt ($cipher, $key, $data, $mode, $iv = null) {}
  * </p>
  * @param string $mode_directory <p>
  * </p>
- * @return resource Normally it returns an encryption descriptor, or false on error.
+ * @return resource|false Normally it returns an encryption descriptor, or false on error.
  * @since 4.0.2
  * @since 5.0
  * @deprecated 7.1
@@ -315,7 +315,7 @@ function mcrypt_module_open ($algorithm, $algorithm_directory, $mode, $mode_dire
  * encryption/decryption. If you do not want to use it you should set it
  * to zeros, but this is not recommended.
  * </p>
- * @return int The function returns a negative value on error, -3 when the key length
+ * @return int|false The function returns a negative value on error, -3 when the key length
  * was incorrect, -4 when there was a memory allocation problem and any
  * other return value is an unknown error. If an error occurs a warning will
  * be displayed accordingly. false is returned if incorrect parameters
@@ -396,7 +396,7 @@ function mcrypt_generic_deinit ($td) {}
  * @param resource $td <p>
  * The encryption descriptor.
  * </p>
- * @return int If the self test succeeds it returns false. In case of an error, it
+ * @return int|bool If the self test succeeds it returns false. In case of an error, it
  * returns true.
  * @since 4.0.2
  * @since 5.0

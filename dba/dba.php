@@ -208,7 +208,7 @@ function dba_exists ($key, $handle) {}
  * The database handler, returned by <b>dba_open</b> or
  * <b>dba_popen</b>.
  * </p>
- * @return string the associated string if the key/data pair is found, <b>FALSE</b>
+ * @return string|false the associated string if the key/data pair is found, <b>FALSE</b>
  * otherwise.
  * @since 4.0
  * @since 5.0
@@ -341,7 +341,7 @@ function dba_list () {}
  * @param mixed $key <p>
  * The key in string representation.
  * </p>
- * @return mixed an array of the form array(0 =&gt; group, 1 =&gt;
+ * @return array|false an array of the form array(0 =&gt; group, 1 =&gt;
  * value_name). This function will return <b>FALSE</b> if
  * <i>key</i> is <b>NULL</b> or <b>FALSE</b>.
  * @since 5.0

@@ -46,6 +46,8 @@ class Redis
     const SERIALIZER_NONE       = 0;
     const SERIALIZER_PHP        = 1;
     const SERIALIZER_IGBINARY   = 2;
+    const SERIALIZER_MSGPACK    = 3;
+    const SERIALIZER_JSON       = 4;
 
     /**
      * Multi
@@ -117,7 +119,7 @@ class Redis
      * @param   int $iterator
      * @param   string $pattern
      * @param   int $count
-     * @return  array|bool
+     * @return  array|false
      */
     public function sScan($key, $iterator, $pattern = '', $count = 0) {}
 
@@ -126,7 +128,7 @@ class Redis
      * @param  int    $iterator Iterator, initialized to NULL.
      * @param  string $pattern  Pattern to match.
      * @param  int    $count    Count of keys per iteration (only a suggestion to Redis).
-     * @return array|bool       This function will return an array of keys or FALSE if there are no more keys.
+     * @return array|false      This function will return an array of keys or FALSE if there are no more keys.
      * @link   https://redis.io/commands/scan
      * @example
      * <pre>
@@ -148,7 +150,7 @@ class Redis
      * @param   int $iterator
      * @param   string  $pattern
      * @param   int $count
-     * @return  array|bool
+     * @return  array|false
      */
     public function zScan($key, $iterator, $pattern = '', $count = 0) {}
 
@@ -322,7 +324,7 @@ class Redis
      * Get the value related to the specified key
      *
      * @param   string  $key
-     * @return  string|bool  If key didn't exist, FALSE is returned. Otherwise, the value related to this key is returned.
+     * @return  string|false  If key didn't exist, FALSE is returned. Otherwise, the value related to this key is returned.
      * @link    https://redis.io/commands/get
      * @example $redis->get('key');
      */
@@ -406,7 +408,7 @@ class Redis
     /**
      * Enter and exit transactional mode.
      *
-     * @param int Redis::MULTI|Redis::PIPELINE
+     * @param int $mode Redis::MULTI|Redis::PIPELINE
      * Defaults to Redis::MULTI.
      * A Redis::MULTI block of commands runs as a single transaction;
      * a Redis::PIPELINE block is simply transmitted faster to the server, but without any guarantee of atomicity.
@@ -448,7 +450,7 @@ class Redis
     /**
      * Watches a key for modifications by another client. If the key is modified between WATCH and EXEC,
      * the MULTI/EXEC transaction will fail (return FALSE). unwatch cancels all the watching of all keys by this client.
-     * @param string | array $key: a list of keys
+     * @param string|array $key: a list of keys
      * @return void
      * @link    https://redis.io/commands/watch
      * @example
@@ -473,7 +475,7 @@ class Redis
      * Subscribe to channels. Warning: this function will probably change in the future.
      *
      * @param array             $channels an array of channels to subscribe to
-     * @param string | array    $callback either a string or an array($instance, 'method_name').
+     * @param string|array      $callback either a string or an array($instance, 'method_name').
      * The callback function receives 3 parameters: the redis instance, the channel name, and the message.
      * @link    https://redis.io/commands/subscribe
      * @example
@@ -685,7 +687,7 @@ class Redis
      * @param   string $value1  String, value to push in key
      * @param   string $value2  Optional
      * @param   string $valueN  Optional
-     * @return  int|bool    The new length of the list in case of success, FALSE in case of Failure.
+     * @return  int|false    The new length of the list in case of success, FALSE in case of Failure.
      * @link    https://redis.io/commands/lpush
      * @example
      * <pre>
@@ -710,7 +712,7 @@ class Redis
      * @param   string  $value1 String, value to push in key
      * @param   string  $value2 Optional
      * @param   string  $valueN Optional
-     * @return  int|bool     The new length of the list in case of success, FALSE in case of Failure.
+     * @return  int|false     The new length of the list in case of success, FALSE in case of Failure.
      * @link    https://redis.io/commands/rpush
      * @example
      * <pre>
@@ -732,7 +734,7 @@ class Redis
      *
      * @param   string  $key
      * @param   string  $value String, value to push in key
-     * @return  int     The new length of the list in case of success, FALSE in case of Failure.
+     * @return  int|false     The new length of the list in case of success, FALSE in case of Failure.
      * @link    https://redis.io/commands/lpushx
      * @example
      * <pre>
@@ -751,7 +753,7 @@ class Redis
      *
      * @param   string  $key
      * @param   string  $value String, value to push in key
-     * @return  int     The new length of the list in case of success, FALSE in case of Failure.
+     * @return  int|false     The new length of the list in case of success, FALSE in case of Failure.
      * @link    https://redis.io/commands/rpushx
      * @example
      * <pre>
@@ -769,7 +771,7 @@ class Redis
      * Returns and removes the first element of the list.
      *
      * @param   string $key
-     * @return  string if command executed successfully BOOL FALSE in case of failure (empty list)
+     * @return  string|false if command executed successfully BOOL FALSE in case of failure (empty list)
      * @link    https://redis.io/commands/lpop
      * @example
      * <pre>
@@ -785,7 +787,7 @@ class Redis
      * Returns and removes the last element of the list.
      *
      * @param   string $key
-     * @return  string if command executed successfully BOOL FALSE in case of failure (empty list)
+     * @return  string|false if command executed successfully BOOL FALSE in case of failure (empty list)
      * @link    https://redis.io/commands/rpop
      * @example
      * <pre>
@@ -885,7 +887,7 @@ class Redis
      * the command returns 0. If the data type identified by Key is not a list, the command return FALSE.
      *
      * @param   string  $key
-     * @return  int     The size of the list identified by Key exists.
+     * @return  int|false     The size of the list identified by Key exists.
      * bool FALSE if the data type identified by Key is not list
      * @link    https://redis.io/commands/llen
      * @example
@@ -915,7 +917,7 @@ class Redis
      * Return FALSE in case of a bad index or a key that doesn't point to a list.
      * @param string    $key
      * @param int       $index
-     * @return String the element at this index
+     * @return string|false the element at this index
      * Bool FALSE if the key identifies a non-string data type, or no value corresponds to this index in the list Key.
      * @link    https://redis.io/commands/lindex
      * @example
@@ -945,7 +947,7 @@ class Redis
      * @param string    $key
      * @param int       $index
      * @param string    $value
-     * @return BOOL TRUE if the new value is setted. FALSE if the index is out of range, or data type identified by key
+     * @return bool TRUE if the new value is setted. FALSE if the index is out of range, or data type identified by key
      * is not a list.
      * @link    https://redis.io/commands/lset
      * @example
@@ -996,7 +998,7 @@ class Redis
      * @param string    $key
      * @param int       $start
      * @param int       $stop
-     * @return array    Bool return FALSE if the key identify a non-list value.
+     * @return array|false    Bool return FALSE if the key identify a non-list value.
      * @link        https://redis.io/commands/ltrim
      * @example
      * <pre>
@@ -1096,7 +1098,7 @@ class Redis
      * @param   string  $value1     Required value
      * @param   string  $value2     Optional value
      * @param   string  $valueN     Optional value
-     * @return  int     The number of elements added to the set
+     * @return  int|false     The number of elements added to the set
      * @link    https://redis.io/commands/sadd
      * @example
      * <pre>
@@ -1111,7 +1113,7 @@ class Redis
      *
      * @param   string  $key        Required key
      * @param   array   $values      Required values
-     * @return  boolean The number of elements added to the set
+     * @return  bool
      * @link    https://redis.io/commands/sadd
      * @link    https://github.com/phpredis/phpredis/commit/3491b188e0022f75b938738f7542603c7aae9077
      * @since   phpredis 2.2.8
@@ -1279,7 +1281,7 @@ class Redis
      * @param   string  $key1  keys identifying the different sets on which we will apply the intersection.
      * @param   string  $key2  ...
      * @param   string  $keyN  ...
-     * @return  array  contain the result of the intersection between those keys.
+     * @return  array|false  contain the result of the intersection between those keys.
      * If the intersection between the different sets is empty, the return value will be empty array.
      * @link    https://redis.io/commands/sinterstore
      * @example
@@ -1314,7 +1316,7 @@ class Redis
      * @param   string  $key1 are intersected as in sInter.
      * @param   string  $key2 ...
      * @param   string  $keyN ...
-     * @return  int     The cardinality of the resulting set, or FALSE in case of a missing key.
+     * @return  int|false     The cardinality of the resulting set, or FALSE in case of a missing key.
      * @link    https://redis.io/commands/sinterstore
      * @example
      * <pre>
@@ -1456,7 +1458,7 @@ class Redis
      * @param   string  $key1      Any number of keys corresponding to sets in redis
      * @param   string  $key2      ...
      * @param   string  $keyN      ...
-     * @return  int     The cardinality of the resulting set, or FALSE in case of a missing key.
+     * @return  int|false     The cardinality of the resulting set, or FALSE in case of a missing key.
      * @link    https://redis.io/commands/sdiffstore
      * @example
      * <pre>
@@ -1787,7 +1789,7 @@ class Redis
      *
      * @param   string  $string
      * @param   string  $key
-     * @return  string  for "encoding", int for "refcount" and "idletime", FALSE if the key doesn't exist.
+     * @return  string|false  for "encoding", int for "refcount" and "idletime", FALSE if the key doesn't exist.
      * @link    https://redis.io/commands/object
      * @example
      * <pre>
@@ -2168,7 +2170,7 @@ class Redis
      * Returns the time to live left for a given key, in seconds. If the key doesn't exist, FALSE is returned.
      *
      * @param   string  $key
-     * @return  int     the time left to live in seconds.
+     * @return  int|false     the time left to live in seconds.
      * @link    https://redis.io/commands/ttl
      * @example $redis->ttl('key');
      */
@@ -2180,7 +2182,7 @@ class Redis
      * If the key doesn't exist, FALSE is returned.
      *
      * @param   string  $key
-     * @return  int     the time left to live in milliseconds.
+     * @return  int|false     the time left to live in milliseconds.
      * @link    https://redis.io/commands/pttl
      * @example $redis->pttl('key');
      */
@@ -2261,7 +2263,7 @@ class Redis
      * @since   redis >= 1.1
      * @param   string  $srcKey
      * @param   string  $dstKey
-     * @return  string  The element that was moved in case of success, FALSE in case of failure.
+     * @return  string|false  The element that was moved in case of success, FALSE in case of failure.
      * @link    https://redis.io/commands/rpoplpush
      * @example
      * <pre>
@@ -2302,7 +2304,7 @@ class Redis
      * @param   string  $srcKey
      * @param   string  $dstKey
      * @param   int     $timeout
-     * @return  string  The element that was moved in case of success, FALSE in case of timeout.
+     * @return  string|false  The element that was moved in case of success, FALSE in case of timeout.
      * @link    https://redis.io/commands/brpoplpush
      */
     public function brpoplpush( $srcKey, $dstKey, $timeout ) {}
@@ -2486,7 +2488,7 @@ class Redis
      * @param   int     $max    The maximum alphanumeric value you wish to get.
      * @param   int     $offset Optional argument if you wish to start somewhere other than the first element.
      * @param   int     $limit  Optional argument if you wish to limit the number of elements returned.
-     * @return  array   Array containing the values in the specified range.
+     * @return  array|false   Array containing the values in the specified range.
      * @link    https://redis.io/commands/zrangebylex
      * @example
      * <pre>
@@ -2760,7 +2762,7 @@ class Redis
      * @param string $key
      * @param string $hashKey
      * @param string $value
-     * @return int|bool
+     * @return int|false
      * 1 if value didn't exist and was added successfully,
      * 0 if the value was already present and was replaced,
      * FALSE if there was an error.
@@ -2801,7 +2803,7 @@ class Redis
      *
      * @param   string  $key
      * @param   string  $hashKey
-     * @return  string  The value, if the command executed successfully BOOL FALSE in case of failure
+     * @return  string|false  The value, if the command executed successfully BOOL FALSE in case of failure
      * @link    https://redis.io/commands/hget
      */
     public function hGet($key, $hashKey) {}
@@ -2810,7 +2812,7 @@ class Redis
      * Returns the length of a hash, in number of items
      *
      * @param   string  $key
-     * @return  int     the number of items in a hash, FALSE if the key doesn't exist or isn't a hash.
+     * @return  int|false     the number of items in a hash, FALSE if the key doesn't exist or isn't a hash.
      * @link    https://redis.io/commands/hlen
      * @example
      * <pre>
@@ -2830,7 +2832,7 @@ class Redis
      * @param   string  $hashKey1
      * @param   string  $hashKey2
      * @param   string  $hashKeyN
-     * @return  int|bool     Number of deleted fields, FALSE if table or key doesn't exist
+     * @return  int|false     Number of deleted fields, FALSE if table or key doesn't exist
      * @link    https://redis.io/commands/hdel
      * @example
      * <pre>
@@ -3200,7 +3202,7 @@ class Redis
      * Dump a key out of a redis database, the value of which can later be passed into redis using the RESTORE command.
      * The data that comes out of DUMP is a binary representation of the key as Redis stores it.
      * @param   string  $key
-     * @return  string  The Redis encoded value of the key, or FALSE if the key doesn't exist
+     * @return  string|false  The Redis encoded value of the key, or FALSE if the key doesn't exist
      * @link    https://redis.io/commands/dump
      * @example
      * <pre>

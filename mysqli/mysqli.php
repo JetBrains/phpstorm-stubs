@@ -456,7 +456,7 @@ class mysqli  {
 	 * only in Data Manipulation Language (DML) statements, and not in Data
 	 * Definition Language (DDL) statements.
 	 * </p>
-	 * @return mysqli_stmt <b>mysqli_prepare</b> returns a statement object or false if an error occurred.
+	 * @return mysqli_stmt|false <b>mysqli_prepare</b> returns a statement object or false if an error occurred.
 	 * @since 5.0
 	 */
 	public function prepare ($query) {}
@@ -486,9 +486,9 @@ class mysqli  {
 	 * <b>mysqli_poll</b> is then used to get results from such
 	 * queries.
 	 * </p>
-	 * @return mysqli_result|boolean For successful SELECT, SHOW, DESCRIBE or
+	 * @return mysqli_result|bool For successful SELECT, SHOW, DESCRIBE or
 	 * EXPLAIN queries <b>mysqli_query</b> will return
-	 * a <b>mysqli_result</b> object.For other successful queries <b>mysqli_query</b> will
+	 * a <b>mysqli_result</b> object. For other successful queries <b>mysqli_query</b> will
 	 * return true and false on failure.
 	 * @since 5.0
 	 */
@@ -723,7 +723,7 @@ class mysqli  {
 	/**
 	 * Gets the current system status
 	 * @link https://php.net/manual/en/mysqli.stat.php
-	 * @return string A string describing the server status. false if an error occurred.
+	 * @return string|false A string describing the server status. false if an error occurred.
 	 * @since 5.0
 	 */
 	public function stat () {}
@@ -739,7 +739,7 @@ class mysqli  {
 	/**
 	 * Transfers a result set from the last query
 	 * @link https://php.net/manual/en/mysqli.store-result.php
-	 * @return mysqli_result a buffered result object or false if an error occurred.
+	 * @return mysqli_result|false a buffered result object or false if an error occurred.
 	 * </p>
 	 * <p>
 	 * <b>mysqli_store_result</b> returns false in case the query
@@ -769,7 +769,7 @@ class mysqli  {
 	/**
 	 * Initiate a result set retrieval
 	 * @link https://php.net/manual/en/mysqli.use-result.php
-	 * @return mysqli_result an unbuffered result object or false if an error occurred.
+	 * @return mysqli_result|false an unbuffered result object or false if an error occurred.
 	 * @since 5.0
 	 */
 	public function use_result () {}
@@ -878,7 +878,7 @@ class mysqli_result implements Traversable  {
 	/**
 	 * Returns the next field in the result set
 	 * @link https://php.net/manual/en/mysqli-result.fetch-field.php
-	 * @return object an object which contains field definition information or false
+	 * @return object|false an object which contains field definition information or false
 	 * if no field information is available.
 	 * </p>
 	 * <p>
@@ -1014,7 +1014,7 @@ class mysqli_result implements Traversable  {
 	 * The field number. This value must be in the range from
 	 * 0 to number of fields - 1.
 	 * </p>
-	 * @return object an object which contains field definition information or false
+	 * @return object|false an object which contains field definition information or false
 	 * if no field information for specified fieldnr is
 	 * available.
 	 * </p>
@@ -1234,7 +1234,7 @@ class mysqli_stmt  {
 	 * @param int $attr <p>
 	 * The attribute that you want to get.
 	 * </p>
-	 * @return int false if the attribute is not found, otherwise returns the value of the attribute.
+	 * @return int|false false if the attribute is not found, otherwise returns the value of the attribute.
 	 * @since 5.0
 	 */
 	public function attr_get ($attr) {}
@@ -1392,7 +1392,7 @@ class mysqli_stmt  {
 	/**
 	 * Returns result set metadata from a prepared statement
 	 * @link https://php.net/manual/en/mysqli-stmt.result-metadata.php
-	 * @return mysqli_result a result object or false if an error occurred.
+	 * @return mysqli_result|false a result object or false if an error occurred.
 	 * @since 5.0
 	 */
 	public function result_metadata () {}
@@ -1685,7 +1685,7 @@ function mysqli_execute ($stmt) {}
  * @link https://secure.php.net/manual/en/mysqli-result.fetch-field.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
- * @return object|bool Returns an object which contains field definition information or FALSE if no field information is available.
+ * @return object|false Returns an object which contains field definition information or FALSE if no field information is available.
  */
 function mysqli_fetch_field ($result) {}
 
@@ -1694,7 +1694,7 @@ function mysqli_fetch_field ($result) {}
  * @link https://secure.php.net/manual/en/mysqli-result.fetch-fields.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
- * @return array|bool Returns an array of objects which contains field definition information or FALSE if no field information is available.
+ * @return array|false Returns an array of objects which contains field definition information or FALSE if no field information is available.
  */
 function mysqli_fetch_fields ($result) {}
 
@@ -1704,7 +1704,7 @@ function mysqli_fetch_fields ($result) {}
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
  * @param int $fieldnr The field number. This value must be in the range from 0 to number of fields - 1.
- * @return object|bool Returns an object which contains field definition information or FALSE if no field information for specified fieldnr is available.
+ * @return object|false Returns an object which contains field definition information or FALSE if no field information for specified fieldnr is available.
  */
 function mysqli_fetch_field_direct ($result, $fieldnr) {}
 
@@ -1713,7 +1713,7 @@ function mysqli_fetch_field_direct ($result, $fieldnr) {}
  * @link https://php.net/manual/en/mysqli-result.lengths.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
- * @return array|bool An array of integers representing the size of each column (not including any terminating null characters). FALSE if an error occurred.
+ * @return array|false An array of integers representing the size of each column (not including any terminating null characters). FALSE if an error occurred.
  */
 function mysqli_fetch_lengths ($result) {}
 
@@ -1724,7 +1724,7 @@ function mysqli_fetch_lengths ($result) {}
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
  * @param int $resulttype
- * @return array|null Returns an array of associative or numeric arrays holding result rows.
+ * @return array Returns an array of associative or numeric arrays holding result rows.
  */
 function mysqli_fetch_all ($result, $resulttype = MYSQLI_NUM) {}
 
@@ -1743,7 +1743,7 @@ function mysqli_fetch_array ($result, $resulttype = MYSQLI_BOTH) {}
  * @link https://php.net/manual/en/mysqli-result.fetch-assoc.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
- * @return array|null Returns an associative array of strings representing the fetched row in the result set,
+ * @return string[]|null Returns an associative array of strings representing the fetched row in the result set,
  * where each key in the array represents the name of one of the result set's columns or NULL if there are no more rows in resultset.
  * If two or more columns of the result have the same field names, the last column will take precedence.
  * To access the other column(s) of the same name,
@@ -2075,7 +2075,7 @@ function mysqli_poll (array &$read = null, array &$error = null, &$reject = null
  * @link https://php.net/manual/en/mysqli.prepare.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $query
- * @return mysqli_stmt|bool A statement object or FALSE if an error occurred.
+ * @return mysqli_stmt|false A statement object or FALSE if an error occurred.
  */
 function mysqli_prepare ($link, $query) {}
 
@@ -2236,7 +2236,7 @@ function mysqli_stmt_affected_rows ($stmt) {}
  * @link https://php.net/manual/en/mysqli-stmt.attr-get.php
  * @param mysqli_stmt $stmt
  * @param int $attr
- * @return int|bool Returns FALSE if the attribute is not found, otherwise returns the value of the attribute.
+ * @return int|false Returns FALSE if the attribute is not found, otherwise returns the value of the attribute.
  */
 function mysqli_stmt_attr_get ($stmt, $attr) {}
 
@@ -2279,7 +2279,7 @@ function mysqli_stmt_prepare ($stmt, $query) {}
  * Returns result set metadata from a prepared statement
  * @link https://php.net/manual/en/mysqli-stmt.result-metadata.php
  * @param mysqli_stmt $stmt
- * @return mysqli_result|bool Returns a result object or FALSE if an error occurred
+ * @return mysqli_result|false Returns a result object or FALSE if an error occurred
  */
 function mysqli_stmt_result_metadata ($stmt) {}
 
@@ -2411,7 +2411,7 @@ function mysqli_sqlstate ($link) {}
  * Gets the current system status
  * @link https://php.net/manual/en/mysqli.stat.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @return string|bool A string describing the server status. FALSE if an error occurred.
+ * @return string|false A string describing the server status. FALSE if an error occurred.
  */
 function mysqli_stat ($link) {}
 
@@ -2506,7 +2506,7 @@ function mysqli_stmt_store_result ($stmt) {}
  * Transfers a result set from the last query
  * @link https://php.net/manual/en/mysqli.store-result.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @return mysqli_result|bool
+ * @return mysqli_result|false
  */
 function mysqli_store_result ($link) {}
 
@@ -2529,7 +2529,7 @@ function mysqli_thread_safe () {}
  * Initiate a result set retrieval
  * @link https://php.net/manual/en/mysqli.use-result.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @return mysqli_result|bool
+ * @return mysqli_result|false
  */
 function mysqli_use_result ($link) {}
 
@@ -2615,7 +2615,7 @@ function mysqli_param_count ($stmt) {}
  * Alias for <b>mysqli_stmt_result_metadata</b>
  * @link https://php.net/manual/en/function.mysqli-get-metadata.php
  * @param mysqli_stmt $stmt
- * @return mysqli_result|bool Returns a result object or FALSE if an error occurred
+ * @return mysqli_result|false Returns a result object or FALSE if an error occurred
  * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
  * @since 5.0
  */

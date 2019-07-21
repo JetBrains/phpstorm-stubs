@@ -69,7 +69,7 @@ class HttpDeflateStream  {
 	 * @param string $data <p>
 	 * data to deflate
 	 * </p>
-	 * @return string deflated data on success or false on failure.
+	 * @return string|false deflated data on success or false on failure.
 	 */
 	public function update ($data) {}
 
@@ -80,7 +80,7 @@ class HttpDeflateStream  {
 	 * @param string $data [optional] <p>
 	 * more data to deflate
 	 * </p>
-	 * @return string some deflated data as string on success or false on failure.
+	 * @return string|false some deflated data as string on success or false on failure.
 	 */
 	public function flush ($data = null) {}
 
@@ -137,7 +137,7 @@ class HttpInflateStream  {
 	 * @param string $data <p>
 	 * data to inflate
 	 * </p>
-	 * @return string inflated data on success or false on failure.
+	 * @return string|false inflated data on success or false on failure.
 	 */
 	public function update ($data) {}
 
@@ -148,7 +148,7 @@ class HttpInflateStream  {
 	 * @param string $data [optional] <p>
 	 * more data to inflate
 	 * </p>
-	 * @return string some inflated data as string on success or false on failure.
+	 * @return string|false some inflated data as string on success or false on failure.
 	 */
 	public function flush ($data = null) {}
 
@@ -234,7 +234,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @param string $header <p>
 	 * header name
 	 * </p>
-	 * @return string the header value on success or NULL if the header does not exist.
+	 * @return string|null the header value on success or NULL if the header does not exist.
 	 */
 	public function getHeader ($header) {}
 
@@ -269,7 +269,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * header will be converted to an array containing both header values, otherwise
 	 * it will be overwritten with the new header value
 	 * </p>
-	 * @return void true on success or false on failure.
+	 * @return void
 	 */
 	public function addHeaders (array $headers, $append = null) {}
 
@@ -344,7 +344,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get request method
 	 * @link https://php.net/manual/en/function.httpmessage-getrequestmethod.php
-	 * @return string the request method name on success, or FALSE if the message is
+	 * @return string|false the request method name on success, or FALSE if the message is
 	 * not of type HttpMessage::TYPE_REQUEST.
 	 */
 	public function getRequestMethod () {}
@@ -365,7 +365,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * (PECL pecl_http &gt;= 0.21.0)<br/>
 	 * Get request URL
 	 * @link https://php.net/manual/en/function.httpmessage-getrequesturl.php
-	 * @return string the request URL as string on success, or FALSE if the message
+	 * @return string|false the request URL as string on success, or FALSE if the message
 	 * is not of type HttpMessage::TYPE_REQUEST.
 	 */
 	public function getRequestUrl () {}
@@ -411,7 +411,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @param int $magic_mode [optional] <p>
 	 * flags for libmagic
 	 * </p>
-	 * @return string the guessed content type on success or false on failure.
+	 * @return string|false the guessed content type on success or false on failure.
 	 */
 	public function guessContentType ($magic_file, $magic_mode = null) {}
 
@@ -446,7 +446,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * (PECL pecl_http &gt;= 0.22.0)<br/>
 	 * Create HTTP object regarding message type
 	 * @link https://php.net/manual/en/function.httpmessage-tomessagetypeobject.php
-	 * @return HttpRequest|HttpResponse either an HttpRequest or HttpResponse object on success, or NULL on failure.
+	 * @return HttpRequest|HttpResponse|null either an HttpRequest or HttpResponse object on success, or NULL on failure.
 	 */
 	public function toMessageTypeObject () {}
 
@@ -484,7 +484,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @param string $class_name [optional] <p>
 	 * a class extending HttpMessage
 	 * </p>
-	 * @return HttpMessage an HttpMessage object on success or NULL on failure.
+	 * @return HttpMessage|null an HttpMessage object on success or NULL on failure.
 	 */
 	public static function factory ($raw_message = null, $class_name = null) {}
 
@@ -498,7 +498,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @param string $class_name [optional] <p>
 	 * a class extending HttpMessage
 	 * </p>
-	 * @return HttpMessage an HttpMessage object on success or NULL on failure.
+	 * @return HttpMessage|null an HttpMessage object on success or NULL on failure.
 	 */
 	public static function fromString ($raw_message = null, $class_name = null) {}
 
@@ -512,7 +512,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @param string $class_name [optional] <p>
 	 * a class extending HttpMessage
 	 * </p>
-	 * @return HttpMessage an HttpMessage object on success or NULL on failure.
+	 * @return HttpMessage|null an HttpMessage object on success or NULL on failure.
 	 */
 	public static function fromEnv ($message_type, $class_name = null) {}
 
@@ -755,7 +755,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	 * @param mixed $offset <p>
 	 * An offset to check for.
 	 * </p>
-	 * @return boolean true on success or false on failure.
+	 * @return bool true on success or false on failure.
 	 * </p>
 	 * <p>
 	 * The return value will be casted to boolean if non-boolean was returned.
@@ -1787,7 +1787,7 @@ class HttpResponse  {
 	 * @param int $magic_mode [optional] <p>
 	 * flags for libmagic
 	 * </p>
-	 * @return string the guessed content type on success or false on failure.
+	 * @return string|false the guessed content type on success or false on failure.
 	 */
 	public static function guessContentType ($magic_file, $magic_mode = null) {}
 
@@ -2230,8 +2230,7 @@ function http_negotiate_content_type (array $supported,  array &$result = null )
  * @param int $status [optional] <p>
  * custom response status code
  * </p>
- * @return void &returns.http.false.orexits; with the specified redirection status code.
- * &see.http.configuration.force_exit;
+ * @return void returns false or exits with the specified redirection status code
  */
 function http_redirect ($url = null,  array $params = null , $session = null, $status = null) {}
 
@@ -2390,7 +2389,7 @@ function http_send_stream ($stream) {}
  * @param string $encoded <p>
  * chunked encoded string
  * </p>
- * @return string the decoded string on success or false on failure.
+ * @return string|false the decoded string on success or false on failure.
  */
 function http_chunked_decode ($encoded) {}
 
@@ -2412,7 +2411,7 @@ function http_parse_message ($message) {}
  * @param string $header <p>
  * string containing HTTP headers
  * </p>
- * @return array an array on success or false on failure.
+ * @return array|false an array on success or false on failure.
  */
 function http_parse_headers ($header) {}
 
@@ -2430,7 +2429,7 @@ function http_parse_headers ($header) {}
  * array containing recognized extra keys;
  * by default all unknown keys will be treated as cookie names
  * </p>
- * @return stdClass|object a stdClass object on success or false on failure.
+ * @return stdClass|false a stdClass object on success or false on failure.
  */
 function http_parse_cookie ($cookie, $flags = null,  array $allowed_extras = null ) {}
 
@@ -2455,7 +2454,7 @@ function http_build_cookie (array $cookie) {}
  * @param int $flags [optional] <p>
  * Parse flags
  * </p>
- * @return stdClass|object parameter list as stdClass object.
+ * @return stdClass parameter list as stdClass object.
  */
 function http_parse_params ($param, $flags = null) {}
 
@@ -2471,7 +2470,7 @@ function http_get_request_headers () {}
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * Get request body as string
  * @link https://php.net/manual/en/function.http-get-request-body.php
- * @return string the raw request body as string on success or NULL on failure.
+ * @return string|null the raw request body as string on success or NULL on failure.
  */
 function http_get_request_body () {}
 
@@ -2479,7 +2478,7 @@ function http_get_request_body () {}
  * (PECL pecl_http &gt;= 0.22.0)<br/>
  * Get request body as stream
  * @link https://php.net/manual/en/function.http-get-request-body-stream.php
- * @return resource the raw request body as stream on success or NULL on failure.
+ * @return resource|null the raw request body as stream on success or NULL on failure.
  */
 function http_get_request_body_stream () {}
 
@@ -2504,7 +2503,7 @@ function http_match_request_header ($header, $value, $match_case = null) {}
  * (PECL pecl_http &gt;= 1.5.0)<br/>
  * Stat persistent handles
  * @link https://php.net/manual/en/function.http-persistent-handles-count.php
- * @return stdClass|object persistent handles statistics as stdClass object on success or false on failure.
+ * @return stdClass|false persistent handles statistics as stdClass object on success or false on failure.
  */
 function http_persistent_handles_count () {}
 
@@ -2524,7 +2523,7 @@ function http_persistent_handles_clean ($ident = null) {}
  * @param string $ident <p>
  * the identification string
  * </p>
- * @return string the prior ident as string on success or false on failure.
+ * @return string|false the prior ident as string on success or false on failure.
  */
 function http_persistent_handles_ident ($ident) {}
 
@@ -2698,7 +2697,7 @@ function http_request ($method, $url = null, $body = null, array $options = null
  * @param array $files <p>
  * POST files
  * </p>
- * @return string encoded string on success or false on failure.
+ * @return string|false encoded string on success or false on failure.
  */
 function http_request_body_encode (array $fields, array $files) {}
 
@@ -2709,7 +2708,7 @@ function http_request_body_encode (array $fields, array $files) {}
  * @param string $method <p>
  * the request method name to register
  * </p>
- * @return int the ID of the request method on success or false on failure.
+ * @return int|false the ID of the request method on success or false on failure.
  */
 function http_request_method_register ($method) {}
 
@@ -2731,7 +2730,7 @@ function http_request_method_unregister ($method) {}
  * @param mixed $method <p>
  * request method name or ID
  * </p>
- * @return int true if the request method is known, else false.
+ * @return bool true if the request method is known, else false.
  */
 function http_request_method_exists ($method) {}
 
@@ -2742,7 +2741,7 @@ function http_request_method_exists ($method) {}
  * @param int $method <p>
  * request method ID
  * </p>
- * @return string the request method name as string on success or false on failure.
+ * @return string|false the request method name as string on success or false on failure.
  */
 function http_request_method_name ($method) {}
 
@@ -2766,7 +2765,7 @@ function ob_etaghandler ($data, $mode) {}
  * @param int $flags [optional] <p>
  * deflate options
  * </p>
- * @return string the encoded string on success, or NULL on failure.
+ * @return string|null the encoded string on success, or NULL on failure.
  */
 function http_deflate ($data, $flags = null) {}
 
@@ -2777,7 +2776,7 @@ function http_deflate ($data, $flags = null) {}
  * @param string $data <p>
  * string containing the compressed data
  * </p>
- * @return string the decoded string on success, or NULL on failure.
+ * @return string|null the decoded string on success, or NULL on failure.
  */
 function http_inflate ($data) {}
 

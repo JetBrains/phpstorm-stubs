@@ -123,7 +123,7 @@ define('EVBUFFER_TIMEOUT', 64);
  *
  * @link https://php.net/event_base_new
  *
- * @return resource|bool returns valid event base resource on success or FALSE on error.
+ * @return resource|false returns valid event base resource on success or FALSE on error.
  */
 function event_base_new(){}
 
@@ -257,7 +257,7 @@ function event_base_priority_init($event_base, $npriorities) {}
  *
  * @link https://php.net/event_new
  *
- * @return resource|bool returns a new event resource on success or FALSE on error.
+ * @return resource|false returns a new event resource on success or FALSE on error.
  */
 function event_new() {}
 
@@ -398,7 +398,7 @@ function event_del($event) {}
  * @param callback      $errorcb Callback to invoke where there is an error on the descriptor, cannot be NULL.
  * @param mixed         $arg     An argument that will be passed to each of the callbacks (optional).
  *
- * @return resource|bool returns new buffered event resource on success or FALSE on error.
+ * @return resource|false returns new buffered event resource on success or FALSE on error.
  */
 function event_buffer_new($stream, $readcb, $writecb, $errorcb, $arg = null) {}
 
@@ -602,7 +602,7 @@ function event_buffer_fd_set($bevent, $fd) {}
  * @param resource $bevent Valid buffered event resource.
  * @param callback|null $readcb Callback to invoke where there is data to read, or NULL if no callback is desired.
  * @param callback|null $writecb Callback to invoke where the descriptor is ready for writing, or NULL if no callback is desired.
- * @param callback|null $errorcb Callback to invoke where there is an error on the descriptor, cannot be NULL.
+ * @param callback $errorcb Callback to invoke where there is an error on the descriptor, cannot be NULL.
  * @param mixed $arg An argument that will be passed to each of the callbacks (optional).
  *
  * @return bool returns TRUE on success or FALSE on error.
@@ -613,7 +613,7 @@ function event_buffer_set_callback($bevent, $readcb, $writecb, $errorcb, $arg = 
 /**
  * <p>Alias of {@link event_new}().</p>
  *
- * @return resource|bool returns valid event base resource on success or FALSE on error.
+ * @return resource|false returns valid event base resource on success or FALSE on error.
  */
 function event_timer_new() {}
 

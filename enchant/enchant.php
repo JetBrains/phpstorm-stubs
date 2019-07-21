@@ -135,7 +135,7 @@ function enchant_broker_set_ordering ($broker, $tag, $ordering) {}
  * @param resource $broker <p>
  * Broker resource
  * </p>
- * @return array <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return array|false
  */
 function enchant_broker_describe ($broker) {}
 
@@ -163,7 +163,7 @@ function enchant_dict_check ($dict, $word) {}
  * @param string $word <p>
  * Word to use for the suggestions.
  * </p>
- * @return array Will returns an array of suggestions if the word is bad spelled.
+ * @return array|false Will returns an array of suggestions if the word is bad spelled.
  */
 function enchant_dict_suggest ($dict, $word) {}
 
@@ -177,7 +177,7 @@ function enchant_dict_suggest ($dict, $word) {}
  * @param string $word <p>
  * The word to add
  * </p>
- * @return void <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return void
  */
 function enchant_dict_add_to_personal ($dict, $word) {}
 
@@ -222,7 +222,7 @@ function enchant_dict_is_in_session ($dict, $word) {}
  * @param string $cor <p>
  * The correct word
  * </p>
- * @return void <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return void
  */
 function enchant_dict_store_replacement ($dict, $mis, $cor) {}
 

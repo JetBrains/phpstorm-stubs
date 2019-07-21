@@ -40,7 +40,7 @@
  * </p>
  * @param int $sync [optional] <p>
  * </p>
- * @return resource an InterBase link identifier on success, or false on error.
+ * @return resource|false an InterBase link identifier on success, or false on error.
  * @since 4.0
  * @since 5.0
  */
@@ -84,7 +84,7 @@ function ibase_connect ($database = null, $username = null, $password = null, $c
  * </p>
  * @param int $sync [optional] <p>
  * </p>
- * @return resource an InterBase link identifier on success, or false on error.
+ * @return resource|false an InterBase link identifier on success, or false on error.
  * @since 4.0
  * @since 5.0
  */
@@ -128,7 +128,7 @@ function ibase_drop_db ($connection = null) {}
  * </p>
  * @param int $bind_args [optional] <p>
  * </p>
- * @return resource If the query raises an error, returns false. If it is successful and
+ * @return resource|bool If the query raises an error, returns false. If it is successful and
  * there is a (possibly empty) result set (such as with a SELECT query),
  * returns a result identifier. If the query was successful and there were
  * no results, returns true.
@@ -157,7 +157,7 @@ function ibase_query ($link_identifier = null, $query, $bind_args = null) {}
  * IBASE_UNIXTIME will cause this function to return
  * date/time values as Unix timestamps instead of as formatted strings.
  * </p>
- * @return array an array that corresponds to the fetched row, or false if there
+ * @return array|false an array that corresponds to the fetched row, or false if there
  * are no more rows. Each result column is stored in an array offset,
  * starting at offset 0.
  * @since 4.0
@@ -179,7 +179,7 @@ function ibase_fetch_row ($result_identifier, $fetch_flag = null) {}
  * IBASE_UNIXTIME will cause this function to return
  * date/time values as Unix timestamps instead of as formatted strings.
  * </p>
- * @return array an associative array that corresponds to the fetched row.
+ * @return array|false an associative array that corresponds to the fetched row.
  * Subsequent calls will return the next row in the result set, or false if
  * there are no more rows.
  * @since 4.3.0
@@ -202,7 +202,7 @@ function ibase_fetch_assoc ($result, $fetch_flag = null) {}
  * IBASE_UNIXTIME will cause this function to return
  * date/time values as Unix timestamps instead of as formatted strings.
  * </p>
- * @return object an object with the next row information, or false if there are
+ * @return object|false an object with the next row information, or false if there are
  * no more rows.
  * @since 4.0
  * @since 5.0
@@ -242,7 +242,7 @@ function ibase_name_result ($result, $name) {}
  * @param string $query <p>
  * An InterBase query.
  * </p>
- * @return resource a prepared query handle, or false on error.
+ * @return resource|false a prepared query handle, or false on error.
  * @since 4.0
  * @since 5.0
  */
@@ -257,7 +257,7 @@ function ibase_prepare ($query) {}
  * @param mixed $bind_arg [optional] <p>
  * </p>
  * @param mixed $_ [optional] 
- * @return resource If the query raises an error, returns false. If it is successful and
+ * @return resource|bool If the query raises an error, returns false. If it is successful and
  * there is a (possibly empty) result set (such as with a SELECT query),
  * returns a result identifier. If the query was successful and there were
  * no results, returns true.
@@ -382,7 +382,7 @@ function ibase_param_info ($query, $param_number) {}
  * An InterBase link identifier. If omitted, the last opened link is
  * assumed.
  * </p>
- * @return resource a transaction handle, or false on error.
+ * @return resource|false a transaction handle, or false on error.
  * @since 4.0
  * @since 5.0
  */
@@ -555,7 +555,7 @@ function ibase_blob_open ($link_identifier, $blob_id) {}
  * @param int $len <p>
  * Size of returned data.
  * </p>
- * @return string at most len bytes from the BLOB, or false
+ * @return string|false at most len bytes from the BLOB, or false
  * on failure.
  * @since 4.0
  * @since 5.0
@@ -583,7 +583,7 @@ function ibase_blob_echo ($blob_id) {}
  * @param resource $file_handle <p>
  * The file handle is a handle returned by fopen.
  * </p>
- * @return string the BLOB id on success, or false on error.
+ * @return string|false the BLOB id on success, or false on error.
  * @since 4.0
  * @since 5.0
  */
@@ -592,7 +592,7 @@ function ibase_blob_import ($link_identifier, $file_handle) {}
 /**
  * Return error messages
  * @link https://php.net/manual/en/function.ibase-errmsg.php
- * @return string the error message as a string, or false if no error occurred.
+ * @return string|false the error message as a string, or false if no error occurred.
  * @since 4.0
  * @since 5.0
  */
@@ -601,7 +601,7 @@ function ibase_errmsg () {}
 /**
  * Return an error code
  * @link https://php.net/manual/en/function.ibase-errcode.php
- * @return int the error code as an integer, or false if no error occurred.
+ * @return int|false the error code as an integer, or false if no error occurred.
  * @since 5.0
  */
 function ibase_errcode () {}

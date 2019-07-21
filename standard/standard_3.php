@@ -21,7 +21,7 @@ function getlastmod () {}
  * Returns false if input contains character from outside the base64
  * alphabet.
  * </p>
- * @return string|bool the original data or false on failure. The returned data may be
+ * @return string|false the original data or false on failure. The returned data may be
  * binary.
  * @since 4.0
  * @since 5.0
@@ -730,7 +730,7 @@ function fmod ($x, $y) {}
  * @param string $in_addr <p>
  * A 32bit IPv4, or 128bit IPv6 address.
  * </p>
- * @return string|bool a string representation of the address or false on failure.
+ * @return string|false a string representation of the address or false on failure.
  * @since 5.1.0
  */
 function inet_ntop ($in_addr) {}
@@ -753,7 +753,7 @@ function inet_pton ($address) {}
  * @param string $ip_address <p>
  * A standard format address.
  * </p>
- * @return int the IPv4 address or false if ip_address
+ * @return int|false the IPv4 address or false if ip_address
  * is invalid.
  * @since 4.0
  * @since 5.0
