@@ -1146,6 +1146,7 @@ class DOMNodeList implements Traversable, Countable {
 	 * @link https://php.net/manual/en/domnodelist.item.php
 	 * @param int $index <p>
 	 * Index of the node into the collection.
+	 * The range of valid child node indices is 0 to length - 1 inclusive.
 	 * </p>
 	 * @return DOMNode|null The node at the indexth position in the
 	 * DOMNodeList, or &null; if that is not a valid
