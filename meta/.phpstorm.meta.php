@@ -507,14 +507,14 @@ namespace PHPSTORM_META {
 
     expectedArguments(\AMQPExchange::delete(), 1, AMQP_NOPARAM, AMQP_IFUNUSED);
     expectedArguments(\AMQPExchange::publish(), 2, AMQP_NOPARAM | AMQP_MANDATORY | AMQP_IMMEDIATE);
-    expectedArguments(\AMQPExchange::setFlags(), 0, AMQP_PASSIVE | AMQP_DURABLE);
-    expectedReturnValues(\AMQPExchange::getFlags(), AMQP_PASSIVE | AMQP_DURABLE);
+    expectedArguments(\AMQPExchange::setFlags(), 0, AMQP_PASSIVE | AMQP_DURABLE | AMQP_AUTODELETE | AMQP_INTERNAL);
+    expectedReturnValues(\AMQPExchange::getFlags(), AMQP_PASSIVE | AMQP_DURABLE | AMQP_AUTODELETE | AMQP_INTERNAL);
 
     expectedArguments(\AMQPQueue::ack(), 1, AMQP_NOPARAM, AMQP_MULTIPLE);
     expectedArguments(\AMQPQueue::consume(), 1, AMQP_NOPARAM | AMQP_AUTOACK | AMQP_JUST_CONSUME | AMQP_NOLOCAL);
-    expectedArguments(\AMQPQueue::delete(), 0, AMQP_NOPARAM, AMQP_IFUNUSED);
-    expectedArguments(\AMQPQueue::get(), 0, AMQP_NOPARAM | AMQP_AUTOACK);
-    expectedArguments(\AMQPQueue::nack(), 1, AMQP_NOPARAM, AMQP_REQUEUE, AMQP_MULTIPLE);
+    expectedArguments(\AMQPQueue::delete(), 0, AMQP_NOPARAM | AMQP_IFUNUSED | AMQP_IFEMPTY);
+    expectedArguments(\AMQPQueue::get(), 0, AMQP_NOPARAM, AMQP_AUTOACK);
+    expectedArguments(\AMQPQueue::nack(), 1, AMQP_NOPARAM | AMQP_REQUEUE | AMQP_MULTIPLE);
     expectedArguments(\AMQPQueue::reject(), 1, AMQP_NOPARAM, AMQP_REQUEUE);
     expectedArguments(\AMQPQueue::setFlags(), 0, AMQP_NOPARAM | AMQP_DURABLE | AMQP_PASSIVE | AMQP_EXCLUSIVE | AMQP_AUTODELETE);
     expectedReturnValues(\AMQPQueue::getFlags(), AMQP_NOPARAM | AMQP_DURABLE | AMQP_PASSIVE | AMQP_EXCLUSIVE | AMQP_AUTODELETE);
