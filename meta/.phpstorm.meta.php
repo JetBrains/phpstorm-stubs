@@ -511,7 +511,7 @@ namespace PHPSTORM_META {
     expectedReturnValues(\AMQPExchange::getFlags(), AMQP_PASSIVE | AMQP_DURABLE);
 
     expectedArguments(\AMQPQueue::ack(), 1, AMQP_NOPARAM, AMQP_MULTIPLE);
-    expectedArguments(\AMQPQueue::consume(), 1, AMQP_NOPARAM | AMQP_AUTOACK | AMQP_JUST_CONSUME);
+    expectedArguments(\AMQPQueue::consume(), 1, AMQP_NOPARAM | AMQP_AUTOACK | AMQP_JUST_CONSUME | AMQP_NOLOCAL);
     expectedArguments(\AMQPQueue::delete(), 0, AMQP_NOPARAM, AMQP_IFUNUSED);
     expectedArguments(\AMQPQueue::get(), 0, AMQP_NOPARAM | AMQP_AUTOACK);
     expectedArguments(\AMQPQueue::nack(), 1, AMQP_NOPARAM, AMQP_REQUEUE, AMQP_MULTIPLE);
