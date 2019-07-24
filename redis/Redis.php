@@ -3581,4 +3581,57 @@ class RedisArray {
      * Use this function when a new node is added and keys need to be rehashed.
      */
     public function _rehash() {}
+
+    /**
+     * Returns an associative array of strings and integers, with the following keys:
+     * - redis_version
+     * - redis_git_sha1
+     * - redis_git_dirty
+     * - arch_bits
+     * - multiplexing_api
+     * - process_id
+     * - uptime_in_seconds
+     * - uptime_in_days
+     * - lru_clock
+     * - used_cpu_sys
+     * - used_cpu_user
+     * - used_cpu_sys_children
+     * - used_cpu_user_children
+     * - connected_clients
+     * - connected_slaves
+     * - client_longest_output_list
+     * - client_biggest_input_buf
+     * - blocked_clients
+     * - used_memory
+     * - used_memory_human
+     * - used_memory_peak
+     * - used_memory_peak_human
+     * - mem_fragmentation_ratio
+     * - mem_allocator
+     * - loading
+     * - aof_enabled
+     * - changes_since_last_save
+     * - bgsave_in_progress
+     * - last_save_time
+     * - total_connections_received
+     * - total_commands_processed
+     * - expired_keys
+     * - evicted_keys
+     * - keyspace_hits
+     * - keyspace_misses
+     * - hash_max_zipmap_entries
+     * - hash_max_zipmap_value
+     * - pubsub_channels
+     * - pubsub_patterns
+     * - latest_fork_usec
+     * - vm_enabled
+     * - role
+     * @link    https://redis.io/commands/info
+     * @return string
+     * @example
+     * <pre>
+     * $redis->info();
+     * </pre>
+     */
+    public function info( ) {}
 }
