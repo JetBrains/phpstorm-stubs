@@ -513,7 +513,7 @@ namespace Grpc
          * @throws \InvalidArgumentException
          */
         public static function createSsl(
-            $pem_root_certs,
+            $pem_root_certs = '',
             $pem_private_key = '',
             $pem_cert_chain = ''
         ) {}
