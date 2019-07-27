@@ -1032,6 +1032,8 @@ function array_shift (array &$array) {}
 
 /**
  * Prepend elements to the beginning of an array
+ * Since 7.3.0 this function can be called with only one parameter.
+ * For earlier versions at least two parameters are required.
  * @link https://php.net/manual/en/function.array-unshift.php
  * @param array $array <p>
  * The input array.
@@ -1040,7 +1042,8 @@ function array_shift (array &$array) {}
  * The prepended variables.
  * </p>
  * @return int the number of elements in the array.
- * @since 7.3
+ * @since 4.0
+ * @since 5.0
  */
 function array_unshift (array &$array, ...$vars) {}
 
