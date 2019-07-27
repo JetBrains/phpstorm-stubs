@@ -1,13 +1,13 @@
 <?php
 /**
- * https://secure.php.net/manual/en/book.seaslog.php
+ * @link https://secure.php.net/manual/en/book.seaslog.php
  * The Seaslog is an effective,fast,stable log extension for PHP.
  * SeasLog requires PHP 5.2.0 or greater. Earlier versions may not work.
  */
 
 
 /**
- * https://secure.php.net/manual/en/seaslog.constants.php
+ * @link https://secure.php.net/manual/en/seaslog.constants.php
  * The constants below are defined by this extension,
  * and will only be available when the extension has either
  * been compiled into PHP or dynamically loaded at runtime.
