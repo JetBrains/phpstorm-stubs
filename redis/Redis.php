@@ -3518,7 +3518,7 @@ class Redis
      * @return array Either an array with the key member and score of the higest or lowest element or an empty array
      * if the timeout was reached without an element to pop.
      *
-     * @see @bzPopMax
+     * @see bzPopMax
      * @since >= 5.0
      * @link https://redis.io/commands/bzpopmin
      */
