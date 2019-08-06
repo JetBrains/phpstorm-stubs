@@ -777,7 +777,7 @@ class Redis
      *
      * @param string|string[] $key
      *
-     * @return bool The number of keys tested that do exist
+     * @return int|bool The number of keys tested that do exist
      *
      * @link https://redis.io/commands/exists
      * @link https://github.com/phpredis/phpredis#exists
@@ -1855,7 +1855,7 @@ class Redis
      *
      * @param string $key      The set to search.
      * @param int    $iterator LONG (reference) to the iterator as we go.
-     * @param null   $pattern  String, optional pattern to match against.
+     * @param string   $pattern  String, optional pattern to match against.
      * @param int    $count    How many members to return at a time (Redis might return a different amount)
      *
      * @return array|bool PHPRedis will return an array of keys or FALSE when we're done iterating
@@ -3594,7 +3594,7 @@ class Redis
      *
      * @param string $key
      *
-     * @return int the number of items in a hash, FALSE if the key doesn't exist or isn't a hash
+     * @return int|false the number of items in a hash, FALSE if the key doesn't exist or isn't a hash
      *
      * @link    https://redis.io/commands/hlen
      * @example
@@ -3617,7 +3617,7 @@ class Redis
      * @param string $hashKey1
      * @param string ...$otherHashKeys
      *
-     * @return int Number of deleted fields
+     * @return int|false Number of deleted fields
      *
      * @link    https://redis.io/commands/hdel
      * @example
@@ -4388,7 +4388,7 @@ class Redis
      * $redis->client('kill', <ip:port>); // Kill the process at ip:port
      * </pre>
      */
-    public function client($command, $value)
+    public function client($command, $value = '')
     {
     }
 
@@ -4930,6 +4930,28 @@ class Redis
      * </pre>
      */
     public function xTrim($stream, $maxLen, $isApproximate)
+    {
+    }
+
+    /**
+     * Adds a values to the set value stored at key.
+     *
+     * @param string $key Required key
+     * @param array  $values Required values
+     *
+     * @return  int|bool The number of elements added to the set.
+     * If this value is already in the set, FALSE is returned
+     *
+     * @link    https://redis.io/commands/sadd
+     * @link    https://github.com/phpredis/phpredis/commit/3491b188e0022f75b938738f7542603c7aae9077
+     * @since   phpredis 2.2.8
+     * @example
+     * <pre>
+     * $redis->sAddArray('k', array('v1'));                // boolean
+     * $redis->sAddArray('k', array('v1', 'v2', 'v3'));    // boolean
+     * </pre>
+     */
+    public function sAddArray($key, array $values)
     {
     }
 }
