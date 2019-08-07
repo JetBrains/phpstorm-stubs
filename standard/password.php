@@ -116,21 +116,21 @@ define('PASSWORD_ARGON2ID', 3);
  * Available as of PHP 7.2.0.
  * @since 7.2
  */
-define ('PASSWORD_ARGON2_DEFAULT_MEMORY_COST', 1024);
+define ('PASSWORD_ARGON2_DEFAULT_MEMORY_COST', 65536);
 
 /**
  * Default amount of time that Argon2lib will spend trying to compute a hash.
  * Available as of PHP 7.2.0.
  * @since 7.2
  */
-define ('PASSWORD_ARGON2_DEFAULT_TIME_COST', 2);
+define ('PASSWORD_ARGON2_DEFAULT_TIME_COST', 4);
 
 /**
  * Default number of threads that Argon2lib will use.
  * Available as of PHP 7.2.0.
  * @since 7.2
  */
-define('PASSWORD_ARGON2_DEFAULT_THREADS', 2);
+define('PASSWORD_ARGON2_DEFAULT_THREADS', 1);
 
 /**
  * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>
