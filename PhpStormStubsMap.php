@@ -3577,6 +3577,7 @@ const FUNCTIONS = array (
   'output_reset_rewrite_vars' => 'standard/standard_9.php',
   'pack' => 'standard/standard_7.php',
   'parallel\\bootstrap' => 'parallel/parallel.php',
+  'parallel\\count' => 'parallel/parallel.php',
   'parallel\\run' => 'parallel/parallel.php',
   'parse_ini_file' => 'standard/standard_4.php',
   'parse_ini_string' => 'standard/standard_4.php',

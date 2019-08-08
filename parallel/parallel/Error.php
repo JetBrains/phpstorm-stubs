@@ -2,8 +2,5 @@
 
 namespace parallel;
 
-use Error as CoreError;
-
-class Error extends CoreError
-{
+class Error extends \Error{
 }
