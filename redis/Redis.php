@@ -571,7 +571,7 @@ class Redis
      * a Redis::PIPELINE block is simply transmitted faster to the server, but without any guarantee of atomicity.
      * discard cancels a transaction.
      *
-     * @return resource Redis returns the Redis instance and enters multi-mode.
+     * @return Redis returns the Redis instance and enters multi-mode.
      * Once in multi-mode, all subsequent method calls return the same object until exec() is called.
      *
      * @link    https://redis.io/commands/multi
@@ -3388,10 +3388,10 @@ class Redis
      * @see zUnionStore
      * @deprecated use Redis::zUnionStore()
      *
-     * @param $Output
-     * @param $ZSetKeys
+     * @param string     $Output
+     * @param array      $ZSetKeys
      * @param array|null $Weights
-     * @param string $aggregateFunction
+     * @param string     $aggregateFunction
      */
     public function zUnion($Output, $ZSetKeys, array $Weights = null, $aggregateFunction = 'SUM')
     {
@@ -4548,7 +4548,7 @@ class Redis
      * @example
      * <pre>
      * $iterator = null;
-     * while($keys = $redis->scan($iterator)) {
+     * while(false !== ($keys = $redis->scan($iterator))) {
      *     foreach($keys as $key) {
      *         echo $key . PHP_EOL;
      *     }
