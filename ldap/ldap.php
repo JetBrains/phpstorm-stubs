@@ -1203,5 +1203,174 @@ define('LDAP_OPT_TIMEOUT', 20482);
 define('LDAP_OPT_DIAGNOSTIC_MESSAGE', 50);
 
 
+/**
+ * Control Constant - Manage DSA IT (» RFC 3296)
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_MANAGEDSAIT", "2.16.840.1.113730.3.4.2");
+echo
+
+/**
+ * Control Constant - Proxied Authorization (» RFC 4370)
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_PROXY_AUTHZ", "2.16.840.1.113730.3.4.18");
+
+/**
+ * Control Constant - Subentries (» RFC 3672)
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_SUBENTRIES", "1.3.6.1.4.1.4203.1.10.1");
+
+/**
+ * Control Constant - Filter returned values (» RFC 3876)
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_VALUESRETURNFILTER", "1.2.826.0.1.3344810.2.3");
+
+/**
+ * Control Constant - Assertion (» RFC 4528)
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_ASSERT", "1.3.6.1.1.12");
+
+/**
+ * Control Constant - Pre read (» RFC 4527)
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_PRE_READ", "1.3.6.1.1.13.1");
+
+/**
+ * Control Constant - Post read (» RFC 4527)
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_POST_READ", "1.3.6.1.1.13.2");
+
+/**
+ * Control Constant - Sort request (» RFC 2891)
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_SORTREQUEST", "1.2.840.113556.1.4.473");
+
+/**
+ * Control Constant - Sort response (» RFC 2891)
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_SORTRESPONSE", "1.2.840.113556.1.4.474");
+
+/**
+ * Control Constant - Paged results (» RFC 2696)
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_PAGEDRESULTS", "1.2.840.113556.1.4.319");
+
+/**
+ * Control Constant - Content Synchronization Operation (» RFC 4533)
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_SYNC", "1.3.6.1.4.1.4203.1.9.1.1");
+
+/**
+ * Control Constant - Content Synchronization Operation State (» RFC 4533)
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_SYNC_STATE", "1.3.6.1.4.1.4203.1.9.1.2");
+
+/**
+ * Control Constant - Content Synchronization Operation Done (» RFC 4533)
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_SYNC_DONE", "1.3.6.1.4.1.4203.1.9.1.3");
+
+/**
+ * Control Constant - Don't Use Copy (» RFC 6171)
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_DONTUSECOPY", "1.3.6.1.1.22");
+
+/**
+ * Control Constant - Password Policy Request
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_PASSWORDPOLICYREQUEST", "1.3.6.1.4.1.42.2.27.8.5.1");
+
+/**
+ * Control Constant - Password Policy Response
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_PASSWORDPOLICYRESPONSE", "1.3.6.1.4.1.42.2.27.8.5.1");
+
+/**
+ * Control Constant - Active Directory Incremental Values
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_X_INCREMENTAL_VALUES", "1.2.840.113556.1.4.802");
+
+/**
+ * Control Constant - Active Directory Domain Scope
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_X_DOMAIN_SCOPE", "1.2.840.113556.1.4.1339");
+
+/**
+ * Control Constant - Active Directory Permissive Modify
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_X_PERMISSIVE_MODIFY", "1.2.840.113556.1.4.1413");
+
+/**
+ * Control Constant - Active Directory Search Options
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_X_SEARCH_OPTIONS", "1.2.840.113556.1.4.1340");
+
+/**
+ * Control Constant - Active Directory Tree Delete
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_X_TREE_DELETE", "1.2.840.113556.1.4.805");
+
+/**
+ * Control Constant - Active Directory Extended DN
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_X_EXTENDED_DN", "1.2.840.113556.1.4.529");
+
+/**
+ * Control Constant - Virtual List View Request
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_VLVREQUEST", "2.16.840.1.113730.3.4.9");
+
+/**
+ * Control Constant - Virtual List View Response
+ * @link https://php.net/manual/en/ldap.constants.php
+ * @since 7.3
+ */
+define("LDAP_CONTROL_VLVRESPONSE", "2.16.840.1.113730.3.4.10");
+
 // End of ldap v.
 ?>
