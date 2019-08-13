@@ -1551,7 +1551,7 @@ namespace MongoDB {}
              * Returns the command document
              * The reply document will be converted from BSON to PHP using the default deserialization rules (e.g. BSON documents will be converted to stdClass).
              * @link   https://secure.php.net/manual/en/mongodb-driver-monitoring-commandstartedevent.getcommand.php
-             * @return string the command document as a stdClass object.
+             * @return object the command document as a stdClass object.
              * @throws \InvalidArgumentException on argument parsing errors.
              * @since 1.3.0
              */
