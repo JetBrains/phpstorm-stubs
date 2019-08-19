@@ -1599,7 +1599,7 @@ class ReflectionProperty implements Reflector {
 
 	/**
 	 * Gets property type
-	 * @return ReflectionNamedType|null
+	 * @return ReflectionType|null
 	 * @since 7.4.0
 	 */
 	public function getType() {}
