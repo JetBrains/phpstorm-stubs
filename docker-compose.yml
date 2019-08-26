@@ -1,6 +1,6 @@
 version: '2'
 services:
   php:
-    image: php:7.3
+    build: .
     volumes:
       - .:/opt/project/phpstorm-stubs
