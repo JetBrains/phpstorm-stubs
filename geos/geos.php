@@ -315,10 +315,10 @@ class GEOSGeometry
     /**
      * @param GEOSGeometry $geom
      * @param string|null $pattern
-     * @return bool
+     * @return bool|string
      * @throws Exception
      */
-    public function relate(GEOSGeometry $geom, string $pattern = null): bool {}
+    public function relate(GEOSGeometry $geom, string $pattern = null) {}
 
     /**
      * @param GEOSGeometry $geom
@@ -598,16 +598,18 @@ class GEOSGeometry
     public function length(): float {}
 
     /**
+     * @param GEOSGeometry $geom
      * @return float
      * @throws Exception
      */
-    public function distance(): float {}
+    public function distance(GEOSGeometry $geom): float {}
 
     /**
+     * @param GEOSGeometry $geom
      * @return float
      * @throws Exception
      */
-    public function hausdorffDistance(): float {}
+    public function hausdorffDistance(GEOSGeometry $geom): float {}
 
     /**
      * @param GEOSGeometry $geom
@@ -699,16 +701,18 @@ class GEOSWKBWriter
     public function setIncludeSRID(int $srid): void {}
 
     /**
+     * @param GEOSGeometry $geom
      * @return string
      * @throws Exception
      */
-    public function write(): string {}
+    public function write(GEOSGeometry $geom): string {}
 
     /**
+     * @param GEOSGeometry $geom
      * @return string
      * @throws Exception
      */
-    public function writeHEX(): string {}
+    public function writeHEX(GEOSGeometry $geom): string {}
 
 }
 
