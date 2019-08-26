@@ -127,13 +127,12 @@ function ldap_close ($link_identifier) {}
  * </p>
  * @param string $bind_rdn [optional]
  * @param string $bind_password [optional]
- * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 4.0
  * @since 5.0
  * @since 7.0
  */
-function ldap_bind ($link_identifier, $bind_rdn = null, $bind_password = null, $serverctrls = []) {}
+function ldap_bind ($link_identifier, $bind_rdn = null, $bind_password = null) {}
 
 /**
  * Bind to LDAP directory
@@ -1616,6 +1615,32 @@ define("LDAP_CONTROL_VLVREQUEST", "2.16.840.1.113730.3.4.9");
  * @since 7.3
  */
 define("LDAP_CONTROL_VLVRESPONSE", "2.16.840.1.113730.3.4.10");
+
+
+/**
+ * Extended Operation constant - Modify password
+ */
+define("LDAP_EXOP_MODIFY_PASSWD", "1.3.6.1.4.1.4203.1.11.1");
+
+/**
+ * Extended Operation Constant - Refresh
+ */
+define("LDAP_EXOP_REFRESH", "1.3.6.1.4.1.1466.101.119.1");
+
+/**
+ * Extended Operation constant - Start TLS
+ */
+define("LDAP_EXOP_START_TLS", "1.3.6.1.4.1.1466.20037");
+
+/**
+ * Extended Operation Constant - Turn
+ */
+define("LDAP_EXOP_TURN", "1.3.6.1.1.19");
+
+/**
+ * Extended Operation Constant - WHOAMI
+ */
+define("LDAP_EXOP_WHO_AM_I", "1.3.6.1.4.1.4203.1.11.3");
 
 // End of ldap v.
 ?>
