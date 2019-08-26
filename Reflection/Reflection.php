@@ -1597,6 +1597,29 @@ class ReflectionProperty implements Reflector {
 	 */
 	public function setAccessible ($accessible) {}
 
+	/**
+	 * Gets property type
+	 * @return ReflectionType|null
+	 * @since 7.4.0
+	 */
+	public function getType() {}
+
+	/**
+	 * Checks if property has type
+	 * @return bool
+	 * @since 7.4.0
+	 */
+	public function hasType() {}
+
+	/**
+	 * Checks if property is initialized
+	 * @param object $object [optional]<p>
+	 * If the property is non-static an object must be provided.
+	 * </p>
+	 * @return bool
+	 * @since 7.4.0
+	 */
+	public function isInitialized ($object) {}
 }
 
 /**
