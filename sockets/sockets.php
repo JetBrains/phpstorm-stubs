@@ -196,6 +196,7 @@ function socket_create ($domain, $type, $protocol) {}
 
 /**
  * @param resource $socket
+ * @return resource|false
  */
 function socket_export_stream($socket) {}
 

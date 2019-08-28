@@ -4,6 +4,5 @@ namespace parallel\Events\Error;
 
 use parallel\Events\Error;
 
-class Timeout extends Error
-{
+class Timeout extends Error{
 }

@@ -15,6 +15,6 @@ install:
   - composer install --ignore-platform-reqs
 
 script:
-  - docker-compose -f docker-compose.yml pull
+  - docker-compose -f docker-compose.yml build
   - docker-compose -f docker-compose.yml run php /opt/project/phpstorm-stubs/vendor/bin/phpunit /opt/project/phpstorm-stubs/tests/
   - ./tests/check-stub-map

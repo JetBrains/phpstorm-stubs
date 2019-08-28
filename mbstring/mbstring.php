@@ -835,7 +835,7 @@ function mb_convert_variables ($to_encoding, $from_encoding, &...$vars) {}
  * </p>
  * @param string $encoding &mbstring.encoding.parameter;
  * @param bool $is_hex [optional]
- * @return string The converted string.
+ * @return string|false|null The converted string.
  * @since 4.0.6
  * @since 5.0
  */
@@ -852,7 +852,7 @@ function mb_encode_numericentity ($str, array $convmap, $encoding = null, $is_he
  * the code area to convert.
  * </p>
  * @param string $encoding &mbstring.encoding.parameter;
- * @return string The converted string.
+ * @return string|false|null The converted string.
  * @since 4.0.6
  * @since 5.0
  */
