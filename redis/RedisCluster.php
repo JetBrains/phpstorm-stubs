@@ -3054,7 +3054,6 @@ class RedisCluster {
      *                         | COMANDSTATS
      *
      * Returns an associative array of strings and integers, with the following keys:
-     * Returns an associative array of strings and integers, with the following keys:
      * - redis_version
      * - redis_git_sha1
      * - redis_git_dirty
@@ -3187,7 +3186,7 @@ class RedisCluster {
      * - cluster_enabled
      *
      * @link    https://redis.io/commands/info
-     * @return string
+     * @return  array
      * @example
      * <pre>
      * $redisCluster->info();

@@ -3716,7 +3716,7 @@ class RedisArray {
      * - cluster_enabled
      *
      * @link    https://redis.io/commands/info
-     * @return string
+     * @return  array
      * @example
      * <pre>
      * $redis->info();
