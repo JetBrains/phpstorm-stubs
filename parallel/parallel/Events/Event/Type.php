@@ -2,51 +2,22 @@
 
 namespace parallel\Events\Event;
 
-/**
- * The values of all constants are an implementation detail and cannot be relied upon.
- * @link https://github.com/krakjoe/parallel/issues/37#issuecomment-493502459
- */
-final class Type
-{
-    /**
-     * Event::$object was read into Event::$value
-     *
-     * @var int
-     */
-    public const Read = null;
+final class Type{
+	/** Event::$object was read into Event::$value */
+	public const Read = 1;
 
-    /**
-     * Input for Event::$source written to Event::$object
-     *
-     * @var int
-     */
-    public const Write = null;
+	/** Input for Event::$source written to Event::$object */
+	public const Write = 2;
 
-    /**
-     * Event::$object (Channel) was closed
-     *
-     * @var int
-     */
-    public const Close = null;
+	/** Event::$object (Channel) was closed */
+	public const Close = 3;
 
-    /**
-     * Event::$object (Future) was cancelled
-     *
-     * @var int
-     */
-    public const Cancel = null;
+	/** Event::$object (Future) was cancelled */
+	public const Cancel = 5;
 
-    /**
-     * Runtime executing Event::$object (Future) was killed
-     *
-     * @var int
-     */
-    public const Kill = null;
+	/** Runtime executing Event::$object (Future) was killed */
+	public const Kill = 6;
 
-    /**
-     * Event::$object (Future) raised error
-     *
-     * @var int
-     */
-    public const Error = null;
+	/** Event::$object (Future) raised error */
+	public const Error = 4;
 }
