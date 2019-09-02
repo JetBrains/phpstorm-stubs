@@ -1508,7 +1508,7 @@ class Redis
      * @param string $key
      *
      * @return int the cardinality of the set identified by key, 0 if the set doesn't exist.
-     * 
+     *
      * @link    https://redis.io/commands/scard
      * @example
      * <pre>
@@ -2073,7 +2073,7 @@ class Redis
      * @param int    $timestamp Unix timestamp. The key's date of death, in seconds from Epoch time.
      *
      * @return bool TRUE in case of success, FALSE in case of failure
-     * 
+     *
      * @link    https://redis.io/commands/expireat
      * @example
      * <pre>
@@ -4581,7 +4581,7 @@ class Redis
      * @param string|array $key
      *
      * @return int
-     * 
+     *
      * @link    https://redis.io/commands/pfcount
      * @example
      * <pre>
@@ -5005,5 +5005,148 @@ class RedisArray
      */
     public function _rehash()
     {
+    }
+
+    /**
+     * Returns an associative array of strings and integers, with the following keys:
+     * - redis_version
+     * - redis_git_sha1
+     * - redis_git_dirty
+     * - redis_build_id
+     * - redis_mode
+     * - os
+     * - arch_bits
+     * - multiplexing_api
+     * - atomicvar_api
+     * - gcc_version
+     * - process_id
+     * - run_id
+     * - tcp_port
+     * - uptime_in_seconds
+     * - uptime_in_days
+     * - hz
+     * - lru_clock
+     * - executable
+     * - config_file
+     * - connected_clients
+     * - client_longest_output_list
+     * - client_biggest_input_buf
+     * - blocked_clients
+     * - used_memory
+     * - used_memory_human
+     * - used_memory_rss
+     * - used_memory_rss_human
+     * - used_memory_peak
+     * - used_memory_peak_human
+     * - used_memory_peak_perc
+     * - used_memory_peak
+     * - used_memory_overhead
+     * - used_memory_startup
+     * - used_memory_dataset
+     * - used_memory_dataset_perc
+     * - total_system_memory
+     * - total_system_memory_human
+     * - used_memory_lua
+     * - used_memory_lua_human
+     * - maxmemory
+     * - maxmemory_human
+     * - maxmemory_policy
+     * - mem_fragmentation_ratio
+     * - mem_allocator
+     * - active_defrag_running
+     * - lazyfree_pending_objects
+     * - mem_fragmentation_ratio
+     * - loading
+     * - rdb_changes_since_last_save
+     * - rdb_bgsave_in_progress
+     * - rdb_last_save_time
+     * - rdb_last_bgsave_status
+     * - rdb_last_bgsave_time_sec
+     * - rdb_current_bgsave_time_sec
+     * - rdb_last_cow_size
+     * - aof_enabled
+     * - aof_rewrite_in_progress
+     * - aof_rewrite_scheduled
+     * - aof_last_rewrite_time_sec
+     * - aof_current_rewrite_time_sec
+     * - aof_last_bgrewrite_status
+     * - aof_last_write_status
+     * - aof_last_cow_size
+     * - changes_since_last_save
+     * - aof_current_size
+     * - aof_base_size
+     * - aof_pending_rewrite
+     * - aof_buffer_length
+     * - aof_rewrite_buffer_length
+     * - aof_pending_bio_fsync
+     * - aof_delayed_fsync
+     * - loading_start_time
+     * - loading_total_bytes
+     * - loading_loaded_bytes
+     * - loading_loaded_perc
+     * - loading_eta_seconds
+     * - total_connections_received
+     * - total_commands_processed
+     * - instantaneous_ops_per_sec
+     * - total_net_input_bytes
+     * - total_net_output_bytes
+     * - instantaneous_input_kbps
+     * - instantaneous_output_kbps
+     * - rejected_connections
+     * - maxclients
+     * - sync_full
+     * - sync_partial_ok
+     * - sync_partial_err
+     * - expired_keys
+     * - evicted_keys
+     * - keyspace_hits
+     * - keyspace_misses
+     * - pubsub_channels
+     * - pubsub_patterns
+     * - latest_fork_usec
+     * - migrate_cached_sockets
+     * - slave_expires_tracked_keys
+     * - active_defrag_hits
+     * - active_defrag_misses
+     * - active_defrag_key_hits
+     * - active_defrag_key_misses
+     * - role
+     * - master_replid
+     * - master_replid2
+     * - master_repl_offset
+     * - second_repl_offset
+     * - repl_backlog_active
+     * - repl_backlog_size
+     * - repl_backlog_first_byte_offset
+     * - repl_backlog_histlen
+     * - master_host
+     * - master_port
+     * - master_link_status
+     * - master_last_io_seconds_ago
+     * - master_sync_in_progress
+     * - slave_repl_offset
+     * - slave_priority
+     * - slave_read_only
+     * - master_sync_left_bytes
+     * - master_sync_last_io_seconds_ago
+     * - master_link_down_since_seconds
+     * - connected_slaves
+     * - min-slaves-to-write
+     * - min-replicas-to-write
+     * - min_slaves_good_slaves
+     * - used_cpu_sys
+     * - used_cpu_user
+     * - used_cpu_sys_children
+     * - used_cpu_user_children
+     * - cluster_enabled
+     *
+     * @link    https://redis.io/commands/info
+     * @return  array
+     * @example
+     * <pre>
+     * $redis->info();
+     * </pre>
+     */
+    public function info() {
     }
 }
