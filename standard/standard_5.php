@@ -251,6 +251,7 @@ function is_double ($var) {}
  * false otherwise.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.4
  */
 function is_real ($var) {}
 
