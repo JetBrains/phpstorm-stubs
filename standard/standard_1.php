@@ -175,6 +175,7 @@ function hebrev ($hebrew_text, $max_chars_per_line = null) {}
  * @return string the visual string.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.4
  */
 function hebrevc ($hebrew_text, $max_chars_per_line = null) {}
 
@@ -495,6 +496,7 @@ function strcoll ($str1, $str2) {}
  * emitting E_WARNING.
  * @since 4.3.0
  * @since 5.0
+ * @deprecated 7.4
  */
 function money_format ($format, $number) {}
 

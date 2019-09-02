@@ -58,6 +58,7 @@ interface Reflector  {
 	 * @link https://php.net/manual/en/reflector.export.php
 	 * @return string
 	 * @since 5.0
+	 * @deprecated 7.4
 	 */
 	static function export ();
 

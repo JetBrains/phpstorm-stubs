@@ -376,6 +376,7 @@ define ('FILTER_SANITIZE_NUMBER_FLOAT', 520);
 /**
  * ID of "magic_quotes" filter.
  * @link https://php.net/manual/en/filter.constants.php
+ * @deprecated 7.4
  */
 define ('FILTER_SANITIZE_MAGIC_QUOTES', 521);
 

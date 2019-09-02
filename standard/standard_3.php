@@ -952,6 +952,7 @@ function quoted_printable_encode ($str) {}
  * @return string the converted string.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.4
  */
 function convert_cyr_string ($str, $from, $to) {}
 

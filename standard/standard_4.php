@@ -529,6 +529,7 @@ function set_include_path ($new_include_path) {}
  * @return void 
  * @since 4.3.0
  * @since 5.0
+ * @deprecated 7.4
  */
 function restore_include_path () {}
 
