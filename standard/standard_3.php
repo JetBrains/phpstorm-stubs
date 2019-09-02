@@ -1021,6 +1021,7 @@ function set_magic_quotes_runtime ($new_setting) {}
  * @return int 0 if magic quotes gpc are off, 1 otherwise.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.4
  */
 function get_magic_quotes_gpc () {}
 
@@ -1030,6 +1031,7 @@ function get_magic_quotes_gpc () {}
  * @return int 0 if magic quotes runtime is off, 1 otherwise.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.4
  */
 function get_magic_quotes_runtime () {}
 
