@@ -1383,11 +1383,10 @@ class mysqli_stmt  {
 	/**
 	 * Get result of SHOW WARNINGS
 	 * @link https://php.net/manual/en/mysqli-stmt.get-warnings.php
-	 * @param mysqli_stmt $stmt
 	 * @return object
 	 * @since 5.1.0
 	 */
-	public function get_warnings (mysqli_stmt $stmt) {}
+	public function get_warnings () {}
 
 	/**
 	 * Returns result set metadata from a prepared statement
