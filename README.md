@@ -19,7 +19,7 @@ The support for such “non-standard” stubs is community-driven, and we only v
 [Contribution process](CONTRIBUTING.md)
 
 ### Updating the IDE
-TBD: Have a full copy of the .git repo within an IDE and add it to the project as an external library called "PHP Runtime". It should then be easily updatable both ways via normal git methods.
+Have a full copy of the .git repo within an IDE and provide its path in `Settings | Languages & Frameworks | PHP | PHP Runtime | Advanced settings | Default stubs path`. It should then be easily updatable both ways via normal git methods.
 
 ### Extensions enabled by default
 The set of extensions enabled by default in PhpStorm can change anytime without prior notice. To learn how to view the enabled extensions, look [here](https://blog.jetbrains.com/phpstorm/2017/03/per-project-php-extension-settings-in-phpstorm-2017-1/).
