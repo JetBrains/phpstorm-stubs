@@ -8735,6 +8735,7 @@ const CONSTANTS = array (
   'MYSQLI_OPT_LOCAL_INFILE' => 'mysqli/mysqli.php',
   'MYSQLI_OPT_NET_CMD_BUFFER_SIZE' => 'mysqli/mysqli.php',
   'MYSQLI_OPT_NET_READ_BUFFER_SIZE' => 'mysqli/mysqli.php',
+  'MYSQLI_OPT_READ_TIMEOUT' => 'mysqli/mysqli.php',
   'MYSQLI_OPT_SSL_VERIFY_SERVER_CERT' => 'mysqli/mysqli.php',
   'MYSQLI_PART_KEY_FLAG' => 'mysqli/mysqli.php',
   'MYSQLI_PRI_KEY_FLAG' => 'mysqli/mysqli.php',
