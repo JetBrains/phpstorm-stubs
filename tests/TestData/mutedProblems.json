@@ -1009,6 +1009,30 @@
       "problems": [
         "parameter mismatch"
       ]
+    },
+    {
+      "name": "mysqli_stmt_bind_result",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "mysqli_stmt_bind_param",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name":"mysqli_escape_string",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name":"mysqli_set_opt",
+      "problems": [
+        "parameter mismatch"
+      ]
     }
   ],
   "classes": [
@@ -1601,6 +1625,29 @@
       "methods": [
         {
           "name": "__invoke",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mysqli_stmt",
+      "methods": [
+        {
+          "name": "__construct",
+          "problems": [
+            "parameter mismatch"
+          ]
+        },
+        {
+          "name": "bind_param",
+          "problems": [
+            "parameter mismatch"
+          ]
+        },
+        {
+          "name": "bind_result",
           "problems": [
             "parameter mismatch"
           ]

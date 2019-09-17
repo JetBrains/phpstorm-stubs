@@ -6,3 +6,4 @@ RUN set -x \
     && docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/ \
     && docker-php-ext-install ldap \
     && apt-get purge -y --auto-remove libldap2-dev
+RUN docker-php-ext-install mysqli
