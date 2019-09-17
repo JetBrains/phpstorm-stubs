@@ -89,13 +89,14 @@ function pcntl_fork () {}
  * </tr>
  * </table>
  * </p>
+ * @param array &$rusage [optional]
  * @return int <b>pcntl_waitpid</b> returns the process ID of the
  * child which exited, -1 on error or zero if <b>WNOHANG</b> was used and no
  * child was available
  * @since 4.1.0
  * @since 5.0
  */
-function pcntl_waitpid ($pid, &$status, $options = 0) {}
+function pcntl_waitpid ($pid, &$status, $options = 0, array &$rusage) {}
 
 /**
  * Waits on or returns the status of a forked child
@@ -136,12 +137,13 @@ function pcntl_waitpid ($pid, &$status, $options = 0) {}
  * </tr>
  * </table>
  * </p>
+ * @param array &$rusage [optional]
  * @return int <b>pcntl_wait</b> returns the process ID of the
  * child which exited, -1 on error or zero if WNOHANG was provided as an
  * option (on wait3-available systems) and no child was available.
  * @since 5.0
  */
-function pcntl_wait (&$status, $options = 0) {}
+function pcntl_wait (&$status, $options = 0, &$rusage) {}
 
 /**
  * Installs a signal handler
@@ -485,7 +487,7 @@ function pcntl_signal_get_handler($signo) {}
 
 define ('WNOHANG', 1);
 define ('WUNTRACED', 2);
-define ('WCONTINUED', 16);
+define ('WCONTINUED', 8);
 define ('SIG_IGN', 1);
 define ('SIG_DFL', 0);
 define ('SIG_ERR', -1);
@@ -545,6 +547,18 @@ define ('SIG_UNBLOCK', 1);
  * @since 5.3.0
  */
 define ('SIG_SETMASK', 2);
+
+/**
+ * @link https://php.net/manual/en/pcntl.constants.php
+ * @since 5.3.0
+ */
+define ('SIGRTMIN', 34);
+
+/**
+ * @link https://php.net/manual/en/pcntl.constants.php
+ * @since 5.3.0
+ */
+define ('SIGRTMAX', 64);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php

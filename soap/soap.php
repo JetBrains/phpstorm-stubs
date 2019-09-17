@@ -363,6 +363,14 @@ class SoapClient  {
 	public function __getTypes () {}
 
 	/**
+	 * Returns a list of all cookies
+	 * @link https://php.net/manual/en/soapclient.getcookies.php
+	 * @return array The array of all cookies
+	 * @since 5.4.3
+	 */
+	public function __getCookies () {}
+
+	/**
 	 * Performs a SOAP request
 	 * @link https://php.net/manual/en/soapclient.dorequest.php
 	 * @param string $request <p>
@@ -535,15 +543,11 @@ class SoapServer  {
 	 * @param string $class_name <p>
 	 * The name of the exported class.
 	 * </p>
-	 * @param mixed $args [optional] <p>
-	 * These optional parameters will be passed to the default class constructor
-	 * during object creation.
-	 * </p>
-	 * @param mixed $_ [optional]
+	 * @param mixed $_ [optional] These optional parameters will be passed to the default class constructor during object creation.
 	 * @return void No value is returned.
 	 * @since 5.0.1
 	 */
-	public function setClass ($class_name, $args = null, $_ = null) {}
+	public function setClass ($class_name, $_ = null) {}
 
 	/**
 	 * Sets the object which will be used to handle SOAP requests

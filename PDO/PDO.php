@@ -670,6 +670,8 @@ class PDO  {
 	 */
 	const MYSQL_ATTR_IGNORE_SPACE = 1009;
 
+	const MYSQL_ATTR_SERVER_PUBLIC_KEY = 1009;
+
 	/**
 	 * <p>
 	 * The file path to the SSL key.

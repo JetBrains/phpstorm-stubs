@@ -527,6 +527,48 @@
       "problems": [
         "wrong value"
       ]
+    },
+    {
+      "name": "SIG_ERR",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "SI_QUEUE",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "SI_TIMER",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "SI_MESGQ",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "SI_ASYNCIO",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "SI_SIGIO",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
+      "name": "SI_TKILL",
+      "problems": [
+        "wrong value"
+      ]
     }
   ],
   "functions": [
@@ -1030,6 +1072,12 @@
     },
     {
       "name":"mysqli_set_opt",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name":"socket_cmsg_space",
       "problems": [
         "parameter mismatch"
       ]

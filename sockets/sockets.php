@@ -1482,7 +1482,7 @@ define('IPV6_MULTICAST_HOPS', 18);
  * @link https://php.net/manual/en/function.socket-get-option.php
  */
 define('IPV6_MULTICAST_LOOP', 19);
-define ('IPV6_V6ONLY', 27);
+define ('IPV6_V6ONLY', 26);
 
 /**
  * Operation not permitted.
