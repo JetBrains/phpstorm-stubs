@@ -845,6 +845,17 @@
   ],
   "classes": [
     {
+      "name" : "AMQPBasicProperties",
+      "methods": [
+        {
+          "name": "__construct",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
       "name": "RecursiveRegexIterator",
       "methods": [
         {
@@ -1433,6 +1444,17 @@
       "methods": [
         {
           "name": "__invoke",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SyncEvent",
+      "methods": [
+        {
+          "name": "__construct",
           "problems": [
             "parameter mismatch"
           ]

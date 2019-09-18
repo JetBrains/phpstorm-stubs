@@ -861,6 +861,8 @@ class AMQPConnection
      * @param bool $verify
      */
     public function setVerify($verify) { }
+
+    public function getSaslMethod(){}
 }
 
 /**
@@ -1210,6 +1212,15 @@ class AMQPExchange
      * @return AMQPConnection
      */
     public function getConnection() { }
+
+    /**
+     * Declare a new exchange on the broker.
+     * @return int
+     * @throws AMQPExchangeException
+     * @throws AMQPChannelException
+     * @throws AMQPConnectionException
+     */
+    public function declare(){}
 }
 
 /**
@@ -1557,6 +1568,14 @@ class AMQPQueue
      */
     public function getConsumerTag() { }
 
+    /**
+     * Declare a new queue
+     * @return int
+     * @throws AMQPChannelException
+     * @throws AMQPConnectionException
+     */
+    public function declare() {}
+
 }
 
 /**
@@ -1592,5 +1611,12 @@ final class AMQPTimestamp
  * stub class representing AMQPExchangeValue from pecl-amqp
  */
 class AMQPExchangeValue extends AMQPException
+{
+}
+
+/**
+ * stub class representing AMQPExchangeValue from pecl-amqp
+ */
+class AMQPValueException extends AMQPException
 {
 }

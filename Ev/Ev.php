@@ -397,6 +397,11 @@ abstract class EvWatcher
 {
 
     /**
+     * Abstract constructor of a watcher object
+     */
+    abstract function __construct();
+
+    /**
      * @var mixed Custom user data associated with the watcher
      */
     public $data;
@@ -809,6 +814,14 @@ final class EvPeriodic extends EvWatcher
     final public static function createStopped(
         $offset, $interval, callable $reschedule_cb = null, callable $callback, $data = null, $priority = 0
     ) {}
+
+    /**
+     * Configures the watcher
+     * @param float $offset The same meaning as for {@see EvPeriodic::__construct}
+     * @param float $interval The same meaning as for {@see EvPeriodic::__construct}
+     * @return void
+     */
+    public function set($offset , $interval ){}
 }
 
 /**
@@ -1302,7 +1315,7 @@ final class EvLoop
      * @param mixed $data
      * @param int $priority
      */
-    public function io($fd, $events, callable $callback, $data = null, $priority = 0) {}
+    final public function io($fd, $events, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Must be called after a fork.
@@ -1345,7 +1358,7 @@ final class EvLoop
      * @param mixed $data
      * @param int $priority
      */
-    public function periodic($offset, $interval, callable $callback, $data = null, $priority = 0) {}
+    public final function periodic($offset, $interval, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvPrepare object associated with the current event loop instance.
@@ -1422,7 +1435,7 @@ final class EvLoop
      * @param int $priority
      * @return EvTimer
      */
-    public function timer($after, $repeat, callable $callback, $data = null, $priority = 0) {}
+    public final function timer($after, $repeat, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Performs internal consistency checks (for debugging).

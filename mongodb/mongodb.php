@@ -25,6 +25,7 @@ namespace MongoDB {}
         use MongoDB\Driver\Exception\RuntimeException;
         use MongoDB\Driver\Exception\WriteConcernException;
         use MongoDB\Driver\Exception\WriteException;
+        use Traversable;
 
         /**
          * The MongoDB\Driver\Manager is the main entry point to the extension. It is responsible for maintaining connections to MongoDB (be it standalone server, replica set, or sharded cluster).
@@ -504,6 +505,8 @@ namespace MongoDB {}
             const RP_SECONDARY = 2;
             const RP_SECONDARY_PREFERRED = 6;
             const RP_NEAREST = 10;
+            const NO_MAX_STALENESS = -1;
+            const SMALLEST_MAX_STALENESS_SECONDS = 90;
 
             /**
              * Construct immutable ReadPreference
@@ -513,7 +516,7 @@ namespace MongoDB {}
              * @param array $options
              * @throws InvalidArgumentException if mode is invalid or if tagSets is provided for a primary read preference.
              */
-            final public function __construct($mode, array $tagSets = null, array $options = [] )
+            final public function __construct($mode, array $tagSets = null, array $options = [])
             {
             }
 
@@ -713,7 +716,7 @@ namespace MongoDB {}
              * @param array $options
              * @throws InvalidArgumentException on argument parsing errors.
              */
-            public function __construct(array $options = [])
+            public final function __construct(array $options = [])
             {
             }
 
@@ -747,7 +750,7 @@ namespace MongoDB {}
              * @return mixed
              * @Throws MongoDB\Driver\InvalidArgumentException on argument parsing errors.
              */
-            public function insert($document)
+            public final function insert($document)
             {
             }
 
@@ -1017,11 +1020,12 @@ namespace MongoDB {}
             /**
              * Advances the cluster time for this session
              * @link https://secure.php.net/manual/en/mongodb-driver-session.advanceclustertime.php
+             * @param array|object $clusterTime The cluster time is a document containing a logical timestamp and server signature
              * @return void
              * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors
              * @since 1.4.0
              */
-            final public function advanceClusterTime()
+            final public function advanceClusterTime($clusterTime)
             {
             }
 
@@ -1112,6 +1116,55 @@ namespace MongoDB {}
             final public function startTransaction($options)
             {
             }
+        }
+
+        /**
+         * This interface is implemented by MongoDB\Driver\Cursor but may also be used for type-hinting and userland classes.
+         * @link https://www.php.net/manual/en/class.mongodb-driver-cursorinterface.php
+         */
+        interface CursorInterface extends Traversable
+        {
+            /**
+             * Returns the MongoDB\Driver\CursorId associated with this cursor. A cursor ID uniquely identifies the cursor on the server.
+             * @return CursorId Returns the MongoDB\Driver\CursorId for this cursor.
+             * @throws InvalidArgumentException
+             * @link https://www.php.net/manual/en/mongodb-driver-cursorinterface.getid.php
+             */
+            function getId();
+
+            /**
+             * Returns the MongoDB\Driver\Server associated with this cursor.
+             * This is the server that executed the MongoDB\Driver\Query or MongoDB\Driver\Command.
+             * @link https://www.php.net/manual/en/mongodb-driver-cursorinterface.getserver.php
+             * @return Server Returns the MongoDB\Driver\Server associated with this cursor.
+             * @throws InvalidArgumentException
+             */
+            function getServer();
+
+            /**
+             * Checks whether the cursor may have additional results available to read.
+             * @link https://www.php.net/manual/en/mongodb-driver-cursorinterface.isdead.php
+             * @return bool Returns TRUE if additional results are not available, and FALSE otherwise.
+             * @throws InvalidArgumentException
+             */
+            function isDead();
+
+            /**
+             * Sets a type map to use for BSON unserialization
+             * @link https://www.php.net/manual/en/mongodb-driver-cursorinterface.settypemap.php
+             * @param array $typemap Type map configuration.
+             * @return mixed
+             * @throws InvalidArgumentException
+             */
+            function setTypeMap(array $typemap);
+
+            /**
+             * Iterates the cursor and returns its results in an array.
+             * MongoDB\Driver\CursorInterface::setTypeMap() may be used to control how documents are unserialized into PHP values.
+             * @return array Returns an array containing all results for this cursor.
+             * @throws InvalidArgumentException
+             */
+            function toArray();
         }
     }
 
@@ -1629,6 +1682,34 @@ namespace MongoDB {}
 
         use MongoDB\Driver\Exception\InvalidArgumentException;
         use MongoDB\Driver\Exception\UnexpectedValueException;
+        use DateTime;
+
+        /**
+         * Converts a BSON string to its Canonical Extended JSON representation.
+         * The canonical format prefers type fidelity at the expense of concise output and is most suited for producing
+         * output that can be converted back to BSON without any loss of type information
+         * (e.g. numeric types will remain differentiated).
+         * @link https://www.php.net/manual/en/function.mongodb.bson-tocanonicalextendedjson.php
+         * @param string $bson BSON value to be converted
+         * @return string The converted JSON value
+         * @throws UnexpectedValueException
+         */
+        function toCanonicalExtendedJSON($bson)
+        {
+        }
+
+        /**
+         * Converts a BSON string to its » Relaxed Extended JSON representation.
+         * The relaxed format prefers use of JSON type primitives at the expense of type fidelity and is most suited for
+         * producing output that can be easily consumed by web APIs and humans.
+         * @link https://www.php.net/manual/en/function.mongodb.bson-torelaxedextendedjson.php
+         * @param string $bson BSON value to be converted
+         * @return string The converted JSON value
+         * @throws UnexpectedValueException
+         */
+        function toRelaxedExtendedJSON($bson)
+        {
+        }
 
         /**
          * Returns the BSON representation of a JSON value
@@ -1702,7 +1783,7 @@ namespace MongoDB {}
              * @param string $data
              * @param integer $type
              */
-            public function __construct($data, $type)
+            public final function __construct($data, $type)
             {
             }
 
@@ -1721,6 +1802,10 @@ namespace MongoDB {}
              * @return integer
              */
             public function getType()
+            {
+            }
+
+            public static function __set_state($an_array)
             {
             }
         }
@@ -1748,6 +1833,10 @@ namespace MongoDB {}
             final public function __toString()
             {
             }
+
+            public static function __set_state($an_array)
+            {
+            }
         }
 
         /**
@@ -1765,6 +1854,10 @@ namespace MongoDB {}
             final public function __construct($code, $scope = [])
             {
             }
+
+            public static function __set_state($an_array)
+            {
+            }
         }
 
         /**
@@ -1773,6 +1866,9 @@ namespace MongoDB {}
          */
         class MaxKey implements Type
         {
+            public static function __set_state($an_array)
+            {
+            }
         }
 
         /**
@@ -1781,6 +1877,9 @@ namespace MongoDB {}
          */
         class MinKey implements Type
         {
+            public static function __set_state($an_array)
+            {
+            }
         }
 
         /**
@@ -1795,7 +1894,7 @@ namespace MongoDB {}
              * @param string $id A 24-character hexadecimal string. If not provided, the driver will generate an ObjectId.
              * @throws InvalidArgumentException if id is not a 24-character hexadecimal string.
              */
-            public function __construct($id = null)
+            public final function __construct($id = null)
             {
             }
 
@@ -1807,17 +1906,17 @@ namespace MongoDB {}
             public function __toString()
             {
             }
-            
+
             /**
              * Returns the timestamp component of this ObjectId
              * @since 1.2.0
              * @link https://secure.php.net/manual/en/mongodb-bson-objectid.gettimestamp.php
              * @return int the timestamp component of this ObjectId
              */
-            public function getTimestamp()
+            public final function getTimestamp()
             {
             }
-            
+
             /**
              * Returns a representation that can be converted to JSON
              * @since 1.2.0
@@ -1837,7 +1936,7 @@ namespace MongoDB {}
             public function serialize()
             {
             }
-            
+
             /**
              * Unserialize an ObjectId
              * @since 1.2.0
@@ -1861,7 +1960,7 @@ namespace MongoDB {}
              * @param string $pattern
              * @param string $flags [optional]
              */
-            public function __construct($pattern, $flags = "")
+            public final function __construct($pattern, $flags = "")
             {
             }
 
@@ -1888,6 +1987,10 @@ namespace MongoDB {}
              * @return string
              */
             public function __toString()
+            {
+            }
+
+            public static function __set_state($an_array)
             {
             }
         }
@@ -2128,9 +2231,147 @@ namespace MongoDB {}
             public function jsonSerialize()
             {
             }
-        }
 
             /**
+             * Returns the Symbol as a string
+             * @return string Returns the string representation of this Symbol.
+             */
+            public function __toString()
+            {
+            }
+        }
+
+        /**
+         * This interface is implemented by MongoDB\BSON\Binary but may also be used for type-hinting and userland classes.
+         * @link https://www.php.net/manual/en/class.mongodb-bson-binaryinterface.php
+         */
+        interface BinaryInterface
+        {
+            /**
+             * @link https://www.php.net/manual/en/mongodb-bson-binaryinterface.getdata.php
+             * @return string Returns the BinaryInterface's data
+             */
+            function getData();
+
+            /**
+             * @link https://www.php.net/manual/en/mongodb-bson-binaryinterface.gettype.php
+             * @return int Returns the BinaryInterface's type.
+             */
+            function getType();
+
+            /**
+             * This method is an alias of: MongoDB\BSON\BinaryInterface::getData().
+             * @link https://www.php.net/manual/en/mongodb-bson-binaryinterface.tostring.php
+             * @return string Returns the BinaryInterface's data.
+             */
+            function __toString();
+        }
+
+        /**
+         * This interface is implemented by MongoDB\BSON\ObjectId but may also be used for type-hinting and userland classes.
+         * @link https://www.php.net/manual/en/class.mongodb-bson-objectidinterface.php
+         */
+        interface ObjectIdInterface
+        {
+            /**
+             * @link https://www.php.net/manual/en/mongodb-bson-objectidinterface.gettimestamp.php
+             * @return int Returns the timestamp component of this ObjectIdInterface.
+             */
+            function getTimestamp();
+
+            /**
+             * Returns the hexidecimal representation of this ObjectId
+             * @link https://www.php.net/manual/en/mongodb-bson-objectid.tostring.php
+             * @return string Returns the hexidecimal representation of this ObjectId
+             */
+            function __toString();
+
+            /**
+             * Construct a new ObjectId
+             * @param string $id A 24-character hexadecimal string. If not provided, the driver will generate an ObjectId.
+             * @throws InvalidArgumentException
+             */
+            function __construct(string $id = '');
+        }
+
+        /**
+         * @link https://www.php.net/manual/en/class.mongodb-bson-regexinterface.php
+         * This interface is implemented by MongoDB\BSON\Regex but may also be used for type-hinting and userland classes.
+         */
+        interface RegexInterface
+        {
+            /**
+             * @link https://www.php.net/manual/en/mongodb-bson-regexinterface.getflags.php
+             * @return string Returns the RegexInterface's flags.
+             */
+            function getFlags();
+
+            /**
+             * @link https://www.php.net/manual/en/mongodb-bson-regexinterface.getpattern.php
+             * @return string Returns the RegexInterface's pattern.
+             */
+            function getPattern();
+
+            /**
+             * Returns the string representation of this RegexInterface
+             * @link https://www.php.net/manual/en/mongodb-bson-regexinterface.tostring.php
+             * @return string
+             */
+            function __toString();
+        }
+
+        /**
+         * This interface is implemented by MongoDB\BSON\UTCDateTime but may also be used for type-hinting and userland classes.
+         * @link https://www.php.net/manual/en/class.mongodb-bson-utcdatetimeinterface.php
+         */
+        interface UTCDateTimeInterface
+        {
+            /**
+             * @link https://www.php.net/manual/en/mongodb-bson-utcdatetimeinterface.todatetime.php
+             * @return DateTime Returns the DateTime representation of this UTCDateTimeInterface. The returned DateTime should use the UTC time zone.
+             */
+            function toDateTime();
+
+            /**
+             * Returns the string representation of this UTCDateTimeInterface
+             * @link https://www.php.net/manual/en/mongodb-bson-utcdatetimeinterface.tostring.php
+             * @return string
+             */
+            function __toString();
+        }
+
+        /**
+         * This interface is implemented by MongoDB\BSON\MaxKey but may also be used for type-hinting and userland classes.
+         * @link https://www.php.net/manual/en/class.mongodb-bson-maxkeyinterface.php
+         */
+        interface MaxKeyInterface
+        {
+        }
+
+        /**
+         * This interface is implemented by MongoDB\BSON\MinKey but may also be used for type-hinting and userland classes.
+         * @link https://www.php.net/manual/en/class.mongodb-bson-minkeyinterface.php
+         */
+        interface MinKeyInterface
+        {
+
+        }
+
+        /**
+         * This interface is implemented by MongoDB\BSON\Decimal128 but may also be used for type-hinting and userland classes.
+         * @link https://www.php.net/manual/en/class.mongodb-bson-decimal128interface.php
+         */
+        interface Decimal128Interface
+        {
+            /**
+             * Returns the string representation of this Decimal128Interface
+             * @link https://www.php.net/manual/en/mongodb-bson-decimal128interface.tostring.php
+             * @return string Returns the string representation of this Decimal128Interface
+             */
+            function __toString();
+        }
+
+        /**
          * Classes may implement this interface to take advantage of automatic ODM (object document mapping) behavior in the driver.
          * @link https://php.net/manual/en/class.mongodb-bson-persistable.php
          */
