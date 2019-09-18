@@ -196,7 +196,13 @@ class StubsTest extends TestCase
         );
         $stubInterface = $stubInterfaces[$interfaceName];
         if (!$interface->hasMutedProblem(StubProblemType::WRONG_PARENT)) {
-            static::assertEquals($stubInterface->parentInterfaces, $interface->parentInterfaces);
+            foreach ($interface->parentInterfaces as $parentInterface) {
+                static::assertContains(
+                    $parentInterface,
+                    $stubInterface->parentInterfaces,
+                    "Missing parent interface $parentInterface"
+                );
+            }
         }
         foreach ($interface->constants as $constant) {
             if (!$constant->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
