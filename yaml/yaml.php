@@ -49,6 +49,9 @@ define('YAML_CR_BREAK', 1);
 define('YAML_LN_BREAK', 2);
 define('YAML_CRLN_BREAK', 3);
 
+define('YAML_MERGE_TAG', 'tag:yaml.org,2002:merge');
+define('YAML_BINARY_TAG', 'tag:yaml.org,2002:binary');
+
 /**
  * (PHP 5 &gt;= 5.2.0, PECL yaml &gt;= 0.5.0)<br/>
  * Send the YAML representation of a value to a file

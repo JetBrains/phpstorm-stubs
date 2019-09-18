@@ -2,6 +2,8 @@
 
 // Start of msgpack 0.5.0
 
+const MESSAGEPACK_OPT_PHPONLY = -1001;
+
 /**
  * Serialize a variable into msgpack format
  * @param mixed $value

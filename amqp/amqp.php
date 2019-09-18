@@ -121,13 +121,14 @@ define('AMQP_EX_TYPE_HEADERS', 'headers');
 /**
  *
  */
-define('AMQP_OS_SOCKET_TIMEOUT_ERRNO', 536870947);
+define('AMQP_OS_SOCKET_TIMEOUT_ERRNO', 536870923);
 
 
-/**
- *
- */
 define('PHP_AMQP_MAX_CHANNELS', 256);
+
+define('AMQP_SASL_METHOD_PLAIN', 0);
+
+define('AMQP_SASL_METHOD_EXTERNAL', 1);
 
 /**
  * stub class representing AMQPBasicProperties from pecl-amqp

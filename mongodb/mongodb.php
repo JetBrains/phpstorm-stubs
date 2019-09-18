@@ -1118,6 +1118,7 @@ namespace MongoDB {}
     namespace MongoDB\Driver\Exception {
 
         use MongoDB\Driver\WriteResult;
+        use Throwable;
 
         /**
          * Thrown when the driver encounters a runtime error (e.g. internal error from » libmongoc).
@@ -1147,7 +1148,7 @@ namespace MongoDB {}
          * Common interface for all driver exceptions. This may be used to catch only exceptions originating from the driver itself.
          * @link https://php.net/manual/en/class.mongodb-driver-exception-exception.php
          */
-        interface Exception
+        interface Exception extends Throwable
         {
         }
 
@@ -1214,7 +1215,7 @@ namespace MongoDB {}
          * @link https://php.net/manual/en/class.mongodb-driver-exception-writeexception.php
          * @since 1.0.0
          */
-        abstract class WriteException extends RuntimeException implements Exception
+        abstract class WriteException extends ServerException implements Exception
         {
             /**
              * @var WriteResult associated with the failed write operation.
@@ -1264,7 +1265,7 @@ namespace MongoDB {}
          * Thrown when a query or command fails to complete within a specified time limit (e.g. maxTimeMS).
          * @link https://php.net/manual/en/class.mongodb-driver-exception-executiontimeoutexception.php
          */
-        class ExecutionTimeoutException extends RuntimeException implements Exception
+        class ExecutionTimeoutException extends ServerException implements Exception
         {
         }
 

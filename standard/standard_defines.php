@@ -642,13 +642,13 @@ define ('FILE_BINARY', 0);
  * Disable backslash escaping.
  * @link https://php.net/manual/en/filesystem.constants.php
  */
-define ('FNM_NOESCAPE', 1);
+define ('FNM_NOESCAPE', 2);
 
 /**
  * Slash in string only matches slash in the given pattern.
  * @link https://php.net/manual/en/filesystem.constants.php
  */
-define ('FNM_PATHNAME', 2);
+define ('FNM_PATHNAME', 1);
 
 /**
  * Leading period in string must be exactly matched by period in the given pattern.
@@ -1025,7 +1025,7 @@ define ('IMAGETYPE_ICO', 17);
  */
 define('IMAGETYPE_WEBP', 18);
 define('IMAGETYPE_UNKNOWN', 0);
-define('IMAGETYPE_COUNT', 18);
+define('IMAGETYPE_COUNT', 19);
 
 /**
  * IPv4 Address Resource
@@ -1102,7 +1102,7 @@ define ('DNS_ANY', 268435456);
  * each available record type.
  * @link https://php.net/manual/en/network.constants.php
  */
-define ('DNS_ALL', 251713587);
+define ('DNS_ALL', 251721779);
 
 // End of standard v.5.3.1-0.dotdeb.1
 

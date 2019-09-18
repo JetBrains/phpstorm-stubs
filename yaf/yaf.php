@@ -4,7 +4,7 @@
  * The constants below are defined by this extension, and will only be available when the extension has either been compiled into PHP or dynamically loaded at runtime.
  * @link https://php.net/manual/en/yaf.constants.php
  */
-define('YAF_VERSION', '	3.0.6', true);
+define('YAF_VERSION', '3.0.8', true);
 define('YAF_ENVIRON', 'product', true);
 define('YAF_ERR_STARTUP_FAILED', 512, true);
 define('YAF_ERR_ROUTE_FAILED', 513, true);
@@ -1718,7 +1718,7 @@ abstract class Yaf_Response_Abstract {
     /**
      * @link https://secure.php.net/manual/en/yaf-response-abstract.tostring.php
      */
-    private function __toString(){ }
+    public function __toString(){ }
 
     /**
      * Set content to response
@@ -1932,7 +1932,7 @@ class Yaf_Response_Http extends Yaf_Response_Abstract {
      *
      * @return bool
      */
-    protected function setAllHeaders(array $headers){ }
+    public function setAllHeaders(array $headers){ }
 
     /**
      * @link https://secure.php.net/manual/en/yaf-response-abstract.getheader.php
