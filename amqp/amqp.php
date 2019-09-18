@@ -863,6 +863,8 @@ class AMQPConnection
     public function setVerify($verify) { }
 
     public function getSaslMethod(){}
+
+    public function setSaslMethod($sasl_method){}
 }
 
 /**

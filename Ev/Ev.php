@@ -465,7 +465,7 @@ abstract class EvWatcher
      * @param bool $value With keepalive value set to FALSE the watcher won't keep Ev::run() / EvLoop::run() from
      *      returning even though the watcher is active.
      */
-    public function keepAlive($value) {}
+    public function keepalive($value) {}
 
     /**
      * Sets new callback for the watcher.
@@ -479,14 +479,18 @@ abstract class EvWatcher
      *
      * Marks the watcher as active. Note that only active watchers will receive events.
      */
-    public function start() {}
+    public function start()
+    {
+    }
 
     /**
      * Stops the watcher.
      *
      * Marks the watcher as inactive. Note that only active watchers will receive events.
      */
-    public function stop() {}
+    public function stop()
+    {
+    }
 }
 
 /**
@@ -1256,7 +1260,7 @@ final class EvLoop
      * @param int $priority
      * @return EvCheck
      */
-    public function check(callable $callback, $data = null, $priority = 0) {}
+    public final function check(callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvChild object associated with the current event loop instance;
@@ -1268,7 +1272,7 @@ final class EvLoop
      * @param int $priority
      * @return EvChild
      */
-    public function child($pid, $trace, callable $callback, $data = null, $priority = 0) {}
+    public final function child($pid, $trace, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvEmbed object associated with the current event loop instance.
@@ -1279,7 +1283,7 @@ final class EvLoop
      * @param int $priority
      * @return EvEmbed
      */
-    public function embed(EvLoop $other, callable $callback, $data = null, $priority = 0) {}
+    public final function embed(EvLoop $other, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvFork object associated with the current event loop instance.
@@ -1289,7 +1293,7 @@ final class EvLoop
      * @param int $priority
      * @return EvFork
      */
-    public function fork(callable $callback, $data = null, $priority = 0) {}
+    public final function fork(callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvIdle object associated with the current event loop instance.
@@ -1299,7 +1303,7 @@ final class EvLoop
      * @param int $priority
      * @return EvIdle
      */
-    public function idle(callable $callback, $data = null, $priority = 0) {}
+    public final function idle(callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Invoke all pending watchers while resetting their pending state.
@@ -1367,7 +1371,7 @@ final class EvLoop
      * @param mixed $data
      * @param int $priority
      */
-    public function prepare(callable $callback, $data = null, $priority = 0) {}
+    public final function prepare(callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Resume previously suspended default event loop.
@@ -1397,7 +1401,9 @@ final class EvLoop
      * @param int $priority
      * @return EvSignal
      */
-    public function signal($signal, callable $callback, $data = null, $priority = 0) {}
+    public final function signal($signal, callable $callback, $data = null, $priority = 0)
+    {
+    }
 
     /**
      * Creates EvStats object associated with the current event loop instance.
@@ -1409,7 +1415,7 @@ final class EvLoop
      * @param int $priority
      * @return EvStat
      */
-    public function stat($path, $interval, callable $callback, $data = null, $priority = 0) {}
+    public final function stat($path, $interval, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Stops the event loop.
