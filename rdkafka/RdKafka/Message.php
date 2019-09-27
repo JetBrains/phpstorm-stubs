@@ -28,6 +28,11 @@ class Message
      * @var string
      */
     public $payload;
+    
+    /**
+     * @var int
+     */
+    public $len;
 
     /**
      * @var string
