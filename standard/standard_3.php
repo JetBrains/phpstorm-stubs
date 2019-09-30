@@ -84,7 +84,7 @@ function abs ($number) {}
  * @param float $value <p>
  * The value to round
  * </p>
- * @return float value rounded up to the next highest
+ * @return float|false value rounded up to the next highest
  * integer.
  * The return value of ceil is still of type
  * float as the value range of float is 
@@ -100,7 +100,7 @@ function ceil ($value) {}
  * @param float $value <p>
  * The numeric value to round
  * </p>
- * @return float value rounded to the next lowest integer.
+ * @return float|false value rounded to the next lowest integer.
  * The return value of floor is still of type
  * float because the value range of float is 
  * usually bigger than that of integer.
@@ -126,7 +126,7 @@ function floor ($value) {}
  * PHP_ROUND_HALF_EVEN, or
  * PHP_ROUND_HALF_ODD.
  * </p>
- * @return float The rounded value
+ * @return float|false The rounded value
  * @since 4.0
  * @since 5.0
  */
