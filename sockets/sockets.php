@@ -3,6 +3,59 @@
 // Start of sockets v.
 
 /**
+ * (PHP 7 &gt;= 7.2.0)<br/>
+ * Get array with contents of getaddrinfo about the given hostname.
+ * @link https://www.php.net/manual/en/function.socket-addrinfo-lookup.php
+ * @param string $host <p>
+ * Hostname to search.
+ * </p>
+ * @param string $service [optional] <p>
+ * The service to connect to. If service is a name, it is translated to the corresponding port number.
+ * </p>
+ * @param array $hints [optional] <p>
+ * Hints provide criteria for selecting addresses returned. You may specify the hints as defined by getadrinfo.
+ * </p>
+ * @return array of AddrInfo resource handles that can be used with the other socket_addrinfo functions.
+ * @since 7.2.0
+ */
+function socket_addrinfo_lookup($host, $service, $hints) {}
+
+/**
+ * (PHP 7 &gt;= 7.2.0)<br/>
+ * Create a Socket resource, and connect it to the provided AddrInfo resource.<br/>
+ * The return value of this function may be used with the rest of the socket functions.
+ * @link https://www.php.net/manual/en/function.socket-addrinfo-connect.php
+ * @param resource $addr <p>
+ * Resource created from {@see socket_addrinfo_lookup()}
+ * </p>
+ * @return resource Socket resource on success or NULL on failure.
+ */
+function socket_addrinfo_connect($addr) {}
+
+/**
+ * (PHP 7 &gt;= 7.2.0)<br/>
+ * Create a Socket resource, and bind it to the provided AddrInfo resource.<br/>
+ * The return value of this function may be used with {@see socket_listen()}.
+ * @link https://www.php.net/manual/en/function.socket-addrinfo-bind.php
+ * @param resource $addr <p>
+ * Resource created from {@see socket_addrinfo_lookup()}
+ * </p>
+ * @return resource Socket resource on success or NULL on failure.
+ */
+function socket_addrinfo_bind($addr) {}
+
+/**
+ * (PHP 7 &gt;= 7.2.0)<br/>
+ * Get information about addrinfo
+ * @link https://www.php.net/manual/en/function.socket-addrinfo-explain.php
+ * @param resource $addr <p>
+ * Resource created from {@see socket_addrinfo_lookup()}
+ * </p>
+ * @return array containing the fields in the addrinfo structure.
+ */
+function socket_addrinfo_explain($addr) {}
+
+/**
  * Runs the select() system call on the given arrays of sockets with a specified timeout
  * @link https://php.net/manual/en/function.socket-select.php
  * @param array $read <p>

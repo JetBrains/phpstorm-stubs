@@ -368,6 +368,34 @@ class OCI_Collection  {
 }
 
 /**
+ * Register a user-defined callback function for Oracle Database TAF.
+ * @link https://www.php.net/manual/en/function.oci-register-taf-callback.php
+ * @param resource $connection <p>
+ * An Oracle connection identifier.
+ * </p>
+ * @param mixed $callbackFn [optional] <p>
+ * A user-defined callback to register for Oracle TAF. It can be a string of the function name or a Closure (anonymous function).<br/>
+ * The interface of a TAF user-defined callback function is as follows:<br/>
+ * <i>userCallbackFn ( resource $connection , int $event , int $type ) : int</i><br/>
+ * See the parameter description and an example on <a href="https://www.php.net/manual/en/oci8.taf.php">OCI8 Transparent Application Failover (TAF) Support</a> page.
+ * </p>
+ * @return bool TRUE on success or FALSE on failure.
+ * @since 7.2.0
+ */
+function oci_register_taf_callback($connection, $callbackFn) {}
+
+/**
+ * Unregister a user-defined callback function for Oracle Database TAF.
+ * @link https://www.php.net/manual/en/function.oci-unregister-taf-callback.php
+ * @param resource $connection <p>
+ * An Oracle connection identifier.
+ * </p>
+ * @return bool TRUE on success or FALSE on failure.
+ * @since 7.2.0
+ */
+function oci_unregister_taf_callback($connection) {}
+
+/**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
  * Associates a PHP variable with a column for query fetches
  * @link https://php.net/manual/en/function.oci-define-by-name.php
