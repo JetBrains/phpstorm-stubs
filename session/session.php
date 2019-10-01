@@ -4,7 +4,7 @@
 
 /**
  * Get and/or set the current session name.<br/>
- * Before 7.2 checked cookie status and since 7.2 checks both cookie and session status to avoid PHP crash.
+ * Before 7.2.0 checked cookie status and since 7.2.0 checks both cookie and session status to avoid PHP crash.
  * @link https://php.net/manual/en/function.session-name.php
  * @param string $name [optional] <p>
  * The session name references the name of the session, which is
@@ -28,7 +28,7 @@ function session_name ($name = null) {}
 
 /**
  * Get and/or set the current session module.<br/>
- * Since 7.2 it is forbidden to set the module name to "user".
+ * Since 7.2.0 it is forbidden to set the module name to "user".
  * @link https://php.net/manual/en/function.session-module-name.php
  * @param string $module [optional] <p>
  * If <i>module</i> is specified, that module will be
@@ -209,7 +209,7 @@ function session_destroy () {}
 /**
  * Free all session variables
  * @link https://php.net/manual/en/function.session-unset.php
- * @return void|bool, since 7.2 returns true on success or false on failure.
+ * @return void|bool since 7.2.0 returns true on success or false on failure.
  * @since 4.0
  * @since 5.0
  */
@@ -385,7 +385,7 @@ function session_cache_expire ($new_cache_expire = null) {}
  * httponly
  * flag when setting the session cookie.
  * </p>
- * @return void|bool, since 7.2 returns true on success or false on failure.
+ * @return void|bool since 7.2.0 returns true on success or false on failure.
  * @since 4.0
  * @since 5.0
  */
@@ -414,7 +414,7 @@ function session_get_cookie_params () {}
 /**
  * Write session data and end session
  * @link https://php.net/manual/en/function.session-write-close.php
- * @return void|bool, since 7.2 returns true on success or false on failure.
+ * @return void|bool since 7.2.0 returns true on success or false on failure.
  * @since 4.0.4
  * @since 5.0
  */
@@ -423,7 +423,7 @@ function session_write_close () {}
 /**
  * Alias of <b>session_write_close</b>
  * @link https://php.net/manual/en/function.session-commit.php
- * @return void|bool, since 7.2 returns true on success or false on failure.
+ * @return void|bool since 7.2.0 returns true on success or false on failure.
  * @since 4.4.0
  * @since 5.0
  */
@@ -443,7 +443,7 @@ function session_status () {}
  * (PHP 5 >= 5.6.0)<br>
  * Discard session array changes and finish session
  * @link https://php.net/manual/en/function.session-abort.php
- * @return void|bool since 7.2 returns true if a session was successfully reinitialized or false on failure.
+ * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
  */
 function session_abort() {}
 
@@ -451,7 +451,7 @@ function session_abort() {}
  * (PHP 5 >= 5.6.0)<br>
  * Re-initialize session array with original values
  * @link https://php.net/manual/en/function.session-reset.php
- * @return void|bool since 7.2 returns true if a session was successfully reinitialized or false on failure.
+ * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
  */
 function session_reset() {}
 

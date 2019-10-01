@@ -845,7 +845,7 @@ function imagerotate ($image, $angle, $bgd_color, $ignore_transparent = null) {}
 
 /**
  * Should antialias functions be used or not. <br/>
- * Before 7.2 it's only available if PHP iscompiled with the bundled version of the GD library.
+ * Before 7.2.0 it's only available if PHP iscompiled with the bundled version of the GD library.
  * @link https://php.net/manual/en/function.imageantialias.php
  * @param resource $image 
  * @param bool $enabled <p>
@@ -1131,7 +1131,7 @@ function imagewbmp ($image, $filename = null, $foreground = null) {}
 
 /**
  * Output GD image to browser or file. <br/>
- * Since 7.2 allows to output truecolor images.
+ * Since 7.2.0 allows to output truecolor images.
  * @link https://php.net/manual/en/function.imagegd.php
  * @param resource $image 
  * @param string $filename [optional] <p>

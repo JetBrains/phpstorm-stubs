@@ -875,7 +875,7 @@ function mb_decode_numericentity ($str, array $convmap, $encoding = null) {}
  * </p>
  * @param string|array $additional_headers [optional] <p>
  * String or array to be inserted at the end of the email header. <br/>
- * Since 7.2 accepts an array. Its keys are the header names and its values are the respective header values.<br/>
+ * Since 7.2.0 accepts an array. Its keys are the header names and its values are the respective header values.<br/>
  * This is typically used to add extra
  * headers. Multiple extra headers are separated with a
  * newline ("\n").
@@ -1330,7 +1330,7 @@ function mbereg_search_getpos () {}
  * @link https://www.php.net/manual/en/function.mb-chr.php
  * @param int $cp
  * @param string $encoding
- * @return string|false, specific character or FALSE on failure.
+ * @return string|false specific character or FALSE on failure.
  * @since 7.2
  */
 function mb_chr($cp, $encoding) {}
@@ -1340,7 +1340,7 @@ function mb_chr($cp, $encoding) {}
  * @link https://www.php.net/manual/en/function.mb-ord.php
  * @param string $str
  * @param string $encoding
- * @return int|false, code point of character or FALSE on failure.
+ * @return int|false code point of character or FALSE on failure.
  * @since 7.2
  */
 function mb_ord($str, $encoding) {}

@@ -94,7 +94,7 @@ function strval ($var) {}
  * "resource"
  * "NULL"
  * "unknown type"
- * "resource (closed)" since PHP 7.2
+ * "resource (closed)" since 7.2.0
  * @since 4.0
  * @since 5.0
  */

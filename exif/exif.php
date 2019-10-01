@@ -7,7 +7,7 @@
  * @link https://php.net/manual/en/function.exif-read-data.php
  * @param string|resource $stream <p>
  * The location of the image file. This cannot be an URL.
- * Since 7.2 this can either be a path to the file (stream wrappers are also supported as usual)
+ * Since 7.2.0 this can either be a path to the file (stream wrappers are also supported as usual)
  * or a stream resource.
  * </p>
  * @param string $sections [optional] <p>
@@ -89,7 +89,7 @@ function exif_read_data ($stream, $sections = null, $arrays = false, $thumbnail 
  * @param $thumbnail [optional]
  * @since 4.0.1
  * @since 5.0
- * @deprecated 7.2, use {@see exif_read_data()} instead.
+ * @deprecated 7.2.0 Use {@see exif_read_data()} instead.
  */
 function read_exif_data ($filename, $sections = null, $arrays = false, $thumbnail = false) {}
 
@@ -111,7 +111,7 @@ function exif_tagname ($index) {}
  * @link https://php.net/manual/en/function.exif-thumbnail.php
  * @param string|resource $stream <p>
  * The location of the image file. This cannot be an URL.
- * Since 7.2 this can either be a path to the file (stream wrappers are also supported as usual)
+ * Since 7.2.0 this can either be a path to the file (stream wrappers are also supported as usual)
  * or a stream resource.
  * </p>
  * @param int $width [optional] <p>

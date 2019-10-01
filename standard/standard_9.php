@@ -802,7 +802,7 @@ function key_exists($key, $search) { }
  * In PHP 5, this must be either a string to be evaluated or a boolean to be tested.
  * In PHP 7, this may also be any expression that returns a value,
  * which will be executed and the result used to indicate whether the assertion succeeded or failed.<br/>
- * Since 7.2 using string is deprecated.
+ * Since 7.2.0 using string is deprecated.
  * </p>
  * @param string $description [optional]
  * <p>An optional description that will be included in the failure message if the assertion fails.</p>

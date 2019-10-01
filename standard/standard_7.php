@@ -983,7 +983,7 @@ function diskfreespace ($directory) {}
  * </p>
  * @param string|array $additional_headers [optional] <p>
  * String or array to be inserted at the end of the email header.<br/>
- * Since 7.2 accepts an array. Its keys are the header names and its values are the respective header values.
+ * Since 7.2.0 accepts an array. Its keys are the header names and its values are the respective header values.
  * </p>
  * <p>
  * This is typically used to add extra headers (From, Cc, and Bcc).
