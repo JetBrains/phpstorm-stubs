@@ -111,11 +111,12 @@ function json_encode ($value, $options = 0, $depth = 512) {}
  * User specified recursion depth.
  * </p>
  * @param int $options [optional] <p>
- * Bitmask of JSON decode options. Currently only
- * <b>JSON_BIGINT_AS_STRING</b>
- * is supported (default is to cast large integers as floats)
- *
- * <b>JSON_THROW_ON_ERROR</b> when passed this flag, the error behaviour of these functions is changed. The global error state is left untouched, and if an error occurs that would otherwise set it, these functions instead throw a JsonException
+ * Bitmask of JSON decode options:<br/>
+ * {@see JSON_BIGINT_AS_STRING} decodes large integers as their original string value.<br/>
+ * {@see JSON_INVALID_UTF8_IGNORE} ignores invalid UTF-8 characters,<br/>
+ * {@see JSON_INVALID_UTF8_SUBSTITUTE} converts invalid UTF-8 characters to \0xfffd,<br/>
+ * {@see JSON_OBJECT_AS_ARRAY} decodes JSON objects as PHP array, since 7.2.0 used by default if $assoc parameter is null,<br/>
+ * {@see JSON_THROW_ON_ERROR} when passed this flag, the error behaviour of these functions is changed. The global error state is left untouched, and if an error occurs that would otherwise set it, these functions instead throw a JsonException<br/>
  * </p>
  * @return mixed the value encoded in <i>json</i> in appropriate
  * PHP type. Values true, false and
@@ -295,6 +296,12 @@ define ('JSON_ERROR_DEPTH', 1);
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_ERROR_SYNTAX', 4);
+
+/**
+ * Decodes JSON objects as PHP array.
+ * @since 5.4.0
+ * @link https://php.net/manual/en/json.constants.php
+ */
 define ('JSON_OBJECT_AS_ARRAY', 1);
 define ('JSON_PARSER_NOTSTRICT', 4);
 
@@ -321,11 +328,13 @@ define ('JSON_PRESERVE_ZERO_FRACTION', 1024);
 define('JSON_UNESCAPED_LINE_TERMINATORS', 2048);
 
 /**
+ * Ignore invalid UTF-8 characters.
  * @since 7.2
  */
 define('JSON_INVALID_UTF8_IGNORE', 1048576);
 
 /**
+ * Convert invalid UTF-8 characters to \0xfffd (Unicode Character 'REPLACEMENT CHARACTER').
  * @since 7.2
  */
 define('JSON_INVALID_UTF8_SUBSTITUTE', 2097152);
@@ -347,6 +356,10 @@ define('JSON_ERROR_INVALID_PROPERTY_NAME',9);
 define('JSON_ERROR_UTF16',10);
 
 /**
+ * Throws JsonException if an error occurs instead of setting the global error state
+ * that is retrieved with json_last_error() and json_last_error_msg().
+ *
+ * {@see JSON_PARTIAL_OUTPUT_ON_ERROR} takes precedence over JSON_THROW_ON_ERROR.
  * @since 7.3
  */
 define('JSON_THROW_ON_ERROR', 4194304);

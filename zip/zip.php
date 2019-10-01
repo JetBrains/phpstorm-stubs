@@ -6,7 +6,7 @@
  * A file archive, compressed with Zip.
  * @link https://php.net/manual/en/class.ziparchive.php
  */
-class ZipArchive  {
+class ZipArchive implements Countable {
 
 	/**
 	 * Create the archive if it does not exist.
@@ -407,6 +407,15 @@ class ZipArchive  {
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function close () {}
+
+	/**
+	 * (PHP 7 &gt;= 7.2.0, PECL zip &gt;= 1.15.0)<br/>
+	 * Counts the number of files in the achive.
+	 * @link https://www.php.net/manual/en/ziparchive.count.php
+	 * @return int
+	 * @since 7.2.0
+	 */
+	public function count() {}
 
 	/**
 	 * Returns the status error message, system and/or zip messages

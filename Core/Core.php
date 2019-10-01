@@ -152,7 +152,7 @@ function strncasecmp ($str1, $str2, $len) {}
  * false.
  * @since 4.0
  * @since 5.0
- * @deprecated 7.2
+ * @deprecated 7.2.0 Use a foreach loop instead.
  */
 function each (array &$array) {}
 
@@ -750,7 +750,7 @@ function get_defined_vars () {}
  * @return string a unique function name as a string, or false on error.
  * @since 4.0.1
  * @since 5.0
- * @deprecated 7.2
+ * @deprecated 7.2.0 Use anonymous functions instead.
  */
 function create_function ($args, $code) {}
 
