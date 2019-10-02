@@ -37,7 +37,7 @@ function boolval($var) {}
  * @since 4.0
  * @since 5.0
  */
-function intval ($var, $base = null) {}
+function intval ($var, $base = 10) {}
 
 /**
  * Get float value of a variable
