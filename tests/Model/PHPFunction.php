@@ -65,6 +65,7 @@ class PHPFunction extends BasePHPElement
         }
 
         $this->collectLinks($node);
+        $this->collectSinceDeprecatedVersions($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);
         return $this;

@@ -2,9 +2,11 @@
 
 namespace StubTests;
 
+use phpDocumentor\Reflection\DocBlock\Tags\Deprecated;
 use phpDocumentor\Reflection\DocBlock\Tags\Link;
 use phpDocumentor\Reflection\DocBlock\Tags\Reference\Url;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
+use phpDocumentor\Reflection\DocBlock\Tags\Since;
 use PHPUnit\Framework\TestCase;
 use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use StubTests\Model\BasePHPClass;
@@ -15,6 +17,7 @@ use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\StubProblemType;
+use StubTests\Parsers\Utils;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
 class StubsTest extends TestCase
@@ -266,6 +269,7 @@ class StubsTest extends TestCase
     {
         static::assertNull($constant->parseError, $constant->parseError ?: '');
         $this->checkLinks($constant, "constant $className::$constant->name");
+        $this->checkDeprecatedSinceVersionsMajor($constant, "constant $className::$constant->name");
     }
 
     /**
@@ -276,7 +280,8 @@ class StubsTest extends TestCase
     public function testConstantsPHPDocs(PHPConst $constant): void
     {
         static::assertNull($constant->parseError, $constant->parseError ?: '');
-        $this->checkLinks($constant, "function $constant->name");
+        $this->checkLinks($constant, "constant $constant->name");
+        $this->checkDeprecatedSinceVersionsMajor($constant, "constant $constant->name");
     }
 
     /**
@@ -288,6 +293,7 @@ class StubsTest extends TestCase
     {
         static::assertNull($function->parseError, $function->parseError ?: '');
         $this->checkLinks($function, "function $function->name");
+        $this->checkDeprecatedSinceVersionsMajor($function, "function $function->name");
     }
 
     /**
@@ -299,6 +305,7 @@ class StubsTest extends TestCase
     {
         static::assertNull($class->parseError, $class->parseError ?: '');
         $this->checkLinks($class, "class $class->name");
+        $this->checkDeprecatedSinceVersionsMajor($class, "class $class->name");
     }
 
     /**
@@ -314,6 +321,7 @@ class StubsTest extends TestCase
         }
         static::assertNull($method->parseError, $method->parseError ?: '');
         $this->checkLinks($method, "method $methodName");
+        $this->checkDeprecatedSinceVersionsMajor($method, "method $methodName");
     }
 
     private static function getParameterRepresentation(PHPFunction $function): string
@@ -355,6 +363,32 @@ class StubsTest extends TestCase
         foreach ($element->see as $see) {
             if ($see instanceof See && $see->getReference() instanceof Url && strncmp($see, 'http', 4) === 0) {
                 static::assertStringStartsWith('https', $see, "In $elementName @see doesn't start with https");
+            }
+        }
+    }
+
+    /**
+     * @param PHPDocElement $element
+     * @param string $elementName
+     * @throws InvalidArgumentException
+     */
+    private function checkDeprecatedSinceVersionsMajor($element, $elementName): void
+    {
+        //skip for now due to huge number of since tags
+        /*foreach ($element->sinceTags as $sinceTag) {
+            if ($sinceTag instanceof Since) {
+                $version = $sinceTag->getVersion();
+                if ($version !== null){
+                    self::assertFalse(Utils::versionEndsWithMinorZero($sinceTag), "$elementName has 'since' version $version");
+                }
+            }
+        }*/
+        foreach ($element->deprecatedTags as $deprecatedTag) {
+            if ($deprecatedTag instanceof Deprecated) {
+                $version = $deprecatedTag->getVersion();
+                if ($version !== null) {
+                    self::assertFalse(Utils::versionEndsWithMinorZero($deprecatedTag), "$elementName has 'deprecated' version $version");
+                }
             }
         }
     }
