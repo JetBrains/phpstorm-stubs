@@ -743,7 +743,7 @@ class PDO  {
 	const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1016;
 
 	/**
-	 * @deprecated 5.6.0 Use PDO::ATTR_EMULATE_PREPARES instead.
+	 * @deprecated 5.6 Use PDO::ATTR_EMULATE_PREPARES instead.
 	 */
 	const PGSQL_ASSOC = 1;
 	const PGSQL_ATTR_DISABLE_NATIVE_PREPARED_STATEMENT = 1000;

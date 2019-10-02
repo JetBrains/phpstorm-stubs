@@ -2016,7 +2016,7 @@ class ReflectionType
 	 * @link https://php.net/manual/en/reflectiontype.tostring.php
 	 * @return string Returns the type of the parameter.
 	 * @since 7.0
-	 * @deprecated 7.1.0:8.0.0 Please use getName()
+	 * @deprecated 7.1 Please use getName()
 	 * @see \ReflectionType::getName()
 	 */
 	public function __toString()

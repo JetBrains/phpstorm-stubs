@@ -124,7 +124,7 @@ function session_decode ($data) {}
  * </p>
  * @param mixed $_ [optional]
  * @return bool true on success or false on failure.
- * @deprecated 5.3.0 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
+ * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
  * @since 4.0
  * @since 5.0
  */
@@ -137,7 +137,7 @@ function session_register ($name, $_ = null) {}
  * The variable name.
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated 5.3.0 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
+ * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
  * @since 4.0
  * @since 5.0
  */
@@ -152,7 +152,7 @@ function session_unregister ($name) {}
  * @return bool <b>session_is_registered</b> returns true if there is a
  * global variable with the name <i>name</i> registered in
  * the current session, false otherwise.
- * @deprecated 5.3.0 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
+ * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
  * @since 4.0
  * @since 5.0
  */

@@ -994,7 +994,7 @@ function get_cfg_var ($option) {}
 /**
  * &Alias; <function>set_magic_quotes_runtime</function>
  * @link https://php.net/manual/en/function.magic-quotes-runtime.php
- * @deprecated 5.3.0
+ * @deprecated 5.3
  * @param $new_setting
  * @since 4.0
  * @since 5.0
@@ -1004,7 +1004,7 @@ function magic_quotes_runtime ($new_setting) {}
 /**
  * Sets the current active configuration setting of magic_quotes_runtime
  * @link https://php.net/manual/en/function.set-magic-quotes-runtime.php
- * @deprecated 5.3.0
+ * @deprecated 5.3
  * @param bool $new_setting <p>
  * false for off, true for on.
  * </p>

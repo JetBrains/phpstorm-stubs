@@ -6075,7 +6075,7 @@ define ('IDNA_NONTRANSITIONAL_TO_UNICODE', 32);
  * Use IDNA 2003 algorithm in {@see idn_to_utf8} and
  * {@see idn_to_ascii}. This is the default.
  * @link https://php.net/manual/en/intl.constants.php
- * @deprecated 7.2.0 Use {@see INTL_IDNA_VARIANT_UTS46} instead.
+ * @deprecated 7.2 Use {@see INTL_IDNA_VARIANT_UTS46} instead.
  */
 define ('INTL_IDNA_VARIANT_2003', 0);
 
