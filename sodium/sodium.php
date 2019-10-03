@@ -1280,7 +1280,7 @@ function sodium_bin2base64(string $bin, int $id): string {}
  * @since 7.2.0
  * @see https://www.php.net/manual/en/function.sodium-base642bin.php
  */
-function sodium_base642bin(string $b64, int $id, string $ignore = ''){}
+function sodium_base642bin(string $b64, int $id, string $ignore = ''): string{}
 
 class SodiumException extends Exception {
 
