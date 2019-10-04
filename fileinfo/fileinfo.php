@@ -187,14 +187,14 @@ define ('FILEINFO_MIME', 1040);
 
 /**
  * Return the mime type.
- * @since 5.3
+ * @since 5.3.0
  * @link https://php.net/manual/en/fileinfo.constants.php
  */
 define ('FILEINFO_MIME_TYPE', 16);
 
 /**
  * Return the mime encoding of the file.
- * @since 5.3
+ * @since 5.3.0
  * @link https://php.net/manual/en/fileinfo.constants.php
  */
 define ('FILEINFO_MIME_ENCODING', 1024);
