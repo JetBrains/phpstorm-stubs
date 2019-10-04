@@ -197,7 +197,7 @@ define ('__METHOD__', '', true);
  * The trait name. (Added in PHP 5.4.0) As of PHP 5.4 this constant
  * returns the trait as it was declared (case-sensitive). The trait name includes the namespace
  * it was declared in (e.g. Foo\Bar).
- * @since 5.4.0
+ * @since 5.4
  * @link https://php.net/manual/en/language.constants.predefined.php
  */
 define ('__TRAIT__', '', true);
@@ -207,7 +207,7 @@ define ('__TRAIT__', '', true);
  * the directory of the included file is returned. This is equivalent
  * to dirname(__FILE__). This directory name
  * does not have a trailing slash unless it is the root directory.
- * @since 5.3.0
+ * @since 5.3
  * @link https://php.net/manual/en/language.constants.predefined.php
  */
 define ('__DIR__', '', true);
@@ -215,7 +215,7 @@ define ('__DIR__', '', true);
 /**
  * The name of the current namespace (case-sensitive). This constant
  * is defined in compile-time (Added in PHP 5.3.0).
- * @since 5.3.0
+ * @since 5.3
  * @link https://php.net/manual/en/language.constants.predefined.php
  */
 define ('__NAMESPACE__', '', true);

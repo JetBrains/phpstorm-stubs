@@ -41,37 +41,37 @@ define('RADIUS_ACCESS_CHALLENGE', 11);
 
 /**
  * A Disconnect-Request, sent from the RADIUS server to indicate that the user session must be terminated.
- * @since 1.3.0
+ * @since 1.3
  */
 define('RADIUS_DISCONNECT_REQUEST', 40);
 
 /**
  * A Disconnect-ACK, sent to the RADIUS server to indicate that the user session has been terminated.
- * @since 1.3.0
+ * @since 1.3
  */
 define('RADIUS_DISCONNECT_ACK', 41);
 
 /**
  * A Disconnect-NAK, sent to the RADIUS server to indicate that the user session could not be terminated.
- * @since 1.3.0
+ * @since 1.3
  */
 define('RADIUS_DISCONNECT_NAK', 42);
 
 /**
  * A CoA-Request, sent from the RADIUS server to indicate that the authorisations within the user session have changed. A response must be sent in the form of a CoA-ACK or a CoA-NAK.
- * @since 1.3.0
+ * @since 1.3
  */
 define('RADIUS_COA_REQUEST', 43);
 
 /**
  * A CoA-ACK, sent to the RADIUS server to indicate that the user authorisations have been updated.
- * @since 1.3.0
+ * @since 1.3
  */
 define('RADIUS_COA_ACK', 44);
 
 /**
  * A CoA-NAK, sent to the RADIUS server to indicate that the user authorisations could not be updated.
- * @since 1.3.0
+ * @since 1.3
  */
 define('RADIUS_COA_NAK', 45);
 
@@ -321,7 +321,7 @@ define('RADIUS_OPTION_TAGGED', RADIUS_OPTION_TAGGED);
  * Creates a Radius handle for accounting
  * @link https://secure.php.net/manual/en/function.radius-acct-open.php
  * @return resource|false Returns a handle on success, <b>FALSE</b> on error. This function only fails if insufficient memory is available.
- * @since 1.1.0
+ * @since 1.1
  */
 function radius_acct_open() { }
 
@@ -338,7 +338,7 @@ function radius_acct_open() { }
  * @param int $max_tries The maximum number of repeated requests to make before giving up is passed into the <b>max_tries</b>.
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @see radius_config()
- * @since 1.1.0
+ * @since 1.1
  */
 function radius_add_server($radius_handle , $hostname, $port , $secret, $timeout, $max_tries) { }
 
@@ -346,7 +346,7 @@ function radius_add_server($radius_handle , $hostname, $port , $secret, $timeout
  * Creates a Radius handle for authentication
  * @link https://secure.php.net/manual/en/function.radius-auth-open.php
  * @return resource|false Returns a handle on success, <b>FALSE</b> on error. This function only fails if insufficient memory is available.
- * @since 1.1.0
+ * @since 1.1
  */
 function radius_auth_open() { }
 
@@ -355,7 +355,7 @@ function radius_auth_open() { }
  * @link https://secure.php.net/manual/en/function.radius-close.php
  * @param resource $radius_handle
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 1.1.0
+ * @since 1.1
  */
 function radius_close($radius_handle) { }
 
@@ -367,7 +367,7 @@ function radius_close($radius_handle) { }
  * @param string $file The pathname of the configuration file is passed as the file argument to {@see radius_config()}. The library can also be configured programmatically by calls to <b>{@see radius_add_server()}</b>.
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @see radius_add_server()
- * @since 1.1.0
+ * @since 1.1
  */
 function radius_config($radius_handle, $file) { }
 
@@ -379,6 +379,6 @@ function radius_config($radius_handle, $file) { }
  * @param int $type Type is <b>RADIUS_ACCESS_REQUEST</b> or <b>RADIUS_ACCOUNTING_REQUEST</b>.
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @see radius_send_request()
- * @since 1.1.0
+ * @since 1.1
  */
 function radius_create_request($radius_handle, $type) { }
