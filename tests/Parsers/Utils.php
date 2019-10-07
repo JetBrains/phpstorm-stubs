@@ -19,8 +19,8 @@ class Utils
      * @param Since|Deprecated $tag
      * @return bool
      */
-    public static function versionEndsWithMinorZero($tag): bool
+    public static function versionIsMajor($tag): bool
     {
-        return (bool)preg_match('/[1-9]+\.[1-9]+\.0/',$tag->getVersion());
+        return (bool)preg_match('/[1-9]+\.\d+/',$tag->getVersion());
     }
 }

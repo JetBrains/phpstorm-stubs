@@ -22,20 +22,28 @@ use StubTests\Parsers\Utils;
 
 class ASTVisitor extends NodeVisitorAbstract
 {
-    private $stubs;
+    protected $stubs;
+    protected $isStubCore;
 
     public function __construct(StubsContainer $stubs)
     {
         $this->stubs = $stubs;
+        $this->isStubCore = false;
     }
 
     public function enterNode(Node $node)
     {
         if ($node instanceof Function_) {
             $function = (new PHPFunction())->readObjectFromStubNode($node);
+            if ($this->isStubCore){
+                $function->stubBelongsToCore = true;
+            }
             $this->stubs->addFunction($function);
         } elseif ($node instanceof Const_) {
             $constant = (new PHPConst())->readObjectFromStubNode($node);
+            if ($this->isStubCore){
+                $constant->stubBelongsToCore = true;
+            }
             if ($constant->parentName === null) {
                 $this->stubs->addConstant($constant);
             } elseif ($this->stubs->getClass($constant->parentName) !== null) {
@@ -46,10 +54,16 @@ class ASTVisitor extends NodeVisitorAbstract
         } elseif ($node instanceof FuncCall) {
             if ($node->name->parts[0] === 'define') {
                 $constant = (new PHPDefineConstant())->readObjectFromStubNode($node);
+                if ($this->isStubCore){
+                    $constant->stubBelongsToCore = true;
+                }
                 $this->stubs->addConstant($constant);
             }
         } elseif ($node instanceof ClassMethod) {
             $method = (new PHPMethod())->readObjectFromStubNode($node);
+            if ($this->isStubCore){
+                $method->stubBelongsToCore = true;
+            }
             if ($this->stubs->getClass($method->parentName) !== null) {
                 $this->stubs->getClass($method->parentName)->methods[$method->name] = $method;
             } else {
@@ -57,9 +71,15 @@ class ASTVisitor extends NodeVisitorAbstract
             }
         } elseif ($node instanceof Interface_) {
             $interface = (new PHPInterface())->readObjectFromStubNode($node);
+            if ($this->isStubCore){
+                $interface->stubBelongsToCore = true;
+            }
             $this->stubs->addInterface($interface);
         } elseif ($node instanceof Class_) {
             $class = (new PHPClass())->readObjectFromStubNode($node);
+            if ($this->isStubCore){
+                $class->stubBelongsToCore = true;
+            }
             $this->stubs->addClass($class);
         }
     }

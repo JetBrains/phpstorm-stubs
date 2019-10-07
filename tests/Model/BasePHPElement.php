@@ -6,6 +6,7 @@ namespace StubTests\Model;
 abstract class BasePHPElement
 {
     public $name;
+    public $stubBelongsToCore;
     public $parseError;
     protected $mutedProblems = [];
 
