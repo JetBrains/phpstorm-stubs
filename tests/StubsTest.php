@@ -269,7 +269,7 @@ class StubsTest extends TestCase
     {
         static::assertNull($constant->parseError, $constant->parseError ?: '');
         $this->checkLinks($constant, "constant $className::$constant->name");
-        if ($constant->stubBelongsToCore){
+        if ($constant->stubBelongsToCore) {
             $this->checkDeprecatedSinceVersionsMajor($constant, "constant $className::$constant->name");
         }
     }
@@ -283,7 +283,7 @@ class StubsTest extends TestCase
     {
         static::assertNull($constant->parseError, $constant->parseError ?: '');
         $this->checkLinks($constant, "constant $constant->name");
-        if ($constant->stubBelongsToCore){
+        if ($constant->stubBelongsToCore) {
             $this->checkDeprecatedSinceVersionsMajor($constant, "constant $constant->name");
         }
     }
@@ -297,7 +297,7 @@ class StubsTest extends TestCase
     {
         static::assertNull($function->parseError, $function->parseError ?: '');
         $this->checkLinks($function, "function $function->name");
-        if ($function->stubBelongsToCore){
+        if ($function->stubBelongsToCore) {
             $this->checkDeprecatedSinceVersionsMajor($function, "function $function->name");
         }
     }
@@ -311,7 +311,7 @@ class StubsTest extends TestCase
     {
         static::assertNull($class->parseError, $class->parseError ?: '');
         $this->checkLinks($class, "class $class->name");
-        if ($class->stubBelongsToCore){
+        if ($class->stubBelongsToCore) {
             $this->checkDeprecatedSinceVersionsMajor($class, "class $class->name");
         }
     }
@@ -329,7 +329,7 @@ class StubsTest extends TestCase
         }
         static::assertNull($method->parseError, $method->parseError ?: '');
         $this->checkLinks($method, "method $methodName");
-        if ($method->stubBelongsToCore){
+        if ($method->stubBelongsToCore) {
             $this->checkDeprecatedSinceVersionsMajor($method, "method $methodName");
         }
     }
@@ -388,8 +388,11 @@ class StubsTest extends TestCase
         /*foreach ($element->sinceTags as $sinceTag) {
             if ($sinceTag instanceof Since) {
                 $version = $sinceTag->getVersion();
-                if ($version !== null){
-                    self::assertFalse(Utils::versionEndsWithMinorZero($sinceTag), "$elementName has 'since' version $version");
+                if ($version !== null) {
+                    self::assertFalse(Utils::versionIsMajor($sinceTag), "$elementName has 'since' version $version.
+                    Since version for PHP Core functionallity should have X.X format due to functionallity usually 
+                    isn't added in patch updates. If you believe this is not correct, please submit an issue about your case at
+                    https://youtrack.jetbrains.com/issues/WI");
                 }
             }
         }*/
@@ -397,7 +400,10 @@ class StubsTest extends TestCase
             if ($deprecatedTag instanceof Deprecated) {
                 $version = $deprecatedTag->getVersion();
                 if ($version !== null) {
-                    self::assertTrue(Utils::versionIsMajor($deprecatedTag), "$elementName has 'deprecated' version $version");
+                    self::assertTrue(Utils::versionIsMajor($deprecatedTag), "$elementName has 'deprecated' version $version .
+                    Deprecated version for PHP Core functionallity should have X.X format due to functionallity usually 
+                    isn't deprecated in patch updates. If you believe this is not correct, please submit an issue about your case at
+                    https://youtrack.jetbrains.com/issues/WI");
                 }
             }
         }
