@@ -624,7 +624,7 @@ namespace MongoDB {}
          * The MongoDB\Driver\Cursor class encapsulates the results of a MongoDB command or query and may be returned by MongoDB\Driver\Manager::executeCommand() or MongoDB\Driver\Manager::executeQuery(), respectively.
          * @link https://php.net/manual/en/class.mongodb-driver-cursor.php
          */
-        final class Cursor implements \Traversable
+        final class Cursor implements CursorInterface
         {
             /**
              * Create a new Cursor
@@ -789,7 +789,7 @@ namespace MongoDB {}
         /**
          * WriteConcern controls the acknowledgment of a write operation, specifies the level of write guarantee for Replica Sets.
          */
-        final class WriteConcern
+        final class WriteConcern implements Serializable
         {
             /**
              * Majority of all the members in the set; arbiters, non-voting members, passive members, hidden members and delayed members are all included in the definition of majority write concern.
@@ -832,6 +832,17 @@ namespace MongoDB {}
              * @return int
              */
             final public function getWtimeout()
+            {
+            }
+
+            /**
+             * Returns an object for BSON serialization
+             * @since 1.2.0
+             * @link https://www.php.net/manual/en/mongodb-driver-writeconcern.bsonserialize.php
+             * @return object Returns an object for serializing the WriteConcern as BSON.
+             * @throws InvalidArgumentException
+             */
+            final public function bsonSerialize()
             {
             }
         }
