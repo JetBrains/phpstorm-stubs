@@ -510,7 +510,13 @@ namespace MongoDB {}
             const RP_SECONDARY = 2;
             const RP_SECONDARY_PREFERRED = 6;
             const RP_NEAREST = 10;
+            /**
+             * @since 1.2.0
+             */
             const NO_MAX_STALENESS = -1;
+            /**
+             * @since 1.2.0
+             */
             const SMALLEST_MAX_STALENESS_SECONDS = 90;
 
             /**
@@ -545,8 +551,10 @@ namespace MongoDB {}
 
             /**
              * Returns an object for BSON serialization
-             * @link https://php.net/manual/en/mongodb-driver-readpreference.bsonserialize.php
-             * @return object
+             * @since 1.2.0
+             * @link https://www.php.net/manual/en/mongodb-driver-readpreference.bsonserialize.php
+             * @return object Returns an object for serializing the WriteConcern as BSON.
+             * @throws InvalidArgumentException
              */
             final public function bsonSerialize()
             {
@@ -560,9 +568,15 @@ namespace MongoDB {}
          */
         final class ReadConcern implements Serializable
         {
+            /**
+             * @since 1.2.0
+             */
             const LINEARIZABLE = 'linearizable' ;
             const LOCAL = 'local' ;
             const MAJORITY = 'majority' ;
+            /**
+             * @since 1.4.0
+             */
             const AVAILABLE = 'available' ;
 
             /**
@@ -1148,6 +1162,7 @@ namespace MongoDB {}
         /**
          * This interface is implemented by MongoDB\Driver\Cursor but may also be used for type-hinting and userland classes.
          * @link https://www.php.net/manual/en/class.mongodb-driver-cursorinterface.php
+         * @since 1.6.0
          */
         interface CursorInterface extends Traversable
         {
