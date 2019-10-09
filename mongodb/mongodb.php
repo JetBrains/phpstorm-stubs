@@ -1109,6 +1109,28 @@ namespace MongoDB {}
             }
 
             /**
+             * Returns the server to which this session is pinned, or NULL if the session is not pinned to any server.
+             * @link https://secure.php.net/manual/en/mongodb-driver-session.getserver.php
+             * @return \MongoDB\Driver\Server|null
+             * @throws \MongoDB\Driver\Exception\InvalidArgumentException
+             * @since 1.6.0
+             */
+            final public function getServer()
+            {
+            }
+
+            /**
+             * Returns whether a multi-document transaction is in progress.
+             * @link https://secure.php.net/manual/en/mongodb-driver-session.isintransaction.php
+             * @return bool
+             * @throws \MongoDB\Driver\Exception\InvalidArgumentException
+             * @since 1.6.0
+             */
+            final public function isInTransaction()
+            {
+            }
+
+            /**
              * Starts a transaction
              * @link https://secure.php.net/manual/en/mongodb-driver-session.starttransaction.php
              * @param array|object $options
