@@ -670,6 +670,8 @@ class PDO  {
 	 */
 	const MYSQL_ATTR_IGNORE_SPACE = 1009;
 
+	const MYSQL_ATTR_SERVER_PUBLIC_KEY = 1009;
+
 	/**
 	 * <p>
 	 * The file path to the SSL key.
@@ -741,7 +743,7 @@ class PDO  {
 	const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1016;
 
 	/**
-	 * @deprecated 5.6.0 Use PDO::ATTR_EMULATE_PREPARES instead.
+	 * @deprecated 5.6 Use PDO::ATTR_EMULATE_PREPARES instead.
 	 */
 	const PGSQL_ASSOC = 1;
 	const PGSQL_ATTR_DISABLE_NATIVE_PREPARED_STATEMENT = 1000;
@@ -836,8 +838,9 @@ class PDO  {
 	 * @param string $username [optional]
 	 * @param string $passwd [optional]
 	 * @param array $options [optional]
+	 * @throws PDOException if the attempt to connect to the requested database fails.
 	 */
-	public function __construct ($dsn, $username, $passwd, $options) {}
+	public function __construct ($dsn, $username = null, $passwd = null, $options = null) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
@@ -899,6 +902,7 @@ class PDO  {
 	 * Commits a transaction
 	 * @link https://php.net/manual/en/pdo.commit.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @throws PDOException if there is no active transaction.
 	 */
 	public function commit () {}
 
@@ -907,6 +911,7 @@ class PDO  {
 	 * Rolls back a transaction
 	 * @link https://php.net/manual/en/pdo.rollback.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @throws PDOException if there is no active transaction.
 	 */
 	public function rollBack () {}
 
@@ -938,7 +943,7 @@ class PDO  {
 	 * <p>
 	 * Data inside the query should be properly escaped.
 	 * </p>
-	 * @return int <b>PDO::exec</b> returns the number of rows that were modified
+	 * @return int|false <b>PDO::exec</b> returns the number of rows that were modified
 	 * or deleted by the SQL statement you issued. If no rows were affected,
 	 * <b>PDO::exec</b> returns 0.
 	 * </p>
@@ -1113,7 +1118,7 @@ class PDO  {
 	 * @param int $parameter_type [optional] <p>
 	 * Provides a data type hint for drivers that have alternate quoting styles.
 	 * </p>
-	 * @return string a quoted string that is theoretically safe to pass into an
+	 * @return string|false a quoted string that is theoretically safe to pass into an
 	 * SQL statement. Returns <b>FALSE</b> if the driver does not support quoting in
 	 * this way.
 	 */
@@ -1190,6 +1195,7 @@ class PDOStatement implements Traversable {
 	 * fail and an error is emitted.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @throws \PDOException On error if PDO::ERRMODE_EXCEPTION option is true.
 	 */
 	public function execute ($input_parameters = null) {}
 
@@ -1467,7 +1473,7 @@ class PDOStatement implements Traversable {
 	 * @param int $column <p>
 	 * The 0-indexed column in the result set.
 	 * </p>
-	 * @return array an associative array containing the following values representing
+	 * @return array|false an associative array containing the following values representing
 	 * the metadata for a single column:
 	 * </p>
 	 * <table>
@@ -1533,9 +1539,9 @@ class PDOStatement implements Traversable {
 	 * Class name or object
 	 * </p>
 	 * @param array $ctorarfg [optional] <p> Constructor arguments. </p>
-	 * @return bool 1 on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function setFetchMode ($mode, $classNameObject, array $ctorarfg) {}
+	public function setFetchMode ($mode, $classNameObject = null, array $ctorarfg = array()) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>

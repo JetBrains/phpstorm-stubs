@@ -11,7 +11,7 @@
  * @param string $value <p>
  * Cookie value.
  * </p>
- * @return string the encrypted string or false on failure.
+ * @return string|false the encrypted string or false on failure.
  */
 function suhosin_encrypt_cookie ($name, $value) {}
 

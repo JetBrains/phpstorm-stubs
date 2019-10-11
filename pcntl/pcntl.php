@@ -89,13 +89,14 @@ function pcntl_fork () {}
  * </tr>
  * </table>
  * </p>
+ * @param array &$rusage [optional]
  * @return int <b>pcntl_waitpid</b> returns the process ID of the
  * child which exited, -1 on error or zero if <b>WNOHANG</b> was used and no
  * child was available
  * @since 4.1.0
  * @since 5.0
  */
-function pcntl_waitpid ($pid, &$status, $options = 0) {}
+function pcntl_waitpid ($pid, &$status, $options = 0, array &$rusage) {}
 
 /**
  * Waits on or returns the status of a forked child
@@ -136,12 +137,13 @@ function pcntl_waitpid ($pid, &$status, $options = 0) {}
  * </tr>
  * </table>
  * </p>
+ * @param array &$rusage [optional]
  * @return int <b>pcntl_wait</b> returns the process ID of the
  * child which exited, -1 on error or zero if WNOHANG was provided as an
  * option (on wait3-available systems) and no child was available.
  * @since 5.0
  */
-function pcntl_wait (&$status, $options = 0) {}
+function pcntl_wait (&$status, $options = 0, &$rusage) {}
 
 /**
  * Installs a signal handler
@@ -322,7 +324,7 @@ function pcntl_errno () {}
  * @link https://php.net/manual/en/function.pcntl-strerror.php
  * @param int $errno <p>
  * </p>
- * @return string error description on success or <b>FALSE</b> on failure.
+ * @return string|false error description on success or <b>FALSE</b> on failure.
  * @since 5.3.4
  */
 function pcntl_strerror ($errno) {}
@@ -456,15 +458,28 @@ function pcntl_sigwaitinfo (array $set, array &$siginfo = null) {}
 function pcntl_sigtimedwait (array $set, array &$siginfo = null, $seconds = 0, $nanoseconds = 0) {}
 
 /**
+ * Enable/disable asynchronous signal handling or return the old setting.<br>
+ * If the <b>on</b> parameter is omitted, it returns whether asynchronous
+ * signal handling is enabled.
+ * @link https://www.php.net/manual/en/function.pcntl-async-signals.php
  *
- * @param bool $on
+ * @param bool $on [optional] <p>
+ * Whether asynchronous signal handling should be enabled.
+ * </p>
+ *
  * @return bool
  * @since 7.1
  */
-function pcntl_async_signals($on) {}
+function pcntl_async_signals($on = null) {}
 
 /**
- * @param int $signo
+ * Get the current handler for specified signal.
+ * @link https://www.php.net/manual/en/function.pcntl-signal-get-handler.php
+ *
+ * @param int $signo <p>
+ * The signal number.
+ * </p>
+ *
  * @return bool
  * @since 7.1
  */
@@ -472,7 +487,7 @@ function pcntl_signal_get_handler($signo) {}
 
 define ('WNOHANG', 1);
 define ('WUNTRACED', 2);
-define ('WCONTINUED', 16);
+define ('WCONTINUED', 8);
 define ('SIG_IGN', 1);
 define ('SIG_DFL', 0);
 define ('SIG_ERR', -1);
@@ -532,6 +547,18 @@ define ('SIG_UNBLOCK', 1);
  * @since 5.3.0
  */
 define ('SIG_SETMASK', 2);
+
+/**
+ * @link https://php.net/manual/en/pcntl.constants.php
+ * @since 5.3.0
+ */
+define ('SIGRTMIN', 34);
+
+/**
+ * @link https://php.net/manual/en/pcntl.constants.php
+ * @since 5.3.0
+ */
+define ('SIGRTMAX', 64);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php

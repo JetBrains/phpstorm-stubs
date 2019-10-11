@@ -143,7 +143,7 @@ function array_reverse(array $array, $preserve_keys = null) { }
  * </p>
  * <p>
  * If the array is empty and initial is not passed,
- * array_reduce returns &null;.
+ * array_reduce returns null.
  * @since 4.0.5
  * @since 5.0
  */
@@ -179,7 +179,7 @@ function array_pad(array $input, $pad_size, $pad_value) { }
  * @param array $array <p>
  * An array of key/value pairs to be flipped.
  * </p>
- * @return array|null Returns the flipped array on success and NULL on failure.
+ * @return array Returns the flipped array.
  * @since 4.0
  * @since 5.0
  */
@@ -195,8 +195,7 @@ function array_flip(array $array) { }
  * Either CASE_UPPER or
  * CASE_LOWER (default)
  * </p>
- * @return array an array with its keys lower or uppercased, or false if
- * input is not an array.
+ * @return array an array with its keys lower or uppercased
  * @since 4.2.0
  * @since 5.0
  */
@@ -772,13 +771,13 @@ function pos(&$arg) { }
 /**
  * &Alias; <function>count</function>
  * @link https://php.net/manual/en/function.sizeof.php
- * @param $var
- * @param $mode [optional]
+ * @param array|Countable $var
+ * @param int $mode [optional]
  * @return int
  * @since 4.0
  * @since 5.0
  */
-function sizeof($var, $mode) { }
+function sizeof($var, $mode = COUNT_NORMAL) { }
 
 /**
  * Checks if the given key or index exists in the array. The name of this function is array_key_exists() in PHP > 4.0.6.
@@ -800,6 +799,10 @@ function key_exists($key, $search) { }
  * @link https://php.net/manual/en/function.assert.php
  * @param mixed $assertion <p>
  * The assertion.
+ * In PHP 5, this must be either a string to be evaluated or a boolean to be tested.
+ * In PHP 7, this may also be any expression that returns a value,
+ * which will be executed and the result used to indicate whether the assertion succeeded or failed.<br/>
+ * Since 7.2.0 using string is deprecated.
  * </p>
  * @param string $description [optional]
  * <p>An optional description that will be included in the failure message if the assertion fails.</p>
@@ -807,23 +810,16 @@ function key_exists($key, $search) { }
  * @since 4.0
  * @since 5.0
  */
-function assert($assertion, $description) { }
+function assert($assertion, $description = '') { }
 
 /**
- * (PHP 5 &gt;=5.5.0)<br/>
- * Returns the current process title
- * @link https://secure.php.net/manual/en/function.cli-get-process-title.php
- * @return string
+ * AssertionError is thrown when an assertion made via {@see assert()} fails.
+ * @link https://php.net/manual/en/class.assertionerror.php
+ * @since 7.0
  */
-function cli_get_process_title() { }
+class AssertionError extends Error {
 
-/**
- * (PHP 5 &gt;=5.5.0)<br/>
- * Sets the process title
- * @param string $title <p>The new title</p>
- * @return bool Returns TRUE on success or FALSE on failure.
- */
-function cli_set_process_title($title) { }
+}
 
 /**
  * Set/get the various assert flags
@@ -867,7 +863,7 @@ function cli_set_process_title($title) { }
  * <tr valign="top">
  * <td>ASSERT_CALLBACK</td>
  * <td>assert.callback</td>
- * <td)<&null;)</td>
+ * <td>null</td>
  * <td>Callback to call on failed assertions</td>
  * </tr>
  * </table>
@@ -957,7 +953,10 @@ function str_rot13($str) { }
 function stream_get_filters() { }
 
 /**
+ * Check if a stream is a TTY
+ * @link https://php.net/manual/en/function.stream-isatty.php
  * @param resource $name
+ * @return bool
  * @since 7.2
  */
 function stream_isatty($name) {}

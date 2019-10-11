@@ -330,7 +330,7 @@ class OAuthProvider {
     public function isRequestTokenEndpoint($will_issue_request_token) { }
 
     /**
-     * @param string
+     * @param string $req_params
      * @return bool
      * @final
      */

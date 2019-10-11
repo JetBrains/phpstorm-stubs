@@ -58,6 +58,7 @@ interface Reflector  {
 	 * @link https://php.net/manual/en/reflector.export.php
 	 * @return string
 	 * @since 5.0
+	 * @deprecated 7.4
 	 */
 	static function export ();
 
@@ -156,7 +157,7 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	/**
 	 * Gets doc comment
 	 * @link https://php.net/manual/en/reflectionfunctionabstract.getdoccomment.php
-	 * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
+	 * @return string|false The doc comment if it exists, otherwise <b>FALSE</b>
 	 * @since 5.1.0
 	 */
 	public function getDocComment () {}
@@ -164,7 +165,7 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	/**
 	 * Gets end line number
 	 * @link https://php.net/manual/en/reflectionfunctionabstract.getendline.php
-	 * @return int The ending line number of the user defined function, or <b>FALSE</b> if unknown.
+	 * @return int|false The ending line number of the user defined function, or <b>FALSE</b> if unknown.
 	 * @since 5.0
 	 */
 	public function getEndLine () {}
@@ -236,7 +237,7 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	/**
 	 * Gets the specified return type of a function
 	 * @link https://php.net/manual/en/reflectionfunctionabstract.getreturntype.php
-	 * @return ReflectionType|NULL Returns a ReflectionType object if a return type is specified, NULL otherwise.
+	 * @return ReflectionType|null Returns a ReflectionType object if a return type is specified, NULL otherwise.
 	 * @since 7.0
 	 */
 	public function getReturnType () {}
@@ -458,7 +459,7 @@ class ReflectionParameter implements Reflector {
 	/**
 	 * Gets a parameter's type
 	 * @link https://php.net/manual/en/reflectionparameter.gettype.php
-	 * @return ReflectionType|NULL Returns a ReflectionType object if a parameter type is specified, NULL otherwise.
+	 * @return ReflectionType|null Returns a ReflectionType object if a parameter type is specified, NULL otherwise.
 	 * @since 7.0
 	 */
 	public function getType() {}
@@ -524,7 +525,7 @@ class ReflectionParameter implements Reflector {
     /**
      * Returns whether parameter MUST be callable
      * @link https://php.net/manual/en/reflectionparameter.iscallable.php
-     * @return bool Returns TRUE if the parameter is callable, FALSE if it is not or NULL on failure.
+     * @return bool|null Returns TRUE if the parameter is callable, FALSE if it is not or NULL on failure.
 	 * @since 5.4.0
      */
     public function isCallable () {}
@@ -572,7 +573,7 @@ class ReflectionParameter implements Reflector {
 
     /**
 	 * Returns whether the default value of this parameter is constant
-	 * @return boolean
+	 * @return bool
 	 * @since 5.4.6
      */
     public function isDefaultValueConstant () {}
@@ -944,7 +945,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets the filename of the file in which the class has been defined
 	 * @link https://php.net/manual/en/reflectionclass.getfilename.php
-	 * @return string the filename of the file in which the class has been defined.
+	 * @return string|false the filename of the file in which the class has been defined.
 	 * If the class is defined in the PHP core or in a PHP extension, <b>FALSE</b>
 	 * is returned.
 	 * @since 5.0
@@ -962,7 +963,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets end line
 	 * @link https://php.net/manual/en/reflectionclass.getendline.php
-	 * @return int The ending line number of the user defined class, or <b>FALSE</b> if unknown.
+	 * @return int|false The ending line number of the user defined class, or <b>FALSE</b> if unknown.
 	 * @since 5.0
 	 */
 	public function getEndLine () {}
@@ -970,7 +971,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets doc comments
 	 * @link https://php.net/manual/en/reflectionclass.getdoccomment.php
-	 * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
+	 * @return string|false The doc comment if it exists, otherwise <b>FALSE</b>
 	 * @since 5.1.0
 	 */
 	public function getDocComment () {}
@@ -1010,19 +1011,20 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets an array of methods
 	 * @link https://php.net/manual/en/reflectionclass.getmethods.php
-	 * @param string $filter [optional] <p>
+	 * @param int $filter [optional] <p>
 	 * Filter the results to include only methods with certain attributes. Defaults
 	 * to no filtering.
 	 * </p>
 	 * <p>
-	 * Any combination of <b>ReflectionMethod::IS_STATIC</b>,
+	 * Any bitwise disjunction of <b>ReflectionMethod::IS_STATIC</b>,
 	 * <b>ReflectionMethod::IS_PUBLIC</b>,
 	 * <b>ReflectionMethod::IS_PROTECTED</b>,
 	 * <b>ReflectionMethod::IS_PRIVATE</b>,
 	 * <b>ReflectionMethod::IS_ABSTRACT</b>,
-	 * <b>ReflectionMethod::IS_FINAL</b>.
+	 * <b>ReflectionMethod::IS_FINAL</b>,
+	 * so that all methods with <em>any</em> of the given attributes will be returned.
 	 * </p>
-         * @return ReflectionMethod[] An array of methods.
+         * @return ReflectionMethod[] An array of ReflectionMethod objects reflecting each method.
 	 * @since 5.0
 	 */
 	public function getMethods ($filter = null) {}
@@ -1354,7 +1356,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets the name of the extension which defined the class
 	 * @link https://php.net/manual/en/reflectionclass.getextensionname.php
-	 * @return string The name of the extension which defined the class, or <b>FALSE</b> for user-defined classes.
+	 * @return string|false The name of the extension which defined the class, or <b>FALSE</b> for user-defined classes.
 	 * @since 5.0
 	 */
 	public function getExtensionName () {}
@@ -1580,7 +1582,7 @@ class ReflectionProperty implements Reflector {
 	/**
 	 * Gets doc comment
 	 * @link https://php.net/manual/en/reflectionproperty.getdoccomment.php
-	 * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
+	 * @return string|false The doc comment if it exists, otherwise <b>FALSE</b>
 	 * @since 5.1.0
 	 */
 	public function getDocComment () {}
@@ -1596,6 +1598,29 @@ class ReflectionProperty implements Reflector {
 	 */
 	public function setAccessible ($accessible) {}
 
+	/**
+	 * Gets property type
+	 * @return ReflectionType|null
+	 * @since 7.4.0
+	 */
+	public function getType() {}
+
+	/**
+	 * Checks if property has type
+	 * @return bool
+	 * @since 7.4.0
+	 */
+	public function hasType() {}
+
+	/**
+	 * Checks if property is initialized
+	 * @param object $object [optional]<p>
+	 * If the property is non-static an object must be provided.
+	 * </p>
+	 * @return bool
+	 * @since 7.4.0
+	 */
+	public function isInitialized ($object) {}
 }
 
 /**
@@ -1991,19 +2016,10 @@ class ReflectionType
 	 * @link https://php.net/manual/en/reflectiontype.tostring.php
 	 * @return string Returns the type of the parameter.
 	 * @since 7.0
-	 * @deprecated 7.1.0:8.0.0 Please use getName()
+	 * @deprecated 7.1 Please use getName()
 	 * @see \ReflectionType::getName()
 	 */
 	public function __toString()
-	{
-	}
-
-	/**
-	 * Get type of the parameter.
-	 * @return string Returns the type of the parameter.
-	 * @since 7.1.0
-	 */
-	public function getName()
 	{
 	}
 
@@ -2051,7 +2067,7 @@ class ReflectionClassConstant implements Reflector {
      * Gets doc comments
      * @since 7.1
      * @link https://php.net/manual/en/reflectionclassconstant.getdoccomment.php
-     * @return string|bool The doc comment if it exists, otherwise <b>FALSE</b>
+     * @return string|false The doc comment if it exists, otherwise <b>FALSE</b>
      */
 	public function getDocComment() {}
 
@@ -2099,7 +2115,7 @@ class ReflectionClassConstant implements Reflector {
      * Checks if class constant is public
      * @since 7.1
      * @link https://php.net/manual/en/reflectionclassconstant.ispublic.php
-     * @param bool
+     * @return bool
      */
 	public function isPublic() {}
 
@@ -2118,8 +2134,39 @@ class ReflectionClassConstant implements Reflector {
 /**
  * @since 7.1
  */
-class ReflectionNamedType extends ReflectionType{
+class ReflectionNamedType extends ReflectionType
+{
+	/**
+	 * Get the text of the type hint.
+	 * @return string Returns the text of the type hint.
+	 */
+	public function getName()
+	{
+	}
+}
 
+/**
+ * @since 7.4
+ */
+final class ReflectionReference
+{
+	/**
+	 * Returns ReflectionReference if array element is a reference, null otherwise
+	 * @param array $array
+	 * @param int|string $key
+	 * @return self|null
+	 */
+	public static function fromArrayElement($array, $key) {}
+	
+	/**
+	 * Returns unique identifier for the reference. The return value format is unspecified
+	 * @return int|string
+	 */
+	public function getId() {}
+	
+	private function __construct() {}
+	
+	private function __clone() {}
 }
 
 // End of Reflection v.$Id: bcdcdaeea3aba34a8083bb62c6eda69ff3c3eab5 $

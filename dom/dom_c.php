@@ -34,9 +34,9 @@ class DOMNode  {
     public $nodeType;
 
     /**
-     * @var DOMNode
+     * @var DOMNode|null
      * @since 5.0
-     * The parent of this node
+     * The parent of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.parentnode
      */
     public $parentNode;
@@ -50,7 +50,7 @@ class DOMNode  {
     public $childNodes;
 
     /**
-     * @var DOMNode
+     * @var DOMNode|null
      * @since 5.0
      * The first child of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.firstchild
@@ -58,7 +58,7 @@ class DOMNode  {
     public $firstChild;
 
     /**
-     * @var DOMNode
+     * @var DOMNode|null
      * @since 5.0
      * The last child of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.lastchild
@@ -66,7 +66,7 @@ class DOMNode  {
     public $lastChild;
 
     /**
-     * @var DOMNode
+     * @var DOMNode|null
      * @since 5.0
      * The node immediately preceding this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
@@ -74,7 +74,7 @@ class DOMNode  {
     public $previousSibling;
 
     /**
-     * @var DOMNode
+     * @var DOMNode|null
      * @since 5.0
      * The node immediately following this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
@@ -82,7 +82,7 @@ class DOMNode  {
     public $nextSibling;
 
     /**
-     * @var DOMNamedNodeMap
+     * @var DOMNamedNodeMap|null
      * @since 5.0
      * A <classname>DOMNamedNodeMap</classname> containing the attributes of this node (if it is a <classname>DOMElement</classname>) or NULL otherwise.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.attributes
@@ -90,15 +90,15 @@ class DOMNode  {
     public $attributes;
 
     /**
-     * @var DOMDocument
+     * @var DOMDocument|null
      * @since 5.0
-     * The <classname>DOMDocument</classname> object associated with this node.
+     * The <classname>DOMDocument</classname> object associated with this node, or NULL if this node is a <classname>DOMDocument</classname>.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.ownerdocument
      */
     public $ownerDocument;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The namespace URI of this node, or NULL if it is unspecified.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.namespaceuri
@@ -106,7 +106,7 @@ class DOMNode  {
     public $namespaceURI;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The namespace prefix of this node, or NULL if it is unspecified.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.prefix
@@ -122,7 +122,7 @@ class DOMNode  {
     public $localName;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The absolute base URI of this node or NULL if the implementation wasn't able to obtain an absolute URI.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.baseuri
@@ -294,7 +294,7 @@ class DOMNode  {
 
     /**
      * @param DOMNode $arg
-     * @return boolean
+     * @return bool
      */
     public function isEqualNode (DOMNode $arg) {}
 
@@ -320,7 +320,7 @@ class DOMNode  {
 
     /**
      * Gets an XPath location path for the node
-     * @return string the XPath, or NULL in case of an error.
+     * @return string|null the XPath, or NULL in case of an error.
      * @link https://secure.php.net/manual/en/domnode.getnodepath.php
      * @since 5.3.0
      */
@@ -352,7 +352,7 @@ class DOMNode  {
      * @param $with_comments [optional]  Retain comments in output.
      * @param $xpath [optional] An array of xpaths to filter the nodes by.
      * @param $ns_prefixes [optional] An array of namespace prefixes to filter the nodes by.
-     * @return int Number of bytes written or FALSE on failure
+     * @return int|false Number of bytes written or FALSE on failure
      */
     public function C14NFile ($uri, $exclusive, array $with_comments, array $xpath = null, $ns_prefixes = null) {}
 
@@ -574,12 +574,12 @@ class DOMDocument extends DOMNode  {
     public $documentElement;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The location of the document or NULL if undefined.
      * @link https://php.net/manual/class.domdocument.php#domdocument.props.documenturi
      */
-    public $documentURI ;
+    public $documentURI;
 
     /**
      * @var string
@@ -885,7 +885,7 @@ class DOMDocument extends DOMNode  {
      * @param string $elementId <p>
      * The unique id value for an element.
      * </p>
-     * @return DOMElement the DOMElement or &null; if the element is
+     * @return DOMElement|null The DOMElement or &null; if the element is
      * not found.
      * @since 5.0
      */
@@ -977,11 +977,11 @@ class DOMDocument extends DOMNode  {
     /**
      * Creates a new DOMDocument object
      * @link https://php.net/manual/domdocument.construct.php
-     * @param $version [optional] The version number of the document as part of the XML declaration.
-     * @param $encoding [optional] The encoding of the document as part of the XML declaration.
+     * @param string $version [optional] The version number of the document as part of the XML declaration.
+     * @param string $encoding [optional] The encoding of the document as part of the XML declaration.
      * @since 5.0
      */
-    public function __construct ($version, $encoding) {}
+    public function __construct ($version = '', $encoding = '') {}
 
     /**
      * Validates the document based on its DTD
@@ -1146,8 +1146,9 @@ class DOMNodeList implements Traversable, Countable {
 	 * @link https://php.net/manual/en/domnodelist.item.php
 	 * @param int $index <p>
 	 * Index of the node into the collection.
+	 * The range of valid child node indices is 0 to length - 1 inclusive.
 	 * </p>
-	 * @return DOMElement The node at the indexth position in the 
+	 * @return DOMNode|null The node at the indexth position in the
 	 * DOMNodeList, or &null; if that is not a valid
 	 * index.
 	 * @since 5.0
@@ -1174,7 +1175,7 @@ class DOMNamedNodeMap implements Traversable, Countable {
      * @param string $name <p>
      * The nodeName of the node to retrieve.
      * </p>
-     * @return DOMNode A node (of any type) with the specified nodeName, or
+     * @return DOMNode|null A node (of any type) with the specified nodeName, or
      * &null; if no node is found.
      * @since 5.0
      */
@@ -1196,7 +1197,7 @@ class DOMNamedNodeMap implements Traversable, Countable {
      * @param int $index <p>
      * Index into this map.
      * </p>
-     * @return DOMNode The node at the indexth position in the map, or &null;
+     * @return DOMNode|null The node at the indexth position in the map, or &null;
      * if that is not a valid index (greater than or equal to the number of nodes
      * in this map).
      * @since 5.0
@@ -1212,7 +1213,7 @@ class DOMNamedNodeMap implements Traversable, Countable {
      * @param string $localName <p>
      * The local name of the node to retrieve.
      * </p>
-     * @return DOMNode A node (of any type) with the specified local name and namespace URI, or
+     * @return DOMNode|null A node (of any type) with the specified local name and namespace URI, or
      * &null; if no node is found.
      * @since 5.0
      */
@@ -1411,15 +1412,15 @@ class DOMElement extends DOMNode  {
 
 
     /**
-     * @var DOMElement
+     * @var DOMElement|null
      * @since 5.0
-     * The parent of this node
+     * The parent of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.parentnode
      */
     public $parentNode;
 
     /**
-     * @var DOMElement
+     * @var DOMElement|null
      * @since 5.0
      * The first child of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.firstchild
@@ -1427,7 +1428,7 @@ class DOMElement extends DOMNode  {
     public $firstChild;
 
     /**
-     * @var DOMElement
+     * @var DOMElement|null
      * @since 5.0
      * The last child of this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.lastchild
@@ -1435,7 +1436,7 @@ class DOMElement extends DOMNode  {
     public $lastChild;
 
     /**
-     * @var DOMElement
+     * @var DOMElement|null
      * @since 5.0
      * The node immediately preceding this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.previoussibling
@@ -1443,7 +1444,7 @@ class DOMElement extends DOMNode  {
     public $previousSibling;
 
     /**
-     * @var DOMElement
+     * @var DOMElement|null
      * @since 5.0
      * The node immediately following this node. If there is no such node, this returns NULL.
      * @link https://php.net/manual/en/class.domnode.php#domnode.props.nextsibling
@@ -1520,7 +1521,7 @@ class DOMElement extends DOMNode  {
      * @param DOMAttr $attr <p>
      * The attribute node.
      * </p>
-     * @return DOMAttr old node if the attribute has been replaced or &null;.
+     * @return DOMAttr|null Old node if the attribute has been replaced or &null;.
      * @since 5.0
      */
     public function setAttributeNode (DOMAttr $attr) {}
@@ -1712,12 +1713,12 @@ class DOMElement extends DOMNode  {
     /**
      * Creates a new DOMElement object
      * @link https://php.net/manual/en/domelement.construct.php
-     * @param $name string The tag name of the element. When also passing in namespaceURI, the element name may take a prefix to be associated with the URI.
-     * @param $value string [optional] The value of the element.
-     * @param $uri string [optional] A namespace URI to create the element within a specific namespace.
+     * @param string $name The tag name of the element. When also passing in namespaceURI, the element name may take a prefix to be associated with the URI.
+     * @param string|null $value [optional] The value of the element.
+     * @param string|null $uri  [optional] A namespace URI to create the element within a specific namespace.
      * @since 5.0
      */
-    public function __construct ($name, $value, $uri) {}
+    public function __construct ($name, $value = null, $uri = null) {}
 
     /**
      * Adds a new child before a reference node
@@ -1938,7 +1939,7 @@ class DOMDocumentType extends DOMNode
     public $notations;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The internal subset as a string, or null if there is none. This is does not contain the delimiting square brackets.
      * @link https://php.net/manual/en/class.domdocumenttype.php#domdocumenttype.props.internalsubset
@@ -1978,7 +1979,7 @@ class DOMNotation  extends DOMNode{
 class DOMEntity extends DOMNode  {
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The public identifier associated with the entity if specified, and NULL otherwise.
      * @link https://php.net/manual/en/class.domentity.php#domentity.props.publicid
@@ -1986,7 +1987,7 @@ class DOMEntity extends DOMNode  {
     public $publicId ;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * The system identifier associated with the entity if specified, and NULL otherwise. This may be an
      * absolute URI or not.
@@ -1995,7 +1996,7 @@ class DOMEntity extends DOMNode  {
     public $systemId ;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * For unparsed entities, the name of the notation for the entity. For parsed entities, this is NULL.
      * @link https://php.net/manual/en/class.domentity.php#domentity.props.notationname
@@ -2003,7 +2004,7 @@ class DOMEntity extends DOMNode  {
     public $notationName ;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * An attribute specifying the encoding used for this entity at the time of parsing, when it is an external
      * parsed entity. This is NULL if it an entity from the internal subset or if it is not known.
@@ -2012,7 +2013,7 @@ class DOMEntity extends DOMNode  {
     public $actualEncoding ;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * An attribute specifying, as part of the text declaration, the encoding of this entity, when it is an external
      * parsed entity. This is NULL otherwise.
@@ -2021,7 +2022,7 @@ class DOMEntity extends DOMNode  {
     public $encoding ;
 
     /**
-     * @var string
+     * @var string|null
      * @since 5.0
      * An attribute specifying, as part of the text declaration, the version number of this entity, when it is an
      * external parsed entity. This is NULL otherwise.
@@ -2143,9 +2144,10 @@ class DOMXPath  {
      * </p>
      * @param bool $registerNodeNS [optional] <p>The optional registerNodeNS can be specified to
      * disable automatic registration of the context node.</p>
-     * @return DOMNodeList a DOMNodeList containing all nodes matching
-     * the given XPath expression. Any expression which do
-     * not return nodes will return an empty DOMNodeList.
+     * @return DOMNodeList|false a DOMNodeList containing all nodes matching
+     * the given XPath expression. Any expression which does not return nodes
+     * will return an empty DOMNodeList. The return is false if the expression
+     * is malformed or the contextnode is invalid.
      * @since 5.0
      */
     public function query ($expression, $contextnode = null, $registerNodeNS = true) {}

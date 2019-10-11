@@ -15,9 +15,9 @@ use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\StubProblemType;
-use StubTests\TestData\providers\PhpStormStubsSingleton;
+use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
-class TestStubs extends TestCase
+class StubsTest extends TestCase
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
@@ -49,6 +49,9 @@ class TestStubs extends TestCase
         $constantName = $constant->name;
         $constantValue = $constant->value;
         $stubConstants = PhpStormStubsSingleton::getPhpStormStubs()->getConstants();
+        if ($constant->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+            static::markTestSkipped('constant is excluded');
+        }
         if ($constant->hasMutedProblem(StubProblemType::WRONG_CONSTANT_VALUE)) {
             static::markTestSkipped('constant is excluded');
         }
@@ -193,7 +196,13 @@ class TestStubs extends TestCase
         );
         $stubInterface = $stubInterfaces[$interfaceName];
         if (!$interface->hasMutedProblem(StubProblemType::WRONG_PARENT)) {
-            static::assertEquals($stubInterface->parentInterfaces, $interface->parentInterfaces);
+            foreach ($interface->parentInterfaces as $parentInterface) {
+                static::assertContains(
+                    $parentInterface,
+                    $stubInterface->parentInterfaces,
+                    "Missing parent interface $parentInterface"
+                );
+            }
         }
         foreach ($interface->constants as $constant) {
             if (!$constant->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {

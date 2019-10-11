@@ -6,7 +6,7 @@
  * A file archive, compressed with Zip.
  * @link https://php.net/manual/en/class.ziparchive.php
  */
-class ZipArchive  {
+class ZipArchive implements Countable {
 
 	/**
 	 * Create the archive if it does not exist.
@@ -409,9 +409,18 @@ class ZipArchive  {
 	public function close () {}
 
 	/**
+	 * (PHP 7 &gt;= 7.2.0, PECL zip &gt;= 1.15.0)<br/>
+	 * Counts the number of files in the achive.
+	 * @link https://www.php.net/manual/en/ziparchive.count.php
+	 * @return int
+	 * @since 7.2.0
+	 */
+	public function count() {}
+
+	/**
 	 * Returns the status error message, system and/or zip messages
 	 * @link https://php.net/manual/en/ziparchive.getstatusstring.php
-	 * @return string a string with the status message on success or <b>FALSE</b> on failure.
+	 * @return string|false a string with the status message on success or <b>FALSE</b> on failure.
 	 * @since 5.2.7
 	 */
 	public function getStatusString () {}
@@ -551,7 +560,7 @@ class ZipArchive  {
 	 * If flags is set to <b>ZipArchive::FL_UNCHANGED</b>, the original unchanged
 	 * comment is returned.
 	 * </p>
-	 * @return string the Zip archive comment or <b>FALSE</b> on failure.
+	 * @return string|false the Zip archive comment or <b>FALSE</b> on failure.
 	 */
 	public function getArchiveComment ($flags = null) {}
 
@@ -630,7 +639,7 @@ class ZipArchive  {
     /**
      * (PHP 5 &gt;= 5.6.0, PECL zip &gt;= 1.12.0)<br/>
      * @param $password
-     * @return boolean
+     * @return bool
      */
     public function setPassword($password) {}
 
@@ -645,7 +654,7 @@ class ZipArchive  {
 	 * If flags is set to <b>ZipArchive::FL_UNCHANGED</b>, the original unchanged
 	 * comment is returned.
 	 * </p>
-	 * @return string the comment on success or <b>FALSE</b> on failure.
+	 * @return string|false the comment on success or <b>FALSE</b> on failure.
 	 */
 	public function getCommentIndex ($index, $flags = null) {}
 
@@ -660,7 +669,7 @@ class ZipArchive  {
 	 * If flags is set to <b>ZipArchive::FL_UNCHANGED</b>, the original unchanged
 	 * comment is returned.
 	 * </p>
-	 * @return string the comment on success or <b>FALSE</b> on failure.
+	 * @return string|false the comment on success or <b>FALSE</b> on failure.
 	 */
 	public function getCommentName ($name, $flags = null) {}
 
@@ -701,7 +710,7 @@ class ZipArchive  {
 	 * <p>
 	 * <b>ZipArchive::FL_NOCASE</b>
 	 * </p>
-	 * @return array an array containing the entry details or <b>FALSE</b> on failure.
+	 * @return array|false an array containing the entry details or <b>FALSE</b> on failure.
 	 */
 	public function statName ($name, $flags = null) {}
 
@@ -717,7 +726,7 @@ class ZipArchive  {
 	 * information about the original file in the archive,
 	 * ignoring any changes made.
 	 * </p>
-	 * @return array an array containing the entry details or <b>FALSE</b> on failure.
+	 * @return array|false an array containing the entry details or <b>FALSE</b> on failure.
 	 */
 	public function statIndex ($index, $flags = null) {}
 
@@ -734,7 +743,7 @@ class ZipArchive  {
 	 * <p>
 	 * <b>ZipArchive::FL_NOCASE</b>
 	 * </p>
-	 * @return int the index of the entry on success or <b>FALSE</b> on failure.
+	 * @return int|false the index of the entry on success or <b>FALSE</b> on failure.
 	 */
 	public function locateName ($name, $flags = null) {}
 
@@ -749,7 +758,7 @@ class ZipArchive  {
 	 * If flags is set to <b>ZipArchive::FL_UNCHANGED</b>, the original unchanged
 	 * name is returned.
 	 * </p>
-	 * @return string the name on success or <b>FALSE</b> on failure.
+	 * @return string|false the name on success or <b>FALSE</b> on failure.
 	 */
 	public function getNameIndex ($index, $flags = null) {}
 
@@ -823,7 +832,7 @@ class ZipArchive  {
 	 * <p>
 	 * <b>ZipArchive::FL_UNCHANGED</b>
 	 * </p>
-	 * @return string the contents of the entry on success or <b>FALSE</b> on failure.
+	 * @return string|false the contents of the entry on success or <b>FALSE</b> on failure.
 	 */
 	public function getFromName ($name, $length = 0, $flags = null) {}
 
@@ -844,7 +853,7 @@ class ZipArchive  {
 	 * <p>
 	 * <b>ZipArchive::FL_UNCHANGED</b>
 	 * </p>
-	 * @return string the contents of the entry on success or <b>FALSE</b> on failure.
+	 * @return string|false the contents of the entry on success or <b>FALSE</b> on failure.
 	 */
 	public function getFromIndex ($index, $length = 0, $flags = null) {}
 
@@ -855,7 +864,7 @@ class ZipArchive  {
 	 * @param string $name <p>
 	 * The name of the entry to use.
 	 * </p>
-	 * @return resource a file pointer (resource) on success or <b>FALSE</b> on failure.
+	 * @return resource|false a file pointer (resource) on success or <b>FALSE</b> on failure.
 	 */
 	public function getStream ($name) {}
 
@@ -953,7 +962,7 @@ function zip_entry_close ($zip_entry) {}
  * <p>
  * This should be the uncompressed length you wish to read.
  * </p>
- * @return string the data read, empty string on end of a file, or <b>FALSE</b> on error.
+ * @return string|false the data read, empty string on end of a file, or <b>FALSE</b> on error.
  */
 function zip_entry_read ($zip_entry, $length = 1024) {}
 

@@ -379,5 +379,23 @@ class object {
    */
   public function __clone() {}
 
+    /**
+     * Returns array containing all the necessary state of the object.
+     * @since 7.4
+     * @link https://wiki.php.net/rfc/custom_object_serialization
+     */
+    public function __serialize(): array
+    {
+    }
+
+    /**
+     * Restores the object state from the given data array.
+     * @since 7.4
+     * @link https://wiki.php.net/rfc/custom_object_serialization
+     */
+    public function __unserialize(array $data): void
+    {
+    }
+
 }
 }

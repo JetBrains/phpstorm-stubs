@@ -316,7 +316,7 @@ function preg_replace_callback ($pattern, callable $callback, $subject, $limit =
  * @return string|string[]|null  <p>preg_replace_callback_array() returns an array if the subject parameter is an array, or a string otherwise. On errors the return value is NULL</p>
  * <p>If matches are found, the new subject will be returned, otherwise subject will be returned unchanged.</p>
  */
-function preg_replace_callback_array ($patterns_and_callbacks, $subject , $limit = -1, &$count ) {}
+function preg_replace_callback_array ($patterns_and_callbacks, $subject , $limit = -1, &$count = null) {}
 
 /**
  * Perform a regular expression search and replace
@@ -517,6 +517,13 @@ define ('PREG_BAD_UTF8_ERROR', 4);
  */
 define ('PREG_BAD_UTF8_OFFSET_ERROR', 5);
 
+/**
+ * This flag tells {@see preg_match()} and {@see preg_match_all()}
+ * to include unmatched subpatterns in <b>$matches</b> as NULL values.
+ * Without this flag, unmatched subpatterns are reported as empty strings,
+ * as if they were empty matches. Setting this flag allows to distinguish between these two cases.
+ * @since 7.2.0
+ */
 define ('PREG_UNMATCHED_AS_NULL', 512);
 /**
  * PCRE version and release date (e.g. "7.0 18-Dec-2006").

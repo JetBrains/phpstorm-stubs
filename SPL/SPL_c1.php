@@ -286,6 +286,8 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator {
          * Constructs a new directory iterator from a path
          * @link https://php.net/manual/en/directoryiterator.construct.php
          * @param $path
+         * @throws UnexpectedValueException if the path cannot be opened.
+         * @throws RuntimeException if the path is an empty string.
          * @since 5.0
          */
         public function __construct ($path) {}
@@ -375,9 +377,10 @@ class FilesystemIterator extends DirectoryIterator {
          * @link https://php.net/manual/en/filesystemiterator.construct.php
          * @param $path
          * @param $flags [optional]
+         * @throws UnexpectedValueException if the path cannot be found.
          * @since 5.3.0
          */
-        public function __construct ($path, $flags) {}
+        public function __construct ($path, $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::SKIP_DOTS) {}
 
         /**
          * Rewinds back to the beginning
@@ -447,9 +450,10 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
          * @link https://php.net/manual/en/recursivedirectoryiterator.construct.php
          * @param $path
          * @param $flags [optional]
+         * @throws UnexpectedValueException if the path cannot be found or is not a directory.
          * @since 5.1.2
          */
-        public function __construct ($path, $flags) {}
+        public function __construct ($path, $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO) {}
 
         /**
          * Returns whether current entry is a directory and not '.' or '..'
@@ -535,7 +539,7 @@ class GlobIterator extends FilesystemIterator implements Countable {
          * @param $flags [optional]
          * @since 5.3.0
          */
-        public function __construct ($path, $flags) {}
+        public function __construct ($path, $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO) {}
 
         /**
          * Get the number of directories and files
@@ -614,7 +618,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Gets line from file
          * @link https://php.net/manual/en/splfileobject.fgets.php
-         * @return string a string containing the next line from the file, or false on error.
+         * @return string|false a string containing the next line from the file, or false on error.
          * @since 5.1.0
          */
         public function fgets () {}
@@ -625,7 +629,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * @param int $length <p>
          * The number of bytes to read.
          * </p>
-         * @return string returns the string read from the file or FALSE on failure.
+         * @return string|false returns the string read from the file or FALSE on failure.
          * @since 5.5.11
          */
         public function fread ($length) {}
@@ -663,12 +667,12 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
      * @param string $enclosure [optional] <p>
      * The field enclosure character (one character only). Defaults as a double quotation mark or the value set using <b>SplFileObject::setCsvControl</b>.
      * </p>
-     * @param string $escape_char The optional escape_char parameter sets the escape character (one character only).
-     * @return int Returns the length of the written string or FALSE on failure.
+     * @param string $escape The optional escape parameter sets the escape character (one character only).
+     * @return int|false Returns the length of the written string or FALSE on failure.
      * @since 5.4.0
      *</p>
      */
-	public function fputcsv (array $fields, $delimiter = ',' , $enclosure = '"', $escape_char = "\\") {}
+	public function fputcsv (array $fields, $delimiter = ',' , $enclosure = '"', $escape = "\\") {}
 
         /**
          * Set the delimiter and enclosure character for CSV
@@ -720,7 +724,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Return current file position
          * @link https://php.net/manual/en/splfileobject.ftell.php
-         * @return int the position of the file pointer as an integer, or false on error.
+         * @return int|false the position of the file pointer as an integer, or false on error.
          * @since 5.1.0
          */
         public function ftell () {}
@@ -750,7 +754,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Gets character from file
          * @link https://php.net/manual/en/splfileobject.fgetc.php
-         * @return string a string containing a single character read from the file or false on EOF.
+         * @return string|false a string containing a single character read from the file or false on EOF.
          * @since 5.1.0
          */
         public function fgetc () {}
@@ -758,7 +762,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Output all remaining data on a file pointer
          * @link https://php.net/manual/en/splfileobject.fpassthru.php
-	 * @return int the number of characters read from <i>handle</i>
+         * @return int|false the number of characters read from <i>handle</i>
          * and passed through to the output.
          * @since 5.1.0
          */
@@ -771,7 +775,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * You can use the optional third parameter to specify tags which should
          * not be stripped.
          * </p>
-         * @return string a string containing the next line of the file with HTML and PHP
+         * @return string|false a string containing the next line of the file with HTML and PHP
          * code stripped, or false on error.
          * @since 5.1.0
          * @deprecated 7.3
@@ -841,7 +845,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
          * Retrieve current line of file
          * @link https://php.net/manual/en/splfileobject.current.php
-	 * @return string|array Retrieves the current line of the file. If the <b>SplFileObject::READ_CSV</b> flag is set, this method returns an array containing the current line parsed as CSV data.
+	 * @return string|array|false Retrieves the current line of the file. If the <b>SplFileObject::READ_CSV</b> flag is set, this method returns an array containing the current line parsed as CSV data.
          * @since 5.1.0
          */
         public function current () {}
@@ -933,7 +937,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
         /**
 	     * Alias of <b>SplFileObject::fgets</b>
          * @link https://php.net/manual/en/splfileobject.getcurrentline.php
-         * @return string Returns a string containing the next line from the file, or FALSE on error.
+         * @return string|false Returns a string containing the next line from the file, or FALSE on error.
          * @since 5.1.2
          */
         public function getCurrentLine () {}
@@ -958,6 +962,7 @@ class SplTempFileObject extends SplFileObject {
          * Construct a new temporary file object
          * @link https://php.net/manual/en/spltempfileobject.construct.php
          * @param $max_memory [optional]
+         * @throws RuntimeException if an error occurs.
          * @since 5.1.2
          */
         public function __construct ($max_memory) {}
@@ -1548,7 +1553,7 @@ class SplPriorityQueue implements Iterator, Countable {
          * @param mixed $priority <p>
          * The associated priority.
          * </p>
-         * @return void 
+         * @return true
          * @since 5.3.0
          */
         public function insert ($value, $priority) {}
@@ -2120,7 +2125,7 @@ class MultipleIterator implements Iterator {
          * @param $flags [optional] Defaults to MultipleIterator::MIT_NEED_ALL | MultipleIterator::MIT_KEYS_NUMERIC
          * @since 5.3.0
          */
-        public function __construct ($flags) {}
+        public function __construct ($flags = MultipleIterator::MIT_NEED_ALL | MultipleIterator::MIT_KEYS_NUMERIC) {}
 
         /**
          * Gets the flag information
@@ -2148,7 +2153,7 @@ class MultipleIterator implements Iterator {
          * @param Iterator $iterator <p>
          * The new iterator to attach.
          * </p>
-         * @param string $infos [optional] <p>
+         * @param int|string|null $infos [optional] <p>
          * The associative information for the Iterator, which must be an
 	 * integer, a string, or null.
          * </p>
@@ -2198,7 +2203,7 @@ class MultipleIterator implements Iterator {
         /**
          * Checks the validity of sub iterators
          * @link https://php.net/manual/en/multipleiterator.valid.php
-         * @return boolean true if one or all sub iterators are valid depending on flags,
+         * @return bool true if one or all sub iterators are valid depending on flags,
          * otherwise false
          * @since 5.3.0
          */

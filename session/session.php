@@ -3,7 +3,8 @@
 // Start of session v.
 
 /**
- * Get and/or set the current session name
+ * Get and/or set the current session name.<br/>
+ * Before 7.2.0 checked cookie status and since 7.2.0 checks both cookie and session status to avoid PHP crash.
  * @link https://php.net/manual/en/function.session-name.php
  * @param string $name [optional] <p>
  * The session name references the name of the session, which is
@@ -26,7 +27,8 @@
 function session_name ($name = null) {}
 
 /**
- * Get and/or set the current session module
+ * Get and/or set the current session module.<br/>
+ * Since 7.2.0 it is forbidden to set the module name to "user".
  * @link https://php.net/manual/en/function.session-module-name.php
  * @param string $module [optional] <p>
  * If <i>module</i> is specified, that module will be
@@ -122,7 +124,7 @@ function session_decode ($data) {}
  * </p>
  * @param mixed $_ [optional]
  * @return bool true on success or false on failure.
- * @deprecated 5.3.0 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
+ * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
  * @since 4.0
  * @since 5.0
  */
@@ -135,7 +137,7 @@ function session_register ($name, $_ = null) {}
  * The variable name.
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated 5.3.0 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
+ * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
  * @since 4.0
  * @since 5.0
  */
@@ -150,7 +152,7 @@ function session_unregister ($name) {}
  * @return bool <b>session_is_registered</b> returns true if there is a
  * global variable with the name <i>name</i> registered in
  * the current session, false otherwise.
- * @deprecated 5.3.0 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
+ * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
  * @since 4.0
  * @since 5.0
  */
@@ -190,7 +192,7 @@ function session_create_id($prefix) {}
 
 /**
  * Perform session data garbage collection
- * @return int number of deleted session data for success, FALSE for failure.
+ * @return int|false number of deleted session data for success, false for failure.
  * @since 7.1
  */
 function session_gc() {}
@@ -207,7 +209,7 @@ function session_destroy () {}
 /**
  * Free all session variables
  * @link https://php.net/manual/en/function.session-unset.php
- * @return void
+ * @return void|bool since 7.2.0 returns true on success or false on failure.
  * @since 4.0
  * @since 5.0
  */
@@ -263,7 +265,7 @@ function session_unset () {}
  * @since 4.0
  * @since 5.0
  */
-function session_set_save_handler ($open, $close, $read, $write, $destroy, $gc, $create_sid, $validate_sid,  $update_timestamp) {}
+function session_set_save_handler ($open, $close, $read, $write, $destroy, $gc, $create_sid = null, $validate_sid = null,  $update_timestamp = null) {}
 
 /**
  * (PHP 5.4)<br/>
@@ -383,7 +385,7 @@ function session_cache_expire ($new_cache_expire = null) {}
  * httponly
  * flag when setting the session cookie.
  * </p>
- * @return void
+ * @return void|bool since 7.2.0 returns true on success or false on failure.
  * @since 4.0
  * @since 5.0
  */
@@ -412,7 +414,7 @@ function session_get_cookie_params () {}
 /**
  * Write session data and end session
  * @link https://php.net/manual/en/function.session-write-close.php
- * @return void
+ * @return void|bool since 7.2.0 returns true on success or false on failure.
  * @since 4.0.4
  * @since 5.0
  */
@@ -421,6 +423,7 @@ function session_write_close () {}
 /**
  * Alias of <b>session_write_close</b>
  * @link https://php.net/manual/en/function.session-commit.php
+ * @return void|bool since 7.2.0 returns true on success or false on failure.
  * @since 4.4.0
  * @since 5.0
  */
@@ -440,7 +443,7 @@ function session_status () {}
  * (PHP 5 >= 5.6.0)<br>
  * Discard session array changes and finish session
  * @link https://php.net/manual/en/function.session-abort.php
- * @return bool true if a session was successfully reinitialized or false on failure.
+ * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
  */
 function session_abort() {}
 
@@ -448,7 +451,7 @@ function session_abort() {}
  * (PHP 5 >= 5.6.0)<br>
  * Re-initialize session array with original values
  * @link https://php.net/manual/en/function.session-reset.php
- * @return bool true if a session was successfully reinitialized or false on failure.
+ * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
  */
 function session_reset() {}
 

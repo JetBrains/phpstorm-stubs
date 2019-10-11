@@ -25,7 +25,7 @@
  * always open a new link, even if mssql_connect was
  * called before with the same parameters.
  * </p>
- * @return resource a MS SQL link identifier on success, or false on error.
+ * @return resource|false a MS SQL link identifier on success, or false on error.
  */
 function mssql_connect ($servername = null, $username = null, $password = null, $new_link = false) {}
 
@@ -224,7 +224,7 @@ function mssql_fetch_field ($result, $field_offset = -1) {}
  * The result resource that is being evaluated. This result comes from a
  * call to mssql_query.
  * </p>
- * @return array an array that corresponds to the fetched row, or false if there
+ * @return array|false an array that corresponds to the fetched row, or false if there
  * are no more rows.
  */
 function mssql_fetch_row ($result) {}
@@ -243,7 +243,7 @@ function mssql_fetch_row ($result) {}
  * MSSQL_NUM, and
  * MSSQL_BOTH.
  * </p>
- * @return array an array that corresponds to the fetched row, or false if there
+ * @return array|false an array that corresponds to the fetched row, or false if there
  * are no more rows.
  */
 function mssql_fetch_array ($result, $result_type = MSSQL_BOTH) {}
@@ -285,7 +285,7 @@ function mssql_fetch_object ($result) {}
  * @param int $offset [optional] <p>
  * The field offset, starts at 0. If omitted, the current field is used.
  * </p>
- * @return int The length of the specified field index on success or false on failure.
+ * @return int|false The length of the specified field index on success or false on failure.
  */
 function mssql_field_length ($result, $offset = null) {}
 
@@ -300,7 +300,7 @@ function mssql_field_length ($result, $offset = null) {}
  * @param int $offset [optional] <p>
  * The field offset, starts at 0. If omitted, the current field is used.
  * </p>
- * @return string The name of the specified field index on success or false on failure.
+ * @return string|false The name of the specified field index on success or false on failure.
  */
 function mssql_field_name ($result, $offset = -1) {}
 
@@ -315,7 +315,7 @@ function mssql_field_name ($result, $offset = -1) {}
  * @param int $offset [optional] <p>
  * The field offset, starts at 0. If omitted, the current field is used.
  * </p>
- * @return string The type of the specified field index on success or false on failure.
+ * @return string|false The type of the specified field index on success or false on failure.
  */
 function mssql_field_type ($result, $offset = -1) {}
 

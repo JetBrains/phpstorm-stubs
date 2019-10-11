@@ -769,7 +769,7 @@ function checkdate ($month, $day, $year) {}
  * @since 4.0
  * @since 5.0
  */
-function strftime ($format, $timestamp) {}
+function strftime ($format, $timestamp = null) {}
 
 /**
  * Format a GMT/UTC time/date according to locale settings
@@ -1094,11 +1094,11 @@ function date_offset_get ($object) {}
  * @link https://php.net/manual/en/function.date-diff.php
  * @param DateTime $object
  * @param DateTime $object2 The date to compare to
- * @param boolean $absolute [optional] Whether to return absolute difference.
+ * @param bool $absolute [optional] Whether to return absolute difference.
  * @return DateInterval|false The DateInterval object representing the difference between the two dates or FALSE on failure.
  * @since 5.3.0
  */
-function date_diff ($object, $object2, $absolute) {}
+function date_diff ($object, $object2, $absolute = false) {}
 
 /**
  * &Alias; <methodname>DateTime::setTime</methodname>
@@ -1107,12 +1107,12 @@ function date_diff ($object, $object2, $absolute) {}
  * @param $hour
  * @param $minute
  * @param $second [optional]
- * @parame $microseconds [optional]
+ * @param $microseconds [optional]
  * @return DateTime|false <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  * @since 5.2.0
  */
-function date_time_set ($object, $hour, $minute, $second, $microseconds) {}
+function date_time_set ($object, $hour, $minute, $second = 0, $microseconds = 0) {}
 
 /**
  * &Alias; <methodname>DateTime::setDate</methodname>
@@ -1223,7 +1223,7 @@ function timezone_name_from_abbr ($abbr, $gmtOffset = null, $isdst = null) {}
  * returned by
  * {@see timezone_open()}</p>
  * @param $datetime <p>DateTime that contains the date/time to compute the offset from.</p>
- * @return int|boolean <p>Returns time zone offset in seconds on success or <b>FALSE</b> on failure.</p>
+ * @return int|false <p>Returns time zone offset in seconds on success or <b>FALSE</b> on failure.</p>
  * @since 5.1.0
  */
 function timezone_offset_get ($object, $datetime) {}

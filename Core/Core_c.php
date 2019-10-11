@@ -15,7 +15,10 @@ class stdClass {
 interface iterable {}
 
 /**
- * Interface to detect if a class is traversable using &foreach;.
+ * Interface to detect if a class is traversable using foreach.
+ * Abstract base interface that cannot be implemented alone.
+ * Instead it must be implemented by either {@see IteratorAggregate} or {@see Iterator}.
+ *
  * @link https://php.net/manual/en/class.traversable.php
  */
 interface Traversable extends iterable {
@@ -71,7 +74,7 @@ interface Iterator extends Traversable {
     /**
      * Checks if current position is valid
      * @link https://php.net/manual/en/iterator.valid.php
-     * @return boolean The return value will be casted to boolean and then evaluated.
+     * @return bool The return value will be casted to boolean and then evaluated.
      * Returns true on success or false on failure.
      * @since 5.0.0
      */
@@ -98,7 +101,7 @@ interface ArrayAccess {
      * @param mixed $offset <p>
      * An offset to check for.
      * </p>
-     * @return boolean true on success or false on failure.
+     * @return bool true on success or false on failure.
      * </p>
      * <p>
      * The return value will be casted to boolean if non-boolean was returned.
@@ -480,15 +483,6 @@ class ParseError extends CompileError {
 }
 
 /**
- * AssertionError is thrown when an assertion made via {@see assert()} fails.
- * @link https://php.net/manual/en/class.assertionerror.php
- * @since 7.0
- */
-class AssertionError extends Error {
-
-}
-
-/**
  * ArgumentCountError is thrown when too few arguments are passed to a user
  * defined routine.
  *
@@ -546,7 +540,7 @@ class ErrorException extends Exception {
      * @param Exception $previous [optional] The previous exception used for the exception chaining.
      * @since 5.1.0
      */
-    public function __construct($message = "", $code = 0, $severity = 1, $filename = __FILE__, $lineno = __LINE__, $previous) { }
+    public function __construct($message = "", $code = 0, $severity = 1, $filename = __FILE__, $lineno = __LINE__, $previous = null) { }
 
     /**
      * Gets the exception severity
@@ -617,7 +611,7 @@ final class Closure {
      * @return mixed
      * @since 7.0
      */
-    function call ($newThis, ...$parameters) {}
+    function call ($newthis, ...$parameters) {}
     
     /**
      * @param callable $callable

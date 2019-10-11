@@ -338,7 +338,7 @@ class Collator {
      * @param int $attr <p>
      * Attribute to get value for.
      * </p>
-     * @return int Attribute value, or boolean <b>FALSE</b> on error.
+     * @return int|false Attribute value, or boolean <b>FALSE</b> on error.
      */
     public function getAttribute($attr) { }
 
@@ -358,7 +358,7 @@ class Collator {
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get current collation strength
      * @link https://php.net/manual/en/collator.getstrength.php
-     * @return int current collation strength, or boolean <b>FALSE</b> on error.
+     * @return int|false current collation strength, or boolean <b>FALSE</b> on error.
      */
     public function getStrength() { }
 
@@ -875,7 +875,7 @@ class NumberFormatter {
      * @param $style
      * @param $pattern [optional]
      */
-    public function __construct($locale, $style, $pattern) { }
+    public function __construct($locale, $style, $pattern = null) { }
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -899,7 +899,7 @@ class NumberFormatter {
      * @param string $pattern [optional] <p>
      * Pattern string if the chosen style requires a pattern.
      * </p>
-     * @return NumberFormatter <b>NumberFormatter</b> object or <b>FALSE</b> on error.
+     * @return NumberFormatter|false <b>NumberFormatter</b> object or <b>FALSE</b> on error.
      */
     public static function create($locale, $style, $pattern = null) { }
 
@@ -915,7 +915,7 @@ class NumberFormatter {
      * The
      * formatting type to use.
      * </p>
-     * @return string the string containing formatted value, or <b>FALSE</b> on error.
+     * @return string|false the string containing formatted value, or <b>FALSE</b> on error.
      */
     public function format($value, $type = null) { }
 
@@ -964,7 +964,7 @@ class NumberFormatter {
      * Offset in the string at which to begin parsing. On return, this value
      * will hold the offset at which parsing ended.
      * </p>
-     * @return float The parsed numeric value or <b>FALSE</b> on error.
+     * @return float|false The parsed numeric value or <b>FALSE</b> on error.
      */
     public function parseCurrency($value, &$currency, &$position = null) { }
 
@@ -991,7 +991,7 @@ class NumberFormatter {
      * Attribute specifier - one of the
      * numeric attribute constants.
      * </p>
-     * @return int Return attribute value on success, or <b>FALSE</b> on error.
+     * @return int|false Return attribute value on success, or <b>FALSE</b> on error.
      */
     public function getAttribute($attr) { }
 
@@ -1019,7 +1019,7 @@ class NumberFormatter {
      * Attribute specifier - one of the
      * text attribute constants.
      * </p>
-     * @return string Return attribute value on success, or <b>FALSE</b> on error.
+     * @return string|false Return attribute value on success, or <b>FALSE</b> on error.
      */
     public function getTextAttribute($attr) { }
 
@@ -1046,7 +1046,7 @@ class NumberFormatter {
      * Symbol specifier, one of the
      * format symbol constants.
      * </p>
-     * @return string The symbol string or <b>FALSE</b> on error.
+     * @return string|false The symbol string or <b>FALSE</b> on error.
      */
     public function getSymbol($attr) { }
 
@@ -1067,7 +1067,7 @@ class NumberFormatter {
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Get formatter pattern
      * @link https://php.net/manual/en/numberformatter.getpattern.php
-     * @return string Pattern string that is used by the formatter, or <b>FALSE</b> if an error happens.
+     * @return string|false Pattern string that is used by the formatter, or <b>FALSE</b> if an error happens.
      */
     public function getPattern() { }
 
@@ -1527,7 +1527,7 @@ class MessageFormatter {
      * @param array $args <p>
      * Arguments to insert into the format string
      * </p>
-     * @return string The formatted string, or <b>FALSE</b> if an error occurred
+     * @return string|false The formatted string, or <b>FALSE</b> if an error occurred
      */
     public function format(array $args) { }
 
@@ -1547,7 +1547,7 @@ class MessageFormatter {
      * @param array $args <p>
      * The array of values to insert into the format string
      * </p>
-     * @return string The formatted pattern string or <b>FALSE</b> if an error occurred
+     * @return string|false The formatted pattern string or <b>FALSE</b> if an error occurred
      */
     public static function formatMessage($locale, $pattern, array $args) { }
 
@@ -1558,7 +1558,7 @@ class MessageFormatter {
      * @param string $value <p>
      * The string to parse
      * </p>
-     * @return array An array containing the items extracted, or <b>FALSE</b> on error
+     * @return array|false An array containing the items extracted, or <b>FALSE</b> on error
      */
     public function parse($value) { }
 
@@ -1575,7 +1575,7 @@ class MessageFormatter {
      * @param string $source <p>
      * The string to parse, conforming to the <i>pattern</i>.
      * </p>
-     * @return array An array containing items extracted, or <b>FALSE</b> on error
+     * @return array|false An array containing items extracted, or <b>FALSE</b> on error
      */
     public static function parseMessage($locale, $pattern, $source) { }
 
@@ -1672,21 +1672,21 @@ class IntlDateFormatter {
 
 
     /**
-     * @param $locale
-     * @param $datetype
-     * @param $timetype
-     * @param $timezone [optional]
-     * @param $calendar [optional]
-     * @param $pattern [optional]
+     * @param string|null $locale
+     * @param int $datetype
+     * @param int $timetype
+     * @param mixed|null $timezone [optional]
+     * @param mixed|null $calendar [optional]
+     * @param string $pattern [optional]
      */
-    public function __construct($locale, $datetype, $timetype, $timezone, $calendar, $pattern) { }
+    public function __construct($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = '') { }
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Create a date formatter
      * @link https://php.net/manual/en/intldateformatter.create.php
      * @param string $locale <p>
-     * Locale to use when formatting or parsing.
+     * Locale to use when formatting or parsing; default is specified in the ini setting intl.default_locale.
      * </p>
      * @param int $datetype <p>
      * Date type to use (<b>none</b>,
@@ -1716,7 +1716,7 @@ class IntlDateFormatter {
      * </p>
      * @return IntlDateFormatter
      */
-    public static function create($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = null) { }
+    public static function create($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = '') { }
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1774,7 +1774,7 @@ class IntlDateFormatter {
      * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
      *  Get formatter's timezone
      * @link https://secure.php.net/manual/en/intldateformatter.gettimezone.php
-     * @return IntlTimeZone|bool The associated IntlTimeZone object or FALSE on failure.
+     * @return IntlTimeZone|false The associated IntlTimeZone object or FALSE on failure.
      */
     public function getTimeZone() { }
 
@@ -1857,7 +1857,7 @@ class IntlDateFormatter {
      * Get the locale used by formatter
      * @link https://php.net/manual/en/intldateformatter.getlocale.php
      * @param int $which [optional]
-     * @return string the locale of this formatter or 'false' if error
+     * @return string|false the locale of this formatter or 'false' if error
      */
     public function getLocale($which = null) { }
 
@@ -1890,7 +1890,7 @@ class IntlDateFormatter {
      * since epoch, UTC) or an array in the format output by
      * <b>localtime</b>.
      * </p>
-     * @return string The formatted string or, if an error occurred, <b>FALSE</b>.
+     * @return string|false The formatted string or, if an error occurred, <b>FALSE</b>.
      */
     public function format($value) { }
 
@@ -1916,7 +1916,7 @@ class IntlDateFormatter {
      * </p>
      * @param string $locale [optional] <p>
      * The locale to use, or <b>NULL</b> to use the {@link "https://secure.php.net/manual/en/intl.configuration.php#ini.intl.default-locale"default one}.</p>
-     * @return string A string with result or <b>FALSE</b> on failure.
+     * @return string|false A string with result or <b>FALSE</b> on failure.
      */
     public static function formatObject($object, $format = NULL, $locale = NULL) { }
 
@@ -1994,7 +1994,7 @@ class ResourceBundle implements Traversable {
      * @param bool $fallback [optional] <p>
      * Whether locale should match exactly or fallback to parent locale is allowed.
      * </p>
-     * @return ResourceBundle <b>ResourceBundle</b> object or <b>FALSE</b> on error.
+     * @return ResourceBundle|false <b>ResourceBundle</b> object or <b>FALSE</b> on error.
      */
     public static function create($locale, $bundlename, $fallback = null) { }
 
@@ -2133,7 +2133,7 @@ class Transliterator {
      * transformed, exclusive. Indexing starts at 0. The text after will be
      * left as is.
      * </p>
-     * @return string The transfomed string on success, or <b>FALSE</b> on failure.
+     * @return string|false The transfomed string on success, or <b>FALSE</b> on failure.
      */
     public function transliterate($subject, $start = null, $end = null) { }
 
@@ -2223,7 +2223,7 @@ class Spoofchecker {
     public function setChecks($checks) { }
 }
 
-class IntlGregorianCalendar {
+class IntlGregorianCalendar extends IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * @param mixed $timeZone
@@ -2587,7 +2587,7 @@ class IntlCalendar {
      * <p>
      * Whether to show only the values commonly used for the specified locale.
      * </p>
-     * @return Iterator An iterator that yields strings with the locale keyword values or <b>FALSE</b> on failure.
+     * @return Iterator|false An iterator that yields strings with the locale keyword values or <b>FALSE</b> on failure.
      */
     public static function getKeywordValuesForLocale($key, $locale, $commonlyUsed) { }
 
@@ -2770,7 +2770,7 @@ class IntlCalendar {
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Whether a certain date/time is in the weekend
      * @link https://secure.php.net/manual/en/intlcalendar.isweekend.php
-     * @param float $date [optional] <p>
+     * @param float|null $date [optional] <p>
      * An optional timestamp representing the number of milliseconds since the
      * epoch, excluding leap seconds. If <b>NULL</b>, this object's current time is
      * used instead.
@@ -2883,7 +2883,7 @@ class IntlCalendar {
      * @param string $isLenient <p>
      * Use <b>TRUE</b> to activate the lenient mode; <b>FALSE</b> otherwise.
      * </p>
-     * @return boolean Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+     * @return bool Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
      */
     public function setLenient($isLenient) { }
 
@@ -2975,7 +2975,7 @@ class IntlCalendar {
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a2)<br/>
      * Convert an IntlCalendar into a DateTime object
      * @link https://secure.php.net/manual/en/intlcalendar.todatetime.php
-     * @return DateTime|bool
+     * @return DateTime|false
      * A {@link https://secure.php.net/manual/en/class.datetime.php DateTime} object with the same timezone as this
      * object (though using PHP's database instead of ICU's) and the same time,
      * except for the smaller precision (second precision instead of millisecond).
@@ -3279,7 +3279,7 @@ function collator_compare(Collator $object, $str1, $str2) { }
  * @param int $attr <p>
  * Attribute to get value for.
  * </p>
- * @return int Attribute value, or boolean <b>FALSE</b> on error.
+ * @return int|false Attribute value, or boolean <b>FALSE</b> on error.
  */
 function collator_get_attribute(Collator $object, $attr) { }
 
@@ -3301,7 +3301,7 @@ function collator_set_attribute(Collator $object, $attr, $val) { }
  * Get current collation strength
  * @link https://php.net/manual/en/collator.getstrength.php
  * @param Collator $object
- * @return int current collation strength, or boolean <b>FALSE</b> on error.
+ * @return int|false current collation strength, or boolean <b>FALSE</b> on error.
  */
 function collator_get_strength(Collator $object) { }
 
@@ -3435,7 +3435,7 @@ function collator_get_sort_key(Collator $object, $str) { }
  * @param string $pattern [optional] <p>
  * Pattern string if the chosen style requires a pattern.
  * </p>
- * @return NumberFormatter <b>NumberFormatter</b> object or <b>FALSE</b> on error.
+ * @return NumberFormatter|false <b>NumberFormatter</b> object or <b>FALSE</b> on error.
  */
 function numfmt_create($locale, $style, $pattern = null) { }
 
@@ -3452,7 +3452,7 @@ function numfmt_create($locale, $style, $pattern = null) { }
  * The
  * formatting type to use.
  * </p>
- * @return string the string containing formatted value, or <b>FALSE</b> on error.
+ * @return string|false the string containing formatted value, or <b>FALSE</b> on error.
  */
 function numfmt_format(NumberFormatter $fmt, $value, $type = null) { }
 
@@ -3504,7 +3504,7 @@ function numfmt_format_currency(NumberFormatter $fmt, $value, $currency) { }
  * Offset in the string at which to begin parsing. On return, this value
  * will hold the offset at which parsing ended.
  * </p>
- * @return float The parsed numeric value or <b>FALSE</b> on error.
+ * @return float|false The parsed numeric value or <b>FALSE</b> on error.
  */
 function numfmt_parse_currency(NumberFormatter $fmt, $value, &$currency, &$position = null) { }
 
@@ -3533,7 +3533,7 @@ function numfmt_set_attribute(NumberFormatter $fmt, $attr, $value) { }
  * Attribute specifier - one of the
  * numeric attribute constants.
  * </p>
- * @return int Return attribute value on success, or <b>FALSE</b> on error.
+ * @return int|false Return attribute value on success, or <b>FALSE</b> on error.
  */
 function numfmt_get_attribute(NumberFormatter $fmt, $attr) { }
 
@@ -3563,7 +3563,7 @@ function numfmt_set_text_attribute(NumberFormatter $fmt, $attr, $value) { }
  * Attribute specifier - one of the
  * text attribute constants.
  * </p>
- * @return string Return attribute value on success, or <b>FALSE</b> on error.
+ * @return string|false Return attribute value on success, or <b>FALSE</b> on error.
  */
 function numfmt_get_text_attribute(NumberFormatter $fmt, $attr) { }
 
@@ -3592,7 +3592,7 @@ function numfmt_set_symbol(NumberFormatter $fmt, $attr, $value) { }
  * Symbol specifier, one of the
  * format symbol constants.
  * </p>
- * @return string The symbol string or <b>FALSE</b> on error.
+ * @return string|false The symbol string or <b>FALSE</b> on error.
  */
 function numfmt_get_symbol(NumberFormatter $fmt, $attr) { }
 
@@ -3616,7 +3616,7 @@ function numfmt_set_pattern(NumberFormatter $fmt, $pattern) { }
  * @link https://php.net/manual/en/numberformatter.getpattern.php
  * @param NumberFormatter $fmt
  * @param $nf
- * @return string Pattern string that is used by the formatter, or <b>FALSE</b> if an error happens.
+ * @return string|false Pattern string that is used by the formatter, or <b>FALSE</b> if an error happens.
  */
 function numfmt_get_pattern(NumberFormatter $fmt, $nf) { }
 
@@ -3939,7 +3939,7 @@ function msgfmt_create($locale, $pattern) { }
  * @param array $args <p>
  * Arguments to insert into the format string
  * </p>
- * @return string The formatted string, or <b>FALSE</b> if an error occurred
+ * @return string|false The formatted string, or <b>FALSE</b> if an error occurred
  */
 function msgfmt_format(MessageFormatter $fmt, array $args) { }
 
@@ -3959,7 +3959,7 @@ function msgfmt_format(MessageFormatter $fmt, array $args) { }
  * @param array $args <p>
  * The array of values to insert into the format string
  * </p>
- * @return string The formatted pattern string or <b>FALSE</b> if an error occurred
+ * @return string|false The formatted pattern string or <b>FALSE</b> if an error occurred
  */
 function msgfmt_format_message(string $locale, string $pattern, array $args) { }
 
@@ -3971,7 +3971,7 @@ function msgfmt_format_message(string $locale, string $pattern, array $args) { }
  * @param string $value <p>
  * The string to parse
  * </p>
- * @return array An array containing the items extracted, or <b>FALSE</b> on error
+ * @return array|false An array containing the items extracted, or <b>FALSE</b> on error
  */
 function msgfmt_parse(MessageFormatter $fmt, $value) { }
 
@@ -3989,7 +3989,7 @@ function msgfmt_parse(MessageFormatter $fmt, $value) { }
  * @param string $source <p>
  * The string to parse, conforming to the <i>pattern</i>.
  * </p>
- * @return array An array containing items extracted, or <b>FALSE</b> on error
+ * @return array|false An array containing items extracted, or <b>FALSE</b> on error
  */
 function msgfmt_parse_message(MessageFormatter $fmt, $locale, $pattern, $source) { }
 
@@ -4052,7 +4052,7 @@ function msgfmt_get_error_message(MessageFormatter $fmt, $coll) { }
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Create a date formatter
  * @link https://php.net/manual/en/intldateformatter.create.php
- * @param string $locale <p>
+ * @param string|null $locale <p>
  * Locale to use when formatting or parsing.
  * </p>
  * @param int $datetype <p>
@@ -4069,10 +4069,10 @@ function msgfmt_get_error_message(MessageFormatter $fmt, $coll) { }
  * This is one of the
  * IntlDateFormatter constants.
  * </p>
- * @param string $timezone [optional] <p>
+ * @param string|null $timezone [optional] <p>
  * Time zone ID, default is system default.
  * </p>
- * @param int $calendar [optional] <p>
+ * @param int|null $calendar [optional] <p>
  * Calendar to use for formatting or parsing; default is Gregorian.
  * This is one of the
  * IntlDateFormatter calendar constants.
@@ -4083,7 +4083,7 @@ function msgfmt_get_error_message(MessageFormatter $fmt, $coll) { }
  * </p>
  * @return IntlDateFormatter
  */
-function datefmt_create($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = null) { }
+function datefmt_create($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = '') { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4131,7 +4131,7 @@ function datefmt_set_calendar(MessageFormatter $mf, $which) { }
  * @link https://php.net/manual/en/intldateformatter.getlocale.php
  * @param MessageFormatter $mf
  * @param int $which [optional]
- * @return string the locale of this formatter or 'false' if error
+ * @return string|false the locale of this formatter or 'false' if error
  */
 function datefmt_get_locale(MessageFormatter $mf, $which = null) { }
 
@@ -4156,7 +4156,7 @@ function datefmt_get_calendar_object() { }
  * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
  *  Get formatter's timezone
  * @link https://secure.php.net/manual/en/intldateformatter.gettimezone.php
- * @return IntlTimeZone|bool The associated IntlTimeZone object or FALSE on failure.
+ * @return IntlTimeZone|false The associated IntlTimeZone object or FALSE on failure.
  */
 function datefmt_get_timezone() { }
 
@@ -4270,7 +4270,7 @@ function datefmt_set_lenient(MessageFormatter $mf, $lenient) { }
  * since epoch, UTC) or an array in the format output by
  * <b>localtime</b>.
  * </p>
- * @return string The formatted string or, if an error occurred, <b>FALSE</b>.
+ * @return string|false The formatted string or, if an error occurred, <b>FALSE</b>.
  */
 function datefmt_format(MessageFormatter $mf, $value) { }
 
@@ -4294,9 +4294,9 @@ function datefmt_format(MessageFormatter $mf, $value) { }
  * described in {@link http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details the ICU documentation}
  * documentation. If <b>NULL</b>, the default style will be used.
  * </p>
- * @param string $locale [optional] <p>
+ * @param string|null $locale [optional] <p>
  * The locale to use, or NULL to use the default one.</p>
- * @return string The formatted string or, if an error occurred, <b>FALSE</b>.
+ * @return string|false The formatted string or, if an error occurred, <b>FALSE</b>.
  */
 function datefmt_format_object($object, $format = NULL, $locale = NULL) { }
 
@@ -4363,7 +4363,7 @@ function datefmt_get_error_message(MessageFormatter $mf, $coll) { }
  * @param string $input <p>
  * The string being measured for length. It must be a valid UTF-8 string.
  * </p>
- * @return int The length of the string on success, and 0 if the string is empty.
+ * @return int|false|null The length of the string on success, and 0 if the string is empty.
  */
 function grapheme_strlen($input) { }
 
@@ -4383,7 +4383,7 @@ function grapheme_strlen($input) { }
  * The position returned is still relative to the beginning of haystack
  * regardless of the value of $offset.
  * </p>
- * @return int the position as an integer. If needle is not found, strpos() will return boolean FALSE.
+ * @return int|false the position as an integer. If needle is not found, strpos() will return boolean FALSE.
  */
 function grapheme_strpos($haystack, $needle, $offset = 0) { }
 
@@ -4403,7 +4403,7 @@ function grapheme_strpos($haystack, $needle, $offset = 0) { }
  * The position returned is still relative to the beginning of haystack
  * regardless of the value of $offset.
  * </p>
- * @return int the position as an integer. If needle is not found, grapheme_stripos() will return boolean FALSE.
+ * @return int|false the position as an integer. If needle is not found, grapheme_stripos() will return boolean FALSE.
  */
 function grapheme_stripos($haystack, $needle, $offset = 0) { }
 
@@ -4423,7 +4423,7 @@ function grapheme_stripos($haystack, $needle, $offset = 0) { }
  * The position returned is still relative to the beginning of haystack
  * regardless of the value of $offset.
  * </p>
- * @return int the position as an integer. If needle is not found, grapheme_strrpos() will return boolean FALSE.
+ * @return int|false the position as an integer. If needle is not found, grapheme_strrpos() will return boolean FALSE.
  */
 function grapheme_strrpos($haystack, $needle, $offset = 0) { }
 
@@ -4443,7 +4443,7 @@ function grapheme_strrpos($haystack, $needle, $offset = 0) { }
  * The position returned is still relative to the beginning of haystack
  * regardless of the value of $offset.
  * </p>
- * @return int the position as an integer. If needle is not found, grapheme_strripos() will return boolean FALSE.
+ * @return int|false the position as an integer. If needle is not found, grapheme_strripos() will return boolean FALSE.
  */
 function grapheme_strripos($haystack, $needle, $offset = 0) { }
 
@@ -4490,7 +4490,7 @@ function grapheme_substr($string, $start, $length = null) { }
  * If <b>TRUE</b>, grapheme_strstr() returns the part of the
  * haystack before the first occurrence of the needle (excluding the needle).
  * </p>
- * @return string the portion of string, or FALSE if needle is not found.
+ * @return string|false the portion of string, or FALSE if needle is not found.
  */
 function grapheme_strstr($haystack, $needle, $before_needle = false) { }
 
@@ -4508,7 +4508,7 @@ function grapheme_strstr($haystack, $needle, $before_needle = false) { }
  * If <b>TRUE</b>, grapheme_strstr() returns the part of the
  * haystack before the first occurrence of the needle (excluding needle).
  * </p>
- * @return string the portion of $haystack, or FALSE if $needle is not found.
+ * @return string|false the portion of $haystack, or FALSE if $needle is not found.
  */
 function grapheme_stristr($haystack, $needle, $before_needle = false) { }
 
@@ -4543,7 +4543,7 @@ function grapheme_stristr($haystack, $needle, $before_needle = false) { }
  * Reference to a value that will be set to the next starting position.
  * When the call returns, this may point to the first byte position past the end of the string.
  * </p>
- * @return string A string starting at offset $start and ending on a default grapheme cluster
+ * @return string|false A string starting at offset $start and ending on a default grapheme cluster
  * boundary that conforms to the $size and $extract_type specified.
  */
 function grapheme_extract($haystack, $size, $extract_type = null, $start = 0, &$next = null) { }
@@ -4572,7 +4572,7 @@ function grapheme_extract($haystack, $size, $extract_type = null, $start = 0, &$
  * either has or would have changed the result and 'errors',
  * which is an int representing a bitset of the error constants IDNA_ERROR_*.
  * </p>
- * @return string The ACE encoded version of the domain name or <b>FALSE</b> on failure.
+ * @return string|false The ACE encoded version of the domain name or <b>FALSE</b> on failure.
  */
 function idn_to_ascii($domain, $options = 0, $variant = INTL_IDNA_VARIANT_2003, array &$idna_info) { }
 
@@ -4665,7 +4665,7 @@ function intlcal_create_instance($timeZone = NULL, $locale = NULL) { }
  * <p>
  * Whether to show only the values commonly used for the specified locale.
  * </p>
- * @return Iterator An iterator that yields strings with the locale keyword values or <b>FALSE</b> on failure.
+ * @return Iterator|false An iterator that yields strings with the locale keyword values or <b>FALSE</b> on failure.
  */
 function intlcal_get_keyword_values_for_locale($key, $locale, $commonlyUsed) { }
 
@@ -5258,7 +5258,7 @@ function intlcal_is_equivalent_to(IntlCalendar $calendarObject, IntlCalendar $ca
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
- * @param float $date [optional] <p>
+ * @param float|null $date [optional] <p>
  * An optional timestamp representing the number of milliseconds since the
  * epoch, excluding leap seconds. If <b>NULL</b>, this object's current time is
  * used instead.
@@ -5301,7 +5301,7 @@ function intlcal_set_first_day_of_week($calendar, $dayOfWeek) { }
  * @param string $isLenient <p>
  * Use <b>TRUE</b> to activate the lenient mode; <b>FALSE</b> otherwise.
  * </p>
- * @return boolean Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+ * @return bool Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
  */
 function intlcal_set_lenient($calendar, $isLenient) { }
 
@@ -5411,7 +5411,7 @@ function intlcal_from_date_time($dateTime) { }
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
- * @return DateTime|bool
+ * @return DateTime|false
  * A {@link https://secure.php.net/manual/en/class.datetime.php DateTime} object with the same timezone as this
  * object (though using PHP's database instead of ICU's) and the same time,
  * except for the smaller precision (second precision instead of millisecond).
@@ -5668,7 +5668,7 @@ function intlgregcal_is_leap_year($year) { }
  * @param bool $fallback [optional] <p>
  * Whether locale should match exactly or fallback to parent locale is allowed.
  * </p>
- * @return ResourceBundle <b>ResourceBundle</b> object or <b>FALSE</b> on error.
+ * @return ResourceBundle|false <b>ResourceBundle</b> object or <b>FALSE</b> on error.
  */
 function resourcebundle_create($locale, $bundlename, $fallback = null) { }
 
@@ -5740,7 +5740,7 @@ function resourcebundle_get_error_message(ResourceBundle $bundle) { }
  * May also be set to
  * Transliterator::REVERSE.
  * </p>
- * @return Transliterator a <b>Transliterator</b> object on success,
+ * @return Transliterator|null a <b>Transliterator</b> object on success,
  * or <b>NULL</b> on failure.
  */
 function transliterator_create($id, $direction = null) { }
@@ -5800,7 +5800,7 @@ function transliterator_create_inverse(Transliterator $orig_trans) { }
  * transformed, exclusive. Indexing starts at 0. The text after will be
  * left as is.
  * </p>
- * @return string The transfomed string on success, or <b>FALSE</b> on failure.
+ * @return string|false The transfomed string on success, or <b>FALSE</b> on failure.
  */
 function transliterator_transliterate($transliterator, $subject, $start = null, $end = null) { }
 
@@ -6072,9 +6072,10 @@ define ('IDNA_NONTRANSITIONAL_TO_ASCII', 16);
 define ('IDNA_NONTRANSITIONAL_TO_UNICODE', 32);
 
 /**
- * Use IDNA 2003 algorithm in <b>idn_to_utf8</b> and
- * <b>idn_to_ascii</b>. This is the default.
+ * Use IDNA 2003 algorithm in {@see idn_to_utf8} and
+ * {@see idn_to_ascii}. This is the default.
  * @link https://php.net/manual/en/intl.constants.php
+ * @deprecated 7.2 Use {@see INTL_IDNA_VARIANT_UTS46} instead.
  */
 define ('INTL_IDNA_VARIANT_2003', 0);
 

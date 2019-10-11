@@ -135,7 +135,7 @@ class LevelDBIterator implements Iterator{
 }
 
 class LevelDBWriteBatch{
-	public function __construct($name, array $options = [], array $read_options = [], array $write_options = []){}
+	public function __construct(){}
 
 	public function set($key, $value, array $write_options = []){}
 

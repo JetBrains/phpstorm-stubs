@@ -388,13 +388,18 @@ final class Ev
 /**
  * Class EvWatcher
  *
- * @property-read $is_active boolean TRUE if the watcher is active. FALSE otherwise.
- * @property-read $is_pending boolean TRUE if the watcher is pending, i.e. it has outstanding events, but its callback
+ * @property-read $is_active bool TRUE if the watcher is active. FALSE otherwise.
+ * @property-read $is_pending bool TRUE if the watcher is pending, i.e. it has outstanding events, but its callback
  *      has not yet been invoked. FALSE otherwise. As long, as a watcher is pending (but not active), one must not
  *      change its priority.
  */
 abstract class EvWatcher
 {
+
+    /**
+     * Abstract constructor of a watcher object
+     */
+    abstract function __construct();
 
     /**
      * @var mixed Custom user data associated with the watcher
@@ -460,7 +465,7 @@ abstract class EvWatcher
      * @param bool $value With keepalive value set to FALSE the watcher won't keep Ev::run() / EvLoop::run() from
      *      returning even though the watcher is active.
      */
-    public function keepAlive($value) {}
+    public function keepalive($value) {}
 
     /**
      * Sets new callback for the watcher.
@@ -474,14 +479,18 @@ abstract class EvWatcher
      *
      * Marks the watcher as active. Note that only active watchers will receive events.
      */
-    public function start() {}
+    public function start()
+    {
+    }
 
     /**
      * Stops the watcher.
      *
      * Marks the watcher as inactive. Note that only active watchers will receive events.
      */
-    public function stop() {}
+    public function stop()
+    {
+    }
 }
 
 /**
@@ -809,6 +818,14 @@ final class EvPeriodic extends EvWatcher
     final public static function createStopped(
         $offset, $interval, callable $reschedule_cb = null, callable $callback, $data = null, $priority = 0
     ) {}
+
+    /**
+     * Configures the watcher
+     * @param float $offset The same meaning as for {@see EvPeriodic::__construct}
+     * @param float $interval The same meaning as for {@see EvPeriodic::__construct}
+     * @return void
+     */
+    public function set($offset , $interval ){}
 }
 
 /**
@@ -1243,7 +1260,7 @@ final class EvLoop
      * @param int $priority
      * @return EvCheck
      */
-    public function check(callable $callback, $data = null, $priority = 0) {}
+    public final function check(callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvChild object associated with the current event loop instance;
@@ -1255,7 +1272,7 @@ final class EvLoop
      * @param int $priority
      * @return EvChild
      */
-    public function child($pid, $trace, callable $callback, $data = null, $priority = 0) {}
+    public final function child($pid, $trace, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvEmbed object associated with the current event loop instance.
@@ -1266,7 +1283,7 @@ final class EvLoop
      * @param int $priority
      * @return EvEmbed
      */
-    public function embed(EvLoop $other, callable $callback, $data = null, $priority = 0) {}
+    public final function embed(EvLoop $other, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvFork object associated with the current event loop instance.
@@ -1276,7 +1293,7 @@ final class EvLoop
      * @param int $priority
      * @return EvFork
      */
-    public function fork(callable $callback, $data = null, $priority = 0) {}
+    public final function fork(callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvIdle object associated with the current event loop instance.
@@ -1286,7 +1303,7 @@ final class EvLoop
      * @param int $priority
      * @return EvIdle
      */
-    public function idle(callable $callback, $data = null, $priority = 0) {}
+    public final function idle(callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Invoke all pending watchers while resetting their pending state.
@@ -1302,7 +1319,7 @@ final class EvLoop
      * @param mixed $data
      * @param int $priority
      */
-    public function io($fd, $events, callable $callback, $data = null, $priority = 0) {}
+    final public function io($fd, $events, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Must be called after a fork.
@@ -1345,7 +1362,7 @@ final class EvLoop
      * @param mixed $data
      * @param int $priority
      */
-    public function periodic($offset, $interval, callable $callback, $data = null, $priority = 0) {}
+    public final function periodic($offset, $interval, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Creates EvPrepare object associated with the current event loop instance.
@@ -1354,7 +1371,7 @@ final class EvLoop
      * @param mixed $data
      * @param int $priority
      */
-    public function prepare(callable $callback, $data = null, $priority = 0) {}
+    public final function prepare(callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Resume previously suspended default event loop.
@@ -1384,7 +1401,9 @@ final class EvLoop
      * @param int $priority
      * @return EvSignal
      */
-    public function signal($signal, callable $callback, $data = null, $priority = 0) {}
+    public final function signal($signal, callable $callback, $data = null, $priority = 0)
+    {
+    }
 
     /**
      * Creates EvStats object associated with the current event loop instance.
@@ -1396,7 +1415,7 @@ final class EvLoop
      * @param int $priority
      * @return EvStat
      */
-    public function stat($path, $interval, callable $callback, $data = null, $priority = 0) {}
+    public final function stat($path, $interval, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Stops the event loop.
@@ -1422,7 +1441,7 @@ final class EvLoop
      * @param int $priority
      * @return EvTimer
      */
-    public function timer($after, $repeat, callable $callback, $data = null, $priority = 0) {}
+    public final function timer($after, $repeat, callable $callback, $data = null, $priority = 0) {}
 
     /**
      * Performs internal consistency checks (for debugging).

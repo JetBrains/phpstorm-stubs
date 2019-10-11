@@ -4,7 +4,7 @@
  * The constants below are defined by this extension, and will only be available when the extension has either been compiled into PHP or dynamically loaded at runtime.
  * @link https://php.net/manual/en/yaf.constants.php
  */
-define('YAF_VERSION', '	3.0.6', true);
+define('YAF_VERSION', '3.0.8', true);
 define('YAF_ENVIRON', 'product', true);
 define('YAF_ERR_STARTUP_FAILED', 512, true);
 define('YAF_ERR_ROUTE_FAILED', 513, true);
@@ -140,7 +140,7 @@ final class Yaf_Application {
      *
      * @link https://secure.php.net/manual/en/yaf-application.app.php
      *
-     * @return Yaf_Application|NULL an Yaf_Application instance, if no Yaf_Application initialized before, NULL will be returned.
+     * @return Yaf_Application|null an Yaf_Application instance, if no Yaf_Application initialized before, NULL will be returned.
      */
     public static function app(){ }
 
@@ -821,7 +821,7 @@ final class Yaf_Session implements Iterator, Traversable, ArrayAccess, Countable
      * @param string $name
      * @param mixed $value
      *
-     * @return bool|Yaf_Session return FALSE on failure
+     * @return Yaf_Session|false return FALSE on failure
      */
     public function set($name, $value){ }
 
@@ -830,7 +830,7 @@ final class Yaf_Session implements Iterator, Traversable, ArrayAccess, Countable
      *
      * @param string $name
      *
-     * @return bool|Yaf_Session return FALSE on failure
+     * @return Yaf_Session|false return FALSE on failure
      */
     public function del($name){ }
 
@@ -947,7 +947,7 @@ class Yaf_Router {
      * @param string $name
      * @param Yaf_Route_Interface $route
      *
-     * @return bool|Yaf_Router return FALSE on failure
+     * @return Yaf_Router|false return FALSE on failure
      */
     public function addRoute($name, Yaf_Route_Interface $route){ }
 
@@ -958,7 +958,7 @@ class Yaf_Router {
      *
      * @param Yaf_Config_Abstract $config
      *
-     * @return bool|Yaf_Router return FALSE on failure
+     * @return Yaf_Router|false return FALSE on failure
      */
     public function addConfig(Yaf_Config_Abstract $config){ }
 
@@ -967,7 +967,7 @@ class Yaf_Router {
      *
      * @param Yaf_Request_Abstract $request
      *
-     * @return bool|Yaf_Router return FALSE on failure
+     * @return Yaf_Router|false return FALSE on failure
      */
     public function route(Yaf_Request_Abstract $request){ }
 
@@ -1718,7 +1718,7 @@ abstract class Yaf_Response_Abstract {
     /**
      * @link https://secure.php.net/manual/en/yaf-response-abstract.tostring.php
      */
-    private function __toString(){ }
+    public function __toString(){ }
 
     /**
      * Set content to response
@@ -1932,7 +1932,7 @@ class Yaf_Response_Http extends Yaf_Response_Abstract {
      *
      * @return bool
      */
-    protected function setAllHeaders(array $headers){ }
+    public function setAllHeaders(array $headers){ }
 
     /**
      * @link https://secure.php.net/manual/en/yaf-response-abstract.getheader.php
@@ -1946,11 +1946,10 @@ class Yaf_Response_Http extends Yaf_Response_Abstract {
     /**
      * @link https://secure.php.net/manual/en/yaf-response-abstract.clearheaders.php
      *
-     * @param string $name
      *
      * @return Yaf_Response_Abstract|false
      */
-    public function clearHeaders($name = null){ }
+    public function clearHeaders(){ }
 
     /**
      * @link https://secure.php.net/manual/en/yaf-response-abstract.setredirect.php
@@ -2418,7 +2417,7 @@ class Yaf_Config_Simple extends Yaf_Config_Abstract implements Iterator, Travers
  * @param string $tpl_str string template
  * @param array $vars
  *
- * @return void|bool return FALSE on failure
+ * @return void|false return FALSE on failure
  */
 class Yaf_View_Simple implements Yaf_View_Interface {
 

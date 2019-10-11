@@ -108,12 +108,12 @@ class MongoClient
      * This method does not need to be called, except in unusual circumstances.
      * The driver will cleanly close the database connection when the Mongo object goes out of scope.
      * @link https://secure.php.net/manual/en/mongoclient.close.php
-     * @param  boolean|string $connection [optional] <p>
+     * @param  bool|string $connection [optional] <p>
      * If connection is not given, or <b>FALSE</b> then connection that would be selected for writes would be closed. In a single-node configuration, that is then the whole connection, but if you are connected to a replica set, close() will only close the connection to the primary server.
      * If connection is <b>TRUE</b> then all connections as known by the connection manager will be closed. This can include connections that are not referenced in the connection string used to create the object that you are calling close on.
      * If connection is a string argument, then it will only close the connection identified by this hash. Hashes are identifiers for a connection and can be obtained by calling {@see MongoClient::getConnections()}.
      * </p>
-     * @return boolean If the connection was successfully closed.
+     * @return bool If the connection was successfully closed.
      */
     public function close($connection) {}
     /**
@@ -122,7 +122,7 @@ class MongoClient
      * @link https://secure.php.net/manual/en/mongoclient.connect.php
      *
      * @throws MongoConnectionException
-     * @return boolean If the connection was successful.
+     * @return bool If the connection was successful.
      */
     public function connect() {}
 
@@ -300,7 +300,7 @@ class Mongo extends MongoClient {
 	* @deprecated Pass a string of the form "mongodb://server1,server2" to the constructor instead of using this method.
 	* @link https://secure.php.net/manual/en/mongo.pairconnect.php
 	* @throws MongoConnectionException
-    * @return boolean
+    * @return bool
     */
     public function pairConnect() {}
 
@@ -355,7 +355,7 @@ class Mongo extends MongoClient {
 	 * @param string $username A username used to identify the connection.
 	 * @param string $password A password used to identify the connection.
 	 * @throws MongoConnectionException
-	 * @return boolean If the connection was successful.
+	 * @return bool If the connection was successful.
 	 */
     public function persistConnect($username = "", $password = "") {}
 
@@ -366,7 +366,7 @@ class Mongo extends MongoClient {
 	 * @param string $username A username used to identify the connection.
 	 * @param string $password A password used to identify the connection.
 	 * @throws MongoConnectionException
-	 * @return boolean If the connection was successful.
+	 * @return bool If the connection was successful.
 	 */
     public function pairPersistConnect($username = "", $password = "") {}
 
@@ -375,7 +375,7 @@ class Mongo extends MongoClient {
 	*
 	* @link https://secure.php.net/manual/en/mongo.connectutil.php
 	* @throws MongoConnectionException
-    * @return boolean If the connection was successful.
+    * @return bool If the connection was successful.
     */
     protected function connectUtil() {}
 
@@ -407,7 +407,7 @@ class Mongo extends MongoClient {
 	* Creates a database error on the database.
 	* @deprecated Use MongoDB::forceError() instead.
 	* @link https://secure.php.net/manual/en/mongo.forceerror.php
-    * @return boolean The database response.
+    * @return bool The database response.
     */
     public function forceError() {}
 }
@@ -747,7 +747,7 @@ class MongoDB {
      * (PECL mongo &gt;= 0.9.5)<br/>
 	 * Creates a database error
 	 * @link https://secure.php.net/manual/en/mongodb.forceerror.php
-	 * @return boolean Returns the database response.
+	 * @return bool Returns the database response.
 	 */
     public function forceError() {}
 
@@ -788,7 +788,7 @@ class MongoDB {
      * @link https://secure.php.net/manual/en/mongodb.setreadpreference.php
      * @param string $read_preference <p>The read preference mode: <b>MongoClient::RP_PRIMARY</b>, <b>MongoClient::RP_PRIMARY_PREFERRED</b>, <b>MongoClient::RP_SECONDARY</b>, <b>MongoClient::RP_SECONDARY_PREFERRED</b>, or <b>MongoClient::RP_NEAREST</b>.</p>
      * @param array $tags [optional] <p>An array of zero or more tag sets, where each tag set is itself an array of criteria used to match tags on replica set members.</p>
-     * @return boolean Returns <b>TRUE</b> on success, or <b>FALSE</b> otherwise.
+     * @return bool Returns <b>TRUE</b> on success, or <b>FALSE</b> otherwise.
      */
     public function setReadPreference ($read_preference, array $tags) {}
 
@@ -798,7 +798,7 @@ class MongoDB {
      * Set the write concern for this database
      * @param mixed $w <p>The write concern. This may be an integer denoting the number of servers required to acknowledge the write, or a string mode (e.g. "majority").</p>
      * @param int $wtimeout[optional] <p>The maximum number of milliseconds to wait for the server to satisfy the write concern.</p>
-     * @return boolean Returns <b>TRUE</b> on success, or <b>FALSE</b> otherwise.
+     * @return bool Returns <b>TRUE</b> on success, or <b>FALSE</b> otherwise.
      */
     public function setWriteConcern($w, $wtimeout) {}
 }
@@ -1030,7 +1030,7 @@ class MongoCollection {
 	 * @param array $a An array of arrays.
 	 * @param array $options Options for the inserts.
 	 * @throws MongoCursorException
-	 * @return mixed f "safe" is set, returns an associative array with the status of the inserts ("ok") and any error that may have occured ("err"). Otherwise, returns TRUE if the batch insert was successfully sent, FALSE otherwise.
+	 * @return mixed if "safe" is set, returns an associative array with the status of the inserts ("ok") and any error that may have occured ("err"). Otherwise, returns TRUE if the batch insert was successfully sent, FALSE otherwise.
 	 */
     public function batchInsert(array $a, array $options = array()) {}
 
@@ -1061,7 +1061,7 @@ class MongoCollection {
      *         "timeout" Integer, defaults to MongoCursor::$timeout. If "safe" is set, this sets how long (in milliseconds) for the client to wait for a database response. If the database does
      *         not respond within the timeout period, a MongoCursorTimeoutException will be thrown
 	 * @throws MongoCursorException
-	 * @return boolean
+	 * @return bool
 	 */
     public function update(array $criteria , array $newobj, array $options = array()) {}
 
@@ -1122,7 +1122,7 @@ class MongoCollection {
      * @link https://secure.php.net/manual/ru/mongocollection.distinct.php
      * @param string $key The key to use.
      * @param array $query An optional query parameters
-     * @return array|bool Returns an array of distinct values, or <b>FALSE</b> on failure
+     * @return array|false Returns an array of distinct values, or <b>FALSE</b> on failure
      */
     public function distinct ($key, array $query = NULL) {}
 
@@ -1162,7 +1162,7 @@ class MongoCollection {
 	 * @link https://secure.php.net/manual/en/mongocollection.ensureindex.php
 	 * @param array $keys Field or fields to use as index.
 	 * @param array $options [optional] This parameter is an associative array of the form array("optionname" => <boolean>, ...).
-	 * @return boolean always true
+	 * @return true always true
 	 */
     public function ensureIndex(array $keys, array $options = array()) {}
 
@@ -1216,7 +1216,7 @@ class MongoCollection {
 	 * @throws MongoException if the inserted document is empty or if it contains zero-length keys. Attempting to insert an object with protected and private properties will cause a zero-length key error.
 	 * @throws MongoCursorException if the "w" option is set and the write fails.
 	 * @throws MongoCursorTimeoutException if the "w" option is set to a value greater than one and the operation takes longer than MongoCursor::$timeout milliseconds to complete. This does not kill the operation on the server, it is a client-side timeout. The operation in MongoCollection::$wtimeout is milliseconds.
-	 * @return array|boolean If w was set, returns an array containing the status of the save.
+	 * @return array|bool If w was set, returns an array containing the status of the save.
      * Otherwise, returns a boolean representing if the array was not empty (an empty array will not be inserted).
 	 */
     public function save($a, array $options = array()) {}
@@ -1375,7 +1375,7 @@ class MongoCursor implements Iterator {
 	 * Sets whether this query can be done on a slave
 	 * This method will override the static class variable slaveOkay.
 	 * @link https://secure.php.net/manual/en/mongocursor.slaveOkay.php
-	 * @param boolean $okay If it is okay to query the slave.
+	 * @param bool $okay If it is okay to query the slave.
 	 * @throws MongoCursorException
      * @return MongoCursor Returns this cursor
 	 */
@@ -1410,7 +1410,7 @@ class MongoCursor implements Iterator {
    /**
 	* Checks if there are documents that have not been sent yet from the database for this cursor
 	* @link https://secure.php.net/manual/en/mongocursor.dead.php
-    * @return boolean Returns if there are more results that have not been sent to the client, yet.
+    * @return bool Returns if there are more results that have not been sent to the client, yet.
     */
     public function dead() {}
 
@@ -1493,7 +1493,7 @@ class MongoCursor implements Iterator {
     /**
 	 * Checks if the cursor is reading a valid result.
 	 * @link https://secure.php.net/manual/en/mongocursor.valid.php
-	 * @return boolean If the current result is not null.
+	 * @return bool If the current result is not null.
 	 */
     public function valid() {}
 
@@ -1606,7 +1606,7 @@ class MongoCommandCursor implements MongoCursorInterface {
     /**
      * Checks if current position is valid
      * @link https://php.net/manual/en/iterator.valid.php
-     * @return boolean The return value will be casted to boolean and then evaluated.
+     * @return bool The return value will be casted to boolean and then evaluated.
      * Returns true on success or false on failure.
      * @since 5.0.0
      */
@@ -1737,7 +1737,7 @@ class MongoGridFS extends MongoCollection {
 	 * @param array $criteria Description of records to remove.
 	 * @param array $options Options for remove. Valid options are: "safe"- Check that the remove succeeded.
 	 * @throws MongoCursorException
-	 * @return boolean
+	 * @return bool
 	 */
     public function remove(array $criteria = array(), array $options = array()) {}
 
@@ -1745,7 +1745,7 @@ class MongoGridFS extends MongoCollection {
      * Delete a file from the database
      * @link https://php.net/manual/en/mongogridfs.delete.php
      * @param mixed $id _id of the file to remove
-     * @return boolean Returns true if the remove was successfully sent to the database.
+     * @return bool Returns true if the remove was successfully sent to the database.
      */
     public function delete($id) {}
 
@@ -2163,7 +2163,7 @@ class MongoDBRef {
      * @link https://php.net/manual/en/mongodbref.isref.php
      * @static
      * @param mixed $ref Array or object to check
-     * @return boolean Returns true if $ref is a reference
+     * @return bool Returns true if $ref is a reference
      */
     public static function isRef($ref) {}
 
@@ -2537,7 +2537,7 @@ class MongoLog {
      *
      * <p>The log message itself.</p></li>
      * <ul>
-     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public static function setCallback ( callable $log_function ) {}
 
@@ -2624,7 +2624,7 @@ class MongoPool {
      * @param int $size The max number of connections future pools will be able to
      *        create. Negative numbers mean that the pool will spawn an infinite number of
      *        connections
-     * @return boolean Returns the former value of pool size
+     * @return bool Returns the former value of pool size
      */
     public static function setSize($size) {}
 

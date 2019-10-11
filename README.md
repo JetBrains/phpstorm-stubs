@@ -19,14 +19,17 @@ The support for such “non-standard” stubs is community-driven, and we only v
 [Contribution process](CONTRIBUTING.md)
 
 ### Updating the IDE
-TBD: Have a full copy of the .git repo within an IDE and add it to the project as an external library called "PHP Runtime". It should then be easily updatable both ways via normal git methods.
+Have a full copy of the .git repo within an IDE and provide its path in `Settings | Languages & Frameworks | PHP | PHP Runtime | Advanced settings | Default stubs path`. It should then be easily updatable both ways via normal git methods.
 
 ### Extensions enabled by default
 The set of extensions enabled by default in PhpStorm can change anytime without prior notice. To learn how to view the enabled extensions, look [here](https://blog.jetbrains.com/phpstorm/2017/03/per-project-php-extension-settings-in-phpstorm-2017-1/).
 
 ### How to run tests
 1. Execute `composer install`
-2. Execute `docker-compose -f docker-compose.yml run php`
+2. Execute `docker-compose -f docker-compose.yml run php /opt/project/phpstorm-stubs/vendor/bin/phpunit /opt/project/phpstorm-stubs/tests/`
+
+### How to update stub map
+Execute `php generate-stub-map` and commit the resulting `PhpStormStubsMap.php`
 
 ### License
 [Apache 2]

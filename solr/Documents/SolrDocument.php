@@ -151,7 +151,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	 * @param string $fieldName <p>
 	 * The name of the field.
 	 * </p>
-	 * @return SolrDocumentField Returns a SolrDocumentField object on success and <b>FALSE</b> on failure
+	 * @return SolrDocumentField|false Returns a SolrDocumentField object on success and <b>FALSE</b> on failure
 	 */
 	public function getField($fieldName) {}
 
@@ -159,7 +159,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the number of fields in this document
 	 * @link https://php.net/manual/en/solrdocument.getfieldcount.php
-	 * @return int <p>
+	 * @return int|false <p>
 	 * Returns an integer on success and <b>FALSE</b> on failure.
 	 * </p>
 	 */
@@ -169,7 +169,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns an array containing all the fields in the document
 	 * @link https://php.net/manual/en/solrdocument.getfieldnames.php
-	 * @return array <p>
+	 * @return array|false <p>
 	 * Returns an array on success and <b>FALSE</b> on failure.
 	 * </p>
 	 */

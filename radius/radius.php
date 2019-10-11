@@ -316,12 +316,11 @@ define('RADIUS_MICROSOFT_MS_SECONDARY_NBNS_SERVER', 31);
 define('RADIUS_MICROSOFT_MS_ARAP_CHALLENGE', 33);
 define('RADIUS_OPTION_NONE', RADIUS_OPTION_NONE);
 define('RADIUS_OPTION_TAGGED', RADIUS_OPTION_TAGGED);
-define('RADIUS_OPTION_SALT', RADIUS_OPTION_SALT);
 
 /**
  * Creates a Radius handle for accounting
  * @link https://secure.php.net/manual/en/function.radius-acct-open.php
- * @return resource|bool Returns a handle on success, <b>FALSE</b> on error. This function only fails if insufficient memory is available.
+ * @return resource|false Returns a handle on success, <b>FALSE</b> on error. This function only fails if insufficient memory is available.
  * @since 1.1.0
  */
 function radius_acct_open() { }
@@ -346,7 +345,7 @@ function radius_add_server($radius_handle , $hostname, $port , $secret, $timeout
 /**
  * Creates a Radius handle for authentication
  * @link https://secure.php.net/manual/en/function.radius-auth-open.php
- * @return resource|bool Returns a handle on success, <b>FALSE</b> on error. This function only fails if insufficient memory is available.
+ * @return resource|false Returns a handle on success, <b>FALSE</b> on error. This function only fails if insufficient memory is available.
  * @since 1.1.0
  */
 function radius_auth_open() { }

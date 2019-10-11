@@ -39,7 +39,7 @@ function strtolower ($str) {}
  * If specified, search will start this number of characters counted from
  * the beginning of the string. Unlike {@see strrpos()} and {@see strripos()}, the offset cannot be negative.
  * </p>
- * @return int|boolean <p>
+ * @return int|false <p>
  * Returns the position where the needle exists relative to the beginnning of
  * the <b>haystack</b> string (independent of search direction
  * or offset).
@@ -73,7 +73,7 @@ function strpos ($haystack, $needle, $offset = 0) {}
  * start searching. The position returned is still relative to the
  * beginning of haystack.
  * </p>
- * @return int If needle is not found,
+ * @return int|false If needle is not found,
  * stripos will return boolean false.
  * @since 5.0
  */
@@ -91,7 +91,7 @@ function stripos ($haystack, $needle, $offset = null) {}
  * @param int $offset [optional] <p>
  * If specified, search will start this number of characters counted from the beginning of the string. If the value is negative, search will instead start from that many characters from the end of the string, searching backwards.
  * </p>
- * @return int|boolean <p>
+ * @return int|false <p>
  * Returns the position where the needle exists relative to the beginning of
  * the <b>haystack</b> string (independent of search direction
  * or offset).
@@ -124,7 +124,7 @@ function strrpos ($haystack, $needle, $offset = 0) {}
  * offset characters from the
  * start of the string.
  * </p>
- * @return int the numerical position of the last occurrence of
+ * @return int|false the numerical position of the last occurrence of
  * needle. Also note that string positions start at 0,
  * and not 1.
  * </p>
@@ -175,6 +175,7 @@ function hebrev ($hebrew_text, $max_chars_per_line = null) {}
  * @return string the visual string.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.4
  */
 function hebrevc ($hebrew_text, $max_chars_per_line = null) {}
 
@@ -308,7 +309,7 @@ function stripcslashes ($str) {}
  * the part of the haystack before the first
  * occurrence of the needle.
  * </p>
- * @return string the portion of string, or false if needle
+ * @return string|false the portion of string, or false if needle
  * is not found.
  * @since 4.0
  * @since 5.0
@@ -330,7 +331,7 @@ function strstr ($haystack, $needle, $before_needle = null) {}
  * returns the part of the haystack before the
  * first occurrence of the needle.
  * </p>
- * @return string the matched substring. If needle is not
+ * @return string|false the matched substring. If needle is not
  * found, returns false.
  * @since 4.0
  * @since 5.0
@@ -351,7 +352,7 @@ function stristr ($haystack, $needle, $before_needle = null) {}
  * If <b>needle</b> is not a string, it is converted to
  * an integer and applied as the ordinal value of a character.
  * </p>
- * @return string <p>
+ * @return string|false <p>
  * This function returns the portion of string, or <b>FALSE</b> if
  * <b>needle</b> is not found.
  * </p>
@@ -425,7 +426,7 @@ function str_split ($string, $split_length = 1) {}
  * @param string $char_list <p>
  * This parameter is case sensitive.
  * </p>
- * @return string a string starting from the character found, or false if it is
+ * @return string|false a string starting from the character found, or false if it is
  * not found.
  * @since 5.0
  */
@@ -495,6 +496,7 @@ function strcoll ($str1, $str2) {}
  * emitting E_WARNING.
  * @since 4.3.0
  * @since 5.0
+ * @deprecated 7.4
  */
 function money_format ($format, $number) {}
 
@@ -546,7 +548,7 @@ function money_format ($format, $number) {}
  * </p>
  * Using a negative length
  * ]]>
- * @return string|bool the extracted part of string or false on failure.
+ * @return string|false the extracted part of string or false on failure.
  * @since 4.0
  * @since 5.0
  */
@@ -655,10 +657,19 @@ function ucwords ($str, $delimiters = " \t\r\n\f\v") {}
  * translating all occurrences of each character in
  * from to the corresponding character in
  * to.
- * @since 4.0
  * @since 5.0
  */
 function strtr ($str, $from, $to) {}
+
+/**
+ * Translate certain characters
+ * @link https://php.net/manual/en/function.strtr.php
+ * @param string $str The string being translated.
+ * @param array $replace_pairs The replace_pairs parameter may be used as a substitute for to and from in which case it's an array in the form array('from' => 'to', ...).
+ * @return string A copy of str, translating all occurrences of each character in from to the corresponding character in to.
+ * @since 5.0
+ */
+function strtr ($str, array $replace_pairs) {}
 
 /**
  * Quote string with slashes
@@ -1070,7 +1081,7 @@ function join ($glue = "", $pieces) {}
  * for a possibly not available locale.
  * </p>
  * @param string $_ [optional] 
- * @return string the new current locale, or false if the locale functionality is
+ * @return string|false the new current locale, or false if the locale functionality is
  * not implemented on your platform, the specified locale does not exist or
  * the category name is invalid.
  * </p>

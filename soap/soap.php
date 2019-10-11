@@ -255,6 +255,7 @@ class SoapClient  {
      * <b>SOAP_SSL_METHOD_SSLv3</b> or
      * <b>SOAP_SSL_METHOD_SSLv23</b>.
      * </p>
+     * @throws SoapFault A SoapFault exception will be thrown if the wsdl URI cannot be loaded. 
      * @since 5.0.1
      */
     public function __construct ($wsdl, array $options = null) {}
@@ -310,7 +311,7 @@ class SoapClient  {
 	 * option set to <b>FALSE</b>, a SoapFault object will be returned.
 	 * @since 5.0.1
 	 */
-	public function __soapCall ($function_name, array $arguments, array $options = null, $input_headers = null, array &$output_headers = null) {}
+	public function __soapCall ($function_name, $arguments, $options = null, $input_headers = null, &$output_headers = null) {}
 
 	/**
 	 * Returns last SOAP request
@@ -360,6 +361,14 @@ class SoapClient  {
 	 * @since 5.0.1
 	 */
 	public function __getTypes () {}
+
+	/**
+	 * Returns a list of all cookies
+	 * @link https://php.net/manual/en/soapclient.getcookies.php
+	 * @return array The array of all cookies
+	 * @since 5.4.3
+	 */
+	public function __getCookies () {}
 
 	/**
 	 * Performs a SOAP request
@@ -534,15 +543,11 @@ class SoapServer  {
 	 * @param string $class_name <p>
 	 * The name of the exported class.
 	 * </p>
-	 * @param mixed $args [optional] <p>
-	 * These optional parameters will be passed to the default class constructor
-	 * during object creation.
-	 * </p>
-	 * @param mixed $_ [optional]
+	 * @param mixed $_ [optional] These optional parameters will be passed to the default class constructor during object creation.
 	 * @return void No value is returned.
 	 * @since 5.0.1
 	 */
-	public function setClass ($class_name, $args = null, $_ = null) {}
+	public function setClass ($class_name, $_ = null) {}
 
 	/**
 	 * Sets the object which will be used to handle SOAP requests

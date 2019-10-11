@@ -295,8 +295,8 @@ define ('LOG_NOWAIT', 16);
  * @link https://php.net/manual/en/network.constants.php
  */
 define ('LOG_PERROR', 32);
-define ('true', true, true);
-define ('false', false, true);
+define ('true', (bool)1, true);
+define ('false', (bool)0, true);
 define ('null', null, true);
 define ('ZEND_THREAD_SAFE', false);
 define ('ZEND_DEBUG_BUILD', false);

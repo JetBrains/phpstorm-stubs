@@ -208,12 +208,35 @@ function dba_exists ($key, $handle) {}
  * The database handler, returned by <b>dba_open</b> or
  * <b>dba_popen</b>.
  * </p>
- * @return string the associated string if the key/data pair is found, <b>FALSE</b>
+ * @return string|false the associated string if the key/data pair is found, <b>FALSE</b>
  * otherwise.
  * @since 4.0
  * @since 5.0
  */
 function dba_fetch ($key, $handle) {}
+
+/**
+ * Fetch data specified by key
+ * @link https://php.net/manual/en/function.dba-fetch.php
+ * @param string $key <p>
+ * The key the data is specified by.
+ * </p>
+ * <p>
+ * When working with inifiles this function accepts arrays as keys
+ * where index 0 is the group and index 1 is the value name. See:
+ * <b>dba_key_split</b>.
+ * </p>
+ * @param int $skip The number of key-value pairs to ignore when using cdb databases. This value is ignored for all other databases which do not support multiple keys with the same name.
+ * @param resource $handle <p>
+ * The database handler, returned by <b>dba_open</b> or
+ * <b>dba_popen</b>.
+ * </p>
+ * @return string|false the associated string if the key/data pair is found, <b>FALSE</b>
+ * otherwise.
+ * @since 4.0
+ * @since 5.0
+ */
+function dba_fetch ($key, $skip, $handle) {}
 
 /**
  * Insert entry
@@ -341,7 +364,7 @@ function dba_list () {}
  * @param mixed $key <p>
  * The key in string representation.
  * </p>
- * @return mixed an array of the form array(0 =&gt; group, 1 =&gt;
+ * @return array|false an array of the form array(0 =&gt; group, 1 =&gt;
  * value_name). This function will return <b>FALSE</b> if
  * <i>key</i> is <b>NULL</b> or <b>FALSE</b>.
  * @since 5.0

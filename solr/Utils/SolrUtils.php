@@ -45,7 +45,7 @@ abstract class SolrUtils {
 	 * @param string $str <p>
 	 * This is the query string to be escaped.
 	 * </p>
-	 * @return string <p>
+	 * @return string|false <p>
 	 * Returns the escaped string or <b>FALSE</b> on failure.
 	 * </p>
 	 */

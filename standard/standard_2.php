@@ -140,7 +140,7 @@
  * <tr valign="top">
  * <td>P_SIGN_POSN</td>
  * Returns 0 if parentheses surround the quantity and CURRENCY_SYMBOL.
- * @return string the element as a string, or false if item
+ * @return string|false the element as a string, or false if item
  * is not valid.
  * @since 4.1.0
  * @since 5.0
@@ -221,15 +221,16 @@ function ord ($string) {}
  * @param string $str <p>
  * The input string.
  * </p>
- * @param array $arr [optional] <p>
+ * @param array $result [optional] <p>
  * If the second parameter arr is present,
- * variables are stored in this variable as array elements instead.
+ * variables are stored in this variable as array elements instead.<br/>
+ * Since 7.2.0 this parameter is not optional.
  * </p>
  * @return void 
  * @since 4.0
  * @since 5.0
  */
-function parse_str ($str, array &$arr = null) {}
+function parse_str ($str, array &$result = null) {}
 
 /**
  * Parse a CSV string into an array
@@ -291,7 +292,7 @@ function str_pad ($input, $pad_length, $pad_string = " ", $pad_type = STR_PAD_RI
  * @since 4.0
  * @since 5.0
  */
-function chop ($str, $character_mask) {}
+function chop ($str, $character_mask = null) {}
 
 /**
  * &Alias; <function>strstr</function>
@@ -305,9 +306,9 @@ function chop ($str, $character_mask) {}
  * @param string $haystack The input string.
  * @param mixed $needle If needle is not a string, it is converted to an integer and applied as the ordinal value of a character.
  * @param bool $part [optional] If TRUE, strstr() returns the part of the haystack before the first occurrence of the needle (excluding the needle).
- * @return string Returns the portion of string, or FALSE if needle is not found.
+ * @return string|false Returns the portion of string, or FALSE if needle is not found.
  */
-function strchr ($haystack, $needle, $part) {}
+function strchr ($haystack, $needle, $part = false) {}
 
 /**
  * Return a formatted string
@@ -603,7 +604,7 @@ function http_build_query ($query_data, $numeric_prefix = null, $arg_separator =
  * @param string $path <p>
  * The symbolic link path.
  * </p>
- * @return string the contents of the symbolic link path or false on error.
+ * @return string|false the contents of the symbolic link path or false on error.
  * @since 4.0
  * @since 5.0
  */
@@ -660,7 +661,7 @@ function link (string $target , string $link):bool {}
  * @since 4.0
  * @since 5.0
  */
-function unlink ($filename, $context = null) {}
+function unlink ($filename, $context = null):bool {}
 
 /**
  * Execute an external program
@@ -707,7 +708,7 @@ function exec ($command, array &$output = null, &$return_var = null) {}
  * return status of the executed command will be written to this
  * variable.
  * </p>
- * @return string|bool the last line of the command output on success, and false
+ * @return string|false the last line of the command output on success, and false
  * on failure.
  * @since 4.0
  * @since 5.0
@@ -823,7 +824,7 @@ function shell_exec ($cmd) {}
  * binary_pipes: open pipes in binary mode, instead
  * of using the usual stream_encoding
  * </p>
- * @return resource|bool a resource representing the process, which should be freed using
+ * @return resource|false a resource representing the process, which should be freed using
  * proc_close when you are finished with it. On failure
  * returns false.
  * @since 4.3.0
@@ -869,7 +870,7 @@ function proc_terminate ($process, $signal = 15) {}
  * The proc_open resource that will
  * be evaluated.
  * </p>
- * @return array|bool An array of collected information on success, and false
+ * @return array|false An array of collected information on success, and false
  * on failure. The returned array contains the following elements:
  * </p>
  * <p>
@@ -941,7 +942,8 @@ function proc_terminate ($process, $signal = 15) {}
 function proc_get_status ($process) {}
 
 /**
- * Change the priority of the current process
+ * Change the priority of the current process. <br/>
+ * Since 7.2.0 supported on Windows platforms.
  * @link https://php.net/manual/en/function.proc-nice.php
  * @param int $increment <p>
  * The increment value of the priority change.
@@ -956,14 +958,14 @@ function proc_nice ($increment) {}
 /**
  * Generate a random integer
  * @link https://php.net/manual/en/function.rand.php
- * @param $min [optional]
- * @param $max [optional]
+ * @param int $min [optional]
+ * @param int $max [optional]
  * @return int A pseudo random value between min
  * (or 0) and max (or getrandmax, inclusive).
  * @since 4.0
  * @since 5.0
  */
-function rand ($min, $max) {}
+function rand ($min = 0, $max = null) {}
 
 /**
  * Seed the random number generator
@@ -993,16 +995,20 @@ function srand ($seed = null, $mode = MT_RAND_MT19937) {}
 function getrandmax () {}
 
 /**
- * Generate a better random value
+ * Generate a random value via the Mersenne Twister Random Number Generator
  * @link https://php.net/manual/en/function.mt-rand.php
- * @param $min [optional]
- * @param $max [optional]
+ * @param int $min [optional] <p>
+ * Optional lowest value to be returned (default: 0)
+ * </p>
+ * @param int $max [optional] <p>
+ * Optional highest value to be returned (default: mt_getrandmax())
+ * </p>
  * @return int A random integer value between min (or 0)
  * and max (or mt_getrandmax, inclusive)
  * @since 4.0
  * @since 5.0
  */
-function mt_rand ($min, $max) {}
+function mt_rand ($min = 0, $max = null) {}
 
 /**
  * Seed the better random number generator

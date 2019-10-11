@@ -152,7 +152,7 @@ function strncasecmp ($str1, $str2, $len) {}
  * false.
  * @since 4.0
  * @since 5.0
- * @deprecated 7.2
+ * @deprecated 7.2 Use a foreach loop instead.
  */
 function each (array &$array) {}
 
@@ -404,7 +404,7 @@ function property_exists ($class, $property) {}
  * Checks if the trait exists
  * @param string $traitname Name of the trait to check
  * @param bool $autoload [optional] Whether to autoload if not already loaded.
- * @return boolean Returns TRUE if trait exists, FALSE if not, NULL in case of an error.
+ * @return bool Returns TRUE if trait exists, FALSE if not, NULL in case of an error.
  * @link https://secure.php.net/manual/en/function.trait-exists.php
  * @since 5.4.0
  */
@@ -558,7 +558,7 @@ function get_class_vars ($class_name) {}
  * @param object $object <p>
  * An object instance.
  * </p>
- * @return array an associative array of defined object accessible non-static properties 
+ * @return array an associative array of defined object accessible non-static properties
  * for the specified <i>object</i> in scope. If a property have
  * not been assigned a value, it will be returned with a null value.
  * @since 4.0
@@ -606,7 +606,7 @@ function trigger_error ($error_msg, $error_type = E_USER_NOTICE) {}
  * @since 4.0
  * @since 5.0
  */
-function user_error ($message, $error_type) {}
+function user_error ($message, $error_type = E_USER_NOTICE) {}
 
 /**
  * Sets a user-defined error handler function
@@ -750,7 +750,7 @@ function get_defined_vars () {}
  * @return string a unique function name as a string, or false on error.
  * @since 4.0.1
  * @since 5.0
- * @deprecated 7.2
+ * @deprecated 7.2 Use anonymous functions instead.
  */
 function create_function ($args, $code) {}
 
@@ -831,7 +831,7 @@ function extension_loaded ($name) {}
  * <p>
  * This parameter must be in lowercase.
  * </p>
- * @return array an array with all the functions, or false if 
+ * @return array an array with all the functions, or false if
  * <i>module_name</i> is not a valid extension.
  * @since 4.0
  * @since 5.0
@@ -993,15 +993,6 @@ function get_defined_constants ($categorize = false) {}
 function debug_backtrace ($options = DEBUG_BACKTRACE_PROVIDE_OBJECT, $limit = 0) {}
 
 /**
- * Clear the most recent error
- * @link https://php.net/manual/en/function.error-clear-last.php
- * @since 7.0
- */
-function error_clear_last () {}
-const DEBUG_BACKTRACE_PROVIDE_OBJECT = 0;
-const DEBUG_BACKTRACE_IGNORE_ARGS = 0;
-
-/**
  * Prints a backtrace
  * @link https://php.net/manual/en/function.debug-print-backtrace.php
  * @param int $options [optional] <p>
@@ -1064,70 +1055,25 @@ function gc_disable () {}
 function gc_status () {}
 
 /**
- * @param string $kind
- * @return int
- * @since 7.1
+ * Reclaims memory used by the Zend Engine memory manager
+ * @link https://php.net/manual/en/function.gc-mem-caches.php
+ * @return int Returns the number of bytes freed.
+ * @since 7.0
  */
-function sapi_windows_cp_get($kind) {
-
-}
+function gc_mem_caches () {}
 
 /**
- * @param int $cp
- * @return bool
- * @since 7.1
- */
-function sapi_windows_cp_set($cp) {
-
-}
-
-/**
- * @param int|string $in_codepage
- * @param int|string $out_codepage
- * @param string $subject
- * @return string
- * @since 7.1
- */
-function sapi_windows_cp_conv($in_codepage, $out_codepage, $subject) {}
-
-/**
- * @return bool
- * @since 7.1
- */
-function sapi_windows_cp_is_utf8() {
-
-}
-
-/**
- * Verify that the contents of a variable is accepted by the iterable pseudo-type, i.e. that it is an array or an object implementing Traversable
- * @param mixed $value
- * @return bool
- * @since 7.1
- * @link https://php.net/manual/en/function.is-iterable.php
- */
-function is_iterable($value) {}
-
-/**
- * Encodes an ISO-8859-1 string to UTF-8
- * @link https://php.net/manual/en/function.utf8-encode.php
- * @param string $data <p>
- * An ISO-8859-1 string.
+ * Returns active resources
+ * @link https://php.net/manual/en/function.get-resources.php
+ * @param string $type [optional]<p>
+ *
+ * If defined, this will cause get_resources() to only return resources of the given type. A list of resource types is available.
+ *
+ * If the string Unknown is provided as the type, then only resources that are of an unknown type will be returned.
+ *
+ * If omitted, all resources will be returned.
  * </p>
- * @return string the UTF-8 translation of <i>data</i>.
- * @since 4.0
- * @since 5.0
+ * @return array Returns an array of currently active resources, indexed by resource number.
+ * @since 7.0
  */
-function utf8_encode ($data) {}
-
-/**
- * Converts a string with ISO-8859-1 characters encoded with UTF-8
- * @since 4.0
- * @since 5.0
-to single-byte ISO-8859-1
- * @link https://php.net/manual/en/function.utf8-decode.php
- * @param string $data <p>
- * An UTF-8 encoded string.
- * </p>
- * @return string the ISO-8859-1 translation of <i>data</i>.
- */
-function utf8_decode ($data) {}
+function get_resources ($type) {}

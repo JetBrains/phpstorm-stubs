@@ -125,7 +125,7 @@ function xmlrpc_server_destroy ($server) {}
  * @link https://php.net/manual/en/function.xmlrpc-server-register-method.php
  * @param resource $server
  * @param string $method_name
- * @param string $function
+ * @param callable $function
  * @return bool
  * @since 4.1.0
  * @since 5.0

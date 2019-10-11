@@ -21,7 +21,7 @@ function getlastmod () {}
  * Returns false if input contains character from outside the base64
  * alphabet.
  * </p>
- * @return string|bool the original data or false on failure. The returned data may be
+ * @return string|false the original data or false on failure. The returned data may be
  * binary.
  * @since 4.0
  * @since 5.0
@@ -84,7 +84,7 @@ function abs ($number) {}
  * @param float $value <p>
  * The value to round
  * </p>
- * @return float value rounded up to the next highest
+ * @return float|false value rounded up to the next highest
  * integer.
  * The return value of ceil is still of type
  * float as the value range of float is 
@@ -100,7 +100,7 @@ function ceil ($value) {}
  * @param float $value <p>
  * The numeric value to round
  * </p>
- * @return float value rounded to the next lowest integer.
+ * @return float|false value rounded to the next lowest integer.
  * The return value of floor is still of type
  * float because the value range of float is 
  * usually bigger than that of integer.
@@ -126,7 +126,7 @@ function floor ($value) {}
  * PHP_ROUND_HALF_EVEN, or
  * PHP_ROUND_HALF_ODD.
  * </p>
- * @return float The rounded value
+ * @return float|false The rounded value
  * @since 4.0
  * @since 5.0
  */
@@ -730,7 +730,7 @@ function fmod ($x, $y) {}
  * @param string $in_addr <p>
  * A 32bit IPv4, or 128bit IPv6 address.
  * </p>
- * @return string|bool a string representation of the address or false on failure.
+ * @return string|false a string representation of the address or false on failure.
  * @since 5.1.0
  */
 function inet_ntop ($in_addr) {}
@@ -753,7 +753,7 @@ function inet_pton ($address) {}
  * @param string $ip_address <p>
  * A standard format address.
  * </p>
- * @return int the IPv4 address or false if ip_address
+ * @return int|false the IPv4 address or false if ip_address
  * is invalid.
  * @since 4.0
  * @since 5.0
@@ -952,6 +952,7 @@ function quoted_printable_encode ($str) {}
  * @return string the converted string.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.4
  */
 function convert_cyr_string ($str, $from, $to) {}
 
@@ -993,7 +994,7 @@ function get_cfg_var ($option) {}
 /**
  * &Alias; <function>set_magic_quotes_runtime</function>
  * @link https://php.net/manual/en/function.magic-quotes-runtime.php
- * @deprecated 5.3.0
+ * @deprecated 5.3
  * @param $new_setting
  * @since 4.0
  * @since 5.0
@@ -1003,7 +1004,7 @@ function magic_quotes_runtime ($new_setting) {}
 /**
  * Sets the current active configuration setting of magic_quotes_runtime
  * @link https://php.net/manual/en/function.set-magic-quotes-runtime.php
- * @deprecated 5.3.0
+ * @deprecated 5.3
  * @param bool $new_setting <p>
  * false for off, true for on.
  * </p>
@@ -1020,6 +1021,7 @@ function set_magic_quotes_runtime ($new_setting) {}
  * @return int 0 if magic quotes gpc are off, 1 otherwise.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.4
  */
 function get_magic_quotes_gpc () {}
 
@@ -1029,6 +1031,7 @@ function get_magic_quotes_gpc () {}
  * @return int 0 if magic quotes runtime is off, 1 otherwise.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.4
  */
 function get_magic_quotes_runtime () {}
 

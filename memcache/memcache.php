@@ -25,7 +25,7 @@ class MemcachePool  {
      * explicitly in this method call.
      * </p>
      * @param int $timeout [optional] <p>Value in seconds which will be used for connecting to the daemon. Think twice before changing the default value of 1 second - you can lose all the advantages of caching if your connection is too slow.</p>
-     * @return boolean <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
+     * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
      */
     public function connect ($host, $port, $timeout = 1) {}
 
@@ -125,7 +125,7 @@ class MemcachePool  {
      * Allows the user to specify a callback function to run upon encountering an error. The callback is run before failover is attempted.
      * The function takes two parameters, the hostname and port of the failed server.
      * </p>
-     * @return boolean <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
+     * @return bool <p>Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.</p>
      */
     public function setServerParams ($host, $port = 11211, $timeout = 1, $retry_interval = 15, $status = true, callable $failure_callback = null) {}
 
@@ -153,7 +153,7 @@ class MemcachePool  {
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Return version of the server
      * @link https://php.net/manual/en/memcache.getversion.php
-     * @return string|boolean Returns a string of server version number or <b>FALSE</b> on failure.
+     * @return string|false Returns a string of server version number or <b>FALSE</b> on failure.
      */
     public function getVersion () {}
 
@@ -170,7 +170,7 @@ class MemcachePool  {
      * @param int $expire [optional] <p>Expiration time of the item.
      * If it's equal to zero, the item will never expire.
      * You can also use Unix timestamp or a number of seconds starting from current time, but in the latter case the number of seconds may not exceed 2592000 (30 days).</p>
-     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure. Returns <b>FALSE</b> if such key already exist. For the rest Memcache::add() behaves similarly to Memcache::set().
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure. Returns <b>FALSE</b> if such key already exist. For the rest Memcache::add() behaves similarly to Memcache::set().
      */
     public function add ($key , $var, $flag = null, $expire = null) {}
 
@@ -185,7 +185,7 @@ class MemcachePool  {
      * @param mixed $var The variable to store. Strings and integers are stored as is, other types are stored serialized.
      * @param int $flag [optional] Use MEMCACHE_COMPRESSED to store the item compressed (uses zlib).
      * @param int $expire [optional] Expiration time of the item. If it's equal to zero, the item will never expire. You can also use Unix timestamp or a number of seconds starting from current time, but in the latter case the number of seconds may not exceed 2592000 (30 days).
-     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function set ($key, $var, $flag = null, $expire = null) {}
 
@@ -197,7 +197,7 @@ class MemcachePool  {
      * @param mixed $var <p>The variable to store. Strings and integers are stored as is, other types are stored serialized.</p>
      * @param int $flag [optional] <p>Use <b>MEMCACHE_COMPRESSED</b> to store the item compressed (uses zlib).</p>
      * @param int $expire [optional] <p>Expiration time of the item. If it's equal to zero, the item will never expire. You can also use Unix timestamp or a number of seconds starting from current time, but in the latter case the number of seconds may not exceed 2592000 (30 days).</p>
-     * @return boolean Returns TRUE on success or FALSE on failure.
+     * @return bool Returns TRUE on success or FALSE on failure.
      */
     public function replace ($key,  $var, $flag = null, $expire = null) {}
 
@@ -223,7 +223,7 @@ class MemcachePool  {
      * The lowest byte of the int is reserved for pecl/memcache internal usage (e.g. to indicate
      * compression and serialization status).
      * </p>
-     * @return string|array <p>
+     * @return string|array|false <p>
      * Returns the string associated with the <b>key</b> or
      * an array of found key-value pairs when <b>key</b> is an {@link https://php.net/manual/en/language.types.array.php array}.
      * Returns <b>FALSE</b> on failure, <b>key</b> is not found or
@@ -238,7 +238,7 @@ class MemcachePool  {
      * https://secure.php.net/manual/ru/memcache.delete.php
      * @param $key string The key associated with the item to delete.
      * @param $timeout int [optional] This deprecated parameter is not supported, and defaults to 0 seconds. Do not use this parameter.
-     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function delete ($key, $timeout = 0 ) {}
 
@@ -259,7 +259,7 @@ class MemcachePool  {
      * @param int $limit [optional] <p>
      * Used in conjunction with <b>type</b> set to cachedump to limit the number of entries to dump.
      * </p>
-     * @return array|bool Returns an associative array of server statistics or <b>FALSE</b> on failure.
+     * @return array|false Returns an associative array of server statistics or <b>FALSE</b> on failure.
      */
     public function getStats ($type = null, $slabid = null, $limit = 100) {}
 
@@ -275,7 +275,7 @@ class MemcachePool  {
      * debugging purposes.
      * </p>
      * @param int $limit Used in conjunction with type set to cachedump to limit the number of entries to dump.
-     * @return array|bool Returns a two-dimensional associative array of server statistics or <b>FALSE</b>
+     * @return array|false Returns a two-dimensional associative array of server statistics or <b>FALSE</b>
      * Returns a two-dimensional associative array of server statistics or <b>FALSE</b>
      * on failure.
      */
@@ -287,7 +287,7 @@ class MemcachePool  {
      * @link https://php.net/manual/en/memcache.setcompressthreshold.php
      * @param int $thresold <p>Controls the minimum value length before attempting to compress automatically.</p>
      * @param float $min_saving [optional] <p>Specifies the minimum amount of savings to actually store the value compressed. The supplied value must be between 0 and 1. Default value is 0.2 giving a minimum 20% compression savings.</p>
-     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function setCompressThreshold ($thresold, $min_saving = 0.2) {}
     /**
@@ -296,7 +296,7 @@ class MemcachePool  {
      * @link https://php.net/manual/en/memcache.increment.php
      * @param $key string Key of the item to increment.
      * @param $value int [optional] increment the item by <b>value</b>
-     * @return int|boolean Returns new items value on success or <b>FALSE</b> on failure.
+     * @return int|false Returns new items value on success or <b>FALSE</b> on failure.
      */
     public function increment ($key, $value = 1) {}
 
@@ -306,7 +306,7 @@ class MemcachePool  {
      * @link https://php.net/manual/en/memcache.decrement.php
      * @param $key string Key of the item do decrement.
      * @param $value int Decrement the item by <b>value</b>.
-     * @return int|boolean Returns item's new value on success or <b>FALSE</b> on failure.
+     * @return int|false Returns item's new value on success or <b>FALSE</b> on failure.
      */
     public function decrement ($key, $value = 1) {}
 
@@ -314,7 +314,7 @@ class MemcachePool  {
      * (PECL memcache &gt;= 0.4.0)<br/>
      * Close memcached server connection
      * @link https://php.net/manual/en/memcache.close.php
-     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function close () {}
 
@@ -322,7 +322,7 @@ class MemcachePool  {
      * (PECL memcache &gt;= 1.0.0)<br/>
      * Flush all existing items at the server
      * @link https://php.net/manual/en/memcache.flush.php
-     * @return boolean Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function flush () {}
 

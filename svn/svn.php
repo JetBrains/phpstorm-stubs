@@ -274,7 +274,7 @@ function svn_auth_set_parameter ($key, $value) {}
  * String key name. Use the authentication constants
  * defined by this extension to specify a key.
  * </p>
- * @return string|NULL the string value of the parameter at <i>key</i>;
+ * @return string|null the string value of the parameter at <i>key</i>;
  * returns <b>NULL</b> if parameter does not exist.
  */
 function svn_auth_get_parameter ($key) {}
@@ -522,7 +522,7 @@ function svn_status ($path, $flags = 0) {}
  * @param bool $recurse [optional] <p>
  * Whether or not to recursively update directories.
  * </p>
- * @return int new revision number on success, returns <b>FALSE</b> on failure.
+ * @return int|false new revision number on success, returns <b>FALSE</b> on failure.
  */
 function svn_update ($path, $revno = SVN_REVISION_HEAD, $recurse = true) {}
 

@@ -91,7 +91,7 @@ function header_register_callback ( callable $callback ) {}
  * Some programs use these APP markers to embed text information in images. <br>
  * A very common one is to embed » IPTC information in the APP13 marker. <br>
  * You can use the iptcparse() function to parse the binary APP13 marker into something readable.
- * @return array|bool Returns an array with 7 elements.<br>
+ * @return array|false Returns an array with 7 elements.<br>
  * Index 0 and 1 contains respectively the width and the height of the image.<br>
  * Index 2 is one of the <b>IMAGETYPE_XXX</b> constants indicating the type of the image.<br>
  * Index 3 is a text string with the correct <b>height="yyy" width="xxx"</b> string<br>
@@ -106,19 +106,10 @@ function getimagesizefromstring ($imagedata , array &$imageinfo = null) {}
  * @link https://secure.php.net/manual/en/function.stream-set-chunk-size.php
  * @param resource $fp The target stream.
  * @param int $chunk_size The desired new chunk size.
- * @return int Returns the previous chunk size on success.<br>
+ * @return int|false Returns the previous chunk size on success.<br>
  * Will return <b>FALSE</b> if chunk_size is less than 1 or greater than <b>PHP_INT_MAX</b>.
  */
 function stream_set_chunk_size ($fp , $chunk_size) {}
-
-/**
- * PHP > 5.4.0<br/>
- * Import a stream.
- * @link https://secure.php.net/manual/en/function.socket-import-stream.php
- * @param resource $stream The stream resource to import.
- * @return void|bool|null Returns <b>FALSE</b> or <b>NULL</b> on failure.
- */
-function socket_import_stream ($stream) {}
 
 /**
  * Initializes all syslog related variables
@@ -149,7 +140,7 @@ function lcg_value () {}
  * This parameter restricts the returned metaphone key to phonemes characters in length.
  * The default value of 0 means no restriction.
  * </p>
- * @return string|bool the metaphone key as a string, or FALSE on failure
+ * @return string|false the metaphone key as a string, or FALSE on failure
  * @since 4.0
  * @since 5.0
  */
@@ -385,13 +376,13 @@ function ob_get_contents () {}
  * Turn implicit flush on/off
  * @link https://php.net/manual/en/function.ob-implicit-flush.php
  * @param int $flag [optional] <p>
- * true to turn implicit flushing on, false otherwise.
+ * 1 to turn implicit flushing on, 0 otherwise.
  * </p>
  * @return void 
  * @since 4.0
  * @since 5.0
  */
-function ob_implicit_flush ($flag = null) {}
+function ob_implicit_flush ($flag = 1) {}
 
 /**
  * List all output handlers in use
@@ -999,20 +990,18 @@ function range ($start, $end, $step = 1) {}
 function array_multisort (array &$arr, $arg = null, $arg = null, $_ = null) {}
 
 /**
- * Push one or more elements onto the end of array
+ * Push elements onto the end of array
  * @link https://php.net/manual/en/function.array-push.php
  * @param array $array <p>
  * The input array.
  * </p>
- * @param mixed $var <p>
- * The pushed value.
+ * @param mixed $vars [optional] <p>
+ * The pushed variables.
  * </p>
- * @param mixed $_ [optional] 
- * @return int the new number of elements in the array.
- * @since 4.0
- * @since 5.0
+ * @return int the number of elements in the array.
+ * @since 7.3
  */
-function array_push (array &$array, $var, $_ = null) {}
+function array_push (array &$array, ...$vars) {}
 
 /**
  * Pop the element off the end of array
@@ -1042,20 +1031,21 @@ function array_pop (array &$array) {}
 function array_shift (array &$array) {}
 
 /**
- * Prepend one or more elements to the beginning of an array
+ * Prepend elements to the beginning of an array
+ * Since 7.3.0 this function can be called with only one parameter.
+ * For earlier versions at least two parameters are required.
  * @link https://php.net/manual/en/function.array-unshift.php
  * @param array $array <p>
  * The input array.
  * </p>
- * @param mixed $var <p>
- * The prepended variable.
+ * @param mixed $vars [optional] <p>
+ * The prepended variables.
  * </p>
- * @param mixed $_ [optional] 
- * @return int the new number of elements in the array.
+ * @return int the number of elements in the array.
  * @since 4.0
  * @since 5.0
  */
-function array_unshift (array &$array, $var, $_ = null) {}
+function array_unshift (array &$array, ...$vars) {}
 
 /**
  * Remove a portion of the array and replace it with something else

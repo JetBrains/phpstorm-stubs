@@ -136,26 +136,30 @@ define ('INF', INF);
 define ('NAN', NAN);
 
 /**
- * Round halves up [5.3.0]
+ * Round halves up
  * @link https://php.net/manual/en/math.constants.php
+ * @since 5.3.0
  */
 define ('PHP_ROUND_HALF_UP', 1);
 
 /**
- * Round halves down [5.3.0]
+ * Round halves down
  * @link https://php.net/manual/en/math.constants.php
+ * @since 5.3.0
  */
 define ('PHP_ROUND_HALF_DOWN', 2);
 
 /**
- * Round halves to even numbers [5.3.0]
+ * Round halves to even numbers
  * @link https://php.net/manual/en/math.constants.php
+ * @since 5.3.0
  */
 define ('PHP_ROUND_HALF_EVEN', 3);
 
 /**
- * Round halves to odd numbers [5.3.0]
+ * Round halves to odd numbers
  * @link https://php.net/manual/en/math.constants.php
+ * @since 5.3.0
  */
 define ('PHP_ROUND_HALF_ODD', 4);
 define ('INFO_GENERAL', 1);
@@ -255,10 +259,29 @@ define ('CREDITS_QA', 64);
 define ('CREDITS_ALL', 4294967295);
 define ('HTML_SPECIALCHARS', 0);
 define ('HTML_ENTITIES', 1);
-define ('ENT_COMPAT', 2);
-define ('ENT_QUOTES', 3);
-define ('ENT_NOQUOTES', 0);
+
 /**
+ * Will convert double-quotes and leave single-quotes alone.
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
+ */
+define ('ENT_COMPAT', 2);
+
+/**
+ * Will convert both double and single quotes.
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
+ */
+define ('ENT_QUOTES', 3);
+
+/**
+ * Will leave both double and single quotes unconverted.
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
+ */
+define ('ENT_NOQUOTES', 0);
+
+/**
+ * Silently discard invalid code unit sequences instead of returning an empty string.
+ * Using this flag is discouraged as it may have security implications.
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
  * @since 5.3.0
  */
 define ('ENT_IGNORE', 4);
@@ -285,9 +308,29 @@ define ('LC_MESSAGES', 5);
 define ('SEEK_SET', 0);
 define ('SEEK_CUR', 1);
 define ('SEEK_END', 2);
+
+/**
+ * Acquire a shared lock (reader).
+ * @link https://www.php.net/manual/en/function.flock.php
+ */
 define ('LOCK_SH', 1);
+
+/**
+ * Acquire an exclusive lock (writer).
+ * @link https://www.php.net/manual/en/function.flock.php
+ */
 define ('LOCK_EX', 2);
+
+/**
+ * Release lock (shared or exclusive).
+ * @link https://www.php.net/manual/en/function.flock.php
+ */
 define ('LOCK_UN', 3);
+
+/**
+ * Non-blocking operation while locking.
+ * @link https://www.php.net/manual/en/function.flock.php
+ */
 define ('LOCK_NB', 4);
 
 /**
@@ -427,21 +470,24 @@ define ('STREAM_CLIENT_CONNECT', 4);
 
 /**
  * Used with stream_socket_shutdown to disable
- * further receptions. Added in PHP 5.2.1.
+ * further receptions.
+ * @since 5.2.1
  * @link https://php.net/manual/en/stream.constants.php
  */
 define ('STREAM_SHUT_RD', 0);
 
 /**
  * Used with stream_socket_shutdown to disable
- * further transmissions. Added in PHP 5.2.1.
+ * further transmissions.
+ * @since 5.2.1
  * @link https://php.net/manual/en/stream.constants.php
  */
 define ('STREAM_SHUT_WR', 1);
 
 /**
  * Used with stream_socket_shutdown to disable
- * further receptions and transmissions. Added in PHP 5.2.1.
+ * further receptions and transmissions.
+ * @since 5.2.1
  * @link https://php.net/manual/en/stream.constants.php
  */
 define ('STREAM_SHUT_RDWR', 2);
@@ -548,23 +594,19 @@ define ('STREAM_SERVER_BIND', 4);
 define ('STREAM_SERVER_LISTEN', 8);
 
 /**
- * Search for filename in
- * include_path
- * @since 5
+ * Search for filename in include_path
  * @link https://php.net/manual/en/filesystem.constants.php
  */
 define ('FILE_USE_INCLUDE_PATH', 1);
 
 /**
  * Strip EOL characters
- * @since PHP 5
  * @link https://php.net/manual/en/filesystem.constants.php
  */
 define ('FILE_IGNORE_NEW_LINES', 2);
 
 /**
  * Skip empty lines
- * @since PHP 5
  * @link https://php.net/manual/en/filesystem.constants.php
  */
 define ('FILE_SKIP_EMPTY_LINES', 4);
@@ -600,13 +642,13 @@ define ('FILE_BINARY', 0);
  * Disable backslash escaping.
  * @link https://php.net/manual/en/filesystem.constants.php
  */
-define ('FNM_NOESCAPE', 1);
+define ('FNM_NOESCAPE', 2);
 
 /**
  * Slash in string only matches slash in the given pattern.
  * @link https://php.net/manual/en/filesystem.constants.php
  */
-define ('FNM_PATHNAME', 2);
+define ('FNM_PATHNAME', 1);
 
 /**
  * Leading period in string must be exactly matched by period in the given pattern.
@@ -777,7 +819,9 @@ define ('SORT_STRING', 2);
 
 /**
  * SORT_LOCALE_STRING is used to compare items as
- * strings, based on the current locale. Added in PHP 4.4.0 and 5.0.2.
+ * strings, based on the current locale.
+ * @since 4.4.0
+ * @since 5.0.2
  * @link https://php.net/manual/en/array.constants.php
  */
 define ('SORT_LOCALE_STRING', 5);
@@ -808,8 +852,7 @@ define ('ASSERT_QUIET_EVAL', 5);
 define ('ASSERT_EXCEPTION', 6);
 
 /**
- * Flag indicating if the stream
- * used the include path.
+ * Flag indicating if the stream used the include path.
  * @link https://php.net/manual/en/stream.constants.php
  */
 define ('STREAM_USE_PATH', 1);
@@ -867,157 +910,122 @@ define ('STREAM_CAST_AS_STREAM', 0);
 define ('STREAM_CAST_FOR_SELECT', 3);
 
 /**
- * Image type constant used by the
- * image_type_to_mime_type and
- * image_type_to_extension functions.
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_GIF', 1);
 
 /**
- * Image type constant used by the
- * image_type_to_mime_type and
- * image_type_to_extension functions.
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_JPEG', 2);
 
 /**
- * Image type constant used by the
- * image_type_to_mime_type and
- * image_type_to_extension functions.
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_PNG', 3);
 
 /**
- * Image type constant used by the
- * image_type_to_mime_type and
- * image_type_to_extension functions.
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_SWF', 4);
 
 /**
- * Image type constant used by the
- * image_type_to_mime_type and
- * image_type_to_extension functions.
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_PSD', 5);
 
 /**
- * Image type constant used by the
- * image_type_to_mime_type and
- * image_type_to_extension functions.
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_BMP', 6);
 
 /**
- * Image type constant used by the
- * image_type_to_mime_type and
- * image_type_to_extension functions.
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_TIFF_II', 7);
 
 /**
- * Image type constant used by the
- * image_type_to_mime_type and
- * image_type_to_extension functions.
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_TIFF_MM', 8);
 
 /**
- * Image type constant used by the
- * image_type_to_mime_type and
- * image_type_to_extension functions.
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_JPC', 9);
 
 /**
- * Image type constant used by the
- * image_type_to_mime_type and
- * image_type_to_extension functions.
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_JP2', 10);
 
 /**
- * Image type constant used by the
- * image_type_to_mime_type and
- * image_type_to_extension functions.
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_JPX', 11);
 
 /**
- * Image type constant used by the
- * image_type_to_mime_type and
- * image_type_to_extension functions.
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_JB2', 12);
 
 /**
- * Image type constant used by the
- * image_type_to_mime_type and
- * image_type_to_extension functions.
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_SWC', 13);
 
 /**
- * Image type constant used by the
- * image_type_to_mime_type and
- * image_type_to_extension functions.
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_IFF', 14);
 
 /**
- * Image type constant used by the
- * image_type_to_mime_type and
- * image_type_to_extension functions.
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_WBMP', 15);
 
 /**
- * Image type constant used by the
- * image_type_to_mime_type and
- * image_type_to_extension functions.
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_JPEG2000', 9);
 
 /**
- * Image type constant used by the
- * image_type_to_mime_type and
- * image_type_to_extension functions.
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_XBM', 16);
 
 /**
- * Image type constant used by the
- * image_type_to_mime_type and
- * image_type_to_extension functions.
- * (Available as of PHP 5.3.0)
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
+ * @since 5.3.0
  */
 define ('IMAGETYPE_ICO', 17);
-define ('IMAGETYPE_UNKNOWN', 0);
-define ('IMAGETYPE_COUNT', 18);
 
 /**
- * Image type constant used by the image_type_to_mime_type() and image_type_to_extension() functions
+ * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
+ * @since 7.1.0
  */
 define('IMAGETYPE_WEBP', 18);
+define('IMAGETYPE_UNKNOWN', 0);
+define('IMAGETYPE_COUNT', 19);
 
 /**
  * IPv4 Address Resource
@@ -1094,7 +1102,7 @@ define ('DNS_ANY', 268435456);
  * each available record type.
  * @link https://php.net/manual/en/network.constants.php
  */
-define ('DNS_ALL', 251713587);
+define ('DNS_ALL', 251721779);
 
 // End of standard v.5.3.1-0.dotdeb.1
 
@@ -1153,36 +1161,6 @@ define('PHP_OUTPUT_HANDLER_DISABLED', 8192);
 
 
 
-/** @link https://php.net/manual/en/libxml.constants.php */
-define('LIBXML_PEDANTIC', 128);
-
-
-
-
-/** @link https://php.net/manual/en/zlib.constants.php */
-define('ZLIB_ENCODING_RAW', -15);
-/** @link https://php.net/manual/en/zlib.constants.php */
-define('ZLIB_ENCODING_GZIP', 31);
-/** @link https://php.net/manual/en/zlib.constants.php */
-define('ZLIB_ENCODING_DEFLATE', 15);
-
-
-
-/**
- * Equivalent to calling htmlspecialchars() with ENT_QUOTES set.
- * Encoding quotes can be disabled by setting FILTER_FLAG_NO_ENCODE_QUOTES.
- * Like htmlspecialchars(), this filter is aware of the default_charset
- * and if a sequence of bytes is detected that makes up an invalid character
- * in the current character set then the entire string is rejected resulting in
- * a 0-length string.
- * @link https://php.net/manual/en/filter.filters.sanitize.php
- */
-define('FILTER_SANITIZE_FULL_SPECIAL_CHARS', 515);
-
-
-
-
-
 /**
  * (PHP4, PHP5)
  * <p>Constant containing either the session name and session ID in the form of "name=ID" or
@@ -1211,92 +1189,11 @@ define('PHP_SESSION_NONE', 1);
  */
 define('PHP_SESSION_ACTIVE', 2);
 
-
-
-/**
- * Joins a multicast group. (added in PHP 5.4)
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('MCAST_JOIN_GROUP', 42);
-/**
- * Leaves a multicast group. (added in PHP 5.4)
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('MCAST_LEAVE_GROUP', 45);
-/**
- * Blocks packets arriving from a specific source to a specific multicast group,
- * which must have been previously joined. (added in PHP 5.4)
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('MCAST_BLOCK_SOURCE', 43);
-/**
- * Unblocks (start receiving again) packets arriving from
- * a specific source address to a specific multicast group,
- * which must have been previously joined. (added in PHP 5.4)
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('MCAST_UNBLOCK_SOURCE', 44);
-/**
- * Receive packets destined to a specific multicast group
- * whose source address matches a specific value. (added in PHP 5.4)
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('MCAST_JOIN_SOURCE_GROUP', 46);
-/**
- * Stop receiving packets destined to a specific multicast group
- * whose soure address matches a specific value. (added in PHP 5.4)
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('MCAST_LEAVE_SOURCE_GROUP', 47);
-/**
- * The outgoing interface for IPv4 multicast packets. (added in PHP 5.4)
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('IP_MULTICAST_IF', 32);
-/**
- * The outgoing interface for IPv6 multicast packets. (added in PHP 5.4)
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('IP_MULTICAST_TTL', 33);
-/**
- * The multicast loopback policy for IPv4 packets,
- * which determines whether multicast packets sent by this socket
- * also reach receivers in the same host that have joined the same multicast group
- * on the outgoing interface used by this socket. This is the case by default. (added in PHP 5.4)
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('IP_MULTICAST_LOOP', 34);
-/**
- * Analogous to IP_MULTICAST_LOOP, but for IPv6. (added in PHP 5.4)
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('IPV6_MULTICAST_IF', 17);
-/**
- * The time-to-live of outgoing IPv4 multicast packets.
- * This should be a value between 0 (don't leave the interface) and 255.
- * The default value is 1 (only the local network is reached). (added in PHP 5.4)
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('IPV6_MULTICAST_HOPS', 18);
-/**
- * Analogous to IP_MULTICAST_TTL, but for IPv6 packets.
- * The value -1 is also accepted, meaning the route default should be used. (added in PHP 5.4)
- * @link https://php.net/manual/en/function.socket-get-option.php
- */
-define('IPV6_MULTICAST_LOOP', 19);
-
-
-
-define('IPPROTO_IP', 0);
-define('IPPROTO_IPV6', 41);
-
-
-
 /**
  * Replace invalid code unit sequences with a Unicode Replacement Character
  * U+FFFD (UTF-8) or &#FFFD; (otherwise) instead of returning an empty string.
- * @link https://php.net/manual/en/function.htmlspecialchars.php
  * @since 5.4.0
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_SUBSTITUTE', 8);
 /**
@@ -1305,32 +1202,32 @@ define('ENT_SUBSTITUTE', 8);
  * (otherwise) instead of leaving them as is. This may be useful,
  * for instance, to ensure the well-formedness of XML documents
  * with embedded external content.
- * @link https://php.net/manual/en/function.htmlspecialchars.php
  * @since 5.4.0
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_DISALLOWED', 128);
 /**
  * Handle code as HTML 4.01.
- * @link https://php.net/manual/en/function.htmlspecialchars.php
  * @since 5.4.0
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_HTML401', 0);
 /**
  * Handle code as XML 1.
- * @link https://php.net/manual/en/function.htmlspecialchars.php
  * @since 5.4.0
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_XML1', 16);
 /**
  * Handle code as XHTML.
- * @link https://php.net/manual/en/function.htmlspecialchars.php
  * @since 5.4.0
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_XHTML', 32);
 /**
  * Handle code as HTML 5.
- * @link https://php.net/manual/en/function.htmlspecialchars.php
  * @since 5.4.0
+ * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_HTML5', 48);
 
@@ -1345,12 +1242,14 @@ define('SCANDIR_SORT_NONE', 2);
 
 
 /**
- * SORT_NATURAL is used to compare items as strings using "natural ordering" like natsort(). Added in PHP 5.4.0.
+ * SORT_NATURAL is used to compare items as strings using "natural ordering" like natsort().
+ * @since 5.4.0
  * @link https://php.net/manual/en/array.constants.php
  */
 define('SORT_NATURAL', 6);
 /**
- * SORT_FLAG_CASE can be combined (bitwise OR) with SORT_STRING or SORT_NATURAL to sort strings case-insensitively. Added in PHP 5.4.0.
+ * SORT_FLAG_CASE can be combined (bitwise OR) with SORT_STRING or SORT_NATURAL to sort strings case-insensitively.
+ * @since 5.4.0
  * @link https://php.net/manual/en/array.constants.php
  */
 define('SORT_FLAG_CASE', 8);

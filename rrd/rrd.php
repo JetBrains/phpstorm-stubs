@@ -53,7 +53,7 @@ function rrd_fetch($filename, $options) {}
  * @param int $raaindex <p>
  * The index number of the RRA that is to be examined. Default value is 0.
  * </p>
- * @return int Integer as unix timestamp, FALSE if some error occurs.
+ * @return int|false Integer as unix timestamp, FALSE if some error occurs.
  * @since PECL rrd >= 0.9.0
  */
 function rrd_first($file, $raaindex = 0) {}
@@ -67,7 +67,7 @@ function rrd_first($file, $raaindex = 0) {}
  * @param array $options <p>
  * Options for generating image. See man page of rrd graph for all possible options. All options (data definitions, variable defintions, etc.) are allowed.
  * </p>
- * @return array If image is created successfully an array with information about generated image is returned, FALSE when error occurs.
+ * @return array|false If image is created successfully an array with information about generated image is returned, FALSE when error occurs.
  * @since PECL rrd >= 0.9.0
  */
 function rrd_graph($filename, $options) {}
@@ -78,7 +78,7 @@ function rrd_graph($filename, $options) {}
  * @param string $filename <p>
  * RRD database file name.
  * </p>
- * @return array Array with information about requsted RRD file, FALSE when error occurs.
+ * @return array|false Array with information about requsted RRD file, FALSE when error occurs.
  * @since PECL rrd >= 0.9.0
  */
 function rrd_info($filename) {}
@@ -100,7 +100,7 @@ function rrd_last($filename) {}
  * @param string $filename <p>
  * RRD database file name.
  * </p>
- * @return array Array of information about last update, FALSE when error occurs.
+ * @return array|false Array of information about last update, FALSE when error occurs.
  * @since PECL rrd >= 0.9.0
  */
 function rrd_lastupdate($filename) {}
@@ -164,7 +164,7 @@ function rrd_version() {}
  * @param array $options <p>
  * Array of options for the export, see rrd xport man page.
  * </p>
- * @return array Array with information about RRD database file, FALSE when error occurs.
+ * @return array|false Array with information about RRD database file, FALSE when error occurs.
  * @since PECL rrd >= 0.9.0
  */
 function rrd_xport($options) {}
@@ -178,6 +178,14 @@ function rrd_xport($options) {}
  * @since PECL rrd >= 1.1.2
  */
 function rrd_disconnect() {}
+
+/**
+ * Close any outstanding connection to rrd caching daemon.
+ * This function is automatically called when the whole PHP process is terminated. It depends on used SAPI.
+ * For example, it's called automatically at the end of command line script.
+ * It's up user whether he wants to call this function at the end of every request or otherwise.
+ */
+function rrdc_disconnect(){}
 
 /**
  * Class for creation of RRD database file.
@@ -260,7 +268,7 @@ class RRDGraph {
     /**
      * Saves the result of RRD database query into image defined by RRDGraph::__construct().
      * @link https://php.net/manual/en/rrdgraph.save.php
-     * @return array Array with information about generated image is returned, FALSE if error occurs.
+     * @return array|false Array with information about generated image is returned, FALSE if error occurs.
      * @since PECL rrd >= 0.9.0
      */
     public function save() {}
@@ -270,7 +278,7 @@ class RRDGraph {
      * If "-" is used as image filename, image data are also returned in result array.
      * </p>
      * @link https://php.net/manual/en/rrdgraph.saveverbose.php
-     * @return array Array with detailed information about generated image is returned, optionally with image data, FALSE if error occurs.
+     * @return array|false Array with detailed information about generated image is returned, optionally with image data, FALSE if error occurs.
      * @since PECL rrd >= 0.9.0
      */
     public function saveVerbose() {}

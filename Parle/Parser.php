@@ -141,10 +141,10 @@ class Parser
      * This method is equivalent to the pseudo variable functionality in Bison.
      *
      * @link https://php.net/manual/en/parle-parser.sigil.php
-     * @param array $idx Match index, zero based. [ int $idx ]
+     * @param int $idx Match index, zero based.
      * @return string Returns a string with the matched part.
      */
-    public function sigil(array $idx) : string {}
+    public function sigil(int $idx) : string {}
 
     /**
      * Declare a terminal to be used in the grammar.

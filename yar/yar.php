@@ -1,5 +1,34 @@
 <?php
 
+
+/**
+ * The constants below are defined by this extension,
+ * and will only be available when the extension has either been compiled into PHP or dynamically loaded at runtime.
+ * @link https://secure.php.net/manual/en/yar.constants.php
+ */
+define('YAR_VERSION', '2.0.5');
+define('YAR_CLIENT_PROTOCOL_HTTP', 1);
+define('YAR_OPT_PACKAGER', 1);
+define('YAR_OPT_TIMEOUT', 4);
+define('YAR_OPT_CONNECT_TIMEOUT', 8);
+define('YAR_OPT_PERSISTENT', 2);
+/**
+ * @since 2.0.4
+ */
+define('YAR_OPT_HEADER', 16);
+define('YAR_PACKAGER_PHP', 'PHP');
+define('YAR_PACKAGER_JSON', 'JSON');
+define('YAR_ERR_OUTPUT', 8);
+define('YAR_ERR_OKEY', 0);
+define('YAR_ERR_TRANSPORT', 16);
+define('YAR_ERR_REQUEST', 4);
+define('YAR_ERR_PROTOCOL', 2);
+define('YAR_ERR_PACKAGER', 1);
+define('YAR_ERR_EXCEPTION', 64);
+
+define('YAR_CLIENT_PROTOCOL_TCP', 2);
+define('YAR_CLIENT_PROTOCOL_UNIX', 4);
+
 /**
  * Class Yar_Server
  * Date 2018/6/9 下午3:02
@@ -27,7 +56,7 @@ class Yar_Server {
      *  Usual RPC calls will be issued as HTTP POST requests.
      *  If a HTTP GET request is issued to the uri,
      *  the service information (commented section above) will be printed on the page
-     * @return boolean
+     * @return bool
      * @link https://secure.php.net/manual/en/yar-server.handle.php
      */
     public function handle () {}
@@ -69,7 +98,7 @@ class Yar_Client {
      * - YAR_OPT_CONNECT_TIMEOUT
      * - YAR_OPT_HEADER (Since 2.0.4)
      * @param $value
-     * @return object Returns $this on success or FALSE on failure.
+     * @return object|false Returns $this on success or FALSE on failure.
      * @link https://secure.php.net/manual/en/yar-client.setopt.php
      */
     public function setOpt ($name , $value ){}
@@ -99,7 +128,7 @@ class Yar_Concurrent_Client {
      *  Then, if user didn't specify callback when registering concurrent call, this callback will be used to handle response, otherwise, the callback specified while registering will be used.
      * @param $error_callback
      *  If this callback is set, then Yar will call this callback while error occurred.
-     * @return boolean
+     * @return bool
      * @link https://secure.php.net/manual/en/yar-concurrent-client.loop.php
      */
     public static function loop ($callback , $error_callback) {}
@@ -107,7 +136,7 @@ class Yar_Concurrent_Client {
     /**
      * Clean all registered calls
      * Clean all registered calls
-     * @return boolean
+     * @return bool
      * @link https://secure.php.net/manual/en/yar-concurrent-client.reset.php
      */
     public static function reset (){}

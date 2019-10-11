@@ -49,6 +49,9 @@ define('YAML_CR_BREAK', 1);
 define('YAML_LN_BREAK', 2);
 define('YAML_CRLN_BREAK', 3);
 
+define('YAML_MERGE_TAG', 'tag:yaml.org,2002:merge');
+define('YAML_BINARY_TAG', 'tag:yaml.org,2002:binary');
+
 /**
  * (PHP 5 &gt;= 5.2.0, PECL yaml &gt;= 0.5.0)<br/>
  * Send the YAML representation of a value to a file
@@ -71,7 +74,7 @@ function yaml_emit_file($filename,$data,$encoding=YAML_ANY_ENCODING,$linebreak=Y
  * @param array $callbacks [optional] Content handlers for YAML nodes. Associative array of YAML tag => callable mappings. See parse callbacks for more details.
  * @return string Returns a YAML encoded string on success.
  */
-function yaml_emit($data,$encoding,$linebreak,$callbacks=array()) {}
+function yaml_emit($data,$encoding=YAML_ANY_ENCODING,$linebreak=YAML_ANY_BREAK,$callbacks=array()) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0, PECL yaml &gt;= 0.4.0)<br/>

@@ -1,6 +1,6 @@
 <?php
 
-// Start of geoip v.1.0.8
+// Start of geoip v.1.1.0
 
 /**
  * (PECL geoip &gt;= 0.2.0)<br/>
@@ -22,7 +22,7 @@ function geoip_database_info ($database = GEOIP_COUNTRY_EDITION) {}
  * @param string $hostname <p>
  * The hostname or IP address whose location is to be looked-up.
  * </p>
- * @return string the two letter ISO country code on success, or <b>FALSE</b>
+ * @return string|false the two letter ISO country code on success, or <b>FALSE</b>
  * if the address cannot be found in the database.
  */
 function geoip_country_code_by_name ($hostname) {}
@@ -34,7 +34,7 @@ function geoip_country_code_by_name ($hostname) {}
  * @param string $hostname <p>
  * The hostname or IP address whose location is to be looked-up.
  * </p>
- * @return string the three letter country code on success, or <b>FALSE</b>
+ * @return string|false the three letter country code on success, or <b>FALSE</b>
  * if the address cannot be found in the database.
  */
 function geoip_country_code3_by_name ($hostname) {}
@@ -46,7 +46,7 @@ function geoip_country_code3_by_name ($hostname) {}
  * @param string $hostname <p>
  * The hostname or IP address whose location is to be looked-up.
  * </p>
- * @return string the country name on success, or <b>FALSE</b> if the address cannot
+ * @return string|false the country name on success, or <b>FALSE</b> if the address cannot
  * be found in the database.
  */
 function geoip_country_name_by_name ($hostname) {}
@@ -58,7 +58,7 @@ function geoip_country_name_by_name ($hostname) {}
  * @param string $hostname <p>
  * The hostname or IP address whose location is to be looked-up.
  * </p>
- * @return string the two letter continent code on success, or <b>FALSE</b> if the
+ * @return string|false the two letter continent code on success, or <b>FALSE</b> if the
  * address cannot be found in the database.
  */
 function geoip_continent_code_by_name ($hostname) {}
@@ -70,7 +70,7 @@ function geoip_continent_code_by_name ($hostname) {}
  * @param string $hostname <p>
  * The hostname or IP address.
  * </p>
- * @return string the organization name on success, or <b>FALSE</b> if the address
+ * @return string|false the organization name on success, or <b>FALSE</b> if the address
  * cannot be found in the database.
  */
 function geoip_org_by_name ($hostname) {}
@@ -82,7 +82,7 @@ function geoip_org_by_name ($hostname) {}
  * @param string $hostname <p>
  * The hostname or IP address whose record is to be looked-up.
  * </p>
- * @return array the associative array on success, or <b>FALSE</b> if the address
+ * @return array|false the associative array on success, or <b>FALSE</b> if the address
  * cannot be found in the database.
  */
 function geoip_record_by_name ($hostname) {}
@@ -105,7 +105,7 @@ function geoip_id_by_name ($hostname) {}
  * @param string $hostname <p>
  * The hostname or IP address whose region is to be looked-up.
  * </p>
- * @return array the associative array on success, or <b>FALSE</b> if the address
+ * @return array|false the associative array on success, or <b>FALSE</b> if the address
  * cannot be found in the database.
  */
 function geoip_region_by_name ($hostname) {}
@@ -117,7 +117,7 @@ function geoip_region_by_name ($hostname) {}
  * @param string $hostname <p>
  * The hostname or IP address.
  * </p>
- * @return string the ISP name on success, or <b>FALSE</b> if the address
+ * @return string|false the ISP name on success, or <b>FALSE</b> if the address
  * cannot be found in the database.
  */
 function geoip_isp_by_name ($hostname) {}
@@ -131,7 +131,7 @@ function geoip_isp_by_name ($hostname) {}
  * various constants defined with
  * this extension (ie: GEOIP_*_EDITION).
  * </p>
- * @return bool <b>TRUE</b> is database exists, <b>FALSE</b> if not found, or <b>NULL</b> on error.
+ * @return bool|null <b>TRUE</b> is database exists, <b>FALSE</b> if not found, or <b>NULL</b> on error.
  */
 function geoip_db_avail ($database) {}
 
@@ -168,7 +168,7 @@ function geoip_db_filename ($database) {}
  * The two-letter (or digit) region code (see
  * <b>geoip_region_by_name</b>)
  * </p>
- * @return string the region name on success, or <b>FALSE</b> if the country and region code
+ * @return string|false the region name on success, or <b>FALSE</b> if the country and region code
  * combo cannot be found.
  */
 function geoip_region_name_by_code ($country_code, $region_code) {}
@@ -185,7 +185,7 @@ function geoip_region_name_by_code ($country_code, $region_code) {}
  * The two-letter (or digit) region code (see
  * <b>geoip_region_by_name</b>)
  * </p>
- * @return string the time zone on success, or <b>FALSE</b> if the country and region code
+ * @return string|false the time zone on success, or <b>FALSE</b> if the country and region code
  * combo cannot be found.
  */
 function geoip_time_zone_by_country_and_region ($country_code, $region_code = null) {}
@@ -206,5 +206,53 @@ define ('GEOIP_DIALUP_SPEED', 1);
 define ('GEOIP_CABLEDSL_SPEED', 2);
 define ('GEOIP_CORPORATE_SPEED', 3);
 
-// End of geoip v.1.0.8
-?>
+/**
+ * (PECL geoip &gt;= 1.1.0)<br/>
+ * <p>
+ * The geoip_asnum_by_name() function will return the Autonomous System Numbers (ASN) associated with an IP address.
+ * </p>
+ * @link https://secure.php.net/manual/en/function.geoip-asnum-by-name.php
+ * @param string $hostname The hostname or IP address
+ *
+ * @return string|false Returns the ASN on success, or <b>FALSE</b> if the address cannot be found in the database.
+ * @since 1.1.0
+ */
+function geoip_asnum_by_name ($hostname) {}
+
+/**
+ * (PECL geoip &gt;= 1.1.0)<br/>
+ * <p>
+ * The geoip_netspeedcell_by_name() function will return the Internet connection type and speed corresponding to a hostname or an IP address.<br>
+ * <br>
+ * This function is only available if using GeoIP Library version 1.4.8 or newer.<br>
+ * <br>
+ * This function is currently only available to users who have bought a commercial GeoIP NetSpeedCell Edition. A warning will be issued if the proper database cannot be located.<br >
+ * <br>
+ * The return value is a string, common values are:<br>
+ * - Cable/DSL<br>
+ * - Dialup<br>
+ * - Cellular<br>
+ * - Corporate<br>
+ * </p>
+ * @link https://secure.php.net/manual/en/function.geoip-netspeedcell-by-name.php
+ * @param string $hostname The hostname or IP address
+ *
+ * @return string|false Returns the connection speed on success, or <b>FALSE</b> if the address cannot be found in the database.
+ * @since 1.1.0
+ */
+function geoip_netspeedcell_by_name ($hostname) {}
+
+/**
+ * (PECL geoip &gt;= 1.1.0)<br/>
+ * <p>
+ * The geoip_setup_custom_directory() function will change the default directory of the GeoIP database. This is equivalent to changing geoip.custom_directory
+ * </p>
+ * @link https://secure.php.net/manual/en/function.geoip-setup-custom-directory.php
+ * @param string $path The full path of where the GeoIP database is on disk.
+ *
+ * @return void
+ * @since 1.1.0
+ */
+function geoip_setup_custom_directory  ($path) {}
+
+// End of geoip v.1.1.0

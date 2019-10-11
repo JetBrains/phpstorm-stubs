@@ -980,7 +980,7 @@ class Imagick implements Iterator, Countable {
 	 * @param string $name <p>
 	 * name of the property (for example Exif:DateTime)
 	 * </p>
-	 * @return string a string containing the image property, false if a
+	 * @return string|false a string containing the image property, false if a
 	 * property with the given name does not exist.
 	 */
 	public function getImageProperty ($name) {}
@@ -1253,7 +1253,7 @@ class Imagick implements Iterator, Countable {
 	 * (PECL imagick 2.1.0)<br/>
 	 * Gets font
 	 * @link https://php.net/manual/en/imagick.getfont.php
-	 * @return string the string containing the font name or <b>FALSE</b> if not font is set.
+	 * @return string|false the string containing the font name or <b>FALSE</b> if not font is set.
 	 */
 	public function getFont () {}
 
@@ -4563,7 +4563,7 @@ class Imagick implements Iterator, Countable {
 	 * Get the StringRegistry entry for the named key or false if not set.
 	 * @link https://php.net/manual/en/imagick.getregistry.php
 	 * @param string $key
-	 * @return string
+	 * @return string|false
 	 * @throws Exception Since version >=3.4.3. Throws an exception if the key does not exist, rather than terminating the program.
 	 * @since 3.3.0
 	 */
@@ -5017,7 +5017,7 @@ class ImagickDraw  {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Returns the font
 	 * @link https://php.net/manual/en/imagickdraw.getfont.php
-	 * @return string a string on success and false if no font is set.
+	 * @return string|false a string on success and false if no font is set.
 	 */
 	public function getFont () {}
 
@@ -5025,7 +5025,7 @@ class ImagickDraw  {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Returns the font family
 	 * @link https://php.net/manual/en/imagickdraw.getfontfamily.php
-	 * @return string the font family currently selected or false if font family is not set.
+	 * @return string|false the font family currently selected or false if font family is not set.
 	 */
 	public function getFontFamily () {}
 
@@ -5422,7 +5422,7 @@ class ImagickDraw  {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Obtains the current clipping path ID
 	 * @link https://php.net/manual/en/imagickdraw.getclippath.php
-	 * @return string a string containing the clip path ID or false if no clip path exists.
+	 * @return string|false a string containing the clip path ID or false if no clip path exists.
 	 */
 	public function getClipPath () {}
 

@@ -43,6 +43,8 @@ class RedisCluster {
     const SERIALIZER_NONE = 0;
     const SERIALIZER_PHP = 1;
     const SERIALIZER_IGBINARY = 2;
+    const SERIALIZER_MSGPACK = 3;
+    const SERIALIZER_JSON = 4;
 
     /**
      * Multi
@@ -64,7 +66,7 @@ class RedisCluster {
     /**
      * Creates a Redis Cluster client
      *
-     * @param string | null mixed $name
+     * @param string|null   $name
      * @param array         $seeds
      * @param float         $timeout
      * @param float         $readTimeout
@@ -103,7 +105,7 @@ class RedisCluster {
      *
      * @param   string $key
      *
-     * @return  string|bool If key didn't exist, FALSE is returned. Otherwise, the value related to this key is
+     * @return  string|false If key didn't exist, FALSE is returned. Otherwise, the value related to this key is
      *                       returned.
      *
      * @link    https://redis.io/commands/get
@@ -209,10 +211,9 @@ class RedisCluster {
     /**
      * Remove specified keys.
      *
-     * @param   int | array $key1 An array of keys, or an undefined number of parameters, each a key: key1 key2 key3
+     * @param int|string|array $key1 An array of keys, or an undefined number of parameters, each a key: key1 key2 key3
      *                            ... keyN
-     * @param   string      $key2 ...
-     * @param   string      $key3 ...
+     * @param int|string ...$otherKeys
      *
      * @return int Number of keys deleted.
      * @link    https://redis.io/commands/del
@@ -226,7 +227,7 @@ class RedisCluster {
      * $redisCluster->del(array('key3', 'key4'));   // return 2
      * </pre>
      */
-    public function del($key1, $key2 = null, $key3 = null) { }
+    public function del($key1, ...$otherKeys) { }
 
     /**
      * Set the string value in argument as value of the key, with a time to live.
@@ -350,7 +351,7 @@ class RedisCluster {
      *
      * @param   string $key
      *
-     * @return  string if command executed successfully BOOL FALSE in case of failure (empty list)
+     * @return  string|false if command executed successfully BOOL FALSE in case of failure (empty list)
      * @link    https://redis.io/commands/lpop
      * @example
      * <pre>
@@ -380,7 +381,7 @@ class RedisCluster {
      *
      * @param   string $key
      *
-     * @return  string if command executed successfully BOOL FALSE in case of failure (empty list)
+     * @return  string|false if command executed successfully BOOL FALSE in case of failure (empty list)
      * @link    https://redis.io/commands/rpop
      * @example
      * <pre>
@@ -412,7 +413,7 @@ class RedisCluster {
      * @param int    $index
      * @param string $value
      *
-     * @return BOOL TRUE if the new value is setted. FALSE if the index is out of range, or data type identified by key
+     * @return bool TRUE if the new value is setted. FALSE if the index is out of range, or data type identified by key
      * is not a list.
      * @link    https://redis.io/commands/lset
      * @example
@@ -458,7 +459,7 @@ class RedisCluster {
      * @param   string $value2 Optional
      * @param   string $valueN Optional
      *
-     * @return  int    The new length of the list in case of success, FALSE in case of Failure.
+     * @return  int|false    The new length of the list in case of success, FALSE in case of Failure.
      * @link    https://redis.io/commands/lpush
      * @example
      * <pre>
@@ -484,7 +485,7 @@ class RedisCluster {
      * @param   string $value2 Optional
      * @param   string $valueN Optional
      *
-     * @return  int     The new length of the list in case of success, FALSE in case of Failure.
+     * @return  int|false     The new length of the list in case of success, FALSE in case of Failure.
      * @link    https://redis.io/commands/rpush
      * @example
      * <pre>
@@ -596,7 +597,7 @@ class RedisCluster {
      * @param   string $key
      * @param   string $value String, value to push in key
      *
-     * @return  int     The new length of the list in case of success, FALSE in case of Failure.
+     * @return  int|false     The new length of the list in case of success, FALSE in case of Failure.
      * @link    https://redis.io/commands/rpushx
      * @example
      * <pre>
@@ -616,7 +617,7 @@ class RedisCluster {
      * @param   string $key
      * @param   string $value String, value to push in key
      *
-     * @return  int     The new length of the list in case of success, FALSE in case of Failure.
+     * @return  int|false     The new length of the list in case of success, FALSE in case of Failure.
      * @link    https://redis.io/commands/lpushx
      * @example
      * <pre>
@@ -670,7 +671,7 @@ class RedisCluster {
      * @param string $key
      * @param int    $index
      *
-     * @return String the element at this index
+     * @return string|false the element at this index
      * Bool FALSE if the key identifies a non-string data type, or no value corresponds to this index in the list Key.
      * @link    https://redis.io/commands/lindex
      * @example
@@ -719,7 +720,7 @@ class RedisCluster {
      * @param   string $dstKey
      * @param   int    $timeout
      *
-     * @return  string  The element that was moved in case of success, FALSE in case of timeout.
+     * @return  string|false  The element that was moved in case of success, FALSE in case of timeout.
      * @link    https://redis.io/commands/brpoplpush
      */
     public function brpoplpush($srcKey, $dstKey, $timeout) { }
@@ -733,7 +734,7 @@ class RedisCluster {
      * @param   string $srcKey
      * @param   string $dstKey
      *
-     * @return  string  The element that was moved in case of success, FALSE in case of failure.
+     * @return  string|false  The element that was moved in case of success, FALSE in case of failure.
      * @link    https://redis.io/commands/rpoplpush
      * @example
      * <pre>
@@ -868,7 +869,7 @@ class RedisCluster {
      * @param   string $value2 Optional value
      * @param   string $valueN Optional value
      *
-     * @return  int     The number of elements added to the set
+     * @return  int|false     The number of elements added to the set
      * @link    https://redis.io/commands/sadd
      * @example
      * <pre>
@@ -885,7 +886,7 @@ class RedisCluster {
      * @param   string $key Required key
      * @param   array  $valueArray
      *
-     * @return  int     The number of elements added to the set
+     * @return  int|false     The number of elements added to the set
      * @example
      * <pre>
      * $redisCluster->sAddArray('k', ['v1', 'v2', 'v3']);
@@ -1043,7 +1044,7 @@ class RedisCluster {
      * @param   string $key2   ...
      * @param   string $keyN   ...
      *
-     * @return  int    The cardinality of the resulting set, or FALSE in case of a missing key.
+     * @return  int|false    The cardinality of the resulting set, or FALSE in case of a missing key.
      * @link    https://redis.io/commands/sinterstore
      * @example
      * <pre>
@@ -1117,7 +1118,7 @@ class RedisCluster {
      * @param   string $key2   ...
      * @param   string $keyN   ...
      *
-     * @return  int    The cardinality of the resulting set, or FALSE in case of a missing key.
+     * @return  int|false    The cardinality of the resulting set, or FALSE in case of a missing key.
      * @link    https://redis.io/commands/sdiffstore
      * @example
      * <pre>
@@ -1356,7 +1357,7 @@ class RedisCluster {
      *
      * @param   string $key
      *
-     * @return  int     the number of items in a hash, FALSE if the key doesn't exist or isn't a hash.
+     * @return  int|false     the number of items in a hash, FALSE if the key doesn't exist or isn't a hash.
      * @link    https://redis.io/commands/hlen
      * @example
      * <pre>
@@ -1441,7 +1442,7 @@ class RedisCluster {
      * @param   string $key
      * @param   string $hashKey
      *
-     * @return  string  The value, if the command executed successfully BOOL FALSE in case of failure
+     * @return  string|false  The value, if the command executed successfully BOOL FALSE in case of failure
      * @link    https://redis.io/commands/hget
      * @example
      * <pre>
@@ -1670,7 +1671,7 @@ class RedisCluster {
      *
      * @param   string $key
      *
-     * @return  string  The Redis encoded value of the key, or FALSE if the key doesn't exist
+     * @return  string|false  The Redis encoded value of the key, or FALSE if the key doesn't exist
      * @link    https://redis.io/commands/dump
      * @example
      * <pre>
@@ -2040,7 +2041,7 @@ class RedisCluster {
      * @param int    $start
      * @param int    $stop
      *
-     * @return array    Bool return FALSE if the key identify a non-list value.
+     * @return array|false    Bool return FALSE if the key identify a non-list value.
      * @link        https://redis.io/commands/ltrim
      * @example
      * <pre>
@@ -2150,7 +2151,7 @@ class RedisCluster {
      * When called with a single key, returns the approximated cardinality computed by the HyperLogLog data
      * structure stored at the specified variable, which is 0 if the variable does not exist.
      *
-     * @param   string | array $key
+     * @param   string|array $key
      *
      * @return  int
      * @link    https://redis.io/commands/pfcount
@@ -2573,7 +2574,7 @@ class RedisCluster {
      * @param   string $string
      * @param   string $key
      *
-     * @return  string  for "encoding", int for "refcount" and "idletime", FALSE if the key doesn't exist.
+     * @return  string|false  for "encoding", int for "refcount" and "idletime", FALSE if the key doesn't exist.
      * @link    https://redis.io/commands/object
      * @example
      * <pre>
@@ -2587,8 +2588,8 @@ class RedisCluster {
     /**
      * Subscribe to channels. Warning: this function will probably change in the future.
      *
-     * @param array          $channels an array of channels to subscribe to
-     * @param string | array $callback either a string or an array($instance, 'method_name').
+     * @param array        $channels an array of channels to subscribe to
+     * @param string|array $callback either a string or an array($instance, 'method_name').
      *                                 The callback function receives 3 parameters: the redis instance, the channel
      *                                 name, and the message.
      *
@@ -2620,8 +2621,8 @@ class RedisCluster {
     /**
      * Subscribe to channels by pattern
      *
-     * @param   array          $patterns     The number of elements removed from the set.
-     * @param   string | array $callback     Either a string or an array with an object and method.
+     * @param   array        $patterns     The number of elements removed from the set.
+     * @param   string|array $callback     Either a string or an array with an object and method.
      *                                       The callback will get four arguments ($redis, $pattern, $channel, $message)
      *
      * @return  mixed           Any non-null return value in the callback will be returned to the caller.
@@ -2678,11 +2679,12 @@ class RedisCluster {
     /**
      * Scan the keyspace for keys.
      *
-     * @param  int    $iterator Iterator, initialized to NULL.
-     * @param  string $pattern  Pattern to match.
-     * @param  int    $count    Count of keys per iteration (only a suggestion to Redis).
+     * @param  int          &$iterator Iterator, initialized to NULL.
+     * @param  string|array $node      Node identified by key or host/port array
+     * @param  string       $pattern   Pattern to match.
+     * @param  int          $count     Count of keys per iteration (only a suggestion to Redis).
      *
-     * @return array            This function will return an array of keys or FALSE if there are no more keys.
+     * @return array|false             This function will return an array of keys or FALSE if there are no more keys.
      * @link   https://redis.io/commands/scan
      * @example
      * <pre>
@@ -2694,7 +2696,7 @@ class RedisCluster {
      * }
      * </pre>
      */
-    public function scan(&$iterator, $pattern = null, $count = 0) { }
+    public function scan(&$iterator, $node, $pattern = null, $count = 0) { }
 
     /**
      * Scan a set for members.
@@ -2704,7 +2706,7 @@ class RedisCluster {
      * @param   null   $pattern  String, optional pattern to match against.
      * @param   int    $count    How many members to return at a time (Redis might return a different amount).
      *
-     * @return  array   PHPRedis will return an array of keys or FALSE when we're done iterating.
+     * @return  array|false   PHPRedis will return an array of keys or FALSE when we're done iterating.
      * @link    https://redis.io/commands/sscan
      * @example
      * <pre>
@@ -2726,7 +2728,7 @@ class RedisCluster {
      * @param   string $pattern  String (optional), the pattern to match.
      * @param   int    $count    How many keys to return per iteration (Redis might return a different number).
      *
-     * @return  array   PHPRedis will return matching keys from Redis, or FALSE when iteration is complete.
+     * @return  array|false   PHPRedis will return matching keys from Redis, or FALSE when iteration is complete.
      * @link    https://redis.io/commands/zscan
      * @example
      * <pre>
@@ -2773,7 +2775,7 @@ class RedisCluster {
     /**
      * The last error message (if any)
      *
-     * @return  string  A string with the last returned script based error message, or NULL if there is no error
+     * @return  string|null  A string with the last returned script based error message, or NULL if there is no error
      * @example
      * <pre>
      * $redisCluster->eval('this-is-not-lua');
@@ -2896,7 +2898,7 @@ class RedisCluster {
     /**
      * Enter and exit transactional mode.
      *
-     * @param int RedisCluster::MULTI|RedisCluster::PIPELINE
+     * @param int $mode RedisCluster::MULTI|RedisCluster::PIPELINE
      *            Defaults to RedisCluster::MULTI.
      *            A RedisCluster::MULTI block of commands runs as a single transaction;
      *            a RedisCluster::PIPELINE block is simply transmitted faster to the server, but without any guarantee
@@ -2940,7 +2942,7 @@ class RedisCluster {
      * Watches a key for modifications by another client. If the key is modified between WATCH and EXEC,
      * the MULTI/EXEC transaction will fail (return FALSE). unwatch cancels all the watching of all keys by this client.
      *
-     * @param string | array $key : a list of keys
+     * @param string|array $key : a list of keys
      *
      * @return void
      * @link    https://redis.io/commands/watch
@@ -2965,7 +2967,7 @@ class RedisCluster {
     /**
      * Performs a synchronous save at a specific node.
      *
-     * @param String | array $nodeParams key or [host,port]
+     * @param string|array $nodeParams key or [host,port]
      *
      * @return  bool   TRUE in case of success, FALSE in case of failure.
      * If a save is already running, this command will fail and return FALSE.
@@ -2979,7 +2981,7 @@ class RedisCluster {
     /**
      * Performs a background save at a specific node.
      *
-     * @param String | array $nodeParams key or [host,port]
+     * @param string|array $nodeParams key or [host,port]
      *
      * @return  bool    TRUE in case of success, FALSE in case of failure.
      * If a save is already running, this command will fail and return FALSE.
@@ -2990,7 +2992,7 @@ class RedisCluster {
     /**
      * Removes all entries from the current database at a specific node.
      *
-     * @param String | array $nodeParams key or [host,port]
+     * @param string|array $nodeParams key or [host,port]
      *
      * @return  bool Always TRUE.
      * @link    https://redis.io/commands/flushdb
@@ -3000,7 +3002,7 @@ class RedisCluster {
     /**
      * Removes all entries from all databases at a specific node.
      *
-     * @param String | array $nodeParams key or [host,port]
+     * @param string|array $nodeParams key or [host,port]
      *
      * @return  bool Always TRUE.
      * @link    https://redis.io/commands/flushall
@@ -3010,7 +3012,7 @@ class RedisCluster {
     /**
      * Returns the current database's size at a specific node.
      *
-     * @param String | array $nodeParams key or [host,port]
+     * @param string|array $nodeParams key or [host,port]
      *
      * @return int     DB size, in number of keys.
      * @link    https://redis.io/commands/dbsize
@@ -3025,7 +3027,7 @@ class RedisCluster {
     /**
      * Starts the background rewrite of AOF (Append-Only File) at a specific node.
      *
-     * @param String | array $nodeParams key or [host,port]
+     * @param string|array $nodeParams key or [host,port]
      *
      * @return  bool   TRUE in case of success, FALSE in case of failure.
      * @link    https://redis.io/commands/bgrewriteaof
@@ -3036,7 +3038,7 @@ class RedisCluster {
     /**
      * Returns the timestamp of the last disk save at a specific node.
      *
-     * @param String | array $nodeParams key or [host,port]
+     * @param string|array $nodeParams key or [host,port]
      *
      * @return  int    timestamp.
      * @link    https://redis.io/commands/lastsave
@@ -3055,48 +3057,136 @@ class RedisCluster {
      * - redis_version
      * - redis_git_sha1
      * - redis_git_dirty
+     * - redis_build_id
+     * - redis_mode
+     * - os
      * - arch_bits
      * - multiplexing_api
+     * - atomicvar_api
+     * - gcc_version
      * - process_id
+     * - run_id
+     * - tcp_port
      * - uptime_in_seconds
      * - uptime_in_days
+     * - hz
      * - lru_clock
-     * - used_cpu_sys
-     * - used_cpu_user
-     * - used_cpu_sys_children
-     * - used_cpu_user_children
+     * - executable
+     * - config_file
      * - connected_clients
-     * - connected_slaves
      * - client_longest_output_list
      * - client_biggest_input_buf
      * - blocked_clients
      * - used_memory
      * - used_memory_human
+     * - used_memory_rss
+     * - used_memory_rss_human
      * - used_memory_peak
      * - used_memory_peak_human
+     * - used_memory_peak_perc
+     * - used_memory_peak
+     * - used_memory_overhead
+     * - used_memory_startup
+     * - used_memory_dataset
+     * - used_memory_dataset_perc
+     * - total_system_memory
+     * - total_system_memory_human
+     * - used_memory_lua
+     * - used_memory_lua_human
+     * - maxmemory
+     * - maxmemory_human
+     * - maxmemory_policy
      * - mem_fragmentation_ratio
      * - mem_allocator
+     * - active_defrag_running
+     * - lazyfree_pending_objects
+     * - mem_fragmentation_ratio
      * - loading
+     * - rdb_changes_since_last_save
+     * - rdb_bgsave_in_progress
+     * - rdb_last_save_time
+     * - rdb_last_bgsave_status
+     * - rdb_last_bgsave_time_sec
+     * - rdb_current_bgsave_time_sec
+     * - rdb_last_cow_size
      * - aof_enabled
+     * - aof_rewrite_in_progress
+     * - aof_rewrite_scheduled
+     * - aof_last_rewrite_time_sec
+     * - aof_current_rewrite_time_sec
+     * - aof_last_bgrewrite_status
+     * - aof_last_write_status
+     * - aof_last_cow_size
      * - changes_since_last_save
-     * - bgsave_in_progress
-     * - last_save_time
+     * - aof_current_size
+     * - aof_base_size
+     * - aof_pending_rewrite
+     * - aof_buffer_length
+     * - aof_rewrite_buffer_length
+     * - aof_pending_bio_fsync
+     * - aof_delayed_fsync
+     * - loading_start_time
+     * - loading_total_bytes
+     * - loading_loaded_bytes
+     * - loading_loaded_perc
+     * - loading_eta_seconds
      * - total_connections_received
      * - total_commands_processed
+     * - instantaneous_ops_per_sec
+     * - total_net_input_bytes
+     * - total_net_output_bytes
+     * - instantaneous_input_kbps
+     * - instantaneous_output_kbps
+     * - rejected_connections
+     * - maxclients
+     * - sync_full
+     * - sync_partial_ok
+     * - sync_partial_err
      * - expired_keys
      * - evicted_keys
      * - keyspace_hits
      * - keyspace_misses
-     * - hash_max_zipmap_entries
-     * - hash_max_zipmap_value
      * - pubsub_channels
      * - pubsub_patterns
      * - latest_fork_usec
-     * - vm_enabled
+     * - migrate_cached_sockets
+     * - slave_expires_tracked_keys
+     * - active_defrag_hits
+     * - active_defrag_misses
+     * - active_defrag_key_hits
+     * - active_defrag_key_misses
      * - role
+     * - master_replid
+     * - master_replid2
+     * - master_repl_offset
+     * - second_repl_offset
+     * - repl_backlog_active
+     * - repl_backlog_size
+     * - repl_backlog_first_byte_offset
+     * - repl_backlog_histlen
+     * - master_host
+     * - master_port
+     * - master_link_status
+     * - master_last_io_seconds_ago
+     * - master_sync_in_progress
+     * - slave_repl_offset
+     * - slave_priority
+     * - slave_read_only
+     * - master_sync_left_bytes
+     * - master_sync_last_io_seconds_ago
+     * - master_link_down_since_seconds
+     * - connected_slaves
+     * - min-slaves-to-write
+     * - min-replicas-to-write
+     * - min_slaves_good_slaves
+     * - used_cpu_sys
+     * - used_cpu_user
+     * - used_cpu_sys_children
+     * - used_cpu_user_children
+     * - cluster_enabled
      *
      * @link    https://redis.io/commands/info
-     * @return string
+     * @return  array
      * @example
      * <pre>
      * $redisCluster->info();
@@ -3113,7 +3203,7 @@ class RedisCluster {
      * @since  redis >= 2.8.12.
      *  Returns the role of the instance in the context of replication
      *
-     * @param String | array $nodeParams key or [host,port]
+     * @param string|array $nodeParams key or [host,port]
      *
      * @return array
      * @link   https://redis.io/commands/role
@@ -3128,7 +3218,7 @@ class RedisCluster {
     /**
      * Returns a random key at the specified node
      *
-     * @param String | array $nodeParams key or [host,port]
+     * @param string|array $nodeParams key or [host,port]
      *
      * @return string an existing key in redis.
      * @link    https://redis.io/commands/randomkey
@@ -3143,7 +3233,7 @@ class RedisCluster {
     /**
      * Return the specified node server time.
      *
-     * @param String | array $nodeParams key or [host,port]
+     * @param string|array $nodeParams key or [host,port]
      *
      * @return  array If successfully, the time will come back as an associative array with element zero being the
      * unix timestamp, and element one being microseconds.
@@ -3164,7 +3254,7 @@ class RedisCluster {
     /**
      * Check the specified node status
      *
-     * @param String | array $nodeParams key or [host,port]
+     * @param string|array $nodeParams key or [host,port]
      *
      * @return  string STRING: +PONG on success. Throws a RedisException object on connectivity error, as described
      *                 above.
@@ -3175,10 +3265,10 @@ class RedisCluster {
     /**
      * Returns message.
      *
-     * @param String | array $nodeParams key or [host,port]
-     * @param  String        $msg
+     * @param string|array $nodeParams key or [host,port]
+     * @param string        $msg
      *
-     * @return mixed array | bool
+     * @return mixed
      */
     public function echo ($nodeParams, $msg) { }
 
@@ -3192,9 +3282,9 @@ class RedisCluster {
     /**
      * Send arbitrary things to the redis server at the specified node
      *
-     * @param String | array $nodeParams key or [host,port]
-     * @param String         $command    Required command to send to the server.
-     * @param mixed          $arguments  Optional variable amount of arguments to send to the server.
+     * @param string|array $nodeParams key or [host,port]
+     * @param string       $command    Required command to send to the server.
+     * @param mixed        $arguments  Optional variable amount of arguments to send to the server.
      *
      * @return  mixed
      */
@@ -3204,9 +3294,9 @@ class RedisCluster {
      * @since redis >= 3.0
      * Executes cluster command
      *
-     * @param String | array $nodeParams key or [host,port]
-     * @param string         $command    Required command to send to the server.
-     * @param mixed          $arguments  Optional variable amount of arguments to send to the server.
+     * @param string|array $nodeParams key or [host,port]
+     * @param string       $command    Required command to send to the server.
+     * @param mixed        $arguments  Optional variable amount of arguments to send to the server.
      *
      * @return  mixed
      * @link  https://redis.io/commands#cluster
@@ -3220,19 +3310,19 @@ class RedisCluster {
     /**
      * Allows you to get information of the cluster client
      *
-     * @param String | array $nodeParams key or [host,port]
-     * @param                $subCmd     String  which can be: 'LIST', 'KILL', 'GETNAME', or 'SETNAME'
-     * @param                $args       String optional arguments
+     * @param string|array $nodeParams key or [host,port]
+     * @param string       $subCmd     can be: 'LIST', 'KILL', 'GETNAME', or 'SETNAME'
+     * @param string       $args       optional arguments
      */
     public function client($nodeParams, $subCmd, $args) { }
 
     /**
      * Get or Set the redis config keys.
      *
-     * @param String | array $nodeParams key or [host,port]
-     * @param string         $operation  either `GET` or `SET`
-     * @param string         $key        for `SET`, glob-pattern for `GET`. See https://redis.io/commands/config-get for examples.
-     * @param string         $value      optional string (only for `SET`)
+     * @param string|array $nodeParams key or [host,port]
+     * @param string       $operation  either `GET` or `SET`
+     * @param string       $key        for `SET`, glob-pattern for `GET`. See https://redis.io/commands/config-get for examples.
+     * @param string       $value      optional string (only for `SET`)
      *
      * @return  array   Associative array for `GET`, key -> value
      * @link    https://redis.io/commands/config-get
@@ -3248,14 +3338,14 @@ class RedisCluster {
     /**
      * A command allowing you to get information on the Redis pub/sub system.
      *
-     * @param    string | array $nodeParams key or [host,port]
+     * @param    string|array $nodeParams key or [host,port]
      *
-     * @param    string         $keyword    String, which can be: "channels", "numsub", or "numpat"
-     * @param    string | array $argument   Optional, variant.
-     *                                      For the "channels" subcommand, you can pass a string pattern.
-     *                                      For "numsub" an array of channel names
+     * @param    string       $keyword    String, which can be: "channels", "numsub", or "numpat"
+     * @param    string|array $argument   Optional, variant.
+     *                                    For the "channels" subcommand, you can pass a string pattern.
+     *                                    For "numsub" an array of channel names
      *
-     * @return    array | int                   Either an integer or an array.
+     * @return    array|int               Either an integer or an array.
      *                          - channels  Returns an array where the members are the matching channels.
      *                          - numsub    Returns a key/value array where the keys are channel names and
      *                                      values are their counts.
@@ -3275,9 +3365,9 @@ class RedisCluster {
     /**
      * Execute the Redis SCRIPT command to perform various operations on the scripting subsystem.
      *
-     * @param   string | array $nodeParams key or [host,port]
-     * @param   string         $command    load | flush | kill | exists
-     * @param   string         $script
+     * @param   string|array $nodeParams key or [host,port]
+     * @param   string       $command    load | flush | kill | exists
+     * @param   string       $script
      *
      * @return  mixed
      * @link    https://redis.io/commands/script-load
@@ -3302,9 +3392,9 @@ class RedisCluster {
     /**
      * This function is used in order to read and reset the Redis slow queries log.
      *
-     * @param   string | array $nodeParams key or [host,port]
-     * @param   string         $command
-     * @param   mixed          $argument
+     * @param   string|array $nodeParams key or [host,port]
+     * @param   string       $command
+     * @param   mixed        $argument
      *
      * @link  https://redis.io/commands/slowlog
      * @example
