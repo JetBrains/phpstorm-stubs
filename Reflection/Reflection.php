@@ -2060,7 +2060,7 @@ class ReflectionClassConstant implements Reflector {
      * @param string $name The class constant name.
      * @param bool $return Setting to TRUE will return the export, as opposed to emitting it. Setting to FALSE (the default) will do the opposite.
      * @return string
-	 * @deprecated 7.4
+     * @deprecated 7.4
      */
 	public static function export($class, $name, $return) {}
 
