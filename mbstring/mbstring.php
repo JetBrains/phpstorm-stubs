@@ -970,7 +970,7 @@ function mb_regex_set_options ($options = null) {}
  * @since 4.2.0
  * @since 5.0
  */
-function mb_ereg ($pattern, $string, array $regs = null) {}
+function mb_ereg ($pattern, $string, array &$regs = null) {}
 
 /**
  * Regular expression match ignoring case with multibyte support
@@ -988,7 +988,7 @@ function mb_ereg ($pattern, $string, array $regs = null) {}
  * @since 4.2.0
  * @since 5.0
  */
-function mb_eregi ($pattern, $string, array $regs = null) {}
+function mb_eregi ($pattern, $string, array &$regs = null) {}
 
 /**
  * Replace regular expression with multibyte support
