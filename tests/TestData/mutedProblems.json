@@ -205,12 +205,6 @@
       ]
     },
     {
-      "name": "DATE_COOKIE",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
       "name": "LIBXML_VERSION",
       "problems": [
         "wrong value"
