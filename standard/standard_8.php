@@ -982,12 +982,13 @@ function range ($start, $end, $step = 1) {}
  * SORT_NUMERIC,
  * SORT_STRING.
  * </p>
+ * @param  mixed  $arg2  [optional]
  * @param  mixed  $_  [optional]
  * @return void true on success or false on failure.
  * @since 4.0
  * @since 5.0
  */
-function array_multisort (array &$arr, $arg = null, $_ = null) {}
+function array_multisort (array &$arr, $arg = null, $arg2 = null, $_ = null) {}
 
 /**
  * Push elements onto the end of array
