@@ -972,7 +972,16 @@ function range ($start, $end, $step = 1) {}
  * @param  array  $arr  <p>
  * An array being sorted.
  * </p>
- * @param  mixed  $arg  [optional]
+* </p>
+ * @param mixed $arg [optional] <p>
+ * Optionally another array, or sort options for the
+ * previous array argument:
+ * SORT_ASC,
+ * SORT_DESC,
+ * SORT_REGULAR,
+ * SORT_NUMERIC,
+ * SORT_STRING.
+ * </p>
  * @param  mixed  $_  [optional]
  * @return void true on success or false on failure.
  * @since 4.0
