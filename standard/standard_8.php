@@ -969,25 +969,16 @@ function range ($start, $end, $step = 1) {}
 /**
  * Sort multiple or multi-dimensional arrays
  * @link https://php.net/manual/en/function.array-multisort.php
- * @param array $arr <p>
+ * @param  array  $arr  <p>
  * An array being sorted.
  * </p>
- * @param mixed $arg [optional] <p>
- * Optionally another array, or sort options for the
- * previous array argument: 
- * SORT_ASC, 
- * SORT_DESC, 
- * SORT_REGULAR,
- * SORT_NUMERIC,
- * SORT_STRING.
- * </p>
- * @param mixed $arg [optional] 
- * @param mixed $_ [optional] 
- * @return bool true on success or false on failure.
+ * @param  mixed  $arg  [optional]
+ * @param  mixed  $_  [optional]
+ * @return void true on success or false on failure.
  * @since 4.0
  * @since 5.0
  */
-function array_multisort (array &$arr, $arg = null, $arg = null, $_ = null) {}
+function array_multisort (array &$arr, $arg = null, $_ = null) {}
 
 /**
  * Push elements onto the end of array
