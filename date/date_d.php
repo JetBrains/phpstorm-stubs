@@ -3,7 +3,7 @@
 // Start of date v.5.3.2-0.dotdeb.1
 
 define ('DATE_ATOM', "Y-m-d\TH:i:sP");
-define ('DATE_COOKIE', "l, d-M-y H:i:s T");
+define ('DATE_COOKIE', "l, d-M-Y H:i:s T");
 define ('DATE_ISO8601', "Y-m-d\TH:i:sO");
 define ('DATE_RFC822', "D, d M y H:i:s O");
 define ('DATE_RFC850', "l, d-M-y H:i:s T");
