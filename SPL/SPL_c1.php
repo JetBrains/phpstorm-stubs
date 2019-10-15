@@ -1147,7 +1147,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
         /**
          * Return current node index
          * @link https://php.net/manual/en/spldoublylinkedlist.key.php
-         * @return mixed The current node index.
+         * @return string|float|int|bool|null The current node index.
          * @since 5.3.0
          */
         public function key () {}
