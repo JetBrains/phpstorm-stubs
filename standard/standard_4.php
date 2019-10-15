@@ -170,7 +170,7 @@ function serialize ($value) {}
  * Omitting this option is the same as defining it as TRUE: PHP will attempt
  * to instantiate objects of any class.
  * </p>
- * @return mixed The converted value is returned, and can be a boolean,
+ * @return bool|int|float|string The converted value is returned, and can be a boolean,
  * integer, float, string,
  * array or object.
  * </p>
@@ -207,7 +207,7 @@ function var_dump ($expression, $_ = null) {}
  * the variable representation instead of outputing it.
  * </p>
  * &note.uses-ob;
- * @return mixed the variable representation when the return 
+ * @return string|null the variable representation when the return
  * parameter is used and evaluates to true. Otherwise, this function will
  * return &null;.
  * @since 4.2.0
@@ -239,7 +239,7 @@ function debug_zval_dump ($variable) {}
  * to true, print_r will return its output, instead of
  * printing it (which it does by default).
  * </p>
- * @return mixed If given a string, integer or float,
+ * @return string|true If given a string, integer or float,
  * the value itself will be printed. If given an array, values
  * will be presented in a format that shows keys and elements. Similar
  * notation is used for objects.
@@ -383,7 +383,7 @@ function highlight_string ($str, $return = false) {}
  * @link https://secure.php.net/manual/en/function.hrtime.php
  * @param bool $get_as_number <p>Whether the high resolution time should be returned as array or number.<p>
  * @since 7.3
- * @return mixed Returns an array of integers in the form [seconds, nanoseconds], if the parameter get_as_number is false.
+ * @return int[]|int|float Returns an array of integers in the form [seconds, nanoseconds], if the parameter get_as_number is false.
  * Otherwise the nanoseconds are returned as integer (64bit platforms) or float (32bit platforms).
  */
 function hrtime($get_as_number = FALSE) {}

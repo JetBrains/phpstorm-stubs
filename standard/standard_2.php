@@ -437,7 +437,7 @@ function vfprintf ($handle, $format, array $args) {}
  * n stands for number of characters processed so far.
  * </p>
  * @param mixed ...$_
- * @return mixed If only
+ * @return array|int If only
  * two parameters were passed to this function, the values parsed
  * will be returned as an array. Otherwise, if optional parameters are passed,
  * the function will return the number of assigned values. The optional
@@ -456,7 +456,7 @@ function sscanf ($str, $format, &...$_) {}
  * sprintf documentation.
  * </p>
  * @param mixed $_ [optional] 
- * @return mixed If only two parameters were passed to this function, the values parsed will be
+ * @return array|int If only two parameters were passed to this function, the values parsed will be
  * returned as an array. Otherwise, if optional parameters are passed, the
  * function will return the number of assigned values. The optional
  * parameters must be passed by reference.
@@ -480,7 +480,7 @@ function fscanf ($handle, $format, &$_ = null) {}
  * or PHP_URL_FRAGMENT to retrieve just a specific
  * URL component as a string.
  * </p>
- * @return mixed On seriously malformed URLs, parse_url() may return FALSE.
+ * @return array|string|int|null|false On seriously malformed URLs, parse_url() may return FALSE.
  * If the component parameter is omitted, an associative array is returned.
  * At least one element will be present within the array. Potential keys within this array are:
  * scheme - e.g. http

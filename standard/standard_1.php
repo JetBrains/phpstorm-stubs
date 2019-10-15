@@ -255,7 +255,7 @@ function dirname ($path, $levels = 1) {}
  * PATHINFO_FILENAME. It
  * defaults to return all elements.
  * </p>
- * @return mixed The following associative array elements are returned:
+ * @return string[]|string The following associative array elements are returned:
  * dirname, basename,
  * extension (if any), and filename.
  * </p>
@@ -387,7 +387,7 @@ function str_shuffle ($str) {}
  * @param string $charlist [optional] <p>
  * A list of additional characters which will be considered as 'word'
  * </p>
- * @return mixed an array or an integer, depending on the
+ * @return string[]|int an array or an integer, depending on the
  * format chosen.
  * @since 4.3.0
  * @since 5.0
@@ -586,7 +586,7 @@ function substr ($string, $start, $length = null) {}
  * string at the given
  * start offset.
  * </p>
- * @return mixed The result string is returned. If string is an
+ * @return string|string[] The result string is returned. If string is an
  * array then array is returned.
  * @since 4.0
  * @since 5.0
@@ -772,7 +772,7 @@ function rtrim ($str, $charlist = " \t\n\r\0\x0B") {}
  * well.
  * </p>
  * @param int $count [optional] If passed, this will hold the number of matched and replaced needles.
- * @return mixed This function returns a string or an array with the replaced values.
+ * @return string|string[] This function returns a string or an array with the replaced values.
  * @since 4.0
  * @since 5.0
  */
@@ -798,7 +798,7 @@ function str_replace ($search, $replace, $subject, &$count = null) {}
  * be returned in count which is passed by
  * reference.
  * </p>
- * @return mixed a string or an array of replacements.
+ * @return string|string[] a string or an array of replacements.
  * @since 5.0
  */
 function str_ireplace ($search, $replace, $subject, &$count = null) {}
@@ -833,7 +833,7 @@ function str_repeat ($input, $multiplier) {}
  * @param int $mode [optional] <p>
  * See return values.
  * </p>
- * @return mixed Depending on mode
+ * @return int[]|string Depending on mode
  * count_chars returns one of the following:
  * 0 - an array with the byte-value as key and the frequency of
  * every byte as value.

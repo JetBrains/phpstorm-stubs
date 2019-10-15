@@ -503,7 +503,7 @@ function stream_socket_sendto ($socket, $data, $flags = null, $address = null) {
  * @param resource $session_stream [optional] <p>
  * Seed the stream with settings from session_stream.
  * </p>
- * @return mixed true on success, false if negotiation has failed or
+ * @return bool|int true on success, false if negotiation has failed or
  * 0 if there isn't enough data and you should try again
  * (only for non-blocking sockets).
  * @since 5.1.0
