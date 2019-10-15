@@ -25,6 +25,8 @@ RUN pecl install sync
 RUN docker-php-ext-enable sync
 RUN pecl install yaml
 RUN docker-php-ext-enable yaml
+RUN pecl install pcov
+RUN docker-php-ext-enable pcov
 #Extensions below require a lot of fixes
 #RUN pecl install mongodb
 #RUN docker-php-ext-enable mongodb
