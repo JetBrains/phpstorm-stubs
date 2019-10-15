@@ -243,7 +243,7 @@ function each (array &$array) {}
  * </td>
  * </tr>
  * <tr valign="top">
- * <td>6143</td>
+ * <td>32767</td>
  * <td>
  * E_ALL
  * </td>
@@ -866,7 +866,11 @@ function get_extension_funcs ($module_name) {}
  * [E_USER_ERROR] => 256
  * [E_USER_WARNING] => 512
  * [E_USER_NOTICE] => 1024
- * [E_ALL] => 2047
+ * [E_STRICT] => 2048
+ * [E_RECOVERABLE_ERROR] => 4096
+ * [E_DEPRECATED] => 8192
+ * [E_USER_DEPRECATED] => 16384
+ * [E_ALL] => 32767
  * [TRUE] => 1
  * )
  * [pcre] => Array
