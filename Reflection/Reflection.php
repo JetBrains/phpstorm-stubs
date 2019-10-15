@@ -344,6 +344,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @since 5.0
+	 * @deprecated 7.4
 	 */
 	public static function export ($name, $return = null) {}
 
@@ -423,6 +424,7 @@ class ReflectionParameter implements Reflector {
 	 * </p>
 	 * @return string The exported reflection.
 	 * @since 5.0
+	 * @deprecated 7.4
 	 */
 	public static function export ($function, $parameter, $return = null) {}
 
@@ -630,6 +632,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector {
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @since 5.0
+	 * @deprecated 7.4
 	 */
 	public static function export ($class, $name, $return = false) {}
 
@@ -879,6 +882,7 @@ class ReflectionClass implements Reflector {
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @since 5.0
+	 * @deprecated 7.4
 	 */
 	public static function export ($argument, $return = false) {}
 
@@ -1408,6 +1412,7 @@ class ReflectionObject extends ReflectionClass implements Reflector {
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @since 5.0
+	 * @deprecated 7.4
 	 */
 	public static function export ($argument, $return = null) {}
 
@@ -1459,6 +1464,7 @@ class ReflectionProperty implements Reflector {
 	 * </p>
 	 * @return string
 	 * @since 5.0
+	 * @deprecated 7.4
 	 */
 	public static function export ($class, $name, $return = null) {}
 
@@ -1654,6 +1660,7 @@ class ReflectionExtension implements Reflector {
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @since 5.0
+	 * @deprecated 7.4
 	 */
 	public static function export ($name, $return = false) {}
 
@@ -1803,6 +1810,7 @@ class ReflectionZendExtension implements Reflector {
 	 * </p>
 	 * @return string
 	 * @since 5.4.0
+	 * @deprecated 7.4
 	 */
 	public static function export ($name, $return = null) {}
 
@@ -2052,6 +2060,7 @@ class ReflectionClassConstant implements Reflector {
      * @param string $name The class constant name.
      * @param bool $return Setting to TRUE will return the export, as opposed to emitting it. Setting to FALSE (the default) will do the opposite.
      * @return string
+     * @deprecated 7.4
      */
 	public static function export($class, $name, $return) {}
 
