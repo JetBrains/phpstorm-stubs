@@ -1,12 +1,6 @@
 {
   "constants": [
     {
-      "name": "E_ALL",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
       "name": "DEBUG_BACKTRACE_PROVIDE_OBJECT",
       "problems": [
         "wrong value"
@@ -200,12 +194,6 @@
     },
     {
       "name": "STDERR",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "DATE_COOKIE",
       "problems": [
         "wrong value"
       ]
