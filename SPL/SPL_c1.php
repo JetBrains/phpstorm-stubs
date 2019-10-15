@@ -36,8 +36,8 @@ class SplFileInfo  {
         /**
          * Gets the file extension
          * @link https://php.net/manual/en/splfileinfo.getextension.php
-	 * @return string a string containing the file extension, or an
-	 * empty string if the file has no extension.
+         * @return string a string containing the file extension, or an
+         * empty string if the file has no extension.
          * @since 5.3.6
          */
         public function getExtension () {}
