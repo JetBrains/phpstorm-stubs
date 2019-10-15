@@ -639,3 +639,36 @@ interface Countable {
      */
     public function count();
 }
+
+/**
+ * Weak references allow the programmer to retain a reference to an
+ * object which does not prevent the object from being destroyed.
+ * They are useful for implementing cache like structures.
+ * @link https://www.php.net/manual/en/class.weakreference.php
+ */
+class WeakReference {
+    /**
+     * This method exists only to disallow instantiation of the WeakReference
+     * class. Weak references are to be instantiated with the factory method
+     * <b>WeakReference::create()</b>.
+     */
+    public function __construct() {}
+
+    /**
+     * Create a new weak reference.
+     * @link https://www.php.net/manual/en/weakreference.create.php
+     * @param object $referent The object to be weakly referenced.
+     * @return WeakReference the freshly instantiated object.
+     * @since 7.4.0
+     */
+    public static function create(object $referent): WeakReference {}
+
+    /**
+     * Gets a weakly referenced object. If the object has already been
+     * destroyed, NULL is returned.
+     * @link https://www.php.net/manual/en/weakreference.get.php
+     * @return object|null
+     * @since 7.4.0
+     */
+    public function get(): ?object {}
+}
