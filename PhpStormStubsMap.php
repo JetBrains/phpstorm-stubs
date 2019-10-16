@@ -667,6 +667,7 @@ const CLASSES = array (
   'V8JsTimeLimitException' => 'v8js/v8js.php',
   'VARIANT' => 'com_dotnet/com_dotnet.php',
   'Volatile' => 'pthreads/pthreads.php',
+  'WeakReference' => 'Core/Core_c.php',
   'Worker' => 'pthreads/pthreads.php',
   'XMLReader' => 'xmlreader/xmlreader.php',
   'XMLWriter' => 'xmlwriter/xmlwriter.php',
