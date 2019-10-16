@@ -307,6 +307,12 @@
       ]
     },
     {
+      "name": "pcov\\version",
+      "problems": [
+        "wrong value"
+      ]
+    },
+    {
       "name": "MONGODB_VERSION",
       "problems": [
         "missing constant"
