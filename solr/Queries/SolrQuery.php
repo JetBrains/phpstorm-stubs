@@ -358,7 +358,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the value of the facet parameter
 	 * @link https://php.net/manual/en/solrquery.getfacet.php
-	 * @return bool <p>
+	 * @return bool|null <p>
 	 * Returns a boolean on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -371,7 +371,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns a string on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -381,7 +381,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns all the facet.date fields
 	 * @link https://php.net/manual/en/solrquery.getfacetdatefields.php
-	 * @return array <p>
+	 * @return array|null <p>
 	 * Returns all the facet.date fields as an array or <b>NULL</b> if none was set
 	 * </p>
 	 */
@@ -394,7 +394,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns a string on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -407,7 +407,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns a string on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -420,8 +420,8 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return string <p>
-	 * Returns a string on success and <b>NULL</b> if not set
+	 * @return array|null <p>
+	 * Returns an array on success and <b>NULL</b> if not set
 	 * </p>
 	 */
 	public function getFacetDateOther($field_override) {}
@@ -433,7 +433,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns a string on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -443,7 +443,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns all the facet fields
 	 * @link https://php.net/manual/en/solrquery.getfacetfields.php
-	 * @return array <p>
+	 * @return array|null <p>
 	 * Returns an array of all the fields and <b>NULL</b> if none was set
 	 * </p>
 	 */
@@ -456,7 +456,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -469,7 +469,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns a string on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -482,7 +482,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -495,7 +495,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns a boolean on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -508,7 +508,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -521,7 +521,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns a string on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -531,7 +531,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns all the facet queries
 	 * @link https://php.net/manual/en/solrquery.getfacetqueries.php
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns an array on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -544,7 +544,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer (SolrQuery::FACET_SORT_INDEX or SolrQuery::FACET_SORT_COUNT) on success or <b>NULL</b> if not
 	 * set.
 	 * </p>
@@ -555,7 +555,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the list of fields that will be returned in the response
 	 * @link https://php.net/manual/en/solrquery.getfields.php
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns an array on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -565,7 +565,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns an array of filter queries
 	 * @link https://php.net/manual/en/solrquery.getfilterqueries.php
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns an array on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -718,7 +718,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns a string on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -728,7 +728,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns all the fields that Solr should generate highlighted snippets for
 	 * @link https://php.net/manual/en/solrquery.gethighlightfields.php
-	 * @return array <p>
+	 * @return array|null <p>
 	 * Returns an array on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -741,7 +741,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns a string on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -754,7 +754,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns a string on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -767,7 +767,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -777,7 +777,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns whether or not to enable highlighting for range/wildcard/fuzzy/prefix queries
 	 * @link https://php.net/manual/en/solrquery.gethighlighthighlightmultiterm.php
-	 * @return bool <p>
+	 * @return bool|null <p>
 	 * Returns a boolean on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -790,7 +790,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -800,7 +800,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the maximum number of characters into a document to look for suitable snippets
 	 * @link https://php.net/manual/en/solrquery.gethighlightmaxanalyzedchars.php
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -813,7 +813,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return bool <p>
+	 * @return bool|null <p>
 	 * Returns a boolean on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -823,7 +823,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the maximum number of characters from a field when using the regex fragmenter
 	 * @link https://php.net/manual/en/solrquery.gethighlightregexmaxanalyzedchars.php
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -843,7 +843,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the deviation factor from the ideal fragment size
 	 * @link https://php.net/manual/en/solrquery.gethighlightregexslop.php
-	 * @return float <p>
+	 * @return float|null <p>
 	 * Returns a double on success and <b>NULL</b> if not set.
 	 * </p>
 	 */
@@ -853,7 +853,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns if a field will only be highlighted if the query matched in this particular field
 	 * @link https://php.net/manual/en/solrquery.gethighlightrequirefieldmatch.php
-	 * @return bool <p>
+	 * @return bool|null <p>
 	 * Returns a boolean on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -866,7 +866,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns a string on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -879,7 +879,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns a string on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -892,7 +892,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * @param string $field_override [optional] <p>
 	 * The name of the field
 	 * </p>
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -902,7 +902,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the state of the hl.usePhraseHighlighter parameter
 	 * @link https://php.net/manual/en/solrquery.gethighlightusephrasehighlighter.php
-	 * @return bool <p>
+	 * @return bool|null <p>
 	 * Returns a boolean on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -912,7 +912,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns whether or not MoreLikeThis results should be enabled
 	 * @link https://php.net/manual/en/solrquery.getmlt.php
-	 * @return bool <p>
+	 * @return bool|null <p>
 	 * Returns a boolean on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -922,7 +922,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns whether or not the query will be boosted by the interesting term relevance
 	 * @link https://php.net/manual/en/solrquery.getmltboost.php
-	 * @return bool <p>
+	 * @return bool|null <p>
 	 * Returns a boolean on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -932,7 +932,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the number of similar documents to return for each result
 	 * @link https://php.net/manual/en/solrquery.getmltcount.php
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -952,7 +952,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the maximum number of query terms that will be included in any generated query
 	 * @link https://php.net/manual/en/solrquery.getmltmaxnumqueryterms.php
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -972,7 +972,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the maximum word length above which words will be ignored
 	 * @link https://php.net/manual/en/solrquery.getmltmaxwordlength.php
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -982,7 +982,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the treshold frequency at which words will be ignored which do not occur in at least this many docs
 	 * @link https://php.net/manual/en/solrquery.getmltmindocfrequency.php
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -992,7 +992,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the frequency below which terms will be ignored in the source document
 	 * @link https://php.net/manual/en/solrquery.getmltmintermfrequency.php
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1012,7 +1012,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the query fields and their boosts
 	 * @link https://php.net/manual/en/solrquery.getmltqueryfields.php
-	 * @return array <p>
+	 * @return array|null <p>
 	 * Returns an array on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1032,7 +1032,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the maximum number of documents
 	 * @link https://php.net/manual/en/solrquery.getrows.php
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1052,7 +1052,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the offset in the complete result set
 	 * @link https://php.net/manual/en/solrquery.getstart.php
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1062,7 +1062,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns whether or not stats is enabled
 	 * @link https://php.net/manual/en/solrquery.getstats.php
-	 * @return bool <p>
+	 * @return bool|null <p>
 	 * Returns a boolean on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1072,7 +1072,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns all the stats facets that were set
 	 * @link https://php.net/manual/en/solrquery.getstatsfacets.php
-	 * @return array <p>
+	 * @return array|null <p>
 	 * Returns an array on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1082,7 +1082,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns all the statistics fields
 	 * @link https://php.net/manual/en/solrquery.getstatsfields.php
-	 * @return array <p>
+	 * @return array|null <p>
 	 * Returns an array on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1092,7 +1092,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns whether or not the TermsComponent is enabled
 	 * @link https://php.net/manual/en/solrquery.getterms.php
-	 * @return bool <p>
+	 * @return bool|null <p>
 	 * Returns a boolean on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1102,7 +1102,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the field from which the terms are retrieved
 	 * @link https://php.net/manual/en/solrquery.gettermsfield.php
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns a string on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1112,7 +1112,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns whether or not to include the lower bound in the result set
 	 * @link https://php.net/manual/en/solrquery.gettermsincludelowerbound.php
-	 * @return bool <p>
+	 * @return bool|null <p>
 	 * Returns a boolean on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1122,7 +1122,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns whether or not to include the upper bound term in the result set
 	 * @link https://php.net/manual/en/solrquery.gettermsincludeupperbound.php
-	 * @return bool <p>
+	 * @return bool|null <p>
 	 * Returns a boolean on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1132,7 +1132,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the maximum number of terms Solr should return
 	 * @link https://php.net/manual/en/solrquery.gettermslimit.php
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1142,7 +1142,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the term to start at
 	 * @link https://php.net/manual/en/solrquery.gettermslowerbound.php
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns a string on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1152,7 +1152,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the maximum document frequency
 	 * @link https://php.net/manual/en/solrquery.gettermsmaxcount.php
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1162,7 +1162,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the minimum document frequency to return in order to be included
 	 * @link https://php.net/manual/en/solrquery.gettermsmincount.php
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1172,7 +1172,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the term prefix
 	 * @link https://php.net/manual/en/solrquery.gettermsprefix.php
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns a string on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1182,7 +1182,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Whether or not to return raw characters
 	 * @link https://php.net/manual/en/solrquery.gettermsreturnraw.php
-	 * @return bool <p>
+	 * @return bool|null <p>
 	 * Returns a boolean on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1192,7 +1192,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns an integer indicating how terms are sorted
 	 * @link https://php.net/manual/en/solrquery.gettermssort.php
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set<br/>
 	 * SolrQuery::TERMS_SORT_INDEX indicates that the terms are returned by index order.<br/>
 	 * SolrQuery::TERMS_SORT_COUNT implies that the terms are sorted by term frequency (highest count first)
@@ -1204,7 +1204,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the term to stop at
 	 * @link https://php.net/manual/en/solrquery.gettermsupperbound.php
-	 * @return string <p>
+	 * @return string|null <p>
 	 * Returns a string on success and <b>NULL</b> if not set
 	 * </p>
 	 */
@@ -1214,7 +1214,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Returns the time in milliseconds allowed for the query to finish
 	 * @link https://php.net/manual/en/solrquery.gettimeallowed.php
-	 * @return int <p>
+	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
 	 * </p>
 	 */
