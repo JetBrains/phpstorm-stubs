@@ -742,7 +742,7 @@ function array_key_exists($key, array $search) { }
  *
  * @link https://secure.php.net/array_key_first
  * @param array $array An array
- * @return mixed Returns the first key of array if the array is not empty; NULL otherwise.
+ * @return string|int|null Returns the first key of array if the array is not empty; NULL otherwise.
  * @since 7.3
  */
 function array_key_first(array $array) { }
@@ -754,7 +754,7 @@ function array_key_first(array $array) { }
  *
  * @link https://secure.php.net/array_key_last
  * @param array $array An array
- * @return mixed Returns the last key of array if the array is not empty; NULL otherwise.
+ * @return string|int|null Returns the last key of array if the array is not empty; NULL otherwise.
  * @since 7.3
  */
 function array_key_last(array $array) { }
@@ -901,7 +901,7 @@ function assert_options($what, $value = null) { }
  * <p>
  * This parameter is case-sensitive, so values should be lowercase.
  * </p>
- * @return mixed By default, version_compare returns
+ * @return int|bool By default, version_compare returns
  * -1 if the first version is lower than the second,
  * 0 if they are equal, and
  * 1 if the second is lower.

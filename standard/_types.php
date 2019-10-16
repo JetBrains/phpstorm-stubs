@@ -170,7 +170,7 @@ namespace {
         function current() {}
         /**
          * Returns the yielded key or, if none was specified, an auto-incrementing key or null if the generator is already closed.
-         * @return mixed
+         * @return string|float|int|bool|null
          */
         function key() {}
         /**
@@ -374,7 +374,7 @@ class object {
    * then the newly created object's __clone() method will be called, to allow any necessary properties that need to be changed.
    * NOT CALLABLE DIRECTLY.
    *
-   * @return mixed
+   * @return void
    * @link https://php.net/manual/en/language.oop5.cloning.php
    */
   public function __clone() {}

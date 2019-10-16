@@ -850,7 +850,7 @@ function sys_getloadavg () {}
  * If the optional get_as_float is set to
  * true then a float (in seconds) is returned.
  * </p>
- * @return mixed 
+ * @return string|float
  * @since 4.0
  * @since 5.0
  */
@@ -862,7 +862,7 @@ function microtime ($get_as_float = null) {}
  * @param bool $return_float [optional] <p>
  * When set to true, a float instead of an array is returned.
  * </p>
- * @return mixed By default an array is returned. If return_float
+ * @return int[]|float By default an array is returned. If return_float
  * is set, then a float is returned.
  * </p>
  * <p>
