@@ -129,7 +129,7 @@ class EmptyIterator implements Iterator {
     /**
      * Return the key of the current element
      * @link https://php.net/manual/en/iterator.key.php
-     * @return mixed scalar on success, or null on failure.
+     * @return string|float|int|bool|null scalar on success, or null on failure.
      * @since 5.0.0
      */
     public function key() { }
@@ -290,7 +290,7 @@ class RecursiveIteratorIterator implements OuterIterator {
     /**
      * Access the current key
      * @link https://php.net/manual/en/recursiveiteratoriterator.key.php
-     * @return mixed The current key.
+     * @return string|float|int|bool|null The current key.
      * @since 5.0
      */
     public function key() { }
@@ -407,7 +407,7 @@ class RecursiveIteratorIterator implements OuterIterator {
     /**
      * Get max depth
      * @link https://php.net/manual/en/recursiveiteratoriterator.getmaxdepth.php
-     * @return mixed The maximum accepted depth, or false if any depth is allowed.
+     * @return int|false The maximum accepted depth, or false if any depth is allowed.
      * @since 5.1.0
      */
     public function getMaxDepth() { }
@@ -476,7 +476,7 @@ class IteratorIterator implements OuterIterator {
     /**
      * Get the key of the current element
      * @link https://php.net/manual/en/iteratoriterator.key.php
-     * @return mixed The key of the current element.
+     * @return string|float|int|bool|null The key of the current element.
      * @since 5.1.0
      */
     public function key() { }
@@ -541,7 +541,7 @@ abstract class FilterIterator extends IteratorIterator {
     /**
      * Get the current key
      * @link https://php.net/manual/en/filteriterator.key.php
-     * @return mixed The current key.
+     * @return string|float|int|bool|null The current key.
      * @since 5.1.0
      */
     public function key() { }
@@ -697,7 +697,7 @@ class LimitIterator extends IteratorIterator {
     /**
      * Get current key
      * @link https://php.net/manual/en/limititerator.key.php
-     * @return mixed the key for the current item.
+     * @return string|float|int|bool|null the key for the current item.
      * @since 5.1.0
      */
     public function key() { }
@@ -813,7 +813,7 @@ class CachingIterator extends IteratorIterator implements ArrayAccess, Countable
     /**
      * Return the key for the current element
      * @link https://php.net/manual/en/cachingiterator.key.php
-     * @return mixed
+     * @return string|float|int|bool|null
      * @since 5.0
      */
     public function key() { }
@@ -1001,7 +1001,7 @@ class NoRewindIterator extends IteratorIterator {
     /**
      * Get the current key
      * @link https://php.net/manual/en/norewinditerator.key.php
-     * @return mixed The current key.
+     * @return string|float|int|bool|null The current key.
      * @since 5.1.0
      */
     public function key() { }
@@ -1074,7 +1074,7 @@ class AppendIterator extends IteratorIterator {
     /**
      * Gets the current key
      * @link https://php.net/manual/en/appenditerator.key.php
-     * @return mixed The current key if it is valid or null otherwise.
+     * @return string|float|int|bool|null The current key if it is valid or null otherwise.
      * @since 5.1.0
      */
     public function key() { }
@@ -2020,7 +2020,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Return current array key
      * @link https://php.net/manual/en/arrayiterator.key.php
-     * @return mixed The current array key.
+     * @return string|float|int|bool|null The current array key.
      * @since 5.0.0
      */
     public function key() { }

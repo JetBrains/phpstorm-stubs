@@ -5700,14 +5700,13 @@ function resourcebundle_count(ResourceBundle $r, $bundle) { }
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
  * Get supported locales
  * @link https://php.net/manual/en/resourcebundle.locales.php
- * @param ResourceBundle $r
  * @param string $bundlename <p>
  * Path of ResourceBundle for which to get available locales, or
  * empty string for default locales list.
  * </p>
  * @return array the list of locales supported by the bundle.
  */
-function resourcebundle_locales(ResourceBundle $r, $bundlename) { }
+function resourcebundle_locales($bundlename) { }
 
 /**
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
