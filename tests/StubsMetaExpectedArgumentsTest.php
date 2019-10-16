@@ -30,7 +30,7 @@ class StubsMetaExpectedArgumentsTest extends TestCase
     private static $methodsFqns;
     private static $constantsFqns;
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         $argumentsCollector = new MetaExpectedArgumentsCollector();
         self::$expectedArguments = $argumentsCollector->getExpectedArgumentsInfos();

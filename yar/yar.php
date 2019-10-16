@@ -11,6 +11,7 @@ define('YAR_CLIENT_PROTOCOL_HTTP', 1);
 define('YAR_OPT_PACKAGER', 1);
 define('YAR_OPT_TIMEOUT', 4);
 define('YAR_OPT_CONNECT_TIMEOUT', 8);
+define('YAR_OPT_PERSISTENT', 2);
 /**
  * @since 2.0.4
  */
@@ -24,6 +25,9 @@ define('YAR_ERR_REQUEST', 4);
 define('YAR_ERR_PROTOCOL', 2);
 define('YAR_ERR_PACKAGER', 1);
 define('YAR_ERR_EXCEPTION', 64);
+
+define('YAR_CLIENT_PROTOCOL_TCP', 2);
+define('YAR_CLIENT_PROTOCOL_UNIX', 4);
 
 /**
  * Class Yar_Server

@@ -121,13 +121,14 @@ define('AMQP_EX_TYPE_HEADERS', 'headers');
 /**
  *
  */
-define('AMQP_OS_SOCKET_TIMEOUT_ERRNO', 536870947);
+define('AMQP_OS_SOCKET_TIMEOUT_ERRNO', 536870923);
 
 
-/**
- *
- */
 define('PHP_AMQP_MAX_CHANNELS', 256);
+
+define('AMQP_SASL_METHOD_PLAIN', 0);
+
+define('AMQP_SASL_METHOD_EXTERNAL', 1);
 
 /**
  * stub class representing AMQPBasicProperties from pecl-amqp
@@ -860,6 +861,10 @@ class AMQPConnection
      * @param bool $verify
      */
     public function setVerify($verify) { }
+
+    public function getSaslMethod(){}
+
+    public function setSaslMethod($sasl_method){}
 }
 
 /**
@@ -1209,6 +1214,15 @@ class AMQPExchange
      * @return AMQPConnection
      */
     public function getConnection() { }
+
+    /**
+     * Declare a new exchange on the broker.
+     * @return int
+     * @throws AMQPExchangeException
+     * @throws AMQPChannelException
+     * @throws AMQPConnectionException
+     */
+    public function declare(){}
 }
 
 /**
@@ -1556,6 +1570,14 @@ class AMQPQueue
      */
     public function getConsumerTag() { }
 
+    /**
+     * Declare a new queue
+     * @return int
+     * @throws AMQPChannelException
+     * @throws AMQPConnectionException
+     */
+    public function declare() {}
+
 }
 
 /**
@@ -1591,5 +1613,12 @@ final class AMQPTimestamp
  * stub class representing AMQPExchangeValue from pecl-amqp
  */
 class AMQPExchangeValue extends AMQPException
+{
+}
+
+/**
+ * stub class representing AMQPExchangeValue from pecl-amqp
+ */
+class AMQPValueException extends AMQPException
 {
 }

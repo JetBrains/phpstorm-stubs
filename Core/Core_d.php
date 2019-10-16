@@ -123,9 +123,11 @@ define ('E_USER_DEPRECATED', 16384);
 /**
  * All errors and warnings, as supported, except of level
  * <b>E_STRICT</b> prior to PHP 5.4.0.
+ * Value of <b>E_ALL</b> is 32767 since PHP 5.4.x,
+ * 30719 in PHP 5.3.x, 6143 in PHP 5.2.x, 2047 previously
  * @link https://php.net/manual/en/errorfunc.constants.php
  */
-define ('E_ALL', 30719);
+define ('E_ALL', 32767);
 define ('DEBUG_BACKTRACE_PROVIDE_OBJECT', 1);
 define ('DEBUG_BACKTRACE_IGNORE_ARGS', 2);
 define ('S_MEMORY', 1);
@@ -295,8 +297,8 @@ define ('LOG_NOWAIT', 16);
  * @link https://php.net/manual/en/network.constants.php
  */
 define ('LOG_PERROR', 32);
-define ('true', true, true);
-define ('false', false, true);
+define ('true', (bool)1, true);
+define ('false', (bool)0, true);
 define ('null', null, true);
 define ('ZEND_THREAD_SAFE', false);
 define ('ZEND_DEBUG_BUILD', false);

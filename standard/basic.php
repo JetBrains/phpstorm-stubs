@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @deprecated 5.3.0 since 5.3.0
+ * @deprecated 5.3
  * Loads a PHP extension at runtime
  * @link https://php.net/manual/en/function.dl.php
  * @param string $library <p>

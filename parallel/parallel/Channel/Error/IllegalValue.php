@@ -4,6 +4,5 @@ namespace parallel\Channel\Error;
 
 use parallel\Channel\Error;
 
-class IllegalValue extends Error
-{
+class IllegalValue extends Error{
 }

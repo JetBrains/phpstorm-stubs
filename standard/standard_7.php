@@ -141,11 +141,11 @@ function pfsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $
  * </tr>
  * <tr valign="top">
  * <td>f</td>
- * <td>float (machine dependent size and representation)</td>
+ * <td>float (machine dependent size and representation, both little and big endian)</td>
  * </tr>
  * <tr valign="top">
  * <td>d</td>
- * <td>double (machine dependent size and representation)</td>
+ * <td>double (machine dependent size and representation, both little and big endian)</td>
  * </tr>
  * <tr valign="top">
  * <td>x</td>
@@ -981,8 +981,9 @@ function diskfreespace ($directory) {}
  * replace these occurrences with a double dot.
  * ]]>
  * </p>
- * @param string $additional_headers [optional] <p>
- * String to be inserted at the end of the email header.
+ * @param string|array $additional_headers [optional] <p>
+ * String or array to be inserted at the end of the email header.<br/>
+ * Since 7.2.0 accepts an array. Its keys are the header names and its values are the respective header values.
  * </p>
  * <p>
  * This is typically used to add extra headers (From, Cc, and Bcc).
@@ -1041,6 +1042,7 @@ function mail ($to, $subject, $message, $additional_headers = null, $additional_
  * @return int The hash value of addr.
  * @since 4.0.2
  * @since 5.0
+ * @deprecated 7.4
  */
 function ezmlm_hash ($addr) {}
 

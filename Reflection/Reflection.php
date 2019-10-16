@@ -58,6 +58,7 @@ interface Reflector  {
 	 * @link https://php.net/manual/en/reflector.export.php
 	 * @return string
 	 * @since 5.0
+	 * @deprecated 7.4
 	 */
 	static function export ();
 
@@ -343,6 +344,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @since 5.0
+	 * @deprecated 7.4
 	 */
 	public static function export ($name, $return = null) {}
 
@@ -422,6 +424,7 @@ class ReflectionParameter implements Reflector {
 	 * </p>
 	 * @return string The exported reflection.
 	 * @since 5.0
+	 * @deprecated 7.4
 	 */
 	public static function export ($function, $parameter, $return = null) {}
 
@@ -629,6 +632,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector {
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @since 5.0
+	 * @deprecated 7.4
 	 */
 	public static function export ($class, $name, $return = false) {}
 
@@ -878,6 +882,7 @@ class ReflectionClass implements Reflector {
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @since 5.0
+	 * @deprecated 7.4
 	 */
 	public static function export ($argument, $return = false) {}
 
@@ -1407,6 +1412,7 @@ class ReflectionObject extends ReflectionClass implements Reflector {
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @since 5.0
+	 * @deprecated 7.4
 	 */
 	public static function export ($argument, $return = null) {}
 
@@ -1458,6 +1464,7 @@ class ReflectionProperty implements Reflector {
 	 * </p>
 	 * @return string
 	 * @since 5.0
+	 * @deprecated 7.4
 	 */
 	public static function export ($class, $name, $return = null) {}
 
@@ -1597,6 +1604,29 @@ class ReflectionProperty implements Reflector {
 	 */
 	public function setAccessible ($accessible) {}
 
+	/**
+	 * Gets property type
+	 * @return ReflectionType|null
+	 * @since 7.4.0
+	 */
+	public function getType() {}
+
+	/**
+	 * Checks if property has type
+	 * @return bool
+	 * @since 7.4.0
+	 */
+	public function hasType() {}
+
+	/**
+	 * Checks if property is initialized
+	 * @param object $object [optional]<p>
+	 * If the property is non-static an object must be provided.
+	 * </p>
+	 * @return bool
+	 * @since 7.4.0
+	 */
+	public function isInitialized ($object) {}
 }
 
 /**
@@ -1630,6 +1660,7 @@ class ReflectionExtension implements Reflector {
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @since 5.0
+	 * @deprecated 7.4
 	 */
 	public static function export ($name, $return = false) {}
 
@@ -1779,6 +1810,7 @@ class ReflectionZendExtension implements Reflector {
 	 * </p>
 	 * @return string
 	 * @since 5.4.0
+	 * @deprecated 7.4
 	 */
 	public static function export ($name, $return = null) {}
 
@@ -1992,7 +2024,7 @@ class ReflectionType
 	 * @link https://php.net/manual/en/reflectiontype.tostring.php
 	 * @return string Returns the type of the parameter.
 	 * @since 7.0
-	 * @deprecated 7.1.0:8.0.0 Please use getName()
+	 * @deprecated 7.1 Please use getName()
 	 * @see \ReflectionType::getName()
 	 */
 	public function __toString()
@@ -2028,6 +2060,7 @@ class ReflectionClassConstant implements Reflector {
      * @param string $name The class constant name.
      * @param bool $return Setting to TRUE will return the export, as opposed to emitting it. Setting to FALSE (the default) will do the opposite.
      * @return string
+     * @deprecated 7.4
      */
 	public static function export($class, $name, $return) {}
 

@@ -2,7 +2,7 @@
 
 interface DateTimeInterface {
     const ATOM = 'Y-m-d\TH:i:sP';
-    const COOKIE = 'l, d-M-y H:i:s T';
+    const COOKIE = 'l, d-M-Y H:i:s T';
     const ISO8601 = 'Y-m-d\TH:i:sO';
     const RFC822 = 'D, d M y H:i:s O';
     const RFC850 = 'l, d-M-y H:i:s T';

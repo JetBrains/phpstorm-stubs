@@ -532,6 +532,7 @@ function gmp_sign ($a) {}
  * @return resource|GMP A random GMP number.
  * @since 4.0.4
  * @since 5.0
+ * @deprecated 7.2 Use {@see gmp_random_bits()} or {@see gmp_random_range()} instead.
  */
 function gmp_random ($limiter = 20) {}
 

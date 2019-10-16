@@ -1,12 +1,6 @@
 {
   "constants": [
     {
-      "name": "E_ALL",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
       "name": "DEBUG_BACKTRACE_PROVIDE_OBJECT",
       "problems": [
         "wrong value"
@@ -205,12 +199,6 @@
       ]
     },
     {
-      "name": "DATE_COOKIE",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
       "name": "LIBXML_VERSION",
       "problems": [
         "wrong value"
@@ -259,12 +247,6 @@
       ]
     },
     {
-      "name": "ZLIB_ENCODING_RAW",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
       "name": "ZLIB_VERSION",
       "problems": [
         "wrong value"
@@ -277,133 +259,7 @@
       ]
     },
     {
-      "name": "ZLIB_ERRNO",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "ZLIB_STREAM_ERROR",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "ZLIB_DATA_ERROR",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "ZLIB_BUF_ERROR",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "ZLIB_VERSION_ERROR",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "ZLIB_MEM_ERROR",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "CURLINFO_LASTONE",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "CURLM_CALL_MULTI_PERFORM",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "CURLAUTH_ANY",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "CURLAUTH_ANYSAFE",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "CURLOPT_MAX_RECV_SPEED_LARGE",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "CURLOPT_MAX_SEND_SPEED_LARGE",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "CURLSSH_AUTH_ANY",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "CURLSSH_AUTH_DEFAULT",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "CURLOPT_CERTINFO",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "CURLOPT_PROTOCOLS",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "CURLOPT_REDIR_PROTOCOLS",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "CURLPROTO_ALL",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "CURLOPT_SAFE_UPLOAD",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
       "name": "FILEINFO_EXTENSION",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "FILTER_SANITIZE_FULL_SPECIAL_CHARS",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "FTP_AUTORESUME",
       "problems": [
         "wrong value"
       ]
@@ -445,87 +301,21 @@
       ]
     },
     {
-      "name": "STREAM_CRYPTO_METHOD_SSLv2_CLIENT",
+      "name": "ZEND_ACC_PPP_MASK",
       "problems": [
         "wrong value"
       ]
     },
     {
-      "name": "STREAM_CRYPTO_METHOD_SSLv3_CLIENT",
+      "name": "MONGODB_VERSION",
       "problems": [
-        "wrong value"
+        "missing constant"
       ]
     },
     {
-      "name": "STREAM_CRYPTO_METHOD_SSLv23_CLIENT",
+      "name": "MONGODB_STABILITY",
       "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "STREAM_CRYPTO_METHOD_TLS_CLIENT",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "STREAM_CRYPTO_METHOD_SSLv2_SERVER",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "STREAM_CRYPTO_METHOD_SSLv3_SERVER",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "STREAM_CRYPTO_METHOD_SSLv23_SERVER",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "STREAM_CRYPTO_METHOD_TLS_SERVER",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "FNM_NOESCAPE",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "FNM_PATHNAME",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "IMAGETYPE_COUNT",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "DNS_ALL",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "SODIUM_CRYPTO_BOX_SEALBYTES",
-      "problems": [
-        "wrong value"
-      ]
-    },
-    {
-      "name": "SODIUM_CRYPTO_PWHASH_SCRYPTSALSA208SHA256_OPSLIMIT_INTERACTIVE",
-      "problems": [
-        "wrong value"
+        "missing constant"
       ]
     }
   ],
@@ -1003,9 +793,56 @@
       "problems": [
         "parameter mismatch"
       ]
+    },
+    {
+      "name":"strtr",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "mysqli_stmt_bind_result",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "mysqli_stmt_bind_param",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name":"mysqli_escape_string",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name":"mysqli_set_opt",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name":"socket_cmsg_space",
+      "problems": [
+        "parameter mismatch"
+      ]
     }
   ],
   "classes": [
+    {
+      "name" : "AMQPBasicProperties",
+      "methods": [
+        {
+          "name": "__construct",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
     {
       "name": "RecursiveRegexIterator",
       "methods": [
@@ -1595,6 +1432,40 @@
       "methods": [
         {
           "name": "__invoke",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SyncEvent",
+      "methods": [
+        {
+          "name": "__construct",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mysqli_stmt",
+      "methods": [
+        {
+          "name": "__construct",
+          "problems": [
+            "parameter mismatch"
+          ]
+        },
+        {
+          "name": "bind_param",
+          "problems": [
+            "parameter mismatch"
+          ]
+        },
+        {
+          "name": "bind_result",
           "problems": [
             "parameter mismatch"
           ]

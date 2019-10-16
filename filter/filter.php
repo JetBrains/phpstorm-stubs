@@ -376,6 +376,7 @@ define ('FILTER_SANITIZE_NUMBER_FLOAT', 520);
 /**
  * ID of "magic_quotes" filter.
  * @link https://php.net/manual/en/filter.constants.php
+ * @deprecated 7.4
  */
 define ('FILTER_SANITIZE_MAGIC_QUOTES', 521);
 
@@ -462,14 +463,14 @@ define ('FILTER_FLAG_ALLOW_SCIENTIFIC', 16384);
 /**
  * Require scheme in "validate_url" filter.
  * @link https://php.net/manual/en/filter.constants.php
- * @deprecated 7.3.0
+ * @deprecated 7.3
  */
 define ('FILTER_FLAG_SCHEME_REQUIRED', 65536);
 
 /**
  * Require host in "validate_url" filter.
  * @link https://php.net/manual/en/filter.constants.php
- * @deprecated 7.3.0
+ * @deprecated 7.3
  */
 define ('FILTER_FLAG_HOST_REQUIRED', 131072);
 

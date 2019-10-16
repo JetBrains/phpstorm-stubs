@@ -37,7 +37,7 @@ function boolval($var) {}
  * @since 4.0
  * @since 5.0
  */
-function intval ($var, $base = null) {}
+function intval ($var, $base = 10) {}
 
 /**
  * Get float value of a variable
@@ -94,6 +94,7 @@ function strval ($var) {}
  * "resource"
  * "NULL"
  * "unknown type"
+ * "resource (closed)" since 7.2.0
  * @since 4.0
  * @since 5.0
  */
@@ -251,6 +252,7 @@ function is_double ($var) {}
  * false otherwise.
  * @since 4.0
  * @since 5.0
+ * @deprecated 7.4
  */
 function is_real ($var) {}
 
@@ -286,7 +288,7 @@ function is_string ($var) {}
  * @param mixed $var <p>
  * The variable being evaluated.
  * </p>
- * @return bool true if var is an array, 
+ * @return bool true if var is an array,
  * false otherwise.
  * @since 4.0
  * @since 5.0
@@ -299,8 +301,8 @@ function is_array ($var) {}
  * @param mixed $var <p>
  * The variable being evaluated.
  * </p>
- * @return bool true if var is an object, 
- * false otherwise.
+ * @return bool true if var is an object, false otherwise.<br/>
+ * Since 7.2.0 returns true for unserialized objects without a class definition (class of <b>__PHP_Incomplete_Class</b>).
  * @since 4.0
  * @since 5.0
  */

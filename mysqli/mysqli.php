@@ -606,7 +606,7 @@ class mysqli  {
 	 * @return int|false number of ready connections in success, false otherwise.
 	 * @since 5.3.0
 	 */
-	public function poll (array &$read , array &$error , array &$reject , $sec, $usec = null) {}
+	public static function poll (array &$read , array &$error , array &$reject , $sec, $usec = null) {}
 
 	/**
 	 * Get result from async query
@@ -739,6 +739,7 @@ class mysqli  {
 	/**
 	 * Transfers a result set from the last query
 	 * @link https://php.net/manual/en/mysqli.store-result.php
+     * @param int $option [optional] The option that you want to set
 	 * @return mysqli_result|false a buffered result object or false if an error occurred.
 	 * </p>
 	 * <p>
@@ -756,7 +757,7 @@ class mysqli  {
 	 * statement should have produced a non-empty result set.
 	 * @since 5.0
 	 */
-	public function store_result () {}
+	public function store_result ($option) {}
 
 	/**
 	 * Returns whether thread safety is given or not
@@ -1224,7 +1225,7 @@ class mysqli_stmt  {
 	/**
 	 * mysqli_stmt constructor
 	 * @param mysqli $link
-	 * @param string $query
+	 * @param string $query [optional]
 	 */
 	public function __construct ($link, $query) {}
 
@@ -1383,11 +1384,10 @@ class mysqli_stmt  {
 	/**
 	 * Get result of SHOW WARNINGS
 	 * @link https://php.net/manual/en/mysqli-stmt.get-warnings.php
-	 * @param mysqli_stmt $stmt
 	 * @return object
 	 * @since 5.1.0
 	 */
-	public function get_warnings (mysqli_stmt $stmt) {}
+	public function get_warnings () {}
 
 	/**
 	 * Returns result set metadata from a prepared statement
@@ -1414,11 +1414,10 @@ class mysqli_stmt  {
 	/**
 	 * Return the number of rows in statements result set
 	 * @link https://php.net/manual/en/mysqli-stmt.num-rows.php
-	 * @param mysqli_stmt $stmt
 	 * @return int An integer representing the number of rows in result set.
 	 * @since 5.0
 	 */
-	public function num_rows (mysqli_stmt $stmt) {}
+	public function num_rows () {}
 
 	/**
 	 * Send data in blocks
@@ -1571,9 +1570,11 @@ function mysqli_close ($link) {}
  * Commits the current transaction
  * @link https://php.net/manual/en/mysqli.commit.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param int $flags [optional] A bitmask of MYSQLI_TRANS_COR_* constants
+ * @param string $name [optional If provided then COMMITname is executed
  * @return bool
  */
-function mysqli_commit ($link) {}
+function mysqli_commit ($link, $flags = 0, $name = null) {}
 
 /**
  * Open a new connection to the MySQL server
@@ -2191,9 +2192,11 @@ function mysqli_release_savepoint ($link ,$name) {}
  * Rolls back current transaction
  * @link https://php.net/manual/en/mysqli.rollback.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param int $flags [optional] A bitmask of MYSQLI_TRANS_COR_* constants
+ * @param string $name [optional] If provided then ROLLBACKname is executed
  * @return bool
  */
-function mysqli_rollback ($link) {}
+function mysqli_rollback ($link, $flags = 0, $name = null) {}
 
 /**
  * Set a named transaction savepoint
@@ -2506,9 +2509,10 @@ function mysqli_stmt_store_result ($stmt) {}
  * Transfers a result set from the last query
  * @link https://php.net/manual/en/mysqli.store-result.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param int $option [optional] The option that you want to set
  * @return mysqli_result|false
  */
-function mysqli_store_result ($link) {}
+function mysqli_store_result ($link, int $option) {}
 
 /**
  * Returns the thread ID for the current connection
@@ -2585,11 +2589,11 @@ function mysqli_client_encoding ($link) {}
  * Alias of <b>mysqli_real_escape_string</b>
  * @link https://php.net/manual/en/function.mysqli-escape-string.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @param string $query
+ * @param string $escapestr The string to be escaped
  * @return string
  * @since 5.0
  */
-function mysqli_escape_string ($link, $query) {}
+function mysqli_escape_string ($link, $escapestr) {}
 
 /**
  * Alias for <b>mysqli_stmt_fetch</b>
@@ -2684,7 +2688,7 @@ define ('MYSQLI_OPT_LOCAL_INFILE', 8);
  * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
-define ('MYSQLI_SERVER_PUBLIC_KEY', 27);
+define ('MYSQLI_SERVER_PUBLIC_KEY', 35);
 
 /**
  * <p>
@@ -3244,7 +3248,7 @@ define ('MYSQLI_REPORT_OFF', 0);
  * </p>
  * @link https://php.net/manual/en/mysqli.constants.php
  */
-define ('MYSQLI_DEBUG_TRACE_ENABLED', 1);
+define ('MYSQLI_DEBUG_TRACE_ENABLED', 0);
 
 /**
  * <p>
@@ -3317,7 +3321,7 @@ define ('MYSQLI_REFRESH_SLAVE', 64);
 define ('MYSQLI_REFRESH_MASTER', 128);
 
 
-define ('MYSQLI_SERVER_QUERY_WAS_SLOW', 1024);
+define ('MYSQLI_SERVER_QUERY_WAS_SLOW', 2048);
 define ('MYSQLI_REFRESH_BACKUP_LOG', 2097152);
 
 // End of mysqli v.0.1
@@ -3334,7 +3338,8 @@ define('MYSQLI_CLIENT_SSL_VERIFY_SERVER_CERT', 1073741824);
 
 define('MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT', 64);
 define('MYSQLI_CLIENT_CAN_HANDLE_EXPIRED_PASSWORDS', 4194304);
-define('MYSQLI_OPT_CAN_HANDLE_EXPIRED_PASSWORDS', 29);
+define('MYSQLI_OPT_CAN_HANDLE_EXPIRED_PASSWORDS', 37);
+define('MYSQLI_OPT_READ_TIMEOUT', 11);
 define('MYSQLI_STORE_RESULT_COPY_DATA', 16);
 define('MYSQLI_TYPE_JSON', 245);
 define('MYSQLI_TRANS_COR_AND_CHAIN', 1);

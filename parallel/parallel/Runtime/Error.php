@@ -2,8 +2,5 @@
 
 namespace parallel\Runtime;
 
-use parallel\Error as ParallelError;
-
-class Error extends ParallelError
-{
+class Error extends \parallel\Error{
 }

@@ -36,8 +36,8 @@ class SplFileInfo  {
         /**
          * Gets the file extension
          * @link https://php.net/manual/en/splfileinfo.getextension.php
-	 * @return string a string containing the file extension, or an
-	 * empty string if the file has no extension.
+         * @return string a string containing the file extension, or an
+         * empty string if the file has no extension.
          * @since 5.3.6
          */
         public function getExtension () {}
@@ -811,7 +811,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
 	 * the end of <i>string</i> is reached, whichever comes
          * first.
          * </p>
-	 * @return int the number of bytes written, or null on error.
+         * @return int the number of bytes written, or 0 on error.
          * @since 5.1.0
          */
         public function fwrite ($str, $length = null) {}

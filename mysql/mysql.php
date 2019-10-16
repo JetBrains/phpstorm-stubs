@@ -187,7 +187,7 @@ function mysql_unbuffered_query ($query, $link_identifier = null) {}
 /**
  * Selects a database and executes a query on it
  * @link https://php.net/manual/en/function.mysql-db-query.php
- * @deprecated 5.3.0 Use mysql_select_db() and mysql_query() instead
+ * @deprecated 5.3 Use mysql_select_db() and mysql_query() instead
  * @param string $database <p>
  * The name of the database that will be selected.
  * </p>
@@ -215,7 +215,7 @@ function mysql_db_query ($database, $query, $link_identifier = null) {}
  * failure. Use the <b>mysql_tablename</b> function to traverse
  * this result pointer, or any function for result tables, such as 
  * <b>mysql_fetch_array</b>.
- * @deprecated 5.4.0
+ * @deprecated 5.4
  * @since 4.0
  * @since 5.0
  */
@@ -234,7 +234,7 @@ function mysql_list_dbs ($link_identifier = null) {}
  * Use the <b>mysql_tablename</b> function to
  * traverse this result pointer, or any function for result tables,
  * such as <b>mysql_fetch_array</b>.
- * @deprecated 5.2.0
+ * @deprecated 5.2
  * @since 4.0
  * @since 5.0
  */
@@ -648,7 +648,7 @@ function mysql_field_flags ($result, $field_offset) {}
 /**
  * Escapes a string for use in a mysql_query
  * @link https://php.net/manual/en/function.mysql-escape-string.php
- * @deprecated 5.3.0 Use mysql_real_escape_string() instead
+ * @deprecated 5.3 Use mysql_real_escape_string() instead
  * @param string $unescaped_string <p>
  * The string that is to be escaped.
  * </p>
@@ -795,7 +795,7 @@ function mysql_set_charset ($charset, $link_identifier = null) {}
  * @param $database_name
  * @param $query
  * @param $link_identifier [optional]
- * @deprecated 5.3.0 Use mysql_db_query instead.
+ * @deprecated 5.3 Use mysql_db_query instead.
  */
 function mysql ($database_name, $query, $link_identifier) {}
 

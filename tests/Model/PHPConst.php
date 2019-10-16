@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace StubTests\Model;
@@ -9,6 +10,7 @@ use PhpParser\Node\Stmt\Namespace_;
 use PhpParser\NodeAbstract;
 use ReflectionClassConstant;
 use stdClass;
+use PhpParser\Node\Expr\UnaryMinus;
 
 class PHPConst extends BasePHPElement
 {
@@ -49,7 +51,11 @@ class PHPConst extends BasePHPElement
             return $node->value->value;
         }
         if (in_array('expr', $node->value->getSubNodeNames(), true)) {
-            return $node->value->expr->value;
+            if ($node->value instanceof UnaryMinus) {
+                return -$node->value->expr->value;
+            } else {
+                return $node->value->expr->value;
+            }
         }
         if (in_array('name', $node->value->getSubNodeNames(), true)) {
             return $node->value->name->parts[0];

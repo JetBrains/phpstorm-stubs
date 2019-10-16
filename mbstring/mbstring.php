@@ -835,7 +835,7 @@ function mb_convert_variables ($to_encoding, $from_encoding, &...$vars) {}
  * </p>
  * @param string $encoding &mbstring.encoding.parameter;
  * @param bool $is_hex [optional]
- * @return string The converted string.
+ * @return string|false|null The converted string.
  * @since 4.0.6
  * @since 5.0
  */
@@ -852,7 +852,7 @@ function mb_encode_numericentity ($str, array $convmap, $encoding = null, $is_he
  * the code area to convert.
  * </p>
  * @param string $encoding &mbstring.encoding.parameter;
- * @return string The converted string.
+ * @return string|false|null The converted string.
  * @since 4.0.6
  * @since 5.0
  */
@@ -864,7 +864,7 @@ function mb_decode_numericentity ($str, array $convmap, $encoding = null) {}
  * @param string $to <p>
  * The mail addresses being sent to. Multiple
  * recipients may be specified by putting a comma between each
- * address in to. 
+ * address in to.
  * This parameter is not automatically encoded.
  * </p>
  * @param string $subject <p>
@@ -873,9 +873,10 @@ function mb_decode_numericentity ($str, array $convmap, $encoding = null) {}
  * @param string $message <p>
  * The message of the mail.
  * </p>
- * @param string $additional_headers [optional] <p>
- * additional_headers is inserted at
- * the end of the header. This is typically used to add extra
+ * @param string|array $additional_headers [optional] <p>
+ * String or array to be inserted at the end of the email header. <br/>
+ * Since 7.2.0 accepts an array. Its keys are the header names and its values are the respective header values.<br/>
+ * This is typically used to add extra
  * headers. Multiple extra headers are separated with a
  * newline ("\n").
  * </p>
@@ -969,7 +970,7 @@ function mb_regex_set_options ($options = null) {}
  * @since 4.2.0
  * @since 5.0
  */
-function mb_ereg ($pattern, $string, array $regs = null) {}
+function mb_ereg ($pattern, $string, array &$regs = null) {}
 
 /**
  * Regular expression match ignoring case with multibyte support
@@ -987,7 +988,7 @@ function mb_ereg ($pattern, $string, array $regs = null) {}
  * @since 4.2.0
  * @since 5.0
  */
-function mb_eregi ($pattern, $string, array $regs = null) {}
+function mb_eregi ($pattern, $string, array &$regs = null) {}
 
 /**
  * Replace regular expression with multibyte support
@@ -1325,22 +1326,28 @@ function mbereg_search_getregs () {}
 function mbereg_search_getpos () {}
 
 /**
+ * Get a specific character.
+ * @link https://www.php.net/manual/en/function.mb-chr.php
  * @param int $cp
  * @param string $encoding
- * @return string|false
+ * @return string|false specific character or FALSE on failure.
  * @since 7.2
  */
 function mb_chr($cp, $encoding) {}
 
 /**
+ * Get code point of character
+ * @link https://www.php.net/manual/en/function.mb-ord.php
  * @param string $str
  * @param string $encoding
- * @return int|false
+ * @return int|false code point of character or FALSE on failure.
  * @since 7.2
  */
 function mb_ord($str, $encoding) {}
 
 /**
+ * Scrub broken multibyte strings.
+ * @link https://www.php.net/manual/en/function.mb-scrub.php
  * @param string $str
  * @param string $encoding
  * @return string|false

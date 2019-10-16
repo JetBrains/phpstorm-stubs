@@ -66,7 +66,7 @@ interface Iterator extends Traversable {
     /**
      * Return the key of the current element
      * @link https://php.net/manual/en/iterator.key.php
-     * @return mixed scalar on success, or null on failure.
+     * @return string|float|int|bool|null scalar on success, or null on failure.
      * @since 5.0.0
      */
     public function key();

@@ -180,6 +180,14 @@ function rrd_xport($options) {}
 function rrd_disconnect() {}
 
 /**
+ * Close any outstanding connection to rrd caching daemon.
+ * This function is automatically called when the whole PHP process is terminated. It depends on used SAPI.
+ * For example, it's called automatically at the end of command line script.
+ * It's up user whether he wants to call this function at the end of every request or otherwise.
+ */
+function rrdc_disconnect(){}
+
+/**
  * Class for creation of RRD database file.
  * @link https://php.net/manual/en/class.rrdcreator.php
  * @since PECL rrd >= 0.9.0

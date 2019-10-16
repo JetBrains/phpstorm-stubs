@@ -31,7 +31,7 @@ $_COOKIE = array();
  */
 $_ENV = array();
 /**
- * @deprecated 4.1.0
+ * @deprecated 4.1
  */
 $HTTP_ENV_VARS = array();
 
@@ -48,7 +48,7 @@ $HTTP_ENV_VARS = array();
  */
 $_FILES = array();
 /**
- * @deprecated 4.1.0
+ * @deprecated 4.1
  */
 $HTTP_POST_FILES = array();
 
@@ -65,7 +65,7 @@ $HTTP_POST_FILES = array();
  */
 $_GET = array();
 /**
- * @deprecated 4.1.0
+ * @deprecated 4.1
  */
 $HTTP_GET_VARS = array();
 
@@ -82,7 +82,7 @@ $HTTP_GET_VARS = array();
  */
 $_POST = array();
 /**
- * @deprecated 4.1.0
+ * @deprecated 4.1
  */
 $HTTP_POST_VARS = array();
 
@@ -118,7 +118,7 @@ $_REQUEST = array();
  */
 $_SERVER = array();
 /**
- * @deprecated 4.1.0
+ * @deprecated 4.1
  */
 $HTTP_SERVER_VARS = array();
 
@@ -173,7 +173,7 @@ $_SERVER['ORIG_PATH_INFO'] = '';
  */
 $_SESSION = array();
 /**
- * @deprecated 4.1.0
+ * @deprecated 4.1
  */
 $HTTP_SESSION_VARS = array();
 
@@ -205,7 +205,7 @@ $argv = array();
  * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * https://secure.php.net/manual/en/reserved.variables.php</a>
  * 
- * @deprecated 5.6.0 Deprecated as of PHP 5.6.0. Use the php://input stream instead.
+ * @deprecated 5.6 Deprecated as of PHP 5.6.0. Use the php://input stream instead.
  */
 $HTTP_RAW_POST_DATA = '';
 

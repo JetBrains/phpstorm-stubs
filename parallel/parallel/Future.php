@@ -2,45 +2,58 @@
 
 namespace parallel;
 
-use parallel\Future\Error;
 use Throwable;
 
-final class Future
-{
-    /**
-     * Shall return (and if necessary wait for) return from task.
-     *
-     * @throws Error if waiting failed (internal error).
-     * @throws Error\Killed if the Runtime executing task was killed.
-     * @throws Error\Cancelled if task was already cancelled.
-     * @throws Error\Foreign if task raised an unrecognized uncaught exception.
-     * @throws Throwable Shall rethrow \Throwable uncaught in task
-     *
-     * @return mixed
-     */
-    public function value() {}
+/**
+ * A Future represents the return value or uncaught exception from a task, and exposes an API for cancellation.
+ *
+ * The behaviour of a future also allows it to be used as a simple synchronization point even where the task does not
+ * return a value explicitly.
+ *
+ * @examples https://www.php.net/manual/ru/class.parallel-future.php
+ */
+final class Future{
 
-    /**
-     * Shall indicate if the task was cancelled.
-     *
-     * @return bool
-     */
-    public function cancelled(): bool {}
+	/* Resolution */
 
-    /**
-     * Shall indicate if the task is completed.
-     *
-     * @return bool
-     */
-    public function done(): bool {}
+	/**
+	 * Shall return (and if necessary wait for) return from task
+	 *
+	 * @return mixed
+	 *
+	 * @throws Future\Error if waiting failed (internal error).
+	 * @throws Future\Error\Killed if \parallel\Runtime executing task was killed.
+	 * @throws Future\Error\Cancelled if task was cancelled.
+	 * @throws Future\Error\Foreign if task raised an unrecognized uncaught exception.
+	 * @throws Throwable Shall rethrow \Throwable uncaught in task
+	 */
+	public function value(){}
 
-    /**
-     * Shall try to cancel the task
-     *
-     * @throws Error\Killed if the Runtime executing task was killed.
-     * @throws Error\Cancelled if task was already cancelled.
-     *
-     * @return bool
-     */
-    public function cancel(): bool {}
+	/* State */
+
+	/**
+	 * Shall indicate if the task is completed
+	 * @return bool
+	 */
+	public function done() : bool{}
+
+	/**
+	 * Shall indicate if the task was cancelled
+	 * @return bool
+	 */
+	public function cancelled() : bool{}
+
+	/* Cancellation */
+
+	/**
+	 * Shall try to cancel the task
+	 * Note: If task is running, it will be interrupted.
+	 * Warning: Internal function calls in progress cannot be interrupted.
+	 *
+	 * @return bool
+	 *
+	 * @throws Future\Error\Killed if \parallel\Runtime executing task was killed.
+	 * @throws Future\Error\Cancelled if task was already cancelled.
+	 */
+	public function cancel() : bool{}
 }

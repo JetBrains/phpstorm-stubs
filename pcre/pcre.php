@@ -359,7 +359,7 @@ function preg_filter ($pattern, $replacement, $subject, $limit = -1, &$count = n
  * <b>PREG_SPLIT_NO_EMPTY</b>
  * If this flag is set, only non-empty pieces will be returned by
  * <b>preg_split</b>.
- * @return string[]|array[]|false an array containing substrings of <i>subject</i>
+ * @return string[]|array|false an array containing substrings of <i>subject</i>
  * split along boundaries matched by <i>pattern</i>, or <b>FALSE</b>
  * if an error occurred.
  * @since 4.0
@@ -517,6 +517,13 @@ define ('PREG_BAD_UTF8_ERROR', 4);
  */
 define ('PREG_BAD_UTF8_OFFSET_ERROR', 5);
 
+/**
+ * This flag tells {@see preg_match()} and {@see preg_match_all()}
+ * to include unmatched subpatterns in <b>$matches</b> as NULL values.
+ * Without this flag, unmatched subpatterns are reported as empty strings,
+ * as if they were empty matches. Setting this flag allows to distinguish between these two cases.
+ * @since 7.2.0
+ */
 define ('PREG_UNMATCHED_AS_NULL', 512);
 /**
  * PCRE version and release date (e.g. "7.0 18-Dec-2006").

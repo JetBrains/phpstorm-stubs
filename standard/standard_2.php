@@ -221,15 +221,16 @@ function ord ($string) {}
  * @param string $str <p>
  * The input string.
  * </p>
- * @param array $arr [optional] <p>
+ * @param array $result [optional] <p>
  * If the second parameter arr is present,
- * variables are stored in this variable as array elements instead.
+ * variables are stored in this variable as array elements instead.<br/>
+ * Since 7.2.0 this parameter is not optional.
  * </p>
  * @return void 
  * @since 4.0
  * @since 5.0
  */
-function parse_str ($str, array &$arr = null) {}
+function parse_str ($str, array &$result = null) {}
 
 /**
  * Parse a CSV string into an array
@@ -941,7 +942,8 @@ function proc_terminate ($process, $signal = 15) {}
 function proc_get_status ($process) {}
 
 /**
- * Change the priority of the current process
+ * Change the priority of the current process. <br/>
+ * Since 7.2.0 supported on Windows platforms.
  * @link https://php.net/manual/en/function.proc-nice.php
  * @param int $increment <p>
  * The increment value of the priority change.

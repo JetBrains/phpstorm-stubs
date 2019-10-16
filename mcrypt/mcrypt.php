@@ -371,7 +371,7 @@ function mdecrypt_generic ($td, $data) {}
  * @link https://php.net/manual/en/function.mcrypt-generic-end.php
  * @param resource $td 
  * @return bool
- * @deprecated 5.4.0 This function has been DEPRECATED as of PHP 5.4.0.
+ * @deprecated 5.4 This function has been DEPRECATED as of PHP 5.4.0.
  * @since 4.0.2
  * @since 5.1.6
  */

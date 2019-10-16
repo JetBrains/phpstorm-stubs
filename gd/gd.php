@@ -844,7 +844,8 @@ function imagecopyresampled ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $sr
 function imagerotate ($image, $angle, $bgd_color, $ignore_transparent = null) {}
 
 /**
- * Should antialias functions be used or not
+ * Should antialias functions be used or not. <br/>
+ * Before 7.2.0 it's only available if PHP iscompiled with the bundled version of the GD library.
  * @link https://php.net/manual/en/function.imageantialias.php
  * @param resource $image 
  * @param bool $enabled <p>
@@ -1129,7 +1130,8 @@ function imagejpeg ($image, $filename = null, $quality = null) {}
 function imagewbmp ($image, $filename = null, $foreground = null) {}
 
 /**
- * Output GD image to browser or file
+ * Output GD image to browser or file. <br/>
+ * Since 7.2.0 allows to output truecolor images.
  * @link https://php.net/manual/en/function.imagegd.php
  * @param resource $image 
  * @param string $filename [optional] <p>
@@ -1926,7 +1928,7 @@ function imagefttext ($image, $size, $angle, $x, $y, $color, $fontfile, $text, $
  * can be used for further purposes. Otherwise the function returns false.
  * @since 4.0
  * @since 5.0
- * @deprecated 7.0.0 This function was REMOVED in PHP 7.0.0.
+ * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepsloadfont ($filename) {}
 
@@ -1939,7 +1941,7 @@ function imagepsloadfont ($filename) {}
  * @return bool true on success or false on failure.
  * @since 4.0
  * @since 5.0
- * @deprecated 7.0.0 This function was REMOVED in PHP 7.0.0.
+ * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepsfreefont ($font_index) {}
 
@@ -1958,7 +1960,7 @@ function imagepsfreefont ($font_index) {}
  * @return bool true on success or false on failure.
  * @since 4.0
  * @since 5.0
- * @deprecated 7.0.0 This function was REMOVED in PHP 7.0.0.
+ * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepsencodefont ($font_index, $encodingfile) {}
 
@@ -1974,7 +1976,7 @@ function imagepsencodefont ($font_index, $encodingfile) {}
  * @return bool true on success or false on failure.
  * @since 4.0
  * @since 5.0
- * @deprecated 7.0.0 This function was REMOVED in PHP 7.0.0.
+ * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepsextendfont ($font_index, $extend) {}
 
@@ -1990,7 +1992,7 @@ function imagepsextendfont ($font_index, $extend) {}
  * @return bool true on success or false on failure.
  * @since 4.0
  * @since 5.0
- * @deprecated 7.0.0 This function was REMOVED in PHP 7.0.0.
+ * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepsslantfont ($font_index, $slant) {}
 
@@ -2065,7 +2067,7 @@ function imagepsslantfont ($font_index, $slant) {}
  * Returns false on error.
  * @since 4.0
  * @since 5.0
- * @deprecated 7.0.0 This function was REMOVED in PHP 7.0.0.
+ * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepstext ($image, $text, $font_index, $size, $foreground, $background, $x, $y, $space = null, $tightness = null, $angle = null, $antialias_steps = null) {}
 
@@ -2099,7 +2101,7 @@ function imagepstext ($image, $text, $font_index, $size, $foreground, $backgroun
  * Returns false on error.
  * @since 4.0
  * @since 5.0
- * @deprecated 7.0.0 This function was REMOVED in PHP 7.0.0.
+ * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepsbbox ($text, $font, $size) {}
 
@@ -2135,7 +2137,7 @@ function imagetypes () {}
  * @return bool true on success or false on failure.
  * @since 4.0.5
  * @since 5.0
- * @deprecated 7.2.0 Use imagecreatefromjpeg() and imagewbmp() instead
+ * @deprecated 7.2 Use imagecreatefromjpeg() and imagewbmp() instead
  */
 function jpeg2wbmp ($jpegname, $wbmpname, $dest_height, $dest_width, $threshold) {}
 
@@ -2160,7 +2162,7 @@ function jpeg2wbmp ($jpegname, $wbmpname, $dest_height, $dest_width, $threshold)
  * @return bool true on success or false on failure.
  * @since 4.0.5
  * @since 5.0
- * @deprecated 7.2.0 Use imagecreatefrompng() and imagewbmp() instead
+ * @deprecated 7.2 Use imagecreatefrompng() and imagewbmp() instead
  */
 function png2wbmp ($pngname, $wbmpname, $dest_height, $dest_width, $threshold) {}
 
@@ -2178,7 +2180,7 @@ function png2wbmp ($pngname, $wbmpname, $dest_height, $dest_width, $threshold) {
  * @return bool true on success or false on failure.
  * @since 4.0.5
  * @since 5.0
- * @deprecated 7.3.0 Use imagewbmp() instead
+ * @deprecated 7.3 Use imagewbmp() instead
  */
 function image2wbmp ($image, $filename = null, $threshold = null) {}
 
