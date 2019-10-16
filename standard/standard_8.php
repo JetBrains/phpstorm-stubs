@@ -969,25 +969,35 @@ function range ($start, $end, $step = 1) {}
 /**
  * Sort multiple or multi-dimensional arrays
  * @link https://php.net/manual/en/function.array-multisort.php
- * @param array $arr <p>
+ * @param array $array1 <p>
  * An array being sorted.
  * </p>
- * @param mixed $arg [optional] <p>
- * Optionally another array, or sort options for the
- * previous array argument: 
- * SORT_ASC, 
- * SORT_DESC, 
- * SORT_REGULAR,
- * SORT_NUMERIC,
- * SORT_STRING.
+ * @param array|int $array1_sort_order [optional] <p>
+ * The order used to sort the previous array argument.
+ * Either SORT_ASC to sort ascendingly or SORT_DESC to sort descendingly.
+ * This argument can be swapped with array1_sort_flags or omitted entirely, in which case SORT_ASC is assumed.
  * </p>
- * @param mixed $arg [optional] 
- * @param mixed $_ [optional] 
+ * @param array|int $array1_sort_flags [optional] <p>
+ * Sort options for the previous array argument:
+ * Sorting type flags:
+ * SORT_REGULAR - compare items normally (don't change types)
+ * SORT_NUMERIC - compare items numerically
+ * SORT_STRING - compare items as strings
+ * SORT_LOCALE_STRING - compare items as strings, based on the current locale. It uses the locale, which can be changed using setlocale()
+ * SORT_NATURAL - compare items as strings using "natural ordering" like natsort()
+ * SORT_FLAG_CASE - can be combined (bitwise OR) with SORT_STRING or SORT_NATURAL to sort strings case-insensitively
+ * This argument can be swapped with array1_sort_order or omitted entirely, in which case SORT_REGULAR is assumed.
+ * </p>
+ * @param array|int $_ [optional] <p>
+ * More arrays, optionally followed by sort order and flags.
+ * Only elements corresponding to equivalent elements in previous arrays are compared.
+ * In other words, the sort is lexicographical.
+ * </p>
  * @return bool true on success or false on failure.
  * @since 4.0
  * @since 5.0
  */
-function array_multisort (array &$arr, $arg = null, $arg = null, $_ = null) {}
+function array_multisort (array &$array1, $array1_sort_order = null, $array1_sort_flags = null, $_ = null) {}
 
 /**
  * Push elements onto the end of array
