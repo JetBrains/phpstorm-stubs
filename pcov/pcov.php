@@ -39,7 +39,7 @@ namespace pcov
     * @return array
     * @since 7.0
     */
-    function collect(int $type = all, array $filter = []) {}
+    function collect($type = all, $filter = []) {}
 
     /*
     * Shall clear stored information
@@ -50,7 +50,7 @@ namespace pcov
     * @return void
     * @since 7.0
     */
-    function clear(bool $files = false) {}
+    function clear($files = false) {}
 
     /*
     * Shall return list of files waiting to be collected
