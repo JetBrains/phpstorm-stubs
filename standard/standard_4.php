@@ -170,7 +170,7 @@ function serialize ($value) {}
  * Omitting this option is the same as defining it as TRUE: PHP will attempt
  * to instantiate objects of any class.
  * </p>
- * @return bool|int|float|string The converted value is returned, and can be a boolean,
+ * @return mixed The converted value is returned, and can be a boolean,
  * integer, float, string,
  * array or object.
  * </p>
