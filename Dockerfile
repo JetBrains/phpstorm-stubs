@@ -1,12 +1,12 @@
 FROM php:7.3
-RUN set -x \
-    && apt-get update \
+RUN set -x \     #dosyaları çalıştırır
+    && apt-get update \    # güncelleme yapar 
     && apt-get install -y libldap2-dev libxml2-dev librabbitmq-dev libssh-dev libbz2-dev libevent-dev libfann-dev libgpgme11-dev librdkafka-dev librrd-dev libyaml-dev libcurl4-openssl-dev\
     && rm -rf /var/lib/apt/lists/* \
     && docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/ \
     && docker-php-ext-install ldap \
     && apt-get purge -y --auto-remove libldap2-dev
-RUN docker-php-ext-install bz2 mysqli bcmath calendar dba exif gettext opcache pcntl pdo_mysql shmop sysvmsg sysvsem sysvshm soap xmlrpc
+RUN docker-php-ext-install bz2 mysqli bcmath calendar dba exif gettext opcache pcntl pdo_mysql shmop sysvmsg sysvsem sysvshm soap xmlrpc  #buradan itibaren dosyaları çalıştırır
 RUN pecl install amqp
 RUN docker-php-ext-enable amqp
 RUN pecl install Ev
