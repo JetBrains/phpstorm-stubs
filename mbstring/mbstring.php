@@ -852,11 +852,14 @@ function mb_encode_numericentity ($str, array $convmap, $encoding = null, $is_he
  * the code area to convert.
  * </p>
  * @param string $encoding &mbstring.encoding.parameter;
+ * @param bool $is_hex [optional] <p>
+ * this parameter is not used.
+ * </p>
  * @return string|false|null The converted string.
  * @since 4.0.6
  * @since 5.0
  */
-function mb_decode_numericentity ($str, array $convmap, $encoding = null) {}
+function mb_decode_numericentity ($str, array $convmap, $encoding = null, $is_hex = false) {}
 
 /**
  * Send encoded mail
