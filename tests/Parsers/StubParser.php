@@ -45,12 +45,12 @@ class StubParser
 
     /**
      * @param NodeVisitorAbstract $visitor
-     * @param CoreStubASTVisitor $coreStubASTVisitor
+     * @param CoreStubASTVisitor|null $coreStubASTVisitor
      * @param callable $fileCondition
      * @throws LogicException
      * @throws UnexpectedValueException
      */
-    public static function processStubs(NodeVisitorAbstract $visitor, CoreStubASTVisitor $coreStubASTVisitor, callable $fileCondition): void
+    public static function processStubs(NodeVisitorAbstract $visitor, ?CoreStubASTVisitor $coreStubASTVisitor, callable $fileCondition): void
     {
         $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
         $nameResolver = new NameResolver(null, ['preserveOriginalNames' => true]);
