@@ -1508,7 +1508,7 @@ class Redis
      * @param string $key
      *
      * @return int the cardinality of the set identified by key, 0 if the set doesn't exist.
-     * 
+     *
      * @link    https://redis.io/commands/scard
      * @example
      * <pre>
@@ -2084,7 +2084,7 @@ class Redis
      * @param int    $timestamp Unix timestamp. The key's date of death, in seconds from Epoch time.
      *
      * @return bool TRUE in case of success, FALSE in case of failure
-     * 
+     *
      * @link    https://redis.io/commands/expireat
      * @example
      * <pre>
@@ -4638,7 +4638,7 @@ class Redis
      * @param string|array $key
      *
      * @return int
-     * 
+     *
      * @link    https://redis.io/commands/pfcount
      * @example
      * <pre>
