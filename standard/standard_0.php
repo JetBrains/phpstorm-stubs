@@ -836,7 +836,7 @@ function iptcparse ($iptcblock) {}
  * Spool flag. If the spool flag is over 2 then the JPEG will be 
  * returned as a string.
  * </p>
- * @return mixed If success and spool flag is lower than 2 then the JPEG will not be
+ * @return string|bool If success and spool flag is lower than 2 then the JPEG will not be
  * returned as a string, false on errors.
  * @since 4.0
  * @since 5.0

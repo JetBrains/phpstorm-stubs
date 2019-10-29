@@ -594,8 +594,12 @@ function fread ($handle, $length) {}
  * <p>
  * On the Windows platform, be careful to escape any backslashes
  * used in the path to the file, or use forward slashes.
- * ]]>
  * </p>
+ * <pre>
+ * <?php
+ * $handle = fopen("c:\\folder\\resource.txt", "r");
+ * ?>
+ * </pre>
  * @param string $mode <p>
  * The mode parameter specifies the type of access
  * you require to the stream. It may be any of the following:

@@ -1697,7 +1697,19 @@ function imagettfbbox ($size, $angle, $fontfile, $text) {}
  * <p>
  * In many cases where a font resides in the same directory as the script using it
  * the following trick will alleviate any include problems.
- * ]]>
+ * </p>
+ * <pre>
+ * <?php
+ * // Set the enviroment variable for GD
+ * putenv('GDFONTPATH=' . realpath('.'));
+ * 
+ * // Name the font to be used (note the lack of the .ttf extension)
+ * $font = 'SomeFont';
+ * ?>
+ * </pre>
+ * <p>
+ * <strong>Note:</strong>
+ * <code>open_basedir</code> does <em>not</em> apply to fontfile.
  * </p>
  * @param string $text <p>
  * The text string in UTF-8 encoding.
@@ -1859,7 +1871,19 @@ function imageftbbox ($size, $angle, $fontfile, $text, $extrainfo = null ) {}
  * <p>
  * In many cases where a font resides in the same directory as the script using it
  * the following trick will alleviate any include problems.
- * ]]>
+ * </p>
+ * <pre>
+ * <?php
+ * // Set the enviroment variable for GD
+ * putenv('GDFONTPATH=' . realpath('.'));
+ * 
+ * // Name the font to be used (note the lack of the .ttf extension)
+ * $font = 'SomeFont';
+ * ?>
+ * </pre>
+ * <p>
+ * <strong>Note:</strong>
+ * <code>open_basedir</code> does <em>not</em> apply to fontfile.
  * </p>
  * @param string $text <p>
  * Text to be inserted into image. 
