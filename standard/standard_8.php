@@ -305,58 +305,64 @@ function ob_get_level () {}
  * @return array If called without the full_status parameter
  * or with full_status = false a simple array
  * with the following elements is returned:
- * 2
- * [type] => 0
- * [status] => 0
- * [name] => URL-Rewriter
- * [del] => 1
+ * <pre>
+ * Array 
+ * (
+ *     [level] => 2
+ *     [type] => 0
+ *     [status] => 0
+ *     [name] => URL-Rewriter
+ *     [del] => 1 
  * )
- * ]]>
- * Simple ob_get_status results
- * KeyValue
- * levelOutput nesting level
- * typePHP_OUTPUT_HANDLER_INTERNAL (0) or PHP_OUTPUT_HANDLER_USER (1)
- * statusOne of PHP_OUTPUT_HANDLER_START (0), PHP_OUTPUT_HANDLER_CONT (1) or PHP_OUTPUT_HANDLER_END (2)
- * nameName of active output handler or ' default output handler' if none is set
- * delErase-flag as set by ob_start
- * </p>
+ * </pre>
+ * <table>
+ * <tr><th>Key</th><th>Value</th></tr>
+ * <tr><td>level</td><td>Output nesting level</td></tr> 
+ * <tr><td>type</td><td><em>PHP_OUTPUT_HANDLER_INTERNAL (0)</em> or <em>PHP_OUTPUT_HANDLER_USER (1)</em></td></tr> 
+ * <tr><td>status</td><td>One of <em>PHP_OUTPUT_HANDLER_START</em> (0), <em>PHP_OUTPUT_HANDLER_CONT</em> (1) or <em>PHP_OUTPUT_HANDLER_END</em> (2)</td></tr> 
+ * <tr><td>name</td><td>Name of active output handler or &#039; default output handler&#039; if none is set</td></tr> 
+ * <tr><td>del</td><td>Erase-flag as set by ob_start()</td></tr> 
+ * </table>
  * <p>
- * If called with full_status = true an array
- * with one element for each active output buffer level is returned.
- * The output level is used as key of the top level array and each array
- * element itself is another array holding status information
- * on one active output level.
+ * If called with full_status = TRUE an array with one element for each active output buffer
+ * level is returned. The output level is used as key of the top level array and each array
+ * element itself is another array holding status information on one active output level.
+ * </p>
+ * <pre>
  * Array
  * (
- * [chunk_size] => 0
- * [size] => 40960
- * [block_size] => 10240
- * [type] => 1
- * [status] => 0
- * [name] => default output handler
- * [del] => 1
+ *     [0] => Array
+ *         (
+ *             [chunk_size] => 0
+ *             [size] => 40960
+ *             [block_size] => 10240
+ *             [type] => 1
+ *             [status] => 0
+ *             [name] => default output handler
+ *             [del] => 1
+ *         )
+ * 
+ *     [1] => Array
+ *         (
+ *             [chunk_size] => 0
+ *             [size] => 40960
+ *             [block_size] => 10240
+ *             [type] => 0
+ *             [buffer_size] => 0
+ *             [status] => 0
+ *             [name] => URL-Rewriter
+ *             [del] => 1
+ *         )
+ * 
  * )
- * [1] => Array
- * (
- * [chunk_size] => 0
- * [size] => 40960
- * [block_size] => 10240
- * [type] => 0
- * [buffer_size] => 0
- * [status] => 0
- * [name] => URL-Rewriter
- * [del] => 1
- * )
- * )
- * ]]>
- * </p>
- * <p>
- * The full output contains these additional elements:
- * Full ob_get_status results
- * KeyValue
- * chunk_sizeChunk size as set by ob_start
- * size...
- * blocksize...
+ * </pre>
+ * <p> The full output contains these additional elements:</p>
+ * <table>
+ * <tr><th>Key</th><th>Value</th></tr>
+ * <tr><td>chunk_size</td><td>Chunk size as set by ob_start()</td></tr>
+ * <tr><td>size</td><td>...</td></tr>
+ * <tr><td>blocksize</td><td>...</td></tr>
+ * </table>
  * @since 4.2.0
  * @since 5.0
  */

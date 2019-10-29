@@ -697,7 +697,15 @@ function flock ($handle, $operation, &$wouldblock = null) {}
  * </p>
  * <p>
  * What get_meta_tags parses
- * ]]>
+ * </p>
+ * <pre>
+ * <meta name="author" content="name">
+ * <meta name="keywords" content="php documentation">
+ * <meta name="DESCRIPTION" content="a php manual">
+ * <meta name="geo.position" content="49.33;-86.59">
+ * </head> <!-- parsing stops here -->
+ * </pre>
+ * <p>
  * (pay attention to line endings - PHP uses a native function to
  * parse the input, so a Mac file won't work on Unix).
  * </p>

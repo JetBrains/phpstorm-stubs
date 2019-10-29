@@ -21,12 +21,85 @@
  * @param int $flags [optional] <p>
  * <i>flags</i> can be the following flag:
  * <b>PREG_OFFSET_CAPTURE</b>
+ * <blockquote>
  * If this flag is passed, for every occurring match the appendant string
  * offset will also be returned. Note that this changes the value of
  * <i>matches</i> into an array where every element is an
  * array consisting of the matched string at offset 0
- * and its string offset into <i>subject</i> at offset
- * 1.
+ * and its string offset into <i>subject</i> at offset 1.
+ * <pre>
+ * <?php
+ * preg_match('/(foo)(bar)(baz)/', 'foobarbaz', $matches, PREG_OFFSET_CAPTURE);
+ * print_r($matches);
+ * ?>
+ * </pre>
+ * The above example will output:
+ * <pre>
+ * Array
+ * (
+ *     [0] => Array
+ *         (
+ *             [0] => foobarbaz
+ *             [1] => 0
+ *         )
+ * 
+ *     [1] => Array
+ *         (
+ *             [0] => foo
+ *             [1] => 0
+ *         )
+ * 
+ *     [2] => Array
+ *         (
+ *             [0] => bar
+ *             [1] => 3
+ *         )
+ * 
+ *     [3] => Array
+ *         (
+ *             [0] => baz
+ *             [1] => 6
+ *         )
+ * 
+ * )
+ * </pre>
+ * </blockquote>
+ * <b>PREG_UNMATCHED_AS_NULL</b>
+ * <blockquote>
+ * If this flag is passed, unmatched subpatterns are reported as NULL;
+ * otherwise they are reported as an empty string. 
+ * <pre>
+ * <?php
+ * preg_match('/(a)(b)*(c)/', 'ac', $matches);
+ * var_dump($matches);
+ * preg_match('/(a)(b)*(c)/', 'ac', $matches, PREG_UNMATCHED_AS_NULL);
+ * var_dump($matches);
+ * ?>
+ * </pre>
+ * The above example will output:
+ * <pre>
+ * array(4) {
+ *   [0]=>
+ *   string(2) "ac"
+ *   [1]=>
+ *   string(1) "a"
+ *   [2]=>
+ *   string(0) ""
+ *   [3]=>
+ *   string(1) "c"
+ * }
+ * array(4) {
+ *   [0]=>
+ *   string(2) "ac"
+ *   [1]=>
+ *   string(1) "a"
+ *   [2]=>
+ *   NULL
+ *   [3]=>
+ *   string(1) "c"
+ * }
+ * </pre>
+ * </blockquote>
  * @param int $offset [optional] <p>
  * Normally, the search starts from the beginning of the subject string.
  * The optional parameter <i>offset</i> can be used to
@@ -39,12 +112,12 @@
  * because <i>pattern</i> can contain assertions such as
  * ^, $ or
  * (?&lt;=x). Compare:
- * <code>
+ * <pre>
  * $subject = "abcdef";
  * $pattern = '/^def/';
  * preg_match($pattern, $subject, $matches, PREG_OFFSET_CAPTURE, 3);
  * print_r($matches);
- * </code>
+ * </pre>
  * The above example will output:</p>
  * <pre>
  * Array
@@ -66,13 +139,16 @@
  * <pre>
  * Array
  * (
- * [0] => Array
- * (
- * [0] => def
- * [1] => 0
- * )
+ *     [0] => Array
+ *         (
+ *             [0] => def
+ *             [1] => 0
+ *         )
  * )
  * </pre>
+ * Alternatively, to avoid using substr(), use the \G assertion rather
+ * than the ^ anchor, or the A modifier instead, both of which work with
+ * the offset parameter. 
  * </p>
  * @return int|false <b>preg_match</b> returns 1 if the <i>pattern</i>
  * matches given <i>subject</i>, 0 if it does not, or <b>FALSE</b>
