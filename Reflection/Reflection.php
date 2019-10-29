@@ -1510,7 +1510,7 @@ class ReflectionProperty implements Reflector {
 	 * @return mixed The current value of the property.
 	 * @since 5.0
 	 */
-	public function getValue ($object) {}
+	public function getValue ($object = null) {}
 
 	/**
 	 * Set property value
