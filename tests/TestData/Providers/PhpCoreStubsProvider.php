@@ -143,7 +143,6 @@ class PhpCoreStubsProvider
 
     public static function getCoreStubsDirectories(): array
     {
-        $coreStubs = [];
         $coreStubs[] = self::$StubDirectoryMap['CORE'];
         $coreStubs[] = self::$StubDirectoryMap['BUNDLED'];
         $coreStubs[] = self::$StubDirectoryMap['EXTERNAL'];

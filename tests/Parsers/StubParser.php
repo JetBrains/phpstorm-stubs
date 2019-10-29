@@ -27,8 +27,9 @@ class StubParser
     {
         self::$stubs = new StubsContainer();
         $visitor = new ASTVisitor(self::$stubs);
+        $coreStubVisitor = new CoreStubASTVisitor(self::$stubs);
         /** @noinspection PhpUnhandledExceptionInspection */
-        self::processStubs($visitor, function ($file) {
+        self::processStubs($visitor, $coreStubVisitor, function ($file) {
             return true;
         });
         foreach (self::$stubs->getInterfaces() as $interface) {
@@ -44,11 +45,12 @@ class StubParser
 
     /**
      * @param NodeVisitorAbstract $visitor
+     * @param CoreStubASTVisitor $coreStubASTVisitor
      * @param callable $fileCondition
      * @throws LogicException
      * @throws UnexpectedValueException
      */
-    public static function processStubs(NodeVisitorAbstract $visitor, callable $fileCondition): void
+    public static function processStubs(NodeVisitorAbstract $visitor, CoreStubASTVisitor $coreStubASTVisitor, callable $fileCondition): void
     {
         $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
         $nameResolver = new NameResolver(null, ['preserveOriginalNames' => true]);
@@ -57,6 +59,7 @@ class StubParser
             new RecursiveIteratorIterator(
                 new RecursiveDirectoryIterator(__DIR__ . '/../../', FilesystemIterator::SKIP_DOTS)
             );
+        $coreStubDirectories = PhpCoreStubsProvider::getCoreStubsDirectories();
         /** @var SplFileInfo $file */
         foreach ($stubsIterator as $file) {
             if (!$fileCondition($file) || basename(dirname($file->getRealPath())) === 'phpstorm-stubs' ||
@@ -68,10 +71,8 @@ class StubParser
             $traverser = new NodeTraverser();
             $traverser->addVisitor(new ParentConnector());
             $traverser->addVisitor($nameResolver);
-            $coreStubDirectories = PhpCoreStubsProvider::getCoreStubsDirectories();
-            if (self::stubBelongsToCore($file, $coreStubDirectories)){
-                $coreStubVisitor = new CoreStubASTVisitor(self::$stubs);
-                $traverser->addVisitor($coreStubVisitor);
+            if ($coreStubASTVisitor !== null && self::stubBelongsToCore($file, $coreStubDirectories)){
+                $traverser->addVisitor($coreStubASTVisitor);
             }else {
                 $traverser->addVisitor($visitor);
             }
