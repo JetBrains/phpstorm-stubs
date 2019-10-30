@@ -1527,8 +1527,9 @@ class Redis
      * Removes and returns a random element from the set value at Key.
      *
      * @param string $key
+     * @param int    $count [optional]
      *
-     * @return string|mixed|bool "popped" value
+     * @return string|mixed|array|bool "popped" values
      * bool FALSE if set identified by key is empty or doesn't exist.
      *
      * @link    https://redis.io/commands/spop
@@ -1539,9 +1540,19 @@ class Redis
      * $redis->sAdd('key1' , 'set3');   // 'key1' => {'set3', 'set1', 'set2'}
      * $redis->sPop('key1');            // 'set1', 'key1' => {'set3', 'set2'}
      * $redis->sPop('key1');            // 'set3', 'key1' => {'set2'}
+     *
+     * // With count
+     * $redis->sAdd('key2', 'set1', 'set2', 'set3');
+     * var_dump( $redis->sPop('key2', 3) ); // Will return all members but in no particular order
+     *
+     * // array(3) {
+     * //   [0]=> string(4) "set2"
+     * //   [1]=> string(4) "set3"
+     * //   [2]=> string(4) "set1"
+     * // }
      * </pre>
      */
-    public function sPop($key)
+    public function sPop($key, $count = 1)
     {
     }
 
@@ -1569,7 +1580,7 @@ class Redis
      *
      * // array(2) {
      * //   [0]=> string(2) "one"
-     * //   [1]=> string(2) "three"
+     * //   [1]=> string(5) "three"
      * // }
      * </pre>
      */
@@ -3527,6 +3538,52 @@ class Redis
     }
 
     /**
+     * Can pop the highest scoring members from one ZSET.
+     *
+     * @param string $key
+     * @param int $count
+     *
+     * @return array Either an array with the key member and score of the highest element or an empty array
+     * if there is no element to pop.
+     *
+     * @since >= 5.0
+     * @link https://redis.io/commands/zpopmax
+     * @example
+     * <pre>
+     * // Pop the *lowest* scoring member from set `zs1`.
+     * $redis->zPopMax('zs1');
+     * // Pop the *lowest* 3 scoring member from set `zs1`.
+     * $redis->zPopMax('zs1', 3);
+     * </pre>
+     */
+    public function zPopMax($key, $count = 1)
+    {
+    }
+
+    /**
+     * Can pop the lowest scoring members from one ZSET.
+     *
+     * @param string $key
+     * @param int $count
+     *
+     * @return array Either an array with the key member and score of the lowest element or an empty array
+     * if there is no element to pop.
+     *
+     * @since >= 5.0
+     * @link https://redis.io/commands/zpopmin
+     * @example
+     * <pre>
+     * // Pop the *lowest* scoring member from set `zs1`.
+     * $redis->zPopMin('zs1');
+     * // Pop the *lowest* 3 scoring member from set `zs1`.
+     * $redis->zPopMin('zs1', 3);
+     * </pre>
+     */
+    public function zPopMin($key, $count = 1)
+    {
+    }
+
+    /**
      * Adds a value to the hash stored at key. If this value is already in the hash, FALSE is returned.
      *
      * @param string $key
@@ -3594,7 +3651,7 @@ class Redis
      *
      * @param string $key
      *
-     * @return int|false the number of items in a hash, FALSE if the key doesn't exist or isn't a hash
+     * @return int|bool the number of items in a hash, FALSE if the key doesn't exist or isn't a hash
      *
      * @link    https://redis.io/commands/hlen
      * @example
@@ -3617,7 +3674,7 @@ class Redis
      * @param string $hashKey1
      * @param string ...$otherHashKeys
      *
-     * @return int|false Number of deleted fields
+     * @return int|bool Number of deleted fields
      *
      * @link    https://redis.io/commands/hdel
      * @example
