@@ -30,6 +30,7 @@ class PHPDefineConstant extends PHPConst
         $this->name = $constName;
         $this->value = $this->getConstValue($node->args[1]);
         $this->collectLinks($node);
+        $this->collectSinceDeprecatedVersions($node);
         return $this;
     }
 }
