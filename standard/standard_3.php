@@ -126,7 +126,7 @@ function floor ($value) {}
  * PHP_ROUND_HALF_EVEN, or
  * PHP_ROUND_HALF_ODD.
  * </p>
- * @return float|false The rounded value
+ * @return float The rounded value
  * @since 4.0
  * @since 5.0
  */
