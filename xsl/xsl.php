@@ -131,7 +131,7 @@ class XSLTProcessor  {
 	 * Path to the file to dump profiling information.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-	 * @since 5.3.0
+	 * @since 5.3
 	 */
 	public function setProfiling ($filename) {}
 
@@ -140,7 +140,7 @@ class XSLTProcessor  {
 	 * @link https://php.net/manual/en/xsltprocessor.setsecurityprefs.php
 	 * @param int $securityPrefs
 	 * @return int
-	 * @since 5.4.0
+	 * @since 5.4
 	 */
 	public function setSecurityPrefs ($securityPrefs) {}
 
@@ -148,7 +148,7 @@ class XSLTProcessor  {
 	 * Get security preferences
 	 * @link https://php.net/manual/en/xsltprocessor.getsecurityprefs.php
 	 * @return int
-	 * @since 5.4.0
+	 * @since 5.4
 	 */
 	public function getSecurityPrefs () {}
 

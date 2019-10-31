@@ -138,28 +138,28 @@ define ('NAN', NAN);
 /**
  * Round halves up
  * @link https://php.net/manual/en/math.constants.php
- * @since 5.3.0
+ * @since 5.3
  */
 define ('PHP_ROUND_HALF_UP', 1);
 
 /**
  * Round halves down
  * @link https://php.net/manual/en/math.constants.php
- * @since 5.3.0
+ * @since 5.3
  */
 define ('PHP_ROUND_HALF_DOWN', 2);
 
 /**
  * Round halves to even numbers
  * @link https://php.net/manual/en/math.constants.php
- * @since 5.3.0
+ * @since 5.3
  */
 define ('PHP_ROUND_HALF_EVEN', 3);
 
 /**
  * Round halves to odd numbers
  * @link https://php.net/manual/en/math.constants.php
- * @since 5.3.0
+ * @since 5.3
  */
 define ('PHP_ROUND_HALF_ODD', 4);
 define ('INFO_GENERAL', 1);
@@ -282,7 +282,7 @@ define ('ENT_NOQUOTES', 0);
  * Silently discard invalid code unit sequences instead of returning an empty string.
  * Using this flag is discouraged as it may have security implications.
  * @link https://php.net/manual/en/function.htmlspecialchars.php
- * @since 5.3.0
+ * @since 5.3
  */
 define ('ENT_IGNORE', 4);
 define ('STR_PAD_LEFT', 0);
@@ -294,7 +294,7 @@ define ('PATHINFO_EXTENSION', 4);
 
 /**
  * @link https://php.net/manual/en/filesystem.constants.php
- * @since 5.2.0
+ * @since 5.2
  */
 define ('PATHINFO_FILENAME', 8);
 define ('CHAR_MAX', 127);
@@ -820,7 +820,7 @@ define ('SORT_STRING', 2);
 /**
  * SORT_LOCALE_STRING is used to compare items as
  * strings, based on the current locale.
- * @since 4.4.0
+ * @since 4.4
  * @since 5.0.2
  * @link https://php.net/manual/en/array.constants.php
  */
@@ -1014,14 +1014,14 @@ define ('IMAGETYPE_XBM', 16);
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
- * @since 5.3.0
+ * @since 5.3
  */
 define ('IMAGETYPE_ICO', 17);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
- * @since 7.1.0
+ * @since 7.1
  */
 define('IMAGETYPE_WEBP', 18);
 define('IMAGETYPE_UNKNOWN', 0);
@@ -1172,19 +1172,19 @@ define('PHP_OUTPUT_HANDLER_DISABLED', 8192);
 define('SID', "name=ID");
 /**
  * Return value of session_status() if sessions are disabled.
- * @since 5.4.0
+ * @since 5.4
  * @link https://php.net/manual/en/function.session-status.php
  */
 define('PHP_SESSION_DISABLED', 0);
 /**
  * Return value of session_status() if sessions are enabled, but no session exists.
- * @since 5.4.0
+ * @since 5.4
  * @link https://php.net/manual/en/function.session-status.php
  */
 define('PHP_SESSION_NONE', 1);
 /**
  * Return value of session_status() if sessions are enabled, and a session exists.
- * @since 5.4.0
+ * @since 5.4
  * @link https://php.net/manual/en/function.session-status.php
  */
 define('PHP_SESSION_ACTIVE', 2);
@@ -1192,7 +1192,7 @@ define('PHP_SESSION_ACTIVE', 2);
 /**
  * Replace invalid code unit sequences with a Unicode Replacement Character
  * U+FFFD (UTF-8) or &#FFFD; (otherwise) instead of returning an empty string.
- * @since 5.4.0
+ * @since 5.4
  * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_SUBSTITUTE', 8);
@@ -1202,31 +1202,31 @@ define('ENT_SUBSTITUTE', 8);
  * (otherwise) instead of leaving them as is. This may be useful,
  * for instance, to ensure the well-formedness of XML documents
  * with embedded external content.
- * @since 5.4.0
+ * @since 5.4
  * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_DISALLOWED', 128);
 /**
  * Handle code as HTML 4.01.
- * @since 5.4.0
+ * @since 5.4
  * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_HTML401', 0);
 /**
  * Handle code as XML 1.
- * @since 5.4.0
+ * @since 5.4
  * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_XML1', 16);
 /**
  * Handle code as XHTML.
- * @since 5.4.0
+ * @since 5.4
  * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_XHTML', 32);
 /**
  * Handle code as HTML 5.
- * @since 5.4.0
+ * @since 5.4
  * @link https://php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_HTML5', 48);
@@ -1243,13 +1243,13 @@ define('SCANDIR_SORT_NONE', 2);
 
 /**
  * SORT_NATURAL is used to compare items as strings using "natural ordering" like natsort().
- * @since 5.4.0
+ * @since 5.4
  * @link https://php.net/manual/en/array.constants.php
  */
 define('SORT_NATURAL', 6);
 /**
  * SORT_FLAG_CASE can be combined (bitwise OR) with SORT_STRING or SORT_NATURAL to sort strings case-insensitively.
- * @since 5.4.0
+ * @since 5.4
  * @link https://php.net/manual/en/array.constants.php
  */
 define('SORT_FLAG_CASE', 8);

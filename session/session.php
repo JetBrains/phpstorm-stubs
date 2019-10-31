@@ -355,7 +355,7 @@ function session_cache_limiter ($cache_limiter = null) {}
  * </p>
  * @return int the current setting of session.cache_expire.
  * The value returned should be read in minutes, defaults to 180.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  * @since 7.0
  */
@@ -426,7 +426,7 @@ function session_write_close () {}
  * Alias of <b>session_write_close</b>
  * @link https://php.net/manual/en/function.session-commit.php
  * @return void|bool since 7.2.0 returns true on success or false on failure.
- * @since 4.4.0
+ * @since 4.4
  * @since 5.0
  */
 function session_commit () {}

@@ -665,7 +665,7 @@ function gmp_scan1 ($a, $start) {}
  * The bit to test
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.3.0
+ * @since 5.3
  */
 function gmp_testbit ($a, $index) {}
 
@@ -730,7 +730,7 @@ function gmp_export (GMP $gmpnumber, $word_size = 1, $options = GMP_MSW_FIRST | 
  * and later, or a numeric string provided that it is possible to convert the latter to a number.</p>
  * @param integer $nth The positive root to take of a.
  * @return GMP The integer component of the resultant root, as a GMP number.
- * @since 5.6.0
+ * @since 5.6
  */
 function gmp_root (GMP $a, $nth) {}
 
@@ -742,7 +742,7 @@ function gmp_root (GMP $a, $nth) {}
  * @param integer $nth The positive root to take of a.
  * @return array|GMP[] A two element array, where the first element is the integer component of
  * the root, and the second element is the remainder, both represented as GMP numbers.</p>
- * @since 5.6.0
+ * @since 5.6
  */
 function gmp_rootrem (GMP $a, $nth) {}
 
@@ -753,7 +753,7 @@ function gmp_rootrem (GMP $a, $nth) {}
  * numeric string given that it is possible to convert the latter to a number.</p>
  * @return resource Return the next prime number greater than <i>a</i>,
  * as a GMP number.
- * @since 5.2.0
+ * @since 5.2
  */
 function gmp_nextprime ($a) {}
 
@@ -778,7 +778,7 @@ class GMP implements Serializable {
      * String representation of object
      * @link https://php.net/manual/en/serializable.serialize.php
      * @return string the string representation of the object or null
-     * @since 5.1.0
+     * @since 5.1
      */
     public function serialize() {}
 
@@ -789,7 +789,7 @@ class GMP implements Serializable {
      * The string representation of the object.
      * </p>
      * @return void
-     * @since 5.1.0
+     * @since 5.1
      */
     public function unserialize($serialized) {}
 }

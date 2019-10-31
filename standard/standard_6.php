@@ -72,7 +72,7 @@
  * the timeout expires before anything interesting happens. On error false
  * is returned and a warning raised (this can happen if the system call is
  * interrupted by an incoming signal).
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function stream_select (array &$read, array &$write, array &$except, $tv_sec, $tv_usec = null) {}
@@ -94,7 +94,7 @@ function stream_select (array &$read, array &$write, array &$except, $tv_sec, $t
  * a listing of standard stream parameters.
  * </p>
  * @return resource A stream context resource.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function stream_context_create (array $options = null, array $params = null) {}
@@ -113,7 +113,7 @@ function stream_context_create (array $options = null, array $params = null) {}
  * $params['paramname'] = "paramvalue";.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function stream_context_set_params ($stream_or_context, array $params) {}
@@ -126,7 +126,7 @@ function stream_context_set_params ($stream_or_context, array $params) {}
  * context resource
  * </p>
  * @return array an associate array containing all context options and parameters.
- * @since 5.3.0
+ * @since 5.3
  */
 function stream_context_get_params ($stream_or_context) {}
 
@@ -140,7 +140,7 @@ function stream_context_get_params ($stream_or_context) {}
  * @param string $option 
  * @param mixed $value 
  * @return bool true on success or false on failure.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function stream_context_set_option ($stream_or_context, $wrapper, $option, $value) {}
@@ -151,7 +151,7 @@ function stream_context_set_option ($stream_or_context, $wrapper, $option, $valu
  * @param resource $stream_or_context The stream or context resource to apply the options too.
  * @param array $options The options to set for the default context.
  * @return bool true on success or false on failure.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function stream_context_set_option ($stream_or_context, array $options) {}
@@ -163,7 +163,7 @@ function stream_context_set_option ($stream_or_context, array $options) {}
  * The stream or context to get options from
  * </p>
  * @return array an associative array with the options.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function stream_context_get_options ($stream_or_context) {}
@@ -179,7 +179,7 @@ function stream_context_get_options ($stream_or_context) {}
  * can be used to set the default context.
  * </p>
  * @return resource A stream context resource.
- * @since 5.1.0
+ * @since 5.1
  */
 function stream_context_get_default (array $options = null) {}
 
@@ -195,7 +195,7 @@ function stream_context_get_default (array $options = null) {}
  * $arr['wrapper']['option'] = $value.
  * </p>
  * @return resource the default stream context.
- * @since 5.3.0
+ * @since 5.3
  */
 function stream_context_set_default (array $options) {}
 
@@ -231,7 +231,7 @@ function stream_context_set_default (array $options) {}
  * </p>
  * @return resource a resource which can be used to refer to this filter
  * instance during a call to stream_filter_remove.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function stream_filter_prepend ($stream, $filtername, $read_write = null, $params = null) {}
@@ -267,7 +267,7 @@ function stream_filter_prepend ($stream, $filtername, $read_write = null, $param
  * </p>
  * @return resource a resource which can be used to refer to this filter
  * instance during a call to stream_filter_remove.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function stream_filter_append ($stream, $filtername, $read_write = null, $params = null) {}
@@ -279,7 +279,7 @@ function stream_filter_append ($stream, $filtername, $read_write = null, $params
  * The stream filter to be removed.
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.1.0
+ * @since 5.1
  */
 function stream_filter_remove ($stream_filter) {}
 
@@ -506,7 +506,7 @@ function stream_socket_sendto ($socket, $data, $flags = null, $address = null) {
  * @return bool|int true on success, false if negotiation has failed or
  * 0 if there isn't enough data and you should try again
  * (only for non-blocking sockets).
- * @since 5.1.0
+ * @since 5.1
  */
 function stream_socket_enable_crypto ($stream, $enable, $crypto_type = null, $session_stream = null) {}
 
@@ -554,7 +554,7 @@ function stream_socket_shutdown ($stream, $how) {}
  * </p>
  * @return array|false an array with the two socket resources on success, or
  * false on failure.
- * @since 5.1.0
+ * @since 5.1
  */
 function stream_socket_pair ($domain, $type, $protocol) {}
 
@@ -603,7 +603,7 @@ function stream_get_contents ($handle, $maxlength = null, $offset = null) {}
  * The stream to check.
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.3.0
+ * @since 5.3
  */
 function stream_supports_lock ($stream) {}
 
@@ -665,7 +665,7 @@ function fgetcsv ($handle, $length = 0, $delimiter = ',', $enclosure = '"', $esc
  * </p>
  * @param string $escape_char The optional escape_char parameter sets the escape character (one character only).
  * @return int|false the length of the written string or false on failure.
- * @since 5.1.0
+ * @since 5.1
  */
 function fputcsv ($handle, array $fields, $delimiter = ",", $enclosure = '"', $escape_char = "\\") {}
 
@@ -743,7 +743,7 @@ function get_meta_tags ($filename, $use_include_path = null) {}
  * </p>
  * @return int 0 on success, or EOF if the request cannot be honored.
  * @see stream_set_read_buffer()
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function stream_set_write_buffer ($stream, $buffer) {}
@@ -762,7 +762,7 @@ function stream_set_write_buffer ($stream, $buffer) {}
  * </p>
  * @return int 0 on success, or EOF if the request cannot be honored.
  * @see stream_set_write_buffer()
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function stream_set_read_buffer ($stream, $buffer) {}
@@ -816,7 +816,7 @@ function set_socket_blocking ($socket, $mode) {}
  * on the stream.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function stream_set_blocking ($stream, $mode) {}
@@ -904,7 +904,7 @@ function socket_set_blocking ($socket, $mode) {}
  * <p>
  * uri (string) - the URI/filename associated with this
  * stream.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function stream_get_meta_data ($stream) {}
@@ -974,7 +974,7 @@ function stream_wrapper_register ($protocol, $classname, $flags = null) {}
  * <p>
  * stream_wrapper_register will return false if the
  * protocol already has a handler.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function stream_register_wrapper ($protocol, $classname, $flags = 0) {}
@@ -995,7 +995,7 @@ function stream_resolve_include_path ($filename) {}
  * @param string $protocol <p>
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.1.0
+ * @since 5.1
  */
 function stream_wrapper_unregister ($protocol) {}
 
@@ -1005,7 +1005,7 @@ function stream_wrapper_unregister ($protocol) {}
  * @param string $protocol <p>
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.1.0
+ * @since 5.1
  */
 function stream_wrapper_restore ($protocol) {}
 
@@ -1068,7 +1068,7 @@ function get_headers ($url, $format = null, $context = null) {}
  * The microseconds part of the timeout to be set.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function stream_set_timeout ($stream, $seconds, $microseconds = null) {}
@@ -1154,7 +1154,7 @@ function socket_set_timeout ($stream, $seconds, $microseconds = 0) {}
  * <p>
  * uri (string) - the URI/filename associated with this
  * stream.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function socket_get_status ($stream) {}
@@ -1231,7 +1231,7 @@ function realpath ($path) {}
  * </table>
  * </p>
  * @return bool true if there is a match, false otherwise.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function fnmatch ($pattern, $string, $flags = null) {}

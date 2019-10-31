@@ -13,7 +13,7 @@
  * exists, the <i>perms</i> will be ignored.
  * </p>
  * @return resource a resource handle that can be used to access the System V message queue.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function msg_get_queue ($key, $perms = 0666) {}
@@ -53,7 +53,7 @@ function msg_get_queue ($key, $perms = 0666) {}
  * follows: <i>msg_lspid</i> is set to the process-ID of the
  * calling process, <i>msg_qnum</i> is incremented by 1 and
  * <i>msg_stime</i> is set to the current time.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function msg_send ($queue, $msgtype, $message, $serialize = true, $blocking = true, &$errorcode = null) {}
@@ -142,7 +142,7 @@ function msg_send ($queue, $msgtype, $message, $serialize = true, $blocking = tr
  * follows: msg_lrpid is set to the process-ID of the
  * calling process, msg_qnum is decremented by 1 and
  * msg_rtime is set to the current time.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function msg_receive ($queue, $desiredmsgtype, &$msgtype, $maxsize, &$message, $unserialize = true, $flags = 0, &$errorcode = null) {}
@@ -154,7 +154,7 @@ function msg_receive ($queue, $desiredmsgtype, &$msgtype, $maxsize, &$message, $
  * Message queue resource handle
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function msg_remove_queue ($queue) {}
@@ -232,7 +232,7 @@ function msg_remove_queue ($queue) {}
  * </td>
  * </tr>
  * </table>
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function msg_stat_queue ($queue) {}
@@ -248,7 +248,7 @@ function msg_stat_queue ($queue) {}
  * that you require in the <i>data</i> array.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function msg_set_queue ($queue, array $data) {}
@@ -260,7 +260,7 @@ function msg_set_queue ($queue, array $data) {}
  * Queue key.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.3.0
+ * @since 5.3
  */
 function msg_queue_exists ($key) {}
 

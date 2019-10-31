@@ -871,7 +871,7 @@ function ldap_compare ($link_identifier, $dn, $attribute, $value, $serverctrls =
  * </p>
  * @deprecated 7.0
  * @return bool
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ldap_sort ($link, $result, $sortfilter) {}
@@ -1161,7 +1161,7 @@ function ldap_parse_result ($link, $result, &$errcode, &$matcheddn = null, &$err
  * @link https://php.net/manual/en/function.ldap-start-tls.php
  * @param resource $link
  * @return bool
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ldap_start_tls ($link) {}
@@ -1172,7 +1172,7 @@ function ldap_start_tls ($link) {}
  * @param resource $link
  * @param callable $callback
  * @return bool
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ldap_set_rebind_proc ($link, callable $callback) {}
@@ -1196,7 +1196,7 @@ function ldap_set_rebind_proc ($link, callable $callback) {}
  * (<b>ldap_control_paged_result_response</b>).
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.4.0
+ * @since 5.4
  * @deprecated Since 7.4
  */
 function ldap_control_paged_result ($link, $pagesize, $iscritical = false, $cookie = "") {}
@@ -1215,7 +1215,7 @@ function ldap_control_paged_result ($link, $pagesize, $iscritical = false, $cook
  * The estimated number of entries to retrieve.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.4.0
+ * @since 5.4
  * @deprecated Since 7.4
  */
 function ldap_control_paged_result_response ($link, $result, &$cookie = null, &$estimated = null) {}
@@ -1226,7 +1226,7 @@ function ldap_control_paged_result_response ($link, $result, &$cookie = null, &$
  * @param string $ignore [optional] Characters to ignore when escaping.
  * @param int $flags [optional] The context the escaped string will be used in: LDAP_ESCAPE_FILTER for filters to be used with ldap_search(), or LDAP_ESCAPE_DN for DNs. If neither flag is passed, all chars are escaped.
  * @return string
- * @since 5.6.0
+ * @since 5.6
  */
 
 function ldap_escape ($value, $ignore = "", $flags = 0) {}
@@ -1308,7 +1308,7 @@ function ldap_escape ($value, $ignore = "", $flags = 0) {}
  * </p></p>
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.4.0
+ * @since 5.4
  */
 function ldap_modify_batch ( $link_identifier , $dn , $entry, $serverctrls = []) {}
 

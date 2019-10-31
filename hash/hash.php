@@ -28,7 +28,7 @@ function hash ($algo, $data, $raw_output = false) {}
  * @param string $known_string <p>The string of known length to compare against</p>
  * @param string $user_string <p>The user-supplied string</p>
  * @return bool <p>Returns <b>TRUE</b> when the two strings are equal, <b>FALSE</b> otherwise.</p>
- * @since 5.6.0
+ * @since 5.6
  */
 function hash_equals($known_string, $user_string) {}
 
@@ -197,7 +197,7 @@ function hash_final ($context, $raw_output = false) {}
  * Hashing context returned by <b>hash_init</b>.
  * </p>
  * @return resource a copy of Hashing Context resource.
- * @since 5.3.0
+ * @since 5.3
  */
 function hash_copy ($context) {}
 
@@ -266,7 +266,7 @@ function hash_hmac_algos() {}
  * @return mixed a string containing the derived key as lowercase hexits unless
  * <i>raw_output</i> is set to <b>TRUE</b> in which case the raw
  * binary representation of the derived key is returned.
- * @since 5.5.0
+ * @since 5.5
  */
 function hash_pbkdf2 ($algo, $password, $salt, $iterations, $length = 0, $raw_output = FALSE) {}
 

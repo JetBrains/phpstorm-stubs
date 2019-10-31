@@ -75,7 +75,7 @@
  * the header names and the array values are the values associated with
  * those headers. If no data can be returned,
  * <b>exif_read_data</b> will return <b>FALSE</b>.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function exif_read_data ($stream, $sections = null, $arrays = false, $thumbnail = false) {}
@@ -101,7 +101,7 @@ function read_exif_data ($filename, $sections = null, $arrays = false, $thumbnai
  * </p>
  * @return string|false the header name, or <b>FALSE</b> if <i>index</i> is
  * not a defined EXIF tag id.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function exif_tagname ($index) {}
@@ -126,7 +126,7 @@ function exif_tagname ($index) {}
  * </p>
  * @return string|false the embedded thumbnail, or <b>FALSE</b> if the image contains no
  * thumbnail.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function exif_thumbnail ($stream, &$width = null, &$height = null, &$imagetype = null) {}
@@ -144,7 +144,7 @@ function exif_thumbnail ($stream, &$width = null, &$height = null, &$imagetype =
  * <b>exif_imagetype</b> will emit an <b>E_NOTICE</b>
  * and return <b>FALSE</b> if it is unable to read enough bytes from the file to
  * determine the image type.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function exif_imagetype ($filename) {}

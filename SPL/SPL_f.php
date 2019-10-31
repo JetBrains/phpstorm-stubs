@@ -103,7 +103,7 @@ function spl_autoload_call ($class_name) {}
  * method.
  * </p>
  * @return array An array on success, or false on error.
- * @since 5.1.0
+ * @since 5.1
  */
 function class_parents ($class, $autoload = null) {}
 
@@ -119,7 +119,7 @@ function class_parents ($class, $autoload = null) {}
  * method.
  * </p>
  * @return array An array on success, or false on error.
- * @since 5.1.0
+ * @since 5.1
  */
 function class_implements ($class, $autoload = null) {}
 
@@ -129,7 +129,7 @@ function class_implements ($class, $autoload = null) {}
  * @param object $obj 
  * @return string A string that is unique for each object and is always the same for
  * the same object.
- * @since 5.2.0
+ * @since 5.2
  */
 function spl_object_hash ($obj) {}
 
@@ -143,7 +143,7 @@ function spl_object_hash ($obj) {}
  * Whether to use the iterator element keys as index.
  * </p>
  * @return array An array containing the elements of the iterator.
- * @since 5.1.0
+ * @since 5.1
  */
 function iterator_to_array ($iterator, $use_keys = true) {}
 
@@ -154,7 +154,7 @@ function iterator_to_array ($iterator, $use_keys = true) {}
  * The iterator being counted.
  * </p>
  * @return int The number of elements in iterator.
- * @since 5.1.0
+ * @since 5.1
  */
 function iterator_count ($iterator) {}
 
@@ -173,7 +173,7 @@ function iterator_count ($iterator) {}
  * Arguments to pass to the callback function.
  * </p>
  * @return int the iteration count.
- * @since 5.1.0
+ * @since 5.1
  */
 function iterator_apply ($iterator, $function, array $args = null) {}
 
@@ -187,7 +187,7 @@ function iterator_apply ($iterator, $function, array $args = null) {}
  * @link https://php.net/manual/en/function.class-uses.php
  * @see class_parents()
  * @see get_declared_traits()
- * @since 5.4.0
+ * @since 5.4
  */
 function class_uses($class, bool $autoload = true ) {}
 

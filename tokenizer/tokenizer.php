@@ -25,7 +25,7 @@
  * &gt;, !, etc...),
  * or a three element array containing the token index in element 0, the string
  * content of the original token in element 1 and the line number in element 2.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function token_get_all ($source, $flags = 0) {}
@@ -37,7 +37,7 @@ function token_get_all ($source, $flags = 0) {}
  * The token value.
  * </p>
  * @return string The symbolic name of the given <i>token</i>.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function token_name ($token) {}

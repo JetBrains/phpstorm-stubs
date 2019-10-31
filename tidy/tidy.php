@@ -217,7 +217,7 @@ class tidy  {
 	 * </p>
 	 * @return string a string if the option exists and has documentation available, or
 	 * <b>FALSE</b> otherwise.
-	 * @since 5.1.0
+	 * @since 5.1
 	 */
 	public function getOptDoc ($optname) {}
 
@@ -773,7 +773,7 @@ function tidy_config_count (tidy $object) {}
  * </p>
  * @return string a string if the option exists and has documentation available, or
  * <b>FALSE</b> otherwise.
- * @since 5.1.0
+ * @since 5.1
  */
 function tidy_get_opt_doc (tidy $object, $optname) {}
 

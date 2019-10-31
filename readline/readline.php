@@ -116,7 +116,7 @@ function readline_completion_function (callable $function) {}
  * user input returned.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.1.0
+ * @since 5.1
  */
 function readline_callback_handler_install ($prompt, callable $callback) {}
 
@@ -124,7 +124,7 @@ function readline_callback_handler_install ($prompt, callable $callback) {}
  * Reads a character and informs the readline callback interface when a line is received
  * @link https://php.net/manual/en/function.readline-callback-read-char.php
  * @return void No value is returned.
- * @since 5.1.0
+ * @since 5.1
  */
 function readline_callback_read_char () {}
 
@@ -133,7 +133,7 @@ function readline_callback_read_char () {}
  * @link https://php.net/manual/en/function.readline-callback-handler-remove.php
  * @return bool <b>TRUE</b> if a previously installed callback handler was removed, or
  * <b>FALSE</b> if one could not be found.
- * @since 5.1.0
+ * @since 5.1
  */
 function readline_callback_handler_remove () {}
 
@@ -141,7 +141,7 @@ function readline_callback_handler_remove () {}
  * Redraws the display
  * @link https://php.net/manual/en/function.readline-redisplay.php
  * @return void No value is returned.
- * @since 5.1.0
+ * @since 5.1
  */
 function readline_redisplay () {}
 
@@ -149,7 +149,7 @@ function readline_redisplay () {}
  * Inform readline that the cursor has moved to a new line
  * @link https://php.net/manual/en/function.readline-on-new-line.php
  * @return void No value is returned.
- * @since 5.1.0
+ * @since 5.1
  */
 function readline_on_new_line () {}
 

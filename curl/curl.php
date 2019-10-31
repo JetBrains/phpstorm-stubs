@@ -11,7 +11,7 @@ class CURLFile {
      * @param string $filename <p>Path to the file which will be uploaded.</p>
      * @param string $mimetype [optional] <p>Mimetype of the file.</p>
      * @param string $postname [optional] <p>Name of the file.</p>
-     * @since 5.5.0
+     * @since 5.5
      */
     function __construct($filename, $mimetype, $postname) {
     }
@@ -20,7 +20,7 @@ class CURLFile {
      * Get file name
      * @link https://secure.php.net/manual/en/curlfile.getfilename.php
      * @return string Returns file name.
-     * @since 5.5.0
+     * @since 5.5
      */
     public function getFilename() {
     }
@@ -29,7 +29,7 @@ class CURLFile {
      * Get MIME type
      * @link https://secure.php.net/manual/en/curlfile.getmimetype.php
      * @return string Returns MIME type.
-     * @since 5.5.0
+     * @since 5.5
      */
     public function getMimeType() {
     }
@@ -38,7 +38,7 @@ class CURLFile {
      * Get file name for POST
      * @link https://secure.php.net/manual/en/curlfile.getpostfilename.php
      * @return string Returns file name for POST.
-     * @since 5.5.0
+     * @since 5.5
      */
     public function getPostFilename() {
     }
@@ -47,7 +47,7 @@ class CURLFile {
      * Set MIME type
      * @link https://secure.php.net/manual/en/curlfile.setmimetype.php
      * @param string $mime
-     * @since 5.5.0
+     * @since 5.5
      */
     public function setMimeType($mime) {
     }
@@ -56,7 +56,7 @@ class CURLFile {
      * Set file name for POST
      * https://secure.php.net/manual/en/curlfile.setpostfilename.php
      * @param string $postname
-     * @since 5.5.0
+     * @since 5.5
      */
     public function setPostFilename($postname) {
     }
@@ -64,7 +64,7 @@ class CURLFile {
     /**
      * @link https://secure.php.net/manual/en/curlfile.wakeup.php
      * Unserialization handler
-     * @since 5.5.0
+     * @since 5.5
      */
     public function __wakeup() {
     }
@@ -2137,7 +2137,7 @@ function curl_setopt_array ($ch, array $options) {}
  * A cURL share handle returned by  {@link https://secure.php.net/manual/en/function.curl-share-init.php curl_share_init()}
  * </p>
  * @return void
- * @since 5.5.0
+ * @since 5.5
  */
 function curl_share_close ($sh) {}
 
@@ -2146,7 +2146,7 @@ function curl_share_close ($sh) {}
  * Initialize a cURL share handle
  * @link https://secure.php.net/manual/en/function.curl-share-init.php
  * @return resource Returns resource of type "cURL Share Handle".
- * @since 5.5.0
+ * @since 5.5
  */
 function curl_share_init () {}
 
@@ -2227,7 +2227,7 @@ function curl_share_init () {}
  * </p>
  * @return bool
  * Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.5.0
+ * @since 5.5
  */
 function curl_share_setopt ($sh, $option, $value ) {}
 
@@ -2239,7 +2239,7 @@ function curl_share_setopt ($sh, $option, $value ) {}
  * One of the {@link https://curl.haxx.se/libcurl/c/libcurl-errors.html &nbsp;cURL error codes} constants.
  * </p>
  * @return string|null Returns error description or <b>NULL</b> for invalid error code.
- * @since 5.5.0
+ * @since 5.5
  */
 function curl_strerror ($errornum ) {}
 
@@ -2253,7 +2253,7 @@ function curl_strerror ($errornum ) {}
  * The URL encoded string to be decoded.
  * </p>
  * @return string|false Returns decoded string or FALSE on failure.
- * @since 5.5.0
+ * @since 5.5
  */
 function  curl_unescape ($ch, $str)  {}
 /**
@@ -2333,7 +2333,7 @@ function curl_errno ($ch) {}
  * @param string $str <p>
  * The string to be encoded.</p>
  * @return string|false Returns escaped string or FALSE on failure.
- * @since 5.5.0
+ * @since 5.5
  */
 function curl_escape($ch, $str) {}
 
@@ -2346,7 +2346,7 @@ function curl_escape($ch, $str) {}
  * @param string $postname [optional] <p>Name of the file.</p>
  * @return CURLFile
  * Returns a {@link https://secure.php.net/manual/en/class.curlfile.php CURLFile} object.
- * @since 5.5.0
+ * @since 5.5
  */
 function curl_file_create($filename, $mimetype, $postname) {}
 
@@ -2451,7 +2451,7 @@ function curl_multi_select ($mh, $timeout = 1.0) {}
  * </tbody>
  * </table>
  * @return bool Returns TRUE on success or FALSE on failure.
- * @since 5.5.0
+ * @since 5.5
  */
 function curl_multi_setopt ($mh, $option, $value) {}
 
@@ -2463,7 +2463,7 @@ function curl_multi_setopt ($mh, $option, $value) {}
  * One of the {@link https://curl.haxx.se/libcurl/c/libcurl-errors.html CURLM error codes} constants.
  * </p>
  * @return string|null Returns error string for valid error code, NULL otherwise.
- * @since 5.5.0
+ * @since 5.5
  */
 function curl_multi_strerror ($errornum) {}
 
@@ -2475,7 +2475,7 @@ function curl_multi_strerror ($errornum) {}
  * <p>A cURL handle returned by {@link https://secure.php.net/manual/en/function.curl-init.php curl_init()}.</p>
  * @param int $bitmask <p>One of <b>CURLPAUSE_*</b> constants.</p>
  * @return int Returns an error code (<b>CURLE_OK</b> for no error).
- * @since 5.5.0
+ * @since 5.5
  */
 function curl_pause ($ch, $bitmask ) {}
 
@@ -2486,7 +2486,7 @@ function curl_pause ($ch, $bitmask ) {}
  * @param resource $ch <p>A cURL handle returned by
  * {@link https://secure.php.net/manual/en/function.curl-init.php curl_init()}.</p>
  * @return void
- * @since 5.5.0
+ * @since 5.5
  */
 function curl_reset ($ch) {}
 

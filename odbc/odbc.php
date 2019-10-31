@@ -171,7 +171,7 @@ function odbc_cursor ($result_id) {}
  * called, thereafter use the <b>SQL_FETCH_NEXT</b>.
  * </p>
  * @return array|false <b>FALSE</b> on error, and an array upon success.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function odbc_data_source ($connection_id, $fetch_type) {}

@@ -368,7 +368,7 @@ function strrchr ($haystack, $needle) {}
  * The input string.
  * </p>
  * @return string the shuffled string.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function str_shuffle ($str) {}
@@ -389,7 +389,7 @@ function str_shuffle ($str) {}
  * </p>
  * @return string[]|int an array or an integer, depending on the
  * format chosen.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function str_word_count ($string, $format = null, $charlist = null) {}
@@ -494,7 +494,7 @@ function strcoll ($str1, $str2) {}
  * string will be returned unchanged.
  * Non-numeric number causes returning &null; and
  * emitting E_WARNING.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  * @deprecated 7.4
  */
@@ -637,7 +637,7 @@ function ucfirst ($str) {}
  * The input string.
  * </p>
  * @return string the resulting string.
- * @since 5.3.0
+ * @since 5.3
  */
 function lcfirst ($str) {}
 

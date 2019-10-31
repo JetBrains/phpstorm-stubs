@@ -257,7 +257,7 @@ function jdtounix ($jday) {}
  * on the <i>calendar</i>
  * </p>
  * @return int A Julian Day number.
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function cal_to_jd ($calendar, $month, $day, $year) {}
@@ -274,7 +274,7 @@ function cal_to_jd ($calendar, $month, $day, $year) {}
  * @return array an array containing calendar information like month, day, year,
  * day of week, abbreviated and full names of weekday and month and the
  * date in string form "month/day/year".
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function cal_from_jd ($jd, $calendar) {}
@@ -292,7 +292,7 @@ function cal_from_jd ($jd, $calendar) {}
  * Year in the selected calendar
  * </p>
  * @return int The length in days of the selected month in the given calendar
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function cal_days_in_month ($calendar, $month, $year) {}
@@ -305,7 +305,7 @@ function cal_days_in_month ($calendar, $month, $year) {}
  * information about all calendars is returned.
  * </p>
  * @return array
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function cal_info ($calendar = -1) {}

@@ -409,7 +409,7 @@ function preg_replace_callback_array ($patterns_and_callbacks, $subject , $limit
  * If no matches are found or an error occurred, an empty array
  * is returned when <i>subject</i> is an array
  * or <b>NULL</b> otherwise.
- * @since 5.3.0
+ * @since 5.3
  */
 function preg_filter ($pattern, $replacement, $subject, $limit = -1, &$count = null) {}
 
@@ -492,7 +492,7 @@ function preg_grep ($pattern, array $input, $flags = 0) {}
  * <b>PREG_RECURSION_LIMIT_ERROR</b> (see also pcre.recursion_limit)
  * <b>PREG_BAD_UTF8_ERROR</b>
  * <b>PREG_BAD_UTF8_OFFSET_ERROR</b> (since PHP 5.3.0)
- * @since 5.2.0
+ * @since 5.2
  */
 function preg_last_error () {}
 
@@ -598,7 +598,7 @@ define ('PREG_BAD_UTF8_OFFSET_ERROR', 5);
  * to include unmatched subpatterns in <b>$matches</b> as NULL values.
  * Without this flag, unmatched subpatterns are reported as empty strings,
  * as if they were empty matches. Setting this flag allows to distinguish between these two cases.
- * @since 7.2.0
+ * @since 7.2
  */
 define ('PREG_UNMATCHED_AS_NULL', 512);
 /**

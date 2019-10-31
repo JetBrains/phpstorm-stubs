@@ -344,7 +344,7 @@ function dba_sync ($handle) {}
  * <p>
  * When the internal cdb library is used you will see
  * cdb and cdb_make.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function dba_handlers ($full_info = false) {}
@@ -353,7 +353,7 @@ function dba_handlers ($full_info = false) {}
  * List all open database files
  * @link https://php.net/manual/en/function.dba-list.php
  * @return array An associative array, in the form resourceid =&gt; filename.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function dba_list () {}
