@@ -414,7 +414,7 @@ function scandir ($directory, $sorting_order = null, $context = null) {}
  * <p>
  * On some systems it is impossible to distinguish between empty match and an
  * error.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function glob ($pattern, $flags = null) {}
@@ -919,7 +919,7 @@ function clearstatcache ($clear_realpath_cache = null, $filename = null) {}
  * </p>
  * @return float|false the total number of bytes as a float
  * or false on failure.
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function disk_total_space ($directory) {}
@@ -937,7 +937,7 @@ function disk_total_space ($directory) {}
  * </p>
  * @return float|false the number of available bytes as a float
  * or false on failure.
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function disk_free_space ($directory) {}

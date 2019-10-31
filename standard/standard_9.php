@@ -35,7 +35,7 @@ function array_merge_recursive(array $array1, array $_ = null) { }
  * @param array $array2 [optional]
  * @param array $_ [optional]
  * @return array or null if an error occurs.
- * @since 5.3.0
+ * @since 5.3
  */
 function array_replace(array $array, array $array1, array $array2 = null, array $_ = null) { }
 
@@ -51,7 +51,7 @@ function array_replace(array $array, array $array1, array $array2 = null, array 
  * @param array $array2 [optional]
  * @param array $_ [optional]
  * @return array an array, or &null; if an error occurs.
- * @since 5.3.0
+ * @since 5.3
  */
 function array_replace_recursive(array $array, array $array1, array $array2 = null, array $_ = null) { }
 
@@ -106,7 +106,7 @@ function array_count_values(array $input) { }
  * @param mixed $column <p>The column of values to return. This value may be the integer key of the column you wish to retrieve, or it may be the string key name for an associative array. It may also be NULL to return complete arrays (useful together with index_key to reindex the array).</p>
  * @param mixed $index_key [optional] <p>The column to use as the index/keys for the returned array. This value may be the integer key of the column, or it may be the string key name.</p>
  * @return array Returns an array of values representing a single column from the input array.
- * @since 5.5.0
+ * @since 5.5
  */
 function array_column(array $array, $column, $index_key = null) { }
 
@@ -196,7 +196,7 @@ function array_flip(array $array) { }
  * CASE_LOWER (default)
  * </p>
  * @return array an array with its keys lower or uppercased
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function array_change_key_case(array $input, $case = null) { }
@@ -283,7 +283,7 @@ function array_intersect(array $array1, array $array2, array $_ = null) { }
  * @return array an associative array containing all the entries of
  * array1 which have keys that are present in all
  * arguments.
- * @since 5.1.0
+ * @since 5.1
  */
 function array_intersect_key(array $array1, array $array2, array $_ = null) { }
 
@@ -302,7 +302,7 @@ function array_intersect_key(array $array1, array $array2, array $_ = null) { }
  * </p>
  * @return array the values of array1 whose keys exist
  * in all the arguments.
- * @since 5.1.0
+ * @since 5.1
  */
 function array_intersect_ukey(array $array1, array $array2, array $_ = null, $key_compare_func) { }
 
@@ -343,7 +343,7 @@ function array_uintersect(array $array1, array $array2, array $_ = null, $data_c
  * @param array $_ [optional]
  * @return array an associative array containing all the values in
  * array1 that are present in all of the arguments.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function array_intersect_assoc(array $array1, array $array2, array $_ = null) { }
@@ -446,7 +446,7 @@ function array_diff(array $array1, array $array2, array $_ = null) { }
  * @return array an array containing all the entries from
  * array1 whose keys are not present in any of the
  * other arrays.
- * @since 5.1.0
+ * @since 5.1
  */
 function array_diff_key(array $array1, array $array2, array $_ = null) { }
 
@@ -468,7 +468,7 @@ function array_diff_key(array $array1, array $array2, array $_ = null) { }
  * </p>
  * @return array an array containing all the entries from
  * array1 that are not present in any of the other arrays.
- * @since 5.1.0
+ * @since 5.1
  */
 function array_diff_ukey(array $array1, array $array2, array $_ = null, $key_compare_func) { }
 
@@ -509,7 +509,7 @@ function array_udiff(array $array1, array $array2, array $_ = null, $data_compar
  * @param array $_ [optional]
  * @return array an array containing all the values from
  * array1 that are not present in any of the other arrays.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function array_diff_assoc(array $array1, array $array2, array $_ = null) { }
@@ -626,7 +626,7 @@ function array_sum(array $array) { }
  * The array.
  * </p>
  * @return int|float the product as an integer or float.
- * @since 5.1.0
+ * @since 5.1
  */
 function array_product(array $array) { }
 
@@ -699,7 +699,7 @@ function array_map($callback, array $arr1, array $_ = null) { }
  * </p>
  * @return array a multidimensional numerically indexed array, starting with zero,
  * with each dimension containing size elements.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function array_chunk(array $input, $size, $preserve_keys = null) { }
@@ -910,7 +910,7 @@ function assert_options($what, $value = null) { }
  * When using the optional operator argument, the
  * function will return true if the relationship is the one specified
  * by the operator, false otherwise.
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function version_compare($version1, $version2, $operator = null) { }
@@ -926,7 +926,7 @@ function version_compare($version1, $version2, $operator = null) { }
  * </p>
  * @return int On success the return value will be the created key value, otherwise
  * -1 is returned.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ftok($pathname, $proj) { }
@@ -938,7 +938,7 @@ function ftok($pathname, $proj) { }
  * The input string.
  * </p>
  * @return string the ROT13 version of the given string.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function str_rot13($str) { }
@@ -1127,7 +1127,7 @@ function stream_bucket_new($stream, $buffer) { }
  * The variable value.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function output_add_rewrite_var($name, $value) { }
@@ -1160,7 +1160,7 @@ function output_add_rewrite_var($name, $value) { }
  *
  * @link https://php.net/manual/en/function.output-reset-rewrite-vars.php
  * @return bool true on success or false on failure.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function output_reset_rewrite_vars() { }

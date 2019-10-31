@@ -80,7 +80,7 @@ function shm_put_var ($shm_identifier, $variable_key, $variable) {}
  * The variable key.
  * </p>
  * @return bool <b>TRUE</b> if the entry exists, otherwise <b>FALSE</b>
- * @since 5.3.0
+ * @since 5.3
  */
 function shm_has_var ($shm_identifier, $variable_key) {}
 

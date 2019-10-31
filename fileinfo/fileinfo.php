@@ -161,7 +161,7 @@ function finfo_buffer ($finfo ,$string, $options = FILEINFO_NONE, $context = NUL
  * </p>
  * @return string the content type in MIME format, like 
  * text/plain or application/octet-stream.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function mime_content_type ($filename) {}
@@ -187,14 +187,14 @@ define ('FILEINFO_MIME', 1040);
 
 /**
  * Return the mime type.
- * @since 5.3.0
+ * @since 5.3
  * @link https://php.net/manual/en/fileinfo.constants.php
  */
 define ('FILEINFO_MIME_TYPE', 16);
 
 /**
  * Return the mime encoding of the file.
- * @since 5.3.0
+ * @since 5.3
  * @link https://php.net/manual/en/fileinfo.constants.php
  */
 define ('FILEINFO_MIME_ENCODING', 1024);

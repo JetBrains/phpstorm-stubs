@@ -56,7 +56,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
    	 * returns a string on success and false on error. If the
    	 * parameter is specified, it returns true if the file was written
    	 * successfully and false otherwise.
-	 * @since 5.2.0
+	 * @since 5.2
 	 */
 	public function saveXML ($filename = null) {}
 
@@ -68,7 +68,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
 	 * </p>
 	 * @return SimpleXMLElement[] an array of SimpleXMLElement objects or <b>FALSE</b> in
 	 * case of an error.
-	 * @since 5.2.0
+	 * @since 5.2
 	 */
 	public function xpath ($path) {}
 
@@ -85,7 +85,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
 	 * <i>prefix</i> will not return any results.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-	 * @since 5.2.0
+	 * @since 5.2
 	 */
 	public function registerXPathNamespace ($prefix, $ns) {}
 
@@ -212,7 +212,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
 	 * Counts the children of an element
 	 * @link https://php.net/manual/en/simplexmlelement.count.php
 	 * @return int the number of elements of an element.
-	 * @since 5.3.0
+	 * @since 5.3
 	 */
 	public function count () {}
 
@@ -260,7 +260,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 	 * Rewind to the first element
 	 * @link https://php.net/manual/en/simplexmliterator.rewind.php
 	 * @return void No value is returned.
-	 * @since 5.1.0
+	 * @since 5.1
 	 */
 	public function rewind () {}
 
@@ -268,7 +268,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 	 * Check whether the current element is valid
 	 * @link https://php.net/manual/en/simplexmliterator.valid.php
 	 * @return bool <b>TRUE</b> if the current element is valid, otherwise <b>FALSE</b>
-	 * @since 5.1.0
+	 * @since 5.1
 	 */
 	public function valid () {}
 
@@ -276,7 +276,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 	 * Returns the current element
 	 * @link https://php.net/manual/en/simplexmliterator.current.php
 	 * @return mixed the current element as a <b>SimpleXMLIterator</b> object or <b>NULL</b> on failure.
-	 * @since 5.1.0
+	 * @since 5.1
 	 */
 	public function current () {}
 
@@ -284,7 +284,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 	 * Return current key
 	 * @link https://php.net/manual/en/simplexmliterator.key.php
 	 * @return mixed the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object or <b>FALSE</b>
-	 * @since 5.1.0
+	 * @since 5.1
 	 */
 	public function key () {}
 
@@ -292,7 +292,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 	 * Move to next element
 	 * @link https://php.net/manual/en/simplexmliterator.next.php
 	 * @return void No value is returned.
-	 * @since 5.1.0
+	 * @since 5.1
 	 */
 	public function next () {}
 
@@ -300,7 +300,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 	 * Checks whether the current element has sub elements.
 	 * @link https://php.net/manual/en/simplexmliterator.haschildren.php
 	 * @return bool <b>TRUE</b> if the current element has sub-elements, otherwise <b>FALSE</b>
-	 * @since 5.1.0
+	 * @since 5.1
 	 */
 	public function hasChildren () {}
 
@@ -309,7 +309,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 	 * @link https://php.net/manual/en/simplexmliterator.getchildren.php
 	 * @return SimpleXMLIterator a <b>SimpleXMLIterator</b> object containing
 	 * the sub-elements of the current element.
-	 * @since 5.1.0
+	 * @since 5.1
 	 */
 	public function getChildren () {}
 
@@ -325,7 +325,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 	 * Counts the children of an element
 	 * @link https://php.net/manual/en/simplexmlelement.count.php
 	 * @return int the number of elements of an element.
-	 * @since 5.3.0
+	 * @since 5.3
 	 */
 	public function count () {}
 

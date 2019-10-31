@@ -482,7 +482,7 @@ function imap_fetchstructure ($imap_stream, $msg_number, $options = 0) {}
  * <b>IMAP_GC_TEXTS</b> (texts).
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.3.0
+ * @since 5.3
  */
 function imap_gc ($imap_stream, $caches) {}
 
@@ -1291,7 +1291,7 @@ function imap_get_quota ($imap_stream, $quota_root) {}
  * This function will return <b>FALSE</b> in the case of call failure, and an
  * array of information about the connection upon an un-parsable response
  * from the server.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function imap_get_quotaroot ($imap_stream, $quota_root) {}

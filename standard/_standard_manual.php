@@ -30,7 +30,7 @@ define("__COMPILER_HALT_OFFSET__",0);
  * @return string|false The binary representation of the given data or <b>FALSE</b> on failure.
  * @see bin2hex()
  * @see unpack()
- * @since 5.4.0
+ * @since 5.4
  */
 function hex2bin($data) {};
 

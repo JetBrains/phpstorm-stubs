@@ -211,7 +211,7 @@ function atan ($arg) {}
  * The argument to process
  * </p>
  * @return float Inverse hyperbolic tangent of arg
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function atanh ($arg) {}
@@ -239,7 +239,7 @@ function atan2 ($y, $x) {}
  * The argument to process
  * </p>
  * @return float The hyperbolic sine of arg
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function sinh ($arg) {}
@@ -251,7 +251,7 @@ function sinh ($arg) {}
  * The argument to process
  * </p>
  * @return float The hyperbolic cosine of arg
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function cosh ($arg) {}
@@ -263,7 +263,7 @@ function cosh ($arg) {}
  * The argument to process
  * </p>
  * @return float The hyperbolic tangent of arg
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function tanh ($arg) {}
@@ -275,7 +275,7 @@ function tanh ($arg) {}
  * The argument to process
  * </p>
  * @return float The inverse hyperbolic sine of arg
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function asinh ($arg) {}
@@ -287,14 +287,14 @@ function asinh ($arg) {}
  * The value to process
  * </p>
  * @return float The inverse hyperbolic cosine of arg
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function acosh ($arg) {}
 
 /**
  * Returns exp(number) - 1, computed in a way that is accurate even
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
    when the value of number is close to zero
  * @link https://php.net/manual/en/function.expm1.php
@@ -307,7 +307,7 @@ function expm1 ($arg) {}
 
 /**
  * Returns log(1 + number), computed in a way that is accurate even when
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
    the value of number is close to zero
  * @link https://php.net/manual/en/function.log1p.php
@@ -336,7 +336,7 @@ function pi () {}
  * @return bool true if val is a legal finite
  * number within the allowed range for a PHP float on this platform,
  * else false.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function is_finite ($val) {}
@@ -349,7 +349,7 @@ function is_finite ($val) {}
  * </p>
  * @return bool true if val is 'not a number',
  * else false.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function is_nan ($val) {}
@@ -375,7 +375,7 @@ function intdiv ($dividend,  $divisor) {}
  * The value to check
  * </p>
  * @return bool true if val is infinite, else false.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function is_infinite ($val) {}
@@ -463,7 +463,7 @@ function sqrt ($arg) {}
  * Length of second side
  * </p>
  * @return float Calculated length of the hypotenuse
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function hypot ($x, $y) {}
@@ -709,7 +709,7 @@ function number_format ($number , $decimals = 0 , $dec_point = '.' , $thousands_
 
 /**
  * Returns the floating point remainder (modulo) of the division
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
   of the arguments
  * @link https://php.net/manual/en/function.fmod.php
@@ -731,7 +731,7 @@ function fmod ($x, $y) {}
  * A 32bit IPv4, or 128bit IPv6 address.
  * </p>
  * @return string|false a string representation of the address or false on failure.
- * @since 5.1.0
+ * @since 5.1
  */
 function inet_ntop ($in_addr) {}
 
@@ -743,7 +743,7 @@ function inet_ntop ($in_addr) {}
  * </p>
  * @return string the in_addr representation of the given
  * address
- * @since 5.1.0
+ * @since 5.1
  */
 function inet_pton ($address) {}
 
@@ -822,7 +822,7 @@ function putenv ($setting) {}
  * @param int $optind If the optind parameter is present, then the index where argument parsing stopped will be written to this variable.
  * @return array This function will return an array of option / argument pairs or false on
  * failure.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function getopt ($options, array $longopts = null, &$optind = null) {}
@@ -933,7 +933,7 @@ function quoted_printable_decode ($str) {}
  * The input string.
  * </p>
  * @return string the encoded string.
- * @since 5.3.0
+ * @since 5.3
  */
 function quoted_printable_encode ($str) {}
 
@@ -1067,7 +1067,7 @@ function get_magic_quotes_runtime () {}
  * </p>
  * @return bool true on success or false on failure.
  * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function import_request_variables ($types, $prefix = null) {}

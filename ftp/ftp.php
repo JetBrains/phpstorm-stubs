@@ -61,7 +61,7 @@ function ftp_connect ($host, $port = 21, $timeout = 90) {}
  * <b>ftp_get_option</b>.
  * </p>
  * @return resource|false a SSL-FTP stream on success or <b>FALSE</b> on error.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function ftp_ssl_connect ($host, $port = 21, $timeout = 90) {}
@@ -476,7 +476,7 @@ function ftp_site ($ftp_stream, $command) {}
  * The link identifier of the FTP connection.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ftp_close ($ftp_stream) {}
@@ -518,7 +518,7 @@ function ftp_close ($ftp_stream) {}
  * message will be thrown if the <i>option</i> is not
  * supported or the passed <i>value</i> doesn't match the
  * expected value for the given <i>option</i>.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ftp_set_option ($ftp_stream, $option, $value) {}
@@ -550,7 +550,7 @@ function ftp_set_option ($ftp_stream, $option, $value) {}
  * @return mixed the value on success or <b>FALSE</b> if the given
  * <i>option</i> is not supported. In the latter case, a
  * warning message is also thrown.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ftp_get_option ($ftp_stream, $option) {}
@@ -574,7 +574,7 @@ function ftp_get_option ($ftp_stream, $option) {}
  * @param int $resumepos [optional] <p>The position in the remote file to start downloading from.</p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function ftp_nb_fget ($ftp_stream, $handle, $remote_file, $mode = FTP_BINARY, $resumepos = 0) {}
@@ -598,7 +598,7 @@ function ftp_nb_fget ($ftp_stream, $handle, $remote_file, $mode = FTP_BINARY, $r
  * @param int $resumepos [optional] <p>The position in the remote file to start downloading from.</p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function ftp_nb_get ($ftp_stream, $local_file, $remote_file, $mode = FTP_BINARY, $resumepos = 0) {}
@@ -611,7 +611,7 @@ function ftp_nb_get ($ftp_stream, $local_file, $remote_file, $mode = FTP_BINARY,
  * </p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function ftp_nb_continue ($ftp_stream) {}
@@ -635,7 +635,7 @@ function ftp_nb_continue ($ftp_stream) {}
  * @param int $startpos [optional] <p>The position in the remote file to start uploading to.</p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function ftp_nb_put ($ftp_stream, $remote_file, $local_file, $mode = FTP_BINARY, $startpos = 0) {}
@@ -659,7 +659,7 @@ function ftp_nb_put ($ftp_stream, $remote_file, $local_file, $mode = FTP_BINARY,
  * @param int $startpos [optional] <p>The position in the remote file to start uploading to.</p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function ftp_nb_fput ($ftp_stream, $remote_file, $handle, $mode = FTP_BINARY, $startpos = 0) {}

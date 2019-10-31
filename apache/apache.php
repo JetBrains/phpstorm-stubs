@@ -40,7 +40,7 @@ function apache_get_version () {}
  * Whether to get the top-level variable available to all Apache layers.
  * </p>
  * @return string|false The value of the Apache environment variable on success, or <b>FALSE</b> on failure.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function apache_getenv ( $variable, $walk_to_top = false ) {}
@@ -80,7 +80,7 @@ function apache_note ( $note_name, $note_value = '' ) {}
  * Fetches all HTTP request headers from the current request
  * @link https://php.net/manual/en/function.apache-request-headers.php
  * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b on failure.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function apache_request_headers () {}
@@ -91,7 +91,7 @@ function apache_request_headers () {}
  * This function requires Apache 1.
  * @link https://php.net/manual/en/function.apache-reset-timeout.php
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.1.0
+ * @since 5.1
  */
 function apache_reset_timeout () {}
 
@@ -99,7 +99,7 @@ function apache_reset_timeout () {}
  * Fetch all HTTP response headers
  * @link https://php.net/manual/en/function.apache-response-headers.php
  * @return array|false An array of all Apache response headers on success or <b>FALSE</b> on failure.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function apache_response_headers () {}
@@ -118,7 +118,7 @@ function apache_response_headers () {}
  * Whether to set the top-level variable available to all Apache layers.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function apache_setenv ( $variable, $value, $walk_to_top = false ) {}

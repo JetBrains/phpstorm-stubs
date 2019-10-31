@@ -182,7 +182,7 @@ function ibase_fetch_row ($result_identifier, $fetch_flag = null) {}
  * @return array|false an associative array that corresponds to the fetched row.
  * Subsequent calls will return the next row in the result set, or false if
  * there are no more rows.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function ibase_fetch_assoc ($result, $fetch_flag = null) {}
@@ -616,7 +616,7 @@ function ibase_errcode () {}
  * @param string $middle_name [optional] 
  * @param string $last_name [optional] 
  * @return bool true on success or false on failure.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ibase_add_user ($service_handle, $user_name, $password, $first_name = null, $middle_name = null, $last_name = null) {}
@@ -631,7 +631,7 @@ function ibase_add_user ($service_handle, $user_name, $password, $first_name = n
  * @param string $middle_name [optional] 
  * @param string $last_name [optional] 
  * @return bool true on success or false on failure.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ibase_modify_user ($service_handle, $user_name, $password, $first_name = null, $middle_name = null, $last_name = null) {}
@@ -642,7 +642,7 @@ function ibase_modify_user ($service_handle, $user_name, $password, $first_name 
  * @param resource $service_handle 
  * @param string $user_name 
  * @return bool true on success or false on failure.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ibase_delete_user ($service_handle, $user_name) {}

@@ -270,7 +270,7 @@ function mysql_list_fields ($database_name, $table_name, $link_identifier = null
  * @link https://php.net/manual/en/function.mysql-list-processes.php
  * @param resource $link_identifier [optional] 
  * @return resource|false A result pointer resource on success or false on failure.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function mysql_list_processes ($link_identifier = null) {}
@@ -667,7 +667,7 @@ function mysql_escape_string ($unescaped_string) {}
  * </p>
  * @param resource $link_identifier [optional] 
  * @return string|false the escaped string, or false on error.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function mysql_real_escape_string ($unescaped_string, $link_identifier = null) {}
@@ -681,7 +681,7 @@ function mysql_real_escape_string ($unescaped_string, $link_identifier = null) {
  * flush tables and queries per second. For a complete list of other status 
  * variables, you have to use the SHOW STATUS SQL command. 
  * If <i>link_identifier</i> is invalid, null is returned.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function mysql_stat ($link_identifier = null) {}
@@ -692,7 +692,7 @@ function mysql_stat ($link_identifier = null) {}
  * @link https://php.net/manual/en/function.mysql-thread-id.php
  * @param resource $link_identifier [optional] 
  * @return int|false The thread ID on success or false on failure.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function mysql_thread_id ($link_identifier = null) {}
@@ -703,7 +703,7 @@ function mysql_thread_id ($link_identifier = null) {}
  * @link https://php.net/manual/en/function.mysql-client-encoding.php
  * @param resource $link_identifier [optional] 
  * @return string the default character set name for the current connection.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function mysql_client_encoding ($link_identifier = null) {}
@@ -715,7 +715,7 @@ function mysql_client_encoding ($link_identifier = null) {}
  * @param resource $link_identifier [optional] 
  * @return bool true if the connection to the server MySQL server is working, 
  * otherwise false.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function mysql_ping ($link_identifier = null) {}
@@ -773,7 +773,7 @@ function mysql_get_server_info ($link_identifier = null) {}
  * failure. See the example below for which statements provide information,
  * and what the returned value may look like. Statements that are not listed 
  * will return false.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function mysql_info ($link_identifier = null) {}

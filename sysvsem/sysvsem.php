@@ -65,7 +65,7 @@ function sem_release ($sem_identifier) {}
  * by <b>sem_get</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function sem_remove ($sem_identifier) {}

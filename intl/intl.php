@@ -3195,6 +3195,7 @@ class IntlTimeZone {
      * @link https://secure.php.net/manual/en/intltimezone.getwindowsid.php
      * @param string $timezone
      * @return string|false the Windows timezone or <b>FALSE</b> on failure
+     * @since 7.1
      */
     public static function getWindowsID($timezone) { }
 

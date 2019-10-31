@@ -413,7 +413,7 @@ class ZipArchive implements Countable {
 	 * Counts the number of files in the achive.
 	 * @link https://www.php.net/manual/en/ziparchive.count.php
 	 * @return int
-	 * @since 7.2.0
+	 * @since 7.2
 	 */
 	public function count() {}
 

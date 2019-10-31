@@ -202,7 +202,7 @@ function time_nanosleep ($seconds, $nanoseconds) {}
  * The timestamp when the script should wake.
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.1.0
+ * @since 5.1
  */
 function time_sleep_until ($timestamp) {}
 
@@ -267,7 +267,7 @@ function time_sleep_until ($timestamp) {}
  * recognized using the specified format</td>
  * </tr>
  * </table>
- * @since 5.1.0
+ * @since 5.1
  */
 function strptime ($date, $format) {}
 
@@ -511,7 +511,7 @@ function htmlentities ($string, $quote_style = null, $charset = null, $double_en
  * </p>
  * &reference.strings.charsets;
  * @return string the decoded string.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function html_entity_decode ($string, $quote_style = null, $charset = null) {}
@@ -546,7 +546,7 @@ function html_entity_decode ($string, $quote_style = null, $charset = null) {}
  * </table>
  * </p>
  * @return string the decoded string.
- * @since 5.1.0
+ * @since 5.1
  */
 function htmlspecialchars_decode ($string, $quote_style = null) {}
 
@@ -742,7 +742,7 @@ function get_html_translation_table ($table = null, $quote_style = null, string 
  * hexadecimal number.
  * </p>
  * @return string the sha1 hash as a string.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function sha1 ($str, $raw_output = false) {}
@@ -758,7 +758,7 @@ function sha1 ($str, $raw_output = false) {}
  * 20.
  * </p>
  * @return string|false a string on success, false otherwise.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function sha1_file ($filename, $raw_output = false) {}
@@ -791,7 +791,7 @@ function md5 ($str, $raw_output = false) {}
  * 16.
  * </p>
  * @return string|false a string on success, false otherwise.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function md5_file ($filename, $raw_output = false) {}
@@ -910,7 +910,7 @@ function getimagesize ($filename, array &$imageinfo = null) {}
 
 /**
  * Get Mime-Type for image-type returned by getimagesize, exif_read_data, exif_thumbnail, exif_imagetype
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  * @link https://php.net/manual/en/function.image-type-to-mime-type.php
  * @param int $imagetype <p>
@@ -1260,7 +1260,7 @@ function php_uname ($mode = null) {}
  * still make it into the returned string but a PHP error will also result.
  * This PHP error will be seen both at compile time and while using
  * php_ini_scanned_files.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function php_ini_scanned_files () {}

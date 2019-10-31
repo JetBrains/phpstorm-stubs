@@ -322,7 +322,7 @@ class DOMNode  {
      * Gets an XPath location path for the node
      * @return string|null the XPath, or NULL in case of an error.
      * @link https://secure.php.net/manual/en/domnode.getnodepath.php
-     * @since 5.3.0
+     * @since 5.3
      */
     public function getNodePath () {}
 
@@ -331,7 +331,7 @@ class DOMNode  {
 	 * Get line number for a node
 	 * @link https://php.net/manual/en/domnode.getlineno.php
 	 * @return int Always returns the line number where the node was defined in.
-	 * @since 5.3.0
+	 * @since 5.3
 	 */
      public function getLineNo () {}
 
@@ -525,7 +525,7 @@ class DOMDocumentFragment extends DOMNode  {
      * XML to append.
      * </p>
      * @return bool true on success or false on failure.
-     * @since 5.1.0
+     * @since 5.1
      */
     public function appendXML ($data) {}
 
@@ -1121,7 +1121,7 @@ class DOMDocument extends DOMNode  {
      * be removed.
      * </p>
      * @return bool true on success or false on failure.
-     * @since 5.2.0
+     * @since 5.2
      */
     public function registerNodeClass ($baseclass, $extendedclass) {}
 
@@ -1156,7 +1156,7 @@ class DOMNodeList implements Traversable, Countable {
     public function item ($index) {}
 
     /**
-     * @since 7.2.0
+     * @since 7.2
      */
     public function count() {}
 
@@ -1231,7 +1231,7 @@ class DOMNamedNodeMap implements Traversable, Countable {
     public function removeNamedItemNS ($namespaceURI, $localName) {}
 
     /**
-     * @since 7.2.0
+     * @since 7.2
      */
     public function count() {}
 
@@ -2169,7 +2169,7 @@ class DOMXPath  {
      * </p>
      * @return mixed a typed result if possible or a DOMNodeList
      * containing all nodes matching the given XPath expression.
-     * @since 5.1.0
+     * @since 5.1
      */
     public function evaluate ($expression, $contextnode = null, $registerNodeNS = true) {}
 
@@ -2184,7 +2184,7 @@ class DOMXPath  {
      * an array of function names.
      * </p>
      * @return void
-     * @since 5.3.0
+     * @since 5.3
      */
     public function registerPhpFunctions ($restrict = null) {}
 

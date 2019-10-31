@@ -220,7 +220,7 @@ function ob_start ($output_callback = null, $chunk_size = null, $erase = null) {
  * Flush (send) the output buffer
  * @link https://php.net/manual/en/function.ob-flush.php
  * @return void 
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ob_flush () {}
@@ -229,7 +229,7 @@ function ob_flush () {}
  * Clean (erase) the output buffer
  * @link https://php.net/manual/en/function.ob-clean.php
  * @return void 
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ob_clean () {}
@@ -260,7 +260,7 @@ function ob_end_clean () {}
  * Flush the output buffer, return it as a string and turn off output buffering
  * @link https://php.net/manual/en/function.ob-get-flush.php
  * @return string|false the output buffer or false if no buffering is active.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function ob_get_flush () {}
@@ -270,7 +270,7 @@ function ob_get_flush () {}
  * @link https://php.net/manual/en/function.ob-get-clean.php
  * @return string|false the contents of the output buffer and end output buffering.
  * If output buffering isn't active then false is returned.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function ob_get_clean () {}
@@ -290,7 +290,7 @@ function ob_get_length () {}
  * @link https://php.net/manual/en/function.ob-get-level.php
  * @return int the level of nested output buffering handlers or zero if output
  * buffering is not active.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ob_get_level () {}
@@ -363,7 +363,7 @@ function ob_get_level () {}
  * <tr><td>size</td><td>...</td></tr>
  * <tr><td>blocksize</td><td>...</td></tr>
  * </table>
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ob_get_status ($full_status = null) {}
@@ -398,7 +398,7 @@ function ob_implicit_flush ($flag = 1) {}
  * an anonymous function was used with ob_start,
  * ob_list_handlers will return "default output
  * handler".
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function ob_list_handlers () {}
@@ -930,7 +930,7 @@ function compact ($varname, $_ = null) {}
  * Value to use for filling
  * </p>
  * @return array the filled array
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function array_fill ($start_index, $num, $value) {}
@@ -946,7 +946,7 @@ function array_fill ($start_index, $num, $value) {}
  * Value to use for filling
  * </p>
  * @return array the filled array
- * @since 5.2.0
+ * @since 5.2
  */
 function array_fill_keys (array $keys, $value) {}
 
