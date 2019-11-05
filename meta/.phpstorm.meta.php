@@ -519,6 +519,25 @@ namespace PHPSTORM_META {
     expectedArguments(\AMQPQueue::setFlags(), 0, AMQP_NOPARAM | AMQP_DURABLE | AMQP_PASSIVE | AMQP_EXCLUSIVE | AMQP_AUTODELETE);
     expectedReturnValues(\AMQPQueue::getFlags(), AMQP_NOPARAM | AMQP_DURABLE | AMQP_PASSIVE | AMQP_EXCLUSIVE | AMQP_AUTODELETE);
 
+    /**
+     * Use this constant to mark the function with an argument on the specified position as an exit point
+     *
+     * {@see exitPoint()}
+     */
+    const ANY_ARGUMENT = 1;
+
+    /**
+     * You can use this facility to mark the function as halting the execution flow.
+     * Such marked functions will be treated like die() or exit() calls by control flow inspections.
+     * In most cases, just calling this function with a method or function reference with 0 arguments will work.
+     * To mark the function as the exit point only when it's called with some constant arguments, specify them in $funcionReference param
+     *
+     * {@see ANY_ARGUMENT}
+     */
+    function exitPoint($functionReference) {
+        return "exitPoint " . $functionReference;
+    }
+
 //  override( \ServiceLocatorInterface::get(0),
 //    map( [
 //      "A" => \Exception::class,
