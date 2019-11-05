@@ -538,6 +538,8 @@ namespace PHPSTORM_META {
         return "exitPoint " . $functionReference;
     }
 
+    exitPoint(\trigger_error(ANY_ARGUMENT, \E_USER_ERROR));
+
 //  override( \ServiceLocatorInterface::get(0),
 //    map( [
 //      "A" => \Exception::class,
