@@ -446,7 +446,7 @@ class SoapVar  {
 	 * @param mixed $data <p>
 	 * The data to pass or return.
 	 * </p>
-	 * @param string $encoding <p>
+	 * @param string|int $encoding <p>
 	 * The encoding ID, one of the XSD_... constants.
 	 * </p>
 	 * @param string $type_name [optional] <p>
