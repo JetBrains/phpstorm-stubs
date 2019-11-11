@@ -315,7 +315,7 @@ class DateTime implements DateTimeInterface {
      * (PHP 5 &gt;=5.2.0)<br/>
      * @link https://php.net/manual/en/datetime.construct.php
      * @param string $time [optional]
-     * <p>A date/time string. Valid formats are explained in {@link www.php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
+     * <p>A date/time string. Valid formats are explained in {@link https://php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
      * <p>
      * Enter <b>now</b> here to obtain the current time when using
      * the <em>$timezone</em> parameter.
@@ -771,7 +771,7 @@ class DatePeriod implements Traversable {
     /**
      * Get the number of recurrences
      * @return int
-     * @link https://www.php.net/manual/en/dateperiod.getrecurrences.php
+     * @link https://php.net/manual/en/dateperiod.getrecurrences.php
      * @since 7.2.17
      * @since 7.3.4
      */
