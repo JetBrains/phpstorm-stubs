@@ -2380,7 +2380,7 @@ namespace MongoDB {}
          * Represents a BSON date.
          * @link https://php.net/manual/en/class.mongodb-bson-utcdatetime.php
          */
-        final class UTCDateTime implements Type, TimestampInterface, \Serializable, \JsonSerializable
+        final class UTCDateTime implements Type, UTCDateTimeInterface, \Serializable, \JsonSerializable
         {
             /**
              * Construct a new UTCDateTime
