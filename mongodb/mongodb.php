@@ -2410,26 +2410,6 @@ namespace MongoDB {}
             }
 
             /**
-             * Returns the increment component of this TimestampInterface
-             *
-             * @link https://secure.php.net/manual/en/mongodb-bson-timestampinterface.getincrement.php
-             * @return int
-             */
-            final public function getIncrement()
-            {
-            }
-
-            /**
-             * Returns the timestamp component of this TimestampInterface
-             *
-             * @link https://secure.php.net/manual/en/mongodb-bson-timestampinterface.gettimestamp.php
-             * @return int
-             */
-            final public function getTimestamp()
-            {
-            }
-
-            /**
              * Serialize a UTCDateTime
              * @since 1.2.0
              * @link https://www.php.net/manual/en/mongodb-bson-utcdatetime.serialize.php
