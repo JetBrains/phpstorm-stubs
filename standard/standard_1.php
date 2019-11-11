@@ -1005,7 +1005,7 @@ function similar_text ($first, $second, &$percent = null) {}
  * <p>
  * If the limit parameter is zero, then this is treated as 1.
  * </p>
- * @return array If delimiter is an empty string (""),
+ * @return string[]|false If delimiter is an empty string (""),
  * explode will return false.
  * If delimiter contains a value that is not
  * contained in string and a negative
