@@ -539,6 +539,9 @@ namespace PHPSTORM_META {
     }
 
     exitPoint(\trigger_error(ANY_ARGUMENT, \E_USER_ERROR));
+    exitPoint(\jexit());
+    exitPoint(\wp_die());
+    exitPoint(\dd());
 
 //  override( \ServiceLocatorInterface::get(0),
 //    map( [
