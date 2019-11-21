@@ -2380,7 +2380,7 @@ namespace MongoDB {}
          * Represents a BSON date.
          * @link https://php.net/manual/en/class.mongodb-bson-utcdatetime.php
          */
-        final class UTCDateTime implements Type, TimestampInterface, \Serializable, \JsonSerializable
+        final class UTCDateTime implements Type, UTCDateTimeInterface, \Serializable, \JsonSerializable
         {
             /**
              * Construct a new UTCDateTime
@@ -2406,26 +2406,6 @@ namespace MongoDB {}
              * @return string
              */
             final public function __toString()
-            {
-            }
-
-            /**
-             * Returns the increment component of this TimestampInterface
-             *
-             * @link https://secure.php.net/manual/en/mongodb-bson-timestampinterface.getincrement.php
-             * @return int
-             */
-            final public function getIncrement()
-            {
-            }
-
-            /**
-             * Returns the timestamp component of this TimestampInterface
-             *
-             * @link https://secure.php.net/manual/en/mongodb-bson-timestampinterface.gettimestamp.php
-             * @return int
-             */
-            final public function getTimestamp()
             {
             }
 
