@@ -4,6 +4,8 @@
  * PHP Data Structure stubs, a PECL extension
  * @version 1.0.0
  * @author Dominic Guhl <dominic.guhl@posteo.de>
+ * @copyright © 2019 PHP Documentation Group
+ * @license CC-BY 3.0, https://www.php.net/manual/en/cc.license.php
  */
 
 namespace Ds {
@@ -152,7 +154,8 @@ namespace Ds {
          * the sequence.
          * @param callable $callback A callable to apply to each value in the
          * sequence. The callback should return what the value should be
-         * replaced by.
+         * replaced by.<p>
+         * <code>callback ( mixed $value ) : mixed</code>
          * @link https://www.php.net/manual/en/ds-sequence.apply.php
          */
         public function apply(callable $callback): void;
@@ -179,10 +182,12 @@ namespace Ds {
          * @param callable $callback Optional callable which returns TRUE if the
          * value should be included, FALSE otherwise. If a callback is not
          * provided, only values which are TRUE (see converting to boolean) will
-         * be included.
+         * be included.<p>
+         * <code>callback ( mixed $value ) : bool</code>
          * @return Sequence A new sequence containing all the values for which
          * either the callback returned TRUE, or all values that convert to
          * TRUE if a callback was not provided.
+         * @link https://www.php.net/manual/en/ds-sequence.filter.php
          */
         public function filter(callable $callback = null): Sequence;
 
@@ -247,6 +252,7 @@ namespace Ds {
          * sequence.
          * The callable should return what the new value will be in the new
          * sequence.
+         * <code>callback ( mixed $value ) : mixed</code>
          * @return Sequence The result of applying a callback to each value in
          * the sequence.<p>Note: The values of the current instance won't be
          * affected.
@@ -267,7 +273,7 @@ namespace Ds {
         /**
          * Removes and returns the last value.
          * @return mixed The removed last value.
-         * @throws \UnderflowException if empty.
+         * @throws UnderflowException if empty.
          * @link https://www.php.net/manual/en/ds-sequence.pop.php
          */
         public function pop();
@@ -279,32 +285,136 @@ namespace Ds {
         public function push(...$values): void;
 
         /**
-         * @param callable $callback
-         * @param mixed $initial
-         * @return mixed
+         * Reduces the sequence to a single value using a callback function.
+         * @param callable $callback<p><p>
+         * <code>
+         * callback ( mixed $carry , mixed $value ) : mixed</code>
+         * <b>$carry</b> The return value of the previous callback, or initial if it's
+         * the first iteration.<p>
+         * <b>$value</b> The value of the current iteration.
+         * @param mixed $initial The initial value of the carry value. Can be NULL.
+         * @return mixed The return value of the final callback.
+         * @link https://www.php.net/manual/en/ds-sequence.reduce.php
          */
         public function reduce(callable $callback, $initial = null);
 
-        public function remove(int $index): mixed;
+        /**
+         * Removes and returns a value by index.
+         * @param int $index The index of the value to remove.
+         * @return mixed The value that was removed.
+         * @link https://www.php.net/manual/en/ds-sequence.remove.php
+         */
+        public function remove(int $index);
 
+        /**
+         * Reverses the sequence in-place.
+         * @link https://www.php.net/manual/en/ds-sequence.reverse.php
+         */
         public function reverse(): void;
 
-        public function reversed(): Ds\Sequence;
+        /**
+         * Returns a reversed copy of the sequence.
+         * @return Sequence A reversed copy of the sequence.
+         * <p>Note: The current instance is not affected.
+         */
+        public function reversed(): Sequence;
 
+        /**
+         * Rotates the sequence by a given number of rotations, which is
+         * equivalent to successively calling
+         * $sequence->push($sequence->shift()) if the number of rotations is
+         * positive, or $sequence->unshift($sequence->pop()) if negative.
+         * @param int $rotations The number of times the sequence should be
+         * rotated.
+         * @link https://www.php.net/manual/en/ds-sequence.rotate.php
+         */
         public function rotate(int $rotations): void;
 
-        public function set(int $index, mixed $value): void;
+        /**
+         * Updates a value at a given index.
+         * @param int $index The index of the value to update.
+         * @param mixed $value The new value.
+         * @throws OutOfRangeException if the index is not valid.
+         * @link https://www.php.net/manual/en/ds-sequence.set.php
+         */
+        public function set(int $index, $value): void;
 
-        public function shift(): mixed;
+        /**
+         * Removes and returns the first value.
+         * @return mixed
+         * @throws UnderflowException if empty.
+         * @link https://www.php.net/manual/en/ds-sequence.shift.php
+         */
+        public function shift();
 
-        public function slice(): Ds\Sequence;
+        /**
+         * Creates a sub-sequence of a given range.
+         * @param int $index The index at which the sub-sequence starts.
+         * If positive, the sequence will start at that index in the sequence.
+         * If negative, the sequence will start that far from the end.
+         * @param int|null $length If a length is given and is positive, the
+         * resulting sequence will have up to that many values in it. If the
+         * length results in an overflow, only values up to the end of the
+         * sequence will be included. If a length is given and is negative,
+         * the sequence will stop that many values from the end. If a length
+         * is not provided, the resulting sequence will contain all values
+         * between the index and the end of the sequence.
+         * @return Sequence A sub-sequence of the given range.
+         * @link https://www.php.net/manual/en/ds-sequence.slice.php
+         */
+        public function slice(int $index, int $length = null): Sequence;
 
-        public function sort(): void;
+        /**
+         * Sorts the sequence in-place, using an optional comparator function.
+         * @param callable|null $comparator The comparison function must return
+         * an integer less than, equal to, or greater than zero if the first
+         * argument is considered to be respectively less than, equal to, or
+         * greater than the second. Note that before PHP 7.0.0 this integer had
+         * to be in the range from -2147483648 to 2147483647.<p>
+         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         * <p>Caution: Returning non-integer values from the comparison
+         * function, such as float, will result in an internal cast to integer
+         * of the callback's return value. So values such as 0.99 and 0.1 will
+         * both be cast to an integer value of 0, which will compare such
+         * values as equal.
+         * @link https://www.php.net/manual/en/ds-sequence.sort.php
+         */
+        public function sort(callable $comparator = null): void;
 
-        public function sorted(): Ds\Sequence;
+        /**
+         * Returns a sorted copy, using an optional comparator function.
+         * @param callable|null $comparator The comparison function must return
+         * an integer less than, equal to, or greater than zero if the first
+         * argument is considered to be respectively less than, equal to, or
+         * greater than the second. Note that before PHP 7.0.0 this integer had
+         * to be in the range from -2147483648 to 2147483647.<p>
+         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         * <p>Caution: Returning non-integer values from the comparison
+         * function, such as float, will result in an internal cast to integer
+         * of the callback's return value. So values such as 0.99 and 0.1 will
+         * both be cast to an integer value of 0, which will compare such
+         * values as equal.
+         * @return Sequence Returns a sorted copy of the sequence.
+         * @link https://www.php.net/manual/en/ds-sequence.sort.php
+         */
+        public function sorted(callable $comparator): Sequence;
 
-        public function sum(): number;
+        /**
+         * Returns the sum of all values in the sequence.
+         * <p>Note: Arrays and objects are considered equal to zero when
+         * calculating the sum.
+         * @return float|int The sum of all the values in the sequence as
+         * either a float or int depending on the values in the sequence.
+         */
+        public function sum(): float;
 
-        public function unshift(): void;
+        /**
+         * Adds values to the front of the sequence, moving all the current
+         * values forward to make room for the new values.
+         * @param mixed $values The values to add to the front of the sequence.
+         * <p>Note: Multiple values will be added in the same order that they
+         * are passed.
+         */
+        public function unshift($values): void;
     }
 }
