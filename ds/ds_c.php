@@ -286,7 +286,7 @@ namespace Ds {
 
         /**
          * Reduces the sequence to a single value using a callback function.
-         * @param callable $callback<p><p>
+         * @param callable $callback <p><p>
          * <code>
          * callback ( mixed $carry , mixed $value ) : mixed</code>
          * <b>$carry</b> The return value of the previous callback, or initial if it's
@@ -416,5 +416,392 @@ namespace Ds {
          * are passed.
          */
         public function unshift($values): void;
+    }
+
+
+    /**
+     * A Vector is a sequence of values in a contiguous buffer that grows and
+     * shrinks automatically. It’s the most efficient sequential structure
+     * because a value’s index is a direct mapping to its index in the buffer,
+     * and the growth factor isn't bound to a specific multiple or exponent.
+     * <p><p>
+     * <h3>Strengths
+     * <li>Supports array syntax (square brackets).
+     * <li>Uses less overall memory than an array for the same number of values.
+     * <li>Automatically frees allocated memory when its size drops low enough.
+     * <li>Capacity does not have to be a power of 2.
+     * <li>get(), set(), push(), pop() are all O(1).
+     * <p>
+     * <h3>Weaknesses
+     * <li>shift(), unshift(), insert() and remove() are all O(n).
+     *
+     * @package Ds
+     */
+    class Vector implements Sequence
+    {
+
+        const MIN_CAPACITY = 10;
+
+        /**
+         * Ensures that enough memory is allocated for a required capacity.
+         * This removes the need to reallocate the internal as values are added.
+         * @param int $capacity The number of values for which capacity should
+         * be allocated.
+         * <p>Note: Capacity will stay the same if this value is less than or
+         * equal to the current capacity.
+         * @link https://www.php.net/manual/en/ds-vector.allocate.php
+         */
+        public function allocate(int $capacity): void
+        {
+        }
+
+        /**
+         * Updates all values by applying a callback function to each value in
+         * the vector.
+         * @param callable $callback
+         * <code>callback ( mixed $value ) : mixed</code>
+         * A callable to apply to each value in the vector. The callback should
+         * return what the value should be replaced by.
+         * @link https://www.php.net/manual/en/ds-vector.apply.php
+         */
+        public function apply(callable $callback): void
+        {
+        }
+
+        /**
+         * @inheritDoc
+         * @return int The current capacity.
+         * @link https://www.php.net/manual/en/ds-vector.capacity.php
+         */
+        public function capacity(): int
+        {
+        }
+
+        /**
+         * Removes all values from the vector.
+         * @link https://www.php.net/manual/en/ds-vector.clear.php
+         */
+        public function clear(): void
+        {
+        }
+
+        /**
+         * Determines if the vector contains all values.
+         * @param mixed ...$values Values to check.
+         * @return bool FALSE if any of the provided values are not in the
+         * vector, TRUE otherwise.
+         * @link https://www.php.net/manual/en/ds-sequence.contains.php
+         */
+        public function contains(...$values): bool
+        {
+        }
+
+        /**
+         *Returns a shallow copy of the vector.
+         * @return Vector Returns a shallow copy of the vector.
+         */
+        public function copy(): Vector
+        {
+        }
+
+        /**
+         * Creates a new vector using a callable to determine which values to
+         * include.
+         *
+         * @param callable $callback
+         * Optional callable which returns TRUE if the value should be included,
+         * FALSE otherwise. If a callback is not provided, only values which are
+         * TRUE (see converting to boolean)  will be included.
+         * <code>callback ( mixed $value ) : bool</code>
+         * @return Vector A new vector containing all the values for which
+         * either the callback returned TRUE, or all values that convert to
+         * TRUE if a callback was not provided.
+         * @link https://www.php.net/manual/en/ds-sequence.filter.php
+         */
+        public function filter(callable $callback = null): Vector
+        {
+        }
+
+        /**
+         * Returns the index of the value, or FALSE if not found.
+         * @param mixed $value The value to find.
+         * @return mixed|bool The index of the value, or FALSE if not found.
+         * <p>Note: Values will be compared by value and by type.
+         * @link https://www.php.net/manual/en/ds-sequence.find.php
+         */
+        public function find(mixed $value)
+        {
+        }
+
+        /**
+         * Returns the first value in the vector.
+         * @return mixed
+         * @throws UnderflowException if empty.
+         * @link https://www.php.net/manual/en/ds-sequence.first.php
+         */
+        public function first()
+        {
+        }
+
+        /**
+         * Returns the value at a given index.
+         * @param int $index The index to access, starting at 0.
+         * @return mixed
+         * @link https://www.php.net/manual/en/ds-sequence.get.php
+         */
+        public function get(int $index)
+        {
+        }
+
+        /**
+         * Inserts values into the sequence at a given index.
+         *
+         * @param int $index The index at which to insert. 0 <= index <= count
+         * Note:<br>
+         * You can insert at the index equal to the number of values.
+         * @param array $values The value or values to insert.
+         * @link https://www.php.net/manual/en/ds-sequence.insert.php
+         */
+        public function insert(int $index, ...$values): void
+        {
+        }
+
+        /**
+         * Joins all values together as a string using an optional separator between each value.
+         *
+         * @param string|null $glue An optional string to separate each value.
+         * @return string All values of the sequence joined together as a string.
+         * @link https://www.php.net/manual/en/ds-sequence.join.php
+         */
+        public function join(?string $glue = null): string
+        {
+        }
+
+        /**
+         * Returns the last value in the sequence.
+         *
+         * @return mixed The last value in the sequence.
+         * @link https://www.php.net/manual/en/ds-sequence.last.php
+         */
+        public function last()
+        {
+        }
+
+        /**
+         * Returns the result of applying a callback function to each value in the sequence.
+         *
+         * @param callable $callback A callable to apply to each value in the sequence.
+         * <br>The callable should return what the new value will be in the new sequence.
+         *
+         * @return Vector
+         * @link https://www.php.net/manual/en/ds-sequence.map.php
+         */
+        public function map(callable $callback): Vector
+        {
+        }
+
+        /**
+         * Returns the result of adding all given values to the sequence.
+         *
+         * @param Traversable|array $values A traversable object or an array.
+         * @return Vector The result of adding all given values to the sequence, effectively the same as adding the
+         * values to a copy, then returning that copy.<br>
+         * Note:<br>
+         * The current instance won't be affected.
+         * @link https://www.php.net/manual/en/ds-sequence.merge.php
+         */
+        public function merge($values): Vector
+        {
+        }
+
+        /**
+         * Removes and returns the last value.
+         *
+         * @return mixed
+         * @link https://www.php.net/manual/en/ds-sequence.pop.php
+         */
+        public function pop()
+        {
+        }
+
+        /**
+         * Adds values to the end of the sequence.
+         * @param array $values
+         * @link https://www.php.net/manual/en/ds-sequence.push.php
+         */
+        public function push(...$values): void
+        {
+        }
+
+        /**
+         * Reduces the sequence to a single value using a callback function.
+         * @param callable $callback <br>
+         * <code>callback ( mixed $carry , mixed $value ) : mixed</code><br>
+         * <b>carry</b> The return value of the previous callback, or initial if it's the first iteration.<br>
+         * <b>value</b> The value of the current iteration.
+         * @param mixed $initial The initial value of the carry value. Can be NULL.
+         *
+         * @return mixed|void The return value of the final callback.
+         *
+         * @link https://www.php.net/manual/en/ds-sequence.reduce.php
+         */
+        public function reduce(callable $callback, $initial = null)
+        {
+        }
+
+        /**
+         * Removes and returns a value by index.
+         * @param int $index The index of the value to remove.
+         * @return mixed The value that was removed.
+         * @link https://www.php.net/manual/en/ds-sequence.remove.php
+         */
+        public function remove(int $index)
+        {
+        }
+
+        /**
+         * Reverses the sequence in-place.
+         * @link https://www.php.net/manual/en/ds-sequence.reverse.php
+         */
+        public function reverse(): void
+        {
+        }
+
+        /**
+         * Returns a reversed copy of the sequence.
+         * @return Vector A reversed copy of the sequence.<br>
+         * Note: The current instance is not affected.
+         * @link https://www.php.net/manual/en/ds-sequence.reversed.php
+         */
+        public function reversed(): Vector
+        {
+        }
+
+        /**
+         * Rotates the sequence by a given number of rotations, which is equivalent to successively calling $sequence->push($sequence->shift()) if the number of rotations is positive, or $sequence->unshift($sequence->pop()) if negative.
+         * @param int $rotations The number of times the sequence should be rotated.
+         */
+        public function rotate(int $rotations): void
+        {
+        }
+
+        /**
+         * Updates a value at a given index.
+         * @param int $index The index of the value to update.
+         * @param mixed $value The new value.
+         * @throws OutOfRangeException if the index is not valid.
+         */
+        public function set(int $index, $value): void
+        {
+        }
+
+        /**
+         * Removes and returns the first value.
+         * @return mixed The first value, which was removed.
+         * @throws UnderflowException if empty.
+         */
+        public function shift()
+        {
+        }
+
+        /**
+         * Creates a sub-sequence of a given range.
+         * @param int $index The index at which the sub-sequence starts. If positive, the sequence will start at that
+         * index in the sequence. If negative, the sequence will start that far from the end.
+         * @param int|null $length If a length is given and is positive, the resulting sequence will have up to that many values in it. If the length results in an overflow, only values up to the end of the sequence will be included. If a length is given and is negative, the sequence will stop that many values from the end. If a length is not provided, the resulting sequence will contain all values between the index and the end of the sequence.
+         * @return Vector
+         */
+        public function slice(int $index, int $length = null): Vector
+        {
+        }
+
+        /**
+         * Sorts the sequence in-place, using an optional comparator function.
+         * @param callable $comparator The comparison function must return an integer less than, equal to, or greater
+         * than zero if the first argument is considered to be respectively less than, equal to, or greater than the
+         * second. Note that before PHP 7.0.0 this integer had to be in the range from -2147483648 to 2147483647.<br>
+         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         * Caution: Returning non-integer values from the comparison function, such as float, will result in an
+         * internal cast to integer of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.
+         */
+        public function sort(callable $comparator = null): void
+        {
+        }
+
+        /**
+         * Returns a sorted copy, using an optional comparator function.
+         * @param callable $comparator The comparison function must return an integer less than, equal to, or greater
+         * than zero if the first argument is considered to be respectively less than, equal to, or greater than the
+         * second. Note that before PHP 7.0.0 this integer had to be in the range from -2147483648 to 2147483647.<br>
+         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         * Caution: Returning non-integer values from the comparison function, such as float, will result in an
+         * internal cast to integer of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.
+         * @return Vector Returns a sorted copy of the sequence.
+         */
+        public function sorted(callable $comparator): Vector
+        {
+        }
+
+        /**
+         * Returns the sum of all values in the sequence.<br>
+         * Note: Arrays and objects are considered equal to zero when calculating the sum.
+         * @return float
+         */
+        public function sum(): float
+        {
+        }
+
+        /**
+         * Adds values to the front of the sequence, moving all the current values forward to make room for the new values.
+         * @param mixed $values The values to add to the front of the sequence.<br>
+         * Note: Multiple values will be added in the same order that they are passed
+         */
+        public function unshift($values): void
+        {
+        }
+
+        /**
+         * Count elements of an object
+         * @link https://php.net/manual/en/countable.count.php
+         * @return int The custom count as an integer.
+         * </p>
+         * <p>
+         * The return value is cast to an integer.
+         * @since 5.1
+         */
+        public function count(): int
+        {
+        }
+
+        /**
+         * Returns whether the collection is empty.
+         * @link https://www.php.net/manual/en/ds-collection.isempty.php
+         * @return bool
+         */
+        public function isEmpty(): bool
+        {
+        }
+
+        /**
+         * Converts the collection to an array.
+         * <p>Note: Casting to an array is not supported yet.
+         * @link https://www.php.net/manual/en/ds-collection.toarray.php
+         * @return array An array containing all the values in the same order as
+         * the collection.
+         */
+        public function toArray(): array
+        {
+        }
+
+        /**
+         * Specify data which should be serialized to JSON
+         * @link https://php.net/manual/en/jsonserializable.jsonserialize.php
+         * @return mixed data which can be serialized by <b>json_encode</b>,
+         * which is a value of any type other than a resource.
+         * @since 5.4
+         */
+        public function jsonSerialize()
+        {
+        }
     }
 }
