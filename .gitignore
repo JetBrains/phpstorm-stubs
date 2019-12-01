@@ -10,6 +10,7 @@ rest-client.private.env.json
 # Default ignored files
 .idea/workspace.xml
 .idea/shelf
+.idea/*
 
 #Composer
 vendor
