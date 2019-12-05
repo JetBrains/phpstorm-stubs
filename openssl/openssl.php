@@ -389,6 +389,11 @@ function openssl_x509_export($x509, &$output, $notext = true) { }
 function openssl_x509_export_to_file($x509, $outfilename, $notext = true) { }
 
 /**
+ * @since 7.4
+ */
+function openssl_x509_verify($cert, $key){}
+
+/**
  * Exports a PKCS#12 Compatible Certificate Store File to variable.
  * @link https://php.net/manual/en/function.openssl-pkcs12-export.php
  * @param mixed $x509
@@ -1228,22 +1233,34 @@ define('OPENSSL_DEFAULT_STREAM_CIPHERS', "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDS
 define ('STREAM_CRYPTO_METHOD_SSLv2_CLIENT', 3);
 define ('STREAM_CRYPTO_METHOD_SSLv3_CLIENT', 5);
 define ('STREAM_CRYPTO_METHOD_SSLv23_CLIENT', 57);
-define ('STREAM_CRYPTO_METHOD_TLS_CLIENT', 57);
+define ('STREAM_CRYPTO_METHOD_TLS_CLIENT', 121);
 define ('STREAM_CRYPTO_METHOD_SSLv2_SERVER', 2);
 define ('STREAM_CRYPTO_METHOD_SSLv3_SERVER', 4);
-define ('STREAM_CRYPTO_METHOD_SSLv23_SERVER', 56);
-define ('STREAM_CRYPTO_METHOD_TLS_SERVER', 56);
+define ('STREAM_CRYPTO_METHOD_SSLv23_SERVER', 120);
+define ('STREAM_CRYPTO_METHOD_TLS_SERVER', 120);
 
-define("STREAM_CRYPTO_METHOD_ANY_CLIENT", 63);
-define("STREAM_CRYPTO_METHOD_ANY_SERVER", 62);
+define("STREAM_CRYPTO_METHOD_ANY_CLIENT", 127);
+define("STREAM_CRYPTO_METHOD_ANY_SERVER", 126);
 define("STREAM_CRYPTO_METHOD_TLSv1_0_CLIENT", 9);
 define("STREAM_CRYPTO_METHOD_TLSv1_0_SERVER", 8);
 define("STREAM_CRYPTO_METHOD_TLSv1_1_CLIENT", 17);
 define("STREAM_CRYPTO_METHOD_TLSv1_1_SERVER", 16);
 define("STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT", 33);
 define("STREAM_CRYPTO_METHOD_TLSv1_2_SERVER", 32);
+/**
+ * @since 7.4
+ */
+define("STREAM_CRYPTO_METHOD_TLSv1_3_CLIENT", 65);
+/**
+ * @since 7.4
+ */
+define("STREAM_CRYPTO_METHOD_TLSv1_3_SERVER", 64);
 
 define("STREAM_CRYPTO_PROTO_SSLv3", 4);
 define("STREAM_CRYPTO_PROTO_TLSv1_0", 8);
 define("STREAM_CRYPTO_PROTO_TLSv1_1", 16);
 define("STREAM_CRYPTO_PROTO_TLSv1_2", 32);
+/**
+ * @since 7.4
+ */
+define("STREAM_CRYPTO_PROTO_TLSv1_3", 64);

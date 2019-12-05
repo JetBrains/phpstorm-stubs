@@ -1193,6 +1193,18 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
          */
          public function  serialize () {}
 
+        /**
+         * @return array
+         * @since 7.4
+         */
+        public function __serialize(): array {}
+
+        /**
+         * @param array $data
+         * @since 7.4
+         */
+        public function __unserialize(array $data): void {}
+
 }
 
 /**
@@ -2105,6 +2117,18 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
          * @since 5.4
         */
         public function getHash($object) {}
+
+        /**
+         * @return array
+         * @since 7.4
+         */
+        public function __serialize(): array {}
+
+        /**
+         * @param array $data
+         * @since 7.4
+         */
+        public function __unserialize(array $data): void {}
 
 }
 

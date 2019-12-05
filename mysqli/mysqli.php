@@ -1857,10 +1857,9 @@ function mysqli_get_client_info () {}
 /**
  * Returns the MySQL client version as an integer
  * @link https://php.net/manual/en/mysqli.get-client-version.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
  * @return int
  */
-function mysqli_get_client_version ($link) {}
+function mysqli_get_client_version () {}
 
 /**
  * Returns a string representing the type of connection used

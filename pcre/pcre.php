@@ -313,7 +313,7 @@ function preg_replace ($pattern, $replacement, $subject, $limit = -1, &$count = 
 /**
  * Perform a regular expression search and replace using a callback
  * @link https://php.net/manual/en/function.preg-replace-callback.php
- * @param string|string[] $pattern <p>
+ * @param string|string[] $regex <p>
  * The pattern to search for. It can be either a string or an array with
  * strings.
  * </p>
@@ -370,6 +370,7 @@ function preg_replace ($pattern, $replacement, $subject, $limit = -1, &$count = 
  * If specified, this variable will be filled with the number of
  * replacements done.
  * </p>
+ * @param array $flags [optional]
  * @return string|string[]|null <b>preg_replace_callback</b> returns an array if the
  * <i>subject</i> parameter is an array, or a string
  * otherwise. On errors the return value is <b>NULL</b>
@@ -380,7 +381,7 @@ function preg_replace ($pattern, $replacement, $subject, $limit = -1, &$count = 
  * @since 4.0.5
  * @since 5.0
  */
-function preg_replace_callback ($pattern, callable $callback, $subject, $limit = -1, &$count = null) {}
+function preg_replace_callback ($regex, callable $callback, $subject, $limit = -1, &$count = null, $flags=[]) {}
 
 /**
  * Perform a regular expression search and replace using callbacks
@@ -389,10 +390,11 @@ function preg_replace_callback ($pattern, callable $callback, $subject, $limit =
  * @param string|string[] $subject
  * @param int $limit [optional]
  * @param int $count [optional]
+ * @param array $flags [optional]
  * @return string|string[]|null  <p>preg_replace_callback_array() returns an array if the subject parameter is an array, or a string otherwise. On errors the return value is NULL</p>
  * <p>If matches are found, the new subject will be returned, otherwise subject will be returned unchanged.</p>
  */
-function preg_replace_callback_array ($patterns_and_callbacks, $subject , $limit = -1, &$count = null) {}
+function preg_replace_callback_array ($patterns_and_callbacks, $subject , $limit = -1, &$count = null, $flags = []) {}
 
 /**
  * Perform a regular expression search and replace
@@ -615,7 +617,7 @@ define ('PCRE_VERSION_MAJOR', 10);
 /**
  * @since 7.3
  */
-define ('PCRE_VERSION_MINOR', 32);
+define ('PCRE_VERSION_MINOR', 33);
 
 /**
  * @since 7.3

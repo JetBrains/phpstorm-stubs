@@ -1364,6 +1364,16 @@ function mb_scrub($str, $encoding) {}
  */
 function mbereg_search_setpos ($position) {}
 
+/**
+ * Function performs string splitting to an array of defined size chunks.
+ * @param string $str
+ * @param int $split_length [optional]
+ * @param string $encoding [optional]
+ * @return string[]
+ * @since 7.4
+ */
+function mb_str_split($str, $split_length, $encoding){}
+
 define ('MB_OVERLOAD_MAIL', 1);
 define ('MB_OVERLOAD_STRING', 2);
 define ('MB_OVERLOAD_REGEX', 4);
@@ -1390,6 +1400,11 @@ define('MB_CASE_TITLE_SIMPLE', 6);
  * @since 7.3
  */
 define('MB_CASE_FOLD_SIMPLE', 7);
+
+/**
+ * @since 7.4
+ */
+define('MB_ONIGURUMA_VERSION', '6.9.1');
 
 // End of mbstring v.
 ?>

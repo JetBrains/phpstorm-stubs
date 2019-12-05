@@ -1,4 +1,4 @@
-FROM php:7.3
+FROM php:7.4
 RUN set -x \
     && apt-get update \
     && apt-get install -y libldap2-dev libxml2-dev librabbitmq-dev libssh-dev libbz2-dev libevent-dev libfann-dev libgpgme11-dev librdkafka-dev librrd-dev libyaml-dev libcurl4-openssl-dev\

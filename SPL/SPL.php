@@ -1772,6 +1772,18 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     public function serialize() { }
 
     /**
+     * @return array
+     * @since 7.4
+     */
+    public function __serialize(): array {}
+
+    /**
+     * @param array $data
+     * @since 7.4
+     */
+    public function __unserialize(array $data): void {}
+
+    /**
      * Create a new iterator from an ArrayObject instance
      * @link https://php.net/manual/en/arrayobject.getiterator.php
      * @return ArrayIterator An iterator from an <b>ArrayObject</b>.
@@ -2051,6 +2063,19 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @since 5.0
      */
     public function seek($position) { }
+
+    /**
+     * @return array
+     * @since 7.4
+     */
+    public function __serialize(): array {}
+
+    /**
+     * @param array $data
+     * @since 7.4
+     */
+    public function __unserialize(array $data): void {}
+
 }
 
 /**

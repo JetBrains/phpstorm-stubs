@@ -1136,6 +1136,10 @@ define('PHP_MANDIR', '/usr/local/php/php/man');
  */
 define('PHP_BINARY', '/usr/local/php/bin/php');
 
+/**
+ * @since 7.4
+ */
+define('PHP_CLI_PROCESS_TITLE',1);
 
 
 /** @link https://php.net/manual/en/outcontrol.constants.php */

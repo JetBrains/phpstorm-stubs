@@ -8,15 +8,13 @@ define ("ARRAY_FILTER_USE_KEY", 2);
 /**
  * Merge two or more arrays recursively
  * @link https://php.net/manual/en/function.array-merge-recursive.php
- * @param array $array1 <p>
- * Initial array to merge.
- * </p>
- * @param array $_ [optional]
+ * @param array $_ [optional] Variable list of arrays to recursively merge.
  * @return array An array of values resulted from merging the arguments together.
  * @since 4.0.1
  * @since 5.0
  */
-function array_merge_recursive(array $array1, array $_ = null) { }
+function array_merge_recursive(array $_ = null) { }
+
 
 /**
  * array_replace() replaces the values of the first array with the same values from all the following arrays.
@@ -1191,5 +1189,15 @@ function realpath_cache_get() { }
  * @since 5.3.2
  */
 function realpath_cache_size() { }
+
+/**
+ * It returns the same result as (array) $object, with the
+ * exception that it ignores overloaded array casts, such as used by
+ * ArrayObject.
+ * @param $obj
+ * @return array returns the mangled object properties
+ * @since 7.4
+ */
+function get_mangled_object_vars($obj){}
 
 ?>

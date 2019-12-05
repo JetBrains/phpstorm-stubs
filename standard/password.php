@@ -36,7 +36,7 @@
  * </ul>
  * @link https://secure.php.net/manual/en/password.constants.php
  */
-define("PASSWORD_DEFAULT", 1);
+define("PASSWORD_DEFAULT", '');
 
 /**
  * <p>
@@ -75,7 +75,7 @@ define("PASSWORD_BCRYPT_DEFAULT_COST", 10);
  * </li>
  * </ul>
  */
-define("PASSWORD_BCRYPT", 1);
+define("PASSWORD_BCRYPT", '2y');
 
 /**
  *
@@ -92,7 +92,7 @@ define("PASSWORD_BCRYPT", 1);
  * Available as of PHP 7.2.0.
  * @since 7.2
  */
-define('PASSWORD_ARGON2I', 2);
+define('PASSWORD_ARGON2I', 'argon2i');
 
 /**
  *
@@ -109,7 +109,7 @@ define('PASSWORD_ARGON2I', 2);
  * Available as of PHP 7.3.0.
  * @since 7.3
  */
-define('PASSWORD_ARGON2ID', 3);
+define('PASSWORD_ARGON2ID', 'argon2id');
 
 /**
  * Default amount of memory in bytes that Argon2lib will use while trying to compute a hash.
@@ -131,6 +131,11 @@ define ('PASSWORD_ARGON2_DEFAULT_TIME_COST', 4);
  * @since 7.2
  */
 define('PASSWORD_ARGON2_DEFAULT_THREADS', 1);
+
+/**
+ * @since 7.4
+ */
+define('PASSWORD_ARGON2_PROVIDER', 'standard');
 
 /**
  * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>
@@ -200,4 +205,10 @@ function password_needs_rehash ($hash, $algo, $options = null) {}
  */
 function password_verify ($password, $hash) {}
 
+/**
+ * Return a complete list of all registered password hashing algorithms.
+ * @return string[]
+ * @since 7.4
+ */
+function password_algos(){}
 // End of password v.

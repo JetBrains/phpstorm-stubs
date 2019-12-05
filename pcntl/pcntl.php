@@ -485,6 +485,11 @@ function pcntl_async_signals($on = null) {}
  */
 function pcntl_signal_get_handler($signo) {}
 
+/**
+ * @sine 7.4
+ */
+function pcntl_unshare($flags){}
+
 define ('WNOHANG', 1);
 define ('WUNTRACED', 2);
 define ('WCONTINUED', 8);
@@ -833,6 +838,51 @@ define ('PCNTL_ENOENT', 2);
 define ('PCNTL_ENOEXEC', 8);
 define ('PCNTL_ENOTDIR', 20);
 define ('PCNTL_ETXTBSY', 26);
+
+/**
+ * @since 7.4
+ */
+define ('PCNTL_ENOSPC', 28);
+
+/**
+ * @since 7.4
+ */
+define ('PCNTL_EUSERS', 87);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWNS', 131072);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWIPC', 134217728);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWUTS', 67108864);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWNET', 1073741824);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWPID', 536870912);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWUSER', 268435456);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWCGROUP', 33554432);
 
 // End of pcntl v.
 ?>
