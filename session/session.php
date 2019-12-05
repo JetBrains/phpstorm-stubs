@@ -364,6 +364,24 @@ function session_cache_expire ($new_cache_expire = null) {}
 /**
  * Set the session cookie parameters
  * @link https://php.net/manual/en/function.session-set-cookie-params.php
+ * @param array $options <p>
+ * An associative array which may have any of the keys lifetime, path, domain,
+ * secure, httponly and samesite. The values have the same meaning as described
+ * for the parameters with the same name. The value of the samesite element
+ * should be either Lax or Strict. If any of the allowed options are not given,
+ * their default values are the same as the default values of the explicit
+ * parameters. If the samesite element is omitted, no SameSite cookie attribute
+ * is set.
+ * </p>
+ * @return bool returns true on success or false on failure.
+ * @since 7.3
+ */
+function session_set_cookie_params ($options) {}
+
+
+/**
+ * Set the session cookie parameters
+ * @link https://php.net/manual/en/function.session-set-cookie-params.php
  * @param int $lifetime <p>
  * Lifetime of the
  * session cookie, defined in seconds.
@@ -392,23 +410,6 @@ function session_cache_expire ($new_cache_expire = null) {}
  * @since 5.0
  */
 function session_set_cookie_params ($lifetime, $path = null, $domain = null, $secure = false, $httponly = false) {}
-
-/**
- * Set the session cookie parameters
- * @link https://php.net/manual/en/function.session-set-cookie-params.php
- * @param array $options <p>
- * An associative array which may have any of the keys lifetime, path, domain,
- * secure, httponly and samesite. The values have the same meaning as described
- * for the parameters with the same name. The value of the samesite element
- * should be either Lax or Strict. If any of the allowed options are not given,
- * their default values are the same as the default values of the explicit
- * parameters. If the samesite element is omitted, no SameSite cookie attribute
- * is set.
- * </p>
- * @return bool returns true on success or false on failure.
- * @since 7.3
- */
-function session_set_cookie_params ($options) {}
 
 /**
  * Get the session cookie parameters
