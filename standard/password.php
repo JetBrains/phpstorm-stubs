@@ -167,7 +167,7 @@ function password_get_info ($hash) {}
  * Creates a password hash.
  * @link https://secure.php.net/manual/en/function.password-hash.php
  * @param string $password The user's password.
- * @param int $algo A <a href="https://secure.php.net/manual/en/password.constants.php" class="link">password algorithm constant</a>  denoting the algorithm to use when hashing the password.
+ * @param int|string $algo A <a href="https://secure.php.net/manual/en/password.constants.php" class="link">password algorithm constant</a>  denoting the algorithm to use when hashing the password.
  * @param array $options [optional] <p> An associative array containing options. See the <a href="https://secure.php.net/manual/en/password.constants.php" class="link">password algorithm constants</a> for documentation on the supported options for each algorithm.
  * If omitted, a random salt will be created and the default cost will be used.
  * <b>Warning<b>
