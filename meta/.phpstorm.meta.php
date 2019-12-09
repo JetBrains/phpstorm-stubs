@@ -81,6 +81,7 @@ namespace PHPSTORM_META {
   override(\array_values(0), type(0));
   override(\array_combine(0), type(1));
 
+  override(\str_replace(0), elementType(2));
 
     function expectedArguments($functionReference, $argumentIndex, $values) {
         return "expectedArguments " . $functionReference . "at " . $argumentIndex . ": " . $values;
