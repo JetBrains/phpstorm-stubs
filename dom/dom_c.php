@@ -205,7 +205,7 @@ class DOMNode  {
      * Indicates whether to copy all descendant nodes. This parameter is
      * defaulted to false.
      * </p>
-     * @return DOMNode The cloned node.
+     * @return static The cloned node.
      * @since 5.0
      */
     public function cloneNode ($deep = null) {}
