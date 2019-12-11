@@ -81,6 +81,16 @@ namespace PHPSTORM_META {
   override(\array_values(0), type(0));
   override(\array_combine(0), type(1));
 
+  override(\DOMDocument::importNode(0), type(0));
+  override(\DOMNode::appendChild(0), type(0));
+  override(\DOMNode::insertBefore(0), type(0));
+  override(\DOMNode::cloneNode(0), type(0));
+  override(\DOMNode::removeChild(0), type(0));
+  override(\DOMNode::replaceChild(0), type(1));
+  override(\DOMElement::insertBefore(0), type(0));
+  override(\DOMElement::removeChild(0), type(0));
+  override(\DOMElement::replaceChild(0), type(1));
+
 
     function expectedArguments($functionReference, $argumentIndex, $values) {
         return "expectedArguments " . $functionReference . "at " . $argumentIndex . ": " . $values;
