@@ -86,9 +86,6 @@ namespace PHPSTORM_META {
   override(\DOMNode::insertBefore(0), type(0));
   override(\DOMNode::removeChild(0), type(0));
   override(\DOMNode::replaceChild(0), type(1));
-  override(\DOMElement::insertBefore(0), type(0));
-  override(\DOMElement::removeChild(0), type(0));
-  override(\DOMElement::replaceChild(0), type(1));
 
 
     function expectedArguments($functionReference, $argumentIndex, $values) {
