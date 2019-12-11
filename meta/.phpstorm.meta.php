@@ -84,7 +84,6 @@ namespace PHPSTORM_META {
   override(\DOMDocument::importNode(0), type(0));
   override(\DOMNode::appendChild(0), type(0));
   override(\DOMNode::insertBefore(0), type(0));
-  override(\DOMNode::cloneNode(0), type(0));
   override(\DOMNode::removeChild(0), type(0));
   override(\DOMNode::replaceChild(0), type(1));
   override(\DOMElement::insertBefore(0), type(0));
