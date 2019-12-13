@@ -255,7 +255,7 @@ function dirname ($path, $levels = 1) {}
  * PATHINFO_FILENAME. It
  * defaults to return all elements.
  * </p>
- * @return mixed The following associative array elements are returned:
+ * @return string[]|string The following associative array elements are returned:
  * dirname, basename,
  * extension (if any), and filename.
  * </p>
@@ -368,7 +368,7 @@ function strrchr ($haystack, $needle) {}
  * The input string.
  * </p>
  * @return string the shuffled string.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function str_shuffle ($str) {}
@@ -387,9 +387,9 @@ function str_shuffle ($str) {}
  * @param string $charlist [optional] <p>
  * A list of additional characters which will be considered as 'word'
  * </p>
- * @return mixed an array or an integer, depending on the
+ * @return string[]|int an array or an integer, depending on the
  * format chosen.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function str_word_count ($string, $format = null, $charlist = null) {}
@@ -494,7 +494,7 @@ function strcoll ($str1, $str2) {}
  * string will be returned unchanged.
  * Non-numeric number causes returning &null; and
  * emitting E_WARNING.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  * @deprecated 7.4
  */
@@ -526,8 +526,14 @@ function money_format ($format, $number) {}
  * </p>
  * <p>
  * Using a negative start
- * ]]>
  * </p>
+ * <pre>
+ * <?php
+ * $rest = substr("abcdef", -1);    // returns "f"
+ * $rest = substr("abcdef", -2);    // returns "ef"
+ * $rest = substr("abcdef", -3, 1); // returns "d"
+ * ?>
+ * </pre>
  * @param int $length [optional] <p>
  * If length is given and is positive, the string
  * returned will contain at most length characters
@@ -546,8 +552,15 @@ function money_format ($format, $number) {}
  * If length is given and is 0,
  * false or &null; an empty string will be returned.
  * </p>
- * Using a negative length
- * ]]>
+ * Using a negative length:
+ * <pre>
+ * <?php
+ * $rest = substr("abcdef", 0, -1);  // returns "abcde"
+ * $rest = substr("abcdef", 2, -1);  // returns "cde"
+ * $rest = substr("abcdef", 4, -4);  // returns false
+ * $rest = substr("abcdef", -3, -1); // returns "de"
+ * ?>
+ * </pre>
  * @return string|false the extracted part of string or false on failure.
  * @since 4.0
  * @since 5.0
@@ -586,7 +599,7 @@ function substr ($string, $start, $length = null) {}
  * string at the given
  * start offset.
  * </p>
- * @return mixed The result string is returned. If string is an
+ * @return string|string[] The result string is returned. If string is an
  * array then array is returned.
  * @since 4.0
  * @since 5.0
@@ -624,7 +637,7 @@ function ucfirst ($str) {}
  * The input string.
  * </p>
  * @return string the resulting string.
- * @since 5.3.0
+ * @since 5.3
  */
 function lcfirst ($str) {}
 
@@ -701,14 +714,28 @@ function addslashes ($str) {}
  * When you define a sequence of characters in the charlist argument
  * make sure that you know what characters come between the
  * characters that you set as the start and end of the range.
- * ]]>
+ * </p>
+ * <pre>
+ * <?php
+ * echo addcslashes('foo[ ]', 'A..z');
+ * // output:  \f\o\o\[ \]
+ * // All upper and lower-case letters will be escaped
+ * // ... but so will the [\]^_`
+ * ?>
+ * </pre>
+ * <p>
  * Also, if the first character in a range has a higher ASCII value
  * than the second character in the range, no range will be
  * constructed. Only the start, end and period characters will be
  * escaped. Use the ord function to find the
  * ASCII value for a character.
- * ]]>
  * </p>
+ * <pre>
+ * <?php
+ * echo addcslashes("zoo['.']", 'z..A');
+ * // output:  \zoo['\.']
+ * ?>
+ * </pre>
  * <p>
  * Be careful if you choose to escape characters 0, a, b, f, n, r,
  * t and v. They will be converted to \0, \a, \b, \f, \n, \r, \t
@@ -772,7 +799,7 @@ function rtrim ($str, $charlist = " \t\n\r\0\x0B") {}
  * well.
  * </p>
  * @param int $count [optional] If passed, this will hold the number of matched and replaced needles.
- * @return mixed This function returns a string or an array with the replaced values.
+ * @return string|string[] This function returns a string or an array with the replaced values.
  * @since 4.0
  * @since 5.0
  */
@@ -798,7 +825,7 @@ function str_replace ($search, $replace, $subject, &$count = null) {}
  * be returned in count which is passed by
  * reference.
  * </p>
- * @return mixed a string or an array of replacements.
+ * @return string|string[] a string or an array of replacements.
  * @since 5.0
  */
 function str_ireplace ($search, $replace, $subject, &$count = null) {}
@@ -833,7 +860,7 @@ function str_repeat ($input, $multiplier) {}
  * @param int $mode [optional] <p>
  * See return values.
  * </p>
- * @return mixed Depending on mode
+ * @return int[]|string Depending on mode
  * count_chars returns one of the following:
  * 0 - an array with the byte-value as key and the frequency of
  * every byte as value.
@@ -978,7 +1005,7 @@ function similar_text ($first, $second, &$percent = null) {}
  * <p>
  * If the limit parameter is zero, then this is treated as 1.
  * </p>
- * @return array If delimiter is an empty string (""),
+ * @return string[]|false If delimiter is an empty string (""),
  * explode will return false.
  * If delimiter contains a value that is not
  * contained in string and a negative

@@ -39,6 +39,7 @@ class PHPConst extends BasePHPElement
         $this->name = $this->getConstantFQN($node, $node->name->name);
         $this->value = $this->getConstValue($node);
         $this->collectLinks($node);
+        $this->collectSinceDeprecatedVersions($node);
         if ($node->getAttribute('parent') instanceof ClassConst) {
             $this->parentName = $this->getFQN($node->getAttribute('parent')->getAttribute('parent'));
         }

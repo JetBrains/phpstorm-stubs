@@ -109,7 +109,7 @@ function bcdiv ($dividend, $divisor, $scale = 0) {}
  * @since 4.0
  * @since 5.0
  * @since 7.0
- * @since 7.2.0 scale param added, dividend/divisor no longer truncated
+ * @since 7.2 scale param added, dividend/divisor no longer truncated
  */
 function bcmod ($dividend, $divisor, $scale = 0) {}
 

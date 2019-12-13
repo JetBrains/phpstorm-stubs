@@ -142,7 +142,7 @@
  * Returns 0 if parentheses surround the quantity and CURRENCY_SYMBOL.
  * @return string|false the element as a string, or false if item
  * is not valid.
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function nl_langinfo ($item) {}
@@ -249,7 +249,7 @@ function parse_str ($str, array &$result = null) {}
  * Defaults as a backslash (\)
  * </p>
  * @return array an indexed array containing the fields read.
- * @since 5.3.0
+ * @since 5.3
  */
 function str_getcsv ($input, $delimiter = ",", $enclosure = '"', $escape = "\\") {}
 
@@ -365,7 +365,7 @@ function printf ($format, $args = null, $_ = null) {}
  * @param array $args <p>
  * </p>
  * @return int the length of the outputted string.
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function vprintf ($format, array $args) {}
@@ -382,7 +382,7 @@ function vprintf ($format, array $args) {}
  * @return string Return array values as a formatted string according to
  * format (which is described in the documentation
  * for sprintf).
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function vsprintf ($format, array $args) {}
@@ -437,7 +437,7 @@ function vfprintf ($handle, $format, array $args) {}
  * n stands for number of characters processed so far.
  * </p>
  * @param mixed ...$_
- * @return mixed If only
+ * @return array|int If only
  * two parameters were passed to this function, the values parsed
  * will be returned as an array. Otherwise, if optional parameters are passed,
  * the function will return the number of assigned values. The optional
@@ -456,7 +456,7 @@ function sscanf ($str, $format, &...$_) {}
  * sprintf documentation.
  * </p>
  * @param mixed $_ [optional] 
- * @return mixed If only two parameters were passed to this function, the values parsed will be
+ * @return array|int If only two parameters were passed to this function, the values parsed will be
  * returned as an array. Otherwise, if optional parameters are passed, the
  * function will return the number of assigned values. The optional
  * parameters must be passed by reference.
@@ -480,7 +480,7 @@ function fscanf ($handle, $format, &$_ = null) {}
  * or PHP_URL_FRAGMENT to retrieve just a specific
  * URL component as a string.
  * </p>
- * @return mixed On seriously malformed URLs, parse_url() may return FALSE.
+ * @return array|string|int|null|false On seriously malformed URLs, parse_url() may return FALSE.
  * If the component parameter is omitted, an associative array is returned.
  * At least one element will be present within the array. Potential keys within this array are:
  * scheme - e.g. http
@@ -827,7 +827,7 @@ function shell_exec ($cmd) {}
  * @return resource|false a resource representing the process, which should be freed using
  * proc_close when you are finished with it. On failure
  * returns false.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function proc_open ($cmd, array $descriptorspec, array &$pipes, $cwd = null, array $env = null, array $other_options = null) {}
@@ -840,7 +840,7 @@ function proc_open ($cmd, array $descriptorspec, array &$pipes, $cwd = null, arr
  * be closed.
  * </p>
  * @return int the termination status of the process that was run.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function proc_close ($process) {}
@@ -1104,7 +1104,7 @@ function getmyuid () {}
  * Get PHP script owner's GID
  * @link https://php.net/manual/en/function.getmygid.php
  * @return int the group ID of the current script, or false on error.
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function getmygid () {}

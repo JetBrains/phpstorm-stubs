@@ -29,7 +29,7 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
     {
         $this->expectedArgumentsInfos = array();
         $this->registeredArgumentsSet = array();
-        StubParser::processStubs($this, function (SplFileInfo $file) {
+        StubParser::processStubs($this, null, function (SplFileInfo $file) {
             return $file->getFilename() === '.phpstorm.meta.php';
         });
     }

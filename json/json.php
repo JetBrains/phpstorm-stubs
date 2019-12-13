@@ -15,7 +15,7 @@ interface JsonSerializable  {
 	 * @link https://php.net/manual/en/jsonserializable.jsonserialize.php
 	 * @return mixed data which can be serialized by <b>json_encode</b>,
 	 * which is a value of any type other than a resource.
-	 * @since 5.4.0
+	 * @since 5.4
 	 */
     public function jsonSerialize ();
 
@@ -132,7 +132,7 @@ function json_decode ($json, $assoc = false, $depth = 512, $options = 0) {}
  * @link https://php.net/manual/en/function.json-last-error.php
  * @return int an integer, the value can be one of the following
  * constants:
- * @since 5.3.0
+ * @since 5.3
  */
 function json_last_error () {}
 
@@ -140,35 +140,35 @@ function json_last_error () {}
  * Returns the error string of the last json_encode() or json_decode() call
  * @link https://php.net/manual/en/function.json-last-error-msg.php
  * @return string the error message on success or <b>NULL</b> with wrong parameters.
- * @since 5.5.0
+ * @since 5.5
  */
 function json_last_error_msg () {}
 
 
 /**
  * All &lt; and &gt; are converted to \u003C and \u003E.
- * @since 5.3.0
+ * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_HEX_TAG', 1);
 
 /**
  * All &#38;#38;s are converted to \u0026.
- * @since 5.3.0
+ * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_HEX_AMP', 2);
 
 /**
  * All ' are converted to \u0027.
- * @since 5.3.0
+ * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_HEX_APOS', 4);
 
 /**
  * All " are converted to \u0022.
- * @since 5.3.0
+ * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_HEX_QUOT', 8);
@@ -177,7 +177,7 @@ define ('JSON_HEX_QUOT', 8);
  * Outputs an object rather than an array when a non-associative array is
  * used. Especially useful when the recipient of the output is expecting
  * an object and the array is empty.
- * @since 5.3.0
+ * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_FORCE_OBJECT', 16);
@@ -191,21 +191,21 @@ define ('JSON_NUMERIC_CHECK', 32);
 
 /**
  * Don't escape /.
- * @since 5.4.0
+ * @since 5.4
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_UNESCAPED_SLASHES', 64);
 
 /**
  * Use whitespace in returned data to format it.
- * @since 5.4.0
+ * @since 5.4
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_PRETTY_PRINT', 128);
 
 /**
  * Encode multibyte Unicode characters literally (default is to escape as \uXXXX).
- * @since 5.4.0
+ * @since 5.4
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_UNESCAPED_UNICODE', 256);
@@ -213,14 +213,14 @@ define ('JSON_PARTIAL_OUTPUT_ON_ERROR', 512);
 
 /**
  * Occurs with underflow or with the modes mismatch.
- * @since 5.3.0
+ * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_ERROR_STATE_MISMATCH', 2);
 
 /**
  * Control character error, possibly incorrectly encoded.
- * @since 5.3.0
+ * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_ERROR_CTRL_CHAR', 3);
@@ -278,28 +278,28 @@ define ('JSON_ERROR_UNSUPPORTED_TYPE', 8);
 
 /**
  * No error has occurred.
- * @since 5.3.0
+ * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_ERROR_NONE', 0);
 
 /**
  * The maximum stack depth has been exceeded.
- * @since 5.3.0
+ * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_ERROR_DEPTH', 1);
 
 /**
  * Syntax error.
- * @since 5.3.0
+ * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_ERROR_SYNTAX', 4);
 
 /**
  * Decodes JSON objects as PHP array.
- * @since 5.4.0
+ * @since 5.4
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_OBJECT_AS_ARRAY', 1);
@@ -307,7 +307,7 @@ define ('JSON_PARSER_NOTSTRICT', 4);
 
 /**
  * Decodes large integers as their original string value.
- * @since 5.4.0
+ * @since 5.4
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_BIGINT_AS_STRING', 2);
@@ -374,7 +374,7 @@ define('JSON_THROW_ON_ERROR', 4194304);
  * precedence over <b>JSON_THROW_ON_ERROR</b>.
  * </p>
  *
- * @since 7.3.0
+ * @since 7.3
  * @link https://wiki.php.net/rfc/json_throw_on_error
  */
 class JsonException extends \Exception {

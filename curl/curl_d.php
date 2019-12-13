@@ -13,7 +13,7 @@
 define('CURLOPT_SSH_AUTH_TYPES', 151);
 
 /**
- * @since 5.5.0
+ * @since 5.5
  * @link https://php.net/manual/en/function.curl-setopt.php
  * <b>TRUE</b> tells the library to perform all the required proxy authentication
  * and connection setup, but no data transfer. This option is implemented for
@@ -45,7 +45,7 @@ define('CURLINFO_LOCAL_PORT', 2097194);
 /**
  * A result of {@see curl_share_init()}. Makes the cURL handle to use the data from the shared handle.
  * @link https://php.net/manual/en/function.curl-setopt.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLOPT_SHARE', 10100);
 define ('CURLOPT_IPRESOLVE', 113);
@@ -68,7 +68,7 @@ define ('CURLOPT_NOPROGRESS', 43);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.3.0
+ * @since 5.3
  */
 define ('CURLOPT_PROGRESSFUNCTION', 20056);
 define ('CURLOPT_NOBODY', 44);
@@ -129,13 +129,13 @@ define ('CURLOPT_COOKIE', 10022);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.1.0
+ * @since 5.1
  */
 define ('CURLOPT_COOKIESESSION', 96);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.1.0
+ * @since 5.1
  */
 define ('CURLOPT_AUTOREFERER', 58);
 define ('CURLOPT_SSLCERT', 10025);
@@ -242,97 +242,97 @@ define ('CURLOPT_PRIVATE', 10103);
 /**
  * The last response code
  * @link https://php.net/manual/en/function.curl-getinfo.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLINFO_RESPONSE_CODE', 2097154);
 /**
  * The CONNECT response code
  * @link https://php.net/manual/en/function.curl-getinfo.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLINFO_HTTP_CONNECTCODE', 2097174);
 /**
  * Bitmask indicating the authentication method(s) available according to the previous response
  * @link https://php.net/manual/en/function.curl-getinfo.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLINFO_HTTPAUTH_AVAIL', 2097175);
 /**
  * Bitmask indicating the proxy authentication method(s) available according to the previous response
  * @link https://php.net/manual/en/function.curl-getinfo.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLINFO_PROXYAUTH_AVAIL', 2097176);
 /**
  * Errno from a connect failure. The number is OS and system specific.
  * @link https://php.net/manual/en/function.curl-getinfo.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLINFO_OS_ERRNO', 2097177);
 /**
  * Number of connections curl had to create to achieve the previous transfer
  * @link https://php.net/manual/en/function.curl-getinfo.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLINFO_NUM_CONNECTS', 2097178);
 /**
  * OpenSSL crypto-engines supported
  * @link https://php.net/manual/en/function.curl-getinfo.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLINFO_SSL_ENGINES', 4194331);
 /**
  * All known cookies
  * @link https://php.net/manual/en/function.curl-getinfo.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLINFO_COOKIELIST', 4194332);
 /**
  * Entry path in FTP server
  * @link https://php.net/manual/en/function.curl-getinfo.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLINFO_FTP_ENTRY_PATH', 1048606);
 /**
  * Time in seconds it took from the start until the SSL/SSH connect/handshake to the remote host was completed
  * @link https://php.net/manual/en/function.curl-getinfo.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLINFO_APPCONNECT_TIME',3145761);
 /**
  * TLS certificate chain
  * @link https://php.net/manual/en/function.curl-getinfo.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLINFO_CERTINFO', 4194338);
 /**
  * Info on unmet time conditional
  * @link https://php.net/manual/en/function.curl-getinfo.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLINFO_CONDITION_UNMET', 2097187);
 /**
  * Next RTSP client CSeq
  * @link https://php.net/manual/en/function.curl-getinfo.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLINFO_RTSP_CLIENT_CSEQ', 2097189);
 /**
  * Recently received CSeq
  * @link https://php.net/manual/en/function.curl-getinfo.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLINFO_RTSP_CSEQ_RECV', 2097191);
 /**
  * Next RTSP server CSeq
  * @link https://php.net/manual/en/function.curl-getinfo.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLINFO_RTSP_SERVER_CSEQ', 2097190);
 /**
  * RTSP session ID
  * @link https://php.net/manual/en/function.curl-getinfo.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLINFO_RTSP_SESSION_ID', 1048612);
 define ('CURLCLOSEPOLICY_LEAST_RECENTLY_USED', 2);
@@ -462,55 +462,55 @@ define ('CURLMSG_DONE', 1);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.1.0
+ * @since 5.1
  */
 define ('CURLOPT_FTPSSLAUTH', 129);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.1.0
+ * @since 5.1
  */
 define ('CURLFTPAUTH_DEFAULT', 0);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.1.0
+ * @since 5.1
  */
 define ('CURLFTPAUTH_SSL', 1);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.1.0
+ * @since 5.1
  */
 define ('CURLFTPAUTH_TLS', 2);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.2.0
+ * @since 5.2
  */
 define ('CURLOPT_FTP_SSL', 119);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.2.0
+ * @since 5.2
  */
 define ('CURLFTPSSL_NONE', 0);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.2.0
+ * @since 5.2
  */
 define ('CURLFTPSSL_TRY', 1);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.2.0
+ * @since 5.2
  */
 define ('CURLFTPSSL_CONTROL', 2);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.2.0
+ * @since 5.2
  */
 define ('CURLFTPSSL_ALL', 3);
 define ('CURLOPT_FTP_FILEMETHOD', 138);
@@ -536,13 +536,13 @@ define ('CURLPROTO_ALL', -1);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLMOPT_PIPELINING', 3);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('CURLMOPT_MAXCONNECTS', 6);
 
@@ -1422,14 +1422,14 @@ define("CURLOPT_GSSAPI_DELEGATION",210);
 define("CURLOPT_ACCEPTTIMEOUT_MS",212);
 define("CURLOPT_MAIL_AUTH",10217);
 /**
- * @since 5.5.0
+ * @since 5.5
  */
 define("CURLOPT_SSL_OPTIONS",216);
 define("CURLOPT_TCP_KEEPALIVE",213);
 define("CURLOPT_TCP_KEEPIDLE",214);
 define("CURLOPT_TCP_KEEPINTVL",215);
 /**
- * @since 5.5.0
+ * @since 5.5
  */
 define("CURLSSLOPT_ALLOW_BEAST",1);
 /**

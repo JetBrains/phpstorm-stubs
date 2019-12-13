@@ -380,7 +380,7 @@ class OCI_Collection  {
  * See the parameter description and an example on <a href="https://www.php.net/manual/en/oci8.taf.php">OCI8 Transparent Application Failover (TAF) Support</a> page.
  * </p>
  * @return bool TRUE on success or FALSE on failure.
- * @since 7.2.0
+ * @since 7.2
  */
 function oci_register_taf_callback($connection, $callbackFn) {}
 
@@ -391,7 +391,7 @@ function oci_register_taf_callback($connection, $callbackFn) {}
  * An Oracle connection identifier.
  * </p>
  * @return bool TRUE on success or FALSE on failure.
- * @since 7.2.0
+ * @since 7.2
  */
 function oci_unregister_taf_callback($connection) {}
 

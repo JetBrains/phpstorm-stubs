@@ -6,11 +6,11 @@
  * @param resource $ftp
  * @param string $remote_file
  * @param string $local_file
- * @param int $mode
+ * @param int $mode [optional]
  * @return bool
  * @since 7.2
  */
-function ftp_append ($ftp,  $remote_file,  $local_file,  $mode = 0){}
+function ftp_append ($ftp,  $remote_file,  $local_file,  $mode = FTP_BINARY){}
 
 /**
  * @param resource $ftp
@@ -61,7 +61,7 @@ function ftp_connect ($host, $port = 21, $timeout = 90) {}
  * <b>ftp_get_option</b>.
  * </p>
  * @return resource|false a SSL-FTP stream on success or <b>FALSE</b> on error.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function ftp_ssl_connect ($host, $port = 21, $timeout = 90) {}
@@ -305,7 +305,7 @@ function ftp_pasv ($ftp_stream, $pasv) {}
  * @param string $remote_file <p>
  * The remote file path.
  * </p>
- * @param int $mode <p>
+ * @param int $mode [optional] <p>
  * The transfer mode. Must be either <b>FTP_ASCII</b> or
  * <b>FTP_BINARY</b>.
  * </p>
@@ -316,7 +316,7 @@ function ftp_pasv ($ftp_stream, $pasv) {}
  * @since 4.0
  * @since 5.0
  */
-function ftp_get ($ftp_stream, $local_file, $remote_file, $mode, $resumepos = 0) {}
+function ftp_get ($ftp_stream, $local_file, $remote_file, $mode = FTP_BINARY, $resumepos = 0) {}
 
 /**
  * Downloads a file from the FTP server and saves to an open file
@@ -330,7 +330,7 @@ function ftp_get ($ftp_stream, $local_file, $remote_file, $mode, $resumepos = 0)
  * @param string $remote_file <p>
  * The remote file path.
  * </p>
- * @param int $mode <p>
+ * @param int $mode [optional] <p>
  * The transfer mode. Must be either <b>FTP_ASCII</b> or
  * <b>FTP_BINARY</b>.
  * </p>
@@ -341,7 +341,7 @@ function ftp_get ($ftp_stream, $local_file, $remote_file, $mode, $resumepos = 0)
  * @since 4.0
  * @since 5.0
  */
-function ftp_fget ($ftp_stream, $handle, $remote_file, $mode, $resumepos = 0) {}
+function ftp_fget ($ftp_stream, $handle, $remote_file, $mode = FTP_BINARY, $resumepos = 0) {}
 
 /**
  * Uploads a file to the FTP server
@@ -355,7 +355,7 @@ function ftp_fget ($ftp_stream, $handle, $remote_file, $mode, $resumepos = 0) {}
  * @param string $local_file <p>
  * The local file path.
  * </p>
- * @param int $mode <p>
+ * @param int $mode [optional] <p>
  * The transfer mode. Must be either <b>FTP_ASCII</b> or
  * <b>FTP_BINARY</b>.
  * </p>
@@ -364,7 +364,7 @@ function ftp_fget ($ftp_stream, $handle, $remote_file, $mode, $resumepos = 0) {}
  * @since 4.0
  * @since 5.0
  */
-function ftp_put ($ftp_stream, $remote_file, $local_file, $mode, $startpos = 0) {}
+function ftp_put ($ftp_stream, $remote_file, $local_file, $mode = FTP_BINARY, $startpos = 0) {}
 
 /**
  * Uploads from an open file to the FTP server
@@ -378,7 +378,7 @@ function ftp_put ($ftp_stream, $remote_file, $local_file, $mode, $startpos = 0) 
  * @param resource $handle <p>
  * An open file pointer on the local file. Reading stops at end of file.
  * </p>
- * @param int $mode <p>
+ * @param int $mode [optional] <p>
  * The transfer mode. Must be either <b>FTP_ASCII</b> or
  * <b>FTP_BINARY</b>.
  * </p>
@@ -387,7 +387,7 @@ function ftp_put ($ftp_stream, $remote_file, $local_file, $mode, $startpos = 0) 
  * @since 4.0
  * @since 5.0
  */
-function ftp_fput ($ftp_stream, $remote_file, $handle, $mode, $startpos = 0) {}
+function ftp_fput ($ftp_stream, $remote_file, $handle, $mode = FTP_BINARY, $startpos = 0) {}
 
 /**
  * Returns the size of the given file
@@ -476,7 +476,7 @@ function ftp_site ($ftp_stream, $command) {}
  * The link identifier of the FTP connection.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ftp_close ($ftp_stream) {}
@@ -518,7 +518,7 @@ function ftp_close ($ftp_stream) {}
  * message will be thrown if the <i>option</i> is not
  * supported or the passed <i>value</i> doesn't match the
  * expected value for the given <i>option</i>.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ftp_set_option ($ftp_stream, $option, $value) {}
@@ -550,7 +550,7 @@ function ftp_set_option ($ftp_stream, $option, $value) {}
  * @return mixed the value on success or <b>FALSE</b> if the given
  * <i>option</i> is not supported. In the latter case, a
  * warning message is also thrown.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ftp_get_option ($ftp_stream, $option) {}
@@ -567,17 +567,17 @@ function ftp_get_option ($ftp_stream, $option) {}
  * @param string $remote_file <p>
  * The remote file path.
  * </p>
- * @param int $mode <p>
+ * @param int $mode [optional] <p>
  * The transfer mode. Must be either <b>FTP_ASCII</b> or
  * <b>FTP_BINARY</b>.
  * </p>
  * @param int $resumepos [optional] <p>The position in the remote file to start downloading from.</p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
-function ftp_nb_fget ($ftp_stream, $handle, $remote_file, $mode, $resumepos = 0) {}
+function ftp_nb_fget ($ftp_stream, $handle, $remote_file, $mode = FTP_BINARY, $resumepos = 0) {}
 
 /**
  * Retrieves a file from the FTP server and writes it to a local file (non-blocking)
@@ -591,17 +591,17 @@ function ftp_nb_fget ($ftp_stream, $handle, $remote_file, $mode, $resumepos = 0)
  * @param string $remote_file <p>
  * The remote file path.
  * </p>
- * @param int $mode <p>
+ * @param int $mode [optional] <p>
  * The transfer mode. Must be either <b>FTP_ASCII</b> or
  * <b>FTP_BINARY</b>.
  * </p>
  * @param int $resumepos [optional] <p>The position in the remote file to start downloading from.</p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
-function ftp_nb_get ($ftp_stream, $local_file, $remote_file, $mode, $resumepos = 0) {}
+function ftp_nb_get ($ftp_stream, $local_file, $remote_file, $mode = FTP_BINARY, $resumepos = 0) {}
 
 /**
  * Continues retrieving/sending a file (non-blocking)
@@ -611,7 +611,7 @@ function ftp_nb_get ($ftp_stream, $local_file, $remote_file, $mode, $resumepos =
  * </p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function ftp_nb_continue ($ftp_stream) {}
@@ -628,17 +628,17 @@ function ftp_nb_continue ($ftp_stream) {}
  * @param string $local_file <p>
  * The local file path.
  * </p>
- * @param int $mode <p>
+ * @param int $mode [optional] <p>
  * The transfer mode. Must be either <b>FTP_ASCII</b> or
  * <b>FTP_BINARY</b>.
  * </p>
  * @param int $startpos [optional] <p>The position in the remote file to start uploading to.</p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
-function ftp_nb_put ($ftp_stream, $remote_file, $local_file, $mode, $startpos = 0) {}
+function ftp_nb_put ($ftp_stream, $remote_file, $local_file, $mode = FTP_BINARY, $startpos = 0) {}
 
 /**
  * Stores a file from an open file to the FTP server (non-blocking)
@@ -652,17 +652,17 @@ function ftp_nb_put ($ftp_stream, $remote_file, $local_file, $mode, $startpos = 
  * @param resource $handle <p>
  * An open file pointer on the local file. Reading stops at end of file.
  * </p>
- * @param int $mode <p>
+ * @param int $mode [optional] <p>
  * The transfer mode. Must be either <b>FTP_ASCII</b> or
  * <b>FTP_BINARY</b>.
  * </p>
  * @param int $startpos [optional] <p>The position in the remote file to start uploading to.</p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
-function ftp_nb_fput ($ftp_stream, $remote_file, $handle, $mode, $startpos = 0) {}
+function ftp_nb_fput ($ftp_stream, $remote_file, $handle, $mode = FTP_BINARY, $startpos = 0) {}
 
 /**
  * Alias of <b>ftp_close</b>

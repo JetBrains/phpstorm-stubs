@@ -6,7 +6,7 @@
  * @return array an associative array describing the last error with keys "type",
  * "message", "file" and "line". Returns &null; if there hasn't been an error
  * yet.
- * @since 5.2.0
+ * @since 5.2
  */
 function error_get_last () {}
 
@@ -90,7 +90,7 @@ function call_user_method_array ($method_name, &$obj, array $params) {}
  * </p>
  * @param mixed $_ [optional] 
  * @return mixed the function result, or false on error.
- * @since 5.3.0
+ * @since 5.3
  */
 function forward_static_call ($function, $parameter = null, $_ = null) {}
 
@@ -104,7 +104,7 @@ function forward_static_call ($function, $parameter = null, $_ = null) {}
  * </p>
  * @param array $parameters [optional] 
  * @return mixed the function result, or false on error.
- * @since 5.3.0
+ * @since 5.3
  */
 function forward_static_call_array ($function, array $parameters = null) {}
 
@@ -207,10 +207,10 @@ function var_dump ($expression, $_ = null) {}
  * the variable representation instead of outputing it.
  * </p>
  * &note.uses-ob;
- * @return mixed the variable representation when the return 
+ * @return string|null the variable representation when the return
  * parameter is used and evaluates to true. Otherwise, this function will
  * return &null;.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function var_export ($expression, $return = null) {}
@@ -222,7 +222,7 @@ function var_export ($expression, $return = null) {}
  * The variable being evaluated.
  * </p>
  * @return void 
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function debug_zval_dump ($variable) {}
@@ -239,7 +239,7 @@ function debug_zval_dump ($variable) {}
  * to true, print_r will return its output, instead of
  * printing it (which it does by default).
  * </p>
- * @return mixed If given a string, integer or float,
+ * @return string|true If given a string, integer or float,
  * the value itself will be printed. If given an array, values
  * will be presented in a format that shows keys and elements. Similar
  * notation is used for objects.
@@ -271,7 +271,7 @@ function memory_get_usage ($real_usage = null) {}
  * emalloc() is reported.
  * </p>
  * @return int the memory peak in bytes.
- * @since 5.2.0
+ * @since 5.2
  */
 function memory_get_peak_usage ($real_usage = null) {}
 
@@ -383,7 +383,7 @@ function highlight_string ($str, $return = false) {}
  * @link https://secure.php.net/manual/en/function.hrtime.php
  * @param bool $get_as_number <p>Whether the high resolution time should be returned as array or number.<p>
  * @since 7.3
- * @return mixed Returns an array of integers in the form [seconds, nanoseconds], if the parameter get_as_number is false.
+ * @return int[]|int|float Returns an array of integers in the form [seconds, nanoseconds], if the parameter get_as_number is false.
  * Otherwise the nanoseconds are returned as integer (64bit platforms) or float (32bit platforms).
  */
 function hrtime($get_as_number = FALSE) {}
@@ -452,7 +452,7 @@ function ini_get ($varname) {}
  * <p>
  * It's possible for a directive to have multiple access levels, which is
  * why access shows the appropriate bitmask values.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ini_get_all ($extension = null, $details = null) {}
@@ -505,7 +505,7 @@ function ini_restore ($varname) {}
  * Gets the current include_path configuration option
  * @link https://php.net/manual/en/function.get-include-path.php
  * @return string the path, as a string.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function get_include_path () {}
@@ -518,7 +518,7 @@ function get_include_path () {}
  * </p>
  * @return string|bool the old include_path on
  * success or false on failure.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function set_include_path ($new_include_path) {}
@@ -527,7 +527,7 @@ function set_include_path ($new_include_path) {}
  * Restores the value of the include_path configuration option
  * @link https://php.net/manual/en/function.restore-include-path.php
  * @return void 
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  * @deprecated 7.4
  */
@@ -718,7 +718,7 @@ function header ($string, $replace = true, $http_response_code = null) {}
  * </p>
  * This parameter is case-insensitive.
  * @return void 
- * @since 5.3.0
+ * @since 5.3
  */
 function header_remove ($name = null) {}
 
@@ -835,7 +835,7 @@ function parse_ini_file ($filename, $process_sections = false, $scanner_mode = I
  * </p>
  * @return array|false The settings are returned as an associative array on success,
  * and false on failure.
- * @since 5.3.0
+ * @since 5.3
  */
 function parse_ini_string ($ini, $process_sections = false, $scanner_mode = INI_SCANNER_NORMAL) {}
 
@@ -925,7 +925,7 @@ function gethostbynamel ($hostname) {}
  * @link https://php.net/manual/en/function.gethostname.php
  * @return string|false a string with the hostname on success, otherwise false is
  * returned.
- * @since 5.3.0
+ * @since 5.3
  */
 function gethostname () {}
 

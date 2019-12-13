@@ -831,6 +831,15 @@ class PDO  {
 	const SQLSRV_CURSOR_BUFFERED = 42;
 
 	/**
+	 * @since 7.4
+	 */
+	const SQLITE_ATTR_READONLY_STATEMENT = 1;
+	/**
+	 * @since 7.4
+	 */
+	const SQLITE_ATTR_EXTENDED_RESULT_CODES = 2;
+
+	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>
 	 * Creates a PDO instance representing a connection to a database
 	 * @link https://php.net/manual/en/pdo.construct.php

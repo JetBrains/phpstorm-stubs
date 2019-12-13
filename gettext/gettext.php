@@ -99,7 +99,7 @@ function bindtextdomain ($domain, $directory) {}
  * @return string correct plural form of message identified by
  * <i>msgid1</i> and <i>msgid2</i>
  * for count <i>n</i>.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ngettext ($msgid1, $msgid2, $n) {}
@@ -114,7 +114,7 @@ function ngettext ($msgid1, $msgid2, $n) {}
  * @param string $msgid2
  * @param int $n
  * @return string A string on success.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function dngettext ($domain, $msgid1, $msgid2, $n) {}
@@ -130,7 +130,7 @@ function dngettext ($domain, $msgid1, $msgid2, $n) {}
  * @param int $n
  * @param int $category
  * @return string A string on success.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function dcngettext ($domain, $msgid1, $msgid2, $n, $category) {}
@@ -145,7 +145,7 @@ function dcngettext ($domain, $msgid1, $msgid2, $n, $category) {}
  * The code set
  * </p>
  * @return string A string on success.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function bind_textdomain_codeset ($domain, $codeset) {}

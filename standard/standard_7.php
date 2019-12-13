@@ -414,7 +414,7 @@ function scandir ($directory, $sorting_order = null, $context = null) {}
  * <p>
  * On some systems it is impossible to distinguish between empty match and an
  * error.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function glob ($pattern, $flags = null) {}
@@ -848,9 +848,13 @@ function lchgrp ($filename, $group) {}
  * not work properly. To ensure the expected operation,
  * you need to prefix mode with a zero (0):
  * </p>
- * <p>
- * ]]>
- * </p>
+ * <pre>
+ * <?php 
+ * chmod("/somedir/somefile", 755);   // decimal; probably incorrect 
+ * chmod("/somedir/somefile", "u+rwx,go+rx"); // string; incorrect 
+ * chmod("/somedir/somefile", 0755);  // octal; correct value of mode 
+ * ?>
+ * </pre>
  * <p>
  * The mode parameter consists of three octal
  * number components specifying access restrictions for the owner,
@@ -915,7 +919,7 @@ function clearstatcache ($clear_realpath_cache = null, $filename = null) {}
  * </p>
  * @return float|false the total number of bytes as a float
  * or false on failure.
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function disk_total_space ($directory) {}
@@ -933,7 +937,7 @@ function disk_total_space ($directory) {}
  * </p>
  * @return float|false the number of available bytes as a float
  * or false on failure.
- * @since 4.1.0
+ * @since 4.1
  * @since 5.0
  */
 function disk_free_space ($directory) {}
@@ -976,11 +980,16 @@ function diskfreespace ($directory) {}
  * than 70 characters.
  * </p>
  * <p>
+ * <strong>Caution</strong>
  * (Windows only) When PHP is talking to a SMTP server directly, if a full
  * stop is found on the start of a line, it is removed. To counter-act this,
  * replace these occurrences with a double dot.
- * ]]>
  * </p>
+ * <pre>
+ * <?php
+ * $text = str_replace("\n.", "\n..", $text);
+ * ?>
+ * </pre>
  * @param string|array $additional_headers [optional] <p>
  * String or array to be inserted at the end of the email header.<br/>
  * Since 7.2.0 accepts an array. Its keys are the header names and its values are the respective header values.

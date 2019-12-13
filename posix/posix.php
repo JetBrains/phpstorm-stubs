@@ -341,7 +341,7 @@ function posix_mkfifo ($pathname, $mode) {}
  * The minor device kernel identifier.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.1.0
+ * @since 5.1
  */
 function posix_mknod ($pathname, $mode, $major = 0, $minor = 0) {}
 
@@ -364,7 +364,7 @@ function posix_mknod ($pathname, $mode, $major = 0, $minor = 0) {}
  * existence of the file.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.1.0
+ * @since 5.1
  */
 function posix_access ($file, $mode = POSIX_F_OK) {}
 
@@ -712,7 +712,7 @@ function posix_getrlimit () {}
  * @link https://php.net/manual/en/function.posix-get-last-error.php
  * @return int the errno (error number) set by the last posix function that
  * failed. If no errors exist, 0 is returned.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function posix_get_last_error () {}
@@ -720,7 +720,7 @@ function posix_get_last_error () {}
 /**
  * Alias of <b>posix_get_last_error</b>
  * @link https://php.net/manual/en/function.posix-errno.php
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function posix_errno () {}
@@ -734,7 +734,7 @@ function posix_errno () {}
  * string "Success" is returned.
  * </p>
  * @return string the error message, as a string.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function posix_strerror ($errno) {}
@@ -749,7 +749,7 @@ function posix_strerror ($errno) {}
  * Typically the group number from the password file.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.2.0
+ * @since 5.2
  */
 function posix_initgroups ($name, $base_group_id) {}
 

@@ -5,7 +5,7 @@
  * Get the boolean value of a variable
  * @param mixed $var <p>the scalar value being converted to a boolean.</p>
  * @return bool The boolean value of var.
- * @since 5.5.0
+ * @since 5.5
  */
 function boolval($var) {}
 
@@ -44,7 +44,7 @@ function intval ($var, $base = 10) {}
  * @link https://php.net/manual/en/function.floatval.php
  * @param mixed $var May be any scalar type. should not be used on objects, as doing so will emit an E_NOTICE level error and return 1.
  * @return float value of the given variable. Empty arrays return 0, non-empty arrays return 1.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function floatval ($var) {}
@@ -594,8 +594,12 @@ function fread ($handle, $length) {}
  * <p>
  * On the Windows platform, be careful to escape any backslashes
  * used in the path to the file, or use forward slashes.
- * ]]>
  * </p>
+ * <pre>
+ * <?php
+ * $handle = fopen("c:\\folder\\resource.txt", "r");
+ * ?>
+ * </pre>
  * @param string $mode <p>
  * The mode parameter specifies the type of access
  * you require to the stream. It may be any of the following:
@@ -1054,7 +1058,7 @@ function file ($filename, $flags = null, $context = null) {}
  * of file is reached.
  * </p>
  * @return string|false The function returns the read data or false on failure.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function file_get_contents ($filename, $use_include_path = false, $context = null, $offset = 0, $maxlen = null) {}
@@ -1119,7 +1123,7 @@ function file_get_contents ($filename, $use_include_path = false, $context = nul
  * <td>
  * Acquire an exclusive lock on the file while proceeding to the 
  * writing. Mutually exclusive with FILE_APPEND.
- * @since 5.1.0
+ * @since 5.1
  * </td>
  * </tr>
  * </table>

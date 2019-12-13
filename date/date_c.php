@@ -203,7 +203,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @param int $second [optional] <p> Second of the time. </p>
      * @param int $microseconds [optional] <p> Microseconds of the time. </p>
      * @return static|false
-     * @since 7.1.0 $microseconds parameter added.
+     * @since 7.1 $microseconds parameter added.
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
     public function setTime($hour, $minute, $second = 0, $microseconds = 0) { }
@@ -315,7 +315,7 @@ class DateTime implements DateTimeInterface {
      * (PHP 5 &gt;=5.2.0)<br/>
      * @link https://php.net/manual/en/datetime.construct.php
      * @param string $time [optional]
-     * <p>A date/time string. Valid formats are explained in {@link www.php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
+     * <p>A date/time string. Valid formats are explained in {@link https://php.net/manual/en/datetime.formats.php Date and Time Formats}.</p>
      * <p>
      * Enter <b>now</b> here to obtain the current time when using
      * the <em>$timezone</em> parameter.
@@ -417,7 +417,7 @@ class DateTime implements DateTimeInterface {
      * @param int $second
      * @param int $microseconds
      * @return static|false
-     * @since 7.1.0 $microseconds parameter added.
+     * @since 7.1 $microseconds parameter added.
      * @link https://php.net/manual/en/datetime.settime.php
      */
     public function setTime ($hour, $minute, $second=0, $microseconds=0) {}
@@ -671,7 +671,7 @@ class DateInterval {
 /**
  * Representation of date period.
  * @link https://php.net/manual/en/class.dateperiod.php
- * @since 5.3.0
+ * @since 5.3
  */
 class DatePeriod implements Traversable {
     const EXCLUDE_START_DATE = 1;
@@ -718,7 +718,7 @@ class DatePeriod implements Traversable {
      * @param DateTimeInterface $end
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link https://php.net/manual/en/dateperiod.construct.php
-     * @since 5.3.0
+     * @since 5.3
      */
     public function __construct (DateTimeInterface $start, DateInterval $interval, DateTimeInterface $end, $options=0) {}
 
@@ -728,7 +728,7 @@ class DatePeriod implements Traversable {
      * @param int $recurrences Number of recurrences
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link https://php.net/manual/en/dateperiod.construct.php
-     * @since 5.3.0
+     * @since 5.3
      */
     public function __construct (DateTimeInterface $start, DateInterval $interval, $recurrences, $options=0) {}
 
@@ -736,7 +736,7 @@ class DatePeriod implements Traversable {
      * @param string $isostr String containing the ISO interval.
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link https://php.net/manual/en/dateperiod.construct.php
-     * @since 5.3.0
+     * @since 5.3
      */
     public function __construct ($isostr, $options=0) {}
 
@@ -771,7 +771,7 @@ class DatePeriod implements Traversable {
     /**
      * Get the number of recurrences
      * @return int
-     * @link https://www.php.net/manual/en/dateperiod.getrecurrences.php
+     * @link https://php.net/manual/en/dateperiod.getrecurrences.php
      * @since 7.2.17
      * @since 7.3.4
      */

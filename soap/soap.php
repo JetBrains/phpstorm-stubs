@@ -446,7 +446,7 @@ class SoapVar  {
 	 * @param mixed $data <p>
 	 * The data to pass or return.
 	 * </p>
-	 * @param string $encoding <p>
+	 * @param string|int $encoding <p>
 	 * The encoding ID, one of the XSD_... constants.
 	 * </p>
 	 * @param string $type_name [optional] <p>
@@ -556,7 +556,7 @@ class SoapServer  {
 	 * The object to handle the requests.
 	 * </p>
 	 * @return void No value is returned.
-	 * @since 5.2.0
+	 * @since 5.2
 	 */
 	public function setObject ($object) {}
 
@@ -860,25 +860,25 @@ define ('WSDL_CACHE_BOTH', 3);
 
 /**
  * @link https://php.net/manual/en/soap.constants.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('SOAP_SSL_METHOD_TLS', 0);
 
 /**
  * @link https://php.net/manual/en/soap.constants.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('SOAP_SSL_METHOD_SSLv2', 1);
 
 /**
  * @link https://php.net/manual/en/soap.constants.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('SOAP_SSL_METHOD_SSLv3', 2);
 
 /**
  * @link https://php.net/manual/en/soap.constants.php
- * @since 5.5.0
+ * @since 5.5
  */
 define ('SOAP_SSL_METHOD_SSLv23', 3);
 

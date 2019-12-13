@@ -391,7 +391,7 @@ function gzencode ($data, $level = -1, $encoding_mode = FORCE_GZIP) {}
  * The maximum length of data to decode.
  * </p>
  * @return string|false The decoded string, or <b>FALSE</b> if an error occurred.
- * @since 5.4.0
+ * @since 5.4
  */
 function gzdecode ($data, $length = null) {}
 
@@ -405,7 +405,7 @@ function gzdecode ($data, $length = null) {}
  * @param string $level [optional] default -1 <p>
  * </p>
  * @return string
- * @since 5.4.0
+ * @since 5.4
  */
 function zlib_encode ($data, $encoding, $level) {}
 
@@ -417,7 +417,7 @@ function zlib_encode ($data, $encoding, $level) {}
  * @param string $max_decoded_len [optional] <p>
  * </p>
  * @return string
- * @since 5.4.0
+ * @since 5.4
  */
 function zlib_decode ($data, $max_decoded_len = null) {}
 

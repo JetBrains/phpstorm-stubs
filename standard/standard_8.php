@@ -220,7 +220,7 @@ function ob_start ($output_callback = null, $chunk_size = null, $erase = null) {
  * Flush (send) the output buffer
  * @link https://php.net/manual/en/function.ob-flush.php
  * @return void 
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ob_flush () {}
@@ -229,7 +229,7 @@ function ob_flush () {}
  * Clean (erase) the output buffer
  * @link https://php.net/manual/en/function.ob-clean.php
  * @return void 
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ob_clean () {}
@@ -260,7 +260,7 @@ function ob_end_clean () {}
  * Flush the output buffer, return it as a string and turn off output buffering
  * @link https://php.net/manual/en/function.ob-get-flush.php
  * @return string|false the output buffer or false if no buffering is active.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function ob_get_flush () {}
@@ -270,7 +270,7 @@ function ob_get_flush () {}
  * @link https://php.net/manual/en/function.ob-get-clean.php
  * @return string|false the contents of the output buffer and end output buffering.
  * If output buffering isn't active then false is returned.
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function ob_get_clean () {}
@@ -290,7 +290,7 @@ function ob_get_length () {}
  * @link https://php.net/manual/en/function.ob-get-level.php
  * @return int the level of nested output buffering handlers or zero if output
  * buffering is not active.
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function ob_get_level () {}
@@ -305,59 +305,65 @@ function ob_get_level () {}
  * @return array If called without the full_status parameter
  * or with full_status = false a simple array
  * with the following elements is returned:
- * 2
- * [type] => 0
- * [status] => 0
- * [name] => URL-Rewriter
- * [del] => 1
+ * <pre>
+ * Array 
+ * (
+ *     [level] => 2
+ *     [type] => 0
+ *     [status] => 0
+ *     [name] => URL-Rewriter
+ *     [del] => 1 
  * )
- * ]]>
- * Simple ob_get_status results
- * KeyValue
- * levelOutput nesting level
- * typePHP_OUTPUT_HANDLER_INTERNAL (0) or PHP_OUTPUT_HANDLER_USER (1)
- * statusOne of PHP_OUTPUT_HANDLER_START (0), PHP_OUTPUT_HANDLER_CONT (1) or PHP_OUTPUT_HANDLER_END (2)
- * nameName of active output handler or ' default output handler' if none is set
- * delErase-flag as set by ob_start
- * </p>
+ * </pre>
+ * <table>
+ * <tr><th>Key</th><th>Value</th></tr>
+ * <tr><td>level</td><td>Output nesting level</td></tr> 
+ * <tr><td>type</td><td><em>PHP_OUTPUT_HANDLER_INTERNAL (0)</em> or <em>PHP_OUTPUT_HANDLER_USER (1)</em></td></tr> 
+ * <tr><td>status</td><td>One of <em>PHP_OUTPUT_HANDLER_START</em> (0), <em>PHP_OUTPUT_HANDLER_CONT</em> (1) or <em>PHP_OUTPUT_HANDLER_END</em> (2)</td></tr> 
+ * <tr><td>name</td><td>Name of active output handler or &#039; default output handler&#039; if none is set</td></tr> 
+ * <tr><td>del</td><td>Erase-flag as set by ob_start()</td></tr> 
+ * </table>
  * <p>
- * If called with full_status = true an array
- * with one element for each active output buffer level is returned.
- * The output level is used as key of the top level array and each array
- * element itself is another array holding status information
- * on one active output level.
+ * If called with full_status = TRUE an array with one element for each active output buffer
+ * level is returned. The output level is used as key of the top level array and each array
+ * element itself is another array holding status information on one active output level.
+ * </p>
+ * <pre>
  * Array
  * (
- * [chunk_size] => 0
- * [size] => 40960
- * [block_size] => 10240
- * [type] => 1
- * [status] => 0
- * [name] => default output handler
- * [del] => 1
+ *     [0] => Array
+ *         (
+ *             [chunk_size] => 0
+ *             [size] => 40960
+ *             [block_size] => 10240
+ *             [type] => 1
+ *             [status] => 0
+ *             [name] => default output handler
+ *             [del] => 1
+ *         )
+ * 
+ *     [1] => Array
+ *         (
+ *             [chunk_size] => 0
+ *             [size] => 40960
+ *             [block_size] => 10240
+ *             [type] => 0
+ *             [buffer_size] => 0
+ *             [status] => 0
+ *             [name] => URL-Rewriter
+ *             [del] => 1
+ *         )
+ * 
  * )
- * [1] => Array
- * (
- * [chunk_size] => 0
- * [size] => 40960
- * [block_size] => 10240
- * [type] => 0
- * [buffer_size] => 0
- * [status] => 0
- * [name] => URL-Rewriter
- * [del] => 1
- * )
- * )
- * ]]>
- * </p>
- * <p>
- * The full output contains these additional elements:
- * Full ob_get_status results
- * KeyValue
- * chunk_sizeChunk size as set by ob_start
- * size...
- * blocksize...
- * @since 4.2.0
+ * </pre>
+ * <p> The full output contains these additional elements:</p>
+ * <table>
+ * <tr><th>Key</th><th>Value</th></tr>
+ * <tr><td>chunk_size</td><td>Chunk size as set by ob_start()</td></tr>
+ * <tr><td>size</td><td>...</td></tr>
+ * <tr><td>blocksize</td><td>...</td></tr>
+ * </table>
+ * @since 4.2
  * @since 5.0
  */
 function ob_get_status ($full_status = null) {}
@@ -392,7 +398,7 @@ function ob_implicit_flush ($flag = 1) {}
  * an anonymous function was used with ob_start,
  * ob_list_handlers will return "default output
  * handler".
- * @since 4.3.0
+ * @since 4.3
  * @since 5.0
  */
 function ob_list_handlers () {}
@@ -924,7 +930,7 @@ function compact ($varname, $_ = null) {}
  * Value to use for filling
  * </p>
  * @return array the filled array
- * @since 4.2.0
+ * @since 4.2
  * @since 5.0
  */
 function array_fill ($start_index, $num, $value) {}
@@ -940,7 +946,7 @@ function array_fill ($start_index, $num, $value) {}
  * Value to use for filling
  * </p>
  * @return array the filled array
- * @since 5.2.0
+ * @since 5.2
  */
 function array_fill_keys (array $keys, $value) {}
 
@@ -969,25 +975,35 @@ function range ($start, $end, $step = 1) {}
 /**
  * Sort multiple or multi-dimensional arrays
  * @link https://php.net/manual/en/function.array-multisort.php
- * @param array $arr <p>
+ * @param array $array1 <p>
  * An array being sorted.
  * </p>
- * @param mixed $arg [optional] <p>
- * Optionally another array, or sort options for the
- * previous array argument: 
- * SORT_ASC, 
- * SORT_DESC, 
- * SORT_REGULAR,
- * SORT_NUMERIC,
- * SORT_STRING.
+ * @param array|int $array1_sort_order [optional] <p>
+ * The order used to sort the previous array argument.
+ * Either SORT_ASC to sort ascendingly or SORT_DESC to sort descendingly.
+ * This argument can be swapped with array1_sort_flags or omitted entirely, in which case SORT_ASC is assumed.
  * </p>
- * @param mixed $arg [optional] 
- * @param mixed $_ [optional] 
+ * @param array|int $array1_sort_flags [optional] <p>
+ * Sort options for the previous array argument:
+ * Sorting type flags:
+ * SORT_REGULAR - compare items normally (don't change types)
+ * SORT_NUMERIC - compare items numerically
+ * SORT_STRING - compare items as strings
+ * SORT_LOCALE_STRING - compare items as strings, based on the current locale. It uses the locale, which can be changed using setlocale()
+ * SORT_NATURAL - compare items as strings using "natural ordering" like natsort()
+ * SORT_FLAG_CASE - can be combined (bitwise OR) with SORT_STRING or SORT_NATURAL to sort strings case-insensitively
+ * This argument can be swapped with array1_sort_order or omitted entirely, in which case SORT_REGULAR is assumed.
+ * </p>
+ * @param array|int $_ [optional] <p>
+ * More arrays, optionally followed by sort order and flags.
+ * Only elements corresponding to equivalent elements in previous arrays are compared.
+ * In other words, the sort is lexicographical.
+ * </p>
  * @return bool true on success or false on failure.
  * @since 4.0
  * @since 5.0
  */
-function array_multisort (array &$arr, $arg = null, $arg = null, $_ = null) {}
+function array_multisort (array &$array1, $array1_sort_order = null, $array1_sort_flags = null, $_ = null) {}
 
 /**
  * Push elements onto the end of array
