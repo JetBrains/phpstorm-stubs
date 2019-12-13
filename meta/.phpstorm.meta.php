@@ -81,6 +81,8 @@ namespace PHPSTORM_META {
   override(\array_values(0), type(0));
   override(\array_combine(0), type(1));
 
+  override(\str_replace(0), type(2));
+
   override(\DOMDocument::importNode(0), type(0));
   override(\DOMNode::appendChild(0), type(0));
   override(\DOMNode::insertBefore(0), type(0));
