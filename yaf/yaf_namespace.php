@@ -2,7 +2,7 @@
 namespace
 {
     
-    define('YAF\VERSION', '3.0.6', true);
+    define('YAF\VERSION', '3.0.8', true);
     define('YAF\ENVIRON', 'product', true);
     define('YAF\ERR\STARTUP\FAILED', 512, true);
     define('YAF\ERR\ROUTE\FAILED', 513, true);
@@ -1996,7 +1996,7 @@ abstract class Response_Abstract
     /**
      * @link https://secure.php.net/manual/en/yaf-response-abstract.tostring.php
      */
-    private function __toString()
+    public function __toString()
     {
     }
 
@@ -2275,7 +2275,7 @@ class Http extends \Yaf\Response_Abstract
      *
      * @return bool
      */
-    protected function setAllHeaders(array $headers)
+    public function setAllHeaders(array $headers)
     {
     }
 
