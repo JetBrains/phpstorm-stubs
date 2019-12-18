@@ -13,7 +13,11 @@ class PHPDefineConstant extends PHPConst
     public function readObjectFromReflection($constant)
     {
         $this->name = utf8_encode($constant[0]);
-        $this->value = is_resource($constant[1]) ? 'PHPSTORM_RESOURCE' : utf8_encode($constant[1]);
+        if ($constant[1] !== null) {
+            $this->value = is_resource($constant[1]) ? 'PHPSTORM_RESOURCE' : utf8_encode($constant[1]);
+        }else {
+            $this->value = null;
+        }
         return $this;
     }
 
