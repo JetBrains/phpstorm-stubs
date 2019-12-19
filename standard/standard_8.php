@@ -708,6 +708,7 @@ function count ($var, $mode = COUNT_NORMAL) {}
  * @return mixed the value of the last element or false for empty array.
  * @since 4.0
  * @since 5.0
+ * @meta
  */
 function end (array &$array) {}
 
@@ -722,6 +723,7 @@ function end (array &$array) {}
  * elements.
  * @since 4.0
  * @since 5.0
+ * @meta
  */
 function prev (array &$array) {}
 
@@ -735,6 +737,7 @@ function prev (array &$array) {}
  * internal array pointer, or false if there are no more elements.
  * @since 4.0
  * @since 5.0
+ * @meta
  */
 function next (array &$array) {}
 
@@ -748,6 +751,7 @@ function next (array &$array) {}
  * empty.
  * @since 4.0
  * @since 5.0
+ * @meta
  */
 function reset (array &$array) {}
 
@@ -764,6 +768,7 @@ function reset (array &$array) {}
  * empty, current returns false.
  * @since 4.0
  * @since 5.0
+ * @meta
  */
 function current (array $array) {}
 
@@ -1033,6 +1038,7 @@ function array_push (array &$array, ...$vars) {}
  * &null; will be returned.
  * @since 4.0
  * @since 5.0
+ * @meta
  */
 function array_pop (array &$array) {}
 
@@ -1046,6 +1052,7 @@ function array_pop (array &$array) {}
  * empty or is not an array.
  * @since 4.0
  * @since 5.0
+ * @meta
  */
 function array_shift (array &$array) {}
 
@@ -1143,6 +1150,7 @@ function array_splice (array &$input, $offset, $length = null, $replacement = nu
  * @return array the slice.
  * @since 4.0
  * @since 5.0
+ * @meta
  */
 function array_slice (array $array, $offset, $length = null, $preserve_keys = false) {}
 
