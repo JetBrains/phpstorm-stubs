@@ -18,7 +18,11 @@ class Redis
     const OPT_PREFIX            = 2;
     const OPT_READ_TIMEOUT      = 3;
     const OPT_SCAN              = 4;
-    const OPT_SLAVE_FAILOVER    = 5;
+    const OPT_FAILOVER          = 5;
+    const OPT_TCP_KEEPALIVE     = 6;
+    const OPT_COMPRESSION       = 7;
+    const OPT_REPLY_LITERAL     = 8;
+    const OPT_COMPRESSION_LEVEL = 9;    
 
     /**
      * Cluster options
@@ -26,6 +30,7 @@ class Redis
     const FAILOVER_NONE         = 0;
     const FAILOVER_ERROR        = 1;
     const FAILOVER_DISTRIBUTE   = 2;
+    const FAILOVER_DISTRIBUTE_SLAVES = 3;
 
     /**
      * SCAN options
@@ -58,6 +63,7 @@ class Redis
     const REDIS_LIST            = 3;
     const REDIS_ZSET            = 4;
     const REDIS_HASH            = 5;
+    const REDIS_STREAM          = 6;
 
     /**
      * Creates a Redis client
