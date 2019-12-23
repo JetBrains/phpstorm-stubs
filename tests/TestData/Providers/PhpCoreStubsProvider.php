@@ -106,6 +106,7 @@ class PhpCoreStubsProvider
             'inotify',
             'libevent',
             'leveldb',
+            'lzf',
             'mailparse',
             'memcache',
             'memcached',
@@ -141,6 +142,9 @@ class PhpCoreStubsProvider
         ]
     ];
 
+    /**
+     * @return string[]
+     */
     public static function getCoreStubsDirectories(): array
     {
         $coreStubs[] = self::$StubDirectoryMap['CORE'];
