@@ -205,7 +205,7 @@ class DOMNode  {
      * Indicates whether to copy all descendant nodes. This parameter is
      * defaulted to false.
      * </p>
-     * @return DOMNode The cloned node.
+     * @return static The cloned node.
      * @since 5.0
      */
     public function cloneNode ($deep = null) {}
@@ -1719,48 +1719,6 @@ class DOMElement extends DOMNode  {
      * @since 5.0
      */
     public function __construct ($name, $value = null, $uri = null) {}
-
-    /**
-     * Adds a new child before a reference node
-     * @link https://php.net/manual/en/domnode.insertbefore.php
-     * @param DOMNode $newnode <p>
-     * The new node.
-     * </p>
-     * @param DOMNode $refnode [optional] <p>
-     * The reference node. If not supplied, newnode is
-     * appended to the children.
-     * </p>
-     * @return DOMNode The inserted node.
-     * @since 5.0
-     */
-    public function insertBefore (DOMNode $newnode , $refnode = null) {}
-
-    /**
-     * Replaces a child
-     * @link https://php.net/manual/en/domnode.replacechild.php
-     * @param DOMNode $newnode <p>
-     * The new node. It must be a member of the target document, i.e.
-     * created by one of the DOMDocument->createXXX() methods or imported in
-     * the document by .
-     * </p>
-     * @param DOMNode $oldnode <p>
-     * The old node.
-     * </p>
-     * @return DOMNode The old node or false if an error occur.
-     * @since 5.0
-     */
-    public function replaceChild (DOMNode $newnode , DOMNode $oldnode ) {}
-
-    /**
-     * Removes child from list of children
-     * @link https://php.net/manual/en/domnode.removechild.php
-     * @param DOMNode $oldnode <p>
-     * The removed child.
-     * </p>
-     * @return DOMNode If the child could be removed the functions returns the old child.
-     * @since 5.0
-     */
-    public function removeChild (DOMNode $oldnode ) {}
 
 }
 

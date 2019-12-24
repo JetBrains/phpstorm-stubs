@@ -46,7 +46,7 @@ namespace PHPSTORM_META {
   override(\array_shift(0), elementType(0));
   override(\array_reverse(0), type(0));
   override(\array_pop(0), elementType(0));
-  override(\array_reduce(0), elementType(0));
+  override(\array_reduce(0), type(2));
   override(\array_slice(0), type(0));
   override(\array_diff(0), type(0));
   override(\array_diff_assoc(0), type(0));
@@ -63,7 +63,6 @@ namespace PHPSTORM_META {
   override(\prev(0), elementType(0));
   override(\next(0), elementType(0));
 
-  override(\iterator_to_array(0), type(0));
   override(\array_change_key_case(0), type(0));
   override(\array_rand(0), elementType(0));
   override(\array_unique(0), type(0));
@@ -81,6 +80,13 @@ namespace PHPSTORM_META {
   override(\array_values(0), type(0));
   override(\array_combine(0), type(1));
 
+  override(\str_replace(0), type(2));
+
+  override(\DOMDocument::importNode(0), type(0));
+  override(\DOMNode::appendChild(0), type(0));
+  override(\DOMNode::insertBefore(0), type(0));
+  override(\DOMNode::removeChild(0), type(0));
+  override(\DOMNode::replaceChild(0), type(1));
 
     function expectedArguments($functionReference, $argumentIndex, $values) {
         return "expectedArguments " . $functionReference . "at " . $argumentIndex . ": " . $values;

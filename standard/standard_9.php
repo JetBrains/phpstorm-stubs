@@ -80,6 +80,7 @@ function array_keys(array $input, $search_value = null, $strict = null) { }
  * @return array an indexed array of values.
  * @since 4.0
  * @since 5.0
+ * @meta
  */
 function array_values(array $input) { }
 
@@ -120,6 +121,7 @@ function array_column(array $array, $column, $index_key = null) { }
  * @return array the reversed array.
  * @since 4.0
  * @since 5.0
+ * @meta
  */
 function array_reverse(array $array, $preserve_keys = null) { }
 
@@ -144,6 +146,7 @@ function array_reverse(array $array, $preserve_keys = null) { }
  * array_reduce returns null.
  * @since 4.0.5
  * @since 5.0
+ * @meta
  */
 function array_reduce(array $input, $function, $initial = null) { }
 
@@ -196,6 +199,7 @@ function array_flip(array $array) { }
  * @return array an array with its keys lower or uppercased
  * @since 4.2
  * @since 5.0
+ * @meta
  */
 function array_change_key_case(array $input, $case = null) { }
 
@@ -214,6 +218,7 @@ function array_change_key_case(array $input, $case = null) { }
  * random keys as well as values out of the array.
  * @since 4.0
  * @since 5.0
+ * @meta
  */
 function array_rand(array $input, $num_req = null) { }
 
@@ -248,6 +253,7 @@ function array_rand(array $input, $num_req = null) { }
  * @return array the filtered array.
  * @since 4.0.1
  * @since 5.0
+ * @meta
  */
 function array_unique(array $array, $sort_flags = SORT_STRING) { }
 
@@ -265,6 +271,7 @@ function array_unique(array $array, $sort_flags = SORT_STRING) { }
  * array1 whose values exist in all of the parameters.
  * @since 4.0.1
  * @since 5.0
+ * @meta
  */
 function array_intersect(array $array1, array $array2, array $_ = null) { }
 
@@ -282,6 +289,7 @@ function array_intersect(array $array1, array $array2, array $_ = null) { }
  * array1 which have keys that are present in all
  * arguments.
  * @since 5.1
+ * @meta
  */
 function array_intersect_key(array $array1, array $array2, array $_ = null) { }
 
@@ -301,6 +309,7 @@ function array_intersect_key(array $array1, array $array2, array $_ = null) { }
  * @return array the values of array1 whose keys exist
  * in all the arguments.
  * @since 5.1
+ * @meta
  */
 function array_intersect_ukey(array $array1, array $array2, array $_ = null, $key_compare_func) { }
 
@@ -326,6 +335,7 @@ function array_intersect_ukey(array $array1, array $array2, array $_ = null, $ke
  * @return array an array containing all the values of array1
  * that are present in all the arguments.
  * @since 5.0
+ * @meta
  */
 function array_uintersect(array $array1, array $array2, array $_ = null, $data_compare_func) { }
 
@@ -343,6 +353,7 @@ function array_uintersect(array $array1, array $array2, array $_ = null, $data_c
  * array1 that are present in all of the arguments.
  * @since 4.3
  * @since 5.0
+ * @meta
  */
 function array_intersect_assoc(array $array1, array $array2, array $_ = null) { }
 
@@ -366,6 +377,7 @@ function array_intersect_assoc(array $array1, array $array2, array $_ = null) { 
  * @return array an array containing all the values of
  * array1 that are present in all the arguments.
  * @since 5.0
+ * @meta
  */
 function array_uintersect_assoc(array $array1, array $array2, array $_ = null, $data_compare_func) { }
 
@@ -385,6 +397,7 @@ function array_uintersect_assoc(array $array1, array $array2, array $_ = null, $
  * @return array the values of array1 whose values exist
  * in all of the arguments.
  * @since 5.0
+ * @meta
  */
 function array_intersect_uassoc(array $array1, array $array2, array $_ = null, $key_compare_func) { }
 
@@ -411,6 +424,7 @@ function array_intersect_uassoc(array $array1, array $array2, array $_ = null, $
  * @return array an array containing all the values of
  * array1 that are present in all the arguments.
  * @since 5.0
+ * @meta
  */
 function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, $data_compare_func, $key_compare_func) { }
 
@@ -428,6 +442,7 @@ function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, 
  * array1 that are not present in any of the other arrays.
  * @since 4.0.1
  * @since 5.0
+ * @meta
  */
 function array_diff(array $array1, array $array2, array $_ = null) { }
 
@@ -445,6 +460,7 @@ function array_diff(array $array1, array $array2, array $_ = null) { }
  * array1 whose keys are not present in any of the
  * other arrays.
  * @since 5.1
+ * @meta
  */
 function array_diff_key(array $array1, array $array2, array $_ = null) { }
 
@@ -467,6 +483,7 @@ function array_diff_key(array $array1, array $array2, array $_ = null) { }
  * @return array an array containing all the entries from
  * array1 that are not present in any of the other arrays.
  * @since 5.1
+ * @meta
  */
 function array_diff_ukey(array $array1, array $array2, array $_ = null, $key_compare_func) { }
 
@@ -492,6 +509,7 @@ function array_diff_ukey(array $array1, array $array2, array $_ = null, $key_com
  * @return array an array containing all the values of array1
  * that are not present in any of the other arguments.
  * @since 5.0
+ * @meta
  */
 function array_udiff(array $array1, array $array2, array $_ = null, $data_compare_func) { }
 
@@ -509,6 +527,7 @@ function array_udiff(array $array1, array $array2, array $_ = null, $data_compar
  * array1 that are not present in any of the other arrays.
  * @since 4.3
  * @since 5.0
+ * @meta
  */
 function array_diff_assoc(array $array1, array $array2, array $_ = null) { }
 
@@ -541,6 +560,7 @@ function array_diff_assoc(array $array1, array $array2, array $_ = null) { }
  * array_diff_assoc which uses internal function for
  * comparison.
  * @since 5.0
+ * @meta
  */
 function array_udiff_assoc(array $array1, array $array2, array $_ = null, $data_compare_func) { }
 
@@ -563,6 +583,7 @@ function array_udiff_assoc(array $array1, array $array2, array $_ = null, $data_
  * @return array an array containing all the entries from
  * array1 that are not present in any of the other arrays.
  * @since 5.0
+ * @meta
  */
 function array_diff_uassoc(array $array1, array $array2, array $_ = null, $key_compare_func) { }
 
@@ -602,6 +623,7 @@ function array_diff_uassoc(array $array1, array $array2, array $_ = null, $key_c
  * array1 that are not present in any of the other
  * arguments.
  * @since 5.0
+ * @meta
  */
 function array_udiff_uassoc(array $array1, array $array2, array $_ = null, $data_compare_func, $key_compare_func) { }
 
@@ -715,6 +737,7 @@ function array_chunk(array $input, $size, $preserve_keys = null) { }
  * @return array|false the combined array, false if the number of elements
  * for each array isn't equal or if the arrays are empty.
  * @since 5.0
+ * @meta
  */
 function array_combine(array $keys, array $values) { }
 
