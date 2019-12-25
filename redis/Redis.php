@@ -364,12 +364,14 @@ class Redis
     /**
      * Check the current connection status
      *
-     * @return  string STRING: +PONG on success.
+     * @param string $message
+     *
+     * @return bool|string TRUE if the command is successful or returns message
      * Throws a RedisException object on connectivity error, as described above.
      * @throws RedisException
      * @link    https://redis.io/commands/ping
      */
-    public function ping()
+    public function ping($message)
     {
     }
 
