@@ -87,6 +87,7 @@ namespace PHPSTORM_META {
   override(\DOMNode::insertBefore(0), type(0));
   override(\DOMNode::removeChild(0), type(0));
   override(\DOMNode::replaceChild(0), type(1));
+  override(\Psr\EventDispatcher\EventDispatcherInterface::dispatch(0), type(0));
 
     function expectedArguments($functionReference, $argumentIndex, $values) {
         return "expectedArguments " . $functionReference . "at " . $argumentIndex . ": " . $values;
