@@ -13,7 +13,7 @@ class CURLFile {
      * @param string $postname [optional] <p>Name of the file.</p>
      * @since 5.5
      */
-    function __construct($filename, $mimetype, $postname) {
+    function __construct($filename, $mimetype = '', $postname = '') {
     }
 
     /**
@@ -2348,7 +2348,7 @@ function curl_escape($ch, $str) {}
  * Returns a {@link https://secure.php.net/manual/en/class.curlfile.php CURLFile} object.
  * @since 5.5
  */
-function curl_file_create($filename, $mimetype, $postname) {}
+function curl_file_create($filename, $mimetype = '', $postname = '') {}
 
 /**
  * Close a cURL session
