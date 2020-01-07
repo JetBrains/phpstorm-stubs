@@ -1809,7 +1809,7 @@ class Imagick implements Iterator, Countable {
 	 * @return bool <b>TRUE</b> on success.
 	 * @throws ImagickException Throws ImagickException on error.
 	 */
-	public function readImageBlob ($image, $filename = null) {}
+	public function readimageblob ($image, $filename = null) {}
 
 	/**
 	 * (PECL imagick 2.0.0)<br/>
