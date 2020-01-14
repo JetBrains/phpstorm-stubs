@@ -119,15 +119,24 @@ define('AMQP_EX_TYPE_TOPIC', 'topic');
 define('AMQP_EX_TYPE_HEADERS', 'headers');
 
 /**
- *
+ * The error number of OS socket timeout.
  */
 define('AMQP_OS_SOCKET_TIMEOUT_ERRNO', 536870923);
 
 
+/**
+ * The maximum number of channels that can be open on a connection.
+ */
 define('PHP_AMQP_MAX_CHANNELS', 256);
 
+/**
+ * SASL PLAIN authentication. This is enabled by default in the RabbitMQ server and clients, and is the default for most other clients.
+ */
 define('AMQP_SASL_METHOD_PLAIN', 0);
 
+/**
+ * Authentication happens using an out-of-band mechanism such as x509 certificate peer verification, client IP address range, or similar. Such mechanisms are usually provided by RabbitMQ plugins.
+ */
 define('AMQP_SASL_METHOD_EXTERNAL', 1);
 
 /**
@@ -862,9 +871,19 @@ class AMQPConnection
      */
     public function setVerify($verify) { }
 
-    public function getSaslMethod(){}
+    /**
+     * Get authentication mechanism configuration
+     *
+     * @return int AMQP_SASL_METHOD_PLAIN | AMQP_SASL_METHOD_EXTERNAL
+     */
+    public function getSaslMethod() { }
 
-    public function setSaslMethod($sasl_method){}
+    /**
+     * Set authentication mechanism configuration
+     *
+     * @param int $method AMQP_SASL_METHOD_PLAIN | AMQP_SASL_METHOD_EXTERNAL
+     */
+    public function setSaslMethod($sasl_method) { }
 }
 
 /**
@@ -1091,6 +1110,7 @@ class AMQPExchange
      * @return bool
      */
     public function hasArgument($key) { }
+
     /**
      * Get all arguments set on the given exchange.
      *
@@ -1143,7 +1163,7 @@ class AMQPExchange
      */
     public function publish(
         $message,
-        $routing_key = '',
+        $routing_key = null,
         $flags = AMQP_NOPARAM,
         array $attributes = array()
     ) {
@@ -1221,8 +1241,10 @@ class AMQPExchange
      * @throws AMQPExchangeException
      * @throws AMQPChannelException
      * @throws AMQPConnectionException
+     * @deprecated
+     * @see AMQPExchange::declareExchange()
      */
-    public function declare(){}
+    public function declare() { }
 }
 
 /**
@@ -1575,8 +1597,10 @@ class AMQPQueue
      * @return int
      * @throws AMQPChannelException
      * @throws AMQPConnectionException
+     * @deprecated
+     * @see AMQPQueue::declareQueue()
      */
-    public function declare() {}
+    public function declare() { }
 
 }
 
