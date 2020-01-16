@@ -329,7 +329,7 @@ function defined ($name) {}
  * @param object $object [optional] <p>
  * The tested object. This parameter may be omitted when inside a class.
  * </p>
- * @return string the name of the class of which <i>object</i> is an
+ * @return string|false <p>The name of the class of which <i>object</i> is an
  * instance. Returns false if <i>object</i> is not an
  * object.
  * </p>
@@ -344,7 +344,7 @@ function get_class ($object = null) {}
 /**
  * the "Late Static Binding" class name
  * @link https://php.net/manual/en/function.get-called-class.php
- * @return string the class name. Returns false if called from outside a class.
+ * @return string|false The class name. Returns false if called from outside a class.
  * @since 5.3
  */
 function get_called_class () {}
@@ -355,7 +355,7 @@ function get_called_class () {}
  * @param mixed $object [optional] <p>
  * The tested object or class name
  * </p>
- * @return string the name of the parent class of the class of which
+ * @return string|false <p>The name of the parent class of the class of which
  * <i>object</i> is an instance or the name.
  * </p>
  * <p>
