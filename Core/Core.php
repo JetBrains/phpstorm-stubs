@@ -352,7 +352,7 @@ function get_called_class () {}
 /**
  * Retrieves the parent class name for object or class
  * @link https://php.net/manual/en/function.get-parent-class.php
- * @param object|string|null $object [optional] <p>
+ * @param mixed $object [optional] <p>
  * The tested object or class name
  * </p>
  * @return string|false <p>The name of the parent class of the class of which
@@ -371,7 +371,7 @@ function get_parent_class ($object = null) {}
 /**
  * Checks if the class method exists
  * @link https://php.net/manual/en/function.method-exists.php
- * @param object|string $object <p>
+ * @param mixed $object <p>
  * An object instance or a class name
  * </p>
  * @param string $method_name <p>
