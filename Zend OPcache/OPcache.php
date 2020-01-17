@@ -9,6 +9,7 @@
  * Returns <b>TRUE</b> if the opcode cache for <em>script</em> was
  * invalidated or if there was nothing to invalidate, or <b>FALSE</b> if the opcode
  * cache is disabled.
+ * @since 5.5
  */
 function opcache_compile_file($file) { }
 
@@ -22,6 +23,7 @@ function opcache_compile_file($file) { }
  * Returns <b>TRUE</b> if the opcode cache for <em>script</em> was
  * invalidated or if there was nothing to invalidate, or <b>FALSE</b> if the opcode
  * cache is disabled.
+ * @since 5.5
  */
 function opcache_invalidate($script, $force = FALSE) { }
 
@@ -30,6 +32,7 @@ function opcache_invalidate($script, $force = FALSE) { }
  * Resets the contents of the opcode cache
  * @link https://secure.php.net/manual/en/function.opcache-reset.php
  * @return bool Returns <b>TRUE</b> if the opcode cache was reset, or <b>FALSE</b> if the opcode cache is disabled.
+ * @since 5.5
  */
 function opcache_reset() { }
 
@@ -39,6 +42,7 @@ function opcache_reset() { }
  * @link https://php.net/manual/en/function.opcache-get-status.php
  * @param bool $get_scripts <p>Include script specific state information</p>
  * @return array <p>Returns an array of information, optionally containing script specific state information</p>
+ * @since 5.5
  */
 function opcache_get_status ($get_scripts = TRUE) {}
 
@@ -47,6 +51,7 @@ function opcache_get_status ($get_scripts = TRUE) {}
  * Get configuration information about the cache
  * @link https://php.net/manual/en/function.opcache-get-configuration.php
  * @return array <p>Returns an array of information, including ini, blacklist and version</p>
+ * @since 5.5
  */
 function opcache_get_configuration() {}
 
@@ -57,5 +62,6 @@ function opcache_get_configuration() {}
  * @link https://secure.php.net/manual/en/function.opcache-is-script-cached.php
  * @param string $file The path to the PHP script to be checked.
  * @return bool Returns TRUE if file is cached in OPCache, FALSE otherwise.
+ * @since 5.6
  */
 function opcache_is_script_cached($file) {}
