@@ -7,6 +7,7 @@
  * can customize their JSON representation when encoded with
  * <b>json_encode</b>.
  * @link https://php.net/manual/en/class.jsonserializable.php
+ * @since 5.4
  */
 interface JsonSerializable  {
 

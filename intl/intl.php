@@ -2869,6 +2869,7 @@ class IntlCalendar {
      * @param int $field One of the IntlCalendar date/time field constants. These are integer values between 0 and IntlCalendar::FIELD_COUNT.
      * @param int $value The new value of the given field.
      * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
+     * @since 5.5
      */
     public function set($field, $value) { }
 

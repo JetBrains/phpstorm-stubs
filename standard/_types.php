@@ -198,6 +198,7 @@ namespace {
          * Throws an exception if the generator is still valid.
          * @link https://wiki.php.net/rfc/generator-return-expressions
          * @return mixed|null
+         * @since 7.0
          */
         function getReturn() {}
 

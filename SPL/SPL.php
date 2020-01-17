@@ -183,6 +183,7 @@ class CallbackFilterIterator extends FilterIterator {
  * (PHP 5 >= 5.4.0)<br>
  * RecursiveCallbackFilterIterator from a RecursiveIterator
  * @link https://secure.php.net/manual/en/class.recursivecallbackfilteriterator.php
+ * @since 5.4
  */
 class RecursiveCallbackFilterIterator extends CallbackFilterIterator implements RecursiveIterator {
 
