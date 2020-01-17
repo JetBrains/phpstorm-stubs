@@ -747,6 +747,10 @@ class PDO  {
 	 */
 	const PGSQL_ASSOC = 1;
 	const PGSQL_ATTR_DISABLE_NATIVE_PREPARED_STATEMENT = 1000;
+
+	/**
+ 	 * @since 5.6
+	 */
 	const PGSQL_ATTR_DISABLE_PREPARES = 1000;
 	const PGSQL_BAD_RESPONSE = 5;
 	const PGSQL_BOTH = 3;
