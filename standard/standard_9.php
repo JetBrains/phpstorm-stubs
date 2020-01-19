@@ -1,7 +1,13 @@
 <?php
 
-
+/**
+ * @since 5.6
+ */
 define ("ARRAY_FILTER_USE_BOTH", 1);
+
+/**
+ * @since 5.6
+ */
 define ("ARRAY_FILTER_USE_KEY", 2);
 
 

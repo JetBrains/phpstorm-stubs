@@ -456,6 +456,7 @@ function session_commit () {}
  * @return int <b>PHP_SESSION_DISABLED</b> if sessions are disabled.
  * <b>PHP_SESSION_NONE</b> if sessions are enabled, but none exists.
  * <b>PHP_SESSION_ACTIVE</b> if sessions are enabled, and one exists.
+ * @since 5.4
  */
 function session_status () {}
 
@@ -464,6 +465,7 @@ function session_status () {}
  * Discard session array changes and finish session
  * @link https://php.net/manual/en/function.session-abort.php
  * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
+ * @since 5.6
  */
 function session_abort() {}
 
@@ -472,6 +474,7 @@ function session_abort() {}
  * Re-initialize session array with original values
  * @link https://php.net/manual/en/function.session-reset.php
  * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
+ * @since 5.6
  */
 function session_reset() {}
 

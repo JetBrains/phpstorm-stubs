@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @since 5.5
+ */
 interface DateTimeInterface {
     const ATOM = 'Y-m-d\TH:i:sP';
     const COOKIE = 'l, d-M-Y H:i:s T';
@@ -79,6 +82,9 @@ interface DateTimeInterface {
     public function __wakeup();
 }
 
+/**
+ * @since 5.5
+ */
 class DateTimeImmutable implements DateTimeInterface {
     /* Methods */
     /**
