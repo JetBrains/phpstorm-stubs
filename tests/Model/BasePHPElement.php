@@ -3,12 +3,14 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
+use Exception;
+
 abstract class BasePHPElement
 {
-    public $name;
-    public $stubBelongsToCore = false;
-    public $parseError;
-    protected $mutedProblems = [];
+    public string $name;
+    public bool $stubBelongsToCore = false;
+    public ?Exception $parseError = null;
+    protected array $mutedProblems = [];
 
     /**
      * @param mixed $object

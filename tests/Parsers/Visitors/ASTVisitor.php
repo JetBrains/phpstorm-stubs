@@ -22,8 +22,8 @@ use StubTests\Parsers\Utils;
 
 class ASTVisitor extends NodeVisitorAbstract
 {
-    protected $stubs;
-    protected $isStubCore;
+    protected StubsContainer $stubs;
+    protected bool $isStubCore;
 
     public function __construct(StubsContainer $stubs)
     {

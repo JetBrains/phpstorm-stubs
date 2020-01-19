@@ -4,18 +4,18 @@ declare(strict_types=1);
 namespace StubTests\Model;
 
 use PhpParser\Node\Stmt\ClassMethod;
-use ReflectionParameter;
+use ReflectionMethod;
 use stdClass;
 
 class PHPMethod extends PHPFunction
 {
-    public $access;
-    public $is_static;
-    public $is_final;
-    public $parentName;
+    public string $access;
+    public bool $is_static;
+    public bool $is_final;
+    public string $parentName;
 
     /**
-     * @param \ReflectionMethod $method
+     * @param ReflectionMethod $method
      * @return $this
      */
     public function readObjectFromReflection($method)
@@ -23,7 +23,6 @@ class PHPMethod extends PHPFunction
         $this->name = $method->name;
         $this->is_static = $method->isStatic();
         $this->is_final = $method->isFinal();
-        /**@var ReflectionParameter $parameter */
         foreach ($method->getParameters() as $parameter) {
             $this->parameters[] = (new PHPParameter())->readObjectFromReflection($parameter);
         }
@@ -50,6 +49,7 @@ class PHPMethod extends PHPFunction
 
         $this->collectLinks($node);
         $this->collectSinceDeprecatedVersions($node);
+        $this->checkIfHasInternalMetaTag($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);
 

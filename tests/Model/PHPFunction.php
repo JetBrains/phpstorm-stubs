@@ -10,7 +10,6 @@ use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Stmt\Function_;
 use ReflectionException;
 use ReflectionFunction;
-use ReflectionParameter;
 use stdClass;
 use StubTests\Parsers\DocFactoryProvider;
 
@@ -21,15 +20,15 @@ class PHPFunction extends BasePHPElement
     /**
      * @var boolean $is_deprecated
      */
-    public $is_deprecated;
+    public bool $is_deprecated;
     /**
      * @var PHPParameter[]
      */
-    public $parameters = [];
+    public array $parameters = [];
     /**
      * @var Type $returnTag
      */
-    public $returnTag;
+    public ?Type $returnTag = null;
 
     /**
      * @param ReflectionFunction $function
@@ -41,7 +40,6 @@ class PHPFunction extends BasePHPElement
             $reflectionFunction = new ReflectionFunction($function);
             $this->name = $reflectionFunction->name;
             $this->is_deprecated = $reflectionFunction->isDeprecated();
-            /**@var ReflectionParameter $parameter */
             foreach ($reflectionFunction->getParameters() as $parameter) {
                 $this->parameters[] = (new PHPParameter())->readObjectFromReflection($parameter);
             }
@@ -66,6 +64,7 @@ class PHPFunction extends BasePHPElement
 
         $this->collectLinks($node);
         $this->collectSinceDeprecatedVersions($node);
+        $this->checkIfHasInternalMetaTag($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);
         return $this;
@@ -82,7 +81,7 @@ class PHPFunction extends BasePHPElement
                     $this->is_deprecated = true;
                 }
             } catch (Exception $e) {
-                $this->parseError = $e->getMessage();
+                $this->parseError = $e;
             }
         }
     }
@@ -94,10 +93,10 @@ class PHPFunction extends BasePHPElement
                 $phpDoc = DocFactoryProvider::getDocFactory()->create($node->getDocComment()->getText());
                 $parsedReturnTag = $phpDoc->getTagsByName('return');
                 if (!empty($parsedReturnTag) && $parsedReturnTag[0] instanceof Return_) {
-                    $this->returnTag = $parsedReturnTag[0]->getType() . '';
+                    $this->returnTag = $parsedReturnTag[0]->getType();
                 }
             } catch (Exception $e) {
-                $this->parseError = $e->getMessage();
+                $this->parseError = $e;
             }
         }
     }

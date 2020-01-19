@@ -5,15 +5,13 @@ namespace StubTests\Model;
 
 use PhpParser\Node\Stmt\Class_;
 use ReflectionClass;
-use ReflectionClassConstant;
 use ReflectionException;
-use ReflectionMethod;
 use stdClass;
 
 class PHPClass extends BasePHPClass
 {
     public $parentClass;
-    public $interfaces = [];
+    public array $interfaces = [];
 
     /**
      * @param ReflectionClass $clazz
@@ -30,7 +28,6 @@ class PHPClass extends BasePHPClass
             }
             $this->interfaces = $reflectionClass->getInterfaceNames();
 
-            /**@var ReflectionMethod $method */
             foreach ($reflectionClass->getMethods() as $method) {
                 if ($method->getDeclaringClass()->getName() !== $this->name) {
                     continue;
@@ -38,7 +35,6 @@ class PHPClass extends BasePHPClass
                 $this->methods[$method->name] = (new PHPMethod())->readObjectFromReflection($method);
             }
 
-            /**@var ReflectionClassConstant $constant */
             foreach ($reflectionClass->getReflectionConstants() as $constant) {
                 if ($constant->getDeclaringClass()->getName() !== $this->name) {
                     continue;

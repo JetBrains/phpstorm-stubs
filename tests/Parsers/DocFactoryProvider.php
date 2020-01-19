@@ -7,7 +7,7 @@ use phpDocumentor\Reflection\DocBlockFactory;
 
 class DocFactoryProvider
 {
-    private static $docFactory;
+    private static ?DocBlockFactory $docFactory = null;
 
     public static function getDocFactory(): DocBlockFactory
     {

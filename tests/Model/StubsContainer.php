@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
+use Exception;
 use function array_key_exists;
 
 class StubsContainer
@@ -10,19 +11,19 @@ class StubsContainer
     /**
      * @var PHPConst[]
      */
-    private $constants = [];
+    private array $constants = [];
     /**
      * @var PHPFunction[]
      */
-    private $functions = [];
+    private array $functions = [];
     /**
      * @var PHPClass[]
      */
-    private $classes = [];
+    private array $classes = [];
     /**
      * @var PHPInterface[]
      */
-    private $interfaces = [];
+    private array $interfaces = [];
 
     /**
      * @return PHPConst[]
@@ -34,11 +35,12 @@ class StubsContainer
 
     /**
      * @param PHPConst $constant
+     * @throws Exception
      */
     public function addConstant(PHPConst $constant): void
     {
         if (array_key_exists($constant->name, $this->constants)) {
-            throw new \Exception($constant->name . " is already defined in stubs");
+            throw new Exception($constant->name . " is already defined in stubs");
         }
         $this->constants[$constant->name] = $constant;
     }
@@ -61,7 +63,7 @@ class StubsContainer
 
     /**
      * @param string $name
-     * @return PHPClass | null
+     * @return PHPClass|null
      */
     public function getClass(string $name): ?PHPClass
     {
@@ -82,18 +84,19 @@ class StubsContainer
 
     /**
      * @param PHPClass $class
+     * @throws Exception
      */
     public function addClass(PHPClass $class): void
     {
         if (array_key_exists($class->name, $this->classes)) {
-            throw new \Exception($class->name . " is already defined in stubs");
+            throw new Exception($class->name . " is already defined in stubs");
         }
         $this->classes[$class->name] = $class;
     }
 
     /**
      * @param string $name
-     * @return PHPInterface | null
+     * @return PHPInterface|null
      */
     public function getInterface(string $name): ?PHPInterface
     {
@@ -114,11 +117,12 @@ class StubsContainer
 
     /**
      * @param PHPInterface $interface
+     * @throws Exception
      */
     public function addInterface(PHPInterface $interface): void
     {
         if (array_key_exists($interface->name, $this->interfaces)) {
-            throw new \Exception($interface->name . " is already defined in stubs");
+            throw new Exception($interface->name . " is already defined in stubs");
         }
         $this->interfaces[$interface->name] = $interface;
     }

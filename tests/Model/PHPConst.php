@@ -1,22 +1,21 @@
 <?php
-
 declare(strict_types=1);
 
 namespace StubTests\Model;
 
 use PhpParser\Node\Const_;
+use PhpParser\Node\Expr\UnaryMinus;
 use PhpParser\Node\Stmt\ClassConst;
 use PhpParser\Node\Stmt\Namespace_;
 use PhpParser\NodeAbstract;
 use ReflectionClassConstant;
 use stdClass;
-use PhpParser\Node\Expr\UnaryMinus;
 
 class PHPConst extends BasePHPElement
 {
     use PHPDocElement;
 
-    public $parentName;
+    public ?string $parentName = null;
     public $value;
 
     /**

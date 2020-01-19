@@ -1,14 +1,13 @@
 <?php
-
+declare(strict_types=1);
 
 namespace StubTests\TestData\Providers;
-
 
 use StubTests\Parsers\Utils;
 
 class PhpCoreStubsProvider
 {
-    private static $StubDirectoryMap = [
+    private static array $StubDirectoryMap = [
         'CORE' => [
             'Core',
             'date',

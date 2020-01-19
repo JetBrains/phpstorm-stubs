@@ -43,7 +43,7 @@ class ReflectionTestDataProviders
 
 class ReflectionStubsSingleton
 {
-    private static $reflectionStubs;
+    private static ?StubsContainer $reflectionStubs = null;
 
     public static function getReflectionStubs(): StubsContainer
     {

@@ -21,7 +21,7 @@ use UnexpectedValueException;
 
 class StubParser
 {
-    private static $stubs;
+    private static ?StubsContainer $stubs = null;
 
     public static function getPhpStormStubs(): StubsContainer
     {
@@ -30,7 +30,7 @@ class StubParser
         $coreStubVisitor = new CoreStubASTVisitor(self::$stubs);
         /** @noinspection PhpUnhandledExceptionInspection */
         self::processStubs($visitor, $coreStubVisitor, function ($file) {
-            return true;
+            return $file->getFilename() !== '.phpstorm.meta.php';
         });
         foreach (self::$stubs->getInterfaces() as $interface) {
             $interface->parentInterfaces = $visitor->combineParentInterfaces($interface);
