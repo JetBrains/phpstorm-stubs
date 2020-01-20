@@ -89,6 +89,9 @@ class PHPMethod extends PHPFunction
                         case 'deprecated method':
                             $this->mutedProblems[] = StubProblemType::FUNCTION_IS_DEPRECATED;
                             break;
+                        case 'absent in meta':
+                            $this->mutedProblems[] = StubProblemType::ABSENT_IN_META;
+                            break;
                         default:
                             $this->mutedProblems[] = -1;
                             break;

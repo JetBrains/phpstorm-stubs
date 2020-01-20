@@ -18,7 +18,7 @@ class PHPFunction extends BasePHPElement
     use PHPDocElement;
 
     /**
-     * @var boolean $is_deprecated
+     * @var bool $is_deprecated
      */
     public bool $is_deprecated;
     /**
@@ -117,6 +117,9 @@ class PHPFunction extends BasePHPElement
                             break;
                         case 'deprecated function':
                             $this->mutedProblems[] = StubProblemType::FUNCTION_IS_DEPRECATED;
+                            break;
+                        case 'absent in meta':
+                            $this->mutedProblems[] = StubProblemType::ABSENT_IN_META;
                             break;
                         default:
                             $this->mutedProblems[] = -1;

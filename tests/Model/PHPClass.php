@@ -10,6 +10,7 @@ use stdClass;
 
 class PHPClass extends BasePHPClass
 {
+    /** @var ReflectionClass|false|string */
     public $parentClass;
     public array $interfaces = [];
 
@@ -76,6 +77,9 @@ class PHPClass extends BasePHPClass
         return $this;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function readMutedProblems($jsonData): void
     {
         /**@var stdClass $class */

@@ -3,8 +3,14 @@
 namespace StubTests;
 
 use PHPUnit\Framework\TestCase;
+use StubTests\Model\PHPFunction;
+use StubTests\Model\PHPMethod;
+use StubTests\Model\StubProblemType;
 use StubTests\Parsers\Visitors\MetaOverrideFunctionsParser;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
+use StubTests\TestData\Providers\ReflectionStubsSingleton;
+use function array_filter;
+use function array_pop;
 
 class StubsMetaInternalTagTest extends TestCase
 {
@@ -24,7 +30,15 @@ class StubsMetaInternalTagTest extends TestCase
         $functions = PhpStormStubsSingleton::getPhpStormStubs()->getFunctions();
         foreach ($functions as $function) {
             if ($function->hasInternalMetaTag) {
-                $this->checkInternalMetaInOverride($function->name);
+                $reflectionFunctions = array_filter(ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
+                    fn($refFunction) => $refFunction->name === $function->name);
+                /** @var PHPFunction $reflectionFunction */
+                $reflectionFunction = array_pop($reflectionFunctions);
+                if ($reflectionFunction->hasMutedProblem(StubProblemType::ABSENT_IN_META)) {
+                    static::markTestSkipped('function intentionally not added to meta');
+                } else {
+                    $this->checkInternalMetaInOverride($function->name);
+                }
             }
         }
     }
@@ -34,7 +48,18 @@ class StubsMetaInternalTagTest extends TestCase
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->getClasses() as $className => $class) {
             foreach ($class->methods as $methodName => $method) {
                 if ($method->hasInternalMetaTag) {
-                    $this->checkInternalMetaInOverride($className . "::" . $methodName);
+                    $refClass = ReflectionStubsSingleton::getReflectionStubs()->getClass($className);
+                    if ($refClass !== null){
+                        $reflectionMethods = array_filter($refClass->methods,
+                        fn($refMethod) => $refMethod->name === $methodName);
+                        /** @var PHPMethod $reflectionMethod */
+                        $reflectionMethod = array_pop($reflectionMethods);
+                        if ($reflectionMethod->hasMutedProblem(StubProblemType::ABSENT_IN_META)) {
+                            static::markTestSkipped('method intentionally not added to meta');
+                        } else {
+                            $this->checkInternalMetaInOverride($className . "::" . $methodName);
+                        }
+                    }
                 } else {
                     $this->expectNotToPerformAssertions();
                 }

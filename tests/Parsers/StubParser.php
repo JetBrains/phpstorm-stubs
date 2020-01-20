@@ -29,7 +29,7 @@ class StubParser
         $visitor = new ASTVisitor(self::$stubs);
         $coreStubVisitor = new CoreStubASTVisitor(self::$stubs);
         /** @noinspection PhpUnhandledExceptionInspection */
-        self::processStubs($visitor, $coreStubVisitor, function ($file) {
+        self::processStubs($visitor, $coreStubVisitor, function (SplFileInfo $file) {
             return $file->getFilename() !== '.phpstorm.meta.php';
         });
         foreach (self::$stubs->getInterfaces() as $interface) {
@@ -52,7 +52,7 @@ class StubParser
      */
     public static function processStubs(NodeVisitorAbstract $visitor, ?CoreStubASTVisitor $coreStubASTVisitor, callable $fileCondition): void
     {
-        $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
+        $parser = (new ParserFactory())->create(ParserFactory::PREFER_PHP7);
         $nameResolver = new NameResolver(null, ['preserveOriginalNames' => true]);
 
         $stubsIterator =
