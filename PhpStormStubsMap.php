@@ -9820,6 +9820,7 @@ const CONSTANTS = array (
   'RD_KAFKA_MSG_PARTITIONER_RANDOM' => 'rdkafka/constants.php',
   'RD_KAFKA_OFFSET_BEGINNING' => 'rdkafka/constants.php',
   'RD_KAFKA_OFFSET_END' => 'rdkafka/constants.php',
+  'RD_KAFKA_OFFSET_INVALID' => 'rdkafka/constants.php',
   'RD_KAFKA_OFFSET_STORED' => 'rdkafka/constants.php',
   'RD_KAFKA_PARTITION_UA' => 'rdkafka/constants.php',
   'RD_KAFKA_PRODUCER' => 'rdkafka/constants.php',
