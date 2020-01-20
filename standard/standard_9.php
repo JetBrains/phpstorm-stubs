@@ -707,6 +707,7 @@ function array_filter(array $input, $callback = null, $flag = 0) { }
  * after applying the callback function to each one.
  * @since 4.0.6
  * @since 5.0
+ * @meta
  */
 function array_map($callback, array $arr1, array $_ = null) { }
 
