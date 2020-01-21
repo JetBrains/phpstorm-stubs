@@ -163,6 +163,7 @@ function eregi_replace ($pattern, $replacement, $string) {}
  * <b>split</b> returns <b>FALSE</b>.
  * @since 4.0
  * @since 5.0
+ * @removed 7.0
  */
 function split ($pattern, $string, $limit = -1) {}
 

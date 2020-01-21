@@ -690,6 +690,7 @@ function array_product(array $array) { }
  * @return array the filtered array.
  * @since 4.0.6
  * @since 5.0
+ * @meta
  */
 function array_filter(array $input, $callback = null, $flag = 0) { }
 
