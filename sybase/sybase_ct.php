@@ -8,7 +8,7 @@
  * @param $charset string[optional]
  * @param $appname string[optional]
  * @return resource|false a positive Sybase link identifier on success, or false
- * @deprecated 7.0
+ * @removed 7.0
  */
 function sybase_connect ($servername = null, $username = null, $password = null, $charset = null, $appname = null) {}
 
