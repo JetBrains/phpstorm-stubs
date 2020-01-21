@@ -539,7 +539,7 @@ function mssql_free_statement ($stmt) {}
  * Whenever to use short format.
  * </p>
  * @return string the converted string on success.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_guid_string ($binary, $short_format = null) {}
 
