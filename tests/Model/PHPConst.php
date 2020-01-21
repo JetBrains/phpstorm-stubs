@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
-use PhpParser\Node;
 use PhpParser\Node\Const_;
 use PhpParser\Node\Expr\UnaryMinus;
 use PhpParser\Node\Stmt\ClassConst;
@@ -39,7 +38,7 @@ class PHPConst extends BasePHPElement
         $this->name = $this->getConstantFQN($node, $node->name->name);
         $this->value = $this->getConstValue($node);
         $this->collectLinks($node);
-        $this->collectSinceDeprecatedVersions($node);
+        $this->collectSinceRemovedDeprecatedVersions($node);
         $parentNode = $node->getAttribute('parent');
         if ($parentNode instanceof ClassConst) {
             $this->parentName = $this->getFQN($parentNode->getAttribute('parent'));
@@ -47,10 +46,6 @@ class PHPConst extends BasePHPElement
         return $this;
     }
 
-    /**
-     * @param Node\Arg $node
-     * @return int|null
-     */
     protected function getConstValue($node)
     {
         if (in_array('value', $node->value->getSubNodeNames(), true)) {

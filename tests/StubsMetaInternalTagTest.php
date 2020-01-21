@@ -3,7 +3,6 @@
 namespace StubTests;
 
 use PHPUnit\Framework\TestCase;
-use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\StubProblemType;
 use StubTests\Parsers\Visitors\MetaOverrideFunctionsParser;
@@ -32,7 +31,6 @@ class StubsMetaInternalTagTest extends TestCase
             if ($function->hasInternalMetaTag) {
                 $reflectionFunctions = array_filter(ReflectionStubsSingleton::getReflectionStubs()->getFunctions(),
                     fn($refFunction) => $refFunction->name === $function->name);
-                /** @var PHPFunction $reflectionFunction */
                 $reflectionFunction = array_pop($reflectionFunctions);
                 if ($reflectionFunction->hasMutedProblem(StubProblemType::ABSENT_IN_META)) {
                     static::markTestSkipped('function intentionally not added to meta');
@@ -57,7 +55,7 @@ class StubsMetaInternalTagTest extends TestCase
                         if ($reflectionMethod->hasMutedProblem(StubProblemType::ABSENT_IN_META)) {
                             static::markTestSkipped('method intentionally not added to meta');
                         } else {
-                            $this->checkInternalMetaInOverride($className . "::" . $methodName);
+                            $this->checkInternalMetaInOverride($className . '::' . $methodName);
                         }
                     }
                 } else {

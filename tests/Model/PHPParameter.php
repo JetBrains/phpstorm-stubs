@@ -22,7 +22,7 @@ class PHPParameter extends BasePHPElement
     {
         $this->name = $parameter->name;
         $parameterType = $parameter->getType();
-        if (!empty($parameterType) && $parameterType instanceof ReflectionNamedType) {
+        if (($parameterType !== null) && ($parameterType instanceof ReflectionNamedType)) {
             $this->type = $parameterType->getName();
         }
         $this->is_vararg = $parameter->isVariadic();

@@ -40,7 +40,7 @@ class StubsContainer
     public function addConstant(PHPConst $constant): void
     {
         if (array_key_exists($constant->name, $this->constants)) {
-            throw new Exception($constant->name . " is already defined in stubs");
+            throw new Exception($constant->name . ' is already defined in stubs');
         }
         $this->constants[$constant->name] = $constant;
     }
@@ -89,7 +89,7 @@ class StubsContainer
     public function addClass(PHPClass $class): void
     {
         if (array_key_exists($class->name, $this->classes)) {
-            throw new Exception($class->name . " is already defined in stubs");
+            throw new Exception($class->name . ' is already defined in stubs');
         }
         $this->classes[$class->name] = $class;
     }
@@ -122,7 +122,7 @@ class StubsContainer
     public function addInterface(PHPInterface $interface): void
     {
         if (array_key_exists($interface->name, $this->interfaces)) {
-            throw new Exception($interface->name . " is already defined in stubs");
+            throw new Exception($interface->name . ' is already defined in stubs');
         }
         $this->interfaces[$interface->name] = $interface;
     }

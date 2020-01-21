@@ -48,7 +48,7 @@ class PHPMethod extends PHPFunction
         $this->name = $node->name->name;
 
         $this->collectLinks($node);
-        $this->collectSinceDeprecatedVersions($node);
+        $this->collectSinceRemovedDeprecatedVersions($node);
         $this->checkIfHasInternalMetaTag($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);

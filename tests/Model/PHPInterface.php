@@ -48,7 +48,7 @@ class PHPInterface extends BasePHPClass
     {
         $this->name = $this->getFQN($node);
         $this->collectLinks($node);
-        $this->collectSinceDeprecatedVersions($node);
+        $this->collectSinceRemovedDeprecatedVersions($node);
         if (!empty($node->extends)) {
             $this->parentInterfaces[] = implode('\\', $node->extends[0]->parts);
         }

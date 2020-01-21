@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace StubTests\Parsers\Visitors;
 
@@ -28,23 +29,21 @@ class MetaOverrideFunctionsParser extends NodeVisitorAbstract
 
     public function enterNode(Node $node)
     {
-        if ($node instanceof Node\Expr\FuncCall) {
-            if ((string)$node->name === self::OVERRIDE_FUNCTION) {
-                $args = $node->args;
-                if (count($args) < 2) {
-                    throw new RuntimeException('Expected at least 2 arguments for override call');
-                }
-                $this->overridenFunctions[] = $this->getOverrideFunctionName($args[0]);
+        if (($node instanceof Node\Expr\FuncCall) && (string)$node->name === self::OVERRIDE_FUNCTION) {
+            $args = $node->args;
+            if (count($args) < 2) {
+                throw new RuntimeException('Expected at least 2 arguments for override call');
             }
+            $this->overridenFunctions[] = $this->getOverrideFunctionName($args[0]);
         }
     }
 
-    private function getOverrideFunctionName($param)
+    private function getOverrideFunctionName($param): string
     {
         $paramValue = $param->value;
         $targetFunction = null;
         if ($paramValue instanceof Expr\StaticCall) {
-            $targetFunction = $paramValue->class . "::" . $paramValue->name;
+            $targetFunction = $paramValue->class . '::' . $paramValue->name;
         } else {
             $targetFunction = (string)$paramValue->name;
         }
