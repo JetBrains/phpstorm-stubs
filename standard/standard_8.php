@@ -118,6 +118,7 @@ function stream_set_chunk_size ($fp , $chunk_size) {}
  * @return void
  * @since 4.0
  * @since 5.0
+ * @removed 5.4
  */
 function define_syslog_variables () {}
 

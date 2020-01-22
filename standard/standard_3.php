@@ -1066,7 +1066,8 @@ function get_magic_quotes_runtime () {}
  * not displayed using the default error reporting level.
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
+ * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
+ * @removed 5.4
  * @since 4.1
  * @since 5.0
  */

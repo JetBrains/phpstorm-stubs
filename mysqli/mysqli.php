@@ -135,7 +135,6 @@ class mysqli  {
 	 * @param string $dbname [optional] If provided will specify the default database to be used when performing queries. Defaults to ""
 	 * @param int $port [optional] Specifies the port number to attempt to connect to the MySQL server. Defaults to ini_get("mysqli.default_port")
 	 * @param string $socket [optional] Specifies the socket or named pipe that should be used. Defaults to ini_get("mysqli.default_socket")
-	 * @since 5.0
 	 */
 	public function __construct (
 		$host = null,
@@ -153,7 +152,6 @@ class mysqli  {
 	 * Whether to turn on auto-commit or not.
 	 * </p>
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function autocommit ($mode) {}
 
@@ -185,7 +183,6 @@ class mysqli  {
 	 * case use the <b>mysqli_select_db</b> function.
 	 * </p>
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function change_user ($user, $password, $database) {}
 
@@ -193,12 +190,12 @@ class mysqli  {
 	 * Returns the default character set for the database connection
 	 * @link https://php.net/manual/en/mysqli.character-set-name.php
 	 * @return string The default character set for the current connection
-	 * @since 5.0
 	 */
 	public function character_set_name () {}
 
 	/**
-	 * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
+	 * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
+     * @removed 5.4
 	 */
 	public function client_encoding () {}
 
@@ -206,7 +203,6 @@ class mysqli  {
 	 * Closes a previously opened database connection
 	 * @link https://php.net/manual/en/mysqli.close.php
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function close () {}
 
@@ -216,7 +212,6 @@ class mysqli  {
 	 * @param int $flags A bitmask of MYSQLI_TRANS_COR_* constants.
 	 * @param string $name If provided then COMMIT $name is executed.
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function commit ($flags = null, $name = null) {}
 
@@ -234,7 +229,6 @@ class mysqli  {
 	 * Dump debugging information into the log
 	 * @link https://php.net/manual/en/mysqli.dump-debug-info.php
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function dump_debug_info () {}
 
@@ -245,7 +239,6 @@ class mysqli  {
 	 * A string representing the debugging operation to perform
 	 * </p>
 	 * @return bool true.
-	 * @since 5.0
 	 */
 	public function debug ($message) {}
 
@@ -275,7 +268,6 @@ class mysqli  {
 	 * Returns the MySQL client version as a string
 	 * @link https://php.net/manual/en/mysqli.get-client-info.php
 	 * @return string A string that represents the MySQL client library version
-	 * @since 5.0
 	 */
 	public function get_client_info () {}
 
@@ -306,7 +298,6 @@ class mysqli  {
 	 * Initializes MySQLi and returns a resource for use with mysqli_real_connect()
 	 * @link https://php.net/manual/en/mysqli.init.php
 	 * @return mysqli an object.
-	 * @since 5.0
 	 */
 	public function init () {}
 
@@ -315,7 +306,6 @@ class mysqli  {
 	 * @link https://php.net/manual/en/mysqli.kill.php
 	 * @param int $processid
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function kill ($processid) {}
 
@@ -331,7 +321,6 @@ class mysqli  {
 	 * @return bool false if the first statement failed.
 	 * To retrieve subsequent errors from other statements you have to call
 	 * <b>mysqli_next_result</b> first.
-	 * @since 5.0
 	 */
 	public function multi_query ($query) {}
 
@@ -349,7 +338,6 @@ class mysqli  {
 	 * Check if there are any more query results from a multi query
 	 * @link https://php.net/manual/en/mysqli.more-results.php
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function more_results () {}
 
@@ -357,7 +345,6 @@ class mysqli  {
 	 * Prepare next result from multi_query
 	 * @link https://php.net/manual/en/mysqli.next-result.php
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function next_result () {}
 
@@ -409,7 +396,6 @@ class mysqli  {
 	 * The value for the option.
 	 * </p>
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function options ($option, $value) {}
 
@@ -417,7 +403,6 @@ class mysqli  {
 	 * Pings a server connection, or tries to reconnect if the connection has gone down
 	 * @link https://php.net/manual/en/mysqli.ping.php
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function ping () {}
 
@@ -456,7 +441,6 @@ class mysqli  {
 	 * Definition Language (DDL) statements.
 	 * </p>
 	 * @return mysqli_stmt|false <b>mysqli_prepare</b> returns a statement object or false if an error occurred.
-	 * @since 5.0
 	 */
 	public function prepare ($query) {}
 
@@ -489,7 +473,6 @@ class mysqli  {
 	 * EXPLAIN queries <b>mysqli_query</b> will return
 	 * a <b>mysqli_result</b> object. For other successful queries <b>mysqli_query</b> will
 	 * return true and false on failure.
-	 * @since 5.0
 	 */
 	public function query ($query, $resultmode = MYSQLI_STORE_RESULT) {}
 
@@ -568,7 +551,6 @@ class mysqli  {
 	 * <b>mysqli_multi_query</b> function.
 	 * </p>
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function real_connect ($host = null, $username = null, $passwd = null, $dbname = null, $port = null, $socket = null, $flags = null) {}
 
@@ -583,7 +565,6 @@ class mysqli  {
 	 * Control-Z.
 	 * </p>
 	 * @return string an escaped string.
-	 * @since 5.0
 	 */
 	public function real_escape_string ($escapestr) {}
 
@@ -634,7 +615,6 @@ class mysqli  {
 	 * Data inside the query should be properly escaped.
 	 * </p>
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function real_query ($query) {}
 
@@ -654,7 +634,6 @@ class mysqli  {
 	 * @param string $name If provided then ROLLBACK $name is executed.
 	 * @return bool true on success or false on failure.
 	 * @since 5.5 Added flags and name parameters.
-	 * @since 5.0
 	 */
 	public function rollback ($flags = null, $name = null) {}
 
@@ -674,7 +653,6 @@ class mysqli  {
 	 * The database name.
 	 * </p>
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function select_db ($dbname) {}
 
@@ -684,8 +662,7 @@ class mysqli  {
 	 * @param string $charset <p>
 	 * The charset to be set as default.
 	 * </p>
-	 * @return bool true on success or false on failure.
-	 * @since 5.0.5
+	 * @return bool true on success or false on failure..5
 	 */
 	public function set_charset ($charset) {}
 
@@ -715,7 +692,6 @@ class mysqli  {
 	 * A list of allowable ciphers to use for SSL encryption.
 	 * </p>
 	 * @return bool This function always returns TRUE value.
-	 * @since 5.0
 	 */
 	public function ssl_set($key , $cert , $ca , $capath , $cipher) {}
 
@@ -723,7 +699,6 @@ class mysqli  {
 	 * Gets the current system status
 	 * @link https://php.net/manual/en/mysqli.stat.php
 	 * @return string|false A string describing the server status. false if an error occurred.
-	 * @since 5.0
 	 */
 	public function stat () {}
 
@@ -731,7 +706,6 @@ class mysqli  {
 	 * Initializes a statement and returns an object for use with mysqli_stmt_prepare
 	 * @link https://php.net/manual/en/mysqli.stmt-init.php
 	 * @return mysqli_stmt an object.
-	 * @since 5.0
 	 */
 	public function stmt_init () {}
 
@@ -754,7 +728,6 @@ class mysqli  {
 	 * result set (memory for it cannot be allocated). If
 	 * <b>mysqli_field_count</b> returns a non-zero value, the
 	 * statement should have produced a non-empty result set.
-	 * @since 5.0
 	 */
 	public function store_result ($option) {}
 
@@ -762,7 +735,6 @@ class mysqli  {
 	 * Returns whether thread safety is given or not
 	 * @link https://php.net/manual/en/mysqli.thread-safe.php
 	 * @return bool true if the client library is thread-safe, otherwise false.
-	 * @since 5.0
 	 */
 	public function thread_safe () {}
 
@@ -770,7 +742,6 @@ class mysqli  {
 	 * Initiate a result set retrieval
 	 * @link https://php.net/manual/en/mysqli.use-result.php
 	 * @return mysqli_result|false an unbuffered result object or false if an error occurred.
-	 * @since 5.0
 	 */
 	public function use_result () {}
 
@@ -851,7 +822,6 @@ class mysqli_result implements Traversable  {
 	 * Frees the memory associated with a result
 	 * @return void
 	 * @link https://php.net/manual/en/mysqli-result.free.php
-	 * @since 5.0
  	 */
 	public function close () {}
 
@@ -859,7 +829,6 @@ class mysqli_result implements Traversable  {
 	 * Frees the memory associated with a result
 	 * @link https://php.net/manual/en/mysqli-result.free.php
 	 * @return void
-	 * @since 5.0
 	 */
 	public function free () {}
 
@@ -871,7 +840,6 @@ class mysqli_result implements Traversable  {
 	 * minus one (0..<b>mysqli_num_rows</b> - 1).
 	 * </p>
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function data_seek ($offset) {}
 
@@ -941,7 +909,6 @@ class mysqli_result implements Traversable  {
 	 * <td>The number of decimals used (for integer fields)</td>
 	 * </tr>
 	 * </table>
-	 * @since 5.0
 	 */
 	public function fetch_field () {}
 
@@ -1003,7 +970,6 @@ class mysqli_result implements Traversable  {
 	 * <td>The number of decimals used (for integer fields)</td>
 	 * </tr>
 	 * </table>
-	 * @since 5.0
 	 */
 	public function fetch_fields () {}
 
@@ -1070,7 +1036,6 @@ class mysqli_result implements Traversable  {
 	 * <td>The number of decimals used (for integer fields)</td>
 	 * </tr>
 	 * </table>
-	 * @since 5.0
 	 */
 	public function fetch_field_direct ($fieldnr) {}
 
@@ -1107,7 +1072,6 @@ class mysqli_result implements Traversable  {
 	 * </p>
 	 * @return mixed an array of strings that corresponds to the fetched row or null if there
 	 * are no more rows in resultset.
-	 * @since 5.0
 	 */
 	public function fetch_array ($resulttype = MYSQLI_BOTH) {}
 
@@ -1123,7 +1087,6 @@ class mysqli_result implements Traversable  {
 	 * column will take precedence. To access the other column(s) of the same
 	 * name, you either need to access the result with numeric indices by using
 	 * <b>mysqli_fetch_row</b> or add alias names.
-	 * @since 5.0
 	 */
 	public function fetch_assoc () {}
 
@@ -1140,7 +1103,6 @@ class mysqli_result implements Traversable  {
 	 * </p>
 	 * @return stdClass|object an object with string properties that corresponds to the fetched
 	 * row or null if there are no more rows in resultset.
-	 * @since 5.0
 	 */
 	public function fetch_object ($class_name = 'stdClass', array $params = null) {}
 
@@ -1149,7 +1111,6 @@ class mysqli_result implements Traversable  {
 	 * @link https://php.net/manual/en/mysqli-result.fetch-row.php
 	 * @return mixed mysqli_fetch_row returns an array of strings that corresponds to the fetched row
 	 * or &null; if there are no more rows in result set.
-	 * @since 5.0
 	 */
 	public function fetch_row () {}
 
@@ -1161,7 +1122,6 @@ class mysqli_result implements Traversable  {
 	 * 0 to number of fields - 1.
 	 * </p>
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function field_seek ($fieldnr) {}
 
@@ -1169,7 +1129,6 @@ class mysqli_result implements Traversable  {
 	 * Frees the memory associated with a result
 	 * @return void
 	 * @link https://php.net/manual/en/mysqli-result.free.php
-	 * @since 5.0
 	 */
 	public function free_result () {}
 
@@ -1235,7 +1194,6 @@ class mysqli_stmt  {
 	 * The attribute that you want to get.
 	 * </p>
 	 * @return int|false false if the attribute is not found, otherwise returns the value of the attribute.
-	 * @since 5.0
 	 */
 	public function attr_get ($attr) {}
 
@@ -1290,7 +1248,6 @@ class mysqli_stmt  {
 	 * </p>
 	 * @param int $mode <p>The value to assign to the attribute.</p>
 	 * @return bool
-	 * @since 5.0
 	 */
 	public function attr_set ($attr, $mode) {}
 
@@ -1330,7 +1287,6 @@ class mysqli_stmt  {
 	 * </p>
 	 * @param mixed $_ [optional]
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function bind_param ($types, &$var1, &...$_) {}
 
@@ -1340,7 +1296,6 @@ class mysqli_stmt  {
 	 * @param mixed $var1 The variable to be bound.
 	 * @param mixed ...$_ The variables to be bound.
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function bind_result (&$var1, &...$_) {}
 
@@ -1348,7 +1303,6 @@ class mysqli_stmt  {
 	 * Closes a prepared statement
 	 * @link https://php.net/manual/en/mysqli-stmt.close.php
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function close () {}
 
@@ -1360,7 +1314,6 @@ class mysqli_stmt  {
 	 * <b>mysqli_stmt_num_rows</b> - 1).
 	 * </p>
 	 * @return void
-	 * @since 5.0
 	 */
 	public function data_seek ($offset) {}
 
@@ -1368,7 +1321,6 @@ class mysqli_stmt  {
 	 * Executes a prepared Query
 	 * @link https://php.net/manual/en/mysqli-stmt.execute.php
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function execute () {}
 
@@ -1376,7 +1328,6 @@ class mysqli_stmt  {
 	 * Fetch results from a prepared statement into the bound variables
 	 * @link https://php.net/manual/en/mysqli-stmt.fetch.php
 	 * @return bool
-	 * @since 5.0
 	 */
 	public function fetch () {}
 
@@ -1392,7 +1343,6 @@ class mysqli_stmt  {
 	 * Returns result set metadata from a prepared statement
 	 * @link https://php.net/manual/en/mysqli-stmt.result-metadata.php
 	 * @return mysqli_result|false a result object or false if an error occurred.
-	 * @since 5.0
 	 */
 	public function result_metadata () {}
 
@@ -1414,7 +1364,6 @@ class mysqli_stmt  {
 	 * Return the number of rows in statements result set
 	 * @link https://php.net/manual/en/mysqli-stmt.num-rows.php
 	 * @return int An integer representing the number of rows in result set.
-	 * @since 5.0
 	 */
 	public function num_rows () {}
 
@@ -1429,13 +1378,13 @@ class mysqli_stmt  {
 	 * A string containing data to be sent.
 	 * </p>
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function send_long_data ($param_nr, $data) {}
 
 	/**
 	 * No documentation available
-	 * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
+	 * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
+     * @removed 5.4
 	 */
 	public function stmt () {}
 
@@ -1443,7 +1392,6 @@ class mysqli_stmt  {
 	 * Frees stored result memory for the given statement handle
 	 * @link https://php.net/manual/en/mysqli-stmt.free-result.php
 	 * @return void
-	 * @since 5.0
 	 */
 	public function free_result () {}
 
@@ -1451,7 +1399,6 @@ class mysqli_stmt  {
 	 * Resets a prepared statement
 	 * @link https://php.net/manual/en/mysqli-stmt.reset.php
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function reset () {}
 
@@ -1486,7 +1433,6 @@ class mysqli_stmt  {
 	 * (DDL) statements.
 	 * </p>
 	 * @return mixed true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function prepare ($query) {}
 
@@ -1494,7 +1440,6 @@ class mysqli_stmt  {
 	 * Transfers a result set from a prepared statement
 	 * @link https://php.net/manual/en/mysqli-stmt.store-result.php
 	 * @return bool true on success or false on failure.
-	 * @since 5.0
 	 */
 	public function store_result () {}
 
@@ -1672,7 +1617,6 @@ function mysqli_stmt_execute ($stmt) {}
 
 /**
  * Executes a prepared Query
- * @since 5.0
  * Alias for <b>mysqli_stmt_execute</b>
  * @link https://php.net/manual/en/function.mysqli-execute.php
  * @param mysqli_stmt $stmt
@@ -2080,7 +2024,6 @@ function mysqli_prepare ($link, $query) {}
 
 /**
  * Enables or disables internal report functions
- * @since 5.0
  * @link https://php.net/manual/en/function.mysqli-report.php
  * @param int $flags <p>
  * <table>
@@ -2426,7 +2369,6 @@ function mysqli_stat ($link) {}
  * @param string $capath The pathname to a directory that contains trusted SSL CA certificates in PEM format
  * @param string $cipher A list of allowable ciphers to use for SSL encryption
  * @return bool This function always returns TRUE value.
- * @since 5.0
  */
 function mysqli_ssl_set($link, $key , $cert , $ca , $capath , $cipher) {}
 
@@ -2557,8 +2499,8 @@ function mysqli_refresh ($link, $options) {}
  * @link https://php.net/manual/en/function.mysqli-bind-param.php
  * @param mysqli_stmt $stmt
  * @param $types
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
- * @since 5.0
+ * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
+ * @removed 5.4
  */
 function mysqli_bind_param ($stmt, $types) {}
 
@@ -2568,8 +2510,8 @@ function mysqli_bind_param ($stmt, $types) {}
  * @param mysqli_stmt $stmt
  * @param string $types
  * @param mixed $var1
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
- * @since 5.0
+ * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
+ * @removed 5.4
  */
 function mysqli_bind_result ($stmt, $types, &$var1) {}
 
@@ -2578,8 +2520,8 @@ function mysqli_bind_result ($stmt, $types, &$var1) {}
  * @link https://php.net/manual/en/function.mysqli-client-encoding.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
- * @since 5.0
+ * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
+ * @removed 5.4
  */
 function mysqli_client_encoding ($link) {}
 
@@ -2589,7 +2531,6 @@ function mysqli_client_encoding ($link) {}
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $escapestr The string to be escaped
  * @return string
- * @since 5.0
  */
 function mysqli_escape_string ($link, $escapestr) {}
 
@@ -2598,8 +2539,8 @@ function mysqli_escape_string ($link, $escapestr) {}
  * @link https://php.net/manual/en/function.mysqli-fetch.php
  * @param mysqli_stmt $stmt
  * @return bool
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
- * @since 5.0
+ * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
+ * @removed 5.4
  */
 function mysqli_fetch ($stmt) {}
 
@@ -2608,8 +2549,8 @@ function mysqli_fetch ($stmt) {}
  * @link https://php.net/manual/en/function.mysqli-param-count.php
  * @param mysqli_stmt $stmt
  * @return int
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
- * @since 5.0
+ * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
+ * @removed 5.4
  */
 function mysqli_param_count ($stmt) {}
 
@@ -2618,8 +2559,8 @@ function mysqli_param_count ($stmt) {}
  * @link https://php.net/manual/en/function.mysqli-get-metadata.php
  * @param mysqli_stmt $stmt
  * @return mysqli_result|false Returns a result object or FALSE if an error occurred
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
- * @since 5.0
+ * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
+ * @removed 5.4
  */
 function mysqli_get_metadata ($stmt) {}
 
@@ -2630,8 +2571,8 @@ function mysqli_get_metadata ($stmt) {}
  * @param int $param_nr
  * @param string $data
  * @return bool
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
- * @since 5.0
+ * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
+ * @removed 5.4
  */
 function mysqli_send_long_data ($stmt, $param_nr, $data) {}
 
@@ -2642,7 +2583,6 @@ function mysqli_send_long_data ($stmt, $param_nr, $data) {}
  * @param int $option
  * @param mixed $value
  * @return bool
- * @since 5.0
  */
 function mysqli_set_opt ($link, $option, $value) {}
 
