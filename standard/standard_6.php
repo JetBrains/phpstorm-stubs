@@ -794,8 +794,7 @@ function set_file_buffer ($fp, $buffer) {}
  * This affects calls like fgets() and fread() that read from the stream.
  * In non-blocking mode an fgets() call will always return right away while in blocking mode it will wait for data to become available on the stream.
  * @return bool Returns TRUE on success or FALSE on failure.
- * @since 4.0
- * @since 5.0
+ * @removed 7.0
  */
 function set_socket_blocking ($socket, $mode) {}
 

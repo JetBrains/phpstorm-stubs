@@ -58,9 +58,8 @@ function call_user_func_array ($function, array $param_arr) {}
  * @param object $obj 
  * @param mixed $parameter [optional] 
  * @param mixed $_ [optional] 
- * @return mixed 
- * @since 4.0
- * @since 5.0
+ * @return mixed
+ * @removed 7.0
  */
 function call_user_method ($method_name, &$obj, $parameter = null, $_ = null) {}
 
@@ -72,8 +71,7 @@ function call_user_method ($method_name, &$obj, $parameter = null, $_ = null) {}
  * @param object $obj 
  * @param array $params 
  * @return mixed 
- * @since 4.0.5
- * @since 5.0
+ * @removed 7.0
  */
 function call_user_method_array ($method_name, &$obj, array $params) {}
 

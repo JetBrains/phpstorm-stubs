@@ -1952,7 +1952,7 @@ function imagefttext ($image, $size, $angle, $x, $y, $color, $fontfile, $text, $
  * can be used for further purposes. Otherwise the function returns false.
  * @since 4.0
  * @since 5.0
- * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
+ * @removed 7.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepsloadfont ($filename) {}
 
@@ -1965,7 +1965,7 @@ function imagepsloadfont ($filename) {}
  * @return bool true on success or false on failure.
  * @since 4.0
  * @since 5.0
- * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
+ * @removed 7.0
  */
 function imagepsfreefont ($font_index) {}
 
@@ -1982,9 +1982,7 @@ function imagepsfreefont ($font_index) {}
  * IsoLatin2.enc.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
- * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
+ * @removed 7.0
  */
 function imagepsencodefont ($font_index, $encodingfile) {}
 
@@ -1998,9 +1996,7 @@ function imagepsencodefont ($font_index, $encodingfile) {}
  * Extension value, must be greater than 0.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
- * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
+ * @removed 7.0
  */
 function imagepsextendfont ($font_index, $extend) {}
 
@@ -2016,7 +2012,7 @@ function imagepsextendfont ($font_index, $extend) {}
  * @return bool true on success or false on failure.
  * @since 4.0
  * @since 5.0
- * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
+ * @removed 7.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepsslantfont ($font_index, $slant) {}
 
@@ -2091,7 +2087,7 @@ function imagepsslantfont ($font_index, $slant) {}
  * Returns false on error.
  * @since 4.0
  * @since 5.0
- * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
+ * @removed 7.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepstext ($image, $text, $font_index, $size, $foreground, $background, $x, $y, $space = null, $tightness = null, $angle = null, $antialias_steps = null) {}
 
@@ -2123,9 +2119,7 @@ function imagepstext ($image, $text, $font_index, $size, $foreground, $backgroun
  * <td>lower y-coordinate</td>
  * </tr>
  * Returns false on error.
- * @since 4.0
- * @since 5.0
- * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
+ * @removed 7.0
  */
 function imagepsbbox ($text, $font, $size) {}
 

@@ -1788,6 +1788,7 @@ class IntlDateFormatter {
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * @deprecated 5.5 https://secure.php.net/manual/en/migration55.deprecated.php
+     * @removed 7.0
      */
     public function setTimeZoneId($zone) { }
 
@@ -4190,6 +4191,7 @@ function datefmt_get_timezone() { }
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @deprecated 5.5 https://secure.php.net/manual/en/migration55.deprecated.php
+ * @removed 7.0
  */
 function datefmt_set_timezone_id(MessageFormatter $mf, $zone) { }
 

@@ -11,8 +11,7 @@
  * @param string $data 
  * @param int $mode 
  * @return string 
- * @since 4.0
- * @since 5.0
+ * @removed 7.0
  */
 function mcrypt_ecb ($cipher, $key, $data, $mode) {}
 
@@ -26,8 +25,7 @@ function mcrypt_ecb ($cipher, $key, $data, $mode) {}
  * @param int $mode 
  * @param string $iv [optional] 
  * @return string 
- * @since 4.0
- * @since 5.0
+ * @removed 7.0
  */
 function mcrypt_cbc ($cipher, $key, $data, $mode, $iv = null) {}
 
@@ -41,8 +39,7 @@ function mcrypt_cbc ($cipher, $key, $data, $mode, $iv = null) {}
  * @param int $mode 
  * @param string $iv [optional]
  * @return string 
- * @since 4.0
- * @since 5.0
+ * @removed 7.0
  */
 function mcrypt_cfb ($cipher, $key, $data, $mode, $iv = null) {}
 
@@ -56,8 +53,7 @@ function mcrypt_cfb ($cipher, $key, $data, $mode, $iv = null) {}
  * @param int $mode 
  * @param string $iv [optional]
  * @return string 
- * @since 4.0
- * @since 5.0
+ * @removed 7.0
  */
 function mcrypt_ofb ($cipher, $key, $data, $mode, $iv = null) {}
 
@@ -372,8 +368,7 @@ function mdecrypt_generic ($td, $data) {}
  * @param resource $td 
  * @return bool
  * @deprecated 5.4 This function has been DEPRECATED as of PHP 5.4.0.
- * @since 4.0.2
- * @since 5.1.6
+ * @removed 7.0
  */
 function mcrypt_generic_end ($td) {}
 

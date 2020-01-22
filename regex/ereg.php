@@ -32,8 +32,7 @@
  * <p>
  * If the optional parameter <i>regs</i> was not passed or
  * the length of the matched string is 0, this function returns 1.
- * @since 4.0
- * @since 5.0
+ * @removed 7.0
  */
 function ereg ($pattern, $string, array &$regs = null) {}
 
@@ -58,8 +57,7 @@ function ereg ($pattern, $string, array &$regs = null) {}
  * </p>
  * @return string The modified string is returned. If no matches are found in
  * <i>string</i>, then it will be returned unchanged.
- * @since 4.0
- * @since 5.0
+ * @removed 7.0
  */
 function ereg_replace ($pattern, $replacement, $string) {}
 
@@ -92,8 +90,7 @@ function ereg_replace ($pattern, $replacement, $string) {}
  * <p>
  * If the optional parameter <i>regs</i> was not passed or
  * the length of the matched string is 0, this function returns 1.
- * @since 4.0
- * @since 5.0
+ * @removed 7.0
  */
 function eregi ($pattern, $string, array &$regs = null) {}
 
@@ -118,8 +115,7 @@ function eregi ($pattern, $string, array &$regs = null) {}
  * </p>
  * @return string The modified string is returned. If no matches are found in
  * <i>string</i>, then it will be returned unchanged.
- * @since 4.0
- * @since 5.0
+ * @removed 7.0
  */
 function eregi_replace ($pattern, $replacement, $string) {}
 

@@ -996,8 +996,7 @@ function get_cfg_var ($option) {}
  * @link https://php.net/manual/en/function.magic-quotes-runtime.php
  * @deprecated 5.3
  * @param $new_setting
- * @since 4.0
- * @since 5.0
+ * @removed 7.0
  */
 function magic_quotes_runtime ($new_setting) {}
 
@@ -1010,8 +1009,7 @@ function magic_quotes_runtime ($new_setting) {}
  * </p>
  * @return bool true on success or false on failure.
  * @deprecated 5.4 This function has been DEPRECATED as of PHP 5.4.0. Raises an E_CORE_ERROR.
- * @since 4.0
- * @since 5.0
+ * @removed 7.0
  */
 function set_magic_quotes_runtime ($new_setting) {}
 
