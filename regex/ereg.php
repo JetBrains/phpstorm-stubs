@@ -199,6 +199,7 @@ function split ($pattern, $string, $limit = -1) {}
  * only one element will be returned. Of course, this is also true if
  * <i>string</i> is empty. If an error occurs,
  * <b>spliti</b> returns <b>FALSE</b>.
+ * @removed 7.0
  */
 function spliti ($pattern, $string, $limit = -1) {}
 
@@ -214,6 +215,7 @@ function spliti ($pattern, $string, $limit = -1) {}
  * <i>string</i> with each alphabetic character converted to
  * a bracket expression; this bracket expression contains that character's
  * uppercase and lowercase form. Other characters remain unchanged.
+ * @removed 7.0
  */
 function sql_regcase ($string) {}
 
