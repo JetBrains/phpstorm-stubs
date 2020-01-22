@@ -744,7 +744,6 @@ function sqlite_fetch_array ($result, $result_type = SQLITE_BOTH, $decode_binary
  * @param array $ctor_params [optional] 
  * @param bool $decode_binary [optional] 
  * @return object
- * @since 5.0
  */
 function sqlite_fetch_object ($result, $class_name = null, array $ctor_params = null, $decode_binary = null) {}
 
@@ -953,7 +952,6 @@ function sqlite_next ($result) {}
  * <blockquote><p><b>Note</b>: </p><p>This function cannot be used with
  * unbuffered result handles.</p></blockquote>
  * @return bool true on success, or false if there are no more previous rows.
- * @since 5.0
  */
 function sqlite_prev ($result) {}
 
@@ -968,7 +966,6 @@ function sqlite_prev ($result) {}
  * unbuffered result handles.</p></blockquote>
  * @return bool <b>TRUE</b> if there are more rows available from the
  * result handle, or <b>FALSE</b> otherwise.
- * @since 5.0
  */
 function sqlite_valid ($result) {}
 
@@ -993,7 +990,6 @@ function sqlite_has_more ($result) {}
  * </p>
  * @return bool <b>TRUE</b> if there are more previous rows available from the
  * result handle, or <b>FALSE</b> otherwise.
- * @since 5.0
  */
 function sqlite_has_prev ($result) {}
 
@@ -1154,7 +1150,6 @@ function sqlite_create_function ($dbhandle, $function_name, $callback, $num_args
  * explaining why the database could not be opened if there was an error.
  * </p>
  * @return SQLiteDatabase a SQLiteDatabase object on success, &null; on error.
- * @since 5.0
  */
 function sqlite_factory ($filename, $mode = null, &$error_message = null) {}
 
@@ -1202,7 +1197,6 @@ function sqlite_udf_decode_binary ($data) {}
  * this function.
  * </p>
  * @return array|false an array of column data types; false on error.
- * @since 5.0
  */
 function sqlite_fetch_column_types ($dbhandle, $table_name, $result_type = null) {}
 

@@ -33,8 +33,6 @@
  * and execution is stopped. If <b>dl</b> fails because the
  * specified library couldn't be loaded, in addition to <b>FALSE</b> an
  * <b>E_WARNING</b> message is emitted.
- * @since 4.0
- * @since 5.0
  */
 function dl ($library) {}
 
@@ -73,16 +71,12 @@ function is_iterable($value) {}
  * An ISO-8859-1 string.
  * </p>
  * @return string the UTF-8 translation of <i>data</i>.
- * @since 4.0
- * @since 5.0
  */
 function utf8_encode ($data) {}
 
 /**
  * Converts a string with ISO-8859-1 characters encoded with UTF-8
- * @since 4.0
- * @since 5.0
-to single-byte ISO-8859-1
+ * to single-byte ISO-8859-1
  * @link https://php.net/manual/en/function.utf8-decode.php
  * @param string $data <p>
  * An UTF-8 encoded string.
@@ -207,7 +201,6 @@ define ('__TRAIT__', '', true);
  * the directory of the included file is returned. This is equivalent
  * to dirname(__FILE__). This directory name
  * does not have a trailing slash unless it is the root directory.
- * @since 5.3
  * @link https://php.net/manual/en/language.constants.predefined.php
  */
 define ('__DIR__', '', true);
@@ -215,7 +208,6 @@ define ('__DIR__', '', true);
 /**
  * The name of the current namespace (case-sensitive). This constant
  * is defined in compile-time (Added in PHP 5.3.0).
- * @since 5.3
  * @link https://php.net/manual/en/language.constants.predefined.php
  */
 define ('__NAMESPACE__', '', true);

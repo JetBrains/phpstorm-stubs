@@ -193,7 +193,6 @@ function time_nanosleep ($seconds, $nanoseconds) {}
  * The timestamp when the script should wake.
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.1
  */
 function time_sleep_until ($timestamp) {}
 
@@ -258,7 +257,6 @@ function time_sleep_until ($timestamp) {}
  * recognized using the specified format</td>
  * </tr>
  * </table>
- * @since 5.1
  */
 function strptime ($date, $format) {}
 
@@ -527,7 +525,6 @@ function html_entity_decode ($string, $quote_style = null, $charset = null) {}
  * </table>
  * </p>
  * @return string the decoded string.
- * @since 5.1
  */
 function htmlspecialchars_decode ($string, $quote_style = null) {}
 
@@ -873,7 +870,6 @@ function getimagesize ($filename, array &$imageinfo = null) {}
 
 /**
  * Get Mime-Type for image-type returned by getimagesize, exif_read_data, exif_thumbnail, exif_imagetype
- * @since 4.3
  * @link https://php.net/manual/en/function.image-type-to-mime-type.php
  * @param int $imagetype <p>
  * One of the IMAGETYPE_XXX constants.

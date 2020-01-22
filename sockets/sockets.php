@@ -105,8 +105,6 @@ function socket_addrinfo_explain($addr) {}
  * socket_strerror(socket_last_error()) . "\n";
  * }
  * </code>
- * @since 4.1
- * @since 5.0
  */
 function socket_select (array &$read, array &$write, array &$except, $tv_sec, $tv_usec = 0) {}
 
@@ -245,8 +243,6 @@ function socket_select (array &$read, array &$write, array &$except, $tv_sec, $t
  * <b>socket_last_error</b>. This error code may be passed to
  * <b>socket_strerror</b> to get a textual explanation of the
  * error.
- * @since 4.1
- * @since 5.0
  */
 function socket_create ($domain, $type, $protocol) {}
 
@@ -274,8 +270,6 @@ function socket_export_stream($socket) {}
  * <b>socket_last_error</b>. This code may be passed to
  * <b>socket_strerror</b> to get a textual explanation of the
  * error.
- * @since 4.1
- * @since 5.0
  */
 function socket_create_listen ($port, $backlog = 128) {}
 
@@ -309,8 +303,6 @@ function socket_create_listen ($port, $backlog = 128) {}
  * Reference to an array in which the two socket resources will be inserted.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.1
- * @since 5.0
  */
 function socket_create_pair ($domain, $type, $protocol, array &$fd) {}
 
@@ -325,8 +317,6 @@ function socket_create_pair ($domain, $type, $protocol, array &$fd) {}
  * <b>socket_last_error</b>. This error code may be passed to
  * <b>socket_strerror</b> to get a textual explanation of the
  * error.
- * @since 4.1
- * @since 5.0
  */
 function socket_accept ($socket) {}
 
@@ -338,8 +328,6 @@ function socket_accept ($socket) {}
  * or <b>socket_accept</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.1
- * @since 5.0
  */
 function socket_set_nonblock ($socket) {}
 
@@ -351,8 +339,6 @@ function socket_set_nonblock ($socket) {}
  * or <b>socket_accept</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.2
- * @since 5.0
  */
 function socket_set_block ($socket) {}
 
@@ -382,8 +368,6 @@ function socket_set_block ($socket) {}
  * <b>socket_last_error</b>. This code may be passed to
  * <b>socket_strerror</b> to get a textual explanation of the
  * error.
- * @since 4.1
- * @since 5.0
  */
 function socket_listen ($socket, $backlog = 0) {}
 
@@ -395,8 +379,6 @@ function socket_listen ($socket, $backlog = 0) {}
  * or <b>socket_accept</b>.
  * </p>
  * @return void No value is returned.
- * @since 4.1
- * @since 5.0
  */
 function socket_close ($socket) {}
 
@@ -424,8 +406,6 @@ function socket_close ($socket) {}
  * return zero which means no bytes have been written. Be sure to use the
  * === operator to check for <b>FALSE</b> in case of an
  * error.
- * @since 4.1
- * @since 5.0
  */
 function socket_write ($socket, $buffer, $length = 0) {}
 
@@ -457,8 +437,6 @@ function socket_write ($socket, $buffer, $length = 0) {}
  * <p>
  * <b>socket_read</b> returns a zero length string ("")
  * when there is no more data to read.
- * @since 4.1
- * @since 5.0
  */
 function socket_read ($socket, $length, $type = PHP_BINARY_READ) {}
 
@@ -490,8 +468,6 @@ function socket_read ($socket, $length, $type = PHP_BINARY_READ) {}
  * <b>FALSE</b> if the socket type is not any of <b>AF_INET</b>,
  * <b>AF_INET6</b>, or <b>AF_UNIX</b>, in which
  * case the last socket error code is not updated.
- * @since 4.1
- * @since 5.0
  */
 function socket_getsockname ($socket, &$addr, &$port = null) {}
 
@@ -525,8 +501,6 @@ function socket_getsockname ($socket, &$addr, &$port = null) {}
  * <b>FALSE</b> if the socket type is not any of <b>AF_INET</b>,
  * <b>AF_INET6</b>, or <b>AF_UNIX</b>, in which
  * case the last socket error code is not updated.
- * @since 4.1
- * @since 5.0
  */
 function socket_getpeername ($socket, &$address, &$port = null) {}
 
@@ -557,8 +531,6 @@ function socket_getpeername ($socket, &$address, &$port = null) {}
  * <p>
  * If the socket is non-blocking then this function returns <b>FALSE</b> with an
  * error Operation now in progress.
- * @since 4.1
- * @since 5.0
  */
 function socket_connect ($socket, $address, $port = 0) {}
 
@@ -571,8 +543,6 @@ function socket_connect ($socket, $address, $port = 0) {}
  * </p>
  * @return string the error message associated with the <i>errno</i>
  * parameter.
- * @since 4.1
- * @since 5.0
  */
 function socket_strerror ($errno) {}
 
@@ -603,8 +573,6 @@ function socket_strerror ($errno) {}
  * The error code can be retrieved with <b>socket_last_error</b>.
  * This code may be passed to <b>socket_strerror</b> to get a
  * textual explanation of the error.
- * @since 4.1
- * @since 5.0
  */
 function socket_bind ($socket, $address, $port = 0) {}
 
@@ -669,8 +637,6 @@ function socket_bind ($socket, $address, $port = 0) {}
  * calling <b>socket_last_error</b>. This error code may be
  * passed to <b>socket_strerror</b> to get a textual explanation
  * of the error.
- * @since 4.1
- * @since 5.0
  */
 function socket_recv ($socket, &$buf, $len, $flags) {}
 
@@ -723,8 +689,6 @@ function socket_recv ($socket, &$buf, $len, $flags) {}
  * </table>
  * </p>
  * @return int|false <b>socket_send</b> returns the number of bytes sent, or <b>FALSE</b> on error.
- * @since 4.1
- * @since 5.0
  */
 function socket_send ($socket, $buf, $len, $flags) {}
 
@@ -811,8 +775,6 @@ function socket_sendmsg ($socket, array $message, $flags ) {}
  * calling <b>socket_last_error</b>. This error code may be
  * passed to <b>socket_strerror</b> to get a textual explanation
  * of the error.
- * @since 4.1
- * @since 5.0
  */
 function socket_recvfrom ($socket, &$buf, $len, $flags, &$name, &$port = null) {}
 
@@ -883,8 +845,6 @@ function socket_recvmsg ($socket , $message, $flags) {}
  * </p>
  * @return int|false <b>socket_sendto</b> returns the number of bytes sent to the
  * remote host, or <b>FALSE</b> if an error occurred.
- * @since 4.1
- * @since 5.0
  */
 function socket_sendto ($socket, $buf, $len, $flags, $addr, $port = 0) {}
 
@@ -1251,8 +1211,6 @@ function socket_sendto ($socket, $buf, $len, $flags, $addr, $port = 0) {}
  * </tr>
  * </table>
  * @return mixed|false the value of the given option, or <b>FALSE</b> on errors.
- * @since 4.3
- * @since 5.0
  */
 function socket_get_option ($socket, $level, $optname) {}
 
@@ -1280,8 +1238,6 @@ function socket_get_option ($socket, $level, $optname) {}
  * The option value.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.3
- * @since 5.0
  */
 function socket_set_option ($socket, $level, $optname, $optval) {}
 
@@ -1316,8 +1272,6 @@ function socket_set_option ($socket, $level, $optname, $optval) {}
  * </table>
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.1
- * @since 5.0
  */
 function socket_shutdown ($socket, $how = 2) {}
 
@@ -1328,8 +1282,6 @@ function socket_shutdown ($socket, $how = 2) {}
  * A valid socket resource created with <b>socket_create</b>.
  * </p>
  * @return int This function returns a socket error code.
- * @since 4.1
- * @since 5.0
  */
 function socket_last_error ($socket = null) {}
 
@@ -1340,8 +1292,6 @@ function socket_last_error ($socket = null) {}
  * A valid socket resource created with <b>socket_create</b>.
  * </p>
  * @return void No value is returned.
- * @since 4.2
- * @since 5.0
  */
 function socket_clear_error ($socket = null) {}
 

@@ -5,8 +5,6 @@
  * apache_child_terminate() will register the Apache process executing the current PHP request for termination once execution of PHP code is completed. It may be used to terminate a process after a script with high memory consumption has been run as memory will usually only be freed internally but not given back to the operating system.
  * @link https://php.net/manual/en/function.apache-child-terminate.php
  * @return bool <b>TRUE</b> if PHP is running as an Apache 1 module, the Apache version is non-multithreaded, and the child_terminate PHP directive is enabled (disabled by default). If these conditions are not met, <b>FALSE</b> is returned and an error of level <b>E_WARNING</b> is generated.
- * @since 4.0.5
- * @since 5.0
  */
 function apache_child_terminate () {}
 
@@ -14,8 +12,6 @@ function apache_child_terminate () {}
  * Get a list of loaded Apache modules
  * @link https://php.net/manual/en/function.apache-get-modules.php
  * @return array of loaded Apache modules.
- * @since 4.3.2
- * @since 5.0
  */
 function apache_get_modules () {}
 
@@ -23,8 +19,6 @@ function apache_get_modules () {}
  * Fetch the Apache version
  * @link https://php.net/manual/en/function.apache-get-version.php
  * @return string|false the Apache version on success or <b>FALSE</b> on failure.
- * @since 4.3.2
- * @since 5.0
  */
 function apache_get_version () {}
 
@@ -40,8 +34,6 @@ function apache_get_version () {}
  * Whether to get the top-level variable available to all Apache layers.
  * </p>
  * @return string|false The value of the Apache environment variable on success, or <b>FALSE</b> on failure.
- * @since 4.3
- * @since 5.0
  */
 function apache_getenv ( $variable, $walk_to_top = false ) {}
 
@@ -54,8 +46,6 @@ function apache_getenv ( $variable, $walk_to_top = false ) {}
  * The filename (URI) that's being requested.
  * </p>
  * @return object of related URI information.
- * @since 4.0
- * @since 5.0
  */
 function apache_lookup_uri ( $filename ) {}
 
@@ -71,8 +61,6 @@ function apache_lookup_uri ( $filename ) {}
  * The value of the note.
  * </p>
  * @return string|false If called with one argument, it returns the current value of note note_name. If called with two arguments, it sets the value of note note_name to note_value and returns the previous value of note note_name. If the note cannot be retrieved, <b>FALSE</b> is returned.
- * @since 4.0
- * @since 5.0
  */
 function apache_note ( $note_name, $note_value = '' ) {}
 
@@ -80,8 +68,6 @@ function apache_note ( $note_name, $note_value = '' ) {}
  * Fetches all HTTP request headers from the current request
  * @link https://php.net/manual/en/function.apache-request-headers.php
  * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b on failure.
- * @since 4.3
- * @since 5.0
  */
 function apache_request_headers () {}
 
@@ -91,7 +77,6 @@ function apache_request_headers () {}
  * This function requires Apache 1.
  * @link https://php.net/manual/en/function.apache-reset-timeout.php
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.1
  */
 function apache_reset_timeout () {}
 
@@ -99,8 +84,6 @@ function apache_reset_timeout () {}
  * Fetch all HTTP response headers
  * @link https://php.net/manual/en/function.apache-response-headers.php
  * @return array|false An array of all Apache response headers on success or <b>FALSE</b> on failure.
- * @since 4.3
- * @since 5.0
  */
 function apache_response_headers () {}
 
@@ -118,8 +101,6 @@ function apache_response_headers () {}
  * Whether to set the top-level variable available to all Apache layers.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.2
- * @since 5.0
  */
 function apache_setenv ( $variable, $value, $walk_to_top = false ) {}
 
@@ -128,8 +109,6 @@ function apache_setenv ( $variable, $value, $walk_to_top = false ) {}
  * This function is an alias for apache_request_headers(). Please read the apache_request_headers() documentation for more information on how this function works.
  * @link https://php.net/manual/en/function.getallheaders.php
  * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function getallheaders () {}
 
@@ -143,7 +122,5 @@ function getallheaders () {}
  * The file that the virtual command will be performed on.
  * </p>
  * @return bool Performs the virtual command on success, or returns FALSE on failure.
- * @since 4.0
- * @since 5.0
  */
 function virtual ( $filename ) {}

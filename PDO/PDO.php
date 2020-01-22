@@ -268,7 +268,6 @@ class PDO  {
 	 * As <b>PDO::FETCH_INTO</b> but object is provided as a serialized string.
 	 * Available since PHP 5.1.0. Since PHP 5.3.0 the class constructor is never called if this
 	 * flag is set.
-	 * @since 5.1
 	 * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.fetch-serialize
 	 */
 	const FETCH_SERIALIZE = 524288;

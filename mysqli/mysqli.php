@@ -260,7 +260,6 @@ class mysqli  {
 	 * <p>Internal character set number</p>
 	 * <i>state</i>
 	 * <p>Character set status (?)</p>
-	 * @since 5.1
 	 */
 	public function get_charset () {}
 
@@ -275,7 +274,6 @@ class mysqli  {
 	 * Returns statistics about the client connection
 	 * @link https://php.net/manual/en/mysqli.get-connection-stats.php
 	 * @return array|false an array with connection stats if success, false otherwise.
-	 * @since 5.3
 	 */
 	public function get_connection_stats () {}
 
@@ -290,7 +288,6 @@ class mysqli  {
 	 * Get result of SHOW WARNINGS
 	 * @link https://php.net/manual/en/mysqli.get-warnings.php
 	 * @return mysqli_warning
-	 * @since 5.1
 	 */
 	public function get_warnings () {}
 
@@ -584,7 +581,6 @@ class mysqli  {
 	 * Number of microseconds to wait, must be non-negative.
 	 * </p>
 	 * @return int|false number of ready connections in success, false otherwise.
-	 * @since 5.3
 	 */
 	public static function poll (array &$read , array &$error , array &$reject , $sec, $usec = null) {}
 
@@ -592,7 +588,6 @@ class mysqli  {
 	 * Get result from async query
 	 * @link https://php.net/manual/en/mysqli.reap-async-query.php
 	 * @return mysqli_result|false mysqli_result in success, false otherwise.
-	 * @since 5.3
 	 */
 	public function reap_async_query () {}
 
@@ -1049,7 +1044,6 @@ class mysqli_result implements Traversable  {
 	 * MYSQLI_NUM, or MYSQLI_BOTH.
 	 * </p>
 	 * @return mixed an array of associative or numeric arrays holding result rows.
-	 * @since 5.3
 	 */
 	public function fetch_all ($resulttype = null) {}
 
@@ -1335,7 +1329,6 @@ class mysqli_stmt  {
 	 * Get result of SHOW WARNINGS
 	 * @link https://php.net/manual/en/mysqli-stmt.get-warnings.php
 	 * @return object
-	 * @since 5.1
 	 */
 	public function get_warnings () {}
 
@@ -1758,7 +1751,6 @@ function mysqli_free_result ($result) {}
 
 /**
  * Returns client Zval cache statistics
- * @since 5.3
  * Available only with mysqlnd.
  * @link https://php.net/manual/en/mysqli.get-cache-stats.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
@@ -1776,7 +1768,6 @@ function mysqli_get_connection_stats ($link) {}
 
 /**
  * Returns client per-process statistics
- * @since 5.3
  * @link https://php.net/manual/en/mysqli.get-client-stats.php
  * @return array|false an array with client stats if success, false otherwise.
  */

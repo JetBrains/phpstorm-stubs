@@ -157,8 +157,6 @@ function eregi_replace ($pattern, $replacement, $string) {}
  * only one element will be returned. Of course, this is also true if
  * <i>string</i> is empty. If an error occurs,
  * <b>split</b> returns <b>FALSE</b>.
- * @since 4.0
- * @since 5.0
  * @removed 7.0
  */
 function split ($pattern, $string, $limit = -1) {}
@@ -201,8 +199,6 @@ function split ($pattern, $string, $limit = -1) {}
  * only one element will be returned. Of course, this is also true if
  * <i>string</i> is empty. If an error occurs,
  * <b>spliti</b> returns <b>FALSE</b>.
- * @since 4.0.1
- * @since 5.0
  */
 function spliti ($pattern, $string, $limit = -1) {}
 
@@ -218,8 +214,6 @@ function spliti ($pattern, $string, $limit = -1) {}
  * <i>string</i> with each alphabetic character converted to
  * a bracket expression; this bracket expression contains that character's
  * uppercase and lowercase form. Other characters remain unchanged.
- * @since 4.0
- * @since 5.0
  */
 function sql_regcase ($string) {}
 

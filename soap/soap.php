@@ -556,7 +556,6 @@ class SoapServer  {
 	 * The object to handle the requests.
 	 * </p>
 	 * @return void No value is returned.
-	 * @since 5.2
 	 */
 	public function setObject ($object) {}
 

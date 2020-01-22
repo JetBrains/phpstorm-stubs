@@ -21,8 +21,6 @@
  * </p>
  * @return resource|false a positive semaphore identifier on success, or <b>FALSE</b> on
  * error.
- * @since 4.0
- * @since 5.0
  */
 function sem_get ($key, $max_acquire = 1, $perm = 0666, $auto_release = 1) {}
 
@@ -39,8 +37,6 @@ function sem_get ($key, $max_acquire = 1, $perm = 0666, $auto_release = 1) {}
  * semaphore cannot be immediately acquired.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function sem_acquire ($sem_identifier, $nowait = false) {}
 
@@ -52,8 +48,6 @@ function sem_acquire ($sem_identifier, $nowait = false) {}
  * <b>sem_get</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function sem_release ($sem_identifier) {}
 
@@ -65,8 +59,6 @@ function sem_release ($sem_identifier) {}
  * by <b>sem_get</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.1
- * @since 5.0
  */
 function sem_remove ($sem_identifier) {}
 

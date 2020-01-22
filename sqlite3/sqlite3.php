@@ -26,7 +26,6 @@ class SQLite3  {
 	 * SQLite database.
 	 * </p>
 	 * @return void No value is returned.
-	 * @since 5.3
 	 */
 	public function open ($filename, $flags = SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE, $encryption_key = null) {}
 
@@ -34,7 +33,6 @@ class SQLite3  {
 	 * Closes the database connection
 	 * @link https://php.net/manual/en/sqlite3.close.php
 	 * @return bool <b>TRUE</b> on success, <b>FALSE</b> on failure.
-	 * @since 5.3
 	 */
 	public function close () {}
 
@@ -46,7 +44,6 @@ class SQLite3  {
 	 * query).
 	 * </p>
 	 * @return bool <b>TRUE</b> if the query succeeded, <b>FALSE</b> on failure.
-	 * @since 5.3
 	 */
 	public function exec ($query) {}
 
@@ -55,7 +52,6 @@ class SQLite3  {
 	 * @link https://php.net/manual/en/sqlite3.version.php
 	 * @return array an associative array with the keys "versionString" and
 	 * "versionNumber".
-	 * @since 5.3
 	 */
 	public static function version () {}
 
@@ -63,7 +59,6 @@ class SQLite3  {
 	 * Returns the row ID of the most recent INSERT into the database
 	 * @link https://php.net/manual/en/sqlite3.lastinsertrowid.php
 	 * @return int the row ID of the most recent INSERT into the database
-	 * @since 5.3
 	 */
 	public function lastInsertRowID () {}
 
@@ -72,7 +67,6 @@ class SQLite3  {
 	 * @link https://php.net/manual/en/sqlite3.lasterrorcode.php
 	 * @return int an integer value representing the numeric result code of the most
 	 * recent failed SQLite request.
-	 * @since 5.3
 	 */
 	public function lastErrorCode () {}
 
@@ -80,7 +74,6 @@ class SQLite3  {
 	 * Returns English text describing the most recent failed SQLite request
 	 * @link https://php.net/manual/en/sqlite3.lasterrormsg.php
 	 * @return string an English string describing the most recent failed SQLite request.
-	 * @since 5.3
 	 */
 	public function lastErrorMsg () {}
 
@@ -104,14 +97,12 @@ class SQLite3  {
 	 * directory specified in the configure option sqlite3.extension_dir.
 	 * </p>
 	 * @return bool <b>TRUE</b> if the extension is successfully loaded, <b>FALSE</b> on failure.
-	 * @since 5.3
 	 */
 	public function loadExtension ($shared_library) {}
 
 	/**
 	 * Returns the number of database rows that were changed (or inserted or
 	 * deleted) by the most recent SQL statement
-	 * @since 5.3
 	 * @link https://php.net/manual/en/sqlite3.changes.php
 	 * @return int an integer value corresponding to the number of
 	 * database rows changed (or inserted or deleted) by the most recent SQL
@@ -127,7 +118,6 @@ class SQLite3  {
 	 * </p>
 	 * @return string a properly escaped string that may be used safely in an SQL
 	 * statement.
-	 * @since 5.3
 	 */
 	public static function escapeString ($value) {}
 
@@ -138,7 +128,6 @@ class SQLite3  {
 	 * The SQL query to prepare.
 	 * </p>
 	 * @return SQLite3Stmt|false an <b>SQLite3Stmt</b> object on success or <b>FALSE</b> on failure.
-	 * @since 5.3
 	 */
 	public function prepare ($query) {}
 
@@ -150,7 +139,6 @@ class SQLite3  {
 	 * </p>
 	 * @return SQLite3Result an <b>SQLite3Result</b> object if the query returns results. Otherwise,
 	 * returns <b>TRUE</b> if the query succeeded, <b>FALSE</b> on failure.
-	 * @since 5.3
 	 */
 	public function query ($query) {}
 
@@ -176,7 +164,6 @@ class SQLite3  {
 	 * </p>
 	 * <p>
 	 * Invalid or failing queries will return <b>FALSE</b>.
-	 * @since 5.3
 	 */
 	public function querySingle ($query, $entire_row = false) {}
 
@@ -200,7 +187,6 @@ class SQLite3  {
 	 * Currently, only <b>SQLITE3_DETERMINISTIC</b> is supported, which specifies that the function always returns
 	 * the same result given the same inputs within a single SQL statement.</p>
 	 * @return bool <b>TRUE</b> upon successful creation of the function, <b>FALSE</b> on failure.
-	 * @since 5.3
 	 */
 	public function createFunction ($name, $callback, $argument_count = -1, int $flags = 0) {}
 
@@ -225,7 +211,6 @@ class SQLite3  {
 	 * </p>
 	 * @return bool <b>TRUE</b> upon successful creation of the aggregate, <b>FALSE</b> on
 	 * failure.
-	 * @since 5.3
 	 */
 	public function createAggregate ($name, $step_callback, $final_callback, $argument_count = -1) {}
 
@@ -282,7 +267,6 @@ class SQLite3  {
 	 * An optional encryption key used when encrypting and decrypting an
 	 * SQLite database.
 	 * </p>
-	 * @since 5.3
 	 */
 	public function __construct ($filename, $flags = null, $encryption_key = null) {}
 
@@ -318,7 +302,6 @@ class SQLite3Stmt  {
 	 * Returns the number of parameters within the prepared statement
 	 * @link https://php.net/manual/en/sqlite3stmt.paramcount.php
 	 * @return int the number of parameters within the prepared statement.
-	 * @since 5.3
 	 */
 	public function paramCount () {}
 
@@ -326,7 +309,6 @@ class SQLite3Stmt  {
 	 * Closes the prepared statement
 	 * @link https://php.net/manual/en/sqlite3stmt.close.php
 	 * @return bool <b>TRUE</b>
-	 * @since 5.3
 	 */
 	public function close () {}
 
@@ -334,7 +316,6 @@ class SQLite3Stmt  {
 	 * Resets the prepared statement
 	 * @link https://php.net/manual/en/sqlite3stmt.reset.php
 	 * @return bool <b>TRUE</b> if the statement is successfully reset, <b>FALSE</b> on failure.
-	 * @since 5.3
 	 */
 	public function reset () {}
 
@@ -343,7 +324,6 @@ class SQLite3Stmt  {
 	 * @link https://php.net/manual/en/sqlite3stmt.clear.php
 	 * @return bool <b>TRUE</b> on successful clearing of bound parameters, <b>FALSE</b> on
 	 * failure.
-	 * @since 5.3
 	 */
 	public function clear () {}
 
@@ -352,7 +332,6 @@ class SQLite3Stmt  {
 	 * @link https://php.net/manual/en/sqlite3stmt.execute.php
 	 * @return SQLite3Result an <b>SQLite3Result</b> object on successful execution of the prepared
 	 * statement, <b>FALSE</b> on failure.
-	 * @since 5.3
 	 */
 	public function execute () {}
 
@@ -375,7 +354,6 @@ class SQLite3Stmt  {
 	 * </p>
 	 * @return bool <b>TRUE</b> if the parameter is bound to the statement variable, <b>FALSE</b>
 	 * on failure.
-	 * @since 5.3
 	 */
 	public function bindParam ($sql_param, &$param, $type = null) {}
 
@@ -398,7 +376,6 @@ class SQLite3Stmt  {
 	 * </p>
 	 * @return bool <b>TRUE</b> if the value is bound to the statement variable, <b>FALSE</b>
 	 * on failure.
-	 * @since 5.3
 	 */
 	public function bindValue ($sql_param, $value, $type = null) {}
 
@@ -430,7 +407,6 @@ class SQLite3Result  {
 	 * Returns the number of columns in the result set
 	 * @link https://php.net/manual/en/sqlite3result.numcolumns.php
 	 * @return int the number of columns in the result set.
-	 * @since 5.3
 	 */
 	public function numColumns () {}
 
@@ -442,7 +418,6 @@ class SQLite3Result  {
 	 * </p>
 	 * @return string the string name of the column identified by
 	 * <i>column_number</i>.
-	 * @since 5.3
 	 */
 	public function columnName ($column_number) {}
 
@@ -457,7 +432,6 @@ class SQLite3Result  {
 	 * <b>SQLITE3_INTEGER</b>, <b>SQLITE3_FLOAT</b>,
 	 * <b>SQLITE3_TEXT</b>, <b>SQLITE3_BLOB</b>, or
 	 * <b>SQLITE3_NULL</b>).
-	 * @since 5.3
 	 */
 	public function columnType ($column_number) {}
 
@@ -474,7 +448,6 @@ class SQLite3Result  {
 	 * </p>
 	 * @return array|false a result row as an associatively or numerically indexed array or
 	 * both. Alternately will return <b>FALSE</b> if there are no more rows.
-	 * @since 5.3
 	 */
 	public function fetchArray ($mode = SQLITE3_BOTH) {}
 
@@ -483,7 +456,6 @@ class SQLite3Result  {
 	 * @link https://php.net/manual/en/sqlite3result.reset.php
 	 * @return bool <b>TRUE</b> if the result set is successfully reset
 	 * back to the first row, <b>FALSE</b> on failure.
-	 * @since 5.3
 	 */
 	public function reset () {}
 
@@ -491,7 +463,6 @@ class SQLite3Result  {
 	 * Closes the result set
 	 * @link https://php.net/manual/en/sqlite3result.finalize.php
 	 * @return bool <b>TRUE</b>.
-	 * @since 5.3
 	 */
 	public function finalize () {}
 

@@ -13,8 +13,6 @@
  * </p>
  * @return resource If the open fails, <b>bzopen</b> returns <b>FALSE</b>, otherwise
  * it returns a pointer to the newly opened file.
- * @since 4.0.4
- * @since 5.0
  */
 function bzopen ($filename, $mode) {}
 
@@ -31,8 +29,6 @@ function bzopen ($filename, $mode) {}
  * uncompressed bytes will be read at a time.
  * </p>
  * @return string the uncompressed data, or <b>FALSE</b> on error.
- * @since 4.0.4
- * @since 5.0
  */
 function bzread ($bz, $length = 1024) {}
 
@@ -52,8 +48,6 @@ function bzread ($bz, $length = 1024) {}
  * <i>data</i> is reached, whichever comes first.
  * </p>
  * @return int the number of bytes written, or <b>FALSE</b> on error.
- * @since 4.0.4
- * @since 5.0
  */
 function bzwrite ($bz, $data, $length = null) {}
 
@@ -65,8 +59,6 @@ function bzwrite ($bz, $data, $length = null) {}
  * successfully opened by <b>bzopen</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0.4
- * @since 5.0
  */
 function bzflush ($bz) {}
 
@@ -78,8 +70,6 @@ function bzflush ($bz) {}
  * successfully opened by <b>bzopen</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0.4
- * @since 5.0
  */
 function bzclose ($bz) {}
 
@@ -91,8 +81,6 @@ function bzclose ($bz) {}
  * successfully opened by <b>bzopen</b>.
  * </p>
  * @return int the error number as an integer.
- * @since 4.0.4
- * @since 5.0
  */
 function bzerrno ($bz) {}
 
@@ -104,8 +92,6 @@ function bzerrno ($bz) {}
  * successfully opened by <b>bzopen</b>.
  * </p>
  * @return string a string containing the error message.
- * @since 4.0.4
- * @since 5.0
  */
 function bzerrstr ($bz) {}
 
@@ -119,8 +105,6 @@ function bzerrstr ($bz) {}
  * @return array an associative array, with the error code in the
  * errno entry, and the error message in the
  * errstr entry.
- * @since 4.0.4
- * @since 5.0
  */
 function bzerror ($bz) {}
 
@@ -145,8 +129,6 @@ function bzerror ($bz) {}
  * output is the same.
  * </p>
  * @return mixed The compressed string, or an error number if an error occurred.
- * @since 4.0.4
- * @since 5.0
  */
 function bzcompress ($source, $blocksize = 4, $workfactor = 0) {}
 
@@ -166,7 +148,5 @@ function bzcompress ($source, $blocksize = 4, $workfactor = 0) {}
  * information about this feature.
  * </p>
  * @return mixed The decompressed string, or an error number if an error occurred.
- * @since 4.0.4
- * @since 5.0
  */
 function bzdecompress ($source, $small = 0) {}

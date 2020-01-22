@@ -19,8 +19,6 @@
  * US-ASCII.
  * </p>
  * @return resource a resource handle for the new XML parser.
- * @since 4.0
- * @since 5.0
  */
 function xml_parser_create ($encoding = null) {}
 
@@ -44,8 +42,6 @@ function xml_parser_create ($encoding = null) {}
  * the string specified in <i>separator</i>.
  * </p>
  * @return resource a resource handle for the new XML parser.
- * @since 4.0.5
- * @since 5.0
  */
 function xml_parser_create_ns ($encoding = null, $separator = ':') {}
 
@@ -59,8 +55,6 @@ function xml_parser_create_ns ($encoding = null, $separator = ':') {}
  * The object where to use the XML parser.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function xml_set_object ($parser, &$object) {}
 
@@ -90,8 +84,6 @@ function xml_set_object ($parser, &$object) {}
  * The first parameter, parser, is a
  * reference to the XML parser calling the handler.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function xml_set_element_handler ($parser, callable $start_element_handler, callable $end_element_handler) {}
 
@@ -116,8 +108,6 @@ function xml_set_element_handler ($parser, callable $start_element_handler, call
  * The first parameter, parser, is a
  * reference to the XML parser calling the handler.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function xml_set_character_data_handler ($parser, callable $handler) {}
 
@@ -143,8 +133,6 @@ function xml_set_character_data_handler ($parser, callable $handler) {}
  * The first parameter, parser, is a
  * reference to the XML parser calling the handler.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function xml_set_processing_instruction_handler ($parser, callable $handler) {}
 
@@ -169,8 +157,6 @@ function xml_set_processing_instruction_handler ($parser, callable $handler) {}
  * The first parameter, parser, is a
  * reference to the XML parser calling the handler.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function xml_set_default_handler ($parser, callable $handler) {}
 
@@ -200,8 +186,6 @@ function xml_set_default_handler ($parser, callable $handler) {}
  * reference to the XML parser calling the
  * handler.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function xml_set_unparsed_entity_decl_handler ($parser, callable $handler) {}
 
@@ -229,8 +213,6 @@ function xml_set_unparsed_entity_decl_handler ($parser, callable $handler) {}
  * The first parameter, parser, is a
  * reference to the XML parser calling the handler.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function xml_set_notation_decl_handler ($parser, callable $handler) {}
 
@@ -262,8 +244,6 @@ function xml_set_notation_decl_handler ($parser, callable $handler) {}
  * The first parameter, parser, is a
  * reference to the XML parser calling the handler.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function xml_set_external_entity_ref_handler ($parser, callable $handler) {}
 
@@ -293,8 +273,6 @@ function xml_set_external_entity_ref_handler ($parser, callable $handler) {}
  * The first parameter, parser, is a
  * reference to the XML parser calling the handler.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0.5
- * @since 5.0
  */
 function xml_set_start_namespace_decl_handler ($parser, callable $handler) {}
 
@@ -323,8 +301,6 @@ function xml_set_start_namespace_decl_handler ($parser, callable $handler) {}
  * The first parameter, parser, is a
  * reference to the XML parser calling the handler.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0.5
- * @since 5.0
  */
 function xml_set_end_namespace_decl_handler ($parser, callable $handler) {}
 
@@ -357,8 +333,6 @@ function xml_set_end_namespace_decl_handler ($parser, callable $handler) {}
  * <p>
  * Entity errors are reported at the end of the data thus only if
  * <i>is_final</i> is set and <b>TRUE</b>.
- * @since 4.0
- * @since 5.0
  */
 function xml_parse ($parser, $data, $is_final = false) {}
 
@@ -380,8 +354,6 @@ function xml_parse ($parser, $data, $is_final = false) {}
  * @return int <b>xml_parse_into_struct</b> returns 0 for failure and 1 for
  * success. This is not the same as <b>FALSE</b> and <b>TRUE</b>, be careful with
  * operators such as ===.
- * @since 4.0
- * @since 5.0
  */
 function xml_parse_into_struct ($parser, $data, array &$values, array &$index = null) {}
 
@@ -395,8 +367,6 @@ function xml_parse_into_struct ($parser, $data, array &$values, array &$index = 
  * not refer to a valid parser, or else it returns one of the error
  * codes listed in the error codes
  * section.
- * @since 4.0
- * @since 5.0
  */
 function xml_get_error_code ($parser) {}
 
@@ -408,8 +378,6 @@ function xml_get_error_code ($parser) {}
  * </p>
  * @return string a string with a textual description of the error
  * <i>code</i>, or <b>FALSE</b> if no description was found.
- * @since 4.0
- * @since 5.0
  */
 function xml_error_string ($code) {}
 
@@ -422,8 +390,6 @@ function xml_error_string ($code) {}
  * @return int|false This function returns <b>FALSE</b> if <i>parser</i> does
  * not refer to a valid parser, or else it returns which line the
  * parser is currently at in its data buffer.
- * @since 4.0
- * @since 5.0
  */
 function xml_get_current_line_number ($parser) {}
 
@@ -438,8 +404,6 @@ function xml_get_current_line_number ($parser) {}
  * the current line (as given by
  * <b>xml_get_current_line_number</b>) the parser is
  * currently at.
- * @since 4.0
- * @since 5.0
  */
 function xml_get_current_column_number ($parser) {}
 
@@ -452,8 +416,6 @@ function xml_get_current_column_number ($parser) {}
  * @return int|false This function returns <b>FALSE</b> if <i>parser</i> does
  * not refer to a valid parser, or else it returns which byte index
  * the parser is currently at in its data buffer (starting at 0).
- * @since 4.0
- * @since 5.0
  */
 function xml_get_current_byte_index ($parser) {}
 
@@ -463,8 +425,6 @@ function xml_get_current_byte_index ($parser) {}
  * @param resource $parser A reference to the XML parser to free.
  * @return bool This function returns <b>FALSE</b> if <i>parser</i> does not
  * refer to a valid parser, or else it frees the parser and returns <b>TRUE</b>.
- * @since 4.0
- * @since 5.0
  */
 function xml_parser_free ($parser) {}
 
@@ -528,8 +488,6 @@ function xml_parser_free ($parser) {}
  * @return bool This function returns <b>FALSE</b> if <i>parser</i> does not
  * refer to a valid parser, or if the option could not be set. Else the
  * option is set and <b>TRUE</b> is returned.
- * @since 4.0
- * @since 5.0
  */
 function xml_parser_set_option ($parser, $option, $value) {}
 
@@ -544,8 +502,6 @@ function xml_parser_set_option ($parser, $option, $value) {}
  * not refer to a valid parser or if <i>option</i> isn't
  * valid (generates also a <b>E_WARNING</b>).
  * Else the option's value is returned.
- * @since 4.0
- * @since 5.0
  */
 function xml_parser_get_option ($parser, $option) {}
 

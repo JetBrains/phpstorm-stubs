@@ -7,8 +7,6 @@
  * @link https://php.net/manual/en/function.xmlrpc-encode.php
  * @param mixed $value
  * @return string
- * @since 4.1
- * @since 5.0
  */
 function xmlrpc_encode ($value) {}
 
@@ -23,8 +21,6 @@ function xmlrpc_encode ($value) {}
  * </p>
  * @return mixed either an array, or an integer, or a string, or a boolean according
  * to the response returned by the XMLRPC method.
- * @since 4.1
- * @since 5.0
  */
 function xmlrpc_decode ($xml, $encoding = "iso-8859-1") {}
 
@@ -35,8 +31,6 @@ function xmlrpc_decode ($xml, $encoding = "iso-8859-1") {}
  * @param string $method
  * @param string $encoding [optional]
  * @return mixed
- * @since 4.1
- * @since 5.0
  */
 function xmlrpc_decode_request ($xml, &$method, $encoding = null) {}
 
@@ -54,8 +48,6 @@ function xmlrpc_decode_request ($xml, &$method, $encoding = null) {}
  * emphasised):
  * <p>output_type: php, xml</p>
  * @return string a string containing the XML representation of the request.
- * @since 4.1
- * @since 5.0
  */
 function xmlrpc_encode_request ($method, $params, array $output_options = null) {}
 
@@ -66,8 +58,6 @@ function xmlrpc_encode_request ($method, $params, array $output_options = null) 
  * PHP value
  * </p>
  * @return string the XML-RPC type.
- * @since 4.1
- * @since 5.0
  */
 function xmlrpc_get_type ($value) {}
 
@@ -82,8 +72,6 @@ function xmlrpc_get_type ($value) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * If successful, <i>value</i> is converted to an object.
- * @since 4.1
- * @since 5.0
  */
 function xmlrpc_set_type (&$value, $type) {}
 
@@ -96,8 +84,6 @@ function xmlrpc_set_type (&$value, $type) {}
  * @return bool <b>TRUE</b> if the argument means fault, <b>FALSE</b> otherwise. Fault
  * description is available in $arg["faultString"], fault
  * code is in $arg["faultCode"].
- * @since 4.3
- * @since 5.0
  */
 function xmlrpc_is_fault (array $arg) {}
 
@@ -105,8 +91,6 @@ function xmlrpc_is_fault (array $arg) {}
  * Creates an xmlrpc server
  * @link https://php.net/manual/en/function.xmlrpc-server-create.php
  * @return resource
- * @since 4.1
- * @since 5.0
  */
 function xmlrpc_server_create () {}
 
@@ -115,8 +99,6 @@ function xmlrpc_server_create () {}
  * @link https://php.net/manual/en/function.xmlrpc-server-destroy.php
  * @param resource $server
  * @return int
- * @since 4.1
- * @since 5.0
  */
 function xmlrpc_server_destroy ($server) {}
 
@@ -127,8 +109,6 @@ function xmlrpc_server_destroy ($server) {}
  * @param string $method_name
  * @param callable $function
  * @return bool
- * @since 4.1
- * @since 5.0
  */
 function xmlrpc_server_register_method ($server, $method_name, $function) {}
 
@@ -140,8 +120,6 @@ function xmlrpc_server_register_method ($server, $method_name, $function) {}
  * @param mixed $user_data
  * @param array $output_options [optional]
  * @return string
- * @since 4.1
- * @since 5.0
  */
 function xmlrpc_server_call_method ($server, $xml, $user_data, array $output_options = null) {}
 
@@ -150,8 +128,6 @@ function xmlrpc_server_call_method ($server, $xml, $user_data, array $output_opt
  * @link https://php.net/manual/en/function.xmlrpc-parse-method-descriptions.php
  * @param string $xml
  * @return array
- * @since 4.1
- * @since 5.0
  */
 function xmlrpc_parse_method_descriptions ($xml) {}
 
@@ -161,8 +137,6 @@ function xmlrpc_parse_method_descriptions ($xml) {}
  * @param resource $server
  * @param array $desc
  * @return int
- * @since 4.1
- * @since 5.0
  */
 function xmlrpc_server_add_introspection_data ($server, array $desc) {}
 
@@ -172,8 +146,6 @@ function xmlrpc_server_add_introspection_data ($server, array $desc) {}
  * @param resource $server
  * @param string $function
  * @return bool
- * @since 4.1
- * @since 5.0
  */
 function xmlrpc_server_register_introspection_callback ($server, $function) {}
 

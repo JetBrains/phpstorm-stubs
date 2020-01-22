@@ -13,8 +13,6 @@
  * </p>
  * @return string|false the recoded string or <b>FALSE</b>, if unable to
  * perform the recode request.
- * @since 4.0
- * @since 5.0
  */
 function recode_string ($request, $string) {}
 
@@ -33,8 +31,6 @@ function recode_string ($request, $string) {}
  * the <i>output</i>
  * </p>
  * @return bool <b>FALSE</b>, if unable to comply, <b>TRUE</b> otherwise.
- * @since 4.0
- * @since 5.0
  */
 function recode_file ($request, $input, $output) {}
 
@@ -43,8 +39,6 @@ function recode_file ($request, $input, $output) {}
  * @link https://php.net/manual/en/function.recode.php
  * @param $request
  * @param $str
- * @since 4.0
- * @since 5.0
  */
 function recode ($request, $str) {}
 
