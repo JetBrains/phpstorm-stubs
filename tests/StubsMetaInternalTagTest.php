@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace StubTests;
 
@@ -13,9 +14,6 @@ use function array_pop;
 
 class StubsMetaInternalTagTest extends TestCase
 {
-    /**
-     * @var array
-     */
     private static array $overridenFunctionsInMeta;
 
     public static function setUpBeforeClass()
@@ -35,7 +33,7 @@ class StubsMetaInternalTagTest extends TestCase
                 if ($reflectionFunction->hasMutedProblem(StubProblemType::ABSENT_IN_META)) {
                     static::markTestSkipped('function intentionally not added to meta');
                 } else {
-                    $this->checkInternalMetaInOverride($function->name);
+                    self::checkInternalMetaInOverride($function->name);
                 }
             }
         }
@@ -55,7 +53,7 @@ class StubsMetaInternalTagTest extends TestCase
                         if ($reflectionMethod->hasMutedProblem(StubProblemType::ABSENT_IN_META)) {
                             static::markTestSkipped('method intentionally not added to meta');
                         } else {
-                            $this->checkInternalMetaInOverride($className . '::' . $methodName);
+                            self::checkInternalMetaInOverride($className . '::' . $methodName);
                         }
                     }
                 } else {
@@ -65,10 +63,7 @@ class StubsMetaInternalTagTest extends TestCase
         }
     }
 
-    /**
-     * @param string $elementName
-     */
-    private function checkInternalMetaInOverride(string $elementName): void
+    private static function checkInternalMetaInOverride(string $elementName): void
     {
         self::assertContains($elementName, self::$overridenFunctionsInMeta,
             "$elementName contains @meta in phpdoc but isn't added to 'override()' functions in meta file");

@@ -5,12 +5,11 @@ namespace StubTests\Model;
 
 use PhpParser\Node\Stmt\Class_;
 use ReflectionClass;
-use ReflectionException;
 use stdClass;
 
 class PHPClass extends BasePHPClass
 {
-    /** @var ReflectionClass|false|string */
+    /** @var false|string */
     public $parentClass;
     public array $interfaces = [];
 
@@ -20,30 +19,25 @@ class PHPClass extends BasePHPClass
      */
     public function readObjectFromReflection($clazz): self
     {
-        try {
-            $reflectionClass = new ReflectionClass($clazz);
-            $this->name = $reflectionClass->getName();
-            $parentClass = $reflectionClass->getParentClass();
-            if ($parentClass !== false) {
-                $this->parentClass = $reflectionClass->getParentClass()->getName();
-            }
-            $this->interfaces = $reflectionClass->getInterfaceNames();
+        $this->name = $clazz->getName();
+        $parent = $clazz->getParentClass();
+        if ($parent !== false) {
+            $this->parentClass = $parent->getName();
+        }
+        $this->interfaces = $clazz->getInterfaceNames();
 
-            foreach ($reflectionClass->getMethods() as $method) {
-                if ($method->getDeclaringClass()->getName() !== $this->name) {
-                    continue;
-                }
-                $this->methods[$method->name] = (new PHPMethod())->readObjectFromReflection($method);
+        foreach ($clazz->getMethods() as $method) {
+            if ($method->getDeclaringClass()->getName() !== $this->name) {
+                continue;
             }
+            $this->methods[$method->name] = (new PHPMethod())->readObjectFromReflection($method);
+        }
 
-            foreach ($reflectionClass->getReflectionConstants() as $constant) {
-                if ($constant->getDeclaringClass()->getName() !== $this->name) {
-                    continue;
-                }
-                $this->constants[$constant->name] = (new PHPConst())->readObjectFromReflection($constant);
+        foreach ($clazz->getReflectionConstants() as $constant) {
+            if ($constant->getDeclaringClass()->getName() !== $this->name) {
+                continue;
             }
-        } catch (ReflectionException $ex) {
-            $this->parseError = $ex;
+            $this->constants[$constant->name] = (new PHPConst())->readObjectFromReflection($constant);
         }
         return $this;
     }

@@ -8,7 +8,6 @@ use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use phpDocumentor\Reflection\Type;
 use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Stmt\Function_;
-use ReflectionException;
 use ReflectionFunction;
 use stdClass;
 use StubTests\Parsers\DocFactoryProvider;
@@ -17,34 +16,24 @@ class PHPFunction extends BasePHPElement
 {
     use PHPDocElement;
 
-    /**
-     * @var bool $is_deprecated
-     */
     public bool $is_deprecated;
     /**
      * @var PHPParameter[]
      */
     public array $parameters = [];
-    /**
-     * @var Type $returnTag
-     */
+
     public ?Type $returnTag = null;
 
     /**
      * @param ReflectionFunction $function
      * @return $this
      */
-    public function readObjectFromReflection($function)
+    public function readObjectFromReflection($function): self
     {
-        try {
-            $reflectionFunction = new ReflectionFunction($function);
-            $this->name = $reflectionFunction->name;
-            $this->is_deprecated = $reflectionFunction->isDeprecated();
-            foreach ($reflectionFunction->getParameters() as $parameter) {
-                $this->parameters[] = (new PHPParameter())->readObjectFromReflection($parameter);
-            }
-        } catch (ReflectionException $ex) {
-            $this->parseError = $ex;
+        $this->name = $function->name;
+        $this->is_deprecated = $function->isDeprecated();
+        foreach ($function->getParameters() as $parameter) {
+            $this->parameters[] = (new PHPParameter())->readObjectFromReflection($parameter);
         }
         return $this;
     }
@@ -53,7 +42,7 @@ class PHPFunction extends BasePHPElement
      * @param Function_ $node
      * @return $this
      */
-    public function readObjectFromStubNode($node)
+    public function readObjectFromStubNode($node): self
     {
         $functionName = $this->getFQN($node);
         $this->name = $functionName;

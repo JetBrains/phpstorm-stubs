@@ -5,6 +5,7 @@ namespace StubTests\Model;
 
 use Exception;
 use PhpParser\Node;
+use Reflector;
 
 abstract class BasePHPElement
 {
@@ -13,28 +14,13 @@ abstract class BasePHPElement
     public ?Exception $parseError = null;
     protected array $mutedProblems = [];
 
-    /**
-     * @param mixed $object
-     *
-     * @return mixed
-     */
-    abstract public function readObjectFromReflection($object);
+    abstract public function readObjectFromReflection(Reflector $object);
 
-    /**
-     * @param mixed $node
-     *
-     * @return mixed
-     */
-    abstract public function readObjectFromStubNode($node);
+    abstract public function readObjectFromStubNode(Node $node);
 
     abstract public function readMutedProblems($jsonData): void;
 
-    /**
-     * @param Node $node
-     *
-     * @return string
-     */
-    protected function getFQN($node): string
+    protected function getFQN(Node $node): string
     {
         $fqn = '';
         if ($node->namespacedName === null) {
@@ -48,11 +34,6 @@ abstract class BasePHPElement
         return rtrim($fqn, "\\");
     }
 
-    /**
-     * @param $stubProblemType
-     *
-     * @return bool
-     */
     public function hasMutedProblem($stubProblemType): bool
     {
         return in_array($stubProblemType, $this->mutedProblems, true);

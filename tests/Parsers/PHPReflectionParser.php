@@ -28,28 +28,26 @@ class PHPReflectionParser
             $stubs->addConstant($constant);
         }
 
-        /**@var ReflectionFunction $function */
         foreach (get_defined_functions()['internal'] as $function) {
-            $phpFunction = (new PHPFunction())->readObjectFromReflection($function);
+            $reflectionFunction = new ReflectionFunction($function);
+            $phpFunction = (new PHPFunction())->readObjectFromReflection($reflectionFunction);
             $phpFunction->readMutedProblems($jsonData->functions);
             $stubs->addFunction($phpFunction);
         }
 
-        /**@var ReflectionClass $clazz */
         foreach (get_declared_classes() as $clazz) {
             $reflectionClass = new ReflectionClass($clazz);
             if ($reflectionClass->isInternal()) {
-                $class = (new PHPClass())->readObjectFromReflection($clazz);
+                $class = (new PHPClass())->readObjectFromReflection($reflectionClass);
                 $class->readMutedProblems($jsonData->classes);
                 $stubs->addClass($class);
             }
         }
 
-        /**@var ReflectionClass $interface */
         foreach (get_declared_interfaces() as $interface) {
             $reflectionInterface = new ReflectionClass($interface);
             if ($reflectionInterface->isInternal()) {
-                $phpInterface = (new PHPInterface())->readObjectFromReflection($interface);
+                $phpInterface = (new PHPInterface())->readObjectFromReflection($reflectionInterface);
                 $phpInterface->readMutedProblems($jsonData->interfaces);
                 $stubs->addInterface($phpInterface);
             }
