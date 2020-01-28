@@ -17,117 +17,101 @@ use Traversable;
 use UnderflowException;
 
 /**
- * @template-covariant TValue
- * @extends Traversable<mixed, TValue>
+ * @extends Traversable
  */
 interface Collection extends Traversable, Countable, JsonSerializable
 {
     /**
-     * @return Collection<TValue>
+     * @return Collection
      */
     public function copy(): Collection;
 
     /**
-     * @return array<TValue>
+     * @return array
      */
     public function toArray(): array;
 }
 
-/**
- * @template TValue
- * @implements Sequence<TValue>
- * @implements ArrayAccess<int, TValue>
- * @implements IteratorAggregate<int, TValue>
- */
 final class Deque implements IteratorAggregate, ArrayAccess, Sequence
 {
     /**
-     * @return Deque<TValue>
+     * @return Deque
      */
     public function copy(): Deque
     {
     }
 
     /**
-     * @param iterable<TValue>|null $values
+     * @param iterable|null $values
      */
     public function __construct($values = null)
     {
     }
 
     /**
-     * @template TValue2
-     * @param iterable<TValue2> $values
-     * @return Deque<TValue|TValue2>
+     * @param iterable $values
+     * @return Deque
      */
     public function merge($values): Deque
     {
     }
 
     /**
-     * @param (callable(TValue): bool)|null $callback
-     * @return Deque<TValue>
+     * @param callable|null $callback
+     * @return Deque
      */
     public function filter(callable $callback = null): Deque
     {
     }
 
     /**
-     * @template TNewValue
-     * @param callable(TValue): TNewValue $callback
-     * @return Deque<TNewValue>
+     * @param callable $callback
+     * @return Deque
      */
     public function map(callable $callback): Deque
     {
     }
 
     /**
-     * @return Deque<TValue>
+     * @return Deque
      */
     public function reversed(): Deque
     {
     }
 
     /**
-     * @return Deque<TValue>
+     * @return Deque
      */
     public function slice(int $offset, ?int $length = null): Deque
     {
     }
 }
 
-/**
- * @template TKey
- * @template TValue
- * @implements Collection<TValue>
- * @implements ArrayAccess<TKey, TValue>
- * @implements IteratorAggregate<TKey, TValue>
- */
 final class Map implements IteratorAggregate, ArrayAccess, Collection
 {
     /**
-     * @return Map<TKey, TValue>
+     * @return Map
      */
     public function copy(): Map
     {
     }
 
     /**
-     * @param iterable<TKey, TValue>|null $values
+     * @param iterable|null $values
      */
     public function __construct($values = null)
     {
     }
 
     /**
-     * @param callable(TKey, TValue): TValue $callback
+     * @param callable $callback
      */
     public function apply(callable $callback)
     {
     }
 
     /**
-     * @return Pair<TKey, TValue>
+     * @return Pair
      * @throws UnderflowException
      */
     public function first(): Pair
@@ -135,7 +119,7 @@ final class Map implements IteratorAggregate, ArrayAccess, Collection
     }
 
     /**
-     * @return Pair<TKey, TValue>
+     * @return Pair
      * @throws UnderflowException
      */
     public function last(): Pair
@@ -143,7 +127,7 @@ final class Map implements IteratorAggregate, ArrayAccess, Collection
     }
 
     /**
-     * @return Pair<TKey, TValue>
+     * @return Pair
      * @throws OutOfRangeException
      */
     public function skip(int $position): Pair
@@ -151,61 +135,55 @@ final class Map implements IteratorAggregate, ArrayAccess, Collection
     }
 
     /**
-     * @template TKey2
-     * @template TValue2
-     * @param iterable<TKey2, TValue2> $values
-     * @return Map<TKey|TKey2, TValue|TValue2>
+     * @param iterable $values
+     * @return Map
      */
     public function merge($values): Map
     {
     }
 
     /**
-     * @template TKey2
-     * @template TValue2
-     * @param Map<TKey2, TValue2> $map
-     * @return Map<TKey&TKey2, TValue>
+     * @param Map $map
+     * @return Map
      */
     public function intersect(Map $map): Map
     {
     }
 
     /**
-     * @template TValue2
-     * @param Map<TKey, TValue2> $map
-     * @return Map<TKey, TValue>
+     * @param Map $map
+     * @return Map
      */
     public function diff(Map $map): Map
     {
     }
 
     /**
-     * @param TKey $key
+     * @param mixed $key
      */
     public function hasKey($key): bool
     {
     }
 
     /**
-     * @param TValue $value
+     * @param mixed $value
      */
     public function hasValue($value): bool
     {
     }
 
     /**
-     * @param (callable(TKey, TValue): bool)|null $callback
-     * @return Map<TKey, TValue>
+     * @param callable|null $callback
+     * @return Map
      */
     public function filter(callable $callback = null): Map
     {
     }
 
     /**
-     * @template TDefault
-     * @param TKey $key
-     * @param TDefault $default
-     * @return TValue|TDefault
+     * @param mixed $key
+     * @param mixed $default
+     * @return mixed
      * @throws OutOfBoundsException
      */
     public function get($key, $default = null)
@@ -213,58 +191,55 @@ final class Map implements IteratorAggregate, ArrayAccess, Collection
     }
 
     /**
-     * @return Set<TKey>
+     * @return Set
      */
     public function keys(): Set
     {
     }
 
     /**
-     * @template TNewValue
-     * @param callable(TKey, TValue): TNewValue $callback
-     * @return Map<TKey, TNewValue>
+     * @param callable $callback
+     * @return Map
      */
     public function map(callable $callback): Map
     {
     }
 
     /**
-     * @return Sequence<Pair<TKey, TValue>>
+     * @return Sequence
      */
     public function pairs(): Sequence
     {
     }
 
     /**
-     * @param TKey $key
-     * @param TValue $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function put($key, $value)
     {
     }
 
     /**
-     * @param iterable<TKey, TValue> $values
+     * @param iterable $values
      */
     public function putAll($values)
     {
     }
 
     /**
-     * @template TCarry
-     * @param callable(TCarry, TKey, TValue): TCarry $callback
-     * @param TCarry $initial
-     * @return TCarry
+     * @param callable $callback
+     * @param mixed $initial
+     * @return mixed
      */
     public function reduce(callable $callback, $initial = null)
     {
     }
 
     /**
-     * @template TDefault
-     * @param TKey $key
-     * @param TDefault $default
-     * @return TValue|TDefault
+     * @param mixed $key
+     * @param mixed $default
+     * @return mixed
      * @throws \OutOfBoundsException
      */
     public function remove($key, $default = null)
@@ -272,110 +247,102 @@ final class Map implements IteratorAggregate, ArrayAccess, Collection
     }
 
     /**
-     * @return Map<TKey, TValue>
+     * @return Map
      */
     public function reversed(): Map
     {
     }
 
     /**
-     * @return Map<TKey, TValue>
+     * @return Map
      */
     public function slice(int $offset, ?int $length = null): Map
     {
     }
 
     /**
-     * @param (callable(TValue, TValue): int)|null $comparator
+     * @param callable|null $comparator
      */
     public function sort(callable $comparator = null)
     {
     }
 
     /**
-     * @param (callable(TValue, TValue): int)|null $comparator
-     * @return Map<TKey, TValue>
+     * @param callable|null $comparator
+     * @return Map
      */
     public function sorted(callable $comparator = null): Map
     {
     }
 
     /**
-     * @param (callable(TKey, TKey): int)|null $comparator
+     * @param callable|null $comparator
      */
     public function ksort(callable $comparator = null)
     {
     }
 
     /**
-     * @param (callable(TKey, TKey): int)|null $comparator
-     * @return Map<TKey, TValue>
+     * @param callable|null $comparator
+     * @return Map
      */
     public function ksorted(callable $comparator = null): Map
     {
     }
 
     /**
-     * @return array<TKey, TValue>
+     * @return array
      */
     public function toArray(): array
     {
     }
 
     /**
-     * @return Sequence<TValue>
+     * @return Sequence
      */
     public function values(): Sequence
     {
     }
 
     /**
-     * @template TKey2
-     * @template TValue2
-     * @param Map<TKey2, TValue2> $map
-     * @return Map<TKey|TKey2, TValue|TValue2>
+     * @param Map $map
+     * @return Map
      */
     public function union(Map $map): Map
     {
     }
 
     /**
-     * @template TKey2
-     * @template TValue2
-     * @param Map<TKey2, TValue2> $map
-     * @return Map<TKey|TKey2, TValue|TValue2>
+     * @param Map $map
+     * @return Map
      */
     public function xor(Map $map): Map
     {
     }
 }
 
-/**
- * @template-covariant TKey
- * @template-covariant TValue
- */
 final class Pair implements JsonSerializable
 {
     /**
-     * @var TKey
+     * @var mixed
      */
     public $key;
 
     /**
-     * @var TValue
+     * @var mixed
      */
     public $value;
 
     /**
-     * @param TKey $key
-     * @param TValue $value
+     * @param mixed $key
+     * @param mixed $value
      */
     public function __construct($key = null, $value = null)
     {
     }
 
     /**
-     * @return Pair<TKey, TValue>
+     * @return Pair
      */
     public function copy(): Pair
     {
@@ -383,47 +350,46 @@ final class Pair implements JsonSerializable
 }
 
 /**
- * @template TValue
- * @extends Collection<TValue>
+ * @extends Collection
  */
 interface Sequence extends Collection
 {
     /**
-     * @param callable(TValue): TValue $callback
+     * @param callable $callback
      */
     public function apply(callable $callback);
 
     /**
-     * @param TValue ...$values
+     * @param mixed ...$values
      */
     public function contains(...$values): bool;
 
     /**
-     * @param (callable(TValue): bool)|null $callback
-     * @return Sequence<TValue>
+     * @param callable|null $callback
+     * @return Sequence
      */
     public function filter(callable $callback = null): Sequence;
 
     /**
-     * @param TValue $value
+     * @param mixed $value
      * @return int|false
      */
     public function find($value);
 
     /**
-     * @return TValue
+     * @return mixed
      * @throws \UnderflowException
      */
     public function first();
 
     /**
-     * @return TValue
+     * @return mixed
      * @throws \OutOfRangeException
      */
     public function get(int $index);
 
     /**
-     * @param TValue ...$values
+     * @param mixed ...$values
      * @throws \OutOfRangeException
      */
     public function insert(int $index, ...$values);
@@ -435,198 +401,182 @@ interface Sequence extends Collection
     public function join(string $glue = null): string;
 
     /**
-     * @return TValue
+     * @return mixed
      * @throws \UnderflowException
      */
     public function last();
 
     /**
-     * @template TNewValue
-     * @param callable(TValue): TNewValue $callback
-     * @return Sequence<TNewValue>
+     * @param callable $callback
+     * @return Sequence
      */
     public function map(callable $callback): Sequence;
 
     /**
-     * @template TValue2
-     * @param iterable<TValue2> $values
-     * @return Sequence<TValue|TValue2>
+     * @param iterable $values
+     * @return Sequence
      */
     public function merge($values): Sequence;
 
     /**
-     * @return TValue
+     * @return mixed
      * @throws \UnderflowException
      */
     public function pop();
 
     /**
-     * @param TValue ...$values
+     * @param mixed ...$values
      */
     public function push(...$values);
 
     /**
-     * @template TCarry
-     * @param callable(TCarry, TValue): TCarry $callback
-     * @param TCarry $initial
-     * @return TCarry
+     * @param callable $callback
+     * @param mixed $initial
+     * @return mixed
      */
     public function reduce(callable $callback, $initial = null);
 
     /**
-     * @return TValue
+     * @return mixed
      * @throws \OutOfRangeException
      */
     public function remove(int $index);
 
     /**
-     * @return Sequence<TValue>
+     * @return Sequence
      */
     public function reversed(): Sequence;
 
     /**
-     * @param TValue $value
+     * @param mixed $value
      * @throws \OutOfRangeException
      */
     public function set(int $index, $value);
 
     /**
-     * @return TValue
+     * @return mixed
      * @throws \UnderflowException
      */
     public function shift();
 
     /**
-     * @return Sequence<TValue>
+     * @return Sequence
      */
     public function slice(int $index, ?int $length = null): Sequence;
 
     /**
-     * @param (callable(TValue, TValue): int)|null $comparator
+     * @param callable|null $comparator
      */
     public function sort(callable $comparator = null);
 
     /**
-     * @param (callable(TValue, TValue): int)|null $comparator
-     * @return Sequence<TValue>
+     * @param callable|null $comparator
+     * @return Sequence
      */
     public function sorted(callable $comparator = null): Sequence;
 
     /**
-     * @param TValue ...$values
+     * @param mixed ...$values
      */
     public function unshift(...$values);
 }
 
 
-/**
- * @template TValue
- * @implements Sequence<TValue>
- * @implements ArrayAccess<int, TValue>
- * @implements IteratorAggregate<int, TValue>
- */
 final class Vector implements IteratorAggregate, ArrayAccess, Sequence
 {
     /**
-     * @return Vector<TValue>
+     * @return Vector
      */
     public function copy(): Vector
     {
     }
 
     /**
-     * @param iterable<TValue>|null $values
+     * @param iterable|null $values
      */
     public function __construct($values = null)
     {
     }
 
     /**
-     * @return Vector<TValue>
+     * @return Vector
      */
     public function reversed(): Vector
     {
     }
 
     /**
-     * @return Vector<TValue>
+     * @return Vector
      */
     public function slice(int $offset, ?int $length = null): Sequence
     {
     }
 
     /**
-     * @param (callable(TValue, TValue): int)|null $comparator
-     * @return Vector<TValue>
+     * @param callable|null $comparator
+     * @return Vector
      */
     public function sorted(callable $comparator = null): Vector
     {
     }
 
     /**
-     * @param (callable(TValue): bool)|null $callback
-     * @return Vector<TValue>
+     * @param callable|null $callback
+     * @return Vector
      */
     public function filter(callable $callback = null): Vector
     {
     }
 }
 
-/**
- * @template TValue
- * @implements Collection<TValue>
- * @implements ArrayAccess<int, TValue>
- * @implements Traversable<int, TValue>
- */
 final class Set implements ArrayAccess, Collection, Traversable
 {
     /**
-     * @param TValue ...$values
+     * @param mixed ...$values
      */
     public function add(...$values): void
     {
     }
 
     /**
-     * @param iterable<TValue>|null $values
+     * @param iterable|null $values
      */
     public function __construct($values = null)
     {
     }
 
     /**
-     * @param TValue ...$values
+     * @param mixed ...$values
      */
     public function contains(...$values): bool
     {
     }
 
     /**
-     * @return Set<TValue>
+     * @return Set
      */
     public function copy(): Set
     {
     }
 
     /**
-     * @template TValue2
-     * @param Set<TValue2> $set
-     * @return Set<TValue>
+     * @param Set $set
+     * @return Set
      */
     public function diff(Set $set): Set
     {
     }
 
     /**
-     * @param (callable(TValue): bool)|null $callback
-     * @return Set<TValue>
+     * @param callable|null $callback
+     * @return Set
      */
     public function filter(callable $callback = null): Set
     {
     }
 
     /**
-     * @return TValue
+     * @return mixed
      * @throws \UnderflowException
      */
     public function first()
@@ -634,7 +584,7 @@ final class Set implements ArrayAccess, Collection, Traversable
     }
 
     /**
-     * @return TValue
+     * @return mixed
      * @throws \OutOfRangeException
      */
     public function get(int $index)
@@ -642,16 +592,15 @@ final class Set implements ArrayAccess, Collection, Traversable
     }
 
     /**
-     * @template TValue2
-     * @param Set<TValue2> $set
-     * @return Set<TValue&TValue2>
+     * @param Set $set
+     * @return Set
      */
     public function intersect(Set $set): Set
     {
     }
 
     /**
-     * @return TValue
+     * @return mixed
      * @throws \UnderflowException
      */
     public function last()
@@ -659,70 +608,67 @@ final class Set implements ArrayAccess, Collection, Traversable
     }
 
     /**
-     * @template TValue2
-     * @param iterable<TValue2> $values
-     * @return Set<TValue|TValue2>
+     * @param iterable $values
+     * @return Set
      */
     public function merge($values): Set
     {
     }
 
     /**
-     * @param TValue ...$values
+     * @param mixed ...$values
      */
     public function remove(...$values): void
     {
     }
 
     /**
-     * @return Set<TValue>
+     * @return Set
      */
     public function reversed(): Set
     {
     }
 
     /**
-     * @return Set<TValue>
+     * @return Set
      */
     public function slice(int $index, ?int $length = null): Set
     {
     }
 
     /**
-     * @param (callable(TValue, TValue): int)|null $comparator
+     * @param callable|null $comparator
      */
     public function sort(callable $comparator = null): void
     {
     }
 
     /**
-     * @param (callable(TValue, TValue): int)|null $comparator
-     * @return Set<TValue>
+     * @param callable|null $comparator
+     * @return Set
      */
     public function sorted(callable $comparator = null): Set
     {
     }
 
     /**
-     * @return array<TValue>
+     * @return array
      */
     public function toArray(): array
     {
     }
 
     /**
-     * @template TValue2
-     * @param Set<TValue2> $set
-     * @return Set<TValue|TValue2>
+     * @param Set $set
+     * @return Set
      */
     public function union(Set $set): Set
     {
     }
 
     /**
-     * @template TValue2
-     * @param Set<TValue2> $set
-     * @return Set<TValue|TValue2>
+     * @param Set $set
+     * @return Set
      */
     public function xor(Set $set): Set
     {
