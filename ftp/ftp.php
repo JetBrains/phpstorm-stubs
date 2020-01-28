@@ -85,7 +85,7 @@ function ftp_login ($ftp_stream, $username, $password) {}
  * @param resource $ftp_stream <p>
  * The link identifier of the FTP connection.
  * </p>
- * @return string the current directory name or <b>FALSE</b> on error.
+ * @return string|false the current directory name or <b>FALSE</b> on error.
  */
 function ftp_pwd ($ftp_stream) {}
 
@@ -151,7 +151,7 @@ function ftp_raw ($ftp_stream, $command) {}
  * @param string $directory <p>
  * The name of the directory that will be created.
  * </p>
- * @return string the newly created directory name on success or <b>FALSE</b> on error.
+ * @return string|false the newly created directory name on success or <b>FALSE</b> on error.
  */
 function ftp_mkdir ($ftp_stream, $directory) {}
 
@@ -214,7 +214,7 @@ function ftp_alloc ($ftp_stream, $filesize, &$result = null) {}
  * Note that this parameter isn't escaped so there may be some issues with
  * filenames containing spaces and other characters.
  * </p>
- * @return array an array of filenames from the specified directory on success or
+ * @return array|false an array of filenames from the specified directory on success or
  * <b>FALSE</b> on error.
  */
 function ftp_nlist ($ftp_stream, $directory) {}
@@ -247,7 +247,7 @@ function ftp_rawlist ($ftp_stream, $directory, $recursive = false) {}
  * @param resource $ftp_stream <p>
  * The link identifier of the FTP connection.
  * </p>
- * @return string the remote system type, or <b>FALSE</b> on error.
+ * @return string|false the remote system type, or <b>FALSE</b> on error.
  */
 function ftp_systype ($ftp_stream) {}
 
