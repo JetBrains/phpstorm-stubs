@@ -305,7 +305,6 @@ function is_scalar ($var) {}
  * </p>
  * @return bool <b>TRUE</b> if $var is callable, <b>FALSE</b>
  * otherwise.
- * @since 7.0
  */
 function is_callable ($var, $syntax_only = null, &$callable_name = null) {}
 

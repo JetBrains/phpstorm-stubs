@@ -157,7 +157,6 @@ function session_encode () {}
  * In addition to the normal set of configuration directives, a read_and_close option may also be provided. If set to TRUE, this will result in the session being closed immediately after being read, thereby avoiding unnecessary locking if the session data won't be changed.</p>
  * @return bool This function returns true if a session was successfully started,
  * otherwise false.
- * @since 7.0
  */
 function session_start ($options = []) {}
 
@@ -310,7 +309,6 @@ function session_set_save_handler (SessionHandlerInterface $session_handler, $re
  * </tr>
  * </table>
  * @return string the name of the current cache limiter.
- * @since 7.0
  */
 function session_cache_limiter ($cache_limiter = null) {}
 
@@ -328,7 +326,6 @@ function session_cache_limiter ($cache_limiter = null) {}
  * </p>
  * @return int the current setting of session.cache_expire.
  * The value returned should be read in minutes, defaults to 180.
- * @since 7.0
  */
 function session_cache_expire ($new_cache_expire = null) {}
 

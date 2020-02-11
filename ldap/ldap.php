@@ -66,7 +66,6 @@ function ldap_parse_exop ($link , $result, &$retdata, &$retoid) {}
  * @link https://www.php.net/manual/en/function.ldap-8859-to-t61.php
  * @param string $value
  * @return string
- * @since 7.0
  */
 function ldap_8859_to_t61($value) {}
 
@@ -75,7 +74,6 @@ function ldap_8859_to_t61($value) {}
  * @link https://www.php.net/manual/en/function.ldap-t61-to-8859.php
  * @param string $value
  * @return string
- * @since 7.0
  */
 function ldap_t61_to_8859($value) {}
 
@@ -120,7 +118,6 @@ function ldap_close ($link_identifier) {}
  * @param string $bind_rdn [optional]
  * @param string $bind_password [optional]
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 7.0
  */
 function ldap_bind ($link_identifier, $bind_rdn = null, $bind_password = null) {}
 
@@ -600,7 +597,6 @@ function ldap_add_ext ($link_identifier, $dn, array $entry, $serverctrls = []) {
  * </p>
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 7.0
  */
 function ldap_delete ($link_identifier, $dn, $serverctrls = []) {}
 
@@ -649,7 +645,6 @@ function ldap_modify ($link_identifier, $dn, array $entry, $serverctrls = []) {}
  * @param array $entry
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 7.0
  */
 function ldap_mod_add ($link_identifier, $dn, array $entry, $serverctrls = []) {}
 
@@ -666,7 +661,6 @@ function ldap_mod_add ($link_identifier, $dn, array $entry, $serverctrls = []) {
  * @param array $entry
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
  * @return resource
- * @since 7.0
  */
 function ldap_mod_add_ext ($link_identifier, $dn, array $entry, $serverctrls = []) {}
 
@@ -682,7 +676,6 @@ function ldap_mod_add_ext ($link_identifier, $dn, array $entry, $serverctrls = [
  * @param array $entry
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 7.0
  */
 function ldap_mod_replace ($link_identifier, $dn, array $entry, $serverctrls = []) {}
 
@@ -715,7 +708,6 @@ function ldap_mod_replace_ext ($link_identifier, $dn, array $entry, $serverctrls
  * @param array $entry
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 7.0
  */
 function ldap_mod_del ($link_identifier, $dn, array $entry, $serverctrls = []) {}
 
@@ -785,7 +777,6 @@ function ldap_error ($link_identifier) {}
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
  * @return mixed <b>TRUE</b> if <i>value</i> matches otherwise returns
  * <b>FALSE</b>. Returns -1 on error.
- * @since 7.0
  */
 function ldap_compare ($link_identifier, $dn, $attribute, $value, $serverctrls = []) {}
 
@@ -828,7 +819,6 @@ function ldap_sort ($link, $result, $sortfilter) {}
  * </p>
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 7.0
  */
 function ldap_rename ($link_identifier, $dn, $newrdn, $newparent, $deleteoldrdn, $serverctrls = []) {}
 

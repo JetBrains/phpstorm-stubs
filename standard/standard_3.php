@@ -690,10 +690,6 @@ function long2ip ($proper_address) {}
  * @return string|array|false the value of the environment variable
  * varname or an associative array with all environment variables if no variable name
  * is provided, or false on an error.
- * @since 5.5.38 The local_only parameter has been added.
- * @since 5.6.24 The local_only parameter has been added.
- * @since 7.0.9 The local_only parameter has been added.
- * @since 7.1 The varname parameter was made optional.
  */
 function getenv ($varname = null, $local_only = false) {}
 

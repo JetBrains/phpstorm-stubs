@@ -16,7 +16,6 @@
  * this has not been set.
  * </p>
  * @return string The sum of the two operands, as a string.
- * @since 7.0
  */
 function bcadd ($left_operand, $right_operand, $scale = 0) {}
 
@@ -36,7 +35,6 @@ function bcadd ($left_operand, $right_operand, $scale = 0) {}
  * this has not been set.
  * </p>
  * @return string The result of the subtraction, as a string.
- * @since 7.0
  */
 function bcsub ($left_operand, $right_operand, $scale = 0) {}
 
@@ -56,7 +54,6 @@ function bcsub ($left_operand, $right_operand, $scale = 0) {}
  * this has not been set.
  * </p>
  * @return string the result as a string.
- * @since 7.0
  */
 function bcmul ($left_operand, $right_operand, $scale = 0) {}
 
@@ -77,7 +74,6 @@ function bcmul ($left_operand, $right_operand, $scale = 0) {}
  * </p>
  * @return string|null the result of the division as a string, or <b>NULL</b> if
  * <i>divisor</i> is 0.
- * @since 7.0
  */
 function bcdiv ($dividend, $divisor, $scale = 0) {}
 
@@ -98,7 +94,6 @@ function bcdiv ($dividend, $divisor, $scale = 0) {}
  * </p>
  * @return string|null the modulus as a string, or <b>NULL</b> if
  * <i>divisor</i> is 0.
- * @since 7.0
  * @since 7.2 scale param added, dividend/divisor no longer truncated
  */
 function bcmod ($dividend, $divisor, $scale = 0) {}
@@ -121,7 +116,6 @@ function bcmod ($dividend, $divisor, $scale = 0) {}
  * this has not been set.
  * </p>
  * @return string the result as a string.
- * @since 7.0
  */
 function bcpow ($base, $exponent, $scale = 0) {}
 
@@ -134,7 +128,6 @@ function bcpow ($base, $exponent, $scale = 0) {}
  * @param int $scale [optional]
  * @return string the square root as a string, or <b>NULL</b> if
  * <i>operand</i> is negative.
- * @since 7.0
  */
 function bcsqrt ($operand, $scale = null) {}
 
@@ -145,7 +138,6 @@ function bcsqrt ($operand, $scale = null) {}
  * The scale factor.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 7.0
  */
 function bcscale ($scale) {}
 
@@ -166,7 +158,6 @@ function bcscale ($scale) {}
  * @return int 0 if the two operands are equal, 1 if the
  * <i>left_operand</i> is larger than the
  * <i>right_operand</i>, -1 otherwise.
- * @since 7.0
  */
 function bccomp ($left_operand, $right_operand, $scale = 0) {}
 
@@ -191,6 +182,5 @@ function bccomp ($left_operand, $right_operand, $scale = 0) {}
  * </p>
  * @return string|null the result as a string, or <b>NULL</b> if <i>modulus</i>
  * is 0 or <i>exponent</i> is negative.
- * @since 7.0
  */
 function bcpowmod ($base, $exponent, $modulus, $scale = 0) {}
