@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Decimal {
 
     use ArithmeticError;
@@ -10,26 +8,26 @@ namespace Decimal {
     use TypeError;
 
     class Decimal {
-    public const ROUND_UP = 101;
-    public const ROUND_DOWN = 102;
-    public const ROUND_CEILING = 103;
-    public const ROUND_FLOOR = 104;
-    public const ROUND_HALF_UP = 105;
-    public const ROUND_HALF_DOWN = 106;
-    public const ROUND_HALF_EVEN = 107;
-    public const ROUND_HALF_ODD = 108;
-    public const ROUND_TRUNCATE = 109;
+        public const ROUND_UP = 101;
+        public const ROUND_DOWN = 102;
+        public const ROUND_CEILING = 103;
+        public const ROUND_FLOOR = 104;
+        public const ROUND_HALF_UP = 105;
+        public const ROUND_HALF_DOWN = 106;
+        public const ROUND_HALF_EVEN = 107;
+        public const ROUND_HALF_ODD = 108;
+        public const ROUND_TRUNCATE = 109;
 
-    public const DEFAULT_PRECISION = 28;
-    public const DEFAULT_ROUNDING = self::ROUND_HALF_EVEN;
+        public const DEFAULT_PRECISION = 28;
+        public const DEFAULT_ROUNDING = self::ROUND_HALF_EVEN;
 
-    public const MIN_PRECISION = 1;
+        public const MIN_PRECISION = 1;
 
-    /**
-     * 425000000 for 32 bits systems
-     * 999999999999999999 for 64 bits systems
-     */
-    public const MAX_PRECISION = 999999999999999999;
+        /**
+         * 425000000 for 32 bits systems
+         * 999999999999999999 for 64 bits systems
+         */
+        public const MAX_PRECISION = 999999999999999999;
 
         /**
          * @param string $value
