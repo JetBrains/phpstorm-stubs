@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Decimal {
 
+    use ArithmeticError;
+    use DivisionByZeroError;
     use Traversable;
     use TypeError;
 
@@ -44,7 +46,7 @@ namespace Decimal {
          *
          * @throws TypeError
          *
-         * @link http://php-decimal.io/#add
+         * @link https://php-decimal.io/#add
          */
         public function add($value): Decimal { }
 
@@ -57,7 +59,7 @@ namespace Decimal {
          *
          * @throws TypeError
          *
-         * @link http://php-decimal.io/#sub
+         * @link https://php-decimal.io/#sub
          */
         public function sub($value): Decimal { }
 
@@ -70,7 +72,7 @@ namespace Decimal {
          *
          * @throws TypeError
          *
-         * @link http://php-decimal.io/#mul
+         * @link https://php-decimal.io/#mul
          */
         public function mul($value): Decimal { }
 
@@ -83,7 +85,7 @@ namespace Decimal {
          *
          * @throws TypeError
          *
-         * @link http://php-decimal.io/#div
+         * @link https://php-decimal.io/#div
          */
         public function div($value): Decimal { }
 
@@ -98,7 +100,7 @@ namespace Decimal {
          * @throws DivisionByZeroError
          * @throws ArithmeticError
          *
-         * @link http://php-decimal.io/#mod
+         * @link https://php-decimal.io/#mod
          */
         public function mod($value): Decimal { }
 
@@ -111,7 +113,7 @@ namespace Decimal {
          *
          * @throws TypeError
          *
-         * @link http://php-decimal.io/#pow
+         * @link https://php-decimal.io/#pow
          */
         public function pow($value): Decimal { }
 
@@ -124,7 +126,7 @@ namespace Decimal {
          * @throws DivisionByZeroError
          * @throws ArithmeticError
          *
-         * @link http://php-decimal.io/#rem
+         * @link https://php-decimal.io/#rem
          */
         public function rem($value): Decimal { }
 
@@ -133,7 +135,7 @@ namespace Decimal {
          *
          * @return Decimal
          *
-         * @link http://php-decimal.io/#ln
+         * @link https://php-decimal.io/#ln
          */
         public function ln(): Decimal { }
 
@@ -142,28 +144,28 @@ namespace Decimal {
          *
          * @return Decimal
          *
-         * @link http://php-decimal.io/#ln
+         * @link https://php-decimal.io/#ln
          */
         public function log(): Decimal { }
 
         /**
          * @return Decimal
          *
-         * @link http://php-decimal.io/#exp
+         * @link https://php-decimal.io/#exp
          */
         public function exp(): Decimal { }
 
         /**
          * @return Decimal
          *
-         * @link http://php-decimal.io/#log10
+         * @link https://php-decimal.io/#log10
          */
         public function log10(): Decimal { }
 
         /**
          * @return Decimal
          *
-         * @link http://php-decimal.io/#sqrt
+         * @link https://php-decimal.io/#sqrt
          */
         public function sqrt(): Decimal { }
 
@@ -177,7 +179,7 @@ namespace Decimal {
          *
          * @return Decimal
          *
-         * @link http://php-decimal.io/#round
+         * @link https://php-decimal.io/#round
          */
         public function round(int $places = 0, int $mode = Decimal::ROUND_HALF_EVEN): Decimal { }
 
@@ -186,7 +188,7 @@ namespace Decimal {
          *
          * @return Decimal
          *
-         * @link http://php-decimal.io/#floor
+         * @link https://php-decimal.io/#floor
          */
         public function floor(): Decimal { }
 
@@ -195,7 +197,7 @@ namespace Decimal {
          *
          * @return Decimal
          *
-         * @link http://php-decimal.io/#ceil
+         * @link https://php-decimal.io/#ceil
          */
         public function ceil(): Decimal { }
 
@@ -204,7 +206,7 @@ namespace Decimal {
          *
          * @return Decimal
          *
-         * @link http://php-decimal.io/#truncate
+         * @link https://php-decimal.io/#truncate
          */
         public function truncate(): Decimal { }
 
@@ -213,7 +215,7 @@ namespace Decimal {
          *
          * @return Decimal
          *
-         * @link http://php-decimal.io/#shift
+         * @link https://php-decimal.io/#shift
          */
         public function shift(): Decimal { }
 
@@ -224,7 +226,7 @@ namespace Decimal {
          *
          * @return Decimal
          *
-         * @link http://php-decimal.io/#trim
+         * @link https://php-decimal.io/#trim
          */
         public function trim(): Decimal { }
 
@@ -233,7 +235,7 @@ namespace Decimal {
          *
          * @return int
          *
-         * @link http://php-decimal.io/#precision
+         * @link https://php-decimal.io/#precision
          */
         public function precision(): int { }
 
@@ -242,7 +244,7 @@ namespace Decimal {
          *
          * @return int
          *
-         * @link http://php-decimal.io/#signum
+         * @link https://php-decimal.io/#signum
          */
         public function signum(): int { }
 
@@ -251,7 +253,7 @@ namespace Decimal {
          *
          * @return int
          *
-         * @link http://php-decimal.io/#parity
+         * @link https://php-decimal.io/#parity
          */
         public function parity(): int { }
 
@@ -260,7 +262,7 @@ namespace Decimal {
          *
          * @return Decimal
          *
-         * @link http://php-decimal.io/#abs
+         * @link https://php-decimal.io/#abs
          */
         public function abs(): Decimal { }
 
@@ -269,63 +271,63 @@ namespace Decimal {
          *
          * @return Decimal
          *
-         * @link http://php-decimal.io/#negate
+         * @link https://php-decimal.io/#negate
          */
         public function negate(): Decimal { }
 
         /**
          * @return bool
          *
-         * @link http://php-decimal.io/#isEven
+         * @link https://php-decimal.io/#isEven
          */
         public function isEven(): bool { }
 
         /**
          * @return bool
          *
-         * @link http://php-decimal.io/#isOdd
+         * @link https://php-decimal.io/#isOdd
          */
         public function isOdd(): bool { }
 
         /**
          * @return bool
          *
-         * @link http://php-decimal.io/#isPositive
+         * @link https://php-decimal.io/#isPositive
          */
         public function isPositive(): bool { }
 
         /**
          * @return bool
          *
-         * @link http://php-decimal.io/#isNegative
+         * @link https://php-decimal.io/#isNegative
          */
         public function isNegative(): bool { }
 
         /**
          * @return bool
          *
-         * @link http://php-decimal.io/#isNan
+         * @link https://php-decimal.io/#isNan
          */
         public function isNaN(): bool { }
 
         /**
          * @return bool
          *
-         * @link http://php-decimal.io/#isInf
+         * @link https://php-decimal.io/#isInf
          */
         public function isInf(): bool { }
 
         /**
          * @return bool
          *
-         * @link http://php-decimal.io/#isInteger
+         * @link https://php-decimal.io/#isInteger
          */
         public function isInteger(): bool { }
 
         /**
          * @return bool
          *
-         * @link http://php-decimal.io/#isZero
+         * @link https://php-decimal.io/#isZero
          */
         public function isZero(): bool { }
 
@@ -338,7 +340,7 @@ namespace Decimal {
          *
          * @return Decimal
          *
-         * @link http://php-decimal.io/#toFixed
+         * @link https://php-decimal.io/#toFixed
          */
         public function toFixed(int $places = 0, bool $commas = false, int $mode = Decimal::ROUND_HALF_EVEN): Decimal { }
 
@@ -387,7 +389,7 @@ namespace Decimal {
          *
          * @return bool TRUE if this decimal is considered equal to the given value.
          *
-         * @link http://php-decimal.io/#equals
+         * @link https://php-decimal.io/#equals
          */
         public function equals($value): bool { }
 
@@ -402,7 +404,7 @@ namespace Decimal {
          *
          * @return int
          *
-         * @link http://php-decimal.io/#compareTo
+         * @link https://php-decimal.io/#compareTo
          */
         public function compareTo($value): int { }
 
@@ -428,7 +430,7 @@ namespace Decimal {
          *
          * @return Decimal
          *
-         * @link http://php-decimal.io/#sum
+         * @link https://php-decimal.io/#sum
          */
         public function sum(array $values): Decimal { }
 
@@ -442,7 +444,7 @@ namespace Decimal {
          *
          * @return Decimal
          *
-         * @link http://php-decimal.io/#avg
+         * @link https://php-decimal.io/#avg
          */
         public function avg(array $values): Decimal { }
     }
