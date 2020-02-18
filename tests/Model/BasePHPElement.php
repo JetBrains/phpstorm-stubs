@@ -3,30 +3,24 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
+use Exception;
+use PhpParser\Node;
+use Reflector;
+
 abstract class BasePHPElement
 {
-    public $name;
-    public $stubBelongsToCore = false;
-    public $parseError;
-    protected $mutedProblems = [];
+    public string $name;
+    public bool $stubBelongsToCore = false;
+    public ?Exception $parseError = null;
+    protected array $mutedProblems = [];
 
-    /**
-     * @param mixed $object
-     *
-     * @return mixed
-     */
-    abstract public function readObjectFromReflection($object);
+    abstract public function readObjectFromReflection(Reflector $object);
 
-    /**
-     * @param mixed $node
-     *
-     * @return mixed
-     */
-    abstract public function readObjectFromStubNode($node);
+    abstract public function readObjectFromStubNode(Node $node);
 
-    abstract public function readMutedProblems($jsonData);
+    abstract public function readMutedProblems($jsonData): void;
 
-    protected function getFQN($node): string
+    protected function getFQN(Node $node): string
     {
         $fqn = '';
         if ($node->namespacedName === null) {

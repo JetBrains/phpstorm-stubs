@@ -11,7 +11,10 @@ use PhpParser\NodeVisitorAbstract;
  */
 class ParentConnector extends NodeVisitorAbstract
 {
-    private $stack;
+    /**
+     * @var Node[]
+     */
+    private array $stack;
 
     public function beforeTraverse(array $nodes)
     {

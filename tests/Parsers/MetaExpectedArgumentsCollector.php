@@ -19,11 +19,11 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
     /**
      * @var ExpectedFunctionArgumentsInfo[]
      */
-    private $expectedArgumentsInfos;
+    private array $expectedArgumentsInfos;
     /**
      * @var String[]
      */
-    private $registeredArgumentsSet;
+    private array $registeredArgumentsSet;
 
     public function __construct()
     {

@@ -17,6 +17,7 @@ use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
 use StubTests\Model\StubProblemType;
+use StubTests\Model\Tags\RemovedTag;
 use StubTests\Parsers\Utils;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
@@ -270,7 +271,7 @@ class StubsTest extends TestCase
         static::assertNull($constant->parseError, $constant->parseError ?: '');
         $this->checkLinks($constant, "constant $className::$constant->name");
         if ($constant->stubBelongsToCore) {
-            $this->checkDeprecatedSinceVersionsMajor($constant, "constant $className::$constant->name");
+            $this->checkDeprecatedRemovedSinceVersionsMajor($constant, "constant $className::$constant->name");
         }
     }
 
@@ -284,7 +285,7 @@ class StubsTest extends TestCase
         static::assertNull($constant->parseError, $constant->parseError ?: '');
         $this->checkLinks($constant, "constant $constant->name");
         if ($constant->stubBelongsToCore) {
-            $this->checkDeprecatedSinceVersionsMajor($constant, "constant $constant->name");
+            $this->checkDeprecatedRemovedSinceVersionsMajor($constant, "constant $constant->name");
         }
     }
 
@@ -298,7 +299,7 @@ class StubsTest extends TestCase
         static::assertNull($function->parseError, $function->parseError ?: '');
         $this->checkLinks($function, "function $function->name");
         if ($function->stubBelongsToCore) {
-            $this->checkDeprecatedSinceVersionsMajor($function, "function $function->name");
+            $this->checkDeprecatedRemovedSinceVersionsMajor($function, "function $function->name");
         }
     }
 
@@ -312,7 +313,7 @@ class StubsTest extends TestCase
         static::assertNull($class->parseError, $class->parseError ?: '');
         $this->checkLinks($class, "class $class->name");
         if ($class->stubBelongsToCore) {
-            $this->checkDeprecatedSinceVersionsMajor($class, "class $class->name");
+            $this->checkDeprecatedRemovedSinceVersionsMajor($class, "class $class->name");
         }
     }
 
@@ -330,7 +331,7 @@ class StubsTest extends TestCase
         static::assertNull($method->parseError, $method->parseError ?: '');
         $this->checkLinks($method, "method $methodName");
         if ($method->stubBelongsToCore) {
-            $this->checkDeprecatedSinceVersionsMajor($method, "method $methodName");
+            $this->checkDeprecatedRemovedSinceVersionsMajor($method, "method $methodName");
         }
     }
 
@@ -382,7 +383,7 @@ class StubsTest extends TestCase
      * @param string $elementName
      * @throws InvalidArgumentException
      */
-    private function checkDeprecatedSinceVersionsMajor($element, $elementName): void
+    private function checkDeprecatedRemovedSinceVersionsMajor($element, $elementName): void
     {
         foreach ($element->sinceTags as $sinceTag) {
             if ($sinceTag instanceof Since) {
@@ -402,6 +403,17 @@ class StubsTest extends TestCase
                     self::assertTrue(Utils::versionIsMajor($deprecatedTag), "$elementName has 'deprecated' version $version .
                     'Deprecated' version for PHP Core functionallity should have X.X format due to functionallity usually 
                     isn't deprecated in patch updates. If you believe this is not correct, please submit an issue about your case at
+                    https://youtrack.jetbrains.com/issues/WI");
+                }
+            }
+        }
+        foreach ($element->removedTags as $removedTag) {
+            if ($removedTag instanceof RemovedTag){
+                $version = $removedTag->getVersion();
+                if ($version !== null) {
+                    self::assertTrue(Utils::versionIsMajor($removedTag), "$elementName has 'removed' version $version .
+                    'removed' version for PHP Core functionallity should have X.X format due to functionallity usually 
+                    isn't removed in patch updates. If you believe this is not correct, please submit an issue about your case at
                     https://youtrack.jetbrains.com/issues/WI");
                 }
             }

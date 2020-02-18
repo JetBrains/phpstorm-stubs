@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace StubTests\Parsers\Visitors;
 
+use Exception;
 use PhpParser\Node;
 use PhpParser\Node\Const_;
 use PhpParser\Node\Expr\FuncCall;
@@ -22,8 +23,8 @@ use StubTests\Parsers\Utils;
 
 class ASTVisitor extends NodeVisitorAbstract
 {
-    protected $stubs;
-    protected $isStubCore;
+    protected StubsContainer $stubs;
+    protected bool $isStubCore;
 
     public function __construct(StubsContainer $stubs)
     {
@@ -31,17 +32,22 @@ class ASTVisitor extends NodeVisitorAbstract
         $this->isStubCore = false;
     }
 
+    /**
+     * @param Node $node
+     * @return void
+     * @throws Exception
+     */
     public function enterNode(Node $node)
     {
         if ($node instanceof Function_) {
             $function = (new PHPFunction())->readObjectFromStubNode($node);
-            if ($this->isStubCore){
+            if ($this->isStubCore) {
                 $function->stubBelongsToCore = true;
             }
             $this->stubs->addFunction($function);
         } elseif ($node instanceof Const_) {
             $constant = (new PHPConst())->readObjectFromStubNode($node);
-            if ($this->isStubCore){
+            if ($this->isStubCore) {
                 $constant->stubBelongsToCore = true;
             }
             if ($constant->parentName === null) {
@@ -54,14 +60,14 @@ class ASTVisitor extends NodeVisitorAbstract
         } elseif ($node instanceof FuncCall) {
             if ($node->name->parts[0] === 'define') {
                 $constant = (new PHPDefineConstant())->readObjectFromStubNode($node);
-                if ($this->isStubCore){
+                if ($this->isStubCore) {
                     $constant->stubBelongsToCore = true;
                 }
                 $this->stubs->addConstant($constant);
             }
         } elseif ($node instanceof ClassMethod) {
             $method = (new PHPMethod())->readObjectFromStubNode($node);
-            if ($this->isStubCore){
+            if ($this->isStubCore) {
                 $method->stubBelongsToCore = true;
             }
             if ($this->stubs->getClass($method->parentName) !== null) {
@@ -71,13 +77,13 @@ class ASTVisitor extends NodeVisitorAbstract
             }
         } elseif ($node instanceof Interface_) {
             $interface = (new PHPInterface())->readObjectFromStubNode($node);
-            if ($this->isStubCore){
+            if ($this->isStubCore) {
                 $interface->stubBelongsToCore = true;
             }
             $this->stubs->addInterface($interface);
         } elseif ($node instanceof Class_) {
             $class = (new PHPClass())->readObjectFromStubNode($node);
-            if ($this->isStubCore){
+            if ($this->isStubCore) {
                 $class->stubBelongsToCore = true;
             }
             $this->stubs->addClass($class);
