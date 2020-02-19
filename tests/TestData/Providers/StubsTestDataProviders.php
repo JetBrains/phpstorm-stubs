@@ -3,9 +3,11 @@ declare(strict_types=1);
 
 namespace StubTests\TestData\Providers;
 
+use Generator;
+
 class StubsTestDataProviders
 {
-    public static function stubClassConstantProvider()
+    public static function stubClassConstantProvider(): ?Generator
     {
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->getClasses() as $class) {
             foreach ($class->constants as $constant) {
@@ -20,21 +22,21 @@ class StubsTestDataProviders
         }
     }
 
-    public static function stubConstantProvider()
+    public static function stubConstantProvider(): ?Generator
     {
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->getConstants() as $constantName => $constant) {
             yield "constant {$constantName}" => [$constant];
         }
     }
 
-    public static function stubFunctionProvider()
+    public static function stubFunctionProvider(): ?Generator
     {
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->getFunctions() as $functionName => $function) {
             yield "function {$functionName}" => [$function];
         }
     }
 
-    public static function stubClassProvider()
+    public static function stubClassProvider(): ?Generator
     {
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->getClasses() as $class) {
             yield "class {$class->name}" => [$class];
@@ -45,7 +47,7 @@ class StubsTestDataProviders
         }
     }
 
-    public static function stubMethodProvider()
+    public static function stubMethodProvider(): ?Generator
     {
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->getClasses() as $className => $class) {
             foreach ($class->methods as $methodName => $method) {

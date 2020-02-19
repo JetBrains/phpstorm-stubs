@@ -12,7 +12,6 @@ define ('INI_ALL', 7);
 
 /**
  * Normal INI scanner mode
- * @since 5.3
  * @link https://php.net/manual/en/filesystem.constants.php
  */
 define ('INI_SCANNER_NORMAL', 0);
@@ -26,7 +25,6 @@ define ('INI_SCANNER_TYPED', 2);
 
 /**
  * Raw INI scanner mode
- * @since 5.3
  * @link https://php.net/manual/en/filesystem.constants.php
  */
 define ('INI_SCANNER_RAW', 1);
@@ -138,28 +136,24 @@ define ('NAN', NAN);
 /**
  * Round halves up
  * @link https://php.net/manual/en/math.constants.php
- * @since 5.3
  */
 define ('PHP_ROUND_HALF_UP', 1);
 
 /**
  * Round halves down
  * @link https://php.net/manual/en/math.constants.php
- * @since 5.3
  */
 define ('PHP_ROUND_HALF_DOWN', 2);
 
 /**
  * Round halves to even numbers
  * @link https://php.net/manual/en/math.constants.php
- * @since 5.3
  */
 define ('PHP_ROUND_HALF_EVEN', 3);
 
 /**
  * Round halves to odd numbers
  * @link https://php.net/manual/en/math.constants.php
- * @since 5.3
  */
 define ('PHP_ROUND_HALF_ODD', 4);
 define ('INFO_GENERAL', 1);
@@ -282,7 +276,6 @@ define ('ENT_NOQUOTES', 0);
  * Silently discard invalid code unit sequences instead of returning an empty string.
  * Using this flag is discouraged as it may have security implications.
  * @link https://php.net/manual/en/function.htmlspecialchars.php
- * @since 5.3
  */
 define ('ENT_IGNORE', 4);
 define ('STR_PAD_LEFT', 0);
@@ -294,7 +287,6 @@ define ('PATHINFO_EXTENSION', 4);
 
 /**
  * @link https://php.net/manual/en/filesystem.constants.php
- * @since 5.2
  */
 define ('PATHINFO_FILENAME', 8);
 define ('CHAR_MAX', 127);
@@ -820,7 +812,6 @@ define ('SORT_STRING', 2);
 /**
  * SORT_LOCALE_STRING is used to compare items as
  * strings, based on the current locale.
- * @since 4.4
  * @since 5.0.2
  * @link https://php.net/manual/en/array.constants.php
  */
@@ -1014,7 +1005,6 @@ define ('IMAGETYPE_XBM', 16);
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
  * @link https://php.net/manual/en/image.constants.php
- * @since 5.3
  */
 define ('IMAGETYPE_ICO', 17);
 

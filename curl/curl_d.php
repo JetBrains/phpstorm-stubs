@@ -68,7 +68,6 @@ define ('CURLOPT_NOPROGRESS', 43);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.3
  */
 define ('CURLOPT_PROGRESSFUNCTION', 20056);
 define ('CURLOPT_NOBODY', 44);
@@ -129,13 +128,11 @@ define ('CURLOPT_COOKIE', 10022);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.1
  */
 define ('CURLOPT_COOKIESESSION', 96);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.1
  */
 define ('CURLOPT_AUTOREFERER', 58);
 define ('CURLOPT_SSLCERT', 10025);
@@ -462,55 +459,46 @@ define ('CURLMSG_DONE', 1);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.1
  */
 define ('CURLOPT_FTPSSLAUTH', 129);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.1
  */
 define ('CURLFTPAUTH_DEFAULT', 0);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.1
  */
 define ('CURLFTPAUTH_SSL', 1);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.1
  */
 define ('CURLFTPAUTH_TLS', 2);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.2
  */
 define ('CURLOPT_FTP_SSL', 119);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.2
  */
 define ('CURLFTPSSL_NONE', 0);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.2
  */
 define ('CURLFTPSSL_TRY', 1);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.2
  */
 define ('CURLFTPSSL_CONTROL', 2);
 
 /**
  * @link https://php.net/manual/en/curl.constants.php
- * @since 5.2
  */
 define ('CURLFTPSSL_ALL', 3);
 define ('CURLOPT_FTP_FILEMETHOD', 138);
@@ -1328,7 +1316,6 @@ define("CURL_TIMECOND_NONE",0);
 define("CURLAUTH_NONE",0);
 define("CURLE_SSL_CACERT_BADFILE",77);
 /**
- * @since 5.3
  */
 define("CURLE_SSH",79);
 define("CURLFTPSSL_CCC_ACTIVE",2);

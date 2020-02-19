@@ -32,8 +32,7 @@
  * <p>
  * If the optional parameter <i>regs</i> was not passed or
  * the length of the matched string is 0, this function returns 1.
- * @since 4.0
- * @since 5.0
+ * @removed 7.0
  */
 function ereg ($pattern, $string, array &$regs = null) {}
 
@@ -58,8 +57,7 @@ function ereg ($pattern, $string, array &$regs = null) {}
  * </p>
  * @return string The modified string is returned. If no matches are found in
  * <i>string</i>, then it will be returned unchanged.
- * @since 4.0
- * @since 5.0
+ * @removed 7.0
  */
 function ereg_replace ($pattern, $replacement, $string) {}
 
@@ -92,8 +90,7 @@ function ereg_replace ($pattern, $replacement, $string) {}
  * <p>
  * If the optional parameter <i>regs</i> was not passed or
  * the length of the matched string is 0, this function returns 1.
- * @since 4.0
- * @since 5.0
+ * @removed 7.0
  */
 function eregi ($pattern, $string, array &$regs = null) {}
 
@@ -118,8 +115,7 @@ function eregi ($pattern, $string, array &$regs = null) {}
  * </p>
  * @return string The modified string is returned. If no matches are found in
  * <i>string</i>, then it will be returned unchanged.
- * @since 4.0
- * @since 5.0
+ * @removed 7.0
  */
 function eregi_replace ($pattern, $replacement, $string) {}
 
@@ -161,8 +157,7 @@ function eregi_replace ($pattern, $replacement, $string) {}
  * only one element will be returned. Of course, this is also true if
  * <i>string</i> is empty. If an error occurs,
  * <b>split</b> returns <b>FALSE</b>.
- * @since 4.0
- * @since 5.0
+ * @removed 7.0
  */
 function split ($pattern, $string, $limit = -1) {}
 
@@ -204,8 +199,7 @@ function split ($pattern, $string, $limit = -1) {}
  * only one element will be returned. Of course, this is also true if
  * <i>string</i> is empty. If an error occurs,
  * <b>spliti</b> returns <b>FALSE</b>.
- * @since 4.0.1
- * @since 5.0
+ * @removed 7.0
  */
 function spliti ($pattern, $string, $limit = -1) {}
 
@@ -221,8 +215,7 @@ function spliti ($pattern, $string, $limit = -1) {}
  * <i>string</i> with each alphabetic character converted to
  * a bracket expression; this bracket expression contains that character's
  * uppercase and lowercase form. Other characters remain unchanged.
- * @since 4.0
- * @since 5.0
+ * @removed 7.0
  */
 function sql_regcase ($string) {}
 

@@ -677,7 +677,6 @@ class DateInterval {
 /**
  * Representation of date period.
  * @link https://php.net/manual/en/class.dateperiod.php
- * @since 5.3
  */
 class DatePeriod implements Traversable {
     const EXCLUDE_START_DATE = 1;
@@ -724,7 +723,6 @@ class DatePeriod implements Traversable {
      * @param DateTimeInterface $end
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link https://php.net/manual/en/dateperiod.construct.php
-     * @since 5.3
      */
     public function __construct (DateTimeInterface $start, DateInterval $interval, DateTimeInterface $end, $options=0) {}
 
@@ -734,7 +732,6 @@ class DatePeriod implements Traversable {
      * @param int $recurrences Number of recurrences
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link https://php.net/manual/en/dateperiod.construct.php
-     * @since 5.3
      */
     public function __construct (DateTimeInterface $start, DateInterval $interval, $recurrences, $options=0) {}
 
@@ -742,7 +739,6 @@ class DatePeriod implements Traversable {
      * @param string $isostr String containing the ISO interval.
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link https://php.net/manual/en/dateperiod.construct.php
-     * @since 5.3
      */
     public function __construct ($isostr, $options=0) {}
 

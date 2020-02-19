@@ -15,7 +15,6 @@ class XSLTProcessor  {
 	 * <b>SimpleXMLElement</b> object.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-	 * @since 5.0
 	 */
 	public function importStylesheet ($stylesheet) {}
 
@@ -26,7 +25,6 @@ class XSLTProcessor  {
 	 * The node to be transformed.
 	 * </p>
 	 * @return DOMDocument|false The resulting <b>DOMDocument</b> or <b>FALSE</b> on error.
-	 * @since 5.0
 	 */
 	public function transformToDoc (DOMNode $doc) {}
 
@@ -40,7 +38,6 @@ class XSLTProcessor  {
 	 * The target URI for the transformation.
 	 * </p>
 	 * @return int|false the number of bytes written or <b>FALSE</b> if an error occurred.
-	 * @since 5.0
 	 */
 	public function transformToUri ($doc, $uri) {}
 
@@ -51,7 +48,6 @@ class XSLTProcessor  {
 	 * The transformed document.
 	 * </p>
 	 * @return string|false The result of the transformation as a string or <b>FALSE</b> on error.
-	 * @since 5.0
 	 */
 	public function transformToXml ($doc) {}
 
@@ -68,7 +64,6 @@ class XSLTProcessor  {
 	 * The new value of the XSLT parameter.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-	 * @since 5.0
 	 */
 	public function setParameter ($namespace, $name, $value) {}
 
@@ -82,7 +77,6 @@ class XSLTProcessor  {
 	 * The local name of the XSLT parameter.
 	 * </p>
 	 * @return string|false The value of the parameter (as a string), or <b>FALSE</b> if it's not set.
-	 * @since 5.0
 	 */
 	public function getParameter ($namespaceURI, $localName) {}
 
@@ -96,7 +90,6 @@ class XSLTProcessor  {
 	 * The local name of the XSLT parameter.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-	 * @since 5.0
 	 */
 	public function removeParameter ($namespaceURI, $localName) {}
 
@@ -131,7 +124,6 @@ class XSLTProcessor  {
 	 * Path to the file to dump profiling information.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-	 * @since 5.3
 	 */
 	public function setProfiling ($filename) {}
 

@@ -26,7 +26,7 @@
  * called before with the same parameters.
  * </p>
  * @return resource|false a MS SQL link identifier on success, or false on error.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_connect ($servername = null, $username = null, $password = null, $new_link = false) {}
 
@@ -55,7 +55,7 @@ function mssql_connect ($servername = null, $username = null, $password = null, 
  * </p>
  * @return resource a positive MS SQL persistent link identifier on success, or
  * false on error.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_pconnect ($servername = null, $username = null, $password = null, $new_link = false) {}
 
@@ -72,7 +72,7 @@ function mssql_pconnect ($servername = null, $username = null, $password = null,
  * mssql_pconnect.
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_close ($link_identifier = null) {}
 
@@ -101,7 +101,7 @@ function mssql_close ($link_identifier = null) {}
  * mssql_connect was called, and use it.
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_select_db ($database_name, $link_identifier = null) {}
 
@@ -127,7 +127,7 @@ function mssql_select_db ($database_name, $link_identifier = null) {}
  * </p>
  * @return mixed a MS SQL result resource on success, true if no rows were
  * returned, or false on error.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_query ($query, $link_identifier = null, $batch_size = 0) {}
 
@@ -140,7 +140,7 @@ function mssql_query ($query, $link_identifier = null, $batch_size = 0) {}
  * call to mssql_query.
  * </p>
  * @return int the batch number as an integer.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_fetch_batch ($result) {}
 
@@ -154,7 +154,7 @@ function mssql_fetch_batch ($result) {}
  * mssql_pconnect.
  * </p>
  * @return int the number of records affected by last operation.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_rows_affected ($link_identifier) {}
 
@@ -167,7 +167,7 @@ function mssql_rows_affected ($link_identifier) {}
  * call to mssql_query.
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_free_result ($result) {}
 
@@ -177,7 +177,7 @@ function mssql_free_result ($result) {}
  * @link https://php.net/manual/en/function.mssql-get-last-message.php
  * @return string last error message from server, or an empty string if 
  * no error messages are returned from MSSQL.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_get_last_message () {}
 
@@ -190,7 +190,7 @@ function mssql_get_last_message () {}
  * call to mssql_query.
  * </p>
  * @return int the number of rows, as an integer.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_num_rows ($result) {}
 
@@ -203,7 +203,7 @@ function mssql_num_rows ($result) {}
  * call to mssql_query.
  * </p>
  * @return int the number of fields, as an integer.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_num_fields ($result) {}
 
@@ -224,7 +224,7 @@ function mssql_num_fields ($result) {}
  * </p>
  * <p>
  * The properties of the object are:
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_fetch_field ($result, $field_offset = -1) {}
 
@@ -238,7 +238,7 @@ function mssql_fetch_field ($result, $field_offset = -1) {}
  * </p>
  * @return array|false an array that corresponds to the fetched row, or false if there
  * are no more rows.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_fetch_row ($result) {}
 
@@ -258,7 +258,7 @@ function mssql_fetch_row ($result) {}
  * </p>
  * @return array|false an array that corresponds to the fetched row, or false if there
  * are no more rows.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_fetch_array ($result, $result_type = MSSQL_BOTH) {}
 
@@ -272,7 +272,7 @@ function mssql_fetch_array ($result, $result_type = MSSQL_BOTH) {}
  * </p>
  * @return array an associative array that corresponds to the fetched row, or
  * false if there are no more rows.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_fetch_assoc ($result_id) {}
 
@@ -286,7 +286,7 @@ function mssql_fetch_assoc ($result_id) {}
  * </p>
  * @return object an object with properties that correspond to the fetched row, or
  * false if there are no more rows.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_fetch_object ($result) {}
 
@@ -302,7 +302,7 @@ function mssql_fetch_object ($result) {}
  * The field offset, starts at 0. If omitted, the current field is used.
  * </p>
  * @return int|false The length of the specified field index on success or false on failure.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_field_length ($result, $offset = null) {}
 
@@ -318,7 +318,7 @@ function mssql_field_length ($result, $offset = null) {}
  * The field offset, starts at 0. If omitted, the current field is used.
  * </p>
  * @return string|false The name of the specified field index on success or false on failure.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_field_name ($result, $offset = -1) {}
 
@@ -334,7 +334,7 @@ function mssql_field_name ($result, $offset = -1) {}
  * The field offset, starts at 0. If omitted, the current field is used.
  * </p>
  * @return string|false The type of the specified field index on success or false on failure.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_field_type ($result, $offset = -1) {}
 
@@ -349,7 +349,7 @@ function mssql_field_type ($result, $offset = -1) {}
  * The desired row number of the new result pointer. 
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_data_seek ($result_identifier, $row_number) {}
 
@@ -365,7 +365,7 @@ function mssql_data_seek ($result_identifier, $row_number) {}
  * The field offset, starts at 0.
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_field_seek ($result, $field_offset) {}
 
@@ -393,7 +393,7 @@ function mssql_field_seek ($result, $field_offset) {}
  * tablename.fieldname argument.
  * </p>
  * @return string the contents of the specified cell.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_result ($result, $row, $field) {}
 
@@ -407,7 +407,7 @@ function mssql_result ($result, $row, $field) {}
  * </p>
  * @return bool true if an additional result set was available or false
  * otherwise.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_next_result ($result_id) {}
 
@@ -419,7 +419,7 @@ function mssql_next_result ($result_id) {}
  * The new error severity.
  * </p>
  * @return void
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_min_error_severity ($severity) {}
 
@@ -431,7 +431,7 @@ function mssql_min_error_severity ($severity) {}
  * The new message severity.
  * </p>
  * @return void
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_min_message_severity ($severity) {}
 
@@ -450,7 +450,7 @@ function mssql_min_message_severity ($severity) {}
  * @return resource a resource identifier "statement", used in subsequent calls to
  * mssql_bind and mssql_execute,
  * or false on errors.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_init ($sp_name, $link_identifier = null) {}
 
@@ -497,7 +497,7 @@ function mssql_init ($sp_name, $link_identifier = null) {}
  * SQLVARCHAR and this value 50.
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_bind ($stmt, $param_name, &$var, $type, $is_output = false, $is_null = false, $maxlen = -1) {}
 
@@ -512,7 +512,7 @@ function mssql_bind ($stmt, $param_name, &$var, $type, $is_output = false, $is_n
  * Whenever to skip the results or not.
  * </p>
  * @return mixed
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_execute ($stmt, $skip_results = false) {}
 
@@ -524,7 +524,7 @@ function mssql_execute ($stmt, $skip_results = false) {}
  * Statement resource, obtained with mssql_init.
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_free_statement ($stmt) {}
 
@@ -539,7 +539,7 @@ function mssql_free_statement ($stmt) {}
  * Whenever to use short format.
  * </p>
  * @return string the converted string on success.
- * @deprecated 7.0
+ * @removed 7.0
  */
 function mssql_guid_string ($binary, $short_format = null) {}
 

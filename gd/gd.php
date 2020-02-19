@@ -77,8 +77,6 @@
  * <p>
  * Previous to PHP 5.3.0, the JPEG Support attribute was named
  * JPG Support.
- * @since 4.3
- * @since 5.0
  */
 function gd_info () {}
 
@@ -111,8 +109,6 @@ function gd_info () {}
  * <b>imagecolorallocate</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagearc ($image, $cx, $cy, $width, $height, $start, $end, $color) {}
 
@@ -137,8 +133,6 @@ function imagearc ($image, $cx, $cy, $width, $height, $start, $end, $color) {}
  * <b>imagecolorallocate</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0.6
- * @since 5.0
  */
 function imageellipse ($image, $cx, $cy, $width, $height, $color) {}
 
@@ -161,8 +155,6 @@ function imageellipse ($image, $cx, $cy, $width, $height, $color) {}
  * <b>imagecolorallocate</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagechar ($image, $font, $x, $y, $c, $color) {}
 
@@ -185,8 +177,6 @@ function imagechar ($image, $font, $x, $y, $c, $color) {}
  * <b>imagecolorallocate</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagecharup ($image, $font, $x, $y, $c, $color) {}
 
@@ -201,8 +191,6 @@ function imagecharup ($image, $font, $x, $y, $c, $color) {}
  * y-coordinate of the point.
  * </p>
  * @return int|false the index of the color or <b>FALSE</b> on failure
- * @since 4.0
- * @since 5.0
  */
 function imagecolorat ($image, $x, $y) {}
 
@@ -214,8 +202,6 @@ function imagecolorat ($image, $x, $y) {}
  * @param int $green <p>Value of green component.</p>
  * @param int $blue <p>Value of blue component.</p>
  * @return int|false A color identifier or <b>FALSE</b> if the allocation failed.
- * @since 4.0
- * @since 5.0
  */
 function imagecolorallocate ($image, $red, $green, $blue) {}
 
@@ -229,8 +215,6 @@ function imagecolorallocate ($image, $red, $green, $blue) {}
  * The source image resource.
  * </p>
  * @return void No value is returned.
- * @since 4.0.1
- * @since 5.0
  */
 function imagepalettecopy ($destination, $source) {}
 
@@ -243,8 +227,6 @@ function imagepalettecopy ($destination, $source) {}
  * @return resource|false An image resource will be returned on success. <b>FALSE</b> is returned if
  * the image type is unsupported, the data is not in a recognised format,
  * or the image is corrupt and cannot be loaded.
- * @since 4.0.4
- * @since 5.0
  */
 function imagecreatefromstring ($image) {}
 
@@ -257,8 +239,6 @@ function imagecreatefromstring ($image) {}
  * @param int $blue <p>Value of blue component.</p>
  * @return int|false the index of the closest color, in the palette of the image, to
  * the specified one or <b>FALSE</b> on failure
- * @since 4.0
- * @since 5.0
  */
 function imagecolorclosest ($image, $red, $green, $blue) {}
 
@@ -271,8 +251,6 @@ function imagecolorclosest ($image, $red, $green, $blue) {}
  * @param int $blue <p>Value of blue component.</p>
  * @return int|false an integer with the index of the color which has 
  * the hue, white and blackness nearest the given color or <b>FALSE</b> on failure
- * @since 4.0.1
- * @since 5.0
  */
 function imagecolorclosesthwb ($image, $red, $green, $blue) {}
 
@@ -284,8 +262,6 @@ function imagecolorclosesthwb ($image, $red, $green, $blue) {}
  * The color identifier.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagecolordeallocate ($image, $color) {}
 
@@ -297,8 +273,6 @@ function imagecolordeallocate ($image, $color) {}
  * @param int $green <p>Value of green component.</p>
  * @param int $blue <p>Value of blue component.</p>
  * @return int|false a color index or <b>FALSE</b> on failure
- * @since 4.0
- * @since 5.0
  */
 function imagecolorresolve ($image, $red, $green, $blue) {}
 
@@ -311,8 +285,6 @@ function imagecolorresolve ($image, $red, $green, $blue) {}
  * @param int $blue <p>Value of blue component.</p>
  * @return int|false the index of the specified color in the palette, -1 if the
  * color does not exist, or <b>FALSE</b> on failure
- * @since 4.0
- * @since 5.0
  */
 function imagecolorexact ($image, $red, $green, $blue) {}
 
@@ -330,8 +302,6 @@ function imagecolorexact ($image, $red, $green, $blue) {}
  * Value of alpha component.
  * </p>
  * @return void No value is returned.
- * @since 4.0
- * @since 5.0
  */
 function imagecolorset ($image, $index, $red, $green, $blue, $alpha = 0) {}
 
@@ -347,8 +317,6 @@ function imagecolorset ($image, $index, $red, $green, $blue, $alpha = 0) {}
  * transparent color is returned. If <i>color</i>
  * is not specified, and the image has no transparent color, the
  * returned identifier will be -1. If an error occurs, <b>FALSE</b> is returned.
- * @since 4.0
- * @since 5.0
  */
 function imagecolortransparent ($image, $color = null) {}
 
@@ -361,8 +329,6 @@ function imagecolortransparent ($image, $color = null) {}
  * </p>
  * @return int|false the number of colors in the specified image's palette, 0 for
  * truecolor images, or <b>FALSE</b> on failure
- * @since 4.0
- * @since 5.0
  */
 function imagecolorstotal ($image) {}
 
@@ -375,8 +341,6 @@ function imagecolorstotal ($image) {}
  * </p>
  * @return array|false an associative array with red, green, blue and alpha keys that
  * contain the appropriate values for the specified color index or <b>FALSE</b> on failure
- * @since 4.0
- * @since 5.0
  */
 function imagecolorsforindex ($image, $index) {}
 
@@ -408,8 +372,6 @@ function imagecolorsforindex ($image, $index) {}
  * Source height.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagecopy ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h) {}
 
@@ -448,8 +410,6 @@ function imagecopy ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $s
  * implements alpha transparency for true colour images.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0.1
- * @since 5.0
  */
 function imagecopymerge ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h, $pct) {}
 
@@ -488,8 +448,6 @@ function imagecopymerge ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_
  * it implements alpha transparency for true colour images.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0.6
- * @since 5.0
  */
 function imagecopymergegray ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h, $pct) {}
 
@@ -523,8 +481,6 @@ function imagecopymergegray ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $
  * Source height.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagecopyresized ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h) {}
 
@@ -538,8 +494,6 @@ function imagecopyresized ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $src_
  * The image height.
  * </p>
  * @return resource|false an image resource identifier on success, false on errors.
- * @since 4.0
- * @since 5.0
  */
 function imagecreate ($width, $height) {}
 
@@ -553,8 +507,6 @@ function imagecreate ($width, $height) {}
  * Image height.
  * </p>
  * @return resource|false an image resource identifier on success, false on errors.
- * @since 4.0.6
- * @since 5.0
  */
 function imagecreatetruecolor ($width, $height) {}
 
@@ -564,8 +516,6 @@ function imagecreatetruecolor ($width, $height) {}
  * @param resource $image 
  * @return bool true if the image is truecolor, false
  * otherwise.
- * @since 4.3.2
- * @since 5.0
  */
 function imageistruecolor ($image) {}
 
@@ -582,8 +532,6 @@ function imageistruecolor ($image) {}
  * Sets the maximum number of colors that should be retained in the palette.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0.6
- * @since 5.0
  */
 function imagetruecolortopalette ($image, $dither, $ncolors) {}
 
@@ -595,8 +543,6 @@ function imagetruecolortopalette ($image, $dither, $ncolors) {}
  * Thickness, in pixels.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0.6
- * @since 5.0
  */
 function imagesetthickness ($image, $thickness) {}
 
@@ -632,8 +578,6 @@ function imagesetthickness ($image, $thickness) {}
  * A bitwise OR of the following possibilities:
  * IMG_ARC_PIE
  * @return bool true on success or false on failure.
- * @since 4.0.6
- * @since 5.0
  */
 function imagefilledarc ($image, $cx, $cy, $width, $height, $start, $end, $color, $style) {}
 
@@ -658,8 +602,6 @@ function imagefilledarc ($image, $cx, $cy, $width, $height, $start, $end, $color
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0.6
- * @since 5.0
  */
 function imagefilledellipse ($image, $cx, $cy, $width, $height, $color) {}
 
@@ -672,8 +614,6 @@ function imagefilledellipse ($image, $cx, $cy, $width, $height, $color) {}
  * the default value is true otherwise the default value is false
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0.6
- * @since 5.0
  */
 function imagealphablending ($image, $blendmode) {}
 
@@ -685,8 +625,6 @@ function imagealphablending ($image, $blendmode) {}
  * Whether to save the alpha channel or not. Default to false. 
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.3.2
- * @since 5.0
  */
 function imagesavealpha ($image, $saveflag) {}
 
@@ -709,8 +647,6 @@ function imagesavealpha ($image, $saveflag) {}
  * 127 indicates completely transparent.
  * </p>
  * @return int|false A color identifier or false if the allocation failed.
- * @since 4.3.2
- * @since 5.0
  */
 function imagecolorallocatealpha ($image, $red, $green, $blue, $alpha) {}
 
@@ -733,8 +669,6 @@ function imagecolorallocatealpha ($image, $red, $green, $blue, $alpha) {}
  * 127 indicates completely transparent.
  * </p>
  * @return int|false a color index or <b>FALSE</b> on failure
- * @since 4.0.6
- * @since 5.0
  */
 function imagecolorresolvealpha ($image, $red, $green, $blue, $alpha) {}
 
@@ -758,8 +692,6 @@ function imagecolorresolvealpha ($image, $red, $green, $blue, $alpha) {}
  * </p>
  * @return int|false the index of the closest color in the palette or
  * <b>FALSE</b> on failure
- * @since 4.0.6
- * @since 5.0
  */
 function imagecolorclosestalpha ($image, $red, $green, $blue, $alpha) {}
 
@@ -784,8 +716,6 @@ function imagecolorclosestalpha ($image, $red, $green, $blue, $alpha) {}
  * @return int|false the index of the specified color+alpha in the palette of the
  * image, -1 if the color does not exist in the image's palette, or <b>FALSE</b>
  * on failure
- * @since 4.0.6
- * @since 5.0
  */
 function imagecolorexactalpha ($image, $red, $green, $blue, $alpha) {}
 
@@ -819,8 +749,6 @@ function imagecolorexactalpha ($image, $red, $green, $blue, $alpha) {}
  * Source height.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0.6
- * @since 5.0
  */
 function imagecopyresampled ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h) {}
 
@@ -838,8 +766,6 @@ function imagecopyresampled ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $sr
  * If set and non-zero, transparent colors are ignored (otherwise kept).
  * </p>
  * @return resource|false the rotated image or <b>FALSE</b> on failure
- * @since 4.3
- * @since 5.0
  */
 function imagerotate ($image, $angle, $bgd_color, $ignore_transparent = null) {}
 
@@ -852,8 +778,6 @@ function imagerotate ($image, $angle, $bgd_color, $ignore_transparent = null) {}
  * Whether to enable antialiasing or not.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.3.2
- * @since 5.0
  */
 function imageantialias ($image, $enabled) {}
 
@@ -865,8 +789,6 @@ function imageantialias ($image, $enabled) {}
  * The image resource to be used as a tile.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0.6
- * @since 5.0
  */
 function imagesettile ($image, $tile) {}
 
@@ -878,8 +800,6 @@ function imagesettile ($image, $tile) {}
  * An image resource.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0.6
- * @since 5.0
  */
 function imagesetbrush ($image, $brush) {}
 
@@ -893,8 +813,6 @@ function imagesetbrush ($image, $brush) {}
  * transparent pixel.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0.6
- * @since 5.0
  */
 function imagesetstyle ($image, array $style) {}
 
@@ -905,8 +823,6 @@ function imagesetstyle ($image, array $style) {}
  * Path to the PNG image.
  * </p>
  * @return resource|false an image resource identifier on success, false on errors.
- * @since 4.0
- * @since 5.0
  */
 function imagecreatefrompng ($filename) {}
 
@@ -917,8 +833,6 @@ function imagecreatefrompng ($filename) {}
  * Path to the GIF image.
  * </p>
  * @return resource|false an image resource identifier on success, false on errors.
- * @since 4.0
- * @since 5.0
  */
 function imagecreatefromgif ($filename) {}
 
@@ -929,8 +843,6 @@ function imagecreatefromgif ($filename) {}
  * Path to the JPEG image.
  * </p>
  * @return resource|false an image resource identifier on success, false on errors.
- * @since 4.0
- * @since 5.0
  */
 function imagecreatefromjpeg ($filename) {}
 
@@ -941,8 +853,6 @@ function imagecreatefromjpeg ($filename) {}
  * Path to the WBMP image.
  * </p>
  * @return resource|false an image resource identifier on success, false on errors.
- * @since 4.0.1
- * @since 5.0
  */
 function imagecreatefromwbmp ($filename) {}
 
@@ -964,8 +874,6 @@ function imagecreatefromwebp ($filename) {}
  * Path to the XBM image.
  * </p>
  * @return resource|false an image resource identifier on success, false on errors.
- * @since 4.0.1
- * @since 5.0
  */
 function imagecreatefromxbm ($filename) {}
 
@@ -976,8 +884,6 @@ function imagecreatefromxbm ($filename) {}
  * Path to the XPM image.
  * </p>
  * @return resource|false an image resource identifier on success, false on errors.
- * @since 4.0.1
- * @since 5.0
  */
 function imagecreatefromxpm ($filename) {}
 
@@ -988,8 +894,6 @@ function imagecreatefromxpm ($filename) {}
  * Path to the GD file.
  * </p>
  * @return resource|false an image resource identifier on success, false on errors.
- * @since 4.0.7
- * @since 5.0
  */
 function imagecreatefromgd ($filename) {}
 
@@ -1000,8 +904,6 @@ function imagecreatefromgd ($filename) {}
  * Path to the GD2 image.
  * </p>
  * @return resource|false an image resource identifier on success, false on errors.
- * @since 4.0.7
- * @since 5.0
  */
 function imagecreatefromgd2 ($filename) {}
 
@@ -1024,8 +926,6 @@ function imagecreatefromgd2 ($filename) {}
  * Source height.
  * </p>
  * @return resource|false an image resource identifier on success, false on errors.
- * @since 4.0.7
- * @since 5.0
  */
 function imagecreatefromgd2part ($filename, $srcX, $srcY, $width, $height) {}
 
@@ -1052,8 +952,6 @@ function imagecreatefromgd2part ($filename, $srcX, $srcY, $width, $height) {}
  * disable or activate all filters.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagepng ($image, $filename = null, $quality = null, $filters = null) {}
 
@@ -1082,8 +980,6 @@ function imagewebp ($image, $to = null, $quality = 80) {}
  * will be outputted directly.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagegif ($image, $filename = null) {}
 
@@ -1105,8 +1001,6 @@ function imagegif ($image, $filename = null) {}
  * default is the default IJG quality value (about 75).
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagejpeg ($image, $filename = null, $quality = null) {}
 
@@ -1124,8 +1018,6 @@ function imagejpeg ($image, $filename = null, $quality = null) {}
  * The default foreground color is black.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0.1
- * @since 5.0
  */
 function imagewbmp ($image, $filename = null, $foreground = null) {}
 
@@ -1139,8 +1031,6 @@ function imagewbmp ($image, $filename = null, $foreground = null) {}
  * will be outputted directly.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0.7
- * @since 5.0
  */
 function imagegd ($image, $filename = null) {}
 
@@ -1161,8 +1051,6 @@ function imagegd ($image, $filename = null) {}
  * IMG_GD2_RAW.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0.7
- * @since 5.0
  */
 function imagegd2 ($image, $filename = null, $chunk_size = null, $type = null) {}
 
@@ -1171,8 +1059,6 @@ function imagegd2 ($image, $filename = null, $chunk_size = null, $type = null) {
  * @link https://php.net/manual/en/function.imagedestroy.php
  * @param resource $image 
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagedestroy ($image) {}
 
@@ -1187,8 +1073,6 @@ function imagedestroy ($image) {}
  * The output gamma.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagegammacorrect ($image, $inputgamma, $outputgamma) {}
 
@@ -1207,8 +1091,6 @@ function imagegammacorrect ($image, $inputgamma, $outputgamma) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagefill ($image, $x, $y, $color) {}
 
@@ -1228,8 +1110,6 @@ function imagefill ($image, $x, $y, $color) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagefilledpolygon ($image, array $points, $num_points, $color) {}
 
@@ -1254,8 +1134,6 @@ function imagefilledpolygon ($image, array $points, $num_points, $color) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagefilledrectangle ($image, $x1, $y1, $x2, $y2, $color) {}
 
@@ -1278,8 +1156,6 @@ function imagefilledrectangle ($image, $x1, $y1, $x2, $y2, $color) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagefilltoborder ($image, $x, $y, $border, $color) {}
 
@@ -1288,8 +1164,6 @@ function imagefilltoborder ($image, $x, $y, $border, $color) {}
  * @link https://php.net/manual/en/function.imagefontwidth.php
  * @param int $font 
  * @return int the width of the pixel
- * @since 4.0
- * @since 5.0
  */
 function imagefontwidth ($font) {}
 
@@ -1298,8 +1172,6 @@ function imagefontwidth ($font) {}
  * @link https://php.net/manual/en/function.imagefontheight.php
  * @param int $font 
  * @return int the height of the pixel.
- * @since 4.0
- * @since 5.0
  */
 function imagefontheight ($font) {}
 
@@ -1313,8 +1185,6 @@ function imagefontheight ($font) {}
  * </p>
  * @return int|false 1 if the interlace bit is set for the image,
  * 0 if it is not, or <b>FALSE</b> on failure
- * @since 4.0
- * @since 5.0
  */
 function imageinterlace ($image, $interlace = null) {}
 
@@ -1339,8 +1209,6 @@ function imageinterlace ($image, $interlace = null) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function imageline ($image, $x1, $y1, $x2, $y2, $color) {}
 
@@ -1394,8 +1262,6 @@ function imageline ($image, $x1, $y1, $x2, $y2, $color) {}
  * </p>
  * @return int|false The font identifier which is always bigger than 5 to avoid conflicts with
  * built-in fonts or false on errors.
- * @since 4.0
- * @since 5.0
  */
 function imageloadfont ($file) {}
 
@@ -1430,8 +1296,6 @@ function imageloadfont ($file) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagepolygon ($image, array $points, $num_points, $color) {}
 
@@ -1457,8 +1321,6 @@ function imagepolygon ($image, array $points, $num_points, $color) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagerectangle ($image, $x1, $y1, $x2, $y2, $color) {}
 
@@ -1477,8 +1339,6 @@ function imagerectangle ($image, $x1, $y1, $x2, $y2, $color) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagesetpixel ($image, $x, $y, $color) {}
 
@@ -1501,8 +1361,6 @@ function imagesetpixel ($image, $x, $y, $color) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagestring ($image, $font, $x, $y, $string, $color) {}
 
@@ -1525,8 +1383,6 @@ function imagestring ($image, $font, $x, $y, $string, $color) {}
  * imagecolorallocate.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function imagestringup ($image, $font, $x, $y, $string, $color) {}
 
@@ -1536,8 +1392,6 @@ function imagestringup ($image, $font, $x, $y, $string, $color) {}
  * @param resource $image 
  * @return int|false Return the width of the image or false on 
  * errors.
- * @since 4.0
- * @since 5.0
  */
 function imagesx ($image) {}
 
@@ -1547,8 +1401,6 @@ function imagesx ($image) {}
  * @param resource $image 
  * @return int|false Return the height of the image or false on 
  * errors.
- * @since 4.0
- * @since 5.0
  */
 function imagesy ($image) {}
 
@@ -1573,8 +1425,6 @@ function imagesy ($image) {}
  * imagecolorallocate.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  * @deprecated Use combination of imagesetstyle() and imageline() instead
  */
 function imagedashedline ($image, $x1, $y1, $x2, $y2, $color) {}
@@ -1642,8 +1492,6 @@ function imagedashedline ($image, $x1, $y1, $x2, $y2, $color) {}
  * The points are relative to the text regardless of the
  * angle, so "upper left" means in the top left-hand 
  * corner seeing the text horizontally.
- * @since 4.0
- * @since 5.0
  */
 function imagettfbbox ($size, $angle, $fontfile, $text) {}
 
@@ -1736,8 +1584,6 @@ function imagettfbbox ($size, $angle, $fontfile, $text) {}
  * regardless of the angle, so "upper left" means in the top left-hand 
  * corner when you see the text horizontally.
  * Returns false on error.
- * @since 4.0
- * @since 5.0
  */
 function imagettftext ($image, $size, $angle, $x, $y, $color, $fontfile, $text) {}
 
@@ -1817,8 +1663,6 @@ function imagettftext ($image, $size, $angle, $x, $y, $color, $fontfile, $text) 
  * angle, so "upper left" means in the top left-hand 
  * corner seeing the text horizontally.
  * Returns false on error.
- * @since 4.0.7
- * @since 5.0
  */
 function imageftbbox ($size, $angle, $fontfile, $text, $extrainfo = null ) {}
 
@@ -1937,8 +1781,6 @@ function imageftbbox ($size, $angle, $fontfile, $text, $extrainfo = null ) {}
  * <td>upper left y-coordinate</td>
  * </tr>
  * Returns false on error.
- * @since 4.0.7
- * @since 5.0
  */
 function imagefttext ($image, $size, $angle, $x, $y, $color, $fontfile, $text, $extrainfo = null ) {}
 
@@ -1950,9 +1792,7 @@ function imagefttext ($image, $size, $angle, $x, $y, $color, $fontfile, $text, $
  * </p>
  * @return resource|false In the case everything went right, a valid font index will be returned and
  * can be used for further purposes. Otherwise the function returns false.
- * @since 4.0
- * @since 5.0
- * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
+ * @removed 7.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepsloadfont ($filename) {}
 
@@ -1963,9 +1803,7 @@ function imagepsloadfont ($filename) {}
  * A font resource, returned by imagepsloadfont.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
- * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
+ * @removed 7.0
  */
 function imagepsfreefont ($font_index) {}
 
@@ -1982,9 +1820,7 @@ function imagepsfreefont ($font_index) {}
  * IsoLatin2.enc.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
- * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
+ * @removed 7.0
  */
 function imagepsencodefont ($font_index, $encodingfile) {}
 
@@ -1998,9 +1834,7 @@ function imagepsencodefont ($font_index, $encodingfile) {}
  * Extension value, must be greater than 0.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
- * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
+ * @removed 7.0
  */
 function imagepsextendfont ($font_index, $extend) {}
 
@@ -2014,9 +1848,7 @@ function imagepsextendfont ($font_index, $extend) {}
  * Slant level.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
- * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
+ * @removed 7.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepsslantfont ($font_index, $slant) {}
 
@@ -2089,9 +1921,7 @@ function imagepsslantfont ($font_index, $slant) {}
  * <td>upper right y-coordinate</td>
  * </tr>
  * Returns false on error.
- * @since 4.0
- * @since 5.0
- * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
+ * @removed 7.0 This function was REMOVED in PHP 7.0.0.
  */
 function imagepstext ($image, $text, $font_index, $size, $foreground, $background, $x, $y, $space = null, $tightness = null, $angle = null, $antialias_steps = null) {}
 
@@ -2123,9 +1953,7 @@ function imagepstext ($image, $text, $font_index, $size, $foreground, $backgroun
  * <td>lower y-coordinate</td>
  * </tr>
  * Returns false on error.
- * @since 4.0
- * @since 5.0
- * @deprecated 7.0 This function was REMOVED in PHP 7.0.0.
+ * @removed 7.0
  */
 function imagepsbbox ($text, $font, $size) {}
 
@@ -2135,8 +1963,6 @@ function imagepsbbox ($text, $font, $size) {}
  * @return int a bit-field corresponding to the image formats supported by the
  * version of GD linked into PHP. The following bits are returned, 
  * IMG_BMP | IMG_GIF | IMG_JPG | IMG_PNG | IMG_WBMP | IMG_XPM | IMG_WEBP
- * @since 4.0.2
- * @since 5.0
  */
 function imagetypes () {}
 
@@ -2159,8 +1985,6 @@ function imagetypes () {}
  * Threshold value, between 0 and 8 (inclusive).
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0.5
- * @since 5.0
  * @deprecated 7.2 Use imagecreatefromjpeg() and imagewbmp() instead
  */
 function jpeg2wbmp ($jpegname, $wbmpname, $dest_height, $dest_width, $threshold) {}
@@ -2184,8 +2008,6 @@ function jpeg2wbmp ($jpegname, $wbmpname, $dest_height, $dest_width, $threshold)
  * Threshold value, between 0 and 8 (inclusive).
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0.5
- * @since 5.0
  * @deprecated 7.2 Use imagecreatefrompng() and imagewbmp() instead
  */
 function png2wbmp ($pngname, $wbmpname, $dest_height, $dest_width, $threshold) {}
@@ -2202,8 +2024,6 @@ function png2wbmp ($pngname, $wbmpname, $dest_height, $dest_width, $threshold) {
  * Threshold value, between 0 and 255 (inclusive).
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0.5
- * @since 5.0
  * @deprecated 7.3 Use imagewbmp() instead
  */
 function image2wbmp ($image, $filename = null, $threshold = null) {}
@@ -2218,8 +2038,6 @@ function image2wbmp ($image, $filename = null, $threshold = null) {}
  * Use pixel replacement (equivalent of passing true to
  * imagealphablending)
  * @return bool true on success or false on failure.
- * @since 4.3
- * @since 5.0
  */
 function imagelayereffect ($image, $effect) {}
 
@@ -2290,7 +2108,6 @@ function imagefilter ($image, $filtertype, $arg1 = null, $arg2 = null, $arg3 = n
  * Color offset.
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.1
  */
 function imageconvolution ($image, array $matrix, $div, $offset) {}
 
@@ -2621,7 +2438,6 @@ define ('IMG_FILTER_SMOOTH', 10);
 
 /**
  * Special GD filter used by the {@see imagefilter()} function.
- * @since 5.3
  * @link https://php.net/manual/en/image.constants.php#constant.img-filter-pixelate
  */
 define ('IMG_FILTER_PIXELATE', 11);

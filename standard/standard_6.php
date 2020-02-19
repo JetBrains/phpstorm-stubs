@@ -72,8 +72,6 @@
  * the timeout expires before anything interesting happens. On error false
  * is returned and a warning raised (this can happen if the system call is
  * interrupted by an incoming signal).
- * @since 4.3
- * @since 5.0
  */
 function stream_select (array &$read, array &$write, array &$except, $tv_sec, $tv_usec = null) {}
 
@@ -94,8 +92,6 @@ function stream_select (array &$read, array &$write, array &$except, $tv_sec, $t
  * a listing of standard stream parameters.
  * </p>
  * @return resource A stream context resource.
- * @since 4.3
- * @since 5.0
  */
 function stream_context_create (array $options = null, array $params = null) {}
 
@@ -113,8 +109,6 @@ function stream_context_create (array $options = null, array $params = null) {}
  * $params['paramname'] = "paramvalue";.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.3
- * @since 5.0
  */
 function stream_context_set_params ($stream_or_context, array $params) {}
 
@@ -126,7 +120,6 @@ function stream_context_set_params ($stream_or_context, array $params) {}
  * context resource
  * </p>
  * @return array an associate array containing all context options and parameters.
- * @since 5.3
  */
 function stream_context_get_params ($stream_or_context) {}
 
@@ -140,8 +133,6 @@ function stream_context_get_params ($stream_or_context) {}
  * @param string $option 
  * @param mixed $value 
  * @return bool true on success or false on failure.
- * @since 4.3
- * @since 5.0
  */
 function stream_context_set_option ($stream_or_context, $wrapper, $option, $value) {}
 
@@ -151,8 +142,6 @@ function stream_context_set_option ($stream_or_context, $wrapper, $option, $valu
  * @param resource $stream_or_context The stream or context resource to apply the options too.
  * @param array $options The options to set for the default context.
  * @return bool true on success or false on failure.
- * @since 4.3
- * @since 5.0
  */
 function stream_context_set_option ($stream_or_context, array $options) {}
 
@@ -163,8 +152,6 @@ function stream_context_set_option ($stream_or_context, array $options) {}
  * The stream or context to get options from
  * </p>
  * @return array an associative array with the options.
- * @since 4.3
- * @since 5.0
  */
 function stream_context_get_options ($stream_or_context) {}
 
@@ -179,7 +166,6 @@ function stream_context_get_options ($stream_or_context) {}
  * can be used to set the default context.
  * </p>
  * @return resource A stream context resource.
- * @since 5.1
  */
 function stream_context_get_default (array $options = null) {}
 
@@ -195,7 +181,6 @@ function stream_context_get_default (array $options = null) {}
  * $arr['wrapper']['option'] = $value.
  * </p>
  * @return resource the default stream context.
- * @since 5.3
  */
 function stream_context_set_default (array $options) {}
 
@@ -231,8 +216,6 @@ function stream_context_set_default (array $options) {}
  * </p>
  * @return resource a resource which can be used to refer to this filter
  * instance during a call to stream_filter_remove.
- * @since 4.3
- * @since 5.0
  */
 function stream_filter_prepend ($stream, $filtername, $read_write = null, $params = null) {}
 
@@ -267,8 +250,6 @@ function stream_filter_prepend ($stream, $filtername, $read_write = null, $param
  * </p>
  * @return resource a resource which can be used to refer to this filter
  * instance during a call to stream_filter_remove.
- * @since 4.3
- * @since 5.0
  */
 function stream_filter_append ($stream, $filtername, $read_write = null, $params = null) {}
 
@@ -279,7 +260,6 @@ function stream_filter_append ($stream, $filtername, $read_write = null, $params
  * The stream filter to be removed.
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.1
  */
 function stream_filter_remove ($stream_filter) {}
 
@@ -322,7 +302,6 @@ function stream_filter_remove ($stream_filter) {}
  * fgets, fgetss,
  * fwrite, fclose, and
  * feof), false on failure.
- * @since 5.0
  */
 function stream_socket_client ($remote_socket, &$errno = null, &$errstr = null, $timeout = null, $flags = null, $context = null) {}
 
@@ -373,7 +352,6 @@ function stream_socket_client ($remote_socket, &$errno = null, &$errstr = null, 
  * @param resource $context [optional] <p>
  * </p>
  * @return resource|false the created stream, or false on error.
- * @since 5.0
  */
 function stream_socket_server ($local_socket, &$errno = null, &$errstr = null, $flags = null, $context = null) {}
 
@@ -394,7 +372,6 @@ function stream_socket_server ($local_socket, &$errno = null, &$errstr = null, $
  * stream_socket_get_name.
  * </p>
  * @return resource|false Returns a stream to the accepted socket connection or FALSE on failure.
- * @since 5.0
  */
 function stream_socket_accept ($server_socket, $timeout = null, &$peername = null) {}
 
@@ -409,7 +386,6 @@ function stream_socket_accept ($server_socket, $timeout = null, &$peername = nul
  * to false the local socket name will be returned.
  * </p>
  * @return string The name of the socket.
- * @since 5.0
  */
 function stream_socket_get_name ($handle, $want_peer) {}
 
@@ -449,7 +425,6 @@ function stream_socket_get_name ($handle, $want_peer) {}
  * the address of the remote socket.
  * </p>
  * @return string the read data, as a string
- * @since 5.0
  */
 function stream_socket_recvfrom ($socket, $length, $flags = null, &$address = null) {}
 
@@ -483,7 +458,6 @@ function stream_socket_recvfrom ($socket, $length, $flags = null, &$address = nu
  * If specified, it must be in dotted quad (or [ipv6]) format.
  * </p>
  * @return int a result code, as an integer.
- * @since 5.0
  */
 function stream_socket_sendto ($socket, $data, $flags = null, $address = null) {}
 
@@ -506,7 +480,6 @@ function stream_socket_sendto ($socket, $data, $flags = null, $address = null) {
  * @return bool|int true on success, false if negotiation has failed or
  * 0 if there isn't enough data and you should try again
  * (only for non-blocking sockets).
- * @since 5.1
  */
 function stream_socket_enable_crypto ($stream, $enable, $crypto_type = null, $session_stream = null) {}
 
@@ -554,7 +527,6 @@ function stream_socket_shutdown ($stream, $how) {}
  * </p>
  * @return array|false an array with the two socket resources on success, or
  * false on failure.
- * @since 5.1
  */
 function stream_socket_pair ($domain, $type, $protocol) {}
 
@@ -574,7 +546,6 @@ function stream_socket_pair ($domain, $type, $protocol) {}
  * The offset where to start to copy data
  * </p>
  * @return int|false the total count of bytes copied, or false on failure.
- * @since 5.0
  */
 function stream_copy_to_stream ($source, $dest, $maxlength = null, $offset = null) {}
 
@@ -592,7 +563,6 @@ function stream_copy_to_stream ($source, $dest, $maxlength = null, $offset = nul
  * Seek to the specified offset before reading.
  * </p>
  * @return string|false a string or false on failure.
- * @since 5.0
  */
 function stream_get_contents ($handle, $maxlength = null, $offset = null) {}
 
@@ -603,7 +573,6 @@ function stream_get_contents ($handle, $maxlength = null, $offset = null) {}
  * The stream to check.
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.3
  */
 function stream_supports_lock ($stream) {}
 
@@ -643,8 +612,6 @@ function stream_supports_lock ($stream) {}
  * fgetcsv returns &null; if an invalid
  * handle is supplied or false on other errors,
  * including end of file.
- * @since 4.0
- * @since 5.0
  */
 function fgetcsv ($handle, $length = 0, $delimiter = ',', $enclosure = '"', $escape = '\\') {}
 
@@ -665,7 +632,6 @@ function fgetcsv ($handle, $length = 0, $delimiter = ',', $enclosure = '"', $esc
  * </p>
  * @param string $escape_char The optional escape_char parameter sets the escape character (one character only).
  * @return int|false the length of the written string or false on failure.
- * @since 5.1
  */
 function fputcsv ($handle, array $fields, $delimiter = ",", $enclosure = '"', $escape_char = "\\") {}
 
@@ -683,8 +649,6 @@ function fputcsv ($handle, array $fields, $delimiter = ",", $enclosure = '"', $e
  * (EWOULDBLOCK errno condition).
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function flock ($handle, $operation, &$wouldblock = null) {}
 
@@ -724,8 +688,6 @@ function flock ($handle, $operation, &$wouldblock = null) {}
  * Special characters in the value of the name property are substituted with
  * '_', the rest is converted to lower case. If two meta tags have the same
  * name, only the last one is returned.
- * @since 4.0
- * @since 5.0
  */
 function get_meta_tags ($filename, $use_include_path = null) {}
 
@@ -743,8 +705,6 @@ function get_meta_tags ($filename, $use_include_path = null) {}
  * </p>
  * @return int 0 on success, or EOF if the request cannot be honored.
  * @see stream_set_read_buffer()
- * @since 4.3
- * @since 5.0
  */
 function stream_set_write_buffer ($stream, $buffer) {}
 
@@ -762,8 +722,6 @@ function stream_set_write_buffer ($stream, $buffer) {}
  * </p>
  * @return int 0 on success, or EOF if the request cannot be honored.
  * @see stream_set_write_buffer()
- * @since 4.3
- * @since 5.0
  */
 function stream_set_read_buffer ($stream, $buffer) {}
 
@@ -778,8 +736,6 @@ function stream_set_read_buffer ($stream, $buffer) {}
  * @param int $buffer The number of bytes to buffer. If buffer is 0 then write operations are unbuffered.
  * This ensures that all writes with fwrite() are completed before other processes are allowed to write to that output stream.
  * @return int
- * @since 4.0
- * @since 5.0
  */
 function set_file_buffer ($fp, $buffer) {}
 
@@ -794,8 +750,7 @@ function set_file_buffer ($fp, $buffer) {}
  * This affects calls like fgets() and fread() that read from the stream.
  * In non-blocking mode an fgets() call will always return right away while in blocking mode it will wait for data to become available on the stream.
  * @return bool Returns TRUE on success or FALSE on failure.
- * @since 4.0
- * @since 5.0
+ * @removed 7.0
  */
 function set_socket_blocking ($socket, $mode) {}
 
@@ -816,8 +771,6 @@ function set_socket_blocking ($socket, $mode) {}
  * on the stream.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.3
- * @since 5.0
  */
 function stream_set_blocking ($stream, $mode) {}
 
@@ -838,8 +791,6 @@ function stream_set_blocking ($stream, $mode) {}
  * on the stream.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function socket_set_blocking ($socket, $mode) {}
 
@@ -904,8 +855,6 @@ function socket_set_blocking ($socket, $mode) {}
  * <p>
  * uri (string) - the URI/filename associated with this
  * stream.
- * @since 4.3
- * @since 5.0
  */
 function stream_get_meta_data ($stream) {}
 
@@ -926,7 +875,6 @@ function stream_get_meta_data ($stream) {}
  * </p>
  * <p>
  * If an error occurs, returns false.
- * @since 5.0
  */
 function stream_get_line ($handle, $length, $ending = null) {}
 
@@ -949,8 +897,6 @@ function stream_get_line ($handle, $length, $ending = null) {}
  * <p>
  * stream_wrapper_register will return false if the
  * protocol already has a handler.
- * @since 4.3.2
- * @since 5.0
  */
 function stream_wrapper_register ($protocol, $classname, $flags = null) {}
 
@@ -974,8 +920,6 @@ function stream_wrapper_register ($protocol, $classname, $flags = null) {}
  * <p>
  * stream_wrapper_register will return false if the
  * protocol already has a handler.
- * @since 4.3
- * @since 5.0
  */
 function stream_register_wrapper ($protocol, $classname, $flags = 0) {}
 
@@ -995,7 +939,6 @@ function stream_resolve_include_path ($filename) {}
  * @param string $protocol <p>
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.1
  */
 function stream_wrapper_unregister ($protocol) {}
 
@@ -1005,7 +948,6 @@ function stream_wrapper_unregister ($protocol) {}
  * @param string $protocol <p>
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.1
  */
 function stream_wrapper_restore ($protocol) {}
 
@@ -1014,7 +956,6 @@ function stream_wrapper_restore ($protocol) {}
  * @link https://php.net/manual/en/function.stream-get-wrappers.php
  * @return array an indexed array containing the name of all stream wrappers
  * available on the running system.
- * @since 5.0
  */
 function stream_get_wrappers () {}
 
@@ -1022,7 +963,6 @@ function stream_get_wrappers () {}
  * Retrieve list of registered socket transports
  * @link https://php.net/manual/en/function.stream-get-transports.php
  * @return array an indexed array of socket transports names.
- * @since 5.0
  */
 function stream_get_transports () {}
 
@@ -1051,7 +991,6 @@ function stream_is_local ($stream_or_url) {}
  * @param resource $context [optional]
  * @return array|false an indexed or associative array with the headers, or false on
  * failure.
- * @since 5.0
  */
 function get_headers ($url, $format = null, $context = null) {}
 
@@ -1068,8 +1007,6 @@ function get_headers ($url, $format = null, $context = null) {}
  * The microseconds part of the timeout to be set.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.3
- * @since 5.0
  */
 function stream_set_timeout ($stream, $seconds, $microseconds = null) {}
 
@@ -1087,8 +1024,6 @@ function stream_set_timeout ($stream, $seconds, $microseconds = null) {}
  * The microseconds part of the timeout to be set.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function socket_set_timeout ($stream, $seconds, $microseconds = 0) {}
 
@@ -1154,8 +1089,6 @@ function socket_set_timeout ($stream, $seconds, $microseconds = 0) {}
  * <p>
  * uri (string) - the URI/filename associated with this
  * stream.
- * @since 4.3
- * @since 5.0
  */
 function socket_get_status ($stream) {}
 
@@ -1171,8 +1104,6 @@ function socket_get_status ($stream) {}
  * <p>
  * realpath returns false on failure, e.g. if
  * the file does not exist.
- * @since 4.0
- * @since 5.0
  */
 function realpath ($path) {}
 
@@ -1231,8 +1162,6 @@ function realpath ($path) {}
  * </table>
  * </p>
  * @return bool true if there is a match, false otherwise.
- * @since 4.3
- * @since 5.0
  */
 function fnmatch ($pattern, $string, $flags = null) {}
 ?>

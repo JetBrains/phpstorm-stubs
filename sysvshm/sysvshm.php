@@ -17,8 +17,6 @@
  * The optional permission bits. Default to 0666.
  * </p>
  * @return resource a shared memory segment identifier.
- * @since 4.0
- * @since 5.0
  */
 function shm_attach ($key, $memsize = null, $perm = 0666) {}
 
@@ -30,8 +28,6 @@ function shm_attach ($key, $memsize = null, $perm = 0666) {}
  * <b>shm_attach</b>
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function shm_remove ($shm_identifier) {}
 
@@ -43,8 +39,6 @@ function shm_remove ($shm_identifier) {}
  * <b>shm_attach</b>
  * </p>
  * @return bool <b>shm_detach</b> always returns <b>TRUE</b>.
- * @since 4.0
- * @since 5.0
  */
 function shm_detach ($shm_identifier) {}
 
@@ -65,8 +59,6 @@ function shm_detach ($shm_identifier) {}
  * that cannot be serialized.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function shm_put_var ($shm_identifier, $variable_key, $variable) {}
 
@@ -80,7 +72,6 @@ function shm_put_var ($shm_identifier, $variable_key, $variable) {}
  * The variable key.
  * </p>
  * @return bool <b>TRUE</b> if the entry exists, otherwise <b>FALSE</b>
- * @since 5.3
  */
 function shm_has_var ($shm_identifier, $variable_key) {}
 
@@ -94,8 +85,6 @@ function shm_has_var ($shm_identifier, $variable_key) {}
  * The variable key.
  * </p>
  * @return mixed the variable with the given key.
- * @since 4.0
- * @since 5.0
  */
 function shm_get_var ($shm_identifier, $variable_key) {}
 
@@ -110,8 +99,6 @@ function shm_get_var ($shm_identifier, $variable_key) {}
  * The variable key.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function shm_remove_var ($shm_identifier, $variable_key) {}
 

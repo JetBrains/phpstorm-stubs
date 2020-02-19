@@ -153,8 +153,6 @@
  * @return int|false <b>preg_match</b> returns 1 if the <i>pattern</i>
  * matches given <i>subject</i>, 0 if it does not, or <b>FALSE</b>
  * if an error occurred.
- * @since 4.0
- * @since 5.0
  */
 function preg_match ($pattern, $subject, array &$matches = null, $flags = 0, $offset = 0) {}
 
@@ -215,8 +213,6 @@ function preg_match ($pattern, $subject, array &$matches = null, $flags = 0, $of
  * @param int $offset [optional]
  * @return int|false the number of full pattern matches (which might be zero),
  * or <b>FALSE</b> if an error occurred.
- * @since 4.0
- * @since 5.0
  */
 function preg_match_all ($pattern, $subject, array &$matches = null, $flags = PREG_PATTERN_ORDER, $offset = 0) {}
 
@@ -305,8 +301,6 @@ function preg_match_all ($pattern, $subject, array &$matches = null, $flags = PR
  * If matches are found, the new <i>subject</i> will
  * be returned, otherwise <i>subject</i> will be
  * returned unchanged or <b>NULL</b> if an error occurred.
- * @since 4.0
- * @since 5.0
  */
 function preg_replace ($pattern, $replacement, $subject, $limit = -1, &$count = null) {}
 
@@ -378,8 +372,6 @@ function preg_replace ($pattern, $replacement, $subject, $limit = -1, &$count = 
  * <p>
  * If matches are found, the new subject will be returned, otherwise
  * <i>subject</i> will be returned unchanged.
- * @since 4.0.5
- * @since 5.0
  */
 function preg_replace_callback ($regex, callable $callback, $subject, $limit = -1, &$count = null, $flags=[]) {}
 
@@ -411,7 +403,6 @@ function preg_replace_callback_array ($patterns_and_callbacks, $subject , $limit
  * If no matches are found or an error occurred, an empty array
  * is returned when <i>subject</i> is an array
  * or <b>NULL</b> otherwise.
- * @since 5.3
  */
 function preg_filter ($pattern, $replacement, $subject, $limit = -1, &$count = null) {}
 
@@ -440,8 +431,6 @@ function preg_filter ($pattern, $replacement, $subject, $limit = -1, &$count = n
  * @return string[]|array|false an array containing substrings of <i>subject</i>
  * split along boundaries matched by <i>pattern</i>, or <b>FALSE</b>
  * if an error occurred.
- * @since 4.0
- * @since 5.0
  */
 function preg_split ($pattern, $subject, $limit = -1, $flags = 0) {}
 
@@ -458,8 +447,6 @@ function preg_split ($pattern, $subject, $limit = -1, $flags = 0) {}
  * used delimiter.
  * </p>
  * @return string the quoted (escaped) string.
- * @since 4.0
- * @since 5.0
  */
 function preg_quote ($str, $delimiter = null) {}
 
@@ -479,8 +466,6 @@ function preg_quote ($str, $delimiter = null) {}
  * </p>
  * @return array an array indexed using the keys from the
  * <i>input</i> array.
- * @since 4.0
- * @since 5.0
  */
 function preg_grep ($pattern, array $input, $flags = 0) {}
 
@@ -494,7 +479,6 @@ function preg_grep ($pattern, array $input, $flags = 0) {}
  * <b>PREG_RECURSION_LIMIT_ERROR</b> (see also pcre.recursion_limit)
  * <b>PREG_BAD_UTF8_ERROR</b>
  * <b>PREG_BAD_UTF8_OFFSET_ERROR</b> (since PHP 5.3.0)
- * @since 5.2
  */
 function preg_last_error () {}
 

@@ -129,8 +129,6 @@ class Directory  {
  * </p>
  * @return mixed the value of the constant, or &null; if the constant is not
  * defined.
- * @since 4.0.4
- * @since 5.0
  */
 function constant ($name) {}
 
@@ -141,8 +139,6 @@ function constant ($name) {}
  * A character.
  * </p>
  * @return string the hexadecimal representation of the given string.
- * @since 4.0
- * @since 5.0
  */
 function bin2hex ($str) {}
 
@@ -155,8 +151,6 @@ function bin2hex ($str) {}
  * @return int zero on success, or false on errors. If the call was interrupted
  * by a signal, sleep returns the number of seconds left
  * to sleep.
- * @since 4.0
- * @since 5.0
  */
 function sleep ($seconds) {}
 
@@ -167,9 +161,7 @@ function sleep ($seconds) {}
  * Halt time in micro seconds. A micro second is one millionth of a
  * second.
  * </p>
- * @return void 
- * @since 4.0
- * @since 5.0
+ * @return void
  */
 function usleep ($micro_seconds) {}
 
@@ -191,7 +183,6 @@ function usleep ($micro_seconds) {}
  * the delay
  * nanoseconds - number of nanoseconds
  * remaining in the delay
- * @since 5.0
  */
 function time_nanosleep ($seconds, $nanoseconds) {}
 
@@ -202,7 +193,6 @@ function time_nanosleep ($seconds, $nanoseconds) {}
  * The timestamp when the script should wake.
  * </p>
  * @return bool true on success or false on failure.
- * @since 5.1
  */
 function time_sleep_until ($timestamp) {}
 
@@ -267,16 +257,13 @@ function time_sleep_until ($timestamp) {}
  * recognized using the specified format</td>
  * </tr>
  * </table>
- * @since 5.1
  */
 function strptime ($date, $format) {}
 
 /**
  * Flush the output buffer
  * @link https://php.net/manual/en/function.flush.php
- * @return void 
- * @since 4.0
- * @since 5.0
+ * @return void
  */
 function flush () {}
 
@@ -300,8 +287,6 @@ function flush () {}
  * (See second example).
  * </p>
  * @return string the given string wrapped at the specified column.
- * @since 4.0.2
- * @since 5.0
  */
 function wordwrap ($str, $width = 75, $break = "\n", $cut = false) {}
 
@@ -420,8 +405,6 @@ function wordwrap ($str, $width = 75, $break = "\n", $cut = false) {}
  * encode existing html entities, the default is to convert everything.
  * </p>
  * @return string The converted string.
- * @since 4.0
- * @since 5.0
  */
 function htmlspecialchars ($string, $flags = ENT_COMPAT | ENT_HTML401, $encoding = 'UTF-8', $double_encode = true) {}
 
@@ -468,8 +451,6 @@ function htmlspecialchars ($string, $flags = ENT_COMPAT | ENT_HTML401, $encoding
  * encode existing html entities. The default is to convert everything.
  * </p>
  * @return string the encoded string.
- * @since 4.0
- * @since 5.0
  */
 function htmlentities ($string, $quote_style = null, $charset = null, $double_encode = true) {}
 
@@ -511,8 +492,6 @@ function htmlentities ($string, $quote_style = null, $charset = null, $double_en
  * </p>
  * &reference.strings.charsets;
  * @return string the decoded string.
- * @since 4.3
- * @since 5.0
  */
 function html_entity_decode ($string, $quote_style = null, $charset = null) {}
 
@@ -546,7 +525,6 @@ function html_entity_decode ($string, $quote_style = null, $charset = null) {}
  * </table>
  * </p>
  * @return string the decoded string.
- * @since 5.1
  */
 function htmlspecialchars_decode ($string, $quote_style = null) {}
 
@@ -724,8 +702,6 @@ function htmlspecialchars_decode ($string, $quote_style = null) {}
  *
  * </p></blockquote>
  * @return array the translation table as an array.
- * @since 4.0
- * @since 5.0
  */
 function get_html_translation_table ($table = null, $quote_style = null, string $encoding = "UTF-8") {}
 
@@ -742,8 +718,6 @@ function get_html_translation_table ($table = null, $quote_style = null, string 
  * hexadecimal number.
  * </p>
  * @return string the sha1 hash as a string.
- * @since 4.3
- * @since 5.0
  */
 function sha1 ($str, $raw_output = false) {}
 
@@ -758,8 +732,6 @@ function sha1 ($str, $raw_output = false) {}
  * 20.
  * </p>
  * @return string|false a string on success, false otherwise.
- * @since 4.3
- * @since 5.0
  */
 function sha1_file ($filename, $raw_output = false) {}
 
@@ -775,8 +747,6 @@ function sha1_file ($filename, $raw_output = false) {}
  * length of 16.
  * </p>
  * @return string the hash as a 32-character hexadecimal number.
- * @since 4.0
- * @since 5.0
  */
 function md5 ($str, $raw_output = false) {}
 
@@ -791,8 +761,6 @@ function md5 ($str, $raw_output = false) {}
  * 16.
  * </p>
  * @return string|false a string on success, false otherwise.
- * @since 4.2
- * @since 5.0
  */
 function md5_file ($filename, $raw_output = false) {}
 
@@ -802,9 +770,7 @@ function md5_file ($filename, $raw_output = false) {}
  * @param string $str <p>
  * The data.
  * </p>
- * @return int the crc32 checksum of str as an integer.
- * @since 4.0.1
- * @since 5.0
+ * @return int the crc32 checksum of str as an integer..1
  */
 function crc32 ($str) {}
 
@@ -817,8 +783,6 @@ function crc32 ($str) {}
  * </p>
  * @return array|false an array using the tagmarker as an index and the value as the
  * value. It returns false on error or if no IPTC data was found.
- * @since 4.0
- * @since 5.0
  */
 function iptcparse ($iptcblock) {}
 
@@ -838,8 +802,6 @@ function iptcparse ($iptcblock) {}
  * </p>
  * @return string|bool If success and spool flag is lower than 2 then the JPEG will not be
  * returned as a string, false on errors.
- * @since 4.0
- * @since 5.0
  */
 function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
 
@@ -903,15 +865,11 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
  * </p>
  * <p>
  * On failure, false is returned.
- * @since 4.0
- * @since 5.0
  */
 function getimagesize ($filename, array &$imageinfo = null) {}
 
 /**
  * Get Mime-Type for image-type returned by getimagesize, exif_read_data, exif_thumbnail, exif_imagetype
- * @since 4.3
- * @since 5.0
  * @link https://php.net/manual/en/function.image-type-to-mime-type.php
  * @param int $imagetype <p>
  * One of the IMAGETYPE_XXX constants.
@@ -1007,7 +965,6 @@ function image_type_to_mime_type ($imagetype) {}
  * Whether to prepend a dot to the extension or not. Default to true.
  * </p>
  * @return string A string with the extension corresponding to the given image type.
- * @since 5.0
  */
 function image_type_to_extension ($imagetype, $include_dot = null) {}
 
@@ -1094,8 +1051,6 @@ function image_type_to_extension ($imagetype, $include_dot = null) {}
  * </table>
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function phpinfo ($what = null) {}
 
@@ -1109,8 +1064,6 @@ function phpinfo ($what = null) {}
  * specified, phpversion returns the version of that
  * extension, or false if there is no version information associated or
  * the extension isn't enabled.
- * @since 4.0
- * @since 5.0
  */
 function phpversion ($extension = null) {}
 
@@ -1176,42 +1129,32 @@ function phpversion ($extension = null) {}
  * </table>
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function phpcredits ($flag = null) {}
 
 /**
- * @deprecated 5.5 Removed in PHP 5.5
+ * @removed 5.5
  * Gets the logo guid
  * @link https://php.net/manual/en/function.php-logo-guid.php
  * @return string PHPE9568F34-D428-11d2-A769-00AA001ACF42.
- * @since 4.0
- * @since 5.0
  */
 function php_logo_guid () {}
 
 /**
- * @deprecated 5.5 Removed in PHP 5.5
- * @since 4.0
- * @since 5.0
+ * @removed 5.5
  */
 function php_real_logo_guid () {}
 
 /**
- * @deprecated 5.5 Removed in PHP 5.5
- * @since 4.0
- * @since 5.0
+ * @removed 5.5
  */
 function php_egg_logo_guid () {}
 
 /**
- * @deprecated 5.5 Removed in PHP 5.5
+ * @removed 5.5
  * Gets the Zend guid
  * @link https://php.net/manual/en/function.zend-logo-guid.php
  * @return string PHPE9568F35-D428-11d2-A769-00AA001ACF42.
- * @since 4.0
- * @since 5.0
  */
 function zend_logo_guid () {}
 
@@ -1231,8 +1174,6 @@ function zend_logo_guid () {}
  * milter, nsapi, 
  * phttpd, pi3web, roxen,
  * thttpd, tux, and webjames.
- * @since 4.0.1
- * @since 5.0
  */
 function php_sapi_name () {}
 
@@ -1245,8 +1186,6 @@ function php_sapi_name () {}
  * 'a': This is the default. Contains all modes in
  * the sequence "s n r v m".
  * @return string the description, as a string.
- * @since 4.0.2
- * @since 5.0
  */
 function php_uname ($mode = null) {}
 
@@ -1260,8 +1199,6 @@ function php_uname ($mode = null) {}
  * still make it into the returned string but a PHP error will also result.
  * This PHP error will be seen both at compile time and while using
  * php_ini_scanned_files.
- * @since 4.3
- * @since 5.0
  */
 function php_ini_scanned_files () {}
 
@@ -1286,8 +1223,6 @@ function php_ini_loaded_file () {}
  * str1 is less than str2; &gt;
  * 0 if str1 is greater than
  * str2, and 0 if they are equal.
- * @since 4.0
- * @since 5.0
  */
 function strnatcmp ($str1, $str2) {}
 
@@ -1304,8 +1239,6 @@ function strnatcmp ($str1, $str2) {}
  * str1 is less than str2 &gt;
  * 0 if str1 is greater than
  * str2, and 0 if they are equal.
- * @since 4.0
- * @since 5.0
  */
 function strnatcasecmp ($str1, $str2) {}
 
@@ -1327,8 +1260,6 @@ function strnatcasecmp ($str1, $str2) {}
  * greater than the haystack length.
  * </p>
  * @return int This functions returns an integer.
- * @since 4.0
- * @since 5.0
  */
 function substr_count ($haystack, $needle, $offset = null, $length = null) {}
 
@@ -1381,8 +1312,6 @@ function substr_count ($haystack, $needle, $offset = null, $length = null) {}
  * </p>
  * @return int the length of the initial segment of str1
  * which consists entirely of characters in str2.
- * @since 4.0
- * @since 5.0
  */
 function strspn ($subject, $mask, $start = null, $length = null) {}
 
@@ -1402,8 +1331,6 @@ function strspn ($subject, $mask, $start = null, $length = null) {}
  * The length of the string to examine.
  * </p>
  * @return int the length of the segment as an integer.
- * @since 4.0
- * @since 5.0
  */
 function strcspn ($str1, $str2, $start = null, $length = null) {}
 
@@ -1422,7 +1349,5 @@ function strcspn ($str1, $str2, $start = null, $length = null) {}
  * The delimiter used when splitting up str.
  * </p>
  * @return string A string token.
- * @since 4.0
- * @since 5.0
  */
 function strtok ($str = null, $token) {}

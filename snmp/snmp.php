@@ -319,8 +319,6 @@ class SNMPException extends RuntimeException  {
  * The number of times to retry if timeouts occur.
  * </p>
  * @return string|false SNMP object value on success or <b>FALSE</b> on error.
- * @since 4.0
- * @since 5.0
  */
 function snmpget ($hostname, $community, $object_id, $timeout = 1000000, $retries = 5) {}
 
@@ -334,7 +332,6 @@ function snmpget ($hostname, $community, $object_id, $timeout = 1000000, $retrie
  * @param int $retries [optional] <p>The number of times to retry if timeouts occur.</p>
  * @return string|false SNMP object value on success or <b>FALSE</b> on error.
  * In case of an error, an E_WARNING message is shown.
- * @since 5.0
  */
 function snmpgetnext ($host, $community, $object_id, $timeout = 1000000, $retries = 5) {}
 
@@ -362,8 +359,6 @@ function snmpgetnext ($host, $community, $object_id, $timeout = 1000000, $retrie
  * @param int $retries [optional] <p>The number of times to retry if timeouts occur.</p>
  * @return array an array of SNMP object values starting from the
  * <i>object_id</i> as root or <b>FALSE</b> on error.
- * @since 4.0
- * @since 5.0
  */
 function snmpwalk ($hostname, $community, $object_id, $timeout = 1000000, $retries = 5) {}
 
@@ -377,8 +372,6 @@ function snmpwalk ($hostname, $community, $object_id, $timeout = 1000000, $retri
  * @param int $retries [optional] <p>The number of times to retry if timeouts occur.</p>
  * @return array|false an associative array of the SNMP object ids and their values on success or <b>FALSE</b> on error.
  * In case of an error, an E_WARNING message is shown.
- * @since 4.0
- * @since 5.0
  */
 function snmprealwalk ($host, $community, $object_id, $timeout = 1000000, $retries = 5) {}
 
@@ -409,8 +402,6 @@ function snmprealwalk ($host, $community, $object_id, $timeout = 1000000, $retri
  * @return array an associative array with object ids and their respective
  * object value starting from the <i>object_id</i>
  * as root or <b>FALSE</b> on error.
- * @since 4.0
- * @since 5.0
  */
 function snmpwalkoid ($hostname, $community, $object_id, $timeout = 1000000, $retries = 5) {}
 
@@ -476,8 +467,6 @@ function snmpwalkoid ($hostname, $community, $object_id, $timeout = 1000000, $re
  * <p>
  * If the SNMP host rejects the data type, an E_WARNING message like "Warning: Error in packet. Reason: (badValue) The value given has the wrong type or length." is shown.
  * If an unknown or invalid OID is specified the warning probably reads "Could not add variable".
- * @since 4.0
- * @since 5.0
  */
 function snmpset ($host, $community, $object_id, $type, $value, $timeout = 1000000, $retries = 5) {}
 
@@ -485,8 +474,6 @@ function snmpset ($host, $community, $object_id, $type, $value, $timeout = 10000
  * Fetches the current value of the UCD library's quick_print setting
  * @link https://php.net/manual/en/function.snmp-get-quick-print.php
  * @return bool <b>TRUE</b> if quick_print is on, <b>FALSE</b> otherwise.
- * @since 4.0
- * @since 5.0
  */
 function snmp_get_quick_print () {}
 
@@ -495,8 +482,6 @@ function snmp_get_quick_print () {}
  * @link https://php.net/manual/en/function.snmp-set-quick-print.php
  * @param bool $quick_print
  * @return bool No value is returned.
- * @since 4.0
- * @since 5.0
  */
 function snmp_set_quick_print ($quick_print) {}
 
@@ -507,8 +492,6 @@ function snmp_set_quick_print ($quick_print) {}
  * As the value is interpreted as boolean by the Net-SNMP library, it can only be "0" or "1".
  * </p>
  * @return bool
- * @since 4.3
- * @since 5.0
  */
 function snmp_set_enum_print ($enum_print) {}
 
@@ -529,7 +512,6 @@ function snmp_set_enum_print ($enum_print) {}
  * </table>
  * </p>
  * @return bool No value is returned.
- * @since 5.2
  */
 function snmp_set_oid_output_format ($oid_format = SNMP_OID_OUTPUT_MODULE) {}
 
@@ -538,8 +520,6 @@ function snmp_set_oid_output_format ($oid_format = SNMP_OID_OUTPUT_MODULE) {}
  * @link https://php.net/manual/en/function.snmp-set-oid-numeric-print.php
  * @param int $oid_format
  * @return void
- * @since 4.3
- * @since 5.0
  */
 function snmp_set_oid_numeric_print ($oid_format) {}
 
@@ -562,7 +542,6 @@ function snmp_set_oid_numeric_print ($oid_format) {}
  * The number of times to retry if timeouts occur.
  * </p>
  * @return string|false SNMP object value on success or <b>FALSE</b> on error.
- * @since 5.2
  */
 function snmp2_get ($host, $community, $object_id, $timeout = 1000000, $retries = 5) {}
 
@@ -586,7 +565,6 @@ function snmp2_get ($host, $community, $object_id, $timeout = 1000000, $retries 
  * </p>
  * @return string|false SNMP object value on success or <b>FALSE</b> on error.
  * In case of an error, an E_WARNING message is shown.
- * @since 5.2
  */
 function snmp2_getnext ($host, $community, $object_id, $timeout = 1000000, $retries = 5) {}
 
@@ -616,7 +594,6 @@ function snmp2_getnext ($host, $community, $object_id, $timeout = 1000000, $retr
  * </p>
  * @return array an array of SNMP object values starting from the
  * <i>object_id</i> as root or <b>FALSE</b> on error.
- * @since 5.2
  */
 function snmp2_walk ($host, $community, $object_id, $timeout = 1000000, $retries = 5) {}
 
@@ -640,7 +617,6 @@ function snmp2_walk ($host, $community, $object_id, $timeout = 1000000, $retries
  * </p>
  * @return array|false an associative array of the SNMP object ids and their values on success or <b>FALSE</b> on error.
  * In case of an error, an E_WARNING message is shown.
- * @since 5.2
  */
 function snmp2_real_walk ($host, $community, $object_id, $timeout = 1000000, $retries = 5) {}
 
@@ -706,7 +682,6 @@ function snmp2_real_walk ($host, $community, $object_id, $timeout = 1000000, $re
  * <p>
  * If the SNMP host rejects the data type, an E_WARNING message like "Warning: Error in packet. Reason: (badValue) The value given has the wrong type or length." is shown.
  * If an unknown or invalid OID is specified the warning probably reads "Could not add variable".
- * @since 5.2
  */
 function snmp2_set ($host, $community, $object_id, $type, $value, $timeout = 1000000, $retries = 5) {}
 
@@ -744,8 +719,6 @@ function snmp2_set ($host, $community, $object_id, $type, $value, $timeout = 100
  * The number of times to retry if timeouts occur.
  * </p>
  * @return string|false SNMP object value on success or <b>FALSE</b> on error.
- * @since 4.0
- * @since 5.0
  */
 function snmp3_get ($host, $sec_name, $sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $object_id, $timeout = 1000000, $retries = 5) {}
 
@@ -785,7 +758,6 @@ function snmp3_get ($host, $sec_name, $sec_level, $auth_protocol, $auth_passphra
  * </p>
  * @return string|false SNMP object value on success or <b>FALSE</b> on error.
  * In case of an error, an E_WARNING message is shown.
- * @since 5.0
  */
 function snmp3_getnext ($host, $sec_name, $sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $object_id, $timeout = 1000000, $retries = 5) {}
 
@@ -830,8 +802,6 @@ function snmp3_getnext ($host, $sec_name, $sec_level, $auth_protocol, $auth_pass
  * </p>
  * @return array an array of SNMP object values starting from the
  * <i>object_id</i> as root or <b>FALSE</b> on error.
- * @since 4.0
- * @since 5.0
  */
 function snmp3_walk ($host, $sec_name, $sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $object_id, $timeout = 1000000, $retries = 5) {}
 
@@ -872,8 +842,6 @@ function snmp3_walk ($host, $sec_name, $sec_level, $auth_protocol, $auth_passphr
  * @return array an associative array of the
  * SNMP object ids and their values on success or <b>FALSE</b> on error.
  * In case of an error, an E_WARNING message is shown.
- * @since 4.0
- * @since 5.0
  */
 function snmp3_real_walk ($host, $sec_name, $sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $object_id, $timeout = null, $retries = null) {}
 
@@ -954,8 +922,6 @@ function snmp3_real_walk ($host, $sec_name, $sec_level, $auth_protocol, $auth_pa
  * <p>
  * If the SNMP host rejects the data type, an E_WARNING message like "Warning: Error in packet. Reason: (badValue) The value given has the wrong type or length." is shown.
  * If an unknown or invalid OID is specified the warning probably reads "Could not add variable".
- * @since 4.0
- * @since 5.0
  */
 function snmp3_set ($host, $sec_name, $sec_level, $auth_protocol, $auth_passphrase, $priv_protocol, $priv_passphrase, $object_id, $type, $value, $timeout = 1000000, $retries = 5) {}
 
@@ -983,8 +949,6 @@ function snmp3_set ($host, $sec_name, $sec_level, $auth_protocol, $auth_passphra
  * </tr>
  * </table>
  * @return bool
- * @since 4.3.3
- * @since 5.0
  */
 function snmp_set_valueretrieval ($method) {}
 
@@ -994,8 +958,6 @@ function snmp_set_valueretrieval ($method) {}
  * @return int OR-ed combitantion of constants ( <b>SNMP_VALUE_LIBRARY</b> or
  * <b>SNMP_VALUE_PLAIN</b> ) with
  * possible SNMP_VALUE_OBJECT set.
- * @since 4.3.3
- * @since 5.0
  */
 function snmp_get_valueretrieval () {}
 
@@ -1004,7 +966,6 @@ function snmp_get_valueretrieval () {}
  * @link https://php.net/manual/en/function.snmp-read-mib.php
  * @param string $filename <p>The filename of the MIB.</p>
  * @return bool
- * @since 5.0
  */
 function snmp_read_mib ($filename) {}
 

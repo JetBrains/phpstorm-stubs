@@ -484,20 +484,28 @@ function apcu_exists($keys){}
  * @link https://php.net/manual/en/function.apcu-inc.php
  * @param string $key The key of the value being increased.
  * @param int $step The step, or value to increase.
+ * @param int $ttl Time To Live; store var in the cache for ttl seconds. After the ttl has passed,
+ * the stored variable will be expunged from the cache (on the next request). If no ttl is supplied
+ * (or if the ttl is 0), the value will persist until it is removed from the cache manually,
+ * or otherwise fails to exist in the cache (clear, restart, etc.).
  * @param bool $success Optionally pass the success or fail boolean value to this referenced variable.
  * @return int|false Returns the current value of key's value on success, or FALSE on failure.
  */
-function apcu_inc($key, $step = 1, &$success = null){}
+function apcu_inc($key, $step = 1, &$success = null, $ttl = 0){}
 
 /**
  * Decrease a stored number
  * @link https://php.net/manual/en/function.apcu-dec.php
  * @param string $key The key of the value being decreased.
  * @param int $step The step, or value to decrease.
+ * @param int $ttl Time To Live; store var in the cache for ttl seconds. After the ttl has passed,
+ * the stored variable will be expunged from the cache (on the next request). If no ttl is supplied
+ * (or if the ttl is 0), the value will persist until it is removed from the cache manually,
+ * or otherwise fails to exist in the cache (clear, restart, etc.).
  * @param bool $success Optionally pass the success or fail boolean value to this referenced variable.
  * @return int|false Returns the current value of key's value on success, or FALSE on failure.
  */
-function apcu_dec($key, $step = 1, &$success = null){}
+function apcu_dec($key, $step = 1, &$success = null, $ttl = 0){}
 
 /**
  * Updates an old value with a new value
