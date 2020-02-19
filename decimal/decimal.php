@@ -138,15 +138,6 @@ namespace Decimal {
         public function ln(): Decimal { }
 
         /**
-         * Alias of ln()
-         *
-         * @return Decimal
-         *
-         * @link https://php-decimal.io/#ln
-         */
-        public function log(): Decimal { }
-
-        /**
          * @return Decimal
          *
          * @link https://php-decimal.io/#exp
