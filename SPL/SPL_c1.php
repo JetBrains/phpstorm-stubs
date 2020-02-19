@@ -1449,7 +1449,7 @@ class SplPriorityQueue implements Iterator, Countable {
          * @param mixed $priority2 <p>
          * The priority of the second node being compared.
          * </p>
-	     * @return int Result of the comparison, positive integer if <i>priority1</i> is greater than <i>priority2</i>, 0 if they are equal, negative integer otherwise.
+         * @return int Result of the comparison, positive integer if <i>priority1</i> is greater than <i>priority2</i>, 0 if they are equal, negative integer otherwise.
          * </p>
          * <p>
          * Multiple elements with the same priority will get dequeued in no particular order.
