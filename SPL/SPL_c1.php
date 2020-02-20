@@ -1436,7 +1436,6 @@ class SplPriorityQueue implements Iterator, Countable {
         /**
          * Construct a new SplPriorityQueue object
          * @link https://www.php.net/manual/ru/splpriorityqueue.construct.php
-         * @since 5.3.0
          */
         public function __construct () {}
 
