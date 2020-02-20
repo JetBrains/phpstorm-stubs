@@ -20,9 +20,11 @@ namespace MongoDB {}
         use MongoDB\Driver\Exception\BulkWriteException;
         use MongoDB\Driver\Exception\CommandException;
         use MongoDB\Driver\Exception\ConnectionException;
+        use MongoDB\Driver\Exception\EncryptionException;
         use MongoDB\Driver\Exception\Exception;
         use MongoDB\Driver\Exception\InvalidArgumentException;
         use MongoDB\Driver\Exception\RuntimeException;
+        use MongoDB\Driver\Exception\UnexpectedValueException;
         use MongoDB\Driver\Exception\WriteConcernException;
         use MongoDB\Driver\Exception\WriteException;
         use Traversable;
@@ -579,6 +581,7 @@ namespace MongoDB {}
              * @since 1.7.0
              * @link https://php.net/manual/en/mongodb-driver-readpreference.getmodestring.php
              * @return string
+             * @throws InvalidArgumentException
              */
             final public function getModeString()
             {
@@ -1421,12 +1424,12 @@ namespace MongoDB {}
              * Creates a new key document and inserts into the key vault collection.
              * @link https://www.php.net/manual/en/mongodb-driver-clientencryption.createdatakey.php
              * @param string $kmsProvider The KMS provider ("local" or "aws") that will be used to encrypt the new encryption key.
-             * @param array|object $options
+             * @param array $options [optional]
              * @return \MongoDB\BSON\Binary Returns the identifier of the new key as a MongoDB\BSON\Binary object with subtype 4 (UUID).
-             * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors.
-             * @throws \MongoDB\Driver\Exception\EncryptionException If an error occurs while creating the data key.
+             * @throws InvalidArgumentException On argument parsing errors.
+             * @throws EncryptionException If an error occurs while creating the data key.
              */
-            final public function createDataKey($kmsProvider, $options)
+            final public function createDataKey($kmsProvider, $options = [])
             {
             }
 
@@ -1435,8 +1438,8 @@ namespace MongoDB {}
              * @link https://www.php.net/manual/en/mongodb-driver-clientencryption.decrypt.php
              * @param \MongoDB\BSON\Binary $value A MongoDB\BSON\Binary instance with subtype 6 containing the encrypted value.
              * @return mixed Returns the decrypted value
-             * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors.
-             * @throws \MongoDB\Driver\Exception\EncryptionException If an error occurs while decrypting the value.
+             * @throws InvalidArgumentException On argument parsing errors.
+             * @throws EncryptionException If an error occurs while decrypting the value.
              */
             final public function decrypt(\MongoDB\BSON\Binary $value)
             {
@@ -1446,12 +1449,12 @@ namespace MongoDB {}
              * Encrypts a value with a given key and algorithm.
              * @link https://www.php.net/manual/en/mongodb-driver-clientencryption.encrypt.php
              * @param mixed $value The value to be encrypted. Any value that can be inserted into MongoDB can be encrypted using this method.
-             * @param array|object|null $options
+             * @param array $options [optional]
              * @return \MongoDB\BSON\Binary Returns the encrypted value as MongoDB\BSON\Binary object with subtype 6.
-             * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors.
-             * @throws \MongoDB\Driver\Exception\EncryptionException If an error occurs while encrypting the value.
+             * @throws InvalidArgumentException On argument parsing errors.
+             * @throws EncryptionException If an error occurs while encrypting the value.
              */
-            final public function encrypt($value, $options = null)
+            final public function encrypt($value, $options = [])
             {
             }
         }
