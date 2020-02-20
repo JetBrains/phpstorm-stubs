@@ -207,9 +207,8 @@ class DateTimeImmutable implements DateTimeInterface {
      * @param int $hour <p> Hour of the time. </p>
      * @param int $minute <p> Minute of the time. </p>
      * @param int $second [optional] <p> Second of the time. </p>
-     * @param int $microseconds [optional] <p> Microseconds of the time. </p>
+     * @param int $microseconds [optional] <p> Microseconds of the time. Added since 7.1</p>
      * @return static|false
-     * @since 7.1 $microseconds parameter added.
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
     public function setTime($hour, $minute, $second = 0, $microseconds = 0) { }
@@ -421,9 +420,8 @@ class DateTime implements DateTimeInterface {
      * @param int $hour
      * @param int $minute
      * @param int $second
-     * @param int $microseconds
+     * @param int $microseconds Added since 7.1
      * @return static|false
-     * @since 7.1 $microseconds parameter added.
      * @link https://php.net/manual/en/datetime.settime.php
      */
     public function setTime ($hour, $minute, $second=0, $microseconds=0) {}
