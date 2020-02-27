@@ -254,6 +254,7 @@ const CLASSES = array (
   'DateTimeImmutable' => 'date/date_c.php',
   'DateTimeInterface' => 'date/date_c.php',
   'DateTimeZone' => 'date/date_c.php',
+  'Decimal\\Decimal' => 'decimal/decimal.php',
   'Directory' => 'standard/standard_0.php',
   'DirectoryIterator' => 'SPL/SPL_c1.php',
   'DivisionByZeroError' => 'Core/Core_c.php',
