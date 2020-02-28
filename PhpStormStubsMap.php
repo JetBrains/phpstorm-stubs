@@ -5853,6 +5853,7 @@ const CONSTANTS = array (
   'CURLOPT_HEADER' => 'curl/curl_d.php',
   'CURLOPT_HEADERFUNCTION' => 'curl/curl_d.php',
   'CURLOPT_HEADEROPT' => 'curl/curl_d.php',
+  'CURLOPT_HTTP09_ALLOWED' => 'curl/curl_d.php',
   'CURLOPT_HTTP200ALIASES' => 'curl/curl_d.php',
   'CURLOPT_HTTPAUTH' => 'curl/curl_d.php',
   'CURLOPT_HTTPGET' => 'curl/curl_d.php',
