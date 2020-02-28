@@ -36,7 +36,7 @@
  * </ul>
  * @link https://secure.php.net/manual/en/password.constants.php
  */
-define("PASSWORD_DEFAULT", null);
+define("PASSWORD_DEFAULT", "2y");
 
 /**
  * <p>
