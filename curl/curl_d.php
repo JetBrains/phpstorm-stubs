@@ -1658,3 +1658,7 @@ define('CURLOPT_PRE_PROXY', 10262);
  * @since 7.3
  */
 define('CURLINFO_PROXY_SSL_VERIFYRESULT', 2097199);
+/**
+ * @since 7.3
+ */
+define('CURLOPT_HTTP09_ALLOWED', 285);
