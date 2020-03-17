@@ -49,3 +49,11 @@ function fastcgi_finish_request() {};
  * @return int The current response code. By default the return value is int(200).
  */
 function http_response_code($response_code = null) {}
+
+/**
+ * Fetches all HTTP headers from the current request.
+ * This function is an alias for apache_request_headers(). Please read the apache_request_headers() documentation for more information on how this function works.
+ * @link https://php.net/manual/en/function.getallheaders.php
+ * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b> on failure.
+ */
+function getallheaders () {}
