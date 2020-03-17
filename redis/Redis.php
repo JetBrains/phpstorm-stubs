@@ -2919,7 +2919,6 @@ class Redis
      * Adds the specified member with a given score to the sorted set stored at key
      *
      * @param string       $key     Required key
-     * @param array        $options Options if needed
      * @param float        $score1  Required score
      * @param string|mixed $value1  Required value
      * @param float        $score2  Optional score
