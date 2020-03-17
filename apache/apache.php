@@ -105,14 +105,6 @@ function apache_response_headers () {}
 function apache_setenv ( $variable, $value, $walk_to_top = false ) {}
 
 /**
- * Fetches all HTTP headers from the current request.
- * This function is an alias for apache_request_headers(). Please read the apache_request_headers() documentation for more information on how this function works.
- * @link https://php.net/manual/en/function.getallheaders.php
- * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b> on failure.
- */
-function getallheaders () {}
-
-/**
  * Perform an Apache sub-request
  * virtual() is an Apache-specific function which is similar to <!--#include virtual...--> in mod_include. It performs an Apache sub-request. It is useful for including CGI scripts or .shtml files, or anything else that you would parse through Apache. Note that for a CGI script, the script must generate valid CGI headers. At the minimum that means it must generate a Content-Type header.
  * To run the sub-request, all buffers are terminated and flushed to the browser, pending headers are sent too.
