@@ -35,15 +35,6 @@ define("__COMPILER_HALT_OFFSET__",0);
 function hex2bin($data) {};
 
 /**
- * This function flushes all response data to the client and finishes the request.
- * This allows for time consuming tasks to be performed without leaving the connection to the client open.
- * @return bool Returns TRUE on success or FALSE on failure.
- * @link https://php.net/manual/en/install.fpm.php
- * @since 5.3.3
- */
-function fastcgi_finish_request() {};
-
-/**
  * Get or Set the HTTP response code
  * @param int $response_code [optional] The optional response_code will set the response code.
  * @return int The current response code. By default the return value is int(200).
