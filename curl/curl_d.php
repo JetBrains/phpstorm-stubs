@@ -53,6 +53,11 @@ define ('CURL_IPRESOLVE_WHATEVER', 0);
 define ('CURL_IPRESOLVE_V4', 1);
 define ('CURL_IPRESOLVE_V6', 2);
 define ('CURLOPT_DNS_USE_GLOBAL_CACHE', 91);
+
+/**
+ * The number of seconds to keep DNS entries in memory.
+ * This option is set to 120 (2 minutes) by default.
+ */
 define ('CURLOPT_DNS_CACHE_TIMEOUT', 92);
 define ('CURLOPT_PORT', 3);
 define ('CURLOPT_FILE', 10001);
@@ -186,7 +191,20 @@ define ('CURLOPT_FRESH_CONNECT', 74);
 define ('CURLOPT_FORBID_REUSE', 75);
 define ('CURLOPT_RANDOM_FILE', 10076);
 define ('CURLOPT_EGDSOCKET', 10077);
+
+/**
+ * The number of seconds to wait while trying to connect. Use 0 to wait indefinitely.
+ */
 define ('CURLOPT_CONNECTTIMEOUT', 78);
+
+/**
+ * The number of milliseconds to wait while trying to connect. Use 0 to wait indefinitely.
+ * If libcurl is built to use the standard system name resolver, that portion of the connect
+ * will still use full-second resolution for timeouts with a minimum timeout allowed of one second.
+ *
+ * @since cURL 7.16.2.
+ * @since PHP 5.2.3.
+ */
 define ('CURLOPT_CONNECTTIMEOUT_MS', 156);
 define ('CURLOPT_SSL_VERIFYPEER', 64);
 define ('CURLOPT_CAINFO', 10065);
