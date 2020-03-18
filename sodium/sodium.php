@@ -756,10 +756,12 @@ function sodium_crypto_secretbox(
 /**
  * Authenticated secret-key encryption (decrypt)
  * Xsals20 + Poly1305
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-secretbox-open.php
+ * @since 7.2.0
  * @param string $ciphertext
  * @param string $nonce
  * @param string $key
+ * @throws SodiumException
  * @return string|false
  */
 function sodium_crypto_secretbox_open(
