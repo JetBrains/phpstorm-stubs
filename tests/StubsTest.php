@@ -26,7 +26,6 @@ class StubsTest extends TestCase
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
-     * @throws InvalidArgumentException
      */
     public function testConstants(PHPConst $constant): void
     {
@@ -45,7 +44,6 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
-     * @throws InvalidArgumentException
      */
     public function testConstantsValues(PHPConst $constant): void
     {
@@ -69,7 +67,6 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::functionProvider
-     * @throws InvalidArgumentException
      */
     public function testFunctions(PHPFunction $function): void
     {
@@ -99,7 +96,6 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::classProvider
-     * @throws InvalidArgumentException
      */
     public function testClasses(PHPClass $class): void
     {
@@ -180,7 +176,6 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::interfaceProvider
-     * @throws InvalidArgumentException
      */
     public function testInterfaces(PHPInterface $interface): void
     {
@@ -258,9 +253,6 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubClassConstantProvider
-     * @param string $className
-     * @param PHPConst $constant
-     * @throws InvalidArgumentException
      */
     public function testClassConstantsPHPDocs(string $className, PHPConst $constant): void
     {
@@ -270,8 +262,6 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubConstantProvider
-     * @param PHPConst $constant
-     * @throws InvalidArgumentException
      */
     public function testConstantsPHPDocs(PHPConst $constant): void
     {
@@ -281,7 +271,6 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubFunctionProvider
-     * @throws InvalidArgumentException
      */
     public function testFunctionPHPDocs(PHPFunction $function): void
     {
@@ -291,7 +280,6 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubClassProvider
-     * @throws InvalidArgumentException
      */
     public function testClassesPHPDocs(BasePHPClass $class): void
     {
@@ -301,7 +289,6 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodProvider
-     * @throws InvalidArgumentException
      */
     public function testMethodsPHPDocs(string $methodName, PHPMethod $method): void
     {
@@ -340,9 +327,6 @@ class StubsTest extends TestCase
         return $result;
     }
 
-    /**
-     * @throws InvalidArgumentException
-     */
     private function checkLinks(BasePHPElement $element, string $elementName): void
     {
         /** @var PHPDocElement $element */
@@ -362,13 +346,9 @@ class StubsTest extends TestCase
         }
     }
 
-    /**
-     * @param PHPDocElement $element
-     * @param string $elementName
-     * @throws InvalidArgumentException
-     */
-    private function checkDeprecatedRemovedSinceVersionsMajor($element, $elementName): void
+    private function checkDeprecatedRemovedSinceVersionsMajor(BasePHPElement $element, $elementName): void
     {
+        /** @var PHPDocElement $element */
         foreach ($element->sinceTags as $sinceTag) {
             if ($sinceTag instanceof Since) {
                 $version = $sinceTag->getVersion();
