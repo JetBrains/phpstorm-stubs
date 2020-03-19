@@ -145,8 +145,6 @@ function fann_create_shortcut_array($num_layers, $layers)
 /**
  * Creates a standard backpropagation neural network which is not fully connectected and has shortcut connections
  *
- * @stub-variable-parameters
- *
  * @param int $num_layers
  * @param int $num_neurons1
  * @param int $num_neurons2
@@ -175,7 +173,6 @@ function fann_create_sparse_array($connection_rate, $num_layers, $layers)
 /**
  * Creates a standard backpropagation neural network, which is not fully connected
  *
- * @stub-variable-parameters
  *
  * @param float $connection_rate
  * @param int $num_layers

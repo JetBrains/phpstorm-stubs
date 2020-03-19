@@ -85,7 +85,7 @@ final class SolrObject implements ArrayAccess {
 	 * @param string $property_name <p>
 	 * The name of the property.
 	 * </p>
-	 * @TODO: Check -> doc indicate void function but return is set at true/false
+	 * @return bool
 	 */
 	public function offsetUnset($property_name) {}
 

@@ -305,6 +305,39 @@ class StubsTest extends TestCase
         if ($element->stubBelongsToCore) {
             $this->checkDeprecatedRemovedSinceVersionsMajor($element, $elementName);
         }
+        $this->checkContainsOnlyValidTags($element, $elementName);
+    }
+
+    private function checkContainsOnlyValidTags(BasePHPElement $element, string $elementName): void
+    {
+        $VALID_TAGS = [
+            'author',
+            'copyright',
+            'deprecated',
+            'example', //temporary addition due to the number of existing cases
+            'inheritdoc',
+            'link',
+            'meta',
+            'method',
+            'mixin',
+            'package',
+            'param',
+            'property',
+            'property-read',
+            'removed',
+            'return',
+            'see',
+            'since',
+            'since',
+            'throws',
+            'uses',
+            'var',
+            'version',
+        ];
+        /** @var PHPDocElement $element */
+        foreach ($element->tagNames as $tagName) {
+            static::assertContains($tagName, $VALID_TAGS, "Element $elementName has invalid tag: @$tagName");
+        }
     }
 
     private static function getParameterRepresentation(PHPFunction $function): string

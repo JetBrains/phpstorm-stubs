@@ -126,7 +126,6 @@ final class SolrClient {
 	 * @throws SolrServerException <p>
 	 * Throws SolrServerException if the Solr Server had failed to satisfy the request.
 	 * </p>
-	 * @TODO: Check -> doc indicate void function but return is set at SolrUpdateResponse
 	 */
 	public function addDocuments(array $docs, $overwrite = true, $commitWithin = 0) {}
 
