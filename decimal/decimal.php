@@ -19,7 +19,7 @@ namespace Decimal {
         public const ROUND_TRUNCATE = 109;
 
         public const DEFAULT_PRECISION = 28;
-        public const DEFAULT_ROUNDING = self::ROUND_HALF_EVEN;
+        public const DEFAULT_ROUNDING = 107;
 
         public const MIN_PRECISION = 1;
 
