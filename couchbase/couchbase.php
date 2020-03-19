@@ -2004,7 +2004,7 @@ namespace Couchbase {
          * Controls the profiling mode used during query execution
          *
          * @param string $profileType
-         * @returns N1qlQuery
+         * @return N1qlQuery
          * @see \Couchbase\N1qlQuery::PROFILE_NONE
          * @see \Couchbase\N1qlQuery::PROFILE_PHASES
          * @see \Couchbase\N1qlQuery::PROFILE_TIMINGS

@@ -23,7 +23,6 @@ function jobqueue_license_info(){};
  *
  * @return object
  * @param string $class
- * @vararg ...
  */
 function java($class) {}
 

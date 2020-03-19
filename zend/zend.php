@@ -634,7 +634,6 @@ class java {
      *
      * @return java
      * @param  $classname string
-     * @vararg ...
      */
     function java($classname) {}
 

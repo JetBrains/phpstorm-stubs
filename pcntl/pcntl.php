@@ -457,7 +457,7 @@ function pcntl_async_signals($on = null) {}
 function pcntl_signal_get_handler($signo) {}
 
 /**
- * @sine 7.4
+ * @since 7.4
  */
 function pcntl_unshare($flags){}
 

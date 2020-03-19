@@ -68,7 +68,7 @@ function closelog () {}
  * Registers a function that will be called when PHP starts sending output.
  * The callback is executed just after PHP prepares all headers to be sent,<br>
  * and before any other output is sent, creating a window to manipulate the outgoing headers before being sent.
- * @linkhttps://secure.php.net/manual/en/function.header-register-callback.php
+ * @link https://secure.php.net/manual/en/function.header-register-callback.php
  * @param callable $callback Function called just before the headers are sent.
  * @return bool true on success or false on failure.
  */

@@ -1,4 +1,4 @@
-<?php /** @noinspection ALL */
+<?php
 
 /**
  * Stub file - DO NOT INCLUDE! = For PHPStorm to analyse.

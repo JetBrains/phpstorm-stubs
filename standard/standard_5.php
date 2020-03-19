@@ -366,9 +366,7 @@ function popen ($command, $mode) {}
  * @param resource $context [optional] <p>
  * A context stream resource.
  * </p>
- * @return false|int the number of bytes read from the file. If an error
- * occurs, false is returned and unless the function was called as
- * @readfile, an error message is printed.
+ * @return false|int the number of bytes read from the file, or FALSE on failure
  */
 function readfile ($filename, $use_include_path = null, $context = null) {}
 

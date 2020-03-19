@@ -23,7 +23,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
 
 	/**
      * Provides access to element's children
-     * @access private Method not callable directly, stub exists for typehint only
+     * private Method not callable directly, stub exists for typehint only
      * @param string $name child name
      * @return SimpleXMLElement
      */
@@ -214,7 +214,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
 
     /**
      * Class provides access to children by position, and attributes by name
-     * @access private Method not callable directly, stub exists for typehint only
+     * private Method not callable directly, stub exists for typehint only
      * @param string|int $offset
      * @return bool true on success or false on failure.
      */
@@ -222,7 +222,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
 
     /**
      * Class provides access to children by position, and attributes by name
-     * @access private Method not callable directly, stub exists for typehint only
+     * private Method not callable directly, stub exists for typehint only
      * @param string|int $offset
      * @return SimpleXMLElement Either a named attribute or an element from a list of children
      */
@@ -230,7 +230,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
 
     /**
      * Class provides access to children by position, and attributes by name
-     * @access private Method not callable directly, stub exists for typehint only
+     * private Method not callable directly, stub exists for typehint only
      * @param string|int $offset
      * @param mixed $value
      * @return void
@@ -239,7 +239,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable {
 
     /**
      * Class provides access to children by position, and attributes by name
-     * @access private Method not callable directly, stub exists for typehint only
+     * private Method not callable directly, stub exists for typehint only
      * @param string|int $offset
      * @return void
      */

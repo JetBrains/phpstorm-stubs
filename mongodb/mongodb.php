@@ -886,7 +886,7 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-bulkwrite.insert.php
              * @param array|object $document
              * @return mixed
-             * @Throws MongoDB\Driver\InvalidArgumentException on argument parsing errors.
+             * @throws InvalidArgumentException on argument parsing errors.
              */
             public final function insert($document)
             {
