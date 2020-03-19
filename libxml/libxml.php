@@ -100,7 +100,7 @@ function libxml_clear_errors () {}
 /**
  * Retrieve array of errors
  * @link https://php.net/manual/en/function.libxml-get-errors.php
- * @return array an array with LibXMLError objects if there are any
+ * @return LibXMLError[] an array with LibXMLError objects if there are any
  * errors in the buffer, or an empty array otherwise.
  */
 function libxml_get_errors () {}
