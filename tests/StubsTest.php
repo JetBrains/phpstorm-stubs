@@ -328,7 +328,6 @@ class StubsTest extends TestCase
             'return',
             'see',
             'since',
-            'since',
             'throws',
             'uses',
             'var',
