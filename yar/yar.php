@@ -165,13 +165,12 @@ class Yar_Server_Exception extends Exception {
 /**
  * Class Yar_Client_Exception
  * Date 2018/6/9 下午3:05
- * @uthor weizhimiao001@lianjia.com
+ * @author weizhimiao001@lianjia.com
  * @link https://secure.php.net/manual/en/class.yar-client-exception.php
  */
 class Yar_Client_Exception extends Exception {
     /**
      * Retrieve exception's type
-     * @foo
      * @return string "Yar_Exception_Client".
      * @link https://secure.php.net/manual/en/yar-client-exception.gettype.php
      */
