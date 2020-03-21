@@ -825,7 +825,7 @@ class IntlChar {
      * Return Unicode character by code point value
      * @link https://php.net/manual/ru/intlchar.chr.php
      * @param mixed $codepoint <p>The integer codepoint value (e.g. 0x2603 for U+2603 SNOWMAN), or the character encoded as a UTF-8 string (e.g. "\u{2603}")</p>
-     * @return ?string A string containing the single character specified by the Unicode code point value.
+     * @return string|null A string containing the single character specified by the Unicode code point value.
      * @since 7.0
      */
     public static function chr ($codepoint)
@@ -1311,7 +1311,7 @@ class IntlChar {
      * Return Unicode code point value of character
      * @link https://php.net/manual/ru/intlchar.ord.php
      * @param mixed $character <p>A Unicode character.</p>
-     * @return ?int Returns the Unicode code point value as an integer.
+     * @return int|null Returns the Unicode code point value as an integer.
      * @since 7.0
      */
     public static function ord ($character) {}
