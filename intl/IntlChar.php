@@ -969,7 +969,7 @@ class IntlChar {
      * Get the min value for a Unicode property
      * @link https://php.net/manual/ru/intlchar.getintpropertyminvalue.php
      * @param int $property The Unicode property to lookup (see the IntlChar::PROPERTY_* constants).
-     * @return int The maximum value returned by {@see IntlChar::getIntPropertyValue()} for a Unicode property. 0 if the property selector is out of range.
+     * @return int The minimum value returned by {@see IntlChar::getIntPropertyValue()} for a Unicode property. 0 if the property selector is out of range.
      * @since 7.0
      */
     public static function getIntPropertyMinValue  ($property) {}
