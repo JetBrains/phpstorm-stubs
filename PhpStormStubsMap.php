@@ -37,6 +37,7 @@ const CLASSES = array (
   'AssertionError' => 'standard/standard_9.php',
   'BadFunctionCallException' => 'SPL/SPL.php',
   'BadMethodCallException' => 'SPL/SPL.php',
+  'BlackfireProbe' => 'blackfire/blackfire.php',
   'COM' => 'com_dotnet/com_dotnet.php',
   'CURLFile' => 'curl/curl.php',
   'CachingIterator' => 'SPL/SPL.php',
