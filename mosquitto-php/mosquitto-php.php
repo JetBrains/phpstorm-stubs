@@ -3,6 +3,9 @@
 
 namespace Mosquitto;
 
+/**
+ * @link https://mosquitto-php.readthedocs.io/en/latest/index.html
+ **/
 class Client
 {
     /** @const LOG_DEBUG Identifies a debug-level log message */
@@ -160,7 +163,7 @@ class Client
      * 0 = Success
      * 1 = Connection refused (unacceptable protocol version)
      * 2 = Connection refused (identifier rejected)
-     * 3 = Connection refused (broker unavailable )
+     * 3 = Connection refused (broker unavailable)
      * 4-255 = Reserved for future use
      *
      * @param callable $callback
@@ -180,7 +183,7 @@ class Client
      * 0 = requested by client
      * <0 = indicates an unexpected disconnection.
      *
-     * @param $callback
+     * @param callable $callback
      */
     public function onDisconnect($callback)
     {
