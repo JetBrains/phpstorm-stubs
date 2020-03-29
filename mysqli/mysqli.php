@@ -1321,7 +1321,7 @@ class mysqli_stmt  {
 	/**
 	 * Fetch results from a prepared statement into the bound variables
 	 * @link https://php.net/manual/en/mysqli-stmt.fetch.php
-	 * @return bool
+	 * @return bool|null
 	 */
 	public function fetch () {}
 
@@ -2282,7 +2282,7 @@ function mysqli_stmt_bind_result ($stmt, &$var1, &...$_) {}
  * Fetch results from a prepared statement into the bound variables
  * @link https://php.net/manual/en/mysqli-stmt.fetch.php
  * @param mysqli_stmt $stmt
- * @return bool
+ * @return bool|null
  */
 function mysqli_stmt_fetch ($stmt) {}
 
