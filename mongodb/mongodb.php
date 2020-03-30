@@ -299,7 +299,7 @@ namespace MongoDB {}
             /**
              * Execute a database command that reads on this server
              * @link https://secure.php.net/manual/en/mongodb-driver-server.executereadcommand.php
-             * @param                         $db
+             * @param string                  $db
              * @param \MongoDB\Driver\Command $command
              * @param array                   $option
              * @return Cursor
@@ -316,7 +316,7 @@ namespace MongoDB {}
             /**
              * Execute a database command that reads and writes on this server
              * @link https://secure.php.net/manual/en/mongodb-driver-server.executereadwritecommand.php
-             * @param                         $db
+             * @param string                  $db
              * @param \MongoDB\Driver\Command $command
              * @param array                   $option
              * @return Cursor
@@ -333,7 +333,7 @@ namespace MongoDB {}
             /**
              * Execute a database command that writes on this server
              * @link https://secure.php.net/manual/en/mongodb-driver-server.executewritecommand.php
-             * @param                         $db
+             * @param string                  $db
              * @param \MongoDB\Driver\Command $command
              * @param array                   $option
              * @return Cursor
@@ -1650,7 +1650,7 @@ namespace MongoDB {}
          * Registered subscribers will be notified of monitoring events through specific methods.
          * Note: If the object is already registered, this function is a no-op.
          * @link https://secure.php.net/manual/en/function.mongodb.driver.monitoring.addsubscriber.php
-         * @param $subscriber Subscriber A monitoring event subscriber object to register.
+         * @param Subscriber $subscriber A monitoring event subscriber object to register.
          * @return void
          * @throws \InvalidArgumentException on argument parsing errors.
          * @since 1.3.0
@@ -1664,7 +1664,7 @@ namespace MongoDB {}
          * Unregistered subscribers will no longer be notified of monitoring events.
          * Note: If the object is not registered, this function is a no-op.
          * @link https://secure.php.net/manual/en/function.mongodb.driver.monitoring.removesubscriber.php
-         * @param $subscriber Subscriber A monitoring event subscriber object to register.
+         * @param Subscriber $subscriber A monitoring event subscriber object to register.
          * @throws \InvalidArgumentException on argument parsing errors.
          * @since 1.3.0
          */
@@ -2975,13 +2975,6 @@ namespace MongoDB {}
              * @return string Returns the hexidecimal representation of this ObjectId
              */
             function __toString();
-
-            /**
-             * Construct a new ObjectId
-             * @param string|null $id A 24-character hexadecimal string. If not provided, the driver will generate an ObjectId.
-             * @throws InvalidArgumentException
-             */
-            function __construct($id = null);
         }
 
         /**
