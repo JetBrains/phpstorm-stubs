@@ -50,7 +50,7 @@ final class Event
      *
      * @see https://php.net/manual/en/event.add.php
      */
-    public function add(double $timeout = \NAN): bool
+    public function add(double $timeout = -1): bool
     {
     }
 
@@ -64,7 +64,7 @@ final class Event
      *
      * @see https://php.net/manual/en/event.addsignal.php
      */
-    public function addSignal(double $timeout = \NAN): bool
+    public function addSignal(double $timeout = -1): bool
     {
     }
 
@@ -78,7 +78,7 @@ final class Event
      *
      * @see https://php.net/manual/en/event.addtimer.php
      */
-    public function addTimer(double $timeout = \NAN): bool
+    public function addTimer(double $timeout = -1): bool
     {
     }
 
