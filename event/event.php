@@ -50,7 +50,7 @@ final class Event
      *
      * @see https://php.net/manual/en/event.add.php
      */
-    public function add(double $timeout): bool
+    public function add(double $timeout = -1): bool
     {
     }
 
@@ -64,7 +64,7 @@ final class Event
      *
      * @see https://php.net/manual/en/event.addsignal.php
      */
-    public function addSignal(double $timeout): bool
+    public function addSignal(double $timeout = -1): bool
     {
     }
 
@@ -78,7 +78,7 @@ final class Event
      *
      * @see https://php.net/manual/en/event.addtimer.php
      */
-    public function addTimer(double $timeout): bool
+    public function addTimer(double $timeout = -1): bool
     {
     }
 
@@ -263,7 +263,7 @@ final class EventBase
      *
      * @see https://php.net/manual/en/eventbase.construct.php
      */
-    public function __construct(EventConfig $cfg)
+    public function __construct(EventConfig $cfg = null)
     {
     }
 
