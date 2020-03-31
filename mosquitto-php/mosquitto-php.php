@@ -32,7 +32,7 @@ class Client
     /**
      * Construct a new Client instance.
      *
-     * @param ?string $id The client ID. If omitted or null, one will be generated at random.
+     * @param string|null $id The client ID. If omitted or null, one will be generated at random.
      * @param bool $cleanSession Set to true to instruct the broker to clean all messages and subscriptions on disconnect. Must be true if the $id parameter is null.
      */
     public function __construct($id = null, $cleanSession = true)
@@ -59,9 +59,10 @@ class Client
      * If your private key is encrypted, provide the password as the fourth parameter.
      *
      * @param string $caPath Path to the PEM encoded trusted CA certificate files, or to a directory containing them.
-     * @param ?string $certFile Path to the PEM encoded certificate file for this client. Optional.
-     * @param ?string $keyFile Path to a file containing the PEM encoded private key for this client. Required if certfile is set.
-     * @param ?string $password The password for the keyfile, if it is encrypted. If null, the password will be asked for on the command line.
+     * @param string|null $certFile Path to the PEM encoded certificate file for this client. Optional.
+     * @param string|null $keyFile Path to a file containing the PEM encoded private key for this client. Required if certfile is set.
+     * @param string|null $password The password for the keyfile, if it is encrypted. If null, the password will be asked for on the command line.
+     * @return int|null
      */
     public function setTlsCertificates($caPath, $certFile = null, $keyFile = null, $password = null)
     {
@@ -82,8 +83,9 @@ class Client
      * Set advanced SSL/TLS options. Must be called before `connect`.
      *
      * @param int $certReqs Whether or not to verify the server. Can be Client::SSL_VERIFY_NONE, to disable certificate verification, or Client::SSL_VERIFY_PEER (the default), to verify the server certificate.
-     * @param ?string $tlsVersion The TLS version to use. If `null`, a default is used. The default value depends on the version of OpenSSL the library was compiled against. Available options on OpenSSL >= 1.0.1 are `tlsv1.2`, `tlsv1.1` and `tlsv1`.
-     * @param ?string $ciphers A string describing the ciphers available for use. See the `openssl ciphers` tool for more information. If `null`, the default set will be used.
+     * @param string|null $tlsVersion The TLS version to use. If `null`, a default is used. The default value depends on the version of OpenSSL the library was compiled against. Available options on OpenSSL >= 1.0.1 are `tlsv1.2`, `tlsv1.1` and `tlsv1`.
+     * @param string|null $ciphers A string describing the ciphers available for use. See the `openssl ciphers` tool for more information. If `null`, the default set will be used.
+     * @return int
      */
     public function setTlsOptions($certReqs, $tlsVersion = null, $ciphers = null)
     {
@@ -95,7 +97,8 @@ class Client
      *
      * @param string $psk The pre-shared key in hex format with no leading "0x".
      * @param string $identity The identity of this client. May be used as the username depending on server settings.
-     * @param ?string $ciphers Optional. A string describing the ciphers available for use. See the `openssl ciphers` tool for more information. If `null`, the default set will be used.
+     * @param string|null $ciphers Optional. A string describing the ciphers available for use. See the `openssl ciphers` tool for more information. If `null`, the default set will be used.
+     * @return int
      */
     public function setTlsPSK($psk, $identity, $ciphers = null)
     {
@@ -130,7 +133,7 @@ class Client
      * @param int $exponentialDelay Set max delay between successive reconnection attempts when exponential backoff is enabled
      * @param bool $exponentialBackoff Pass `true` to enable exponential backoff
      */
-    public function setReconnectDelay($reconnectDelay, $exponentialDelay, $exponentialBackoff)
+    public function setReconnectDelay($reconnectDelay, $exponentialDelay = 0, $exponentialBackoff = false)
     {
     }
 
@@ -140,7 +143,8 @@ class Client
      * @param string $host Hostname to connect to
      * @param int $port Optional. Port number to connect to. Defaults to 1883.
      * @param int $keepalive Optional. Number of sections after which the broker should PING the client if no messages have been recieved.
-     * @param ?string $interface Optional. The address or hostname of a local interface to bind to for this connection.
+     * @param string|null $interface Optional. The address or hostname of a local interface to bind to for this connection.
+     * @return int
      */
     public function connect($host, $port = 1883, $keepalive = 60, $interface = null)
     {
