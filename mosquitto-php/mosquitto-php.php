@@ -4,7 +4,7 @@
 namespace Mosquitto;
 
 /**
- * @link https://mosquitto-php.readthedocs.io/en/latest/index.html
+ * @link https://mosquitto-php.readthedocs.io/en/latest/client.html
  **/
 class Client
 {
@@ -354,6 +354,9 @@ class Client
     }
 }
 
+/**
+ * @link https://mosquitto-php.readthedocs.io/en/latest/message.html
+ */
 class Message
 {
 
@@ -390,4 +393,7 @@ class Message
     public static function tokeniseTopic($topic) {}
 }
 
+/**
+ * @link https://mosquitto-php.readthedocs.io/en/latest/exception.html
+ */
 class Exception extends \Exception {}
