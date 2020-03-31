@@ -57,32 +57,32 @@ function expect_popen(string $command)
  * @param array $cases <p>An array of expect cases. Each expect case is an indexed array, as described in the following table:</p>
  * <p>
  * <tr valign="top">
- * <th>Index Key</th>
- * <th>Value Type</th>
- * <th>Description</th>
- * <th>Is Mandatory</th>
- * <th>Default Value</th>
+ * <td>Index Key</td>
+ * <td>Value Type</td>
+ * <td>Description</td>
+ * <td>Is Mandatory</td>
+ * <td>Default Value</td>
  * </tr>
  * <tr valign="top">
- * <th>0</th>
- * <th>string</th>
- * <th>pattern, that will be matched against the output from the stream</th>
- * <th>Yes</th>
- * <th></th>
+ * <td>0</td>
+ * <td>string</td>
+ * <td>pattern, that will be matched against the output from the stream</td>
+ * <td>Yes</td>
+ * <td></td>
  * </tr>
  * <tr valign="top">
- * <th>1</th>
- * <th>mixed</th>
- * <th>value, that will be returned by this function, if the pattern matches</th>
- * <th>Yes</th>
- * <th></th>
+ * <td>1</td>
+ * <td>mixed</td>
+ * <td>value, that will be returned by this function, if the pattern matches</td>
+ * <td>Yes</td>
+ * <td></td>
  * </tr>
  * <tr valign="top">
- * <th>2</th>
- * <th>integer</th>
- * <th>pattern type, one of: <b>EXP_GLOB</b>, <b>EXP_EXACT</b> or <b>EXP_REGEXP</b></th>
- * <th>No</th>
- * <th><b>EXP_GLOB</b></th>
+ * <td>2</td>
+ * <td>integer</td>
+ * <td>pattern type, one of: <b>EXP_GLOB</b>, <b>EXP_EXACT</b> or <b>EXP_REGEXP</b></td>
+ * <td>No</td>
+ * <td><b>EXP_GLOB</b></td>
  * </tr>
  * </p>
  * @param array $match
