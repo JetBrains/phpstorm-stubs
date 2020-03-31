@@ -54,11 +54,41 @@ function expect_popen(string $command)
  * and so on, up to match[9] (the limitation of libexpect).
  *
  * @param resource $expect An Expect stream, previously opened with expect_popen()
- * @param array $cases An array of expect cases.
+ * @param array $cases <p>An array of expect cases. Each expect case is an indexed array, as described in the following table:</p>
+ * <p>
+ * <tr valign="top">
+ * <th>Index Key</th>
+ * <th>Value Type</th>
+ * <th>Description</th>
+ * <th>Is Mandatory</th>
+ * <th>Default Value</th>
+ * </tr>
+ * <tr valign="top">
+ * <th>0</th>
+ * <th>string</th>
+ * <th>pattern, that will be matched against the output from the stream</th>
+ * <th>Yes</th>
+ * <th></th>
+ * </tr>
+ * <tr valign="top">
+ * <th>1</th>
+ * <th>mixed</th>
+ * <th>value, that will be returned by this function, if the pattern matches</th>
+ * <th>Yes</th>
+ * <th></th>
+ * </tr>
+ * <tr valign="top">
+ * <th>2</th>
+ * <th>integer</th>
+ * <th>pattern type, one of: <b>EXP_GLOB</b>, <b>EXP_EXACT</b> or <b>EXP_REGEXP</b></th>
+ * <th>No</th>
+ * <th><b>EXP_GLOB</b></th>
+ * </tr>
+ * </p>
  * @param array $match
  *
  * @return int Returns value associated with the pattern that was matched.
- * 			   On failure this function returns: EXP_EOF, EXP_TIMEOUT or EXP_FULLBUFFER
+ * 			   On failure this function returns: <b>EXP_EOF</b>, <b>EXP_TIMEOUT</b> or <b>EXP_FULLBUFFER</b>
  * @since PECL expect >= 0.1.0
  * @link https://www.php.net/manual/en/function.expect-expectl.php
  */
