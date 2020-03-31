@@ -183,6 +183,8 @@ namespace PHPSTORM_META {
     
     expectedArguments(\exif_read_data(), 1, 'FILE', 'COMPUTED', 'ANY_TAG', 'IFD0', 'THUMBNAIL', 'COMMENT', 'EXIF');
 
+    expectedReturnValues(\expect_expectl(), \EXP_EOF, \EXP_TIMEOUT, \EXP_FULLBUFFER);
+
     expectedArguments(\imap_close(), 1, CL_EXPUNGE);
     expectedArguments(\event_base_loop(), 1, EVLOOP_ONCE|EVLOOP_NONBLOCK);
     expectedArguments(\mb_convert_case(), 1, MB_CASE_UPPER,MB_CASE_LOWER,MB_CASE_TITLE);
