@@ -33,11 +33,11 @@ const EXP_FULLBUFFER = -5;
 /**
  * Execute command via Bourne shell, and open the PTY stream to the process
  *
- * @link https://www.php.net/manual/en/function.expect-popen.php
  * @param string $command Command to execute.
  * @return resource|bool Returns an open PTY stream to the processes stdio, stdout, and stderr.
  *                        On failure this function returns FALSE.
  * @since PECL expect >= 0.1.0
+ * @link https://www.php.net/manual/en/function.expect-popen.php
  */
 function expect_popen(string $command)
 {
@@ -53,7 +53,6 @@ function expect_popen(string $command)
  * The match substrings (according to the parentheses) in the original pattern can be found in match[1], match[2],
  * and so on, up to match[9] (the limitation of libexpect).
  *
- * @link https://www.php.net/manual/en/function.expect-expectl.php
  * @param resource $expect An Expect stream, previously opened with expect_popen()
  * @param array $cases An array of expect cases.
  * @param array $match
@@ -61,6 +60,7 @@ function expect_popen(string $command)
  * @return int Returns value associated with the pattern that was matched.
  * 			   On failure this function returns: EXP_EOF, EXP_TIMEOUT or EXP_FULLBUFFER
  * @since PECL expect >= 0.1.0
+ * @link https://www.php.net/manual/en/function.expect-expectl.php
  */
 function expect_expectl($expect, array $cases, array &$match = array()): int
 {
