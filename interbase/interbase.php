@@ -1450,20 +1450,90 @@ function fbird_set_event_handler ($event_handler, $event_name1, $event_name2 = n
  */
 function fbird_free_event_handler ($event) {}
 
+/**
+ * The default transaction settings are to be used.
+ * This default is determined by the client library, which defines it as IBASE_WRITE|IBASE_CONCURRENCY|IBASE_WAIT in most cases.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
 define ('IBASE_DEFAULT', 0);
+/**
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
 define ('IBASE_CREATE', 0);
+/**
+ * Causes BLOB contents to be fetched inline, instead of being fetched as BLOB identifiers.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
 define ('IBASE_TEXT', 1);
+/**
+ * Also available as IBASE_TEXT for backward compatibility.
+ * Causes BLOB contents to be fetched inline, instead of being fetched as BLOB identifiers.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
 define ('IBASE_FETCH_BLOBS', 1);
+/**
+ * Causes arrays to be fetched inline. Otherwise, array identifiers are returned.
+ * Array identifiers can only be used as arguments to INSERT operations, as no functions to handle array identifiers are currently available.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
 define ('IBASE_FETCH_ARRAYS', 2);
+/**
+ * Causes date and time fields not to be returned as strings, but as UNIX timestamps (the number of seconds since the epoch, which is 1-Jan-1970 0:00 UTC).
+ * Might be problematic if used with dates before 1970 on some systems.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
 define ('IBASE_UNIXTIME', 4);
+/**
+ * Starts a read-write transaction.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
 define ('IBASE_WRITE', 1);
+/**
+ * Starts a read-only transaction.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
 define ('IBASE_READ', 2);
+/**
+ * Starts a transaction with the isolation level set to 'read committed'.
+ * This flag should be combined with either <b>IBASE_REC_VERSION</b> or <b>IBASE_REC_NO_VERSION</b>.
+ * This isolation level allows access to changes that were committed after the transaction was started.
+ * If <b>IBASE_REC_NO_VERSION</b> was specified, only the latest version of a row can be read.
+ * If <b>IBASE_REC_VERSION</b> was specified, a row can even be read when a modification to it is pending in a concurrent transaction.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
 define ('IBASE_COMMITTED', 8);
+/**
+ * Starts a transaction with the isolation level set to 'consistency',
+ * which means the transaction cannot read from tables that are being modified by other concurrent transactions.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
 define ('IBASE_CONSISTENCY', 16);
+/**
+ * Starts a transaction with the isolation level set to 'concurrency' (or 'snapshot'),
+ * which means the transaction has access to all tables,
+ * but cannot see changes that were committed by other transactions after the transaction was started.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
 define ('IBASE_CONCURRENCY', 4);
+/**
+ * Row can even be read when a modification to it is pending in a concurrent transaction.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
 define ('IBASE_REC_VERSION', 64);
+/**
+ * Only the latest version of a row can be read
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
 define ('IBASE_REC_NO_VERSION', 32);
+/**
+ * Indicated that a transaction should fail immediately when a conflict occurs.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
 define ('IBASE_NOWAIT', 256);
+/**
+ * Indicated that a transaction should wait and retry when a conflict occurs.
+ * @link https://www.php.net/manual/en/ibase.constants.php
+ */
 define ('IBASE_WAIT', 128);
 define ('IBASE_BKP_IGNORE_CHECKSUMS', 1);
 define ('IBASE_BKP_IGNORE_LIMBO', 2);
