@@ -34,7 +34,7 @@ const EXP_FULLBUFFER = -5;
  * Execute command via Bourne shell, and open the PTY stream to the process
  *
  * @param string $command Command to execute.
- * @return resource|bool Returns an open PTY stream to the processes stdio, stdout, and stderr.
+ * @return resource|false Returns an open PTY stream to the processes stdio, stdout, and stderr.
  *                        On failure this function returns FALSE.
  * @since PECL expect >= 0.1.0
  * @link https://www.php.net/manual/en/function.expect-popen.php
