@@ -2699,6 +2699,7 @@ define('CURLOPT_SOCKS5_GSSAPI_NEC', 180);
 
 /**
  * SOCKS5 proxy authentication service name.
+ * @link https://curl.haxx.se/libcurl/c/CURLOPT_SOCKS5_GSSAPI_SERVICE.html
  * @deprecated Use <b>CURLOPT_PROXY_SERVICE_NAME</b> instead.
  * @since 5.5
  */
