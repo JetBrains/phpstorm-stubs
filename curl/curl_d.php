@@ -12,11 +12,11 @@
 define('CURLOPT_SSH_AUTH_TYPES', 151);
 
 /**
- * @since 5.5
- * @link https://php.net/manual/en/function.curl-setopt.php
  * <b>TRUE</b> tells the library to perform all the required proxy authentication
  * and connection setup, but no data transfer. This option is implemented for
  * HTTP, SMTP and POP3.
+ * @since 5.5
+ * @link https://php.net/manual/en/function.curl-setopt.php
  */
 define ('CURLOPT_CONNECT_ONLY', 141);
 
