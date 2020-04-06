@@ -1503,6 +1503,7 @@ define ('CURLE_SEND_ERROR', 55);
  */
 define ('CURLE_RECV_ERROR', 56);
 /**
+ * The share object is currently in use.
  * @link https://php.net/manual/en/curl.constants.php
  * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
  */
@@ -2233,6 +2234,7 @@ define('CURLMOPT_MAX_TOTAL_CONNECTIONS', 13);
 define ('CURLFTP_CREATE_DIR_RETRY', 2);
 
 /**
+ * Value for the <b>CURLOPT_HTTPAUTH</b> option.
  * HTTP Negotiate (SPNEGO) authentication
  * @link https://php.net/manual/en/curl.constants.php
  * @since 7.0.7
