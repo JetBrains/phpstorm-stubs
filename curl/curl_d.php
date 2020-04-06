@@ -2130,13 +2130,13 @@ define('CURLPROTO_SMBS', 134217728);
 /**
  * How to deal with headers.
  * One of the following constants:
- * <b>CURLHEADER_UNIFIED</b>: the headers specified in <b>CURLOPT_HTTPHEADER</b> will be used in requests both to servers and proxies.
- * With this option enabled, <b>CURLOPT_PROXYHEADER</b> will not have any effect.
- * <b>CURLHEADER_SEPARATE</b>: makes <b>CURLOPT_HTTPHEADER</b> headers only get sent to a server and not to a proxy.
- * Proxy headers must be set with <b>CURLOPT_PROXYHEADER</b> to get used.
- * Note that if a non-CONNECT request is sent to a proxy, libcurl will send both server headers and proxy headers.
- * When doing CONNECT, libcurl will send <b>CURLOPT_PROXYHEADER</b> headers only to the proxy and then <b>CURLOPT_HTTPHEADER</b> headers only to the server.
- * Defaults to <b>CURLHEADER_SEPARATE</b> as of cURL 7.42.1, and <b>CURLHEADER_UNIFIED</b> before.
+ *  <b>CURLHEADER_UNIFIED</b>: the headers specified in <b>CURLOPT_HTTPHEADER</b> will be used in requests both to servers and proxies.
+ *   With this option enabled, <b>CURLOPT_PROXYHEADER</b> will not have any effect.
+ *  <b>CURLHEADER_SEPARATE</b>: makes <b>CURLOPT_HTTPHEADER</b> headers only get sent to a server and not to a proxy.
+ *   Proxy headers must be set with <b>CURLOPT_PROXYHEADER</b> to get used.
+ *   Note that if a non-CONNECT request is sent to a proxy, libcurl will send both server headers and proxy headers.
+ *   When doing CONNECT, libcurl will send <b>CURLOPT_PROXYHEADER</b> headers only to the proxy and then <b>CURLOPT_HTTPHEADER</b> headers only to the server.
+ *  Defaults to <b>CURLHEADER_SEPARATE</b> as of cURL 7.42.1, and <b>CURLHEADER_UNIFIED</b> before.
  * @link https://www.php.net/manual/en/function.curl-setopt.php
  * @since 7.0.7
  */
@@ -2239,14 +2239,14 @@ define('CURLAUTH_NEGOTIATE', 4);
 
 /**
  * Pass a <em>callable</em> that will be registered to handle server pushes and should have the following signature:
- * <b>parent_ch</b>
- * The parent cURL handle (the request the client made).
- * <b>pushed_ch</b>
- * A new cURL handle for the pushed request.
- * <b>headers</b>
- * The push promise headers.
- * The push function is supposed to return either <b>CURL_PUSH_OK</b> if it can handle the push,
- * or <b>CURL_PUSH_DENY</b> to reject it.
+ *  <b>parent_ch</b>
+ *   The parent cURL handle (the request the client made).
+ *  <b>pushed_ch</b>
+ *   A new cURL handle for the pushed request.
+ *  <b>headers</b>
+ *   The push promise headers.
+ *   The push function is supposed to return either <b>CURL_PUSH_OK</b> if it can handle the push,
+ *   or <b>CURL_PUSH_DENY</b> to reject it.
  * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
  * @since 7.1
  */
@@ -3380,8 +3380,8 @@ define("CURLOPT_ACCEPTTIMEOUT_MS",212);
 define("CURLOPT_MAIL_AUTH",10217);
 /**
  * Set SSL behavior options, which is a bitmask of any of the following constants:
- * <b>CURLSSLOPT_ALLOW_BEAST</b>: do not attempt to use any workarounds for a security flaw in the SSL3 and TLS1.0 protocols.
- * <b>CURLSSLOPT_NO_REVOKE</b>: disable certificate revocation checks for those SSL backends where such behavior is present.
+ *  <b>CURLSSLOPT_ALLOW_BEAST</b>: do not attempt to use any workarounds for a security flaw in the SSL3 and TLS1.0 protocols.
+ *  <b>CURLSSLOPT_NO_REVOKE</b>: disable certificate revocation checks for those SSL backends where such behavior is present.
  * @link https://www.php.net/manual/en/function.curl-setopt.php
  * @since 7.0.7
  */
@@ -3722,9 +3722,9 @@ define('CURLOPT_PROXY_SSL_CIPHER_LIST', 10259);
 
 /**
  * Set proxy SSL behavior options, which is a bitmask of any of the following constants:
- * <b>CURLSSLOPT_ALLOW_BEAST</b>: do not attempt to use any workarounds for a security flaw in the SSL3 and TLS1.0 protocols.
- * <b>CURLSSLOPT_NO_REVOKE</b>: disable certificate revocation checks for those SSL backends where such behavior is present. (curl >= 7.44.0)
- * <b>CURLSSLOPT_NO_PARTIALCHAIN</b>: do not accept "partial" certificate chains, which it otherwise does by default. (curl >= 7.68.0)
+ *  <b>CURLSSLOPT_ALLOW_BEAST</b>: do not attempt to use any workarounds for a security flaw in the SSL3 and TLS1.0 protocols.
+ *  <b>CURLSSLOPT_NO_REVOKE</b>: disable certificate revocation checks for those SSL backends where such behavior is present. (curl >= 7.44.0)
+ *  <b>CURLSSLOPT_NO_PARTIALCHAIN</b>: do not accept "partial" certificate chains, which it otherwise does by default. (curl >= 7.68.0)
  * @link https://www.php.net/manual/en/function.curl-setopt.php
  * @since 7.3
  */
