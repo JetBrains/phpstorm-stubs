@@ -1029,70 +1029,409 @@ define ('CURL_VERSION_KERBEROS4', 2);
 define ('CURL_VERSION_SSL', 4);
 define ('CURL_VERSION_LIBZ', 8);
 define ('CURLVERSION_NOW', 4);
+/**
+ * All fine. Proceed as usual.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_OK', 0);
+/**
+ * The URL you passed to libcurl used a protocol that this libcurl does not support.
+ * The support might be a compile-time option that you didn't use,
+ * it can be a misspelled protocol string or just a protocol libcurl has no code for.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_UNSUPPORTED_PROTOCOL', 1);
+/**
+ * Very early initialization code failed.
+ * This is likely to be an internal error or problem,
+ * or a resource problem where something fundamental couldn't get done at init time.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FAILED_INIT', 2);
+/**
+ * The URL was not properly formatted.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_URL_MALFORMAT', 3);
+/**
+ * A requested feature, protocol or option was not found built-in in this libcurl due to a build-time decision.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_URL_MALFORMAT_USER', 4);
+/**
+ * Couldn't resolve proxy. The given proxy host could not be resolved.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_COULDNT_RESOLVE_PROXY', 5);
+/**
+ * Couldn't resolve host. The given remote host was not resolved.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_COULDNT_RESOLVE_HOST', 6);
+/**
+ * Failed to connect to host or proxy.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_COULDNT_CONNECT', 7);
+/**
+ * The server sent data libcurl couldn't parse.
+ * This error code was known as as <b>CURLE_FTP_WEIRD_SERVER_REPLY</b> before 7.51.0.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FTP_WEIRD_SERVER_REPLY', 8);
+/**
+ * We were denied access to the resource given in the URL.
+ * For FTP, this occurs while trying to change to the remote directory.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FTP_ACCESS_DENIED', 9);
+/**
+ * While waiting for the server to connect back when an active FTP session is used,
+ * an error code was sent over the control connection or similar.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FTP_USER_PASSWORD_INCORRECT', 10);
+/**
+ * After having sent the FTP password to the server, libcurl expects a proper reply.
+ * This error code indicates that an unexpected code was returned.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FTP_WEIRD_PASS_REPLY', 11);
+/**
+ * During an active FTP session while waiting for the server to connect,
+ * the <b>CURLOPT_ACCEPTTIMEOUT_MS</b> (or the internal default) timeout expired.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FTP_WEIRD_USER_REPLY', 12);
+/**
+ * Libcurl failed to get a sensible result back from the server as a response to either a PASV or a EPSV command.
+ * The server is flawed.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FTP_WEIRD_PASV_REPLY', 13);
+/**
+ * FTP servers return a 227-line as a response to a PASV command.
+ * If libcurl fails to parse that line, this return code is passed back.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FTP_WEIRD_227_FORMAT', 14);
+/**
+ * An internal failure to lookup the host used for the new connection.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FTP_CANT_GET_HOST', 15);
+/**
+ * A problem was detected in the HTTP2 framing layer.
+ * This is somewhat generic and can be one out of several problems, see the error buffer for details.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FTP_CANT_RECONNECT', 16);
+/**
+ * Received an error when trying to set the transfer mode to binary or ASCII.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FTP_COULDNT_SET_BINARY', 17);
+/**
+ * A file transfer was shorter or larger than expected.
+ * This happens when the server first reports an expected transfer size, and then delivers data
+ * that doesn't match the previously given size.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_PARTIAL_FILE', 18);
+/**
+ * This was either a weird reply to a 'RETR' command or a zero byte transfer complete.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FTP_COULDNT_RETR_FILE', 19);
+/**
+ * After a completed file transfer, the FTP server did not respond a proper
+ * @link https://php.net/manual/en/curl.constants.php
+ */
 define ('CURLE_FTP_WRITE_ERROR', 20);
+/**
+ * When sending custom "QUOTE" commands to the remote server,
+ * one of the commands returned an error code that was 400 or higher (for FTP) or otherwise indicated unsuccessful completion of the command.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FTP_QUOTE_ERROR', 21);
+/**
+ * This is returned if <b>CURLOPT_FAILONERROR</b> is set TRUE and the HTTP server returns an error code that is >= 400.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_HTTP_NOT_FOUND', 22);
+/**
+ * An error occurred when writing received data to a local file, or an error was returned to libcurl from a write callback.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_WRITE_ERROR', 23);
+/**
+ * @link https://php.net/manual/en/curl.constants.php
+ */
 define ('CURLE_MALFORMAT_USER', 24);
+/**
+ * Failed starting the upload. For FTP, the server typically denied the STOR command.
+ * The error buffer usually contains the server's explanation for this.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FTP_COULDNT_STOR_FILE', 25);
+/**
+ * There was a problem reading a local file or an error returned by the read callback.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_READ_ERROR', 26);
+/**
+ * A memory allocation request failed. This is serious badness and things are severely screwed up if this ever occurs.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_OUT_OF_MEMORY', 27);
+/**
+ * Operation timeout. The specified time-out period was reached according to the conditions.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_OPERATION_TIMEOUTED', 28);
+/**
+ * libcurl failed to set ASCII transfer type (TYPE A).
+ * @link https://php.net/manual/en/curl.constants.php
+ */
 define ('CURLE_FTP_COULDNT_SET_ASCII', 29);
+/**
+ * The FTP PORT command returned error.
+ * This mostly happens when you haven't specified a good enough address for libcurl to use. See <b>CURLOPT_FTPPORT</b>.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FTP_PORT_FAILED', 30);
+/**
+ * The FTP REST command returned error. This should never happen if the server is sane.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FTP_COULDNT_USE_REST', 31);
+/**
+ * The FTP SIZE command returned error. SIZE is not a kosher FTP command,
+ * it is an extension and not all servers support it.
+ * @link https://php.net/manual/en/curl.constants.php
+ */
 define ('CURLE_FTP_COULDNT_GET_SIZE', 32);
+/**
+ * The server does not support or accept range requests.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_HTTP_RANGE_ERROR', 33);
+/**
+ * This is an odd error that mainly occurs due to internal confusion.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_HTTP_POST_ERROR', 34);
+/**
+ * A problem occurred somewhere in the SSL/TLS handshake.
+ * You really want the error buffer and read the message there as it pinpoints the problem slightly more.
+ * Could be certificates (file formats, paths, permissions), passwords, and others.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_SSL_CONNECT_ERROR', 35);
+/**
+ * The download could not be resumed because the specified offset was out of the file boundary.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FTP_BAD_DOWNLOAD_RESUME', 36);
+/**
+ * A file given with <em>FILE://</em> couldn't be opened.
+ * Most likely because the file path doesn't identify an existing file. Did you check file permissions?
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FILE_COULDNT_READ_FILE', 37);
+/**
+ * LDAP cannot bind. LDAP bind operation failed.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_LDAP_CANNOT_BIND', 38);
+/**
+ * LDAP search failed.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_LDAP_SEARCH_FAILED', 39);
+/**
+ * Library not found. The LDAP library was not found.
+ * @link https://php.net/manual/en/curl.constants.php
+ */
 define ('CURLE_LIBRARY_NOT_FOUND', 40);
+/**
+ * Function not found. A required zlib function was not found.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FUNCTION_NOT_FOUND', 41);
+/**
+ * Aborted by callback. A callback returned "abort" to libcurl.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_ABORTED_BY_CALLBACK', 42);
+/**
+ * A function was called with a bad parameter.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_BAD_FUNCTION_ARGUMENT', 43);
+/**
+ * This is never returned
+ * @link https://php.net/manual/en/curl.constants.php
+ */
 define ('CURLE_BAD_CALLING_ORDER', 44);
+/**
+ * Interface error. A specified outgoing interface could not be used.
+ * Set which interface to use for outgoing connections' source IP address with <b>CURLOPT_INTERFACE</b>.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_HTTP_PORT_FAILED', 45);
+/**
+ * This is never returned
+ * @link https://php.net/manual/en/curl.constants.php
+ */
 define ('CURLE_BAD_PASSWORD_ENTERED', 46);
+/**
+ * Too many redirects. When following redirects, libcurl hit the maximum amount.
+ * Set your limit with <b>CURLOPT_MAXREDIRS</b>.
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_TOO_MANY_REDIRECTS', 47);
+/**
+ * An option passed to libcurl is not recognized/known. Refer to the appropriate documentation.
+ * This is most likely a problem in the program that uses libcurl.
+ * The error buffer might contain more specific information about which exact option it concerns.
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_UNKNOWN_TELNET_OPTION', 48);
+/**
+ * A telnet option string was Illegally formatted.
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_TELNET_OPTION_SYNTAX', 49);
+/**
+ * Currently unused.
+ * @link https://php.net/manual/en/curl.constants.php
+ */
 define ('CURLE_OBSOLETE', 50);
+/**
+ * The remote server's SSL certificate or SSH md5 fingerprint was deemed not OK.
+ * This error code has been unified with <b>CURLE_SSL_CACERT</b> since 7.62.0. Its previous value was 51.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_SSL_PEER_CERTIFICATE', 60);
+/**
+ * Nothing was returned from the server, and under the circumstances, getting nothing is considered an error.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_GOT_NOTHING', 52);
+/**
+ * The specified crypto engine wasn't found.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_SSL_ENGINE_NOTFOUND', 53);
+/**
+ * Failed setting the selected SSL crypto engine as default!
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_SSL_ENGINE_SETFAILED', 54);
+/**
+ * Failed sending network data.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_SEND_ERROR', 55);
+/**
+ * Failure with receiving network data.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_RECV_ERROR', 56);
+/**
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_SHARE_IN_USE', 57);
+/**
+ * Problem with the local client certificate.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_SSL_CERTPROBLEM', 58);
+/**
+ * Couldn't use specified cipher.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_SSL_CIPHER', 59);
+/**
+ * The remote server's SSL certificate or SSH md5 fingerprint was deemed not OK.
+ * This error code has been unified with <b>CURLE_SSL_PEER_CERTIFICATE</b> since 7.62.0.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_SSL_CACERT', 60);
+/**
+ * Unrecognized transfer encoding.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_BAD_CONTENT_ENCODING', 61);
+/**
+ * Invalid LDAP URL.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_LDAP_INVALID_URL', 62);
+/**
+ * Maximum file size exceeded.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FILESIZE_EXCEEDED', 63);
+/**
+ * Requested FTP SSL level failed.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLE_FTP_SSL_FAILED', 64);
 /**
  * Value for the <b>CURLOPT_PROXYTYPE</b> option.
@@ -2352,10 +2691,37 @@ define('CURLOPT_USE_SSL', 119);
  * @link https://curl.haxx.se/libcurl/c/CURLOPT_TELNETOPTIONS.html
  */
 define("CURLOPT_TELNETOPTIONS",10070);
+/**
+ * The download could not be resumed because the specified offset was out of the file boundary.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define("CURLE_BAD_DOWNLOAD_RESUME",36);
+/**
+ * A file transfer was shorter or larger than expected.
+ * This happens when the server first reports an expected transfer size, and then delivers data
+ * that doesn't match the previously given size.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define("CURLE_FTP_PARTIAL_FILE",18);
+/**
+ * This is returned if <b>CURLOPT_FAILONERROR</b> is set <b>TRUE</b> and the HTTP server returns an error code that is >= 400.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define("CURLE_HTTP_RETURNED_ERROR",22);
+/**
+ * Operation timeout. The specified time-out period was reached according to the conditions.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define("CURLE_OPERATION_TIMEDOUT",28);
+/**
+ * Failed to match the pinned key specified with <b>CURLOPT_PINNEDPUBLICKEY</b>.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define("CURLE_SSL_PINNEDPUBKEYNOTMATCH",90);
 define("CURLINFO_LASTONE",56);
 define("CURLM_ADDED_ALREADY",7);
@@ -2371,8 +2737,16 @@ define("CURL_TIMECOND_NONE",0);
  * @link https://www.php.net/manual/en/function.curl-setopt.php
  */
 define("CURLAUTH_NONE",0);
+/**
+ * Problem with reading the SSL CA cert (path? access rights?)
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define("CURLE_SSL_CACERT_BADFILE",77);
 /**
+ * An unspecified error occurred during the SSH session.
+ * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
  */
 define("CURLE_SSH",79);
 /**
@@ -2829,6 +3203,8 @@ define("CURLOPT_CONNECT_TO",10243);
 define("CURLOPT_TCP_FASTOPEN",244);
 
 /**
+ * The server sent data libcurl couldn't parse.
+ * @link https://www.php.net/manual/en/curl.constants.php
  * @since 7.3
  */
 define('CURLE_WEIRD_SERVER_REPLY', 8);
