@@ -2932,26 +2932,38 @@ define("CURLUSESSL_NONE",0);
  */
 define("CURLUSESSL_TRY",1);
 /**
+ * Convenience define that pauses both directions.
+ * @link https://php.net/manual/en/curl.constants.php
  * @since 5.5
  */
 define("CURLPAUSE_ALL",5);
 /**
+ * Convenience define that unpauses both directions.
+ * @link https://php.net/manual/en/curl.constants.php
  * @since 5.5
  */
 define("CURLPAUSE_CONT",0);
 /**
+ * Pause receiving data. There will be no data received on this connection until this function is called again without this bit set.
+ * Thus, the write callback (<b>CURLOPT_WRITEFUNCTION</b>) won't be called.
+ * @link https://php.net/manual/en/curl.constants.php
  * @since 5.5
  */
 define("CURLPAUSE_RECV",1);
 /**
+ * @link https://php.net/manual/en/curl.constants.php
  * @since 5.5
  */
 define("CURLPAUSE_RECV_CONT",0);
 /**
+ * Pause sending data. There will be no data sent on this connection until this function is called again without this bit set.
+ * Thus, the read callback (CURLOPT_READFUNCTION) won't be called.
+ * @link https://php.net/manual/en/curl.constants.php
  * @since 5.5
  */
 define("CURLPAUSE_SEND",4);
 /**
+ * @link https://php.net/manual/en/curl.constants.php
  * @since 5.5
  */
 define("CURLPAUSE_SEND_CONT",0);
@@ -3325,7 +3337,7 @@ define("CURLOPT_DEFAULT_PROTOCOL",10238);
  */
 define("CURLOPT_STREAM_WEIGHT",239);
 /**
- * TRUE to not send TFTP options requests.
+ * <b>TRUE</b> to not send TFTP options requests.
  * @link https://www.php.net/manual/en/function.curl-setopt.php
  * @since 7.0.7
  */
@@ -3338,7 +3350,7 @@ define("CURLOPT_TFTP_NO_OPTIONS",242);
  */
 define("CURLOPT_CONNECT_TO",10243);
 /**
- * TRUE to enable TCP Fast Open.
+ * <b>TRUE</b> to enable TCP Fast Open.
  * @link https://www.php.net/manual/en/function.curl-setopt.php
  * @since 7.0.7
  */
