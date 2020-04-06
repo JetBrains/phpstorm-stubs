@@ -21,23 +21,36 @@ define('CURLOPT_SSH_AUTH_TYPES', 151);
 define ('CURLOPT_CONNECT_ONLY', 141);
 
 /**
+ * With the <b>CURLOPT_FOLLOWLOCATION</b> option disabled:
+ *   redirect URL found in the last transaction, that should be requested manually next.
+ * With the <b>CURLOPT_FOLLOWLOCATION</b> option enabled:
+ *   this is empty. The redirect URL in this case is available in <b>CURLINFO_EFFECTIVE_URL</b>
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 5.3.7
  */
 define('CURLINFO_REDIRECT_URL', 1048607);
 
 /**
+ * IP address of the most recent connection
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 5.4.7
  */
 define('CURLINFO_PRIMARY_IP', 1048608);
 /**
+ * Destination port of the most recent connection
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 5.4.7
  */
 define('CURLINFO_PRIMARY_PORT', 2097192);
 /**
+ * Local (source) IP address of the most recent connection
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 5.4.7
  */
 define('CURLINFO_LOCAL_IP', 1048617);
 /**
+ * Local (source) port of the most recent connection
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 5.4.7
  */
 define('CURLINFO_LOCAL_PORT', 2097194);
@@ -992,35 +1005,119 @@ define ('CURLCLOSEPOLICY_CALLBACK', 5);
  * @deprecated it was never implemented in cURL and never had any effect.
  */
 define ('CURLCLOSEPOLICY_OLDEST', 1);
+/**
+ * Last effective URL
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_EFFECTIVE_URL', 1048577);
+/**
+ * As of PHP 5.5.0 and cURL 7.10.8, this is a legacy alias of <b>CURLINFO_RESPONSE_CODE</b>.
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_HTTP_CODE', 2097154);
+/**
+ * Total size of all headers received
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_HEADER_SIZE', 2097163);
+/**
+ * Total size of issued requests, currently only for HTTP requests
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_REQUEST_SIZE', 2097164);
+/**
+ * Total transaction time in seconds for last transfer
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_TOTAL_TIME', 3145731);
+/**
+ * Time in seconds until name resolving was complete
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_NAMELOOKUP_TIME', 3145732);
+/**
+ * Time in seconds it took to establish the connection
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_CONNECT_TIME', 3145733);
+/**
+ * Time in seconds from start until just before file transfer begins
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_PRETRANSFER_TIME', 3145734);
+/**
+ * Total number of bytes uploaded
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_SIZE_UPLOAD', 3145735);
+/**
+ * Total number of bytes downloaded
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_SIZE_DOWNLOAD', 3145736);
+/**
+ * Average download speed
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_SPEED_DOWNLOAD', 3145737);
+/**
+ * Average upload speed
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_SPEED_UPLOAD', 3145738);
+/**
+ * Remote time of the retrieved document, with the <b>CURLOPT_FILETIME</b> enabled;
+ * if -1 is returned the time of the document is unknown
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_FILETIME', 2097166);
+/**
+ * Result of SSL certification verification requested by setting <b>CURLOPT_SSL_VERIFYPEER</b>
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_SSL_VERIFYRESULT', 2097165);
+/**
+ * Content length of download, read from <em>Content-Length: field</em>
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_CONTENT_LENGTH_DOWNLOAD', 3145743);
+/**
+ * Specified size of upload
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_CONTENT_LENGTH_UPLOAD', 3145744);
+/**
+ * Time in seconds until the first byte is about to be transferred
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_STARTTRANSFER_TIME', 3145745);
+/**
+ * Content-Type: of the requested document. <b>NULL</b> indicates server did not send valid Content-Type: header
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_CONTENT_TYPE', 1048594);
+/**
+ * Time in seconds of all redirection steps before final transaction was started,
+ * with the <b>CURLOPT_FOLLOWLOCATION</b> option enabled
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_REDIRECT_TIME', 3145747);
+/**
+ * Number of redirects, with the <b>CURLOPT_FOLLOWLOCATION</b> option enabled
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
+ */
 define ('CURLINFO_REDIRECT_COUNT', 2097172);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * <b>TRUE</b> to track the handle's request string
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 5.1.3
  */
 define ('CURLINFO_HEADER_OUT', 2);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Private data associated with this cURL handle, previously set with the <b>CURLOPT_PRIVATE</b> option of {@see curl_getinfo()}
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 5.2.4
  */
 define ('CURLINFO_PRIVATE', 1048597);
@@ -1196,7 +1293,7 @@ define ('CURLE_FTP_WRITE_ERROR', 20);
  */
 define ('CURLE_FTP_QUOTE_ERROR', 21);
 /**
- * This is returned if <b>CURLOPT_FAILONERROR</b> is set TRUE and the HTTP server returns an error code that is >= 400.
+ * This is returned if <b>CURLOPT_FAILONERROR</b> is set <b>TRUE</b> and the HTTP server returns an error code that is >= 400.
  * @link https://php.net/manual/en/curl.constants.php
  * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
  */
@@ -2149,37 +2246,44 @@ define('CURLOPT_SUPPRESS_CONNECT_HEADERS', 265);
 define('CURLAUTH_GSSAPI', 4);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * The content-length of the download. This is the value read from the Content-Type: field. -1 if the size isn't known
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 7.3
  */
 define('CURLINFO_CONTENT_LENGTH_DOWNLOAD_T', 6291471);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * The specified size of the upload. -1 if the size isn't known
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 7.3
  */
 define('CURLINFO_CONTENT_LENGTH_UPLOAD_T', 6291472);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Total number of bytes that were downloaded.
+ * The number is only for the latest transfer and will be reset again for each new transfer
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 7.3
  */
 define('CURLINFO_SIZE_DOWNLOAD_T', 6291464);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Total number of bytes that were uploaded
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 7.3
  */
 define('CURLINFO_SIZE_UPLOAD_T', 6291463);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * The average download speed in bytes/second that curl measured for the complete download
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 7.3
  */
 define('CURLINFO_SPEED_DOWNLOAD_T', 6291465);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * The average upload speed in bytes/second that curl measured for the complete upload
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 7.3
  */
 define('CURLINFO_SPEED_UPLOAD_T', 6291466);
@@ -2241,7 +2345,10 @@ define('CURL_LOCK_DATA_CONNECT', 5);
 define('CURLSSH_AUTH_GSSAPI', 32);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Remote time of the retrieved document (as Unix timestamp),
+ * an alternative to <b>CURLINFO_FILETIME</b> to allow systems with 32 bit long variables to extract dates
+ * outside of the 32bit timestamp range
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 7.3
  */
 define('CURLINFO_FILETIME_T', 6291470);
@@ -2299,43 +2406,51 @@ define('CURL_LOCK_DATA_PSL', 6);
 define('CURLAUTH_BEARER', 64);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Time, in microseconds, it took from the start until the SSL/SSH connect/handshake to the remote host was completed
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 7.3
  */
 define('CURLINFO_APPCONNECT_TIME_T', 6291512);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Total time taken, in microseconds, from the start until the connection to the remote host (or proxy) was completed
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 7.3
  */
 define('CURLINFO_CONNECT_TIME_T', 6291508);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Time in microseconds from the start until the name resolving was completed
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 7.3
  */
 define('CURLINFO_NAMELOOKUP_TIME_T', 6291507);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Time taken from the start until the file transfer is just about to begin, in microseconds
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 7.3
  */
 define('CURLINFO_PRETRANSFER_TIME_T', 6291509);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Total time, in microseconds,
+ * it took for all redirection steps include name lookup, connect, pretransfer and transfer before final transaction was started
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 7.3
  */
 define('CURLINFO_REDIRECT_TIME_T', 6291511);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Time, in microseconds, it took from the start until the first byte is received
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 7.3
  */
 define('CURLINFO_STARTTRANSFER_TIME_T', 6291510);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Total time in microseconds for the previous transfer, including name resolving, TCP connect etc.
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 7.3
  */
 define('CURLINFO_TOTAL_TIME_T', 6291506);
@@ -2745,6 +2860,9 @@ define("CURLE_OPERATION_TIMEDOUT",28);
  * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
  */
 define("CURLE_SSL_PINNEDPUBKEYNOTMATCH",90);
+/**
+ * @link https://php.net/manual/en/curl.constants.php
+ */
 define("CURLINFO_LASTONE",56);
 define("CURLM_ADDED_ALREADY",7);
 define("CURLSHOPT_NONE",0);
@@ -3256,6 +3374,8 @@ define('CURL_VERSION_HTTPS_PROXY', 2097152);
 
 
 /**
+ * The protocol used in the last HTTP connection. The returned value will be exactly one of the <b>CURLPROTO_*</b> values
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 7.3
  */
 define('CURLINFO_PROTOCOL', 2097200);
@@ -3526,6 +3646,8 @@ define('CURLOPT_PROXY_SSL_VERIFYPEER', 248);
 define('CURLOPT_PROXY_SSLCERT', 10254);
 
 /**
+ * The URL scheme used for the most recent connection
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 7.3
  */
 define('CURLINFO_SCHEME', 1048625);
@@ -3538,6 +3660,8 @@ define('CURLINFO_SCHEME', 1048625);
 define('CURL_VERSION_UNIX_SOCKETS', 524288);
 
 /**
+ * The version used in the last HTTP connection. The return value will be one of the defined
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 7.3
  */
 define('CURLINFO_HTTP_VERSION', 2097198);
@@ -3554,6 +3678,9 @@ define('CURLINFO_HTTP_VERSION', 2097198);
  */
 define('CURLOPT_PRE_PROXY', 10262);
 /**
+ * The result of the certificate verification that was requested (using the <b>CURLOPT_PROXY_SSL_VERIFYPEER</b> option).
+ * Only used for HTTPS proxies
+ * @link https://www.php.net/manual/en/function.curl-getinfo.php
  * @since 7.3
  */
 define('CURLINFO_PROXY_SSL_VERIFYRESULT', 2097199);
