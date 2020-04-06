@@ -1611,11 +1611,43 @@ define ('CURL_HTTP_VERSION_1_1', 2);
  * @link https://php.net/manual/en/curl.constants.php
  */
 define ('CURL_HTTP_VERSION_2_0', 3);
+/**
+ * This is not really an error. It means you should call {@see curl_multi_exec()} again without doing select() or similar in between.
+ * Before version 7.20.0 this could be returned by {@see curl_multi_exec()}, but in later versions this return code is never used.
+ * @link https://www.php.net/manual/en/function.curl-multi-exec.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLM_CALL_MULTI_PERFORM', -1);
+/**
+ * Things are fine.
+ * @link https://www.php.net/manual/en/function.curl-multi-exec.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLM_OK', 0);
+/**
+ * The passed-in handle is not a valid CURLM handle.
+ * @link https://www.php.net/manual/en/function.curl-multi-exec.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLM_BAD_HANDLE', 1);
+/**
+ * An easy handle was not good/valid. It could mean that it isn't an easy handle at all,
+ * or possibly that the handle already is in use by this or another multi handle.
+ * @link https://www.php.net/manual/en/function.curl-multi-exec.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLM_BAD_EASY_HANDLE', 2);
+/**
+ * Out of memory error.
+ * @link https://www.php.net/manual/en/function.curl-multi-exec.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLM_OUT_OF_MEMORY', 3);
+/**
+ * libcurl' internal error.
+ * @link https://www.php.net/manual/en/function.curl-multi-exec.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define ('CURLM_INTERNAL_ERROR', 4);
 define ('CURLMSG_DONE', 1);
 
@@ -2886,6 +2918,11 @@ define("CURLE_SSL_PINNEDPUBKEYNOTMATCH",90);
  * @link https://php.net/manual/en/curl.constants.php
  */
 define("CURLINFO_LASTONE",56);
+/**
+ * An easy handle already added to a multi handle was attempted to get added a second time.
+ * @link https://www.php.net/manual/en/function.curl-multi-exec.php
+ * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
+ */
 define("CURLM_ADDED_ALREADY",7);
 /**
  * @link https://curl.haxx.se/libcurl/c/symbols-in-versions.html
