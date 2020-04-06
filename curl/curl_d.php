@@ -234,7 +234,7 @@ define ('CURLOPT_FTPASCII', -1);
 /**
  * <b>TRUE</b> to be completely silent with regards to the cURL functions.
  * @link https://www.php.net/manual/en/function.curl-setopt.php
- * @Deprecated use <b>CURLOPT_RETURNTRANSFER</b> instead since cURL 7.15.5
+ * @deprecated use <b>CURLOPT_RETURNTRANSFER</b> instead since cURL 7.15.5
  */
 define ('CURLOPT_MUTE', -1);
 /**
