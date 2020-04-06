@@ -1024,9 +1024,25 @@ define ('CURLINFO_HEADER_OUT', 2);
  * @since 5.2.4
  */
 define ('CURLINFO_PRIVATE', 1048597);
+/**
+ * Supports IPv6
+ * @link https://php.net/manual/en/curl.constants.php
+ */
 define ('CURL_VERSION_IPV6', 1);
+/**
+ * Supports Kerberos V4 (when using FTP)
+ * @link https://php.net/manual/en/curl.constants.php
+ */
 define ('CURL_VERSION_KERBEROS4', 2);
+/**
+ * Supports SSL (HTTPS/FTPS)
+ * @link https://php.net/manual/en/curl.constants.php
+ */
 define ('CURL_VERSION_SSL', 4);
+/**
+ * Supports HTTP deflate using libz
+ * @link https://php.net/manual/en/curl.constants.php
+ */
 define ('CURL_VERSION_LIBZ', 8);
 define ('CURLVERSION_NOW', 4);
 /**
@@ -2194,12 +2210,14 @@ define('CURLOPT_SOCKS5_AUTH', 267);
 define('CURLOPT_SSH_COMPRESSION', 268);
 
 /**
+ * libcurl was build with multiple ssh backends.
  * @link https://php.net/manual/en/curl.constants.php
  * @since 7.3
  */
 define('CURL_VERSION_MULTI_SSL', 4194304);
 
 /**
+ * Supports HTTP Brotli content encoding using libbrotlidec
  * @link https://php.net/manual/en/curl.constants.php
  * @since 7.3
  */
@@ -3160,6 +3178,8 @@ define("CURLOPT_TCP_KEEPINTVL",215);
  */
 define("CURLSSLOPT_ALLOW_BEAST",1);
 /**
+ * Supports HTTP2.
+ * @link https://www.php.net/manual/en/curl.constants.php
  * @since 5.5.24
  */
 define("CURL_VERSION_HTTP2",65536);
@@ -3224,6 +3244,8 @@ define('CURLOPT_KEEP_SENDING_ON_ERROR', 245);
 define('CURL_SSLVERSION_TLSv1_3', 7);
 
 /**
+ * Supports HTTPS proxy.
+ * @link https://www.php.net/manual/en/curl.constants.php
  * @since 7.3
  */
 define('CURL_VERSION_HTTPS_PROXY', 2097152);
@@ -3235,76 +3257,106 @@ define('CURL_VERSION_HTTPS_PROXY', 2097152);
 define('CURLINFO_PROTOCOL', 2097200);
 
 /**
+ * Supports asynchronous name lookups.
+ * @link https://www.php.net/manual/en/curl.constants.php
  * @since 7.3
  */
 define('CURL_VERSION_ASYNCHDNS', 128);
 
 /**
+ * Supports memory tracking debug capabilities.
+ * @link https://www.php.net/manual/en/curl.constants.php
  * @since 7.3.6
  */
 define('CURL_VERSION_CURLDEBUG', 8192);
 
 /**
+ * Supports character conversions.
+ * @link https://www.php.net/manual/en/curl.constants.php
  * @since 7.3
  */
 define('CURL_VERSION_CONV', 4096);
 
 /**
+ * libcurl was built with debug capabilities
+ * @link https://www.php.net/manual/en/curl.constants.php
  * @since 7.3
  */
 define('CURL_VERSION_DEBUG', 64);
 
 /**
+ * Supports HTTP GSS-Negotiate.
+ * @link https://www.php.net/manual/en/curl.constants.php
  * @since 7.3
  */
 define('CURL_VERSION_GSSNEGOTIATE', 32);
 
 /**
+ * Supports the IDNA.
+ * @link https://www.php.net/manual/en/curl.constants.php
  * @since 7.3
  */
 define('CURL_VERSION_IDN', 1024);
 
 /**
+ * Supports large files.
+ * @link https://www.php.net/manual/en/curl.constants.php
  * @since 7.3
  */
 define('CURL_VERSION_LARGEFILE', 512);
 
 /**
+ * Supports HTTP NTLM.
+ * @link https://www.php.net/manual/en/curl.constants.php
  * @since 7.3
  */
 define('CURL_VERSION_NTLM', 16);
 
 /**
- * @since 7.3.6
+ * Supports the Mozilla's Public Suffix List.
+ * @link https://www.php.net/manual/en/curl.constants.php
+ * @since 7.0.7
  */
 define('CURL_VERSION_PSL', 1048576);
 
 /**
+ * Supports for SPNEGO authentication (RFC 2478).
+ * @link https://www.php.net/manual/en/curl.constants.php
  * @since 7.3
  */
 define('CURL_VERSION_SPNEGO', 256);
 
 /**
+ * Supports SSPI. Windows-specific.
+ * @link https://www.php.net/manual/en/curl.constants.php
  * @since 7.3
  */
 define('CURL_VERSION_SSPI', 2048);
 
 /**
+ * Supports the TLS-SRP.
+ * @link https://www.php.net/manual/en/curl.constants.php
  * @since 7.3
  */
 define('CURL_VERSION_TLSAUTH_SRP', 16384);
 
 /**
+ * Supports the NTLM delegation to a winbind helper.
+ * @link https://www.php.net/manual/en/curl.constants.php
  * @since 7.3
  */
 define('CURL_VERSION_NTLM_WB', 32768);
 
 /**
+ * Supports the GSSAPI. This makes libcurl use provided functions for Kerberos and SPNEGO authentication.
+ * @link https://www.php.net/manual/en/curl.constants.php
  * @since 7.3
  */
 define('CURL_VERSION_GSSAPI', 131072);
 
 /**
+ * Supports Kerberos V5 authentication for FTP, IMAP, POP3, SMTP and SOCKSv5 proxy.
+ * @link https://www.php.net/manual/en/curl.constants.php
  * @since 7.3
  */
 define('CURL_VERSION_KERBEROS5', 262144);
@@ -3475,7 +3527,9 @@ define('CURLOPT_PROXY_SSLCERT', 10254);
 define('CURLINFO_SCHEME', 1048625);
 
 /**
- * @since 7.3
+ * Supports UNIX sockets.
+ * @link https://www.php.net/manual/en/curl.constants.php
+ * @since 7.0.7
  */
 define('CURL_VERSION_UNIX_SOCKETS', 524288);
 
