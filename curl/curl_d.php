@@ -3310,6 +3310,11 @@ define('CURL_VERSION_GSSAPI', 131072);
 define('CURL_VERSION_KERBEROS5', 262144);
 
 /**
+ * The path to proxy Certificate Authority (CA) bundle.
+ * Set the path as a string naming a file holding one or more certificates to verify the HTTPS proxy with.
+ * This option is for connecting to an HTTPS proxy, not an HTTPS server.
+ * Defaults set to the system path where libcurl's cacert bundle is assumed to be stored.
+ * @link https://www.php.net/manual/en/function.curl-setopt.php
  * @since 7.3
  */
 define('CURLOPT_PROXY_CAINFO', 10246);
