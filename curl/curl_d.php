@@ -1860,17 +1860,20 @@ define ('CURLSHOPT_SHARE', 1);
  */
 define ('CURLSHOPT_UNSHARE', 2);
 /**
+ * Value for the <b>CURLSHOPT_SHARE</b> option.
  * Shares cookie data.
  * @link https://www.php.net/manual/en/function.curl-share-setopt.php
  */
 define ('CURL_LOCK_DATA_COOKIE', 2);
 /**
+ * Value for the <b>CURLSHOPT_SHARE</b> option.
  * Shares DNS cache. Note that when you use cURL multi handles,
  * all handles added to the same multi handle will share DNS cache by default.
  * @link https://www.php.net/manual/en/function.curl-share-setopt.php
  */
 define ('CURL_LOCK_DATA_DNS', 3);
 /**
+ * Value for the <b>CURLSHOPT_SHARE</b> option.
  * Shares SSL session IDs, reducing the time spent on the SSL handshake when reconnecting to the same server.
  * Note that SSL session IDs are reused within the same handle by default.
  * @link https://www.php.net/manual/en/function.curl-share-setopt.php
@@ -2428,7 +2431,16 @@ define('CURL_VERSION_MULTI_SSL', 4194304);
 define('CURL_VERSION_BROTLI', 8388608);
 
 /**
+ * Value for the <b>CURLSHOPT_SHARE</b> option.
+ * Put the connection cache in the share object and make all easy handles using this share object share the connection cache.
+ * Using this, you can for example do multi-threaded libcurl use with one handle in each thread, and yet
+ * have a shared pool of unused connections and this way get way better connection re-use
+ * than if you use one separate pool in each thread.
+ * Connections that are used for HTTP/1.1 Pipelining or HTTP/2 multiplexing only get additional transfers
+ * added to them if the existing connection is held by the same multi or easy handle.
+ * libcurl does not support doing HTTP/2 streams in different threads using a shared connection.
  * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/curl_share_setopt.html
  * @since 7.3
  */
 define('CURL_LOCK_DATA_CONNECT', 5);
@@ -2487,7 +2499,11 @@ define('CURLOPT_DNS_SHUFFLE_ADDRESSES', 275);
 define('CURLOPT_HAPROXYPROTOCOL', 274);
 
 /**
+ * Value for the <b>CURLSHOPT_SHARE</b> option.
+ * The Public Suffix List stored in the share object is made available to all easy handle bound to the later.
+ * Since the Public Suffix List is periodically refreshed, this avoids updates in too many different contexts.
  * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/curl_share_setopt.html
  * @since 7.3
  */
 define('CURL_LOCK_DATA_PSL', 6);
