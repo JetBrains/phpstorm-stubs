@@ -1649,6 +1649,12 @@ define ('CURLM_OUT_OF_MEMORY', 3);
  * @link https://curl.haxx.se/libcurl/c/libcurl-errors.html
  */
 define ('CURLM_INTERNAL_ERROR', 4);
+/**
+ * The message identifies a transfer that is done, and then result contains the return code for the easy handle that just completed.
+ * Other return values are currently not available.
+ * @link https://www.php.net/manual/en/function.curl-multi-info-read.php
+ * @link https://curl.haxx.se/libcurl/c/curl_multi_info_read.html
+ */
 define ('CURLMSG_DONE', 1);
 
 /**
