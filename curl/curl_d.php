@@ -1044,6 +1044,10 @@ define ('CURL_VERSION_SSL', 4);
  * @link https://php.net/manual/en/curl.constants.php
  */
 define ('CURL_VERSION_LIBZ', 8);
+/**
+ * Will be the most recent age value for the libcurl.
+ * @link https://php.net/manual/en/curl.constants.php
+ */
 define ('CURLVERSION_NOW', 4);
 /**
  * All fine. Proceed as usual.
