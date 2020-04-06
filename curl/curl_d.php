@@ -1799,11 +1799,32 @@ define ('CURLMOPT_PIPELINING', 3);
  * @since 5.5
  */
 define ('CURLMOPT_MAXCONNECTS', 6);
-
+/**
+ * Specifies a type of data that should be shared.
+ * @link https://www.php.net/manual/en/function.curl-share-setopt.php
+ */
 define ('CURLSHOPT_SHARE', 1);
+/**
+ * Specifies a type of data that will be no longer shared.
+ * @link https://www.php.net/manual/en/function.curl-share-setopt.php
+ */
 define ('CURLSHOPT_UNSHARE', 2);
+/**
+ * Shares cookie data.
+ * @link https://www.php.net/manual/en/function.curl-share-setopt.php
+ */
 define ('CURL_LOCK_DATA_COOKIE', 2);
+/**
+ * Shares DNS cache. Note that when you use cURL multi handles,
+ * all handles added to the same multi handle will share DNS cache by default.
+ * @link https://www.php.net/manual/en/function.curl-share-setopt.php
+ */
 define ('CURL_LOCK_DATA_DNS', 3);
+/**
+ * Shares SSL session IDs, reducing the time spent on the SSL handshake when reconnecting to the same server.
+ * Note that SSL session IDs are reused within the same handle by default.
+ * @link https://www.php.net/manual/en/function.curl-share-setopt.php
+ */
 define ('CURL_LOCK_DATA_SSL_SESSION', 4);
 /**
  * The password required to use the <b>CURLOPT_SSLKEY</b> or <b>CURLOPT_SSH_PRIVATE_KEYFILE</b> private key.
@@ -2866,6 +2887,9 @@ define("CURLE_SSL_PINNEDPUBKEYNOTMATCH",90);
  */
 define("CURLINFO_LASTONE",56);
 define("CURLM_ADDED_ALREADY",7);
+/**
+ * @link https://curl.haxx.se/libcurl/c/symbols-in-versions.html
+ */
 define("CURLSHOPT_NONE",0);
 /**
  * Default value for the <b>CURLOPT_TIMECONDITION</b> option.
