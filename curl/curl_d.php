@@ -1827,13 +1827,25 @@ define ('CURLPROTO_TFTP', 2048);
 define ('CURLPROTO_ALL', -1);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * As of cURL 7.43.0, the value is a bitmask.
+ * Pass 1 to enable or 0 to disable.
+ * Enabling pipelining on a multi handle will make it attempt to perform HTTP Pipelining as far as possible for transfers
+ * using this handle. This means that if you add a second request that can use an already existing connection,
+ * the second request will be "piped" on the same connection.
+ * Pass 2 to try to multiplex the new transfer over an existing HTTP/2 connection if possible.
+ * Pass 3 instructs cURL to ask for pipelining and multiplexing independently of each other.
+ * As of cURL 7.62.0, setting the pipelining bit has no effect.
+ * Instead of integer literals, you can also use the <b>CURLPIPE_*</b> constants if available.
+ * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
  * @since 5.5
  */
 define ('CURLMOPT_PIPELINING', 3);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Pass a number that will be used as the maximum amount of simultaneously open connections that libcurl may cache.
+ * By default the size will be enlarged to fit four times the number of handles added via {@see curl_multi_add_handle()}.
+ * When the cache is full, curl closes the oldest one in the cache to prevent the number of open connections from increasing.
+ * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
  * @since 5.5
  */
 define ('CURLMOPT_MAXCONNECTS', 6);
@@ -2056,19 +2068,29 @@ define('CURLOPT_SERVICE_NAME', 10236);
 define('CURLSSH_AUTH_AGENT', 16);
 
 /**
+ * Value for the <b>CURLMOPT_PIPELINING</b> option.
+ * Default, which means doing no attempts at pipelining or multiplexing.
  * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/CURLMOPT_PIPELINING.html
  * @since 7.0.7
  */
 define('CURLPIPE_NOTHING', 0);
 
 /**
+ * Value for the <b>CURLMOPT_PIPELINING</b> option.
+ * If this bit is set, libcurl will try to pipeline HTTP/1.1 requests on connections that are already established and in use to hosts.
  * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/CURLMOPT_PIPELINING.html
+ * @deprecated has no effect since version 7.62.0.
  * @since 7.0.7
  */
 define('CURLPIPE_HTTP1', 1);
 
 /**
+ * Value for the <b>CURLMOPT_PIPELINING</b> option.
+ * If this bit is set, libcurl will try to multiplex the new transfer over an existing connection if possible. This requires HTTP/2.
  * @link https://php.net/manual/en/curl.constants.php
+ * @link https://curl.haxx.se/libcurl/c/CURLMOPT_PIPELINING.html
  * @since 7.0.7
  */
 define('CURLPIPE_MULTIPLEX', 2);
@@ -2163,31 +2185,36 @@ define('CURLPROXY_HTTP_1_0',1);
 define('CURL_REDIR_POST_ALL', 7);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Pass a number that specifies the chunk length threshold for pipelining in bytes.
+ * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
  * @since 7.0.7
  */
 define ('CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE', 30010);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Pass a number that specifies the size threshold for pipelining penalty in bytes.
+ * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
  * @since 7.0.7
  */
 define ('CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE', 30009);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Pass a number that specifies the maximum number of connections to a single host.
+ * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
  * @since 7.0.7
  */
 define('CURLMOPT_MAX_HOST_CONNECTIONS', 7);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Pass a number that specifies the maximum number of requests in a pipeline.
+ * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
  * @since 7.0.7
  */
 define('CURLMOPT_MAX_PIPELINE_LENGTH', 8);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Pass a number that specifies the maximum number of simultaneously open connections.
+ * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
  * @since 7.0.7
  */
 define('CURLMOPT_MAX_TOTAL_CONNECTIONS', 13);
@@ -2211,20 +2238,30 @@ define('CURLAUTH_NEGOTIATE', 4);
 
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Pass a <em>callable</em> that will be registered to handle server pushes and should have the following signature:
+ * <b>parent_ch</b>
+ * The parent cURL handle (the request the client made).
+ * <b>pushed_ch</b>
+ * A new cURL handle for the pushed request.
+ * <b>headers</b>
+ * The push promise headers.
+ * The push function is supposed to return either <b>CURL_PUSH_OK</b> if it can handle the push,
+ * or <b>CURL_PUSH_DENY</b> to reject it.
+ * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
  * @since 7.1
  */
-
 define('CURLMOPT_PUSHFUNCTION', 20014);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Returned value from the push function - can handle the push.
+ * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
  * @since 7.1
  */
 define('CURL_PUSH_OK', 0);
 
 /**
- * @link https://php.net/manual/en/curl.constants.php
+ * Returned value from the push function - can't handle the push.
+ * @link https://www.php.net/manual/en/function.curl-multi-setopt.php
  * @since 7.1
  */
 define('CURL_PUSH_DENY',1);
