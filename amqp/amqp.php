@@ -957,6 +957,13 @@ class AMQPConnection
      * @return string|null
      */
     public function getConnectionName() { }
+
+    /**
+     * Set the connection name
+     * @param string $connection_name
+     * @return void
+     */
+    public function setConnectionName($connection_name) { }
 }
 
 /**
