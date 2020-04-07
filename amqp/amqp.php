@@ -951,6 +951,11 @@ class AMQPConnection
      * @return int AMQP_SASL_METHOD_PLAIN | AMQP_SASL_METHOD_EXTERNAL
      */
     public function getSaslMethod() { }
+
+    /**
+     * @return string|null
+     */
+    public function getConnectionName() { }
 }
 
 /**
