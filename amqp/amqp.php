@@ -953,6 +953,7 @@ class AMQPConnection
     public function getSaslMethod() { }
 
     /**
+     * Return the connection name
      * @return string|null
      */
     public function getConnectionName() { }
