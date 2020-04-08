@@ -535,7 +535,7 @@ namespace Grpc
         /**
          * Create insecure channel credentials
          *
-         * @return null
+         * @return ChannelCredentials The new composite credentials object
          */
         public static function createInsecure() {}
     }
