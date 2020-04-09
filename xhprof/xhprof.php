@@ -57,17 +57,14 @@ function xhprof_sample_disable()
 }
 
 /**
- * @type int
  * @link https://php.net/manual/en/xhprof.constants.php#constant.xhprof-flags-no-builtins
  */
 const XHPROF_FLAGS_NO_BUILTINS = 1;
 /**
- * @type int
  * @link https://php.net/manual/en/xhprof.constants.php#constant.xhprof-flags-cpu
  */
 const XHPROF_FLAGS_CPU = 2;
 /**
- * @type int
  * @link https://php.net/manual/en/xhprof.constants.php##constant.xhprof-flags-memory
  */
 const XHPROF_FLAGS_MEMORY = 4;

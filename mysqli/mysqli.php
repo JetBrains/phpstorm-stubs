@@ -724,7 +724,7 @@ class mysqli  {
 	 * <b>mysqli_field_count</b> returns a non-zero value, the
 	 * statement should have produced a non-empty result set.
 	 */
-	public function store_result ($option) {}
+	public function store_result (int $option = null) {}
 
 	/**
 	 * Returns whether thread safety is given or not
@@ -1321,7 +1321,7 @@ class mysqli_stmt  {
 	/**
 	 * Fetch results from a prepared statement into the bound variables
 	 * @link https://php.net/manual/en/mysqli-stmt.fetch.php
-	 * @return bool
+	 * @return bool|null
 	 */
 	public function fetch () {}
 
@@ -2282,7 +2282,7 @@ function mysqli_stmt_bind_result ($stmt, &$var1, &...$_) {}
  * Fetch results from a prepared statement into the bound variables
  * @link https://php.net/manual/en/mysqli-stmt.fetch.php
  * @param mysqli_stmt $stmt
- * @return bool
+ * @return bool|null
  */
 function mysqli_stmt_fetch ($stmt) {}
 
@@ -2443,7 +2443,7 @@ function mysqli_stmt_store_result ($stmt) {}
  * @param int $option [optional] The option that you want to set
  * @return mysqli_result|false
  */
-function mysqli_store_result ($link, int $option) {}
+function mysqli_store_result ($link, int $option = null) {}
 
 /**
  * Returns the thread ID for the current connection

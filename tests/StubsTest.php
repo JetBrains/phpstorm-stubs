@@ -10,6 +10,7 @@ use phpDocumentor\Reflection\DocBlock\Tags\Since;
 use PHPUnit\Framework\TestCase;
 use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use StubTests\Model\BasePHPClass;
+use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPClass;
 use StubTests\Model\PHPConst;
 use StubTests\Model\PHPDocElement;
@@ -25,8 +26,6 @@ class StubsTest extends TestCase
 {
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
-     * @param PHPConst $constant
-     * @throws InvalidArgumentException
      */
     public function testConstants(PHPConst $constant): void
     {
@@ -45,8 +44,6 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
-     * @param PHPConst $constant
-     * @throws InvalidArgumentException
      */
     public function testConstantsValues(PHPConst $constant): void
     {
@@ -70,8 +67,6 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::functionProvider
-     * @param PHPFunction $function
-     * @throws InvalidArgumentException
      */
     public function testFunctions(PHPFunction $function): void
     {
@@ -101,8 +96,6 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::classProvider
-     * @param PHPClass $class
-     * @throws InvalidArgumentException
      */
     public function testClasses(PHPClass $class): void
     {
@@ -183,8 +176,6 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::interfaceProvider
-     * @param PHPInterface $interface
-     * @throws InvalidArgumentException
      */
     public function testInterfaces(PHPInterface $interface): void
     {
@@ -262,66 +253,42 @@ class StubsTest extends TestCase
 
     /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubClassConstantProvider
-     * @param string $className
-     * @param PHPConst $constant
-     * @throws InvalidArgumentException
      */
     public function testClassConstantsPHPDocs(string $className, PHPConst $constant): void
     {
         static::assertNull($constant->parseError, $constant->parseError ?: '');
-        $this->checkLinks($constant, "constant $className::$constant->name");
-        if ($constant->stubBelongsToCore) {
-            $this->checkDeprecatedRemovedSinceVersionsMajor($constant, "constant $className::$constant->name");
-        }
+        $this->checkPHPDocCorrectness($constant, "constant $className::$constant->name");
     }
 
     /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubConstantProvider
-     * @param PHPConst $constant
-     * @throws InvalidArgumentException
      */
     public function testConstantsPHPDocs(PHPConst $constant): void
     {
         static::assertNull($constant->parseError, $constant->parseError ?: '');
-        $this->checkLinks($constant, "constant $constant->name");
-        if ($constant->stubBelongsToCore) {
-            $this->checkDeprecatedRemovedSinceVersionsMajor($constant, "constant $constant->name");
-        }
+        $this->checkPHPDocCorrectness($constant, "constant $constant->name");
     }
 
     /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubFunctionProvider
-     * @param PHPFunction $function
-     * @throws InvalidArgumentException
      */
     public function testFunctionPHPDocs(PHPFunction $function): void
     {
         static::assertNull($function->parseError, $function->parseError ?: '');
-        $this->checkLinks($function, "function $function->name");
-        if ($function->stubBelongsToCore) {
-            $this->checkDeprecatedRemovedSinceVersionsMajor($function, "function $function->name");
-        }
+        $this->checkPHPDocCorrectness($function, "function $function->name");
     }
 
     /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubClassProvider
-     * @param BasePHPClass $class
-     * @throws InvalidArgumentException
      */
     public function testClassesPHPDocs(BasePHPClass $class): void
     {
         static::assertNull($class->parseError, $class->parseError ?: '');
-        $this->checkLinks($class, "class $class->name");
-        if ($class->stubBelongsToCore) {
-            $this->checkDeprecatedRemovedSinceVersionsMajor($class, "class $class->name");
-        }
+        $this->checkPHPDocCorrectness($class, "class $class->name");
     }
 
     /**
      * @dataProvider \StubTests\TestData\Providers\StubsTestDataProviders::stubMethodProvider
-     * @param string $methodName
-     * @param PHPMethod $method
-     * @throws InvalidArgumentException
      */
     public function testMethodsPHPDocs(string $methodName, PHPMethod $method): void
     {
@@ -329,9 +296,46 @@ class StubsTest extends TestCase
             static::assertNull($method->returnTag, '@return tag for __construct should be omitted');
         }
         static::assertNull($method->parseError, $method->parseError ?: '');
-        $this->checkLinks($method, "method $methodName");
-        if ($method->stubBelongsToCore) {
-            $this->checkDeprecatedRemovedSinceVersionsMajor($method, "method $methodName");
+        $this->checkPHPDocCorrectness($method, "method $methodName");
+    }
+
+    private function checkPHPDocCorrectness(BasePHPElement $element, string $elementName): void
+    {
+        $this->checkLinks($element, $elementName);
+        if ($element->stubBelongsToCore) {
+            $this->checkDeprecatedRemovedSinceVersionsMajor($element, $elementName);
+        }
+        $this->checkContainsOnlyValidTags($element, $elementName);
+    }
+
+    private function checkContainsOnlyValidTags(BasePHPElement $element, string $elementName): void
+    {
+        $VALID_TAGS = [
+            'author',
+            'copyright',
+            'deprecated',
+            'example', //temporary addition due to the number of existing cases
+            'inheritdoc',
+            'link',
+            'meta',
+            'method',
+            'mixin',
+            'package',
+            'param',
+            'property',
+            'property-read',
+            'removed',
+            'return',
+            'see',
+            'since',
+            'throws',
+            'uses',
+            'var',
+            'version',
+        ];
+        /** @var PHPDocElement $element */
+        foreach ($element->tagNames as $tagName) {
+            static::assertContains($tagName, $VALID_TAGS, "Element $elementName has invalid tag: @$tagName");
         }
     }
 
@@ -355,13 +359,9 @@ class StubsTest extends TestCase
         return $result;
     }
 
-    /**
-     * @param PHPDocElement $element
-     * @param string $elementName
-     * @throws InvalidArgumentException
-     */
-    private function checkLinks($element, $elementName): void
+    private function checkLinks(BasePHPElement $element, string $elementName): void
     {
+        /** @var PHPDocElement $element */
         foreach ($element->links as $link) {
             if ($link instanceof Link) {
                 static::assertStringStartsWith(
@@ -378,13 +378,9 @@ class StubsTest extends TestCase
         }
     }
 
-    /**
-     * @param PHPDocElement $element
-     * @param string $elementName
-     * @throws InvalidArgumentException
-     */
-    private function checkDeprecatedRemovedSinceVersionsMajor($element, $elementName): void
+    private function checkDeprecatedRemovedSinceVersionsMajor(BasePHPElement $element, $elementName): void
     {
+        /** @var PHPDocElement $element */
         foreach ($element->sinceTags as $sinceTag) {
             if ($sinceTag instanceof Since) {
                 $version = $sinceTag->getVersion();
@@ -408,7 +404,7 @@ class StubsTest extends TestCase
             }
         }
         foreach ($element->removedTags as $removedTag) {
-            if ($removedTag instanceof RemovedTag){
+            if ($removedTag instanceof RemovedTag) {
                 $version = $removedTag->getVersion();
                 if ($version !== null) {
                     self::assertTrue(Utils::versionIsMajor($removedTag), "$elementName has 'removed' version $version .

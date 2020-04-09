@@ -51,9 +51,7 @@ class PHPFunction extends BasePHPElement
             $this->parameters[] = (new PHPParameter())->readObjectFromStubNode($parameter);
         }
 
-        $this->collectLinks($node);
-        $this->collectSinceRemovedDeprecatedVersions($node);
-        $this->checkIfHasInternalMetaTag($node);
+        $this->collectTags($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);
         return $this;

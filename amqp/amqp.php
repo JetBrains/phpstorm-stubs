@@ -339,14 +339,15 @@ class AMQPChannel
      * flag set, the client will not do any prefetching of data, regardless of
      * the QOS settings.
      *
-     * @param integer $size  The window size, in octets, to prefetch.
-     * @param integer $count The number of messages to prefetch.
+     * @param integer $size   The window size, in octets, to prefetch.
+     * @param integer $count  The number of messages to prefetch.
+     * @param bool    $global TRUE for global, FALSE for consumer. FALSE by default.
      *
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
      * @return bool TRUE on success or FALSE on failure.
      */
-    public function qos($size, $count) { }
+    public function qos($size, $count, $global = false) { }
 
     /**
      * Rollback a transaction.
@@ -363,30 +364,28 @@ class AMQPChannel
     public function rollbackTransaction() { }
 
     /**
-     * Set the number of messages to prefetch from the broker.
+     * Set the number of messages to prefetch from the broker for each consumer.
      *
      * Set the number of messages to prefetch from the broker during a call to
-     * AMQPQueue::consume() or AMQPQueue::get(). Any call to this method will
-     * automatically set the prefetch window size to 0, meaning that the
-     * prefetch window size setting will be ignored.
+     * AMQPQueue::consume() or AMQPQueue::get().
      *
      * @param integer $count The number of messages to prefetch.
      *
      * @throws AMQPConnectionException If the connection to the broker was lost.
      *
-     * @return bool TRUE on success or FALSE on failure.
+     * @return boolean TRUE on success or FALSE on failure.
      */
     public function setPrefetchCount($count) { }
 
     /**
-     * Get the number of messages to prefetch from the broker.
+     * Get the number of messages to prefetch from the broker for each consumer.
      *
      * @return integer
      */
     public function getPrefetchCount() { }
 
     /**
-     * Set the window size to prefetch from the broker.
+     * Set the window size to prefetch from the broker for each consumer.
      *
      * Set the prefetch window size, in octets, during a call to
      * AMQPQueue::consume() or AMQPQueue::get(). Any call to this method will
@@ -401,14 +400,60 @@ class AMQPChannel
      *
      * @return bool TRUE on success or FALSE on failure.
      */
-    public function setPrefetchSize($size) { }
+    public function setPrefetchSize($size){}
 
     /**
-     * Get the window size to prefetch from the broker.
+     * Get the window size to prefetch from the broker for each consumer.
      *
      * @return integer
      */
     public function getPrefetchSize() { }
+
+    /**
+     * Set the number of messages to prefetch from the broker across all consumers.
+     *
+     * Set the number of messages to prefetch from the broker during a call to
+     * AMQPQueue::consume() or AMQPQueue::get().
+     *
+     * @param integer $count The number of messages to prefetch.
+     *
+     * @throws AMQPConnectionException If the connection to the broker was lost.
+     *
+     * @return boolean TRUE on success or FALSE on failure.
+     */
+    public function setGlobalPrefetchCount($count) { }
+
+    /**
+     * Get the number of messages to prefetch from the broker across all consumers.
+     *
+     * @return integer
+     */
+    public function getGlobalPrefetchCount() { }
+
+    /**
+     * Set the window size to prefetch from the broker for all consumers.
+     *
+     * Set the prefetch window size, in octets, during a call to
+     * AMQPQueue::consume() or AMQPQueue::get(). Any call to this method will
+     * automatically set the prefetch message count to 0, meaning that the
+     * prefetch message count setting will be ignored. If the call to either
+     * AMQPQueue::consume() or AMQPQueue::get() is done with the AMQP_AUTOACK
+     * flag set, this setting will be ignored.
+     *
+     * @param integer $size The window size, in octets, to prefetch.
+     *
+     * @throws AMQPConnectionException If the connection to the broker was lost.
+     *
+     * @return bool TRUE on success or FALSE on failure.
+     */
+    public function setGlobalPrefetchSize($size) { }
+
+    /**
+     * Get the window size to prefetch from the broker for all consumers.
+     *
+     * @return integer
+     */
+    public function getGlobalPrefetchSize() { }
 
     /**
      * Start a transaction.
@@ -521,7 +566,7 @@ class AMQPConnection
      * This method will initiate a connection with the AMQP broker.
      *
      * @throws AMQPConnectionException
-     * @return bool TRUE on success or throw an exception on failure.
+     * @return boolean TRUE on success or throw an exception on failure.
      */
     public function connect() { }
 
@@ -541,8 +586,9 @@ class AMQPConnection
      *      'read_timeout'  => Timeout in for income activity. Note: 0 or greater seconds. May be fractional.
      *      'write_timeout' => Timeout in for outcome activity. Note: 0 or greater seconds. May be fractional.
      *      'connect_timeout' => Connection timeout. Note: 0 or greater seconds. May be fractional.
+     *      'rpc_timeout' => RPC timeout. Note: 0 or greater seconds. May be fractional.
      *
-     *      Connection tuning options (see https://www.rabbitmq.com/amqp-0-9-1-reference.html#connection.tune for details):
+     *      Connection tuning options (see http://www.rabbitmq.com/amqp-0-9-1-reference.html#connection.tune for details):
      *      'channel_max' => Specifies highest channel number that the server permits. 0 means standard extension limit
      *                       (see PHP_AMQP_MAX_CHANNELS constant)
      *      'frame_max'   => The largest frame size that the server proposes for the connection, including frame header
@@ -569,7 +615,7 @@ class AMQPConnection
      *
      * This method will close an open connection with the AMQP broker.
      *
-     * @return bool TRUE if connection was successfully closed, FALSE otherwise.
+     * @return boolean true if connection was successfully closed, false otherwise.
      */
     public function disconnect() { }
 
@@ -613,7 +659,7 @@ class AMQPConnection
      *
      * It does so by checking the return status of the last connect-command.
      *
-     * @return bool TRUE if connected, FALSE otherwise.
+     * @return boolean True if connected, false otherwise.
      */
     public function isConnected() { }
 
@@ -624,7 +670,7 @@ class AMQPConnection
      * or reuse an existing one if present.
      *
      * @throws AMQPConnectionException
-     * @return bool TRUE on success or throws an exception on failure.
+     * @return boolean TRUE on success or throws an exception on failure.
      */
     public function pconnect() { }
 
@@ -634,8 +680,8 @@ class AMQPConnection
      * This method will close an open persistent connection with the AMQP
      * broker.
      *
-     * @return bool TRUE if connection was found and closed,
-     *                 FALSE if no persistent connection with this host,
+     * @return boolean true if connection was found and closed,
+     *                 false if no persistent connection with this host,
      *                 port, vhost and login could be found,
      */
     public function pdisconnect() { }
@@ -643,14 +689,14 @@ class AMQPConnection
     /**
      * Close any open transient connections and initiate a new one with the AMQP broker.
      *
-     * @return bool TRUE on success or FALSE on failure.
+     * @return boolean TRUE on success or FALSE on failure.
      */
     public function reconnect() { }
 
     /**
      * Close any open persistent connections and initiate a new one with the AMQP broker.
      *
-     * @return bool TRUE on success or FALSE on failure.
+     * @return boolean TRUE on success or FALSE on failure.
      */
     public function preconnect() { }
 
@@ -662,7 +708,7 @@ class AMQPConnection
      *
      * @throws AMQPConnectionException If host is longer then 1024 characters.
      *
-     * @return bool TRUE on success or FALSE on failure.
+     * @return boolean TRUE on success or FALSE on failure.
      */
     public function setHost($host) { }
 
@@ -674,7 +720,7 @@ class AMQPConnection
      *
      * @throws AMQPConnectionException If login is longer then 32 characters.
      *
-     * @return bool TRUE on success or FALSE on failure.
+     * @return boolean TRUE on success or FALSE on failure.
      */
     public function setLogin($login) { }
 
@@ -686,7 +732,7 @@ class AMQPConnection
      *
      * @throws AMQPConnectionException If password is longer then 32characters.
      *
-     * @return bool TRUE on success or FALSE on failure.
+     * @return boolean TRUE on success or FALSE on failure.
      */
     public function setPassword($password) { }
 
@@ -698,7 +744,7 @@ class AMQPConnection
      * @throws AMQPConnectionException If port is longer not between
      *                                 1 and 65535.
      *
-     * @return bool TRUE on success or FALSE on failure.
+     * @return boolean TRUE on success or FALSE on failure.
      */
     public function setPort($port) { }
 
@@ -710,7 +756,7 @@ class AMQPConnection
      *
      * @throws AMQPConnectionException If host is longer then 32 characters.
      *
-     * @return bool TRUE on success or FALSE on failure.
+     * @return boolean true on success or false on failure.
      */
     public function setVhost($vhost) { }
 
@@ -768,6 +814,27 @@ class AMQPConnection
      * @return float
      */
     public function getWriteTimeout() { }
+
+    /**
+     * Sets the interval of time to wait for RPC activity to AMQP broker
+     *
+     * @param int $timeout
+     *
+     * @return bool
+     */
+    public function setRpcTimeout($timeout)
+    {
+    }
+
+    /**
+     * Get the configured interval of time to wait for RPC activity
+     * to AMQP broker
+     *
+     * @return float
+     */
+    public function getRpcTimeout()
+    {
+    }
 
     /**
      * Return last used channel id during current connection session.
@@ -872,6 +939,13 @@ class AMQPConnection
     public function setVerify($verify) { }
 
     /**
+     * set authentication method
+     *
+     * @param int $method AMQP_SASL_METHOD_PLAIN | AMQP_SASL_METHOD_EXTERNAL
+     */
+    public function setSaslMethod($method) { }
+
+    /**
      * Get authentication mechanism configuration
      *
      * @return int AMQP_SASL_METHOD_PLAIN | AMQP_SASL_METHOD_EXTERNAL
@@ -879,11 +953,17 @@ class AMQPConnection
     public function getSaslMethod() { }
 
     /**
-     * Set authentication mechanism configuration
-     *
-     * @param int $method AMQP_SASL_METHOD_PLAIN | AMQP_SASL_METHOD_EXTERNAL
+     * Return the connection name
+     * @return string|null
      */
-    public function setSaslMethod($sasl_method) { }
+    public function getConnectionName() { }
+
+    /**
+     * Set the connection name
+     * @param string $connection_name
+     * @return void
+     */
+    public function setConnectionName($connection_name) { }
 }
 
 /**

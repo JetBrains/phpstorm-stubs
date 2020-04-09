@@ -20,9 +20,11 @@ namespace MongoDB {}
         use MongoDB\Driver\Exception\BulkWriteException;
         use MongoDB\Driver\Exception\CommandException;
         use MongoDB\Driver\Exception\ConnectionException;
+        use MongoDB\Driver\Exception\EncryptionException;
         use MongoDB\Driver\Exception\Exception;
         use MongoDB\Driver\Exception\InvalidArgumentException;
         use MongoDB\Driver\Exception\RuntimeException;
+        use MongoDB\Driver\Exception\UnexpectedValueException;
         use MongoDB\Driver\Exception\WriteConcernException;
         use MongoDB\Driver\Exception\WriteException;
         use Traversable;
@@ -45,6 +47,18 @@ namespace MongoDB {}
              * @throws RuntimeException if the uri format is invalid
              */
             final public function __construct($uri, array $uriOptions = [], array $driverOptions = [])
+            {
+            }
+
+            /**
+             * Return a ClientEncryption instance.
+             * @link https://php.net/manual/en/mongodb-driver-manager.createclientencryption.php
+             * @param array $options
+             * @return \MongoDB\Driver\ClientEncryption
+             * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors.
+             * @throws \MongoDB\Driver\Exception\RuntimeException If the extension was compiled without libmongocrypt support.
+             */
+            final public function createClientEncryption(array $options)
             {
             }
 
@@ -285,7 +299,7 @@ namespace MongoDB {}
             /**
              * Execute a database command that reads on this server
              * @link https://secure.php.net/manual/en/mongodb-driver-server.executereadcommand.php
-             * @param                         $db
+             * @param string                  $db
              * @param \MongoDB\Driver\Command $command
              * @param array                   $option
              * @return Cursor
@@ -302,7 +316,7 @@ namespace MongoDB {}
             /**
              * Execute a database command that reads and writes on this server
              * @link https://secure.php.net/manual/en/mongodb-driver-server.executereadwritecommand.php
-             * @param                         $db
+             * @param string                  $db
              * @param \MongoDB\Driver\Command $command
              * @param array                   $option
              * @return Cursor
@@ -319,7 +333,7 @@ namespace MongoDB {}
             /**
              * Execute a database command that writes on this server
              * @link https://secure.php.net/manual/en/mongodb-driver-server.executewritecommand.php
-             * @param                         $db
+             * @param string                  $db
              * @param \MongoDB\Driver\Command $command
              * @param array                   $option
              * @return Cursor
@@ -503,13 +517,35 @@ namespace MongoDB {}
          * Class ReadPreference
          * @link https://php.net/manual/en/class.mongodb-driver-readpreference.php
          */
-        final class ReadPreference implements Serializable
+        final class ReadPreference implements Serializable, \Serializable
         {
             const RP_PRIMARY = 1;
             const RP_PRIMARY_PREFERRED = 5;
             const RP_SECONDARY = 2;
             const RP_SECONDARY_PREFERRED = 6;
             const RP_NEAREST = 10;
+
+            /**
+             * @since 1.7.0
+             */
+            const PRIMARY = 'primary';
+            /**
+             * @since 1.7.0
+             */
+            const PRIMARY_PREFERRED = 'primaryPreferred';
+            /**
+             * @since 1.7.0
+             */
+            const SECONDARY = 'secondary';
+            /**
+             * @since 1.7.0
+             */
+            const SECONDARY_PREFERRED = 'secondaryPreferred';
+            /**
+             * @since 1.7.0
+             */
+            const NEAREST = 'nearest';
+
             /**
              * @since 1.2.0
              */
@@ -536,7 +572,18 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-readpreference.getmode.php
              * @return integer
              */
-            final public function  getMode()
+            final public function getMode()
+            {
+            }
+
+            /**
+             * Returns the ReadPreference's "mode" option as a string
+             * @since 1.7.0
+             * @link https://php.net/manual/en/mongodb-driver-readpreference.getmodestring.php
+             * @return string
+             * @throws InvalidArgumentException
+             */
+            final public function getModeString()
             {
             }
 
@@ -559,6 +606,30 @@ namespace MongoDB {}
             final public function bsonSerialize()
             {
             }
+
+            /**
+             * Serialize a ReadPreference
+             * @since 1.7.0
+             * @link https://php.net/manual/en/mongodb-driver-readpreference.serialize.php
+             * @return string
+             * @throws InvalidArgumentException
+             */
+            final public function serialize()
+            {
+            }
+
+            /**
+             * Unserialize a ReadPreference
+             * @since 1.7.0
+             * @link https://php.net/manual/en/mongodb-driver-readpreference.unserialize.php
+             * @param string $serialized
+             * @return void
+             * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
+             * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
+             */
+            final public function unserialize($serialized)
+            {
+            }
         }
 
         /**
@@ -566,7 +637,7 @@ namespace MongoDB {}
          * @link https://php.net/manual/en/class.mongodb-driver-readconcern.php
          * @since 1.1.0
          */
-        final class ReadConcern implements Serializable
+        final class ReadConcern implements Serializable, \Serializable
         {
             /**
              * @since 1.2.0
@@ -616,6 +687,30 @@ namespace MongoDB {}
              * @throws \MongoDB\Driver\Exception\InvalidArgumentException On argument parsing errors.
              */
             final public function isDefault()
+            {
+            }
+
+            /**
+             * Serialize a ReadConcern
+             * @since 1.7.0
+             * @link https://php.net/manual/en/mongodb-driver-readconcern.serialize.php
+             * @return string
+             * @throws InvalidArgumentException
+             */
+            final public function serialize()
+            {
+            }
+
+            /**
+             * Unserialize a ReadConcern
+             * @since 1.7.0
+             * @link https://php.net/manual/en/mongodb-driver-readconcern.unserialize.php
+             * @param string $serialized
+             * @return void
+             * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
+             * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
+             */
+            final public function unserialize($serialized)
             {
             }
         }
@@ -694,7 +789,7 @@ namespace MongoDB {}
          * Class CursorId
          * @link https://php.net/manual/en/class.mongodb-driver-cursorid.php
          */
-        final class CursorId
+        final class CursorId implements \Serializable
         {
             /**
              * Create a new CursorId (not used)
@@ -713,6 +808,30 @@ namespace MongoDB {}
              * @throws InvalidArgumentException on argument parsing errors.
              */
             final public function __toString()
+            {
+            }
+
+            /**
+             * Serialize a CursorId
+             * @since 1.7.0
+             * @link https://php.net/manual/en/mongodb-driver-cursorid.serialize.php
+             * @return string
+             * @throws InvalidArgumentException
+             */
+            final public function serialize()
+            {
+            }
+
+            /**
+             * Unserialize a CursorId
+             * @since 1.7.0
+             * @link https://php.net/manual/en/mongodb-driver-cursorid.unserialize.php
+             * @param string $serialized
+             * @return void
+             * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
+             * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
+             */
+            final public function unserialize($serialized)
             {
             }
         }
@@ -767,7 +886,7 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-bulkwrite.insert.php
              * @param array|object $document
              * @return mixed
-             * @Throws MongoDB\Driver\InvalidArgumentException on argument parsing errors.
+             * @throws InvalidArgumentException on argument parsing errors.
              */
             public final function insert($document)
             {
@@ -789,7 +908,7 @@ namespace MongoDB {}
         /**
          * WriteConcern controls the acknowledgment of a write operation, specifies the level of write guarantee for Replica Sets.
          */
-        final class WriteConcern implements Serializable
+        final class WriteConcern implements Serializable, \Serializable
         {
             /**
              * Majority of all the members in the set; arbiters, non-voting members, passive members, hidden members and delayed members are all included in the definition of majority write concern.
@@ -843,6 +962,30 @@ namespace MongoDB {}
              * @throws InvalidArgumentException
              */
             final public function bsonSerialize()
+            {
+            }
+
+            /**
+             * Serialize a WriteConcern
+             * @since 1.7.0
+             * @link https://php.net/manual/en/mongodb-driver-writeconcern.serialize.php
+             * @return string
+             * @throws InvalidArgumentException
+             */
+            final public function serialize()
+            {
+            }
+
+            /**
+             * Unserialize a WriteConcern
+             * @since 1.7.0
+             * @link https://php.net/manual/en/mongodb-driver-writeconcern.unserialize.php
+             * @param string $serialized
+             * @return void
+             * @throws InvalidArgumentException on argument parsing errors or if the properties are invalid
+             * @throws UnexpectedValueException if the properties cannot be unserialized (i.e. serialized was malformed)
+             */
+            final public function unserialize($serialized)
             {
             }
         }
@@ -1029,6 +1172,27 @@ namespace MongoDB {}
         final class Session
         {
             /**
+             * @since 1.7.0
+             */
+            const TRANSACTION_NONE = 'none';
+            /**
+             * @since 1.7.0
+             */
+            const TRANSACTION_STARTING = 'starting';
+            /**
+             * @since 1.7.0
+             */
+            const TRANSACTION_IN_PROGRESS = 'in_progress';
+            /**
+             * @since 1.7.0
+             */
+            const TRANSACTION_COMMITTED = 'committed';
+            /**
+             * @since 1.7.0
+             */
+            const TRANSACTION_ABORTED = 'aborted';
+
+            /**
              * Create a new Session (not used)
              * @link https://secure.php.net/manual/en/mongodb-driver-session.construct.php
              * @since 1.4.0
@@ -1145,6 +1309,28 @@ namespace MongoDB {}
             }
 
             /**
+             * Returns options for the current transactions, or NULL if no transaction is running.
+             * @link https://secure.php.net/manual/en/mongodb-driver-session.gettransactionoptions.php
+             * @return array|null
+             * @throws \MongoDB\Driver\Exception\InvalidArgumentException
+             * @since 1.7.0
+             */
+            final public function getTransactionOptions()
+            {
+            }
+
+            /**
+             * Returns the current transaction state
+             * @link https://secure.php.net/manual/en/mongodb-driver-session.gettransactionstate.php
+             * @return string
+             * @throws \MongoDB\Driver\Exception\InvalidArgumentException
+             * @since 1.7.0
+             */
+            final public function getTransactionState()
+            {
+            }
+
+            /**
              * Returns whether a multi-document transaction is in progress.
              * @link https://secure.php.net/manual/en/mongodb-driver-session.isintransaction.php
              * @return bool
@@ -1218,6 +1404,59 @@ namespace MongoDB {}
              * @throws InvalidArgumentException
              */
             function toArray();
+        }
+
+        /**
+         * The MongoDB\Driver\ClientEncryption class handles creation of data keys for client-side encryption, as well as manually encrypting and decrypting values.
+         * @link https://www.php.net/manual/en/class.mongodb-driver-clientencryption.php
+         * @since 1.7.0
+         */
+        final class ClientEncryption
+        {
+            const AEAD_AES_256_CBC_HMAC_SHA_512_DETERMINISTIC = 'AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic';
+            const AEAD_AES_256_CBC_HMAC_SHA_512_RANDOM = 'AEAD_AES_256_CBC_HMAC_SHA_512-Random';
+
+            final private function __construct()
+            {
+            }
+
+            /**
+             * Creates a new key document and inserts into the key vault collection.
+             * @link https://www.php.net/manual/en/mongodb-driver-clientencryption.createdatakey.php
+             * @param string $kmsProvider The KMS provider ("local" or "aws") that will be used to encrypt the new encryption key.
+             * @param array $options [optional]
+             * @return \MongoDB\BSON\Binary Returns the identifier of the new key as a MongoDB\BSON\Binary object with subtype 4 (UUID).
+             * @throws InvalidArgumentException On argument parsing errors.
+             * @throws EncryptionException If an error occurs while creating the data key.
+             */
+            final public function createDataKey($kmsProvider, $options = [])
+            {
+            }
+
+            /**
+             * Decrypts an encrypted value (BSON binary of subtype 6).
+             * @link https://www.php.net/manual/en/mongodb-driver-clientencryption.decrypt.php
+             * @param \MongoDB\BSON\Binary $value A MongoDB\BSON\Binary instance with subtype 6 containing the encrypted value.
+             * @return mixed Returns the decrypted value
+             * @throws InvalidArgumentException On argument parsing errors.
+             * @throws EncryptionException If an error occurs while decrypting the value.
+             */
+            final public function decrypt(\MongoDB\BSON\Binary $value)
+            {
+            }
+
+            /**
+             * Encrypts a value with a given key and algorithm.
+             * @link https://www.php.net/manual/en/mongodb-driver-clientencryption.encrypt.php
+             * @param mixed $value The value to be encrypted. Any value that can be inserted into MongoDB can be encrypted using this method.
+             * @param array $options [optional]
+             * @return \MongoDB\BSON\Binary Returns the encrypted value as MongoDB\BSON\Binary object with subtype 6.
+             * @throws InvalidArgumentException On argument parsing errors.
+             * @throws EncryptionException If an error occurs while encrypting the value.
+             */
+            final public function encrypt($value, $options = [])
+            {
+            }
         }
     }
 
@@ -1390,6 +1629,15 @@ namespace MongoDB {}
         class SSLConnectionException extends ConnectionException implements Exception
         {
         }
+
+        /**
+         * Base class for exceptions thrown during client-side encryption.
+         * @link https://php.net/manual/en/class.mongodb-driver-exception-encryptionexception.php
+         * @since 1.7.0
+         */
+        class EncryptionException extends RuntimeException implements Exception
+        {
+        }
     }
 
     /**
@@ -1402,7 +1650,7 @@ namespace MongoDB {}
          * Registered subscribers will be notified of monitoring events through specific methods.
          * Note: If the object is already registered, this function is a no-op.
          * @link https://secure.php.net/manual/en/function.mongodb.driver.monitoring.addsubscriber.php
-         * @param $subscriber Subscriber A monitoring event subscriber object to register.
+         * @param Subscriber $subscriber A monitoring event subscriber object to register.
          * @return void
          * @throws \InvalidArgumentException on argument parsing errors.
          * @since 1.3.0
@@ -1416,7 +1664,7 @@ namespace MongoDB {}
          * Unregistered subscribers will no longer be notified of monitoring events.
          * Note: If the object is not registered, this function is a no-op.
          * @link https://secure.php.net/manual/en/function.mongodb.driver.monitoring.removesubscriber.php
-         * @param $subscriber Subscriber A monitoring event subscriber object to register.
+         * @param Subscriber $subscriber A monitoring event subscriber object to register.
          * @throws \InvalidArgumentException on argument parsing errors.
          * @since 1.3.0
          */
@@ -1829,6 +2077,10 @@ namespace MongoDB {}
             const TYPE_OLD_UUID = 3;
             const TYPE_UUID = 4;
             const TYPE_MD5 = 5;
+            /**
+             * @since 1.7.0
+             */
+            const TYPE_ENCRYPTED = 6;
             const TYPE_USER_DEFINED = 128;
 
             /**
@@ -2723,13 +2975,6 @@ namespace MongoDB {}
              * @return string Returns the hexidecimal representation of this ObjectId
              */
             function __toString();
-
-            /**
-             * Construct a new ObjectId
-             * @param string|null $id A 24-character hexadecimal string. If not provided, the driver will generate an ObjectId.
-             * @throws InvalidArgumentException
-             */
-            function __construct($id = null);
         }
 
         /**

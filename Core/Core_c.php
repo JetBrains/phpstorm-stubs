@@ -569,7 +569,6 @@ final class Closure {
     /**
      * This method is a static version of Closure::bindTo().
      * See the documentation of that method for more information.
-     * @static
      * @link https://secure.php.net/manual/en/closure.bind.php
      * @param Closure $closure The anonymous functions to bind.
      * @param object $newthis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.

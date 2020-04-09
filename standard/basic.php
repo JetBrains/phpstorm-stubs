@@ -199,7 +199,7 @@ define ('__TRAIT__', '', true);
 /**
  * The directory of the file. If used inside an include,
  * the directory of the included file is returned. This is equivalent
- * to dirname(__FILE__). This directory name
+ * to `dirname(__FILE__)`. This directory name
  * does not have a trailing slash unless it is the root directory.
  * @link https://php.net/manual/en/language.constants.predefined.php
  */

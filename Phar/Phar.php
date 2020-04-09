@@ -167,7 +167,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * compressing tar archives. For decompressing, the default file extensions
 	 * are .phar and .phar.tar.
 	 * </p>
-	 * @return object a <b>Phar</b> object.
+	 * @return static a <b>Phar</b> object.
 	 */
 	public function compress ($compression, $extension = null) {}
 
@@ -182,7 +182,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * that all executable phar archives must contain .phar
 	 * in their filename.
 	 * </p>
-	 * @return object A <b>Phar</b> object is returned.
+	 * @return static A <b>Phar</b> object is returned.
 	 */
 	public function decompress ($extension = null) {}
 

@@ -149,7 +149,6 @@ class MongoClient
     /**
      * Get connections
      * Returns an array of all open connections, and information about each of the servers
-     * @static
      * @return array
      */
     static public function getConnections ()
@@ -1239,7 +1238,6 @@ class MongoCollection {
 
     /**
     * @param  mixed $keys
-    * @static
     * @return string 
     */
     protected static function toIndexString($keys) {}
@@ -1263,7 +1261,6 @@ class MongoCollection {
 class MongoCursor implements Iterator {
     /**
      * @link https://php.net/manual/en/class.mongocursor.php#mongocursor.props.slaveokay
-	 * @static
      * @var bool $slaveOkay
      */
     public static $slaveOkay = FALSE;
@@ -1840,7 +1837,6 @@ class MongoGridFSFile {
 
 class MongoGridFSCursor extends MongoCursor implements Traversable, Iterator {
     /**
-    * @static
     * @var $slaveOkay
     */
     public static $slaveOkay;
@@ -2133,13 +2129,11 @@ class MongoBinData {
 
 class MongoDBRef {
     /**
-    * @static
     * @var $refKey
     */
     protected static $refKey = '$ref';
 
     /**
-    * @static
     * @var $idKey
     */
     protected static $idKey = '$id';
@@ -2148,7 +2142,6 @@ class MongoDBRef {
      * If no database is given, the current database is used.
      *
      * @link https://php.net/manual/en/mongodbref.create.php
-     * @static
      * @param string $collection Collection name (without the database name)
      * @param mixed $id The _id field of the object to which to link
      * @param string $database Database name
@@ -2161,7 +2154,6 @@ class MongoDBRef {
      * It merely checks that $ref is in valid database reference format (in that it is an object or array with $ref and $id fields).
      *
      * @link https://php.net/manual/en/mongodbref.isref.php
-     * @static
      * @param mixed $ref Array or object to check
      * @return bool Returns true if $ref is a reference
      */
@@ -2170,7 +2162,6 @@ class MongoDBRef {
     /**
      * Fetches the object pointed to by a reference
      * @link https://php.net/manual/en/mongodbref.get.php
-     * @static
      * @param MongoDB $db Database to use
      * @param array $ref Reference to fetch
      * @return array|null Returns the document to which the reference refers or null if the document does not exist (the reference is broken)
@@ -2547,7 +2538,6 @@ class MongoLog {
      * section with bitwise operators to specify levels.
      *
      * @link https://php.net/manual/en/mongolog.setlevel.php
-     * @static
      * @param int $level The levels you would like to log
      * @return void
      */
@@ -2558,7 +2548,6 @@ class MongoLog {
      * MongoLog section with bitwise operators to check the level.
      *
      * @link https://php.net/manual/en/mongolog.getlevel.php
-     * @static
      * @return int Returns the current level
      */
     public static function getLevel() {}
@@ -2569,7 +2558,6 @@ class MongoLog {
      * bitwise operators to specify modules.
      *
      * @link https://php.net/manual/en/mongolog.setmodule.php
-     * @static
      * @param int $module The module(s) you would like to log
      * @return void
      */
@@ -2581,7 +2569,6 @@ class MongoLog {
      * operators to check if specific modules are being logged.
      *
      * @link https://php.net/manual/en/mongolog.getmodule.php
-     * @static
      * @return int Returns the modules currently being logged
      */
     public static function getModule() {}
@@ -2592,7 +2579,6 @@ class MongoPool {
      * Returns an array of information about all connection pools.
      *
      * @link https://php.net/manual/en/mongopool.info.php
-     * @static
      * @return array Each connection pool has an identifier, which starts with the host. For
      *         each pool, this function shows the following fields: $in use The number of
      *         connections currently being used by Mongo instances. $in pool The number of
@@ -2620,7 +2606,6 @@ class MongoPool {
      * Sets the max number of connections new pools will be able to create.
      *
      * @link https://php.net/manual/en/mongopool.setsize.php
-     * @static
      * @param int $size The max number of connections future pools will be able to
      *        create. Negative numbers mean that the pool will spawn an infinite number of
      *        connections
@@ -2632,7 +2617,6 @@ class MongoPool {
      * .
      *
      * @link https://php.net/manual/en/mongopool.getsize.php
-     * @static
      * @return int Returns the current pool size
      */
     public static function getSize() {}

@@ -39,29 +39,25 @@ class Client implements \SplSubject, \Countable {
 	const DEBUG_SSL = 64;
 	/**
 	 * Attached observers.
-	 * 
-	 * @private
+	 *
 	 * @var \SplObjectStorage
 	 */
 	private $observers = NULL;
 	/**
 	 * Set options.
 	 * 
-	 * @protected
 	 * @var array
 	 */
 	protected $options = NULL;
 	/**
 	 * Request/response history.
 	 * 
-	 * @protected
 	 * @var \http\Message
 	 */
 	protected $history = NULL;
 	/**
 	 * Whether to record history in http\Client::$history.
-	 * 
-	 * @public
+	 *
 	 * @var bool
 	 */
 	public $recordHistory = false;
@@ -813,15 +809,13 @@ class Header implements \Serializable {
 	const MATCH_STRICT = 33;
 	/**
 	 * The name of the HTTP header.
-	 * 
-	 * @public
+	 *
 	 * @var string
 	 */
 	public $name = NULL;
 	/**
 	 * The value of the HTTP header.
-	 * 
-	 * @public
+	 *
 	 * @var 
 	 */
 	public $value = NULL;
@@ -924,63 +918,54 @@ class Message implements \Countable, \Serializable, \Iterator {
 	/**
 	 * The message type. See http\Message::TYPE_* constants.
 	 * 
-	 * @protected
 	 * @var int
 	 */
 	protected $type = \http\Message::TYPE_NONE;
 	/**
 	 * The message's body.
 	 * 
-	 * @protected
 	 * @var \http\Message\Body
 	 */
 	protected $body = NULL;
 	/**
 	 * The request method if the message is of type request.
 	 * 
-	 * @protected
 	 * @var string
 	 */
 	protected $requestMethod = "";
 	/**
 	 * The request url if the message is of type request.
 	 * 
-	 * @protected
 	 * @var string
 	 */
 	protected $requestUrl = "";
 	/**
 	 * The response status phrase if the message is of type response.
 	 * 
-	 * @protected
 	 * @var string
 	 */
 	protected $responseStatus = "";
 	/**
 	 * The response code if the message is of type response.
 	 * 
-	 * @protected
 	 * @var int
 	 */
 	protected $responseCode = 0;
 	/**
 	 * A custom HTTP protocol version.
 	 * 
-	 * @protected
 	 * @var string
 	 */
 	protected $httpVersion = NULL;
 	/**
 	 * Any message headers.
 	 * 
-	 * @protected
 	 * @var array
 	 */
 	protected $headers = NULL;
 	/**
 	 * Any parent message.
 	 * 
-	 * @protected
 	 * @var \http\Message
 	 */
 	protected $parentMessage;
@@ -1404,36 +1389,31 @@ class Params implements \ArrayAccess {
 	const PARSE_RFC5988 = 32;
 	/**
 	 * The (parsed) parameters.
-	 * 
-	 * @public
+	 *
 	 * @var array
 	 */
 	public $params = NULL;
 	/**
 	 * The parameter separator(s).
-	 * 
-	 * @public
+	 *
 	 * @var array
 	 */
 	public $param_sep = \http\Params::DEF_PARAM_SEP;
 	/**
 	 * The argument separator(s).
-	 * 
-	 * @public
+	 *
 	 * @var array
 	 */
 	public $arg_sep = \http\Params::DEF_ARG_SEP;
 	/**
 	 * The value separator(s).
-	 * 
-	 * @public
+	 *
 	 * @var array
 	 */
 	public $val_sep = \http\Params::DEF_VAL_SEP;
 	/**
 	 * The modus operandi of the parser. See http\Params::PARSE_* constants.
-	 * 
-	 * @public
+	 *
 	 * @var int
 	 */
 	public $flags = \http\Params::PARSE_DEFAULT;
@@ -1526,15 +1506,13 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate {
 	const TYPE_OBJECT = 8;
 	/**
 	 * The global instance. See http\QueryString::getGlobalInstance().
-	 * 
-	 * @private
+	 *
 	 * @var \http\QueryString
 	 */
 	private $instance = NULL;
 	/**
 	 * The data.
-	 * 
-	 * @private
+	 *
 	 * @var array
 	 */
 	private $queryArray = NULL;
@@ -1823,57 +1801,49 @@ class Url  {
 	const STDFLAGS = 3350531;
 	/**
 	 * The URL's scheme.
-	 * 
-	 * @public
+	 *
 	 * @var string
 	 */
 	public $scheme = NULL;
 	/**
 	 * Authenticating user.
-	 * 
-	 * @public
+	 *
 	 * @var string
 	 */
 	public $user = NULL;
 	/**
 	 * Authentication password.
-	 * 
-	 * @public
+	 *
 	 * @var string
 	 */
 	public $pass = NULL;
 	/**
 	 * Hostname/domain.
-	 * 
-	 * @public
+	 *
 	 * @var string
 	 */
 	public $host = NULL;
 	/**
 	 * Port.
-	 * 
-	 * @public
+	 *
 	 * @var string
 	 */
 	public $port = NULL;
 	/**
 	 * URL path.
-	 * 
-	 * @public
+	 *
 	 * @var string
 	 */
 	public $path = NULL;
 	/**
 	 * URL querystring.
-	 * 
-	 * @public
+	 *
 	 * @var string
 	 */
 	public $query = NULL;
 	/**
 	 * URL fragment (hash).
-	 * 
-	 * @public
+	 *
 	 * @var string
 	 */
 	public $fragment = NULL;
@@ -2081,7 +2051,6 @@ class Request extends \http\Message {
 	/**
 	 * Array of options for this request, which override client options.
 	 * 
-	 * @protected
 	 * @var array
 	 */
 	protected $options = NULL;
@@ -2628,28 +2597,24 @@ class Request extends \http\Message {
 	/**
 	 * The request's query parameters. ($_GET)
 	 * 
-	 * @protected
 	 * @var \http\QueryString
 	 */
 	protected $query = NULL;
 	/**
 	 * The request's form parameters. ($_POST)
 	 * 
-	 * @protected
 	 * @var \http\QueryString
 	 */
 	protected $form = NULL;
 	/**
 	 * The request's form uploads. ($_FILES)
 	 * 
-	 * @protected
 	 * @var array
 	 */
 	protected $files = NULL;
 	/**
 	 * The request's cookies. ($_COOKIE)
 	 * 
-	 * @protected
 	 * @var array
 	 */
 	protected $cookie = NULL;
@@ -2748,70 +2713,60 @@ class Response extends \http\Message {
 	/**
 	 * A request instance which overrides the environments default request.
 	 * 
-	 * @protected
 	 * @var \http\Env\Request
 	 */
 	protected $request = NULL;
 	/**
 	 * The response's MIME content type.
 	 * 
-	 * @protected
 	 * @var string
 	 */
 	protected $contentType = NULL;
 	/**
 	 * The response's MIME content disposition.
 	 * 
-	 * @protected
 	 * @var string
 	 */
 	protected $contentDisposition = NULL;
 	/**
 	 * See http\Env\Response::CONTENT_ENCODING_* constants.
 	 * 
-	 * @protected
 	 * @var int
 	 */
 	protected $contentEncoding = NULL;
 	/**
 	 * How the client should treat this response in regards to caching.
 	 * 
-	 * @protected
 	 * @var string
 	 */
 	protected $cacheControl = NULL;
 	/**
 	 * A custom ETag.
 	 * 
-	 * @protected
 	 * @var string
 	 */
 	protected $etag = NULL;
 	/**
 	 * A "Last-Modified" time stamp.
 	 * 
-	 * @protected
 	 * @var int
 	 */
 	protected $lastModified = NULL;
 	/**
 	 * Any throttling delay.
 	 * 
-	 * @protected
 	 * @var int
 	 */
 	protected $throttleDelay = NULL;
 	/**
 	 * The chunk to send every $throttleDelay seconds.
 	 * 
-	 * @protected
 	 * @var int
 	 */
 	protected $throttleChunk = NULL;
 	/**
 	 * The response's cookies.
 	 * 
-	 * @protected
 	 * @var array
 	 */
 	protected $cookies = NULL;
