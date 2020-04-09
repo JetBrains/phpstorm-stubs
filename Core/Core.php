@@ -968,6 +968,15 @@ function gc_enable () {}
 function gc_disable () {}
 
 /**
+ * Gets information about the garbage collector
+ * @link https://php.net/manual/en/function.gc-status.php
+ * @return array associative array with the following elements:
+ * <ul>
+ * <li>"runs"</li>
+ * <li>"collected"</li>
+ * <li>"threshold"</li>
+ * <li>"roots"</li>
+ * </ul>
  * @since 7.3
  */
 function gc_status () {}
