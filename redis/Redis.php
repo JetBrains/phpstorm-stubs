@@ -2918,14 +2918,14 @@ class Redis
     /**
      * Adds the specified member with a given score to the sorted set stored at key
      *
-     * @param string       $key     Required key
-     * @param array        $options Options if needed
-     * @param float        $score1  Required score
-     * @param string|mixed $value1  Required value
-     * @param float        $score2  Optional score
-     * @param string|mixed $value2  Optional value
-     * @param float        $scoreN  Optional score
-     * @param string|mixed $valueN  Optional value
+     * @param string                $key     Required key
+     * @param array|float           $options Options if needed or score if omitted
+     * @param float|string|mixed    $score1  Required score or value if options omitted
+     * @param string|float|mixed    $value1  Required value or optional score if options omitted
+     * @param float|string|mixed    $score2  Optional score or value if options omitted
+     * @param string|float|mixed    $value2  Optional value or score if options omitted
+     * @param float|string|mixed    $scoreN  Optional score or value if options omitted
+     * @param string|float|mixed    $valueN  Optional value or score if options omitted
      *
      * @return int Number of values added
      *
@@ -2959,7 +2959,7 @@ class Redis
      * </pre>
      * </pre>
      */
-    public function zAdd($key, $options, $score1, $value1, $score2 = null, $value2 = null, $scoreN = null, $valueN = null)
+    public function zAdd($key, $options, $score1, $value1 = null, $score2 = null, $value2 = null, $scoreN = null, $valueN = null)
     {
     }
 
