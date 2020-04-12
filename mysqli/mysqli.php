@@ -103,7 +103,7 @@ class mysqli  {
 	 */
 	public $server_version;
 	/**
-	 * @var string
+	 * @var string|false
 	 */
 	public $sqlstate;
 	/**
