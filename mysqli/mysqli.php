@@ -786,7 +786,7 @@ final class mysqli_warning  {
  * Implements Traversable since 5.4
  * @link https://php.net/manual/en/class.mysqli-result.php
  */
-class mysqli_result implements Traversable  {
+class mysqli_result implements IteratorAggregate  {
 	/**
 	 * @var int
 	 */
@@ -812,6 +812,11 @@ class mysqli_result implements Traversable  {
 	 * Constructor (no docs available)
 	 */
 	public function __construct () {}
+
+	/**
+	 * Mandatory, minimal implementation of Traversable
+	 */
+	public function getIterator () {}
 
 	/**
 	 * Frees the memory associated with a result
