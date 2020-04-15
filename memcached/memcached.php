@@ -1,6 +1,6 @@
 <?php
 
-// Start of memcached v.3.0.4
+// Start of memcached v.3.1.5
 
 /**
  * Represents a connection to a set of memcached servers.
@@ -70,8 +70,7 @@ class Memcached  {
 	/**
 	 * <p>Indicate whether set_encoding_key is available</p>
 	 * <p>Type: boolean.</p>
-	 * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/memcached-api.php
-	 * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/php_memcached.c#L4387
+	 * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/memcached-api.php, https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/php_memcached.c#L4387
 	 */
 	const HAVE_ENCODING = 0;
 
@@ -433,8 +432,7 @@ class Memcached  {
 
 	/**
 	 * <p>Bad key.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
-	 * @link http://docs.libmemcached.org/index.html
+	 * @link https://php.net/manual/en/memcached.constants.php, http://docs.libmemcached.org/index.html
 	 */
 	/**
 	 * <p>MEMCACHED_BAD_KEY_PROVIDED: The key provided is not a valid key.</p>
@@ -657,8 +655,7 @@ class Memcached  {
 	 * <p>Whether to fetch CAS token as well (use "gets").
 	 * A flag for <b>Memcached::get()</b>, <b>Memcached::getMulti()</b> and <b>Memcached::getMultiByKey()</b>
 	 * to ensure that the CAS token values are returned as well.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
-	 * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/memcached-api.php
+	 * @link https://php.net/manual/en/memcached.constants.php, https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/memcached-api.php
 	 */
 	const GET_EXTENDED = 2;
 	const GET_ERROR_RETURN_VALUE = false;
@@ -667,8 +664,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Create a Memcached instance
-	 * @link https://php.net/manual/en/memcached.construct.php
-	 * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/php_memcached.c
+	 * @link https://php.net/manual/en/memcached.construct.php, https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/php_memcached.c
 	 * @param string $persistent_id [optional]
 	 * @param callable $on_new_object_cb [optional]
 	 * @param string $connection_str [optional]
@@ -837,7 +833,7 @@ class Memcached  {
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
 	 * @param int $udf_flags [optional]
-	 * @return void <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
 	public function set ($key, $value, $expiration = 0, $udf_flags = 0) {}
@@ -859,7 +855,7 @@ class Memcached  {
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
 	 * @param int $udf_flags [optional]
-	 * @return void <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
 	public function setByKey ($server_key, $key, $value, $expiration = 0, $udf_flags = 0) {}
@@ -908,7 +904,7 @@ class Memcached  {
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
 	 * @param int $udf_flags [optional]
-	 * @return void <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
 	public function setMulti (array $items, $expiration = 0, $udf_flags = 0) {}
@@ -927,7 +923,7 @@ class Memcached  {
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
 	 * @param int $udf_flags [optional]
-	 * @return void <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
 	public function setMultiByKey ($server_key, array $items, $expiration = 0, $udf_flags = 0) {}
@@ -949,7 +945,7 @@ class Memcached  {
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
 	 * @param int $udf_flags [optional]
-	 * @return void <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_DATA_EXISTS</b> if the item you are trying
 	 * to store has been modified since you last fetched it.
@@ -976,7 +972,7 @@ class Memcached  {
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
 	 * @param int $udf_flags [optional]
-	 * @return void <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_DATA_EXISTS</b> if the item you are trying
 	 * to store has been modified since you last fetched it.
@@ -997,7 +993,7 @@ class Memcached  {
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
 	 * @param int $udf_flags [optional]
-	 * @return void <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTSTORED</b> if the key already exists.
 	 */
@@ -1020,7 +1016,7 @@ class Memcached  {
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
 	 * @param int $udf_flags [optional]
-	 * @return void <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTSTORED</b> if the key already exists.
 	 */
@@ -1110,7 +1106,7 @@ class Memcached  {
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
 	 * @param int $udf_flags [optional]
-	 * @return void <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTSTORED</b> if the key does not exist.
 	 */
@@ -1133,7 +1129,7 @@ class Memcached  {
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
 	 * @param int $udf_flags [optional]
-	 * @return void <b>TRUE</b> on success or <b>FALSE</b> on failure.
+	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTSTORED</b> if the key does not exist.
 	 */
@@ -1528,5 +1524,5 @@ class Memcached  {
 class MemcachedException extends RuntimeException  {
 	function __construct( $errmsg = "", $errcode  = 0 ) {}
 }
-// End of memcached v.3.0.4
+// End of memcached v.3.1.5
 ?>
