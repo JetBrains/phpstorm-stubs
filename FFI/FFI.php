@@ -58,7 +58,7 @@ namespace {
          * @param string $filename
          * @return FFI
          */
-        public static function load($filename): FFI {}
+        public static function load(string $filename): FFI {}
 
         /**
          * FFI definition parsing and shared library loading may take
