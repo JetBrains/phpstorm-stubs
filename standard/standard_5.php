@@ -669,7 +669,7 @@ function fread ($handle, $length) {}
  * @param resource $context [optional] &note.context-support;
  * @return resource|false a file pointer resource on success, or false on error.
  */
-function fopen ($filename, $mode, $use_include_path = null, $context = null) {}
+function fopen ($filename, $mode, $use_include_path = false, $context = null) {}
 
 /**
  * Output all remaining data on a file pointer
