@@ -737,6 +737,28 @@ class SoapHeader  {
 
 	/**
 	 * SoapHeader constructor
+	 * @link https://www.php.net/manual/en/soapheader.construct.php
+	 * @param string $namespace <p>
+	 * The namespace of the SOAP header element.
+	 * </p>
+	 * @param string $name <p>
+	 * The name of the SoapHeader object.
+	 * </p>
+	 * @param mixed $data [optional] <p>
+	 * A SOAP header's content. It can be a PHP value or a
+	 * <b>SoapVar</b> object.
+	 * </p>
+	 * @param bool $mustunderstand [optional]
+	 * @param string $actor [optional] <p>
+	 * Value of the actor attribute of the SOAP header
+	 * element.
+	 * </p>
+	 * @since 5.0.1
+	 */
+	 public function __construct ($namespace, $name, $data = null, $mustunderstand = false, $actor = null) {}
+
+	/**
+	 * SoapHeader constructor
 	 * @link https://php.net/manual/en/soapheader.soapheader.php
 	 * @param string $namespace <p>
 	 * The namespace of the SOAP header element.
