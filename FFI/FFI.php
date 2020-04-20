@@ -33,7 +33,7 @@ namespace {
          * @return CData|FFI|mixed
          * @throws ParserException
          */
-        public static function cdef(string $code, string $library = null) {}
+        public static function cdef(string $code, string $library = null): FFI {}
 
         /**
          * <p>Instead of embedding of a long C definition into PHP string,
@@ -276,4 +276,3 @@ namespace FFI {
     {
     }
 }
-
