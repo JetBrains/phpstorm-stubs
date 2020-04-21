@@ -178,7 +178,7 @@ function password_get_info ($hash) {}
  * @return string|false|null Returns the hashed password, or FALSE on failure, or null if the algorithm is invalid
  * @since 5.5
  */
-function password_hash ($password, $algo, $options = null) {}
+function password_hash ($password, $algo, $options = []) {}
 
 /**
  * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>
@@ -191,7 +191,7 @@ function password_hash ($password, $algo, $options = null) {}
  * @return bool Returns TRUE if the hash should be rehashed to match the given algo and options, or FALSE otherwise.
  * @since 5.5
  */
-function password_needs_rehash ($hash, $algo, $options = null) {}
+function password_needs_rehash ($hash, $algo, $options = []) {}
 
 /**
  * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>
