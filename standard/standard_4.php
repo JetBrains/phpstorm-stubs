@@ -167,7 +167,7 @@ function serialize ($value) {}
  * In case the passed string is not unserializeable, false is returned and
  * E_NOTICE is issued.
  */
-function unserialize ($str, array $options = null) {}
+function unserialize (string $str, array $options = []) {}
 
 /**
  * Dumps information about a variable
