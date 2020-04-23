@@ -477,7 +477,7 @@ function parse_url ($url, $component = -1) {}
  * as plus (+) signs. It is encoded the same way that the
  * posted data from a WWW form is encoded, that is the same way as in
  * application/x-www-form-urlencoded media type. This
- * differs from the RFC 1738 encoding (see
+ * differs from the RFC 3986 encoding (see
  * rawurlencode) in that for historical reasons, spaces
  * are encoded as plus (+) signs.
  */
