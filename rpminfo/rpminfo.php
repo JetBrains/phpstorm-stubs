@@ -308,8 +308,8 @@ function rpmvercmp (string $evr1, string $evr2) {}
  * If provided, will receive the possible error message, and will avoid a runtime warning.
  * </p>
  *
- * @return array|false <p>
- * An array of information or <b>FALSE</b> on error.
+ * @return array|null <p>
+ * An array of information or <b>NULL</b> on error.
  * </p>
  * @since 0.1.0
  */
@@ -325,8 +325,8 @@ function rpminfo (string $path, bool $full = false, string &$error = null) {}
  * If TRUE all information headers for the file are retrieved, else only a minimal set.
  * </p>
  *
- * @return array|false <p>
- * An array of arrays of information or NULL on error.
+ * @return array|null <p>
+ * An array of arrays of information or <b>NULL</b> on error.
  * </p>
  * @since 0.2.0
  */
@@ -349,8 +349,8 @@ function rpmdbinfo (string $nevr, bool $full = false) {}
  * If TRUE all information headers for the file are retrieved, else only a minimal set.
  * </p>
  *
- * @return array <p>
- * An array of arrays of information or <b>FALSE</b> on error.
+ * @return array|null <p>
+ * An array of arrays of information or <b>NULL</b> on error.
  * </p>
  * @since 0.3.0
  */
