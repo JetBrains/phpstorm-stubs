@@ -488,8 +488,15 @@ class Memcached  {
 	 * @link https://php.net/manual/en/memcached.constants.php
 	 */
 	const GET_PRESERVE_ORDER = 1;
-	const GET_ERROR_RETURN_VALUE = false;
+	
+	/**
+	 * A flag for <b>Memcached::get()</b>, <b>Memcached::getMulti()</b> and 
+	 * <b>Memcached::getMultiByKey()</b> to ensure that the CAS token values are returned as well.
+	 * @link https://php.net/manual/en/memcached.constants.php
+	 */
+	const GET_EXTENDED = 2;
 
+	const GET_ERROR_RETURN_VALUE = false;
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
