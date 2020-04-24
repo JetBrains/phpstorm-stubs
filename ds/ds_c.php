@@ -12,6 +12,7 @@ namespace Ds {
 
     use Countable;
     use JsonSerializable;
+    use OutOfBoundsException;
     use OutOfRangeException;
     use Traversable;
     use UnderflowException;
@@ -36,7 +37,7 @@ namespace Ds {
          * @link https://www.php.net/manual/en/ds-collection.copy.php
          * @return Collection
          */
-        public function copy(): Collection;
+        public function copy();
 
         /**
          * Returns whether the collection is empty.
@@ -189,7 +190,7 @@ namespace Ds {
          * TRUE if a callback was not provided.
          * @link https://www.php.net/manual/en/ds-sequence.filter.php
          */
-        public function filter(callable $callback = null): Sequence;
+        public function filter(callable $callback = null);
 
         /**
          * Returns the index of the value, or FALSE if not found.
@@ -258,7 +259,7 @@ namespace Ds {
          * affected.
          * @link https://www.php.net/manual/en/ds-sequence.map.php
          */
-        public function map(callable $callback): Sequence;
+        public function map(callable $callback);
 
         /**
          * Returns the result of adding all given values to the sequence.
@@ -268,7 +269,7 @@ namespace Ds {
          * then returning that copy.
          * @link https://www.php.net/manual/en/ds-sequence.merge.php
          */
-        public function merge($values): Sequence;
+        public function merge($values);
 
         /**
          * Removes and returns the last value.
@@ -317,7 +318,7 @@ namespace Ds {
          * @return Sequence A reversed copy of the sequence.
          * <p>Note: The current instance is not affected.
          */
-        public function reversed(): Sequence;
+        public function reversed();
 
         /**
          * Rotates the sequence by a given number of rotations, which is
@@ -362,7 +363,7 @@ namespace Ds {
          * @return Sequence A sub-sequence of the given range.
          * @link https://www.php.net/manual/en/ds-sequence.slice.php
          */
-        public function slice(int $index, int $length = null): Sequence;
+        public function slice(int $index, int $length = null);
 
         /**
          * Sorts the sequence in-place, using an optional comparator function.
@@ -397,7 +398,7 @@ namespace Ds {
          * @return Sequence Returns a sorted copy of the sequence.
          * @link https://www.php.net/manual/en/ds-sequence.sort.php
          */
-        public function sorted(callable $comparator): Sequence;
+        public function sorted(callable $comparator);
 
         /**
          * Returns the sum of all values in the sequence.
@@ -529,7 +530,7 @@ namespace Ds {
          * <p>Note: Values will be compared by value and by type.
          * @link https://www.php.net/manual/en/ds-sequence.find.php
          */
-        public function find(mixed $value)
+        public function find($value)
         {
         }
 
@@ -1197,7 +1198,449 @@ namespace Ds {
         public function jsonSerialize()
         {
         }
-
-
     }
+
+    class Map implements Collection
+    {
+        /**
+         * Count elements of an object
+         * @link https://php.net/manual/en/countable.count.php
+         * @return int The custom count as an integer.
+         * </p>
+         * <p>
+         * The return value is cast to an integer.
+         * @since 5.1
+         */
+        public function count(): int
+        {
+        }
+
+        /**
+         * Removes all values from the collection.
+         * @link https://www.php.net/manual/en/ds-collection.clear.php
+         */
+        public function clear(): void
+        {
+        }
+
+        /**
+         * Returns a shallow copy of the collection.
+         * @link https://www.php.net/manual/en/ds-collection.copy.php
+         * @return Collection
+         */
+        public function copy(): Collection
+        {
+        }
+
+        /**
+         * Returns whether the collection is empty.
+         * @link https://www.php.net/manual/en/ds-collection.isempty.php
+         * @return bool
+         */
+        public function isEmpty(): bool
+        {
+        }
+
+        /**
+         * Converts the map to an array.
+         * <p>Note: Casting to an array is not supported yet.
+         * <p>Caution: Maps where non-scalar keys are can't be converted to an
+         * array.
+         * <p>Caution: An array will treat all numeric keys as integers, eg.
+         * "1" and 1 as keys in the map will only result in 1 being included in
+         * the array.
+         * @link https://www.php.net/manual/en/ds-map.toarray.php
+         * @return array An array containing all the values in the same order as
+         * the map.
+         */
+        public function toArray(): array
+        {
+        }
+
+        /**
+         * Specify data which should be serialized to JSON
+         * @link https://php.net/manual/en/jsonserializable.jsonserialize.php
+         * @return mixed data which can be serialized by <b>json_encode</b>,
+         * which is a value of any type other than a resource.
+         * @since 5.4
+         */
+        public function jsonSerialize()
+        {
+        }
+
+        /**
+         * Returns a set containing all the keys of the map, in the same order.
+         * @link https://www.php.net/manual/en/ds-map.keys.php
+         * @return Set A Ds\Set containing all the keys of the map.
+         */
+        public function keys(): Set
+        {
+        }
+
+        /**
+         * Sorts the map in-place by key, using an optional comparator function.
+         * @param callable|null $comparator The comparison function must return
+         * an integer less than, equal to, or greater than zero if the first
+         * argument is considered to be respectively less than, equal to, or
+         * greater than the second. Note that before PHP 7.0.0 this integer had
+         * to be in the range from -2147483648 to  2147483647.
+         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         * <p>Caution: Returning non-integer values from the comparison function, such
+         * as float, will result in an internal cast to integer of the
+         * callback's return value. So values such as 0.99 and 0.1 will both be
+         * cast to an  integer value of 0, which will compare such values as
+         * equal.</p>
+         * @link https://www.php.net/manual/en/ds-map.ksort.php
+         */
+        public function ksort(?callable $comparator = null)
+        {
+        }
+
+        /**
+         * Returns a copy sorted by key, using an optional comparator function.
+         * @param callable|null $comparator The comparison function must return
+         * an integer less than, equal to, or greater than zero if the first
+         * argument is considered to be respectively less than, equal to, or
+         * greater than the second. Note that before PHP 7.0.0 this integer had
+         * to be in the range from -2147483648 to 2147483647.
+         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         * <p>Caution: Returning non-integer values from the comparison function, such
+         * as float, will result in an internal cast to integer of the
+         * callback's return value. So values such as 0.99 and 0.1 will both be
+         * cast to an  integer value of 0, which will compare such values as
+         * equal.</p>
+         * @return Map Returns a copy of the map, sorted by key.
+         * @link https://www.php.net/manual/en/ds-map.ksorted.php
+         */
+        public function ksorted(callable $comparator = null): Map
+        {
+        }
+
+        /**
+         * Returns the last pair of the map.
+         * @return Pair The last pair of the map.
+         * @throws UnderflowException if empty
+         * @link https://www.php.net/manual/en/ds-map.last.php
+         */
+        public function last(): Pair
+        {
+        }
+
+        /**
+         * Returns the result of applying a callback function to each value of
+         * the map.
+         * @param callable $callback A callable to apply to each value in the
+         * map. The callable should return what the key will be mapped to in the
+         * resulting map.
+         * <code>callback ( mixed $key , mixed $value ) : mixed</code>
+         * @return Map The result of applying a callback to each value in the
+         * map.
+         *
+         * Note: The keys and values of the current instance won't be affected.
+         *
+         * @link https://www.php.net/manual/en/ds-map.map.php
+         */
+        public function map(callable $callback): Map
+        {
+        }
+
+        /**
+         * Returns the result of associating all keys of a given traversable
+         * object or array with their corresponding values, combined with the
+         * current instance.
+         * @param mixed $values A traversable object or an array.
+         * @return Map The result of associating all keys of a given traversable
+         * object or array with their corresponding values, combined with the
+         * current instance.
+         *
+         * Note: The current instance won't be affected.
+         *
+         * @link https://www.php.net/manual/en/ds-map.merge.php
+         */
+        public function merge($values): Map
+        {
+        }
+
+        /**
+         * Returns a Ds\Sequence containing all the pairs of the map.
+         *
+         * @return Sequence Ds\Sequence containing all the pairs of the map.
+         *
+         * @link https://www.php.net/manual/en/ds-map.pairs.php
+         */
+        public function pairs(): Sequence
+        {
+        }
+
+        /**
+         * Associates a key with a value, overwriting a previous association if
+         * one exists.
+         * @param mixed $key The key to associate the value with.
+         * @param mixed $value The value to be associated with the key.
+         *
+         * Note: Keys of type object are supported. If an object implements
+         * Ds\Hashable, equality will be determined by the object's equals
+         * function. If an object does not implement Ds\Hashable, objects must
+         * be references to the same instance to be considered equal.
+         *
+         * Note: You can also use array syntax to associate values by key, eg.
+         * $map["key"] = $value.
+         *
+         * Caution: Be careful when using array syntax. Scalar keys will be
+         * coerced to integers by the engine. For example, $map["1"] will
+         * attempt to access int(1), while $map->get("1") will correctly look up
+         * the string key.
+         *
+         * @link https://www.php.net/manual/en/ds-map.put.php
+         */
+        public function put($key, $value)
+        {
+        }
+
+        /**
+         * Associates all key-value pairs of a traversable object or array.
+         *
+         * Note: Keys of type object are supported. If an object implements
+         * Ds\Hashable, equality will be determined
+         * by the object's equals function. If an object does not implement
+         * Ds\Hashable, objects must be references to the same instance to be
+         * considered equal.
+         *
+         * @param $pairs traversable object or array.
+         *
+         * @link https://www.php.net/manual/en/ds-map.putall.php
+         */
+        public function putAll($pairs)
+        {
+        }
+
+        /**
+         * Reduces the map to a single value using a callback function.
+         *
+         * @param callable $callback
+         * <code>callback ( mixed $carry , mixed $key , mixed $value ) : mixed</code>
+         * <b>carry</b> The return value of the previous callback, or initial if
+         * it's the first iteration.
+         * <b>key</b> The key of the current iteration.
+         * <b>value</b> The value of the current iteration.
+         *
+         * @param mixed $initial The initial value of the carry value. Can be
+         * NULL.
+         *
+         * @link https://www.php.net/manual/en/ds-map.reduce.php
+         */
+        public function reduce(callable $callback, $initial)
+        {
+        }
+
+        /**
+         * Removes and returns a value by key, or return an optional default
+         * value if the key could not be found.
+         *
+         * @param mixed $key The key to remove.
+         * @param mixed $default The optional default value, returned if the key
+         * could not be found.
+         *
+         * Note: Keys of type object are supported. If an object implements
+         * Ds\Hashable, equality will be determined
+         * by the object's equals function. If an object does not implement
+         * Ds\Hashable, objects must be references to the same instance to be
+         * considered equal.
+         *
+         * Note: You can also use array syntax to access values by key, eg.
+         * $map["key"].
+         *
+         * Caution: Be careful when using array syntax. Scalar keys will be
+         * coerced to integers by the engine. For example, $map["1"] will
+         * attempt to access int(1), while $map->get("1") will correctly look up
+         * the string key.
+         *
+         * @return mixed The value that was removed, or the default value if
+         * provided and the key could not be found in the map.
+         *
+         * @throws OutOfBoundsException if the key could not be found and a
+         * default value was not provided.
+         *
+         * @link https://www.php.net/manual/en/ds-map.remove.php
+         */
+        public function remove($key, $default)
+        {
+        }
+
+        /**
+         * Reverses the map in-place.
+         *
+         * @link https://www.php.net/manual/en/ds-map.reverse.php
+         */
+        public function reverse()
+        {
+        }
+
+        /**
+         * Returns a reversed copy of the map.
+         *
+         * @return Map A reversed copy of the map.
+         *
+         * <p>Note: The current instance is not affected.</p>
+         *
+         * @link https://www.php.net/manual/en/ds-map.reversed.php
+         */
+        public function reversed(): Map
+        {
+        }
+
+        /**
+         * Returns the pair at a given zero-based position.
+         *
+         * @param int $position The zero-based positional index to return.
+         *
+         * @return Pair Returns the Ds\Pair at the given position.
+         *
+         * @throws OutOfRangeException if the position is not valid.
+         *
+         * @link https://www.php.net/manual/en/ds-map.skip.php
+         */
+        public function skip(int $position): Pair
+        {
+        }
+
+        /**
+         * Returns a subset of the map defined by a starting index and length.
+         *
+         * @param int $index The index at which the range starts. If positive,
+         * the range will start at that index in the map. If negative, the range
+         * will start that far from the end.
+         *
+         * @param int|null $length If a length is given and is positive, the
+         * resulting map will have up to that many pairs in it. If a length is
+         * given and is negative, the range will stop that many pairs from the
+         * end. If the length results in an overflow, only pairs up to the end
+         * of the map will be included. If a length is not provided, the
+         * resulting map will contain all pairs between the index and the end of
+         * the map.
+         *
+         * @return Map A subset of the map defined by a starting index and
+         * length.
+         *
+         * @link https://www.php.net/manual/en/ds-map.slice.php
+         */
+        public function slice(int $index, ?int $length = null): Map
+        {
+        }
+
+        /**
+         * Sorts the map in-place by value, using an optional comparator
+         * function.
+         *
+         * @param callable|null $comparator The comparison function must return
+         * an integer less than, equal to, or greater than zero if the first
+         * argument is considered to be respectively less than, equal to, or
+         * greater than the second. Note that before PHP 7.0.0 this integer had
+         * to be in the range from -2147483648 to 2147483647.
+         *
+         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         *
+         * Caution: Returning non-integer values from the comparison function,
+         * such as float, will result in an internal cast to integer of the
+         * callback's return value. So values such as 0.99 and 0.1 will both be
+         * cast to an integer value of 0, which will compare such values as
+         * equal.
+         *
+         * @link https://www.php.net/manual/en/ds-map.sort.php
+         */
+        public function sort(?callable $comparator = null)
+        {
+        }
+
+        /**
+         * Returns a copy, sorted by value using an optional comparator function.
+         *
+         * @param callable|null $comparator The comparison function must return
+         * an integer less than, equal to, or greater than zero if the first
+         * argument is considered to be respectively less than, equal to, or
+         * greater than the second. Note that before PHP 7.0.0 this integer had
+         * to be in the range from -2147483648 to 2147483647.
+         *
+         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         *
+         * Caution: Returning non-integer values from the comparison function,
+         * such as float, will result in an internal cast to integer of the
+         * callback's return value. So values such as 0.99 and 0.1 will both be
+         * cast to an integer value of 0, which will compare such values as
+         * equal.
+         *
+         * @return Map
+         *
+         * @link https://www.php.net/manual/en/ds-map.sorted.php
+         */
+        public function sorted(?callable $comparator = null): Map
+        {
+        }
+
+        /**
+         * Returns the sum of all values in the map.
+         *
+         * Note: Arrays and objects are considered equal to zero when
+         * calculating the sum.
+         *
+         * @return float|int The sum of all the values in the map as either a
+         * float or int depending on the values in the map.
+         *
+         * @link https://www.php.net/manual/en/ds-map.sum.php
+         */
+        public function sum()
+        {
+        }
+
+        /**
+         * Creates a new map using values from the current instance and another
+         * map.
+         *
+         * A ∪ B = {x: x ∈ A ∨ x ∈ B}
+         *
+         * <p>Note: Values of the current instance will be overwritten by those
+         * provided where keys are equal.
+         *
+         * @param Map $map The other map, to combine with the current instance.
+         *
+         * @return Map A new map containing all the pairs of the current
+         * instance as well as another map.
+         *
+         * @link https://www.php.net/manual/en/ds-map.union.php
+         */
+        public function union(Map $map): Map
+        {
+        }
+
+        /**
+         * Returns a sequence containing all the values of the map, in the same
+         * order.
+         *
+         * @return Sequence A Ds\Sequence containing all the values of the map.
+         *
+         * @link https://www.php.net/manual/en/ds-map.values.php
+         */
+        public function values(): Sequence
+        {
+        }
+
+        /**
+         * Creates a new map containing keys of the current instance as well as
+         * another map, but not of both.
+         *
+         * A ⊖ B = {x : x ∈ (A \ B) ∪ (B \ A)}
+         *
+         * @param Map $map The other map.
+         *
+         * @return Map A new map containing keys in the current instance as well
+         * as another map, but not in both.
+         *
+         * @link https://www.php.net/manual/en/ds-map.xor.php
+         */
+        public function xor(Map $map): Map
+        {
+        }
+    }
+
+
 }
