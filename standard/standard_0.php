@@ -93,7 +93,7 @@ class Directory  {
      * @var resource Can be used with other directory functions such as {@see readdir()}, {@see rewinddir()} and {@see closedir()}.
      */
     public $handle;
-    
+
     /**
      * Close directory handle.
      * Same as closedir(), only dir_handle defaults to $this.
@@ -797,7 +797,7 @@ function iptcparse ($iptcblock) {}
  * Path to the JPEG image.
  * </p>
  * @param int $spool [optional] <p>
- * Spool flag. If the spool flag is over 2 then the JPEG will be 
+ * Spool flag. If the spool flag is over 2 then the JPEG will be
  * returned as a string.
  * </p>
  * @return string|bool If success and spool flag is lower than 2 then the JPEG will not be
@@ -811,14 +811,14 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
  * @param string $filename <p>
  * This parameter specifies the file you wish to retrieve information
  * about. It can reference a local file or (configuration permitting) a
- * remote file using one of the supported streams. 
+ * remote file using one of the supported streams.
  * </p>
  * @param array $imageinfo [optional] <p>
  * This optional parameter allows you to extract some extended
  * information from the image file. Currently, this will return the
  * different JPG APP markers as an associative array.
- * Some programs use these APP markers to embed text information in 
- * images. A very common one is to embed 
+ * Some programs use these APP markers to embed text information in
+ * images. A very common one is to embed
  * IPTC information in the APP13 marker.
  * You can use the iptcparse function to parse the
  * binary APP13 marker into something readable.
@@ -835,17 +835,17 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
  * zero for width and height in these cases.
  * </p>
  * <p>
- * Index 2 is one of the IMAGETYPE_XXX constants indicating 
+ * Index 2 is one of the IMAGETYPE_XXX constants indicating
  * the type of the image.
  * </p>
  * <p>
- * Index 3 is a text string with the correct 
+ * Index 3 is a text string with the correct
  * height="yyy" width="xxx" string that can be used
  * directly in an IMG tag.
  * </p>
  * <p>
  * mime is the correspondant MIME type of the image.
- * This information can be used to deliver images with correct the HTTP 
+ * This information can be used to deliver images with correct the HTTP
  * Content-type header:
  * getimagesize and MIME types
  * </p>
@@ -966,7 +966,7 @@ function image_type_to_mime_type ($imagetype) {}
  * </p>
  * @return string A string with the extension corresponding to the given image type.
  */
-function image_type_to_extension ($imagetype, $include_dot = null) {}
+function image_type_to_extension ($imagetype, $include_dot = true) {}
 
 /**
  * Outputs lots of PHP information
@@ -1029,7 +1029,7 @@ function image_type_to_extension ($imagetype, $include_dot = null) {}
  * <td>INFO_VARIABLES</td>
  * <td>32</td>
  * <td>
- * Shows all 
+ * Shows all
  * predefined variables from EGPCS (Environment, GET,
  * POST, Cookie, Server).
  * </td>
@@ -1164,14 +1164,14 @@ function zend_logo_guid () {}
  * @return string the interface type, as a lowercase string.
  * </p>
  * <p>
- * Although not exhaustive, the possible return values include 
- * aolserver, apache, 
- * apache2filter, apache2handler, 
- * caudium, cgi (until PHP 5.3), 
- * cgi-fcgi, cli, 
+ * Although not exhaustive, the possible return values include
+ * aolserver, apache,
+ * apache2filter, apache2handler,
+ * caudium, cgi (until PHP 5.3),
+ * cgi-fcgi, cli,
  * continuity, embed,
- * isapi, litespeed, 
- * milter, nsapi, 
+ * isapi, litespeed,
+ * milter, nsapi,
  * phttpd, pi3web, roxen,
  * thttpd, tux, and webjames.
  */
@@ -1296,7 +1296,7 @@ function substr_count ($haystack, $needle, $offset = null, $length = null) {}
  * </p>
  * @param int $length [optional] <p>
  * The length of the segment from subject
- * to examine. 
+ * to examine.
  * </p>
  * <p>
  * If length is given and is non-negative,
