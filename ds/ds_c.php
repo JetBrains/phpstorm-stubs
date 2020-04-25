@@ -1642,5 +1642,65 @@ namespace Ds {
         }
     }
 
+    /**
+     * A pair is used by Ds\Map to pair keys with values.
+     * @package Ds
+     */
+    class Pair implements JsonSerializable
+    {
+        /**
+         * Creates a new instance using a given key and value.
+         *
+         * @param mixed $key
+         * @param mixed $value
+         */
+        public function __construct($key = null, $value = null)
+        {
+        }
 
+        /**
+         * Removes all values from the pair.
+         */
+        public function clear()
+        {
+        }
+
+        /**
+         * Returns a shallow copy of the pair.
+         *
+         * @return Pair Returns a shallow copy of the pair.
+         */
+        public function copy(): Pair
+        {
+        }
+
+        /**
+         * Returns whether the pair is empty.
+         *
+         * @return bool Returns TRUE if the pair is empty, FALSE otherwise.
+         */
+        public function isEmpty(): bool
+        {
+        }
+
+        /**
+         * Converts the pair to an array.
+         *
+         * <p>Note: Casting to an array is not supported yet.
+         *
+         * @return array An array containing all the values in the same order as
+         * the pair.
+         */
+        public function toArray(): array
+        {
+        }
+
+        /**
+         * @inheritDoc
+         */
+        public function jsonSerialize()
+        {
+        }
+
+    }
 }
