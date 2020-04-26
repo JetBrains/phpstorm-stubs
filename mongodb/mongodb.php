@@ -210,7 +210,7 @@ namespace MongoDB {}
             }
 
             /**
-             * Preselect a MongoDB node based on provided readPreference. This can be useful to gurantee a command runs on a specific server when operating in a mixed version cluster.
+             * Preselect a MongoDB node based on provided readPreference. This can be useful to guarantee a command runs on a specific server when operating in a mixed version cluster.
              * https://secure.php.net/manual/en/mongodb-driver-manager.selectserver.php
              * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to route the command to. If none given, defaults to the Read Preferences set by the MongoDB Connection URI.
              * @throws InvalidArgumentException on argument parsing errors.
@@ -1244,7 +1244,7 @@ namespace MongoDB {}
              * element, and this array contains a "TransientTransactionError" or "UnUnknownTransactionCommitResult" value, it is safe to
              * re-try the whole transaction. In newer versions of the driver, MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()
              * should be used to test for this situation instead.
-             * @throws \MongoDB\Driver\Exception\RuntimeException If the transaction could not be commited (e.g. a transaction was not started)
+             * @throws \MongoDB\Driver\Exception\RuntimeException If the transaction could not be committed (e.g. a transaction was not started)
              * @since 1.5.0
              */
             final public function commitTransaction()
@@ -2053,7 +2053,7 @@ namespace MongoDB {}
         /**
          * Returns the PHP representation of a BSON value
          * Unserializes a BSON document (i.e. binary string) to its PHP representation.
-         * The typeMap paramater may be used to control the PHP types used for converting BSON arrays and documents (both root and embedded).
+         * The typeMap parameter may be used to control the PHP types used for converting BSON arrays and documents (both root and embedded).
          * @link https://php.net/manual/en/function.mongodb.bson-tophp.php
          * @param string $bson BSON value to be unserialized.
          * @param array $typeMap
@@ -2416,7 +2416,7 @@ namespace MongoDB {}
             }
 
             /**
-             * Returns the hexidecimal representation of this ObjectId
+             * Returns the hexadecimal representation of this ObjectId
              * @link https://php.net/manual/en/mongodb-bson-objectid.tostring.php
              * @return string
              */
@@ -2970,9 +2970,9 @@ namespace MongoDB {}
             function getTimestamp();
 
             /**
-             * Returns the hexidecimal representation of this ObjectId
+             * Returns the hexadecimal representation of this ObjectId
              * @link https://www.php.net/manual/en/mongodb-bson-objectid.tostring.php
-             * @return string Returns the hexidecimal representation of this ObjectId
+             * @return string Returns the hexadecimal representation of this ObjectId
              */
             function __toString();
         }

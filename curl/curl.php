@@ -2210,7 +2210,7 @@ function curl_share_init () {}
  * <td style="vertical-align: top;">
  * Shares SSL session IDs, reducing the time spent on the SSL
  * handshake when reconnecting to the same server. Note that SSL
- * session IDs are reused withing the same handle by default.
+ * session IDs are reused within the same handle by default.
  * </td>
  * </tr>
  *

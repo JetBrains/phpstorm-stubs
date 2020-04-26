@@ -349,7 +349,7 @@ class SoapClient  {
 	 * Returns list of available SOAP functions
 	 * @link https://php.net/manual/en/soapclient.getfunctions.php
 	 * @return array The array of SOAP function prototypes, detailing the return type,
-	 * the function name and type-hinted paramaters.
+	 * the function name and type-hinted parameters.
 	 * @since 5.0.1
 	 */
 	public function __getFunctions () {}

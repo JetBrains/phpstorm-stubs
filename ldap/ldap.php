@@ -7,7 +7,7 @@
  * @link https://www.php.net/manual/en/function.ldap-exop-passwd.php
  * @param resource $link An LDAP link identifier, returned by ldap_connect().
  * @param string $user [optional] dn of the user to change the password of.
- * @param string $oldpw [optional] The old password of this user. May be ommited depending of server configuration.
+ * @param string $oldpw [optional] The old password of this user. May be omitted depending of server configuration.
  * @param string $newpw [optional] The new password for this user. May be omitted or empty to have a generated password.
  * @param array $serverctrls [optional] If provided, a password policy request control is send with the request and this is filled with an array of LDAP Controls returned with the request.
  * @return mixed Returns the generated password if newpw is empty or omitted. Otherwise returns TRUE on success and FALSE on failure.

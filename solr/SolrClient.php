@@ -33,22 +33,22 @@ final class SolrClient {
 	/** @var int Used when retrieving system information from the system servlet. */
 	const SYSTEM_SERVLET_TYPE = 32;
 
-	/** @var string This is the intial value for the search servlet. */
+	/** @var string This is the initial value for the search servlet. */
 	const DEFAULT_SEARCH_SERVLET = 'select';
 
-	/** @var string This is the intial value for the update servlet. */
+	/** @var string This is the initial value for the update servlet. */
 	const DEFAULT_UPDATE_SERVLET = 'update';
 
-	/** @var string This is the intial value for the threads servlet. */
+	/** @var string This is the initial value for the threads servlet. */
 	const DEFAULT_THREADS_SERVLET = 'admin/threads';
 
-	/** @var string This is the intial value for the ping servlet. */
+	/** @var string This is the initial value for the ping servlet. */
 	const DEFAULT_PING_SERVLET = 'admin/ping';
 
-	/** @var string This is the intial value for the terms servlet used for the TermsComponent. */
+	/** @var string This is the initial value for the terms servlet used for the TermsComponent. */
 	const DEFAULT_TERMS_SERVLET = 'terms';
 
-	/** @var string This is the intial value for the system servlet used to obtain Solr Server information. */
+	/** @var string This is the initial value for the system servlet used to obtain Solr Server information. */
 	const DEFAULT_SYSTEM_SERVLET = 'admin/system';
 
 	/**

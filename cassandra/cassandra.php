@@ -41,7 +41,7 @@ namespace {
         /**
          * Consistency level ANY means the request is fulfilled as soon as the data
          * has been written on the Coordinator. Requests with this consistency level
-         * are not guranteed to make it to Replica nodes.
+         * are not guaranteed to make it to Replica nodes.
          *
          * @see \Cassandra\Session::execute()
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/class.Cassandra/#constant-CONSISTENCY_ANY
@@ -6212,7 +6212,7 @@ namespace Cassandra\Cluster {
 
         /**
          * Sets the blacklist hosts. Any host in the blacklist will be ignored and
-         * a conneciton will not be established. This is useful for ensuring that
+         * a connection will not be established. This is useful for ensuring that
          * the driver will not connection to a predefied set of hosts.
          *
          * @param string $hosts A comma delimited list of addresses.

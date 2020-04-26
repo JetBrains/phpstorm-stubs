@@ -3319,7 +3319,7 @@ define("CURLPROTO_RTMPTE",4194304);
  */
 define("CURLPROTO_RTMPTS",16777216);
 /**
- * Return value for the <b>CURLOPT_FNMATCH_FUNCTION</b> if an error was occured.
+ * Return value for the <b>CURLOPT_FNMATCH_FUNCTION</b> if an error was occurred.
  * @link https://curl.haxx.se/libcurl/c/CURLOPT_FNMATCH_FUNCTION.html
  */
 define("CURL_FNMATCHFUNC_FAIL",2);

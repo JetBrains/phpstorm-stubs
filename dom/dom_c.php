@@ -658,14 +658,14 @@ class DOMDocument extends DOMNode  {
      * You can also set the value later with DOMElement->nodeValue.
      * </p>
      * @return DOMElement a new instance of class DOMElement or false
-     * if an error occured.
+     * if an error occurred.
      */
     public function createElement ($name, $value = null) {}
 
     /**
      * Create new document fragment
      * @link https://php.net/manual/domdocument.createdocumentfragment.php
-     * @return DOMDocumentFragment The new DOMDocumentFragment or false if an error occured.
+     * @return DOMDocumentFragment The new DOMDocumentFragment or false if an error occurred.
      */
     public function createDocumentFragment () {}
 
@@ -675,7 +675,7 @@ class DOMDocument extends DOMNode  {
      * @param string $content <p>
      * The content of the text.
      * </p>
-     * @return DOMText The new DOMText or false if an error occured.
+     * @return DOMText The new DOMText or false if an error occurred.
      */
     public function createTextNode ($content) {}
 
@@ -685,7 +685,7 @@ class DOMDocument extends DOMNode  {
      * @param string $data <p>
      * The content of the comment.
      * </p>
-     * @return DOMComment The new DOMComment or false if an error occured.
+     * @return DOMComment The new DOMComment or false if an error occurred.
      */
     public function createComment ($data) {}
 
@@ -695,7 +695,7 @@ class DOMDocument extends DOMNode  {
      * @param string $data <p>
      * The content of the cdata.
      * </p>
-     * @return DOMCDATASection The new DOMCDATASection or false if an error occured.
+     * @return DOMCDATASection The new DOMCDATASection or false if an error occurred.
      */
     public function createCDATASection ($data) {}
 
@@ -708,7 +708,7 @@ class DOMDocument extends DOMNode  {
      * @param string $data [optional] <p>
      * The content of the processing instruction.
      * </p>
-     * @return DOMProcessingInstruction The new DOMProcessingInstruction or false if an error occured.
+     * @return DOMProcessingInstruction The new DOMProcessingInstruction or false if an error occurred.
      */
     public function createProcessingInstruction ($target, $data = null) {}
 
@@ -718,7 +718,7 @@ class DOMDocument extends DOMNode  {
      * @param string $name <p>
      * The name of the attribute.
      * </p>
-     * @return DOMAttr The new DOMAttr or false if an error occured.
+     * @return DOMAttr The new DOMAttr or false if an error occurred.
      */
     public function createAttribute ($name) {}
 
@@ -731,7 +731,7 @@ class DOMDocument extends DOMNode  {
      * ; characters.
      * </p>
      * @return DOMEntityReference The new DOMEntityReference or false if an error
-     * occured.
+     * occurred.
      */
     public function createEntityReference ($name) {}
 
@@ -777,7 +777,7 @@ class DOMDocument extends DOMNode  {
      * The value of the element. By default, an empty element will be created.
      * You can also set the value later with DOMElement->nodeValue.
      * </p>
-     * @return DOMElement The new DOMElement or false if an error occured.
+     * @return DOMElement The new DOMElement or false if an error occurred.
      */
     public function createElementNS ($namespaceURI, $qualifiedName, $value = null) {}
 
@@ -790,7 +790,7 @@ class DOMDocument extends DOMNode  {
      * @param string $qualifiedName <p>
      * The tag name and prefix of the attribute, as prefix:tagname.
      * </p>
-     * @return DOMAttr The new DOMAttr or false if an error occured.
+     * @return DOMAttr The new DOMAttr or false if an error occurred.
      */
     public function createAttributeNS ($namespaceURI, $qualifiedName) {}
 
@@ -1379,7 +1379,7 @@ class DOMElement extends DOMNode  {
      * @param string $value <p>
      * The value of the attribute.
      * </p>
-     * @return DOMAttr The new DOMAttr or false if an error occured.
+     * @return DOMAttr The new DOMAttr or false if an error occurred.
      */
     public function setAttribute ($name, $value) {}
 

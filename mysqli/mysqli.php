@@ -146,7 +146,7 @@ class mysqli  {
 	) {}
 
 	/**
-	 * Turns on or off auto-commiting database modifications
+	 * Turns on or off auto-committing database modifications
 	 * @link https://php.net/manual/en/mysqli.autocommit.php
 	 * @param bool $mode <p>
 	 * Whether to turn on auto-commit or not.
@@ -828,7 +828,7 @@ class mysqli_result implements Traversable  {
 	public function free () {}
 
 	/**
-	 * Adjusts the result pointer to an arbitary row in the result
+	 * Adjusts the result pointer to an arbitrary row in the result
 	 * @link https://php.net/manual/en/mysqli-result.data-seek.php
 	 * @param int $offset <p>
 	 * The field offset. Must be between zero and the total number of rows

@@ -528,12 +528,12 @@ abstract class KDF {
 class KDFException {
     
     /**
-     * The key lenght is too low
+     * The key length is too low
      */
     const KEY_LENGTH_LOW = 1;
     
     /**
-     * The key lenght is too high
+     * The key length is too high
      */
     const KEY_LENGTH_HIGH = 2;
     
@@ -679,7 +679,7 @@ class Base64Exception extends \Exception {
     const ENCODE_UPDATE_FORBIDDEN = 1;
     
     /**
-     * The object has not been intialized for encoding
+     * The object has not been initialized for encoding
      */
     const ENCODE_FINISH_FORBIDDEN = 2;
     
@@ -689,7 +689,7 @@ class Base64Exception extends \Exception {
     const DECODE_UPDATE_FORBIDDEN = 3;
     
     /**
-     * The object has not been intialized for decoding
+     * The object has not been initialized for decoding
      */
     const DECODE_FINISH_FORBIDDEN = 4;
     

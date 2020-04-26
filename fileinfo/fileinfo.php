@@ -221,7 +221,7 @@ define ('FILEINFO_PRESERVE_ATIME', 128);
 define ('FILEINFO_RAW', 256);
 
 /**
- * Returns the file extension appropiate for a the MIME type detected in the file.
+ * Returns the file extension appropriate for a the MIME type detected in the file.
  * For types that commonly have multiple file extensions, such as JPEG images, then the return value is multiple extensions speparated by a forward slash e.g.: "jpeg/jpg/jpe/jfif".
  * For unknown types not available in the magic.mime database, then return value is "???". Available since PHP 7.2.0.
  * @since 7.2

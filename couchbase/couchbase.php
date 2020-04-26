@@ -1590,7 +1590,7 @@ namespace Couchbase {
      * @see https://developer.couchbase.com/documentation/server/current/sdk/php/view-queries-with-sdk.html
      *   MapReduce Views
      * @see https://developer.couchbase.com/documentation/server/current/architecture/querying-data-with-views.html
-     *   Quering Data with Views
+     *   Querying Data with Views
      * @see https://developer.couchbase.com/documentation/server/current/rest-api/rest-views-get.html
      *   Getting Views Information
      */

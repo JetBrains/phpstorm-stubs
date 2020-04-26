@@ -1029,7 +1029,7 @@ class MongoCollection {
 	 * @param array $a An array of arrays.
 	 * @param array $options Options for the inserts.
 	 * @throws MongoCursorException
-	 * @return mixed if "safe" is set, returns an associative array with the status of the inserts ("ok") and any error that may have occured ("err"). Otherwise, returns TRUE if the batch insert was successfully sent, FALSE otherwise.
+	 * @return mixed if "safe" is set, returns an associative array with the status of the inserts ("ok") and any error that may have occurred ("err"). Otherwise, returns TRUE if the batch insert was successfully sent, FALSE otherwise.
 	 */
     public function batchInsert(array $a, array $options = array()) {}
 
@@ -1896,7 +1896,7 @@ class MongoId {
      * (PECL mongo &gt;= 0.8.0)
 	 * Creates a new id
 	 * @link https://secure.php.net/manual/en/mongoid.construct.php
-	 * @param string $id [optional] A string to use as the id. Must be 24 hexidecimal characters. If an invalid string is passed to this constructor, the constructor will ignore it and create a new id value.
+	 * @param string $id [optional] A string to use as the id. Must be 24 hexadecimal characters. If an invalid string is passed to this constructor, the constructor will ignore it and create a new id value.
      */
     public function __construct($id = NULL) {}
 
@@ -1914,7 +1914,7 @@ class MongoId {
     public static function isValid($value) {}
    /**
     * (PECL mongo &gt;= 0.8.0)
-	* Returns a hexidecimal representation of this id
+	* Returns a hexadecimal representation of this id
 	* @link https://secure.php.net/manual/en/mongoid.tostring.php
     * @return string This id.
     */
