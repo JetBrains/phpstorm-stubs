@@ -980,7 +980,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
-	 * Returns the treshold frequency at which words will be ignored which do not occur in at least this many docs
+	 * Returns the threshold frequency at which words will be ignored which do not occur in at least this many docs
 	 * @link https://php.net/manual/en/solrquery.getmltmindocfrequency.php
 	 * @return int|null <p>
 	 * Returns an integer on success and <b>NULL</b> if not set
@@ -1971,7 +1971,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * Sets the factor by which the regex fragmenter can stray from the ideal fragment size
 	 * @link https://php.net/manual/en/solrquery.sethighlightregexslop.php
 	 * @param float $factor <p>
-	 * The factor by which the regex fragmenter can stray from the ideal fragment size (specfied by
+	 * The factor by which the regex fragmenter can stray from the ideal fragment size (specified by
 	 * SolrQuery::setHighlightFragsize) to accommodate the regular expression.
 	 * </p>
 	 * @return SolrQuery <p>

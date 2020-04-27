@@ -2819,7 +2819,7 @@ class Response extends \http\Message {
 	 */
 	function setCacheControl(string $cache_control) {}
 	/**
-	 * Set the reponse's content disposition parameters.
+	 * Set the response's content disposition parameters.
 	 * 
 	 * @param array $disposition_params MIME content disposition as http\Params array.
 	 * @throws \http\Exception\InvalidArgumentException

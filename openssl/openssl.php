@@ -199,7 +199,7 @@ function openssl_spki_new(&$privkey, &$challenge, $algorithm = 0) {}
 function openssl_spki_verify(&$spkac) {}
 
 /**
- * Exports the challenge assoicated with a signed public key and challenge
+ * Exports the challenge associated with a signed public key and challenge
  * @link https://php.net/manual/en/function.openssl-spki-export-challenge.php
  * @param string $spkac <p>Expects a valid signed public key and challenge</p>
  * @return string|null Returns the associated challenge string or NULL on failure.

@@ -163,7 +163,7 @@ function uv_close($handle, callable $callback) {}
 /**
  * Starts read callback for uv resources.
  *
- * Note: You have to handle erorrs correctly. otherwise this will leak.
+ * Note: You have to handle errors correctly. otherwise this will leak.
  * Note: if you want to use PHP's stream or socket resource. see uv_fs_poll_init and uv_fs_read.
  *
  * @param resource $handle uv resources (uv_tcp, uv_udp, uv_pipe ...etc.)
@@ -866,7 +866,7 @@ function uv_check_stop($handle) {}
 function uv_async_init($loop, callable $callback) {}
 
 /**
- * Send async callback immidiately.
+ * Send async callback immediately.
  *
  * @param resource $handle uv async handle.
  *

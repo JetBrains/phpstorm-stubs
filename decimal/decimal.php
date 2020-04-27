@@ -350,7 +350,7 @@ namespace Decimal {
         public function toString(): string { }
 
         /**
-         * JSON conversions will automatically convert the decimal to string using all signficant figures
+         * JSON conversions will automatically convert the decimal to string using all significant figures
          *
          * @return string
          */

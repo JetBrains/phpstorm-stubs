@@ -392,7 +392,7 @@ function socket_close ($socket) {}
  * @param int $length [optional] <p>
  * The optional parameter <i>length</i> can specify an
  * alternate length of bytes written to the socket. If this length is
- * greater then the buffer length, it is silently truncated to the length
+ * greater than the buffer length, it is silently truncated to the length
  * of the buffer.
  * </p>
  * @return int|false the number of bytes successfully written to the socket or <b>FALSE</b> on failure.

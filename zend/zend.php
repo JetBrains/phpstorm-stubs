@@ -126,7 +126,7 @@ class ZendAPI_Queue {
      * @param array $filter_options Array of optional filter options to filter the jobs we want to get 
         from the queue. If not set, all jobs will be returned.<br>
      *     Options can be: priority, application_id, name, status, recurring.
-     * @param int $max_jobs  Maximum jobs to retrive. Default is -1, getting all jobs available.
+     * @param int $max_jobs  Maximum jobs to retrieve. Default is -1, getting all jobs available.
      * @param bool $with_globals_and_output. Whether gets the global variables dataand job output.
      *     Default is false.
      * @return array  Jobs that satisfies filter_options.
@@ -189,7 +189,7 @@ class ZendAPI_Queue {
 
 
     /**
-     * Return description of the last error occured in the queue object. After every
+     * Return description of the last error occurred in the queue object. After every
      *    method invoked an error string describing the error is store in the queue object.
      * @return string 
      */
@@ -596,16 +596,16 @@ function monitor_license_info() {}
  * results array is saved in the event_extra_data table.
  * @param string $event_handler_func The callback function that will be call when the event is triggered, object methods may also be invoked statically using t
 his function by passing array($objectname, $methodname) to the function parameter
- * @param string $handler_register_name [optional] The name this function is registered under - if none is supplied, the function will be registerd under it's own name
+ * @param string $handler_register_name [optional] The name this function is registered under - if none is supplied, the function will be registered under it's own name
  * @param int $event_type_mask The mask of event types that the handler should be called on by default it's set to MONITOR_EVENT_ALL.
- * @return bool TRUE on sucess and FALSE if an error occurs.
+ * @return bool TRUE on success and FALSE if an error occurs.
  */
 function register_event_handler($event_handler_func, $handler_register_name, $event_type_mask) {}
 
 /**
  * Allow you to unregister an event handler.
  * @param string $handler_name the name you registered with the handler you now wish to unregister.
- * @return bool TRUE on sucess and FALSE if no handler we registered under the given name.
+ * @return bool TRUE on success and FALSE if no handler we registered under the given name.
  */
 function unregister_event_handler($handler_name) {}
 
