@@ -604,6 +604,38 @@ class Redis
     }
 
     /**
+     * Returns a Redis instance which can simply transmitted faster to the server.
+     *
+     * @return Redis returns the Redis instance.
+     * Once in pipeline-mode, all subsequent method calls return the same object until exec() is called.
+     * Pay attention, that Pipeline is not a transaction, so you can get unexpected
+     * results in case of big pipelines and small read/write timeouts.
+     *
+     * @link   https://redis.io/topics/pipelining
+     * @example
+     * <pre>
+     * $ret = $this->redis->pipeline()
+     *      ->ping()
+     *      ->multi()->set('x', 42)->incr('x')->exec()
+     *      ->ping()
+     *      ->multi()->get('x')->del('x')->exec()
+     *      ->ping()
+     *      ->exec();
+     *
+     * //$ret == array (
+     * //    0 => '+PONG',
+     * //    1 => [TRUE, 43],
+     * //    2 => '+PONG',
+     * //    3 => [43, 1],
+     * //    4 => '+PONG');
+     * </pre>
+     */
+    public function pipeline()
+    {
+    }
+
+    
+    /**
      * @return void|array
      *
      * @see multi()
