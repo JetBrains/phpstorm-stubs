@@ -30,7 +30,7 @@ namespace {
          *
          * @param string $code The collection of C declarations.
          * @param string|null $library DSO library.
-         * @return CData|FFI|mixed
+         * @return FFI
          * @throws ParserException
          */
         public static function cdef(string $code, string $library = null): FFI {}
