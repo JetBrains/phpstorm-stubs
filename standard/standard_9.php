@@ -198,11 +198,10 @@ function array_change_key_case(array $input, $case = null) { }
  * @param int $num_req [optional] <p>
  * Specifies how many entries you want to pick.
  * </p>
- * @return mixed If you are picking only one entry, array_rand
+ * @return int|string|array If you are picking only one entry, array_rand
  * returns the key for a random entry. Otherwise, it returns an array
  * of keys for the random entries. This is done so that you can pick
  * random keys as well as values out of the array.
- * @meta
  */
 function array_rand(array $input, $num_req = null) { }
 

@@ -65,7 +65,6 @@ namespace PHPSTORM_META {
   override(\next(0), elementType(0));
 
   override(\array_change_key_case(0), type(0));
-  override(\array_rand(0), elementType(0));
   override(\array_unique(0), type(0));
 
   override(\array_intersect(0), type(0));
