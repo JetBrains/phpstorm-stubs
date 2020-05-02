@@ -126,7 +126,9 @@ function array_reverse(array $array, $preserve_keys = null) { }
  * The input array.
  * </p>
  * @param callback $function <p>
- * The callback function.
+ * The callback function. Signature is <pre>callback ( mixed $carry , mixed $item ) : mixed</pre>
+ * <blockquote>mixed <var>$carry</var> <p>The return value of the previous iteration; on the first iteration it holds the value of <var>$initial</var>.</p></blockquote>
+ * <blockquote>mixed <var>$item</var> <p>Holds the current iteration value of the <var>$input</var></p></blockquote>
  * </p>
  * @param mixed $initial [optional] <p>
  * If the optional initial is available, it will
@@ -138,6 +140,13 @@ function array_reverse(array $array, $preserve_keys = null) { }
  * <p>
  * If the array is empty and initial is not passed,
  * array_reduce returns null.
+ * </p>
+ * <br/>
+ * <p>
+ * Example use:
+ * <blockquote><pre>array_reduce(['2', '3', '4'], function($ax, $dx) { return $ax . ", {$dx}"; }, '1')  // Returns '1, 2, 3, 4'</pre></blockquote>
+ * <blockquote><pre>array_reduce(['2', '3', '4'], function($ax, $dx) { return $ax + (int)$dx; }, 1)  // Returns 10</pre></blockquote>
+ * <br/>
  * @meta
  */
 function array_reduce(array $input, $function, $initial = null) { }
