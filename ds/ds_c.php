@@ -263,7 +263,7 @@ namespace Ds {
 
         /**
          * Returns the result of adding all given values to the sequence.
-         * @param mixed $values A traversable object or an array.
+         * @param array|Traversable $values A traversable object or an array.
          * @return Sequence The result of adding all given values to the
          * sequence, effectively the same as adding the values to a copy,
          * then returning that copy.
@@ -1003,7 +1003,7 @@ namespace Ds {
 
         /**
          * Returns the result of adding all given values to the deque.
-         * @param mixed $values A traversable object or an array.
+         * @param array|Traversable $values A traversable object or an array.
          * @return Deque The result of adding all given values to the
          * deque, effectively the same as adding the values to a copy,
          * then returning that copy.
@@ -1348,7 +1348,7 @@ namespace Ds {
          * Returns the result of associating all keys of a given traversable
          * object or array with their corresponding values, combined with the
          * current instance.
-         * @param mixed $values A traversable object or an array.
+         * @param array|Traversable $values A traversable object or an array.
          * @return Map The result of associating all keys of a given traversable
          * object or array with their corresponding values, combined with the
          * current instance.
@@ -1406,7 +1406,7 @@ namespace Ds {
          * Ds\Hashable, objects must be references to the same instance to be
          * considered equal.
          *
-         * @param $pairs traversable object or array.
+         * @param array|Traversable $pairs traversable object or array.
          *
          * @link https://www.php.net/manual/en/ds-map.putall.php
          */
@@ -1701,6 +1701,821 @@ namespace Ds {
         public function jsonSerialize()
         {
         }
+
+    }
+
+    /**
+     * A Set is a sequence of unique values. This implementation uses the same
+     * hash table as Ds\Map, where values are used as keys and the mapped value
+     * is ignored.
+     *
+     * @link https://www.php.net/manual/en/class.ds-set.php
+     *
+     * @package Ds
+     */
+    class Set implements Collection
+    {
+        /**
+         * Creates a new instance, using either a traversable object or an array
+         * for the initial values.
+         *
+         * @param array|Traversable $values A traversable object of an array to
+         * use the initial values.
+         */
+        public function __construct(...$values)
+        {
+        }
+
+        /**
+         * Adds all given values to the set that haven't already been added.
+         *
+         * <p>Note: Values of type object are supported. If an object implements
+         * Ds\Hashable, equality will be determined by the object's equals
+         * function. If an object does not implement Ds\Hashable, objects must
+         * be references to the same instance to be considered equal.
+         *
+         * <p>Caution: All comparisons are strict (type and value).
+         *
+         * @param mixed ...$values Values to add to the set.
+         */
+        public function add(...$values)
+        {
+        }
+
+        /**
+         * Allocates enough memory for a required capacity.
+         *
+         * @param int $capacity The number of values for which capacity should
+         * be allocated.
+         *
+         * <p>Note: Capacity will stay the same if this value is less than or
+         * equal to the current capacity.
+         *
+         * <p>Capacity will always be rounded up to the nearest power of 2.
+         */
+        public function allocate(int $capacity)
+        {
+        }
+
+        /**
+         * Determines if the set contains all values.
+         *
+         * <p>Values of type object are supported. If an object implements
+         * Ds\Hashable, equality will be determined by the object's equals
+         * function. If an object does not implement Ds\Hashable, objects must
+         * be references to the same instance to be considered equal.
+         *
+         * <p>Caution: All comparisons are strict (type and value).
+         *
+         * @param mixed ...$values  Values to check.
+         * @return bool
+         */
+        public function contains(...$values): bool
+        {
+        }
+
+
+        /**
+         * Returns the current capacity.
+         * @link https://www.php.net/manual/en/ds-set.capacity.php
+         *
+         * @return int
+         */
+        public function capacity(): int
+        {
+        }
+
+        /**
+         * Removes all values from the set.
+         * @link https://www.php.net/manual/en/ds-set.clear.php
+         */
+        public function clear(): void
+        {
+        }
+
+        /**
+         * Count elements of an object
+         * @link https://php.net/manual/en/ds-set.count.php
+         * @return int The custom count as an integer.
+         * </p>
+         * <p>
+         * The return value is cast to an integer.
+         * @since 5.1
+         */
+        public function count(): int
+        {
+        }
+
+        /**
+         * Returns a shallow copy of the set.
+         * @link https://www.php.net/manual/en/ds-set.copy.php
+         * @return Set
+         */
+        public function copy(): Set
+        {
+        }
+
+        /**
+         * Creates a new set using values that aren't in another set.
+         *
+         * A \ B = {x ∈ A | x ∉ B}
+         *
+         * @link https://www.php.net/manual/en/ds-set.diff.php
+         *
+         * @param Set $set Set containing the values to exclude.
+         *
+         * @return Set A new set containing all values that were not in the
+         * other set.
+         */
+        public function diff(Set $set): Set
+        {
+        }
+
+        /**
+         * Creates a new set using a callable to determine which values to
+         * include
+         *
+         * @link https://www.php.net/manual/en/ds-set.filter.php
+         *
+         * @param callable $callback Optional callable which returns TRUE if the
+         * value should be included, FALSE otherwise.
+         * If a callback is not provided, only values which are TRUE (see
+         * converting to boolean) will be included.
+         *
+         * @return Set A new set containing all the values for which either the
+         * callback returned TRUE, or all values that convert to TRUE if a
+         * callback was not provided.
+         */
+        public function filter(callable $callback): Set
+        {
+        }
+
+        /**
+         * Returns the first value in the set.
+         *
+         * @link https://www.php.net/manual/en/ds-set.first.php
+         *
+         * @return mixed The first value in the set.
+         */
+        public function first()
+        {
+        }
+
+        /**
+         * Returns the value at a given index.
+         *
+         * @link https://www.php.net/manual/en/ds-set.get.php
+         *
+         * @param int $index The index to access, starting at 0.
+         *
+         * @return mixed The value at the requested index.
+         */
+        public function get(int $index)
+        {
+        }
+
+        /**
+         * Creates a new set using values common to both the current instance
+         * and another set. In other words, returns a copy of the current
+         * instance with all values removed that are not in the other set.
+         *
+         * A ∩ B = {x : x ∈ A ∧ x ∈ B}
+         *
+         * @link https://www.php.net/manual/en/ds-set.intersect.php
+         *
+         * @param Set $set The other set.
+         *
+         * @return Set The intersection of the current instance and another set.
+         */
+        public function intersect(Set $set): Set
+        {
+        }
+
+        /**
+         * Returns whether the set is empty.
+         * @link https://www.php.net/manual/en/ds-set.isempty.php
+         *
+         * @return bool
+         */
+        public function isEmpty(): bool
+        {
+        }
+
+        /**
+         * Joins all values together as a string using an optional separator
+         * between each value.
+         *
+         * @link https://www.php.net/manual/en/ds-set.join.php
+         *
+         * @param string $glue An optional string to separate each value.
+         *
+         * @return string
+         */
+        public function join(?string $glue = null): string
+        {
+        }
+
+        /**
+         * Returns the result of adding all given values to the set.
+         *
+         * <p>Note: The current instance won't be affected.
+         *
+         * @link https://www.php.net/manual/en/ds-set.merge.php
+         *
+         * @param array|Traversable $values A traversable object or an array.
+         *
+         * @return Set The result of adding all given values to the set,
+         * effectively the same as adding the values to a copy, then returning
+         * that copy.
+         */
+        public function merge($values): Set
+        {
+        }
+
+        /**
+         * Reduces the set to a single value using a callback function.
+         *
+         * @link https://www.php.net/manual/en/ds-set.reduce.php
+         *
+         * @param callable $callback
+         * <code>callback ( mixed $carry , mixed $value ) : mixed</code>
+         *  $carry  The return value of the previous callback, or initial if
+         * it's the first iteration.
+         *  $value   The value of the current iteration.
+         *
+         * @param null $initial The initial value of the carry value. Can be
+         * NULL.
+         *
+         * @return mixed The return value of the final callback.
+         */
+        public function reduce(callable $callback, $initial = null)
+        {
+        }
+
+        /**
+         * Removes all given values from the set, ignoring any that are not in
+         * the set.
+         *
+         * @link https://www.php.net/manual/en/ds-set.remove.php
+         *
+         * @param mixed ...$values The values to remove.
+         */
+        public function remove(...$values)
+        {
+        }
+
+        /**
+         * Reverses the set in-place.
+         *
+         * @link https://www.php.net/manual/en/ds-set.reverse.php
+         */
+        public function reverse()
+        {
+        }
+
+        /**
+         * Returns a reversed copy of the set.
+         *
+         * @link https://www.php.net/manual/en/ds-set.reversed.php
+         *
+         * <p>Note: The current instance is not affected.
+         *
+         * @return Set A reversed copy of the set.
+         */
+        public function reversed(): Set
+        {
+        }
+
+        /**
+         * Returns a sub-set of a given range
+         *
+         * @param int $index The index at which the sub-set starts. If positive,
+         * the set will start at that index in
+         * the set. If negative, the set will start that far from the end.
+         *
+         * @param int|null $length If a length is given and is positive, the
+         * resulting set will have up to that many values in it. If the length
+         * results in an overflow, only values up to the end of the set will be
+         * included. If a length is given and is negative, the set will stop
+         * that many values from the end. If a length is not provided, the
+         * resulting set will contain all values between the index and the end
+         * of the set.
+         *
+         * @return Set A sub-set of the given range.
+         */
+        public function slice(int $index, ?int $length = null): Set
+        {
+        }
+
+        /**
+         * Returns the last value in the set.
+         *
+         * @link https://www.php.net/manual/en/ds-set.last.php
+         *
+         * @return mixed The last value in the set.
+         *
+         * @throws UnderflowException if empty.
+         */
+        public function last()
+        {
+        }
+
+        /**
+         * Sorts the set in-place, using an optional comparator function.
+         *
+         * @param callable|null $comparator The comparison function must return
+         * an integer less than, equal to, or greater than zero if the first
+         * argument is considered to be respectively less than, equal to, or
+         * greater than the second. Note that before PHP 7.0.0 this integer had
+         * to be in the range from -2147483648 to 2147483647.
+         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         * <note>Caution: Returning non-integer values from the comparison
+         * function, such as float, will result in an internal cast to integer
+         * of the callback's return value. So values such as 0.99 and 0.1 will
+         * both be cast to an integer value of 0, which will compare such values
+         * as equal.
+         *
+         * @link https://www.php.net/manual/en/ds-set.sort.php
+         */
+        public function sort(callable $comparator = null)
+        {
+        }
+
+        /**
+         * Returns a sorted copy, using an optional comparator function.
+         *
+         * @link https://www.php.net/manual/en/ds-set.sorted.php
+         *
+         * @param callable $comparator The comparison function must return an
+         * integer less than, equal to, or greater than zero if the first
+         * argument is considered to be respectively less than, equal to, or
+         * greater than the second. Note  that before PHP 7.0.0 this integer had
+         * to be in the range from -2147483648 to 2147483647.
+         *
+         * <code>callback ( mixed $a, mixed $b ) : int</code>
+         *
+         * <p>Caution: Returning non-integer values from the comparison
+         * function, such as float, will result in an
+         * internal cast to integer of the callback's return value. So values
+         * such as 0.99 and 0.1 will both be cast to an integer value of 0,
+         * which will compare such values as equal.
+         *
+         * @return Set Returns a sorted copy of the set.
+         */
+        public function sorted(callable $comparator = null): Set
+        {
+        }
+
+        /**
+         * Returns the sum of all values in the set.
+         *
+         * <p>Note: Arrays and objects are considered equal to zero when
+         * calculating the sum.
+         *
+         * @link https://www.php.net/manual/en/ds-set.sum.php
+         *
+         * @return float|int The sum of all the values in the set as either a
+         * float or int depending on the values in the set.
+         */
+        public function sum()
+        {
+        }
+
+        /**
+         * Creates a new set that contains the values of the current instance as
+         * well as the values of another set.
+         *
+         * A ∪ B = {x: x ∈ A ∨ x ∈ B}
+         *
+         * @link https://www.php.net/manual/en/ds-set.union.php
+         *
+         * @param Set $set  The other set, to combine with the current instance.
+         *
+         * @return Set A new set containing all the values of the current
+         * instance as well as another set.
+         */
+        public function union(Set $set): Set
+        {
+        }
+
+        /**
+         * Creates a new set using values in either the current instance or in
+         * another set, but not in both.
+         *
+         * A ⊖ B = {x : x ∈ (A \ B) ∪ (B \ A)}
+         *
+         * @link https://www.php.net/manual/en/ds-set.xor.php
+         *
+         * @param Set $set The other set.
+         *
+         * @return Set A new set containing values in the current instance as
+         * well as another set, but not in both.
+         */
+        public function xor(Set $set): Set
+        {
+        }
+
+        /**
+         * Converts the set to an array.
+         * <p>Note: Casting to an array is not supported yet.
+         * @link https://www.php.net/manual/en/ds-set.toarray.php
+         * @return array An array containing all the values in the same order as
+         * the collection.
+         */
+        public function toArray(): array
+        {
+        }
+
+        /**
+         * Specify data which should be serialized to JSON
+         * @link https://php.net/manual/en/ds-set.jsonserialize.php
+         * @return mixed data which can be serialized by <b>json_encode</b>,
+         * which is a value of any type other than a resource.
+         * @since 5.4
+         */
+        public function jsonSerialize()
+        {
+        }
+
+
+    }
+
+    /**
+     * A Stack is a “last in, first out” or “LIFO” collection that only allows
+     * access to the value at the top of the structure and iterates in that
+     * order, destructively.
+     *
+     * @package Ds
+     *
+     * @link https://www.php.net/manual/en/class.ds-stack.php
+     */
+    class Stack implements Collection
+    {
+        /**
+         * Creates a new instance, using either a traversable object or an array
+         * for the initial values.
+         *
+         * @link https://www.php.net/manual/en/ds-stack.construct.php
+         *
+         * @param array|Traversable|null $values A traversable object or an
+         * array to use for the initial values.
+         */
+        public function __construct($values = null)
+        {
+        }
+
+        /**
+         * Ensures that enough memory is allocated for a required capacity. This
+         * removes the need to reallocate the internal as values are added.
+         *
+         * @link https://www.php.net/manual/en/ds-stack.allocate.php
+         *
+         * @param int $capacity The number of values for which capacity should
+         * be allocated.
+         *
+         * <p>Note: Capacity will stay the same if this value is less than or
+         * equal to the current capacity.
+         */
+        public function allocate(int $capacity)
+        {
+        }
+
+        /**
+         * Returns the current capacity.
+         *
+         * @link https://www.php.net/manual/en/ds-stack.capacity.php
+         *
+         * @return int The current capacity.
+         */
+        public function capacity(): int
+        {
+        }
+
+        /**
+         * Removes all values from the stack.
+         * @link https://www.php.net/manual/en/ds-stack.clear.php
+         */
+        public function clear(): void
+        {
+        }
+
+        /**
+         * Count elements of an object
+         * @link https://php.net/manual/en/ds-stack.count.php
+         * @return int The custom count as an integer.
+         * </p>
+         * <p>
+         * The return value is cast to an integer.
+         * @since 5.1
+         */
+        public function count(): int
+        {
+        }
+
+        /**
+         * Returns a shallow copy of the collection.
+         * @link https://www.php.net/manual/en/ds-stack.copy.php
+         * @return Stack
+         */
+        public function copy(): Stack
+        {
+        }
+
+        /**
+         * Returns whether the collection is empty.
+         * @link https://www.php.net/manual/en/ds-stack.isempty.php
+         * @return bool
+         */
+        public function isEmpty(): bool
+        {
+        }
+
+        /**
+         * Converts the collection to an array.
+         * <p>Note: Casting to an array is not supported yet.
+         * @link https://www.php.net/manual/en/ds-stack.toarray.php
+         * @return array An array containing all the values in the same order as
+         * the collection.
+         */
+        public function toArray(): array
+        {
+        }
+
+        /**
+         * Specify data which should be serialized to JSON
+         * @link https://php.net/manual/en/jsonserializable.jsonserialize.php
+         * @return mixed data which can be serialized by <b>json_encode</b>,
+         * which is a value of any type other than a resource.
+         * @since 5.4
+         */
+        public function jsonSerialize()
+        {
+        }
+
+        /**
+         * Returns the value at the top of the stack, but does not remove it.
+         *
+         * @link https://www.php.net/manual/en/ds-queue.peek.php
+         *
+         * @return mixed The value at the top of the stack.
+         *
+         * @throws UnderflowException
+         */
+        public function peek()
+        {
+        }
+
+        /**
+         * Removes and returns the value at the top of the stack.
+         *
+         * @link https://www.php.net/manual/en/ds-queue.pop.php
+         *
+         * @return mixed The removed value which was at the top of the stack.
+         *
+         * @throws UnderflowException
+         */
+        public function pop()
+        {
+        }
+
+        /**
+         * Pushes values onto the stack.
+         *
+         * @link https://www.php.net/manual/en/ds-queue.push.php
+         *
+         * @param array $values The values to push onto the stack.
+         */
+        public function push(...$values)
+        {
+        }
+    }
+
+    /**
+     * A Queue is a “first in, first out” or “FIFO” collection that only allows
+     * access to the value at the front of the queue and iterates in that order,
+     * destructively.
+     *
+     * Uses a Ds\Vector internally.
+     *
+     * @package Ds
+     */
+    class Queue implements Collection
+    {
+        /**
+         * Creates a new instance, using either a traversable object or an array
+         * for the initial values.
+         *
+         * @link https://www.php.net/manual/en/ds-queue.construct.php
+         *
+         * @param array|Traversable|null $values A traversable object or an
+         * array to use for the initial values.
+         */
+        public function __construct($values = null)
+        {
+        }
+
+        /**
+         * Ensures that enough memory is allocated for a required capacity. This
+         * removes the need to reallocate the internal as values are added.
+         *
+         * @link https://www.php.net/manual/en/ds-queue.allocate.php
+         *
+         * @param int $capacity The number of values for which capacity should
+         * be allocated.
+         *
+         * <p>Note: Capacity will stay the same if this value is less than or
+         * equal to the current capacity.
+         */
+        public function allocate(int $capacity)
+        {
+        }
+
+        /**
+         * Returns the current capacity.
+         *
+         * @link https://www.php.net/manual/en/ds-queue.capacity.php
+         *
+         * @return int The current capacity.
+         */
+        public function capacity(): int
+        {
+        }
+
+        /**
+         * Removes all values from the queue.
+         * @link https://www.php.net/manual/en/ds-queue.clear.php
+         */
+        public function clear(): void
+        {
+        }
+
+        /**
+         * Count elements of an object
+         * @link https://php.net/manual/en/ds-queue.count.php
+         * @return int The custom count as an integer.
+         * </p>
+         * <p>
+         * The return value is cast to an integer.
+         * @since 5.1
+         */
+        public function count(): int
+        {
+        }
+
+        /**
+         * Returns a shallow copy of the collection.
+         * @link https://www.php.net/manual/en/ds-queue.copy.php
+         * @return Stack
+         */
+        public function copy(): Stack
+        {
+        }
+
+        /**
+         * Returns whether the collection is empty.
+         * @link https://www.php.net/manual/en/ds-queue.isempty.php
+         * @return bool
+         */
+        public function isEmpty(): bool
+        {
+        }
+
+        /**
+         * Converts the collection to an array.
+         * <p>Note: Casting to an array is not supported yet.
+         * @link https://www.php.net/manual/en/ds-queue.toarray.php
+         * @return array An array containing all the values in the same order as
+         * the collection.
+         */
+        public function toArray(): array
+        {
+        }
+
+        /**
+         * Specify data which should be serialized to JSON
+         * @link https://php.net/manual/en/jsonserializable.jsonserialize.php
+         * @return mixed data which can be serialized by <b>json_encode</b>,
+         * which is a value of any type other than a resource.
+         * @since 5.4
+         */
+        public function jsonSerialize()
+        {
+        }
+
+        /**
+         * Returns the value at the top of the queue, but does not remove it.
+         *
+         * @link https://www.php.net/manual/en/ds-queue.peek.php
+         *
+         * @return mixed The value at the top of the queue.
+         *
+         * @throws UnderflowException
+         */
+        public function peek()
+        {
+        }
+
+        /**
+         * Removes and returns the value at the top of the queue.
+         *
+         * @link https://www.php.net/manual/en/ds-queue.pop.php
+         *
+         * @return mixed The removed value which was at the top of the queue.
+         *
+         * @throws UnderflowException
+         */
+        public function pop()
+        {
+        }
+
+        /**
+         * Pushes values onto the queue.
+         *
+         * @link https://www.php.net/manual/en/ds-queue.push.php
+         *
+         * @param array $values The values to push onto the queue.
+         */
+        public function push(...$values)
+        {
+        }
+    }
+
+    /**
+     * A PriorityQueue is very similar to a Queue. Values are pushed into the
+     * queue with an assigned priority, and the value with the highest priority
+     * will always be at the front of the queue.
+     *
+     * Implemented using a max heap.
+     *
+     * @package Ds
+     *
+     * @link https://www.php.net/manual/en/class.ds-priorityqueue.php
+     */
+    class PriorityQueue implements Collection
+    {
+        const MIN_CAPACITY = 8;
+
+        /**
+         * Count elements of an object
+         * @link https://php.net/manual/en/countable.count.php
+         * @return int The custom count as an integer.
+         * </p>
+         * <p>
+         * The return value is cast to an integer.
+         * @since 5.1
+         */
+        public function count(): int
+        {
+        }
+
+        /**
+         * Removes all values from the collection.
+         * @link https://www.php.net/manual/en/ds-collection.clear.php
+         */
+        public function clear(): void
+        {
+        }
+
+        /**
+         * Returns a shallow copy of the collection.
+         * @link https://www.php.net/manual/en/ds-collection.copy.php
+         * @return Collection
+         */
+        public function copy()
+        {
+        }
+
+        /**
+         * Returns whether the collection is empty.
+         * @link https://www.php.net/manual/en/ds-collection.isempty.php
+         * @return bool
+         */
+        public function isEmpty(): bool
+        {
+        }
+
+        /**
+         * Converts the collection to an array.
+         * <p>Note: Casting to an array is not supported yet.
+         * @link https://www.php.net/manual/en/ds-collection.toarray.php
+         * @return array An array containing all the values in the same order as
+         * the collection.
+         */
+        public function toArray(): array
+        {
+        }
+
+        /**
+         * Specify data which should be serialized to JSON
+         * @link https://php.net/manual/en/jsonserializable.jsonserialize.php
+         * @return mixed data which can be serialized by <b>json_encode</b>,
+         * which is a value of any type other than a resource.
+         * @since 5.4
+         */
+        public function jsonSerialize()
+        {
+        }
+
 
     }
 }
