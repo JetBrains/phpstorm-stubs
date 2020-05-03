@@ -470,7 +470,7 @@ namespace Ds {
         }
 
         /**
-         * @inheritDoc
+         * Returns the current capacity.
          * @return int The current capacity.
          * @link https://www.php.net/manual/en/ds-vector.capacity.php
          */
@@ -491,7 +491,7 @@ namespace Ds {
          * @param mixed ...$values Values to check.
          * @return bool FALSE if any of the provided values are not in the
          * vector, TRUE otherwise.
-         * @link https://www.php.net/manual/en/ds-sequence.contains.php
+         * @link https://www.php.net/manual/en/ds-vector.contains.php
          */
         public function contains(...$values): bool
         {
@@ -517,7 +517,7 @@ namespace Ds {
          * @return Vector A new vector containing all the values for which
          * either the callback returned TRUE, or all values that convert to
          * TRUE if a callback was not provided.
-         * @link https://www.php.net/manual/en/ds-sequence.filter.php
+         * @link https://www.php.net/manual/en/ds-vector.filter.php
          */
         public function filter(callable $callback = null): Vector
         {
@@ -528,7 +528,7 @@ namespace Ds {
          * @param mixed $value The value to find.
          * @return mixed|bool The index of the value, or FALSE if not found.
          * <p>Note: Values will be compared by value and by type.
-         * @link https://www.php.net/manual/en/ds-sequence.find.php
+         * @link https://www.php.net/manual/en/ds-vector.find.php
          */
         public function find($value)
         {
@@ -538,7 +538,7 @@ namespace Ds {
          * Returns the first value in the vector.
          * @return mixed
          * @throws UnderflowException if empty.
-         * @link https://www.php.net/manual/en/ds-sequence.first.php
+         * @link https://www.php.net/manual/en/ds-vector.first.php
          */
         public function first()
         {
@@ -548,7 +548,7 @@ namespace Ds {
          * Returns the value at a given index.
          * @param int $index The index to access, starting at 0.
          * @return mixed
-         * @link https://www.php.net/manual/en/ds-sequence.get.php
+         * @link https://www.php.net/manual/en/ds-vector.get.php
          */
         public function get(int $index)
         {
@@ -561,7 +561,7 @@ namespace Ds {
          * Note:<br>
          * You can insert at the index equal to the number of values.
          * @param array $values The value or values to insert.
-         * @link https://www.php.net/manual/en/ds-sequence.insert.php
+         * @link https://www.php.net/manual/en/ds-vector.insert.php
          */
         public function insert(int $index, ...$values): void
         {
@@ -572,7 +572,7 @@ namespace Ds {
          *
          * @param string|null $glue An optional string to separate each value.
          * @return string All values of the sequence joined together as a string.
-         * @link https://www.php.net/manual/en/ds-sequence.join.php
+         * @link https://www.php.net/manual/en/ds-vector.join.php
          */
         public function join(?string $glue = null): string
         {
@@ -582,7 +582,7 @@ namespace Ds {
          * Returns the last value in the sequence.
          *
          * @return mixed The last value in the sequence.
-         * @link https://www.php.net/manual/en/ds-sequence.last.php
+         * @link https://www.php.net/manual/en/ds-vector.last.php
          */
         public function last()
         {
@@ -595,7 +595,7 @@ namespace Ds {
          * <br>The callable should return what the new value will be in the new sequence.
          *
          * @return Vector
-         * @link https://www.php.net/manual/en/ds-sequence.map.php
+         * @link https://www.php.net/manual/en/ds-vector.map.php
          */
         public function map(callable $callback): Vector
         {
@@ -609,7 +609,7 @@ namespace Ds {
          * values to a copy, then returning that copy.<br>
          * Note:<br>
          * The current instance won't be affected.
-         * @link https://www.php.net/manual/en/ds-sequence.merge.php
+         * @link https://www.php.net/manual/en/ds-vector.merge.php
          */
         public function merge($values): Vector
         {
@@ -619,7 +619,7 @@ namespace Ds {
          * Removes and returns the last value.
          *
          * @return mixed
-         * @link https://www.php.net/manual/en/ds-sequence.pop.php
+         * @link https://www.php.net/manual/en/ds-vector.pop.php
          */
         public function pop()
         {
@@ -628,7 +628,7 @@ namespace Ds {
         /**
          * Adds values to the end of the sequence.
          * @param array $values
-         * @link https://www.php.net/manual/en/ds-sequence.push.php
+         * @link https://www.php.net/manual/en/ds-vector.push.php
          */
         public function push(...$values): void
         {
@@ -644,7 +644,7 @@ namespace Ds {
          *
          * @return mixed|void The return value of the final callback.
          *
-         * @link https://www.php.net/manual/en/ds-sequence.reduce.php
+         * @link https://www.php.net/manual/en/ds-vector.reduce.php
          */
         public function reduce(callable $callback, $initial = null)
         {
@@ -654,7 +654,7 @@ namespace Ds {
          * Removes and returns a value by index.
          * @param int $index The index of the value to remove.
          * @return mixed The value that was removed.
-         * @link https://www.php.net/manual/en/ds-sequence.remove.php
+         * @link https://www.php.net/manual/en/ds-vector.remove.php
          */
         public function remove(int $index)
         {
@@ -662,7 +662,7 @@ namespace Ds {
 
         /**
          * Reverses the sequence in-place.
-         * @link https://www.php.net/manual/en/ds-sequence.reverse.php
+         * @link https://www.php.net/manual/en/ds-vector.reverse.php
          */
         public function reverse(): void
         {
@@ -672,14 +672,20 @@ namespace Ds {
          * Returns a reversed copy of the sequence.
          * @return Vector A reversed copy of the sequence.<br>
          * Note: The current instance is not affected.
-         * @link https://www.php.net/manual/en/ds-sequence.reversed.php
+         * @link https://www.php.net/manual/en/ds-vector.reversed.php
          */
         public function reversed(): Vector
         {
         }
 
         /**
-         * Rotates the sequence by a given number of rotations, which is equivalent to successively calling $sequence->push($sequence->shift()) if the number of rotations is positive, or $sequence->unshift($sequence->pop()) if negative.
+         * Rotates the sequence by a given number of rotations, which is
+         * equivalent to successively calling $sequence->push($sequence->shift())
+         * if the number of rotations is positive, or $sequence->unshift($sequence->pop())
+         * if negative.
+         *
+         * @link https://www.php.net/manual/en/ds-vector.rotate.php
+         *
          * @param int $rotations The number of times the sequence should be rotated.
          */
         public function rotate(int $rotations): void
@@ -688,8 +694,12 @@ namespace Ds {
 
         /**
          * Updates a value at a given index.
+         *
+         * @link https://www.php.net/manual/en/ds-vector.set.php
+         *
          * @param int $index The index of the value to update.
          * @param mixed $value The new value.
+         *
          * @throws OutOfRangeException if the index is not valid.
          */
         public function set(int $index, $value): void
@@ -698,6 +708,9 @@ namespace Ds {
 
         /**
          * Removes and returns the first value.
+         *
+         * @link https://www.php.net/manual/en/ds-vector.shift.php
+         *
          * @return mixed The first value, which was removed.
          * @throws UnderflowException if empty.
          */
@@ -707,9 +720,18 @@ namespace Ds {
 
         /**
          * Creates a sub-sequence of a given range.
-         * @param int $index The index at which the sub-sequence starts. If positive, the sequence will start at that
-         * index in the sequence. If negative, the sequence will start that far from the end.
-         * @param int|null $length If a length is given and is positive, the resulting sequence will have up to that many values in it. If the length results in an overflow, only values up to the end of the sequence will be included. If a length is given and is negative, the sequence will stop that many values from the end. If a length is not provided, the resulting sequence will contain all values between the index and the end of the sequence.
+         * @link https://www.php.net/manual/en/ds-vector.slice.php
+         * @param int $index The index at which the sub-sequence starts. If
+         * positive, the sequence will start at that
+         * index in the sequence. If negative, the sequence will start that
+         * far from the end.
+         * @param int|null $length If a length is given and is positive, the
+         * resulting sequence will have up to that many values in it. If the
+         * length results in an overflow, only values up to the end of the
+         * sequence will be included. If a length is given and is negative,
+         * the sequence will stop that many values from the end. If a length
+         * is not provided, the resulting sequence will contain all values
+         * between the index and the end of the sequence.
          * @return Vector
          */
         public function slice(int $index, int $length = null): Vector
@@ -718,12 +740,18 @@ namespace Ds {
 
         /**
          * Sorts the sequence in-place, using an optional comparator function.
-         * @param callable $comparator The comparison function must return an integer less than, equal to, or greater
+         * @link https://www.php.net/manual/en/ds-vector.sort.php
+         * @param callable $comparator The comparison function must return an
+         * integer less than, equal to, or greater
          * than zero if the first argument is considered to be respectively less than, equal to, or greater than the
-         * second. Note that before PHP 7.0.0 this integer had to be in the range from -2147483648 to 2147483647.<br>
+         * second. Note that before PHP 7.0.0 this integer had to be in the
+         * range from -2147483648 to 2147483647.<br>
          * <code>callback ( mixed $a, mixed $b ) : int</code>
-         * Caution: Returning non-integer values from the comparison function, such as float, will result in an
-         * internal cast to integer of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.
+         * Caution: Returning non-integer values from the comparison function,
+         * such as float, will result in an
+         * internal cast to integer of the callback's return value. So values
+         * such as 0.99 and 0.1 will both be cast to an integer value of 0,
+         * which will compare such values as equal.
          */
         public function sort(callable $comparator = null): void
         {
@@ -731,6 +759,7 @@ namespace Ds {
 
         /**
          * Returns a sorted copy, using an optional comparator function.
+         * @link https://www.php.net/manual/en/ds-vector.sorted.php
          * @param callable $comparator The comparison function must return an integer less than, equal to, or greater
          * than zero if the first argument is considered to be respectively less than, equal to, or greater than the
          * second. Note that before PHP 7.0.0 this integer had to be in the range from -2147483648 to 2147483647.<br>
@@ -745,7 +774,9 @@ namespace Ds {
 
         /**
          * Returns the sum of all values in the sequence.<br>
-         * Note: Arrays and objects are considered equal to zero when calculating the sum.
+         * Note: Arrays and objects are considered equal to zero when
+         * calculating the sum.
+         * @link https://www.php.net/manual/en/ds-vector.sum.php
          * @return float
          */
         public function sum(): float
@@ -753,9 +784,12 @@ namespace Ds {
         }
 
         /**
-         * Adds values to the front of the sequence, moving all the current values forward to make room for the new values.
+         * Adds values to the front of the sequence, moving all the current
+         * values forward to make room for the new values.
          * @param mixed $values The values to add to the front of the sequence.<br>
-         * Note: Multiple values will be added in the same order that they are passed
+         * Note: Multiple values will be added in the same order that they are
+         * passed
+         * @link https://www.php.net/manual/en/ds-vector.unshift.php
          */
         public function unshift($values): void
         {
@@ -763,7 +797,7 @@ namespace Ds {
 
         /**
          * Count elements of an object
-         * @link https://php.net/manual/en/countable.count.php
+         * @link https://php.net/manual/en/ds-vector.count.php
          * @return int The custom count as an integer.
          * </p>
          * <p>
@@ -776,7 +810,7 @@ namespace Ds {
 
         /**
          * Returns whether the collection is empty.
-         * @link https://www.php.net/manual/en/ds-collection.isempty.php
+         * @link https://www.php.net/manual/en/ds-vector.isempty.php
          * @return bool
          */
         public function isEmpty(): bool
@@ -786,7 +820,7 @@ namespace Ds {
         /**
          * Converts the collection to an array.
          * <p>Note: Casting to an array is not supported yet.
-         * @link https://www.php.net/manual/en/ds-collection.toarray.php
+         * @link https://www.php.net/manual/en/ds-vector.toarray.php
          * @return array An array containing all the values in the same order as
          * the collection.
          */
@@ -795,7 +829,11 @@ namespace Ds {
         }
 
         /**
-         * @inheritDoc
+         * Specify data which should be serialized to JSON
+         * @link https://php.net/manual/en/ds-vector.jsonserialize.php
+         * @return mixed data which can be serialized by <b>json_encode</b>,
+         * which is a value of any type other than a resource.
+         * @since 5.4
          */
         public function jsonSerialize()
         {
@@ -1653,6 +1691,8 @@ namespace Ds {
          *
          * @param mixed $key
          * @param mixed $value
+         *
+         * @link https://php.net/manual/en/ds-pair.construct.php
          */
         public function __construct($key = null, $value = null)
         {
@@ -1660,6 +1700,8 @@ namespace Ds {
 
         /**
          * Removes all values from the pair.
+         *
+         * @link https://php.net/manual/en/ds-pair.clear.php
          */
         public function clear()
         {
@@ -1669,6 +1711,8 @@ namespace Ds {
          * Returns a shallow copy of the pair.
          *
          * @return Pair Returns a shallow copy of the pair.
+         *
+         * @link https://php.net/manual/en/ds-pair.copy.php
          */
         public function copy(): Pair
         {
@@ -1678,6 +1722,8 @@ namespace Ds {
          * Returns whether the pair is empty.
          *
          * @return bool Returns TRUE if the pair is empty, FALSE otherwise.
+         *
+         * @link https://php.net/manual/en/ds-pair.isempty.php
          */
         public function isEmpty(): bool
         {
@@ -1690,13 +1736,18 @@ namespace Ds {
          *
          * @return array An array containing all the values in the same order as
          * the pair.
+         *
+         * @link https://php.net/manual/en/ds-pair.toarray.php
          */
         public function toArray(): array
         {
         }
 
         /**
-         * @inheritDoc
+         * Specify data which should be serialized to JSON
+         * @link https://php.net/manual/en/ds-pair.jsonserialize.php
+         * @return mixed data which can be serialized by <b>json_encode</b>,
+         * which is a value of any type other than a resource.
          */
         public function jsonSerialize()
         {
@@ -1721,6 +1772,8 @@ namespace Ds {
          *
          * @param array|Traversable $values A traversable object of an array to
          * use the initial values.
+         *
+         * @link https://php.net/manual/en/ds-set.construct.php
          */
         public function __construct(...$values)
         {
@@ -1737,6 +1790,8 @@ namespace Ds {
          * <p>Caution: All comparisons are strict (type and value).
          *
          * @param mixed ...$values Values to add to the set.
+         *
+         * @link https://php.net/manual/en/ds-set.add.php
          */
         public function add(...$values)
         {
@@ -1752,6 +1807,8 @@ namespace Ds {
          * equal to the current capacity.
          *
          * <p>Capacity will always be rounded up to the nearest power of 2.
+         *
+         * @link https://php.net/manual/en/ds-set.allocate.php
          */
         public function allocate(int $capacity)
         {
@@ -1768,7 +1825,10 @@ namespace Ds {
          * <p>Caution: All comparisons are strict (type and value).
          *
          * @param mixed ...$values  Values to check.
+         *
          * @return bool
+         *
+         * @link https://php.net/manual/en/ds-set.contains.php
          */
         public function contains(...$values): bool
         {
