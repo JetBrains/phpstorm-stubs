@@ -37,16 +37,24 @@ define('YAML_UTF16LE_ENCODING', 2);
 define('YAML_UTF16BE_ENCODING', 3);
 
 /**
- * Linebreak types for yaml_emit()
+ * Let emitter choose linebreak character.
  * @link https://php.net/manual/en/yaml.constants.php
- * @const YAML_ANY_BREAK Let emitter choose linebreak character.
- * @const YAML_CR_BREAK Use \r as break character (Mac style).
- * @const YAML_LN_BREAK Use \n as break character (Unix style).
- * @const YAML_CRLN_BREAK Use \r\n as break character (DOS style).
  */
 define('YAML_ANY_BREAK', 0);
+/**
+ * Use \r as break character (Mac style).
+ * @link https://php.net/manual/en/yaml.constants.php
+ */
 define('YAML_CR_BREAK', 1);
+/**
+ * Use \n as break character (Unix style).
+ * @link https://php.net/manual/en/yaml.constants.php
+ */
 define('YAML_LN_BREAK', 2);
+/**
+ * Use \r\n as break character (DOS style).
+ * @link https://php.net/manual/en/yaml.constants.php
+ */
 define('YAML_CRLN_BREAK', 3);
 
 define('YAML_MERGE_TAG', 'tag:yaml.org,2002:merge');

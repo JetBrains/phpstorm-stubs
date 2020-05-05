@@ -443,7 +443,7 @@ class Redis
      * // Will set the key, if it doesn't exist, with a ttl of 10 seconds
      * $redis->set('key', 'value', ['nx', 'ex' => 10]);
      *
-     * // Will set a key, if it does exist, with a ttl of 1000 miliseconds
+     * // Will set a key, if it does exist, with a ttl of 1000 milliseconds
      * $redis->set('key', 'value', ['xx', 'px' => 1000]);
      * </pre>
      *
@@ -603,6 +603,38 @@ class Redis
     {
     }
 
+    /**
+     * Returns a Redis instance which can simply transmitted faster to the server.
+     *
+     * @return Redis returns the Redis instance.
+     * Once in pipeline-mode, all subsequent method calls return the same object until exec() is called.
+     * Pay attention, that Pipeline is not a transaction, so you can get unexpected
+     * results in case of big pipelines and small read/write timeouts.
+     *
+     * @link   https://redis.io/topics/pipelining
+     * @example
+     * <pre>
+     * $ret = $this->redis->pipeline()
+     *      ->ping()
+     *      ->multi()->set('x', 42)->incr('x')->exec()
+     *      ->ping()
+     *      ->multi()->get('x')->del('x')->exec()
+     *      ->ping()
+     *      ->exec();
+     *
+     * //$ret == array (
+     * //    0 => '+PONG',
+     * //    1 => [TRUE, 43],
+     * //    2 => '+PONG',
+     * //    3 => [43, 1],
+     * //    4 => '+PONG');
+     * </pre>
+     */
+    public function pipeline()
+    {
+    }
+
+    
     /**
      * @return void|array
      *
@@ -890,7 +922,7 @@ class Redis
      * If the second argument is filled, it will be used as the integer value of the decrement.
      *
      * @param string $key
-     * @param int    $value  that will be substracted to key (only for decrBy)
+     * @param int    $value  that will be subtracted to key (only for decrBy)
      *
      * @return int the new value
      *
@@ -1316,7 +1348,7 @@ class Redis
     }
 
     /**
-     * Removes the first count occurences of the value element from the list.
+     * Removes the first count occurrences of the value element from the list.
      * If count is zero, all the matching elements are removed. If count is negative,
      * elements are removed from tail to head.
      *
@@ -2918,14 +2950,14 @@ class Redis
     /**
      * Adds the specified member with a given score to the sorted set stored at key
      *
-     * @param string       $key     Required key
-     * @param array        $options Options if needed
-     * @param float        $score1  Required score
-     * @param string|mixed $value1  Required value
-     * @param float        $score2  Optional score
-     * @param string|mixed $value2  Optional value
-     * @param float        $scoreN  Optional score
-     * @param string|mixed $valueN  Optional value
+     * @param string                $key     Required key
+     * @param array|float           $options Options if needed or score if omitted
+     * @param float|string|mixed    $score1  Required score or value if options omitted
+     * @param string|float|mixed    $value1  Required value or optional score if options omitted
+     * @param float|string|mixed    $score2  Optional score or value if options omitted
+     * @param string|float|mixed    $value2  Optional value or score if options omitted
+     * @param float|string|mixed    $scoreN  Optional score or value if options omitted
+     * @param string|float|mixed    $valueN  Optional value or score if options omitted
      *
      * @return int Number of values added
      *
@@ -2959,7 +2991,7 @@ class Redis
      * </pre>
      * </pre>
      */
-    public function zAdd($key, $options, $score1, $value1, $score2 = null, $value2 = null, $scoreN = null, $valueN = null)
+    public function zAdd($key, $options, $score1, $value1 = null, $score2 = null, $value2 = null, $scoreN = null, $valueN = null)
     {
     }
 
@@ -3509,7 +3541,7 @@ class Redis
      * @param string|array $key2 ...
      * @param int $timeout
      *
-     * @return array Either an array with the key member and score of the higest or lowest element or an empty array
+     * @return array Either an array with the key member and score of the highest or lowest element or an empty array
      * if the timeout was reached without an element to pop.
      *
      * @since >= 5.0
@@ -3534,7 +3566,7 @@ class Redis
      * @param string|array $key2 ...
      * @param int $timeout
      *
-     * @return array Either an array with the key member and score of the higest or lowest element or an empty array
+     * @return array Either an array with the key member and score of the highest or lowest element or an empty array
      * if the timeout was reached without an element to pop.
      *
      * @see bzPopMax
@@ -4583,7 +4615,7 @@ class Redis
     /**
      * Return the current Redis server time.
      *
-     * @return array If successfull, the time will come back as an associative array with element zero being the
+     * @return array If successful, the time will come back as an associative array with element zero being the
      * unix timestamp, and element one being microseconds.
      *
      * @link    https://redis.io/commands/time

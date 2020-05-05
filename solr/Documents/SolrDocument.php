@@ -277,7 +277,7 @@ final class SolrDocument implements ArrayAccess, Iterator, Serializable {
 	 * @param string $fieldValue <p>
 	 * The value for this field.
 	 * </p>
-	 * @TODO: Check -> doc indicate void function but return is set at true/false
+     * @return bool
 	 */
 	public function offsetSet($fieldName , $fieldValue) {}
 

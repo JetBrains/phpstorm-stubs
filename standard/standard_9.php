@@ -1022,7 +1022,7 @@ function stream_isatty($name) {}
  * This method is called upon filter shutdown (typically, this is also
  * during stream shutdown), and is executed after
  * the flush method is called. If any resources
- * were allocated or initialzed during onCreate()
+ * were allocated or initialized during onCreate()
  * this would be the time to destroy or dispose of them.
  * </p>
  * @return bool true on success or false on failure.

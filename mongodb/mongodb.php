@@ -210,7 +210,7 @@ namespace MongoDB {}
             }
 
             /**
-             * Preselect a MongoDB node based on provided readPreference. This can be useful to gurantee a command runs on a specific server when operating in a mixed version cluster.
+             * Preselect a MongoDB node based on provided readPreference. This can be useful to guarantee a command runs on a specific server when operating in a mixed version cluster.
              * https://secure.php.net/manual/en/mongodb-driver-manager.selectserver.php
              * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to route the command to. If none given, defaults to the Read Preferences set by the MongoDB Connection URI.
              * @throws InvalidArgumentException on argument parsing errors.
@@ -299,7 +299,7 @@ namespace MongoDB {}
             /**
              * Execute a database command that reads on this server
              * @link https://secure.php.net/manual/en/mongodb-driver-server.executereadcommand.php
-             * @param                         $db
+             * @param string                  $db
              * @param \MongoDB\Driver\Command $command
              * @param array                   $option
              * @return Cursor
@@ -316,7 +316,7 @@ namespace MongoDB {}
             /**
              * Execute a database command that reads and writes on this server
              * @link https://secure.php.net/manual/en/mongodb-driver-server.executereadwritecommand.php
-             * @param                         $db
+             * @param string                  $db
              * @param \MongoDB\Driver\Command $command
              * @param array                   $option
              * @return Cursor
@@ -333,7 +333,7 @@ namespace MongoDB {}
             /**
              * Execute a database command that writes on this server
              * @link https://secure.php.net/manual/en/mongodb-driver-server.executewritecommand.php
-             * @param                         $db
+             * @param string                  $db
              * @param \MongoDB\Driver\Command $command
              * @param array                   $option
              * @return Cursor
@@ -886,7 +886,7 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-bulkwrite.insert.php
              * @param array|object $document
              * @return mixed
-             * @Throws MongoDB\Driver\InvalidArgumentException on argument parsing errors.
+             * @throws InvalidArgumentException on argument parsing errors.
              */
             public final function insert($document)
             {
@@ -1244,7 +1244,7 @@ namespace MongoDB {}
              * element, and this array contains a "TransientTransactionError" or "UnUnknownTransactionCommitResult" value, it is safe to
              * re-try the whole transaction. In newer versions of the driver, MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()
              * should be used to test for this situation instead.
-             * @throws \MongoDB\Driver\Exception\RuntimeException If the transaction could not be commited (e.g. a transaction was not started)
+             * @throws \MongoDB\Driver\Exception\RuntimeException If the transaction could not be committed (e.g. a transaction was not started)
              * @since 1.5.0
              */
             final public function commitTransaction()
@@ -1650,7 +1650,7 @@ namespace MongoDB {}
          * Registered subscribers will be notified of monitoring events through specific methods.
          * Note: If the object is already registered, this function is a no-op.
          * @link https://secure.php.net/manual/en/function.mongodb.driver.monitoring.addsubscriber.php
-         * @param $subscriber Subscriber A monitoring event subscriber object to register.
+         * @param Subscriber $subscriber A monitoring event subscriber object to register.
          * @return void
          * @throws \InvalidArgumentException on argument parsing errors.
          * @since 1.3.0
@@ -1664,7 +1664,7 @@ namespace MongoDB {}
          * Unregistered subscribers will no longer be notified of monitoring events.
          * Note: If the object is not registered, this function is a no-op.
          * @link https://secure.php.net/manual/en/function.mongodb.driver.monitoring.removesubscriber.php
-         * @param $subscriber Subscriber A monitoring event subscriber object to register.
+         * @param Subscriber $subscriber A monitoring event subscriber object to register.
          * @throws \InvalidArgumentException on argument parsing errors.
          * @since 1.3.0
          */
@@ -2053,7 +2053,7 @@ namespace MongoDB {}
         /**
          * Returns the PHP representation of a BSON value
          * Unserializes a BSON document (i.e. binary string) to its PHP representation.
-         * The typeMap paramater may be used to control the PHP types used for converting BSON arrays and documents (both root and embedded).
+         * The typeMap parameter may be used to control the PHP types used for converting BSON arrays and documents (both root and embedded).
          * @link https://php.net/manual/en/function.mongodb.bson-tophp.php
          * @param string $bson BSON value to be unserialized.
          * @param array $typeMap
@@ -2416,7 +2416,7 @@ namespace MongoDB {}
             }
 
             /**
-             * Returns the hexidecimal representation of this ObjectId
+             * Returns the hexadecimal representation of this ObjectId
              * @link https://php.net/manual/en/mongodb-bson-objectid.tostring.php
              * @return string
              */
@@ -2970,18 +2970,11 @@ namespace MongoDB {}
             function getTimestamp();
 
             /**
-             * Returns the hexidecimal representation of this ObjectId
+             * Returns the hexadecimal representation of this ObjectId
              * @link https://www.php.net/manual/en/mongodb-bson-objectid.tostring.php
-             * @return string Returns the hexidecimal representation of this ObjectId
+             * @return string Returns the hexadecimal representation of this ObjectId
              */
             function __toString();
-
-            /**
-             * Construct a new ObjectId
-             * @param string|null $id A 24-character hexadecimal string. If not provided, the driver will generate an ObjectId.
-             * @throws InvalidArgumentException
-             */
-            function __construct($id = null);
         }
 
         /**

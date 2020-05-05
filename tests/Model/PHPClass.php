@@ -49,8 +49,7 @@ class PHPClass extends BasePHPClass
     public function readObjectFromStubNode($node): self
     {
         $this->name = $this->getFQN($node);
-        $this->collectLinks($node);
-        $this->collectSinceRemovedDeprecatedVersions($node);
+        $this->collectTags($node);
         if (!empty($node->extends)) {
             $this->parentClass = '';
             foreach ($node->extends->parts as $part) {

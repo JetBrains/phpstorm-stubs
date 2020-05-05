@@ -351,7 +351,7 @@ function radius_add_server($radius_handle , $hostname, $port , $secret, $timeout
 function radius_auth_open() { }
 
 /**
- * Free all ressources. It is not needed to call this function because php frees all resources at the end of each request.
+ * Free all resources. It is not needed to call this function because php frees all resources at the end of each request.
  * @link https://secure.php.net/manual/en/function.radius-close.php
  * @param resource $radius_handle
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.

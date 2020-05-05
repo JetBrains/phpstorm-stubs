@@ -1,4 +1,4 @@
-<?php /** @noinspection ALL */
+<?php
 
 /**
  * Stub file - DO NOT INCLUDE! = For PHPStorm to analyse.
@@ -233,7 +233,7 @@ function wb_message_box($parent, $message, $title = null, $style = null)
  * Parameter source may be a sound file name or a system sound constant.
  * Parameter command may be used used to play a WAV sound synchronously or in a loop.
  * A synchronous sound stops the currently playing sound and suspends the application control until it finishes.
- * A MIDI soundtrack always stops any currenly playing MIDI soundtrack.
+ * A MIDI soundtrack always stops any currently playing MIDI soundtrack.
  * To stop one or more sounds, use function wb_stop_sound().
  *
  * Value of $source:
@@ -957,7 +957,7 @@ function wb_get_parent($wbobject, $item = null)
 /**
  * Returns a value or array with the indices or identifiers of the selected elements or items in wbobject.
  *
- * Retrives:
+ * Retrieves:
  *
  * ComboBox    The index of the currently selected item.
  * ListBox    The index of the currently selected item. If multiselected only the last on will be returned (use getText for all items text)

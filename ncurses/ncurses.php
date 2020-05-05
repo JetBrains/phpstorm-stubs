@@ -1228,7 +1228,7 @@ function ncurses_mouse_trafo (&$y, &$x, $toscreen) {}
 function ncurses_wmouse_trafo ($window, &$y, &$x, $toscreen) {}
 
 /**
- * Outputs text at current postion in window
+ * Outputs text at current position in window
  * @link https://php.net/manual/en/function.ncurses-waddstr.php
  * @param $window resource <p>
  * </p>

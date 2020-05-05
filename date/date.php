@@ -634,7 +634,7 @@ function checkdate ($month, $day, $year) {}
  * </tr>
  * <tr valign="top">
  * <td>%l (lower-case 'L')</td>
- * <td>Hour in 12-hour format, with a space preceeding single digits</td>
+ * <td>Hour in 12-hour format, with a space preceding single digits</td>
  * <td> 1 through 12</td>
  * </tr>
  * <tr valign="top">

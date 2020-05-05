@@ -41,7 +41,7 @@ namespace {
         /**
          * Consistency level ANY means the request is fulfilled as soon as the data
          * has been written on the Coordinator. Requests with this consistency level
-         * are not guranteed to make it to Replica nodes.
+         * are not guaranteed to make it to Replica nodes.
          *
          * @see \Cassandra\Session::execute()
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/class.Cassandra/#constant-CONSISTENCY_ANY
@@ -4189,7 +4189,7 @@ namespace Cassandra {
 
         /**
          * Initialize a Collection type
-         * @code{.php}
+         * ```php
          * <?php
          * use Type;
          *
@@ -4197,7 +4197,7 @@ namespace Cassandra {
          *                   ->create(1, 2, 3, 4, 5, 6, 7, 8, 9);
          *
          * var_dump($collection);
-         * @endcode
+         * ```
          *
          * @param \Cassandra\Type $type The type of values
          *
@@ -4210,7 +4210,7 @@ namespace Cassandra {
 
         /**
          * Initialize a set type
-         * @code{.php}
+         * ```
          * <?php
          * use Type;
          *
@@ -4218,7 +4218,7 @@ namespace Cassandra {
          *            ->create("a", "b", "c", "d", "e", "f", "g", "h", "i", "j");
          *
          * var_dump($set);
-         * @endcode
+         * ```
          *
          * @param \Cassandra\Type $type The types of values
          *
@@ -4231,15 +4231,13 @@ namespace Cassandra {
 
         /**
          * Initialize a map type
-         * @code{.php}
-         * <?php
+         * ```<?php
          * use Type;
          *
          * $map = Type::map(Type::int(), Type::varchar())
          *            ->create(1, "a", 2, "b", 3, "c", 4, "d", 5, "e", 6, "f")
          *
-         * var_dump($map);
-         * @endcode
+         * var_dump($map);```
          *
          * @param \Cassandra\Type $keyType The type of keys
          * @param \Cassandra\Type $valueType The type of values
@@ -4253,15 +4251,13 @@ namespace Cassandra {
 
         /**
          * Initialize a tuple type
-         * @code{.php}
-         * <?php
+         * ```<?php
          * use Type;
          *
          * $tuple = Type::tuple(Type::varchar(), Type::int())
          *            ->create("a", 123);
          *
-         * var_dump($tuple);
-         * @endcode
+         * var_dump($tuple);```
          *
          * @param \Cassandra\Type $types A variadic list of types
          *
@@ -4274,15 +4270,13 @@ namespace Cassandra {
 
         /**
          * Initialize a user type
-         * @code{.php}
-         * <?php
+         * ```<?php
          * use Type;
          *
          * $userType = Type::userType("a", Type::varchar(), "b", Type::int())
          *                 ->create("a", "abc", "b", 123);
          *
-         * var_dump($userType);
-         * @endcode
+         * var_dump($userType);```
          *
          * @param \Cassandra\Type $types A variadic list of name/type pairs
          *
@@ -6218,7 +6212,7 @@ namespace Cassandra\Cluster {
 
         /**
          * Sets the blacklist hosts. Any host in the blacklist will be ignored and
-         * a conneciton will not be established. This is useful for ensuring that
+         * a connection will not be established. This is useful for ensuring that
          * the driver will not connection to a predefied set of hosts.
          *
          * @param string $hosts A comma delimited list of addresses.
@@ -7043,8 +7037,7 @@ namespace Cassandra\Type {
         /**
          * Creates a new Map from the given values.
          *
-         * @code{.php}
-         * <?php
+         * ```<?php
          * use Type;
          * use Uuid;
          *
@@ -7053,8 +7046,7 @@ namespace Cassandra\Type {
          *                      new Uuid(), 'second uuid',
          *                      new Uuid(), 'third uuid');
          *
-         * var_dump($map);
-         * @endcode
+         * var_dump($map);```
          *
          *
          *                          is a key and each even value is a value for the

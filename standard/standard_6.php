@@ -275,7 +275,7 @@ function stream_filter_remove ($stream_filter) {}
  * @param string $errstr [optional] <p>
  * Will be set to the system level error message if the connection fails.
  * </p>
- * @param float $timeout [optional] <p>
+ * @param float|null $timeout [optional] <p>
  * Number of seconds until the connect() system call
  * should timeout.
  * This parameter only applies when not making asynchronous
@@ -385,7 +385,7 @@ function stream_socket_accept ($server_socket, $timeout = null, &$peername = nul
  * If set to true the remote socket name will be returned, if set
  * to false the local socket name will be returned.
  * </p>
- * @return string The name of the socket.
+ * @return string|false The name of the socket or false on error.
  */
 function stream_socket_get_name ($handle, $want_peer) {}
 
@@ -424,7 +424,7 @@ function stream_socket_get_name ($handle, $want_peer) {}
  * If address is provided it will be populated with
  * the address of the remote socket.
  * </p>
- * @return string the read data, as a string
+ * @return string|false the read data, as a string, or false on error
  */
 function stream_socket_recvfrom ($socket, $length, $flags = null, &$address = null) {}
 
@@ -457,7 +457,7 @@ function stream_socket_recvfrom ($socket, $length, $flags = null, &$address = nu
  * <p>
  * If specified, it must be in dotted quad (or [ipv6]) format.
  * </p>
- * @return int a result code, as an integer.
+ * @return int|false a result code, as an integer.
  */
 function stream_socket_sendto ($socket, $data, $flags = null, $address = null) {}
 

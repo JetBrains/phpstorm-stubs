@@ -523,7 +523,7 @@ class Connection  {
 	 */
 	function listen(string $channel, callable $listener) {}
 	/**
-	 * [Asynchronously](pq/Connection/: Asynchronous Usage) start listening on $channel for notifcations.
+	 * [Asynchronously](pq/Connection/: Asynchronous Usage) start listening on $channel for notifications.
 	 * See pq\Connection::listen().
 	 * 
 	 * @param string $channel The channel to listen on.

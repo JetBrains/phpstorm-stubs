@@ -6315,7 +6315,7 @@ class ImagickPixelIterator implements Iterator {
 	 * @link https://php.net/manual/en/imagickpixeliterator.newpixeliterator.php
 	 * @param Imagick $wand
 	 * @return bool <b>TRUE</b> on success. Throwing ImagickPixelIteratorException.
-	 * @throw ImagickPixelIteratorException
+	 * @throws ImagickPixelIteratorException
 	 */
 	public function newPixelIterator (Imagick $wand) {}
 

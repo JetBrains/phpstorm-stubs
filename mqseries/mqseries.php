@@ -9,7 +9,7 @@ function mqseries_back($hconn, &$compCode, &$reason)
 {
 }
 
-/** @noinspection MoreThanThreeArgumentsInspection
+/**
  * @param resource $hconn
  * @param array $beginOptions
  * @param resource $compCode
@@ -19,7 +19,7 @@ function mqseries_begin($hconn, array $beginOptions, &$compCode, &$reason)
 {
 }
 
-/** @noinspection MoreThanThreeArgumentsInspection
+/**
  * @param resource $hconn
  * @param resource $hobj
  * @param int $options
@@ -39,7 +39,7 @@ function mqseries_cmit($hconn, &$compCode, &$reason)
 {
 }
 
-/** @noinspection MoreThanThreeArgumentsInspection
+/**
  * @param string $qManagerName
  * @param resource $hconn
  * @param resource $compCode
@@ -49,7 +49,7 @@ function mqseries_conn($qManagerName, &$hconn, &$compCode, &$reason)
 {
 }
 
-/** @noinspection MoreThanThreeArgumentsInspection
+/**
  * @param string $qManagerName
  * @param array $connOptions
  * @param resource $hconn
@@ -69,7 +69,7 @@ function mqseries_disc($hconn, &$compCode, &$reason)
 {
 }
 
-/** @noinspection MoreThanThreeArgumentsInspection
+/**
  * @param resource $hConn
  * @param resource $hObj
  * @param array $md
@@ -84,7 +84,7 @@ function mqseries_get($hConn, $hObj, array &$md, array &$gmo, &$bufferLength, &$
 {
 }
 
-/** @noinspection MoreThanThreeArgumentsInspection
+/**
  * @param resource $hconn
  * @param resource $hobj
  * @param int $selectorCount
@@ -100,7 +100,7 @@ function mqseries_inq($hconn, $hobj, $selectorCount, array $selectors, $intAttrC
 {
 }
 
-/** @noinspection MoreThanThreeArgumentsInspection
+/**
  * @param resource $hconn
  * @param array $objDesc
  * @param int $option
@@ -112,7 +112,7 @@ function mqseries_open($hconn, array &$objDesc, $option, &$hobj, &$compCode, &$r
 {
 }
 
-/** @noinspection MoreThanThreeArgumentsInspection
+/**
  * @param resource $hconn
  * @param resource $objDesc
  * @param resource $msgDesc
@@ -125,7 +125,7 @@ function mqseries_put1($hconn, &$objDesc, &$msgDesc, &$pmo, $buffer, &$compCode,
 {
 }
 
-/** @noinspection MoreThanThreeArgumentsInspection
+/**
  * @param resource $hConn
  * @param resource $hObj
  * @param array $md
@@ -138,7 +138,7 @@ function mqseries_put($hConn, $hObj, array &$md, array &$pmo, $message, &$compCo
 {
 }
 
-/** @noinspection MoreThanThreeArgumentsInspection
+/**
  * @param resource $hconn
  * @param resource $hobj
  * @param int $selectorcount

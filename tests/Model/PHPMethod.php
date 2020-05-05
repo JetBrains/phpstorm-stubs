@@ -47,9 +47,7 @@ class PHPMethod extends PHPFunction
         $this->parentName = $this->getFQN($node->getAttribute('parent'));
         $this->name = $node->name->name;
 
-        $this->collectLinks($node);
-        $this->collectSinceRemovedDeprecatedVersions($node);
-        $this->checkIfHasInternalMetaTag($node);
+        $this->collectTags($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);
 

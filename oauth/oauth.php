@@ -312,8 +312,6 @@ class OAuthProvider {
      * @param int $size
      * @param bool $strong
      * @return string
-     * @static
-     * @final
      */
     final public static function generateToken($size, $strong = false) { }
 
@@ -332,16 +330,13 @@ class OAuthProvider {
     /**
      * @param string $req_params
      * @return bool
-     * @final
      */
     final public function removeRequiredParameter($req_params) { }
 
     /**
      * @param string $oauthexception
      * @param bool $send_headers
-     * @static
      * @return string
-     * @final
      */
     final public static function reportProblem($oauthexception, $send_headers = true) { }
 
@@ -349,7 +344,6 @@ class OAuthProvider {
      * @param string $param_key
      * @param mixed $param_val
      * @return bool
-     * @final
      */
     final public function setParam($param_key, $param_val = null) { }
 
@@ -357,7 +351,6 @@ class OAuthProvider {
     /**
      * @param string $path
      * @return bool
-     * @final
      */
     final public function setRequestTokenPath($path) { }
 
