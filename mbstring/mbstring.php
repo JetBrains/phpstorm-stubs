@@ -1233,31 +1233,31 @@ function mbereg_search_getpos () {}
  * Get a specific character.
  * @link https://www.php.net/manual/en/function.mb-chr.php
  * @param int $cp
- * @param string $encoding
+ * @param string $encoding [optional]
  * @return string|false specific character or FALSE on failure.
  * @since 7.2
  */
-function mb_chr($cp, $encoding) {}
+function mb_chr ($cp, $encoding = null) {}
 
 /**
  * Get code point of character
  * @link https://www.php.net/manual/en/function.mb-ord.php
  * @param string $str
- * @param string $encoding
+ * @param string $encoding [optional]
  * @return int|false code point of character or FALSE on failure.
  * @since 7.2
  */
-function mb_ord($str, $encoding) {}
+function mb_ord ($str, $encoding = null) {}
 
 /**
  * Scrub broken multibyte strings.
  * @link https://www.php.net/manual/en/function.mb-scrub.php
  * @param string $str
- * @param string $encoding
+ * @param string $encoding [optional]
  * @return string|false
  * @since 7.2
  */
-function mb_scrub($str, $encoding) {}
+function mb_scrub ($str, $encoding = null) {}
 
 /**
  * @param $position
@@ -1267,13 +1267,20 @@ function mbereg_search_setpos ($position) {}
 
 /**
  * Function performs string splitting to an array of defined size chunks.
- * @param string $str
- * @param int $split_length [optional]
- * @param string $encoding [optional]
- * @return string[]
+ * @param string $str <p>
+ * The string to split into characters or chunks.
+ * </p>
+ * @param int $split_length [optional] <p>
+ * If specified, each element of the returned array will be composed of multiple characters instead of a single character.
+ * </p>
+ * @param string $encoding [optional] <p>
+ * Character encoding name to use.
+ * If it is omitted, internal character encoding is used.
+ * </p>
+ * @return string[]|false
  * @since 7.4
  */
-function mb_str_split($str, $split_length, $encoding){}
+function mb_str_split ($str, $split_length = 1, $encoding = null) {}
 
 define ('MB_OVERLOAD_MAIL', 1);
 define ('MB_OVERLOAD_STRING', 2);
