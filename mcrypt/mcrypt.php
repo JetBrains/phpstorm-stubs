@@ -7,10 +7,10 @@
  * @link https://php.net/manual/en/function.mcrypt-ecb.php
  * @deprecated 5.5 https://secure.php.net/manual/en/migration55.deprecated.php
  * @param string|int $cipher
- * @param string $key 
- * @param string $data 
- * @param int $mode 
- * @return string 
+ * @param string $key
+ * @param string $data
+ * @param int $mode
+ * @return string
  * @removed 7.0
  */
 function mcrypt_ecb ($cipher, $key, $data, $mode) {}
@@ -20,11 +20,11 @@ function mcrypt_ecb ($cipher, $key, $data, $mode) {}
  * @link https://php.net/manual/en/function.mcrypt-cbc.php
  * @deprecated 5.5 https://secure.php.net/manual/en/migration55.deprecated.php
  * @param int|string $cipher
- * @param string $key 
- * @param string $data 
- * @param int $mode 
- * @param string $iv [optional] 
- * @return string 
+ * @param string $key
+ * @param string $data
+ * @param int $mode
+ * @param string $iv [optional]
+ * @return string
  * @removed 7.0
  */
 function mcrypt_cbc ($cipher, $key, $data, $mode, $iv = null) {}
@@ -34,11 +34,11 @@ function mcrypt_cbc ($cipher, $key, $data, $mode, $iv = null) {}
  * @link https://php.net/manual/en/function.mcrypt-cfb.php
  * @deprecated 5.5 https://secure.php.net/manual/en/migration55.deprecated.php
  * @param int|string $cipher
- * @param string $key 
- * @param string $data 
- * @param int $mode 
+ * @param string $key
+ * @param string $data
+ * @param int $mode
  * @param string $iv [optional]
- * @return string 
+ * @return string
  * @removed 7.0
  */
 function mcrypt_cfb ($cipher, $key, $data, $mode, $iv = null) {}
@@ -48,11 +48,11 @@ function mcrypt_cfb ($cipher, $key, $data, $mode, $iv = null) {}
  * @link https://php.net/manual/en/function.mcrypt-ofb.php
  * @deprecated 5.5 https://secure.php.net/manual/en/migration55.deprecated.php
  * @param int|string $cipher
- * @param string $key 
- * @param string $data 
- * @param int $mode 
+ * @param string $key
+ * @param string $data
+ * @param int $mode
  * @param string $iv [optional]
- * @return string 
+ * @return string
  * @removed 7.0
  */
 function mcrypt_ofb ($cipher, $key, $data, $mode, $iv = null) {}
@@ -62,7 +62,7 @@ function mcrypt_ofb ($cipher, $key, $data, $mode, $iv = null) {}
  * @link https://php.net/manual/en/function.mcrypt-get-key-size.php
  * @param int|string $cipher
  * @param string $mode
- * @return int 
+ * @return int
  * @deprecated 7.1
  */
 function mcrypt_get_key_size ($cipher, $mode) {}
@@ -331,7 +331,7 @@ function mcrypt_generic ($td, $data) {}
  * @param string $data <p>
  * Encrypted data.
  * </p>
- * @return string 
+ * @return string
  * @deprecated 7.1
  */
 function mdecrypt_generic ($td, $data) {}
@@ -339,7 +339,7 @@ function mdecrypt_generic ($td, $data) {}
 /**
  * This function terminates encryption
  * @link https://php.net/manual/en/function.mcrypt-generic-end.php
- * @param resource $td 
+ * @param resource $td
  * @return bool
  * @deprecated 5.4 This function has been DEPRECATED as of PHP 5.4.0.
  * @removed 7.0

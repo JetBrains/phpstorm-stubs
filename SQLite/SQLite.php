@@ -517,7 +517,7 @@ final class SQLiteException extends RuntimeException  {
 	/**
 	 * Clone the exception
 	 * @link https://php.net/manual/en/exception.clone.php
-	 * @return void 
+	 * @return void
 	 * @since 5.1.0
 	 */
 	final private function __clone () {}
@@ -740,9 +740,9 @@ function sqlite_fetch_array ($result, $result_type = SQLITE_BOTH, $decode_binary
  * Fetches the next row from a result set as an object
  * @link https://php.net/manual/en/function.sqlite-fetch-object.php
  * @param resource $result
- * @param string $class_name [optional] 
- * @param array $ctor_params [optional] 
- * @param bool $decode_binary [optional] 
+ * @param string $class_name [optional]
+ * @param array $ctor_params [optional]
+ * @param bool $decode_binary [optional]
  * @return object
  */
 function sqlite_fetch_object ($result, $class_name = null, array $ctor_params = null, $decode_binary = null) {}
@@ -1171,7 +1171,7 @@ function sqlite_udf_encode_binary ($data) {}
  * @param string $data <p>
  * The encoded data that will be decoded, data that was applied by either
  * sqlite_udf_encode_binary or
- * sqlite_escape_string. 
+ * sqlite_escape_string.
  * </p>
  * @return string The decoded string.
  */
@@ -1397,4 +1397,3 @@ define ('SQLITE_DONE', 101);
  * @link https://php.net/manual/en/sqlite.constants.php
  */
 define('SQLITE3_DETERMINISTIC', 2048);
-

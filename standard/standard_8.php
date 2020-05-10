@@ -206,14 +206,14 @@ function ob_start ($output_callback = null, $chunk_size = null, $erase = null) {
 /**
  * Flush (send) the output buffer
  * @link https://php.net/manual/en/function.ob-flush.php
- * @return void 
+ * @return void
  */
 function ob_flush () {}
 
 /**
  * Clean (erase) the output buffer
  * @link https://php.net/manual/en/function.ob-clean.php
- * @return void 
+ * @return void
  */
 function ob_clean () {}
 
@@ -277,22 +277,22 @@ function ob_get_level () {}
  * or with full_status = false a simple array
  * with the following elements is returned:
  * <pre>
- * Array 
+ * Array
  * (
  *     [level] => 2
  *     [type] => 0
  *     [status] => 0
  *     [name] => URL-Rewriter
- *     [del] => 1 
+ *     [del] => 1
  * )
  * </pre>
  * <table>
  * <tr><th>Key</th><th>Value</th></tr>
- * <tr><td>level</td><td>Output nesting level</td></tr> 
- * <tr><td>type</td><td><em>PHP_OUTPUT_HANDLER_INTERNAL (0)</em> or <em>PHP_OUTPUT_HANDLER_USER (1)</em></td></tr> 
- * <tr><td>status</td><td>One of <em>PHP_OUTPUT_HANDLER_START</em> (0), <em>PHP_OUTPUT_HANDLER_CONT</em> (1) or <em>PHP_OUTPUT_HANDLER_END</em> (2)</td></tr> 
- * <tr><td>name</td><td>Name of active output handler or &#039; default output handler&#039; if none is set</td></tr> 
- * <tr><td>del</td><td>Erase-flag as set by ob_start()</td></tr> 
+ * <tr><td>level</td><td>Output nesting level</td></tr>
+ * <tr><td>type</td><td><em>PHP_OUTPUT_HANDLER_INTERNAL (0)</em> or <em>PHP_OUTPUT_HANDLER_USER (1)</em></td></tr>
+ * <tr><td>status</td><td>One of <em>PHP_OUTPUT_HANDLER_START</em> (0), <em>PHP_OUTPUT_HANDLER_CONT</em> (1) or <em>PHP_OUTPUT_HANDLER_END</em> (2)</td></tr>
+ * <tr><td>name</td><td>Name of active output handler or &#039; default output handler&#039; if none is set</td></tr>
+ * <tr><td>del</td><td>Erase-flag as set by ob_start()</td></tr>
  * </table>
  * <p>
  * If called with full_status = TRUE an array with one element for each active output buffer
@@ -312,7 +312,7 @@ function ob_get_level () {}
  *             [name] => default output handler
  *             [del] => 1
  *         )
- * 
+ *
  *     [1] => Array
  *         (
  *             [chunk_size] => 0
@@ -324,7 +324,7 @@ function ob_get_level () {}
  *             [name] => URL-Rewriter
  *             [del] => 1
  *         )
- * 
+ *
  * )
  * </pre>
  * <p> The full output contains these additional elements:</p>
@@ -351,7 +351,7 @@ function ob_get_contents () {}
  * @param int $flag [optional] <p>
  * 1 to turn implicit flushing on, 0 otherwise.
  * </p>
- * @return void 
+ * @return void
  */
 function ob_implicit_flush ($flag = 1) {}
 
@@ -690,7 +690,7 @@ function reset (array &$array) {}
  * @return mixed The current function simply returns the
  * value of the array element that's currently being pointed to by the
  * internal pointer. It does not move the pointer in any way. If the
- * internal pointer points beyond the end of the elements list or the array is 
+ * internal pointer points beyond the end of the elements list or the array is
  * empty, current returns false.
  * @meta
  */
@@ -705,7 +705,7 @@ function current (array $array) {}
  * @return int|string|null The key function simply returns the
  * key of the array element that's currently being pointed to by the
  * internal pointer. It does not move the pointer in any way. If the
- * internal pointer points beyond the end of the elements list or the array is 
+ * internal pointer points beyond the end of the elements list or the array is
  * empty, key returns &null;.
  */
 function key (array $array) {}
@@ -826,7 +826,7 @@ function extract (array $var_array, $extract_type = null, $prefix = null) {}
  * arrays of variable names inside it; compact
  * handles it recursively.
  * </p>
- * @param mixed $_ [optional] 
+ * @param mixed $_ [optional]
  * @return array the output array with all the variables added to it.
  */
 function compact ($varname, $_ = null) {}
@@ -1051,8 +1051,8 @@ function array_slice (array $array, $offset, $length = null, $preserve_keys = fa
  * @param array $array1 <p>
  * Initial array to merge.
  * </p>
- * @param array $array2 [optional] 
- * @param array $_ [optional] 
+ * @param array $array2 [optional]
+ * @param array $_ [optional]
  * @return array the resulting array.
  */
 function array_merge (array $array1, array $array2 = null, array $_ = null) {}

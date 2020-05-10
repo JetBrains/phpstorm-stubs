@@ -288,7 +288,7 @@ define ('CURLOPT_PASSWDFUNCTION', -1);
 /**
  * <b>TRUE</b> to follow any "<em>Location: </em>" header that the server sends as part of the HTTP header
  * (note this is recursive, PHP will follow as many "Location: " headers that it is sent, unless <b>CURLOPT_MAXREDIRS</b> is set).
- * This constant is not available when open_basedir 
+ * This constant is not available when open_basedir
  * or safe_mode are enabled.
  * @link https://www.php.net/manual/en/function.curl-setopt.php
  */

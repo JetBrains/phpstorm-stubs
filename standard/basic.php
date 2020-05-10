@@ -211,4 +211,3 @@ define ('__DIR__', '', true);
  * @link https://php.net/manual/en/language.constants.predefined.php
  */
 define ('__NAMESPACE__', '', true);
-

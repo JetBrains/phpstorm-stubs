@@ -1238,7 +1238,7 @@ class MongoCollection {
 
     /**
     * @param  mixed $keys
-    * @return string 
+    * @return string
     */
     protected static function toIndexString($keys) {}
 
@@ -1561,7 +1561,7 @@ class MongoCursor implements Iterator {
      * @link https://secure.php.net/manual/en/mongocursor.batchsize.php
      */
     public function batchSize($batchSize){}
-	
+
 	/**
 	 * (PECL mongo >=1.5.0)
 	 * Sets a server-side timeout for this query
@@ -2038,7 +2038,7 @@ class MongoDate {
      * @param int $usec Microseconds
      */
     public function __construct($sec = 0, $usec = 0) {}
-    
+
     /**
      * Returns a DateTime object representing this date
      * @link https://php.net/manual/en/mongodate.todatetime.php
@@ -2084,7 +2084,7 @@ class MongoBinData {
 	 */
 	const UUID_RFC4122 = 0x4;
 
-	
+
 	/**
 	 * MD5
      * @link https://php.net/manual/en/class.mongobindata.php#mongobindata.constants.md5
@@ -2628,4 +2628,3 @@ class MongoMaxKey {
 
 class MongoMinKey {
 }
-

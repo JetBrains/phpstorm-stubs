@@ -5,7 +5,7 @@
 /**
  * causes a job to fail logically
  * can be used to indicate an error in the script logic (e.g. database connection problem)
- * @param string $error_string the error string to display 
+ * @param string $error_string the error string to display
  */
 function set_job_failed( $error_string ){};
 
@@ -14,7 +14,7 @@ function set_job_failed( $error_string ){};
 /**
  * returns array containing following fields:
  * "license_ok" - whether license allows use of JobQueue
- * "expires" - license expiration date 
+ * "expires" - license expiration date
  */
 function jobqueue_license_info(){};
 
@@ -92,7 +92,7 @@ function zend_loader_file_encoded() {}
 
 /**
  * Returns license (array with fields) if the current file has a valid license and is encoded, otherwise it returns false.
- * @return array 
+ * @return array
  */
 function zend_loader_file_licensed() {}
 

@@ -383,4 +383,3 @@ define('STDOUT', fopen('php://stdout', 'w'));
 define('STDERR', fopen('php://stderr', 'w'));
 
 define('PHP_FD_SETSIZE', 1024);
-

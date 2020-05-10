@@ -387,7 +387,7 @@ function memcache_connect ($host, $port, $timeout = 1) {}
 /**
  * (PECL memcache >= 0.4.0)
  * Memcache::pconnect — Open memcached server persistent connection
- * 
+ *
  * @link https://php.net/manual/en/memcache.pconnect.php#example-5242
  * @param      $host
  * @param null $port

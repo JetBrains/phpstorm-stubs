@@ -185,7 +185,7 @@ define ('INFO_MODULES', 8);
 define ('INFO_ENVIRONMENT', 16);
 
 /**
- * Shows all 
+ * Shows all
  * predefined variables from EGPCS (Environment, GET,
  * POST, Cookie, Server).
  * @link https://php.net/manual/en/info.constants.php
@@ -432,7 +432,7 @@ define ('STREAM_FILTER_READ', 1);
 define ('STREAM_FILTER_WRITE', 2);
 
 /**
- * This constant is equivalent to 
+ * This constant is equivalent to
  * STREAM_FILTER_READ | STREAM_FILTER_WRITE
  * @link https://php.net/manual/en/stream.constants.php
  */
@@ -612,7 +612,7 @@ define ('FILE_NO_DEFAULT_CONTEXT', 16);
 
 /**
  * <p>
- * This constant has no effect prior to PHP 6. It is only available for 
+ * This constant has no effect prior to PHP 6. It is only available for
  * forward compatibility.
  * </p>
  * @since 5.2.7
@@ -622,7 +622,7 @@ define ('FILE_TEXT', 0);
 
 /**
  * <p>
- * This constant has no effect prior to PHP 6. It is only available for 
+ * This constant has no effect prior to PHP 6. It is only available for
  * forward compatibility.
  * </p>
  * @since 5.2.7
@@ -852,7 +852,7 @@ define ('STREAM_ENFORCE_SAFE_MODE', 4);
 
 /**
  * Flag indicating if the wrapper
- * is responsible for raising errors using trigger_error 
+ * is responsible for raising errors using trigger_error
  * during opening of the stream. If this flag is not set, you
  * should not raise any errors.
  * @link https://php.net/manual/en/stream.constants.php
@@ -887,14 +887,14 @@ define ('STREAM_BUFFER_LINE', 1);
 define ('STREAM_BUFFER_FULL', 2);
 
 /**
- * Stream casting, when stream_cast is called 
+ * Stream casting, when stream_cast is called
  * otherwise (see above).
  * @link https://php.net/manual/en/stream.constants.php
  */
 define ('STREAM_CAST_AS_STREAM', 0);
 
 /**
- * Stream casting, for when stream_select is 
+ * Stream casting, for when stream_select is
  * calling stream_cast.
  * @link https://php.net/manual/en/stream.constants.php
  */
@@ -1262,7 +1262,3 @@ define('STREAM_META_GROUP', 5);
 define('STREAM_META_GROUP_NAME', 4);
 /** @link https://php.net/manual/en/streamwrapper.stream-metadata.php */
 define('STREAM_META_ACCESS', 6);
-
-
-
-

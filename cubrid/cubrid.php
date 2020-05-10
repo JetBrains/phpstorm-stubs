@@ -28,7 +28,7 @@
  * with the same arguments, no new link will be established,
  * but instead, the connection identifier of the already
  * opened connection will be
- * returned. The new_link parameter modifies this 
+ * returned. The new_link parameter modifies this
  * behavior and makes cubrid_connect() always open
  * a new connection, even if cubrid_connect() was called
  * before with the same parameters.
@@ -458,18 +458,18 @@ function cubrid_insert_id ($conn_identifier = null) {}
  * (PHP 5, CUBRID &gt;= 8.3.0)<br/>
  * Return the value of a specific field in a specific row
  * @link https://php.net/manual/en/function.cubrid-result.php
- * @param resource $result 
+ * @param resource $result
  * @param int $row <p>
- * The row number from the result that's being retrieved. Row numbers 
+ * The row number from the result that's being retrieved. Row numbers
  * start at 0.
  * </p>
  * @param mixed $field [optional] <p>
  * The name or offset of the field being retrieved.
  * </p>
  * <p>
- * It can be the field's offset, the field's name, or the field's table 
+ * It can be the field's offset, the field's name, or the field's table
  * dot field name (tablename.fieldname). If the column name has been
- * aliased ('select foo as bar from...'), use the alias instead of the 
+ * aliased ('select foo as bar from...'), use the alias instead of the
  * column name. If undefined, the first field is retrieved.
  * </p>
  * @return string <p>
@@ -590,7 +590,7 @@ function cubrid_fetch_row ($result, $type = null) {}
  * (PHP 5, CUBRID &gt;= 8.3.0)<br/>
  * Fetch a result row as an associative array, a numeric array, or both
  * @link https://php.net/manual/en/function.cubrid-fetch-array.php
- * @param resource $result 
+ * @param resource $result
  * @param int $type [optional] <p>
  * The type of array that is to be fetched. It's a constant and can
  * take the following values: CUBRID_ASSOC, CUBRID_NUM, and CUBRID_BOTH.
@@ -702,8 +702,8 @@ function cubrid_fetch_lengths ($result) {}
  * result comes from a call to cubrid_execute()
  * </p>
  * @param int $field_offset [optional] <p>
- * The numerical field offset. If the field offset is not specified, the 
- * next field that was not yet retrieved by this function is retrieved. 
+ * The numerical field offset. If the field offset is not specified, the
+ * next field that was not yet retrieved by this function is retrieved.
  * The field_offset starts at 0.
  * </p>
  * @return object <p>

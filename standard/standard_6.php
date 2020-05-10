@@ -129,9 +129,9 @@ function stream_context_get_params ($stream_or_context) {}
  * @param resource $stream_or_context <p>
  * The stream or context resource to apply the options too.
  * </p>
- * @param string $wrapper 
- * @param string $option 
- * @param mixed $value 
+ * @param string $wrapper
+ * @param string $option
+ * @param mixed $value
  * @return bool true on success or false on failure.
  */
 function stream_context_set_option ($stream_or_context, $wrapper, $option, $value) {}
@@ -242,7 +242,7 @@ function stream_filter_prepend ($stream, $filtername, $read_write = null, $param
  * read_write parameter to override this behavior.
  * </p>
  * @param mixed $params [optional] <p>
- * This filter will be added with the specified 
+ * This filter will be added with the specified
  * params to the end of
  * the list and will therefore be called last during stream operations.
  * To add a filter to the beginning of the list, use
@@ -314,7 +314,7 @@ function stream_socket_client ($remote_socket, &$errno = null, &$errstr = null, 
  * </p>
  * <p>
  * For Internet Domain sockets (AF_INET) such as TCP and UDP, the
- * target portion of the 
+ * target portion of the
  * remote_socket parameter should consist of a
  * hostname or IP address followed by a colon and a port number. For
  * Unix domain sockets, the target portion should
@@ -331,10 +331,10 @@ function stream_socket_client ($remote_socket, &$errno = null, &$errstr = null, 
  * arguments are present they will be set to indicate the actual system
  * level error that occurred in the system-level socket(),
  * bind(), and listen() calls. If
- * the value returned in errno is 
+ * the value returned in errno is
  * 0 and the function returned false, it is an
  * indication that the error occurred before the bind()
- * call. This is most likely due to a problem initializing the socket. 
+ * call. This is most likely due to a problem initializing the socket.
  * Note that the errno and
  * errstr arguments will always be passed by reference.
  * </p>
@@ -358,7 +358,7 @@ function stream_socket_server ($local_socket, &$errno = null, &$errstr = null, $
 /**
  * Accept a connection on a socket created by <function>stream_socket_server</function>
  * @link https://php.net/manual/en/function.stream-socket-accept.php
- * @param resource $server_socket 
+ * @param resource $server_socket
  * @param float $timeout [optional] <p>
  * Override the default socket accept timeout. Time should be given in
  * seconds.
@@ -523,7 +523,7 @@ function stream_socket_shutdown ($stream, $how) {}
  * STREAM_IPPROTO_IP,
  * STREAM_IPPROTO_RAW,
  * STREAM_IPPROTO_TCP or
- * STREAM_IPPROTO_UDP 
+ * STREAM_IPPROTO_UDP
  * </p>
  * @return array|false an array with the two socket resources on success, or
  * false on failure.
@@ -684,7 +684,7 @@ function flock ($handle, $operation, &$wouldblock = null) {}
  * <p>
  * The value of the name property becomes the key, the value of the content
  * property becomes the value of the returned array, so you can easily use
- * standard array functions to traverse it or access single values. 
+ * standard array functions to traverse it or access single values.
  * Special characters in the value of the name property are substituted with
  * '_', the rest is converted to lower case. If two meta tags have the same
  * name, only the last one is returned.
@@ -1126,7 +1126,7 @@ function realpath ($path) {}
  * non-programming users.
  * </p>
  * @param int $flags [optional] <p>
- * The value of flags can be any combination of 
+ * The value of flags can be any combination of
  * the following flags, joined with the
  * binary OR (|) operator.
  * <table>

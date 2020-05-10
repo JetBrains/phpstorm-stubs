@@ -62,7 +62,7 @@ interface Reflector  {
 	/**
 	 * To string
 	 * @link https://php.net/manual/en/reflector.tostring.php
-	 * @return string 
+	 * @return string
 	 */
 	function __toString ();
 
@@ -336,7 +336,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
 	 * arguments which are passed to the function much like
 	 * call_user_func is.
 	 * </p>
-	 * @return mixed 
+	 * @return mixed
 	 */
 	public function invoke ($args = null) {}
 
@@ -806,7 +806,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Clones object
 	 * @link https://php.net/manual/en/reflectionclass.clone.php
-	 * @return void 
+	 * @return void
 	 */
 	final private function __clone () {}
 
@@ -1344,14 +1344,14 @@ class ReflectionProperty implements Reflector {
 	/**
 	 * Clone
 	 * @link https://php.net/manual/en/reflectionproperty.clone.php
-	 * @return void 
+	 * @return void
 	 */
 	final private function __clone () {}
 
 	/**
 	 * Export
 	 * @link https://php.net/manual/en/reflectionproperty.export.php
-	 * @param mixed $class 
+	 * @param mixed $class
 	 * @param string $name <p>
 	 * The property name.
 	 * </p>
@@ -2035,15 +2035,15 @@ final class ReflectionReference
 	 * @return self|null
 	 */
 	public static function fromArrayElement($array, $key) {}
-	
+
 	/**
 	 * Returns unique identifier for the reference. The return value format is unspecified
 	 * @return int|string
 	 */
 	public function getId() {}
-	
+
 	private function __construct() {}
-	
+
 	private function __clone() {}
 }
 

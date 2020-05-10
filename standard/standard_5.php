@@ -23,16 +23,16 @@ function boolval($var) {}
  * objects return 1.
  * </p>
  * <p>
- * The maximum value depends on the system. 32 bit systems have a 
- * maximum signed integer range of -2147483648 to 2147483647. So for example 
- * on such a system, intval('1000000000000') will return 
- * 2147483647. The maximum signed integer value for 64 bit systems is 
+ * The maximum value depends on the system. 32 bit systems have a
+ * maximum signed integer range of -2147483648 to 2147483647. So for example
+ * on such a system, intval('1000000000000') will return
+ * 2147483647. The maximum signed integer value for 64 bit systems is
  * 9223372036854775807.
  * </p>
  * <p>
- * Strings will most likely return 0 although this depends on the 
- * leftmost characters of the string. The common rules of 
- * integer casting 
+ * Strings will most likely return 0 although this depends on the
+ * leftmost characters of the string. The common rules of
+ * integer casting
  * apply.
  */
 function intval ($var, $base = 10) {}
@@ -63,7 +63,7 @@ function doubleval ($var) {}
  * The variable that is being converted to a string.
  * </p>
  * <p>
- * $var may be any scalar type or an object that implements the __toString() method. 
+ * $var may be any scalar type or an object that implements the __toString() method.
  * You cannot use strval() on arrays or objects that do not implement the __toString() method.
  * </p>
  * @return string The string value of var.
@@ -178,7 +178,7 @@ function is_long ($var) {}
  * @param mixed $var <p>
  * The variable being evaluated.
  * </p>
- * @return bool true if var is a float, 
+ * @return bool true if var is a float,
  * false otherwise.
  */
 function is_float ($var) {}
@@ -189,7 +189,7 @@ function is_float ($var) {}
  * @param mixed $var <p>
  * The variable being evaluated.
  * </p>
- * @return bool true if var is an integer, 
+ * @return bool true if var is an integer,
  * false otherwise.
  */
 function is_int ($var) {}
@@ -597,7 +597,7 @@ function fread ($handle, $length) {}
  * generating an error of level E_WARNING. If
  * the file does not exist, attempt to create it. This is equivalent
  * to specifying O_EXCL|O_CREAT flags for the
- * underlying open(2) system call. 
+ * underlying open(2) system call.
  * </td>
  * </tr>
  * <tr valign="top">
@@ -796,7 +796,7 @@ function fwrite ($handle, $string, $length = null) {}
  * @see fwrite()
  * @link https://php.net/manual/en/function.fputs.php
  * Binary-safe file write
- * @param resource $handle A file system pointer resource that is typically created using fopen(). 
+ * @param resource $handle A file system pointer resource that is typically created using fopen().
  * @param string $string <p>
  * The string that is to be written.
  * </p>
@@ -877,7 +877,7 @@ function rename ($oldname, $newname, $context = null) {}
  * If the destination file already exists, it will be overwritten.
  * </p>
  * @param resource $context [optional] <p>
- * A valid context resource created with 
+ * A valid context resource created with
  * stream_context_create.
  * </p>
  * @return bool true on success or false on failure.
@@ -920,7 +920,7 @@ function tmpfile () {}
  * FILE_USE_INCLUDE_PATH
  * Search for the file in the include_path.
  * @param resource $context [optional] <p>
- * A context resource created with the 
+ * A context resource created with the
  * stream_context_create function.
  * </p>
  * <p>
@@ -949,7 +949,7 @@ function file ($filename, $flags = null, $context = null) {}
  * used to trigger include path search.
  * </p>
  * @param resource $context [optional] <p>
- * A valid context resource created with 
+ * A valid context resource created with
  * stream_context_create. If you don't need to use a
  * custom context, you can skip this parameter by &null;.
  * </p>
@@ -985,8 +985,8 @@ function file_get_contents ($filename, $use_include_path = false, $context = nul
  * file_put_contents($filename, implode('', $array)).
  * </p>
  * @param int $flags [optional] <p>
- * The value of flags can be any combination of 
- * the following flags (with some restrictions), joined with the binary OR 
+ * The value of flags can be any combination of
+ * the following flags (with some restrictions), joined with the binary OR
  * (|) operator.
  * </p>
  * <p>
@@ -1011,7 +1011,7 @@ function file_get_contents ($filename, $use_include_path = false, $context = nul
  * FILE_APPEND
  * </td>
  * <td>
- * If file filename already exists, append 
+ * If file filename already exists, append
  * the data to the file instead of overwriting it. Mutually
  * exclusive with LOCK_EX since appends are atomic and thus there
  * is no reason to lock.
@@ -1022,14 +1022,14 @@ function file_get_contents ($filename, $use_include_path = false, $context = nul
  * LOCK_EX
  * </td>
  * <td>
- * Acquire an exclusive lock on the file while proceeding to the 
+ * Acquire an exclusive lock on the file while proceeding to the
  * writing. Mutually exclusive with FILE_APPEND.
  * </td>
  * </tr>
  * </table>
  * </p>
  * @param resource $context [optional] <p>
- * A valid context resource created with 
+ * A valid context resource created with
  * stream_context_create.
  * </p>
  * @return int|false The function returns the number of bytes that were written to the file, or

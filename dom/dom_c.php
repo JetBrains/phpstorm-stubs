@@ -398,7 +398,7 @@ class DOMImplementationSource  {
 
 /**
  * The DOMImplementation interface provides a number
- * of methods for performing operations that are independent of any 
+ * of methods for performing operations that are independent of any
  * particular instance of the document object model.
  * @link https://php.net/manual/en/class.domimplementation.php
  */
@@ -424,7 +424,7 @@ class DOMImplementation  {
 	 * The feature to test.
 	 * </p>
 	 * @param string $version <p>
-	 * The version number of the feature to test. In 
+	 * The version number of the feature to test. In
 	 * level 2, this can be either 2.0 or
 	 * 1.0.
 	 * </p>
@@ -933,7 +933,7 @@ class DOMDocument extends DOMNode  {
      * The HTML string.
      * </p>
      * @param string $options [optional] <p>
-     * Since PHP 5.4.0 and Libxml 2.6.0, you may also 
+     * Since PHP 5.4.0 and Libxml 2.6.0, you may also
      * use the options parameter to specify additional Libxml parameters.
      * </p>
      * @return bool true on success or false on failure. If called statically, returns a
@@ -949,7 +949,7 @@ class DOMDocument extends DOMNode  {
      * The path to the HTML file.
      * </p>
      * @param string $options [optional] <p>
-     * Since PHP 5.4.0 and Libxml 2.6.0, you may also 
+     * Since PHP 5.4.0 and Libxml 2.6.0, you may also
      * use the options parameter to specify additional Libxml parameters.
      * </p>
      * @return bool true on success or false on failure. If called statically, returns a

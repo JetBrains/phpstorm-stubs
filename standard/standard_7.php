@@ -19,7 +19,7 @@
  * <p>
  * If the value returned in errno is
  * 0 and the function returned false, it is an
- * indication that the error occurred before the 
+ * indication that the error occurred before the
  * connect() call. This is most likely due to a
  * problem initializing the socket.
  * </p>
@@ -31,7 +31,7 @@
  * </p>
  * <p>
  * If you need to set a timeout for reading/writing data over the
- * socket, use stream_set_timeout, as the 
+ * socket, use stream_set_timeout, as the
  * timeout parameter to
  * fsockopen only applies while connecting the
  * socket.
@@ -159,7 +159,7 @@ function pfsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $
  * </p>
  * @param mixed $args [optional] <p>
  * </p>
- * @param mixed $_ [optional] 
+ * @param mixed $_ [optional]
  * @return string|false a binary string containing data or false if the format string contains errors
  */
 function pack ($format, $args = null, $_ = null) {}
@@ -235,18 +235,18 @@ function crypt ($str, $salt = null) {}
  * The directory path that is to be opened
  * </p>
  * @param resource $context [optional] <p>
- * For a description of the context parameter, 
+ * For a description of the context parameter,
  * refer to the streams section of
  * the manual.
  * </p>
  * @return resource|false a directory handle resource on success, or
  * false on failure.
- * </p> 
+ * </p>
  * <p>
  * If path is not a valid directory or the
  * directory can not be opened due to permission restrictions or
  * filesystem errors, opendir returns false and
- * generates a PHP error of level 
+ * generates a PHP error of level
  * E_WARNING. You can suppress the error output of
  * opendir by prepending
  * '@' to the
@@ -259,11 +259,11 @@ function opendir ($path, $context = null) {}
  * @link https://php.net/manual/en/function.closedir.php
  * @param resource $dir_handle [optional] <p>
  * The directory handle resource previously opened
- * with opendir. If the directory handle is 
- * not specified, the last link opened by opendir 
+ * with opendir. If the directory handle is
+ * not specified, the last link opened by opendir
  * is assumed.
  * </p>
- * @return void 
+ * @return void
  */
 function closedir ($dir_handle = null) {}
 
@@ -308,11 +308,11 @@ function getcwd () {}
  * @link https://php.net/manual/en/function.rewinddir.php
  * @param resource $dir_handle [optional] <p>
  * The directory handle resource previously opened
- * with opendir. If the directory handle is 
- * not specified, the last link opened by opendir 
+ * with opendir. If the directory handle is
+ * not specified, the last link opened by opendir
  * is assumed.
  * </p>
- * @return void 
+ * @return void
  */
 function rewinddir ($dir_handle = null) {}
 
@@ -321,8 +321,8 @@ function rewinddir ($dir_handle = null) {}
  * @link https://php.net/manual/en/function.readdir.php
  * @param resource $dir_handle [optional] <p>
  * The directory handle resource previously opened
- * with opendir. If the directory handle is 
- * not specified, the last link opened by opendir 
+ * with opendir. If the directory handle is
+ * not specified, the last link opened by opendir
  * is assumed.
  * </p>
  * @return string|false the filename on success or false on failure.
@@ -353,13 +353,13 @@ function dir ($directory, $context = null) {}
  * then the sort order is alphabetical in descending order.
  * </p>
  * @param resource $context [optional] <p>
- * For a description of the context parameter, 
+ * For a description of the context parameter,
  * refer to the streams section of
  * the manual.
  * </p>
- * @return array|false an array of filenames on success, or false on 
- * failure. If directory is not a directory, then 
- * boolean false is returned, and an error of level 
+ * @return array|false an array of filenames on success, or false on
+ * failure. If directory is not a directory, then
+ * boolean false is returned, and an error of level
  * E_WARNING is generated.
  */
 function scandir ($directory, $sorting_order = null, $context = null) {}
@@ -583,7 +583,7 @@ function is_file ($filename) {}
  * @param string $filename <p>
  * Path to the file. If filename is a relative
  * filename, it will be checked relative to the current working
- * directory. If filename is a symbolic or hard link 
+ * directory. If filename is a symbolic or hard link
  * then the link will be resolved and checked.
  * </p>
  * @return bool true if the filename exists and is a directory, false
@@ -776,10 +776,10 @@ function lchgrp ($filename, $group) {}
  * you need to prefix mode with a zero (0):
  * </p>
  * <pre>
- * <?php 
- * chmod("/somedir/somefile", 755);   // decimal; probably incorrect 
- * chmod("/somedir/somefile", "u+rwx,go+rx"); // string; incorrect 
- * chmod("/somedir/somefile", 0755);  // octal; correct value of mode 
+ * <?php
+ * chmod("/somedir/somefile", 755);   // decimal; probably incorrect
+ * chmod("/somedir/somefile", "u+rwx,go+rx"); // string; incorrect
+ * chmod("/somedir/somefile", 0755);  // octal; correct value of mode
  * ?>
  * </pre>
  * <p>
@@ -806,11 +806,11 @@ function chmod ($filename, $mode) {}
  * The name of the file being touched.
  * </p>
  * @param int $time [optional] <p>
- * The touch time. If time is not supplied, 
+ * The touch time. If time is not supplied,
  * the current system time is used.
  * </p>
  * @param int $atime [optional] <p>
- * If present, the access time of the given filename is set to 
+ * If present, the access time of the given filename is set to
  * the value of atime. Otherwise, it is set to
  * time.
  * </p>
@@ -825,10 +825,10 @@ function touch ($filename, $time = null, $atime = null) {}
  * Whenever to clear realpath cache or not.
  * </p>
  * @param string $filename [optional] <p>
- * Clear realpath cache on a specific filename, only used if 
+ * Clear realpath cache on a specific filename, only used if
  * clear_realpath_cache is true.
  * </p>
- * @return void 
+ * @return void
  */
 function clearstatcache ($clear_realpath_cache = null, $filename = null) {}
 
@@ -915,7 +915,7 @@ function diskfreespace ($directory) {}
  * </p>
  * <p>
  * When sending mail, the mail must contain
- * a From header. This can be set with the 
+ * a From header. This can be set with the
  * additional_headers parameter, or a default
  * can be set in &php.ini;.
  * </p>
@@ -970,7 +970,7 @@ function ezmlm_hash ($addr) {}
  * Open connection to system logger
  * @link https://php.net/manual/en/function.openlog.php
  * @param string $ident <p>
- * The string ident is added to each message. 
+ * The string ident is added to each message.
  * </p>
  * @param int $option <p>
  * The option argument is used to indicate
@@ -1029,7 +1029,7 @@ function ezmlm_hash ($addr) {}
  * <tr valign="top">
  * <td>LOG_AUTH</td>
  * <td>
- * security/authorization messages (use 
+ * security/authorization messages (use
  * LOG_AUTHPRIV instead
  * in systems where that constant is defined)
  * </td>
