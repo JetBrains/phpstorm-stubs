@@ -71,8 +71,8 @@ namespace MongoDB {}
              * @return WriteResult
              * @throws InvalidArgumentException on argument parsing errors.
              * @throws ConnectionException if connection to the server fails for other then authentication reasons
-             * @throws AuthenticationException if authentication is needed and fails             
-             * @throws BulkWriteException on any write failure 
+             * @throws AuthenticationException if authentication is needed and fails
+             * @throws BulkWriteException on any write failure
              * @throws RuntimeException on other errors (invalid command, command arguments, ...)
              * @since 1.4.0 added $options argument
              */

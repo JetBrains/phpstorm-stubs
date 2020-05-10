@@ -105,7 +105,7 @@ class HttpDeflateStream  {
 	 * @param string $class_name [optional] <p>
 	 * name of a subclass of HttpDeflateStream
 	 * </p>
-	 * @return HttpDeflateStream 
+	 * @return HttpDeflateStream
 	 */
 	public static function factory ($flags = null, $class_name = null) {}
 
@@ -173,7 +173,7 @@ class HttpInflateStream  {
 	 * @param string $class_name [optional] <p>
 	 * name of a subclass of HttpInflateStream
 	 * </p>
-	 * @return HttpInflateStream 
+	 * @return HttpInflateStream
 	 */
 	public static function factory ($flags = null, $class_name = null) {}
 
@@ -223,7 +223,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @param string $body <p>
 	 * the new body of the message
 	 * </p>
-	 * @return void 
+	 * @return void
 	 */
 	public function setBody ($body) {}
 
@@ -253,7 +253,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @param array $headers <p>
 	 * associative array containing the new HTTP headers, which will replace all previous HTTP headers of the message
 	 * </p>
-	 * @return void 
+	 * @return void
 	 */
 	public function setHeaders (sarray $header) {}
 
@@ -288,7 +288,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @param int $type <p>
 	 * the HttpMessage::TYPE
 	 * </p>
-	 * @return void 
+	 * @return void
 	 */
 	public function setType ($type) {}
 
@@ -323,7 +323,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * (PECL pecl_http &gt;= 0.23.0)<br/>
 	 * Get response status
 	 * @link https://php.net/manual/en/function.httpmessage-getresponsestatus.php
-	 * @return string the HTTP response status string if the message is of type 
+	 * @return string the HTTP response status string if the message is of type
 	 * HttpMessage::TYPE_RESPONSE, else FALSE.
 	 */
 	public function getResponseStatus () {}
@@ -534,7 +534,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @param bool $top [optional] <p>
 	 * whether to prepend to the top most or right this message
 	 * </p>
-	 * @return void 
+	 * @return void
 	 */
 	public function prepend (HttpMessage $message, $top = null) {}
 
@@ -882,7 +882,7 @@ class HttpRequest  {
 	 * Set options
 	 * @link https://php.net/manual/en/function.httprequest-setoptions.php
 	 * @param array $options [optional] <p>
-	 * an associative array, which values will overwrite the 
+	 * an associative array, which values will overwrite the
 	 * currently set request options;
 	 * if empty or omitted, the options of the HttpRequest object will be reset
 	 * </p>
@@ -1075,7 +1075,7 @@ class HttpRequest  {
 	 * Set query data
 	 * @link https://php.net/manual/en/function.httprequest-setquerydata.php
 	 * @param mixed $query_data <p>
-	 * a string or associative array parameter containing the pre-encoded 
+	 * a string or associative array parameter containing the pre-encoded
 	 * query string or to be encoded query fields;
 	 * if empty, the query data will be unset
 	 * </p>
@@ -1200,7 +1200,7 @@ class HttpRequest  {
 	 * @param string $content_type [optional] <p>
 	 * the content type of the file
 	 * </p>
-	 * @return bool TRUE on success, or FALSE if the content type seems not to contain a 
+	 * @return bool TRUE on success, or FALSE if the content type seems not to contain a
 	 * primary and a secondary content type part.
 	 */
 	public function addPostFile ($name, $file, $content_type = null) {}
@@ -1288,7 +1288,7 @@ class HttpRequest  {
 	 * @param string $name [optional] <p>
 	 * header to read; if empty, all response headers will be returned
 	 * </p>
-	 * @return mixed either a string with the value of the header matching name if requested, 
+	 * @return mixed either a string with the value of the header matching name if requested,
 	 * FALSE on failure, or an associative array containing all response headers.
 	 */
 	public function getResponseHeader ($name = null) {}
@@ -1389,7 +1389,7 @@ class HttpRequest  {
 	 * (PECL pecl_http &gt;= 0.15.0)<br/>
 	 * Clear history
 	 * @link https://php.net/manual/en/function.httprequest-clearhistory.php
-	 * @return void 
+	 * @return void
 	 */
 	public function clearHistory () {}
 
@@ -1539,7 +1539,7 @@ class HttpRequestPool implements Countable, Iterator {
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * HttpRequestPool destructor
 	 * @link https://php.net/manual/en/function.httprequestpool-destruct.php
-	 * @return void 
+	 * @return void
 	 */
 	public function __destruct () {}
 
@@ -1577,7 +1577,7 @@ class HttpRequestPool implements Countable, Iterator {
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Reset request pool
 	 * @link https://php.net/manual/en/function.httprequestpool-reset.php
-	 * @return void 
+	 * @return void
 	 */
 	public function reset () {}
 
@@ -1964,7 +1964,7 @@ class HttpResponse  {
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Capture script output
 	 * @link https://php.net/manual/en/function.httpresponse-capture.php
-	 * @return void 
+	 * @return void
 	 */
 	public static function capture () {}
 
@@ -1972,11 +1972,11 @@ class HttpResponse  {
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Redirect
 	 * @link https://php.net/manual/en/function.httpresponse-redirect.php
-	 * @param string $url [optional] 
-	 * @param array $params [optional] 
-	 * @param bool $session [optional] 
-	 * @param int $status [optional] 
-	 * @return void 
+	 * @param string $url [optional]
+	 * @param array $params [optional]
+	 * @param bool $session [optional]
+	 * @param int $status [optional]
+	 * @return void
 	 */
 	public static function redirect ($url = null,  array $params = null , $session = null, $status = null) {}
 
@@ -1984,8 +1984,8 @@ class HttpResponse  {
 	 * (PECL pecl_http &gt;= 0.12.0)<br/>
 	 * Send HTTP response status
 	 * @link https://php.net/manual/en/function.httpresponse-status.php
-	 * @param int $status 
-	 * @return bool 
+	 * @param int $status
+	 * @return bool
 	 */
 	public static function status ($status) {}
 
@@ -1993,7 +1993,7 @@ class HttpResponse  {
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get request headers
 	 * @link https://php.net/manual/en/function.httpresponse-getrequestheaders.php
-	 * @return array 
+	 * @return array
 	 */
 	public static function getRequestHeaders () {}
 
@@ -2001,7 +2001,7 @@ class HttpResponse  {
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get request body
 	 * @link https://php.net/manual/en/function.httpresponse-getrequestbody.php
-	 * @return string 
+	 * @return string
 	 */
 	public static function getRequestBody () {}
 
@@ -2009,7 +2009,7 @@ class HttpResponse  {
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get request body stream
 	 * @link https://php.net/manual/en/function.httpresponse-getrequestbodystream.php
-	 * @return resource 
+	 * @return resource
 	 */
 	public static function getRequestBodyStream () {}
 
@@ -2244,7 +2244,7 @@ function http_redirect ($url = null,  array $params = null , $session = null, $s
  * @param int $bytes [optional] <p>
  * the chunk size in bytes
  * </p>
- * @return void 
+ * @return void
  */
 function http_throttle ($sec = null, $bytes = null) {}
 
@@ -2511,8 +2511,8 @@ function http_persistent_handles_count () {}
  * (PECL pecl_http &gt;= 1.5.0)<br/>
  * Clean up persistent handles
  * @link https://php.net/manual/en/function.http-persistent-handles-clean.php
- * @param string $ident [optional] 
- * @return string 
+ * @param string $ident [optional]
+ * @return string
  */
 function http_persistent_handles_clean ($ident = null) {}
 
@@ -2749,9 +2749,9 @@ function http_request_method_name ($method) {}
  * (PECL pecl_http &gt;= 0.10.0)<br/>
  * ETag output handler
  * @link https://php.net/manual/en/function.ob-etaghandler.php
- * @param string $data 
- * @param int $mode 
- * @return string 
+ * @param string $data
+ * @param int $mode
+ * @return string
  */
 function ob_etaghandler ($data, $mode) {}
 
@@ -2784,9 +2784,9 @@ function http_inflate ($data) {}
  * (PECL pecl_http &gt;= 0.21.0)<br/>
  * Deflate output handler
  * @link https://php.net/manual/en/function.ob-deflatehandler.php
- * @param string $data 
- * @param int $mode 
- * @return string 
+ * @param string $data
+ * @param int $mode
+ * @return string
  */
 function ob_deflatehandler ($data, $mode) {}
 
@@ -2794,9 +2794,9 @@ function ob_deflatehandler ($data, $mode) {}
  * (PECL pecl_http &gt;= 0.21.0)<br/>
  * Inflate output handler
  * @link https://php.net/manual/en/function.ob-inflatehandler.php
- * @param string $data 
- * @param int $mode 
- * @return string 
+ * @param string $data
+ * @param int $mode
+ * @return string
  */
 function ob_inflatehandler ($data, $mode) {}
 

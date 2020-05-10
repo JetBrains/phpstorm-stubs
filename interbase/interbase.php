@@ -10,7 +10,7 @@
  * database file on the server it resides on. If the server is not local,
  * it must be prefixed with either 'hostname:' (TCP/IP), '//hostname/'
  * (NetBEUI) or 'hostname@' (IPX/SPX), depending on the connection
- * protocol used. 
+ * protocol used.
  * </p>
  * @param string $username [optional] <p>
  * The user name. Can be set with the
@@ -52,7 +52,7 @@ function ibase_connect ($database = null, $username = null, $password = null, $c
  * database file on the server it resides on. If the server is not local,
  * it must be prefixed with either 'hostname:' (TCP/IP), '//hostname/'
  * (NetBEUI) or 'hostname@' (IPX/SPX), depending on the connection
- * protocol used. 
+ * protocol used.
  * </p>
  * @param string $username [optional] <p>
  * The user name. Can be set with the
@@ -236,7 +236,7 @@ function ibase_prepare ($query) {}
  * </p>
  * @param mixed $bind_arg [optional] <p>
  * </p>
- * @param mixed $_ [optional] 
+ * @param mixed $_ [optional]
  * @return resource|bool If the query raises an error, returns false. If it is successful and
  * there is a (possibly empty) result set (such as with a SELECT query),
  * returns a result identifier. If the query was successful and there were
@@ -263,9 +263,9 @@ function ibase_free_query ($query) {}
 /**
  * Increments the named generator and returns its new value
  * @link https://php.net/manual/en/function.ibase-gen-id.php
- * @param string $generator 
- * @param int $increment [optional] 
- * @param resource $link_identifier [optional] 
+ * @param string $generator
+ * @param int $increment [optional]
+ * @param resource $link_identifier [optional]
  * @return mixed new generator value as integer, or as string if the value is too big.
  */
 function ibase_gen_id ($generator, $increment = null, $link_identifier = null) {}
@@ -338,12 +338,12 @@ function ibase_param_info ($query, $param_number) {}
  * trans_args can be a combination of
  * IBASE_READ,
  * IBASE_WRITE,
- * IBASE_COMMITTED, 
+ * IBASE_COMMITTED,
  * IBASE_CONSISTENCY,
- * IBASE_CONCURRENCY, 
- * IBASE_REC_VERSION, 
+ * IBASE_CONCURRENCY,
+ * IBASE_REC_VERSION,
  * IBASE_REC_NO_VERSION,
- * IBASE_WAIT and 
+ * IBASE_WAIT and
  * IBASE_NOWAIT.
  * </p>
  * @param resource $link_identifier [optional] <p>
@@ -451,7 +451,7 @@ function ibase_blob_create ($link_identifier = null) {}
  * @param string $data <p>
  * The data to be added.
  * </p>
- * @return void 
+ * @return void
  */
 function ibase_blob_add ($blob_handle, $data) {}
 
@@ -489,7 +489,7 @@ function ibase_blob_close ($blob_handle) {}
  * @param string $blob_id <p>
  * A BLOB id.
  * </p>
- * @return resource a BLOB handle for later use with 
+ * @return resource a BLOB handle for later use with
  * ibase_blob_get or false on failure.
  */
 function ibase_blob_open ($link_identifier, $blob_id) {}
@@ -548,12 +548,12 @@ function ibase_errcode () {}
 /**
  * Add a user to a security database (only for IB6 or later)
  * @link https://php.net/manual/en/function.ibase-add-user.php
- * @param resource $service_handle 
- * @param string $user_name 
- * @param string $password 
- * @param string $first_name [optional] 
- * @param string $middle_name [optional] 
- * @param string $last_name [optional] 
+ * @param resource $service_handle
+ * @param string $user_name
+ * @param string $password
+ * @param string $first_name [optional]
+ * @param string $middle_name [optional]
+ * @param string $last_name [optional]
  * @return bool true on success or false on failure.
  */
 function ibase_add_user ($service_handle, $user_name, $password, $first_name = null, $middle_name = null, $last_name = null) {}
@@ -561,12 +561,12 @@ function ibase_add_user ($service_handle, $user_name, $password, $first_name = n
 /**
  * Modify a user to a security database (only for IB6 or later)
  * @link https://php.net/manual/en/function.ibase-modify-user.php
- * @param resource $service_handle 
- * @param string $user_name 
- * @param string $password 
- * @param string $first_name [optional] 
- * @param string $middle_name [optional] 
- * @param string $last_name [optional] 
+ * @param resource $service_handle
+ * @param string $user_name
+ * @param string $password
+ * @param string $first_name [optional]
+ * @param string $middle_name [optional]
+ * @param string $last_name [optional]
  * @return bool true on success or false on failure.
  */
 function ibase_modify_user ($service_handle, $user_name, $password, $first_name = null, $middle_name = null, $last_name = null) {}
@@ -574,8 +574,8 @@ function ibase_modify_user ($service_handle, $user_name, $password, $first_name 
 /**
  * Delete a user from a security database (only for IB6 or later)
  * @link https://php.net/manual/en/function.ibase-delete-user.php
- * @param resource $service_handle 
- * @param string $user_name 
+ * @param resource $service_handle
+ * @param string $user_name
  * @return bool true on success or false on failure.
  */
 function ibase_delete_user ($service_handle, $user_name) {}
@@ -583,17 +583,17 @@ function ibase_delete_user ($service_handle, $user_name) {}
 /**
  * Connect to the service manager
  * @link https://php.net/manual/en/function.ibase-service-attach.php
- * @param string $host 
- * @param string $dba_username 
- * @param string $dba_password 
- * @return resource 
+ * @param string $host
+ * @param string $dba_username
+ * @param string $dba_password
+ * @return resource
  */
 function ibase_service_attach ($host, $dba_username, $dba_password) {}
 
 /**
  * Disconnect from the service manager
  * @link https://php.net/manual/en/function.ibase-service-detach.php
- * @param resource $service_handle 
+ * @param resource $service_handle
  * @return bool true on success or false on failure.
  */
 function ibase_service_detach ($service_handle) {}
@@ -601,34 +601,34 @@ function ibase_service_detach ($service_handle) {}
 /**
  * Initiates a backup task in the service manager and returns immediately
  * @link https://php.net/manual/en/function.ibase-backup.php
- * @param resource $service_handle 
- * @param string $source_db 
- * @param string $dest_file 
- * @param int $options [optional] 
- * @param bool $verbose [optional] 
- * @return mixed 
+ * @param resource $service_handle
+ * @param string $source_db
+ * @param string $dest_file
+ * @param int $options [optional]
+ * @param bool $verbose [optional]
+ * @return mixed
  */
 function ibase_backup ($service_handle, $source_db, $dest_file, $options = null, $verbose = null) {}
 
 /**
  * Initiates a restore task in the service manager and returns immediately
  * @link https://php.net/manual/en/function.ibase-restore.php
- * @param resource $service_handle 
- * @param string $source_file 
- * @param string $dest_db 
- * @param int $options [optional] 
- * @param bool $verbose [optional] 
- * @return mixed 
+ * @param resource $service_handle
+ * @param string $source_file
+ * @param string $dest_db
+ * @param int $options [optional]
+ * @param bool $verbose [optional]
+ * @return mixed
  */
 function ibase_restore ($service_handle, $source_file, $dest_db, $options = null, $verbose = null) {}
 
 /**
  * Execute a maintenance command on the database server
  * @link https://php.net/manual/en/function.ibase-maintain-db.php
- * @param resource $service_handle 
- * @param string $db 
- * @param int $action 
- * @param int $argument [optional] 
+ * @param resource $service_handle
+ * @param string $db
+ * @param int $action
+ * @param int $argument [optional]
  * @return bool true on success or false on failure.
  */
 function ibase_maintain_db ($service_handle, $db, $action, $argument = null) {}
@@ -636,20 +636,20 @@ function ibase_maintain_db ($service_handle, $db, $action, $argument = null) {}
 /**
  * Request statistics about a database
  * @link https://php.net/manual/en/function.ibase-db-info.php
- * @param resource $service_handle 
- * @param string $db 
- * @param int $action 
- * @param int $argument [optional] 
- * @return string 
+ * @param resource $service_handle
+ * @param string $db
+ * @param int $action
+ * @param int $argument [optional]
+ * @return string
  */
 function ibase_db_info ($service_handle, $db, $action, $argument = null) {}
 
 /**
  * Request information about a database server
  * @link https://php.net/manual/en/function.ibase-server-info.php
- * @param resource $service_handle 
- * @param int $action 
- * @return string 
+ * @param resource $service_handle
+ * @param int $action
+ * @return string
  */
 function ibase_server_info ($service_handle, $action) {}
 
@@ -661,7 +661,7 @@ function ibase_server_info ($service_handle, $action) {}
  * </p>
  * @param string $event_name2 [optional] <p>
  * </p>
- * @param string $_ [optional] 
+ * @param string $_ [optional]
  * @return string the name of the event that was posted.
  */
 function ibase_wait_event ($event_name1, $event_name2 = null, $_ = null) {}
@@ -685,7 +685,7 @@ function ibase_wait_event ($event_name1, $event_name2 = null, $_ = null) {}
  * @param string $event_name2 [optional] <p>
  * At most 15 events allowed.
  * </p>
- * @param string $_ [optional] 
+ * @param string $_ [optional]
  * @return resource The return value is an event resource. This resource can be used to free
  * the event handler using ibase_free_event_handler.
  */

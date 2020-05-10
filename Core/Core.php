@@ -143,9 +143,9 @@ function each (array &$array) {}
  * @link https://php.net/manual/en/function.error-reporting.php
  * @param int $level [optional] <p>
  * The new error_reporting
- * level. It takes on either a bitmask, or named constants. Using named 
- * constants is strongly encouraged to ensure compatibility for future 
- * versions. As error levels are added, the range of integers increases, 
+ * level. It takes on either a bitmask, or named constants. Using named
+ * constants is strongly encouraged to ensure compatibility for future
+ * versions. As error levels are added, the range of integers increases,
  * so older integer-based error levels will not always behave as expected.
  * </p>
  * <p>
@@ -276,8 +276,8 @@ function error_reporting ($level = null) {}
  * however it is not recommended and may cause unpredictable behavior.
  * </p>
  * @param bool $case_insensitive [optional] <p>
- * If set to true, the constant will be defined case-insensitive. 
- * The default behavior is case-sensitive; i.e. 
+ * If set to true, the constant will be defined case-insensitive.
+ * The default behavior is case-sensitive; i.e.
  * CONSTANT and Constant represent
  * different values.
  * Defining case-insensitive constants is deprecated as of PHP 7.3.0.
@@ -402,7 +402,7 @@ function class_exists ($class_name, $autoload = true) {}
  * @param bool $autoload [optional] <p>
  * Whether to call &link.autoload; or not by default.
  * </p>
- * @return bool true if the interface given by 
+ * @return bool true if the interface given by
  * <i>interface_name</i> has been defined, false otherwise.
  * @since 5.0.2
  */
@@ -418,7 +418,7 @@ function interface_exists ($interface_name, $autoload = true) {}
  * function, false otherwise.
  * </p>
  * <p>
- * This function will return false for constructs, such as 
+ * This function will return false for constructs, such as
  * <b>include_once</b> and <b>echo</b>.
  */
 function function_exists ($function_name) {}
@@ -440,7 +440,7 @@ function class_alias ($original, $alias, $autoload = TRUE) {}
  * </p>
  * <p>
  * The script originally called is considered an "included file," so it will
- * be listed together with the files referenced by 
+ * be listed together with the files referenced by
  * <b>include</b> and family.
  * </p>
  * <p>
@@ -467,10 +467,10 @@ function get_required_files () {}
  * </p>
  * @param bool $allow_string [optional] <p>
  * If this parameter set to false, string class name as object is not allowed.
- * This also prevents from calling autoloader if the class doesn't exist. 
+ * This also prevents from calling autoloader if the class doesn't exist.
  * </p>
  * @return bool This function returns true if the object <i>object</i>,
- * belongs to a class which is a subclass of 
+ * belongs to a class which is a subclass of
  * <i>class_name</i>, false otherwise.
  */
 function is_subclass_of ($object, $class_name, $allow_string = TRUE) {}
@@ -501,7 +501,7 @@ function is_a ($object, $class_name, $allow_string = FALSE) {}
  * </p>
  * @return array an associative array of declared properties visible from the
  * current scope, with their default value.
- * The resulting array elements are in the form of 
+ * The resulting array elements are in the form of
  * varname => value.
  */
 function get_class_vars ($class_name) {}
@@ -533,8 +533,8 @@ function get_class_methods ($class_name) {}
  * Generates a user-level error/warning/notice message
  * @link https://php.net/manual/en/function.trigger-error.php
  * @param string $error_msg <p>
- * The designated error message for this error. It's limited to 1024 
- * characters in length. Any additional characters beyond 1024 will be 
+ * The designated error message for this error. It's limited to 1024
+ * characters in length. Any additional characters beyond 1024 will be
  * truncated.
  * </p>
  * @param int $error_type [optional] <p>
@@ -559,7 +559,7 @@ function user_error ($message, $error_type = E_USER_NOTICE) {}
  * @link https://php.net/manual/en/function.set-error-handler.php
  * @param callable|null $error_handler <p>
  * The user function needs to accept two parameters: the error code, and a
- * string describing the error. Then there are three optional parameters 
+ * string describing the error. Then there are three optional parameters
  * that may be supplied: the filename in which the error occurred, the
  * line number in which the error occurred, and the context in which the
  * error occurred (an array that points to the active symbol table at the
@@ -693,11 +693,11 @@ function create_function ($args, $code) {}
  * </p>
  * @return string If the given <i>handle</i> is a resource, this function
  * will return a string representing its type. If the type is not identified
- * by this function, the return value will be the string 
+ * by this function, the return value will be the string
  * Unknown.
  * </p>
  * <p>
- * This function will return false and generate an error if 
+ * This function will return false and generate an error if
  * <i>handle</i> is not a resource.
  */
 function get_resource_type ($handle) {}
@@ -813,7 +813,7 @@ function get_extension_funcs ($module_name) {}
  * )
  * </pre>
  * </p>
- * @return array 
+ * @return array
  */
 function get_defined_constants ($categorize = false) {}
 
@@ -956,14 +956,14 @@ function gc_enabled () {}
 /**
  * Activates the circular reference collector
  * @link https://php.net/manual/en/function.gc-enable.php
- * @return void 
+ * @return void
  */
 function gc_enable () {}
 
 /**
  * Deactivates the circular reference collector
  * @link https://php.net/manual/en/function.gc-disable.php
- * @return void 
+ * @return void
  */
 function gc_disable () {}
 

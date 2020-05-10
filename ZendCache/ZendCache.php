@@ -80,4 +80,3 @@ function zend_disk_cache_delete($key) {}
 function zend_disk_cache_clear($namespace = '') {}
 
 // End of Zend Cache v.
-

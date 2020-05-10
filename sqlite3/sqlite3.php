@@ -387,7 +387,7 @@ class SQLite3Stmt  {
 	private function __construct ($sqlite3) {}
 
 	/**
-	 * Retrieves the SQL of the prepared statement. If expanded is FALSE, the unmodified SQL is retrieved. 
+	 * Retrieves the SQL of the prepared statement. If expanded is FALSE, the unmodified SQL is retrieved.
 	 * If expanded is TRUE, all query parameters are replaced with their bound values, or with an SQL NULL, if not already bound.
 	 * @param bool $expanded Whether to retrieve the expanded SQL. Passing TRUE is only supported as of libsqlite 3.14.
 	 * @return string|false Returns the SQL of the prepared statement, or FALSE on failure.

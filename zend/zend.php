@@ -4,7 +4,7 @@
 
 class ZendAPI_Queue {
     var $_jobqueue_url;
-    
+
     /**
      * Constructor for a job queue connection
      *
@@ -12,20 +12,20 @@ class ZendAPI_Queue {
      * @return zendapi_queue object
      */
     function zendapi_queue($queue_url) {}
-    
+
     /**
      * Open a connection to a job queue
      *
      * @param string $password For authentication, password must be specified to connect to a queue
-     * @param int $application_id Optional, if set, all subsequent calls to job related methods will use this application id (unless explicitly specified otherwise). I.e. When adding new job, 
+     * @param int $application_id Optional, if set, all subsequent calls to job related methods will use this application id (unless explicitly specified otherwise). I.e. When adding new job,
         unless this job already set an application id, the job will be assigned the queue application id
      * @return bool Success
      */
     function login($password, $application_id=null) {}
-    
-    
+
+
     /**
-     * Insert a new job to the queue, the Job is passed by reference because 
+     * Insert a new job to the queue, the Job is passed by reference because
         its new job ID and status will be set in the Job object
          * If the returned job id is 0 it means the job could be added to the queue
          *
@@ -33,7 +33,7 @@ class ZendAPI_Queue {
      * @return int The inserted job id
      */
     function addJob(&$job) {}
-    
+
 
     /**
      * Return a Job object that describing a job in the queue
@@ -44,7 +44,7 @@ class ZendAPI_Queue {
     function getJob($job_id) {}
 
     /**
-     * Update an existing job in the queue with it's new properties. If job doesn't exists, 
+     * Update an existing job in the queue with it's new properties. If job doesn't exists,
         a new job will be added. Job is passed by reference and it's updated from the queue.
      *
      * @param Job $job The Job object, the ID of the given job is the id of the job we try to update.
@@ -52,7 +52,7 @@ class ZendAPI_Queue {
      * @return int The id of the updated job
      */
     function updateJob(&$job) {}
-    
+
     /**
      * Remove a job from the queue
      *
@@ -61,7 +61,7 @@ class ZendAPI_Queue {
      */
     function removeJob($job_id) {}
 
-    
+
     /**
      * Suspend a job in the queue (without removing it)
      *
@@ -123,7 +123,7 @@ class ZendAPI_Queue {
      * Return a list of jobs in the queue according to the options given in the filter_options parameter, doesn't return jobs in "final states" (failed, complete)
      * If application id is set for this queue, only jobs with this application id will be returned
      *
-     * @param array $filter_options Array of optional filter options to filter the jobs we want to get 
+     * @param array $filter_options Array of optional filter options to filter the jobs we want to get
         from the queue. If not set, all jobs will be returned.<br>
      *     Options can be: priority, application_id, name, status, recurring.
      * @param int $max_jobs  Maximum jobs to retrieve. Default is -1, getting all jobs available.
@@ -132,7 +132,7 @@ class ZendAPI_Queue {
      * @return array  Jobs that satisfies filter_options.
      */
     function getJobsInQueue($filter_options=null, $max_jobs=-1, $with_globals_and_output=false) {}
-    
+
 
     /**
      * Return the number of jobs in the queue according to the options given in the filter_options parameter
@@ -145,14 +145,14 @@ class ZendAPI_Queue {
 
     /**
      * Return all the hosts that jobs were submitted from.
-     * @return array  
+     * @return array
      */
     function getAllhosts() {}
 
 
     /**
      * Return all the application ids exists in queue.
-     * @return array 
+     * @return array
      */
     function getAllApplicationIDs() {}
 
@@ -167,7 +167,7 @@ class ZendAPI_Queue {
      * @param $end_time UNIX timestamp. Get only jobs finished before $end_time.
      * @param int $index. Get jobs starting from the $index-th place.
      * @param int $count. Get only $count jobs.
-     * @param int $total. Pass by reference. Return the total number of jobs statisifed the query criteria. 
+     * @param int $total. Pass by reference. Return the total number of jobs statisifed the query criteria.
      *
      * @return array of jobs.
      */
@@ -191,7 +191,7 @@ class ZendAPI_Queue {
     /**
      * Return description of the last error occurred in the queue object. After every
      *    method invoked an error string describing the error is store in the queue object.
-     * @return string 
+     * @return string
      */
     function getLastError() {}
 
@@ -210,21 +210,21 @@ class ZendAPI_Queue {
  * For simplicity, a job can be added directly to a queue and without creating an instant of a Queue object
  */
 class ZendAPI_Job {
-    
+
     /**
      * Unique id of the Job in the job queue
      *
      * @var int
      */
     var $_id;
-    
+
     /**
      * Full path of the script that this job calls when it's processed
      *
      * @var string
      */
     var $_script;
-    
+
     /**
      * The host that the job was submit from
      *
@@ -249,7 +249,7 @@ class ZendAPI_Job {
 
     /**
      * The status of the job
-     * By default, the job status is waiting to being execute. 
+     * By default, the job status is waiting to being execute.
      * The status is determent by the queue and can not be modify by the user.
      *
      * @var int
@@ -258,13 +258,13 @@ class ZendAPI_Job {
 
     /**
      * The application id of the job
-     * If the application id is not set, this job may get an application id automatically from the queue 
+     * If the application id is not set, this job may get an application id automatically from the queue
      * (if the queue was assigned one). By default it is null (which indicates no application id is assigned)
      *
      * @var string
      */
     var $_application_id = null;
-    
+
     /**
      * The priority of the job, options are the priority constants
      * By default the priority is set to normal (JOB_QUEUE_PRIORITY_NORMAL)
@@ -272,7 +272,7 @@ class ZendAPI_Job {
      * @var int
      */
     var $_priority = JOB_QUEUE_PRIORITY_NORMAL;
-    
+
     /**
      * Array holding all the variables that the user wants the job's script to have when it's called
      * The structure is variable_name => variable_value
@@ -283,7 +283,7 @@ class ZendAPI_Job {
      * @var array
      */
     var $_user_variables = array();
-    
+
     /**
      * Bit mask holding the global variables that the user want the job's script to have when it's called
      * Options are prefixed with "JOB_QUEUE_SAVE_" and may be:
@@ -291,24 +291,24 @@ class ZendAPI_Job {
      * By default there are no global variables we want to add to the job's script
      * i.e. In order to save the current GET and COOKIE global variables,
         this property should be JOB_QUEUE_SAVE_GET|JOB_QUEUE_SAVE_COOKIE (or the integer 6)
-        In that case (of GET and COOKIE), when the job is added, the current $_GET and 
+        In that case (of GET and COOKIE), when the job is added, the current $_GET and
         $_COOKIE variables  should be saved, and when the job's script is called,
         those global variables should be populated
      *
      * @var int
      */
     var $_global_variables = 0;
-    
+
     /**
      * The job may have a dependency (another job that must be performed before this job)
      * This property hold the id of the job that must be performed. if this variable is an array of integers,
-        it means that there are several jobs that must be performed before this job 
+        it means that there are several jobs that must be performed before this job
      * By default there are no dependencies
      *
      * @var mixed (int|array)
      */
     var $_predecessor = null;
-    
+
     /**
      * The time that this job should be performed, this variables is the UNIX timestamp.
      * If set to 0, it means that the job should be performed now (or at least as soon as possible)
@@ -317,10 +317,10 @@ class ZendAPI_Job {
      * @var int
      */
     var $_scheduled_time = 0;
-    
+
     /**
      * The job running frequency in seconds. The job should run every _internal seconds
-     * This property applys only to recurrent job. 
+     * This property applys only to recurrent job.
      * By default, its value is 0 e.g. run it only once.
      *
      * @var int
@@ -333,7 +333,7 @@ class ZendAPI_Job {
      * By default there is no end_time, so recurrent job will run forever. If the job is not recurrent
      * (occurs only once) then the job will run at most once. If end_time has reached and the job was not
      * execute yet, it will not run.
-     * 
+     *
      * @var int
      */
      var $_end_time = null;
@@ -347,7 +347,7 @@ class ZendAPI_Job {
      */
      var $_preserved = 0;
 
-    
+
     /**
      * Instantiate a Job object, describe all the information and properties of a job
      *
@@ -355,16 +355,16 @@ class ZendAPI_Job {
      * @return Job
      */
     function ZendAPI_Job($script) {}
-    
+
 
     /**
      * Add the job the the specified queue (without instantiating a JobQueue object)
      * This function should be used for extreme simplicity of the user when adding a single job,
-            when the user want to insert more than one job and/or manipulating other jobs (or job tasks) 
+            when the user want to insert more than one job and/or manipulating other jobs (or job tasks)
             he should create and use the JobQueue object
-     * Actually what this function do is to create a new JobQueue, login to it (with the given parameters), 
+     * Actually what this function do is to create a new JobQueue, login to it (with the given parameters),
             add this job to it and logout
-     * 
+     *
      * @param string $jobqueue_url Full address of the queue we want to connect to
      * @param string $password For authentication, the queue password
      * @return int|false The added job id or false on failure
@@ -378,7 +378,7 @@ class ZendAPI_Job {
      * @param int $priority Priority options are constants with the "JOB_QUEUE_PRIORITY_" prefix
      */
     function setJobPriority($priority) {}
-    
+
     // All properties SET functions
     function setJobName($name) {}
     function setScript($script) {}
@@ -389,7 +389,7 @@ class ZendAPI_Job {
     function setScheduledTime($timestamp) {}
     function setRecurrenceData($interval, $end_time=null) {}
     function setPreserved($preserved) {}
-    
+
     /**
      * Get the job properties
      *
@@ -403,7 +403,7 @@ class ZendAPI_Job {
      * @return An HTML representing the job output
      */
     function getOutput() {}
-    
+
     // All properties GET functions
     function getID() {}
     function getHost() {}
@@ -421,9 +421,9 @@ class ZendAPI_Job {
 
     /**
      * Get the current status of the job
-     * If this job was created and not returned from a queue (using the JobQueue::GetJob() function), 
+     * If this job was created and not returned from a queue (using the JobQueue::GetJob() function),
      *  the function will return false
-     * The status is one of the constants with the "JOB_QUEUE_STATUS_" prefix. 
+     * The status is one of the constants with the "JOB_QUEUE_STATUS_" prefix.
      * E.g. job was performed and failed, job is waiting etc.
      *
      * @return int|false
@@ -431,7 +431,7 @@ class ZendAPI_Job {
     function getJobStatus() {}
 
     /**
-     * Get how much seconds there are until the next time the job will run. 
+     * Get how much seconds there are until the next time the job will run.
      * If the job is not recurrence or it past its end time, then return 0.
      *
      * @return int
@@ -453,7 +453,7 @@ class ZendAPI_Job {
  * Disable/enable the Code Acceleration functionality at run time.
  * @param $status bool If false, Acceleration is disabled, if true - enabled
  * @return void
- */ 
+ */
 function accelerator_set_status($status) {}
 
 /**
@@ -585,7 +585,7 @@ function monitor_httperror_event($error_code, $url, $severe = null) {}
  * Returns an array containing information about
  * <li>module loading status (and cause of error if module failed to load)
  * <li>module license status (and cause of error if license not valid)
- * @return array 
+ * @return array
  */
 function monitor_license_info() {}
 
@@ -648,4 +648,3 @@ class JavaException {
     function getCause() {}
 
 };
-

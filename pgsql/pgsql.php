@@ -339,7 +339,7 @@ function pg_query ($connection = null, $query) {}
 function pg_query_params ($connection = null, $query, array $params) {}
 
 /**
- * Submits a request to create a prepared statement with the 
+ * Submits a request to create a prepared statement with the
  * given parameters, and waits for completion.
  * @link https://php.net/manual/en/function.pg-prepare.php
  * @param resource $connection [optional] <p>
@@ -1387,7 +1387,7 @@ function pg_escape_literal ($connection = null, $data) {}
 function pg_unescape_bytea ($data) {}
 
 /**
- * Determines the verbosity of messages returned by <b>pg_last_error</b> 
+ * Determines the verbosity of messages returned by <b>pg_last_error</b>
  * and <b>pg_result_error</b>.
  * @link https://php.net/manual/en/function.pg-set-error-verbosity.php
  * @param resource $connection [optional] <p>

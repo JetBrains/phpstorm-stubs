@@ -22,7 +22,7 @@ class Redis
     const OPT_TCP_KEEPALIVE     = 6;
     const OPT_COMPRESSION       = 7;
     const OPT_REPLY_LITERAL     = 8;
-    const OPT_COMPRESSION_LEVEL = 9;    
+    const OPT_COMPRESSION_LEVEL = 9;
 
     /**
      * Cluster options
@@ -634,7 +634,7 @@ class Redis
     {
     }
 
-    
+
     /**
      * @return void|array
      *

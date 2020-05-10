@@ -77,7 +77,7 @@ function abs ($number) {}
  * @return float|false value rounded up to the next highest
  * integer.
  * The return value of ceil is still of type
- * float as the value range of float is 
+ * float as the value range of float is
  * usually bigger than that of integer.
  */
 function ceil ($value) {}
@@ -90,7 +90,7 @@ function ceil ($value) {}
  * </p>
  * @return float|false value rounded to the next lowest integer.
  * The return value of floor is still of type
- * float because the value range of float is 
+ * float because the value range of float is
  * usually bigger than that of integer.
  */
 function floor ($value) {}
@@ -130,7 +130,7 @@ function sin ($arg) {}
  * Cosine
  * @link https://php.net/manual/en/function.cos.php
  * @param float $arg <p>
- * An angle in radians 
+ * An angle in radians
  * </p>
  * @return float The cosine of arg
  */
@@ -140,7 +140,7 @@ function cos ($arg) {}
  * Tangent
  * @link https://php.net/manual/en/function.tan.php
  * @param float $arg <p>
- * The argument to process in radians 
+ * The argument to process in radians
  * </p>
  * @return float The tangent of arg
  */
@@ -195,7 +195,7 @@ function atanh ($arg) {}
  * @param float $x <p>
  * Divisor parameter
  * </p>
- * @return float The arc tangent of y/x 
+ * @return float The arc tangent of y/x
  * in radians.
  */
 function atan2 ($y, $x) {}
@@ -359,10 +359,10 @@ function exp ($arg) {}
  * The value to calculate the logarithm for
  * </p>
  * @param float $base [optional] <p>
- * The optional logarithmic base to use 
+ * The optional logarithmic base to use
  * (defaults to 'e' and so to the natural logarithm).
  * </p>
- * @return float The logarithm of arg to 
+ * @return float The logarithm of arg to
  * base, if given, or the
  * natural logarithm.
  */
@@ -406,7 +406,7 @@ function hypot ($x, $y) {}
  * Converts the number in degrees to the radian equivalent
  * @link https://php.net/manual/en/function.deg2rad.php
  * @param float $number <p>
- * Angular value in degrees 
+ * Angular value in degrees
  * </p>
  * @return float The radian equivalent of number
  */
@@ -631,7 +631,7 @@ function number_format ($number , $decimals = 0 , $dec_point = '.' , $thousands_
  * @param float $y <p>
  * The divisor
  * </p>
- * @return float The floating point remainder of 
+ * @return float The floating point remainder of
  * x/y
  */
 function fmod ($x, $y) {}
@@ -854,7 +854,7 @@ function get_current_user () {}
  * The maximum execution time, in seconds. If set to zero, no time limit
  * is imposed.
  * </p>
- * @return bool Returns TRUE on success, or FALSE on failure. 
+ * @return bool Returns TRUE on success, or FALSE on failure.
  */
 function set_time_limit ($seconds) {}
 
@@ -912,7 +912,7 @@ function get_magic_quotes_runtime () {}
  * @link https://php.net/manual/en/function.import-request-variables.php
  * @param string $types <p>
  * Using the types parameter, you can specify
- * which request variables to import. You can use 'G', 'P' and 'C' 
+ * which request variables to import. You can use 'G', 'P' and 'C'
  * characters respectively for GET, POST and Cookie. These characters are
  * not case sensitive, so you can also use any combination of 'g', 'p'
  * and 'c'. POST includes the POST uploaded file information.
@@ -950,7 +950,7 @@ function import_request_variables ($types, $prefix = null) {}
  * The error message that should be logged.
  * </p>
  * @param int $message_type [optional] <p>
- * Says where the error should go. The possible message types are as 
+ * Says where the error should go. The possible message types are as
  * follows:
  * </p>
  * <p>
@@ -984,7 +984,7 @@ function import_request_variables ($types, $prefix = null) {}
  * <td>3</td>
  * <td>
  * message is appended to the file
- * destination. A newline is not automatically 
+ * destination. A newline is not automatically
  * added to the end of the message string.
  * </td>
  * </tr>
@@ -998,13 +998,13 @@ function import_request_variables ($types, $prefix = null) {}
  * </table>
  * </p>
  * @param string $destination [optional] <p>
- * The destination. Its meaning depends on the 
+ * The destination. Its meaning depends on the
  * message_type parameter as described above.
  * </p>
  * @param string $extra_headers [optional] <p>
  * The extra headers. It's used when the message_type
  * parameter is set to 1.
- * This message type uses the same internal function as 
+ * This message type uses the same internal function as
  * mail does.
  * </p>
  * @return bool true on success or false on failure.

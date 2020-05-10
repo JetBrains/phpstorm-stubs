@@ -588,7 +588,7 @@ final class Closure {
      * @since 7.0
      */
     function call ($newthis, ...$parameters) {}
-    
+
     /**
      * @param callable $callable
      * @return Closure

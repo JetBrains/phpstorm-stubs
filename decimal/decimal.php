@@ -384,7 +384,7 @@ namespace Decimal {
 
         /**
          * This method is equivalent to the <=> operator.
-         * 
+         *
          * Returns 0 if this decimal is considered equal to $other,
          * -1 if this decimal should be placed before $other,
          * 1 if this decimal should be placed after $other.

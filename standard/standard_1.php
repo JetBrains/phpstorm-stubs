@@ -238,7 +238,7 @@ function dirname ($path, $levels = 1) {}
  * extension (if any), and filename.
  * </p>
  * <p>
- * If options is used, this function will return a 
+ * If options is used, this function will return a
  * string if not all elements are requested.
  */
 function pathinfo ($path, $options = null) {}
@@ -681,7 +681,7 @@ function addslashes ($str) {}
  * t and v. They will be converted to \0, \a, \b, \f, \n, \r, \t
  * and \v.
  * In PHP \0 (NULL), \r (carriage return), \n (newline), \f (form feed),
- * \v (vertical tab) and \t (tab) are predefined escape sequences, 
+ * \v (vertical tab) and \t (tab) are predefined escape sequences,
  * while in C all of these are predefined escape sequences.
  * </p>
  * @return string the escaped string.
@@ -750,7 +750,7 @@ function str_replace ($search, $replace, $subject, &$count = null) {}
  * </p>
  * @param mixed $subject <p>
  * If subject is an array, then the search and
- * replace is performed with every entry of 
+ * replace is performed with every entry of
  * subject, and the return value is an array as
  * well.
  * </p>
@@ -897,7 +897,7 @@ function strip_tags ($str, $allowable_tags = null) {}
  * @param float $percent [optional] <p>
  * By passing a reference as third argument,
  * similar_text will calculate the similarity in
- * percent for you. 
+ * percent for you.
  * </p>
  * @return int the number of matching chars in both strings.
  */
@@ -1020,7 +1020,7 @@ function join ($glue = "", $pieces) {}
  * different names on different systems or for providing a fallback
  * for a possibly not available locale.
  * </p>
- * @param string $_ [optional] 
+ * @param string $_ [optional]
  * @return string|false the new current locale, or false if the locale functionality is
  * not implemented on your platform, the specified locale does not exist or
  * the category name is invalid.

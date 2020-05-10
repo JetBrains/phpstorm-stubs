@@ -42,32 +42,32 @@
  *             [0] => foobarbaz
  *             [1] => 0
  *         )
- * 
+ *
  *     [1] => Array
  *         (
  *             [0] => foo
  *             [1] => 0
  *         )
- * 
+ *
  *     [2] => Array
  *         (
  *             [0] => bar
  *             [1] => 3
  *         )
- * 
+ *
  *     [3] => Array
  *         (
  *             [0] => baz
  *             [1] => 6
  *         )
- * 
+ *
  * )
  * </pre>
  * </blockquote>
  * <b>PREG_UNMATCHED_AS_NULL</b>
  * <blockquote>
  * If this flag is passed, unmatched subpatterns are reported as NULL;
- * otherwise they are reported as an empty string. 
+ * otherwise they are reported as an empty string.
  * <pre>
  * <?php
  * preg_match('/(a)(b)*(c)/', 'ac', $matches);
@@ -148,7 +148,7 @@
  * </pre>
  * Alternatively, to avoid using substr(), use the \G assertion rather
  * than the ^ anchor, or the A modifier instead, both of which work with
- * the offset parameter. 
+ * the offset parameter.
  * </p>
  * @return int|false <b>preg_match</b> returns 1 if the <i>pattern</i>
  * matches given <i>subject</i>, 0 if it does not, or <b>FALSE</b>

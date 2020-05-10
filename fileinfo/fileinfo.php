@@ -144,10 +144,10 @@ function finfo_file ($finfo, $file_name, $options = null, $context = null) {}
  * </p>
  * @param resource $context [optional] <p>
  * </p>
- * @param string $string 
+ * @param string $string
  * @param int $options [optional] One or disjunction of more
  * <a href="https://php.net/manual/en/fileinfo.constants.php">Fileinfo</a> constants.
- * @param resource $context [optional] 
+ * @param resource $context [optional]
  * @return string a textual description of the <i>string</i>
  * argument, or <b>FALSE</b> if an error occurred.
  */
@@ -159,7 +159,7 @@ function finfo_buffer ($finfo ,$string, $options = FILEINFO_NONE, $context = NUL
  * @param string $filename <p>
  * Path to the tested file.
  * </p>
- * @return string the content type in MIME format, like 
+ * @return string the content type in MIME format, like
  * text/plain or application/octet-stream.
  */
 function mime_content_type ($filename) {}
