@@ -638,7 +638,7 @@ interface Countable {
      * The return value is cast to an integer.
      * @since 5.1
      */
-    public function count(): int;
+    public function count();
 }
 
 /**
