@@ -1228,7 +1228,7 @@ namespace Ds {
 
         /**
          * Specify data which should be serialized to JSON
-         * @link https://php.net/manual/en/ds-vector.jsonserialize.php
+         * @link https://php.net/manual/en/jsonserializable.jsonserialize.php
          * @return mixed data which can be serialized by <b>json_encode</b>,
          * which is a value of any type other than a resource.
          * @since 5.4
@@ -1236,8 +1236,6 @@ namespace Ds {
         public function jsonSerialize()
         {
         }
-
-
     }
 
     class Map implements Collection
