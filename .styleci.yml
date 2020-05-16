@@ -1,0 +1,11 @@
+preset: none
+use-tabs: false
+enabled:
+  - no_trailing_whitespace
+  - no_trailing_whitespace_in_comment
+  - no_whitespace_in_blank_line
+  - single_blank_line_at_eof
+#  - unix_line_endings
+finder:
+  not-name:
+    - 'PhpStormStubsMap.php'
