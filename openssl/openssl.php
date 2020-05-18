@@ -710,7 +710,7 @@ function openssl_verify($data, $signature, $pub_key_id, $signature_alg = OPENSSL
  * <i>sealed_data</i>, and the envelope keys in
  * <i>env_keys</i>.
  */
-function openssl_seal($data, &$sealed_data, array &$env_keys, array $pub_key_ids, $method = null, $iv = '') { }
+function openssl_seal($data, &$sealed_data, array &$env_keys, array $pub_key_ids, $method = null, &$iv = '') { }
 
 /**
  * Open sealed data
