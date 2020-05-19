@@ -1635,6 +1635,13 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return array
      * @since 7.4
      */
+    public function __debugInfo(){}
+
+
+    /**
+     * @return array
+     * @since 7.4
+     */
     public function __serialize(): array {}
 
     /**
@@ -1895,6 +1902,13 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return void
      */
     public function seek($position) { }
+
+    /**
+     * @return array
+     * @since 7.4
+     */
+    public function __debugInfo(){}
+
 
     /**
      * @return array

@@ -272,7 +272,15 @@ class SplFileInfo  {
 
         public final function _bad_state_ex (){}
 
-        public function __wakeup() {}
+    public function __wakeup()
+    {
+    }
+
+    /**
+     * @return array
+     * @since 7.4
+     */
+    public function __debugInfo(){}
 }
 
 /**
@@ -1117,6 +1125,13 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
          */
          public function  serialize () {}
 
+
+        /**
+         * @return array
+         * @since 7.4
+         */
+        public function __debugInfo(){}
+
         /**
          * @return array
          * @since 7.4
@@ -1293,6 +1308,13 @@ abstract class SplHeap implements Iterator, Countable {
      * @return bool
      */
         public function isCorrupted(){}
+
+
+    /**
+     * @return array
+     * @since 7.4
+     */
+    public function __debugInfo(){}
 
 }
 
@@ -1560,6 +1582,13 @@ class SplPriorityQueue implements Iterator, Countable {
      * @return int
      */
     public function getExtractFlags() {}
+
+
+    /**
+     * @return array
+     * @since 7.4
+     */
+    public function __debugInfo(){}
 
 }
 
@@ -1981,6 +2010,12 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
          */
         public function __unserialize(array $data): void {}
 
+        /**
+         * @return array
+         * @since 7.4
+         */
+        public function __debugInfo(){}
+
 }
 
 /**
@@ -2100,4 +2135,9 @@ class MultipleIterator implements Iterator {
          */
         public function next () {}
 
+        /**
+         * @return array
+         * @since 7.4
+         */
+        public function __debugInfo(){}
 }
