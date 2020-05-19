@@ -322,6 +322,16 @@ define('SQLSRV_SQLTYPE_BIGINT', -5);
  */
 define('SQLSRV_SQLTYPE_BIT', -7);
 /**
+ * char.
+ *
+ * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
+ *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
+ *
+ * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
+ */
+define('SQLSRV_SQLTYPE_CHAR', 1);
+/**
  * datetime.
  *
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
@@ -331,6 +341,16 @@ define('SQLSRV_SQLTYPE_BIT', -7);
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_DATETIME', 25177693);
+/**
+ * decimal.
+ *
+ * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
+ *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
+ *
+ * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
+ */
+define('SQLSRV_SQLTYPE_DECIMAL', 3);
 /**
  * float.
  *
@@ -372,6 +392,16 @@ define('SQLSRV_SQLTYPE_INT', 4);
  */
 define('SQLSRV_SQLTYPE_MONEY', 33564163);
 /**
+ * nchar.
+ *
+ * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
+ *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
+ *
+ * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
+ */
+define('SQLSRV_SQLTYPE_NCHAR', -8);
+/**
  * ntext.
  *
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
@@ -381,6 +411,26 @@ define('SQLSRV_SQLTYPE_MONEY', 33564163);
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_NTEXT', -10);
+/**
+ * numeric.
+ *
+ * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
+ *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
+ *
+ * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
+ */
+define('SQLSRV_SQLTYPE_NUMERIC', 2);
+/**
+ * nvarchar.
+ *
+ * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
+ *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
+ *
+ * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
+ */
+define('SQLSRV_SQLTYPE_NVARCHAR', -9);
 /**
  * text.
  *
@@ -471,6 +521,26 @@ define('SQLSRV_SQLTYPE_UDT', -151);
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_UNIQUEIDENTIFIER', -11);
+/**
+ * varbinary.
+ *
+ * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
+ *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
+ *
+ * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
+ */
+define('SQLSRV_SQLTYPE_VARBINARY', -3);
+/**
+ * varchar.
+ *
+ * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
+ *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
+ *
+ * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
+ */
+define('SQLSRV_SQLTYPE_VARCHAR', 12);
 /**
  * xml.
  *
@@ -1275,7 +1345,7 @@ function sqlsrv_fetch($stmt, $row=null, $offset=null){}
  * information about specifying PHP data types,
  * see {@link http://msdn.microsoft.com/en-us/library/cc296208.aspx How to: Specify PHP Data Types}.
  */
-function sqlsrv_get_field($stmt, $field_index, $get_as_type){}
+function sqlsrv_get_field($stmt, $field_index, $get_as_type=null){}
 
 /**
  * Retrieves the next row of data as a numerically indexed array, an associative array, or both.
@@ -1724,4 +1794,3 @@ function SQLSRV_SQLTYPE_DECIMAL($precision, $scale){}
  * @return int Value to use in any place that accepts a SQLSRV_SQLTYPE_* constant to represent the numeric data type.
  */
 function SQLSRV_SQLTYPE_NUMERIC($precision, $scale){}
-

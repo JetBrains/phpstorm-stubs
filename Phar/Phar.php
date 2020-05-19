@@ -167,7 +167,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * compressing tar archives. For decompressing, the default file extensions
 	 * are .phar and .phar.tar.
 	 * </p>
-	 * @return object a <b>Phar</b> object.
+	 * @return static a <b>Phar</b> object.
 	 */
 	public function compress ($compression, $extension = null) {}
 
@@ -182,7 +182,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * that all executable phar archives must contain .phar
 	 * in their filename.
 	 * </p>
-	 * @return object A <b>Phar</b> object is returned.
+	 * @return static A <b>Phar</b> object is returned.
 	 */
 	public function decompress ($extension = null) {}
 
@@ -808,7 +808,6 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * @param bool $allow_links [optional] <p>
 	 * </p>
 	 * @return bool whether the current entry is a directory, but not '.' or '..'
-	 * @since 5.0
 	 */
 	public function hasChildren ($allow_links = false) {}
 
@@ -818,7 +817,6 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * @return mixed The filename, file information, or $this depending on the set flags.
 	 * See the FilesystemIterator
 	 * constants.
-	 * @since 5.1
 	 */
 	public function getChildren () {}
 
@@ -826,7 +824,6 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * Rewinds back to the beginning
 	 * @link https://php.net/manual/en/filesystemiterator.rewind.php
 	 * @return void No value is returned.
-	 * @since 5.3
 	 */
 	public function rewind () {}
 
@@ -834,7 +831,6 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * Move to the next file
 	 * @link https://php.net/manual/en/filesystemiterator.next.php
 	 * @return void No value is returned.
-	 * @since 5.3
 	 */
 	public function next () {}
 
@@ -843,7 +839,6 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * @link https://php.net/manual/en/filesystemiterator.key.php
 	 * @return string the pathname or filename depending on the set flags.
 	 * See the FilesystemIterator constants.
-	 * @since 5.3
 	 */
 	public function key () {}
 
@@ -852,7 +847,6 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * @link https://php.net/manual/en/filesystemiterator.current.php
 	 * @return mixed The filename, file information, or $this depending on the set flags.
 	 * See the FilesystemIterator constants.
-	 * @since 5.3
 	 */
 	public function current () {}
 
@@ -860,7 +854,6 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * Check whether current DirectoryIterator position is a valid file
 	 * @link https://php.net/manual/en/directoryiterator.valid.php
 	 * @return bool <b>TRUE</b> if the position is valid, otherwise <b>FALSE</b>
-	 * @since 5.0
 	 */
 	public function valid () {}
 
@@ -871,7 +864,6 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * The zero-based numeric position to seek to.
 	 * </p>
 	 * @return void No value is returned.
-	 * @since 5.3
 	 */
 	public function seek ($position) {}
 
@@ -948,7 +940,6 @@ class PharData extends Phar {
 	 * @param bool $allow_links [optional] <p>
 	 * </p>
 	 * @return bool whether the current entry is a directory, but not '.' or '..'
-	 * @since 5.0
 	 */
 	public function hasChildren ($allow_links = false) {}
 
@@ -958,7 +949,6 @@ class PharData extends Phar {
 	 * @return mixed The filename, file information, or $this depending on the set flags.
 	 * See the FilesystemIterator
 	 * constants.
-	 * @since 5.1
 	 */
 	public function getChildren () {}
 
@@ -967,7 +957,6 @@ class PharData extends Phar {
 	 * Rewinds back to the beginning
 	 * @link https://php.net/manual/en/filesystemiterator.rewind.php
 	 * @return void No value is returned.
-	 * @since 5.3
 	 */
 	public function rewind () {}
 
@@ -975,7 +964,6 @@ class PharData extends Phar {
 	 * Move to the next file
 	 * @link https://php.net/manual/en/filesystemiterator.next.php
 	 * @return void No value is returned.
-	 * @since 5.3
 	 */
 	public function next () {}
 
@@ -984,7 +972,6 @@ class PharData extends Phar {
 	 * @link https://php.net/manual/en/filesystemiterator.key.php
 	 * @return string the pathname or filename depending on the set flags.
 	 * See the FilesystemIterator constants.
-	 * @since 5.3
 	 */
 	public function key () {}
 
@@ -993,7 +980,6 @@ class PharData extends Phar {
 	 * @link https://php.net/manual/en/filesystemiterator.current.php
 	 * @return mixed The filename, file information, or $this depending on the set flags.
 	 * See the FilesystemIterator constants.
-	 * @since 5.3
 	 */
 	public function current () {}
 
@@ -1003,7 +989,6 @@ class PharData extends Phar {
 	 * Check whether current DirectoryIterator position is a valid file
 	 * @link https://php.net/manual/en/directoryiterator.valid.php
 	 * @return bool <b>TRUE</b> if the position is valid, otherwise <b>FALSE</b>
-	 * @since 5.0
 	 */
 	public function valid () {}
 
@@ -1014,7 +999,6 @@ class PharData extends Phar {
 	 * The zero-based numeric position to seek to.
 	 * </p>
 	 * @return void No value is returned.
-	 * @since 5.3
 	 */
 	public function seek ($position) {}
 

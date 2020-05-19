@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @since 5.5
+ */
 interface DateTimeInterface {
     const ATOM = 'Y-m-d\TH:i:sP';
     const COOKIE = 'l, d-M-Y H:i:s T';
@@ -14,7 +17,7 @@ interface DateTimeInterface {
     const RFC7231 = 'D, d M Y H:i:s \G\M\T';
     const RSS = 'D, d M Y H:i:s O';
     const W3C = 'Y-m-d\TH:i:sP';
-    
+
     /* Methods */
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
@@ -79,6 +82,9 @@ interface DateTimeInterface {
     public function __wakeup();
 }
 
+/**
+ * @since 5.5
+ */
 class DateTimeImmutable implements DateTimeInterface {
     /* Methods */
     /**
@@ -201,9 +207,8 @@ class DateTimeImmutable implements DateTimeInterface {
      * @param int $hour <p> Hour of the time. </p>
      * @param int $minute <p> Minute of the time. </p>
      * @param int $second [optional] <p> Second of the time. </p>
-     * @param int $microseconds [optional] <p> Microseconds of the time. </p>
+     * @param int $microseconds [optional] <p> Microseconds of the time. Added since 7.1</p>
      * @return static|false
-     * @since 7.1 $microseconds parameter added.
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
     public function setTime($hour, $minute, $second = 0, $microseconds = 0) { }
@@ -415,9 +420,8 @@ class DateTime implements DateTimeInterface {
      * @param int $hour
      * @param int $minute
      * @param int $second
-     * @param int $microseconds
+     * @param int $microseconds Added since 7.1
      * @return static|false
-     * @since 7.1 $microseconds parameter added.
      * @link https://php.net/manual/en/datetime.settime.php
      */
     public function setTime ($hour, $minute, $second=0, $microseconds=0) {}
@@ -671,11 +675,10 @@ class DateInterval {
 /**
  * Representation of date period.
  * @link https://php.net/manual/en/class.dateperiod.php
- * @since 5.3
  */
 class DatePeriod implements Traversable {
     const EXCLUDE_START_DATE = 1;
-    
+
     /**
      * Start date
      * @var DateTimeInterface
@@ -687,38 +690,37 @@ class DatePeriod implements Traversable {
      * @var DateTimeInterface|null
      */
     public $current;
-    
+
     /**
      * End date.
      * @var DateTimeInterface|null
      */
     public $end;
-    
+
     /**
      * The interval
      * @var DateInterval
      */
     public $interval;
-    
+
     /**
      * Number of recurrences.
      * @var int
      */
     public $recurrences;
-    
+
     /**
      * Start of period.
      * @var bool
      */
     public $include_start_date;
-    
+
     /**
      * @param DateTimeInterface $start
      * @param DateInterval $interval
      * @param DateTimeInterface $end
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link https://php.net/manual/en/dateperiod.construct.php
-     * @since 5.3
      */
     public function __construct (DateTimeInterface $start, DateInterval $interval, DateTimeInterface $end, $options=0) {}
 
@@ -728,7 +730,6 @@ class DatePeriod implements Traversable {
      * @param int $recurrences Number of recurrences
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link https://php.net/manual/en/dateperiod.construct.php
-     * @since 5.3
      */
     public function __construct (DateTimeInterface $start, DateInterval $interval, $recurrences, $options=0) {}
 
@@ -736,7 +737,6 @@ class DatePeriod implements Traversable {
      * @param string $isostr String containing the ISO interval.
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link https://php.net/manual/en/dateperiod.construct.php
-     * @since 5.3
      */
     public function __construct ($isostr, $options=0) {}
 

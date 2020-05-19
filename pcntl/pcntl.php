@@ -10,8 +10,6 @@
  * thread of execution. On failure, a -1 will be returned in the
  * parent's context, no child process will be created, and a PHP
  * error is raised.
- * @since 4.1
- * @since 5.0
  */
 function pcntl_fork () {}
 
@@ -93,8 +91,6 @@ function pcntl_fork () {}
  * @return int <b>pcntl_waitpid</b> returns the process ID of the
  * child which exited, -1 on error or zero if <b>WNOHANG</b> was used and no
  * child was available
- * @since 4.1
- * @since 5.0
  */
 function pcntl_waitpid ($pid, &$status, $options = 0, array &$rusage) {}
 
@@ -141,7 +137,6 @@ function pcntl_waitpid ($pid, &$status, $options = 0, array &$rusage) {}
  * @return int <b>pcntl_wait</b> returns the process ID of the
  * child which exited, -1 on error or zero if WNOHANG was provided as an
  * option (on wait3-available systems) and no child was available.
- * @since 5.0
  */
 function pcntl_wait (&$status, $options = 0, &$rusage) {}
 
@@ -172,8 +167,6 @@ function pcntl_wait (&$status, $options = 0, &$rusage) {}
  * signal arrives.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.1
- * @since 5.0
  */
 function pcntl_signal ($signo, $handler, $restart_syscalls = true) {}
 
@@ -181,7 +174,6 @@ function pcntl_signal ($signo, $handler, $restart_syscalls = true) {}
  * Calls signal handlers for pending signals
  * @link https://php.net/manual/en/function.pcntl-signal-dispatch.php
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.3
  */
 function pcntl_signal_dispatch () {}
 
@@ -193,8 +185,6 @@ function pcntl_signal_dispatch () {}
  * call to <b>pcntl_waitpid</b>.</p>
  * @return bool <b>TRUE</b> if the child status code represents a normal exit, <b>FALSE</b>
  * otherwise.
- * @since 4.1
- * @since 5.0
  */
 function pcntl_wifexited ($status) {}
 
@@ -206,8 +196,6 @@ function pcntl_wifexited ($status) {}
  * call to <b>pcntl_waitpid</b>.</p>
  * @return bool <b>TRUE</b> if the child process which caused the return is
  * currently stopped, <b>FALSE</b> otherwise.
- * @since 4.1
- * @since 5.0
  */
 function pcntl_wifstopped ($status) {}
 
@@ -219,8 +207,6 @@ function pcntl_wifstopped ($status) {}
  * call to <b>pcntl_waitpid</b>.</p>
  * @return bool <b>TRUE</b> if the child process exited because of a signal which was
  * not caught, <b>FALSE</b> otherwise.
- * @since 4.1
- * @since 5.0
  */
 function pcntl_wifsignaled ($status) {}
 
@@ -231,8 +217,6 @@ function pcntl_wifsignaled ($status) {}
  * parameter is the status parameter supplied to a successful
  * call to <b>pcntl_waitpid</b>.</p>
  * @return int the return code, as an integer.
- * @since 4.1
- * @since 5.0
  */
 function pcntl_wexitstatus ($status) {}
 
@@ -247,8 +231,6 @@ function pcntl_wifcontinued ( $status){}
  * parameter is the status parameter supplied to a successful
  * call to <b>pcntl_waitpid</b>.</p>
  * @return int the signal number, as an integer.
- * @since 4.1
- * @since 5.0
  */
 function pcntl_wtermsig ($status) {}
 
@@ -259,8 +241,6 @@ function pcntl_wtermsig ($status) {}
  * parameter is the status parameter supplied to a successful
  * call to <b>pcntl_waitpid</b>.</p>
  * @return int the signal number.
- * @since 4.1
- * @since 5.0
  */
 function pcntl_wstopsig ($status) {}
 
@@ -284,8 +264,6 @@ function pcntl_wstopsig ($status) {}
  * the value of that variable.
  * </p>
  * @return void <b>FALSE</b> on error and does not return on success.
- * @since 4.2
- * @since 5.0
  */
 function pcntl_exec ($path, array $args = null, array $envs = null) {}
 
@@ -299,8 +277,6 @@ function pcntl_exec ($path, array $args = null, array $envs = null) {}
  * @return int the time in seconds that any previously scheduled alarm had
  * remaining before it was to be delivered, or 0 if there
  * was no previously scheduled alarm.
- * @since 4.3
- * @since 5.0
  */
 function pcntl_alarm ($seconds) {}
 
@@ -342,7 +318,6 @@ function pcntl_strerror ($errno) {}
  * @return int <b>pcntl_getpriority</b> returns the priority of the process
  * or <b>FALSE</b> on error. A lower numerical value causes more favorable
  * scheduling.
- * @since 5.0
  */
 function pcntl_getpriority ($pid, $process_identifier = PRIO_PROCESS) {}
 
@@ -365,7 +340,6 @@ function pcntl_getpriority ($pid, $process_identifier = PRIO_PROCESS) {}
  * or <b>PRIO_PROCESS</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.0
  */
 function pcntl_setpriority ($priority, $pid, $process_identifier = PRIO_PROCESS) {}
 
@@ -390,7 +364,6 @@ function pcntl_setpriority ($priority, $pid, $process_identifier = PRIO_PROCESS)
  * containing the list of the previously blocked signals.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.3
  */
 function pcntl_sigprocmask ($how, array $set, array &$oldset = null) {}
 
@@ -431,7 +404,6 @@ function pcntl_sigprocmask ($how, array $set, array &$oldset = null) {}
  * fd: File descriptor number
  * </p>
  * @return int On success, <b>pcntl_sigwaitinfo</b> returns a signal number.
- * @since 5.3
  */
 function pcntl_sigwaitinfo (array $set, array &$siginfo = null) {}
 
@@ -453,7 +425,6 @@ function pcntl_sigwaitinfo (array $set, array &$siginfo = null) {}
  * Timeout in nanoseconds.
  * </p>
  * @return int On success, <b>pcntl_sigtimedwait</b> returns a signal number.
- * @since 5.3
  */
 function pcntl_sigtimedwait (array $set, array &$siginfo = null, $seconds = 0, $nanoseconds = 0) {}
 
@@ -484,6 +455,11 @@ function pcntl_async_signals($on = null) {}
  * @since 7.1
  */
 function pcntl_signal_get_handler($signo) {}
+
+/**
+ * @since 7.4
+ */
+function pcntl_unshare($flags){}
 
 define ('WNOHANG', 1);
 define ('WUNTRACED', 2);
@@ -532,284 +508,237 @@ define ('PRIO_PROCESS', 0);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('SIG_BLOCK', 0);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('SIG_UNBLOCK', 1);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('SIG_SETMASK', 2);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('SIGRTMIN', 34);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('SIGRTMAX', 64);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('SI_USER', 0);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('SI_KERNEL', 128);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('SI_QUEUE', -1);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('SI_TIMER', -2);
 define ('SI_MESGQ', -3);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('SI_ASYNCIO', -4);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('SI_SIGIO', -5);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('SI_TKILL', -6);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('CLD_EXITED', 1);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('CLD_KILLED', 2);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('CLD_DUMPED', 3);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('CLD_TRAPPED', 4);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('CLD_STOPPED', 5);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('CLD_CONTINUED', 6);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('TRAP_BRKPT', 1);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('TRAP_TRACE', 2);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('POLL_IN', 1);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('POLL_OUT', 2);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('POLL_MSG', 3);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('POLL_ERR', 4);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('POLL_PRI', 5);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('POLL_HUP', 6);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('ILL_ILLOPC', 1);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('ILL_ILLOPN', 2);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('ILL_ILLADR', 3);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('ILL_ILLTRP', 4);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('ILL_PRVOPC', 5);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('ILL_PRVREG', 6);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('ILL_COPROC', 7);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('ILL_BADSTK', 8);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('FPE_INTDIV', 1);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('FPE_INTOVF', 2);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('FPE_FLTDIV', 3);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('FPE_FLTOVF', 4);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('FPE_FLTUND', 7);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('FPE_FLTRES', 6);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('FPE_FLTINV', 7);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('FPE_FLTSUB', 8);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('SEGV_MAPERR', 1);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('SEGV_ACCERR', 2);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('BUS_ADRALN', 1);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('BUS_ADRERR', 2);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
- * @since 5.3
  */
 define ('BUS_OBJERR', 3);
 define ('PCNTL_EINTR', 4);
@@ -833,6 +762,51 @@ define ('PCNTL_ENOENT', 2);
 define ('PCNTL_ENOEXEC', 8);
 define ('PCNTL_ENOTDIR', 20);
 define ('PCNTL_ETXTBSY', 26);
+
+/**
+ * @since 7.4
+ */
+define ('PCNTL_ENOSPC', 28);
+
+/**
+ * @since 7.4
+ */
+define ('PCNTL_EUSERS', 87);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWNS', 131072);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWIPC', 134217728);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWUTS', 67108864);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWNET', 1073741824);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWPID', 536870912);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWUSER', 268435456);
+
+/**
+ * @since 7.4
+ */
+define('CLONE_NEWCGROUP', 33554432);
 
 // End of pcntl v.
 ?>

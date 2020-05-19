@@ -91,8 +91,9 @@ const SODIUM_CRYPTO_PWHASH_STRPREFIX = '$argon2id$';
 /**
  * Can you access AES-256-GCM? This is only available if you have supported
  * hardware.
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-aead-aes256gcm-is-available
  * @return bool
+ * @since 7.2
  */
 function sodium_crypto_aead_aes256gcm_is_available(): bool
 {
@@ -102,12 +103,14 @@ function sodium_crypto_aead_aes256gcm_is_available(): bool
 /**
  * Authenticated Encryption with Associated Data (decrypt)
  * AES-256-GCM
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-aead-aes256gcm-decrypt.php
  * @param string $ciphertext encrypted message
  * @param string $ad additional data
  * @param string $nonce
  * @param string $key
  * @return string|false
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_aead_aes256gcm_decrypt(
     string $ciphertext,
@@ -122,12 +125,14 @@ function sodium_crypto_aead_aes256gcm_decrypt(
 /**
  * Authenticated Encryption with Associated Data (encrypt)
  * AES-256-GCM
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-aead-aes256gcm-encrypt.php
  * @param string $msg plaintext message
  * @param string $ad
  * @param string $nonce
  * @param string $key
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_aead_aes256gcm_encrypt(
     string $msg,
@@ -142,12 +147,14 @@ function sodium_crypto_aead_aes256gcm_encrypt(
 /**
  * Authenticated Encryption with Associated Data (decrypt)
  * ChaCha20 + Poly1305
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-decrypt.php
  * @param string $ciphertext encrypted message
  * @param string $ad additional data
  * @param string $nonce
  * @param string $key
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_aead_chacha20poly1305_decrypt(
     string $ciphertext,
@@ -162,12 +169,14 @@ function sodium_crypto_aead_chacha20poly1305_decrypt(
 /**
  * Authenticated Encryption with Associated Data (encrypt)
  * ChaCha20 + Poly1305
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-encrypt.php
  * @param string $msg plaintext message
  * @param string $ad additional data
  * @param string $nonce
  * @param string $key
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_aead_chacha20poly1305_encrypt(
     string $msg,
@@ -182,12 +191,14 @@ function sodium_crypto_aead_chacha20poly1305_encrypt(
 /**
  * Authenticated Encryption with Associated Data (decrypt)
  * ChaCha20 + Poly1305 (IETF version)
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-ietf-decrypt.php
  * @param string $ciphertext encrypted message
  * @param string $ad additional data
  * @param string $nonce
  * @param string $key
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_aead_chacha20poly1305_ietf_decrypt(
     string $ciphertext,
@@ -202,12 +213,14 @@ function sodium_crypto_aead_chacha20poly1305_ietf_decrypt(
 /**
  * Authenticated Encryption with Associated Data (encrypt)
  * ChaCha20 + Poly1305 (IETF version)
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-aead-chacha20poly1305-ietf-encrypt.php
  * @param string $msg plaintext message
  * @param string $ad additional data
  * @param string $nonce
  * @param string $key
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_aead_chacha20poly1305_ietf_encrypt(
     string $msg,
@@ -222,10 +235,12 @@ function sodium_crypto_aead_chacha20poly1305_ietf_encrypt(
 /**
  * Secret-key message authentication
  * HMAC SHA-512/256
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-auth.php
  * @param string $msg
  * @param string $key
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_auth(
     string $msg,
@@ -239,6 +254,7 @@ function sodium_crypto_auth(
  * Get random bytes for key
  * @link https://php.net/manual/en/function.sodium-crypto-auth-keygen.php
  * @return string
+ * @since 7.2
  */
 function sodium_crypto_auth_keygen(): string {}
 
@@ -246,6 +262,8 @@ function sodium_crypto_auth_keygen(): string {}
  * @link https://php.net/manual/en/function.sodium-crypto-kx-keypair.php
  * @since 7.2
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_kx_keypair (): string {}
 
@@ -254,15 +272,18 @@ function sodium_crypto_kx_keypair (): string {}
  * @since 7.2
  * @param string $key
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 
 function sodium_crypto_kx_publickey (string $key): string {}
 
 /**
  * @link https://php.net/manual/en/function.sodium-crypto-kx-secretkey.php
- * @since 7.2
  * @param string $key
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_kx_secretkey (string $key): string {}
 
@@ -271,6 +292,8 @@ function sodium_crypto_kx_secretkey (string $key): string {}
  * @since 7.2
  * @param string $string
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_kx_seed_keypair (string $string): string {}
 
@@ -280,35 +303,39 @@ function sodium_crypto_kx_seed_keypair (string $string): string {}
  * @param string $server_keypair
  * @param string $client_key
  * @return string[]
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_kx_server_session_keys (string $server_keypair , string $client_key): array {}
 
 /**
  * Get random bytes for key
  * @link https://php.net/manual/en/function.sodium-crypto-generichash-keygen.php
- * @since 7.2
  * @return string
+ * @since 7.2
  */
 function sodium_crypto_generichash_keygen(): string {}
 
 
 /**
- * @since 7.2
  * @link https://php.net/manual/en/function.sodium-crypto-kx-client-session-keys.php
  * @param string $client_keypair
  * @param string $server_key
  * @return string[]
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_kx_client_session_keys (string $client_keypair, string $server_key): array {}
 
 /**
- * @link https://php.net/manual/en/function.sodium-crypto-kdf-derive-from-key.php
- * @since 7.2
+ * @link https://www.php.net/manual/en/function.sodium-crypto-kdf-derive-from-key.php
  * @param int $subkey_len
  * @param int $subkey_id
  * @param string $context
  * @param string $key
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_kdf_derive_from_key (int $subkey_len, int $subkey_id, string $context, string $key): string {}
 
@@ -339,19 +366,21 @@ function sodium_crypto_stream_keygen(): string {}
 /**
  * Add padding data
  * @link https://php.net/manual/en/function.sodium-pad.php
- * @since 7.2
  * @param string $string
  * @param int $length
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_pad ($string, $length): string {}
 
 /**
  * Remove padding data
  * @link https://php.net/manual/en/function.sodium-unpad.php
- * @since 7.2
  * @param string $string
  * @param int $length
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_unpad ($string, $length): string {}
 
@@ -360,11 +389,13 @@ function sodium_unpad ($string, $length): string {}
 /**
  * Secret-key message verification
  * HMAC SHA-512/256
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-auth-verify.php
  * @param string $mac
  * @param string $msg
  * @param string $key
  * @return bool
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_auth_verify(
     string $mac,
@@ -378,11 +409,13 @@ function sodium_crypto_auth_verify(
 /**
  * Public-key authenticated encryption (encrypt)
  * X25519 + Xsalsa20 + Poly1305
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-box.php
  * @param string $msg
  * @param string $nonce
  * @param string $keypair
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_box(
     string $msg,
@@ -395,8 +428,10 @@ function sodium_crypto_box(
 
 /**
  * Generate an X25519 keypair for use with the sodium_crypto_box API
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-box-keypair.php
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_box_keypair(): string {
     return '';
@@ -404,9 +439,11 @@ function sodium_crypto_box_keypair(): string {
 
 /**
  * Derive an X25519 keypair for use with the sodium_crypto_box API from a seed
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-box-seed-keypair.php
  * @param string $seed
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_box_seed_keypair(
     string $seed
@@ -417,10 +454,12 @@ function sodium_crypto_box_seed_keypair(
 
 /**
  * Create an X25519 keypair from an X25519 secret key and X25519 public key
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-box-keypair-from-secretkey-and-publickey.php
  * @param string $secretkey
  * @param string $publickey
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_box_keypair_from_secretkey_and_publickey(
     string $secretkey,
@@ -433,11 +472,13 @@ function sodium_crypto_box_keypair_from_secretkey_and_publickey(
 /**
  * Public-key authenticated encryption (decrypt)
  * X25519 + Xsalsa20 + Poly1305
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-box-open.php
  * @param string $msg
  * @param string $nonce
  * @param string $keypair
  * @return string|false
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_box_open(
     string $msg,
@@ -450,9 +491,11 @@ function sodium_crypto_box_open(
 
 /**
  * Get an X25519 public key from an X25519 keypair
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-box-publickey.php
  * @param string $keypair
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_box_publickey(
     string $keypair
@@ -463,9 +506,11 @@ function sodium_crypto_box_publickey(
 
 /**
  * Derive an X25519 public key from an X25519 secret key
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-box-publickey-from-secretkey.php
  * @param string $secretkey
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_box_publickey_from_secretkey(
     string $secretkey
@@ -477,10 +522,12 @@ function sodium_crypto_box_publickey_from_secretkey(
 /**
  * Anonymous public-key encryption (encrypt)
  * X25519 + Xsalsa20 + Poly1305 + BLAKE2b
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-box-seal.php
  * @param string $message
  * @param string $publickey
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_box_seal(
     string $message,
@@ -493,10 +540,12 @@ function sodium_crypto_box_seal(
 /**
  * Anonymous public-key encryption (decrypt)
  * X25519 + Xsalsa20 + Poly1305 + BLAKE2b
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-box-seal-open.php
  * @param string $encrypted
  * @param string $keypair
  * @return string|false
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_box_seal_open(
     string $encrypted,
@@ -508,9 +557,11 @@ function sodium_crypto_box_seal_open(
 
 /**
  * Extract the X25519 secret key from an X25519 keypair
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-box-secretkey.php
  * @param string $keypair
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_box_secretkey(string $keypair): string
 {
@@ -521,12 +572,12 @@ function sodium_crypto_box_secretkey(string $keypair): string
 /**
  * Elliptic Curve Diffie Hellman Key Exchange
  * X25519
- *
  * @param string $secretkey
  * @param string $publickey
  * @param string $client_publickey
  * @param string $server_publickey
  * @return string
+ * @since 7.2
  */
 function sodium_crypto_kx(
     string $secretkey,
@@ -540,11 +591,13 @@ function sodium_crypto_kx(
 
 /**
  * Fast and secure cryptographic hash
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-generichash.php
  * @param string $input
  * @param string $key
  * @param int $length
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_generichash(
     string $input,
@@ -558,10 +611,12 @@ function sodium_crypto_generichash(
 /**
  * Create a new hash state (e.g. to use for streams)
  * BLAKE2b
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-generichash-init.php
  * @param string $key
  * @param int $length
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_generichash_init(
     string $key = '',
@@ -574,10 +629,12 @@ function sodium_crypto_generichash_init(
 /**
  * Update the hash state with some data
  * BLAKE2b
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-generichash-update.php
  * @param string &$state
  * @param string $append
  * @return bool
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_generichash_update(
     string &$state,
@@ -590,10 +647,12 @@ function sodium_crypto_generichash_update(
 /**
  * Get the final hash
  * BLAKE2b
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-generichash-final.php
  * @param string $state
  * @param int $length
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_generichash_final(
     string $state,
@@ -606,7 +665,7 @@ function sodium_crypto_generichash_final(
 /**
  * Secure password-based key derivation function
  * Argon2i
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-pwhash.php
  * @param int $out_len
  * @param string $passwd
  * @param string $salt
@@ -614,6 +673,8 @@ function sodium_crypto_generichash_final(
  * @param int $memlimit
  * @param int $alg [optional]
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_pwhash(
     int $out_len,
@@ -630,11 +691,13 @@ function sodium_crypto_pwhash(
 /**
  * Get a formatted password hash (for storage)
  * Argon2i
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-pwhash-str.php
  * @param string $passwd
  * @param int $opslimit
  * @param int $memlimit
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_pwhash_str(
     string $passwd,
@@ -648,10 +711,12 @@ function sodium_crypto_pwhash_str(
 /**
  * Verify a password against a hash
  * Argon2i
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-pwhash-str-verify.php
  * @param string $hash
  * @param string $passwd
  * @return bool
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_pwhash_str_verify(
     string $hash,
@@ -664,7 +729,7 @@ function sodium_crypto_pwhash_str_verify(
 /**
  * Secure password-based key derivation function
  * Scrypt
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-pwhash-scryptsalsa208sha256.php
  * @param int $out_len
  * @param string $passwd
  * @param string $salt
@@ -672,6 +737,8 @@ function sodium_crypto_pwhash_str_verify(
  * @param int $memlimit
  * @param int $alg [optional]
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_pwhash_scryptsalsa208sha256(
     int $out_len,
@@ -688,11 +755,13 @@ function sodium_crypto_pwhash_scryptsalsa208sha256(
 /**
  * Get a formatted password hash (for storage)
  * Scrypt
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-pwhash-scryptsalsa208sha256-str.php
  * @param string $passwd
  * @param int $opslimit
  * @param int $memlimit
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_pwhash_scryptsalsa208sha256_str(
     string $passwd,
@@ -706,10 +775,11 @@ function sodium_crypto_pwhash_scryptsalsa208sha256_str(
 /**
  * Verify a password against a hash
  * Scrypt
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-pwhash-scryptsalsa208sha256-str-verify
  * @param string $hash
  * @param string $passwd
  * @return bool
+ * @since 7.2
  */
 function sodium_crypto_pwhash_scryptsalsa208sha256_str_verify(
     string $hash,
@@ -722,10 +792,12 @@ function sodium_crypto_pwhash_scryptsalsa208sha256_str_verify(
 /**
  * Elliptic Curve Diffie Hellman over Curve25519
  * X25519
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-scalarmult.php
  * @param string $ecdhA
  * @param string $ecdhB
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_scalarmult(
     string $ecdhA,
@@ -738,11 +810,13 @@ function sodium_crypto_scalarmult(
 /**
  * Authenticated secret-key encryption (encrypt)
  * Xsals20 + Poly1305
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-secretbox.php
  * @param string $plaintext
  * @param string $nonce
  * @param string $key
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_secretbox(
     string $plaintext,
@@ -756,11 +830,13 @@ function sodium_crypto_secretbox(
 /**
  * Authenticated secret-key encryption (decrypt)
  * Xsals20 + Poly1305
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-secretbox-open.php
  * @param string $ciphertext
  * @param string $nonce
  * @param string $key
  * @return string|false
+ * @throws SodiumException
+ * @since 7.2.0
  */
 function sodium_crypto_secretbox_open(
     string $ciphertext,
@@ -774,10 +850,12 @@ function sodium_crypto_secretbox_open(
 /**
  * A short keyed hash suitable for data structures
  * SipHash-2-4
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-shorthash.php
  * @param string $message
  * @param string $key
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_shorthash(
     string $message,
@@ -790,10 +868,12 @@ function sodium_crypto_shorthash(
 /**
  * Digital Signature
  * Ed25519
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-sign.php
  * @param string $message
  * @param string $secretkey
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_sign(
     string $message,
@@ -806,10 +886,12 @@ function sodium_crypto_sign(
 /**
  * Digital Signature (detached)
  * Ed25519
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-sign-detached.php
  * @param string $message
  * @param string $secretkey
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_sign_detached(
     string $message,
@@ -821,9 +903,11 @@ function sodium_crypto_sign_detached(
 
 /**
  * Convert an Ed25519 public key to an X25519 public key
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-sign-ed25519-pk-to-curve25519.php
  * @param string $sign_pk
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_sign_ed25519_pk_to_curve25519(
     string $sign_pk
@@ -834,9 +918,11 @@ function sodium_crypto_sign_ed25519_pk_to_curve25519(
 
 /**
  * Convert an Ed25519 secret key to an X25519 secret key
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-sign-ed25519-sk-to-curve25519.php
  * @param string $sign_sk
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_sign_ed25519_sk_to_curve25519(
     string $sign_sk
@@ -847,8 +933,10 @@ function sodium_crypto_sign_ed25519_sk_to_curve25519(
 
 /**
  * Generate an Ed25519 keypair for use with the crypto_sign API
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-sign-keypair.php
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_sign_keypair(): string
 {
@@ -858,10 +946,12 @@ function sodium_crypto_sign_keypair(): string
 
 /**
  * Create an Ed25519 keypair from an Ed25519 secret key + Ed25519 public key
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-sign-keypair-from-secretkey-and-publickey.php
  * @param string $secretkey
  * @param string $publickey
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_sign_keypair_from_secretkey_and_publickey(
     string $secretkey,
@@ -873,10 +963,12 @@ function sodium_crypto_sign_keypair_from_secretkey_and_publickey(
 
 /**
  * Verify a signed message and return the plaintext
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-sign-open.php
  * @param string $signed_message
  * @param string $publickey
  * @return string|false
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_sign_open(
     string $signed_message,
@@ -888,9 +980,11 @@ function sodium_crypto_sign_open(
 
 /**
  * Get the public key from an Ed25519 keypair
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-sign-publickey.php
  * @param string $keypair
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_sign_publickey(
     string $keypair
@@ -901,9 +995,11 @@ function sodium_crypto_sign_publickey(
 
 /**
  * Get the secret key from an Ed25519 keypair
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-sign-secretkey.php
  * @param string $keypair
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_sign_secretkey(
     string $keypair
@@ -914,9 +1010,11 @@ function sodium_crypto_sign_secretkey(
 
 /**
  * Derive an Ed25519 public key from an Ed25519 secret key
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-sign-publickey-from-secretkey.php
  * @param string $secretkey
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_sign_publickey_from_secretkey(
     string $secretkey
@@ -927,9 +1025,11 @@ function sodium_crypto_sign_publickey_from_secretkey(
 
 /**
  * Derive an Ed25519 keypair for use with the crypto_sign API from a seed
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-sign-seed-keypair.php
  * @param string $seed
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_sign_seed_keypair(
     string $seed
@@ -940,11 +1040,13 @@ function sodium_crypto_sign_seed_keypair(
 
 /**
  * Verify a detached signature
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-sign-verify-detached.php
  * @param string $signature
  * @param string $msg
  * @param string $publickey
  * @return bool
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_sign_verify_detached(
     string $signature,
@@ -958,11 +1060,13 @@ function sodium_crypto_sign_verify_detached(
 /**
  * Create a keystream from a key and nonce
  * Xsalsa20
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-stream.php
  * @param int $length
  * @param string $nonce
  * @param string $key
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_stream(
     int $length,
@@ -976,11 +1080,13 @@ function sodium_crypto_stream(
 /**
  * Encrypt a message using a stream cipher
  * Xsalsa20
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-stream-xor.php
  * @param string $plaintext
  * @param string $nonce
  * @param string $key
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_stream_xor(
     string $plaintext,
@@ -997,6 +1103,7 @@ function sodium_crypto_stream_xor(
  *
  * @param int $length
  * @return string
+ * @since 7.2
  */
 function sodium_randombytes_buf(
     int $length
@@ -1010,6 +1117,7 @@ function sodium_randombytes_buf(
  * /dev/urandom
  *
  * @return int
+ * @since 7.2
  */
 function sodium_randombytes_random16(): int {
     return '';
@@ -1021,6 +1129,7 @@ function sodium_randombytes_random16(): int {
  *
  * @param int $upperBoundNonInclusive
  * @return int
+ * @since 7.2
  */
 function sodium_randombytes_uniform(
     int $upperBoundNonInclusive
@@ -1031,9 +1140,11 @@ function sodium_randombytes_uniform(
 
 /**
  * Convert to hex without side-chanels
- *
+ * @link https://www.php.net/manual/en/function.sodium-bin2hex.php
  * @param string $binary
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_bin2hex(
     string $binary
@@ -1044,10 +1155,12 @@ function sodium_bin2hex(
 
 /**
  * Compare two strings in constant time
- *
+ * @link https://www.php.net/manual/en/function.sodium-compare.php
  * @param string $left
  * @param string $right
  * @return int
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_compare(
     string $left,
@@ -1059,10 +1172,12 @@ function sodium_compare(
 
 /**
  * Convert from hex without side-chanels
- *
+ * @link https://www.php.net/manual/en/function.sodium-hex2bin.php
  * @param string $binary
  * @param string $ignore [optional]
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_hex2bin(
     string $hex, string $ignore
@@ -1073,9 +1188,11 @@ function sodium_hex2bin(
 
 /**
  * Increment a string in little-endian
- *
+ * @link https://www.php.net/manual/en/function.sodium-increment.php
  * @param string &$nonce
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_increment(
     string &$nonce
@@ -1085,9 +1202,11 @@ function sodium_increment(
 
 /**
  * Add the right operand to the left
- *
+ * @link https://www.php.net/manual/en/function.sodium-add.php
  * @param string &$left
  * @param string $right
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_add(
     string &$left,
@@ -1099,6 +1218,7 @@ function sodium_add(
 /**
  * Get the true major version of libsodium
  * @return int
+ * @since 7.2
  */
 function sodium_library_version_major(): int {
     return 0;
@@ -1107,6 +1227,7 @@ function sodium_library_version_major(): int {
 /**
  * Get the true minor version of libsodium
  * @return int
+ * @since 7.2
  */
 function sodium_library_version_minor(): int {
     return 0;
@@ -1114,10 +1235,12 @@ function sodium_library_version_minor(): int {
 
 /**
  * Compare two strings in constant time
- *
+ * @link https://www.php.net/manual/en/function.sodium-memcmp.php
  * @param string $left
  * @param string $right
  * @return int
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_memcmp(
     string $left,
@@ -1129,8 +1252,9 @@ function sodium_memcmp(
 
 /**
  * Wipe a buffer
- *
+ * @link https://www.php.net/manual/en/function.sodium-memzero.php
  * @param string &$nonce
+ * @throws SodiumException
  * @since 7.2
  */
 function sodium_memzero(
@@ -1143,6 +1267,7 @@ function sodium_memzero(
  * Get the version string
  *
  * @return string
+ * @since 7.2
  */
 function sodium_version_string(): string {
     return 'NA';
@@ -1150,10 +1275,12 @@ function sodium_version_string(): string {
 
 /**
  * Scalar multiplication of the base point and your key
- *
+ * @link https://www.php.net/manual/en/function.sodium-crypto-scalarmult-base
  * @param string $string_1
  * @param string $string_2
  * @return string
+ * @throws SodiumException
+ * @since 7.2
  */
 function sodium_crypto_scalarmult_base(
     string $string_1, string $string_2
@@ -1207,12 +1334,14 @@ function sodium_crypto_aead_chacha20poly1305_keygen(): string {}
 function sodium_crypto_aead_chacha20poly1305_ietf_keygen(): string {}
 
 /**
+ * @throws SodiumException
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-decrypt.php
  */
 function sodium_crypto_aead_xchacha20poly1305_ietf_decrypt(string $ciphertext,string $ad,string $nonce,string $key): string {}
 
 /**
+ * @throws SodiumException
  * @since 7.2
  * https://www.php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-encrypt.php
  */
@@ -1237,6 +1366,7 @@ function sodium_crypto_pwhash_str_needs_rehash(string $password, int $opslimit, 
 function sodium_crypto_secretstream_xchacha20poly1305_keygen(): string {}
 
 /**
+ * @throws SodiumException
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-init-push.php
  */
@@ -1247,36 +1377,42 @@ function sodium_crypto_secretstream_xchacha20poly1305_init_push(string $key): ar
  * @param string $msg
  * @param string $ad [optional]
  * @param int $tag [optional]
+ * @throws SodiumException
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-push.php
  */
 function sodium_crypto_secretstream_xchacha20poly1305_push(string &$state, string $msg, string $ad, int $tag): string{}
 
 /**
+ * @throws SodiumException
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-init-pull.php
  */
 function sodium_crypto_secretstream_xchacha20poly1305_init_pull($header, $key): string{}
 
 /**
+ * @throws SodiumException
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-pull.php
  */
 function sodium_crypto_secretstream_xchacha20poly1305_pull(string &$state, string $c, string $ad = ''): array {}
 
 /**
+ * @throws SodiumException
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-rekey.php
  */
 function sodium_crypto_secretstream_xchacha20poly1305_rekey(string &$state): void{}
 
 /**
+ * @throws SodiumException
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-bin2base64.php
  */
 function sodium_bin2base64(string $bin, int $id): string {}
 
 /**
+ * @throws SodiumException
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-base642bin.php
  */

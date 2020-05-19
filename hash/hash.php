@@ -197,7 +197,6 @@ function hash_final ($context, $raw_output = false) {}
  * Hashing context returned by <b>hash_init</b>.
  * </p>
  * @return resource a copy of Hashing Context resource.
- * @since 5.3
  */
 function hash_copy ($context) {}
 
@@ -291,8 +290,6 @@ function hash_pbkdf2 ($algo, $password, $salt, $iterations, $length = 0, $raw_ou
  * The key length, in bytes.
  * </p>
  * @return string|false the generated key as a string, or <b>FALSE</b> on error.
- * @since 4.0.4
- * @since 5.0
  */
 function mhash_keygen_s2k ($hash, $password, $salt, $bytes) {}
 
@@ -304,8 +301,6 @@ function mhash_keygen_s2k ($hash, $password, $salt, $bytes) {}
  * </p>
  * @return int|false the size in bytes or <b>FALSE</b>, if the <i>hash</i>
  * does not exist.
- * @since 4.0
- * @since 5.0
  */
 function mhash_get_block_size ($hash) {}
 
@@ -316,8 +311,6 @@ function mhash_get_block_size ($hash) {}
  * The hash ID. One of the <b>MHASH_hashname</b> constants.
  * </p>
  * @return string|false the name of the hash or <b>FALSE</b>, if the hash does not exist.
- * @since 4.0
- * @since 5.0
  */
 function mhash_get_hash_name ($hash) {}
 
@@ -326,8 +319,6 @@ function mhash_get_hash_name ($hash) {}
  * @link https://php.net/manual/en/function.mhash-count.php
  * @return int the highest available hash ID. Hashes are numbered from 0 to this
  * hash ID.
- * @since 4.0
- * @since 5.0
  */
 function mhash_count () {}
 
@@ -348,8 +339,6 @@ function mhash_count () {}
  * </p>
  * @return string the resulting hash (also called digest) or HMAC as a string, or
  * <b>FALSE</b> on error.
- * @since 4.0
- * @since 5.0
  */
 function mhash ($hash, $data, $key = null) {}
 
@@ -362,6 +351,10 @@ function mhash ($hash, $data, $key = null) {}
  */
 define ('HASH_HMAC', 1);
 define ('MHASH_CRC32', 0);
+/**
+ * @since 7.4
+ */
+define ('MHASH_CRC32C', 34);
 define ('MHASH_MD5', 1);
 define ('MHASH_SHA1', 2);
 define ('MHASH_HAVAL256', 3);

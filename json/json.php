@@ -7,6 +7,7 @@
  * can customize their JSON representation when encoded with
  * <b>json_encode</b>.
  * @link https://php.net/manual/en/class.jsonserializable.php
+ * @since 5.4
  */
 interface JsonSerializable  {
 
@@ -132,7 +133,6 @@ function json_decode ($json, $assoc = false, $depth = 512, $options = 0) {}
  * @link https://php.net/manual/en/function.json-last-error.php
  * @return int an integer, the value can be one of the following
  * constants:
- * @since 5.3
  */
 function json_last_error () {}
 
@@ -147,28 +147,24 @@ function json_last_error_msg () {}
 
 /**
  * All &lt; and &gt; are converted to \u003C and \u003E.
- * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_HEX_TAG', 1);
 
 /**
  * All &#38;#38;s are converted to \u0026.
- * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_HEX_AMP', 2);
 
 /**
  * All ' are converted to \u0027.
- * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_HEX_APOS', 4);
 
 /**
  * All " are converted to \u0022.
- * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_HEX_QUOT', 8);
@@ -177,7 +173,6 @@ define ('JSON_HEX_QUOT', 8);
  * Outputs an object rather than an array when a non-associative array is
  * used. Especially useful when the recipient of the output is expecting
  * an object and the array is empty.
- * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_FORCE_OBJECT', 16);
@@ -213,14 +208,12 @@ define ('JSON_PARTIAL_OUTPUT_ON_ERROR', 512);
 
 /**
  * Occurs with underflow or with the modes mismatch.
- * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_ERROR_STATE_MISMATCH', 2);
 
 /**
  * Control character error, possibly incorrectly encoded.
- * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_ERROR_CTRL_CHAR', 3);
@@ -278,21 +271,18 @@ define ('JSON_ERROR_UNSUPPORTED_TYPE', 8);
 
 /**
  * No error has occurred.
- * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_ERROR_NONE', 0);
 
 /**
  * The maximum stack depth has been exceeded.
- * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_ERROR_DEPTH', 1);
 
 /**
  * Syntax error.
- * @since 5.3
  * @link https://php.net/manual/en/json.constants.php
  */
 define ('JSON_ERROR_SYNTAX', 4);

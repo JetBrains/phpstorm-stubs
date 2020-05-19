@@ -51,7 +51,7 @@ class SyncMutex {
 /**
  * SyncSemaphore
  *
- * A cross-platform, native implementation of named and unnamed sempahore objects.
+ * A cross-platform, native implementation of named and unnamed semaphore objects.
  * A semaphore restricts access to a limited resource to a limited number of instances. Semaphores differ from mutexes in that they can allow more than one instance to access a resource at one time while a mutex only allows one instance at a time.
  *
  * @link https://php.net/manual/en/class.syncsemaphore.php

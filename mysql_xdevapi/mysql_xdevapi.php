@@ -198,7 +198,7 @@ class Collection  {
 
     /**
      * Remove one collection document
-     * Remove one document from the collection with the correspending ID. This is a shortcut for Collection.remove("_id = :id").bind("id", id).execute().
+     * Remove one document from the collection with the corresponding ID. This is a shortcut for Collection.remove("_id = :id").bind("id", id).execute().
      * @link https://www.php.net/manual/en/mysql-xdevapi-collection.removeone.php
      * @param string $id
      * @return \mysql_xdevapi\Result

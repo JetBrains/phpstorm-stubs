@@ -517,7 +517,7 @@ final class SQLiteException extends RuntimeException  {
 	/**
 	 * Clone the exception
 	 * @link https://php.net/manual/en/exception.clone.php
-	 * @return void 
+	 * @return void
 	 * @since 5.1.0
 	 */
 	final private function __clone () {}
@@ -740,11 +740,10 @@ function sqlite_fetch_array ($result, $result_type = SQLITE_BOTH, $decode_binary
  * Fetches the next row from a result set as an object
  * @link https://php.net/manual/en/function.sqlite-fetch-object.php
  * @param resource $result
- * @param string $class_name [optional] 
- * @param array $ctor_params [optional] 
- * @param bool $decode_binary [optional] 
+ * @param string $class_name [optional]
+ * @param array $ctor_params [optional]
+ * @param bool $decode_binary [optional]
  * @return object
- * @since 5.0
  */
 function sqlite_fetch_object ($result, $class_name = null, array $ctor_params = null, $decode_binary = null) {}
 
@@ -953,7 +952,6 @@ function sqlite_next ($result) {}
  * <blockquote><p><b>Note</b>: </p><p>This function cannot be used with
  * unbuffered result handles.</p></blockquote>
  * @return bool true on success, or false if there are no more previous rows.
- * @since 5.0
  */
 function sqlite_prev ($result) {}
 
@@ -968,7 +966,6 @@ function sqlite_prev ($result) {}
  * unbuffered result handles.</p></blockquote>
  * @return bool <b>TRUE</b> if there are more rows available from the
  * result handle, or <b>FALSE</b> otherwise.
- * @since 5.0
  */
 function sqlite_valid ($result) {}
 
@@ -993,7 +990,6 @@ function sqlite_has_more ($result) {}
  * </p>
  * @return bool <b>TRUE</b> if there are more previous rows available from the
  * result handle, or <b>FALSE</b> otherwise.
- * @since 5.0
  */
 function sqlite_has_prev ($result) {}
 
@@ -1154,7 +1150,6 @@ function sqlite_create_function ($dbhandle, $function_name, $callback, $num_args
  * explaining why the database could not be opened if there was an error.
  * </p>
  * @return SQLiteDatabase a SQLiteDatabase object on success, &null; on error.
- * @since 5.0
  */
 function sqlite_factory ($filename, $mode = null, &$error_message = null) {}
 
@@ -1176,7 +1171,7 @@ function sqlite_udf_encode_binary ($data) {}
  * @param string $data <p>
  * The encoded data that will be decoded, data that was applied by either
  * sqlite_udf_encode_binary or
- * sqlite_escape_string. 
+ * sqlite_escape_string.
  * </p>
  * @return string The decoded string.
  */
@@ -1202,7 +1197,6 @@ function sqlite_udf_decode_binary ($data) {}
  * this function.
  * </p>
  * @return array|false an array of column data types; false on error.
- * @since 5.0
  */
 function sqlite_fetch_column_types ($dbhandle, $table_name, $result_type = null) {}
 
@@ -1403,4 +1397,3 @@ define ('SQLITE_DONE', 101);
  * @link https://php.net/manual/en/sqlite.constants.php
  */
 define('SQLITE3_DETERMINISTIC', 2048);
-

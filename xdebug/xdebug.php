@@ -127,7 +127,7 @@ function xdebug_is_enabled () {}
 /**
  * Starts recording all notices, warnings and errors and prevents their display
  *
- * When this function is executed, Xdebug will cause PHP not to display any notices, warnings or errors. 
+ * When this function is executed, Xdebug will cause PHP not to display any notices, warnings or errors.
  * Instead, they are formatted according to Xdebug's normal error formatting rules (ie, the error table
  * with the red exclamation mark) and then stored in a buffer.
  * This will continue until you call xdebug_stop_error_collection().

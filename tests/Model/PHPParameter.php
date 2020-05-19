@@ -4,14 +4,15 @@ declare(strict_types=1);
 namespace StubTests\Model;
 
 use PhpParser\Node\Param;
+use ReflectionNamedType;
 use ReflectionParameter;
 use stdClass;
 
 class PHPParameter extends BasePHPElement
 {
-    public $type = '';
-    public $is_vararg;
-    public $is_passed_by_ref;
+    public string $type = '';
+    public bool $is_vararg;
+    public bool $is_passed_by_ref;
 
     /**
      * @param ReflectionParameter $parameter
@@ -20,8 +21,9 @@ class PHPParameter extends BasePHPElement
     public function readObjectFromReflection($parameter): self
     {
         $this->name = $parameter->name;
-        if (!empty($parameter->getType())) {
-            $this->type = $parameter->getType()->getName();
+        $parameterType = $parameter->getType();
+        if ($parameterType !== null && $parameterType instanceof ReflectionNamedType) {
+            $this->type = $parameterType->getName();
         }
         $this->is_vararg = $parameter->isVariadic();
         $this->is_passed_by_ref = $parameter->isPassedByReference();

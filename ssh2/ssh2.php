@@ -231,7 +231,7 @@ function ssh2_fingerprint ($session, $flags = null) {}
  * @param string $username <p>
  * Remote user name.
  * </p>
- * @return mixed true if the server does accept "none" as an authentication
+ * @return array|bool true if the server does accept "none" as an authentication
  * method, or an array of accepted authentication methods on failure.
  */
 function ssh2_auth_none ($session, $username) {}

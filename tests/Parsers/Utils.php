@@ -10,7 +10,7 @@ use RecursiveIteratorIterator;
 
 class Utils
 {
-    public static function flattenArray(array $arr, bool $group)
+    public static function flattenArray(array $arr, bool $group): array
     {
         return iterator_to_array(new RecursiveIteratorIterator(new RecursiveArrayIterator($arr)), $group);
     }

@@ -217,7 +217,6 @@ class tidy  {
 	 * </p>
 	 * @return string a string if the option exists and has documentation available, or
 	 * <b>FALSE</b> otherwise.
-	 * @since 5.1
 	 */
 	public function getOptDoc ($optname) {}
 
@@ -773,7 +772,6 @@ function tidy_config_count (tidy $object) {}
  * </p>
  * @return string a string if the option exists and has documentation available, or
  * <b>FALSE</b> otherwise.
- * @since 5.1
  */
 function tidy_get_opt_doc (tidy $object, $optname) {}
 
@@ -832,7 +830,6 @@ function tidy_get_body (tidy $object) {}
  * The buffer mode.
  * </p>
  * @return string the modified buffer.
- * @since 5.0
  */
 function ob_tidyhandler ($input, $mode = null) {}
 

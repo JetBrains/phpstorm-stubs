@@ -5,14 +5,11 @@ namespace StubTests\Model;
 
 use PhpParser\Node\Stmt\Interface_;
 use ReflectionClass;
-use ReflectionClassConstant;
-use ReflectionException;
-use ReflectionMethod;
 use stdClass;
 
 class PHPInterface extends BasePHPClass
 {
-    public $parentInterfaces = [];
+    public array $parentInterfaces = [];
 
     /**
      * @param ReflectionClass $interface
@@ -20,26 +17,19 @@ class PHPInterface extends BasePHPClass
      */
     public function readObjectFromReflection($interface): self
     {
-        try {
-            $reflectionInterface = new ReflectionClass($interface);
-            $this->name = $reflectionInterface->getName();
-            /**@var ReflectionMethod $method */
-            foreach ($reflectionInterface->getMethods() as $method) {
-                if ($method->getDeclaringClass()->getName() !== $this->name) {
-                    continue;
-                }
-                $this->methods[$method->name] = (new PHPMethod())->readObjectFromReflection($method);
+        $this->name = $interface->getName();
+        foreach ($interface->getMethods() as $method) {
+            if ($method->getDeclaringClass()->getName() !== $this->name) {
+                continue;
             }
-            $this->parentInterfaces = $reflectionInterface->getInterfaceNames();
-            /**@var ReflectionClassConstant $constant */
-            foreach ($reflectionInterface->getReflectionConstants() as $constant) {
-                if ($constant->getDeclaringClass()->getName() !== $this->name) {
-                    continue;
-                }
-                $this->constants[$constant->name] = (new PHPConst())->readObjectFromReflection($constant);
+            $this->methods[$method->name] = (new PHPMethod())->readObjectFromReflection($method);
+        }
+        $this->parentInterfaces = $interface->getInterfaceNames();
+        foreach ($interface->getReflectionConstants() as $constant) {
+            if ($constant->getDeclaringClass()->getName() !== $this->name) {
+                continue;
             }
-        } catch (ReflectionException $ex) {
-            $this->parseError = $ex;
+            $this->constants[$constant->name] = (new PHPConst())->readObjectFromReflection($constant);
         }
         return $this;
     }
@@ -51,8 +41,7 @@ class PHPInterface extends BasePHPClass
     public function readObjectFromStubNode($node): self
     {
         $this->name = $this->getFQN($node);
-        $this->collectLinks($node);
-        $this->collectSinceDeprecatedVersions($node);
+        $this->collectTags($node);
         if (!empty($node->extends)) {
             $this->parentInterfaces[] = implode('\\', $node->extends[0]->parts);
         }

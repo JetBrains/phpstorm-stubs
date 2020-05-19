@@ -9,8 +9,6 @@
  * A julian day number as integer
  * </p>
  * @return string The gregorian date as a string in the form "month/day/year"
- * @since 4.0
- * @since 5.0
  */
 function jdtogregorian ($julianday) {}
 
@@ -27,8 +25,6 @@ function jdtogregorian ($julianday) {}
  * The year as a number between -4714 and 9999
  * </p>
  * @return int The julian day for the given gregorian date as an integer.
- * @since 4.0
- * @since 5.0
  */
 function gregoriantojd ($month, $day, $year) {}
 
@@ -39,8 +35,6 @@ function gregoriantojd ($month, $day, $year) {}
  * A julian day number as integer
  * </p>
  * @return string The julian date as a string in the form "month/day/year"
- * @since 4.0
- * @since 5.0
  */
 function jdtojulian ($julianday) {}
 
@@ -57,8 +51,6 @@ function jdtojulian ($julianday) {}
  * The year as a number between -4713 and 9999
  * </p>
  * @return int The julian day for the given julian date as an integer.
- * @since 4.0
- * @since 5.0
  */
 function juliantojd ($month, $day, $year) {}
 
@@ -78,8 +70,6 @@ function juliantojd ($month, $day, $year) {}
  * <b>CAL_JEWISH_ADD_GERESHAYIM</b>.
  * </p>
  * @return string The jewish date as a string in the form "month/day/year"
- * @since 4.0
- * @since 5.0
  */
 function jdtojewish ($juliandaycount, $hebrew = false, $fl = 0) {}
 
@@ -96,8 +86,6 @@ function jdtojewish ($juliandaycount, $hebrew = false, $fl = 0) {}
  * The year as a number between 1 and 9999
  * </p>
  * @return int The julian day for the given jewish date as an integer.
- * @since 4.0
- * @since 5.0
  */
 function jewishtojd ($month, $day, $year) {}
 
@@ -106,8 +94,6 @@ function jewishtojd ($month, $day, $year) {}
  * @link https://php.net/manual/en/function.jdtofrench.php
  * @param int $juliandaycount
  * @return string The french revolution date as a string in the form "month/day/year"
- * @since 4.0
- * @since 5.0
  */
 function jdtofrench ($juliandaycount) {}
 
@@ -124,8 +110,6 @@ function jdtofrench ($juliandaycount) {}
  * The year as a number between 1 and 14
  * </p>
  * @return int The julian day for the given french revolution date as an integer.
- * @since 4.0
- * @since 5.0
  */
 function frenchtojd ($month, $day, $year) {}
 
@@ -163,8 +147,6 @@ function frenchtojd ($month, $day, $year) {}
  * </tr>
  * </table>
  * @return mixed The gregorian weekday as either an integer or string.
- * @since 4.0
- * @since 5.0
  */
 function jddayofweek ($julianday, $mode = CAL_DOW_DAYNO) {}
 
@@ -174,8 +156,6 @@ function jddayofweek ($julianday, $mode = CAL_DOW_DAYNO) {}
  * @param int $julianday
  * @param int $mode
  * @return string The month name for the given Julian Day and <i>calendar</i>.
- * @since 4.0
- * @since 5.0
  */
 function jdmonthname ($julianday, $mode) {}
 
@@ -186,8 +166,6 @@ function jdmonthname ($julianday, $mode) {}
  * The year as a number between 1970 an 2037
  * </p>
  * @return int The easter date as a unix timestamp.
- * @since 4.0
- * @since 5.0
  */
 function easter_date ($year = null) {}
 
@@ -205,8 +183,6 @@ function easter_date ($year = null) {}
  * </p>
  * @return int The number of days after March 21st that the Easter Sunday
  * is in the given <i>year</i>.
- * @since 4.0
- * @since 5.0
  */
 function easter_days ($year = null, $method = CAL_EASTER_DEFAULT) {}
 
@@ -217,8 +193,6 @@ function easter_days ($year = null, $method = CAL_EASTER_DEFAULT) {}
  * A unix timestamp to convert.
  * </p>
  * @return int A julian day number as integer.
- * @since 4.0
- * @since 5.0
  */
 function unixtojd ($timestamp = 0) {}
 
@@ -229,8 +203,6 @@ function unixtojd ($timestamp = 0) {}
  * A julian day number between 2440588 and 2465342.
  * </p>
  * @return int The unix timestamp for the start of the given julian day.
- * @since 4.0
- * @since 5.0
  */
 function jdtounix ($jday) {}
 
@@ -257,8 +229,6 @@ function jdtounix ($jday) {}
  * on the <i>calendar</i>
  * </p>
  * @return int A Julian Day number.
- * @since 4.1
- * @since 5.0
  */
 function cal_to_jd ($calendar, $month, $day, $year) {}
 
@@ -274,8 +244,6 @@ function cal_to_jd ($calendar, $month, $day, $year) {}
  * @return array an array containing calendar information like month, day, year,
  * day of week, abbreviated and full names of weekday and month and the
  * date in string form "month/day/year".
- * @since 4.1
- * @since 5.0
  */
 function cal_from_jd ($jd, $calendar) {}
 
@@ -292,8 +260,6 @@ function cal_from_jd ($jd, $calendar) {}
  * Year in the selected calendar
  * </p>
  * @return int The length in days of the selected month in the given calendar
- * @since 4.1
- * @since 5.0
  */
 function cal_days_in_month ($calendar, $month, $year) {}
 
@@ -305,8 +271,6 @@ function cal_days_in_month ($calendar, $month, $year) {}
  * information about all calendars is returned.
  * </p>
  * @return array
- * @since 4.1
- * @since 5.0
  */
 function cal_info ($calendar = -1) {}
 

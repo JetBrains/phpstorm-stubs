@@ -433,7 +433,7 @@ function oci_define_by_name ($statement, $column_name, &$variable, $type = SQLT_
  * Binds a PHP variable to an Oracle placeholder
  * @link https://php.net/manual/en/function.oci-bind-by-name.php
  * @param resource $statement <p>
- * A valid OCI8 statement identifer.
+ * A valid OCI8 statement identifier.
  * </p>
  * @param string $bv_name <p>
  * The colon-prefixed bind variable placeholder used in the

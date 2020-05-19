@@ -23,19 +23,17 @@ function boolval($var) {}
  * objects return 1.
  * </p>
  * <p>
- * The maximum value depends on the system. 32 bit systems have a 
- * maximum signed integer range of -2147483648 to 2147483647. So for example 
- * on such a system, intval('1000000000000') will return 
- * 2147483647. The maximum signed integer value for 64 bit systems is 
+ * The maximum value depends on the system. 32 bit systems have a
+ * maximum signed integer range of -2147483648 to 2147483647. So for example
+ * on such a system, intval('1000000000000') will return
+ * 2147483647. The maximum signed integer value for 64 bit systems is
  * 9223372036854775807.
  * </p>
  * <p>
- * Strings will most likely return 0 although this depends on the 
- * leftmost characters of the string. The common rules of 
- * integer casting 
+ * Strings will most likely return 0 although this depends on the
+ * leftmost characters of the string. The common rules of
+ * integer casting
  * apply.
- * @since 4.0
- * @since 5.0
  */
 function intval ($var, $base = 10) {}
 
@@ -44,8 +42,6 @@ function intval ($var, $base = 10) {}
  * @link https://php.net/manual/en/function.floatval.php
  * @param mixed $var May be any scalar type. should not be used on objects, as doing so will emit an E_NOTICE level error and return 1.
  * @return float value of the given variable. Empty arrays return 0, non-empty arrays return 1.
- * @since 4.2
- * @since 5.0
  */
 function floatval ($var) {}
 
@@ -67,12 +63,10 @@ function doubleval ($var) {}
  * The variable that is being converted to a string.
  * </p>
  * <p>
- * $var may be any scalar type or an object that implements the __toString() method. 
+ * $var may be any scalar type or an object that implements the __toString() method.
  * You cannot use strval() on arrays or objects that do not implement the __toString() method.
  * </p>
  * @return string The string value of var.
- * @since 4.0
- * @since 5.0
  */
 function strval ($var) {}
 
@@ -95,8 +89,6 @@ function strval ($var) {}
  * "NULL"
  * "unknown type"
  * "resource (closed)" since 7.2.0
- * @since 4.0
- * @since 5.0
  */
 function gettype ($var) {}
 
@@ -133,8 +125,6 @@ function gettype ($var) {}
  * </li>
  * </ul>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function settype (&$var, $type) {}
 
@@ -146,8 +136,6 @@ function settype (&$var, $type) {}
  * </p>
  * @return bool true if var is null, false
  * otherwise.
- * @since 4.0.4
- * @since 5.0
  */
 function is_null ($var) {}
 
@@ -159,8 +147,6 @@ function is_null ($var) {}
  * </p>
  * @return bool true if var is a resource,
  * false otherwise.
- * @since 4.0
- * @since 5.0
  */
 function is_resource ($var) {}
 
@@ -172,8 +158,6 @@ function is_resource ($var) {}
  * </p>
  * @return bool true if var is a boolean,
  * false otherwise.
- * @since 4.0
- * @since 5.0
  */
 function is_bool ($var) {}
 
@@ -185,8 +169,6 @@ function is_bool ($var) {}
  * </p>
  * @return bool true if var is an integer,
  * false otherwise.
- * @since 4.0
- * @since 5.0
  */
 function is_long ($var) {}
 
@@ -196,10 +178,8 @@ function is_long ($var) {}
  * @param mixed $var <p>
  * The variable being evaluated.
  * </p>
- * @return bool true if var is a float, 
+ * @return bool true if var is a float,
  * false otherwise.
- * @since 4.0
- * @since 5.0
  */
 function is_float ($var) {}
 
@@ -209,10 +189,8 @@ function is_float ($var) {}
  * @param mixed $var <p>
  * The variable being evaluated.
  * </p>
- * @return bool true if var is an integer, 
+ * @return bool true if var is an integer,
  * false otherwise.
- * @since 4.0
- * @since 5.0
  */
 function is_int ($var) {}
 
@@ -224,8 +202,6 @@ function is_int ($var) {}
  * </p>
  * @return bool true if var is an integer,
  * false otherwise.
- * @since 4.0
- * @since 5.0
  */
 function is_integer ($var) {}
 
@@ -237,8 +213,6 @@ function is_integer ($var) {}
  * </p>
  * @return bool true if var is a float,
  * false otherwise.
- * @since 4.0
- * @since 5.0
  */
 function is_double ($var) {}
 
@@ -250,8 +224,6 @@ function is_double ($var) {}
  * </p>
  * @return bool true if var is a float,
  * false otherwise.
- * @since 4.0
- * @since 5.0
  * @deprecated 7.4
  */
 function is_real ($var) {}
@@ -264,8 +236,6 @@ function is_real ($var) {}
  * </p>
  * @return bool true if var is a number or a numeric
  * string, false otherwise.
- * @since 4.0
- * @since 5.0
  */
 function is_numeric ($var) {}
 
@@ -277,8 +247,6 @@ function is_numeric ($var) {}
  * </p>
  * @return bool true if var is of type string,
  * false otherwise.
- * @since 4.0
- * @since 5.0
  */
 function is_string ($var) {}
 
@@ -290,8 +258,6 @@ function is_string ($var) {}
  * </p>
  * @return bool true if var is an array,
  * false otherwise.
- * @since 4.0
- * @since 5.0
  */
 function is_array ($var) {}
 
@@ -303,8 +269,6 @@ function is_array ($var) {}
  * </p>
  * @return bool true if var is an object, false otherwise.<br/>
  * Since 7.2.0 returns true for unserialized objects without a class definition (class of <b>__PHP_Incomplete_Class</b>).
- * @since 4.0
- * @since 5.0
  */
 function is_object ($var) {}
 
@@ -316,8 +280,6 @@ function is_object ($var) {}
  * </p>
  * @return bool true if var is a scalar false
  * otherwise.
- * @since 4.0.5
- * @since 5.0
  */
 function is_scalar ($var) {}
 
@@ -343,9 +305,6 @@ function is_scalar ($var) {}
  * </p>
  * @return bool <b>TRUE</b> if $var is callable, <b>FALSE</b>
  * otherwise.
- * @since 4.0.6
- * @since 5.0
- * @since 7.0
  */
 function is_callable ($var, $syntax_only = null, &$callable_name = null) {}
 
@@ -370,8 +329,6 @@ function is_countable($var) {}
  * </p>
  * <p>
  * If PHP has been compiled with <tt>--enable-sigchild</tt>, the return value of this function is undefined.
- * @since 4.0
- * @since 5.0
  */
 function pclose ($handle) {}
 
@@ -393,8 +350,6 @@ function pclose ($handle) {}
  * </p>
  * <p>
  * If an error occurs, returns false.
- * @since 4.0
- * @since 5.0
  */
 function popen ($command, $mode) {}
 
@@ -411,11 +366,7 @@ function popen ($command, $mode) {}
  * @param resource $context [optional] <p>
  * A context stream resource.
  * </p>
- * @return false|int the number of bytes read from the file. If an error
- * occurs, false is returned and unless the function was called as
- * @readfile, an error message is printed.
- * @since 4.0
- * @since 5.0
+ * @return false|int the number of bytes read from the file, or FALSE on failure
  */
 function readfile ($filename, $use_include_path = null, $context = null) {}
 
@@ -427,8 +378,6 @@ function readfile ($filename, $use_include_path = null, $context = null) {}
  * successfully opened by fopen.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function rewind ($handle) {}
 
@@ -440,8 +389,6 @@ function rewind ($handle) {}
  * </p>
  * @param resource $context [optional] &note.context-support;
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function rmdir ($dirname, $context = null) {}
 
@@ -453,8 +400,6 @@ function rmdir ($dirname, $context = null) {}
  * </p>
  * @return int umask without arguments simply returns the
  * current umask otherwise the old umask is returned.
- * @since 4.0
- * @since 5.0
  */
 function umask ($mask = null) {}
 
@@ -466,8 +411,6 @@ function umask ($mask = null) {}
  * opened by fopen or fsockopen.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function fclose ($handle) {}
 
@@ -477,8 +420,6 @@ function fclose ($handle) {}
  * @param resource $handle The file pointer must be valid, and must point to a file successfully opened by fopen() or fsockopen() (and not yet closed by fclose()).
  * @return bool true if the file pointer is at EOF or an error occurs
  * (including socket timeout); otherwise returns false.
- * @since 4.0
- * @since 5.0
  */
 function feof ($handle) {}
 
@@ -488,8 +429,6 @@ function feof ($handle) {}
  * @param resource $handle The file pointer must be valid, and must point to a file successfully opened by fopen() or fsockopen() (and not yet closed by fclose()).
  * @return string|false a string containing a single character read from the file pointed
  * to by handle. Returns false on EOF.
- * @since 4.0
- * @since 5.0
  */
 function fgetc ($handle) {}
 
@@ -514,8 +453,6 @@ function fgetc ($handle) {}
  * </p>
  * <p>
  * If an error occurs, returns false.
- * @since 4.0
- * @since 5.0
  */
 function fgets ($handle, $length = null) {}
 
@@ -536,8 +473,6 @@ function fgets ($handle, $length = null) {}
  * </p>
  * <p>
  * If an error occurs, returns false.
- * @since 4.0
- * @since 5.0
  * @deprecated 7.3
  */
 function fgetss ($handle, $length = null, $allowable_tags = null) {}
@@ -550,8 +485,6 @@ function fgetss ($handle, $length = null, $allowable_tags = null) {}
  * Up to length number of bytes read.
  * </p>
  * @return string|false the read string or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function fread ($handle, $length) {}
 
@@ -664,7 +597,7 @@ function fread ($handle, $length) {}
  * generating an error of level E_WARNING. If
  * the file does not exist, attempt to create it. This is equivalent
  * to specifying O_EXCL|O_CREAT flags for the
- * underlying open(2) system call. 
+ * underlying open(2) system call.
  * </td>
  * </tr>
  * <tr valign="top">
@@ -735,10 +668,8 @@ function fread ($handle, $length) {}
  * </p>
  * @param resource $context [optional] &note.context-support;
  * @return resource|false a file pointer resource on success, or false on error.
- * @since 4.0
- * @since 5.0
  */
-function fopen ($filename, $mode, $use_include_path = null, $context = null) {}
+function fopen ($filename, $mode, $use_include_path = false, $context = null) {}
 
 /**
  * Output all remaining data on a file pointer
@@ -748,8 +679,6 @@ function fopen ($filename, $mode, $use_include_path = null, $context = null) {}
  * false. Otherwise, fpassthru returns
  * the number of characters read from handle
  * and passed through to the output.
- * @since 4.0
- * @since 5.0
  */
 function fpassthru ($handle) {}
 
@@ -774,8 +703,6 @@ function fpassthru ($handle) {}
  * will be lost.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function ftruncate ($handle, $size) {}
 
@@ -785,8 +712,6 @@ function ftruncate ($handle, $size) {}
  * @param resource $handle &fs.file.pointer;
  * @return array an array with the statistics of the file; the format of the array
  * is described in detail on the stat manual page.
- * @since 4.0
- * @since 5.0
  */
 function fstat ($handle) {}
 
@@ -815,8 +740,6 @@ function fstat ($handle) {}
  * </p>
  * @return int Upon success, returns 0; otherwise, returns -1. Note that seeking
  * past EOF is not considered an error.
- * @since 4.0
- * @since 5.0
  */
 function fseek ($handle, $offset, $whence = SEEK_SET) {}
 
@@ -834,8 +757,6 @@ function fseek ($handle, $offset, $whence = SEEK_SET) {}
  * </p>
  * <p>
  * If an error occurs, returns false.
- * @since 4.0
- * @since 5.0
  */
 function ftell ($handle) {}
 
@@ -844,8 +765,6 @@ function ftell ($handle) {}
  * @link https://php.net/manual/en/function.fflush.php
  * @param resource $handle The file pointer must be valid, and must point to a file successfully opened by fopen() or fsockopen() (and not yet closed by fclose()).
  * @return bool true on success or false on failure.
- * @since 4.0.1
- * @since 5.0
  */
 function fflush ($handle) {}
 
@@ -869,8 +788,6 @@ function fflush ($handle) {}
  * stripped from string.
  * </p>
  * @return int|false the number of bytes written, or <b>FALSE</b> on error.
- * @since 4.0
- * @since 5.0
  */
 function fwrite ($handle, $string, $length = null) {}
 
@@ -879,7 +796,7 @@ function fwrite ($handle, $string, $length = null) {}
  * @see fwrite()
  * @link https://php.net/manual/en/function.fputs.php
  * Binary-safe file write
- * @param resource $handle A file system pointer resource that is typically created using fopen(). 
+ * @param resource $handle A file system pointer resource that is typically created using fopen().
  * @param string $string <p>
  * The string that is to be written.
  * </p>
@@ -896,8 +813,6 @@ function fwrite ($handle, $string, $length = null) {}
  * stripped from string.
  * </p>
  * @return int|false the number of bytes written, or <b>FALSE</b> on error.
- * @since 4.0
- * @since 5.0
  */
 function fputs ($handle, $string, $length = null) {}
 
@@ -926,8 +841,6 @@ function fputs ($handle, $string, $length = null) {}
  * </p>
  * @param resource $context [optional] &note.context-support;
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function mkdir ($pathname, $mode = 0777, $recursive = false, $context = null) {}
 
@@ -946,8 +859,6 @@ function mkdir ($pathname, $mode = 0777, $recursive = false, $context = null) {}
  * </p>
  * @param resource $context [optional] &note.context-support;
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function rename ($oldname, $newname, $context = null) {}
 
@@ -966,12 +877,10 @@ function rename ($oldname, $newname, $context = null) {}
  * If the destination file already exists, it will be overwritten.
  * </p>
  * @param resource $context [optional] <p>
- * A valid context resource created with 
+ * A valid context resource created with
  * stream_context_create.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function copy ($source, $dest, $context = null) {}
 
@@ -987,8 +896,6 @@ function copy ($source, $dest, $context = null) {}
  * Windows use only the first three characters of prefix.
  * @return string|false the new temporary filename, or false on
  * failure.
- * @since 4.0
- * @since 5.0
  */
 function tempnam ($dir, $prefix) {}
 
@@ -997,8 +904,6 @@ function tempnam ($dir, $prefix) {}
  * @link https://php.net/manual/en/function.tmpfile.php
  * @return resource|false a file handle, similar to the one returned by
  * fopen, for the new file or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function tmpfile () {}
 
@@ -1015,7 +920,7 @@ function tmpfile () {}
  * FILE_USE_INCLUDE_PATH
  * Search for the file in the include_path.
  * @param resource $context [optional] <p>
- * A context resource created with the 
+ * A context resource created with the
  * stream_context_create function.
  * </p>
  * <p>
@@ -1030,8 +935,6 @@ function tmpfile () {}
  * FILE_IGNORE_NEW_LINES is used, so you still need to
  * use rtrim if you do not want the line ending
  * present.
- * @since 4.0
- * @since 5.0
  */
 function file ($filename, $flags = null, $context = null) {}
 
@@ -1046,7 +949,7 @@ function file ($filename, $flags = null, $context = null) {}
  * used to trigger include path search.
  * </p>
  * @param resource $context [optional] <p>
- * A valid context resource created with 
+ * A valid context resource created with
  * stream_context_create. If you don't need to use a
  * custom context, you can skip this parameter by &null;.
  * </p>
@@ -1058,8 +961,6 @@ function file ($filename, $flags = null, $context = null) {}
  * of file is reached.
  * </p>
  * @return string|false The function returns the read data or false on failure.
- * @since 4.3
- * @since 5.0
  */
 function file_get_contents ($filename, $use_include_path = false, $context = null, $offset = 0, $maxlen = null) {}
 
@@ -1084,8 +985,8 @@ function file_get_contents ($filename, $use_include_path = false, $context = nul
  * file_put_contents($filename, implode('', $array)).
  * </p>
  * @param int $flags [optional] <p>
- * The value of flags can be any combination of 
- * the following flags (with some restrictions), joined with the binary OR 
+ * The value of flags can be any combination of
+ * the following flags (with some restrictions), joined with the binary OR
  * (|) operator.
  * </p>
  * <p>
@@ -1110,7 +1011,7 @@ function file_get_contents ($filename, $use_include_path = false, $context = nul
  * FILE_APPEND
  * </td>
  * <td>
- * If file filename already exists, append 
+ * If file filename already exists, append
  * the data to the file instead of overwriting it. Mutually
  * exclusive with LOCK_EX since appends are atomic and thus there
  * is no reason to lock.
@@ -1121,19 +1022,17 @@ function file_get_contents ($filename, $use_include_path = false, $context = nul
  * LOCK_EX
  * </td>
  * <td>
- * Acquire an exclusive lock on the file while proceeding to the 
+ * Acquire an exclusive lock on the file while proceeding to the
  * writing. Mutually exclusive with FILE_APPEND.
- * @since 5.1
  * </td>
  * </tr>
  * </table>
  * </p>
  * @param resource $context [optional] <p>
- * A valid context resource created with 
+ * A valid context resource created with
  * stream_context_create.
  * </p>
  * @return int|false The function returns the number of bytes that were written to the file, or
  * false on failure.
- * @since 5.0
  */
 function file_put_contents ($filename, $data, $flags = 0, $context = null) {}

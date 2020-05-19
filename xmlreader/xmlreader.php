@@ -296,7 +296,6 @@ class XMLReader  {
 	 * Retrieve XML from current node
 	 * @link https://php.net/manual/en/xmlreader.readinnerxml.php
 	 * @return string the contents of the current node as a string. Empty string on failure.
-	 * @since 5.2
 	 */
 	public function readInnerXml () {}
 
@@ -304,7 +303,6 @@ class XMLReader  {
 	 * Retrieve XML from current node, including it self
 	 * @link https://php.net/manual/en/xmlreader.readouterxml.php
 	 * @return string the contents of current node, including itself, as a string. Empty string on failure.
-	 * @since 5.2
 	 */
 	public function readOuterXml () {}
 
@@ -313,7 +311,6 @@ class XMLReader  {
 	 * @link https://php.net/manual/en/xmlreader.readstring.php
 	 * @return string the content of the current node as a string. Empty string on
 	 * failure.
-	 * @since 5.2
 	 */
 	public function readString () {}
 
@@ -324,7 +321,6 @@ class XMLReader  {
 	 * The filename of the XSD schema.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-	 * @since 5.2
 	 */
 	public function setSchema ($filename) {}
 
@@ -351,7 +347,6 @@ class XMLReader  {
 	 * filename or URI pointing to a RelaxNG Schema.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-	 * @since 5.2
 	 */
 	public function setRelaxNGSchema ($filename) {}
 

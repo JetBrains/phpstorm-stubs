@@ -19,7 +19,7 @@
  * <p>
  * If the value returned in errno is
  * 0 and the function returned false, it is an
- * indication that the error occurred before the 
+ * indication that the error occurred before the
  * connect() call. This is most likely due to a
  * problem initializing the socket.
  * </p>
@@ -31,7 +31,7 @@
  * </p>
  * <p>
  * If you need to set a timeout for reading/writing data over the
- * socket, use stream_set_timeout, as the 
+ * socket, use stream_set_timeout, as the
  * timeout parameter to
  * fsockopen only applies while connecting the
  * socket.
@@ -41,8 +41,6 @@
  * fgets, fgetss,
  * fwrite, fclose, and
  * feof). If the call fails, it will return false
- * @since 4.0
- * @since 5.0
  */
 function fsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $timeout = null) {}
 
@@ -56,8 +54,6 @@ function fsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $t
  * @param string &$errstr [optional]
  * @param float $timeout [optional]
  * @return resource|false
- * @since 4.0
- * @since 5.0
  */
 function pfsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $timeout = null) {}
 
@@ -163,10 +159,8 @@ function pfsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $
  * </p>
  * @param mixed $args [optional] <p>
  * </p>
- * @param mixed $_ [optional] 
+ * @param mixed $_ [optional]
  * @return string|false a binary string containing data or false if the format string contains errors
- * @since 4.0
- * @since 5.0
  */
 function pack ($format, $args = null, $_ = null) {}
 
@@ -182,8 +176,6 @@ function pack ($format, $args = null, $_ = null) {}
  * @param int $offset [optional]
  * @return array|false an associative array containing unpacked elements of binary
  * string or false if the format string contains errors
- * @since 4.0
- * @since 5.0
  */
 function unpack ($format, $data, $offset = 0) {}
 
@@ -213,8 +205,6 @@ function unpack ($format, $data, $offset = 0) {}
  * enabled the browser to accept cookies or not. The only way to test if
  * cookies are accepted is to set one with setcookie,
  * reload, and check for the value.
- * @since 4.0
- * @since 5.0
  */
 function get_browser ($user_agent = null, $return_array = null) {}
 
@@ -235,8 +225,6 @@ function get_browser ($user_agent = null, $return_array = null) {}
  * may impact both appearance and security.
  * </p>
  * @return string|null the encrypted string or <b>NULL</b> if an error occurs
- * @since 4.0
- * @since 5.0
  */
 function crypt ($str, $salt = null) {}
 
@@ -247,24 +235,22 @@ function crypt ($str, $salt = null) {}
  * The directory path that is to be opened
  * </p>
  * @param resource $context [optional] <p>
- * For a description of the context parameter, 
+ * For a description of the context parameter,
  * refer to the streams section of
  * the manual.
  * </p>
  * @return resource|false a directory handle resource on success, or
  * false on failure.
- * </p> 
+ * </p>
  * <p>
  * If path is not a valid directory or the
  * directory can not be opened due to permission restrictions or
  * filesystem errors, opendir returns false and
- * generates a PHP error of level 
+ * generates a PHP error of level
  * E_WARNING. You can suppress the error output of
  * opendir by prepending
  * '@' to the
  * front of the function name.
- * @since 4.0
- * @since 5.0
  */
 function opendir ($path, $context = null) {}
 
@@ -273,13 +259,11 @@ function opendir ($path, $context = null) {}
  * @link https://php.net/manual/en/function.closedir.php
  * @param resource $dir_handle [optional] <p>
  * The directory handle resource previously opened
- * with opendir. If the directory handle is 
- * not specified, the last link opened by opendir 
+ * with opendir. If the directory handle is
+ * not specified, the last link opened by opendir
  * is assumed.
  * </p>
- * @return void 
- * @since 4.0
- * @since 5.0
+ * @return void
  */
 function closedir ($dir_handle = null) {}
 
@@ -290,8 +274,6 @@ function closedir ($dir_handle = null) {}
  * The new current directory
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function chdir ($directory) {}
 
@@ -302,8 +284,6 @@ function chdir ($directory) {}
  * The new directory
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0.5
- * @since 5.0
  */
 function chroot ($directory) {}
 
@@ -320,8 +300,6 @@ function chroot ($directory) {}
  * does. See chmod for more information on
  * modes and permissions.
  * </p>
- * @since 4.0
- * @since 5.0
  */
 function getcwd () {}
 
@@ -330,13 +308,11 @@ function getcwd () {}
  * @link https://php.net/manual/en/function.rewinddir.php
  * @param resource $dir_handle [optional] <p>
  * The directory handle resource previously opened
- * with opendir. If the directory handle is 
- * not specified, the last link opened by opendir 
+ * with opendir. If the directory handle is
+ * not specified, the last link opened by opendir
  * is assumed.
  * </p>
- * @return void 
- * @since 4.0
- * @since 5.0
+ * @return void
  */
 function rewinddir ($dir_handle = null) {}
 
@@ -345,13 +321,11 @@ function rewinddir ($dir_handle = null) {}
  * @link https://php.net/manual/en/function.readdir.php
  * @param resource $dir_handle [optional] <p>
  * The directory handle resource previously opened
- * with opendir. If the directory handle is 
- * not specified, the last link opened by opendir 
+ * with opendir. If the directory handle is
+ * not specified, the last link opened by opendir
  * is assumed.
  * </p>
  * @return string|false the filename on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function readdir ($dir_handle = null) {}
 
@@ -364,8 +338,6 @@ function readdir ($dir_handle = null) {}
  * @param resource $context [optional]
  * @return Directory|null|false an instance of Directory, or <b>NULL</b> with wrong
  * parameters, or <b>FALSE</b> in case of another error
- * @since 4.0
- * @since 5.0
  */
 function dir ($directory, $context = null) {}
 
@@ -381,15 +353,14 @@ function dir ($directory, $context = null) {}
  * then the sort order is alphabetical in descending order.
  * </p>
  * @param resource $context [optional] <p>
- * For a description of the context parameter, 
+ * For a description of the context parameter,
  * refer to the streams section of
  * the manual.
  * </p>
- * @return array|false an array of filenames on success, or false on 
- * failure. If directory is not a directory, then 
- * boolean false is returned, and an error of level 
+ * @return array|false an array of filenames on success, or false on
+ * failure. If directory is not a directory, then
+ * boolean false is returned, and an error of level
  * E_WARNING is generated.
- * @since 5.0
  */
 function scandir ($directory, $sorting_order = null, $context = null) {}
 
@@ -414,8 +385,6 @@ function scandir ($directory, $sorting_order = null, $context = null) {}
  * <p>
  * On some systems it is impossible to distinguish between empty match and an
  * error.
- * @since 4.3
- * @since 5.0
  */
 function glob ($pattern, $flags = null) {}
 
@@ -427,8 +396,6 @@ function glob ($pattern, $flags = null) {}
  * </p>
  * @return int|false the time the file was last accessed, or false on failure.
  * The time is returned as a Unix timestamp.
- * @since 4.0
- * @since 5.0
  */
 function fileatime ($filename) {}
 
@@ -440,8 +407,6 @@ function fileatime ($filename) {}
  * </p>
  * @return int|false the time the file was last changed, or false on failure.
  * The time is returned as a Unix timestamp.
- * @since 4.0
- * @since 5.0
  */
 function filectime ($filename) {}
 
@@ -455,8 +420,6 @@ function filectime ($filename) {}
  * of an error. The group ID is returned in numerical format, use
  * posix_getgrgid to resolve it to a group name.
  * Upon failure, false is returned.
- * @since 4.0
- * @since 5.0
  */
 function filegroup ($filename) {}
 
@@ -467,8 +430,6 @@ function filegroup ($filename) {}
  * Path to the file.
  * </p>
  * @return int|false the inode number of the file, or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function fileinode ($filename) {}
 
@@ -481,8 +442,6 @@ function fileinode ($filename) {}
  * @return int|false the time the file was last modified, or false on failure.
  * The time is returned as a Unix timestamp, which is
  * suitable for the date function.
- * @since 4.0
- * @since 5.0
  */
 function filemtime ($filename) {}
 
@@ -495,8 +454,6 @@ function filemtime ($filename) {}
  * @return int|false the user ID of the owner of the file, or false on failure.
  * The user ID is returned in numerical format, use
  * posix_getpwuid to resolve it to a username.
- * @since 4.0
- * @since 5.0
  */
 function fileowner ($filename) {}
 
@@ -507,8 +464,6 @@ function fileowner ($filename) {}
  * Path to the file.
  * </p>
  * @return int|false the permissions on the file, or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function fileperms ($filename) {}
 
@@ -520,8 +475,6 @@ function fileperms ($filename) {}
  * </p>
  * @return int|false the size of the file in bytes, or false (and generates an error
  * of level E_WARNING) in case of an error.
- * @since 4.0
- * @since 5.0
  */
 function filesize ($filename) {}
 
@@ -538,8 +491,6 @@ function filesize ($filename) {}
  * Returns false if an error occurs. filetype will also
  * produce an E_NOTICE message if the stat call fails
  * or if the file type is unknown.
- * @since 4.0
- * @since 5.0
  */
 function filetype ($filename) {}
 
@@ -568,8 +519,6 @@ function filetype ($filename) {}
  * </p>
  * <p>
  * The check is done using the real UID/GID instead of the effective one.
- * @since 4.0
- * @since 5.0
  */
 function file_exists ($filename) {}
 
@@ -581,8 +530,6 @@ function file_exists ($filename) {}
  * </p>
  * @return bool true if the filename exists and is
  * writable.
- * @since 4.0
- * @since 5.0
  */
 function is_writable ($filename) {}
 
@@ -594,8 +541,6 @@ function is_writable ($filename) {}
  * </p>
  * @return bool true if the filename exists and is
  * writable.
- * @since 4.0
- * @since 5.0
  */
 function is_writeable ($filename) {}
 
@@ -607,8 +552,6 @@ function is_writeable ($filename) {}
  * </p>
  * @return bool true if the file or directory specified by
  * filename exists and is readable, false otherwise.
- * @since 4.0
- * @since 5.0
  */
 function is_readable ($filename) {}
 
@@ -620,8 +563,6 @@ function is_readable ($filename) {}
  * </p>
  * @return bool true if the filename exists and is executable, or false on
  * error.
- * @since 4.0
- * @since 5.0
  */
 function is_executable ($filename) {}
 
@@ -633,8 +574,6 @@ function is_executable ($filename) {}
  * </p>
  * @return bool true if the filename exists and is a regular file, false
  * otherwise.
- * @since 4.0
- * @since 5.0
  */
 function is_file ($filename) {}
 
@@ -644,13 +583,11 @@ function is_file ($filename) {}
  * @param string $filename <p>
  * Path to the file. If filename is a relative
  * filename, it will be checked relative to the current working
- * directory. If filename is a symbolic or hard link 
+ * directory. If filename is a symbolic or hard link
  * then the link will be resolved and checked.
  * </p>
  * @return bool true if the filename exists and is a directory, false
  * otherwise.
- * @since 4.0
- * @since 5.0
  */
 function is_dir ($filename) {}
 
@@ -662,8 +599,6 @@ function is_dir ($filename) {}
  * </p>
  * @return bool true if the filename exists and is a symbolic link, false
  * otherwise.
- * @since 4.0
- * @since 5.0
  */
 function is_link ($filename) {}
 
@@ -755,8 +690,6 @@ function is_link ($filename) {}
  * </p>
  * <p>
  * In case of error, stat returns false.
- * @since 4.0
- * @since 5.0
  */
 function stat ($filename) {}
 
@@ -773,8 +706,6 @@ function stat ($filename) {}
  * except that if the filename parameter is a symbolic
  * link, the status of the symbolic link is returned, not the status of the
  * file pointed to by the symbolic link.
- * @since 4.0
- * @since 5.0
  */
 function lstat ($filename) {}
 
@@ -788,8 +719,6 @@ function lstat ($filename) {}
  * A user name or number.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function chown ($filename, $user) {}
 
@@ -803,8 +732,6 @@ function chown ($filename, $user) {}
  * A group name or number.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function chgrp ($filename, $group) {}
 
@@ -849,10 +776,10 @@ function lchgrp ($filename, $group) {}
  * you need to prefix mode with a zero (0):
  * </p>
  * <pre>
- * <?php 
- * chmod("/somedir/somefile", 755);   // decimal; probably incorrect 
- * chmod("/somedir/somefile", "u+rwx,go+rx"); // string; incorrect 
- * chmod("/somedir/somefile", 0755);  // octal; correct value of mode 
+ * <?php
+ * chmod("/somedir/somefile", 755);   // decimal; probably incorrect
+ * chmod("/somedir/somefile", "u+rwx,go+rx"); // string; incorrect
+ * chmod("/somedir/somefile", 0755);  // octal; correct value of mode
  * ?>
  * </pre>
  * <p>
@@ -869,8 +796,6 @@ function lchgrp ($filename, $group) {}
  * </p>
  * <p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function chmod ($filename, $mode) {}
 
@@ -881,17 +806,15 @@ function chmod ($filename, $mode) {}
  * The name of the file being touched.
  * </p>
  * @param int $time [optional] <p>
- * The touch time. If time is not supplied, 
+ * The touch time. If time is not supplied,
  * the current system time is used.
  * </p>
  * @param int $atime [optional] <p>
- * If present, the access time of the given filename is set to 
+ * If present, the access time of the given filename is set to
  * the value of atime. Otherwise, it is set to
  * time.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function touch ($filename, $time = null, $atime = null) {}
 
@@ -902,12 +825,10 @@ function touch ($filename, $time = null, $atime = null) {}
  * Whenever to clear realpath cache or not.
  * </p>
  * @param string $filename [optional] <p>
- * Clear realpath cache on a specific filename, only used if 
+ * Clear realpath cache on a specific filename, only used if
  * clear_realpath_cache is true.
  * </p>
- * @return void 
- * @since 4.0
- * @since 5.0
+ * @return void
  */
 function clearstatcache ($clear_realpath_cache = null, $filename = null) {}
 
@@ -919,8 +840,6 @@ function clearstatcache ($clear_realpath_cache = null, $filename = null) {}
  * </p>
  * @return float|false the total number of bytes as a float
  * or false on failure.
- * @since 4.1
- * @since 5.0
  */
 function disk_total_space ($directory) {}
 
@@ -937,8 +856,6 @@ function disk_total_space ($directory) {}
  * </p>
  * @return float|false the number of available bytes as a float
  * or false on failure.
- * @since 4.1
- * @since 5.0
  */
 function disk_free_space ($directory) {}
 
@@ -947,8 +864,6 @@ function disk_free_space ($directory) {}
  * @link https://php.net/manual/en/function.diskfreespace.php
  * @see disk_free_space
  * @param $directory
- * @since 4.0
- * @since 5.0
  */
 function diskfreespace ($directory) {}
 
@@ -1000,7 +915,7 @@ function diskfreespace ($directory) {}
  * </p>
  * <p>
  * When sending mail, the mail must contain
- * a From header. This can be set with the 
+ * a From header. This can be set with the
  * additional_headers parameter, or a default
  * can be set in &php.ini;.
  * </p>
@@ -1037,8 +952,6 @@ function diskfreespace ($directory) {}
  * <p>
  * It is important to note that just because the mail was accepted for delivery,
  * it does NOT mean the mail will actually reach the intended destination.
- * @since 4.0
- * @since 5.0
  */
 function mail ($to, $subject, $message, $additional_headers = null, $additional_parameters = null) {}
 
@@ -1049,8 +962,6 @@ function mail ($to, $subject, $message, $additional_headers = null, $additional_
  * The email address that's being hashed.
  * </p>
  * @return int The hash value of addr.
- * @since 4.0.2
- * @since 5.0
  * @deprecated 7.4
  */
 function ezmlm_hash ($addr) {}
@@ -1059,7 +970,7 @@ function ezmlm_hash ($addr) {}
  * Open connection to system logger
  * @link https://php.net/manual/en/function.openlog.php
  * @param string $ident <p>
- * The string ident is added to each message. 
+ * The string ident is added to each message.
  * </p>
  * @param int $option <p>
  * The option argument is used to indicate
@@ -1118,7 +1029,7 @@ function ezmlm_hash ($addr) {}
  * <tr valign="top">
  * <td>LOG_AUTH</td>
  * <td>
- * security/authorization messages (use 
+ * security/authorization messages (use
  * LOG_AUTHPRIV instead
  * in systems where that constant is defined)
  * </td>
@@ -1174,8 +1085,6 @@ function ezmlm_hash ($addr) {}
  * operating systems
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function openlog ($ident, $option, $facility) {}
 

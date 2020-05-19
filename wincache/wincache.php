@@ -225,7 +225,7 @@ function wincache_scache_meminfo() {}
  * be used as keys. This can be used to add multiple values in the cache in one
  * operation, thus avoiding race condition.</p>
  * @param mixed $value <p>Value of a variable to store. Value supports all data
- * types except resources, such as file handles. This paramter is ignored if
+ * types except resources, such as file handles. This parameter is ignored if
  * first argument is an array. A general guidance is to pass NULL as value while
  * using array as key.</p>
  * @param int $ttl [optional]
@@ -406,7 +406,7 @@ function wincache_ucache_meminfo() {}
  * cache in one operation, thus avoiding race condition.</p>
  * @param mixed $value<p>
  * Value of a variable to store. Value supports all data types except resources,
- * such as file handles. This paramter is ignored if first argument is an array.
+ * such as file handles. This parameter is ignored if first argument is an array.
  * A general guidance is to pass NULL as value while using array as key.</p>
  * @param int $ttl [optional]<p>
  * Time for the variable to live in the cache in seconds. After the value specified

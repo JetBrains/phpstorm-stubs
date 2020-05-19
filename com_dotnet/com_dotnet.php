@@ -16,7 +16,7 @@ class COM {
      * @param int $codepage [optional]
      * @param string $typelib [optional]
      */
-    public function __construct ( $module_name, $server_name, $codepage, $typelib ) {}
+    public function __construct ( $module_name, $server_name = null, $codepage = CP_ACP, $typelib = null) {}
 
     public function __get ($name) {}
 
@@ -39,7 +39,7 @@ class DOTNET {
      * @param string $class_name
      * @param int $codepage [optional]
      */
-    public function __construct ( $assembly_name , string $class_name, $codepage ) {}
+    public function __construct ( $assembly_name , string $class_name, $codepage = CP_ACP ) {}
 
     public function __get ($name) {}
 
@@ -62,7 +62,7 @@ class VARIANT {
      * @param int $type [optional]
      * @param int $codepage [optional]
      */
-    public function __construct ( $value , string $class_name, $codepage ) {}
+    public function __construct ( $value = null , int $type = VT_EMPTY, $codepage = CP_ACP ) {}
 
     public function __get ($name) {}
 
@@ -95,7 +95,7 @@ function com_create_guid () {}
  * @param string $sinkinterface [optional]
  * @return bool
  */
-function com_event_sink ( $comobject, $sinkobject, $sinkinterface) {}
+function com_event_sink ( $comobject, $sinkobject, $sinkinterface = null) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -105,7 +105,7 @@ function com_event_sink ( $comobject, $sinkobject, $sinkinterface) {}
  * @param int $code_page [optional]
  * @return \VARIANT
  */
-function com_get_active_object ( $progid, $code_page ) {}
+function com_get_active_object ( $progid, $code_page = CP_ACP ) {}
 
 /**
  * (PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)<br/>
@@ -135,7 +135,7 @@ function com_message_pump ( $timeoutms = 0 ) {}
  * @param bool $wantsink [optional]
  * @return bool
  */
-function com_print_typeinfo ( $comobject, $dispinterface, $wantsink = false ) {}
+function com_print_typeinfo ( $comobject, $dispinterface = null, $wantsink = false ) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -144,7 +144,7 @@ function com_print_typeinfo ( $comobject, $dispinterface, $wantsink = false ) {}
  * @param mixed $val
  * @return mixed
  */
-function variant_abs ( $comobject, $dispinterface, $wantsink = false ) {}
+function variant_abs ( $val ) {}
 
 /**
  * (PHP 5, PHP 7)<br/>
@@ -196,7 +196,7 @@ function variant_cat ( $left, $right ) {}
  * @param int $flags [optional]
  * @return int
  */
-function variant_cmp ( $left, $right, $lcid, $flags ) {}
+function variant_cmp ( $left, $right, $lcid = null, $flags = null ) {}
 
 /**
  * (PHP 5, PHP 7)<br/>

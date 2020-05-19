@@ -68,7 +68,6 @@ class LibXMLError  {
  * <b>stream_context_create</b>)
  * </p>
  * @return void No value is returned.
- * @since 5.0
  */
 function libxml_set_streams_context ($streams_context) {}
 
@@ -80,7 +79,6 @@ function libxml_set_streams_context ($streams_context) {}
  * </p>
  * @return bool This function returns the previous value of
  * <i>use_errors</i>.
- * @since 5.1
  */
 function libxml_use_internal_errors ($use_errors = false) {}
 
@@ -89,7 +87,6 @@ function libxml_use_internal_errors ($use_errors = false) {}
  * @link https://php.net/manual/en/function.libxml-get-last-error.php
  * @return LibXMLError a LibXMLError object if there is any error in the
  * buffer, <b>FALSE</b> otherwise.
- * @since 5.1
  */
 function libxml_get_last_error () {}
 
@@ -97,16 +94,14 @@ function libxml_get_last_error () {}
  * Clear libxml error buffer
  * @link https://php.net/manual/en/function.libxml-clear-errors.php
  * @return void No value is returned.
- * @since 5.1
  */
 function libxml_clear_errors () {}
 
 /**
  * Retrieve array of errors
  * @link https://php.net/manual/en/function.libxml-get-errors.php
- * @return array an array with LibXMLError objects if there are any
+ * @return LibXMLError[] an array with LibXMLError objects if there are any
  * errors in the buffer, or an empty array otherwise.
- * @since 5.1
  */
 function libxml_get_errors () {}
 

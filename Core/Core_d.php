@@ -13,7 +13,7 @@ define ('E_ERROR', 1);
 
 /**
  * Catchable fatal error. It indicates that a probably dangerous error
- * occured, but did not leave the Engine in an unstable state. If the error
+ * occurred, but did not leave the Engine in an unstable state. If the error
  * is not caught by a user defined handle (see also
  * <b>set_error_handler</b>), the application aborts as it
  * was an <b>E_ERROR</b>.
@@ -383,4 +383,3 @@ define('STDOUT', fopen('php://stdout', 'w'));
 define('STDERR', fopen('php://stderr', 'w'));
 
 define('PHP_FD_SETSIZE', 1024);
-

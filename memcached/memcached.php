@@ -1,6 +1,6 @@
 <?php
 
-// Start of memcached v.3.0.4
+// Start of memcached v.3.1.5
 
 /**
  * Represents a connection to a set of memcached servers.
@@ -57,6 +57,26 @@ class Memcached  {
 	 * @link https://php.net/manual/en/memcached.constants.php
 	 */
 	const HAVE_JSON = 0;
+
+	/**
+	 * <p>Indicates whether msgpack serializer support is available.</p>
+	 * <p>Type: boolean.</p>
+	 * Available as of Memcached 3.0.0.
+	 * @since 3.0.0
+	 * @link https://php.net/manual/en/memcached.constants.php
+	 */
+	const HAVE_MSGPACK = 0;
+
+	/**
+	 * <p>Indicate whether set_encoding_key is available</p>
+	 * <p>Type: boolean.</p>
+	 * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/memcached-api.php, https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/php_memcached.c#L4387
+	 */
+	const HAVE_ENCODING = 0;
+
+	/**
+	 * Feature support
+	 */
 	const HAVE_SESSION = 1;
 	const HAVE_SASL = 0;
 
@@ -296,6 +316,9 @@ class Memcached  {
 
 
 	/**
+	 * libmemcached result codes
+	 */
+	/**
 	 * <p>The operation was successful.</p>
 	 * @link https://php.net/manual/en/memcached.constants.php
 	 */
@@ -409,40 +432,174 @@ class Memcached  {
 
 	/**
 	 * <p>Bad key.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://php.net/manual/en/memcached.constants.php, http://docs.libmemcached.org/index.html
+	 */
+	/**
+	 * <p>MEMCACHED_BAD_KEY_PROVIDED: The key provided is not a valid key.</p>
 	 */
 	const RES_BAD_KEY_PROVIDED = 33;
+	/**
+	 * <p>MEMCACHED_STORED: The requested object has been successfully stored on the server.</p>
+	 */
 	const RES_STORED = 15;
+	/**
+	 * <p>MEMCACHED_DELETED: The object requested by the key has been deleted.</p>
+	 */
 	const RES_DELETED = 22;
+	/**
+	 * <p>MEMCACHED_STAT: A “stat” command has been returned in the protocol.</p>
+	 */
 	const RES_STAT = 24;
+	/**
+	 * <p>MEMCACHED_ITEM: An item has been fetched (this is an internal error only).</p>
+	 */
 	const RES_ITEM = 25;
+	/**
+	 * <p>MEMCACHED_NOT_SUPPORTED: The given method is not supported in the server.</p>
+	 */
 	const RES_NOT_SUPPORTED = 28;
+	/**
+	 * <p>MEMCACHED_FETCH_NOTFINISHED: A request has been made, but the server has not finished the fetch of the last request.</p>
+	 */
 	const RES_FETCH_NOTFINISHED = 30;
+	/**
+	 * <p>MEMCACHED_SERVER_MARKED_DEAD: The requested server has been marked dead.</p>
+	 */
 	const RES_SERVER_MARKED_DEAD = 35;
+	/**
+	 * <p>MEMCACHED_UNKNOWN_STAT_KEY: The server you are communicating with has a stat key which has not be defined in the protocol.</p>
+	 */
 	const RES_UNKNOWN_STAT_KEY = 36;
+	/**
+	 * <p>MEMCACHED_INVALID_HOST_PROTOCOL: The server you are connecting too has an invalid protocol. Most likely you are connecting to an older server that does not speak the binary protocol.</p>
+	 */
 	const RES_INVALID_HOST_PROTOCOL = 34;
+	/**
+	 * <p>MEMCACHED_MEMORY_ALLOCATION_FAILURE: An error has occurred while trying to allocate memory.</p>
+	 */
 	const RES_MEMORY_ALLOCATION_FAILURE = 17;
+	/**
+	 * <p>MEMCACHED_E2BIG: Item is too large for the server to store.</p>
+	 */
 	const RES_E2BIG = 37;
+	/**
+	 * <p>MEMCACHED_KEY_TOO_BIG: The key that has been provided is too large for the given server.</p>
+	 */
 	const RES_KEY_TOO_BIG = 39;
+	/**
+	 * <p>MEMCACHED_SERVER_TEMPORARILY_DISABLED</p>
+	 */
 	const RES_SERVER_TEMPORARILY_DISABLED = 47;
+	/**
+	 * <p>MEMORY_ALLOCATION_FAILURE: An error has occurred while trying to allocate memory.
+	 *
+	 * #if defined(LIBMEMCACHED_VERSION_HEX) && LIBMEMCACHED_VERSION_HEX >= 0x01000008</p>
+	 */
 	const RES_SERVER_MEMORY_ALLOCATION_FAILURE = 48;
+	/**
+	 * <p>MEMCACHED_AUTH_PROBLEM: An unknown issue has occured during authentication.</p>
+	 */
 	const RES_AUTH_PROBLEM = 40;
+	/**
+	 * <p>MEMCACHED_AUTH_FAILURE: The credentials provided are not valid for this server.</p>
+	 */
 	const RES_AUTH_FAILURE = 41;
+	/**
+	 * <p>MEMCACHED_AUTH_CONTINUE: Authentication has been paused.</p>
+	 */
 	const RES_AUTH_CONTINUE = 42;
+	/**
+	 * <p>MEMCACHED_CONNECTION_FAILURE: A unknown error has occured while trying to connect to a server.</p>
+	 */
 	const RES_CONNECTION_FAILURE = 3;
+	/**
+	 * <p>MEMCACHED_CONNECTION_BIND_FAILURE: Deprecated since version <0.30(libmemcached).
+	 * We were not able to bind() to the socket.</p>
+	 */
 	const RES_CONNECTION_BIND_FAILURE = 4;
+	/**
+	 * <p>MEMCACHED_READ_FAILURE: A read failure has occurred.</p>
+	 */
 	const RES_READ_FAILURE = 6;
+	/**
+	 * <p>MEMCACHED_DATA_DOES_NOT_EXIST: The data requested with the key given was not found.</p>
+	 */
 	const RES_DATA_DOES_NOT_EXIST = 13;
+	/**
+	 * <p>MEMCACHED_VALUE: A value has been returned from the server (this is an internal condition only).</p>
+	 */
 	const RES_VALUE = 23;
+	/**
+	 * <p>MEMCACHED_FAIL_UNIX_SOCKET: A connection was not established with the server via a unix domain socket.</p>
+	 */
 	const RES_FAIL_UNIX_SOCKET = 27;
+	/**
+	 * <p>MEMCACHED_NO_KEY_PROVIDED: Deprecated since version <0.30(libmemcached): Use MEMCACHED_BAD_KEY_PROVIDED instead.
+	 * No key was provided.</p>
+	 */
 	const RES_NO_KEY_PROVIDED = 29;
+	/**
+	 * <p>MEMCACHED_INVALID_ARGUMENTS: The arguments supplied to the given function were not valid.</p>
+	 */
 	const RES_INVALID_ARGUMENTS = 38;
+	/**
+	 * <p>MEMCACHED_PARSE_ERROR: An error has occurred while trying to parse the configuration string. You should use memparse to determine what the error was.</p>
+	 */
 	const RES_PARSE_ERROR = 43;
+	/**
+	 * <p>MEMCACHED_PARSE_USER_ERROR: An error has occurred in parsing the configuration string.</p>
+	 */
 	const RES_PARSE_USER_ERROR = 44;
+	/**
+	 * <p>MEMCACHED_DEPRECATED: The method that was requested has been deprecated.</p>
+	 */
 	const RES_DEPRECATED = 45;
+	//unknow
 	const RES_IN_PROGRESS = 46;
+	/**
+	 * <p>MEMCACHED_MAXIMUM_RETURN: This in an internal only state.</p>
+	 */
 	const RES_MAXIMUM_RETURN = 49;
 
+	/**
+	 * Server callbacks, if compiled with --memcached-protocol
+	 * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/memcached-api.php
+	 */
+	const ON_CONNECT = 0;
+	const ON_ADD = 1;
+	const ON_APPEND = 2;
+	const ON_DECREMENT = 3;
+	const ON_DELETE = 4;
+	const ON_FLUSH = 5;
+	const ON_GET = 6;
+	const ON_INCREMENT = 7;
+	const ON_NOOP = 8;
+	const ON_PREPEND = 9;
+	const ON_QUIT = 10;
+	const ON_REPLACE = 11;
+	const ON_SET = 12;
+	const ON_STAT = 13;
+	const ON_VERSION = 14;
+	/**
+	 * Constants used when compiled with --memcached-protocol
+	 * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/memcached-api.php
+	 */
+	const RESPONSE_SUCCESS = 0;
+	const RESPONSE_KEY_ENOENT = 1;
+	const RESPONSE_KEY_EEXISTS = 2;
+	const RESPONSE_E2BIG = 3;
+	const RESPONSE_EINVAL = 4;
+	const RESPONSE_NOT_STORED = 5;
+	const RESPONSE_DELTA_BADVAL = 6;
+	const RESPONSE_NOT_MY_VBUCKET = 7;
+	const RESPONSE_AUTH_ERROR = 32;
+	const RESPONSE_AUTH_CONTINUE = 33;
+	const RESPONSE_UNKNOWN_COMMAND = 129;
+	const RESPONSE_ENOMEM = 130;
+	const RESPONSE_NOT_SUPPORTED = 131;
+	const RESPONSE_EINTERNAL = 132;
+	const RESPONSE_EBUSY = 133;
+	const RESPONSE_ETMPFAIL = 134;
 
 
 	/**
@@ -477,6 +634,12 @@ class Memcached  {
 	 */
 	const SERIALIZER_JSON = 3;
 	const SERIALIZER_JSON_ARRAY = 4;
+	/**
+	 * <p>The msgpack serializer.</p>
+	 * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/memcached-api.php
+	 */
+	const SERIALIZER_MSGPACK = 5;
+
 	const COMPRESSION_FASTLZ = 2;
 	const COMPRESSION_ZLIB = 1;
 
@@ -488,17 +651,25 @@ class Memcached  {
 	 * @link https://php.net/manual/en/memcached.constants.php
 	 */
 	const GET_PRESERVE_ORDER = 1;
-	const GET_ERROR_RETURN_VALUE = false;
 
+	/**
+	 * A flag for <b>Memcached::get()</b>, <b>Memcached::getMulti()</b> and
+	 * <b>Memcached::getMultiByKey()</b> to ensure that the CAS token values are returned as well.
+	 * @link https://php.net/manual/en/memcached.constants.php
+	 */
+	const GET_EXTENDED = 2;
+
+	const GET_ERROR_RETURN_VALUE = false;
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Create a Memcached instance
-	 * @link https://php.net/manual/en/memcached.construct.php
-	 * @param $persistent_id [optional]
-	 * @param $callback [optional]
+	 * @link https://php.net/manual/en/memcached.construct.php, https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/php_memcached.c
+	 * @param string $persistent_id [optional]
+	 * @param callable $on_new_object_cb [optional]
+	 * @param string $connection_str [optional]
 	 */
-	public function __construct ($persistent_id = '', $on_new_object_cb = null) {}
+	public function __construct ($persistent_id = '', $on_new_object_cb = null, $connection_str = '') {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -570,7 +741,7 @@ class Memcached  {
 	 * @return mixed the array of found items or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
-	public function getMulti (array $keys, $flags = null) {}
+	public function getMulti (array $keys, $flags = 0) {}
 
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
@@ -661,6 +832,7 @@ class Memcached  {
 	 * @param int $expiration [optional] <p>
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
+	 * @param int $udf_flags [optional]
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
@@ -682,6 +854,7 @@ class Memcached  {
 	 * @param int $expiration [optional] <p>
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
+	 * @param int $udf_flags [optional]
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
@@ -730,6 +903,7 @@ class Memcached  {
 	 * @param int $expiration [optional] <p>
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
+	 * @param int $udf_flags [optional]
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
@@ -748,6 +922,7 @@ class Memcached  {
 	 * @param int $expiration [optional] <p>
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
+	 * @param int $udf_flags [optional]
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
@@ -769,6 +944,7 @@ class Memcached  {
 	 * @param int $expiration [optional] <p>
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
+	 * @param int $udf_flags [optional]
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_DATA_EXISTS</b> if the item you are trying
@@ -795,6 +971,7 @@ class Memcached  {
 	 * @param int $expiration [optional] <p>
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
+	 * @param int $udf_flags [optional]
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_DATA_EXISTS</b> if the item you are trying
@@ -815,6 +992,7 @@ class Memcached  {
 	 * @param int $expiration [optional] <p>
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
+	 * @param int $udf_flags [optional]
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTSTORED</b> if the key already exists.
@@ -837,6 +1015,7 @@ class Memcached  {
 	 * @param int $expiration [optional] <p>
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
+	 * @param int $udf_flags [optional]
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTSTORED</b> if the key already exists.
@@ -926,6 +1105,7 @@ class Memcached  {
 	 * @param int $expiration [optional] <p>
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
+	 * @param int $udf_flags [optional]
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTSTORED</b> if the key does not exist.
@@ -948,6 +1128,7 @@ class Memcached  {
 	 * @param int $expiration [optional] <p>
 	 * The expiration time, defaults to 0. See Expiration Times for more info.
 	 * </p>
+	 * @param int $udf_flags [optional]
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_NOTSTORED</b> if the key does not exist.
@@ -1185,7 +1366,7 @@ class Memcached  {
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Get server pool statistics
 	 * @link https://php.net/manual/en/memcached.getstats.php
-	 * @param string $type
+	 * @param string $type <p>items, slabs, sizes ...</p>
 	 * @return array Array of server statistics, one entry per server.
 	 */
 	public function getStats ($type = null) {}
@@ -1282,18 +1463,57 @@ class Memcached  {
 	 */
 	public function isPristine () {}
 
+	/**
+	 * Flush and send buffered commands
+	 * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/php_memcached.c
+	 * @return bool
+	 */
 	public function flushBuffers () {}
 
+	/**
+	 * Sets AES encryption key (libmemcached 1.0.6 and higher)
+	 * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/php_memcached.c
+	 * @param string $key
+	 * @return bool
+	 */
 	public function setEncodingKey ( $key ) {}
 
+	/**
+	 * Returns the last disconnected server. Was added in 0.34 according to libmemcached's Changelog
+	 * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/php_memcached.c
+	 * @return array|false
+	 */
 	public function getLastDisconnectedServer () {}
 
+	/**
+	 * Returns the last error errno that occurred
+	 * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/php_memcached.c
+	 * @return int
+	 */
 	public function getLastErrorErrno () {}
 
+	/**
+	 * Returns the last error code that occurred
+	 * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/php_memcached.c
+	 * @return int
+	 */
 	public function getLastErrorCode () {}
 
+	/**
+	 * Returns the last error message that occurred
+	 * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/php_memcached.c
+	 * @return string
+	 */
 	public function getLastErrorMessage () {}
 
+	/**
+	 * Sets the memcached virtual buckets
+	 * @link https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/php_memcached.c
+	 * @param array $host_map
+	 * @param array $forward_map
+	 * @param int $replicas
+	 * @return bool
+	 */
 	public function setBucket (array $host_map, array $forward_map, $replicas) {}
 
 }
@@ -1302,7 +1522,7 @@ class Memcached  {
  * @link https://php.net/manual/en/class.memcachedexception.php
  */
 class MemcachedException extends RuntimeException  {
-
+	function __construct( $errmsg = "", $errcode  = 0 ) {}
 }
-// End of memcached v.3.0.4
+// End of memcached v.3.1.5
 ?>
