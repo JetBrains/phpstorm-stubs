@@ -564,6 +564,7 @@ const CLASSES = array (
   'RedisCluster' => 'redis/RedisCluster.php',
   'RedisClusterException' => 'redis/RedisCluster.php',
   'RedisException' => 'redis/Redis.php',
+  'RedisSentinel' => 'redis/RedisSentinel.php',
   'Reflection' => 'Reflection/Reflection.php',
   'ReflectionClass' => 'Reflection/Reflection.php',
   'ReflectionClassConstant' => 'Reflection/Reflection.php',
