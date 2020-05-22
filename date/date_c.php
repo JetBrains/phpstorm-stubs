@@ -639,7 +639,7 @@ class DateInterval {
 
     /**
      * Total number of days the interval spans. If this is unknown, days will be FALSE.
-     * @var mixed
+     * @var int|false
      */
     public $days;
 
