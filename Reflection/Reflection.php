@@ -173,7 +173,7 @@ abstract class ReflectionFunctionAbstract implements Reflector {
 	/**
 	 * Gets file name
 	 * @link https://php.net/manual/en/reflectionfunctionabstract.getfilename.php
-	 * @return string The file name.
+	 * @return string|false The file name.
 	 */
 	public function getFileName () {}
 
