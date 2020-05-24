@@ -48,6 +48,20 @@ class Redis
     const SERIALIZER_JSON       = 4;
 
     /**
+     * Compressions
+     */
+    const COMPRESSION_NONE      = 0;
+    const COMPRESSION_LZF       = 1;
+    const COMPRESSION_ZSTD      = 2;
+
+    /**
+     * Compression ZSTD levels
+     */
+    const COMPRESSION_ZSTD_MIN = 1;
+    const COMPRESSION_ZSTD_DEFAULT = 3;
+    const COMPRESSION_ZSTD_MAX = 22;
+
+    /**
      * Multi
      */
     const ATOMIC                = 0;
