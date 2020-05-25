@@ -2047,5 +2047,15 @@ final class ReflectionReference
 	private function __clone() {}
 }
 
+/**
+ * @since 8.0
+ */
+class ReflectionUnionType extends ReflectionType {
+	/**
+	 * @return ReflectionType[]
+	 */
+	public function getTypes() {}
+}
+
 // End of Reflection v.$Id: bcdcdaeea3aba34a8083bb62c6eda69ff3c3eab5 $
 ?>
