@@ -914,7 +914,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Gets the constructor of the class
 	 * @link https://php.net/manual/en/reflectionclass.getconstructor.php
-	 * @return ReflectionMethod A <b>ReflectionMethod</b> object reflecting the class' constructor, or <b>NULL</b> if the class
+	 * @return ReflectionMethod|null A <b>ReflectionMethod</b> object reflecting the class' constructor, or <b>NULL</b> if the class
 	 * has no constructor.
 	 */
 	public function getConstructor () {}
