@@ -580,6 +580,7 @@ const CLASSES = array (
   'ReflectionProperty' => 'Reflection/Reflection.php',
   'ReflectionReference' => 'Reflection/Reflection.php',
   'ReflectionType' => 'Reflection/Reflection.php',
+  'ReflectionUnionType' => 'Reflection/Reflection.php',
   'ReflectionZendExtension' => 'Reflection/Reflection.php',
   'Reflector' => 'Reflection/Reflection.php',
   'RegexIterator' => 'SPL/SPL.php',
