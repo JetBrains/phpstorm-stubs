@@ -281,12 +281,11 @@ function register_shutdown_function ($function, ...$parameters) {}
  * The function name as a string, or an array consisting of an object and
  * a method.
  * </p>
- * @param mixed $arg [optional] <p>
+ * @param mixed ...$parameters [optional] <p>
  * </p>
- * @param mixed $_ [optional]
  * @return bool true on success or false on failure.
  */
-function register_tick_function ($function, $arg = null, $_ = null) {}
+function register_tick_function ($function, ...$parameters) {}
 
 /**
  * De-register a function for execution on each tick
