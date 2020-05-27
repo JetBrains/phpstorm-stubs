@@ -1949,15 +1949,3 @@ class RecursiveArrayIterator extends ArrayIterator implements RecursiveIterator 
      */
     public function getChildren() { }
 }
-
-/**
- * @since 7.1
- */
-define ("MT_RAND_MT19937", 0);
-
-/**
- * @since 7.1
- */
-define ("MT_RAND_PHP", 1);
-// End of SPL v.0.2
-?>
