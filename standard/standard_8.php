@@ -1048,13 +1048,9 @@ function array_slice (array $array, $offset, $length = null, $preserve_keys = fa
 /**
  * Merge one or more arrays
  * @link https://php.net/manual/en/function.array-merge.php
- * @param array $array1 <p>
+ * @param array ...$arrays <p>
  * Initial array to merge.
  * </p>
- * @param array $array2 [optional]
- * @param array $_ [optional]
  * @return array the resulting array.
  */
-function array_merge (array $array1, array $array2 = null, array $_ = null) {}
-
-?>
+function array_merge (array ...$arrays) {}
