@@ -157,12 +157,11 @@ function pfsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $
  * </tr>
  * </table>
  * </p>
- * @param mixed $args [optional] <p>
+ * @param mixed ...$args [optional] <p>
  * </p>
- * @param mixed $_ [optional]
  * @return string|false a binary string containing data or false if the format string contains errors
  */
-function pack ($format, $args = null, $_ = null) {}
+function pack ($format, ...$args) {}
 
 /**
  * Unpack data from binary string
