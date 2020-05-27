@@ -78,13 +78,12 @@ function call_user_method_array ($method_name, &$obj, array $params) {}
  * with the name of the class, and the method, or a string, with a function
  * name.
  * </p>
- * @param mixed $parameter [optional] <p>
+ * @param mixed ...$parameters [optional] <p>
  * Zero or more parameters to be passed to the function.
  * </p>
- * @param mixed $_ [optional]
  * @return mixed the function result, or false on error.
  */
-function forward_static_call ($function, $parameter = null, $_ = null) {}
+function forward_static_call ($function, ...$parameters) {}
 
 /**
  * Call a static method and pass the arguments as array
