@@ -93,10 +93,10 @@ function forward_static_call ($function, ...$parameters) {}
  * with the name of the class, and the method, or a &string;, with a function
  * name.
  * </p>
- * @param array $parameters [optional]
+ * @param array $parameters
  * @return mixed the function result, or false on error.
  */
-function forward_static_call_array ($function, array $parameters = null) {}
+function forward_static_call_array ($function, array $parameters) {}
 
 /**
  * Generates a storable representation of a value
