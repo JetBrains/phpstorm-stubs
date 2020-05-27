@@ -743,9 +743,9 @@ function array_key_last(array $array) { }
 /**
  * &Alias; <function>current</function>
  * @link https://php.net/manual/en/function.pos.php
- * @param $arg
+ * @param array $arg
  */
-function pos(&$arg) { }
+function pos($arg) { }
 
 /**
  * &Alias; <function>count</function>
