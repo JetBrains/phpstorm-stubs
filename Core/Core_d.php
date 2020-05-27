@@ -310,6 +310,17 @@ define ('PHP_WINDOWS_VERSION_PRODUCTTYPE', 0);
 define ('PHP_WINDOWS_VERSION_SP_MAJOR', 0);
 define ('PHP_WINDOWS_VERSION_SP_MINOR', 0);
 define ('PHP_WINDOWS_VERSION_SUITEMASK', 0);
+define ('PHP_WINDOWS_NT_DOMAIN_CONTROLLER', 2);
+define ('PHP_WINDOWS_NT_SERVER', 3);
+define ('PHP_WINDOWS_NT_WORKSTATION', 1);
+/**
+ * @since 7.4
+ */
+define ('PHP_WINDOWS_EVENT_CTRL_C', 0);
+/**
+ * @since 7.4
+ */
+define ('PHP_WINDOWS_EVENT_CTRL_BREAK', 1);
 define ('PHP_VERSION', "5.3.6-13ubuntu3.2");
 define ('PHP_MAJOR_VERSION', 5);
 define ('PHP_MINOR_VERSION', 3);
