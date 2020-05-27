@@ -310,13 +310,12 @@ function strchr ($haystack, $needle, $part = false) {}
  * (- or +) to be used on a number. By default, only the - sign is used
  * on a number if it's negative. This specifier forces positive numbers
  * to have the + sign attached as well, and was added in PHP 4.3.0.
- * @param mixed $args [optional] <p>
+ * @param mixed ...$args [optional] <p>
  * </p>
- * @param mixed $_ [optional]
  * @return string a string produced according to the formatting string
  * format.
  */
-function sprintf ($format, $args = null, $_ = null) {}
+function sprintf ($format, ...$args) {}
 
 /**
  * Output a formatted string
