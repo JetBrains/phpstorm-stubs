@@ -1112,4 +1112,4 @@ function getmxrr ($hostname, array &$mxhosts, array &$weight = null) {}
  * </tr>
  * </table>
  */
-function dns_get_record ($hostname, $type = DNS_ANY, array &$authns = null, array &$addtl = null, &$raw = false) {}
+function dns_get_record ($hostname, $type = DNS_ANY, array &$authns = null, array &$addtl = null, $raw = false) {}
