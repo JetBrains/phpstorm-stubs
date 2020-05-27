@@ -63,7 +63,7 @@ class mysqli  {
 	 */
 	public $client_version;
 	/**
-	 * @var string
+	 * @var int
 	 */
 	public $connect_errno;
 	/**
