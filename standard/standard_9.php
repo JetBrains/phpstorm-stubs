@@ -14,10 +14,10 @@ define ("ARRAY_FILTER_USE_KEY", 2);
 /**
  * Merge two or more arrays recursively
  * @link https://php.net/manual/en/function.array-merge-recursive.php
- * @param array $_ [optional] Variable list of arrays to recursively merge.
+ * @param array ...$arrays [optional] Variable list of arrays to recursively merge.
  * @return array An array of values resulted from merging the arguments together.
  */
-function array_merge_recursive(array $_ = null) { }
+function array_merge_recursive(array ...$arrays) { }
 
 
 /**
