@@ -324,12 +324,11 @@ function sprintf ($format, ...$args) {}
  * See sprintf for a description of
  * format.
  * </p>
- * @param mixed $args [optional] <p>
+ * @param mixed ...$args [optional] <p>
  * </p>
- * @param mixed $_ [optional]
  * @return int the length of the outputted string.
  */
-function printf ($format, $args = null, $_ = null) {}
+function printf ($format, ...$args) {}
 
 /**
  * Output a formatted string
