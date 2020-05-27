@@ -266,14 +266,13 @@ function memory_get_peak_usage ($real_usage = null) {}
  * thus, for example, its output will not be compressed if zlib.output_compression is
  * enabled.
  * </p>
- * @param mixed $parameter [optional] <p>
+ * @param mixed ...$parameters [optional] <p>
  * It is possible to pass parameters to the shutdown function by passing
  * additional parameters.
  * </p>
- * @param mixed $_ [optional]
  * @return void
  */
-function register_shutdown_function ($function, $parameter = null, $_ = null) {}
+function register_shutdown_function ($function, ...$parameters) {}
 
 /**
  * Register a function for execution on each tick
