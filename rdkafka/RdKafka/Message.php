@@ -28,7 +28,7 @@ class Message
      * @var string
      */
     public $payload;
-    
+
     /**
      * @var int
      */
