@@ -29,7 +29,7 @@
     }
   },
   "scripts": {
-    "cs": "php-cs-fixer fix -vvv --diff --dry-run",
+    "cs": "php-cs-fixer fix -v --diff --dry-run",
     "cs-fix": "php-cs-fixer fix -v --diff"
   }
 }
