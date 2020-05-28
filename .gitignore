@@ -14,3 +14,5 @@ rest-client.private.env.json
 #Composer
 vendor
 composer.lock
+
+.php_cs.cache
