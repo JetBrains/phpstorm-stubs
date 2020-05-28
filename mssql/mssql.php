@@ -12,10 +12,10 @@
  * hostname,port (Windows).
  * </p>
  * @param string $username [optional] <p>
- * The username. 
+ * The username.
  * </p>
  * @param string $password [optional] <p>
- * The password. 
+ * The password.
  * </p>
  * @param bool $new_link [optional] <p>
  * If a second call is made to mssql_connect with the
@@ -26,6 +26,7 @@
  * called before with the same parameters.
  * </p>
  * @return resource|false a MS SQL link identifier on success, or false on error.
+ * @removed 7.0
  */
 function mssql_connect ($servername = null, $username = null, $password = null, $new_link = false) {}
 
@@ -34,14 +35,14 @@ function mssql_connect ($servername = null, $username = null, $password = null, 
  * Open persistent MS SQL connection
  * @link https://php.net/manual/en/function.mssql-pconnect.php
  * @param string $servername [optional] <p>
- * The MS SQL server. It can also include a port number. e.g. 
+ * The MS SQL server. It can also include a port number. e.g.
  * hostname:port.
  * </p>
  * @param string $username [optional] <p>
- * The username. 
+ * The username.
  * </p>
  * @param string $password [optional] <p>
- * The password. 
+ * The password.
  * </p>
  * @param bool $new_link [optional] <p>
  * If a second call is made to mssql_pconnect with
@@ -54,6 +55,7 @@ function mssql_connect ($servername = null, $username = null, $password = null, 
  * </p>
  * @return resource a positive MS SQL persistent link identifier on success, or
  * false on error.
+ * @removed 7.0
  */
 function mssql_pconnect ($servername = null, $username = null, $password = null, $new_link = false) {}
 
@@ -62,7 +64,7 @@ function mssql_pconnect ($servername = null, $username = null, $password = null,
  * Close MS SQL Server connection
  * @link https://php.net/manual/en/function.mssql-close.php
  * @param resource $link_identifier [optional] <p>
- * A MS SQL link identifier, returned by 
+ * A MS SQL link identifier, returned by
  * mssql_connect.
  * </p>
  * <p>
@@ -70,6 +72,7 @@ function mssql_pconnect ($servername = null, $username = null, $password = null,
  * mssql_pconnect.
  * </p>
  * @return bool true on success or false on failure.
+ * @removed 7.0
  */
 function mssql_close ($link_identifier = null) {}
 
@@ -88,8 +91,8 @@ function mssql_close ($link_identifier = null) {}
  * also a reserved word (such as primary).
  * </p>
  * @param resource $link_identifier [optional] <p>
- * A MS SQL link identifier, returned by 
- * mssql_connect or 
+ * A MS SQL link identifier, returned by
+ * mssql_connect or
  * mssql_pconnect.
  * </p>
  * <p>
@@ -98,6 +101,7 @@ function mssql_close ($link_identifier = null) {}
  * mssql_connect was called, and use it.
  * </p>
  * @return bool true on success or false on failure.
+ * @removed 7.0
  */
 function mssql_select_db ($database_name, $link_identifier = null) {}
 
@@ -109,8 +113,8 @@ function mssql_select_db ($database_name, $link_identifier = null) {}
  * An SQL query.
  * </p>
  * @param resource $link_identifier [optional] <p>
- * A MS SQL link identifier, returned by 
- * mssql_connect or 
+ * A MS SQL link identifier, returned by
+ * mssql_connect or
  * mssql_pconnect.
  * </p>
  * <p>
@@ -123,6 +127,7 @@ function mssql_select_db ($database_name, $link_identifier = null) {}
  * </p>
  * @return mixed a MS SQL result resource on success, true if no rows were
  * returned, or false on error.
+ * @removed 7.0
  */
 function mssql_query ($query, $link_identifier = null, $batch_size = 0) {}
 
@@ -135,6 +140,7 @@ function mssql_query ($query, $link_identifier = null, $batch_size = 0) {}
  * call to mssql_query.
  * </p>
  * @return int the batch number as an integer.
+ * @removed 7.0
  */
 function mssql_fetch_batch ($result) {}
 
@@ -143,11 +149,12 @@ function mssql_fetch_batch ($result) {}
  * Returns the number of records affected by the query
  * @link https://php.net/manual/en/function.mssql-rows-affected.php
  * @param resource $link_identifier <p>
- * A MS SQL link identifier, returned by 
- * mssql_connect or 
+ * A MS SQL link identifier, returned by
+ * mssql_connect or
  * mssql_pconnect.
  * </p>
  * @return int the number of records affected by last operation.
+ * @removed 7.0
  */
 function mssql_rows_affected ($link_identifier) {}
 
@@ -160,6 +167,7 @@ function mssql_rows_affected ($link_identifier) {}
  * call to mssql_query.
  * </p>
  * @return bool true on success or false on failure.
+ * @removed 7.0
  */
 function mssql_free_result ($result) {}
 
@@ -167,8 +175,9 @@ function mssql_free_result ($result) {}
  * (PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)<br/>
  * Returns the last message from the server
  * @link https://php.net/manual/en/function.mssql-get-last-message.php
- * @return string last error message from server, or an empty string if 
+ * @return string last error message from server, or an empty string if
  * no error messages are returned from MSSQL.
+ * @removed 7.0
  */
 function mssql_get_last_message () {}
 
@@ -181,6 +190,7 @@ function mssql_get_last_message () {}
  * call to mssql_query.
  * </p>
  * @return int the number of rows, as an integer.
+ * @removed 7.0
  */
 function mssql_num_rows ($result) {}
 
@@ -193,6 +203,7 @@ function mssql_num_rows ($result) {}
  * call to mssql_query.
  * </p>
  * @return int the number of fields, as an integer.
+ * @removed 7.0
  */
 function mssql_num_fields ($result) {}
 
@@ -213,6 +224,7 @@ function mssql_num_fields ($result) {}
  * </p>
  * <p>
  * The properties of the object are:
+ * @removed 7.0
  */
 function mssql_fetch_field ($result, $field_offset = -1) {}
 
@@ -226,6 +238,7 @@ function mssql_fetch_field ($result, $field_offset = -1) {}
  * </p>
  * @return array|false an array that corresponds to the fetched row, or false if there
  * are no more rows.
+ * @removed 7.0
  */
 function mssql_fetch_row ($result) {}
 
@@ -239,12 +252,13 @@ function mssql_fetch_row ($result) {}
  * </p>
  * @param int $result_type [optional] <p>
  * The type of array that is to be fetched. It's a constant and can take
- * the following values: MSSQL_ASSOC, 
+ * the following values: MSSQL_ASSOC,
  * MSSQL_NUM, and
  * MSSQL_BOTH.
  * </p>
  * @return array|false an array that corresponds to the fetched row, or false if there
  * are no more rows.
+ * @removed 7.0
  */
 function mssql_fetch_array ($result, $result_type = MSSQL_BOTH) {}
 
@@ -258,6 +272,7 @@ function mssql_fetch_array ($result, $result_type = MSSQL_BOTH) {}
  * </p>
  * @return array an associative array that corresponds to the fetched row, or
  * false if there are no more rows.
+ * @removed 7.0
  */
 function mssql_fetch_assoc ($result_id) {}
 
@@ -271,6 +286,7 @@ function mssql_fetch_assoc ($result_id) {}
  * </p>
  * @return object an object with properties that correspond to the fetched row, or
  * false if there are no more rows.
+ * @removed 7.0
  */
 function mssql_fetch_object ($result) {}
 
@@ -286,6 +302,7 @@ function mssql_fetch_object ($result) {}
  * The field offset, starts at 0. If omitted, the current field is used.
  * </p>
  * @return int|false The length of the specified field index on success or false on failure.
+ * @removed 7.0
  */
 function mssql_field_length ($result, $offset = null) {}
 
@@ -301,6 +318,7 @@ function mssql_field_length ($result, $offset = null) {}
  * The field offset, starts at 0. If omitted, the current field is used.
  * </p>
  * @return string|false The name of the specified field index on success or false on failure.
+ * @removed 7.0
  */
 function mssql_field_name ($result, $offset = -1) {}
 
@@ -316,6 +334,7 @@ function mssql_field_name ($result, $offset = -1) {}
  * The field offset, starts at 0. If omitted, the current field is used.
  * </p>
  * @return string|false The type of the specified field index on success or false on failure.
+ * @removed 7.0
  */
 function mssql_field_type ($result, $offset = -1) {}
 
@@ -324,12 +343,13 @@ function mssql_field_type ($result, $offset = -1) {}
  * Moves internal row pointer
  * @link https://php.net/manual/en/function.mssql-data-seek.php
  * @param resource $result_identifier <p>
- * The result resource that is being evaluated. 
+ * The result resource that is being evaluated.
  * </p>
  * @param int $row_number <p>
- * The desired row number of the new result pointer. 
+ * The desired row number of the new result pointer.
  * </p>
  * @return bool true on success or false on failure.
+ * @removed 7.0
  */
 function mssql_data_seek ($result_identifier, $row_number) {}
 
@@ -345,6 +365,7 @@ function mssql_data_seek ($result_identifier, $row_number) {}
  * The field offset, starts at 0.
  * </p>
  * @return bool true on success or false on failure.
+ * @removed 7.0
  */
 function mssql_field_seek ($result, $field_offset) {}
 
@@ -367,11 +388,12 @@ function mssql_field_seek ($result, $field_offset) {}
  * </p>
  * <p>
  * Specifying a numeric offset for the field
- * argument is much quicker than specifying a 
- * fieldname or 
+ * argument is much quicker than specifying a
+ * fieldname or
  * tablename.fieldname argument.
  * </p>
  * @return string the contents of the specified cell.
+ * @removed 7.0
  */
 function mssql_result ($result, $row, $field) {}
 
@@ -385,6 +407,7 @@ function mssql_result ($result, $row, $field) {}
  * </p>
  * @return bool true if an additional result set was available or false
  * otherwise.
+ * @removed 7.0
  */
 function mssql_next_result ($result_id) {}
 
@@ -395,7 +418,8 @@ function mssql_next_result ($result_id) {}
  * @param int $severity <p>
  * The new error severity.
  * </p>
- * @return void 
+ * @return void
+ * @removed 7.0
  */
 function mssql_min_error_severity ($severity) {}
 
@@ -406,7 +430,8 @@ function mssql_min_error_severity ($severity) {}
  * @param int $severity <p>
  * The new message severity.
  * </p>
- * @return void 
+ * @return void
+ * @removed 7.0
  */
 function mssql_min_message_severity ($severity) {}
 
@@ -416,15 +441,16 @@ function mssql_min_message_severity ($severity) {}
  * @link https://php.net/manual/en/function.mssql-init.php
  * @param string $sp_name <p>
  * Stored procedure name, like ownew.sp_name or
- * otherdb.owner.sp_name. 
+ * otherdb.owner.sp_name.
  * </p>
  * @param resource $link_identifier [optional] <p>
- * A MS SQL link identifier, returned by 
+ * A MS SQL link identifier, returned by
  * mssql_connect.
  * </p>
  * @return resource a resource identifier "statement", used in subsequent calls to
  * mssql_bind and mssql_execute,
  * or false on errors.
+ * @removed 7.0
  */
 function mssql_init ($sp_name, $link_identifier = null) {}
 
@@ -441,25 +467,25 @@ function mssql_init ($sp_name, $link_identifier = null) {}
  * <p>
  * You have to include the @ character, like in the
  * T-SQL syntax. See the explanation included in
- * mssql_execute. 
+ * mssql_execute.
  * </p>
  * @param mixed $var <p>
  * The PHP variable you'll bind the MSSQL parameter to. It is passed by
  * reference, to retrieve OUTPUT and RETVAL values after
- * the procedure execution. 
+ * the procedure execution.
  * </p>
  * @param int $type <p>
- * One of: SQLTEXT, 
+ * One of: SQLTEXT,
  * SQLVARCHAR, SQLCHAR,
  * SQLINT1, SQLINT2,
  * SQLINT4, SQLBIT,
  * SQLFLT4, SQLFLT8,
- * SQLFLTN. 
+ * SQLFLTN.
  * </p>
  * @param bool $is_output [optional] <p>
  * Whether the value is an OUTPUT parameter or not. If it's an OUTPUT
  * parameter and you don't mention it, it will be treated as a normal
- * input parameter and no error will be thrown. 
+ * input parameter and no error will be thrown.
  * </p>
  * @param bool $is_null [optional] <p>
  * Whether the parameter is null or not. Passing the null value as
@@ -467,10 +493,11 @@ function mssql_init ($sp_name, $link_identifier = null) {}
  * </p>
  * @param int $maxlen [optional] <p>
  * Used with char/varchar values. You have to indicate the length of the
- * data so if the parameter is a varchar(50), the type must be 
+ * data so if the parameter is a varchar(50), the type must be
  * SQLVARCHAR and this value 50.
  * </p>
  * @return bool true on success or false on failure.
+ * @removed 7.0
  */
 function mssql_bind ($stmt, $param_name, &$var, $type, $is_output = false, $is_null = false, $maxlen = -1) {}
 
@@ -479,12 +506,13 @@ function mssql_bind ($stmt, $param_name, &$var, $type, $is_output = false, $is_n
  * Executes a stored procedure on a MS SQL server database
  * @link https://php.net/manual/en/function.mssql-execute.php
  * @param resource $stmt <p>
- * Statement handle obtained with mssql_init. 
+ * Statement handle obtained with mssql_init.
  * </p>
  * @param bool $skip_results [optional] <p>
  * Whenever to skip the results or not.
  * </p>
- * @return mixed 
+ * @return mixed
+ * @removed 7.0
  */
 function mssql_execute ($stmt, $skip_results = false) {}
 
@@ -496,6 +524,7 @@ function mssql_execute ($stmt, $skip_results = false) {}
  * Statement resource, obtained with mssql_init.
  * </p>
  * @return bool true on success or false on failure.
+ * @removed 7.0
  */
 function mssql_free_statement ($stmt) {}
 
@@ -510,54 +539,55 @@ function mssql_free_statement ($stmt) {}
  * Whenever to use short format.
  * </p>
  * @return string the converted string on success.
+ * @removed 7.0
  */
 function mssql_guid_string ($binary, $short_format = null) {}
 
 
 /**
- * Return an associative array. Used on 
- * mssql_fetch_array's 
+ * Return an associative array. Used on
+ * mssql_fetch_array's
  * result_type parameter.
  * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('MSSQL_ASSOC', 1);
 
 /**
- * Return an array with numeric keys. Used on 
- * mssql_fetch_array's 
+ * Return an array with numeric keys. Used on
+ * mssql_fetch_array's
  * result_type parameter.
  * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('MSSQL_NUM', 2);
 
 /**
- * Return an array with both numeric keys and 
- * keys with their field name. This is the 
- * default value for mssql_fetch_array's 
+ * Return an array with both numeric keys and
+ * keys with their field name. This is the
+ * default value for mssql_fetch_array's
  * result_type parameter.
  * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('MSSQL_BOTH', 3);
 
 /**
- * Indicates the 'TEXT' type in MSSQL, used by 
- * mssql_bind's type 
+ * Indicates the 'TEXT' type in MSSQL, used by
+ * mssql_bind's type
  * parameter.
  * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('SQLTEXT', 35);
 
 /**
- * Indicates the 'VARCHAR' type in MSSQL, used by 
- * mssql_bind's type 
+ * Indicates the 'VARCHAR' type in MSSQL, used by
+ * mssql_bind's type
  * parameter.
  * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('SQLVARCHAR', 39);
 
 /**
- * Indicates the 'CHAR' type in MSSQL, used by 
- * mssql_bind's type 
+ * Indicates the 'CHAR' type in MSSQL, used by
+ * mssql_bind's type
  * parameter.
  * @link https://php.net/manual/en/mssql.constants.php
  */
@@ -570,22 +600,22 @@ define ('SQLCHAR', 47);
 define ('SQLINT1', 48);
 
 /**
- * Represents two bytes, with a range of -32768 
+ * Represents two bytes, with a range of -32768
  * to 32767.
  * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('SQLINT2', 52);
 
 /**
- * Represents four bytes, with a range of -2147483648 
+ * Represents four bytes, with a range of -2147483648
  * to 2147483647.
  * @link https://php.net/manual/en/mssql.constants.php
  */
 define ('SQLINT4', 56);
 
 /**
- * Indicates the 'BIT' type in MSSQL, used by 
- * mssql_bind's type 
+ * Indicates the 'BIT' type in MSSQL, used by
+ * mssql_bind's type
  * parameter.
  * @link https://php.net/manual/en/mssql.constants.php
  */

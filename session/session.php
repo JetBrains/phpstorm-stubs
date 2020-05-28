@@ -21,8 +21,6 @@
  * </p>
  * </p>
  * @return string the name of the current session.
- * @since 4.0
- * @since 5.0
  */
 function session_name ($name = null) {}
 
@@ -35,8 +33,6 @@ function session_name ($name = null) {}
  * used instead.
  * </p>
  * @return string the name of the current session module.
- * @since 4.0
- * @since 5.0
  */
 function session_module_name ($module = null) {}
 
@@ -56,8 +52,6 @@ function session_module_name ($module = null) {}
  * </p>
  * </p>
  * @return string the path of the current directory used for data storage.
- * @since 4.0
- * @since 5.0
  */
 function session_save_path ($path = null) {}
 
@@ -79,8 +73,6 @@ function session_save_path ($path = null) {}
  * @return string <b>session_id</b> returns the session id for the current
  * session or the empty string ("") if there is no current
  * session (no current session id exists).
- * @since 4.0
- * @since 5.0
  */
 function session_id ($id = null) {}
 
@@ -91,8 +83,6 @@ function session_id ($id = null) {}
  * Whether to delete the old associated session file or not.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.3.2
- * @since 5.0
  */
 function session_regenerate_id ($delete_old_session = false) {}
 
@@ -110,8 +100,6 @@ function session_register_shutdown  () {}
  * The encoded data to be stored.
  * </p>
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function session_decode ($data) {}
 
@@ -124,9 +112,8 @@ function session_decode ($data) {}
  * </p>
  * @param mixed $_ [optional]
  * @return bool true on success or false on failure.
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
- * @since 4.0
- * @since 5.0
+ * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
+ * @removed 5.4
  */
 function session_register ($name, $_ = null) {}
 
@@ -137,9 +124,8 @@ function session_register ($name, $_ = null) {}
  * The variable name.
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
- * @since 4.0
- * @since 5.0
+ * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
+ * @removed 5.4
  */
 function session_unregister ($name) {}
 
@@ -152,9 +138,8 @@ function session_unregister ($name) {}
  * @return bool <b>session_is_registered</b> returns true if there is a
  * global variable with the name <i>name</i> registered in
  * the current session, false otherwise.
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0 and REMOVED as of PHP 5.4.0.
- * @since 4.0
- * @since 5.0
+ * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
+ * @removed 5.4
  */
 function session_is_registered ($name) {}
 
@@ -162,8 +147,6 @@ function session_is_registered ($name) {}
  * Encodes the current session data as a string
  * @link https://php.net/manual/en/function.session-encode.php
  * @return string the contents of the current session encoded.
- * @since 4.0
- * @since 5.0
  */
 function session_encode () {}
 
@@ -174,9 +157,6 @@ function session_encode () {}
  * In addition to the normal set of configuration directives, a read_and_close option may also be provided. If set to TRUE, this will result in the session being closed immediately after being read, thereby avoiding unnecessary locking if the session data won't be changed.</p>
  * @return bool This function returns true if a session was successfully started,
  * otherwise false.
- * @since 4.0
- * @since 5.0
- * @since 7.0
  */
 function session_start ($options = []) {}
 
@@ -203,8 +183,6 @@ function session_gc() {}
  * Destroys all data registered to a session
  * @link https://php.net/manual/en/function.session-destroy.php
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function session_destroy () {}
 
@@ -212,8 +190,6 @@ function session_destroy () {}
  * Free all session variables
  * @link https://php.net/manual/en/function.session-unset.php
  * @return void|bool since 7.2.0 returns true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function session_unset () {}
 
@@ -264,8 +240,6 @@ function session_unset () {}
  * @param callback $validate_sid [optional]
  * @param callback $update_timestamp [optional]
  * @return bool true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function session_set_save_handler ($open, $close, $read, $write, $destroy, $gc, $create_sid = null, $validate_sid = null,  $update_timestamp = null) {}
 
@@ -335,9 +309,6 @@ function session_set_save_handler (SessionHandlerInterface $session_handler, $re
  * </tr>
  * </table>
  * @return string the name of the current cache limiter.
- * @since 4.0.3
- * @since 5.0
- * @since 7.0
  */
 function session_cache_limiter ($cache_limiter = null) {}
 
@@ -355,11 +326,26 @@ function session_cache_limiter ($cache_limiter = null) {}
  * </p>
  * @return int the current setting of session.cache_expire.
  * The value returned should be read in minutes, defaults to 180.
- * @since 4.2
- * @since 5.0
- * @since 7.0
  */
 function session_cache_expire ($new_cache_expire = null) {}
+
+/**
+ * Set the session cookie parameters
+ * @link https://php.net/manual/en/function.session-set-cookie-params.php
+ * @param array $options <p>
+ * An associative array which may have any of the keys lifetime, path, domain,
+ * secure, httponly and samesite. The values have the same meaning as described
+ * for the parameters with the same name. The value of the samesite element
+ * should be either Lax or Strict. If any of the allowed options are not given,
+ * their default values are the same as the default values of the explicit
+ * parameters. If the samesite element is omitted, no SameSite cookie attribute
+ * is set.
+ * </p>
+ * @return bool returns true on success or false on failure.
+ * @since 7.3
+ */
+function session_set_cookie_params ($options) {}
+
 
 /**
  * Set the session cookie parameters
@@ -388,8 +374,6 @@ function session_cache_expire ($new_cache_expire = null) {}
  * flag when setting the session cookie.
  * </p>
  * @return void|bool since 7.2.0 returns true on success or false on failure.
- * @since 4.0
- * @since 5.0
  */
 function session_set_cookie_params ($lifetime, $path = null, $domain = null, $secure = false, $httponly = false) {}
 
@@ -408,8 +392,6 @@ function session_set_cookie_params ($lifetime, $path = null, $domain = null, $se
  * should only be sent over secure connections.
  * "httponly" - The
  * cookie can only be accessed through the HTTP protocol.
- * @since 4.0
- * @since 5.0
  */
 function session_get_cookie_params () {}
 
@@ -417,8 +399,6 @@ function session_get_cookie_params () {}
  * Write session data and end session
  * @link https://php.net/manual/en/function.session-write-close.php
  * @return void|bool since 7.2.0 returns true on success or false on failure.
- * @since 4.0.4
- * @since 5.0
  */
 function session_write_close () {}
 
@@ -426,8 +406,6 @@ function session_write_close () {}
  * Alias of <b>session_write_close</b>
  * @link https://php.net/manual/en/function.session-commit.php
  * @return void|bool since 7.2.0 returns true on success or false on failure.
- * @since 4.4
- * @since 5.0
  */
 function session_commit () {}
 
@@ -438,6 +416,7 @@ function session_commit () {}
  * @return int <b>PHP_SESSION_DISABLED</b> if sessions are disabled.
  * <b>PHP_SESSION_NONE</b> if sessions are enabled, but none exists.
  * <b>PHP_SESSION_ACTIVE</b> if sessions are enabled, and one exists.
+ * @since 5.4
  */
 function session_status () {}
 
@@ -446,6 +425,7 @@ function session_status () {}
  * Discard session array changes and finish session
  * @link https://php.net/manual/en/function.session-abort.php
  * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
+ * @since 5.6
  */
 function session_abort() {}
 
@@ -454,6 +434,7 @@ function session_abort() {}
  * Re-initialize session array with original values
  * @link https://php.net/manual/en/function.session-reset.php
  * @return void|bool since 7.2.0 returns true if a session was successfully reinitialized or false on failure.
+ * @since 5.6
  */
 function session_reset() {}
 

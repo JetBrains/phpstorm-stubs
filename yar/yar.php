@@ -32,7 +32,7 @@ define('YAR_CLIENT_PROTOCOL_UNIX', 4);
 /**
  * Class Yar_Server
  * Date 2018/6/9 下午3:02
- * @Author weizhimiao001@lianjia.com
+ * @author weizhimiao001@lianjia.com
  * @link https://secure.php.net/manual/en/class.yar-server.php
  */
 class Yar_Server {
@@ -145,7 +145,7 @@ class Yar_Concurrent_Client {
 /**
  * Class Yar_Server_Exception
  * Date 2018/6/9 下午3:06
- * @Author weizhimiao001@lianjia.com
+ * @author weizhimiao001@lianjia.com
  * @link https://secure.php.net/manual/en/class.yar-server-exception.php
  */
 class Yar_Server_Exception extends Exception {
@@ -165,7 +165,7 @@ class Yar_Server_Exception extends Exception {
 /**
  * Class Yar_Client_Exception
  * Date 2018/6/9 下午3:05
- * @Author weizhimiao001@lianjia.com
+ * @author weizhimiao001@lianjia.com
  * @link https://secure.php.net/manual/en/class.yar-client-exception.php
  */
 class Yar_Client_Exception extends Exception {

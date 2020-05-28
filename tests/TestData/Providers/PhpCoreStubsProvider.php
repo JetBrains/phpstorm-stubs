@@ -1,14 +1,13 @@
 <?php
-
+declare(strict_types=1);
 
 namespace StubTests\TestData\Providers;
-
 
 use StubTests\Parsers\Utils;
 
 class PhpCoreStubsProvider
 {
-    private static $StubDirectoryMap = [
+    private static array $StubDirectoryMap = [
         'CORE' => [
             'Core',
             'date',
@@ -106,6 +105,7 @@ class PhpCoreStubsProvider
             'inotify',
             'libevent',
             'leveldb',
+            'lzf',
             'mailparse',
             'memcache',
             'memcached',
@@ -141,6 +141,9 @@ class PhpCoreStubsProvider
         ]
     ];
 
+    /**
+     * @return string[]
+     */
     public static function getCoreStubsDirectories(): array
     {
         $coreStubs[] = self::$StubDirectoryMap['CORE'];

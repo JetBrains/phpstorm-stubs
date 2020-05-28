@@ -6,8 +6,7 @@
 /**
  * Return available SPL classes
  * @link https://php.net/manual/en/function.spl-classes.php
- * @return array 
- * @since 5.0
+ * @return array
  */
 function spl_classes () {}
 
@@ -19,7 +18,7 @@ function spl_classes () {}
  * @param string $file_extensions [optional] <p>
  * By default it checks all include paths to
  * contain filenames built up by the lowercase class name appended by the
- * filename extensions .inc and .php. 
+ * filename extensions .inc and .php.
  * </p>
  * @return void
  * @since 5.1.2
@@ -53,7 +52,7 @@ function spl_autoload_extensions ($file_extensions = null) {}
  * @param bool $throw This parameter specifies whether spl_autoload_register() should throw exceptions when the
  * autoload_function cannot be registered.
  * @param bool $prepend If true, spl_autoload_register() will prepend the autoloader on the autoload stack instead of
- * appending it. 
+ * appending it.
  * @return bool true on success or false on failure.
  * @since 5.1.2
  */
@@ -103,7 +102,6 @@ function spl_autoload_call ($class_name) {}
  * method.
  * </p>
  * @return array An array on success, or false on error.
- * @since 5.1
  */
 function class_parents ($class, $autoload = null) {}
 
@@ -119,17 +117,15 @@ function class_parents ($class, $autoload = null) {}
  * method.
  * </p>
  * @return array An array on success, or false on error.
- * @since 5.1
  */
 function class_implements ($class, $autoload = null) {}
 
 /**
  * Return hash id for given object
  * @link https://php.net/manual/en/function.spl-object-hash.php
- * @param object $obj 
+ * @param object $obj
  * @return string A string that is unique for each object and is always the same for
  * the same object.
- * @since 5.2
  */
 function spl_object_hash ($obj) {}
 
@@ -143,9 +139,8 @@ function spl_object_hash ($obj) {}
  * Whether to use the iterator element keys as index.
  * </p>
  * @return array An array containing the elements of the iterator.
- * @since 5.1
  */
-function iterator_to_array ($iterator, $use_keys = true) {}
+function iterator_to_array (Traversable $iterator, $use_keys = true) {}
 
 /**
  * Count the elements in an iterator
@@ -154,9 +149,8 @@ function iterator_to_array ($iterator, $use_keys = true) {}
  * The iterator being counted.
  * </p>
  * @return int The number of elements in iterator.
- * @since 5.1
  */
-function iterator_count ($iterator) {}
+function iterator_count (Traversable $iterator) {}
 
 /**
  * Call a function for every element in an iterator
@@ -173,9 +167,8 @@ function iterator_count ($iterator) {}
  * Arguments to pass to the callback function.
  * </p>
  * @return int the iteration count.
- * @since 5.1
  */
-function iterator_apply ($iterator, $function, array $args = null) {}
+function iterator_apply (Traversable $iterator, $function, array $args = null) {}
 
 // End of SPL v.0.2
 

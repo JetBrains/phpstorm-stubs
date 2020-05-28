@@ -1788,6 +1788,7 @@ class IntlDateFormatter {
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * @deprecated 5.5 https://secure.php.net/manual/en/migration55.deprecated.php
+     * @removed 7.0
      */
     public function setTimeZoneId($zone) { }
 
@@ -2048,6 +2049,9 @@ class ResourceBundle implements Traversable {
     public function getErrorMessage() { }
 }
 
+/**
+ * @since 5.4
+ */
 class Transliterator {
     const FORWARD = 0;
     const REVERSE = 1;
@@ -2223,6 +2227,9 @@ class Spoofchecker {
     public function setChecks($checks) { }
 }
 
+/**
+ * @since 5.5
+ */
 class IntlGregorianCalendar extends IntlCalendar {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2250,6 +2257,9 @@ class IntlGregorianCalendar extends IntlCalendar {
     public function isLeapYear($year) { }
 }
 
+/**
+ * @since 5.5
+ */
 class IntlCalendar {
     /* Constants */
     const FIELD_ERA = 0;
@@ -2860,6 +2870,7 @@ class IntlCalendar {
      * @param int $field One of the IntlCalendar date/time field constants. These are integer values between 0 and IntlCalendar::FIELD_COUNT.
      * @param int $value The new value of the given field.
      * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
+     * @since 5.5
      */
     public function set($field, $value) { }
 
@@ -2984,7 +2995,9 @@ class IntlCalendar {
     public function toDateTime() { }
 }
 
-
+/**
+ * @since 5.5
+ */
 class IntlIterator implements Iterator {
 
     public function current() { }
@@ -2998,10 +3011,16 @@ class IntlIterator implements Iterator {
     public function valid() { }
 }
 
+/**
+ * @since 5.5
+ */
 class IntlException extends Exception {
 
 }
 
+/**
+ * @since 5.5
+ */
 class IntlTimeZone {
     /* Constants */
     const  DISPLAY_SHORT = 1;
@@ -4172,6 +4191,7 @@ function datefmt_get_timezone() { }
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @deprecated 5.5 https://secure.php.net/manual/en/migration55.deprecated.php
+ * @removed 7.0
  */
 function datefmt_set_timezone_id(MessageFormatter $mf, $zone) { }
 
@@ -4649,6 +4669,7 @@ function idn_to_utf8($domain, $options = 0, $variant = INTL_IDNA_VARIANT_2003, a
  * @return IntlCalendar
  * The created {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} instance or <b>NULL</b> on
  * failure.
+ * @since 5.5
  */
 function intlcal_create_instance($timeZone = NULL, $locale = NULL) { }
 
@@ -4667,6 +4688,7 @@ function intlcal_create_instance($timeZone = NULL, $locale = NULL) { }
  * Whether to show only the values commonly used for the specified locale.
  * </p>
  * @return Iterator|false An iterator that yields strings with the locale keyword values or <b>FALSE</b> on failure.
+ * @since 5.5
  */
 function intlcal_get_keyword_values_for_locale($key, $locale, $commonlyUsed) { }
 
@@ -4675,6 +4697,7 @@ function intlcal_get_keyword_values_for_locale($key, $locale, $commonlyUsed) { }
  * Get number representing the current time
  * @link https://secure.php.net/manual/en/intlcalendar.getnow.php
  * @return float A float representing a number of milliseconds since the epoch, not counting leap seconds.
+ * @since 5.5
  */
 function intlcal_get_now() { }
 
@@ -4683,6 +4706,7 @@ function intlcal_get_now() { }
  * Get array of locales for which there is data
  * @link https://secure.php.net/manual/en/intlcalendar.getavailablelocales.php
  * @return array An array of strings, one for which locale.
+ * @since 5.5
  */
 
 function intlcal_get_available_locales() { }
@@ -4700,6 +4724,7 @@ function intlcal_get_available_locales() { }
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
  * @return int An integer with the value of the time field.
+ * @since 5.5
  */
 function intl_get($calendar, $field) { }
 
@@ -4710,6 +4735,7 @@ function intl_get($calendar, $field) { }
  * @return float
  * A {@link https://secure.php.net/manual/en/language.types.float.php float} representing the number of milliseconds elapsed since the
  * reference time (1 Jan 1970 00:00:00 UTC).
+ * @since 5.5
  */
 function intlcal_get_time($calendar) { }
 
@@ -4723,6 +4749,7 @@ function intlcal_get_time($calendar) { }
  * </p>
  * @return bool
  * Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
+ * @since 5.5
  */
 function intlcal_set_time($date) { }
 
@@ -4741,6 +4768,7 @@ function intlcal_set_time($date) { }
  * @param int $amount <p>The signed amount to add to the current field. If the amount is positive, the instant will be moved forward; if it is negative, the instant wil be moved into the past. The unit is implicit to the field type.
  * For instance, hours for IntlCalendar::FIELD_HOUR_OF_DAY.</p>
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 5.5
  */
 function intlcal_add($calendar, $field, $amount) { }
 
@@ -4785,6 +4813,7 @@ function intlcal_add($calendar, $field, $amount) { }
  * </li>
  * </ul>
  * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
+ * @since 5.5
  */
 function intlcal_set_time_zone($calendar, $timeZone) { }
 
@@ -4801,6 +4830,7 @@ function intlcal_set_time_zone($calendar, $timeZone) { }
  * <em>calendar</em> argument's time. Returns <b>FALSE</b> otherwise.
  * Also returns <b>FALSE</b> on failure. You can use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or
  * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to detect error conditions.
+ * @since 5.5
  */
 function intlcal_after(IntlCalendar $calendarObject, IntlCalendar $calendar) { }
 
@@ -4818,6 +4848,7 @@ function intlcal_after(IntlCalendar $calendarObject, IntlCalendar $calendar) { }
  * Also returns <b>FALSE</b> on failure. You can use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or
  * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to detect error conditions.
  * </p>
+ * @since 5.5
  */
 function intlcal_before(IntlCalendar $calendarObject, IntlCalendar $calendar) { }
 
@@ -4855,6 +4886,7 @@ function intlcal_before(IntlCalendar $calendarObject, IntlCalendar $calendar) { 
  * The new value for <b>IntlCalendar::FIELD_SECOND</b>.
  *</p>
  * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
+ * @since 5.5
  */
 function intlcal_set($calendar, $year, $month, $dayOfMonth = NULL, $hour = NULL, $minute = NULL, $second = NULL) { }
 
@@ -4877,6 +4909,7 @@ function intlcal_set($calendar, $year, $month, $dayOfMonth = NULL, $hour = NULL,
  * <em>1</em>).
  * </p>
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 5.5
  */
 function intlcal_roll($calendar, $field, $amountOrUpOrDown) { }
 
@@ -4893,6 +4926,7 @@ function intlcal_roll($calendar, $field, $amountOrUpOrDown) { }
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure. Failure can only occur is invalid arguments are provided.
+ * @since 5.5
  */
 function intlcal_clear($calendar, $field = NULL) { }
 
@@ -4920,7 +4954,7 @@ function intlcal_clear($calendar, $field = NULL) { }
  * </p>
  * @return int Returns a (signed) difference of time in the unit associated with the
  * specified field or <b>FALSE</b> on failure.
- *
+ * @since 5.5
  */
 function intlcal_field_difference($calendar, $when, $field) { }
 
@@ -4940,6 +4974,7 @@ function intlcal_field_difference($calendar, $when, $field) { }
  * @return int
  * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing the maximum value in the units associated
  * with the given <em>field</em> or <b>FALSE</b> on failure.
+ * @since 5.5
  */
 function intlcal_get_actual_maximum($calendar, $field) { }
 
@@ -4958,6 +4993,7 @@ function intlcal_get_actual_maximum($calendar, $field) { }
  * @return int
  * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing the minimum value in the field's
  * unit or <b>FALSE</b> on failure.
+ * @since 5.5
  */
 function intlcal_get_actual_minimum($calendar, $field) { }
 
@@ -4979,7 +5015,7 @@ function intlcal_get_actual_minimum($calendar, $field) { }
  * <b>IntlCalendar::DOW_TYPE_WEEKEND</b>,
  * <b>IntlCalendar::DOW_TYPE_WEEKEND_OFFSET</b> or
  * <b>IntlCalendar::DOW_TYPE_WEEKEND_CEASE</b> or <b>FALSE</b> on failure.
- *
+ * @since 5.5
  */
 function intlcal_get_day_of_week_type($calendar, $dayOfWeek) { }
 
@@ -4994,7 +5030,7 @@ function intlcal_get_day_of_week_type($calendar, $dayOfWeek) { }
  * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
  * <b>IntlCalendar::DOW_MONDAY</b>, ...,
  * <b>IntlCalendar::DOW_SATURDAY</b> or <b>FALSE</b> on failure.
- *
+ * @since 5.5
  */
 function intlcal_get_first_day_of_week($calendar) { }
 
@@ -5012,6 +5048,7 @@ function intlcal_get_first_day_of_week($calendar) { }
  * @return int
  * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing a field value, in the field's
  * unit, or <b>FALSE</b> on failure.
+ * @since 5.5
  */
 function intlcal_greates_minimum($calendar, $field) { }
 
@@ -5047,6 +5084,7 @@ function intlcal_get($calendar, $index) { }
  * An {@link https://secure.php.net/manual/en/language.types.integer.ph int} representing a field value in the field's
  * unit or <b>FALSE</b> on failure.
  * </p>
+ * @since 5.5
  */
 function intlcal_get_least_maximum($calendar, $field) { }
 
@@ -5064,6 +5102,7 @@ function intlcal_get_least_maximum($calendar, $field) { }
  * @return int
  * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing a field value, in the field's
  * unit, or <b>FALSE</b> on failure.
+ * @since 5.5
  */
 function intlcal_get_greatest_minimum($calendar, $field) { }
 
@@ -5084,7 +5123,7 @@ function intlcal_get_greatest_minimum($calendar, $field) { }
  * </p>
  * @return string
  * A locale string or <b>FALSE</b> on failure.
- *
+ * @since 5.5
  */
 function intlcal_get_locale($calendar, $localeType) { }
 
@@ -5102,6 +5141,7 @@ function intlcal_get_locale($calendar, $localeType) { }
  * </p>
  * @return string
  * A locale string or <b>FALSE</b> on failure.
+ * @since 5.5
  */
 function intcal_get_maximum($calendar, $field) { }
 
@@ -5115,6 +5155,7 @@ function intcal_get_maximum($calendar, $field) { }
  * </p>
  * @return int
  * An {@link https://secure.php.net/manual/en/language.types.integer.php  int} representing a number of days or <b>FALSE</b> on failure.
+ * @since 5.5
  */
 function intlcal_get_minimal_days_in_first_week($calendar) { }
 
@@ -5132,6 +5173,7 @@ function intlcal_get_minimal_days_in_first_week($calendar) { }
  * </p>
  * @return int
  * An int representing a value for the given field in the field's unit or FALSE on failure.
+ * @since 5.5
  */
 function intlcal_get_minimum($calendar, $field) { }
 
@@ -5145,6 +5187,7 @@ function intlcal_get_minimum($calendar, $field) { }
  * @return IntlTimeZone
  * An {@link https://secure.php.net/manual/en/class.intltimezone.php IntlTimeZone} object corresponding to the one used
  * internally in this object.
+ * @since 5.5
  */
 function intlcal_get_time_zone($calendar) { }
 
@@ -5158,6 +5201,7 @@ function intlcal_get_time_zone($calendar) { }
  * @return string
  * A {@link https://secure.php.net/manual/en/language.types.string.php string} representing the calendar type, such as
  * <em>'gregorian'</em>, <em>'islamic'</em>, etc.
+ * @since 5.5
  */
 function intlcal_get_type($calendar) { }
 
@@ -5176,6 +5220,7 @@ function intlcal_get_type($calendar) { }
  * @return int
  * The number of milliseconds into the day at which the the weekend begins or
  * ends or <b>FALSE</b> on failure.
+ * @since 5.5
  */
 function intlcal_get_weekend_transition($calendar, $dayOfWeek) { }
 
@@ -5191,6 +5236,7 @@ function intlcal_get_weekend_transition($calendar, $dayOfWeek) { }
  * The value <b>FALSE</b> may also be returned on failure, for instance after
  * specifying invalid field values on non-lenient mode; use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or query
  * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.
+ * @since 5.5
  */
 function intlcal_in_daylight_time($calendar) { }
 
@@ -5203,6 +5249,7 @@ function intlcal_in_daylight_time($calendar) { }
  * </p>
  * @return bool
  * A {@link https://secure.php.net/manual/en/language.types.boolean.php bool} representing whether the calendar is set to lenient mode.
+ * @since 5.5
  */
 function intlcal_is_lenient($calendar) { }
 
@@ -5219,6 +5266,7 @@ function intlcal_is_lenient($calendar) { }
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
  * @return bool Assuming there are no argument errors, returns <b>TRUE</b> iif the field is set.
+ * @since 5.5
  */
 function intlcal_is_set($calendar, $field) { }
 
@@ -5236,6 +5284,7 @@ function intlcal_is_set($calendar, $field) { }
  * </p>
  * @return string
  * A locale string or <b>FALSE</b> on failure.
+ * @since 5.5
  */
 function intlcal_get_maximum($calendar, $field) { }
 
@@ -5249,6 +5298,7 @@ function intlcal_get_maximum($calendar, $field) { }
  * @param IntlCalendar $calendar The other calendar against which the comparison is to be made.
  * @return bool
  * Assuming there are no argument errors, returns <b>TRUE</b> iif the calendars are equivalent except possibly for their set time.
+ * @since 5.5
  */
 function intlcal_is_equivalent_to(IntlCalendar $calendarObject, IntlCalendar $calendar) { }
 
@@ -5272,6 +5322,7 @@ function intlcal_is_equivalent_to(IntlCalendar $calendarObject, IntlCalendar $ca
  * The value <b>FALSE</b> may also be returned on failure, for instance after giving
  * a date out of bounds on non-lenient mode; use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or query
  * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.</p>
+ * @since 5.5
  */
 function intlcal_is_weekend($calendar, $date = NULL) { }
 
@@ -5289,6 +5340,7 @@ function intlcal_is_weekend($calendar, $date = NULL) { }
  * <b>IntlCalendar::DOW_SATURDAY</b>.
  * </p>
  * @return bool Returns TRUE on success. Failure can only happen due to invalid parameters.
+ * @since 5.5
  */
 function intlcal_set_first_day_of_week($calendar, $dayOfWeek) { }
 
@@ -5303,6 +5355,7 @@ function intlcal_set_first_day_of_week($calendar, $dayOfWeek) { }
  * Use <b>TRUE</b> to activate the lenient mode; <b>FALSE</b> otherwise.
  * </p>
  * @return bool Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+ * @since 5.5
  */
 function intlcal_set_lenient($calendar, $isLenient) { }
 
@@ -5317,7 +5370,7 @@ function intlcal_set_lenient($calendar, $isLenient) { }
  * @return int
  * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b> or
  * <b>IntlCalendar::WALLTIME_LAST</b>.
- *
+ * @since 5.5
  */
 function intlcal_get_repeated_wall_time_option($calendar) { }
 
@@ -5336,6 +5389,7 @@ function intlcal_get_repeated_wall_time_option($calendar) { }
  * happen if bad arguments are passed in. In any case, the two cases can be
  * distinguished by calling  {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()}.
  * </p>
+ * @since 5.5
  */
 function intlcal_equals($calendarObject, $calendar) { }
 
@@ -5350,6 +5404,7 @@ function intlcal_equals($calendarObject, $calendar) { }
  * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b>,
  * <b>IntlCalendar::WALLTIME_LAST</b> or
  * <b>IntlCalendar::WALLTIME_NEXT_VALID</b>.
+ * @since 5.5
  */
 function intlcal_get_skipped_wall_time_option($calendar) { }
 
@@ -5366,7 +5421,7 @@ function intlcal_get_skipped_wall_time_option($calendar) { }
  * </p>
  * @return bool
  * Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
- *
+ * @since 5.5
  */
 function intlcal_set_repeated_wall_time_option($calendar, $wallTimeOption) { }
 
@@ -5386,6 +5441,7 @@ function intlcal_set_repeated_wall_time_option($calendar, $wallTimeOption) { }
  * <p>
  * Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
  * </p>
+ * @since 5.5
  */
 function intlcal_set_skipped_wall_time_option($calendar, $wallTimeOption) { }
 
@@ -5401,6 +5457,7 @@ function intlcal_set_skipped_wall_time_option($calendar, $wallTimeOption) { }
  * The created {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} object or <b>NULL</b> in case of
  * failure. If a {@link https://secure.php.net/manual/en/language.types.string.php string} is passed, any exception that occurs
  * inside the {@link https://secure.php.net/manual/en/class.datetime.php DateTime} constructor is propagated.
+ * @since 5.5
  */
 function intlcal_from_date_time($dateTime) { }
 
@@ -5417,6 +5474,7 @@ function intlcal_from_date_time($dateTime) { }
  * object (though using PHP's database instead of ICU's) and the same time,
  * except for the smaller precision (second precision instead of millisecond).
  * Returns <b>FALSE</b> on failure.
+ * @since 5.5
  */
 function intlcal_to_date_time($calendar) { }
 
@@ -5429,7 +5487,7 @@ function intlcal_to_date_time($calendar) { }
  * The calendar object, on the procedural style interface.
  * </p>
  * @return int An ICU error code indicating either success, failure or a warning.
- *
+ * @since 5.5
  */
 function intlcal_get_error_code($calendar) { }
 
@@ -5441,6 +5499,7 @@ function intlcal_get_error_code($calendar) { }
  * The calendar object, on the procedural style interface.
  * </p>
  * @return string The error message associated with last error that occurred in a function call on this object, or a string indicating the non-existance of an error.
+ * @since 5.5
  */
 function intlcal_get_error_message($calendar) { }
 
@@ -5451,6 +5510,7 @@ function intlcal_get_error_message($calendar) { }
  * @link https://secure.php.net/manual/en/intltimezone.countequivalentids.php
  * @param string $zoneId
  * @return int
+ * @since 5.5
  */
 function intltz_count_equivalent_ids($zoneId) { }
 
@@ -5459,6 +5519,7 @@ function intltz_count_equivalent_ids($zoneId) { }
  * Create a new copy of the default timezone for this host
  * @link https://secure.php.net/manual/en/intltimezone.createdefault.php
  * @return IntlTimeZone
+ * @since 5.5
  */
 function intlz_create_default() { }
 
@@ -5467,6 +5528,7 @@ function intlz_create_default() { }
  * @link https://secure.php.net/manual/en/intltimezone.createenumeration.php
  * @param mixed $countryOrRawOffset [optional]
  * @return IntlIterator
+ * @since 5.5
  */
 function intltz_create_enumeration($countryOrRawOffset) { }
 
@@ -5475,6 +5537,7 @@ function intltz_create_enumeration($countryOrRawOffset) { }
  * @link https://secure.php.net/manual/en/intltimezone.createtimezone.php
  * @param string $zoneId
  * @return IntlTimeZone
+ * @since 5.5
  */
 function intltz_create_time_zone($zoneId) { }
 
@@ -5483,6 +5546,7 @@ function intltz_create_time_zone($zoneId) { }
  * @link https://secure.php.net/manual/en/intltimezone.fromdatetimezone.php
  * @param DateTimeZone $zoneId
  * @return IntlTimeZone
+ * @since 5.5
  */
 function intltz_from_date_time_zone($zoneId) { }
 
@@ -5493,6 +5557,7 @@ function intltz_from_date_time_zone($zoneId) { }
  * @param string $zoneId
  * @param bool $isSystemID [optional]
  * @return string
+ * @since 5.5
  */
 function intltz_get_canonical_id($zoneId, &$isSystemID) { }
 
@@ -5506,6 +5571,7 @@ function intltz_get_canonical_id($zoneId, &$isSystemID) { }
  * @param int $style [optional]
  * @param string $locale [optional]
  * @return string
+ * @since 5.5
  */
 function intltz_get_display_name($obj, $isDaylight, $style, $locale) { }
 
@@ -5517,6 +5583,7 @@ function intltz_get_display_name($obj, $isDaylight, $style, $locale) { }
  * </p>
  * @link https://secure.php.net/manual/en/intltimezone.getequivalentid.php
  * @return int
+ * @since 5.5
  */
 function intltz_get_dst_savings($obj) { }
 
@@ -5527,6 +5594,7 @@ function intltz_get_dst_savings($obj) { }
  * @param string $zoneId
  * @param int $index
  * @return string
+ * @since 5.5
  */
 function intltz_get_equivalent_id($zoneId, $index) { }
 
@@ -5538,6 +5606,7 @@ function intltz_get_equivalent_id($zoneId, $index) { }
  * The time zone object, on the procedural style interface.
  * </p>
  * @return int
+ * @since 5.5
  */
 function intltz_get_error_code($obj) { }
 
@@ -5549,6 +5618,7 @@ function intltz_get_error_code($obj) { }
  * The time zone object, on the procedural style interface.
  * </p>
  * @return string
+ * @since 5.5
  */
 function intltz_get_error_message($obj) { }
 
@@ -5557,6 +5627,7 @@ function intltz_get_error_message($obj) { }
  * Create GMT (UTC) timezone
  * @link https://secure.php.net/manual/en/intltimezone.getgmt.php
  * @return IntlTimeZone
+ * @since 5.5
  */
 function intltz_getGMT() { }
 
@@ -5566,6 +5637,7 @@ function intltz_getGMT() { }
  * @link https://secure.php.net/manual/en/intltimezone.getid.php
  * @param IntlTimeZone $obj
  * @return string
+ * @since 5.5
  */
 function intltz_get_id($obj) { }
 
@@ -5579,6 +5651,7 @@ function intltz_get_id($obj) { }
  * @param int $rawOffset
  * @param int $dstOffset
  * @return int
+ * @since 5.5
  */
 function intltz_get_offset($obj, $date, $local, &$rawOffset, &$dstOffset) { }
 
@@ -5596,6 +5669,7 @@ function intltz_get_raw_offset($obj) { }
  * @link https://secure.php.net/manual/en/intltimezone.gettzdataversion.php
  * @param IntlTimeZone $obj
  * @return string
+ * @since 5.5
  */
 function intltz_get_tz_data_version($obj) { }
 
@@ -5606,6 +5680,7 @@ function intltz_get_tz_data_version($obj) { }
  * @param IntlTimeZone $obj
  * @param IntlTimeZone $otherTimeZone
  * @return bool
+ * @since 5.5
  */
 function intltz_has_same_rules($obj, $otherTimeZone) { }
 
@@ -5615,6 +5690,7 @@ function intltz_has_same_rules($obj, $otherTimeZone) { }
  * @link https://secure.php.net/manual/ru/intltimezone.todatetimezone.php
  * @param $obj
  * @return DateTimeZone
+ * @since 5.5
  */
 function intltz_to_date_time_zone($obj) { }
 
@@ -5624,6 +5700,7 @@ function intltz_to_date_time_zone($obj) { }
  * @link https://secure.php.net/manual/ru/intltimezone.usedaylighttime.php
  * @param $obj
  * @return bool
+ * @since 5.5
  */
 function intltz_use_daylight_time($obj) { }
 
@@ -5633,6 +5710,7 @@ function intltz_use_daylight_time($obj) { }
  * @param mixed $timeZone
  * @param string $locale
  * @return IntlGregorianCalendar
+ * @since 5.5
  */
 function intlgregcal_create_instance($timeZone = NULL, $locale = NULL) { }
 
@@ -5742,6 +5820,7 @@ function resourcebundle_get_error_message(ResourceBundle $bundle) { }
  * </p>
  * @return Transliterator|null a <b>Transliterator</b> object on success,
  * or <b>NULL</b> on failure.
+ * @since 5.4
  */
 function transliterator_create($id, $direction = null) { }
 
@@ -5760,6 +5839,7 @@ function transliterator_create($id, $direction = null) { }
  * </p>
  * @return Transliterator a <b>Transliterator</b> object on success,
  * or <b>NULL</b> on failure.
+ * @since 5.4
  */
 function transliterator_create_from_rules($rules, $direction = null) { }
 
@@ -5769,6 +5849,7 @@ function transliterator_create_from_rules($rules, $direction = null) { }
  * @link https://php.net/manual/en/transliterator.listids.php
  * @return array An array of registered transliterator IDs on success,
  * or <b>FALSE</b> on failure.
+ * @since 5.4
  */
 function transliterator_list_ids() { }
 
@@ -5779,6 +5860,7 @@ function transliterator_list_ids() { }
  * @param Transliterator $orig_trans
  * @return Transliterator a <b>Transliterator</b> object on success,
  * or <b>NULL</b> on failure
+ * @since 5.4
  */
 function transliterator_create_inverse(Transliterator $orig_trans) { }
 
@@ -5801,6 +5883,7 @@ function transliterator_create_inverse(Transliterator $orig_trans) { }
  * left as is.
  * </p>
  * @return string|false The transfomed string on success, or <b>FALSE</b> on failure.
+ * @since 5.4
  */
 function transliterator_transliterate($transliterator, $subject, $start = null, $end = null) { }
 
@@ -5811,6 +5894,7 @@ function transliterator_transliterate($transliterator, $subject, $start = null, 
  * @param Transliterator $trans
  * @return int The error code on success,
  * or <b>FALSE</b> if none exists, or on failure.
+ * @since 5.4
  */
 function transliterator_get_error_code(Transliterator $trans) { }
 
@@ -5821,6 +5905,7 @@ function transliterator_get_error_code(Transliterator $trans) { }
  * @param Transliterator $trans
  * @return string The error code on success,
  * or <b>FALSE</b> if none exists, or on failure.
+ * @since 5.4
  */
 function transliterator_get_error_message(Transliterator $trans) { }
 
@@ -6154,7 +6239,9 @@ define ('IDNA_ERROR_BIDI', 2048);
  */
 define ('IDNA_ERROR_CONTEXTJ', 4096);
 
-
+/**
+ * @since 5.5
+ */
 class IntlBreakIterator implements Traversable {
     /* Constants */
     const  DONE = -1;

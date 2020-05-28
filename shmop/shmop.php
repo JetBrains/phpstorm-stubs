@@ -25,8 +25,6 @@
  * @return resource On success <b>shmop_open</b> will return an id that you can
  * use to access the shared memory segment you've created. <b>FALSE</b> is
  * returned on failure.
- * @since 4.0.4
- * @since 5.0
  */
 function shmop_open ($key, $flags, $mode, $size) {}
 
@@ -44,8 +42,6 @@ function shmop_open ($key, $flags, $mode, $size) {}
  * The number of bytes to read
  * </p>
  * @return string|false the data or <b>FALSE</b> on failure.
- * @since 4.0.4
- * @since 5.0
  */
 function shmop_read ($shmid, $start, $count) {}
 
@@ -57,8 +53,6 @@ function shmop_read ($shmid, $start, $count) {}
  * <b>shmop_open</b>
  * </p>
  * @return void No value is returned.
- * @since 4.0.4
- * @since 5.0
  */
 function shmop_close ($shmid) {}
 
@@ -71,8 +65,6 @@ function shmop_close ($shmid) {}
  * </p>
  * @return int an int, which represents the number of bytes the shared memory
  * block occupies.
- * @since 4.0.4
- * @since 5.0
  */
 function shmop_size ($shmid) {}
 
@@ -92,8 +84,6 @@ function shmop_size ($shmid) {}
  * </p>
  * @return int|false The size of the written <i>data</i>, or <b>FALSE</b> on
  * failure.
- * @since 4.0.4
- * @since 5.0
  */
 function shmop_write ($shmid, $data, $offset) {}
 
@@ -105,8 +95,6 @@ function shmop_write ($shmid, $data, $offset) {}
  * <b>shmop_open</b>
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0.4
- * @since 5.0
  */
 function shmop_delete ($shmid) {}
 

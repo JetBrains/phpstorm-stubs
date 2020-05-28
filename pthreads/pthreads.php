@@ -407,7 +407,7 @@ class Stackable extends Threaded implements Traversable, Countable, ArrayAccess 
  * When the start method of a Thread is invoked, the run method code will be
  * executed in separate Thread, in parallel.<br/>
  * After the run method is executed the Thread will exit immediately, it will
- * be joined with the creating Thread at the approriate time.
+ * be joined with the creating Thread at the appropriate time.
  *
  * @link https://secure.php.net/manual/en/class.thread.php
  */

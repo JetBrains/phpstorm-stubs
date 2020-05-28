@@ -13,7 +13,7 @@ define ('E_ERROR', 1);
 
 /**
  * Catchable fatal error. It indicates that a probably dangerous error
- * occured, but did not leave the Engine in an unstable state. If the error
+ * occurred, but did not leave the Engine in an unstable state. If the error
  * is not caught by a user defined handle (see also
  * <b>set_error_handler</b>), the application aborts as it
  * was an <b>E_ERROR</b>.
@@ -142,161 +142,6 @@ define ('S_MISC', 2);
 define ('S_INTERNAL', 536870912);
 define ('S_ALL', 511);
 
-/**
- * system is unusable
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_EMERG', 0);
-
-/**
- * action must be taken immediately
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_ALERT', 1);
-
-/**
- * critical conditions
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_CRIT', 2);
-
-/**
- * error conditions
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_ERR', 3);
-
-/**
- * warning conditions
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_WARNING', 4);
-
-/**
- * normal, but significant, condition
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_NOTICE', 5);
-
-/**
- * informational message
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_INFO', 6);
-
-/**
- * debug-level message
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_DEBUG', 7);
-
-/**
- * kernel messages
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_KERN', 0);
-
-/**
- * generic user-level messages
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_USER', 8);
-
-/**
- * mail subsystem
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_MAIL', 16);
-
-/**
- * other system daemons
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_DAEMON', 24);
-
-/**
- * security/authorization messages (use <b>LOG_AUTHPRIV</b> instead
- * in systems where that constant is defined)
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_AUTH', 32);
-
-/**
- * messages generated internally by syslogd
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_SYSLOG', 40);
-
-/**
- * line printer subsystem
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_LPR', 48);
-
-/**
- * USENET news subsystem
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_NEWS', 56);
-
-/**
- * UUCP subsystem
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_UUCP', 64);
-
-/**
- * clock daemon (cron and at)
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_CRON', 72);
-
-/**
- * security/authorization messages (private)
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_AUTHPRIV', 80);
-define ('LOG_LOCAL0', 128);
-define ('LOG_LOCAL1', 136);
-define ('LOG_LOCAL2', 144);
-define ('LOG_LOCAL3', 152);
-define ('LOG_LOCAL4', 160);
-define ('LOG_LOCAL5', 168);
-define ('LOG_LOCAL6', 176);
-define ('LOG_LOCAL7', 184);
-
-/**
- * include PID with each message
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_PID', 1);
-
-/**
- * if there is an error while sending data to the system logger,
- * write directly to the system console
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_CONS', 2);
-
-/**
- * (default) delay opening the connection until the first
- * message is logged
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_ODELAY', 4);
-
-/**
- * open the connection to the logger immediately
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_NDELAY', 8);
-define ('LOG_NOWAIT', 16);
-
-/**
- * print log message also to standard error
- * @link https://php.net/manual/en/network.constants.php
- */
-define ('LOG_PERROR', 32);
 define ('true', (bool)1, true);
 define ('false', (bool)0, true);
 define ('null', null, true);
@@ -310,6 +155,17 @@ define ('PHP_WINDOWS_VERSION_PRODUCTTYPE', 0);
 define ('PHP_WINDOWS_VERSION_SP_MAJOR', 0);
 define ('PHP_WINDOWS_VERSION_SP_MINOR', 0);
 define ('PHP_WINDOWS_VERSION_SUITEMASK', 0);
+define ('PHP_WINDOWS_NT_DOMAIN_CONTROLLER', 2);
+define ('PHP_WINDOWS_NT_SERVER', 3);
+define ('PHP_WINDOWS_NT_WORKSTATION', 1);
+/**
+ * @since 7.4
+ */
+define ('PHP_WINDOWS_EVENT_CTRL_C', 0);
+/**
+ * @since 7.4
+ */
+define ('PHP_WINDOWS_EVENT_CTRL_BREAK', 1);
 define ('PHP_VERSION', "5.3.6-13ubuntu3.2");
 define ('PHP_MAJOR_VERSION', 5);
 define ('PHP_MINOR_VERSION', 3);
@@ -325,10 +181,19 @@ define ('PHP_OS', "Linux");
  */
 define ('PHP_OS_FAMILY', "Linux");
 define ('PHP_SAPI', "cli");
+/**
+ * @since 7.4
+ */
+define ('PHP_CLI_PROCESS_TITLE', 1);
 define ('DEFAULT_INCLUDE_PATH', ".:/usr/share/php:/usr/share/pear");
 define ('PEAR_INSTALL_DIR', "/usr/share/php");
 define ('PEAR_EXTENSION_DIR', "/usr/lib/php5/20090626");
 define ('PHP_EXTENSION_DIR', "/usr/lib/php5/20090626");
+/**
+ * Specifies where the binaries were installed into.
+ * @link https://php.net/manual/en/reserved.constants.php
+ */
+define ('PHP_BINARY', '/usr/local/php/bin/php');
 define ('PHP_PREFIX', "/usr");
 define ('PHP_BINDIR', "/usr/bin");
 define ('PHP_LIBDIR', "/usr/lib/php5");
@@ -384,3 +249,23 @@ define('STDERR', fopen('php://stderr', 'w'));
 
 define('PHP_FD_SETSIZE', 1024);
 
+/** @link https://php.net/manual/en/outcontrol.constants.php */
+define('PHP_OUTPUT_HANDLER_WRITE', 0);
+/** @link https://php.net/manual/en/outcontrol.constants.php */
+define('PHP_OUTPUT_HANDLER_FLUSH', 4);
+/** @link https://php.net/manual/en/outcontrol.constants.php */
+define('PHP_OUTPUT_HANDLER_CLEAN', 2);
+/** @link https://php.net/manual/en/outcontrol.constants.php */
+define('PHP_OUTPUT_HANDLER_FINAL', 8);
+/** @link https://php.net/manual/en/outcontrol.constants.php */
+define('PHP_OUTPUT_HANDLER_CLEANABLE', 16);
+/** @link https://php.net/manual/en/outcontrol.constants.php */
+define('PHP_OUTPUT_HANDLER_FLUSHABLE', 32);
+/** @link https://php.net/manual/en/outcontrol.constants.php */
+define('PHP_OUTPUT_HANDLER_REMOVABLE', 64);
+/** @link https://php.net/manual/en/outcontrol.constants.php */
+define('PHP_OUTPUT_HANDLER_STDFLAGS', 112);
+/** @link https://php.net/manual/en/outcontrol.constants.php */
+define('PHP_OUTPUT_HANDLER_STARTED', 4096);
+/** @link https://php.net/manual/en/outcontrol.constants.php */
+define('PHP_OUTPUT_HANDLER_DISABLED', 8192);

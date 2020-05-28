@@ -255,7 +255,7 @@ class SoapClient  {
      * <b>SOAP_SSL_METHOD_SSLv3</b> or
      * <b>SOAP_SSL_METHOD_SSLv23</b>.
      * </p>
-     * @throws SoapFault A SoapFault exception will be thrown if the wsdl URI cannot be loaded. 
+     * @throws SoapFault A SoapFault exception will be thrown if the wsdl URI cannot be loaded.
      * @since 5.0.1
      */
     public function __construct ($wsdl, array $options = null) {}
@@ -349,7 +349,7 @@ class SoapClient  {
 	 * Returns list of available SOAP functions
 	 * @link https://php.net/manual/en/soapclient.getfunctions.php
 	 * @return array The array of SOAP function prototypes, detailing the return type,
-	 * the function name and type-hinted paramaters.
+	 * the function name and type-hinted parameters.
 	 * @since 5.0.1
 	 */
 	public function __getFunctions () {}
@@ -556,7 +556,6 @@ class SoapServer  {
 	 * The object to handle the requests.
 	 * </p>
 	 * @return void No value is returned.
-	 * @since 5.2
 	 */
 	public function setObject ($object) {}
 
@@ -735,6 +734,28 @@ class SoapParam  {
  * @link https://php.net/manual/en/class.soapheader.php
  */
 class SoapHeader  {
+
+	/**
+	 * SoapHeader constructor
+	 * @link https://www.php.net/manual/en/soapheader.construct.php
+	 * @param string $namespace <p>
+	 * The namespace of the SOAP header element.
+	 * </p>
+	 * @param string $name <p>
+	 * The name of the SoapHeader object.
+	 * </p>
+	 * @param mixed $data [optional] <p>
+	 * A SOAP header's content. It can be a PHP value or a
+	 * <b>SoapVar</b> object.
+	 * </p>
+	 * @param bool $mustunderstand [optional]
+	 * @param string $actor [optional] <p>
+	 * Value of the actor attribute of the SOAP header
+	 * element.
+	 * </p>
+	 * @since 5.0.1
+	 */
+	 public function __construct ($namespace, $name, $data = null, $mustunderstand = false, $actor = null) {}
 
 	/**
 	 * SoapHeader constructor

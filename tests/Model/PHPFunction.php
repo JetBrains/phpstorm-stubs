@@ -8,9 +8,7 @@ use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use phpDocumentor\Reflection\Type;
 use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Stmt\Function_;
-use ReflectionException;
 use ReflectionFunction;
-use ReflectionParameter;
 use stdClass;
 use StubTests\Parsers\DocFactoryProvider;
 
@@ -18,35 +16,24 @@ class PHPFunction extends BasePHPElement
 {
     use PHPDocElement;
 
-    /**
-     * @var boolean $is_deprecated
-     */
-    public $is_deprecated;
+    public bool $is_deprecated;
     /**
      * @var PHPParameter[]
      */
-    public $parameters = [];
-    /**
-     * @var Type $returnTag
-     */
-    public $returnTag;
+    public array $parameters = [];
+
+    public ?Type $returnTag = null;
 
     /**
      * @param ReflectionFunction $function
      * @return $this
      */
-    public function readObjectFromReflection($function)
+    public function readObjectFromReflection($function): self
     {
-        try {
-            $reflectionFunction = new ReflectionFunction($function);
-            $this->name = $reflectionFunction->name;
-            $this->is_deprecated = $reflectionFunction->isDeprecated();
-            /**@var ReflectionParameter $parameter */
-            foreach ($reflectionFunction->getParameters() as $parameter) {
-                $this->parameters[] = (new PHPParameter())->readObjectFromReflection($parameter);
-            }
-        } catch (ReflectionException $ex) {
-            $this->parseError = $ex;
+        $this->name = $function->name;
+        $this->is_deprecated = $function->isDeprecated();
+        foreach ($function->getParameters() as $parameter) {
+            $this->parameters[] = (new PHPParameter())->readObjectFromReflection($parameter);
         }
         return $this;
     }
@@ -55,7 +42,7 @@ class PHPFunction extends BasePHPElement
      * @param Function_ $node
      * @return $this
      */
-    public function readObjectFromStubNode($node)
+    public function readObjectFromStubNode($node): self
     {
         $functionName = $this->getFQN($node);
         $this->name = $functionName;
@@ -64,8 +51,7 @@ class PHPFunction extends BasePHPElement
             $this->parameters[] = (new PHPParameter())->readObjectFromStubNode($parameter);
         }
 
-        $this->collectLinks($node);
-        $this->collectSinceDeprecatedVersions($node);
+        $this->collectTags($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);
         return $this;
@@ -82,7 +68,7 @@ class PHPFunction extends BasePHPElement
                     $this->is_deprecated = true;
                 }
             } catch (Exception $e) {
-                $this->parseError = $e->getMessage();
+                $this->parseError = $e;
             }
         }
     }
@@ -94,10 +80,10 @@ class PHPFunction extends BasePHPElement
                 $phpDoc = DocFactoryProvider::getDocFactory()->create($node->getDocComment()->getText());
                 $parsedReturnTag = $phpDoc->getTagsByName('return');
                 if (!empty($parsedReturnTag) && $parsedReturnTag[0] instanceof Return_) {
-                    $this->returnTag = $parsedReturnTag[0]->getType() . '';
+                    $this->returnTag = $parsedReturnTag[0]->getType();
                 }
             } catch (Exception $e) {
-                $this->parseError = $e->getMessage();
+                $this->parseError = $e;
             }
         }
     }
@@ -118,6 +104,9 @@ class PHPFunction extends BasePHPElement
                             break;
                         case 'deprecated function':
                             $this->mutedProblems[] = StubProblemType::FUNCTION_IS_DEPRECATED;
+                            break;
+                        case 'absent in meta':
+                            $this->mutedProblems[] = StubProblemType::ABSENT_IN_META;
                             break;
                         default:
                             $this->mutedProblems[] = -1;

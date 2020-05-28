@@ -1202,4 +1202,3 @@ function xmlwriter_output_memory ($xmlwriter, $flush = true) {}
  * written bytes.
  */
 function xmlwriter_flush ($xmlwriter, $empty = true) {}
-

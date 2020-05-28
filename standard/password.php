@@ -29,14 +29,14 @@
  * Examples of these values can be found on the {@link "https://secure.php.net/manual/en/function.crypt.php crypt()"} page.
  * </p>
  * <p>
- * If ommitted, a default value of <em>10</em> will be used. This is a good
+ * If omitted, a default value of <em>10</em> will be used. This is a good
  * baseline cost, but you may want to consider increasing it depending on your hardware.
  * </p>
  * </li>
  * </ul>
  * @link https://secure.php.net/manual/en/password.constants.php
  */
-define("PASSWORD_DEFAULT", 1);
+define("PASSWORD_DEFAULT", "2y");
 
 /**
  * <p>
@@ -64,7 +64,7 @@ define("PASSWORD_BCRYPT_DEFAULT_COST", 10);
  * change. Therefore you should be aware that the length of the resulting
  * hash can change. Therefore, if you use <b>PASSWORD_DEFAULT</b>
  * you should store the resulting hash in a way that can store more than 60
- * characters (255 is the recomended width).
+ * characters (255 is the recommended width).
  * </p>
  * <p>
  * Values for this constant:
@@ -75,7 +75,7 @@ define("PASSWORD_BCRYPT_DEFAULT_COST", 10);
  * </li>
  * </ul>
  */
-define("PASSWORD_BCRYPT", 1);
+define("PASSWORD_BCRYPT", '2y');
 
 /**
  *
@@ -92,7 +92,7 @@ define("PASSWORD_BCRYPT", 1);
  * Available as of PHP 7.2.0.
  * @since 7.2
  */
-define('PASSWORD_ARGON2I', 2);
+define('PASSWORD_ARGON2I', 'argon2i');
 
 /**
  *
@@ -109,7 +109,7 @@ define('PASSWORD_ARGON2I', 2);
  * Available as of PHP 7.3.0.
  * @since 7.3
  */
-define('PASSWORD_ARGON2ID', 3);
+define('PASSWORD_ARGON2ID', 'argon2id');
 
 /**
  * Default amount of memory in bytes that Argon2lib will use while trying to compute a hash.
@@ -131,6 +131,11 @@ define ('PASSWORD_ARGON2_DEFAULT_TIME_COST', 4);
  * @since 7.2
  */
 define('PASSWORD_ARGON2_DEFAULT_THREADS', 1);
+
+/**
+ * @since 7.4
+ */
+define('PASSWORD_ARGON2_PROVIDER', 'standard');
 
 /**
  * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>
@@ -162,7 +167,7 @@ function password_get_info ($hash) {}
  * Creates a password hash.
  * @link https://secure.php.net/manual/en/function.password-hash.php
  * @param string $password The user's password.
- * @param int $algo A <a href="https://secure.php.net/manual/en/password.constants.php" class="link">password algorithm constant</a>  denoting the algorithm to use when hashing the password.
+ * @param int|string $algo A <a href="https://secure.php.net/manual/en/password.constants.php" class="link">password algorithm constant</a>  denoting the algorithm to use when hashing the password.
  * @param array $options [optional] <p> An associative array containing options. See the <a href="https://secure.php.net/manual/en/password.constants.php" class="link">password algorithm constants</a> for documentation on the supported options for each algorithm.
  * If omitted, a random salt will be created and the default cost will be used.
  * <b>Warning<b>
@@ -173,7 +178,7 @@ function password_get_info ($hash) {}
  * @return string|false|null Returns the hashed password, or FALSE on failure, or null if the algorithm is invalid
  * @since 5.5
  */
-function password_hash ($password, $algo, $options = null) {}
+function password_hash ($password, $algo, $options = []) {}
 
 /**
  * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>
@@ -186,7 +191,7 @@ function password_hash ($password, $algo, $options = null) {}
  * @return bool Returns TRUE if the hash should be rehashed to match the given algo and options, or FALSE otherwise.
  * @since 5.5
  */
-function password_needs_rehash ($hash, $algo, $options = null) {}
+function password_needs_rehash ($hash, $algo, $options = []) {}
 
 /**
  * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>
@@ -200,4 +205,10 @@ function password_needs_rehash ($hash, $algo, $options = null) {}
  */
 function password_verify ($password, $hash) {}
 
+/**
+ * Return a complete list of all registered password hashing algorithms.
+ * @return string[]
+ * @since 7.4
+ */
+function password_algos(){}
 // End of password v.

@@ -1,8 +1,7 @@
 <?php
-
+declare(strict_types=1);
 
 namespace StubTests\Parsers\Visitors;
-
 
 use StubTests\Model\StubsContainer;
 

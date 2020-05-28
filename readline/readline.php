@@ -8,10 +8,8 @@
  * @param string $prompt [optional] <p>
  * You may specify a string with which to prompt the user.
  * </p>
- * @return string a single string from the user. The line returned has the ending
- * newline removed.
- * @since 4.0
- * @since 5.0
+ * @return string|false a single string from the user. The line returned has the ending newline removed.
+ * If there is no more data to read, then FALSE is returned.
  */
 function readline ($prompt = null) {}
 
@@ -32,8 +30,6 @@ function readline ($prompt = null) {}
  * </p>
  * <p>
  * If called with one or two parameters, the old value is returned.
- * @since 4.0
- * @since 5.0
  */
 function readline_info ($varname = null, $newvalue = null) {}
 
@@ -44,8 +40,6 @@ function readline_info ($varname = null, $newvalue = null) {}
  * The line to be added in the history.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function readline_add_history ($line) {}
 
@@ -53,8 +47,6 @@ function readline_add_history ($line) {}
  * Clears the history
  * @link https://php.net/manual/en/function.readline-clear-history.php
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function readline_clear_history () {}
 
@@ -63,8 +55,6 @@ function readline_clear_history () {}
  * @link https://php.net/manual/en/function.readline-list-history.php
  * @return array an array of the entire command line history. The elements are
  * indexed by integers starting at zero.
- * @since 4.0
- * @since 5.0
  */
 function readline_list_history () {}
 
@@ -75,8 +65,6 @@ function readline_list_history () {}
  * Path to the filename containing the command history.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function readline_read_history ($filename = null) {}
 
@@ -87,8 +75,6 @@ function readline_read_history ($filename = null) {}
  * Path to the saved file.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function readline_write_history ($filename = null) {}
 
@@ -100,8 +86,6 @@ function readline_write_history ($filename = null) {}
  * partial command line and returns an array of possible matches.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function readline_completion_function (callable $function) {}
 
@@ -116,7 +100,6 @@ function readline_completion_function (callable $function) {}
  * user input returned.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.1
  */
 function readline_callback_handler_install ($prompt, callable $callback) {}
 
@@ -124,7 +107,6 @@ function readline_callback_handler_install ($prompt, callable $callback) {}
  * Reads a character and informs the readline callback interface when a line is received
  * @link https://php.net/manual/en/function.readline-callback-read-char.php
  * @return void No value is returned.
- * @since 5.1
  */
 function readline_callback_read_char () {}
 
@@ -133,7 +115,6 @@ function readline_callback_read_char () {}
  * @link https://php.net/manual/en/function.readline-callback-handler-remove.php
  * @return bool <b>TRUE</b> if a previously installed callback handler was removed, or
  * <b>FALSE</b> if one could not be found.
- * @since 5.1
  */
 function readline_callback_handler_remove () {}
 
@@ -141,7 +122,6 @@ function readline_callback_handler_remove () {}
  * Redraws the display
  * @link https://php.net/manual/en/function.readline-redisplay.php
  * @return void No value is returned.
- * @since 5.1
  */
 function readline_redisplay () {}
 
@@ -149,7 +129,6 @@ function readline_redisplay () {}
  * Inform readline that the cursor has moved to a new line
  * @link https://php.net/manual/en/function.readline-on-new-line.php
  * @return void No value is returned.
- * @since 5.1
  */
 function readline_on_new_line () {}
 

@@ -34,6 +34,9 @@ Execute `php generate-stub-map` and commit the resulting `PhpStormStubsMap.php`
 ### License
 [Apache 2]
 
+contains material by the PHP Documentation Group, licensed with [CC-BY 3.0] 
+
 [PHPDOC]:https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md
 [Apache 2]:https://www.apache.org/licenses/LICENSE-2.0
 [Relevant open issues]:https://youtrack.jetbrains.com/issues/WI?q=%23Unresolved+Subsystem%3A+%7BPHP+lib+stubs%7D+order+by%3A+votes+
+[CC-BY 3.0]:https://www.php.net/manual/en/cc.license.php

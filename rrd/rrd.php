@@ -65,7 +65,7 @@ function rrd_first($file, $raaindex = 0) {}
  * The filename to output the graph to. This will generally end in either .png, .svg or .eps, depending on the format you want to output.
  * </p>
  * @param array $options <p>
- * Options for generating image. See man page of rrd graph for all possible options. All options (data definitions, variable defintions, etc.) are allowed.
+ * Options for generating image. See man page of rrd graph for all possible options. All options (data definitions, variable definitions, etc.) are allowed.
  * </p>
  * @return array|false If image is created successfully an array with information about generated image is returned, FALSE when error occurs.
  * @since PECL rrd >= 0.9.0
@@ -210,7 +210,7 @@ class RRDCreator {
 
     /**
      * Adds data source definition for RRD database.<p>
-     * RRD can accept input from several data sources (DS), e.g incomming and outgoing traffic. This method adds data source by description. You need call this method for each data source.
+     * RRD can accept input from several data sources (DS), e.g incoming and outgoing traffic. This method adds data source by description. You need call this method for each data source.
      * </p>
      * @link https://php.net/manual/en/rrdcreator.adddatasource.php
      * @param string $description <p>

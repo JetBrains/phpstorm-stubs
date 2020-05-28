@@ -20,4 +20,22 @@ class Producer extends \RdKafka
     public function newTopic($topic_name, TopicConf $topic_conf = null)
     {
     }
+
+    /**
+     * @param int $timeout_ms
+     *
+     * @return int
+     */
+    public function flush($timeout_ms)
+    {
+    }
+
+    /**
+     * @param int $purge_flags
+     *
+     * @return int
+     */
+    public function purge($purge_flags)
+    {
+    }
 }

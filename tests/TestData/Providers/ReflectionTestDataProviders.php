@@ -3,27 +3,26 @@ declare(strict_types=1);
 
 namespace StubTests\TestData\Providers;
 
-use StubTests\Model\StubsContainer;
-use StubTests\Parsers\PHPReflectionParser;
+use Generator;
 
 class ReflectionTestDataProviders
 {
 
-    public static function constantProvider()
+    public static function constantProvider(): ?Generator
     {
         foreach (ReflectionStubsSingleton::getReflectionStubs()->getConstants() as $constant) {
             yield "constant {$constant->name}" => [$constant];
         }
     }
 
-    public static function functionProvider()
+    public static function functionProvider(): ?Generator
     {
         foreach (ReflectionStubsSingleton::getReflectionStubs()->getFunctions() as $function) {
             yield "function {$function->name}" => [$function];
         }
     }
 
-    public static function classProvider()
+    public static function classProvider(): ?Generator
     {
         foreach (ReflectionStubsSingleton::getReflectionStubs()->getClasses() as $class) {
             //exclude classes from PHPReflectionParser
@@ -33,23 +32,10 @@ class ReflectionTestDataProviders
         }
     }
 
-    public static function interfaceProvider()
+    public static function interfaceProvider(): ?Generator
     {
         foreach (ReflectionStubsSingleton::getReflectionStubs()->getInterfaces() as $interface) {
             yield "interface {$interface->name}" => [$interface];
         }
-    }
-}
-
-class ReflectionStubsSingleton
-{
-    private static $reflectionStubs;
-
-    public static function getReflectionStubs(): StubsContainer
-    {
-        if (self::$reflectionStubs === null) {
-            self::$reflectionStubs = PHPReflectionParser::getStubs();
-        }
-        return self::$reflectionStubs;
     }
 }

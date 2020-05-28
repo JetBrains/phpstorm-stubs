@@ -268,7 +268,6 @@ class PDO  {
 	 * As <b>PDO::FETCH_INTO</b> but object is provided as a serialized string.
 	 * Available since PHP 5.1.0. Since PHP 5.3.0 the class constructor is never called if this
 	 * flag is set.
-	 * @since 5.1 Available
 	 * @link https://php.net/manual/en/pdo.constants.php#pdo.constants.fetch-serialize
 	 */
 	const FETCH_SERIALIZE = 524288;
@@ -727,7 +726,7 @@ class PDO  {
 	 * <p>
 	 * Note, this constant can only be used in the driver_options array when constructing a new database handle.
 	 * </p>
-	 * @since 5.5.21 and 5.6.5
+	 * @since 5.5.21
 	 * @link https://php.net/manual/en/ref.pdo-mysql.php#pdo.constants.mysql-attr-multi-statements
 	 */
 	const MYSQL_ATTR_MULTI_STATEMENTS = 1015;
@@ -747,6 +746,11 @@ class PDO  {
 	 */
 	const PGSQL_ASSOC = 1;
 	const PGSQL_ATTR_DISABLE_NATIVE_PREPARED_STATEMENT = 1000;
+
+	/**
+ 	 * @since 5.6
+	 */
+	const PGSQL_ATTR_DISABLE_PREPARES = 1000;
 	const PGSQL_BAD_RESPONSE = 5;
 	const PGSQL_BOTH = 3;
 	const PGSQL_TRANSACTION_IDLE = 0;
@@ -829,6 +833,15 @@ class PDO  {
 	const SQLSRV_CURSOR_DYNAMIC = 2;
 	const SQLSRV_CURSOR_STATIC = 3;
 	const SQLSRV_CURSOR_BUFFERED = 42;
+
+	/**
+	 * @since 7.4
+	 */
+	const SQLITE_ATTR_READONLY_STATEMENT = 1;
+	/**
+	 * @since 7.4
+	 */
+	const SQLITE_ATTR_EXTENDED_RESULT_CODES = 2;
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)<br/>

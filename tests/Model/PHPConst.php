@@ -1,29 +1,28 @@
 <?php
-
 declare(strict_types=1);
 
 namespace StubTests\Model;
 
 use PhpParser\Node\Const_;
+use PhpParser\Node\Expr\UnaryMinus;
 use PhpParser\Node\Stmt\ClassConst;
 use PhpParser\Node\Stmt\Namespace_;
 use PhpParser\NodeAbstract;
 use ReflectionClassConstant;
 use stdClass;
-use PhpParser\Node\Expr\UnaryMinus;
 
 class PHPConst extends BasePHPElement
 {
     use PHPDocElement;
 
-    public $parentName;
+    public ?string $parentName = null;
     public $value;
 
     /**
      * @param ReflectionClassConstant $constant
      * @return $this
      */
-    public function readObjectFromReflection($constant)
+    public function readObjectFromReflection($constant): self
     {
         $this->name = $constant->name;
         $this->value = $constant->getValue();
@@ -34,14 +33,14 @@ class PHPConst extends BasePHPElement
      * @param Const_ $node
      * @return $this
      */
-    public function readObjectFromStubNode($node)
+    public function readObjectFromStubNode($node): self
     {
         $this->name = $this->getConstantFQN($node, $node->name->name);
         $this->value = $this->getConstValue($node);
-        $this->collectLinks($node);
-        $this->collectSinceDeprecatedVersions($node);
-        if ($node->getAttribute('parent') instanceof ClassConst) {
-            $this->parentName = $this->getFQN($node->getAttribute('parent')->getAttribute('parent'));
+        $this->collectTags($node);
+        $parentNode = $node->getAttribute('parent');
+        if ($parentNode instanceof ClassConst) {
+            $this->parentName = $this->getFQN($parentNode->getAttribute('parent'));
         }
         return $this;
     }
@@ -54,12 +53,12 @@ class PHPConst extends BasePHPElement
         if (in_array('expr', $node->value->getSubNodeNames(), true)) {
             if ($node->value instanceof UnaryMinus) {
                 return -$node->value->expr->value;
-            } else {
-                return $node->value->expr->value;
             }
+            return $node->value->expr->value;
         }
         if (in_array('name', $node->value->getSubNodeNames(), true)) {
-            return $node->value->name->parts[0];
+            $value = $node->value->name->parts[0];
+            return $value === 'null' ? null : $value;
         }
         return null;
     }

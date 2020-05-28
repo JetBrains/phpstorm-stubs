@@ -1416,7 +1416,7 @@ class Gmagick
      * For example 50 results in a counter-clockwise rotation of 90 degrees,
      * 150 results in a clockwise rotation of 90 degrees, with 0 and 200 both resulting in a rotation of 180 degrees.
      *
-     * @param float $brightness The percent change in brighness (-100 thru +100).
+     * @param float $brightness The percent change in brightness (-100 thru +100).
      * @param float $saturation The percent change in saturation (-100 thru +100).
      * @param float $hue        The percent change in hue (-100 thru +100).
      *
@@ -1517,7 +1517,7 @@ class Gmagick
     /**
      * Move to the previous image in the object.
      *
-     * Assocates the previous image in an image list with the Gmagick object.
+     * Associates the previous image in an image list with the Gmagick object.
      *
      * @link https://php.net/manual/en/gmagick.previousimage.php
      *

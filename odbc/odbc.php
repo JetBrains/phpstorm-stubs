@@ -19,8 +19,6 @@
  * <p>
  * If <i>OnOff</i> is set, this function returns <b>TRUE</b> on
  * success and <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function odbc_autocommit ($connection_id, $OnOff = false) {}
 
@@ -42,8 +40,6 @@ function odbc_autocommit ($connection_id, $OnOff = false) {}
  * Possible values for <i>mode</i> are:
  * <b>ODBC_BINMODE_PASSTHRU</b>: Passthru BINARY data
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function odbc_binmode ($result_id, $mode) {}
 
@@ -53,8 +49,6 @@ function odbc_binmode ($result_id, $mode) {}
  * @param resource $connection_id The ODBC connection identifier,
  * see <b>odbc_connect</b> for details.</p>
  * @return void No value is returned.
- * @since 4.0
- * @since 5.0
  */
 function odbc_close ($connection_id) {}
 
@@ -62,8 +56,6 @@ function odbc_close ($connection_id) {}
  * Close all ODBC connections
  * @link https://php.net/manual/en/function.odbc-close-all.php
  * @return void No value is returned.
- * @since 4.0
- * @since 5.0
  */
 function odbc_close_all () {}
 
@@ -104,8 +96,6 @@ function odbc_close_all () {}
  * <p>
  * The result set is ordered by TABLE_QUALIFIER, TABLE_SCHEM and
  * TABLE_NAME.
- * @since 4.0
- * @since 5.0
  */
 function odbc_columns ($connection_id, $qualifier = null, $schema = null, $table_name = null, $column_name = null) {}
 
@@ -115,8 +105,6 @@ function odbc_columns ($connection_id, $qualifier = null, $schema = null, $table
  * @param resource $connection_id The ODBC connection identifier,
  * see <b>odbc_connect</b> for details.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function odbc_commit ($connection_id) {}
 
@@ -142,8 +130,6 @@ function odbc_commit ($connection_id) {}
  * <p>
  * SQL_CUR_USE_IF_NEEDED
  * @return resource|false an ODBC connection or (<b>FALSE</b>) on error.
- * @since 4.0
- * @since 5.0
  */
 function odbc_connect ($dsn, $user, $password, $cursor_type = null) {}
 
@@ -154,8 +140,6 @@ function odbc_connect ($dsn, $user, $password, $cursor_type = null) {}
  * The result identifier.
  * </p>
  * @return string the cursor name, as a string.
- * @since 4.0
- * @since 5.0
  */
 function odbc_cursor ($result_id) {}
 
@@ -171,8 +155,6 @@ function odbc_cursor ($result_id) {}
  * called, thereafter use the <b>SQL_FETCH_NEXT</b>.
  * </p>
  * @return array|false <b>FALSE</b> on error, and an array upon success.
- * @since 4.3
- * @since 5.0
  */
 function odbc_data_source ($connection_id, $fetch_type) {}
 
@@ -201,8 +183,6 @@ function odbc_data_source ($connection_id, $fetch_type) {}
  * then you must use another mechanism to store the string, such as
  * executing the query directly with <b>odbc_exec</b>).
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function odbc_execute ($result_id, array $parameters_array = null) {}
 
@@ -218,8 +198,6 @@ function odbc_execute ($result_id, array $parameters_array = null) {}
  * <p>
  * This function returns meaningful value only if last odbc query failed
  * (i.e. <b>odbc_exec</b> returned <b>FALSE</b>).
- * @since 4.0.5
- * @since 5.0
  */
 function odbc_error ($connection_id = null) {}
 
@@ -235,8 +213,6 @@ function odbc_error ($connection_id = null) {}
  * <p>
  * This function returns meaningful value only if last odbc query failed
  * (i.e. <b>odbc_exec</b> returned <b>FALSE</b>).
- * @since 4.0.5
- * @since 5.0
  */
 function odbc_errormsg ($connection_id = null) {}
 
@@ -253,8 +229,6 @@ function odbc_errormsg ($connection_id = null) {}
  * </p>
  * @return resource an ODBC result identifier if the SQL command was executed
  * successfully, or <b>FALSE</b> on error.
- * @since 4.0
- * @since 5.0
  */
 function odbc_exec ($connection_id, $query_string, $flags = null) {}
 
@@ -269,8 +243,6 @@ function odbc_exec ($connection_id, $query_string, $flags = null) {}
  * </p>
  * @return array|false an array that corresponds to the fetched row, or <b>FALSE</b> if there
  * are no more rows.
- * @since 4.0.2
- * @since 5.0
  */
 function odbc_fetch_array ($result, $rownumber = null) {}
 
@@ -285,8 +257,6 @@ function odbc_fetch_array ($result, $rownumber = null) {}
  * </p>
  * @return object|false an object that corresponds to the fetched row, or <b>FALSE</b> if there
  * are no more rows.
- * @since 4.0.2
- * @since 5.0
  */
 function odbc_fetch_object ($result, $rownumber = null) {}
 
@@ -312,8 +282,6 @@ function odbc_fetch_object ($result, $rownumber = null) {}
  * <i>row_number</i> parameter is ignored.
  * </p>
  * @return bool <b>TRUE</b> if there was a row, <b>FALSE</b> otherwise.
- * @since 4.0
- * @since 5.0
  */
 function odbc_fetch_row ($result_id, $row_number = null) {}
 
@@ -334,8 +302,6 @@ function odbc_fetch_row ($result_id, $row_number = null) {}
  * </p>
  * @return int the number of columns in the result;
  * <b>FALSE</b> on error.
- * @since 4.0
- * @since 5.0
  */
 function odbc_fetch_into ($result_id, array &$result_array, $rownumber = null) {}
 
@@ -349,8 +315,6 @@ function odbc_fetch_into ($result_id, array &$result_array, $rownumber = null) {
  * The field number. Field numbering starts at 1.
  * </p>
  * @return int|false the field name as a string, or <b>FALSE</b> on error.
- * @since 4.0
- * @since 5.0
  */
 function odbc_field_len ($result_id, $field_number) {}
 
@@ -364,8 +328,6 @@ function odbc_field_len ($result_id, $field_number) {}
  * The field number. Field numbering starts at 1.
  * </p>
  * @return int|false the field scale as a integer, or <b>FALSE</b> on error.
- * @since 4.0
- * @since 5.0
  */
 function odbc_field_scale ($result_id, $field_number) {}
 
@@ -379,8 +341,6 @@ function odbc_field_scale ($result_id, $field_number) {}
  * The field number. Field numbering starts at 1.
  * </p>
  * @return string|false the field name as a string, or <b>FALSE</b> on error.
- * @since 4.0
- * @since 5.0
  */
 function odbc_field_name ($result_id, $field_number) {}
 
@@ -394,8 +354,6 @@ function odbc_field_name ($result_id, $field_number) {}
  * The field number. Field numbering starts at 1.
  * </p>
  * @return string|false the field type as a string, or <b>FALSE</b> on error.
- * @since 4.0
- * @since 5.0
  */
 function odbc_field_type ($result_id, $field_number) {}
 
@@ -410,8 +368,6 @@ function odbc_field_type ($result_id, $field_number) {}
  * </p>
  * @return int|false the field number as a integer, or <b>FALSE</b> on error.
  * Field numbering starts at 1.
- * @since 4.0
- * @since 5.0
  */
 function odbc_field_num ($result_id, $field_name) {}
 
@@ -422,8 +378,6 @@ function odbc_field_num ($result_id, $field_name) {}
  * The result identifier.
  * </p>
  * @return bool Always returns <b>TRUE</b>.
- * @since 4.0
- * @since 5.0
  */
 function odbc_free_result ($result_id) {}
 
@@ -459,8 +413,6 @@ function odbc_free_result ($result_id) {}
  * </p>
  * <p>
  * The result set is ordered by DATA_TYPE and TYPE_NAME.
- * @since 4.0
- * @since 5.0
  */
 function odbc_gettypeinfo ($connection_id, $data_type = null) {}
 
@@ -476,8 +428,6 @@ function odbc_gettypeinfo ($connection_id, $data_type = null) {}
  * client.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function odbc_longreadlen ($result_id, $length) {}
 
@@ -488,8 +438,6 @@ function odbc_longreadlen ($result_id, $length) {}
  * The result identifier.
  * </p>
  * @return bool <b>TRUE</b> if there are more result sets, <b>FALSE</b> otherwise.
- * @since 4.0.5
- * @since 5.0
  */
 function odbc_next_result ($result_id) {}
 
@@ -500,8 +448,6 @@ function odbc_next_result ($result_id) {}
  * The result identifier returned by <b>odbc_exec</b>.
  * </p>
  * @return int the number of fields, or -1 on error.
- * @since 4.0
- * @since 5.0
  */
 function odbc_num_fields ($result_id) {}
 
@@ -513,8 +459,6 @@ function odbc_num_fields ($result_id) {}
  * </p>
  * @return int the number of rows in an ODBC result.
  * This function will return -1 on error.
- * @since 4.0
- * @since 5.0
  */
 function odbc_num_rows ($result_id) {}
 
@@ -527,8 +471,6 @@ function odbc_num_rows ($result_id) {}
  * @param int $cursor_type [optional]
  * @return resource|false an ODBC connection id or 0 (<b>FALSE</b>) on
  * error.
- * @since 4.0
- * @since 5.0
  */
 function odbc_pconnect ($dsn, $user, $password, $cursor_type = null) {}
 
@@ -542,8 +484,6 @@ function odbc_pconnect ($dsn, $user, $password, $cursor_type = null) {}
  * </p>
  * @return resource|false an ODBC result identifier if the SQL command was prepared
  * successfully. Returns <b>FALSE</b> on error.
- * @since 4.0
- * @since 5.0
  */
 function odbc_prepare ($connection_id, $query_string) {}
 
@@ -560,8 +500,6 @@ function odbc_prepare ($connection_id, $query_string) {}
  * </p>
  * @return mixed the string contents of the field, <b>FALSE</b> on error, <b>NULL</b> for
  * NULL data, or <b>TRUE</b> for binary data.
- * @since 4.0
- * @since 5.0
  */
 function odbc_result ($result_id, $field) {}
 
@@ -575,8 +513,6 @@ function odbc_result ($result_id, $field) {}
  * Additional overall table formatting.
  * </p>
  * @return int|false the number of rows in the result or <b>FALSE</b> on error.
- * @since 4.0
- * @since 5.0
  */
 function odbc_result_all ($result_id, $format = null) {}
 
@@ -586,8 +522,6 @@ function odbc_result_all ($result_id, $format = null) {}
  * @param resource $connection_id The ODBC connection identifier,
  * see <b>odbc_connect</b> for details.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function odbc_rollback ($connection_id) {}
 
@@ -611,8 +545,6 @@ function odbc_rollback ($connection_id) {}
  * The value for the given <i>option</i>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function odbc_setoption ($id, $function, $option, $param) {}
 
@@ -656,8 +588,6 @@ function odbc_setoption ($id, $function, $option, $param) {}
  * LENGTH
  * SCALE
  * PSEUDO_COLUMN
- * @since 4.0
- * @since 5.0
  */
 function odbc_specialcolumns ($connection_id, $type, $qualifier, $owner, $table, $scope, $nullable) {}
 
@@ -698,8 +628,6 @@ function odbc_specialcolumns ($connection_id, $type, $qualifier, $owner, $table,
  * CARDINALITY
  * PAGES
  * FILTER_CONDITION
- * @since 4.0
- * @since 5.0
  */
 function odbc_statistics ($connection_id, $qualifier, $owner, $table_name, $unique, $accuracy) {}
 
@@ -738,8 +666,6 @@ function odbc_statistics ($connection_id, $qualifier, $owner, $table_name, $uniq
  * TABLE_NAME
  * TABLE_TYPE
  * REMARKS
- * @since 4.0
- * @since 5.0
  */
 function odbc_tables ($connection_id, $qualifier = null, $owner = null, $name = null, $types = null) {}
 
@@ -761,8 +687,6 @@ function odbc_tables ($connection_id, $qualifier = null, $owner = null, $name = 
  * COLUMN_NAME
  * KEY_SEQ
  * PK_NAME
- * @since 4.0
- * @since 5.0
  */
 function odbc_primarykeys ($connection_id, $qualifier, $owner, $table) {}
 
@@ -802,8 +726,6 @@ function odbc_primarykeys ($connection_id, $qualifier, $owner, $table) {}
  * <p>
  * The result set is ordered by TABLE_QUALIFIER, TABLE_OWNER and
  * TABLE_NAME.
- * @since 4.0
- * @since 5.0
  */
 function odbc_columnprivileges ($connection_id, $qualifier, $owner, $table_name, $column_name) {}
 
@@ -834,8 +756,6 @@ function odbc_columnprivileges ($connection_id, $qualifier, $owner, $table_name,
  * GRANTEE
  * PRIVILEGE
  * IS_GRANTABLE
- * @since 4.0
- * @since 5.0
  */
 function odbc_tableprivileges ($connection_id, $qualifier, $owner, $name) {}
 
@@ -894,8 +814,6 @@ function odbc_tableprivileges ($connection_id, $qualifier, $owner, $name) {}
  * the table specified in <i>fk_table</i> that refer
  * to the primary key of the table specified in
  * <i>pk_table
- * @since 4.0
- * @since 5.0
  */
 function odbc_foreignkeys ($connection_id, $pk_qualifier, $pk_owner, $pk_table, $fk_qualifier, $fk_owner, $fk_table) {}
 
@@ -917,8 +835,6 @@ function odbc_foreignkeys ($connection_id, $pk_qualifier, $pk_owner, $pk_table, 
  * NUM_RESULT_SETS
  * REMARKS
  * PROCEDURE_TYPE
- * @since 4.0
- * @since 5.0
  */
 function odbc_procedures ($connection_id) {}
 
@@ -946,8 +862,6 @@ function odbc_procedures ($connection_id) {}
  * RADIX
  * NULLABLE
  * REMARKS
- * @since 4.0
- * @since 5.0
  */
 function odbc_procedurecolumns ($connection_id) {}
 
@@ -957,8 +871,6 @@ function odbc_procedurecolumns ($connection_id) {}
  * @param $connection_id
  * @param $query
  * @param $flags [optional]
- * @since 4.0
- * @since 5.0
  */
 function odbc_do ($connection_id, $query, $flags) {}
 
@@ -967,8 +879,6 @@ function odbc_do ($connection_id, $query, $flags) {}
  * @link https://php.net/manual/en/function.odbc-field-precision.php
  * @param $result_id
  * @param $field_number
- * @since 4.0
- * @since 5.0
  */
 function odbc_field_precision ($result_id, $field_number) {}
 

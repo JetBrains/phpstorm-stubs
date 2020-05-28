@@ -8,16 +8,16 @@ class ExpectedFunctionArgumentsInfo
     /**
      * @var Expr|null
      */
-    private $functionReference;
+    private ?Expr $functionReference;
 
     /**
      * @var Expr[]
      */
-    private $expectedArguments;
+    private array $expectedArguments;
     /**
      * @var int
      */
-    private $index;
+    private int $index;
 
     /**
      * ExpectedFunctionArgumentsInfo constructor.

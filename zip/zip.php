@@ -277,28 +277,28 @@ class ZipArchive implements Countable {
 	 * @link https://php.net/manual/en/zip.constants.php
 	 */
 	const ER_DELETED = 23;
-	
+
 	/**
 	 * No encryption
 	 * @link https://secure.php.net/manual/en/zip.constants.php
 	 * @since 7.2
 	 */
 	const EM_NONE = 0;
-	
+
 	/**
 	 * AES 128 encryption
 	 * @link https://secure.php.net/manual/en/zip.constants.php
 	 * @since 7.2
 	 */
 	const EM_AES_128 = 257;
-	
+
 	/**
 	 * AES 192 encryption
 	 * @link https://secure.php.net/manual/en/zip.constants.php
 	 * @since 7.2
 	 */
 	const EM_AES_192 = 258;
-	
+
 	/**
 	 * AES 256 encryption
 	 * @link https://secure.php.net/manual/en/zip.constants.php
@@ -410,7 +410,7 @@ class ZipArchive implements Countable {
 
 	/**
 	 * (PHP 7 &gt;= 7.2.0, PECL zip &gt;= 1.15.0)<br/>
-	 * Counts the number of files in the achive.
+	 * Counts the number of files in the archive.
 	 * @link https://www.php.net/manual/en/ziparchive.count.php
 	 * @return int
 	 * @since 7.2

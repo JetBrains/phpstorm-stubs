@@ -141,7 +141,7 @@ class RedisCluster {
      * // Will set the key, if it doesn't exist, with a ttl of 10 seconds
      * $redisCluster->set('key', 'value', Array('nx', 'ex'=>10));
      *
-     * // Will set a key, if it does exist, with a ttl of 1000 miliseconds
+     * // Will set a key, if it does exist, with a ttl of 1000 milliseconds
      * $redisCluster->set('key', 'value', Array('xx', 'px'=>1000));
      * </pre>
      */
@@ -688,7 +688,7 @@ class RedisCluster {
     public function lIndex($key, $index) { }
 
     /**
-     * Removes the first count occurences of the value element from the list.
+     * Removes the first count occurrences of the value element from the list.
      * If count is zero, all the matching elements are removed. If count is negative,
      * elements are removed from tail to head.
      *
@@ -1773,7 +1773,7 @@ class RedisCluster {
      * value of the decrement.
      *
      * @param   string $key
-     * @param   int    $value that will be substracted to key (only for decrBy)
+     * @param   int    $value that will be subtracted to key (only for decrBy)
      *
      * @return  int       the new value
      * @link    https://redis.io/commands/decrby

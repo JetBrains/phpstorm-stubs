@@ -12,8 +12,6 @@
  * One of the PCNTL signals constants.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function posix_kill ($pid, $sig) {}
 
@@ -21,8 +19,6 @@ function posix_kill ($pid, $sig) {}
  * Return the current process identifier
  * @link https://php.net/manual/en/function.posix-getpid.php
  * @return int the identifier, as an integer.
- * @since 4.0
- * @since 5.0
  */
 function posix_getpid () {}
 
@@ -30,8 +26,6 @@ function posix_getpid () {}
  * Return the parent process identifier
  * @link https://php.net/manual/en/function.posix-getppid.php
  * @return int the identifier, as an integer.
- * @since 4.0
- * @since 5.0
  */
 function posix_getppid () {}
 
@@ -39,8 +33,6 @@ function posix_getppid () {}
  * Return the real user ID of the current process
  * @link https://php.net/manual/en/function.posix-getuid.php
  * @return int the user id, as an integer
- * @since 4.0
- * @since 5.0
  */
 function posix_getuid () {}
 
@@ -51,8 +43,6 @@ function posix_getuid () {}
  * The user id.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function posix_setuid ($uid) {}
 
@@ -60,8 +50,6 @@ function posix_setuid ($uid) {}
  * Return the effective user ID of the current process
  * @link https://php.net/manual/en/function.posix-geteuid.php
  * @return int the user id, as an integer
- * @since 4.0
- * @since 5.0
  */
 function posix_geteuid () {}
 
@@ -72,8 +60,6 @@ function posix_geteuid () {}
  * The user id.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0.2
- * @since 5.0
  */
 function posix_seteuid ($uid) {}
 
@@ -95,8 +81,6 @@ function posix_setrlimit ($resource, $softlimit, $hardlimit ) {}
  * Return the real group ID of the current process
  * @link https://php.net/manual/en/function.posix-getgid.php
  * @return int the real group id, as an integer.
- * @since 4.0
- * @since 5.0
  */
 function posix_getgid () {}
 
@@ -107,8 +91,6 @@ function posix_getgid () {}
  * The group id.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function posix_setgid ($gid) {}
 
@@ -116,8 +98,6 @@ function posix_setgid ($gid) {}
  * Return the effective group ID of the current process
  * @link https://php.net/manual/en/function.posix-getegid.php
  * @return int an integer of the effective group ID.
- * @since 4.0
- * @since 5.0
  */
 function posix_getegid () {}
 
@@ -128,8 +108,6 @@ function posix_getegid () {}
  * The group id.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0.2
- * @since 5.0
  */
 function posix_setegid ($gid) {}
 
@@ -138,8 +116,6 @@ function posix_setegid ($gid) {}
  * @link https://php.net/manual/en/function.posix-getgroups.php
  * @return array an array of integers containing the numeric group ids of the group
  * set of the current process.
- * @since 4.0
- * @since 5.0
  */
 function posix_getgroups () {}
 
@@ -147,8 +123,6 @@ function posix_getgroups () {}
  * Return login name
  * @link https://php.net/manual/en/function.posix-getlogin.php
  * @return string the login name of the user, as a string.
- * @since 4.0
- * @since 5.0
  */
 function posix_getlogin () {}
 
@@ -156,8 +130,6 @@ function posix_getlogin () {}
  * Return the current process group identifier
  * @link https://php.net/manual/en/function.posix-getpgrp.php
  * @return int the identifier, as an integer.
- * @since 4.0
- * @since 5.0
  */
 function posix_getpgrp () {}
 
@@ -165,8 +137,6 @@ function posix_getpgrp () {}
  * Make the current process a session leader
  * @link https://php.net/manual/en/function.posix-setsid.php
  * @return int the session id, or -1 on errors.
- * @since 4.0
- * @since 5.0
  */
 function posix_setsid () {}
 
@@ -180,8 +150,6 @@ function posix_setsid () {}
  * The process group id.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function posix_setpgid ($pid, $pgid) {}
 
@@ -192,8 +160,6 @@ function posix_setpgid ($pid, $pgid) {}
  * The process id.
  * </p>
  * @return int the identifier, as an integer.
- * @since 4.0
- * @since 5.0
  */
 function posix_getpgid ($pid) {}
 
@@ -207,8 +173,6 @@ function posix_getpgid ($pid) {}
  * can be checked with <b>posix_get_last_error</b>.
  * </p>
  * @return int the identifier, as an integer.
- * @since 4.0
- * @since 5.0
  */
 function posix_getsid ($pid) {}
 
@@ -229,8 +193,6 @@ function posix_getsid ($pid) {}
  * domainname is a GNU extension and not part of POSIX.1, so this
  * field is only available on GNU systems or when using the GNU
  * libc.
- * @since 4.0
- * @since 5.0
  */
 function posix_uname () {}
 
@@ -245,8 +207,6 @@ function posix_uname () {}
  * stime - system time used by the current process.
  * cutime - user time used by current process and children.
  * cstime - system time used by current process and children.
- * @since 4.0
- * @since 5.0
  */
 function posix_times () {}
 
@@ -256,8 +216,6 @@ function posix_times () {}
  * @return string|false Upon successful completion, returns string of the pathname to
  * the current controlling terminal. Otherwise <b>FALSE</b> is returned and errno
  * is set, which can be checked with <b>posix_get_last_error</b>.
- * @since 4.0
- * @since 5.0
  */
 function posix_ctermid () {}
 
@@ -269,8 +227,6 @@ function posix_ctermid () {}
  * </p>
  * @return string|false On success, returns a string of the absolute path of the
  * <i>fd</i>. On failure, returns <b>FALSE</b>
- * @since 4.0
- * @since 5.0
  */
 function posix_ttyname ($fd) {}
 
@@ -285,8 +241,6 @@ function posix_ttyname ($fd) {}
  * </p>
  * @return bool <b>TRUE</b> if <i>fd</i> is an open descriptor connected
  * to a terminal and <b>FALSE</b> otherwise.
- * @since 4.0
- * @since 5.0
  */
 function posix_isatty ($fd) {}
 
@@ -296,8 +250,6 @@ function posix_isatty ($fd) {}
  * @return string a string of the absolute pathname on success.
  * On error, returns <b>FALSE</b> and sets errno which can be checked with
  * <b>posix_get_last_error</b>.
- * @since 4.0
- * @since 5.0
  */
 function posix_getcwd () {}
 
@@ -315,8 +267,6 @@ function posix_getcwd () {}
  * (mode &#38;#38; ~umask).
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 4.0
- * @since 5.0
  */
 function posix_mkfifo ($pathname, $mode) {}
 
@@ -341,7 +291,6 @@ function posix_mkfifo ($pathname, $mode) {}
  * The minor device kernel identifier.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.1
  */
 function posix_mknod ($pathname, $mode, $major = 0, $minor = 0) {}
 
@@ -364,7 +313,6 @@ function posix_mknod ($pathname, $mode, $major = 0, $minor = 0) {}
  * existence of the file.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.1
  */
 function posix_access ($file, $mode = POSIX_F_OK) {}
 
@@ -411,8 +359,6 @@ function posix_access ($file, $mode = POSIX_F_OK) {}
  * </td>
  * </tr>
  * </table>
- * @since 4.0
- * @since 5.0
  */
 function posix_getgrnam ($name) {}
 
@@ -461,8 +407,6 @@ function posix_getgrnam ($name) {}
  * </td>
  * </tr>
  * </table>
- * @since 4.0
- * @since 5.0
  */
 function posix_getgrgid ($gid) {}
 
@@ -539,8 +483,6 @@ function posix_getgrgid ($gid) {}
  * </td>
  * </tr>
  * </table>
- * @since 4.0
- * @since 5.0
  */
 function posix_getpwnam ($username) {}
 
@@ -616,8 +558,6 @@ function posix_getpwnam ($username) {}
  * </td>
  * </tr>
  * </table>
- * @since 4.0
- * @since 5.0
  */
 function posix_getpwuid ($uid) {}
 
@@ -702,8 +642,6 @@ function posix_getpwuid ($uid) {}
  * </td>
  * </tr>
  * </table>
- * @since 4.0
- * @since 5.0
  */
 function posix_getrlimit () {}
 
@@ -712,16 +650,12 @@ function posix_getrlimit () {}
  * @link https://php.net/manual/en/function.posix-get-last-error.php
  * @return int the errno (error number) set by the last posix function that
  * failed. If no errors exist, 0 is returned.
- * @since 4.2
- * @since 5.0
  */
 function posix_get_last_error () {}
 
 /**
  * Alias of <b>posix_get_last_error</b>
  * @link https://php.net/manual/en/function.posix-errno.php
- * @since 4.2
- * @since 5.0
  */
 function posix_errno () {}
 
@@ -734,8 +668,6 @@ function posix_errno () {}
  * string "Success" is returned.
  * </p>
  * @return string the error message, as a string.
- * @since 4.2
- * @since 5.0
  */
 function posix_strerror ($errno) {}
 
@@ -749,7 +681,6 @@ function posix_strerror ($errno) {}
  * Typically the group number from the password file.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @since 5.2
  */
 function posix_initgroups ($name, $base_group_id) {}
 

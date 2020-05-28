@@ -7,7 +7,6 @@ use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\StaticCall;
-use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\String_;
 use PHPUnit\Framework\TestCase;
 use StubTests\Model\PHPConst;
@@ -21,14 +20,14 @@ class StubsMetaExpectedArgumentsTest extends TestCase
     /**
      * @var ExpectedFunctionArgumentsInfo[]
      */
-    private static $expectedArguments;
+    private static array $expectedArguments;
     /**
      * @var String[]
      */
-    private static $registeredArgumentsSet;
+    private static array $registeredArgumentsSet;
     private static $functionsFqns;
-    private static $methodsFqns;
-    private static $constantsFqns;
+    private static array $methodsFqns;
+    private static array $constantsFqns;
 
     public static function setUpBeforeClass(): void
     {

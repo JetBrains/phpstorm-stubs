@@ -353,7 +353,8 @@
     {
       "name": "array_map",
       "problems": [
-        "parameter mismatch"
+        "parameter mismatch",
+        "absent in meta"
       ]
     },
     {

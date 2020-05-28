@@ -198,6 +198,7 @@ namespace {
          * Throws an exception if the generator is still valid.
          * @link https://wiki.php.net/rfc/generator-return-expressions
          * @return mixed|null
+         * @since 7.0
          */
         function getReturn() {}
 
@@ -359,7 +360,6 @@ class object {
   /**
    * This static method is called for classes exported by var_export() since PHP 5.1.0.
    * The only parameter of this method is an array containing exported properties in the form array('property' => value, ...).
-   * @since 5.1
    *
    * @param $an_array array
    * @return mixed

@@ -5,15 +5,13 @@ namespace StubTests\Model;
 
 use PhpParser\Node\Stmt\Class_;
 use ReflectionClass;
-use ReflectionClassConstant;
-use ReflectionException;
-use ReflectionMethod;
 use stdClass;
 
 class PHPClass extends BasePHPClass
 {
+    /** @var false|string */
     public $parentClass;
-    public $interfaces = [];
+    public array $interfaces = [];
 
     /**
      * @param ReflectionClass $clazz
@@ -21,32 +19,25 @@ class PHPClass extends BasePHPClass
      */
     public function readObjectFromReflection($clazz): self
     {
-        try {
-            $reflectionClass = new ReflectionClass($clazz);
-            $this->name = $reflectionClass->getName();
-            $parentClass = $reflectionClass->getParentClass();
-            if ($parentClass !== false) {
-                $this->parentClass = $reflectionClass->getParentClass()->getName();
-            }
-            $this->interfaces = $reflectionClass->getInterfaceNames();
+        $this->name = $clazz->getName();
+        $parent = $clazz->getParentClass();
+        if ($parent !== false) {
+            $this->parentClass = $parent->getName();
+        }
+        $this->interfaces = $clazz->getInterfaceNames();
 
-            /**@var ReflectionMethod $method */
-            foreach ($reflectionClass->getMethods() as $method) {
-                if ($method->getDeclaringClass()->getName() !== $this->name) {
-                    continue;
-                }
-                $this->methods[$method->name] = (new PHPMethod())->readObjectFromReflection($method);
+        foreach ($clazz->getMethods() as $method) {
+            if ($method->getDeclaringClass()->getName() !== $this->name) {
+                continue;
             }
+            $this->methods[$method->name] = (new PHPMethod())->readObjectFromReflection($method);
+        }
 
-            /**@var ReflectionClassConstant $constant */
-            foreach ($reflectionClass->getReflectionConstants() as $constant) {
-                if ($constant->getDeclaringClass()->getName() !== $this->name) {
-                    continue;
-                }
-                $this->constants[$constant->name] = (new PHPConst())->readObjectFromReflection($constant);
+        foreach ($clazz->getReflectionConstants() as $constant) {
+            if ($constant->getDeclaringClass()->getName() !== $this->name) {
+                continue;
             }
-        } catch (ReflectionException $ex) {
-            $this->parseError = $ex;
+            $this->constants[$constant->name] = (new PHPConst())->readObjectFromReflection($constant);
         }
         return $this;
     }
@@ -58,8 +49,7 @@ class PHPClass extends BasePHPClass
     public function readObjectFromStubNode($node): self
     {
         $this->name = $this->getFQN($node);
-        $this->collectLinks($node);
-        $this->collectSinceDeprecatedVersions($node);
+        $this->collectTags($node);
         if (!empty($node->extends)) {
             $this->parentClass = '';
             foreach ($node->extends->parts as $part) {

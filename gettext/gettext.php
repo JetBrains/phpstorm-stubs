@@ -11,8 +11,6 @@
  * </p>
  * @return string If successful, this function returns the current message
  * domain, after possibly changing it.
- * @since 4.0
- * @since 5.0
  */
 function textdomain ($text_domain) {}
 
@@ -24,8 +22,6 @@ function textdomain ($text_domain) {}
  * </p>
  * @return string a translated string if one is found in the
  * translation table, or the submitted message if not found.
- * @since 4.0
- * @since 5.0
  */
 function gettext ($message) {}
 
@@ -37,8 +33,6 @@ function gettext ($message) {}
  * </p>
  * @return string a translated string if one is found in the
  * translation table, or the submitted message if not found.
- * @since 4.0
- * @since 5.0
  */
 function _ ($message) {}
 
@@ -52,8 +46,6 @@ function _ ($message) {}
  * The message
  * </p>
  * @return string A string on success.
- * @since 4.0
- * @since 5.0
  */
 function dgettext ($domain, $message) {}
 
@@ -70,8 +62,6 @@ function dgettext ($domain, $message) {}
  * The category
  * </p>
  * @return string A string on success.
- * @since 4.0
- * @since 5.0
  */
 function dcgettext ($domain, $message, $category) {}
 
@@ -85,8 +75,6 @@ function dcgettext ($domain, $message, $category) {}
  * The directory path
  * </p>
  * @return string The full pathname for the <i>domain</i> currently being set.
- * @since 4.0
- * @since 5.0
  */
 function bindtextdomain ($domain, $directory) {}
 
@@ -99,8 +87,6 @@ function bindtextdomain ($domain, $directory) {}
  * @return string correct plural form of message identified by
  * <i>msgid1</i> and <i>msgid2</i>
  * for count <i>n</i>.
- * @since 4.2
- * @since 5.0
  */
 function ngettext ($msgid1, $msgid2, $n) {}
 
@@ -114,8 +100,6 @@ function ngettext ($msgid1, $msgid2, $n) {}
  * @param string $msgid2
  * @param int $n
  * @return string A string on success.
- * @since 4.2
- * @since 5.0
  */
 function dngettext ($domain, $msgid1, $msgid2, $n) {}
 
@@ -130,8 +114,6 @@ function dngettext ($domain, $msgid1, $msgid2, $n) {}
  * @param int $n
  * @param int $category
  * @return string A string on success.
- * @since 4.2
- * @since 5.0
  */
 function dcngettext ($domain, $msgid1, $msgid2, $n, $category) {}
 
@@ -145,8 +127,6 @@ function dcngettext ($domain, $msgid1, $msgid2, $n, $category) {}
  * The code set
  * </p>
  * @return string A string on success.
- * @since 4.2
- * @since 5.0
  */
 function bind_textdomain_codeset ($domain, $codeset) {}
 
