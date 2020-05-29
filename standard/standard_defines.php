@@ -1428,5 +1428,3 @@ define ('LOG_NOWAIT', 16);
  * @link https://php.net/manual/en/network.constants.php
  */
 define ('LOG_PERROR', 32);
-
-
