@@ -913,7 +913,7 @@ class SplTempFileObject extends SplFileObject {
         /**
          * Construct a new temporary file object
          * @link https://php.net/manual/en/spltempfileobject.construct.php
-         * @param $max_memory [optional]
+         * @param int $max_memory [optional]
          * @throws RuntimeException if an error occurs.
          * @since 5.1.2
          */
