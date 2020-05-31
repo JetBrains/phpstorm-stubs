@@ -1485,6 +1485,26 @@ function imap_create ($stream_id, $mailbox) {}
  */
 function imap_rename ($stream_id, $old_name, $new_name) {}
 
+/**
+ * Decode a modified UTF-7 string to UTF-8
+ *
+ * @link https://www.php.net/manual/en/function.imap-mutf7-to-utf8.php
+ *
+ * @param string $in
+ * @return string|false
+ */
+function imap_mutf7_to_utf8($in) {}
+
+/**
+ * Encode a UTF-8 string to modified UTF-7
+ *
+ * @link https://www.php.net/manual/en/function.imap-utf8-to-mutf7.php
+ *
+ * @param string $in
+ * @return string|false
+ */
+function imap_utf8_to_mutf7($in) {}
+
 define ('NIL', 0);
 define ('IMAP_OPENTIMEOUT', 1);
 define ('IMAP_READTIMEOUT', 2);
