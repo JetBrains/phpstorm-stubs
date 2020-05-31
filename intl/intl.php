@@ -5951,6 +5951,55 @@ function intl_is_failure($error_code) { }
  */
 function intl_error_name($error_code) { }
 
+/**
+ * Gets the Decomposition_Mapping property for the given UTF-8 encoded code point
+ *
+ * @link https://www.php.net/manual/en/normalizer.getrawdecomposition.php
+ *
+ * @param string $input
+ * @return string|null
+ *
+ * @since 7.3
+ */
+function normalizer_get_raw_decomposition($input) { }
+
+/**
+ * @since 5.5
+ */
+function intltz_create_default() { }
+
+/**
+ * @since 5.5
+ */
+function intltz_get_gmt() { }
+
+/**
+ * @since 5.5
+ */
+function intltz_get_unknown() { }
+
+/**
+ * @since 5.5
+ */
+function intltz_create_time_zone_id_enumeration($zoneType, $region = null, $rawOffset = null) { }
+
+/**
+ * @since 5.5
+ */
+function intltz_get_region($zoneId) { }
+
+/**
+ * Set minimal number of days the first week in a year or month can have
+ *
+ * @link https://www.php.net/manual/en/intlcalendar.setminimaldaysinfirstweek.php
+ *
+ * @param IntlCalendar $calendar
+ * @param int $numberOfDays
+ * @return bool
+ *
+ * @since 5.5.1
+ */
+function intlcal_set_minimal_days_in_first_week(IntlCalendar $calendar, $numberOfDays) { }
 
 /**
  * Limit on locale length, set to 80 in PHP code. Locale names longer
@@ -6530,6 +6579,19 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      * @return array
      */
     public function getRuleStatusVec() { }
+}
+
+/**
+ * @link https://www.php.net/manual/en/class.intlpartsiterator.php
+ * @since 5.5
+ */
+class IntlPartsIterator extends IntlIterator implements Iterator {
+
+    const KEY_SEQUENTIAL = 0 ;
+    const KEY_LEFT = 1 ;
+    const KEY_RIGHT = 2 ;
+
+    public function getBreakIterator() : IntlBreakIterator { }
 }
 
 class IntlCodePointBreakIterator extends IntlBreakIterator implements Traversable {
