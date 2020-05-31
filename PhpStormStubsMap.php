@@ -6195,6 +6195,7 @@ const CONSTANTS = array (
   'CURL_TIMECOND_LASTMOD' => 'curl/curl_d.php',
   'CURL_TIMECOND_NONE' => 'curl/curl_d.php',
   'CURL_TLSAUTH_SRP' => 'curl/curl_d.php',
+  'CURL_VERSION_ALTSVC' => 'curl/curl_d.php',
   'CURL_VERSION_ASYNCHDNS' => 'curl/curl_d.php',
   'CURL_VERSION_BROTLI' => 'curl/curl_d.php',
   'CURL_VERSION_CONV' => 'curl/curl_d.php',
