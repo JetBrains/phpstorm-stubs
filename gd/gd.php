@@ -2197,6 +2197,31 @@ function imagecreatefrombmp($filename){}
  */
 function imagebmp ($image, $to = null, $compressed = true) {}
 
+/**
+ * @param string $filename
+ * @return resource|false
+ */
+function imagecreatefromtga($filename) {}
+
+/**
+ * Captures the whole screen
+ *
+ * https://www.php.net/manual/en/function.imagegrabscreen.php
+ *
+ * @return resorce|false
+ */
+function imagegrabscreen() {}
+
+/**
+ * Captures a window
+ *
+ * @link https://www.php.net/manual/en/function.imagegrabwindow.php
+ *
+ * @param int $handle
+ * @param int|null $client_area
+ * @return resource|false
+ */
+function imagegrabwindow($handle, $client_area = null) {}
 
 /**
  * Used as a return value by {@see imagetypes()}
@@ -2441,6 +2466,13 @@ define ('IMG_FILTER_SMOOTH', 10);
  * @link https://php.net/manual/en/image.constants.php#constant.img-filter-pixelate
  */
 define ('IMG_FILTER_PIXELATE', 11);
+
+/**
+ * Special GD filter used by the {@see imagefilter()} function.
+ * @link https://php.net/manual/en/image.constants.php#constant.img-filter-scatter
+ * @since 7.4
+ */
+define ('IMG_FILTER_SCATTER', 12);
 
 /**
  * The GD version PHP was compiled against.
@@ -2765,6 +2797,8 @@ define('IMG_WEIGHTED4', 21);
  * @since 5.5
  */
 define('IMG_TRIANGLE', 20);
+
+define('IMG_TGA', 128);
 
 /**
  * Return an image containing the affine tramsformed src image, using an optional clipping area
