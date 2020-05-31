@@ -563,6 +563,20 @@ function apcu_entry($key, callable $generator, $ttl = 0){}
 function apcu_cache_info($limited = false){}
 
 /**
+ * Whether APCu is usable in the current environment
+ *
+ * @link https://www.php.net/manual/en/function.apcu-enabled.php
+ *
+ * @return bool
+ */
+function apcu_enabled(){}
+
+/**
+ * @param string $key
+ */
+function apcu_key_info($key){}
+
+/**
  * The APCUIterator class
  *
  * The APCUIterator class makes it easier to iterate over large APCu caches.
