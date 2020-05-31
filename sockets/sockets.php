@@ -1332,6 +1332,44 @@ function socket_getopt ($socket, $level, $optname) {}
  */
 function socket_setopt ($socket, $level, $optname, $optval) {}
 
+/**
+ * Exports the WSAPROTOCOL_INFO Structure
+ *
+ * @link https://www.php.net/manual/en/function.socket-wsaprotocol-info-export.php
+ *
+ * @param resource $socket
+ * @param int $target_pid
+ * @return string|false
+ *
+ * @since 7.3
+ */
+function socket_wsaprotocol_info_export($socket, $target_pid) {}
+
+/**
+ * Imports a Socket from another Process
+ *
+ * @link https://www.php.net/manual/en/function.socket-wsaprotocol-info-import.php
+ *
+ * @param string $info_id
+ * @return resource|false
+ *
+ * @since 7.3
+ */
+function socket_wsaprotocol_info_import($info_id) {}
+
+/**
+ * Releases an exported WSAPROTOCOL_INFO Structure
+ *
+ * @link https://www.php.net/manual/en/function.socket-wsaprotocol-info-release.php
+ *
+ * @param string $info_id
+ * @return bool
+ *
+ * @since 7.3
+ */
+function socket_wsaprotocol_info_release($info_id) {}
+
+
 define ('AF_UNIX', 1);
 define ('AF_INET', 2);
 
@@ -2100,5 +2138,20 @@ define ('SCM_RIGHTS', 1);
 define ('SCM_CREDENTIALS', 2);
 define ('SO_PASSCRED', 16);
 
-// End of sockets v.
-?>
+define ('SOCKET_EPROCLIM', 10067);
+define ('SOCKET_ESTALE', 10070);
+define ('SOCKET_EDISCON', 10101);
+define ('SOCKET_SYSNOTREADY', 10091);
+define ('SOCKET_VERNOTSUPPORTED', 10092);
+define ('SOCKET_NOTINITIALISED', 10093);
+define ('SOCKET_HOST_NOT_FOUND', 11001);
+define ('SOCKET_TRY_AGAIN', 11002);
+define ('SOCKET_NO_RECOVERY', 11003);
+define ('SOCKET_NO_DATA', 11004);
+define ('SOCKET_NO_ADDRESS', 11004);
+
+define ('AI_PASSIVE', 1);
+define ('AI_CANONNAME', 2);
+define ('AI_NUMERICHOST', 4);
+define ('AI_ADDRCONFIG', 1024);
+define ('AI_NUMERICSERV', 8);
