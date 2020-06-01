@@ -207,6 +207,16 @@ function var_export ($expression, $return = null) {}
 function debug_zval_dump (...$vars) {}
 
 /**
+ * @link https://php.net/manual/en/function.get-debug-type.php
+ *
+ * @param mixed $var
+ * @return string
+ *
+ * @since 8.0
+ */
+function get_debug_type($var) {}
+
+/**
  * Prints human-readable information about a variable
  * @link https://php.net/manual/en/function.print-r.php
  * @param mixed $expression <p>

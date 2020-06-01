@@ -6002,6 +6002,23 @@ function intltz_get_region($zoneId) { }
 function intlcal_set_minimal_days_in_first_week(IntlCalendar $calendar, $numberOfDays) { }
 
 /**
+ * @param string $timezone
+ * @return string|false
+ *
+ * @since 8.0
+ */
+function intltz_get_windows_id(string $timezone) { }
+
+/**
+ * @param string $timezone
+ * @param string $region [optional]
+ * @return string|false
+ *
+ * @since 8.0
+ */
+function intltz_get_id_for_windows_id(string $timezone, string $region = null) { }
+
+/**
  * Limit on locale length, set to 80 in PHP code. Locale names longer
  * than this limit will not be accepted.
  * @link https://php.net/manual/en/intl.constants.php

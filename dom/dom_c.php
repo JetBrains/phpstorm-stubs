@@ -1990,3 +1990,42 @@ class DOMXPath  {
     public function registerPhpFunctions ($restrict = null) {}
 
 }
+
+/**
+ * @since 8.0
+ */
+interface DOMParentNode
+{
+	/**
+	 * @param ...DOMNode|string $nodes
+	 */
+    public function append(...$nodes): void;
+
+	/**
+	 * @param ...DOMNode|string $nodes
+	 */
+    public function prepend(...$nodes): void;
+}
+
+/**
+ * @since 8.0
+ */
+interface DOMChildNode
+{
+    public function remove();
+
+	/**
+	 * @param ...DOMNode|string $nodes
+	 */
+    public function before(...$nodes): void;
+
+	/**
+	 * @param ...DOMNode|string $nodes
+	 */
+    public function after(...$nodes): void;
+
+	/**
+	 * @param ...DOMNode|string $nodes
+	 */
+    public function replaceWith(...$nodes): void;
+}

@@ -183,5 +183,29 @@ define('T_DOUBLE_COLON', 390);
 define('T_FN', 343);
 define('T_BAD_CHARACTER', 395);
 
+/**
+ * @since 8.0
+ */
+class PhpToken implements Stringable
+{
+	/** @var int */
+    public $id;
+    /** @var string */
+    public $text;
+    /** @var int */
+    public $line;
+	/** @var int */
+    public $pos;
 
-// End of tokenizer v.0.1
+    public static function getAll(string $code, int $flags = null): array {}
+
+    public final function __construct(int $id, string $text, int $line = null, int $pos = null) {}
+
+    public function is($kind): bool {}
+
+    public function isIgnorable(): bool {}
+
+    public function getTokenName(): ?string {}
+
+    public function __toString(): string {}
+}

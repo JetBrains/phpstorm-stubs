@@ -138,6 +138,38 @@ interface ArrayAccess {
 }
 
 /**
+ * @link https://php.net/manual/en/class.weakmap.php
+ * @since 8.0
+ */
+final class WeakMap implements ArrayAccess, Countable, Traversable
+{
+	/**
+	 * @param mixed $object
+	 * @return mixed
+	 */
+    public function offsetGet($object) {}
+
+	/**
+	 * @param mixed $object
+	 * @param mixed $value
+	 */
+    public function offsetSet($object, $value) : void {}
+
+	/**
+	 * @param mixed $object
+	 * @return bool
+	 */
+    public function offsetExists($object) : bool {}
+
+	/**
+	 * @param mixed $object
+	 */
+    public function offsetUnset($object) : void {}
+
+    public function count() : int {}
+}
+
+/**
  * Interface for customized serializing.
  * @link https://php.net/manual/en/class.serializable.php
  */
@@ -161,6 +193,14 @@ interface Serializable {
     public function unserialize($serialized);
 }
 
+/**
+ * @link https://php.net/manual/en/class.stringable.php
+ * @since 8.0
+ */
+interface Stringable
+{
+    public function __toString() : string;
+}
 
 /**
  * Throwable is the base interface for any object that can be thrown via a throw statement in PHP 7,
@@ -488,6 +528,14 @@ class ArithmeticError extends Error {
  */
 class CompileError extends Error {
 
+}
+
+/**
+ * @link https://secure.php.net/manual/en/class.valueerror.php
+ * @since 8.0
+ */
+class ValueError extends Error
+{
 }
 
 /**

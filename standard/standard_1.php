@@ -125,6 +125,39 @@ function strrpos ($haystack, $needle, $offset = 0) {}
 function strripos ($haystack, $needle, $offset = null) {}
 
 /**
+ * @link https://www.php.net/manual/en/function.str-contains.php
+ *
+ * @param string $haystack
+ * @param string $needle
+ * @return bool
+ *
+ * @since 8.0
+ */
+function str_contains(string $haystack, string $needle) {}
+
+/**
+ * @link https://www.php.net/manual/en/function.str-starts-with.php
+ *
+ * @param string $haystack
+ * @param string $needle
+ * @return bool
+ *
+ * @since 8.0
+ */
+function str_starts_with(string $haystack, string $needle) {}
+
+/**
+ * @link https://www.php.net/manual/en/function.str-ends-with.php
+ *
+ * @param string $haystack
+ * @param string $needle
+ * @return bool
+ *
+ * @since 8.0
+ */
+function str_ends_with(string $haystack, string $needle) {}
+
+/**
  * Reverse a string
  * @link https://php.net/manual/en/function.strrev.php
  * @param string $string <p>

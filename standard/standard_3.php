@@ -317,6 +317,17 @@ function is_nan ($val) {}
 function intdiv ($dividend,  $divisor) {}
 
 /**
+ * @link https://php.net/manual/en/function.fdiv.php
+ *
+ * @param float $dividend
+ * @param float $divisor
+ * @return float
+ *
+ * @since 8.0
+ */
+function fdiv(float $dividend, float $divisor) {}
+
+/**
  * Finds whether a value is infinite
  * @link https://php.net/manual/en/function.is-infinite.php
  * @param float $val <p>

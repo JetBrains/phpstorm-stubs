@@ -341,6 +341,18 @@ function readdir ($dir_handle = null) {}
 function dir ($directory, $context = null) {}
 
 /**
+ * &Alias; <function>dir</function>
+ * @link https://php.net/manual/en/function.getdir.php
+ *
+ * @param string $path
+ * @param resource $context [optional]
+ * @return Directory|false
+ *
+ * @since 8.0
+ */
+function getdir(string $path, $context = null) {}
+
+/**
  * List files and directories inside the specified path
  * @link https://php.net/manual/en/function.scandir.php
  * @param string $directory <p>

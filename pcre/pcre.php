@@ -482,6 +482,14 @@ function preg_grep ($pattern, array $input, $flags = 0) {}
  */
 function preg_last_error () {}
 
+/**
+ * @link https://php.net/manual/en/function.preg-last-error-msg.php
+ *
+ * @return string
+ *
+ * @since 8.0
+ */
+function preg_last_error_msg() {}
 
 /**
  * Orders results so that $matches[0] is an array of full pattern

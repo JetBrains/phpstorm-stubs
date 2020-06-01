@@ -1004,3 +1004,13 @@ function gc_mem_caches () {}
  * @since 7.0
  */
 function get_resources ($type = null) {}
+
+/**
+ * @link https://php.net/manual/en/function.get-resource-id.php
+ *
+ * @param resource $res
+ * @return int
+ *
+ * @since 8.0
+ */
+function get_resource_id ($res) {}
