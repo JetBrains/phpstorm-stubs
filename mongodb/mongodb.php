@@ -352,7 +352,7 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-server.executequery.php
              * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
              * @param Query $query The MongoDB\Driver\Query to execute.
-             * @param array|ReadPreference $options 
+             * @param array|ReadPreference $options
              * <table>
              * <caption><strong>options</strong></caption>
              *
