@@ -4,7 +4,7 @@
  * @link https://secure.php.net/manual/en/radius.constants.php
  */
 /** The maximum length of MPPE keys. */
-define('RADIUS_MPPE_KEY_LEN ', 16);
+define('RADIUS_MPPE_KEY_LEN', 16);
 
 /**
  * RADIUS Options
