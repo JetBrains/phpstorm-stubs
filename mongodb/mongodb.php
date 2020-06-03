@@ -394,7 +394,7 @@ namespace MongoDB {}
              * @throws RuntimeException on other errors (e.g. invalid command, issuing a write command to a secondary).
              * @return Cursor
              */
-            final public function executeQuery($namespace, Query $query, array $option = [])
+            final public function executeQuery($namespace, Query $query, $option = [])
             {
             }
 
