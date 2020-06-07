@@ -1120,40 +1120,6 @@ define('PHP_QUERY_RFC3986', 2);
  * @link https://php.net/manual/en/reserved.constants.php
  */
 define('PHP_MANDIR', '/usr/local/php/php/man');
-/**
- * Specifies where the binaries were installed into.
- * @link https://php.net/manual/en/reserved.constants.php
- */
-define('PHP_BINARY', '/usr/local/php/bin/php');
-
-/**
- * @since 7.4
- */
-define('PHP_CLI_PROCESS_TITLE',1);
-
-
-/** @link https://php.net/manual/en/outcontrol.constants.php */
-define('PHP_OUTPUT_HANDLER_WRITE', 0);
-/** @link https://php.net/manual/en/outcontrol.constants.php */
-define('PHP_OUTPUT_HANDLER_FLUSH', 4);
-/** @link https://php.net/manual/en/outcontrol.constants.php */
-define('PHP_OUTPUT_HANDLER_CLEAN', 2);
-/** @link https://php.net/manual/en/outcontrol.constants.php */
-define('PHP_OUTPUT_HANDLER_FINAL', 8);
-/** @link https://php.net/manual/en/outcontrol.constants.php */
-define('PHP_OUTPUT_HANDLER_CLEANABLE', 16);
-/** @link https://php.net/manual/en/outcontrol.constants.php */
-define('PHP_OUTPUT_HANDLER_FLUSHABLE', 32);
-/** @link https://php.net/manual/en/outcontrol.constants.php */
-define('PHP_OUTPUT_HANDLER_REMOVABLE', 64);
-/** @link https://php.net/manual/en/outcontrol.constants.php */
-define('PHP_OUTPUT_HANDLER_STDFLAGS', 112);
-/** @link https://php.net/manual/en/outcontrol.constants.php */
-define('PHP_OUTPUT_HANDLER_STARTED', 4096);
-/** @link https://php.net/manual/en/outcontrol.constants.php */
-define('PHP_OUTPUT_HANDLER_DISABLED', 8192);
-
-
 
 /**
  * (PHP4, PHP5)
@@ -1262,3 +1228,203 @@ define('STREAM_META_GROUP', 5);
 define('STREAM_META_GROUP_NAME', 4);
 /** @link https://php.net/manual/en/streamwrapper.stream-metadata.php */
 define('STREAM_META_ACCESS', 6);
+
+define('STREAM_CRYPTO_METHOD_SSLv2_CLIENT', 3);
+define('STREAM_CRYPTO_METHOD_SSLv3_CLIENT', 5);
+define('STREAM_CRYPTO_METHOD_SSLv23_CLIENT', 57);
+define('STREAM_CRYPTO_METHOD_TLS_CLIENT', 121);
+define('STREAM_CRYPTO_METHOD_SSLv2_SERVER', 2);
+define('STREAM_CRYPTO_METHOD_SSLv3_SERVER', 4);
+define('STREAM_CRYPTO_METHOD_SSLv23_SERVER', 120);
+define('STREAM_CRYPTO_METHOD_TLS_SERVER', 120);
+
+define("STREAM_CRYPTO_METHOD_ANY_CLIENT", 127);
+define("STREAM_CRYPTO_METHOD_ANY_SERVER", 126);
+define("STREAM_CRYPTO_METHOD_TLSv1_0_CLIENT", 9);
+define("STREAM_CRYPTO_METHOD_TLSv1_0_SERVER", 8);
+define("STREAM_CRYPTO_METHOD_TLSv1_1_CLIENT", 17);
+define("STREAM_CRYPTO_METHOD_TLSv1_1_SERVER", 16);
+define("STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT", 33);
+define("STREAM_CRYPTO_METHOD_TLSv1_2_SERVER", 32);
+/**
+ * @since 7.4
+ */
+define("STREAM_CRYPTO_METHOD_TLSv1_3_CLIENT", 65);
+/**
+ * @since 7.4
+ */
+define("STREAM_CRYPTO_METHOD_TLSv1_3_SERVER", 64);
+
+define("STREAM_CRYPTO_PROTO_SSLv3", 4);
+define("STREAM_CRYPTO_PROTO_TLSv1_0", 8);
+define("STREAM_CRYPTO_PROTO_TLSv1_1", 16);
+define("STREAM_CRYPTO_PROTO_TLSv1_2", 32);
+/**
+ * @since 7.4
+ */
+define("STREAM_CRYPTO_PROTO_TLSv1_3", 64);
+
+/**
+ * @since 7.1
+ */
+define("MT_RAND_MT19937", 0);
+/**
+ * @since 7.1
+ */
+define("MT_RAND_PHP", 1);
+
+/**
+ * system is unusable
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_EMERG', 0);
+
+/**
+ * action must be taken immediately
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_ALERT', 1);
+
+/**
+ * critical conditions
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_CRIT', 2);
+
+/**
+ * error conditions
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_ERR', 3);
+
+/**
+ * warning conditions
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_WARNING', 4);
+
+/**
+ * normal, but significant, condition
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_NOTICE', 5);
+
+/**
+ * informational message
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_INFO', 6);
+
+/**
+ * debug-level message
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_DEBUG', 7);
+
+/**
+ * kernel messages
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_KERN', 0);
+
+/**
+ * generic user-level messages
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_USER', 8);
+
+/**
+ * mail subsystem
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_MAIL', 16);
+
+/**
+ * other system daemons
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_DAEMON', 24);
+
+/**
+ * security/authorization messages (use <b>LOG_AUTHPRIV</b> instead
+ * in systems where that constant is defined)
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_AUTH', 32);
+
+/**
+ * messages generated internally by syslogd
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_SYSLOG', 40);
+
+/**
+ * line printer subsystem
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_LPR', 48);
+
+/**
+ * USENET news subsystem
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_NEWS', 56);
+
+/**
+ * UUCP subsystem
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_UUCP', 64);
+
+/**
+ * clock daemon (cron and at)
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_CRON', 72);
+
+/**
+ * security/authorization messages (private)
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_AUTHPRIV', 80);
+define ('LOG_LOCAL0', 128);
+define ('LOG_LOCAL1', 136);
+define ('LOG_LOCAL2', 144);
+define ('LOG_LOCAL3', 152);
+define ('LOG_LOCAL4', 160);
+define ('LOG_LOCAL5', 168);
+define ('LOG_LOCAL6', 176);
+define ('LOG_LOCAL7', 184);
+
+/**
+ * include PID with each message
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_PID', 1);
+
+/**
+ * if there is an error while sending data to the system logger,
+ * write directly to the system console
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_CONS', 2);
+
+/**
+ * (default) delay opening the connection until the first
+ * message is logged
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_ODELAY', 4);
+
+/**
+ * open the connection to the logger immediately
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_NDELAY', 8);
+define ('LOG_NOWAIT', 16);
+
+/**
+ * print log message also to standard error
+ * @link https://php.net/manual/en/network.constants.php
+ */
+define ('LOG_PERROR', 32);

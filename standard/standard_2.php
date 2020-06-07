@@ -310,13 +310,12 @@ function strchr ($haystack, $needle, $part = false) {}
  * (- or +) to be used on a number. By default, only the - sign is used
  * on a number if it's negative. This specifier forces positive numbers
  * to have the + sign attached as well, and was added in PHP 4.3.0.
- * @param mixed $args [optional] <p>
+ * @param mixed ...$args [optional] <p>
  * </p>
- * @param mixed $_ [optional]
  * @return string a string produced according to the formatting string
  * format.
  */
-function sprintf ($format, $args = null, $_ = null) {}
+function sprintf ($format, ...$args) {}
 
 /**
  * Output a formatted string
@@ -325,12 +324,11 @@ function sprintf ($format, $args = null, $_ = null) {}
  * See sprintf for a description of
  * format.
  * </p>
- * @param mixed $args [optional] <p>
+ * @param mixed ...$args [optional] <p>
  * </p>
- * @param mixed $_ [optional]
  * @return int the length of the outputted string.
  */
-function printf ($format, $args = null, $_ = null) {}
+function printf ($format, ...$args) {}
 
 /**
  * Output a formatted string
@@ -368,12 +366,11 @@ function vsprintf ($format, array $args) {}
  * See sprintf for a description of
  * format.
  * </p>
- * @param mixed $args [optional] <p>
+ * @param mixed ...$args [optional] <p>
  * </p>
- * @param mixed $_ [optional]
  * @return int the length of the string written.
  */
-function fprintf ($handle, $format, $args = null, $_ = null) {}
+function fprintf ($handle, $format, ...$args) {}
 
 /**
  * Write a formatted string to a stream
@@ -424,13 +421,13 @@ function sscanf ($str, $format, &...$_) {}
  * The specified format as described in the
  * sprintf documentation.
  * </p>
- * @param mixed $_ [optional]
+ * @param mixed ...$vars [optional]
  * @return array|int If only two parameters were passed to this function, the values parsed will be
  * returned as an array. Otherwise, if optional parameters are passed, the
  * function will return the number of assigned values. The optional
  * parameters must be passed by reference.
  */
-function fscanf ($handle, $format, &$_ = null) {}
+function fscanf ($handle, $format, &...$vars) {}
 
 /**
  * Parse a URL and return its components

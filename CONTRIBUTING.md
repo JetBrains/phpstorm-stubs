@@ -9,6 +9,7 @@ Please check our [issue tracker] for issues corresponding to the problem you fix
 * Please avoid any unnecessary changes eg. spacing, line endings, HTML formatting. Remember, these files are NOT for human consumption. We want to preserve meaningful history.
 * Please try to match existing style for any particular file - formatting, spacing, naming conventions.
 * Please add corresponding @since tags
+* Please run `composer cs` to check the code style and `composer cs-fix` to fix it
 
 ## Tests
  * Please make sure that tests pass for your Pull Request. 

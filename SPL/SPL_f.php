@@ -140,7 +140,7 @@ function spl_object_hash ($obj) {}
  * </p>
  * @return array An array containing the elements of the iterator.
  */
-function iterator_to_array ($iterator, $use_keys = true) {}
+function iterator_to_array (Traversable $iterator, $use_keys = true) {}
 
 /**
  * Count the elements in an iterator
@@ -150,7 +150,7 @@ function iterator_to_array ($iterator, $use_keys = true) {}
  * </p>
  * @return int The number of elements in iterator.
  */
-function iterator_count ($iterator) {}
+function iterator_count (Traversable $iterator) {}
 
 /**
  * Call a function for every element in an iterator
@@ -168,7 +168,7 @@ function iterator_count ($iterator) {}
  * </p>
  * @return int the iteration count.
  */
-function iterator_apply ($iterator, $function, array $args = null) {}
+function iterator_apply (Traversable $iterator, $function, array $args = null) {}
 
 // End of SPL v.0.2
 

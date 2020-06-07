@@ -3826,3 +3826,9 @@ define('CURLINFO_PROXY_SSL_VERIFYRESULT', 2097199);
  * @since 7.3
  */
 define('CURLOPT_HTTP09_ALLOWED', 285);
+
+/**
+ * @link https://www.php.net/manual/en/curl.constants.php
+ * @since 7.3.6
+ */
+define('CURL_VERSION_ALTSVC', 16777216);

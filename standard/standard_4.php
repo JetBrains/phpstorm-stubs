@@ -78,13 +78,12 @@ function call_user_method_array ($method_name, &$obj, array $params) {}
  * with the name of the class, and the method, or a string, with a function
  * name.
  * </p>
- * @param mixed $parameter [optional] <p>
+ * @param mixed ...$parameters [optional] <p>
  * Zero or more parameters to be passed to the function.
  * </p>
- * @param mixed $_ [optional]
  * @return mixed the function result, or false on error.
  */
-function forward_static_call ($function, $parameter = null, $_ = null) {}
+function forward_static_call ($function, ...$parameters) {}
 
 /**
  * Call a static method and pass the arguments as array
@@ -94,10 +93,10 @@ function forward_static_call ($function, $parameter = null, $_ = null) {}
  * with the name of the class, and the method, or a &string;, with a function
  * name.
  * </p>
- * @param array $parameters [optional]
+ * @param array $parameters
  * @return mixed the function result, or false on error.
  */
-function forward_static_call_array ($function, array $parameters = null) {}
+function forward_static_call_array ($function, array $parameters) {}
 
 /**
  * Generates a storable representation of a value
@@ -200,12 +199,12 @@ function var_export ($expression, $return = null) {}
 /**
  * Dumps a string representation of an internal zend value to output
  * @link https://php.net/manual/en/function.debug-zval-dump.php
- * @param mixed $variable <p>
+ * @param mixed ...$vars <p>
  * The variable being evaluated.
  * </p>
  * @return void
  */
-function debug_zval_dump ($variable) {}
+function debug_zval_dump (...$vars) {}
 
 /**
  * Prints human-readable information about a variable
@@ -267,14 +266,13 @@ function memory_get_peak_usage ($real_usage = null) {}
  * thus, for example, its output will not be compressed if zlib.output_compression is
  * enabled.
  * </p>
- * @param mixed $parameter [optional] <p>
+ * @param mixed ...$parameters [optional] <p>
  * It is possible to pass parameters to the shutdown function by passing
  * additional parameters.
  * </p>
- * @param mixed $_ [optional]
  * @return void
  */
-function register_shutdown_function ($function, $parameter = null, $_ = null) {}
+function register_shutdown_function ($function, ...$parameters) {}
 
 /**
  * Register a function for execution on each tick
@@ -283,12 +281,11 @@ function register_shutdown_function ($function, $parameter = null, $_ = null) {}
  * The function name as a string, or an array consisting of an object and
  * a method.
  * </p>
- * @param mixed $arg [optional] <p>
+ * @param mixed ...$parameters [optional] <p>
  * </p>
- * @param mixed $_ [optional]
  * @return bool true on success or false on failure.
  */
-function register_tick_function ($function, $arg = null, $_ = null) {}
+function register_tick_function ($function, ...$parameters) {}
 
 /**
  * De-register a function for execution on each tick
@@ -1112,4 +1109,4 @@ function getmxrr ($hostname, array &$mxhosts, array &$weight = null) {}
  * </tr>
  * </table>
  */
-function dns_get_record ($hostname, $type = DNS_ANY, array &$authns = null, array &$addtl = null, &$raw = false) {}
+function dns_get_record ($hostname, $type = DNS_ANY, array &$authns = null, array &$addtl = null, $raw = false) {}
