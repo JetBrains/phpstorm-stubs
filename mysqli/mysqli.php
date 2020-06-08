@@ -11,6 +11,9 @@ class mysqli_sql_exception extends RuntimeException  {
 	 * The sql state with the error.
 	 */
 	protected $sqlstate;
+
+	/** The error code */
+    protected $code;
 }
 
 /**

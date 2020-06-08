@@ -2249,20 +2249,8 @@ class GearmanJob {
 
 /**
  * Class: GearmanException
- *
- * @property-read  $ Prop description
- * @property-read  $ Prop description
- * @property-read  $ Prop description
  */
 class GearmanException extends Exception {
-    /**
-     * Prop description.
-     *
-     * @link https://php.net/manual/en/class.gearmanexception.php#gearmanexception.props.code
-     * @var $code
-     */
-    public $code;
-
 }
 
 

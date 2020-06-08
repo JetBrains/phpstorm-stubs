@@ -8,7 +8,6 @@ use phpDocumentor\Reflection\DocBlock\Tags\Reference\Url;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
 use phpDocumentor\Reflection\DocBlock\Tags\Since;
 use PHPUnit\Framework\TestCase;
-use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use StubTests\Model\BasePHPClass;
 use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPClass;
@@ -170,6 +169,40 @@ class StubsTest extends TestCase
                     $stubClass->interfaces,
                     "Class $className doesn't implement interface $interface"
                 );
+            }
+        }
+        foreach ($class->properties as $property) {
+            $propertyName = $property->name;
+            if ($property->access === "private") continue;
+            if (!$property->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
+                static::assertArrayHasKey(
+                    $propertyName,
+                    $stubClass->properties,
+                    "Missing property $className::$property->access $property->type $$propertyName"
+                );
+                $stubProperty = $stubClass->properties[$propertyName];
+                if (!$property->hasMutedProblem(StubProblemType::PROPERTY_IS_STATIC)) {
+                    static::assertEquals(
+                        $property->is_static,
+                        $stubProperty->is_static,
+                        "Property $className::$propertyName static modifier is incorrect"
+                    );
+                }
+                if (!$property->hasMutedProblem(StubProblemType::PROPERTY_ACCESS)) {
+                    static::assertEquals(
+                        $property->access,
+                        $stubProperty->access,
+                        "Property $className::$propertyName access modifier is incorrect"
+                    );
+                }
+                if (!$property->hasMutedProblem(StubProblemType::PROPERTY_TYPE)
+                    && !empty($property->type)) {
+                    static::assertEquals(
+                        $property->type,
+                        $stubProperty->type,
+                        "Property type doesn't match for property $className::$propertyName"
+                    );
+                }
             }
         }
     }

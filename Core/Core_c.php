@@ -249,9 +249,13 @@ interface Throwable
  * @link https://php.net/manual/en/class.exception.php
  */
 class Exception implements Throwable {
+    /** The error message */
     protected $message;
+    /** The error code */
     protected $code;
+    /** The filename where the error happened  */
     protected $file;
+    /** The line where the error happened */
     protected $line;
 
 
@@ -341,6 +345,15 @@ class Exception implements Throwable {
  * @since 7.0
  */
 class Error implements Throwable {
+
+    /** The error message */
+    protected $message;
+    /** The error code */
+    protected $code;
+    /** The filename where the error happened  */
+    protected $file;
+    /** The line where the error happened */
+    protected $line;
 
     /**
      * Construct the error object.
