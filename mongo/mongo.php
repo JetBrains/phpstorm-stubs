@@ -1433,7 +1433,7 @@ class MongoCursor implements Iterator {
 	* @throws MongoCursorException
     * @return MongoCursor Returns this cursor
     */
-    public function hint(mixed $key_pattern) {}
+    public function hint($key_pattern) {}
 
 
 	/**

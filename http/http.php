@@ -255,7 +255,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * </p>
 	 * @return void
 	 */
-	public function setHeaders (sarray $header) {}
+	public function setHeaders (array $header) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -927,7 +927,7 @@ class HttpRequest  {
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function addSslOptions (sarray $option) {}
+	public function addSslOptions (array $option) {}
 
 	/**
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
@@ -2332,7 +2332,7 @@ function http_match_etag ($etag, $for_range = null) {}
  * @param int $timestamp_or_expires [optional] <p>
  * Unix timestamp
  * </p>
- * @return bool &returns.http.false.orexits; with 304 Not Modified if the entity is cached.
+ * @return bool with 304 Not Modified if the entity is cached.
  * &see.http.configuration.force_exit;
  */
 function http_cache_last_modified ($timestamp_or_expires = null) {}
@@ -2344,7 +2344,7 @@ function http_cache_last_modified ($timestamp_or_expires = null) {}
  * @param string $etag [optional] <p>
  * custom ETag
  * </p>
- * @return bool &returns.http.false.orexits; with 304 Not Modified if the entity is cached.
+ * @return bool with 304 Not Modified if the entity is cached.
  * &see.http.configuration.force_exit;
  */
 function http_cache_etag ($etag = null) {}
@@ -2540,7 +2540,7 @@ function http_persistent_handles_ident ($ident) {}
  * @param array $info [optional] <p>
  * Will be filled with request/response information
  * </p>
- * @return string &returns.http.response;
+ * @return string
  */
 function http_get ($url, array $options = null ,  array &$info = null ) {}
 
@@ -2557,7 +2557,7 @@ function http_get ($url, array $options = null ,  array &$info = null ) {}
  * @param array $info [optional] <p>
  * &link.http.request.info;
  * </p>
- * @return string &returns.http.response;
+ * @return string
  */
 function http_head ($url = null, array $options = null ,  array &$info = null ) {}
 
@@ -2577,7 +2577,7 @@ function http_head ($url = null, array $options = null ,  array &$info = null ) 
  * @param array $info [optional] <p>
  * &link.http.request.info;
  * </p>
- * @return string &returns.http.response;
+ * @return string
  */
 function http_post_data ($url, $data = null, array $options = null ,  array &$info = null ) {}
 
@@ -2600,7 +2600,7 @@ function http_post_data ($url, $data = null, array $options = null ,  array &$in
  * @param array $info [optional] <p>
  * &link.http.request.info;
  * </p>
- * @return string &returns.http.response;
+ * @return string
  */
 function http_post_fields ($url,  array $data = null ,  array $files = null , array $options = null ,  array &$info = null ) {}
 
@@ -2620,7 +2620,7 @@ function http_post_fields ($url,  array $data = null ,  array $files = null , ar
  * @param array $info [optional] <p>
  * &link.http.request.info;
  * </p>
- * @return string &returns.http.response;
+ * @return string
  */
 function http_put_data ($url, $data = null, array $options = null ,  array &$info = null ) {}
 
@@ -2640,7 +2640,7 @@ function http_put_data ($url, $data = null, array $options = null ,  array &$inf
  * @param array $info [optional] <p>
  * &link.http.request.info;
  * </p>
- * @return string &returns.http.response;
+ * @return string
  */
 function http_put_file ($url, $file = null, array $options = null ,  array &$info = null ) {}
 
@@ -2660,7 +2660,7 @@ function http_put_file ($url, $file = null, array $options = null ,  array &$inf
  * @param array $info [optional] <p>
  * &link.http.request.info;
  * </p>
- * @return string &returns.http.response;
+ * @return string
  */
 function http_put_stream ($url, $stream = null, array $options = null ,  array &$info = null ) {}
 
@@ -2683,7 +2683,7 @@ function http_put_stream ($url, $stream = null, array $options = null ,  array &
  * @param array $info [optional] <p>
  * &link.http.request.info;
  * </p>
- * @return string &returns.http.response;
+ * @return string
  */
 function http_request ($method, $url = null, $body = null, array $options = null ,  array &$info = null ) {}
 

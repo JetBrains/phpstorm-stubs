@@ -1878,7 +1878,7 @@ class Url  {
 	 * @throws \http\Exception\BadUrlException
 	 * @return \http\Url clone.
 	 */
-	function mod($parts, int $flags = \http\Url::JOIN_PATH|http\Url::JOIN_QUERY|http\Url::SANITIZE_PATH) {}
+	function mod($parts, int $flags = \http\Url::JOIN_PATH|\http\Url::JOIN_QUERY|\http\Url::SANITIZE_PATH) {}
 	/**
 	 * Retrieve the URL parts as array.
 	 *

@@ -162,8 +162,8 @@ class ZendAPI_Queue {
      * Jobs are sorted by job id descending.
      *
      * @param int $status. Filter to jobs by status, 1-success, 0-failed either logical or execution.
-     * @param $start_time UNIX timestamp. Get only jobs finished after $start_time.
-     * @param $end_time UNIX timestamp. Get only jobs finished before $end_time.
+     * @param int $start_time UNIX timestamp. Get only jobs finished after $start_time.
+     * @param int $end_time UNIX timestamp. Get only jobs finished before $end_time.
      * @param int $index. Get jobs starting from the $index-th place.
      * @param int $count. Get only $count jobs.
      * @param int $total. Pass by reference. Return the total number of jobs statisifed the query criteria.
@@ -350,7 +350,7 @@ class ZendAPI_Job {
     /**
      * Instantiate a Job object, describe all the information and properties of a job
      *
-     * @param script $script relative path (relative to document root supplied in ini file) of the script this job should call when it's executing
+     * @param string $script relative path (relative to document root supplied in ini file) of the script this job should call when it's executing
      * @return Job
      */
     function ZendAPI_Job($script) {}
@@ -399,7 +399,7 @@ class ZendAPI_Job {
     /**
      * Get the job output
      *
-     * @return An HTML representing the job output
+     * @return mixed An HTML representing the job output
      */
     function getOutput() {}
 
@@ -483,7 +483,7 @@ function output_cache_fetch($key, $function, $lifetime) {}
  * @param $key string cache key
  * @param $function string PHP expression
  * @param $lifetime int data lifetime in cache (seconds)
- * @return expression output
+ * @return mixed expression output
  */
 function output_cache_output($key, $function, $lifetime) {}
 

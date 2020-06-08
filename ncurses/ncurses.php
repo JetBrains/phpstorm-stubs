@@ -54,7 +54,7 @@ function ncurses_has_colors () {}
 /**
  * Initialize ncurses
  * @link https://php.net/manual/en/function.ncurses-init.php
- * @return void &return.void;
+ * @return void
  * </p>
  */
 function ncurses_init () {}
@@ -195,7 +195,7 @@ function ncurses_cbreak () {}
 /**
  * Clear screen
  * @link https://php.net/manual/en/function.ncurses-clear.php
- * @return bool &return.success;
+ * @return bool
  * </p>
  */
 function ncurses_clear () {}
@@ -203,7 +203,7 @@ function ncurses_clear () {}
 /**
  * Clear screen from current position to bottom
  * @link https://php.net/manual/en/function.ncurses-clrtobot.php
- * @return bool &return.success;
+ * @return bool
  * </p>
  */
 function ncurses_clrtobot () {}
@@ -211,7 +211,7 @@ function ncurses_clrtobot () {}
 /**
  * Clear screen from current position to end of line
  * @link https://php.net/manual/en/function.ncurses-clrtoeol.php
- * @return bool &return.success;
+ * @return bool
  * </p>
  */
 function ncurses_clrtoeol () {}
@@ -265,7 +265,7 @@ function ncurses_deleteln () {}
 /**
  * Write all prepared refreshes to terminal
  * @link https://php.net/manual/en/function.ncurses-doupdate.php
- * @return bool &return.success;
+ * @return bool
  * </p>
  */
 function ncurses_doupdate () {}
@@ -281,7 +281,7 @@ function ncurses_echo () {}
 /**
  * Erase terminal screen
  * @link https://php.net/manual/en/function.ncurses-erase.php
- * @return bool &return.success;
+ * @return bool
  * </p>
  */
 function ncurses_erase () {}
@@ -676,7 +676,7 @@ function ncurses_slk_color ($intarg) {}
  * arrangement and 2 indicates the PC like 4-4-4 mode, but in addition an
  * index line will be created.
  * </p>
- * @return bool &return.success;
+ * @return bool
  * </p>
  */
 function ncurses_slk_init ($format) {}
@@ -1498,7 +1498,7 @@ function ncurses_getyx ($window, &$y, &$x) {}
  * @param $x int <p>
  * This will be set to the window width
  * </p>
- * @return void &return.void;
+ * @return void
  * </p>
  */
 function ncurses_getmaxyx ($window, &$y, &$x) {}

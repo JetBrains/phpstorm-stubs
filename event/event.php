@@ -36,7 +36,7 @@ final class Event
      *
      * @see https://php.net/manual/en/event.construct.php
      */
-    public function __construct(EventBase $base, mixed $fd, int $what, callable $cb, mixed $arg = null)
+    public function __construct(EventBase $base, $fd, int $what, callable $cb, $arg = null)
     {
     }
 
@@ -50,7 +50,7 @@ final class Event
      *
      * @see https://php.net/manual/en/event.add.php
      */
-    public function add(double $timeout = -1): bool
+    public function add(float $timeout = -1): bool
     {
     }
 
@@ -64,7 +64,7 @@ final class Event
      *
      * @see https://php.net/manual/en/event.addsignal.php
      */
-    public function addSignal(double $timeout = -1): bool
+    public function addSignal(float $timeout = -1): bool
     {
     }
 
@@ -78,7 +78,7 @@ final class Event
      *
      * @see https://php.net/manual/en/event.addtimer.php
      */
-    public function addTimer(double $timeout = -1): bool
+    public function addTimer(float $timeout = -1): bool
     {
     }
 
@@ -168,7 +168,7 @@ final class Event
      *
      * @see https://php.net/manual/en/event.set.php
      */
-    public function set(EventBase $base, mixed $fd, int $what, callable $cb, mixed $arg): bool
+    public function set(EventBase $base, $fd, int $what, callable $cb, $arg): bool
     {
     }
 
@@ -196,7 +196,7 @@ final class Event
      *
      * @see https://php.net/manual/en/event.settimer.php
      */
-    public function setTimer(EventBase $base, callable $cb, mixed $arg): bool
+    public function setTimer(EventBase $base, callable $cb, $arg): bool
     {
     }
 
@@ -213,7 +213,7 @@ final class Event
      *
      * @see https://php.net/manual/en/event.signal.php
      */
-    public static function signal(EventBase $base, int $signum, callable $cb, mixed $arg): Event
+    public static function signal(EventBase $base, int $signum, callable $cb, $arg): Event
     {
     }
 
@@ -229,7 +229,7 @@ final class Event
      *
      * @see https://php.net/manual/en/event.timer.php
      */
-    public static function timer(EventBase $base, callable $cb, mixed $arg): Event
+    public static function timer(EventBase $base, callable $cb, $arg): Event
     {
     }
 }
@@ -287,7 +287,7 @@ final class EventBase
      *
      * @see https://php.net/manual/en/eventbase.exit.php
      */
-    public function exit(double $timeout): bool
+    public function exit(float $timeout): bool
     {
     }
 
@@ -333,7 +333,7 @@ final class EventBase
      *
      * @see https://php.net/manual/en/eventbase.gettimeofdaycached.php
      */
-    public function getTimeOfDayCached(): double
+    public function getTimeOfDayCached(): float
     {
     }
 
@@ -636,7 +636,7 @@ class EventBuffer
      *
      * @see https://php.net/manual/en/eventbuffer.readfrom.php
      */
-    public function readFrom(mixed $fd, int $howmuch): int
+    public function readFrom($fd, int $howmuch): int
     {
     }
 
@@ -666,7 +666,7 @@ class EventBuffer
      *
      * @see https://php.net/manual/en/eventbuffer.search.php
      */
-    public function search(string $what, int $start = 1, int $end = 1): mixed
+    public function search(string $what, int $start = 1, int $end = 1)
     {
     }
 
@@ -681,7 +681,7 @@ class EventBuffer
      *
      * @see https://php.net/manual/en/eventbuffer.searcheol.php
      */
-    public function searchEol(int $start = 1, int $eol_style = EOL_ANY): mixed
+    public function searchEol(int $start = 1, int $eol_style = EOL_ANY)
     {
     }
 
@@ -737,7 +737,7 @@ class EventBuffer
      *
      * @see https://php.net/manual/en/eventbuffer.write.php
      */
-    public function write(mixed $fd, int $howmuch): int
+    public function write($fd, int $howmuch): int
     {
     }
 }
@@ -797,7 +797,7 @@ final class EventBufferEvent
      *
      * @see https://php.net/manual/en/eventbufferevent.construct.php
      */
-    public function __construct(EventBase $base, mixed $socket = null, int $options = 0, callable $readcb = null, callable $writecb = null, callable $eventcb = null)
+    public function __construct(EventBase $base, $socket = null, int $options = 0, callable $readcb = null, callable $writecb = null, callable $eventcb = null)
     {
     }
 
@@ -1131,7 +1131,7 @@ final class EventBufferEvent
      *
      * @see https://secure.php.net/manual/en/eventbufferevent.sslsocket.php
      */
-    public static function sslSocket(EventBase $base, mixed $socket, EventSslContext $ctx, int $state, int $options): EventBufferEvent
+    public static function sslSocket(EventBase $base, $socket, EventSslContext $ctx, int $state, int $options): EventBufferEvent
     {
     }
 
@@ -1406,7 +1406,7 @@ final class EventHttp
      *
      * @see https://secure.php.net/manual/en/eventhttp.accept.php
      */
-    public function accept(mixed $socket): bool
+    public function accept($socket): bool
     {
     }
 
@@ -1605,7 +1605,7 @@ class EventHttpConnection
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.setclosecallback.php
      */
-    public function setCloseCallback(callable $callback, mixed $data): void
+    public function setCloseCallback(callable $callback, $data): void
     {
     }
 
@@ -1822,7 +1822,7 @@ final class EventListener
      *
      * @see https://secure.php.net/manual/en/eventlistener.construct.php
      */
-    public function __construct(EventBase $base, callable $cb, mixed $data, int $flags, int $backlog, mixed $target)
+    public function __construct(EventBase $base, callable $cb, $data, int $flags, int $backlog, $target)
     {
     }
 
@@ -1871,7 +1871,7 @@ final class EventListener
      *
      * @see https://secure.php.net/manual/en/eventlistener.getsocketname.php
      */
-    public static function getSocketName(string &$address, mixed &$port): bool
+    public static function getSocketName(string &$address, &$port): bool
     {
     }
 
@@ -1884,7 +1884,7 @@ final class EventListener
      *
      * @see https://secure.php.net/manual/en/eventlistener.setcallback.php
      */
-    public function setCallback(callable $cb, mixed $arg = null): void
+    public function setCallback(callable $cb, $arg = null): void
     {
     }
 
@@ -2006,7 +2006,7 @@ final class EventUtil
      *
      * @see https://secure.php.net/manual/en/eventutil.getlastsocketerrno.php
      */
-    public static function getLastSocketErrno(mixed $socket = null): int
+    public static function getLastSocketErrno($socket = null): int
     {
     }
 
@@ -2020,7 +2020,7 @@ final class EventUtil
      *
      * @see https://secure.php.net/manual/en/eventutil.getlastsocketerror.php
      */
-    public static function getLastSocketError(mixed $socket): string
+    public static function getLastSocketError($socket): string
     {
     }
 
@@ -2034,7 +2034,7 @@ final class EventUtil
      *
      * @see https://secure.php.net/manual/en/eventutil.getsocketfd.php
      */
-    public static function getSocketFd(mixed $socket): int
+    public static function getSocketFd($socket): int
     {
     }
 
@@ -2050,7 +2050,7 @@ final class EventUtil
      *
      * @see https://secure.php.net/manual/en/eventutil.getsocketname.php
      */
-    public static function getSocketName(mixed $socket, string &$address, mixed &$port): bool
+    public static function getSocketName($socket, string &$address, &$port): bool
     {
     }
 
@@ -2067,7 +2067,7 @@ final class EventUtil
      *
      * @see https://secure.php.net/manual/en/eventutil.setsocketoption.php
      */
-    public static function setSocketOption(mixed $socket, int $level, int $optname, mixed $optval): bool
+    public static function setSocketOption($socket, int $level, int $optname, $optval): bool
     {
     }
 

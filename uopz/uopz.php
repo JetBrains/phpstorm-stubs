@@ -206,7 +206,7 @@ function uopz_set_mock (string $class, $mock): void {}
  * @param mixed $value The value to assign to the property
  * @return void
  */
-function uopz_set_property ($class, string $property, mixed $value): void {}
+function uopz_set_property ($class, string $property, $value): void {}
 
 /**
  * Provide a return value for an existing function

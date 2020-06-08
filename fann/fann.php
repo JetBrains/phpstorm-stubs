@@ -1197,7 +1197,7 @@ function fann_set_bit_fail_limit($ann, $bit_fail_limit)
  * Sets the callback function for use during training
  *
  * @param resource $ann
- * @param collable $callback
+ * @param callable $callback
  *
  * @return bool
  */

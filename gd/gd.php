@@ -2208,7 +2208,7 @@ function imagecreatefromtga($filename) {}
  *
  * https://www.php.net/manual/en/function.imagegrabscreen.php
  *
- * @return resorce|false
+ * @return resource|false
  */
 function imagegrabscreen() {}
 

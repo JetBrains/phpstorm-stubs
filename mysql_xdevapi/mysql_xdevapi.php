@@ -1409,7 +1409,7 @@ class TableInsert implements \mysql_xdevapi\Executable {
  * @link https://www.php.net/manual/en/class.mysql-xdevapi-tableselect.php
  * @package mysql_xdevapi
  */
-class TableSelect implements mysql_xdevapi\Executable {
+class TableSelect implements \mysql_xdevapi\Executable {
     /**
      * Binds a value to a specific placeholder.
      * @link https://www.php.net/manual/en/mysql-xdevapi-tableselect.bind.php
@@ -1431,7 +1431,7 @@ class TableSelect implements mysql_xdevapi\Executable {
      * @param mixed $sort_expr
      * @return \mysql_xdevapi\TableSelect
      */
-    public function groupBy ( mixed $sort_expr ) : \mysql_xdevapi\TableSelect {}
+    public function groupBy ($sort_expr ) : \mysql_xdevapi\TableSelect {}
 
     /**
      * Sets a condition for records to consider in aggregate function operations.

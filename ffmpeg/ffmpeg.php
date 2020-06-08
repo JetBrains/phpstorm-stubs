@@ -178,7 +178,7 @@ class ffmpeg_frame
 	 * NOTE: This function will not be available if GD is not enabled.
 	 * @param resource $gd_image
 	 */
-	public function __construct(resource $gd_image)
+	public function __construct($gd_image)
 	{
 	}
 

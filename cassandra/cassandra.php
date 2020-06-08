@@ -4912,9 +4912,9 @@ namespace Cassandra {
     {
 
         /**
-         * @param long|double|string|\Cassandra\Bigint $months Months attribute of the duration.
-         * @param long|double|string|\Cassandra\Bigint $days Days attribute of the duration.
-         * @param long|double|string|\Cassandra\Bigint $nanos Nanos attribute of the duration.
+         * @param int|double|string|\Cassandra\Bigint $months Months attribute of the duration.
+         * @param int|double|string|\Cassandra\Bigint $days Days attribute of the duration.
+         * @param int|double|string|\Cassandra\Bigint $nanos Nanos attribute of the duration.
          *
          * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.Duration/#method-__construct
          */
