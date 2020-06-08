@@ -745,7 +745,7 @@ class mysqli  {
 	public function use_result () {}
 
 	/**
-	 * @link https://.php.net/manual/en/mysqli.refresh
+	 * @link https://php.net/manual/en/mysqli.refresh
 	 * @param $options
 	 * @return bool TRUE if the refresh was a success, otherwise FALSE
 	 * @since 5.3
@@ -1550,7 +1550,7 @@ function mysqli_connect_error () {}
 
 /**
  * Adjusts the result pointer to an arbitrary row in the result
- * @link https://www.php.net/manual/en/mysqli-result.data-seek.php
+ * @link https://php.net/manual/en/mysqli-result.data-seek.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
  * @param int $offset
