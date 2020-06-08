@@ -8,10 +8,8 @@ use stdClass;
 
 class PHPProperty extends BasePHPElement
 {
-    use PHPDocElement;
-
-    public ?string $parentName = null;
-    public ?string $type;
+    public string $parentName;
+    public string $type;
     public string $access;
     public bool $is_static;
 
@@ -31,7 +29,10 @@ class PHPProperty extends BasePHPElement
         }
         $this->access = $access;
         $this->is_static = $property->isStatic();
-        $this->type = $property->getType() ?: "";
+        $this->type = "";
+        if ($property->hasType()) {
+            $this->type = "" . $property->getType();
+        }
         return $this;
     }
 
