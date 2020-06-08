@@ -131,6 +131,7 @@ class mysqli  {
 
 	/**
 	 * Open a new connection to the MySQL server
+     * @link https://php.net/manual/en/mysqli.construct.php
 	 * </p>
 	 * @param string $host [optional] Can be either a host name or an IP address. Passing the NULL value or the string "localhost" to this parameter, the local host is assumed. When possible, pipes will be used instead of the TCP/IP protocol. Prepending host by p: opens a persistent connection. mysqli_change_user() is automatically called on connections opened from the connection pool. Defaults to ini_get("mysqli.default_host")
 	 * @param string $username [optional] The MySQL user name. Defaults to ini_get("mysqli.default_user")
@@ -144,7 +145,7 @@ class mysqli  {
 		$username = null,
 		$passwd = null,
 		$dbname = null,
-		$port = null,
+		$port = 0,
 		$socket = null
 	) {}
 
@@ -219,14 +220,15 @@ class mysqli  {
 	public function commit ($flags = null, $name = null) {}
 
 	/**
-	 * @param $host [optional]
-	 * @param $user [optional]
-	 * @param $password [optional]
-	 * @param $database [optional]
-	 * @param $port [optional]
-	 * @param $socket [optional]
+     * @link https://php.net/manual/en/function.mysqli-connect.php
+	 * @param string $host [optional]
+	 * @param string $user [optional]
+	 * @param string $password [optional]
+	 * @param string $database [optional]
+	 * @param int $port [optional]
+	 * @param string $socket [optional]
 	 */
-	public function connect ($host, $user, $password, $database, $port, $socket) {}
+	public function connect ($host = '', $user = '', $password = '', $database = '', $port = 0, $socket = '') {}
 
 	/**
 	 * Dump debugging information into the log
@@ -325,6 +327,7 @@ class mysqli  {
 	public function multi_query ($query) {}
 
 	/**
+     * @link https://php.net/manual/en/mysqli.construct.php
 	 * @param string $host [optional]
 	 * @param string $user [optional]
 	 * @param string $password [optional]
@@ -332,7 +335,7 @@ class mysqli  {
 	 * @param int $port [optional]
 	 * @param string $socket [optional]
 	 */
-	public function mysqli ($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null) {}
+	public function mysqli ($host = null, $user = null, $password = null, $database = null, $port = 0, $socket = null) {}
 
 	/**
 	 * Check if there are any more query results from a multi query
@@ -552,7 +555,7 @@ class mysqli  {
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function real_connect ($host = null, $username = null, $passwd = null, $dbname = null, $port = null, $socket = null, $flags = null) {}
+	public function real_connect ($host = null, $username = null, $passwd = null, $dbname = null, $port = 0, $socket = null, $flags = null) {}
 
 	/**
 	 * Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection
@@ -585,7 +588,7 @@ class mysqli  {
 	 * </p>
 	 * @return int|false number of ready connections in success, false otherwise.
 	 */
-	public static function poll (array &$read , array &$error , array &$reject , $sec, $usec = null) {}
+	public static function poll (array &$read , array &$error , array &$reject , $sec, $usec = 0) {}
 
 	/**
 	 * Get result from async query
@@ -628,12 +631,12 @@ class mysqli  {
 	/**
 	 * Rolls back current transaction
 	 * @link https://php.net/manual/en/mysqli.rollback.php
-	 * @param int $flags A bitmask of MYSQLI_TRANS_COR_* constants.
-	 * @param string $name If provided then ROLLBACK $name is executed.
+	 * @param int $flags [optional] A bitmask of MYSQLI_TRANS_COR_* constants.
+	 * @param string $name [optional] If provided then ROLLBACK $name is executed.
 	 * @return bool true on success or false on failure.
 	 * @since 5.5 Added flags and name parameters.
 	 */
-	public function rollback ($flags = null, $name = null) {}
+	public function rollback ($flags = 0, $name = null) {}
 
     /**
      * Set a named transaction savepoint
@@ -665,6 +668,7 @@ class mysqli  {
 	public function set_charset ($charset) {}
 
 	/**
+     * @link https://php.net/manual/en/function.mysqli-set-opt
 	 * @param $option
 	 * @param $value
 	 */
@@ -674,19 +678,19 @@ class mysqli  {
 	/**
 	 * Used for establishing secure connections using SSL
 	 * @link https://secure.php.net/manual/en/mysqli.ssl-set.php
-	 * @param $key <p>
+	 * @param string $key <p>
 	 * The path name to the key file.
 	 * </p>
-	 * @param $cert <p>
+	 * @param string $cert <p>
 	 * The path name to the certificate file.
 	 * </p>
-	 * @param $ca <p>
+	 * @param string $ca <p>
 	 * The path name to the certificate authority file.
 	 * </p>
-	 * @param $capath <p>
+	 * @param string $capath <p>
 	 * The pathname to a directory that contains trusted SSL CA certificates in PEM format.
 	 * </p>
-	 * @param $cipher <p>
+	 * @param string $cipher <p>
 	 * A list of allowable ciphers to use for SSL encryption.
 	 * </p>
 	 * @return bool This function always returns TRUE value.
@@ -744,8 +748,11 @@ class mysqli  {
 	public function use_result () {}
 
 	/**
+     * @link https://.php.net/manual/en/mysqli.refresh
 	 * @param $options
-	 */
+     * @return bool TRUE if the refresh was a success, otherwise FALSE
+     * @since 5.3
+     */
 	public function refresh ($options) {}
 
 }
@@ -1524,11 +1531,11 @@ function mysqli_commit ($link, $flags = 0, $name = null) {}
  * @param string $user The MySQL user name.
  * @param string $password If not provided or NULL, the MySQL server will attempt to authenticate the user against those user records which have no password only.
  * @param string $database If provided will specify the default database to be used when performing queries.
- * @param string $port Specifies the port number to attempt to connect to the MySQL server.
+ * @param int $port Specifies the port number to attempt to connect to the MySQL server.
  * @param string $socket Specifies the socket or named pipe that should be used.
  * @return mysqli|false object which represents the connection to a MySQL Server or false if an error occurred.
  */
-function mysqli_connect ($host = '', $user = '', $password = '', $database = '', $port = '', $socket = '') {}
+function mysqli_connect ($host = '', $user = '', $password = '', $database = '', $port = 0, $socket = '') {}
 
 /**
  * Returns the error code from last connect call
@@ -1546,6 +1553,7 @@ function mysqli_connect_error () {}
 
 /**
  * Adjusts the result pointer to an arbitrary row in the result
+ * @link https://www.php.net/manual/en/mysqli-result.data-seek.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
  * @param int $offset
@@ -1579,19 +1587,19 @@ function mysqli_errno ($link) {}
 
 /**
  * Returns a list of errors from the last command executed
- * PHP > 5.4.0 </br>
  * @link https://php.net/manual/en/mysqli.error-list.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
  * @return array A list of errors, each as an associative array containing the errno, error, and sqlstate.
+ * @since 5.4
  */
 function mysqli_error_list ($link) {}
 
 /**
  * Returns a list of errors from the last statement executed
- * PHP > 5.4.0 </br>
  * @link https://secure.php.net/manual/en/mysqli-stmt.error-list.php
  * @param mysqli_stmt $stmt A statement identifier returned by mysqli_stmt_init().
  * @return array A list of errors, each as an associative array containing the errno, error, and sqlstate.
+ * @since 5.4
  */
 function mysqli_stmt_error_list ($stmt) {}
 
@@ -1755,9 +1763,10 @@ function mysqli_free_result ($result) {}
 /**
  * Returns client Zval cache statistics
  * Available only with mysqlnd.
- * @link https://php.net/manual/en/mysqli.get-cache-stats.php
+ * @link https://php.net/manual/en/function.mysqli-get-cache-stats.php
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
  * @return array|false an array with client Zval cache stats if success, false otherwise.
+ * @removed 5.4
  */
 function mysqli_get_cache_stats ($link) {}
 
@@ -1771,7 +1780,7 @@ function mysqli_get_connection_stats ($link) {}
 
 /**
  * Returns client per-process statistics
- * @link https://php.net/manual/en/mysqli.get-client-stats.php
+ * @link https://php.net/manual/en/function.mysqli-get-client-stats.php
  * @return array|false an array with client stats if success, false otherwise.
  */
 function mysqli_get_client_stats () {}
@@ -1808,6 +1817,7 @@ function mysqli_get_host_info ($link) {}
 
 /**
  * Return information about open and cached links
+ * @link https://php.net/manual/en/function.mysqli-get-links-stats.php
  * @return array mysqli_get_links_stats() returns an associative array with three elements, keyed as follows:
  * <p>
  * <dl>
@@ -1845,6 +1855,7 @@ function mysqli_get_host_info ($link) {}
  *
  * </dl>
  * </p>
+ * @since 5.6
  */
 function mysqli_get_links_stats() {}
 
@@ -2002,7 +2013,7 @@ function mysqli_ping ($link) {}
  * @param array $error
  * @param array $reject
  * @param int $sec
- * @param int $usec
+ * @param int $usec [optional]
  * @return int|false number of ready connections upon success, FALSE otherwise.
  */
 function mysqli_poll (array &$read = null, array &$error = null, &$reject = null, $sec, $usec = 0) {}
@@ -2073,16 +2084,16 @@ function mysqli_query ($link, $query, $resultmode = MYSQLI_STORE_RESULT) {}
  * @link https://php.net/manual/en/mysqli.real-connect.php
  * @see mysqli_connect()
  * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @param string $host
- * @param string $user
- * @param string $password
- * @param string $database
- * @param string $port
- * @param string $socket
- * @param int $flags
+ * @param string $host [optional]
+ * @param string $user [optional]
+ * @param string $password [optional]
+ * @param string $database [optional]
+ * @param int $port [optional]
+ * @param string $socket [optional]
+ * @param int $flags [optional]
  * @return bool
  */
-function mysqli_real_connect ($link, $host = '', $user = '', $password = '', $database = '', $port = '', $socket = '', $flags = null) {}
+function mysqli_real_connect ($link, $host = '', $user = '', $password = '', $database = '', $port = 0, $socket = '', $flags = null) {}
 
 /**
  * Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection
