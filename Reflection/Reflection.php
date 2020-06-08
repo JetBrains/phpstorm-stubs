@@ -36,7 +36,7 @@ class Reflection  {
 	 * Setting to <b>TRUE</b> will return the export,
 	 * as opposed to emitting it. Setting to <b>FALSE</b> (the default) will do the opposite.
 	 * </p>
-	 * @return string If the <i>return</i> parameter
+	 * @return string|null If the <i>return</i> parameter
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 */
@@ -54,7 +54,7 @@ interface Reflector  {
 	/**
 	 * Exports
 	 * @link https://php.net/manual/en/reflector.export.php
-	 * @return string
+	 * @return string|null
 	 * @deprecated 7.4
 	 */
 	static function export ();
@@ -314,7 +314,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
 	 * Setting to <b>TRUE</b> will return the export,
 	 * as opposed to emitting it. Setting to <b>FALSE</b> (the default) will do the opposite.
 	 * </p>
-	 * @return string If the <i>return</i> parameter
+	 * @return string|null If the <i>return</i> parameter
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @deprecated 7.4
@@ -390,7 +390,7 @@ class ReflectionParameter implements Reflector {
 	 * Setting to <b>TRUE</b> will return the export,
 	 * as opposed to emitting it. Setting to <b>FALSE</b> (the default) will do the opposite.
 	 * </p>
-	 * @return string The exported reflection.
+	 * @return string|null The exported reflection.
 	 * @deprecated 7.4
 	 */
 	public static function export ($function, $parameter, $return = null) {}
@@ -587,7 +587,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector {
 	 * Setting to <b>TRUE</b> will return the export,
 	 * as opposed to emitting it. Setting to <b>FALSE</b> (the default) will do the opposite.
 	 * </p>
-	 * @return string If the <i>return</i> parameter
+	 * @return string|null If the <i>return</i> parameter
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @deprecated 7.4
@@ -820,7 +820,7 @@ class ReflectionClass implements Reflector {
 	 * Setting to <b>TRUE</b> will return the export,
 	 * as opposed to emitting it. Setting to <b>FALSE</b> (the default) will do the opposite.
 	 * </p>
-	 * @return string If the <i>return</i> parameter
+	 * @return string|null If the <i>return</i> parameter
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @deprecated 7.4
@@ -1308,7 +1308,7 @@ class ReflectionObject extends ReflectionClass implements Reflector {
 	 * Setting to <b>TRUE</b> will return the export,
 	 * as opposed to emitting it. Setting to <b>FALSE</b> (the default) will do the opposite.
 	 * </p>
-	 * @return string If the <i>return</i> parameter
+	 * @return string|null If the <i>return</i> parameter
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @deprecated 7.4
@@ -1359,7 +1359,7 @@ class ReflectionProperty implements Reflector {
 	 * Setting to <b>TRUE</b> will return the export,
 	 * as opposed to emitting it. Setting to <b>FALSE</b> (the default) will do the opposite.
 	 * </p>
-	 * @return string
+	 * @return string|null
 	 * @deprecated 7.4
 	 */
 	public static function export ($class, $name, $return = null) {}
@@ -1537,7 +1537,7 @@ class ReflectionExtension implements Reflector {
 	 * Setting to <b>TRUE</b> will return the export,
 	 * as opposed to emitting it. Setting to <b>FALSE</b> (the default) will do the opposite.
 	 * </p>
-	 * @return string If the <i>return</i> parameter
+	 * @return string|null If the <i>return</i> parameter
 	 * is set to <b>TRUE</b>, then the export is returned as a string,
 	 * otherwise <b>NULL</b> is returned.
 	 * @deprecated 7.4
@@ -1677,7 +1677,7 @@ class ReflectionZendExtension implements Reflector {
 	 * </p>
 	 * @param string $return [optional] <p>
 	 * </p>
-	 * @return string
+	 * @return string|null
 	 * @since 5.4
 	 * @deprecated 7.4
 	 */
@@ -1926,7 +1926,7 @@ class ReflectionClassConstant implements Reflector {
      * @param mixed $class The reflection to export.
      * @param string $name The class constant name.
      * @param bool $return Setting to TRUE will return the export, as opposed to emitting it. Setting to FALSE (the default) will do the opposite.
-     * @return string
+     * @return string|null
      * @deprecated 7.4
      */
 	public static function export($class, $name, $return) {}
