@@ -131,7 +131,7 @@ class mysqli  {
 
 	/**
 	 * Open a new connection to the MySQL server
-     * @link https://php.net/manual/en/mysqli.construct.php
+	 * @link https://php.net/manual/en/mysqli.construct.php
 	 * </p>
 	 * @param string $host [optional] Can be either a host name or an IP address. Passing the NULL value or the string "localhost" to this parameter, the local host is assumed. When possible, pipes will be used instead of the TCP/IP protocol. Prepending host by p: opens a persistent connection. mysqli_change_user() is automatically called on connections opened from the connection pool. Defaults to ini_get("mysqli.default_host")
 	 * @param string $username [optional] The MySQL user name. Defaults to ini_get("mysqli.default_user")
@@ -220,7 +220,7 @@ class mysqli  {
 	public function commit ($flags = null, $name = null) {}
 
 	/**
-     * @link https://php.net/manual/en/function.mysqli-connect.php
+	 * @link https://php.net/manual/en/function.mysqli-connect.php
 	 * @param string $host [optional]
 	 * @param string $user [optional]
 	 * @param string $password [optional]
@@ -327,7 +327,7 @@ class mysqli  {
 	public function multi_query ($query) {}
 
 	/**
-     * @link https://php.net/manual/en/mysqli.construct.php
+	 * @link https://php.net/manual/en/mysqli.construct.php
 	 * @param string $host [optional]
 	 * @param string $user [optional]
 	 * @param string $password [optional]
@@ -668,7 +668,7 @@ class mysqli  {
 	public function set_charset ($charset) {}
 
 	/**
-     * @link https://php.net/manual/en/function.mysqli-set-opt
+	 * @link https://php.net/manual/en/function.mysqli-set-opt
 	 * @param $option
 	 * @param $value
 	 */
@@ -748,11 +748,11 @@ class mysqli  {
 	public function use_result () {}
 
 	/**
-     * @link https://.php.net/manual/en/mysqli.refresh
+	 * @link https://.php.net/manual/en/mysqli.refresh
 	 * @param $options
-     * @return bool TRUE if the refresh was a success, otherwise FALSE
-     * @since 5.3
-     */
+	 * @return bool TRUE if the refresh was a success, otherwise FALSE
+	 * @since 5.3
+	 */
 	public function refresh ($options) {}
 
 }
