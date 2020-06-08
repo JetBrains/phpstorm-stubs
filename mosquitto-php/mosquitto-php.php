@@ -364,19 +364,19 @@ class Client
 class Message
 {
 
-    /** @var string $topic */
+    /** @var string */
     public $topic;
 
-    /** @var string $payload */
+    /** @var string */
     public $payload;
 
-    /** @var int $payload */
+    /** @var int */
     public $mid;
 
-    /** @var int $qos */
+    /** @var int */
     public $qos;
 
-    /** @var bool $payload */
+    /** @var bool */
     public $retain;
 
     /**

@@ -246,7 +246,6 @@ class MongoClient
      * @return string The address of the secondary this connection is using for reads. This may be the same as the previous address as addresses are randomly chosen. It may return only one address if only one secondary (or only the primary) is available.
      * For example, if we had a three member replica set with a primary, secondary, and arbiter this method would always return the address of the secondary. If the secondary became unavailable, this method would always return the address of the primary. If the primary also became unavailable, this method would throw an exception, as an arbiter cannot handle reads.
      * @throws MongoException (error code 15) if it is called on a non-replica-set connection. It will also throw MongoExceptions if it cannot find anyone (primary or secondary) to read from (error code 16).
-     *
      */
     public function switchSlave()  {}
 
@@ -323,7 +322,6 @@ class Mongo extends MongoClient {
      * <p><b>timeout</b></p>
      *
      * <p>The socket timeout for connections in this pool. This is how long connections in this pool will attempt to connect to a server before giving up.</p>
-     *
      */
     public function poolDebug() {}
 
@@ -1261,7 +1259,7 @@ class MongoCollection {
 class MongoCursor implements Iterator {
     /**
      * @link https://php.net/manual/en/class.mongocursor.php#mongocursor.props.slaveokay
-     * @var bool $slaveOkay
+     * @var bool
      */
     public static $slaveOkay = FALSE;
 
@@ -1645,28 +1643,26 @@ interface MongoCursorInterface extends Iterator
     function timeout(int $ms):MongoCursorInterface;
 }
 
-/**
- *
- */
+
 class MongoGridFS extends MongoCollection {
     const ASCENDING = 1;
     const DESCENDING = -1;
 
     /**
      * @link https://php.net/manual/en/class.mongogridfs.php#mongogridfs.props.chunks
-     * @var $chunks MongoCollection
+     * @var MongoCollection
      */
     public $chunks;
 
     /**
      * @link https://php.net/manual/en/class.mongogridfs.php#mongogridfs.props.filesname
-     * @var $filesName string
+     * @var string
      */
     protected $filesName;
 
     /**
      * @link https://php.net/manual/en/class.mongogridfs.php#mongogridfs.props.chunksname
-     * @var $chunksName string
+     * @var string
      */
     protected $chunksName;
 
@@ -1778,13 +1774,13 @@ class MongoGridFS extends MongoCollection {
 class MongoGridFSFile {
     /**
     * @link https://php.net/manual/en/class.mongogridfsfile.php#mongogridfsfile.props.file
-    * @var $file
+    * @var
     */
     public $file;
 
     /**
     * @link https://php.net/manual/en/class.mongogridfsfile.php#mongogridfsfile.props.gridfs
-    * @var $gridfs
+    * @var
     */
     protected $gridfs;
 
@@ -1837,13 +1833,13 @@ class MongoGridFSFile {
 
 class MongoGridFSCursor extends MongoCursor implements Traversable, Iterator {
     /**
-    * @var $slaveOkay
+    * @var
     */
     public static $slaveOkay;
 
     /**
     * @link https://php.net/manual/en/class.mongogridfscursor.php#mongogridfscursor.props.gridfs
-    * @var $gridfs
+    * @var
     */
     protected $gridfs;
 
@@ -1887,7 +1883,7 @@ class MongoGridFSCursor extends MongoCursor implements Traversable, Iterator {
  */
 class MongoId {
     /**
-     * @var string $id <p> Note: The property name begins with a $ character. It may be accessed using
+     * @var string <p> Note: The property name begins with a $ character. It may be accessed using
      * {@link https://php.net/manual/en/language.types.string.php#language.types.string.parsing.complex complex variable parsed syntax} (e.g. $mongoId->{'$id'}).</p>
      */
      public $id = NULL;
@@ -1964,12 +1960,12 @@ class MongoId {
 
 class MongoCode {
     /**
-    * @var $code
+    * @var
     */
     public $code;
 
     /**
-    * @var $scope
+    * @var
     */
     public $scope;
 
@@ -1992,13 +1988,13 @@ class MongoCode {
 class MongoRegex {
     /**
      * @link https://php.net/manual/en/class.mongoregex.php#mongoregex.props.regex
-     * @var $regex
+     * @var
      */
     public $regex;
 
     /**
      * @link https://php.net/manual/en/class.mongoregex.php#mongoregex.props.flags
-     * @var $flags
+     * @var
      */
     public $flags;
 
@@ -2020,13 +2016,13 @@ class MongoRegex {
 class MongoDate {
     /**
      * @link https://php.net/manual/en/class.mongodate.php#mongodate.props.sec
-     * @var int $sec
+     * @var int
      */
     public $sec;
 
     /**
      * @link https://php.net/manual/en/class.mongodate.php#mongodate.props.usec
-     * @var int $usec
+     * @var int
      */
     public $usec;
 
@@ -2100,13 +2096,13 @@ class MongoBinData {
 
     /**
      * @link https://php.net/manual/en/class.mongobindata.php#mongobindata.props.bin
-     * @var $bin
+     * @var
      */
     public $bin;
 
     /**
      * @link https://php.net/manual/en/class.mongobindata.php#mongobindata.props.type
-     * @var $type
+     * @var
      */
     public $type;
 
@@ -2129,12 +2125,12 @@ class MongoBinData {
 
 class MongoDBRef {
     /**
-    * @var $refKey
+    * @var
     */
     protected static $refKey = '$ref';
 
     /**
-    * @var $idKey
+    * @var
     */
     protected static $idKey = '$id';
 
@@ -2353,7 +2349,6 @@ class MongoDuplicateKeyException extends MongoWriteConcernException {
 /**
  * <p>(PECL mongo &gt;= 1.3.0)</p>
  * @link https://php.net/manual/en/class.mongoresultexception.php#mongoresultexception.props.document
- *
  */
 class MongoResultException extends MongoException {
     /**
@@ -2372,13 +2367,13 @@ class MongoResultException extends MongoException {
 class MongoTimestamp {
     /**
      * @link https://php.net/manual/en/class.mongotimestamp.php#mongotimestamp.props.sec
-     * @var $sec
+     * @var
      */
     public $sec;
 
     /**
      * @link https://php.net/manual/en/class.mongotimestamp.php#mongotimestamp.props.inc
-     * @var $inc
+     * @var
      */
     public $inc;
 
@@ -2403,7 +2398,7 @@ class MongoTimestamp {
 class MongoInt32 {
     /**
      * @link https://php.net/manual/en/class.mongoint32.php#mongoint32.props.value
-     * @var $value
+     * @var
      */
     public $value;
 
@@ -2425,7 +2420,7 @@ class MongoInt32 {
 class MongoInt64 {
     /**
      * @link https://php.net/manual/en/class.mongoint64.php#mongoint64.props.value
-     * @var $value
+     * @var
      */
     public $value;
 

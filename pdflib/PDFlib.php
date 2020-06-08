@@ -353,7 +353,6 @@ class PDFlib
 	function circle($x, $y, $r){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-clip.php
@@ -392,7 +391,6 @@ class PDFlib
 	function close_pdi($doc){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-close.php
@@ -402,7 +400,6 @@ class PDFlib
 	function close(){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-closepath-fill-stroke.php
@@ -410,7 +407,6 @@ class PDFlib
 	function closepath_fill_stroke(){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-closepath-stroke.php
@@ -418,7 +414,6 @@ class PDFlib
 	function closepath_stroke(){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-closepath.php
@@ -600,7 +595,6 @@ class PDFlib
 	function delete_textflow($textflow){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-delete.php
@@ -629,7 +623,6 @@ class PDFlib
 	function end_document($optlist){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-end-font.php
@@ -637,7 +630,6 @@ class PDFlib
 	function end_font(){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-end-glyph.php
@@ -654,7 +646,6 @@ class PDFlib
 	function end_item($id){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-end-layer.php
@@ -671,7 +662,6 @@ class PDFlib
 	function end_page_ext($optlist){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-end-page.php
@@ -679,7 +669,6 @@ class PDFlib
 	function end_page($p){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-end-pattern.php
@@ -687,7 +676,6 @@ class PDFlib
 	function end_pattern($p){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-end-template.php
@@ -695,7 +683,6 @@ class PDFlib
 	function end_template($p){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-endpath.php
@@ -727,7 +714,6 @@ class PDFlib
 	function fill_pdfblock($page, $blockname, $contents, $optlist){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-fill-stroke.php
@@ -743,16 +729,13 @@ class PDFlib
 	 * @return int
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-fill-textblock.php
-
 	 */
 	function fill_textblock($page, $blockname, $text, $optlist){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-fill.php
-
 	 */
 	function fill(){}
 	/**
@@ -763,7 +746,6 @@ class PDFlib
 	 * @return int
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-findfont.php(Dep)
-
 	 */
 	function findfont($fontname , $encoding , $embed){}
 	/**
@@ -775,7 +757,6 @@ class PDFlib
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-fit-image.php
-
 	 */
 	function fit_image($image , $x , $y , $optlist){}
 	/**
@@ -787,7 +768,6 @@ class PDFlib
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-fit-pdi-page.php
-
 	 */
 	function fit_pdi_page($page , $x , $y , $optlist){}
 	/**
@@ -801,7 +781,6 @@ class PDFlib
 	 * @return string
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-fit-table.php
-
 	 */
 	function fit_table($table , $llx , $lly , $urx , $ury , $optlist){}
 	/**
@@ -815,7 +794,6 @@ class PDFlib
 	 * @return string
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-fit-textflow.php
-
 	 */
 	function fit_textflow($textflow , $llx , $lly , $urx , $ury , $optlist){}
 	/**
@@ -827,39 +805,30 @@ class PDFlib
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-fit-textline.php
-
 	 */
 	function fit_textline($text , $x , $y , $optlist){}
 	/**
-	 *
 	 * @return string
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-get-apiname.php
-
 	 */
 	function get_apiname(){}
 	/**
-	 *
 	 * @return string
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-get-buffer.php
-
 	 */
 	function get_buffer(){}
 	/**
-	 *
 	 * @return string
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-get-errmsg.php
-
 	 */
 	function get_errmsg(){}
 	/**
-	 *
 	 * @return int
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-get-errnum.php
-
 	 */
 	function get_errnum(){}
 	/**
@@ -868,7 +837,6 @@ class PDFlib
 	 * @return int
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-get-majorversion.php(dep)
-
 	 */
 	function get_majorversion(){}
 	/**
@@ -877,7 +845,6 @@ class PDFlib
 	 * @return int
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-get-minorversion.php(dep)
-
 	 */
 	function get_minorversion(){}
 	/**
@@ -887,7 +854,6 @@ class PDFlib
 	 * @return string
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-get-parameter.php
-
 	 */
 	function get_parameter($key , $modifier){}
 	/**
@@ -899,7 +865,6 @@ class PDFlib
 	 * @return string
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-get-pdi-parameter.php
-
 	 */
 	function get_pdi_parameter($key , $doc , $page , $reserved){}
 	/**
@@ -911,7 +876,6 @@ class PDFlib
 	 * @return float
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-get-pdi-value.php
-
 	 */
 	function get_pdi_value($key , $doc , $page , $reserved){}
 	/**
@@ -921,7 +885,6 @@ class PDFlib
 	 * @return float
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-get-value.php
-
 	 */
 	function get_value($key , $modifier){}
 	/**
@@ -932,7 +895,6 @@ class PDFlib
 	 * @return float
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-info-font.php
-
 	 */
 	function info_font($font , $keyword , $optlist){}
 	/**
@@ -943,7 +905,6 @@ class PDFlib
 	 * @return float
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-info-matchbox.php
-
 	 */
 	function info_matchbox($boxname , $num , $keyword){}
 	/**
@@ -953,7 +914,6 @@ class PDFlib
 	 * @return float
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-info-table.php
-
 	 */
 	function info_table($table , $keyword){}
 	/**
@@ -963,7 +923,6 @@ class PDFlib
 	 * @return float
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-info-textflow.php
-
 	 */
 	function info_textflow($textflow , $keyword){}
 
@@ -979,7 +938,6 @@ class PDFlib
 	function info_textline($text , $keyword , $optlist){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-initgraphics.php
@@ -1230,7 +1188,6 @@ class PDFlib
 	function rect($x, $y, $width, $height){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-restore.php
@@ -1256,7 +1213,6 @@ class PDFlib
 	function rotate($phi){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-save.php
@@ -1619,7 +1575,6 @@ class PDFlib
 	function stringwidth($text, $font, $fontsize){}
 
 	/**
-	 *
 	 * @return bool
 	 *
 	 * @link https://secure.php.net/manual/en/function.pdf-stroke.php
@@ -2482,7 +2437,6 @@ function PDF_fill_stroke($pdf){}
  * @return int
  *
  * @link https://secure.php.net/manual/en/function.pdf-fill-textblock.php
-
  */
 function PDF_fill_textblock($pdf, $page, $blockname, $text, $optlist){}
 
@@ -2492,7 +2446,6 @@ function PDF_fill_textblock($pdf, $page, $blockname, $text, $optlist){}
  * @return bool
  *
  * @link https://secure.php.net/manual/en/function.pdf-fill.php
-
  */
 function PDF_fill($pdf){}
 /**
@@ -2504,7 +2457,6 @@ function PDF_fill($pdf){}
  * @return int
  *
  * @link https://secure.php.net/manual/en/function.pdf-findfont.php(Dep)
-
  */
 function PDF_findfont($pdf, $fontname , $encoding , $embed){}
 /**
@@ -2517,7 +2469,6 @@ function PDF_findfont($pdf, $fontname , $encoding , $embed){}
  * @return bool
  *
  * @link https://secure.php.net/manual/en/function.pdf-fit-image.php
-
  */
 function PDF_fit_image($pdf, $image , $x , $y , $optlist){}
 /**
@@ -2530,7 +2481,6 @@ function PDF_fit_image($pdf, $image , $x , $y , $optlist){}
  * @return bool
  *
  * @link https://secure.php.net/manual/en/function.pdf-fit-pdi-page.php
-
  */
 function PDF_fit_pdi_page($pdf, $page , $x , $y , $optlist){}
 /**
@@ -2545,7 +2495,6 @@ function PDF_fit_pdi_page($pdf, $page , $x , $y , $optlist){}
  * @return string
  *
  * @link https://secure.php.net/manual/en/function.pdf-fit-table.php
-
  */
 function PDF_fit_table($pdf, $table , $llx , $lly , $urx , $ury , $optlist){}
 /**
@@ -2560,7 +2509,6 @@ function PDF_fit_table($pdf, $table , $llx , $lly , $urx , $ury , $optlist){}
  * @return string
  *
  * @link https://secure.php.net/manual/en/function.pdf-fit-textflow.php
-
  */
 function PDF_fit_textflow($pdf, $textflow , $llx , $lly , $urx , $ury , $optlist){}
 /**
@@ -2573,7 +2521,6 @@ function PDF_fit_textflow($pdf, $textflow , $llx , $lly , $urx , $ury , $optlist
  * @return bool
  *
  * @link https://secure.php.net/manual/en/function.pdf-fit-textline.php
-
  */
 function PDF_fit_textline($pdf, $text , $x , $y , $optlist){}
 /**
@@ -2582,7 +2529,6 @@ function PDF_fit_textline($pdf, $text , $x , $y , $optlist){}
  * @return string
  *
  * @link https://secure.php.net/manual/en/function.pdf-get-apiname.php
-
  */
 function PDF_get_apiname($pdf){}
 /**
@@ -2591,7 +2537,6 @@ function PDF_get_apiname($pdf){}
  * @return string
  *
  * @link https://secure.php.net/manual/en/function.pdf-get-buffer.php
-
  */
 function PDF_get_buffer($pdf){}
 /**
@@ -2600,7 +2545,6 @@ function PDF_get_buffer($pdf){}
  * @return string
  *
  * @link https://secure.php.net/manual/en/function.pdf-get-errmsg.php
-
  */
 function PDF_get_errmsg($pdf){}
 /**
@@ -2609,7 +2553,6 @@ function PDF_get_errmsg($pdf){}
  * @return int
  *
  * @link https://secure.php.net/manual/en/function.pdf-get-errnum.php
-
  */
 function PDF_get_errnum($pdf){}
 /**
@@ -2618,7 +2561,6 @@ function PDF_get_errnum($pdf){}
  * @return int
  *
  * @link https://secure.php.net/manual/en/function.pdf-get-majorversion.php(dep)
-
  */
 function PDF_get_majorversion(){}
 /**
@@ -2627,7 +2569,6 @@ function PDF_get_majorversion(){}
  * @return int
  *
  * @link https://secure.php.net/manual/en/function.pdf-get-minorversion.php(dep)
-
  */
 function PDF_get_minorversion(){}
 /**
@@ -2638,7 +2579,6 @@ function PDF_get_minorversion(){}
  * @return string
  *
  * @link https://secure.php.net/manual/en/function.pdf-get-parameter.php
-
  */
 function PDF_get_parameter($pdf, $key , $modifier){}
 /**
@@ -2651,7 +2591,6 @@ function PDF_get_parameter($pdf, $key , $modifier){}
  * @return string
  *
  * @link https://secure.php.net/manual/en/function.pdf-get-pdi-parameter.php
-
  */
 function PDF_get_pdi_parameter($pdf, $key , $doc , $page , $reserved){}
 /**
@@ -2664,7 +2603,6 @@ function PDF_get_pdi_parameter($pdf, $key , $doc , $page , $reserved){}
  * @return float
  *
  * @link https://secure.php.net/manual/en/function.pdf-get-pdi-value.php
-
  */
 function PDF_get_pdi_value($pdf, $key , $doc , $page , $reserved){}
 /**
@@ -2675,7 +2613,6 @@ function PDF_get_pdi_value($pdf, $key , $doc , $page , $reserved){}
  * @return float
  *
  * @link https://secure.php.net/manual/en/function.pdf-get-value.php
-
  */
 function PDF_get_value($pdf, $key , $modifier){}
 /**
@@ -2687,7 +2624,6 @@ function PDF_get_value($pdf, $key , $modifier){}
  * @return float
  *
  * @link https://secure.php.net/manual/en/function.pdf-info-font.php
-
  */
 function PDF_info_font($pdf, $font , $keyword , $optlist){}
 /**
@@ -2699,7 +2635,6 @@ function PDF_info_font($pdf, $font , $keyword , $optlist){}
  * @return float
  *
  * @link https://secure.php.net/manual/en/function.pdf-info-matchbox.php
-
  */
 function PDF_info_matchbox($pdf, $boxname , $num , $keyword){}
 /**
@@ -2710,7 +2645,6 @@ function PDF_info_matchbox($pdf, $boxname , $num , $keyword){}
  * @return float
  *
  * @link https://secure.php.net/manual/en/function.pdf-info-table.php
-
  */
 function PDF_info_table($pdf, $table , $keyword){}
 /**
@@ -2721,7 +2655,6 @@ function PDF_info_table($pdf, $table , $keyword){}
  * @return float
  *
  * @link https://secure.php.net/manual/en/function.pdf-info-textflow.php
-
  */
 function PDF_info_textflow($pdf, $textflow , $keyword){}
 

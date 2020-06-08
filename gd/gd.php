@@ -2829,7 +2829,6 @@ function imageaffinematrixconcat(array $m1, array $m2) {}
  * @return array|bool Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
  * @since 5.5
  */
-
 function imageaffinematrixget ($type, $options = null) {}
 
 /**
@@ -2929,7 +2928,6 @@ function imagepalettetotruecolor ($image) {}
  * @param int $mode [optional] One of <b>IMG_NEAREST_NEIGHBOUR</b>, <b>IMG_BILINEAR_FIXED</b>, <b>IMG_BICUBIC</b>, <b>IMG_BICUBIC_FIXED</b> or anything else (will use two pass).
  * @return resource|bool Return scaled image resource on success or <b>FALSE</b> on failure.
  */
-
 function imagescale ($image, $new_width, $new_height = -1, $mode = IMG_BILINEAR_FIXED) {}
 
 /**

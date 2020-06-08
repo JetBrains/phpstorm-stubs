@@ -569,7 +569,6 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          *
          * @throws RuntimeException When the filename cannot be opened
          * @throws LogicException When the filename is a directory
-         *
          */
         public function __construct ($file_name, $open_mode = 'r', $use_include_path = false, $context = null) {}
 

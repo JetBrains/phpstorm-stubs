@@ -332,7 +332,6 @@ final class SQLiteResult implements Iterator, Countable {
 	 * case-folded according to the value of the
 	 * {@link https://php.net/manual/en/sqlite.configuration.php#ini.sqlite.assoc-case sqlite.assoc_case}configuration
 	 * option.</p>
-	 *
 	 */
 	public function fieldName ($field_index) {}
 

@@ -1765,7 +1765,6 @@ class ReflectionGenerator
 	 * @link https://php.net/manual/en/reflectiongenerator.getexecutingfile.php
 	 * @return string Returns the full path and file name of the currently executing generator.
 	 * @since 7.0
-	 *
 	 */
 	public function getExecutingFile()
 	{
@@ -1776,7 +1775,6 @@ class ReflectionGenerator
 	 * @link https://php.net/manual/en/reflectiongenerator.construct.php
 	 * @return Generator Returns the currently executing Generator object.
 	 * @since 7.0
-	 *
 	 */
 	public function getExecutingGenerator()
 	{

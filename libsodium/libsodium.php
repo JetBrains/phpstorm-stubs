@@ -5,7 +5,6 @@ namespace Sodium;
 /**
  * To silence the phpstorm "unknown namespace" errors.
  */
-
     const CRYPTO_AEAD_AES256GCM_KEYBYTES = 32;
     const CRYPTO_AEAD_AES256GCM_NSECBYTES = 0;
     const CRYPTO_AEAD_AES256GCM_NPUBBYTES = 12;

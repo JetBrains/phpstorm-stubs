@@ -8,7 +8,6 @@
  * @link   https://github.com/zgb7mtr/phpredis_cluster_phpdoc
  *
  * @method mixed eval($script, $args = array(), $numKeys = 0)
- *
  */
 class RedisCluster {
     const AFTER = 'after';
@@ -3456,7 +3455,6 @@ class RedisCluster {
     public function geopos($key, $member1, $member2 = null, $memberN = null) { }
 
     /**
-     *
      * Returns the distance between two members of a geospatial index
      *
      * @param    string $key

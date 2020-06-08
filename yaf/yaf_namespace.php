@@ -249,7 +249,6 @@ final class Application
     }
 
     /**
-     *
      * @since 2.1.2
      * @link https://secure.php.net/manual/en/yaf-application.clearlasterror.php
      */
@@ -258,7 +257,6 @@ final class Application
     }
 
     /**
-     *
      * @link https://secure.php.net/manual/en/yaf-application.destruct.php
      */
     public function __destruct()
@@ -266,7 +264,6 @@ final class Application
     }
 
     /**
-     *
      * @link https://secure.php.net/manual/en/yaf-application.clone.php
      */
     private function __clone()
@@ -274,7 +271,6 @@ final class Application
     }
 
     /**
-     *
      * @link https://secure.php.net/manual/en/yaf-application.sleep.php
      */
     private function __sleep()
@@ -282,7 +278,6 @@ final class Application
     }
 
     /**
-     *
      * @link https://secure.php.net/manual/en/yaf-application.wakeup.php
      */
     private function __wakeup()
@@ -420,7 +415,6 @@ final class Dispatcher
     }
 
     /**
-     *
      * @link https://secure.php.net/manual/en/yaf-dispatcher.setrequest.php
      *
      * @param \Yaf\Request_Abstract $request
@@ -630,7 +624,6 @@ final class Dispatcher
  * <br/>
  * <p>If you want <b>\Yaf\Loader</b> search some classes(libraries) in the local class directory(which is defined in application.ini, and by default, it is application.directory . "/library"), you should register the class prefix using the \Yaf\Loader::registerLocalNameSpace()</p>
  * @link https://secure.php.net/manual/en/class.yaf-loader.php
- *
  */
 class Loader
 {
@@ -1394,7 +1387,6 @@ abstract class Controller_Abstract
      * <p>\Yaf\Controller_Abstract::__construct() is final, which means users can not override it. but users can define <b>\Yaf\Controller_Abstract::init()</b>, which will be called after controller object is instantiated.</p>
      *
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.init.php
-     *
      */
     public function init()
     {
@@ -1427,7 +1419,6 @@ abstract class Controller_Abstract
  * <p>Since there should be a entry point which can be called by Yaf (as of PHP 5.3, there is a new magic method __invoke, but Yaf is not only works with PHP 5.3+, Yaf choose another magic method execute), you must implement the abstract method \Yaf\Action_Abstract::execute() in your custom action class.</p>
  *
  * @link https://secure.php.net/manual/en/class.yaf-action-abstract.php
- *
  */
 abstract class Action_Abstract extends \Yaf\Controller_Abstract
 {
@@ -1629,7 +1620,6 @@ abstract class Request_Abstract
     }
 
     /**
-     *
      * @link https://secure.php.net/manual/en/yaf-request-abstract.isxmlhttprequest.php
      *
      * @return bool false
@@ -1667,7 +1657,6 @@ abstract class Request_Abstract
     }
 
     /**
-     *
      * @link https://secure.php.net/manual/en/yaf-request-abstract.getparam.php
      *
      * @param string $name
@@ -1680,7 +1669,6 @@ abstract class Request_Abstract
     }
 
     /**
-     *
      * @link https://secure.php.net/manual/en/yaf-request-abstract.getparams.php
      *
      * @return array
@@ -2185,7 +2173,6 @@ class Exception extends \Exception
  * <p> it is unnecessary to instance a <b>\Yaf\Route_Static</b>, also unnecessary to add it into \Yaf\Router's routes stack, since there is always be one in \Yaf\Router's routes stack, and always be called at the last time.</p>
  *
  * @link https://secure.php.net/manual/en/class.yaf-route-static.php
- *
  */
 class Route_Static implements \Yaf\Route_Interface
 {
@@ -2229,9 +2216,7 @@ class Route_Static implements \Yaf\Route_Interface
 namespace Yaf\Response {
  use Yaf\Response;
 
- /**
- *
- */
+
 class Http extends \Yaf\Response_Abstract
 {
 
@@ -2240,9 +2225,7 @@ class Http extends \Yaf\Response_Abstract
      */
     protected $_response_code = 0;
 
-    /**
-     *
-     */
+
     private function __clone()
     {
     }
@@ -2293,7 +2276,6 @@ class Http extends \Yaf\Response_Abstract
     /**
      * @link https://secure.php.net/manual/en/yaf-response-abstract.clearheaders.php
      *
-     *
      * @return \Yaf\Response_Abstract|false
      */
     public function clearHeaders()
@@ -2321,15 +2303,11 @@ class Http extends \Yaf\Response_Abstract
     public function response()
     {
     }
-}/**
- *
- */
+}
 class Cli extends \Yaf\Response_Abstract
 {
 
-    /**
-     *
-     */
+
     private function __clone()
     {
     }
@@ -2455,7 +2433,6 @@ class Http extends \Yaf\Request_Abstract
      *
      * @param string $request_uri
      * @param string $base_uri
-     *
      */
     public function __construct($request_uri, $base_uri)
     {
@@ -2789,7 +2766,6 @@ class Simple extends \Yaf\Config_Abstract implements \Iterator, \Traversable, \A
      *
      * @param array $array
      * @param string $readonly
-     *
      */
     public function __construct(array $array, $readonly = null)
     {

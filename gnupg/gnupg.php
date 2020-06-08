@@ -33,7 +33,6 @@ define('GNUPG_ERROR_SILENT', 3);
  * @link https://php.net/manual/en/book.gnupg.php
  * Class gnupg
  */
-
 class gnupg {
 	/**
 	 * Add a key for decryption

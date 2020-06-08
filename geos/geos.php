@@ -3,7 +3,6 @@
 /**
  * @see https://github.com/libgeos/php-geos/blob/master/tests/000_General.phpt
  */
-
 define('GEOSBUF_CAP_ROUND', 1);
 
 define('GEOSBUF_CAP_FLAT', 2);

@@ -805,12 +805,10 @@ define('GEARMAN_WORKER_STATE_GRAB_JOB_RECV', 4);
 define('GEARMAN_WORKER_STATE_PRE_SLEEP', 5);
 
 
-/**
- */
+
 function gearman_version() {}
 
-/**
- */
+
 function gearman_bugreport() {}
 
 /**
@@ -1170,8 +1168,7 @@ function gearman_task_recv_data($task_object, $data_len) {}
  */
 function gearman_worker_return_code($worker_object) {}
 
-/**
- */
+
 function gearman_worker_create() {}
 
 /**
@@ -1354,7 +1351,6 @@ function gearman_job_workload_size($job_object) {}
 
 /**
  * Class: GearmanClient
- *
  */
 class GearmanClient {
     /**
@@ -1389,8 +1385,7 @@ class GearmanClient {
      */
     public function getErrno() {}
 
-    /**
-       */
+
     public function options() {}
 
     /**
@@ -1478,8 +1473,7 @@ class GearmanClient {
      */
     public function addServers($servers = '127.0.0.1:4730') {}
 
-    /**
-       */
+
     public function wait() {}
 
     /**
@@ -1811,7 +1805,6 @@ class GearmanClient {
 
 /**
  * Class: GearmanTask
- *
  */
 class GearmanTask {
     /**
@@ -1923,7 +1916,6 @@ class GearmanTask {
 
 /**
  * Class: GearmanWorker
- *
  */
 class GearmanWorker {
     /**
@@ -2087,8 +2079,7 @@ class GearmanWorker {
      */
     public function unregisterAll() {}
 
-    /**
-       */
+
     public function grabJob() {}
 
     /**
@@ -2123,7 +2114,6 @@ class GearmanWorker {
 
 /**
  * Class: GearmanJob
- *
  */
 class GearmanJob {
     /**

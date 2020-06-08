@@ -45,8 +45,7 @@ class ZendAPI_Queue {
 
     /**
      * Update an existing job in the queue with it's new properties. If job doesn't exists,
-        a new job will be added. Job is passed by reference and it's updated from the queue.
-     *
+     * a new job will be added. Job is passed by reference and it's updated from the queue.
      * @param Job $job The Job object, the ID of the given job is the id of the job we try to update.
         If the given Job doesn't have an assigned ID, a new job will be added
      * @return int The id of the updated job
@@ -91,16 +90,16 @@ class ZendAPI_Queue {
 
     /**
      * returns job statistics
-         * @return array with the following:
-                         "total_complete_jobs"
-                         "total_incomplete_jobs"
-                         "average_time_in_queue"  [msec]
-                         "average_waiting_time"   [sec]
-                         "added_jobs_in_window"
-                         "activated_jobs_in_window"
-                         "completed_jobs_in_window"
-         * moving window size can be set through ini file
-         */
+     * @return array with the following:
+     *                "total_complete_jobs"
+     *                "total_incomplete_jobs"
+     *                "average_time_in_queue"  [msec]
+     *                "average_waiting_time"   [sec]
+     *                "added_jobs_in_window"
+     *                "activated_jobs_in_window"
+     *                "completed_jobs_in_window"
+     * moving window size can be set through ini file
+     */
     function getStatistics() {}
 
 
@@ -276,8 +275,8 @@ class ZendAPI_Job {
     /**
      * Array holding all the variables that the user wants the job's script to have when it's called
      * The structure is variable_name => variable_value
-        i.e. if the user_variables array is array('my_var' => 8), when the script is called,
-        a global variable called $my_var will have the int value of 8
+     *   i.e. if the user_variables array is array('my_var' => 8), when the script is called,
+     *   a global variable called $my_var will have the int value of 8
      * By default there are no variables that we want to add to the job's script
      *
      * @var array
@@ -290,10 +289,10 @@ class ZendAPI_Job {
         POST|GET|COOKIE|SESSION|RAW_POST|SERVER|FILES|ENV
      * By default there are no global variables we want to add to the job's script
      * i.e. In order to save the current GET and COOKIE global variables,
-        this property should be JOB_QUEUE_SAVE_GET|JOB_QUEUE_SAVE_COOKIE (or the integer 6)
-        In that case (of GET and COOKIE), when the job is added, the current $_GET and
-        $_COOKIE variables  should be saved, and when the job's script is called,
-        those global variables should be populated
+     *   this property should be JOB_QUEUE_SAVE_GET|JOB_QUEUE_SAVE_COOKIE (or the integer 6)
+     *   In that case (of GET and COOKIE), when the job is added, the current $_GET and
+     *   $_COOKIE variables  should be saved, and when the job's script is called,
+     *   those global variables should be populated
      *
      * @var int
      */
@@ -360,10 +359,10 @@ class ZendAPI_Job {
     /**
      * Add the job the the specified queue (without instantiating a JobQueue object)
      * This function should be used for extreme simplicity of the user when adding a single job,
-            when the user want to insert more than one job and/or manipulating other jobs (or job tasks)
-            he should create and use the JobQueue object
+     *       when the user want to insert more than one job and/or manipulating other jobs (or job tasks)
+     *       he should create and use the JobQueue object
      * Actually what this function do is to create a new JobQueue, login to it (with the given parameters),
-            add this job to it and logout
+     *       add this job to it and logout
      *
      * @param string $jobqueue_url Full address of the queue we want to connect to
      * @param string $password For authentication, the queue password

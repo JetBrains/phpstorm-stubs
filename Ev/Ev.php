@@ -1157,8 +1157,6 @@ final class EvIdle extends EvWatcher
  * EvLoop::fork()). The invocation is done before the event loop blocks next and before EvCheck watchers are being
  * called, and only in the child after the fork. Note that if someone calls EvLoop::fork() in the wrong process, the
  * fork handlers will be invoked, too.
- *
- *
  */
 final class EvFork extends EvWatcher
 {

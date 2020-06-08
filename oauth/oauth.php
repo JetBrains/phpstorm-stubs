@@ -209,7 +209,6 @@ class OAuth {
     public function setNonce($nonce) { }
 
     /**
-     *
      * @param int $reqengine
      * @return void
      */
@@ -245,9 +244,7 @@ class OAuth {
     public function setVersion($version) { }
 }
 
-/**
- *
- */
+
 class OAuthException extends Exception {
 
     /**

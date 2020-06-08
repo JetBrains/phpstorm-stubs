@@ -27,7 +27,6 @@ class MetaOverrideFunctionsParser extends NodeVisitorAbstract
     }
 
     /**
-     * @param Node $node
      * @return void
      * @throws RuntimeException
      */

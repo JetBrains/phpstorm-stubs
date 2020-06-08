@@ -100,7 +100,6 @@ $HTTP_POST_VARS = array();
  * <p>
  * Note: When running on the command line , this will not include the argv and argc entries; these are present in the $_SERVER array.
  *
- *
  * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * https://secure.php.net/manual/en/reserved.variables.php</a>
  */

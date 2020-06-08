@@ -1131,7 +1131,6 @@ function ldap_control_paged_result_response ($link, $result, &$cookie = null, &$
  * @return string
  * @since 5.6
  */
-
 function ldap_escape ($value, $ignore = "", $flags = 0) {}
 
 /**
@@ -1153,7 +1152,6 @@ function ldap_escape ($value, $ignore = "", $flags = 0) {}
  * <p>
  * Possible values for <em>modtype</em> include:
  * </p><dl>
- *
  *
  * <dt>
  * <b>LDAP_MODIFY_BATCH_ADD</b></dt>

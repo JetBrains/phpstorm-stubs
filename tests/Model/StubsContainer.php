@@ -34,7 +34,6 @@ class StubsContainer
     }
 
     /**
-     * @param PHPConst $constant
      * @throws RuntimeException
      */
     public function addConstant(PHPConst $constant): void
@@ -76,7 +75,6 @@ class StubsContainer
     }
 
     /**
-     * @param PHPClass $class
      * @throws RuntimeException
      */
     public function addClass(PHPClass $class): void
@@ -105,7 +103,6 @@ class StubsContainer
     }
 
     /**
-     * @param PHPInterface $interface
      * @throws RuntimeException
      */
     public function addInterface(PHPInterface $interface): void

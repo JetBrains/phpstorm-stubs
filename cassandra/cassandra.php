@@ -25,7 +25,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 namespace {
 
     /**
@@ -472,7 +471,6 @@ namespace {
 /**
  * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/
  */
-
 namespace Cassandra {
 
     /**
@@ -6099,7 +6097,6 @@ namespace Cassandra {
 /**
  * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/Cluster/
  */
-
 namespace Cassandra\Cluster {
 
     /**
@@ -6546,7 +6543,6 @@ namespace Cassandra\Cluster {
 /**
  * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/TimestampGenerator/
  */
-
 namespace Cassandra\TimestampGenerator {
 
     /**
@@ -6578,7 +6574,6 @@ namespace Cassandra\TimestampGenerator {
 /**
  * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/RetryPolicy/
  */
-
 namespace Cassandra\RetryPolicy {
 
     /**
@@ -6658,7 +6653,6 @@ namespace Cassandra\RetryPolicy {
 /**
  * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/Type/
  */
-
 namespace Cassandra\Type {
 
     /**
@@ -7116,7 +7110,6 @@ namespace Cassandra\Type {
 /**
  * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/SSLOptions/
  */
-
 namespace Cassandra\SSLOptions {
 
     /**
@@ -7207,7 +7200,6 @@ namespace Cassandra\SSLOptions {
 /**
  * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/Exception/
  */
-
 namespace Cassandra\Exception {
 
     /**

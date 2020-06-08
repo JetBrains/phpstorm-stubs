@@ -279,8 +279,8 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
      * (PECL pthreads &gt;= 2.0.0)<br/>
      * Merges data into the current object
      * @link https://secure.php.net/manual/en/threaded.merge.php
-     * @var mixed $from <p>The data to merge</p>
-     * @var bool $overwrite [optional] <p>Overwrite existing keys, by default true</p>
+     * @param  mixed $from <p>The data to merge</p>
+     * @param bool $overwrite [optional] <p>Overwrite existing keys, by default true</p>
      * @return bool <p>A boolean indication of success</p>
      */
     public function merge( $from, $overwrite = true ) {}

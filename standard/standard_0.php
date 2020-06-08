@@ -56,7 +56,6 @@ class php_user_filter  {
      * The filter experienced an unrecoverable error and cannot continue.
      * </td>
      * </tr>
-     *
      */
     public function filter($in, $out, &$consumed, $closing)
     {
@@ -550,7 +549,6 @@ function htmlspecialchars_decode ($string, $quote_style = null) {}
  * If omitted, the default value for this argument is ISO-8859-1 in
  * versions of PHP prior to 5.4.0, and UTF-8 from PHP 5.4.0 onwards.
  * </p>
- *
  *
  * <p>
  * The following character sets are supported:

@@ -34,7 +34,6 @@ class ASTVisitor extends NodeVisitorAbstract
     }
 
     /**
-     * @param Node $node
      * @return void
      * @throws Exception
      */

@@ -1436,7 +1436,6 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @param array|object $input The input parameter accepts an array or an Object.
      * @param int $flags Flags to control the behaviour of the ArrayObject object.
      * @param string $iterator_class Specify the class that will be used for iteration of the ArrayObject object. ArrayIterator is the default class used.
-     *
      */
     public function __construct($input = array(), $flags = 0, $iterator_class = "ArrayIterator") { }
 
