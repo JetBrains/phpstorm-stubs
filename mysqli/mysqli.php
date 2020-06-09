@@ -217,7 +217,7 @@ class mysqli  {
 	 * @param string $name If provided then COMMIT $name is executed.
 	 * @return bool true on success or false on failure.
 	 */
-	public function commit ($flags = null, $name = null) {}
+	public function commit ($flags = -1, $name = null) {}
 
 	/**
 	 * @link https://php.net/manual/en/function.mysqli-connect.php
@@ -1521,7 +1521,7 @@ function mysqli_close ($link) {}
  * @param string $name [optional If provided then COMMITname is executed
  * @return bool
  */
-function mysqli_commit ($link, $flags = 0, $name = null) {}
+function mysqli_commit ($link, $flags = -1, $name = null) {}
 
 /**
  * Open a new connection to the MySQL server
