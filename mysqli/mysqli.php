@@ -142,7 +142,7 @@ class mysqli  {
 		$username = null,
 		$passwd = null,
 		$dbname = null,
-		$port = 0,
+		$port = null,
 		$socket = null
 	) {}
 
@@ -225,7 +225,7 @@ class mysqli  {
 	 * @param int $port [optional]
 	 * @param string $socket [optional]
 	 */
-	public function connect ($host = '', $user = '', $password = '', $database = '', $port = 0, $socket = '') {}
+	public function connect ($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null) {}
 
 	/**
 	 * Dump debugging information into the log
@@ -332,7 +332,7 @@ class mysqli  {
 	 * @param int $port [optional]
 	 * @param string $socket [optional]
 	 */
-	public function mysqli ($host = null, $user = null, $password = null, $database = null, $port = 0, $socket = null) {}
+	public function mysqli ($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null) {}
 
 	/**
 	 * Check if there are any more query results from a multi query
@@ -552,7 +552,7 @@ class mysqli  {
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function real_connect ($host = null, $username = null, $passwd = null, $dbname = null, $port = 0, $socket = null, $flags = null) {}
+	public function real_connect ($host = null, $username = null, $passwd = null, $dbname = null, $port = null, $socket = null, $flags = null) {}
 
 	/**
 	 * Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection
@@ -1532,7 +1532,7 @@ function mysqli_commit ($link, $flags = 0, $name = null) {}
  * @param string $socket Specifies the socket or named pipe that should be used.
  * @return mysqli|false object which represents the connection to a MySQL Server or false if an error occurred.
  */
-function mysqli_connect ($host = '', $user = '', $password = '', $database = '', $port = 0, $socket = '') {}
+function mysqli_connect ($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null) {}
 
 /**
  * Returns the error code from last connect call
@@ -2090,7 +2090,7 @@ function mysqli_query ($link, $query, $resultmode = MYSQLI_STORE_RESULT) {}
  * @param int $flags [optional]
  * @return bool
  */
-function mysqli_real_connect ($link, $host = '', $user = '', $password = '', $database = '', $port = 0, $socket = '', $flags = null) {}
+function mysqli_real_connect ($link, $host = null, $user = null, $password = null, $database = null, $port = null, $socket = null, $flags = null) {}
 
 /**
  * Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection
