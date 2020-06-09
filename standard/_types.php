@@ -191,7 +191,7 @@ namespace {
          * @param Throwable $exception
          * @return mixed
          */
-        function PS_UNRESERVE_PREFIX_throw(Throwable $exception) {}
+        function throw(Throwable $exception) {}
 
         /**
          * Returns whatever was passed to return or null if nothing.
