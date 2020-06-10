@@ -37,7 +37,7 @@ class LevelDB{
 	 * @param string $key
 	 * @param array  $read_options
 	 *
-	 * @return string|bool
+	 * @return string|false
 	 */
 	public function get($key, array $read_options = []){}
 
