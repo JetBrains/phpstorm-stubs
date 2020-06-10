@@ -431,7 +431,7 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * @param string $offset <p>
 	 * The filename (relative path) to look for in a Phar.
 	 * </p>
-	 * @return int A <b>PharFileInfo</b> object is returned that can be used to
+	 * @return PharFileInfo A <b>PharFileInfo</b> object is returned that can be used to
 	 * iterate over a file's contents or to retrieve information about the current file.
 	 */
 	public function offsetGet ($offset) {}
