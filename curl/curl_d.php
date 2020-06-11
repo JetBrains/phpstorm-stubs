@@ -658,7 +658,6 @@ define ('CURLOPT_CONNECTTIMEOUT_MS', 156);
  * Alternate certificates to verify against can be specified with the <b>CURLOPT_CAINFO</b> option or
  * a certificate directory can be specified with the <b>CURLOPT_CAPATH</b> option.
  * @link https://www.php.net/manual/en/function.curl-setopt.php
- * @since 7.1
  */
 define ('CURLOPT_SSL_VERIFYPEER', 64);
 /**
