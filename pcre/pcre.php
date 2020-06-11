@@ -464,8 +464,8 @@ function preg_quote ($str, $delimiter = null) {}
  * the elements of the input array that do not match
  * the given <i>pattern</i>.
  * </p>
- * @return array an array indexed using the keys from the
- * <i>input</i> array.
+ * @return array|false an array indexed using the keys from the
+ * <i>input</i> array or false when pattern cannot be compiled.
  */
 function preg_grep ($pattern, array $input, $flags = 0) {}
 
