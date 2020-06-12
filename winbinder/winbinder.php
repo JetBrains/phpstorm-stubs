@@ -321,8 +321,8 @@ function wb_exec($command, $param = null)
  * "backgroundcolor"    The main face color for Windows dialog boxes and controls
  * "colordepth"    The current color depth in bits per pixel
  * "commandline"    The original Windows command line including the executable file
- * "computername"    The name of the computer inside the network
- * "consolemode"    1 indicates that console mode (DOS box) is active, 0 otherwise
+ * "computername"    The name of the computer inside the network
+ * "consolemode"    1 indicates that console mode (DOS box) is active, 0 otherwise
  * "diskdrives"    The list of all available disk drives
  * "exepath"    The path to the main executable (PHP.EXE)
  * "fontpath"    The current font path
@@ -1117,7 +1117,7 @@ function wb_set_state($wbobject, $item, $state)
  * AppWindow
  * ResizableWindow
  * PopupWindow
- * NakedWindow     WBC_TOP    Make the window a topmost window.
+ * NakedWindow     WBC_TOP    Make the window a topmost window.
  *
  * ListView    WBC_LINES    Display grid lines around items
  * ListView WBC_CHECKBOXES    Display check boxes in the first column of all items
@@ -1508,7 +1508,7 @@ function wb_get_size($object, $param = null)
  * WBC_NORMAL           window              Restores the window, if it is not already.
  * WBC_MINIMIZED        window              Minimizes the window, if it is not already.
  * WBC_MAXIMIZED        window              Maximizes the window, if it is not already.
- * Array of integers    ListView            Changes the column widths of the control.
+ * Array of integers    ListView            Changes the column widths of the control.
  *
  * @param $wbobject
  * @param $width

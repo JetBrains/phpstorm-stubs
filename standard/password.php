@@ -78,6 +78,7 @@ define("PASSWORD_BCRYPT_DEFAULT_COST", 10);
 define("PASSWORD_BCRYPT", '2y');
 
 /**
+ *
  * PASSWORD_ARGON2I is used to create new password hashes using the Argon2i algorithm.
  *
  * Supported Options:
@@ -94,6 +95,7 @@ define("PASSWORD_BCRYPT", '2y');
 define('PASSWORD_ARGON2I', 'argon2i');
 
 /**
+ *
  * PASSWORD_ARGON2ID is used to create new password hashes using the Argon2id algorithm.
  *
  * Supported Options:

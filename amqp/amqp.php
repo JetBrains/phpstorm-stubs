@@ -501,6 +501,7 @@ class AMQPChannel
      *
      * Note, basic.nack server method will only be delivered if an internal error occurs in the Erlang process
      * responsible for a queue (see https://www.rabbitmq.com/confirms.html for details).
+     *
      */
     public function setConfirmCallback(callable $ack_callback=null, callable $nack_callback=null) { }
 
@@ -528,6 +529,7 @@ class AMQPChannel
      *                        string $body) : bool;
      *
      * and should return boolean false when wait loop should be canceled.
+     *
      */
     public function setReturnCallback(callable $return_callback=null) { }
 

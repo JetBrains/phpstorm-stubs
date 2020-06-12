@@ -1,6 +1,7 @@
 <?php
 
 /** @link https://github.com/krakjoe/pcov/blob/develop/README.md */
+
 namespace
 {
     define('pcov\all', 0);

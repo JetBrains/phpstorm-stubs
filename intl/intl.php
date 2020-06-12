@@ -2241,6 +2241,7 @@ class IntlGregorianCalendar extends IntlCalendar {
 
     /**
      * @param double $change
+     *
      */
     public function setGregorianChange($change) { }
 
@@ -2362,6 +2363,7 @@ class IntlCalendar {
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Private constructor for disallowing instantiation
      * @link https://secure.php.net/manual/en/intlcalendar.construct.php
+     *
      */
     private function __construct() { }
 
@@ -2449,6 +2451,7 @@ class IntlCalendar {
      * </p>
      * @return int Returns a (signed) difference of time in the unit associated with the
      * specified field or <b>FALSE</b> on failure.
+     *
      */
     public function fieldDifference($when, $field) { }
 
@@ -2516,6 +2519,7 @@ class IntlCalendar {
      * @link https://secure.php.net/manual/en/intlcalendar.getavailablelocales.php
      * @return array An array of strings, one for which locale.
      */
+
     public static function getAvailableLocales() { }
 
     /**
@@ -2532,6 +2536,7 @@ class IntlCalendar {
      * <b>IntlCalendar::DOW_TYPE_WEEKEND</b>,
      * <b>IntlCalendar::DOW_TYPE_WEEKEND_OFFSET</b> or
      * <b>IntlCalendar::DOW_TYPE_WEEKEND_CEASE</b> or <b>FALSE</b> on failure.
+     *
      */
     public function getDayOfWeekType($dayOfWeek) { }
 
@@ -2540,6 +2545,7 @@ class IntlCalendar {
      * Get last error code on the object
      * @link https://secure.php.net/manual/en/intlcalendar.geterrorcode.php
      * @return int An ICU error code indicating either success, failure or a warning.
+     *
      */
     public function getErrorCode() { }
 
@@ -2559,6 +2565,7 @@ class IntlCalendar {
      * One of the constants <b>IntlCalendar::DOW_SUNDAY</b>,
      * <b>IntlCalendar::DOW_MONDAY</b>, ...,
      * <b>IntlCalendar::DOW_SATURDAY</b> or <b>FALSE</b> on failure.
+     *
      */
     public function getFirstDayOfWeek() { }
 
@@ -2624,6 +2631,7 @@ class IntlCalendar {
      * </p>
      * @return string
      * A locale string or <b>FALSE</b> on failure.
+     *
      */
     public function getLocale($localeType) { }
 
@@ -2678,6 +2686,7 @@ class IntlCalendar {
      * @return int
      * One of the constants <b>IntlCalendar::WALLTIME_FIRST</b> or
      * <b>IntlCalendar::WALLTIME_LAST</b>.
+     *
      */
     public function getRepeatedWallTimeOption() { }
 
@@ -2899,6 +2908,7 @@ class IntlCalendar {
      * </p>
      * @return bool
      * Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
+     *
      */
     public function setRepeatedWallTimeOption($wallTimeOption) { }
 
@@ -4698,6 +4708,7 @@ function intlcal_get_now() { }
  * @return array An array of strings, one for which locale.
  * @since 5.5
  */
+
 function intlcal_get_available_locales() { }
 
 /**
@@ -5706,6 +5717,7 @@ function intlgregcal_create_instance($timeZone = NULL, $locale = NULL) { }
 /**
  * @param IntlGregorianCalendar $obj
  * @param double $change
+ *
  */
 function intlgregcal_set_gregorian_change($obj, $change) { }
 

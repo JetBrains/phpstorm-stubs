@@ -3,6 +3,7 @@
  * Stubs for stomp
  * https://pecl.php.net/package/stomp
  */
+
 class Stomp
 {
 
