@@ -129,7 +129,9 @@ class MemcachePool  {
      */
     public function setServerParams ($host, $port = 11211, $timeout = 1, $retry_interval = 15, $status = true, callable $failure_callback = null) {}
 
-
+    /**
+     *
+     */
     public function setFailureCallback () {}
 
     /**
@@ -142,7 +144,9 @@ class MemcachePool  {
      */
     public function getServerStatus ($host, $port = 11211) {}
 
-
+    /**
+     *
+     */
     public function findServer () {}
 
     /**

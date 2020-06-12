@@ -1865,11 +1865,13 @@ class DOMEntityReference extends DOMNode  {
 class DOMProcessingInstruction extends DOMNode  {
 
     /**
+     *
      * @link https://php.net/manual/en/class.domprocessinginstruction.php#domprocessinginstruction.props.target
      */
     public $target;
 
     /**
+     *
      * @link https://php.net/manual/en/class.domprocessinginstruction.php#domprocessinginstruction.props.data
      */
     public $data;

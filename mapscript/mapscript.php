@@ -1144,7 +1144,9 @@ final class labelObj
      */
     public $wrap;
 
-
+    /**
+     *
+     */
     final public function __construct() {}
 
     /**
@@ -2179,7 +2181,9 @@ final class lineObj
      */
     public $numpoints;
 
-
+    /**
+     *
+     */
     final public function __construct() {}
 
     /**
@@ -3327,6 +3331,7 @@ final class OwsrequestObj
     /**
      * request = ms_newOwsrequestObj();
      * Create a new ows request object.
+     *
      */
     final public function __construct() {}
 
@@ -3418,7 +3423,9 @@ final class pointObj
      */
     public $m;
 
-
+    /**
+     *
+     */
     final public function __construct() {}
 
     /**
@@ -3637,6 +3644,7 @@ final class rectObj
 
     /**
      * .. note:: the members (minx, miny, maxx ,maxy) are initialized to -1;
+     *
      */
     final public function __construct() {}
 
@@ -4609,6 +4617,7 @@ final class styleObj
     final public function getBinding($stylebinding) {}
 
     /**
+     *
      * @return string
      */
     final public function getGeomTransform() {}
@@ -4648,6 +4657,7 @@ final class styleObj
     final public function setBinding($stylebinding, $value) {}
 
     /**
+     *
      * @param string $value
      * @return int
      */

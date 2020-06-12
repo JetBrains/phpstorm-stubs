@@ -28,6 +28,7 @@ interface DateTimeInterface {
      * @return DateInterval
      * The https://secure.php.net/manual/en/class.dateinterval.php DateInterval} object representing the
      * difference between the two dates or <b>FALSE</b> on failure.
+     *
      */
     public function diff($datetime2, $absolute = false);
 
@@ -40,6 +41,7 @@ interface DateTimeInterface {
      * </p>
      * @return string
      * Returns the formatted date string on success or <b>FALSE</b> on failure.
+     *
      */
     public function format($format);
 
@@ -49,6 +51,7 @@ interface DateTimeInterface {
      * @return int
      * Returns the timezone offset in seconds from UTC on success
      * or <b>FALSE</b> on failure.
+     *
      */
     public function getOffset();
 
@@ -159,6 +162,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @return static
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
      */
+
     public function modify($modify) { }
 
     /**
@@ -180,6 +184,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @param int $day <p>Day of the date.</p>
      * @return static|false
      * Returns the {@link https://secure.php.net/manual/en/class.datetimeimmutable.php DateTimeImmutable} object for method chaining or <b>FALSE</b> on failure.
+     *
      */
     public function setDate($year, $month, $day) { }
 
@@ -264,6 +269,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * </p>
      * @return string
      * Returns the formatted date string on success or <b>FALSE</b> on failure.
+     *
      */
     public function format($format) { }
 
@@ -273,6 +279,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * @return int
      * Returns the timezone offset in seconds from UTC on success
      * or <b>FALSE</b> on failure.
+     *
      */
     public function getOffset() { }
 

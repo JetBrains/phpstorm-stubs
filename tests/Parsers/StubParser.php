@@ -43,6 +43,9 @@ class StubParser
     }
 
     /**
+     * @param NodeVisitorAbstract $visitor
+     * @param CoreStubASTVisitor|null $coreStubASTVisitor
+     * @param callable $fileCondition
      * @throws LogicException
      * @throws UnexpectedValueException
      */

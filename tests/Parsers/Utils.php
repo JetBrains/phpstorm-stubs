@@ -17,6 +17,7 @@ class Utils
 
     /**
      * @param Since|Deprecated $tag
+     * @return bool
      */
     public static function versionIsMajor($tag): bool
     {
