@@ -412,7 +412,7 @@ function strpbrk ($haystack, $char_list) {}
  * If case_insensitivity is true, comparison is
  * case insensitive.
  * </p>
- * @return int 0 if main_str from position
+ * @return int &lt; 0 if main_str from position
  * offset is less than str, &gt;
  * 0 if it is greater than str, and 0 if they are equal.
  * If offset is equal to or greater than the length of
@@ -431,7 +431,7 @@ function substr_compare ($main_str, $str, $offset, $length = null, $case_insensi
  * @param string $str2 <p>
  * The second string.
  * </p>
- * @return int 0 if str1 is less than
+ * @return int &lt; 0 if str1 is less than
  * str2; &gt; 0 if
  * str1 is greater than
  * str2, and 0 if they are equal.
