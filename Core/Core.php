@@ -56,7 +56,7 @@ function strlen ($string) {}
  * @param string $str2 <p>
  * The second string.
  * </p>
- * @return int 0 if <i>str1</i> is less than
+ * @return int &lt; 0 if <i>str1</i> is less than
  * <i>str2</i>; &gt; 0 if <i>str1</i>
  * is greater than <i>str2</i>, and 0 if they are
  * equal.
@@ -75,7 +75,7 @@ function strcmp ($str1, $str2) {}
  * @param int $len <p>
  * Number of characters to use in the comparison.
  * </p>
- * @return int 0 if <i>str1</i> is less than
+ * @return int &lt; 0 if <i>str1</i> is less than
  * <i>str2</i>; &gt; 0 if <i>str1</i>
  * is greater than <i>str2</i>, and 0 if they are
  * equal.
@@ -91,7 +91,7 @@ function strncmp ($str1, $str2, $len) {}
  * @param string $str2 <p>
  * The second string
  * </p>
- * @return int 0 if <i>str1</i> is less than
+ * @return int &lt; 0 if <i>str1</i> is less than
  * <i>str2</i>; &gt; 0 if <i>str1</i>
  * is greater than <i>str2</i>, and 0 if they are
  * equal.
@@ -110,7 +110,7 @@ function strcasecmp ($str1, $str2) {}
  * @param int $len <p>
  * The length of strings to be used in the comparison.
  * </p>
- * @return int 0 if <i>str1</i> is less than
+ * @return int &lt; 0 if <i>str1</i> is less than
  * <i>str2</i>; &gt; 0 if <i>str1</i> is
  * greater than <i>str2</i>, and 0 if they are equal.
  */
