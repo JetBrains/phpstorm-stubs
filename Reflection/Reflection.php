@@ -1875,6 +1875,17 @@ class ReflectionType
 	public function allowsNull()
 	{
 	}
+	
+	/**
+	 * @todo Update documentation once it's released in the offical PHP docs.
+	 * Get name of the property type
+	 * @link https://php.net/manual/en/reflectiontype.tostring.php (not yet documented)
+	 * @return string Returns the type of the parameter.
+	 * @since 7.1
+	 */
+	public function getName()
+	{
+	}
 
 	/**
 	 * Checks if it is a built-in type
