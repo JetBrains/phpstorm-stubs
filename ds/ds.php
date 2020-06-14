@@ -846,7 +846,7 @@ namespace Ds {
          * Creates a new instance, using either a traversable object or an array for the initial values.
          * @param mixed ...$values A traversable object or an array to use for the initial values.
          *
-         * @link https://www.php.net/manual/en/ds-map.construct.php
+         * @link https://www.php.net/manual/en/ds-deque.construct.php
          */
         public function __construct(...$values)
         {
@@ -1255,6 +1255,8 @@ namespace Ds {
         /**
          * Creates a new instance, using either a traversable object or an array for the initial values.
          * @param mixed ...$values A traversable object or an array to use for the initial values.
+         *
+         * @link https://www.php.net/manual/en/ds-map.construct.php
          */
         public function __construct(...$values)
         {
