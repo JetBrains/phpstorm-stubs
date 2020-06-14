@@ -1353,7 +1353,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.filter.php
          */
-        public function filter(callable $callback): Map
+        public function filter(callable $callback = null): Map
         {
         }
 
@@ -2069,7 +2069,7 @@ namespace Ds {
          * callback returned TRUE, or all values that convert to TRUE if a
          * callback was not provided.
          */
-        public function filter(callable $callback): Set
+        public function filter(callable $callback = null): Set
         {
         }
 
