@@ -1811,7 +1811,7 @@ namespace Ds {
          * Creates a new map using values from the current instance and another
          * map.
          *
-         * A ∪ B = {<b>x:</b> x ∈ A ∨ x ∈ B}
+         * A ∪ B = {x: x ∈ A ∨ x ∈ B}
          *
          * <p><b>Note:</b> Values of the current instance will be overwritten by those
          * provided where keys are equal.
@@ -2322,7 +2322,7 @@ namespace Ds {
          * Creates a new set that contains the values of the current instance as
          * well as the values of another set.
          *
-         * A ∪ B = {<b>x:</b> x ∈ A ∨ x ∈ B}
+         * A ∪ B = {x: x ∈ A ∨ x ∈ B}
          *
          * @link https://www.php.net/manual/en/ds-set.union.php
          *
