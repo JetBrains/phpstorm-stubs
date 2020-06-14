@@ -1179,7 +1179,7 @@ class ReflectionClass implements Reflector {
 	/**
 	 * Checks if a subclass
 	 * @link https://php.net/manual/en/reflectionclass.issubclassof.php
-	 * @param string $class <p>
+	 * @param string|ReflectionClass $class <p>
 	 * The class name being checked against.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
