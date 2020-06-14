@@ -1365,6 +1365,8 @@ namespace Ds {
          * @return Pair The first pair in the map.
          *
          * @throws UnderflowException if empty
+         *
+         * @link https://www.php.net/manual/en/ds-map.first.php
          */
         public function first(): Pair
         {
@@ -1387,6 +1389,8 @@ namespace Ds {
          * @return The value mapped to the given key, or the default value if provided and the key could not be found in the map.
          *
          * @throws OutOfBoundsException if the key could not be found and a default value was not provided.
+         *
+         * @link https://www.php.net/manual/en/ds-map.get.php
          */
         public function get($key, $default = null)
         {
@@ -1398,6 +1402,8 @@ namespace Ds {
          * @param mixed $key The key to look for.
          *
          * @return bool Returns TRUE if the key could found, FALSE otherwise.
+         *
+         * @link https://www.php.net/manual/en/ds-map.hasKey.php
          */
         public function hasKey($key): bool
         {
@@ -1409,6 +1415,8 @@ namespace Ds {
          * @param mixed $value The value to look for.
          *
          * @return bool Returns TRUE if the value could found, FALSE otherwise.
+         *
+         * @link https://www.php.net/manual/en/ds-map.hasValue.php
          */
         public function hasValue($value): bool
         {
@@ -1428,6 +1436,8 @@ namespace Ds {
          * @param Map $map The other map, containing the keys to intersect with.
          *
          * @return Map The key intersection of the current instance and another map.
+         *
+         * @link https://www.php.net/manual/en/ds-map.intersect.php
          */
         public function intersect(Map $map): Map
         {
@@ -1439,6 +1449,8 @@ namespace Ds {
          * @link https://www.php.net/manual/en/ds-collection.isempty.php
          *
          * @return bool Returns TRUE if the map is empty, FALSE otherwise.
+         *
+         * @link https://www.php.net/manual/en/ds-map.isempty.php
          */
         public function isEmpty(): bool
         {
