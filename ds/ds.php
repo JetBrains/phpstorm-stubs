@@ -380,7 +380,7 @@ namespace Ds {
          * values as equal.
          * @link https://www.php.net/manual/en/ds-sequence.sort.php
          */
-        public function sort(callable $comparator = null): void;
+        public function sort(?callable $comparator = null): void;
 
         /**
          * Returns a sorted copy, using an optional comparator function.
@@ -398,7 +398,7 @@ namespace Ds {
          * @return Sequence Returns a sorted copy of the sequence.
          * @link https://www.php.net/manual/en/ds-sequence.sort.php
          */
-        public function sorted(callable $comparator);
+        public function sorted(?callable $comparator = null);
 
         /**
          * Returns the sum of all values in the sequence.
@@ -741,7 +741,7 @@ namespace Ds {
         /**
          * Sorts the sequence in-place, using an optional comparator function.
          * @link https://www.php.net/manual/en/ds-vector.sort.php
-         * @param callable $comparator The comparison function must return an
+         * @param callable|null $comparator The comparison function must return an
          * integer less than, equal to, or greater
          * than zero if the first argument is considered to be respectively less than, equal to, or greater than the
          * second. Note that before PHP 7.0.0 this integer had to be in the
@@ -753,22 +753,24 @@ namespace Ds {
          * such as 0.99 and 0.1 will both be cast to an integer value of 0,
          * which will compare such values as equal.
          */
-        public function sort(callable $comparator = null): void
+        public function sort(?callable $comparator = null): void
         {
         }
 
         /**
          * Returns a sorted copy, using an optional comparator function.
          * @link https://www.php.net/manual/en/ds-vector.sorted.php
-         * @param callable $comparator The comparison function must return an integer less than, equal to, or greater
-         * than zero if the first argument is considered to be respectively less than, equal to, or greater than the
-         * second. Note that before PHP 7.0.0 this integer had to be in the range from -2147483648 to 2147483647.<br>
+         * @param callable|null $comparator The comparison function must return an integer less than, equal to, or
+         * greater  than zero if the first argument is considered to be respectively less than, equal to, or greater
+         * than the second. Note that before PHP 7.0.0 this integer had to be in the range from -2147483648 to
+         * 2147483647.<br>
          * <code>callback ( mixed $a, mixed $b ) : int</code>
          * <b>Caution:</b> Returning non-integer values from the comparison function, such as float, will result in an
-         * internal cast to integer of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as equal.
+         * internal cast to integer of the callback's return value. So values such as 0.99 and 0.1 will both be cast to
+         * an integer value of 0, which will compare such values as equal.
          * @return Vector Returns a sorted copy of the sequence.
          */
-        public function sorted(callable $comparator): Vector
+        public function sorted(?callable $comparator = null): Vector
         {
         }
 
@@ -1190,7 +1192,7 @@ namespace Ds {
          * values as equal.
          * @link https://www.php.net/manual/en/ds-deque.sort.php
          */
-        public function sort(callable $comparator = null): void
+        public function sort(?callable $comparator = null): void
         {
         }
 
@@ -1210,7 +1212,7 @@ namespace Ds {
          * @return Deque Returns a sorted copy of the deque.
          * @link https://www.php.net/manual/en/ds-deque.sort.php
          */
-        public function sorted(callable $comparator): Deque
+        public function sorted(?callable $comparator = null): Deque
         {
         }
 
@@ -1386,7 +1388,7 @@ namespace Ds {
          *
          * @throws OutOfBoundsException if the key could not be found and a default value was not provided.
          */
-        public function get($key, $default)
+        public function get($key, $default = null)
         {
         }
 
@@ -1513,7 +1515,7 @@ namespace Ds {
          * @return Map Returns a copy of the map, sorted by key.
          * @link https://www.php.net/manual/en/ds-map.ksorted.php
          */
-        public function ksorted(callable $comparator = null): Map
+        public function ksorted(?callable $comparator = null): Map
         {
         }
 
@@ -1664,7 +1666,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-map.remove.php
          */
-        public function remove($key, $default)
+        public function remove($key, $default = null)
         {
         }
 
@@ -2260,7 +2262,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-set.sort.php
          */
-        public function sort(callable $comparator = null)
+        public function sort(?callable $comparator = null)
         {
         }
 
@@ -2285,7 +2287,7 @@ namespace Ds {
          *
          * @return Set Returns a sorted copy of the set.
          */
-        public function sorted(callable $comparator = null): Set
+        public function sorted(?callable $comparator = null): Set
         {
         }
 
