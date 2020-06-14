@@ -534,6 +534,7 @@ class ReflectionParameter implements Reflector {
 
     /**
 	 * Returns whether the default value of this parameter is constant
+	 * @link https://php.net/manual/en/reflectionparameter.isdefaultvalueconstant.php
 	 * @return bool
 	 * @since 5.4.6
      */
@@ -541,6 +542,7 @@ class ReflectionParameter implements Reflector {
 
     /**
 	 * Returns the default value's constant name if default value is constant or null
+	 * @link https://php.net/manual/en/reflectionparameter.getdefaultvalueconstantname.php
      * @return string
      * @throws \ReflectionException if the parameter is not optional
 	 * @since 5.4.6
@@ -1057,6 +1059,7 @@ class ReflectionClass implements Reflector {
 
 	/**
 	 * Checks if the class is anonymous
+	 * @link https://php.net/manual/en/reflectionclass.isanonymous.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * @since 7.0
 	 */
@@ -1238,6 +1241,7 @@ class ReflectionClass implements Reflector {
 
 	/**
 	 * Checks if iterateable
+	 * @link https://php.net/manual/en/reflectionclass.isiterable.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 * @since 7.2
 	 */
@@ -1488,6 +1492,7 @@ class ReflectionProperty implements Reflector {
 
 	/**
 	 * Gets property type
+	 * @link https://php.net/manual/en/reflectionproperty.gettype.php
 	 * @return ReflectionType|null
 	 * @since 7.4
 	 */
@@ -1495,6 +1500,7 @@ class ReflectionProperty implements Reflector {
 
 	/**
 	 * Checks if property has type
+	 * @link https://php.net/manual/en/reflectionproperty.hastype.php
 	 * @return bool
 	 * @since 7.4
 	 */
@@ -1502,6 +1508,7 @@ class ReflectionProperty implements Reflector {
 
 	/**
 	 * Checks if property is initialized
+	 * @link https://php.net/manual/en/reflectionproperty.isinitialized.php
 	 * @param object $object [optional]<p>
 	 * If the property is non-static an object must be provided.
 	 * </p>
@@ -1627,9 +1634,9 @@ class ReflectionExtension implements Reflector {
 	public function getDependencies () {}
 
 	/**
-	 * Gets extension info
+	 * Print extension info
 	 * @link https://php.net/manual/en/reflectionextension.info.php
-	 * @return string Information about the extension.
+	 * @return void Print extension info
 	 */
 	public function info () {}
 
@@ -2015,6 +2022,7 @@ class ReflectionClassConstant implements Reflector {
 class ReflectionNamedType extends ReflectionType
 {
 	/**
+	 * @link https://php.net/manual/en/reflectionnamedtype.getname.php
 	 * Get the text of the type hint.
 	 * @return string Returns the text of the type hint.
 	 */
@@ -2030,6 +2038,7 @@ final class ReflectionReference
 {
 	/**
 	 * Returns ReflectionReference if array element is a reference, null otherwise
+	 * @link https://php.net/manual/en/reflectionreference.fromarrayelement.php
 	 * @param array $array
 	 * @param int|string $key
 	 * @return self|null
@@ -2038,6 +2047,7 @@ final class ReflectionReference
 
 	/**
 	 * Returns unique identifier for the reference. The return value format is unspecified
+	 * @link https://php.net/manual/en/reflectionreference.getid.php
 	 * @return int|string
 	 */
 	public function getId() {}
