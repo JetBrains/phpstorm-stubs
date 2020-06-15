@@ -193,15 +193,14 @@ function metaphone ($str, $phonemes = 0) {}
  * Default value 0 means that the function is called only in the end,
  * other special value 1 sets chunk_size to 4096.
  * </p>
- * @param bool $erase [optional] <p>
- * If the optional parameter erase is set to false,
- * the buffer will not be deleted until the script finishes.
- * This causes that flushing and cleaning functions would issue a notice
- * and return false if called.
+ * @param int $flags [optional] <p>
+ * The flags parameter is a bitmask that controls the operations that can be performed on the output buffer.
+ * The default is to allow output buffers to be cleaned, flushed and removed, which can be set explicitly via
+ * PHP_OUTPUT_HANDLER_CLEANABLE | PHP_OUTPUT_HANDLER_FLUSHABLE | PHP_OUTPUT_HANDLER_REMOVABLE, or PHP_OUTPUT_HANDLER_STDFLAGS as shorthand.
  * </p>
  * @return bool true on success or false on failure.
  */
-function ob_start ($output_callback = null, $chunk_size = null, $erase = null) {}
+function ob_start ($output_callback = null, $chunk_size = null, $flags = PHP_OUTPUT_HANDLER_STDFLAGS) {}
 
 /**
  * Flush (send) the output buffer
