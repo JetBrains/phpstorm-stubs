@@ -1386,7 +1386,7 @@ namespace Ds {
          * @param mixed $key The key to look up.
          * @param mixed $default The optional default value, returned if the key could not be found.
          *
-         * @return The value mapped to the given key, or the default value if provided and the key could not be found in the map.
+         * @return mixed The value mapped to the given key, or the default value if provided and the key could not be found in the map.
          *
          * @throws OutOfBoundsException if the key could not be found and a default value was not provided.
          *
