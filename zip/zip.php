@@ -306,7 +306,133 @@ class ZipArchive implements Countable {
 	 */
 	const EM_AES_256 = 259;
 
-    /**
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_DOS = 0;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_AMIGA = 1;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_OPENVMS = 2;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_UNIX = 3;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_VM_CMS = 4;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_ATARI_ST = 5;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_OS_2 = 6;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_MACINTOSH = 7;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_Z_SYSTEM = 8;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_Z_CPM = 9;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_WINDOWS_NTFS = 10;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_MVS = 11;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_VSE = 12;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_ACORN_RISC = 13;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_VFAT = 14;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_ALTERNATE_MVS = 15;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_BEOS = 16;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_TANDEM = 17;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_OS_400 = 18;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_OS_X = 19;
+
+	/**
+	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @since 5.6
+	 */
+	 const OPSYS_DEFAULT = 3;
+
+   /**
      * Status of the Zip Archive
      */
     public $status;
