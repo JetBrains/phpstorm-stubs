@@ -146,7 +146,7 @@ class DOMNode  {
      * @param DOMNode $oldnode <p>
      * The old node.
      * </p>
-     * @return DOMNode The old node or false if an error occur.
+     * @return DOMNode|false The old node or false if an error occur.
      */
     public function replaceChild (DOMNode $newnode , DOMNode $oldnode ) {}
 
@@ -310,7 +310,7 @@ class DOMNode  {
      * @param bool $with_comments [optional] Retain comments in output.
      * @param array $xpath [optional] An array of xpaths to filter the nodes by.
      * @param array $ns_prefixes [optional] An array of namespace prefixes to filter the nodes by.
-     * @return string canonicalized nodes as a string or FALSE on failure
+     * @return string|false Canonicalized nodes as a string or FALSE on failure
      */
     public function C14N ($exclusive, $with_comments, array $xpath = null, $ns_prefixes = null) {}
 
@@ -657,7 +657,7 @@ class DOMDocument extends DOMNode  {
      * The value of the element. By default, an empty element will be created.
      * You can also set the value later with DOMElement->nodeValue.
      * </p>
-     * @return DOMElement a new instance of class DOMElement or false
+     * @return DOMElement|false A new instance of class DOMElement or false
      * if an error occurred.
      */
     public function createElement ($name, $value = null) {}
@@ -665,7 +665,7 @@ class DOMDocument extends DOMNode  {
     /**
      * Create new document fragment
      * @link https://php.net/manual/domdocument.createdocumentfragment.php
-     * @return DOMDocumentFragment The new DOMDocumentFragment or false if an error occurred.
+     * @return DOMDocumentFragment|false The new DOMDocumentFragment or false if an error occurred.
      */
     public function createDocumentFragment () {}
 
@@ -675,7 +675,7 @@ class DOMDocument extends DOMNode  {
      * @param string $content <p>
      * The content of the text.
      * </p>
-     * @return DOMText The new DOMText or false if an error occurred.
+     * @return DOMText|false The new DOMText or false if an error occurred.
      */
     public function createTextNode ($content) {}
 
@@ -685,7 +685,7 @@ class DOMDocument extends DOMNode  {
      * @param string $data <p>
      * The content of the comment.
      * </p>
-     * @return DOMComment The new DOMComment or false if an error occurred.
+     * @return DOMComment|false The new DOMComment or false if an error occurred.
      */
     public function createComment ($data) {}
 
@@ -695,7 +695,7 @@ class DOMDocument extends DOMNode  {
      * @param string $data <p>
      * The content of the cdata.
      * </p>
-     * @return DOMCDATASection The new DOMCDATASection or false if an error occurred.
+     * @return DOMCDATASection|false The new DOMCDATASection or false if an error occurred.
      */
     public function createCDATASection ($data) {}
 
@@ -708,7 +708,7 @@ class DOMDocument extends DOMNode  {
      * @param string $data [optional] <p>
      * The content of the processing instruction.
      * </p>
-     * @return DOMProcessingInstruction The new DOMProcessingInstruction or false if an error occurred.
+     * @return DOMProcessingInstruction|false The new DOMProcessingInstruction or false if an error occurred.
      */
     public function createProcessingInstruction ($target, $data = null) {}
 
@@ -718,7 +718,7 @@ class DOMDocument extends DOMNode  {
      * @param string $name <p>
      * The name of the attribute.
      * </p>
-     * @return DOMAttr The new DOMAttr or false if an error occurred.
+     * @return DOMAttr|false The new DOMAttr or false if an error occurred.
      */
     public function createAttribute ($name) {}
 
@@ -730,7 +730,7 @@ class DOMDocument extends DOMNode  {
      * the leading &amp; and the trailing
      * ; characters.
      * </p>
-     * @return DOMEntityReference The new DOMEntityReference or false if an error
+     * @return DOMEntityReference|false The new DOMEntityReference or false if an error
      * occurred.
      */
     public function createEntityReference ($name) {}
@@ -760,7 +760,7 @@ class DOMDocument extends DOMNode  {
      * <p>
      * To copy the nodes attributes deep needs to be set to true
      * </p>
-     * @return DOMNode The copied node or false, if it cannot be copied.
+     * @return DOMNode|false The copied node or false, if it cannot be copied.
      */
     public function importNode (DOMNode $importedNode , $deep = null) {}
 
@@ -777,7 +777,7 @@ class DOMDocument extends DOMNode  {
      * The value of the element. By default, an empty element will be created.
      * You can also set the value later with DOMElement->nodeValue.
      * </p>
-     * @return DOMElement The new DOMElement or false if an error occurred.
+     * @return DOMElement|false The new DOMElement or false if an error occurred.
      */
     public function createElementNS ($namespaceURI, $qualifiedName, $value = null) {}
 
@@ -790,7 +790,7 @@ class DOMDocument extends DOMNode  {
      * @param string $qualifiedName <p>
      * The tag name and prefix of the attribute, as prefix:tagname.
      * </p>
-     * @return DOMAttr The new DOMAttr or false if an error occurred.
+     * @return DOMAttr|false The new DOMAttr or false if an error occurred.
      */
     public function createAttributeNS ($namespaceURI, $qualifiedName) {}
 
@@ -850,7 +850,7 @@ class DOMDocument extends DOMNode  {
      * Bitwise OR
      * of the libxml option constants.
      * </p>
-     * @return mixed true on success or false on failure. If called statically, returns a
+     * @return DOMDocument|bool true on success or false on failure. If called statically, returns a
      * DOMDocument and issues E_STRICT
      * warning.
      */
@@ -879,7 +879,7 @@ class DOMDocument extends DOMNode  {
      * Bitwise OR
      * of the libxml option constants.
      * </p>
-     * @return mixed true on success or false on failure. If called statically, returns a
+     * @return DOMDocument|bool true on success or false on failure. If called statically, returns a
      * DOMDocument and issues E_STRICT
      * warning.
      */
@@ -936,7 +936,7 @@ class DOMDocument extends DOMNode  {
      * Since PHP 5.4.0 and Libxml 2.6.0, you may also
      * use the options parameter to specify additional Libxml parameters.
      * </p>
-     * @return bool true on success or false on failure. If called statically, returns a
+     * @return DOMDocument|bool true on success or false on failure. If called statically, returns a
      * DOMDocument and issues E_STRICT
      * warning.
      */
@@ -952,7 +952,7 @@ class DOMDocument extends DOMNode  {
      * Since PHP 5.4.0 and Libxml 2.6.0, you may also
      * use the options parameter to specify additional Libxml parameters.
      * </p>
-     * @return bool true on success or false on failure. If called statically, returns a
+     * @return DOMDocument|bool true on success or false on failure. If called statically, returns a
      * DOMDocument and issues E_STRICT
      * warning.
      */
@@ -962,7 +962,7 @@ class DOMDocument extends DOMNode  {
      * Dumps the internal document into a string using HTML formatting
      * @link https://php.net/manual/domdocument.savehtml.php
      * @param DOMNode $node [optional] parameter to output a subset of the document.
-     * @return string the HTML, or false if an error occurred.
+     * @return string|false The HTML, or false if an error occurred.
      */
     public function saveHTML (DOMNode $node = null) {}
 
