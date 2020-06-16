@@ -10,6 +10,7 @@ class ZipArchive implements Countable {
 	/**
 	 * Zip library version
 	 * @link https://php.net/manual/en/zip.constants.php
+	 * @since 7.4.3
 	 */
 	const LIBZIP_VERSION = '1.5.1';
 
