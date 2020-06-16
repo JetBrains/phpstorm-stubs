@@ -1,440 +1,467 @@
 <?php
+namespace Decimal;
 
-namespace Decimal {
+final class Decimal implements \JsonSerializable
+{
+    /**
+     * These constants are for auto-complete only.
+     */
+    const ROUND_UP          = 0; /* Round away from zero. */
+    const ROUND_DOWN        = 0; /* Round towards zero. */
+    const ROUND_CEILING     = 0; /* Round towards positive infinity */
+    const ROUND_FLOOR       = 0; /* Round towards negative infinity */
+    const ROUND_HALF_UP     = 0; /* Round to nearest, ties away from zero. */
+    const ROUND_HALF_DOWN   = 0; /* Round to nearest, ties towards zero. */
+    const ROUND_HALF_EVEN   = 0; /* Round to nearest, ties towards even. */
+    const ROUND_HALF_ODD    = 0; /* Round to nearest, ties towards odd. */
+    const ROUND_TRUNCATE    = 0; /* Truncate, keeping infinity. */
 
-    use ArithmeticError;
-    use DivisionByZeroError;
-    use Traversable;
-    use TypeError;
+    const DEFAULT_ROUNDING  = Decimal::ROUND_HALF_EVEN;
+    const DEFAULT_PRECISION = 28;
 
-    class Decimal {
-        public const ROUND_UP = 101;
-        public const ROUND_DOWN = 102;
-        public const ROUND_CEILING = 103;
-        public const ROUND_FLOOR = 104;
-        public const ROUND_HALF_UP = 105;
-        public const ROUND_HALF_DOWN = 106;
-        public const ROUND_HALF_EVEN = 107;
-        public const ROUND_HALF_ODD = 108;
-        public const ROUND_TRUNCATE = 109;
+    const MIN_PRECISION     = 1;
+    const MAX_PRECISION     = 0; /* This value may change across platforms */
 
-        public const DEFAULT_PRECISION = 28;
-        public const DEFAULT_ROUNDING = 107;
+    /**
+     * Constructor
+     *
+     * Initializes a new instance using a given value and minimum precision.
+     *
+     * @param Decimal|string|int $value
+     * @param int                $precision
+     *
+     * @throws \BadMethodCallException if already constructed.
+     * @throws \TypeError if the value is not a decimal, string, or integer.
+     * @throws \DomainException is the type is supported but the value could not
+     *                          be converted to decimal.
+     */
+    public function __construct($value, int $precision = Decimal::DEFAULT_PRECISION) {}
 
-        public const MIN_PRECISION = 1;
+    /**
+     * Sum
+     *
+     * The precision of the result will be the max of all precisions that were
+     * encountered during the calculation. The given precision should therefore
+     * be considered the minimum precision of the result.
+     *
+     * This method is equivalent to adding each value individually.
+     *
+     * @param array|\Traversable $values
+     * @param int                $precision Minimum precision of the sum.
+     *
+     * @return Decimal the sum of all given values.
+     *
+     * @throws \TypeError if an unsupported type is encountered.
+     * @throws \ArithmeticError if addition is undefined, eg. INF + -INF
+     */
+    public static function sum($values, int $precision = Decimal::DEFAULT_PRECISION): Decimal {}
 
-        /**
-         * 425000000 for 32 bits systems
-         * 999999999999999999 for 64 bits systems
-         */
-        public const MAX_PRECISION = 999999999999999999;
+    /**
+     * Average
+     *
+     * The precision of the result will be the max of all precisions that were
+     * encountered during the calculation. The given precision should therefore
+     * be considered the minimum precision of the result.
+     *
+     * This method is equivalent to adding each value individually,
+     * then dividing by the number of values.
+     *
+     * @param array|\Traversable $values
+     * @param int                $precision Minimum precision of the average.
+     *
+     * @return Decimal the average of all given values.
+     *
+     * @throws \TypeError if an unsupported type is encountered.
+     * @throws \ArithmeticError if addition is undefined, eg. INF + -INF
+     */
+    public static function avg($values, int $precision = Decimal::DEFAULT_PRECISION): Decimal {}
 
-        /**
-         * @param string $value
-         * @param int $precision
-         */
-        public function __construct(string $value, int $precision = self::DEFAULT_PRECISION) { }
+    /**
+     * Copy
+     *
+     * @param int $precision The precision of the return value, which defaults
+     *                       to the precision of this decimal.
+     *
+     * @return Decimal a copy of this decimal.
+     */
+    public function copy(int $precision = null): Decimal {}
 
-        /**
-         * This method is equivalent to the + operator
-         *
-         * @param Decimal|string|int $value
-         *
-         * @return Decimal
-         *
-         * @throws TypeError
-         *
-         * @link https://php-decimal.io/#add
-         */
-        public function add($value): Decimal { }
+    /**
+     * Add
+     *
+     * This method is equivalent to the `+` operator.
+     *
+     * The precision of the result will be the max of this decimal's precision
+     * and the given value's precision, where scalar values assume the default.
+     *
+     * @param Decimal|string|int $value
+     *
+     * @return Decimal the result of adding this decimal to the given value.
+     *
+     * @throws \TypeError if the value is not a decimal, string or integer.
+     */
+    public function add($value): Decimal {}
 
-        /**
-         * This method is equivalent to the - operator
-         *
-         * @param Decimal|string|int $value
-         *
-         * @return Decimal
-         *
-         * @throws TypeError
-         *
-         * @link https://php-decimal.io/#sub
-         */
-        public function sub($value): Decimal { }
+    /**
+     * Subtract
+     *
+     * This method is equivalent to the `-` operator.
+     *
+     * The precision of the result will be the max of this decimal's precision
+     * and the given value's precision, where scalar values assume the default.
+     *
+     * @param Decimal|string|int $value
+     *
+     * @return Decimal the result of subtracting a given value from this decimal.
+     *
+     * @throws \TypeError if the value is not a decimal, string or integer.
+     */
+    public function sub($value): Decimal {}
 
-        /**
-         * This method is equivalent to the * operator
-         *
-         * @param Decimal|string|int $value
-         *
-         * @return Decimal
-         *
-         * @throws TypeError
-         *
-         * @link https://php-decimal.io/#mul
-         */
-        public function mul($value): Decimal { }
+    /**
+     * Multiply
+     *
+     * This method is equivalent to the `*` operator.
+     *
+     * The precision of the result will be the max of this decimal's precision
+     * and the given value's precision, where scalar values assume the default.
+     *
+     * @param Decimal|string|int $value
+     *
+     * @return Decimal the result of multiplying this decimal by the given value.
+     *
+     * @throws \TypeError if the given value is not a decimal, string or integer.
+     */
+    public function mul($value): Decimal {}
 
-        /**
-         * This method is equivalent to the / operator
-         *
-         * @param Decimal|string|int $value
-         *
-         * @return Decimal
-         *
-         * @throws TypeError
-         *
-         * @link https://php-decimal.io/#div
-         */
-        public function div($value): Decimal { }
+    /**
+     * Divide
+     *
+     * This method is equivalent to the `/` operator.
+     *
+     * The precision of the result will be the max of this decimal's precision
+     * and the given value's precision, where scalar values assume the default.
+     *
+     * @param Decimal|string|int $value
+     *
+     * @return Decimal the result of dividing this decimal by the given value.
+     *
+     * @throws \TypeError if the value is not a decimal, string or integer.
+     * @throws \DivisionByZeroError if dividing by zero.
+     * @throws \ArithmeticError if division is undefined, eg. INF / -INF
+     */
+    public function div($value): Decimal {}
 
-        /**
-         * This method is equivalent to the % operator
-         *
-         * @param Decimal|string|int $value
-         *
-         * @return Decimal
-         *
-         * @throws TypeError
-         * @throws DivisionByZeroError
-         * @throws ArithmeticError
-         *
-         * @link https://php-decimal.io/#mod
-         */
-        public function mod($value): Decimal { }
+    /**
+     * Modulo (integer)
+     *
+     * This method is equivalent to the `%` operator.
+     *
+     * The precision of the result will be the max of this decimal's precision
+     * and the given value's precision, where scalar values assume the default.
+     *
+     * @see Decimal::rem for the decimal remainder.
+     *
+     * @param Decimal|string|int $value
+     *
+     * @return Decimal the remainder after dividing the integer value of this
+     *                 decimal by the integer value of the given value
+     *
+     * @throws \TypeError if the value is not a decimal, string or integer.
+     * @throws \DivisionByZeroError if the integer value of $value is zero.
+     * @throws \ArithmeticError if the operation is undefined, eg. INF % -INF
+     */
+    public function mod($value): Decimal {}
 
-        /**
-         * This method is equivalent to the ** operator
-         *
-         * @param Decimal|string|int $value
-         *
-         * @return Decimal
-         *
-         * @throws TypeError
-         *
-         * @link https://php-decimal.io/#pow
-         */
-        public function pow($value): Decimal { }
+    /**
+     * Remainder
+     *
+     * The precision of the result will be the max of this decimal's precision
+     * and the given value's precision, where scalar values assume the default.
+     *
+     * @param Decimal|string|int $value
+     *
+     * @return Decimal the remainder after dividing this decimal by a given value.
+     *
+     * @throws \TypeError if the value is not a decimal, string or integer.
+     * @throws \DivisionByZeroError if the integer value of $value is zero.
+     * @throws \ArithmeticError if the operation is undefined, eg. INF, -INF
+     */
+    public function rem($value): Decimal {}
 
-        /**
-         * @param Decimal|string|int $value
-         *
-         * @return Decimal
-         *
-         * @throws TypeError
-         * @throws DivisionByZeroError
-         * @throws ArithmeticError
-         *
-         * @link https://php-decimal.io/#rem
-         */
-        public function rem($value): Decimal { }
+    /**
+     * Power
+     *
+     * This method is equivalent to the `**` operator.
+     *
+     * The precision of the result will be the max of this decimal's precision
+     * and the given value's precision, where scalar values assume the default.
+     *
+     * @param Decimal|string|int $exponent The power to raise this decimal to.
+     *
+     * @return Decimal the result of raising this decimal to a given power.
+     *
+     * @throws \TypeError if the exponent is not a decimal, string or integer.
+     */
+    public function pow($exponent): Decimal {}
 
-        /**
-         * This method is equivalent in function to PHP's log
-         *
-         * @return Decimal
-         *
-         * @link https://php-decimal.io/#ln
-         */
-        public function ln(): Decimal { }
+    /**
+     * Natural logarithm
+     *
+     * This method is equivalent in function to PHP's `log`.
+     *
+     * @return Decimal the natural logarithm of this decimal (log base e),
+     *                 with the same precision as this decimal.
+     */
+    public function ln(): Decimal {}
 
-        /**
-         * @return Decimal
-         *
-         * @link https://php-decimal.io/#exp
-         */
-        public function exp(): Decimal { }
+    /**
+     * Exponent
+     *
+     * @return Decimal the exponent of this decimal, ie. e to the power of this,
+     *                 with the same precision as this decimal.
+     */
+    public function exp(): Decimal {}
 
-        /**
-         * @return Decimal
-         *
-         * @link https://php-decimal.io/#log10
-         */
-        public function log10(): Decimal { }
+    /**
+     * Base-10 logarithm
+     *
+     * @return Decimal the base-10 logarithm of this decimal, with the same
+     *                 precision as this decimal.
+     */
+    public function log10(): Decimal {}
 
-        /**
-         * @return Decimal
-         *
-         * @link https://php-decimal.io/#sqrt
-         */
-        public function sqrt(): Decimal { }
+    /**
+     * Square root
+     *
+     * @return Decimal the square root of this decimal, with the same precision
+     *                 as this decimal.
+     */
+    public function sqrt(): Decimal {}
 
-        /**
-         * Returns the value of this decimal with the same precision
-         *
-         * Rounded according to the specified number of decimal places and rounding mode
-         *
-         * @param int $places
-         * @param int $mode
-         *
-         * @return Decimal
-         *
-         * @link https://php-decimal.io/#round
-         */
-        public function round(int $places = 0, int $mode = Decimal::ROUND_HALF_EVEN): Decimal { }
+    /**
+     * Floor
+     *
+     * @return Decimal the closest integer towards negative infinity.
+     */
+    public function floor(): Decimal {}
 
-        /**
-         * Returns the closest integer towards negative infinity
-         *
-         * @return Decimal
-         *
-         * @link https://php-decimal.io/#floor
-         */
-        public function floor(): Decimal { }
+    /**
+     * Ceiling
+     *
+     * @return Decimal the closest integer towards positive infinity.
+     */
+    public function ceil(): Decimal {}
 
-        /**
-         * Returns the closest integer towards positive infinity
-         *
-         * @return Decimal
-         *
-         * @link https://php-decimal.io/#ceil
-         */
-        public function ceil(): Decimal { }
+    /**
+     * Truncate
+     *
+     * @return Decimal the integer value of this decimal.
+     */
+    public function truncate(): Decimal {}
 
-        /**
-         * Returns the result of discarding all digits behind the decimal point
-         *
-         * @return Decimal
-         *
-         * @link https://php-decimal.io/#truncate
-         */
-        public function truncate(): Decimal { }
+    /**
+     * Round
+     *
+     * @param int $places The number of places behind the decimal to round to.
+     * @param int $mode   The rounding mode, which are constants of Decimal.
+     *
+     * @return Decimal the value of this decimal with the same precision,
+     *                 rounded according to the specified number of decimal
+     *                 places and rounding mode
+     *
+     * @throws \InvalidArgumentException if the rounding mode is not supported.
+     */
+    public function round(int $places = 0, int $mode = Decimal::DEFAULT_ROUNDING): Decimal {}
 
-        /**
-         * Returns a copy of this decimal with its decimal place shifted
-         *
-         * @return Decimal
-         *
-         * @link https://php-decimal.io/#shift
-         */
-        public function shift(): Decimal { }
+    /**
+     * Decimal point shift.
+     *
+     * @param int $places The number of places to shift the decimal point by.
+     *                    A positive shift moves the decimal point to the right,
+     *                    a negative shift moves the decimal point to the left.
+     *
+     * @return Decimal A copy of this decimal with its decimal place shifted.
+     */
+    public function shift(int $places): Decimal {}
 
-        /**
-         * @since 1.1.0
-         *
-         * Returns a copy of this decimal without trailing zeroes
-         *
-         * @return Decimal
-         *
-         * @link https://php-decimal.io/#trim
-         */
-        public function trim(): Decimal { }
+    /**
+     * Trims trailing zeroes.
+     *
+     * @return Decimal A copy of this decimal without trailing zeroes.
+     */
+    public function trim(): Decimal {}
 
-        /**
-         * Returns the precision of this decimal
-         *
-         * @return int
-         *
-         * @link https://php-decimal.io/#precision
-         */
-        public function precision(): int { }
+    /**
+     * Precision
+     *
+     * @return int the precision of this decimal.
+     */
+    public function precision(): int {}
 
-        /**
-         * Returns  0 if zero, -1 if negative, or 1 if positive
-         *
-         * @return int
-         *
-         * @link https://php-decimal.io/#signum
-         */
-        public function signum(): int { }
+    /**
+     * Signum
+     *
+     * @return int 0 if zero, -1 if negative, or 1 if positive.
+     */
+    public function signum(): int {}
 
-        /**
-         * Returns 0 if the integer value of this decimal is even, 1 if odd. Special numbers like NAN and INF will return 1
-         *
-         * @return int
-         *
-         * @link https://php-decimal.io/#parity
-         */
-        public function parity(): int { }
+    /**
+     * Parity (integer)
+     *
+     * @return int 0 if the integer value of this decimal is even, 1 if odd.
+     *             Special numbers like NAN and INF will return 1.
+     */
+    public function parity(): int {}
 
-        /**
-         * Returns the absolute (positive) value of this decimal
-         *
-         * @return Decimal
-         *
-         * @link https://php-decimal.io/#abs
-         */
-        public function abs(): Decimal { }
+    /**
+     * Absolute
+     *
+     * @return Decimal the absolute (positive) value of this decimal.
+     */
+    public function abs(): Decimal {}
 
-        /**
-         * Returns the same value as this decimal, but the sign inverted
-         *
-         * @return Decimal
-         *
-         * @link https://php-decimal.io/#negate
-         */
-        public function negate(): Decimal { }
+    /**
+     * Negate
+     *
+     * @return Decimal the same value as this decimal, but the sign inverted.
+     */
+    public function negate(): Decimal {}
 
-        /**
-         * @return bool
-         *
-         * @link https://php-decimal.io/#isEven
-         */
-        public function isEven(): bool { }
+    /**
+     * @return bool TRUE if this decimal is an integer and even, FALSE otherwise.
+     */
+    public function isEven(): bool {}
 
-        /**
-         * @return bool
-         *
-         * @link https://php-decimal.io/#isOdd
-         */
-        public function isOdd(): bool { }
+    /**
+     * @return bool TRUE if this decimal is an integer and odd, FALSE otherwise.
+     */
+    public function isOdd(): bool {}
 
-        /**
-         * @return bool
-         *
-         * @link https://php-decimal.io/#isPositive
-         */
-        public function isPositive(): bool { }
+    /**
+     * @return bool TRUE if this decimal is positive, FALSE otherwise.
+     */
+    public function isPositive(): bool {}
 
-        /**
-         * @return bool
-         *
-         * @link https://php-decimal.io/#isNegative
-         */
-        public function isNegative(): bool { }
+    /**
+     * @return bool TRUE if this decimal is negative, FALSE otherwise.
+     */
+    public function isNegative(): bool {}
 
-        /**
-         * @return bool
-         *
-         * @link https://php-decimal.io/#isNan
-         */
-        public function isNaN(): bool { }
+    /**
+     * @return bool TRUE if this decimal is not a defined number.
+     */
+    public function isNaN(): bool {}
 
-        /**
-         * @return bool
-         *
-         * @link https://php-decimal.io/#isInf
-         */
-        public function isInf(): bool { }
+    /**
+     * @return bool TRUE if this decimal represents infinity, FALSE otherwise.
+     */
+    public function isInf(): bool {}
 
-        /**
-         * @return bool
-         *
-         * @link https://php-decimal.io/#isInteger
-         */
-        public function isInteger(): bool { }
+    /**
+     * @return bool TRUE if this decimal is an integer, ie. does not have
+     *              significant figures behind the decimal point, otherwise FALSE.
+     */
+    public function isInteger(): bool {}
 
-        /**
-         * @return bool
-         *
-         * @link https://php-decimal.io/#isZero
-         */
-        public function isZero(): bool { }
+    /**
+     * @return bool TRUE if this decimal is either positive or negative zero.
+     */
+    public function isZero(): bool {}
 
-        /**
-         * Returns the value of this decimal formatted to a fixed number of decimal places, with thousands comma-separated, using a given rounding mode.
-         *
-         * @param int $places
-         * @param bool $commas
-         * @param int $mode
-         *
-         * @return Decimal
-         *
-         * @link https://php-decimal.io/#toFixed
-         */
-        public function toFixed(int $places = 0, bool $commas = false, int $mode = Decimal::ROUND_HALF_EVEN): Decimal { }
+    /**
+     * @param int  $places   The number of places behind the decimal point.
+     * @param bool $commas   TRUE if thousands should be separated by a comma.
+     * @param int  $rounding
+     *
+     * @return string the value of this decimal formatted to a fixed number of
+     *                decimal places, optionally with thousands comma-separated,
+     *                using a given rounding mode.
+     */
+    public function toFixed(int $places = 0, bool $commas = false, int $rounding = Decimal::DEFAULT_ROUNDING): string {}
 
-        /**
-         * Returns the value of this decimal represented exactly, in either fixed or scientific form, depending on the value
-         *
-         * @return string
-         */
-        public function __toString(): string { }
+    /**
+     * String representation.
+     *
+     * This method is equivalent to a cast to string.
+     *
+     * This method should not be used as a canonical representation of this
+     * decimal, because values can be represented in more than one way. However,
+     * this method does guarantee that a decimal instantiated by its output with
+     * the same precision will be exactly equal to this decimal.
+     *
+     * @return string the value of this decimal represented exactly, in either
+     *                fixed or scientific form, depending on the value.
+     */
+    public function toString(): string {}
 
-        /**
-         * This method is equivalent to a cast to string
-         *
-         * Returns the value of this decimal represented exactly, in either fixed or scientific form, depending on the value
-         *
-         * @return string
-         */
-        public function toString(): string { }
+    /**
+     * Integer representation.
+     *
+     * This method is equivalent to a cast to int.
+     *
+     * @return int the integer value of this decimal.
+     *
+     * @throws \OverflowException if the value is greater than PHP_INT_MAX.
+     */
+    public function toInt(): int {}
 
-        /**
-         * JSON conversions will automatically convert the decimal to string using all significant figures
-         *
-         * @return string
-         */
-        public function jsonSerialize(): string { }
+    /**
+     * Binary floating point representation.
+     *
+     * This method is equivalent to a cast to float, and is not affected by the
+     * 'precision' INI setting.
+     *
+     * @return float the native PHP floating point value of this decimal.
+     *
+     * @throws \OverflowException  if the value is greater than PHP_FLOAT_MAX.
+     * @throws \UnderflowException if the value is smaller than PHP_FLOAT_MIN.
+     */
+    public function toFloat(): float {}
 
-        /**
-         * @return int
-         */
-        public function toInt(): int { }
+    /**
+     * Equality
+     *
+     * This method is equivalent to the `==` operator.
+     *
+     * @param mixed $other
+     *
+     * @return bool TRUE if this decimal is considered equal to the given value.
+     *              Equal decimal values tie-break on precision.
+     */
+    public function equals($other): bool {}
 
-        /**
-         * @return float
-         */
-        public function toFloat(): float { }
+    /**
+     * Ordering
+     *
+     * This method is equivalent to the `<=>` operator.
+     *
+     * @param mixed $other
+     *
+     * @return int  0 if this decimal is considered is equal to $other,
+     *             -1 if this decimal should be placed before $other,
+     *              1 if this decimal should be placed after $other.
+     */
+    public function compareTo($other): int {}
 
-        /**
-         * @return Decimal
-         */
-        public function copy(): Decimal { }
+    /**
+     * String representation.
+     *
+     * This method is equivalent to a cast to string, as well as `toString`.
+     *
+     * @return string the value of this decimal represented exactly, in either
+     *                fixed or scientific form, depending on the value.
+     */
+    public function __toString(): string {}
 
-        /**
-         * This method is equivalent to the == operator.
-         *
-         * @param mixed $value
-         *
-         * @return bool TRUE if this decimal is considered equal to the given value.
-         *
-         * @link https://php-decimal.io/#equals
-         */
-        public function equals($value): bool { }
-
-        /**
-         * This method is equivalent to the <=> operator.
-         *
-         * Returns 0 if this decimal is considered equal to $other,
-         * -1 if this decimal should be placed before $other,
-         * 1 if this decimal should be placed after $other.
-         *
-         * @param $value
-         *
-         * @return int
-         *
-         * @link https://php-decimal.io/#compareTo
-         */
-        public function compareTo($value): int { }
-
-        /**
-         * Returns TRUE if the value is between the two operands
-         *
-         * @param Decimam|string|int $value
-         * @param Decimam|string|int $leftOp
-         * @param Decimam|string|int $rightOp
-         *
-         * @return bool
-         */
-        public function between($value, $leftOp, $rightOp): bool { }
-
-        /**
-         * Returns the sum of all given values
-         *
-         * The precision of the result will be the max of all precisions that were encountered during the calculation.
-         * The given precision should therefore be considered the minimum precision of the result.
-         * This method is equivalent to adding each value individually
-         *
-         * @param array|Traversable $values
-         *
-         * @return Decimal
-         *
-         * @link https://php-decimal.io/#sum
-         */
-        public function sum(array $values): Decimal { }
-
-        /**
-         * Returns the average of all given values
-         *
-         * The precision of the result will be the max of all precisions that were encountered during the calculation.
-         * The given precision should therefore be considered the minimum precision of the result.
-         * This method is equivalent to adding each value individually, then dividing by the number of values
-         * @param array $values
-         *
-         * @return Decimal
-         *
-         * @link https://php-decimal.io/#avg
-         */
-        public function avg(array $values): Decimal { }
-    }
+    /**
+     * JSON
+     *
+     * This method is only here to honour the interface, and is equivalent to
+     * `toString`. JSON does not have a decimal type so all decimals are encoded
+     * as strings in the same format as `toString`.
+     *
+     * @return string
+     */
+    public function jsonSerialize() {}
 }
