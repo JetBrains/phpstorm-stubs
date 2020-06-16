@@ -7,6 +7,11 @@
  * @link https://php.net/manual/en/class.ziparchive.php
  */
 class ZipArchive implements Countable {
+	/**
+	 * Zip library version
+	 * @link https://php.net/manual/en/zip.constants.php
+	 */
+	const LIBZIP_VERSION = '1.5.1';
 
 	/**
 	 * Create the archive if it does not exist.
