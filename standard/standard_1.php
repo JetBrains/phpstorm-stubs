@@ -873,9 +873,10 @@ function ltrim ($str, $charlist = " \t\n\r\0\x0B") {}
  * @param string $str <p>
  * The input string.
  * </p>
- * @param string $allowable_tags [optional] <p>
+ * @param array|string $allowable_tags [optional] <p>
  * You can use the optional second parameter to specify tags which should
- * not be stripped.
+ * not be stripped.<br/>
+ * Since 7.4.0 alternatively accepts an array of allowed tags.
  * </p>
  * <p>
  * HTML comments and PHP tags are also stripped. This is hardcoded and
