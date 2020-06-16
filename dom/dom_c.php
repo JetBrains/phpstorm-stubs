@@ -964,7 +964,7 @@ class DOMDocument extends DOMNode  {
      * @param DOMNode $node [optional] parameter to output a subset of the document.
      * @return string the HTML, or false if an error occurred.
      */
-    public function saveHTML (DOMNode $node = NULL) {}
+    public function saveHTML (DOMNode $node = null) {}
 
     /**
      * Dumps the internal document into a file using HTML formatting
