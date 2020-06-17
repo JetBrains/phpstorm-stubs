@@ -6,7 +6,7 @@
  * Event class represents and event firing on a file descriptor being ready to read from or write to; a file descriptor becoming ready to read from or write to(edge-triggered I/O only); a timeout expiring; a signal occurring; a user-triggered event.
  * Every event is associated with EventBase . However, event will never fire until it is added (via Event::add() ). An added event remains in pending state until the registered event occurs, thus turning it to active state. To handle events user may register a callback which is called when event becomes active. If event is configured persistent , it remains pending. If it is not persistent, it stops being pending when it's callback runs. Event::del() method deletes event, thus making it non-pending. By means of Event::add() method it could be added again.
  *
- * @property bool $pending
+ * @property-read  bool $pending
  *
  * @author Kazuaki MABUCHI
  * @copyright Сopyright (https://php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
@@ -21,8 +21,6 @@ final class Event
     const WRITE = 4;
     const SIGNAL = 8;
     const TIMEOUT = 1;
-
-    public $pending;
 
     /**
      * __construct.
@@ -420,8 +418,8 @@ final class EventBase
  * EventBuffer represents Libevent's "evbuffer", an utility functionality for buffered I/O.
  * Event buffers are meant to be generally useful for doing the "buffer" part of buffered network I/O.
  *
- * @property int $length
- * @property int $contiguous_space
+ * @property-read  int $length
+ * @property-read  int $contiguous_space
  *
  * @author Kazuaki MABUCHI
  * @copyright Copyright (https://php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
@@ -436,9 +434,6 @@ class EventBuffer
     const EOL_LF = 3;
     const PTR_SET = 0;
     const PTR_ADD = 1;
-
-    public $length;
-    public $contiguous_space;
 
     /**
      * __construct.
@@ -755,8 +750,8 @@ class EventBuffer
  *
  * @property int $fd
  * @property int $priority
- * @property EventBuffer $input
- * @property EventBuffer $output
+ * @property-read  EventBuffer $input
+ * @property-read  EventBuffer $output
  *
  * @author Kazuaki MABUCHI
  * @copyright Copyright (https://php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
@@ -778,11 +773,6 @@ final class EventBufferEvent
     const SSL_OPEN = 0;
     const SSL_CONNECTING = 1;
     const SSL_ACCEPTING = 2;
-
-    public $fd;
-    public $priority;
-    public $input;
-    public $output;
 
     /**
      * __construct.
@@ -1792,7 +1782,7 @@ class EventHttpRequest
  * EventListener.
  * Represents a connection listener.
  *
- * @property int $fd
+ * @property-read  int $fd
  *
  * @author Kazuaki MABUCHI
  * @copyright Copyright (https://secure.php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
@@ -1806,8 +1796,6 @@ final class EventListener
     const OPT_CLOSE_ON_EXEC = 4;
     const OPT_REUSEABLE = 8;
     const OPT_THREADSAFE = 16;
-
-    public $fd;
 
     /**
      * __construct.
@@ -1906,8 +1894,6 @@ final class EventListener
  * EventSslContext.
  * Represents SSL_CTX structure. Provides methods and properties to configure the SSL context.
  *
- * @property string $local_cert
- * @property string $local_pk
  *
  * @author Kazuaki MABUCHI
  * @copyright Copyright (https://secure.php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
