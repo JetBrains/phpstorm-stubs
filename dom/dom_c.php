@@ -1086,8 +1086,6 @@ class DOMNamedNodeMap implements Traversable, Countable {
      * @link https://www.php.net/manual/en/class.domnamednodemap.php#domnamednodemap.props.length
      */
     public $length;
-	
-	
     /**
      * Retrieves a node specified by name
      * @link https://php.net/manual/en/domnamednodemap.getnameditem.php
