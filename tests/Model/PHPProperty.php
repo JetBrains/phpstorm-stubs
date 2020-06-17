@@ -8,10 +8,15 @@ use stdClass;
 
 class PHPProperty extends BasePHPElement
 {
-    public string $parentName;
+    public ?string $parentName = null;
     public string $type;
     public string $access;
     public bool $is_static;
+
+    public function __construct(?string $parentName = null)
+    {
+        $this->parentName = $parentName;
+    }
 
     /**
      * @param \ReflectionProperty $property
@@ -56,7 +61,10 @@ class PHPProperty extends BasePHPElement
 
         $this->type = $node->type ?? "";
 
-        $this->parentName = $this->getFQN($node->getAttribute('parent'));
+        $parentNode = $node->getAttribute('parent');
+        if ($parentNode !== null){
+            $this->parentName = $this->getFQN($parentNode);
+        }
         return $this;
     }
 

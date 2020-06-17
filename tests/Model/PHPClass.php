@@ -77,6 +77,10 @@ class PHPClass extends BasePHPClass
                 $this->interfaces[] = ltrim($interfaceFQN, "\\");
             }
         }
+        foreach ($node->getProperties() as $property) {
+            $propertyName = $property->props[0]->name->name;
+            $this->properties[$propertyName] = (new PHPProperty($this->name))->readObjectFromStubNode($property);
+        }
         if ($node->getDocComment() !== null) {
             $docBlock = DocBlockFactory::createInstance()->create($node->getDocComment()->getText());
             /** @var PropertyRead[] $properties */
@@ -85,12 +89,14 @@ class PHPClass extends BasePHPClass
             foreach ($properties as $property) {
                 $propertyName = $property->getVariableName();
                 assert($propertyName !== "", "@property name is empty in class $this->name");
-                $newProperty = new PHPProperty();
+                $newProperty = new PHPProperty($this->name);
                 $newProperty->is_static = false;
                 $newProperty->access = "public";
                 $newProperty->name = $propertyName;
                 $newProperty->parentName = $this->name;
                 $newProperty->type = "" . $property->getType();
+                assert(!array_key_exists($propertyName, $this->properties),
+                    "Property '$propertyName' is already declared in class '$this->name'");
                 $this->properties[$propertyName] = $newProperty;
             }
         }

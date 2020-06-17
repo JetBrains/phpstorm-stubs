@@ -57,7 +57,7 @@ class PHPConst extends BasePHPElement
             return $node->value->expr->value;
         }
         if (in_array('name', $node->value->getSubNodeNames(), true)) {
-            $value = $node->value->name->parts[0];
+            $value = $node->value->name->parts[0] ?? $node->value->name->name;
             return $value === 'null' ? null : $value;
         }
         return null;
