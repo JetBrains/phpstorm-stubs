@@ -1076,7 +1076,7 @@ class DOMNodeList implements Traversable, Countable {
 /**
  * The DOMNamedNodeMap class
  * @link https://php.net/manual/en/class.domnamednodemap.php
- * @property-read $length The number of nodes in the map. The range of valid child node indices is 0 to length - 1 inclusive.
+ * @property-read int $length The number of nodes in the map. The range of valid child node indices is 0 to length - 1 inclusive.
  */
 class DOMNamedNodeMap implements Traversable, Countable {
 
