@@ -515,7 +515,7 @@ namespace Couchbase {
          * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
          *   More details
          */
-        public function role($role, $bucket = NULL) {}
+        public function role($role, $bucket = null) {}
     }
 
     /**
@@ -1276,7 +1276,7 @@ namespace Couchbase {
          * @see https://github.com/couchbaselabs/sdk-rfcs/blob/master/rfc/0034-health-check.md
          *   SDK RFC #34, which describes the feature and report layout.
          */
-        public function ping($services = 0, $reportId = NULL) {}
+        public function ping($services = 0, $reportId = null) {}
 
         /**
          * Collect and return information about state of internal network connections.
@@ -1287,7 +1287,7 @@ namespace Couchbase {
          * @see https://github.com/couchbaselabs/sdk-rfcs/blob/master/rfc/0034-health-check.md
          *   SDK RFC #34, which describes the feature and report layout.
          */
-        public function diag($reportId = NULL) {}
+        public function diag($reportId = null) {}
 
         /**
          * Encrypt fields inside specified document.

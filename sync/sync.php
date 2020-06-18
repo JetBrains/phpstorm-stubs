@@ -45,7 +45,7 @@ class SyncMutex {
      * @see SyncMutex::lock()
      * @link https://php.net/manual/en/syncmutex.unlock.php
      */
-    public function unlock ( bool $all = FALSE ) {}
+    public function unlock ( bool $all = false ) {}
     }
 
 /**
@@ -68,7 +68,7 @@ class SyncSemaphore {
      * @throws Exception if the semaphore cannot be created or opened
      * @link https://php.net/manual/en/syncsemaphore.construct.php
      */
-    public function __construct ( string $name, int $initialval = 1, bool $autounlock = TRUE ) {}
+    public function __construct ( string $name, int $initialval = 1, bool $autounlock = true ) {}
 
     /**
      * Decreases the count of the semaphore or waits
@@ -115,7 +115,7 @@ class SyncEvent {
      * @since 1.1.0 Added $prefire
      * @link https://php.net/manual/en/syncevent.construct.php
      */
-    public function __construct ( string $name, bool $manual = FALSE, bool $prefire = FALSE ) {}
+    public function __construct ( string $name, bool $manual = false, bool $prefire = false ) {}
 
     /**
      * Fires/sets the event
@@ -170,7 +170,7 @@ class SyncReaderWriter {
      * @throws Exception if the reader-writer cannot be created or opened.
      * @link https://php.net/manual/en/syncreaderwriter.construct.php
      */
-    public function __construct ( string $name, bool $autounlock = TRUE ) {}
+    public function __construct ( string $name, bool $autounlock = true ) {}
 
     /**
      * Waits for a read lock

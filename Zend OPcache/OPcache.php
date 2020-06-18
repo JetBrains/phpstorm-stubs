@@ -25,7 +25,7 @@ function opcache_compile_file($file) { }
  * cache is disabled.
  * @since 5.5
  */
-function opcache_invalidate($script, $force = FALSE) { }
+function opcache_invalidate($script, $force = false) { }
 
 /**
  * (PHP 5 &gt;= 5.5.0, PECL ZendOpcache &gt;= 7.0.0 )<br/>
@@ -44,7 +44,7 @@ function opcache_reset() { }
  * @return array <p>Returns an array of information, optionally containing script specific state information</p>
  * @since 5.5
  */
-function opcache_get_status ($get_scripts = TRUE) {}
+function opcache_get_status ($get_scripts = true) {}
 
 /**
  * (PHP 5 &gt;= 5.5.5, PECL ZendOpcache &gt;= 7.0.2 )<br/>

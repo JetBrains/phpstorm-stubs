@@ -50,7 +50,7 @@ class Cipher {
      * @param int $mode
      * @param string $key_size
      */
-    public function __construct($algorithm, $mode = NULL, $key_size = NULL) {}
+    public function __construct($algorithm, $mode = null, $key_size = null) {}
 
     /**
      * Returns cipher algorithm string
@@ -492,7 +492,7 @@ abstract class KDF {
      * @param int $length
      * @param string $salt
      */
-    public function __construct($length, $salt = NULL) {}
+    public function __construct($length, $salt = null) {}
 
     /**
      * Get key length
@@ -565,7 +565,7 @@ class PBKDF2 extends KDF {
      * @param string $salt
      * @param int $iterations
      */
-    public function __construct($hashAlgorithm, $length, $salt = NULL, $iterations = 1000) {}
+    public function __construct($hashAlgorithm, $length, $salt = null, $iterations = 1000) {}
 
     /**
      * Deriver hash for password

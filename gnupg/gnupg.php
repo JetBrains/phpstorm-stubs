@@ -59,7 +59,7 @@ class gnupg {
 	 * @return array|false On success, this function returns information about the signature.
 	 *               On failure, this function returns false.
 	 */
-	function verify($signed_text, $signature, &$plaintext = NULL)
+	function verify($signed_text, $signature, &$plaintext = null)
 	{
 	}
 
@@ -84,7 +84,7 @@ class gnupg {
 	 *
 	 * @return bool
 	 */
-	function addsignkey($fingerprint, $passphrase = NULL)
+	function addsignkey($fingerprint, $passphrase = null)
 	{
 	}
 

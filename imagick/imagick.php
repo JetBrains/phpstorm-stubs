@@ -1850,7 +1850,7 @@ class Imagick implements Iterator, Countable {
 	 * </p>
 	 * @return bool <b>TRUE</b> on success.
 	 */
-	public function writeImage ($filename = NULL) {}
+	public function writeImage ($filename = null) {}
 
 	/**
 	 * (PECL imagick 0.9.0-0.9.9)<br/>

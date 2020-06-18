@@ -24,10 +24,10 @@ class MongoClient
     const RP_NEAREST = "nearest" ;
 
     /* Properties */
-    public $connected = FALSE ;
-    public $status = NULL ;
-    protected $server = NULL ;
-    protected $persistent = NULL ;
+    public $connected = false ;
+    public $status = null ;
+    protected $server = null ;
+    protected $persistent = null ;
 
     /* Methods */
     /**
@@ -100,7 +100,7 @@ class MongoClient
      *         </ul>
      * @throws MongoConnectionException
      */
-    public function __construct($server = "mongodb://localhost:27017", array $options = array("connect" => TRUE), $driver_options) {}
+    public function __construct($server = "mongodb://localhost:27017", array $options = array("connect" => true), $driver_options) {}
 
     /**
      * (PECL mongo &gt;= 1.3.0)<br/>
@@ -571,7 +571,7 @@ class MongoDB {
 	 * @param bool $backup_original_files [optional] <p>If original files should be backed up.</p>
 	 * @return array <p>Returns db response.</p>
 	 */
-    public function repair($preserve_cloned_files = FALSE, $backup_original_files = FALSE) {}
+    public function repair($preserve_cloned_files = false, $backup_original_files = false) {}
 
     /**
      * (PECL mongo &gt;= 0.9.0)<br/>
@@ -820,7 +820,7 @@ class MongoCollection {
 	/**
 	 * @var MongoDB
 	 */
-	public $db = NULL ;
+	public $db = null ;
 
     /**
      * @var int <p>
@@ -973,7 +973,7 @@ class MongoCollection {
 	 * @param bool $scan_data Only validate indices, not the base collection.
 	 * @return array Returns the database's evaluation of this object.
 	 */
-    public function validate($scan_data = FALSE) {}
+    public function validate($scan_data = false) {}
 
     /**
 	 * Inserts an array into the collection
@@ -1123,7 +1123,7 @@ class MongoCollection {
      * @param array $query An optional query parameters
      * @return array|false Returns an array of distinct values, or <b>FALSE</b> on failure
      */
-    public function distinct ($key, array $query = NULL) {}
+    public function distinct ($key, array $query = null) {}
 
     /**
      * Update a document and return it
@@ -1134,7 +1134,7 @@ class MongoCollection {
      * @param array $options An array of options to apply, such as remove the match document from the DB and return it.
      * @return array Returns the original document, or the modified document when new is set.
      */
-    public function findAndModify (array $query, array $update = NULL, array $fields = NULL, array $options = NULL) {}
+    public function findAndModify (array $query, array $update = null, array $fields = null, array $options = null) {}
 
     /**
 	 * Querys this collection, returning a single element
@@ -1263,7 +1263,7 @@ class MongoCursor implements Iterator {
      * @link https://php.net/manual/en/class.mongocursor.php#mongocursor.props.slaveokay
      * @var bool $slaveOkay
      */
-    public static $slaveOkay = FALSE;
+    public static $slaveOkay = false;
 
     /**
      * @var int <p>
@@ -1514,7 +1514,7 @@ class MongoCursor implements Iterator {
 	 * @param bool $all Send cursor limit and skip information to the count function, if applicable.
 	 * @return int The number of documents returned by this cursor's query.
 	 */
-    public function count($all = FALSE) {}
+    public function count($all = false) {}
 
 	/**
 	 * Sets the fields for a query
@@ -1890,7 +1890,7 @@ class MongoId {
      * @var string $id <p> Note: The property name begins with a $ character. It may be accessed using
      * {@link https://php.net/manual/en/language.types.string.php#language.types.string.parsing.complex complex variable parsed syntax} (e.g. $mongoId->{'$id'}).</p>
      */
-     public $id = NULL;
+     public $id = null;
 
     /**
      * (PECL mongo &gt;= 0.8.0)
@@ -1898,7 +1898,7 @@ class MongoId {
 	 * @link https://secure.php.net/manual/en/mongoid.construct.php
 	 * @param string $id [optional] A string to use as the id. Must be 24 hexadecimal characters. If an invalid string is passed to this constructor, the constructor will ignore it and create a new id value.
      */
-    public function __construct($id = NULL) {}
+    public function __construct($id = null) {}
 
     /**
      * (PECL mongo &gt;= 0.8.0)
