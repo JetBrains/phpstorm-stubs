@@ -115,7 +115,7 @@ class DateTimeImmutable implements DateTimeInterface {
      * </p> <p></p></blockquote>
      * @throws Exception Emits Exception in case of an error.
      */
-    public function __construct($time = "now", $timezone = NULL) { }
+    public function __construct($time = "now", $timezone = null) { }
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>

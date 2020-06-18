@@ -152,7 +152,7 @@ function fann_create_shortcut_array($num_layers, $layers)
  *
  * @return resource|false Returns a neural network resource on success, or false on error.
  */
-function fann_create_shortcut($num_layers, $num_neurons1, $num_neurons2, $_ = NULL)
+function fann_create_shortcut($num_layers, $num_neurons1, $num_neurons2, $_ = null)
 {
 }
 
@@ -182,7 +182,7 @@ function fann_create_sparse_array($connection_rate, $num_layers, $layers)
  *
  * @return resource|false Returns a neural network resource on success, or false on error.
  */
-function fann_create_sparse($connection_rate, $num_layers, $num_neurons1, $num_neurons2, $_ = NULL)
+function fann_create_sparse($connection_rate, $num_layers, $num_neurons1, $num_neurons2, $_ = null)
 {
 }
 
@@ -210,7 +210,7 @@ function fann_create_standard_array($num_layers, $layers)
  *
  * @return resource|false Returns a neural network resource on success, or false on error.
  */
-function fann_create_standard($num_layers, $num_neurons1, $num_neurons2, $_ = NULL)
+function fann_create_standard($num_layers, $num_neurons1, $num_neurons2, $_ = null)
 {
 }
 

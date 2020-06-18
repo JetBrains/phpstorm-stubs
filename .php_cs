@@ -14,6 +14,7 @@ return PhpCsFixer\Config::create()
         'no_trailing_whitespace_in_comment' => true,
         'no_whitespace_in_blank_line' => true,
         'single_blank_line_at_eof' => true,
+        'constant_case' => true
         // 'unix_line_endings' => true,
     ])
     ->setFinder($finder)

@@ -346,7 +346,7 @@ function highlight_string ($str, $return = false) {}
  * @return int[]|int|float Returns an array of integers in the form [seconds, nanoseconds], if the parameter get_as_number is false.
  * Otherwise the nanoseconds are returned as integer (64bit platforms) or float (32bit platforms).
  */
-function hrtime($get_as_number = FALSE) {}
+function hrtime($get_as_number = false) {}
 
 /**
  * Return source with stripped comments and whitespace

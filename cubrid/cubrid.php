@@ -37,7 +37,7 @@
  * a CUBRID connection identifier on success or false on failure.
  * </p>
  */
-function cubrid_connect ($host, $port, $dbname, $userid = 'PUBLIC', $passwd = '', $new_link = FALSE) {}
+function cubrid_connect ($host, $port, $dbname, $userid = 'PUBLIC', $passwd = '', $new_link = false) {}
 
 /**
  * (PHP 5, CUBRID &gt;= 8.3.1)<br/>
@@ -69,7 +69,7 @@ function cubrid_connect ($host, $port, $dbname, $userid = 'PUBLIC', $passwd = ''
  * a CUBRID connection identifier on success or false on failure.
  * </p>
  */
-function cubrid_connect_with_url ($conn_url, $userid = 'PUBLIC', $passwd = '', $new_link = FALSE) {}
+function cubrid_connect_with_url ($conn_url, $userid = 'PUBLIC', $passwd = '', $new_link = false) {}
 
 /**
  * (PHP 5, CUBRID &gt;= 8.3.1)<br/>
@@ -1361,7 +1361,7 @@ function cubrid_lob_size ($lob_identifier) {}
  * FALSE, when process is unsuccessful.
  * </p>
  */
-function cubrid_lob2_bind ($req_identifier, $bind_index, $bind_value, $bind_value_type = NULL) {}
+function cubrid_lob2_bind ($req_identifier, $bind_index, $bind_value, $bind_value_type = null) {}
 
 /**
  * (PHP 5, CUBRID &gt;= 8.4.1)<br/>
@@ -1431,7 +1431,7 @@ function cubrid_lob2_import ($lob_identifier, $file_name) {}
  * Lob identifier when it is successful. FALSE on failure.
  * </p>
  */
-function cubrid_lob2_new ($conn_identifier = NULL, $type = "BLOB") {}
+function cubrid_lob2_new ($conn_identifier = null, $type = "BLOB") {}
 
 /**
  * (PHP 5, CUBRID &gt;= 8.4.1)<br/>

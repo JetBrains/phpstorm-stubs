@@ -625,7 +625,7 @@ function openssl_digest($data, $method, $raw_output = false) { }
  * </p>
  * @return string|false the encrypted string on success or false on failure.
  */
-function openssl_encrypt($data, $method, $key, $options = 0, $iv = "", &$tag = NULL, $aad = "", $tag_length = 16) { }
+function openssl_encrypt($data, $method, $key, $options = 0, $iv = "", &$tag = null, $aad = "", $tag_length = 16) { }
 
 /**
  * Decrypts data

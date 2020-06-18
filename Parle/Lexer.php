@@ -24,7 +24,7 @@ class Lexer
     /**
      * @var bool Start of input flag.
      */
-    public $bol = FALSE ;
+    public $bol = false ;
 
     /**
      * @var int Lexer flags.

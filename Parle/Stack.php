@@ -11,7 +11,7 @@ class Stack
      * @var bool Whether the stack is empty, readonly.
      * @property-read
      */
-    public $empty = TRUE;
+    public $empty = true;
 
     /**
      * @var int Stack size, readonly.

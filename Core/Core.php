@@ -431,7 +431,7 @@ function function_exists ($function_name) {}
  * @param bool $autoload [optional] Whether to autoload if the original class is not found.
  * @return bool true on success or false on failure.
  */
-function class_alias ($original, $alias, $autoload = TRUE) {}
+function class_alias ($original, $alias, $autoload = true) {}
 
 /**
  * Returns an array with the names of included or required files
@@ -473,7 +473,7 @@ function get_required_files () {}
  * belongs to a class which is a subclass of
  * <i>class_name</i>, false otherwise.
  */
-function is_subclass_of ($object, $class_name, $allow_string = TRUE) {}
+function is_subclass_of ($object, $class_name, $allow_string = true) {}
 
 /**
  * Checks if the object is of this class or has this class as one of its parents
@@ -491,7 +491,7 @@ function is_subclass_of ($object, $class_name, $allow_string = TRUE) {}
  * @return bool <b>TRUE</b> if the object is of this class or has this class as one of
  * its parents, <b>FALSE</b> otherwise.
  */
-function is_a ($object, $class_name, $allow_string = FALSE) {}
+function is_a ($object, $class_name, $allow_string = false) {}
 
 /**
  * Get the default properties of the class
@@ -662,7 +662,7 @@ function get_declared_traits() {}
  * the user defined ones using $arr["user"] (see example
  * below).
  */
-function get_defined_functions ($exclude_disabled = FALSE) {}
+function get_defined_functions ($exclude_disabled = false) {}
 
 /**
  * Returns an array of all defined variables
