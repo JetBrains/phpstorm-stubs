@@ -549,7 +549,7 @@ function rawurldecode ($str) {}
  *  <p>If enc_type is PHP_QUERY_RFC3986, then encoding is performed according to » RFC 3986, and spaces will be percent encoded (%20).
  * @return string a URL-encoded string.
  */
-function http_build_query ($query_data, $numeric_prefix = "", $arg_separator = "&", $enc_type = PHP_QUERY_RFC1738){}
+function http_build_query ($query_data, string $numeric_prefix = "", string $arg_separator = "&", int $enc_type = PHP_QUERY_RFC1738){}
 
 /**
  * Returns the target of a symbolic link
