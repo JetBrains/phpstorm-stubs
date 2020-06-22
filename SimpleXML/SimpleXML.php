@@ -276,7 +276,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 	/**
 	 * Return current key
 	 * @link https://php.net/manual/en/simplexmliterator.key.php
-	 * @return mixed the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object or <b>FALSE</b>
+	 * @return string|false the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object or <b>FALSE</b>
 	 */
 	public function key () {}
 
