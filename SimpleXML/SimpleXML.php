@@ -250,35 +250,35 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator 
      * @link https://php.net/manual/en/simplexmliterator.rewind.php
      * @return void No value is returned.
      */
-    public function rewind () {}
+    private function rewind () {}
 
     /**
      * Check whether the current element is valid
      * @link https://php.net/manual/en/simplexmliterator.valid.php
      * @return bool <b>TRUE</b> if the current element is valid, otherwise <b>FALSE</b>
      */
-    public function valid () {}
+    private function valid () {}
 
     /**
      * Returns the current element
      * @link https://php.net/manual/en/simplexmliterator.current.php
      * @return SimpleXMLElement|null the current element as a <b>SimpleXMLElement</b> object or <b>NULL</b> on failure.
      */
-    public function current () {}
+    private function current () {}
 
     /**
      * Return current key
      * @link https://php.net/manual/en/simplexmliterator.key.php
      * @return string|false the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object or <b>FALSE</b>
      */
-    public function key () {}
+    private function key () {}
 
     /**
      * Move to next element
      * @link https://php.net/manual/en/simplexmliterator.next.php
      * @return void No value is returned.
      */
-    public function next () {}
+    private function next () {}
 }
 
 /**
