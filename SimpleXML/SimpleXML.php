@@ -224,7 +224,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator 
      * Class provides access to children by position, and attributes by name
      * private Method not callable directly, stub exists for typehint only
      * @param string|int $offset
-     * @return SimpleXMLElement Either a named attribute or an element from a list of children
+     * @return static Either a named attribute or an element from a list of children
      */
     private function offsetGet ($offset) {}
 
@@ -262,7 +262,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator 
     /**
      * Returns the current element
      * @link https://php.net/manual/en/simplexmliterator.current.php
-     * @return SimpleXMLElement|null the current element as a <b>SimpleXMLElement</b> object or <b>NULL</b> on failure.
+     * @return static|null the current element as a <b>SimpleXMLElement</b> object or <b>NULL</b> on failure.
      */
     private function current () {}
 
@@ -304,7 +304,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 	/**
 	 * Returns the current element
 	 * @link https://php.net/manual/en/simplexmliterator.current.php
-	 * @return SimpleXMLIterator|null the current element as a <b>SimpleXMLIterator</b> object or <b>NULL</b> on failure.
+	 * @return static|null the current element as a <b>SimpleXMLIterator</b> object or <b>NULL</b> on failure.
 	 */
 	public function current () {}
 
