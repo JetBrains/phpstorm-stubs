@@ -123,7 +123,7 @@ function fann_copy($ann)
  *
  * @param string $configuration_file
  *
- * @return resource
+ * @return resource|false
  */
 function fann_create_from_file($configuration_file)
 {
@@ -223,7 +223,7 @@ function fann_create_standard($num_layers, $num_neurons1, $num_neurons2, $_ = nu
  * @param int $num_output
  * @param callable $user_function
  *
- * @return resource
+ * @return resource|false
  */
 function fann_create_train_from_callback($num_data, $num_input, $num_output, $user_function)
 {
@@ -237,7 +237,7 @@ function fann_create_train_from_callback($num_data, $num_input, $num_output, $us
  * @param int $num_input
  * @param int $num_output
  *
- * @return resource
+ * @return resource|false
  */
 function fann_create_train($num_data, $num_input, $num_output)
 {
@@ -312,7 +312,7 @@ function fann_destroy_train($train_data)
  *
  * @param resource $data
  *
- * @return resource
+ * @return resource|false
  */
 function fann_duplicate_train_data($data)
 {
@@ -1004,7 +1004,7 @@ function fann_randomize_weights($ann, $min_weight, $max_weight)
  *
  * @param string $filename
  *
- * @return resource
+ * @return resource|false
  */
 function fann_read_train_from_file($filename)
 {
@@ -1787,7 +1787,7 @@ function fann_shuffle_train_data($train_data)
  * @param int $pos
  * @param int $length
  *
- * @return resource
+ * @return resource|false
  */
 function fann_subset_train_data($data, $pos, $length)
 {

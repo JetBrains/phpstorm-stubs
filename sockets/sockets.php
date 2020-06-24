@@ -28,7 +28,7 @@ function socket_addrinfo_lookup($host, $service, $hints) {}
  * @param resource $addr <p>
  * Resource created from {@see socket_addrinfo_lookup()}
  * </p>
- * @return resource Socket resource on success or NULL on failure.
+ * @return resource|null Socket resource on success or NULL on failure.
  * @since 7.2
  */
 function socket_addrinfo_connect($addr) {}
@@ -41,7 +41,7 @@ function socket_addrinfo_connect($addr) {}
  * @param resource $addr <p>
  * Resource created from {@see socket_addrinfo_lookup()}
  * </p>
- * @return resource Socket resource on success or NULL on failure.
+ * @return resource|null Socket resource on success or NULL on failure.
  * @since 7.2
  */
 function socket_addrinfo_bind($addr) {}

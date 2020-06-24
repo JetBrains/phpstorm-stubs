@@ -165,7 +165,7 @@ function mysql_query ($query, $link_identifier = null) {}
  * Data inside the query should be properly escaped.
  * </p>
  * @param resource $link_identifier [optional]
- * @return resource For SELECT, SHOW, DESCRIBE or EXPLAIN statements,
+ * @return resource|bool For SELECT, SHOW, DESCRIBE or EXPLAIN statements,
  * <b>mysql_unbuffered_query</b>
  * returns a resource on success, or false on
  * error.
@@ -192,7 +192,7 @@ function mysql_unbuffered_query ($query, $link_identifier = null) {}
  * Data inside the query should be properly escaped.
  * </p>
  * @param resource $link_identifier [optional]
- * @return resource a positive MySQL result resource to the query result,
+ * @return resource|bool a positive MySQL result resource to the query result,
  * or false on error. The function also returns true/false for
  * INSERT/UPDATE/DELETE
  * queries to indicate success/failure.

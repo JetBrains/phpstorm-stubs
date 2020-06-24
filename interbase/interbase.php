@@ -437,7 +437,7 @@ function ibase_blob_info ($link_identifier, $blob_id) {}
  * An InterBase link identifier. If omitted, the last opened link is
  * assumed.
  * </p>
- * @return resource a BLOB handle for later use with
+ * @return resource|false a BLOB handle for later use with
  * ibase_blob_add or false on failure.
  */
 function ibase_blob_create ($link_identifier = null) {}
@@ -489,7 +489,7 @@ function ibase_blob_close ($blob_handle) {}
  * @param string $blob_id <p>
  * A BLOB id.
  * </p>
- * @return resource a BLOB handle for later use with
+ * @return resource|false a BLOB handle for later use with
  * ibase_blob_get or false on failure.
  */
 function ibase_blob_open ($link_identifier, $blob_id) {}
@@ -586,7 +586,7 @@ function ibase_delete_user ($service_handle, $user_name) {}
  * @param string $host
  * @param string $dba_username
  * @param string $dba_password
- * @return resource
+ * @return resource|false
  */
 function ibase_service_attach ($host, $dba_username, $dba_password) {}
 
@@ -1163,7 +1163,7 @@ function fbird_blob_info ($link_identifier, $blob_id) {}
  * An InterBase link identifier. If omitted, the last opened link is
  * assumed.
  * </p>
- * @return resource a BLOB handle for later use with
+ * @return resource|false a BLOB handle for later use with
  * fbird_blob_add or false on failure.
  */
 function fbird_blob_create ($link_identifier = null) {}
@@ -1219,7 +1219,7 @@ function fbird_blob_close ($blob_handle) {}
  * @param string $blob_id <p>
  * A BLOB id.
  * </p>
- * @return resource a BLOB handle for later use with
+ * @return resource|false a BLOB handle for later use with
  * fbird_blob_get or false on failure.
  */
 function fbird_blob_open ($link_identifier, $blob_id) {}
@@ -1325,7 +1325,7 @@ function fbird_delete_user ($service_handle, $user_name) {}
  * @param string $host
  * @param string $dba_username
  * @param string $dba_password
- * @return resource
+ * @return resource|false
  */
 function fbird_service_attach ($host, $dba_username, $dba_password) {}
 

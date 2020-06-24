@@ -227,7 +227,7 @@ function odbc_errormsg ($connection_id = null) {}
  * @param int $flags [optional] <p>
  * This parameter is currently not used.
  * </p>
- * @return resource an ODBC result identifier if the SQL command was executed
+ * @return resource|false an ODBC result identifier if the SQL command was executed
  * successfully, or <b>FALSE</b> on error.
  */
 function odbc_exec ($connection_id, $query_string, $flags = null) {}
@@ -390,7 +390,7 @@ function odbc_free_result ($result_id) {}
  * The data type, which can be used to restrict the information to a
  * single data type.
  * </p>
- * @return resource an ODBC result identifier or
+ * @return resource|false an ODBC result identifier or
  * <b>FALSE</b> on failure.
  * </p>
  * <p>
@@ -656,7 +656,7 @@ function odbc_statistics ($connection_id, $qualifier, $owner, $table_name, $uniq
  * <b>odbc_tables</b> does not return any results for
  * that type.
  * </p>
- * @return resource an ODBC result identifier containing the information
+ * @return resource|false an ODBC result identifier containing the information
  * or <b>FALSE</b> on failure.
  * </p>
  * <p>
@@ -822,7 +822,7 @@ function odbc_foreignkeys ($connection_id, $pk_qualifier, $pk_owner, $pk_table, 
  * @link https://php.net/manual/en/function.odbc-procedures.php
  * @param resource $connection_id The ODBC connection identifier,
  * see <b>odbc_connect</b> for details.</p>
- * @return resource an ODBC
+ * @return resource|false an ODBC
  * result identifier containing the information or <b>FALSE</b> on failure.
  * </p>
  * <p>

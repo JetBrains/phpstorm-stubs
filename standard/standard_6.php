@@ -214,7 +214,7 @@ function stream_context_set_default (array $options) {}
  * called first during stream operations. To add a filter to the end of the
  * list, use stream_filter_append.
  * </p>
- * @return resource a resource which can be used to refer to this filter
+ * @return resource|false a resource which can be used to refer to this filter
  * instance during a call to stream_filter_remove.
  */
 function stream_filter_prepend ($stream, $filtername, $read_write = null, $params = null) {}
@@ -248,7 +248,7 @@ function stream_filter_prepend ($stream, $filtername, $read_write = null, $param
  * To add a filter to the beginning of the list, use
  * stream_filter_prepend.
  * </p>
- * @return resource a resource which can be used to refer to this filter
+ * @return resource|false a resource which can be used to refer to this filter
  * instance during a call to stream_filter_remove.
  */
 function stream_filter_append ($stream, $filtername, $read_write = null, $params = null) {}

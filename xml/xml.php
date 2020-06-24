@@ -18,7 +18,7 @@
  * encodings are ISO-8859-1, UTF-8 and
  * US-ASCII.
  * </p>
- * @return resource a resource handle for the new XML parser.
+ * @return resource|false a resource handle for the new XML parser.
  */
 function xml_parser_create ($encoding = null) {}
 
@@ -41,7 +41,7 @@ function xml_parser_create ($encoding = null) {}
  * handler functions will consist of namespace and tag name separated by
  * the string specified in <i>separator</i>.
  * </p>
- * @return resource a resource handle for the new XML parser.
+ * @return resource|false a resource handle for the new XML parser.
  */
 function xml_parser_create_ns ($encoding = null, $separator = ':') {}
 

@@ -20,7 +20,7 @@ function sybase_connect ($servername = null, $username = null, $password = null,
  * @param $password string[optional]
  * @param $charset string[optional]
  * @param $appname string[optional]
- * @return resource a positive Sybase persistent link identifier on success
+ * @return resource|false a positive Sybase persistent link identifier on success
  * @removed 7.0
  */
 function sybase_pconnect ($servername = null, $username = null, $password = null, $charset = null, $appname = null) {}
