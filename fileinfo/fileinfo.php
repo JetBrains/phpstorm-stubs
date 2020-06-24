@@ -76,7 +76,7 @@ class finfo  {
  * A .mime and/or .mgc suffix is added if
  * needed.
  * </p>
- * @return resource a magic database resource on success or <b>FALSE</b> on failure.
+ * @return resource|false a magic database resource on success or <b>FALSE</b> on failure.
  */
 function finfo_open ($options = null, $magic_file = null) {}
 
