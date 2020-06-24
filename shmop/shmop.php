@@ -22,7 +22,7 @@
  * @param int $size <p>
  * The size of the shared memory block you wish to create in bytes
  * </p>
- * @return resource On success <b>shmop_open</b> will return an id that you can
+ * @return resource|false On success <b>shmop_open</b> will return an id that you can
  * use to access the shared memory segment you've created. <b>FALSE</b> is
  * returned on failure.
  */
