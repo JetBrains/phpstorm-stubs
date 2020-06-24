@@ -6,7 +6,7 @@
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * create a new broker object capable of requesting
  * @link https://php.net/manual/en/function.enchant-broker-init.php
- * @return resource a broker resource on success or <b>FALSE</b>.
+ * @return resource|false a broker resource on success or <b>FALSE</b>.
  */
 function enchant_broker_init () {}
 
@@ -66,7 +66,7 @@ function enchant_broker_list_dicts ($broker) {}
  * @param string $tag <p>
  * A tag describing the locale, for example en_US, de_DE
  * </p>
- * @return resource a dictionary resource on success or <b>FALSE</b> on failure.
+ * @return resource|false a dictionary resource on success or <b>FALSE</b> on failure.
  */
 function enchant_broker_request_dict ($broker, $tag) {}
 
@@ -80,7 +80,7 @@ function enchant_broker_request_dict ($broker, $tag) {}
  * @param string $filename <p>
  * Path to the PWL file.
  * </p>
- * @return resource a dictionary resource on success or <b>FALSE</b> on failure.
+ * @return resource|false a dictionary resource on success or <b>FALSE</b> on failure.
  */
 function enchant_broker_request_pwl_dict ($broker, $filename) {}
 

@@ -452,7 +452,7 @@ function ssh2_poll (&$var1) {}
  * An SSH connection link identifier, obtained from a call to
  * ssh2_connect.
  * </p>
- * @return resource This method returns an SSH2 SFTP resource for use with
+ * @return resource|false This method returns an SSH2 SFTP resource for use with
  * all other ssh2_sftp_*() methods and the
  * ssh2.sftp:// fopen wrapper.
  */
@@ -599,7 +599,7 @@ function ssh2_sftp_realpath ($sftp, $filename) {}
  * @link https://php.net/manual/en/function.ssh2-publickey-init.php
  * @param resource $session <p>
  * </p>
- * @return resource an SSH2 Publickey Subsystem resource for use
+ * @return resource|false an SSH2 Publickey Subsystem resource for use
  * with all other ssh2_publickey_*() methods or false on failure.
  */
 function ssh2_publickey_init ($session) {}

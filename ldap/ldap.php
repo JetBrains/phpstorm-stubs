@@ -131,7 +131,7 @@ function ldap_bind ($link_identifier, $bind_rdn = null, $bind_password = null) {
  * @param string $bind_rdn [optional]
  * @param string $bind_password [optional]
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
- * @return resource
+ * @return resource|false
  * @since 7.3
  */
 function ldap_bind_ext ($link_identifier, $bind_rdn = null, $bind_password = null, $serverctrls = []) {}
@@ -374,7 +374,7 @@ function ldap_count_entries ($link_identifier, $result_identifier) {}
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
  * @param resource $result_identifier
- * @return resource the result entry identifier for the first entry on success and
+ * @return resource|false the result entry identifier for the first entry on success and
  * <b>FALSE</b> on error.
  */
 function ldap_first_entry ($link_identifier, $result_identifier) {}
@@ -581,7 +581,7 @@ function ldap_add ($link_identifier, $dn, array $entry, $serverctrls = []) {}
  * </code>
  * </p>
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
- * @return resource
+ * @return resource|false
  * @since 7.4
  */
 function ldap_add_ext ($link_identifier, $dn, array $entry, $serverctrls = []) {}
@@ -611,7 +611,7 @@ function ldap_delete ($link_identifier, $dn, $serverctrls = []) {}
  * The distinguished name of an LDAP entity.
  * </p>
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
- * @return resource
+ * @return resource|false
  * @since 7.3
  */
 function ldap_delete_ext ($link_identifier, $dn, $serverctrls = []) {}
@@ -660,7 +660,7 @@ function ldap_mod_add ($link_identifier, $dn, array $entry, $serverctrls = []) {
  * </p>
  * @param array $entry
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
- * @return resource
+ * @return resource|false
  */
 function ldap_mod_add_ext ($link_identifier, $dn, array $entry, $serverctrls = []) {}
 
@@ -691,7 +691,7 @@ function ldap_mod_replace ($link_identifier, $dn, array $entry, $serverctrls = [
  * </p>
  * @param array $entry
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
- * @return resource
+ * @return resource|false
  * @since 7.3
  */
 function ldap_mod_replace_ext ($link_identifier, $dn, array $entry, $serverctrls = []) {}
@@ -723,7 +723,7 @@ function ldap_mod_del ($link_identifier, $dn, array $entry, $serverctrls = []) {
  * </p>
  * @param array $entry
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
- * @return resource
+ * @return resource|false
  * @since 7.3
  */
 function ldap_mod_del_ext ($link_identifier, $dn, array $entry, $serverctrls = []) {}
@@ -843,7 +843,7 @@ function ldap_rename ($link_identifier, $dn, $newrdn, $newparent, $deleteoldrdn,
  * is retained as non-distinguished values of the entry.
  * </p>
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
- * @return resource
+ * @return resource|false
  * @since 7.3
  */
 function ldap_rename_ext ($link_identifier, $dn, $newrdn, $newparent, $deleteoldrdn, $serverctrls = []) {}
