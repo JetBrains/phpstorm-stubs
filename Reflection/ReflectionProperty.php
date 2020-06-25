@@ -1,0 +1,283 @@
+<?php
+
+/**
+ * The <b>ReflectionProperty</b> class reports
+ * information about a classes properties.
+ *
+ * @link https://php.net/manual/en/class.reflectionproperty.php
+ */
+class ReflectionProperty implements Reflector
+{
+    /**
+     * Indicates that the property is static.
+     *
+     * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-static
+     * @var int
+     */
+    public const IS_STATIC = 16;
+
+    /**
+     * Indicates that the property is public.
+     *
+     * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-public
+     * @var int
+     */
+    public const IS_PUBLIC = 1;
+
+    /**
+     * Indicates that the property is protected.
+     *
+     * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-protected
+     * @var int
+     */
+    public const IS_PROTECTED = 2;
+
+    /**
+     * Indicates that the property is private.
+     *
+     * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-private
+     * @var int
+     */
+    public const IS_PRIVATE = 4;
+
+    /**
+     * Property name. Read-only, throws {@see ReflectionException} in attempt to write.
+     *
+     * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.props.name
+     * @var string
+     */
+    public string $name = '';
+
+    /**
+     * Class name. Read-only, throws {@see ReflectionException} in attempt to write.
+     *
+     * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.props.class
+     * @var string
+     */
+    public string $class = '';
+
+    /**
+     * Construct a ReflectionProperty object
+     *
+     * @link https://php.net/manual/en/reflectionproperty.construct.php
+     * @param string|object $class The class name, that contains the property.
+     * @param string $name The name of the property being reflected.
+     * @throws \ReflectionException if the class or property does not exist.
+     */
+    public function __construct(string|object $class, string $name)
+    {
+    }
+
+    /**
+     * Export
+     *
+     * @link https://php.net/manual/en/reflectionproperty.export.php
+     * @param mixed $class The reflection to export.
+     * @param string $name The property name.
+     * @param bool $return Setting to {@see true} will return the export, as
+     * opposed to emitting it. Setting to {@see false} (the default) will do the
+     * opposite.
+     * @return string|null
+     * @deprecated Since PHP 7.4 and removed in 8.0
+     */
+    public static function export(mixed $class, string $name, bool $return = false): ?string
+    {
+    }
+
+    /**
+     * To string
+     *
+     * @link https://php.net/manual/en/reflectionproperty.tostring.php
+     * @return string
+     */
+    public function __toString(): string
+    {
+    }
+
+    /**
+     * Gets property name
+     *
+     * @link https://php.net/manual/en/reflectionproperty.getname.php
+     * @return string The name of the reflected property.
+     */
+    public function getName(): string
+    {
+    }
+
+    /**
+     * Gets value
+     *
+     * @link https://php.net/manual/en/reflectionproperty.getvalue.php
+     * @param object $object If the property is non-static an object must be
+     * provided to fetch the property from. If you want to fetch the default
+     * property without providing an object use {@see ReflectionClass::getDefaultProperties}
+     * instead.
+     * </p>
+     * @return mixed The current value of the property.
+     */
+    public function getValue(object $object = null): mixed
+    {
+    }
+
+    /**
+     * Set property value
+     *
+     * @link https://php.net/manual/en/reflectionproperty.setvalue.php
+     * @param mixed $objectOrValue If the property is non-static an object must
+     * be provided to change the property on. If the property is static this
+     * parameter is left out and only $value needs to be provided.
+     * @param mixed $value The new value.
+     * @return void No value is returned.
+     */
+    public function setValue(mixed|object $objectOrValue, mixed $value = null)
+    {
+    }
+
+    /**
+     * Checks if property is public
+     *
+     * @link https://php.net/manual/en/reflectionproperty.ispublic.php
+     * @return bool Return {@see true} if the property is public, {@see false} otherwise.
+     */
+    public function isPublic(): bool
+    {
+    }
+
+    /**
+     * Checks if property is private
+     *
+     * @link https://php.net/manual/en/reflectionproperty.isprivate.php
+     * @return bool Return {@see true} if the property is private, {@see false} otherwise.
+     */
+    public function isPrivate(): bool
+    {
+    }
+
+    /**
+     * Checks if property is protected
+     *
+     * @link https://php.net/manual/en/reflectionproperty.isprotected.php
+     * @return bool Returns {@see true} if the property is protected, {@see false} otherwise.
+     */
+    public function isProtected(): bool
+    {
+    }
+
+    /**
+     * Checks if property is static
+     *
+     * @link https://php.net/manual/en/reflectionproperty.isstatic.php
+     * @return bool Retruns {@see true} if the property is static, {@see false} otherwise.
+     */
+    public function isStatic(): bool
+    {
+    }
+
+    /**
+     * Checks if default value
+     *
+     * @link https://php.net/manual/en/reflectionproperty.isdefault.php
+     * @return bool Returns {@see true} if the property was declared at
+     * compile-time, or {@see false} if it was created at run-time.
+     */
+    public function isDefault(): bool
+    {
+    }
+
+    /**
+     * Gets modifiers
+     *
+     * @link https://php.net/manual/en/reflectionproperty.getmodifiers.php
+     * @return int A numeric representation of the modifiers.
+     */
+    public function getModifiers(): int
+    {
+    }
+
+    /**
+     * Gets declaring class
+     *
+     * @link https://php.net/manual/en/reflectionproperty.getdeclaringclass.php
+     * @return ReflectionClass A {@see ReflectionClass} object.
+     */
+    public function getDeclaringClass(): ReflectionClass
+    {
+    }
+
+    /**
+     * Gets doc comment
+     *
+     * @link https://php.net/manual/en/reflectionproperty.getdoccomment.php
+     * @return string|false The doc comment if it exists, otherwise {@see false}
+     */
+    public function getDocComment(): string|false
+    {
+    }
+
+    /**
+     * Set property accessibility
+     *
+     * @link https://php.net/manual/en/reflectionproperty.setaccessible.php
+     * @param bool $accessible A boolean {@see true} to allow accessibility, or {@see false}
+     * @return void No value is returned.
+     */
+    public function setAccessible(bool $accessible): void
+    {
+    }
+
+    /**
+     * Gets property type
+     *
+     * @link https://php.net/manual/en/reflectionproperty.gettype.php
+     * @return ReflectionType|null Returns a {@see ReflectionType} if the
+     * property has a type, and {@see null} otherwise.
+     * @since 7.4
+     */
+    public function getType(): ?ReflectionType
+    {
+    }
+
+    /**
+     * Checks if property has type
+     *
+     * @link https://php.net/manual/en/reflectionproperty.hastype.php
+     * @return bool Returns {@see true} if a type is specified, {@see false} otherwise.
+     * @since 7.4
+     */
+    public function hasType(): bool
+    {
+    }
+
+    /**
+     * Checks if property is initialized
+     *
+     * @link https://php.net/manual/en/reflectionproperty.isinitialized.php
+     * @param object|null $object If the property is non-static an object must be provided to fetch the property from.
+     * @return bool Returns {@see false} for typed properties prior to initialization, and for properties that have
+     * been explicitly {@see unset()}. For all other properties {@see true} will be returned.
+     * @since 7.4
+     */
+    public function isInitialized(object $object = null): bool
+    {
+    }
+
+    /**
+     * Returns information about whether the property was promoted.
+     *
+     * @return bool Returns {@see true} if the property was promoted or {@see false} instead.
+     * @since 8.0
+     */
+    public function isPromoted(): bool
+    {
+    }
+
+    /**
+     * Clone
+     *
+     * @link https://php.net/manual/en/reflectionproperty.clone.php
+     * @return void
+     */
+    final private function __clone()
+    {
+    }
+}
