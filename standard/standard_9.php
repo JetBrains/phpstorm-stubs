@@ -1171,3 +1171,12 @@ function get_mangled_object_vars($obj){}
  * @since 8.0
  */
 function get_debug_type(mixed $var): string {}
+
+/**
+ * A more obvious and type-safe form of "(int) $resource"
+ *
+ * @param resource $resource
+ * @return int
+ * @since 8.0
+ */
+function get_resource_id($resource): int {}
