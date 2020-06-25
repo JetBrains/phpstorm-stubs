@@ -482,6 +482,13 @@ function preg_grep ($pattern, array $input, $flags = 0) {}
  */
 function preg_last_error () {}
 
+/**
+ * Returns the error message of the last PCRE regex execution
+ *
+ * @return string one of the error messages or "No error" if there is no error.
+ * @since 8.0
+ */
+function preg_last_error_msg(): string {}
 
 /**
  * Orders results so that $matches[0] is an array of full pattern
@@ -608,4 +615,3 @@ define ('PCRE_VERSION_MINOR', 34);
  */
 define('PCRE_JIT_SUPPORT', 1);
 // End of pcre v.
-?>
