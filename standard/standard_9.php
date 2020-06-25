@@ -1153,4 +1153,21 @@ function realpath_cache_size() { }
  */
 function get_mangled_object_vars($obj){}
 
-?>
+/**
+ * Get the type or object name of a variable
+ *
+ * @param mixed $var The variable being type checked.
+ * @return string Possibles values for the returned string are:
+ *  - "int"
+ *  - "float"
+ *  - "bool"
+ *  - "string"
+ *  - "array"
+ *  - "null"
+ *  - A class name for named classes
+ *  - "class@anonymous" for an anonymous classes
+ *  - "resource (xxx)" for any resources where "xxx" is a name of resource
+ *  - "resource (closed)" for closed resources
+ * @since 8.0
+ */
+function get_debug_type(mixed $var): string {}
