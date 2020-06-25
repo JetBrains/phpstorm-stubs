@@ -660,3 +660,19 @@ class WeakReference {
      */
     public function get(): ?object {}
 }
+
+/**
+ * Stringable interface marks classes as available for serialization
+ * in a string.
+ *
+ * @since 8.0.0
+ */
+interface Stringable {
+    /**
+     * Magic method {@see https://www.php.net/manual/ru/language.oop5.magic.php}
+     * called during serialization to string.
+     *
+     * @return string
+     */
+    public function __toString(): string;
+}

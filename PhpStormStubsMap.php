@@ -660,6 +660,7 @@ const CLASSES = array (
   'Stomp' => 'stomp/stomp.php',
   'StompException' => 'stomp/stomp.php',
   'StompFrame' => 'stomp/stomp.php',
+  'Stringable' => 'Core/Core_c.php',
   'Svn' => 'svn/svn.php',
   'SvnNode' => 'svn/svn.php',
   'SvnWc' => 'svn/svn.php',
