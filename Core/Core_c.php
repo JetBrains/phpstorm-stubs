@@ -680,8 +680,7 @@ interface Stringable {
 /**
  * @since 8.0.0
  */
-// TODO Uncomment after implementing attributes in a PhpStorm (now syntax error):
-// - @@Attribute(Attribute::TARGET_CLASS)
+@@Attribute(Attribute::TARGET_CLASS)
 final class Attribute {
     /**
      * Marks that attribute declaration is allowed only in classes.
