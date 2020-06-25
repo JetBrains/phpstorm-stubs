@@ -676,3 +676,74 @@ interface Stringable {
      */
     public function __toString(): string;
 }
+
+/**
+ * @since 8.0.0
+ */
+// TODO Uncomment after implementing attributes in a PhpStorm (now syntax error):
+// - @@Attribute(Attribute::TARGET_CLASS)
+final class Attribute {
+    /**
+     * Marks that attribute declaration is allowed only in classes.
+     *
+     * @var int
+     */
+    public const TARGET_CLASS = 1;
+
+    /**
+     * Marks that attribute declaration is allowed only in functions.
+     *
+     * @var int
+     */
+    public const TARGET_FUNCTION = 1 << 1;
+
+    /**
+     * Marks that attribute declaration is allowed only in class methods.
+     *
+     * @var int
+     */
+    public const TARGET_METHOD = 1 << 2;
+
+    /**
+     * Marks that attribute declaration is allowed only in class properties.
+     *
+     * @var int
+     */
+    public const TARGET_PROPERTY = 1 << 3;
+
+    /**
+     * Marks that attribute declaration is allowed only in class constants.
+     *
+     * @var int
+     */
+    public const TARGET_CLASS_CONSTANT = 1 << 4;
+
+    /**
+     * Marks that attribute declaration is allowed only in function or method parameters.
+     *
+     * @var int
+     */
+    public const TARGET_PARAMETER = 1 << 5;
+
+    /**
+     * Marks that attribute declaration is allowed anywhere.
+     *
+     * @var int
+     */
+    public const TARGET_ALL = (1 << 6) - 1;
+
+    /**
+     * Notes that an attribute declaration in the same place is
+     * allowed multiple times.
+     *
+     * @var int
+     */
+    public const IS_REPEATABLE = 1 << 10;
+
+    /**
+     * @param int $flags
+     */
+    public function __construct(int $flags = self::TARGET_ALL)
+    {
+    }
+}
