@@ -680,7 +680,8 @@ interface Stringable {
 /**
  * @since 8.0.0
  */
-@@Attribute(Attribute::TARGET_CLASS)
+// TODO Uncomment after PHP 8.0 release:
+// @@Attribute(Attribute::TARGET_CLASS)
 final class Attribute {
     /**
      * Marks that attribute declaration is allowed only in classes.
