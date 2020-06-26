@@ -1878,12 +1878,12 @@ namespace Ds {
         /**
          * @var mixed
          */
-        public $key = null;
+        public $key;
 
         /**
          * @var mixed
          */
-        public $value = null;
+        public $value;
 
         /**
          * Creates a new instance using a given key and value.
