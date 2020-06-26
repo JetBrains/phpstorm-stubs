@@ -436,12 +436,24 @@ namespace Ds {
      * <h3>Weaknesses
      * <li>shift(), unshift(), insert() and remove() are all O(n).
      *
+     * @link https://www.php.net/manual/en/class.ds-vector.php
+     *
      * @package Ds
      */
     class Vector implements Sequence
     {
 
         const MIN_CAPACITY = 10;
+
+        /**
+         * Creates a new instance, using either a traversable object or an array for the initial values.
+         *
+         * @param array|Traversable $values
+         */
+        public function __construct($values = null)
+        {
+        }
+
 
         /**
          * Ensures that enough memory is allocated for a required capacity.
@@ -1864,6 +1876,16 @@ namespace Ds {
     class Pair implements JsonSerializable
     {
         /**
+         * @var mixed
+         */
+        public $key;
+
+        /**
+         * @var mixed
+         */
+        public $value;
+
+        /**
          * Creates a new instance using a given key and value.
          *
          * @param mixed $key
@@ -2001,7 +2023,7 @@ namespace Ds {
          *
          * <p><b>Caution:</b> All comparisons are strict (type and value).
          *
-         * @param mixed ...$values  Values to check.
+         * @param mixed ...$values Values to check.
          *
          * @return bool
          *
@@ -2326,7 +2348,7 @@ namespace Ds {
          *
          * @link https://www.php.net/manual/en/ds-set.union.php
          *
-         * @param Set $set  The other set, to combine with the current instance.
+         * @param Set $set The other set, to combine with the current instance.
          *
          * @return Set A new set containing all the values of the current
          * instance as well as another set.
@@ -2728,6 +2750,16 @@ namespace Ds {
          * @return bool
          */
         public function isEmpty(): bool
+        {
+        }
+
+        /**
+         * Pushes a value with a given priority into the queue.
+         *
+         * @param mixed $value
+         * @param int   $priority
+         */
+        public function push($value, int $priority)
         {
         }
 
