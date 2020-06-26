@@ -1876,6 +1876,16 @@ namespace Ds {
     class Pair implements JsonSerializable
     {
         /**
+         * @var mixed
+         */
+        public $key = null;
+
+        /**
+         * @var mixed
+         */
+        public $value = null;
+
+        /**
          * Creates a new instance using a given key and value.
          *
          * @param mixed $key
