@@ -292,7 +292,7 @@ function xdebug_get_formatted_function_stack() {}
 /**
  * Returns whether a debugging session is active.
  *
- * Returns true if a debugging session through DBGp is currently active with a client attached; false, if not. 
+ * Returns true if a debugging session through DBGp is currently active with a client attached; false, if not.
  *
  * @return bool
  */
