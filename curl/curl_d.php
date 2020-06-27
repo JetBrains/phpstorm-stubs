@@ -1734,7 +1734,7 @@ define ('CURLOPT_FTP_SKIP_PASV_IP', 137);
  * <b>TRUE</b> to disable support for the @ prefix for uploading files in <b>CURLOPT_POSTFIELDS</b>,
  * which means that values starting with @ can be safely passed as fields.
  * @link https://www.php.net/manual/en/function.curl-setopt.php
- * @since 5.5.0
+ * @since 5.5
  * @deprecated 7.0 Use <b>CURLFile</b> for uploads instead.
  */
 define ('CURLOPT_SAFE_UPLOAD', -1);
