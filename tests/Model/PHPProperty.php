@@ -59,7 +59,7 @@ class PHPProperty extends BasePHPElement
         $this->access = $access;
 
 
-        $this->type = $node->type ?? "";
+        $this->type = $node->type->name ?? "";
 
         $parentNode = $node->getAttribute('parent');
         if ($parentNode !== null){
