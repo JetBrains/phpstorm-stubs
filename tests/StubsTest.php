@@ -173,7 +173,9 @@ class StubsTest extends TestCase
         }
         foreach ($class->properties as $property) {
             $propertyName = $property->name;
-            if ($property->access === "private") continue;
+            if ($property->access === "private") {
+                continue;
+            }
             if (!$property->hasMutedProblem(StubProblemType::STUB_IS_MISSED)) {
                 static::assertArrayHasKey(
                     $propertyName,
@@ -418,10 +420,9 @@ class StubsTest extends TestCase
             if ($sinceTag instanceof Since) {
                 $version = $sinceTag->getVersion();
                 if ($version !== null) {
-                    self::assertTrue(Utils::versionIsMajor($sinceTag), "$elementName has 'since' version $version.
-                    'Since' version for PHP Core functionallity should have X.X format due to functionallity usually 
-                    isn't added in patch updates. If you believe this is not correct, please submit an issue about your case at
-                    https://youtrack.jetbrains.com/issues/WI");
+                    self::assertTrue(Utils::tagDoesNotHaveZeroPatchVersion($sinceTag), "$elementName has 
+                    'since' version $version.'Since' version for PHP Core functionallity for style consistensy 
+                    should have X.X format for the case when patch version is '0'.");
                 }
             }
         }
@@ -429,10 +430,9 @@ class StubsTest extends TestCase
             if ($deprecatedTag instanceof Deprecated) {
                 $version = $deprecatedTag->getVersion();
                 if ($version !== null) {
-                    self::assertTrue(Utils::versionIsMajor($deprecatedTag), "$elementName has 'deprecated' version $version .
-                    'Deprecated' version for PHP Core functionallity should have X.X format due to functionallity usually 
-                    isn't deprecated in patch updates. If you believe this is not correct, please submit an issue about your case at
-                    https://youtrack.jetbrains.com/issues/WI");
+                    self::assertTrue(Utils::tagDoesNotHaveZeroPatchVersion($deprecatedTag), "$elementName has 
+                    'deprecated' version $version.'Deprecated' version for PHP Core functionallity for style consistensy 
+                    should have X.X format for the case when patch version is '0'.");
                 }
             }
         }
@@ -440,10 +440,9 @@ class StubsTest extends TestCase
             if ($removedTag instanceof RemovedTag) {
                 $version = $removedTag->getVersion();
                 if ($version !== null) {
-                    self::assertTrue(Utils::versionIsMajor($removedTag), "$elementName has 'removed' version $version .
-                    'removed' version for PHP Core functionallity should have X.X format due to functionallity usually 
-                    isn't removed in patch updates. If you believe this is not correct, please submit an issue about your case at
-                    https://youtrack.jetbrains.com/issues/WI");
+                    self::assertTrue(Utils::tagDoesNotHaveZeroPatchVersion($removedTag), "$elementName has 
+                    'removed' version $version.'Removed' version for PHP Core functionallity for style consistensy 
+                    should have X.X format for the case when patch version is '0'.");
                 }
             }
         }

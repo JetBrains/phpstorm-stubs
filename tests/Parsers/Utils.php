@@ -7,6 +7,7 @@ use phpDocumentor\Reflection\DocBlock\Tags\Deprecated;
 use phpDocumentor\Reflection\DocBlock\Tags\Since;
 use RecursiveArrayIterator;
 use RecursiveIteratorIterator;
+use StubTests\Model\Tags\RemovedTag;
 
 class Utils
 {
@@ -16,11 +17,11 @@ class Utils
     }
 
     /**
-     * @param Since|Deprecated $tag
+     * @param Since|Deprecated|RemovedTag $tag
      * @return bool
      */
-    public static function versionIsMajor($tag): bool
+    public static function tagDoesNotHaveZeroPatchVersion($tag): bool
     {
-        return (bool)preg_match('/[1-9]+\.\d+/',$tag->getVersion());
+        return (bool)preg_match('/^[1-9]+\.\d+(\.[1-9]+\d*)*$/',$tag->getVersion()); //find version like any but 7.4.0
     }
 }

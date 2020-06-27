@@ -647,7 +647,7 @@ class WeakReference {
      * @link https://www.php.net/manual/en/weakreference.create.php
      * @param object $referent The object to be weakly referenced.
      * @return WeakReference the freshly instantiated object.
-     * @since 7.4.0
+     * @since 7.4
      */
     public static function create(object $referent): WeakReference {}
 
@@ -656,7 +656,7 @@ class WeakReference {
      * destroyed, NULL is returned.
      * @link https://www.php.net/manual/en/weakreference.get.php
      * @return object|null
-     * @since 7.4.0
+     * @since 7.4
      */
     public function get(): ?object {}
 }

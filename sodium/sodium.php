@@ -836,7 +836,7 @@ function sodium_crypto_secretbox(
  * @param string $key
  * @return string|false
  * @throws SodiumException
- * @since 7.2.0
+ * @since 7.2
  */
 function sodium_crypto_secretbox_open(
     string $ciphertext,
