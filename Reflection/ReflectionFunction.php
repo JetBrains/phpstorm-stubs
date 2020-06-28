@@ -12,7 +12,6 @@ class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
      * Indicates deprecated functions.
      *
      * @link https://www.php.net/manual/en/class.reflectionfunction.php#reflectionfunction.constants.is-deprecated
-     * @var int
      */
     public const IS_DEPRECATED = 2048;
 

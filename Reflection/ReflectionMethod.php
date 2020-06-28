@@ -10,43 +10,31 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector
 {
     /**
      * Indicates that the method is static.
-     *
-     * @var int
      */
     public const IS_STATIC = 16;
 
     /**
      * Indicates that the method is public.
-     *
-     * @var int
      */
     public const IS_PUBLIC = 1;
 
     /**
      * Indicates that the method is protected.
-     *
-     * @var int
      */
     public const IS_PROTECTED = 2;
 
     /**
      * Indicates that the method is private.
-     *
-     * @var int
      */
     public const IS_PRIVATE = 4;
 
     /**
      * Indicates that the method is abstract.
-     *
-     * @var int
      */
     public const IS_ABSTRACT = 64;
 
     /**
      * Indicates that the method is final.
-     *
-     * @var int
      */
     public const IS_FINAL = 32;
 

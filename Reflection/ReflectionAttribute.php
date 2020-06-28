@@ -11,7 +11,6 @@ class ReflectionAttribute
      *
      * Used for the argument of flags of the "getAttribute" method.
      *
-     * @var int
      * @since 8.0
      */
     public const IS_INSTANCEOF = 2;

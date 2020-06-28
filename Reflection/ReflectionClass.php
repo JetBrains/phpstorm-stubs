@@ -12,7 +12,6 @@ class ReflectionClass implements Reflector
      * Indicates class that is abstract because it has some abstract methods.
      *
      * @link https://www.php.net/manual/en/class.reflectionclass.php#reflectionclass.constants.is-implicit-abstract
-     * @var int
      */
     public const IS_IMPLICIT_ABSTRACT = 16;
 
@@ -20,7 +19,6 @@ class ReflectionClass implements Reflector
      * Indicates class that is abstract because of its definition.
      *
      * @link https://www.php.net/manual/en/class.reflectionclass.php#reflectionclass.constants.is-explicit-abstract
-     * @var int
      */
     public const IS_EXPLICIT_ABSTRACT = 64;
 
@@ -28,7 +26,6 @@ class ReflectionClass implements Reflector
      * Indicates final class.
      *
      * @link https://www.php.net/manual/en/class.reflectionclass.php#reflectionclass.constants.is-final
-     * @var int
      */
     public const IS_FINAL = 32;
 

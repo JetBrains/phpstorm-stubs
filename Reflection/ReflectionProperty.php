@@ -12,7 +12,6 @@ class ReflectionProperty implements Reflector
      * Indicates that the property is static.
      *
      * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-static
-     * @var int
      */
     public const IS_STATIC = 16;
 
@@ -20,7 +19,6 @@ class ReflectionProperty implements Reflector
      * Indicates that the property is public.
      *
      * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-public
-     * @var int
      */
     public const IS_PUBLIC = 1;
 
@@ -28,7 +26,6 @@ class ReflectionProperty implements Reflector
      * Indicates that the property is protected.
      *
      * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-protected
-     * @var int
      */
     public const IS_PROTECTED = 2;
 
@@ -36,7 +33,6 @@ class ReflectionProperty implements Reflector
      * Indicates that the property is private.
      *
      * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-private
-     * @var int
      */
     public const IS_PRIVATE = 4;
 

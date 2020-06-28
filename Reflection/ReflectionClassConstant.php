@@ -11,7 +11,6 @@ class ReflectionClassConstant implements Reflector
     /**
      * Indicates that the constant is public.
      *
-     * @var int
      * @since 8.0
      */
     public const IS_PUBLIC = 1;
@@ -19,7 +18,6 @@ class ReflectionClassConstant implements Reflector
     /**
      * Indicates that the constant is protected.
      *
-     * @var int
      * @since 8.0
      */
     public const IS_PROTECTED = 2;
@@ -27,7 +25,6 @@ class ReflectionClassConstant implements Reflector
     /**
      * Indicates that the constant is private.
      *
-     * @var int
      * @since 8.0
      */
     public const IS_PRIVATE = 4;
