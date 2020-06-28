@@ -524,7 +524,7 @@ define ('SIG_SETMASK', 2);
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
  */
-define ('SIGRTMIN', 34);
+define ('SIGRTMIN', 35);
 
 /**
  * @link https://php.net/manual/en/pcntl.constants.php
