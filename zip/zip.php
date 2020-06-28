@@ -313,6 +313,125 @@ class ZipArchive implements Countable {
 	const EM_AES_256 = 259;
 
 	/**
+     * Open archive in read only mode
+	 * @link https://secure.php.net/manual/en/zip.constants.php
+	 * @since 7.4.3
+	 */
+	const RDONLY = 260;
+
+    /**
+     * Guess string encoding (is default)
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.0.8
+     */
+	const FL_ENC_GUESS = 261;
+
+    /**
+     * Get unmodified string
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.0.8
+     */
+	const FL_ENC_RAW = 262;
+
+    /**
+     * Follow specification strictly
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.0.8
+     */
+	const FL_ENC_STRICT = 263;
+
+    /**
+     * String is UTF-8 encoded
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.0.8
+     */
+	const FL_ENC_UTF_8 = 264;
+
+    /**
+     * String is CP437 encoded
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.0.8
+     */
+	const FL_ENC_CP437 = 265;
+
+    /**
+     * LZMA2 algorithm
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+	const CM_LZMA2 = 266;
+
+    /**
+     * XZ algorithm
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+	const CM_XZ = 267;
+
+    /**
+     * Encryption method not support
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+	const ER_ENCRNOTSUPP = 268;
+
+    /**
+     * Read-only archive
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+	const ER_RDONLY = 269;
+
+    /**
+     * No password provided
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+	const ER_NOPASSWD = 270;
+
+    /**
+     * Wrong password provided
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+	const ER_WRONGPASSWD = 271;
+
+    /**
+     * Operation not supported
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+	const ER_OPNOTSUPP = 272;
+
+    /**
+     * Resource still in use
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+	const ER_INUSE = 273;
+
+    /**
+     * Tell error
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+	const ER_TELL = 274;
+
+    /**
+     * Compressed data invalid
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+	const ER_COMPRESSED_DATA = 275;
+
+    /**
+     * Operation cancelled
+     * @link https://secure.php.net/manual/en/zip.constants.php
+     * @since 7.4.3
+     */
+	const ER_CANCELLED = 276;
+
+	/**
 	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
 	 * @since 5.6
 	 */
@@ -431,6 +550,11 @@ class ZipArchive implements Countable {
 	 * @since 5.6
 	 */
 	 const OPSYS_OS_X = 19;
+
+    /**
+     * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+     */
+    const OPSYS_CPM = 20;
 
 	/**
 	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
@@ -1000,6 +1124,49 @@ class ZipArchive implements Countable {
 	 */
 	public function getStream ($name) {}
 
+    /**
+     * Set the external attributes of an entry defined by its name
+     * @link https://www.php.net/manual/en/ziparchive.setexternalattributesname.php
+     * @param string $name Name of the entry
+     * @param int $opsys The operating system code defined by one of the ZipArchive::OPSYS_ constants.
+	 * @param int $attr The external attributes. Value depends on operating system.
+	 * @param int $flags [optional] Optional flags. Currently unused.
+	 * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+	public function setExternalAttributesName(string $name, int $opsys, int $attr, int $flags = null): bool {}
+
+    /**
+     * Retrieve the external attributes of an entry defined by its name
+     * @link https://www.php.net/manual/en/ziparchive.getexternalattributesname.php
+     * @param string $name Name of the entry
+     * @param int $opsys On success, receive the operating system code defined by one of the ZipArchive::OPSYS_ constants.
+     * @param int $attr On success, receive the external attributes. Value depends on operating system.
+     * @param int $flags [optional] If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged attributes are returned.
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function getExternalAttributesName(string $name, int &$opsys, int &$attr, int $flags = null): bool {}
+
+    /**
+     * Set the external attributes of an entry defined by its index
+     * @link https://www.php.net/manual/en/ziparchive.setexternalattributesindex.php
+     * @param int $index Index of the entry.
+     * @param int $opsys The operating system code defined by one of the ZipArchive::OPSYS_ constants.
+     * @param int $attr The external attributes. Value depends on operating system.
+     * @param int $flags [optional] Optional flags. Currently unused.
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+	public function setExternalAttributesIndex(int $index, int $opsys, int $attr, int $flags = null): bool {}
+
+    /**
+     * Retrieve the external attributes of an entry defined by its index
+     * @link https://www.php.net/manual/en/ziparchive.getexternalattributesindex.php
+     * @param int $index Index of the entry.
+     * @param int $opsys On success, receive the operating system code defined by one of the ZipArchive::OPSYS_ constants.
+     * @param int $attr On success, receive the external attributes. Value depends on operating system.
+     * @param int $flags [optional] If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged attributes are returned.
+     * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     */
+    public function getExternalAttributesIndex(int $index, int &$opsys, int &$attr, int $flags = null): bool {}
 }
 
 /**
