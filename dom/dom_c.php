@@ -2073,7 +2073,7 @@ interface DOMParentNode {
      *
      * @param DOMNode|string|null ...$nodes
      * @return void
-     * @since 8.0.0
+     * @since 8.0
      */
     public function append(...$nodes): void;
 
@@ -2083,7 +2083,7 @@ interface DOMParentNode {
      *
      * @param DOMNode|string|null ...$nodes
      * @return void
-     * @since 8.0.0
+     * @since 8.0
      */
     public function prepend(...$nodes): void;
 }
@@ -2099,7 +2099,7 @@ interface DOMChildNode {
      * Acts as a simpler version of {@see DOMNode::removeChild()}.
      *
      * @return void
-     * @since 8.0.0
+     * @since 8.0
      */
     public function remove(): void;
 
@@ -2108,7 +2108,7 @@ interface DOMChildNode {
      *
      * @param DOMNode|string|null ...$nodes
      * @return void
-     * @since 8.0.0
+     * @since 8.0
      */
     public function before(...$nodes): void;
 
@@ -2117,7 +2117,7 @@ interface DOMChildNode {
      *
      * @param DOMNode|string|null ...$nodes
      * @return void
-     * @since 8.0.0
+     * @since 8.0
      */
     public function after(...$nodes): void;
 
@@ -2127,7 +2127,7 @@ interface DOMChildNode {
      *
      * @param DOMNode|string|null ...$nodes
      * @return void
-     * @since 8.0.0
+     * @since 8.0
      */
     public function replaceWith(...$nodes): void;
 }
