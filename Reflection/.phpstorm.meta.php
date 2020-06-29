@@ -13,22 +13,40 @@ namespace PHPSTORM_META {
     );
 
     registerArgumentsSet('ReflectionMethodModifiers',
-        \ReflectionMethod::IS_ABSTRACT|\ReflectionMethod::IS_FINAL|\ReflectionMethod::IS_PUBLIC|
-        \ReflectionMethod::IS_PRIVATE|\ReflectionMethod::IS_PROTECTED|\ReflectionMethod::IS_STATIC
+        \ReflectionMethod::IS_ABSTRACT|
+        \ReflectionMethod::IS_FINAL|
+        \ReflectionMethod::IS_PUBLIC|
+        \ReflectionMethod::IS_PRIVATE|
+        \ReflectionMethod::IS_PROTECTED|
+        \ReflectionMethod::IS_STATIC
     );
 
     registerArgumentsSet('ReflectionPropertyModifiers',
-        \ReflectionProperty::IS_PUBLIC|\ReflectionProperty::IS_PRIVATE|
-        \ReflectionProperty::IS_PROTECTED|\ReflectionProperty::IS_STATIC
+        \ReflectionProperty::IS_PUBLIC|
+        \ReflectionProperty::IS_PRIVATE|
+        \ReflectionProperty::IS_PROTECTED|
+        \ReflectionProperty::IS_STATIC
     );
 
     registerArgumentsSet('ReflectionConstantModifiers',
-        \ReflectionClassConstant::IS_PUBLIC|\ReflectionClassConstant::IS_PRIVATE|\ReflectionClassConstant::IS_PROTECTED
+        \ReflectionClassConstant::IS_PUBLIC|
+        \ReflectionClassConstant::IS_PRIVATE|
+        \ReflectionClassConstant::IS_PROTECTED
     );
 
     registerArgumentsSet('ReflectionGeneratorGetTrace',
         \DEBUG_BACKTRACE_PROVIDE_OBJECT,
         \DEBUG_BACKTRACE_IGNORE_ARGS
+    );
+
+    registerArgumentsSet('ReflectionAttributeTarget',
+        \Attribute::TARGET_CLASS|
+        \Attribute::TARGET_FUNCTION|
+        \Attribute::TARGET_METHOD|
+        \Attribute::TARGET_PROPERTY|
+        \Attribute::TARGET_CLASS_CONSTANT|
+        \Attribute::TARGET_PARAMETER|
+        \Attribute::TARGET_ALL
     );
 
     expectedArguments(\ReflectionClass::getAttributes(), 1, argumentsSet('ReflectionGetAttributes'));
@@ -44,4 +62,5 @@ namespace PHPSTORM_META {
     expectedReturnValues(\ReflectionProperty::getModifiers(), argumentsSet('ReflectionPropertyModifiers'));
     expectedReturnValues(\ReflectionMethod::getModifiers(), argumentsSet('ReflectionMethodModifiers'));
     expectedReturnValues(\ReflectionClassConstant::getModifiers(), argumentsSet('ReflectionConstantModifiers'));
+    expectedReturnValues(\ReflectionAttribute::getTarget(), argumentsSet('ReflectionAttributeTarget'));
 }

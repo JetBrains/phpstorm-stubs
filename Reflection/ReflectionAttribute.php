@@ -34,7 +34,27 @@ class ReflectionAttribute
     }
 
     /**
-     * Gets list of passed attribute's arguments
+     * Returns the target of the attribute as a bit mask format.
+     *
+     * @return int
+     * @since 8.0
+     */
+    public function getTarget(): int
+    {
+    }
+
+    /**
+     * Returns {@see true} if the attribute is repeated.
+     *
+     * @return bool
+     * @since 8.0
+     */
+    public function isRepeated(): bool
+    {
+    }
+
+    /**
+     * Gets list of passed attribute's arguments.
      *
      * @return array
      * @since 8.0
@@ -54,6 +74,8 @@ class ReflectionAttribute
     }
 
     /**
+     * ReflectionAttribute cannot be cloned
+     *
      * @return void
      * @since 8.0
      */
