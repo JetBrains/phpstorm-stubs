@@ -41,4 +41,13 @@ abstract class ReflectionType implements Stringable
     public function __toString(): string
     {
     }
+
+    /**
+     * Cloning of this class is prohibited
+     *
+     * @return void
+     */
+    final private function __clone()
+    {
+    }
 }
