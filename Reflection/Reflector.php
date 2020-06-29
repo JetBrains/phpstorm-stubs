@@ -16,4 +16,14 @@ interface Reflector extends Stringable
      * @deprecated Since PHP 7.4 and removed in 8.0
      */
     public static function export(): ?string;
+
+    /**
+     * Returns the string representation of any Reflection object.
+     *
+     * Please note that since PHP 8.0 this method is absent in this interface
+     * and inherits from the {@see Stringable} parent.
+     *
+     * @return string
+     */
+    public function __toString(): string;
 }
