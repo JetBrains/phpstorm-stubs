@@ -207,12 +207,12 @@ class ReflectionClass implements Reflector
      * Gets an array of methods for the class.
      *
      * @link https://php.net/manual/en/reflectionclass.getmethods.php
-     * @param int $filter Filter the results to include only methods
+     * @param int|null $filter Filter the results to include only methods
      * with certain attributes. Defaults to no filtering.
      * @return ReflectionMethod[] An array of {@see ReflectionMethod} objects
      * reflecting each method.
      */
-    public function getMethods(int $filter = 119): array
+    public function getMethods(int $filter = null): array
     {
     }
 
@@ -243,12 +243,12 @@ class ReflectionClass implements Reflector
      * Gets properties
      *
      * @link https://php.net/manual/en/reflectionclass.getproperties.php
-     * @param int $filter The optional filter, for filtering desired
+     * @param int|null $filter The optional filter, for filtering desired
      * property types. It's configured using the {@see ReflectionProperty} constants,
      * and defaults to all property types.
      * @return ReflectionProperty[]
      */
-    public function getProperties(int $filter = 23): array
+    public function getProperties(int $filter = null): array
     {
     }
 
