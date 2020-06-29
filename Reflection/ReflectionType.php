@@ -25,6 +25,9 @@ abstract class ReflectionType implements Stringable
      * @link https://php.net/manual/en/reflectiontype.isbuiltin.php
      * @return bool Returns {@see true} if it's a built-in type, otherwise {@see false}
      * @since 7.0
+     *
+     * @deprecated Since 8.0 this method has been removed from the ReflectionType
+     * class and moved to the ReflectionNamedType child.
      */
     public function isBuiltin(): bool
     {
