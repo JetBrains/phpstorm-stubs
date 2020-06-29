@@ -665,7 +665,7 @@ class WeakReference {
  * Stringable interface marks classes as available for serialization
  * in a string.
  *
- * @since 8.0.0
+ * @since 8.0
  */
 interface Stringable {
     /**
