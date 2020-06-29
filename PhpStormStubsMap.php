@@ -5241,6 +5241,7 @@ const FUNCTIONS = array (
   'xdebug_get_profiler_filename' => 'xdebug/xdebug.php',
   'xdebug_get_stack_depth' => 'xdebug/xdebug.php',
   'xdebug_get_tracefile_name' => 'xdebug/xdebug.php',
+  'xdebug_is_debugger_active' => 'xdebug/xdebug.php',
   'xdebug_is_enabled' => 'xdebug/xdebug.php',
   'xdebug_memory_usage' => 'xdebug/xdebug.php',
   'xdebug_peak_memory_usage' => 'xdebug/xdebug.php',

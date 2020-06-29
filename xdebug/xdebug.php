@@ -289,6 +289,15 @@ function xdebug_get_headers () {}
 
 function xdebug_get_formatted_function_stack() {}
 
+/**
+ * Returns whether a debugging session is active.
+ *
+ * Returns true if a debugging session through DBGp is currently active with a client attached; false, if not.
+ *
+ * @return bool
+ */
+function xdebug_is_debugger_active() {}
+
 define ('XDEBUG_STACK_NO_DESC', 1);
 define ('XDEBUG_TRACE_APPEND', 1);
 define ('XDEBUG_TRACE_COMPUTERIZED', 2);
