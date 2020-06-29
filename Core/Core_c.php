@@ -801,3 +801,91 @@ final class Attribute {
     {
     }
 }
+
+/**
+ * A class for working with PHP tokens, which is an alternative to
+ * the {@see token_get_all()} function.
+ *
+ * @since 8.0
+ */
+class PhpToken implements Stringable {
+    /**
+     * One of the T_* constants, or an integer < 256 representing a
+     * single-char token.
+     *
+     * @var int
+     */
+    public int $id;
+
+    /**
+     * The textual content of the token.
+     *
+     * @var string
+     */
+    public string $text;
+
+    /**
+     * The starting line number (1-based) of the token.
+     *
+     * @var int
+     */
+    public int $line;
+
+    /**
+     * The starting position (0-based) in the tokenized string.
+     *
+     * @var int
+     */
+    public int $pos;
+
+    /**
+     * Same as {@see token_get_all()}, but returning array of {@see PhpToken}
+     * or an instance of a child class.
+     *
+     * @param string $code An a PHP source code
+     * @param int $flags
+     * @return static[]
+     */
+    public static function getAll(string $code, int $flags = 0): array
+    {
+    }
+
+    /**
+     * @param int $id An integer identifier
+     * @param string $text Textual content
+     * @param int $line Strating line
+     * @param int $pos Straring position (line offset)
+     */
+    final public function __construct(int $id, string $text, int $line = -1, int $pos = -1)
+    {
+    }
+
+    /**
+     * Get the name of the token.
+     *
+     * @return string|null
+     */
+    public function getTokenName(): ?string
+    {
+    }
+
+    /**
+     * Whether the token has the given ID, the given text, or has an ID/text
+     * part of the given array.
+     *
+     * @param int|string|array $kind
+     * @return bool
+     */
+    public function is($kind): bool
+    {
+    }
+
+    /**
+     * Whether this token would be ignored by the PHP parser.
+     *
+     * @return bool
+     */
+    public function isIgnorable(): bool
+    {
+    }
+}
