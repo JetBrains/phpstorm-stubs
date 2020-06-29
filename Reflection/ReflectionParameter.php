@@ -4,20 +4,12 @@
  * The <b>ReflectionParameter</b> class retrieves
  * information about function's or method's parameters.
  *
+ * @property-read string $name Name of the parameter, same as calling the {@see ReflectionParameter::getName()} method
+ *
  * @link https://php.net/manual/en/class.reflectionparameter.php
  */
 class ReflectionParameter implements Reflector
 {
-    /**
-     * Name of the parameter. An alias of {@see ReflectionParameter::getName}
-     * method.
-     *
-     * Read-only, throws {@see ReflectionException} in attempt to write.
-     *
-     * @var string
-     */
-    public string $name = '';
-
     /**
      * Construct
      *

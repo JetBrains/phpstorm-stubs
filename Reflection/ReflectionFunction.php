@@ -4,9 +4,11 @@
  * The <b>ReflectionFunction</b> class reports
  * information about a function.
  *
+ * @property-read string $name Function name, same as calling the {@see ReflectionFunction::getName()} method
+ *
  * @link https://php.net/manual/en/class.reflectionfunction.php
  */
-class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
+class ReflectionFunction extends ReflectionFunctionAbstract
 {
     /**
      * Indicates deprecated functions.
@@ -14,14 +16,6 @@ class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
      * @link https://www.php.net/manual/en/class.reflectionfunction.php#reflectionfunction.constants.is-deprecated
      */
     public const IS_DEPRECATED = 2048;
-
-    /**
-     * Function name. Read-only, throws {@see ReflectionException} in attempt to write.
-     *
-     * @link https://www.php.net/manual/en/class.reflectionfunction.php#reflectionfunction.props.name
-     * @var string
-     */
-    public string $name = '';
 
     /**
      * Constructs a ReflectionFunction object

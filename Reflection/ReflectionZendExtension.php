@@ -1,21 +1,13 @@
 <?php
 
-
 /**
+ * @property-read string $name Name of the extension, same as calling the {@see ReflectionZendExtension::getName()} method
+ *
  * @link https://secure.php.net/manual/en/class.reflectionzendextension.php
  * @since 5.4
  */
 class ReflectionZendExtension implements Reflector
 {
-    /**
-     * Name of the extension, same as calling the {@see ReflectionZendExtension::getName()}
-     * method. Read-only, throws {@see ReflectionException} in attempt to write.
-     *
-     * @link https://www.php.net/manual/en/class.reflectionzendextension.php#reflectionzendextension.props.name
-     * @var string
-     */
-    public string $name = '';
-
     /**
      * Constructs a ReflectionZendExtension object
      *

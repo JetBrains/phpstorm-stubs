@@ -4,9 +4,12 @@
  * The <b>ReflectionMethod</b> class reports
  * information about a method.
  *
+ * @property-read string $name Name of the method, same as calling the {@see ReflectionMethod::getName()} method
+ * @property-read string $class Fully qualified class name where this method was defined
+ *
  * @link https://php.net/manual/en/class.reflectionmethod.php
  */
-class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector
+class ReflectionMethod extends ReflectionFunctionAbstract
 {
     /**
      * Indicates that the method is static.
@@ -37,22 +40,6 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector
      * Indicates that the method is final.
      */
     public const IS_FINAL = 32;
-
-    /**
-     * Method name. Read-only, throws {@see ReflectionException} in attempt to write.
-     *
-     * @link https://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.props.name
-     * @var string
-     */
-    public string $name = '';
-
-    /**
-     * Class name. Read-only, throws {@see ReflectionException} in attempt to write.
-     *
-     * @link https://www.php.net/manual/en/class.reflectionmethod.php#reflectionmethod.props.class
-     * @var string
-     */
-    public string $class = '';
 
     /**
      * Constructs a ReflectionMethod

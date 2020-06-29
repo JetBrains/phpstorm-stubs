@@ -4,21 +4,12 @@
  * A parent class to <b>ReflectionFunction</b>, read its
  * description for details.
  *
+ * @property-read string $name Name of the function, same as calling the {@see ReflectionFunctionAbstract::getName()} method
+ *
  * @link https://php.net/manual/en/class.reflectionfunctionabstract.php
  */
 abstract class ReflectionFunctionAbstract implements Reflector
 {
-    /**
-     * Name of the function. An alias of
-     * {@see ReflectionFunctionAbstract::getName} method.
-     *
-     * Read-only, throws {@see ReflectionException} in attempt to write.
-     *
-     * @link https://www.php.net/manual/en/class.reflectionfunctionabstract.php#reflectionfunctionabstract.props.name
-     * @var string
-     */
-    public string $name = '';
-
     /**
      * Clones function
      *

@@ -1,22 +1,14 @@
 <?php
 
 /**
- * The <b>ReflectionExtension</b> class reports
- * information about an extension.
+ * The <b>ReflectionExtension</b> class reports information about an extension.
+ *
+ * @property-read string $name Name of the extension, same as calling the {@see ReflectionExtension::getName()} method
  *
  * @link https://php.net/manual/en/class.reflectionextension.php
  */
 class ReflectionExtension implements Reflector
 {
-    /**
-     * Name of the extension, same as calling the {@see ReflectionExtension::getName()}
-     * method. Read-only, throws {@see ReflectionException} in attempt to write.
-     *
-     * @link https://www.php.net/manual/en/class.reflectionextension.php#reflectionextension.props.name
-     * @var string
-     */
-    public string $name = '';
-
     /**
      * Constructs a ReflectionExtension
      *

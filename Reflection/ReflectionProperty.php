@@ -1,8 +1,11 @@
 <?php
 
 /**
- * The <b>ReflectionProperty</b> class reports
- * information about a classes properties.
+ * The <b>ReflectionProperty</b> class reports information about a classes
+ * properties.
+ *
+ * @property-read string $name Name of the property, same as calling the {@see ReflectionProperty::getName()} method
+ * @property-read string $class Fully qualified class name where this property was defined
  *
  * @link https://php.net/manual/en/class.reflectionproperty.php
  */
@@ -35,22 +38,6 @@ class ReflectionProperty implements Reflector
      * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-private
      */
     public const IS_PRIVATE = 4;
-
-    /**
-     * Property name. Read-only, throws {@see ReflectionException} in attempt to write.
-     *
-     * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.props.name
-     * @var string
-     */
-    public string $name = '';
-
-    /**
-     * Class name. Read-only, throws {@see ReflectionException} in attempt to write.
-     *
-     * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.props.class
-     * @var string
-     */
-    public string $class = '';
 
     /**
      * Construct a ReflectionProperty object

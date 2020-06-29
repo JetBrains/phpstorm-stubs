@@ -1,8 +1,9 @@
 <?php
 
 /**
- * The <b>ReflectionClass</b> class reports
- * information about a class.
+ * The <b>ReflectionClass</b> class reports information about a class.
+ *
+ * @property-read string $name Name of the class, same as calling the {@see ReflectionClass::getName()} method
  *
  * @link https://php.net/manual/en/class.reflectionclass.php
  */
@@ -28,15 +29,6 @@ class ReflectionClass implements Reflector
      * @link https://www.php.net/manual/en/class.reflectionclass.php#reflectionclass.constants.is-final
      */
     public const IS_FINAL = 32;
-
-    /**
-     * Name of the class. Read-only, throws {@see ReflectionException} in
-     * attempt to write.
-     *
-     * @link https://www.php.net/manual/en/class.reflectionclass.php#reflectionclass.props.name
-     * @var string
-     */
-    public string $name = '';
 
     /**
      * Constructs a ReflectionClass
