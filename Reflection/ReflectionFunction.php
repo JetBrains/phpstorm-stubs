@@ -30,7 +30,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
      * @param string|Closure $name The name of the function to reflect or a closure.
      * @throws ReflectionException if the function does not exist.
      */
-    public function __construct(string|Closure $name)
+    public function __construct($name)
     {
     }
 
@@ -78,7 +78,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
      * like {@see call_user_func} is.
      * @return mixed Returns the result of the invoked function call.
      */
-    public function invoke(mixed ...$args): mixed
+    public function invoke(...$args)
     {
     }
 
@@ -91,7 +91,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract implements Reflector
      * </p>
      * @return mixed the result of the invoked function
      */
-    public function invokeArgs(array $args): mixed
+    public function invokeArgs(array $args)
     {
     }
 

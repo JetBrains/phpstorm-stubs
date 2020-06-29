@@ -27,7 +27,7 @@ class ReflectionParameter implements Reflector
      * of the parameter (starting with zero), or a the parameter name as string.
      * @throws \ReflectionException if the function or parameter does not exist.
      */
-    public function __construct(callable $function, int|string $parameter)
+    public function __construct(callable $function, $parameter)
     {
     }
 
@@ -219,7 +219,7 @@ class ReflectionParameter implements Reflector
      * @throws \ReflectionException if the parameter is not optional
      * @since 5.0.3
      */
-    public function getDefaultValue(): mixed
+    public function getDefaultValue()
     {
     }
 

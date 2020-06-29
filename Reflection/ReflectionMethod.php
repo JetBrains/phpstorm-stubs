@@ -71,7 +71,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector
      * classname or an object.
      * @throws \ReflectionException if the class or method does not exist.
      */
-    public function __construct(string|object $classOrName, string $name = null)
+    public function __construct($classOrName, string $name = null)
     {
     }
 
@@ -229,7 +229,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector
      * instance of the class that this method was declared in or the method
      * invocation failed.
      */
-    public function invoke(object $object = null, mixed ...$args): mixed
+    public function invoke(object $object = null, ...$args)
     {
     }
 
@@ -245,7 +245,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract implements Reflector
      * instance of the class that this method was declared in or the method
      * invocation failed.
      */
-    public function invokeArgs(?object $object, array $args): mixed
+    public function invokeArgs(?object $object, array $args)
     {
     }
 

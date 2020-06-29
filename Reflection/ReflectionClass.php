@@ -46,7 +46,7 @@ class ReflectionClass implements Reflector
      * the class to reflect, or an object.
      * @throws \ReflectionException if the class does not exist.
      */
-    public function __construct(string|object $argument)
+    public function __construct($argument)
     {
     }
 
@@ -61,7 +61,7 @@ class ReflectionClass implements Reflector
      * export is returned as a string, otherwise {@see null} is returned.
      * @deprecated Since PHP 7.4 and removed in 8.0
      */
-    public static function export(mixed $argument, bool $return = false): ?string
+    public static function export($argument, bool $return = false): ?string
     {
     }
 
@@ -134,7 +134,7 @@ class ReflectionClass implements Reflector
      * If the class is defined in the PHP core or in a PHP extension, {@see false}
      * is returned.
      */
-    public function getFileName(): string|false
+    public function getFileName()
     {
     }
 
@@ -155,7 +155,7 @@ class ReflectionClass implements Reflector
      * @return int|false The ending line number of the user defined class, or
      * {@see false} if unknown.
      */
-    public function getEndLine(): int|false
+    public function getEndLine()
     {
     }
 
@@ -165,7 +165,7 @@ class ReflectionClass implements Reflector
      * @link https://php.net/manual/en/reflectionclass.getdoccomment.php
      * @return string|false The doc comment if it exists, otherwise {@see false}
      */
-    public function getDocComment(): string|false
+    public function getDocComment()
     {
     }
 
@@ -305,7 +305,7 @@ class ReflectionClass implements Reflector
      * @return mixed|false Value of the constant with the name name.
      * Returns {@see false} if the constant was not found in the class.
      */
-    public function getConstant(string $name): mixed
+    public function getConstant(string $name)
     {
     }
 
@@ -453,7 +453,7 @@ class ReflectionClass implements Reflector
      * the class does not have a constructor and the $args parameter contains
      * one or more parameters.
      */
-    public function newInstance(mixed ...$args): object
+    public function newInstance(...$args): object
     {
     }
 
@@ -493,7 +493,7 @@ class ReflectionClass implements Reflector
      * @return ReflectionClass|false A {@see ReflectionClass} or {@see false}
      * if there's no parent.
      */
-    public function getParentClass(): ReflectionClass|false
+    public function getParentClass()
     {
     }
 
@@ -505,7 +505,7 @@ class ReflectionClass implements Reflector
      * string or a {@see ReflectionClass} object of the class to check against.
      * @return bool {@see true} on success or {@see false} on failure.
      */
-    public function isSubclassOf(string|ReflectionClass $class): bool
+    public function isSubclassOf($class): bool
     {
     }
 
@@ -530,7 +530,7 @@ class ReflectionClass implements Reflector
      * not exist and this argument is omitted, a {@see ReflectionException} is thrown.
      * @return mixed The value of the static property.
      */
-    public function getStaticPropertyValue(string $name, mixed $default = null): mixed
+    public function getStaticPropertyValue(string $name, $default = null)
     {
     }
 
@@ -542,7 +542,7 @@ class ReflectionClass implements Reflector
      * @param mixed $value New property value.
      * @return void No value is returned.
      */
-    public function setStaticPropertyValue(string $name, mixed $value): void
+    public function setStaticPropertyValue(string $name, $value): void
     {
     }
 
@@ -610,7 +610,7 @@ class ReflectionClass implements Reflector
      * @return string|false The name of the extension which defined the class,
      * or {@see false} for user-defined classes.
      */
-    public function getExtensionName(): string|false
+    public function getExtensionName()
     {
     }
 

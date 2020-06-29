@@ -60,7 +60,7 @@ class ReflectionProperty implements Reflector
      * @param string $name The name of the property being reflected.
      * @throws \ReflectionException if the class or property does not exist.
      */
-    public function __construct(string|object $class, string $name)
+    public function __construct($class, string $name)
     {
     }
 
@@ -76,7 +76,7 @@ class ReflectionProperty implements Reflector
      * @return string|null
      * @deprecated Since PHP 7.4 and removed in 8.0
      */
-    public static function export(mixed $class, string $name, bool $return = false): ?string
+    public static function export($class, string $name, bool $return = false): ?string
     {
     }
 
@@ -111,7 +111,7 @@ class ReflectionProperty implements Reflector
      * </p>
      * @return mixed The current value of the property.
      */
-    public function getValue(object $object = null): mixed
+    public function getValue(object $object = null)
     {
     }
 
@@ -125,7 +125,7 @@ class ReflectionProperty implements Reflector
      * @param mixed $value The new value.
      * @return void No value is returned.
      */
-    public function setValue(mixed|object $objectOrValue, mixed $value = null)
+    public function setValue($objectOrValue, $value = null)
     {
     }
 
@@ -206,7 +206,7 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.getdoccomment.php
      * @return string|false The doc comment if it exists, otherwise {@see false}
      */
-    public function getDocComment(): string|false
+    public function getDocComment()
     {
     }
 

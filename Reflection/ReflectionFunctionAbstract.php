@@ -129,7 +129,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.getdoccomment.php
      * @return string|false The doc comment if it exists, otherwise {@see false}
      */
-    public function getDocComment(): string|false
+    public function getDocComment()
     {
     }
 
@@ -140,7 +140,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return int|false The ending line number of the user defined function,
      * or {@see false} if unknown.
      */
-    public function getEndLine(): int|false
+    public function getEndLine()
     {
     }
 
@@ -171,7 +171,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.getfilename.php
      * @return string|false The file name or {@see false} in case of error.
      */
-    public function getFileName(): string|false
+    public function getFileName()
     {
     }
 

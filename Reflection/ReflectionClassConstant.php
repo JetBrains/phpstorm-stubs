@@ -53,7 +53,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      * @link https://php.net/manual/en/reflectionclassconstant.construct.php
      */
-    public function __construct(string|object $class, string $name)
+    public function __construct($class, string $name)
     {
     }
 
@@ -67,7 +67,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      * @deprecated Since PHP 7.4 and removed in 8.0
      */
-    public static function export(string|object $class, string $name, bool $return = false): ?string
+    public static function export($class, string $name, bool $return = false): ?string
     {
     }
 
@@ -89,7 +89,7 @@ class ReflectionClassConstant implements Reflector
      * @link https://php.net/manual/en/reflectionclassconstant.getdoccomment.php
      * @since 7.1
      */
-    public function getDocComment(): string|false
+    public function getDocComment()
     {
     }
 
@@ -123,7 +123,7 @@ class ReflectionClassConstant implements Reflector
      * @return mixed The value of the class constant.
      * @since 7.1
      */
-    public function getValue(): mixed
+    public function getValue()
     {
     }
 
@@ -184,6 +184,8 @@ class ReflectionClassConstant implements Reflector
     }
 
     /**
+     * ReflectionClassConstant cannot be cloned
+     *
      * @return void
      */
     final private function __clone()

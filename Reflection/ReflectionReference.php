@@ -25,7 +25,7 @@ class ReflectionReference
      * @param int|string $key The key; either an integer or a string.
      * @return self|null
      */
-    public static function fromArrayElement(array $array, int|string $key): ?self
+    public static function fromArrayElement(array $array, $key): ?self
     {
     }
 
@@ -35,7 +35,7 @@ class ReflectionReference
      * @link https://php.net/manual/en/reflectionreference.getid.php
      * @return int|string Returns an integer or string of unspecified format.
      */
-    public function getId(): int|string
+    public function getId()
     {
     }
 
