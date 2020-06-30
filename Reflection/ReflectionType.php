@@ -26,7 +26,7 @@ abstract class ReflectionType implements Stringable
      * @return bool Returns {@see true} if it's a built-in type, otherwise {@see false}
      * @since 7.0
      *
-     * @deprecated Since 8.0 this method has been removed from the ReflectionType
+     * @deprecated 8.0 this method has been removed from the ReflectionType
      * class and moved to the ReflectionNamedType child.
      */
     public function isBuiltin(): bool
@@ -39,7 +39,7 @@ abstract class ReflectionType implements Stringable
      * @link https://php.net/manual/en/reflectiontype.tostring.php
      * @return string Returns the type of the parameter.
      * @since 7.0
-     * @deprecated Since PHP 7.1. Please use {@see ReflectionType::getName()} instead.
+     * @deprecated 7.1. Please use {@see ReflectionType::getName()} instead.
      */
     public function __toString(): string
     {
