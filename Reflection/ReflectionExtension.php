@@ -31,7 +31,8 @@ class ReflectionExtension implements Reflector
      * will do the opposite.
      * @return string|null If the $return parameter is set to {@see true}, then
      * the export is returned as a string, otherwise {@see null} is returned.
-     * @deprecated 7.4 and removed in 8.0
+     * @deprecated 7.4
+     * @removed 8.0
      */
     public static function export(string $name, bool $return = false): ?string
     {

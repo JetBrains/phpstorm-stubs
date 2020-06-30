@@ -52,7 +52,8 @@ class ReflectionClassConstant implements Reflector
      * to {@see false} (the default) will do the opposite.
      * @return string|null
      * @since 7.1
-     * @deprecated 7.4 and removed in 8.0
+     * @deprecated 7.4
+     * @removed 8.0
      */
     public static function export($class, string $name, bool $return = false): ?string
     {

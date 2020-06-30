@@ -13,7 +13,8 @@ interface Reflector extends Stringable
      *
      * @link https://php.net/manual/en/reflector.export.php
      * @return string|null
-     * @deprecated 7.4 and removed in 8.0
+     * @deprecated 7.4
+     * @removed 8.0
      */
     public static function export(): ?string;
 

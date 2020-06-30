@@ -61,7 +61,8 @@ class ReflectionProperty implements Reflector
      * opposed to emitting it. Setting to {@see false} (the default) will do the
      * opposite.
      * @return string|null
-     * @deprecated 7.4 and removed in 8.0
+     * @deprecated 7.4
+     * @removed 8.0
      */
     public static function export($class, string $name, bool $return = false): ?string
     {
