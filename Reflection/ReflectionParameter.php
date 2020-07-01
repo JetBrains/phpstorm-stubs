@@ -36,7 +36,7 @@ class ReflectionParameter implements Reflector
      * @deprecated 7.4
      * @removed 8.0
      */
-    public static function export(string $function, string $parameter, bool $return = false): ?string
+    public static function export($function, $parameter, $return = false)
     {
     }
 
@@ -46,7 +46,7 @@ class ReflectionParameter implements Reflector
      * @link https://php.net/manual/en/reflectionparameter.tostring.php
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
     }
 
@@ -56,7 +56,7 @@ class ReflectionParameter implements Reflector
      * @link https://php.net/manual/en/reflectionparameter.getname.php
      * @return string The name of the reflected parameter.
      */
-    public function getName(): string
+    public function getName()
     {
     }
 
@@ -66,7 +66,7 @@ class ReflectionParameter implements Reflector
      * @link https://php.net/manual/en/reflectionparameter.ispassedbyreference.php
      * @return bool {@see true} if the parameter is passed in by reference, otherwise {@see false}
      */
-    public function isPassedByReference(): bool
+    public function isPassedByReference()
     {
     }
 
@@ -78,7 +78,7 @@ class ReflectionParameter implements Reflector
      * Returns {@see null} in case of an error.
      * @since 5.4
      */
-    public function canBePassedByValue(): ?bool
+    public function canBePassedByValue()
     {
     }
 
@@ -89,7 +89,7 @@ class ReflectionParameter implements Reflector
      * @return ReflectionFunctionAbstract A {@see ReflectionFunctionAbstract} object.
      * @since 5.2.3
      */
-    public function getDeclaringFunction(): ReflectionFunctionAbstract
+    public function getDeclaringFunction()
     {
     }
 
@@ -100,7 +100,7 @@ class ReflectionParameter implements Reflector
      * @return ReflectionClass|null A {@see ReflectionClass} object or {@see null} if
      * called on function.
      */
-    public function getDeclaringClass(): ?ReflectionClass
+    public function getDeclaringClass()
     {
     }
 
@@ -112,7 +112,7 @@ class ReflectionParameter implements Reflector
      * @deprecated 7.4
      * @removed 8.0
      */
-    public function getClass(): ?ReflectionClass
+    public function getClass()
     {
     }
 
@@ -123,7 +123,7 @@ class ReflectionParameter implements Reflector
      * @return bool {@see true} if a type is specified, {@see false} otherwise.
      * @since 7.0
      */
-    public function hasType(): bool
+    public function hasType()
     {
     }
 
@@ -135,7 +135,7 @@ class ReflectionParameter implements Reflector
      * parameter type is specified, {@see null} otherwise.
      * @since 7.0
      */
-    public function getType(): ?ReflectionType
+    public function getType()
     {
     }
 
@@ -145,7 +145,7 @@ class ReflectionParameter implements Reflector
      * @link https://php.net/manual/en/reflectionparameter.isarray.php
      * @return bool {@see true} if an array is expected, {@see false} otherwise.
      */
-    public function isArray(): bool
+    public function isArray()
     {
     }
 
@@ -157,7 +157,7 @@ class ReflectionParameter implements Reflector
      * if it is not or {@see null} on failure.
      * @since 5.4
      */
-    public function isCallable(): ?bool
+    public function isCallable()
     {
     }
 
@@ -168,7 +168,7 @@ class ReflectionParameter implements Reflector
      * @return bool Returns {@see true} if {@see null} is allowed,
      * otherwise {@see false}
      */
-    public function allowsNull(): bool
+    public function allowsNull()
     {
     }
 
@@ -179,7 +179,7 @@ class ReflectionParameter implements Reflector
      * @return int The position of the parameter, left to right, starting at position #0.
      * @since 5.2.3
      */
-    public function getPosition(): int
+    public function getPosition()
     {
     }
 
@@ -190,7 +190,7 @@ class ReflectionParameter implements Reflector
      * @return bool Returns {@see true} if the parameter is optional, otherwise {@see false}
      * @since 5.0.3
      */
-    public function isOptional(): bool
+    public function isOptional()
     {
     }
 
@@ -201,7 +201,7 @@ class ReflectionParameter implements Reflector
      * @return bool Returns {@see true} if a default value is available, otherwise {@see false}
      * @since 5.0.3
      */
-    public function isDefaultValueAvailable(): bool
+    public function isDefaultValueAvailable()
     {
     }
 
@@ -224,7 +224,7 @@ class ReflectionParameter implements Reflector
      * @return bool Returns {@see true} if the default value is constant, and {@see false} otherwise.
      * @since 5.4.6
      */
-    public function isDefaultValueConstant(): bool
+    public function isDefaultValueConstant()
     {
     }
 
@@ -236,7 +236,7 @@ class ReflectionParameter implements Reflector
      * @throws \ReflectionException if the parameter is not optional
      * @since 5.4.6
      */
-    public function getDefaultValueConstantName(): ?string
+    public function getDefaultValueConstantName()
     {
     }
 
@@ -247,7 +247,7 @@ class ReflectionParameter implements Reflector
      * @return bool Returns {@see true} if the function is variadic, otherwise {@see false}
      * @since 5.6
      */
-    public function isVariadic(): bool
+    public function isVariadic()
     {
     }
 
@@ -257,7 +257,7 @@ class ReflectionParameter implements Reflector
      * @return bool Returns {@see true} if the parameter promoted or {@see false} instead
      * @since 8.0
      */
-    public function isPromoted(): bool
+    public function isPromoted()
     {
     }
 
@@ -269,7 +269,7 @@ class ReflectionParameter implements Reflector
      * @return ReflectionAttribute[]
      * @since 8.0
      */
-    public function getAttributes(string $name = null, int $flags = 0): array
+    public function getAttributes($name = null, $flags = 0)
     {
     }
 

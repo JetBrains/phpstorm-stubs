@@ -16,7 +16,7 @@ class ReflectionZendExtension implements Reflector
      * @throws \ReflectionException if the extension does not exist.
      * @since 5.4
      */
-    public function __construct(string $name)
+    public function __construct($name)
     {
     }
 
@@ -31,7 +31,7 @@ class ReflectionZendExtension implements Reflector
      * @return string|null If the $return parameter is set to {@see true}, then
      * the export is returned as a string, otherwise {@see null} is returned.
      */
-    public static function export(string $name, bool $return = false): ?string
+    public static function export($name, $return = false)
     {
     }
 
@@ -42,7 +42,7 @@ class ReflectionZendExtension implements Reflector
      * @return string
      * @since 5.4
      */
-    public function __toString(): string
+    public function __toString()
     {
     }
 
@@ -53,7 +53,7 @@ class ReflectionZendExtension implements Reflector
      * @return string
      * @since 5.4
      */
-    public function getName(): string
+    public function getName()
     {
     }
 
@@ -64,7 +64,7 @@ class ReflectionZendExtension implements Reflector
      * @return string
      * @since 5.4
      */
-    public function getVersion(): string
+    public function getVersion()
     {
     }
 
@@ -75,7 +75,7 @@ class ReflectionZendExtension implements Reflector
      * @return string
      * @since 5.4
      */
-    public function getAuthor(): string
+    public function getAuthor()
     {
     }
 
@@ -86,7 +86,7 @@ class ReflectionZendExtension implements Reflector
      * @return string
      * @since 5.4
      */
-    public function getURL(): string
+    public function getURL()
     {
     }
 
@@ -97,7 +97,7 @@ class ReflectionZendExtension implements Reflector
      * @return string
      * @since 5.4
      */
-    public function getCopyright(): string
+    public function getCopyright()
     {
     }
 

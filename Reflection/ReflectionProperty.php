@@ -16,28 +16,28 @@ class ReflectionProperty implements Reflector
      *
      * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-static
      */
-    public const IS_STATIC = 16;
+    const IS_STATIC = 16;
 
     /**
      * Indicates that the property is public.
      *
      * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-public
      */
-    public const IS_PUBLIC = 1;
+    const IS_PUBLIC = 1;
 
     /**
      * Indicates that the property is protected.
      *
      * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-protected
      */
-    public const IS_PROTECTED = 2;
+    const IS_PROTECTED = 2;
 
     /**
      * Indicates that the property is private.
      *
      * @link https://www.php.net/manual/en/class.reflectionproperty.php#reflectionproperty.constants.is-private
      */
-    public const IS_PRIVATE = 4;
+    const IS_PRIVATE = 4;
 
     /**
      * Construct a ReflectionProperty object
@@ -47,7 +47,7 @@ class ReflectionProperty implements Reflector
      * @param string $name The name of the property being reflected.
      * @throws \ReflectionException if the class or property does not exist.
      */
-    public function __construct($class, string $name)
+    public function __construct($class, $name)
     {
     }
 
@@ -64,7 +64,7 @@ class ReflectionProperty implements Reflector
      * @deprecated 7.4
      * @removed 8.0
      */
-    public static function export($class, string $name, bool $return = false): ?string
+    public static function export($class, $name, $return = false)
     {
     }
 
@@ -74,7 +74,7 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.tostring.php
      * @return string
      */
-    public function __toString(): string
+    public function __toString()
     {
     }
 
@@ -84,7 +84,7 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.getname.php
      * @return string The name of the reflected property.
      */
-    public function getName(): string
+    public function getName()
     {
     }
 
@@ -99,7 +99,7 @@ class ReflectionProperty implements Reflector
      * </p>
      * @return mixed The current value of the property.
      */
-    public function getValue(object $object = null)
+    public function getValue($object = null)
     {
     }
 
@@ -123,7 +123,7 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.ispublic.php
      * @return bool Return {@see true} if the property is public, {@see false} otherwise.
      */
-    public function isPublic(): bool
+    public function isPublic()
     {
     }
 
@@ -133,7 +133,7 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.isprivate.php
      * @return bool Return {@see true} if the property is private, {@see false} otherwise.
      */
-    public function isPrivate(): bool
+    public function isPrivate()
     {
     }
 
@@ -143,7 +143,7 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.isprotected.php
      * @return bool Returns {@see true} if the property is protected, {@see false} otherwise.
      */
-    public function isProtected(): bool
+    public function isProtected()
     {
     }
 
@@ -153,7 +153,7 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.isstatic.php
      * @return bool Retruns {@see true} if the property is static, {@see false} otherwise.
      */
-    public function isStatic(): bool
+    public function isStatic()
     {
     }
 
@@ -164,7 +164,7 @@ class ReflectionProperty implements Reflector
      * @return bool Returns {@see true} if the property was declared at
      * compile-time, or {@see false} if it was created at run-time.
      */
-    public function isDefault(): bool
+    public function isDefault()
     {
     }
 
@@ -174,7 +174,7 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.getmodifiers.php
      * @return int A numeric representation of the modifiers.
      */
-    public function getModifiers(): int
+    public function getModifiers()
     {
     }
 
@@ -184,7 +184,7 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.getdeclaringclass.php
      * @return ReflectionClass A {@see ReflectionClass} object.
      */
-    public function getDeclaringClass(): ReflectionClass
+    public function getDeclaringClass()
     {
     }
 
@@ -205,7 +205,7 @@ class ReflectionProperty implements Reflector
      * @param bool $accessible A boolean {@see true} to allow accessibility, or {@see false}
      * @return void No value is returned.
      */
-    public function setAccessible(bool $accessible): void
+    public function setAccessible($accessible)
     {
     }
 
@@ -217,7 +217,7 @@ class ReflectionProperty implements Reflector
      * property has a type, and {@see null} otherwise.
      * @since 7.4
      */
-    public function getType(): ?ReflectionType
+    public function getType()
     {
     }
 
@@ -228,7 +228,7 @@ class ReflectionProperty implements Reflector
      * @return bool Returns {@see true} if a type is specified, {@see false} otherwise.
      * @since 7.4
      */
-    public function hasType(): bool
+    public function hasType()
     {
     }
 
@@ -241,7 +241,7 @@ class ReflectionProperty implements Reflector
      * been explicitly {@see unset()}. For all other properties {@see true} will be returned.
      * @since 7.4
      */
-    public function isInitialized(object $object = null): bool
+    public function isInitialized($object = null)
     {
     }
 
@@ -251,7 +251,7 @@ class ReflectionProperty implements Reflector
      * @return bool Returns {@see true} if the property was promoted or {@see false} instead.
      * @since 8.0
      */
-    public function isPromoted(): bool
+    public function isPromoted()
     {
     }
 

@@ -13,7 +13,7 @@ class ReflectionAttribute
      *
      * @since 8.0
      */
-    public const IS_INSTANCEOF = 2;
+    const IS_INSTANCEOF = 2;
 
     /**
      * ReflectionAttribute cannot be created explicitly.
@@ -29,7 +29,7 @@ class ReflectionAttribute
      * @return string The name of the attribute parameter.
      * @since 8.0
      */
-    public function getName(): string
+    public function getName()
     {
     }
 
@@ -39,7 +39,7 @@ class ReflectionAttribute
      * @return int
      * @since 8.0
      */
-    public function getTarget(): int
+    public function getTarget()
     {
     }
 
@@ -49,7 +49,7 @@ class ReflectionAttribute
      * @return bool
      * @since 8.0
      */
-    public function isRepeated(): bool
+    public function isRepeated()
     {
     }
 
@@ -59,7 +59,7 @@ class ReflectionAttribute
      * @return array
      * @since 8.0
      */
-    public function getArguments(): array
+    public function getArguments()
     {
     }
 
@@ -69,7 +69,7 @@ class ReflectionAttribute
      * @return object
      * @since 8.0
      */
-    public function newInstance(): object
+    public function newInstance()
     {
     }
 

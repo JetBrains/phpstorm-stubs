@@ -16,7 +16,7 @@ interface Reflector extends Stringable
      * @deprecated 7.4
      * @removed 8.0
      */
-    public static function export(): ?string;
+    public static function export();
 
     /**
      * Returns the string representation of any Reflection object.
@@ -26,5 +26,5 @@ interface Reflector extends Stringable
      *
      * @return string
      */
-    public function __toString(): string;
+    public function __toString();
 }

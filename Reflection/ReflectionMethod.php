@@ -14,32 +14,32 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Indicates that the method is static.
      */
-    public const IS_STATIC = 16;
+    const IS_STATIC = 16;
 
     /**
      * Indicates that the method is public.
      */
-    public const IS_PUBLIC = 1;
+    const IS_PUBLIC = 1;
 
     /**
      * Indicates that the method is protected.
      */
-    public const IS_PROTECTED = 2;
+    const IS_PROTECTED = 2;
 
     /**
      * Indicates that the method is private.
      */
-    public const IS_PRIVATE = 4;
+    const IS_PRIVATE = 4;
 
     /**
      * Indicates that the method is abstract.
      */
-    public const IS_ABSTRACT = 64;
+    const IS_ABSTRACT = 64;
 
     /**
      * Indicates that the method is final.
      */
-    public const IS_FINAL = 32;
+    const IS_FINAL = 32;
 
     /**
      * Constructs a ReflectionMethod
@@ -58,7 +58,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * classname or an object.
      * @throws \ReflectionException if the class or method does not exist.
      */
-    public function __construct($classOrName, string $name = null)
+    public function __construct($classOrName, $name = null)
     {
     }
 
@@ -76,7 +76,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @deprecated 7.4
      * @removed 8.0
      */
-    public static function export(string $class, string $name, bool $return = false): ?string
+    public static function export($class, $name, $return = false)
     {
     }
 
@@ -86,7 +86,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionmethod.tostring.php
      * @return string A string representation of this {@see ReflectionMethod} instance.
      */
-    public function __toString(): string
+    public function __toString()
     {
     }
 
@@ -96,7 +96,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionmethod.ispublic.php
      * @return bool Returns {@see true} if the method is public, otherwise {@see false}
      */
-    public function isPublic(): bool
+    public function isPublic()
     {
     }
 
@@ -106,7 +106,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionmethod.isprivate.php
      * @return bool Returns {@see true} if the method is private, otherwise {@see false}
      */
-    public function isPrivate(): bool
+    public function isPrivate()
     {
     }
 
@@ -116,7 +116,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionmethod.isprotected.php
      * @return bool Returns {@see true} if the method is protected, otherwise {@see false}
      */
-    public function isProtected(): bool
+    public function isProtected()
     {
     }
 
@@ -126,7 +126,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionmethod.isabstract.php
      * @return bool Returns {@see true} if the method is abstract, otherwise {@see false}
      */
-    public function isAbstract(): bool
+    public function isAbstract()
     {
     }
 
@@ -136,7 +136,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionmethod.isfinal.php
      * @return bool Returns {@see true} if the method is final, otherwise {@see false}
      */
-    public function isFinal(): bool
+    public function isFinal()
     {
     }
 
@@ -146,7 +146,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionmethod.isstatic.php
      * @return bool Returns {@see true} if the method is static, otherwise {@see false}
      */
-    public function isStatic(): bool
+    public function isStatic()
     {
     }
 
@@ -156,7 +156,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionmethod.isconstructor.php
      * @return bool Returns {@see true} if the method is a constructor, otherwise {@see false}
      */
-    public function isConstructor(): bool
+    public function isConstructor()
     {
     }
 
@@ -166,7 +166,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionmethod.isdestructor.php
      * @return bool Returns {@see true} if the method is a destructor, otherwise {@see false}
      */
-    public function isDestructor(): bool
+    public function isDestructor()
     {
     }
 
@@ -178,7 +178,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @return Closure Retruns {@see Closure} or {@see null} in case of an error.
      * @since 5.4
      */
-    public function getClosure(object $object = null): ?Closure
+    public function getClosure($object = null)
     {
     }
 
@@ -199,7 +199,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      *  - {@see ReflectionMethod::IS_ABSTRACT} - Indicates that the method is abstract.
      *  - {@see ReflectionMethod::IS_FINAL} - Indicates that the method is final.
      */
-    public function getModifiers(): int
+    public function getModifiers()
     {
     }
 
@@ -217,7 +217,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * instance of the class that this method was declared in or the method
      * invocation failed.
      */
-    public function invoke(object $object = null, ...$args)
+    public function invoke($object = null, ...$args)
     {
     }
 
@@ -233,7 +233,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * instance of the class that this method was declared in or the method
      * invocation failed.
      */
-    public function invokeArgs(?object $object, array $args)
+    public function invokeArgs($object, array $args)
     {
     }
 
@@ -244,7 +244,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @return ReflectionClass A {@see ReflectionClass} object of the class that the
      * reflected method is part of.
      */
-    public function getDeclaringClass(): ReflectionClass
+    public function getDeclaringClass()
     {
     }
 
@@ -255,7 +255,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @return ReflectionMethod A {@see ReflectionMethod} instance of the method prototype.
      * @throws ReflectionException if the method does not have a prototype
      */
-    public function getPrototype(): ReflectionMethod
+    public function getPrototype()
     {
     }
 
@@ -267,7 +267,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @return void No value is returned.
      * @since 5.3.2
      */
-    public function setAccessible(bool $accessible): void
+    public function setAccessible($accessible)
     {
     }
 

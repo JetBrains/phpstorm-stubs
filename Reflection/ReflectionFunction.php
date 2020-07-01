@@ -15,7 +15,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      *
      * @link https://www.php.net/manual/en/class.reflectionfunction.php#reflectionfunction.constants.is-deprecated
      */
-    public const IS_DEPRECATED = 2048;
+    const IS_DEPRECATED = 2048;
 
     /**
      * Constructs a ReflectionFunction object
@@ -33,7 +33,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      *
      * @link https://php.net/manual/en/reflectionfunction.tostring.php
      */
-    public function __toString(): string
+    public function __toString()
     {
     }
 
@@ -50,7 +50,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @deprecated 7.4
      * @removed 8.0
      */
-    public static function export(string $name, bool $return = false): ?string
+    public static function export($name, $return = false)
     {
     }
 
@@ -60,7 +60,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionfunction.isdisabled.php
      * @return bool {@see true} if it's disable, otherwise {@see false}
      */
-    public function isDisabled(): bool
+    public function isDisabled()
     {
     }
 
@@ -96,7 +96,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionfunction.getclosure.php
      * @return Closure Returns {@see Closure} or {@see null} in case of an error.
      */
-    public function getClosure(): ?Closure
+    public function getClosure()
     {
     }
 }

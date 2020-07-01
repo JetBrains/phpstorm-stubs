@@ -16,7 +16,7 @@ class ReflectionExtension implements Reflector
      * @param string $name Name of the extension.
      * @throws \ReflectionException if the extension does not exist.
      */
-    public function __construct(string $name)
+    public function __construct($name)
     {
     }
 
@@ -34,7 +34,7 @@ class ReflectionExtension implements Reflector
      * @deprecated 7.4
      * @removed 8.0
      */
-    public static function export(string $name, bool $return = false): ?string
+    public static function export($name, $return = false)
     {
     }
 
@@ -45,7 +45,7 @@ class ReflectionExtension implements Reflector
      * @return string the exported extension as a string, in the same way as
      * the {@see ReflectionExtension::export()}.
      */
-    public function __toString(): string
+    public function __toString()
     {
     }
 
@@ -55,7 +55,7 @@ class ReflectionExtension implements Reflector
      * @link https://php.net/manual/en/reflectionextension.getname.php
      * @return string The extensions name.
      */
-    public function getName(): string
+    public function getName()
     {
     }
 
@@ -65,7 +65,7 @@ class ReflectionExtension implements Reflector
      * @link https://php.net/manual/en/reflectionextension.getversion.php
      * @return string The version of the extension.
      */
-    public function getVersion(): string
+    public function getVersion()
     {
     }
 
@@ -77,7 +77,7 @@ class ReflectionExtension implements Reflector
      * for each function defined in the extension with the keys being the function
      * names. If no function are defined, an empty array is returned.
      */
-    public function getFunctions(): array
+    public function getFunctions()
     {
     }
 
@@ -87,7 +87,7 @@ class ReflectionExtension implements Reflector
      * @link https://php.net/manual/en/reflectionextension.getconstants.php
      * @return array An associative array with constant names as keys.
      */
-    public function getConstants(): array
+    public function getConstants()
     {
     }
 
@@ -98,7 +98,7 @@ class ReflectionExtension implements Reflector
      * @return array An associative array with the ini entries as keys,
      * with their defined values as values.
      */
-    public function getINIEntries(): array
+    public function getINIEntries()
     {
     }
 
@@ -110,7 +110,7 @@ class ReflectionExtension implements Reflector
      * for each class within the extension. If no classes are defined,
      * an empty array is returned.
      */
-    public function getClasses(): array
+    public function getClasses()
     {
     }
 
@@ -121,7 +121,7 @@ class ReflectionExtension implements Reflector
      * @return string[] An array of class names, as defined in the extension.
      * If no classes are defined, an empty array is returned.
      */
-    public function getClassNames(): array
+    public function getClassNames()
     {
     }
 
@@ -132,7 +132,7 @@ class ReflectionExtension implements Reflector
      * @return string[] An associative array with dependencies as keys and
      * either Required, Optional or Conflicts as the values.
      */
-    public function getDependencies(): array
+    public function getDependencies()
     {
     }
 
@@ -142,7 +142,7 @@ class ReflectionExtension implements Reflector
      * @link https://php.net/manual/en/reflectionextension.info.php
      * @return void Print extension info
      */
-    public function info(): void
+    public function info()
     {
     }
 
@@ -153,7 +153,7 @@ class ReflectionExtension implements Reflector
      * @return bool Returns {@see true} for extensions loaded by extension, {@see false} otherwise.
      * @since 5.4
      */
-    public function isPersistent(): bool
+    public function isPersistent()
     {
     }
 
@@ -164,7 +164,7 @@ class ReflectionExtension implements Reflector
      * @return bool Returns {@see true} for extensions loaded by {@see dl()}, {@see false} otherwise.
      * @since 5.4
      */
-    public function isTemporary(): bool
+    public function isTemporary()
     {
     }
 

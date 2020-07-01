@@ -15,7 +15,7 @@ abstract class ReflectionType implements Stringable
      * @return bool Returns {@see true} if {@see null} is allowed, otherwise {@see false}
      * @since 7.0
      */
-    public function allowsNull(): bool
+    public function allowsNull()
     {
     }
 
@@ -28,7 +28,7 @@ abstract class ReflectionType implements Stringable
      * @removed 8.0 this method has been removed from the {@see ReflectionType}
      * class and moved to the {@see ReflectionNamedType} child.
      */
-    public function isBuiltin(): bool
+    public function isBuiltin()
     {
     }
 
@@ -40,7 +40,7 @@ abstract class ReflectionType implements Stringable
      * @since 7.0
      * @deprecated 7.1 Please use {@see ReflectionType::getName()} instead.
      */
-    public function __toString(): string
+    public function __toString()
     {
     }
 

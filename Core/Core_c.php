@@ -649,7 +649,7 @@ class WeakReference {
      * @return WeakReference the freshly instantiated object.
      * @since 7.4.0
      */
-    public static function create(object $referent): WeakReference {}
+    public static function create($referent) {}
 
     /**
      * Gets a weakly referenced object. If the object has already been
@@ -658,7 +658,7 @@ class WeakReference {
      * @return object|null
      * @since 7.4.0
      */
-    public function get(): ?object {}
+    public function get() {}
 }
 
 /**
@@ -677,7 +677,7 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate {
      * @param object $object Any object
      * @return bool
      */
-    public function offsetExists($object): bool {}
+    public function offsetExists($object) {}
 
     /**
      * Returns the existsing value by an object.
@@ -696,7 +696,7 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate {
      * @param mixed $value Any value
      * @return void
      */
-    public function offsetSet($object, $value): void
+    public function offsetSet($object, $value)
     {
     }
 
@@ -706,7 +706,7 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate {
      * @param object $object Any object
      * @return void
      */
-    public function offsetUnset($object): void
+    public function offsetUnset($object)
     {
     }
 
@@ -715,7 +715,7 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate {
      *
      * @return Traversable
      */
-    public function getIterator(): \Traversable
+    public function getIterator()
     {
     }
 
@@ -724,7 +724,7 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate {
      *
      * @return int
      */
-    public function count(): int
+    public function count()
     {
     }
 }
@@ -743,7 +743,7 @@ interface Stringable {
      * @return string Returns string representation of the object that
      * implements this interface (and/or "__toString" magic method).
      */
-    public function __toString(): string;
+    public function __toString();
 }
 
 /**
@@ -755,49 +755,49 @@ final class Attribute {
     /**
      * Marks that attribute declaration is allowed only in classes.
      */
-    public const TARGET_CLASS = 1;
+    const TARGET_CLASS = 1;
 
     /**
      * Marks that attribute declaration is allowed only in functions.
      */
-    public const TARGET_FUNCTION = 1 << 1;
+    const TARGET_FUNCTION = 1 << 1;
 
     /**
      * Marks that attribute declaration is allowed only in class methods.
      */
-    public const TARGET_METHOD = 1 << 2;
+    const TARGET_METHOD = 1 << 2;
 
     /**
      * Marks that attribute declaration is allowed only in class properties.
      */
-    public const TARGET_PROPERTY = 1 << 3;
+    const TARGET_PROPERTY = 1 << 3;
 
     /**
      * Marks that attribute declaration is allowed only in class constants.
      */
-    public const TARGET_CLASS_CONSTANT = 1 << 4;
+    const TARGET_CLASS_CONSTANT = 1 << 4;
 
     /**
      * Marks that attribute declaration is allowed only in function or method parameters.
      */
-    public const TARGET_PARAMETER = 1 << 5;
+    const TARGET_PARAMETER = 1 << 5;
 
     /**
      * Marks that attribute declaration is allowed anywhere.
      */
-    public const TARGET_ALL = (1 << 6) - 1;
+    const TARGET_ALL = (1 << 6) - 1;
 
     /**
      * Notes that an attribute declaration in the same place is
      * allowed multiple times.
      */
-    public const IS_REPEATABLE = 1 << 10;
+    const IS_REPEATABLE = 1 << 10;
 
     /**
      * @param int $flags A value in the form of a bitmask indicating the places
      * where attributes can be defined.
      */
-    public function __construct(int $flags = self::TARGET_ALL)
+    public function __construct($flags = self::TARGET_ALL)
     {
     }
 }
@@ -815,28 +815,28 @@ class PhpToken implements Stringable {
      *
      * @var int
      */
-    public int $id;
+    public $id;
 
     /**
      * The textual content of the token.
      *
      * @var string
      */
-    public string $text;
+    public $text;
 
     /**
      * The starting line number (1-based) of the token.
      *
      * @var int
      */
-    public int $line;
+    public $line;
 
     /**
      * The starting position (0-based) in the tokenized string.
      *
      * @var int
      */
-    public int $pos;
+    public $pos;
 
     /**
      * Same as {@see token_get_all()}, but returning array of {@see PhpToken}
@@ -846,7 +846,7 @@ class PhpToken implements Stringable {
      * @param int $flags
      * @return static[]
      */
-    public static function getAll(string $code, int $flags = 0): array
+    public static function getAll($code, $flags = 0)
     {
     }
 
@@ -856,7 +856,7 @@ class PhpToken implements Stringable {
      * @param int $line Strating line
      * @param int $pos Straring position (line offset)
      */
-    final public function __construct(int $id, string $text, int $line = -1, int $pos = -1)
+    final public function __construct($id, $text, $line = -1, $pos = -1)
     {
     }
 
@@ -865,7 +865,7 @@ class PhpToken implements Stringable {
      *
      * @return string|null
      */
-    public function getTokenName(): ?string
+    public function getTokenName()
     {
     }
 
@@ -876,7 +876,7 @@ class PhpToken implements Stringable {
      * @param int|string|array $kind
      * @return bool
      */
-    public function is($kind): bool
+    public function is($kind)
     {
     }
 
@@ -885,7 +885,14 @@ class PhpToken implements Stringable {
      *
      * @return bool
      */
-    public function isIgnorable(): bool
+    public function isIgnorable()
+    {
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function __toString()
     {
     }
 }

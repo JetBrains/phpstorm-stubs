@@ -16,21 +16,21 @@ class ReflectionClassConstant implements Reflector
      *
      * @since 8.0
      */
-    public const IS_PUBLIC = 1;
+    const IS_PUBLIC = 1;
 
     /**
      * Indicates that the constant is protected.
      *
      * @since 8.0
      */
-    public const IS_PROTECTED = 2;
+    const IS_PROTECTED = 2;
 
     /**
      * Indicates that the constant is private.
      *
      * @since 8.0
      */
-    public const IS_PRIVATE = 4;
+    const IS_PRIVATE = 4;
 
     /**
      * ReflectionClassConstant constructor.
@@ -40,7 +40,7 @@ class ReflectionClassConstant implements Reflector
      * @since 7.1
      * @link https://php.net/manual/en/reflectionclassconstant.construct.php
      */
-    public function __construct($class, string $name)
+    public function __construct($class, $name)
     {
     }
 
@@ -55,7 +55,7 @@ class ReflectionClassConstant implements Reflector
      * @deprecated 7.4
      * @removed 8.0
      */
-    public static function export($class, string $name, bool $return = false): ?string
+    public static function export($class, $name, $return = false)
     {
     }
 
@@ -66,7 +66,7 @@ class ReflectionClassConstant implements Reflector
      * @link https://php.net/manual/en/reflectionclassconstant.getdeclaringclass.php
      * @since 7.1
      */
-    public function getDeclaringClass(): ReflectionClass
+    public function getDeclaringClass()
     {
     }
 
@@ -89,7 +89,7 @@ class ReflectionClassConstant implements Reflector
      * @link https://php.net/manual/en/reflectionclassconstant.getmodifiers.php
      * @since 7.1
      */
-    public function getModifiers(): int
+    public function getModifiers()
     {
     }
 
@@ -100,7 +100,7 @@ class ReflectionClassConstant implements Reflector
      * @return string Returns the constant's name.
      * @since 7.1
      */
-    public function getName(): string
+    public function getName()
     {
     }
 
@@ -122,7 +122,7 @@ class ReflectionClassConstant implements Reflector
      * @return bool
      * @since 7.1
      */
-    public function isPrivate(): bool
+    public function isPrivate()
     {
     }
 
@@ -133,7 +133,7 @@ class ReflectionClassConstant implements Reflector
      * @return bool
      * @since 7.1
      */
-    public function isProtected(): bool
+    public function isProtected()
     {
     }
 
@@ -144,7 +144,7 @@ class ReflectionClassConstant implements Reflector
      * @return bool
      * @since 7.1
      */
-    public function isPublic(): bool
+    public function isPublic()
     {
     }
 
@@ -155,7 +155,7 @@ class ReflectionClassConstant implements Reflector
      * @return string
      * @since 7.1
      */
-    public function __toString(): string
+    public function __toString()
     {
     }
 
@@ -167,7 +167,7 @@ class ReflectionClassConstant implements Reflector
      * @return ReflectionAttribute[]
      * @since 8.0
      */
-    public function getAttributes(string $name = null, int $flags = 0): array
+    public function getAttributes($name = null, $flags = 0)
     {
     }
 

@@ -6,7 +6,7 @@
  *
  * @link https://php.net/manual/en/class.reflectionobject.php
  */
-class ReflectionObject extends ReflectionClass implements Reflector
+class ReflectionObject extends ReflectionClass
 {
     /**
      * Constructs a ReflectionObject
@@ -14,7 +14,7 @@ class ReflectionObject extends ReflectionClass implements Reflector
      * @link https://php.net/manual/en/reflectionobject.construct.php
      * @param object $argument An object instance.
      */
-    public function __construct(object $argument)
+    public function __construct($argument)
     {
     }
 
@@ -31,7 +31,7 @@ class ReflectionObject extends ReflectionClass implements Reflector
      * @deprecated 7.4
      * @removed 8.0
      */
-    public static function export(string $argument, bool $return = false): ?string
+    public static function export($argument, $return = false)
     {
     }
 }
