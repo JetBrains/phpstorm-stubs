@@ -117,6 +117,39 @@ function strcasecmp ($str1, $str2) {}
 function strncasecmp ($str1, $str2, $len) {}
 
 /**
+ * The function returns {@see true} if the passed $haystack starts from the
+ * $needle string or {@see false} otherwise.
+ *
+ * @param string $haystack
+ * @param string $needle
+ * @return bool
+ * @since 8.0
+ */
+function str_starts_with(string $haystack, string $needle) : bool {}
+
+/**
+ * The function returns {@see true} if the passed $haystack ends with the
+ * $needle string or {@see false} otherwise.
+ *
+ * @param string $haystack
+ * @param string $needle
+ * @return bool
+ * @since 8.0
+ */
+function str_ends_with(string $haystack, string $needle) : bool {}
+
+/**
+ * Checks if $needle is found in $haystack and returns a boolean value
+ * (true/false) whether or not the $needle was found.
+ *
+ * @param string $haystack
+ * @param string $needle
+ * @return bool
+ * @since 8.0
+ */
+function str_contains(string $haystack, string $needle) : bool {}
+
+/**
  * Return the current key and value pair from an array and advance the array cursor
  * @link https://php.net/manual/en/function.each.php
  * @param array|ArrayObject $array <p>

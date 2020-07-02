@@ -1100,7 +1100,7 @@ function ldap_set_rebind_proc ($link, callable $callback) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.4
- * @deprecated Since 7.4
+ * @deprecated 7.4
  */
 function ldap_control_paged_result ($link, $pagesize, $iscritical = false, $cookie = "") {}
 
@@ -1119,7 +1119,7 @@ function ldap_control_paged_result ($link, $pagesize, $iscritical = false, $cook
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.4
- * @deprecated Since 7.4
+ * @deprecated 7.4
  */
 function ldap_control_paged_result_response ($link, $result, &$cookie = null, &$estimated = null) {}
 

@@ -649,7 +649,7 @@ class WeakReference {
      * @return WeakReference the freshly instantiated object.
      * @since 7.4
      */
-    public static function create(object $referent): WeakReference {}
+    public static function create($referent) {}
 
     /**
      * Gets a weakly referenced object. If the object has already been
@@ -658,5 +658,241 @@ class WeakReference {
      * @return object|null
      * @since 7.4
      */
-    public function get(): ?object {}
+    public function get() {}
+}
+
+/**
+ * Weak maps allow creating a map from objects to arbitrary values
+ * (similar to SplObjectStorage) without preventing the objects that are used
+ * as keys from being garbage collected. If an object key is garbage collected,
+ * it will simply be removed from the map.
+ *
+ * @since 8.0
+ */
+final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate {
+    /**
+     * Returns {@see true} if the value for the object is contained in
+     * the {@see WeakMap} and {@see false} instead.
+     *
+     * @param object $object Any object
+     * @return bool
+     */
+    public function offsetExists($object) {}
+
+    /**
+     * Returns the existsing value by an object.
+     *
+     * @param object $object Any object
+     * @return mixed Value associated with the key object
+     */
+    public function offsetGet($object)
+    {
+    }
+
+    /**
+     * Sets a new value for an object.
+     *
+     * @param object $object Any object
+     * @param mixed $value Any value
+     * @return void
+     */
+    public function offsetSet($object, $value)
+    {
+    }
+
+    /**
+     * Force removes an object value from the {@see WeakMap} instance.
+     *
+     * @param object $object Any object
+     * @return void
+     */
+    public function offsetUnset($object)
+    {
+    }
+
+    /**
+     * Returns an iterator in the "[object => mixed]" format.
+     *
+     * @return Traversable
+     */
+    public function getIterator()
+    {
+    }
+
+    /**
+     * Returns the number of items in the {@see WeakMap} instance.
+     *
+     * @return int
+     */
+    public function count()
+    {
+    }
+}
+
+    /**
+ * Stringable interface marks classes as available for serialization
+ * in a string.
+ *
+ * @since 8.0
+ */
+interface Stringable {
+    /**
+     * Magic method {@see https://www.php.net/manual/ru/language.oop5.magic.php}
+     * called during serialization to string.
+     *
+     * @return string Returns string representation of the object that
+     * implements this interface (and/or "__toString" magic method).
+     */
+    public function __toString();
+}
+
+/**
+ * @since 8.0
+ */
+// TODO Uncomment after PHP 8.0 release:
+// @@Attribute(Attribute::TARGET_CLASS)
+final class Attribute {
+    /**
+     * Marks that attribute declaration is allowed only in classes.
+     */
+    const TARGET_CLASS = 1;
+
+    /**
+     * Marks that attribute declaration is allowed only in functions.
+     */
+    const TARGET_FUNCTION = 1 << 1;
+
+    /**
+     * Marks that attribute declaration is allowed only in class methods.
+     */
+    const TARGET_METHOD = 1 << 2;
+
+    /**
+     * Marks that attribute declaration is allowed only in class properties.
+     */
+    const TARGET_PROPERTY = 1 << 3;
+
+    /**
+     * Marks that attribute declaration is allowed only in class constants.
+     */
+    const TARGET_CLASS_CONSTANT = 1 << 4;
+
+    /**
+     * Marks that attribute declaration is allowed only in function or method parameters.
+     */
+    const TARGET_PARAMETER = 1 << 5;
+
+    /**
+     * Marks that attribute declaration is allowed anywhere.
+     */
+    const TARGET_ALL = (1 << 6) - 1;
+
+    /**
+     * Notes that an attribute declaration in the same place is
+     * allowed multiple times.
+     */
+    const IS_REPEATABLE = 1 << 10;
+
+    /**
+     * @param int $flags A value in the form of a bitmask indicating the places
+     * where attributes can be defined.
+     */
+    public function __construct($flags = self::TARGET_ALL)
+    {
+    }
+}
+
+/**
+ * A class for working with PHP tokens, which is an alternative to
+ * the {@see token_get_all()} function.
+ *
+ * @since 8.0
+ */
+class PhpToken implements Stringable {
+    /**
+     * One of the T_* constants, or an integer < 256 representing a
+     * single-char token.
+     *
+     * @var int
+     */
+    public $id;
+
+    /**
+     * The textual content of the token.
+     *
+     * @var string
+     */
+    public $text;
+
+    /**
+     * The starting line number (1-based) of the token.
+     *
+     * @var int
+     */
+    public $line;
+
+    /**
+     * The starting position (0-based) in the tokenized string.
+     *
+     * @var int
+     */
+    public $pos;
+
+    /**
+     * Same as {@see token_get_all()}, but returning array of {@see PhpToken}
+     * or an instance of a child class.
+     *
+     * @param string $code An a PHP source code
+     * @param int $flags
+     * @return static[]
+     */
+    public static function getAll($code, $flags = 0)
+    {
+    }
+
+    /**
+     * @param int $id An integer identifier
+     * @param string $text Textual content
+     * @param int $line Strating line
+     * @param int $pos Straring position (line offset)
+     */
+    final public function __construct($id, $text, $line = -1, $pos = -1)
+    {
+    }
+
+    /**
+     * Get the name of the token.
+     *
+     * @return string|null
+     */
+    public function getTokenName()
+    {
+    }
+
+    /**
+     * Whether the token has the given ID, the given text, or has an ID/text
+     * part of the given array.
+     *
+     * @param int|string|array $kind
+     * @return bool
+     */
+    public function is($kind)
+    {
+    }
+
+    /**
+     * Whether this token would be ignored by the PHP parser.
+     *
+     * @return bool
+     */
+    public function isIgnorable()
+    {
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function __toString()
+    {
+    }
 }
