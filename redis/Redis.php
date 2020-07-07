@@ -378,7 +378,7 @@ class Redis
     /**
      * Check the current connection status
      *
-     * @param string $message
+     * @param string $message [optional]
      *
      * @return bool|string TRUE if the command is successful or returns message
      * Throws a RedisException object on connectivity error, as described above.
