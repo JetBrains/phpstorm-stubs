@@ -1,12 +1,14 @@
-FROM php:7.4
-RUN set -x \
-    && apt-get update \
-    && apt-get install -y libldap2-dev libxml2-dev librabbitmq-dev libssh-dev libbz2-dev libevent-dev libfann-dev libgpgme11-dev librdkafka-dev librrd-dev libyaml-dev libcurl4-openssl-dev\
-    && rm -rf /var/lib/apt/lists/* \
-    && docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/ \
-    && docker-php-ext-install ldap \
-    && apt-get purge -y --auto-remove libldap2-dev
-RUN docker-php-ext-install bz2 mysqli bcmath calendar dba exif gettext opcache pcntl pdo_mysql shmop sysvmsg sysvsem sysvshm soap xmlrpc
+FROM php:7.4-alpine
+
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+
+RUN set -eux; \
+    apk add --no-cache --virtual .build-deps \
+    gcc g++ make autoconf pkgconfig \
+    bzip2-dev gettext-dev libxml2-dev php7-dev libffi-dev openssl-dev php7-pear php7-pecl-amqp  rabbitmq-c rabbitmq-c-dev \
+    librrd rrdtool-dev yaml yaml-dev fann fann-dev openldap-dev librdkafka librdkafka-dev libcurl curl-dev gpgme gpgme-dev
+RUN docker-php-ext-install ldap bz2 mysqli bcmath calendar dba exif gettext opcache pcntl pdo_mysql shmop sysvmsg \
+    sysvsem sysvshm xml soap xmlrpc
 RUN pecl install amqp
 RUN docker-php-ext-enable amqp
 RUN pecl install Ev

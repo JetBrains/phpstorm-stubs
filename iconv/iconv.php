@@ -409,7 +409,7 @@ function iconv_mime_decode_headers ($encoded_headers, $mode = 0, $charset = 'ini
  * string
  * @link https://php.net/manual/en/iconv.constants.php
  */
-define ('ICONV_IMPL', "glibc");
+define ('ICONV_IMPL', "unknown");
 
 /**
  * string
