@@ -588,7 +588,7 @@ final class Closure {
      * @param mixed $newscope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.
      * If an object is given, the type of the object will be used instead.
      * This determines the visibility of protected and private methods of the bound object.
-     * @return Closure Returns the newly created Closure object or FALSE on failure
+     * @return Closure|false Returns the newly created Closure object or FALSE on failure
      */
     static function bind(Closure $closure, $newthis, $newscope = 'static') { }
 
