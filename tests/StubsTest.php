@@ -300,14 +300,13 @@ class StubsTest extends TestCase
      */
     public function testCoreMethodsTypeHints(string $methodName, PHPMethod $stubFunction): void
     {
+        $firstSinceVersion = 5;
         if (!empty($stubFunction->sinceTags)) {
             $sinceVersions = array_map(fn(Since $tag) => (int)$tag->getVersion(), $stubFunction->sinceTags);
             sort($sinceVersions, SORT_DESC);
             $firstSinceVersion = array_pop($sinceVersions);
         } elseif ($stubFunction->hasInheritDocTag) {
-            self::markTestSkipped("Function contains inheritdoc.");
-        } else {
-            $firstSinceVersion = 5;
+            self::markTestSkipped("Function $methodName contains inheritdoc.");
         }
         self::checkFunctionDoesNotHaveScalarTypeHints($firstSinceVersion, $stubFunction);
         self::checkFunctionDoesNotHaveReturnTypeHints($firstSinceVersion, $stubFunction);
@@ -470,7 +469,7 @@ class StubsTest extends TestCase
     {
         if ($sinceVersion < 7) {
             if (empty($function->parameters)) {
-                self::assertTrue(true, "Parameters list empty");
+                self::markTestSkipped("Parameters list empty");
             } else {
                 foreach ($function->parameters as $parameter) {
                     if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_HAS_SCALAR_TYPEHINT)) {
@@ -484,7 +483,7 @@ class StubsTest extends TestCase
                 }
             }
         } else {
-            self::assertTrue(true, "Function has since version > 7");
+            self::markTestSkipped("Function has since version > 7");
         }
     }
 
@@ -499,7 +498,7 @@ class StubsTest extends TestCase
                 self::markTestSkipped("Skipped");
             }
         } else {
-            self::assertTrue(true, "Function has since version > 7");
+            self::markTestSkipped("Function has since version > 7");
         }
     }
 }
