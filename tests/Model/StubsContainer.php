@@ -76,6 +76,14 @@ class StubsContainer
     }
 
     /**
+     * @return PHPClass[]
+     */
+    public function getCoreClasses(): array
+    {
+        return array_filter($this->classes, fn($class) => $class->stubBelongsToCore === true);
+    }
+
+    /**
      * @param PHPClass $class
      * @throws RuntimeException
      */
@@ -102,6 +110,14 @@ class StubsContainer
     public function getInterfaces(): array
     {
         return $this->interfaces;
+    }
+
+    /**
+     * @return PHPInterface[]
+     */
+    public function getCoreInterfaces(): array
+    {
+        return array_filter($this->interfaces,fn($interface) => $interface->stubBelongsToCore === true);
     }
 
     /**

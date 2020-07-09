@@ -47,6 +47,21 @@ class StubsTestDataProviders
         }
     }
 
+    public static function coreStubMethodProvider(): ?Generator
+    {
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->getCoreClasses() as $className => $class) {
+            foreach ($class->methods as $methodName => $method) {
+                yield "method {$className}::{$methodName}" => [$methodName, $method];
+            }
+        }
+
+        foreach (PhpStormStubsSingleton::getPhpStormStubs()->getCoreInterfaces() as $interfaceName => $interface) {
+            foreach ($interface->methods as $methodName => $method) {
+                yield "method {$interfaceName}::{$methodName}" => [$methodName, $method];
+            }
+        }
+    }
+
     public static function stubMethodProvider(): ?Generator
     {
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->getClasses() as $className => $class) {
@@ -57,7 +72,7 @@ class StubsTestDataProviders
 
         foreach (PhpStormStubsSingleton::getPhpStormStubs()->getInterfaces() as $interfaceName => $interface) {
             foreach ($interface->methods as $methodName => $method) {
-                yield "interface {$interfaceName}::{$methodName}" => [$methodName, $method];
+                yield "method {$interfaceName}::{$methodName}" => [$methodName, $method];
             }
         }
     }

@@ -6591,7 +6591,10 @@ class IntlPartsIterator extends IntlIterator implements Iterator {
     const KEY_LEFT = 1 ;
     const KEY_RIGHT = 2 ;
 
-    public function getBreakIterator() : IntlBreakIterator { }
+    /**
+     * @return IntlBreakIterator
+     */
+    public function getBreakIterator() { }
 }
 
 class IntlCodePointBreakIterator extends IntlBreakIterator implements Traversable {

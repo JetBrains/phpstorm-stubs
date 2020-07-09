@@ -21,4 +21,6 @@ interface StubProblemType
     public const PROPERTY_IS_STATIC = 13;
     public const PROPERTY_ACCESS = 14;
     public const PROPERTY_TYPE = 15;
+    public const PARAMETER_HAS_SCALAR_TYPEHINT = 16;
+    public const FUNCTION_HAS_RETURN_TYPEHINT = 17;
 }
