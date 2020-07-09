@@ -385,7 +385,7 @@ class Redis
      * @throws RedisException
      * @link    https://redis.io/commands/ping
      */
-    public function ping($message)
+    public function ping($message=null)
     {
     }
 
