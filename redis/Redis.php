@@ -5109,7 +5109,7 @@ class RedisArray
     public function _target($key)
     {
     }
-    
+
     /**
      * @param string $host The host you want to retrieve the instance for
      *
