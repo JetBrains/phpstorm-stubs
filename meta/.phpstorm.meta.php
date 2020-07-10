@@ -216,7 +216,7 @@ namespace PHPSTORM_META {
 
     expectedArguments(\imap_close(), 1, CL_EXPUNGE);
     expectedArguments(\event_base_loop(), 1, EVLOOP_ONCE|EVLOOP_NONBLOCK);
-    expectedArguments(\mb_convert_case(), 1, MB_CASE_UPPER,MB_CASE_LOWER,MB_CASE_TITLE);
+    expectedArguments(\mb_convert_case(), 1, MB_CASE_UPPER,MB_CASE_LOWER,MB_CASE_TITLE,MB_CASE_FOLD,MB_CASE_UPPER_SIMPLE,MB_CASE_LOWER_SIMPLE,MB_CASE_TITLE_SIMPLE,MB_CASE_FOLD_SIMPLE);
 	expectedArguments(\mb_get_info(), 0, 'all', 'http_output', 'http_input', 'internal_encoding', 'func_overload');
 	expectedArguments(\mb_language(), 0, 'Japanese', 'ja', 'English', 'en', 'uni');
     expectedArguments(\MemcachePool::add(), 2, MEMCACHE_COMPRESSED);
