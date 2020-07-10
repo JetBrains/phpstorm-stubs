@@ -5109,6 +5109,15 @@ class RedisArray
     public function _target($key)
     {
     }
+    
+    /**
+     * @param string $host The host you want to retrieve the instance for
+     *
+     * @return Redis a redis instance connected to a specific node
+     */
+    public function _instance($host)
+    {
+    }
 
     /**
      * Use this function when a new node is added and keys need to be rehashed.
