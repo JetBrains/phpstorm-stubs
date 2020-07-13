@@ -306,7 +306,7 @@ class StubsTest extends TestCase
             sort($sinceVersions, SORT_DESC);
             $firstSinceVersion = array_pop($sinceVersions);
         } elseif ($stubFunction->hasInheritDocTag) {
-            self::markTestSkipped("Function $methodName contains inheritdoc.");
+            self::markTestSkipped("Function '$methodName' contains inheritdoc.");
         }
         self::checkFunctionDoesNotHaveScalarTypeHints($firstSinceVersion, $stubFunction);
         self::checkFunctionDoesNotHaveReturnTypeHints($firstSinceVersion, $stubFunction);
@@ -469,7 +469,7 @@ class StubsTest extends TestCase
     {
         if ($sinceVersion < 7) {
             if (empty($function->parameters)) {
-                self::markTestSkipped("Parameters list empty");
+                self::assertTrue(true, 'Parameters list empty');
             } else {
                 foreach ($function->parameters as $parameter) {
                     if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_HAS_SCALAR_TYPEHINT)) {
@@ -483,7 +483,7 @@ class StubsTest extends TestCase
                 }
             }
         } else {
-            self::markTestSkipped("Function has since version > 7");
+            self::assertTrue(true, "Function '{$function->name}' has since version > 7");
         }
     }
 
@@ -498,7 +498,7 @@ class StubsTest extends TestCase
                 self::markTestSkipped("Skipped");
             }
         } else {
-            self::markTestSkipped("Function has since version > 7");
+            self::assertTrue(true, "Function '{$function->name}' has since version > 7");
         }
     }
 }
