@@ -3,7 +3,7 @@
 /**
  * Get the last occurred error
  * @link https://php.net/manual/en/function.error-get-last.php
- * @return array an associative array describing the last error with keys "type",
+ * @return array|null an associative array describing the last error with keys "type",
  * "message", "file" and "line". Returns &null; if there hasn't been an error
  * yet.
  */
