@@ -8,6 +8,7 @@ use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use phpDocumentor\Reflection\Type;
 use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Stmt\Function_;
+use PhpParser\NodeAbstract;
 use ReflectionFunction;
 use stdClass;
 use StubTests\Parsers\DocFactoryProvider;
@@ -23,6 +24,8 @@ class PHPFunction extends BasePHPElement
     public array $parameters = [];
 
     public ?Type $returnTag = null;
+
+    public ?NodeAbstract $returnType = null;
 
     /**
      * @param ReflectionFunction $function
@@ -51,6 +54,7 @@ class PHPFunction extends BasePHPElement
             $this->parameters[] = (new PHPParameter())->readObjectFromStubNode($parameter);
         }
 
+        $this->returnType = $node->getReturnType();
         $this->collectTags($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);
@@ -107,6 +111,9 @@ class PHPFunction extends BasePHPElement
                             break;
                         case 'absent in meta':
                             $this->mutedProblems[] = StubProblemType::ABSENT_IN_META;
+                            break;
+                        case 'has return typehint':
+                            $this->mutedProblems[] = StubProblemType::FUNCTION_HAS_RETURN_TYPEHINT;
                             break;
                         default:
                             $this->mutedProblems[] = -1;

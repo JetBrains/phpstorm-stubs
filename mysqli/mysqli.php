@@ -731,7 +731,7 @@ class mysqli  {
 	 * <b>mysqli_field_count</b> returns a non-zero value, the
 	 * statement should have produced a non-empty result set.
 	 */
-	public function store_result (int $option = null) {}
+	public function store_result ($option = null) {}
 
 	/**
 	 * Returns whether thread safety is given or not

@@ -39,6 +39,19 @@ class StubParser
             $class->interfaces =
                 Utils::flattenArray($visitor->combineImplementedInterfaces($class), false);
         }
+        $jsonData = json_decode(file_get_contents(__DIR__ . '/../TestData/mutedProblems.json'));
+        foreach (self::$stubs->getClasses() as $class) {
+            $class->readMutedProblems($jsonData->classes);
+        }
+        foreach (self::$stubs->getInterfaces() as $interface) {
+            $interface->readMutedProblems($jsonData->interfaces);
+        }
+        foreach (self::$stubs->getFunctions() as $function) {
+            $function->readMutedProblems($jsonData->functions);
+        }
+        foreach (self::$stubs->getConstants() as $constant) {
+            $constant->readMutedProblems($jsonData->constants);
+        }
         return self::$stubs;
     }
 

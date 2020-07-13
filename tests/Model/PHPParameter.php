@@ -68,6 +68,9 @@ class PHPParameter extends BasePHPElement
                         case 'parameter vararg':
                             $this->mutedProblems[] = StubProblemType::PARAMETER_VARARG;
                             break;
+                        case 'has scalar typehint':
+                            $this->mutedProblems[] = StubProblemType::PARAMETER_HAS_SCALAR_TYPEHINT;
+                            break;
                         default:
                             $this->mutedProblems[] = -1;
                             break;

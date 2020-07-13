@@ -1133,7 +1133,7 @@ class ZipArchive implements Countable {
 	 * @param int $flags [optional] Optional flags. Currently unused.
 	 * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-	public function setExternalAttributesName(string $name, int $opsys, int $attr, int $flags = null): bool {}
+	public function setExternalAttributesName($name, $opsys, $attr, $flags = null) {}
 
     /**
      * Retrieve the external attributes of an entry defined by its name
@@ -1144,7 +1144,7 @@ class ZipArchive implements Countable {
      * @param int $flags [optional] If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged attributes are returned.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function getExternalAttributesName(string $name, int &$opsys, int &$attr, int $flags = null): bool {}
+    public function getExternalAttributesName($name, &$opsys, &$attr, $flags = null) {}
 
     /**
      * Set the external attributes of an entry defined by its index
@@ -1155,7 +1155,7 @@ class ZipArchive implements Countable {
      * @param int $flags [optional] Optional flags. Currently unused.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-	public function setExternalAttributesIndex(int $index, int $opsys, int $attr, int $flags = null): bool {}
+	public function setExternalAttributesIndex($index, $opsys, $attr, $flags = null) {}
 
     /**
      * Retrieve the external attributes of an entry defined by its index
@@ -1166,7 +1166,7 @@ class ZipArchive implements Countable {
      * @param int $flags [optional] If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged attributes are returned.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function getExternalAttributesIndex(int $index, int &$opsys, int &$attr, int $flags = null): bool {}
+    public function getExternalAttributesIndex($index, &$opsys, &$attr, $flags = null) {}
 }
 
 /**
