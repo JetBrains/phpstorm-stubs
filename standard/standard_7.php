@@ -544,10 +544,10 @@ function is_writable ($filename) {}
 function is_writeable ($filename) {}
 
 /**
- * Tells whether a file exists and is readable
+ * Tells whether a file or a directory exists and is readable
  * @link https://php.net/manual/en/function.is-readable.php
  * @param string $filename <p>
- * Path to the file.
+ * Path to the file or directory.
  * </p>
  * @return bool true if the file or directory specified by
  * filename exists and is readable, false otherwise.
