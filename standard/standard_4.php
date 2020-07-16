@@ -151,7 +151,7 @@ function serialize ($value) {}
  * @param array $options [optional]
  * <p>Any options to be provided to unserialize(), as an associative array.</p>
  * <p>
- * The 'allowed_classes' option key may be set to a value that is 
+ * The 'allowed_classes' option key may be set to a value that is
  * either an array of class names which should be accepted, FALSE to
  * accept no classes, or TRUE to accept all classes. If this option is defined
  * and unserialize() encounters an object of a class that isn't to be accepted,
