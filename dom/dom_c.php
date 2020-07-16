@@ -354,6 +354,7 @@ class DOMStringList  {
 
 /**
  * @link https://php.net/manual/en/ref.dom.php
+ * @removed 8.0
  */
 class DOMNameList  {
 
@@ -371,6 +372,9 @@ class DOMNameList  {
 
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMImplementationList  {
 
         /**
@@ -381,6 +385,9 @@ class DOMImplementationList  {
 
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMImplementationSource  {
 
         /**
@@ -1734,18 +1741,30 @@ class DOMComment extends DOMCharacterData  {
     public function __construct ($value) {}
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMTypeinfo  {
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMUserDataHandler  {
 
     public function handle () {}
 
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMDomError  {
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMErrorHandler  {
 
     /**
@@ -1755,9 +1774,15 @@ class DOMErrorHandler  {
 
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMLocator  {
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMConfiguration  {
 
     /**

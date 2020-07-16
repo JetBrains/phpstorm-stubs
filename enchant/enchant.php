@@ -6,7 +6,7 @@
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * create a new broker object capable of requesting
  * @link https://php.net/manual/en/function.enchant-broker-init.php
- * @return resource|false a broker resource on success or <b>FALSE</b>.
+ * @return resource|false|EnchantBroker a broker resource on success or <b>FALSE</b>.
  */
 function enchant_broker_init () {}
 
@@ -18,6 +18,7 @@ function enchant_broker_init () {}
  * Broker resource
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @deprecated 8.0 Unset the object instead
  */
 function enchant_broker_free ($broker) {}
 
@@ -36,12 +37,14 @@ function enchant_broker_get_error ($broker) {}
  * @param $broker
  * @param $name
  * @param $value
+ * @deprecated 8.0
  */
 function enchant_broker_set_dict_path ($broker, $name, $value) {}
 
 /**
  * @param $broker
  * @param $name
+ * @deprecated 8.0
  */
 function enchant_broker_get_dict_path ($broker, $name) {}
 
@@ -66,7 +69,7 @@ function enchant_broker_list_dicts ($broker) {}
  * @param string $tag <p>
  * A tag describing the locale, for example en_US, de_DE
  * </p>
- * @return resource|false a dictionary resource on success or <b>FALSE</b> on failure.
+ * @return resource|false|EnchantDictionary a dictionary resource on success or <b>FALSE</b> on failure.
  */
 function enchant_broker_request_dict ($broker, $tag) {}
 
@@ -80,7 +83,7 @@ function enchant_broker_request_dict ($broker, $tag) {}
  * @param string $filename <p>
  * Path to the PWL file.
  * </p>
- * @return resource|false a dictionary resource on success or <b>FALSE</b> on failure.
+ * @return resource|false|EnchantDictionary a dictionary resource on success or <b>FALSE</b> on failure.
  */
 function enchant_broker_request_pwl_dict ($broker, $filename) {}
 
@@ -92,6 +95,7 @@ function enchant_broker_request_pwl_dict ($broker, $filename) {}
  * Dictionary resource.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @deprecated 8.0 Unset the object instead
  */
 function enchant_broker_free_dict ($dict) {}
 
@@ -178,6 +182,7 @@ function enchant_dict_suggest ($dict, $word) {}
  * The word to add
  * </p>
  * @return void
+ * @deprecated 8.0 Use {@link enchant_dict_add} instead
  */
 function enchant_dict_add_to_personal ($dict, $word) {}
 
@@ -206,6 +211,7 @@ function enchant_dict_add_to_session ($dict, $word) {}
  * The word to lookup
  * </p>
  * @return bool <b>TRUE</b> if the word exists or <b>FALSE</b>
+ * @deprecated 8.0 Use {@enchant_dict_is_added} instead.
  */
 function enchant_dict_is_in_session ($dict, $word) {}
 
@@ -266,8 +272,21 @@ function enchant_dict_describe ($dict) {}
  */
 function enchant_dict_quick_check ($dict, $word, array &$suggestions = null) {}
 
+/**
+ * @deprecated 8.0
+ */
 define ('ENCHANT_MYSPELL', 1);
+/**
+ * @deprecated 8.0
+ */
 define ('ENCHANT_ISPELL', 2);
 
+final class EnchantBroker
+{
+}
+
+final class EnchantDictionary
+{
+}
 // End of enchant v.1.1.0
 ?>

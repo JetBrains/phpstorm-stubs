@@ -778,9 +778,10 @@ final class mysqli_warning  {
 
 	/**
 	 * The __construct purpose
+     * @param object $mysqli_link [optional]
 	 * @link https://php.net/manual/en/mysqli-warning.construct.php
 	 */
-	protected function __construct () {}
+	protected function __construct ($mysqli_link = null) {}
 
 	/**
 	 * Move to the next warning
@@ -821,8 +822,10 @@ class mysqli_result implements IteratorAggregate
 
 	/**
 	 * Constructor (no docs available)
+     * @param object $mysqli_link [optional]
+     * @param int $resmode [optional]
 	 */
-	public function __construct () {}
+	public function __construct ($mysqli_link = null, $resmode = 0) {}
 
 	/**
 	 * Frees the memory associated with a result

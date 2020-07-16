@@ -845,6 +845,7 @@ function quoted_printable_encode ($str) {}
  * </p>
  * @return string the converted string.
  * @deprecated 7.4
+ * @removed 8.0
  */
 function convert_cyr_string ($str, $from, $to) {}
 
@@ -904,6 +905,7 @@ function set_magic_quotes_runtime ($new_setting) {}
  * @link https://php.net/manual/en/function.get-magic-quotes-gpc.php
  * @return int 0 if magic quotes gpc are off, 1 otherwise.
  * @deprecated 7.4
+ * @removed 8.0
  */
 function get_magic_quotes_gpc () {}
 

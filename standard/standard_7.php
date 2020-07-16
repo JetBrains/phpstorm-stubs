@@ -971,6 +971,7 @@ function mail ($to, $subject, $message, $additional_headers = null, $additional_
  * </p>
  * @return int The hash value of addr.
  * @deprecated 7.4
+ * @removed 8.0
  */
 function ezmlm_hash ($addr) {}
 

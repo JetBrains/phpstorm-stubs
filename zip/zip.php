@@ -487,6 +487,7 @@ class ZipArchive implements Countable {
 
 	/**
 	 * @link https://www.php.net/manual/en/zip.constants.php#ziparchive.constants.opsys.default
+	 * @removed 8.0 Use {@link ZipArchive::ZOPSYS_CPM} instead.
 	 * @since 5.6
 	 */
 	 const OPSYS_Z_CPM = 9;
@@ -582,6 +583,9 @@ class ZipArchive implements Countable {
      * Comment for the archive
      */
     public $comment;
+
+    public $lastId;
+
 
 	/**
 	 * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -688,9 +692,10 @@ class ZipArchive implements Countable {
 	 * @param string $dirname <p>
 	 * The directory to add.
 	 * </p>
+	 * @param int $flags [optional] Set how to manage name encoding (ZipArchive::FL_ENC_*) and entry replacement (ZipArchive::FL_OVERWRITE)
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function addEmptyDir ($dirname) {}
+	public function addEmptyDir ($dirname, $flags) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -703,9 +708,10 @@ class ZipArchive implements Countable {
 	 * The contents to use to create the entry. It is used in a binary
 	 * safe mode.
 	 * </p>
+	 * @param int $flags [optional] Set how to manage name encoding (ZipArchive::FL_ENC_*) and entry replacement (ZipArchive::FL_OVERWRITE)
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function addFromString ($localname, $contents) {}
+	public function addFromString ($localname, $contents, $flags) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)<br/>
@@ -723,9 +729,10 @@ class ZipArchive implements Countable {
 	 * @param int $length [optional] <p>
 	 * This parameter is not used but is required to extend <b>ZipArchive</b>.
 	 * </p>
+	 * @param int $flags [optional] Set how to manage name encoding (ZipArchive::FL_ENC_*) and entry replacement (ZipArchive::FL_OVERWRITE)
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function addFile ($filename, $localname = null, $start = 0, $length = 0) {}
+	public function addFile ($filename, $localname = null, $start = 0, $length = 0, $flags) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.3.0, PECL zip &gt;= 1.9.0)<br/>
@@ -1180,6 +1187,7 @@ class ZipArchive implements Countable {
  * <b>zip_read</b> and <b>zip_close</b>
  * or returns the number of error if <i>filename</i> does not
  * exist or in case of other error.
+ * @deprecated 8.0 Use {@link ZipArchive} instead.
  */
 function zip_open ($filename) {}
 
@@ -1191,6 +1199,7 @@ function zip_open ($filename) {}
  * A ZIP file previously opened with <b>zip_open</b>.
  * </p>
  * @return void No value is returned.
+ * @deprecated 8.0 Use {@link ZipArchive} instead.
  */
 function zip_close ($zip) {}
 
@@ -1205,6 +1214,7 @@ function zip_close ($zip) {}
  * zip_entry_... functions, or <b>FALSE</b> if
  * there are no more entries to read, or an error code if an error
  * occurred.
+ * @deprecated 8.0 Use {@link ZipArchive} instead.
  */
 function zip_read ($zip) {}
 
@@ -1245,6 +1255,7 @@ function zip_entry_open ($zip, $zip_entry, $mode = null) {}
  * A directory entry previously opened <b>zip_entry_open</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @deprecated 8.0 Use {@link ZipArchive} instead.
  */
 function zip_entry_close ($zip_entry) {}
 
@@ -1262,6 +1273,7 @@ function zip_entry_close ($zip_entry) {}
  * This should be the uncompressed length you wish to read.
  * </p>
  * @return string|false the data read, empty string on end of a file, or <b>FALSE</b> on error.
+ * @deprecated 8.0 Use {@link ZipArchive} instead.
  */
 function zip_entry_read ($zip_entry, $length = 1024) {}
 
@@ -1273,6 +1285,7 @@ function zip_entry_read ($zip_entry, $length = 1024) {}
  * A directory entry returned by <b>zip_read</b>.
  * </p>
  * @return int The size of the directory entry.
+ * @deprecated 8.0 Use {@link ZipArchive} instead.
  */
 function zip_entry_filesize ($zip_entry) {}
 
@@ -1284,6 +1297,7 @@ function zip_entry_filesize ($zip_entry) {}
  * A directory entry returned by <b>zip_read</b>.
  * </p>
  * @return string The name of the directory entry.
+ * @deprecated 8.0 Use {@link ZipArchive} instead.
  */
 function zip_entry_name ($zip_entry) {}
 
@@ -1295,6 +1309,7 @@ function zip_entry_name ($zip_entry) {}
  * A directory entry returned by <b>zip_read</b>.
  * </p>
  * @return int The compressed size.
+ * @deprecated 8.0 Use {@link ZipArchive} instead.
  */
 function zip_entry_compressedsize ($zip_entry) {}
 
@@ -1306,6 +1321,7 @@ function zip_entry_compressedsize ($zip_entry) {}
  * A directory entry returned by <b>zip_read</b>.
  * </p>
  * @return string The compression method.
+ * @deprecated 8.0 Use {@link ZipArchive} instead.
  */
 function zip_entry_compressionmethod ($zip_entry) {}
 

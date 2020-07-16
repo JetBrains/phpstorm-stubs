@@ -1555,7 +1555,7 @@ class PDOStatement implements IteratorAggregate
 	 * @param array $ctorarfg [optional] <p> Constructor arguments. </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
-	public function setFetchMode ($mode, $classNameObject = null, array $ctorarfg = array()) {}
+	public function setFetchMode ($mode, $className = null, array $params = array()) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>

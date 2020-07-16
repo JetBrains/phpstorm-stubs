@@ -59,6 +59,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      *
      * @link https://php.net/manual/en/reflectionfunction.isdisabled.php
      * @return bool {@see true} if it's disable, otherwise {@see false}
+     * @deprecated 8.0
      */
     public function isDisabled()
     {

@@ -14,6 +14,37 @@ class SQLite3  {
 	const CREATE_INDEX = 'CREATE_INDEX';
 	const CREATE_TABLE = 'CREATE_TABLE';
 	const CREATE_TEMP_INDEX = 'CREATE_TEMP_INDEX';
+	const CREATE_TEMP_TABLE = 'CREATE_TEMP_TABLE';
+	const CREATE_TEMP_TRIGGER = 'CREATE_TEMP_TRIGGER';
+	const CREATE_TEMP_VIEW = 'CREATE_TEMP_VIEW';
+	const CREATE_TRIGGER = 'CREATE_TRIGGER';
+	const CREATE_VIEW = 'CREATE_VIEW';
+	const DELETE = 'DELETE';
+	const DROP_INDEX = 'DROP_INDEX';
+	const DROP_TABLE = 'DROP_TABLE';
+	const DROP_TEMP_INDEX = 'DROP_TEMP_INDEX';
+	const DROP_TEMP_TABLE = 'DROP_TEMP_TABLE';
+	const DROP_TEMP_TRIGGER = 'DROP_TEMP_TRIGGER';
+	const DROP_TEMP_VIEW = 'DROP_TEMP_VIEW';
+	const DROP_TRIGGER = 'DROP_TRIGGER';
+	const DROP_VIEW = 'DROP_VIEW';
+	const INSERT = 'INSERT';
+	const PRAGMA = 'PRAGMA';
+	const READ = 'READ';
+	const SELECT = 'SELECT';
+	const TRANSACTION = 'TRANSACTION';
+	const UPDATE = 'UPDATE';
+	const ATTACH = 'ATTACH';
+	const DETACH = 'DETACH';
+	const ALTER_TABLE = 'ALTER_TABLE';
+	const REINDEX = 'REINDEX';
+	const ANALYZE = 'ANALYZE';
+	const CREATE_VTABLE = 'CREATE_VTABLE';
+	const DROP_VTABLE = 'DROP_VTABLE';
+	const FUNCTION = 'FUNCTION';
+	const SAVEPOINT = 'SAVEPOINT';
+	const COPY = 'COPY';
+	const RECURSIVE = 'RECURSIVE';
 
 	/**
 	 * Opens an SQLite database
@@ -296,6 +327,12 @@ class SQLite3  {
 	 * @since 7.4
 	 */
 	public function backup($destination_db, $source_dbname, $destination_dbname){}
+
+	/**
+	 * @return bool
+	 * @since 8.0
+	 */
+	function setAuthorizer(?callable $callback) {}
 
 }
 

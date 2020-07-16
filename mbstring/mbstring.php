@@ -1137,6 +1137,7 @@ function mb_ereg_search_setpos ($position) {}
 /**
  * @param $encoding [optional]
  * @deprecated 7.3 use {@see mb_regex_encoding} instead
+ * @removed 8.0
  */
 function mbregex_encoding ($encoding) {}
 
@@ -1145,6 +1146,7 @@ function mbregex_encoding ($encoding) {}
  * @param $string
  * @param $registers [optional]
  * @deprecated 7.3 use {@see mb_ereg} instead
+ * @removed 8.0
  */
 function mbereg ($pattern, $string, &$registers) {}
 
@@ -1153,6 +1155,7 @@ function mbereg ($pattern, $string, &$registers) {}
  * @param $string
  * @param $registers [optional]
  * @deprecated 7.3 use {@see mb_eregi} instead
+ * @removed 8.0
  */
 function mberegi ($pattern, $string, &$registers) {}
 
@@ -1162,6 +1165,7 @@ function mberegi ($pattern, $string, &$registers) {}
  * @param $string
  * @param $option [optional]
  * @deprecated 7.3 use {@see mb_ereg_replace} instead
+ * @removed 8.0
  */
 function mbereg_replace ($pattern, $replacement, $string, $option) {}
 
@@ -1172,6 +1176,7 @@ function mbereg_replace ($pattern, $replacement, $string, $option) {}
  * @param string $option
  * @return string
  * @deprecated 7.3 use {@see mb_eregi_replace} instead
+ * @removed 8.0
  */
 function mberegi_replace ($pattern, $replacement, $string, string $option = "msri") {}
 
@@ -1180,6 +1185,7 @@ function mberegi_replace ($pattern, $replacement, $string, string $option = "msr
  * @param $string
  * @param $limit [optional]
  * @deprecated 7.3 use {@see mb_split} instead
+ * @removed 8.0
  */
 function mbsplit ($pattern, $string, $limit) {}
 
@@ -1188,6 +1194,7 @@ function mbsplit ($pattern, $string, $limit) {}
  * @param $string
  * @param $option [optional]
  * @deprecated 7.3 use {@see mb_ereg_match} instead
+ * @removed 8.0
  */
 function mbereg_match ($pattern, $string, $option) {}
 
@@ -1195,6 +1202,7 @@ function mbereg_match ($pattern, $string, $option) {}
  * @param $pattern [optional]
  * @param $option [optional]
  * @deprecated 7.3 use {@see mb_ereg_search} instead
+ * @removed 8.0
  */
 function mbereg_search ($pattern, $option) {}
 
@@ -1202,6 +1210,7 @@ function mbereg_search ($pattern, $option) {}
  * @param $pattern [optional]
  * @param $option [optional]
  * @deprecated 7.3 use {@see mb_ereg_search_pos} instead
+ * @removed 8.0
  */
 function mbereg_search_pos ($pattern, $option) {}
 
@@ -1209,6 +1218,7 @@ function mbereg_search_pos ($pattern, $option) {}
  * @param $pattern [optional]
  * @param $option [optional]
  * @deprecated 7.3 use {@see mb_ereg_search_regs} instead
+ * @removed 8.0
  */
 function mbereg_search_regs ($pattern, $option) {}
 
@@ -1217,16 +1227,19 @@ function mbereg_search_regs ($pattern, $option) {}
  * @param $pattern [optional]
  * @param $option [optional]
  * @deprecated 7.3 use {@see mb_ereg_search_init} instead
+ * @removed 8.0
  */
 function mbereg_search_init ($string, $pattern, $option) {}
 
 /**
  * @deprecated 7.3 use {@see mb_ereg_search_getregs} instead
+ * @removed 8.0
  */
 function mbereg_search_getregs () {}
 
 /**
  * @deprecated 7.3 use {@see mb_ereg_search_getpos} instead
+ * @removed 8.0
  */
 function mbereg_search_getpos () {}
 
@@ -1283,8 +1296,17 @@ function mbereg_search_setpos ($position) {}
  */
 function mb_str_split ($str, $split_length = 1, $encoding = null) {}
 
+/**
+ * @removed 8.0
+ */
 define ('MB_OVERLOAD_MAIL', 1);
+/**
+ * @removed 8.0
+ */
 define ('MB_OVERLOAD_STRING', 2);
+/**
+ * @removed 8.0
+ */
 define ('MB_OVERLOAD_REGEX', 4);
 define ('MB_CASE_UPPER', 0);
 define ('MB_CASE_LOWER', 1);
@@ -1315,6 +1337,5 @@ define('MB_CASE_FOLD_SIMPLE', 7);
  */
 define('MB_ONIGURUMA_VERSION', '6.9.5');
 
-class ValueError extends Error {}
 // End of mbstring v.
 ?>

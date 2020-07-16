@@ -474,6 +474,7 @@ function set_include_path ($new_include_path) {}
  * @link https://php.net/manual/en/function.restore-include-path.php
  * @return void
  * @deprecated 7.4
+ * @removed 8.0
  */
 function restore_include_path () {}
 

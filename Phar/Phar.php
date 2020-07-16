@@ -265,10 +265,11 @@ class Phar extends RecursiveDirectoryIterator implements RecursiveIterator, Seek
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 1.0.0)<br/>
 	 * Returns the number of entries (files) in the Phar archive
 	 * @link https://php.net/manual/en/phar.count.php
+	 * @param int $mode [optional]
 	 * @return int The number of files contained within this phar, or 0 (the number zero)
 	 * if none.
 	 */
-	public function count () {}
+	public function count ($mode = COUNT_NORMAL) {}
 
 	/**
 	 * (PHP &gt;= 5.3.0, PECL phar &gt;= 2.0.0)<br/>

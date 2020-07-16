@@ -1102,7 +1102,7 @@ function imagefill ($image, $x, $y, $color) {}
  * An array containing the x and y
  * coordinates of the polygons vertices consecutively.
  * </p>
- * @param int $num_points <p>
+ * @param int $num_points [optional] <p>
  * Total number of vertices, which must be at least 3.
  * </p>
  * @param int $color <p>
@@ -1288,7 +1288,7 @@ function imageloadfont ($file) {}
  * <td>= y1</td>
  * </tr>
  * </p>
- * @param int $num_points <p>
+ * @param int $num_points [optional] <p>
  * Total number of points (vertices).
  * </p>
  * @param int $color <p>
@@ -1986,6 +1986,7 @@ function imagetypes () {}
  * </p>
  * @return bool true on success or false on failure.
  * @deprecated 7.2 Use imagecreatefromjpeg() and imagewbmp() instead
+ * @removed 8.0
  */
 function jpeg2wbmp ($jpegname, $wbmpname, $dest_height, $dest_width, $threshold) {}
 
@@ -2009,6 +2010,7 @@ function jpeg2wbmp ($jpegname, $wbmpname, $dest_height, $dest_width, $threshold)
  * </p>
  * @return bool true on success or false on failure.
  * @deprecated 7.2 Use imagecreatefrompng() and imagewbmp() instead
+ * @removed 8.0
  */
 function png2wbmp ($pngname, $wbmpname, $dest_height, $dest_width, $threshold) {}
 
@@ -2025,6 +2027,7 @@ function png2wbmp ($pngname, $wbmpname, $dest_height, $dest_width, $threshold) {
  * </p>
  * @return bool true on success or false on failure.
  * @deprecated 7.3 Use imagewbmp() instead
+ * @removed 8.0
  */
 function image2wbmp ($image, $filename = null, $threshold = null) {}
 
@@ -2163,7 +2166,7 @@ function imagegetclip ($im) {}
  * points[2]	= x1
  * points[3]	= y1
  * </pre>
- * @param int $num_points Total number of points (vertices).
+ * @param int $num_points [optional] Total number of points (vertices).
  * @param int $color A color identifier created with {@see imagecolorallocate()}.
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @link https://php.net/manual/en/function.imageopenpolygon.php
@@ -2863,7 +2866,7 @@ function imagecrop ($image, $rect) {}
  * @return resource|bool Return cropped image resource on success or <b>FALSE</b> on failure.
  * @since 5.5
  */
-function imagecropauto ($image, $mode = -1, $threshold = .5, $color = -1) {}
+function imagecropauto ($image, $mode = IMG_CROP_DEFAULT, $threshold = .5, $color = -1) {}
 
 /**
  * Flips an image using a given mode

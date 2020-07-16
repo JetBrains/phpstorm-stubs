@@ -453,6 +453,8 @@ class Error implements Throwable {
     public function __wakeup(){}
 }
 
+class ValueError extends Error {}
+
 /**
  * There are three scenarios where a TypeError may be thrown.
  * The first is where the argument type being passed to a function does not match its corresponding declared

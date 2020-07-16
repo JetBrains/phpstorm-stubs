@@ -92,6 +92,7 @@ function gzgets ($zp, $length) {}
  * </p>
  * @return string|false The uncompressed and striped string, or <b>FALSE</b> on error.
  * @deprecated 7.3
+ * @removed 8.0
  */
 function gzgetss ($zp, $length, $allowable_tags = null) {}
 

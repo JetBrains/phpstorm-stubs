@@ -796,6 +796,7 @@ function ldap_compare ($link_identifier, $dn, $attribute, $value, $serverctrls =
  * The attribute to use as a key in the sort.
  * </p>
  * @deprecated 7.0
+ * @removed 8.0
  * @return bool
  */
 function ldap_sort ($link, $result, $sortfilter) {}

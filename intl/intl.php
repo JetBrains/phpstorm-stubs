@@ -1113,6 +1113,7 @@ class Normalizer {
     /**
      * No decomposition/composition
      * @link https://secure.php.net/manual/en/class.normalizer.php
+     * @removed 8.0
      */
     const NONE = "1";
 
@@ -1669,6 +1670,11 @@ class IntlDateFormatter {
      * @link https://php.net/manual/en/class.intldateformatter.php#intl.intldateformatter-constants
      */
     const TRADITIONAL = 0;
+
+    const RELATIVE_FULL = 0;
+    const RELATIVE_LONG = 1;
+    const RELATIVE_MEDIUM = 2;
+    const RELATIVE_SHORT = 3;
 
 
     /**
@@ -6215,6 +6221,7 @@ define ('IDNA_NONTRANSITIONAL_TO_UNICODE', 32);
  * {@see idn_to_ascii}. This is the default.
  * @link https://php.net/manual/en/intl.constants.php
  * @deprecated 7.2 Use {@see INTL_IDNA_VARIANT_UTS46} instead.
+ * @removed 8.0
  */
 define ('INTL_IDNA_VARIANT_2003', 0);
 
