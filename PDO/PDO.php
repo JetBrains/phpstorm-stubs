@@ -1180,7 +1180,8 @@ class PDO  {
  * associated result set.
  * @link https://php.net/manual/en/class.pdostatement.php
  */
-class PDOStatement implements Traversable {
+class PDOStatement implements IteratorAggregate
+{
 	/**
 	 * @var string
 	 */
@@ -1584,6 +1585,10 @@ class PDOStatement implements Traversable {
 
 	final public function __sleep () {}
 
+	/**
+	 * @since 8.0
+	 */
+	public function getIterator(){}
 }
 
 final class PDORow  {

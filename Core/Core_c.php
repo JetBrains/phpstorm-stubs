@@ -752,6 +752,7 @@ interface Stringable {
 // TODO Uncomment after PHP 8.0 release:
 // @@Attribute(Attribute::TARGET_CLASS)
 final class Attribute {
+    public int $flags;
     /**
      * Marks that attribute declaration is allowed only in classes.
      */
@@ -812,31 +813,23 @@ class PhpToken implements Stringable {
     /**
      * One of the T_* constants, or an integer < 256 representing a
      * single-char token.
-     *
-     * @var int
      */
-    public $id;
+    public int $id;
 
     /**
      * The textual content of the token.
-     *
-     * @var string
      */
-    public $text;
+    public string $text;
 
     /**
      * The starting line number (1-based) of the token.
-     *
-     * @var int
      */
-    public $line;
+    public int $line;
 
     /**
      * The starting position (0-based) in the tokenized string.
-     *
-     * @var int
      */
-    public $pos;
+    public int $pos;
 
     /**
      * Same as {@see token_get_all()}, but returning array of {@see PhpToken}
@@ -895,4 +888,17 @@ class PhpToken implements Stringable {
     public function __toString()
     {
     }
+}
+
+final class InternalIterator implements Iterator{
+    private function __construct(){}
+    public function current(){}
+
+    public function next(){}
+
+    public function key(){}
+
+    public function valid(){}
+
+    public function rewind(){}
 }

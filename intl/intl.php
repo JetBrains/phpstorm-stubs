@@ -1973,7 +1973,7 @@ class IntlDateFormatter {
     public function getErrorMessage() { }
 }
 
-class ResourceBundle implements Traversable {
+class ResourceBundle implements IteratorAggregate {
 
     /**
      * @param $locale
@@ -2047,6 +2047,11 @@ class ResourceBundle implements Traversable {
      * @return string error message from last bundle object's call.
      */
     public function getErrorMessage() { }
+
+    /**
+     * @since 8.0
+     */
+    public function getIterator(){}
 }
 
 /**
@@ -6291,7 +6296,8 @@ define ('IDNA_ERROR_CONTEXTJ', 4096);
 /**
  * @since 5.5
  */
-class IntlBreakIterator implements Traversable {
+class IntlBreakIterator implements IteratorAggregate
+{
     /* Constants */
     const  DONE = -1;
     const  WORD_NONE = 0;
@@ -6482,6 +6488,8 @@ class IntlBreakIterator implements Traversable {
      * @param string $text
      */
     public function setText($text) { }
+
+    public function getIterator(){}
 }
 
 class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversable {

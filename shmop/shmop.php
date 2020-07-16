@@ -100,5 +100,10 @@ function shmop_write ($shmid, $data, $offset) {}
  */
 function shmop_delete ($shmid) {}
 
+/**
+ * @since 8.0
+ */
+final class Shmop{}
+
 // End of shmop v.
 ?>

@@ -8,6 +8,11 @@
  */
 class SQLite3  {
 
+	const OK = 'OK';
+	const DENY = 'DENY';
+	const IGNORE = 'IGNORE';
+	const CREATE_INDEX = 'CREATE_INDEX';
+
 	/**
 	 * Opens an SQLite database
 	 * @link https://php.net/manual/en/sqlite3.open.php

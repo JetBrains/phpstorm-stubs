@@ -1315,5 +1315,6 @@ define('MB_CASE_FOLD_SIMPLE', 7);
  */
 define('MB_ONIGURUMA_VERSION', '6.9.5');
 
+class ValueError extends Error {}
 // End of mbstring v.
 ?>

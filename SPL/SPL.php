@@ -694,7 +694,7 @@ class LimitIterator extends IteratorIterator {
  * This object supports cached iteration over another iterator.
  * @link https://php.net/manual/en/class.cachingiterator.php
  */
-class CachingIterator extends IteratorIterator implements ArrayAccess, Countable {
+class CachingIterator extends IteratorIterator implements ArrayAccess, Countable, Stringable {
 
     /**
      * String conversion flag (mutually exclusive): Uses the current element for the iterator's string conversion.

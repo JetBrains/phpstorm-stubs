@@ -261,7 +261,7 @@ class DOMNode  {
      * </p>
      * @return string The namespace URI of the node.
      */
-    public function lookupNamespaceUri ($prefix) {}
+    public function lookupNamespaceURI ($prefix) {}
 
     /**
      * @param DOMNode $arg
@@ -324,6 +324,7 @@ class DOMNode  {
      * @return int|false Number of bytes written or FALSE on failure
      */
     public function C14NFile ($uri, $exclusive, array $with_comments, array $xpath = null, $ns_prefixes = null) {}
+
 
 }
 
@@ -1063,7 +1064,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
  * The DOMNodeList class
  * @link https://php.net/manual/en/class.domnodelist.php
  */
-class DOMNodeList implements Traversable, Countable {
+class DOMNodeList implements IteratorAggregate, Countable {
 
     /**
      * @var int
@@ -1090,6 +1091,10 @@ class DOMNodeList implements Traversable, Countable {
      */
     public function count() {}
 
+    /**
+     * @since 8.0
+     */
+    public function getIterator(){}
 }
 
 /**
@@ -1097,7 +1102,7 @@ class DOMNodeList implements Traversable, Countable {
  * @link https://php.net/manual/en/class.domnamednodemap.php
  * @property-read int $length The number of nodes in the map. The range of valid child node indices is 0 to length - 1 inclusive.
  */
-class DOMNamedNodeMap implements Traversable, Countable {
+class DOMNamedNodeMap implements IteratorAggregate, Countable {
 
     /**
      * Retrieves a node specified by name
@@ -1162,6 +1167,10 @@ class DOMNamedNodeMap implements Traversable, Countable {
      */
     public function count() {}
 
+    /**
+     * @since 8.0
+     */
+    public function getIterator(){}
 }
 
 /**

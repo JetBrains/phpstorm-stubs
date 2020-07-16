@@ -391,6 +391,8 @@ class HashContext
     private function __construct()
     {
     }
+
+    public function __serialize(){}
 }
 // End of hash v.1.0
 ?>

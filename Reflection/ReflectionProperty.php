@@ -264,4 +264,22 @@ class ReflectionProperty implements Reflector
     final private function __clone()
     {
     }
+
+    /**
+     * @return bool
+     * @since 8.0
+     */
+    public function hasDefaultValue(){}
+
+    /**
+     * @return mixed
+     * @since 8.0
+     */
+    public function getDefaultValue(){}
+
+    /**
+     * @return ReflectionAttribute[]
+     * @since 8.0
+     */
+    public function getAttributes(?string $name = null, int $flags = 0): array {}
 }
