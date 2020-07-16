@@ -12,6 +12,8 @@ class SQLite3  {
 	const DENY = 'DENY';
 	const IGNORE = 'IGNORE';
 	const CREATE_INDEX = 'CREATE_INDEX';
+	const CREATE_TABLE = 'CREATE_TABLE';
+	const CREATE_TEMP_INDEX = 'CREATE_TEMP_INDEX';
 
 	/**
 	 * Opens an SQLite database
@@ -387,9 +389,10 @@ class SQLite3Stmt  {
 	public function readOnly () {}
 
 	/**
-	 * @param $sqlite3
+	 * @param SQLite3 $sqlite3
+	 * @param string $sql
 	 */
-	private function __construct ($sqlite3) {}
+	private function __construct ($sqlite3, $sql) {}
 
 	/**
 	 * Retrieves the SQL of the prepared statement. If expanded is FALSE, the unmodified SQL is retrieved.

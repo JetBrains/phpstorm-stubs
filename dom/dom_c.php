@@ -1996,8 +1996,9 @@ class DOMXPath  {
      * Creates a new <classname>DOMXPath</classname> object
      * @link https://php.net/manual/en/domxpath.construct.php
      * @param DOMDocument $doc The <classname>DOMDocument</classname> associated with the <classname>DOMXPath</classname>.
+     * @param bool $registerNodeNS [optional] allow global flag to configure query() or evaluate() calls. Since 8.0.
      */
-    public function __construct (DOMDocument $doc) {}
+    public function __construct (DOMDocument $doc, $registerNodeNS = false) {}
 
     /**
      * Registers the namespace with the <classname>DOMXPath</classname> object

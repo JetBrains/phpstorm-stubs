@@ -261,10 +261,11 @@ class ReflectionClass implements Reflector
      * Gets class constants
      *
      * @link https://php.net/manual/en/reflectionclass.getreflectionconstants.php
+     * @param int $filter [optional] allows the filtering of constants defined in a class by their visibility. Since 8.0.
      * @return ReflectionClassConstant[] An array of ReflectionClassConstant objects.
      * @since 7.1
      */
-    public function getReflectionConstants()
+    public function getReflectionConstants($filter = ReflectionClassConstant::IS_PUBLIC | ReflectionClassConstant::IS_PROTECTED | ReflectionClassConstant::IS_PRIVATE)
     {
     }
 
@@ -283,10 +284,11 @@ class ReflectionClass implements Reflector
      * Gets constants
      *
      * @link https://php.net/manual/en/reflectionclass.getconstants.php
+     * @param int $filter [optional] allows the filtering of constants defined in a class by their visibility. Since 8.0.
      * @return array An array of constants, where the keys hold the name and
      * the values the value of the constants.
      */
-    public function getConstants()
+    public function getConstants($filter = ReflectionClassConstant::IS_PUBLIC | ReflectionClassConstant::IS_PROTECTED | ReflectionClassConstant::IS_PRIVATE)
     {
     }
 

@@ -393,6 +393,11 @@ class HashContext
     }
 
     public function __serialize(){}
+
+    /**
+     * @param array $serialized
+     */
+    public function __unserialize($serialized){}
 }
 // End of hash v.1.0
 ?>
