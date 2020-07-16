@@ -266,6 +266,11 @@ define ('FILTER_VALIDATE_INT', 257);
  * @link https://php.net/manual/en/filter.constants.php
  */
 define ('FILTER_VALIDATE_BOOLEAN', 258);
+/**
+ * ID of "boolean" filter.
+ * @link https://php.net/manual/en/filter.constants.php
+ */
+define ('FILTER_VALIDATE_BOOL', 258);
 
 /**
  * ID of "float" filter.

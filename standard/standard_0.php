@@ -962,6 +962,7 @@ function image_type_to_mime_type ($imagetype) {}
  * One of the IMAGETYPE_XXX constant.
  * </p>
  * @param bool $include_dot [optional] <p>
+ * Removed since 8.0.
  * Whether to prepend a dot to the extension or not. Default to true.
  * </p>
  * @return string A string with the extension corresponding to the given image type.

@@ -752,16 +752,17 @@ function mb_decode_mimeheader ($str) {}
  * from-coding. When from_encoding
  * is omitted, detect_order is used.
  * </p>
+ * @param string|array|object $var var is the reference to the variable being converted.
  * @param string|array|object $vars <p>
- * vars is the reference to the
- * variable being converted. String, Array and Object are accepted.
+ * vars is the other references to the
+ * variables being converted. String, Array and Object are accepted.
  * mb_convert_variables assumes all parameters
  * have the same encoding.
  * </p>
  * @return string|false The character encoding before conversion for success,
  * or false for failure.
  */
-function mb_convert_variables ($to_encoding, $from_encoding, &...$vars) {}
+function mb_convert_variables ($to, $from, &$var, &...$vars) {}
 
 /**
  * Encode character to HTML numeric string reference
@@ -795,7 +796,7 @@ function mb_encode_numericentity ($str, array $convmap, $encoding = null, $is_he
  * </p>
  * @return string|false|null The converted string.
  */
-function mb_decode_numericentity ($str, array $convmap, $encoding = null, $is_hex = false) {}
+function mb_decode_numericentity ($string, array $convmap, $encoding = null, $is_hex = false) {}
 
 /**
  * Send encoded mail

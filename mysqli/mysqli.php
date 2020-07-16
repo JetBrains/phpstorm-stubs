@@ -1796,9 +1796,10 @@ function mysqli_get_charset ($link) {}
 /**
  * Get MySQL client info
  * @link https://php.net/manual/en/mysqli.get-client-info.php
+ * @param mysqli $link [optional] A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string A string that represents the MySQL client library version
  */
-function mysqli_get_client_info () {}
+function mysqli_get_client_info ($link = null) {}
 
 /**
  * Returns the MySQL client version as an integer

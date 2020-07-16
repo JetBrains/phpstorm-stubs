@@ -637,6 +637,14 @@ function number_format ($number , $decimals = 0 , $dec_point = '.' , $thousands_
 function fmod ($x, $y) {}
 
 /**
+ * Performs a floating-point division under
+ * IEEE 754 semantics. Division by zero is considered well-defined and
+ * will return one of Inf, -Inf or NaN.
+ * @since 8.0
+ */
+function fdiv(float $dividend, float $divisor): float {}
+
+/**
  * Converts a packed internet address to a human readable representation
  * @link https://php.net/manual/en/function.inet-ntop.php
  * @param string $in_addr <p>

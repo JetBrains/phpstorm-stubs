@@ -199,12 +199,13 @@ function var_export ($expression, $return = null) {}
 /**
  * Dumps a string representation of an internal zend value to output
  * @link https://php.net/manual/en/function.debug-zval-dump.php
- * @param mixed ...$vars <p>
- * The variable being evaluated.
+ * @param mixed $value The variable being evaluated.
+ * @param mixed ...$values <p>
+ * The other variable being evaluated.
  * </p>
  * @return void
  */
-function debug_zval_dump (...$vars) {}
+function debug_zval_dump ($value, ...$values) {}
 
 /**
  * Prints human-readable information about a variable

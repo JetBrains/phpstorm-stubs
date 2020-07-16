@@ -7,7 +7,7 @@
  * information for an individual file.
  * @link https://php.net/manual/en/class.splfileinfo.php
  */
-class SplFileInfo  {
+class SplFileInfo implements Stringable {
 
         /**
          * Construct a new SplFileInfo object

@@ -53,6 +53,8 @@ function shmop_read ($shmid, $start, $count) {}
  * <b>shmop_open</b>
  * </p>
  * @return void No value is returned.
+ *
+ * @deprecated 8.0
  */
 function shmop_close ($shmid) {}
 

@@ -92,8 +92,7 @@ function curl_copy_handle ($ch) {}
 /**
  * Gets cURL version information
  * @link https://php.net/manual/en/function.curl-version.php
- * @param int $age [optional] <p>
- * </p>
+ * @param int $age [optional] Removed since version PHP 8.0.
  * @return array an associative array with the following elements:
  * <tr valign="top">
  * <td>Indice</td>

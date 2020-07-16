@@ -840,7 +840,7 @@ define ('ASSERT_CALLBACK', 2);
 define ('ASSERT_BAIL', 3);
 define ('ASSERT_WARNING', 4);
 define ('ASSERT_QUIET_EVAL', 5);
-define ('ASSERT_EXCEPTION', 6);
+define ('ASSERT_EXCEPTION', 5);
 
 /**
  * Flag indicating if the stream used the include path.

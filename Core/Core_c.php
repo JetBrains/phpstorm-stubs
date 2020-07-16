@@ -168,7 +168,7 @@ interface Serializable {
  * @link https://php.net/manual/en/class.throwable.php
  * @since 7.0
  */
-interface Throwable
+interface Throwable extends Stringable
 {
 
     /**
@@ -729,7 +729,7 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate {
     }
 }
 
-    /**
+/**
  * Stringable interface marks classes as available for serialization
  * in a string.
  *
