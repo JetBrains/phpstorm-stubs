@@ -1521,6 +1521,17 @@
           ]
         }
       ]
+    },
+    {
+      "name": "WeakReference",
+      "methods": [
+        {
+          "name": "create",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
     }
   ],
   "interfaces": [
