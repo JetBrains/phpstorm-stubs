@@ -1113,6 +1113,7 @@ class Normalizer {
     /**
      * No decomposition/composition
      * @link https://secure.php.net/manual/en/class.normalizer.php
+     * @removed 8.0
      */
     const NONE = "1";
 
@@ -1670,6 +1671,11 @@ class IntlDateFormatter {
      */
     const TRADITIONAL = 0;
 
+    const RELATIVE_FULL = 0;
+    const RELATIVE_LONG = 1;
+    const RELATIVE_MEDIUM = 2;
+    const RELATIVE_SHORT = 3;
+
 
     /**
      * @param string|null $locale
@@ -1973,7 +1979,7 @@ class IntlDateFormatter {
     public function getErrorMessage() { }
 }
 
-class ResourceBundle implements Traversable {
+class ResourceBundle implements IteratorAggregate {
 
     /**
      * @param $locale
@@ -2047,6 +2053,11 @@ class ResourceBundle implements Traversable {
      * @return string error message from last bundle object's call.
      */
     public function getErrorMessage() { }
+
+    /**
+     * @since 8.0
+     */
+    public function getIterator(){}
 }
 
 /**
@@ -6210,6 +6221,7 @@ define ('IDNA_NONTRANSITIONAL_TO_UNICODE', 32);
  * {@see idn_to_ascii}. This is the default.
  * @link https://php.net/manual/en/intl.constants.php
  * @deprecated 7.2 Use {@see INTL_IDNA_VARIANT_UTS46} instead.
+ * @removed 8.0
  */
 define ('INTL_IDNA_VARIANT_2003', 0);
 
@@ -6291,7 +6303,8 @@ define ('IDNA_ERROR_CONTEXTJ', 4096);
 /**
  * @since 5.5
  */
-class IntlBreakIterator implements Traversable {
+class IntlBreakIterator implements IteratorAggregate
+{
     /* Constants */
     const  DONE = -1;
     const  WORD_NONE = 0;
@@ -6482,6 +6495,8 @@ class IntlBreakIterator implements Traversable {
      * @param string $text
      */
     public function setText($text) { }
+
+    public function getIterator(){}
 }
 
 class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversable {

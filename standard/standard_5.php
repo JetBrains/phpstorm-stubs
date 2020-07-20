@@ -474,6 +474,7 @@ function fgets ($handle, $length = null) {}
  * <p>
  * If an error occurs, returns false.
  * @deprecated 7.3
+ * @removed 8.0
  */
 function fgetss ($handle, $length = null, $allowable_tags = null) {}
 

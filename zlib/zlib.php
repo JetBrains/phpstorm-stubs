@@ -92,6 +92,7 @@ function gzgets ($zp, $length) {}
  * </p>
  * @return string|false The uncompressed and striped string, or <b>FALSE</b> on error.
  * @deprecated 7.3
+ * @removed 8.0
  */
 function gzgetss ($zp, $length, $allowable_tags = null) {}
 
@@ -410,7 +411,7 @@ function ob_gzhandler ($buffer, $mode) {}
  * <b>ZLIB_RLE</b>, <b>ZLIB_FIXED</b> or <b>ZLIB_DEFAULT_STRATEGY</b> (the
  * default). <b>dictionary</b>A string or an array of strings of the preset
  * dictionary (default: no preset dictionary).</p>
- * @return resource|false <p>
+ * @return resource|false|DeflateContext <p>
  * Returns a deflate context resource (zlib.deflate) on success, or
  * <b>FALSE</b> on failure.
  * </p>
@@ -456,7 +457,7 @@ function deflate_add ($context, $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
  * <b>ZLIB_RLE</b>, <b>ZLIB_FIXED</b> or <b>ZLIB_DEFAULT_STRATEGY</b> (the
  * default). <b>dictionary</b>A string or an array of strings of the preset
  * dictionary (default: no preset dictionary).</p>
- * @return resource|false <p>
+ * @return resource|false|InflateContext <p>
  * Returns an inflate context resource (zlib.inflate) on success, or
  * <b>FALSE</b> on failure.
  * </p>
@@ -500,6 +501,16 @@ function inflate_get_read_len ($context){}
  * @since 7.2
  */
 function  inflate_get_status($context) {}
+
+/**
+ * @since 8.0
+ */
+class InflateContext{}
+
+/**
+ * @since 8.0
+ */
+class DeflateContext{}
 
 define ('FORCE_GZIP', 31);
 define ('FORCE_DEFLATE', 15);

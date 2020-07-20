@@ -1009,6 +1009,41 @@ function openssl_get_curve_names() {}
  */
 function openssl_pkcs7_read($P7B, &$certs) {}
 
+/**
+ * Verifies that the data block is intact, the signer is who they say they are, and returns the certs of the signers.
+ * @since 8.0
+ */
+function openssl_cms_verify(string $filename, int $flags = 0, ?string $signerscerts = null, ?array $cainfo = null, ?string $extracerts = null, ?string $content = null, ?string $pk7 = null, ?string $sigfile = null, $encoding = OPENSSL_ENCODING_SMIME): bool {}
+
+/**
+ * Encrypts the message in the file with the certificates and outputs the result to the supplied file.
+ * @param resource|string|array $recipcerts
+ * @since 8.0
+ */
+function openssl_cms_encrypt(string $infile, string $outfile, $recipcerts, ?array $headers, int $flags = 0, int $encoding = OPENSSL_ENCODING_SMIME,  int $cipher = OPENSSL_CIPHER_RC2_40): bool {}
+
+/**
+ * Signs the MIME message in the file with a cert and key and output the result to the supplied file.
+ * @param resource|string $signcert
+ * @param resource|string|array $signkey8
+ * @since 8.0
+ */
+function openssl_cms_sign(string $infile, string $outfile, $signcert, $signkey, ?array $headers, int $flags = 0, int $encoding = OPENSSL_ENCODING_SMIME, ?string $extracertsfilename = null): bool {}
+
+/**
+ * Decrypts the S/MIME message in the file and outputs the results to the supplied file.
+ * @param resource|string $recipcert
+ * @param resource|string|array $recipkey
+ * @since 8.0
+ */
+function openssl_cms_decrypt(string $infilename, string $outfilename, $recipcert, $recipkey, int $encoding = OPENSSL_ENCODING_SMIME): bool {}
+
+/**
+ * Exports the CMS file to an array of PEM certificates.
+ * @since 8.0
+ */
+function openssl_cms_read(string $infilename, &$certs): bool {}
+
 define ('OPENSSL_VERSION_TEXT', "OpenSSL 1.0.0e 6 Sep 2011");
 define ('OPENSSL_VERSION_NUMBER', 268435551);
 define ('X509_PURPOSE_SSL_CLIENT', 1);
@@ -1147,6 +1182,51 @@ define('OPENSSL_CIPHER_AES_256_CBC', 7);
 define('OPENSSL_RAW_DATA', 1);
 define('OPENSSL_ZERO_PADDING', 2);
 define('OPENSSL_DONT_ZERO_PAD_KEY', 4);
+
+/**
+ * @since 8.0
+ */
+define('OPENSSL_CMS_DETACHED', 64);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_CMS_TEXT', 1);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_CMS_NOINTERN', 16);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_CMS_NOVERIFY', 32);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_CMS_NOCERTS', 2);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_CMS_NOATTR', 256);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_CMS_BINARY', 128);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_CMS_NOSIGS', 12);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_ENCODING_DER', 0);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_ENCODING_SMIME', 1);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_ENCODING_PEM', 2);
 
 define('OPENSSL_DEFAULT_STREAM_CIPHERS', "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:" .
 "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:" .

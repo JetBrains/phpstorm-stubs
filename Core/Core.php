@@ -168,6 +168,7 @@ function str_contains(string $haystack, string $needle) : bool {}
  * array contents, <b>each</b> returns
  * false.
  * @deprecated 7.2 Use a foreach loop instead.
+ * @removed 8.0
  */
 function each (array &$array) {}
 
@@ -715,6 +716,7 @@ function get_defined_vars () {}
  * </p>
  * @return string a unique function name as a string, or false on error.
  * @deprecated 7.2 Use anonymous functions instead.
+ * @removed 8.0
  */
 function create_function ($args, $code) {}
 

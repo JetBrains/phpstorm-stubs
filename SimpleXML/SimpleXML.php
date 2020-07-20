@@ -6,7 +6,7 @@
  * Represents an element in an XML document.
  * @link https://php.net/manual/en/class.simplexmlelement.php
  */
-class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator {
+class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator, Stringable, RecursiveIterator {
 
 	/**
 	 * Creates a new SimpleXMLElement object
@@ -19,7 +19,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator 
      * @param bool $is_prefix TRUE if ns is a prefix, FALSE if it's a URI; defaults to FALSE.
 	 * @since 5.0.1
 	 */
-	final public function __construct ($data, $options = 0, $data_is_url = false, $ns = "", $is_prefix = false) {}
+	public function __construct ($data, $options = 0, $data_is_url = false, $ns = "", $is_prefix = false) {}
 
 	/**
      * Provides access to element's children
@@ -218,7 +218,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator 
      * @param string|int $offset
      * @return bool true on success or false on failure.
      */
-    private function offsetExists ($offset) {}
+    public function offsetExists ($offset) {}
 
     /**
      * Class provides access to children by position, and attributes by name
@@ -226,7 +226,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator 
      * @param string|int $offset
      * @return static Either a named attribute or an element from a list of children
      */
-    private function offsetGet ($offset) {}
+    public function offsetGet ($offset) {}
 
     /**
      * Class provides access to children by position, and attributes by name
@@ -235,7 +235,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator 
      * @param mixed $value
      * @return void
      */
-    private function offsetSet ($offset, $value) {}
+    public function offsetSet ($offset, $value) {}
 
     /**
      * Class provides access to children by position, and attributes by name
@@ -243,49 +243,60 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator 
      * @param string|int $offset
      * @return void
      */
-    private function offsetUnset ($offset) {}
+    public function offsetUnset ($offset) {}
 
     /**
      * Rewind to the first element
      * @link https://php.net/manual/en/simplexmliterator.rewind.php
      * @return void No value is returned.
      */
-    private function rewind () {}
+    public function rewind () {}
 
     /**
      * Check whether the current element is valid
      * @link https://php.net/manual/en/simplexmliterator.valid.php
      * @return bool <b>TRUE</b> if the current element is valid, otherwise <b>FALSE</b>
      */
-    private function valid () {}
+    public function valid () {}
 
     /**
      * Returns the current element
      * @link https://php.net/manual/en/simplexmliterator.current.php
      * @return static|null the current element as a <b>SimpleXMLElement</b> object or <b>NULL</b> on failure.
      */
-    private function current () {}
+    public function current () {}
 
     /**
      * Return current key
      * @link https://php.net/manual/en/simplexmliterator.key.php
      * @return string|false the XML tag name of the element referenced by the current <b>SimpleXMLIterator</b> object or <b>FALSE</b>
      */
-    private function key () {}
+    public function key () {}
 
     /**
      * Move to next element
      * @link https://php.net/manual/en/simplexmliterator.next.php
      * @return void No value is returned.
      */
-    private function next () {}
+    public function next () {}
+
+    /**
+     * @return bool
+     * @since 8.0
+     */
+    public function hasChildren(){}
+
+    /**
+     * @since 8.0
+     */
+    public function getChildren(){}
 }
 
 /**
  * The SimpleXMLIterator provides recursive iteration over all nodes of a <b>SimpleXMLElement</b> object.
  * @link https://php.net/manual/en/class.simplexmliterator.php
  */
-class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, Countable {
+class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, Countable, Stringable {
 
 	/**
 	 * Rewind to the first element

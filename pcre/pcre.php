@@ -608,7 +608,7 @@ define ('PCRE_VERSION_MAJOR', 10);
 /**
  * @since 7.3
  */
-define ('PCRE_VERSION_MINOR', 34);
+define ('PCRE_VERSION_MINOR', 35);
 
 /**
  * @since 7.3

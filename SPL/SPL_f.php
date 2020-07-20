@@ -50,10 +50,11 @@ function spl_autoload_extensions ($file_extensions = null) {}
  * spl_autoload will be registered.
  * </p>
  * @param bool $throw This parameter specifies whether spl_autoload_register() should throw exceptions when the
- * autoload_function cannot be registered.
+ * autoload_function cannot be registered. Ignored since since 8.0.
  * @param bool $prepend If true, spl_autoload_register() will prepend the autoloader on the autoload stack instead of
  * appending it.
  * @return bool true on success or false on failure.
+ * @throws TypeError Since 8.0.
  * @since 5.1.2
  */
 function spl_autoload_register ($autoload_function = null, $throw = true, $prepend = false) {}

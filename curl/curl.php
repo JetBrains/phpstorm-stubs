@@ -77,7 +77,7 @@ class CURLFile {
  * to its value. You can manually set this using the
  * curl_setopt function.
  * </p>
- * @return resource|false a cURL handle on success, false on errors.
+ * @return resource|false|CurlHandle a cURL handle on success, false on errors.
  */
 function curl_init ($url = null) {}
 
@@ -92,8 +92,7 @@ function curl_copy_handle ($ch) {}
 /**
  * Gets cURL version information
  * @link https://php.net/manual/en/function.curl-version.php
- * @param int $age [optional] <p>
- * </p>
+ * @param int $age [optional] Removed since version PHP 8.0.
  * @return array an associative array with the following elements:
  * <tr valign="top">
  * <td>Indice</td>
@@ -2138,7 +2137,7 @@ function curl_share_close ($sh) {}
  * (PHP 5 &gt;=5.5.0)<br/>
  * Initialize a cURL share handle
  * @link https://secure.php.net/manual/en/function.curl-share-init.php
- * @return resource Returns resource of type "cURL Share Handle".
+ * @return resource|CurlShareHandle Returns resource of type "cURL Share Handle".
  * @since 5.5
  */
 function curl_share_init () {}
@@ -2346,7 +2345,7 @@ function curl_close ($ch) {}
 /**
  * Returns a new cURL multi handle
  * @link https://php.net/manual/en/function.curl-multi-init.php
- * @return resource|false a cURL multi handle resource on success, false on failure.
+ * @return resource|false|CurlMultiHandle a cURL multi handle resource on success, false on failure.
  */
 function curl_multi_init () {}
 
@@ -2532,3 +2531,18 @@ function curl_share_errno($rh) {}
  * @return string
  */
 function curl_share_strerror($errno){}
+
+/**
+ * @since 8.0
+ */
+final class CurlHandle{}
+
+/**
+ * @since 8.0
+ */
+final class CurlMultiHandle{}
+
+/**
+ * @since 8.0
+ */
+final class CurlShareHandle{}

@@ -778,9 +778,10 @@ final class mysqli_warning  {
 
 	/**
 	 * The __construct purpose
+     * @param object $mysqli_link [optional]
 	 * @link https://php.net/manual/en/mysqli-warning.construct.php
 	 */
-	protected function __construct () {}
+	protected function __construct ($mysqli_link = null) {}
 
 	/**
 	 * Move to the next warning
@@ -796,7 +797,8 @@ final class mysqli_warning  {
  * Implements Traversable since 5.4
  * @link https://php.net/manual/en/class.mysqli-result.php
  */
-class mysqli_result implements Traversable  {
+class mysqli_result implements IteratorAggregate
+{
 	/**
 	 * @var int
 	 */
@@ -820,8 +822,10 @@ class mysqli_result implements Traversable  {
 
 	/**
 	 * Constructor (no docs available)
+     * @param object $mysqli_link [optional]
+     * @param int $resmode [optional]
 	 */
-	public function __construct () {}
+	public function __construct ($mysqli_link = null, $resmode = 0) {}
 
 	/**
 	 * Frees the memory associated with a result
@@ -1136,6 +1140,10 @@ class mysqli_result implements Traversable  {
 	 */
 	public function free_result () {}
 
+    /**
+     * @since 8.0
+     */
+    public function getIterator(){}
 }
 
 /**
@@ -1796,9 +1804,10 @@ function mysqli_get_charset ($link) {}
 /**
  * Get MySQL client info
  * @link https://php.net/manual/en/mysqli.get-client-info.php
+ * @param mysqli $link [optional] A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string A string that represents the MySQL client library version
  */
-function mysqli_get_client_info () {}
+function mysqli_get_client_info ($link = null) {}
 
 /**
  * Returns the MySQL client version as an integer

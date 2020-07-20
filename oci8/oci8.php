@@ -968,6 +968,7 @@ function oci_free_statement ($statement) {}
  * @param bool $onoff <p>
  * Set this to <b>FALSE</b> to turn debug output off or <b>TRUE</b> to turn it on.
  * </p>
+ * @removed 8.0
  * @return void No value is returned.
  */
 function oci_internal_debug ($onoff) {}
@@ -1844,6 +1845,7 @@ function ocifreestatement ($statement_resource) {}
  * Alias of {@see oci_internal_debug}
  * @link https://php.net/manual/en/function.ociinternaldebug.php
  * @param bool $mode
+ * @removed 8.0
  */
 function ociinternaldebug ($mode) {}
 

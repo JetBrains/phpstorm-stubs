@@ -463,7 +463,7 @@ class SoapVar  {
 	 * </p>
 	 * @since 5.0.1
 	 */
-	public function SoapVar ($data, $encoding, $type_name = null, $type_namespace = null, $node_name = null, $node_namespace = null) {}
+	public function __construct ($data, $encoding, $type_name = null, $type_namespace = null, $node_name = null, $node_namespace = null) {}
 
 }
 
@@ -513,7 +513,7 @@ class SoapServer  {
 	 * </p>
 	 * @since 5.0.1
 	 */
-	public function SoapServer ($wsdl, array $options = null) {}
+	public function __construct ($wsdl, array $options = null) {}
 
 	/**
 	 * Sets SoapServer persistence mode
@@ -693,7 +693,7 @@ class SoapFault extends Exception  {
 	 * </p>
 	 * @since 5.0.1
 	 */
-	public function SoapFault ($faultcode, $faultstring, $faultactor = null, $detail = null, $faultname = null, $headerfault = null) {}
+	public function __construct ($faultcode, $faultstring, $faultactor = null, $detail = null, $faultname = null, $headerfault = null) {}
 
 	/**
 	 * Obtain a string representation of a SoapFault
@@ -725,7 +725,7 @@ class SoapParam  {
 	 * </p>
 	 * @since 5.0.1
 	 */
-	public function SoapParam ($data, $name) {}
+	public function __construct ($data, $name) {}
 
 }
 

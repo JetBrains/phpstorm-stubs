@@ -16,7 +16,7 @@
  * @param int $perm [optional] <p>
  * The optional permission bits. Default to 0666.
  * </p>
- * @return resource a shared memory segment identifier.
+ * @return resource|SysvSharedMemory a shared memory segment identifier.
  */
 function shm_attach ($key, $memsize = null, $perm = 0666) {}
 
@@ -101,6 +101,12 @@ function shm_get_var ($shm_identifier, $variable_key) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function shm_remove_var ($shm_identifier, $variable_key) {}
+
+/**
+ * @since 8.0
+ */
+final class SysvSharedMemory{}
+
 
 // End of sysvshm v.
 ?>

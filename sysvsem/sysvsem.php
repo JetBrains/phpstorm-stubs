@@ -19,7 +19,7 @@
  * Specifies if the semaphore should be automatically released on request
  * shutdown.
  * </p>
- * @return resource|false a positive semaphore identifier on success, or <b>FALSE</b> on
+ * @return resource|false|SysvSemaphore a positive semaphore identifier on success, or <b>FALSE</b> on
  * error.
  */
 function sem_get ($key, $max_acquire = 1, $perm = 0666, $auto_release = 1) {}
@@ -61,6 +61,11 @@ function sem_release ($sem_identifier) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function sem_remove ($sem_identifier) {}
+
+/**
+ * @since 8.0
+ */
+final class SysvSemaphore{}
 
 // End of sysvsem v.
 ?>

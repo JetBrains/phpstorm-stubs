@@ -7,7 +7,7 @@
  * information for an individual file.
  * @link https://php.net/manual/en/class.splfileinfo.php
  */
-class SplFileInfo  {
+class SplFileInfo implements Stringable {
 
         /**
          * Construct a new SplFileInfo object
@@ -745,6 +745,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * @return string|false a string containing the next line of the file with HTML and PHP
          * code stripped, or false on error.
          * @deprecated 7.3
+         * @removed 8.0
          */
         public function fgetss ($allowable_tags = null) {}
 
@@ -1886,9 +1887,10 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
         /**
          * Returns the number of objects in the storage
          * @link https://php.net/manual/en/splobjectstorage.count.php
+         * @param int $mode [optional]
          * @return int The number of objects in the storage.
          */
-        public function count () {}
+        public function count ($mode = COUNT_NORMAL) {}
 
         /**
          * Rewind the iterator to the first storage element

@@ -5,10 +5,10 @@
 class finfo  {
 
 	/**
-	 * @param $options [optional]
-	 * @param $arg [optional]
+	 * @param int $options [optional]
+	 * @param string $arg [optional]
 	 */
-	public function finfo ($options, $arg) {}
+	public function __construct ($options, $arg) {}
 
 	/**
 	 * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>

@@ -427,10 +427,11 @@ function ldap_get_entries ($link_identifier, $result_identifier) {}
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
  * @param resource $result_entry_identifier
+ * @param int $dummy_ber [optional] is the identifier to internal memory location pointer. This parameter is no longer used as this is now handled automatically by PHP. For backwards compatibility PHP will not throw an error if this parameter is passed.
  * @return string|false the first attribute in the entry on success and <b>FALSE</b> on
  * error.
  */
-function ldap_first_attribute ($link_identifier, $result_entry_identifier) {}
+function ldap_first_attribute ($link_identifier, $result_entry_identifier, $dummy_ber = null) {}
 
 /**
  * Get the next attribute in result
@@ -439,10 +440,11 @@ function ldap_first_attribute ($link_identifier, $result_entry_identifier) {}
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
  * @param resource $result_entry_identifier
+ * @param int $dummy_ber [optional] The internal state of the pointer is maintained by this parameter. This parameter is no longer used as this is now handled automatically by PHP. For backwards compatibility PHP will not throw an error if this parameter is passed.
  * @return string|false the next attribute in an entry on success and <b>FALSE</b> on
  * error.
  */
-function ldap_next_attribute ($link_identifier, $result_entry_identifier) {}
+function ldap_next_attribute ($link_identifier, $result_entry_identifier, $dummy_ber) {}
 
 /**
  * Get attributes from a search result entry
@@ -794,6 +796,7 @@ function ldap_compare ($link_identifier, $dn, $attribute, $value, $serverctrls =
  * The attribute to use as a key in the sort.
  * </p>
  * @deprecated 7.0
+ * @removed 8.0
  * @return bool
  */
 function ldap_sort ($link, $result, $sortfilter) {}
@@ -1214,6 +1217,14 @@ function ldap_escape ($value, $ignore = "", $flags = 0) {}
  * @since 5.4
  */
 function ldap_modify_batch ( $link_identifier , $dn , $entry, $serverctrls = []) {}
+
+/**
+ * @param resource $link_identifier
+ * @param resource $result_identifier
+ * @return int returns the number of reference messages in a search result.
+ * @since 8.0
+ */
+function ldap_count_references($link_identifier, $result_identifier){}
 
 define('LDAP_ESCAPE_FILTER', 1);
 define ('LDAP_ESCAPE_DN', 2);

@@ -160,6 +160,7 @@ function hebrev ($hebrew_text, $max_chars_per_line = null) {}
  * </p>
  * @return string the visual string.
  * @deprecated 7.4
+ * @removed 8.0
  */
 function hebrevc ($hebrew_text, $max_chars_per_line = null) {}
 
@@ -452,6 +453,7 @@ function strcoll ($str1, $str2) {}
  * Non-numeric number causes returning &null; and
  * emitting E_WARNING.
  * @deprecated 7.4
+ * @removed 8.0
  */
 function money_format ($format, $number) {}
 

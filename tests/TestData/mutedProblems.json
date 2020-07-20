@@ -836,6 +836,24 @@
       "problems": [
         "parameter mismatch"
       ]
+    },
+    {
+      "name": "curl_version",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "mb_decode_numericentity",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "image_type_to_extension",
+      "problems": [
+        "parameter mismatch"
+      ]
     }
   ],
   "classes": [
@@ -1500,6 +1518,17 @@
                 "has scalar typehint"
               ]
             }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WeakReference",
+      "methods": [
+        {
+          "name": "create",
+          "problems": [
+            "parameter mismatch"
           ]
         }
       ]
