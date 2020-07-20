@@ -892,6 +892,9 @@ class PhpToken implements Stringable {
     }
 }
 
+/**
+ * @since 8.0
+ */
 final class InternalIterator implements Iterator{
     private function __construct(){}
     public function current(){}
