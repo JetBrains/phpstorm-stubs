@@ -25,7 +25,7 @@ Have a full copy of the .git repo within an IDE and provide its path in `Setting
 The set of extensions enabled by default in PhpStorm can change anytime without prior notice. To learn how to view the enabled extensions, look [here](https://blog.jetbrains.com/phpstorm/2017/03/per-project-php-extension-settings-in-phpstorm-2017-1/).
 
 ### How to run tests
-1. Execute `docker-compose -f docker-compose.yml run php composer install -d /opt/project/phpstorm-stubs`
+1. Execute `docker-compose -f docker-compose.yml run php composer install -d /opt/project/phpstorm-stubs --ignore-platform-reqs`
 2. Execute `docker-compose -f docker-compose.yml run php /opt/project/phpstorm-stubs/vendor/bin/phpunit /opt/project/phpstorm-stubs/tests/`
 
 ### How to update stub map
