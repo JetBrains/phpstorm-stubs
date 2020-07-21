@@ -135,11 +135,11 @@ function bcsqrt ($operand, $scale = null) {}
  * Set default scale parameter for all bc math functions
  * @link https://php.net/manual/en/function.bcscale.php
  * @param int $scale <p>
- * The scale factor.
+ * The scale factor. Since 7.3.0 can be omitted.
  * </p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return int|true <b>INT</b> since 7.3.0 and <b>TRUE</b> before.
  */
-function bcscale ($scale) {}
+function bcscale ($scale = null) {}
 
 /**
  * Compare two arbitrary precision numbers
