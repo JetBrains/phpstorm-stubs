@@ -193,27 +193,26 @@ function metaphone ($str, $phonemes = 0) {}
  * Default value 0 means that the function is called only in the end,
  * other special value 1 sets chunk_size to 4096.
  * </p>
- * @param bool $erase [optional] <p>
- * If the optional parameter erase is set to false,
- * the buffer will not be deleted until the script finishes.
- * This causes that flushing and cleaning functions would issue a notice
- * and return false if called.
+ * @param int $flags [optional] <p>
+ * The flags parameter is a bitmask that controls the operations that can be performed on the output buffer.
+ * The default is to allow output buffers to be cleaned, flushed and removed, which can be set explicitly via
+ * PHP_OUTPUT_HANDLER_CLEANABLE | PHP_OUTPUT_HANDLER_FLUSHABLE | PHP_OUTPUT_HANDLER_REMOVABLE, or PHP_OUTPUT_HANDLER_STDFLAGS as shorthand.
  * </p>
  * @return bool true on success or false on failure.
  */
-function ob_start ($output_callback = null, $chunk_size = null, $erase = null) {}
+function ob_start ($output_callback = null, $chunk_size = null, $flags = PHP_OUTPUT_HANDLER_STDFLAGS) {}
 
 /**
  * Flush (send) the output buffer
  * @link https://php.net/manual/en/function.ob-flush.php
- * @return void 
+ * @return void
  */
 function ob_flush () {}
 
 /**
  * Clean (erase) the output buffer
  * @link https://php.net/manual/en/function.ob-clean.php
- * @return void 
+ * @return void
  */
 function ob_clean () {}
 
@@ -277,22 +276,22 @@ function ob_get_level () {}
  * or with full_status = false a simple array
  * with the following elements is returned:
  * <pre>
- * Array 
+ * Array
  * (
  *     [level] => 2
  *     [type] => 0
  *     [status] => 0
  *     [name] => URL-Rewriter
- *     [del] => 1 
+ *     [del] => 1
  * )
  * </pre>
  * <table>
  * <tr><th>Key</th><th>Value</th></tr>
- * <tr><td>level</td><td>Output nesting level</td></tr> 
- * <tr><td>type</td><td><em>PHP_OUTPUT_HANDLER_INTERNAL (0)</em> or <em>PHP_OUTPUT_HANDLER_USER (1)</em></td></tr> 
- * <tr><td>status</td><td>One of <em>PHP_OUTPUT_HANDLER_START</em> (0), <em>PHP_OUTPUT_HANDLER_CONT</em> (1) or <em>PHP_OUTPUT_HANDLER_END</em> (2)</td></tr> 
- * <tr><td>name</td><td>Name of active output handler or &#039; default output handler&#039; if none is set</td></tr> 
- * <tr><td>del</td><td>Erase-flag as set by ob_start()</td></tr> 
+ * <tr><td>level</td><td>Output nesting level</td></tr>
+ * <tr><td>type</td><td><em>PHP_OUTPUT_HANDLER_INTERNAL (0)</em> or <em>PHP_OUTPUT_HANDLER_USER (1)</em></td></tr>
+ * <tr><td>status</td><td>One of <em>PHP_OUTPUT_HANDLER_START</em> (0), <em>PHP_OUTPUT_HANDLER_CONT</em> (1) or <em>PHP_OUTPUT_HANDLER_END</em> (2)</td></tr>
+ * <tr><td>name</td><td>Name of active output handler or &#039; default output handler&#039; if none is set</td></tr>
+ * <tr><td>del</td><td>Erase-flag as set by ob_start()</td></tr>
  * </table>
  * <p>
  * If called with full_status = TRUE an array with one element for each active output buffer
@@ -312,7 +311,7 @@ function ob_get_level () {}
  *             [name] => default output handler
  *             [del] => 1
  *         )
- * 
+ *
  *     [1] => Array
  *         (
  *             [chunk_size] => 0
@@ -324,7 +323,7 @@ function ob_get_level () {}
  *             [name] => URL-Rewriter
  *             [del] => 1
  *         )
- * 
+ *
  * )
  * </pre>
  * <p> The full output contains these additional elements:</p>
@@ -351,7 +350,7 @@ function ob_get_contents () {}
  * @param int $flag [optional] <p>
  * 1 to turn implicit flushing on, 0 otherwise.
  * </p>
- * @return void 
+ * @return void
  */
 function ob_implicit_flush ($flag = 1) {}
 
@@ -633,7 +632,7 @@ function count ($var, $mode = COUNT_NORMAL) {}
 /**
  * Set the internal pointer of an array to its last element
  * @link https://php.net/manual/en/function.end.php
- * @param array|object $array <p>
+ * @param array $array <p>
  * The array. This array is passed by reference because it is modified by
  * the function. This means you must pass it a real variable and not
  * a function returning an array because only actual variables may be
@@ -647,7 +646,7 @@ function end (array &$array) {}
 /**
  * Rewind the internal array pointer
  * @link https://php.net/manual/en/function.prev.php
- * @param array|object $array <p>
+ * @param array $array <p>
  * The input array.
  * </p>
  * @return mixed the array value in the previous place that's pointed to by
@@ -660,7 +659,7 @@ function prev (array &$array) {}
 /**
  * Advance the internal array pointer of an array
  * @link https://php.net/manual/en/function.next.php
- * @param array|object $array <p>
+ * @param array $array <p>
  * The array being affected.
  * </p>
  * @return mixed the array value in the next place that's pointed to by the
@@ -672,7 +671,7 @@ function next (array &$array) {}
 /**
  * Set the internal pointer of an array to its first element
  * @link https://php.net/manual/en/function.reset.php
- * @param array|object $array <p>
+ * @param array $array <p>
  * The input array.
  * </p>
  * @return mixed the value of the first array element, or false if the array is
@@ -684,13 +683,13 @@ function reset (array &$array) {}
 /**
  * Return the current element in an array
  * @link https://php.net/manual/en/function.current.php
- * @param array|object $array <p>
+ * @param array $array <p>
  * The array.
  * </p>
  * @return mixed The current function simply returns the
  * value of the array element that's currently being pointed to by the
  * internal pointer. It does not move the pointer in any way. If the
- * internal pointer points beyond the end of the elements list or the array is 
+ * internal pointer points beyond the end of the elements list or the array is
  * empty, current returns false.
  * @meta
  */
@@ -699,13 +698,13 @@ function current (array $array) {}
 /**
  * Fetch a key from an array
  * @link https://php.net/manual/en/function.key.php
- * @param array|object $array <p>
+ * @param array $array <p>
  * The array.
  * </p>
  * @return int|string|null The key function simply returns the
  * key of the array element that's currently being pointed to by the
  * internal pointer. It does not move the pointer in any way. If the
- * internal pointer points beyond the end of the elements list or the array is 
+ * internal pointer points beyond the end of the elements list or the array is
  * empty, key returns &null;.
  */
 function key (array $array) {}
@@ -826,7 +825,7 @@ function extract (array $var_array, $extract_type = null, $prefix = null) {}
  * arrays of variable names inside it; compact
  * handles it recursively.
  * </p>
- * @param mixed $_ [optional] 
+ * @param mixed $_ [optional]
  * @return array the output array with all the variables added to it.
  */
 function compact ($varname, $_ = null) {}
@@ -1048,13 +1047,9 @@ function array_slice (array $array, $offset, $length = null, $preserve_keys = fa
 /**
  * Merge one or more arrays
  * @link https://php.net/manual/en/function.array-merge.php
- * @param array $array1 <p>
+ * @param array ...$arrays <p>
  * Initial array to merge.
  * </p>
- * @param array $array2 [optional] 
- * @param array $_ [optional] 
  * @return array the resulting array.
  */
-function array_merge (array $array1, array $array2 = null, array $_ = null) {}
-
-?>
+function array_merge (array ...$arrays) {}

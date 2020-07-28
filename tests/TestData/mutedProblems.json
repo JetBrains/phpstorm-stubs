@@ -772,37 +772,37 @@
       ]
     },
     {
-      "name":"session_set_save_handler",
+      "name": "session_set_save_handler",
       "problems": [
         "parameter mismatch"
       ]
     },
     {
-      "name":"stream_context_set_option",
+      "name": "stream_context_set_option",
       "problems": [
         "parameter mismatch"
       ]
     },
     {
-      "name":"setcookie",
+      "name": "setcookie",
       "problems": [
         "parameter mismatch"
       ]
     },
     {
-      "name":"setrawcookie",
+      "name": "setrawcookie",
       "problems": [
         "parameter mismatch"
       ]
     },
     {
-      "name":"sodium_memzero",
+      "name": "sodium_memzero",
       "problems": [
         "parameter mismatch"
       ]
     },
     {
-      "name":"strtr",
+      "name": "strtr",
       "problems": [
         "parameter mismatch"
       ]
@@ -820,19 +820,37 @@
       ]
     },
     {
-      "name":"mysqli_escape_string",
+      "name": "mysqli_escape_string",
       "problems": [
         "parameter mismatch"
       ]
     },
     {
-      "name":"mysqli_set_opt",
+      "name": "mysqli_set_opt",
       "problems": [
         "parameter mismatch"
       ]
     },
     {
-      "name":"socket_cmsg_space",
+      "name": "socket_cmsg_space",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "curl_version",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "mb_decode_numericentity",
+      "problems": [
+        "parameter mismatch"
+      ]
+    },
+    {
+      "name": "image_type_to_extension",
       "problems": [
         "parameter mismatch"
       ]
@@ -840,7 +858,7 @@
   ],
   "classes": [
     {
-      "name" : "AMQPBasicProperties",
+      "name": "AMQPBasicProperties",
       "methods": [
         {
           "name": "__construct",
@@ -865,7 +883,7 @@
       "name": "Phar",
       "methods": [
         {
-          "name":"getPath",
+          "name": "getPath",
           "problems": [
             "missing method"
           ]
@@ -888,91 +906,91 @@
           ]
         },
         {
-          "name":"addFile",
+          "name": "addFile",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"addFromString",
+          "name": "addFromString",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"buildFromDirectory",
+          "name": "buildFromDirectory",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"buildFromIterator",
+          "name": "buildFromIterator",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"compressFiles",
+          "name": "compressFiles",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"decompressFiles",
+          "name": "decompressFiles",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"compress",
+          "name": "compress",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"decompress",
+          "name": "decompress",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"convertToExecutable",
+          "name": "convertToExecutable",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"convertToData",
+          "name": "convertToData",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"copy",
+          "name": "copy",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"count",
+          "name": "count",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"delete",
+          "name": "delete",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"delMetadata",
+          "name": "delMetadata",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"extractTo",
+          "name": "extractTo",
           "problems": [
             "missing method"
           ]
@@ -984,207 +1002,205 @@
           ]
         },
         {
-          "name":"getPath",
+          "name": "getPath",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"getMetadata",
+          "name": "getMetadata",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"getModified",
+          "name": "getModified",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"getSignature",
+          "name": "getSignature",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"getStub",
+          "name": "getStub",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"getVersion",
+          "name": "getVersion",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"hasMetadata",
+          "name": "hasMetadata",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"isBuffering",
+          "name": "isBuffering",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"isCompressed",
+          "name": "isCompressed",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"isFileFormat",
+          "name": "isFileFormat",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"isWritable",
-          "problems": [
-            "missing method"
-         ]
-        },
-        {
-          "name":"setAlias",
+          "name": "isWritable",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"setDefaultStub",
+          "name": "setAlias",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"setMetadata",
+          "name": "setDefaultStub",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"setSignatureAlgorithm",
+          "name": "setMetadata",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"setStub",
+          "name": "setSignatureAlgorithm",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"startBuffering",
+          "name": "setStub",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"stopBuffering",
+          "name": "startBuffering",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"apiVersion",
-          "problems": [
-            "missing method"
-          ]
-        },
-
-        {
-          "name":"canCompress",
+          "name": "stopBuffering",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"canWrite",
+          "name": "apiVersion",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"createDefaultStub",
+          "name": "canCompress",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"getSupportedCompression",
-          "problems": [
-            "missing method"
-          ]
-        },{
-          "name":"getSupportedSignatures",
-          "problems": [
-            "missing method"
-          ]
-        },
-
-        {
-          "name":"interceptFileFunc",
+          "name": "canWrite",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"isValidPharFilename",
+          "name": "createDefaultStub",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"loadPhar",
+          "name": "getSupportedCompression",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"mapPhar",
-          "problems": [
-            "missing method"
-          ]
-        },
-
-        {
-          "name":"running",
+          "name": "getSupportedSignatures",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"mount",
+          "name": "interceptFileFunc",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"mungServer",
+          "name": "isValidPharFilename",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"unlinkArchive",
+          "name": "loadPhar",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"webPhar",
+          "name": "mapPhar",
           "problems": [
             "missing method"
           ]
         },
         {
-          "name":"interceptFileFuncs",
+          "name": "running",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name": "mount",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name": "mungServer",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name": "unlinkArchive",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name": "webPhar",
+          "problems": [
+            "missing method"
+          ]
+        },
+        {
+          "name": "interceptFileFuncs",
           "problems": [
             "missing method"
           ]
@@ -1222,7 +1238,7 @@
           ]
         },
         {
-          "name":"getSignature",
+          "name": "getSignature",
           "problems": [
             "missing method"
           ]
@@ -1473,6 +1489,44 @@
         },
         {
           "name": "bind_result",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SQLite3",
+      "methods": [
+        {
+          "name": "createFunction",
+          "parameters": [
+            {
+              "name": "flags",
+              "problems": [
+                "has scalar typehint"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "openBlob",
+          "parameters": [
+            {
+              "name": "flags",
+              "problems": [
+                "has scalar typehint"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WeakReference",
+      "methods": [
+        {
+          "name": "create",
           "problems": [
             "parameter mismatch"
           ]

@@ -105,7 +105,7 @@
  * <td>false</td>
  * </tr>
  * </table>
- * ok: the second call will be successfull.
+ * ok: the second call will be successful.
  * wait: the second call waits until <b>dba_close</b> is called for the first.
  * false: the second call returns false.
  * illegal: you must not mix "l" and "d" modifiers for <i>mode</i> parameter.
@@ -117,7 +117,7 @@
  * can act on behalf of them.
  * </p>
  * @param mixed $_ [optional]
- * @return resource a positive handle on success or <b>FALSE</b> on failure.
+ * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
 function dba_open ($path, $mode, $handler = null, $_ = null) {}
 
@@ -140,7 +140,7 @@ function dba_open ($path, $mode, $handler = null, $_ = null) {}
  * can act on behalf of them.
  * </p>
  * @param mixed $_ [optional]
- * @return resource a positive handle on success or <b>FALSE</b> on failure.
+ * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
 function dba_popen ($path, $mode, $handler = null, $_ = null) {}
 

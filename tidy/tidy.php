@@ -957,6 +957,118 @@ define ('TIDY_TAG_UL', 115);
 define ('TIDY_TAG_VAR', 116);
 define ('TIDY_TAG_WBR', 117);
 define ('TIDY_TAG_XMP', 118);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_ARTICLE', 123);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_ASIDE', 124);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_AUDIO', 125);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_BDI', 126);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_CANVAS', 127);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_COMMAND', 128);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_DATALIST', 129);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_DETAILS', 130);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_DIALOG', 131);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_FIGCAPTION', 132);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_FIGURE', 133);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_FOOTER', 134);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_HEADER', 135);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_HGROUP', 136);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_MAIN', 137);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_MARK', 138);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_MENUITEM', 139);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_METER', 140);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_NAV', 141);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_OUTPUT', 142);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_PROGRESS', 143);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_SECTION', 144);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_SOURCE', 145);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_SUMMARY', 146);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_TEMPLATE', 147);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_TIME', 148);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_TRACK', 149);
+/**
+ * @since 7.4
+ */
+define ('TIDY_TAG_VIDEO', 150);
 
 /**
  * root node

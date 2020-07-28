@@ -22,7 +22,7 @@
  * @param int $size <p>
  * The size of the shared memory block you wish to create in bytes
  * </p>
- * @return resource On success <b>shmop_open</b> will return an id that you can
+ * @return resource|false|Shmop On success <b>shmop_open</b> will return an id that you can
  * use to access the shared memory segment you've created. <b>FALSE</b> is
  * returned on failure.
  */
@@ -53,6 +53,8 @@ function shmop_read ($shmid, $start, $count) {}
  * <b>shmop_open</b>
  * </p>
  * @return void No value is returned.
+ *
+ * @deprecated 8.0
  */
 function shmop_close ($shmid) {}
 
@@ -97,6 +99,11 @@ function shmop_write ($shmid, $data, $offset) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function shmop_delete ($shmid) {}
+
+/**
+ * @since 8.0
+ */
+final class Shmop{}
 
 // End of shmop v.
 ?>

@@ -21,7 +21,7 @@ class V8Js
      * @param bool $report_uncaught_exceptions
      * @param string $snapshot_blob
      */
-    public function __construct($object_name = "PHP", array $variables = [], array $extensions = [], $report_uncaught_exceptions = TRUE, $snapshot_blob = NULL)
+    public function __construct($object_name = "PHP", array $variables = [], array $extensions = [], $report_uncaught_exceptions = true, $snapshot_blob = null)
     {}
 
     /**
@@ -126,7 +126,7 @@ class V8Js
      * @param bool $auto_enable
      * @return bool
      */
-    public static function registerExtension($extension_name, $code, array $dependencies, $auto_enable = FALSE)
+    public static function registerExtension($extension_name, $code, array $dependencies, $auto_enable = false)
     {}
 
     /**

@@ -19,10 +19,10 @@ abstract class SolrResponse  {
 
 	/** @var int Documents should be parsed as SolrDocument instances. */
 	const PARSE_SOLR_DOC = 1;
-	
+
 	/** @var int The http status of the response. */
 	protected $http_status;
-	
+
 	/** @var int Whether to parse the solr documents as SolrObject or SolrDocument instances. */
 	protected $parser_mode;
 

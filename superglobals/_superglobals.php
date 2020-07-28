@@ -204,7 +204,7 @@ $argv = array();
  *
  * <p><a href="https://secure.php.net/manual/en/reserved.variables.php">
  * https://secure.php.net/manual/en/reserved.variables.php</a>
- * 
+ *
  * @deprecated 5.6 Deprecated as of PHP 5.6.0. Use the php://input stream instead.
  */
 $HTTP_RAW_POST_DATA = '';

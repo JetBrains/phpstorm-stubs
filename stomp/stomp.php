@@ -143,7 +143,7 @@ class StompFrame
 
     /**
      * Frame headers
-     * @var Array
+     * @var array
      */
     public $headers;
 

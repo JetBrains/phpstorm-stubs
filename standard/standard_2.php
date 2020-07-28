@@ -216,7 +216,7 @@ function ord ($string) {}
  * variables are stored in this variable as array elements instead.<br/>
  * Since 7.2.0 this parameter is not optional.
  * </p>
- * @return void 
+ * @return void
  */
 function parse_str ($str, array &$result = null) {}
 
@@ -233,7 +233,7 @@ function parse_str ($str, array &$result = null) {}
  * Set the field enclosure character (one character only).
  * </p>
  * @param string $escape [optional] <p>
- * Set the escape character (one character only). 
+ * Set the escape character (one character only).
  * Defaults as a backslash (\)
  * </p>
  * @return array an indexed array containing the fields read.
@@ -310,13 +310,12 @@ function strchr ($haystack, $needle, $part = false) {}
  * (- or +) to be used on a number. By default, only the - sign is used
  * on a number if it's negative. This specifier forces positive numbers
  * to have the + sign attached as well, and was added in PHP 4.3.0.
- * @param mixed $args [optional] <p>
+ * @param mixed ...$args [optional] <p>
  * </p>
- * @param mixed $_ [optional] 
  * @return string a string produced according to the formatting string
  * format.
  */
-function sprintf ($format, $args = null, $_ = null) {}
+function sprintf ($format, ...$args) {}
 
 /**
  * Output a formatted string
@@ -325,12 +324,11 @@ function sprintf ($format, $args = null, $_ = null) {}
  * See sprintf for a description of
  * format.
  * </p>
- * @param mixed $args [optional] <p>
+ * @param mixed ...$args [optional] <p>
  * </p>
- * @param mixed $_ [optional] 
  * @return int the length of the outputted string.
  */
-function printf ($format, $args = null, $_ = null) {}
+function printf ($format, ...$args) {}
 
 /**
  * Output a formatted string
@@ -365,15 +363,14 @@ function vsprintf ($format, array $args) {}
  * @link https://php.net/manual/en/function.fprintf.php
  * @param resource $handle &fs.file.pointer;
  * @param string $format <p>
- * See sprintf for a description of 
+ * See sprintf for a description of
  * format.
  * </p>
- * @param mixed $args [optional] <p>
+ * @param mixed ...$args [optional] <p>
  * </p>
- * @param mixed $_ [optional] 
  * @return int the length of the string written.
  */
-function fprintf ($handle, $format, $args = null, $_ = null) {}
+function fprintf ($handle, $format, ...$args) {}
 
 /**
  * Write a formatted string to a stream
@@ -421,16 +418,16 @@ function sscanf ($str, $format, &...$_) {}
  * @link https://php.net/manual/en/function.fscanf.php
  * @param resource $handle &fs.file.pointer;
  * @param string $format <p>
- * The specified format as described in the 
+ * The specified format as described in the
  * sprintf documentation.
  * </p>
- * @param mixed $_ [optional] 
+ * @param mixed ...$vars [optional]
  * @return array|int If only two parameters were passed to this function, the values parsed will be
  * returned as an array. Otherwise, if optional parameters are passed, the
  * function will return the number of assigned values. The optional
  * parameters must be passed by reference.
  */
-function fscanf ($handle, $format, &$_ = null) {}
+function fscanf ($handle, $format, &...$vars) {}
 
 /**
  * Parse a URL and return its components
@@ -451,7 +448,7 @@ function fscanf ($handle, $format, &$_ = null) {}
  * If the component parameter is omitted, an associative array is returned.
  * At least one element will be present within the array. Potential keys within this array are:
  * scheme - e.g. http
- * host 
+ * host
  * port
  * user
  * pass
@@ -477,7 +474,7 @@ function parse_url ($url, $component = -1) {}
  * as plus (+) signs. It is encoded the same way that the
  * posted data from a WWW form is encoded, that is the same way as in
  * application/x-www-form-urlencoded media type. This
- * differs from the RFC 1738 encoding (see
+ * differs from the RFC 3986 encoding (see
  * rawurlencode) in that for historical reasons, spaces
  * are encoded as plus (+) signs.
  */
@@ -552,7 +549,7 @@ function rawurldecode ($str) {}
  *  <p>If enc_type is PHP_QUERY_RFC3986, then encoding is performed according to » RFC 3986, and spaces will be percent encoded (%20).
  * @return string a URL-encoded string.
  */
-function http_build_query ($query_data, $numeric_prefix = null, $arg_separator = null, $enc_type = PHP_QUERY_RFC1738){}
+function http_build_query ($query_data, string $numeric_prefix = "", string $arg_separator = "&", int $enc_type = PHP_QUERY_RFC1738){}
 
 /**
  * Returns the target of a symbolic link
@@ -631,8 +628,8 @@ function unlink ($filename, $context = null):bool {}
  * return status of the executed command will be written to this
  * variable.
  * </p>
- * @return string The last line from the result of the command. If you need to execute a 
- * command and have all the data from the command passed directly back without 
+ * @return string The last line from the result of the command. If you need to execute a
+ * command and have all the data from the command passed directly back without
  * any interference, use the passthru function.
  * </p>
  * <p>
@@ -684,10 +681,10 @@ function escapeshellarg ($arg) {}
  * The command that will be executed.
  * </p>
  * @param int $return_var [optional] <p>
- * If the return_var argument is present, the 
+ * If the return_var argument is present, the
  * return status of the Unix command will be placed here.
  * </p>
- * @return void 
+ * @return void
  */
 function passthru ($command, &$return_var = null) {}
 
@@ -886,7 +883,7 @@ function proc_get_status ($process) {}
  * The increment value of the priority change.
  * </p>
  * @return bool true on success or false on failure.
- * If an error occurs, like the user lacks permission to change the priority, 
+ * If an error occurs, like the user lacks permission to change the priority,
  * an error of level E_WARNING is also generated.
  */
 function proc_nice ($increment) {}
@@ -913,7 +910,7 @@ function rand ($min = 0, $max = null) {}
  * @param int $mode [optional] <p>
  * Use one of the following constants to specify the implementation of the algorithm to use.
  * </p>
- * @return void 
+ * @return void
  */
 function srand ($seed = null, $mode = MT_RAND_MT19937) {}
 
@@ -947,7 +944,7 @@ function mt_rand ($min = 0, $max = null) {}
  * @param int $mode [optional] <p>
  * Use one of the following constants to specify the implementation of the algorithm to use.
  * </p>
- * @return void 
+ * @return void
  */
 function mt_srand ($seed = null, $mode = MT_RAND_MT19937) {}
 

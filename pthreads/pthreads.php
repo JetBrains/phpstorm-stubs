@@ -107,7 +107,7 @@ class Pool {
      * @param array $ctor [optional] <p>An array of arguments to be passed to new
      * Workers</p>
      */
-    public function __construct( $size, $class = 'Worker', $ctor = [] ) {}
+    public function __construct( int $size, string $class = 'Worker', array $ctor = [] ) {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -119,7 +119,7 @@ class Pool {
      * a custom collector need to be used.</p>
      * @return int <p>The number of remaining tasks in the pool to be collected</p>
      */
-    public function collect( $collector = null ) {}
+    public function collect( callable $collector = null ) {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -128,7 +128,7 @@ class Pool {
      * @param int $size <p>The maximum number of Workers this Pool can create</p>
      * @return void
      */
-    public function resize( $size ) {}
+    public function resize( int $size ) {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -146,7 +146,7 @@ class Pool {
      * @param Threaded $task <p>The task for execution</p>
      * @return int <p>the identifier of the Worker executing the object</p>
      */
-    public function submit( $task ) {}
+    public function submit( Threaded $task ) {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -158,7 +158,7 @@ class Pool {
      * @param Threaded $task <p>The task for execution</p>
      * @return int <p>The identifier of the worker that accepted the task</p>
      */
-    public function submitTo( $worker, $task ) {}
+    public function submitTo( int $worker, Threaded $task ) {}
 }
 
 /**
@@ -227,14 +227,6 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
     public function getRefCount() {}
 
     /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * Retrieves terminal error information from the referenced object
-     * @link https://secure.php.net/manual/en/threaded.getterminationinfo.php
-     * @return array <p>array containing the termination conditions of the referenced object</p>
-     */
-    public function getTerminationInfo() {}
-
-    /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
      * Tell if the referenced object is executing
      * @link https://secure.php.net/manual/en/thread.isrunning.php
@@ -247,7 +239,7 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
      * @inheritdoc
      * @see Collectable::isGarbage()
      */
-    public function isGarbage() {}
+    public function isGarbage(): bool{}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -257,23 +249,6 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
      * @return bool <p>A boolean indication of state</p>
      */
     public function isTerminated() {}
-
-    /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * Tell if the referenced object is waiting for notification
-     * @link https://secure.php.net/manual/en/threaded.iswaiting.php
-     * @return bool <p>A boolean indication of state</p>
-     */
-    public function isWaiting() {}
-
-    /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * Lock the referenced objects property table
-     * @see Threaded::synchronized()
-     * @link https://secure.php.net/manual/en/threaded.lock.php
-     * @return bool <p>A boolean indication of success</p>
-     */
-    public function lock() {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -321,13 +296,6 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
     public function run() {}
 
     /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * @inheritdoc
-     * @see Collectable::setGarbage()
-     */
-    public function setGarbage() {}
-
-    /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
      * Shifts an item from the objects property table
      * @link https://secure.php.net/manual/en/threaded.shift.php
@@ -345,16 +313,7 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
      * to use as function arguments to the block</p>
      * @return mixed <p>The return value from the block</p>
      */
-    public function synchronized( $block, ...$_ ) {}
-
-    /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * Unlock the referenced objects storage for the calling context
-     * @see Threaded::synchronized()
-     * @link https://secure.php.net/manual/en/threaded.unlock.php
-     * @return bool <p>A boolean indication of success</p>
-     */
-    public function unlock() {}
+    public function synchronized( Closure $block, ...$_ ) {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -364,7 +323,7 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
      * @param int $timeout [optional] <p>An optional timeout in microseconds</p>
      * @return bool <p>A boolean indication of success</p>
      */
-    public function wait( $timeout = 0 ) {}
+    public function wait( int $timeout = 0 ) {}
 
 
     /**
@@ -393,32 +352,15 @@ class Threaded implements Collectable, Traversable, Countable, ArrayAccess {
 }
 
 /**
- * Stackable is an alias of Threaded. This class name was used in pthreads until
- * version 2.0.0
- * @see Threaded
- * @link https://secure.php.net/manual/en/class.threaded.php
- */
-class Stackable extends Threaded implements Traversable, Countable, ArrayAccess {
-
-}
-
-/**
  * (PECL pthreads &gt;= 2.0.0)<br/>
  * When the start method of a Thread is invoked, the run method code will be
  * executed in separate Thread, in parallel.<br/>
  * After the run method is executed the Thread will exit immediately, it will
- * be joined with the creating Thread at the approriate time.
+ * be joined with the creating Thread at the appropriate time.
  *
  * @link https://secure.php.net/manual/en/class.thread.php
  */
 class Thread extends Threaded implements Countable, Traversable, ArrayAccess {
-    /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * Detaches the referenced Thread from the calling context, dangerous!
-     * @link https://secure.php.net/manual/en/thread.detach.php
-     * @return void
-     */
-    public function detach() {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -453,14 +395,6 @@ class Thread extends Threaded implements Countable, Traversable, ArrayAccess {
     public function getThreadId() {}
 
     /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * Will execute a Callable in the global scope
-     * @link https://secure.php.net/manual/en/thread.globally.php
-     * @return mixed <p>The return value of the Callable</p>
-     */
-    public static function globally() {}
-
-    /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
      * Tell if the referenced Thread has been joined
      * @link https://secure.php.net/manual/en/thread.isjoined.php
@@ -485,14 +419,6 @@ class Thread extends Threaded implements Countable, Traversable, ArrayAccess {
     public function join() {}
 
     /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * Forces the referenced Thread to terminate
-     * @link https://secure.php.net/manual/en/thread.kill.php
-     * @return bool <p>A boolean indication of success</p>
-     */
-    public function kill() {}
-
-    /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
      * Will start a new Thread to execute the implemented run method
      * @link https://secure.php.net/manual/en/thread.start.php
@@ -500,7 +426,7 @@ class Thread extends Threaded implements Countable, Traversable, ArrayAccess {
      * constants, by default <b>{@link PTHREADS_INHERIT_ALL}</b></p>
      * @return bool <p>A boolean indication of success</p>
      */
-    public function start( $options = PTHREADS_INHERIT_ALL ) {}
+    public function start( int $options = PTHREADS_INHERIT_ALL ) {}
 }
 
 /**
@@ -529,7 +455,7 @@ class Worker extends Thread implements Traversable, Countable, ArrayAccess {
      * @return int <p>The number of remaining tasks on the worker's stack to be
      * collected</p>
      */
-    public function collect( $collector = null ) {}
+    public function collect( callable $collector = null ) {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
@@ -549,14 +475,6 @@ class Worker extends Thread implements Traversable, Countable, ArrayAccess {
     public function isShutdown() {}
 
     /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * Tell if a Worker is executing Stackables
-     * @link https://secure.php.net/manual/en/worker.isworking.php
-     * @return bool <p>A boolean indication of state</p>
-     */
-    public function isWorking() {}
-
-    /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
      * Shuts down the Worker after executing all of the stacked tasks
      * @link https://secure.php.net/manual/en/worker.shutdown.php
@@ -568,16 +486,16 @@ class Worker extends Thread implements Traversable, Countable, ArrayAccess {
      * (PECL pthreads &gt;= 2.0.0)<br/>
      * Appends the new work to the stack of the referenced worker
      * @link https://secure.php.net/manual/en/worker.stack.php
-     * @param Threaded &$work <p>A Threaded object to be executed by the Worker</p>
+     * @param Threaded $work <p>A Threaded object to be executed by the Worker</p>
      * @return int <p>The new size of the stack</p>
      */
-    public function stack( &$work ) {}
+    public function stack( Threaded $work ) {}
 
     /**
      * (PECL pthreads &gt;= 2.0.0)<br/>
      * Removes the first task (the oldest one) in the stack
      * @link https://secure.php.net/manual/en/worker.unstack.php
-     * @return int <p>The new size of the stack</p>
+     * @return Threaded|null <p>The item removed from the stack</p>
      */
     public function unstack() {}
 }
@@ -594,143 +512,7 @@ interface Collectable {
      * @link https://secure.php.net/manual/en/collectable.isgarbage.php
      * @return bool <p>Whether this object is garbage or not</p>
      */
-    public function isGarbage();
-
-    /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * Should be called once per object when the object is finished being
-     * executed or referenced
-     * @link https://secure.php.net/manual/en/collectable.setgarbage.php
-     * @return void
-     */
-    public function setGarbage();
-}
-
-/**
- * (PECL pthreads &lt; 3.0.0)<br>
- * The static methods contained in the Mutex class provide direct access to Posix
- * Mutex functionality.
- * @link https://secure.php.net/manual/en/class.mutex.php
- */
-class Mutex {
-    /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * Create, and optionally lock a new Mutex for the caller
-     * @link https://secure.php.net/manual/en/mutex.create.php
-     * @param bool $lock [optional] <p>Setting lock to true will lock the Mutex for the caller before returning the handle</p>
-     * @return int <p>A newly created and optionally locked Mutex handle</p>
-     */
-    final public static function create ( $lock = false ) {}
-
-    /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * Destroying Mutex handles must be carried out explicitly by the programmer when
-     * they are finished with the Mutex handle.
-     * @link https://secure.php.net/manual/en/mutex.destroy.php
-     * @param int $mutex <p>A handle returned by a previous call to
-     * {@see Mutex::create()}. The handle should not be locked by any Thread when
-     * {@see Mutex::destroy()} is called.</p>
-     * @return bool <p>A boolean indication of success.</p>
-     */
-    final public static function destroy( $mutex ) {}
-
-    /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * Attempt to lock the Mutex for the caller.<br/>
-     * An attempt to lock a Mutex owned (locked) by another Thread will result in
-     * blocking.
-     * @link https://secure.php.net/manual/en/mutex.lock.php
-     * @param int $mutex <p>A handle returned by a previous call to
-     * {@see Mutex::create()}.</p>
-     * @return bool <p>A boolean indication of success.</p>
-     */
-    final public static function lock( $mutex ) {}
-
-    /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * Attempt to lock the Mutex for the caller without blocking if the Mutex is
-     * owned (locked) by another Thread.
-     * @link https://secure.php.net/manual/en/mutex.trylock.php
-     * @param int $mutex int $mutex <p>A handle returned by a previous call to
-     * {@see Mutex::create()}.</p>
-     * @return bool <p>A boolean indication of success.</p>
-     */
-    final public static function trylock( $mutex ) {}
-
-    /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * Attempts to unlock the Mutex for the caller, optionally destroying the Mutex
-     * handle. The calling thread should own the Mutex at the time of the call.
-     * @link https://secure.php.net/manual/en/mutex.unlock.php
-     * @param int $mutex <p>A handle returned by a previous call to
-     * {@see Mutex::create()}.</p>
-     * @param bool $destroy [optional]
-     * <p>When true pthreads will destroy the Mutex after a successful unlock.</p>
-     * @return bool <p>A boolean indication of success.</p>
-     */
-    final public static function unlock( $mutex, $destroy = false ) {}
-}
-
-/**
- * (PECL pthreads &lt; 3.0.0)<br/>
- * The static methods contained in the Cond class provide direct access to Posix
- * Condition Variables.
- * @link https://secure.php.net/manual/en/class.cond.php
- */
-class Cond {
-    /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * Broadcast to all Threads blocking on a call to Cond::wait().
-     * @link https://secure.php.net/manual/en/cond.broadcast.php
-     * @param int $condition <p>A handle to a Condition Variable returned by a previous call to
-     * {@see Cond::create()}</p>
-     * @return bool <p>A boolean indication of success.</p>
-     */
-    final public static function broadcast( $condition ) {}
-
-    /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * Creates a new Condition Variable for the caller.
-     * @link https://secure.php.net/manual/en/cond.create.php
-     * @return int <p>A handle to a Condition Variable</p>
-     */
-    final public static function create() {}
-
-    /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * Destroying Condition Variable handles must be carried out explicitly by the
-     * programmer when they are finished with the Condition Variable. No Threads should
-     * be blocking on a call to Cond::wait() when the call to Cond::destroy() takes place.
-     * @link https://secure.php.net/manual/en/cond.destroy.php
-     * @param int $condition <p>A handle to a Condition Variable returned by a previous call to
-     * {@see Cond::create()}</p>
-     * @return bool <p>A boolean indication of success.</p>
-     */
-    final public static function destroy( $condition ) {}
-
-    /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * A handle returned by a previous call to Cond::create()
-     * @link https://secure.php.net/manual/en/cond.signal.php
-     * @param int $condition <p>A handle to a Condition Variable returned by a previous call to
-     * {@see Cond::create()}</p>
-     * @return bool <p>A boolean indication of success.</p>
-     */
-    final public static function signal( $condition ) {}
-
-    /**
-     * (PECL pthreads &lt; 3.0.0)<br/>
-     * Wait for a signal on a Condition Variable, optionally specifying a timeout to
-     * limit waiting time.
-     * @link https://secure.php.net/manual/en/cond.wait.php
-     * @param int $condition <p>A handle returned by a previous call to
-     * {@see Cond::create()}.</p>
-     * @param int $mutex <p>A handle returned by a previous call to
-     * {@see Mutex::create()} and owned (locked) by the caller.</p>
-     * @param int $timeout [optional] <p>An optional timeout, in microseconds ( millionths of a second ).</p>
-     * @return bool <p>A boolean indication of success.</p>
-     */
-    final public static function wait( $condition, $mutex, $timeout = 0 ) {}
+    public function isGarbage(): bool;
 }
 
 /**

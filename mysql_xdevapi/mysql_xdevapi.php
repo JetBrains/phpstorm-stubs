@@ -198,7 +198,7 @@ class Collection  {
 
     /**
      * Remove one collection document
-     * Remove one document from the collection with the correspending ID. This is a shortcut for Collection.remove("_id = :id").bind("id", id).execute().
+     * Remove one document from the collection with the corresponding ID. This is a shortcut for Collection.remove("_id = :id").bind("id", id).execute().
      * @link https://www.php.net/manual/en/mysql-xdevapi-collection.removeone.php
      * @param string $id
      * @return \mysql_xdevapi\Result
@@ -1409,7 +1409,7 @@ class TableInsert implements \mysql_xdevapi\Executable {
  * @link https://www.php.net/manual/en/class.mysql-xdevapi-tableselect.php
  * @package mysql_xdevapi
  */
-class TableSelect implements mysql_xdevapi\Executable {
+class TableSelect implements \mysql_xdevapi\Executable {
     /**
      * Binds a value to a specific placeholder.
      * @link https://www.php.net/manual/en/mysql-xdevapi-tableselect.bind.php
@@ -1431,7 +1431,7 @@ class TableSelect implements mysql_xdevapi\Executable {
      * @param mixed $sort_expr
      * @return \mysql_xdevapi\TableSelect
      */
-    public function groupBy ( mixed $sort_expr ) : \mysql_xdevapi\TableSelect {}
+    public function groupBy ($sort_expr ) : \mysql_xdevapi\TableSelect {}
 
     /**
      * Sets a condition for records to consider in aggregate function operations.

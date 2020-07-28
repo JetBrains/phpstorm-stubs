@@ -2166,9 +2166,9 @@ class GearmanJob {
      * to specify what percentage of the job has been completed.
      *
      * @link https://php.net/manual/en/gearmanjob.sendstatus.php
-     * @param int $numerator The numerator of the precentage completed expressed as a
+     * @param int $numerator The numerator of the percentage completed expressed as a
      *        fraction
-     * @param int $denominator The denominator of the precentage completed expressed as
+     * @param int $denominator The denominator of the percentage completed expressed as
      *        a fraction
      * @return bool
      */
@@ -2249,20 +2249,8 @@ class GearmanJob {
 
 /**
  * Class: GearmanException
- *
- * @property-read  $ Prop description
- * @property-read  $ Prop description
- * @property-read  $ Prop description
  */
 class GearmanException extends Exception {
-    /**
-     * Prop description.
-     *
-     * @link https://php.net/manual/en/class.gearmanexception.php#gearmanexception.props.code
-     * @var $code
-     */
-    public $code;
-
 }
 
 

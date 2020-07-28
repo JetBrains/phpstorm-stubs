@@ -40,6 +40,8 @@ trait PHPDocElement
      */
     public array $tagNames = [];
 
+    public bool $hasInheritDocTag = false;
+
     public bool $hasInternalMetaTag = false;
 
     protected function collectTags(Node $node): void{
@@ -47,7 +49,7 @@ trait PHPDocElement
             try {
                 $phpDoc = DocFactoryProvider::getDocFactory()->create($node->getDocComment()->getText());
                 $tags = $phpDoc->getTags();
-                foreach ($tags as $tag){
+                foreach ($tags as $tag) {
                     $this->tagNames[] = $tag->getName();
                 }
                 $this->links = $phpDoc->getTagsByName('link');
@@ -56,6 +58,8 @@ trait PHPDocElement
                 $this->deprecatedTags = $phpDoc->getTagsByName('deprecated');
                 $this->removedTags = $phpDoc->getTagsByName('removed');
                 $this->hasInternalMetaTag = $phpDoc->hasTag('meta');
+                $this->hasInheritDocTag = $phpDoc->hasTag('inheritdoc') || $phpDoc->hasTag('inheritDoc') ||
+                    stripos($phpDoc->getSummary(), "inheritdoc") > 0;
             } catch (Exception $e) {
                 $this->parseError = $e;
             }

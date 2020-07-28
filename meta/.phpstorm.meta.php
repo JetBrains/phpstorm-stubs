@@ -65,7 +65,6 @@ namespace PHPSTORM_META {
   override(\next(0), elementType(0));
 
   override(\array_change_key_case(0), type(0));
-  override(\array_rand(0), elementType(0));
   override(\array_unique(0), type(0));
 
   override(\array_intersect(0), type(0));
@@ -217,7 +216,7 @@ namespace PHPSTORM_META {
 
     expectedArguments(\imap_close(), 1, CL_EXPUNGE);
     expectedArguments(\event_base_loop(), 1, EVLOOP_ONCE|EVLOOP_NONBLOCK);
-    expectedArguments(\mb_convert_case(), 1, MB_CASE_UPPER,MB_CASE_LOWER,MB_CASE_TITLE);
+    expectedArguments(\mb_convert_case(), 1, MB_CASE_UPPER,MB_CASE_LOWER,MB_CASE_TITLE,MB_CASE_FOLD,MB_CASE_UPPER_SIMPLE,MB_CASE_LOWER_SIMPLE,MB_CASE_TITLE_SIMPLE,MB_CASE_FOLD_SIMPLE);
 	expectedArguments(\mb_get_info(), 0, 'all', 'http_output', 'http_input', 'internal_encoding', 'func_overload');
 	expectedArguments(\mb_language(), 0, 'Japanese', 'ja', 'English', 'en', 'uni');
     expectedArguments(\MemcachePool::add(), 2, MEMCACHE_COMPRESSED);
@@ -599,6 +598,17 @@ namespace PHPSTORM_META {
     expectedArguments(\pg_get_notify(), 1, argumentsSet('pgResultTypes'));
     expectedArguments(\pg_select(), 3, PGSQL_CONV_FORCE_NULL | PGSQL_DML_NO_CONV | PGSQL_DML_EXEC | PGSQL_DML_ASYNC | PGSQL_DML_STRING);
     expectedArguments(\pg_select(), 4, argumentsSet('pgResultTypes'));
+
+    expectedReturnValues(\php_sapi_name(), 'aolserver', 'apache', 'apache2filter', 'apache2handler', 'caudium', 'cgi-fcgi', 'cli', 'cli-server', 'continuity', 'embed', 'fpm-fcgi', 'isapi', 'litespeed', 'milter', 'nsapi', 'phpdbg', 'phttpd', 'pi3web', 'roxen', 'thttpd', 'tux', 'webjames');
+    expectedArguments(\phpversion(), 0, 'amqp', 'apache', 'apc', 'apd', 'bbcode', 'bcmath', 'bcompiler', 'bz2', 'cairo', 'calendar', 'chdb', 'classkit', 'com', 'crack', 'ctype', 'cubrid', 'curl', 'cyrus', 'dba', 'dbase', 'dbplus', 'dbx', 'dio', 'dom', 'dotnet', 'eio', 'enchant', 'ev', 'event', 'exif', 'expect', 'fam', 'fbsql', 'fdf', 'fileinfo', 'filepro', 'filter', 'fribidi', 'ftp', 'gearman', 'gender', 'geoip', 'gettext', 'gmagick', 'gmp', 'gnupg', 'gupnp', 'haru', 'htscanner', 'pecl_http', 'hyperwave', 'hwapi', 'interbase', 'ibm_db2', 'iconv', 'id3', 'informix', 'iisfunc', 'gd', 'imagick', 'imap', 'inclued', 'ingres', 'inotify', 'intl', 'java', 'json', 'judy', 'kadm5', 'ktaglib', 'lapack', 'ldap', 'libevent', 'libxml', 'lua', 'lzf', 'mailparse', 'maxdb', 'mbstring', 'mcrypt', 'mcve', 'memcache', 'memcached', 'memtrack', 'mhash', 'ming', 'mnogosearch', 'mongo', 'mqseries', 'msession', 'msql', 'mssql', 'mysql', 'mysqli', 'mysqlnd', 'mysqlnd_memcache', 'mysqlnd_ms', 'mysqlnd_mux', 'mysqlnd_qc', 'mysqlnd_uh', 'ncurses', 'net_gopher', 'newt', 'notes', 'nsapi', 'oauth', 'oci8', 'oggvorbis', 'openal', 'openssl', 'ovrimos', 'paradox', 'parsekit', 'pcntl', 'pcre', 'pdflib', 'pdo', 'pdo_4d', 'pdo_cubrid', 'pdo_dblib', 'pdo_firebird', 'pdo_ibm', 'pdo_informix', 'pdo_mysql', 'pdo_oci', 'pdo_odbc', 'pdo_pgsql', 'pdo_sqlite', 'pdo_sqlsrv', 'pdo_pgsql', 'phar', 'posix', 'printer', 'proctitle', 'ps', 'pspell', 'pthreads', 'qtdom', 'quickhash', 'radius', 'rar', 'readline', 'recode', 'rpmreader', 'rrd', 'runkit', 'sam', 'sca', 'scream', 'sca_sdo', 'sysvmsg', 'session', 'session_pgsql', 'shmop', 'simplexml', 'snmp', 'soap', 'sockets', 'solr', 'sphinx', 'spl_types', 'spplus', 'sqlite', 'sqlite3', 'sqlsrv', 'ssdeep', 'ssh2', 'stats', 'stomp', 'svm', 'svn', 'swf', 'swish', 'sybase', 'taint', 'tcpwrap', 'tidy', 'tokenizer', 'tokyo_tyrant', 'trader', 'odbc', 'v8js', 'varnish', 'vpopmail', 'w32api', 'wddx', 'weakref', 'win32ps', 'win32service', 'wincache', 'xattr', 'xdiff', 'xhprof', 'xml', 'xmlreader', 'xmlrpc', 'xmlwriter', 'xsl', 'xslt', 'yaf', 'yaml', 'yaz', 'zip', 'zlib');
+    
+    registerArgumentsSet('session_cache_limiters', 'public', 'private_no_expire', 'private', 'nocache');
+    expectedArguments(\session_cache_limiter(), 0, argumentsSet('session_cache_limiters'));
+    expectedReturnValues(\session_cache_limiter(), argumentsSet('session_cache_limiters'));
+    registerArgumentsSet('session_module_names', 'files', 'mm', 'user');
+    expectedArguments(\session_module_name(), 0, argumentsSet('session_module_names'));
+    expectedReturnValues(\session_module_name(), argumentsSet('session_module_names'));
+    expectedReturnValues(\session_status(), \PHP_SESSION_DISABLED, \PHP_SESSION_NONE, \PHP_SESSION_ACTIVE);
 
     expectedArguments(\checkdnsrr(), 1, 'A', 'MX', 'NS', 'SOA', 'PTR', 'CNAME', 'AAAA', 'A6', 'SRV', 'NAPTR', 'TXT', 'ANY');
 

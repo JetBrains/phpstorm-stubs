@@ -475,6 +475,7 @@ function gmp_sign ($a) {}
  * numeric string given that it is possible to convert the latter to a number.</p>
  * @return resource|GMP A random GMP number.
  * @deprecated 7.2 Use {@see gmp_random_bits()} or {@see gmp_random_range()} instead.
+ * @removed 8.0
  */
 function gmp_random ($limiter = 20) {}
 
@@ -677,6 +678,57 @@ function gmp_rootrem (GMP $a, $nth) {}
  */
 function gmp_nextprime ($a) {}
 
+/**
+ * Calculates binomial coefficient
+ *
+ * @link https://www.php.net/manual/en/function.gmp-binomial.php
+ *
+ * @param GMP|string|float|int $a
+ * @param int $b
+ * @return GMP|false
+ *
+ * @since 7.3
+ */
+function gmp_binomial($a, $b) {}
+
+/**
+ * Computes the Kronecker symbol
+ *
+ * @link https://www.php.net/manual/en/function.gmp-kronecker.php
+ *
+ * @param GMP|string|float|int $a
+ * @param GMP|string|float|int $b
+ * @return int
+ *
+ * @since 7.3
+ */
+function gmp_kronecker($a, $b) {}
+
+/**
+ * Computes the least common multiple of A and B
+ *
+ * @link https://www.php.net/manual/en/function.gmp-lcm.php
+ *
+ * @param GMP|string|float|int $a
+ * @param GMP|string|float|int $b
+ * @return GMP
+ *
+ * @since 7.3
+ */
+function gmp_lcm($a, $b) {}
+
+/**
+ * Perfect power check
+ *
+ * @link https://www.php.net/manual/en/function.gmp-perfect-power.php
+ *
+ * @param GMP|string|float|int $a
+ * @return bool
+ *
+ * @since 7.3
+ */
+function gmp_perfect_power($a) {}
+
 define ('GMP_ROUND_ZERO', 0);
 define ('GMP_ROUND_PLUSINF', 1);
 define ('GMP_ROUND_MINUSINF', 2);
@@ -691,6 +743,8 @@ define ('GMP_NATIVE_ENDIAN', 16);
  * @link https://php.net/manual/en/gmp.constants.php
  */
 define ('GMP_VERSION', "");
+
+define ('GMP_MPIR_VERSION', '3.0.0');
 
 class GMP implements Serializable {
 

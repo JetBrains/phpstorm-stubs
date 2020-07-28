@@ -12,7 +12,7 @@
  * Queue permissions. Default to 0666. If the message queue already
  * exists, the <i>perms</i> will be ignored.
  * </p>
- * @return resource a resource handle that can be used to access the System V message queue.
+ * @return resource|SysvMessageQueue a resource handle that can be used to access the System V message queue.
  */
 function msg_get_queue ($key, $perms = 0666) {}
 
@@ -256,6 +256,11 @@ define ('MSG_EAGAIN', 11);
 define ('MSG_ENOMSG', 42);
 define ('MSG_NOERROR', 2);
 define ('MSG_EXCEPT', 4);
+
+/**
+ * @since 8.0
+ */
+final class SysvMessageQueue{}
 
 // End of sysvmsg v.
 ?>

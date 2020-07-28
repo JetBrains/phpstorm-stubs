@@ -1113,6 +1113,7 @@ class Normalizer {
     /**
      * No decomposition/composition
      * @link https://secure.php.net/manual/en/class.normalizer.php
+     * @removed 8.0
      */
     const NONE = "1";
 
@@ -1670,6 +1671,11 @@ class IntlDateFormatter {
      */
     const TRADITIONAL = 0;
 
+    const RELATIVE_FULL = 0;
+    const RELATIVE_LONG = 1;
+    const RELATIVE_MEDIUM = 2;
+    const RELATIVE_SHORT = 3;
+
 
     /**
      * @param string|null $locale
@@ -1919,7 +1925,7 @@ class IntlDateFormatter {
      * The locale to use, or <b>NULL</b> to use the {@link "https://secure.php.net/manual/en/intl.configuration.php#ini.intl.default-locale"default one}.</p>
      * @return string|false A string with result or <b>FALSE</b> on failure.
      */
-    public static function formatObject($object, $format = NULL, $locale = NULL) { }
+    public static function formatObject($object, $format = null, $locale = null) { }
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -1973,7 +1979,7 @@ class IntlDateFormatter {
     public function getErrorMessage() { }
 }
 
-class ResourceBundle implements Traversable {
+class ResourceBundle implements IteratorAggregate {
 
     /**
      * @param $locale
@@ -2047,6 +2053,11 @@ class ResourceBundle implements Traversable {
      * @return string error message from last bundle object's call.
      */
     public function getErrorMessage() { }
+
+    /**
+     * @since 8.0
+     */
+    public function getIterator(){}
 }
 
 /**
@@ -2237,7 +2248,7 @@ class IntlGregorianCalendar extends IntlCalendar {
      * @param string $locale
      * @return IntlGregorianCalendar
      */
-    public static function createInstance($timeZone = NULL, $locale = NULL) { }
+    public static function createInstance($timeZone = null, $locale = null) { }
 
     /**
      * @param double $change
@@ -2357,7 +2368,7 @@ class IntlCalendar {
      * </p>
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure. Failure can only occur is invalid arguments are provided.
      */
-    public function clear($field = NULL) { }
+    public function clear($field = null) { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2413,7 +2424,7 @@ class IntlCalendar {
      * The created {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} instance or <b>NULL</b> on
      * failure.
      */
-    public static function createInstance($timeZone = NULL, $locale = NULL) { }
+    public static function createInstance($timeZone = null, $locale = null) { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2794,7 +2805,7 @@ class IntlCalendar {
      * a date out of bounds on non-lenient mode; use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or query
      * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.</p>
      */
-    public function isWeekend($date = NULL) { }
+    public function isWeekend($date = null) { }
 
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -2861,7 +2872,7 @@ class IntlCalendar {
      *</p>
      * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
      */
-    public function set($year, $month, $dayOfMonth = NULL, $hour = NULL, $minute = NULL, $second = NULL) { }
+    public function set($year, $month, $dayOfMonth = null, $hour = null, $minute = null, $second = null) { }
 
     /**
      * (PHP 5 >=5.5.0 PECL intl >= 3.0.0a1)<br/>
@@ -4319,7 +4330,7 @@ function datefmt_format(MessageFormatter $mf, $value) { }
  * The locale to use, or NULL to use the default one.</p>
  * @return string|false The formatted string or, if an error occurred, <b>FALSE</b>.
  */
-function datefmt_format_object($object, $format = NULL, $locale = NULL) { }
+function datefmt_format_object($object, $format = null, $locale = null) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4671,7 +4682,7 @@ function idn_to_utf8($domain, $options = 0, $variant = INTL_IDNA_VARIANT_2003, a
  * failure.
  * @since 5.5
  */
-function intlcal_create_instance($timeZone = NULL, $locale = NULL) { }
+function intlcal_create_instance($timeZone = null, $locale = null) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -4888,7 +4899,7 @@ function intlcal_before(IntlCalendar $calendarObject, IntlCalendar $calendar) { 
  * @return bool Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
  * @since 5.5
  */
-function intlcal_set($calendar, $year, $month, $dayOfMonth = NULL, $hour = NULL, $minute = NULL, $second = NULL) { }
+function intlcal_set($calendar, $year, $month, $dayOfMonth = null, $hour = null, $minute = null, $second = null) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -4928,7 +4939,7 @@ function intlcal_roll($calendar, $field, $amountOrUpOrDown) { }
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure. Failure can only occur is invalid arguments are provided.
  * @since 5.5
  */
-function intlcal_clear($calendar, $field = NULL) { }
+function intlcal_clear($calendar, $field = null) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5324,7 +5335,7 @@ function intlcal_is_equivalent_to(IntlCalendar $calendarObject, IntlCalendar $ca
  * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.</p>
  * @since 5.5
  */
-function intlcal_is_weekend($calendar, $date = NULL) { }
+function intlcal_is_weekend($calendar, $date = null) { }
 
 
 /**
@@ -5712,7 +5723,7 @@ function intltz_use_daylight_time($obj) { }
  * @return IntlGregorianCalendar
  * @since 5.5
  */
-function intlgregcal_create_instance($timeZone = NULL, $locale = NULL) { }
+function intlgregcal_create_instance($timeZone = null, $locale = null) { }
 
 /**
  * @param IntlGregorianCalendar $obj
@@ -5951,6 +5962,55 @@ function intl_is_failure($error_code) { }
  */
 function intl_error_name($error_code) { }
 
+/**
+ * Gets the Decomposition_Mapping property for the given UTF-8 encoded code point
+ *
+ * @link https://www.php.net/manual/en/normalizer.getrawdecomposition.php
+ *
+ * @param string $input
+ * @return string|null
+ *
+ * @since 7.3
+ */
+function normalizer_get_raw_decomposition($input) { }
+
+/**
+ * @since 5.5
+ */
+function intltz_create_default() { }
+
+/**
+ * @since 5.5
+ */
+function intltz_get_gmt() { }
+
+/**
+ * @since 5.5
+ */
+function intltz_get_unknown() { }
+
+/**
+ * @since 5.5
+ */
+function intltz_create_time_zone_id_enumeration($zoneType, $region = null, $rawOffset = null) { }
+
+/**
+ * @since 5.5
+ */
+function intltz_get_region($zoneId) { }
+
+/**
+ * Set minimal number of days the first week in a year or month can have
+ *
+ * @link https://www.php.net/manual/en/intlcalendar.setminimaldaysinfirstweek.php
+ *
+ * @param IntlCalendar $calendar
+ * @param int $numberOfDays
+ * @return bool
+ *
+ * @since 5.5.1
+ */
+function intlcal_set_minimal_days_in_first_week(IntlCalendar $calendar, $numberOfDays) { }
 
 /**
  * Limit on locale length, set to 80 in PHP code. Locale names longer
@@ -6161,6 +6221,7 @@ define ('IDNA_NONTRANSITIONAL_TO_UNICODE', 32);
  * {@see idn_to_ascii}. This is the default.
  * @link https://php.net/manual/en/intl.constants.php
  * @deprecated 7.2 Use {@see INTL_IDNA_VARIANT_UTS46} instead.
+ * @removed 8.0
  */
 define ('INTL_IDNA_VARIANT_2003', 0);
 
@@ -6242,7 +6303,8 @@ define ('IDNA_ERROR_CONTEXTJ', 4096);
 /**
  * @since 5.5
  */
-class IntlBreakIterator implements Traversable {
+class IntlBreakIterator implements IteratorAggregate
+{
     /* Constants */
     const  DONE = -1;
     const  WORD_NONE = 0;
@@ -6433,6 +6495,8 @@ class IntlBreakIterator implements Traversable {
      * @param string $text
      */
     public function setText($text) { }
+
+    public function getIterator(){}
 }
 
 class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversable {
@@ -6530,6 +6594,22 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      * @return array
      */
     public function getRuleStatusVec() { }
+}
+
+/**
+ * @link https://www.php.net/manual/en/class.intlpartsiterator.php
+ * @since 5.5
+ */
+class IntlPartsIterator extends IntlIterator implements Iterator {
+
+    const KEY_SEQUENTIAL = 0 ;
+    const KEY_LEFT = 1 ;
+    const KEY_RIGHT = 2 ;
+
+    /**
+     * @return IntlBreakIterator
+     */
+    public function getBreakIterator() { }
 }
 
 class IntlCodePointBreakIterator extends IntlBreakIterator implements Traversable {

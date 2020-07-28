@@ -86,13 +86,13 @@ define('EVLOOP_NONBLOCK', 2);
 // Buffered event error codes (second argument in buffer's error-callback)
 
 /**
- * An event occured during a read operation on the
+ * An event occurred during a read operation on the
  * bufferevent. See the other flags for which event it was.
  */
 define('EVBUFFER_READ', 1);
 
 /**
- * An event occured during a write operation on the bufferevent.
+ * An event occurred during a write operation on the bufferevent.
  * See the other flags for which event it was.
  */
 define('EVBUFFER_WRITE', 2);
@@ -210,7 +210,7 @@ function event_base_loopbreak($event_base) {}
  * Valid event base resource.
  * </p>
  * @param int $timeout [optional] <p>
- * Optional timeout parameter (in microseconds). If lower then 1,
+ * Optional timeout parameter (in microseconds). If lower than 1,
  * the event_base stops looping without a delay.
  * </p>
  *
@@ -280,7 +280,7 @@ function event_free($event) {}
  * <p>Schedules the execution of the non-pending event (makes it pending in it's
  * configured base) when the event specified in {@link event_set}() occurs or in
  * at least the time specified by the timeout argument. If timeout was not specified,
- * not timeout is set. The event must be already initalized by
+ * not timeout is set. The event must be already initialized by
  * {@link event_set}() and {@link event_base_set}() functions.
  * If the event already has a timeout set,
  * it is replaced by the new one.</p>
@@ -695,4 +695,3 @@ function event_timer_del($event) {}
 
 
 // End of PECL libevent v.0.0.4
-

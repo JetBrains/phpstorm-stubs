@@ -215,6 +215,7 @@ define ('INPUT_SERVER', 5);
  * SESSION variables.
  * (not implemented yet)
  * @link https://php.net/manual/en/filter.constants.php
+ * @removed 8.0
  */
 define ('INPUT_SESSION', 6);
 
@@ -222,6 +223,7 @@ define ('INPUT_SESSION', 6);
  * REQUEST variables.
  * (not implemented yet)
  * @link https://php.net/manual/en/filter.constants.php
+ * @removed 8.0
  */
 define ('INPUT_REQUEST', 99);
 
@@ -266,6 +268,11 @@ define ('FILTER_VALIDATE_INT', 257);
  * @link https://php.net/manual/en/filter.constants.php
  */
 define ('FILTER_VALIDATE_BOOLEAN', 258);
+/**
+ * ID of "boolean" filter.
+ * @link https://php.net/manual/en/filter.constants.php
+ */
+define ('FILTER_VALIDATE_BOOL', 258);
 
 /**
  * ID of "float" filter.
@@ -370,6 +377,7 @@ define ('FILTER_SANITIZE_NUMBER_FLOAT', 520);
  * ID of "magic_quotes" filter.
  * @link https://php.net/manual/en/filter.constants.php
  * @deprecated 7.4
+ * @removed 8.0
  */
 define ('FILTER_SANITIZE_MAGIC_QUOTES', 521);
 
@@ -457,6 +465,7 @@ define ('FILTER_FLAG_ALLOW_SCIENTIFIC', 16384);
  * Require scheme in "validate_url" filter.
  * @link https://php.net/manual/en/filter.constants.php
  * @deprecated 7.3
+ * @removed 8.0
  */
 define ('FILTER_FLAG_SCHEME_REQUIRED', 65536);
 
@@ -464,6 +473,7 @@ define ('FILTER_FLAG_SCHEME_REQUIRED', 65536);
  * Require host in "validate_url" filter.
  * @link https://php.net/manual/en/filter.constants.php
  * @deprecated 7.3
+ * @removed 8.0
  */
 define ('FILTER_FLAG_HOST_REQUIRED', 131072);
 

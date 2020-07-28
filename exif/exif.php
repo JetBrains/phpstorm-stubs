@@ -86,6 +86,7 @@ function exif_read_data ($stream, $sections = null, $arrays = false, $thumbnail 
  * @param $arrays [optional]
  * @param $thumbnail [optional]
  * @deprecated 7.2 Use {@see exif_read_data()} instead.
+ * @removed 8.0
  */
 function read_exif_data ($filename, $sections = null, $arrays = false, $thumbnail = false) {}
 

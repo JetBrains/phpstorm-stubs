@@ -267,7 +267,7 @@ function hash_hmac_algos() {}
  * binary representation of the derived key is returned.
  * @since 5.5
  */
-function hash_pbkdf2 ($algo, $password, $salt, $iterations, $length = 0, $raw_output = FALSE) {}
+function hash_pbkdf2 ($algo, $password, $salt, $iterations, $length = 0, $raw_output = false) {}
 
 /**
  * Generates a key
@@ -391,6 +391,13 @@ class HashContext
     private function __construct()
     {
     }
+
+    public function __serialize(){}
+
+    /**
+     * @param array $serialized
+     */
+    public function __unserialize($serialized){}
 }
 // End of hash v.1.0
 ?>

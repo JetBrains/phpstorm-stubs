@@ -160,7 +160,7 @@ class SNMP  {
 	 * depending on <i>object_id</i> type or <b>FALSE</b> on error.
 	 * @since 5.4
 	 */
-	public function get ($object_id, $preserve_keys = FALSE) {}
+	public function get ($object_id, $preserve_keys = false) {}
 
 	/**
 	 * Fetch an SNMP object which
@@ -189,7 +189,7 @@ class SNMP  {
 	 * respectively.
 	 * @since 5.4
 	 */
-	public function walk ($object_id, $suffix_as_keys = FALSE, $max_repetitions, $non_repeaters) {}
+	public function walk ($object_id, $suffix_as_keys = false, $max_repetitions, $non_repeaters) {}
 
 	/**
 	 * Set the value of an SNMP object

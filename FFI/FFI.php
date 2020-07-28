@@ -30,10 +30,10 @@ namespace {
          *
          * @param string $code The collection of C declarations.
          * @param string|null $library DSO library.
-         * @return CData|mixed
+         * @return FFI
          * @throws ParserException
          */
-        public static function cdef(string $code, string $library = null) {}
+        public static function cdef(string $code, string $library = null): FFI {}
 
         /**
          * <p>Instead of embedding of a long C definition into PHP string,
@@ -58,7 +58,7 @@ namespace {
          * @param string $filename
          * @return FFI
          */
-        public static function load($filename): FFI {}
+        public static function load(string $filename): FFI {}
 
         /**
          * FFI definition parsing and shared library loading may take
@@ -114,7 +114,7 @@ namespace {
          * @param CData $pointer
          * @return void
          */
-        public static function free(CData &$pointer): void {}
+        public static function free(CData $pointer): void {}
 
         /**
          * Casts given $pointer to another C type, specified by C declaration
@@ -129,7 +129,7 @@ namespace {
          * @param CData $pointer
          * @return CData
          */
-        public static function cast($type, CData &$pointer): CData {}
+        public static function cast($type, CData $pointer): CData {}
 
         /**
          * This function creates and returns a FFI\CType object, representng
@@ -152,7 +152,7 @@ namespace {
          * @param CData $pointer
          * @return CType
          */
-        public static function typeof(CData &$pointer): CType {}
+        public static function typeof(CData $pointer): CType {}
 
         /**
          * Constructs a new C array type with elements of $type and
@@ -174,7 +174,7 @@ namespace {
          * @param CData $pointer
          * @return CData
          */
-        public static function addr(CData &$pointer): CData {}
+        public static function addr(CData $pointer): CData {}
 
         /**
          * Returns size of C data type of the given FFI\CData or FFI\CType.
@@ -200,7 +200,7 @@ namespace {
          * @param mixed $source
          * @param int $size
          */
-        public static function memcpy(CData &$target, &$source, int $size): void {}
+        public static function memcpy(CData $target, &$source, int $size): void {}
 
         /**
          * Compares $size bytes from memory area $a and $b.
@@ -220,7 +220,7 @@ namespace {
          * @param int $byte
          * @param int $size
          */
-        public static function memset(CData &$target, int $byte, int $size): void {}
+        public static function memset(CData $target, int $byte, int $size): void {}
 
         /**
          * Creates a PHP string from $size bytes of memory area pointed by
@@ -231,7 +231,7 @@ namespace {
          * @param int $size [optional]
          * @return string
          */
-        public static function string(CData &$source, int $size = 0): string {}
+        public static function string(CData $source, int $size = 0): string {}
     }
 }
 
@@ -276,4 +276,3 @@ namespace FFI {
     {
     }
 }
-

@@ -1,7 +1,7 @@
-<?php 
+<?php
 namespace
 {
-    
+
     define('YAF\VERSION', '3.0.8', true);
     define('YAF\ENVIRON', 'product', true);
     define('YAF\ERR\STARTUP\FAILED', 512, true);

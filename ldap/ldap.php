@@ -7,7 +7,7 @@
  * @link https://www.php.net/manual/en/function.ldap-exop-passwd.php
  * @param resource $link An LDAP link identifier, returned by ldap_connect().
  * @param string $user [optional] dn of the user to change the password of.
- * @param string $oldpw [optional] The old password of this user. May be ommited depending of server configuration.
+ * @param string $oldpw [optional] The old password of this user. May be omitted depending of server configuration.
  * @param string $newpw [optional] The new password for this user. May be omitted or empty to have a generated password.
  * @param array $serverctrls [optional] If provided, a password policy request control is send with the request and this is filled with an array of LDAP Controls returned with the request.
  * @return mixed Returns the generated password if newpw is empty or omitted. Otherwise returns TRUE on success and FALSE on failure.
@@ -131,7 +131,7 @@ function ldap_bind ($link_identifier, $bind_rdn = null, $bind_password = null) {
  * @param string $bind_rdn [optional]
  * @param string $bind_password [optional]
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
- * @return resource
+ * @return resource|false
  * @since 7.3
  */
 function ldap_bind_ext ($link_identifier, $bind_rdn = null, $bind_password = null, $serverctrls = []) {}
@@ -374,7 +374,7 @@ function ldap_count_entries ($link_identifier, $result_identifier) {}
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
  * @param resource $result_identifier
- * @return resource the result entry identifier for the first entry on success and
+ * @return resource|false the result entry identifier for the first entry on success and
  * <b>FALSE</b> on error.
  */
 function ldap_first_entry ($link_identifier, $result_identifier) {}
@@ -427,10 +427,11 @@ function ldap_get_entries ($link_identifier, $result_identifier) {}
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
  * @param resource $result_entry_identifier
+ * @param int $dummy_ber [optional] is the identifier to internal memory location pointer. This parameter is no longer used as this is now handled automatically by PHP. For backwards compatibility PHP will not throw an error if this parameter is passed.
  * @return string|false the first attribute in the entry on success and <b>FALSE</b> on
  * error.
  */
-function ldap_first_attribute ($link_identifier, $result_entry_identifier) {}
+function ldap_first_attribute ($link_identifier, $result_entry_identifier, $dummy_ber = null) {}
 
 /**
  * Get the next attribute in result
@@ -439,10 +440,11 @@ function ldap_first_attribute ($link_identifier, $result_entry_identifier) {}
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
  * @param resource $result_entry_identifier
+ * @param int $dummy_ber [optional] The internal state of the pointer is maintained by this parameter. This parameter is no longer used as this is now handled automatically by PHP. For backwards compatibility PHP will not throw an error if this parameter is passed.
  * @return string|false the next attribute in an entry on success and <b>FALSE</b> on
  * error.
  */
-function ldap_next_attribute ($link_identifier, $result_entry_identifier) {}
+function ldap_next_attribute ($link_identifier, $result_entry_identifier, $dummy_ber) {}
 
 /**
  * Get attributes from a search result entry
@@ -581,7 +583,7 @@ function ldap_add ($link_identifier, $dn, array $entry, $serverctrls = []) {}
  * </code>
  * </p>
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
- * @return resource
+ * @return resource|false
  * @since 7.4
  */
 function ldap_add_ext ($link_identifier, $dn, array $entry, $serverctrls = []) {}
@@ -611,7 +613,7 @@ function ldap_delete ($link_identifier, $dn, $serverctrls = []) {}
  * The distinguished name of an LDAP entity.
  * </p>
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
- * @return resource
+ * @return resource|false
  * @since 7.3
  */
 function ldap_delete_ext ($link_identifier, $dn, $serverctrls = []) {}
@@ -660,7 +662,7 @@ function ldap_mod_add ($link_identifier, $dn, array $entry, $serverctrls = []) {
  * </p>
  * @param array $entry
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
- * @return resource
+ * @return resource|false
  */
 function ldap_mod_add_ext ($link_identifier, $dn, array $entry, $serverctrls = []) {}
 
@@ -691,7 +693,7 @@ function ldap_mod_replace ($link_identifier, $dn, array $entry, $serverctrls = [
  * </p>
  * @param array $entry
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
- * @return resource
+ * @return resource|false
  * @since 7.3
  */
 function ldap_mod_replace_ext ($link_identifier, $dn, array $entry, $serverctrls = []) {}
@@ -723,7 +725,7 @@ function ldap_mod_del ($link_identifier, $dn, array $entry, $serverctrls = []) {
  * </p>
  * @param array $entry
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
- * @return resource
+ * @return resource|false
  * @since 7.3
  */
 function ldap_mod_del_ext ($link_identifier, $dn, array $entry, $serverctrls = []) {}
@@ -794,6 +796,7 @@ function ldap_compare ($link_identifier, $dn, $attribute, $value, $serverctrls =
  * The attribute to use as a key in the sort.
  * </p>
  * @deprecated 7.0
+ * @removed 8.0
  * @return bool
  */
 function ldap_sort ($link, $result, $sortfilter) {}
@@ -843,7 +846,7 @@ function ldap_rename ($link_identifier, $dn, $newrdn, $newparent, $deleteoldrdn,
  * is retained as non-distinguished values of the entry.
  * </p>
  * @param array $serverctrls [optional] Array of LDAP Controls to send with the request.
- * @return resource
+ * @return resource|false
  * @since 7.3
  */
 function ldap_rename_ext ($link_identifier, $dn, $newrdn, $newparent, $deleteoldrdn, $serverctrls = []) {}
@@ -1100,7 +1103,7 @@ function ldap_set_rebind_proc ($link, callable $callback) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.4
- * @deprecated Since 7.4
+ * @deprecated 7.4
  */
 function ldap_control_paged_result ($link, $pagesize, $iscritical = false, $cookie = "") {}
 
@@ -1119,7 +1122,7 @@ function ldap_control_paged_result ($link, $pagesize, $iscritical = false, $cook
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.4
- * @deprecated Since 7.4
+ * @deprecated 7.4
  */
 function ldap_control_paged_result_response ($link, $result, &$cookie = null, &$estimated = null) {}
 
@@ -1214,6 +1217,14 @@ function ldap_escape ($value, $ignore = "", $flags = 0) {}
  * @since 5.4
  */
 function ldap_modify_batch ( $link_identifier , $dn , $entry, $serverctrls = []) {}
+
+/**
+ * @param resource $link_identifier
+ * @param resource $result_identifier
+ * @return int returns the number of reference messages in a search result.
+ * @since 8.0
+ */
+function ldap_count_references($link_identifier, $result_identifier){}
 
 define('LDAP_ESCAPE_FILTER', 1);
 define ('LDAP_ESCAPE_DN', 2);

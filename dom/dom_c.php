@@ -146,7 +146,7 @@ class DOMNode  {
      * @param DOMNode $oldnode <p>
      * The old node.
      * </p>
-     * @return DOMNode The old node or false if an error occur.
+     * @return DOMNode|false The old node or false if an error occur.
      */
     public function replaceChild (DOMNode $newnode , DOMNode $oldnode ) {}
 
@@ -261,7 +261,7 @@ class DOMNode  {
      * </p>
      * @return string The namespace URI of the node.
      */
-    public function lookupNamespaceUri ($prefix) {}
+    public function lookupNamespaceURI ($prefix) {}
 
     /**
      * @param DOMNode $arg
@@ -310,7 +310,7 @@ class DOMNode  {
      * @param bool $with_comments [optional] Retain comments in output.
      * @param array $xpath [optional] An array of xpaths to filter the nodes by.
      * @param array $ns_prefixes [optional] An array of namespace prefixes to filter the nodes by.
-     * @return string canonicalized nodes as a string or FALSE on failure
+     * @return string|false Canonicalized nodes as a string or FALSE on failure
      */
     public function C14N ($exclusive, $with_comments, array $xpath = null, $ns_prefixes = null) {}
 
@@ -324,6 +324,7 @@ class DOMNode  {
      * @return int|false Number of bytes written or FALSE on failure
      */
     public function C14NFile ($uri, $exclusive, array $with_comments, array $xpath = null, $ns_prefixes = null) {}
+
 
 }
 
@@ -353,6 +354,7 @@ class DOMStringList  {
 
 /**
  * @link https://php.net/manual/en/ref.dom.php
+ * @removed 8.0
  */
 class DOMNameList  {
 
@@ -370,6 +372,9 @@ class DOMNameList  {
 
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMImplementationList  {
 
         /**
@@ -380,6 +385,9 @@ class DOMImplementationList  {
 
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMImplementationSource  {
 
         /**
@@ -398,7 +406,7 @@ class DOMImplementationSource  {
 
 /**
  * The DOMImplementation interface provides a number
- * of methods for performing operations that are independent of any 
+ * of methods for performing operations that are independent of any
  * particular instance of the document object model.
  * @link https://php.net/manual/en/class.domimplementation.php
  */
@@ -424,7 +432,7 @@ class DOMImplementation  {
 	 * The feature to test.
 	 * </p>
 	 * @param string $version <p>
-	 * The version number of the feature to test. In 
+	 * The version number of the feature to test. In
 	 * level 2, this can be either 2.0 or
 	 * 1.0.
 	 * </p>
@@ -478,7 +486,7 @@ class DOMNameSpaceNode  {
  * The DOMDocumentFragment class
  * @link https://php.net/manual/en/class.domdocumentfragment.php
  */
-class DOMDocumentFragment extends DOMNode  {
+class DOMDocumentFragment extends DOMNode implements DOMParentNode {
 
     public function __construct () {}
 
@@ -492,6 +500,15 @@ class DOMDocumentFragment extends DOMNode  {
      */
     public function appendXML ($data) {}
 
+    /**
+     * {@inheritDoc}
+     */
+    public function append(...$nodes): void {}
+
+    /**
+     * {@inheritDoc}
+     */
+    public function prepend(...$nodes): void {}
 }
 
 /**
@@ -499,7 +516,7 @@ class DOMDocumentFragment extends DOMNode  {
  * document; serves as the root of the document tree.
  * @link https://php.net/manual/class.domdocument.php
  */
-class DOMDocument extends DOMNode  {
+class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * @var string
@@ -657,15 +674,15 @@ class DOMDocument extends DOMNode  {
      * The value of the element. By default, an empty element will be created.
      * You can also set the value later with DOMElement->nodeValue.
      * </p>
-     * @return DOMElement a new instance of class DOMElement or false
-     * if an error occured.
+     * @return DOMElement|false A new instance of class DOMElement or false
+     * if an error occurred.
      */
     public function createElement ($name, $value = null) {}
 
     /**
      * Create new document fragment
      * @link https://php.net/manual/domdocument.createdocumentfragment.php
-     * @return DOMDocumentFragment The new DOMDocumentFragment or false if an error occured.
+     * @return DOMDocumentFragment|false The new DOMDocumentFragment or false if an error occurred.
      */
     public function createDocumentFragment () {}
 
@@ -675,7 +692,7 @@ class DOMDocument extends DOMNode  {
      * @param string $content <p>
      * The content of the text.
      * </p>
-     * @return DOMText The new DOMText or false if an error occured.
+     * @return DOMText|false The new DOMText or false if an error occurred.
      */
     public function createTextNode ($content) {}
 
@@ -685,7 +702,7 @@ class DOMDocument extends DOMNode  {
      * @param string $data <p>
      * The content of the comment.
      * </p>
-     * @return DOMComment The new DOMComment or false if an error occured.
+     * @return DOMComment|false The new DOMComment or false if an error occurred.
      */
     public function createComment ($data) {}
 
@@ -695,7 +712,7 @@ class DOMDocument extends DOMNode  {
      * @param string $data <p>
      * The content of the cdata.
      * </p>
-     * @return DOMCDATASection The new DOMCDATASection or false if an error occured.
+     * @return DOMCDATASection|false The new DOMCDATASection or false if an error occurred.
      */
     public function createCDATASection ($data) {}
 
@@ -708,7 +725,7 @@ class DOMDocument extends DOMNode  {
      * @param string $data [optional] <p>
      * The content of the processing instruction.
      * </p>
-     * @return DOMProcessingInstruction The new DOMProcessingInstruction or false if an error occured.
+     * @return DOMProcessingInstruction|false The new DOMProcessingInstruction or false if an error occurred.
      */
     public function createProcessingInstruction ($target, $data = null) {}
 
@@ -718,7 +735,7 @@ class DOMDocument extends DOMNode  {
      * @param string $name <p>
      * The name of the attribute.
      * </p>
-     * @return DOMAttr The new DOMAttr or false if an error occured.
+     * @return DOMAttr|false The new DOMAttr or false if an error occurred.
      */
     public function createAttribute ($name) {}
 
@@ -730,8 +747,8 @@ class DOMDocument extends DOMNode  {
      * the leading &amp; and the trailing
      * ; characters.
      * </p>
-     * @return DOMEntityReference The new DOMEntityReference or false if an error
-     * occured.
+     * @return DOMEntityReference|false The new DOMEntityReference or false if an error
+     * occurred.
      */
     public function createEntityReference ($name) {}
 
@@ -760,7 +777,7 @@ class DOMDocument extends DOMNode  {
      * <p>
      * To copy the nodes attributes deep needs to be set to true
      * </p>
-     * @return DOMNode The copied node or false, if it cannot be copied.
+     * @return DOMNode|false The copied node or false, if it cannot be copied.
      */
     public function importNode (DOMNode $importedNode , $deep = null) {}
 
@@ -777,7 +794,7 @@ class DOMDocument extends DOMNode  {
      * The value of the element. By default, an empty element will be created.
      * You can also set the value later with DOMElement->nodeValue.
      * </p>
-     * @return DOMElement The new DOMElement or false if an error occured.
+     * @return DOMElement|false The new DOMElement or false if an error occurred.
      */
     public function createElementNS ($namespaceURI, $qualifiedName, $value = null) {}
 
@@ -790,7 +807,7 @@ class DOMDocument extends DOMNode  {
      * @param string $qualifiedName <p>
      * The tag name and prefix of the attribute, as prefix:tagname.
      * </p>
-     * @return DOMAttr The new DOMAttr or false if an error occured.
+     * @return DOMAttr|false The new DOMAttr or false if an error occurred.
      */
     public function createAttributeNS ($namespaceURI, $qualifiedName) {}
 
@@ -827,6 +844,16 @@ class DOMDocument extends DOMNode  {
     public function adoptNode (DOMNode $source) {}
 
     /**
+     * {@inheritDoc}
+     */
+    public function append(...$nodes): void {}
+
+    /**
+     * {@inheritDoc}
+     */
+    public function prepend(...$nodes): void {}
+
+    /**
      * Normalizes the document
      * @link https://php.net/manual/domdocument.normalizedocument.php
      * @return void
@@ -850,7 +877,7 @@ class DOMDocument extends DOMNode  {
      * Bitwise OR
      * of the libxml option constants.
      * </p>
-     * @return mixed true on success or false on failure. If called statically, returns a
+     * @return DOMDocument|bool true on success or false on failure. If called statically, returns a
      * DOMDocument and issues E_STRICT
      * warning.
      */
@@ -879,7 +906,7 @@ class DOMDocument extends DOMNode  {
      * Bitwise OR
      * of the libxml option constants.
      * </p>
-     * @return mixed true on success or false on failure. If called statically, returns a
+     * @return DOMDocument|bool true on success or false on failure. If called statically, returns a
      * DOMDocument and issues E_STRICT
      * warning.
      */
@@ -933,10 +960,10 @@ class DOMDocument extends DOMNode  {
      * The HTML string.
      * </p>
      * @param string $options [optional] <p>
-     * Since PHP 5.4.0 and Libxml 2.6.0, you may also 
+     * Since PHP 5.4.0 and Libxml 2.6.0, you may also
      * use the options parameter to specify additional Libxml parameters.
      * </p>
-     * @return bool true on success or false on failure. If called statically, returns a
+     * @return DOMDocument|bool true on success or false on failure. If called statically, returns a
      * DOMDocument and issues E_STRICT
      * warning.
      */
@@ -949,10 +976,10 @@ class DOMDocument extends DOMNode  {
      * The path to the HTML file.
      * </p>
      * @param string $options [optional] <p>
-     * Since PHP 5.4.0 and Libxml 2.6.0, you may also 
+     * Since PHP 5.4.0 and Libxml 2.6.0, you may also
      * use the options parameter to specify additional Libxml parameters.
      * </p>
-     * @return bool true on success or false on failure. If called statically, returns a
+     * @return DOMDocument|bool true on success or false on failure. If called statically, returns a
      * DOMDocument and issues E_STRICT
      * warning.
      */
@@ -962,9 +989,9 @@ class DOMDocument extends DOMNode  {
      * Dumps the internal document into a string using HTML formatting
      * @link https://php.net/manual/domdocument.savehtml.php
      * @param DOMNode $node [optional] parameter to output a subset of the document.
-     * @return string the HTML, or false if an error occurred.
+     * @return string|false The HTML, or false if an error occurred.
      */
-    public function saveHTML (DOMNode $node = NULL) {}
+    public function saveHTML (DOMNode $node = null) {}
 
     /**
      * Dumps the internal document into a file using HTML formatting
@@ -1044,7 +1071,7 @@ class DOMDocument extends DOMNode  {
  * The DOMNodeList class
  * @link https://php.net/manual/en/class.domnodelist.php
  */
-class DOMNodeList implements Traversable, Countable {
+class DOMNodeList implements IteratorAggregate, Countable {
 
     /**
      * @var int
@@ -1071,14 +1098,18 @@ class DOMNodeList implements Traversable, Countable {
      */
     public function count() {}
 
+    /**
+     * @since 8.0
+     */
+    public function getIterator(){}
 }
 
 /**
  * The DOMNamedNodeMap class
  * @link https://php.net/manual/en/class.domnamednodemap.php
- * @property-read $length The number of nodes in the map. The range of valid child node indices is 0 to length - 1 inclusive.
+ * @property-read int $length The number of nodes in the map. The range of valid child node indices is 0 to length - 1 inclusive.
  */
-class DOMNamedNodeMap implements Traversable, Countable {
+class DOMNamedNodeMap implements IteratorAggregate, Countable {
 
     /**
      * Retrieves a node specified by name
@@ -1143,6 +1174,10 @@ class DOMNamedNodeMap implements Traversable, Countable {
      */
     public function count() {}
 
+    /**
+     * @since 8.0
+     */
+    public function getIterator(){}
 }
 
 /**
@@ -1150,7 +1185,7 @@ class DOMNamedNodeMap implements Traversable, Countable {
  * No nodes directly correspond to this class, but other nodes do inherit from it.
  * @link https://php.net/manual/en/class.domcharacterdata.php
  */
-class DOMCharacterData extends DOMNode  {
+class DOMCharacterData extends DOMNode implements DOMChildNode {
 
 
     /**
@@ -1238,6 +1273,25 @@ class DOMCharacterData extends DOMNode  {
      */
     public function replaceData ($offset, $count, $data) {}
 
+    /**
+     * {@inheritDoc}
+     */
+    public function remove(): void {}
+
+    /**
+     * {@inheritDoc}
+     */
+    public function before(...$nodes): void {}
+
+    /**
+     * {@inheritDoc}
+     */
+    public function after(...$nodes): void {}
+
+    /**
+     * {@inheritDoc}
+     */
+    public function replaceWith(...$nodes): void {}
 }
 
 /**
@@ -1307,7 +1361,7 @@ class DOMAttr extends DOMNode
  * The DOMElement class
  * @link https://php.net/manual/en/class.domelement.php
  */
-class DOMElement extends DOMNode  {
+class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode {
 
 
     /**
@@ -1379,7 +1433,7 @@ class DOMElement extends DOMNode  {
      * @param string $value <p>
      * The value of the attribute.
      * </p>
-     * @return DOMAttr The new DOMAttr or false if an error occured.
+     * @return DOMAttr The new DOMAttr or false if an error occurred.
      */
     public function setAttribute ($name, $value) {}
 
@@ -1585,6 +1639,36 @@ class DOMElement extends DOMNode  {
     public function setIdAttributeNode (DOMAttr $attr, $isId) {}
 
     /**
+     * {@inheritDoc}
+     */
+    public function remove(): void {}
+
+    /**
+     * {@inheritDoc}
+     */
+    public function before(...$nodes): void {}
+
+    /**
+     * {@inheritDoc}
+     */
+    public function after(...$nodes): void {}
+
+    /**
+     * {@inheritDoc}
+     */
+    public function replaceWith(...$nodes): void {}
+
+    /**
+     * {@inheritDoc}
+     */
+    public function append(...$nodes): void {}
+
+    /**
+     * {@inheritDoc}
+     */
+    public function prepend(...$nodes): void {}
+
+    /**
      * Creates a new DOMElement object
      * @link https://php.net/manual/en/domelement.construct.php
      * @param string $name The tag name of the element. When also passing in namespaceURI, the element name may take a prefix to be associated with the URI.
@@ -1657,18 +1741,30 @@ class DOMComment extends DOMCharacterData  {
     public function __construct ($value) {}
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMTypeinfo  {
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMUserDataHandler  {
 
     public function handle () {}
 
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMDomError  {
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMErrorHandler  {
 
     /**
@@ -1678,9 +1774,15 @@ class DOMErrorHandler  {
 
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMLocator  {
 }
 
+/**
+ * @removed 8.0
+ */
 class DOMConfiguration  {
 
     /**
@@ -1919,8 +2021,9 @@ class DOMXPath  {
      * Creates a new <classname>DOMXPath</classname> object
      * @link https://php.net/manual/en/domxpath.construct.php
      * @param DOMDocument $doc The <classname>DOMDocument</classname> associated with the <classname>DOMXPath</classname>.
+     * @param bool $registerNodeNS [optional] allow global flag to configure query() or evaluate() calls. Since 8.0.
      */
-    public function __construct (DOMDocument $doc) {}
+    public function __construct (DOMDocument $doc, $registerNodeNS = false) {}
 
     /**
      * Registers the namespace with the <classname>DOMXPath</classname> object
@@ -1989,4 +2092,77 @@ class DOMXPath  {
      */
     public function registerPhpFunctions ($restrict = null) {}
 
+}
+
+/**
+ * @property-read DOMElement|null $firstElementChild
+ * @property-read DOMElement|null $lastElementChild
+ * @property-read int $childElementCount
+ *
+ * @since 8.0
+ */
+interface DOMParentNode {
+    /**
+     * Appends one or many nodes to the list of children behind the last
+     * child node.
+     *
+     * @param DOMNode|string|null ...$nodes
+     * @return void
+     * @since 8.0
+     */
+    public function append(...$nodes): void;
+
+    /**
+     * Prepends one or many nodes to the list of children before the first
+     * child node.
+     *
+     * @param DOMNode|string|null ...$nodes
+     * @return void
+     * @since 8.0
+     */
+    public function prepend(...$nodes): void;
+}
+
+/**
+ * @property-read DOMElement|null $previousElementSibling
+ * @property-read DOMElement|null $nextElementSibling
+ *
+ * @since 8.0
+ */
+interface DOMChildNode {
+    /**
+     * Acts as a simpler version of {@see DOMNode::removeChild()}.
+     *
+     * @return void
+     * @since 8.0
+     */
+    public function remove(): void;
+
+    /**
+     * Add passed node(s) before the current node
+     *
+     * @param DOMNode|string|null ...$nodes
+     * @return void
+     * @since 8.0
+     */
+    public function before(...$nodes): void;
+
+    /**
+     * Add passed node(s) after  the current node
+     *
+     * @param DOMNode|string|null ...$nodes
+     * @return void
+     * @since 8.0
+     */
+    public function after(...$nodes): void;
+
+    /**
+     * Replace current node with new node(s), a combination
+     * of {@see DOMChildNode::remove()} + {@see DOMChildNode::append()}.
+     *
+     * @param DOMNode|string|null ...$nodes
+     * @return void
+     * @since 8.0
+     */
+    public function replaceWith(...$nodes): void;
 }

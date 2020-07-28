@@ -8,7 +8,7 @@
  * @param string $prompt [optional] <p>
  * You may specify a string with which to prompt the user.
  * </p>
- * @return string|false a single string from the user. The line returned has the ending newline removed. 
+ * @return string|false a single string from the user. The line returned has the ending newline removed.
  * If there is no more data to read, then FALSE is returned.
  */
 function readline ($prompt = null) {}

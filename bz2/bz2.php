@@ -11,7 +11,7 @@
  * and 'w' (write) are supported. Everything else will cause bzopen
  * to return <b>FALSE</b>.
  * </p>
- * @return resource If the open fails, <b>bzopen</b> returns <b>FALSE</b>, otherwise
+ * @return resource|false If the open fails, <b>bzopen</b> returns <b>FALSE</b>, otherwise
  * it returns a pointer to the newly opened file.
  */
 function bzopen ($filename, $mode) {}

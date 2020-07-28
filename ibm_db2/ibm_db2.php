@@ -10,7 +10,7 @@
  * represents the database alias in the DB2 client catalog.
  * </p>
  * <p>
- * For an uncataloged connection to a database, 
+ * For an uncataloged connection to a database,
  * database represents a complete connection
  * string in the following format:
  * DATABASE=database;HOSTNAME=hostname;PORT=port;PROTOCOL=TCPIP;UID=username;PWD=password;
@@ -103,7 +103,7 @@ function db2_pconnect ($database, $username, $password, array $options = null) {
  * db2_connect or db2_pconnect.
  * </p>
  * @param int $value <p>
- * One of the following constants: 
+ * One of the following constants:
  * DB2_AUTOCOMMIT_OFF
  * <p>
  * Turns AUTOCOMMIT off.
@@ -135,10 +135,10 @@ function db2_autocommit ($connection, $value = null) {}
  * @param int $data_type
  * @param int $precision <p>
  * Specifies the precision with which the variable should be bound to the
- * database. This parameter can also be used for retrieving XML output values 
- * from stored procedures. A non-negative value specifies the maximum size of 
- * the XML data that will be retrieved from the database. If this parameter 
- * is not used, a default of 1MB will be assumed for retrieving the XML 
+ * database. This parameter can also be used for retrieving XML output values
+ * from stored procedures. A non-negative value specifies the maximum size of
+ * the XML data that will be retrieved from the database. If this parameter
+ * is not used, a default of 1MB will be assumed for retrieving the XML
  * output value from the stored procedure.
  * </p>
  * @param int $scale <p>
@@ -1604,7 +1604,7 @@ function db2_setoption () {}
  * </p>
  * <p>
  * The IBM DB2, Cloudscape, and Apache Derby database servers typically fold
- * column names to upper-case, so the object properties will reflect that case. 
+ * column names to upper-case, so the object properties will reflect that case.
  * </p>
  * <p>
  * If your SELECT statement calls a scalar function to modify the value
@@ -1642,12 +1642,12 @@ function db2_client_info ($connection) {}
  * Used to escape certain characters
  * @link https://php.net/manual/en/function.db2-escape-string.php
  * @param string $string_literal <p>
- * The string that contains special characters that need to be modified. 
- * Characters that are prepended with a backslash are \x00, 
- * \n, \r, \, 
+ * The string that contains special characters that need to be modified.
+ * Characters that are prepended with a backslash are \x00,
+ * \n, \r, \,
  * ', " and \x1a.
  * </p>
- * @return string string_literal with the special characters 
+ * @return string string_literal with the special characters
  * noted above prepended with backslashes.
  */
 function db2_escape_string ($string_literal) {}
@@ -1679,31 +1679,31 @@ function db2_lob_read ($stmt, $colnum, $length) {}
  * db2_pconnect.
  * </p>
  * @param string $option <p>
- * A valid statement or connection options. The following new options are available 
- * as of ibm_db2 version 1.6.0. They provide useful tracking information 
+ * A valid statement or connection options. The following new options are available
+ * as of ibm_db2 version 1.6.0. They provide useful tracking information
  * that can be set during execution with db2_get_option.
  * Note
  * <p>
  * Prior versions of ibm_db2 do not support these new options.
  * </p>
  * <p>
- * When the value in each option is being set, some servers might not handle 
+ * When the value in each option is being set, some servers might not handle
  * the entire length provided and might truncate the value.
  * </p>
  * <p>
- * To ensure that the data specified in each option is converted correctly 
- * when transmitted to a host system, use only the characters A through Z, 
+ * To ensure that the data specified in each option is converted correctly
+ * when transmitted to a host system, use only the characters A through Z,
  * 0 through 9, and the underscore (_) or period (.).
  * </p>
  * userid
  * <p>
- * SQL_ATTR_INFO_USERID - A pointer to a null-terminated 
- * character string used to identify the client user ID sent to the host 
+ * SQL_ATTR_INFO_USERID - A pointer to a null-terminated
+ * character string used to identify the client user ID sent to the host
  * database server when using DB2 Connect.
  * Note
  * <p>
- * DB2 for z/OS and OS/390 servers support up to a length of 16 characters. 
- * This user-id is not to be confused with the authentication user-id, it is for 
+ * DB2 for z/OS and OS/390 servers support up to a length of 16 characters.
+ * This user-id is not to be confused with the authentication user-id, it is for
  * identification purposes only and is not used for any authorization.
  * </p>
  * </p>

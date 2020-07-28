@@ -24,7 +24,7 @@ class LevelDB{
 		'max_open_files'    => 1000,
 		'block_restart_interval' => 16,
 		'compression'       => LEVELDB_SNAPPY_COMPRESSION,
-		'comparator'        => NULL, // any callable parameter return 0, -1, 1
+		'comparator'        => null, // any callable parameter return 0, -1, 1
 	], array $read_options = [
 		'verify_check_sum'  => false, //may be set to true to force checksum verification of all data that is read from the file system on behalf of a particular read. By default, no such verification is done.
 		'fill_cache'        => true, //When performing a bulk read, the application may set this to false to disable the caching so that the data processed by the bulk read does not end up displacing most of the cached contents.
@@ -37,7 +37,7 @@ class LevelDB{
 	 * @param string $key
 	 * @param array  $read_options
 	 *
-	 * @return string|bool
+	 * @return string|false
 	 */
 	public function get($key, array $read_options = []){}
 

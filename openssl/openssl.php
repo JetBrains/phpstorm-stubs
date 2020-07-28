@@ -199,7 +199,7 @@ function openssl_spki_new(&$privkey, &$challenge, $algorithm = 0) {}
 function openssl_spki_verify(&$spkac) {}
 
 /**
- * Exports the challenge assoicated with a signed public key and challenge
+ * Exports the challenge associated with a signed public key and challenge
  * @link https://php.net/manual/en/function.openssl-spki-export-challenge.php
  * @param string $spkac <p>Expects a valid signed public key and challenge</p>
  * @return string|null Returns the associated challenge string or NULL on failure.
@@ -610,7 +610,7 @@ function openssl_digest($data, $method, $raw_output = false) { }
  * The cipher method. For a list of available cipher methods, use {@see openssl_get_cipher_methods()}.
  * </p>
  * @param string $key <p>
- * The key. 
+ * The key.
  * </p>
  * @param int $options [optional] <p>
  * options is a bitwise disjunction of the flags OPENSSL_RAW_DATA and OPENSSL_ZERO_PADDING.
@@ -625,7 +625,7 @@ function openssl_digest($data, $method, $raw_output = false) { }
  * </p>
  * @return string|false the encrypted string on success or false on failure.
  */
-function openssl_encrypt($data, $method, $key, $options = 0, $iv = "", &$tag = NULL, $aad = "", $tag_length = 16) { }
+function openssl_encrypt($data, $method, $key, $options = 0, $iv = "", &$tag = null, $aad = "", $tag_length = 16) { }
 
 /**
  * Decrypts data
@@ -710,7 +710,7 @@ function openssl_verify($data, $signature, $pub_key_id, $signature_alg = OPENSSL
  * <i>sealed_data</i>, and the envelope keys in
  * <i>env_keys</i>.
  */
-function openssl_seal($data, &$sealed_data, array &$env_keys, array $pub_key_ids, $method = null, $iv = '') { }
+function openssl_seal($data, &$sealed_data, array &$env_keys, array $pub_key_ids, $method = null, &$iv = '') { }
 
 /**
  * Open sealed data
@@ -1009,6 +1009,41 @@ function openssl_get_curve_names() {}
  */
 function openssl_pkcs7_read($P7B, &$certs) {}
 
+/**
+ * Verifies that the data block is intact, the signer is who they say they are, and returns the certs of the signers.
+ * @since 8.0
+ */
+function openssl_cms_verify(string $filename, int $flags = 0, ?string $signerscerts = null, ?array $cainfo = null, ?string $extracerts = null, ?string $content = null, ?string $pk7 = null, ?string $sigfile = null, $encoding = OPENSSL_ENCODING_SMIME): bool {}
+
+/**
+ * Encrypts the message in the file with the certificates and outputs the result to the supplied file.
+ * @param resource|string|array $recipcerts
+ * @since 8.0
+ */
+function openssl_cms_encrypt(string $infile, string $outfile, $recipcerts, ?array $headers, int $flags = 0, int $encoding = OPENSSL_ENCODING_SMIME,  int $cipher = OPENSSL_CIPHER_RC2_40): bool {}
+
+/**
+ * Signs the MIME message in the file with a cert and key and output the result to the supplied file.
+ * @param resource|string $signcert
+ * @param resource|string|array $signkey8
+ * @since 8.0
+ */
+function openssl_cms_sign(string $infile, string $outfile, $signcert, $signkey, ?array $headers, int $flags = 0, int $encoding = OPENSSL_ENCODING_SMIME, ?string $extracertsfilename = null): bool {}
+
+/**
+ * Decrypts the S/MIME message in the file and outputs the results to the supplied file.
+ * @param resource|string $recipcert
+ * @param resource|string|array $recipkey
+ * @since 8.0
+ */
+function openssl_cms_decrypt(string $infilename, string $outfilename, $recipcert, $recipkey, int $encoding = OPENSSL_ENCODING_SMIME): bool {}
+
+/**
+ * Exports the CMS file to an array of PEM certificates.
+ * @since 8.0
+ */
+function openssl_cms_read(string $infilename, &$certs): bool {}
+
 define ('OPENSSL_VERSION_TEXT', "OpenSSL 1.0.0e 6 Sep 2011");
 define ('OPENSSL_VERSION_NUMBER', 268435551);
 define ('X509_PURPOSE_SSL_CLIENT', 1);
@@ -1148,6 +1183,51 @@ define('OPENSSL_RAW_DATA', 1);
 define('OPENSSL_ZERO_PADDING', 2);
 define('OPENSSL_DONT_ZERO_PAD_KEY', 4);
 
+/**
+ * @since 8.0
+ */
+define('OPENSSL_CMS_DETACHED', 64);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_CMS_TEXT', 1);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_CMS_NOINTERN', 16);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_CMS_NOVERIFY', 32);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_CMS_NOCERTS', 2);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_CMS_NOATTR', 256);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_CMS_BINARY', 128);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_CMS_NOSIGS', 12);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_ENCODING_DER', 0);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_ENCODING_SMIME', 1);
+/**
+ * @since 8.0
+ */
+define('OPENSSL_ENCODING_PEM', 2);
+
 define('OPENSSL_DEFAULT_STREAM_CIPHERS', "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:" .
 "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:" .
 "DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:" .
@@ -1155,38 +1235,3 @@ define('OPENSSL_DEFAULT_STREAM_CIPHERS', "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDS
 "ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:" .
 "DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:" .
 "AES256-GCM-SHA384:AES128:AES256:HIGH:!SSLv2:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!RC4:!ADH");
-
-define ('STREAM_CRYPTO_METHOD_SSLv2_CLIENT', 3);
-define ('STREAM_CRYPTO_METHOD_SSLv3_CLIENT', 5);
-define ('STREAM_CRYPTO_METHOD_SSLv23_CLIENT', 57);
-define ('STREAM_CRYPTO_METHOD_TLS_CLIENT', 121);
-define ('STREAM_CRYPTO_METHOD_SSLv2_SERVER', 2);
-define ('STREAM_CRYPTO_METHOD_SSLv3_SERVER', 4);
-define ('STREAM_CRYPTO_METHOD_SSLv23_SERVER', 120);
-define ('STREAM_CRYPTO_METHOD_TLS_SERVER', 120);
-
-define("STREAM_CRYPTO_METHOD_ANY_CLIENT", 127);
-define("STREAM_CRYPTO_METHOD_ANY_SERVER", 126);
-define("STREAM_CRYPTO_METHOD_TLSv1_0_CLIENT", 9);
-define("STREAM_CRYPTO_METHOD_TLSv1_0_SERVER", 8);
-define("STREAM_CRYPTO_METHOD_TLSv1_1_CLIENT", 17);
-define("STREAM_CRYPTO_METHOD_TLSv1_1_SERVER", 16);
-define("STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT", 33);
-define("STREAM_CRYPTO_METHOD_TLSv1_2_SERVER", 32);
-/**
- * @since 7.4
- */
-define("STREAM_CRYPTO_METHOD_TLSv1_3_CLIENT", 65);
-/**
- * @since 7.4
- */
-define("STREAM_CRYPTO_METHOD_TLSv1_3_SERVER", 64);
-
-define("STREAM_CRYPTO_PROTO_SSLv3", 4);
-define("STREAM_CRYPTO_PROTO_TLSv1_0", 8);
-define("STREAM_CRYPTO_PROTO_TLSv1_1", 16);
-define("STREAM_CRYPTO_PROTO_TLSv1_2", 32);
-/**
- * @since 7.4
- */
-define("STREAM_CRYPTO_PROTO_TLSv1_3", 64);

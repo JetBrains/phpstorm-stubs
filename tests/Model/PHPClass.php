@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
+use phpDocumentor\Reflection\DocBlock\Tags\PropertyRead;
+use phpDocumentor\Reflection\DocBlockFactory;
 use PhpParser\Node\Stmt\Class_;
 use ReflectionClass;
 use stdClass;
@@ -12,6 +14,8 @@ class PHPClass extends BasePHPClass
     /** @var false|string */
     public $parentClass;
     public array $interfaces = [];
+    /** @var PHPProperty[] */
+    public array $properties = [];
 
     /**
      * @param ReflectionClass $clazz
@@ -38,6 +42,13 @@ class PHPClass extends BasePHPClass
                 continue;
             }
             $this->constants[$constant->name] = (new PHPConst())->readObjectFromReflection($constant);
+        }
+
+        foreach ($clazz->getProperties() as $property) {
+            if ($property->getDeclaringClass()->getName() !== $this->name) {
+                continue;
+            }
+            $this->properties[$property->name] = (new PHPProperty())->readObjectFromReflection($property);
         }
         return $this;
     }
@@ -66,6 +77,30 @@ class PHPClass extends BasePHPClass
                 $this->interfaces[] = ltrim($interfaceFQN, "\\");
             }
         }
+        foreach ($node->getProperties() as $property) {
+            $propertyName = $property->props[0]->name->name;
+            $this->properties[$propertyName] = (new PHPProperty($this->name))->readObjectFromStubNode($property);
+        }
+        if ($node->getDocComment() !== null) {
+            $docBlock = DocBlockFactory::createInstance()->create($node->getDocComment()->getText());
+            /** @var PropertyRead[] $properties */
+            $properties = array_merge($docBlock->getTagsByName("property-read"),
+                $docBlock->getTagsByName("property"));
+            foreach ($properties as $property) {
+                $propertyName = $property->getVariableName();
+                assert($propertyName !== "", "@property name is empty in class $this->name");
+                $newProperty = new PHPProperty($this->name);
+                $newProperty->is_static = false;
+                $newProperty->access = "public";
+                $newProperty->name = $propertyName;
+                $newProperty->parentName = $this->name;
+                $newProperty->type = "" . $property->getType();
+                assert(!array_key_exists($propertyName, $this->properties),
+                    "Property '$propertyName' is already declared in class '$this->name'");
+                $this->properties[$propertyName] = $newProperty;
+            }
+        }
+
 
         return $this;
     }

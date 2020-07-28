@@ -42,32 +42,32 @@
  *             [0] => foobarbaz
  *             [1] => 0
  *         )
- * 
+ *
  *     [1] => Array
  *         (
  *             [0] => foo
  *             [1] => 0
  *         )
- * 
+ *
  *     [2] => Array
  *         (
  *             [0] => bar
  *             [1] => 3
  *         )
- * 
+ *
  *     [3] => Array
  *         (
  *             [0] => baz
  *             [1] => 6
  *         )
- * 
+ *
  * )
  * </pre>
  * </blockquote>
  * <b>PREG_UNMATCHED_AS_NULL</b>
  * <blockquote>
  * If this flag is passed, unmatched subpatterns are reported as NULL;
- * otherwise they are reported as an empty string. 
+ * otherwise they are reported as an empty string.
  * <pre>
  * <?php
  * preg_match('/(a)(b)*(c)/', 'ac', $matches);
@@ -148,7 +148,7 @@
  * </pre>
  * Alternatively, to avoid using substr(), use the \G assertion rather
  * than the ^ anchor, or the A modifier instead, both of which work with
- * the offset parameter. 
+ * the offset parameter.
  * </p>
  * @return int|false <b>preg_match</b> returns 1 if the <i>pattern</i>
  * matches given <i>subject</i>, 0 if it does not, or <b>FALSE</b>
@@ -382,11 +382,11 @@ function preg_replace_callback ($regex, callable $callback, $subject, $limit = -
  * @param string|string[] $subject
  * @param int $limit [optional]
  * @param int $count [optional]
- * @param array $flags [optional]
+ * @param int $flags [optional]
  * @return string|string[]|null  <p>preg_replace_callback_array() returns an array if the subject parameter is an array, or a string otherwise. On errors the return value is NULL</p>
  * <p>If matches are found, the new subject will be returned, otherwise subject will be returned unchanged.</p>
  */
-function preg_replace_callback_array ($patterns_and_callbacks, $subject , $limit = -1, &$count = null, $flags = []) {}
+function preg_replace_callback_array ($patterns_and_callbacks, $subject , $limit = -1, &$count = null, $flags = 0) {}
 
 /**
  * Perform a regular expression search and replace
@@ -464,8 +464,8 @@ function preg_quote ($str, $delimiter = null) {}
  * the elements of the input array that do not match
  * the given <i>pattern</i>.
  * </p>
- * @return array an array indexed using the keys from the
- * <i>input</i> array.
+ * @return array|false an array indexed using the keys from the
+ * <i>input</i> array or false when pattern cannot be compiled.
  */
 function preg_grep ($pattern, array $input, $flags = 0) {}
 
@@ -482,6 +482,13 @@ function preg_grep ($pattern, array $input, $flags = 0) {}
  */
 function preg_last_error () {}
 
+/**
+ * Returns the error message of the last PCRE regex execution
+ *
+ * @return string one of the error messages or "No error" if there is no error.
+ * @since 8.0
+ */
+function preg_last_error_msg(): string {}
 
 /**
  * Orders results so that $matches[0] is an array of full pattern
@@ -601,11 +608,10 @@ define ('PCRE_VERSION_MAJOR', 10);
 /**
  * @since 7.3
  */
-define ('PCRE_VERSION_MINOR', 33);
+define ('PCRE_VERSION_MINOR', 35);
 
 /**
  * @since 7.3
  */
 define('PCRE_JIT_SUPPORT', 1);
 // End of pcre v.
-?>

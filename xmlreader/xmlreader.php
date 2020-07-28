@@ -271,7 +271,7 @@ class XMLReader  {
 	 * <b>XMLReader</b> or <b>FALSE</b> on failure.
 	 * @since 5.1.2
 	 */
-	public function open ($URI, $encoding = null, $options = 0) {}
+	public static function open ($URI, $encoding = null, $options = 0) {}
 
 	/**
 	 * Move to next node in document
@@ -378,7 +378,7 @@ class XMLReader  {
 	 * <b>XMLReader</b> or <b>FALSE</b> on failure.
 	 * @since 5.1.2
 	 */
-	public function XML ($source, $encoding = null, $options = 0) {}
+	public static function XML ($source, $encoding = null, $options = 0) {}
 
 	/**
 	 * Returns a copy of the current node as a DOM object

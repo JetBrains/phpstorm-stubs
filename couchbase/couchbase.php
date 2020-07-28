@@ -373,7 +373,7 @@ namespace Couchbase {
          */
         const RBAC_DOMAIN_EXTERNAL = 2;
 
-        
+
         final private function __construct() {}
 
         /**
@@ -515,7 +515,7 @@ namespace Couchbase {
          * @see https://developer.couchbase.com/documentation/server/5.0/rest-api/rbac.html
          *   More details
          */
-        public function role($role, $bucket = NULL) {}
+        public function role($role, $bucket = null) {}
     }
 
     /**
@@ -605,7 +605,7 @@ namespace Couchbase {
         /** Ping full text search (FTS) service. */
         const PINGSVC_FTS = 0x08;
 
-        
+
         final private function __construct() {}
 
         /**
@@ -1276,7 +1276,7 @@ namespace Couchbase {
          * @see https://github.com/couchbaselabs/sdk-rfcs/blob/master/rfc/0034-health-check.md
          *   SDK RFC #34, which describes the feature and report layout.
          */
-        public function ping($services = 0, $reportId = NULL) {}
+        public function ping($services = 0, $reportId = null) {}
 
         /**
          * Collect and return information about state of internal network connections.
@@ -1287,7 +1287,7 @@ namespace Couchbase {
          * @see https://github.com/couchbaselabs/sdk-rfcs/blob/master/rfc/0034-health-check.md
          *   SDK RFC #34, which describes the feature and report layout.
          */
-        public function diag($reportId = NULL) {}
+        public function diag($reportId = null) {}
 
         /**
          * Encrypt fields inside specified document.
@@ -1322,7 +1322,7 @@ namespace Couchbase {
      * Provides management capabilities for the Couchbase Bucket
      */
     class BucketManager {
-        
+
         final private function __construct() {}
 
         /**
@@ -1498,7 +1498,7 @@ namespace Couchbase {
      * An object which contains meta information of the document needed to enforce query consistency.
      */
     class MutationToken {
-        
+
         final private function __construct() {}
 
         /**
@@ -1544,7 +1544,7 @@ namespace Couchbase {
      * Container for mutation tokens.
      */
     class MutationState {
-        
+
         final private function __construct() {}
 
         /**
@@ -1590,7 +1590,7 @@ namespace Couchbase {
      * @see https://developer.couchbase.com/documentation/server/current/sdk/php/view-queries-with-sdk.html
      *   MapReduce Views
      * @see https://developer.couchbase.com/documentation/server/current/architecture/querying-data-with-views.html
-     *   Quering Data with Views
+     *   Querying Data with Views
      * @see https://developer.couchbase.com/documentation/server/current/rest-api/rest-views-get.html
      *   Getting Views Information
      */
@@ -1605,7 +1605,7 @@ namespace Couchbase {
         const ORDER_ASCENDING = 1;
         const ORDER_DESCENDING = 2;
 
-        
+
         final private function __construct() {}
 
         /**
@@ -1770,7 +1770,7 @@ namespace Couchbase {
      *   Querying spatial views
      */
     class SpatialViewQuery implements ViewQueryEncodable {
-        
+
         final private function __construct() {}
 
         /**
@@ -1915,7 +1915,7 @@ namespace Couchbase {
          */
         const PROFILE_TIMINGS = 'timings';
 
-        
+
         final private function __construct() {}
 
         /**
@@ -2078,7 +2078,7 @@ namespace Couchbase {
         const GSI = 1;
         const VIEW = 2;
 
-        
+
         final private function __construct() {}
 
         /**
@@ -2155,7 +2155,7 @@ namespace Couchbase {
      *   Sub-Document Operations
      */
     class LookupInBuilder {
-        
+
         final private function __construct() {}
 
         /**
@@ -2218,7 +2218,7 @@ namespace Couchbase {
         const FULLDOC_UPSERT = 1;
         const FULLDOC_INSERT = 2;
 
-        
+
         final private function __construct() {}
 
         /**
@@ -2759,7 +2759,7 @@ namespace Couchbase {
      * A FTS query that queries fields explicitly indexed as boolean.
      */
     class BooleanFieldSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -2784,7 +2784,7 @@ namespace Couchbase {
      * A compound FTS query that allows various combinations of sub-queries.
      */
     class BooleanSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -2821,7 +2821,7 @@ namespace Couchbase {
      * A compound FTS query that performs a logical AND between all its sub-queries (conjunction).
      */
     class ConjunctionSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -2848,7 +2848,7 @@ namespace Couchbase {
      * minimum of the queries match. The minimum is configurable (default 1).
      */
     class DisjunctionSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -2881,7 +2881,7 @@ namespace Couchbase {
      * inclusiveness of each bound can be configured.
      */
     class DateRangeSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -2931,7 +2931,7 @@ namespace Couchbase {
      * inclusiveness of each bound can be configured.
      */
     class NumericRangeSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -2971,7 +2971,7 @@ namespace Couchbase {
      * this in a compound query).
      */
     class DocIdSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -3002,7 +3002,7 @@ namespace Couchbase {
      * A FTS query that matches all indexed documents (usually for debugging purposes).
      */
     class MatchAllSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -3021,7 +3021,7 @@ namespace Couchbase {
      * A FTS query that matches 0 document (usually for debugging purposes).
      */
     class MatchNoneSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -3041,7 +3041,7 @@ namespace Couchbase {
      * like analyzers to them.
      */
     class MatchPhraseSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -3073,7 +3073,7 @@ namespace Couchbase {
      * like analyzers, stemming and even #fuzziness(int).
      */
     class MatchSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -3118,7 +3118,7 @@ namespace Couchbase {
      * MatchPhraseQuery.
      */
     class PhraseSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -3143,7 +3143,7 @@ namespace Couchbase {
      * A FTS query that allows for simple matching of regular expressions.
      */
     class RegexpSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -3168,7 +3168,7 @@ namespace Couchbase {
      * A FTS query that allows for simple matching using wildcard characters (* and ?).
      */
     class WildcardSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -3193,7 +3193,7 @@ namespace Couchbase {
      * A FTS query that allows for simple matching on a given prefix.
      */
     class PrefixSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -3218,7 +3218,7 @@ namespace Couchbase {
      * A FTS query that performs a search according to the "string query" syntax.
      */
     class QueryStringSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -3237,7 +3237,7 @@ namespace Couchbase {
      * A facet that gives the number of occurrences of the most recurring terms in all hits.
      */
     class TermSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -3275,7 +3275,7 @@ namespace Couchbase {
      * inclusiveness of each bound can be configured.
      */
     class TermRangeSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -3316,7 +3316,7 @@ namespace Couchbase {
      * Both the point and the distance are required.
      */
     class GeoDistanceSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -3341,7 +3341,7 @@ namespace Couchbase {
      * A FTS query which allows to match geo bounding boxes.
      */
     class GeoBoundingBoxSearchQuery implements \JsonSerializable, SearchQueryPart {
-        
+
         final private function __construct() {}
 
         /**
@@ -3376,7 +3376,7 @@ namespace Couchbase {
      * A facet that gives the number of occurrences of the most recurring terms in all hits.
      */
     class TermSearchFacet implements \JsonSerializable, SearchFacet {
-        
+
         final private function __construct() {}
 
         /**
@@ -3389,7 +3389,7 @@ namespace Couchbase {
      * A facet that categorizes hits inside date ranges (or buckets) provided by the user.
      */
     class DateRangeSearchFacet implements \JsonSerializable, SearchFacet {
-        
+
         final private function __construct() {}
 
         /**
@@ -3410,7 +3410,7 @@ namespace Couchbase {
      * A facet that categorizes hits into numerical ranges (or buckets) provided by the user.
      */
     class NumericRangeSearchFacet implements \JsonSerializable, SearchFacet {
-        
+
         final private function __construct() {}
 
         /**
@@ -3431,7 +3431,7 @@ namespace Couchbase {
      * Base class for all FTS sort options in querying.
      */
     class SearchSort {
-        
+
         private function __construct() {}
 
         /**
@@ -3473,7 +3473,7 @@ namespace Couchbase {
      * Sort by the document identifier.
      */
     class SearchSortId extends SearchSort implements \JsonSerializable {
-        
+
         private function __construct() {}
 
         /**
@@ -3490,7 +3490,7 @@ namespace Couchbase {
      * Sort by the hit score.
      */
     class SearchSortScore extends SearchSort implements \JsonSerializable {
-        
+
         private function __construct() {}
 
         /**
@@ -3519,7 +3519,7 @@ namespace Couchbase {
         const MISSING_FIRST = "first";
         const MISSING_LAST = "last";
 
-        
+
         private function __construct() {}
 
         /**
@@ -3568,7 +3568,7 @@ namespace Couchbase {
      * Sort by a location and unit in the hits.
      */
     class SearchSortGeoDistance extends SearchSort implements \JsonSerializable {
-        
+
         private function __construct() {}
 
         /**
@@ -3597,7 +3597,7 @@ namespace Couchbase {
      *   Analytics quick start
      */
     class AnalyticsQuery {
-        
+
         final private function __construct() {}
 
         /**

@@ -29,7 +29,7 @@
  * Examples of these values can be found on the {@link "https://secure.php.net/manual/en/function.crypt.php crypt()"} page.
  * </p>
  * <p>
- * If ommitted, a default value of <em>10</em> will be used. This is a good
+ * If omitted, a default value of <em>10</em> will be used. This is a good
  * baseline cost, but you may want to consider increasing it depending on your hardware.
  * </p>
  * </li>
@@ -64,7 +64,7 @@ define("PASSWORD_BCRYPT_DEFAULT_COST", 10);
  * change. Therefore you should be aware that the length of the resulting
  * hash can change. Therefore, if you use <b>PASSWORD_DEFAULT</b>
  * you should store the resulting hash in a way that can store more than 60
- * characters (255 is the recomended width).
+ * characters (255 is the recommended width).
  * </p>
  * <p>
  * Values for this constant:
@@ -178,7 +178,7 @@ function password_get_info ($hash) {}
  * @return string|false|null Returns the hashed password, or FALSE on failure, or null if the algorithm is invalid
  * @since 5.5
  */
-function password_hash ($password, $algo, $options = null) {}
+function password_hash ($password, $algo, $options = []) {}
 
 /**
  * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>
@@ -191,7 +191,7 @@ function password_hash ($password, $algo, $options = null) {}
  * @return bool Returns TRUE if the hash should be rehashed to match the given algo and options, or FALSE otherwise.
  * @since 5.5
  */
-function password_needs_rehash ($hash, $algo, $options = null) {}
+function password_needs_rehash ($hash, $algo, $options = []) {}
 
 /**
  * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>

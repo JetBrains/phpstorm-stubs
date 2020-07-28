@@ -168,7 +168,7 @@ interface Serializable {
  * @link https://php.net/manual/en/class.throwable.php
  * @since 7.0
  */
-interface Throwable
+interface Throwable extends Stringable
 {
 
     /**
@@ -249,9 +249,13 @@ interface Throwable
  * @link https://php.net/manual/en/class.exception.php
  */
 class Exception implements Throwable {
+    /** The error message */
     protected $message;
+    /** The error code */
     protected $code;
+    /** The filename where the error happened  */
     protected $file;
+    /** The line where the error happened */
     protected $line;
 
 
@@ -341,6 +345,15 @@ class Exception implements Throwable {
  * @since 7.0
  */
 class Error implements Throwable {
+
+    /** The error message */
+    protected $message;
+    /** The error code */
+    protected $code;
+    /** The filename where the error happened  */
+    protected $file;
+    /** The line where the error happened */
+    protected $line;
 
     /**
      * Construct the error object.
@@ -439,6 +452,8 @@ class Error implements Throwable {
 
     public function __wakeup(){}
 }
+
+class ValueError extends Error {}
 
 /**
  * There are three scenarios where a TypeError may be thrown.
@@ -558,11 +573,11 @@ final class Closure {
     /**
      * Duplicates the closure with a new bound object and class scope
      * @link https://secure.php.net/manual/en/closure.bindto.php
-     * @param object $newthis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.
+     * @param object|null $newthis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.
      * @param mixed $newscope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.
      * If an object is given, the type of the object will be used instead.
      * This determines the visibility of protected and private methods of the bound object.
-     * @return Closure Returns the newly created Closure object or FALSE on failure
+     * @return Closure|false Returns the newly created Closure object or FALSE on failure
      */
     function bindTo($newthis, $newscope = 'static') { }
 
@@ -571,11 +586,11 @@ final class Closure {
      * See the documentation of that method for more information.
      * @link https://secure.php.net/manual/en/closure.bind.php
      * @param Closure $closure The anonymous functions to bind.
-     * @param object $newthis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.
+     * @param object|null $newthis The object to which the given anonymous function should be bound, or NULL for the closure to be unbound.
      * @param mixed $newscope The class scope to which associate the closure is to be associated, or 'static' to keep the current one.
      * If an object is given, the type of the object will be used instead.
      * This determines the visibility of protected and private methods of the bound object.
-     * @return Closure Returns the newly created Closure object or FALSE on failure
+     * @return Closure|false Returns the newly created Closure object or FALSE on failure
      */
     static function bind(Closure $closure, $newthis, $newscope = 'static') { }
 
@@ -588,7 +603,7 @@ final class Closure {
      * @since 7.0
      */
     function call ($newthis, ...$parameters) {}
-    
+
     /**
      * @param callable $callable
      * @return Closure
@@ -634,16 +649,261 @@ class WeakReference {
      * @link https://www.php.net/manual/en/weakreference.create.php
      * @param object $referent The object to be weakly referenced.
      * @return WeakReference the freshly instantiated object.
-     * @since 7.4.0
+     * @since 7.4
      */
-    public static function create(object $referent): WeakReference {}
+    public static function create($referent) {}
 
     /**
      * Gets a weakly referenced object. If the object has already been
      * destroyed, NULL is returned.
      * @link https://www.php.net/manual/en/weakreference.get.php
      * @return object|null
-     * @since 7.4.0
+     * @since 7.4
      */
-    public function get(): ?object {}
+    public function get() {}
+}
+
+/**
+ * Weak maps allow creating a map from objects to arbitrary values
+ * (similar to SplObjectStorage) without preventing the objects that are used
+ * as keys from being garbage collected. If an object key is garbage collected,
+ * it will simply be removed from the map.
+ *
+ * @since 8.0
+ */
+final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate {
+    /**
+     * Returns {@see true} if the value for the object is contained in
+     * the {@see WeakMap} and {@see false} instead.
+     *
+     * @param object $object Any object
+     * @return bool
+     */
+    public function offsetExists($object) {}
+
+    /**
+     * Returns the existsing value by an object.
+     *
+     * @param object $object Any object
+     * @return mixed Value associated with the key object
+     */
+    public function offsetGet($object)
+    {
+    }
+
+    /**
+     * Sets a new value for an object.
+     *
+     * @param object $object Any object
+     * @param mixed $value Any value
+     * @return void
+     */
+    public function offsetSet($object, $value)
+    {
+    }
+
+    /**
+     * Force removes an object value from the {@see WeakMap} instance.
+     *
+     * @param object $object Any object
+     * @return void
+     */
+    public function offsetUnset($object)
+    {
+    }
+
+    /**
+     * Returns an iterator in the "[object => mixed]" format.
+     *
+     * @return Traversable
+     */
+    public function getIterator()
+    {
+    }
+
+    /**
+     * Returns the number of items in the {@see WeakMap} instance.
+     *
+     * @return int
+     */
+    public function count()
+    {
+    }
+}
+
+/**
+ * Stringable interface marks classes as available for serialization
+ * in a string.
+ *
+ * @since 8.0
+ */
+interface Stringable {
+    /**
+     * Magic method {@see https://www.php.net/manual/ru/language.oop5.magic.php}
+     * called during serialization to string.
+     *
+     * @return string Returns string representation of the object that
+     * implements this interface (and/or "__toString" magic method).
+     */
+    public function __toString();
+}
+
+/**
+ * @since 8.0
+ */
+// TODO Uncomment after PHP 8.0 release:
+// @@Attribute(Attribute::TARGET_CLASS)
+final class Attribute {
+    public int $flags;
+    /**
+     * Marks that attribute declaration is allowed only in classes.
+     */
+    const TARGET_CLASS = 1;
+
+    /**
+     * Marks that attribute declaration is allowed only in functions.
+     */
+    const TARGET_FUNCTION = 1 << 1;
+
+    /**
+     * Marks that attribute declaration is allowed only in class methods.
+     */
+    const TARGET_METHOD = 1 << 2;
+
+    /**
+     * Marks that attribute declaration is allowed only in class properties.
+     */
+    const TARGET_PROPERTY = 1 << 3;
+
+    /**
+     * Marks that attribute declaration is allowed only in class constants.
+     */
+    const TARGET_CLASS_CONSTANT = 1 << 4;
+
+    /**
+     * Marks that attribute declaration is allowed only in function or method parameters.
+     */
+    const TARGET_PARAMETER = 1 << 5;
+
+    /**
+     * Marks that attribute declaration is allowed anywhere.
+     */
+    const TARGET_ALL = (1 << 6) - 1;
+
+    /**
+     * Notes that an attribute declaration in the same place is
+     * allowed multiple times.
+     */
+    const IS_REPEATABLE = 1 << 10;
+
+    /**
+     * @param int $flags A value in the form of a bitmask indicating the places
+     * where attributes can be defined.
+     */
+    public function __construct($flags = self::TARGET_ALL)
+    {
+    }
+}
+
+/**
+ * A class for working with PHP tokens, which is an alternative to
+ * the {@see token_get_all()} function.
+ *
+ * @since 8.0
+ */
+class PhpToken implements Stringable {
+    /**
+     * One of the T_* constants, or an integer < 256 representing a
+     * single-char token.
+     */
+    public int $id;
+
+    /**
+     * The textual content of the token.
+     */
+    public string $text;
+
+    /**
+     * The starting line number (1-based) of the token.
+     */
+    public int $line;
+
+    /**
+     * The starting position (0-based) in the tokenized string.
+     */
+    public int $pos;
+
+    /**
+     * Same as {@see token_get_all()}, but returning array of {@see PhpToken}
+     * or an instance of a child class.
+     *
+     * @param string $code An a PHP source code
+     * @param int $flags
+     * @return static[]
+     */
+    public static function getAll($code, $flags = 0)
+    {
+    }
+
+    /**
+     * @param int $id An integer identifier
+     * @param string $text Textual content
+     * @param int $line Strating line
+     * @param int $pos Straring position (line offset)
+     */
+    final public function __construct($id, $text, $line = -1, $pos = -1)
+    {
+    }
+
+    /**
+     * Get the name of the token.
+     *
+     * @return string|null
+     */
+    public function getTokenName()
+    {
+    }
+
+    /**
+     * Whether the token has the given ID, the given text, or has an ID/text
+     * part of the given array.
+     *
+     * @param int|string|array $kind
+     * @return bool
+     */
+    public function is($kind)
+    {
+    }
+
+    /**
+     * Whether this token would be ignored by the PHP parser.
+     *
+     * @return bool
+     */
+    public function isIgnorable()
+    {
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function __toString()
+    {
+    }
+}
+
+/**
+ * @since 8.0
+ */
+final class InternalIterator implements Iterator{
+    private function __construct(){}
+    public function current(){}
+
+    public function next(){}
+
+    public function key(){}
+
+    public function valid(){}
+
+    public function rewind(){}
 }

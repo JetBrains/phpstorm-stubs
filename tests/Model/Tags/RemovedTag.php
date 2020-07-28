@@ -52,7 +52,7 @@ class RemovedTag extends BaseTag implements StaticMethod
         return $this->version;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return "PhpStorm internal '@removed' tag";
     }

@@ -145,6 +145,28 @@ function sapi_windows_cp_is_utf8() {}
 function sapi_windows_vt100_support ($stream, $enable) {}
 
 /**
+ * Set or remove a CTRL event handler.
+ *
+ * @link https://www.php.net/manual/en/function.sapi-windows-set-ctrl-handler.php
+ * @param callable $callable
+ * @param bool $add [optional]
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 7.4
+ */
+function sapi_windows_set_ctrl_handler (callable $callable, bool $add = true) {}
+
+/**
+ * Send a CTRL event to another process.
+ *
+ * @link https://www.php.net/manual/en/function.sapi-windows-generate-ctrl-event.php
+ * @param int $event
+ * @param int $pid [optional]
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 7.4
+ */
+function sapi_windows_generate_ctrl_event (int $event, int $pid = 0) {}
+
+/**
  * The full path and filename of the file. If used inside an include,
  * the name of the included file is returned.
  * Since PHP 4.0.2, <b>__FILE__</b> always contains an
@@ -211,4 +233,3 @@ define ('__DIR__', '', true);
  * @link https://php.net/manual/en/language.constants.predefined.php
  */
 define ('__NAMESPACE__', '', true);
-

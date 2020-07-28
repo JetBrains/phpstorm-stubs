@@ -71,8 +71,8 @@ namespace MongoDB {}
              * @return WriteResult
              * @throws InvalidArgumentException on argument parsing errors.
              * @throws ConnectionException if connection to the server fails for other then authentication reasons
-             * @throws AuthenticationException if authentication is needed and fails             
-             * @throws BulkWriteException on any write failure 
+             * @throws AuthenticationException if authentication is needed and fails
+             * @throws BulkWriteException on any write failure
              * @throws RuntimeException on other errors (invalid command, command arguments, ...)
              * @since 1.4.0 added $options argument
              */
@@ -210,7 +210,7 @@ namespace MongoDB {}
             }
 
             /**
-             * Preselect a MongoDB node based on provided readPreference. This can be useful to gurantee a command runs on a specific server when operating in a mixed version cluster.
+             * Preselect a MongoDB node based on provided readPreference. This can be useful to guarantee a command runs on a specific server when operating in a mixed version cluster.
              * https://secure.php.net/manual/en/mongodb-driver-manager.selectserver.php
              * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to route the command to. If none given, defaults to the Read Preferences set by the MongoDB Connection URI.
              * @throws InvalidArgumentException on argument parsing errors.
@@ -352,14 +352,49 @@ namespace MongoDB {}
              * @link https://php.net/manual/en/mongodb-driver-server.executequery.php
              * @param string $namespace A fully qualified namespace (e.g. "databaseName.collectionName").
              * @param Query $query The MongoDB\Driver\Query to execute.
-             * @param ReadPreference $readPreference Optionally, a MongoDB\Driver\ReadPreference to select the server for this operation. If none is given, the read preference from the MongoDB Connection URI will be used.
+             * @param array|ReadPreference $options
+             * <table>
+             * <caption><strong>options</strong></caption>
+             *
+             * <thead>
+             * <tr>
+             * <th>Option</th>
+             * <th>Type</th>
+             * <th>Description</th>
+             * </tr>
+             *
+             * </thead>
+             *
+             * <tbody>
+             *
+             * <tr>
+             * <td>readPreference</td>
+             * <td><a href="https://php.net/manual/en/php.neclass.mongodb-driver-readpreference.php">MongoDB\Driver\ReadPreference</a></td>
+             * <td>
+             * <p>
+             * A read preference to use for selecting a server for the operation.
+             * </p>
+             * </td>
+             * </tr>
+             * <tr>
+             * <td>session</td>
+             * <td><a href="https://php.net/manual/en/class.mongodb-driver-session.php">MongoDB\Driver\Session</a></td>
+             * <td>
+             * <p>
+             * A session to associate with the operation.
+             * </p>
+             * </td>
+             * </tr>
+             * </tbody>
+             * </table>
+             * The third parameter is now an options array. For backwards compatibility, this parameter will still accept a MongoDB\Driver\ReadPreference object.
              * @throws InvalidArgumentException on argument parsing errors.
              * @throws ConnectionException if connection to the server fails (for reasons other than authentication).
              * @throws AuthenticationException if authentication is needed and fails.
              * @throws RuntimeException on other errors (e.g. invalid command, issuing a write command to a secondary).
              * @return Cursor
              */
-            final public function executeQuery($namespace, Query $query, ReadPreference $readPreference = null)
+            final public function executeQuery($namespace, Query $query, $option = [])
             {
             }
 
@@ -1244,7 +1279,7 @@ namespace MongoDB {}
              * element, and this array contains a "TransientTransactionError" or "UnUnknownTransactionCommitResult" value, it is safe to
              * re-try the whole transaction. In newer versions of the driver, MongoDB\Driver\Exception\RuntimeException::hasErrorLabel()
              * should be used to test for this situation instead.
-             * @throws \MongoDB\Driver\Exception\RuntimeException If the transaction could not be commited (e.g. a transaction was not started)
+             * @throws \MongoDB\Driver\Exception\RuntimeException If the transaction could not be committed (e.g. a transaction was not started)
              * @since 1.5.0
              */
             final public function commitTransaction()
@@ -2053,7 +2088,7 @@ namespace MongoDB {}
         /**
          * Returns the PHP representation of a BSON value
          * Unserializes a BSON document (i.e. binary string) to its PHP representation.
-         * The typeMap paramater may be used to control the PHP types used for converting BSON arrays and documents (both root and embedded).
+         * The typeMap parameter may be used to control the PHP types used for converting BSON arrays and documents (both root and embedded).
          * @link https://php.net/manual/en/function.mongodb.bson-tophp.php
          * @param string $bson BSON value to be unserialized.
          * @param array $typeMap
@@ -2416,7 +2451,7 @@ namespace MongoDB {}
             }
 
             /**
-             * Returns the hexidecimal representation of this ObjectId
+             * Returns the hexadecimal representation of this ObjectId
              * @link https://php.net/manual/en/mongodb-bson-objectid.tostring.php
              * @return string
              */
@@ -2970,9 +3005,9 @@ namespace MongoDB {}
             function getTimestamp();
 
             /**
-             * Returns the hexidecimal representation of this ObjectId
+             * Returns the hexadecimal representation of this ObjectId
              * @link https://www.php.net/manual/en/mongodb-bson-objectid.tostring.php
-             * @return string Returns the hexidecimal representation of this ObjectId
+             * @return string Returns the hexadecimal representation of this ObjectId
              */
             function __toString();
         }

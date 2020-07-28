@@ -18,6 +18,7 @@ use StubTests\Model\PHPDefineConstant;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
+use StubTests\Model\PHPProperty;
 use StubTests\Model\StubsContainer;
 use StubTests\Parsers\Utils;
 
@@ -87,6 +88,15 @@ class ASTVisitor extends NodeVisitorAbstract
                 $class->stubBelongsToCore = true;
             }
             $this->stubs->addClass($class);
+        } elseif ($node instanceof Node\Stmt\Property){
+            $property = (new PHPProperty())->readObjectFromStubNode($node);
+            if($this->isStubCore){
+                $property->stubBelongsToCore = true;
+            }
+
+            if ($this->stubs->getClass($property->parentName) !== null) {
+                $this->stubs->getClass($property->parentName)->properties[$property->name] = $property;
+            }
         }
     }
 

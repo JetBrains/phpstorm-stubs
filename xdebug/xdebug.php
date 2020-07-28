@@ -127,7 +127,7 @@ function xdebug_is_enabled () {}
 /**
  * Starts recording all notices, warnings and errors and prevents their display
  *
- * When this function is executed, Xdebug will cause PHP not to display any notices, warnings or errors. 
+ * When this function is executed, Xdebug will cause PHP not to display any notices, warnings or errors.
  * Instead, they are formatted according to Xdebug's normal error formatting rules (ie, the error table
  * with the red exclamation mark) and then stored in a buffer.
  * This will continue until you call xdebug_stop_error_collection().
@@ -288,6 +288,15 @@ function xdebug_dump_superglobals () {}
 function xdebug_get_headers () {}
 
 function xdebug_get_formatted_function_stack() {}
+
+/**
+ * Returns whether a debugging session is active.
+ *
+ * Returns true if a debugging session through DBGp is currently active with a client attached; false, if not.
+ *
+ * @return bool
+ */
+function xdebug_is_debugger_active() {}
 
 define ('XDEBUG_STACK_NO_DESC', 1);
 define ('XDEBUG_TRACE_APPEND', 1);

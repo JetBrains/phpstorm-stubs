@@ -32,7 +32,7 @@ class Judy implements ArrayAccess {
      * @link https://php.net/manual/en/class.judy.php#judy.constants.string-to-mixed
      */
     const STRING_TO_MIXED = 5;
-    
+
     /**
      * (PECL judy &gt;= 0.1.1)<br/>
      * Construct a new Judy object. A Judy object can be accessed like a PHP Array.

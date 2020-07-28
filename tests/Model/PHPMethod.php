@@ -47,6 +47,7 @@ class PHPMethod extends PHPFunction
         $this->parentName = $this->getFQN($node->getAttribute('parent'));
         $this->name = $node->name->name;
 
+        $this->returnType = $node->getReturnType();
         $this->collectTags($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);
@@ -74,25 +75,32 @@ class PHPMethod extends PHPFunction
     {
         /**@var stdClass $method */
         foreach ($jsonData as $method) {
-            if ($method->name === $this->name && !empty($method->problems)) {
-                /**@var stdClass $problem */
-                foreach ($method->problems as $problem) {
-                    switch ($problem) {
-                        case 'parameter mismatch':
-                            $this->mutedProblems[] = StubProblemType::FUNCTION_PARAMETER_MISMATCH;
-                            break;
-                        case 'missing method':
-                            $this->mutedProblems[] = StubProblemType::STUB_IS_MISSED;
-                            break;
-                        case 'deprecated method':
-                            $this->mutedProblems[] = StubProblemType::FUNCTION_IS_DEPRECATED;
-                            break;
-                        case 'absent in meta':
-                            $this->mutedProblems[] = StubProblemType::ABSENT_IN_META;
-                            break;
-                        default:
-                            $this->mutedProblems[] = -1;
-                            break;
+            if ($method->name === $this->name) {
+                if (!empty($method->problems)) {
+                    /**@var stdClass $problem */
+                    foreach ($method->problems as $problem) {
+                        switch ($problem) {
+                            case 'parameter mismatch':
+                                $this->mutedProblems[] = StubProblemType::FUNCTION_PARAMETER_MISMATCH;
+                                break;
+                            case 'missing method':
+                                $this->mutedProblems[] = StubProblemType::STUB_IS_MISSED;
+                                break;
+                            case 'deprecated method':
+                                $this->mutedProblems[] = StubProblemType::FUNCTION_IS_DEPRECATED;
+                                break;
+                            case 'absent in meta':
+                                $this->mutedProblems[] = StubProblemType::ABSENT_IN_META;
+                                break;
+                            default:
+                                $this->mutedProblems[] = -1;
+                                break;
+                        }
+                    }
+                }
+                if (!empty($method->parameters)) {
+                    foreach ($this->parameters as $parameter) {
+                        $parameter->readMutedProblems($method->parameters);
                     }
                 }
                 return;

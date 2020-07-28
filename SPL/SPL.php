@@ -421,8 +421,9 @@ class IteratorIterator implements OuterIterator {
      * Create an iterator from anything that is traversable
      * @link https://php.net/manual/en/iteratoriterator.construct.php
      * @param Traversable $iterator
+     * @param string $class_name [optional]
      */
-    public function __construct(Traversable $iterator) { }
+    public function __construct(Traversable $iterator, $class_name = '') { }
 
     /**
      * Get the inner iterator
@@ -694,7 +695,7 @@ class LimitIterator extends IteratorIterator {
  * This object supports cached iteration over another iterator.
  * @link https://php.net/manual/en/class.cachingiterator.php
  */
-class CachingIterator extends IteratorIterator implements ArrayAccess, Countable {
+class CachingIterator extends IteratorIterator implements ArrayAccess, Countable, Stringable {
 
     /**
      * String conversion flag (mutually exclusive): Uses the current element for the iterator's string conversion.
@@ -1556,16 +1557,18 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
     /**
      * Sort the entries by value
      * @link https://php.net/manual/en/arrayobject.asort.php
+     * @param int $sort_flags [optional]
      * @return void
      */
-    public function asort() { }
+    public function asort($sort_flags = SORT_REGULAR) { }
 
     /**
      * Sort the entries by key
      * @link https://php.net/manual/en/arrayobject.ksort.php
+     * @param int $sort_flags [optional]
      * @return void
      */
-    public function ksort() { }
+    public function ksort($sort_flags = SORT_REGULAR) { }
 
     /**
      * Sort the entries with a user-defined comparison function and maintain key association
@@ -1630,6 +1633,13 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @return string The serialized representation of the <b>ArrayObject</b>.
      */
     public function serialize() { }
+
+    /**
+     * @return array
+     * @since 7.4
+     */
+    public function __debugInfo(){}
+
 
     /**
      * @return array
@@ -1789,16 +1799,18 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * Sort array by values
      * @link https://php.net/manual/en/arrayiterator.asort.php
+     * @param int $sort_flags [optional]
      * @return void
      */
-    public function asort() { }
+    public function asort($sort_flags = SORT_REGULAR) { }
 
     /**
      * Sort array by keys
      * @link https://php.net/manual/en/arrayiterator.ksort.php
+     * @param int $sort_flags [optional]
      * @return void
      */
-    public function ksort() { }
+    public function ksort($sort_flags = SORT_REGULAR) { }
 
     /**
      * User defined sort
@@ -1900,6 +1912,13 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
      * @return array
      * @since 7.4
      */
+    public function __debugInfo(){}
+
+
+    /**
+     * @return array
+     * @since 7.4
+     */
     public function __serialize(): array {}
 
     /**
@@ -1935,15 +1954,3 @@ class RecursiveArrayIterator extends ArrayIterator implements RecursiveIterator 
      */
     public function getChildren() { }
 }
-
-/**
- * @since 7.1
- */
-define ("MT_RAND_MT19937", 0);
-
-/**
- * @since 7.1
- */
-define ("MT_RAND_PHP", 1);
-// End of SPL v.0.2
-?>

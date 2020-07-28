@@ -22,7 +22,7 @@ class Redis
     const OPT_TCP_KEEPALIVE     = 6;
     const OPT_COMPRESSION       = 7;
     const OPT_REPLY_LITERAL     = 8;
-    const OPT_COMPRESSION_LEVEL = 9;    
+    const OPT_COMPRESSION_LEVEL = 9;
 
     /**
      * Cluster options
@@ -46,6 +46,20 @@ class Redis
     const SERIALIZER_IGBINARY   = 2;
     const SERIALIZER_MSGPACK    = 3;
     const SERIALIZER_JSON       = 4;
+
+    /**
+     * Compressions
+     */
+    const COMPRESSION_NONE      = 0;
+    const COMPRESSION_LZF       = 1;
+    const COMPRESSION_ZSTD      = 2;
+
+    /**
+     * Compression ZSTD levels
+     */
+    const COMPRESSION_ZSTD_MIN = 1;
+    const COMPRESSION_ZSTD_DEFAULT = 3;
+    const COMPRESSION_ZSTD_MAX = 22;
 
     /**
      * Multi
@@ -364,14 +378,14 @@ class Redis
     /**
      * Check the current connection status
      *
-     * @param string $message
+     * @param string $message [optional]
      *
      * @return bool|string TRUE if the command is successful or returns message
      * Throws a RedisException object on connectivity error, as described above.
      * @throws RedisException
      * @link    https://redis.io/commands/ping
      */
-    public function ping($message)
+    public function ping($message=null)
     {
     }
 
@@ -430,7 +444,6 @@ class Redis
      * Since 2.6.12 it also supports different flags inside an array. Example ['NX', 'EX' => 60]<br>
      *  - EX seconds -- Set the specified expire time, in seconds.<br>
      *  - PX milliseconds -- Set the specified expire time, in milliseconds.<br>
-     *  - PX milliseconds -- Set the specified expire time, in milliseconds.<br>
      *  - NX -- Only set the key if it does not already exist.<br>
      *  - XX -- Only set the key if it already exist.<br>
      * <pre>
@@ -443,7 +456,7 @@ class Redis
      * // Will set the key, if it doesn't exist, with a ttl of 10 seconds
      * $redis->set('key', 'value', ['nx', 'ex' => 10]);
      *
-     * // Will set a key, if it does exist, with a ttl of 1000 miliseconds
+     * // Will set a key, if it does exist, with a ttl of 1000 milliseconds
      * $redis->set('key', 'value', ['xx', 'px' => 1000]);
      * </pre>
      *
@@ -602,6 +615,38 @@ class Redis
     public function multi($mode = Redis::MULTI)
     {
     }
+
+    /**
+     * Returns a Redis instance which can simply transmitted faster to the server.
+     *
+     * @return Redis returns the Redis instance.
+     * Once in pipeline-mode, all subsequent method calls return the same object until exec() is called.
+     * Pay attention, that Pipeline is not a transaction, so you can get unexpected
+     * results in case of big pipelines and small read/write timeouts.
+     *
+     * @link   https://redis.io/topics/pipelining
+     * @example
+     * <pre>
+     * $ret = $this->redis->pipeline()
+     *      ->ping()
+     *      ->multi()->set('x', 42)->incr('x')->exec()
+     *      ->ping()
+     *      ->multi()->get('x')->del('x')->exec()
+     *      ->ping()
+     *      ->exec();
+     *
+     * //$ret == array (
+     * //    0 => '+PONG',
+     * //    1 => [TRUE, 43],
+     * //    2 => '+PONG',
+     * //    3 => [43, 1],
+     * //    4 => '+PONG');
+     * </pre>
+     */
+    public function pipeline()
+    {
+    }
+
 
     /**
      * @return void|array
@@ -890,7 +935,7 @@ class Redis
      * If the second argument is filled, it will be used as the integer value of the decrement.
      *
      * @param string $key
-     * @param int    $value  that will be substracted to key (only for decrBy)
+     * @param int    $value  that will be subtracted to key (only for decrBy)
      *
      * @return int the new value
      *
@@ -1316,7 +1361,7 @@ class Redis
     }
 
     /**
-     * Removes the first count occurences of the value element from the list.
+     * Removes the first count occurrences of the value element from the list.
      * If count is zero, all the matching elements are removed. If count is negative,
      * elements are removed from tail to head.
      *
@@ -3509,7 +3554,7 @@ class Redis
      * @param string|array $key2 ...
      * @param int $timeout
      *
-     * @return array Either an array with the key member and score of the higest or lowest element or an empty array
+     * @return array Either an array with the key member and score of the highest or lowest element or an empty array
      * if the timeout was reached without an element to pop.
      *
      * @since >= 5.0
@@ -3534,7 +3579,7 @@ class Redis
      * @param string|array $key2 ...
      * @param int $timeout
      *
-     * @return array Either an array with the key member and score of the higest or lowest element or an empty array
+     * @return array Either an array with the key member and score of the highest or lowest element or an empty array
      * if the timeout was reached without an element to pop.
      *
      * @see bzPopMax
@@ -4583,7 +4628,7 @@ class Redis
     /**
      * Return the current Redis server time.
      *
-     * @return array If successfull, the time will come back as an associative array with element zero being the
+     * @return array If successful, the time will come back as an associative array with element zero being the
      * unix timestamp, and element one being microseconds.
      *
      * @link    https://redis.io/commands/time
@@ -5062,6 +5107,15 @@ class RedisArray
      * @return  string  the host to be used for a certain key
      */
     public function _target($key)
+    {
+    }
+
+    /**
+     * @param string $host The host you want to retrieve the instance for
+     *
+     * @return Redis a redis instance connected to a specific node
+     */
+    public function _instance($host)
     {
     }
 

@@ -19,7 +19,7 @@ function msgpack_serialize($value) {}
  * </p>
  * @return mixed
  */
-function msgpack_unserialize($str, $object=NULL) {}
+function msgpack_unserialize($str, $object=null) {}
 
 /**
  * Alias of msgpack_serialize

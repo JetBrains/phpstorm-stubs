@@ -433,7 +433,7 @@ function oci_define_by_name ($statement, $column_name, &$variable, $type = SQLT_
  * Binds a PHP variable to an Oracle placeholder
  * @link https://php.net/manual/en/function.oci-bind-by-name.php
  * @param resource $statement <p>
- * A valid OCI8 statement identifer.
+ * A valid OCI8 statement identifier.
  * </p>
  * @param string $bv_name <p>
  * The colon-prefixed bind variable placeholder used in the
@@ -968,6 +968,7 @@ function oci_free_statement ($statement) {}
  * @param bool $onoff <p>
  * Set this to <b>FALSE</b> to turn debug output off or <b>TRUE</b> to turn it on.
  * </p>
+ * @removed 8.0
  * @return void No value is returned.
  */
 function oci_internal_debug ($onoff) {}
@@ -1844,6 +1845,7 @@ function ocifreestatement ($statement_resource) {}
  * Alias of {@see oci_internal_debug}
  * @link https://php.net/manual/en/function.ociinternaldebug.php
  * @param bool $mode
+ * @removed 8.0
  */
 function ociinternaldebug ($mode) {}
 
