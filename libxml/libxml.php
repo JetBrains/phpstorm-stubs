@@ -18,14 +18,14 @@ class LibXMLError  {
 	 * </p>
 	 * @var int
 	 */
-	public $level;
+	public int $level;
 	/**
 	 * <p style="margin-top:0;">
 	 * The error's code.
 	 * </p>
 	 * @var int
 	 */
-	public $code;
+	public int $code;
 	/**
 	 * <p style="margin-top:0;">
 	 * The column where the error occurred.
@@ -37,26 +37,26 @@ class LibXMLError  {
 	 * </p>
 	 * @var int
 	 */
-	public $column;
+	public int $column;
 	/**
 	 * <p style="margin-top:0;">
 	 * The error message, if any.
 	 * </p>
 	 * @var string
 	 */
-	public $message;
+	public string $message;
 	/**
 	 * <p style="margin-top:0;">The filename, or empty if the XML was loaded from a string.</p>
 	 * @var string
 	 */
-	public $file;
+	public string $file;
 	/**
 	 * <p style="margin-top:0;">
 	 * The line where the error occurred.
 	 * </p>
 	 * @var int
 	 */
-	public $line;
+	public int $line;
 
 }
 

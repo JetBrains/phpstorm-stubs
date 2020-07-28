@@ -8,18 +8,18 @@
 function xdebug_get_stack_depth () {}
 
 /**
+ * Returns an array which resembles the stack trace up to this point.
+ * @return array
+ */
+function xdebug_get_function_stack () {}
+
+/**
  * Displays the current function stack, in a similar way as what Xdebug would display in an error situation.
  * @param string $message
  * @param int $options    A bit mask of the following constants: XDEBUG_STACK_NO_DESC
  * @return array
  */
-function xdebug_get_function_stack ($message = '', $options = 0) {}
-
-/**
- * Returns an array which resembles the stack trace up to this point.
- * @return array
- */
-function xdebug_print_function_stack () {}
+function xdebug_print_function_stack ($message = '', $options = 0) {}
 
 /**
  * Returns an array where each element is a variable name which is defined in the current scope.
@@ -28,28 +28,36 @@ function xdebug_print_function_stack () {}
 function xdebug_get_declared_vars () {}
 
 /**
- * This function returns the filename that contains the function/method that called the current function/method.
- * @return string
+ * This function returns the filename from where the current function/method was executed from, or NULL
+ * if the stack frame does not exist
+ * @param int $depth
+ * @return mixed
  */
-function xdebug_call_file () {}
+function xdebug_call_file ($depth = 2) {}
 
 /**
- * This function returns the name of the class from which the current function/method was called from.
- * @return string
+ *  This function returns the name of the class that defined the current method, NULL if the stack frame does not exist,
+ * or FALSE if no class is associated with this call.
+ * @param int $depth
+ * @return mixed
  */
-function xdebug_call_class () {}
+function xdebug_call_class ($depth = 2) {}
 
 /**
- * This function returns the name of the function/method from which the current function/method was called from.
- * @return string
+ * This function returns the name of the current function/method, NULL if the stack frame does not exist, or FALSE
+ * if the stack frame has no function/method information
+ * @param int $depth
+ * @return mixed
  */
-function xdebug_call_function () {}
+function xdebug_call_function ($depth = 2) {}
 
 /**
- * This function returns the line number that contains the function/method that called the current function/method.
- * @return int
+ * This function returns the line number from where the current function/method was called from, or NULL
+ * if the stack frame does not exist
+ * @param int $depth
+ * @return mixed
  */
-function xdebug_call_line () {}
+function xdebug_call_line ($depth = 2) {}
 
 /**
  * This function starts the monitoring of functions that were given in a list as argument to this function.
@@ -72,7 +80,7 @@ function xdebug_stop_function_monitor () {}
  * Returns a structure which contains information about where the monitored functions were executed in your script.
  * @return array
  */
-function xdebug_get_monitored_functions () {}
+function xdebug_get_monitored_functions ($clear = 0) {}
 
 /**
  * This function displays structured information about one or more expressions that includes its type and value.
@@ -298,6 +306,42 @@ function xdebug_get_formatted_function_stack() {}
  */
 function xdebug_is_debugger_active() {}
 
+/**
+ * @param string|null $gcstatsFile
+ * @return mixed
+ */
+function xdebug_start_gcstats($gcstatsFile = null ) {}
+
+/**
+ * Stop garbage collection statistics collection and closes the output file.
+ * @return string The function returns the filename of the file where the statistics were written to.
+ */
+function xdebug_stop_gcstats() {}
+
+/**
+ * Returns the name of the file which is used to save garbage collection information to, or false if
+ * statistics collection is not active.
+ * @return mixed
+ */
+function xdebug_get_gcstats_filename() {}
+
+/**
+ * @return int
+ */
+function xdebug_get_gc_run_count() {}
+
+/**
+ * @return int
+ */
+function xdebug_get_gc_total_collected_roots() {}
+
+/**
+ * @param int   $group
+ * @param int   $listType
+ * @param array $configuration
+ */
+function xdebug_set_filter($group, $listType, $configuration ) {}
+
 define ('XDEBUG_STACK_NO_DESC', 1);
 define ('XDEBUG_TRACE_APPEND', 1);
 define ('XDEBUG_TRACE_COMPUTERIZED', 2);
@@ -306,3 +350,10 @@ define ('XDEBUG_TRACE_NAKED_FILENAME', 8);
 define ('XDEBUG_CC_UNUSED', 1);
 define ('XDEBUG_CC_DEAD_CODE', 2);
 define ('XDEBUG_CC_BRANCH_CHECK', 4);
+define('XDEBUG_FILTER_TRACING', 256);
+define('XDEBUG_FILTER_CODE_COVERAGE',512);
+define('XDEBUG_FILTER_NONE', 0);
+define('XDEBUG_PATH_WHITELIST', 1);
+define('XDEBUG_PATH_BLACKLIST', 2);
+define('XDEBUG_NAMESPACE_WHITELIST', 17);
+define('XDEBUG_NAMESPACE_BLACKLIST', 18);

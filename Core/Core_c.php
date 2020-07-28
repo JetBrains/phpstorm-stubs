@@ -515,6 +515,11 @@ class DivisionByZeroError extends ArithmeticError {
 }
 
 /**
+ * @since 8.0
+ */
+class UnhandledMatchError extends Error {}
+
+/**
  * An Error Exception.
  * @link https://php.net/manual/en/class.errorexception.php
  */
