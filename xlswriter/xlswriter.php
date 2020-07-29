@@ -1,15 +1,14 @@
 <?php
 
-// PECL xlswriter stubs for PhpStorm
-// https://pecl.php.net/package/xlswriter
-// https://www.php.net/manual/en/book.xlswriter.php
-
+/**
+ * PECL xlswriter stubs for PhpStorm
+ * https://pecl.php.net/package/xlswriter
+ * https://www.php.net/manual/en/book.xlswriter.php
+ */
 namespace Vtiful\Kernel {
-
     use Vtiful\Kernel;
 
     /**
-     *
      * Class Excel
      * @link https://www.php.net/manual/en/class.vtiful-kernel-excel.php
      * @package Vtiful\Kernel
@@ -35,7 +34,7 @@ namespace Vtiful\Kernel {
          *
          * @param array $config
          */
-        public function __construct ( array $config )
+        public function __construct(array $config)
         {
             //
         }
@@ -47,9 +46,8 @@ namespace Vtiful\Kernel {
          * @param string $sheetName
          *
          * @return Excel
-         *
          */
-        public function fileName ( string $fileName, string $sheetName = 'Sheet1' ): self
+        public function fileName(string $fileName, string $sheetName = 'Sheet1'): self
         {
             return $this;
         }
@@ -61,9 +59,8 @@ namespace Vtiful\Kernel {
          * @param string $sheetName
          *
          * @return Excel
-         *
          */
-        public function constMemory ( string $fileName, string $sheetName = 'Sheet1' ): self
+        public function constMemory(string $fileName, string $sheetName = 'Sheet1'): self
         {
             return $this;
         }
@@ -82,9 +79,8 @@ namespace Vtiful\Kernel {
          * @param string|NULL $sheetName
          *
          * @return Excel
-         *
          */
-        public function addSheet ( ?string $sheetName ): self
+        public function addSheet(?string $sheetName): self
         {
             return $this;
         }
@@ -95,9 +91,8 @@ namespace Vtiful\Kernel {
          * @param string $sheetName
          *
          * @return Excel
-         *
          */
-        public function checkoutSheet ( string $sheetName ): self
+        public function checkoutSheet(string $sheetName): self
         {
             return $this;
         }
@@ -108,9 +103,8 @@ namespace Vtiful\Kernel {
          * @param array $header
          *
          * @return Excel
-         *
          */
-        public function header ( array $header ): self
+        public function header(array $header): self
         {
             return $this;
         }
@@ -121,9 +115,8 @@ namespace Vtiful\Kernel {
          * @param array $data
          *
          * @return Excel
-         *
          */
-        public function data ( array $data ): self
+        public function data(array $data): self
         {
             return $this;
         }
@@ -132,9 +125,8 @@ namespace Vtiful\Kernel {
          * Generate file
          *
          * @return string
-         *
          */
-        public function output (): string
+        public function output(): string
         {
             return 'FilePath';
         }
@@ -143,9 +135,8 @@ namespace Vtiful\Kernel {
          * Get file resource
          *
          * @return resource
-         *
          */
-        public function getHandle ()
+        public function getHandle()
         {
             //
         }
@@ -156,9 +147,8 @@ namespace Vtiful\Kernel {
          * @param string $range
          *
          * @return Excel
-         *
          */
-        public function autoFilter ( string $range ): self
+        public function autoFilter(string $range): self
         {
             return $this;
         }
@@ -173,9 +163,8 @@ namespace Vtiful\Kernel {
          * @param resource|null $formatHandle
          *
          * @return Excel
-         *
          */
-        public function insertText ( int $row, int $column, $data, string $format = NULL, $formatHandle = NULL ): self
+        public function insertText(int $row, int $column, $data, string $format = null, $formatHandle = null): self
         {
             return $this;
         }
@@ -190,9 +179,8 @@ namespace Vtiful\Kernel {
          * @param resource|null $formatHandle
          *
          * @return Excel
-         *
          */
-        public function insertDate ( int $row, int $column, int $timestamp, string $format = NULL, $formatHandle = NULL ): self
+        public function insertDate(int $row, int $column, int $timestamp, string $format = null, $formatHandle = null): self
         {
             return $this;
         }
@@ -205,9 +193,8 @@ namespace Vtiful\Kernel {
          * @param resource $chartResource
          *
          * @return Excel
-         *
          */
-        public function insertChart ( int $row, int $column, $chartResource ): self
+        public function insertChart(int $row, int $column, $chartResource): self
         {
             return $this;
         }
@@ -221,9 +208,8 @@ namespace Vtiful\Kernel {
          * @param resource|null $formatHandle
          *
          * @return Excel
-         *
          */
-        public function insertUrl ( int $row, int $column, string $url, $formatHandle = NULL ): self
+        public function insertUrl(int $row, int $column, string $url, $formatHandle = null): self
         {
             return $this;
         }
@@ -238,9 +224,8 @@ namespace Vtiful\Kernel {
          * @param float $height
          *
          * @return Excel
-         *
          */
-        public function insertImage ( int $row, int $column, string $imagePath, float $width = 1, float $height = 1 ): self
+        public function insertImage(int $row, int $column, string $imagePath, float $width = 1, float $height = 1): self
         {
             return $this;
         }
@@ -253,9 +238,8 @@ namespace Vtiful\Kernel {
          * @param string $formula
          *
          * @return Excel
-         *
          */
-        public function insertFormula ( int $row, int $column, string $formula ): self
+        public function insertFormula(int $row, int $column, string $formula): self
         {
             return $this;
         }
@@ -267,9 +251,8 @@ namespace Vtiful\Kernel {
          * @param string $data
          *
          * @return Excel
-         *
          */
-        public function MergeCells ( string $range, string $data ): self
+        public function MergeCells(string $range, string $data): self
         {
             return $this;
         }
@@ -282,9 +265,8 @@ namespace Vtiful\Kernel {
          * @param resource|null $formatHandle
          *
          * @return Excel
-         *
          */
-        public function setColumn ( string $range, float $cellWidth, $formatHandle = NULL ): self
+        public function setColumn(string $range, float $cellWidth, $formatHandle = null): self
         {
             return $this;
         }
@@ -297,9 +279,8 @@ namespace Vtiful\Kernel {
          * @param resource|null $formatHandle
          *
          * @return Excel
-         *
          */
-        public function setRow ( string $range, float $cellHeight, $formatHandle = NULL ): self
+        public function setRow(string $range, float $cellHeight, $formatHandle = null): self
         {
             return $this;
         }
@@ -310,9 +291,8 @@ namespace Vtiful\Kernel {
          * @param string $fileName
          *
          * @return Excel
-         *
          */
-        public function openFile ( string $fileName ): self
+        public function openFile(string $fileName): self
         {
             return $this;
         }
@@ -326,9 +306,8 @@ namespace Vtiful\Kernel {
          * @param int         skipFlag
          *
          * @return Excel
-         *
          */
-        public function openSheet ( string $sheetName = NULL, int $skipFlag = 0x00 ): self
+        public function openSheet(string $sheetName = null, int $skipFlag = 0x00): self
         {
             return $this;
         }
@@ -339,9 +318,8 @@ namespace Vtiful\Kernel {
          * @param array $types
          *
          * @return Excel
-         *
          */
-        public function setType ( array $types ): self
+        public function setType(array $types): self
         {
             return $this;
         }
@@ -350,9 +328,8 @@ namespace Vtiful\Kernel {
          * Read values from the sheet
          *
          * @return array
-         *
          */
-        public function getSheetData (): array
+        public function getSheetData(): array
         {
             return [];
         }
@@ -361,9 +338,8 @@ namespace Vtiful\Kernel {
          * Read values from the sheet
          *
          * @return array
-         *
          */
-        public function nextRow (): array
+        public function nextRow(): array
         {
             return [];
         }
@@ -373,9 +349,8 @@ namespace Vtiful\Kernel {
          *
          * @param callable $callback function(int $row, int $cell, string $data)
          * @param string|NULL $sheetName sheet name
-         *
          */
-        public function nextCellCallback ( callable $callback, string $sheetName = NULL ): void
+        public function nextCellCallback(callable $callback, string $sheetName = null): void
         {
             //
         }
@@ -391,9 +366,8 @@ namespace Vtiful\Kernel {
          * @param int $column
          *
          * @return $this
-         *
          */
-        public function freezePanes ( int $row, int $column ): self
+        public function freezePanes(int $row, int $column): self
         {
             return $this;
         }
@@ -413,9 +387,8 @@ namespace Vtiful\Kernel {
          * @param int $option
          *
          * @return $this
-         *
          */
-        public function gridline ( int $option ): self
+        public function gridline(int $option): self
         {
             return $this;
         }
@@ -428,9 +401,8 @@ namespace Vtiful\Kernel {
          * @param int $scale
          *
          * @return $this
-         *
          */
-        public function zoom ( int $scale ): self
+        public function zoom(int $scale): self
         {
             return $this;
         }
@@ -518,7 +490,7 @@ namespace Vtiful\Kernel {
          *
          * @param resource $fileHandle
          */
-        public function __construct ( $fileHandle )
+        public function __construct($fileHandle)
         {
             //
         }
@@ -527,9 +499,8 @@ namespace Vtiful\Kernel {
          * Wrap
          *
          * @return Format
-         *
          */
-        public function wrap (): self
+        public function wrap(): self
         {
             return $this;
         }
@@ -538,9 +509,8 @@ namespace Vtiful\Kernel {
          * Bold
          *
          * @return Format
-         *
          */
-        public function bold (): self
+        public function bold(): self
         {
             return $this;
         }
@@ -549,9 +519,8 @@ namespace Vtiful\Kernel {
          * Italic
          *
          * @return Format
-         *
          */
-        public function italic (): self
+        public function italic(): self
         {
             return $this;
         }
@@ -562,9 +531,8 @@ namespace Vtiful\Kernel {
          * @param int $style const BORDER_***
          *
          * @return Format
-         *
          */
-        public function border ( int $style ): self
+        public function border(int $style): self
         {
             return $this;
         }
@@ -575,9 +543,8 @@ namespace Vtiful\Kernel {
          * @param int ...$style const FORMAT_ALIGN_****
          *
          * @return Format
-         *
          */
-        public function align ( ...$style ): self
+        public function align(...$style): self
         {
             return $this;
         }
@@ -590,9 +557,8 @@ namespace Vtiful\Kernel {
          * #,##0
          *
          * @return Format
-         *
          */
-        public function number ( string $format ): self
+        public function number(string $format): self
         {
             return $this;
         }
@@ -603,9 +569,8 @@ namespace Vtiful\Kernel {
          * @param int $color const COLOR_****
          *
          * @return Format
-         *
          */
-        public function fontColor ( int $color ): self
+        public function fontColor(int $color): self
         {
             return $this;
         }
@@ -616,9 +581,8 @@ namespace Vtiful\Kernel {
          * @param string $fontName
          *
          * @return Format
-         *
          */
-        public function font ( string $fontName ): self
+        public function font(string $fontName): self
         {
             return $this;
         }
@@ -629,9 +593,8 @@ namespace Vtiful\Kernel {
          * @param float $size
          *
          * @return Format
-         *
          */
-        public function fontSize ( float $size ): self
+        public function fontSize(float $size): self
         {
             return $this;
         }
@@ -640,9 +603,8 @@ namespace Vtiful\Kernel {
          * String strikeout
          *
          * @return Format
-         *
          */
-        public function strikeout (): self
+        public function strikeout(): self
         {
             return $this;
         }
@@ -653,9 +615,8 @@ namespace Vtiful\Kernel {
          * @param int $style const UNDERLINE_****
          *
          * @return Format
-         *
          */
-        public function underline ( int $style ): self
+        public function underline(int $style): self
         {
             return $this;
         }
@@ -667,9 +628,8 @@ namespace Vtiful\Kernel {
          * @param int $pattern const PATTERN_****
          *
          * @return Format
-         *
          */
-        public function background ( int $color, int $pattern = self::PATTERN_SOLID ): self
+        public function background(int $color, int $pattern = self::PATTERN_SOLID): self
         {
             return $this;
         }
@@ -678,9 +638,8 @@ namespace Vtiful\Kernel {
          * Format to resource
          *
          * @return resource
-         *
          */
-        public function toResource ()
+        public function toResource()
         {
             //
         }
