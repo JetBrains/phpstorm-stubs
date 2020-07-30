@@ -92,7 +92,7 @@ class ReflectionProperty implements Reflector
      * Gets value
      *
      * @link https://php.net/manual/en/reflectionproperty.getvalue.php
-     * @param object $object If the property is non-static an object must be
+     * @param object|null $object If the property is non-static an object must be
      * provided to fetch the property from. If you want to fetch the default
      * property without providing an object use {@see ReflectionClass::getDefaultProperties}
      * instead.
