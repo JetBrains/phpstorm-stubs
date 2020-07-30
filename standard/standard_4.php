@@ -237,7 +237,7 @@ function print_r ($expression, $return = null) {}
  * </p>
  * @return int the memory amount in bytes.
  */
-function memory_get_usage ($real_usage = null) {}
+function memory_get_usage ($real_usage = false) {}
 
 /**
  * Returns the peak of memory allocated by PHP
@@ -249,7 +249,7 @@ function memory_get_usage ($real_usage = null) {}
  * </p>
  * @return int the memory peak in bytes.
  */
-function memory_get_peak_usage ($real_usage = null) {}
+function memory_get_peak_usage ($real_usage = false) {}
 
 /**
  * Register a function for execution on shutdown
