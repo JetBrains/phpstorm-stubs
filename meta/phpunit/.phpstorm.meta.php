@@ -35,4 +35,34 @@ namespace PHPSTORM_META {
         \PHPUnit\Framework\TestCase::getMockForAbstractClass(0),
         type(0)
     );
+
+    override(
+        \PHPUnit_Framework_TestCase::createMock(0),
+        type(0)
+    );
+
+    override(
+        \PHPUnit_Framework_TestCase::createConfiguredMock(0),
+        type(0)
+    );
+
+    override(
+        \PHPUnit_Framework_TestCase::createPartialMock(0),
+        type(0)
+    );
+
+    override(
+        \PHPUnit_Framework_TestCase::getMockForAbstractClass(0),
+        type(0)
+    );
+
+    override(
+        \PHPUnit_Framework_TestCase::getMock(0),
+        type(0)
+    );
+
+    override(
+        \PHPUnit_Framework_TestCase::getMockWithoutInvokingTheOriginalConstructor(0),
+        type(0)
+    );
 }
