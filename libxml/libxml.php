@@ -115,6 +115,7 @@ function libxml_get_errors () {}
  * </p>
  * @return bool the previous value.
  * @since 5.2.11
+ * @deprecated 8.0
  */
 function libxml_disable_entity_loader ($disable = true) {}
 

@@ -9,6 +9,7 @@
  * Resource holding the key.
  * </p>
  * @return void
+ * @deprecated 8.0
  */
 function openssl_pkey_free($key) { }
 
@@ -129,6 +130,7 @@ function openssl_pkey_get_details($key) { }
  * @link https://php.net/manual/en/function.openssl-free-key.php
  * @param resource $key_identifier
  * @return void
+ * @deprecated 8.0
  */
 function openssl_free_key($key_identifier) { }
 
@@ -237,6 +239,7 @@ function openssl_x509_fingerprint($x509, $type, $binary) {}
  * @link https://php.net/manual/en/function.openssl-x509-free.php
  * @param resource $x509cert
  * @return void
+ * @deprecated 8.0
  */
 function openssl_x509_free($x509cert) { }
 
@@ -1235,3 +1238,18 @@ define('OPENSSL_DEFAULT_STREAM_CIPHERS', "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDS
 "ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:" .
 "DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:" .
 "AES256-GCM-SHA384:AES128:AES256:HIGH:!SSLv2:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!RC4:!ADH");
+
+/**
+ * @since 8.0
+ */
+final class OpenSSLCertificate{}
+
+/**
+ * @since 8.0
+ */
+final class OpenSSLCertificateSigningRequest{}
+
+/**
+ * @since 8.0
+ */
+final class OpenSSLAsymmetricKey{}
