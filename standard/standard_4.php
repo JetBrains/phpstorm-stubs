@@ -688,6 +688,21 @@ function headers_sent (&$file = null, &$line = null) {}
 function headers_list () {}
 
 /**
+ * Fetches all HTTP request headers from the current request
+ * @link https://php.net/manual/en/function.apache-request-headers.php
+ * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b on failure.
+ */
+function apache_request_headers () {}
+
+/**
+ * Fetches all HTTP headers from the current request.
+ * This function is an alias for apache_request_headers(). Please read the apache_request_headers() documentation for more information on how this function works.
+ * @link https://php.net/manual/en/function.getallheaders.php
+ * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b> on failure.
+ */
+function getallheaders () {}
+
+/**
  * Check whether client disconnected
  * @link https://php.net/manual/en/function.connection-aborted.php
  * @return int 1 if client disconnected, 0 otherwise.

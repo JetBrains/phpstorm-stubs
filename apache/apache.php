@@ -65,13 +65,6 @@ function apache_lookup_uri ( $filename ) {}
 function apache_note ( $note_name, $note_value = '' ) {}
 
 /**
- * Fetches all HTTP request headers from the current request
- * @link https://php.net/manual/en/function.apache-request-headers.php
- * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b on failure.
- */
-function apache_request_headers () {}
-
-/**
  * Reset the Apache write timer
  * apache_reset_timeout() resets the Apache write timer, which defaults to 300 seconds. With set_time_limit(0); ignore_user_abort(true) and periodic apache_reset_timeout() calls, Apache can theoretically run forever.
  * This function requires Apache 1.
@@ -103,14 +96,6 @@ function apache_response_headers () {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function apache_setenv ( $variable, $value, $walk_to_top = false ) {}
-
-/**
- * Fetches all HTTP headers from the current request.
- * This function is an alias for apache_request_headers(). Please read the apache_request_headers() documentation for more information on how this function works.
- * @link https://php.net/manual/en/function.getallheaders.php
- * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b> on failure.
- */
-function getallheaders () {}
 
 /**
  * Perform an Apache sub-request
