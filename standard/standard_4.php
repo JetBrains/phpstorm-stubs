@@ -28,7 +28,7 @@ function error_get_last () {}
  * call_user_func example and references
  * &example.outputs;
  * </p>
- * @return mixed the function result, or false on error.
+ * @return mixed|false the function result, or false on error.
  */
 function call_user_func ($function, ...$parameter) {}
 
@@ -41,7 +41,7 @@ function call_user_func ($function, ...$parameter) {}
  * @param array $param_arr <p>
  * The parameters to be passed to the function, as an indexed array.
  * </p>
- * @return mixed the function result, or false on error.
+ * @return mixed|false the function result, or false on error.
  */
 function call_user_func_array ($function, array $param_arr) {}
 
@@ -81,7 +81,7 @@ function call_user_method_array ($method_name, &$obj, array $params) {}
  * @param mixed ...$parameters [optional] <p>
  * Zero or more parameters to be passed to the function.
  * </p>
- * @return mixed the function result, or false on error.
+ * @return mixed|false the function result, or false on error.
  */
 function forward_static_call ($function, ...$parameters) {}
 
@@ -94,7 +94,7 @@ function forward_static_call ($function, ...$parameters) {}
  * name.
  * </p>
  * @param array $parameters
- * @return mixed the function result, or false on error.
+ * @return mixed|false the function result, or false on error.
  */
 function forward_static_call_array ($function, array $parameters) {}
 
@@ -833,7 +833,7 @@ function gethostbyname ($hostname) {}
  * @param string $hostname <p>
  * The host name.
  * </p>
- * @return array an array of IPv4 addresses or false if
+ * @return array|false an array of IPv4 addresses or false if
  * hostname could not be resolved.
  */
 function gethostbynamel ($hostname) {}

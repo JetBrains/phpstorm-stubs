@@ -510,7 +510,7 @@ class ZMQSocket
      *
      * @param int $mode Pass mode flags to receive multipart messages or non-blocking operation. See ZMQ::MODE_* constants.
      *
-     * @return string <p>Returns the message. Throws ZMQSocketException in error. If <b>ZMQ::MODE_NOBLOCK</b> is used and the operation would block boolean false shall be returned.</p>
+     * @return string|false <p>Returns the message. Throws ZMQSocketException in error. If <b>ZMQ::MODE_NOBLOCK</b> is used and the operation would block boolean false shall be returned.</p>
      * @throws ZMQSocketException if receiving fails.
      */
     public function recv($mode = 0)

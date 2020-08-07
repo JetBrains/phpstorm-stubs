@@ -2499,7 +2499,7 @@ function curl_multi_getcontent ($ch) {}
  * @param int $msgs_in_queue [optional] <p>
  * Number of messages that are still in the queue
  * </p>
- * @return array On success, returns an associative array for the message, false on failure.
+ * @return array|false On success, returns an associative array for the message, false on failure.
  */
 function curl_multi_info_read ($mh, &$msgs_in_queue = null) {}
 

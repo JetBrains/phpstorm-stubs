@@ -892,7 +892,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * @param int $options [optional] <p>
      * Additional Options. Currently only LIBXML_NOEMPTYTAG is supported.
      * </p>
-     * @return int the number of bytes written or false if an error occurred.
+     * @return int|false the number of bytes written or false if an error occurred.
      */
     public function save ($filename, $options = null) {}
 
@@ -999,7 +999,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * @param string $filename <p>
      * The path to the saved HTML document.
      * </p>
-     * @return int the number of bytes written or false if an error occurred.
+     * @return int|false the number of bytes written or false if an error occurred.
      */
     public function saveHTMLFile ($filename) {}
 
@@ -1433,7 +1433,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode {
      * @param string $value <p>
      * The value of the attribute.
      * </p>
-     * @return DOMAttr The new DOMAttr or false if an error occurred.
+     * @return DOMAttr|false The new DOMAttr or false if an error occurred.
      */
     public function setAttribute ($name, $value) {}
 

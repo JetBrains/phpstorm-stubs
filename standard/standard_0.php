@@ -148,7 +148,7 @@ function bin2hex ($str) {}
  * @param int $seconds <p>
  * Halt time in seconds.
  * </p>
- * @return int zero on success, or false on errors. If the call was interrupted
+ * @return int|false zero on success, or false on errors. If the call was interrupted
  * by a signal, sleep returns the number of seconds left
  * to sleep.
  */

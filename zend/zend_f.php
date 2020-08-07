@@ -29,7 +29,7 @@ function java($class) {}
 
 /**
  * Return Java exception object for last exception
- * @return object Java Exception object, if there was an exception, false otherwise
+ * @return object|false Java Exception object, if there was an exception, false otherwise
  */
 function java_last_exception_get() {}
 

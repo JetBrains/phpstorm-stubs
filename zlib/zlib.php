@@ -13,7 +13,7 @@
  * You can set this optional parameter to 1, if you
  * want to search for the file in the include_path too.
  * </p>
- * @return int the number of (uncompressed) bytes read from the file, or FALSE on error
+ * @return int|false the number of (uncompressed) bytes read from the file, or FALSE on error
  */
 function readgzfile ($filename, $use_include_path = 0) {}
 
