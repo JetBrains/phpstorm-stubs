@@ -148,7 +148,7 @@ function finfo_file ($finfo, $file_name, $options = null, $context = null) {}
  * @param int $options [optional] One or disjunction of more
  * <a href="https://php.net/manual/en/fileinfo.constants.php">Fileinfo</a> constants.
  * @param resource $context [optional]
- * @return string a textual description of the <i>string</i>
+ * @return string|false a textual description of the <i>string</i>
  * argument, or <b>FALSE</b> if an error occurred.
  */
 function finfo_buffer ($finfo ,$string, $options = FILEINFO_NONE, $context = null) {}
