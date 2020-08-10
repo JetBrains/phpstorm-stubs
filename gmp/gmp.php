@@ -409,7 +409,7 @@ function gmp_gcdext ($a, $b) {}
  * numeric string given that it is possible to convert the latter to a number.</p>
  * @param resource|string|GMP $b It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
- * @return resource|GMP A GMP number on success or <b>FALSE</b> if an inverse does not exist.
+ * @return resource|GMP|false A GMP number on success or <b>FALSE</b> if an inverse does not exist.
  */
 function gmp_invert ($a, $b) {}
 
