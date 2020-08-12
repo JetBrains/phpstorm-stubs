@@ -635,6 +635,7 @@ const CLASSES = array (
   'Saxon\\XdmItem' => 'SaxonC/SaxonC.php',
   'Saxon\\XdmNode' => 'SaxonC/SaxonC.php',
   'Saxon\\XdmValue' => 'SaxonC/SaxonC.php',
+  'Saxon\\Xslt30Processor' => 'SaxonC/SaxonC.php',
   'Saxon\\XsltProcessor' => 'SaxonC/SaxonC.php',
   'SeekableIterator' => 'SPL/SPL.php',
   'Serializable' => 'Core/Core_c.php',
