@@ -61,7 +61,7 @@ class SaxonProcessor {
      * @param string $name
      * @param string $value
      * @return void
-     * @link http://saxonica.com/documentation/index.html#!configuration/config-features
+     * @link https://saxonica.com/documentation/index.html#!configuration/config-features
      */
     public function setConfigurationProperty($name, $value) {}
 
