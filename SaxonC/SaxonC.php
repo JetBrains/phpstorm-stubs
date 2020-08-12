@@ -2,7 +2,7 @@
 namespace Saxon;
 
 /**
- * @link https://www.saxonica.com/saxon-c/doc/html/index.html#php-api
+ * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api
  */
 class SaxonProcessor {
 
@@ -61,7 +61,7 @@ class SaxonProcessor {
      * @param string $name
      * @param string $value
      * @return void
-     * @link https://www.saxonica.com/documentation9.6/index.html#!configuration/config-features
+     * @link http://saxonica.com/documentation/index.html#!configuration/config-features
      */
     public function setConfigurationProperty($name, $value) {}
 
@@ -71,6 +71,13 @@ class SaxonProcessor {
      * @return XsltProcessor
      */
     public function newXsltProcessor() {}
+
+    /**
+     * Create an {@link Xslt30Processor} in the PHP environment. An {@link Xslt30Processor} is used to compile and execute XSLT 3.0 stylesheets, but can also be used for XSLT 2.0 or 1.0 stylesheets. Use an {@link Xslt30Processor} instead of {@link XsltProcessor} for XSLT 3.0 processing.
+     *
+     * @return Xslt30Processor
+     */
+    public function newXslt30Processor() {}
 
     /**
      * Create an {@link XQueryProcessor} in the PHP environment. An {@link XQueryProcessor} is used to compile and execute XQuery queries
@@ -110,7 +117,7 @@ class SaxonProcessor {
 }
 
 /**
- * @link https://www.saxonica.com/saxon-c/doc/html/index.html#php-api
+ * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api/saxon_c_php_xsltprocessor
  */
 class XsltProcessor {
 
@@ -272,7 +279,339 @@ class XsltProcessor {
 }
 
 /**
- * @link https://www.saxonica.com/saxon-c/doc/html/index.html#php-api
+ * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api/saxon_c_php_xslt30processor
+ */
+class Xslt30Processor
+{
+    /**
+     * File names to XSLT packages stored on filestore are added to a set of packages, which will be imported later for use when compiling.
+     *
+     * @param string[] $packageFileNames
+     * @return void
+     */
+    public function addPackages($packageFileNames) {}
+
+    /**
+     * Invoke the most recently compiled stylsheet by applying templates to a supplied input sequence (the initial match selection), saving the results to the file specified in the $fileName argument.
+     *
+     * @param string|null $stylesheetFileName
+     * @param string $fileName
+     * @return void
+     */
+    public function applyTemplatesReturningFile($stylesheetFileName, $fileName) {}
+
+    /**
+     * Invoke a stylesheet by applying templates to a supplied input sequence (the initial match selection). The result is returned as a serialized string. The stylesheet file name can be supplied as an argument here. If null then the most recently compiled stylsheet is used.
+     *
+     * @param string $stylesheetFileName
+     * @return string
+     */
+    public function applyTemplatesReturningString($stylesheetFileName) {}
+
+    /**
+     * Invoke a stylesheet by applying templates to a supplied input sequence (the initial match selection). The result is returned as an XdmValue object. The stylesheet file name can be supplied as an argument here. If null then the most recently compiled stylsheet is used.
+     *
+     * @param string $stylesheetFileName
+     * @return XdmValue
+     */
+    public function applyTemplatesReturningValue($stylesheetFileName) {}
+
+    /**
+     * Get the stylesheet associated via the xml-stylesheet processing instruction (@link http://www.w3.org/TR/xml-stylesheet/) in the document specified in the $xmlFileName argument, and that match the given criteria. If there are several suitable xml-stylesheet processing instructions, then the returned source will identify a synthesized stylesheet module that imports all the referenced stylesheet modules.
+     *
+     * @param string $xmlFileName
+     * @return void
+     */
+    public function compileFromAssociatedFile($xmlFileName) {}
+
+    /**
+     * Compile a stylesheet supplied as a file as specified by the $fileName argument.
+     *
+     * @param string $fileName
+     * @return void
+     */
+    public function compileFromFile($fileName) {}
+
+    /**
+     * Compile a stylesheet received as a string.
+     *
+     * @param string $str
+     * @return void
+     */
+    public function compileFromString($str) {}
+
+    /**
+     * Compile a stylesheet received as an {@link XdmValue}.
+     *
+     * @param string $sourceFileName
+     * @param string $stylesheetFileName
+     * @return string|null
+     */
+    public function compileFromValue($node) {}
+
+    /**
+     * Compile a stylesheet supplied as a file as specified by the $fileName argument, and save as an exported file (SEF).
+     *
+     * @param string $fileName
+     * @param string $outputFileName
+     * @return void
+     */
+    public function compileFromFileAndSave($fileName, $outputFileName) {}
+
+    /**
+     * Compile a stylesheet received as a string and save as an exported file (SEF).
+     *
+     * @param string $str
+     * @param string $outputFileName
+     * @return void
+     */
+    public function compileFromStringAndSave($str, $outputFileName) {}
+
+    /**
+     * Compile a stylesheet received as an {@link XdmNode} and save as an exported file (SEF).
+     *
+     * @param XdmNode $node
+     * @param string $outputFileName
+     * @return void
+     */
+    public function compileFromValueAndSave($node, $outputFileName) {}
+
+    /**
+     * Call a public user-defined function in the stylesheet. Here we wrap the result in an XML document, and send this document to a specified file. The function name is supplied as a string, and the values of the arguments to be supplied to the function are supplied as an array of {@link XdmValue} objects. These will be converted if necessary to the type as defined in the function signature, using the function conversion rules.
+     *
+     * @param string $functionName
+     * @param XdmValue[] $arguments
+     * @param string $outputFileName
+     * @return void
+     */
+    public function callFunctionReturningFile($functionName, $arguments, $outputFileName) {}
+
+    /**
+     * Call a public user-defined function in the stylesheet. Here we wrap the result in an XML document, and serialize this document to a string value. The function name is supplied as a string, and the values of the arguments to be supplied to the function are supplied as an array of {@link XdmValue} objects. These will be converted if necessary to the type as defined in the function signature, using the function conversion rules.
+     *
+     * @param string $functionName
+     * @param XdmValue[] $arguments
+     * @return string
+     */
+    public function callFunctionReturningString($functionName, $arguments) {}
+
+    /**
+     * Call a public user-defined function in the stylesheet. Here we wrap the result in an XML document, and return the document as an {@link XdmValue}. The function name is supplied as a string, and the values of the arguments to be supplied to the function are supplied as an array of {@link XdmValue} objects. These will be converted if necessary to the type as defined in the function signature, using the function conversion rules.
+     *
+     * @param string $functionName
+     * @param XdmValue[] $arguments
+     * @return XdmValue
+     */
+    public function callFunctionReturningValue($functionName, $arguments) {}
+
+    /**
+     * Invoke a transformation by calling a named template, saving the results to the file specified in the $outputFileName argument. If the $templateName argument is null then the xsl:initial-template is used. Parameters supplied using setInitialTemplateParameters() are made available to the called template.
+     *
+     * @param string $stylesheetFileName
+     * @param string|null $templateName
+     * @param string $outputFileName
+     * @return void
+     */
+    public function callTemplateReturningFile($stylesheetFileName, $templateName, $outputFileName) {}
+
+    /**
+     * Invoke a transformation by calling a named template, and return the result as a string. If the $templateName argument is null then the xsl:initial-template is used. Parameters supplied using {@link setInitialTemplateParameters()} are made available to the called template.
+     *
+     * @param string $stylesheetFileName
+     * @param string|null $templateName
+     * @return string
+     */
+    public function callTemplateReturningString($stylesheetFileName, $templateName) {}
+
+    /**
+     * Invoke a transformation by calling a named template, and return the result as an {@link XdmValue}. If the $templateName argument is null then the xsl:initial-template is used. Parameters supplied using {@link setInitialTemplateParameters()} are made available to the called template.
+     *
+     * @param string $stylesheetFileName
+     * @param string|null $templateName
+     * @return XdmValue
+     */
+    public function callTemplateReturningValue($stylesheetFileName, $templateName) {}
+
+    /**
+     * Perform a one shot transformation, saving the results to the file specified in the $outputFileName argument.
+     *
+     * @param string $sourceFileName
+     * @param string $stylesheetFileName
+     * @param string $outputFileName
+     * @return void
+     */
+    public function transformFileToFile($sourceFileName, $stylesheetFileName, $outputFileName) {}
+
+    /**
+     * Perform a one shot transformation. The result is returned as an {@link XdmValue}.
+     *
+     * @param string $fileName
+     * @return XdmValue|null
+     */
+    public function transformFileToValue($fileName) {}
+
+    /**
+     * Perform a one shot transformation. The result is returned as a string.
+     *
+     * @param string $fileName
+     * @return string
+     */
+    public function transformFileToString($fileName) {}
+
+    /**
+     * Perform a one shot transformation, saving the results to the file as previously set (e.g. using {@link setOutputFile()}). The global context item may be supplied in the $context argument.
+     *
+     * @param XdmNode $context
+     * @return void
+     */
+    public function transformToFile($context) {}
+
+    /**
+     * Perform a one shot transformation. The result is returned as a serialized string. The global context item may be supplied in the $context argument.
+     *
+     * @param XdmNode $context
+     * @return string
+     */
+    public function transformToString($context) {}
+
+    /**
+     * Perform a one shot transformation. The result is returned as an {@link XdmValue} object. If there are failures then a null is returned. The global context item may be supplied in the $context argument.
+     *
+     * @param XdmNode $context
+     * @return XdmValue
+     */
+    public function transformToValue($context) {}
+
+    /**
+     * Set parameters to be passed to the initial template. These are used whether the transformation is invoked by applying templates to an initial context item, or by invoking a named template. The parameters in question are the xsl:param elements appearing as children of the xsl:template element. The $tunnel argument should be set to true if these values are to be used for setting tunnel parameters.
+     *
+     * @param array $parameters
+     * @param bool $tunnel
+     * @return void
+     */
+    public function setInitialTemplateParameters($parameters, $tunnel) {}
+
+    /**
+     * Set the initial value to which templates are to be applied (equivalent to the 'select' attribute of xsl:apply-templates).
+     *
+     * @param XdmValue $value
+     * @return void
+     */
+    public function setInitialMatchSelection($value) {}
+
+    /**
+     * Set the initial value to which templates are to be applied (equivalent to the 'select' attribute of xsl:apply-templates). This initial match selection is supplied as a file as specified by the $fileName argument.
+     *
+     * @param string $fileName
+     * @return void
+     */
+    public function setInitialMatchSelectionAsFile($fileName) {}
+
+    /**
+     * Supply the context item to be used when evaluating global variables and parameters.
+     *
+     * @param XdmItem $item
+     * @return void
+     */
+    public function setGlobalContextItem($item) {}
+
+    /**
+     * Supply the context item to be used when evaluating global variables and parameters, as a file as specified by the $fileName argument.
+     *
+     * @param string $fileName
+     * @return void
+     */
+    public function setGlobalContextFromFile($fileName) {}
+
+    /**
+     * Set the output file to which the transformation result will be sent.
+     *
+     * @param string $fileName
+     * @return void
+     */
+    public function setOutputFile($fileName) {}
+
+    /**
+     * Set the parameters required for the XSLT stylesheet.
+     *
+     * @param string $name
+     * @param XdmValue $value
+     * @return void
+     */
+    public function setParameter($name, $value) {}
+
+    /**
+     * Set properties for the XSLT processor.
+     *
+     * @param string $name
+     * @param string $value
+     * @return void
+     */
+    public function setProperty($name, $value) {}
+
+    /**
+     * Say whether just-in-time compilation of template rules should be used.
+     *
+     * @param bool $value
+     * @return void
+     */
+    public function setJustInTimeCompilation($value) {}
+
+    /**
+     * Set true if the result of a transformation should be returned as a raw {@link XdmValue} result, rather than as a result tree (an {@link XdmNode} object with a Document node as its root).
+     *
+     * @param bool $value
+     * @return void
+     */
+    public function setResultAsRawValue($value) {}
+
+    /**
+     * Clear parameter values set.
+     *
+     * @return void
+     */
+    public function clearParameters() {}
+
+    /**
+     * Clear property values set.
+     *
+     * @return void
+     */
+    public function clearProperties() {}
+
+    /**
+     * Clear any exceptions thrown.
+     *
+     * @return void
+     */
+    public function exceptionClear() {}
+
+    /**
+     * Get the i'th error code if there are any errors.
+     *
+     * @param int $i
+     * @return string
+     */
+    public function getErrorCode($i) {}
+
+    /**
+     * Get the i'th error message if there are any errors.
+     *
+     * @param int $i
+     * @return string
+     */
+    public function getErrorMessage($i) {}
+
+    /**
+     * Get the number of errors during execution or evaluation of a stylesheet.
+     *
+     * @return int
+     */
+    public function getExceptionCount() {}
+}
+
+/**
+ * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api/saxon_c_php_xqueryprocessor
  */
 class XQueryProcessor {
 
@@ -418,7 +757,7 @@ class XQueryProcessor {
 }
 
 /**
- * @link https://www.saxonica.com/saxon-c/doc/html/index.html#php-api
+ * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api/saxon_c_php_xpathprocessor
  */
 class XPathProcessor {
 
@@ -543,7 +882,7 @@ class XPathProcessor {
 }
 
 /**
- * @link https://www.saxonica.com/saxon-c/doc/html/index.html#php-api
+ * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api/saxon_c_php_schemavalidator
  */
 class SchemaValidator {
 
@@ -666,7 +1005,7 @@ class SchemaValidator {
 }
 
 /**
- * @link https://www.saxonica.com/saxon-c/doc/html/index.html#php-api
+ * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api/saxon_c_php_xdmvalue
  */
 class XdmValue {
 
@@ -701,7 +1040,7 @@ class XdmValue {
 }
 
 /**
- * @link https://www.saxonica.com/saxon-c/doc/html/index.html#php-api
+ * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api/saxon_c_php_xdmitem
  */
 class XdmItem extends XdmValue {
 
@@ -742,7 +1081,7 @@ class XdmItem extends XdmValue {
 }
 
 /**
- * @link https://www.saxonica.com/saxon-c/doc/html/index.html#php-api
+ * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api/saxon_c_php_xdmnode
  */
 class XdmNode extends XdmItem {
 
@@ -821,7 +1160,7 @@ class XdmNode extends XdmItem {
 }
 
 /**
- * @link https://www.saxonica.com/saxon-c/doc/html/index.html#php-api
+ * @link https://www.saxonica.com/saxon-c/documentation/index.html#!api/saxon_c_php_api/saxon_c_php_xdmatomicvalue
  */
 class XdmAtomicValue extends XdmItem {
 
