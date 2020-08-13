@@ -16,9 +16,9 @@
  * When set to <b>TRUE</b>, outputs raw binary data.
  * <b>FALSE</b> outputs lowercase hexits.
  * </p>
- * @return string a string containing the calculated message digest as lowercase hexits
+ * @return string|false a string containing the calculated message digest as lowercase hexits
  * unless <i>raw_output</i> is set to true in which case the raw
- * binary representation of the message digest is returned.
+ * binary representation of the message digest is returned or <b>FALSE</b> if an error occured.
  */
 function hash ($algo, $data, $raw_output = false) {}
 
