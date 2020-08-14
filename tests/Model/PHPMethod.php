@@ -51,6 +51,8 @@ class PHPMethod extends PHPFunction
         $this->collectTags($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);
+        $this->checkDoc($node);
+
 
         if (strncmp($this->name, 'PS_UNRESERVE_PREFIX_', 20) === 0) {
             $this->name = substr($this->name, strlen('PS_UNRESERVE_PREFIX_'));

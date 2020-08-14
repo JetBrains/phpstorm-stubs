@@ -8,6 +8,7 @@ use phpDocumentor\Reflection\DocBlock\Tags\Reference\Url;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
 use phpDocumentor\Reflection\DocBlock\Tags\Since;
 use PHPUnit\Framework\TestCase;
+use SQLite3;
 use StubTests\Model\BasePHPClass;
 use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPClass;
@@ -19,11 +20,19 @@ use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
 use StubTests\Model\StubProblemType;
 use StubTests\Model\Tags\RemovedTag;
+use StubTests\Parsers\DocFactoryProvider;
 use StubTests\Parsers\Utils;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
 
 class StubsTest extends TestCase
 {
+    private static SQLite3 $SQLite3;
+
+    public static function setUpBeforeClass(): void
+    {
+        parent::setUpBeforeClass();
+        self::$SQLite3 = new SQLite3("../ide-sqlite.sqlite");
+    }
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
      */
@@ -356,6 +365,7 @@ class StubsTest extends TestCase
     public function testFunctionPHPDocs(PHPFunction $function): void
     {
         static::assertNull($function->parseError, $function->parseError ?: '');
+        $this->compareWithOfficialDocs($function);
         $this->checkPHPDocCorrectness($function, "function $function->name");
     }
 
@@ -377,6 +387,7 @@ class StubsTest extends TestCase
             static::assertNull($method->returnTag, '@return tag for __construct should be omitted');
         }
         static::assertNull($method->parseError, $method->parseError ?: '');
+        $this->compareWithOfficialDocs($method);
         $this->checkPHPDocCorrectness($method, "method $methodName");
     }
 
@@ -530,5 +541,39 @@ class StubsTest extends TestCase
         } else {
             self::assertTrue(true, "Function '{$function->name}' has since version > 7");
         }
+    }
+
+    private function compareWithOfficialDocs(PHPFunction $function)
+    {
+        $doc = $function->doc;
+        //self::assertNotNull($doc);
+        $docBlockSummary = $doc != null ? DocFactoryProvider::getDocFactory()->create($doc->getText())->getSummary() : "";
+
+        $name = $function instanceof PHPMethod ?$function->parentName.".". $function->name :$function->name;
+        $fechedArray = self::$SQLite3->query("select * from functions where name = '$name'")->fetchArray();
+        $summaryFromOfficialDocs = $fechedArray == FALSE ? "" : $fechedArray["purpose"];
+        $stubs = $this->normalizeSummary($docBlockSummary);
+        if ($summaryFromOfficialDocs !== '') {
+            $official = $this->normalizeSummary($summaryFromOfficialDocs);
+            self::assertEquals($official, $stubs);
+        }
+    }
+
+    private function normalizeSummary(string $summary)
+    {
+        $summary = preg_replace('/\s+/', ' ', $summary);
+        $summary = preg_replace('/\\n/','', $summary);
+        $summary = preg_replace('/\./','', $summary);
+        $summary = preg_replace('/<b>/','', $summary);
+        $summary = preg_replace('/<\/b>/','', $summary);
+        $summary = preg_replace('/<i>/','', $summary);
+        $summary = preg_replace('/<\/i>/','', $summary);
+
+        //TODO REWRITE THIS
+        if (strpos($summary, "(PECL")!==false || strpos($summary, "(PHP ") !== false) {
+            $strpos = max(strpos($summary, "\n"), strpos($summary, "<br>")+4, strpos($summary, "</br>")+5, strpos($summary, "<br/>")+5) ;
+            $summary = substr($summary, $strpos);
+        }
+        return strtolower(trim($summary));
     }
 }

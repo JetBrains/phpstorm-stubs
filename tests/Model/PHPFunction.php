@@ -29,6 +29,8 @@ class PHPFunction extends BasePHPElement
 
     public ?NodeAbstract $returnType = null;
 
+    public ?Doc $doc = null;
+
     /**
      * @param ReflectionFunction $reflectionObject
      * @return $this
@@ -60,7 +62,14 @@ class PHPFunction extends BasePHPElement
         $this->collectTags($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);
+        $this->checkDoc($node);
         return $this;
+    }
+
+
+    protected function checkDoc(FunctionLike $node)
+    {
+        $this->doc = $node->getDocComment();
     }
 
     protected function checkDeprecationTag(FunctionLike $node): void
