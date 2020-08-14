@@ -6,6 +6,7 @@ namespace StubTests\Model;
 use Exception;
 use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use phpDocumentor\Reflection\Type;
+use PhpParser\Comment\Doc;
 use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Stmt\Function_;
 use PhpParser\NodeAbstract;
@@ -26,6 +27,8 @@ class PHPFunction extends BasePHPElement
     public ?Type $returnTag = null;
 
     public ?NodeAbstract $returnType = null;
+
+    public ?Doc $doc = null;
 
     /**
      * @param ReflectionFunction $function
@@ -58,7 +61,14 @@ class PHPFunction extends BasePHPElement
         $this->collectTags($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);
+        $this->checkDoc($node);
         return $this;
+    }
+
+
+    protected function checkDoc(FunctionLike $node)
+    {
+        $this->doc = $node->getDocComment();
     }
 
     protected function checkDeprecationTag(FunctionLike $node): void
