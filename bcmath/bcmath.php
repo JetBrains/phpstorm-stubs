@@ -94,7 +94,6 @@ function bcdiv ($dividend, $divisor, $scale = 0) {}
  * </p>
  * @return string|null the modulus as a string, or <b>NULL</b> if
  * <i>divisor</i> is 0.
- * @since 7.2 scale param added, dividend/divisor no longer truncated
  */
 function bcmod ($dividend, $divisor, $scale = 0) {}
 
