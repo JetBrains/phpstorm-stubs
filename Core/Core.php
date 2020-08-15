@@ -585,6 +585,8 @@ function trigger_error ($error_msg, $error_type = E_USER_NOTICE) {}
  * @link https://php.net/manual/en/function.user-error.php
  * @param string $message
  * @param int    $error_type [optional]
+ * @return bool This function returns false if wrong <i>error_type</i> is
+ * specified, true otherwise.
  */
 function user_error ($message, $error_type = E_USER_NOTICE) {}
 
@@ -714,7 +716,7 @@ function get_defined_vars () {}
  * @param string $code <p>
  * The function code.
  * </p>
- * @return string a unique function name as a string, or false on error.
+ * @return string|false a unique function name as a string, or false on error.
  * @deprecated 7.2 Use anonymous functions instead.
  * @removed 8.0
  */

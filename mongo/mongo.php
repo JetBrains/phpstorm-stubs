@@ -343,7 +343,7 @@ class Mongo extends MongoClient {
      *(PECL mongo &gt;= 1.2.0)<br/>
      * Set the size for future connection pools.
      * @link https://php.net/manual/en/mongo.setpoolsize.php
-     * @param $size <p>The max number of connections future pools will be able to create. Negative numbers mean that the pool will spawn an infinite number of connections.</p>
+     * @param int $size <p>The max number of connections future pools will be able to create. Negative numbers mean that the pool will spawn an infinite number of connections.</p>
      * @return bool Returns the former value of pool size.
      */
     public function setPoolSize($size) {}

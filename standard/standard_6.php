@@ -78,14 +78,14 @@ function stream_select (array &$read, array &$write, array &$except, $tv_sec, $t
 /**
  * Create a streams context
  * @link https://php.net/manual/en/function.stream-context-create.php
- * @param array $options [optional] <p>
+ * @param null|array $options [optional] <p>
  * Must be an associative array of associative arrays in the format
  * $arr['wrapper']['option'] = $value.
  * </p>
  * <p>
  * Default to an empty array.
  * </p>
- * @param array $params [optional] <p>
+ * @param null|array $params [optional] <p>
  * Must be an associative array in the format
  * $arr['parameter'] = $value.
  * Refer to context parameters for
@@ -158,7 +158,7 @@ function stream_context_get_options ($stream_or_context) {}
 /**
  * Retreive the default streams context
  * @link https://php.net/manual/en/function.stream-context-get-default.php
- * @param array $options [optional] options must be an associative
+ * @param null|array $options [optional] options must be an associative
  * array of associative arrays in the format
  * $arr['wrapper']['option'] = $value.
  * <p>

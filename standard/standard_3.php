@@ -305,8 +305,8 @@ function is_nan ($val) {}
 /**
  * Integer division
  * @link https://php.net/manual/en/function.intdiv.php
- * @param $dividend <p>Number to be divided.</p>
- * @param $divisor <p>Number which divides the <b><i>dividend</i></b></p>
+ * @param int $dividend <p>Number to be divided.</p>
+ * @param int $divisor <p>Number which divides the <b><i>dividend</i></b></p>
  * @return int <p>
  * If divisor is 0, a {@link DivisionByZeroError} exception is thrown.
  * If the <b><i>dividend</i></b> is <b>PHP_INT_MIN</b> and the <b><i>divisor</i></b> is -1,

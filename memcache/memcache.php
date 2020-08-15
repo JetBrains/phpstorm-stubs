@@ -236,8 +236,8 @@ class MemcachePool  {
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Delete item from the server
      * https://secure.php.net/manual/ru/memcache.delete.php
-     * @param $key string The key associated with the item to delete.
-     * @param $timeout int [optional] This deprecated parameter is not supported, and defaults to 0 seconds. Do not use this parameter.
+     * @param string $key The key associated with the item to delete.
+     * @param int $timeout [optional] This deprecated parameter is not supported, and defaults to 0 seconds. Do not use this parameter.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function delete ($key, $timeout = 0 ) {}
@@ -294,8 +294,8 @@ class MemcachePool  {
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Increment item's value
      * @link https://php.net/manual/en/memcache.increment.php
-     * @param $key string Key of the item to increment.
-     * @param $value int [optional] increment the item by <b>value</b>
+     * @param string $key Key of the item to increment.
+     * @param int $value [optional] increment the item by <b>value</b>
      * @return int|false Returns new items value on success or <b>FALSE</b> on failure.
      */
     public function increment ($key, $value = 1) {}
@@ -304,8 +304,8 @@ class MemcachePool  {
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Decrement item's value
      * @link https://php.net/manual/en/memcache.decrement.php
-     * @param $key string Key of the item do decrement.
-     * @param $value int Decrement the item by <b>value</b>.
+     * @param string $key Key of the item do decrement.
+     * @param int $value Decrement the item by <b>value</b>.
      * @return int|false Returns item's new value on success or <b>FALSE</b> on failure.
      */
     public function decrement ($key, $value = 1) {}
@@ -389,9 +389,9 @@ function memcache_connect ($host, $port, $timeout = 1) {}
  * Memcache::pconnect — Open memcached server persistent connection
  *
  * @link https://php.net/manual/en/memcache.pconnect.php#example-5242
- * @param      $host
- * @param null $port
- * @param int  $timeout
+ * @param string $host
+ * @param int|null $port
+ * @param int $timeout
  * @return Memcache
  */
 function memcache_pconnect ($host, $port=null, $timeout=1) {}

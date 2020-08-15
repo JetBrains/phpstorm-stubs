@@ -901,7 +901,7 @@ class ZipArchive implements Countable {
 
     /**
      * (PHP 5 &gt;= 5.6.0, PECL zip &gt;= 1.12.0)<br/>
-     * @param $password
+     * @param string $password
      * @return bool
      */
     public function setPassword($password) {}

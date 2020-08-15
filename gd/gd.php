@@ -2047,10 +2047,10 @@ function imagelayereffect ($image, $effect) {}
 /**
  * Makes the colors of the palette version of an image more closely match the true color version
  * @link https://php.net/manual/en/function.imagecolormatch.php
- * @param $image1 resource <p>
+ * @param resource $image1 <p>
  * A truecolor image link resource.
  * </p>
- * @param $image2 resource <p>
+ * @param resource $image2 <p>
  * A palette image link resource pointing to an image that has the same
  * size as image1.
  * </p>

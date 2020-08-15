@@ -604,7 +604,8 @@ function ftp_nb_fput ($ftp_stream, $remote_file, $handle, $mode = FTP_BINARY, $s
 /**
  * Alias of <b>ftp_close</b>
  * @link https://php.net/manual/en/function.ftp-quit.php
- * @param $ftp
+ * @param resource $ftp
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function ftp_quit ($ftp) {}
 

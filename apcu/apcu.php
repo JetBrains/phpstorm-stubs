@@ -299,7 +299,7 @@ class APCIterator implements Iterator
     /**
      * Gets the total number of cache hits
      * @link https://php.net/manual/en/apciterator.gettotalhits.php
-     * @return int|bool The number of hits on success, or FALSE on failure.
+     * @return int|false The number of hits on success, or FALSE on failure.
      */
     public function getTotalHits(){}
 

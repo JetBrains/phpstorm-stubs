@@ -125,7 +125,7 @@ function mssql_select_db ($database_name, $link_identifier = null) {}
  * @param int $batch_size [optional] <p>
  * The number of records to batch in the buffer.
  * </p>
- * @return mixed a MS SQL result resource on success, true if no rows were
+ * @return resource|bool a MS SQL result resource on success, true if no rows were
  * returned, or false on error.
  * @removed 7.0
  */

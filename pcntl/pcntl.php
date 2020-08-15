@@ -222,6 +222,7 @@ function pcntl_wexitstatus ($status) {}
 
 /**
  * @param int $status
+ * @return bool
  */
 function pcntl_wifcontinued ( $status){}
 /**
@@ -289,8 +290,9 @@ function pcntl_alarm ($seconds) {}
 function pcntl_get_last_error () {}
 
 /**
- * Alias of <b>pcntl_strerror</b>
+ * Alias of <b>pcntl_get_last_error</b>
  * @link https://php.net/manual/en/function.pcntl-errno.php
+ * @return int error code.
  * @since 5.3.4
  */
 function pcntl_errno () {}
@@ -457,6 +459,8 @@ function pcntl_async_signals($on = null) {}
 function pcntl_signal_get_handler($signo) {}
 
 /**
+ * @param int $flags
+ * @return bool
  * @since 7.4
  */
 function pcntl_unshare($flags){}
