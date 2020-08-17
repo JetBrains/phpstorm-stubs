@@ -110,16 +110,16 @@
  * false: the second call returns false.
  * illegal: you must not mix "l" and "d" modifiers for <i>mode</i> parameter.
  * </p>
- * @param string $handler [optional] <p>
+ * @param string $handlername [optional] <p>
  * The name of the handler which
  * shall be used for accessing <i>path</i>. It is passed
  * all optional parameters given to <b>dba_open</b> and
  * can act on behalf of them.
  * </p>
- * @param mixed $_ [optional]
+ * @param mixed ...$handler_parameters [optional]
  * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
-function dba_open ($path, $mode, $handler = null, $_ = null) {}
+function dba_open ($path, $mode, $handlername = null, ...$handler_parameters) {}
 
 /**
  * Open database persistently
@@ -133,16 +133,16 @@ function dba_open ($path, $mode, $handler = null, $_ = null) {}
  * for read/write access and database creation if it doesn't currently exist,
  * and n for create, truncate and read/write access.
  * </p>
- * @param string $handler [optional] <p>
+ * @param string $handlername [optional] <p>
  * The name of the handler which
  * shall be used for accessing <i>path</i>. It is passed
  * all optional parameters given to <b>dba_popen</b> and
  * can act on behalf of them.
  * </p>
- * @param mixed $_ [optional]
+ * @param mixed ...$handler_parameters [optional]
  * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
-function dba_popen ($path, $mode, $handler = null, $_ = null) {}
+function dba_popen ($path, $mode, $handlername = null, ...$handler_parameters) {}
 
 /**
  * Close a DBA database
