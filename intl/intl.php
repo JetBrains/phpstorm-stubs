@@ -6471,7 +6471,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @param string $offset [optional]
      * @return int
      */
-    public function next($offset) { }
+    public function next($offset = null) { }
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
