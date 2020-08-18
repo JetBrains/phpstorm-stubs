@@ -4,7 +4,7 @@ use RdKafka\Exception;
 use RdKafka\Metadata;
 use RdKafka\Topic;
 use RdKafka\TopicConf;
-use RdKafka\Queue;
+use RdKafka\TopicPartition;
 
 abstract class RdKafka
 {
@@ -37,13 +37,6 @@ abstract class RdKafka
     }
 
     /**
-     * @return Queue
-     */
-    public function newQueue()
-    {
-    }
-
-    /**
      * @param string    $topic_name
      * @param TopicConf $topic_conf
      *
@@ -68,6 +61,47 @@ abstract class RdKafka
      * @return void
      */
     public function setLogLevel($level)
+    {
+    }
+
+    /**
+     * @param TopicPartition[] $topicPartitions
+     * @param int $timeout_ms
+     *
+     * @return TopicPartition[]
+     */
+    public function offsetsForTimes(array $topicPartitions, int $timeout_ms)
+    {
+    }
+
+    /**
+     * @param string $topic
+     * @param int $partition
+     * @param int $low
+     * @param int $high
+     * @param int $timeout_ms
+     *
+     * @return void
+     */
+    public function queryWatermarkOffsets(string $topic, int $partition, int &$low, int &$high, int $timeout_ms)
+    {
+    }
+
+    /**
+     * @param int $purge_flags
+     *
+     * @return int
+     */
+    public function purge(int $purge_flags)
+    {
+    }
+
+    /**
+     * @param int $timeout_ms
+     *
+     * @return int
+     */
+    public function flush(int $timeout_ms)
     {
     }
 }

@@ -20,4 +20,11 @@ class Consumer extends \RdKafka
     public function newTopic($topic_name, TopicConf $topic_conf = null)
     {
     }
+
+    /**
+     * @return Queue
+     */
+    public function newQueue()
+    {
+    }
 }
