@@ -2,6 +2,7 @@
 
 /**
  * The SVMModel is the end result of the training process. It can be used to classify previously unseen data.
+ * @since 7.0
  * @link https://www.php.net/manual/en/class.svmmodel.php
  */
 class SVMModel {

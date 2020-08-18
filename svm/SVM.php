@@ -4,6 +4,7 @@
  * Support Vector Machine Library
  * 
  * LibSVM is an efficient solver for SVM classification and regression problems. The svm extension wraps this in a PHP interface for easy use in PHP scripts.
+ * @since 7.0
  * @link https://www.php.net/manual/en/class.svm.php
  */
 class SVM {
