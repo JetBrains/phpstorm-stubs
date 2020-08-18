@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * The SVMModel is the end result of the training process. It can be used to classify previously unseen data.
@@ -16,7 +16,7 @@ class SVMModel {
 	public function checkProbabilityModel () : bool {}
 	/**
 	 * Construct a new SVMModel
-	 * 
+	 *
 	 * Build a new SVMModel. Models will usually be created from the SVM::train function, but then saved models may be restored directly.
 	 * @param string $filename The filename for the saved model file this model should load.
 	 * @throws Throws SVMException on error
