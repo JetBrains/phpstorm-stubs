@@ -6440,7 +6440,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @link https://secure.php.net/manual/en/intlbreakiterator.getpartsiterator.php
      * @param string $key_type [optional]
      */
-    public function getPartsIterator($key_type) { }
+    public function getPartsIterator($key_type = IntlPartsIterator::KEY_SEQUENTIAL) { }
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
