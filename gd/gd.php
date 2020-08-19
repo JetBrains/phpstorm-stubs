@@ -2810,7 +2810,7 @@ define('IMG_TGA', 128);
  * such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.</p>
  * @param array $affine <p>Array with keys 0 to 5.</p>
  * @param array $clip [optional] <p>Array with keys "x", "y", "width" and "height".</p>
- * @return resource|bool Return affined image resource on success or FALSE on failure.
+ * @return resource|false Return affined image resource on success or FALSE on failure.
  */
 function imageaffine($image, $affine, $clip = null) {}
 
@@ -2842,7 +2842,7 @@ function imageaffinematrixget ($type, $options = null) {}
  * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
  * </p>
  * @param array $rect <p>Array with keys "x", "y", "width" and "height".</p>
- * @return resource|bool Return cropped image resource on success or FALSE on failure.
+ * @return resource|false Return cropped image resource on success or FALSE on failure.
  * @since 5.5
  */
 function imagecrop ($image, $rect) {}

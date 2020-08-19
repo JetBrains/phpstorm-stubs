@@ -24,7 +24,7 @@ function func_num_args () {}
  * The argument offset. Function arguments are counted starting from
  * zero.
  * </p>
- * @return mixed the specified argument, or false on error.
+ * @return mixed|false the specified argument, or false on error.
  */
 function func_get_arg ($arg_num) {}
 
@@ -714,7 +714,7 @@ function get_defined_vars () {}
  * @param string $code <p>
  * The function code.
  * </p>
- * @return string a unique function name as a string, or false on error.
+ * @return string|false a unique function name as a string, or false on error.
  * @deprecated 7.2 Use anonymous functions instead.
  * @removed 8.0
  */
@@ -791,7 +791,7 @@ function extension_loaded ($name) {}
  * <p>
  * This parameter must be in lowercase.
  * </p>
- * @return array an array with all the functions, or false if
+ * @return string[]|false an array with all the functions, or false if
  * <i>module_name</i> is not a valid extension.
  */
 function get_extension_funcs ($module_name) {}

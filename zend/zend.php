@@ -521,7 +521,7 @@ function output_cache_put($key, $data) {}
  * Gets cached data according to the assigned key.
  * @param $key string cache key
  * @param $lifetime int cache validity time (seconds)
- * @return mixed cached data if cache exists, false otherwise
+ * @return mixed|false cached data if cache exists, false otherwise
  */
 function output_cache_get($key, $lifetime) {}
 

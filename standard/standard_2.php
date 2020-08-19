@@ -965,7 +965,7 @@ function mt_getrandmax () {}
  * protocol is either "tcp"
  * or "udp" (in lowercase).
  * </p>
- * @return int the port number, or false if service or
+ * @return int|false the port number, or false if service or
  * protocol is not found.
  */
 function getservbyname ($service, $protocol) {}
@@ -1007,27 +1007,27 @@ function getprotobynumber ($number) {}
 /**
  * Gets PHP script owner's UID
  * @link https://php.net/manual/en/function.getmyuid.php
- * @return int the user ID of the current script, or false on error.
+ * @return int|false the user ID of the current script, or false on error.
  */
 function getmyuid () {}
 
 /**
  * Get PHP script owner's GID
  * @link https://php.net/manual/en/function.getmygid.php
- * @return int the group ID of the current script, or false on error.
+ * @return int|false the group ID of the current script, or false on error.
  */
 function getmygid () {}
 
 /**
  * Gets PHP's process ID
  * @link https://php.net/manual/en/function.getmypid.php
- * @return int the current PHP process ID, or false on error.
+ * @return int|false the current PHP process ID, or false on error.
  */
 function getmypid () {}
 
 /**
  * Gets the inode of the current script
  * @link https://php.net/manual/en/function.getmyinode.php
- * @return int the current script's inode as an integer, or false on error.
+ * @return int|false the current script's inode as an integer, or false on error.
  */
 function getmyinode () {}

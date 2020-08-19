@@ -363,8 +363,7 @@ function mcrypt_generic_deinit ($td) {}
  * @param resource $td <p>
  * The encryption descriptor.
  * </p>
- * @return int|bool If the self test succeeds it returns false. In case of an error, it
- * returns true.
+ * @return int Returns 0 on success and a negative integer on failure
  * @deprecated 7.1
  */
 function mcrypt_enc_self_test ($td) {}

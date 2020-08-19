@@ -1901,7 +1901,7 @@ function ociserverversion ($connection_resource) {}
  * Alias of {@see oci_statement_type}
  * @link https://php.net/manual/en/function.ocistatementtype.php
  * @param resource $statement_resource
- * @return string Returns everything as strings except for abstract types (ROWIDs, LOBs and FILEs). Returns FALSE on error.
+ * @return string|false Returns everything as strings except for abstract types (ROWIDs, LOBs and FILEs). Returns FALSE on error.
  */
 function ocistatementtype ($statement_resource) {}
 

@@ -111,7 +111,7 @@ class RedisSentinel {
 	 *
 	 * @param string $master Name of master
 	 *
-	 * @return array|bool ['address', 'port'] in case of success, False in case of failure.
+	 * @return array|false ['address', 'port'] in case of success, False in case of failure.
 	 *
 	 * @example $sentinel->getMasterAddrByName('mymaster');
 	 *
@@ -124,7 +124,7 @@ class RedisSentinel {
 	 *
 	 * @param string $master Name of master
 	 *
-	 * @return array|bool Associative array with info in case of success, False in case of failure.
+	 * @return array|false Associative array with info in case of success, False in case of failure.
 	 *
 	 * @example $sentinel->master('mymaster');
 	 *
@@ -135,7 +135,7 @@ class RedisSentinel {
 	/**
 	 * Return a list of monitored masters and their state
 	 *
-	 * @return array|bool Array of arrays with info for each master in case of success, FALSE in case of failure.
+	 * @return array|false Array of arrays with info for each master in case of success, FALSE in case of failure.
 	 *
 	 * @example $sentinel->masters();
 	 *
@@ -174,7 +174,7 @@ class RedisSentinel {
 	 *
 	 * @param string $master Name of master
 	 *
-	 * @return array|bool Array of arrays with info for each sentinel in case of success, False in case of failure
+	 * @return array|false Array of arrays with info for each sentinel in case of success, False in case of failure
 	 *
 	 * @example $sentinel->sentinels('mymaster');
 	 *
@@ -187,7 +187,7 @@ class RedisSentinel {
 	 *
 	 * @param string $master Name of master
 	 *
-	 * @return array|bool Array of arrays with info for each replica in case of success, False in case of failure
+	 * @return array|false Array of arrays with info for each replica in case of success, False in case of failure
 	 *
 	 * @example $sentinel->slaves('mymaster');
 	 *

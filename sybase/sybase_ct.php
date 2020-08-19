@@ -49,7 +49,7 @@ function sybase_select_db ($database_name, $link_identifier = null) {}
  * @link https://php.net/manual/en/function.sybase-query.php
  * @param $query string
  * @param $link_identifier resource[optional]
- * @return mixed a positive Sybase result identifier on success, false on error,
+ * @return mixed|false a positive Sybase result identifier on success, false on error,
  * @removed 7.0
  */
 function sybase_query ($query, $link_identifier = null) {}
