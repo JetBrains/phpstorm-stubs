@@ -673,22 +673,13 @@ namespace PHPSTORM_META {
       return "callback ${$args}";
     }
 
-    /**
-     * argument type #$argNum of the caller callback
-     * @param mixed $argNum
-     * @return mixed
-     */
-    function arg($argNum) {
-      return "arg $argNum";
-    }
+    registerCallbackTypes(\array_walk(array(), callback(elementType(0), "mixed")));
+    registerCallbackTypes(\array_walk_recursive(array(), callback(elementType(0), "mixed")));
+    registerCallbackTypes(\array_filter(array(), callback(elementType(0))));
+    registerCallbackTypes(\array_reduce(array(), callback(elementType(0), elementType(0))));
 
-    registerCallbackTypes(\array_walk(array(), callback(arg(0), "mixed")));
-    registerCallbackTypes(\array_walk_recursive(array(), callback(arg(0), "mixed")));
-    registerCallbackTypes(\array_filter(array(), callback(arg(0))));
-    registerCallbackTypes(\array_reduce(array(), callback(arg(0), arg(0))));
-
-    registerCallbackTypes(\usort(array(), callback(arg(0), arg(0))));
-    registerCallbackTypes(\uasort(array(), callback(arg(0), arg(0))));
+    registerCallbackTypes(\usort(array(), callback(elementType(0), elementType(0))));
+    registerCallbackTypes(\uasort(array(), callback(elementType(0), elementType(0))));
 
 //  override( \ServiceLocatorInterface::get(0),
 //    map( [
