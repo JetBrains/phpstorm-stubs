@@ -81,20 +81,19 @@ function bcdiv ($dividend, $divisor, $scale = 0) {}
  * Get modulus of an arbitrary precision number
  * @link https://php.net/manual/en/function.bcmod.php
  * @param string $dividend <p>
- * The dividend, as a string.
+ * The dividend, as a string. Since PHP 7.2, the divided is no longer truncated to an integer.
  * </p>
  * @param string $divisor <p>
- * The divisor, as a string.
+ * The divisor, as a string. Since PHP 7.2, the divisor is no longer truncated to an integer.
  * </p>
  * @param int $scale [optional] <p>
  * This optional parameter is used to set the number of digits after the
  * decimal place in the result. If omitted, it will default to the scale
  * set globally with the {@link bcscale()} function, or fallback to 0 if
- * this has not been set.
+ * this has not been set. Available since PHP 7.2.
  * </p>
  * @return string|null the modulus as a string, or <b>NULL</b> if
  * <i>divisor</i> is 0.
- * @since 7.2 scale param added, dividend/divisor no longer truncated
  */
 function bcmod ($dividend, $divisor, $scale = 0) {}
 
