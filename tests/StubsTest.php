@@ -38,7 +38,7 @@ class StubsTest extends TestCase
     public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
-        self::$SQLite3 = new SQLite3("ide-sqlite.sqlite");
+        self::$SQLite3 = new SQLite3("../ide-sqlite.sqlite");
     }
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
@@ -567,7 +567,7 @@ class StubsTest extends TestCase
             echo "PHP doc is not found for " . $function_name;
         }
 
-        $summaryFromOfficialDocs = $functionsData === FALSE ? "" : $functionsData["purpose"];
+        $summaryFromOfficialDocs = $functionsData === false ? "" : $functionsData["purpose"];
         $stubs = $this->normalizeSummary($docBlockSummary);
         if ($summaryFromOfficialDocs !== '') {
             $official = $this->normalizeSummary($summaryFromOfficialDocs);
@@ -605,7 +605,7 @@ class StubsTest extends TestCase
         $docBlock = DocFactoryProvider::getDocFactory()->create($doc->getText());
         foreach ($docBlock->getTagsByName("param") as $parameter) {
             $paramsData = self::$SQLite3->query("select * from params where function_name = '$function_name' and name = '{$parameter->getVariableName()}' ")->fetchArray();
-            if ($paramsData === FALSE) {
+            if ($paramsData === false) {
                 echo "parameter data for " . $function_name . " is not found in official docs";
             } else {
                 self::assertEquals($paramsData["type"], $this->normalizeType($this->filterNull($parameter) . ""), "parameter: $" . $parameter->getVariableName());
