@@ -564,7 +564,7 @@ class StubsTest extends TestCase
         if ($doc !== null) {
             $this->validateParameters($doc, $function_name);
         } else {
-            echo "PHP doc is not found for " . $function_name;
+            //echo "PHP doc is not found for " . $function_name;
         }
 
         $summaryFromOfficialDocs = $functionsData === false ? "" : $functionsData["purpose"];
@@ -606,9 +606,9 @@ class StubsTest extends TestCase
         foreach ($docBlock->getTagsByName("param") as $parameter) {
             $paramsData = self::$SQLite3->query("select * from params where function_name = '$function_name' and name = '{$parameter->getVariableName()}' ")->fetchArray();
             if ($paramsData === false) {
-                echo "parameter data for " . $function_name . " is not found in official docs";
+                //echo "parameter data for " . $function_name . " is not found in official docs";
             } else {
-                self::assertEquals($paramsData["type"], $this->normalizeType($this->filterNull($parameter) . ""), "parameter: $" . $parameter->getVariableName());
+                self::assertEquals($this->normalizeType($paramsData["type"]), $this->normalizeType($this->filterNull($parameter) . ""), "parameter: $" . $parameter->getVariableName());
             }
         }
     }
@@ -645,7 +645,7 @@ class StubsTest extends TestCase
     private function validateReturnTypes(array $functionsData, string $function_name, PHPFunction $function): void
     {
         if ($functionsData !== null) {
-            echo "return type for " . $function_name . " is not found in official docs";
+            // echo "return type for " . $function_name . " is not found in official docs";
             self::assertEquals($functionsData["return_type"], $function->returnTag . "", "return type mismatch");
         }
     }
