@@ -2,11 +2,15 @@
 
 namespace StubTests;
 
+use phpDocumentor\Reflection\DocBlock\Tag;
 use phpDocumentor\Reflection\DocBlock\Tags\Deprecated;
 use phpDocumentor\Reflection\DocBlock\Tags\Link;
 use phpDocumentor\Reflection\DocBlock\Tags\Reference\Url;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
 use phpDocumentor\Reflection\DocBlock\Tags\Since;
+use phpDocumentor\Reflection\Types\Compound;
+use phpDocumentor\Reflection\Types\Null_;
+use PhpParser\Comment\Doc;
 use PHPUnit\Framework\TestCase;
 use SQLite3;
 use StubTests\Model\BasePHPClass;
@@ -23,15 +27,18 @@ use StubTests\Model\Tags\RemovedTag;
 use StubTests\Parsers\DocFactoryProvider;
 use StubTests\Parsers\Utils;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
+use function array_filter;
+use function preg_replace;
 
 class StubsTest extends TestCase
 {
+    const ID_PATTERN = "[A-Za-z0-9_]+";
     private static SQLite3 $SQLite3;
 
     public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
-        self::$SQLite3 = new SQLite3("../ide-sqlite.sqlite");
+        self::$SQLite3 = new SQLite3("ide-sqlite.sqlite");
     }
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
@@ -549,9 +556,18 @@ class StubsTest extends TestCase
         //self::assertNotNull($doc);
         $docBlockSummary = $doc != null ? DocFactoryProvider::getDocFactory()->create($doc->getText())->getSummary() : "";
 
-        $name = $function instanceof PHPMethod ?$function->parentName.".". $function->name :$function->name;
-        $fechedArray = self::$SQLite3->query("select * from functions where name = '$name'")->fetchArray();
-        $summaryFromOfficialDocs = $fechedArray == FALSE ? "" : $fechedArray["purpose"];
+        $function_name = $function instanceof PHPMethod ? $function->parentName . "." . $function->name : $function->name;
+        $functionsData = self::$SQLite3->query("select * from functions where name = '$function_name'")->fetchArray();
+        if ($functionsData !== false) {
+            $this->validateReturnTypes($functionsData, $function_name, $function);
+        }
+        if ($doc !== null) {
+            $this->validateParameters($doc, $function_name);
+        } else {
+            echo "PHP doc is not found for " . $function_name;
+        }
+
+        $summaryFromOfficialDocs = $functionsData === FALSE ? "" : $functionsData["purpose"];
         $stubs = $this->normalizeSummary($docBlockSummary);
         if ($summaryFromOfficialDocs !== '') {
             $official = $this->normalizeSummary($summaryFromOfficialDocs);
@@ -562,18 +578,75 @@ class StubsTest extends TestCase
     private function normalizeSummary(string $summary)
     {
         $summary = preg_replace('/\s+/', ' ', $summary);
-        $summary = preg_replace('/\\n/','', $summary);
-        $summary = preg_replace('/\./','', $summary);
-        $summary = preg_replace('/<b>/','', $summary);
-        $summary = preg_replace('/<\/b>/','', $summary);
-        $summary = preg_replace('/<i>/','', $summary);
-        $summary = preg_replace('/<\/i>/','', $summary);
+        $summary = preg_replace('/\\n/', '', $summary);
+
+        // $summary = preg_replace("/\&Alias;/", "alias", $summary);
+        $summary = preg_replace("/{@see (" . self::ID_PATTERN . ")}/", "$1", $summary);
+        $summary = str_replace(".", '', $summary);
+        $summary = preg_replace('/<b>/', '', $summary);
+        $summary = preg_replace('/<\/b>/', '', $summary);
+        $summary = preg_replace('/<i>/', '', $summary);
+        $summary = preg_replace('/<\/i>/', '', $summary);
 
         //TODO REWRITE THIS
-        if (strpos($summary, "(PECL")!==false || strpos($summary, "(PHP ") !== false) {
-            $strpos = max(strpos($summary, "\n"), strpos($summary, "<br>")+4, strpos($summary, "</br>")+5, strpos($summary, "<br/>")+5) ;
+        if (strpos($summary, "(PECL") !== false || strpos($summary, "(PHP ") !== false) {
+            $strpos = max(strpos($summary, "\n"), strpos($summary, "<br>") + 4, strpos($summary, "</br>") + 5, strpos($summary, "<br/>") + 5);
             $summary = substr($summary, $strpos);
         }
         return strtolower(trim($summary));
+    }
+
+    /**
+     * @param Doc|null $doc
+     * @param string $function_name
+     */
+    private function validateParameters(?Doc $doc, string $function_name): void
+    {
+        $docBlock = DocFactoryProvider::getDocFactory()->create($doc->getText());
+        foreach ($docBlock->getTagsByName("param") as $parameter) {
+            $paramsData = self::$SQLite3->query("select * from params where function_name = '$function_name' and name = '{$parameter->getVariableName()}' ")->fetchArray();
+            if ($paramsData === FALSE) {
+                echo "parameter data for " . $function_name . " is not found in official docs";
+            } else {
+                self::assertEquals($paramsData["type"], $this->normalizeType($this->filterNull($parameter) . ""), "parameter: $" . $parameter->getVariableName());
+            }
+        }
+    }
+
+    /**
+     * @param Tag $parameter
+     * @return mixed
+     */
+    private function filterNull(Tag $parameter)
+    {
+        $types = $parameter->getType();
+        if ($types instanceof Compound) {
+            $types = new Compound(array_filter($types->getIterator()->getArrayCopy(), function ($a) {
+                return !$a instanceof Null_;
+            }));
+        }
+        return $types;
+    }
+
+    /**
+     * @param string $parameterType
+     * @return string
+     */
+    private function normalizeType(string $parameterType): string
+    {
+        return preg_replace("/\\\\(" . self::ID_PATTERN . ")/", "$1", $parameterType . "");
+    }
+
+    /**
+     * @param bool $functionsData
+     * @param string $function_name
+     * @param PHPFunction $function
+     */
+    private function validateReturnTypes(array $functionsData, string $function_name, PHPFunction $function): void
+    {
+        if ($functionsData !== null) {
+            echo "return type for " . $function_name . " is not found in official docs";
+            self::assertEquals($functionsData["return_type"], $function->returnTag . "", "return type mismatch");
+        }
     }
 }
