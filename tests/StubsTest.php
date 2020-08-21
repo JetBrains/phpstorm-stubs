@@ -39,7 +39,7 @@ class StubsTest extends TestCase
     {
         parent::setUpBeforeClass();
         self::$SQLite3 = new SQLite3("../ide-sqlite.sqlite");
-        echo dirname(__FILE__);
+        echo "current dir:" .dirname(__FILE__);
     }
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
