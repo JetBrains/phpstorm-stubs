@@ -38,7 +38,7 @@ class StubsTest extends TestCase
     public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
-        self::$SQLite3 = new SQLite3("../ide-sqlite.sqlite");
+        self::$SQLite3 = new SQLite3(__DIR__ . "/../ide-sqlite.sqlite");
         echo "current dir:" .dirname(__FILE__);
     }
     /**
