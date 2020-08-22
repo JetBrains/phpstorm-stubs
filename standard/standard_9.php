@@ -723,6 +723,7 @@ function array_key_last(array $array) { }
  * &Alias; <function>current</function>
  * @link https://php.net/manual/en/function.pos.php
  * @param array $arg
+ * @return mixed
  */
 function pos($arg) { }
 
@@ -1130,7 +1131,7 @@ function realpath_cache_size() { }
  * It returns the same result as (array) $object, with the
  * exception that it ignores overloaded array casts, such as used by
  * ArrayObject.
- * @param $obj
+ * @param object $obj
  * @return array returns the mangled object properties
  * @since 7.4
  */

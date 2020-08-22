@@ -800,6 +800,7 @@ function is_uploaded_file ($filename) {}
 function move_uploaded_file ($filename, $destination) {}
 
 /**
+ * @return array|false
  * @since 7.3
  */
 function net_get_interfaces() {}
