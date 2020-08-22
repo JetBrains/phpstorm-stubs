@@ -304,7 +304,7 @@ function rpmvercmp (string $evr1, string $evr2) {}
  * @param bool $full [optional] <p>
  * If TRUE all information headers for the file are retrieved, else only a minimal set.
  * </p>
- * @param string $error [optional] <p>
+ * @param string &$error [optional] <p>
  * If provided, will receive the possible error message, and will avoid a runtime warning.
  * </p>
  *

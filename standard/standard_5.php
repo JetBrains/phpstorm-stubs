@@ -95,7 +95,7 @@ function gettype ($var) {}
 /**
  * Set the type of a variable
  * @link https://php.net/manual/en/function.settype.php
- * @param mixed $var <p>
+ * @param mixed &$var <p>
  * The variable being converted.
  * </p>
  * @param string $type <p>
@@ -129,7 +129,7 @@ function gettype ($var) {}
 function settype (&$var, $type) {}
 
 /**
- * Finds whether a variable is &null;
+ * Finds whether a variable is null.
  * @link https://php.net/manual/en/function.is-null.php
  * @param mixed $var <p>
  * The variable being evaluated.
@@ -297,7 +297,7 @@ function is_scalar ($var) {}
  * are supposed to have only 2 entries, the first of which is an object
  * or a string, and the second a string.
  * </p>
- * @param string $callable_name [optional] <p>
+ * @param string &$callable_name [optional] <p>
  * Receives the "callable name". In the example below it is
  * "someClass::someMethod". Note, however, that despite the implication
  * that someClass::SomeMethod() is a callable static method, this is not
@@ -952,7 +952,7 @@ function file ($filename, $flags = null, $context = null) {}
  * @param resource $context [optional] <p>
  * A valid context resource created with
  * stream_context_create. If you don't need to use a
- * custom context, you can skip this parameter by &null;.
+ * custom context, you can skip this parameter by null.
  * </p>
  * @param int $offset [optional] <p>
  * The offset where the reading starts.

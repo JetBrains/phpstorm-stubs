@@ -958,7 +958,7 @@ class Redis
      * If the key exists and is not a list, FALSE is returned.
      *
      * @param string $key
-     * @param string|mixed $value1... Variadic list of values to push in key, if dont used serialized, used string
+     * @param string|mixed ...$value1 Variadic list of values to push in key, if dont used serialized, used string
      *
      * @return int|bool The new length of the list in case of success, FALSE in case of Failure
      *
@@ -986,7 +986,7 @@ class Redis
      * If the key exists and is not a list, FALSE is returned.
      *
      * @param string $key
-     * @param string|mixed $value1... Variadic list of values to push in key, if dont used serialized, used string
+     * @param string|mixed ...$value1 Variadic list of values to push in key, if dont used serialized, used string
      *
      * @return int|bool The new length of the list in case of success, FALSE in case of Failure
      *
@@ -1918,7 +1918,7 @@ class Redis
      * Scan a set for members
      *
      * @param string $key      The set to search.
-     * @param int    $iterator LONG (reference) to the iterator as we go.
+     * @param int    &$iterator LONG (reference) to the iterator as we go.
      * @param string   $pattern  String, optional pattern to match against.
      * @param int    $count    How many members to return at a time (Redis might return a different amount)
      *
@@ -3525,7 +3525,7 @@ class Redis
      * Scan a sorted set for members, with optional pattern and count
      *
      * @param string $key      String, the set to scan.
-     * @param int    $iterator Long (reference), initialized to NULL.
+     * @param int    &$iterator Long (reference), initialized to NULL.
      * @param string $pattern  String (optional), the pattern to match.
      * @param int    $count    How many keys to return per iteration (Redis might return a different number).
      *
@@ -3980,7 +3980,7 @@ class Redis
      * Scan a HASH value for members, with an optional pattern and count.
      *
      * @param string $key
-     * @param int    $iterator
+     * @param int    &$iterator
      * @param string $pattern    Optional pattern to match against.
      * @param int    $count      How many keys to return in a go (only a sugestion to Redis).
      *
@@ -4648,7 +4648,7 @@ class Redis
     /**
      * Scan the keyspace for keys
      *
-     * @param int    $iterator Iterator, initialized to NULL.
+     * @param int    &$iterator Iterator, initialized to NULL.
      * @param string $pattern  Pattern to match.
      * @param int    $count    Count of keys per iteration (only a suggestion to Redis).
      *

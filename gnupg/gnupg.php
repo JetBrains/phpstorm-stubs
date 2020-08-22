@@ -54,7 +54,7 @@ class gnupg {
 	 *
 	 * * @param string $signed_text
 	 * @param string $signature
-	 * @param string $plaintext
+	 * @param string &$plaintext
 	 *
 	 * @return array|false On success, this function returns information about the signature.
 	 *               On failure, this function returns false.
@@ -136,7 +136,7 @@ class gnupg {
 	 * @link https://php.net/manual/en/function.gnupg-decryptverify.php
 	 *
 	 * @param string $text
-	 * @param string $plaintext
+	 * @param string &$plaintext
 	 *
 	 * @return array|false On success, this function returns information about the signature and
 	 *               fills the  parameter with the decrypted text.

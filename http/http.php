@@ -1404,14 +1404,14 @@ class HttpRequest  {
 	/**
 	 * @param $url
 	 * @param $options [optional]
-	 * @param $info [optional]
+	 * @param &$info [optional]
 	 */
 	public static function get ($url, $options, &$info) {}
 
 	/**
 	 * @param $url
 	 * @param $options [optional]
-	 * @param $info [optional]
+	 * @param &$info [optional]
 	 */
 	public static function head ($url, $options, &$info) {}
 
@@ -1419,7 +1419,7 @@ class HttpRequest  {
 	 * @param $url
 	 * @param $data
 	 * @param $options [optional]
-	 * @param $info [optional]
+	 * @param &$info [optional]
 	 */
 	public static function postData ($url, $data, $options, &$info) {}
 
@@ -1427,7 +1427,7 @@ class HttpRequest  {
 	 * @param $url
 	 * @param $data
 	 * @param $options [optional]
-	 * @param $info [optional]
+	 * @param &$info [optional]
 	 */
 	public static function postFields ($url, $data, $options, &$info) {}
 
@@ -1435,7 +1435,7 @@ class HttpRequest  {
 	 * @param $url
 	 * @param $data
 	 * @param $options [optional]
-	 * @param $info [optional]
+	 * @param &$info [optional]
 	 */
 	public static function putData ($url, $data, $options, &$info) {}
 
@@ -1443,7 +1443,7 @@ class HttpRequest  {
 	 * @param $url
 	 * @param $file
 	 * @param $options [optional]
-	 * @param $info [optional]
+	 * @param &$info [optional]
 	 */
 	public static function putFile ($url, $file, $options, &$info) {}
 
@@ -1451,7 +1451,7 @@ class HttpRequest  {
 	 * @param $url
 	 * @param $stream
 	 * @param $options [optional]
-	 * @param $info [optional]
+	 * @param &$info [optional]
 	 */
 	public static function putStream ($url, $stream, $options, &$info) {}
 
@@ -2026,7 +2026,7 @@ class HttpUtil  {
 	 * @param $url
 	 * @param $parts [optional]
 	 * @param $flags [optional]
-	 * @param $composed [optional]
+	 * @param &$composed [optional]
 	 */
 	public static function buildUrl ($url, $parts, $flags, &$composed) {}
 
@@ -2039,19 +2039,19 @@ class HttpUtil  {
 
 	/**
 	 * @param $supported
-	 * @param $result [optional]
+	 * @param &$result [optional]
 	 */
 	public static function negotiateLanguage ($supported, &$result) {}
 
 	/**
 	 * @param $supported
-	 * @param $result [optional]
+	 * @param &$result [optional]
 	 */
 	public static function negotiateCharset ($supported, &$result) {}
 
 	/**
 	 * @param $supported
-	 * @param $result [optional]
+	 * @param &$result [optional]
 	 */
 	public static function negotiateContentType ($supported, &$result) {}
 
@@ -2148,7 +2148,7 @@ function http_date ($timestamp = null) {}
  * a bitmask of binary or'ed HTTP_URL constants;
  * HTTP_URL_REPLACE is the default
  * </p>
- * @param array $new_url [optional] <p>
+ * @param array &$new_url [optional] <p>
  * if set, it will be filled with the parts of the composed url like parse_url would return
  * </p>
  * @return string the new URL as string on success or false on failure.
@@ -2179,7 +2179,7 @@ function http_build_str (array $query, $prefix = null, $arg_separator = null) {}
  * @param array $supported <p>
  * array containing the supported languages as values
  * </p>
- * @param array $result [optional] <p>
+ * @param array &$result [optional] <p>
  * will be filled with an array containing the negotiation results
  * </p>
  * @return string the negotiated language or the default language (i.e. first array entry) if none match.
@@ -2193,7 +2193,7 @@ function http_negotiate_language (array $supported,  array &$result = null ) {}
  * @param array $supported <p>
  * array containing the supported charsets as values
  * </p>
- * @param array $result [optional] <p>
+ * @param array &$result [optional] <p>
  * will be filled with an array containing the negotiation results
  * </p>
  * @return string the negotiated charset or the default charset (i.e. first array entry) if none match.
@@ -2207,7 +2207,7 @@ function http_negotiate_charset (array $supported,  array &$result = null ) {}
  * @param array $supported <p>
  * array containing the supported content types as values
  * </p>
- * @param array $result [optional] <p>
+ * @param array &$result [optional] <p>
  * will be filled with an array containing the negotiation results
  * </p>
  * @return string the negotiated content type or the default content type (i.e. first array entry) if none match.
@@ -2537,7 +2537,7 @@ function http_persistent_handles_ident ($ident) {}
  * @param array $options [optional] <p>
  * &link.http.request.options;
  * </p>
- * @param array $info [optional] <p>
+ * @param array &$info [optional] <p>
  * Will be filled with request/response information
  * </p>
  * @return string
@@ -2554,7 +2554,7 @@ function http_get ($url, array $options = null ,  array &$info = null ) {}
  * @param array $options [optional] <p>
  * &link.http.request.options;
  * </p>
- * @param array $info [optional] <p>
+ * @param array &$info [optional] <p>
  * &link.http.request.info;
  * </p>
  * @return string
@@ -2574,7 +2574,7 @@ function http_head ($url = null, array $options = null ,  array &$info = null ) 
  * @param array $options [optional] <p>
  * &link.http.request.options;
  * </p>
- * @param array $info [optional] <p>
+ * @param array &$info [optional] <p>
  * &link.http.request.info;
  * </p>
  * @return string
@@ -2597,7 +2597,7 @@ function http_post_data ($url, $data = null, array $options = null ,  array &$in
  * @param array $options [optional] <p>
  * &link.http.request.options;
  * </p>
- * @param array $info [optional] <p>
+ * @param array &$info [optional] <p>
  * &link.http.request.info;
  * </p>
  * @return string
@@ -2617,7 +2617,7 @@ function http_post_fields ($url,  array $data = null ,  array $files = null , ar
  * @param array $options [optional] <p>
  * &link.http.request.options;
  * </p>
- * @param array $info [optional] <p>
+ * @param array &$info [optional] <p>
  * &link.http.request.info;
  * </p>
  * @return string
@@ -2637,7 +2637,7 @@ function http_put_data ($url, $data = null, array $options = null ,  array &$inf
  * @param array $options [optional] <p>
  * &link.http.request.options;
  * </p>
- * @param array $info [optional] <p>
+ * @param array &$info [optional] <p>
  * &link.http.request.info;
  * </p>
  * @return string
@@ -2657,7 +2657,7 @@ function http_put_file ($url, $file = null, array $options = null ,  array &$inf
  * @param array $options [optional] <p>
  * &link.http.request.options;
  * </p>
- * @param array $info [optional] <p>
+ * @param array &$info [optional] <p>
  * &link.http.request.info;
  * </p>
  * @return string
@@ -2680,7 +2680,7 @@ function http_put_stream ($url, $stream = null, array $options = null ,  array &
  * @param array $options [optional] <p>
  * &link.http.request.options;
  * </p>
- * @param array $info [optional] <p>
+ * @param array &$info [optional] <p>
  * &link.http.request.info;
  * </p>
  * @return string

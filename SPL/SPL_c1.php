@@ -678,7 +678,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * @param int $operation <p>
 	 * <i>operation</i> is one of the following:
 	 * <b>LOCK_SH</b> to acquire a shared lock (reader).
-         * @param int $wouldblock [optional] <p>
+         * @param int &$wouldblock [optional] <p>
          * Set to true if the lock would block (EWOULDBLOCK errno condition).
          * </p>
 	 * @return bool true on success or false on failure.
@@ -755,7 +755,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * @param string $format <p>
 	 * The specified format as described in the <b>sprintf</b> documentation.
          * </p>
-	 * @param mixed $_ [optional] <p>
+	 * @param mixed &$_ [optional] <p>
 	 * The optional assigned values.
 	 * </p>
 	 * @return array|int If only one parameter is passed to this method, the values parsed will be
@@ -1111,7 +1111,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
 
         /**
          * Unserializes the storage
-         * @link https://php.net/manual/ru/spldoublylinkedlist.serialize.php
+         * @link https://php.net/manual/en/spldoublylinkedlist.serialize.php
          * @param string $serialized The serialized string.
          * @return void
          * @since 5.4
@@ -1120,7 +1120,7 @@ class SplDoublyLinkedList implements Iterator, Countable, ArrayAccess, Serializa
 
          /**
          * Serializes the storage
-         * @link https://php.net/manual/ru/spldoublylinkedlist.unserialize.php
+         * @link https://php.net/manual/en/spldoublylinkedlist.unserialize.php
          * @return string The serialized string.
          * @since 5.4
          */
@@ -1458,7 +1458,7 @@ class SplPriorityQueue implements Iterator, Countable {
 
         /**
          * Construct a new SplPriorityQueue object
-         * @link https://www.php.net/manual/ru/splpriorityqueue.construct.php
+         * @link https://www.php.net/manual/en/splpriorityqueue.construct.php
          */
         public function __construct () {}
 

@@ -5,7 +5,7 @@
 /**
  * Sets the default domain
  * @link https://php.net/manual/en/function.textdomain.php
- * @param string $text_domain <p>
+ * @param string|null $text_domain <p>
  * The new message domain, or <b>NULL</b> to get the current setting without
  * changing it
  * </p>

@@ -61,18 +61,18 @@ function socket_addrinfo_explain($addr) {}
 /**
  * Runs the select() system call on the given arrays of sockets with a specified timeout
  * @link https://php.net/manual/en/function.socket-select.php
- * @param array $read <p>
+ * @param array &$read <p>
  * The sockets listed in the <i>read</i> array will be
  * watched to see if characters become available for reading (more
  * precisely, to see if a read will not block - in particular, a socket
  * resource is also ready on end-of-file, in which case a
  * <b>socket_read</b> will return a zero length string).
  * </p>
- * @param array $write <p>
+ * @param array &$write <p>
  * The sockets listed in the <i>write</i> array will be
  * watched to see if a write will not block.
  * </p>
- * @param array $except <p>
+ * @param array &$except <p>
  * The sockets listed in the <i>except</i> array will be
  * watched for exceptions.
  * </p>
@@ -299,7 +299,7 @@ function socket_create_listen ($port, $backlog = 128) {}
  * See <b>socket_create</b> for the full list of supported
  * protocols.
  * </p>
- * @param array $fd <p>
+ * @param array &$fd <p>
  * Reference to an array in which the two socket resources will be inserted.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -447,7 +447,7 @@ function socket_read ($socket, $length, $type = PHP_BINARY_READ) {}
  * A valid socket resource created with <b>socket_create</b>
  * or <b>socket_accept</b>.
  * </p>
- * @param string $addr <p>
+ * @param string &$addr <p>
  * If the given socket is of type <b>AF_INET</b>
  * or <b>AF_INET6</b>, <b>socket_getsockname</b>
  * will return the local IP address in appropriate notation (e.g.
@@ -461,7 +461,7 @@ function socket_read ($socket, $length, $type = PHP_BINARY_READ) {}
  * path (e.g. /var/run/daemon.sock) in the
  * <i>address</i> parameter.
  * </p>
- * @param int $port [optional] <p>
+ * @param int &$port [optional] <p>
  * If provided, this will hold the associated port.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure. <b>socket_getsockname</b> may also return
@@ -478,7 +478,7 @@ function socket_getsockname ($socket, &$addr, &$port = null) {}
  * A valid socket resource created with <b>socket_create</b>
  * or <b>socket_accept</b>.
  * </p>
- * @param string $address <p>
+ * @param string &$address <p>
  * If the given socket is of type <b>AF_INET</b> or
  * <b>AF_INET6</b>, <b>socket_getpeername</b>
  * will return the peers (remote) IP address in
@@ -493,7 +493,7 @@ function socket_getsockname ($socket, &$addr, &$port = null) {}
  * path (e.g. /var/run/daemon.sock) in the
  * <i>address</i> parameter.
  * </p>
- * @param int $port [optional] <p>
+ * @param int &$port [optional] <p>
  * If given, this will hold the port associated to
  * <i>address</i>.
  * </p>
@@ -583,7 +583,7 @@ function socket_bind ($socket, $address, $port = 0) {}
  * The <i>socket</i> must be a socket resource previously
  * created by socket_create().
  * </p>
- * @param string $buf <p>
+ * @param string &$buf <p>
  * The data received will be fetched to the variable specified with
  * <i>buf</i>. If an error occurs, if the
  * connection is reset, or if no data is
@@ -711,7 +711,7 @@ function socket_sendmsg ($socket, array $message, $flags ) {}
  * The <i>socket</i> must be a socket resource previously
  * created by socket_create().
  * </p>
- * @param string $buf <p>
+ * @param string &$buf <p>
  * The data received will be fetched to the variable specified with
  * <i>buf</i>.
  * </p>
@@ -758,13 +758,13 @@ function socket_sendmsg ($socket, array $message, $flags ) {}
  * </td>
  * </tr>
  * </table>
- * @param string $name <p>
+ * @param string &$name <p>
  * If the socket is of the type <b>AF_UNIX</b> type,
  * <i>name</i> is the path to the file. Else, for
  * unconnected sockets, <i>name</i> is the IP address of,
  * the remote host, or <b>NULL</b> if the socket is connection-oriented.
  * </p>
- * @param int $port [optional] <p>
+ * @param int &$port [optional] <p>
  * This argument only applies to <b>AF_INET</b> and
  * <b>AF_INET6</b> sockets, and specifies the remote port
  * from which the data is received. If the socket is connection-oriented,

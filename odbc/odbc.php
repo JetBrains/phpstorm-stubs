@@ -291,7 +291,7 @@ function odbc_fetch_row ($result_id, $row_number = null) {}
  * @param resource $result_id <p>
  * The result resource.
  * </p>
- * @param array $result_array <p>
+ * @param array &$result_array <p>
  * The result array
  * that can be of any type since it will be converted to type
  * array. The array will contain the column values starting at array

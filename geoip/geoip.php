@@ -11,7 +11,7 @@
  * various constants defined with
  * this extension (ie: GEOIP_*_EDITION).
  * </p>
- * @return string the corresponding database version, or <b>NULL</b> on error.
+ * @return string|null the corresponding database version, or <b>NULL</b> on error.
  */
 function geoip_database_info ($database = GEOIP_COUNTRY_EDITION) {}
 
@@ -152,7 +152,7 @@ function geoip_db_get_all_info () {}
  * various constants defined with
  * this extension (ie: GEOIP_*_EDITION).
  * </p>
- * @return string the filename of the corresponding database, or <b>NULL</b> on error.
+ * @return string|null the filename of the corresponding database, or <b>NULL</b> on error.
  */
 function geoip_db_filename ($database) {}
 

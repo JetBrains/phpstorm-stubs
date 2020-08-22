@@ -55,7 +55,7 @@ function pcntl_fork () {}
  * equivalent to the functionality <b>pcntl_wait</b> provides
  * (minus <i>options</i>).
  * </p>
- * @param int $status <p>
+ * @param int &$status <p>
  * <b>pcntl_waitpid</b> will store status information
  * in the <i>status</i> parameter which can be
  * evaluated using the following functions:
@@ -97,7 +97,7 @@ function pcntl_waitpid ($pid, &$status, $options = 0, array &$rusage) {}
 /**
  * Waits on or returns the status of a forked child
  * @link https://php.net/manual/en/function.pcntl-wait.php
- * @param int $status <p>
+ * @param int &$status <p>
  * <b>pcntl_wait</b> will store status information
  * in the <i>status</i> parameter which can be
  * evaluated using the following functions:
@@ -361,7 +361,7 @@ function pcntl_setpriority ($priority, $pid, $process_identifier = PRIO_PROCESS)
  * @param array $set <p>
  * List of signals.
  * </p>
- * @param array $oldset [optional] <p>
+ * @param array &$oldset [optional] <p>
  * The <i>oldset</i> parameter is set to an array
  * containing the list of the previously blocked signals.
  * </p>
@@ -375,7 +375,7 @@ function pcntl_sigprocmask ($how, array $set, array &$oldset = null) {}
  * @param array $set <p>
  * Array of signals to wait for.
  * </p>
- * @param array $siginfo [optional] <p>
+ * @param array &$siginfo [optional] <p>
  * The <i>siginfo</i> parameter is set to an array containing
  * informations about the signal.
  * </p>
@@ -415,7 +415,7 @@ function pcntl_sigwaitinfo (array $set, array &$siginfo = null) {}
  * @param array $set <p>
  * Array of signals to wait for.
  * </p>
- * @param array $siginfo [optional] <p>
+ * @param array &$siginfo [optional] <p>
  * The <i>siginfo</i> is set to an array containing
  * informations about the signal. See
  * <b>pcntl_sigwaitinfo</b>.

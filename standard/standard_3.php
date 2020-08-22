@@ -726,7 +726,7 @@ function putenv ($setting) {}
  * For example, an longopts element "opt" recognizes an
  * option --opt.
  * Prior to PHP5.3.0 this parameter was only available on few systems
- * @param int $optind If the optind parameter is present, then the index where argument parsing stopped will be written to this variable.
+ * @param int &$optind If the optind parameter is present, then the index where argument parsing stopped will be written to this variable.
  * @return string[]|false[]|false This function will return an array of option / argument pairs or false on
  * failure.
  */
@@ -882,7 +882,7 @@ function get_cfg_var ($option) {}
  * &Alias; <function>set_magic_quotes_runtime</function>
  * @link https://php.net/manual/en/function.magic-quotes-runtime.php
  * @deprecated 5.3
- * @param $new_setting
+ * @param bool $new_setting
  * @removed 7.0
  */
 function magic_quotes_runtime ($new_setting) {}

@@ -18,14 +18,13 @@ function wddx_serialize_value ($var, $comment = null) {}
 /**
  * Serialize variables into a WDDX packet
  * @link https://php.net/manual/en/function.wddx-serialize-vars.php
- * @param mixed $var_name <p>
+ * @param mixed ...$var_names <p>
  * Can be either a string naming a variable or an array containing
  * strings naming the variables or another array, etc.
  * </p>
- * @param mixed $_ [optional]
  * @return string|false the WDDX packet, or <b>FALSE</b> on error.
  */
-function wddx_serialize_vars ($var_name, $_ = null) {}
+function wddx_serialize_vars (...$var_names) {}
 
 /**
  * Starts a new WDDX packet with structure inside it
@@ -53,14 +52,13 @@ function wddx_packet_end ($packet_id) {}
  * @param resource $packet_id <p>
  * A WDDX packet, returned by <b>wddx_packet_start</b>.
  * </p>
- * @param mixed $var_name <p>
+ * @param mixed ...$var_names <p>
  * Can be either a string naming a variable or an array containing
  * strings naming the variables or another array, etc.
  * </p>
- * @param mixed $_ [optional]
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function wddx_add_vars ($packet_id, $var_name, $_ = null) {}
+function wddx_add_vars ($packet_id, ...$var_names) {}
 
 /**
  * Unserializes a WDDX packet

@@ -20,7 +20,7 @@ class MemcachePool  {
      * </p>
      * <p>
      * Please note: <b>port</b> defaults to
-     * {@link https://php.net/manual/ru/memcache.ini.php#ini.memcache.default-port memcache.default_port}
+     * {@link https://php.net/manual/en/memcache.ini.php#ini.memcache.default-port memcache.default_port}
      * if not specified. For this reason it is wise to specify the port
      * explicitly in this method call.
      * </p>
@@ -217,7 +217,7 @@ class MemcachePool  {
      * @param string|array $key <p>
      * The key or array of keys to fetch.
      * </p>
-     * @param int|array $flags [optional] <p>
+     * @param int|array &$flags [optional] <p>
      * If present, flags fetched along with the values will be written to this parameter. These
      * flags are the same as the ones given to for example {@link https://php.net/manual/en/memcache.set.php Memcache::set()}.
      * The lowest byte of the int is reserved for pecl/memcache internal usage (e.g. to indicate
@@ -235,7 +235,7 @@ class MemcachePool  {
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Delete item from the server
-     * https://secure.php.net/manual/ru/memcache.delete.php
+     * https://secure.php.net/manual/en/memcache.delete.php
      * @param string $key The key associated with the item to delete.
      * @param int $timeout [optional] This deprecated parameter is not supported, and defaults to 0 seconds. Do not use this parameter.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -245,7 +245,7 @@ class MemcachePool  {
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Get statistics of the server
-     * @link https://php.net/manual/ru/memcache.getstats.php
+     * @link https://php.net/manual/en/memcache.getstats.php
      * @param string $type [optional] <p>
      * The type of statistics to fetch.
      * Valid values are {reset, malloc, maps, cachedump, slabs, items, sizes}.

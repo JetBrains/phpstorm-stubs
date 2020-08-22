@@ -179,7 +179,7 @@ namespace {
         /**
          * Returns size of C data type of the given FFI\CData or FFI\CType.
          *
-         * @param CData|CType $pointer
+         * @param CData|CType &$pointer
          * @return int
          */
         public static function sizeof(&$pointer): int {}
@@ -187,7 +187,7 @@ namespace {
         /**
          * Returns size of C data type of the given FFI\CData or FFI\CType.
          *
-         * @param CData|CType $pointer
+         * @param CData|CType &$pointer
          * @return int
          */
         public static function alignof(&$pointer): int {}
@@ -197,7 +197,7 @@ namespace {
          * $source may be any native data structure (FFI\CData) or PHP string.
          *
          * @param CData $target
-         * @param mixed $source
+         * @param mixed &$source
          * @param int $size
          */
         public static function memcpy(CData $target, &$source, int $size): void {}
@@ -205,8 +205,8 @@ namespace {
         /**
          * Compares $size bytes from memory area $a and $b.
          *
-         * @param CData|string $a
-         * @param CData|string $b
+         * @param CData|string &$a
+         * @param CData|string &$b
          * @param int $size
          * @return int
          */

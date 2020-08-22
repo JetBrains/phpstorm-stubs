@@ -88,6 +88,7 @@ function utf8_decode ($data) {}
 /**
  * Clear the most recent error
  * @link https://php.net/manual/en/function.error-clear-last.php
+ * @return void
  * @since 7.0
  */
 function error_clear_last () {}

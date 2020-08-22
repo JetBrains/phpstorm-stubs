@@ -126,7 +126,7 @@ function bcpow ($base, $exponent, $scale = 0) {}
  * The operand, as a string.
  * </p>
  * @param int $scale [optional]
- * @return string the square root as a string, or <b>NULL</b> if
+ * @return string|null the square root as a string, or <b>NULL</b> if
  * <i>operand</i> is negative.
  */
 function bcsqrt ($operand, $scale = null) {}

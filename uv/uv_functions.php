@@ -1209,8 +1209,8 @@ function uv_tty_init($loop, $fd, int $readable) {}
 
 /**
  * @param resource $tty
- * @param int $width
- * @param int $height
+ * @param int &$width
+ * @param int &$height
  *
  * @return int
  */

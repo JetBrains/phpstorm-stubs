@@ -79,7 +79,7 @@ class COPY  {
 	/**
 	 * Receive data from the server during pq\Result::COPY_OUT state.
 	 *
-	 * @param string $data Data read from the server.
+	 * @param string &$data Data read from the server.
 	 * @throws \pq\Exception\InvalidArgumentException
 	 * @throws \pq\Exception\BadMethodCallException
 	 * @throws \pq\Exception\RuntimeException
@@ -506,7 +506,7 @@ class Connection  {
 	 *
 	 * @throws \pq\Exception\InvalidArgumentException
 	 * @throws \pq\Exception\BadMethodCallException
-	 * @return NULL|\pq\Result NULL if there has not been a query
+	 * @return \pq\Result|null NULL if there has not been a query
 	 * 		 or \pq\Result when the query has finished
 	 */
 	function getResult() {}
@@ -1047,7 +1047,7 @@ class LOB  {
 	 * Read a string of data from the current position of the *large object*.
 	 *
 	 * @param int $length The amount of bytes to read from the *large object*.
-	 * @param int $read The amount of bytes actually read from the *large object*.
+	 * @param int &$read The amount of bytes actually read from the *large object*.
 	 * @throws \pq\Exception\InvalidArgumentException
 	 * @throws \pq\Exception\BadMethodCallException
 	 * @throws \pq\Exception\RuntimeException
@@ -1405,7 +1405,7 @@ class Statement  {
 	 * Bind a variable to an input parameter.
 	 *
 	 * @param int $param_no The parameter index to bind to.
-	 * @param mixed $param_ref The variable to bind.
+	 * @param mixed &$param_ref The variable to bind.
 	 * @throws \pq\Exception\InvalidArgumentException
 	 * @throws \pq\Exception\BadMethodCallException
 	 */

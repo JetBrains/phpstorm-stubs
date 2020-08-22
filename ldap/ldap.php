@@ -9,7 +9,7 @@
  * @param string $user [optional] dn of the user to change the password of.
  * @param string $oldpw [optional] The old password of this user. May be omitted depending of server configuration.
  * @param string $newpw [optional] The new password for this user. May be omitted or empty to have a generated password.
- * @param array $serverctrls [optional] If provided, a password policy request control is send with the request and this is filled with an array of LDAP Controls returned with the request.
+ * @param array &$serverctrls [optional] If provided, a password policy request control is send with the request and this is filled with an array of LDAP Controls returned with the request.
  * @return mixed Returns the generated password if newpw is empty or omitted. Otherwise returns TRUE on success and FALSE on failure.
  * @since 7.2
  */
@@ -42,8 +42,8 @@ function ldap_exop_whoami ($link) {}
  * @param string $reqoid The extended operation request OID. You may use one of LDAP_EXOP_START_TLS, LDAP_EXOP_MODIFY_PASSWD, LDAP_EXOP_REFRESH, LDAP_EXOP_WHO_AM_I, LDAP_EXOP_TURN, or a string with the OID of the operation you want to send.
  * @param string $reqdata [optional] The extended operation request data. May be NULL for some operations like LDAP_EXOP_WHO_AM_I, may also need to be BER encoded.
  * @param array $serverctrls [optional] If provided, a password policy request control is send with the request and this is filled with an array of LDAP Controls returned with the request.
- * @param string $retdata [optional] Will be filled with the extended operation response data if provided. If not provided you may use ldap_parse_exop on the result object later to get this data.
- * @param string $retoid [optional] Will be filled with the response OID if provided, usually equal to the request OID.
+ * @param string &$retdata [optional] Will be filled with the extended operation response data if provided. If not provided you may use ldap_parse_exop on the result object later to get this data.
+ * @param string &$retoid [optional] Will be filled with the response OID if provided, usually equal to the request OID.
  * @return mixed When used with retdata, returns TRUE on success or FALSE on error. When used without retdata, returns a result identifier or FALSE on error.
  * @since 7.2
  */
@@ -54,8 +54,8 @@ function ldap_exop ($link , $reqoid , $reqdata = null , $serverctrls = [], &$ret
  * @link https://www.php.net/manual/en/function.ldap-parse-exop.php
  * @param resource $link An LDAP link identifier, returned by ldap_connect().
  * @param resource $result An LDAP result resource, returned by ldap_exop().
- * @param string $retdata [optional] Will be filled by the response data.
- * @param string $retoid [optional] Will be filled by the response OID.
+ * @param string &$retdata [optional] Will be filled by the response data.
+ * @param string &$retoid [optional] Will be filled by the response OID.
  * @return bool Returns TRUE on success or FALSE on failure.
  * @since 7.2
  */
@@ -916,7 +916,7 @@ function ldap_rename_ext ($link_identifier, $dn, $newrdn, $newparent, $deleteold
  * <td>array</td>
  * </tr>
  * </p>
- * @param mixed $retval <p>
+ * @param mixed &$retval <p>
  * This will be set to the option value.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -1047,7 +1047,7 @@ function ldap_next_reference ($link, $entry) {}
  * @link https://php.net/manual/en/function.ldap-parse-reference.php
  * @param resource $link
  * @param resource $entry
- * @param array $referrals
+ * @param array &$referrals
  * @return bool
  */
 function ldap_parse_reference ($link, $entry, array &$referrals) {}
@@ -1057,11 +1057,11 @@ function ldap_parse_reference ($link, $entry, array &$referrals) {}
  * @link https://php.net/manual/en/function.ldap-parse-result.php
  * @param resource $link
  * @param resource $result
- * @param int $errcode
- * @param string $matcheddn [optional]
- * @param string $errmsg [optional]
- * @param array $referrals [optional]
- * @param array $serverctrls [optional] An array of LDAP Controls which have been sent with the response.
+ * @param int &$errcode
+ * @param string &$matcheddn [optional]
+ * @param string &$errmsg [optional]
+ * @param array &$referrals [optional]
+ * @param array &$serverctrls [optional] An array of LDAP Controls which have been sent with the response.
  * @return bool
  */
 function ldap_parse_result ($link, $result, &$errcode, &$matcheddn = null, &$errmsg = null, array &$referrals = null, &$serverctrls = []) {}
@@ -1114,10 +1114,10 @@ function ldap_control_paged_result ($link, $pagesize, $iscritical = false, $cook
  * An LDAP link identifier, returned by <b>ldap_connect</b>.
  * </p>
  * @param resource $result
- * @param string $cookie [optional] <p>
+ * @param string &$cookie [optional] <p>
  * An opaque structure sent by the server.
  * </p>
- * @param int $estimated [optional] <p>
+ * @param int &$estimated [optional] <p>
  * The estimated number of entries to retrieve.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.

@@ -194,7 +194,7 @@ function ftp_chmod ($ftp_stream, $mode, $filename) {}
  * @param int $filesize <p>
  * The number of bytes to allocate.
  * </p>
- * @param string $result [optional] <p>
+ * @param string &$result [optional] <p>
  * A textual representation of the servers response will be returned by
  * reference in <i>result</i> if a variable is provided.
  * </p>

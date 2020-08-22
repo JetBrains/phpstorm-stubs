@@ -469,7 +469,7 @@ function mssql_init ($sp_name, $link_identifier = null) {}
  * T-SQL syntax. See the explanation included in
  * mssql_execute.
  * </p>
- * @param mixed $var <p>
+ * @param mixed &$var <p>
  * The PHP variable you'll bind the MSSQL parameter to. It is passed by
  * reference, to retrieve OUTPUT and RETVAL values after
  * the procedure execution.

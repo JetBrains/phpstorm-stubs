@@ -996,7 +996,7 @@ class AppendIterator extends IteratorIterator {
     /**
      * Gets the current value
      * @link https://php.net/manual/en/appenditerator.current.php
-     * @return mixed The current value if it is valid or &null; otherwise.
+     * @return mixed The current value if it is valid or null otherwise.
      */
     public function current() { }
 

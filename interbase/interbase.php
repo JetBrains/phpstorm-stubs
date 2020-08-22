@@ -234,9 +234,8 @@ function ibase_prepare ($query) {}
  * @param resource $query <p>
  * An InterBase query prepared by ibase_prepare.
  * </p>
- * @param mixed $bind_arg [optional] <p>
+ * @param mixed ...$bind_arg [optional] <p>
  * </p>
- * @param mixed $_ [optional]
  * @return resource|bool If the query raises an error, returns false. If it is successful and
  * there is a (possibly empty) result set (such as with a SELECT query),
  * returns a result identifier. If the query was successful and there were
@@ -248,7 +247,7 @@ function ibase_prepare ($query) {}
  * succeeded, but did not affect any rows (e.g. an UPDATE of a non-existent
  * record) will return true.
  */
-function ibase_execute ($query, $bind_arg = null, $_ = null) {}
+function ibase_execute ($query, ...$bind_arg = null) {}
 
 /**
  * Free memory allocated by a prepared query
@@ -656,15 +655,11 @@ function ibase_server_info ($service_handle, $action) {}
 /**
  * Wait for an event to be posted by the database
  * @link https://php.net/manual/en/function.ibase-wait-event.php
- * @param string $event_name1 <p>
- * The event name.
- * </p>
- * @param string $event_name2 [optional] <p>
- * </p>
- * @param string $_ [optional]
+ * @param string ...$event_names <p>
+ * The event names.
  * @return string the name of the event that was posted.
  */
-function ibase_wait_event ($event_name1, $event_name2 = null, $_ = null) {}
+function ibase_wait_event (...$event_names) {}
 
 /**
  * Register a callback function to be called when events are posted
@@ -685,11 +680,11 @@ function ibase_wait_event ($event_name1, $event_name2 = null, $_ = null) {}
  * @param string $event_name2 [optional] <p>
  * At most 15 events allowed.
  * </p>
- * @param string $_ [optional]
+ * @param string ...$_ [optional]
  * @return resource The return value is an event resource. This resource can be used to free
  * the event handler using ibase_free_event_handler.
  */
-function ibase_set_event_handler ($event_handler, $event_name1, $event_name2 = null, $_ = null) {}
+function ibase_set_event_handler ($event_handler, $event_name1, $event_name2 = null, ...$_ = null) {}
 
 /**
  * Cancels a registered event handler
@@ -946,9 +941,7 @@ function fbird_prepare ($query) {}
  * @param resource $query <p>
  * An InterBase query prepared by fbird_prepare.
  * </p>
- * @param mixed $bind_arg [optional] <p>
- * </p>
- * @param mixed $_ [optional]
+ * @param mixed ...$bind_arg [optional] <p>
  * @return resource|bool If the query raises an error, returns false. If it is successful and
  * there is a (possibly empty) result set (such as with a SELECT query),
  * returns a result identifier. If the query was successful and there were
@@ -960,7 +953,7 @@ function fbird_prepare ($query) {}
  * succeeded, but did not affect any rows (e.g. an UPDATE of a non-existent
  * record) will return true.
  */
-function fbird_execute ($query, $bind_arg = null, $_ = null) {}
+function fbird_execute ($query, ...$bind_arg = null) {}
 
 /**
  * This is an alias of ibase_free_query
@@ -1402,15 +1395,11 @@ function fbird_server_info ($service_handle, $action) {}
  * This is an alias of ibase_wait_event
  * Wait for an event to be posted by the database
  * @link https://php.net/manual/en/function.fbird-wait-event.php
- * @param string $event_name1 <p>
- * The event name.
- * </p>
- * @param string $event_name2 [optional] <p>
- * </p>
- * @param string $_ [optional]
+ * @param string $event_names <p>
+ * The event names.
  * @return string the name of the event that was posted.
  */
-function fbird_wait_event ($event_name1, $event_name2 = null, $_ = null) {}
+function fbird_wait_event (...$event_names) {}
 
 /**
  * This is an alias of ibase_set_event_handler
@@ -1426,17 +1415,12 @@ function fbird_wait_event ($event_name1, $event_name2 = null, $_ = null) {}
  * canceled. Any other return value is ignored. This function accepts up
  * to 15 event arguments.
  * </p>
- * @param string $event_name1 <p>
- * An event name.
- * </p>
- * @param string $event_name2 [optional] <p>
- * At most 15 events allowed.
- * </p>
- * @param string $_ [optional]
+ * @param string ...$event_names <p>
+ * An event names.
  * @return resource The return value is an event resource. This resource can be used to free
  * the event handler using fbird_free_event_handler.
  */
-function fbird_set_event_handler ($event_handler, $event_name1, $event_name2 = null, $_ = null) {}
+function fbird_set_event_handler ($event_handler, ...$event_names) {}
 
 /**
  * This is an alias of ibase_free_event_handler

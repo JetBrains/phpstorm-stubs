@@ -32,7 +32,7 @@ class ZendAPI_Queue {
      * @param Job $job The Job we want to insert to the queue (by ref.)
      * @return int The inserted job id
      */
-    function addJob(&$job) {}
+    function addJob($job) {}
 
 
     /**
@@ -51,7 +51,7 @@ class ZendAPI_Queue {
         If the given Job doesn't have an assigned ID, a new job will be added
      * @return int The id of the updated job
      */
-    function updateJob(&$job) {}
+    function updateJob($job) {}
 
     /**
      * Remove a job from the queue
@@ -127,7 +127,7 @@ class ZendAPI_Queue {
         from the queue. If not set, all jobs will be returned.<br>
      *     Options can be: priority, application_id, name, status, recurring.
      * @param int $max_jobs  Maximum jobs to retrieve. Default is -1, getting all jobs available.
-     * @param bool $with_globals_and_output. Whether gets the global variables dataand job output.
+     * @param bool $with_globals_and_output Whether gets the global variables dataand job output.
      *     Default is false.
      * @return array  Jobs that satisfies filter_options.
      */
@@ -162,12 +162,12 @@ class ZendAPI_Queue {
      * Return finished jobs (either failed or successed) between time range allowing paging.
      * Jobs are sorted by job id descending.
      *
-     * @param int $status. Filter to jobs by status, 1-success, 0-failed either logical or execution.
+     * @param int $status Filter to jobs by status, 1-success, 0-failed either logical or execution.
      * @param int $start_time UNIX timestamp. Get only jobs finished after $start_time.
      * @param int $end_time UNIX timestamp. Get only jobs finished before $end_time.
-     * @param int $index. Get jobs starting from the $index-th place.
-     * @param int $count. Get only $count jobs.
-     * @param int $total. Pass by reference. Return the total number of jobs statisifed the query criteria.
+     * @param int $index Get jobs starting from the $index-th place.
+     * @param int $count Get only $count jobs.
+     * @param int &$total Pass by reference. Return the total number of jobs statisifed the query criteria.
      *
      * @return array of jobs.
      */

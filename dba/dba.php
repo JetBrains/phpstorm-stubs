@@ -116,10 +116,10 @@
  * all optional parameters given to <b>dba_open</b> and
  * can act on behalf of them.
  * </p>
- * @param mixed $_ [optional]
+ * @param mixed ...$_ [optional]
  * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
-function dba_open ($path, $mode, $handler = null, $_ = null) {}
+function dba_open ($path, $mode, $handler = null, ...$_ = null) {}
 
 /**
  * Open database persistently
@@ -139,10 +139,10 @@ function dba_open ($path, $mode, $handler = null, $_ = null) {}
  * all optional parameters given to <b>dba_popen</b> and
  * can act on behalf of them.
  * </p>
- * @param mixed $_ [optional]
+ * @param mixed ...$_ [optional]
  * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
-function dba_popen ($path, $mode, $handler = null, $_ = null) {}
+function dba_popen ($path, $mode, $handler = null, ...$_ = null) {}
 
 /**
  * Close a DBA database

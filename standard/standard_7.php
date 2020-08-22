@@ -187,7 +187,7 @@ function unpack ($format, $data, $offset = 0) {}
  * another browser's info) by passing this parameter.
  * </p>
  * <p>
- * You can bypass this parameter with a &null; value.
+ * You can bypass this parameter with a null value.
  * </p>
  * @param bool $return_array [optional] <p>
  * If set to true, this function will return an array
@@ -871,7 +871,8 @@ function disk_free_space ($directory) {}
  * Alias of disk_free_space()
  * @link https://php.net/manual/en/function.diskfreespace.php
  * @see disk_free_space
- * @param $directory
+ * @param string $directory
+ * @return float|false
  */
 function diskfreespace ($directory) {}
 

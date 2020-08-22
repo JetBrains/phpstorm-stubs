@@ -264,7 +264,7 @@ function enchant_dict_describe ($dict) {}
  * @param string $word <p>
  * The word to check
  * </p>
- * @param array $suggestions [optional] <p>
+ * @param array &$suggestions [optional] <p>
  * If the word is not correctly spelled, this variable will
  * contain an array of suggestions.
  * </p>

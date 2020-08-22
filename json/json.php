@@ -28,8 +28,8 @@ class JsonIncrementalParser  {
 
 
 	/**
-	 * @param $depth [optional]
-	 * @param $options [optional]
+	 * @param int $depth [optional]
+	 * @param int $options [optional]
 	 */
 	public function __construct ($depth, $options) {}
 
@@ -38,17 +38,17 @@ class JsonIncrementalParser  {
 	public function reset () {}
 
 	/**
-	 * @param $json
+	 * @param string $json
 	 */
 	public function parse ($json) {}
 
 	/**
-	 * @param $filename
+	 * @param string $filename
 	 */
 	public function parseFile ($filename) {}
 
 	/**
-	 * @param $options [optional]
+	 * @param int $options [optional]
 	 */
 	public function get ($options) {}
 
@@ -137,9 +137,9 @@ function json_decode ($json, $assoc = false, $depth = 512, $options = 0) {}
 function json_last_error () {}
 
 /**
- * Returns the error string of the last json_encode() or json_decode() call
+ * Returns the error string of the last json_encode() or json_decode() call, which did not specify <b>JSON_THROW_ON_ERROR</b>.
  * @link https://php.net/manual/en/function.json-last-error-msg.php
- * @return string the error message on success or <b>NULL</b> with wrong parameters.
+ * @return string|false Returns the error message on success, "No error" if no error has occurred, or FALSE on failure.
  * @since 5.5
  */
 function json_last_error_msg () {}

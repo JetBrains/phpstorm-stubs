@@ -569,7 +569,7 @@ final class Closure {
     /**
      * This is for consistency with other classes that implement calling magic,
      * as this method is not used for calling the function.
-     * @param mixed $_ [optional]
+     * @param mixed ...$_ [optional]
      * @return mixed
      * @link https://secure.php.net/manual/en/class.closure.php
      */
@@ -744,7 +744,7 @@ final class WeakMap implements \ArrayAccess, \Countable, \IteratorAggregate {
  */
 interface Stringable {
     /**
-     * Magic method {@see https://www.php.net/manual/ru/language.oop5.magic.php}
+     * Magic method {@see https://www.php.net/manual/en/language.oop5.magic.php}
      * called during serialization to string.
      *
      * @return string Returns string representation of the object that

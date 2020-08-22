@@ -756,22 +756,22 @@ function stats_stat_paired_t (array $arr1, array $arr2) {
  * Returns the percentile values of the input array.
  *
  * @link https://www.php.net/manual/en/function.stats-stat-percentile.php
- * @param array $arr
+ * @param array $array
  * @param float $perc
  * @return float
  */
-function stats_stat_percentile (array $arr, float $perc): float {
+function stats_stat_percentile (array $array, float $perc): float {
 }
 
 /**
  * Returns the power sum of the input array.
  *
  * @link https://www.php.net/manual/en/function.stats-stat-powersum.php
- * @param array $arr
+ * @param array $array
  * @param float $power
  * @return float
  */
-function stats_stat_powersum (array $arr, float $power): float {
+function stats_stat_powersum (array $array, float $power): float {
 }
 
 /**

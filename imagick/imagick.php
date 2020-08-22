@@ -4687,8 +4687,8 @@ class Imagick implements Iterator, Countable {
 	 *
 	 * @link https://php.net/manual/en/imagick.subimagematch.php
 	 * @param Imagick $imagick
-	 * @param array $bestMatch [optional]
-	 * @param float $similarity [optional] A new image that displays the amount of similarity at each pixel.
+	 * @param array &$bestMatch [optional]
+	 * @param float &$similarity [optional] A new image that displays the amount of similarity at each pixel.
 	 * @param float $similarity_threshold [optional] Only used if compiled with ImageMagick (library) > 7
 	 * @param int $metric [optional] Only used if compiled with ImageMagick (library) > 7
 	 * @return Imagick

@@ -5,7 +5,7 @@
  *
  * Note: Unlike the description in the documentation, the class itself is not final.
  *
- * @link https://www.php.net/manual/ru/class.reflectionreference.php
+ * @link https://www.php.net/manual/en/class.reflectionreference.php
  * @since 7.4
  */
 class ReflectionReference

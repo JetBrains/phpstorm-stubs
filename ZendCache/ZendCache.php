@@ -19,7 +19,7 @@ function zend_shm_cache_store($key, $value, $ttl = 0) {}
  *
  * @param string $key the data's key. Possibly prefixed with namespace
  *
- * @return null|mixed NULL when no data matching the key is found, else it returns the stored data
+ * @return mixed|null NULL when no data matching the key is found, else it returns the stored data
  */
 function zend_shm_cache_fetch($key) {}
 
@@ -28,7 +28,7 @@ function zend_shm_cache_fetch($key) {}
  *
  * @param string $key the data's key. Possibly prefixed with namespace
  *
- * @return null|mixed when no data matching the key is found, else it returns the stored data
+ * @return mixed|null when no data matching the key is found, else it returns the stored data
  */
 function zend_shm_cache_delete($key) {}
 
@@ -57,7 +57,7 @@ function zend_disk_cache_store($key, $value, $ttl = 0) {}
  *
  * @param string $key the data's key. Possibly prefixed with namespace
  *
- * @return null|mixed NULL when no data matching the key is found, else it returns the stored data
+ * @return mixed|null NULL when no data matching the key is found, else it returns the stored data
  */
 function zend_disk_cache_fetch($key) {}
 
@@ -66,7 +66,7 @@ function zend_disk_cache_fetch($key) {}
  *
  * @param string $key the data's key. Possibly prefixed with namespace
  *
- * @return null|mixed when no data matching the key is found, else it returns the stored data
+ * @return mixed|null when no data matching the key is found, else it returns the stored data
  */
 function zend_disk_cache_delete($key) {}
 

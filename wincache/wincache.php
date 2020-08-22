@@ -277,7 +277,7 @@ function wincache_ucache_clear() {}
  * get decremented. If the argument is a floating point number it will be truncated
  * to nearest integer. The variable associated with the key should be of type long,
  * otherwise the function fails and returns FALSE.</p>
- * @param bool $success [optional]
+ * @param bool &$success [optional]
  * <p>Will be set to TRUE on success and FALSE on failure.</p>
  * @return int|false Returns the decremented value on success and FALSE on failure.
  */
@@ -312,7 +312,7 @@ function wincache_ucache_exists($key) {}
  * @param mixed $key <p>The key that was used to store the variable in the cache.
  * key is case sensitive. key can be an array of keys. In this case the return
  * value will be an array of values of each element in the key array.</p>
- * @param bool $success [optional]
+ * @param bool &$success [optional]
  * <p>Will be set to TRUE on success and FALSE on failure.</p>
  * @return mixed <p>If key is a string, the function returns the value of the variable
  * stored with that key. The success is set to TRUE on success and to FALSE on failure.</p>
@@ -333,7 +333,7 @@ function wincache_ucache_get($key, &$success) {}
  * get incremented. If the argument is a floating point number it will be truncated
  * to nearest integer. The variable associated with the key should be of type long,
  * otherwise the function fails and returns FALSE.</p>
- * @param bool $success [optional]
+ * @param bool &$success [optional]
  * <p>Will be set to TRUE on success and FALSE on failure.</p>
  * @return int|false Returns the incremented value on success and FALSE on failure.
  */

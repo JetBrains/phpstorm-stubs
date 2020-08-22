@@ -157,7 +157,7 @@ class Zookeeper
      * @param string $path
      * @param string $data
      * @param int    $version
-     * @param array  $stat
+     * @param array  &$stat
      *
      * @return bool
      *
@@ -175,7 +175,7 @@ class Zookeeper
      *
      * @param string   $path
      * @param callable $watcher_cb
-     * @param array    $stat
+     * @param array    &$stat
      * @param int      $max_size
      *
      * @return string

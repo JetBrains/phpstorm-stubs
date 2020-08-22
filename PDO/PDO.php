@@ -1253,7 +1253,7 @@ class PDOStatement implements IteratorAggregate
 	 * question mark placeholders, this will be the 1-indexed position of
 	 * the parameter.
 	 * </p>
-	 * @param mixed $variable <p>
+	 * @param mixed &$variable <p>
 	 * Name of the PHP variable to bind to the SQL statement parameter.
 	 * </p>
 	 * @param int $data_type [optional] <p>
@@ -1283,7 +1283,7 @@ class PDOStatement implements IteratorAggregate
 	 * If using the column name, be aware that the name should match the
 	 * case of the column, as returned by the driver.
 	 * </p>
-	 * @param mixed $param <p>
+	 * @param mixed &$param <p>
 	 * Name of the PHP variable to which the column will be bound.
 	 * </p>
 	 * @param int $type [optional] <p>

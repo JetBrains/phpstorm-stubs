@@ -524,7 +524,7 @@ function gmp_xor ($a, $b) {}
 /**
  * Set bit
  * @link https://php.net/manual/en/function.gmp-setbit.php
- * @param resource|string|GMP $a <p>
+ * @param resource|string|GMP &$a <p>
  * The number being set to.
  * </p>
  * It can be either a GMP number resource, or a
@@ -543,7 +543,7 @@ function gmp_setbit (&$a, $index, $set_clear = true) {}
 /**
  * Clear bit
  * @link https://php.net/manual/en/function.gmp-clrbit.php
- * @param resource|string|GMP $a It can be either a GMP number resource, or a
+ * @param resource|string|GMP &$a It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
  * @param int $index It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>

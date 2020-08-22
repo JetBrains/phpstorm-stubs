@@ -48,7 +48,7 @@ final class SolrInputDocument {
 	 * (PECL solr &gt;= 2.3.0)<br/>
 	 * Adds an array of child documents
 	 * @link https://php.net/manual/en/solrinputdocument.addchilddocuments.php
-	 * @param array $docs <p>
+	 * @param array &$docs <p>
 	 * An array of SolrInputDocument objects.
 	 * </p>
 	 * @throws SolrIllegalArgumentException

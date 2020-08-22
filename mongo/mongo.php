@@ -1118,7 +1118,7 @@ class MongoCollection {
 
     /**
      * Retrieve a list of distinct values for the given key across a collection
-     * @link https://secure.php.net/manual/ru/mongocollection.distinct.php
+     * @link https://secure.php.net/manual/en/mongocollection.distinct.php
      * @param string $key The key to use.
      * @param array $query An optional query parameters
      * @return array|false Returns an array of distinct values, or <b>FALSE</b> on failure
@@ -1127,7 +1127,7 @@ class MongoCollection {
 
     /**
      * Update a document and return it
-     * @link https://secure.php.net/manual/ru/mongocollection.findandmodify.php
+     * @link https://secure.php.net/manual/en/mongocollection.findandmodify.php
      * @param array $query The query criteria to search for.
      * @param array $update The update criteria.
      * @param array $fields Optionally only return these fields.
