@@ -4606,7 +4606,7 @@ function grapheme_extract($haystack, $size, $extract_type = null, $start = 0, &$
  * </p>
  * @return string|false The ACE encoded version of the domain name or <b>FALSE</b> on failure.
  */
-function idn_to_ascii($domain, $options = 0, $variant = INTL_IDNA_VARIANT_2003, array &$idna_info) { }
+function idn_to_ascii($domain, $options = 0, $variant = INTL_IDNA_VARIANT_2003, array &$idna_info = null) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PHP 7, PECL intl &gt;= 1.0.2, PHP 7, PECL idn &gt;= 0.1)<br/>
