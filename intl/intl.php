@@ -6340,7 +6340,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @param string $locale
      * @return IntlBreakIterator
      */
-    public static function  createCharacterInstance($locale) { }
+    public static function  createCharacterInstance($locale = null) { }
 
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
