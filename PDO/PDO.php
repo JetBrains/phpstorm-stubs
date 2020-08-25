@@ -1373,14 +1373,7 @@ class PDOStatement implements IteratorAggregate
 	 * column, bitwise-OR <b>PDO::FETCH_COLUMN</b> with
 	 * <b>PDO::FETCH_GROUP</b>.
 	 * </p>
-	 * @param mixed $fetch_argument [optional] <p>
-	 * This argument have a different meaning depending on the value of
-	 * the <i>fetch_style</i> parameter:
-	 * <p>
-	 * <b>PDO::FETCH_COLUMN</b>: Returns the indicated 0-indexed
-	 * column.
-	 * </p>
-	 * @param array $ctor_args [optional] <p>
+	 * @param mixed ...$fetch_args <p>
 	 * Arguments of custom class constructor when the <i>fetch_style</i>
 	 * parameter is <b>PDO::FETCH_CLASS</b>.
 	 * </p>
@@ -1397,7 +1390,7 @@ class PDOStatement implements IteratorAggregate
 	 * ORDER BY clauses in SQL to restrict results before retrieving and
 	 * processing them with PHP.
 	 */
-	public function fetchAll ($fetch_style = null, $fetch_argument = null, array $ctor_args = array()) {}
+	public function fetchAll ($fetch_style = PDO::FETCH_BOTH, ...$fetch_args) {}
 
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.4)<br/>
