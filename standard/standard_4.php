@@ -55,7 +55,7 @@ function call_user_func_array ($function, array $param_arr) {}
  * @return mixed
  * @removed 7.0
  */
-function call_user_method ($method_name, &$obj, ...$parameter = null) {}
+function call_user_method ($method_name, &$obj, ...$parameter) {}
 
 /**
  * Call a user method given with an array of parameters
@@ -171,12 +171,13 @@ function unserialize (string $str, array $options = []) {}
 /**
  * Dumps information about a variable
  * @link https://php.net/manual/en/function.var-dump.php
- * @param mixed ...$expressions <p>
+ * @param mixed $expression <p>
  * The variable you want to export.
  * </p>
+ * @param mixed ...$_ [optional]
  * @return void
  */
-function var_dump (...$expressions) {}
+function var_dump ($expression, ...$_) {}
 
 /**
  * Outputs or returns a parsable string representation of a variable

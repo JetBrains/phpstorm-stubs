@@ -1039,7 +1039,7 @@ function join ($glue = "", $pieces) {}
  * on the system that PHP is running. It returns exactly
  * what the system setlocale function returns.
  */
-function setlocale ($category, $locale, ...$_ = null) {}
+function setlocale ($category, $locale, ...$_) {}
 
 /**
  * Get numeric formatting information

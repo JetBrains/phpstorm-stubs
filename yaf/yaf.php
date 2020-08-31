@@ -133,7 +133,7 @@ final class Yaf_Application {
      * @param callable $entry a valid callback
      * @param string ...$_ parameters will pass to the callback
      */
-    public function execute(callable $entry, ...$_ = null){ }
+    public function execute(callable $entry, ...$_){ }
 
     /**
      * Retrieve the Yaf_Application instance, alternatively, we also could use Yaf_Dispatcher::getApplication().

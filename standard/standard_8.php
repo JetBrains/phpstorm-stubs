@@ -818,16 +818,17 @@ function extract (array $var_array, $extract_type = null, $prefix = null) {}
 /**
  * Create array containing variables and their values
  * @link https://php.net/manual/en/function.compact.php
- * @param mixed ...$varnames <p>
+ * @param mixed $varname <p>
  * compact takes a variable number of parameters.
  * Each parameter can be either a string containing the name of the
  * variable, or an array of variable names. The array can contain other
  * arrays of variable names inside it; compact
  * handles it recursively.
  * </p>
+ * @param mixed ...$_ [optional]
  * @return array the output array with all the variables added to it.
  */
-function compact (...$varnames) {}
+function compact ($varname, ...$_) {}
 
 /**
  * Fill an array with values
@@ -909,7 +910,7 @@ function range ($start, $end, $step = 1) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_multisort (array &$array1, $array1_sort_order = null, $array1_sort_flags = null, ...$_ = null) {}
+function array_multisort (array &$array1, $array1_sort_order = null, $array1_sort_flags = null, ...$_) {}
 
 /**
  * Push elements onto the end of array

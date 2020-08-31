@@ -3426,7 +3426,10 @@ class RedisCluster {
      * Returns members of a geospatial index as standard geohash strings
      *
      * @param string $key
-     * @param string ...$member
+     * @param string $member1
+     * @param string $member2
+     * @param string $memberN
+     *
      * @example
      * <pre>
      * $redisCluster->geoAdd('Sicily', 13.361389, 38.115556, 'Palermo'); // int(1)
@@ -3434,14 +3437,15 @@ class RedisCluster {
      * $redisCluster->geohash('Sicily','Palermo','Catania');//['sqc8b49rny0','sqdtr74hyu0']
      * </pre>
      */
-    public function geohash($key, ...$member) { }
+    public function geohash($key, $member1, $member2 = null, $memberN = null) { }
 
     /**
      * Returns longitude and latitude of members of a geospatial index
      *
-     * @param string $key * @param $member1 string
-     * @param $member2 string
-     * @param string $memberN *
+     * @param string $key
+     * @param string $member1
+     * @param string $member2
+     * @param string $memberN
      * @example
      * <pre>
      * $redisCluster->geoAdd('Sicily', 15.087269, 37.502669, "Catania"); // int(1)

@@ -119,7 +119,7 @@
  * @param mixed ...$_ [optional]
  * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
-function dba_open ($path, $mode, $handler = null, ...$_ = null) {}
+function dba_open ($path, $mode, $handler = null, ...$_) {}
 
 /**
  * Open database persistently
@@ -142,7 +142,7 @@ function dba_open ($path, $mode, $handler = null, ...$_ = null) {}
  * @param mixed ...$_ [optional]
  * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
-function dba_popen ($path, $mode, $handler = null, ...$_ = null) {}
+function dba_popen ($path, $mode, $handler = null, ...$_) {}
 
 /**
  * Close a DBA database

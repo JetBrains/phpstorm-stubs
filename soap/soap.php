@@ -547,7 +547,7 @@ class SoapServer  {
 	 * @return void No value is returned.
 	 * @since 5.0.1
 	 */
-	public function setClass ($class_name, ...$_ = null) {}
+	public function setClass ($class_name, ...$_) {}
 
 	/**
 	 * Sets the object which will be used to handle SOAP requests

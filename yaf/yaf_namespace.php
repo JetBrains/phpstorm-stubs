@@ -138,7 +138,7 @@ final class Application
      * @param callable $entry a valid callback
      * @param string ...$_ parameters will pass to the callback
      */
-    public function execute(callable $entry, ...$_ = null)
+    public function execute(callable $entry, ...$_)
     {
     }
 

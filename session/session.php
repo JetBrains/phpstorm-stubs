@@ -116,7 +116,7 @@ function session_decode ($data) {}
  * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
-function session_register ($name, ...$_ = null) {}
+function session_register ($name, ...$_) {}
 
 /**
  * Unregister a global variable from the current session
