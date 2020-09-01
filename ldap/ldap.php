@@ -43,7 +43,7 @@ function ldap_exop_whoami ($link) {}
  * @param string $reqdata [optional] The extended operation request data. May be NULL for some operations like LDAP_EXOP_WHO_AM_I, may also need to be BER encoded.
  * @param array $serverctrls [optional] If provided, a password policy request control is send with the request and this is filled with an array of LDAP Controls returned with the request.
  * @param string &$retdata [optional] Will be filled with the extended operation response data if provided. If not provided you may use ldap_parse_exop on the result object later to get this data.
- * @param string& $retoid [optional] Will be filled with the response OID if provided, usually equal to the request OID.
+ * @param string &$retoid [optional] Will be filled with the response OID if provided, usually equal to the request OID.
  * @return resource|bool When used with retdata, returns TRUE on success or FALSE on error. When used without retdata, returns a result identifier or FALSE on error.
  * @since 7.2
  */
