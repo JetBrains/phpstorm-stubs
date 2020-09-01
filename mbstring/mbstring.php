@@ -1142,18 +1142,18 @@ function mb_ereg_search_setpos ($position) {}
 function mbregex_encoding ($encoding) {}
 
 /**
- * @param $pattern
- * @param $string
- * @param &$registers [optional]
+ * @param string $pattern
+ * @param string $string
+ * @param array &$registers [optional]
  * @deprecated 7.3 use {@see mb_ereg} instead
  * @removed 8.0
  */
 function mbereg ($pattern, $string, &$registers) {}
 
 /**
- * @param $pattern
- * @param $string
- * @param &$registers [optional]
+ * @param string $pattern
+ * @param string $string
+ * @param array &$registers [optional]
  * @deprecated 7.3 use {@see mb_eregi} instead
  * @removed 8.0
  */

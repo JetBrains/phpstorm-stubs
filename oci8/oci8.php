@@ -1699,10 +1699,10 @@ function ocifreecursor ($statement_resource) {}
  * Alias of {@see oci_bind_by_name}
  * @link https://php.net/manual/en/function.ocibindbyname.php
  * @param resource $statement
- * @param $column_name
- * @param &$variable
- * @param $maximum_length [optional]
- * @param $type [optional]
+ * @param string $column_name
+ * @param mixed &$variable
+ * @param int $maximum_length [optional]
+ * @param int $type [optional]
  * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function ocibindbyname ($statement, $column_name, &$variable, $maximum_length = -1, $type = SQLT_CHR) {}
@@ -1822,11 +1822,11 @@ function ocifetch ($statement_resource) {}
  * (PHP 4, PHP 5, PECL OCI8 &gt;= 1.0.0)<br/>
  * Alias of {@see oci_fetch_all}
  * @link https://php.net/manual/en/function.ocifetchstatement.php
- * @param $statement_resource
- * @param &$output
- * @param $skip [optional]
- * @param $maximum_rows [optional]
- * @param $flags [optional]
+ * @param resource $statement_resource
+ * @param array &$output
+ * @param int $skip [optional]
+ * @param int $maximum_rows [optional]
+ * @param int $flags [optional]
  * @return int|false Returns the number of rows in output, which may be 0 or more, or FALSE on failure.
  */
 function ocifetchstatement ($statement_resource, &$output, $skip, $maximum_rows, $flags) {}
