@@ -6,6 +6,9 @@ declare(strict_types=1);
 namespace JetBrains\PHPStormStub;
 
 use DirectoryIterator;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use SplFileInfo;
 use Exception;
 use PhpParser\Node;
 use PhpParser\NodeTraverser;
@@ -209,12 +212,12 @@ use const PHP_EOL;
             continue;
         }
 
-        foreach (new DirectoryIterator($directoryInfo->getPathName()) as $fileInfo) {
-            /** @var DirectoryIterator $fileInfo */
-            if ($fileInfo->isDot()) {
-                continue;
-            }
+        $iterator = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($directoryInfo->getPathName(), RecursiveDirectoryIterator::SKIP_DOTS)
+        );
 
+        /** @var SplFileInfo $fileInfo */
+        foreach ($iterator as $fileInfo) {
             if (!preg_match('/\.php$/', $fileInfo->getBasename())) {
                 continue;
             }
