@@ -1443,7 +1443,7 @@ class mysqli_stmt  {
 	 * Manipulation Language (DML) statements, and not in Data Definition Language
 	 * (DDL) statements.
 	 * </p>
-	 * @return mixed true on success or false on failure.
+	 * @return bool true on success or false on failure.
 	 */
 	public function prepare ($query) {}
 

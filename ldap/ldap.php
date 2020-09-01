@@ -10,7 +10,7 @@
  * @param string $oldpw [optional] The old password of this user. May be omitted depending of server configuration.
  * @param string $newpw [optional] The new password for this user. May be omitted or empty to have a generated password.
  * @param array &$serverctrls [optional] If provided, a password policy request control is send with the request and this is filled with an array of LDAP Controls returned with the request.
- * @return mixed Returns the generated password if newpw is empty or omitted. Otherwise returns TRUE on success and FALSE on failure.
+ * @return string|bool Returns the generated password if newpw is empty or omitted. Otherwise returns TRUE on success and FALSE on failure.
  * @since 7.2
  */
 function ldap_exop_passwd ($link , $user = "" , $oldpw = "" , $newpw = "" , array &$serverctrls = []) {}
@@ -21,7 +21,7 @@ function ldap_exop_passwd ($link , $user = "" , $oldpw = "" , $newpw = "" , arra
  * @param resource $link An LDAP link identifier, returned by ldap_connect().
  * @param string $dn dn of the entry to refresh.
  * @param int $ttl $ttl Time in seconds (between 1 and 31557600) that the client requests that the entry exists in the directory before being automatically removed.
- * @return mixed From RFC: The responseTtl field is the time in seconds which the server chooses to have as the time-to-live field for that entry. It must not be any smaller than that which the client requested, and it may be larger. However, to allow servers to maintain a relatively accurate directory, and to prevent clients from abusing the dynamic extensions, servers are permitted to shorten a client-requested time-to-live value, down to a minimum of 86400 seconds (one day). FALSE will be returned on error.
+ * @return int|false From RFC: The responseTtl field is the time in seconds which the server chooses to have as the time-to-live field for that entry. It must not be any smaller than that which the client requested, and it may be larger. However, to allow servers to maintain a relatively accurate directory, and to prevent clients from abusing the dynamic extensions, servers are permitted to shorten a client-requested time-to-live value, down to a minimum of 86400 seconds (one day). FALSE will be returned on error.
  * @since 7.3
  */
 function ldap_exop_refresh ($link, $dn ,$ttl) {}
@@ -30,7 +30,7 @@ function ldap_exop_refresh ($link, $dn ,$ttl) {}
  * WHOAMI extended operation helper
  * @link https://www.php.net/manual/en/function.ldap-exop-whoami.php
  * @param resource $link An LDAP link identifier, returned by ldap_connect().
- * @return mixed The data returned by the server, or FALSE on error.
+ * @return string|false The data returned by the server, or FALSE on error.
  * @since 7.2
  */
 function ldap_exop_whoami ($link) {}
@@ -43,8 +43,8 @@ function ldap_exop_whoami ($link) {}
  * @param string $reqdata [optional] The extended operation request data. May be NULL for some operations like LDAP_EXOP_WHO_AM_I, may also need to be BER encoded.
  * @param array $serverctrls [optional] If provided, a password policy request control is send with the request and this is filled with an array of LDAP Controls returned with the request.
  * @param string &$retdata [optional] Will be filled with the extended operation response data if provided. If not provided you may use ldap_parse_exop on the result object later to get this data.
- * @param string &$retoid [optional] Will be filled with the response OID if provided, usually equal to the request OID.
- * @return mixed When used with retdata, returns TRUE on success or FALSE on error. When used without retdata, returns a result identifier or FALSE on error.
+ * @param string& $retoid [optional] Will be filled with the response OID if provided, usually equal to the request OID.
+ * @return resource|bool When used with retdata, returns TRUE on success or FALSE on error. When used without retdata, returns a result identifier or FALSE on error.
  * @since 7.2
  */
 function ldap_exop ($link , $reqoid , $reqdata = null , $serverctrls = [], &$retdata, &$retoid) {}

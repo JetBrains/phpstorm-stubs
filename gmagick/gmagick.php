@@ -1271,7 +1271,7 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.hasnextimage.php
      *
-     * @return mixed Returns TRUE if the object has more images when traversing the list in the forward direction, returns FALSE if there are none.
+     * @return bool Returns TRUE if the object has more images when traversing the list in the forward direction, returns FALSE if there are none.
      *
      * @throws GmagickException On error.
      */
@@ -1284,7 +1284,7 @@ class Gmagick
      *
      * @link https://php.net/manual/en/gmagick.haspreviousimage.php
      *
-     * @return mixed Returns TRUE if the object has more images when traversing the list in the reverse direction, returns FALSE if there are none.
+     * @return bool Returns TRUE if the object has more images when traversing the list in the reverse direction, returns FALSE if there are none.
      *
      * @throws GmagickException On error.
      */

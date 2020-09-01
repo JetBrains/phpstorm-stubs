@@ -1457,7 +1457,7 @@ class ArrayObject implements IteratorAggregate, ArrayAccess, Serializable, Count
      * @param mixed $index <p>
      * The index with the value.
      * </p>
-     * @return mixed The value at the specified index or false.
+     * @return mixed|false The value at the specified index or false.
      */
     public function offsetGet($index) { }
 

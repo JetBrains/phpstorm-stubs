@@ -28,7 +28,7 @@ function error_get_last () {}
  * call_user_func example and references
  * &example.outputs;
  * </p>
- * @return mixed the function result, or false on error.
+ * @return mixed|false the function result, or false on error.
  */
 function call_user_func ($function, ...$parameter) {}
 
@@ -41,7 +41,7 @@ function call_user_func ($function, ...$parameter) {}
  * @param array $param_arr <p>
  * The parameters to be passed to the function, as an indexed array.
  * </p>
- * @return mixed the function result, or false on error.
+ * @return mixed|false the function result, or false on error.
  */
 function call_user_func_array ($function, array $param_arr) {}
 
@@ -80,7 +80,7 @@ function call_user_method_array ($method_name, &$obj, array $params) {}
  * @param mixed ...$parameters [optional] <p>
  * Zero or more parameters to be passed to the function.
  * </p>
- * @return mixed the function result, or false on error.
+ * @return mixed|false the function result, or false on error.
  */
 function forward_static_call ($function, ...$parameters) {}
 
@@ -93,7 +93,7 @@ function forward_static_call ($function, ...$parameters) {}
  * name.
  * </p>
  * @param array $parameters
- * @return mixed the function result, or false on error.
+ * @return mixed|false the function result, or false on error.
  */
 function forward_static_call_array ($function, array $parameters) {}
 
@@ -689,6 +689,21 @@ function headers_sent (&$file = null, &$line = null) {}
 function headers_list () {}
 
 /**
+ * Fetches all HTTP request headers from the current request
+ * @link https://php.net/manual/en/function.apache-request-headers.php
+ * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b on failure.
+ */
+function apache_request_headers () {}
+
+/**
+ * Fetches all HTTP headers from the current request.
+ * This function is an alias for apache_request_headers(). Please read the apache_request_headers() documentation for more information on how this function works.
+ * @link https://php.net/manual/en/function.getallheaders.php
+ * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b> on failure.
+ */
+function getallheaders () {}
+
+/**
  * Check whether client disconnected
  * @link https://php.net/manual/en/function.connection-aborted.php
  * @return int 1 if client disconnected, 0 otherwise.
@@ -835,7 +850,7 @@ function gethostbyname ($hostname) {}
  * @param string $hostname <p>
  * The host name.
  * </p>
- * @return array an array of IPv4 addresses or false if
+ * @return array|false an array of IPv4 addresses or false if
  * hostname could not be resolved.
  */
 function gethostbynamel ($hostname) {}

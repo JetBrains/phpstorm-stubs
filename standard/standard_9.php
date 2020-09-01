@@ -841,7 +841,7 @@ class AssertionError extends Error {
  * @param mixed $value [optional] <p>
  * An optional new value for the option.
  * </p>
- * @return mixed the original setting of any option or false on errors.
+ * @return mixed|false the original setting of any option or false on errors.
  */
 function assert_options($what, $value = null) { }
 

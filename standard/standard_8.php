@@ -638,7 +638,7 @@ function count ($var, $mode = COUNT_NORMAL) {}
  * a function returning an array because only actual variables may be
  * passed by reference.
  * </p>
- * @return mixed the value of the last element or false for empty array.
+ * @return mixed|false the value of the last element or false for empty array.
  * @meta
  */
 function end (array &$array) {}
@@ -674,7 +674,7 @@ function next (array &$array) {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @return mixed the value of the first array element, or false if the array is
+ * @return mixed|false the value of the first array element, or false if the array is
  * empty.
  * @meta
  */

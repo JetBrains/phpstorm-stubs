@@ -195,7 +195,7 @@ namespace Ds {
         /**
          * Returns the index of the value, or FALSE if not found.
          * @param mixed $value The value to find.
-         * @return int|bool The index of the value, or FALSE if not found.
+         * @return int|false The index of the value, or FALSE if not found.
          * @link https://www.php.net/manual/en/ds-sequence.find.php
          */
         public function find($value);
@@ -538,7 +538,7 @@ namespace Ds {
         /**
          * Returns the index of the value, or FALSE if not found.
          * @param mixed $value The value to find.
-         * @return mixed|bool The index of the value, or FALSE if not found.
+         * @return mixed|false The index of the value, or FALSE if not found.
          * <p><b>Note:</b> Values will be compared by value and by type.
          * @link https://www.php.net/manual/en/ds-vector.find.php
          */
@@ -983,7 +983,7 @@ namespace Ds {
         /**
          * Returns the index of the value, or FALSE if not found.
          * @param mixed $value The value to find.
-         * @return int|bool The index of the value, or FALSE if not found.
+         * @return int|false The index of the value, or FALSE if not found.
          * @link https://www.php.net/manual/en/ds-deque.find.php
          */
         public function find($value)

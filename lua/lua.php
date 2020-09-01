@@ -36,7 +36,7 @@ class Lua  {
      * @param array $args Arguments passed to the Lua function
      * @param bool $use_self Whether to use self
      *
-     * @return mixed Returns result of the called function, null for wrong arguments or FALSE on other failure.
+     * @return mixed|false Returns result of the called function, null for wrong arguments or FALSE on other failure.
      */
     public function call(callable $lua_func, array $args = [], bool $use_self = false) {}
 
@@ -45,7 +45,7 @@ class Lua  {
      *
      * @param string $statements
      *
-     * @return mixed Returns result of evaled code, NULL for wrong arguments or FALSE on other failure.
+     * @return mixed|false Returns result of evaled code, NULL for wrong arguments or FALSE on other failure.
      */
     public function eval(string $statements) {}
 
@@ -54,7 +54,7 @@ class Lua  {
      *
      * @param string $file
      *
-     * @return mixed Returns result of included code, NULL for wrong arguments or FALSE on other failure.
+     * @return mixed|false Returns result of included code, NULL for wrong arguments or FALSE on other failure.
      */
     public function include(string $file) {}
 

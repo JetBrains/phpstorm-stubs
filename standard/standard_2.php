@@ -965,7 +965,7 @@ function mt_getrandmax () {}
  * protocol is either "tcp"
  * or "udp" (in lowercase).
  * </p>
- * @return int the port number, or false if service or
+ * @return int|false the port number, or false if service or
  * protocol is not found.
  */
 function getservbyname ($service, $protocol) {}

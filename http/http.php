@@ -303,7 +303,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get response code
 	 * @link https://php.net/manual/en/function.httpmessage-getresponsecode.php
-	 * @return int the HTTP response code if the message is of type HttpMessage::TYPE_RESPONSE, else FALSE.
+	 * @return int|false the HTTP response code if the message is of type HttpMessage::TYPE_RESPONSE, else FALSE.
 	 */
 	public function getResponseCode () {}
 
@@ -2151,7 +2151,7 @@ function http_date ($timestamp = null) {}
  * @param array &$new_url [optional] <p>
  * if set, it will be filled with the parts of the composed url like parse_url would return
  * </p>
- * @return string the new URL as string on success or false on failure.
+ * @return string|false the new URL as string on success or false on failure.
  */
 function http_build_url ($url = null, $parts = null, $flags = null,  array &$new_url = null ) {}
 
@@ -2168,7 +2168,7 @@ function http_build_url ($url = null, $parts = null, $flags = null,  array &$new
  * @param string $arg_separator [optional] <p>
  * argument separator to use (by default the INI setting arg_separator.output will be used, or &quot;&amp;&quot; if neither is set
  * </p>
- * @return string the built query as string on success or false on failure.
+ * @return string|false the built query as string on success or false on failure.
  */
 function http_build_str (array $query, $prefix = null, $arg_separator = null) {}
 
@@ -2230,7 +2230,7 @@ function http_negotiate_content_type (array $supported,  array &$result = null )
  * @param int $status [optional] <p>
  * custom response status code
  * </p>
- * @return void returns false or exits with the specified redirection status code
+ * @return void|false returns false or exits with the specified redirection status code
  */
 function http_redirect ($url = null,  array $params = null , $session = null, $status = null) {}
 

@@ -371,7 +371,7 @@ class DateTime implements DateTimeInterface {
      * Alter the timestamp of a DateTime object by incrementing or decrementing
      * in a format accepted by strtotime().
      * @param string $modify A date/time string. Valid formats are explained in <a href="https://secure.php.net/manual/en/datetime.formats.php">Date and Time Formats</a>.
-     * @return static Returns the DateTime object for method chaining or FALSE on failure.
+     * @return static|false Returns the DateTime object for method chaining or FALSE on failure.
      * @link https://php.net/manual/en/datetime.modify.php
      */
     public function modify ($modify) {}
