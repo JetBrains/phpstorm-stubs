@@ -388,8 +388,8 @@ final class Ev
 /**
  * Class EvWatcher
  *
- * @property-read $is_active bool TRUE if the watcher is active. FALSE otherwise.
- * @property-read $is_pending bool TRUE if the watcher is pending, i.e. it has outstanding events, but its callback
+ * @property-read bool $is_active TRUE if the watcher is active. FALSE otherwise.
+ * @property-read bool $is_pending TRUE if the watcher is pending, i.e. it has outstanding events, but its callback
  *      has not yet been invoked. FALSE otherwise. As long, as a watcher is pending (but not active), one must not
  *      change its priority.
  */
@@ -543,9 +543,9 @@ final class EvCheck extends EvWatcher
  *
  * It is allowed to register EvChild watchers in the default loop only.
  *
- * @property-read $pid int  The process ID this watcher watches out for, or 0, meaning any process ID.
- * @property-read $rpid int The process ID that detected a status change.
- * @property-read $rstatus int   The process exit status caused by rpid.
+ * @property-read int $pid The process ID this watcher watches out for, or 0, meaning any process ID.
+ * @property-read int $rpid The process ID that detected a status change.
+ * @property-read int $rstatus The process exit status caused by rpid.
  */
 final class EvChild extends EvWatcher
 {
@@ -607,7 +607,7 @@ final class EvChild extends EvWatcher
  *
  * Used to embed one event loop into another.
  *
- * @property-read $embed EvLoop The embedded loop
+ * @property-read EvLoop $embed The embedded loop
  */
 final class EvEmbed extends EvWatcher
 {

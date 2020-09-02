@@ -76,7 +76,7 @@ namespace Vtiful\Kernel {
          * In addition, you cannot use the same, case insensitive, `$sheetName` for more
          * than one worksheet.
          *
-         * @param string|NULL $sheetName
+         * @param string|null $sheetName
          *
          * @return Excel
          */
@@ -175,7 +175,7 @@ namespace Vtiful\Kernel {
          * @param int $row
          * @param int $column
          * @param int $timestamp
-         * @param string|NULL $format
+         * @param string|null $format
          * @param resource|null $formatHandle
          *
          * @return Excel
@@ -302,8 +302,8 @@ namespace Vtiful\Kernel {
          *
          * default open first sheet
          *
-         * @param string|NULL $sheetName
-         * @param int         skipFlag
+         * @param string|null $sheetName
+         * @param int         $skipFlag
          *
          * @return Excel
          */
@@ -348,7 +348,7 @@ namespace Vtiful\Kernel {
          * Next Cell In Callback
          *
          * @param callable $callback function(int $row, int $cell, string $data)
-         * @param string|NULL $sheetName sheet name
+         * @param string|null $sheetName sheet name
          */
         public function nextCellCallback(callable $callback, string $sheetName = null): void
         {

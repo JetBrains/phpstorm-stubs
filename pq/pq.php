@@ -1307,7 +1307,7 @@ class Result implements \Traversable, \Countable {
 	 * @throws \pq\Exception\InvalidArgumentException
 	 * @throws \pq\Exception\BadMethodCallException
 	 * @throws \pq\Exception\RuntimeException
-	 * @return array|NULL array the fetched row as numerically indexed array.
+	 * @return array|null array the fetched row as numerically indexed array.
 	 * 		 or NULL when iteration ends.
 	 */
 	function fetchBound() {}
@@ -1319,7 +1319,7 @@ class Result implements \Traversable, \Countable {
 	 * @throws \pq\Exception\InvalidArgumentException
 	 * @throws \pq\Exception\BadMethodCallException
 	 * @throws \pq\Exception\RuntimeException
-	 * @return bool|NULL bool success.
+	 * @return bool|null bool success.
 	 * 		 or NULL when iteration ends.
 	 */
 	function fetchCol($ref, $col = 0) {}
@@ -1330,7 +1330,7 @@ class Result implements \Traversable, \Countable {
 	 * @throws \pq\Exception\InvalidArgumentException
 	 * @throws \pq\Exception\BadMethodCallException
 	 * @throws \pq\Exception\RuntimeException
-	 * @return array|array|object|NULL array numerically indexed for pq\Result::FETCH_ARRAY
+	 * @return array|array|object|null array numerically indexed for pq\Result::FETCH_ARRAY
 	 * 		 or array associatively indexed for pq\Result::FETCH_ASSOC
 	 * 		 or object stdClass instance for pq\Result::FETCH_OBJECT
 	 * 		 or NULL when iteration ends.

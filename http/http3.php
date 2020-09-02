@@ -256,7 +256,7 @@ class Client implements \SplSubject, \Countable {
 	 * @param \http\Client\Request $request The request to retrieve the current progress information for.
 	 * @throws \http\Exception\InvalidArgumentException
 	 * @throws \http\Exception\UnexpectedValueException
-	 * @return object|NULL object stdClass instance holding progress information.
+	 * @return object|null object stdClass instance holding progress information.
 	 * 		 or NULL if $request is not enqueued.
 	 */
 	function getProgressInfo(\http\Client\Request $request) {}
@@ -269,7 +269,7 @@ class Client implements \SplSubject, \Countable {
 	 * @param \http\Client\Request $request The request to fetch the stored response for.
 	 * @throws \http\Exception\InvalidArgumentException
 	 * @throws \http\Exception\UnexpectedValueException
-	 * @return \http\Client\Response|NULL \http\Client\Response the stored response for the request, or the last that was received.
+	 * @return \http\Client\Response|null \http\Client\Response the stored response for the request, or the last that was received.
 	 * 		 or NULL if no more response was available to pop, when no $request was given.
 	 */
 	function getResponse(\http\Client\Request $request = null) {}
@@ -460,7 +460,7 @@ class Cookie  {
 	 * See http\Cookie::setCookie().
 	 *
 	 * @param string $cookie_name The key of the cookie to look up.
-	 * @return string|NULL string the cookie value.
+	 * @return string|null string the cookie value.
 	 * 		 or NULL if $cookie_name could not be found.
 	 */
 	function getCookie(string $cookie_name) {}
@@ -1074,7 +1074,7 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * * http\Message::getRequestMethod()
 	 * * http\Message::getRequestUrl()
 	 *
-	 * @return string|NULL string the HTTP message information.
+	 * @return string|null string the HTTP message information.
 	 * 		 or NULL if the message is neither of type request nor response.
 	 */
 	function getInfo() {}
@@ -2088,7 +2088,7 @@ class Request extends \http\Message {
 	 * Extract the currently set "Content-Type" header.
 	 * See http\Client\Request::setContentType().
 	 *
-	 * @return string|NULL string the currently set content type.
+	 * @return string|null string the currently set content type.
 	 * 		 or NULL if no "Content-Type" header is set.
 	 */
 	function getContentType() {}
@@ -2102,7 +2102,7 @@ class Request extends \http\Message {
 	/**
 	 * Retrieve the currently set querystring.
 	 *
-	 * @return string|NULL string the currently set querystring.
+	 * @return string|null string the currently set querystring.
 	 * 		 or NULL if no querystring is set.
 	 */
 	function getQuery() {}
@@ -3120,7 +3120,7 @@ class Body implements \Serializable {
 	 * Retrieve any boundary of the message body.
 	 * See http\Message::splitMultipartBody().
 	 *
-	 * @return string|NULL string the message body boundary.
+	 * @return string|null string the message body boundary.
 	 * 		 or NULL if this message body has no boundary.
 	 */
 	function getBoundary() {}
