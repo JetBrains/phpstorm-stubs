@@ -339,4 +339,63 @@ class LuaSandboxFunction
     }
 }
 
-// todo: Error classes still need to be defined.
+/**
+ * Base class for LuaSandbox exceptions.
+ */
+class LuaSandboxError extends Exception
+{
+    /**
+     *
+     */
+    const RUN = 2;
+
+    /**
+     *
+     */
+    const SYNTAX = 3;
+
+    /**
+     *
+     */
+    const MEM = 4;
+
+    /**
+     *
+     */
+    const ERR = 5;
+}
+
+/**
+ * Catchable LuaSandbox runtime exceptions.
+ *
+ * These may be caught inside Lua using pcall() or xpcall().
+ */
+class LuaSandboxRuntimeError extends LuaSandboxError {}
+
+/**
+ * Uncatchable LuaSandbox exceptions.
+ *
+ * These may not be caught inside Lua using pcall() or xpcall().
+ */
+class LuaSandboxFatalError extends LuaSandboxError {}
+
+/**
+ * Exception thrown when Lua encounters an error inside an error handler.
+ */
+class LuaSandboxErrorError extends LuaSandboxFatalError {}
+
+/**
+ * Exception thrown when Lua cannot allocate memory.
+ */
+class LuaSandboxMemoryError extends LuaSandboxFatalError {}
+
+/**
+ * Exception thrown when Lua code cannot be parsed.
+ */
+class LuaSandboxSyntaxError extends LuaSandboxFatalError {}
+
+/**
+ * Exception thrown when the configured CPU time limit is exceeded.
+ */
+class LuaSandboxTimeoutError extends LuaSandboxFatalError {}
+
