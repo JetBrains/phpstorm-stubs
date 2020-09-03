@@ -1869,7 +1869,7 @@ class HttpResponse  {
 	 * (PECL pecl_http &gt;= 0.10.0)<br/>
 	 * Get throttle delay
 	 * @link https://php.net/manual/en/function.httpresponse-getthrottledelay.php
-	 * @return double a double representing the throttle delay in seconds.
+	 * @return float a float representing the throttle delay in seconds.
 	 */
 	public static function getThrottleDelay () {}
 

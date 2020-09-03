@@ -94,7 +94,7 @@ class mysqli  {
 	 */
 	public $info;
 	/**
-	 * @var mixed
+	 * @var int|string
 	 */
 	public $insert_id;
 	/**
@@ -1669,7 +1669,7 @@ function mysqli_fetch_field_direct ($result, $fieldnr) {}
  * @link https://php.net/manual/en/mysqli-result.lengths.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
- * @return array|false An array of integers representing the size of each column (not including any terminating null characters). FALSE if an error occurred.
+ * @return int[]|false An array of integers representing the size of each column (not including any terminating null characters). FALSE if an error occurred.
  */
 function mysqli_fetch_lengths ($result) {}
 

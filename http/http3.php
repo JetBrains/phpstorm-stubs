@@ -816,7 +816,7 @@ class Header implements \Serializable {
 	/**
 	 * The value of the HTTP header.
 	 *
-	 * @var
+	 * @var mixed
 	 */
 	public $value = null;
 	/**

@@ -21,7 +21,7 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
      */
     private array $expectedArgumentsInfos;
     /**
-     * @var String[]
+     * @var string[]
      */
     private array $registeredArgumentsSet;
 
@@ -64,7 +64,7 @@ class MetaExpectedArgumentsCollector extends NodeVisitorAbstract
     }
 
     /**
-     * @return String[]
+     * @return string[]
      */
     public function getRegisteredArgumentsSet(): array
     {

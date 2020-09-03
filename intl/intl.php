@@ -2251,13 +2251,13 @@ class IntlGregorianCalendar extends IntlCalendar {
     public static function createInstance($timeZone = null, $locale = null) { }
 
     /**
-     * @param double $change
+     * @param float $change
      *
      */
     public function setGregorianChange($change) { }
 
     /**
-     * @return double $change
+     * @return float $change
      */
     public function getGregorianChange() { }
 
@@ -5727,14 +5727,14 @@ function intlgregcal_create_instance($timeZone = null, $locale = null) { }
 
 /**
  * @param IntlGregorianCalendar $obj
- * @param double $change
+ * @param float $change
  *
  */
 function intlgregcal_set_gregorian_change($obj, $change) { }
 
 /**
  * @param IntlGregorianCalendar $obj
- * @return double $change
+ * @return float $change
  */
 function intlgregcal_get_gregorian_change($obj) { }
 

@@ -137,7 +137,7 @@ class StompFrame
 
     /**
      * Frame Command
-     * @var String
+     * @var string
      */
     public $command;
 
@@ -149,7 +149,7 @@ class StompFrame
 
     /**
      * Frame body
-     * @var String
+     * @var string
      */
     public $body;
 }
