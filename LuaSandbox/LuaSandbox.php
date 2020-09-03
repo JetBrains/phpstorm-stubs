@@ -4,8 +4,7 @@
  * The LuaSandbox class creates a Lua environment
  * and allows for execution of Lua code.
  */
-class LuaSandbox
-{
+class LuaSandbox {
     /**
      * Used with LuaSandbox::getProfilerFunctionReport()
      * to return timings in samples.
@@ -43,18 +42,14 @@ class LuaSandbox
      * @see LuaSandboxFunction::call()
      * @since PECL luasandbox >= 1.0.0
      */
-    public function callFunction($name, array $arguments)
-    {
-    }
+    public function callFunction ($name, array $arguments) {}
 
     /**
      * Disable the profiler.
      *
      * @since PECL luasandbox >= 1.1.0
      */
-    public function disableProfiler()
-    {
-    }
+    public function disableProfiler () {}
 
     /**
      * Enable the profiler.
@@ -68,9 +63,7 @@ class LuaSandbox
      * @return bool Returns a boolean indicating whether the profiler is enabled.
      * @since PECL luasandbox >= 1.1.0
      */
-    public function enableProfiler($period = 0.02)
-    {
-    }
+    public function enableProfiler ($period = 0.02) {}
 
     /**
      * Fetch the current CPU time usage of the Lua environment.
@@ -84,9 +77,7 @@ class LuaSandbox
      * @return float Returns the current CPU time usage in seconds.
      * @since PECL luasandbox >= 1.0.0
      */
-    public function getCPUUsage()
-    {
-    }
+    public function getCPUUsage () {}
 
     /**
      * Fetch the current memory usage of the Lua environment.
@@ -94,9 +85,7 @@ class LuaSandbox
      * @return int
      * @since PECL luasandbox >= 1.0.0
      */
-    public function getMemoryUsage()
-    {
-    }
+    public function getMemoryUsage () {}
 
     /**
      * Fetch the peak memory usage of the Lua environment.
@@ -104,9 +93,7 @@ class LuaSandbox
      * @return int Returns the current memory usage in bytes.
      * @since PECL luasandbox >= 1.0.0
      */
-    public function getPeakMemoryUsage()
-    {
-    }
+    public function getPeakMemoryUsage () {}
 
     /**
      * Fetch profiler data.
@@ -132,9 +119,7 @@ class LuaSandbox
      * measurements as integer or float.
      * @since PECL luasandbox >= 1.1.0
      */
-    public function getProfilerFunctionReport($units = LuaSandbox::SECONDS)
-    {
-    }
+    public function getProfilerFunctionReport ($units = LuaSandbox::SECONDS) {}
 
     /**
      * Return the versions of LuaSandbox and Lua.
@@ -143,9 +128,7 @@ class LuaSandbox
      *  - Lua (string) The library name and version as defined by the LUA_RELEASE macro,
      *    for example, "Lua 5.1.5".
      */
-    public static function getVersionInfo()
-    {
-    }
+    public static function getVersionInfo () {}
 
     /**
      * Load a precompiled binary chunk into the Lua environment.
@@ -157,9 +140,7 @@ class LuaSandbox
      * @return LuaSandboxFunction
      * @since PECL luasandbox >= 1.0.0
      */
-    public function loadBinary($code, $chunkName = '')
-    {
-    }
+    public function loadBinary ($code, $chunkName = '') {}
 
     /**
      * Load Lua code into the Lua environment.
@@ -172,9 +153,7 @@ class LuaSandbox
      *    when executed, will execute the passed $code.
      * @since PECL luasandbox >= 1.0.0
      */
-    public function loadString($code, $chunkName = '')
-    {
-    }
+    public function loadString ($code, $chunkName = '') {}
 
     /**
      * Pause the CPU usage timer.
@@ -193,9 +172,7 @@ class LuaSandbox
      *
      * @return bool Returns a boolean indicating whether the timer is now paused.
      */
-    public function pauseUsageTimer()
-    {
-    }
+    public function pauseUsageTimer () {}
 
     /**
      * Register a set of PHP functions as a Lua library.
@@ -213,9 +190,7 @@ class LuaSandbox
      *    and each value is a corresponding PHP callable.
      * @since PECL luasandbox >= 1.0.0
      */
-    public function registerLibrary($libname, $functions)
-    {
-    }
+    public function registerLibrary ($libname, $functions) {}
 
     /**
      * Set the CPU time limit for the Lua environment.
@@ -235,9 +210,7 @@ class LuaSandbox
      * @param bool|float $limit Limit as a float in seconds, or false for no limit.
      * @since PECL luasandbox >= 1.0.0
      */
-    public function setCPULimit($limit)
-    {
-    }
+    public function setCPULimit ($limit) {}
 
     /**
      * Set the memory limit for the Lua environment.
@@ -246,16 +219,12 @@ class LuaSandbox
      * @throws LuaSandboxMemoryError Exception is thrown if this limit is exceeded.
      * @since PECL luasandbox >= 1.0.0
      */
-    public function setMemoryLimit($limit)
-    {
-    }
+    public function setMemoryLimit ($limit) {}
 
     /**
      * Unpause the timer paused by LuaSandbox::pauseUsageTimer().
      */
-    public function unpauseUsageTimer()
-    {
-    }
+    public function unpauseUsageTimer () {}
 
     /**
      * Wrap a PHP callable in a LuaSandboxFunction.
@@ -276,9 +245,7 @@ class LuaSandbox
      * @return LuaSandboxFunction
      * @since PECL luasandbox >= 1.2.0
      */
-    public function wrapPhpFunction($function)
-    {
-    }
+    public function wrapPhpFunction ($function) {}
 }
 
 /**
@@ -288,8 +255,7 @@ class LuaSandbox
  * or by using LuaSandbox::wrapPhpFunction(), LuaSandbox::loadString(),
  * or LuaSandbox::loadBinary().
  */
-class LuaSandboxFunction
-{
+class LuaSandboxFunction {
     /**
      * Call a Lua function.
      *
@@ -324,9 +290,7 @@ class LuaSandboxFunction
      *    which may be empty, or false on error.
      * @since PECL luasandbox >= 1.0.0
      */
-    public function call($arguments)
-    {
-    }
+    public function call ($arguments) {}
 
     /**
      * Dump the function as a binary blob.
@@ -334,16 +298,13 @@ class LuaSandboxFunction
      * @return string Returns a string that may be passed to LuaSandbox::loadBinary().
      * @since PECL luasandbox >= 1.0.0
      */
-    public function dump()
-    {
-    }
+    public function dump () {}
 }
 
 /**
  * Base class for LuaSandbox exceptions.
  */
-class LuaSandboxError extends Exception
-{
+class LuaSandboxError extends Exception {
     /**
      *
      */
