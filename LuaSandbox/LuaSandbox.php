@@ -398,4 +398,3 @@ class LuaSandboxSyntaxError extends LuaSandboxFatalError {}
  * Exception thrown when the configured CPU time limit is exceeded.
  */
 class LuaSandboxTimeoutError extends LuaSandboxFatalError {}
-
