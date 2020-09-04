@@ -756,8 +756,7 @@ interface Stringable {
 /**
  * @since 8.0
  */
-// TODO Uncomment after PHP 8.0 release:
-// @@Attribute(Attribute::TARGET_CLASS)
+#[Attribute(Attribute::TARGET_CLASS)]
 final class Attribute {
     public int $flags;
     /**
