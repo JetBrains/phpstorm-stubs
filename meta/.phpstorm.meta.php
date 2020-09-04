@@ -629,6 +629,17 @@ namespace PHPSTORM_META {
     expectedArguments(\AMQPQueue::setFlags(), 0, AMQP_NOPARAM | AMQP_DURABLE | AMQP_PASSIVE | AMQP_EXCLUSIVE | AMQP_AUTODELETE);
     expectedReturnValues(\AMQPQueue::getFlags(), AMQP_NOPARAM | AMQP_DURABLE | AMQP_PASSIVE | AMQP_EXCLUSIVE | AMQP_AUTODELETE);
 
+    expectedArguments(\Attribute::__construct(), 0,
+        \Attribute::IS_REPEATABLE |
+        \Attribute::TARGET_CLASS |
+        \Attribute::TARGET_ALL |
+        \Attribute::TARGET_METHOD |
+        \Attribute::TARGET_PARAMETER |
+        \Attribute::TARGET_PROPERTY |
+        \Attribute::TARGET_FUNCTION |
+        \Attribute::TARGET_CLASS_CONSTANT
+    );
+
     /**
      * Use this constant to mark the function with an argument on the specified position as an exit point
      *
