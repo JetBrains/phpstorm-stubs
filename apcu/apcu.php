@@ -139,7 +139,7 @@ function apc_load_constants($key, $case_sensitive = true){}
 /**
  * Checks if APC key exists
  * @link https://php.net/manual/en/function.apc-exists.php
- * @param bool|string[] $keys A string, or an array of strings, that contain keys.
+ * @param string|string[] $keys A string, or an array of strings, that contain keys.
  * @return bool|string[] Returns TRUE if the key exists, otherwise FALSE
  * Or if an array was passed to keys, then an array is returned that
  * contains all existing keys, or an empty array if none exist.
