@@ -2703,7 +2703,7 @@ class RedisCluster {
      * Scan a set for members.
      *
      * @param   string $key      The set to search.
-     * @param   int    $iterator LONG (reference) to the iterator as we go.
+     * @param   int    &$iterator LONG (reference) to the iterator as we go.
      * @param   null   $pattern  String, optional pattern to match against.
      * @param   int    $count    How many members to return at a time (Redis might return a different amount).
      *
@@ -2725,7 +2725,7 @@ class RedisCluster {
      * Scan a sorted set for members, with optional pattern and count.
      *
      * @param   string $key      String, the set to scan.
-     * @param   int    $iterator Long (reference), initialized to NULL.
+     * @param   int    &$iterator Long (reference), initialized to NULL.
      * @param   string $pattern  String (optional), the pattern to match.
      * @param   int    $count    How many keys to return per iteration (Redis might return a different number).
      *
@@ -2747,7 +2747,7 @@ class RedisCluster {
      * Scan a HASH value for members, with an optional pattern and count.
      *
      * @param   string $key
-     * @param   int    $iterator
+     * @param   int    &$iterator
      * @param   string $pattern Optional pattern to match against.
      * @param   int    $count   How many keys to return in a go (only a sugestion to Redis).
      *
@@ -3425,10 +3425,10 @@ class RedisCluster {
     /**
      * Returns members of a geospatial index as standard geohash strings
      *
-     * @param $key     string
-     * @param $member1 string
-     * @param $member2 string
-     * @param $memberN string
+     * @param string $key
+     * @param string $member1
+     * @param string $member2
+     * @param string $memberN
      *
      * @example
      * <pre>
@@ -3442,11 +3442,10 @@ class RedisCluster {
     /**
      * Returns longitude and latitude of members of a geospatial index
      *
-     * @param $key     string
-     * @param $member1 string
-     * @param $member2 string
-     * @param $memberN string
-     *
+     * @param string $key
+     * @param string $member1
+     * @param string $member2
+     * @param string $memberN
      * @example
      * <pre>
      * $redisCluster->geoAdd('Sicily', 15.087269, 37.502669, "Catania"); // int(1)

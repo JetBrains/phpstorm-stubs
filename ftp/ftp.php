@@ -136,7 +136,7 @@ function ftp_exec ($ftp_stream, $command) {}
  * @param string $command <p>
  * The command to execute.
  * </p>
- * @return array the server's response as an array of strings.
+ * @return string[] the server's response as an array of strings.
  * No parsing is performed on the response string, nor does
  * <b>ftp_raw</b> determine if the command succeeded.
  */
@@ -194,7 +194,7 @@ function ftp_chmod ($ftp_stream, $mode, $filename) {}
  * @param int $filesize <p>
  * The number of bytes to allocate.
  * </p>
- * @param string $result [optional] <p>
+ * @param string &$result [optional] <p>
  * A textual representation of the servers response will be returned by
  * reference in <i>result</i> if a variable is provided.
  * </p>
@@ -604,7 +604,8 @@ function ftp_nb_fput ($ftp_stream, $remote_file, $handle, $mode = FTP_BINARY, $s
 /**
  * Alias of <b>ftp_close</b>
  * @link https://php.net/manual/en/function.ftp-quit.php
- * @param $ftp
+ * @param resource $ftp
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function ftp_quit ($ftp) {}
 

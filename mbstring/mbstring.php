@@ -184,7 +184,7 @@ function mb_substitute_character ($substrchar = null) {}
  * @param string $encoded_string <p>
  * The URL encoded data.
  * </p>
- * @param array $result [optional] <p>
+ * @param array &$result [optional] <p>
  * An array containing decoded and character encoded converted values.
  * </p>
  * @return bool true on success or false on failure.
@@ -752,8 +752,8 @@ function mb_decode_mimeheader ($str) {}
  * from-coding. When from_encoding
  * is omitted, detect_order is used.
  * </p>
- * @param string|array|object $var var is the reference to the variable being converted.
- * @param string|array|object $vars <p>
+ * @param string|array|object &$var var is the reference to the variable being converted.
+ * @param string|array|object &...$vars <p>
  * vars is the other references to the
  * variables being converted. String, Array and Object are accepted.
  * mb_convert_variables assumes all parameters
@@ -894,7 +894,7 @@ function mb_regex_set_options ($options = null) {}
  * @param string $string <p>
  * The search string.
  * </p>
- * @param string[] $regs [optional] <p>
+ * @param string[] &$regs [optional] <p>
  * Contains a substring of the matched string.
  * </p>
  * @return int
@@ -910,7 +910,7 @@ function mb_ereg ($pattern, $string, array &$regs = null) {}
  * @param string $string <p>
  * The string being searched.
  * </p>
- * @param string[] $regs [optional] <p>
+ * @param string[] &$regs [optional] <p>
  * Contains a substring of the matched string.
  * </p>
  * @return int
@@ -1142,18 +1142,18 @@ function mb_ereg_search_setpos ($position) {}
 function mbregex_encoding ($encoding) {}
 
 /**
- * @param $pattern
- * @param $string
- * @param $registers [optional]
+ * @param string $pattern
+ * @param string $string
+ * @param array &$registers [optional]
  * @deprecated 7.3 use {@see mb_ereg} instead
  * @removed 8.0
  */
 function mbereg ($pattern, $string, &$registers) {}
 
 /**
- * @param $pattern
- * @param $string
- * @param $registers [optional]
+ * @param string $pattern
+ * @param string $string
+ * @param array &$registers [optional]
  * @deprecated 7.3 use {@see mb_eregi} instead
  * @removed 8.0
  */

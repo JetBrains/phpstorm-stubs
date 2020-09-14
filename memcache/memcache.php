@@ -20,7 +20,7 @@ class MemcachePool  {
      * </p>
      * <p>
      * Please note: <b>port</b> defaults to
-     * {@link https://php.net/manual/ru/memcache.ini.php#ini.memcache.default-port memcache.default_port}
+     * {@link https://php.net/manual/en/memcache.ini.php#ini.memcache.default-port memcache.default_port}
      * if not specified. For this reason it is wise to specify the port
      * explicitly in this method call.
      * </p>
@@ -217,7 +217,7 @@ class MemcachePool  {
      * @param string|array $key <p>
      * The key or array of keys to fetch.
      * </p>
-     * @param int|array $flags [optional] <p>
+     * @param int|array &$flags [optional] <p>
      * If present, flags fetched along with the values will be written to this parameter. These
      * flags are the same as the ones given to for example {@link https://php.net/manual/en/memcache.set.php Memcache::set()}.
      * The lowest byte of the int is reserved for pecl/memcache internal usage (e.g. to indicate
@@ -235,9 +235,9 @@ class MemcachePool  {
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Delete item from the server
-     * https://secure.php.net/manual/ru/memcache.delete.php
-     * @param $key string The key associated with the item to delete.
-     * @param $timeout int [optional] This deprecated parameter is not supported, and defaults to 0 seconds. Do not use this parameter.
+     * https://secure.php.net/manual/en/memcache.delete.php
+     * @param string $key The key associated with the item to delete.
+     * @param int $timeout [optional] This deprecated parameter is not supported, and defaults to 0 seconds. Do not use this parameter.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function delete ($key, $timeout = 0 ) {}
@@ -245,7 +245,7 @@ class MemcachePool  {
     /**
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Get statistics of the server
-     * @link https://php.net/manual/ru/memcache.getstats.php
+     * @link https://php.net/manual/en/memcache.getstats.php
      * @param string $type [optional] <p>
      * The type of statistics to fetch.
      * Valid values are {reset, malloc, maps, cachedump, slabs, items, sizes}.
@@ -294,8 +294,8 @@ class MemcachePool  {
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Increment item's value
      * @link https://php.net/manual/en/memcache.increment.php
-     * @param $key string Key of the item to increment.
-     * @param $value int [optional] increment the item by <b>value</b>
+     * @param string $key Key of the item to increment.
+     * @param int $value [optional] increment the item by <b>value</b>
      * @return int|false Returns new items value on success or <b>FALSE</b> on failure.
      */
     public function increment ($key, $value = 1) {}
@@ -304,8 +304,8 @@ class MemcachePool  {
      * (PECL memcache &gt;= 0.2.0)<br/>
      * Decrement item's value
      * @link https://php.net/manual/en/memcache.decrement.php
-     * @param $key string Key of the item do decrement.
-     * @param $value int Decrement the item by <b>value</b>.
+     * @param string $key Key of the item do decrement.
+     * @param int $value Decrement the item by <b>value</b>.
      * @return int|false Returns item's new value on success or <b>FALSE</b> on failure.
      */
     public function decrement ($key, $value = 1) {}
@@ -389,9 +389,9 @@ function memcache_connect ($host, $port, $timeout = 1) {}
  * Memcache::pconnect — Open memcached server persistent connection
  *
  * @link https://php.net/manual/en/memcache.pconnect.php#example-5242
- * @param      $host
- * @param null $port
- * @param int  $timeout
+ * @param string $host
+ * @param int|null $port
+ * @param int $timeout
  * @return Memcache
  */
 function memcache_pconnect ($host, $port=null, $timeout=1) {}

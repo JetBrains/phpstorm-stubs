@@ -22,7 +22,7 @@ class StubsMetaExpectedArgumentsTest extends TestCase
      */
     private static array $expectedArguments;
     /**
-     * @var String[]
+     * @var string[]
      */
     private static array $registeredArgumentsSet;
     private static $functionsFqns;

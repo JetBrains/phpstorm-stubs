@@ -440,7 +440,7 @@ function ssh2_scp_send ($session, $local_file, $remote_file, $create_mode = null
 function ssh2_fetch_stream ($channel, $streamid) {}
 
 /**
- * @param $var1
+ * @param array &$var1
  */
 function ssh2_poll (&$var1) {}
 

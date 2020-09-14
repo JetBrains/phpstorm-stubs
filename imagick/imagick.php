@@ -1469,7 +1469,7 @@ class Imagick implements Iterator, Countable {
 	 * @param int $channel [optional] <p>
 	 * Provide any channel constant that is valid for your channel mode. To apply to more than one channel, combine channel constants using bitwise operators. Defaults to <b>Imagick::CHANNEL_DEFAULT</b>. Refer to this list of channel constants
 	 * </p>
-	 * @return float a double describing the channel distortion.
+	 * @return float a float describing the channel distortion.
 	 */
 	public function getImageChannelDistortions (Imagick $reference, $metric, $channel = Imagick::CHANNEL_DEFAULT) {}
 
@@ -3029,7 +3029,7 @@ class Imagick implements Iterator, Countable {
 	 * list of metric constants.
 	 * </p>
 	 * @return array Array consisting of an Imagick object of the
-	 * reconstructed image and a double representing the difference.
+	 * reconstructed image and a float representing the difference.
 	 * @throws ImagickException Throws ImagickException on error.
 	 */
 	public function compareImages (Imagick $compare, $metric) {}
@@ -4687,8 +4687,8 @@ class Imagick implements Iterator, Countable {
 	 *
 	 * @link https://php.net/manual/en/imagick.subimagematch.php
 	 * @param Imagick $imagick
-	 * @param array $bestMatch [optional]
-	 * @param float $similarity [optional] A new image that displays the amount of similarity at each pixel.
+	 * @param array &$bestMatch [optional]
+	 * @param float &$similarity [optional] A new image that displays the amount of similarity at each pixel.
 	 * @param float $similarity_threshold [optional] Only used if compiled with ImageMagick (library) > 7
 	 * @param int $metric [optional] Only used if compiled with ImageMagick (library) > 7
 	 * @return Imagick
@@ -5535,7 +5535,7 @@ class ImagickDraw  {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Returns the opacity of stroked object outlines
 	 * @link https://php.net/manual/en/imagickdraw.getstrokeopacity.php
-	 * @return float a double describing the opacity.
+	 * @return float a float describing the opacity.
 	 */
 	public function getStrokeOpacity () {}
 
@@ -5543,7 +5543,7 @@ class ImagickDraw  {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Returns the width of the stroke used to draw object outlines
 	 * @link https://php.net/manual/en/imagickdraw.getstrokewidth.php
-	 * @return float a double describing the stroke width.
+	 * @return float a float describing the stroke width.
 	 */
 	public function getStrokeWidth () {}
 

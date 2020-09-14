@@ -94,7 +94,7 @@ class mysqli  {
 	 */
 	public $info;
 	/**
-	 * @var mixed
+	 * @var int|string
 	 */
 	public $insert_id;
 	/**
@@ -574,11 +574,11 @@ class mysqli  {
 	/**
 	 * Poll connections
 	 * @link https://php.net/manual/en/mysqli.poll.php
-	 * @param array $read <p>
+	 * @param array &$read <p>
 	 * </p>
-	 * @param array $error <p>
+	 * @param array &$error <p>
 	 * </p>
-	 * @param array $reject <p>
+	 * @param array &$reject <p>
 	 * </p>
 	 * @param int $sec <p>
 	 * Number of seconds to wait, must be non-negative.
@@ -669,8 +669,8 @@ class mysqli  {
 
 	/**
 	 * @link https://php.net/manual/en/function.mysqli-set-opt
-	 * @param $option
-	 * @param $value
+	 * @param int   $option
+	 * @param mixed $value
 	 */
 	public function set_opt ($option, $value) {}
 
@@ -749,7 +749,7 @@ class mysqli  {
 
 	/**
 	 * @link https://php.net/manual/en/mysqli.refresh
-	 * @param $options
+	 * @param int $options MYSQLI_REFRESH_*
 	 * @return bool TRUE if the refresh was a success, otherwise FALSE
 	 * @since 5.3
 	 */
@@ -1117,8 +1117,8 @@ class mysqli_result implements IteratorAggregate
 	/**
 	 * Get a result row as an enumerated array
 	 * @link https://php.net/manual/en/mysqli-result.fetch-row.php
-	 * @return mixed mysqli_fetch_row returns an array of strings that corresponds to the fetched row
-	 * or &null; if there are no more rows in result set.
+	 * @return array|null mysqli_fetch_row returns an array of strings that corresponds to the fetched row
+	 * or null if there are no more rows in result set.
 	 */
 	public function fetch_row () {}
 
@@ -1293,11 +1293,11 @@ class mysqli_stmt  {
 	 * </tr>
 	 * </table>
 	 * </p>
-	 * @param mixed $var1 <p>
+	 * @param mixed &$var1 <p>
 	 * The number of variables and length of string
 	 * types must match the parameters in the statement.
 	 * </p>
-	 * @param mixed $_ [optional]
+	 * @param mixed &...$_ [optional]
 	 * @return bool true on success or false on failure.
 	 */
 	public function bind_param ($types, &$var1, &...$_) {}
@@ -1305,8 +1305,8 @@ class mysqli_stmt  {
 	/**
 	 * Binds variables to a prepared statement for result storage
 	 * @link https://php.net/manual/en/mysqli-stmt.bind-result.php
-	 * @param mixed $var1 The variable to be bound.
-	 * @param mixed ...$_ The variables to be bound.
+	 * @param mixed &$var1 The variable to be bound.
+	 * @param mixed &...$_ The variables to be bound.
 	 * @return bool true on success or false on failure.
 	 */
 	public function bind_result (&$var1, &...$_) {}
@@ -1669,7 +1669,7 @@ function mysqli_fetch_field_direct ($result, $fieldnr) {}
  * @link https://php.net/manual/en/mysqli-result.lengths.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
- * @return array|false An array of integers representing the size of each column (not including any terminating null characters). FALSE if an error occurred.
+ * @return int[]|false An array of integers representing the size of each column (not including any terminating null characters). FALSE if an error occurred.
  */
 function mysqli_fetch_lengths ($result) {}
 
@@ -1728,7 +1728,7 @@ function mysqli_fetch_object ($result, $class_name = 'stdClass', $params = null)
  * mysqli_store_result() or mysqli_use_result().
  * @link https://php.net/manual/en/mysqli-result.fetch-row.php
  * @return array|null mysqli_fetch_row returns an array of strings that corresponds to the fetched row
- * or &null; if there are no more rows in result set.
+ * or null if there are no more rows in result set.
  */
 function mysqli_fetch_row ($result) {}
 
@@ -2018,9 +2018,9 @@ function mysqli_ping ($link) {}
 /**
  * Poll connections
  * @link https://php.net/manual/en/mysqli.poll.php
- * @param array $read
- * @param array $error
- * @param array $reject
+ * @param array &$read
+ * @param array &$error
+ * @param array &$reject
  * @param int $sec
  * @param int $usec [optional]
  * @return int|false number of ready connections upon success, FALSE otherwise.
@@ -2282,11 +2282,11 @@ function mysqli_stmt_send_long_data ($stmt, $param_nr, $data) {}
  * </tr>
  * </table>
  * </p>
- * @param mixed $var1 <p>
+ * @param mixed &$var1 <p>
  * The number of variables and length of string
  * types must match the parameters in the statement.
  * </p>
- * @param mixed $_ [optional]
+ * @param mixed &...$_ [optional]
  * @return bool true on success or false on failure.
  */
 function mysqli_stmt_bind_param ($stmt, $types, &$var1, &...$_) {}
@@ -2295,8 +2295,8 @@ function mysqli_stmt_bind_param ($stmt, $types, &$var1, &...$_) {}
  * Binds variables to a prepared statement for result storage
  * @link https://php.net/manual/en/mysqli-stmt.bind-result.php
  * @param mysqli_stmt $stmt Statement
- * @param mixed $var1 The variable to be bound.
- * @param mixed ...$_ The variables to be bound.
+ * @param mixed &$var1 The variable to be bound.
+ * @param mixed &...$_ The variables to be bound.
  * @return bool
  */
 function mysqli_stmt_bind_result ($stmt, &$var1, &...$_) {}
@@ -2512,7 +2512,7 @@ function mysqli_refresh ($link, $options) {}
  * Alias for <b>mysqli_stmt_bind_param</b>
  * @link https://php.net/manual/en/function.mysqli-bind-param.php
  * @param mysqli_stmt $stmt
- * @param $types
+ * @param string $types
  * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
@@ -2523,7 +2523,7 @@ function mysqli_bind_param ($stmt, $types) {}
  * @link https://php.net/manual/en/function.mysqli-bind-result.php
  * @param mysqli_stmt $stmt
  * @param string $types
- * @param mixed $var1
+ * @param mixed &$var1
  * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */

@@ -85,7 +85,7 @@ function expect_popen(string $command)
  * <td><b>EXP_GLOB</b></td>
  * </tr>
  * </p>
- * @param array $match
+ * @param array &$match
  *
  * @return int Returns value associated with the pattern that was matched.
  * 			   On failure this function returns: <b>EXP_EOF</b>, <b>EXP_TIMEOUT</b> or <b>EXP_FULLBUFFER</b>

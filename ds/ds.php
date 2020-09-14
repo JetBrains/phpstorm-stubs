@@ -2202,7 +2202,7 @@ namespace Ds {
          * it's the first iteration.
          *  $value   The value of the current iteration.
          *
-         * @param null $initial The initial value of the carry value. Can be
+         * @param mixed|null $initial The initial value of the carry value. Can be
          * NULL.
          *
          * @return mixed The return value of the final callback.

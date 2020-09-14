@@ -256,7 +256,7 @@ class Client implements \SplSubject, \Countable {
 	 * @param \http\Client\Request $request The request to retrieve the current progress information for.
 	 * @throws \http\Exception\InvalidArgumentException
 	 * @throws \http\Exception\UnexpectedValueException
-	 * @return object|NULL object stdClass instance holding progress information.
+	 * @return object|null object stdClass instance holding progress information.
 	 * 		 or NULL if $request is not enqueued.
 	 */
 	function getProgressInfo(\http\Client\Request $request) {}
@@ -269,7 +269,7 @@ class Client implements \SplSubject, \Countable {
 	 * @param \http\Client\Request $request The request to fetch the stored response for.
 	 * @throws \http\Exception\InvalidArgumentException
 	 * @throws \http\Exception\UnexpectedValueException
-	 * @return \http\Client\Response|NULL \http\Client\Response the stored response for the request, or the last that was received.
+	 * @return \http\Client\Response|null \http\Client\Response the stored response for the request, or the last that was received.
 	 * 		 or NULL if no more response was available to pop, when no $request was given.
 	 */
 	function getResponse(\http\Client\Request $request = null) {}
@@ -460,7 +460,7 @@ class Cookie  {
 	 * See http\Cookie::setCookie().
 	 *
 	 * @param string $cookie_name The key of the cookie to look up.
-	 * @return string|NULL string the cookie value.
+	 * @return string|null string the cookie value.
 	 * 		 or NULL if $cookie_name could not be found.
 	 */
 	function getCookie(string $cookie_name) {}
@@ -653,7 +653,7 @@ class Env  {
 	 * Retrieve one or all headers of the current HTTP request.
 	 *
 	 * @param string $header_name The key of a header to retrieve.
-	 * @return NULL|string|array NULL if $header_name was not found
+	 * @return string|null|array NULL if $header_name was not found
 	 * 		 or string the compound header when $header_name was found
 	 * 		 or array of all headers if $header_name was not specified
 	 */
@@ -668,7 +668,7 @@ class Env  {
 	 * Get one or all HTTP response headers to be sent.
 	 *
 	 * @param string $header_name The name of the response header to retrieve.
-	 * @return string|NULL|array string the compound value of the response header to send
+	 * @return string|array|null string the compound value of the response header to send
 	 * 		 or NULL if the header was not found
 	 * 		 or array of all response headers, if $header_name was not specified
 	 */
@@ -699,8 +699,8 @@ class Env  {
 	 * @param string $params HTTP header parameter's value to negotiate.
 	 * @param array $supported List of supported negotiation operands.
 	 * @param string $prim_typ_sep A "primary type separator", i.e. that would be a hyphen for content language negotiation (en-US, de-DE, etc.).
-	 * @param array $result Out parameter recording negotiation results.
-	 * @return NULL|string NULL if negotiation fails.
+	 * @param array &$result Out parameter recording negotiation results.
+	 * @return string|null NULL if negotiation fails.
 	 * 		 or string the closest match negotiated, or the default (first entry of $supported).
 	 */
 	function negotiate(string $params, array $supported, string $prim_typ_sep = null, array &$result = null) {}
@@ -711,8 +711,8 @@ class Env  {
 	 * > The first element of $supported character sets serves as a default if no character set matches.
 	 *
 	 * @param array $supported List of supported content character sets.
-	 * @param array $result Out parameter recording negotiation results.
-	 * @return NULL|string NULL if negotiation fails.
+	 * @param array &$result Out parameter recording negotiation results.
+	 * @return string|null NULL if negotiation fails.
 	 * 		 or string the negotiated character set.
 	 */
 	function negotiateCharset(array $supported, array &$result = null) {}
@@ -723,8 +723,8 @@ class Env  {
 	 * > The first element of $supported content types serves as a default if no content-type matches.
 	 *
 	 * @param array $supported List of supported MIME content types.
-	 * @param array $result Out parameter recording negotiation results.
-	 * @return NULL|string NULL if negotiation fails.
+	 * @param array &$result Out parameter recording negotiation results.
+	 * @return string|null NULL if negotiation fails.
 	 * 		 or string the negotiated content type.
 	 */
 	function negotiateContentType(array $supported, array &$result = null) {}
@@ -735,8 +735,8 @@ class Env  {
 	 * > The first element of $supported encodings serves as a default if no encoding matches.
 	 *
 	 * @param array $supported List of supported content encodings.
-	 * @param array $result Out parameter recording negotiation results.
-	 * @return NULL|string NULL if negotiation fails.
+	 * @param array &$result Out parameter recording negotiation results.
+	 * @return string|null NULL if negotiation fails.
 	 * 		 or string the negotiated encoding.
 	 */
 	function negotiateEncoding(array $supported, array &$result = null) {}
@@ -747,8 +747,8 @@ class Env  {
 	 * > The first element of $supported languages serves as a default if no language matches.
 	 *
 	 * @param array $supported List of supported content languages.
-	 * @param array $result Out parameter recording negotiation results.
-	 * @return NULL|string NULL if negotiation fails.
+	 * @param array &$result Out parameter recording negotiation results.
+	 * @return string|null NULL if negotiation fails.
 	 * 		 or string the negotiated language.
 	 */
 	function negotiateLanguage(array $supported, array &$result = null) {}
@@ -816,7 +816,7 @@ class Header implements \Serializable {
 	/**
 	 * The value of the HTTP header.
 	 *
-	 * @var
+	 * @var mixed
 	 */
 	public $value = null;
 	/**
@@ -863,8 +863,8 @@ class Header implements \Serializable {
 	 * > The first element of $supported serves as a default if no operand matches.
 	 *
 	 * @param array $supported The list of supported values to negotiate.
-	 * @param array $result Out parameter recording the negotiation results.
-	 * @return NULL|string NULL if negotiation fails.
+	 * @param array &$result Out parameter recording the negotiation results.
+	 * @return string|null NULL if negotiation fails.
 	 * 		 or string the closest match negotiated, or the default (first entry of $supported).
 	 */
 	function negotiate(array $supported, array &$result = null) {}
@@ -1074,7 +1074,7 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 * * http\Message::getRequestMethod()
 	 * * http\Message::getRequestUrl()
 	 *
-	 * @return string|NULL string the HTTP message information.
+	 * @return string|null string the HTTP message information.
 	 * 		 or NULL if the message is neither of type request nor response.
 	 */
 	function getInfo() {}
@@ -1132,7 +1132,7 @@ class Message implements \Countable, \Serializable, \Iterator {
 	 *
 	 * See http\Message::splitMultipartBody().
 	 *
-	 * @param string $boundary A reference where the boundary string will be stored.
+	 * @param string &$boundary A reference where the boundary string will be stored.
 	 * @return bool whether this is a message with a multipart "Content-Type".
 	 */
 	function isMultipart(string &$boundary = null) {}
@@ -1642,7 +1642,7 @@ class QueryString implements \Serializable, \ArrayAccess, \IteratorAggregate {
 	 * Implements ArrayAccess.
 	 *
 	 * @param mixed $offset The offset to look up.
-	 * @return mixed|NULL mixed the value locate at offset $name.
+	 * @return mixed|null mixed the value locate at offset $name.
 	 * 		 or NULL if key $name could not be found.
 	 */
 	function offsetGet($offset) {}
@@ -2088,7 +2088,7 @@ class Request extends \http\Message {
 	 * Extract the currently set "Content-Type" header.
 	 * See http\Client\Request::setContentType().
 	 *
-	 * @return string|NULL string the currently set content type.
+	 * @return string|null string the currently set content type.
 	 * 		 or NULL if no "Content-Type" header is set.
 	 */
 	function getContentType() {}
@@ -2102,7 +2102,7 @@ class Request extends \http\Message {
 	/**
 	 * Retrieve the currently set querystring.
 	 *
-	 * @return string|NULL string the currently set querystring.
+	 * @return string|null string the currently set querystring.
 	 * 		 or NULL if no querystring is set.
 	 */
 	function getQuery() {}
@@ -2441,7 +2441,7 @@ class Dechunk extends \http\Encoding\Stream {
 	 * Decode chunked encoded data.
 	 *
 	 * @param string $data The data to decode.
-	 * @param int $decoded_len Out parameter with the length of $data that's been decoded.
+	 * @param int &$decoded_len Out parameter with the length of $data that's been decoded.
 	 *   Should be ```strlen($data)``` if not truncated.
 	 * @return string|string|string|false string the decoded data.
 	 * 		 or string the unencoded data.
@@ -3007,7 +3007,7 @@ class Parser  {
 	 *
 	 * @param string $data The (part of the) header to parse.
 	 * @param int $flags Any combination of [parser flags](http/Header/Parser#Parser.flags:).
-	 * @param array $header Successfully parsed headers.
+	 * @param array &$header Successfully parsed headers.
 	 * @throws \http\Exception\InvalidArgumentException
 	 * @return int http\Header\Parser::STATE_* constant.
 	 */
@@ -3017,7 +3017,7 @@ class Parser  {
 	 *
 	 * @param resource $stream The header stream to parse from.
 	 * @param int $flags Any combination of [parser flags](http/Header/Parser#Parser.flags:).
-	 * @param array $headers The headers parsed.
+	 * @param array &$headers The headers parsed.
 	 * @throws \http\Exception\InvalidArgumentException
 	 * @throws \http\Exception\UnexpectedValueException
 	 * @return int http\Header\Parser::STATE_* constant.
@@ -3120,7 +3120,7 @@ class Body implements \Serializable {
 	 * Retrieve any boundary of the message body.
 	 * See http\Message::splitMultipartBody().
 	 *
-	 * @return string|NULL string the message body boundary.
+	 * @return string|null string the message body boundary.
 	 * 		 or NULL if this message body has no boundary.
 	 */
 	function getBoundary() {}
@@ -3264,7 +3264,7 @@ class Parser  {
 	 * @throws \http\Exception\InvalidArgumentException
 	 * @return int http\Message\Parser::STATE_* constant.
 	 */
-	function parse(string $data, int $flags, \http\Message &$message) {}
+	function parse(string $data, int $flags, \http\Message $message) {}
 	/**
 	 * Parse a stream.
 	 *
@@ -3275,5 +3275,5 @@ class Parser  {
 	 * @throws \http\Exception\UnexpectedValueException
 	 * @return int http\Message\Parser::STATE_* constant.
 	 */
-	function stream($stream, int $flags, \http\Message &$message) {}
+	function stream($stream, int $flags, \http\Message $message) {}
 }

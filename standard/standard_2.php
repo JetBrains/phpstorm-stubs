@@ -211,7 +211,7 @@ function ord ($string) {}
  * @param string $str <p>
  * The input string.
  * </p>
- * @param array $result [optional] <p>
+ * @param array &$result [optional] <p>
  * If the second parameter arr is present,
  * variables are stored in this variable as array elements instead.<br/>
  * Since 7.2.0 this parameter is not optional.
@@ -404,7 +404,7 @@ function vfprintf ($handle, $format, array $args) {}
  * i stands for integer with base detection.
  * n stands for number of characters processed so far.
  * </p>
- * @param mixed ...$_
+ * @param mixed &...$_
  * @return array|int If only
  * two parameters were passed to this function, the values parsed
  * will be returned as an array. Otherwise, if optional parameters are passed,
@@ -421,7 +421,7 @@ function sscanf ($str, $format, &...$_) {}
  * The specified format as described in the
  * sprintf documentation.
  * </p>
- * @param mixed ...$vars [optional]
+ * @param mixed &...$vars [optional]
  * @return array|int If only two parameters were passed to this function, the values parsed will be
  * returned as an array. Otherwise, if optional parameters are passed, the
  * function will return the number of assigned values. The optional
@@ -622,7 +622,7 @@ function unlink ($filename, $context = null):bool {}
  * unset on the array before passing it to
  * exec.
  * </p>
- * @param int $return_var [optional] <p>
+ * @param int &$return_var [optional] <p>
  * If the return_var argument is present
  * along with the output argument, then the
  * return status of the executed command will be written to this
@@ -644,7 +644,7 @@ function exec ($command, array &$output = null, &$return_var = null) {}
  * @param string $command <p>
  * The command that will be executed.
  * </p>
- * @param int $return_var [optional] <p>
+ * @param int &$return_var [optional] <p>
  * If the return_var argument is present, then the
  * return status of the executed command will be written to this
  * variable.
@@ -680,7 +680,7 @@ function escapeshellarg ($arg) {}
  * @param string $command <p>
  * The command that will be executed.
  * </p>
- * @param int $return_var [optional] <p>
+ * @param int &$return_var [optional] <p>
  * If the return_var argument is present, the
  * return status of the Unix command will be placed here.
  * </p>
@@ -735,19 +735,19 @@ function shell_exec ($cmd) {}
  * secure manner. It is also useful for reading status information
  * provided by those programs on auxiliary file descriptors.
  * </p>
- * @param array $pipes <p>
+ * @param array &$pipes <p>
  * Will be set to an indexed array of file pointers that correspond to
  * PHP's end of any pipes that are created.
  * </p>
- * @param string $cwd [optional] <p>
+ * @param string|null $cwd [optional] <p>
  * The initial working dir for the command. This must be an
- * absolute directory path, or &null;
+ * absolute directory path, or null
  * if you want to use the default value (the working dir of the current
  * PHP process)
  * </p>
- * @param array $env [optional] <p>
+ * @param array|null $env [optional] <p>
  * An array with the environment variables for the command that will be
- * run, or &null; to use the same environment as the current PHP process
+ * run, or null to use the same environment as the current PHP process
  * </p>
  * @param array $other_options [optional] <p>
  * Allows you to specify additional options. Currently supported options

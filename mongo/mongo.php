@@ -343,7 +343,7 @@ class Mongo extends MongoClient {
      *(PECL mongo &gt;= 1.2.0)<br/>
      * Set the size for future connection pools.
      * @link https://php.net/manual/en/mongo.setpoolsize.php
-     * @param $size <p>The max number of connections future pools will be able to create. Negative numbers mean that the pool will spawn an infinite number of connections.</p>
+     * @param int $size <p>The max number of connections future pools will be able to create. Negative numbers mean that the pool will spawn an infinite number of connections.</p>
      * @return bool Returns the former value of pool size.
      */
     public function setPoolSize($size) {}
@@ -1118,7 +1118,7 @@ class MongoCollection {
 
     /**
      * Retrieve a list of distinct values for the given key across a collection
-     * @link https://secure.php.net/manual/ru/mongocollection.distinct.php
+     * @link https://secure.php.net/manual/en/mongocollection.distinct.php
      * @param string $key The key to use.
      * @param array $query An optional query parameters
      * @return array|false Returns an array of distinct values, or <b>FALSE</b> on failure
@@ -1127,7 +1127,7 @@ class MongoCollection {
 
     /**
      * Update a document and return it
-     * @link https://secure.php.net/manual/ru/mongocollection.findandmodify.php
+     * @link https://secure.php.net/manual/en/mongocollection.findandmodify.php
      * @param array $query The query criteria to search for.
      * @param array $update The update criteria.
      * @param array $fields Optionally only return these fields.
@@ -1654,19 +1654,19 @@ class MongoGridFS extends MongoCollection {
 
     /**
      * @link https://php.net/manual/en/class.mongogridfs.php#mongogridfs.props.chunks
-     * @var $chunks MongoCollection
+     * @var MongoCollection
      */
     public $chunks;
 
     /**
      * @link https://php.net/manual/en/class.mongogridfs.php#mongogridfs.props.filesname
-     * @var $filesName string
+     * @var string
      */
     protected $filesName;
 
     /**
      * @link https://php.net/manual/en/class.mongogridfs.php#mongogridfs.props.chunksname
-     * @var $chunksName string
+     * @var string
      */
     protected $chunksName;
 
@@ -1778,13 +1778,13 @@ class MongoGridFS extends MongoCollection {
 class MongoGridFSFile {
     /**
     * @link https://php.net/manual/en/class.mongogridfsfile.php#mongogridfsfile.props.file
-    * @var $file
+    * @var array|null
     */
     public $file;
 
     /**
     * @link https://php.net/manual/en/class.mongogridfsfile.php#mongogridfsfile.props.gridfs
-    * @var $gridfs
+    * @var MongoGridFS|null
     */
     protected $gridfs;
 
@@ -1837,13 +1837,13 @@ class MongoGridFSFile {
 
 class MongoGridFSCursor extends MongoCursor implements Traversable, Iterator {
     /**
-    * @var $slaveOkay
+    * @var bool
     */
     public static $slaveOkay;
 
     /**
     * @link https://php.net/manual/en/class.mongogridfscursor.php#mongogridfscursor.props.gridfs
-    * @var $gridfs
+    * @var MongoGridFS|null
     */
     protected $gridfs;
 
@@ -1964,12 +1964,12 @@ class MongoId {
 
 class MongoCode {
     /**
-    * @var $code
+    * @var string
     */
     public $code;
 
     /**
-    * @var $scope
+    * @var array
     */
     public $scope;
 
@@ -1992,13 +1992,13 @@ class MongoCode {
 class MongoRegex {
     /**
      * @link https://php.net/manual/en/class.mongoregex.php#mongoregex.props.regex
-     * @var $regex
+     * @var string
      */
     public $regex;
 
     /**
      * @link https://php.net/manual/en/class.mongoregex.php#mongoregex.props.flags
-     * @var $flags
+     * @var string
      */
     public $flags;
 
@@ -2100,13 +2100,13 @@ class MongoBinData {
 
     /**
      * @link https://php.net/manual/en/class.mongobindata.php#mongobindata.props.bin
-     * @var $bin
+     * @var string
      */
     public $bin;
 
     /**
      * @link https://php.net/manual/en/class.mongobindata.php#mongobindata.props.type
-     * @var $type
+     * @var int
      */
     public $type;
 
@@ -2129,12 +2129,12 @@ class MongoBinData {
 
 class MongoDBRef {
     /**
-    * @var $refKey
+    * @var string
     */
     protected static $refKey = '$ref';
 
     /**
-    * @var $idKey
+    * @var string
     */
     protected static $idKey = '$id';
 
@@ -2372,13 +2372,13 @@ class MongoResultException extends MongoException {
 class MongoTimestamp {
     /**
      * @link https://php.net/manual/en/class.mongotimestamp.php#mongotimestamp.props.sec
-     * @var $sec
+     * @var int
      */
     public $sec;
 
     /**
      * @link https://php.net/manual/en/class.mongotimestamp.php#mongotimestamp.props.inc
-     * @var $inc
+     * @var int
      */
     public $inc;
 
@@ -2403,7 +2403,7 @@ class MongoTimestamp {
 class MongoInt32 {
     /**
      * @link https://php.net/manual/en/class.mongoint32.php#mongoint32.props.value
-     * @var $value
+     * @var string
      */
     public $value;
 
@@ -2425,7 +2425,7 @@ class MongoInt32 {
 class MongoInt64 {
     /**
      * @link https://php.net/manual/en/class.mongoint64.php#mongoint64.props.value
-     * @var $value
+     * @var string
      */
     public $value;
 

@@ -216,9 +216,9 @@ function gzwrite ($zp, $string, $length = null) {}
 /**
  * Alias of <b>gzwrite</b>
  * @link https://php.net/manual/en/function.gzputs.php
- * @param $fp
- * @param $str
- * @param $length [optional]
+ * @param resource $fp
+ * @param string $str
+ * @param int $length [optional]
  */
 function gzputs ($fp, $str, $length) {}
 
@@ -445,7 +445,7 @@ function deflate_add ($context, $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
 /**
  * Initialize an incremental inflate context
  * @link https://php.net/manual/en/function.inflate-init.php
- * @param $encoding <p>
+ * @param int $encoding <p>
  * One of the ZLIB_ENCODING_* constants.
  * </p>
  * @param array $options [optional] <p>

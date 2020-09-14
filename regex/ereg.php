@@ -12,7 +12,7 @@
  * @param string $string <p>
  * The input string.
  * </p>
- * @param array $regs [optional] <p>
+ * @param array &$regs [optional] <p>
  * If matches are found for parenthesized substrings of
  * <i>pattern</i> and the function is called with the
  * third argument <i>regs</i>, the matches will be stored
@@ -71,7 +71,7 @@ function ereg_replace ($pattern, $replacement, $string) {}
  * @param string $string <p>
  * The input string.
  * </p>
- * @param array $regs [optional] <p>
+ * @param array &$regs [optional] <p>
  * If matches are found for parenthesized substrings of
  * <i>pattern</i> and the function is called with the
  * third argument <i>regs</i>, the matches will be stored

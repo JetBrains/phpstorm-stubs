@@ -386,7 +386,7 @@ class SQLite3Stmt  {
 	 * An string identifying the statement variable to which the
 	 * parameter should be bound.
 	 * </p>
-	 * @param mixed $param <p>
+	 * @param mixed &$param <p>
 	 * The parameter to bind to a statement variable.
 	 * </p>
 	 * @param int $type [optional] <p>

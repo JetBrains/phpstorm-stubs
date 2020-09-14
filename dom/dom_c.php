@@ -453,7 +453,7 @@ class DOMImplementation  {
      * The external subset system identifier.
      * </p>
      * @return DOMDocumentType A new DOMDocumentType node with its
-     * ownerDocument set to &null;.
+     * ownerDocument set to null.
      */
     public function createDocumentType ($qualifiedName = null, $publicId = null, $systemId = null) {}
 
@@ -466,8 +466,8 @@ class DOMImplementation  {
      * @param string $qualifiedName [optional] <p>
      * The qualified name of the document element to create.
      * </p>
-     * @param DOMDocumentType $doctype [optional] <p>
-     * The type of document to create or &null;.
+     * @param DOMDocumentType|null $doctype [optional] <p>
+     * The type of document to create or null.
      * </p>
      * @return DOMDocument A new DOMDocument object. If
      * namespaceURI, qualifiedName,
@@ -514,14 +514,14 @@ class DOMDocumentFragment extends DOMNode implements DOMParentNode {
 /**
  * The DOMDocument class represents an entire HTML or XML
  * document; serves as the root of the document tree.
- * @link https://php.net/manual/class.domdocument.php
+ * @link https://php.net/manual/en/class.domdocument.php
  */
 class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * @var string
      * Deprecated. Actual encoding of the document, is a readonly equivalent to encoding.
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.actualencoding
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.actualencoding
      * @deprecated
      */
     public $actualEncoding;
@@ -529,7 +529,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
     /**
      * @var DOMConfiguration
      * Deprecated. Configuration used when {@link DOMDocument::normalizeDocument()} is invoked.
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.config
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.config
      * @deprecated
      */
     public $config;
@@ -537,7 +537,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
     /**
      * @var DOMDocumentType
      * The Document Type Declaration associated with this document.
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.doctype
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.doctype
      */
     public $doctype;
 
@@ -545,14 +545,14 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * @var DOMElement
      * This is a convenience attribute that allows direct access to the child node
      * that is the document element of the document.
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.documentelement
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.documentelement
      */
     public $documentElement;
 
     /**
      * @var string|null
      * The location of the document or NULL if undefined.
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.documenturi
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.documenturi
      */
     public $documentURI;
 
@@ -561,28 +561,28 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * Encoding of the document, as specified by the XML declaration. This attribute is not present
      * in the final DOM Level 3 specification, but is the only way of manipulating XML document
      * encoding in this implementation.
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.encoding
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.encoding
      */
     public $encoding ;
 
     /**
      * @var bool
      * Nicely formats output with indentation and extra space.
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.formatoutput
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.formatoutput
      */
     public $formatOutput ;
 
     /**
      * @var DOMImplementation
      * The <classname>DOMImplementation</classname> object that handles this document.
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.implementation
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.implementation
      */
     public $implementation ;
 
     /**
      * @var bool
      * Do not remove redundant white space. Default to TRUE.
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.preservewhitespace
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.preservewhitespace
      */
     public $preserveWhiteSpace = true ;
 
@@ -590,7 +590,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * @var bool
      * Proprietary. Enables recovery mode, i.e. trying to parse non-well formed documents.
      * This attribute is not part of the DOM specification and is specific to libxml.
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.recover
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.recover
      */
     public $recover ;
 
@@ -598,7 +598,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * @var bool
      * Set it to TRUE to load external entities from a doctype declaration. This is useful for
      * including character entities in your XML document.
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.resolveexternals
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.resolveexternals
      */
     public $resolveExternals ;
 
@@ -606,7 +606,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * @var bool
      * Deprecated. Whether or not the document is standalone, as specified by the XML declaration,
      * corresponds to xmlStandalone.
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.standalone
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.standalone
      * @deprecated
      */
     public $standalone ;
@@ -614,7 +614,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
     /**
      * @var bool
      * Throws <classname>DOMException</classname> on errors. Default to TRUE.
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.stricterrorchecking
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.stricterrorchecking
      */
     public $strictErrorChecking = true ;
 
@@ -622,21 +622,21 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * @var bool
      * Proprietary. Whether or not to substitute entities. This attribute is not part of the DOM
      * specification and is specific to libxml.
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.substituteentities
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.substituteentities
      */
     public $substituteEntities ;
 
     /**
      * @var bool
      * Loads and validates against the DTD. Default to FALSE.
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.validateonparse
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.validateonparse
      */
     public $validateOnParse = false ;
 
     /**
      * @var string
      * Deprecated. Version of XML, corresponds to xmlVersion
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.version
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.version
      */
     public $version ;
 
@@ -644,7 +644,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * @var string
      * An attribute specifying, as part of the XML declaration, the encoding of this document. This is NULL when
      * unspecified or when it is not known, such as when the Document was created in memory.
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.xmlencoding
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.xmlencoding
      */
     public $xmlEncoding ;
 
@@ -652,7 +652,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * @var bool
      * An attribute specifying, as part of the XML declaration, whether this document is standalone.
      * This is FALSE when unspecified.
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.xmlstandalone
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.xmlstandalone
      */
     public $xmlStandalone ;
 
@@ -660,13 +660,13 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * @var string
      * An attribute specifying, as part of the XML declaration, the version number of this document. If there is no
      * declaration and if this document supports the "XML" feature, the value is "1.0".
-     * @link https://php.net/manual/class.domdocument.php#domdocument.props.xmlversion
+     * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.xmlversion
      */
     public $xmlVersion ;
 
     /**
      * Create new element node
-     * @link https://php.net/manual/domdocument.createelement.php
+     * @link https://php.net/manual/en/domdocument.createelement.php
      * @param string $name <p>
      * The tag name of the element.
      * </p>
@@ -681,14 +681,14 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Create new document fragment
-     * @link https://php.net/manual/domdocument.createdocumentfragment.php
+     * @link https://php.net/manual/en/domdocument.createdocumentfragment.php
      * @return DOMDocumentFragment|false The new DOMDocumentFragment or false if an error occurred.
      */
     public function createDocumentFragment () {}
 
     /**
      * Create new text node
-     * @link https://php.net/manual/domdocument.createtextnode.php
+     * @link https://php.net/manual/en/domdocument.createtextnode.php
      * @param string $content <p>
      * The content of the text.
      * </p>
@@ -698,7 +698,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Create new comment node
-     * @link https://php.net/manual/domdocument.createcomment.php
+     * @link https://php.net/manual/en/domdocument.createcomment.php
      * @param string $data <p>
      * The content of the comment.
      * </p>
@@ -708,7 +708,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Create new cdata node
-     * @link https://php.net/manual/domdocument.createcdatasection.php
+     * @link https://php.net/manual/en/domdocument.createcdatasection.php
      * @param string $data <p>
      * The content of the cdata.
      * </p>
@@ -718,7 +718,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Creates new PI node
-     * @link https://php.net/manual/domdocument.createprocessinginstruction.php
+     * @link https://php.net/manual/en/domdocument.createprocessinginstruction.php
      * @param string $target <p>
      * The target of the processing instruction.
      * </p>
@@ -731,7 +731,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Create new attribute
-     * @link https://php.net/manual/domdocument.createattribute.php
+     * @link https://php.net/manual/en/domdocument.createattribute.php
      * @param string $name <p>
      * The name of the attribute.
      * </p>
@@ -741,7 +741,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Create new entity reference node
-     * @link https://php.net/manual/domdocument.createentityreference.php
+     * @link https://php.net/manual/en/domdocument.createentityreference.php
      * @param string $name <p>
      * The content of the entity reference, e.g. the entity reference minus
      * the leading &amp; and the trailing
@@ -754,7 +754,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Searches for all elements with given tag name
-     * @link https://php.net/manual/domdocument.getelementsbytagname.php
+     * @link https://php.net/manual/en/domdocument.getelementsbytagname.php
      * @param string $name <p>
      * The name of the tag to match on. The special value *
      * matches all tags.
@@ -766,7 +766,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Import node into current document
-     * @link https://php.net/manual/domdocument.importnode.php
+     * @link https://php.net/manual/en/domdocument.importnode.php
      * @param DOMNode $importedNode <p>
      * The node to import.
      * </p>
@@ -783,7 +783,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Create new element node with an associated namespace
-     * @link https://php.net/manual/domdocument.createelementns.php
+     * @link https://php.net/manual/en/domdocument.createelementns.php
      * @param string $namespaceURI <p>
      * The URI of the namespace.
      * </p>
@@ -800,7 +800,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Create new attribute node with an associated namespace
-     * @link https://php.net/manual/domdocument.createattributens.php
+     * @link https://php.net/manual/en/domdocument.createattributens.php
      * @param string $namespaceURI <p>
      * The URI of the namespace.
      * </p>
@@ -813,7 +813,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Searches for all elements with given tag name in specified namespace
-     * @link https://php.net/manual/domdocument.getelementsbytagnamens.php
+     * @link https://php.net/manual/en/domdocument.getelementsbytagnamens.php
      * @param string $namespaceURI <p>
      * The namespace URI of the elements to match on.
      * The special value * matches all namespaces.
@@ -829,11 +829,11 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Searches for an element with a certain id
-     * @link https://php.net/manual/domdocument.getelementbyid.php
+     * @link https://php.net/manual/en/domdocument.getelementbyid.php
      * @param string $elementId <p>
      * The unique id value for an element.
      * </p>
-     * @return DOMElement|null The DOMElement or &null; if the element is
+     * @return DOMElement|null The DOMElement or null if the element is
      * not found.
      */
     public function getElementById ($elementId) {}
@@ -855,7 +855,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Normalizes the document
-     * @link https://php.net/manual/domdocument.normalizedocument.php
+     * @link https://php.net/manual/en/domdocument.normalizedocument.php
      * @return void
      */
     public function normalizeDocument () {}
@@ -869,7 +869,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Load XML from a file
-     * @link https://php.net/manual/domdocument.load.php
+     * @link https://php.net/manual/en/domdocument.load.php
      * @param string $filename <p>
      * The path to the XML document.
      * </p>
@@ -885,7 +885,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Dumps the internal XML tree back into a file
-     * @link https://php.net/manual/domdocument.save.php
+     * @link https://php.net/manual/en/domdocument.save.php
      * @param string $filename <p>
      * The path to the saved XML document.
      * </p>
@@ -898,7 +898,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Load XML from a string
-     * @link https://php.net/manual/domdocument.loadxml.php
+     * @link https://php.net/manual/en/domdocument.loadxml.php
      * @param string $source <p>
      * The string containing the XML.
      * </p>
@@ -914,7 +914,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Dumps the internal XML tree back into a string
-     * @link https://php.net/manual/domdocument.savexml.php
+     * @link https://php.net/manual/en/domdocument.savexml.php
      * @param DOMNode $node [optional] <p>
      * Use this parameter to output only a specific node without XML declaration
      * rather than the entire document.
@@ -928,7 +928,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Creates a new DOMDocument object
-     * @link https://php.net/manual/domdocument.construct.php
+     * @link https://php.net/manual/en/domdocument.construct.php
      * @param string $version [optional] The version number of the document as part of the XML declaration.
      * @param string $encoding [optional] The encoding of the document as part of the XML declaration.
      */
@@ -936,7 +936,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Validates the document based on its DTD
-     * @link https://php.net/manual/domdocument.validate.php
+     * @link https://php.net/manual/en/domdocument.validate.php
      * @return bool true on success or false on failure.
      * If the document have no DTD attached, this method will return false.
      */
@@ -944,7 +944,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Substitutes XIncludes in a DOMDocument Object
-     * @link https://php.net/manual/domdocument.xinclude.php
+     * @link https://php.net/manual/en/domdocument.xinclude.php
      * @param int $options [optional] <p>
      * libxml parameters. Available
      * since PHP 5.1.0 and Libxml 2.6.7.
@@ -955,7 +955,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Load HTML from a string
-     * @link https://php.net/manual/domdocument.loadhtml.php
+     * @link https://php.net/manual/en/domdocument.loadhtml.php
      * @param string $source <p>
      * The HTML string.
      * </p>
@@ -971,7 +971,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Load HTML from a file
-     * @link https://php.net/manual/domdocument.loadhtmlfile.php
+     * @link https://php.net/manual/en/domdocument.loadhtmlfile.php
      * @param string $filename <p>
      * The path to the HTML file.
      * </p>
@@ -987,7 +987,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Dumps the internal document into a string using HTML formatting
-     * @link https://php.net/manual/domdocument.savehtml.php
+     * @link https://php.net/manual/en/domdocument.savehtml.php
      * @param DOMNode $node [optional] parameter to output a subset of the document.
      * @return string|false The HTML, or false if an error occurred.
      */
@@ -995,7 +995,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Dumps the internal document into a file using HTML formatting
-     * @link https://php.net/manual/domdocument.savehtmlfile.php
+     * @link https://php.net/manual/en/domdocument.savehtmlfile.php
      * @param string $filename <p>
      * The path to the saved HTML document.
      * </p>
@@ -1005,7 +1005,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Validates a document based on a schema
-     * @link https://php.net/manual/domdocument.schemavalidate.php
+     * @link https://php.net/manual/en/domdocument.schemavalidate.php
      * @param string $filename <p>
      * The path to the schema.
      * </p>
@@ -1019,7 +1019,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Validates a document based on a schema
-     * @link https://php.net/manual/domdocument.schemavalidatesource.php
+     * @link https://php.net/manual/en/domdocument.schemavalidatesource.php
      * @param string $source <p>
      * A string containing the schema.
      * </p>
@@ -1031,7 +1031,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Performs relaxNG validation on the document
-     * @link https://php.net/manual/domdocument.relaxngvalidate.php
+     * @link https://php.net/manual/en/domdocument.relaxngvalidate.php
      * @param string $filename <p>
      * The RNG file.
      * </p>
@@ -1041,7 +1041,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Performs relaxNG validation on the document
-     * @link https://php.net/manual/domdocument.relaxngvalidatesource.php
+     * @link https://php.net/manual/en/domdocument.relaxngvalidatesource.php
      * @param string $source <p>
      * A string containing the RNG schema.
      * </p>
@@ -1051,13 +1051,13 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * Register extended class used to create base node type
-     * @link https://php.net/manual/domdocument.registernodeclass.php
+     * @link https://php.net/manual/en/domdocument.registernodeclass.php
      * @param string $baseclass <p>
      * The DOM class that you want to extend. You can find a list of these
      * classes in the chapter introduction.
      * </p>
      * @param string $extendedclass <p>
-     * Your extended class name. If &null; is provided, any previously
+     * Your extended class name. If null is provided, any previously
      * registered class extending baseclass will
      * be removed.
      * </p>
@@ -1088,7 +1088,7 @@ class DOMNodeList implements IteratorAggregate, Countable {
 	 * The range of valid child node indices is 0 to length - 1 inclusive.
 	 * </p>
 	 * @return DOMNode|null The node at the indexth position in the
-	 * DOMNodeList, or &null; if that is not a valid
+	 * DOMNodeList, or null if that is not a valid
 	 * index.
 	 */
     public function item ($index) {}
@@ -1118,7 +1118,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable {
      * The nodeName of the node to retrieve.
      * </p>
      * @return DOMNode|null A node (of any type) with the specified nodeName, or
-     * &null; if no node is found.
+     * null if no node is found.
      */
     public function getNamedItem ($name) {}
 
@@ -1138,7 +1138,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable {
      * @param int $index <p>
      * Index into this map.
      * </p>
-     * @return DOMNode|null The node at the indexth position in the map, or &null;
+     * @return DOMNode|null The node at the indexth position in the map, or null
      * if that is not a valid index (greater than or equal to the number of nodes
      * in this map).
      */
@@ -1154,7 +1154,7 @@ class DOMNamedNodeMap implements IteratorAggregate, Countable {
      * The local name of the node to retrieve.
      * </p>
      * @return DOMNode|null A node (of any type) with the specified local name and namespace URI, or
-     * &null; if no node is found.
+     * null if no node is found.
      */
     public function getNamedItemNS ($namespaceURI, $localName) {}
 
@@ -1463,7 +1463,7 @@ class DOMElement extends DOMNode implements DOMParentNode, DOMChildNode {
      * @param DOMAttr $attr <p>
      * The attribute node.
      * </p>
-     * @return DOMAttr|null Old node if the attribute has been replaced or &null;.
+     * @return DOMAttr|null Old node if the attribute has been replaced or null.
      */
     public function setAttributeNode (DOMAttr $attr) {}
 
@@ -1954,7 +1954,7 @@ class DOMEntityReference extends DOMNode  {
     /**
      * Creates a new DOMEntityReference object
      * @link https://php.net/manual/en/domentityreference.construct.php
-     * @param $name string The name of the entity reference.
+     * @param string $name The name of the entity reference.
      */
     public function __construct ($name) {}
 
@@ -1981,8 +1981,8 @@ class DOMProcessingInstruction extends DOMNode  {
     /**
      * Creates a new <classname>DOMProcessingInstruction</classname> object
      * @link https://php.net/manual/en/domprocessinginstruction.construct.php
-     * @param $name string The tag name of the processing instruction.
-     * @param $value string [optional] The value of the processing instruction.
+     * @param string $name The tag name of the processing instruction.
+     * @param string $value [optional] The value of the processing instruction.
      */
     public function __construct ($name, $value) {}
 

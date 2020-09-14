@@ -23,14 +23,14 @@
  * The username with which you are connecting to the database.
  * </p>
  * <p>
- * For uncataloged connections, you must pass a &null; value or empty
+ * For uncataloged connections, you must pass a null value or empty
  * string.
  * </p>
  * @param string $password <p>
  * The password with which you are connecting to the database.
  * </p>
  * <p>
- * For uncataloged connections, you must pass a &null; value or empty
+ * For uncataloged connections, you must pass a null value or empty
  * string.
  * </p>
  * @param array $options <p>
@@ -167,10 +167,10 @@ function db2_close ($connection) {}
  * </p>
  * @param string $qualifier <p>
  * A qualifier for DB2 databases running on OS/390 or z/OS servers. For
- * other databases, pass &null; or an empty string.
+ * other databases, pass null or an empty string.
  * </p>
  * @param string $schema <p>
- * The schema which contains the tables. To match all schemas, pass &null;
+ * The schema which contains the tables. To match all schemas, pass null
  * or an empty string.
  * </p>
  * @param string $table_name
@@ -230,7 +230,7 @@ function db2_columnprivileges () {}
  * </p>
  * @param string $qualifier <p>
  * A qualifier for DB2 databases running on OS/390 or z/OS servers. For
- * other databases, pass &null; or an empty string.
+ * other databases, pass null or an empty string.
  * </p>
  * @param string $schema <p>
  * The schema which contains the tables. To match all schemas, pass
@@ -283,7 +283,7 @@ function db2_columnprivileges () {}
  * <tr valign="top">
  * <td>DECIMAL_DIGITS</td>
  * <td>
- * The scale of the column, or &null; where scale is not applicable.
+ * The scale of the column, or null where scale is not applicable.
  * </td>
  * </tr>
  * <tr valign="top">
@@ -291,7 +291,7 @@ function db2_columnprivileges () {}
  * <td>
  * An integer value of either 10 (representing
  * an exact numeric data type), 2 (representing an
- * approximate numeric data type), or &null; (representing a data type for
+ * approximate numeric data type), or null (representing a data type for
  * which radix is not applicable).
  * </td>
  * </tr>
@@ -316,14 +316,14 @@ function db2_columnprivileges () {}
  * <td>SQL_DATETIME_SUB</td>
  * <td>
  * Returns an integer value representing a datetime subtype code,
- * or &null; for SQL data types to which this does not apply.
+ * or null for SQL data types to which this does not apply.
  * </td>
  * </tr>
  * <tr valign="top">
  * <td>CHAR_OCTET_LENGTH</td>
  * <td>
  * Maximum length in octets for a character data type column, which
- * matches COLUMN_SIZE for single-byte character set data, or &null; for
+ * matches COLUMN_SIZE for single-byte character set data, or null for
  * non-character data types.
  * </td>
  * </tr>
@@ -349,11 +349,11 @@ function db2_columns ($connection, $qualifier = null, $schema = null, $table_nam
  * </p>
  * @param string $qualifier <p>
  * A qualifier for DB2 databases running on OS/390 or z/OS servers. For
- * other databases, pass &null; or an empty string.
+ * other databases, pass null or an empty string.
  * </p>
  * @param string $schema <p>
  * The schema which contains the tables. If schema
- * is &null;, db2_foreign_keys matches the schema for
+ * is null, db2_foreign_keys matches the schema for
  * the current connection.
  * </p>
  * @param string $table_name
@@ -453,11 +453,11 @@ function db2_foreignkeys () {}
  * </p>
  * @param string $qualifier <p>
  * A qualifier for DB2 databases running on OS/390 or z/OS servers. For
- * other databases, pass &null; or an empty string.
+ * other databases, pass null or an empty string.
  * </p>
  * @param string $schema <p>
  * The schema which contains the tables. If schema
- * is &null;, db2_primary_keys matches the schema for
+ * is null, db2_primary_keys matches the schema for
  * the current connection.
  * </p>
  * @param string $table_name
@@ -510,7 +510,7 @@ function db2_primarykeys () {}
  * </p>
  * @param string $qualifier <p>
  * A qualifier for DB2 databases running on OS/390 or z/OS servers. For
- * other databases, pass &null; or an empty string.
+ * other databases, pass null or an empty string.
  * </p>
  * @param string $schema <p>
  * The schema which contains the procedures. This parameter accepts a
@@ -525,7 +525,7 @@ function db2_primarykeys () {}
  * @param string $parameter <p>
  * The name of the parameter. This parameter accepts a search pattern
  * containing _ and % as wildcards.
- * If this parameter is &null;, all parameters for the specified stored
+ * If this parameter is null, all parameters for the specified stored
  * procedures are returned.
  * </p>
  * @return resource|false A statement resource with a result set containing rows describing
@@ -537,7 +537,7 @@ function db2_primarykeys () {}
  * </tr>
  * <tr valign="top">
  * <td>PROCEDURE_CAT</td>
- * <td>The catalog that contains the procedure. The value is &null; if
+ * <td>The catalog that contains the procedure. The value is null if
  * this table does not have catalogs.</td>
  * </tr>
  * <tr valign="top">
@@ -598,7 +598,7 @@ function db2_primarykeys () {}
  * <tr valign="top">
  * <td>DECIMAL_DIGITS</td>
  * <td>
- * The scale of the parameter, or &null; where scale is not applicable.
+ * The scale of the parameter, or null where scale is not applicable.
  * </td>
  * </tr>
  * <tr valign="top">
@@ -606,7 +606,7 @@ function db2_primarykeys () {}
  * <td>
  * An integer value of either 10 (representing
  * an exact numeric data type), 2 (representing an
- * approximate numeric data type), or &null; (representing a data type for
+ * approximate numeric data type), or null (representing a data type for
  * which radix is not applicable).
  * </td>
  * </tr>
@@ -631,14 +631,14 @@ function db2_primarykeys () {}
  * <td>SQL_DATETIME_SUB</td>
  * <td>
  * Returns an integer value representing a datetime subtype code,
- * or &null; for SQL data types to which this does not apply.
+ * or null for SQL data types to which this does not apply.
  * </td>
  * </tr>
  * <tr valign="top">
  * <td>CHAR_OCTET_LENGTH</td>
  * <td>
  * Maximum length in octets for a character data type parameter, which
- * matches COLUMN_SIZE for single-byte character set data, or &null; for
+ * matches COLUMN_SIZE for single-byte character set data, or null for
  * non-character data types.
  * </td>
  * </tr>
@@ -651,8 +651,8 @@ function db2_primarykeys () {}
  * <td>IS_NULLABLE</td>
  * <td>
  * A string value where 'YES' means that the parameter accepts or
- * returns &null; values and 'NO' means that the parameter does not
- * accept or return &null; values.
+ * returns null values and 'NO' means that the parameter does not
+ * accept or return null values.
  * </td>
  * </tr>
  */
@@ -668,7 +668,7 @@ function db2_procedurecolumns () {}
  * </p>
  * @param string $qualifier <p>
  * A qualifier for DB2 databases running on OS/390 or z/OS servers. For
- * other databases, pass &null; or an empty string.
+ * other databases, pass null or an empty string.
  * </p>
  * @param string $schema <p>
  * The schema which contains the procedures. This parameter accepts a
@@ -689,7 +689,7 @@ function db2_procedurecolumns () {}
  * </tr>
  * <tr valign="top">
  * <td>PROCEDURE_CAT</td>
- * <td>The catalog that contains the procedure. The value is &null; if
+ * <td>The catalog that contains the procedure. The value is null if
  * this table does not have catalogs.</td>
  * </tr>
  * <tr valign="top">
@@ -732,7 +732,7 @@ function db2_procedures ($connection, $qualifier, $schema, $procedure) {}
  * </p>
  * @param string $qualifier <p>
  * A qualifier for DB2 databases running on OS/390 or z/OS servers. For
- * other databases, pass &null; or an empty string.
+ * other databases, pass null or an empty string.
  * </p>
  * @param string $schema <p>
  * The schema which contains the tables.
@@ -831,7 +831,7 @@ function db2_procedures ($connection, $qualifier, $schema, $procedure) {}
  * <tr valign="top">
  * <td>DECIMAL_DIGITS</td>
  * <td>
- * The scale of the column, or &null; where scale is not applicable.
+ * The scale of the column, or null where scale is not applicable.
  * </td>
  * </tr>
  * <tr valign="top">
@@ -839,7 +839,7 @@ function db2_procedures ($connection, $qualifier, $schema, $procedure) {}
  * <td>
  * An integer value of either 10 (representing
  * an exact numeric data type), 2 (representing an
- * approximate numeric data type), or &null; (representing a data type for
+ * approximate numeric data type), or null (representing a data type for
  * which radix is not applicable).
  * </td>
  * </tr>
@@ -860,11 +860,11 @@ function db2_specialcolumns () {}
  * </p>
  * @param string $qualifier <p>
  * A qualifier for DB2 databases running on OS/390 or z/OS servers. For
- * other databases, pass &null; or an empty string.
+ * other databases, pass null or an empty string.
  * </p>
  * @param string $schema <p>
  * The schema that contains the targeted table. If this parameter is
- * &null;, the statistics and indexes are returned for the schema of the
+ * null, the statistics and indexes are returned for the schema of the
  * current user.
  * </p>
  * @param string $table_name <p>
@@ -885,7 +885,7 @@ function db2_specialcolumns () {}
  * </tr>
  * <tr valign="top">
  * <td>TABLE_CAT</td>
- * <td>The catalog that contains the table. The value is &null; if
+ * <td>The catalog that contains the table. The value is null if
  * this table does not have catalogs.</td>
  * </tr>
  * <tr valign="top">
@@ -915,7 +915,7 @@ function db2_specialcolumns () {}
  * <td>The index values must be unique.</td>
  * </tr>
  * <tr valign="top">
- * <td>&null;</td>
+ * <td>null</td>
  * <td>This row is statistics information for the table itself.</td>
  * </tr>
  * </p>
@@ -962,12 +962,12 @@ function db2_specialcolumns () {}
  * </tr>
  * <tr valign="top">
  * <td>ORDINAL_POSITION</td>
- * <td>The 1-indexed position of the column in the index. &null; if
+ * <td>The 1-indexed position of the column in the index. null if
  * the row contains statistics information about the table itself.</td>
  * </tr>
  * <tr valign="top">
  * <td>COLUMN_NAME</td>
- * <td>The name of the column in the index. &null; if the row
+ * <td>The name of the column in the index. null if the row
  * contains statistics information about the table itself.</td>
  * </tr>
  * <tr valign="top">
@@ -975,7 +975,7 @@ function db2_specialcolumns () {}
  * <td>
  * A if the column is sorted in ascending order,
  * D if the column is sorted in descending order,
- * &null; if the row contains statistics information about the table
+ * null if the row contains statistics information about the table
  * itself.
  * </td>
  * </tr>
@@ -1011,7 +1011,7 @@ function db2_specialcolumns () {}
  * </tr>
  * <tr valign="top">
  * <td>FILTER_CONDITION</td>
- * <td>Always returns &null;.</td>
+ * <td>Always returns null.</td>
  * </tr>
  */
 function db2_statistics ($connection, $qualifier, $schema, $table_name, $unique) {}
@@ -1024,7 +1024,7 @@ function db2_statistics ($connection, $qualifier, $schema, $table_name, $unique)
  * </p>
  * @param string $qualifier <p>
  * A qualifier for DB2 databases running on OS/390 or z/OS servers. For
- * other databases, pass &null; or an empty string.
+ * other databases, pass null or an empty string.
  * </p>
  * @param string $schema <p>
  * The schema which contains the tables. This parameter accepts a
@@ -1044,7 +1044,7 @@ function db2_statistics ($connection, $qualifier, $schema, $table_name, $unique)
  * </tr>
  * <tr valign="top">
  * <td>TABLE_CAT</td>
- * <td>The catalog that contains the table. The value is &null; if
+ * <td>The catalog that contains the table. The value is null if
  * this table does not have catalogs.</td>
  * </tr>
  * <tr valign="top">
@@ -1091,7 +1091,7 @@ function db2_tableprivileges () {}
  * </p>
  * @param string $qualifier <p>
  * A qualifier for DB2 databases running on OS/390 or z/OS servers. For
- * other databases, pass &null; or an empty string.
+ * other databases, pass null or an empty string.
  * </p>
  * @param string $schema <p>
  * The schema which contains the tables. This parameter accepts a
@@ -1109,7 +1109,7 @@ function db2_tableprivileges () {}
  * </tr>
  * <tr valign="top">
  * <td>TABLE_CAT</td>
- * <td>The catalog that contains the table. The value is &null; if
+ * <td>The catalog that contains the table. The value is null if
  * this table does not have catalogs.</td>
  * </tr>
  * <tr valign="top">
@@ -1743,7 +1743,7 @@ define ('DB2_BINARY', 1);
 define ('DB2_CONVERT', 2);
 
 /**
- * Specifies that binary data shall be converted to a &null; value.
+ * Specifies that binary data shall be converted to a null value.
  * @link https://php.net/manual/en/ibm-db2.constants.php
  */
 define ('DB2_PASSTHRU', 3);

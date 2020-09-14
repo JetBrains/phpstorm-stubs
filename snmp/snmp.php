@@ -89,11 +89,11 @@ class SNMP  {
 	/**
 	 * Creates SNMP instance representing session to remote SNMP agent
 	 * @link https://php.net/manual/en/snmp.construct.php
-	 * @param $version int <p>SNMP protocol version:
+	 * @param int $version <p>SNMP protocol version:
      * <b>SNMP::VERSION_1</b>,
      * <b>SNMP::VERSION_2C</b>,
      * <b>SNMP::VERSION_3</b>.</p>
-     * @param $hostname string The SNMP agent. <i>hostname</i> may be suffixed with
+     * @param string $hostname The SNMP agent. <i>hostname</i> may be suffixed with
      * optional <acronym title="Simple Network Management Protocol">SNMP</acronym> agent port after colon. IPv6 addresses must be enclosed in square
      * brackets if used with port. If FQDN is used for <i>hostname</i>
      * it will be resolved by php-snmp library, not by Net-SNMP engine. Usage
@@ -111,7 +111,7 @@ class SNMP  {
      * <tr><td>FQDN with specific port, force usage of IPv6 address</td><td>[host.domain]:1161</td>
      * </tbody>
      * </table>
-	 * @param $community string <p>The purpuse of <i>community</i> is
+	 * @param string $community <p>The purpuse of <i>community</i> is
      * <acronym title="Simple Network Management Protocol">SNMP</acronym> version specific:</p>
      * <table>
 	 * @since 5.4
@@ -123,8 +123,8 @@ class SNMP  {
      * <tr><td>SNMP::VERSION_3</td><td><acronym title="Simple Network Management Protocol">SNMP</acronym>v3 securityName</td></tr>
      * </tbody>
      * </table>
-	 * @param $timeout [optional] int The number of microseconds until the first timeout.
-	 * @param $retries [optional] int The number of retries in case timeout occurs.
+	 * @param int $timeout [optional] The number of microseconds until the first timeout.
+	 * @param int $retries [optional] The number of retries in case timeout occurs.
      */
 	public function __construct ($version, $hostname, $community, $timeout = 1000000, $retries = 5) {}
 
@@ -139,13 +139,13 @@ class SNMP  {
     /**
      * Configures security-related SNMPv3 session parameters
      * @link https://php.net/manual/en/snmp.setsecurity.php
-     * @param $sec_level string the security level (noAuthNoPriv|authNoPriv|authPriv)
-     * @param $auth_protocol string [optional] the authentication protocol (MD5 or SHA)
-     * @param $auth_passphrase string [optional] the authentication pass phrase
-     * @param $priv_protocol string [optional] the privacy protocol (DES or AES)
-     * @param $priv_passphrase string [optional] the privacy pass phrase
-     * @param $contextName string [optional] the context name
-     * @param $contextEngineID string [optional] the context EngineID
+     * @param string $sec_level the security level (noAuthNoPriv|authNoPriv|authPriv)
+     * @param string $auth_protocol [optional] the authentication protocol (MD5 or SHA)
+     * @param string $auth_passphrase [optional] the authentication pass phrase
+     * @param string $priv_protocol [optional] the privacy protocol (DES or AES)
+     * @param string $priv_passphrase [optional] the privacy pass phrase
+     * @param string $contextName [optional] the context name
+     * @param string $contextEngineID [optional] the context EngineID
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * @since 5.4
      */
@@ -154,8 +154,8 @@ class SNMP  {
 	/**
 	 * Fetch an SNMP object
 	 * @link https://php.net/manual/en/snmp.get.php
-	 * @param $object_id mixed The SNMP object (OID) or objects
-     * @param $preserve_keys bool [optional] When object_id is a array and preserve_keys set to <b>TRUE</b> keys in results will be taken exactly as in object_id, otherwise SNMP::oid_output_format property is used to determinate the form of keys.
+	 * @param mixed $object_id The SNMP object (OID) or objects
+     * @param bool $preserve_keys [optional] When object_id is a array and preserve_keys set to <b>TRUE</b> keys in results will be taken exactly as in object_id, otherwise SNMP::oid_output_format property is used to determinate the form of keys.
 	 * @return mixed SNMP objects requested as string or array
 	 * depending on <i>object_id</i> type or <b>FALSE</b> on error.
 	 * @since 5.4
@@ -166,7 +166,7 @@ class SNMP  {
 	 * Fetch an SNMP object which
      * follows the given object id
 	 * @link https://php.net/manual/en/snmp.getnext.php
-	 * @param $object_id mixed <p>
+	 * @param mixed $object_id <p>
      * The <acronym title="Simple Network Management Protocol">SNMP</acronym> object (OID) or objects
      * </p>
 	 * @return mixed SNMP objects requested as string or array
@@ -178,10 +178,10 @@ class SNMP  {
 	/**
 	 * Fetch SNMP object subtree
 	 * @link https://php.net/manual/en/snmp.walk.php
-	 * @param $object_id string <p>Root of subtree to be fetched</p>
-     * @param $suffix_as_keys bool [optional] <p>By default full OID notation is used for keys in output array. If set to <b>TRUE</b> subtree prefix will be removed from keys leaving only suffix of object_id.</p>
-     * @param $max_repetitions int [optional] <p>This specifies the maximum number of iterations over the repeating variables. The default is to use this value from SNMP object.</p>
-     * @param $non_repeaters int [optional] <p>This specifies the number of supplied variables that should not be iterated over. The default is to use this value from SNMP object.</p>
+	 * @param string $object_id <p>Root of subtree to be fetched</p>
+     * @param bool $suffix_as_keys [optional] <p>By default full OID notation is used for keys in output array. If set to <b>TRUE</b> subtree prefix will be removed from keys leaving only suffix of object_id.</p>
+     * @param int $max_repetitions [optional] <p>This specifies the maximum number of iterations over the repeating variables. The default is to use this value from SNMP object.</p>
+     * @param int $non_repeaters [optional] <p>This specifies the number of supplied variables that should not be iterated over. The default is to use this value from SNMP object.</p>
      * @return array|false associative array of the SNMP object ids and their values on success or <b>FALSE</b> on error.
 	 * When a SNMP error occures <b>SNMP::getErrno</b> and
 	 * <b>SNMP::getError</b> can be used for retrieving error
@@ -194,7 +194,7 @@ class SNMP  {
 	/**
 	 * Set the value of an SNMP object
 	 * @link https://php.net/manual/en/snmp.set.php
-	 * @param $object_id string <p>The SNMP object id</p>
+	 * @param string $object_id <p>The SNMP object id</p>
 	 * @since 5.4
      *
      * <p>When count of OIDs in object_id array is greater than
@@ -204,7 +204,7 @@ class SNMP  {
      * wrong type or value for OID requested. To mark this a warning is
      * raised when count of OIDs in object_id array is greater than max_oids.
      * When count of OIDs in object_id array is greater than max_oids object property set method will have to use multiple queries to perform requested value updates. In this case type and value checks are made per-chunk so second or subsequent requests may fail due to wrong type or value for OID requested. To mark this a warning is raised when count of OIDs in object_id array is greater than max_oids.</p>
-     * @param $type mixed <p>The MIB defines the type of each object id. It has to be specified as a single character from the below list.</p>
+     * @param mixed $type <p>The MIB defines the type of each object id. It has to be specified as a single character from the below list.</p>
      * <table>
      * <b>types</b>
      * <tbody>
@@ -258,7 +258,7 @@ class SNMP  {
      * <p>
      * See examples section for more details.
      * </p>
-	 * @param $value mixed <p>
+	 * @param mixed $value <p>
      * The new value.</p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */

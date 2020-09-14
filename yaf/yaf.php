@@ -131,9 +131,9 @@ final class Yaf_Application {
      * @link https://secure.php.net/manual/en/yaf-application.execute.php
      *
      * @param callable $entry a valid callback
-     * @param string $_ parameters will pass to the callback
+     * @param string ...$_ parameters will pass to the callback
      */
-    public function execute(callable $entry, $_ = "..."){ }
+    public function execute(callable $entry, ...$_){ }
 
     /**
      * Retrieve the Yaf_Application instance, alternatively, we also could use Yaf_Dispatcher::getApplication().
@@ -1187,7 +1187,7 @@ abstract class Yaf_Controller_Abstract {
      * @link https://secure.php.net/manual/en/yaf-controller-abstract.getinvokearg.php
      * @param string $name
      *
-     * @return null|mixed
+     * @return mixed|null
      */
     public function getInvokeArg($name){ }
 
@@ -2496,7 +2496,7 @@ class Yaf_View_Simple implements Yaf_View_Interface {
      * @link https://secure.php.net/manual/en/yaf-view-simple.assignref.php
      *
      * @param string $name A string name which will be used to access the value in the template.
-     * @param mixed $value mixed value
+     * @param mixed &$value mixed value
      *
      * @return Yaf_View_Simple
      */

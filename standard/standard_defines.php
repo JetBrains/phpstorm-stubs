@@ -165,7 +165,7 @@ define ('INFO_GENERAL', 1);
 define ('INFO_CREDITS', 2);
 
 /**
- * Current Local and Master values for PHP directives. See
+ * Current Local and Main values for PHP directives. See
  * also ini_get.
  * @link https://php.net/manual/en/info.constants.php
  */

@@ -901,7 +901,7 @@ class ZipArchive implements Countable {
 
     /**
      * (PHP 5 &gt;= 5.6.0, PECL zip &gt;= 1.12.0)<br/>
-     * @param $password
+     * @param string $password
      * @return bool
      */
     public function setPassword($password) {}
@@ -1146,8 +1146,8 @@ class ZipArchive implements Countable {
      * Retrieve the external attributes of an entry defined by its name
      * @link https://www.php.net/manual/en/ziparchive.getexternalattributesname.php
      * @param string $name Name of the entry
-     * @param int $opsys On success, receive the operating system code defined by one of the ZipArchive::OPSYS_ constants.
-     * @param int $attr On success, receive the external attributes. Value depends on operating system.
+     * @param int &$opsys On success, receive the operating system code defined by one of the ZipArchive::OPSYS_ constants.
+     * @param int &$attr On success, receive the external attributes. Value depends on operating system.
      * @param int $flags [optional] If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged attributes are returned.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
@@ -1168,8 +1168,8 @@ class ZipArchive implements Countable {
      * Retrieve the external attributes of an entry defined by its index
      * @link https://www.php.net/manual/en/ziparchive.getexternalattributesindex.php
      * @param int $index Index of the entry.
-     * @param int $opsys On success, receive the operating system code defined by one of the ZipArchive::OPSYS_ constants.
-     * @param int $attr On success, receive the external attributes. Value depends on operating system.
+     * @param int &$opsys On success, receive the operating system code defined by one of the ZipArchive::OPSYS_ constants.
+     * @param int &$attr On success, receive the external attributes. Value depends on operating system.
      * @param int $flags [optional] If flags is set to ZipArchive::FL_UNCHANGED, the original unchanged attributes are returned.
      * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */

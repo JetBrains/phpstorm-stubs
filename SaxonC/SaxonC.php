@@ -15,7 +15,7 @@ class SaxonProcessor {
     public function __construct($license = false, $cwd = '') {}
 
     /**
-     * Create an Xdm Atomic value from any of the main primitive types (i.e. bool, int, float, double, string)
+     * Create an Xdm Atomic value from any of the main primitive types (i.e. bool, int, float, string)
      *
      * @param bool|int|float|string $primitive_type_val
      * @return XdmValue
@@ -1179,7 +1179,7 @@ class XdmAtomicValue extends XdmItem {
     public function getBooleanValue() {}
 
     /**
-     * Get the value converted to a double using the XPath casting rules. If the value is a string, the XSD 1.1 rules are used, which means that the string "+INF" is recognised
+     * Get the value converted to a float using the XPath casting rules. If the value is a string, the XSD 1.1 rules are used, which means that the string "+INF" is recognised
      *
      * @return float
      */

@@ -4,7 +4,7 @@
  * Get the last occurred error
  * @link https://php.net/manual/en/function.error-get-last.php
  * @return array|null an associative array describing the last error with keys "type",
- * "message", "file" and "line". Returns &null; if there hasn't been an error
+ * "message", "file" and "line". Returns null if there hasn't been an error
  * yet.
  */
 function error_get_last () {}
@@ -19,7 +19,7 @@ function error_get_last () {}
  * Additionally class methods of an object instance may be called by passing
  * array($objectinstance, $methodname) to this parameter.
  * </p>
- * @param mixed $parameter [optional] <p>
+ * @param mixed ...$parameter [optional] <p>
  * Zero or more parameters to be passed to the function.
  * </p>
  * <p>
@@ -50,20 +50,19 @@ function call_user_func_array ($function, array $param_arr) {}
  * @link https://php.net/manual/en/function.call-user-method.php
  * @deprecated 5.3 use call_user_func() instead
  * @param string $method_name
- * @param object $obj
- * @param mixed $parameter [optional]
- * @param mixed $_ [optional]
+ * @param object &$obj
+ * @param mixed ...$parameter [optional]
  * @return mixed
  * @removed 7.0
  */
-function call_user_method ($method_name, &$obj, $parameter = null, $_ = null) {}
+function call_user_method ($method_name, &$obj, ...$parameter) {}
 
 /**
  * Call a user method given with an array of parameters
  * @link https://php.net/manual/en/function.call-user-method-array.php
  * @deprecated 5.3 use call_user_func_array() instead
  * @param string $method_name
- * @param object $obj
+ * @param object &$obj
  * @param array $params
  * @return mixed
  * @removed 7.0
@@ -88,9 +87,9 @@ function forward_static_call ($function, ...$parameters) {}
 /**
  * Call a static method and pass the arguments as array
  * @link https://php.net/manual/en/function.forward-static-call-array.php
- * @param callback $function <p>
- * The function or method to be called. This parameter may be an &array;,
- * with the name of the class, and the method, or a &string;, with a function
+ * @param callback|array|string $function <p>
+ * The function or method to be called. This parameter may be an array,
+ * with the name of the class, and the method, or a string, with a function
  * name.
  * </p>
  * @param array $parameters
@@ -175,10 +174,10 @@ function unserialize (string $str, array $options = []) {}
  * @param mixed $expression <p>
  * The variable you want to export.
  * </p>
- * @param mixed $_ [optional]
+ * @param mixed ...$_ [optional]
  * @return void
  */
-function var_dump ($expression, $_ = null) {}
+function var_dump ($expression, ...$_) {}
 
 /**
  * Outputs or returns a parsable string representation of a variable
@@ -193,7 +192,7 @@ function var_dump ($expression, $_ = null) {}
  * &note.uses-ob;
  * @return string|null the variable representation when the return
  * parameter is used and evaluates to true. Otherwise, this function will
- * return &null;.
+ * return null.
  */
 function var_export ($expression, $return = null) {}
 
@@ -319,8 +318,9 @@ function highlight_file ($filename, $return = false) {}
 /**
  * &Alias; <function>highlight_file</function>
  * @link https://php.net/manual/en/function.show-source.php
- * @param $file_name
- * @param $return [optional]
+ * @param string $file_name
+ * @param bool $return [optional]
+ * @return string|bool
  */
 function show_source ($file_name, $return = false) {}
 
@@ -436,8 +436,9 @@ function ini_set ($varname, $newvalue) {}
  * &Alias; <function>ini_set</function>
  * @link https://php.net/manual/en/function.ini-alter.php
  * @link https://php.net/manual/en/ini.list.php
- * @param $varname
- * @param $newvalue
+ * @param string $varname
+ * @param string $newvalue
+ * @return string|false
  */
 function ini_alter ($varname, $newvalue) {}
 
@@ -665,14 +666,14 @@ function header_remove ($name = null) {}
 /**
  * Checks if or where headers have been sent
  * @link https://php.net/manual/en/function.headers-sent.php
- * @param string $file [optional] <p>
+ * @param string &$file [optional] <p>
  * If the optional file and
  * line parameters are set,
  * headers_sent will put the PHP source file name
  * and line number where output started in the file
  * and line variables.
  * </p>
- * @param int $line [optional] <p>
+ * @param int &$line [optional] <p>
  * The line number where the output started.
  * </p>
  * @return bool headers_sent will return false if no HTTP headers
@@ -815,6 +816,7 @@ function is_uploaded_file ($filename) {}
 function move_uploaded_file ($filename, $destination) {}
 
 /**
+ * @return array|false
  * @since 7.3
  */
 function net_get_interfaces() {}
@@ -864,11 +866,11 @@ function gethostname () {}
 /**
  * &Alias; <function>checkdnsrr</function>
  * @link https://php.net/manual/en/function.dns-check-record.php
- * @param $host <p>
+ * @param string $host <p>
  * <b>host</b> may either be the IP address in
  * dotted-quad notation or the host name.
  * </p>
- * @param $type [optional] <p>
+ * @param string $type [optional] <p>
  * <b>type</b> may be any one of: A, MX, NS, SOA,
  * PTR, CNAME, AAAA, A6, SRV, NAPTR, TXT or ANY.
  * </p>
@@ -895,9 +897,10 @@ function checkdnsrr ($host, $type = null) {}
 /**
  * &Alias; <function>getmxrr</function>
  * @link https://php.net/manual/en/function.dns-get-mx.php
- * @param $hostname
- * @param $mxhosts
- * @param $weight [optional]
+ * @param string $hostname
+ * @param array &$mxhosts
+ * @param array &$weight [optional]
+ * @return bool
  */
 function dns_get_mx ($hostname, array &$mxhosts, array &$weight = null) {}
 
@@ -907,11 +910,11 @@ function dns_get_mx ($hostname, array &$mxhosts, array &$weight = null) {}
  * @param string $hostname <p>
  * The Internet host name.
  * </p>
- * @param array $mxhosts <p>
+ * @param array &$mxhosts <p>
  * A list of the MX records found is placed into the array
  * mxhosts.
  * </p>
- * @param array $weight [optional] <p>
+ * @param array &$weight [optional] <p>
  * If the weight array is given, it will be filled
  * with the weight information gathered.
  * </p>
@@ -955,11 +958,11 @@ function getmxrr ($hostname, array &$mxhosts, array &$weight = null) {}
  * always return every record, the slower DNS_ALL
  * will collect all records more reliably.
  * </p>
- * @param array $authns [optional] <p>
+ * @param array &$authns [optional] <p>
  * Passed by reference and, if given, will be populated with Resource
  * Records for the Authoritative Name Servers.
  * </p>
- * @param array $addtl [optional] <p>
+ * @param array &$addtl [optional] <p>
  * Passed by reference and, if given, will be populated with any
  * Additional Records.
  * </p>

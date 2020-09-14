@@ -10,7 +10,7 @@ use Throwable;
  * The behaviour of a future also allows it to be used as a simple synchronization point even where the task does not
  * return a value explicitly.
  *
- * @see https://www.php.net/manual/ru/class.parallel-future.php
+ * @see https://www.php.net/manual/en/class.parallel-future.php
  */
 final class Future{
 

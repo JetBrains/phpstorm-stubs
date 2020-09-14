@@ -152,7 +152,7 @@ function str_contains(string $haystack, string $needle) : bool {}
 /**
  * Return the current key and value pair from an array and advance the array cursor
  * @link https://php.net/manual/en/function.each.php
- * @param array|ArrayObject $array <p>
+ * @param array|ArrayObject &$array <p>
  * The input array.
  * </p>
  * @return array the current key and value pair from the array
@@ -420,7 +420,7 @@ function trait_exists($traitname, $autoload ) {}
  * The class name. The name is matched in a case-insensitive manner.
  * </p>
  * @param bool $autoload [optional] <p>
- * Whether or not to call &link.autoload; by default.
+ * Whether or not to call autoload by default.
  * </p>
  * @return bool true if <i>class_name</i> is a defined class,
  * false otherwise.
@@ -434,7 +434,7 @@ function class_exists ($class_name, $autoload = true) {}
  * The interface name
  * </p>
  * @param bool $autoload [optional] <p>
- * Whether to call &link.autoload; or not by default.
+ * Whether to call autoload or not by default.
  * </p>
  * @return bool true if the interface given by
  * <i>interface_name</i> has been defined, false otherwise.
@@ -585,6 +585,8 @@ function trigger_error ($error_msg, $error_type = E_USER_NOTICE) {}
  * @link https://php.net/manual/en/function.user-error.php
  * @param string $message
  * @param int    $error_type [optional]
+ * @return bool This function returns false if wrong <i>error_type</i> is
+ * specified, true otherwise.
  */
 function user_error ($message, $error_type = E_USER_NOTICE) {}
 

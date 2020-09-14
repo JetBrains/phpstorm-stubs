@@ -99,7 +99,7 @@ function uuid_variant ($uuid) {}
  * Extract creation time from a time based UUID as UNIX timestamp
  *
  * @param string $uuid
- * @return bool|int Returns a unix timestamp on success or false on failure
+ * @return false|int Returns a unix timestamp on success or false on failure
  */
 function uuid_time ($uuid) {}
 
@@ -107,7 +107,7 @@ function uuid_time ($uuid) {}
  * Get UUID creator network MAC address
  *
  * @param string $uuid
- * @return bool|string Returns the MAC address on succes or false on failure
+ * @return false|string Returns the MAC address on succes or false on failure
  */
 function uuid_mac ($uuid) {}
 
@@ -115,7 +115,7 @@ function uuid_mac ($uuid) {}
  * Converts a UUID string to the binary representation
  *
  * @param string $uuid
- * @return bool|string Binary string of the UUID on success or false on failure
+ * @return false|string Binary string of the UUID on success or false on failure
  */
 function uuid_parse ($uuid) {}
 
@@ -123,6 +123,6 @@ function uuid_parse ($uuid) {}
  * Converts a UUID binary string to the human readable string
  *
  * @param string $uuid
- * @return bool|string String UUID on success or false on failure
+ * @return false|string String UUID on success or false on failure
  */
 function uuid_unparse ($uuid) {}

@@ -18,7 +18,7 @@ class php_user_filter  {
      * @link https://php.net/manual/en/php-user-filter.filter.php
      * @param resource $in <p> is a resource pointing to a <i>bucket brigade</i< which contains one or more <i>bucket</i> objects containing data to be filtered.</p>
      * @param resource $out <p>is a resource pointing to a second bucket brigade into which your modified buckets should be placed.</p>
-     * @param int $consumed <p>which must <i>always</i> be declared by reference, should be incremented by the length of the data which your filter reads in and alters. In most cases this means you will increment consumed by <i>$bucket->datalen</i> for each <i>$bucket</i>.</p>
+     * @param int &$consumed <p>which must <i>always</i> be declared by reference, should be incremented by the length of the data which your filter reads in and alters. In most cases this means you will increment consumed by <i>$bucket->datalen</i> for each <i>$bucket</i>.</p>
      * @param bool $closing <p>If the stream is in the process of closing (and therefore this is the last pass through the filterchain), the closing parameter will be set to <b>TRUE</b>
      * @return int <p>
      * The <b>filter()</b> method must return one of
@@ -127,7 +127,7 @@ class Directory  {
  * @param string $name <p>
  * The constant name.
  * </p>
- * @return mixed the value of the constant, or &null; if the constant is not
+ * @return mixed the value of the constant, or null if the constant is not
  * defined.
  */
 function constant ($name) {}
@@ -813,7 +813,7 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
  * about. It can reference a local file or (configuration permitting) a
  * remote file using one of the supported streams.
  * </p>
- * @param array $imageinfo [optional] <p>
+ * @param array &$imageinfo [optional] <p>
  * This optional parameter allows you to extract some extended
  * information from the image file. Currently, this will return the
  * different JPG APP markers as an associative array.
@@ -1006,7 +1006,7 @@ function image_type_to_extension ($imagetype, $include_dot = true) {}
  * <td>INFO_CONFIGURATION</td>
  * <td>4</td>
  * <td>
- * Current Local and Master values for PHP directives. See
+ * Current Local and Main values for PHP directives. See
  * also ini_get.
  * </td>
  * </tr>

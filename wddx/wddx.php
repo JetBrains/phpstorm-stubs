@@ -22,10 +22,10 @@ function wddx_serialize_value ($var, $comment = null) {}
  * Can be either a string naming a variable or an array containing
  * strings naming the variables or another array, etc.
  * </p>
- * @param mixed $_ [optional]
+ * @param mixed ...$_ [optional]
  * @return string|false the WDDX packet, or <b>FALSE</b> on error.
  */
-function wddx_serialize_vars ($var_name, $_ = null) {}
+function wddx_serialize_vars ($var_name, ...$_) {}
 
 /**
  * Starts a new WDDX packet with structure inside it
@@ -57,10 +57,10 @@ function wddx_packet_end ($packet_id) {}
  * Can be either a string naming a variable or an array containing
  * strings naming the variables or another array, etc.
  * </p>
- * @param mixed $_ [optional]
+ * @param mixed ...$_ [optional]
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function wddx_add_vars ($packet_id, $var_name, $_ = null) {}
+function wddx_add_vars ($packet_id, $var_name, ...$_) {}
 
 /**
  * Unserializes a WDDX packet

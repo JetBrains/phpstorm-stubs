@@ -32,7 +32,7 @@ class ZendAPI_Queue {
      * @param Job $job The Job we want to insert to the queue (by ref.)
      * @return int The inserted job id
      */
-    function addJob(&$job) {}
+    function addJob($job) {}
 
 
     /**
@@ -51,7 +51,7 @@ class ZendAPI_Queue {
         If the given Job doesn't have an assigned ID, a new job will be added
      * @return int The id of the updated job
      */
-    function updateJob(&$job) {}
+    function updateJob($job) {}
 
     /**
      * Remove a job from the queue
@@ -127,7 +127,7 @@ class ZendAPI_Queue {
         from the queue. If not set, all jobs will be returned.<br>
      *     Options can be: priority, application_id, name, status, recurring.
      * @param int $max_jobs  Maximum jobs to retrieve. Default is -1, getting all jobs available.
-     * @param bool $with_globals_and_output. Whether gets the global variables dataand job output.
+     * @param bool $with_globals_and_output Whether gets the global variables dataand job output.
      *     Default is false.
      * @return array  Jobs that satisfies filter_options.
      */
@@ -162,12 +162,12 @@ class ZendAPI_Queue {
      * Return finished jobs (either failed or successed) between time range allowing paging.
      * Jobs are sorted by job id descending.
      *
-     * @param int $status. Filter to jobs by status, 1-success, 0-failed either logical or execution.
+     * @param int $status Filter to jobs by status, 1-success, 0-failed either logical or execution.
      * @param int $start_time UNIX timestamp. Get only jobs finished after $start_time.
      * @param int $end_time UNIX timestamp. Get only jobs finished before $end_time.
-     * @param int $index. Get jobs starting from the $index-th place.
-     * @param int $count. Get only $count jobs.
-     * @param int $total. Pass by reference. Return the total number of jobs statisifed the query criteria.
+     * @param int $index Get jobs starting from the $index-th place.
+     * @param int $count Get only $count jobs.
+     * @param int &$total Pass by reference. Return the total number of jobs statisifed the query criteria.
      *
      * @return array of jobs.
      */
@@ -451,7 +451,7 @@ class ZendAPI_Job {
 
 /**
  * Disable/enable the Code Acceleration functionality at run time.
- * @param $status bool If false, Acceleration is disabled, if true - enabled
+ * @param bool $status If false, Acceleration is disabled, if true - enabled
  * @return void
  */
 function accelerator_set_status($status) {}
@@ -472,55 +472,55 @@ function output_cache_disable_compression() {}
 
 /**
  * Gets the code’s return value from the cache if it is there, if not - run function and cache the value.
- * @param $key string cache key
- * @param $function string PHP expression
- * @param $lifetime int data lifetime in cache (seconds)
+ * @param string $key cache key
+ * @param string $function PHP expression
+ * @param int $lifetime data lifetime in cache (seconds)
  * @return string function's return
  */
 function output_cache_fetch($key, $function, $lifetime) {}
 
 /**
  * If they cache for the key exists, output it, otherwise capture expression output, cache and pass it out.
- * @param $key string cache key
- * @param $function string PHP expression
- * @param $lifetime int data lifetime in cache (seconds)
+ * @param string $key cache key
+ * @param string $function PHP expression
+ * @param int $lifetime data lifetime in cache (seconds)
  * @return mixed expression output
  */
 function output_cache_output($key, $function, $lifetime) {}
 
 /**
  * Removes all the cache data for the given filename.
- * @param $filename string full script path on local filesystem
+ * @param string $filename full script path on local filesystem
  * @return bool true if OK, false if something went wrong
  */
 function output_cache_remove($filename) {}
 
 /**
  * Remove cache data for the script with given URL (all dependent data is removed)
- * @param $url string the local url for the script
+ * @param string $url the local url for the script
  * @return bool true if OK
  */
 function output_cache_remove_url($url) {}
 
 /**
  * Remove item from PHP API cache by key
- * @param $key string cache key as given to output_cache_get/output_cache_put
+ * @param string $key cache key as given to output_cache_get/output_cache_put
  * @return bool true if OK
  */
 function output_cache_remove_key($key) {}
 
 /**
  * Puts data in cache according to the assigned key.
- * @param $key string cache key
- * @param $data mixed cached data (must not contain objects or resources)
+ * @param string $key cache key
+ * @param mixed $data cached data (must not contain objects or resources)
  * @return bool true if OK
  */
 function output_cache_put($key, $data) {}
 
 /**
  * Gets cached data according to the assigned key.
- * @param $key string cache key
- * @param $lifetime int cache validity time (seconds)
+ * @param string $key cache key
+ * @param int $lifetime cache validity time (seconds)
  * @return mixed|false cached data if cache exists, false otherwise
  */
 function output_cache_get($key, $lifetime) {}
@@ -528,8 +528,8 @@ function output_cache_get($key, $lifetime) {}
 /**
  * If data for assigned key exists, this function outputs it and returns a value of true.
  * If not, it starts capturing the output. To be used in pair with output_cache_stop.
- * @param $key string cache key
- * @param $lifetime int cache validity time (seconds)
+ * @param string $key cache key
+ * @param int $lifetime cache validity time (seconds)
  * @return bool true if cached data exists
  */
 function output_cache_exists($key, $lifetime) {}
@@ -547,10 +547,10 @@ function output_cache_stop() {}
  * The user function needs to accept two parameters: the error code, and a string describing the error.
  * Then there are two optional parameters that may be supplied: the filename in which the error occurred
  * and the line number  in which the error occurred.
- * @param $errno int
- * @param $errstr string
- * @param $errfile string
- * @param $errline integer
+ * @param int $errno
+ * @param string $errstr
+ * @param string $errfile
+ * @param integer $errline
  * @return void
  */
 function monitor_pass_error($errno, $errstr, $errfile, $errline) {}
@@ -632,8 +632,8 @@ class java {
     /**
      * Create Java object
      *
+     * @param string $classname
      * @return java
-     * @param  $classname string
      */
     function java($classname) {}
 

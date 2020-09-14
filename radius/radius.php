@@ -85,7 +85,7 @@ define('RADIUS_USER_NAME', 1);
 
 /**
  * The User-Password attribute. The attribute value is expected to be a string containing the user's password, and can be set using {@see radius_put_attr()}. This value will be obfuscated on transmission as described in section 5.2 of RFC 2865.
- * @link https://secure.php.net/manual/de/radius.constants.attributes.php */
+ * @link https://secure.php.net/manual/en/radius.constants.attributes.php */
 define('RADIUS_USER_PASSWORD', 2);
 
 /** The Chap-Password attribute. The attribute value is expected to be a string with the first byte containing the CHAP identifier, and the subsequent 16 bytes containing the MD5 hash of the CHAP identifier, the plaintext password and the CHAP challenge value concatenated together. Note that the CHAP challenge value should also be sent separately in a <b>{@see RADIUS_CHAP_CHALLENGE}</b> attribute. */

@@ -47,7 +47,7 @@ function array_replace(array $array, array ...$arrays) { }
  * @param array ...$arrays <p>
  * The array from which elements will be extracted.
  * </p>
- * @return array an array, or &null; if an error occurs.
+ * @return array|null an array, or null if an error occurs.
  */
 function array_replace_recursive(array $array, array ...$arrays) { }
 
@@ -247,34 +247,34 @@ function array_unique(array $array, $sort_flags = SORT_STRING) { }
  * Computes the intersection of arrays
  * @link https://php.net/manual/en/function.array-intersect.php
  * @param array $array1 <p>
- * The array with master values to check.
+ * The array with main values to check.
  * </p>
  * @param array $array2 <p>
  * An array to compare values against.
  * </p>
- * @param array $_ [optional]
+ * @param array ...$_ [optional]
  * @return array an array containing all of the values in
  * array1 whose values exist in all of the parameters.
  * @meta
  */
-function array_intersect(array $array1, array $array2, array $_ = null) { }
+function array_intersect(array $array1, array $array2, array ...$_) { }
 
 /**
  * Computes the intersection of arrays using keys for comparison
  * @link https://php.net/manual/en/function.array-intersect-key.php
  * @param array $array1 <p>
- * The array with master keys to check.
+ * The array with main keys to check.
  * </p>
  * @param array $array2 <p>
  * An array to compare keys against.
  * </p>
- * @param array $_ [optional]
+ * @param array ...$_ [optional]
  * @return array an associative array containing all the entries of
  * array1 which have keys that are present in all
  * arguments.
  * @meta
  */
-function array_intersect_key(array $array1, array $array2, array $_ = null) { }
+function array_intersect_key(array $array1, array $array2, array ...$_) { }
 
 /**
  * Computes the intersection of arrays using a callback function on the keys for comparison
@@ -285,7 +285,7 @@ function array_intersect_key(array $array1, array $array2, array $_ = null) { }
  * @param array $array2 <p>
  * First array to compare keys against.
  * </p>
- * @param array $_ [optional]
+ * @param array ...$_ [optional]
  * @param callback $key_compare_func <p>
  * User supplied callback function to do the comparison.
  * </p>
@@ -304,7 +304,7 @@ function array_intersect_ukey(array $array1, array $array2, array $_ = null, $ke
  * @param array $array2 <p>
  * The second array.
  * </p>
- * @param array $_ [optional]
+ * @param array ...$_ [optional]
  * @param callback $data_compare_func <p>
  * The callback comparison function.
  * </p>
@@ -324,7 +324,7 @@ function array_uintersect(array $array1, array $array2, array $_ = null, $data_c
  * Computes the intersection of arrays with additional index check
  * @link https://php.net/manual/en/function.array-intersect-assoc.php
  * @param array $array1 <p>
- * The array with master values to check.
+ * The array with main values to check.
  * </p>
  * @param array $array2 <p>
  * An array to compare values against.
@@ -345,7 +345,7 @@ function array_intersect_assoc(array $array1, array $array2, array $_ = null) { 
  * @param array $array2 <p>
  * The second array.
  * </p>
- * @param array $_ [optional]
+ * @param array ...$_ [optional]
  * @param callback $data_compare_func <p>
  * For comparison is used the user supplied callback function.
  * It must return an integer less than, equal
@@ -368,7 +368,7 @@ function array_uintersect_assoc(array $array1, array $array2, array $_ = null, $
  * @param array $array2 <p>
  * First array to compare keys against.
  * </p>
- * @param array $_ [optional]
+ * @param array ...$_ [optional]
  * @param callback $key_compare_func <p>
  * User supplied callback function to do the comparison.
  * </p>
@@ -387,7 +387,7 @@ function array_intersect_uassoc(array $array1, array $array2, array $_ = null, $
  * @param array $array2 <p>
  * The second array.
  * </p>
- * @param array $_ [optional]
+ * @param array ...$_ [optional]
  * @param callback $data_compare_func <p>
  * For comparison is used the user supplied callback function.
  * It must return an integer less than, equal
@@ -413,12 +413,12 @@ function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, 
  * @param array $array2 <p>
  * An array to compare against
  * </p>
- * @param array $_ [optional]
+ * @param array ...$_ [optional]
  * @return array an array containing all the entries from
  * array1 that are not present in any of the other arrays.
  * @meta
  */
-function array_diff(array $array1, array $array2, array $_ = null) { }
+function array_diff(array $array1, array $array2, array ...$_) { }
 
 /**
  * Computes the difference of arrays using keys for comparison
@@ -429,13 +429,13 @@ function array_diff(array $array1, array $array2, array $_ = null) { }
  * @param array $array2 <p>
  * An array to compare against
  * </p>
- * @param array $_ [optional]
+ * @param array ...$_ [optional]
  * @return array an array containing all the entries from
  * array1 whose keys are not present in any of the
  * other arrays.
  * @meta
  */
-function array_diff_key(array $array1, array $array2, array $_ = null) { }
+function array_diff_key(array $array1, array $array2, array ...$_) { }
 
 /**
  * Computes the difference of arrays using a callback function on the keys for comparison
@@ -446,7 +446,7 @@ function array_diff_key(array $array1, array $array2, array $_ = null) { }
  * @param array $array2 <p>
  * An array to compare against
  * </p>
- * @param array $_ [optional]
+ * @param array ...$_ [optional]
  * @param callback $key_compare_func <p>
  * callback function to use.
  * The callback function must return an integer less than, equal
@@ -468,7 +468,7 @@ function array_diff_ukey(array $array1, array $array2, array $_ = null, $key_com
  * @param array $array2 <p>
  * The second array.
  * </p>
- * @param array $_ [optional]
+ * @param array ...$_ [optional]
  * @param callback $data_compare_func <p>
  * The callback comparison function.
  * </p>
@@ -493,12 +493,12 @@ function array_udiff(array $array1, array $array2, array $_ = null, $data_compar
  * @param array $array2 <p>
  * An array to compare against
  * </p>
- * @param array $_ [optional]
+ * @param array ...$_ [optional]
  * @return array an array containing all the values from
  * array1 that are not present in any of the other arrays.
  * @meta
  */
-function array_diff_assoc(array $array1, array $array2, array $_ = null) { }
+function array_diff_assoc(array $array1, array $array2, array ...$_) { }
 
 /**
  * Computes the difference of arrays with additional index check, compares data by a callback function
@@ -509,7 +509,7 @@ function array_diff_assoc(array $array1, array $array2, array $_ = null) { }
  * @param array $array2 <p>
  * The second array.
  * </p>
- * @param array $_ [optional]
+ * @param array ...$_ [optional]
  * @param callback $data_compare_func <p>
  * The callback comparison function.
  * </p>
@@ -541,7 +541,7 @@ function array_udiff_assoc(array $array1, array $array2, array $_ = null, $data_
  * @param array $array2 <p>
  * An array to compare against
  * </p>
- * @param array $_ [optional]
+ * @param array ...$_ [optional]
  * @param callback $key_compare_func <p>
  * callback function to use.
  * The callback function must return an integer less than, equal
@@ -563,7 +563,7 @@ function array_diff_uassoc(array $array1, array $array2, array $_ = null, $key_c
  * @param array $array2 <p>
  * The second array.
  * </p>
- * @param array $_ [optional]
+ * @param array ...$_ [optional]
  * @param callback $data_compare_func <p>
  * The callback comparison function.
  * </p>
@@ -658,12 +658,12 @@ function array_filter(array $input, $callback = null, $flag = 0) { }
  * @param array $arr1 <p>
  * An array to run through the callback function.
  * </p>
- * @param array $_ [optional]
+ * @param array ...$_ [optional]
  * @return array an array containing all the elements of arr1
  * after applying the callback function to each one.
  * @meta
  */
-function array_map($callback, array $arr1, array $_ = null) { }
+function array_map($callback, array $arr1, array ...$_) { }
 
 /**
  * Split an array into chunks
@@ -740,6 +740,7 @@ function array_key_last(array $array) { }
  * &Alias; <function>current</function>
  * @link https://php.net/manual/en/function.pos.php
  * @param array $arg
+ * @return mixed
  */
 function pos($arg) { }
 
@@ -1147,7 +1148,7 @@ function realpath_cache_size() { }
  * It returns the same result as (array) $object, with the
  * exception that it ignores overloaded array casts, such as used by
  * ArrayObject.
- * @param $obj
+ * @param object $obj
  * @return array returns the mangled object properties
  * @since 7.4
  */

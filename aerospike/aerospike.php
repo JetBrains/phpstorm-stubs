@@ -627,7 +627,7 @@ class Aerospike {
      * @link https://www.aerospike.com/docs/guide/kvs.html Key-Value Store
      * @link https://www.aerospike.com/docs/guide/glossary.html Glossary
      * @param array $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
-     * @param array $record a reference to a variable which will contain the retrieved record of `['key', metadata', 'bins]` with the structure:
+     * @param array &$record a reference to a variable which will contain the retrieved record of `['key', metadata', 'bins]` with the structure:
      * ```
      * Array:
      *   key => Array
@@ -697,7 +697,7 @@ class Aerospike {
      * ```
      * @link https://www.aerospike.com/docs/guide/glossary.html Glossary
      * @param array $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
-     * @param array $metadata a reference to a variable which will be filled with an array of `['ttl', 'generation']` values
+     * @param array &$metadata a reference to a variable which will be filled with an array of `['ttl', 'generation']` values
      * @param array $options an optional array of read policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
      * * Aerospike::OPT_DESERIALIZE
@@ -1386,7 +1386,7 @@ class Aerospike {
      *
      * ```
      *
-     * @param array $returned a pass-by-reference array of bins retrieved by read operations. If multiple operations exist for a specific bin name, the last operation will be the one placed as the value
+     * @param array &$returned a pass-by-reference array of bins retrieved by read operations. If multiple operations exist for a specific bin name, the last operation will be the one placed as the value
      * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_TTL
@@ -1765,7 +1765,7 @@ class Aerospike {
      *
      * ```
      *
-     * @param array $returned a pass-by-reference array of bins retrieved by read operations. If multiple operations exist for a specific bin name, the last operation will be the one placed as the value
+     * @param array &$returned a pass-by-reference array of bins retrieved by read operations. If multiple operations exist for a specific bin name, the last operation will be the one placed as the value
      * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_TTL
@@ -1809,7 +1809,7 @@ class Aerospike {
      * @version 3.7 Requires server >= 3.7
      * @param array  $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $bin
-     * @param int    $count pass-by-reference param
+     * @param int    &$count pass-by-reference param
      * @param array  $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
      * * Aerospike::OPT_POLICY_KEY
@@ -1978,7 +1978,7 @@ class Aerospike {
      * @param array  $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $bin
      * @param int    $index
-     * @param mixed  $element pass-by-reference param
+     * @param mixed  &$element pass-by-reference param
      * @param array  $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_TTL
@@ -2016,7 +2016,7 @@ class Aerospike {
      * @param string $bin
      * @param int    $index
      * @param int    $count
-     * @param array  $elements pass-by-reference param. After the method call it will be an array holding the popped elements.
+     * @param array  &$elements pass-by-reference param. After the method call it will be an array holding the popped elements.
      * @param array  $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_TTL
@@ -2226,7 +2226,7 @@ class Aerospike {
      * @param array  $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $bin
      * @param int    $index
-     * @param  $element pass-by-reference param which will hold the returned element.
+     * @param mixed  &$element pass-by-reference param which will hold the returned element.
      * @param array  $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
      * * Aerospike::OPT_POLICY_KEY
@@ -2261,7 +2261,7 @@ class Aerospike {
      * @param string $bin
      * @param int    $index
      * @param int    $count
-     * @param   $elements pass-by-reference param which will hold an array of returned elements from the specified list bin.
+     * @param array  &$elements pass-by-reference param which will hold an array of returned elements from the specified list bin.
      * @param array  $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
      * * Aerospike::OPT_POLICY_KEY
@@ -2482,7 +2482,7 @@ class Aerospike {
      * }
      * ```
      * @param array $keys an array of initialized keys, each key an array with keys `['ns','set','key']` or `['ns','set','digest']`
-     * @param array $records a pass-by-reference variable which will hold an array of record values, each record an array of `['key', 'metadata', 'bins']`
+     * @param array &$records a pass-by-reference variable which will hold an array of record values, each record an array of `['key', 'metadata', 'bins']`
      * @param array $select only these bins out of the record (optional)
      * @param array $options an optional array of read policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
@@ -2607,7 +2607,7 @@ class Aerospike {
      * }
      * ```
      * @param array $keys an array of initialized keys, each key an array with keys `['ns','set','key']` or `['ns','set','digest']`
-     * @param array $metadata a pass-by-reference array of metadata values, each an array of `['key', 'metadata']`
+     * @param array &$metadata a pass-by-reference array of metadata values, each an array of `['key', 'metadata']`
      * @param array $options an optional array of read policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
      * * Aerospike::USE_BATCH_DIRECT
@@ -2922,7 +2922,7 @@ class Aerospike {
      *
      * @param int   $job_id  The Job ID
      * @param int   $job_type The type of the job, either Aerospike::JOB_QUERY, or Aerospike::JOB_SCAN
-     * @param array $info    The status of the background job filled (by reference) as an array of
+     * @param array &$info    The status of the background job filled (by reference) as an array of
      * ```
      * [
      *   'progress_pct' => progress percentage for the job
@@ -3025,9 +3025,9 @@ class Aerospike {
      *   }
      * }
      * ```
-     * @param array $modules pass-by-reference param
-     * @param int    $language
-     * @param array  $options an optional array of policy options, whose keys include
+     * @param array &$modules pass-by-reference param
+     * @param int   $language
+     * @param array $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
      * @see Aerospike::OPT_READ_TIMEOUT Aerospike::OPT_READ_TIMEOUT
      * @see Aerospike::OK Aerospike::OK and error status codes
@@ -3072,8 +3072,8 @@ class Aerospike {
      * "
      * ```
      * @param string $module the name of the UDF module registered with the cluster
-     * @param string $code pass-by-reference param
-     * @param int    $language
+     * @param string &$code pass-by-reference param
+     * @param string $language
      * @param array  $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
      * @see Aerospike::OPT_READ_TIMEOUT Aerospike::OPT_READ_TIMEOUT
@@ -3114,7 +3114,7 @@ class Aerospike {
      * @param string $module the name of the UDF module registered with the cluster
      * @param string $function the name of the UDF
      * @param array  $args optional arguments for the UDF
-     * @param mixed $returned pass-by-reference param
+     * @param mixed  &$returned pass-by-reference param
      * @param array  $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_POLICY_KEY
@@ -3165,7 +3165,7 @@ class Aerospike {
      * @param string $module the name of the UDF module registered with the cluster
      * @param string $function the name of the UDF
      * @param array  $args optional arguments for the UDF
-     * @param int    $job_id pass-by-reference filled by the job ID of the scan
+     * @param int    &$job_id pass-by-reference filled by the job ID of the scan
      * @param array  $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_POLICY_DURABLE_DELETE
@@ -3232,7 +3232,7 @@ class Aerospike {
      * @param string $module the name of the UDF module registered with the cluster
      * @param string $function the name of the UDF
      * @param array  $args optional arguments for the UDF
-     * @param int    $job_id pass-by-reference filled by the job ID of the scan
+     * @param int    &$job_id pass-by-reference filled by the job ID of the scan
      * @param array  $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_WRITE_TIMEOUT
      * * Aerospike::OPT_POLICY_DURABLE_DELETE
@@ -3370,7 +3370,7 @@ class Aerospike {
      * @param string $module the name of the UDF module registered with the cluster
      * @param string $function the name of the UDF
      * @param array  $args optional arguments for the UDF
-     * @param mixed $returned pass-by-reference param
+     * @param mixed  &$returned pass-by-reference param
      * @param array  $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
      * * Aerospike::OPT_READ_TIMEOUT
@@ -3471,7 +3471,7 @@ class Aerospike {
      * ```
      * @link https://www.aerospike.com/docs/reference/info Info Command Reference
      * @param string $request  a formatted info command
-     * @param string $response a formatted response from the server, filled by reference
+     * @param string &$response a formatted response from the server, filled by reference
      * @param array  $host     an array holding the cluster node connection information cluster
      *                         and manage its connections to them. ```[ 'addr' => $addr , 'port' =>  $port ]```
      * @param array  $options an optional array of policy options, whose keys include

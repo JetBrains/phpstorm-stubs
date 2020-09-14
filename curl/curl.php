@@ -2472,7 +2472,7 @@ function curl_reset ($ch) {}
  * Run the sub-connections of the current cURL handle
  * @link https://php.net/manual/en/function.curl-multi-exec.php
  * @param resource $mh
- * @param int $still_running <p>
+ * @param int &$still_running <p>
  * A reference to a flag to tell whether the operations are still running.
  * </p>
  * @return int A cURL code defined in the cURL Predefined Constants.
@@ -2496,7 +2496,7 @@ function curl_multi_getcontent ($ch) {}
  * Get information about the current transfers
  * @link https://php.net/manual/en/function.curl-multi-info-read.php
  * @param resource $mh
- * @param int $msgs_in_queue [optional] <p>
+ * @param int &$msgs_in_queue [optional] <p>
  * Number of messages that are still in the queue
  * </p>
  * @return array|false On success, returns an associative array for the message, false on failure.

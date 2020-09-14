@@ -5,7 +5,7 @@
 /**
  * Add character at current position and advance cursor
  * @link https://php.net/manual/en/function.ncurses-addch.php
- * @param $ch int <p>
+ * @param int $ch <p>
  * </p>
  * @return int
  */
@@ -14,7 +14,7 @@ function ncurses_addch ($ch) {}
 /**
  * Set fore- and background color
  * @link https://php.net/manual/en/function.ncurses-color-set.php
- * @param $pair int <p>
+ * @param int $pair <p>
  * </p>
  * @return int
  */
@@ -23,7 +23,7 @@ function ncurses_color_set ($pair) {}
 /**
  * Delete a ncurses window
  * @link https://php.net/manual/en/function.ncurses-delwin.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
  * @return bool
  */
@@ -62,11 +62,11 @@ function ncurses_init () {}
 /**
  * Allocate a color pair
  * @link https://php.net/manual/en/function.ncurses-init-pair.php
- * @param $pair int <p>
+ * @param int $pair <p>
  * </p>
- * @param $fg int <p>
+ * @param int $fg <p>
  * </p>
- * @param $bg int <p>
+ * @param int $bg <p>
  * </p>
  * @return int
  */
@@ -75,13 +75,13 @@ function ncurses_init_pair ($pair, $fg, $bg) {}
 /**
  * Gets the RGB value for color
  * @link https://php.net/manual/en/function.ncurses-color-content.php
- * @param $color int <p>
+ * @param int $color <p>
  * </p>
- * @param $r int <p>
+ * @param int &$r <p>
  * </p>
- * @param $g int <p>
+ * @param int &$g <p>
  * </p>
- * @param $b int <p>
+ * @param int &$b <p>
  * </p>
  * @return int
  */
@@ -90,11 +90,11 @@ function ncurses_color_content ($color, &$r, &$g, &$b) {}
 /**
  * Gets the RGB value for color
  * @link https://php.net/manual/en/function.ncurses-pair-content.php
- * @param $pair int <p>
+ * @param int $pair <p>
  * </p>
- * @param $f int <p>
+ * @param int &$f <p>
  * </p>
- * @param $b int <p>
+ * @param int &$b <p>
  * </p>
  * @return int
  */
@@ -103,9 +103,9 @@ function ncurses_pair_content ($pair, &$f, &$b) {}
 /**
  * Move output position
  * @link https://php.net/manual/en/function.ncurses-move.php
- * @param $y int <p>
+ * @param int $y <p>
  * </p>
- * @param $x int <p>
+ * @param int $x <p>
  * </p>
  * @return int
  */
@@ -114,16 +114,16 @@ function ncurses_move ($y, $x) {}
 /**
  * Create a new window
  * @link https://php.net/manual/en/function.ncurses-newwin.php
- * @param $rows int <p>
+ * @param int $rows <p>
  * Number of rows
  * </p>
- * @param $cols int <p>
+ * @param int $cols <p>
  * Number of columns
  * </p>
- * @param $y int <p>
+ * @param int $y <p>
  * y-ccordinate of the origin
  * </p>
- * @param $x int <p>
+ * @param int $x <p>
  * x-ccordinate of the origin
  * </p>
  * @return resource a resource ID for the new window.
@@ -134,7 +134,7 @@ function ncurses_newwin ($rows, $cols, $y, $x) {}
 /**
  * Refresh screen
  * @link https://php.net/manual/en/function.ncurses-refresh.php
- * @param $ch int <p>
+ * @param int $ch <p>
  * </p>
  * @return int
  */
@@ -289,7 +289,7 @@ function ncurses_erase () {}
 /**
  * Erase window contents
  * @link https://php.net/manual/en/function.ncurses-werase.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
  * @return int
  */
@@ -419,7 +419,7 @@ function ncurses_raw () {}
 /**
  * Enables/Disable 8-bit meta key information
  * @link https://php.net/manual/en/function.ncurses-meta.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
  * @param $bit8 bool <p>
  * </p>
@@ -504,7 +504,7 @@ function ncurses_slk_touch () {}
 /**
  * Turn off the given attributes
  * @link https://php.net/manual/en/function.ncurses-attroff.php
- * @param $attributes int <p>
+ * @param int $attributes <p>
  * </p>
  * @return int
  */
@@ -513,7 +513,7 @@ function ncurses_attroff ($attributes) {}
 /**
  * Turn on the given attributes
  * @link https://php.net/manual/en/function.ncurses-attron.php
- * @param $attributes int <p>
+ * @param int $attributes <p>
  * </p>
  * @return int
  */
@@ -522,7 +522,7 @@ function ncurses_attron ($attributes) {}
 /**
  * Set given attributes
  * @link https://php.net/manual/en/function.ncurses-attrset.php
- * @param $attributes int <p>
+ * @param int $attributes <p>
  * </p>
  * @return int
  */
@@ -531,7 +531,7 @@ function ncurses_attrset ($attributes) {}
 /**
  * Set background property for terminal screen
  * @link https://php.net/manual/en/function.ncurses-bkgd.php
- * @param $attrchar int <p>
+ * @param int $attrchar <p>
  * </p>
  * @return int
  */
@@ -540,7 +540,7 @@ function ncurses_bkgd ($attrchar) {}
 /**
  * Set cursor state
  * @link https://php.net/manual/en/function.ncurses-curs-set.php
- * @param $visibility int <p>
+ * @param int $visibility <p>
  * </p>
  * @return int
  */
@@ -549,7 +549,7 @@ function ncurses_curs_set ($visibility) {}
 /**
  * Delay output on terminal using padding characters
  * @link https://php.net/manual/en/function.ncurses-delay-output.php
- * @param $milliseconds int <p>
+ * @param int $milliseconds <p>
  * </p>
  * @return int
  */
@@ -558,7 +558,7 @@ function ncurses_delay_output ($milliseconds) {}
 /**
  * Single character output including refresh
  * @link https://php.net/manual/en/function.ncurses-echochar.php
- * @param $character int <p>
+ * @param int $character <p>
  * </p>
  * @return int
  */
@@ -567,7 +567,7 @@ function ncurses_echochar ($character) {}
 /**
  * Put terminal into halfdelay mode
  * @link https://php.net/manual/en/function.ncurses-halfdelay.php
- * @param $tenth int <p>
+ * @param int $tenth <p>
  * </p>
  * @return int
  */
@@ -576,7 +576,7 @@ function ncurses_halfdelay ($tenth) {}
 /**
  * Check for presence of a function key on terminal keyboard
  * @link https://php.net/manual/en/function.ncurses-has-key.php
- * @param $keycode int <p>
+ * @param int $keycode <p>
  * </p>
  * @return int
  */
@@ -585,7 +585,7 @@ function ncurses_has_key ($keycode) {}
 /**
  * Insert character moving rest of line including character at current position
  * @link https://php.net/manual/en/function.ncurses-insch.php
- * @param $character int <p>
+ * @param int $character <p>
  * </p>
  * @return int
  */
@@ -594,7 +594,7 @@ function ncurses_insch ($character) {}
 /**
  * Insert lines before current line scrolling down (negative numbers delete and scroll up)
  * @link https://php.net/manual/en/function.ncurses-insdelln.php
- * @param $count int <p>
+ * @param int $count <p>
  * </p>
  * @return int
  */
@@ -603,7 +603,7 @@ function ncurses_insdelln ($count) {}
 /**
  * Set timeout for mouse button clicks
  * @link https://php.net/manual/en/function.ncurses-mouseinterval.php
- * @param $milliseconds int <p>
+ * @param int $milliseconds <p>
  * </p>
  * @return int
  */
@@ -612,7 +612,7 @@ function ncurses_mouseinterval ($milliseconds) {}
 /**
  * Sleep
  * @link https://php.net/manual/en/function.ncurses-napms.php
- * @param $milliseconds int <p>
+ * @param int $milliseconds <p>
  * </p>
  * @return int
  */
@@ -621,7 +621,7 @@ function ncurses_napms ($milliseconds) {}
 /**
  * Scroll window content up or down without changing current position
  * @link https://php.net/manual/en/function.ncurses-scrl.php
- * @param $count int <p>
+ * @param int $count <p>
  * </p>
  * @return int
  */
@@ -630,7 +630,7 @@ function ncurses_scrl ($count) {}
 /**
  * Turn off the given attributes for soft function-key labels
  * @link https://php.net/manual/en/function.ncurses-slk-attroff.php
- * @param $intarg int <p>
+ * @param int $intarg <p>
  * </p>
  * @return int
  */
@@ -639,7 +639,7 @@ function ncurses_slk_attroff ($intarg) {}
 /**
  * Turn on the given attributes for soft function-key labels
  * @link https://php.net/manual/en/function.ncurses-slk-attron.php
- * @param $intarg int <p>
+ * @param int $intarg <p>
  * </p>
  * @return int
  */
@@ -648,7 +648,7 @@ function ncurses_slk_attron ($intarg) {}
 /**
  * Set given attributes for soft function-key labels
  * @link https://php.net/manual/en/function.ncurses-slk-attrset.php
- * @param $intarg int <p>
+ * @param int $intarg <p>
  * </p>
  * @return int
  */
@@ -657,7 +657,7 @@ function ncurses_slk_attrset ($intarg) {}
 /**
  * Sets color for soft label keys
  * @link https://php.net/manual/en/function.ncurses-slk-color.php
- * @param $intarg int <p>
+ * @param int $intarg <p>
  * </p>
  * @return int
  */
@@ -666,7 +666,7 @@ function ncurses_slk_color ($intarg) {}
 /**
  * Initializes soft label key functions
  * @link https://php.net/manual/en/function.ncurses-slk-init.php
- * @param $format int <p>
+ * @param int $format <p>
  * If ncurses_initscr eventually uses a line from
  * stdscr to emulate the soft labels, then this parameter determines how
  * the labels are arranged of the screen.
@@ -684,11 +684,11 @@ function ncurses_slk_init ($format) {}
 /**
  * Sets function key labels
  * @link https://php.net/manual/en/function.ncurses-slk-set.php
- * @param $labelnr int <p>
+ * @param int $labelnr <p>
  * </p>
- * @param $label string <p>
+ * @param string $label <p>
  * </p>
- * @param $format int <p>
+ * @param int $format <p>
  * </p>
  * @return bool
  */
@@ -697,7 +697,7 @@ function ncurses_slk_set ($labelnr, $label, $format) {}
 /**
  * Specify different filedescriptor for typeahead checking
  * @link https://php.net/manual/en/function.ncurses-typeahead.php
- * @param $fd int <p>
+ * @param int $fd <p>
  * </p>
  * @return int
  */
@@ -706,7 +706,7 @@ function ncurses_typeahead ($fd) {}
 /**
  * Put a character back into the input stream
  * @link https://php.net/manual/en/function.ncurses-ungetch.php
- * @param $keycode int <p>
+ * @param int $keycode <p>
  * </p>
  * @return int
  */
@@ -715,7 +715,7 @@ function ncurses_ungetch ($keycode) {}
 /**
  * Display the string on the terminal in the video attribute mode
  * @link https://php.net/manual/en/function.ncurses-vidattr.php
- * @param $intarg int <p>
+ * @param int $intarg <p>
  * </p>
  * @return int
  */
@@ -724,7 +724,7 @@ function ncurses_vidattr ($intarg) {}
 /**
  * Refresh window on terminal screen
  * @link https://php.net/manual/en/function.ncurses-wrefresh.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
  * @return int
  */
@@ -733,7 +733,7 @@ function ncurses_wrefresh ($window) {}
 /**
  * Control use of extended names in terminfo descriptions
  * @link https://php.net/manual/en/function.ncurses-use-extended-names.php
- * @param $flag bool <p>
+ * @param bool $flag <p>
  * </p>
  * @return int
  */
@@ -742,7 +742,7 @@ function ncurses_use_extended_names ($flag) {}
 /**
  * Control screen background
  * @link https://php.net/manual/en/function.ncurses-bkgdset.php
- * @param $attrchar int <p>
+ * @param int $attrchar <p>
  * </p>
  * @return void
  */
@@ -772,7 +772,7 @@ function ncurses_qiflush () {}
 /**
  * Set timeout for special key sequences
  * @link https://php.net/manual/en/function.ncurses-timeout.php
- * @param $millisec int <p>
+ * @param int $millisec <p>
  * </p>
  * @return void
  */
@@ -781,7 +781,7 @@ function ncurses_timeout ($millisec) {}
 /**
  * Control use of environment information about terminal size
  * @link https://php.net/manual/en/function.ncurses-use-env.php
- * @param $flag bool <p>
+ * @param bool $flag <p>
  * </p>
  * @return void
  */
@@ -790,7 +790,7 @@ function ncurses_use_env ($flag) {}
 /**
  * Output text at current position
  * @link https://php.net/manual/en/function.ncurses-addstr.php
- * @param $text string <p>
+ * @param string $text <p>
  * </p>
  * @return int
  */
@@ -799,7 +799,7 @@ function ncurses_addstr ($text) {}
 /**
  * Apply padding information to the string and output it
  * @link https://php.net/manual/en/function.ncurses-putp.php
- * @param $text string <p>
+ * @param string $text <p>
  * </p>
  * @return int
  */
@@ -808,7 +808,7 @@ function ncurses_putp ($text) {}
 /**
  * Dump screen content to file
  * @link https://php.net/manual/en/function.ncurses-scr-dump.php
- * @param $filename string <p>
+ * @param string $filename <p>
  * </p>
  * @return int
  */
@@ -817,7 +817,7 @@ function ncurses_scr_dump ($filename) {}
 /**
  * Initialize screen from file dump
  * @link https://php.net/manual/en/function.ncurses-scr-init.php
- * @param $filename string <p>
+ * @param string $filename <p>
  * </p>
  * @return int
  */
@@ -826,7 +826,7 @@ function ncurses_scr_init ($filename) {}
 /**
  * Restore screen from file dump
  * @link https://php.net/manual/en/function.ncurses-scr-restore.php
- * @param $filename string <p>
+ * @param string $filename <p>
  * </p>
  * @return int
  */
@@ -835,7 +835,7 @@ function ncurses_scr_restore ($filename) {}
 /**
  * Inherit screen from file dump
  * @link https://php.net/manual/en/function.ncurses-scr-set.php
- * @param $filename string <p>
+ * @param string $filename <p>
  * </p>
  * @return int
  */
@@ -844,11 +844,11 @@ function ncurses_scr_set ($filename) {}
 /**
  * Move current position and add character
  * @link https://php.net/manual/en/function.ncurses-mvaddch.php
- * @param $y int <p>
+ * @param int $y <p>
  * </p>
- * @param $x int <p>
+ * @param int $x <p>
  * </p>
- * @param $c int <p>
+ * @param int $c <p>
  * </p>
  * @return int
  */
@@ -857,13 +857,13 @@ function ncurses_mvaddch ($y, $x, $c) {}
 /**
  * Move position and add attributed string with specified length
  * @link https://php.net/manual/en/function.ncurses-mvaddchnstr.php
- * @param $y int <p>
+ * @param int $y <p>
  * </p>
- * @param $x int <p>
+ * @param int $x <p>
  * </p>
- * @param $s string <p>
+ * @param string $s <p>
  * </p>
- * @param $n int <p>
+ * @param int $n <p>
  * </p>
  * @return int
  */
@@ -872,9 +872,9 @@ function ncurses_mvaddchnstr ($y, $x, $s, $n) {}
 /**
  * Add attributed string with specified length at current position
  * @link https://php.net/manual/en/function.ncurses-addchnstr.php
- * @param $s string <p>
+ * @param string $s <p>
  * </p>
- * @param $n int <p>
+ * @param int $n <p>
  * </p>
  * @return int
  */
@@ -883,11 +883,11 @@ function ncurses_addchnstr ($s, $n) {}
 /**
  * Move position and add attributed string
  * @link https://php.net/manual/en/function.ncurses-mvaddchstr.php
- * @param $y int <p>
+ * @param int $y <p>
  * </p>
- * @param $x int <p>
+ * @param int $x <p>
  * </p>
- * @param $s string <p>
+ * @param string $s <p>
  * </p>
  * @return int
  */
@@ -896,7 +896,7 @@ function ncurses_mvaddchstr ($y, $x, $s) {}
 /**
  * Add attributed string at current position
  * @link https://php.net/manual/en/function.ncurses-addchstr.php
- * @param $s string <p>
+ * @param string $s <p>
  * </p>
  * @return int
  */
@@ -905,13 +905,13 @@ function ncurses_addchstr ($s) {}
 /**
  * Move position and add string with specified length
  * @link https://php.net/manual/en/function.ncurses-mvaddnstr.php
- * @param $y int <p>
+ * @param int $y <p>
  * </p>
- * @param $x int <p>
+ * @param int $x <p>
  * </p>
- * @param $s string <p>
+ * @param string $s <p>
  * </p>
- * @param $n int <p>
+ * @param int $n <p>
  * </p>
  * @return int
  */
@@ -920,9 +920,9 @@ function ncurses_mvaddnstr ($y, $x, $s, $n) {}
 /**
  * Add string with specified length at current position
  * @link https://php.net/manual/en/function.ncurses-addnstr.php
- * @param $s string <p>
+ * @param string $s <p>
  * </p>
- * @param $n int <p>
+ * @param int $n <p>
  * </p>
  * @return int
  */
@@ -931,11 +931,11 @@ function ncurses_addnstr ($s, $n) {}
 /**
  * Move position and add string
  * @link https://php.net/manual/en/function.ncurses-mvaddstr.php
- * @param $y int <p>
+ * @param int $y <p>
  * </p>
- * @param $x int <p>
+ * @param int $x <p>
  * </p>
- * @param $s string <p>
+ * @param string $s <p>
  * </p>
  * @return int
  */
@@ -944,9 +944,9 @@ function ncurses_mvaddstr ($y, $x, $s) {}
 /**
  * Move position and delete character, shift rest of line left
  * @link https://php.net/manual/en/function.ncurses-mvdelch.php
- * @param $y int <p>
+ * @param int $y <p>
  * </p>
- * @param $x int <p>
+ * @param int $x <p>
  * </p>
  * @return int
  */
@@ -955,9 +955,9 @@ function ncurses_mvdelch ($y, $x) {}
 /**
  * Move position and get character at new position
  * @link https://php.net/manual/en/function.ncurses-mvgetch.php
- * @param $y int <p>
+ * @param int $y <p>
  * </p>
- * @param $x int <p>
+ * @param int $x <p>
  * </p>
  * @return int
  */
@@ -966,9 +966,9 @@ function ncurses_mvgetch ($y, $x) {}
 /**
  * Move position and get attributed character at new position
  * @link https://php.net/manual/en/function.ncurses-mvinch.php
- * @param $y int <p>
+ * @param int $y <p>
  * </p>
- * @param $x int <p>
+ * @param int $x <p>
  * </p>
  * @return int
  */
@@ -977,13 +977,13 @@ function ncurses_mvinch ($y, $x) {}
 /**
  * Add string at new position in window
  * @link https://php.net/manual/en/function.ncurses-mvwaddstr.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
- * @param $y int <p>
+ * @param int $y <p>
  * </p>
- * @param $x int <p>
+ * @param int $x <p>
  * </p>
- * @param $text string <p>
+ * @param string $text <p>
  * </p>
  * @return int
  */
@@ -992,7 +992,7 @@ function ncurses_mvwaddstr ($window, $y, $x, $text) {}
 /**
  * Insert string at current position, moving rest of line right
  * @link https://php.net/manual/en/function.ncurses-insstr.php
- * @param $text string <p>
+ * @param string $text <p>
  * </p>
  * @return int
  */
@@ -1001,7 +1001,7 @@ function ncurses_insstr ($text) {}
 /**
  * Reads string from terminal screen
  * @link https://php.net/manual/en/function.ncurses-instr.php
- * @param $buffer string <p>
+ * @param string &$buffer <p>
  * The characters. Attributes will be stripped.
  * </p>
  * @return int the number of characters.
@@ -1012,13 +1012,13 @@ function ncurses_instr (&$buffer) {}
 /**
  * Set new position and draw a horizontal line using an attributed character and max. n characters long
  * @link https://php.net/manual/en/function.ncurses-mvhline.php
- * @param $y int <p>
+ * @param int $y <p>
  * </p>
- * @param $x int <p>
+ * @param int $x <p>
  * </p>
- * @param $attrchar int <p>
+ * @param int $attrchar <p>
  * </p>
- * @param $n int <p>
+ * @param int $n <p>
  * </p>
  * @return int
  */
@@ -1027,13 +1027,13 @@ function ncurses_mvhline ($y, $x, $attrchar, $n) {}
 /**
  * Move cursor immediately
  * @link https://php.net/manual/en/function.ncurses-mvcur.php
- * @param $old_y int <p>
+ * @param int $old_y <p>
  * </p>
- * @param $old_x int <p>
+ * @param int $old_x <p>
  * </p>
- * @param $new_y int <p>
+ * @param int $new_y <p>
  * </p>
- * @param $new_x int <p>
+ * @param int $new_x <p>
  * </p>
  * @return int
  */
@@ -1042,13 +1042,13 @@ function ncurses_mvcur ($old_y, $old_x, $new_y, $new_x) {}
 /**
  * Set new RGB value for color
  * @link https://php.net/manual/en/function.ncurses-init-color.php
- * @param $color int <p>
+ * @param int $color <p>
  * </p>
- * @param $r int <p>
+ * @param int $r <p>
  * </p>
- * @param $g int <p>
+ * @param int $g <p>
  * </p>
- * @param $b int <p>
+ * @param int $b <p>
  * </p>
  * @return int
  */
@@ -1057,24 +1057,24 @@ function ncurses_init_color ($color, $r, $g, $b) {}
 /**
  * Draw a border around the screen using attributed characters
  * @link https://php.net/manual/en/function.ncurses-border.php
- * @param $left int <p>
+ * @param int $left <p>
  * </p>
- * @param $right int <p>
+ * @param int $right <p>
  * </p>
- * @param $top int <p>
+ * @param int $top <p>
  * </p>
- * @param $bottom int <p>
+ * @param int $bottom <p>
  * </p>
- * @param $tl_corner int <p>
+ * @param int $tl_corner <p>
  * Top left corner
  * </p>
- * @param $tr_corner int <p>
+ * @param int $tr_corner <p>
  * Top right corner
  * </p>
- * @param $bl_corner int <p>
+ * @param int $bl_corner <p>
  * Bottom left corner
  * </p>
- * @param $br_corner int <p>
+ * @param int $br_corner <p>
  * Bottom right corner
  * </p>
  * @return int
@@ -1084,9 +1084,9 @@ function ncurses_border ($left, $right, $top, $bottom, $tl_corner, $tr_corner, $
 /**
  * Define default colors for color 0
  * @link https://php.net/manual/en/function.ncurses-assume-default-colors.php
- * @param $fg int <p>
+ * @param int $fg <p>
  * </p>
- * @param $bg int <p>
+ * @param int $bg <p>
  * </p>
  * @return int
  */
@@ -1095,9 +1095,9 @@ function ncurses_assume_default_colors ($fg, $bg) {}
 /**
  * Define a keycode
  * @link https://php.net/manual/en/function.ncurses-define-key.php
- * @param $definition string <p>
+ * @param string $definition <p>
  * </p>
- * @param $keycode int <p>
+ * @param int $keycode <p>
  * </p>
  * @return int
  */
@@ -1106,9 +1106,9 @@ function ncurses_define_key ($definition, $keycode) {}
 /**
  * Draw a horizontal line at current position using an attributed character and max. n characters long
  * @link https://php.net/manual/en/function.ncurses-hline.php
- * @param $charattr int <p>
+ * @param int $charattr <p>
  * </p>
- * @param $n int <p>
+ * @param int $n <p>
  * </p>
  * @return int
  */
@@ -1117,9 +1117,9 @@ function ncurses_hline ($charattr, $n) {}
 /**
  * Draw a vertical line at current position using an attributed character and max. n characters long
  * @link https://php.net/manual/en/function.ncurses-vline.php
- * @param $charattr int <p>
+ * @param int $charattr <p>
  * </p>
- * @param $n int <p>
+ * @param int $n <p>
  * </p>
  * @return int
  */
@@ -1128,9 +1128,9 @@ function ncurses_vline ($charattr, $n) {}
 /**
  * Enable or disable a keycode
  * @link https://php.net/manual/en/function.ncurses-keyok.php
- * @param $keycode int <p>
+ * @param int $keycode <p>
  * </p>
- * @param $enable bool <p>
+ * @param bool $enable <p>
  * </p>
  * @return int
  */
@@ -1139,8 +1139,8 @@ function ncurses_keyok ($keycode, $enable) {}
 /**
  * Returns terminals (short)-name
  * @link https://php.net/manual/en/function.ncurses-termname.php
- * @return string the shortname of the terminal, truncated to 14 characters.
- * On errors, returns &null;.
+ * @return string|null the shortname of the terminal, truncated to 14 characters.
+ * On errors, returns null.
  * </p>
  */
 function ncurses_termname () {}
@@ -1148,8 +1148,8 @@ function ncurses_termname () {}
 /**
  * Returns terminals description
  * @link https://php.net/manual/en/function.ncurses-longname.php
- * @return string the description, as a string truncated to 128 characters.
- * On errors, returns &null;.
+ * @return string|null the description, as a string truncated to 128 characters.
+ * On errors, returns null.
  * </p>
  */
 function ncurses_longname () {}
@@ -1157,10 +1157,10 @@ function ncurses_longname () {}
 /**
  * Sets mouse options
  * @link https://php.net/manual/en/function.ncurses-mousemask.php
- * @param $newmask int <p>
+ * @param int $newmask <p>
  * Mouse mask options can be set with the following predefined constants:
  * <p>NCURSES_BUTTON1_PRESSED</p>
- * @param $oldmask int <p>
+ * @param int &$oldmask <p>
  * This will be set to the previous value of the mouse event mask.
  * </p>
  * @return int a mask to indicated which of the in parameter
@@ -1173,7 +1173,7 @@ function ncurses_mousemask ($newmask, &$oldmask) {}
 /**
  * Reads mouse event
  * @link https://php.net/manual/en/function.ncurses-getmouse.php
- * @param $mevent array <p>
+ * @param array &$mevent <p>
  * Event options will be delivered in this parameter which has to be an
  * array, passed by reference (see example below).
  * </p>
@@ -1191,7 +1191,7 @@ function ncurses_getmouse (array &$mevent) {}
 /**
  * Pushes mouse event to queue
  * @link https://php.net/manual/en/function.ncurses-ungetmouse.php
- * @param $mevent array <p>
+ * @param array $mevent <p>
  * An associative array specifying the event options:
  * <p>"id" : Id to distinguish multiple devices</p>
  * @return bool false on success, true otherwise.
@@ -1202,11 +1202,11 @@ function ncurses_ungetmouse (array $mevent) {}
 /**
  * Transforms coordinates
  * @link https://php.net/manual/en/function.ncurses-mouse-trafo.php
- * @param $y int <p>
+ * @param int &$y <p>
  * </p>
- * @param $x int <p>
+ * @param int &$x <p>
  * </p>
- * @param $toscreen bool <p>
+ * @param bool $toscreen <p>
  * </p>
  * @return bool
  */
@@ -1215,13 +1215,13 @@ function ncurses_mouse_trafo (&$y, &$x, $toscreen) {}
 /**
  * Transforms window/stdscr coordinates
  * @link https://php.net/manual/en/function.ncurses-wmouse-trafo.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
- * @param $y int <p>
+ * @param int &$y <p>
  * </p>
- * @param $x int <p>
+ * @param int &$x <p>
  * </p>
- * @param $toscreen bool <p>
+ * @param bool $toscreen <p>
  * </p>
  * @return bool
  */
@@ -1230,11 +1230,11 @@ function ncurses_wmouse_trafo ($window, &$y, &$x, $toscreen) {}
 /**
  * Outputs text at current position in window
  * @link https://php.net/manual/en/function.ncurses-waddstr.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
- * @param $str string <p>
+ * @param string $str <p>
  * </p>
- * @param $n int[optional] <p>
+ * @param int $n [optional] <p>
  * </p>
  * @return int
  */
@@ -1243,7 +1243,7 @@ function ncurses_waddstr ($window, $str, $n = null) {}
 /**
  * Copies window to virtual screen
  * @link https://php.net/manual/en/function.ncurses-wnoutrefresh.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
  * @return int
  */
@@ -1252,7 +1252,7 @@ function ncurses_wnoutrefresh ($window) {}
 /**
  * Clears window
  * @link https://php.net/manual/en/function.ncurses-wclear.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
  * @return int
  */
@@ -1261,9 +1261,9 @@ function ncurses_wclear ($window) {}
 /**
  * Sets windows color pairings
  * @link https://php.net/manual/en/function.ncurses-wcolor-set.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
- * @param $color_pair int <p>
+ * @param int $color_pair <p>
  * </p>
  * @return int
  */
@@ -1272,7 +1272,7 @@ function ncurses_wcolor_set ($window, $color_pair) {}
 /**
  * Reads a character from keyboard (window)
  * @link https://php.net/manual/en/function.ncurses-wgetch.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
  * @return int
  */
@@ -1281,9 +1281,9 @@ function ncurses_wgetch ($window) {}
 /**
  * Turns keypad on or off
  * @link https://php.net/manual/en/function.ncurses-keypad.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
- * @param $bf bool <p>
+ * @param bool $bf <p>
  * </p>
  * @return int
  */
@@ -1292,11 +1292,11 @@ function ncurses_keypad ($window, $bf) {}
 /**
  * Moves windows output position
  * @link https://php.net/manual/en/function.ncurses-wmove.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
- * @param $y int <p>
+ * @param int $y <p>
  * </p>
- * @param $x int <p>
+ * @param int $x <p>
  * </p>
  * @return int
  */
@@ -1305,9 +1305,9 @@ function ncurses_wmove ($window, $y, $x) {}
 /**
  * Creates a new pad (window)
  * @link https://php.net/manual/en/function.ncurses-newpad.php
- * @param $rows int <p>
+ * @param int $rows <p>
  * </p>
- * @param $cols int <p>
+ * @param int $cols <p>
  * </p>
  * @return resource
  */
@@ -1316,19 +1316,19 @@ function ncurses_newpad ($rows, $cols) {}
 /**
  * Copies a region from a pad into the virtual screen
  * @link https://php.net/manual/en/function.ncurses-prefresh.php
- * @param $pad resource <p>
+ * @param resource $pad <p>
  * </p>
- * @param $pminrow int <p>
+ * @param int $pminrow <p>
  * </p>
- * @param $pmincol int <p>
+ * @param int $pmincol <p>
  * </p>
- * @param $sminrow int <p>
+ * @param int $sminrow <p>
  * </p>
- * @param $smincol int <p>
+ * @param int $smincol <p>
  * </p>
- * @param $smaxrow int <p>
+ * @param int $smaxrow <p>
  * </p>
- * @param $smaxcol int <p>
+ * @param int $smaxcol <p>
  * </p>
  * @return int
  */
@@ -1337,19 +1337,19 @@ function ncurses_prefresh ($pad, $pminrow, $pmincol, $sminrow, $smincol, $smaxro
 /**
  * Copies a region from a pad into the virtual screen
  * @link https://php.net/manual/en/function.ncurses-pnoutrefresh.php
- * @param $pad resource <p>
+ * @param resource $pad <p>
  * </p>
- * @param $pminrow int <p>
+ * @param int $pminrow <p>
  * </p>
- * @param $pmincol int <p>
+ * @param int $pmincol <p>
  * </p>
- * @param $sminrow int <p>
+ * @param int $sminrow <p>
  * </p>
- * @param $smincol int <p>
+ * @param int $smincol <p>
  * </p>
- * @param $smaxrow int <p>
+ * @param int $smaxrow <p>
  * </p>
- * @param $smaxcol int <p>
+ * @param int $smaxcol <p>
  * </p>
  * @return int
  */
@@ -1358,7 +1358,7 @@ function ncurses_pnoutrefresh ($pad, $pminrow, $pmincol, $sminrow, $smincol, $sm
 /**
  * Enter standout mode for a window
  * @link https://php.net/manual/en/function.ncurses-wstandout.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
  * @return int
  */
@@ -1367,7 +1367,7 @@ function ncurses_wstandout ($window) {}
 /**
  * End standout mode for a window
  * @link https://php.net/manual/en/function.ncurses-wstandend.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
  * @return int
  */
@@ -1376,9 +1376,9 @@ function ncurses_wstandend ($window) {}
 /**
  * Set the attributes for a window
  * @link https://php.net/manual/en/function.ncurses-wattrset.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
- * @param $attrs int <p>
+ * @param int $attrs <p>
  * </p>
  * @return int
  */
@@ -1387,9 +1387,9 @@ function ncurses_wattrset ($window, $attrs) {}
 /**
  * Turns on attributes for a window
  * @link https://php.net/manual/en/function.ncurses-wattron.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
- * @param $attrs int <p>
+ * @param int $attrs <p>
  * </p>
  * @return int
  */
@@ -1398,9 +1398,9 @@ function ncurses_wattron ($window, $attrs) {}
 /**
  * Turns off attributes for a window
  * @link https://php.net/manual/en/function.ncurses-wattroff.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
- * @param $attrs int <p>
+ * @param int $attrs <p>
  * </p>
  * @return int
  */
@@ -1409,9 +1409,9 @@ function ncurses_wattroff ($window, $attrs) {}
 /**
  * Adds character at current position in a window and advance cursor
  * @link https://php.net/manual/en/function.ncurses-waddch.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
- * @param $ch int <p>
+ * @param int $ch <p>
  * </p>
  * @return int
  */
@@ -1420,27 +1420,27 @@ function ncurses_waddch ($window, $ch) {}
 /**
  * Draws a border around the window using attributed characters
  * @link https://php.net/manual/en/function.ncurses-wborder.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * The window on which we operate
  * </p>
- * @param $left int <p>
+ * @param int $left <p>
  * </p>
- * @param $right int <p>
+ * @param int $right <p>
  * </p>
- * @param $top int <p>
+ * @param int $top <p>
  * </p>
- * @param $bottom int <p>
+ * @param int $bottom <p>
  * </p>
- * @param $tl_corner int <p>
+ * @param int $tl_corner <p>
  * Top left corner
  * </p>
- * @param $tr_corner int <p>
+ * @param int $tr_corner <p>
  * Top right corner
  * </p>
- * @param $bl_corner int <p>
+ * @param int $bl_corner <p>
  * Bottom left corner
  * </p>
- * @param $br_corner int <p>
+ * @param int $br_corner <p>
  * Bottom right corner
  * </p>
  * @return int
@@ -1450,11 +1450,11 @@ function ncurses_wborder ($window, $left, $right, $top, $bottom, $tl_corner, $tr
 /**
  * Draws a horizontal line in a window at current position using an attributed character and max. n characters long
  * @link https://php.net/manual/en/function.ncurses-whline.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
- * @param $charattr int <p>
+ * @param int $charattr <p>
  * </p>
- * @param $n int <p>
+ * @param int $n <p>
  * </p>
  * @return int
  */
@@ -1463,11 +1463,11 @@ function ncurses_whline ($window, $charattr, $n) {}
 /**
  * Draws a vertical line in a window at current position using an attributed character and max. n characters long
  * @link https://php.net/manual/en/function.ncurses-wvline.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
- * @param $charattr int <p>
+ * @param int $charattr <p>
  * </p>
- * @param $n int <p>
+ * @param int $n <p>
  * </p>
  * @return int
  */
@@ -1476,11 +1476,11 @@ function ncurses_wvline ($window, $charattr, $n) {}
 /**
  * Returns the current cursor position for a window
  * @link https://php.net/manual/en/function.ncurses-getyx.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
- * @param $y int <p>
+ * @param int &$y <p>
  * </p>
- * @param $x int <p>
+ * @param int &$x <p>
  * </p>
  * @return void
  */
@@ -1489,13 +1489,13 @@ function ncurses_getyx ($window, &$y, &$x) {}
 /**
  * Returns the size of a window
  * @link https://php.net/manual/en/function.ncurses-getmaxyx.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * The measured window
  * </p>
- * @param $y int <p>
+ * @param int &$y <p>
  * This will be set to the window height
  * </p>
- * @param $x int <p>
+ * @param int &$x <p>
  * This will be set to the window width
  * </p>
  * @return void
@@ -1513,7 +1513,7 @@ function ncurses_update_panels () {}
 /**
  * Returns the window associated with panel
  * @link https://php.net/manual/en/function.ncurses-panel-window.php
- * @param $panel resource <p>
+ * @param resource $panel <p>
  * </p>
  * @return resource
  */
@@ -1522,7 +1522,7 @@ function ncurses_panel_window ($panel) {}
 /**
  * Returns the panel below panel
  * @link https://php.net/manual/en/function.ncurses-panel-below.php
- * @param $panel resource <p>
+ * @param resource $panel <p>
  * </p>
  * @return resource
  */
@@ -1531,7 +1531,7 @@ function ncurses_panel_below ($panel) {}
 /**
  * Returns the panel above panel
  * @link https://php.net/manual/en/function.ncurses-panel-above.php
- * @param $panel resource <p>
+ * @param resource $panel <p>
  * </p>
  * @return resource If panel is null, returns the bottom panel in the stack.
  * </p>
@@ -1541,9 +1541,9 @@ function ncurses_panel_above ($panel) {}
 /**
  * Replaces the window associated with panel
  * @link https://php.net/manual/en/function.ncurses-replace-panel.php
- * @param $panel resource <p>
+ * @param resource $panel <p>
  * </p>
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
  * @return int
  */
@@ -1552,11 +1552,11 @@ function ncurses_replace_panel ($panel, $window) {}
 /**
  * Moves a panel so that its upper-left corner is at [startx, starty]
  * @link https://php.net/manual/en/function.ncurses-move-panel.php
- * @param $panel resource <p>
+ * @param resource $panel <p>
  * </p>
- * @param $startx int <p>
+ * @param int $startx <p>
  * </p>
- * @param $starty int <p>
+ * @param int $starty <p>
  * </p>
  * @return int
  */
@@ -1565,7 +1565,7 @@ function ncurses_move_panel ($panel, $startx, $starty) {}
 /**
  * Moves a visible panel to the bottom of the stack
  * @link https://php.net/manual/en/function.ncurses-bottom-panel.php
- * @param $panel resource <p>
+ * @param resource $panel <p>
  * </p>
  * @return int
  */
@@ -1574,7 +1574,7 @@ function ncurses_bottom_panel ($panel) {}
 /**
  * Moves a visible panel to the top of the stack
  * @link https://php.net/manual/en/function.ncurses-top-panel.php
- * @param $panel resource <p>
+ * @param resource $panel <p>
  * </p>
  * @return int
  */
@@ -1583,7 +1583,7 @@ function ncurses_top_panel ($panel) {}
 /**
  * Places an invisible panel on top of the stack, making it visible
  * @link https://php.net/manual/en/function.ncurses-show-panel.php
- * @param $panel resource <p>
+ * @param resource $panel <p>
  * </p>
  * @return int
  */
@@ -1592,7 +1592,7 @@ function ncurses_show_panel ($panel) {}
 /**
  * Remove panel from the stack, making it invisible
  * @link https://php.net/manual/en/function.ncurses-hide-panel.php
- * @param $panel resource <p>
+ * @param resource $panel <p>
  * </p>
  * @return int
  */
@@ -1601,7 +1601,7 @@ function ncurses_hide_panel ($panel) {}
 /**
  * Remove panel from the stack and delete it (but not the associated window)
  * @link https://php.net/manual/en/function.ncurses-del-panel.php
- * @param $panel resource <p>
+ * @param resource $panel <p>
  * </p>
  * @return bool
  */
@@ -1610,7 +1610,7 @@ function ncurses_del_panel ($panel) {}
 /**
  * Create a new panel and associate it with window
  * @link https://php.net/manual/en/function.ncurses-new-panel.php
- * @param $window resource <p>
+ * @param resource $window <p>
  * </p>
  * @return resource
  */

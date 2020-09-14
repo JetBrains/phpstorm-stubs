@@ -90,6 +90,7 @@ function session_regenerate_id ($delete_old_session = false) {}
  * PHP > 5.4.0 <br/>
  * Session shutdown function
  * @link https://secure.php.net/manual/en/function.session-register-shutdown.php
+ * @return void
  */
 function session_register_shutdown  () {}
 
@@ -110,12 +111,12 @@ function session_decode ($data) {}
  * A string holding the name of a variable or an array consisting of
  * variable names or other arrays.
  * </p>
- * @param mixed $_ [optional]
+ * @param mixed ...$_ [optional]
  * @return bool true on success or false on failure.
  * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
-function session_register ($name, $_ = null) {}
+function session_register ($name, ...$_) {}
 
 /**
  * Unregister a global variable from the current session

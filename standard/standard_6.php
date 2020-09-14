@@ -4,18 +4,18 @@
  * Runs the equivalent of the select() system call on the given
  * arrays of streams with a timeout specified by tv_sec and tv_usec
  * @link https://php.net/manual/en/function.stream-select.php
- * @param array $read <p>
+ * @param array &$read <p>
  * The streams listed in the read array will be watched to
  * see if characters become available for reading (more precisely, to see if
  * a read will not block - in particular, a stream resource is also ready on
  * end-of-file, in which case an fread will return
  * a zero length string).
  * </p>
- * @param array $write <p>
+ * @param array &$write <p>
  * The streams listed in the write array will be
  * watched to see if a write will not block.
  * </p>
- * @param array $except <p>
+ * @param array &$except <p>
  * The streams listed in the except array will be
  * watched for high priority exceptional ("out-of-band") data arriving.
  * </p>
@@ -27,7 +27,7 @@
  * </p>
  * You do not need to pass every array to
  * stream_select. You can leave it out and use an
- * empty array or &null; instead. Also do not forget that those arrays are
+ * empty array or null instead. Also do not forget that those arrays are
  * passed by reference and will be modified after
  * stream_select returns.
  * @param int $tv_sec <p>
@@ -43,7 +43,7 @@
  * current status of the streams.
  * </p>
  * <p>
- * If tv_sec is &null; stream_select
+ * If tv_sec is null stream_select
  * can block indefinitely, returning only when an event on one of the
  * watched streams occurs (or if a signal interrupts the system call).
  * </p>
@@ -78,14 +78,14 @@ function stream_select (array &$read, array &$write, array &$except, $tv_sec, $t
 /**
  * Create a streams context
  * @link https://php.net/manual/en/function.stream-context-create.php
- * @param array $options [optional] <p>
+ * @param null|array $options [optional] <p>
  * Must be an associative array of associative arrays in the format
  * $arr['wrapper']['option'] = $value.
  * </p>
  * <p>
  * Default to an empty array.
  * </p>
- * @param array $params [optional] <p>
+ * @param null|array $params [optional] <p>
  * Must be an associative array in the format
  * $arr['parameter'] = $value.
  * Refer to context parameters for
@@ -158,7 +158,7 @@ function stream_context_get_options ($stream_or_context) {}
 /**
  * Retreive the default streams context
  * @link https://php.net/manual/en/function.stream-context-get-default.php
- * @param array $options [optional] options must be an associative
+ * @param null|array $options [optional] options must be an associative
  * array of associative arrays in the format
  * $arr['wrapper']['option'] = $value.
  * <p>
@@ -269,10 +269,10 @@ function stream_filter_remove ($stream_filter) {}
  * @param string $remote_socket <p>
  * Address to the socket to connect to.
  * </p>
- * @param int $errno [optional] <p>
+ * @param int &$errno [optional] <p>
  * Will be set to the system level error number if connection fails.
  * </p>
- * @param string $errstr [optional] <p>
+ * @param string &$errstr [optional] <p>
  * Will be set to the system level error message if the connection fails.
  * </p>
  * @param float|null $timeout [optional] <p>
@@ -326,7 +326,7 @@ function stream_socket_client ($remote_socket, &$errno = null, &$errstr = null, 
  * stream_get_transports. See
  * for a list of bulitin transports.
  * </p>
- * @param int $errno [optional] <p>
+ * @param int &$errno [optional] <p>
  * If the optional errno and errstr
  * arguments are present they will be set to indicate the actual system
  * level error that occurred in the system-level socket(),
@@ -338,7 +338,7 @@ function stream_socket_client ($remote_socket, &$errno = null, &$errstr = null, 
  * Note that the errno and
  * errstr arguments will always be passed by reference.
  * </p>
- * @param string $errstr [optional] <p>
+ * @param string &$errstr [optional] <p>
  * See errno description.
  * </p>
  * @param int $flags [optional] <p>
@@ -363,7 +363,7 @@ function stream_socket_server ($local_socket, &$errno = null, &$errstr = null, $
  * Override the default socket accept timeout. Time should be given in
  * seconds.
  * </p>
- * @param string $peername [optional] <p>
+ * @param string &$peername [optional] <p>
  * Will be set to the name (address) of the client which connected, if
  * included and available from the selected transport.
  * </p>
@@ -420,7 +420,7 @@ function stream_socket_get_name ($handle, $want_peer) {}
  * </tr>
  * </table>
  * </p>
- * @param string $address [optional] <p>
+ * @param string &$address [optional] <p>
  * If address is provided it will be populated with
  * the address of the remote socket.
  * </p>
@@ -609,7 +609,7 @@ function stream_supports_lock ($stream) {}
  * </p>
  * &note.line-endings;
  * <p>
- * fgetcsv returns &null; if an invalid
+ * fgetcsv returns null if an invalid
  * handle is supplied or false on other errors,
  * including end of file.
  */
@@ -644,7 +644,7 @@ function fputcsv ($handle, array $fields, $delimiter = ",", $enclosure = '"', $e
  * @param int $operation <p>
  * operation is one of the following:
  * LOCK_SH to acquire a shared lock (reader).
- * @param int $wouldblock [optional] <p>
+ * @param int &$wouldblock [optional] <p>
  * The optional third argument is set to true if the lock would block
  * (EWOULDBLOCK errno condition).
  * </p>

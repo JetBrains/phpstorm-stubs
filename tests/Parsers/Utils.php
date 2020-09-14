@@ -11,9 +11,9 @@ use StubTests\Model\Tags\RemovedTag;
 
 class Utils
 {
-    public static function flattenArray(array $arr, bool $group): array
+    public static function flattenArray(array $array, bool $group): array
     {
-        return iterator_to_array(new RecursiveIteratorIterator(new RecursiveArrayIterator($arr)), $group);
+        return iterator_to_array(new RecursiveIteratorIterator(new RecursiveArrayIterator($array)), $group);
     }
 
     /**

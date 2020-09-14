@@ -252,7 +252,7 @@ class Collator {
      * default locale collation rules will be used. If empty string ("") or
      * "root" are passed, UCA rules will be used.
      * </p>
-     * @return Collator Return new instance of <b>Collator</b> object, or <b>NULL</b>
+     * @return Collator|null Return new instance of <b>Collator</b> object, or <b>NULL</b>
      * on error.
      */
     public static function create($locale) { }
@@ -292,7 +292,7 @@ class Collator {
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Sort array using specified collator
      * @link https://php.net/manual/en/collator.sort.php
-     * @param array $arr <p>
+     * @param array &$array <p>
      * Array of strings to sort.
      * </p>
      * @param int $sort_flag [optional] <p>
@@ -305,22 +305,22 @@ class Collator {
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function sort(array &$arr, $sort_flag = null) { }
+    public function sort(array &$array, $sort_flag = null) { }
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Sort array using specified collator and sort keys
      * @link https://php.net/manual/en/collator.sortwithsortkeys.php
-     * @param array $arr <p>Array of strings to sort</p>
+     * @param array &$array <p>Array of strings to sort</p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function sortWithSortKeys(array &$arr) { }
+    public function sortWithSortKeys(array &$array) { }
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Sort array maintaining index association
      * @link https://php.net/manual/en/collator.asort.php
-     * @param array $arr <p>Array of strings to sort.</p>
+     * @param array &$array <p>Array of strings to sort.</p>
      * @param int $sort_flag [optional] <p>
      * Optional sorting type, one of the following:
      * <p>
@@ -329,7 +329,7 @@ class Collator {
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function asort(array &$arr, $sort_flag = null) { }
+    public function asort(array &$array, $sort_flag = null) { }
 
     /**
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -929,7 +929,7 @@ class NumberFormatter {
      * formatting type to use. By default,
      * <b>NumberFormatter::TYPE_DOUBLE</b> is used.
      * </p>
-     * @param int $position [optional] <p>
+     * @param int &$position [optional] <p>
      * Offset in the string at which to begin parsing. On return, this value
      * will hold the offset at which parsing ended.
      * </p>
@@ -956,11 +956,11 @@ class NumberFormatter {
      * Parse a currency number
      * @link https://php.net/manual/en/numberformatter.parsecurrency.php
      * @param string $value
-     * @param string $currency <p>
+     * @param string &$currency <p>
      * Parameter to receive the currency name (3-letter ISO 4217 currency
      * code).
      * </p>
-     * @param int $position [optional] <p>
+     * @param int &$position [optional] <p>
      * Offset in the string at which to begin parsing. On return, this value
      * will hold the offset at which parsing ended.
      * </p>
@@ -1154,7 +1154,7 @@ class Normalizer {
      * @link https://php.net/manual/en/normalizer.normalize.php
      * @param string $input <p>The input string to normalize</p>
      * @param string $form [optional] <p>One of the normalization forms.</p>
-     * @return string The normalized string or <b>NULL</b> if an error occurred.
+     * @return string|null The normalized string or <b>NULL</b> if an error occurred.
      */
     public static function normalize($input, $form = Normalizer::FORM_C) { }
 
@@ -1262,7 +1262,7 @@ class Locale {
      * @param string $locale <p>
      * The locale to extract the primary language code from
      * </p>
-     * @return string The language code associated with the language or <b>NULL</b> in case of error.
+     * @return string|null The language code associated with the language or <b>NULL</b> in case of error.
      */
     public static function getPrimaryLanguage($locale) { }
 
@@ -1273,7 +1273,7 @@ class Locale {
      * @param string $locale <p>
      * The locale to extract the script code from
      * </p>
-     * @return string The script subtag for the locale or <b>NULL</b> if not present
+     * @return string|null The script subtag for the locale or <b>NULL</b> if not present
      */
     public static function getScript($locale) { }
 
@@ -1284,7 +1284,7 @@ class Locale {
      * @param string $locale <p>
      * The locale to extract the region code from
      * </p>
-     * @return string The region subtag for the locale or <b>NULL</b> if not present
+     * @return string|null The region subtag for the locale or <b>NULL</b> if not present
      */
     public static function getRegion($locale) { }
 
@@ -1422,7 +1422,7 @@ class Locale {
      * @param string $locale <p>
      * The locale to extract the variants from
      * </p>
-     * @return array The array containing the list of all variants subtag for the locale
+     * @return array|null The array containing the list of all variants subtag for the locale
      * or <b>NULL</b> if not present
      */
     public static function getAllVariants($locale) { }
@@ -1921,7 +1921,7 @@ class IntlDateFormatter {
      * described in {@link "http://www.icu-project.org/apiref/icu4c/classSimpleDateFormat.html#details" the ICU documentation}.
      * If <br>NULL</br>, the default style will be used.
      * </p>
-     * @param string $locale [optional] <p>
+     * @param string|null $locale [optional] <p>
      * The locale to use, or <b>NULL</b> to use the {@link "https://secure.php.net/manual/en/intl.configuration.php#ini.intl.default-locale"default one}.</p>
      * @return string|false A string with result or <b>FALSE</b> on failure.
      */
@@ -1934,7 +1934,7 @@ class IntlDateFormatter {
      * @param string $value <p>
      * string to convert to a time
      * </p>
-     * @param int $position [optional] <p>
+     * @param int &$position [optional] <p>
      * Position at which to start the parsing in $value (zero-based).
      * If no error occurs before $value is consumed, $parse_pos will contain -1
      * otherwise it will contain the position at which parsing ended (and the error occurred).
@@ -1952,7 +1952,7 @@ class IntlDateFormatter {
      * @param string $value <p>
      * string to convert to a time
      * </p>
-     * @param int $position [optional] <p>
+     * @param int &$position [optional] <p>
      * Position at which to start the parsing in $value (zero-based).
      * If no error occurs before $value is consumed, $parse_pos will contain -1
      * otherwise it will contain the position at which parsing ended .
@@ -2090,7 +2090,7 @@ class Transliterator {
      * May also be set to
      * Transliterator::REVERSE.
      * </p>
-     * @return Transliterator a <b>Transliterator</b> object on success,
+     * @return Transliterator|null a <b>Transliterator</b> object on success,
      * or <b>NULL</b> on failure.
      */
     public static function create($id, $direction = null) { }
@@ -2108,7 +2108,7 @@ class Transliterator {
      * May also be set to
      * Transliterator::REVERSE.
      * </p>
-     * @return Transliterator a <b>Transliterator</b> object on success,
+     * @return Transliterator|null a <b>Transliterator</b> object on success,
      * or <b>NULL</b> on failure.
      */
     public static function createFromRules($rules, $direction = null) { }
@@ -2117,7 +2117,7 @@ class Transliterator {
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Create an inverse transliterator
      * @link https://php.net/manual/en/transliterator.createinverse.php
-     * @return Transliterator a <b>Transliterator</b> object on success,
+     * @return Transliterator|null a <b>Transliterator</b> object on success,
      * or <b>NULL</b> on failure
      */
     public function createInverse() { }
@@ -2156,7 +2156,7 @@ class Transliterator {
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Get last error code
      * @link https://php.net/manual/en/transliterator.geterrorcode.php
-     * @return int The error code on success,
+     * @return int|false The error code on success,
      * or <b>FALSE</b> if none exists, or on failure.
      */
     public function getErrorCode() { }
@@ -2165,7 +2165,7 @@ class Transliterator {
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Get last error message
      * @link https://php.net/manual/en/transliterator.geterrormessage.php
-     * @return string The error code on success,
+     * @return string|false The error code on success,
      * or <b>FALSE</b> if none exists, or on failure.
      */
     public function getErrorMessage() { }
@@ -2197,7 +2197,7 @@ class Spoofchecker {
      * @link https://php.net/manual/en/spoofchecker.issuspicious.php
      * @param string $text <p>
      * </p>
-     * @param string $error [optional] <p>
+     * @param string &$error [optional] <p>
      * </p>
      * @return bool
      */
@@ -2211,7 +2211,7 @@ class Spoofchecker {
      * </p>
      * @param string $s2 <p>
      * </p>
-     * @param string $error [optional] <p>
+     * @param string &$error [optional] <p>
      * </p>
      * @return bool
      */
@@ -2251,13 +2251,13 @@ class IntlGregorianCalendar extends IntlCalendar {
     public static function createInstance($timeZone = null, $locale = null) { }
 
     /**
-     * @param double $change
+     * @param float $change
      *
      */
     public function setGregorianChange($change) { }
 
     /**
-     * @return double $change
+     * @return float
      */
     public function getGregorianChange() { }
 
@@ -2417,10 +2417,10 @@ class IntlCalendar {
      * </li>
      * </ul>
      * </p>
-     * @param string $locale [optional] <p>
+     * @param string|null $locale [optional] <p>
      * A locale to use or <b>NULL</b> to use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.default-locale the default locale}.
      * </p>
-     * @return IntlCalendar
+     * @return IntlCalendar|null
      * The created {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} instance or <b>NULL</b> on
      * failure.
      */
@@ -2474,7 +2474,7 @@ class IntlCalendar {
      * A {@link https://secure.php.net/manual/en/class.datetime.php DateTime} object or a {@link https://secure.php.net/manual/en/language.types.string.php string} that
      * can be passed to  {@link https://secure.php.net/manual/en/datetime.construct.php DateTime::__construct()}.
      * </p>
-     * @return IntlCalendar
+     * @return IntlCalendar|null
      * The created {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} object or <b>NULL</b> in case of
      * failure. If a {@link https://secure.php.net/manual/en/language.types.string.php string} is passed, any exception that occurs
      * inside the {@link https://secure.php.net/manual/en/class.datetime.php DateTime} constructor is propagated.
@@ -2528,9 +2528,8 @@ class IntlCalendar {
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Get array of locales for which there is data
      * @link https://secure.php.net/manual/en/intlcalendar.getavailablelocales.php
-     * @return array An array of strings, one for which locale.
+     * @return string[] An array of strings, one for which locale.
      */
-
     public static function getAvailableLocales() { }
 
     /**
@@ -3099,7 +3098,7 @@ class IntlTimeZone {
      * Get the canonical system timezone ID or the normalized custom time zone ID for the given time zone ID
      * @link https://secure.php.net/manual/en/intltimezone.getcanonicalid.php
      * @param string $zoneId
-     * @param bool $isSystemID [optional]
+     * @param bool &$isSystemID [optional]
      * @return string|false the timezone ID or <b>FALSE</b> on failure
      */
     public static function getCanonicalID($zoneId, &$isSystemID) { }
@@ -3241,7 +3240,7 @@ class IntlTimeZone {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Convert to DateTimeZone object
-     * @link https://secure.php.net/manual/ru/intltimezone.todatetimezone.php
+     * @link https://secure.php.net/manual/en/intltimezone.todatetimezone.php
      * @return DateTimeZone|false the DateTimeZone object or <b>FALSE</b> on failure
      */
     public function toDateTimeZone() { }
@@ -3249,7 +3248,7 @@ class IntlTimeZone {
     /**
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Check if this time zone uses daylight savings time
-     * @link https://secure.php.net/manual/ru/intltimezone.usedaylighttime.php
+     * @link https://secure.php.net/manual/en/intltimezone.usedaylighttime.php
      * @return bool
      */
     public function useDaylightTime() { }
@@ -3265,7 +3264,7 @@ class IntlTimeZone {
  * default locale collation rules will be used. If empty string ("") or
  * "root" are passed, UCA rules will be used.
  * </p>
- * @return Collator Return new instance of <b>Collator</b> object, or <b>NULL</b>
+ * @return Collator|null Return new instance of <b>Collator</b> object, or <b>NULL</b>
  * on error.
  */
 function collator_create($locale) { }
@@ -3281,7 +3280,7 @@ function collator_create($locale) { }
  * @param string $str2 <p>
  * The second string to compare.
  * </p>
- * @return int Return comparison result:</p>
+ * @return int|false Return comparison result:</p>
  * <p>
  * <p>
  * 1 if <i>str1</i> is greater than
@@ -3356,7 +3355,7 @@ function collator_set_strength(Collator $object, $strength) { }
  * Sort array using specified collator
  * @link https://php.net/manual/en/collator.sort.php
  * @param Collator $object
- * @param array $arr <p>
+ * @param array &$array <p>
  * Array of strings to sort.
  * </p>
  * @param int $sort_flag [optional] <p>
@@ -3369,24 +3368,24 @@ function collator_set_strength(Collator $object, $strength) { }
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function collator_sort(Collator $object, array &$arr, $sort_flag = null) { }
+function collator_sort(Collator $object, array &$array, $sort_flag = null) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Sort array using specified collator and sort keys
  * @link https://php.net/manual/en/collator.sortwithsortkeys.php
  * @param Collator $object
- * @param array $arr <p>Array of strings to sort</p>
+ * @param array &$array <p>Array of strings to sort</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function collator_sort_with_sort_keys(Collator $object, array &$arr) { }
+function collator_sort_with_sort_keys(Collator $object, array &$array) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Sort array maintaining index association
  * @link https://php.net/manual/en/collator.asort.php
  * @param Collator $object
- * @param array $arr <p>Array of strings to sort.</p>
+ * @param array &$array <p>Array of strings to sort.</p>
  * @param int $sort_flag [optional] <p>
  * Optional sorting type, one of the following:
  * <p>
@@ -3395,7 +3394,7 @@ function collator_sort_with_sort_keys(Collator $object, array &$arr) { }
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function collator_asort(Collator $object, array &$arr, $sort_flag = null) { }
+function collator_asort(Collator $object, array &$array, $sort_flag = null) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -3408,7 +3407,7 @@ function collator_asort(Collator $object, array &$arr, $sort_flag = null) { }
  * <b>Locale::ACTUAL_LOCALE</b>,
  * respectively). The default is the actual locale.
  * </p>
- * @return string Real locale name from which the collation data comes. If the collator was
+ * @return string|false Real locale name from which the collation data comes. If the collator was
  * instantiated from rules or an error occurred, returns
  * boolean <b>FALSE</b>.
  */
@@ -3419,7 +3418,7 @@ function collator_get_locale(Collator $object, $type = null) { }
  * Get collator's last error code
  * @link https://php.net/manual/en/collator.geterrorcode.php
  * @param Collator $object
- * @return int Error code returned by the last Collator API function call.
+ * @return int|false Error code returned by the last Collator API function call.
  */
 function collator_get_error_code(Collator $object) { }
 
@@ -3428,7 +3427,7 @@ function collator_get_error_code(Collator $object) { }
  * Get text for collator's last error code
  * @link https://php.net/manual/en/collator.geterrormessage.php
  * @param Collator $object
- * @return string Description of an error occurred in the last Collator API function call.
+ * @return string|false Description of an error occurred in the last Collator API function call.
  */
 function collator_get_error_message(Collator $object) { }
 
@@ -3440,7 +3439,7 @@ function collator_get_error_message(Collator $object) { }
  * @param string $str <p>
  * The string to produce the key from.
  * </p>
- * @return string the collation key for the string. Collation keys can be compared directly instead of strings.
+ * @return string|false the collation key for the string. Collation keys can be compared directly instead of strings.
  */
 function collator_get_sort_key(Collator $object, $str) { }
 
@@ -3498,11 +3497,11 @@ function numfmt_format(NumberFormatter $fmt, $value, $type = null) { }
  * formatting type to use. By default,
  * <b>NumberFormatter::TYPE_DOUBLE</b> is used.
  * </p>
- * @param int $position [optional] <p>
+ * @param int &$position [optional] <p>
  * Offset in the string at which to begin parsing. On return, this value
  * will hold the offset at which parsing ended.
  * </p>
- * @return mixed The value of the parsed number or <b>FALSE</b> on error.
+ * @return int|float|false The value of the parsed number or <b>FALSE</b> on error.
  */
 function numfmt_parse(NumberFormatter $fmt, $value, $type = null, &$position = null) { }
 
@@ -3517,7 +3516,7 @@ function numfmt_parse(NumberFormatter $fmt, $value, $type = null, &$position = n
  * @param string $currency <p>
  * The 3-letter ISO 4217 currency code indicating the currency to use.
  * </p>
- * @return string String representing the formatted currency value.
+ * @return string|false String representing the formatted currency value.
  */
 function numfmt_format_currency(NumberFormatter $fmt, $value, $currency) { }
 
@@ -3527,11 +3526,11 @@ function numfmt_format_currency(NumberFormatter $fmt, $value, $currency) { }
  * @link https://php.net/manual/en/numberformatter.parsecurrency.php
  * @param NumberFormatter $fmt
  * @param string $value
- * @param string $currency <p>
+ * @param string &$currency <p>
  * Parameter to receive the currency name (3-letter ISO 4217 currency
  * code).
  * </p>
- * @param int $position [optional] <p>
+ * @param int &$position [optional] <p>
  * Offset in the string at which to begin parsing. On return, this value
  * will hold the offset at which parsing ended.
  * </p>
@@ -3564,7 +3563,7 @@ function numfmt_set_attribute(NumberFormatter $fmt, $attr, $value) { }
  * Attribute specifier - one of the
  * numeric attribute constants.
  * </p>
- * @return int|false Return attribute value on success, or <b>FALSE</b> on error.
+ * @return int|float|false Return attribute value on success, or <b>FALSE</b> on error.
  */
 function numfmt_get_attribute(NumberFormatter $fmt, $attr) { }
 
@@ -3646,10 +3645,9 @@ function numfmt_set_pattern(NumberFormatter $fmt, $pattern) { }
  * Get formatter pattern
  * @link https://php.net/manual/en/numberformatter.getpattern.php
  * @param NumberFormatter $fmt
- * @param $nf
  * @return string|false Pattern string that is used by the formatter, or <b>FALSE</b> if an error happens.
  */
-function numfmt_get_pattern(NumberFormatter $fmt, $nf) { }
+function numfmt_get_pattern(NumberFormatter $fmt) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -3662,7 +3660,7 @@ function numfmt_get_pattern(NumberFormatter $fmt, $nf) { }
  * <b>Locale::ACTUAL_LOCALE</b>,
  * respectively). The default is the actual locale.
  * </p>
- * @return string The locale name used to create the formatter.
+ * @return string|false The locale name used to create the formatter.
  */
 function numfmt_get_locale(NumberFormatter $fmt, $type = null) { }
 
@@ -3671,20 +3669,18 @@ function numfmt_get_locale(NumberFormatter $fmt, $type = null) { }
  * Get formatter's last error code.
  * @link https://php.net/manual/en/numberformatter.geterrorcode.php
  * @param NumberFormatter $fmt
- * @param $nf
  * @return int error code from last formatter call.
  */
-function numfmt_get_error_code(NumberFormatter $fmt, $nf) { }
+function numfmt_get_error_code(NumberFormatter $fmt) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get formatter's last error message.
  * @link https://php.net/manual/en/numberformatter.geterrormessage.php
  * @param NumberFormatter $fmt
- * @param $nf
  * @return string error message from last formatter call.
  */
-function numfmt_get_error_message(NumberFormatter $fmt, $nf) { }
+function numfmt_get_error_message(NumberFormatter $fmt) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -3692,7 +3688,7 @@ function numfmt_get_error_message(NumberFormatter $fmt, $nf) { }
  * @link https://php.net/manual/en/normalizer.normalize.php
  * @param string $input <p>The input string to normalize</p>
  * @param string $form [optional] <p>One of the normalization forms.</p>
- * @return string The normalized string or <b>NULL</b> if an error occurred.
+ * @return string|null The normalized string or <b>NULL</b> if an error occurred.
  */
 function normalizer_normalize($input, $form = Normalizer::FORM_C) { }
 
@@ -3735,7 +3731,7 @@ function locale_set_default($name) { }
  * @param string $locale <p>
  * The locale to extract the primary language code from
  * </p>
- * @return string The language code associated with the language or <b>NULL</b> in case of error.
+ * @return string|null The language code associated with the language or <b>NULL</b> in case of error.
  */
 function locale_get_primary_language($locale) { }
 
@@ -3746,7 +3742,7 @@ function locale_get_primary_language($locale) { }
  * @param string $locale <p>
  * The locale to extract the script code from
  * </p>
- * @return string The script subtag for the locale or <b>NULL</b> if not present
+ * @return string|null The script subtag for the locale or <b>NULL</b> if not present
  */
 function locale_get_script($locale) { }
 
@@ -3757,7 +3753,7 @@ function locale_get_script($locale) { }
  * @param string $locale <p>
  * The locale to extract the region code from
  * </p>
- * @return string The region subtag for the locale or <b>NULL</b> if not present
+ * @return string|null The region subtag for the locale or <b>NULL</b> if not present
  */
 function locale_get_region($locale) { }
 
@@ -3768,7 +3764,7 @@ function locale_get_region($locale) { }
  * @param string $locale <p>
  * The locale to extract the keywords from
  * </p>
- * @return array Associative array containing the keyword-value pairs for this locale
+ * @return array|false|null Associative array containing the keyword-value pairs for this locale
  */
 function locale_get_keywords($locale) { }
 
@@ -3782,7 +3778,7 @@ function locale_get_keywords($locale) { }
  * @param string $in_locale [optional] <p>
  * Optional format locale to use to display the script name
  * </p>
- * @return string Display name of the script for the $locale in the format appropriate for
+ * @return string|false Display name of the script for the $locale in the format appropriate for
  * $in_locale.
  */
 function locale_get_display_script($locale, $in_locale = null) { }
@@ -3895,7 +3891,7 @@ function locale_parse($locale) { }
  * @param string $locale <p>
  * The locale to extract the variants from
  * </p>
- * @return array The array containing the list of all variants subtag for the locale
+ * @return array|null The array containing the list of all variants subtag for the locale
  * or <b>NULL</b> if not present
  */
 function locale_get_all_variants($locale) { }
@@ -3919,9 +3915,11 @@ function locale_get_all_variants($locale) { }
 function locale_filter_matches($langtag, $locale, $canonicalize = false) { }
 
 /**
- * @param $arg1
+ * @param string $locale
+ *
+ * @return null|string
  */
-function locale_canonicalize($arg1) { }
+function locale_canonicalize($locale) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -3957,8 +3955,9 @@ function locale_lookup(array $langtag, $locale, $canonicalize = false, $default 
 function locale_accept_from_http($header) { }
 
 /**
- * @param $locale
- * @param $pattern
+ * @param string $locale
+ * @param string $pattern
+ * @return MessageFormatter|null
  */
 function msgfmt_create($locale, $pattern) { }
 
@@ -4010,7 +4009,6 @@ function msgfmt_parse(MessageFormatter $fmt, $value) { }
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Quick parse input string
  * @link https://php.net/manual/en/messageformatter.parsemessage.php
- * @param MessageFormatter $fmt
  * @param string $locale <p>
  * The locale to use for parsing locale-dependent parts
  * </p>
@@ -4022,7 +4020,7 @@ function msgfmt_parse(MessageFormatter $fmt, $value) { }
  * </p>
  * @return array|false An array containing items extracted, or <b>FALSE</b> on error
  */
-function msgfmt_parse_message(MessageFormatter $fmt, $locale, $pattern, $source) { }
+function msgfmt_parse_message($locale, $pattern, $source) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4044,40 +4042,36 @@ function msgfmt_set_pattern(MessageFormatter $fmt, $pattern) { }
  * Get the pattern used by the formatter
  * @link https://php.net/manual/en/messageformatter.getpattern.php
  * @param MessageFormatter $fmt
- * @param $mf
- * @return string The pattern string for this message formatter
+ * @return string|false The pattern string for this message formatter
  */
-function msgfmt_get_pattern(MessageFormatter $fmt, $mf) { }
+function msgfmt_get_pattern(MessageFormatter $fmt) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the locale for which the formatter was created.
  * @link https://php.net/manual/en/messageformatter.getlocale.php
  * @param MessageFormatter $fmt
- * @param $mf
  * @return string The locale name
  */
-function msgfmt_get_locale(MessageFormatter $fmt, $mf) { }
+function msgfmt_get_locale(MessageFormatter $fmt) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the error code from last operation
  * @link https://php.net/manual/en/messageformatter.geterrorcode.php
  * @param MessageFormatter $fmt
- * @param $nf
  * @return int The error code, one of UErrorCode values. Initial value is U_ZERO_ERROR.
  */
-function msgfmt_get_error_code(MessageFormatter $fmt, $nf) { }
+function msgfmt_get_error_code(MessageFormatter $fmt) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the error text from the last operation
  * @link https://php.net/manual/en/messageformatter.geterrormessage.php
  * @param MessageFormatter $fmt
- * @param $coll
  * @return string Description of the last error.
  */
-function msgfmt_get_error_message(MessageFormatter $fmt, $coll) { }
+function msgfmt_get_error_message(MessageFormatter $fmt) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4120,68 +4114,69 @@ function datefmt_create($locale, $datetype, $timetype, $timezone = null, $calend
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the datetype used for the IntlDateFormatter
  * @link https://php.net/manual/en/intldateformatter.getdatetype.php
- * @param $mf
- * @return int The current date type value of the formatter.
+ * @param IntlDateFormatter $df
+ * @return int|false The current date type value of the formatter.
  */
-function datefmt_get_datetype(MessageFormatter $mf) { }
+function datefmt_get_datetype(IntlDateFormatter $df) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the timetype used for the IntlDateFormatter
  * @link https://php.net/manual/en/intldateformatter.gettimetype.php
- * @param $mf
- * @return int The current date type value of the formatter.
+ * @param IntlDateFormatter $fmt
+ * @return int|false The current date type value of the formatter.
  */
-function datefmt_get_timetype(MessageFormatter $mf) { }
+function datefmt_get_timetype(IntlDateFormatter $fmt) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the calendar used for the IntlDateFormatter
  * @link https://php.net/manual/en/intldateformatter.getcalendar.php
- * @param $mf
+ * @param IntlDateFormatter $fmt
  * @return int The calendar being used by the formatter.
  */
-function datefmt_get_calendar(MessageFormatter $mf) { }
+function datefmt_get_calendar(IntlDateFormatter $fmt) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * sets the calendar used to the appropriate calendar, which must be
  * @link https://php.net/manual/en/intldateformatter.setcalendar.php
- * @param MessageFormatter $mf
- * @param int $which <p>
+ * @param IntlDateFormatter $df $mf
+ * @param IntlCalendar|int|null $which <p>
  * The calendar to use.
  * Default is <b>IntlDateFormatter::GREGORIAN</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function datefmt_set_calendar(MessageFormatter $mf, $which) { }
+function datefmt_set_calendar(IntlDateFormatter $df, $which) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the locale used by formatter
  * @link https://php.net/manual/en/intldateformatter.getlocale.php
- * @param MessageFormatter $mf
+ * @param IntlDateFormatter $df
  * @param int $which [optional]
  * @return string|false the locale of this formatter or 'false' if error
  */
-function datefmt_get_locale(MessageFormatter $mf, $which = null) { }
+function datefmt_get_locale(IntlDateFormatter $df, int $which = ULOC_ACTUAL_LOCALE) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the timezone-id used for the IntlDateFormatter
  * @link https://php.net/manual/en/intldateformatter.gettimezoneid.php
- * @param $mf
- * @return string ID string for the time zone used by this formatter.
+ * @param IntlDateFormatter $df
+ * @return string|false ID string for the time zone used by this formatter.
  */
-function datefmt_get_timezone_id(MessageFormatter $mf) { }
+function datefmt_get_timezone_id(IntlDateFormatter $df) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 3.0.0)<br/>
  * Get copy of formatter's calendar object
  * @link https://secure.php.net/manual/en/intldateformatter.getcalendarobject.php
- * @return IntlCalendar A copy of the internal calendar object used by this formatter.
+ * @param IntlDateFormatter $df
+ * @return IntlCalendar|false|null A copy of the internal calendar object used by this formatter.
  */
-function datefmt_get_calendar_object() { }
+function datefmt_get_calendar_object(IntlDateFormatter $df) { }
 
 /**
  * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
@@ -4210,8 +4205,8 @@ function datefmt_set_timezone_id(MessageFormatter $mf, $zone) { }
  * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
  * Sets formatter's timezone
  * @link https://php.net/manual/en/intldateformatter.settimezone.php
- * @param MessageFormatter $mf
- * @param mixed $zone <p>
+ * @param IntlDateFormatter $df
+ * @param IntlTimeZone|DateTimeZone|string|null $zone <p>
  * The timezone to use for this formatter. This can be specified in the
  * following forms:
  * <ul>
@@ -4243,24 +4238,24 @@ function datefmt_set_timezone_id(MessageFormatter $mf, $zone) { }
  * </li>
  * </ul>
  * </p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return bool|null <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function datefmt_set_timezone(MessageFormatter $mf, $zone) { }
+function datefmt_set_timezone(IntlDateFormatter $df, $zone) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the pattern used for the IntlDateFormatter
  * @link https://php.net/manual/en/intldateformatter.getpattern.php
- * @param $mf
- * @return string The pattern string being used to format/parse.
+ * @param IntlDateFormatter $df
+ * @return string|false The pattern string being used to format/parse.
  */
-function datefmt_get_pattern(MessageFormatter $mf) { }
+function datefmt_get_pattern(IntlDateFormatter $df) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set the pattern used for the IntlDateFormatter
  * @link https://php.net/manual/en/intldateformatter.setpattern.php
- * @param MessageFormatter $mf
+ * @param IntlDateFormatter $df
  * @param string $pattern <p>
  * New pattern string to use.
  * Possible patterns are documented at http://userguide.icu-project.org/formatparse/datetime.
@@ -4268,35 +4263,35 @@ function datefmt_get_pattern(MessageFormatter $mf) { }
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * Bad formatstrings are usually the cause of the failure.
  */
-function datefmt_set_pattern(MessageFormatter $mf, $pattern) { }
+function datefmt_set_pattern(IntlDateFormatter $df, $pattern) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the lenient used for the IntlDateFormatter
  * @link https://php.net/manual/en/intldateformatter.islenient.php
- * @param $mf
+ * @param IntlDateFormatter $df
  * @return bool <b>TRUE</b> if parser is lenient, <b>FALSE</b> if parser is strict. By default the parser is lenient.
  */
-function datefmt_is_lenient(MessageFormatter $mf) { }
+function datefmt_is_lenient(IntlDateFormatter $df) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Set the leniency of the parser
  * @link https://php.net/manual/en/intldateformatter.setlenient.php
- * @param MessageFormatter $mf
+ * @param IntlDateFormatter $df
  * @param bool $lenient <p>
  * Sets whether the parser is lenient or not, default is <b>TRUE</b> (lenient).
  * </p>
- * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @return void
  */
-function datefmt_set_lenient(MessageFormatter $mf, $lenient) { }
+function datefmt_set_lenient(IntlDateFormatter $df, $lenient) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Format the date/time value as a string
  * @link https://php.net/manual/en/intldateformatter.format.php
- * @param MessageFormatter $mf
- * @param mixed $value <p>
+ * @param IntlDateFormatter $df
+ * @param object|array|string|int|float $value <p>
  * Value to format. This may be a <b>DateTime</b> object,
  * an integer representing a Unix timestamp value (seconds
  * since epoch, UTC) or an array in the format output by
@@ -4304,16 +4299,16 @@ function datefmt_set_lenient(MessageFormatter $mf, $lenient) { }
  * </p>
  * @return string|false The formatted string or, if an error occurred, <b>FALSE</b>.
  */
-function datefmt_format(MessageFormatter $mf, $value) { }
+function datefmt_format(IntlDateFormatter $df, $value) { }
 
 /**
  * (PHP 5 &gt;= 5.5.0, PECL intl &gt;= 3.0.0)<br/>
  * Formats an object
  * @link https://secure.php.net/manual/en/intldateformatter.formatobject.php
- * @param object $object <p>
+ * @param IntlCalendar|DateTimeInterface $object <p>
  * An object of type IntlCalendar or DateTime. The timezone information in the object will be used.
  * </p>
- * @param mixed $format [optional] <p>
+ * @param array|int|string|null $format [optional] <p>
  * How to format the date/time. This can either be an {https://secure.php.net/manual/en/language.types.array.php array}  with
  * two elements (first the date style, then the time style, these being one
  * of the constants <b>IntlDateFormatter::NONE</b>,
@@ -4336,57 +4331,56 @@ function datefmt_format_object($object, $format = null, $locale = null) { }
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Parse string to a timestamp value
  * @link https://php.net/manual/en/intldateformatter.parse.php
- * @param MessageFormatter $mf
+ * @param IntlDateFormatter $df
  * @param string $value <p>
  * string to convert to a time
  * </p>
- * @param int $position [optional] <p>
+ * @param int &$position [optional] <p>
  * Position at which to start the parsing in $value (zero-based).
  * If no error occurs before $value is consumed, $parse_pos will contain -1
  * otherwise it will contain the position at which parsing ended (and the error occurred).
  * This variable will contain the end position if the parse fails.
  * If $parse_pos > strlen($value), the parse fails immediately.
  * </p>
- * @return int timestamp parsed value
+ * @return int|float|false timestamp parsed value
  */
-function datefmt_parse(MessageFormatter $mf, $value, &$position = null) { }
+function datefmt_parse(IntlDateFormatter $df, $value, &$position = null) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Parse string to a field-based time value
  * @link https://php.net/manual/en/intldateformatter.localtime.php
- * @param MessageFormatter $mf
+ * @param IntlDateFormatter $df
  * @param string $value <p>
  * string to convert to a time
  * </p>
- * @param int $position [optional] <p>
+ * @param int &$position [optional] <p>
  * Position at which to start the parsing in $value (zero-based).
  * If no error occurs before $value is consumed, $parse_pos will contain -1
  * otherwise it will contain the position at which parsing ended .
  * If $parse_pos > strlen($value), the parse fails immediately.
  * </p>
- * @return array Localtime compatible array of integers : contains 24 hour clock value in tm_hour field
+ * @return array|false Localtime compatible array of integers : contains 24 hour clock value in tm_hour field
  */
-function datefmt_localtime(MessageFormatter $mf, $value, &$position = null) { }
+function datefmt_localtime(IntlDateFormatter $df, $value, &$position = null) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the error code from last operation
  * @link https://php.net/manual/en/intldateformatter.geterrorcode.php
- * @param MessageFormatter $mf
+ * @param IntlDateFormatter $df
  * @return int The error code, one of UErrorCode values. Initial value is U_ZERO_ERROR.
  */
-function datefmt_get_error_code(MessageFormatter $mf) { }
+function datefmt_get_error_code(IntlDateFormatter $df) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Get the error text from the last operation.
  * @link https://php.net/manual/en/intldateformatter.geterrormessage.php
- * @param MessageFormatter $mf
- * @param $coll
+ * @param IntlDateFormatter $df
  * @return string Description of the last error.
  */
-function datefmt_get_error_message(MessageFormatter $mf, $coll) { }
+function datefmt_get_error_message(IntlDateFormatter $df) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
@@ -4571,7 +4565,7 @@ function grapheme_stristr($haystack, $needle, $before_needle = false) { }
  * bytes. If $start does not point to the first byte of a UTF-8
  * character, the start position is moved to the next character boundary.
  * </p>
- * @param int $next [optional] <p>
+ * @param int &$next [optional] <p>
  * Reference to a value that will be set to the next starting position.
  * When the call returns, this may point to the first byte position past the end of the string.
  * </p>
@@ -4596,7 +4590,7 @@ function grapheme_extract($haystack, $size, $extract_type = null, $start = 0, &$
  * @param int $variant [optional] <p>
  * Either INTL_IDNA_VARIANT_2003 for IDNA 2003 or INTL_IDNA_VARIANT_UTS46 for UTS #46.
  * </p>
- * @param array $idna_info [optional] <p>
+ * @param array &$idna_info [optional] <p>
  * This parameter can be used only if INTL_IDNA_VARIANT_UTS46 was used for variant.
  * In that case, it will be filled with an array with the keys 'result',
  * the possibly illegal result of the transformation, 'isTransitionalDifferent',
@@ -4606,7 +4600,7 @@ function grapheme_extract($haystack, $size, $extract_type = null, $start = 0, &$
  * </p>
  * @return string|false The ACE encoded version of the domain name or <b>FALSE</b> on failure.
  */
-function idn_to_ascii($domain, $options = 0, $variant = INTL_IDNA_VARIANT_2003, array &$idna_info = null) { }
+function idn_to_ascii($domain, $options = 0, $variant = INTL_IDNA_VARIANT_UTS46, array &$idna_info) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PHP 7, PECL intl &gt;= 1.0.2, PHP 7, PECL idn &gt;= 0.1)<br/>
@@ -4622,7 +4616,7 @@ function idn_to_ascii($domain, $options = 0, $variant = INTL_IDNA_VARIANT_2003, 
  * @param int $variant [optional] <p>
  * Either INTL_IDNA_VARIANT_2003 for IDNA 2003 or INTL_IDNA_VARIANT_UTS46 for UTS #46.
  * </p>
- * @param int &$idna_info [optional] <p>
+ * @param array &$idna_info [optional] <p>
  * This parameter can be used only if INTL_IDNA_VARIANT_UTS46 was used for variant.
  * In that case, it will be filled with an array with the keys 'result',
  * the possibly illegal result of the transformation, 'isTransitionalDifferent',
@@ -4634,13 +4628,13 @@ function idn_to_ascii($domain, $options = 0, $variant = INTL_IDNA_VARIANT_2003, 
  * RFC 3490 4.2 states though "ToUnicode never fails. If any step fails, then the original input
  * sequence is returned immediately in that step."
  */
-function idn_to_utf8($domain, $options = 0, $variant = INTL_IDNA_VARIANT_2003, array &$idna_info) { }
+function idn_to_utf8($domain, $options = 0, $variant = INTL_IDNA_VARIANT_UTS46, array &$idna_info) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Create a new IntlCalendar
  * @link https://secure.php.net/manual/en/intlcalendar.createinstance.php
- * @param mixed $timeZone [optional] <p> <p>
+ * @param IntlTimeZone|DateTimeZone|string|null $timeZone [optional] <p> <p>
  * The timezone to use.
  * </p>
  *
@@ -4674,10 +4668,10 @@ function idn_to_utf8($domain, $options = 0, $variant = INTL_IDNA_VARIANT_2003, a
  * </li>
  * </ul>
  * </p>
- * @param string $locale [optional] <p>
+ * @param string|null $locale [optional] <p>
  * A locale to use or <b>NULL</b> to use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.default-locale the default locale}.
  * </p>
- * @return IntlCalendar
+ * @return IntlCalendar|null
  * The created {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} instance or <b>NULL</b> on
  * failure.
  * @since 5.5
@@ -4716,10 +4710,9 @@ function intlcal_get_now() { }
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get array of locales for which there is data
  * @link https://secure.php.net/manual/en/intlcalendar.getavailablelocales.php
- * @return array An array of strings, one for which locale.
+ * @return string[] An array of strings, one for which locale.
  * @since 5.5
  */
-
 function intlcal_get_available_locales() { }
 
 /**
@@ -4754,6 +4747,9 @@ function intlcal_get_time($calendar) { }
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Set the calendar time in milliseconds since the epoch
  * @link https://secure.php.net/manual/en/intlcalendar.settime.php
+ * @param IntlCalendar $cal <p>
+ * The IntlCalendar resource.
+ * </p>
  * @param float $date <p>
  * An instant represented by the number of number of milliseconds between
  * such instant and the epoch, ignoring leap seconds.
@@ -4762,7 +4758,7 @@ function intlcal_get_time($calendar) { }
  * Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
  * @since 5.5
  */
-function intlcal_set_time($date) { }
+function intlcal_set_time(IntlCalendar $cal, $date) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -4790,7 +4786,7 @@ function intlcal_add($calendar, $field, $amount) { }
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
- * @param mixed $timeZone <p>
+ * @param IntlTimeZone|DateTimeZone|string|null $timeZone <p>
  * The new timezone to be used by this calendar. It can be specified in the
  * following ways:
  *
@@ -4914,7 +4910,7 @@ function intlcal_set($calendar, $year, $month, $dayOfMonth = null, $hour = null,
  * These are integer values between <em>0</em> and
  * <b>IntlCalendar::FIELD_COUNT</b>.
  * </p>
- * @param mixed $amountOrUpOrDown <p>
+ * @param int|bool $amountOrUpOrDown <p>
  * The (signed) amount to add to the field, <b>TRUE</b> for rolling up (adding
  * <em>1</em>), or <b>FALSE</b> for rolling down (subtracting
  * <em>1</em>).
@@ -5064,20 +5060,18 @@ function intlcal_get_first_day_of_week($calendar) { }
 function intlcal_greates_minimum($calendar, $field) { }
 
 /**
- * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
- * Get data from the bundle
- * @link https://php.net/manual/en/resourcebundle.get.php
+ * (PHP &gt;= 5.5.0, PECL intl &gt;= 3.0.0a1)<br/>
+ * GGets the value for a specific field.
+ * @link https://www.php.net/manual/en/intlcalendar.get.php
  * @param IntlCalendar $calendar <p>
- * The calendar object, on the procedural style interface.
+ * The IntlCalendar resource.
  * </p>
- * @param string|int $index <p>
- * Data index, must be string or integer.
+ * @param int $field <p>
+ * One of the IntlCalendar date/time field constants. These are integer values between 0 and IntlCalendar::FIELD_COUNT.
  * </p>
- * @return mixed the data located at the index or <b>NULL</b> on error. Strings, integers and binary data strings
- * are returned as corresponding PHP types, integer array is returned as PHP array. Complex types are
- * returned as <b>ResourceBundle</b> object.
+ * @return int An integer with the value of the time field.
  */
-function intlcal_get($calendar, $index) { }
+function intlcal_get($calendar, $field) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5195,7 +5189,7 @@ function intlcal_get_minimum($calendar, $field) { }
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
- * @return IntlTimeZone
+ * @return IntlTimeZone|false
  * An {@link https://secure.php.net/manual/en/class.intltimezone.php IntlTimeZone} object corresponding to the one used
  * internally in this object.
  * @since 5.5
@@ -5460,17 +5454,18 @@ function intlcal_set_skipped_wall_time_option($calendar, $wallTimeOption) { }
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a2)<br/>
  * Create an IntlCalendar from a DateTime object or string
  * @link https://secure.php.net/manual/en/intlcalendar.fromdatetime.php
- * @param mixed $dateTime <p>
+ * @param DateTime|string $dateTime <p>
  * A {@link https://secure.php.net/manual/en/class.datetime.php DateTime} object or a {@link https://secure.php.net/manual/en/language.types.string.php string} that
  * can be passed to  {@link https://secure.php.net/manual/en/datetime.construct.php DateTime::__construct()}.
  * </p>
- * @return IntlCalendar
+ * @param null|string $locale
+ * @return IntlCalendar|null
  * The created {@link https://secure.php.net/manual/en/class.intlcalendar.php IntlCalendar} object or <b>NULL</b> in case of
  * failure. If a {@link https://secure.php.net/manual/en/language.types.string.php string} is passed, any exception that occurs
  * inside the {@link https://secure.php.net/manual/en/class.datetime.php DateTime} constructor is propagated.
  * @since 5.5
  */
-function intlcal_from_date_time($dateTime) { }
+function intlcal_from_date_time($dateTime, $locale = null) { }
 
 
 /**
@@ -5509,7 +5504,7 @@ function intlcal_get_error_code($calendar) { }
  * @param IntlCalendar $calendar <p>
  * The calendar object, on the procedural style interface.
  * </p>
- * @return string The error message associated with last error that occurred in a function call on this object, or a string indicating the non-existance of an error.
+ * @return string|false The error message associated with last error that occurred in a function call on this object, or a string indicating the non-existance of an error.
  * @since 5.5
  */
 function intlcal_get_error_message($calendar) { }
@@ -5520,7 +5515,7 @@ function intlcal_get_error_message($calendar) { }
  * Get the number of IDs in the equivalency group that includes the given ID
  * @link https://secure.php.net/manual/en/intltimezone.countequivalentids.php
  * @param string $zoneId
- * @return int
+ * @return int|false
  * @since 5.5
  */
 function intltz_count_equivalent_ids($zoneId) { }
@@ -5537,8 +5532,8 @@ function intlz_create_default() { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * @link https://secure.php.net/manual/en/intltimezone.createenumeration.php
- * @param mixed $countryOrRawOffset [optional]
- * @return IntlIterator
+ * @param IntlTimeZone|string|int|float|null $countryOrRawOffset [optional]
+ * @return IntlIterator|false
  * @since 5.5
  */
 function intltz_create_enumeration($countryOrRawOffset) { }
@@ -5566,8 +5561,8 @@ function intltz_from_date_time_zone($zoneId) { }
  * Get the canonical system timezone ID or the normalized custom time zone ID for the given time zone ID
  * @link https://secure.php.net/manual/en/intltimezone.getcanonicalid.php
  * @param string $zoneId
- * @param bool $isSystemID [optional]
- * @return string
+ * @param bool &$isSystemID [optional]
+ * @return string|false
  * @since 5.5
  */
 function intltz_get_canonical_id($zoneId, &$isSystemID) { }
@@ -5581,7 +5576,7 @@ function intltz_get_canonical_id($zoneId, &$isSystemID) { }
  * @param bool $isDaylight [optional]
  * @param int $style [optional]
  * @param string $locale [optional]
- * @return string
+ * @return string|false
  * @since 5.5
  */
 function intltz_get_display_name($obj, $isDaylight, $style, $locale) { }
@@ -5604,7 +5599,7 @@ function intltz_get_dst_savings($obj) { }
  * @link https://secure.php.net/manual/en/intltimezone.getequivalentid.php
  * @param string $zoneId
  * @param int $index
- * @return string
+ * @return string|false
  * @since 5.5
  */
 function intltz_get_equivalent_id($zoneId, $index) { }
@@ -5616,7 +5611,7 @@ function intltz_get_equivalent_id($zoneId, $index) { }
  * @param IntlTimeZone $obj - <p>
  * The time zone object, on the procedural style interface.
  * </p>
- * @return int
+ * @return int|false
  * @since 5.5
  */
 function intltz_get_error_code($obj) { }
@@ -5628,7 +5623,7 @@ function intltz_get_error_code($obj) { }
  * @param IntlTimeZone $obj - <p>
  * The time zone object, on the procedural style interface.
  * </p>
- * @return string
+ * @return string|false
  * @since 5.5
  */
 function intltz_get_error_message($obj) { }
@@ -5647,7 +5642,7 @@ function intltz_getGMT() { }
  * Get timezone ID
  * @link https://secure.php.net/manual/en/intltimezone.getid.php
  * @param IntlTimeZone $obj
- * @return string
+ * @return string|false
  * @since 5.5
  */
 function intltz_get_id($obj) { }
@@ -5659,8 +5654,8 @@ function intltz_get_id($obj) { }
  * @param IntlTimeZone $obj
  * @param float $date
  * @param bool $local
- * @param int $rawOffset
- * @param int $dstOffset
+ * @param int &$rawOffset
+ * @param int &$dstOffset
  * @return int
  * @since 5.5
  */
@@ -5678,11 +5673,10 @@ function intltz_get_raw_offset($obj) { }
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Get the timezone data version currently used by ICU
  * @link https://secure.php.net/manual/en/intltimezone.gettzdataversion.php
- * @param IntlTimeZone $obj
- * @return string
+ * @return string|false
  * @since 5.5
  */
-function intltz_get_tz_data_version($obj) { }
+function intltz_get_tz_data_version() { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
@@ -5698,9 +5692,9 @@ function intltz_has_same_rules($obj, $otherTimeZone) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Convert to DateTimeZone object
- * @link https://secure.php.net/manual/ru/intltimezone.todatetimezone.php
- * @param $obj
- * @return DateTimeZone
+ * @link https://secure.php.net/manual/en/intltimezone.todatetimezone.php
+ * @param IntlTimeZone $obj
+ * @return DateTimeZone|false
  * @since 5.5
  */
 function intltz_to_date_time_zone($obj) { }
@@ -5708,8 +5702,8 @@ function intltz_to_date_time_zone($obj) { }
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
  * Check if this time zone uses daylight savings time
- * @link https://secure.php.net/manual/ru/intltimezone.usedaylighttime.php
- * @param $obj
+ * @link https://secure.php.net/manual/en/intltimezone.usedaylighttime.php
+ * @param IntlTimeZone $obj
  * @return bool
  * @since 5.5
  */
@@ -5718,23 +5712,23 @@ function intltz_use_daylight_time($obj) { }
 
 /**
  * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
- * @param mixed $timeZone
- * @param string $locale
- * @return IntlGregorianCalendar
+ * @param DateTimeZone|IntlTimeZone|string|int|null $timeZoneOrYear
+ * @param string|null $locale
+ * @return IntlGregorianCalendar|null
  * @since 5.5
  */
-function intlgregcal_create_instance($timeZone = null, $locale = null) { }
+function intlgregcal_create_instance($timeZoneOrYear = null, $locale = null) { }
 
 /**
  * @param IntlGregorianCalendar $obj
- * @param double $change
- *
+ * @param float $change
+ * @return bool
  */
 function intlgregcal_set_gregorian_change($obj, $change) { }
 
 /**
  * @param IntlGregorianCalendar $obj
- * @return double $change
+ * @return float
  */
 function intlgregcal_get_gregorian_change($obj) { }
 
@@ -5770,21 +5764,21 @@ function resourcebundle_create($locale, $bundlename, $fallback = null) { }
  * @param string|int $index <p>
  * Data index, must be string or integer.
  * </p>
+ * @param bool $fallback
  * @return mixed the data located at the index or <b>NULL</b> on error. Strings, integers and binary data strings
  * are returned as corresponding PHP types, integer array is returned as PHP array. Complex types are
  * returned as <b>ResourceBundle</b> object.
  */
-function resourcebundle_get(ResourceBundle $r, $index) { }
+function resourcebundle_get(ResourceBundle $r, $index, $fallback = true) { }
 
 /**
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
  * Get number of elements in the bundle
  * @link https://php.net/manual/en/resourcebundle.count.php
- * @param ResourceBundle $r
- * @param $bundle
+ * @param ResourceBundle $bundle
  * @return int number of elements in the bundle.
  */
-function resourcebundle_count(ResourceBundle $r, $bundle) { }
+function resourcebundle_count(ResourceBundle $bundle) { }
 
 /**
  * (PHP &gt;= 5.3.2, PECL intl &gt;= 2.0.0)<br/>
@@ -5848,7 +5842,7 @@ function transliterator_create($id, $direction = null) { }
  * May also be set to
  * Transliterator::REVERSE.
  * </p>
- * @return Transliterator a <b>Transliterator</b> object on success,
+ * @return Transliterator|null a <b>Transliterator</b> object on success,
  * or <b>NULL</b> on failure.
  * @since 5.4
  */
@@ -5858,7 +5852,7 @@ function transliterator_create_from_rules($rules, $direction = null) { }
  * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
  * Get transliterator IDs
  * @link https://php.net/manual/en/transliterator.listids.php
- * @return array An array of registered transliterator IDs on success,
+ * @return string[]|false An array of registered transliterator IDs on success,
  * or <b>FALSE</b> on failure.
  * @since 5.4
  */
@@ -5869,7 +5863,7 @@ function transliterator_list_ids() { }
  * Create an inverse transliterator
  * @link https://php.net/manual/en/transliterator.createinverse.php
  * @param Transliterator $orig_trans
- * @return Transliterator a <b>Transliterator</b> object on success,
+ * @return Transliterator|null a <b>Transliterator</b> object on success,
  * or <b>NULL</b> on failure
  * @since 5.4
  */
@@ -5903,7 +5897,7 @@ function transliterator_transliterate($transliterator, $subject, $start = null, 
  * Get last error code
  * @link https://php.net/manual/en/transliterator.geterrorcode.php
  * @param Transliterator $trans
- * @return int The error code on success,
+ * @return int|false The error code on success,
  * or <b>FALSE</b> if none exists, or on failure.
  * @since 5.4
  */
@@ -5914,7 +5908,7 @@ function transliterator_get_error_code(Transliterator $trans) { }
  * Get last error message
  * @link https://php.net/manual/en/transliterator.geterrormessage.php
  * @param Transliterator $trans
- * @return string The error code on success,
+ * @return string|false The error code on success,
  * or <b>FALSE</b> if none exists, or on failure.
  * @since 5.4
  */
@@ -5975,26 +5969,35 @@ function intl_error_name($error_code) { }
 function normalizer_get_raw_decomposition($input) { }
 
 /**
+ * @return IntlTimeZone
  * @since 5.5
  */
 function intltz_create_default() { }
 
 /**
+ * @return IntlTimeZone
  * @since 5.5
  */
 function intltz_get_gmt() { }
 
 /**
+ * @return IntlTimeZone
  * @since 5.5
  */
 function intltz_get_unknown() { }
 
 /**
+ * @param int $zoneType
+ * @param null|string $region
+ * @param null|int $rawOffset
+ * @return IntlIterator|false
  * @since 5.5
  */
 function intltz_create_time_zone_id_enumeration($zoneType, $region = null, $rawOffset = null) { }
 
 /**
+ * @param string $zoneId
+ * @return string|false
  * @since 5.5
  */
 function intltz_get_region($zoneId) { }
@@ -6696,7 +6699,7 @@ class UConverter {
      * @param int $reason
      * @param string $source
      * @param string $codePoint
-     * @param int $error
+     * @param int &$error
      * @return mixed
      */
     public function fromUCallback($reason, $source, $codePoint, &$error) { }
@@ -6825,7 +6828,7 @@ class UConverter {
      * @param int $reason
      * @param string $source
      * @param string $codeUnits
-     * @param int $error
+     * @param int &$error
      * @return mixed
      */
     public function toUCallback($reason, $source, $codeUnits, &$error) { }
