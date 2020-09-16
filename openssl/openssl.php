@@ -656,7 +656,7 @@ function openssl_encrypt($data, $method, $key, $options = 0, $iv = "", &$tag = n
  * @param string $aad [optional] <p>Additional authentication data.</p>
  * @return string|false The decrypted string on success or false on failure.
  */
-function openssl_decrypt($data, $method, $password, $options = 1, $iv = "", $tag = "",  $aad = "") { }
+function openssl_decrypt($data, $method, $password, $options = 0, $iv = "", $tag = "",  $aad = "") { }
 
 /**
  * (PHP 5 &gt;= PHP 5.3.3)<br/>
