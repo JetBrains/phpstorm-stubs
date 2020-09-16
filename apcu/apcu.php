@@ -573,6 +573,7 @@ function apcu_enabled(){}
 
 /**
  * @param string $key
+ * @return array|null
  */
 function apcu_key_info($key){}
 
