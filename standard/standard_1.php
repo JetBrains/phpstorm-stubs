@@ -820,7 +820,7 @@ function count_chars ($string, $mode = null) {}
  * </p>
  * @return string the chunked string.
  */
-function chunk_split ($body, $chunklen = null, $end = null) {}
+function chunk_split ($body, $chunklen = 76, $end = "\r\n") {}
 
 /**
  * Strip whitespace (or other characters) from the beginning and end of a string
