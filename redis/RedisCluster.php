@@ -1565,7 +1565,7 @@ class RedisCluster {
     public function hSetNx($key, $hashKey, $value) { }
 
     /**
-     * Retirieve the values associated to the specified fields in the hash.
+     * Retrieve the values associated to the specified fields in the hash.
      *
      * @param   string $key
      * @param   array  $hashKeys
