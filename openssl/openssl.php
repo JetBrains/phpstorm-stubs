@@ -359,9 +359,14 @@ function openssl_x509_export($x509, &$output, $notext = true) { }
 function openssl_x509_export_to_file($x509, $outfilename, $notext = true) { }
 
 /**
+ * Verifies digital signature of x509 certificate against a public key
+ * @link https://www.php.net/manual/en/function.openssl-x509-verify.php
+ * @param mixed $x509
+ * @param mixed $pub_key_id
+ * @return int Returns 1 if the signature is correct, 0 if it is incorrect, and -1 on error.
  * @since 7.4
  */
-function openssl_x509_verify($cert, $key){}
+function openssl_x509_verify($cert, $pub_key_id) : int {}
 
 /**
  * Exports a PKCS#12 Compatible Certificate Store File to variable.
