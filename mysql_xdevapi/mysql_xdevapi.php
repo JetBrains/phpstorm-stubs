@@ -1,7 +1,7 @@
 <?php
 /**
  * mysql_xdevapi extension stubs
- * @link https://secure.php.net/manual/en/book.mysql-xdevapi.php
+ * @link https://www.php.net/manual/en/book.mysql-xdevapi.php
  * @version 0.3 2019-08-21
  * @author Mathijs Giesbers
  * @package mysql_xdevapi
@@ -48,7 +48,7 @@ define('MYSQLX_LOCK_SKIP_LOCKED',2);
 
 
 /**
- * @link https://secure.php.net/manual/en/function.mysql-xdevapi-getsession.php
+ * @link https://www.php.net/manual/en/function.mysql-xdevapi-getsession.php
  * @param string $uri The URI to the MySQL server, such as mysqlx://user:password@host.
  * @return \mysql_xdevapi\Session
  */
@@ -144,7 +144,7 @@ class Collection  {
     public function existsInDatabase() : bool {}
 
     /**
-     * @link https://secure.php.net/manual/en/mysql-xdevapi-collection.find.php
+     * @link https://www.php.net/manual/en/mysql-xdevapi-collection.find.php
      * @param string $search_condition
      * @return \mysql_xdevapi\CollectionFind
      */

@@ -4,14 +4,14 @@
  * The <b>ReflectionObject</b> class reports
  * information about an object.
  *
- * @link https://php.net/manual/en/class.reflectionobject.php
+ * @link https://www.php.net/manual/en/class.reflectionobject.php
  */
 class ReflectionObject extends ReflectionClass
 {
     /**
      * Constructs a ReflectionObject
      *
-     * @link https://php.net/manual/en/reflectionobject.construct.php
+     * @link https://www.php.net/manual/en/reflectionobject.construct.php
      * @param object $argument An object instance.
      */
     public function __construct($argument)
@@ -21,7 +21,7 @@ class ReflectionObject extends ReflectionClass
     /**
      * Export
      *
-     * @link https://php.net/manual/en/reflectionobject.export.php
+     * @link https://www.php.net/manual/en/reflectionobject.export.php
      * @param string $argument The reflection to export.
      * @param bool $return Setting to {@see true} will return the export,
      * as opposed to emitting it. Setting to {@see false} (the default) will do

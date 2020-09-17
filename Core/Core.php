@@ -4,14 +4,14 @@
 
 /**
  * Gets the version of the current Zend engine
- * @link https://php.net/manual/en/function.zend-version.php
+ * @link https://www.php.net/manual/en/function.zend-version.php
  * @return string the Zend Engine version number, as a string.
  */
 function zend_version () {}
 
 /**
  * Returns the number of arguments passed to the function
- * @link https://php.net/manual/en/function.func-num-args.php
+ * @link https://www.php.net/manual/en/function.func-num-args.php
  * @return int the number of arguments passed into the current user-defined
  * function.
  */
@@ -19,7 +19,7 @@ function func_num_args () {}
 
 /**
  * Return an item from the argument list
- * @link https://php.net/manual/en/function.func-get-arg.php
+ * @link https://www.php.net/manual/en/function.func-get-arg.php
  * @param int $arg_num <p>
  * The argument offset. Function arguments are counted starting from
  * zero.
@@ -30,7 +30,7 @@ function func_get_arg ($arg_num) {}
 
 /**
  * Returns an array comprising a function's argument list
- * @link https://php.net/manual/en/function.func-get-args.php
+ * @link https://www.php.net/manual/en/function.func-get-args.php
  * @return array an array in which each element is a copy of the corresponding
  * member of the current user-defined function's argument list.
  */
@@ -38,7 +38,7 @@ function func_get_args () {}
 
 /**
  * Get string length
- * @link https://php.net/manual/en/function.strlen.php
+ * @link https://www.php.net/manual/en/function.strlen.php
  * @param string $string <p>
  * The string being measured for length.
  * </p>
@@ -49,7 +49,7 @@ function strlen ($string) {}
 
 /**
  * Binary safe string comparison
- * @link https://php.net/manual/en/function.strcmp.php
+ * @link https://www.php.net/manual/en/function.strcmp.php
  * @param string $str1 <p>
  * The first string.
  * </p>
@@ -65,7 +65,7 @@ function strcmp ($str1, $str2) {}
 
 /**
  * Binary safe string comparison of the first n characters
- * @link https://php.net/manual/en/function.strncmp.php
+ * @link https://www.php.net/manual/en/function.strncmp.php
  * @param string $str1 <p>
  * The first string.
  * </p>
@@ -84,7 +84,7 @@ function strncmp ($str1, $str2, $len) {}
 
 /**
  * Binary safe case-insensitive string comparison
- * @link https://php.net/manual/en/function.strcasecmp.php
+ * @link https://www.php.net/manual/en/function.strcasecmp.php
  * @param string $str1 <p>
  * The first string
  * </p>
@@ -100,7 +100,7 @@ function strcasecmp ($str1, $str2) {}
 
 /**
  * Binary safe case-insensitive string comparison of the first n characters
- * @link https://php.net/manual/en/function.strncasecmp.php
+ * @link https://www.php.net/manual/en/function.strncasecmp.php
  * @param string $str1 <p>
  * The first string.
  * </p>
@@ -151,7 +151,7 @@ function str_contains(string $haystack, string $needle) : bool {}
 
 /**
  * Return the current key and value pair from an array and advance the array cursor
- * @link https://php.net/manual/en/function.each.php
+ * @link https://www.php.net/manual/en/function.each.php
  * @param array|ArrayObject &$array <p>
  * The input array.
  * </p>
@@ -174,7 +174,7 @@ function each (array &$array) {}
 
 /**
  * Sets which PHP errors are reported
- * @link https://php.net/manual/en/function.error-reporting.php
+ * @link https://www.php.net/manual/en/function.error-reporting.php
  * @param int $level [optional] <p>
  * The new error_reporting
  * level. It takes on either a bitmask, or named constants. Using named
@@ -298,7 +298,7 @@ function error_reporting ($level = null) {}
 
 /**
  * Defines a named constant
- * @link https://php.net/manual/en/function.define.php
+ * @link https://www.php.net/manual/en/function.define.php
  * @param string $name <p>
  * The name of the constant.
  * </p>
@@ -325,7 +325,7 @@ function define ($name, $value, $case_insensitive = false) {}
 
 /**
  * Checks whether a given named constant exists
- * @link https://php.net/manual/en/function.defined.php
+ * @link https://www.php.net/manual/en/function.defined.php
  * @param string $name <p>
  * The constant name.
  * </p>
@@ -336,7 +336,7 @@ function defined ($name) {}
 
 /**
  * Returns the name of the class of an object
- * @link https://php.net/manual/en/function.get-class.php
+ * @link https://www.php.net/manual/en/function.get-class.php
  * @param object $object [optional] <p>
  * The tested object. This parameter may be omitted when inside a class.
  * </p>
@@ -352,14 +352,14 @@ function get_class ($object = null) {}
 
 /**
  * the "Late Static Binding" class name
- * @link https://php.net/manual/en/function.get-called-class.php
+ * @link https://www.php.net/manual/en/function.get-called-class.php
  * @return string|false The class name. Returns false if called from outside a class.
  */
 function get_called_class () {}
 
 /**
  * Retrieves the parent class name for object or class
- * @link https://php.net/manual/en/function.get-parent-class.php
+ * @link https://www.php.net/manual/en/function.get-parent-class.php
  * @param mixed $object [optional] <p>
  * The tested object or class name
  * </p>
@@ -376,7 +376,7 @@ function get_parent_class ($object = null) {}
 
 /**
  * Checks if the class method exists
- * @link https://php.net/manual/en/function.method-exists.php
+ * @link https://www.php.net/manual/en/function.method-exists.php
  * @param mixed $object <p>
  * An object instance or a class name
  * </p>
@@ -391,7 +391,7 @@ function method_exists ($object, $method_name) {}
 
 /**
  * Checks if the object or class has a property
- * @link https://php.net/manual/en/function.property-exists.php
+ * @link https://www.php.net/manual/en/function.property-exists.php
  * @param mixed $class <p>
  * The class name or an object of the class to test for
  * </p>
@@ -408,14 +408,14 @@ function property_exists ($class, $property) {}
  * @param string $traitname Name of the trait to check
  * @param bool $autoload [optional] Whether to autoload if not already loaded.
  * @return bool Returns TRUE if trait exists, FALSE if not, NULL in case of an error.
- * @link https://secure.php.net/manual/en/function.trait-exists.php
+ * @link https://www.php.net/manual/en/function.trait-exists.php
  * @since 5.4
  */
 function trait_exists($traitname, $autoload ) {}
 
 /**
  * Checks if the class has been defined
- * @link https://php.net/manual/en/function.class-exists.php
+ * @link https://www.php.net/manual/en/function.class-exists.php
  * @param string $class_name <p>
  * The class name. The name is matched in a case-insensitive manner.
  * </p>
@@ -429,7 +429,7 @@ function class_exists ($class_name, $autoload = true) {}
 
 /**
  * Checks if the interface has been defined
- * @link https://php.net/manual/en/function.interface-exists.php
+ * @link https://www.php.net/manual/en/function.interface-exists.php
  * @param string $interface_name <p>
  * The interface name
  * </p>
@@ -444,7 +444,7 @@ function interface_exists ($interface_name, $autoload = true) {}
 
 /**
  * Return true if the given function has been defined
- * @link https://php.net/manual/en/function.function-exists.php
+ * @link https://www.php.net/manual/en/function.function-exists.php
  * @param string $function_name <p>
  * The function name, as a string.
  * </p>
@@ -459,7 +459,7 @@ function function_exists ($function_name) {}
 
 /**
  * Creates an alias for a class
- * @link https://php.net/manual/en/function.class-alias.php
+ * @link https://www.php.net/manual/en/function.class-alias.php
  * @param string $original The original class.
  * @param string $alias The alias name for the class.
  * @param bool $autoload [optional] Whether to autoload if the original class is not found.
@@ -469,7 +469,7 @@ function class_alias ($original, $alias, $autoload = true) {}
 
 /**
  * Returns an array with the names of included or required files
- * @link https://php.net/manual/en/function.get-included-files.php
+ * @link https://www.php.net/manual/en/function.get-included-files.php
  * @return string[] an array of the names of all files.
  * </p>
  * <p>
@@ -485,14 +485,14 @@ function get_included_files () {}
 
 /**
  * Alias of <b>get_included_files</b>
- * @link https://php.net/manual/en/function.get-required-files.php
+ * @link https://www.php.net/manual/en/function.get-required-files.php
  * @return string[]
  */
 function get_required_files () {}
 
 /**
  * Checks if the object has this class as one of its parents
- * @link https://php.net/manual/en/function.is-subclass-of.php
+ * @link https://www.php.net/manual/en/function.is-subclass-of.php
  * @param mixed $object <p>
  * A class name or an object instance
  * </p>
@@ -511,7 +511,7 @@ function is_subclass_of ($object, $class_name, $allow_string = true) {}
 
 /**
  * Checks if the object is of this class or has this class as one of its parents
- * @link https://php.net/manual/en/function.is-a.php
+ * @link https://www.php.net/manual/en/function.is-a.php
  * @param object|string $object <p>
  * The tested object
  * </p>
@@ -529,7 +529,7 @@ function is_a ($object, $class_name, $allow_string = false) {}
 
 /**
  * Get the default properties of the class
- * @link https://php.net/manual/en/function.get-class-vars.php
+ * @link https://www.php.net/manual/en/function.get-class-vars.php
  * @param string $class_name <p>
  * The class name
  * </p>
@@ -542,7 +542,7 @@ function get_class_vars ($class_name) {}
 
 /**
  * Gets the properties of the given object
- * @link https://php.net/manual/en/function.get-object-vars.php
+ * @link https://www.php.net/manual/en/function.get-object-vars.php
  * @param object $object <p>
  * An object instance.
  * </p>
@@ -554,7 +554,7 @@ function get_object_vars ($object) {}
 
 /**
  * Gets the class methods' names
- * @link https://php.net/manual/en/function.get-class-methods.php
+ * @link https://www.php.net/manual/en/function.get-class-methods.php
  * @param mixed $class_name <p>
  * The class name or an object instance
  * </p>
@@ -565,7 +565,7 @@ function get_class_methods ($class_name) {}
 
 /**
  * Generates a user-level error/warning/notice message
- * @link https://php.net/manual/en/function.trigger-error.php
+ * @link https://www.php.net/manual/en/function.trigger-error.php
  * @param string $error_msg <p>
  * The designated error message for this error. It's limited to 1024
  * characters in length. Any additional characters beyond 1024 will be
@@ -582,7 +582,7 @@ function trigger_error ($error_msg, $error_type = E_USER_NOTICE) {}
 
 /**
  * Alias of <b>trigger_error</b>
- * @link https://php.net/manual/en/function.user-error.php
+ * @link https://www.php.net/manual/en/function.user-error.php
  * @param string $message
  * @param int    $error_type [optional]
  * @return bool This function returns false if wrong <i>error_type</i> is
@@ -592,7 +592,7 @@ function user_error ($message, $error_type = E_USER_NOTICE) {}
 
 /**
  * Sets a user-defined error handler function
- * @link https://php.net/manual/en/function.set-error-handler.php
+ * @link https://www.php.net/manual/en/function.set-error-handler.php
  * @param callable|null $error_handler <p>
  * The user function needs to accept two parameters: the error code, and a
  * string describing the error. Then there are three optional parameters
@@ -628,14 +628,14 @@ function set_error_handler ($error_handler, $error_types = E_ALL | E_STRICT) {}
 
 /**
  * Restores the previous error handler function
- * @link https://php.net/manual/en/function.restore-error-handler.php
+ * @link https://www.php.net/manual/en/function.restore-error-handler.php
  * @return bool This function always returns true.
  */
 function restore_error_handler () {}
 
 /**
  * Sets a user-defined exception handler function
- * @link https://php.net/manual/en/function.set-exception-handler.php
+ * @link https://www.php.net/manual/en/function.set-exception-handler.php
  * @param callable|null $exception_handler <p>
  * Name of the function to be called when an uncaught exception occurs.
  * This function must be defined before calling
@@ -651,14 +651,14 @@ function set_exception_handler ($exception_handler) {}
 
 /**
  * Restores the previously defined exception handler function
- * @link https://php.net/manual/en/function.restore-exception-handler.php
+ * @link https://www.php.net/manual/en/function.restore-exception-handler.php
  * @return bool This function always returns true.
  */
 function restore_exception_handler () {}
 
 /**
  * Returns an array with the name of the defined classes
- * @link https://php.net/manual/en/function.get-declared-classes.php
+ * @link https://www.php.net/manual/en/function.get-declared-classes.php
  * @return array an array of the names of the declared classes in the current
  * script.
  * </p>
@@ -673,7 +673,7 @@ function get_declared_classes () {}
 
 /**
  * Returns an array of all declared interfaces
- * @link https://php.net/manual/en/function.get-declared-interfaces.php
+ * @link https://www.php.net/manual/en/function.get-declared-interfaces.php
  * @return array an array of the names of the declared interfaces in the current
  * script.
  */
@@ -682,7 +682,7 @@ function get_declared_interfaces () {}
 /**
  * Returns an array of all declared traits
  * @return array with names of all declared traits in values. Returns NULL in case of a failure.
- * @link https://secure.php.net/manual/en/function.get-declared-traits.php
+ * @link https://www.php.net/manual/en/function.get-declared-traits.php
  * @see class_uses()
  * @since 5.4
  */
@@ -690,7 +690,7 @@ function get_declared_traits() {}
 
 /**
  * Returns an array of all defined functions
- * @link https://php.net/manual/en/function.get-defined-functions.php
+ * @link https://www.php.net/manual/en/function.get-defined-functions.php
  * @param bool $exclude_disabled [optional] Whether disabled functions should be excluded from the return value.
  * @return array an multidimensional array containing a list of all defined
  * functions, both built-in (internal) and user-defined. The internal
@@ -702,14 +702,14 @@ function get_defined_functions ($exclude_disabled = false) {}
 
 /**
  * Returns an array of all defined variables
- * @link https://php.net/manual/en/function.get-defined-vars.php
+ * @link https://www.php.net/manual/en/function.get-defined-vars.php
  * @return array A multidimensional array with all the variables.
  */
 function get_defined_vars () {}
 
 /**
  * Create an anonymous (lambda-style) function
- * @link https://php.net/manual/en/function.create-function.php
+ * @link https://www.php.net/manual/en/function.create-function.php
  * @param string $args <p>
  * The function arguments.
  * </p>
@@ -724,7 +724,7 @@ function create_function ($args, $code) {}
 
 /**
  * Returns the resource type
- * @link https://php.net/manual/en/function.get-resource-type.php
+ * @link https://www.php.net/manual/en/function.get-resource-type.php
  * @param resource $handle <p>
  * The evaluated resource handle.
  * </p>
@@ -741,7 +741,7 @@ function get_resource_type ($handle) {}
 
 /**
  * Returns an array with the names of all modules compiled and loaded
- * @link https://php.net/manual/en/function.get-loaded-extensions.php
+ * @link https://www.php.net/manual/en/function.get-loaded-extensions.php
  * @param bool $zend_extensions [optional] <p>
  * Only return Zend extensions, if not then regular extensions, like
  * mysqli are listed. Defaults to false (return regular extensions).
@@ -752,7 +752,7 @@ function get_loaded_extensions ($zend_extensions = false) {}
 
 /**
  * Find out whether an extension is loaded
- * @link https://php.net/manual/en/function.extension-loaded.php
+ * @link https://www.php.net/manual/en/function.extension-loaded.php
  * @param string $name <p>
  * The extension name.
  * </p>
@@ -786,7 +786,7 @@ function extension_loaded ($name) {}
 
 /**
  * Returns an array with the names of the functions of a module
- * @link https://php.net/manual/en/function.get-extension-funcs.php
+ * @link https://www.php.net/manual/en/function.get-extension-funcs.php
  * @param string $module_name <p>
  * The module name.
  * </p>
@@ -800,7 +800,7 @@ function get_extension_funcs ($module_name) {}
 
 /**
  * Returns an associative array with the names of all the constants and their values
- * @link https://php.net/manual/en/function.get-defined-constants.php
+ * @link https://www.php.net/manual/en/function.get-defined-constants.php
  * @param bool $categorize [optional] <p>
  * Causing this function to return a multi-dimensional
  * array with categories in the keys of the first dimension and constants
@@ -856,7 +856,7 @@ function get_defined_constants ($categorize = false) {}
 
 /**
  * Generates a backtrace
- * @link https://php.net/manual/en/function.debug-backtrace.php
+ * @link https://www.php.net/manual/en/function.debug-backtrace.php
  * @param int $options [optional] <p>
  * As of 5.3.6, this parameter is a bitmask for the following options:
  * <table>
@@ -954,7 +954,7 @@ function debug_backtrace ($options = DEBUG_BACKTRACE_PROVIDE_OBJECT, $limit = 0)
 
 /**
  * Prints a backtrace
- * @link https://php.net/manual/en/function.debug-print-backtrace.php
+ * @link https://www.php.net/manual/en/function.debug-print-backtrace.php
  * @param int $options [optional] <p>
  * As of 5.3.6, this parameter is a bitmask for the following options:
  * <table>
@@ -978,35 +978,35 @@ function debug_print_backtrace ($options = 0, $limit = 0) {}
 
 /**
  * Forces collection of any existing garbage cycles
- * @link https://php.net/manual/en/function.gc-collect-cycles.php
+ * @link https://www.php.net/manual/en/function.gc-collect-cycles.php
  * @return int number of collected cycles.
  */
 function gc_collect_cycles () {}
 
 /**
  * Returns status of the circular reference collector
- * @link https://php.net/manual/en/function.gc-enabled.php
+ * @link https://www.php.net/manual/en/function.gc-enabled.php
  * @return bool true if the garbage collector is enabled, false otherwise.
  */
 function gc_enabled () {}
 
 /**
  * Activates the circular reference collector
- * @link https://php.net/manual/en/function.gc-enable.php
+ * @link https://www.php.net/manual/en/function.gc-enable.php
  * @return void
  */
 function gc_enable () {}
 
 /**
  * Deactivates the circular reference collector
- * @link https://php.net/manual/en/function.gc-disable.php
+ * @link https://www.php.net/manual/en/function.gc-disable.php
  * @return void
  */
 function gc_disable () {}
 
 /**
  * Gets information about the garbage collector
- * @link https://php.net/manual/en/function.gc-status.php
+ * @link https://www.php.net/manual/en/function.gc-status.php
  * @return array associative array with the following elements:
  * <ul>
  * <li>"runs"</li>
@@ -1020,7 +1020,7 @@ function gc_status () {}
 
 /**
  * Reclaims memory used by the Zend Engine memory manager
- * @link https://php.net/manual/en/function.gc-mem-caches.php
+ * @link https://www.php.net/manual/en/function.gc-mem-caches.php
  * @return int Returns the number of bytes freed.
  * @since 7.0
  */
@@ -1028,7 +1028,7 @@ function gc_mem_caches () {}
 
 /**
  * Returns active resources
- * @link https://php.net/manual/en/function.get-resources.php
+ * @link https://www.php.net/manual/en/function.get-resources.php
  * @param string $type [optional]<p>
  *
  * If defined, this will cause get_resources() to only return resources of the given type. A list of resource types is available.

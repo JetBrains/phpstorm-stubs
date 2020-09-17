@@ -7,7 +7,7 @@
  * @property-read string $name Name of the property, same as calling the {@see ReflectionProperty::getName()} method
  * @property-read string $class Fully qualified class name where this property was defined
  *
- * @link https://php.net/manual/en/class.reflectionproperty.php
+ * @link https://www.php.net/manual/en/class.reflectionproperty.php
  */
 class ReflectionProperty implements Reflector
 {
@@ -42,7 +42,7 @@ class ReflectionProperty implements Reflector
     /**
      * Construct a ReflectionProperty object
      *
-     * @link https://php.net/manual/en/reflectionproperty.construct.php
+     * @link https://www.php.net/manual/en/reflectionproperty.construct.php
      * @param string|object $class The class name, that contains the property.
      * @param string $name The name of the property being reflected.
      * @throws \ReflectionException if the class or property does not exist.
@@ -54,7 +54,7 @@ class ReflectionProperty implements Reflector
     /**
      * Export
      *
-     * @link https://php.net/manual/en/reflectionproperty.export.php
+     * @link https://www.php.net/manual/en/reflectionproperty.export.php
      * @param mixed $class The reflection to export.
      * @param string $name The property name.
      * @param bool $return Setting to {@see true} will return the export, as
@@ -71,7 +71,7 @@ class ReflectionProperty implements Reflector
     /**
      * To string
      *
-     * @link https://php.net/manual/en/reflectionproperty.tostring.php
+     * @link https://www.php.net/manual/en/reflectionproperty.tostring.php
      * @return string
      */
     public function __toString()
@@ -81,7 +81,7 @@ class ReflectionProperty implements Reflector
     /**
      * Gets property name
      *
-     * @link https://php.net/manual/en/reflectionproperty.getname.php
+     * @link https://www.php.net/manual/en/reflectionproperty.getname.php
      * @return string The name of the reflected property.
      */
     public function getName()
@@ -91,7 +91,7 @@ class ReflectionProperty implements Reflector
     /**
      * Gets value
      *
-     * @link https://php.net/manual/en/reflectionproperty.getvalue.php
+     * @link https://www.php.net/manual/en/reflectionproperty.getvalue.php
      * @param object|null $object If the property is non-static an object must be
      * provided to fetch the property from. If you want to fetch the default
      * property without providing an object use {@see ReflectionClass::getDefaultProperties}
@@ -106,7 +106,7 @@ class ReflectionProperty implements Reflector
     /**
      * Set property value
      *
-     * @link https://php.net/manual/en/reflectionproperty.setvalue.php
+     * @link https://www.php.net/manual/en/reflectionproperty.setvalue.php
      * @param mixed $objectOrValue If the property is non-static an object must
      * be provided to change the property on. If the property is static this
      * parameter is left out and only $value needs to be provided.
@@ -120,7 +120,7 @@ class ReflectionProperty implements Reflector
     /**
      * Checks if property is public
      *
-     * @link https://php.net/manual/en/reflectionproperty.ispublic.php
+     * @link https://www.php.net/manual/en/reflectionproperty.ispublic.php
      * @return bool Return {@see true} if the property is public, {@see false} otherwise.
      */
     public function isPublic()
@@ -130,7 +130,7 @@ class ReflectionProperty implements Reflector
     /**
      * Checks if property is private
      *
-     * @link https://php.net/manual/en/reflectionproperty.isprivate.php
+     * @link https://www.php.net/manual/en/reflectionproperty.isprivate.php
      * @return bool Return {@see true} if the property is private, {@see false} otherwise.
      */
     public function isPrivate()
@@ -140,7 +140,7 @@ class ReflectionProperty implements Reflector
     /**
      * Checks if property is protected
      *
-     * @link https://php.net/manual/en/reflectionproperty.isprotected.php
+     * @link https://www.php.net/manual/en/reflectionproperty.isprotected.php
      * @return bool Returns {@see true} if the property is protected, {@see false} otherwise.
      */
     public function isProtected()
@@ -150,7 +150,7 @@ class ReflectionProperty implements Reflector
     /**
      * Checks if property is static
      *
-     * @link https://php.net/manual/en/reflectionproperty.isstatic.php
+     * @link https://www.php.net/manual/en/reflectionproperty.isstatic.php
      * @return bool Retruns {@see true} if the property is static, {@see false} otherwise.
      */
     public function isStatic()
@@ -160,7 +160,7 @@ class ReflectionProperty implements Reflector
     /**
      * Checks if default value
      *
-     * @link https://php.net/manual/en/reflectionproperty.isdefault.php
+     * @link https://www.php.net/manual/en/reflectionproperty.isdefault.php
      * @return bool Returns {@see true} if the property was declared at
      * compile-time, or {@see false} if it was created at run-time.
      */
@@ -171,7 +171,7 @@ class ReflectionProperty implements Reflector
     /**
      * Gets modifiers
      *
-     * @link https://php.net/manual/en/reflectionproperty.getmodifiers.php
+     * @link https://www.php.net/manual/en/reflectionproperty.getmodifiers.php
      * @return int A numeric representation of the modifiers.
      */
     public function getModifiers()
@@ -181,7 +181,7 @@ class ReflectionProperty implements Reflector
     /**
      * Gets declaring class
      *
-     * @link https://php.net/manual/en/reflectionproperty.getdeclaringclass.php
+     * @link https://www.php.net/manual/en/reflectionproperty.getdeclaringclass.php
      * @return ReflectionClass A {@see ReflectionClass} object.
      */
     public function getDeclaringClass()
@@ -191,7 +191,7 @@ class ReflectionProperty implements Reflector
     /**
      * Gets doc comment
      *
-     * @link https://php.net/manual/en/reflectionproperty.getdoccomment.php
+     * @link https://www.php.net/manual/en/reflectionproperty.getdoccomment.php
      * @return string|false The doc comment if it exists, otherwise {@see false}
      */
     public function getDocComment()
@@ -201,7 +201,7 @@ class ReflectionProperty implements Reflector
     /**
      * Set property accessibility
      *
-     * @link https://php.net/manual/en/reflectionproperty.setaccessible.php
+     * @link https://www.php.net/manual/en/reflectionproperty.setaccessible.php
      * @param bool $accessible A boolean {@see true} to allow accessibility, or {@see false}
      * @return void No value is returned.
      */
@@ -212,7 +212,7 @@ class ReflectionProperty implements Reflector
     /**
      * Gets property type
      *
-     * @link https://php.net/manual/en/reflectionproperty.gettype.php
+     * @link https://www.php.net/manual/en/reflectionproperty.gettype.php
      * @return ReflectionNamedType|null Returns a {@see ReflectionNamedType} if the
      * property has a type, and {@see null} otherwise.
      * @since 7.4
@@ -224,7 +224,7 @@ class ReflectionProperty implements Reflector
     /**
      * Checks if property has type
      *
-     * @link https://php.net/manual/en/reflectionproperty.hastype.php
+     * @link https://www.php.net/manual/en/reflectionproperty.hastype.php
      * @return bool Returns {@see true} if a type is specified, {@see false} otherwise.
      * @since 7.4
      */
@@ -235,7 +235,7 @@ class ReflectionProperty implements Reflector
     /**
      * Checks if property is initialized
      *
-     * @link https://php.net/manual/en/reflectionproperty.isinitialized.php
+     * @link https://www.php.net/manual/en/reflectionproperty.isinitialized.php
      * @param object|null $object If the property is non-static an object must be provided to fetch the property from.
      * @return bool Returns {@see false} for typed properties prior to initialization, and for properties that have
      * been explicitly {@see unset()}. For all other properties {@see true} will be returned.
@@ -258,7 +258,7 @@ class ReflectionProperty implements Reflector
     /**
      * Clone
      *
-     * @link https://php.net/manual/en/reflectionproperty.clone.php
+     * @link https://www.php.net/manual/en/reflectionproperty.clone.php
      * @return void
      */
     final private function __clone()

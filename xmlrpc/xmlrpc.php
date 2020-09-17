@@ -4,7 +4,7 @@
 
 /**
  * Generates XML for a PHP value
- * @link https://php.net/manual/en/function.xmlrpc-encode.php
+ * @link https://www.php.net/manual/en/function.xmlrpc-encode.php
  * @param mixed $value
  * @return string
  */
@@ -12,7 +12,7 @@ function xmlrpc_encode ($value) {}
 
 /**
  * Decodes XML into native PHP types
- * @link https://php.net/manual/en/function.xmlrpc-decode.php
+ * @link https://www.php.net/manual/en/function.xmlrpc-decode.php
  * @param string $xml <p>
  * XML response returned by XMLRPC method.
  * </p>
@@ -26,7 +26,7 @@ function xmlrpc_decode ($xml, $encoding = "iso-8859-1") {}
 
 /**
  * Decodes XML into native PHP types
- * @link https://php.net/manual/en/function.xmlrpc-decode-request.php
+ * @link https://www.php.net/manual/en/function.xmlrpc-decode-request.php
  * @param string $xml
  * @param string &$method
  * @param string $encoding [optional]
@@ -36,7 +36,7 @@ function xmlrpc_decode_request ($xml, &$method, $encoding = null) {}
 
 /**
  * Generates XML for a method request
- * @link https://php.net/manual/en/function.xmlrpc-encode-request.php
+ * @link https://www.php.net/manual/en/function.xmlrpc-encode-request.php
  * @param string $method <p>
  * Name of the method to call.
  * </p>
@@ -53,7 +53,7 @@ function xmlrpc_encode_request ($method, $params, array $output_options = null) 
 
 /**
  * Gets xmlrpc type for a PHP value
- * @link https://php.net/manual/en/function.xmlrpc-get-type.php
+ * @link https://www.php.net/manual/en/function.xmlrpc-get-type.php
  * @param mixed $value <p>
  * PHP value
  * </p>
@@ -63,7 +63,7 @@ function xmlrpc_get_type ($value) {}
 
 /**
  * Sets xmlrpc type, base64 or datetime, for a PHP string value
- * @link https://php.net/manual/en/function.xmlrpc-set-type.php
+ * @link https://www.php.net/manual/en/function.xmlrpc-set-type.php
  * @param string &$value <p>
  * Value to set the type
  * </p>
@@ -77,7 +77,7 @@ function xmlrpc_set_type (&$value, $type) {}
 
 /**
  * Determines if an array value represents an XMLRPC fault
- * @link https://php.net/manual/en/function.xmlrpc-is-fault.php
+ * @link https://www.php.net/manual/en/function.xmlrpc-is-fault.php
  * @param array $arg <p>
  * Array returned by <b>xmlrpc_decode</b>.
  * </p>
@@ -89,14 +89,14 @@ function xmlrpc_is_fault (array $arg) {}
 
 /**
  * Creates an xmlrpc server
- * @link https://php.net/manual/en/function.xmlrpc-server-create.php
+ * @link https://www.php.net/manual/en/function.xmlrpc-server-create.php
  * @return resource
  */
 function xmlrpc_server_create () {}
 
 /**
  * Destroys server resources
- * @link https://php.net/manual/en/function.xmlrpc-server-destroy.php
+ * @link https://www.php.net/manual/en/function.xmlrpc-server-destroy.php
  * @param resource $server
  * @return int
  */
@@ -104,7 +104,7 @@ function xmlrpc_server_destroy ($server) {}
 
 /**
  * Register a PHP function to resource method matching method_name
- * @link https://php.net/manual/en/function.xmlrpc-server-register-method.php
+ * @link https://www.php.net/manual/en/function.xmlrpc-server-register-method.php
  * @param resource $server
  * @param string $method_name
  * @param callable $function
@@ -114,7 +114,7 @@ function xmlrpc_server_register_method ($server, $method_name, $function) {}
 
 /**
  * Parses XML requests and call methods
- * @link https://php.net/manual/en/function.xmlrpc-server-call-method.php
+ * @link https://www.php.net/manual/en/function.xmlrpc-server-call-method.php
  * @param resource $server
  * @param string $xml
  * @param mixed $user_data
@@ -125,7 +125,7 @@ function xmlrpc_server_call_method ($server, $xml, $user_data, array $output_opt
 
 /**
  * Decodes XML into a list of method descriptions
- * @link https://php.net/manual/en/function.xmlrpc-parse-method-descriptions.php
+ * @link https://www.php.net/manual/en/function.xmlrpc-parse-method-descriptions.php
  * @param string $xml
  * @return array
  */
@@ -133,7 +133,7 @@ function xmlrpc_parse_method_descriptions ($xml) {}
 
 /**
  * Adds introspection documentation
- * @link https://php.net/manual/en/function.xmlrpc-server-add-introspection-data.php
+ * @link https://www.php.net/manual/en/function.xmlrpc-server-add-introspection-data.php
  * @param resource $server
  * @param array $desc
  * @return int
@@ -142,7 +142,7 @@ function xmlrpc_server_add_introspection_data ($server, array $desc) {}
 
 /**
  * Register a PHP function to generate documentation
- * @link https://php.net/manual/en/function.xmlrpc-server-register-introspection-callback.php
+ * @link https://www.php.net/manual/en/function.xmlrpc-server-register-introspection-callback.php
  * @param resource $server
  * @param string $function
  * @return bool

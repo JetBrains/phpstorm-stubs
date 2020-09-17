@@ -4,7 +4,7 @@
 
 /**
  * Send a signal to a process
- * @link https://php.net/manual/en/function.posix-kill.php
+ * @link https://www.php.net/manual/en/function.posix-kill.php
  * @param int $pid <p>
  * The process identifier.
  * </p>
@@ -17,28 +17,28 @@ function posix_kill ($pid, $sig) {}
 
 /**
  * Return the current process identifier
- * @link https://php.net/manual/en/function.posix-getpid.php
+ * @link https://www.php.net/manual/en/function.posix-getpid.php
  * @return int the identifier, as an integer.
  */
 function posix_getpid () {}
 
 /**
  * Return the parent process identifier
- * @link https://php.net/manual/en/function.posix-getppid.php
+ * @link https://www.php.net/manual/en/function.posix-getppid.php
  * @return int the identifier, as an integer.
  */
 function posix_getppid () {}
 
 /**
  * Return the real user ID of the current process
- * @link https://php.net/manual/en/function.posix-getuid.php
+ * @link https://www.php.net/manual/en/function.posix-getuid.php
  * @return int the user id, as an integer
  */
 function posix_getuid () {}
 
 /**
  * Set the UID of the current process
- * @link https://php.net/manual/en/function.posix-setuid.php
+ * @link https://www.php.net/manual/en/function.posix-setuid.php
  * @param int $uid <p>
  * The user id.
  * </p>
@@ -48,14 +48,14 @@ function posix_setuid ($uid) {}
 
 /**
  * Return the effective user ID of the current process
- * @link https://php.net/manual/en/function.posix-geteuid.php
+ * @link https://www.php.net/manual/en/function.posix-geteuid.php
  * @return int the user id, as an integer
  */
 function posix_geteuid () {}
 
 /**
  * Set the effective UID of the current process
- * @link https://php.net/manual/en/function.posix-seteuid.php
+ * @link https://www.php.net/manual/en/function.posix-seteuid.php
  * @param int $uid <p>
  * The user id.
  * </p>
@@ -65,10 +65,10 @@ function posix_seteuid ($uid) {}
 
 /**
  * Set system resource limits
- * @link https://php.net/manual/en/function.posix-setrlimit.php
+ * @link https://www.php.net/manual/en/function.posix-setrlimit.php
  * @param int $resource <p>
  * The
- * {@link https://php.net/manual/en/posix.constants.setrlimit.php resource limit constant}
+ * {@link https://www.php.net/manual/en/posix.constants.setrlimit.php resource limit constant}
  * corresponding to the limit that is being set.
  * </p>
  * @param int $softlimit The soft limit, in whatever unit the resource limit requires, or POSIX_RLIMIT_INFINITY.
@@ -79,14 +79,14 @@ function posix_seteuid ($uid) {}
 function posix_setrlimit ($resource, $softlimit, $hardlimit ) {}
 /**
  * Return the real group ID of the current process
- * @link https://php.net/manual/en/function.posix-getgid.php
+ * @link https://www.php.net/manual/en/function.posix-getgid.php
  * @return int the real group id, as an integer.
  */
 function posix_getgid () {}
 
 /**
  * Set the GID of the current process
- * @link https://php.net/manual/en/function.posix-setgid.php
+ * @link https://www.php.net/manual/en/function.posix-setgid.php
  * @param int $gid <p>
  * The group id.
  * </p>
@@ -96,14 +96,14 @@ function posix_setgid ($gid) {}
 
 /**
  * Return the effective group ID of the current process
- * @link https://php.net/manual/en/function.posix-getegid.php
+ * @link https://www.php.net/manual/en/function.posix-getegid.php
  * @return int an integer of the effective group ID.
  */
 function posix_getegid () {}
 
 /**
  * Set the effective GID of the current process
- * @link https://php.net/manual/en/function.posix-setegid.php
+ * @link https://www.php.net/manual/en/function.posix-setegid.php
  * @param int $gid <p>
  * The group id.
  * </p>
@@ -113,7 +113,7 @@ function posix_setegid ($gid) {}
 
 /**
  * Return the group set of the current process
- * @link https://php.net/manual/en/function.posix-getgroups.php
+ * @link https://www.php.net/manual/en/function.posix-getgroups.php
  * @return array an array of integers containing the numeric group ids of the group
  * set of the current process.
  */
@@ -121,28 +121,28 @@ function posix_getgroups () {}
 
 /**
  * Return login name
- * @link https://php.net/manual/en/function.posix-getlogin.php
+ * @link https://www.php.net/manual/en/function.posix-getlogin.php
  * @return string the login name of the user, as a string.
  */
 function posix_getlogin () {}
 
 /**
  * Return the current process group identifier
- * @link https://php.net/manual/en/function.posix-getpgrp.php
+ * @link https://www.php.net/manual/en/function.posix-getpgrp.php
  * @return int the identifier, as an integer.
  */
 function posix_getpgrp () {}
 
 /**
  * Make the current process a session leader
- * @link https://php.net/manual/en/function.posix-setsid.php
+ * @link https://www.php.net/manual/en/function.posix-setsid.php
  * @return int the session id, or -1 on errors.
  */
 function posix_setsid () {}
 
 /**
  * Set process group id for job control
- * @link https://php.net/manual/en/function.posix-setpgid.php
+ * @link https://www.php.net/manual/en/function.posix-setpgid.php
  * @param int $pid <p>
  * The process id.
  * </p>
@@ -155,7 +155,7 @@ function posix_setpgid ($pid, $pgid) {}
 
 /**
  * Get process group id for job control
- * @link https://php.net/manual/en/function.posix-getpgid.php
+ * @link https://www.php.net/manual/en/function.posix-getpgid.php
  * @param int $pid <p>
  * The process id.
  * </p>
@@ -165,7 +165,7 @@ function posix_getpgid ($pid) {}
 
 /**
  * Get the current sid of the process
- * @link https://php.net/manual/en/function.posix-getsid.php
+ * @link https://www.php.net/manual/en/function.posix-getsid.php
  * @param int $pid <p>
  * The process identifier. If set to 0, the current process is
  * assumed. If an invalid <i>pid</i> is
@@ -178,7 +178,7 @@ function posix_getsid ($pid) {}
 
 /**
  * Get system name
- * @link https://php.net/manual/en/function.posix-uname.php
+ * @link https://www.php.net/manual/en/function.posix-uname.php
  * @return array a hash of strings with information about the
  * system. The indices of the hash are
  * sysname - operating system name (e.g. Linux)
@@ -198,7 +198,7 @@ function posix_uname () {}
 
 /**
  * Get process times
- * @link https://php.net/manual/en/function.posix-times.php
+ * @link https://www.php.net/manual/en/function.posix-times.php
  * @return array a hash of strings with information about the current
  * process CPU usage. The indices of the hash are:
  * ticks - the number of clock ticks that have elapsed since
@@ -212,7 +212,7 @@ function posix_times () {}
 
 /**
  * Get path name of controlling terminal
- * @link https://php.net/manual/en/function.posix-ctermid.php
+ * @link https://www.php.net/manual/en/function.posix-ctermid.php
  * @return string|false Upon successful completion, returns string of the pathname to
  * the current controlling terminal. Otherwise <b>FALSE</b> is returned and errno
  * is set, which can be checked with <b>posix_get_last_error</b>.
@@ -221,7 +221,7 @@ function posix_ctermid () {}
 
 /**
  * Determine terminal device name
- * @link https://php.net/manual/en/function.posix-ttyname.php
+ * @link https://www.php.net/manual/en/function.posix-ttyname.php
  * @param int $fd <p>
  * The file descriptor.
  * </p>
@@ -232,7 +232,7 @@ function posix_ttyname ($fd) {}
 
 /**
  * Determine if a file descriptor is an interactive terminal
- * @link https://php.net/manual/en/function.posix-isatty.php
+ * @link https://www.php.net/manual/en/function.posix-isatty.php
  * @param mixed $fd <p>
  * The file descriptor, which is expected to be either a file resource or an integer.
  * An integer will be assumed to be a file descriptor that can be passed
@@ -246,7 +246,7 @@ function posix_isatty ($fd) {}
 
 /**
  * Pathname of current directory
- * @link https://php.net/manual/en/function.posix-getcwd.php
+ * @link https://www.php.net/manual/en/function.posix-getcwd.php
  * @return string a string of the absolute pathname on success.
  * On error, returns <b>FALSE</b> and sets errno which can be checked with
  * <b>posix_get_last_error</b>.
@@ -255,7 +255,7 @@ function posix_getcwd () {}
 
 /**
  * Create a fifo special file (a named pipe)
- * @link https://php.net/manual/en/function.posix-mkfifo.php
+ * @link https://www.php.net/manual/en/function.posix-mkfifo.php
  * @param string $pathname <p>
  * Path to the FIFO file.
  * </p>
@@ -272,7 +272,7 @@ function posix_mkfifo ($pathname, $mode) {}
 
 /**
  * Create a special or ordinary file (POSIX.1)
- * @link https://php.net/manual/en/function.posix-mknod.php
+ * @link https://www.php.net/manual/en/function.posix-mknod.php
  * @param string $pathname <p>
  * The file to create
  * </p>
@@ -296,7 +296,7 @@ function posix_mknod ($pathname, $mode, $major = 0, $minor = 0) {}
 
 /**
  * Determine accessibility of a file
- * @link https://php.net/manual/en/function.posix-access.php
+ * @link https://www.php.net/manual/en/function.posix-access.php
  * @param string $file <p>
  * The name of the file to be tested.
  * </p>
@@ -318,7 +318,7 @@ function posix_access ($file, $mode = POSIX_F_OK) {}
 
 /**
  * Return info about a group by name
- * @link https://php.net/manual/en/function.posix-getgrnam.php
+ * @link https://www.php.net/manual/en/function.posix-getgrnam.php
  * @param string $name <p>The name of the group</p>
  * @return array The array elements returned are:
  * <table>
@@ -364,7 +364,7 @@ function posix_getgrnam ($name) {}
 
 /**
  * Return info about a group by group id
- * @link https://php.net/manual/en/function.posix-getgrgid.php
+ * @link https://www.php.net/manual/en/function.posix-getgrgid.php
  * @param int $gid <p>
  * The group id.
  * </p>
@@ -412,7 +412,7 @@ function posix_getgrgid ($gid) {}
 
 /**
  * Return info about a user by username
- * @link https://php.net/manual/en/function.posix-getpwnam.php
+ * @link https://www.php.net/manual/en/function.posix-getpwnam.php
  * @param string $username <p>
  * An alphanumeric username.
  * </p>
@@ -488,7 +488,7 @@ function posix_getpwnam ($username) {}
 
 /**
  * Return info about a user by user id
- * @link https://php.net/manual/en/function.posix-getpwuid.php
+ * @link https://www.php.net/manual/en/function.posix-getpwuid.php
  * @param int $uid <p>
  * The user identifier.
  * </p>
@@ -563,7 +563,7 @@ function posix_getpwuid ($uid) {}
 
 /**
  * Return info about system resource limits
- * @link https://php.net/manual/en/function.posix-getrlimit.php
+ * @link https://www.php.net/manual/en/function.posix-getrlimit.php
  * @return array an associative array of elements for each
  * limit that is defined. Each limit has a soft and a hard limit.
  * <table>
@@ -647,7 +647,7 @@ function posix_getrlimit () {}
 
 /**
  * Retrieve the error number set by the last posix function that failed
- * @link https://php.net/manual/en/function.posix-get-last-error.php
+ * @link https://www.php.net/manual/en/function.posix-get-last-error.php
  * @return int the errno (error number) set by the last posix function that
  * failed. If no errors exist, 0 is returned.
  */
@@ -655,13 +655,13 @@ function posix_get_last_error () {}
 
 /**
  * Alias of <b>posix_get_last_error</b>
- * @link https://php.net/manual/en/function.posix-errno.php
+ * @link https://www.php.net/manual/en/function.posix-errno.php
  */
 function posix_errno () {}
 
 /**
  * Retrieve the system error message associated with the given errno
- * @link https://php.net/manual/en/function.posix-strerror.php
+ * @link https://www.php.net/manual/en/function.posix-strerror.php
  * @param int $errno <p>
  * A POSIX error number, returned by
  * <b>posix_get_last_error</b>. If set to 0, then the
@@ -673,7 +673,7 @@ function posix_strerror ($errno) {}
 
 /**
  * Calculate the group access list
- * @link https://php.net/manual/en/function.posix-initgroups.php
+ * @link https://www.php.net/manual/en/function.posix-initgroups.php
  * @param string $name <p>
  * The user to calculate the list for.
  * </p>
@@ -687,66 +687,66 @@ function posix_initgroups ($name, $base_group_id) {}
 
 /**
  * Check whether the file exists.
- * @link https://php.net/manual/en/posix.constants.php
+ * @link https://www.php.net/manual/en/posix.constants.php
  */
 define ('POSIX_F_OK', 0);
 
 /**
  * Check whether the file exists and has execute permissions.
- * @link https://php.net/manual/en/posix.constants.php
+ * @link https://www.php.net/manual/en/posix.constants.php
  */
 define ('POSIX_X_OK', 1);
 
 /**
  * Check whether the file exists and has write permissions.
- * @link https://php.net/manual/en/posix.constants.php
+ * @link https://www.php.net/manual/en/posix.constants.php
  */
 define ('POSIX_W_OK', 2);
 
 /**
  * Check whether the file exists and has read permissions.
- * @link https://php.net/manual/en/posix.constants.php
+ * @link https://www.php.net/manual/en/posix.constants.php
  */
 define ('POSIX_R_OK', 4);
 
 /**
  * Normal file
- * @link https://php.net/manual/en/posix.constants.php
+ * @link https://www.php.net/manual/en/posix.constants.php
  */
 define ('POSIX_S_IFREG', 32768);
 
 /**
  * Character special file
- * @link https://php.net/manual/en/posix.constants.php
+ * @link https://www.php.net/manual/en/posix.constants.php
  */
 define ('POSIX_S_IFCHR', 8192);
 
 /**
  * Block special file
- * @link https://php.net/manual/en/posix.constants.php
+ * @link https://www.php.net/manual/en/posix.constants.php
  */
 define ('POSIX_S_IFBLK', 24576);
 
 /**
  * FIFO (named pipe) special file
- * @link https://php.net/manual/en/posix.constants.php
+ * @link https://www.php.net/manual/en/posix.constants.php
  */
 define ('POSIX_S_IFIFO', 4096);
 
 /**
  * Socket
- * @link https://php.net/manual/en/posix.constants.php
+ * @link https://www.php.net/manual/en/posix.constants.php
  */
 define ('POSIX_S_IFSOCK', 49152);
 
 /**
  * The maximum size of the process's address space in bytes. See also PHP's memory_limit configuration directive.
- * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @link https://www.php.net/manual/en/posix.constants.setrlimit.php
  */
 define ('POSIX_RLIMIT_AS', 5);
 /**
  * The maximum size of a core file. If the limit is set to 0, no core file will be generated.
- * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @link https://www.php.net/manual/en/posix.constants.setrlimit.php
  */
 define ('POSIX_RLIMIT_CORE', 4);
 
@@ -755,7 +755,7 @@ define ('POSIX_RLIMIT_CORE', 4);
  * When the soft limit is hit, a SIGXCPU signal will be sent, which can be caught with pcntl_signal().
  * Depending on the operating system, additional SIGXCPU signals may be sent each second until the hard limit is hit,
  * at which point an uncatchable SIGKILL signal is sent. See also set_time_limit().
- * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @link https://www.php.net/manual/en/posix.constants.setrlimit.php
  */
 define ('POSIX_RLIMIT_CPU', 0);
 
@@ -763,20 +763,20 @@ define ('POSIX_RLIMIT_CPU', 0);
  * The maximum size of the process's data segment, in bytes.
  * It is extremely unlikely that this will have any effect on
  * the execution of PHP unless an extension is in use that calls brk() or sbrk().
- * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @link https://www.php.net/manual/en/posix.constants.setrlimit.php
  */
 define ('POSIX_RLIMIT_DATA', 2);
 
 /**
  * The maximum size of files that the process can create, in bytes.
- * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @link https://www.php.net/manual/en/posix.constants.setrlimit.php
  */
 define ('POSIX_RLIMIT_FSIZE', 1);
 
 /**
  * The maximum number of locks that the process can create.
  * This is only supported on extremely old Linux kernels.
- * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @link https://www.php.net/manual/en/posix.constants.setrlimit.php
  */
 define('POSIX_RLIMIT_LOCKS', 10);
 
@@ -784,69 +784,69 @@ define('POSIX_RLIMIT_LOCKS', 10);
  * The maximum number of bytes that can be allocated for POSIX message queues.
  * PHP does not ship with support for POSIX message queues,
  * so this limit will not have any effect unless you are using an extension that implements that support.
- * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @link https://www.php.net/manual/en/posix.constants.setrlimit.php
  */
 define('POSIX_RLIMIT_MSGQUEUE', 12);
 
 /**
- * The maximum value to which the process can be <a href="https://php.net/manual/en/function.pcntl-setpriority.php"> reniced</a> to. The value that will be used will be 20 - limit, as resource limit values cannot be negative.
- * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * The maximum value to which the process can be <a href="https://www.php.net/manual/en/function.pcntl-setpriority.php"> reniced</a> to. The value that will be used will be 20 - limit, as resource limit values cannot be negative.
+ * @link https://www.php.net/manual/en/posix.constants.setrlimit.php
  */
 define('POSIX_RLIMIT_NICE', 13);
 
 /**
  * The maximum real time priority that can be set via the sched_setscheduler() and sched_setparam() system calls.
- * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @link https://www.php.net/manual/en/posix.constants.setrlimit.php
  */
 define('POSIX_RLIMIT_RTPRIO', 14);
 
 /**
  * The maximum amount of CPU time, in microseconds,
  * that the process can consume without making a blocking system call if it is using real time scheduling.
- * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @link https://www.php.net/manual/en/posix.constants.setrlimit.php
  */
 define('POSIX_RLIMIT_RTTIME', 15);
 
 /**
  * The maximum number of signals that can be queued for the real user ID of the process.
- * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @link https://www.php.net/manual/en/posix.constants.setrlimit.php
  */
 define('POSIX_RLIMIT_SIGPENDING', 11);
 
 /**
  * The maximum number of bytes that can be locked into memory.
- * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @link https://www.php.net/manual/en/posix.constants.setrlimit.php
  */
 define ('POSIX_RLIMIT_MEMLOCK', 6);
 
 /**
  * A value one greater than the maximum file descriptor number that can be opened by this process.
- * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @link https://www.php.net/manual/en/posix.constants.setrlimit.php
  */
 define ('POSIX_RLIMIT_NOFILE', 8);
 
 /**
  * The maximum number of processes (and/or threads, on some operating systems)
  * that can be created for the real user ID of the process.
- * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @link https://www.php.net/manual/en/posix.constants.setrlimit.php
  */
 define ('POSIX_RLIMIT_NPROC', 7);
 
 /**
  * The maximum size of the process's resident set, in pages.
- * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @link https://www.php.net/manual/en/posix.constants.setrlimit.php
  */
 define ('POSIX_RLIMIT_RSS', 5);
 
 /**
  * The maximum size of the process stack, in bytes.
- * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @link https://www.php.net/manual/en/posix.constants.setrlimit.php
  */
 define ('POSIX_RLIMIT_STACK', 3);
 
 /**
  * Used to indicate an infinite value for a resource limit.
- * @link https://php.net/manual/en/posix.constants.setrlimit.php
+ * @link https://www.php.net/manual/en/posix.constants.setrlimit.php
  */
 define ('POSIX_RLIMIT_INFINITY', 9223372036854775807);
 

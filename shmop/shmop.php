@@ -4,7 +4,7 @@
 
 /**
  * Create or open shared memory block
- * @link https://php.net/manual/en/function.shmop-open.php
+ * @link https://www.php.net/manual/en/function.shmop-open.php
  * @param int $key <p>
  * System's id for the shared memory block.
  * Can be passed as a decimal or hex.
@@ -30,7 +30,7 @@ function shmop_open ($key, $flags, $mode, $size) {}
 
 /**
  * Read data from shared memory block
- * @link https://php.net/manual/en/function.shmop-read.php
+ * @link https://www.php.net/manual/en/function.shmop-read.php
  * @param resource $shmid <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>
@@ -47,7 +47,7 @@ function shmop_read ($shmid, $start, $count) {}
 
 /**
  * Close shared memory block
- * @link https://php.net/manual/en/function.shmop-close.php
+ * @link https://www.php.net/manual/en/function.shmop-close.php
  * @param resource $shmid <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>
@@ -60,7 +60,7 @@ function shmop_close ($shmid) {}
 
 /**
  * Get size of shared memory block
- * @link https://php.net/manual/en/function.shmop-size.php
+ * @link https://www.php.net/manual/en/function.shmop-size.php
  * @param resource $shmid <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>
@@ -72,7 +72,7 @@ function shmop_size ($shmid) {}
 
 /**
  * Write data into shared memory block
- * @link https://php.net/manual/en/function.shmop-write.php
+ * @link https://www.php.net/manual/en/function.shmop-write.php
  * @param resource $shmid <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>
@@ -91,7 +91,7 @@ function shmop_write ($shmid, $data, $offset) {}
 
 /**
  * Delete shared memory block
- * @link https://php.net/manual/en/function.shmop-delete.php
+ * @link https://www.php.net/manual/en/function.shmop-delete.php
  * @param resource $shmid <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>

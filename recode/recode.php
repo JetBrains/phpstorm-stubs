@@ -4,7 +4,7 @@
 
 /**
  * Recode a string according to a recode request
- * @link https://php.net/manual/en/function.recode-string.php
+ * @link https://www.php.net/manual/en/function.recode-string.php
  * @param string $request <p>
  * The desired recode request type
  * </p>
@@ -18,7 +18,7 @@ function recode_string ($request, $string) {}
 
 /**
  * Recode from file to file according to recode request
- * @link https://php.net/manual/en/function.recode-file.php
+ * @link https://www.php.net/manual/en/function.recode-file.php
  * @param string $request <p>
  * The desired recode request type
  * </p>
@@ -36,7 +36,7 @@ function recode_file ($request, $input, $output) {}
 
 /**
  * Alias of <b>recode_string</b>
- * @link https://php.net/manual/en/function.recode.php
+ * @link https://www.php.net/manual/en/function.recode.php
  * @param $request
  * @param $str
  */

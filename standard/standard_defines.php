@@ -12,20 +12,20 @@ define ('INI_ALL', 7);
 
 /**
  * Normal INI scanner mode
- * @link https://php.net/manual/en/filesystem.constants.php
+ * @link https://www.php.net/manual/en/filesystem.constants.php
  */
 define ('INI_SCANNER_NORMAL', 0);
 
 /**
  * Typed INI scanner mode
  * @since 5.6.1
- * @link https://php.net/manual/en/function.parse-ini-file.php
+ * @link https://www.php.net/manual/en/function.parse-ini-file.php
  */
 define ('INI_SCANNER_TYPED', 2);
 
 /**
  * Raw INI scanner mode
- * @link https://php.net/manual/en/filesystem.constants.php
+ * @link https://www.php.net/manual/en/filesystem.constants.php
  */
 define ('INI_SCANNER_RAW', 1);
 
@@ -135,52 +135,52 @@ define ('NAN', NAN);
 
 /**
  * Round halves up
- * @link https://php.net/manual/en/math.constants.php
+ * @link https://www.php.net/manual/en/math.constants.php
  */
 define ('PHP_ROUND_HALF_UP', 1);
 
 /**
  * Round halves down
- * @link https://php.net/manual/en/math.constants.php
+ * @link https://www.php.net/manual/en/math.constants.php
  */
 define ('PHP_ROUND_HALF_DOWN', 2);
 
 /**
  * Round halves to even numbers
- * @link https://php.net/manual/en/math.constants.php
+ * @link https://www.php.net/manual/en/math.constants.php
  */
 define ('PHP_ROUND_HALF_EVEN', 3);
 
 /**
  * Round halves to odd numbers
- * @link https://php.net/manual/en/math.constants.php
+ * @link https://www.php.net/manual/en/math.constants.php
  */
 define ('PHP_ROUND_HALF_ODD', 4);
 define ('INFO_GENERAL', 1);
 
 /**
  * PHP Credits. See also phpcredits.
- * @link https://php.net/manual/en/info.constants.php
+ * @link https://www.php.net/manual/en/info.constants.php
  */
 define ('INFO_CREDITS', 2);
 
 /**
  * Current Local and Main values for PHP directives. See
  * also ini_get.
- * @link https://php.net/manual/en/info.constants.php
+ * @link https://www.php.net/manual/en/info.constants.php
  */
 define ('INFO_CONFIGURATION', 4);
 
 /**
  * Loaded modules and their respective settings.
- * @link https://php.net/manual/en/info.constants.php
+ * @link https://www.php.net/manual/en/info.constants.php
  */
 define ('INFO_MODULES', 8);
 
 /**
  * Environment Variable information that's also available in
  * $_ENV.
- * @link https://php.net/manual/en/info.constants.php
+ * @link https://www.php.net/manual/en/info.constants.php
  */
 define ('INFO_ENVIRONMENT', 16);
 
@@ -188,45 +188,45 @@ define ('INFO_ENVIRONMENT', 16);
  * Shows all
  * predefined variables from EGPCS (Environment, GET,
  * POST, Cookie, Server).
- * @link https://php.net/manual/en/info.constants.php
+ * @link https://www.php.net/manual/en/info.constants.php
  */
 define ('INFO_VARIABLES', 32);
 
 /**
  * PHP License information. See also the license faq.
- * @link https://php.net/manual/en/info.constants.php
+ * @link https://www.php.net/manual/en/info.constants.php
  */
 define ('INFO_LICENSE', 64);
 define ('INFO_ALL', 4294967295);
 
 /**
  * A list of the core developers
- * @link https://php.net/manual/en/info.constants.php
+ * @link https://www.php.net/manual/en/info.constants.php
  */
 define ('CREDITS_GROUP', 1);
 
 /**
  * General credits: Language design and concept, PHP
  * authors and SAPI module.
- * @link https://php.net/manual/en/info.constants.php
+ * @link https://www.php.net/manual/en/info.constants.php
  */
 define ('CREDITS_GENERAL', 2);
 
 /**
  * A list of the server API modules for PHP, and their authors.
- * @link https://php.net/manual/en/info.constants.php
+ * @link https://www.php.net/manual/en/info.constants.php
  */
 define ('CREDITS_SAPI', 4);
 
 /**
  * A list of the extension modules for PHP, and their authors.
- * @link https://php.net/manual/en/info.constants.php
+ * @link https://www.php.net/manual/en/info.constants.php
  */
 define ('CREDITS_MODULES', 8);
 
 /**
  * The credits for the documentation team.
- * @link https://php.net/manual/en/info.constants.php
+ * @link https://www.php.net/manual/en/info.constants.php
  */
 define ('CREDITS_DOCS', 16);
 
@@ -235,20 +235,20 @@ define ('CREDITS_DOCS', 16);
  * that a complete stand-alone HTML page needs to be
  * printed including the information indicated by the other
  * flags.
- * @link https://php.net/manual/en/info.constants.php
+ * @link https://www.php.net/manual/en/info.constants.php
  */
 define ('CREDITS_FULLPAGE', 32);
 
 /**
  * The credits for the quality assurance team.
- * @link https://php.net/manual/en/info.constants.php
+ * @link https://www.php.net/manual/en/info.constants.php
  */
 define ('CREDITS_QA', 64);
 
 /**
  * The configuration line, &php.ini; location, build date, Web
  * Server, System and more.
- * @link https://php.net/manual/en/info.constants.php
+ * @link https://www.php.net/manual/en/info.constants.php
  */
 define ('CREDITS_ALL', 4294967295);
 define ('HTML_SPECIALCHARS', 0);
@@ -256,26 +256,26 @@ define ('HTML_ENTITIES', 1);
 
 /**
  * Will convert double-quotes and leave single-quotes alone.
- * @link https://php.net/manual/en/function.htmlspecialchars.php
+ * @link https://www.php.net/manual/en/function.htmlspecialchars.php
  */
 define ('ENT_COMPAT', 2);
 
 /**
  * Will convert both double and single quotes.
- * @link https://php.net/manual/en/function.htmlspecialchars.php
+ * @link https://www.php.net/manual/en/function.htmlspecialchars.php
  */
 define ('ENT_QUOTES', 3);
 
 /**
  * Will leave both double and single quotes unconverted.
- * @link https://php.net/manual/en/function.htmlspecialchars.php
+ * @link https://www.php.net/manual/en/function.htmlspecialchars.php
  */
 define ('ENT_NOQUOTES', 0);
 
 /**
  * Silently discard invalid code unit sequences instead of returning an empty string.
  * Using this flag is discouraged as it may have security implications.
- * @link https://php.net/manual/en/function.htmlspecialchars.php
+ * @link https://www.php.net/manual/en/function.htmlspecialchars.php
  */
 define ('ENT_IGNORE', 4);
 define ('STR_PAD_LEFT', 0);
@@ -286,7 +286,7 @@ define ('PATHINFO_BASENAME', 2);
 define ('PATHINFO_EXTENSION', 4);
 
 /**
- * @link https://php.net/manual/en/filesystem.constants.php
+ * @link https://www.php.net/manual/en/filesystem.constants.php
  */
 define ('PATHINFO_FILENAME', 8);
 define ('CHAR_MAX', 127);
@@ -327,7 +327,7 @@ define ('LOCK_NB', 4);
 
 /**
  * A connection with an external resource has been established.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_NOTIFY_CONNECT', 2);
 
@@ -335,13 +335,13 @@ define ('STREAM_NOTIFY_CONNECT', 2);
  * Additional authorization is required to access the specified resource.
  * Typical issued with severity level of
  * STREAM_NOTIFY_SEVERITY_ERR.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_NOTIFY_AUTH_REQUIRED', 3);
 
 /**
  * Authorization has been completed (with or without success).
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_NOTIFY_AUTH_RESULT', 10);
 
@@ -349,20 +349,20 @@ define ('STREAM_NOTIFY_AUTH_RESULT', 10);
  * The mime-type of resource has been identified,
  * refer to message for a description of the
  * discovered type.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_NOTIFY_MIME_TYPE_IS', 4);
 
 /**
  * The size of the resource has been discovered.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_NOTIFY_FILE_SIZE_IS', 5);
 
 /**
  * The external resource has redirected the stream to an alternate
  * location. Refer to message.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_NOTIFY_REDIRECTED', 6);
 
@@ -370,7 +370,7 @@ define ('STREAM_NOTIFY_REDIRECTED', 6);
  * Indicates current progress of the stream transfer in
  * bytes_transferred and possibly
  * bytes_max as well.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_NOTIFY_PROGRESS', 7);
 
@@ -378,38 +378,38 @@ define ('STREAM_NOTIFY_PROGRESS', 7);
  * A generic error occurred on the stream, consult
  * message and message_code
  * for details.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_NOTIFY_FAILURE', 9);
 
 /**
  * There is no more data available on the stream.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_NOTIFY_COMPLETED', 8);
 
 /**
  * A remote address required for this stream has been resolved, or the resolution
  * failed. See severity for an indication of which happened.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_NOTIFY_RESOLVE', 1);
 
 /**
  * Normal, non-error related, notification.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_NOTIFY_SEVERITY_INFO', 0);
 
 /**
  * Non critical error condition. Processing may continue.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_NOTIFY_SEVERITY_WARN', 1);
 
 /**
  * A critical error occurred. Processing cannot continue.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_NOTIFY_SEVERITY_ERR', 2);
 
@@ -418,7 +418,7 @@ define ('STREAM_NOTIFY_SEVERITY_ERR', 2);
  * stream_filter_prepend to indicate
  * that the specified filter should only be applied when
  * reading
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_FILTER_READ', 1);
 
@@ -427,21 +427,21 @@ define ('STREAM_FILTER_READ', 1);
  * stream_filter_prepend to indicate
  * that the specified filter should only be applied when
  * writing
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_FILTER_WRITE', 2);
 
 /**
  * This constant is equivalent to
  * STREAM_FILTER_READ | STREAM_FILTER_WRITE
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_FILTER_ALL', 3);
 
 /**
  * Client socket opened with stream_socket_client
  * should remain persistent between page loads.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_CLIENT_PERSISTENT', 1);
 
@@ -449,14 +449,14 @@ define ('STREAM_CLIENT_PERSISTENT', 1);
  * Open client socket asynchronously. This option must be used
  * together with the STREAM_CLIENT_CONNECT flag.
  * Used with stream_socket_client.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_CLIENT_ASYNC_CONNECT', 2);
 
 /**
  * Open client socket connection. Client sockets should always
  * include this flag. Used with stream_socket_client.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_CLIENT_CONNECT', 4);
 
@@ -464,7 +464,7 @@ define ('STREAM_CLIENT_CONNECT', 4);
  * Used with stream_socket_shutdown to disable
  * further receptions.
  * @since 5.2.1
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_SHUT_RD', 0);
 
@@ -472,7 +472,7 @@ define ('STREAM_SHUT_RD', 0);
  * Used with stream_socket_shutdown to disable
  * further transmissions.
  * @since 5.2.1
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_SHUT_WR', 1);
 
@@ -480,69 +480,69 @@ define ('STREAM_SHUT_WR', 1);
  * Used with stream_socket_shutdown to disable
  * further receptions and transmissions.
  * @since 5.2.1
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_SHUT_RDWR', 2);
 
 /**
  * Internet Protocol Version 4 (IPv4).
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_PF_INET', 2);
 
 /**
  * Internet Protocol Version 6 (IPv6).
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_PF_INET6', 10);
 
 /**
  * Unix system internal protocols.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_PF_UNIX', 1);
 
 /**
  * Provides a IP socket.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_IPPROTO_IP', 0);
 
 /**
  * Provides a TCP socket.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_IPPROTO_TCP', 6);
 
 /**
  * Provides a UDP socket.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_IPPROTO_UDP', 17);
 
 /**
  * Provides a ICMP socket.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_IPPROTO_ICMP', 1);
 
 /**
  * Provides a RAW socket.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_IPPROTO_RAW', 255);
 
 /**
  * Provides sequenced, two-way byte streams with a transmission mechanism
  * for out-of-band data (TCP, for example).
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_SOCK_STREAM', 1);
 
 /**
  * Provides datagrams, which are connectionless messages (UDP, for
  * example).
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_SOCK_DGRAM', 2);
 
@@ -550,19 +550,19 @@ define ('STREAM_SOCK_DGRAM', 2);
  * Provides a raw socket, which provides access to internal network
  * protocols and interfaces. Usually this type of socket is just available
  * to the root user.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_SOCK_RAW', 3);
 
 /**
  * Provides a sequenced packet stream socket.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_SOCK_SEQPACKET', 5);
 
 /**
  * Provides a RDM (Reliably-delivered messages) socket.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_SOCK_RDM', 4);
 define ('STREAM_PEEK', 2);
@@ -571,7 +571,7 @@ define ('STREAM_OOB', 1);
 /**
  * Tells a stream created with stream_socket_server
  * to bind to the specified target. Server sockets should always include this flag.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_SERVER_BIND', 4);
 
@@ -581,31 +581,31 @@ define ('STREAM_SERVER_BIND', 4);
  * listening on the socket. Connection-orientated transports (such as TCP)
  * must use this flag, otherwise the server socket will not be enabled.
  * Using this flag for connect-less transports (such as UDP) is an error.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_SERVER_LISTEN', 8);
 
 /**
  * Search for filename in include_path
- * @link https://php.net/manual/en/filesystem.constants.php
+ * @link https://www.php.net/manual/en/filesystem.constants.php
  */
 define ('FILE_USE_INCLUDE_PATH', 1);
 
 /**
  * Strip EOL characters
- * @link https://php.net/manual/en/filesystem.constants.php
+ * @link https://www.php.net/manual/en/filesystem.constants.php
  */
 define ('FILE_IGNORE_NEW_LINES', 2);
 
 /**
  * Skip empty lines
- * @link https://php.net/manual/en/filesystem.constants.php
+ * @link https://www.php.net/manual/en/filesystem.constants.php
  */
 define ('FILE_SKIP_EMPTY_LINES', 4);
 
 /**
  * Append content to existing file.
- * @link https://php.net/manual/en/filesystem.constants.php
+ * @link https://www.php.net/manual/en/filesystem.constants.php
  */
 define ('FILE_APPEND', 8);
 define ('FILE_NO_DEFAULT_CONTEXT', 16);
@@ -616,7 +616,7 @@ define ('FILE_NO_DEFAULT_CONTEXT', 16);
  * forward compatibility.
  * </p>
  * @since 5.2.7
- * @link https://php.net/manual/en/filesystem.constants.php
+ * @link https://www.php.net/manual/en/filesystem.constants.php
  */
 define ('FILE_TEXT', 0);
 
@@ -626,38 +626,38 @@ define ('FILE_TEXT', 0);
  * forward compatibility.
  * </p>
  * @since 5.2.7
- * @link https://php.net/manual/en/filesystem.constants.php
+ * @link https://www.php.net/manual/en/filesystem.constants.php
  */
 define ('FILE_BINARY', 0);
 
 /**
  * Disable backslash escaping.
- * @link https://php.net/manual/en/filesystem.constants.php
+ * @link https://www.php.net/manual/en/filesystem.constants.php
  */
 define ('FNM_NOESCAPE', 2);
 
 /**
  * Slash in string only matches slash in the given pattern.
- * @link https://php.net/manual/en/filesystem.constants.php
+ * @link https://www.php.net/manual/en/filesystem.constants.php
  */
 define ('FNM_PATHNAME', 1);
 
 /**
  * Leading period in string must be exactly matched by period in the given pattern.
- * @link https://php.net/manual/en/filesystem.constants.php
+ * @link https://www.php.net/manual/en/filesystem.constants.php
  */
 define ('FNM_PERIOD', 4);
 
 /**
  * Caseless match. Part of the GNU extension.
- * @link https://php.net/manual/en/filesystem.constants.php
+ * @link https://www.php.net/manual/en/filesystem.constants.php
  */
 define ('FNM_CASEFOLD', 16);
 
 /**
  * Return Code indicating that the
  * userspace filter returned buckets in $out.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('PSFS_PASS_ON', 2);
 
@@ -665,7 +665,7 @@ define ('PSFS_PASS_ON', 2);
  * Return Code indicating that the
  * userspace filter did not return buckets in $out
  * (i.e. No data available).
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('PSFS_FEED_ME', 1);
 
@@ -673,25 +673,25 @@ define ('PSFS_FEED_ME', 1);
  * Return Code indicating that the
  * userspace filter encountered an unrecoverable error
  * (i.e. Invalid data received).
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('PSFS_ERR_FATAL', 0);
 
 /**
  * Regular read/write.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('PSFS_FLAG_NORMAL', 0);
 
 /**
  * An incremental flush.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('PSFS_FLAG_FLUSH_INC', 1);
 
 /**
  * Final flush prior to closing.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('PSFS_FLAG_FLUSH_CLOSE', 2);
 define ('ABDAY_1', 131072);
@@ -780,32 +780,32 @@ define ('EXTR_REFS', 256);
 /**
  * SORT_ASC is used with
  * array_multisort to sort in ascending order.
- * @link https://php.net/manual/en/array.constants.php
+ * @link https://www.php.net/manual/en/array.constants.php
  */
 define ('SORT_ASC', 4);
 
 /**
  * SORT_DESC is used with
  * array_multisort to sort in descending order.
- * @link https://php.net/manual/en/array.constants.php
+ * @link https://www.php.net/manual/en/array.constants.php
  */
 define ('SORT_DESC', 3);
 
 /**
  * SORT_REGULAR is used to compare items normally.
- * @link https://php.net/manual/en/array.constants.php
+ * @link https://www.php.net/manual/en/array.constants.php
  */
 define ('SORT_REGULAR', 0);
 
 /**
  * SORT_NUMERIC is used to compare items numerically.
- * @link https://php.net/manual/en/array.constants.php
+ * @link https://www.php.net/manual/en/array.constants.php
  */
 define ('SORT_NUMERIC', 1);
 
 /**
  * SORT_STRING is used to compare items as strings.
- * @link https://php.net/manual/en/array.constants.php
+ * @link https://www.php.net/manual/en/array.constants.php
  */
 define ('SORT_STRING', 2);
 
@@ -813,7 +813,7 @@ define ('SORT_STRING', 2);
  * SORT_LOCALE_STRING is used to compare items as
  * strings, based on the current locale.
  * @since 5.0.2
- * @link https://php.net/manual/en/array.constants.php
+ * @link https://www.php.net/manual/en/array.constants.php
  */
 define ('SORT_LOCALE_STRING', 5);
 
@@ -822,7 +822,7 @@ define ('SORT_LOCALE_STRING', 5);
  * array_change_key_case and is used to convert array
  * keys to lower case. This is also the default case for
  * array_change_key_case.
- * @link https://php.net/manual/en/array.constants.php
+ * @link https://www.php.net/manual/en/array.constants.php
  */
 define ('CASE_LOWER', 0);
 
@@ -830,7 +830,7 @@ define ('CASE_LOWER', 0);
  * CASE_UPPER is used with
  * array_change_key_case and is used to convert array
  * keys to upper case.
- * @link https://php.net/manual/en/array.constants.php
+ * @link https://www.php.net/manual/en/array.constants.php
  */
 define ('CASE_UPPER', 1);
 define ('COUNT_NORMAL', 0);
@@ -844,7 +844,7 @@ define ('ASSERT_EXCEPTION', 5);
 
 /**
  * Flag indicating if the stream used the include path.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_USE_PATH', 1);
 define ('STREAM_IGNORE_URL', 2);
@@ -855,7 +855,7 @@ define ('STREAM_ENFORCE_SAFE_MODE', 4);
  * is responsible for raising errors using trigger_error
  * during opening of the stream. If this flag is not set, you
  * should not raise any errors.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_REPORT_ERRORS', 8);
 
@@ -871,7 +871,7 @@ define ('STREAM_REPORT_ERRORS', 8);
  * not be bound to the actual resource you requested.
  * If the requested resource is network based, this flag will cause the
  * opener to block until the whole contents have been downloaded.
- * @link https://php.net/manual/en/internals2.ze1.streams.constants.php
+ * @link https://www.php.net/manual/en/internals2.ze1.streams.constants.php
  */
 define ('STREAM_MUST_SEEK', 16);
 define ('STREAM_URL_STAT_LINK', 1);
@@ -889,128 +889,128 @@ define ('STREAM_BUFFER_FULL', 2);
 /**
  * Stream casting, when stream_cast is called
  * otherwise (see above).
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_CAST_AS_STREAM', 0);
 
 /**
  * Stream casting, for when stream_select is
  * calling stream_cast.
- * @link https://php.net/manual/en/stream.constants.php
+ * @link https://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_CAST_FOR_SELECT', 3);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_GIF', 1);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_JPEG', 2);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_PNG', 3);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_SWF', 4);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_PSD', 5);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_BMP', 6);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_TIFF_II', 7);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_TIFF_MM', 8);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_JPC', 9);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_JP2', 10);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_JPX', 11);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_JB2', 12);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_SWC', 13);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_IFF', 14);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_WBMP', 15);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_JPEG2000', 9);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_XBM', 16);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  */
 define ('IMAGETYPE_ICO', 17);
 
 /**
  * Image type constant used by the {@link image_type_to_mime_type()} and {@link image_type_to_extension()} functions.
- * @link https://php.net/manual/en/image.constants.php
+ * @link https://www.php.net/manual/en/image.constants.php
  * @since 7.1
  */
 define('IMAGETYPE_WEBP', 18);
@@ -1019,7 +1019,7 @@ define('IMAGETYPE_COUNT', 19);
 
 /**
  * IPv4 Address Resource
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('DNS_A', 1);
 
@@ -1027,25 +1027,25 @@ define('DNS_CAA', 8192);
 
 /**
  * Authoritative Name Server Resource
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('DNS_NS', 2);
 
 /**
  * Alias (Canonical Name) Resource
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('DNS_CNAME', 16);
 
 /**
  * Start of Authority Resource
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('DNS_SOA', 32);
 
 /**
  * Pointer Resource
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('DNS_PTR', 2048);
 
@@ -1053,19 +1053,19 @@ define ('DNS_PTR', 2048);
  * Host Info Resource (See IANA's
  * Operating System Names
  * for the meaning of these values)
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('DNS_HINFO', 4096);
 
 /**
  * Mail Exchanger Resource
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('DNS_MX', 16384);
 
 /**
  * Text Resource
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('DNS_TXT', 32768);
 define ('DNS_SRV', 33554432);
@@ -1073,7 +1073,7 @@ define ('DNS_NAPTR', 67108864);
 
 /**
  * IPv6 Address Resource
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('DNS_AAAA', 134217728);
 define ('DNS_A6', 16777216);
@@ -1083,14 +1083,14 @@ define ('DNS_A6', 16777216);
  * this returns all resource records, however
  * it should not be counted upon for critical
  * uses. Try DNS_ALL instead.
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('DNS_ANY', 268435456);
 
 /**
  * Iteratively query the name server for
  * each available record type.
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('DNS_ALL', 251721779);
 
@@ -1102,12 +1102,12 @@ define ('DNS_ALL', 251721779);
 /**
  * Encoding is performed per RFC 1738 and the application/x-www-form-urlencoded media type,
  * which implies that spaces are encoded as plus (+) signs.
- * @link https://php.net/manual/en/function.http-build-query.php
+ * @link https://www.php.net/manual/en/function.http-build-query.php
  */
 define('PHP_QUERY_RFC1738', 1);
 /**
  * Encoding is performed according to RFC 3986, and spaces will be percent encoded (%20).
- * @link https://php.net/manual/en/function.http-build-query.php
+ * @link https://www.php.net/manual/en/function.http-build-query.php
  */
 define('PHP_QUERY_RFC3986', 2);
 
@@ -1117,7 +1117,7 @@ define('PHP_QUERY_RFC3986', 2);
 /**
  * Specifies where the manpages were installed into.
  * @since PHP 5.3.7
- * @link https://php.net/manual/en/reserved.constants.php
+ * @link https://www.php.net/manual/en/reserved.constants.php
  */
 define('PHP_MANDIR', '/usr/local/php/php/man');
 
@@ -1127,25 +1127,25 @@ define('PHP_MANDIR', '/usr/local/php/php/man');
  * empty string if session ID was set in an appropriate session cookie.
  * This is the same id as the one returned by session_id().
  * @see session_id()
- * @link https://php.net/manual/en/session.constants.php
+ * @link https://www.php.net/manual/en/session.constants.php
  */
 define('SID', "name=ID");
 /**
  * Return value of session_status() if sessions are disabled.
  * @since 5.4
- * @link https://php.net/manual/en/function.session-status.php
+ * @link https://www.php.net/manual/en/function.session-status.php
  */
 define('PHP_SESSION_DISABLED', 0);
 /**
  * Return value of session_status() if sessions are enabled, but no session exists.
  * @since 5.4
- * @link https://php.net/manual/en/function.session-status.php
+ * @link https://www.php.net/manual/en/function.session-status.php
  */
 define('PHP_SESSION_NONE', 1);
 /**
  * Return value of session_status() if sessions are enabled, and a session exists.
  * @since 5.4
- * @link https://php.net/manual/en/function.session-status.php
+ * @link https://www.php.net/manual/en/function.session-status.php
  */
 define('PHP_SESSION_ACTIVE', 2);
 
@@ -1153,7 +1153,7 @@ define('PHP_SESSION_ACTIVE', 2);
  * Replace invalid code unit sequences with a Unicode Replacement Character
  * U+FFFD (UTF-8) or &#FFFD; (otherwise) instead of returning an empty string.
  * @since 5.4
- * @link https://php.net/manual/en/function.htmlspecialchars.php
+ * @link https://www.php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_SUBSTITUTE', 8);
 /**
@@ -1163,40 +1163,40 @@ define('ENT_SUBSTITUTE', 8);
  * for instance, to ensure the well-formedness of XML documents
  * with embedded external content.
  * @since 5.4
- * @link https://php.net/manual/en/function.htmlspecialchars.php
+ * @link https://www.php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_DISALLOWED', 128);
 /**
  * Handle code as HTML 4.01.
  * @since 5.4
- * @link https://php.net/manual/en/function.htmlspecialchars.php
+ * @link https://www.php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_HTML401', 0);
 /**
  * Handle code as XML 1.
  * @since 5.4
- * @link https://php.net/manual/en/function.htmlspecialchars.php
+ * @link https://www.php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_XML1', 16);
 /**
  * Handle code as XHTML.
  * @since 5.4
- * @link https://php.net/manual/en/function.htmlspecialchars.php
+ * @link https://www.php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_XHTML', 32);
 /**
  * Handle code as HTML 5.
  * @since 5.4
- * @link https://php.net/manual/en/function.htmlspecialchars.php
+ * @link https://www.php.net/manual/en/function.htmlspecialchars.php
  */
 define('ENT_HTML5', 48);
 
 
-/** @link https://php.net/manual/en/function.scandir.php */
+/** @link https://www.php.net/manual/en/function.scandir.php */
 define('SCANDIR_SORT_ASCENDING', 0);
-/** @link https://php.net/manual/en/function.scandir.php */
+/** @link https://www.php.net/manual/en/function.scandir.php */
 define('SCANDIR_SORT_DESCENDING', 1);
-/** @link https://php.net/manual/en/function.scandir.php */
+/** @link https://www.php.net/manual/en/function.scandir.php */
 define('SCANDIR_SORT_NONE', 2);
 
 
@@ -1204,29 +1204,29 @@ define('SCANDIR_SORT_NONE', 2);
 /**
  * SORT_NATURAL is used to compare items as strings using "natural ordering" like natsort().
  * @since 5.4
- * @link https://php.net/manual/en/array.constants.php
+ * @link https://www.php.net/manual/en/array.constants.php
  */
 define('SORT_NATURAL', 6);
 /**
  * SORT_FLAG_CASE can be combined (bitwise OR) with SORT_STRING or SORT_NATURAL to sort strings case-insensitively.
  * @since 5.4
- * @link https://php.net/manual/en/array.constants.php
+ * @link https://www.php.net/manual/en/array.constants.php
  */
 define('SORT_FLAG_CASE', 8);
 
 
 
-/** @link https://php.net/manual/en/streamwrapper.stream-metadata.php */
+/** @link https://www.php.net/manual/en/streamwrapper.stream-metadata.php */
 define('STREAM_META_TOUCH', 1);
-/** @link https://php.net/manual/en/streamwrapper.stream-metadata.php */
+/** @link https://www.php.net/manual/en/streamwrapper.stream-metadata.php */
 define('STREAM_META_OWNER', 3);
-/** @link https://php.net/manual/en/streamwrapper.stream-metadata.php */
+/** @link https://www.php.net/manual/en/streamwrapper.stream-metadata.php */
 define('STREAM_META_OWNER_NAME', 2);
-/** @link https://php.net/manual/en/streamwrapper.stream-metadata.php */
+/** @link https://www.php.net/manual/en/streamwrapper.stream-metadata.php */
 define('STREAM_META_GROUP', 5);
-/** @link https://php.net/manual/en/streamwrapper.stream-metadata.php */
+/** @link https://www.php.net/manual/en/streamwrapper.stream-metadata.php */
 define('STREAM_META_GROUP_NAME', 4);
-/** @link https://php.net/manual/en/streamwrapper.stream-metadata.php */
+/** @link https://www.php.net/manual/en/streamwrapper.stream-metadata.php */
 define('STREAM_META_ACCESS', 6);
 
 define('STREAM_CRYPTO_METHOD_SSLv2_CLIENT', 3);
@@ -1275,116 +1275,116 @@ define("MT_RAND_PHP", 1);
 
 /**
  * system is unusable
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_EMERG', 0);
 
 /**
  * action must be taken immediately
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_ALERT', 1);
 
 /**
  * critical conditions
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_CRIT', 2);
 
 /**
  * error conditions
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_ERR', 3);
 
 /**
  * warning conditions
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_WARNING', 4);
 
 /**
  * normal, but significant, condition
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_NOTICE', 5);
 
 /**
  * informational message
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_INFO', 6);
 
 /**
  * debug-level message
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_DEBUG', 7);
 
 /**
  * kernel messages
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_KERN', 0);
 
 /**
  * generic user-level messages
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_USER', 8);
 
 /**
  * mail subsystem
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_MAIL', 16);
 
 /**
  * other system daemons
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_DAEMON', 24);
 
 /**
  * security/authorization messages (use <b>LOG_AUTHPRIV</b> instead
  * in systems where that constant is defined)
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_AUTH', 32);
 
 /**
  * messages generated internally by syslogd
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_SYSLOG', 40);
 
 /**
  * line printer subsystem
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_LPR', 48);
 
 /**
  * USENET news subsystem
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_NEWS', 56);
 
 /**
  * UUCP subsystem
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_UUCP', 64);
 
 /**
  * clock daemon (cron and at)
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_CRON', 72);
 
 /**
  * security/authorization messages (private)
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_AUTHPRIV', 80);
 define ('LOG_LOCAL0', 128);
@@ -1398,33 +1398,33 @@ define ('LOG_LOCAL7', 184);
 
 /**
  * include PID with each message
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_PID', 1);
 
 /**
  * if there is an error while sending data to the system logger,
  * write directly to the system console
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_CONS', 2);
 
 /**
  * (default) delay opening the connection until the first
  * message is logged
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_ODELAY', 4);
 
 /**
  * open the connection to the logger immediately
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_NDELAY', 8);
 define ('LOG_NOWAIT', 16);
 
 /**
  * print log message also to standard error
- * @link https://php.net/manual/en/network.constants.php
+ * @link https://www.php.net/manual/en/network.constants.php
  */
 define ('LOG_PERROR', 32);

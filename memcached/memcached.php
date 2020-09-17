@@ -4,7 +4,7 @@
 
 /**
  * Represents a connection to a set of memcached servers.
- * @link https://php.net/manual/en/class.memcached.php
+ * @link https://www.php.net/manual/en/class.memcached.php
  */
 class Memcached  {
 
@@ -14,7 +14,7 @@ class Memcached  {
 	 * compressed during storage and decompressed during retrieval
 	 * transparently.</p>
 	 * <p>Type: boolean, default: <b>TRUE</b>.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_COMPRESSION = -1001;
 	const OPT_COMPRESSION_TYPE = -1004;
@@ -26,7 +26,7 @@ class Memcached  {
 	 * maximum available key size. The prefix is applied only to the item keys,
 	 * not to the server keys.</p>
 	 * <p>Type: string, default: "".</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_PREFIX_KEY = -1002;
 
@@ -40,21 +40,21 @@ class Memcached  {
 	 * igbinary extension is loaded.
 	 * </p>
 	 * <p>Type: integer, default: <b>Memcached::SERIALIZER_PHP</b>.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_SERIALIZER = -1003;
 
 	/**
 	 * <p>Indicates whether igbinary serializer support is available.</p>
 	 * <p>Type: boolean.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const HAVE_IGBINARY = 0;
 
 	/**
 	 * <p>Indicates whether JSON serializer support is available.</p>
 	 * <p>Type: boolean.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const HAVE_JSON = 0;
 
@@ -63,7 +63,7 @@ class Memcached  {
 	 * <p>Type: boolean.</p>
 	 * Available as of Memcached 3.0.0.
 	 * @since 3.0.0
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const HAVE_MSGPACK = 0;
 
@@ -86,61 +86,61 @@ class Memcached  {
 	 * Each hash algorithm has its advantages and its disadvantages. Go with the
 	 * default if you don't know or don't care.</p>
 	 * <p>Type: integer, default: <b>Memcached::HASH_DEFAULT</b></p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_HASH = 2;
 
 	/**
 	 * <p>The default (Jenkins one-at-a-time) item key hashing algorithm.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const HASH_DEFAULT = 0;
 
 	/**
 	 * <p>MD5 item key hashing algorithm.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const HASH_MD5 = 1;
 
 	/**
 	 * <p>CRC item key hashing algorithm.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const HASH_CRC = 2;
 
 	/**
 	 * <p>FNV1_64 item key hashing algorithm.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const HASH_FNV1_64 = 3;
 
 	/**
 	 * <p>FNV1_64A item key hashing algorithm.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const HASH_FNV1A_64 = 4;
 
 	/**
 	 * <p>FNV1_32 item key hashing algorithm.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const HASH_FNV1_32 = 5;
 
 	/**
 	 * <p>FNV1_32A item key hashing algorithm.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const HASH_FNV1A_32 = 6;
 
 	/**
 	 * <p>Hsieh item key hashing algorithm.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const HASH_HSIEH = 7;
 
 	/**
 	 * <p>Murmur item key hashing algorithm.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const HASH_MURMUR = 8;
 
@@ -150,19 +150,19 @@ class Memcached  {
 	 * hashing delivers better distribution and allows servers to be added to
 	 * the cluster with minimal cache losses.</p>
 	 * <p>Type: integer, default: <b>Memcached::DISTRIBUTION_MODULA.</b></p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_DISTRIBUTION = 9;
 
 	/**
 	 * <p>Modulo-based key distribution algorithm.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const DISTRIBUTION_MODULA = 0;
 
 	/**
 	 * <p>Consistent hashing key distribution algorithm (based on libketama).</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const DISTRIBUTION_CONSISTENT = 1;
 	const DISTRIBUTION_VIRTUAL_BUCKET = 6;
@@ -180,7 +180,7 @@ class Memcached  {
 	 * releases.
 	 * </p>
 	 * <p>Type: boolean, default: <b>FALSE</b>.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_LIBKETAMA_COMPATIBLE = 16;
 	const OPT_LIBKETAMA_HASH = 17;
@@ -193,7 +193,7 @@ class Memcached  {
 	 * Quitting the connection or closing down the connection will also cause
 	 * the buffered data to be pushed to the remote connection.</p>
 	 * <p>Type: boolean, default: <b>FALSE</b>.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_BUFFER_WRITES = 10;
 
@@ -201,7 +201,7 @@ class Memcached  {
 	 * <p>Enable the use of the binary protocol. Please note that you cannot
 	 * toggle this option on an open connection.</p>
 	 * <p>Type: boolean, default: <b>FALSE</b>.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_BINARY_PROTOCOL = 18;
 
@@ -209,7 +209,7 @@ class Memcached  {
 	 * <p>Enables or disables asynchronous I/O. This is the fastest transport
 	 * available for storage functions.</p>
 	 * <p>Type: boolean, default: <b>FALSE</b>.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_NO_BLOCK = 0;
 
@@ -217,7 +217,7 @@ class Memcached  {
 	 * <p>Enables or disables the no-delay feature for connecting sockets (may
 	 * be faster in some environments).</p>
 	 * <p>Type: boolean, default: <b>FALSE</b>.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_TCP_NODELAY = 1;
 
@@ -225,7 +225,7 @@ class Memcached  {
 	 * <p>The maximum socket send buffer in bytes.</p>
 	 * <p>Type: integer, default: varies by platform/kernel
 	 * configuration.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_SOCKET_SEND_SIZE = 4;
 
@@ -233,7 +233,7 @@ class Memcached  {
 	 * <p>The maximum socket receive buffer in bytes.</p>
 	 * <p>Type: integer, default: varies by platform/kernel
 	 * configuration.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_SOCKET_RECV_SIZE = 5;
 
@@ -241,7 +241,7 @@ class Memcached  {
 	 * <p>In non-blocking mode this set the value of the timeout during socket
 	 * connection, in milliseconds.</p>
 	 * <p>Type: integer, default: 1000.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_CONNECT_TIMEOUT = 14;
 
@@ -249,7 +249,7 @@ class Memcached  {
 	 * <p>The amount of time, in seconds, to wait until retrying a failed
 	 * connection attempt.</p>
 	 * <p>Type: integer, default: 0.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_RETRY_TIMEOUT = 15;
 
@@ -258,7 +258,7 @@ class Memcached  {
 	 * use non-blocking I/O this will allow you to still have timeouts on the
 	 * sending of data.</p>
 	 * <p>Type: integer, default: 0.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_SEND_TIMEOUT = 19;
 
@@ -267,21 +267,21 @@ class Memcached  {
 	 * use non-blocking I/O this will allow you to still have timeouts on the
 	 * reading of data.</p>
 	 * <p>Type: integer, default: 0.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_RECV_TIMEOUT = 20;
 
 	/**
 	 * <p>Timeout for connection polling, in milliseconds.</p>
 	 * <p>Type: integer, default: 1000.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_POLL_TIMEOUT = 8;
 
 	/**
 	 * <p>Enables or disables caching of DNS lookups.</p>
 	 * <p>Type: boolean, default: <b>FALSE</b>.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_CACHE_LOOKUPS = 6;
 
@@ -290,7 +290,7 @@ class Memcached  {
 	 * server will be removed after this many continuous connection
 	 * failures.</p>
 	 * <p>Type: integer, default: 0.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const OPT_SERVER_FAILURE_LIMIT = 21;
 	const OPT_AUTO_EJECT_HOSTS = 28;
@@ -320,56 +320,56 @@ class Memcached  {
 	 */
 	/**
 	 * <p>The operation was successful.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_SUCCESS = 0;
 
 	/**
 	 * <p>The operation failed in some fashion.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_FAILURE = 1;
 
 	/**
 	 * <p>DNS lookup failed.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_HOST_LOOKUP_FAILURE = 2;
 
 	/**
 	 * <p>Failed to read network data.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_UNKNOWN_READ_FAILURE = 7;
 
 	/**
 	 * <p>Bad command in memcached protocol.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_PROTOCOL_ERROR = 8;
 
 	/**
 	 * <p>Error on the client side.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_CLIENT_ERROR = 9;
 
 	/**
 	 * <p>Error on the server side.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_SERVER_ERROR = 10;
 
 	/**
 	 * <p>Failed to write network data.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_WRITE_FAILURE = 5;
 
 	/**
 	 * <p>Failed to do compare-and-swap: item you are trying to store has been
 	 * modified since you last fetched it.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_DATA_EXISTS = 12;
 
@@ -377,62 +377,62 @@ class Memcached  {
 	 * <p>Item was not stored: but not because of an error. This normally
 	 * means that either the condition for an "add" or a "replace" command
 	 * wasn't met, or that the item is in a delete queue.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_NOTSTORED = 14;
 
 	/**
 	 * <p>Item with this key was not found (with "get" operation or "cas"
 	 * operations).</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_NOTFOUND = 16;
 
 	/**
 	 * <p>Partial network data read error.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_PARTIAL_READ = 18;
 
 	/**
 	 * <p>Some errors occurred during multi-get.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_SOME_ERRORS = 19;
 
 	/**
 	 * <p>Server list is empty.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_NO_SERVERS = 20;
 
 	/**
 	 * <p>End of result set.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_END = 21;
 
 	/**
 	 * <p>System error.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_ERRNO = 26;
 
 	/**
 	 * <p>The operation was buffered.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_BUFFERED = 32;
 
 	/**
 	 * <p>The operation timed out.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_TIMEOUT = 31;
 
 	/**
 	 * <p>Bad key.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php, http://docs.libmemcached.org/index.html
+	 * @link https://www.php.net/manual/en/memcached.constants.php, http://docs.libmemcached.org/index.html
 	 */
 	/**
 	 * <p>MEMCACHED_BAD_KEY_PROVIDED: The key provided is not a valid key.</p>
@@ -604,19 +604,19 @@ class Memcached  {
 
 	/**
 	 * <p>Failed to create network socket.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_CONNECTION_SOCKET_CREATE_FAILURE = 11;
 
 	/**
 	 * <p>Payload failure: could not compress/decompress or serialize/unserialize the value.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const RES_PAYLOAD_FAILURE = -1001;
 
 	/**
 	 * <p>The default PHP serializer.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const SERIALIZER_PHP = 1;
 
@@ -624,13 +624,13 @@ class Memcached  {
 	 * <p>The igbinary serializer.
 	 * Instead of textual representation it stores PHP data structures in a
 	 * compact binary form, resulting in space and time gains.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const SERIALIZER_IGBINARY = 2;
 
 	/**
 	 * <p>The JSON serializer. Requires PHP 5.2.10+.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const SERIALIZER_JSON = 3;
 	const SERIALIZER_JSON_ARRAY = 4;
@@ -648,14 +648,14 @@ class Memcached  {
 	 * <b>Memcached::getMultiByKey</b> to ensure that the keys are
 	 * returned in the same order as they were requested in. Non-existing keys
 	 * get a default value of NULL.</p>
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const GET_PRESERVE_ORDER = 1;
 
 	/**
 	 * A flag for <b>Memcached::get()</b>, <b>Memcached::getMulti()</b> and
 	 * <b>Memcached::getMultiByKey()</b> to ensure that the CAS token values are returned as well.
-	 * @link https://php.net/manual/en/memcached.constants.php
+	 * @link https://www.php.net/manual/en/memcached.constants.php
 	 */
 	const GET_EXTENDED = 2;
 
@@ -664,7 +664,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Create a Memcached instance
-	 * @link https://php.net/manual/en/memcached.construct.php, https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/php_memcached.c
+	 * @link https://www.php.net/manual/en/memcached.construct.php, https://github.com/php-memcached-dev/php-memcached/blob/v3.1.5/php_memcached.c
 	 * @param string $persistent_id [optional]
 	 * @param callable $on_new_object_cb [optional]
 	 * @param string $connection_str [optional]
@@ -674,7 +674,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Return the result code of the last operation
-	 * @link https://php.net/manual/en/memcached.getresultcode.php
+	 * @link https://www.php.net/manual/en/memcached.getresultcode.php
 	 * @return int Result code of the last Memcached operation.
 	 */
 	public function getResultCode () {}
@@ -682,7 +682,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 1.0.0)<br/>
 	 * Return the message describing the result of the last operation
-	 * @link https://php.net/manual/en/memcached.getresultmessage.php
+	 * @link https://www.php.net/manual/en/memcached.getresultmessage.php
 	 * @return string Message describing the result of the last Memcached operation.
 	 */
 	public function getResultMessage () {}
@@ -690,7 +690,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Retrieve an item
-	 * @link https://php.net/manual/en/memcached.get.php
+	 * @link https://www.php.net/manual/en/memcached.get.php
 	 * @param string $key <p>
 	 * The key of the item to retrieve.
 	 * </p>
@@ -709,7 +709,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Retrieve an item from a specific server
-	 * @link https://php.net/manual/en/memcached.getbykey.php
+	 * @link https://www.php.net/manual/en/memcached.getbykey.php
 	 * @param string $server_key <p>
 	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
@@ -731,7 +731,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Retrieve multiple items
-	 * @link https://php.net/manual/en/memcached.getmulti.php
+	 * @link https://www.php.net/manual/en/memcached.getmulti.php
 	 * @param array $keys <p>
 	 * Array of keys to retrieve.
 	 * </p>
@@ -746,7 +746,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Retrieve multiple items from a specific server
-	 * @link https://php.net/manual/en/memcached.getmultibykey.php
+	 * @link https://www.php.net/manual/en/memcached.getmultibykey.php
 	 * @param string $server_key <p>
 	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
@@ -764,7 +764,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Request multiple items
-	 * @link https://php.net/manual/en/memcached.getdelayed.php
+	 * @link https://www.php.net/manual/en/memcached.getdelayed.php
 	 * @param array $keys <p>
 	 * Array of keys to request.
 	 * </p>
@@ -782,7 +782,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Request multiple items from a specific server
-	 * @link https://php.net/manual/en/memcached.getdelayedbykey.php
+	 * @link https://www.php.net/manual/en/memcached.getdelayedbykey.php
 	 * @param string $server_key <p>
 	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
@@ -803,7 +803,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Fetch the next result
-	 * @link https://php.net/manual/en/memcached.fetch.php
+	 * @link https://www.php.net/manual/en/memcached.fetch.php
 	 * @return array|false the next result or <b>FALSE</b> otherwise.
 	 * The <b>Memcached::getResultCode</b> will return
 	 * <b>Memcached::RES_END</b> if result set is exhausted.
@@ -813,7 +813,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Fetch all the remaining results
-	 * @link https://php.net/manual/en/memcached.fetchall.php
+	 * @link https://www.php.net/manual/en/memcached.fetchall.php
 	 * @return array|false the results or <b>FALSE</b> on failure.
 	 * Use <b>Memcached::getResultCode</b> if necessary.
 	 */
@@ -822,7 +822,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Store an item
-	 * @link https://php.net/manual/en/memcached.set.php
+	 * @link https://www.php.net/manual/en/memcached.set.php
 	 * @param string $key <p>
 	 * The key under which to store the value.
 	 * </p>
@@ -841,7 +841,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Store an item on a specific server
-	 * @link https://php.net/manual/en/memcached.setbykey.php
+	 * @link https://www.php.net/manual/en/memcached.setbykey.php
 	 * @param string $server_key <p>
 	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
@@ -863,7 +863,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 2.0.0)<br/>
 	 * Set a new expiration on an item
-	 * @link https://php.net/manual/en/memcached.touch.php
+	 * @link https://www.php.net/manual/en/memcached.touch.php
 	 * @param string $key <p>
 	 * The key under which to store the value.
 	 * </p>
@@ -878,7 +878,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 2.0.0)<br/>
 	 * Set a new expiration on an item on a specific server
-	 * @link https://php.net/manual/en/memcached.touchbykey.php
+	 * @link https://www.php.net/manual/en/memcached.touchbykey.php
 	 * @param string $server_key <p>
 	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
@@ -896,7 +896,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Store multiple items
-	 * @link https://php.net/manual/en/memcached.setmulti.php
+	 * @link https://www.php.net/manual/en/memcached.setmulti.php
 	 * @param array $items <p>
 	 * An array of key/value pairs to store on the server.
 	 * </p>
@@ -912,7 +912,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Store multiple items on a specific server
-	 * @link https://php.net/manual/en/memcached.setmultibykey.php
+	 * @link https://www.php.net/manual/en/memcached.setmultibykey.php
 	 * @param string $server_key <p>
 	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
@@ -931,7 +931,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Compare and swap an item
-	 * @link https://php.net/manual/en/memcached.cas.php
+	 * @link https://www.php.net/manual/en/memcached.cas.php
 	 * @param float $cas_token <p>
 	 * Unique value associated with the existing item. Generated by memcache.
 	 * </p>
@@ -955,7 +955,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Compare and swap an item on a specific server
-	 * @link https://php.net/manual/en/memcached.casbykey.php
+	 * @link https://www.php.net/manual/en/memcached.casbykey.php
 	 * @param float $cas_token <p>
 	 * Unique value associated with the existing item. Generated by memcache.
 	 * </p>
@@ -982,7 +982,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Add an item under a new key
-	 * @link https://php.net/manual/en/memcached.add.php
+	 * @link https://www.php.net/manual/en/memcached.add.php
 	 * @param string $key <p>
 	 * The key under which to store the value.
 	 * </p>
@@ -1002,7 +1002,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Add an item under a new key on a specific server
-	 * @link https://php.net/manual/en/memcached.addbykey.php
+	 * @link https://www.php.net/manual/en/memcached.addbykey.php
 	 * @param string $server_key <p>
 	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
@@ -1025,7 +1025,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Append data to an existing item
-	 * @link https://php.net/manual/en/memcached.append.php
+	 * @link https://www.php.net/manual/en/memcached.append.php
 	 * @param string $key <p>
 	 * The key under which to store the value.
 	 * </p>
@@ -1041,7 +1041,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Append data to an existing item on a specific server
-	 * @link https://php.net/manual/en/memcached.appendbykey.php
+	 * @link https://www.php.net/manual/en/memcached.appendbykey.php
 	 * @param string $server_key <p>
 	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
@@ -1060,7 +1060,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Prepend data to an existing item
-	 * @link https://php.net/manual/en/memcached.prepend.php
+	 * @link https://www.php.net/manual/en/memcached.prepend.php
 	 * @param string $key <p>
 	 * The key of the item to prepend the data to.
 	 * </p>
@@ -1076,7 +1076,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Prepend data to an existing item on a specific server
-	 * @link https://php.net/manual/en/memcached.prependbykey.php
+	 * @link https://www.php.net/manual/en/memcached.prependbykey.php
 	 * @param string $server_key <p>
 	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
@@ -1095,7 +1095,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Replace the item under an existing key
-	 * @link https://php.net/manual/en/memcached.replace.php
+	 * @link https://www.php.net/manual/en/memcached.replace.php
 	 * @param string $key <p>
 	 * The key under which to store the value.
 	 * </p>
@@ -1115,7 +1115,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Replace the item under an existing key on a specific server
-	 * @link https://php.net/manual/en/memcached.replacebykey.php
+	 * @link https://www.php.net/manual/en/memcached.replacebykey.php
 	 * @param string $server_key <p>
 	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
@@ -1138,7 +1138,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Delete an item
-	 * @link https://php.net/manual/en/memcached.delete.php
+	 * @link https://www.php.net/manual/en/memcached.delete.php
 	 * @param string $key <p>
 	 * The key to be deleted.
 	 * </p>
@@ -1154,7 +1154,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 2.0.0)<br/>
 	 * Delete multiple items
-	 * @link https://php.net/manual/en/memcached.deletemulti.php
+	 * @link https://www.php.net/manual/en/memcached.deletemulti.php
 	 * @param array $keys <p>
 	 * The keys to be deleted.
 	 * </p>
@@ -1170,7 +1170,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Delete an item from a specific server
-	 * @link https://php.net/manual/en/memcached.deletebykey.php
+	 * @link https://www.php.net/manual/en/memcached.deletebykey.php
 	 * @param string $server_key <p>
 	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
@@ -1189,7 +1189,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 2.0.0)<br/>
 	 * Delete multiple items from a specific server
-	 * @link https://php.net/manual/en/memcached.deletemultibykey.php
+	 * @link https://www.php.net/manual/en/memcached.deletemultibykey.php
 	 * @param string $server_key <p>
 	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
@@ -1208,7 +1208,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Increment numeric item's value
-	 * @link https://php.net/manual/en/memcached.increment.php
+	 * @link https://www.php.net/manual/en/memcached.increment.php
 	 * @param string $key <p>
 	 * The key of the item to increment.
 	 * </p>
@@ -1228,7 +1228,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Decrement numeric item's value
-	 * @link https://php.net/manual/en/memcached.decrement.php
+	 * @link https://www.php.net/manual/en/memcached.decrement.php
 	 * @param string $key <p>
 	 * The key of the item to decrement.
 	 * </p>
@@ -1248,7 +1248,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 2.0.0)<br/>
 	 * Increment numeric item's value, stored on a specific server
-	 * @link https://php.net/manual/en/memcached.incrementbykey.php
+	 * @link https://www.php.net/manual/en/memcached.incrementbykey.php
 	 * @param string $server_key <p>
 	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
@@ -1271,7 +1271,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 2.0.0)<br/>
 	 * Decrement numeric item's value, stored on a specific server
-	 * @link https://php.net/manual/en/memcached.decrementbykey.php
+	 * @link https://www.php.net/manual/en/memcached.decrementbykey.php
 	 * @param string $server_key <p>
 	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
@@ -1294,7 +1294,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Add a server to the server pool
-	 * @link https://php.net/manual/en/memcached.addserver.php
+	 * @link https://www.php.net/manual/en/memcached.addserver.php
 	 * @param string $host <p>
 	 * The hostname of the memcache server. If the hostname is invalid, data-related
 	 * operations will set
@@ -1318,7 +1318,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.1)<br/>
 	 * Add multiple servers to the server pool
-	 * @link https://php.net/manual/en/memcached.addservers.php
+	 * @link https://www.php.net/manual/en/memcached.addservers.php
 	 * @param array $servers
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
@@ -1327,7 +1327,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Get the list of the servers in the pool
-	 * @link https://php.net/manual/en/memcached.getserverlist.php
+	 * @link https://www.php.net/manual/en/memcached.getserverlist.php
 	 * @return array The list of all servers in the server pool.
 	 */
 	public function getServerList () {}
@@ -1335,7 +1335,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Map a key to a server
-	 * @link https://php.net/manual/en/memcached.getserverbykey.php
+	 * @link https://www.php.net/manual/en/memcached.getserverbykey.php
 	 * @param string $server_key <p>
 	 * The key identifying the server to store the value on or retrieve it from. Instead of hashing on the actual key for the item, we hash on the server key when deciding which memcached server to talk to. This allows related items to be grouped together on a single server for efficiency with multi operations.
 	 * </p>
@@ -1349,7 +1349,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 2.0.0)<br/>
 	 * Clears all servers from the server list
-	 * @link https://php.net/manual/en/memcached.resetserverlist.php
+	 * @link https://www.php.net/manual/en/memcached.resetserverlist.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function resetServerList () {}
@@ -1357,7 +1357,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 2.0.0)<br/>
 	 * Close any open connections
-	 * @link https://php.net/manual/en/memcached.quit.php
+	 * @link https://www.php.net/manual/en/memcached.quit.php
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
 	 */
 	public function quit () {}
@@ -1365,7 +1365,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Get server pool statistics
-	 * @link https://php.net/manual/en/memcached.getstats.php
+	 * @link https://www.php.net/manual/en/memcached.getstats.php
 	 * @param string $type <p>items, slabs, sizes ...</p>
 	 * @return array Array of server statistics, one entry per server.
 	 */
@@ -1374,7 +1374,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.5)<br/>
 	 * Get server pool version info
-	 * @link https://php.net/manual/en/memcached.getversion.php
+	 * @link https://www.php.net/manual/en/memcached.getversion.php
 	 * @return array Array of server versions, one entry per server.
 	 */
 	public function getVersion () {}
@@ -1382,7 +1382,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 2.0.0)<br/>
 	 * Gets the keys stored on all the servers
-	 * @link https://php.net/manual/en/memcached.getallkeys.php
+	 * @link https://www.php.net/manual/en/memcached.getallkeys.php
 	 * @return array|false the keys stored on all the servers on success or <b>FALSE</b> on failure.
 	 */
 	public function getAllKeys () {}
@@ -1390,7 +1390,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Invalidate all items in the cache
-	 * @link https://php.net/manual/en/memcached.flush.php
+	 * @link https://www.php.net/manual/en/memcached.flush.php
 	 * @param int $delay [optional] <p>
 	 * Numer of seconds to wait before invalidating the items.
 	 * </p>
@@ -1402,7 +1402,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Retrieve a Memcached option value
-	 * @link https://php.net/manual/en/memcached.getoption.php
+	 * @link https://www.php.net/manual/en/memcached.getoption.php
 	 * @param int $option <p>
 	 * One of the Memcached::OPT_* constants.
 	 * </p>
@@ -1414,7 +1414,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 0.1.0)<br/>
 	 * Set a Memcached option
-	 * @link https://php.net/manual/en/memcached.setoption.php
+	 * @link https://www.php.net/manual/en/memcached.setoption.php
 	 * @param int $option
 	 * @param mixed $value
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -1424,7 +1424,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 2.0.0)<br/>
 	 * Set Memcached options
-	 * @link https://php.net/manual/en/memcached.setoptions.php
+	 * @link https://www.php.net/manual/en/memcached.setoptions.php
 	 * @param array $options <p>
 	 * An associative array of options where the key is the option to set and
 	 * the value is the new value for the option.
@@ -1436,7 +1436,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 2.0.0)<br/>
 	 * Set the credentials to use for authentication
-	 * @link https://secure.php.net/manual/en/memcached.setsaslauthdata.php
+	 * @link https://www.php.net/manual/en/memcached.setsaslauthdata.php
 	 * @param string $username <p>
 	 * The username to use for authentication.
 	 * </p>
@@ -1450,7 +1450,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 2.0.0)<br/>
 	 * Check if a persitent connection to memcache is being used
-	 * @link https://php.net/manual/en/memcached.ispersistent.php
+	 * @link https://www.php.net/manual/en/memcached.ispersistent.php
 	 * @return bool true if Memcache instance uses a persistent connection, false otherwise.
 	 */
 	public function isPersistent () {}
@@ -1458,7 +1458,7 @@ class Memcached  {
 	/**
 	 * (PECL memcached &gt;= 2.0.0)<br/>
 	 * Check if the instance was recently created
-	 * @link https://php.net/manual/en/memcached.ispristine.php
+	 * @link https://www.php.net/manual/en/memcached.ispristine.php
 	 * @return bool the true if instance is recently created, false otherwise.
 	 */
 	public function isPristine () {}
@@ -1519,7 +1519,7 @@ class Memcached  {
 }
 
 /**
- * @link https://php.net/manual/en/class.memcachedexception.php
+ * @link https://www.php.net/manual/en/class.memcachedexception.php
  */
 class MemcachedException extends RuntimeException  {
 	function __construct( $errmsg = "", $errcode  = 0 ) {}

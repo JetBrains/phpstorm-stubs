@@ -6,14 +6,14 @@
  *
  * @property-read string $name Name of the function, same as calling the {@see ReflectionFunctionAbstract::getName()} method
  *
- * @link https://php.net/manual/en/class.reflectionfunctionabstract.php
+ * @link https://www.php.net/manual/en/class.reflectionfunctionabstract.php
  */
 abstract class ReflectionFunctionAbstract implements Reflector
 {
     /**
      * Clones function
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.clone.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.clone.php
      * @return void
      */
     final private function __clone()
@@ -23,7 +23,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Checks if function in namespace
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.innamespace.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.innamespace.php
      * @return bool {@see true} if it's in a namespace, otherwise {@see false}
      */
     public function inNamespace()
@@ -33,7 +33,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Checks if closure
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.isclosure.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.isclosure.php
      * @return bool {@see true} if it's a closure, otherwise {@see false}
      */
     public function isClosure()
@@ -43,7 +43,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Checks if deprecated
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.isdeprecated.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.isdeprecated.php
      * @return bool {@see true} if it's deprecated, otherwise {@see false}
      */
     public function isDeprecated()
@@ -53,7 +53,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Checks if is internal
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.isinternal.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.isinternal.php
      * @return bool {@see true} if it's internal, otherwise {@see false}
      */
     public function isInternal()
@@ -63,7 +63,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Checks if user defined
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.isuserdefined.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.isuserdefined.php
      * @return bool {@see true} if it's user-defined, otherwise {@see false}
      */
     public function isUserDefined()
@@ -73,7 +73,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Returns whether this function is a generator
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.isgenerator.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.isgenerator.php
      * @return bool {@see true} if the function is generator, otherwise {@see false}
      * @since 5.5
      */
@@ -84,7 +84,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Returns whether this function is variadic
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.isvariadic.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.isvariadic.php
      * @return bool {@see true} if the function is variadic, otherwise {@see false}
      * @since 5.6
      */
@@ -95,7 +95,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Returns this pointer bound to closure
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.getclosurethis.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.getclosurethis.php
      * @return object|null Returns $this pointer or {@see null} in case of an error.
      */
     public function getClosureThis()
@@ -105,7 +105,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Returns the scope associated to the closure
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.getclosurescopeclass.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.getclosurescopeclass.php
      * @return ReflectionClass|null Returns the class on success or {@see null}
      * on failure.
      * @since 5.4
@@ -117,7 +117,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets doc comment
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.getdoccomment.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.getdoccomment.php
      * @return string|false The doc comment if it exists, otherwise {@see false}
      */
     public function getDocComment()
@@ -127,7 +127,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets end line number
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.getendline.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.getendline.php
      * @return int|false The ending line number of the user defined function,
      * or {@see false} if unknown.
      */
@@ -138,7 +138,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets extension info
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.getextension.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.getextension.php
      * @return ReflectionExtension|null The extension information, as a
      * {@see ReflectionExtension} object or {@see null} instead.
      */
@@ -149,7 +149,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets extension name
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.getextensionname.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.getextensionname.php
      * @return string|null The extension's name or {@see null} instead.
      */
     public function getExtensionName()
@@ -159,7 +159,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets file name
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.getfilename.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.getfilename.php
      * @return string|false The file name or {@see false} in case of error.
      */
     public function getFileName()
@@ -169,7 +169,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets function name
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.getname.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.getname.php
      * @return string The name of the function.
      */
     public function getName()
@@ -179,7 +179,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets namespace name
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.getnamespacename.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.getnamespacename.php
      * @return string The namespace name.
      */
     public function getNamespaceName()
@@ -189,7 +189,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets number of parameters
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.getnumberofparameters.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.getnumberofparameters.php
      * @return int The number of parameters.
      * @since 5.0.3
      */
@@ -200,7 +200,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets number of required parameters
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.getnumberofrequiredparameters.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.getnumberofrequiredparameters.php
      * @return int The number of required parameters.
      * @since 5.0.3
      */
@@ -211,7 +211,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets parameters
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.getparameters.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.getparameters.php
      * @return ReflectionParameter[] The parameters, as a ReflectionParameter objects.
      */
     public function getParameters()
@@ -221,7 +221,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets the specified return type of a function
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.getreturntype.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.getreturntype.php
      * @return ReflectionType|null Returns a {@see ReflectionType} object if a
      * return type is specified, {@see null} otherwise.
      * @since 7.0
@@ -233,7 +233,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets function short name
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.getshortname.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.getshortname.php
      * @return string The short name of the function.
      */
     public function getShortName()
@@ -243,7 +243,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets starting line number
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.getstartline.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.getstartline.php
      * @return int The starting line number.
      */
     public function getStartLine()
@@ -253,7 +253,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Gets static variables
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.getstaticvariables.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.getstaticvariables.php
      * @return array An array of static variables.
      */
     public function getStaticVariables()
@@ -263,7 +263,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Checks if returns reference
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.returnsreference.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.returnsreference.php
      * @return bool {@see true} if it returns a reference, otherwise {@see false}
      */
     public function returnsReference()
@@ -273,7 +273,7 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * Checks if the function has a specified return type
      *
-     * @link https://php.net/manual/en/reflectionfunctionabstract.hasreturntype.php
+     * @link https://www.php.net/manual/en/reflectionfunctionabstract.hasreturntype.php
      * @return bool Returns {@see true} if the function is a specified return
      * type, otherwise {@see false}.
      * @since 7.0

@@ -5,7 +5,7 @@
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Generate a hash value (message digest)
- * @link https://php.net/manual/en/function.hash.php
+ * @link https://www.php.net/manual/en/function.hash.php
  * @param string $algo <p>
  * Name of selected hashing algorithm (i.e. "md5", "sha256", "haval160,4", etc..)
  * </p>
@@ -24,7 +24,7 @@ function hash ($algo, $data, $raw_output = false) {}
 
 /**
  * Timing attack safe string comparison
- * @link https://php.net/manual/en/function.hash-equals.php
+ * @link https://www.php.net/manual/en/function.hash-equals.php
  * @param string $known_string <p>The string of known length to compare against</p>
  * @param string $user_string <p>The user-supplied string</p>
  * @return bool <p>Returns <b>TRUE</b> when the two strings are equal, <b>FALSE</b> otherwise.</p>
@@ -35,7 +35,7 @@ function hash_equals($known_string, $user_string) {}
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Generate a hash value using the contents of a given file
- * @link https://php.net/manual/en/function.hash-file.php
+ * @link https://www.php.net/manual/en/function.hash-file.php
  * @param string $algo <p>
  * Name of selected hashing algorithm (i.e. "md5", "sha256", "haval160,4", etc..)
  * </p>
@@ -55,7 +55,7 @@ function hash_file ($algo, $filename, $raw_output = false) {}
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Generate a keyed hash value using the HMAC method
- * @link https://php.net/manual/en/function.hash-hmac.php
+ * @link https://www.php.net/manual/en/function.hash-hmac.php
  * @param string $algo <p>
  * Name of selected hashing algorithm (i.e. "md5", "sha256", "haval160,4", etc..) See <b>hash_algos</b> for a list of supported algorithms.<br/>
  * Since 7.2.0 usage of non-cryptographic hash functions (adler32, crc32, crc32b, fnv132, fnv1a32, fnv164, fnv1a64, joaat) was disabled.
@@ -79,7 +79,7 @@ function hash_hmac ($algo, $data, $key, $raw_output = false) {}
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Generate a keyed hash value using the HMAC method and the contents of a given file
- * @link https://php.net/manual/en/function.hash-hmac-file.php
+ * @link https://www.php.net/manual/en/function.hash-hmac-file.php
  * @param string $algo <p>
  * Name of selected hashing algorithm (i.e. "md5", "sha256", "haval160,4", etc..) See <b>hash_algos</b> for a list of supported algorithms.<br/>
  * Since 7.2.0 usage of non-cryptographic hash functions (adler32, crc32, crc32b, fnv132, fnv1a32, fnv164, fnv1a64, joaat) was disabled.
@@ -103,7 +103,7 @@ function hash_hmac_file ($algo, $filename, $key, $raw_output = false) {}
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Initialize an incremental hashing context
- * @link https://php.net/manual/en/function.hash-init.php
+ * @link https://www.php.net/manual/en/function.hash-init.php
  * @param string $algo <p>
  * Name of selected hashing algorithm (i.e. "md5", "sha256", "haval160,4", etc..). For a list of supported algorithms see <b>hash_algos</b>.<br/>
  * Since 7.2.0 usage of non-cryptographic hash functions (adler32, crc32, crc32b, fnv132, fnv1a32, fnv164, fnv1a64, joaat) was disabled.
@@ -127,7 +127,7 @@ function hash_init ($algo, $options = 0, $key = null) {}
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Pump data into an active hashing context
- * @link https://php.net/manual/en/function.hash-update.php
+ * @link https://www.php.net/manual/en/function.hash-update.php
  * @param resource $context <p>
  * Hashing context returned by <b>hash_init</b>.
  * </p>
@@ -141,7 +141,7 @@ function hash_update ($context, $data) {}
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Pump data into an active hashing context from an open stream
- * @link https://php.net/manual/en/function.hash-update-stream.php
+ * @link https://www.php.net/manual/en/function.hash-update-stream.php
  * @param resource $context <p>
  * Hashing context returned by <b>hash_init</b>.
  * </p>
@@ -159,7 +159,7 @@ function hash_update_stream ($context, $handle, $length = -1) {}
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Pump data into an active hashing context from a file
- * @link https://php.net/manual/en/function.hash-update-file.php
+ * @link https://www.php.net/manual/en/function.hash-update-file.php
  * @param resource $hcontext <p>
  * Hashing context returned by <b>hash_init</b>.
  * </p>
@@ -176,7 +176,7 @@ function hash_update_file ($hcontext, $filename, $scontext = null) {}
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Finalize an incremental hash and return resulting digest
- * @link https://php.net/manual/en/function.hash-final.php
+ * @link https://www.php.net/manual/en/function.hash-final.php
  * @param resource $context <p>
  * Hashing context returned by <b>hash_init</b>.
  * </p>
@@ -192,7 +192,7 @@ function hash_final ($context, $raw_output = false) {}
 
 /**
  * Copy hashing context
- * @link https://php.net/manual/en/function.hash-copy.php
+ * @link https://www.php.net/manual/en/function.hash-copy.php
  * @param resource $context <p>
  * Hashing context returned by <b>hash_init</b>.
  * </p>
@@ -203,7 +203,7 @@ function hash_copy ($context) {}
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Return a list of registered hashing algorithms
- * @link https://php.net/manual/en/function.hash-algos.php
+ * @link https://www.php.net/manual/en/function.hash-algos.php
  * @return array a numerically indexed array containing the list of supported
  * hashing algorithms.
  */
@@ -213,7 +213,7 @@ function hash_algos () {}
 /**
  * @since 7.1.2
  * Generate a HKDF key derivation of a supplied key input
- * @link https://php.net/manual/en/function.hash-hkdf.php
+ * @link https://www.php.net/manual/en/function.hash-hkdf.php
  * @param string $algo Name of selected hashing algorithm (i.e. "sha256", "sha512", "haval160,4", etc..)
  * See {@see hash_algos()} for a list of supported algorithms.
  * <blockquote>
@@ -240,7 +240,7 @@ function hash_hmac_algos() {}
 
 /**
  * Generate a PBKDF2 key derivation of a supplied password
- * @link https://php.net/manual/en/function.hash-pbkdf2.php
+ * @link https://www.php.net/manual/en/function.hash-pbkdf2.php
  * @param string $algo <p>
  * Name of selected hashing algorithm (i.e. "md5", "sha256", "haval160,4", etc..) See <b>hash_algos</b> for a list of supported algorithms.<br/>
  * Since 7.2.0 usage of non-cryptographic hash functions (adler32, crc32, crc32b, fnv132, fnv1a32, fnv164, fnv1a64, joaat) was disabled.
@@ -271,7 +271,7 @@ function hash_pbkdf2 ($algo, $password, $salt, $iterations, $length = 0, $raw_ou
 
 /**
  * Generates a key
- * @link https://php.net/manual/en/function.mhash-keygen-s2k.php
+ * @link https://www.php.net/manual/en/function.mhash-keygen-s2k.php
  * @param int $hash <p>
  * The hash ID used to create the key.
  * One of the <b>MHASH_hashname</b> constants.
@@ -295,7 +295,7 @@ function mhash_keygen_s2k ($hash, $password, $salt, $bytes) {}
 
 /**
  * Gets the block size of the specified hash
- * @link https://php.net/manual/en/function.mhash-get-block-size.php
+ * @link https://www.php.net/manual/en/function.mhash-get-block-size.php
  * @param int $hash <p>
  * The hash ID. One of the <b>MHASH_hashname</b> constants.
  * </p>
@@ -306,7 +306,7 @@ function mhash_get_block_size ($hash) {}
 
 /**
  * Gets the name of the specified hash
- * @link https://php.net/manual/en/function.mhash-get-hash-name.php
+ * @link https://www.php.net/manual/en/function.mhash-get-hash-name.php
  * @param int $hash <p>
  * The hash ID. One of the <b>MHASH_hashname</b> constants.
  * </p>
@@ -316,7 +316,7 @@ function mhash_get_hash_name ($hash) {}
 
 /**
  * Gets the highest available hash ID
- * @link https://php.net/manual/en/function.mhash-count.php
+ * @link https://www.php.net/manual/en/function.mhash-count.php
  * @return int the highest available hash ID. Hashes are numbered from 0 to this
  * hash ID.
  */
@@ -324,7 +324,7 @@ function mhash_count () {}
 
 /**
  * Computes hash
- * @link https://php.net/manual/en/function.mhash.php
+ * @link https://www.php.net/manual/en/function.mhash.php
  * @param int $hash <p>
  * The hash ID. One of the <b>MHASH_hashname</b> constants.
  * </p>
@@ -347,7 +347,7 @@ function mhash ($hash, $data, $key = null) {}
  * Optional flag for <b>hash_init</b>.
  * Indicates that the HMAC digest-keying algorithm should be
  * applied to the current hashing context.
- * @link https://php.net/manual/en/hash.constants.php
+ * @link https://www.php.net/manual/en/hash.constants.php
  */
 define ('HASH_HMAC', 1);
 define ('MHASH_CRC32', 0);

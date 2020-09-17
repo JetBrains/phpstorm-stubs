@@ -6,7 +6,7 @@
  * Contains various information about errors thrown by libxml. The error codes
  * are described within the official
  * xmlError API documentation.
- * @link https://php.net/manual/en/class.libxmlerror.php
+ * @link https://www.php.net/manual/en/class.libxmlerror.php
  */
 class LibXMLError  {
 	/**
@@ -62,7 +62,7 @@ class LibXMLError  {
 
 /**
  * Set the streams context for the next libxml document load or write
- * @link https://php.net/manual/en/function.libxml-set-streams-context.php
+ * @link https://www.php.net/manual/en/function.libxml-set-streams-context.php
  * @param resource $streams_context <p>
  * The stream context resource (created with
  * <b>stream_context_create</b>)
@@ -73,7 +73,7 @@ function libxml_set_streams_context ($streams_context) {}
 
 /**
  * Disable libxml errors and allow user to fetch error information as needed
- * @link https://php.net/manual/en/function.libxml-use-internal-errors.php
+ * @link https://www.php.net/manual/en/function.libxml-use-internal-errors.php
  * @param bool $use_errors [optional] <p>
  * Enable (<b>TRUE</b>) user error handling or disable (<b>FALSE</b>) user error handling. Disabling will also clear any existing libxml errors.
  * </p>
@@ -84,7 +84,7 @@ function libxml_use_internal_errors ($use_errors = false) {}
 
 /**
  * Retrieve last error from libxml
- * @link https://php.net/manual/en/function.libxml-get-last-error.php
+ * @link https://www.php.net/manual/en/function.libxml-get-last-error.php
  * @return LibXMLError a LibXMLError object if there is any error in the
  * buffer, <b>FALSE</b> otherwise.
  */
@@ -92,14 +92,14 @@ function libxml_get_last_error () {}
 
 /**
  * Clear libxml error buffer
- * @link https://php.net/manual/en/function.libxml-clear-errors.php
+ * @link https://www.php.net/manual/en/function.libxml-clear-errors.php
  * @return void No value is returned.
  */
 function libxml_clear_errors () {}
 
 /**
  * Retrieve array of errors
- * @link https://php.net/manual/en/function.libxml-get-errors.php
+ * @link https://www.php.net/manual/en/function.libxml-get-errors.php
  * @return LibXMLError[] an array with LibXMLError objects if there are any
  * errors in the buffer, or an empty array otherwise.
  */
@@ -107,7 +107,7 @@ function libxml_get_errors () {}
 
 /**
  * Disable the ability to load external entities
- * @link https://php.net/manual/en/function.libxml-disable-entity-loader.php
+ * @link https://www.php.net/manual/en/function.libxml-disable-entity-loader.php
  * @param bool $disable [optional] <p>
  * Disable (<b>TRUE</b>) or enable (<b>FALSE</b>) libxml extensions (such as
  * ,
@@ -121,7 +121,7 @@ function libxml_disable_entity_loader ($disable = true) {}
 
 /**
  * Changes the default external entity loader
- * @link https://php.net/manual/en/function.libxml-set-external-entity-loader.php
+ * @link https://www.php.net/manual/en/function.libxml-set-external-entity-loader.php
  * @param callable $resolver_function <p>
  * A callable that takes three arguments. Two strings, a public id
  * and system id, and a context (an array with four keys) as the third argument.
@@ -136,86 +136,86 @@ function libxml_set_external_entity_loader (callable $resolver_function) {}
 
 /**
  * libxml version like 20605 or 20617
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_VERSION', 20901);
 
 /**
  * libxml version like 2.6.5 or 2.6.17
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_DOTTED_VERSION', "2.9.1");
 define ('LIBXML_LOADED_VERSION', 20901);
 
 /**
  * Substitute entities
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_NOENT', 2);
 
 /**
  * Load the external subset
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_DTDLOAD', 4);
 
 /**
  * Default DTD attributes
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_DTDATTR', 8);
 
 /**
  * Validate with the DTD
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_DTDVALID', 16);
 
 /**
  * Suppress error reports
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_NOERROR', 32);
 
 /**
  * Suppress warning reports
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_NOWARNING', 64);
 
 /**
  * Remove blank nodes
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_NOBLANKS', 256);
 
 /**
  * Implement XInclude substitution
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_XINCLUDE', 1024);
 
 /**
  * Remove redundant namespaces declarations
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_NSCLEAN', 8192);
 
 /**
  * Merge CDATA as text nodes
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_NOCDATA', 16384);
 
 /**
  * Disable network access when loading documents
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_NONET', 2048);
 
 /**
  * Sets XML_PARSE_PEDANTIC flag, which enables pedentic error reporting.
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  * @since 5.4
  */
 define ('LIBXML_PEDANTIC', 128);
@@ -226,7 +226,7 @@ define ('LIBXML_PEDANTIC', 128);
  * <p>
  * Only available in Libxml &gt;= 2.6.21
  * </p>
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_COMPACT', 65536);
 
@@ -235,7 +235,7 @@ define ('LIBXML_COMPACT', 65536);
  * <p>
  * Only available in Libxml &gt;= 2.9.0
  * </p>
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_BIGLINES', 65535);
 
@@ -245,7 +245,7 @@ define ('LIBXML_BIGLINES', 65535);
  * <p>
  * Only available in Libxml &gt;= 2.6.21
  * </p>
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_NOXMLDECL', 2);
 
@@ -256,7 +256,7 @@ define ('LIBXML_NOXMLDECL', 2);
  * <p>
  * Only available in Libxml &gt;= 2.7.0 (as of PHP &gt;= 5.3.2 and PHP &gt;= 5.2.12)
  * </p>
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_PARSEHUGE', 524288);
 
@@ -268,7 +268,7 @@ define ('LIBXML_PARSEHUGE', 524288);
  * and
  * functions.
  * </p>
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_NOEMPTYTAG', 4);
 
@@ -277,7 +277,7 @@ define ('LIBXML_NOEMPTYTAG', 4);
  * <p>
  * Only available in Libxml &gt;= 2.6.14 (as of PHP &gt;= 5.5.2)
  * </p>
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_SCHEMA_CREATE', 1);
 
@@ -287,7 +287,7 @@ define ('LIBXML_SCHEMA_CREATE', 1);
  * <p>
  * Only available in Libxml &gt;= 2.7.7 (as of PHP &gt;= 5.4.0)
  * </p>
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_HTML_NOIMPLIED', 8192);
 
@@ -297,31 +297,31 @@ define ('LIBXML_HTML_NOIMPLIED', 8192);
  * <p>
  * Only available in Libxml &gt;= 2.7.8 (as of PHP &gt;= 5.4.0)
  * </p>
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_HTML_NODEFDTD', 4);
 
 /**
  * No errors
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_ERR_NONE', 0);
 
 /**
  * A simple warning
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_ERR_WARNING', 1);
 
 /**
  * A recoverable error
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_ERR_ERROR', 2);
 
 /**
  * A fatal error
- * @link https://php.net/manual/en/libxml.constants.php
+ * @link https://www.php.net/manual/en/libxml.constants.php
  */
 define ('LIBXML_ERR_FATAL', 3);
 

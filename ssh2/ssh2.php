@@ -5,7 +5,7 @@
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Connect to an SSH server
- * @link https://php.net/manual/en/function.ssh2-connect.php
+ * @link https://www.php.net/manual/en/function.ssh2-connect.php
  * @param string $host <p>
  * </p>
  * @param int $port [optional] <p>
@@ -180,7 +180,7 @@ function ssh2_connect ($host, $port = null, array $methods = null , array $callb
 /**
  * (PECL ssh2 &gt;= 1.0)<br/>
  * Close a connection to a remote SSH server
- * @link https://php.net/manual/en/function.ssh2-disconnect.php
+ * @link https://www.php.net/manual/en/function.ssh2-disconnect.php
  * @param resource $session <p>
  * An SSH connection link identifier, obtained from a call to
  * ssh2_connect.
@@ -192,7 +192,7 @@ function ssh2_disconnect ($session) {}
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Return list of negotiated methods
- * @link https://php.net/manual/en/function.ssh2-methods-negotiated.php
+ * @link https://www.php.net/manual/en/function.ssh2-methods-negotiated.php
  * @param resource $session <p>
  * An SSH connection link identifier, obtained from a call to
  * ssh2_connect.
@@ -204,7 +204,7 @@ function ssh2_methods_negotiated ($session) {}
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Retrieve fingerprint of remote server
- * @link https://php.net/manual/en/function.ssh2-fingerprint.php
+ * @link https://www.php.net/manual/en/function.ssh2-fingerprint.php
  * @param resource $session <p>
  * An SSH connection link identifier, obtained from a call to
  * ssh2_connect.
@@ -223,7 +223,7 @@ function ssh2_fingerprint ($session, $flags = null) {}
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Authenticate as "none"
- * @link https://php.net/manual/en/function.ssh2-auth-none.php
+ * @link https://www.php.net/manual/en/function.ssh2-auth-none.php
  * @param resource $session <p>
  * An SSH connection link identifier, obtained from a call to
  * ssh2_connect.
@@ -239,7 +239,7 @@ function ssh2_auth_none ($session, $username) {}
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Authenticate over SSH using a plain password
- * @link https://php.net/manual/en/function.ssh2-auth-password.php
+ * @link https://www.php.net/manual/en/function.ssh2-auth-password.php
  * @param resource $session <p>
  * An SSH connection link identifier, obtained from a call to
  * ssh2_connect.
@@ -257,7 +257,7 @@ function ssh2_auth_password ($session, $username, $password) {}
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Authenticate using a public key
- * @link https://php.net/manual/en/function.ssh2-auth-pubkey-file.php
+ * @link https://www.php.net/manual/en/function.ssh2-auth-pubkey-file.php
  * @param resource $session <p>
  * An SSH connection link identifier, obtained from a call to
  * ssh2_connect.
@@ -279,7 +279,7 @@ function ssh2_auth_pubkey_file ($session, $username, $pubkeyfile, $privkeyfile, 
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Authenticate using a public hostkey
- * @link https://php.net/manual/en/function.ssh2-auth-hostbased-file.php
+ * @link https://www.php.net/manual/en/function.ssh2-auth-hostbased-file.php
  * @param resource $session <p>
  * An SSH connection link identifier, obtained from a call to
  * ssh2_connect.
@@ -311,7 +311,7 @@ function ssh2_forward_accept () {}
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Request an interactive shell
- * @link https://php.net/manual/en/function.ssh2-shell.php
+ * @link https://www.php.net/manual/en/function.ssh2-shell.php
  * @param resource $session <p>
  * An SSH connection link identifier, obtained from a call to
  * ssh2_connect.
@@ -342,7 +342,7 @@ function ssh2_shell ($session, $term_type = null, array $env = null , $width = n
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Execute a command on a remote server
- * @link https://php.net/manual/en/function.ssh2-exec.php
+ * @link https://www.php.net/manual/en/function.ssh2-exec.php
  * @param resource $session <p>
  * An SSH connection link identifier, obtained from a call to
  * ssh2_connect.
@@ -373,7 +373,7 @@ function ssh2_exec ($session, $command, $pty = null, array $env = null , $width 
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Open a tunnel through a remote server
- * @link https://php.net/manual/en/function.ssh2-tunnel.php
+ * @link https://www.php.net/manual/en/function.ssh2-tunnel.php
  * @param resource $session <p>
  * An SSH connection link identifier, obtained from a call to
  * ssh2_connect.
@@ -389,7 +389,7 @@ function ssh2_tunnel ($session, $host, $port) {}
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Request a file via SCP
- * @link https://php.net/manual/en/function.ssh2-scp-recv.php
+ * @link https://www.php.net/manual/en/function.ssh2-scp-recv.php
  * @param resource $session <p>
  * An SSH connection link identifier, obtained from a call to
  * ssh2_connect.
@@ -407,7 +407,7 @@ function ssh2_scp_recv ($session, $remote_file, $local_file) {}
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Send a file via SCP
- * @link https://php.net/manual/en/function.ssh2-scp-send.php
+ * @link https://www.php.net/manual/en/function.ssh2-scp-send.php
  * @param resource $session <p>
  * An SSH connection link identifier, obtained from a call to
  * ssh2_connect.
@@ -429,7 +429,7 @@ function ssh2_scp_send ($session, $local_file, $remote_file, $create_mode = null
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Fetch an extended data stream
- * @link https://php.net/manual/en/function.ssh2-fetch-stream.php
+ * @link https://www.php.net/manual/en/function.ssh2-fetch-stream.php
  * @param resource $channel <p>
  * </p>
  * @param int $streamid <p>
@@ -447,7 +447,7 @@ function ssh2_poll (&$var1) {}
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Initialize SFTP subsystem
- * @link https://php.net/manual/en/function.ssh2-sftp.php
+ * @link https://www.php.net/manual/en/function.ssh2-sftp.php
  * @param resource $session <p>
  * An SSH connection link identifier, obtained from a call to
  * ssh2_connect.
@@ -461,7 +461,7 @@ function ssh2_sftp ($session) {}
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Rename a remote file
- * @link https://php.net/manual/en/function.ssh2-sftp-rename.php
+ * @link https://www.php.net/manual/en/function.ssh2-sftp-rename.php
  * @param resource $sftp <p>
  * An SSH2 SFTP resource opened by ssh2_sftp.
  * </p>
@@ -478,7 +478,7 @@ function ssh2_sftp_rename ($sftp, $from, $to) {}
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Delete a file
- * @link https://php.net/manual/en/function.ssh2-sftp-unlink.php
+ * @link https://www.php.net/manual/en/function.ssh2-sftp-unlink.php
  * @param resource $sftp <p>
  * An SSH2 SFTP resource opened by ssh2_sftp.
  * </p>
@@ -491,7 +491,7 @@ function ssh2_sftp_unlink ($sftp, $filename) {}
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Create a directory
- * @link https://php.net/manual/en/function.ssh2-sftp-mkdir.php
+ * @link https://www.php.net/manual/en/function.ssh2-sftp-mkdir.php
  * @param resource $sftp <p>
  * An SSH2 SFTP resource opened by ssh2_sftp.
  * </p>
@@ -512,7 +512,7 @@ function ssh2_sftp_mkdir ($sftp, $dirname, $mode = null, $recursive = null) {}
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Remove a directory
- * @link https://php.net/manual/en/function.ssh2-sftp-rmdir.php
+ * @link https://www.php.net/manual/en/function.ssh2-sftp-rmdir.php
  * @param resource $sftp <p>
  * An SSH2 SFTP resource opened by ssh2_sftp.
  * </p>
@@ -525,7 +525,7 @@ function ssh2_sftp_rmdir ($sftp, $dirname) {}
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Stat a file on a remote filesystem
- * @link https://php.net/manual/en/function.ssh2-sftp-stat.php
+ * @link https://www.php.net/manual/en/function.ssh2-sftp-stat.php
  * @param resource $sftp <p>
  * An SSH2 SFTP resource opened by ssh2_sftp.
  * </p>
@@ -539,7 +539,7 @@ function ssh2_sftp_stat ($sftp, $path) {}
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Stat a symbolic link
- * @link https://php.net/manual/en/function.ssh2-sftp-lstat.php
+ * @link https://www.php.net/manual/en/function.ssh2-sftp-lstat.php
  * @param resource $sftp <p>
  * </p>
  * @param string $path <p>
@@ -553,7 +553,7 @@ function ssh2_sftp_lstat ($sftp, $path) {}
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Create a symlink
- * @link https://php.net/manual/en/function.ssh2-sftp-symlink.php
+ * @link https://www.php.net/manual/en/function.ssh2-sftp-symlink.php
  * @param resource $sftp <p>
  * An SSH2 SFTP resource opened by ssh2_sftp.
  * </p>
@@ -569,7 +569,7 @@ function ssh2_sftp_symlink ($sftp, $target, $link) {}
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Return the target of a symbolic link
- * @link https://php.net/manual/en/function.ssh2-sftp-readlink.php
+ * @link https://www.php.net/manual/en/function.ssh2-sftp-readlink.php
  * @param resource $sftp <p>
  * An SSH2 SFTP resource opened by ssh2_sftp.
  * </p>
@@ -583,7 +583,7 @@ function ssh2_sftp_readlink ($sftp, $link) {}
 /**
  * (PECL ssh2 &gt;= 0.9.0)<br/>
  * Resolve the realpath of a provided path string
- * @link https://php.net/manual/en/function.ssh2-sftp-realpath.php
+ * @link https://www.php.net/manual/en/function.ssh2-sftp-realpath.php
  * @param resource $sftp <p>
  * An SSH2 SFTP resource opened by ssh2_sftp.
  * </p>
@@ -596,7 +596,7 @@ function ssh2_sftp_realpath ($sftp, $filename) {}
 /**
  * (PECL ssh2 &gt;= 0.10)<br/>
  * Initialize Publickey subsystem
- * @link https://php.net/manual/en/function.ssh2-publickey-init.php
+ * @link https://www.php.net/manual/en/function.ssh2-publickey-init.php
  * @param resource $session <p>
  * </p>
  * @return resource|false an SSH2 Publickey Subsystem resource for use
@@ -607,7 +607,7 @@ function ssh2_publickey_init ($session) {}
 /**
  * (PECL ssh2 &gt;= 0.10)<br/>
  * Add an authorized publickey
- * @link https://php.net/manual/en/function.ssh2-publickey-add.php
+ * @link https://www.php.net/manual/en/function.ssh2-publickey-add.php
  * @param resource $pkey <p>
  * Publickey Subsystem resource created by ssh2_publickey_init.
  * </p>
@@ -634,7 +634,7 @@ function ssh2_publickey_add ($pkey, $algoname, $blob, $overwrite = null, array $
 /**
  * (PECL ssh2 &gt;= 0.10)<br/>
  * Remove an authorized publickey
- * @link https://php.net/manual/en/function.ssh2-publickey-remove.php
+ * @link https://www.php.net/manual/en/function.ssh2-publickey-remove.php
  * @param resource $pkey <p>
  * Publickey Subsystem Resource
  * </p>
@@ -651,7 +651,7 @@ function ssh2_publickey_remove ($pkey, $algoname, $blob) {}
 /**
  * (PECL ssh2 &gt;= 0.10)<br/>
  * List currently authorized publickeys
- * @link https://php.net/manual/en/function.ssh2-publickey-list.php
+ * @link https://www.php.net/manual/en/function.ssh2-publickey-list.php
  * @param resource $pkey <p>
  * Publickey Subsystem resource
  * </p>
@@ -689,7 +689,7 @@ function ssh2_publickey_list ($pkey) {}
 /**
  * (PECL ssh2 &gt;= 0.12)<br/>
  * ssh2_sftp_chmod — Changes file mode
- * @link https://php.net/manual/en/function.ssh2-sftp-chmod.php
+ * @link https://www.php.net/manual/en/function.ssh2-sftp-chmod.php
  * @param resource $sftp <p>An SSH2 SFTP resource opened by ssh2_sftp().</p>
  * @param string $filename <p>Path to the file.</p>
  * @param int $mode <p>Permissions on the file. See the chmod() for more details on this parameter.</p>
@@ -700,7 +700,7 @@ function ssh2_sftp_chmod ($sftp, $filename, $mode) {}
 /**
  * (PECL ssh2 &gt;= 0.12)<br/>
  * ssh2_auth_agent — Authenticate over SSH using the ssh agent
- * @link https://php.net/manual/en/function.ssh2-auth-agent.php
+ * @link https://www.php.net/manual/en/function.ssh2-auth-agent.php
  * <p>
  * Authenticate over SSH using the ssh agent
  * </p>
@@ -716,28 +716,28 @@ function ssh2_auth_agent ($session, $username) {}
 /**
  * Flag to ssh2_fingerprint requesting hostkey
  * fingerprint as an MD5 hash.
- * @link https://php.net/manual/en/ssh2.constants.php
+ * @link https://www.php.net/manual/en/ssh2.constants.php
  */
 define ('SSH2_FINGERPRINT_MD5', 0);
 
 /**
  * Flag to ssh2_fingerprint requesting hostkey
  * fingerprint as an SHA1 hash.
- * @link https://php.net/manual/en/ssh2.constants.php
+ * @link https://www.php.net/manual/en/ssh2.constants.php
  */
 define ('SSH2_FINGERPRINT_SHA1', 1);
 
 /**
  * Flag to ssh2_fingerprint requesting hostkey
  * fingerprint as a string of hexits.
- * @link https://php.net/manual/en/ssh2.constants.php
+ * @link https://www.php.net/manual/en/ssh2.constants.php
  */
 define ('SSH2_FINGERPRINT_HEX', 0);
 
 /**
  * Flag to ssh2_fingerprint requesting hostkey
  * fingerprint as a raw string of 8-bit characters.
- * @link https://php.net/manual/en/ssh2.constants.php
+ * @link https://www.php.net/manual/en/ssh2.constants.php
  */
 define ('SSH2_FINGERPRINT_RAW', 2);
 
@@ -745,7 +745,7 @@ define ('SSH2_FINGERPRINT_RAW', 2);
  * Flag to ssh2_shell specifying that
  * width and height
  * are provided as character sizes.
- * @link https://php.net/manual/en/ssh2.constants.php
+ * @link https://www.php.net/manual/en/ssh2.constants.php
  */
 define ('SSH2_TERM_UNIT_CHARS', 0);
 
@@ -753,44 +753,44 @@ define ('SSH2_TERM_UNIT_CHARS', 0);
  * Flag to ssh2_shell specifying that
  * width and height
  * are provided in pixel units.
- * @link https://php.net/manual/en/ssh2.constants.php
+ * @link https://www.php.net/manual/en/ssh2.constants.php
  */
 define ('SSH2_TERM_UNIT_PIXELS', 1);
 
 /**
  * Default terminal type (e.g. vt102, ansi, xterm, vanilla) requested
  * by ssh2_shell.
- * @link https://php.net/manual/en/ssh2.constants.php
+ * @link https://www.php.net/manual/en/ssh2.constants.php
  */
 define ('SSH2_DEFAULT_TERMINAL', "vanilla");
 
 /**
  * Default terminal width requested by ssh2_shell.
- * @link https://php.net/manual/en/ssh2.constants.php
+ * @link https://www.php.net/manual/en/ssh2.constants.php
  */
 define ('SSH2_DEFAULT_TERM_WIDTH', 80);
 
 /**
  * Default terminal height requested by ssh2_shell.
- * @link https://php.net/manual/en/ssh2.constants.php
+ * @link https://www.php.net/manual/en/ssh2.constants.php
  */
 define ('SSH2_DEFAULT_TERM_HEIGHT', 25);
 
 /**
  * Default terminal units requested by ssh2_shell.
- * @link https://php.net/manual/en/ssh2.constants.php
+ * @link https://www.php.net/manual/en/ssh2.constants.php
  */
 define ('SSH2_DEFAULT_TERM_UNIT', 0);
 
 /**
  * Flag to ssh2_fetch_stream requesting STDIO subchannel.
- * @link https://php.net/manual/en/ssh2.constants.php
+ * @link https://www.php.net/manual/en/ssh2.constants.php
  */
 define ('SSH2_STREAM_STDIO', 0);
 
 /**
  * Flag to ssh2_fetch_stream requesting STDERR subchannel.
- * @link https://php.net/manual/en/ssh2.constants.php
+ * @link https://www.php.net/manual/en/ssh2.constants.php
  */
 define ('SSH2_STREAM_STDERR', 1);
 define ('SSH2_POLLIN', 1);

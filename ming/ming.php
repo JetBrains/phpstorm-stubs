@@ -358,7 +358,7 @@ class SWFVideoStream  {
 
 /**
  * Set cubic threshold
- * @link https://php.net/manual/en/function.ming-setcubicthreshold.php
+ * @link https://www.php.net/manual/en/function.ming-setcubicthreshold.php
  * @param int $threshold <p>
  * The Threshold. Lower is more accurate, hence larger file size.
  * </p>
@@ -368,7 +368,7 @@ function ming_setcubicthreshold ($threshold) {}
 
 /**
  * Set the global scaling factor.
- * @link https://php.net/manual/en/function.ming-setscale.php
+ * @link https://www.php.net/manual/en/function.ming-setscale.php
  * @param int $scale <p>
  * The scale to be set.
  * </p>
@@ -378,7 +378,7 @@ function ming_setscale ($scale) {}
 
 /**
  * Sets the SWF version
- * @link https://php.net/manual/en/function.ming-useswfversion.php
+ * @link https://www.php.net/manual/en/function.ming-useswfversion.php
  * @param int $version <p>
  * SWF version to use.
  * </p>
@@ -388,7 +388,7 @@ function ming_useswfversion ($version) {}
 
 /**
  * Returns the action flag for keyPress(char)
- * @link https://php.net/manual/en/function.ming-keypress.php
+ * @link https://www.php.net/manual/en/function.ming-keypress.php
  * @param string $char
  * @return int What the function returns, first on success, then on failure. See
  * also the &amp;return.success; entity
@@ -397,7 +397,7 @@ function ming_keypress ($char) {}
 
 /**
  * Use constant pool
- * @link https://php.net/manual/en/function.ming-useconstants.php
+ * @link https://www.php.net/manual/en/function.ming-useconstants.php
  * @param int $use <p>
  * Its description
  * </p>
@@ -407,7 +407,7 @@ function ming_useconstants ($use) {}
 
 /**
  * Sets the SWF output compression
- * @link https://php.net/manual/en/function.ming-setswfcompression.php
+ * @link https://www.php.net/manual/en/function.ming-setswfcompression.php
  * @param int $level <p>
  * The new compression level. Should be a value between 1 and 9
  * inclusive.

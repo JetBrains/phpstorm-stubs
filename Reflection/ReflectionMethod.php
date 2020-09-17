@@ -7,7 +7,7 @@
  * @property-read string $name Name of the method, same as calling the {@see ReflectionMethod::getName()} method
  * @property-read string $class Fully qualified class name where this method was defined
  *
- * @link https://php.net/manual/en/class.reflectionmethod.php
+ * @link https://www.php.net/manual/en/class.reflectionmethod.php
  */
 class ReflectionMethod extends ReflectionFunctionAbstract
 {
@@ -50,7 +50,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * $reflection = new ReflectionMethod('Example::method');
      * </code>
      *
-     * @link https://php.net/manual/en/reflectionmethod.construct.php
+     * @link https://www.php.net/manual/en/reflectionmethod.construct.php
      * @param string|object $classOrName Classname, object
      * (instance of the class) that contains the method or class name and
      * method name delimited by ::.
@@ -65,7 +65,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Export a reflection method.
      *
-     * @link https://php.net/manual/en/reflectionmethod.export.php
+     * @link https://www.php.net/manual/en/reflectionmethod.export.php
      * @param string $class The class name.
      * @param string $name The name of the method.
      * @param bool $return Setting to {@see true} will return the export,
@@ -83,7 +83,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Returns the string representation of the ReflectionMethod object.
      *
-     * @link https://php.net/manual/en/reflectionmethod.tostring.php
+     * @link https://www.php.net/manual/en/reflectionmethod.tostring.php
      * @return string A string representation of this {@see ReflectionMethod} instance.
      */
     public function __toString()
@@ -93,7 +93,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Checks if method is public
      *
-     * @link https://php.net/manual/en/reflectionmethod.ispublic.php
+     * @link https://www.php.net/manual/en/reflectionmethod.ispublic.php
      * @return bool Returns {@see true} if the method is public, otherwise {@see false}
      */
     public function isPublic()
@@ -103,7 +103,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Checks if method is private
      *
-     * @link https://php.net/manual/en/reflectionmethod.isprivate.php
+     * @link https://www.php.net/manual/en/reflectionmethod.isprivate.php
      * @return bool Returns {@see true} if the method is private, otherwise {@see false}
      */
     public function isPrivate()
@@ -113,7 +113,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Checks if method is protected
      *
-     * @link https://php.net/manual/en/reflectionmethod.isprotected.php
+     * @link https://www.php.net/manual/en/reflectionmethod.isprotected.php
      * @return bool Returns {@see true} if the method is protected, otherwise {@see false}
      */
     public function isProtected()
@@ -123,7 +123,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Checks if method is abstract
      *
-     * @link https://php.net/manual/en/reflectionmethod.isabstract.php
+     * @link https://www.php.net/manual/en/reflectionmethod.isabstract.php
      * @return bool Returns {@see true} if the method is abstract, otherwise {@see false}
      */
     public function isAbstract()
@@ -133,7 +133,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Checks if method is final
      *
-     * @link https://php.net/manual/en/reflectionmethod.isfinal.php
+     * @link https://www.php.net/manual/en/reflectionmethod.isfinal.php
      * @return bool Returns {@see true} if the method is final, otherwise {@see false}
      */
     public function isFinal()
@@ -143,7 +143,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Checks if method is static
      *
-     * @link https://php.net/manual/en/reflectionmethod.isstatic.php
+     * @link https://www.php.net/manual/en/reflectionmethod.isstatic.php
      * @return bool Returns {@see true} if the method is static, otherwise {@see false}
      */
     public function isStatic()
@@ -153,7 +153,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Checks if method is a constructor
      *
-     * @link https://php.net/manual/en/reflectionmethod.isconstructor.php
+     * @link https://www.php.net/manual/en/reflectionmethod.isconstructor.php
      * @return bool Returns {@see true} if the method is a constructor, otherwise {@see false}
      */
     public function isConstructor()
@@ -163,7 +163,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Checks if method is a destructor
      *
-     * @link https://php.net/manual/en/reflectionmethod.isdestructor.php
+     * @link https://www.php.net/manual/en/reflectionmethod.isdestructor.php
      * @return bool Returns {@see true} if the method is a destructor, otherwise {@see false}
      */
     public function isDestructor()
@@ -173,7 +173,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Returns a dynamically created closure for the method
      *
-     * @link https://php.net/manual/en/reflectionmethod.getclosure.php
+     * @link https://www.php.net/manual/en/reflectionmethod.getclosure.php
      * @param object $object Forbidden for static methods, required for other methods or nothing.
      * @return Closure Retruns {@see Closure} or {@see null} in case of an error.
      * @since 5.4
@@ -185,7 +185,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Gets the method modifiers
      *
-     * @link https://php.net/manual/en/reflectionmethod.getmodifiers.php
+     * @link https://www.php.net/manual/en/reflectionmethod.getmodifiers.php
      * @return int A numeric representation of the modifiers. The modifiers are
      * listed below. The actual meanings of these modifiers are described in the
      * predefined constants.
@@ -206,7 +206,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Invokes a reflected method.
      *
-     * @link https://php.net/manual/en/reflectionmethod.invoke.php
+     * @link https://www.php.net/manual/en/reflectionmethod.invoke.php
      * @param object|null $object The object to invoke the method on. For static
      * methods, pass {@see null} to this parameter.
      * @param mixed ...$args Zero or more parameters to be passed to the
@@ -224,7 +224,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Invokes the reflected method and pass its arguments as array.
      *
-     * @link https://php.net/manual/en/reflectionmethod.invokeargs.php
+     * @link https://www.php.net/manual/en/reflectionmethod.invokeargs.php
      * @param object|null $object The object to invoke the method on. In case
      * of static methods, you can pass {@see null} to this parameter.
      * @param array $args The parameters to be passed to the function, as an {@see array}.
@@ -240,7 +240,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Gets declaring class for the reflected method.
      *
-     * @link https://php.net/manual/en/reflectionmethod.getdeclaringclass.php
+     * @link https://www.php.net/manual/en/reflectionmethod.getdeclaringclass.php
      * @return ReflectionClass A {@see ReflectionClass} object of the class that the
      * reflected method is part of.
      */
@@ -251,7 +251,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Gets the method prototype (if there is one).
      *
-     * @link https://php.net/manual/en/reflectionmethod.getprototype.php
+     * @link https://www.php.net/manual/en/reflectionmethod.getprototype.php
      * @return ReflectionMethod A {@see ReflectionMethod} instance of the method prototype.
      * @throws ReflectionException if the method does not have a prototype
      */
@@ -262,7 +262,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * Set method accessibility
      *
-     * @link https://php.net/manual/en/reflectionmethod.setaccessible.php
+     * @link https://www.php.net/manual/en/reflectionmethod.setaccessible.php
      * @param bool $accessible {@see true} to allow accessibility, or {@see false}
      * @return void No value is returned.
      * @since 5.3.2

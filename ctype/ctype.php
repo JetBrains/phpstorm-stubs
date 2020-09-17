@@ -2,7 +2,7 @@
 
 /**
  * Check for alphanumeric character(s)
- * @link https://php.net/manual/en/function.ctype-alnum.php
+ * @link https://www.php.net/manual/en/function.ctype-alnum.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -13,7 +13,7 @@ function ctype_alnum ($text) {}
 
 /**
  * Check for alphabetic character(s)
- * @link https://php.net/manual/en/function.ctype-alpha.php
+ * @link https://www.php.net/manual/en/function.ctype-alpha.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -24,7 +24,7 @@ function ctype_alpha ($text) {}
 
 /**
  * Check for control character(s)
- * @link https://php.net/manual/en/function.ctype-cntrl.php
+ * @link https://www.php.net/manual/en/function.ctype-cntrl.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -35,7 +35,7 @@ function ctype_cntrl ($text) {}
 
 /**
  * Check for numeric character(s)
- * @link https://php.net/manual/en/function.ctype-digit.php
+ * @link https://www.php.net/manual/en/function.ctype-digit.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -46,7 +46,7 @@ function ctype_digit ($text) {}
 
 /**
  * Check for lowercase character(s)
- * @link https://php.net/manual/en/function.ctype-lower.php
+ * @link https://www.php.net/manual/en/function.ctype-lower.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -57,7 +57,7 @@ function ctype_lower ($text) {}
 
 /**
  * Check for any printable character(s) except space
- * @link https://php.net/manual/en/function.ctype-graph.php
+ * @link https://www.php.net/manual/en/function.ctype-graph.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -69,7 +69,7 @@ function ctype_graph ($text) {}
 
 /**
  * Check for printable character(s)
- * @link https://php.net/manual/en/function.ctype-print.php
+ * @link https://www.php.net/manual/en/function.ctype-print.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -83,7 +83,7 @@ function ctype_print ($text) {}
 /**
  * Check for any printable character which is not whitespace or an
  * alphanumeric character
- * @link https://php.net/manual/en/function.ctype-punct.php
+ * @link https://www.php.net/manual/en/function.ctype-punct.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -94,7 +94,7 @@ function ctype_punct ($text) {}
 
 /**
  * Check for whitespace character(s)
- * @link https://php.net/manual/en/function.ctype-space.php
+ * @link https://www.php.net/manual/en/function.ctype-space.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -107,7 +107,7 @@ function ctype_space ($text) {}
 
 /**
  * Check for uppercase character(s)
- * @link https://php.net/manual/en/function.ctype-upper.php
+ * @link https://www.php.net/manual/en/function.ctype-upper.php
  * @param string $text <p>
  * The tested string.
  * </p>
@@ -118,7 +118,7 @@ function ctype_upper ($text) {}
 
 /**
  * Check for character(s) representing a hexadecimal digit
- * @link https://php.net/manual/en/function.ctype-xdigit.php
+ * @link https://www.php.net/manual/en/function.ctype-xdigit.php
  * @param string $text <p>
  * The tested string.
  * </p>
