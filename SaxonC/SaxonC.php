@@ -317,7 +317,7 @@ class Xslt30Processor
     public function applyTemplatesReturningValue($stylesheetFileName) {}
 
     /**
-     * Get the stylesheet associated via the xml-stylesheet processing instruction (@link http://www.w3.org/TR/xml-stylesheet/) in the document specified in the $xmlFileName argument, and that match the given criteria. If there are several suitable xml-stylesheet processing instructions, then the returned source will identify a synthesized stylesheet module that imports all the referenced stylesheet modules.
+     * Get the stylesheet associated via the xml-stylesheet processing instruction (@link https://www.w3.org/TR/xml-stylesheet/) in the document specified in the $xmlFileName argument, and that match the given criteria. If there are several suitable xml-stylesheet processing instructions, then the returned source will identify a synthesized stylesheet module that imports all the referenced stylesheet modules.
      *
      * @param string $xmlFileName
      * @return void

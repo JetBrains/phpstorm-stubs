@@ -1,6 +1,6 @@
 <?php
 /**
- * This is a modern binding to the mature [libpq](http://www.postgresql.org/docs/current/static/libpq.html), the official PostgreSQL C-client library.
+ * This is a modern binding to the mature [libpq](https://www.postgresql.org/docs/current/static/libpq.html), the official PostgreSQL C-client library.
  *
  * ### Highlights:
  *
@@ -61,7 +61,7 @@ class COPY  {
 	 * @param \pq\Connection $conn The connection to use for the COPY operation.
 	 * @param string $expression The expression generating the data to copy.
 	 * @param int $direction Data direction (pq\COPY::FROM_STDIN or pq\COPY::TO_STDOUT).
-	 * @param string $options Any COPY options (see the [official PostgreSQL documentation](http://www.postgresql.org/docs/current/static/sql-copy.html) for details.
+	 * @param string $options Any COPY options (see the [official PostgreSQL documentation](https://www.postgresql.org/docs/current/static/sql-copy.html) for details.
 	 * @throws \pq\Exception\InvalidArgumentException
 	 * @throws \pq\Exception\BadMethodCallException
 	 * @throws \pq\Exception\RuntimeException
@@ -380,7 +380,7 @@ class Connection  {
 	 * Create a new PostgreSQL connection.
 	 * See also [General Usage](pq/Connection/: General Usage).
 	 *
-	 * @param string $dsn A ***connection string*** as described [in the PostgreSQL documentation](http://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-CONNSTRING).
+	 * @param string $dsn A ***connection string*** as described [in the PostgreSQL documentation](https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-CONNSTRING).
 	 * @param int $flags See [connection flag constants](pq/Connection#Connection.Flags:).
 	 * @throws \pq\Exception\InvalidArgumentException
 	 * @throws \pq\Exception\BadMethodCallException
@@ -672,7 +672,7 @@ class Connection  {
 	 *
 	 * > ***NOTE:***
 	 *   A transaction can only be deferrable if it also is readonly and serializable.
-	 *   See the official [PostgreSQL documentation](http://www.postgresql.org/docs/current/static/sql-set-transaction.html) for further information.
+	 *   See the official [PostgreSQL documentation](https://www.postgresql.org/docs/current/static/sql-set-transaction.html) for further information.
 	 * @throws \pq\Exception\InvalidArgumentException
 	 * @throws \pq\Exception\BadMethodCallException
 	 * @throws \pq\Exception\RuntimeException
@@ -691,7 +691,7 @@ class Connection  {
 	 *
 	 * > ***NOTE:***
 	 *   A transaction can only be deferrable if it also is readonly and serializable.
-	 *   See the official [PostgreSQL documentation](http://www.postgresql.org/docs/current/static/sql-set-transaction.html) for further information.
+	 *   See the official [PostgreSQL documentation](https://www.postgresql.org/docs/current/static/sql-set-transaction.html) for further information.
 	 * @throws \pq\Exception\InvalidArgumentException
 	 * @throws \pq\Exception\BadMethodCallException
 	 * @throws \pq\Exception\RuntimeException
@@ -799,7 +799,7 @@ class Cursor  {
 	 * Force that rows are only retrievable in sequiential order.
 	 *
 	 * > ***NOTE:***
-	 *   See the [notes in the official PostgreSQL documentation](http://www.postgresql.org/docs/current/static/sql-declare.html#SQL-DECLARE-NOTES) for more information.
+	 *   See the [notes in the official PostgreSQL documentation](https://www.postgresql.org/docs/current/static/sql-declare.html#SQL-DECLARE-NOTES) for more information.
 	 */
 	const NO_SCROLL = 32;
 	/**
@@ -2365,7 +2365,7 @@ class BadMethodCallException extends \BadMethodCallException implements \pq\Exce
  */
 class DomainException extends \DomainException implements \pq\Exception {
 	/**
-	 * The SQLSTATE code, see the [official documentation](http://www.postgresql.org/docs/current/static/errcodes-appendix.html) for further information.
+	 * The SQLSTATE code, see the [official documentation](https://www.postgresql.org/docs/current/static/errcodes-appendix.html) for further information.
 	 *
 	 * @public
 	 * @readonly

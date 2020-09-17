@@ -4,7 +4,7 @@
  *
  * Current through version 3.0.1 (rel March 22, 2012) of Microsoft Drivers for PHP for SQL Server.
  *
- * Documentation taken from {@link http://msdn.microsoft.com/en-us/library/ee229547(v=sql.10).aspx} on Mar 22, 2012.
+ * Documentation taken from {@link https://msdn.microsoft.com/en-us/library/ee229547%28v=sql.10%29.aspx} on Mar 22, 2012.
  * Additional information from using Reflection.
  */
 
@@ -13,7 +13,7 @@
  *
  * <br />Used to specify if {@link sqlsrv_errors() sqlsrv_errors} returns errors, warnings, or both.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
@@ -24,7 +24,7 @@ define('SQLSRV_ERR_ERRORS', 0);
  *
  * <br />Used to specify if {@link sqlsrv_errors() sqlsrv_errors} returns errors, warnings, or both.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_ERR_WARNINGS', 1);
@@ -36,7 +36,7 @@ define('SQLSRV_ERR_WARNINGS', 1);
  *
  * Used to specify if {@link sqlsrv_errors() sqlsrv_errors} returns errors, warnings, or both.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_ERR_ALL', 2);
@@ -46,7 +46,7 @@ define('SQLSRV_ERR_ALL', 2);
  *
  * <br />Used as the value for the LogSubsystems setting with
  * {@link sqlsrv_configure() sqlsrv_configure}.<br />
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_LOG_SYSTEM_ALL',-1);
@@ -56,7 +56,7 @@ define('SQLSRV_LOG_SYSTEM_ALL',-1);
  *
  * <br />Used as the value for the LogSubsystems setting with  {@link sqlsrv_configure() sqlsrv_configure}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_LOG_SYSTEM_OFF', 0);
@@ -66,7 +66,7 @@ define('SQLSRV_LOG_SYSTEM_OFF', 0);
  *
  * <br />Used as the value for the LogSubsystems setting with {@link sqlsrv_configure() sqlsrv_configure}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_LOG_SYSTEM_INIT', 1);
@@ -76,7 +76,7 @@ define('SQLSRV_LOG_SYSTEM_INIT', 1);
  *
  * <br />Used as the value for the LogSubsystems setting with {@link sqlsrv_configure() sqlsrv_configure}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_LOG_SYSTEM_CONN', 2);
@@ -86,7 +86,7 @@ define('SQLSRV_LOG_SYSTEM_CONN', 2);
  *
  * <br />Used as the value for the LogSubsystems setting with {@link sqlsrv_configure() sqlsrv_configure}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_LOG_SYSTEM_STMT', 4);
@@ -97,7 +97,7 @@ define('SQLSRV_LOG_SYSTEM_STMT', 4);
  * <br />Used as the value for the
  * LogSubsystems setting with {@link sqlsrv_configure() sqlsrv_configure}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_LOG_SYSTEM_UTIL', 8);
@@ -107,7 +107,7 @@ define('SQLSRV_LOG_SYSTEM_UTIL', 8);
  *
  * <br />Used as the value for the LogSeverity setting with {@link sqlsrv_configure() sqlsrv_configure}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_LOG_SEVERITY_ALL', -1);
@@ -117,7 +117,7 @@ define('SQLSRV_LOG_SEVERITY_ALL', -1);
  *
  * <br />Used as the value for the LogSeverity setting with {@link sqlsrv_configure() sqlsrv_configure}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_LOG_SEVERITY_ERROR', 1);
@@ -127,7 +127,7 @@ define('SQLSRV_LOG_SEVERITY_ERROR', 1);
  *
  * <br />Used as the value for the LogSeverity setting with {@link sqlsrv_configure() sqlsrv_configure}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_LOG_SEVERITY_NOTICE', 4);
@@ -137,7 +137,7 @@ define('SQLSRV_LOG_SEVERITY_NOTICE', 4);
  *
  * <br />Used as the value for the LogSeverity setting with {@link sqlsrv_configure() sqlsrv_configure}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_LOG_SEVERITY_WARNING', 2);
@@ -147,7 +147,7 @@ define('SQLSRV_LOG_SEVERITY_WARNING', 2);
  *
  * <br />{@link sqlsrv_fetch_array() sqlsrv_fetch_array} returns the next row of data as a numerically indexed array.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_FETCH_NUMERIC', 1);
@@ -157,7 +157,7 @@ define('SQLSRV_FETCH_NUMERIC', 1);
  *
  * <br />{@link sqlsrv_fetch_array() sqlsrv_fetch_array} returns the next row of data as an associative array.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_FETCH_ASSOC', 2);
@@ -170,7 +170,7 @@ define('SQLSRV_FETCH_ASSOC', 2);
  *
  * This is the default value.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
@@ -183,7 +183,7 @@ define('SQLSRV_FETCH_BOTH', 3);
  * {@link sqlsrv_query() sqlsrv_query}
  * and {@link sqlsrv_get_field() sqlsrv_get_field} to request a field be return as a specific PHP type.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_PHPTYPE_NULL', 1);
@@ -195,7 +195,7 @@ define('SQLSRV_PHPTYPE_NULL', 1);
  * {@link sqlsrv_query() sqlsrv_query}
  * and {@link sqlsrv_get_field() sqlsrv_get_field} to request a field be return as a specific PHP type.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_PHPTYPE_INT', 2);
@@ -207,7 +207,7 @@ define('SQLSRV_PHPTYPE_INT', 2);
  * {@link sqlsrv_query() sqlsrv_query}
  * and {@link sqlsrv_get_field() sqlsrv_get_field} to request a field be return as a specific PHP type.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_PHPTYPE_FLOAT', 3);
@@ -219,7 +219,7 @@ define('SQLSRV_PHPTYPE_FLOAT', 3);
  * {@link sqlsrv_query() sqlsrv_query}
  * and {@link sqlsrv_get_field() sqlsrv_get_field} to request a field be return as a specific PHP type.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_PHPTYPE_DATETIME', 4);
@@ -236,7 +236,7 @@ define('SQLSRV_PHPTYPE_DATETIME', 4);
  * This is used with {@link SQLSRV_PHPTYPE_STREAM() SQLSRV_PHPTYPE_STREAM} and
  * {@link SQLSRV_PHPTYPE_STRING() SQLSRV_PHPTYPE_STRING} to specify the encoding of those PHP types types.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
@@ -258,7 +258,7 @@ define('SQLSRV_ENC_BINARY', 'binary');
  * This is used with {@link SQLSRV_PHPTYPE_STREAM() SQLSRV_PHPTYPE_STREAM} and
  * {@link SQLSRV_PHPTYPE_STRING() SQLSRV_PHPTYPE_STRING} to specify the encoding of those PHP types types.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
@@ -270,7 +270,7 @@ define('SQLSRV_ENC_CHAR','char');
  * <br />You can compare the value of the Nullable key that is returned by
  * {@link sqlsrv_field_metadata() sqlsrv_field_metadata} to determine the column's nullable status.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
@@ -282,7 +282,7 @@ define('SQLSRV_NULLABLE_NO', 0);
  * <br />You can compare the value of the Nullable key that is returned by
  * {@link sqlsrv_field_metadata() sqlsrv_field_metadata} to determine the column's nullable status.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
@@ -294,7 +294,7 @@ define('SQLSRV_NULLABLE_YES', 1);
  * <br />You can compare the value of the Nullable key that is returned by
  * {@link sqlsrv_field_metadata() sqlsrv_field_metadata} to determine the column's nullable status.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
@@ -306,7 +306,7 @@ define('SQLSRV_NULLABLE_UNKNOWN', 2);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_BIGINT', -5);
@@ -316,7 +316,7 @@ define('SQLSRV_SQLTYPE_BIGINT', -5);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
@@ -327,7 +327,7 @@ define('SQLSRV_SQLTYPE_BIT', -7);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_CHAR', 1);
@@ -337,7 +337,7 @@ define('SQLSRV_SQLTYPE_CHAR', 1);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_DATETIME', 25177693);
@@ -347,7 +347,7 @@ define('SQLSRV_SQLTYPE_DATETIME', 25177693);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_DECIMAL', 3);
@@ -357,7 +357,7 @@ define('SQLSRV_SQLTYPE_DECIMAL', 3);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_FLOAT', 6);
@@ -367,7 +367,7 @@ define('SQLSRV_SQLTYPE_FLOAT', 6);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_IMAGE', -4);
@@ -377,7 +377,7 @@ define('SQLSRV_SQLTYPE_IMAGE', -4);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_INT', 4);
@@ -387,7 +387,7 @@ define('SQLSRV_SQLTYPE_INT', 4);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_MONEY', 33564163);
@@ -397,7 +397,7 @@ define('SQLSRV_SQLTYPE_MONEY', 33564163);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_NCHAR', -8);
@@ -407,7 +407,7 @@ define('SQLSRV_SQLTYPE_NCHAR', -8);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_NTEXT', -10);
@@ -417,7 +417,7 @@ define('SQLSRV_SQLTYPE_NTEXT', -10);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_NUMERIC', 2);
@@ -427,7 +427,7 @@ define('SQLSRV_SQLTYPE_NUMERIC', 2);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_NVARCHAR', -9);
@@ -437,7 +437,7 @@ define('SQLSRV_SQLTYPE_NVARCHAR', -9);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_TEXT', -1);
@@ -447,7 +447,7 @@ define('SQLSRV_SQLTYPE_TEXT', -1);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_REAL', 7);
@@ -457,7 +457,7 @@ define('SQLSRV_SQLTYPE_REAL', 7);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_SMALLDATETIME', 8285);
@@ -467,7 +467,7 @@ define('SQLSRV_SQLTYPE_SMALLDATETIME', 8285);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_SMALLINT', 5);
@@ -477,7 +477,7 @@ define('SQLSRV_SQLTYPE_SMALLINT', 5);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_SMALLMONEY', 33559555);
@@ -487,7 +487,7 @@ define('SQLSRV_SQLTYPE_SMALLMONEY', 33559555);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_TIMESTAMP', 4606);
@@ -497,7 +497,7 @@ define('SQLSRV_SQLTYPE_TIMESTAMP', 4606);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_TINYINT', -6);
@@ -507,7 +507,7 @@ define('SQLSRV_SQLTYPE_TINYINT', -6);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_UDT', -151);
@@ -517,7 +517,7 @@ define('SQLSRV_SQLTYPE_UDT', -151);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_UNIQUEIDENTIFIER', -11);
@@ -527,7 +527,7 @@ define('SQLSRV_SQLTYPE_UNIQUEIDENTIFIER', -11);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_VARBINARY', -3);
@@ -537,7 +537,7 @@ define('SQLSRV_SQLTYPE_VARBINARY', -3);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_VARCHAR', 12);
@@ -547,7 +547,7 @@ define('SQLSRV_SQLTYPE_VARCHAR', 12);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_XML', -152);
@@ -557,7 +557,7 @@ define('SQLSRV_SQLTYPE_XML', -152);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_DATE', 5211);
@@ -567,7 +567,7 @@ define('SQLSRV_SQLTYPE_DATE', 5211);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_TIME', 58728806);
@@ -577,7 +577,7 @@ define('SQLSRV_SQLTYPE_TIME', 58728806);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_DATETIMEOFFSET', 58738021);
@@ -587,7 +587,7 @@ define('SQLSRV_SQLTYPE_DATETIMEOFFSET', 58738021);
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the SQL Server data type of a parameter.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SQLTYPE_DATETIME2', 58734173);
@@ -598,7 +598,7 @@ define('SQLSRV_SQLTYPE_DATETIME2', 58734173);
  * <br />Used for specifying parameter direction when you call {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_PARAM_IN', 1);
@@ -609,7 +609,7 @@ define('SQLSRV_PARAM_IN', 1);
  * <br />Used for specifying parameter direction when you call {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_PARAM_INOUT', 2);
@@ -620,7 +620,7 @@ define('SQLSRV_PARAM_INOUT', 2);
  * <br />Used for specifying parameter direction when you call {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_PARAM_OUT', 4);
@@ -639,9 +639,9 @@ define('SQLSRV_PARAM_OUT', 4);
  * the least restrictive of the isolation levels.<br />
  *
  * Used with the TransactionIsolation key when calling {@link sqlsrv_connect() sqlsrv_connect}. For information on using
- * these constants, see {@link http://msdn.microsoft.com/en-us/library/ms173763(v=sql.110).aspx SET TRANSACTION ISOLATION LEVEL (Transact-SQL)}.<br />
+ * these constants, see {@link https://msdn.microsoft.com/en-us/library/ms173763%28v=sql.110%29.aspx SET TRANSACTION ISOLATION LEVEL (Transact-SQL)}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_TXN_READ_UNCOMMITTED', 1);
@@ -655,9 +655,9 @@ define('SQLSRV_TXN_READ_UNCOMMITTED', 1);
  * The behavior of READ COMMITTED depends on the setting of the READ_COMMITTED_SNAPSHOT database option.<br />
  *
  * Used with the TransactionIsolation key when calling {@link sqlsrv_connect() sqlsrv_connect}. For information on using
- * these constants, see {@link http://msdn.microsoft.com/en-us/library/ms173763(v=sql.110).aspx SET TRANSACTION ISOLATION LEVEL (Transact-SQL)}.<br />
+ * these constants, see {@link https://msdn.microsoft.com/en-us/library/ms173763%28v=sql.110%29.aspx SET TRANSACTION ISOLATION LEVEL (Transact-SQL)}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_TXN_READ_COMMITTED', 2);
@@ -678,9 +678,9 @@ define('SQLSRV_TXN_READ_COMMITTED', 2);
  * Use this option only when necessary.<br />
  *
  * Used with the TransactionIsolation key when calling {@link sqlsrv_connect() sqlsrv_connect}. For information on using
- * these constants, see {@link http://msdn.microsoft.com/en-us/library/ms173763(v=sql.110).aspx SET TRANSACTION ISOLATION LEVEL (Transact-SQL)}.<br />
+ * these constants, see {@link https://msdn.microsoft.com/en-us/library/ms173763%28v=sql.110%29.aspx SET TRANSACTION ISOLATION LEVEL (Transact-SQL)}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_TXN_REPEATABLE_READ', 4);
@@ -703,9 +703,9 @@ define('SQLSRV_TXN_REPEATABLE_READ', 4);
  * effect as setting HOLDLOCK on all tables in all SELECT statements in a transaction.<br />
  *
  * Used with the TransactionIsolation key when calling {@link sqlsrv_connect() sqlsrv_connect}. For information on using
- * these constants, see {@link http://msdn.microsoft.com/en-us/library/ms173763(v=sql.110).aspx SET TRANSACTION ISOLATION LEVEL (Transact-SQL)}.<br />
+ * these constants, see {@link https://msdn.microsoft.com/en-us/library/ms173763%28v=sql.110%29.aspx SET TRANSACTION ISOLATION LEVEL (Transact-SQL)}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_TXN_SERIALIZABLE', 8);
@@ -739,9 +739,9 @@ define('SQLSRV_TXN_SERIALIZABLE', 8);
  * data will be included in the result set.<br />
  *
  * Used with the TransactionIsolation key when calling {@link sqlsrv_connect() sqlsrv_connect}. For information on using
- * these constants, see {@link http://msdn.microsoft.com/en-us/library/ms173763(v=sql.110).aspx SET TRANSACTION ISOLATION LEVEL (Transact-SQL)}.<br />
+ * these constants, see {@link https://msdn.microsoft.com/en-us/library/ms173763%28v=sql.110%29.aspx SET TRANSACTION ISOLATION LEVEL (Transact-SQL)}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_TXN_SNAPSHOT', 32);
@@ -758,9 +758,9 @@ define('SQLSRV_TXN_SNAPSHOT', 32);
  * Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify which row to select in the result set. For
  * information on using these constants, see
- * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
+ * {@link https://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
@@ -775,9 +775,9 @@ define('SQLSRV_SCROLL_NEXT', 1);
  * Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify which row to select in the result set. For
  * information on using these constants, see
- * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
+ * {@link https://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
@@ -792,9 +792,9 @@ define('SQLSRV_SCROLL_PRIOR', 4);
  * Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify which row to select in the result set. For
  * information on using these constants, see
- * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
+ * {@link https://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
@@ -809,9 +809,9 @@ define('SQLSRV_SCROLL_FIRST', 2);
  * Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify which row to select in the result set. For
  * information on using these constants, see
- * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
+ * {@link https://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
@@ -826,9 +826,9 @@ define('SQLSRV_SCROLL_LAST', 3);
  * Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify which row to select in the result set. For
  * information on using these constants, see
- * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
+ * {@link https://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
 define('SQLSRV_SCROLL_ABSOLUTE', 5);
@@ -842,9 +842,9 @@ define('SQLSRV_SCROLL_ABSOLUTE', 5);
  * Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify which row to select in the result set. For
  * information on using these constants, see
- * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
+ * {@link https://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
@@ -861,9 +861,9 @@ define('SQLSRV_SCROLL_RELATIVE', 6);
  * Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the kind of cursor that you can use in a result
  * set. For information on using these constants, see
- * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
+ * {@link https://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
@@ -874,9 +874,9 @@ define('SQLSRV_CURSOR_FORWARD', 'forward');
  * <br />Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the kind of cursor that you can use in a result
  * set. For information on using these constants, see
- * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
+ * {@link https://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
@@ -889,9 +889,9 @@ define('SQLSRV_CURSOR_STATIC', 'static');
  * Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the kind of cursor that you can use in a result
  * set. For information on using these constants, see
- * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
+ * {@link https://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
@@ -905,9 +905,9 @@ define('SQLSRV_CURSOR_DYNAMIC', 'dynamic');
  * Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the kind of cursor that you can use in a result
  * set. For information on using these constants, see
- * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
+ * {@link https://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
@@ -920,9 +920,9 @@ define('SQLSRV_CURSOR_KEYSET', 'keyset');
  * Used when calling {@link sqlsrv_query() sqlsrv_query} or
  *{@link sqlsrv_prepare() sqlsrv_prepare} to specify the kind of cursor that you can use in a result
  * set. For information on using these constants, see
- * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
+ * {@link https://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  */
@@ -937,27 +937,27 @@ define('SQLSRV_CURSOR_CLIENT_BUFFERED', 'buffered');
  *
  * If values for the UID and PWD keys are not specified in the optional $connectionInfo parameter, the connection will
  * be attempted using Windows Authentication. For more information about connecting to the server,
- * see {@link http://msdn.microsoft.com/en-us/library/cc296205.aspx How to: Connect Using Windows Authentication}
- * and {@link http://msdn.microsoft.com/en-us/library/cc296182.aspx How to: Connect Using SQL Server Authentication.}<br />
+ * see {@link https://msdn.microsoft.com/en-us/library/cc296205.aspx How to: Connect Using Windows Authentication}
+ * and {@link https://msdn.microsoft.com/en-us/library/cc296182.aspx How to: Connect Using SQL Server Authentication.}<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-connect
  * @param string $server_name A string specifying the name of the server to which a connection is being established.
  * An instance name (for example, "myServer\instanceName") or port number (for example, "myServer, 1521") can be
  * included as part of this string. For a complete description of the options available for this parameter, see the
  * Server keyword in the ODBC Driver Connection String Keywords section
- * of {@link http://go.microsoft.com/fwlink/?LinkId=105504 Using Connection String Keywords with SQL Native Client}.<br />
+ * of {@link https://go.microsoft.com/fwlink/?LinkId=105504 Using Connection String Keywords with SQL Native Client}.<br />
  *
  * Beginning in version 3.0 of the Microsoft Drivers for PHP for SQL Server, you can also specify a LocalDB instance
  * with "(localdb)\instancename". For more information,
- * see {@link http://msdn.microsoft.com/en-us/library/hh487161.aspx PHP Driver for SQL Server Support for LocalDB} .<br />
+ * see {@link https://msdn.microsoft.com/en-us/library/hh487161.aspx PHP Driver for SQL Server Support for LocalDB} .<br />
  *
  * Also beginning in version 3.0 of the Microsoft Drivers for PHP for SQL Server, you can specify a virtual network name,
  * to connect to an AlwaysOn availability group. For more information about Microsoft Drivers for PHP for SQL Server
  * support for AlwaysOn Availability Groups,
- * see {@link http://msdn.microsoft.com/en-us/library/hh487159.aspx PHP Driver for SQL Server Support for High Availability, Disaster Recovery}.
+ * see {@link https://msdn.microsoft.com/en-us/library/hh487159.aspx PHP Driver for SQL Server Support for High Availability, Disaster Recovery}.
  * @param array $connection_info [optional] An associative array that contains connection attributes (for example, array("Database" => "AdventureWorks")).
- * See {@link http://msdn.microsoft.com/en-us/library/ff628167.aspx Connection Options} for a list of the supported keys for the array.
+ * See {@link https://msdn.microsoft.com/en-us/library/ff628167.aspx Connection Options} for a list of the supported keys for the array.
  * @return resource|false A PHP connection resource. If a connection cannot be successfully created and opened, false is returned.
  */
 function sqlsrv_connect($server_name, $connection_info = array()){}
@@ -970,7 +970,7 @@ function sqlsrv_connect($server_name, $connection_info = array()){}
  * to sqlsrv_close will return true because the first call to sqlsrv_close (in the error condition) sets the connection
  * resource to null.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-close
  * @param resource|null $conn The connection to be closed.
  * @return bool The Boolean value true unless the function is called with an invalid parameter. If the function is called with an invalid parameter, false is returned.
@@ -991,7 +991,7 @@ function sqlsrv_close($conn){}
  * If sqlsrv_commit is called on a connection that is not in an active transaction and that was initiated with
  * sqlsrv_begin_transaction, the call returns false and a Not in Transaction error is added to the error collection.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-commit
  * @param resource $conn The connection on which the transaction is active.
  * @return bool A Boolean value: true if the transaction was successfully committed. Otherwise, false.
@@ -1017,8 +1017,8 @@ function sqlsrv_commit($conn){}
  * "BEGIN TRANSACTION" as the Transact-SQL query to begin a transaction. The expected transactional behavior cannot be
  * guaranteed when using embedded Transact-SQL to perform transactions.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296206.aspx How to Perform Transactions}
- * and {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296206.aspx How to Perform Transactions}
+ * and {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-begin-transaction
  * @param resource $conn The connection with which the transaction is associated.
  * @return bool A Boolean value: true if the transaction was successfully begun. Otherwise, false.
@@ -1041,8 +1041,8 @@ function sqlsrv_begin_transaction($conn){}
  * {@link sqlsrv_begin_transaction() sqlsrv_begin_transaction}, the call returns false and a Not in Transaction error
  * is added to the error collection.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296206.aspx How to Perform Transactions}
- * and {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296206.aspx How to Perform Transactions}
+ * and {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-rollback
  * @param resource $conn The connection on which the transaction is active.
  * @return bool A Boolean value: true if the transaction was successfully rolled back. Otherwise, false.
@@ -1074,7 +1074,7 @@ function sqlsrv_rollback($conn){}
  * Regardless of the setting, warnings can only be retrieved by calling sqlsrv_errors with either the SQLSRV_ERR_ALL or
  * SQLSRV_ERR_WARNINGS parameter value (see Parameters section below for details). <br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-errors
  * @param int $errorsAndOrWarnings [optional] A predefined constant. This parameter can take one of the values in the
  * following list: SQLSRV_ERR_ALL, SQLSRV_ERR_ERRORS, SQLSRV_ERR_WARNINGS. If no parameter value is supplied, both
@@ -1084,7 +1084,7 @@ function sqlsrv_rollback($conn){}
  * SQLSTATE:
  * <ul>
  * <li> For errors that originate from the ODBC driver, the SQLSTATE returned by ODBC.For information about SQLSTATE
- * values for ODBC, see {@link http://go.microsoft.com/fwlink/?linkid=119618 ODBC Error Codes}.</li>
+ * values for ODBC, see {@link https://go.microsoft.com/fwlink/?linkid=119618 ODBC Error Codes}.</li>
  * <li> For errors that originate from the Microsoft Drivers for PHP for SQL Server, a SQLSTATE of IMSSP.</li>
  * <li> For warnings that originate from the Microsoft Drivers for PHP for SQL Server, a SQLSTATE of 01SSP.</li>
  * </ul>
@@ -1092,7 +1092,7 @@ function sqlsrv_rollback($conn){}
  * <ul>
  * <li>For errors that originate from SQL Server, the native SQL Server error code.</li>
  * <li>For errors that originate from the ODBC driver, the error code returned by ODBC.</li>
- * <li>For errors that originate from the Microsoft Drivers for PHP for SQL Server, the Microsoft Drivers for PHP for SQL Server error code. For more information, see {@link http://msdn.microsoft.com/en-us/library/cc626302.aspx Handling Errors and Warnings}.</li>
+ * <li>For errors that originate from the Microsoft Drivers for PHP for SQL Server, the Microsoft Drivers for PHP for SQL Server error code. For more information, see {@link https://msdn.microsoft.com/en-us/library/cc626302.aspx Handling Errors and Warnings}.</li>
  * </ul>
  * message: A description of the error.<br />
  *
@@ -1107,24 +1107,24 @@ function sqlsrv_errors($errorsAndOrWarnings = SQLSRV_ERR_ALL){}
  *
  * <br />Changes the settings for error handling and logging options.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-configure
  * @param string $setting The name of the setting to be configured. See table below for list of settings.
  * @param mixed $value The value to be applied to the setting specified in the $setting parameter. The possible values for this parameter depend on which setting is specified. The following table lists the possible combinations.<br />
  * ClientBufferMaxKBSize (Default: 10240)<br />
- * For more information about client-side queries, see {@link http://msdn.microsoft.com/en-us/library/hh487160.aspx Cursor Types (SQLSRV Driver)}.
+ * For more information about client-side queries, see {@link https://msdn.microsoft.com/en-us/library/hh487160.aspx Cursor Types (SQLSRV Driver)}.
  * <ul>
  * <li>A non negative number up to the PHP memory limit.</li>
  * <li>Zero (0) means no limit to the buffer size.</li>
  * </ul>
  * LogSeverity (Default: SQLSRV_LOG_SEVERITY_ERROR )<br />
- * For more information about logging activity, see {@link http://msdn.microsoft.com/en-us/library/cc296188.aspx Logging Activity}.
+ * For more information about logging activity, see {@link https://msdn.microsoft.com/en-us/library/cc296188.aspx Logging Activity}.
  * <ul><li>SQLSRV_LOG_SEVERITY_ALL (-1)</li>
  * <li>SQLSRV_LOG_SEVERITY_ERROR (1)</li>
  * <li> SQLSRV_LOG_SEVERITY_NOTICE (4)</li>
  * <li>SQLSRV_LOG_SEVERITY_WARNING (2)</li></ul>
  * WarningsReturnAsErrors (Default: true )<br />
- * For more information about configuring error and warning handling, see {@link http://msdn.microsoft.com/en-us/library/cc626306.aspx How to: Configure Error and Warning Handling Using the SQLSRV Driver}.
+ * For more information about configuring error and warning handling, see {@link https://msdn.microsoft.com/en-us/library/cc626306.aspx How to: Configure Error and Warning Handling Using the SQLSRV Driver}.
  * <ul><li>true (1)</li>
  * <li>false (0)</li></ul>
  * @return bool If sqlsrv_configure is called with an unsupported setting or value, the function returns false. Otherwise, the function returns true.
@@ -1139,7 +1139,7 @@ function sqlsrv_configure($setting, $value){}
  *
  * For a list of configurable settings, see {@link sqlsrv_configure() sqlsrv_configure}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-get-config
  * @param string $setting The configuration setting for which the value is returned.
  * @return mixed|false The value of the setting specified by the $setting parameter. If an invalid setting is specified, false is returned and an error is added to the error collection.
@@ -1165,18 +1165,18 @@ function sqlsrv_get_config($setting){}
  * to execute a statement multiple times with different parameter values for each execution.<br />
  *
  * For alternative strategies for writing and reading large amounts of information, see
- * {@link http://go.microsoft.com/fwlink/?LinkId=104225 Batches of SQL Statements} and
- * {@link http://go.microsoft.com/fwlink/?LinkId=104226 BULK INSERT}.<br />
+ * {@link https://go.microsoft.com/fwlink/?LinkId=104225 Batches of SQL Statements} and
+ * {@link https://go.microsoft.com/fwlink/?LinkId=104226 BULK INSERT}.<br />
  *
  * For more information, see
- * {@link http://msdn.microsoft.com/en-us/library/cc626303.aspx How to: Retrieve Output Parameters Using the SQLSRV Driver.}<br />
+ * {@link https://msdn.microsoft.com/en-us/library/cc626303.aspx How to: Retrieve Output Parameters Using the SQLSRV Driver.}<br />
  *
  * For additional Information see:
- * <ul><li>{@link http://msdn.microsoft.com/en-us/library/cc644934.aspx Using Directional Parameters}</li>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296202.aspx Updating Data (Microsoft Drivers for PHP for SQL Server)}</li>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296201.aspx How to: Perform Parameterized Queries}</li>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296191.aspx How to: Send Data as a Stream}</li>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}</li></ul>
+ * <ul><li>{@link https://msdn.microsoft.com/en-us/library/cc644934.aspx Using Directional Parameters}</li>
+ * <li>{@link https://msdn.microsoft.com/en-us/library/cc296202.aspx Updating Data (Microsoft Drivers for PHP for SQL Server)}</li>
+ * <li>{@link https://msdn.microsoft.com/en-us/library/cc296201.aspx How to: Perform Parameterized Queries}</li>
+ * <li>{@link https://msdn.microsoft.com/en-us/library/cc296191.aspx How to: Send Data as a Stream}</li>
+ * <li>{@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}</li></ul>
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-prepare
  * @param resource $conn The connection resource associated with the created statement.
  * @param string $tsql The Transact-SQL expression that corresponds to the created statement.
@@ -1203,7 +1203,7 @@ function sqlsrv_get_config($setting){}
  * {@link sqlsrv_send_stream_data() sqlsrv_send_stream_data}.<br />
  *
  * Scrollable - For more information about these values, see
- * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.
+ * {@link https://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.
  * <ul><li>SQLSRV_CURSOR_FORWARD</li>
  * <li>SQLSRV_CURSOR_STATIC</li>
  * <li>SQLSRV_CURSOR_DYNAMIC</li>
@@ -1223,8 +1223,8 @@ function sqlsrv_prepare($conn, $tsql, $params=array(), $options=array()){}
  *
  * For additional Information see:
  * <ul><li>{@link sqlsrv_query() sqlsrv_query}</li>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296201.aspx How to: Perform Parameterized Queries}</li>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}</li></ul>
+ * <li>{@link https://msdn.microsoft.com/en-us/library/cc296201.aspx How to: Perform Parameterized Queries}</li>
+ * <li>{@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}</li></ul>
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-execute
  * @param resource $stmt A resource specifying the statement to be executed. For more information about how to create a
  * statement resource, see {@link sqlsrv_prepare() sqlsrv_prepare}.
@@ -1243,14 +1243,14 @@ function sqlsrv_execute($stmt){}
  * execute parameterized queries.<br />
  *
  * For more information, see
- * {@link http://msdn.microsoft.com/en-us/library/cc626303.aspx How to: Retrieve Output Parameters Using the SQLSRV Driver.}<br />
+ * {@link https://msdn.microsoft.com/en-us/library/cc626303.aspx How to: Retrieve Output Parameters Using the SQLSRV Driver.}<br />
  *
  * For additional Information see:
- * <ul><li>{@link http://msdn.microsoft.com/en-us/library/cc644934.aspx Using Directional Parameters}</li>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296202.aspx Updating Data (Microsoft Drivers for PHP for SQL Server)}</li>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296201.aspx How to: Perform Parameterized Queries}</li>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296191.aspx How to: Send Data as a Stream}</li>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}</li></ul>
+ * <ul><li>{@link https://msdn.microsoft.com/en-us/library/cc644934.aspx Using Directional Parameters}</li>
+ * <li>{@link https://msdn.microsoft.com/en-us/library/cc296202.aspx Updating Data (Microsoft Drivers for PHP for SQL Server)}</li>
+ * <li>{@link https://msdn.microsoft.com/en-us/library/cc296201.aspx How to: Perform Parameterized Queries}</li>
+ * <li>{@link https://msdn.microsoft.com/en-us/library/cc296191.aspx How to: Send Data as a Stream}</li>
+ * <li>{@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}</li></ul>
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-query
  * @param resource $conn The connection resource associated with the prepared statement.
  * @param string $tsql The Transact-SQL expression that corresponds to the prepared statement.
@@ -1277,7 +1277,7 @@ function sqlsrv_execute($stmt){}
  * {@link sqlsrv_send_stream_data() sqlsrv_send_stream_data}.<br />
  *
  * Scrollable - For more information about these values, see
- * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.
+ * {@link https://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.
  * <ul><li>SQLSRV_CURSOR_FORWARD</li>
  * <li>SQLSRV_CURSOR_STATIC</li>
  * <li>SQLSRV_CURSOR_DYNAMIC</li>
@@ -1296,7 +1296,7 @@ function sqlsrv_query($conn, $tsql, $params=array(), $options=array()){}
  * A statement must be executed before results can be retrieved. For information on executing a statement, see {@link sqlsrv_query() sqlsrv_query}
  * and {@link sqlsrv_execute() sqlsrv_execute}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-fetch
  * @param resource|null $stmt A statement resource corresponding to an executed statement.
  * @param int|null $row [optional]: One of the following values, specifying the row to access in a result set that uses a
@@ -1304,7 +1304,7 @@ function sqlsrv_query($conn, $tsql, $params=array(), $options=array()){}
  * SQLSRV_SCROLL_ABSOLUTE, SQLSRV_SCROLL_RELATIVE. <br />
  *
  * For more information on these values, see
- * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.
+ * {@link https://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.
  * @param int|null $offset [optional] Used with SQLSRV_SCROLL_ABSOLUTE and SQLSRV_SCROLL_RELATIVE to specify the row to
  * retrieve. The first record in the result set is 0.
  * @return bool|null If the next row of the result set was successfully retrieved, true is returned. If there are
@@ -1324,11 +1324,11 @@ function sqlsrv_fetch($stmt, $row=null, $offset=null){}
  * The combination of {@link sqlsrv_fetch() sqlsrv_fetch} and
  * {@link sqlsrv_get_field() sqlsrv_get_field} loads only one
  * field of a result set row into script memory and allows PHP return type specification. (For information about how to
- * specify the PHP return type, see {@link http://msdn.microsoft.com/en-us/library/cc296208.aspx How to: Specify PHP Data Types}.)
+ * specify the PHP return type, see {@link https://msdn.microsoft.com/en-us/library/cc296208.aspx How to: Specify PHP Data Types}.)
  * This combination of functions also allows data to be retrieved as a stream. (For information about retrieving data
- * as a stream, see {@link http://msdn.microsoft.com/en-us/library/cc296155.aspx Retrieving Data as a Stream Using the SQLSRV Driver}.)<br />
+ * as a stream, see {@link https://msdn.microsoft.com/en-us/library/cc296155.aspx Retrieving Data as a Stream Using the SQLSRV Driver}.)<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-get-field
  * @param resource $stmt A statement resource corresponding to an executed statement.
@@ -1337,13 +1337,13 @@ function sqlsrv_fetch($stmt, $row=null, $offset=null){}
  * data. For information about supported data types, see
  * {@link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server Constants (Microsoft Drivers for PHP for SQL Server)}.
  * If no return type is specified, a default PHP type will be returned. For information about default PHP types, see
- * {@link http://msdn.microsoft.com/en-us/library/cc296193.aspx Default PHP Data Types}. For information about
- * specifying PHP data types, see {@link http://msdn.microsoft.com/en-us/library/cc296208.aspx How to: Specify PHP Data Types}.
+ * {@link https://msdn.microsoft.com/en-us/library/cc296193.aspx Default PHP Data Types}. For information about
+ * specifying PHP data types, see {@link https://msdn.microsoft.com/en-us/library/cc296208.aspx How to: Specify PHP Data Types}.
  * @return mixed The field data. You can specify the PHP data type of the returned data by using the $getAsType
  * parameter. If no return data type is specified, the default PHP data type will be returned. For information about
- * default PHP types, see {@link http://msdn.microsoft.com/en-us/library/cc296193.aspx Default PHP Data Types}. For
+ * default PHP types, see {@link https://msdn.microsoft.com/en-us/library/cc296193.aspx Default PHP Data Types}. For
  * information about specifying PHP data types,
- * see {@link http://msdn.microsoft.com/en-us/library/cc296208.aspx How to: Specify PHP Data Types}.
+ * see {@link https://msdn.microsoft.com/en-us/library/cc296208.aspx How to: Specify PHP Data Types}.
  */
 function sqlsrv_get_field($stmt, $field_index, $get_as_type=null){}
 
@@ -1364,15 +1364,15 @@ function sqlsrv_get_field($stmt, $field_index, $get_as_type=null){}
  * empty string ("") key.<br />
  *
  * The sqlsrv_fetch_array function always returns data according to the
- * {@link http://msdn.microsoft.com/en-us/library/cc296193.aspx Default PHP Data Types}. For information about
+ * {@link https://msdn.microsoft.com/en-us/library/cc296193.aspx Default PHP Data Types}. For information about
  * how to specify the PHP data type,
- * see {@link http://msdn.microsoft.com/en-us/library/cc296208.aspx How to: Specify PHP Data Types}.<br />
+ * see {@link https://msdn.microsoft.com/en-us/library/cc296208.aspx How to: Specify PHP Data Types}.<br />
  *
  * If a field with no name is retrieved, the associative key for the array element will be an empty string (""). For
  * more information, see {@link sqlsrv_fetch_array() sqlsrv_fetch_array}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296160.aspx Retrieving Data} and
- * {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296160.aspx Retrieving Data} and
+ * {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-fetch-array
  * @param resource|null $stmt A statement resource corresponding to an executed statement.
@@ -1388,7 +1388,7 @@ function sqlsrv_get_field($stmt, $field_index, $get_as_type=null){}
  * SQLSRV_SCROLL_ABSOLUTE, SQLSRV_SCROLL_RELATIVE. <br />
  *
  * For more information on these values, see
- * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.
+ * {@link https://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.
  * @param int|null $offset [optional] Used with SQLSRV_SCROLL_ABSOLUTE and SQLSRV_SCROLL_RELATIVE to specify the row to
  * retrieve. The first record in the result set is 0.
  * @return array|null|false If a row of data is retrieved, an array is returned. If there are no more rows to retrieve, null is returned. If an error occurs, false is returned.
@@ -1400,8 +1400,8 @@ function sqlsrv_fetch_array($stmt, $fetch_type = null, $row=null, $offset=null){
  *
  * <br />Retrieves the next row of data as a PHP object.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296160.aspx Retrieving Data} and
- * {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296160.aspx Retrieving Data} and
+ * {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-fetch-object
  * @param resource $stmt A statement resource corresponding to an executed statement.
@@ -1415,7 +1415,7 @@ function sqlsrv_fetch_array($stmt, $fetch_type = null, $row=null, $offset=null){
  * SQLSRV_SCROLL_ABSOLUTE, SQLSRV_SCROLL_RELATIVE. <br />
  *
  * For more information on these values, see
- * {@link http://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.
+ * {@link https://msdn.microsoft.com/en-us/library/ee376927.aspx Specifying a Cursor Type and Selecting Rows}.
  * @param int|null $offset [optional] Used with SQLSRV_SCROLL_ABSOLUTE and SQLSRV_SCROLL_RELATIVE to specify the row to
  * retrieve. The first record in the result set is 0.
  * @return object|false|null A PHP object with properties that correspond to result set field names. Property values are
@@ -1424,7 +1424,7 @@ function sqlsrv_fetch_array($stmt, $fetch_type = null, $row=null, $offset=null){
  * returned. If there are no more rows to retrieve, null is returned.<br /><br />
  *
  * The data type of a value in the returned object will be the default PHP data type. For information on default PHP data
- * types, see {@link http://msdn.microsoft.com/en-us/library/cc296193.aspx Default PHP Data Types}.<br />
+ * types, see {@link https://msdn.microsoft.com/en-us/library/cc296193.aspx Default PHP Data Types}.<br />
  */
 function sqlsrv_fetch_object($stmt, $class_name=null, $ctor_params=null, $row=null, $offset=null){}
 
@@ -1433,7 +1433,7 @@ function sqlsrv_fetch_object($stmt, $class_name=null, $ctor_params=null, $row=nu
  *
  * <br />Indicates if the result set has one or more rows.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-has-rows
  * @param resource $stmt The executed statement.
@@ -1449,7 +1449,7 @@ function sqlsrv_has_rows($stmt){}
  * prepared statement, before or after execution.<br />
  *
  * Additional Information at {@link sqlsrv_field_metadata() sqlsrv_field_metadata} and
- * {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-num-fields
  * @param resource $stmt The statement on which the targeted result set is active.
@@ -1466,8 +1466,8 @@ function sqlsrv_num_fields($stmt){}
  * The first (or only) result returned by a batch query or stored procedure is active without a call to sqlsrv_next_result.<br />
  *
  * Additional Information at
- * {@link http://msdn.microsoft.com/en-us/library/cc296202.aspx Updating Data (Microsoft Drivers for PHP for SQL Server)} and
- * {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * {@link https://msdn.microsoft.com/en-us/library/cc296202.aspx Updating Data (Microsoft Drivers for PHP for SQL Server)} and
+ * {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-next-result
  * @param resource $stmt The executed statement on which the next result is made active.
@@ -1483,9 +1483,9 @@ function sqlsrv_next_result($stmt){}
  * or a dynamic cursor. (A forward cursor is the default.) For more information about cursors, see
  * {@link sqlsrv_prepare() sqlsrv_prepare},
  * {@link sqlsrv_query() sqlsrv_query} and
- * {@link http://msdn.microsoft.com/en-us/library/hh487160.aspx Cursor Types (SQLSRV Driver)}.<br />
+ * {@link https://msdn.microsoft.com/en-us/library/hh487160.aspx Cursor Types (SQLSRV Driver)}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-num-rows
  * @param resource $stmt The result set for which to count the rows.
@@ -1499,7 +1499,7 @@ function sqlsrv_num_rows($stmt){}
  * <br />Returns the number of rows modified by the last statement executed. This function does not return the number of
  * rows returned by a SELECT statement.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-rows-affected
  * @param resource $stmt A statement resource corresponding to an executed statement.
@@ -1514,7 +1514,7 @@ function sqlsrv_rows_affected($stmt){}
  *
  * <br />Returns information about the connection and client stack.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-client-info
  * @param resource $conn The connection resource by which the client is connected.
@@ -1532,7 +1532,7 @@ function sqlsrv_client_info($conn){}
  *
  * <br />Returns information about the server. A connection must be established before calling this function.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-server-info
  * @param resource $conn The connection resource by which the client and server are connected.
@@ -1555,7 +1555,7 @@ function sqlsrv_server_info($conn){}
  * with {@link sqlsrv_execute() sqlsrv_execute} after calling sqlsrv_cancel. A statement that is executed with
  * {@link sqlsrv_query() sqlsrv_query} cannot be re-executed after calling sqlsrv_cancel.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-cancel
  * @param resource $stmt The statement to be canceled.
@@ -1575,7 +1575,7 @@ function sqlsrv_cancel($stmt){}
  * statement resource to null.<br />
  *
  * Additional Information at {@link sqlsrv_cancel() sqlsrv_cancel} and
- * {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-free-stmt
  * @param resource|null $stmt The statement to be closed.
@@ -1593,7 +1593,7 @@ function sqlsrv_free_stmt($stmt){}
  * pre- or post-execution.<br />
  *
  * Additional Information at {@link sqlsrv_cancel() sqlsrv_cancel} and
- * {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-field-metadata
  * @param resource $stmt A statement resource for which field metadata is sought.
@@ -1610,7 +1610,7 @@ function sqlsrv_free_stmt($stmt){}
  * SQL Server data types.</li>
  * <li>Nullable - An enumerated value indicating whether the column is nullable (SQLSRV_NULLABLE_YES), the column is not
  * nullable (SQLSRV_NULLABLE_NO), or it is not known if the column is nullable (SQLSRV_NULLABLE_UNKNOWN).</li></ul>
- * See the {@link http://msdn.microsoft.com/en-us/library/cc296197.aspx function documentation} for more information on
+ * See the {@link https://msdn.microsoft.com/en-us/library/cc296197.aspx function documentation} for more information on
  * the keys for each sub-array.
  */
 function sqlsrv_field_metadata($stmt){}
@@ -1626,7 +1626,7 @@ function sqlsrv_field_metadata($stmt){}
  * default behavior, see the Parameters section of {@link sqlsrv_query() sqlsrv_query}
  * or {@link sqlsrv_prepare() sqlsrv_prepare}.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/sqlsrv-send-stream-data
  * @param resource $stmt A statement resource corresponding to an executed statement.
@@ -1647,10 +1647,10 @@ function sqlsrv_send_stream_data($stmt){}
  *
  * Additional Information at:
  * <ul>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296208.aspx How to: Specify PHP Data Types}</li></li>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296163.aspx How to: Retrieve Character Data as a Stream Using the SQLSRV Driver.}</li>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc626307.aspx How to: Send and Retrieve UTF-8 Data Using Built-In UTF-8 Support.}</li>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}</li></ui>
+ * <li>{@link https://msdn.microsoft.com/en-us/library/cc296208.aspx How to: Specify PHP Data Types}</li></li>
+ * <li>{@link https://msdn.microsoft.com/en-us/library/cc296163.aspx How to: Retrieve Character Data as a Stream Using the SQLSRV Driver.}</li>
+ * <li>{@link https://msdn.microsoft.com/en-us/library/cc626307.aspx How to: Send and Retrieve UTF-8 Data Using Built-In UTF-8 Support.}</li>
+ * <li>{@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}</li></ui>
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  * @param string $encoding The encoding to use for the stream. The valid options are SQLSRV_ENC_BINARY, SQLSRV_ENC_CHAR
@@ -1673,10 +1673,10 @@ function SQLSRV_PHPTYPE_STREAM($encoding){}
  *
  * Additional Information at:
  * <ul>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296208.aspx How to: Specify PHP Data Types}</li></li>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296163.aspx How to: Retrieve Character Data as a Stream Using the SQLSRV Driver.}</li>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc626307.aspx How to: Send and Retrieve UTF-8 Data Using Built-In UTF-8 Support.}</li>
- * <li>{@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}</li></ui>
+ * <li>{@link https://msdn.microsoft.com/en-us/library/cc296208.aspx How to: Specify PHP Data Types}</li></li>
+ * <li>{@link https://msdn.microsoft.com/en-us/library/cc296163.aspx How to: Retrieve Character Data as a Stream Using the SQLSRV Driver.}</li>
+ * <li>{@link https://msdn.microsoft.com/en-us/library/cc626307.aspx How to: Send and Retrieve UTF-8 Data Using Built-In UTF-8 Support.}</li>
+ * <li>{@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}</li></ui>
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  * @param string $encoding The encoding to use for the stream. The valid options are SQLSRV_ENC_BINARY, SQLSRV_ENC_CHAR
@@ -1691,7 +1691,7 @@ function SQLSRV_PHPTYPE_STRING($encoding){}
  *
  * <br />In the documentation this is presented as a constant that accepts an arguement.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  * @param int $byteCount Must be between 1 and 8000.
@@ -1704,7 +1704,7 @@ function SQLSRV_SQLTYPE_BINARY($byteCount){}
  *
  * <br />In the documentation this is presented as a constant that accepts an arguement.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  * @param int|string $byteCount Must be between 1 and 8000 or 'max'.
@@ -1717,7 +1717,7 @@ function SQLSRV_SQLTYPE_VARBINARY($byteCount){}
  *
  * <br />In the documentation this is presented as a constant that accepts an arguement.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  *
@@ -1733,7 +1733,7 @@ function SQLSRV_SQLTYPE_VARCHAR($charCount) {}
  *
  * <br />In the documentation this is presented as a constant that accepts an arguement.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  * @param int $charCount Must be between 1 and 8000.
@@ -1746,7 +1746,7 @@ function SQLSRV_SQLTYPE_CHAR($charCount){}
  *
  * <br />In the documentation this is presented as a constant that accepts an arguement.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  * @param int $charCount Must be between 1 and 4000.
@@ -1759,7 +1759,7 @@ function SQLSRV_SQLTYPE_NCHAR($charCount){}
  *
  * <br />In the documentation this is presented as a constant that accepts an arguement.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  * @param int|string $charCount Must be between 1 and 4000 or 'max'.
@@ -1772,7 +1772,7 @@ function SQLSRV_SQLTYPE_NVARCHAR($charCount){}
  *
  * <br />In the documentation this is presented as a constant that accepts an arguement.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  * @param int $precision Must be between 1 and 38.
@@ -1786,7 +1786,7 @@ function SQLSRV_SQLTYPE_DECIMAL($precision, $scale){}
  *
  * <br />In the documentation this is presented as a constant that accepts an arguement.<br />
  *
- * Additional Information at {@link http://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
+ * Additional Information at {@link https://msdn.microsoft.com/en-us/library/cc296152.aspx SQLSRV Driver API Reference}<br />
  *
  * @link https://docs.microsoft.com/en-us/sql/connect/php/constants-microsoft-drivers-for-php-for-sql-server
  * @param int $precision Must be between 1 and 38.

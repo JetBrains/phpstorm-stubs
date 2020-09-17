@@ -1380,11 +1380,11 @@ class Params implements \ArrayAccess {
 	 */
 	const PARSE_QUERY = 12;
 	/**
-	 * Parse [RFC5987](http://tools.ietf.org/html/rfc5987) style encoded character set and language information embedded in HTTP header params.
+	 * Parse [RFC5987](https://tools.ietf.org/html/rfc5987) style encoded character set and language information embedded in HTTP header params.
 	 */
 	const PARSE_RFC5987 = 16;
 	/**
-	 * Parse [RFC5988](http://tools.ietf.org/html/rfc5988) (Web Linking) tags of Link headers.
+	 * Parse [RFC5988](https://tools.ietf.org/html/rfc5988) (Web Linking) tags of Link headers.
 	 */
 	const PARSE_RFC5988 = 32;
 	/**
@@ -2511,7 +2511,7 @@ class Deflate extends \http\Encoding\Stream {
 	 * >
 	 * > The strategy parameter only affects the compression ratio but not the correctness of the compressed output even if it is not set appropriately.
 	 * >
-	 * >_Source: [zlib Manual](http://www.zlib.net/manual.html)_
+	 * >_Source: [zlib Manual](https://www.zlib.net/manual.html%29_
 	 */
 	const STRATEGY_FIXED = 1024;
 	/**
