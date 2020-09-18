@@ -9670,6 +9670,7 @@ const CONSTANTS = array (
   'PASSWORD_BCRYPT' => 'standard/password.php',
   'PASSWORD_BCRYPT_DEFAULT_COST' => 'standard/password.php',
   'PASSWORD_DEFAULT' => 'standard/password.php',
+  'PATHINFO_ALL' => 'standard/standard_defines.php',
   'PATHINFO_BASENAME' => 'standard/standard_defines.php',
   'PATHINFO_DIRNAME' => 'standard/standard_defines.php',
   'PATHINFO_EXTENSION' => 'standard/standard_defines.php',

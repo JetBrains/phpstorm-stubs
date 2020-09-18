@@ -3,7 +3,7 @@ Thank you, your help is most appreciated, and improves experience for everyone!
 Please follow the guidelines to keep it simpler for both sides. Contact us if unsure or in case if you *have* to massively violate these guidelines)
 
 # Notes on content
-Please check our [issue tracker] for issues corresponding to the problem you fixing with your pull requests. Create issue on [issue tracker] describing the problem if there doesn't exist. Please link pull request/commit messages to the issue.
+Please check our [issue tracker] for issues corresponding to the problem you're fixing with your pull requests. Create issue on [issue tracker] describing the problem if there doesn't exist. Please link pull request/commit messages to the issue.
 
 ## Code Style
 * Please avoid any unnecessary changes eg. spacing, line endings, HTML formatting. Remember, these files are NOT for human consumption. We want to preserve meaningful history.
