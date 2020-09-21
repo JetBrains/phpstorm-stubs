@@ -5,17 +5,17 @@ namespace JetBrains\PhpStorm;
 use Attribute;
 
 /**
- * Attribute specifies expected values of the entity: return values for functions and argument values for methods
+ * The attribute specifies the expected values of an entity: return values for functions and arguments' values for methods.
  *
- * If attribute is applied, PhpStorm will assume that only specified in attribute constructor arguments can
- * be passed/returned, this will affect:
+ * If the attribute is applied, PhpStorm assumes that only the arguments specified in the attribute constructor can
+ * be passed/returned. This will affect the following:
  * <ul>
- * <li><i>completion: </i> expected arguments will be on the top of the list in comparisons</li>
- * <li><i>inspections [comparison with value/assignment to/return from method]: </i> element absent in expected values list will produce inspection warning</li>
- * <li><i>code generation: 'switch' construction generation:</i> for example, will automatically insert all possible expected values</li>
+ * <li><i>Code completion</i> - expected arguments are displayed on the top of the suggestions list when used in comparison expressions</li>
+ * <li><i>Inspections [when used in a comparison with a value/assignment to/return from method]</i> - the element absent from the expected values list produces the inspection warning</li>
+ * <li><i>Code generation</i> - for example, when generating the 'switch' statement, all possible expected values are inserted automatically</li>
  * </ul>
  *
- * Expected values can be:
+ * Expected values can be any of the following:
  * <ul>
  * <li>numbers</li>
  * <li>string literals</li>
@@ -23,15 +23,15 @@ use Attribute;
  * <li>class constant references</li>
  * </ul>
  *
- * There are 4 ways to specify expected arguments:
+ * Expected arguments can be specified in any of the following ways:
  * <ul>
- * <li><b>#[ExpectedValues(values: [1,2,3])]</b> - this means that one of the following is expected: `1`, `2,` or `3`</li>
- * <li><b>#[ExpectedValues(flags: [1,2,3])]</b> - this means that bitmask of the following is expected: `1`, `2,` or `3`</li>
- * <li><b>#[ExpectedValues(valuesFromClass: MyClass::class)]</b> - this means that one of the constants from class `MyClass` is expected</li>
- * <li><b>#[ExpectedValues(flagsFromClass: ExpectedValues::class)]</b> - this means that bitmask of the constants from class `MyClass` is expected</li>
+ * <li><b>#[ExpectedValues(values: [1,2,3])]</b> means that one of the following is expected: `1`, `2`, or `3`</li>
+ * <li><b>#[ExpectedValues(flags: [1,2,3])]</b> means that a bitmask of the following is expected: `1`, `2`, or `3`</li>
+ * <li><b>#[ExpectedValues(valuesFromClass: MyClass::class)]</b> means that one of the constants from the class `MyClass` is expected</li>
+ * <li><b>#[ExpectedValues(flagsFromClass: ExpectedValues::class)]</b> means that a bitmask of the constants from the class `MyClass` is expected</li>
  * </ul>
  *
- * Attribute without constructor arguments size != 1 will produce undefined behaviour
+ * The attribute with the number of provided constructor arguments different from 1 will result in undefined behavior.
  */
 #[Attribute(Attribute::TARGET_FUNCTION | Attribute::TARGET_METHOD | Attribute::TARGET_PARAMETER)]
 class ExpectedValues {
