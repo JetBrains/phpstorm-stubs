@@ -887,7 +887,7 @@ function range ($start, $end, $step = 1) {}
  * @param array &$array1 <p>
  * An array being sorted.
  * </p>
- * @param  &...$rest [optional] <p>
+ * @param  array|int &...$rest [optional] <p>
  * More arrays, optionally followed by sort order and flags.
  * Only elements corresponding to equivalent elements in previous arrays are compared.
  * In other words, the sort is lexicographical.
