@@ -307,6 +307,13 @@ class StubsTest extends TestCase
             $firstSinceVersion = array_pop($sinceVersions);
         } elseif ($stubFunction->hasInheritDocTag) {
             self::markTestSkipped("Function '$methodName' contains inheritdoc.");
+        } elseif ($stubFunction->name === "__construct"){
+            $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($stubFunction->parentName);
+            if (!empty($parentClass->sinceTags)) {
+                $sinceVersions = array_map(fn(Since $tag) => (int)$tag->getVersion(), $parentClass->sinceTags);
+                sort($sinceVersions, SORT_DESC);
+                $firstSinceVersion = array_pop($sinceVersions);
+            }
         }
         self::checkFunctionDoesNotHaveScalarTypeHints($firstSinceVersion, $stubFunction);
         self::checkFunctionDoesNotHaveReturnTypeHints($firstSinceVersion, $stubFunction);
