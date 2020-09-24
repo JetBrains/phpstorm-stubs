@@ -6,11 +6,10 @@ namespace StubTests\Model\Tags;
 use phpDocumentor\Reflection\DocBlock\Description;
 use phpDocumentor\Reflection\DocBlock\DescriptionFactory;
 use phpDocumentor\Reflection\DocBlock\Tags\BaseTag;
-use phpDocumentor\Reflection\DocBlock\Tags\Factory\StaticMethod;
 use phpDocumentor\Reflection\Types\Context;
 use Webmozart\Assert\Assert;
 
-class RemovedTag extends BaseTag implements StaticMethod
+class RemovedTag extends BaseTag
 {
     protected $name = 'removed';
 
@@ -18,7 +17,7 @@ class RemovedTag extends BaseTag implements StaticMethod
 
     private ?string $version;
 
-    public function __construct($version = null, Description $description = null)
+    public function __construct(?string $version = null, Description $description = null)
     {
         Assert::nullOrStringNotEmpty($version);
 
@@ -26,28 +25,27 @@ class RemovedTag extends BaseTag implements StaticMethod
         $this->description = $description;
     }
 
-    public static function create($body, DescriptionFactory $descriptionFactory = null, Context $context = null)
+    public static function create(?string $body, ?DescriptionFactory $descriptionFactory = null, ?Context $context = null): RemovedTag
     {
-        Assert::nullOrString($body);
         if (empty($body)) {
-            return new static();
+            return new self();
         }
 
         $matches = [];
-        if (!preg_match('/^(' . self::REGEX_VECTOR . ')\s*(.+)?$/sux', $body, $matches)) {
-            return new static(
-                null,
-                null !== $descriptionFactory ? $descriptionFactory->create($body, $context) : null
+        if ($descriptionFactory !== null) {
+            if (!preg_match('/^(' . self::REGEX_VECTOR . ')\s*(.+)?$/sux', $body, $matches)) {
+                return new self(null, $descriptionFactory->create($body, $context));
+            }
+
+            return new self(
+                $matches[1],
+                $descriptionFactory->create($matches[2] ?? '', $context)
             );
         }
-
-        return new static(
-            $matches[1],
-            $descriptionFactory->create($matches[2] ?? '', $context)
-        );
+        return new self();
     }
 
-    public function getVersion(): string
+    public function getVersion(): ?string
     {
         return $this->version;
     }
