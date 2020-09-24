@@ -35,7 +35,7 @@ abstract class BasePHPElement
         return rtrim($fqn, "\\");
     }
 
-    public function hasMutedProblem($stubProblemType): bool
+    public function hasMutedProblem(int $stubProblemType): bool
     {
         return in_array($stubProblemType, $this->mutedProblems, true);
     }
