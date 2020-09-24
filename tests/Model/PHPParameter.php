@@ -18,7 +18,7 @@ class PHPParameter extends BasePHPElement
      * @param ReflectionParameter $parameter
      * @return $this
      */
-    public function readObjectFromReflection($parameter): self
+    public function readObjectFromReflection($parameter): static
     {
         $this->name = $parameter->name;
         $parameterType = $parameter->getType();
@@ -34,7 +34,7 @@ class PHPParameter extends BasePHPElement
      * @param Param $node
      * @return $this
      */
-    public function readObjectFromStubNode($node): self
+    public function readObjectFromStubNode($node): static
     {
         $this->name = $node->var->name;
         if ($node->type !== null) {

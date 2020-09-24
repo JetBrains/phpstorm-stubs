@@ -21,7 +21,7 @@ class PHPClass extends BasePHPClass
      * @param ReflectionClass $clazz
      * @return $this
      */
-    public function readObjectFromReflection($clazz): self
+    public function readObjectFromReflection($clazz): static
     {
         $this->name = $clazz->getName();
         $parent = $clazz->getParentClass();
@@ -57,7 +57,7 @@ class PHPClass extends BasePHPClass
      * @param Class_ $node
      * @return $this
      */
-    public function readObjectFromStubNode($node): self
+    public function readObjectFromStubNode($node): static
     {
         $this->name = $this->getFQN($node);
         $this->collectTags($node);

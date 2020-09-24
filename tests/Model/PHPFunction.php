@@ -31,7 +31,7 @@ class PHPFunction extends BasePHPElement
      * @param ReflectionFunction $function
      * @return $this
      */
-    public function readObjectFromReflection($function): self
+    public function readObjectFromReflection($function): static
     {
         $this->name = $function->name;
         $this->is_deprecated = $function->isDeprecated();
@@ -45,7 +45,7 @@ class PHPFunction extends BasePHPElement
      * @param Function_ $node
      * @return $this
      */
-    public function readObjectFromStubNode($node): self
+    public function readObjectFromStubNode($node): static
     {
         $functionName = $this->getFQN($node);
         $this->name = $functionName;

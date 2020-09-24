@@ -14,9 +14,9 @@ abstract class BasePHPElement
     public ?Exception $parseError = null;
     protected array $mutedProblems = [];
 
-    abstract public function readObjectFromReflection(Reflector $object);
+    abstract public function readObjectFromReflection(Reflector $object): static;
 
-    abstract public function readObjectFromStubNode(Node $node);
+    abstract public function readObjectFromStubNode(Node $node): static;
 
     abstract public function readMutedProblems($jsonData): void;
 

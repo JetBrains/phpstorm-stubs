@@ -18,7 +18,7 @@ class PHPMethod extends PHPFunction
      * @param ReflectionMethod $method
      * @return $this
      */
-    public function readObjectFromReflection($method): self
+    public function readObjectFromReflection($method): static
     {
         $this->name = $method->name;
         $this->is_static = $method->isStatic();
@@ -42,7 +42,7 @@ class PHPMethod extends PHPFunction
      * @param ClassMethod $node
      * @return $this
      */
-    public function readObjectFromStubNode($node): self
+    public function readObjectFromStubNode($node): static
     {
         $this->parentName = $this->getFQN($node->getAttribute('parent'));
         $this->name = $node->name->name;

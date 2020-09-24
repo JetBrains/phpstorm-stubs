@@ -22,7 +22,7 @@ class PHPConst extends BasePHPElement
      * @param ReflectionClassConstant $constant
      * @return $this
      */
-    public function readObjectFromReflection($constant): self
+    public function readObjectFromReflection($constant): static
     {
         $this->name = $constant->name;
         $this->value = $constant->getValue();
@@ -33,7 +33,7 @@ class PHPConst extends BasePHPElement
      * @param Const_ $node
      * @return $this
      */
-    public function readObjectFromStubNode($node): self
+    public function readObjectFromStubNode($node): static
     {
         $this->name = $this->getConstantFQN($node, $node->name->name);
         $this->value = $this->getConstValue($node);

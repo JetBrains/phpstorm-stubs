@@ -13,7 +13,7 @@ class PHPDefineConstant extends PHPConst
      * @param array $constant
      * @return $this
      */
-    public function readObjectFromReflection($constant): self
+    public function readObjectFromReflection($constant): static
     {
         if (is_string($constant[0])) {
             $this->name = utf8_encode($constant[0]);
@@ -39,7 +39,7 @@ class PHPDefineConstant extends PHPConst
      * @param FuncCall $node
      * @return $this
      */
-    public function readObjectFromStubNode($node): self
+    public function readObjectFromStubNode($node): static
     {
         $constName = $this->getConstantFQN($node, $node->args[0]->value->value);
         if (in_array($constName, ['null', 'true', 'false'])) {

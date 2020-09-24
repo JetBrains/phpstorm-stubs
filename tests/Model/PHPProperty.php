@@ -22,7 +22,7 @@ class PHPProperty extends BasePHPElement
      * @param \ReflectionProperty $property
      * @return $this
      */
-    public function readObjectFromReflection($property): self
+    public function readObjectFromReflection($property): static
     {
         $this->name = $property->getName();
         if ($property->isProtected()) {
@@ -45,7 +45,7 @@ class PHPProperty extends BasePHPElement
      * @param Property $node
      * @return $this
      */
-    public function readObjectFromStubNode($node): self
+    public function readObjectFromStubNode($node): static
     {
         $this->name = $node->props[0]->name->name;
         $this->is_static = $node->isStatic();

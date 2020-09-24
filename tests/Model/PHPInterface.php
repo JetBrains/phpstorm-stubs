@@ -15,7 +15,7 @@ class PHPInterface extends BasePHPClass
      * @param ReflectionClass $interface
      * @return $this
      */
-    public function readObjectFromReflection($interface): self
+    public function readObjectFromReflection($interface): static
     {
         $this->name = $interface->getName();
         foreach ($interface->getMethods() as $method) {
@@ -38,7 +38,7 @@ class PHPInterface extends BasePHPClass
      * @param Interface_ $node
      * @return $this
      */
-    public function readObjectFromStubNode($node): self
+    public function readObjectFromStubNode($node): static
     {
         $this->name = $this->getFQN($node);
         $this->collectTags($node);
