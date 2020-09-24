@@ -92,7 +92,7 @@ class PHPFunction extends BasePHPElement
         }
     }
 
-    public function readMutedProblems($jsonData): void
+    public function readMutedProblems(stdClass|array $jsonData): void
     {
         /**@var stdClass $function */
         foreach ($jsonData as $function) {

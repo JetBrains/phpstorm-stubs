@@ -74,7 +74,7 @@ class PHPConst extends BasePHPElement
         return $namespace . $nodeName;
     }
 
-    public function readMutedProblems($jsonData): void
+    public function readMutedProblems(stdClass|array $jsonData): void
     {
         /**@var stdClass $constant */
         foreach ($jsonData as $constant) {

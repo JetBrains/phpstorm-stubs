@@ -51,7 +51,7 @@ class PHPParameter extends BasePHPElement
         return $this;
     }
 
-    public function readMutedProblems($jsonData): void
+    public function readMutedProblems(stdClass|array $jsonData): void
     {
         /**@var stdClass $parameter */
         foreach ($jsonData as $parameter) {

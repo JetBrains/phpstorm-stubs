@@ -6,6 +6,7 @@ namespace StubTests\Model;
 use Exception;
 use PhpParser\Node;
 use Reflector;
+use stdClass;
 
 abstract class BasePHPElement
 {
@@ -18,7 +19,7 @@ abstract class BasePHPElement
 
     abstract public function readObjectFromStubNode(Node $node): static;
 
-    abstract public function readMutedProblems($jsonData): void;
+    abstract public function readMutedProblems(stdClass|array $jsonData): void;
 
     protected function getFQN(Node $node): string
     {

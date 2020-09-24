@@ -71,7 +71,7 @@ class PHPMethod extends PHPFunction
         return $this;
     }
 
-    public function readMutedProblems($jsonData): void
+    public function readMutedProblems(stdClass|array $jsonData): void
     {
         /**@var stdClass $method */
         foreach ($jsonData as $method) {

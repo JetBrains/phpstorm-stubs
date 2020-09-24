@@ -69,7 +69,7 @@ class PHPProperty extends BasePHPElement
     }
 
 
-    public function readMutedProblems($jsonData): void
+    public function readMutedProblems(stdClass|array $jsonData): void
     {
         /**@var stdClass $property */
         foreach ($jsonData as $property) {

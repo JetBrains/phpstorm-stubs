@@ -105,7 +105,7 @@ class PHPClass extends BasePHPClass
         return $this;
     }
 
-    public function readMutedProblems($jsonData): void
+    public function readMutedProblems(stdClass|array $jsonData): void
     {
         /**@var stdClass $class */
         foreach ($jsonData as $class) {
