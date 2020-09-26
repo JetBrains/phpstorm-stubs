@@ -335,13 +335,13 @@ class LuaSandboxFunction {
      * <ul>
      * <li>PHP NULL is Lua nil, and vice versa.</li>
      * <li>PHP integers and floats are converted to Lua numbers. Infinity and NAN are supported.</li>
-     * <li>>Lua numbers without a fractional part between approximately -2**53 and 2**53 are
+     * <li>Lua numbers without a fractional part between approximately -2**53 and 2**53 are
      * converted to PHP integers, with others being converted to PHP floats.</li>
-     * <li>>PHP booleans are Lua booleans, and vice versa.</li>
-     * <li>>PHP strings are Lua strings, and vice versa.</li>
-     * <li>>Lua functions are PHP LuaSandboxFunction objects, and vice versa.
+     * <li>PHP booleans are Lua booleans, and vice versa.</li>
+     * <li>PHP strings are Lua strings, and vice versa.</li>
+     * <li>Lua functions are PHP LuaSandboxFunction objects, and vice versa.
      * General PHP callables are not supported.</li>
-     * <li>>PHP arrays are converted to Lua tables, and vice versa.</li>
+     * <li>PHP arrays are converted to Lua tables, and vice versa.</li>
      * <ul>
      *   <li>Note that Lua typically indexes arrays from 1, while PHP indexes arrays from 0.
      *   No adjustment is made for these differing conventions.</li>
