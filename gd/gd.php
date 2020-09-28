@@ -2062,7 +2062,7 @@ function imagecolormatch ($image1, $image2) {}
  * Output XBM image to browser or file
  * @link https://php.net/manual/en/function.imagexbm.php
  * @param resource $image
- * @param string $filename <p>
+ * @param string $filename [optional] <p>
  * The path to save the file to. If not set or null, the raw image stream
  * will be outputted directly.
  * </p>
@@ -2073,7 +2073,7 @@ function imagecolormatch ($image1, $image2) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function imagexbm ($image, $filename, $foreground = null) {}
+function imagexbm ($image, $filename = null, $foreground = null) {}
 
 /**
  * Applies a filter to an image
