@@ -50,23 +50,15 @@ class PHPInterface extends BasePHPClass
 
     public function readMutedProblems(stdClass|array $jsonData): void
     {
-        /**@var stdClass $interface */
         foreach ($jsonData as $interface) {
             if ($interface->name === $this->name) {
                 if (!empty($interface->problems)) {
-                    /**@var stdClass $problem */
                     foreach ($interface->problems as $problem) {
-                        switch ($problem) {
-                            case 'wrong parent':
-                                $this->mutedProblems[] = StubProblemType::WRONG_PARENT;
-                                break;
-                            case 'missing interface':
-                                $this->mutedProblems[] = StubProblemType::STUB_IS_MISSED;
-                                break;
-                            default:
-                                $this->mutedProblems[] = -1;
-                                break;
-                        }
+                        $this->mutedProblems[] = match ($problem) {
+                            'wrong parent' => StubProblemType::WRONG_PARENT,
+                            'missing interface' => StubProblemType::STUB_IS_MISSED,
+                            default => -1
+                        };
                     }
                 }
                 if (!empty($interface->methods)) {

@@ -73,32 +73,18 @@ class PHPMethod extends PHPFunction
 
     public function readMutedProblems(stdClass|array $jsonData): void
     {
-        /**@var stdClass $method */
         foreach ($jsonData as $method) {
             if ($method->name === $this->name) {
                 if (!empty($method->problems)) {
-                    /**@var stdClass $problem */
                     foreach ($method->problems as $problem) {
-                        switch ($problem) {
-                            case 'parameter mismatch':
-                                $this->mutedProblems[] = StubProblemType::FUNCTION_PARAMETER_MISMATCH;
-                                break;
-                            case 'missing method':
-                                $this->mutedProblems[] = StubProblemType::STUB_IS_MISSED;
-                                break;
-                            case 'deprecated method':
-                                $this->mutedProblems[] = StubProblemType::FUNCTION_IS_DEPRECATED;
-                                break;
-                            case 'absent in meta':
-                                $this->mutedProblems[] = StubProblemType::ABSENT_IN_META;
-                                break;
-                            case 'wrong access':
-                                $this->mutedProblems[] = StubProblemType::FUNCTION_ACCESS;
-                                break;
-                            default:
-                                $this->mutedProblems[] = -1;
-                                break;
-                        }
+                        $this->mutedProblems[] = match ($problem) {
+                            'parameter mismatch' => StubProblemType::FUNCTION_PARAMETER_MISMATCH,
+                            'missing method' => StubProblemType::STUB_IS_MISSED,
+                            'deprecated method' => StubProblemType::FUNCTION_IS_DEPRECATED,
+                            'absent in meta' => StubProblemType::ABSENT_IN_META,
+                            'wrong access' => StubProblemType::FUNCTION_ACCESS,
+                            default => -1
+                        };
                     }
                 }
                 if (!empty($method->parameters)) {

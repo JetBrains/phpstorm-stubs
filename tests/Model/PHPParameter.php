@@ -11,8 +11,8 @@ use stdClass;
 class PHPParameter extends BasePHPElement
 {
     public string $type = '';
-    public bool $is_vararg;
-    public bool $is_passed_by_ref;
+    public bool $is_vararg = false;
+    public bool $is_passed_by_ref = false;
 
     /**
      * @param ReflectionParameter $reflectionObject
@@ -22,7 +22,7 @@ class PHPParameter extends BasePHPElement
     {
         $this->name = $reflectionObject->name;
         $parameterType = $reflectionObject->getType();
-        if ($parameterType !== null && $parameterType instanceof ReflectionNamedType) {
+        if ($parameterType instanceof ReflectionNamedType) {
             $this->type = $parameterType->getName();
         }
         $this->is_vararg = $reflectionObject->isVariadic();
@@ -53,31 +53,17 @@ class PHPParameter extends BasePHPElement
 
     public function readMutedProblems(stdClass|array $jsonData): void
     {
-        /**@var stdClass $parameter */
         foreach ($jsonData as $parameter) {
             if ($parameter->name === $this->name && !empty($parameter->problems)) {
-                /**@var stdClass $problem */
                 foreach ($parameter->problems as $problem) {
-                    switch ($problem) {
-                        case 'parameter type mismatch':
-                            $this->mutedProblems[] = StubProblemType::PARAMETER_TYPE_MISMATCH;
-                            break;
-                        case 'parameter reference':
-                            $this->mutedProblems[] = StubProblemType::PARAMETER_REFERENCE;
-                            break;
-                        case 'parameter vararg':
-                            $this->mutedProblems[] = StubProblemType::PARAMETER_VARARG;
-                            break;
-                        case 'has scalar typehint':
-                            $this->mutedProblems[] = StubProblemType::PARAMETER_HAS_SCALAR_TYPEHINT;
-                            break;
-                        case 'parameter name mismatch':
-                            $this->mutedProblems[] = StubProblemType::PARAMETER_NAME_MISMATCH;
-                            break;
-                        default:
-                            $this->mutedProblems[] = -1;
-                            break;
-                    }
+                    $this->mutedProblems[] = match ($problem) {
+                        'parameter type mismatch' => StubProblemType::PARAMETER_TYPE_MISMATCH,
+                        'parameter reference' => StubProblemType::PARAMETER_REFERENCE,
+                        'parameter vararg' => StubProblemType::PARAMETER_VARARG,
+                        'has scalar typehint' => StubProblemType::PARAMETER_HAS_SCALAR_TYPEHINT,
+                        'parameter name mismatch' => StubProblemType::PARAMETER_NAME_MISMATCH,
+                        default => -1
+                    };
                 }
                 return;
             }

@@ -38,7 +38,7 @@ class ASTVisitor extends NodeVisitorAbstract
      * @return void
      * @throws Exception
      */
-    public function enterNode(Node $node)
+    public function enterNode(Node $node): void
     {
         if ($node instanceof Function_) {
             $function = (new PHPFunction())->readObjectFromStubNode($node);
@@ -110,7 +110,6 @@ class ASTVisitor extends NodeVisitorAbstract
         foreach ($interface->parentInterfaces as $parentInterface) {
             $parents[] = $parentInterface;
             if ($this->stubs->getInterface($parentInterface) !== null) {
-                /**@var string $parentInterface */
                 foreach ($this->combineParentInterfaces($this->stubs->getInterface($parentInterface)) as $value) {
                     $parents[] = $value;
                 }

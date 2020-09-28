@@ -20,7 +20,7 @@ class Utils
      * @param Since|Deprecated|RemovedTag $tag
      * @return bool
      */
-    public static function tagDoesNotHaveZeroPatchVersion($tag): bool
+    public static function tagDoesNotHaveZeroPatchVersion(Since|RemovedTag|Deprecated $tag): bool
     {
         return (bool)preg_match('/^[1-9]+\.\d+(\.[1-9]+\d*)*$/',$tag->getVersion()); //find version like any but 7.4.0
     }

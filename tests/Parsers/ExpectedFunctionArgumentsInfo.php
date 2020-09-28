@@ -21,7 +21,7 @@ class ExpectedFunctionArgumentsInfo
 
     /**
      * ExpectedFunctionArgumentsInfo constructor.
-     * @param Expr $functionReference
+     * @param Expr|null $functionReference
      * @param Expr[] $expectedArguments
      * @param int $index
      */
@@ -73,7 +73,7 @@ class ExpectedFunctionArgumentsInfo
         return $this->index;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         if ($this->functionReference === null) {
             return '';

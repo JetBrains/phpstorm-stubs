@@ -105,26 +105,16 @@ class PHPClass extends BasePHPClass
 
     public function readMutedProblems(stdClass|array $jsonData): void
     {
-        /**@var stdClass $class */
         foreach ($jsonData as $class) {
             if ($class->name === $this->name) {
                 if (!empty($class->problems)) {
-                    /**@var stdClass $problem */
                     foreach ($class->problems as $problem) {
-                        switch ($problem) {
-                            case 'wrong parent':
-                                $this->mutedProblems[] = StubProblemType::WRONG_PARENT;
-                                break;
-                            case 'wrong interface':
-                                $this->mutedProblems[] = StubProblemType::WRONG_INTERFACE;
-                                break;
-                            case 'missing class':
-                                $this->mutedProblems[] = StubProblemType::STUB_IS_MISSED;
-                                break;
-                            default:
-                                $this->mutedProblems[] = -1;
-                                break;
-                        }
+                        $this->mutedProblems[] = match ($problem) {
+                            'wrong parent' => StubProblemType::WRONG_PARENT,
+                            'wrong interface' => StubProblemType::WRONG_INTERFACE,
+                            'missing class' => StubProblemType::STUB_IS_MISSED,
+                            default => -1,
+                        };
                     }
                 }
                 if (!empty($class->methods)) {

@@ -4,14 +4,15 @@ declare(strict_types=1);
 namespace StubTests\Model;
 
 use PhpParser\Node\Stmt\Property;
+use ReflectionProperty;
 use stdClass;
 
 class PHPProperty extends BasePHPElement
 {
     public ?string $parentName = null;
-    public string $type;
-    public string $access;
-    public bool $is_static;
+    public string $type = '';
+    public string $access = '';
+    public bool $is_static = false;
 
     public function __construct(?string $parentName = null)
     {
@@ -19,7 +20,7 @@ class PHPProperty extends BasePHPElement
     }
 
     /**
-     * @param \ReflectionProperty $reflectionObject
+     * @param ReflectionProperty $reflectionObject
      * @return $this
      */
     public function readObjectFromReflection($reflectionObject): static
@@ -36,7 +37,10 @@ class PHPProperty extends BasePHPElement
         $this->is_static = $reflectionObject->isStatic();
         $this->type = "";
         if ($reflectionObject->hasType()) {
-            $this->type = "" . $reflectionObject->getType();
+            $reflectionNamedType = $reflectionObject->getType();
+            if (isset($reflectionNamedType)){
+                $this->type = $reflectionNamedType->getName();
+            }
         }
         return $this;
     }
@@ -68,22 +72,15 @@ class PHPProperty extends BasePHPElement
         return $this;
     }
 
-
     public function readMutedProblems(stdClass|array $jsonData): void
     {
-        /**@var stdClass $property */
         foreach ($jsonData as $property) {
             if ($property->name === $this->name && !empty($property->problems)) {
-                /**@var stdClass $problem */
                 foreach ($property->problems as $problem) {
-                    switch ($problem) {
-                        case 'missing property':
-                            $this->mutedProblems[] = StubProblemType::STUB_IS_MISSED;
-                            break;
-                        default:
-                            $this->mutedProblems[] = -1;
-                            break;
-                    }
+                    $this->mutedProblems[] = match ($problem) {
+                        'missing property' => StubProblemType::STUB_IS_MISSED,
+                        default => -1
+                    };
                 }
                 return;
             }

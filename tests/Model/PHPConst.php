@@ -76,22 +76,14 @@ class PHPConst extends BasePHPElement
 
     public function readMutedProblems(stdClass|array $jsonData): void
     {
-        /**@var stdClass $constant */
         foreach ($jsonData as $constant) {
             if ($constant->name === $this->name && !empty($constant->problems)) {
-                /**@var stdClass $problem */
                 foreach ($constant->problems as $problem) {
-                    switch ($problem) {
-                        case 'wrong value':
-                            $this->mutedProblems[] = StubProblemType::WRONG_CONSTANT_VALUE;
-                            break;
-                        case 'missing constant':
-                            $this->mutedProblems[] = StubProblemType::STUB_IS_MISSED;
-                            break;
-                        default:
-                            $this->mutedProblems[] = -1;
-                            break;
-                    }
+                    $this->mutedProblems[] = match ($problem) {
+                        'wrong value' => StubProblemType::WRONG_CONSTANT_VALUE,
+                        'missing constant' => StubProblemType::STUB_IS_MISSED,
+                        default => -1
+                    };
                 }
                 return;
             }
