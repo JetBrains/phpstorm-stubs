@@ -10,12 +10,12 @@ use stdClass;
 
 abstract class BasePHPElement
 {
-    public string $name;
+    public ?string $name = null;
     public bool $stubBelongsToCore = false;
     public ?Exception $parseError = null;
     protected array $mutedProblems = [];
 
-    abstract public function readObjectFromReflection(Reflector $object): static;
+    abstract public function readObjectFromReflection(Reflector $reflectionObject): static;
 
     abstract public function readObjectFromStubNode(Node $node): static;
 

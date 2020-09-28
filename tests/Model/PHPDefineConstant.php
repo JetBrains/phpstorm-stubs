@@ -10,17 +10,17 @@ use function is_string;
 class PHPDefineConstant extends PHPConst
 {
     /**
-     * @param array $constant
+     * @param array $reflectionObject
      * @return $this
      */
-    public function readObjectFromReflection($constant): static
+    public function readObjectFromReflection($reflectionObject): static
     {
-        if (is_string($constant[0])) {
-            $this->name = utf8_encode($constant[0]);
+        if (is_string($reflectionObject[0])) {
+            $this->name = utf8_encode($reflectionObject[0]);
         } else {
-            $this->name = $constant[0];
+            $this->name = $reflectionObject[0];
         }
-        $constantValue = $constant[1];
+        $constantValue = $reflectionObject[1];
         if ($constantValue !== null) {
             if (is_resource($constantValue)) {
                 $this->value = 'PHPSTORM_RESOURCE';

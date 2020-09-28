@@ -19,13 +19,13 @@ class PHPConst extends BasePHPElement
     public $value;
 
     /**
-     * @param ReflectionClassConstant $constant
+     * @param ReflectionClassConstant $reflectionObject
      * @return $this
      */
-    public function readObjectFromReflection($constant): static
+    public function readObjectFromReflection($reflectionObject): static
     {
-        $this->name = $constant->name;
-        $this->value = $constant->getValue();
+        $this->name = $reflectionObject->name;
+        $this->value = $reflectionObject->getValue();
         return $this;
     }
 

@@ -28,14 +28,14 @@ class PHPFunction extends BasePHPElement
     public ?NodeAbstract $returnType = null;
 
     /**
-     * @param ReflectionFunction $function
+     * @param ReflectionFunction $reflectionObject
      * @return $this
      */
-    public function readObjectFromReflection($function): static
+    public function readObjectFromReflection($reflectionObject): static
     {
-        $this->name = $function->name;
-        $this->is_deprecated = $function->isDeprecated();
-        foreach ($function->getParameters() as $parameter) {
+        $this->name = $reflectionObject->name;
+        $this->is_deprecated = $reflectionObject->isDeprecated();
+        foreach ($reflectionObject->getParameters() as $parameter) {
             $this->parameters[] = (new PHPParameter())->readObjectFromReflection($parameter);
         }
         return $this;

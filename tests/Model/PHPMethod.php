@@ -15,21 +15,21 @@ class PHPMethod extends PHPFunction
     public string $parentName;
 
     /**
-     * @param ReflectionMethod $method
+     * @param ReflectionMethod $reflectionObject
      * @return $this
      */
-    public function readObjectFromReflection($method): static
+    public function readObjectFromReflection($reflectionObject): static
     {
-        $this->name = $method->name;
-        $this->is_static = $method->isStatic();
-        $this->is_final = $method->isFinal();
-        foreach ($method->getParameters() as $parameter) {
+        $this->name = $reflectionObject->name;
+        $this->is_static = $reflectionObject->isStatic();
+        $this->is_final = $reflectionObject->isFinal();
+        foreach ($reflectionObject->getParameters() as $parameter) {
             $this->parameters[] = (new PHPParameter())->readObjectFromReflection($parameter);
         }
 
-        if ($method->isProtected()) {
+        if ($reflectionObject->isProtected()) {
             $access = 'protected';
-        } elseif ($method->isPrivate()) {
+        } elseif ($reflectionObject->isPrivate()) {
             $access = 'private';
         } else {
             $access = 'public';

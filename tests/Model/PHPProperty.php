@@ -19,24 +19,24 @@ class PHPProperty extends BasePHPElement
     }
 
     /**
-     * @param \ReflectionProperty $property
+     * @param \ReflectionProperty $reflectionObject
      * @return $this
      */
-    public function readObjectFromReflection($property): static
+    public function readObjectFromReflection($reflectionObject): static
     {
-        $this->name = $property->getName();
-        if ($property->isProtected()) {
+        $this->name = $reflectionObject->getName();
+        if ($reflectionObject->isProtected()) {
             $access = 'protected';
-        } elseif ($property->isPrivate()) {
+        } elseif ($reflectionObject->isPrivate()) {
             $access = 'private';
         } else {
             $access = 'public';
         }
         $this->access = $access;
-        $this->is_static = $property->isStatic();
+        $this->is_static = $reflectionObject->isStatic();
         $this->type = "";
-        if ($property->hasType()) {
-            $this->type = "" . $property->getType();
+        if ($reflectionObject->hasType()) {
+            $this->type = "" . $reflectionObject->getType();
         }
         return $this;
     }

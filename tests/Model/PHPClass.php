@@ -11,40 +11,39 @@ use stdClass;
 
 class PHPClass extends BasePHPClass
 {
-    /** @var false|string */
-    public $parentClass;
+    public false|string|null $parentClass = null;
     public array $interfaces = [];
     /** @var PHPProperty[] */
     public array $properties = [];
 
     /**
-     * @param ReflectionClass $clazz
+     * @param ReflectionClass $reflectionObject
      * @return $this
      */
-    public function readObjectFromReflection($clazz): static
+    public function readObjectFromReflection($reflectionObject): static
     {
-        $this->name = $clazz->getName();
-        $parent = $clazz->getParentClass();
+        $this->name = $reflectionObject->getName();
+        $parent = $reflectionObject->getParentClass();
         if ($parent !== false) {
             $this->parentClass = $parent->getName();
         }
-        $this->interfaces = $clazz->getInterfaceNames();
+        $this->interfaces = $reflectionObject->getInterfaceNames();
 
-        foreach ($clazz->getMethods() as $method) {
+        foreach ($reflectionObject->getMethods() as $method) {
             if ($method->getDeclaringClass()->getName() !== $this->name) {
                 continue;
             }
             $this->methods[$method->name] = (new PHPMethod())->readObjectFromReflection($method);
         }
 
-        foreach ($clazz->getReflectionConstants() as $constant) {
+        foreach ($reflectionObject->getReflectionConstants() as $constant) {
             if ($constant->getDeclaringClass()->getName() !== $this->name) {
                 continue;
             }
             $this->constants[$constant->name] = (new PHPConst())->readObjectFromReflection($constant);
         }
 
-        foreach ($clazz->getProperties() as $property) {
+        foreach ($reflectionObject->getProperties() as $property) {
             if ($property->getDeclaringClass()->getName() !== $this->name) {
                 continue;
             }
@@ -100,7 +99,6 @@ class PHPClass extends BasePHPClass
                 $this->properties[$propertyName] = $newProperty;
             }
         }
-
 
         return $this;
     }

@@ -12,20 +12,20 @@ class PHPInterface extends BasePHPClass
     public array $parentInterfaces = [];
 
     /**
-     * @param ReflectionClass $interface
+     * @param ReflectionClass $reflectionObject
      * @return $this
      */
-    public function readObjectFromReflection($interface): static
+    public function readObjectFromReflection($reflectionObject): static
     {
-        $this->name = $interface->getName();
-        foreach ($interface->getMethods() as $method) {
+        $this->name = $reflectionObject->getName();
+        foreach ($reflectionObject->getMethods() as $method) {
             if ($method->getDeclaringClass()->getName() !== $this->name) {
                 continue;
             }
             $this->methods[$method->name] = (new PHPMethod())->readObjectFromReflection($method);
         }
-        $this->parentInterfaces = $interface->getInterfaceNames();
-        foreach ($interface->getReflectionConstants() as $constant) {
+        $this->parentInterfaces = $reflectionObject->getInterfaceNames();
+        foreach ($reflectionObject->getReflectionConstants() as $constant) {
             if ($constant->getDeclaringClass()->getName() !== $this->name) {
                 continue;
             }

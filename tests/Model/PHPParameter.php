@@ -15,18 +15,18 @@ class PHPParameter extends BasePHPElement
     public bool $is_passed_by_ref;
 
     /**
-     * @param ReflectionParameter $parameter
+     * @param ReflectionParameter $reflectionObject
      * @return $this
      */
-    public function readObjectFromReflection($parameter): static
+    public function readObjectFromReflection($reflectionObject): static
     {
-        $this->name = $parameter->name;
-        $parameterType = $parameter->getType();
+        $this->name = $reflectionObject->name;
+        $parameterType = $reflectionObject->getType();
         if ($parameterType !== null && $parameterType instanceof ReflectionNamedType) {
             $this->type = $parameterType->getName();
         }
-        $this->is_vararg = $parameter->isVariadic();
-        $this->is_passed_by_ref = $parameter->isPassedByReference();
+        $this->is_vararg = $reflectionObject->isVariadic();
+        $this->is_passed_by_ref = $reflectionObject->isPassedByReference();
         return $this;
     }
 
