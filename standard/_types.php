@@ -259,7 +259,7 @@ class object {
    * @return mixed
    * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.methods
    */
-  public function __call($name, $arguments) {}
+  public function __call(string $name, array $arguments) {}
 
   /**
    * is triggered when invoking inaccessible methods in a static context.
@@ -269,7 +269,7 @@ class object {
    * @return mixed
    * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.methods
    */
-  public static function __callStatic($name, $arguments) {}
+  public static function __callStatic(string $name, array $arguments) {}
 
   /**
    * is utilized for reading data from inaccessible members.
@@ -278,7 +278,7 @@ class object {
    * @return mixed
    * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
    */
-  public function __get($name) {}
+  public function __get(string $name) {}
 
   /**
    * run when writing data to inaccessible members.
@@ -288,7 +288,7 @@ class object {
    * @return void
    * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
    */
-  public function __set($name, $value) {}
+  public function __set(string $name, $value): void {}
 
   /**
    * is triggered by calling isset() or empty() on inaccessible members.
@@ -297,7 +297,7 @@ class object {
    * @return bool
    * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
    */
-  public function __isset($name) {}
+  public function __isset(string $name): bool {}
   /**
    * is invoked when unset() is used on inaccessible members.
    *
@@ -305,7 +305,7 @@ class object {
    * @return void
    * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
    */
-  public function __unset($name) {}
+  public function __unset(string $name): void {}
 
   /**
    * serialize() checks if your class has a function with the magic name __sleep.
@@ -318,7 +318,7 @@ class object {
    * @return string[]
    * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.sleep
    */
-  public function __sleep() {}
+  public function __sleep(): array {}
 
   /**
    * unserialize() checks for the presence of a function with the magic name __wakeup.
@@ -329,7 +329,7 @@ class object {
    * @return void
    * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.sleep
    */
-  public function __wakeup() {}
+  public function __wakeup(): void {}
 
   /**
    * The __toString method allows a class to decide how it will react when it is converted to a string.
@@ -337,7 +337,7 @@ class object {
    * @return string
    * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.tostring
    */
-  public function __toString() {}
+  public function __toString(): string {}
 
   /**
    * The __invoke method is called when a script tries to call an object as a function.
@@ -350,22 +350,21 @@ class object {
     /**
      * This method is called by var_dump() when dumping an object to get the properties that should be shown.
      * If the method isn't defined on an object, then all public, protected and private properties will be shown.
-     * @since 5.6
      *
-     * @return array
+     * @return array|null
      * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.debuginfo
      */
-    public function __debugInfo(){}
+    public function __debugInfo(): ?array {}
 
   /**
    * This static method is called for classes exported by var_export() since PHP 5.1.0.
    * The only parameter of this method is an array containing exported properties in the form array('property' => value, ...).
    *
    * @param array $an_array
-   * @return mixed
+   * @return object
    * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.set-state
    */
-  public static function __set_state($an_array) {}
+  public static function __set_state(array $an_array): object {}
 
   /**
    * When an object is cloned, PHP 5 will perform a shallow copy of all of the object's properties.
@@ -377,7 +376,7 @@ class object {
    * @return void
    * @link https://php.net/manual/en/language.oop5.cloning.php
    */
-  public function __clone() {}
+  public function __clone(): void {}
 
     /**
      * Returns array containing all the necessary state of the object.

@@ -307,6 +307,8 @@ class StubsTest extends TestCase
             $firstSinceVersion = array_pop($sinceVersions);
         } elseif ($stubFunction->hasInheritDocTag) {
             self::markTestSkipped("Function '$methodName' contains inheritdoc.");
+        } elseif ($stubFunction->parentName === "___PHPSTORM_HELPERS\object") {
+            self::markTestSkipped("Function '$methodName' is declared in ___PHPSTORM_HELPERS\object.");
         } elseif ($stubFunction->name === "__construct"){
             $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($stubFunction->parentName);
             if (!empty($parentClass->sinceTags)) {
