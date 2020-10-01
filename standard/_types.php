@@ -350,7 +350,6 @@ class object {
     /**
      * This method is called by var_dump() when dumping an object to get the properties that should be shown.
      * If the method isn't defined on an object, then all public, protected and private properties will be shown.
-     * @since 5.6
      *
      * @return array|null
      * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.debuginfo
