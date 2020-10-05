@@ -1555,18 +1555,6 @@
           ]
         }
       ]
-    },
-    {
-      "name": "mysqli_warning",
-      "methods": [
-        {
-          "name": "__construct",
-          "problems": [
-            "wrong access",
-            "parameter mismatch"
-          ]
-        }
-      ]
     }
   ],
   "interfaces": [

@@ -778,10 +778,9 @@ final class mysqli_warning  {
 
 	/**
 	 * The __construct purpose
-     * @param object $mysqli_link [optional]
 	 * @link https://php.net/manual/en/mysqli-warning.construct.php
 	 */
-	protected function __construct ($mysqli_link = null) {}
+	private function __construct () {}
 
 	/**
 	 * Move to the next warning
