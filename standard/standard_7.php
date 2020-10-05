@@ -12,7 +12,7 @@
  * @param int $port [optional] <p>
  * The port number.
  * </p>
- * @param int &$errno [optional] <p>
+ * @param int &$error_code [optional] <p>
  * If provided, holds the system level error number that occurred in the
  * system-level connect() call.
  * </p>
@@ -23,7 +23,7 @@
  * connect() call. This is most likely due to a
  * problem initializing the socket.
  * </p>
- * @param string &$errstr [optional] <p>
+ * @param string &$error_message [optional] <p>
  * The error message as a string.
  * </p>
  * @param float $timeout [optional] <p>
@@ -42,7 +42,7 @@
  * fwrite, fclose, and
  * feof). If the call fails, it will return false
  */
-function fsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $timeout = null) {}
+function fsockopen ($hostname, $port = null, &$error_code = null, &$error_message = null, $timeout = null) {}
 
 /**
  * Open persistent Internet or Unix domain socket connection
@@ -50,12 +50,12 @@ function fsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $t
  * @see fsockopen
  * @param string $hostname
  * @param int $port [optional]
- * @param int &$errno [optional]
- * @param string &$errstr [optional]
+ * @param int &$error_code [optional]
+ * @param string &$error_message [optional]
  * @param float $timeout [optional]
  * @return resource|false
  */
-function pfsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $timeout = null) {}
+function pfsockopen ($hostname, $port = null, &$error_code = null, &$error_message = null, $timeout = null) {}
 
 /**
  * Pack data into binary string
@@ -157,11 +157,11 @@ function pfsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $
  * </tr>
  * </table>
  * </p>
- * @param mixed ...$args [optional] <p>
+ * @param mixed ...$values [optional] <p>
  * </p>
  * @return string|false a binary string containing data or false if the format string contains errors
  */
-function pack ($format, ...$args) {}
+function pack ($format, ...$values) {}
 
 /**
  * Unpack data from binary string
@@ -169,14 +169,14 @@ function pack ($format, ...$args) {}
  * @param string $format <p>
  * See pack for an explanation of the format codes.
  * </p>
- * @param string $data <p>
+ * @param string $string <p>
  * The packed data.
  * </p>
  * @param int $offset [optional]
  * @return array|false an associative array containing unpacked elements of binary
  * string or false if the format string contains errors
  */
-function unpack ($format, $data, $offset = 0) {}
+function unpack ($format, $string, $offset = 0) {}
 
 /**
  * Tells what the user's browser is capable of
@@ -210,7 +210,7 @@ function get_browser ($user_agent = null, $return_array = null) {}
 /**
  * One-way string encryption (hashing)
  * @link https://php.net/manual/en/function.crypt.php
- * @param string $str <p>
+ * @param string $string <p>
  * The string to be encrypted.
  * </p>
  * @param string $salt [optional] <p>
@@ -225,12 +225,12 @@ function get_browser ($user_agent = null, $return_array = null) {}
  * </p>
  * @return string|null the encrypted string or <b>NULL</b> if an error occurs
  */
-function crypt ($str, $salt = null) {}
+function crypt ($string, $salt = null) {}
 
 /**
  * Open directory handle
  * @link https://php.net/manual/en/function.opendir.php
- * @param string $path <p>
+ * @param string $directory <p>
  * The directory path that is to be opened
  * </p>
  * @param resource $context [optional] <p>
@@ -251,7 +251,7 @@ function crypt ($str, $salt = null) {}
  * '@' to the
  * front of the function name.
  */
-function opendir ($path, $context = null) {}
+function opendir ($directory, $context = null) {}
 
 /**
  * Close directory handle
@@ -347,7 +347,7 @@ function dir ($directory, $context = null) {}
  * @return Directory|false
  * @see dir()
  */
-function getdir(string $path, $context = null) {}
+function getdir(string $directory, $context = null) {}
 
 /**
  * List files and directories inside the specified path
@@ -813,7 +813,7 @@ function chmod ($filename, $mode) {}
  * @param string $filename <p>
  * The name of the file being touched.
  * </p>
- * @param int $time [optional] <p>
+ * @param int $mtime [optional] <p>
  * The touch time. If time is not supplied,
  * the current system time is used.
  * </p>
@@ -824,7 +824,7 @@ function chmod ($filename, $mode) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function touch ($filename, $time = null, $atime = null) {}
+function touch ($filename, $mtime = null, $atime = null) {}
 
 /**
  * Clears file status cache
@@ -942,7 +942,7 @@ function diskfreespace ($directory) {}
  * This should be a last resort, as it does not comply with
  * RFC 2822.
  * </p>
- * @param string $additional_parameters [optional] <p>
+ * @param string $additional_params [optional] <p>
  * The additional_parameters parameter
  * can be used to pass additional flags as command line options to the
  * program configured to be used when sending mail, as defined by the
@@ -962,7 +962,7 @@ function diskfreespace ($directory) {}
  * It is important to note that just because the mail was accepted for delivery,
  * it does NOT mean the mail will actually reach the intended destination.
  */
-function mail ($to, $subject, $message, $additional_headers = null, $additional_parameters = null) {}
+function mail ($to, $subject, $message, $additional_headers = null, $additional_params = null) {}
 
 /**
  * Calculate the hash value needed by EZMLM
@@ -979,10 +979,10 @@ function ezmlm_hash ($addr) {}
 /**
  * Open connection to system logger
  * @link https://php.net/manual/en/function.openlog.php
- * @param string $ident <p>
+ * @param string $prefix <p>
  * The string ident is added to each message.
  * </p>
- * @param int $option <p>
+ * @param int $flags <p>
  * The option argument is used to indicate
  * what logging options will be used when generating a log message.
  * <table>
@@ -1096,6 +1096,6 @@ function ezmlm_hash ($addr) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function openlog ($ident, $option, $facility) {}
+function openlog ($prefix, $flags, $facility) {}
 
 ?>

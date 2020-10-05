@@ -20,13 +20,13 @@ function func_num_args () {}
 /**
  * Return an item from the argument list
  * @link https://php.net/manual/en/function.func-get-arg.php
- * @param int $arg_num <p>
+ * @param int $position <p>
  * The argument offset. Function arguments are counted starting from
  * zero.
  * </p>
  * @return mixed|false the specified argument, or false on error.
  */
-function func_get_arg ($arg_num) {}
+function func_get_arg ($position) {}
 
 /**
  * Returns an array comprising a function's argument list
@@ -50,10 +50,10 @@ function strlen ($string) {}
 /**
  * Binary safe string comparison
  * @link https://php.net/manual/en/function.strcmp.php
- * @param string $str1 <p>
+ * @param string $string1 <p>
  * The first string.
  * </p>
- * @param string $str2 <p>
+ * @param string $string2 <p>
  * The second string.
  * </p>
  * @return int &lt; 0 if <i>str1</i> is less than
@@ -61,18 +61,18 @@ function strlen ($string) {}
  * is greater than <i>str2</i>, and 0 if they are
  * equal.
  */
-function strcmp ($str1, $str2) {}
+function strcmp ($string1, $string2) {}
 
 /**
  * Binary safe string comparison of the first n characters
  * @link https://php.net/manual/en/function.strncmp.php
- * @param string $str1 <p>
+ * @param string $string1 <p>
  * The first string.
  * </p>
- * @param string $str2 <p>
+ * @param string $string2 <p>
  * The second string.
  * </p>
- * @param int $len <p>
+ * @param int $length <p>
  * Number of characters to use in the comparison.
  * </p>
  * @return int &lt; 0 if <i>str1</i> is less than
@@ -80,15 +80,15 @@ function strcmp ($str1, $str2) {}
  * is greater than <i>str2</i>, and 0 if they are
  * equal.
  */
-function strncmp ($str1, $str2, $len) {}
+function strncmp ($string1, $string2, $length) {}
 
 /**
  * Binary safe case-insensitive string comparison
  * @link https://php.net/manual/en/function.strcasecmp.php
- * @param string $str1 <p>
+ * @param string $string1 <p>
  * The first string
  * </p>
- * @param string $str2 <p>
+ * @param string $string2 <p>
  * The second string
  * </p>
  * @return int &lt; 0 if <i>str1</i> is less than
@@ -96,25 +96,25 @@ function strncmp ($str1, $str2, $len) {}
  * is greater than <i>str2</i>, and 0 if they are
  * equal.
  */
-function strcasecmp ($str1, $str2) {}
+function strcasecmp ($string1, $string2) {}
 
 /**
  * Binary safe case-insensitive string comparison of the first n characters
  * @link https://php.net/manual/en/function.strncasecmp.php
- * @param string $str1 <p>
+ * @param string $string1 <p>
  * The first string.
  * </p>
- * @param string $str2 <p>
+ * @param string $string2 <p>
  * The second string.
  * </p>
- * @param int $len <p>
+ * @param int $length <p>
  * The length of strings to be used in the comparison.
  * </p>
  * @return int &lt; 0 if <i>str1</i> is less than
  * <i>str2</i>; &gt; 0 if <i>str1</i> is
  * greater than <i>str2</i>, and 0 if they are equal.
  */
-function strncasecmp ($str1, $str2, $len) {}
+function strncasecmp ($string1, $string2, $length) {}
 
 /**
  * The function returns {@see true} if the passed $haystack starts from the
@@ -175,7 +175,7 @@ function each (array &$array) {}
 /**
  * Sets which PHP errors are reported
  * @link https://php.net/manual/en/function.error-reporting.php
- * @param int $level [optional] <p>
+ * @param int $error_level [optional] <p>
  * The new error_reporting
  * level. It takes on either a bitmask, or named constants. Using named
  * constants is strongly encouraged to ensure compatibility for future
@@ -294,12 +294,12 @@ function each (array &$array) {}
  * level or the current level if no <i>level</i> parameter is
  * given.
  */
-function error_reporting ($level = null) {}
+function error_reporting ($error_level = null) {}
 
 /**
  * Defines a named constant
  * @link https://php.net/manual/en/function.define.php
- * @param string $name <p>
+ * @param string $constant_name <p>
  * The name of the constant.
  * </p>
  * @param mixed $value <p>
@@ -321,18 +321,18 @@ function error_reporting ($level = null) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function define ($name, $value, $case_insensitive = false) {}
+function define ($constant_name, $value, $case_insensitive = false) {}
 
 /**
  * Checks whether a given named constant exists
  * @link https://php.net/manual/en/function.defined.php
- * @param string $name <p>
+ * @param string $constant_name <p>
  * The constant name.
  * </p>
  * @return bool true if the named constant given by <i>name</i>
  * has been defined, false otherwise.
  */
-function defined ($name) {}
+function defined ($constant_name) {}
 
 /**
  * Returns the name of the class of an object
@@ -360,7 +360,7 @@ function get_called_class () {}
 /**
  * Retrieves the parent class name for object or class
  * @link https://php.net/manual/en/function.get-parent-class.php
- * @param mixed $object [optional] <p>
+ * @param mixed $object_or_class [optional] <p>
  * The tested object or class name
  * </p>
  * @return string|false <p>The name of the parent class of the class of which
@@ -372,27 +372,27 @@ function get_called_class () {}
  * <p>
  * If called without parameter outside object, this function returns false.
  */
-function get_parent_class ($object = null) {}
+function get_parent_class ($object_or_class = null) {}
 
 /**
  * Checks if the class method exists
  * @link https://php.net/manual/en/function.method-exists.php
- * @param mixed $object <p>
+ * @param mixed $object_or_class <p>
  * An object instance or a class name
  * </p>
- * @param string $method_name <p>
+ * @param string $method <p>
  * The method name
  * </p>
  * @return bool true if the method given by <i>method_name</i>
  * has been defined for the given <i>object</i>, false
  * otherwise.
  */
-function method_exists ($object, $method_name) {}
+function method_exists ($object_or_class, $method) {}
 
 /**
  * Checks if the object or class has a property
  * @link https://php.net/manual/en/function.property-exists.php
- * @param mixed $class <p>
+ * @param mixed $object_or_class <p>
  * The class name or an object of the class to test for
  * </p>
  * @param string $property <p>
@@ -401,22 +401,22 @@ function method_exists ($object, $method_name) {}
  * @return bool true if the property exists, false if it doesn't exist or
  * null in case of an error.
  */
-function property_exists ($class, $property) {}
+function property_exists ($object_or_class, $property) {}
 
 /**
  * Checks if the trait exists
- * @param string $traitname Name of the trait to check
+ * @param string $trait Name of the trait to check
  * @param bool $autoload [optional] Whether to autoload if not already loaded.
  * @return bool Returns TRUE if trait exists, FALSE if not, NULL in case of an error.
  * @link https://secure.php.net/manual/en/function.trait-exists.php
  * @since 5.4
  */
-function trait_exists($traitname, $autoload ) {}
+function trait_exists($trait, $autoload ) {}
 
 /**
  * Checks if the class has been defined
  * @link https://php.net/manual/en/function.class-exists.php
- * @param string $class_name <p>
+ * @param string $class <p>
  * The class name. The name is matched in a case-insensitive manner.
  * </p>
  * @param bool $autoload [optional] <p>
@@ -425,12 +425,12 @@ function trait_exists($traitname, $autoload ) {}
  * @return bool true if <i>class_name</i> is a defined class,
  * false otherwise.
  */
-function class_exists ($class_name, $autoload = true) {}
+function class_exists ($class, $autoload = true) {}
 
 /**
  * Checks if the interface has been defined
  * @link https://php.net/manual/en/function.interface-exists.php
- * @param string $interface_name <p>
+ * @param string $interface <p>
  * The interface name
  * </p>
  * @param bool $autoload [optional] <p>
@@ -440,12 +440,12 @@ function class_exists ($class_name, $autoload = true) {}
  * <i>interface_name</i> has been defined, false otherwise.
  * @since 5.0.2
  */
-function interface_exists ($interface_name, $autoload = true) {}
+function interface_exists ($interface, $autoload = true) {}
 
 /**
  * Return true if the given function has been defined
  * @link https://php.net/manual/en/function.function-exists.php
- * @param string $function_name <p>
+ * @param string $function <p>
  * The function name, as a string.
  * </p>
  * @return bool true if <i>function_name</i> exists and is a
@@ -455,17 +455,17 @@ function interface_exists ($interface_name, $autoload = true) {}
  * This function will return false for constructs, such as
  * <b>include_once</b> and <b>echo</b>.
  */
-function function_exists ($function_name) {}
+function function_exists ($function) {}
 
 /**
  * Creates an alias for a class
  * @link https://php.net/manual/en/function.class-alias.php
- * @param string $original The original class.
+ * @param string $class The original class.
  * @param string $alias The alias name for the class.
  * @param bool $autoload [optional] Whether to autoload if the original class is not found.
  * @return bool true on success or false on failure.
  */
-function class_alias ($original, $alias, $autoload = true) {}
+function class_alias ($class, $alias, $autoload = true) {}
 
 /**
  * Returns an array with the names of included or required files
@@ -493,10 +493,10 @@ function get_required_files () {}
 /**
  * Checks if the object has this class as one of its parents
  * @link https://php.net/manual/en/function.is-subclass-of.php
- * @param mixed $object <p>
+ * @param mixed $object_or_class <p>
  * A class name or an object instance
  * </p>
- * @param string $class_name <p>
+ * @param string $class <p>
  * The class name
  * </p>
  * @param bool $allow_string [optional] <p>
@@ -507,15 +507,15 @@ function get_required_files () {}
  * belongs to a class which is a subclass of
  * <i>class_name</i>, false otherwise.
  */
-function is_subclass_of ($object, $class_name, $allow_string = true) {}
+function is_subclass_of ($object_or_class, $class, $allow_string = true) {}
 
 /**
  * Checks if the object is of this class or has this class as one of its parents
  * @link https://php.net/manual/en/function.is-a.php
- * @param object|string $object <p>
+ * @param object|string $object_or_class <p>
  * The tested object
  * </p>
- * @param string $class_name <p>
+ * @param string $class <p>
  * The class name
  * </p>
  * @param bool $allow_string [optional] <p>
@@ -525,12 +525,12 @@ function is_subclass_of ($object, $class_name, $allow_string = true) {}
  * @return bool <b>TRUE</b> if the object is of this class or has this class as one of
  * its parents, <b>FALSE</b> otherwise.
  */
-function is_a ($object, $class_name, $allow_string = false) {}
+function is_a ($object_or_class, $class, $allow_string = false) {}
 
 /**
  * Get the default properties of the class
  * @link https://php.net/manual/en/function.get-class-vars.php
- * @param string $class_name <p>
+ * @param string $class <p>
  * The class name
  * </p>
  * @return array an associative array of declared properties visible from the
@@ -538,7 +538,7 @@ function is_a ($object, $class_name, $allow_string = false) {}
  * The resulting array elements are in the form of
  * varname => value.
  */
-function get_class_vars ($class_name) {}
+function get_class_vars ($class) {}
 
 /**
  * Gets the properties of the given object
@@ -555,45 +555,45 @@ function get_object_vars ($object) {}
 /**
  * Gets the class methods' names
  * @link https://php.net/manual/en/function.get-class-methods.php
- * @param mixed $class_name <p>
+ * @param mixed $object_or_class <p>
  * The class name or an object instance
  * </p>
  * @return array an array of method names defined for the class specified by
  * <i>class_name</i>. In case of an error, it returns null.
  */
-function get_class_methods ($class_name) {}
+function get_class_methods ($object_or_class) {}
 
 /**
  * Generates a user-level error/warning/notice message
  * @link https://php.net/manual/en/function.trigger-error.php
- * @param string $error_msg <p>
+ * @param string $message <p>
  * The designated error message for this error. It's limited to 1024
  * characters in length. Any additional characters beyond 1024 will be
  * truncated.
  * </p>
- * @param int $error_type [optional] <p>
+ * @param int $error_level [optional] <p>
  * The designated error type for this error. It only works with the E_USER
  * family of constants, and will default to <b>E_USER_NOTICE</b>.
  * </p>
  * @return bool This function returns false if wrong <i>error_type</i> is
  * specified, true otherwise.
  */
-function trigger_error ($error_msg, $error_type = E_USER_NOTICE) {}
+function trigger_error ($message, $error_level = E_USER_NOTICE) {}
 
 /**
  * Alias of <b>trigger_error</b>
  * @link https://php.net/manual/en/function.user-error.php
  * @param string $message
- * @param int    $error_type [optional]
+ * @param int    $error_level [optional]
  * @return bool This function returns false if wrong <i>error_type</i> is
  * specified, true otherwise.
  */
-function user_error ($message, $error_type = E_USER_NOTICE) {}
+function user_error ($message, $error_level = E_USER_NOTICE) {}
 
 /**
  * Sets a user-defined error handler function
  * @link https://php.net/manual/en/function.set-error-handler.php
- * @param callable|null $error_handler <p>
+ * @param callable|null $callback <p>
  * The user function needs to accept two parameters: the error code, and a
  * string describing the error. Then there are three optional parameters
  * that may be supplied: the filename in which the error occurred, the
@@ -611,7 +611,7 @@ function user_error ($message, $error_type = E_USER_NOTICE) {}
  * <i>errno</i>
  * The first parameter, <i>errno</i>, contains the
  * level of the error raised, as an integer.
- * @param int $error_types [optional] <p>
+ * @param int $error_levels [optional] <p>
  * Can be used to mask the triggering of the
  * <i>error_handler</i> function just like the error_reporting ini setting
  * controls which errors are shown. Without this mask set the
@@ -624,7 +624,7 @@ function user_error ($message, $error_type = E_USER_NOTICE) {}
  * was a class method, this function will return an indexed array with the class
  * and the method name.
  */
-function set_error_handler ($error_handler, $error_types = E_ALL | E_STRICT) {}
+function set_error_handler ($callback, $error_levels = E_ALL | E_STRICT) {}
 
 /**
  * Restores the previous error handler function
@@ -636,7 +636,7 @@ function restore_error_handler () {}
 /**
  * Sets a user-defined exception handler function
  * @link https://php.net/manual/en/function.set-exception-handler.php
- * @param callable|null $exception_handler <p>
+ * @param callable|null $callback <p>
  * Name of the function to be called when an uncaught exception occurs.
  * This function must be defined before calling
  * <b>set_exception_handler</b>. This handler function
@@ -647,7 +647,7 @@ function restore_error_handler () {}
  * @return callable|null the name of the previously defined exception handler, or null on error. If
  * no previous handler was defined, null is also returned.
  */
-function set_exception_handler ($exception_handler) {}
+function set_exception_handler ($callback) {}
 
 /**
  * Restores the previously defined exception handler function
@@ -725,7 +725,7 @@ function create_function ($args, $code) {}
 /**
  * Returns the resource type
  * @link https://php.net/manual/en/function.get-resource-type.php
- * @param resource $handle <p>
+ * @param resource $resource <p>
  * The evaluated resource handle.
  * </p>
  * @return string If the given <i>handle</i> is a resource, this function
@@ -737,7 +737,7 @@ function create_function ($args, $code) {}
  * This function will return false and generate an error if
  * <i>handle</i> is not a resource.
  */
-function get_resource_type ($handle) {}
+function get_resource_type ($resource) {}
 
 /**
  * Returns an array with the names of all modules compiled and loaded
@@ -753,7 +753,7 @@ function get_loaded_extensions ($zend_extensions = false) {}
 /**
  * Find out whether an extension is loaded
  * @link https://php.net/manual/en/function.extension-loaded.php
- * @param string $name <p>
+ * @param string $extension <p>
  * The extension name.
  * </p>
  * <p>
@@ -782,12 +782,12 @@ function get_loaded_extensions ($zend_extensions = false) {}
  * @return bool true if the extension identified by <i>name</i>
  * is loaded, false otherwise.
  */
-function extension_loaded ($name) {}
+function extension_loaded ($extension) {}
 
 /**
  * Returns an array with the names of the functions of a module
  * @link https://php.net/manual/en/function.get-extension-funcs.php
- * @param string $module_name <p>
+ * @param string $extension <p>
  * The module name.
  * </p>
  * <p>
@@ -796,7 +796,7 @@ function extension_loaded ($name) {}
  * @return string[]|false an array with all the functions, or false if
  * <i>module_name</i> is not a valid extension.
  */
-function get_extension_funcs ($module_name) {}
+function get_extension_funcs ($extension) {}
 
 /**
  * Returns an associative array with the names of all the constants and their values

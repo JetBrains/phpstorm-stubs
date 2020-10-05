@@ -136,7 +136,7 @@ class mysqli  {
 	 * @param string $host [optional] Can be either a host name or an IP address. Passing the NULL value or the string "localhost" to this parameter, the local host is assumed. When possible, pipes will be used instead of the TCP/IP protocol. Prepending host by p: opens a persistent connection. mysqli_change_user() is automatically called on connections opened from the connection pool. Defaults to ini_get("mysqli.default_host")
 	 * @param string $username [optional] The MySQL user name. Defaults to ini_get("mysqli.default_user")
 	 * @param string $passwd [optional] If not provided or NULL, the MySQL server will attempt to authenticate the user against those user records which have no password only. This allows one username to be used with different permissions (depending on if a password as provided or not). Defaults to ini_get("mysqli.default_pw")
-	 * @param string $dbname [optional] If provided will specify the default database to be used when performing queries. Defaults to ""
+	 * @param string $database [optional] If provided will specify the default database to be used when performing queries. Defaults to ""
 	 * @param int $port [optional] Specifies the port number to attempt to connect to the MySQL server. Defaults to ini_get("mysqli.default_port")
 	 * @param string $socket [optional] Specifies the socket or named pipe that should be used. Defaults to ini_get("mysqli.default_socket")
 	 */
@@ -144,7 +144,7 @@ class mysqli  {
 		$host = null,
 		$username = null,
 		$passwd = null,
-		$dbname = null,
+		$database = null,
 		$port = null,
 		$socket = null
 	) {}
@@ -172,7 +172,7 @@ class mysqli  {
     /**
 	 * Changes the user of the specified database connection
 	 * @link https://php.net/manual/en/mysqli.change-user.php
-	 * @param string $user <p>
+	 * @param string $username <p>
 	 * The MySQL user name.
 	 * </p>
 	 * @param string $password <p>
@@ -222,13 +222,13 @@ class mysqli  {
 	/**
 	 * @link https://php.net/manual/en/function.mysqli-connect.php
 	 * @param string $host [optional]
-	 * @param string $user [optional]
+	 * @param string $username [optional]
 	 * @param string $password [optional]
 	 * @param string $database [optional]
 	 * @param int $port [optional]
 	 * @param string $socket [optional]
 	 */
-	public function connect ($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null) {}
+	public function connect ($host = null, $username = null, $password = null, $database = null, $port = null, $socket = null) {}
 
 	/**
 	 * Dump debugging information into the log
@@ -329,13 +329,13 @@ class mysqli  {
 	/**
 	 * @link https://php.net/manual/en/mysqli.construct.php
 	 * @param string $host [optional]
-	 * @param string $user [optional]
+	 * @param string $username [optional]
 	 * @param string $password [optional]
 	 * @param string $database [optional]
 	 * @param int $port [optional]
 	 * @param string $socket [optional]
 	 */
-	public function mysqli ($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null) {}
+	public function mysqli ($host = null, $username = null, $password = null, $database = null, $port = null, $socket = null) {}
 
 	/**
 	 * Check if there are any more query results from a multi query
@@ -456,7 +456,7 @@ class mysqli  {
 	 * <p>
 	 * Data inside the query should be properly escaped.
 	 * </p>
-	 * @param int $resultmode [optional] <p>
+	 * @param int $result_mode [optional] <p>
 	 * Either the constant <b>MYSQLI_USE_RESULT</b> or
 	 * <b>MYSQLI_STORE_RESULT</b> depending on the desired
 	 * behavior. By default, <b>MYSQLI_STORE_RESULT</b> is used.
@@ -477,7 +477,7 @@ class mysqli  {
 	 * a <b>mysqli_result</b> object. For other successful queries <b>mysqli_query</b> will
 	 * return true and false on failure.
 	 */
-	public function query ($query, $resultmode = MYSQLI_STORE_RESULT) {}
+	public function query ($query, $result_mode = MYSQLI_STORE_RESULT) {}
 
 	/**
 	 * Opens a connection to a mysql server
@@ -497,7 +497,7 @@ class mysqli  {
 	 * allows one username to be used with different permissions (depending
 	 * on if a password as provided or not).
 	 * </p>
-	 * @param string $dbname [optional] <p>
+	 * @param string $database [optional] <p>
 	 * If provided will specify the default database to be used when
 	 * performing queries.
 	 * </p>
@@ -555,12 +555,12 @@ class mysqli  {
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function real_connect ($host = null, $username = null, $passwd = null, $dbname = null, $port = null, $socket = null, $flags = null) {}
+	public function real_connect ($host = null, $username = null, $passwd = null, $database = null, $port = null, $socket = null, $flags = null) {}
 
 	/**
 	 * Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection
 	 * @link https://php.net/manual/en/mysqli.real-escape-string.php
-	 * @param string $escapestr <p>
+	 * @param string $string <p>
 	 * The string to be escaped.
 	 * </p>
 	 * <p>
@@ -569,7 +569,7 @@ class mysqli  {
 	 * </p>
 	 * @return string an escaped string.
 	 */
-	public function real_escape_string ($escapestr) {}
+	public function real_escape_string ($string) {}
 
 	/**
 	 * Poll connections
@@ -599,12 +599,12 @@ class mysqli  {
 
 	/**
 	 * Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection
-	 * @param string $escapestr The string to be escaped.
+	 * @param string $string The string to be escaped.
 	 * Characters encoded are NUL (ASCII 0), \n, \r, \, ', ", and Control-Z.
 	 * @return string
 	 * @link https://secure.php.net/manual/en/mysqli.real-escape-string.php
 	 */
-	public function escape_string ($escapestr) {}
+	public function escape_string ($string) {}
 
 	/**
 	 * Execute an SQL query
@@ -650,12 +650,12 @@ class mysqli  {
 	/**
 	 * Selects the default database for database queries
 	 * @link https://php.net/manual/en/mysqli.select-db.php
-	 * @param string $dbname <p>
+	 * @param string $database <p>
 	 * The database name.
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function select_db ($dbname) {}
+	public function select_db ($database) {}
 
 	/**
 	 * Sets the default client character set
@@ -681,21 +681,21 @@ class mysqli  {
 	 * @param string $key <p>
 	 * The path name to the key file.
 	 * </p>
-	 * @param string $cert <p>
+	 * @param string $certificate <p>
 	 * The path name to the certificate file.
 	 * </p>
-	 * @param string $ca <p>
+	 * @param string $ca_certificate <p>
 	 * The path name to the certificate authority file.
 	 * </p>
-	 * @param string $capath <p>
+	 * @param string $ca_path <p>
 	 * The pathname to a directory that contains trusted SSL CA certificates in PEM format.
 	 * </p>
-	 * @param string $cipher <p>
+	 * @param string $cipher_algos <p>
 	 * A list of allowable ciphers to use for SSL encryption.
 	 * </p>
 	 * @return bool This function always returns TRUE value.
 	 */
-	public function ssl_set($key , $cert , $ca , $capath , $cipher) {}
+	public function ssl_set($key , $certificate , $ca_certificate , $ca_path , $cipher_algos) {}
 
 	/**
 	 * Gets the current system status
@@ -778,10 +778,9 @@ final class mysqli_warning  {
 
 	/**
 	 * The __construct purpose
-     * @param object $mysqli_link [optional]
 	 * @link https://php.net/manual/en/mysqli-warning.construct.php
 	 */
-	protected function __construct ($mysqli_link = null) {}
+	private function __construct () {}
 
 	/**
 	 * Move to the next warning
@@ -985,7 +984,7 @@ class mysqli_result implements IteratorAggregate
 	/**
 	 * Fetch meta-data for a single field
 	 * @link https://php.net/manual/en/mysqli-result.fetch-field-direct.php
-	 * @param int $fieldnr <p>
+	 * @param int $index <p>
 	 * The field number. This value must be in the range from
 	 * 0 to number of fields - 1.
 	 * </p>
@@ -1046,12 +1045,12 @@ class mysqli_result implements IteratorAggregate
 	 * </tr>
 	 * </table>
 	 */
-	public function fetch_field_direct ($fieldnr) {}
+	public function fetch_field_direct ($index) {}
 
 	/**
 	 * Fetches all result rows as an associative array, a numeric array, or both
 	 * @link https://php.net/manual/en/mysqli-result.fetch-all.php
-	 * @param int $resulttype [optional] <p>
+	 * @param int $mode [optional] <p>
 	 * This optional parameter is a constant indicating what type of array
 	 * should be produced from the current row data. The possible values for
 	 * this parameter are the constants MYSQLI_ASSOC,
@@ -1059,12 +1058,12 @@ class mysqli_result implements IteratorAggregate
 	 * </p>
 	 * @return mixed an array of associative or numeric arrays holding result rows.
 	 */
-	public function fetch_all ($resulttype = null) {}
+	public function fetch_all ($mode = null) {}
 
 	/**
 	 * Fetch a result row as an associative, a numeric array, or both
 	 * @link https://php.net/manual/en/mysqli-result.fetch-array.php
-	 * @param int $resulttype [optional] <p>
+	 * @param int $mode [optional] <p>
 	 * This optional parameter is a constant indicating what type of array
 	 * should be produced from the current row data. The possible values for
 	 * this parameter are the constants <b>MYSQLI_ASSOC</b>,
@@ -1081,7 +1080,7 @@ class mysqli_result implements IteratorAggregate
 	 * @return mixed an array of strings that corresponds to the fetched row or null if there
 	 * are no more rows in resultset.
 	 */
-	public function fetch_array ($resulttype = MYSQLI_BOTH) {}
+	public function fetch_array ($mode = MYSQLI_BOTH) {}
 
 	/**
 	 * Fetch a result row as an associative array
@@ -1101,7 +1100,7 @@ class mysqli_result implements IteratorAggregate
 	/**
 	 * Returns the current row of a result set as an object
 	 * @link https://php.net/manual/en/mysqli-result.fetch-object.php
-	 * @param string $class_name [optional] <p>
+	 * @param string $class [optional] <p>
 	 * The name of the class to instantiate, set the properties of and return.
 	 * If not specified, a <b>stdClass</b> object is returned.
 	 * </p>
@@ -1112,7 +1111,7 @@ class mysqli_result implements IteratorAggregate
 	 * @return stdClass|object an object with string properties that corresponds to the fetched
 	 * row or null if there are no more rows in resultset.
 	 */
-	public function fetch_object ($class_name = 'stdClass', array $params = null) {}
+	public function fetch_object ($class = 'stdClass', array $params = null) {}
 
 	/**
 	 * Get a result row as an enumerated array
@@ -1125,13 +1124,13 @@ class mysqli_result implements IteratorAggregate
 	/**
 	 * Set result pointer to a specified field offset
 	 * @link https://php.net/manual/en/mysqli-result.field-seek.php
-	 * @param int $fieldnr <p>
+	 * @param int $index <p>
 	 * The field number. This value must be in the range from
 	 * 0 to number of fields - 1.
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function field_seek ($fieldnr) {}
+	public function field_seek ($index) {}
 
 	/**
 	 * Frees the memory associated with a result
@@ -1194,25 +1193,25 @@ class mysqli_stmt  {
 
 	/**
 	 * mysqli_stmt constructor
-	 * @param mysqli $link
+	 * @param mysqli $mysql
 	 * @param string $query [optional]
 	 */
-	public function __construct ($link, $query) {}
+	public function __construct ($mysql, $query) {}
 
 	/**
 	 * Used to get the current value of a statement attribute
 	 * @link https://php.net/manual/en/mysqli-stmt.attr-get.php
-	 * @param int $attr <p>
+	 * @param int $attribute <p>
 	 * The attribute that you want to get.
 	 * </p>
 	 * @return int|false false if the attribute is not found, otherwise returns the value of the attribute.
 	 */
-	public function attr_get ($attr) {}
+	public function attr_get ($attribute) {}
 
 	/**
 	 * Used to modify the behavior of a prepared statement
 	 * @link https://php.net/manual/en/mysqli-stmt.attr-set.php
-	 * @param int $attr <p>
+	 * @param int $attribute <p>
 	 * The attribute that you want to set. It can have one of the following values:
 	 * <table>
 	 * Attribute values
@@ -1261,7 +1260,7 @@ class mysqli_stmt  {
 	 * @param int $mode <p>The value to assign to the attribute.</p>
 	 * @return bool
 	 */
-	public function attr_set ($attr, $mode) {}
+	public function attr_set ($attribute, $mode) {}
 
 	/**
 	 * Binds variables to a prepared statement as parameters
@@ -1381,7 +1380,7 @@ class mysqli_stmt  {
 	/**
 	 * Send data in blocks
 	 * @link https://php.net/manual/en/mysqli-stmt.send-long-data.php
-	 * @param int $param_nr <p>
+	 * @param int $param_num <p>
 	 * Indicates which parameter to associate the data with. Parameters are
 	 * numbered beginning with 0.
 	 * </p>
@@ -1390,7 +1389,7 @@ class mysqli_stmt  {
 	 * </p>
 	 * @return bool true on success or false on failure.
 	 */
-	public function send_long_data ($param_nr, $data) {}
+	public function send_long_data ($param_num, $data) {}
 
 	/**
 	 * No documentation available
@@ -1467,83 +1466,83 @@ class mysqli_stmt  {
  * (PHP 5)<p>
  * Gets the number of affected rows in a previous MySQL operation
  * @link https://secure.php.net/manual/en/mysqli.affected-rows.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return int An integer greater than zero indicates the number of rows affected or retrieved.
  * Zero indicates that no records where updated for an UPDATE statement,
  * no rows matched the WHERE clause in the query or that no query has yet been executed. -1 indicates that the query returned an error.
  */
-function mysqli_affected_rows ($link) {}
+function mysqli_affected_rows ($mysql) {}
 
 /**
  * Turns on or off auto-committing database modifications
  * @link https://secure.php.net/manual/en/mysqli.autocommit.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @param bool $mode Whether to turn on auto-commit or not.
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param bool $enable Whether to turn on auto-commit or not.
  * @return bool
  */
-function mysqli_autocommit ($link, $mode) {}
+function mysqli_autocommit ($mysql, $enable) {}
 
 /**
  * Starts a transaction
  * @link https://secure.php.net/manual/en/mysqli.begin-transaction.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param int $flags [optional]
  * @param string $name [optional]
  * @return bool true on success or false on failure.
  * @since 5.5
  */
-function mysqli_begin_transaction ($link, $flags = 0, $name = null) {}
+function mysqli_begin_transaction ($mysql, $flags = 0, $name = null) {}
 
 /**
  * Changes the user of the specified database connection
  * @link https://php.net/manual/en/mysqli.change-user.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @param string $user The MySQL user name.
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param string $username The MySQL user name.
  * @param string $password The MySQL password.
  * @param string|null $database The database to change to. If desired, the NULL value may be passed resulting in only changing the user and not selecting a database.
  * @return bool
  */
-function mysqli_change_user ($link, $user, $password, $database) {}
+function mysqli_change_user ($mysql, $username, $password, $database) {}
 
 /**
  * Returns the default character set for the database connection
  * @link https://php.net/manual/en/mysqli.character-set-name.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string The default character set for the current connection
  */
-function mysqli_character_set_name ($link) {}
+function mysqli_character_set_name ($mysql) {}
 
 /**
  * Closes a previously opened database connection
  * @link https://php.net/manual/en/mysqli.close.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return bool
  */
-function mysqli_close ($link) {}
+function mysqli_close ($mysql) {}
 
 /**
  * Commits the current transaction
  * @link https://php.net/manual/en/mysqli.commit.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param int $flags [optional] A bitmask of MYSQLI_TRANS_COR_* constants
  * @param string $name [optional If provided then COMMITname is executed
  * @return bool
  */
-function mysqli_commit ($link, $flags = -1, $name = null) {}
+function mysqli_commit ($mysql, $flags = -1, $name = null) {}
 
 /**
  * Open a new connection to the MySQL server
  * Alias of <b>mysqli::__construct</b>
  * @link https://php.net/manual/en/mysqli.construct.php
  * @param string $host Can be either a host name or an IP address. Passing the NULL value or the string "localhost" to this parameter, the local host is assumed. When possible, pipes will be used instead of the TCP/IP protocol.
- * @param string $user The MySQL user name.
+ * @param string $username The MySQL user name.
  * @param string $password If not provided or NULL, the MySQL server will attempt to authenticate the user against those user records which have no password only.
  * @param string $database If provided will specify the default database to be used when performing queries.
  * @param int $port Specifies the port number to attempt to connect to the MySQL server.
  * @param string $socket Specifies the socket or named pipe that should be used.
  * @return mysqli|false object which represents the connection to a MySQL Server or false if an error occurred.
  */
-function mysqli_connect ($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null) {}
+function mysqli_connect ($host = null, $username = null, $password = null, $database = null, $port = null, $socket = null) {}
 
 /**
  * Returns the error code from last connect call
@@ -1572,35 +1571,35 @@ function mysqli_data_seek ($result, $offset) {}
 /**
  * Dump debugging information into the log
  * @link https://php.net/manual/en/mysqli.dump-debug-info.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return bool
  */
-function mysqli_dump_debug_info ($link) {}
+function mysqli_dump_debug_info ($mysql) {}
 
 /**
  * Performs debugging operations using the Fred Fish debugging library.
  * @link https://php.net/manual/en/mysqli.debug.php
- * @param string $message
+ * @param string $debug
  * @return bool
  */
-function mysqli_debug ($message) {}
+function mysqli_debug ($debug) {}
 
 /**
  * Returns the error code for the most recent function call
  * @link https://php.net/manual/en/mysqli.errno.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return int An error code value for the last call, if it failed. zero means no error occurred.
  */
-function mysqli_errno ($link) {}
+function mysqli_errno ($mysql) {}
 
 /**
  * Returns a list of errors from the last command executed
  * @link https://php.net/manual/en/mysqli.error-list.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return array A list of errors, each as an associative array containing the errno, error, and sqlstate.
  * @since 5.4
  */
-function mysqli_error_list ($link) {}
+function mysqli_error_list ($mysql) {}
 
 /**
  * Returns a list of errors from the last statement executed
@@ -1614,10 +1613,10 @@ function mysqli_stmt_error_list ($stmt) {}
 /**
  * Returns a string description of the last error
  * @link https://secure.php.net/manual/en/mysqli.error.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string
  */
-function mysqli_error ($link) {}
+function mysqli_error ($mysql) {}
 
 /**
  * Executes a prepared Query
@@ -1659,10 +1658,10 @@ function mysqli_fetch_fields ($result) {}
  * @link https://secure.php.net/manual/en/mysqli-result.fetch-field-direct.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
- * @param int $fieldnr The field number. This value must be in the range from 0 to number of fields - 1.
+ * @param int $offset The field number. This value must be in the range from 0 to number of fields - 1.
  * @return object|false Returns an object which contains field definition information or FALSE if no field information for specified fieldnr is available.
  */
-function mysqli_fetch_field_direct ($result, $fieldnr) {}
+function mysqli_fetch_field_direct ($result, $offset) {}
 
 /**
  * Returns the lengths of the columns of the current row in the result set
@@ -1679,20 +1678,20 @@ function mysqli_fetch_lengths ($result) {}
  * @link https://php.net/manual/en/mysqli-result.fetch-all.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
- * @param int $resulttype
+ * @param int $mode
  * @return array Returns an array of associative or numeric arrays holding result rows.
  */
-function mysqli_fetch_all ($result, $resulttype = MYSQLI_NUM) {}
+function mysqli_fetch_all ($result, $mode = MYSQLI_NUM) {}
 
 /**
  * Fetch a result row as an associative, a numeric array, or both.
  * @link https://php.net/manual/en/mysqli-result.fetch-array.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
- * @param int $resulttype
+ * @param int $mode
  * @return array|null
  */
-function mysqli_fetch_array ($result, $resulttype = MYSQLI_BOTH) {}
+function mysqli_fetch_array ($result, $mode = MYSQLI_BOTH) {}
 
 /**
  * Fetch a result row as an associative array
@@ -1712,14 +1711,14 @@ function mysqli_fetch_assoc ($result) {}
  * @link https://php.net/manual/en/mysqli-result.fetch-object.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
- * @param string $class_name The name of the class to instantiate, set the properties of and return. If not specified, a stdClass object is returned.
+ * @param string $class The name of the class to instantiate, set the properties of and return. If not specified, a stdClass object is returned.
  * @param array|null $params An optional array of parameters to pass to the constructor for class_name objects.
  * @return object|null Returns an object with string properties that corresponds to the fetched row or NULL if there are no more rows in resultset.
  * If two or more columns of the result have the same field names, the last column will take precedence.
  * To access the other column(s) of the same name,
  * you either need to access the result with numeric indices by using mysqli_fetch_row() or add alias names.
  */
-function mysqli_fetch_object ($result, $class_name = 'stdClass', $params = null) {}
+function mysqli_fetch_object ($result, $class = 'stdClass', $params = null) {}
 
 /**
  * Get a result row as an enumerated array
@@ -1735,20 +1734,20 @@ function mysqli_fetch_row ($result) {}
 /**
  * Returns the number of columns for the most recent query
  * @link https://php.net/manual/en/mysqli.field-count.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return int An integer representing the number of fields in a result set.
  */
-function mysqli_field_count ($link) {}
+function mysqli_field_count ($mysql) {}
 
 /**
  * Set result pointer to a specified field offset
  * @link https://php.net/manual/en/mysqli-result.field-seek.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
- * @param int $fieldnr The field number. This value must be in the range from 0 to number of fields - 1.
+ * @param int $index The field number. This value must be in the range from 0 to number of fields - 1.
  * @return bool
  */
-function mysqli_field_seek ($result, $fieldnr) {}
+function mysqli_field_seek ($result, $index) {}
 
 /**
  * Get current field offset of a result pointer
@@ -1772,19 +1771,19 @@ function mysqli_free_result ($result) {}
  * Returns client Zval cache statistics
  * Available only with mysqlnd.
  * @link https://php.net/manual/en/function.mysqli-get-cache-stats.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return array|false an array with client Zval cache stats if success, false otherwise.
  * @removed 5.4
  */
-function mysqli_get_cache_stats ($link) {}
+function mysqli_get_cache_stats ($mysql) {}
 
 /**
  * Returns statistics about the client connection
  * @link https://php.net/manual/en/mysqli.get-connection-stats.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return array|false an array with connection stats if successful, FALSE otherwise.
  */
-function mysqli_get_connection_stats ($link) {}
+function mysqli_get_connection_stats ($mysql) {}
 
 /**
  * Returns client per-process statistics
@@ -1796,18 +1795,18 @@ function mysqli_get_client_stats () {}
 /**
  * Returns a character set object
  * @link https://php.net/manual/en/mysqli.get-charset.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return object
  */
-function mysqli_get_charset ($link) {}
+function mysqli_get_charset ($mysql) {}
 
 /**
  * Get MySQL client info
  * @link https://php.net/manual/en/mysqli.get-client-info.php
- * @param mysqli $link [optional] A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql [optional] A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string A string that represents the MySQL client library version
  */
-function mysqli_get_client_info ($link = null) {}
+function mysqli_get_client_info ($mysql = null) {}
 
 /**
  * Returns the MySQL client version as an integer
@@ -1819,10 +1818,10 @@ function mysqli_get_client_version () {}
 /**
  * Returns a string representing the type of connection used
  * @link https://php.net/manual/en/mysqli.get-host-info.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string A character string representing the server hostname and the connection type.
  */
-function mysqli_get_host_info ($link) {}
+function mysqli_get_host_info ($mysql) {}
 
 /**
  * Return information about open and cached links
@@ -1871,35 +1870,35 @@ function mysqli_get_links_stats() {}
 /**
  * Returns the version of the MySQL protocol used
  * @link https://php.net/manual/en/mysqli.get-proto-info.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return int Returns an integer representing the protocol version
  */
-function mysqli_get_proto_info ($link) {}
+function mysqli_get_proto_info ($mysql) {}
 
 /**
  * Returns the version of the MySQL server
  * @link https://php.net/manual/en/mysqli.get-server-info.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string A character string representing the server version.
  */
-function mysqli_get_server_info ($link) {}
+function mysqli_get_server_info ($mysql) {}
 
 /**
  * Returns the version of the MySQL server as an integer
  * @link https://php.net/manual/en/mysqli.get-server-version.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return int An integer representing the server version.
  * The form of this version number is main_version * 10000 + minor_version * 100 + sub_version (i.e. version 4.1.0 is 40100).
  */
-function mysqli_get_server_version ($link) {}
+function mysqli_get_server_version ($mysql) {}
 
 /**
  * Get result of SHOW WARNINGS
  * @link https://php.net/manual/en/mysqli.get-warnings.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return mysqli_warning
  */
-function mysqli_get_warnings ($link) {}
+function mysqli_get_warnings ($mysql) {}
 
 /**
  * Initializes MySQLi and returns a resource for use with mysqli_real_connect()
@@ -1912,72 +1911,72 @@ function mysqli_init () {}
 /**
  * Retrieves information about the most recently executed query
  * @link https://php.net/manual/en/mysqli.info.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string A character string representing additional information about the most recently executed query.
  */
-function mysqli_info ($link) {}
+function mysqli_info ($mysql) {}
 
 /**
  * Returns the auto generated id used in the last query
  * @link https://php.net/manual/en/mysqli.insert-id.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return int|string The value of the AUTO_INCREMENT field that was updated by the previous query. Returns zero if there was no previous query on the connection or if the query did not update an AUTO_INCREMENT value.
  * If the number is greater than maximal int value, mysqli_insert_id() will return a string.
  */
-function mysqli_insert_id ($link) {}
+function mysqli_insert_id ($mysql) {}
 
 /**
  * Asks the server to kill a MySQL thread
  * @link https://php.net/manual/en/mysqli.kill.php
  * @see mysqli_thread_id()
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @param int $processid
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param int $process_id
  * @return bool
  */
-function mysqli_kill ($link, $processid) {}
+function mysqli_kill ($mysql, $process_id) {}
 
 /**
  * Unsets user defined handler for load local infile command
  * @link https://php.net/manual/en/mysqli.set-local-infile-default.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return void
  */
-function mysqli_set_local_infile_default ($link) {}
+function mysqli_set_local_infile_default ($mysql) {}
 
 /**
  * Set callback function for LOAD DATA LOCAL INFILE command
  * @link https://php.net/manual/en/mysqli.set-local-infile-handler.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param callable $read_func
  * @return bool
  */
-function mysqli_set_local_infile_handler ($link, $read_func) {}
+function mysqli_set_local_infile_handler ($mysql, $read_func) {}
 
 /**
  * Check if there are any more query results from a multi query
  * @link https://php.net/manual/en/mysqli.more-results.php
  * @see mysqli_multi_query()
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return bool
  */
-function mysqli_more_results ($link) {}
+function mysqli_more_results ($mysql) {}
 
 /**
  * Performs a query on the database
  * @link https://php.net/manual/en/mysqli.multi-query.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $query One or more queries which are separated by semicolons.
  * @return bool Returns FALSE if the first statement failed. To retrieve subsequent errors from other statements you have to call mysqli_next_result() first.
  */
-function mysqli_multi_query ($link, $query) {}
+function mysqli_multi_query ($mysql, $query) {}
 
 /**
  * Prepare next result from multi_query
  * @link https://php.net/manual/en/mysqli.next-result.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return bool
  */
-function mysqli_next_result ($link) {}
+function mysqli_next_result ($mysql) {}
 
 /**
  * Get the number of fields in a result
@@ -2000,41 +1999,41 @@ function mysqli_num_rows ($result) {}
 /**
  * Set options
  * @link https://php.net/manual/en/mysqli.options.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param int $option
  * @param mixed $value
  * @return bool
  */
-function mysqli_options ($link, $option, $value) {}
+function mysqli_options ($mysql, $option, $value) {}
 
 /**
  * Pings a server connection, or tries to reconnect if the connection has gone down
  * @link https://php.net/manual/en/mysqli.ping.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return bool
  */
-function mysqli_ping ($link) {}
+function mysqli_ping ($mysql) {}
 
 /**
  * Poll connections
  * @link https://php.net/manual/en/mysqli.poll.php
  * @param array &$read
+ * @param array &$write
  * @param array &$error
- * @param array &$reject
- * @param int $sec
- * @param int $usec [optional]
+ * @param int $seconds
+ * @param int $microseconds [optional]
  * @return int|false number of ready connections upon success, FALSE otherwise.
  */
-function mysqli_poll (array &$read = null, array &$error = null, &$reject = null, $sec, $usec = 0) {}
+function mysqli_poll (array &$read = null, array &$write = null, &$error = null, $seconds, $microseconds = 0) {}
 
 /**
  * Prepare an SQL statement for execution
  * @link https://php.net/manual/en/mysqli.prepare.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $query
  * @return mysqli_stmt|false A statement object or FALSE if an error occurred.
  */
-function mysqli_prepare ($link, $query) {}
+function mysqli_prepare ($mysql, $query) {}
 
 /**
  * Enables or disables internal report functions
@@ -2078,23 +2077,23 @@ function mysqli_report ($flags) {}
 /**
  * Performs a query on the database
  * @link https://php.net/manual/en/mysqli.query.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $query An SQL query
- * @param int $resultmode
+ * @param int $result_mode
  * @return mysqli_result|bool
  * For successful SELECT, SHOW, DESCRIBE or EXPLAIN queries, mysqli_query() will return a mysqli_result object.
  * For other successful queries mysqli_query() will return TRUE.
  * Returns FALSE on failure.
  */
-function mysqli_query ($link, $query, $resultmode = MYSQLI_STORE_RESULT) {}
+function mysqli_query ($mysql, $query, $result_mode = MYSQLI_STORE_RESULT) {}
 
 /**
  * Opens a connection to a mysql server
  * @link https://php.net/manual/en/mysqli.real-connect.php
  * @see mysqli_connect()
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $host [optional]
- * @param string $user [optional]
+ * @param string $username [optional]
  * @param string $password [optional]
  * @param string $database [optional]
  * @param int $port [optional]
@@ -2102,84 +2101,84 @@ function mysqli_query ($link, $query, $resultmode = MYSQLI_STORE_RESULT) {}
  * @param int $flags [optional]
  * @return bool
  */
-function mysqli_real_connect ($link, $host = null, $user = null, $password = null, $database = null, $port = null, $socket = null, $flags = null) {}
+function mysqli_real_connect ($mysql, $host = null, $username = null, $password = null, $database = null, $port = null, $socket = null, $flags = null) {}
 
 /**
  * Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection
  * @link https://php.net/manual/en/mysqli.real-escape-string.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @param string $escapestr The string to be escaped. Characters encoded are NUL (ASCII 0), \n, \r, \, ', ", and Control-Z.
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param string $string The string to be escaped. Characters encoded are NUL (ASCII 0), \n, \r, \, ', ", and Control-Z.
  * @return string
  */
-function mysqli_real_escape_string ($link, $escapestr) {}
+function mysqli_real_escape_string ($mysql, $string) {}
 
 /**
  * Execute an SQL query
  * @link https://php.net/manual/en/mysqli.real-query.php
  * @see mysqli_field_count()
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $query
  * @return bool
  */
-function mysqli_real_query ($link, $query) {}
+function mysqli_real_query ($mysql, $query) {}
 
 /**
  * Get result from async query
  * Available only with mysqlnd.
  * @link https://php.net/manual/en/mysqli.reap-async-query.php
  * @see mysqli_poll()
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return mysqli_result|false mysqli_result in success, FALSE otherwise.
  */
-function mysqli_reap_async_query ($link) {}
+function mysqli_reap_async_query ($mysql) {}
 
 /**
  * Set a named transaction savepoint
  * @link https://secure.php.net/manual/en/mysqli.release-savepoint.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $name
  * @return bool Returns TRUE on success or FALSE on failure.
  * @since 5.5
  */
-function mysqli_release_savepoint ($link ,$name) {}
+function mysqli_release_savepoint ($mysql ,$name) {}
 
 /**
  * Rolls back current transaction
  * @link https://php.net/manual/en/mysqli.rollback.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param int $flags [optional] A bitmask of MYSQLI_TRANS_COR_* constants
  * @param string $name [optional] If provided then ROLLBACKname is executed
  * @return bool
  */
-function mysqli_rollback ($link, $flags = 0, $name = null) {}
+function mysqli_rollback ($mysql, $flags = 0, $name = null) {}
 
 /**
  * Set a named transaction savepoint
  * @link https://secure.php.net/manual/en/mysqli.savepoint.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $name
  * @return bool Returns TRUE on success or FALSE on failure.
  * @since 5.5
  */
-function mysqli_savepoint ($link ,$name) {}
+function mysqli_savepoint ($mysql ,$name) {}
 
 /**
  * Selects the default database for database queries
  * @link https://php.net/manual/en/mysqli.select-db.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @param string $dbname
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param string $database
  * @return bool
  */
-function mysqli_select_db ($link, $dbname) {}
+function mysqli_select_db ($mysql, $database) {}
 
 /**
  * Sets the default client character set
  * @link https://php.net/manual/en/mysqli.set-charset.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $charset
  * @return bool
  */
-function mysqli_set_charset ($link, $charset) {}
+function mysqli_set_charset ($mysql, $charset) {}
 
 /**
  * Returns the total number of rows changed, deleted, or inserted by the last executed statement
@@ -2193,20 +2192,20 @@ function mysqli_stmt_affected_rows ($stmt) {}
  * Get the current value of a statement attribute
  * @link https://php.net/manual/en/mysqli-stmt.attr-get.php
  * @param mysqli_stmt $stmt
- * @param int $attr
+ * @param int $attribute
  * @return int|false Returns FALSE if the attribute is not found, otherwise returns the value of the attribute.
  */
-function mysqli_stmt_attr_get ($stmt, $attr) {}
+function mysqli_stmt_attr_get ($stmt, $attribute) {}
 
 /**
  * Modify the behavior of a prepared statement
  * @link https://php.net/manual/en/mysqli-stmt.attr-set.php
  * @param mysqli_stmt $stmt
- * @param int $attr
- * @param int $mode
+ * @param int $attribute
+ * @param int $value
  * @return bool
  */
-function mysqli_stmt_attr_set ($stmt, $attr, $mode) {}
+function mysqli_stmt_attr_set ($stmt, $attribute, $value) {}
 
 /**
  * Returns the number of fields in the given statement
@@ -2219,10 +2218,10 @@ function mysqli_stmt_field_count ($stmt) {}
 /**
  * Initializes a statement and returns an object for use with mysqli_stmt_prepare
  * @link https://php.net/manual/en/mysqli.stmt-init.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return mysqli_stmt
  */
-function mysqli_stmt_init ($link) {}
+function mysqli_stmt_init ($mysql) {}
 
 /**
  * Prepare an SQL statement for execution
@@ -2245,11 +2244,11 @@ function mysqli_stmt_result_metadata ($stmt) {}
  * Send data in blocks
  * @link https://php.net/manual/en/mysqli-stmt.send-long-data.php
  * @param mysqli_stmt $stmt
- * @param int $param_nr
+ * @param int $param_num
  * @param string $data
  * @return bool
  */
-function mysqli_stmt_send_long_data ($stmt, $param_nr, $data) {}
+function mysqli_stmt_send_long_data ($stmt, $param_num, $data) {}
 
 /**
  * Binds variables to a prepared statement as parameters
@@ -2360,31 +2359,31 @@ function mysqli_stmt_param_count ($stmt) {}
 /**
  * Returns the SQLSTATE error from previous MySQL operation
  * @link https://php.net/manual/en/mysqli.sqlstate.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string Returns a string containing the SQLSTATE error code for the last error. The error code consists of five characters. '00000' means no error.
  */
-function mysqli_sqlstate ($link) {}
+function mysqli_sqlstate ($mysql) {}
 
 /**
  * Gets the current system status
  * @link https://php.net/manual/en/mysqli.stat.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string|false A string describing the server status. FALSE if an error occurred.
  */
-function mysqli_stat ($link) {}
+function mysqli_stat ($mysql) {}
 
 /**
  * Used for establishing secure connections using SSL
  * @link https://secure.php.net/manual/en/mysqli.ssl-set.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $key The path name to the key file
- * @param string $cert The path name to the certificate file
- * @param string $ca The path name to the certificate authority file
- * @param string $capath The pathname to a directory that contains trusted SSL CA certificates in PEM format
- * @param string $cipher A list of allowable ciphers to use for SSL encryption
+ * @param string $certificate The path name to the certificate file
+ * @param string $ca_certificate The path name to the certificate authority file
+ * @param string $ca_path The pathname to a directory that contains trusted SSL CA certificates in PEM format
+ * @param string $cipher_algos A list of allowable ciphers to use for SSL encryption
  * @return bool This function always returns TRUE value.
  */
-function mysqli_ssl_set($link, $key , $cert , $ca , $capath , $cipher) {}
+function mysqli_ssl_set($mysql, $key , $certificate , $ca_certificate , $ca_path , $cipher_algos) {}
 
 /**
  * Closes a prepared statement
@@ -2462,19 +2461,19 @@ function mysqli_stmt_store_result ($stmt) {}
 /**
  * Transfers a result set from the last query
  * @link https://php.net/manual/en/mysqli.store-result.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @param int $option [optional] The option that you want to set
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param int $mode [optional] The option that you want to set
  * @return mysqli_result|false
  */
-function mysqli_store_result ($link, int $option = null) {}
+function mysqli_store_result ($mysql, int $mode = null) {}
 
 /**
  * Returns the thread ID for the current connection
  * @link https://php.net/manual/en/mysqli.thread-id.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return int Returns the Thread ID for the current connection.
  */
-function mysqli_thread_id ($link) {}
+function mysqli_thread_id ($mysql) {}
 
 /**
  * Returns whether thread safety is given or not
@@ -2486,27 +2485,27 @@ function mysqli_thread_safe () {}
 /**
  * Initiate a result set retrieval
  * @link https://php.net/manual/en/mysqli.use-result.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return mysqli_result|false
  */
-function mysqli_use_result ($link) {}
+function mysqli_use_result ($mysql) {}
 
 /**
  * Returns the number of warnings from the last query for the given link
  * @link https://php.net/manual/en/mysqli.warning-count.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return int
  */
-function mysqli_warning_count ($link) {}
+function mysqli_warning_count ($mysql) {}
 
 /**
  * Flushes tables or caches, or resets the replication server information
  * @link https://php.net/manual/en/mysqli.refresh.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @param int $options
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param int $flags
  * @return bool
  */
-function mysqli_refresh ($link, $options) {}
+function mysqli_refresh ($mysql, $flags) {}
 
 /**
  * Alias for <b>mysqli_stmt_bind_param</b>
@@ -2532,21 +2531,21 @@ function mysqli_bind_result ($stmt, $types, &$var1) {}
 /**
  * Alias of <b>mysqli_character_set_name</b>
  * @link https://php.net/manual/en/function.mysqli-client-encoding.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string
  * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
-function mysqli_client_encoding ($link) {}
+function mysqli_client_encoding ($mysql) {}
 
 /**
  * Alias of <b>mysqli_real_escape_string</b>
  * @link https://php.net/manual/en/function.mysqli-escape-string.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
- * @param string $escapestr The string to be escaped
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param string $string The string to be escaped
  * @return string
  */
-function mysqli_escape_string ($link, $escapestr) {}
+function mysqli_escape_string ($mysql, $string) {}
 
 /**
  * Alias for <b>mysqli_stmt_fetch</b>
@@ -2582,23 +2581,23 @@ function mysqli_get_metadata ($stmt) {}
  * Alias for <b>mysqli_stmt_send_long_data</b>
  * @link https://php.net/manual/en/function.mysqli-send-long-data.php
  * @param mysqli_stmt $stmt
- * @param int $param_nr
+ * @param int $param_num
  * @param string $data
  * @return bool
  * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
-function mysqli_send_long_data ($stmt, $param_nr, $data) {}
+function mysqli_send_long_data ($stmt, $param_num, $data) {}
 
 /**
  * Alias of <b>mysqli_options</b>
  * @link https://php.net/manual/en/function.mysqli-set-opt.php
- * @param mysqli $link A link identifier returned by mysqli_connect() or mysqli_init()
+ * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param int $option
  * @param mixed $value
  * @return bool
  */
-function mysqli_set_opt ($link, $option, $value) {}
+function mysqli_set_opt ($mysql, $option, $value) {}
 
 
 /**

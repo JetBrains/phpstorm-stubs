@@ -1117,7 +1117,7 @@ define('PHP_QUERY_RFC3986', 2);
 
 /**
  * Specifies where the manpages were installed into.
- * @since PHP 5.3.7
+ * @since 5.3.7
  * @link https://php.net/manual/en/reserved.constants.php
  */
 define('PHP_MANDIR', '/usr/local/php/php/man');

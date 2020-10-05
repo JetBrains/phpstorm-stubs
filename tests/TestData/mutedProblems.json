@@ -1532,6 +1532,29 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Directory",
+      "methods": [
+        {
+          "name": "close",
+          "problems": [
+            "parameter mismatch"
+          ]
+        },
+        {
+          "name": "rewind",
+          "problems": [
+            "parameter mismatch"
+          ]
+        },
+        {
+          "name": "read",
+          "problems": [
+            "parameter mismatch"
+          ]
+        }
+      ]
     }
   ],
   "interfaces": [

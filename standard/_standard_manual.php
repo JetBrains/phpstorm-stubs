@@ -26,13 +26,13 @@ define("__COMPILER_HALT_OFFSET__",0);
  * If the hexadecimal input string is of odd length or invalid hexadecimal string an <code>E_WARNING</code> level error is emitted.
  *
  * @link https://php.net/manual/en/function.hex2bin.php
- * @param string $data Hexadecimal string to convert.
+ * @param string $string Hexadecimal string to convert.
  * @return string|false The binary representation of the given data or <b>FALSE</b> on failure.
  * @see bin2hex()
  * @see unpack()
  * @since 5.4
  */
-function hex2bin($data) {};
+function hex2bin($string) {};
 
 /**
  * Get or Set the HTTP response code

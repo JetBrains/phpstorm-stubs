@@ -63,13 +63,13 @@ class LibXMLError  {
 /**
  * Set the streams context for the next libxml document load or write
  * @link https://php.net/manual/en/function.libxml-set-streams-context.php
- * @param resource $streams_context <p>
+ * @param resource $context <p>
  * The stream context resource (created with
  * <b>stream_context_create</b>)
  * </p>
  * @return void No value is returned.
  */
-function libxml_set_streams_context ($streams_context) {}
+function libxml_set_streams_context ($context) {}
 
 /**
  * Disable libxml errors and allow user to fetch error information as needed

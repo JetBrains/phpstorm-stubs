@@ -5,12 +5,12 @@
 /**
  * Converts Julian Day Count to Gregorian date
  * @link https://php.net/manual/en/function.jdtogregorian.php
- * @param int $julianday <p>
+ * @param int $juliandaycount <p>
  * A julian day number as integer
  * </p>
  * @return string The gregorian date as a string in the form "month/day/year"
  */
-function jdtogregorian ($julianday) {}
+function jdtogregorian ($juliandaycount) {}
 
 /**
  * Converts a Gregorian date to Julian Day Count
@@ -31,12 +31,12 @@ function gregoriantojd ($month, $day, $year) {}
 /**
  * Converts a Julian Day Count to a Julian Calendar Date
  * @link https://php.net/manual/en/function.jdtojulian.php
- * @param int $julianday <p>
+ * @param int $juliandaycount <p>
  * A julian day number as integer
  * </p>
  * @return string The julian date as a string in the form "month/day/year"
  */
-function jdtojulian ($julianday) {}
+function jdtojulian ($juliandaycount) {}
 
 /**
  * Converts a Julian Calendar date to Julian Day Count
@@ -116,7 +116,7 @@ function frenchtojd ($month, $day, $year) {}
 /**
  * Returns the day of the week
  * @link https://php.net/manual/en/function.jddayofweek.php
- * @param int $julianday <p>
+ * @param int $juliandaycount <p>
  * A julian day number as integer
  * </p>
  * @param int $mode [optional] <table>
@@ -148,16 +148,16 @@ function frenchtojd ($month, $day, $year) {}
  * </table>
  * @return mixed The gregorian weekday as either an integer or string.
  */
-function jddayofweek ($julianday, $mode = CAL_DOW_DAYNO) {}
+function jddayofweek ($juliandaycount, $mode = CAL_DOW_DAYNO) {}
 
 /**
  * Returns a month name
  * @link https://php.net/manual/en/function.jdmonthname.php
- * @param int $julianday
+ * @param int $juliandaycount
  * @param int $mode
  * @return string The month name for the given Julian Day and <i>calendar</i>.
  */
-function jdmonthname ($julianday, $mode) {}
+function jdmonthname ($juliandaycount, $mode) {}
 
 /**
  * Get Unix timestamp for midnight on Easter of a given year

@@ -4,13 +4,13 @@
 
 /**
  * @param resource $ftp
- * @param string $remote_file
+ * @param string $remove_file
  * @param string $local_file
  * @param int $mode [optional]
  * @return bool
  * @since 7.2
  */
-function ftp_append ($ftp,  $remote_file,  $local_file,  $mode = FTP_BINARY){}
+function ftp_append ($ftp, $remove_file, $local_file, $mode = FTP_BINARY){}
 
 /**
  * @param resource $ftp
@@ -65,7 +65,7 @@ function ftp_ssl_connect ($host, $port = 21, $timeout = 90) {}
 /**
  * Logs in to an FTP connection
  * @link https://php.net/manual/en/function.ftp-login.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $username <p>
@@ -77,32 +77,32 @@ function ftp_ssl_connect ($host, $port = 21, $timeout = 90) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * If login fails, PHP will also throw a warning.
  */
-function ftp_login ($ftp_stream, $username, $password) {}
+function ftp_login ($ftp, $username, $password) {}
 
 /**
  * Returns the current directory name
  * @link https://php.net/manual/en/function.ftp-pwd.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @return string|false the current directory name or <b>FALSE</b> on error.
  */
-function ftp_pwd ($ftp_stream) {}
+function ftp_pwd ($ftp) {}
 
 /**
  * Changes to the parent directory
  * @link https://php.net/manual/en/function.ftp-cdup.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_cdup ($ftp_stream) {}
+function ftp_cdup ($ftp) {}
 
 /**
  * Changes the current directory on a FTP server
  * @link https://php.net/manual/en/function.ftp-chdir.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $directory <p>
@@ -111,12 +111,12 @@ function ftp_cdup ($ftp_stream) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * If changing directory fails, PHP will also throw a warning.
  */
-function ftp_chdir ($ftp_stream, $directory) {}
+function ftp_chdir ($ftp, $directory) {}
 
 /**
  * Requests execution of a command on the FTP server
  * @link https://php.net/manual/en/function.ftp-exec.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $command <p>
@@ -125,12 +125,12 @@ function ftp_chdir ($ftp_stream, $directory) {}
  * @return bool <b>TRUE</b> if the command was successful (server sent response code:
  * 200); otherwise returns <b>FALSE</b>.
  */
-function ftp_exec ($ftp_stream, $command) {}
+function ftp_exec ($ftp, $command) {}
 
 /**
  * Sends an arbitrary command to an FTP server
  * @link https://php.net/manual/en/function.ftp-raw.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $command <p>
@@ -140,12 +140,12 @@ function ftp_exec ($ftp_stream, $command) {}
  * No parsing is performed on the response string, nor does
  * <b>ftp_raw</b> determine if the command succeeded.
  */
-function ftp_raw ($ftp_stream, $command) {}
+function ftp_raw ($ftp, $command) {}
 
 /**
  * Creates a directory
  * @link https://php.net/manual/en/function.ftp-mkdir.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $directory <p>
@@ -153,12 +153,12 @@ function ftp_raw ($ftp_stream, $command) {}
  * </p>
  * @return string|false the newly created directory name on success or <b>FALSE</b> on error.
  */
-function ftp_mkdir ($ftp_stream, $directory) {}
+function ftp_mkdir ($ftp, $directory) {}
 
 /**
  * Removes a directory
  * @link https://php.net/manual/en/function.ftp-rmdir.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $directory <p>
@@ -167,12 +167,12 @@ function ftp_mkdir ($ftp_stream, $directory) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_rmdir ($ftp_stream, $directory) {}
+function ftp_rmdir ($ftp, $directory) {}
 
 /**
  * Set permissions on a file via FTP
  * @link https://php.net/manual/en/function.ftp-chmod.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param int $mode <p>
@@ -183,29 +183,29 @@ function ftp_rmdir ($ftp_stream, $directory) {}
  * </p>
  * @return int|false the new file permissions on success or <b>FALSE</b> on error.
  */
-function ftp_chmod ($ftp_stream, $mode, $filename) {}
+function ftp_chmod ($ftp, $mode, $filename) {}
 
 /**
  * Allocates space for a file to be uploaded
  * @link https://php.net/manual/en/function.ftp-alloc.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param int $filesize <p>
+ * @param int $size <p>
  * The number of bytes to allocate.
  * </p>
- * @param string &$result [optional] <p>
+ * @param string &$response [optional] <p>
  * A textual representation of the servers response will be returned by
  * reference in <i>result</i> if a variable is provided.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_alloc ($ftp_stream, $filesize, &$result = null) {}
+function ftp_alloc ($ftp, $size, &$response = null) {}
 
 /**
  * Returns a list of files in the given directory
  * @link https://php.net/manual/en/function.ftp-nlist.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $directory <p>
@@ -217,19 +217,19 @@ function ftp_alloc ($ftp_stream, $filesize, &$result = null) {}
  * @return array|false an array of filenames from the specified directory on success or
  * <b>FALSE</b> on error.
  */
-function ftp_nlist ($ftp_stream, $directory) {}
+function ftp_nlist ($ftp, $directory) {}
 
 /**
  * Returns a detailed list of files in the given directory
  * @link https://php.net/manual/en/function.ftp-rawlist.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $directory <p>
  * The directory path. May include arguments for the LIST
  * command.
  * </p>
- * @param bool $recursive [optional] <p>
+ * @param bool $recurse [optional] <p>
  * If set to <b>TRUE</b>, the issued command will be LIST -R.
  * </p>
  * @return array an array where each element corresponds to one line of text.
@@ -239,22 +239,22 @@ function ftp_nlist ($ftp_stream, $directory) {}
  * <b>ftp_systype</b> can be used to determine how the results
  * should be interpreted.
  */
-function ftp_rawlist ($ftp_stream, $directory, $recursive = false) {}
+function ftp_rawlist ($ftp, $directory, $recurse = false) {}
 
 /**
  * Returns the system type identifier of the remote FTP server
  * @link https://php.net/manual/en/function.ftp-systype.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @return string|false the remote system type, or <b>FALSE</b> on error.
  */
-function ftp_systype ($ftp_stream) {}
+function ftp_systype ($ftp) {}
 
 /**
  * Turns passive mode on or off
  * @link https://php.net/manual/en/function.ftp-pasv.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param bool $pasv <p>
@@ -262,12 +262,12 @@ function ftp_systype ($ftp_stream) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_pasv ($ftp_stream, $pasv) {}
+function ftp_pasv ($ftp, $pasv) {}
 
 /**
  * Downloads a file from the FTP server
  * @link https://php.net/manual/en/function.ftp-get.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $local_file <p>
@@ -285,15 +285,15 @@ function ftp_pasv ($ftp_stream, $pasv) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_get ($ftp_stream, $local_file, $remote_file, $mode = FTP_BINARY, $resumepos = 0) {}
+function ftp_get ($ftp, $local_file, $remote_file, $mode = FTP_BINARY, $resumepos = 0) {}
 
 /**
  * Downloads a file from the FTP server and saves to an open file
  * @link https://php.net/manual/en/function.ftp-fget.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param resource $handle <p>
+ * @param resource $fp <p>
  * An open file pointer in which we store the data.
  * </p>
  * @param string $remote_file <p>
@@ -308,12 +308,12 @@ function ftp_get ($ftp_stream, $local_file, $remote_file, $mode = FTP_BINARY, $r
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_fget ($ftp_stream, $handle, $remote_file, $mode = FTP_BINARY, $resumepos = 0) {}
+function ftp_fget ($ftp, $fp, $remote_file, $mode = FTP_BINARY, $resumepos = 0) {}
 
 /**
  * Uploads a file to the FTP server
  * @link https://php.net/manual/en/function.ftp-put.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $remote_file <p>
@@ -329,18 +329,18 @@ function ftp_fget ($ftp_stream, $handle, $remote_file, $mode = FTP_BINARY, $resu
  * @param int $startpos [optional] <p>The position in the remote file to start uploading to.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_put ($ftp_stream, $remote_file, $local_file, $mode = FTP_BINARY, $startpos = 0) {}
+function ftp_put ($ftp, $remote_file, $local_file, $mode = FTP_BINARY, $startpos = 0) {}
 
 /**
  * Uploads from an open file to the FTP server
  * @link https://php.net/manual/en/function.ftp-fput.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $remote_file <p>
  * The remote file path.
  * </p>
- * @param resource $handle <p>
+ * @param resource $fp <p>
  * An open file pointer on the local file. Reading stops at end of file.
  * </p>
  * @param int $mode [optional] <p>
@@ -350,92 +350,92 @@ function ftp_put ($ftp_stream, $remote_file, $local_file, $mode = FTP_BINARY, $s
  * @param int $startpos [optional] <p>The position in the remote file to start uploading to.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_fput ($ftp_stream, $remote_file, $handle, $mode = FTP_BINARY, $startpos = 0) {}
+function ftp_fput ($ftp, $remote_file, $fp, $mode = FTP_BINARY, $startpos = 0) {}
 
 /**
  * Returns the size of the given file
  * @link https://php.net/manual/en/function.ftp-size.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param string $remote_file <p>
+ * @param string $filename <p>
  * The remote file.
  * </p>
  * @return int the file size on success, or -1 on error.
  */
-function ftp_size ($ftp_stream, $remote_file) {}
+function ftp_size ($ftp, $filename) {}
 
 /**
  * Returns the last modified time of the given file
  * @link https://php.net/manual/en/function.ftp-mdtm.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param string $remote_file <p>
+ * @param string $filename <p>
  * The file from which to extract the last modification time.
  * </p>
  * @return int the last modified time as a Unix timestamp on success, or -1 on
  * error.
  */
-function ftp_mdtm ($ftp_stream, $remote_file) {}
+function ftp_mdtm ($ftp, $filename) {}
 
 /**
  * Renames a file or a directory on the FTP server
  * @link https://php.net/manual/en/function.ftp-rename.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param string $oldname <p>
+ * @param string $src <p>
  * The old file/directory name.
  * </p>
- * @param string $newname <p>
+ * @param string $dest <p>
  * The new name.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_rename ($ftp_stream, $oldname, $newname) {}
+function ftp_rename ($ftp, $src, $dest) {}
 
 /**
  * Deletes a file on the FTP server
  * @link https://php.net/manual/en/function.ftp-delete.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param string $path <p>
+ * @param string $file <p>
  * The file to delete.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_delete ($ftp_stream, $path) {}
+function ftp_delete ($ftp, $file) {}
 
 /**
  * Sends a SITE command to the server
  * @link https://php.net/manual/en/function.ftp-site.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param string $command <p>
+ * @param string $cmd <p>
  * The SITE command. Note that this parameter isn't escaped so there may
  * be some issues with filenames containing spaces and other characters.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_site ($ftp_stream, $command) {}
+function ftp_site ($ftp, $cmd) {}
 
 /**
  * Closes an FTP connection
  * @link https://php.net/manual/en/function.ftp-close.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_close ($ftp_stream) {}
+function ftp_close ($ftp) {}
 
 /**
  * Set miscellaneous runtime FTP options
  * @link https://php.net/manual/en/function.ftp-set-option.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param int $option <p>
@@ -470,12 +470,12 @@ function ftp_close ($ftp_stream) {}
  * supported or the passed <i>value</i> doesn't match the
  * expected value for the given <i>option</i>.
  */
-function ftp_set_option ($ftp_stream, $option, $value) {}
+function ftp_set_option ($ftp, $option, $value) {}
 
 /**
  * Retrieves various runtime behaviours of the current FTP stream
  * @link https://php.net/manual/en/function.ftp-get-option.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param int $option <p>
@@ -500,15 +500,15 @@ function ftp_set_option ($ftp_stream, $option, $value) {}
  * <i>option</i> is not supported. In the latter case, a
  * warning message is also thrown.
  */
-function ftp_get_option ($ftp_stream, $option) {}
+function ftp_get_option ($ftp, $option) {}
 
 /**
  * Retrieves a file from the FTP server and writes it to an open file (non-blocking)
  * @link https://php.net/manual/en/function.ftp-nb-fget.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param resource $handle <p>
+ * @param resource $fp <p>
  * An open file pointer in which we store the data.
  * </p>
  * @param string $remote_file <p>
@@ -518,16 +518,16 @@ function ftp_get_option ($ftp_stream, $option) {}
  * The transfer mode. Must be either <b>FTP_ASCII</b> or
  * <b>FTP_BINARY</b>.
  * </p>
- * @param int $resumepos [optional] <p>The position in the remote file to start downloading from.</p>
+ * @param int $resumpos [optional] <p>The position in the remote file to start downloading from.</p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
-function ftp_nb_fget ($ftp_stream, $handle, $remote_file, $mode = FTP_BINARY, $resumepos = 0) {}
+function ftp_nb_fget ($ftp, $fp, $remote_file, $mode = FTP_BINARY, $resumpos = 0) {}
 
 /**
  * Retrieves a file from the FTP server and writes it to a local file (non-blocking)
  * @link https://php.net/manual/en/function.ftp-nb-get.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $local_file <p>
@@ -540,27 +540,27 @@ function ftp_nb_fget ($ftp_stream, $handle, $remote_file, $mode = FTP_BINARY, $r
  * The transfer mode. Must be either <b>FTP_ASCII</b> or
  * <b>FTP_BINARY</b>.
  * </p>
- * @param int $resumepos [optional] <p>The position in the remote file to start downloading from.</p>
+ * @param int $resume_pos [optional] <p>The position in the remote file to start downloading from.</p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
-function ftp_nb_get ($ftp_stream, $local_file, $remote_file, $mode = FTP_BINARY, $resumepos = 0) {}
+function ftp_nb_get ($ftp, $local_file, $remote_file, $mode = FTP_BINARY, $resume_pos = 0) {}
 
 /**
  * Continues retrieving/sending a file (non-blocking)
  * @link https://php.net/manual/en/function.ftp-nb-continue.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
-function ftp_nb_continue ($ftp_stream) {}
+function ftp_nb_continue ($ftp) {}
 
 /**
  * Stores a file on the FTP server (non-blocking)
  * @link https://php.net/manual/en/function.ftp-nb-put.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $remote_file <p>
@@ -577,18 +577,18 @@ function ftp_nb_continue ($ftp_stream) {}
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
-function ftp_nb_put ($ftp_stream, $remote_file, $local_file, $mode = FTP_BINARY, $startpos = 0) {}
+function ftp_nb_put ($ftp, $remote_file, $local_file, $mode = FTP_BINARY, $startpos = 0) {}
 
 /**
  * Stores a file from an open file to the FTP server (non-blocking)
  * @link https://php.net/manual/en/function.ftp-nb-fput.php
- * @param resource $ftp_stream <p>
+ * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
  * @param string $remote_file <p>
  * The remote file path.
  * </p>
- * @param resource $handle <p>
+ * @param resource $fp <p>
  * An open file pointer on the local file. Reading stops at end of file.
  * </p>
  * @param int $mode [optional] <p>
@@ -599,7 +599,7 @@ function ftp_nb_put ($ftp_stream, $remote_file, $local_file, $mode = FTP_BINARY,
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
-function ftp_nb_fput ($ftp_stream, $remote_file, $handle, $mode = FTP_BINARY, $startpos = 0) {}
+function ftp_nb_fput ($ftp, $remote_file, $fp, $mode = FTP_BINARY, $startpos = 0) {}
 
 /**
  * Alias of <b>ftp_close</b>

@@ -389,7 +389,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
  * Since PHP 5.1.0 and Libxml 2.6.0, you may also use the
  * <i>options</i> parameter to specify additional Libxml parameters.
  * </p>
- * @param string $ns [optional] <p>
+ * @param string $namespace_or_prefix [optional] <p>
  * Namespace prefix or URI.
  * </p>
  * @param bool $is_prefix [optional] <p>
@@ -399,7 +399,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
  * @return SimpleXMLElement an object of class SimpleXMLElement with
  * properties containing the data held within the XML document, or <b>FALSE</b> on failure.
  */
-function simplexml_load_file ($filename, $class_name = "SimpleXMLElement", $options = 0, $ns = "", $is_prefix = false) {}
+function simplexml_load_file ($filename, $class_name = "SimpleXMLElement", $options = 0, $namespace_or_prefix = "", $is_prefix = false) {}
 
 /**
  * Interprets a string of XML into an object
@@ -417,7 +417,7 @@ function simplexml_load_file ($filename, $class_name = "SimpleXMLElement", $opti
  * Since PHP 5.1.0 and Libxml 2.6.0, you may also use the
  * <i>options</i> parameter to specify additional Libxml parameters.
  * </p>
- * @param string $ns [optional] <p>
+ * @param string $namespace_or_prefix [optional] <p>
  * Namespace prefix or URI.
  * </p>
  * @param bool $is_prefix [optional] <p>
@@ -427,7 +427,7 @@ function simplexml_load_file ($filename, $class_name = "SimpleXMLElement", $opti
  * @return SimpleXMLElement an object of class SimpleXMLElement with
  * properties containing the data held within the xml document, or <b>FALSE</b> on failure.
  */
-function simplexml_load_string ($data, $class_name = "SimpleXMLElement", $options = 0, $ns = "", $is_prefix = false) {}
+function simplexml_load_string ($data, $class_name = "SimpleXMLElement", $options = 0, $namespace_or_prefix = "", $is_prefix = false) {}
 
 /**
  * Get a SimpleXMLElement object from a DOM node.

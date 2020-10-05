@@ -36,12 +36,12 @@ function readline_info ($varname = null, $newvalue = null) {}
 /**
  * Adds a line to the history
  * @link https://php.net/manual/en/function.readline-add-history.php
- * @param string $line <p>
+ * @param string $prompt <p>
  * The line to be added in the history.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function readline_add_history ($line) {}
+function readline_add_history ($prompt) {}
 
 /**
  * Clears the history
@@ -81,13 +81,13 @@ function readline_write_history ($filename = null) {}
 /**
  * Registers a completion function
  * @link https://php.net/manual/en/function.readline-completion-function.php
- * @param callable $function <p>
+ * @param callable $funcname <p>
  * You must supply the name of an existing function which accepts a
  * partial command line and returns an array of possible matches.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function readline_completion_function (callable $function) {}
+function readline_completion_function (callable $funcname) {}
 
 /**
  * Initializes the readline callback interface and terminal, prints the prompt and returns immediately

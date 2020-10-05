@@ -92,6 +92,9 @@ class PHPMethod extends PHPFunction
                             case 'absent in meta':
                                 $this->mutedProblems[] = StubProblemType::ABSENT_IN_META;
                                 break;
+                            case 'wrong access':
+                                $this->mutedProblems[] = StubProblemType::FUNCTION_ACCESS;
+                                break;
                             default:
                                 $this->mutedProblems[] = -1;
                                 break;

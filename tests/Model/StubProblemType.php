@@ -23,4 +23,5 @@ interface StubProblemType
     public const PROPERTY_TYPE = 15;
     public const PARAMETER_HAS_SCALAR_TYPEHINT = 16;
     public const FUNCTION_HAS_RETURN_TYPEHINT = 17;
+    public const PARAMETER_NAME_MISMATCH = 18;
 }

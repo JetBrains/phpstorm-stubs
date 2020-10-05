@@ -5,36 +5,36 @@
 /**
  * Sets the default domain
  * @link https://php.net/manual/en/function.textdomain.php
- * @param string|null $text_domain <p>
+ * @param string|null $domain <p>
  * The new message domain, or <b>NULL</b> to get the current setting without
  * changing it
  * </p>
  * @return string If successful, this function returns the current message
  * domain, after possibly changing it.
  */
-function textdomain ($text_domain) {}
+function textdomain ($domain) {}
 
 /**
  * Lookup a message in the current domain
  * @link https://php.net/manual/en/function.gettext.php
- * @param string $message <p>
+ * @param string $msgid <p>
  * The message being translated.
  * </p>
  * @return string a translated string if one is found in the
  * translation table, or the submitted message if not found.
  */
-function gettext ($message) {}
+function gettext ($msgid) {}
 
 /**
  * Lookup a message in the current domain
  * @link https://php.net/manual/en/function.gettext.php
- * @param string $message <p>
+ * @param string $msgid <p>
  * The message being translated.
  * </p>
  * @return string a translated string if one is found in the
  * translation table, or the submitted message if not found.
  */
-function _ ($message) {}
+function _ ($msgid) {}
 
 /**
  * Override the current domain
@@ -42,12 +42,12 @@ function _ ($message) {}
  * @param string $domain <p>
  * The domain
  * </p>
- * @param string $message <p>
+ * @param string $msgid <p>
  * The message
  * </p>
  * @return string A string on success.
  */
-function dgettext ($domain, $message) {}
+function dgettext ($domain, $msgid) {}
 
 /**
  * Overrides the domain for a single lookup
@@ -55,7 +55,7 @@ function dgettext ($domain, $message) {}
  * @param string $domain <p>
  * The domain
  * </p>
- * @param string $message <p>
+ * @param string $msgid <p>
  * The message
  * </p>
  * @param int $category <p>
@@ -63,7 +63,7 @@ function dgettext ($domain, $message) {}
  * </p>
  * @return string A string on success.
  */
-function dcgettext ($domain, $message, $category) {}
+function dcgettext ($domain, $msgid, $category) {}
 
 /**
  * Sets the path for a domain
@@ -71,12 +71,12 @@ function dcgettext ($domain, $message, $category) {}
  * @param string $domain <p>
  * The domain
  * </p>
- * @param string $directory <p>
+ * @param string $dir <p>
  * The directory path
  * </p>
  * @return string The full pathname for the <i>domain</i> currently being set.
  */
-function bindtextdomain ($domain, $directory) {}
+function bindtextdomain ($domain, $dir) {}
 
 /**
  * Plural version of gettext
@@ -98,10 +98,10 @@ function ngettext ($msgid1, $msgid2, $n) {}
  * </p>
  * @param string $msgid1
  * @param string $msgid2
- * @param int $n
+ * @param int $count
  * @return string A string on success.
  */
-function dngettext ($domain, $msgid1, $msgid2, $n) {}
+function dngettext ($domain, $msgid1, $msgid2, $count) {}
 
 /**
  * Plural version of dcgettext
@@ -111,11 +111,11 @@ function dngettext ($domain, $msgid1, $msgid2, $n) {}
  * </p>
  * @param string $msgid1
  * @param string $msgid2
- * @param int $n
+ * @param int $count
  * @param int $category
  * @return string A string on success.
  */
-function dcngettext ($domain, $msgid1, $msgid2, $n, $category) {}
+function dcngettext ($domain, $msgid1, $msgid2, $count, $category) {}
 
 /**
  * Specify the character encoding in which the messages from the DOMAIN message catalog will be returned
