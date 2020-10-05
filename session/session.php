@@ -351,7 +351,7 @@ function session_set_cookie_params ($options) {}
 /**
  * Set the session cookie parameters
  * @link https://php.net/manual/en/function.session-set-cookie-params.php
- * @param int $lifetime <p>
+ * @param int $lifetime_or_options <p>
  * Lifetime of the
  * session cookie, defined in seconds.
  * </p>
@@ -376,7 +376,7 @@ function session_set_cookie_params ($options) {}
  * </p>
  * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
-function session_set_cookie_params ($lifetime, $path = null, $domain = null, $secure = false, $httponly = false) {}
+function session_set_cookie_params ($lifetime_or_options, $path = null, $domain = null, $secure = false, $httponly = false) {}
 
 /**
  * Get the session cookie parameters

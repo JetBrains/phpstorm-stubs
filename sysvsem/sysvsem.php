@@ -27,7 +27,7 @@ function sem_get ($key, $max_acquire = 1, $perm = 0666, $auto_release = 1) {}
 /**
  * Acquire a semaphore
  * @link https://php.net/manual/en/function.sem-acquire.php
- * @param resource $sem_identifier <p>
+ * @param resource $semaphore <p>
  * <i>sem_identifier</i> is a semaphore resource,
  * obtained from <b>sem_get</b>.
  * </p>
@@ -38,29 +38,29 @@ function sem_get ($key, $max_acquire = 1, $perm = 0666, $auto_release = 1) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function sem_acquire ($sem_identifier, $nowait = false) {}
+function sem_acquire ($semaphore, $nowait = false) {}
 
 /**
  * Release a semaphore
  * @link https://php.net/manual/en/function.sem-release.php
- * @param resource $sem_identifier <p>
+ * @param resource $semaphore <p>
  * A Semaphore resource handle as returned by
  * <b>sem_get</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function sem_release ($sem_identifier) {}
+function sem_release ($semaphore) {}
 
 /**
  * Remove a semaphore
  * @link https://php.net/manual/en/function.sem-remove.php
- * @param resource $sem_identifier <p>
+ * @param resource $semaphore <p>
  * A semaphore resource identifier as returned
  * by <b>sem_get</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function sem_remove ($sem_identifier) {}
+function sem_remove ($semaphore) {}
 
 /**
  * @since 8.0

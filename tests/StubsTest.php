@@ -16,6 +16,7 @@ use StubTests\Model\PHPDocElement;
 use StubTests\Model\PHPFunction;
 use StubTests\Model\PHPInterface;
 use StubTests\Model\PHPMethod;
+use StubTests\Model\PHPParameter;
 use StubTests\Model\StubProblemType;
 use StubTests\Model\Tags\RemovedTag;
 use StubTests\Parsers\Utils;
@@ -90,7 +91,26 @@ class StubsTest extends TestCase
                 "Parameter number mismatch for function $functionName. 
                 Expected: " . self::getParameterRepresentation($function)
             );
+            if ($phpstormFunction->stubBelongsToCore) {
+                foreach ($function->parameters as $parameter) {
+                    if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_NAME_MISMATCH)){
+                        self::assertNotEmpty(array_filter($phpstormFunction->parameters,
+                            fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name),
+                            "Function ${functionName} has signature $functionName(" . $this->printParameters($function->parameters) . ')' .
+                            "but stub function has signature $functionName(" . $this->printParameters($phpstormFunction->parameters) . ")");
+                    }
+                }
+            }
         }
+    }
+
+    private function printParameters(array $params): string
+    {
+        $signature = '';
+        foreach ($params as $param) {
+            $signature .= '$' . $param->name . ', ';
+        }
+        return trim($signature, ", ");
     }
 
     /**
@@ -309,7 +329,7 @@ class StubsTest extends TestCase
             self::markTestSkipped("Function '$methodName' contains inheritdoc.");
         } elseif ($stubFunction->parentName === "___PHPSTORM_HELPERS\object") {
             self::markTestSkipped("Function '$methodName' is declared in ___PHPSTORM_HELPERS\object.");
-        } elseif ($stubFunction->name === "__construct"){
+        } elseif ($stubFunction->name === "__construct") {
             $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($stubFunction->parentName);
             if (!empty($parentClass->sinceTags)) {
                 $sinceVersions = array_map(fn(Since $tag) => (int)$tag->getVersion(), $parentClass->sinceTags);

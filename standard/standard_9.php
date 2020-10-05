@@ -31,12 +31,12 @@ function array_merge_recursive(array ...$arrays) { }
  * @param array $array <p>
  * The array in which elements are replaced.
  * </p>
- * @param array ...$arrays <p>
+ * @param array ...$replacements <p>
  * The array from which elements will be extracted.
  * </p>
  * @return array or null if an error occurs.
  */
-function array_replace(array $array, array ...$arrays) { }
+function array_replace(array $array, array ...$replacements) { }
 
 /**
  * Replaces elements from passed arrays into the first array recursively
@@ -44,20 +44,20 @@ function array_replace(array $array, array ...$arrays) { }
  * @param array $array <p>
  * The array in which elements are replaced.
  * </p>
- * @param array ...$arrays <p>
+ * @param array ...$replacements <p>
  * The array from which elements will be extracted.
  * </p>
  * @return array|null an array, or null if an error occurs.
  */
-function array_replace_recursive(array $array, array ...$arrays) { }
+function array_replace_recursive(array $array, array ...$replacements) { }
 
 /**
  * Return all the keys of an array
  * @link https://php.net/manual/en/function.array-keys.php
- * @param array $input <p>
+ * @param array $array <p>
  * An array containing keys to return.
  * </p>
- * @param mixed $search_value [optional] <p>
+ * @param mixed $filter_value [optional] <p>
  * If specified, then only keys containing these values are returned.
  * </p>
  * @param bool $strict [optional] <p>
@@ -65,41 +65,41 @@ function array_replace_recursive(array $array, array ...$arrays) { }
  * </p>
  * @return array an array of all the keys in input.
  */
-function array_keys(array $input, $search_value = null, $strict = null) { }
+function array_keys(array $array, $filter_value = null, $strict = null) { }
 
 /**
  * Return all the values of an array
  * @link https://php.net/manual/en/function.array-values.php
- * @param array $input <p>
+ * @param array $array <p>
  * The array.
  * </p>
  * @return array an indexed array of values.
  * @meta
  */
-function array_values(array $input) { }
+function array_values(array $array) { }
 
 /**
  * Counts all the values of an array
  * @link https://php.net/manual/en/function.array-count-values.php
- * @param array $input <p>
+ * @param array $array <p>
  * The array of values to count
  * </p>
  * @return array an associative array of values from input as
  * keys and their count as value.
  */
-function array_count_values(array $input) { }
+function array_count_values(array $array) { }
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Return the values from a single column in the input array
  * @link https://secure.php.net/manual/en/function.array-column.php
  * @param array $array <p>A multi-dimensional array (record set) from which to pull a column of values.</p>
- * @param mixed $column <p>The column of values to return. This value may be the integer key of the column you wish to retrieve, or it may be the string key name for an associative array. It may also be NULL to return complete arrays (useful together with index_key to reindex the array).</p>
+ * @param mixed $column_key <p>The column of values to return. This value may be the integer key of the column you wish to retrieve, or it may be the string key name for an associative array. It may also be NULL to return complete arrays (useful together with index_key to reindex the array).</p>
  * @param mixed $index_key [optional] <p>The column to use as the index/keys for the returned array. This value may be the integer key of the column, or it may be the string key name.</p>
  * @return array Returns an array of values representing a single column from the input array.
  * @since 5.5
  */
-function array_column(array $array, $column, $index_key = null) { }
+function array_column(array $array, $column_key, $index_key = null) { }
 
 /**
  * Return an array with elements in reverse order
@@ -118,10 +118,10 @@ function array_reverse(array $array, $preserve_keys = null) { }
 /**
  * Iteratively reduce the array to a single value using a callback function
  * @link https://php.net/manual/en/function.array-reduce.php
- * @param array $input <p>
+ * @param array $array <p>
  * The input array.
  * </p>
- * @param callback $function <p>
+ * @param callback $callback <p>
  * The callback function. Signature is <pre>callback ( mixed $carry , mixed $item ) : mixed</pre>
  * <blockquote>mixed <var>$carry</var> <p>The return value of the previous iteration; on the first iteration it holds the value of <var>$initial</var>.</p></blockquote>
  * <blockquote>mixed <var>$item</var> <p>Holds the current iteration value of the <var>$input</var></p></blockquote>
@@ -145,18 +145,18 @@ function array_reverse(array $array, $preserve_keys = null) { }
  * <br/>
  * @meta
  */
-function array_reduce(array $input, $function, $initial = null) { }
+function array_reduce(array $array, $callback, $initial = null) { }
 
 /**
  * Pad array to the specified length with a value
  * @link https://php.net/manual/en/function.array-pad.php
- * @param array $input <p>
+ * @param array $array <p>
  * Initial array of values to pad.
  * </p>
- * @param int $pad_size <p>
+ * @param int $length <p>
  * New size of the array.
  * </p>
- * @param mixed $pad_value <p>
+ * @param mixed $value <p>
  * Value to pad if input is less than
  * pad_size.
  * </p>
@@ -167,7 +167,7 @@ function array_reduce(array $input, $function, $initial = null) { }
  * on the left. If the absolute value of pad_size is less than or equal to
  * the length of the input then no padding takes place.
  */
-function array_pad(array $input, $pad_size, $pad_value) { }
+function array_pad(array $array, $length, $value) { }
 
 /**
  * Exchanges all keys with their associated values in an array
@@ -182,7 +182,7 @@ function array_flip(array $array) { }
 /**
  * Changes all keys in an array
  * @link https://php.net/manual/en/function.array-change-key-case.php
- * @param array $input <p>
+ * @param array $array <p>
  * The array to work on
  * </p>
  * @param int $case [optional] <p>
@@ -192,15 +192,15 @@ function array_flip(array $array) { }
  * @return array an array with its keys lower or uppercased
  * @meta
  */
-function array_change_key_case(array $input, $case = null) { }
+function array_change_key_case(array $array, $case = null) { }
 
 /**
  * Pick one or more random entries out of an array
  * @link https://php.net/manual/en/function.array-rand.php
- * @param array $input <p>
+ * @param array $array <p>
  * The input array.
  * </p>
- * @param int $num_req [optional] <p>
+ * @param int $num [optional] <p>
  * Specifies how many entries you want to pick.
  * </p>
  * @return int|string|array If you are picking only one entry, array_rand
@@ -208,7 +208,7 @@ function array_change_key_case(array $input, $case = null) { }
  * of keys for the random entries. This is done so that you can pick
  * random keys as well as values out of the array.
  */
-function array_rand(array $input, $num_req = null) { }
+function array_rand(array $array, $num = null) { }
 
 /**
  * Removes duplicate values from an array
@@ -216,7 +216,7 @@ function array_rand(array $input, $num_req = null) { }
  * @param array $array <p>
  * The input array.
  * </p>
- * @param int $sort_flags [optional] <p>
+ * @param int $flags [optional] <p>
  * The optional second parameter sort_flags
  * may be used to modify the sorting behavior using these values:
  * </p>
@@ -241,7 +241,7 @@ function array_rand(array $input, $num_req = null) { }
  * @return array the filtered array.
  * @meta
  */
-function array_unique(array $array, $sort_flags = SORT_STRING) { }
+function array_unique(array $array, $flags = SORT_STRING) { }
 
 /**
  * Computes the intersection of arrays
@@ -620,7 +620,7 @@ function array_product(array $array) { }
  * current value from <b>array</b> is returned into
  * the result array. Array keys are preserved.
  * @link https://php.net/manual/en/function.array-filter.php
- * @param array $input <p>
+ * @param array $array <p>
  * The array to iterate over
  * </p>
  * @param callback $callback [optional] <p>
@@ -632,7 +632,7 @@ function array_product(array $array) { }
  * converting to
  * boolean) will be removed.
  * </p>
- * @param int $flag [optional] <p>
+ * @param int $mode [optional] <p>
  * Flag determining what arguments are sent to <i>callback</i>:
  * </p><ul>
  * <li>
@@ -647,7 +647,7 @@ function array_product(array $array) { }
  * @return array the filtered array.
  * @meta
  */
-function array_filter(array $input, $callback = null, $flag = 0) { }
+function array_filter(array $array, $callback = null, $mode = 0) { }
 
 /**
  * Applies the callback to the elements of the given arrays
@@ -655,23 +655,23 @@ function array_filter(array $input, $callback = null, $flag = 0) { }
  * @param callback $callback <p>
  * Callback function to run for each element in each array.
  * </p>
- * @param array $arr1 <p>
+ * @param array $array <p>
  * An array to run through the callback function.
  * </p>
- * @param array ...$_ [optional]
+ * @param array ...$arrays [optional]
  * @return array an array containing all the elements of arr1
  * after applying the callback function to each one.
  * @meta
  */
-function array_map($callback, array $arr1, array ...$_) { }
+function array_map($callback, array $array, array ...$arrays) { }
 
 /**
  * Split an array into chunks
  * @link https://php.net/manual/en/function.array-chunk.php
- * @param array $input <p>
+ * @param array $array <p>
  * The array to work on
  * </p>
- * @param int $size <p>
+ * @param int $length <p>
  * The size of each chunk
  * </p>
  * @param bool $preserve_keys [optional] <p>
@@ -681,7 +681,7 @@ function array_map($callback, array $arr1, array ...$_) { }
  * @return array a multidimensional numerically indexed array, starting with zero,
  * with each dimension containing size elements.
  */
-function array_chunk(array $input, $size, $preserve_keys = null) { }
+function array_chunk(array $array, $length, $preserve_keys = null) { }
 
 /**
  * Creates an array by using one array for keys and another for its values
@@ -705,12 +705,12 @@ function array_combine(array $keys, array $values) { }
  * @param mixed $key <p>
  * Value to check.
  * </p>
- * @param array|ArrayObject $search <p>
+ * @param array|ArrayObject $array <p>
  * An array with keys to check.
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_key_exists($key, array $search) { }
+function array_key_exists($key, array $array) { }
 
 /**
  * Gets the first key of an array
@@ -739,19 +739,19 @@ function array_key_last(array $array) { }
 /**
  * &Alias; <function>current</function>
  * @link https://php.net/manual/en/function.pos.php
- * @param array $arg
+ * @param array $array
  * @return mixed
  */
-function pos($arg) { }
+function pos($array) { }
 
 /**
  * &Alias; <function>count</function>
  * @link https://php.net/manual/en/function.sizeof.php
- * @param array|Countable $var
+ * @param array|Countable $value
  * @param int $mode [optional]
  * @return int
  */
-function sizeof($var, $mode = COUNT_NORMAL) { }
+function sizeof($value, $mode = COUNT_NORMAL) { }
 
 /**
  * Checks if the given key or index exists in the array. The name of this function is array_key_exists() in PHP > 4.0.6.
@@ -759,12 +759,12 @@ function sizeof($var, $mode = COUNT_NORMAL) { }
  * @param mixed $key <p>
  * Value to check.
  * </p>
- * @param array $search <p>
+ * @param array $array <p>
  * An array with keys to check.
  * </p>
  * @return bool true on success or false on failure.
  */
-function key_exists($key, $search) { }
+function key_exists($key, $array) { }
 
 /**
  * Checks if assertion is &false;
@@ -794,7 +794,7 @@ class AssertionError extends Error {
 /**
  * Set/get the various assert flags
  * @link https://php.net/manual/en/function.assert-options.php
- * @param int $what <p>
+ * @param int $option <p>
  * <table>
  * Assert Options
  * <tr valign="top">
@@ -843,7 +843,7 @@ class AssertionError extends Error {
  * </p>
  * @return mixed|false the original setting of any option or false on errors.
  */
-function assert_options($what, $value = null) { }
+function assert_options($option, $value = null) { }
 
 /**
  * Compares two "PHP-standardized" version number strings
@@ -884,26 +884,26 @@ function version_compare($version1, $version2, $operator = null) { }
 /**
  * Convert a pathname and a project identifier to a System V IPC key
  * @link https://php.net/manual/en/function.ftok.php
- * @param string $pathname <p>
+ * @param string $filename <p>
  * Path to an accessible file.
  * </p>
- * @param string $proj <p>
+ * @param string $project_id <p>
  * Project identifier. This must be a one character string.
  * </p>
  * @return int On success the return value will be the created key value, otherwise
  * -1 is returned.
  */
-function ftok($pathname, $proj) { }
+function ftok($filename, $project_id) { }
 
 /**
  * Perform the rot13 transform on a string
  * @link https://php.net/manual/en/function.str-rot13.php
- * @param string $str <p>
+ * @param string $string <p>
  * The input string.
  * </p>
  * @return string the ROT13 version of the given string.
  */
-function str_rot13($str) { }
+function str_rot13($string) { }
 
 /**
  * Retrieve list of registered filters
@@ -916,19 +916,19 @@ function stream_get_filters() { }
 /**
  * Check if a stream is a TTY
  * @link https://php.net/manual/en/function.stream-isatty.php
- * @param resource $name
+ * @param resource $stream
  * @return bool
  * @since 7.2
  */
-function stream_isatty($name) {}
+function stream_isatty($stream) {}
 
 /**
  * Register a user defined stream filter
  * @link https://php.net/manual/en/function.stream-filter-register.php
- * @param string $filtername <p>
+ * @param string $filter_name <p>
  * The filter name to be registered.
  * </p>
- * @param string $classname <p>
+ * @param string $class <p>
  * To implement a filter, you need to define a class as an extension of
  * php_user_filter with a number of member functions
  * as defined below. When performing read/write operations on the stream
@@ -1036,7 +1036,7 @@ function stream_isatty($name) {}
  * stream_filter_register will return false if the
  * filtername is already defined.
  */
-function stream_filter_register($filtername, $classname) { }
+function stream_filter_register($filter_name, $class) { }
 
 /**
  * Return a bucket object from the brigade for operating on
@@ -1148,16 +1148,16 @@ function realpath_cache_size() { }
  * It returns the same result as (array) $object, with the
  * exception that it ignores overloaded array casts, such as used by
  * ArrayObject.
- * @param object $obj
+ * @param object $object
  * @return array returns the mangled object properties
  * @since 7.4
  */
-function get_mangled_object_vars($obj){}
+function get_mangled_object_vars($object){}
 
 /**
  * Get the type or object name of a variable
  *
- * @param mixed $var The variable being type checked.
+ * @param mixed $value The variable being type checked.
  * @return string Possibles values for the returned string are:
  *  - "int"
  *  - "float"
@@ -1171,7 +1171,7 @@ function get_mangled_object_vars($obj){}
  *  - "resource (closed)" for closed resources
  * @since 8.0
  */
-function get_debug_type(mixed $var): string {}
+function get_debug_type(mixed $value): string {}
 
 /**
  * A more obvious and type-safe form of "(int) $resource"

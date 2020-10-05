@@ -14,7 +14,7 @@
     "inspection"
   ],
   "require-dev": {
-    "php": "^7.4",
+    "php": "^8.0",
     "nikic/php-parser": "dev-master",
     "phpdocumentor/reflection-docblock": "dev-master",
     "phpunit/phpunit": "^9",

@@ -23,29 +23,29 @@ function shm_attach ($key, $memsize = null, $perm = 0666) {}
 /**
  * Removes shared memory from Unix systems
  * @link https://php.net/manual/en/function.shm-remove.php
- * @param resource $shm_identifier <p>
+ * @param resource $shm <p>
  * The shared memory identifier as returned by
  * <b>shm_attach</b>
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function shm_remove ($shm_identifier) {}
+function shm_remove ($shm) {}
 
 /**
  * Disconnects from shared memory segment
  * @link https://php.net/manual/en/function.shm-detach.php
- * @param resource $shm_identifier <p>
+ * @param resource $shm <p>
  * A shared memory resource handle as returned by
  * <b>shm_attach</b>
  * </p>
  * @return bool <b>shm_detach</b> always returns <b>TRUE</b>.
  */
-function shm_detach ($shm_identifier) {}
+function shm_detach ($shm) {}
 
 /**
  * Inserts or updates a variable in shared memory
  * @link https://php.net/manual/en/function.shm-put-var.php
- * @param resource $shm_identifier <p>
+ * @param resource $shm <p>
  * A shared memory resource handle as returned by
  * <b>shm_attach</b>
  * </p>
@@ -60,12 +60,12 @@ function shm_detach ($shm_identifier) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function shm_put_var ($shm_identifier, $variable_key, $variable) {}
+function shm_put_var ($shm, $variable_key, $variable) {}
 
 /**
  * Check whether a specific entry exists
  * @link https://php.net/manual/en/function.shm-has-var.php
- * @param resource $shm_identifier <p>
+ * @param resource $shm <p>
  * Shared memory segment, obtained from <b>shm_attach</b>.
  * </p>
  * @param int $variable_key <p>
@@ -73,12 +73,12 @@ function shm_put_var ($shm_identifier, $variable_key, $variable) {}
  * </p>
  * @return bool <b>TRUE</b> if the entry exists, otherwise <b>FALSE</b>
  */
-function shm_has_var ($shm_identifier, $variable_key) {}
+function shm_has_var ($shm, $variable_key) {}
 
 /**
  * Returns a variable from shared memory
  * @link https://php.net/manual/en/function.shm-get-var.php
- * @param resource $shm_identifier <p>
+ * @param resource $shm <p>
  * Shared memory segment, obtained from <b>shm_attach</b>.
  * </p>
  * @param int $variable_key <p>
@@ -86,12 +86,12 @@ function shm_has_var ($shm_identifier, $variable_key) {}
  * </p>
  * @return mixed the variable with the given key.
  */
-function shm_get_var ($shm_identifier, $variable_key) {}
+function shm_get_var ($shm, $variable_key) {}
 
 /**
  * Removes a variable from shared memory
  * @link https://php.net/manual/en/function.shm-remove-var.php
- * @param resource $shm_identifier <p>
+ * @param resource $shm <p>
  * The shared memory identifier as returned by
  * <b>shm_attach</b>
  * </p>
@@ -100,7 +100,7 @@ function shm_get_var ($shm_identifier, $variable_key) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function shm_remove_var ($shm_identifier, $variable_key) {}
+function shm_remove_var ($shm, $variable_key) {}
 
 /**
  * @since 8.0

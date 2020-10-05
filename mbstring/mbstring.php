@@ -5,7 +5,7 @@
 /**
  * Perform case folding on a string
  * @link https://php.net/manual/en/function.mb-convert-case.php
- * @param string $str <p>
+ * @param string $string <p>
  * The string being converted.
  * </p>
  * @param int $mode <p>
@@ -18,29 +18,29 @@
  * @return string A case folded version of string converted in the
  * way specified by mode.
  */
-function mb_convert_case ($str, $mode, $encoding = null) {}
+function mb_convert_case ($string, $mode, $encoding = null) {}
 
 /**
  * Make a string uppercase
  * @link https://php.net/manual/en/function.mb-strtoupper.php
- * @param string $str <p>
+ * @param string $string <p>
  * The string being uppercased.
  * </p>
  * @param string $encoding [optional] &mbstring.encoding.parameter;
  * @return string str with all alphabetic characters converted to uppercase.
  */
-function mb_strtoupper ($str, $encoding = null) {}
+function mb_strtoupper ($string, $encoding = null) {}
 
 /**
  * Make a string lowercase
  * @link https://php.net/manual/en/function.mb-strtolower.php
- * @param string $str <p>
+ * @param string $string <p>
  * The string being lowercased.
  * </p>
  * @param string $encoding [optional] &mbstring.encoding.parameter;
  * @return string str with all alphabetic characters converted to lowercase.
  */
-function mb_strtolower ($str, $encoding = null) {}
+function mb_strtolower ($string, $encoding = null) {}
 
 /**
  * Set/Get current language
@@ -120,7 +120,7 @@ function mb_http_output ($encoding = null) {}
 /**
  * Set/Get character encoding detection order
  * @link https://php.net/manual/en/function.mb-detect-order.php
- * @param mixed $encoding_list [optional] <p>
+ * @param mixed $encoding [optional] <p>
  * encoding_list is an array or
  * comma separated list of character encoding. ("auto" is expanded to
  * "ASCII, JIS, UTF-8, EUC-JP, SJIS")
@@ -160,12 +160,12 @@ function mb_http_output ($encoding = null) {}
  * When getting the encoding detection order, an ordered array
  * of the encodings is returned.
  */
-function mb_detect_order ($encoding_list = null) {}
+function mb_detect_order ($encoding = null) {}
 
 /**
  * Set/Get substitution character
  * @link https://php.net/manual/en/function.mb-substitute-character.php
- * @param int|string $substrchar [optional] <p>
+ * @param int|string $substitute_character [optional] <p>
  * Specify the Unicode value as an integer,
  * or as one of the following strings:<ul>
  * <li>"none" : no output
@@ -176,12 +176,12 @@ function mb_detect_order ($encoding_list = null) {}
  * If substchar is not set, it returns the Unicode value,
  * or "none" or "long".
  */
-function mb_substitute_character ($substrchar = null) {}
+function mb_substitute_character ($substitute_character = null) {}
 
 /**
  * Parse GET/POST/COOKIE data and set global variable
  * @link https://php.net/manual/en/function.mb-parse-str.php
- * @param string $encoded_string <p>
+ * @param string $string <p>
  * The URL encoded data.
  * </p>
  * @param array &$result [optional] <p>
@@ -189,12 +189,12 @@ function mb_substitute_character ($substrchar = null) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function mb_parse_str ($encoded_string, array &$result = null) {}
+function mb_parse_str ($string, array &$result = null) {}
 
 /**
  * Callback function converts character encoding in output buffer
  * @link https://php.net/manual/en/function.mb-output-handler.php
- * @param string $contents <p>
+ * @param string $string <p>
  * The contents of the output buffer.
  * </p>
  * @param int $status <p>
@@ -202,7 +202,7 @@ function mb_parse_str ($encoded_string, array &$result = null) {}
  * </p>
  * @return string The converted string.
  */
-function mb_output_handler ($contents, $status) {}
+function mb_output_handler ($string, $status) {}
 
 /**
  * Get MIME charset string
@@ -218,7 +218,7 @@ function mb_preferred_mime_name ($encoding) {}
 /**
  * Get string length
  * @link https://php.net/manual/en/function.mb-strlen.php
- * @param string $str <p>
+ * @param string $string <p>
  * The string being checked for length.
  * </p>
  * @param string $encoding [optional] &mbstring.encoding.parameter;
@@ -227,7 +227,7 @@ function mb_preferred_mime_name ($encoding) {}
  * encoding. A multi-byte character is
  * counted as 1.
  */
-function mb_strlen ($str, $encoding = null) {}
+function mb_strlen ($string, $encoding = null) {}
 
 /**
  * Find position of first occurrence of string in a string
@@ -446,7 +446,7 @@ function mb_substr_count ($haystack, $needle, $encoding = null) {}
 /**
  * Get part of string
  * @link https://php.net/manual/en/function.mb-substr.php
- * @param string $str <p>
+ * @param string $string <p>
  * The string being checked.
  * </p>
  * @param int $start <p>
@@ -461,12 +461,12 @@ function mb_substr_count ($haystack, $needle, $encoding = null) {}
  * start and
  * length parameters.
  */
-function mb_substr ($str, $start, $length = null, $encoding = null) {}
+function mb_substr ($string, $start, $length = null, $encoding = null) {}
 
 /**
  * Get part of string
  * @link https://php.net/manual/en/function.mb-strcut.php
- * @param string $str <p>
+ * @param string $string <p>
  * The string being cut.
  * </p>
  * @param int $start <p>
@@ -481,23 +481,23 @@ function mb_substr ($str, $start, $length = null, $encoding = null) {}
  * start and
  * length parameters.
  */
-function mb_strcut ($str, $start, $length = null, $encoding = null) {}
+function mb_strcut ($string, $start, $length = null, $encoding = null) {}
 
 /**
  * Return width of string
  * @link https://php.net/manual/en/function.mb-strwidth.php
- * @param string $str <p>
+ * @param string $string <p>
  * The string being decoded.
  * </p>
  * @param string $encoding [optional] &mbstring.encoding.parameter;
  * @return int The width of string str.
  */
-function mb_strwidth ($str, $encoding = null) {}
+function mb_strwidth ($string, $encoding = null) {}
 
 /**
  * Get truncated string with specified width
  * @link https://php.net/manual/en/function.mb-strimwidth.php
- * @param string $str <p>
+ * @param string $string <p>
  * The string being decoded.
  * </p>
  * @param int $start <p>
@@ -507,7 +507,7 @@ function mb_strwidth ($str, $encoding = null) {}
  * @param int $width <p>
  * The width of the desired trim.
  * </p>
- * @param string $trimmarker [optional] <p>
+ * @param string $trim_marker [optional] <p>
  * A string that is added to the end of string
  * when string is truncated.
  * </p>
@@ -515,12 +515,12 @@ function mb_strwidth ($str, $encoding = null) {}
  * @return string The truncated string. If trimmarker is set,
  * trimmarker is appended to the return value.
  */
-function mb_strimwidth ($str, $start, $width, $trimmarker = null, $encoding = null) {}
+function mb_strimwidth ($string, $start, $width, $trim_marker = null, $encoding = null) {}
 
 /**
  * Convert character encoding
  * @link https://php.net/manual/en/function.mb-convert-encoding.php
- * @param string|array $str <p>
+ * @param string|array $string <p>
  * The string being encoded.
  * </p>
  * @param string $to_encoding <p>
@@ -538,15 +538,15 @@ function mb_strimwidth ($str, $start, $width, $trimmarker = null, $encoding = nu
  * </p>
  * @return string The encoded string.
  */
-function mb_convert_encoding ($str, $to_encoding, $from_encoding = null) {}
+function mb_convert_encoding ($string, $to_encoding, $from_encoding = null) {}
 
 /**
  * Detect character encoding
  * @link https://php.net/manual/en/function.mb-detect-encoding.php
- * @param string $str <p>
+ * @param string $string <p>
  * The string being detected.
  * </p>
- * @param string|string[] $encoding_list [optional] <p>
+ * @param string|string[] $encodings [optional] <p>
  * encoding_list is list of character
  * encoding. Encoding order may be specified by array or comma
  * separated list string.
@@ -563,7 +563,7 @@ function mb_convert_encoding ($str, $to_encoding, $from_encoding = null) {}
  * @return string|false The detected character encoding or false if the encoding cannot be
  * detected from the given string.
  */
-function mb_detect_encoding ($str, $encoding_list = null, $strict = false) {}
+function mb_detect_encoding ($string, $encodings = null, $strict = false) {}
 
 /**
  * Returns an array of all supported encodings
@@ -583,10 +583,10 @@ function mb_encoding_aliases ($encoding) {}
 /**
  * Convert "kana" one from another ("zen-kaku", "han-kaku" and more)
  * @link https://php.net/manual/en/function.mb-convert-kana.php
- * @param string $str <p>
+ * @param string $string <p>
  * The string being converted.
  * </p>
- * @param string $option [optional] <p>
+ * @param string $mode [optional] <p>
  * The conversion option.
  * </p>
  * <p>
@@ -694,12 +694,12 @@ function mb_encoding_aliases ($encoding) {}
  * @param string $encoding [optional] &mbstring.encoding.parameter;
  * @return string The converted string.
  */
-function mb_convert_kana ($str, $option = null, $encoding = null) {}
+function mb_convert_kana ($string, $mode = null, $encoding = null) {}
 
 /**
  * Encode string for MIME header
  * @link https://php.net/manual/en/function.mb-encode-mimeheader.php
- * @param string $str <p>
+ * @param string $string <p>
  * The string being encoded.
  * </p>
  * @param string $charset [optional] <p>
@@ -714,7 +714,7 @@ function mb_convert_kana ($str, $option = null, $encoding = null) {}
  * "Q" (Quoted-Printable). Falls back to
  * "B" if not given.
  * </p>
- * @param string $linefeed [optional] <p>
+ * @param string $newline [optional] <p>
  * linefeed specifies the EOL (end-of-line) marker
  * with which mb_encode_mimeheader performs
  * line-folding (a RFC term,
@@ -728,17 +728,17 @@ function mb_convert_kana ($str, $option = null, $encoding = null) {}
  * </p>
  * @return string A converted version of the string represented in ASCII.
  */
-function mb_encode_mimeheader ($str, $charset = null, $transfer_encoding = null, $linefeed = null, $indent = null) {}
+function mb_encode_mimeheader ($string, $charset = null, $transfer_encoding = null, $newline = null, $indent = null) {}
 
 /**
  * Decode string in MIME header field
  * @link https://php.net/manual/en/function.mb-decode-mimeheader.php
- * @param string $str <p>
+ * @param string $string <p>
  * The string being decoded.
  * </p>
  * @return string The decoded string in internal character encoding.
  */
-function mb_decode_mimeheader ($str) {}
+function mb_decode_mimeheader ($string) {}
 
 /**
  * Convert character code in variable(s)
@@ -762,23 +762,23 @@ function mb_decode_mimeheader ($str) {}
  * @return string|false The character encoding before conversion for success,
  * or false for failure.
  */
-function mb_convert_variables ($to, $from, &$var, &...$vars) {}
+function mb_convert_variables ($to_encoding, $from_encoding, &$var, &...$vars) {}
 
 /**
  * Encode character to HTML numeric string reference
  * @link https://php.net/manual/en/function.mb-encode-numericentity.php
- * @param string $str <p>
+ * @param string $string <p>
  * The string being encoded.
  * </p>
- * @param int[] $convmap <p>
+ * @param int[] $map <p>
  * convmap is array specifies code area to
  * convert.
  * </p>
  * @param string $encoding &mbstring.encoding.parameter;
- * @param bool $is_hex [optional]
+ * @param bool $hex [optional]
  * @return string|false|null The converted string.
  */
-function mb_encode_numericentity ($str, array $convmap, $encoding = null, $is_hex = false) {}
+function mb_encode_numericentity ($string, array $map, $encoding = null, $hex = false) {}
 
 /**
  * Decode HTML numeric string reference to character
@@ -786,7 +786,7 @@ function mb_encode_numericentity ($str, array $convmap, $encoding = null, $is_he
  * @param string $str <p>
  * The string being decoded.
  * </p>
- * @param int[] $convmap <p>
+ * @param int[] $map <p>
  * convmap is an array that specifies
  * the code area to convert.
  * </p>
@@ -796,7 +796,7 @@ function mb_encode_numericentity ($str, array $convmap, $encoding = null, $is_he
  * </p>
  * @return string|false|null The converted string.
  */
-function mb_decode_numericentity ($string, array $convmap, $encoding = null, $is_hex = false) {}
+function mb_decode_numericentity ($string, array $map, $encoding = null, $is_hex = false) {}
 
 /**
  * Send encoded mail
@@ -820,14 +820,14 @@ function mb_decode_numericentity ($string, array $convmap, $encoding = null, $is
  * headers. Multiple extra headers are separated with a
  * newline ("\n").
  * </p>
- * @param string $additional_parameter [optional] <p>
+ * @param string $additional_params [optional] <p>
  * additional_parameter is a MTA command line
  * parameter. It is useful when setting the correct Return-Path
  * header when using sendmail.
  * </p>
  * @return bool true on success or false on failure.
  */
-function mb_send_mail ($to, $subject, $message, $additional_headers = null, $additional_parameter = null) {}
+function mb_send_mail ($to, $subject, $message, $additional_headers = null, $additional_params = null) {}
 
 /**
  * Get internal settings of mbstring
@@ -851,7 +851,7 @@ function mb_get_info ($type = null) {}
 /**
  * Check if the string is valid for the specified encoding
  * @link https://php.net/manual/en/function.mb-check-encoding.php
- * @param string|array $var [optional] <p>
+ * @param string|array $value [optional] <p>
  * The byte stream to check. If it is omitted, this function checks
  * all the input from the beginning of the request.
  * </p>
@@ -861,7 +861,7 @@ function mb_get_info ($type = null) {}
  * @return bool true on success or false on failure.
  * @since 5.1.3
  */
-function mb_check_encoding ($var = null, $encoding = null) {}
+function mb_check_encoding ($value = null, $encoding = null) {}
 
 /**
  * Returns current encoding for multibyte regex as string
@@ -894,12 +894,12 @@ function mb_regex_set_options ($options = null) {}
  * @param string $string <p>
  * The search string.
  * </p>
- * @param string[] &$regs [optional] <p>
+ * @param string[] &$matches [optional] <p>
  * Contains a substring of the matched string.
  * </p>
  * @return int
  */
-function mb_ereg ($pattern, $string, array &$regs = null) {}
+function mb_ereg ($pattern, $string, array &$matches = null) {}
 
 /**
  * Regular expression match ignoring case with multibyte support
@@ -910,12 +910,12 @@ function mb_ereg ($pattern, $string, array &$regs = null) {}
  * @param string $string <p>
  * The string being searched.
  * </p>
- * @param string[] &$regs [optional] <p>
+ * @param string[] &$matches [optional] <p>
  * Contains a substring of the matched string.
  * </p>
  * @return int
  */
-function mb_eregi ($pattern, $string, array &$regs = null) {}
+function mb_eregi ($pattern, $string, array &$matches = null) {}
 
 /**
  * Replace regular expression with multibyte support
@@ -932,7 +932,7 @@ function mb_eregi ($pattern, $string, array &$regs = null) {}
  * @param string $string <p>
  * The string being checked.
  * </p>
- * @param string $option [optional] Matching condition can be set by option
+ * @param string $options [optional] Matching condition can be set by option
  * parameter. If i is specified for this
  * parameter, the case will be ignored. If x is
  * specified, white space will be ignored. If m
@@ -945,7 +945,7 @@ function mb_eregi ($pattern, $string, array &$regs = null) {}
  * <p>PHP 7.1: The <i>e</i> modifier has been deprecated.</p>
  * @return string|false The resultant string on success, or false on error.
  */
-function mb_ereg_replace ($pattern, $replacement, $string, $option = "msr") {}
+function mb_ereg_replace ($pattern, $replacement, $string, $options = "msr") {}
 
 /**
  * Perform a regular expresssion seach and replace with multibyte support using a callback
@@ -974,7 +974,7 @@ function mb_ereg_replace ($pattern, $replacement, $string, $option = "msr") {}
  * @param string $string <p>
  * The string being checked.
  * </p>
- * @param string $option [optional <p>
+ * @param string $options [optional <p>
  * Matching condition can be set by <em><b>option</b></em>
  * parameter. If <em>i</em> is specified for this
  * parameter, the case will be ignored. If <em>x</em> is
@@ -990,7 +990,7 @@ function mb_ereg_replace ($pattern, $replacement, $string, $option = "msr") {}
  * </p>
  * @since 5.4.1
  */
-function mb_ereg_replace_callback ($pattern, callable $callback, $string, $option = "msr") {}
+function mb_ereg_replace_callback ($pattern, callable $callback, $string, $options = "msr") {}
 
 /**
  * Replace regular expression with multibyte support ignoring case
@@ -998,18 +998,18 @@ function mb_ereg_replace_callback ($pattern, callable $callback, $string, $optio
  * @param string $pattern <p>
  * The regular expression pattern. Multibyte characters may be used. The case will be ignored.
  * </p>
- * @param string $replace <p>
+ * @param string $replacement <p>
  * The replacement text.
  * </p>
  * @param string $string <p>
  * The searched string.
  * </p>
- * @param string $option [optional] option has the same meaning as in
+ * @param string $options [optional] option has the same meaning as in
  * mb_ereg_replace.
  * <p>PHP 7.1: The <i>e</i> modifier has been deprecated.</p>
  * @return string|false The resultant string or false on error.
  */
-function mb_eregi_replace ($pattern, $replace, $string, $option = "msr") {}
+function mb_eregi_replace ($pattern, $replacement, $string, $options = "msr") {}
 
 /**
  * Split multibyte string using regular expression
@@ -1036,11 +1036,11 @@ function mb_split ($pattern, $string, $limit = null) {}
  * @param string $string <p>
  * The string being evaluated.
  * </p>
- * @param string $option [optional] <p>
+ * @param string $options [optional] <p>
  * </p>
  * @return bool
  */
-function mb_ereg_match ($pattern, $string, $option = null) {}
+function mb_ereg_match ($pattern, $string, $options = null) {}
 
 /**
  * Multibyte regular expression match for predefined multibyte string
@@ -1048,12 +1048,12 @@ function mb_ereg_match ($pattern, $string, $option = null) {}
  * @param string $pattern [optional] <p>
  * The search pattern.
  * </p>
- * @param string $option [optional] <p>
+ * @param string $options [optional] <p>
  * The search option.
  * </p>
  * @return bool
  */
-function mb_ereg_search ($pattern = null, $option = null) {}
+function mb_ereg_search ($pattern = null, $options = null) {}
 
 /**
  * Returns position and length of a matched part of the multibyte regular expression for a predefined multibyte string
@@ -1061,7 +1061,7 @@ function mb_ereg_search ($pattern = null, $option = null) {}
  * @param string $pattern [optional] <p>
  * The search pattern.
  * </p>
- * @param string $option [optional] <p>
+ * @param string $options [optional] <p>
  * The search option.
  * </p>
  * @return int[]|false An array containing two elements. The first
@@ -1069,7 +1069,7 @@ function mb_ereg_search ($pattern = null, $option = null) {}
  * to the start of the search string, and the second element is the
  * length in bytes of the match. If an error occurs, FALSE is returned.
  */
-function mb_ereg_search_pos ($pattern = null, $option = null) {}
+function mb_ereg_search_pos ($pattern = null, $options = null) {}
 
 /**
  * Returns the matched part of a multibyte regular expression
@@ -1077,7 +1077,7 @@ function mb_ereg_search_pos ($pattern = null, $option = null) {}
  * @param string $pattern [optional] <p>
  * The search pattern.
  * </p>
- * @param string $option [optional] <p>
+ * @param string $options [optional] <p>
  * The search option.
  * </p>
  * @return string[]|false mb_ereg_search_regs() executes the multibyte
@@ -1086,7 +1086,7 @@ function mb_ereg_search_pos ($pattern = null, $option = null) {}
  * the first grouped part with brackets as second element, the second grouped
  * part as third element, and so on. It returns FALSE on error.
  */
-function mb_ereg_search_regs ($pattern = null, $option = null) {}
+function mb_ereg_search_regs ($pattern = null, $options = null) {}
 
 /**
  * Setup string and regular expression for a multibyte regular expression match
@@ -1097,12 +1097,12 @@ function mb_ereg_search_regs ($pattern = null, $option = null) {}
  * @param string $pattern [optional] <p>
  * The search pattern.
  * </p>
- * @param string $option [optional] <p>
+ * @param string $options [optional] <p>
  * The search option.
  * </p>
  * @return bool
  */
-function mb_ereg_search_init ($string, $pattern = null, $option = null) {}
+function mb_ereg_search_init ($string, $pattern = null, $options = null) {}
 
 /**
  * Retrieve the result from the last multibyte regular expression match
@@ -1127,12 +1127,12 @@ function mb_ereg_search_getpos () {}
 /**
  * Set start point of next regular expression match
  * @link https://php.net/manual/en/function.mb-ereg-search-setpos.php
- * @param int $position <p>
+ * @param int $offset <p>
  * The position to set.
  * </p>
  * @return bool
  */
-function mb_ereg_search_setpos ($position) {}
+function mb_ereg_search_setpos ($offset) {}
 
 /**
  * @param $encoding [optional]
@@ -1246,32 +1246,32 @@ function mbereg_search_getpos () {}
 /**
  * Get a specific character.
  * @link https://www.php.net/manual/en/function.mb-chr.php
- * @param int $cp
+ * @param int $codepoint
  * @param string $encoding [optional]
  * @return string|false specific character or FALSE on failure.
  * @since 7.2
  */
-function mb_chr ($cp, $encoding = null) {}
+function mb_chr ($codepoint, $encoding = null) {}
 
 /**
  * Get code point of character
  * @link https://www.php.net/manual/en/function.mb-ord.php
- * @param string $str
+ * @param string $string
  * @param string $encoding [optional]
  * @return int|false code point of character or FALSE on failure.
  * @since 7.2
  */
-function mb_ord ($str, $encoding = null) {}
+function mb_ord ($string, $encoding = null) {}
 
 /**
  * Scrub broken multibyte strings.
  * @link https://www.php.net/manual/en/function.mb-scrub.php
- * @param string $str
+ * @param string $string
  * @param string $encoding [optional]
  * @return string|false
  * @since 7.2
  */
-function mb_scrub ($str, $encoding = null) {}
+function mb_scrub ($string, $encoding = null) {}
 
 /**
  * @param $position
@@ -1281,10 +1281,10 @@ function mbereg_search_setpos ($position) {}
 
 /**
  * Function performs string splitting to an array of defined size chunks.
- * @param string $str <p>
+ * @param string $string <p>
  * The string to split into characters or chunks.
  * </p>
- * @param int $split_length [optional] <p>
+ * @param int $length [optional] <p>
  * If specified, each element of the returned array will be composed of multiple characters instead of a single character.
  * </p>
  * @param string $encoding [optional] <p>
@@ -1294,7 +1294,7 @@ function mbereg_search_setpos ($position) {}
  * @return string[]|false
  * @since 7.4
  */
-function mb_str_split ($str, $split_length = 1, $encoding = null) {}
+function mb_str_split ($string, $length = 1, $encoding = null) {}
 
 /**
  * @removed 8.0

@@ -1601,7 +1601,7 @@ class SplPriorityQueue implements Iterator, Countable {
  * implementation.
  * @link https://php.net/manual/en/class.splfixedarray.php
  */
-class SplFixedArray implements Iterator, ArrayAccess, Countable {
+class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggregate {
 
         /**
          * Constructs a new fixed array
@@ -1737,7 +1737,7 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable {
     {
     }
 
-
+    public function getIterator() {}
 }
 
 /**

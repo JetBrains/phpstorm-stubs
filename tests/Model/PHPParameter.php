@@ -71,6 +71,9 @@ class PHPParameter extends BasePHPElement
                         case 'has scalar typehint':
                             $this->mutedProblems[] = StubProblemType::PARAMETER_HAS_SCALAR_TYPEHINT;
                             break;
+                        case 'parameter name mismatch':
+                            $this->mutedProblems[] = StubProblemType::PARAMETER_NAME_MISMATCH;
+                            break;
                         default:
                             $this->mutedProblems[] = -1;
                             break;

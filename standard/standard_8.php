@@ -78,8 +78,8 @@ function header_register_callback ( callable $callback ) {}
  * PHP > 5.4.0<br/>
  * Get the size of an image from a string.
  * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
- * @param string $imagedata The image data, as a string.
- * @param array &$imageinfo This optional parameter allows you to extract<br>
+ * @param string $string The image data, as a string.
+ * @param array &$image_info This optional parameter allows you to extract<br>
  * some extended information from the image file. Currently, this will <br>
  * return the different JPG APP markers as an associative array. <br>
  * Some programs use these APP markers to embed text information in images. <br>
@@ -92,18 +92,18 @@ function header_register_callback ( callable $callback ) {}
  * that can be used directly in an IMG tag.<br>
  * On failure, FALSE is returned.
  */
-function getimagesizefromstring ($imagedata , array &$imageinfo = null) {}
+function getimagesizefromstring ($string , array &$image_info = null) {}
 
 /**
  * PHP > 5.4.0<br/>
  * Set the stream chunk size.
  * @link https://secure.php.net/manual/en/function.stream-set-chunk-size.php
- * @param resource $fp The target stream.
- * @param int $chunk_size The desired new chunk size.
+ * @param resource $stream The target stream.
+ * @param int $size The desired new chunk size.
  * @return int|false Returns the previous chunk size on success.<br>
  * Will return <b>FALSE</b> if chunk_size is less than 1 or greater than <b>PHP_INT_MAX</b>.
  */
-function stream_set_chunk_size ($fp , $chunk_size) {}
+function stream_set_chunk_size ($stream , $size) {}
 
 /**
  * Initializes all syslog related variables
@@ -124,21 +124,21 @@ function lcg_value () {}
 /**
  * Calculate the metaphone key of a string
  * @link https://php.net/manual/en/function.metaphone.php
- * @param string $str <p>
+ * @param string $string <p>
  * The input string.
  * </p>
- * @param int $phonemes [optional] <p>
+ * @param int $max_phonemes [optional] <p>
  * This parameter restricts the returned metaphone key to phonemes characters in length.
  * The default value of 0 means no restriction.
  * </p>
  * @return string|false the metaphone key as a string, or FALSE on failure
  */
-function metaphone ($str, $phonemes = 0) {}
+function metaphone ($string, $max_phonemes = 0) {}
 
 /**
  * Turn on output buffering
  * @link https://php.net/manual/en/function.ob-start.php
- * @param callback $output_callback [optional] <p>
+ * @param callback $callback [optional] <p>
  * An optional output_callback function may be
  * specified. This function takes a string as a parameter and should
  * return a string. The function will be called when
@@ -200,7 +200,7 @@ function metaphone ($str, $phonemes = 0) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function ob_start ($output_callback = null, $chunk_size = null, $flags = PHP_OUTPUT_HANDLER_STDFLAGS) {}
+function ob_start ($callback = null, $chunk_size = null, $flags = PHP_OUTPUT_HANDLER_STDFLAGS) {}
 
 /**
  * Flush (send) the output buffer
@@ -347,12 +347,12 @@ function ob_get_contents () {}
 /**
  * Turn implicit flush on/off
  * @link https://php.net/manual/en/function.ob-implicit-flush.php
- * @param int $flag [optional] <p>
+ * @param int $enable [optional] <p>
  * 1 to turn implicit flushing on, 0 otherwise.
  * </p>
  * @return void
  */
-function ob_implicit_flush ($flag = 1) {}
+function ob_implicit_flush ($enable = 1) {}
 
 /**
  * List all output handlers in use
@@ -371,14 +371,14 @@ function ob_list_handlers () {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param int $sort_flags [optional] <p>
+ * @param int $flags [optional] <p>
  * You may modify the behavior of the sort using the optional
  * parameter sort_flags, for details
  * see sort.
  * </p>
  * @return bool true on success or false on failure.
  */
-function ksort (array &$array, $sort_flags = null) {}
+function ksort (array &$array, $flags = null) {}
 
 /**
  * Sort an array by key in reverse order
@@ -386,14 +386,14 @@ function ksort (array &$array, $sort_flags = null) {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param int $sort_flags [optional] <p>
+ * @param int $flags [optional] <p>
  * You may modify the behavior of the sort using the optional parameter
  * sort_flags, for details see
  * sort.
  * </p>
  * @return bool true on success or false on failure.
  */
-function krsort (array &$array, $sort_flags = null) {}
+function krsort (array &$array, $flags = null) {}
 
 /**
  * Sort an array using a "natural order" algorithm
@@ -421,14 +421,14 @@ function natcasesort (array &$array) {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param int $sort_flags [optional] <p>
+ * @param int $flags [optional] <p>
  * You may modify the behavior of the sort using the optional
  * parameter sort_flags, for details
  * see sort.
  * </p>
  * @return bool true on success or false on failure.
  */
-function asort (array &$array, $sort_flags = null) {}
+function asort (array &$array, $flags = null) {}
 
 /**
  * Sort an array in reverse order and maintain index association
@@ -436,14 +436,14 @@ function asort (array &$array, $sort_flags = null) {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param int $sort_flags [optional] <p>
+ * @param int $flags [optional] <p>
  * You may modify the behavior of the sort using the optional parameter
  * sort_flags, for details see
  * sort.
  * </p>
  * @return bool true on success or false on failure.
  */
-function arsort (array &$array, $sort_flags = null) {}
+function arsort (array &$array, $flags = null) {}
 
 /**
  * Sort an array
@@ -451,7 +451,7 @@ function arsort (array &$array, $sort_flags = null) {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param int $sort_flags [optional] <p>
+ * @param int $flags [optional] <p>
  * The optional second parameter sort_flags
  * may be used to modify the sorting behavior using these values:
  * </p>
@@ -461,7 +461,7 @@ function arsort (array &$array, $sort_flags = null) {}
  * (don't change types)
  * @return bool true on success or false on failure.
  */
-function sort (array &$array, $sort_flags = null) {}
+function sort (array &$array, $flags = null) {}
 
 /**
  * Sort an array in reverse order
@@ -469,14 +469,14 @@ function sort (array &$array, $sort_flags = null) {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param int $sort_flags [optional] <p>
+ * @param int $flags [optional] <p>
  * You may modify the behavior of the sort using the optional
  * parameter sort_flags, for details see
  * sort.
  * </p>
  * @return bool true on success or false on failure.
  */
-function rsort (array &$array, $sort_flags = null) {}
+function rsort (array &$array, $flags = null) {}
 
 /**
  * Sort an array by values using a user-defined comparison function
@@ -484,14 +484,14 @@ function rsort (array &$array, $sort_flags = null) {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param callback $cmp_function <p>
+ * @param callback $callback <p>
  * The comparison function must return an integer less than, equal to, or
  * greater than zero if the first argument is considered to be
  * respectively less than, equal to, or greater than the second.
  * </p>
  * @return bool true on success or false on failure.
  */
-function usort (array &$array, $cmp_function) {}
+function usort (array &$array, $callback) {}
 
 /**
  * Sort an array with a user-defined comparison function and maintain index association
@@ -499,13 +499,13 @@ function usort (array &$array, $cmp_function) {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param callback $cmp_function <p>
+ * @param callback $callback <p>
  * See usort and uksort for
  * examples of user-defined comparison functions.
  * </p>
  * @return bool true on success or false on failure.
  */
-function uasort (array &$array, $cmp_function) {}
+function uasort (array &$array, $callback) {}
 
 /**
  * Sort an array by keys using a user-defined comparison function
@@ -513,7 +513,7 @@ function uasort (array &$array, $cmp_function) {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param callback $cmp_function <p>
+ * @param callback $callback <p>
  * The callback comparison function.
  * </p>
  * <p>
@@ -526,7 +526,7 @@ function uasort (array &$array, $cmp_function) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function uksort (array &$array, $cmp_function) {}
+function uksort (array &$array, $callback) {}
 
 /**
  * Shuffle an array
@@ -544,7 +544,7 @@ function shuffle (array &$array) {}
  * @param array|ArrayObject &$array <p>
  * The input array.
  * </p>
- * @param callback $funcname <p>
+ * @param callback $callback <p>
  * Typically, funcname takes on two parameters.
  * The array parameter's value being the first, and
  * the key/index second.
@@ -563,22 +563,22 @@ function shuffle (array &$array) {}
  * the array that array_walk is applied to is
  * changed, the behavior of this function is undefined, and unpredictable.
  * </p>
- * @param mixed $userdata [optional] <p>
+ * @param mixed $arg [optional] <p>
  * If the optional userdata parameter is supplied,
  * it will be passed as the third parameter to the callback
  * funcname.
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_walk (array &$array, $funcname, $userdata = null) {}
+function array_walk (array &$array, $callback, $arg = null) {}
 
 /**
  * Apply a user function recursively to every member of an array
  * @link https://php.net/manual/en/function.array-walk-recursive.php
- * @param array|ArrayObject &$input <p>
+ * @param array|ArrayObject &$array <p>
  * The input array.
  * </p>
- * @param callback $funcname <p>
+ * @param callback $callback <p>
  * Typically, funcname takes on two parameters.
  * The input parameter's value being the first, and
  * the key/index second.
@@ -591,14 +591,14 @@ function array_walk (array &$array, $funcname, $userdata = null) {}
  * any changes made to those elements will be made in the
  * original array itself.
  * </p>
- * @param mixed $userdata [optional] <p>
+ * @param mixed $arg [optional] <p>
  * If the optional userdata parameter is supplied,
  * it will be passed as the third parameter to the callback
  * funcname.
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_walk_recursive (array &$input, $funcname, $userdata = null) {}
+function array_walk_recursive (array &$array, $callback, $arg = null) {}
 
 /**
  * Counts all elements in an array, or something in an object.
@@ -606,7 +606,7 @@ function array_walk_recursive (array &$input, $funcname, $userdata = null) {}
  * The interface has exactly one method, {@see Countable::count()}, which returns the return value for the count() function.
  * Please see the {@see Array} section of the manual for a detailed explanation of how arrays are implemented and used in PHP.
  * @link https://php.net/manual/en/function.count.php
- * @param array|Countable $var  The array or the object.
+ * @param array|Countable $value  The array or the object.
  * @param int $mode [optional] If the optional mode parameter is set to
  * COUNT_RECURSIVE (or 1), count
  * will recursively count the array. This is particularly useful for
@@ -627,7 +627,7 @@ function array_walk_recursive (array &$input, $funcname, $userdata = null) {}
  * but it may also return 0 for a variable that has been initialized with an
  * empty array. Use isset to test if a variable is set.
  */
-function count ($var, $mode = COUNT_NORMAL) {}
+function count ($value, $mode = COUNT_NORMAL) {}
 
 /**
  * Set the internal pointer of an array to its last element
@@ -712,26 +712,22 @@ function key (array $array) {}
 /**
  * Find lowest value
  * @link https://php.net/manual/en/function.min.php
- * @param array|mixed $value1 Array to look through or first value to compare
- * @param mixed $value2 [optional] second value to compare
- * </p>
+ * @param array|mixed $value Array to look through or first value to compare
  * @param mixed ...$values [optional] any comparable value
  * @return mixed min returns the numerically lowest of the
  * parameter values.
  */
-function min ($value1, $value2 = null, ...$values) {}
+function min ($value, ...$values) {}
 
 /**
  * Find highest value
  * @link https://php.net/manual/en/function.max.php
- * @param array|mixed $value1 Array to look through or first value to compare
- * @param mixed $value2 [optional] second value to compare
- * </p>
+ * @param array|mixed $value Array to look through or first value to compare
  * @param mixed ...$values [optional] any comparable value
  * @return mixed max returns the numerically highest of the
  * parameter values, either within a arg array or two arguments.
  */
-function max ($value1, $value2 = null, ...$values) {}
+function max ($value, ...$values) {}
 
 /**
  * Checks if a value exists in an array
@@ -790,7 +786,7 @@ function array_search ($needle, array $haystack, $strict = null) {}
 /**
  * Import variables into the current symbol table from an array
  * @link https://php.net/manual/en/function.extract.php
- * @param array $var_array<p>
+ * @param array $array<p>
  * Note that prefix is only required if
  * extract_type is EXTR_PREFIX_SAME,
  * EXTR_PREFIX_ALL, EXTR_PREFIX_INVALID
@@ -799,7 +795,7 @@ function array_search ($needle, array $haystack, $strict = null) {}
  * imported into the symbol table. Prefixes are automatically separated from
  * the array key by an underscore character.
  * </p>
- * @param int $extract_type [optional] <p>
+ * @param int $flags [optional] <p>
  * The way invalid/numeric keys and collisions are treated is determined
  * by the extract_type. It can be one of the
  * following values:
@@ -813,22 +809,22 @@ function array_search ($needle, array $haystack, $strict = null) {}
  * @return int the number of variables successfully imported into the symbol
  * table.
  */
-function extract (array $var_array, $extract_type = null, $prefix = null) {}
+function extract (array $array, $flags = null, $prefix = null) {}
 
 /**
  * Create array containing variables and their values
  * @link https://php.net/manual/en/function.compact.php
- * @param mixed $varname <p>
+ * @param mixed $var_name <p>
  * compact takes a variable number of parameters.
  * Each parameter can be either a string containing the name of the
  * variable, or an array of variable names. The array can contain other
  * arrays of variable names inside it; compact
  * handles it recursively.
  * </p>
- * @param mixed ...$_ [optional]
+ * @param mixed ...$var_names [optional]
  * @return array the output array with all the variables added to it.
  */
-function compact ($varname, ...$_) {}
+function compact ($var_name, ...$var_names) {}
 
 /**
  * Fill an array with values
@@ -837,7 +833,7 @@ function compact ($varname, ...$_) {}
  * The first index of the returned array.
  * Supports non-negative indexes only.
  * </p>
- * @param int $num <p>
+ * @param int $count <p>
  * Number of elements to insert
  * </p>
  * @param mixed $value <p>
@@ -845,7 +841,7 @@ function compact ($varname, ...$_) {}
  * </p>
  * @return array the filled array
  */
-function array_fill ($start_index, $num, $value) {}
+function array_fill ($start_index, $count, $value) {}
 
 /**
  * Fill an array with values, specifying keys
@@ -884,17 +880,17 @@ function range ($start, $end, $step = 1) {}
 /**
  * Sort multiple or multi-dimensional arrays
  * @link https://php.net/manual/en/function.array-multisort.php
- * @param array &$array1 <p>
+ * @param array &$array <p>
  * An array being sorted.
  * </p>
- * @param  array|int &...$rest [optional] <p>
+ * @param  &...$rest [optional] <p>
  * More arrays, optionally followed by sort order and flags.
  * Only elements corresponding to equivalent elements in previous arrays are compared.
  * In other words, the sort is lexicographical.
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_multisort (array &$array1, &...$rest) {}
+function array_multisort (array &$array, &...$rest) {}
 
 /**
  * Push elements onto the end of array
@@ -904,12 +900,12 @@ function array_multisort (array &$array1, &...$rest) {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param mixed ...$vars [optional] <p>
+ * @param mixed ...$values [optional] <p>
  * The pushed variables.
  * </p>
  * @return int the number of elements in the array.
  */
-function array_push (array &$array, ...$vars) {}
+function array_push (array &$array, ...$values) {}
 
 /**
  * Pop the element off the end of array
@@ -944,17 +940,17 @@ function array_shift (array &$array) {}
  * @param array &$array <p>
  * The input array.
  * </p>
- * @param mixed ...$vars [optional] <p>
+ * @param mixed ...$values [optional] <p>
  * The prepended variables.
  * </p>
  * @return int the number of elements in the array.
  */
-function array_unshift (array &$array, ...$vars) {}
+function array_unshift (array &$array, ...$values) {}
 
 /**
  * Remove a portion of the array and replace it with something else
  * @link https://php.net/manual/en/function.array-splice.php
- * @param array &$input <p>
+ * @param array &$array <p>
  * The input array.
  * </p>
  * @param int $offset <p>
@@ -995,7 +991,7 @@ function array_unshift (array &$array, ...$vars) {}
  * </p>
  * @return array the array consisting of the extracted elements.
  */
-function array_splice (array &$input, $offset, $length = null, $replacement = null) {}
+function array_splice (array &$array, $offset, $length = null, $replacement = null) {}
 
 /**
  * Extract a slice of the array

@@ -3,7 +3,7 @@
 /**
  * Opens a bzip2 compressed file
  * @link https://php.net/manual/en/function.bzopen.php
- * @param string $filename <p>
+ * @param string $file <p>
  * The name of the file to open, or an existing stream resource.
  * </p>
  * @param string $mode <p>
@@ -14,7 +14,7 @@
  * @return resource|false If the open fails, <b>bzopen</b> returns <b>FALSE</b>, otherwise
  * it returns a pointer to the newly opened file.
  */
-function bzopen ($filename, $mode) {}
+function bzopen ($file, $mode) {}
 
 /**
  * Binary safe bzip2 file read
@@ -39,7 +39,7 @@ function bzread ($bz, $length = 1024) {}
  * The file pointer. It must be valid and must point to a file
  * successfully opened by <b>bzopen</b>.
  * </p>
- * @param string $data <p>
+ * @param string $str <p>
  * The written data.
  * </p>
  * @param int $length [optional] <p>
@@ -49,7 +49,7 @@ function bzread ($bz, $length = 1024) {}
  * </p>
  * @return int the number of bytes written, or <b>FALSE</b> on error.
  */
-function bzwrite ($bz, $data, $length = null) {}
+function bzwrite ($bz, $str, $length = null) {}
 
 /**
  * Force a write of all buffered data

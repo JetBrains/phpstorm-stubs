@@ -375,7 +375,7 @@ function pcntl_sigprocmask ($how, array $set, array &$oldset = null) {}
  * @param array $set <p>
  * Array of signals to wait for.
  * </p>
- * @param array &$siginfo [optional] <p>
+ * @param array &$info [optional] <p>
  * The <i>siginfo</i> parameter is set to an array containing
  * informations about the signal.
  * </p>
@@ -407,7 +407,7 @@ function pcntl_sigprocmask ($how, array $set, array &$oldset = null) {}
  * </p>
  * @return int On success, <b>pcntl_sigwaitinfo</b> returns a signal number.
  */
-function pcntl_sigwaitinfo (array $set, array &$siginfo = null) {}
+function pcntl_sigwaitinfo (array $set, array &$info = null) {}
 
 /**
  * Waits for signals, with a timeout
@@ -415,7 +415,7 @@ function pcntl_sigwaitinfo (array $set, array &$siginfo = null) {}
  * @param array $set <p>
  * Array of signals to wait for.
  * </p>
- * @param array &$siginfo [optional] <p>
+ * @param array &$info [optional] <p>
  * The <i>siginfo</i> is set to an array containing
  * informations about the signal. See
  * <b>pcntl_sigwaitinfo</b>.
@@ -428,7 +428,7 @@ function pcntl_sigwaitinfo (array $set, array &$siginfo = null) {}
  * </p>
  * @return int On success, <b>pcntl_sigtimedwait</b> returns a signal number.
  */
-function pcntl_sigtimedwait (array $set, array &$siginfo = null, $seconds = 0, $nanoseconds = 0) {}
+function pcntl_sigtimedwait (array $set, array &$info = null, $seconds = 0, $nanoseconds = 0) {}
 
 /**
  * Enable/disable asynchronous signal handling or return the old setting.<br>

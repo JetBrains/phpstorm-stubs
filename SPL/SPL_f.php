@@ -13,7 +13,7 @@ function spl_classes () {}
 /**
  * Default implementation for __autoload()
  * @link https://php.net/manual/en/function.spl-autoload.php
- * @param string $class_name <p>
+ * @param string $class <p>
  * </p>
  * @param string $file_extensions [optional] <p>
  * By default it checks all include paths to
@@ -23,7 +23,7 @@ function spl_classes () {}
  * @return void
  * @since 5.1.2
  */
-function spl_autoload ($class_name, $file_extensions = null) {}
+function spl_autoload ($class, $file_extensions = null) {}
 
 /**
  * Register and return default file extensions for spl_autoload
@@ -83,18 +83,18 @@ function spl_autoload_functions () {}
 /**
  * Try all registered __autoload() function to load the requested class
  * @link https://php.net/manual/en/function.spl-autoload-call.php
- * @param string $class_name <p>
+ * @param string $class <p>
  * The class name being searched.
  * </p>
  * @return void
  * @since 5.1.2
  */
-function spl_autoload_call ($class_name) {}
+function spl_autoload_call ($class) {}
 
 /**
  * Return the parent classes of the given class
  * @link https://php.net/manual/en/function.class-parents.php
- * @param mixed $class <p>
+ * @param mixed $object_or_class <p>
  * An object (class instance) or a string (class name).
  * </p>
  * @param bool $autoload [optional] <p>
@@ -104,12 +104,12 @@ function spl_autoload_call ($class_name) {}
  * </p>
  * @return string[]|false An array on success, or false on error.
  */
-function class_parents ($class, $autoload = null) {}
+function class_parents ($object_or_class, $autoload = null) {}
 
 /**
  * Return the interfaces which are implemented by the given class
  * @link https://php.net/manual/en/function.class-implements.php
- * @param mixed $class <p>
+ * @param mixed $object_or_class <p>
  * An object (class instance) or a string (class name).
  * </p>
  * @param bool $autoload [optional] <p>
@@ -119,16 +119,16 @@ function class_parents ($class, $autoload = null) {}
  * </p>
  * @return string[]|false An array on success, or false on error.
  */
-function class_implements ($class, $autoload = null) {}
+function class_implements ($object_or_class, $autoload = null) {}
 
 /**
  * Return hash id for given object
  * @link https://php.net/manual/en/function.spl-object-hash.php
- * @param object $obj
+ * @param object $object
  * @return string A string that is unique for each object and is always the same for
  * the same object.
  */
-function spl_object_hash ($obj) {}
+function spl_object_hash ($object) {}
 
 /**
  * Copy the iterator into an array
@@ -175,7 +175,7 @@ function iterator_apply (Traversable $iterator, $function, array $args = null) {
 
 /**
  * Return the traits used by the given class
- * @param mixed $class An object (class instance) or a string (class name).
+ * @param mixed $object_or_class An object (class instance) or a string (class name).
  * @param bool $autoload Whether to allow this function to load the class automatically through the __autoload() magic method.
  * @return string[]|false An array on success, or false on error.
  * @link https://php.net/manual/en/function.class-uses.php
@@ -183,13 +183,13 @@ function iterator_apply (Traversable $iterator, $function, array $args = null) {
  * @see get_declared_traits()
  * @since 5.4
  */
-function class_uses($class, bool $autoload = true ) {}
+function class_uses($object_or_class, bool $autoload = true ) {}
 
 /**
- * @param object $obj
+ * @param object $object
  * @return int
  * @since 7.2
  */
-function spl_object_id($obj) {}
+function spl_object_id($object) {}
 
 ?>

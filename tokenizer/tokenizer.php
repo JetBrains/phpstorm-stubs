@@ -5,7 +5,7 @@
 /**
  * Split given source into PHP tokens
  * @link https://php.net/manual/en/function.token-get-all.php
- * @param string $source <p>
+ * @param string $code <p>
  * The PHP source to parse.
  * </p>
  * @param int $flags
@@ -26,17 +26,17 @@
  * or a three element array containing the token index in element 0, the string
  * content of the original token in element 1 and the line number in element 2.
  */
-function token_get_all ($source, $flags = 0) {}
+function token_get_all ($code, $flags = 0) {}
 
 /**
  * Get the symbolic name of a given PHP token
  * @link https://php.net/manual/en/function.token-name.php
- * @param int $token <p>
+ * @param int $id <p>
  * The token value.
  * </p>
  * @return string The symbolic name of the given <i>token</i>.
  */
-function token_name ($token) {}
+function token_name ($id) {}
 
 define('TOKEN_PARSE', 1);
 define('T_REQUIRE_ONCE', 263);

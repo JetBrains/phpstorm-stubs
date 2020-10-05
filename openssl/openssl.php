@@ -16,7 +16,7 @@ function openssl_pkey_free($key) { }
 /**
  * Generates a new private key
  * @link https://php.net/manual/en/function.openssl-pkey-new.php
- * @param array $configargs [optional] <p>
+ * @param array $options [optional] <p>
  * You can finetune the key generation (such as specifying the number of
  * bits) using <i>configargs</i>. See
  * <b>openssl_csr_new</b> for more information about
@@ -25,17 +25,17 @@ function openssl_pkey_free($key) { }
  * @return resource|false a resource identifier for the pkey on success, or false on
  * error.
  */
-function openssl_pkey_new(array $configargs = null) { }
+function openssl_pkey_new(array $options = null) { }
 
 /**
  * Gets an exportable representation of a key into a string
  * @link https://php.net/manual/en/function.openssl-pkey-export.php
  * @param mixed $key
- * @param string &$out
+ * @param string &$output
  * @param string $passphrase [optional] <p>
  * The key is optionally protected by <i>passphrase</i>.
  * </p>
- * @param array $configargs [optional] <p>
+ * @param array $options [optional] <p>
  * <i>configargs</i> can be used to fine-tune the export
  * process by specifying and/or overriding options for the openssl
  * configuration file. See <b>openssl_csr_new</b> for more
@@ -43,20 +43,20 @@ function openssl_pkey_new(array $configargs = null) { }
  * </p>
  * @return bool true on success or false on failure.
  */
-function openssl_pkey_export($key, &$out, $passphrase = null, array $configargs = null) { }
+function openssl_pkey_export($key, &$output, $passphrase = null, array $options = null) { }
 
 /**
  * Gets an exportable representation of a key into a file
  * @link https://php.net/manual/en/function.openssl-pkey-export-to-file.php
  * @param mixed $key
- * @param string $outfilename <p>
+ * @param string $output_filename <p>
  * Path to the output file.
  * </p>
  * @param string $passphrase [optional] <p>
  * The key can be optionally protected by a
  * <i>passphrase</i>.
  * </p>
- * @param array $configargs [optional] <p>
+ * @param array $options [optional] <p>
  * <i>configargs</i> can be used to fine-tune the export
  * process by specifying and/or overriding options for the openssl
  * configuration file. See <b>openssl_csr_new</b> for more
@@ -64,12 +64,12 @@ function openssl_pkey_export($key, &$out, $passphrase = null, array $configargs 
  * </p>
  * @return bool true on success or false on failure.
  */
-function openssl_pkey_export_to_file($key, $outfilename, $passphrase = null, array $configargs = null) { }
+function openssl_pkey_export_to_file($key, $output_filename, $passphrase = null, array $options = null) { }
 
 /**
  * Get a private key
  * @link https://php.net/manual/en/function.openssl-pkey-get-private.php
- * @param $key
+ * @param $private_key
  * <p>
  * <b><em>key</em></b> can be one of the following:
  * <ol>
@@ -85,12 +85,12 @@ function openssl_pkey_export_to_file($key, $outfilename, $passphrase = null, arr
  * </p>
  * @return resource|false Returns a positive key resource identifier on success, or <b>FALSE</b> on error.
  */
-function openssl_pkey_get_private($key, $passphrase = "") { }
+function openssl_pkey_get_private($private_key, $passphrase = "") { }
 
 /**
  * Extract public key from certificate and prepare it for use
  * @link https://php.net/manual/en/function.openssl-pkey-get-public.php
- * @param mixed $certificate <p><em><b>certificate</b></em> can be one of the following:
+ * @param mixed $public_key <p><em><b>certificate</b></em> can be one of the following:
  * <ol>
  * <li>an X.509 certificate resource</li>
  * <li>a string having the format
@@ -102,7 +102,7 @@ function openssl_pkey_get_private($key, $passphrase = "") { }
  * </ol></p>
  * @return resource|false a positive key resource identifier on success, or false on error.
  */
-function openssl_pkey_get_public($certificate) { }
+function openssl_pkey_get_public($public_key) { }
 
 /**
  * Returns an array with the key details
@@ -128,16 +128,16 @@ function openssl_pkey_get_details($key) { }
 /**
  * Free key resource
  * @link https://php.net/manual/en/function.openssl-free-key.php
- * @param resource $key_identifier
+ * @param resource $key
  * @return void
  * @deprecated 8.0
  */
-function openssl_free_key($key_identifier) { }
+function openssl_free_key($key) { }
 
 /**
  * Alias of <b>openssl_pkey_get_private</b>
  * @link https://php.net/manual/en/function.openssl-get-privatekey.php
- * @param $key
+ * @param $private_key
  * <p>
  * <b><em>key</em></b> can be one of the following:
  * <ol>
@@ -153,12 +153,12 @@ function openssl_free_key($key_identifier) { }
  * </p>
  * @return resource|false Returns a positive key resource identifier on success, or <b>FALSE</b> on error.
  */
-function openssl_get_privatekey($key, $passphrase) { }
+function openssl_get_privatekey($private_key, $passphrase) { }
 
 /**
  * Alias of <b>openssl_pkey_get_public</b>
  * @link https://php.net/manual/en/function.openssl-get-publickey.php
- * @param mixed $certificate <p>
+ * @param mixed $public_key <p>
  * <em><b>certificate</b></em> can be one of the following:
  * <ol>
  * <li>an X.509 certificate resource</li>
@@ -171,12 +171,12 @@ function openssl_get_privatekey($key, $passphrase) { }
  * </ol> </p>
  * @return resource|false a positive key resource identifier on success, or FALSE on error.
  */
-function openssl_get_publickey($certificate) { }
+function openssl_get_publickey($public_key) { }
 
 /**
  * Generate a new signed public key and challenge
  * @link https://php.net/manual/en/function.openssl-spki-new.php
- * @param resource &$privkey <p>
+ * @param resource &$private_key <p>
  * <b>privkey</b> should be set to a private key that was
  * previously generated by {@link https://php.net/en/manual/function.openssl-pkey-new.php openssl_pkey_new()} (or
  * otherwise obtained from the other openssl_pkey family of functions).
@@ -184,70 +184,70 @@ function openssl_get_publickey($certificate) { }
  * CSR.
  * </p>
  * @param string &$challenge <p>The challenge associated to associate with the SPKAC</p>
- * @param int $algorithm <p>The digest algorithm. See openssl_get_md_method().</p>
+ * @param int $digest_algo <p>The digest algorithm. See openssl_get_md_method().</p>
  * @return string|null Returns a signed public key and challenge string or NULL on failure.
  * @since 5.6
  */
-function openssl_spki_new(&$privkey, &$challenge, $algorithm = 0) {}
+function openssl_spki_new(&$private_key, &$challenge, $digest_algo = 0) {}
 
 
 /**
  * Verifies a signed public key and challenge
  * @link https://php.net/manual/en/function.openssl-spki-verify.php
- * @param string &$spkac <p>Expects a valid signed public key and challenge</p>
+ * @param string &$spki <p>Expects a valid signed public key and challenge</p>
  * @return bool Returns a boolean on success or failure.
  * @since 5.6
  */
-function openssl_spki_verify(&$spkac) {}
+function openssl_spki_verify(&$spki) {}
 
 /**
  * Exports the challenge associated with a signed public key and challenge
  * @link https://php.net/manual/en/function.openssl-spki-export-challenge.php
- * @param string &$spkac <p>Expects a valid signed public key and challenge</p>
+ * @param string &$spki <p>Expects a valid signed public key and challenge</p>
  * @return string|null Returns the associated challenge string or NULL on failure.
  * @since 5.6
  */
-function openssl_spki_export_challenge (&$spkac ) {}
+function openssl_spki_export_challenge (&$spki ) {}
 
 /**
  * Exports a valid PEM formatted public key signed public key and challenge
  * @link https://php.net/manual/en/function.openssl-spki-export.php
- * @param string &$spkac <p>Expects a valid signed public key and challenge</p>
+ * @param string &$spki <p>Expects a valid signed public key and challenge</p>
  * @return string|null Returns the associated PEM formatted public key or NULL on failure.
  * @since 5.6
  */
-function openssl_spki_export (&$spkac ) {}
+function openssl_spki_export (&$spki ) {}
 /**
  * Parse an X.509 certificate and return a resource identifier for
  * it
  * @link https://php.net/manual/en/function.openssl-x509-read.php
- * @param mixed $x509certdata
+ * @param mixed $certificate
  * @return resource|false a resource identifier on success or false on failure.
  */
-function openssl_x509_read($x509certdata) { }
+function openssl_x509_read($certificate) { }
 
 /**
- * @param string $x509
- * @param string $type [optional] hash method
+ * @param string $certificate
+ * @param string $digest_algo [optional] hash method
  * @param bool $binary [optional]
  * @return string|false <b>FALSE</b> on failure
  * @since 5.6
  */
-function openssl_x509_fingerprint($x509, $type, $binary) {}
+function openssl_x509_fingerprint($certificate, $digest_algo, $binary) {}
 /**
  * Free certificate resource
  * @link https://php.net/manual/en/function.openssl-x509-free.php
- * @param resource $x509cert
+ * @param resource $certificate
  * @return void
  * @deprecated 8.0
  */
-function openssl_x509_free($x509cert) { }
+function openssl_x509_free($certificate) { }
 
 /**
  * Parse an X509 certificate and return the information as an array
  * @link https://php.net/manual/en/function.openssl-x509-parse.php
- * @param mixed $x509cert
- * @param bool $shortnames [optional] <p>
+ * @param mixed $certificate
+ * @param bool $short_names [optional] <p>
  * <i>shortnames</i> controls how the data is indexed in the
  * array - if <i>shortnames</i> is true (the default) then
  * fields will be indexed with the short name form, otherwise, the long name
@@ -256,12 +256,12 @@ function openssl_x509_free($x509cert) { }
  * @return array|false The structure of the returned data is (deliberately) not
  * yet documented, as it is still subject to change.
  */
-function openssl_x509_parse($x509cert, $shortnames = true) { }
+function openssl_x509_parse($certificate, $short_names = true) { }
 
 /**
  * Verifies if a certificate can be used for a particular purpose
  * @link https://php.net/manual/en/function.openssl-x509-checkpurpose.php
- * @param mixed $x509cert <p>
+ * @param mixed $certificate <p>
  * The examined certificate.
  * </p>
  * @param int $purpose <p>
@@ -305,12 +305,12 @@ function openssl_x509_parse($x509cert, $shortnames = true) { }
  * </table>
  * These options are not bitfields - you may specify one only!
  * </p>
- * @param array $cainfo [optional] <p>
+ * @param array $ca_info [optional] <p>
  * <i>cainfo</i> should be an array of trusted CA files/dirs
  * as described in Certificate
  * Verification.
  * </p>
- * @param string $untrustedfile [optional] <p>
+ * @param string $untrusted_certificates_file [optional] <p>
  * If specified, this should be the name of a PEM encoded file holding
  * certificates that can be used to help verify the certificate, although
  * no trust is placed in the certificates that come from that file.
@@ -318,123 +318,123 @@ function openssl_x509_parse($x509cert, $shortnames = true) { }
  * @return int|bool true if the certificate can be used for the intended purpose,
  * false if it cannot, or -1 on error.
  */
-function openssl_x509_checkpurpose($x509cert, $purpose, array $cainfo = null, $untrustedfile = null) { }
+function openssl_x509_checkpurpose($certificate, $purpose, array $ca_info = null, $untrusted_certificates_file = null) { }
 
 /**
  * Checks if a private key corresponds to a certificate
  * @link https://php.net/manual/en/function.openssl-x509-check-private-key.php
- * @param mixed $cert <p>
+ * @param mixed $certificate <p>
  * The certificate.
  * </p>
- * @param mixed $key <p>
+ * @param mixed $private_key <p>
  * The private key.
  * </p>
  * @return bool true if <i>key</i> is the private key that
  * corresponds to <i>cert</i>, or false otherwise.
  */
-function openssl_x509_check_private_key($cert, $key) { }
+function openssl_x509_check_private_key($certificate, $private_key) { }
 
 /**
  * Exports a certificate as a string
  * @link https://php.net/manual/en/function.openssl-x509-export.php
- * @param mixed $x509
+ * @param mixed $certificate
  * @param string &$output <p>
  * On success, this will hold the PEM.
  * </p>
- * @param bool $notext [optional] &note.openssl.param-notext;
+ * @param bool $no_text [optional] &note.openssl.param-notext;
  * @return bool true on success or false on failure.
  */
-function openssl_x509_export($x509, &$output, $notext = true) { }
+function openssl_x509_export($certificate, &$output, $no_text = true) { }
 
 /**
  * Exports a certificate to file
  * @link https://php.net/manual/en/function.openssl-x509-export-to-file.php
- * @param mixed $x509
- * @param string $outfilename <p>
+ * @param mixed $certificate
+ * @param string $output_filename <p>
  * Path to the output file.
  * </p>
- * @param bool $notext [optional] &note.openssl.param-notext;
+ * @param bool $no_text [optional] &note.openssl.param-notext;
  * @return bool true on success or false on failure.
  */
-function openssl_x509_export_to_file($x509, $outfilename, $notext = true) { }
+function openssl_x509_export_to_file($certificate, $output_filename, $no_text = true) { }
 
 /**
  * Verifies digital signature of x509 certificate against a public key
  * @link https://www.php.net/manual/en/function.openssl-x509-verify.php
  * @param mixed $x509
- * @param mixed $pub_key_id
+ * @param mixed $public_key
  * @return int Returns 1 if the signature is correct, 0 if it is incorrect, and -1 on error.
  * @since 7.4
  */
-function openssl_x509_verify($cert, $pub_key_id) : int {}
+function openssl_x509_verify($certificate, $public_key) : int {}
 
 /**
  * Exports a PKCS#12 Compatible Certificate Store File to variable.
  * @link https://php.net/manual/en/function.openssl-pkcs12-export.php
- * @param mixed $x509
- * @param string &$out <p>
+ * @param mixed $certificate
+ * @param string &$output <p>
  * On success, this will hold the PKCS#12.
  * </p>
- * @param mixed $priv_key <p>
+ * @param mixed $private_key <p>
  * Private key component of PKCS#12 file.
  * </p>
- * @param string $pass <p>
+ * @param string $passphrase <p>
  * Encryption password for unlocking the PKCS#12 file.
  * </p>
- * @param array $args [optional]
+ * @param array $options [optional]
  * @return bool true on success or false on failure.
  * @since 5.2.2
  */
-function openssl_pkcs12_export($x509, &$out, $priv_key, $pass, array $args = null) { }
+function openssl_pkcs12_export($certificate, &$output, $private_key, $passphrase, array $options = null) { }
 
 /**
  * Exports a PKCS#12 Compatible Certificate Store File
  * @link https://php.net/manual/en/function.openssl-pkcs12-export-to-file.php
- * @param mixed $x509
- * @param string $filename <p>
+ * @param mixed $certificate
+ * @param string $output_filename <p>
  * Path to the output file.
  * </p>
- * @param mixed $priv_key <p>
+ * @param mixed $private_key <p>
  * Private key component of PKCS#12 file.
  * </p>
- * @param string $pass <p>
+ * @param string $passphrase <p>
  * Encryption password for unlocking the PKCS#12 file.
  * </p>
- * @param array $args [optional]
+ * @param array $options [optional]
  * @return bool true on success or false on failure.
  * @since 5.2.2
  */
-function openssl_pkcs12_export_to_file($x509, $filename, $priv_key, $pass, array $args = null) { }
+function openssl_pkcs12_export_to_file($certificate, $output_filename, $private_key, $passphrase, array $options = null) { }
 
 /**
  * Parse a PKCS#12 Certificate Store into an array
  * @link https://php.net/manual/en/function.openssl-pkcs12-read.php
  * @param string $pkcs12
- * @param array &$certs <p>
+ * @param array &$certificates <p>
  * On success, this will hold the Certificate Store Data.
  * </p>
- * @param string $pass <p>
+ * @param string $passphrase <p>
  * Encryption password for unlocking the PKCS#12 file.
  * </p>
  * @return bool true on success or false on failure.
  * @since 5.2.2
  */
-function openssl_pkcs12_read($pkcs12, array &$certs, $pass) { }
+function openssl_pkcs12_read($pkcs12, array &$certificates, $passphrase) { }
 
 /**
  * Generates a CSR
  * @link https://php.net/manual/en/function.openssl-csr-new.php
- * @param array $dn <p>
+ * @param array $distinguished_names <p>
  * The Distinguished Name to be used in the certificate.
  * </p>
- * @param resource &$privkey <p>
+ * @param resource &$private_key <p>
  * <i>privkey</i> should be set to a private key that was
  * previously generated by <b>openssl_pkey_new</b> (or
  * otherwise obtained from the other openssl_pkey family of functions).
  * The corresponding public portion of the key will be used to sign the
  * CSR.
  * </p>
- * @param array $configargs [optional] <p>
+ * @param array $options [optional] <p>
  * By default, the information in your system openssl.conf
  * is used to initialize the request; you can specify a configuration file
  * section by setting the config_section_section key of
@@ -506,7 +506,7 @@ function openssl_pkcs12_read($pkcs12, array &$certs, $pass) { }
  * </tr>
  * </table>
  * </p>
- * @param array $extraattribs [optional] <p>
+ * @param array $extra_attributes [optional] <p>
  * <i>extraattribs</i> is used to specify additional
  * configuration options for the CSR. Both <i>dn</i> and
  * <i>extraattribs</i> are associative arrays whose keys are
@@ -514,29 +514,29 @@ function openssl_pkcs12_read($pkcs12, array &$certs, $pass) { }
  * </p>
  * @return false|resource the CSR.
  */
-function openssl_csr_new(array $dn, &$privkey, array $configargs = null, array $extraattribs = null) { }
+function openssl_csr_new(array $distinguished_names, &$private_key, array $options = null, array $extra_attributes = null) { }
 
 /**
  * Exports a CSR as a string
  * @link https://php.net/manual/en/function.openssl-csr-export.php
  * @param resource $csr
- * @param string &$out
- * @param bool $notext [optional] &note.openssl.param-notext;
+ * @param string &$output
+ * @param bool $no_text [optional] &note.openssl.param-notext;
  * @return bool true on success or false on failure.
  */
-function openssl_csr_export($csr, &$out, $notext = true) { }
+function openssl_csr_export($csr, &$output, $no_text = true) { }
 
 /**
  * Exports a CSR to a file
  * @link https://php.net/manual/en/function.openssl-csr-export-to-file.php
  * @param resource $csr
- * @param string $outfilename <p>
+ * @param string $output_filename <p>
  * Path to the output file.
  * </p>
- * @param bool $notext [optional] &note.openssl.param-notext;
+ * @param bool $no_text [optional] &note.openssl.param-notext;
  * @return bool true on success or false on failure.
  */
-function openssl_csr_export_to_file($csr, $outfilename, $notext = true) { }
+function openssl_csr_export_to_file($csr, $output_filename, $no_text = true) { }
 
 /**
  * Sign a CSR with another certificate (or itself) and generate a certificate
@@ -547,12 +547,12 @@ function openssl_csr_export_to_file($csr, $outfilename, $notext = true) { }
  * file://path/to/csr or an exported string generated
  * by <b>openssl_csr_export</b>.
  * </p>
- * @param mixed $cacert <p>
+ * @param mixed $ca_certificate <p>
  * The generated certificate will be signed by <i>cacert</i>.
  * If <i>cacert</i> is null, the generated certificate
  * will be a self-signed certificate.
  * </p>
- * @param mixed $priv_key <p>
+ * @param mixed $private_key <p>
  * <i>priv_key</i> is the private key that corresponds to
  * <i>cacert</i>.
  * </p>
@@ -560,7 +560,7 @@ function openssl_csr_export_to_file($csr, $outfilename, $notext = true) { }
  * <i>days</i> specifies the length of time for which the
  * generated certificate will be valid, in days.
  * </p>
- * @param array $configargs [optional] <p>
+ * @param array $options [optional] <p>
  * You can finetune the CSR signing by <i>configargs</i>.
  * See <b>openssl_csr_new</b> for more information about
  * <i>configargs</i>.
@@ -571,25 +571,25 @@ function openssl_csr_export_to_file($csr, $outfilename, $notext = true) { }
  * </p>
  * @return resource|false an x509 certificate resource on success, false on failure.
  */
-function openssl_csr_sign($csr, $cacert, $priv_key, $days, array $configargs = null, $serial = 0) { }
+function openssl_csr_sign($csr, $ca_certificate, $private_key, $days, array $options = null, $serial = 0) { }
 
 /**
  * Returns the subject of a CERT
  * @link https://php.net/manual/en/function.openssl-csr-get-subject.php
  * @param mixed $csr
- * @param bool $use_shortnames [optional]
+ * @param bool $short_names [optional]
  * @return array|false
  */
-function openssl_csr_get_subject($csr, $use_shortnames = true) { }
+function openssl_csr_get_subject($csr, $short_names = true) { }
 
 /**
  * Returns the public key of a CERT
  * @link https://php.net/manual/en/function.openssl-csr-get-public-key.php
  * @param mixed $csr
- * @param bool $use_shortnames [optional]
+ * @param bool $short_names [optional]
  * @return resource|false
  */
-function openssl_csr_get_public_key($csr, $use_shortnames = true) { }
+function openssl_csr_get_public_key($csr, $short_names = true) { }
 
 /**
  * Computes a digest
@@ -597,16 +597,16 @@ function openssl_csr_get_public_key($csr, $use_shortnames = true) { }
  * @param string $data <p>
  * The data.
  * </p>
- * @param string $method <p>
+ * @param string $digest_algo <p>
  * The digest method.
  * </p>
- * @param bool $raw_output [optional] <p>
+ * @param bool $binary [optional] <p>
  * Setting to true will return as raw output data, otherwise the return
  * value is binhex encoded.
  * </p>
  * @return string|false the digested hash value on success or false on failure.
  */
-function openssl_digest($data, $method, $raw_output = false) { }
+function openssl_digest($data, $digest_algo, $binary = false) { }
 
 /**
  * Encrypts data
@@ -614,10 +614,10 @@ function openssl_digest($data, $method, $raw_output = false) { }
  * @param string $data <p>
  * The data.
  * </p>
- * @param string $method <p>
+ * @param string $cipher_algo <p>
  * The cipher method. For a list of available cipher methods, use {@see openssl_get_cipher_methods()}.
  * </p>
- * @param string $key <p>
+ * @param string $passphrase <p>
  * The key.
  * </p>
  * @param int $options [optional] <p>
@@ -633,7 +633,7 @@ function openssl_digest($data, $method, $raw_output = false) { }
  * </p>
  * @return string|false the encrypted string on success or false on failure.
  */
-function openssl_encrypt($data, $method, $key, $options = 0, $iv = "", &$tag = null, $aad = "", $tag_length = 16) { }
+function openssl_encrypt($data, $cipher_algo, $passphrase, $options = 0, $iv = "", &$tag = null, $aad = "", $tag_length = 16) { }
 
 /**
  * Decrypts data
@@ -641,10 +641,10 @@ function openssl_encrypt($data, $method, $key, $options = 0, $iv = "", &$tag = n
  * @param string $data <p>
  * The data.
  * </p>
- * @param string $method <p>
+ * @param string $cipher_algo <p>
  * The cipher method.
  * </p>
- * @param string $password <p>
+ * @param string $passphrase <p>
  * The password.
  * </p>
  * @param int $options [optional] <p>
@@ -661,18 +661,18 @@ function openssl_encrypt($data, $method, $key, $options = 0, $iv = "", &$tag = n
  * @param string $aad [optional] <p>Additional authentication data.</p>
  * @return string|false The decrypted string on success or false on failure.
  */
-function openssl_decrypt($data, $method, $password, $options = 0, $iv = "", $tag = "",  $aad = "") { }
+function openssl_decrypt($data, $cipher_algo, $passphrase, $options = 0, $iv = "", $tag = "", $aad = "") { }
 
 /**
  * (PHP 5 &gt;= PHP 5.3.3)<br/>
  * Gets the cipher iv length
  * @link https://php.net/manual/en/function.openssl-cipher-iv-length.php
- * @param string $method <p>
+ * @param string $cipher_algo <p>
  * The method.
  * </p>
  * @return int|false the cipher length on success, or false on failure.
  */
-function openssl_cipher_iv_length($method) { }
+function openssl_cipher_iv_length($cipher_algo) { }
 
 /**
  * Generate signature
@@ -682,59 +682,59 @@ function openssl_cipher_iv_length($method) { }
  * If the call was successful the signature is returned in
  * <i>signature</i>.
  * </p>
- * @param mixed $priv_key_id
- * @param int $signature_alg [optional] <p>
+ * @param mixed $private_key
+ * @param int $algorithm [optional] <p>
  * For more information see the list of Signature Algorithms.
  * </p>
  * @return bool true on success or false on failure.
  */
-function openssl_sign($data, &$signature, $priv_key_id, $signature_alg = OPENSSL_ALGO_SHA1) { }
+function openssl_sign($data, &$signature, $private_key, $algorithm = OPENSSL_ALGO_SHA1) { }
 
 /**
  * Verify signature
  * @link https://php.net/manual/en/function.openssl-verify.php
  * @param string $data
  * @param string $signature
- * @param mixed $pub_key_id
- * @param int $signature_alg [optional] <p>
+ * @param mixed $public_key
+ * @param int $algorithm [optional] <p>
  * For more information see the list of Signature Algorithms.
  * </p>
  * @return int 1 if the signature is correct, 0 if it is incorrect, and
  * -1 on error.
  */
-function openssl_verify($data, $signature, $pub_key_id, $signature_alg = OPENSSL_ALGO_SHA1) { }
+function openssl_verify($data, $signature, $public_key, $algorithm = OPENSSL_ALGO_SHA1) { }
 
 /**
  * Seal (encrypt) data
  * @link https://php.net/manual/en/function.openssl-seal.php
  * @param string $data
  * @param string &$sealed_data
- * @param array &$env_keys
- * @param array $pub_key_ids
- * @param string $method [optional]
+ * @param array &$encrypted_keys
+ * @param array $public_key
+ * @param string $cipher_algo [optional]
  * @param string &$iv [optional]
  * @return int|false the length of the sealed data on success, or false on error.
  * If successful the sealed data is returned in
  * <i>sealed_data</i>, and the envelope keys in
  * <i>env_keys</i>.
  */
-function openssl_seal($data, &$sealed_data, array &$env_keys, array $pub_key_ids, $method = null, &$iv = '') { }
+function openssl_seal($data, &$sealed_data, array &$encrypted_keys, array $public_key, $cipher_algo = null, &$iv = '') { }
 
 /**
  * Open sealed data
  * @link https://php.net/manual/en/function.openssl-open.php
- * @param string $sealed_data
- * @param string &$open_data <p>
+ * @param string $data
+ * @param string &$output <p>
  * If the call is successful the opened data is returned in this
  * parameter.
  * </p>
- * @param string $env_key
- * @param mixed $priv_key_id
- * @param string $method [optional] The cipher method.
+ * @param string $encrypted_key
+ * @param mixed $private_key
+ * @param string $cipher_algo [optional] The cipher method.
  * @param string $iv [optional] The initialization vector.
  * @return bool true on success or false on failure.
  */
-function openssl_open($sealed_data, &$open_data, $env_key, $priv_key_id, $method = "RC4", string $iv) { }
+function openssl_open($data, &$output, $encrypted_key, $private_key, $cipher_algo = "RC4", string $iv) { }
 
 /**
  * Generates a PKCS5 v2 PBKDF2 string, defaults to SHA-1
@@ -743,16 +743,16 @@ function openssl_open($sealed_data, &$open_data, $env_key, $priv_key_id, $method
  * @param string $salt
  * @param int $key_length
  * @param int $iterations
- * @param string $digest_algorithm [optional]
+ * @param string $digest_algo [optional]
  * @return string|false Returns string or FALSE on failure.
  * @since 5.5
  */
-function openssl_pbkdf2($password, $salt, $key_length, $iterations, $digest_algorithm) { }
+function openssl_pbkdf2($password, $salt, $key_length, $iterations, $digest_algo) { }
 
 /**
  * Verifies the signature of an S/MIME signed message
  * @link https://php.net/manual/en/function.openssl-pkcs7-verify.php
- * @param string $filename <p>
+ * @param string $input_filename <p>
  * Path to the message.
  * </p>
  * @param int $flags <p>
@@ -760,18 +760,18 @@ function openssl_pbkdf2($password, $salt, $key_length, $iterations, $digest_algo
  * verified - see PKCS7 constants
  * for more information.
  * </p>
- * @param string $outfilename [optional] <p>
+ * @param string $signers_certificates_filename [optional] <p>
  * If the <i>outfilename</i> is specified, it should be a
  * string holding the name of a file into which the certificates of the
  * persons that signed the messages will be stored in PEM format.
  * </p>
- * @param array $cainfo [optional] <p>
+ * @param array $ca_info [optional] <p>
  * If the <i>cainfo</i> is specified, it should hold
  * information about the trusted CA certificates to use in the verification
  * process - see certificate
  * verification for more information about this parameter.
  * </p>
- * @param string $extracerts [optional] <p>
+ * @param string $untrusted_certificates_filename [optional] <p>
  * If the <i>extracerts</i> is specified, it is the filename
  * of a file containing a bunch of certificates to use as untrusted CAs.
  * </p>
@@ -779,35 +779,35 @@ function openssl_pbkdf2($password, $salt, $key_length, $iterations, $digest_algo
  * You can specify a filename with <i>content</i> that will
  * be filled with the verified data, but with the signature information
  * stripped.
- * @param string|null $pk7 [optional]
+ * @param string|null $output_filename [optional]
  * </p>
  * @return bool|int true if the signature is verified, false if it is not correct
  * (the message has been tampered with, or the signing certificate is invalid),
  * or -1 on error.
  */
-function openssl_pkcs7_verify($filename, $flags, $outfilename = null, array $cainfo = null, $extracerts = null, $content = null, $pk7 = null) { }
+function openssl_pkcs7_verify($input_filename, $flags, $signers_certificates_filename = null, array $ca_info = null, $untrusted_certificates_filename = null, $content = null, $output_filename = null) { }
 
 /**
  * Decrypts an S/MIME encrypted message
  * @link https://php.net/manual/en/function.openssl-pkcs7-decrypt.php
- * @param string $infilename
- * @param string $outfilename <p>
+ * @param string $input_filename
+ * @param string $output_filename <p>
  * The decrypted message is written to the file specified by
  * <i>outfilename</i>.
  * </p>
- * @param mixed $recipcert
- * @param mixed $recipkey [optional]
+ * @param mixed $certificate
+ * @param mixed $private_key [optional]
  * @return bool true on success or false on failure.
  */
-function openssl_pkcs7_decrypt($infilename, $outfilename, $recipcert, $recipkey = null) { }
+function openssl_pkcs7_decrypt($input_filename, $output_filename, $certificate, $private_key = null) { }
 
 /**
  * Sign an S/MIME message
  * @link https://php.net/manual/en/function.openssl-pkcs7-sign.php
- * @param string $infilename
- * @param string $outfilename
- * @param mixed $signcert
- * @param mixed $privkey
+ * @param string $input_filename
+ * @param string $output_filename
+ * @param mixed $certificate
+ * @param mixed $private_key
  * @param array $headers <p>
  * <i>headers</i> is an array of headers that
  * will be prepended to the data after it has been signed (see
@@ -817,21 +817,21 @@ function openssl_pkcs7_decrypt($infilename, $outfilename, $recipcert, $recipkey 
  * @param int $flags [optional] <p>
  * <i>flags</i> can be used to alter the output - see PKCS7 constants.
  * </p>
- * @param string $extracerts [optional] <p>
+ * @param string $untrusted_certificates_filename [optional] <p>
  * <i>extracerts</i> specifies the name of a file containing
  * a bunch of extra certificates to include in the signature which can for
  * example be used to help the recipient to verify the certificate that you used.
  * </p>
  * @return bool true on success or false on failure.
  */
-function openssl_pkcs7_sign($infilename, $outfilename, $signcert, $privkey, array $headers, $flags = PKCS7_DETACHED, $extracerts = null) { }
+function openssl_pkcs7_sign($input_filename, $output_filename, $certificate, $private_key, array $headers, $flags = PKCS7_DETACHED, $untrusted_certificates_filename = null) { }
 
 /**
  * Encrypt an S/MIME message
  * @link https://php.net/manual/en/function.openssl-pkcs7-encrypt.php
- * @param string $infile
- * @param string $outfile
- * @param mixed $recipcerts <p>
+ * @param string $input_filename
+ * @param string $output_filename
+ * @param mixed $certificate <p>
  * Either a lone X.509 certificate, or an array of X.509 certificates.
  * </p>
  * @param array $headers <p>
@@ -848,19 +848,19 @@ function openssl_pkcs7_sign($infilename, $outfilename, $signcert, $privkey, arra
  * the encoding process - see PKCS7
  * constants.
  * </p>
- * @param int $cipherid [optional] <p>
+ * @param int $cipher_algo [optional] <p>
  * One of cipher constants.
  * </p>
  * @return bool true on success or false on failure.
  */
-function openssl_pkcs7_encrypt($infile, $outfile, $recipcerts, array $headers, $flags = 0, $cipherid = OPENSSL_CIPHER_RC2_40) { }
+function openssl_pkcs7_encrypt($input_filename, $output_filename, $certificate, array $headers, $flags = 0, $cipher_algo = OPENSSL_CIPHER_RC2_40) { }
 
 /**
  * Encrypts data with private key
  * @link https://php.net/manual/en/function.openssl-private-encrypt.php
  * @param string $data
- * @param string &$crypted
- * @param mixed $key
+ * @param string &$encrypted_data
+ * @param mixed $private_key
  * @param int $padding [optional] <p>
  * <i>padding</i> can be one of
  * <b>OPENSSL_PKCS1_PADDING</b>,
@@ -868,14 +868,14 @@ function openssl_pkcs7_encrypt($infile, $outfile, $recipcerts, array $headers, $
  * </p>
  * @return bool true on success or false on failure.
  */
-function openssl_private_encrypt($data, &$crypted, $key, $padding = OPENSSL_PKCS1_PADDING) { }
+function openssl_private_encrypt($data, &$encrypted_data, $private_key, $padding = OPENSSL_PKCS1_PADDING) { }
 
 /**
  * Decrypts data with private key
  * @link https://php.net/manual/en/function.openssl-private-decrypt.php
  * @param string $data
- * @param string &$decrypted
- * @param mixed $key <p>
+ * @param string &$decrypted_data
+ * @param mixed $private_key <p>
  * <i>key</i> must be the private key corresponding that
  * was used to encrypt the data.
  * </p>
@@ -888,16 +888,16 @@ function openssl_private_encrypt($data, &$crypted, $key, $padding = OPENSSL_PKCS
  * </p>
  * @return bool true on success or false on failure.
  */
-function openssl_private_decrypt($data, &$decrypted, $key, $padding = OPENSSL_PKCS1_PADDING) { }
+function openssl_private_decrypt($data, &$decrypted_data, $private_key, $padding = OPENSSL_PKCS1_PADDING) { }
 
 /**
  * Encrypts data with public key
  * @link https://php.net/manual/en/function.openssl-public-encrypt.php
  * @param string $data
- * @param string &$crypted <p>
+ * @param string &$encrypted_data <p>
  * This will hold the result of the encryption.
  * </p>
- * @param mixed $key <p>
+ * @param mixed $public_key <p>
  * The public key.
  * </p>
  * @param int $padding [optional] <p>
@@ -909,14 +909,14 @@ function openssl_private_decrypt($data, &$decrypted, $key, $padding = OPENSSL_PK
  * </p>
  * @return bool true on success or false on failure.
  */
-function openssl_public_encrypt($data, &$crypted, $key, $padding = OPENSSL_PKCS1_PADDING) { }
+function openssl_public_encrypt($data, &$encrypted_data, $public_key, $padding = OPENSSL_PKCS1_PADDING) { }
 
 /**
  * Decrypts data with public key
  * @link https://php.net/manual/en/function.openssl-public-decrypt.php
  * @param string $data
- * @param string &$decrypted
- * @param mixed $key <p>
+ * @param string &$decrypted_data
+ * @param mixed $public_key <p>
  * <i>key</i> must be the public key corresponding that
  * was used to encrypt the data.
  * </p>
@@ -927,7 +927,7 @@ function openssl_public_encrypt($data, &$crypted, $key, $padding = OPENSSL_PKCS1
  * </p>
  * @return bool true on success or false on failure.
  */
-function openssl_public_decrypt($data, &$decrypted, $key, $padding = OPENSSL_PKCS1_PADDING) { }
+function openssl_public_decrypt($data, &$decrypted_data, $public_key, $padding = OPENSSL_PKCS1_PADDING) { }
 
 /**
  * Gets available digest methods
@@ -955,23 +955,23 @@ function openssl_get_cipher_methods($aliases = false) { }
  * (No version information available, might only be in SVN)<br/>
  * Computes shared secret for public value of remote DH key and local DH key
  * @link https://php.net/manual/en/function.openssl-dh-compute-key.php
- * @param string $pub_key <p>
+ * @param string $public_key <p>
  * Public key
  * </p>
- * @param resource $dh_key <p>
+ * @param resource $private_key <p>
  * DH key
  * </p>
  * @return string|false computed key on success or false on failure.
  */
-function openssl_dh_compute_key($pub_key, $dh_key) { }
+function openssl_dh_compute_key($public_key, $private_key) { }
 
 /**
- * @param $peer_pub_key
- * @param $priv_key
- * @param $keylen
+ * @param $public_key
+ * @param $private_key
+ * @param $key_length
  * @since 7.3
  */
-function openssl_pkey_derive($peer_pub_key, $priv_key, $keylen) {}
+function openssl_pkey_derive($public_key, $private_key, $key_length) {}
 
 /**
  * Generates a string of pseudo-random bytes, with the number of bytes determined by the length parameter.
@@ -982,14 +982,14 @@ function openssl_pkey_derive($peer_pub_key, $priv_key, $keylen) {}
  * The length of the desired string of bytes. Must be a positive integer. PHP will
  * try to cast this parameter to a non-null integer to use it.
  * </p>
- * @param bool &$crypto_strong [optional]<p>
+ * @param bool &$strong_result [optional]<p>
  * If passed into the function, this will hold a boolean value that determines
  * if the algorithm used was "cryptographically strong", e.g., safe for usage with GPG,
  * passwords, etc. true if it did, otherwise false
  * </p>
  * @return string|false the generated string of bytes on success, or false on failure.
  */
-function openssl_random_pseudo_bytes($length, &$crypto_strong = null) { }
+function openssl_random_pseudo_bytes($length, &$strong_result = null) { }
 
 /**
  * Return openSSL error message
@@ -1010,47 +1010,47 @@ function openssl_get_cert_locations() { }
 function openssl_get_curve_names() {}
 
 /**
- * @param string $P7B
- * @param array &$certs
+ * @param string $input_filename
+ * @param array &$certificates
  * @return bool
  * @since 7.2
  */
-function openssl_pkcs7_read($P7B, &$certs) {}
+function openssl_pkcs7_read($input_filename, &$certificates) {}
 
 /**
  * Verifies that the data block is intact, the signer is who they say they are, and returns the certs of the signers.
  * @since 8.0
  */
-function openssl_cms_verify(string $filename, int $flags = 0, ?string $signerscerts = null, ?array $cainfo = null, ?string $extracerts = null, ?string $content = null, ?string $pk7 = null, ?string $sigfile = null, $encoding = OPENSSL_ENCODING_SMIME): bool {}
+function openssl_cms_verify(string $input_filename, int $flags = 0, ?string $certificates = null, ?array $ca_info = null, ?string $untrusted_certificates_filename = null, ?string $content = null, ?string $pk7 = null, ?string $sigfile = null, $encoding = OPENSSL_ENCODING_SMIME): bool {}
 
 /**
  * Encrypts the message in the file with the certificates and outputs the result to the supplied file.
- * @param resource|string|array $recipcerts
+ * @param resource|string|array $certificate
  * @since 8.0
  */
-function openssl_cms_encrypt(string $infile, string $outfile, $recipcerts, ?array $headers, int $flags = 0, int $encoding = OPENSSL_ENCODING_SMIME,  int $cipher = OPENSSL_CIPHER_RC2_40): bool {}
+function openssl_cms_encrypt(string $input_filename, string $output_filename, $certificate, ?array $headers, int $flags = 0, int $encoding = OPENSSL_ENCODING_SMIME, int $cipher_algo = OPENSSL_CIPHER_RC2_40): bool {}
 
 /**
  * Signs the MIME message in the file with a cert and key and output the result to the supplied file.
- * @param resource|string $signcert
+ * @param resource|string $certificate
  * @param resource|string|array $signkey8
  * @since 8.0
  */
-function openssl_cms_sign(string $infile, string $outfile, $signcert, $signkey, ?array $headers, int $flags = 0, int $encoding = OPENSSL_ENCODING_SMIME, ?string $extracertsfilename = null): bool {}
+function openssl_cms_sign(string $input_filename, string $output_filename, $certificate, $private_key, ?array $headers, int $flags = 0, int $encoding = OPENSSL_ENCODING_SMIME, ?string $untrusted_certificates_filename = null): bool {}
 
 /**
  * Decrypts the S/MIME message in the file and outputs the results to the supplied file.
- * @param resource|string $recipcert
- * @param resource|string|array $recipkey
+ * @param resource|string $certificate
+ * @param resource|string|array $private_key
  * @since 8.0
  */
-function openssl_cms_decrypt(string $infilename, string $outfilename, $recipcert, $recipkey, int $encoding = OPENSSL_ENCODING_SMIME): bool {}
+function openssl_cms_decrypt(string $input_filename, string $output_filename, $certificate, $private_key, int $encoding = OPENSSL_ENCODING_SMIME): bool {}
 
 /**
  * Exports the CMS file to an array of PEM certificates.
  * @since 8.0
  */
-function openssl_cms_read(string $infilename, &$certs): bool {}
+function openssl_cms_read(string $input_filename, &$certificates): bool {}
 
 define ('OPENSSL_VERSION_TEXT', "OpenSSL 1.0.0e 6 Sep 2011");
 define ('OPENSSL_VERSION_NUMBER', 268435551);

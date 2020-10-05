@@ -1,10 +1,7 @@
 <?php
 
 /**
- * @deprecated 5.3
- * Loads a PHP extension at runtime
- * @link https://php.net/manual/en/function.dl.php
- * @param string $library <p>
+ * @param string $extension_filename <p>
  * This parameter is only the filename of the
  * extension to load which also depends on your platform. For example,
  * the sockets extension (if compiled
@@ -33,8 +30,11 @@
  * and execution is stopped. If <b>dl</b> fails because the
  * specified library couldn't be loaded, in addition to <b>FALSE</b> an
  * <b>E_WARNING</b> message is emitted.
+ *@deprecated 5.3
+ * Loads a PHP extension at runtime
+ * @link https://php.net/manual/en/function.dl.php
  */
-function dl ($library) {}
+function dl ($extension_filename) {}
 
 /**
  * Sets the process title
@@ -67,23 +67,23 @@ function is_iterable($value) {}
 /**
  * Encodes an ISO-8859-1 string to UTF-8
  * @link https://php.net/manual/en/function.utf8-encode.php
- * @param string $data <p>
+ * @param string $string <p>
  * An ISO-8859-1 string.
  * </p>
  * @return string the UTF-8 translation of <i>data</i>.
  */
-function utf8_encode ($data) {}
+function utf8_encode ($string) {}
 
 /**
  * Converts a string with ISO-8859-1 characters encoded with UTF-8
  * to single-byte ISO-8859-1
  * @link https://php.net/manual/en/function.utf8-decode.php
- * @param string $data <p>
+ * @param string $string <p>
  * An UTF-8 encoded string.
  * </p>
  * @return string the ISO-8859-1 translation of <i>data</i>.
  */
-function utf8_decode ($data) {}
+function utf8_decode ($string) {}
 
 /**
  * Clear the most recent error
