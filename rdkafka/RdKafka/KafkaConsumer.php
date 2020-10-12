@@ -146,4 +146,11 @@ class KafkaConsumer
     public function newTopic($topic_name, TopicConf $topic_conf = null)
     {
     }
+
+    /**
+     * @return void
+     */
+    public function close()
+    {
+    }
 }

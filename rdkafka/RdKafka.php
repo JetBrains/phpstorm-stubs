@@ -104,11 +104,4 @@ abstract class RdKafka
     public function flush(int $timeout_ms)
     {
     }
-
-    /**
-     * @return void
-     */
-    public function close()
-    {
-    }
 }
