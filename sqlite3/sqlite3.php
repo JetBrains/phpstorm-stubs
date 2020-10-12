@@ -1,6 +1,7 @@
 <?php
 
 // Start of sqlite3 v.0.7-dev
+use JetBrains\PhpStorm\ArrayShape;
 
 /**
  * A class that interfaces SQLite 3 databases.
@@ -91,6 +92,7 @@ class SQLite3  {
 	 * @return array an associative array with the keys "versionString" and
 	 * "versionNumber".
 	 */
+	#[ArrayShape(["versionString" => "string", "versionNumber" => "int"])]
 	public static function version () {}
 
 	/**

@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\ArrayShape;
+
 class CURLFile {
     public $name;
     public $mime;
@@ -135,6 +137,17 @@ function curl_copy_handle ($handle) {}
  * <td>An array of protocols names supported by cURL</td>
  * </tr>
  */
+#[ArrayShape([
+    "version_number" => "string",
+    "version" => "string",
+    "ssl_version_number" => "int",
+    "ssl_version" => "string",
+    "libz_version" => "string",
+    "host" => "string",
+    "age" => "int",
+    "features" => "int",
+    "protocols" => "array",
+])]
 function curl_version ($age = null) {}
 
 /**

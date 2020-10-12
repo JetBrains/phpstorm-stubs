@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\ArrayShape;
+
 /**
  * Get the last occurred error
  * @link https://php.net/manual/en/function.error-get-last.php
@@ -7,6 +9,12 @@
  * "message", "file" and "line". Returns null if there hasn't been an error
  * yet.
  */
+#[ArrayShape([
+    "type" => "int",
+    "message" => "string",
+    "file" => "string",
+    "line" => "int",
+])]
 function error_get_last () {}
 
 /**

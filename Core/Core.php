@@ -1,6 +1,7 @@
 <?php
 
 // Start of Core v.5.3.6-13ubuntu3.2
+use JetBrains\PhpStorm\ArrayShape;
 
 /**
  * Gets the version of the current Zend engine
@@ -1016,6 +1017,7 @@ function gc_disable () {}
  * </ul>
  * @since 7.3
  */
+#[ArrayShape(["runs" => "int", "collected" => "int", "threshold" => "int", "roots" => "int"])]
 function gc_status () {}
 
 /**
