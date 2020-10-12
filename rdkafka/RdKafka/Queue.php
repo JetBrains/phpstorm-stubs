@@ -9,7 +9,7 @@ class Queue
     }
 
     /**
-     * @param string $timeout_ms
+     * @param int $timeout_ms
      *
      * @return Message|null
      */

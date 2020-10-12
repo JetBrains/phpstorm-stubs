@@ -7,6 +7,10 @@ namespace RdKafka;
  */
 class Conf
 {
+    public function __construct()
+    {
+    }
+
     /**
      * @return array
      */
