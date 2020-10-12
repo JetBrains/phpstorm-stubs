@@ -7,6 +7,10 @@ namespace RdKafka;
  */
 class Conf
 {
+    public function __construct()
+    {
+    }
+
     /**
      * @return array
      */
@@ -77,12 +81,22 @@ class Conf
     public function setOffsetCommitCb(callable $callback)
     {
     }
+
     /**
      * @param callable $callback
      *
      * @return void
      */
     public function setConsumeCb(callable $callback)
+    {
+    }
+
+    /**
+     * @param callable $callback
+     *
+     * @return void
+     */
+    public function setLogCb(callable $callback)
     {
     }
 }
