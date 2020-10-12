@@ -9,14 +9,11 @@ use stdClass;
 
 class PHPProperty extends BasePHPElement
 {
-    public ?string $parentName = null;
     public string $type = '';
     public string $access = '';
     public bool $is_static = false;
 
-    public function __construct(?string $parentName = null)
-    {
-        $this->parentName = $parentName;
+    public function __construct(public ?string $parentName = null){
     }
 
     /**

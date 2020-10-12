@@ -16,7 +16,7 @@ class PHPConst extends BasePHPElement
     use PHPDocElement;
 
     public ?string $parentName = null;
-    public $value;
+    public bool|int|string|float|null $value;
 
     /**
      * @param ReflectionClassConstant $reflectionObject
@@ -45,7 +45,7 @@ class PHPConst extends BasePHPElement
         return $this;
     }
 
-    protected function getConstValue($node)
+    protected function getConstValue($node): int|string|null|bool|float
     {
         if (in_array('value', $node->value->getSubNodeNames(), true)) {
             return $node->value->value;

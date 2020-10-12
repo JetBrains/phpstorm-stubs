@@ -25,7 +25,7 @@ class StubsMetaExpectedArgumentsTest extends TestCase
      * @var string[]
      */
     private static array $registeredArgumentsSet;
-    private static $functionsFqns;
+    private static array $functionsFqns;
     private static array $methodsFqns;
     private static array $constantsFqns;
 
@@ -44,7 +44,7 @@ class StubsMetaExpectedArgumentsTest extends TestCase
 
     private static function flatten(array $array): array
     {
-        $return = array();
+        $return = [];
         array_walk_recursive($array, function ($a) use (&$return) {
             $return[$a] = $a;
         });
@@ -200,7 +200,7 @@ class StubsMetaExpectedArgumentsTest extends TestCase
 
     private static function toPresentableFqn(string $name): string
     {
-        if (strpos($name, '\\') === 0) {
+        if (str_starts_with($name, '\\')) {
             return substr($name, 1);
         }
         return $name;
@@ -208,10 +208,6 @@ class StubsMetaExpectedArgumentsTest extends TestCase
 
     private static function getFqn(?Expr $expr): string
     {
-        if ($expr instanceof StaticCall) {
-            return self::getClassMemberFqn($expr->class, $expr->name);
-        } else {
-            return self::toPresentableFqn($expr->name);
-        }
+        return $expr instanceof StaticCall ? self::getClassMemberFqn($expr->class, $expr->name) : self::toPresentableFqn($expr->name);
     }
 }

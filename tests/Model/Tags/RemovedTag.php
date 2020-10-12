@@ -7,21 +7,14 @@ use phpDocumentor\Reflection\DocBlock\Description;
 use phpDocumentor\Reflection\DocBlock\DescriptionFactory;
 use phpDocumentor\Reflection\DocBlock\Tags\BaseTag;
 use phpDocumentor\Reflection\Types\Context;
-use Webmozart\Assert\Assert;
 
 class RemovedTag extends BaseTag
 {
-    protected $name = 'removed';
-
     private const REGEX_VECTOR = '(?:\d\S*|[^\s\:]+\:\s*\$[^\$]+\$)';
 
-    private ?string $version;
-
-    public function __construct(?string $version = null, Description $description = null)
+    public function __construct(private ?string $version = null, Description $description = null)
     {
-        Assert::nullOrStringNotEmpty($version);
-
-        $this->version = $version;
+        $this->name = 'removed';
         $this->description = $description;
     }
 
