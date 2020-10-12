@@ -144,18 +144,17 @@ interface ArrayAccess {
 interface Serializable {
 
     /**
-     * String representation of object
+     * String representation of object.
      * @link https://php.net/manual/en/serializable.serialize.php
-     * @return string the string representation of the object or null
+     * @return string|null The string representation of the object or null
+     * @throws Exception Returning other type than string or null
      */
     public function serialize();
 
     /**
-     * Constructs the object
+     * Constructs the object.
      * @link https://php.net/manual/en/serializable.unserialize.php
-     * @param string $serialized <p>
-     * The string representation of the object.
-     * </p>
+     * @param string $serialized The string representation of the object.
      * @return void
      */
     public function unserialize($serialized);
