@@ -39,10 +39,12 @@ class StubsContainer
      */
     public function addConstant(PHPConst $constant): void
     {
-        if (array_key_exists($constant->name, $this->constants)) {
-            throw new RuntimeException($constant->name . ' is already defined in stubs');
+        if (isset($constant->name)) {
+            if (array_key_exists($constant->name, $this->constants)) {
+                throw new RuntimeException($constant->name . ' is already defined in stubs');
+            }
+            $this->constants[$constant->name] = $constant;
         }
-        $this->constants[$constant->name] = $constant;
     }
 
     /**
@@ -55,12 +57,14 @@ class StubsContainer
 
     public function addFunction(PHPFunction $function): void
     {
-        $this->functions[$function->name] = $function;
+        if (isset($function->name)) {
+            $this->functions[$function->name] = $function;
+        }
     }
 
     public function getClass(string $name): ?PHPClass
     {
-        if (array_key_exists($name, $this->classes) && $this->classes[$name] !== null) {
+        if (array_key_exists($name, $this->classes) && isset($this->classes[$name])) {
             return $this->classes[$name];
         }
 
@@ -80,7 +84,7 @@ class StubsContainer
      */
     public function getCoreClasses(): array
     {
-        return array_filter($this->classes, fn($class) => $class->stubBelongsToCore === true);
+        return array_filter($this->classes, fn($class): bool => $class->stubBelongsToCore === true);
     }
 
     /**
@@ -89,15 +93,17 @@ class StubsContainer
      */
     public function addClass(PHPClass $class): void
     {
-        if (array_key_exists($class->name, $this->classes)) {
-            throw new RuntimeException($class->name . ' is already defined in stubs');
+        if (isset($class->name)){
+            if (array_key_exists($class->name, $this->classes)) {
+                throw new RuntimeException($class->name . ' is already defined in stubs');
+            }
+            $this->classes[$class->name] = $class;
         }
-        $this->classes[$class->name] = $class;
     }
 
     public function getInterface(string $name): ?PHPInterface
     {
-        if (array_key_exists($name, $this->interfaces) && $this->interfaces[$name] !== null) {
+        if (array_key_exists($name, $this->interfaces) && isset($this->interfaces[$name])) {
             return $this->interfaces[$name];
         }
 
@@ -117,7 +123,7 @@ class StubsContainer
      */
     public function getCoreInterfaces(): array
     {
-        return array_filter($this->interfaces,fn($interface) => $interface->stubBelongsToCore === true);
+        return array_filter($this->interfaces, fn($interface): bool => $interface->stubBelongsToCore === true);
     }
 
     /**
@@ -126,9 +132,11 @@ class StubsContainer
      */
     public function addInterface(PHPInterface $interface): void
     {
-        if (array_key_exists($interface->name, $this->interfaces)) {
-            throw new RuntimeException($interface->name . ' is already defined in stubs');
+        if (isset($interface->name)){
+            if (array_key_exists($interface->name, $this->interfaces)) {
+                throw new RuntimeException($interface->name . ' is already defined in stubs');
+            }
+            $this->interfaces[$interface->name] = $interface;
         }
-        $this->interfaces[$interface->name] = $interface;
     }
 }

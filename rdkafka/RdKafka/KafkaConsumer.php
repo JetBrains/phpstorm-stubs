@@ -32,7 +32,7 @@ class KafkaConsumer
     }
 
     /**
-     * @param string $message_or_offsets
+     * @param null|Message|TopicPartition[] $message_or_offsets
      *
      * @throws Exception
      * @return void
@@ -42,7 +42,7 @@ class KafkaConsumer
     }
 
     /**
-     * @param string $timeout_ms
+     * @param int $timeout_ms
      *
      * @throws Exception
      * @throws \InvalidArgumentException
@@ -127,6 +127,30 @@ class KafkaConsumer
      * @return void
      */
     public function queryWatermarkOffsets(string $topic, int $partition, int &$low, int &$high, int $timeout_ms)
+    {
+    }
+
+    /**
+     * @param TopicPartition[] $topicPartitions
+     */
+    public function getOffsetPositions(array $topicPartitions)
+    {
+    }
+
+    /**
+     * @param string    $topic_name
+     * @param TopicConf $topic_conf
+     *
+     * @return Topic
+     */
+    public function newTopic($topic_name, TopicConf $topic_conf = null)
+    {
+    }
+
+    /**
+     * @return void
+     */
+    public function close()
     {
     }
 }

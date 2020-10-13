@@ -11,40 +11,39 @@ use stdClass;
 
 class PHPClass extends BasePHPClass
 {
-    /** @var false|string */
-    public $parentClass;
+    public false|string|null $parentClass = null;
     public array $interfaces = [];
     /** @var PHPProperty[] */
     public array $properties = [];
 
     /**
-     * @param ReflectionClass $clazz
+     * @param ReflectionClass $reflectionObject
      * @return $this
      */
-    public function readObjectFromReflection($clazz): self
+    public function readObjectFromReflection($reflectionObject): static
     {
-        $this->name = $clazz->getName();
-        $parent = $clazz->getParentClass();
+        $this->name = $reflectionObject->getName();
+        $parent = $reflectionObject->getParentClass();
         if ($parent !== false) {
             $this->parentClass = $parent->getName();
         }
-        $this->interfaces = $clazz->getInterfaceNames();
+        $this->interfaces = $reflectionObject->getInterfaceNames();
 
-        foreach ($clazz->getMethods() as $method) {
+        foreach ($reflectionObject->getMethods() as $method) {
             if ($method->getDeclaringClass()->getName() !== $this->name) {
                 continue;
             }
             $this->methods[$method->name] = (new PHPMethod())->readObjectFromReflection($method);
         }
 
-        foreach ($clazz->getReflectionConstants() as $constant) {
+        foreach ($reflectionObject->getReflectionConstants() as $constant) {
             if ($constant->getDeclaringClass()->getName() !== $this->name) {
                 continue;
             }
             $this->constants[$constant->name] = (new PHPConst())->readObjectFromReflection($constant);
         }
 
-        foreach ($clazz->getProperties() as $property) {
+        foreach ($reflectionObject->getProperties() as $property) {
             if ($property->getDeclaringClass()->getName() !== $this->name) {
                 continue;
             }
@@ -57,7 +56,7 @@ class PHPClass extends BasePHPClass
      * @param Class_ $node
      * @return $this
      */
-    public function readObjectFromStubNode($node): self
+    public function readObjectFromStubNode($node): static
     {
         $this->name = $this->getFQN($node);
         $this->collectTags($node);
@@ -101,32 +100,21 @@ class PHPClass extends BasePHPClass
             }
         }
 
-
         return $this;
     }
 
-    public function readMutedProblems($jsonData): void
+    public function readMutedProblems(stdClass|array $jsonData): void
     {
-        /**@var stdClass $class */
         foreach ($jsonData as $class) {
             if ($class->name === $this->name) {
                 if (!empty($class->problems)) {
-                    /**@var stdClass $problem */
                     foreach ($class->problems as $problem) {
-                        switch ($problem) {
-                            case 'wrong parent':
-                                $this->mutedProblems[] = StubProblemType::WRONG_PARENT;
-                                break;
-                            case 'wrong interface':
-                                $this->mutedProblems[] = StubProblemType::WRONG_INTERFACE;
-                                break;
-                            case 'missing class':
-                                $this->mutedProblems[] = StubProblemType::STUB_IS_MISSED;
-                                break;
-                            default:
-                                $this->mutedProblems[] = -1;
-                                break;
-                        }
+                        $this->mutedProblems[] = match ($problem) {
+                            'wrong parent' => StubProblemType::WRONG_PARENT,
+                            'wrong interface' => StubProblemType::WRONG_INTERFACE,
+                            'missing class' => StubProblemType::STUB_IS_MISSED,
+                            default => -1,
+                        };
                     }
                 }
                 if (!empty($class->methods)) {
