@@ -12,20 +12,20 @@ class PHPInterface extends BasePHPClass
     public array $parentInterfaces = [];
 
     /**
-     * @param ReflectionClass $interface
+     * @param ReflectionClass $reflectionObject
      * @return $this
      */
-    public function readObjectFromReflection($interface): self
+    public function readObjectFromReflection($reflectionObject): static
     {
-        $this->name = $interface->getName();
-        foreach ($interface->getMethods() as $method) {
+        $this->name = $reflectionObject->getName();
+        foreach ($reflectionObject->getMethods() as $method) {
             if ($method->getDeclaringClass()->getName() !== $this->name) {
                 continue;
             }
             $this->methods[$method->name] = (new PHPMethod())->readObjectFromReflection($method);
         }
-        $this->parentInterfaces = $interface->getInterfaceNames();
-        foreach ($interface->getReflectionConstants() as $constant) {
+        $this->parentInterfaces = $reflectionObject->getInterfaceNames();
+        foreach ($reflectionObject->getReflectionConstants() as $constant) {
             if ($constant->getDeclaringClass()->getName() !== $this->name) {
                 continue;
             }
@@ -38,7 +38,7 @@ class PHPInterface extends BasePHPClass
      * @param Interface_ $node
      * @return $this
      */
-    public function readObjectFromStubNode($node): self
+    public function readObjectFromStubNode($node): static
     {
         $this->name = $this->getFQN($node);
         $this->collectTags($node);
@@ -48,25 +48,17 @@ class PHPInterface extends BasePHPClass
         return $this;
     }
 
-    public function readMutedProblems($jsonData): void
+    public function readMutedProblems(stdClass|array $jsonData): void
     {
-        /**@var stdClass $interface */
         foreach ($jsonData as $interface) {
             if ($interface->name === $this->name) {
                 if (!empty($interface->problems)) {
-                    /**@var stdClass $problem */
                     foreach ($interface->problems as $problem) {
-                        switch ($problem) {
-                            case 'wrong parent':
-                                $this->mutedProblems[] = StubProblemType::WRONG_PARENT;
-                                break;
-                            case 'missing interface':
-                                $this->mutedProblems[] = StubProblemType::STUB_IS_MISSED;
-                                break;
-                            default:
-                                $this->mutedProblems[] = -1;
-                                break;
-                        }
+                        $this->mutedProblems[] = match ($problem) {
+                            'wrong parent' => StubProblemType::WRONG_PARENT,
+                            'missing interface' => StubProblemType::STUB_IS_MISSED,
+                            default => -1
+                        };
                     }
                 }
                 if (!empty($interface->methods)) {

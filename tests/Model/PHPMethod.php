@@ -15,21 +15,21 @@ class PHPMethod extends PHPFunction
     public string $parentName;
 
     /**
-     * @param ReflectionMethod $method
+     * @param ReflectionMethod $reflectionObject
      * @return $this
      */
-    public function readObjectFromReflection($method): self
+    public function readObjectFromReflection($reflectionObject): static
     {
-        $this->name = $method->name;
-        $this->is_static = $method->isStatic();
-        $this->is_final = $method->isFinal();
-        foreach ($method->getParameters() as $parameter) {
+        $this->name = $reflectionObject->name;
+        $this->is_static = $reflectionObject->isStatic();
+        $this->is_final = $reflectionObject->isFinal();
+        foreach ($reflectionObject->getParameters() as $parameter) {
             $this->parameters[] = (new PHPParameter())->readObjectFromReflection($parameter);
         }
 
-        if ($method->isProtected()) {
+        if ($reflectionObject->isProtected()) {
             $access = 'protected';
-        } elseif ($method->isPrivate()) {
+        } elseif ($reflectionObject->isPrivate()) {
             $access = 'private';
         } else {
             $access = 'public';
@@ -42,7 +42,7 @@ class PHPMethod extends PHPFunction
      * @param ClassMethod $node
      * @return $this
      */
-    public function readObjectFromStubNode($node): self
+    public function readObjectFromStubNode($node): static
     {
         $this->parentName = $this->getFQN($node->getAttribute('parent'));
         $this->name = $node->name->name;
@@ -71,34 +71,20 @@ class PHPMethod extends PHPFunction
         return $this;
     }
 
-    public function readMutedProblems($jsonData): void
+    public function readMutedProblems(stdClass|array $jsonData): void
     {
-        /**@var stdClass $method */
         foreach ($jsonData as $method) {
             if ($method->name === $this->name) {
                 if (!empty($method->problems)) {
-                    /**@var stdClass $problem */
                     foreach ($method->problems as $problem) {
-                        switch ($problem) {
-                            case 'parameter mismatch':
-                                $this->mutedProblems[] = StubProblemType::FUNCTION_PARAMETER_MISMATCH;
-                                break;
-                            case 'missing method':
-                                $this->mutedProblems[] = StubProblemType::STUB_IS_MISSED;
-                                break;
-                            case 'deprecated method':
-                                $this->mutedProblems[] = StubProblemType::FUNCTION_IS_DEPRECATED;
-                                break;
-                            case 'absent in meta':
-                                $this->mutedProblems[] = StubProblemType::ABSENT_IN_META;
-                                break;
-                            case 'wrong access':
-                                $this->mutedProblems[] = StubProblemType::FUNCTION_ACCESS;
-                                break;
-                            default:
-                                $this->mutedProblems[] = -1;
-                                break;
-                        }
+                        $this->mutedProblems[] = match ($problem) {
+                            'parameter mismatch' => StubProblemType::FUNCTION_PARAMETER_MISMATCH,
+                            'missing method' => StubProblemType::STUB_IS_MISSED,
+                            'deprecated method' => StubProblemType::FUNCTION_IS_DEPRECATED,
+                            'absent in meta' => StubProblemType::ABSENT_IN_META,
+                            'wrong access' => StubProblemType::FUNCTION_ACCESS,
+                            default => -1
+                        };
                     }
                 }
                 if (!empty($method->parameters)) {

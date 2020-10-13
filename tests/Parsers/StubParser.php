@@ -28,9 +28,8 @@ class StubParser
         self::$stubs = new StubsContainer();
         $visitor = new ASTVisitor(self::$stubs);
         $coreStubVisitor = new CoreStubASTVisitor(self::$stubs);
-        /** @noinspection PhpUnhandledExceptionInspection */
         self::processStubs($visitor, $coreStubVisitor,
-            fn(SplFileInfo $file) => $file->getFilename() !== '.phpstorm.meta.php');
+            fn(SplFileInfo $file): bool => $file->getFilename() !== '.phpstorm.meta.php');
         foreach (self::$stubs->getInterfaces() as $interface) {
             $interface->parentInterfaces = $visitor->combineParentInterfaces($interface);
         }
