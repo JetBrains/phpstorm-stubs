@@ -347,12 +347,12 @@ function ob_get_contents () {}
 /**
  * Turn implicit flush on/off
  * @link https://php.net/manual/en/function.ob-implicit-flush.php
- * @param int $enable [optional] <p>
- * 1 to turn implicit flushing on, 0 otherwise.
+ * @param bool $flag [optional] <p>
+ * true to turn implicit flushing on, false otherwise.
  * </p>
  * @return void
  */
-function ob_implicit_flush ($enable = 1) {}
+function ob_implicit_flush (bool $flag = true) {}
 
 /**
  * List all output handlers in use
