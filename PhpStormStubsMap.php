@@ -325,6 +325,7 @@ const CLASSES = array (
   'GEOSWKTReader' => 'geos/geos.php',
   'GEOSWKTWriter' => 'geos/geos.php',
   'GMP' => 'gmp/gmp.php',
+  'GdImage' => 'gd/gd.php',
   'GearmanClient' => 'gearman/gearman.php',
   'GearmanException' => 'gearman/gearman.php',
   'GearmanJob' => 'gearman/gearman.php',
