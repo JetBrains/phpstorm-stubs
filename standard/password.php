@@ -36,6 +36,9 @@
  * </ul>
  * @link https://secure.php.net/manual/en/password.constants.php
  */
+
+use JetBrains\PhpStorm\ArrayShape;
+
 define("PASSWORD_DEFAULT", "2y");
 
 /**
@@ -159,6 +162,7 @@ define('PASSWORD_ARGON2_PROVIDER', 'standard');
  * </ul>
  * @since 5.5
  */
+#[ArrayShape(["algo" => "int", "algoName" => "string", "options" => "array"])]
 function password_get_info ($hash) {}
 
 /**

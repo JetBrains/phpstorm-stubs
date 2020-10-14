@@ -22,5 +22,5 @@ script:
   - docker-compose -f docker-compose.yml build >/dev/null
   - docker-compose -f docker-compose.yml run php /opt/project/phpstorm-stubs/vendor/bin/phpunit /opt/project/phpstorm-stubs/tests/
   - ./tests/check-stub-map
-  # uncomment when cs-fixer will support union types
-  # - composer cs
+# uncomment when attributes and union types will be supported
+#  - composer cs

@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\ArrayShape;
+
 
 /**
  * Make a string uppercase
@@ -1159,4 +1161,24 @@ function setlocale ($category, $locales, ...$rest) {}
  * no further grouping is done. If an array element is equal to 0, the previous
  * element should be used.
  */
+#[ArrayShape([
+    "decimal_point" => "string",
+    "thousands_sep" => "string",
+    "grouping" => "array",
+    "int_curr_symbol" => "string",
+    "currency_symbol" => "string",
+    "mon_decimal_point" => "string",
+    "mon_thousands_sep" => "string",
+    "mon_grouping" => "string",
+    "positive_sign" => "string",
+    "negative_sign" => "string",
+    "int_frac_digits" => "string",
+    "frac_digits" => "string",
+    "p_cs_precedes" => "bool",
+    "p_sep_by_space" => "bool",
+    "n_cs_precedes" => "bool",
+    "n_sep_by_space" => "bool",
+    "p_sign_posn" => "int",
+    "n_sign_posn" => "int",
+])]
 function localeconv () {}

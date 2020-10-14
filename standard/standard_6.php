@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\ArrayShape;
+
 /**
  * Runs the equivalent of the select() system call on the given
  * arrays of streams with a timeout specified by tv_sec and tv_usec
@@ -856,6 +858,18 @@ function socket_set_blocking ($stream, $enable) {}
  * uri (string) - the URI/filename associated with this
  * stream.
  */
+#[ArrayShape([
+    "timed_out" => "bool",
+    "blocked" => "bool",
+    "eof" => "bool",
+    "unread_bytes" => "int",
+    "stream_type" => "string",
+    "wrapper_type" => "string",
+    "wrapper_data" => "mixed",
+    "mode" => "string",
+    "seekable" => "bool",
+    "uri" => "string",
+])]
 function stream_get_meta_data ($stream) {}
 
 /**
