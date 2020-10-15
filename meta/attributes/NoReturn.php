@@ -10,10 +10,10 @@ use Attribute;
  * In most cases, just annotation function with 0 arguments will work.
  * To mark the function as the exit point only when it's called with some constant arguments, specify them in $arguments param
  *
- * {@see ExitPoint::ANY_ARGUMENT}
+ * {@see NoReturn::ANY_ARGUMENT}
  */
 #[Attribute(Attribute::TARGET_FUNCTION | Attribute::TARGET_METHOD)]
-class ExitPoint {
+class NoReturn {
     /**
      * Use this constant to skip function argument on the specified position
      */
