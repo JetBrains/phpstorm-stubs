@@ -784,12 +784,12 @@ class SoapHeader  {
 /**
  * Set whether to use the SOAP error handler
  * @link https://php.net/manual/en/function.use-soap-error-handler.php
- * @param bool $handler [optional] <p>
+ * @param bool $enable [optional] <p>
  * Set to <b>TRUE</b> to send error details to clients.
  * </p>
  * @return bool the original value.
  */
-function use_soap_error_handler ($handler = true) {}
+function use_soap_error_handler ($enable = true) {}
 
 /**
  * Checks if a SOAP call has failed

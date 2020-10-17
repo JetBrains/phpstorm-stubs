@@ -1266,7 +1266,7 @@ function date_interval_format ($object, $format) {}
  * timezone_identifier isn't valid, or true
  * otherwise.
  */
-function date_default_timezone_set ($timezoneID) {}
+function date_default_timezone_set ($timezoneId) {}
 
 /**
  * Gets the default timezone used by all date/time functions in a script

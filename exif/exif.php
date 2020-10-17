@@ -5,12 +5,12 @@
 /**
  * Reads the EXIF headers from JPEG or TIFF
  * @link https://php.net/manual/en/function.exif-read-data.php
- * @param string|resource $filename <p>
+ * @param string|resource $file <p>
  * The location of the image file. This cannot be an URL.
  * Since 7.2.0 this can either be a path to the file (stream wrappers are also supported as usual)
  * or a stream resource.
  * </p>
- * @param string $sections_needed [optional] <p>
+ * @param string $required_sections [optional] <p>
  * Is a comma separated list of sections that need to be present in file
  * to produce a result array. If none of the requested
  * sections could be found the return value is <b>FALSE</b>.
@@ -60,7 +60,7 @@
  * </td>
  * </tr>
  * </p>
- * @param bool $sub_arrays [optional] <p>
+ * @param bool $as_arrays [optional] <p>
  * Specifies whether or not each section becomes an array. The
  * <i>sections</i> COMPUTED,
  * THUMBNAIL, and COMMENT
@@ -76,7 +76,7 @@
  * those headers. If no data can be returned,
  * <b>exif_read_data</b> will return <b>FALSE</b>.
  */
-function exif_read_data ($filename, $sections_needed = null, $sub_arrays = false, $read_thumbnail = false) {}
+function exif_read_data ($file, $required_sections = null, $as_arrays = false, $read_thumbnail = false) {}
 
 /**
  * Alias of <b>exif_read_data</b>
@@ -104,7 +104,7 @@ function exif_tagname ($index) {}
 /**
  * Retrieve the embedded thumbnail of a TIFF or JPEG image
  * @link https://php.net/manual/en/function.exif-thumbnail.php
- * @param string|resource $filename <p>
+ * @param string|resource $file <p>
  * The location of the image file. This cannot be an URL.
  * Since 7.2.0 this can either be a path to the file (stream wrappers are also supported as usual)
  * or a stream resource.
@@ -115,14 +115,14 @@ function exif_tagname ($index) {}
  * @param int &$height [optional] <p>
  * The returned height of the returned thumbnail.
  * </p>
- * @param int &$imagetype [optional] <p>
+ * @param int &$image_type [optional] <p>
  * The returned image type of the returned thumbnail. This is either
  * TIFF or JPEG.
  * </p>
  * @return string|false the embedded thumbnail, or <b>FALSE</b> if the image contains no
  * thumbnail.
  */
-function exif_thumbnail ($filename, &$width = null, &$height = null, &$imagetype = null) {}
+function exif_thumbnail ($file, &$width = null, &$height = null, &$image_type = null) {}
 
 /**
  * Determine the type of an image

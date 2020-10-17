@@ -777,7 +777,7 @@ function lchgrp ($filename, $group) {}
  * @param string $filename <p>
  * Path to the file.
  * </p>
- * @param int $mode <p>
+ * @param int $permissions <p>
  * Note that mode is not automatically
  * assumed to be an octal value, so strings (such as "g+w") will
  * not work properly. To ensure the expected operation,
@@ -805,7 +805,7 @@ function lchgrp ($filename, $group) {}
  * <p>
  * @return bool true on success or false on failure.
  */
-function chmod ($filename, $mode) {}
+function chmod ($filename, $permissions) {}
 
 /**
  * Sets access and modification time of file

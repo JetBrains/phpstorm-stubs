@@ -17,24 +17,24 @@ function textdomain ($domain) {}
 /**
  * Lookup a message in the current domain
  * @link https://php.net/manual/en/function.gettext.php
- * @param string $msgid <p>
+ * @param string $message <p>
  * The message being translated.
  * </p>
  * @return string a translated string if one is found in the
  * translation table, or the submitted message if not found.
  */
-function gettext ($msgid) {}
+function gettext ($message) {}
 
 /**
  * Lookup a message in the current domain
  * @link https://php.net/manual/en/function.gettext.php
- * @param string $msgid <p>
+ * @param string $message <p>
  * The message being translated.
  * </p>
  * @return string a translated string if one is found in the
  * translation table, or the submitted message if not found.
  */
-function _ ($msgid) {}
+function _ ($message) {}
 
 /**
  * Override the current domain
@@ -42,12 +42,12 @@ function _ ($msgid) {}
  * @param string $domain <p>
  * The domain
  * </p>
- * @param string $msgid <p>
+ * @param string $message <p>
  * The message
  * </p>
  * @return string A string on success.
  */
-function dgettext ($domain, $msgid) {}
+function dgettext ($domain, $message) {}
 
 /**
  * Overrides the domain for a single lookup
@@ -55,7 +55,7 @@ function dgettext ($domain, $msgid) {}
  * @param string $domain <p>
  * The domain
  * </p>
- * @param string $msgid <p>
+ * @param string $message <p>
  * The message
  * </p>
  * @param int $category <p>
@@ -63,7 +63,7 @@ function dgettext ($domain, $msgid) {}
  * </p>
  * @return string A string on success.
  */
-function dcgettext ($domain, $msgid, $category) {}
+function dcgettext ($domain, $message, $category) {}
 
 /**
  * Sets the path for a domain
@@ -71,24 +71,24 @@ function dcgettext ($domain, $msgid, $category) {}
  * @param string $domain <p>
  * The domain
  * </p>
- * @param string $dir <p>
+ * @param string $directory <p>
  * The directory path
  * </p>
  * @return string The full pathname for the <i>domain</i> currently being set.
  */
-function bindtextdomain ($domain, $dir) {}
+function bindtextdomain ($domain, $directory) {}
 
 /**
  * Plural version of gettext
  * @link https://php.net/manual/en/function.ngettext.php
- * @param string $msgid1
- * @param string $msgid2
- * @param int $n
+ * @param string $singular
+ * @param string $plural
+ * @param int $count
  * @return string correct plural form of message identified by
  * <i>msgid1</i> and <i>msgid2</i>
  * for count <i>n</i>.
  */
-function ngettext ($msgid1, $msgid2, $n) {}
+function ngettext ($singular, $plural, $count) {}
 
 /**
  * Plural version of dgettext
@@ -96,12 +96,12 @@ function ngettext ($msgid1, $msgid2, $n) {}
  * @param string $domain <p>
  * The domain
  * </p>
- * @param string $msgid1
- * @param string $msgid2
+ * @param string $singular
+ * @param string $plural
  * @param int $count
  * @return string A string on success.
  */
-function dngettext ($domain, $msgid1, $msgid2, $count) {}
+function dngettext ($domain, $singular, $plural, $count) {}
 
 /**
  * Plural version of dcgettext
@@ -109,13 +109,13 @@ function dngettext ($domain, $msgid1, $msgid2, $count) {}
  * @param string $domain <p>
  * The domain
  * </p>
- * @param string $msgid1
- * @param string $msgid2
+ * @param string $singular
+ * @param string $plural
  * @param int $count
  * @param int $category
  * @return string A string on success.
  */
-function dcngettext ($domain, $msgid1, $msgid2, $count, $category) {}
+function dcngettext ($domain, $singular, $plural, $count, $category) {}
 
 /**
  * Specify the character encoding in which the messages from the DOMAIN message catalog will be returned

@@ -9,12 +9,12 @@
  * System's id for the shared memory block.
  * Can be passed as a decimal or hex.
  * </p>
- * @param string $flags <p>
+ * @param string $mode <p>
  * The flags that you can use:
  * "a" for access (sets SHM_RDONLY for shmat)
  * use this flag when you need to open an existing shared memory
  * segment for read only
- * @param int $mode <p>
+ * @param int $permissions <p>
  * The permissions that you wish to assign to your memory segment, those
  * are the same as permission for a file. Permissions need to be passed
  * in octal form, like for example 0644
@@ -26,29 +26,29 @@
  * use to access the shared memory segment you've created. <b>FALSE</b> is
  * returned on failure.
  */
-function shmop_open ($key, $flags, $mode, $size) {}
+function shmop_open ($key, $mode, $permissions, $size) {}
 
 /**
  * Read data from shared memory block
  * @link https://php.net/manual/en/function.shmop-read.php
- * @param resource $shmid <p>
+ * @param resource $shmop <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>
  * </p>
- * @param int $start <p>
+ * @param int $offset <p>
  * Offset from which to start reading
  * </p>
- * @param int $count <p>
+ * @param int $size <p>
  * The number of bytes to read
  * </p>
  * @return string|false the data or <b>FALSE</b> on failure.
  */
-function shmop_read ($shmid, $start, $count) {}
+function shmop_read ($shmop, $offset, $size) {}
 
 /**
  * Close shared memory block
  * @link https://php.net/manual/en/function.shmop-close.php
- * @param resource $shmid <p>
+ * @param resource $shmop <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>
  * </p>
@@ -56,24 +56,24 @@ function shmop_read ($shmid, $start, $count) {}
  *
  * @deprecated 8.0
  */
-function shmop_close ($shmid) {}
+function shmop_close ($shmop) {}
 
 /**
  * Get size of shared memory block
  * @link https://php.net/manual/en/function.shmop-size.php
- * @param resource $shmid <p>
+ * @param resource $shmop <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>
  * </p>
  * @return int an int, which represents the number of bytes the shared memory
  * block occupies.
  */
-function shmop_size ($shmid) {}
+function shmop_size ($shmop) {}
 
 /**
  * Write data into shared memory block
  * @link https://php.net/manual/en/function.shmop-write.php
- * @param resource $shmid <p>
+ * @param resource $shmop <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>
  * </p>
@@ -87,18 +87,18 @@ function shmop_size ($shmid) {}
  * @return int|false The size of the written <i>data</i>, or <b>FALSE</b> on
  * failure.
  */
-function shmop_write ($shmid, $data, $offset) {}
+function shmop_write ($shmop, $data, $offset) {}
 
 /**
  * Delete shared memory block
  * @link https://php.net/manual/en/function.shmop-delete.php
- * @param resource $shmid <p>
+ * @param resource $shmop <p>
  * The shared memory block identifier created by
  * <b>shmop_open</b>
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function shmop_delete ($shmid) {}
+function shmop_delete ($shmop) {}
 
 /**
  * @since 8.0

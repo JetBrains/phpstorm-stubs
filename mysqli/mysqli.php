@@ -1604,11 +1604,11 @@ function mysqli_error_list ($mysql) {}
 /**
  * Returns a list of errors from the last statement executed
  * @link https://secure.php.net/manual/en/mysqli-stmt.error-list.php
- * @param mysqli_stmt $stmt A statement identifier returned by mysqli_stmt_init().
+ * @param mysqli_stmt $statement A statement identifier returned by mysqli_stmt_init().
  * @return array A list of errors, each as an associative array containing the errno, error, and sqlstate.
  * @since 5.4
  */
-function mysqli_stmt_error_list ($stmt) {}
+function mysqli_stmt_error_list ($statement) {}
 
 /**
  * Returns a string description of the last error
@@ -1621,19 +1621,19 @@ function mysqli_error ($mysql) {}
 /**
  * Executes a prepared Query
  * @link https://php.net/manual/en/mysqli-stmt.execute.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return bool
  */
-function mysqli_stmt_execute ($stmt) {}
+function mysqli_stmt_execute ($statement) {}
 
 /**
  * Executes a prepared Query
  * Alias for <b>mysqli_stmt_execute</b>
  * @link https://php.net/manual/en/function.mysqli-execute.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @deprecated
  */
-function mysqli_execute ($stmt) {}
+function mysqli_execute ($statement) {}
 
 /**
  * Returns the next field in the result set
@@ -2183,37 +2183,37 @@ function mysqli_set_charset ($mysql, $charset) {}
 /**
  * Returns the total number of rows changed, deleted, or inserted by the last executed statement
  * @link https://php.net/manual/en/mysqli-stmt.affected-rows.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return int|string If the number of affected rows is greater than maximal PHP int value, the number of affected rows will be returned as a string value.
  */
-function mysqli_stmt_affected_rows ($stmt) {}
+function mysqli_stmt_affected_rows ($statement) {}
 
 /**
  * Get the current value of a statement attribute
  * @link https://php.net/manual/en/mysqli-stmt.attr-get.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @param int $attribute
  * @return int|false Returns FALSE if the attribute is not found, otherwise returns the value of the attribute.
  */
-function mysqli_stmt_attr_get ($stmt, $attribute) {}
+function mysqli_stmt_attr_get ($statement, $attribute) {}
 
 /**
  * Modify the behavior of a prepared statement
  * @link https://php.net/manual/en/mysqli-stmt.attr-set.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @param int $attribute
  * @param int $value
  * @return bool
  */
-function mysqli_stmt_attr_set ($stmt, $attribute, $value) {}
+function mysqli_stmt_attr_set ($statement, $attribute, $value) {}
 
 /**
  * Returns the number of fields in the given statement
  * @link https://php.net/manual/en/mysqli-stmt.field-count.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return int
  */
-function mysqli_stmt_field_count ($stmt) {}
+function mysqli_stmt_field_count ($statement) {}
 
 /**
  * Initializes a statement and returns an object for use with mysqli_stmt_prepare
@@ -2226,34 +2226,34 @@ function mysqli_stmt_init ($mysql) {}
 /**
  * Prepare an SQL statement for execution
  * @link https://php.net/manual/en/mysqli-stmt.prepare.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @param string $query
  * @return bool
  */
-function mysqli_stmt_prepare ($stmt, $query) {}
+function mysqli_stmt_prepare ($statement, $query) {}
 
 /**
  * Returns result set metadata from a prepared statement
  * @link https://php.net/manual/en/mysqli-stmt.result-metadata.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return mysqli_result|false Returns a result object or FALSE if an error occurred
  */
-function mysqli_stmt_result_metadata ($stmt) {}
+function mysqli_stmt_result_metadata ($statement) {}
 
 /**
  * Send data in blocks
  * @link https://php.net/manual/en/mysqli-stmt.send-long-data.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @param int $param_num
  * @param string $data
  * @return bool
  */
-function mysqli_stmt_send_long_data ($stmt, $param_num, $data) {}
+function mysqli_stmt_send_long_data ($statement, $param_num, $data) {}
 
 /**
  * Binds variables to a prepared statement as parameters
  * @link https://php.net/manual/en/mysqli-stmt.bind-param.php
- * @param mysqli_stmt $stmt A statement identifier returned by mysqli_stmt_init()
+ * @param mysqli_stmt $statement A statement identifier returned by mysqli_stmt_init()
  * @param string $types <p>
  * A string that contains one or more characters which specify the types
  * for the corresponding bind variables:
@@ -2288,73 +2288,73 @@ function mysqli_stmt_send_long_data ($stmt, $param_num, $data) {}
  * @param mixed &...$_ [optional]
  * @return bool true on success or false on failure.
  */
-function mysqli_stmt_bind_param ($stmt, $types, &$var1, &...$_) {}
+function mysqli_stmt_bind_param ($statement, $types, &$var1, &...$_) {}
 
 /**
  * Binds variables to a prepared statement for result storage
  * @link https://php.net/manual/en/mysqli-stmt.bind-result.php
- * @param mysqli_stmt $stmt Statement
+ * @param mysqli_stmt $statement Statement
  * @param mixed &$var1 The variable to be bound.
  * @param mixed &...$_ The variables to be bound.
  * @return bool
  */
-function mysqli_stmt_bind_result ($stmt, &$var1, &...$_) {}
+function mysqli_stmt_bind_result ($statement, &$var1, &...$_) {}
 
 /**
  * Fetch results from a prepared statement into the bound variables
  * @link https://php.net/manual/en/mysqli-stmt.fetch.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return bool|null
  */
-function mysqli_stmt_fetch ($stmt) {}
+function mysqli_stmt_fetch ($statement) {}
 
 /**
  * Frees stored result memory for the given statement handle
  * @link https://php.net/manual/en/mysqli-stmt.free-result.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return void
  */
-function mysqli_stmt_free_result ($stmt) {}
+function mysqli_stmt_free_result ($statement) {}
 
 /**
  * Gets a result set from a prepared statement
  * @link https://php.net/manual/en/mysqli-stmt.get-result.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return mysqli_result|false Returns a resultset or FALSE on failure.
  */
-function mysqli_stmt_get_result ($stmt) {}
+function mysqli_stmt_get_result ($statement) {}
 
 /**
  * Get result of SHOW WARNINGS
  * @link https://php.net/manual/en/mysqli-stmt.get-warnings.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return object (not documented, but it's probably a mysqli_warning object)
  */
-function mysqli_stmt_get_warnings ($stmt) {}
+function mysqli_stmt_get_warnings ($statement) {}
 
 /**
  * Get the ID generated from the previous INSERT operation
  * @link https://php.net/manual/en/mysqli-stmt.insert-id.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return mixed
  */
-function mysqli_stmt_insert_id ($stmt) {}
+function mysqli_stmt_insert_id ($statement) {}
 
 /**
  * Resets a prepared statement
  * @link https://php.net/manual/en/mysqli-stmt.reset.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return bool
  */
-function mysqli_stmt_reset ($stmt) {}
+function mysqli_stmt_reset ($statement) {}
 
 /**
  * Returns the number of parameter for the given statement
  * @link https://php.net/manual/en/mysqli-stmt.param-count.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return int
  */
-function mysqli_stmt_param_count ($stmt) {}
+function mysqli_stmt_param_count ($statement) {}
 
 /**
  * Returns the SQLSTATE error from previous MySQL operation
@@ -2388,75 +2388,75 @@ function mysqli_ssl_set($mysql, $key , $certificate , $ca_certificate , $ca_path
 /**
  * Closes a prepared statement
  * @link https://php.net/manual/en/mysqli-stmt.close.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return bool
  */
-function mysqli_stmt_close ($stmt) {}
+function mysqli_stmt_close ($statement) {}
 
 /**
  * Seeks to an arbitrary row in statement result set
  * @link https://php.net/manual/en/mysqli-stmt.data-seek.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @param int $offset
  * @return void
  */
-function mysqli_stmt_data_seek ($stmt, $offset) {}
+function mysqli_stmt_data_seek ($statement, $offset) {}
 
 /**
  * Returns the error code for the most recent statement call
  * @link https://php.net/manual/en/mysqli-stmt.errno.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return int
  */
-function mysqli_stmt_errno ($stmt) {}
+function mysqli_stmt_errno ($statement) {}
 
 /**
  * Returns a string description for last statement error
  * @link https://php.net/manual/en/mysqli-stmt.error.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return string
  */
-function mysqli_stmt_error ($stmt) {}
+function mysqli_stmt_error ($statement) {}
 
 /**
  * Check if there are more query results from a multiple query
  * @link https://php.net/manual/en/mysqli-stmt.more-results.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return bool
  */
-function mysqli_stmt_more_results ($stmt) {}
+function mysqli_stmt_more_results ($statement) {}
 
 /**
  * Reads the next result from a multiple query
  * @link https://php.net/manual/en/mysqli-stmt.next-result.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return bool
  */
-function mysqli_stmt_next_result ($stmt) {}
+function mysqli_stmt_next_result ($statement) {}
 
 /**
  * Return the number of rows in statements result set
  * @link https://php.net/manual/en/mysqli-stmt.num-rows.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return int
  */
-function mysqli_stmt_num_rows ($stmt) {}
+function mysqli_stmt_num_rows ($statement) {}
 
 /**
  * Returns SQLSTATE error from previous statement operation
  * @link https://php.net/manual/en/mysqli-stmt.sqlstate.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return string Returns a string containing the SQLSTATE error code for the last error. The error code consists of five characters. '00000' means no error.
  */
-function mysqli_stmt_sqlstate ($stmt) {}
+function mysqli_stmt_sqlstate ($statement) {}
 
 /**
  * Transfers a result set from a prepared statement
  * @link https://php.net/manual/en/mysqli-stmt.store-result.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return bool
  */
-function mysqli_stmt_store_result ($stmt) {}
+function mysqli_stmt_store_result ($statement) {}
 
 /**
  * Transfers a result set from the last query
@@ -2510,23 +2510,23 @@ function mysqli_refresh ($mysql, $flags) {}
 /**
  * Alias for <b>mysqli_stmt_bind_param</b>
  * @link https://php.net/manual/en/function.mysqli-bind-param.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @param string $types
  * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
-function mysqli_bind_param ($stmt, $types) {}
+function mysqli_bind_param ($statement, $types) {}
 
 /**
  * Alias for <b>mysqli_stmt_bind_result</b>
  * @link https://php.net/manual/en/function.mysqli-bind-result.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @param string $types
  * @param mixed &$var1
  * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
-function mysqli_bind_result ($stmt, $types, &$var1) {}
+function mysqli_bind_result ($statement, $types, &$var1) {}
 
 /**
  * Alias of <b>mysqli_character_set_name</b>
@@ -2550,44 +2550,44 @@ function mysqli_escape_string ($mysql, $string) {}
 /**
  * Alias for <b>mysqli_stmt_fetch</b>
  * @link https://php.net/manual/en/function.mysqli-fetch.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return bool
  * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
-function mysqli_fetch ($stmt) {}
+function mysqli_fetch ($statement) {}
 
 /**
  * Alias for <b>mysqli_stmt_param_count</b>
  * @link https://php.net/manual/en/function.mysqli-param-count.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return int
  * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
-function mysqli_param_count ($stmt) {}
+function mysqli_param_count ($statement) {}
 
 /**
  * Alias for <b>mysqli_stmt_result_metadata</b>
  * @link https://php.net/manual/en/function.mysqli-get-metadata.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @return mysqli_result|false Returns a result object or FALSE if an error occurred
  * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
-function mysqli_get_metadata ($stmt) {}
+function mysqli_get_metadata ($statement) {}
 
 /**
  * Alias for <b>mysqli_stmt_send_long_data</b>
  * @link https://php.net/manual/en/function.mysqli-send-long-data.php
- * @param mysqli_stmt $stmt
+ * @param mysqli_stmt $statement
  * @param int $param_num
  * @param string $data
  * @return bool
  * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
-function mysqli_send_long_data ($stmt, $param_num, $data) {}
+function mysqli_send_long_data ($statement, $param_num, $data) {}
 
 /**
  * Alias of <b>mysqli_options</b>

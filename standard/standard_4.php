@@ -136,7 +136,7 @@ function serialize ($value) {}
 /**
  * Creates a PHP value from a stored representation
  * @link https://php.net/manual/en/function.unserialize.php
- * @param string $value <p>
+ * @param string $data <p>
  * The serialized string.
  * </p>
  * <p>
@@ -174,7 +174,7 @@ function serialize ($value) {}
  * In case the passed string is not unserializeable, false is returned and
  * E_NOTICE is issued.
  */
-function unserialize (string $value, array $options = []) {}
+function unserialize (string $data, array $options = []) {}
 
 /**
  * Dumps information about a variable

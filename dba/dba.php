@@ -110,16 +110,16 @@
  * false: the second call returns false.
  * illegal: you must not mix "l" and "d" modifiers for <i>mode</i> parameter.
  * </p>
- * @param string $handlername [optional] <p>
+ * @param string $handler [optional] <p>
  * The name of the handler which
  * shall be used for accessing <i>path</i>. It is passed
  * all optional parameters given to <b>dba_open</b> and
  * can act on behalf of them.
  * </p>
- * @param mixed ...$handler_parameters [optional]
+ * @param mixed ...$handler_params [optional]
  * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
-function dba_open ($path, $mode, $handlername = null, ...$handler_parameters) {}
+function dba_open ($path, $mode, $handler = null, ...$handler_params) {}
 
 /**
  * Open database persistently
@@ -133,27 +133,27 @@ function dba_open ($path, $mode, $handlername = null, ...$handler_parameters) {}
  * for read/write access and database creation if it doesn't currently exist,
  * and n for create, truncate and read/write access.
  * </p>
- * @param string $handlername [optional] <p>
+ * @param string $handler [optional] <p>
  * The name of the handler which
  * shall be used for accessing <i>path</i>. It is passed
  * all optional parameters given to <b>dba_popen</b> and
  * can act on behalf of them.
  * </p>
- * @param mixed ...$handler_parameters [optional]
+ * @param mixed ...$handler_params [optional]
  * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
-function dba_popen ($path, $mode, $handlername = null, ...$handler_parameters) {}
+function dba_popen ($path, $mode, $handler = null, ...$handler_params) {}
 
 /**
  * Close a DBA database
  * @link https://php.net/manual/en/function.dba-close.php
- * @param resource $handle <p>
+ * @param resource $dba <p>
  * The database handler, returned by <b>dba_open</b> or
  * <b>dba_popen</b>.
  * </p>
  * @return void No value is returned.
  */
-function dba_close ($handle) {}
+function dba_close ($dba) {}
 
 /**
  * Delete DBA entry specified by key
@@ -161,13 +161,13 @@ function dba_close ($handle) {}
  * @param string $key <p>
  * The key of the entry which is deleted.
  * </p>
- * @param resource $handle <p>
+ * @param resource $dba <p>
  * The database handler, returned by <b>dba_open</b> or
  * <b>dba_popen</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_delete ($key, $handle) {}
+function dba_delete ($key, $dba) {}
 
 /**
  * Check whether key exists
@@ -175,13 +175,13 @@ function dba_delete ($key, $handle) {}
  * @param string $key <p>
  * The key the check is performed for.
  * </p>
- * @param resource $handle <p>
+ * @param resource $dba <p>
  * The database handler, returned by <b>dba_open</b> or
  * <b>dba_popen</b>.
  * </p>
  * @return bool <b>TRUE</b> if the key exists, <b>FALSE</b> otherwise.
  */
-function dba_exists ($key, $handle) {}
+function dba_exists ($key, $dba) {}
 
 /**
  * Fetch data specified by key
@@ -215,14 +215,14 @@ function dba_fetch ($key, $handle) {}
  * <b>dba_key_split</b>.
  * </p>
  * @param int $skip The number of key-value pairs to ignore when using cdb databases. This value is ignored for all other databases which do not support multiple keys with the same name.
- * @param resource $handle <p>
+ * @param resource $dba <p>
  * The database handler, returned by <b>dba_open</b> or
  * <b>dba_popen</b>.
  * </p>
  * @return string|false the associated string if the key/data pair is found, <b>FALSE</b>
  * otherwise.
  */
-function dba_fetch ($key, $skip, $handle) {}
+function dba_fetch ($key, $skip, $dba) {}
 
 /**
  * Insert entry
@@ -235,13 +235,13 @@ function dba_fetch ($key, $skip, $handle) {}
  * @param string $value <p>
  * The value to be inserted.
  * </p>
- * @param resource $handle <p>
+ * @param resource $dba <p>
  * The database handler, returned by <b>dba_open</b> or
  * <b>dba_popen</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_insert ($key, $value, $handle) {}
+function dba_insert ($key, $value, $dba) {}
 
 /**
  * Replace or insert entry
@@ -252,57 +252,57 @@ function dba_insert ($key, $value, $handle) {}
  * @param string $value <p>
  * The value to be replaced.
  * </p>
- * @param resource $handle <p>
+ * @param resource $dba <p>
  * The database handler, returned by <b>dba_open</b> or
  * <b>dba_popen</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_replace ($key, $value, $handle) {}
+function dba_replace ($key, $value, $dba) {}
 
 /**
  * Fetch first key
  * @link https://php.net/manual/en/function.dba-firstkey.php
- * @param resource $handle <p>
+ * @param resource $dba <p>
  * The database handler, returned by <b>dba_open</b> or
  * <b>dba_popen</b>.
  * </p>
  * @return string the key on success or <b>FALSE</b> on failure.
  */
-function dba_firstkey ($handle) {}
+function dba_firstkey ($dba) {}
 
 /**
  * Fetch next key
  * @link https://php.net/manual/en/function.dba-nextkey.php
- * @param resource $handle <p>
+ * @param resource $dba <p>
  * The database handler, returned by <b>dba_open</b> or
  * <b>dba_popen</b>.
  * </p>
  * @return string the key on success or <b>FALSE</b> on failure.
  */
-function dba_nextkey ($handle) {}
+function dba_nextkey ($dba) {}
 
 /**
  * Optimize database
  * @link https://php.net/manual/en/function.dba-optimize.php
- * @param resource $handle <p>
+ * @param resource $dba <p>
  * The database handler, returned by <b>dba_open</b> or
  * <b>dba_popen</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_optimize ($handle) {}
+function dba_optimize ($dba) {}
 
 /**
  * Synchronize database
  * @link https://php.net/manual/en/function.dba-sync.php
- * @param resource $handle <p>
+ * @param resource $dba <p>
  * The database handler, returned by <b>dba_open</b> or
  * <b>dba_popen</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_sync ($handle) {}
+function dba_sync ($dba) {}
 
 /**
  * List all the handlers available

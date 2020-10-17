@@ -5,15 +5,15 @@
 /**
  * Send a signal to a process
  * @link https://php.net/manual/en/function.posix-kill.php
- * @param int $pid <p>
+ * @param int $process_id <p>
  * The process identifier.
  * </p>
- * @param int $sig <p>
+ * @param int $signal <p>
  * One of the PCNTL signals constants.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_kill ($pid, $sig) {}
+function posix_kill ($process_id, $signal) {}
 
 /**
  * Return the current process identifier
@@ -39,12 +39,12 @@ function posix_getuid () {}
 /**
  * Set the UID of the current process
  * @link https://php.net/manual/en/function.posix-setuid.php
- * @param int $uid <p>
+ * @param int $user_id <p>
  * The user id.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_setuid ($uid) {}
+function posix_setuid ($user_id) {}
 
 /**
  * Return the effective user ID of the current process
@@ -56,12 +56,12 @@ function posix_geteuid () {}
 /**
  * Set the effective UID of the current process
  * @link https://php.net/manual/en/function.posix-seteuid.php
- * @param int $uid <p>
+ * @param int $user_id <p>
  * The user id.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_seteuid ($uid) {}
+function posix_seteuid ($user_id) {}
 
 /**
  * Set system resource limits
@@ -71,12 +71,12 @@ function posix_seteuid ($uid) {}
  * {@link https://php.net/manual/en/posix.constants.setrlimit.php resource limit constant}
  * corresponding to the limit that is being set.
  * </p>
- * @param int $softlimit The soft limit, in whatever unit the resource limit requires, or POSIX_RLIMIT_INFINITY.
- * @param int $hardlimit The hard limit, in whatever unit the resource limit requires, or POSIX_RLIMIT_INFINITY.
+ * @param int $soft_limit The soft limit, in whatever unit the resource limit requires, or POSIX_RLIMIT_INFINITY.
+ * @param int $hard_limit The hard limit, in whatever unit the resource limit requires, or POSIX_RLIMIT_INFINITY.
  * @return bool Returns TRUE on success or FALSE on failure.
  * @since 7.0
  */
-function posix_setrlimit ($resource, $softlimit, $hardlimit ) {}
+function posix_setrlimit ($resource, $soft_limit, $hard_limit ) {}
 /**
  * Return the real group ID of the current process
  * @link https://php.net/manual/en/function.posix-getgid.php
@@ -87,12 +87,12 @@ function posix_getgid () {}
 /**
  * Set the GID of the current process
  * @link https://php.net/manual/en/function.posix-setgid.php
- * @param int $gid <p>
+ * @param int $group_id <p>
  * The group id.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_setgid ($gid) {}
+function posix_setgid ($group_id) {}
 
 /**
  * Return the effective group ID of the current process
@@ -104,12 +104,12 @@ function posix_getegid () {}
 /**
  * Set the effective GID of the current process
  * @link https://php.net/manual/en/function.posix-setegid.php
- * @param int $gid <p>
+ * @param int $group_id <p>
  * The group id.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_setegid ($gid) {}
+function posix_setegid ($group_id) {}
 
 /**
  * Return the group set of the current process
@@ -143,30 +143,30 @@ function posix_setsid () {}
 /**
  * Set process group id for job control
  * @link https://php.net/manual/en/function.posix-setpgid.php
- * @param int $pid <p>
+ * @param int $process_id <p>
  * The process id.
  * </p>
- * @param int $pgid <p>
+ * @param int $process_group_id <p>
  * The process group id.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_setpgid ($pid, $pgid) {}
+function posix_setpgid ($process_id, $process_group_id) {}
 
 /**
  * Get process group id for job control
  * @link https://php.net/manual/en/function.posix-getpgid.php
- * @param int $pid <p>
+ * @param int $process_id <p>
  * The process id.
  * </p>
  * @return int the identifier, as an integer.
  */
-function posix_getpgid ($pid) {}
+function posix_getpgid ($process_id) {}
 
 /**
  * Get the current sid of the process
  * @link https://php.net/manual/en/function.posix-getsid.php
- * @param int $pid <p>
+ * @param int $process_id <p>
  * The process identifier. If set to 0, the current process is
  * assumed. If an invalid <i>pid</i> is
  * specified, then <b>FALSE</b> is returned and an error is set which
@@ -174,7 +174,7 @@ function posix_getpgid ($pid) {}
  * </p>
  * @return int the identifier, as an integer.
  */
-function posix_getsid ($pid) {}
+function posix_getsid ($process_id) {}
 
 /**
  * Get system name
@@ -222,18 +222,18 @@ function posix_ctermid () {}
 /**
  * Determine terminal device name
  * @link https://php.net/manual/en/function.posix-ttyname.php
- * @param int $fd <p>
+ * @param int $file_descriptor <p>
  * The file descriptor.
  * </p>
  * @return string|false On success, returns a string of the absolute path of the
  * <i>fd</i>. On failure, returns <b>FALSE</b>
  */
-function posix_ttyname ($fd) {}
+function posix_ttyname ($file_descriptor) {}
 
 /**
  * Determine if a file descriptor is an interactive terminal
  * @link https://php.net/manual/en/function.posix-isatty.php
- * @param mixed $fd <p>
+ * @param mixed $file_descriptor <p>
  * The file descriptor, which is expected to be either a file resource or an integer.
  * An integer will be assumed to be a file descriptor that can be passed
  * directly to the underlying system call.<br />
@@ -242,7 +242,7 @@ function posix_ttyname ($fd) {}
  * @return bool <b>TRUE</b> if <i>fd</i> is an open descriptor connected
  * to a terminal and <b>FALSE</b> otherwise.
  */
-function posix_isatty ($fd) {}
+function posix_isatty ($file_descriptor) {}
 
 /**
  * Pathname of current directory
@@ -256,10 +256,10 @@ function posix_getcwd () {}
 /**
  * Create a fifo special file (a named pipe)
  * @link https://php.net/manual/en/function.posix-mkfifo.php
- * @param string $pathname <p>
+ * @param string $filename <p>
  * Path to the FIFO file.
  * </p>
- * @param int $mode <p>
+ * @param int $permissions <p>
  * The second parameter <i>mode</i> has to be given in
  * octal notation (e.g. 0644). The permission of the newly created
  * FIFO also depends on the setting of the current
@@ -268,15 +268,15 @@ function posix_getcwd () {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_mkfifo ($pathname, $mode) {}
+function posix_mkfifo ($filename, $permissions) {}
 
 /**
  * Create a special or ordinary file (POSIX.1)
  * @link https://php.net/manual/en/function.posix-mknod.php
- * @param string $pathname <p>
+ * @param string $filename <p>
  * The file to create
  * </p>
- * @param int $mode <p>
+ * @param int $flags <p>
  * This parameter is constructed by a bitwise OR between file type (one of
  * the following constants: <b>POSIX_S_IFREG</b>,
  * <b>POSIX_S_IFCHR</b>, <b>POSIX_S_IFBLK</b>,
@@ -292,15 +292,15 @@ function posix_mkfifo ($pathname, $mode) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_mknod ($pathname, $mode, $major = 0, $minor = 0) {}
+function posix_mknod ($filename, $flags, $major = 0, $minor = 0) {}
 
 /**
  * Determine accessibility of a file
  * @link https://php.net/manual/en/function.posix-access.php
- * @param string $file <p>
+ * @param string $filename <p>
  * The name of the file to be tested.
  * </p>
- * @param int $mode [optional] <p>
+ * @param int $flags [optional] <p>
  * A mask consisting of one or more of <b>POSIX_F_OK</b>,
  * <b>POSIX_R_OK</b>, <b>POSIX_W_OK</b> and
  * <b>POSIX_X_OK</b>.
@@ -314,7 +314,7 @@ function posix_mknod ($pathname, $mode, $major = 0, $minor = 0) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_access ($file, $mode = POSIX_F_OK) {}
+function posix_access ($filename, $flags = POSIX_F_OK) {}
 
 /**
  * Return info about a group by name
@@ -365,7 +365,7 @@ function posix_getgrnam ($name) {}
 /**
  * Return info about a group by group id
  * @link https://php.net/manual/en/function.posix-getgrgid.php
- * @param int $gid <p>
+ * @param int $group_id <p>
  * The group id.
  * </p>
  * @return array The array elements returned are:
@@ -408,7 +408,7 @@ function posix_getgrnam ($name) {}
  * </tr>
  * </table>
  */
-function posix_getgrgid ($gid) {}
+function posix_getgrgid ($group_id) {}
 
 /**
  * Return info about a user by username
@@ -489,7 +489,7 @@ function posix_getpwnam ($username) {}
 /**
  * Return info about a user by user id
  * @link https://php.net/manual/en/function.posix-getpwuid.php
- * @param int $uid <p>
+ * @param int $user_id <p>
  * The user identifier.
  * </p>
  * @return array an associative array with the following elements:
@@ -559,7 +559,7 @@ function posix_getpwnam ($username) {}
  * </tr>
  * </table>
  */
-function posix_getpwuid ($uid) {}
+function posix_getpwuid ($user_id) {}
 
 /**
  * Return info about system resource limits
@@ -662,27 +662,27 @@ function posix_errno () {}
 /**
  * Retrieve the system error message associated with the given errno
  * @link https://php.net/manual/en/function.posix-strerror.php
- * @param int $errno <p>
+ * @param int $error_code <p>
  * A POSIX error number, returned by
  * <b>posix_get_last_error</b>. If set to 0, then the
  * string "Success" is returned.
  * </p>
  * @return string the error message, as a string.
  */
-function posix_strerror ($errno) {}
+function posix_strerror ($error_code) {}
 
 /**
  * Calculate the group access list
  * @link https://php.net/manual/en/function.posix-initgroups.php
- * @param string $name <p>
+ * @param string $username <p>
  * The user to calculate the list for.
  * </p>
- * @param int $base_group_id <p>
+ * @param int $group_id <p>
  * Typically the group number from the password file.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_initgroups ($name, $base_group_id) {}
+function posix_initgroups ($username, $group_id) {}
 
 
 /**

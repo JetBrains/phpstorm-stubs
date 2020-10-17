@@ -541,7 +541,7 @@ function stream_socket_pair ($domain, $type, $protocol) {}
  * @param resource $to <p>
  * The destination stream
  * </p>
- * @param int $max_length [optional] <p>
+ * @param int $length [optional] <p>
  * Maximum bytes to copy
  * </p>
  * @param int $offset [optional] <p>
@@ -549,7 +549,7 @@ function stream_socket_pair ($domain, $type, $protocol) {}
  * </p>
  * @return int|false the total count of bytes copied, or false on failure.
  */
-function stream_copy_to_stream ($from, $to, $max_length = null, $offset = null) {}
+function stream_copy_to_stream ($from, $to, $length = null, $offset = null) {}
 
 /**
  * Reads remainder of a stream into a string
@@ -557,7 +557,7 @@ function stream_copy_to_stream ($from, $to, $max_length = null, $offset = null) 
  * @param resource $stream <p>
  * A stream resource (e.g. returned from fopen)
  * </p>
- * @param int $max_length [optional] <p>
+ * @param int $length [optional] <p>
  * The maximum bytes to read. Defaults to -1 (read all the remaining
  * buffer).
  * </p>
@@ -566,7 +566,7 @@ function stream_copy_to_stream ($from, $to, $max_length = null, $offset = null) 
  * </p>
  * @return string|false a string or false on failure.
  */
-function stream_get_contents ($stream, $max_length = null, $offset = null) {}
+function stream_get_contents ($stream, $length = null, $offset = null) {}
 
 /**
  * Tells whether the stream supports locking.
@@ -878,7 +878,7 @@ function stream_get_meta_data ($stream) {}
  * @param resource $stream <p>
  * A valid file handle.
  * </p>
- * @param int $max_length <p>
+ * @param int $length <p>
  * The number of bytes to read from the handle.
  * </p>
  * @param string $ending [optional] <p>
@@ -890,7 +890,7 @@ function stream_get_meta_data ($stream) {}
  * <p>
  * If an error occurs, returns false.
  */
-function stream_get_line ($stream, $max_length, $ending = null) {}
+function stream_get_line ($stream, $length, $ending = null) {}
 
 /**
  * Register a URL wrapper implemented as a PHP class

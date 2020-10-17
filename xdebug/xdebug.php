@@ -1,6 +1,17 @@
 <?php
 
 /**
+ * Show diagnostic information
+ */
+function xdebug_info() {}
+
+/**
+ * Returns an array of ALL valid ini options with values and is not the same as ini_get_all() which returns only
+ * registered ini options. Only useful for devs to debug php.ini scanner/parser!
+ */
+function config_get_hash(){}
+
+/**
  * Returns the stack depth level.
  * The main body of a script is level 0 and each include and/or function call adds one to the stack depth level.
  * @return int
@@ -80,7 +91,7 @@ function xdebug_stop_function_monitor () {}
  * Returns a structure which contains information about where the monitored functions were executed in your script.
  * @return array
  */
-function xdebug_get_monitored_functions ($clear = 0) {}
+function xdebug_get_monitored_functions () {}
 
 /**
  * This function displays structured information about one or more expressions that includes its type and value.

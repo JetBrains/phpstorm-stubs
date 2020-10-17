@@ -1,4 +1,4 @@
-FROM php:8.0.0rc1-alpine
+FROM php:8.0.0RC2-alpine
 RUN echo 'memory_limit = 256M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 

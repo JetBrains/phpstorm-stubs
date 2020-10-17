@@ -16,7 +16,7 @@ function pcntl_fork () {}
 /**
  * Waits on or returns the status of a forked child
  * @link https://php.net/manual/en/function.pcntl-waitpid.php
- * @param int $pid <p>
+ * @param int $process_id <p>
  * The value of <i>pid</i> can be one of the following:
  * <table>
  * possible values for <i>pid</i>
@@ -66,7 +66,7 @@ function pcntl_fork () {}
  * <b>pcntl_wtermsig</b> and
  * <b>pcntl_wstopsig</b>.
  * </p>
- * @param int $options [optional] <p>
+ * @param int $flags [optional] <p>
  * The value of <i>options</i> is the value of zero
  * or more of the following two global constants
  * OR'ed together:
@@ -87,12 +87,12 @@ function pcntl_fork () {}
  * </tr>
  * </table>
  * </p>
- * @param array &$rusage [optional]
+ * @param array &$resource_usage [optional]
  * @return int <b>pcntl_waitpid</b> returns the process ID of the
  * child which exited, -1 on error or zero if <b>WNOHANG</b> was used and no
  * child was available
  */
-function pcntl_waitpid ($pid, &$status, $options = 0, array &$rusage) {}
+function pcntl_waitpid ($process_id, &$status, $flags = 0, array &$resource_usage) {}
 
 /**
  * Waits on or returns the status of a forked child
@@ -108,7 +108,7 @@ function pcntl_waitpid ($pid, &$status, $options = 0, array &$rusage) {}
  * <b>pcntl_wtermsig</b> and
  * <b>pcntl_wstopsig</b>.
  * </p>
- * @param int $options [optional] <p>
+ * @param int $flags [optional] <p>
  * If wait3 is available on your system (mostly BSD-style systems), you can
  * provide the optional <i>options</i> parameter. If this
  * parameter is not provided, wait will be used for the system call. If
@@ -133,17 +133,17 @@ function pcntl_waitpid ($pid, &$status, $options = 0, array &$rusage) {}
  * </tr>
  * </table>
  * </p>
- * @param array &$rusage [optional]
+ * @param array &$resource_usage [optional]
  * @return int <b>pcntl_wait</b> returns the process ID of the
  * child which exited, -1 on error or zero if WNOHANG was provided as an
  * option (on wait3-available systems) and no child was available.
  */
-function pcntl_wait (&$status, $options = 0, &$rusage) {}
+function pcntl_wait (&$status, $flags = 0, &$resource_usage) {}
 
 /**
  * Installs a signal handler
  * @link https://php.net/manual/en/function.pcntl-signal.php
- * @param int $signo <p>
+ * @param int $signal <p>
  * The signal number.
  * </p>
  * @param callable|int $handler <p>
@@ -168,7 +168,7 @@ function pcntl_wait (&$status, $options = 0, &$rusage) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pcntl_signal ($signo, $handler, $restart_syscalls = true) {}
+function pcntl_signal ($signal, $handler, $restart_syscalls = true) {}
 
 /**
  * Calls signal handlers for pending signals
@@ -258,7 +258,7 @@ function pcntl_wstopsig ($status) {}
  * <i>args</i> is an array of argument strings passed to the
  * program.
  * </p>
- * @param array $envs [optional] <p>
+ * @param array $env_vars [optional] <p>
  * <i>envs</i> is an array of strings which are passed as
  * environment to the program. The array is in the format of name => value,
  * the key being the name of the environmental variable and the value being
@@ -266,7 +266,7 @@ function pcntl_wstopsig ($status) {}
  * </p>
  * @return void <b>FALSE</b> on error and does not return on success.
  */
-function pcntl_exec ($path, array $args = null, array $envs = null) {}
+function pcntl_exec ($path, array $args = null, array $env_vars = null) {}
 
 /**
  * Set an alarm clock for delivery of a signal
@@ -300,20 +300,20 @@ function pcntl_errno () {}
 /**
  * Retrieve the system error message associated with the given errno
  * @link https://php.net/manual/en/function.pcntl-strerror.php
- * @param int $errno <p>
+ * @param int $error_code <p>
  * </p>
  * @return string|false error description on success or <b>FALSE</b> on failure.
  * @since 5.3.4
  */
-function pcntl_strerror ($errno) {}
+function pcntl_strerror ($error_code) {}
 
 /**
  * Get the priority of any process
  * @link https://php.net/manual/en/function.pcntl-getpriority.php
- * @param int $pid [optional] <p>
+ * @param int $process_id [optional] <p>
  * If not specified, the pid of the current process  (getmypid()) is used.
  * </p>
- * @param int $process_identifier [optional] <p>
+ * @param int $mode [optional] <p>
  * One of <b>PRIO_PGRP</b>, <b>PRIO_USER</b>
  * or <b>PRIO_PROCESS</b>.
  * </p>
@@ -321,7 +321,7 @@ function pcntl_strerror ($errno) {}
  * or <b>FALSE</b> on error. A lower numerical value causes more favorable
  * scheduling.
  */
-function pcntl_getpriority ($pid, $process_identifier = PRIO_PROCESS) {}
+function pcntl_getpriority ($process_id, $mode = PRIO_PROCESS) {}
 
 /**
  * Change the priority of any process
@@ -334,21 +334,21 @@ function pcntl_getpriority ($pid, $process_identifier = PRIO_PROCESS) {}
  * system types and kernel versions, please see your system's setpriority(2)
  * man page for specific details.
  * </p>
- * @param int $pid [optional] <p>
+ * @param int $process_id [optional] <p>
  * If not specified, the pid of the current process (getmypid()) is used.
  * </p>
- * @param int $process_identifier [optional] <p>
+ * @param int $mode [optional] <p>
  * One of <b>PRIO_PGRP</b>, <b>PRIO_USER</b>
  * or <b>PRIO_PROCESS</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pcntl_setpriority ($priority, $pid, $process_identifier = PRIO_PROCESS) {}
+function pcntl_setpriority ($priority, $process_id, $mode = PRIO_PROCESS) {}
 
 /**
  * Sets and retrieves blocked signals
  * @link https://php.net/manual/en/function.pcntl-sigprocmask.php
- * @param int $how <p>
+ * @param int $mode <p>
  * Sets the behavior of <b>pcntl_sigprocmask</b>. Possible
  * values:
  * <b>SIG_BLOCK</b>: Add the signals to the
@@ -358,21 +358,21 @@ function pcntl_setpriority ($priority, $pid, $process_identifier = PRIO_PROCESS)
  * <b>SIG_SETMASK</b>: Replace the currently
  * blocked signals by the given list of signals.
  * </p>
- * @param array $set <p>
+ * @param array $signals <p>
  * List of signals.
  * </p>
- * @param array &$oldset [optional] <p>
+ * @param array &$old_signals [optional] <p>
  * The <i>oldset</i> parameter is set to an array
  * containing the list of the previously blocked signals.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function pcntl_sigprocmask ($how, array $set, array &$oldset = null) {}
+function pcntl_sigprocmask ($mode, array $signals, array &$old_signals = null) {}
 
 /**
  * Waits for signals
  * @link https://php.net/manual/en/function.pcntl-sigwaitinfo.php
- * @param array $set <p>
+ * @param array $signals <p>
  * Array of signals to wait for.
  * </p>
  * @param array &$info [optional] <p>
@@ -407,12 +407,12 @@ function pcntl_sigprocmask ($how, array $set, array &$oldset = null) {}
  * </p>
  * @return int On success, <b>pcntl_sigwaitinfo</b> returns a signal number.
  */
-function pcntl_sigwaitinfo (array $set, array &$info = null) {}
+function pcntl_sigwaitinfo (array $signals, array &$info = null) {}
 
 /**
  * Waits for signals, with a timeout
  * @link https://php.net/manual/en/function.pcntl-sigtimedwait.php
- * @param array $set <p>
+ * @param array $signals <p>
  * Array of signals to wait for.
  * </p>
  * @param array &$info [optional] <p>
@@ -428,7 +428,7 @@ function pcntl_sigwaitinfo (array $set, array &$info = null) {}
  * </p>
  * @return int On success, <b>pcntl_sigtimedwait</b> returns a signal number.
  */
-function pcntl_sigtimedwait (array $set, array &$info = null, $seconds = 0, $nanoseconds = 0) {}
+function pcntl_sigtimedwait (array $signals, array &$info = null, $seconds = 0, $nanoseconds = 0) {}
 
 /**
  * Enable/disable asynchronous signal handling or return the old setting.<br>
@@ -436,27 +436,27 @@ function pcntl_sigtimedwait (array $set, array &$info = null, $seconds = 0, $nan
  * signal handling is enabled.
  * @link https://www.php.net/manual/en/function.pcntl-async-signals.php
  *
- * @param bool $on [optional] <p>
+ * @param bool $enable [optional] <p>
  * Whether asynchronous signal handling should be enabled.
  * </p>
  *
  * @return bool
  * @since 7.1
  */
-function pcntl_async_signals($on = null) {}
+function pcntl_async_signals($enable = null) {}
 
 /**
  * Get the current handler for specified signal.
  * @link https://www.php.net/manual/en/function.pcntl-signal-get-handler.php
  *
- * @param int $signo <p>
+ * @param int $signal <p>
  * The signal number.
  * </p>
  *
  * @return bool
  * @since 7.1
  */
-function pcntl_signal_get_handler($signo) {}
+function pcntl_signal_get_handler($signal) {}
 
 /**
  * @param int $flags
