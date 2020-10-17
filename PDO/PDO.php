@@ -826,7 +826,7 @@ class PDO  {
 	 * Some drivers have driver specific options that may be set at
 	 * prepare-time.
 	 * </p>
-	 * @return PDOStatement|bool If the database server successfully prepares the statement,
+	 * @return PDOStatement|false If the database server successfully prepares the statement,
 	 * <b>PDO::prepare</b> returns a
 	 * <b>PDOStatement</b> object.
 	 * If the database server cannot successfully prepare the statement,
