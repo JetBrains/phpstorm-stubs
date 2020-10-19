@@ -15,7 +15,7 @@
  * @param array $hints [optional] <p>
  * Hints provide criteria for selecting addresses returned. You may specify the hints as defined by getadrinfo.
  * </p>
- * @return array of AddrInfo resource handles that can be used with the other socket_addrinfo functions.
+ * @return AddressInfo[] of AddrInfo resource handles that can be used with the other socket_addrinfo functions.
  * @since 7.2
  */
 function socket_addrinfo_lookup($host, $service, $hints) {}
@@ -25,7 +25,7 @@ function socket_addrinfo_lookup($host, $service, $hints) {}
  * Create a Socket resource, and connect it to the provided AddrInfo resource.<br/>
  * The return value of this function may be used with the rest of the socket functions.
  * @link https://www.php.net/manual/en/function.socket-addrinfo-connect.php
- * @param resource $addr <p>
+ * @param AddressInfo $addr <p>
  * Resource created from {@see socket_addrinfo_lookup()}
  * </p>
  * @return Socket|null Socket resource on success or NULL on failure.
@@ -38,7 +38,7 @@ function socket_addrinfo_connect($addr) {}
  * Create a Socket resource, and bind it to the provided AddrInfo resource.<br/>
  * The return value of this function may be used with {@see socket_listen()}.
  * @link https://www.php.net/manual/en/function.socket-addrinfo-bind.php
- * @param resource $addr <p>
+ * @param AddressInfo $addr <p>
  * Resource created from {@see socket_addrinfo_lookup()}
  * </p>
  * @return Socket|null Socket resource on success or NULL on failure.
@@ -50,7 +50,7 @@ function socket_addrinfo_bind($addr) {}
  * (PHP 7 &gt;= 7.2.0)<br/>
  * Get information about addrinfo
  * @link https://www.php.net/manual/en/function.socket-addrinfo-explain.php
- * @param resource $addr <p>
+ * @param AddressInfo $addr <p>
  * Resource created from {@see socket_addrinfo_lookup()}
  * </p>
  * @return array containing the fields in the addrinfo structure.
@@ -2160,3 +2160,8 @@ define ('AI_NUMERICSERV', 8);
  * @since 8.0
  */
 final class Socket {}
+
+/**
+ * @since 8.0
+ */
+final class AddressInfo {}
