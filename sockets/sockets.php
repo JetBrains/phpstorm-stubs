@@ -2159,9 +2159,21 @@ define ('AI_NUMERICSERV', 8);
 /**
  * @since 8.0
  */
-final class Socket {}
+final class Socket {
+    /**
+     * Cannot directly construct Socket, use socket_create() instead
+     * @see socket_create()
+     */
+    private function __construct(){}
+}
 
 /**
  * @since 8.0
  */
-final class AddressInfo {}
+final class AddressInfo {
+    /**
+     * Cannot directly construct AddressInfo, use socket_addrinfo_lookup() instead
+     * @see socket_addrinfo_lookup()
+     */
+    private function __construct(){}
+}
