@@ -29,7 +29,8 @@ class Deprecated {
      * <ul>
      * <li>%parametersList%: parameters of function call. For f(1,2) this will be "1,2"</li>
      * <li>%param0%,%param1%,%param2%,...: parameters of function call. For f(1,2) %param1% will be "2"</li>
-     * <li>%name%: For \x\f(1,2) this will be "\x\f", for $this->ff() this will be "$this->ff"</li>
+     * <li>%name%: For \x\f(1,2) this will be "\x\f", for $this->ff() this will be "ff"</li>
+     * <li>%class%: If attribute is provided for 'm' method then for $this->f()->m() this will be "$this->f()"</li>
      * </ul>
      * The following example shows how to wrap function call in another and swap arguments:<br />
      * "#[Deprecated(replaceWith: "wrappedCall(%name%(%param1%, %param0%))")] f($a, $b){}<br />
