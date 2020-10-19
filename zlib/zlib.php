@@ -20,52 +20,52 @@ function readgzfile ($filename, $use_include_path = 0) {}
 /**
  * Rewind the position of a gz-file pointer
  * @link https://php.net/manual/en/function.gzrewind.php
- * @param resource $fp <p>
+ * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function gzrewind ($fp) {}
+function gzrewind ($stream) {}
 
 /**
  * Close an open gz-file pointer
  * @link https://php.net/manual/en/function.gzclose.php
- * @param resource $fp <p>
+ * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function gzclose ($fp) {}
+function gzclose ($stream) {}
 
 /**
  * Test for EOF on a gz-file pointer
  * @link https://php.net/manual/en/function.gzeof.php
- * @param resource $fp <p>
+ * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
  * </p>
  * @return int|bool <b>TRUE</b> if the gz-file pointer is at EOF or an error occurs;
  * otherwise returns <b>FALSE</b>.
  */
-function gzeof ($fp) {}
+function gzeof ($stream) {}
 
 /**
  * Get character from gz-file pointer
  * @link https://php.net/manual/en/function.gzgetc.php
- * @param resource $fp <p>
+ * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
  * </p>
  * @return string|false The uncompressed character or <b>FALSE</b> on EOF (unlike <b>gzeof</b>).
  */
-function gzgetc ($fp) {}
+function gzgetc ($stream) {}
 
 /**
  * Get line from file pointer
  * @link https://php.net/manual/en/function.gzgets.php
- * @param resource $fp <p>
+ * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
  * </p>
@@ -74,7 +74,7 @@ function gzgetc ($fp) {}
  * </p>
  * @return string|false The uncompressed string, or <b>FALSE</b> on error.
  */
-function gzgets ($fp, $length) {}
+function gzgets ($stream, $length) {}
 
 /**
  * Get line from gz-file pointer and strip HTML tags
@@ -99,7 +99,7 @@ function gzgetss ($zp, $length, $allowable_tags = null) {}
 /**
  * Binary-safe gz-file read
  * @link https://php.net/manual/en/function.gzread.php
- * @param resource $fp <p>
+ * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
  * </p>
@@ -108,7 +108,7 @@ function gzgetss ($zp, $length, $allowable_tags = null) {}
  * </p>
  * @return string The data that have been read.
  */
-function gzread ($fp, $length) {}
+function gzread ($stream, $length) {}
 
 /**
  * Open gz-file
@@ -142,19 +142,19 @@ function gzopen ($filename, $mode, $use_include_path = 0) {}
 /**
  * Output all remaining data on a gz-file pointer
  * @link https://php.net/manual/en/function.gzpassthru.php
- * @param resource $fp <p>
+ * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
  * </p>
  * @return int The number of uncompressed characters read from <i>gz</i>
  * and passed through to the input, or <b>FALSE</b> on error.
  */
-function gzpassthru ($fp) {}
+function gzpassthru ($stream) {}
 
 /**
  * Seek on a gz-file pointer
  * @link https://php.net/manual/en/function.gzseek.php
- * @param resource $fp <p>
+ * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
  * </p>
@@ -173,27 +173,27 @@ function gzpassthru ($fp) {}
  * @return int Upon success, returns 0; otherwise, returns -1. Note that seeking
  * past EOF is not considered an error.
  */
-function gzseek ($fp, $offset, $whence = SEEK_SET) {}
+function gzseek ($stream, $offset, $whence = SEEK_SET) {}
 
 /**
  * Tell gz-file pointer read/write position
  * @link https://php.net/manual/en/function.gztell.php
- * @param resource $fp <p>
+ * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
  * </p>
  * @return int|false The position of the file pointer or <b>FALSE</b> if an error occurs.
  */
-function gztell ($fp) {}
+function gztell ($stream) {}
 
 /**
  * Binary-safe gz-file write
  * @link https://php.net/manual/en/function.gzwrite.php
- * @param resource $fp <p>
+ * @param resource $stream <p>
  * The gz-file pointer. It must be valid, and must point to a file
  * successfully opened by <b>gzopen</b>.
  * </p>
- * @param string $str <p>
+ * @param string $data <p>
  * The string to write.
  * </p>
  * @param int $length [optional] <p>
@@ -211,16 +211,16 @@ function gztell ($fp) {}
  * @return int the number of (uncompressed) bytes written to the given gz-file
  * stream.
  */
-function gzwrite ($fp, $str, $length = null) {}
+function gzwrite ($stream, $data, $length = null) {}
 
 /**
  * Alias of <b>gzwrite</b>
  * @link https://php.net/manual/en/function.gzputs.php
- * @param resource $fp
- * @param string $str
+ * @param resource $stream
+ * @param string $data
  * @param int $length [optional]
  */
-function gzputs ($fp, $str, $length) {}
+function gzputs ($stream, $data, $length) {}
 
 /**
  * Read entire gz-file into an array
@@ -262,7 +262,7 @@ function gzcompress ($data, $level = -1, $encoding = ZLIB_ENCODING_DEFLATE) {}
  * @param string $data <p>
  * The data compressed by <b>gzcompress</b>.
  * </p>
- * @param int $max_decoded_len [optional] <p>
+ * @param int $max_length [optional] <p>
  * The maximum length of data to decode.
  * </p>
  * @return string|false The original uncompressed data or <b>FALSE</b> on error.
@@ -272,7 +272,7 @@ function gzcompress ($data, $level = -1, $encoding = ZLIB_ENCODING_DEFLATE) {}
  * 32768 times the length of the compressed input <i>data</i>
  * or more than the optional parameter <i>length</i>.
  */
-function gzuncompress ($data, $max_decoded_len = 0) {}
+function gzuncompress ($data, $max_length = 0) {}
 
 /**
  * Deflate a string
@@ -298,7 +298,7 @@ function gzdeflate ($data, $level = -1, $encoding = ZLIB_ENCODING_RAW) {}
  * @param string $data <p>
  * The data compressed by <b>gzdeflate</b>.
  * </p>
- * @param int $max_decoded_len [optional] <p>
+ * @param int $max_length [optional] <p>
  * The maximum length of data to decode.
  * </p>
  * @return string|false The original uncompressed data or <b>FALSE</b> on error.
@@ -308,7 +308,7 @@ function gzdeflate ($data, $level = -1, $encoding = ZLIB_ENCODING_RAW) {}
  * 32768 times the length of the compressed input <i>data</i>
  * or more than the optional parameter <i>length</i>.
  */
-function gzinflate ($data, $max_decoded_len = 0) {}
+function gzinflate ($data, $max_length = 0) {}
 
 /**
  * Create a gzip compressed string
@@ -345,13 +345,13 @@ function gzencode ($data, $level = -1, $encoding = FORCE_GZIP) {}
  * @param string $data <p>
  * The data to decode, encoded by <b>gzencode</b>.
  * </p>
- * @param int $max_decoded_len [optional] <p>
+ * @param int $max_length [optional] <p>
  * The maximum length of data to decode.
  * </p>
  * @return string|false The decoded string, or <b>FALSE</b> if an error occurred.
  * @since 5.4
  */
-function gzdecode ($data, $max_decoded_len = null) {}
+function gzdecode ($data, $max_length = null) {}
 
 /**
  * Compress data with the specified encoding
@@ -372,12 +372,12 @@ function zlib_encode ($data, $encoding, $level) {}
  * @link https://php.net/manual/en/function.zlib-decode.php
  * @param string $data <p>
  * </p>
- * @param string $max_decoded_len [optional] <p>
+ * @param string $max_length [optional] <p>
  * </p>
  * @return string
  * @since 5.4
  */
-function zlib_decode ($data, $max_decoded_len = null) {}
+function zlib_decode ($data, $max_length = null) {}
 
 /**
  * Returns the coding type used for output compression
@@ -425,10 +425,10 @@ function deflate_init ($encoding, $options = array()) {}
  * @param resource $context <p>
  * A context created with <b>deflate_init()</b>.
  * </p>
- * @param string $add <p>
+ * @param string $data <p>
  * A chunk of data to compress.
  * </p>
- * @param int $flush_behavior [optional] <p>
+ * @param int $flush_mode [optional] <p>
  * One of <b>ZLIB_BLOCK</b>, <b>ZLIB_NO_FLUSH</b>, <b>ZLIB_PARTIAL_FLUSH</b>,
  * <b>ZLIB_SYNC_FLUSH</b> (default), <b>ZLIB_FULL_FLUSH</b>,
  * <b>ZLIB_FINISH</b>. Normally you will want to set <b>ZLIB_NO_FLUSH</b> to
@@ -440,7 +440,7 @@ function deflate_init ($encoding, $options = array()) {}
  * </p>
  * @since 7.0
  */
-function deflate_add ($context, $add, $flush_behavior = ZLIB_SYNC_FLUSH) {}
+function deflate_add ($context, $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
 
 /**
  * Initialize an incremental inflate context
@@ -471,7 +471,7 @@ function inflate_init ($encoding, $options = array()) {}
  * @param resource $context <p>
  * A context created with <b>inflate_init()</b>.
  * </p>
- * @param string $encoded_data <p>
+ * @param string $data <p>
  * A chunk of compressed data.
  * </p>
  * @param int $flush_mode [optional] <p>
@@ -486,7 +486,7 @@ function inflate_init ($encoding, $options = array()) {}
  * </p>
  * @since 7.0
  */
-function inflate_add ($context, $encoded_data, $flush_mode = ZLIB_SYNC_FLUSH) {}
+function inflate_add ($context, $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
 
 /**
  * @param resource $context

@@ -773,10 +773,10 @@ function fflush ($stream) {}
  * Binary-safe file write
  * @link https://php.net/manual/en/function.fwrite.php
  * @param resource $stream &fs.file.pointer;
- * @param string $string <p>
+ * @param string $data <p>
  * The string that is to be written.
  * </p>
- * @param int $max_length [optional] <p>
+ * @param int $length [optional] <p>
  * If the length argument is given, writing will
  * stop after length bytes have been written or
  * the end of string is reached, whichever comes
@@ -790,15 +790,15 @@ function fflush ($stream) {}
  * </p>
  * @return int|false the number of bytes written, or <b>FALSE</b> on error.
  */
-function fwrite ($stream, $string, $max_length = null) {}
+function fwrite ($stream, $data, $length = null) {}
 
 /**
  * &Alias; <function>fwrite</function>
  * @param resource $stream A file system pointer resource that is typically created using fopen().
- * @param string $string <p>
+ * @param string $data <p>
  * The string that is to be written.
  * </p>
- * @param int $max_length [optional] <p>
+ * @param int $length [optional] <p>
  * If the length argument is given, writing will
  * stop after length bytes have been written or
  * the end of string is reached, whichever comes
@@ -815,7 +815,7 @@ function fwrite ($stream, $string, $max_length = null) {}
  * @link https://php.net/manual/en/function.fputs.php
  * Binary-safe file write
  */
-function fputs ($stream, $string, $max_length = null) {}
+function fputs ($stream, $data, $length = null) {}
 
 /**
  * Attempts to create the directory specified by pathname.
@@ -823,7 +823,7 @@ function fputs ($stream, $string, $max_length = null) {}
  * @param string $directory <p>
  * The directory path.
  * </p>
- * @param int $mode [optional] <p>
+ * @param int $permissions [optional] <p>
  * The mode is 0777 by default, which means the widest possible
  * access. For more information on modes, read the details
  * on the chmod page.
@@ -843,7 +843,7 @@ function fputs ($stream, $string, $max_length = null) {}
  * @param resource $context [optional] &note.context-support;
  * @return bool true on success or false on failure.
  */
-function mkdir ($directory, $mode = 0777, $recursive = false, $context = null) {}
+function mkdir ($directory, $permissions = 0777, $recursive = false, $context = null) {}
 
 /**
  * Renames a file or directory
@@ -957,13 +957,13 @@ function file ($filename, $flags = null, $context = null) {}
  * @param int $offset [optional] <p>
  * The offset where the reading starts.
  * </p>
- * @param int $max_length [optional] <p>
+ * @param int $length [optional] <p>
  * Maximum length of data read. The default is to read until end
  * of file is reached.
  * </p>
  * @return string|false The function returns the read data or false on failure.
  */
-function file_get_contents ($filename, $use_include_path = false, $context = null, $offset = 0, $max_length = null) {}
+function file_get_contents ($filename, $use_include_path = false, $context = null, $offset = 0, $length = null) {}
 
 /**
  * Write a string to a file
@@ -971,7 +971,7 @@ function file_get_contents ($filename, $use_include_path = false, $context = nul
  * @param string $filename <p>
  * Path to the file where to write the data.
  * </p>
- * @param mixed $content <p>
+ * @param mixed $data <p>
  * The data to write. Can be either a string, an
  * array or a stream resource.
  * </p>
@@ -1036,4 +1036,4 @@ function file_get_contents ($filename, $use_include_path = false, $context = nul
  * @return int|false The function returns the number of bytes that were written to the file, or
  * false on failure.
  */
-function file_put_contents ($filename, $content, $flags = 0, $context = null) {}
+function file_put_contents ($filename, $data, $flags = 0, $context = null) {}

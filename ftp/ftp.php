@@ -4,13 +4,13 @@
 
 /**
  * @param resource $ftp
- * @param string $remove_file
- * @param string $local_file
+ * @param string $remote_filename
+ * @param string $local_filename
  * @param int $mode [optional]
  * @return bool
  * @since 7.2
  */
-function ftp_append ($ftp, $remove_file, $local_file, $mode = FTP_BINARY){}
+function ftp_append ($ftp, $remote_filename, $local_filename, $mode = FTP_BINARY){}
 
 /**
  * @param resource $ftp
@@ -23,7 +23,7 @@ function ftp_mlsd ($ftp,  $directory) {}
 /**
  * Opens an FTP connection
  * @link https://php.net/manual/en/function.ftp-connect.php
- * @param string $host <p>
+ * @param string $hostname <p>
  * The FTP server address. This parameter shouldn't have any trailing
  * slashes and shouldn't be prefixed with ftp://.
  * </p>
@@ -39,12 +39,12 @@ function ftp_mlsd ($ftp,  $directory) {}
  * </p>
  * @return resource|false a FTP stream on success or <b>FALSE</b> on error.
  */
-function ftp_connect ($host, $port = 21, $timeout = 90) {}
+function ftp_connect ($hostname, $port = 21, $timeout = 90) {}
 
 /**
  * Opens an Secure SSL-FTP connection
  * @link https://php.net/manual/en/function.ftp-ssl-connect.php
- * @param string $host <p>
+ * @param string $hostname <p>
  * The FTP server address. This parameter shouldn't have any trailing
  * slashes and shouldn't be prefixed with ftp://.
  * </p>
@@ -60,7 +60,7 @@ function ftp_connect ($host, $port = 21, $timeout = 90) {}
  * </p>
  * @return resource|false a SSL-FTP stream on success or <b>FALSE</b> on error.
  */
-function ftp_ssl_connect ($host, $port = 21, $timeout = 90) {}
+function ftp_ssl_connect ($hostname, $port = 21, $timeout = 90) {}
 
 /**
  * Logs in to an FTP connection
@@ -175,7 +175,7 @@ function ftp_rmdir ($ftp, $directory) {}
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param int $mode <p>
+ * @param int $permissions <p>
  * The new permissions, given as an octal value.
  * </p>
  * @param string $filename <p>
@@ -183,7 +183,7 @@ function ftp_rmdir ($ftp, $directory) {}
  * </p>
  * @return int|false the new file permissions on success or <b>FALSE</b> on error.
  */
-function ftp_chmod ($ftp, $mode, $filename) {}
+function ftp_chmod ($ftp, $permissions, $filename) {}
 
 /**
  * Allocates space for a file to be uploaded
@@ -229,7 +229,7 @@ function ftp_nlist ($ftp, $directory) {}
  * The directory path. May include arguments for the LIST
  * command.
  * </p>
- * @param bool $recurse [optional] <p>
+ * @param bool $recursive [optional] <p>
  * If set to <b>TRUE</b>, the issued command will be LIST -R.
  * </p>
  * @return array an array where each element corresponds to one line of text.
@@ -239,7 +239,7 @@ function ftp_nlist ($ftp, $directory) {}
  * <b>ftp_systype</b> can be used to determine how the results
  * should be interpreted.
  */
-function ftp_rawlist ($ftp, $directory, $recurse = false) {}
+function ftp_rawlist ($ftp, $directory, $recursive = false) {}
 
 /**
  * Returns the system type identifier of the remote FTP server
@@ -257,12 +257,12 @@ function ftp_systype ($ftp) {}
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param bool $pasv <p>
+ * @param bool $enable <p>
  * If <b>TRUE</b>, the passive mode is turned on, else it's turned off.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_pasv ($ftp, $pasv) {}
+function ftp_pasv ($ftp, $enable) {}
 
 /**
  * Downloads a file from the FTP server
@@ -270,22 +270,22 @@ function ftp_pasv ($ftp, $pasv) {}
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param string $local_file <p>
+ * @param string $local_filename <p>
  * The local file path (will be overwritten if the file already exists).
  * </p>
- * @param string $remote_file <p>
+ * @param string $remote_filename <p>
  * The remote file path.
  * </p>
  * @param int $mode [optional] <p>
  * The transfer mode. Must be either <b>FTP_ASCII</b> or
  * <b>FTP_BINARY</b>.
  * </p>
- * @param int $resumepos [optional] <p>
+ * @param int $offset [optional] <p>
  * The position in the remote file to start downloading from.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_get ($ftp, $local_file, $remote_file, $mode = FTP_BINARY, $resumepos = 0) {}
+function ftp_get ($ftp, $local_filename, $remote_filename, $mode = FTP_BINARY, $offset = 0) {}
 
 /**
  * Downloads a file from the FTP server and saves to an open file
@@ -293,22 +293,22 @@ function ftp_get ($ftp, $local_file, $remote_file, $mode = FTP_BINARY, $resumepo
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param resource $fp <p>
+ * @param resource $stream <p>
  * An open file pointer in which we store the data.
  * </p>
- * @param string $remote_file <p>
+ * @param string $remote_filename <p>
  * The remote file path.
  * </p>
  * @param int $mode [optional] <p>
  * The transfer mode. Must be either <b>FTP_ASCII</b> or
  * <b>FTP_BINARY</b>.
  * </p>
- * @param int $resumepos [optional] <p>
+ * @param int $offset [optional] <p>
  * The position in the remote file to start downloading from.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_fget ($ftp, $fp, $remote_file, $mode = FTP_BINARY, $resumepos = 0) {}
+function ftp_fget ($ftp, $stream, $remote_filename, $mode = FTP_BINARY, $offset = 0) {}
 
 /**
  * Uploads a file to the FTP server
@@ -316,20 +316,20 @@ function ftp_fget ($ftp, $fp, $remote_file, $mode = FTP_BINARY, $resumepos = 0) 
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param string $remote_file <p>
+ * @param string $remote_filename <p>
  * The remote file path.
  * </p>
- * @param string $local_file <p>
+ * @param string $local_filename <p>
  * The local file path.
  * </p>
  * @param int $mode [optional] <p>
  * The transfer mode. Must be either <b>FTP_ASCII</b> or
  * <b>FTP_BINARY</b>.
  * </p>
- * @param int $startpos [optional] <p>The position in the remote file to start uploading to.</p>
+ * @param int $offset [optional] <p>The position in the remote file to start uploading to.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_put ($ftp, $remote_file, $local_file, $mode = FTP_BINARY, $startpos = 0) {}
+function ftp_put ($ftp, $remote_filename, $local_filename, $mode = FTP_BINARY, $offset = 0) {}
 
 /**
  * Uploads from an open file to the FTP server
@@ -337,20 +337,20 @@ function ftp_put ($ftp, $remote_file, $local_file, $mode = FTP_BINARY, $startpos
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param string $remote_file <p>
+ * @param string $remote_filename <p>
  * The remote file path.
  * </p>
- * @param resource $fp <p>
+ * @param resource $stream <p>
  * An open file pointer on the local file. Reading stops at end of file.
  * </p>
  * @param int $mode [optional] <p>
  * The transfer mode. Must be either <b>FTP_ASCII</b> or
  * <b>FTP_BINARY</b>.
  * </p>
- * @param int $startpos [optional] <p>The position in the remote file to start uploading to.</p>
+ * @param int $offset [optional] <p>The position in the remote file to start uploading to.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_fput ($ftp, $remote_file, $fp, $mode = FTP_BINARY, $startpos = 0) {}
+function ftp_fput ($ftp, $remote_filename, $stream, $mode = FTP_BINARY, $offset = 0) {}
 
 /**
  * Returns the size of the given file
@@ -385,15 +385,15 @@ function ftp_mdtm ($ftp, $filename) {}
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param string $src <p>
+ * @param string $from <p>
  * The old file/directory name.
  * </p>
- * @param string $dest <p>
+ * @param string $to <p>
  * The new name.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_rename ($ftp, $src, $dest) {}
+function ftp_rename ($ftp, $from, $to) {}
 
 /**
  * Deletes a file on the FTP server
@@ -401,12 +401,12 @@ function ftp_rename ($ftp, $src, $dest) {}
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param string $file <p>
+ * @param string $filename <p>
  * The file to delete.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_delete ($ftp, $file) {}
+function ftp_delete ($ftp, $filename) {}
 
 /**
  * Sends a SITE command to the server
@@ -414,13 +414,13 @@ function ftp_delete ($ftp, $file) {}
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param string $cmd <p>
+ * @param string $command <p>
  * The SITE command. Note that this parameter isn't escaped so there may
  * be some issues with filenames containing spaces and other characters.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function ftp_site ($ftp, $cmd) {}
+function ftp_site ($ftp, $command) {}
 
 /**
  * Closes an FTP connection
@@ -508,21 +508,21 @@ function ftp_get_option ($ftp, $option) {}
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param resource $fp <p>
+ * @param resource $stream <p>
  * An open file pointer in which we store the data.
  * </p>
- * @param string $remote_file <p>
+ * @param string $remote_filename <p>
  * The remote file path.
  * </p>
  * @param int $mode [optional] <p>
  * The transfer mode. Must be either <b>FTP_ASCII</b> or
  * <b>FTP_BINARY</b>.
  * </p>
- * @param int $resumpos [optional] <p>The position in the remote file to start downloading from.</p>
+ * @param int $offset [optional] <p>The position in the remote file to start downloading from.</p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
-function ftp_nb_fget ($ftp, $fp, $remote_file, $mode = FTP_BINARY, $resumpos = 0) {}
+function ftp_nb_fget ($ftp, $stream, $remote_filename, $mode = FTP_BINARY, $offset = 0) {}
 
 /**
  * Retrieves a file from the FTP server and writes it to a local file (non-blocking)
@@ -530,21 +530,21 @@ function ftp_nb_fget ($ftp, $fp, $remote_file, $mode = FTP_BINARY, $resumpos = 0
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param string $local_file <p>
+ * @param string $local_filename <p>
  * The local file path (will be overwritten if the file already exists).
  * </p>
- * @param string $remote_file <p>
+ * @param string $remote_filename <p>
  * The remote file path.
  * </p>
  * @param int $mode [optional] <p>
  * The transfer mode. Must be either <b>FTP_ASCII</b> or
  * <b>FTP_BINARY</b>.
  * </p>
- * @param int $resume_pos [optional] <p>The position in the remote file to start downloading from.</p>
+ * @param int $offset [optional] <p>The position in the remote file to start downloading from.</p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
-function ftp_nb_get ($ftp, $local_file, $remote_file, $mode = FTP_BINARY, $resume_pos = 0) {}
+function ftp_nb_get ($ftp, $local_filename, $remote_filename, $mode = FTP_BINARY, $offset = 0) {}
 
 /**
  * Continues retrieving/sending a file (non-blocking)
@@ -563,21 +563,21 @@ function ftp_nb_continue ($ftp) {}
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param string $remote_file <p>
+ * @param string $remote_filename <p>
  * The remote file path.
  * </p>
- * @param string $local_file <p>
+ * @param string $local_filename <p>
  * The local file path.
  * </p>
  * @param int $mode [optional] <p>
  * The transfer mode. Must be either <b>FTP_ASCII</b> or
  * <b>FTP_BINARY</b>.
  * </p>
- * @param int $startpos [optional] <p>The position in the remote file to start uploading to.</p>
+ * @param int $offset [optional] <p>The position in the remote file to start uploading to.</p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
-function ftp_nb_put ($ftp, $remote_file, $local_file, $mode = FTP_BINARY, $startpos = 0) {}
+function ftp_nb_put ($ftp, $remote_filename, $local_filename, $mode = FTP_BINARY, $offset = 0) {}
 
 /**
  * Stores a file from an open file to the FTP server (non-blocking)
@@ -585,21 +585,21 @@ function ftp_nb_put ($ftp, $remote_file, $local_file, $mode = FTP_BINARY, $start
  * @param resource $ftp <p>
  * The link identifier of the FTP connection.
  * </p>
- * @param string $remote_file <p>
+ * @param string $remote_filename <p>
  * The remote file path.
  * </p>
- * @param resource $fp <p>
+ * @param resource $stream <p>
  * An open file pointer on the local file. Reading stops at end of file.
  * </p>
  * @param int $mode [optional] <p>
  * The transfer mode. Must be either <b>FTP_ASCII</b> or
  * <b>FTP_BINARY</b>.
  * </p>
- * @param int $startpos [optional] <p>The position in the remote file to start uploading to.</p>
+ * @param int $offset [optional] <p>The position in the remote file to start uploading to.</p>
  * @return int <b>FTP_FAILED</b> or <b>FTP_FINISHED</b>
  * or <b>FTP_MOREDATA</b>.
  */
-function ftp_nb_fput ($ftp, $remote_file, $fp, $mode = FTP_BINARY, $startpos = 0) {}
+function ftp_nb_fput ($ftp, $remote_filename, $stream, $mode = FTP_BINARY, $offset = 0) {}
 
 /**
  * Alias of <b>ftp_close</b>

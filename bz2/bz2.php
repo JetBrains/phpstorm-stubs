@@ -39,7 +39,7 @@ function bzread ($bz, $length = 1024) {}
  * The file pointer. It must be valid and must point to a file
  * successfully opened by <b>bzopen</b>.
  * </p>
- * @param string $str <p>
+ * @param string $data <p>
  * The written data.
  * </p>
  * @param int $length [optional] <p>
@@ -49,7 +49,7 @@ function bzread ($bz, $length = 1024) {}
  * </p>
  * @return int the number of bytes written, or <b>FALSE</b> on error.
  */
-function bzwrite ($bz, $str, $length = null) {}
+function bzwrite ($bz, $data, $length = null) {}
 
 /**
  * Force a write of all buffered data
@@ -111,15 +111,15 @@ function bzerror ($bz) {}
 /**
  * Compress a string into bzip2 encoded data
  * @link https://php.net/manual/en/function.bzcompress.php
- * @param string $source <p>
+ * @param string $data <p>
  * The string to compress.
  * </p>
- * @param int $blocksize [optional] <p>
+ * @param int $block_size [optional] <p>
  * Specifies the blocksize used during compression and should be a number
  * from 1 to 9 with 9 giving the best compression, but using more
  * resources to do so.
  * </p>
- * @param int $workfactor [optional] <p>
+ * @param int $work_factor [optional] <p>
  * Controls how the compression phase behaves when presented with worst
  * case, highly repetitive, input data. The value can be between 0 and
  * 250 with 0 being a special case.
@@ -130,15 +130,15 @@ function bzerror ($bz) {}
  * </p>
  * @return mixed The compressed string, or an error number if an error occurred.
  */
-function bzcompress ($source, $blocksize = 4, $workfactor = 0) {}
+function bzcompress ($data, $block_size = 4, $work_factor = 0) {}
 
 /**
  * Decompresses bzip2 encoded data
  * @link https://php.net/manual/en/function.bzdecompress.php
- * @param string $source <p>
+ * @param string $data <p>
  * The string to decompress.
  * </p>
- * @param int $small [optional] <p>
+ * @param int $use_less_memory [optional] <p>
  * If <b>TRUE</b>, an alternative decompression algorithm will be used which
  * uses less memory (the maximum memory requirement drops to around 2300K)
  * but works at roughly half the speed.
@@ -149,4 +149,4 @@ function bzcompress ($source, $blocksize = 4, $workfactor = 0) {}
  * </p>
  * @return mixed The decompressed string, or an error number if an error occurred.
  */
-function bzdecompress ($source, $small = 0) {}
+function bzdecompress ($data, $use_less_memory = 0) {}

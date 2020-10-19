@@ -36,14 +36,14 @@ function xml_parser_create ($encoding = null) {}
  * encodings are ISO-8859-1, UTF-8 and
  * US-ASCII.
  * </p>
- * @param string $sep [optional] <p>
+ * @param string $separator [optional] <p>
  * With a namespace aware parser tag parameters passed to the various
  * handler functions will consist of namespace and tag name separated by
  * the string specified in <i>separator</i>.
  * </p>
  * @return resource|false|XmlParser a resource handle for the new XML parser.
  */
-function xml_parser_create_ns ($encoding = null, $sep = ':') {}
+function xml_parser_create_ns ($encoding = null, $separator = ':') {}
 
 /**
  * Use XML Parser within an object
@@ -51,12 +51,12 @@ function xml_parser_create_ns ($encoding = null, $sep = ':') {}
  * @param resource $parser <p>
  * A reference to the XML parser to use inside the object.
  * </p>
- * @param object &$obj <p>
+ * @param object &$object <p>
  * The object where to use the XML parser.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_object ($parser, &$obj) {}
+function xml_set_object ($parser, &$object) {}
 
 /**
  * Set up start and end element handlers
@@ -64,7 +64,7 @@ function xml_set_object ($parser, &$obj) {}
  * @param resource $parser <p>
  * A reference to the XML parser to set up start and end element handler functions.
  * </p>
- * @param callable $shdl <p>
+ * @param callable $start_handler <p>
  * The function named by <i>start_element_handler</i>
  * must accept three parameters:
  * <b>start_element_handler</b>
@@ -74,7 +74,7 @@ function xml_set_object ($parser, &$obj) {}
  * <i>parser</i>
  * The first parameter, parser, is a
  * reference to the XML parser calling the handler.
- * @param callable $ehdl <p>
+ * @param callable $end_handler <p>
  * The function named by <i>end_element_handler</i>
  * must accept two parameters:
  * <b>end_element_handler</b>
@@ -85,7 +85,7 @@ function xml_set_object ($parser, &$obj) {}
  * reference to the XML parser calling the handler.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_element_handler ($parser, callable $shdl, callable $ehdl) {}
+function xml_set_element_handler ($parser, callable $start_handler, callable $end_handler) {}
 
 /**
  * Set up character data handler
@@ -93,7 +93,7 @@ function xml_set_element_handler ($parser, callable $shdl, callable $ehdl) {}
  * @param resource $parser <p>
  * A reference to the XML parser to set up character data handler function.
  * </p>
- * @param callable $hdl <p>
+ * @param callable $handler <p>
  * <i>handler</i> is a string containing the name of a
  * function that must exist when <b>xml_parse</b> is called
  * for <i>parser</i>.
@@ -109,7 +109,7 @@ function xml_set_element_handler ($parser, callable $shdl, callable $ehdl) {}
  * reference to the XML parser calling the handler.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_character_data_handler ($parser, callable $hdl) {}
+function xml_set_character_data_handler ($parser, callable $handler) {}
 
 /**
  * Set up processing instruction (PI) handler
@@ -117,7 +117,7 @@ function xml_set_character_data_handler ($parser, callable $hdl) {}
  * @param resource $parser <p>
  * A reference to the XML parser to set up processing instruction (PI) handler function.
  * </p>
- * @param callable $hdl <p>
+ * @param callable $handler <p>
  * <i>handler</i> is a string containing the name of a
  * function that must exist when <b>xml_parse</b> is called
  * for <i>parser</i>.
@@ -134,7 +134,7 @@ function xml_set_character_data_handler ($parser, callable $hdl) {}
  * reference to the XML parser calling the handler.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_processing_instruction_handler ($parser, callable $hdl) {}
+function xml_set_processing_instruction_handler ($parser, callable $handler) {}
 
 /**
  * Set up default handler
@@ -142,7 +142,7 @@ function xml_set_processing_instruction_handler ($parser, callable $hdl) {}
  * @param resource $parser <p>
  * A reference to the XML parser to set up default handler function.
  * </p>
- * @param callable $hdl <p>
+ * @param callable $handler <p>
  * <i>handler</i> is a string containing the name of a
  * function that must exist when <b>xml_parse</b> is called
  * for <i>parser</i>.
@@ -158,7 +158,7 @@ function xml_set_processing_instruction_handler ($parser, callable $hdl) {}
  * reference to the XML parser calling the handler.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_default_handler ($parser, callable $hdl) {}
+function xml_set_default_handler ($parser, callable $handler) {}
 
 /**
  * Set up unparsed entity declaration handler
@@ -166,7 +166,7 @@ function xml_set_default_handler ($parser, callable $hdl) {}
  * @param resource $parser <p>
  * A reference to the XML parser to set up unparsed entity declaration handler function.
  * </p>
- * @param callable $hdl <p>
+ * @param callable $handler <p>
  * <i>handler</i> is a string containing the name of a
  * function that must exist when <b>xml_parse</b> is called
  * for <i>parser</i>.
@@ -187,7 +187,7 @@ function xml_set_default_handler ($parser, callable $hdl) {}
  * handler.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_unparsed_entity_decl_handler ($parser, callable $hdl) {}
+function xml_set_unparsed_entity_decl_handler ($parser, callable $handler) {}
 
 /**
  * Set up notation declaration handler
@@ -195,7 +195,7 @@ function xml_set_unparsed_entity_decl_handler ($parser, callable $hdl) {}
  * @param resource $parser <p>
  * A reference to the XML parser to set up notation declaration handler function.
  * </p>
- * @param callable $hdl <p>
+ * @param callable $handler <p>
  * <i>handler</i> is a string containing the name of a
  * function that must exist when <b>xml_parse</b> is called
  * for <i>parser</i>.
@@ -214,7 +214,7 @@ function xml_set_unparsed_entity_decl_handler ($parser, callable $hdl) {}
  * reference to the XML parser calling the handler.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_notation_decl_handler ($parser, callable $hdl) {}
+function xml_set_notation_decl_handler ($parser, callable $handler) {}
 
 /**
  * Set up external entity reference handler
@@ -222,7 +222,7 @@ function xml_set_notation_decl_handler ($parser, callable $hdl) {}
  * @param resource $parser <p>
  * A reference to the XML parser to set up external entity reference handler function.
  * </p>
- * @param callable $hdl <p>
+ * @param callable $handler <p>
  * <i>handler</i> is a string containing the name of a
  * function that must exist when <b>xml_parse</b> is called
  * for <i>parser</i>.
@@ -245,7 +245,7 @@ function xml_set_notation_decl_handler ($parser, callable $hdl) {}
  * reference to the XML parser calling the handler.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_external_entity_ref_handler ($parser, callable $hdl) {}
+function xml_set_external_entity_ref_handler ($parser, callable $handler) {}
 
 /**
  * Set up start namespace declaration handler
@@ -253,7 +253,7 @@ function xml_set_external_entity_ref_handler ($parser, callable $hdl) {}
  * @param resource $parser <p>
  * A reference to the XML parser.
  * </p>
- * @param callable $hdl <p>
+ * @param callable $handler <p>
  * <i>handler</i> is a string containing the name of a
  * function that must exist when <b>xml_parse</b> is called
  * for <i>parser</i>.
@@ -274,7 +274,7 @@ function xml_set_external_entity_ref_handler ($parser, callable $hdl) {}
  * reference to the XML parser calling the handler.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_start_namespace_decl_handler ($parser, callable $hdl) {}
+function xml_set_start_namespace_decl_handler ($parser, callable $handler) {}
 
 /**
  * Set up end namespace declaration handler
@@ -282,7 +282,7 @@ function xml_set_start_namespace_decl_handler ($parser, callable $hdl) {}
  * @param resource $parser <p>
  * A reference to the XML parser.
  * </p>
- * @param callable $hdl <p>
+ * @param callable $handler <p>
  * <i>handler</i> is a string containing the name of a
  * function that must exist when <b>xml_parse</b> is called
  * for <i>parser</i>.
@@ -302,7 +302,7 @@ function xml_set_start_namespace_decl_handler ($parser, callable $hdl) {}
  * reference to the XML parser calling the handler.
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_end_namespace_decl_handler ($parser, callable $hdl) {}
+function xml_set_end_namespace_decl_handler ($parser, callable $handler) {}
 
 /**
  * Start parsing an XML document
@@ -316,7 +316,7 @@ function xml_set_end_namespace_decl_handler ($parser, callable $hdl) {}
  * as long as the <i>is_final</i> parameter is set and
  * <b>TRUE</b> when the last data is parsed.
  * </p>
- * @param bool $isfinal [optional] <p>
+ * @param bool $is_final [optional] <p>
  * If set and <b>TRUE</b>, <i>data</i> is the last piece of
  * data sent in this parse.
  * </p>
@@ -334,7 +334,7 @@ function xml_set_end_namespace_decl_handler ($parser, callable $hdl) {}
  * Entity errors are reported at the end of the data thus only if
  * <i>is_final</i> is set and <b>TRUE</b>.
  */
-function xml_parse ($parser, $data, $isfinal = false) {}
+function xml_parse ($parser, $data, $is_final = false) {}
 
 /**
  * Parse XML data into an array structure
@@ -373,13 +373,13 @@ function xml_get_error_code ($parser) {}
 /**
  * Get XML parser error string
  * @link https://php.net/manual/en/function.xml-error-string.php
- * @param int $code <p>
+ * @param int $error_code <p>
  * An error code from <b>xml_get_error_code</b>.
  * </p>
  * @return string a string with a textual description of the error
  * <i>code</i>, or <b>FALSE</b> if no description was found.
  */
-function xml_error_string ($code) {}
+function xml_error_string ($error_code) {}
 
 /**
  * Get current line number for an XML parser

@@ -259,7 +259,7 @@ function session_set_save_handler (SessionHandlerInterface $session_handler, $re
 /**
  * Get and/or set the current cache limiter
  * @link https://php.net/manual/en/function.session-cache-limiter.php
- * @param string $cache_limiter [optional] <p>
+ * @param string $value [optional] <p>
  * If <i>cache_limiter</i> is specified, the name of the
  * current cache limiter is changed to the new value.
  * </p>
@@ -311,12 +311,12 @@ function session_set_save_handler (SessionHandlerInterface $session_handler, $re
  * </table>
  * @return string the name of the current cache limiter.
  */
-function session_cache_limiter ($cache_limiter = null) {}
+function session_cache_limiter ($value = null) {}
 
 /**
  * Return current cache expire
  * @link https://php.net/manual/en/function.session-cache-expire.php
- * @param string $new_cache_expire [optional] <p>
+ * @param string $value [optional] <p>
  * If <i>new_cache_expire</i> is given, the current cache
  * expire is replaced with <i>new_cache_expire</i>.
  * </p>
@@ -328,7 +328,7 @@ function session_cache_limiter ($cache_limiter = null) {}
  * @return int the current setting of session.cache_expire.
  * The value returned should be read in minutes, defaults to 180.
  */
-function session_cache_expire ($new_cache_expire = null) {}
+function session_cache_expire ($value = null) {}
 
 /**
  * Set the session cookie parameters
