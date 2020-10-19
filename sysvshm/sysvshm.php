@@ -105,7 +105,13 @@ function shm_remove_var ($shm, $key) {}
 /**
  * @since 8.0
  */
-final class SysvSharedMemory{}
+final class SysvSharedMemory{
+    /**
+     * Cannot directly construct SysvSharedMemory, use shm_attach() instead
+     * @see shm_attach()
+     */
+    private function __construct(){}
+}
 
 
 // End of sysvshm v.

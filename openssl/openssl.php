@@ -1247,14 +1247,32 @@ define('OPENSSL_DEFAULT_STREAM_CIPHERS', "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDS
 /**
  * @since 8.0
  */
-final class OpenSSLCertificate{}
+final class OpenSSLCertificate{
+    /**
+     * Cannot directly construct OpenSSLCertificate, use openssl_x509_read() instead
+     * @see openssl_x509_read()
+     */
+    private function __construct(){}
+}
 
 /**
  * @since 8.0
  */
-final class OpenSSLCertificateSigningRequest{}
+final class OpenSSLCertificateSigningRequest{
+    /**
+     * Cannot directly construct OpenSSLCertificateSigningRequest, use openssl_csr_new() instead
+     * @see openssl_csr_new()
+     */
+    private function __construct(){}
+}
 
 /**
  * @since 8.0
  */
-final class OpenSSLAsymmetricKey{}
+final class OpenSSLAsymmetricKey{
+    /**
+     * Cannot directly construct OpenSSLAsymmetricKey, use openssl_pkey_new() instead
+     * @see openssl_pkey_new()
+     */
+    private function __construct(){}
+}

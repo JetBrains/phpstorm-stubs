@@ -65,7 +65,13 @@ function sem_remove ($semaphore) {}
 /**
  * @since 8.0
  */
-final class SysvSemaphore{}
+final class SysvSemaphore{
+    /**
+     * Cannot directly construct SysvSemaphore, use sem_get() instead
+     * @see sem_get()
+     */
+    private function __construct(){}
+}
 
 // End of sysvsem v.
 ?>

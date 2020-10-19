@@ -3017,4 +3017,10 @@ function imagesetinterpolation ($image, $method = IMG_BILINEAR_FIXED) {}
 /**
  * @since 8.0
  */
-final class GdImage{}
+final class GdImage{
+    /**
+     * You cannot initialize a GdImage object except through helper functions.
+     */
+    private function __construct(){}
+    private function __clone(){}
+}

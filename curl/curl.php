@@ -2548,14 +2548,32 @@ function curl_share_strerror($error_code){}
 /**
  * @since 8.0
  */
-final class CurlHandle{}
+final class CurlHandle{
+    /**
+     * Cannot directly construct CurlHandle, use curl_init() instead
+     * @see curl_init()
+     */
+    private function __construct(){}
+}
 
 /**
  * @since 8.0
  */
-final class CurlMultiHandle{}
+final class CurlMultiHandle{
+    /**
+     * Cannot directly construct CurlMultiHandle, use curl_multi_init() instead
+     * @see curl_multi_init()
+     */
+    private function __construct(){}
+}
 
 /**
  * @since 8.0
  */
-final class CurlShareHandle{}
+final class CurlShareHandle{
+    /**
+     * Cannot directly construct CurlShareHandle, use curl_share_init() instead
+     * @see  curl_share_init()
+     */
+    private function __construct(){}
+}

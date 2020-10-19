@@ -505,12 +505,24 @@ function  inflate_get_status($context) {}
 /**
  * @since 8.0
  */
-class InflateContext{}
+class InflateContext{
+    /**
+     * Use inflate_init() instead
+     * @see inflate_init()
+     */
+    private function __construct(){}
+}
 
 /**
  * @since 8.0
  */
-class DeflateContext{}
+class DeflateContext{
+    /**
+     * Use deflate_init() instead
+     * @see deflate_init()
+     */
+    private function __construct(){}
+}
 
 define ('FORCE_GZIP', 31);
 define ('FORCE_DEFLATE', 15);
