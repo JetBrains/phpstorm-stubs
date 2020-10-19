@@ -1,6 +1,7 @@
 <?php
 
 // Start of mbstring v.
+use JetBrains\PhpStorm\Deprecated;
 
 /**
  * Perform case folding on a string
@@ -1136,9 +1137,10 @@ function mb_ereg_search_setpos ($offset) {}
 
 /**
  * @param $encoding [optional]
- * @deprecated 7.3 use {@see mb_regex_encoding} instead
+ * @see mb_regex_encoding
  * @removed 8.0
  */
+#[Deprecated(replacement: "mb_regex_encoding(%parametersList%)", since: "7.3")]
 function mbregex_encoding ($encoding) {}
 
 /**
@@ -1154,9 +1156,10 @@ function mbereg ($pattern, $string, &$registers) {}
  * @param string $pattern
  * @param string $string
  * @param array &$registers [optional]
- * @deprecated 7.3 use {@see mb_eregi} instead
+ * @see mb_eregi
  * @removed 8.0
  */
+#[Deprecated(replacement: "mb_eregi(%parametersList%)", since: "7.3")]
 function mberegi ($pattern, $string, &$registers) {}
 
 /**
@@ -1175,9 +1178,10 @@ function mbereg_replace ($pattern, $replacement, $string, $option) {}
  * @param $string
  * @param string $option
  * @return string
- * @deprecated 7.3 use {@see mb_eregi_replace} instead
+ * @see mb_eregi_replace
  * @removed 8.0
  */
+#[Deprecated(replacement: "mb_eregi_replace(%parametersList%)", since: "7.3")]
 function mberegi_replace ($pattern, $replacement, $string, string $option = "msri") {}
 
 /**
@@ -1193,9 +1197,10 @@ function mbsplit ($pattern, $string, $limit) {}
  * @param $pattern
  * @param $string
  * @param $option [optional]
- * @deprecated 7.3 use {@see mb_ereg_match} instead
+ * @see mb_ereg_match
  * @removed 8.0
  */
+#[Deprecated(replacement: "mb_ereg_match(%parametersList%)", since: "7.3")]
 function mbereg_match ($pattern, $string, $option) {}
 
 /**
@@ -1209,9 +1214,10 @@ function mbereg_search ($pattern, $option) {}
 /**
  * @param $pattern [optional]
  * @param $option [optional]
- * @deprecated 7.3 use {@see mb_ereg_search_pos} instead
+ * @see mb_ereg_search_pos
  * @removed 8.0
  */
+#[Deprecated(replacement: "mb_ereg_search_pos(%parametersList%)", since: "7.3")]
 function mbereg_search_pos ($pattern, $option) {}
 
 /**
@@ -1226,9 +1232,10 @@ function mbereg_search_regs ($pattern, $option) {}
  * @param $string
  * @param $pattern [optional]
  * @param $option [optional]
- * @deprecated 7.3 use {@see mb_ereg_search_init} instead
+ * @see mb_ereg_search_init
  * @removed 8.0
  */
+#[Deprecated(replacement: "mb_ereg_search_init(%parametersList%)", since: "7.3")]
 function mbereg_search_init ($string, $pattern, $option) {}
 
 /**
@@ -1238,9 +1245,10 @@ function mbereg_search_init ($string, $pattern, $option) {}
 function mbereg_search_getregs () {}
 
 /**
- * @deprecated 7.3 use {@see mb_ereg_search_getpos} instead
+ * @see mb_ereg_search_getpos
  * @removed 8.0
  */
+#[Deprecated(replacement: "mb_ereg_search_getpos()", since: "7.3")]
 function mbereg_search_getpos () {}
 
 /**
@@ -1275,8 +1283,9 @@ function mb_scrub ($string, $encoding = null) {}
 
 /**
  * @param $position
- * @deprecated 7.3 use {@see mb_ereg_search_setpos} instead
+ * @see mb_ereg_search_setpos
  */
+#[Deprecated(replacement: "mb_ereg_search_setpos(%parametersList%)", since: "7.3")]
 function mbereg_search_setpos ($position) {}
 
 /**

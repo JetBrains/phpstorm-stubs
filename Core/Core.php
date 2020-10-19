@@ -2,6 +2,7 @@
 
 // Start of Core v.5.3.6-13ubuntu3.2
 use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Deprecated;
 
 /**
  * Gets the version of the current Zend engine
@@ -168,9 +169,9 @@ function str_contains(string $haystack, string $needle) : bool {}
  * If the internal pointer for the array points past the end of the
  * array contents, <b>each</b> returns
  * false.
- * @deprecated 7.2 Use a foreach loop instead.
  * @removed 8.0
  */
+#[Deprecated(reason: "Use a foreach loop instead", since: "7.2")]
 function each (array &$array) {}
 
 /**
@@ -718,9 +719,9 @@ function get_defined_vars () {}
  * The function code.
  * </p>
  * @return string|false a unique function name as a string, or false on error.
- * @deprecated 7.2 Use anonymous functions instead.
  * @removed 8.0
  */
+#[Deprecated(reason: "Use anonymous functions instead", since: "7.2")]
 function create_function ($args, $code) {}
 
 /**

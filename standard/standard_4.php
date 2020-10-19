@@ -1,6 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Deprecated;
 
 /**
  * Get the last occurred error
@@ -56,25 +57,27 @@ function call_user_func_array ($callback, array $args) {}
 /**
  * Call a user method on an specific object
  * @link https://php.net/manual/en/function.call-user-method.php
- * @deprecated 5.3 use call_user_func() instead
  * @param string $method_name
  * @param object &$obj
  * @param mixed ...$parameter [optional]
  * @return mixed
  * @removed 7.0
+ * @see call_user_func()
  */
+#[Deprecated(reason: "use call_user_func() instead", since: "5.3")]
 function call_user_method ($method_name, &$obj, ...$parameter) {}
 
 /**
  * Call a user method given with an array of parameters
  * @link https://php.net/manual/en/function.call-user-method-array.php
- * @deprecated 5.3 use call_user_func_array() instead
  * @param string $method_name
  * @param object &$obj
  * @param array $params
  * @return mixed
  * @removed 7.0
+ * @see call_user_func()
  */
+#[Deprecated(reason: "use call_user_func() instead", since: "5.3")]
 function call_user_method_array ($method_name, &$obj, array $params) {}
 
 /**

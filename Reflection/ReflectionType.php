@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Deprecated;
+
 /**
  * The ReflectionType class reports information about a function's parameters.
  *
@@ -38,8 +40,9 @@ abstract class ReflectionType implements Stringable
      * @link https://php.net/manual/en/reflectiontype.tostring.php
      * @return string Returns the type of the parameter.
      * @since 7.0
-     * @deprecated 7.1 Please use {@see ReflectionType::getName()} instead.
+     * @see ReflectionType::getName()
      */
+    #[Deprecated(replacement: "%class$->getName()", since: "7.1")]
     public function __toString()
     {
     }

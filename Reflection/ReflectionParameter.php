@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Deprecated;
+
 /**
  * The <b>ReflectionParameter</b> class retrieves
  * information about function's or method's parameters.
@@ -109,8 +111,9 @@ class ReflectionParameter implements Reflector
      *
      * @link https://php.net/manual/en/reflectionparameter.getclass.php
      * @return ReflectionClass|null A {@see ReflectionClass} object.
-     * @deprecated 8.0 Use {@link ReflectionParameter::getType()} and the ReflectionType APIs should be usedinstead.
+     * @see ReflectionParameter::getType()
      */
+    #[Deprecated(reason: "Use ReflectionParameter::getType() and the ReflectionType APIs should be usedinstead.", since: "8.0")]
     public function getClass()
     {
     }
@@ -143,8 +146,9 @@ class ReflectionParameter implements Reflector
      *
      * @link https://php.net/manual/en/reflectionparameter.isarray.php
      * @return bool {@see true} if an array is expected, {@see false} otherwise.
-     * @deprecated 8.0 Use {@link ReflectionParameter::getType()} and the ReflectionType APIs should be usedinstead.
+     * @see ReflectionParameter::getType()
      */
+    #[Deprecated(reason: "Use ReflectionParameter::getType() and the ReflectionType APIs should be usedinstead.", since: "8.0")]
     public function isArray()
     {
     }
@@ -156,8 +160,9 @@ class ReflectionParameter implements Reflector
      * @return bool|null Returns {@see true} if the parameter is callable, {@see false}
      * if it is not or {@see null} on failure.
      * @since 5.4
-     * @deprecated 8.0 Use {@link ReflectionParameter::getType()} and the ReflectionType APIs should be usedinstead.
+     * @see ReflectionParameter::getType()
      */
+    #[Deprecated(reason: "Use ReflectionParameter::getType() and the ReflectionType APIs should be usedinstead.", since: "8.0")]
     public function isCallable()
     {
     }

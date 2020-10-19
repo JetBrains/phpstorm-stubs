@@ -2,6 +2,8 @@
 
 // Start of intl v.1.1.0
 
+use JetBrains\PhpStorm\Deprecated;
+
 class Collator {
     const DEFAULT_VALUE = -1;
     const PRIMARY = 0;
@@ -1793,9 +1795,10 @@ class IntlDateFormatter {
      * If <b>NULL</b> or the empty string, the default time zone for the runtime is used.
      * </p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * @deprecated 5.5 https://secure.php.net/manual/en/migration55.deprecated.php
      * @removed 7.0
+     * @see IntlDateFormatter::setTimeZone()
      */
+    #[Deprecated(replacement: "%class%->setTimeZone(%parametersList%)" ,since: "5.5")]
     public function setTimeZoneId($zone) { }
 
     /**
@@ -4196,9 +4199,10 @@ function datefmt_get_timezone() { }
  * If <b>NULL</b> or the empty string, the default time zone for the runtime is used.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @deprecated 5.5 https://secure.php.net/manual/en/migration55.deprecated.php
  * @removed 7.0
+ * @see datefmt_set_timezone()
  */
+#[Deprecated(replacement: "datefmt_set_timezone(%parametersList%)", since: "5.5")]
 function datefmt_set_timezone_id(MessageFormatter $mf, $zone) { }
 
 /**
