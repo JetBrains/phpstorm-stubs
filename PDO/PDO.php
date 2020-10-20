@@ -2,6 +2,7 @@
 
 // Start of PDO v.1.0.4dev
 use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Represents an error raised by PDO. You should not throw a
@@ -1605,6 +1606,7 @@ final class PDORow  {
  * @return array <b>PDO::getAvailableDrivers</b> returns an array of PDO driver names. If
  * no drivers are available, it returns an empty array.
  */
+#[Pure]
 function pdo_drivers () {}
 
 // End of PDO v.1.0.4dev
