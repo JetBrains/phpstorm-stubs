@@ -1,6 +1,7 @@
 <?php
 
 // Start of pcre v.
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Perform a regular expression match
@@ -154,6 +155,7 @@
  * matches given <i>subject</i>, 0 if it does not, or <b>FALSE</b>
  * if an error occurred.
  */
+#[Pure]
 function preg_match ($pattern, $subject, array &$matches = null, $flags = 0, $offset = 0) {}
 
 /**
@@ -214,6 +216,7 @@ function preg_match ($pattern, $subject, array &$matches = null, $flags = 0, $of
  * @return int|false the number of full pattern matches (which might be zero),
  * or <b>FALSE</b> if an error occurred.
  */
+#[Pure]
 function preg_match_all ($pattern, $subject, array &$matches = null, $flags = PREG_PATTERN_ORDER, $offset = 0) {}
 
 /**
@@ -302,6 +305,7 @@ function preg_match_all ($pattern, $subject, array &$matches = null, $flags = PR
  * be returned, otherwise <i>subject</i> will be
  * returned unchanged or <b>NULL</b> if an error occurred.
  */
+#[Pure]
 function preg_replace ($pattern, $replacement, $subject, $limit = -1, &$count = null) {}
 
 /**
@@ -373,6 +377,7 @@ function preg_replace ($pattern, $replacement, $subject, $limit = -1, &$count = 
  * If matches are found, the new subject will be returned, otherwise
  * <i>subject</i> will be returned unchanged.
  */
+#[Pure]
 function preg_replace_callback ($pattern, callable $callback, $subject, $limit = -1, &$count = null, $flags=[]) {}
 
 /**
@@ -386,6 +391,7 @@ function preg_replace_callback ($pattern, callable $callback, $subject, $limit =
  * @return string|string[]|null  <p>preg_replace_callback_array() returns an array if the subject parameter is an array, or a string otherwise. On errors the return value is NULL</p>
  * <p>If matches are found, the new subject will be returned, otherwise subject will be returned unchanged.</p>
  */
+#[Pure]
 function preg_replace_callback_array ($pattern, $subject , $limit = -1, &$count = null, $flags = 0) {}
 
 /**
@@ -404,6 +410,7 @@ function preg_replace_callback_array ($pattern, $subject , $limit = -1, &$count 
  * is returned when <i>subject</i> is an array
  * or <b>NULL</b> otherwise.
  */
+#[Pure]
 function preg_filter ($pattern, $replacement, $subject, $limit = -1, &$count = null) {}
 
 /**
@@ -432,6 +439,7 @@ function preg_filter ($pattern, $replacement, $subject, $limit = -1, &$count = n
  * split along boundaries matched by <i>pattern</i>, or <b>FALSE</b>
  * if an error occurred.
  */
+#[Pure]
 function preg_split ($pattern, $subject, $limit = -1, $flags = 0) {}
 
 /**
@@ -448,6 +456,7 @@ function preg_split ($pattern, $subject, $limit = -1, $flags = 0) {}
  * </p>
  * @return string the quoted (escaped) string.
  */
+#[Pure]
 function preg_quote ($str, $delimiter = null) {}
 
 /**
@@ -467,6 +476,7 @@ function preg_quote ($str, $delimiter = null) {}
  * @return array|false an array indexed using the keys from the
  * <i>input</i> array or false when pattern cannot be compiled.
  */
+#[Pure]
 function preg_grep ($pattern, array $array, $flags = 0) {}
 
 /**
@@ -480,6 +490,7 @@ function preg_grep ($pattern, array $array, $flags = 0) {}
  * <b>PREG_BAD_UTF8_ERROR</b>
  * <b>PREG_BAD_UTF8_OFFSET_ERROR</b> (since PHP 5.3.0)
  */
+#[Pure]
 function preg_last_error () {}
 
 /**
@@ -488,6 +499,7 @@ function preg_last_error () {}
  * @return string one of the error messages or "No error" if there is no error.
  * @since 8.0
  */
+#[Pure]
 function preg_last_error_msg(): string {}
 
 /**
