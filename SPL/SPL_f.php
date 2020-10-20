@@ -1,6 +1,7 @@
 <?php
 
 // Start of SPL v.0.2
+use JetBrains\PhpStorm\Pure;
 
 
 /**
@@ -8,6 +9,7 @@
  * @link https://php.net/manual/en/function.spl-classes.php
  * @return array
  */
+#[Pure]
 function spl_classes () {}
 
 /**
@@ -104,6 +106,7 @@ function spl_autoload_call ($class) {}
  * </p>
  * @return string[]|false An array on success, or false on error.
  */
+#[Pure]
 function class_parents ($object_or_class, $autoload = null) {}
 
 /**
@@ -119,6 +122,7 @@ function class_parents ($object_or_class, $autoload = null) {}
  * </p>
  * @return string[]|false An array on success, or false on error.
  */
+#[Pure]
 function class_implements ($object_or_class, $autoload = null) {}
 
 /**
@@ -128,6 +132,7 @@ function class_implements ($object_or_class, $autoload = null) {}
  * @return string A string that is unique for each object and is always the same for
  * the same object.
  */
+#[Pure]
 function spl_object_hash ($object) {}
 
 /**
@@ -141,6 +146,7 @@ function spl_object_hash ($object) {}
  * </p>
  * @return array An array containing the elements of the iterator.
  */
+#[Pure]
 function iterator_to_array (Traversable $iterator, $preserve_keys = true) {}
 
 /**
@@ -151,6 +157,7 @@ function iterator_to_array (Traversable $iterator, $preserve_keys = true) {}
  * </p>
  * @return int The number of elements in iterator.
  */
+#[Pure]
 function iterator_count (Traversable $iterator) {}
 
 /**
