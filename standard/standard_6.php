@@ -870,6 +870,7 @@ function socket_set_blocking ($stream, $enable) {}
     "seekable" => "bool",
     "uri" => "string",
     "crypto" => "array",
+    "mediatype" => "string",
 ])]
 function stream_get_meta_data ($stream) {}
 
