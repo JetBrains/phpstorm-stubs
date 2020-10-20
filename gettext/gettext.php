@@ -25,6 +25,18 @@ function textdomain ($domain) {}
  * translation table, or the submitted message if not found.
  */
 #[Pure]
+function _ ($message) {}
+
+/**
+ * Lookup a message in the current domain
+ * @link https://php.net/manual/en/function.gettext.php
+ * @param string $message <p>
+ * The message being translated.
+ * </p>
+ * @return string a translated string if one is found in the
+ * translation table, or the submitted message if not found.
+ */
+#[Pure]
 function gettext ($message) {}
 
 /**
