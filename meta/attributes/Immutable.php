@@ -11,8 +11,8 @@ use Attribute;
  * One can provide custom allowed write scopes, possible values:
  * <ul>
  * <li>{@link Immutable::CONSTRUCTOR_WRITE_SCOPE}: write is allowed only in containing class constructor (default choice)</li>
- * <li>{@link Immutable::PRIVATE_WRITE_SCOPE}: write is allowed only in palces where field would be accessible if it would have 'private' visibility modifier</li>
- * <li>{@link Immutable::PROTECTED_WRITE_SCOPE}: write is allowed only in palces where field would be accessible if it would have 'private' visibility modifier</li>
+ * <li>{@link Immutable::PRIVATE_WRITE_SCOPE}: write is allowed only in places where field would be accessible if it would have 'private' visibility modifier</li>
+ * <li>{@link Immutable::PROTECTED_WRITE_SCOPE}: write is allowed only in places where field would be accessible if it would have 'protected' visibility modifier</li>
  * </ul>
  * @since 8.0
  */
