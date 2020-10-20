@@ -1,6 +1,7 @@
 <?php
 
 // Start of gettext v.
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Sets the default domain
@@ -23,18 +24,8 @@ function textdomain ($domain) {}
  * @return string a translated string if one is found in the
  * translation table, or the submitted message if not found.
  */
+#[Pure]
 function gettext ($message) {}
-
-/**
- * Lookup a message in the current domain
- * @link https://php.net/manual/en/function.gettext.php
- * @param string $message <p>
- * The message being translated.
- * </p>
- * @return string a translated string if one is found in the
- * translation table, or the submitted message if not found.
- */
-function _ ($message) {}
 
 /**
  * Override the current domain
@@ -88,6 +79,7 @@ function bindtextdomain ($domain, $directory) {}
  * <i>msgid1</i> and <i>msgid2</i>
  * for count <i>n</i>.
  */
+#[Pure]
 function ngettext ($singular, $plural, $count) {}
 
 /**
@@ -101,6 +93,7 @@ function ngettext ($singular, $plural, $count) {}
  * @param int $count
  * @return string A string on success.
  */
+#[Pure]
 function dngettext ($domain, $singular, $plural, $count) {}
 
 /**
@@ -115,6 +108,7 @@ function dngettext ($domain, $singular, $plural, $count) {}
  * @param int $category
  * @return string A string on success.
  */
+#[Pure]
 function dcngettext ($domain, $singular, $plural, $count, $category) {}
 
 /**
