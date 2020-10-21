@@ -3550,7 +3550,6 @@ function numfmt_format_currency(NumberFormatter $fmt, $value, $currency) { }
  * </p>
  * @return float|false The parsed numeric value or <b>FALSE</b> on error.
  */
-#[Pure]
 function numfmt_parse_currency(NumberFormatter $fmt, $value, &$currency, &$position = null) { }
 
 /**
@@ -4406,7 +4405,6 @@ function datefmt_format_object($object, $format = null, $locale = null) { }
  * </p>
  * @return int|float|false timestamp parsed value
  */
-#[Pure]
 function datefmt_parse(IntlDateFormatter $df, $value, &$position = null) { }
 
 /**
@@ -4425,7 +4423,6 @@ function datefmt_parse(IntlDateFormatter $df, $value, &$position = null) { }
  * </p>
  * @return array|false Localtime compatible array of integers : contains 24 hour clock value in tm_hour field
  */
-#[Pure]
 function datefmt_localtime(IntlDateFormatter $df, $value, &$position = null) { }
 
 /**
@@ -4646,7 +4643,6 @@ function grapheme_stristr($haystack, $needle, $before_needle = false) { }
  * @return string|false A string starting at offset $start and ending on a default grapheme cluster
  * boundary that conforms to the $size and $extract_type specified.
  */
-#[Pure]
 function grapheme_extract($haystack, $size, $extract_type = null, $start = 0, &$next = null) { }
 
 /**
@@ -4675,7 +4671,6 @@ function grapheme_extract($haystack, $size, $extract_type = null, $start = 0, &$
  * </p>
  * @return string|false The ACE encoded version of the domain name or <b>FALSE</b> on failure.
  */
-#[Pure]
 function idn_to_ascii($domain, $options = 0, $variant = INTL_IDNA_VARIANT_UTS46, array &$idna_info) { }
 
 /**
@@ -4704,7 +4699,6 @@ function idn_to_ascii($domain, $options = 0, $variant = INTL_IDNA_VARIANT_UTS46,
  * RFC 3490 4.2 states though "ToUnicode never fails. If any step fails, then the original input
  * sequence is returned immediately in that step."
  */
-#[Pure]
 function idn_to_utf8($domain, $options = 0, $variant = INTL_IDNA_VARIANT_UTS46, array &$idna_info) { }
 
 /**
@@ -4841,7 +4835,6 @@ function intlcal_get_time($calendar) { }
  * Returns <b>TRUE</b> on success and <b>FALSE</b> on failure.
  * @since 5.5
  */
-#[Pure]
 function intlcal_set_time(IntlCalendar $cal, $date) { }
 
 /**

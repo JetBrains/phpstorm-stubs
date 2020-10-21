@@ -1118,7 +1118,6 @@ function date_time_set ($object, $hour, $minute, $second = 0, $microsecond = 0) 
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.
  * </p>
  */
-#[Pure]
 function date_date_set ($object, $year, $month, $day) {}
 
 /**
