@@ -23,19 +23,19 @@ class Deprecated {
     /**
      * Mark element as deprecated
      *
-     * @param string $reason Explanation of the deprecation, will be displayed by PhpStorm in deprecated inspection instead of default message
-     * @param string $replacement Applicable only to function/method calls: IDE will suggest to replace deprecated function call with provided code template.
+     * @param string $reason Reason for deprecation. It will be displayed by PhpStorm via the Deprecated inspection instead of the  default message
+     * @param string $replacement Applicable only to function/method calls: IDE will suggest replacing a deprecated function call with the provided code template.
      * The following variables are available in this template:
      * <ul>
-     * <li>%parametersList%: parameters of function call. For f(1,2) this will be "1,2"</li>
-     * <li>%param0%,%param1%,%param2%,...: parameters of function call. For f(1,2) %param1% will be "2"</li>
-     * <li>%name%: For \x\f(1,2) this will be "\x\f", for $this->ff() this will be "ff"</li>
-     * <li>%class%: If attribute is provided for 'm' method then for $this->f()->m() this will be "$this->f()"</li>
+     * <li>%parametersList%: parameters of the function call. For example, for the "f(1,2)" call, %parametersList% will be "1,2"</li>
+     * <li>%param0%,%param1%,%param2%,...: parameters of the function call. For example, for the "f(1,2)" call, %param1% will be "2"</li>
+     * <li>%name%: For "\x\f(1,2)", %name% will be "\x\f", for "$this->ff()", %name% will be "ff"</li>
+     * <li>%class%: If the attribute is provided for method "m", then for "$this->f()->m()", %class% will be "$this->f()"</li>
      * </ul>
-     * The following example shows how to wrap function call in another and swap arguments:<br />
+     * The following example shows how to wrap a function call in another call and swap arguments:<br />
      * "#[Deprecated(replaceWith: "wrappedCall(%name%(%param1%, %param0%))")] f($a, $b){}<br />
      * f(1,2) will be replaced with wrappedCall(f(2,1))
-     * @param string $since Element is deprecated starting with PHP language level, applicable only for PhpStorm stubs entries
+     * @param string $since Element is deprecated starting with the provided PHP language level, applicable only for PhpStorm stubs entries
      */
     public function __construct($reason = "", $replacement = "",
                                 #[ExpectedValues(self::PHP_VERSIONS)] $since = "5.6")
