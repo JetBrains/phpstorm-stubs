@@ -61,7 +61,6 @@ function gzeof ($stream) {}
  * </p>
  * @return string|false The uncompressed character or <b>FALSE</b> on EOF (unlike <b>gzeof</b>).
  */
-#[Pure]
 function gzgetc ($stream) {}
 
 /**
@@ -76,7 +75,6 @@ function gzgetc ($stream) {}
  * </p>
  * @return string|false The uncompressed string, or <b>FALSE</b> on error.
  */
-#[Pure]
 function gzgets ($stream, $length) {}
 
 /**
@@ -97,7 +95,6 @@ function gzgets ($stream, $length) {}
  * @deprecated 7.3
  * @removed 8.0
  */
-#[Pure]
 function gzgetss ($zp, $length, $allowable_tags = null) {}
 
 /**
@@ -112,7 +109,6 @@ function gzgetss ($zp, $length, $allowable_tags = null) {}
  * </p>
  * @return string The data that have been read.
  */
-#[Pure]
 function gzread ($stream, $length) {}
 
 /**
@@ -189,7 +185,6 @@ function gzseek ($stream, $offset, $whence = SEEK_SET) {}
  * </p>
  * @return int|false The position of the file pointer or <b>FALSE</b> if an error occurs.
  */
-#[Pure]
 function gztell ($stream) {}
 
 /**

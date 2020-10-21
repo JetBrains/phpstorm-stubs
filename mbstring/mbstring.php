@@ -1024,7 +1024,6 @@ function mb_ereg_replace ($pattern, $replacement, $string, $options = "msr") {}
  * </p>
  * @since 5.4.1
  */
-#[Pure]
 function mb_ereg_replace_callback ($pattern, callable $callback, $string, $options = "msr") {}
 
 /**

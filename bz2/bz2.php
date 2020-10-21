@@ -33,7 +33,6 @@ function bzopen ($file, $mode) {}
  * </p>
  * @return string the uncompressed data, or <b>FALSE</b> on error.
  */
-#[Pure]
 function bzread ($bz, $length = 1024) {}
 
 /**

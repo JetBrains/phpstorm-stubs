@@ -2188,7 +2188,6 @@ function http_build_str (array $query, $prefix = null, $arg_separator = null) {}
  * </p>
  * @return string the negotiated language or the default language (i.e. first array entry) if none match.
  */
-#[Pure]
 function http_negotiate_language (array $supported,  array &$result = null ) {}
 
 /**
@@ -2203,7 +2202,6 @@ function http_negotiate_language (array $supported,  array &$result = null ) {}
  * </p>
  * @return string the negotiated charset or the default charset (i.e. first array entry) if none match.
  */
-#[Pure]
 function http_negotiate_charset (array $supported,  array &$result = null ) {}
 
 /**
@@ -2218,7 +2216,6 @@ function http_negotiate_charset (array $supported,  array &$result = null ) {}
  * </p>
  * @return string the negotiated content type or the default content type (i.e. first array entry) if none match.
  */
-#[Pure]
 function http_negotiate_content_type (array $supported,  array &$result = null ) {}
 
 /**

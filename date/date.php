@@ -1133,7 +1133,6 @@ function date_date_set ($object, $year, $month, $day) {}
  * Returns the {@see DateTime} object for method chaining or <strong><code>FALSE</code></strong> on failure.
  * </p>
  */
-#[Pure]
 function date_isodate_set ($object, $year, $week, $day = 1) {}
 
 /**
@@ -1146,7 +1145,6 @@ function date_isodate_set ($object, $year, $week, $day = 1) {}
  * @return DateTime|false
  * {@see DateTime} object for call chaining or <b>FALSE</b> on failure
  */
-#[Pure]
 function date_timestamp_set ($object, $timestamp) {}
 
 /**

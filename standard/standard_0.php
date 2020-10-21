@@ -883,7 +883,6 @@ function iptcembed ($iptc_data, $filename, $spool = null) {}
  * <p>
  * On failure, false is returned.
  */
-#[Pure]
 function getimagesize ($filename, array &$image_info = null) {}
 
 /**

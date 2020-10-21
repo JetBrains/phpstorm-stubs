@@ -94,7 +94,6 @@ function header_register_callback ( callable $callback ) {}
  * that can be used directly in an IMG tag.<br>
  * On failure, FALSE is returned.
  */
-#[Pure]
 function getimagesizefromstring ($string , array &$image_info = null) {}
 
 /**
