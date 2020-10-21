@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * (PHP 5.5.0)<br/>
  * Get the boolean value of a variable
@@ -7,6 +9,7 @@
  * @return bool The boolean value of var.
  * @since 5.5
  */
+#[Pure]
 function boolval($value) {}
 
 /**
@@ -35,6 +38,7 @@ function boolval($value) {}
  * integer casting
  * apply.
  */
+#[Pure]
 function intval ($value, $base = 10) {}
 
 /**
@@ -43,6 +47,7 @@ function intval ($value, $base = 10) {}
  * @param mixed $value May be any scalar type. should not be used on objects, as doing so will emit an E_NOTICE level error and return 1.
  * @return float value of the given variable. Empty arrays return 0, non-empty arrays return 1.
  */
+#[Pure]
 function floatval ($value) {}
 
 /**
@@ -54,6 +59,7 @@ function floatval ($value) {}
  * @param mixed $value May be any scalar type. should not be used on objects, as doing so will emit an E_NOTICE level error and return 1.
  * @return float value of the given variable. Empty arrays return 0, non-empty arrays return 1.
  */
+#[Pure]
 function doubleval ($value) {}
 
 /**
@@ -68,6 +74,7 @@ function doubleval ($value) {}
  * </p>
  * @return string The string value of var.
  */
+#[Pure]
 function strval ($value) {}
 
 /**
@@ -90,6 +97,7 @@ function strval ($value) {}
  * "unknown type"
  * "resource (closed)" since 7.2.0
  */
+#[Pure]
 function gettype ($value) {}
 
 /**
@@ -137,6 +145,7 @@ function settype (&$var, $type) {}
  * @return bool true if var is null, false
  * otherwise.
  */
+#[Pure]
 function is_null ($value) {}
 
 /**
@@ -148,6 +157,7 @@ function is_null ($value) {}
  * @return bool true if var is a resource,
  * false otherwise.
  */
+#[Pure]
 function is_resource ($value) {}
 
 /**
@@ -159,6 +169,7 @@ function is_resource ($value) {}
  * @return bool true if var is a boolean,
  * false otherwise.
  */
+#[Pure]
 function is_bool ($value) {}
 
 /**
@@ -170,6 +181,7 @@ function is_bool ($value) {}
  * @return bool true if var is an integer,
  * false otherwise.
  */
+#[Pure]
 function is_long ($value) {}
 
 /**
@@ -181,6 +193,7 @@ function is_long ($value) {}
  * @return bool true if var is a float,
  * false otherwise.
  */
+#[Pure]
 function is_float ($value) {}
 
 /**
@@ -192,6 +205,7 @@ function is_float ($value) {}
  * @return bool true if var is an integer,
  * false otherwise.
  */
+#[Pure]
 function is_int ($value) {}
 
 /**
@@ -203,6 +217,7 @@ function is_int ($value) {}
  * @return bool true if var is an integer,
  * false otherwise.
  */
+#[Pure]
 function is_integer ($value) {}
 
 /**
@@ -214,6 +229,7 @@ function is_integer ($value) {}
  * @return bool true if var is a float,
  * false otherwise.
  */
+#[Pure]
 function is_double ($value) {}
 
 /**
@@ -226,6 +242,7 @@ function is_double ($value) {}
  * false otherwise.
  * @deprecated 7.4
  */
+#[Pure]
 function is_real ($var) {}
 
 /**
@@ -237,6 +254,7 @@ function is_real ($var) {}
  * @return bool true if var is a number or a numeric
  * string, false otherwise.
  */
+#[Pure]
 function is_numeric ($value) {}
 
 /**
@@ -248,6 +266,7 @@ function is_numeric ($value) {}
  * @return bool true if var is of type string,
  * false otherwise.
  */
+#[Pure]
 function is_string ($value) {}
 
 /**
@@ -259,6 +278,7 @@ function is_string ($value) {}
  * @return bool true if var is an array,
  * false otherwise.
  */
+#[Pure]
 function is_array ($value) {}
 
 /**
@@ -270,6 +290,7 @@ function is_array ($value) {}
  * @return bool true if var is an object, false otherwise.<br/>
  * Since 7.2.0 returns true for unserialized objects without a class definition (class of <b>__PHP_Incomplete_Class</b>).
  */
+#[Pure]
 function is_object ($value) {}
 
 /**
@@ -281,6 +302,7 @@ function is_object ($value) {}
  * @return bool true if var is a scalar false
  * otherwise.
  */
+#[Pure]
 function is_scalar ($value) {}
 
 /**
@@ -316,6 +338,7 @@ function is_callable ($value, $syntax_only = null, &$callable_name = null) {}
  * @return bool <b>TRUE</b> if $var is countable, <b>FALSE</b> otherwise.
  * @since 7.3
  */
+#[Pure]
 function is_countable($value) {}
 
 /**

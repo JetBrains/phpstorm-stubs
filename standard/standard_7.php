@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * Open Internet or Unix domain socket connection
  * @link https://php.net/manual/en/function.fsockopen.php
@@ -161,6 +163,7 @@ function pfsockopen ($hostname, $port = null, &$error_code = null, &$error_messa
  * </p>
  * @return string|false a binary string containing data or false if the format string contains errors
  */
+#[Pure]
 function pack ($format, ...$values) {}
 
 /**
@@ -176,6 +179,7 @@ function pack ($format, ...$values) {}
  * @return array|false an associative array containing unpacked elements of binary
  * string or false if the format string contains errors
  */
+#[Pure]
 function unpack ($format, $string, $offset = 0) {}
 
 /**
@@ -205,6 +209,7 @@ function unpack ($format, $string, $offset = 0) {}
  * cookies are accepted is to set one with setcookie,
  * reload, and check for the value.
  */
+#[Pure]
 function get_browser ($user_agent = null, $return_array = null) {}
 
 /**
@@ -225,6 +230,7 @@ function get_browser ($user_agent = null, $return_array = null) {}
  * </p>
  * @return string|null the encrypted string or <b>NULL</b> if an error occurs
  */
+#[Pure]
 function crypt ($string, $salt = null) {}
 
 /**
@@ -300,6 +306,7 @@ function chroot ($directory) {}
  * modes and permissions.
  * </p>
  */
+#[Pure]
 function getcwd () {}
 
 /**
@@ -394,6 +401,7 @@ function scandir ($directory, $sorting_order = null, $context = null) {}
  * On some systems it is impossible to distinguish between empty match and an
  * error.
  */
+#[Pure]
 function glob ($pattern, $flags = null) {}
 
 /**
@@ -405,6 +413,7 @@ function glob ($pattern, $flags = null) {}
  * @return int|false the time the file was last accessed, or false on failure.
  * The time is returned as a Unix timestamp.
  */
+#[Pure]
 function fileatime ($filename) {}
 
 /**
@@ -416,6 +425,7 @@ function fileatime ($filename) {}
  * @return int|false the time the file was last changed, or false on failure.
  * The time is returned as a Unix timestamp.
  */
+#[Pure]
 function filectime ($filename) {}
 
 /**
@@ -429,6 +439,7 @@ function filectime ($filename) {}
  * posix_getgrgid to resolve it to a group name.
  * Upon failure, false is returned.
  */
+#[Pure]
 function filegroup ($filename) {}
 
 /**
@@ -439,6 +450,7 @@ function filegroup ($filename) {}
  * </p>
  * @return int|false the inode number of the file, or false on failure.
  */
+#[Pure]
 function fileinode ($filename) {}
 
 /**
@@ -451,6 +463,7 @@ function fileinode ($filename) {}
  * The time is returned as a Unix timestamp, which is
  * suitable for the date function.
  */
+#[Pure]
 function filemtime ($filename) {}
 
 /**
@@ -463,6 +476,7 @@ function filemtime ($filename) {}
  * The user ID is returned in numerical format, use
  * posix_getpwuid to resolve it to a username.
  */
+#[Pure]
 function fileowner ($filename) {}
 
 /**
@@ -473,6 +487,7 @@ function fileowner ($filename) {}
  * </p>
  * @return int|false the permissions on the file, or false on failure.
  */
+#[Pure]
 function fileperms ($filename) {}
 
 /**
@@ -484,6 +499,7 @@ function fileperms ($filename) {}
  * @return int|false the size of the file in bytes, or false (and generates an error
  * of level E_WARNING) in case of an error.
  */
+#[Pure]
 function filesize ($filename) {}
 
 /**
@@ -500,6 +516,7 @@ function filesize ($filename) {}
  * produce an E_NOTICE message if the stat call fails
  * or if the file type is unknown.
  */
+#[Pure]
 function filetype ($filename) {}
 
 /**
@@ -528,6 +545,7 @@ function filetype ($filename) {}
  * <p>
  * The check is done using the real UID/GID instead of the effective one.
  */
+#[Pure]
 function file_exists ($filename) {}
 
 /**
@@ -539,6 +557,7 @@ function file_exists ($filename) {}
  * @return bool true if the filename exists and is
  * writable.
  */
+#[Pure]
 function is_writable ($filename) {}
 
 /**
@@ -550,6 +569,7 @@ function is_writable ($filename) {}
  * @return bool true if the filename exists and is
  * writable.
  */
+#[Pure]
 function is_writeable ($filename) {}
 
 /**
@@ -561,6 +581,7 @@ function is_writeable ($filename) {}
  * @return bool true if the file or directory specified by
  * filename exists and is readable, false otherwise.
  */
+#[Pure]
 function is_readable ($filename) {}
 
 /**
@@ -572,6 +593,7 @@ function is_readable ($filename) {}
  * @return bool true if the filename exists and is executable, or false on
  * error.
  */
+#[Pure]
 function is_executable ($filename) {}
 
 /**
@@ -583,6 +605,7 @@ function is_executable ($filename) {}
  * @return bool true if the filename exists and is a regular file, false
  * otherwise.
  */
+#[Pure]
 function is_file ($filename) {}
 
 /**
@@ -597,6 +620,7 @@ function is_file ($filename) {}
  * @return bool true if the filename exists and is a directory, false
  * otherwise.
  */
+#[Pure]
 function is_dir ($filename) {}
 
 /**
@@ -608,6 +632,7 @@ function is_dir ($filename) {}
  * @return bool true if the filename exists and is a symbolic link, false
  * otherwise.
  */
+#[Pure]
 function is_link ($filename) {}
 
 /**
@@ -699,6 +724,7 @@ function is_link ($filename) {}
  * <p>
  * In case of error, stat returns false.
  */
+#[Pure]
 function stat ($filename) {}
 
 /**
@@ -715,6 +741,7 @@ function stat ($filename) {}
  * link, the status of the symbolic link is returned, not the status of the
  * file pointed to by the symbolic link.
  */
+#[Pure]
 function lstat ($filename) {}
 
 /**
@@ -865,6 +892,7 @@ function disk_total_space ($directory) {}
  * @return float|false the number of available bytes as a float
  * or false on failure.
  */
+#[Pure]
 function disk_free_space ($directory) {}
 
 /**
@@ -874,6 +902,7 @@ function disk_free_space ($directory) {}
  * @param string $directory
  * @return float|false
  */
+#[Pure]
 function diskfreespace ($directory) {}
 
 /**

@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Pure;
+
 
 /**
  * Generate a system log message
@@ -133,6 +135,7 @@ function lcg_value () {}
  * </p>
  * @return string|false the metaphone key as a string, or FALSE on failure
  */
+#[Pure]
 function metaphone ($string, $max_phonemes = 0) {}
 
 /**
@@ -627,6 +630,7 @@ function array_walk_recursive (array &$array, $callback, $arg = null) {}
  * but it may also return 0 for a variable that has been initialized with an
  * empty array. Use isset to test if a variable is set.
  */
+#[Pure]
 function count ($value, $mode = COUNT_NORMAL) {}
 
 /**
@@ -693,6 +697,7 @@ function reset (array &$array) {}
  * empty, current returns false.
  * @meta
  */
+#[Pure]
 function current (array $array) {}
 
 /**
@@ -707,6 +712,7 @@ function current (array $array) {}
  * internal pointer points beyond the end of the elements list or the array is
  * empty, key returns null.
  */
+#[Pure]
 function key (array $array) {}
 
 /**
@@ -717,6 +723,7 @@ function key (array $array) {}
  * @return mixed min returns the numerically lowest of the
  * parameter values.
  */
+#[Pure]
 function min ($value, ...$values) {}
 
 /**
@@ -727,6 +734,7 @@ function min ($value, ...$values) {}
  * @return mixed max returns the numerically highest of the
  * parameter values, either within a arg array or two arguments.
  */
+#[Pure]
 function max ($value, ...$values) {}
 
 /**
@@ -751,6 +759,7 @@ function max ($value, ...$values) {}
  * @return bool true if needle is found in the array,
  * false otherwise.
  */
+#[Pure]
 function in_array ($needle, array $haystack, $strict = false) {}
 
 /**
@@ -781,6 +790,7 @@ function in_array ($needle, array $haystack, $strict = false) {}
  * all matching values, use array_keys with the optional
  * search_value parameter instead.
  */
+#[Pure]
 function array_search ($needle, array $haystack, $strict = null) {}
 
 /**
@@ -824,6 +834,7 @@ function extract (array $array, $flags = null, $prefix = null) {}
  * @param mixed ...$var_names [optional]
  * @return array the output array with all the variables added to it.
  */
+#[Pure]
 function compact ($var_name, ...$var_names) {}
 
 /**
@@ -841,6 +852,7 @@ function compact ($var_name, ...$var_names) {}
  * </p>
  * @return array the filled array
  */
+#[Pure]
 function array_fill ($start_index, $count, $value) {}
 
 /**
@@ -855,6 +867,7 @@ function array_fill ($start_index, $count, $value) {}
  * </p>
  * @return array the filled array
  */
+#[Pure]
 function array_fill_keys (array $keys, $value) {}
 
 /**
@@ -875,6 +888,7 @@ function array_fill_keys (array $keys, $value) {}
  * @return array an array of elements from start to
  * end, inclusive.
  */
+#[Pure]
 function range ($start, $end, $step = 1) {}
 
 /**
@@ -1022,6 +1036,7 @@ function array_splice (array &$array, $offset, $length = null, $replacement = nu
  * @return array the slice.
  * @meta
  */
+#[Pure]
 function array_slice (array $array, $offset, $length = null, $preserve_keys = false) {}
 
 /**
@@ -1032,4 +1047,5 @@ function array_slice (array $array, $offset, $length = null, $preserve_keys = fa
  * </p>
  * @return array the resulting array.
  */
+#[Pure]
 function array_merge (array ...$arrays) {}

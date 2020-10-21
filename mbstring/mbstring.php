@@ -207,6 +207,7 @@ function mb_parse_str ($string, array &$result = null) {}
  * </p>
  * @return string The converted string.
  */
+#[Pure]
 function mb_output_handler ($string, $status) {}
 
 /**
@@ -718,6 +719,7 @@ function mb_encoding_aliases ($encoding) {}
  * @param string $encoding [optional] &mbstring.encoding.parameter;
  * @return string The converted string.
  */
+#[Pure]
 function mb_convert_kana ($string, $mode = null, $encoding = null) {}
 
 /**
@@ -1074,6 +1076,7 @@ function mb_split ($pattern, $string, $limit = null) {}
  * </p>
  * @return bool
  */
+#[Pure]
 function mb_ereg_match ($pattern, $string, $options = null) {}
 
 /**
@@ -1087,6 +1090,7 @@ function mb_ereg_match ($pattern, $string, $options = null) {}
  * </p>
  * @return bool
  */
+#[Pure]
 function mb_ereg_search ($pattern = null, $options = null) {}
 
 /**
@@ -1150,6 +1154,7 @@ function mb_ereg_search_init ($string, $pattern = null, $options = null) {}
  * brackets, the third element will have the second part grouped with
  * brackets, and so on. It returns FALSE on error;
  */
+#[Pure]
 function mb_ereg_search_getregs () {}
 
 /**
@@ -1158,6 +1163,7 @@ function mb_ereg_search_getregs () {}
  * @return int
  * @deprecated 7.3
  */
+#[Pure]
 function mb_ereg_search_getpos () {}
 
 /**
@@ -1168,6 +1174,7 @@ function mb_ereg_search_getpos () {}
  * </p>
  * @return bool
  */
+#[Pure]
 function mb_ereg_search_setpos ($offset) {}
 
 /**
@@ -1316,6 +1323,7 @@ function mb_scrub ($string, $encoding = null) {}
  * @param $position
  * @deprecated 7.3 use {@see mb_ereg_search_setpos} instead
  */
+#[Pure]
 function mbereg_search_setpos ($position) {}
 
 /**

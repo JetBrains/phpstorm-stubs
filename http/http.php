@@ -2,6 +2,8 @@
 
 // Start of http v.1.6.6
 
+use JetBrains\PhpStorm\Pure;
+
 class HttpException extends Exception  {
 	public $innerException;
 }
@@ -2132,6 +2134,7 @@ class HttpUtil  {
  * </p>
  * @return string the HTTP date as string.
  */
+#[Pure]
 function http_date ($timestamp = null) {}
 
 /**
@@ -2170,6 +2173,7 @@ function http_build_url ($url = null, $parts = null, $flags = null,  array &$new
  * </p>
  * @return string|false the built query as string on success or false on failure.
  */
+#[Pure]
 function http_build_str (array $query, $prefix = null, $arg_separator = null) {}
 
 /**
@@ -2309,6 +2313,7 @@ function http_send_content_disposition ($filename, $inline = null) {}
  * </p>
  * @return bool true if timestamp represents an earlier date than the header, else false.
  */
+#[Pure]
 function http_match_modified ($timestamp = null, $for_range = null) {}
 
 /**
@@ -2323,6 +2328,7 @@ function http_match_modified ($timestamp = null, $for_range = null) {}
  * </p>
  * @return bool true if ETag matches or the header contained the asterisk (&quot;*&quot;), else false.
  */
+#[Pure]
 function http_match_etag ($etag, $for_range = null) {}
 
 /**
@@ -2335,6 +2341,7 @@ function http_match_etag ($etag, $for_range = null) {}
  * @return bool with 304 Not Modified if the entity is cached.
  * &see.http.configuration.force_exit;
  */
+#[Pure]
 function http_cache_last_modified ($timestamp_or_expires = null) {}
 
 /**
@@ -2347,6 +2354,7 @@ function http_cache_last_modified ($timestamp_or_expires = null) {}
  * @return bool with 304 Not Modified if the entity is cached.
  * &see.http.configuration.force_exit;
  */
+#[Pure]
 function http_cache_etag ($etag = null) {}
 
 /**
@@ -2391,6 +2399,7 @@ function http_send_stream ($stream) {}
  * </p>
  * @return string|false the decoded string on success or false on failure.
  */
+#[Pure]
 function http_chunked_decode ($encoded) {}
 
 /**
@@ -2402,6 +2411,7 @@ function http_chunked_decode ($encoded) {}
  * </p>
  * @return object a hierarchical object structure of the parsed messages.
  */
+#[Pure]
 function http_parse_message ($message) {}
 
 /**
@@ -2413,6 +2423,7 @@ function http_parse_message ($message) {}
  * </p>
  * @return array|false an array on success or false on failure.
  */
+#[Pure]
 function http_parse_headers ($header) {}
 
 /**
@@ -2431,6 +2442,7 @@ function http_parse_headers ($header) {}
  * </p>
  * @return stdClass|false a stdClass object on success or false on failure.
  */
+#[Pure]
 function http_parse_cookie ($cookie, $flags = null,  array $allowed_extras = null ) {}
 
 /**
@@ -2442,6 +2454,7 @@ function http_parse_cookie ($cookie, $flags = null,  array $allowed_extras = nul
  * </p>
  * @return string the cookie(s) as string.
  */
+#[Pure]
 function http_build_cookie (array $cookie) {}
 
 /**
@@ -2456,6 +2469,7 @@ function http_build_cookie (array $cookie) {}
  * </p>
  * @return stdClass parameter list as stdClass object.
  */
+#[Pure]
 function http_parse_params ($param, $flags = null) {}
 
 /**
@@ -2464,6 +2478,7 @@ function http_parse_params ($param, $flags = null) {}
  * @link https://php.net/manual/en/function.http-get-request-headers.php
  * @return array an associative array of incoming request headers.
  */
+#[Pure]
 function http_get_request_headers () {}
 
 /**
@@ -2472,6 +2487,7 @@ function http_get_request_headers () {}
  * @link https://php.net/manual/en/function.http-get-request-body.php
  * @return string|null the raw request body as string on success or NULL on failure.
  */
+#[Pure]
 function http_get_request_body () {}
 
 /**
@@ -2480,6 +2496,7 @@ function http_get_request_body () {}
  * @link https://php.net/manual/en/function.http-get-request-body-stream.php
  * @return resource|null the raw request body as stream on success or NULL on failure.
  */
+#[Pure]
 function http_get_request_body_stream () {}
 
 /**
@@ -2497,6 +2514,7 @@ function http_get_request_body_stream () {}
  * </p>
  * @return bool true if header value matches, else false.
  */
+#[Pure]
 function http_match_request_header ($header, $value, $match_case = null) {}
 
 /**
@@ -2699,6 +2717,7 @@ function http_request ($method, $url = null, $body = null, array $options = null
  * </p>
  * @return string|false encoded string on success or false on failure.
  */
+#[Pure]
 function http_request_body_encode (array $fields, array $files) {}
 
 /**
@@ -2732,6 +2751,7 @@ function http_request_method_unregister ($method) {}
  * </p>
  * @return bool true if the request method is known, else false.
  */
+#[Pure]
 function http_request_method_exists ($method) {}
 
 /**
@@ -2743,6 +2763,7 @@ function http_request_method_exists ($method) {}
  * </p>
  * @return string|false the request method name as string on success or false on failure.
  */
+#[Pure]
 function http_request_method_name ($method) {}
 
 /**
@@ -2753,6 +2774,7 @@ function http_request_method_name ($method) {}
  * @param int $mode
  * @return string
  */
+#[Pure]
 function ob_etaghandler ($data, $mode) {}
 
 /**
@@ -2767,6 +2789,7 @@ function ob_etaghandler ($data, $mode) {}
  * </p>
  * @return string|null the encoded string on success, or NULL on failure.
  */
+#[Pure]
 function http_deflate ($data, $flags = null) {}
 
 /**
@@ -2778,6 +2801,7 @@ function http_deflate ($data, $flags = null) {}
  * </p>
  * @return string|null the decoded string on success, or NULL on failure.
  */
+#[Pure]
 function http_inflate ($data) {}
 
 /**
@@ -2810,6 +2834,7 @@ function ob_inflatehandler ($data, $mode) {}
  * @return int integer, whether requested feature is supported,
  * or a bitmask with all supported features if feature was omitted.
  */
+#[Pure]
 function http_support ($feature = null) {}
 
 

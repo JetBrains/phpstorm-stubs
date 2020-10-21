@@ -3,6 +3,9 @@
 /**
  * @since 5.6
  */
+
+use JetBrains\PhpStorm\Pure;
+
 define ("ARRAY_FILTER_USE_BOTH", 1);
 
 /**
@@ -17,6 +20,7 @@ define ("ARRAY_FILTER_USE_KEY", 2);
  * @param array ...$arrays [optional] Variable list of arrays to recursively merge.
  * @return array An array of values resulted from merging the arguments together.
  */
+#[Pure]
 function array_merge_recursive(array ...$arrays) { }
 
 
@@ -36,6 +40,7 @@ function array_merge_recursive(array ...$arrays) { }
  * </p>
  * @return array or null if an error occurs.
  */
+#[Pure]
 function array_replace(array $array, array ...$replacements) { }
 
 /**
@@ -49,6 +54,7 @@ function array_replace(array $array, array ...$replacements) { }
  * </p>
  * @return array|null an array, or null if an error occurs.
  */
+#[Pure]
 function array_replace_recursive(array $array, array ...$replacements) { }
 
 /**
@@ -65,6 +71,7 @@ function array_replace_recursive(array $array, array ...$replacements) { }
  * </p>
  * @return array an array of all the keys in input.
  */
+#[Pure]
 function array_keys(array $array, $filter_value = null, $strict = null) { }
 
 /**
@@ -76,6 +83,7 @@ function array_keys(array $array, $filter_value = null, $strict = null) { }
  * @return array an indexed array of values.
  * @meta
  */
+#[Pure]
 function array_values(array $array) { }
 
 /**
@@ -87,6 +95,7 @@ function array_values(array $array) { }
  * @return array an associative array of values from input as
  * keys and their count as value.
  */
+#[Pure]
 function array_count_values(array $array) { }
 
 /**
@@ -99,6 +108,7 @@ function array_count_values(array $array) { }
  * @return array Returns an array of values representing a single column from the input array.
  * @since 5.5
  */
+#[Pure]
 function array_column(array $array, $column_key, $index_key = null) { }
 
 /**
@@ -113,6 +123,7 @@ function array_column(array $array, $column_key, $index_key = null) { }
  * @return array the reversed array.
  * @meta
  */
+#[Pure]
 function array_reverse(array $array, $preserve_keys = null) { }
 
 /**
@@ -167,6 +178,7 @@ function array_reduce(array $array, $callback, $initial = null) { }
  * on the left. If the absolute value of pad_size is less than or equal to
  * the length of the input then no padding takes place.
  */
+#[Pure]
 function array_pad(array $array, $length, $value) { }
 
 /**
@@ -177,6 +189,7 @@ function array_pad(array $array, $length, $value) { }
  * </p>
  * @return array Returns the flipped array.
  */
+#[Pure]
 function array_flip(array $array) { }
 
 /**
@@ -192,6 +205,7 @@ function array_flip(array $array) { }
  * @return array an array with its keys lower or uppercased
  * @meta
  */
+#[Pure]
 function array_change_key_case(array $array, $case = null) { }
 
 /**
@@ -208,6 +222,7 @@ function array_change_key_case(array $array, $case = null) { }
  * of keys for the random entries. This is done so that you can pick
  * random keys as well as values out of the array.
  */
+#[Pure]
 function array_rand(array $array, $num = null) { }
 
 /**
@@ -241,6 +256,7 @@ function array_rand(array $array, $num = null) { }
  * @return array the filtered array.
  * @meta
  */
+#[Pure]
 function array_unique(array $array, $flags = SORT_STRING) { }
 
 /**
@@ -257,6 +273,7 @@ function array_unique(array $array, $flags = SORT_STRING) { }
  * array1 whose values exist in all of the parameters.
  * @meta
  */
+#[Pure]
 function array_intersect(array $array1, array $array2, array ...$_) { }
 
 /**
@@ -274,6 +291,7 @@ function array_intersect(array $array1, array $array2, array ...$_) { }
  * arguments.
  * @meta
  */
+#[Pure]
 function array_intersect_key(array $array1, array $array2, array ...$_) { }
 
 /**
@@ -334,6 +352,7 @@ function array_uintersect(array $array1, array $array2, array $_ = null, $data_c
  * array1 that are present in all of the arguments.
  * @meta
  */
+#[Pure]
 function array_intersect_assoc(array $array1, array $array2, array $_ = null) { }
 
 /**
@@ -402,6 +421,7 @@ function array_intersect_uassoc(array $array1, array $array2, array $_ = null, $
  * array1 that are present in all the arguments.
  * @meta
  */
+#[Pure]
 function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, $data_compare_func, $key_compare_func) { }
 
 /**
@@ -418,6 +438,7 @@ function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, 
  * array1 that are not present in any of the other arrays.
  * @meta
  */
+#[Pure]
 function array_diff(array $array1, array $array2, array ...$_) { }
 
 /**
@@ -435,6 +456,7 @@ function array_diff(array $array1, array $array2, array ...$_) { }
  * other arrays.
  * @meta
  */
+#[Pure]
 function array_diff_key(array $array1, array $array2, array ...$_) { }
 
 /**
@@ -498,6 +520,7 @@ function array_udiff(array $array1, array $array2, array $_ = null, $data_compar
  * array1 that are not present in any of the other arrays.
  * @meta
  */
+#[Pure]
 function array_diff_assoc(array $array1, array $array2, array ...$_) { }
 
 /**
@@ -601,6 +624,7 @@ function array_udiff_uassoc(array $array1, array $array2, array $_ = null, $data
  * </p>
  * @return int|float the sum of values as an integer or float.
  */
+#[Pure]
 function array_sum(array $array) { }
 
 /**
@@ -611,6 +635,7 @@ function array_sum(array $array) { }
  * </p>
  * @return int|float the product as an integer or float.
  */
+#[Pure]
 function array_product(array $array) { }
 
 /**
@@ -681,6 +706,7 @@ function array_map($callback, array $array, array ...$arrays) { }
  * @return array a multidimensional numerically indexed array, starting with zero,
  * with each dimension containing size elements.
  */
+#[Pure]
 function array_chunk(array $array, $length, $preserve_keys = null) { }
 
 /**
@@ -697,6 +723,7 @@ function array_chunk(array $array, $length, $preserve_keys = null) { }
  * for each array isn't equal or if the arrays are empty.
  * @meta
  */
+#[Pure]
 function array_combine(array $keys, array $values) { }
 
 /**
@@ -710,6 +737,7 @@ function array_combine(array $keys, array $values) { }
  * </p>
  * @return bool true on success or false on failure.
  */
+#[Pure]
 function array_key_exists($key, array $array) { }
 
 /**
@@ -722,6 +750,7 @@ function array_key_exists($key, array $array) { }
  * @return string|int|null Returns the first key of array if the array is not empty; NULL otherwise.
  * @since 7.3
  */
+#[Pure]
 function array_key_first(array $array) { }
 
 /**
@@ -734,6 +763,7 @@ function array_key_first(array $array) { }
  * @return string|int|null Returns the last key of array if the array is not empty; NULL otherwise.
  * @since 7.3
  */
+#[Pure]
 function array_key_last(array $array) { }
 
 /**
@@ -742,6 +772,7 @@ function array_key_last(array $array) { }
  * @param array $array
  * @return mixed
  */
+#[Pure]
 function pos($array) { }
 
 /**
@@ -751,6 +782,7 @@ function pos($array) { }
  * @param int $mode [optional]
  * @return int
  */
+#[Pure]
 function sizeof($value, $mode = COUNT_NORMAL) { }
 
 /**
@@ -764,6 +796,7 @@ function sizeof($value, $mode = COUNT_NORMAL) { }
  * </p>
  * @return bool true on success or false on failure.
  */
+#[Pure]
 function key_exists($key, $array) { }
 
 /**
@@ -893,6 +926,7 @@ function version_compare($version1, $version2, $operator = null) { }
  * @return int On success the return value will be the created key value, otherwise
  * -1 is returned.
  */
+#[Pure]
 function ftok($filename, $project_id) { }
 
 /**
@@ -903,6 +937,7 @@ function ftok($filename, $project_id) { }
  * </p>
  * @return string the ROT13 version of the given string.
  */
+#[Pure]
 function str_rot13($string) { }
 
 /**
@@ -911,6 +946,7 @@ function str_rot13($string) { }
  * @return array an indexed array containing the name of all stream filters
  * available.
  */
+#[Pure]
 function stream_get_filters() { }
 
 /**
@@ -920,6 +956,7 @@ function stream_get_filters() { }
  * @return bool
  * @since 7.2
  */
+#[Pure]
 function stream_isatty($stream) {}
 
 /**
@@ -1134,6 +1171,7 @@ function sys_get_temp_dir() { }
  * the cache.
  * @since 5.3.2
  */
+#[Pure]
 function realpath_cache_get() { }
 
 /**
@@ -1142,6 +1180,7 @@ function realpath_cache_get() { }
  * @return int Returns how much memory realpath cache is using.
  * @since 5.3.2
  */
+#[Pure]
 function realpath_cache_size() { }
 
 /**
@@ -1171,6 +1210,7 @@ function get_mangled_object_vars($object){}
  *  - "resource (closed)" for closed resources
  * @since 8.0
  */
+#[Pure]
 function get_debug_type(mixed $value): string {}
 
 /**
@@ -1180,4 +1220,5 @@ function get_debug_type(mixed $value): string {}
  * @return int
  * @since 8.0
  */
+#[Pure]
 function get_resource_id($resource): int {}

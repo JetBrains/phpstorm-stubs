@@ -1,6 +1,7 @@
 <?php
 
 // Start of xml v.
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Create an XML parser
@@ -20,6 +21,7 @@
  * </p>
  * @return resource|false|XmlParser a resource handle for the new XML parser.
  */
+#[Pure]
 function xml_parser_create ($encoding = null) {}
 
 /**
@@ -43,6 +45,7 @@ function xml_parser_create ($encoding = null) {}
  * </p>
  * @return resource|false|XmlParser a resource handle for the new XML parser.
  */
+#[Pure]
 function xml_parser_create_ns ($encoding = null, $separator = ':') {}
 
 /**
@@ -368,6 +371,7 @@ function xml_parse_into_struct ($parser, $data, array &$values, array &$index = 
  * codes listed in the error codes
  * section.
  */
+#[Pure]
 function xml_get_error_code ($parser) {}
 
 /**
@@ -379,6 +383,7 @@ function xml_get_error_code ($parser) {}
  * @return string a string with a textual description of the error
  * <i>code</i>, or <b>FALSE</b> if no description was found.
  */
+#[Pure]
 function xml_error_string ($error_code) {}
 
 /**
@@ -391,6 +396,7 @@ function xml_error_string ($error_code) {}
  * not refer to a valid parser, or else it returns which line the
  * parser is currently at in its data buffer.
  */
+#[Pure]
 function xml_get_current_line_number ($parser) {}
 
 /**
@@ -405,6 +411,7 @@ function xml_get_current_line_number ($parser) {}
  * <b>xml_get_current_line_number</b>) the parser is
  * currently at.
  */
+#[Pure]
 function xml_get_current_column_number ($parser) {}
 
 /**
@@ -417,6 +424,7 @@ function xml_get_current_column_number ($parser) {}
  * not refer to a valid parser, or else it returns which byte index
  * the parser is currently at in its data buffer (starting at 0).
  */
+#[Pure]
 function xml_get_current_byte_index ($parser) {}
 
 /**
@@ -503,6 +511,7 @@ function xml_parser_set_option ($parser, $option, $value) {}
  * valid (generates also a <b>E_WARNING</b>).
  * Else the option's value is returned.
  */
+#[Pure]
 function xml_parser_get_option ($parser, $option) {}
 
 define ('XML_ERROR_NONE', 0);

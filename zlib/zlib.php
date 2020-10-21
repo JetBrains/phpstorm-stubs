@@ -1,6 +1,7 @@
 <?php
 
 // Start of zlib v.2.0
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Output a gz-file
@@ -254,6 +255,7 @@ function gzfile ($filename, $use_include_path = 0) {}
  * </p>
  * @return string|false The compressed string or <b>FALSE</b> if an error occurred.
  */
+#[Pure]
 function gzcompress ($data, $level = -1, $encoding = ZLIB_ENCODING_DEFLATE) {}
 
 /**
@@ -272,6 +274,7 @@ function gzcompress ($data, $level = -1, $encoding = ZLIB_ENCODING_DEFLATE) {}
  * 32768 times the length of the compressed input <i>data</i>
  * or more than the optional parameter <i>length</i>.
  */
+#[Pure]
 function gzuncompress ($data, $max_length = 0) {}
 
 /**
@@ -290,6 +293,7 @@ function gzuncompress ($data, $max_length = 0) {}
  * </p>
  * @return string|false The deflated string or <b>FALSE</b> if an error occurred.
  */
+#[Pure]
 function gzdeflate ($data, $level = -1, $encoding = ZLIB_ENCODING_RAW) {}
 
 /**
@@ -308,6 +312,7 @@ function gzdeflate ($data, $level = -1, $encoding = ZLIB_ENCODING_RAW) {}
  * 32768 times the length of the compressed input <i>data</i>
  * or more than the optional parameter <i>length</i>.
  */
+#[Pure]
 function gzinflate ($data, $max_length = 0) {}
 
 /**
@@ -337,6 +342,7 @@ function gzinflate ($data, $max_length = 0) {}
  * </p>
  * @return string|false The encoded string, or <b>FALSE</b> if an error occurred.
  */
+#[Pure]
 function gzencode ($data, $level = -1, $encoding = FORCE_GZIP) {}
 
 /**
@@ -351,6 +357,7 @@ function gzencode ($data, $level = -1, $encoding = FORCE_GZIP) {}
  * @return string|false The decoded string, or <b>FALSE</b> if an error occurred.
  * @since 5.4
  */
+#[Pure]
 function gzdecode ($data, $max_length = null) {}
 
 /**
@@ -365,6 +372,7 @@ function gzdecode ($data, $max_length = null) {}
  * @return string
  * @since 5.4
  */
+#[Pure]
 function zlib_encode ($data, $encoding, $level) {}
 
 /**
@@ -377,6 +385,7 @@ function zlib_encode ($data, $encoding, $level) {}
  * @return string
  * @since 5.4
  */
+#[Pure]
 function zlib_decode ($data, $max_length = null) {}
 
 /**
@@ -385,6 +394,7 @@ function zlib_decode ($data, $max_length = null) {}
  * @return string Possible return values are gzip, deflate,
  * or <b>FALSE</b>.
  */
+#[Pure]
 function zlib_get_coding_type () {}
 
 /**
@@ -417,6 +427,7 @@ function ob_gzhandler ($data, $flags) {}
  * </p>
  * @since 7.0
  */
+#[Pure]
 function deflate_init ($encoding, $options = array()) {}
 
 /**
@@ -463,6 +474,7 @@ function deflate_add ($context, $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
  * </p>
  * @since 7.0
  */
+#[Pure]
 function inflate_init ($encoding, $options = array()) {}
 
 /**
@@ -493,6 +505,7 @@ function inflate_add ($context, $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
  * @return bool
  * @since 7.2
  */
+#[Pure]
 function inflate_get_read_len ($context){}
 
 /**
@@ -500,6 +513,7 @@ function inflate_get_read_len ($context){}
  * @return bool
  * @since 7.2
  */
+#[Pure]
 function  inflate_get_status($context) {}
 
 /**

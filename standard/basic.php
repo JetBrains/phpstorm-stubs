@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * @param string $extension_filename <p>
  * This parameter is only the filename of the
@@ -53,6 +55,7 @@ function cli_set_process_title ($title) {}
  * @return string Return a string with the current process title or <b>NULL</b> on error.
  * @since 5.5
  */
+#[Pure]
 function cli_get_process_title () {}
 
 /**
@@ -62,6 +65,7 @@ function cli_get_process_title () {}
  * @since 7.1
  * @link https://php.net/manual/en/function.is-iterable.php
  */
+#[Pure]
 function is_iterable($value) {}
 
 /**
@@ -72,6 +76,7 @@ function is_iterable($value) {}
  * </p>
  * @return string the UTF-8 translation of <i>data</i>.
  */
+#[Pure]
 function utf8_encode ($string) {}
 
 /**
@@ -83,6 +88,7 @@ function utf8_encode ($string) {}
  * </p>
  * @return string the ISO-8859-1 translation of <i>data</i>.
  */
+#[Pure]
 function utf8_decode ($string) {}
 
 /**

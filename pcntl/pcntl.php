@@ -1,6 +1,7 @@
 <?php
 
 // Start of pcntl v.
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Forks the currently running process
@@ -186,6 +187,7 @@ function pcntl_signal_dispatch () {}
  * @return bool <b>TRUE</b> if the child status code represents a normal exit, <b>FALSE</b>
  * otherwise.
  */
+#[Pure]
 function pcntl_wifexited ($status) {}
 
 /**
@@ -197,6 +199,7 @@ function pcntl_wifexited ($status) {}
  * @return bool <b>TRUE</b> if the child process which caused the return is
  * currently stopped, <b>FALSE</b> otherwise.
  */
+#[Pure]
 function pcntl_wifstopped ($status) {}
 
 /**
@@ -208,6 +211,7 @@ function pcntl_wifstopped ($status) {}
  * @return bool <b>TRUE</b> if the child process exited because of a signal which was
  * not caught, <b>FALSE</b> otherwise.
  */
+#[Pure]
 function pcntl_wifsignaled ($status) {}
 
 /**
@@ -218,12 +222,14 @@ function pcntl_wifsignaled ($status) {}
  * call to <b>pcntl_waitpid</b>.</p>
  * @return int the return code, as an integer.
  */
+#[Pure]
 function pcntl_wexitstatus ($status) {}
 
 /**
  * @param int $status
  * @return bool
  */
+#[Pure]
 function pcntl_wifcontinued ( $status){}
 /**
  * Returns the signal which caused the child to terminate
@@ -233,6 +239,7 @@ function pcntl_wifcontinued ( $status){}
  * call to <b>pcntl_waitpid</b>.</p>
  * @return int the signal number, as an integer.
  */
+#[Pure]
 function pcntl_wtermsig ($status) {}
 
 /**
@@ -243,6 +250,7 @@ function pcntl_wtermsig ($status) {}
  * call to <b>pcntl_waitpid</b>.</p>
  * @return int the signal number.
  */
+#[Pure]
 function pcntl_wstopsig ($status) {}
 
 /**
@@ -287,6 +295,7 @@ function pcntl_alarm ($seconds) {}
  * @return int error code.
  * @since 5.3.4
  */
+#[Pure]
 function pcntl_get_last_error () {}
 
 /**
@@ -295,6 +304,7 @@ function pcntl_get_last_error () {}
  * @return int error code.
  * @since 5.3.4
  */
+#[Pure]
 function pcntl_errno () {}
 
 /**
@@ -305,6 +315,7 @@ function pcntl_errno () {}
  * @return string|false error description on success or <b>FALSE</b> on failure.
  * @since 5.3.4
  */
+#[Pure]
 function pcntl_strerror ($error_code) {}
 
 /**
@@ -321,6 +332,7 @@ function pcntl_strerror ($error_code) {}
  * or <b>FALSE</b> on error. A lower numerical value causes more favorable
  * scheduling.
  */
+#[Pure]
 function pcntl_getpriority ($process_id, $mode = PRIO_PROCESS) {}
 
 /**
@@ -456,6 +468,7 @@ function pcntl_async_signals($enable = null) {}
  * @return bool
  * @since 7.1
  */
+
 function pcntl_signal_get_handler($signal) {}
 
 /**

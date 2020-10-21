@@ -1,6 +1,7 @@
 <?php
 
 // Start of filter v.0.11.0
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Gets a specific external variable by name and optionally filters it
@@ -26,6 +27,7 @@
  * If the flag <b>FILTER_NULL_ON_FAILURE</b> is used, it
  * returns <b>FALSE</b> if the variable is not set and <b>NULL</b> if the filter fails.
  */
+#[Pure]
 function filter_input ($type, $var_name, $filter = FILTER_DEFAULT, $options = null) {}
 
 /**
@@ -81,6 +83,7 @@ function filter_input ($type, $var_name, $filter = FILTER_DEFAULT, $options = nu
  * </p>
  * @return mixed the filtered data, or <b>FALSE</b> if the filter fails.
  */
+#[Pure]
 function filter_var ($value, $filter = FILTER_DEFAULT, $options = null) {}
 
 /**
@@ -114,6 +117,7 @@ function filter_var ($value, $filter = FILTER_DEFAULT, $options = null) {}
  * is used, it returns <b>FALSE</b> if the variable is not set and <b>NULL</b> if the filter
  * fails.
  */
+#[Pure]
 function filter_input_array ($type, $options = null, $add_empty = true) {}
 
 /**
@@ -144,6 +148,7 @@ function filter_input_array ($type, $options = null, $add_empty = true) {}
  * on failure. An array value will be <b>FALSE</b> if the filter fails, or <b>NULL</b> if
  * the variable is not set.
  */
+#[Pure]
 function filter_var_array (array $array, $options = null, $add_empty = true) {}
 
 /**
@@ -153,6 +158,7 @@ function filter_var_array (array $array, $options = null, $add_empty = true) {}
  * are no such filters. Indexes of this array are not filter IDs, they can be
  * obtained with <b>filter_id</b> from a name instead.
  */
+#[Pure]
 function filter_list () {}
 
 /**
@@ -168,6 +174,7 @@ function filter_list () {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
+#[Pure]
 function filter_has_var ($input_type, $var_name) {}
 
 /**
@@ -178,6 +185,7 @@ function filter_has_var ($input_type, $var_name) {}
  * </p>
  * @return int|false ID of a filter on success or <b>FALSE</b> if filter doesn't exist.
  */
+#[Pure]
 function filter_id ($name) {}
 
 

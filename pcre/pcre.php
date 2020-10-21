@@ -1,6 +1,7 @@
 <?php
 
 // Start of pcre v.
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Perform a regular expression match
@@ -432,6 +433,7 @@ function preg_filter ($pattern, $replacement, $subject, $limit = -1, &$count = n
  * split along boundaries matched by <i>pattern</i>, or <b>FALSE</b>
  * if an error occurred.
  */
+#[Pure]
 function preg_split ($pattern, $subject, $limit = -1, $flags = 0) {}
 
 /**
@@ -448,6 +450,7 @@ function preg_split ($pattern, $subject, $limit = -1, $flags = 0) {}
  * </p>
  * @return string the quoted (escaped) string.
  */
+#[Pure]
 function preg_quote ($str, $delimiter = null) {}
 
 /**
@@ -467,6 +470,7 @@ function preg_quote ($str, $delimiter = null) {}
  * @return array|false an array indexed using the keys from the
  * <i>input</i> array or false when pattern cannot be compiled.
  */
+#[Pure]
 function preg_grep ($pattern, array $array, $flags = 0) {}
 
 /**
@@ -480,6 +484,7 @@ function preg_grep ($pattern, array $array, $flags = 0) {}
  * <b>PREG_BAD_UTF8_ERROR</b>
  * <b>PREG_BAD_UTF8_OFFSET_ERROR</b> (since PHP 5.3.0)
  */
+#[Pure]
 function preg_last_error () {}
 
 /**
@@ -488,6 +493,7 @@ function preg_last_error () {}
  * @return string one of the error messages or "No error" if there is no error.
  * @since 8.0
  */
+#[Pure]
 function preg_last_error_msg(): string {}
 
 /**

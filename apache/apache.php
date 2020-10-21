@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * Terminate apache process after this request
  * apache_child_terminate() will register the Apache process executing the current PHP request for termination once execution of PHP code is completed. It may be used to terminate a process after a script with high memory consumption has been run as memory will usually only be freed internally but not given back to the operating system.
@@ -13,6 +15,7 @@ function apache_child_terminate () {}
  * @link https://php.net/manual/en/function.apache-get-modules.php
  * @return array of loaded Apache modules.
  */
+#[Pure]
 function apache_get_modules () {}
 
 /**
@@ -20,6 +23,7 @@ function apache_get_modules () {}
  * @link https://php.net/manual/en/function.apache-get-version.php
  * @return string|false the Apache version on success or <b>FALSE</b> on failure.
  */
+#[Pure]
 function apache_get_version () {}
 
 /**
@@ -35,6 +39,7 @@ function apache_get_version () {}
  * </p>
  * @return string|false The value of the Apache environment variable on success, or <b>FALSE</b> on failure.
  */
+#[Pure]
 function apache_getenv ( $variable, $walk_to_top = false ) {}
 
 /**

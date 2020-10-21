@@ -1,6 +1,7 @@
 <?php
 
 // Start of json v.1.3.1
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Objects implementing JsonSerializable
@@ -88,6 +89,7 @@ class JsonIncrementalParser  {
  * </p>
  * @return string|false a JSON encoded string on success or <b>FALSE</b> on failure.
  */
+#[Pure]
 function json_encode ($value, $flags = 0, $depth = 512) {}
 
 /**
@@ -126,6 +128,7 @@ function json_encode ($value, $flags = 0, $depth = 512) {}
  * <i>json</i> cannot be decoded or if the encoded
  * data is deeper than the recursion limit.
  */
+#[Pure]
 function json_decode ($json, $associative = false, $depth = 512, $flags = 0) {}
 
 /**
@@ -134,6 +137,7 @@ function json_decode ($json, $associative = false, $depth = 512, $flags = 0) {}
  * @return int an integer, the value can be one of the following
  * constants:
  */
+#[Pure]
 function json_last_error () {}
 
 /**
@@ -142,6 +146,7 @@ function json_last_error () {}
  * @return string|false Returns the error message on success, "No error" if no error has occurred, or FALSE on failure.
  * @since 5.5
  */
+#[Pure]
 function json_last_error_msg () {}
 
 

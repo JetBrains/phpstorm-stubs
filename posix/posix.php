@@ -1,6 +1,7 @@
 <?php
 
 // Start of posix v.
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Send a signal to a process
@@ -20,6 +21,7 @@ function posix_kill ($process_id, $signal) {}
  * @link https://php.net/manual/en/function.posix-getpid.php
  * @return int the identifier, as an integer.
  */
+#[Pure]
 function posix_getpid () {}
 
 /**
@@ -27,6 +29,7 @@ function posix_getpid () {}
  * @link https://php.net/manual/en/function.posix-getppid.php
  * @return int the identifier, as an integer.
  */
+#[Pure]
 function posix_getppid () {}
 
 /**
@@ -34,6 +37,7 @@ function posix_getppid () {}
  * @link https://php.net/manual/en/function.posix-getuid.php
  * @return int the user id, as an integer
  */
+#[Pure]
 function posix_getuid () {}
 
 /**
@@ -51,6 +55,7 @@ function posix_setuid ($user_id) {}
  * @link https://php.net/manual/en/function.posix-geteuid.php
  * @return int the user id, as an integer
  */
+#[Pure]
 function posix_geteuid () {}
 
 /**
@@ -82,6 +87,7 @@ function posix_setrlimit ($resource, $soft_limit, $hard_limit ) {}
  * @link https://php.net/manual/en/function.posix-getgid.php
  * @return int the real group id, as an integer.
  */
+#[Pure]
 function posix_getgid () {}
 
 /**
@@ -99,6 +105,7 @@ function posix_setgid ($group_id) {}
  * @link https://php.net/manual/en/function.posix-getegid.php
  * @return int an integer of the effective group ID.
  */
+#[Pure]
 function posix_getegid () {}
 
 /**
@@ -117,6 +124,7 @@ function posix_setegid ($group_id) {}
  * @return array an array of integers containing the numeric group ids of the group
  * set of the current process.
  */
+#[Pure]
 function posix_getgroups () {}
 
 /**
@@ -124,6 +132,7 @@ function posix_getgroups () {}
  * @link https://php.net/manual/en/function.posix-getlogin.php
  * @return string the login name of the user, as a string.
  */
+#[Pure]
 function posix_getlogin () {}
 
 /**
@@ -131,6 +140,7 @@ function posix_getlogin () {}
  * @link https://php.net/manual/en/function.posix-getpgrp.php
  * @return int the identifier, as an integer.
  */
+#[Pure]
 function posix_getpgrp () {}
 
 /**
@@ -161,6 +171,7 @@ function posix_setpgid ($process_id, $process_group_id) {}
  * </p>
  * @return int the identifier, as an integer.
  */
+#[Pure]
 function posix_getpgid ($process_id) {}
 
 /**
@@ -174,6 +185,7 @@ function posix_getpgid ($process_id) {}
  * </p>
  * @return int the identifier, as an integer.
  */
+#[Pure]
 function posix_getsid ($process_id) {}
 
 /**
@@ -194,6 +206,7 @@ function posix_getsid ($process_id) {}
  * field is only available on GNU systems or when using the GNU
  * libc.
  */
+#[Pure]
 function posix_uname () {}
 
 /**
@@ -208,6 +221,7 @@ function posix_uname () {}
  * cutime - user time used by current process and children.
  * cstime - system time used by current process and children.
  */
+#[Pure]
 function posix_times () {}
 
 /**
@@ -217,6 +231,7 @@ function posix_times () {}
  * the current controlling terminal. Otherwise <b>FALSE</b> is returned and errno
  * is set, which can be checked with <b>posix_get_last_error</b>.
  */
+#[Pure]
 function posix_ctermid () {}
 
 /**
@@ -228,6 +243,7 @@ function posix_ctermid () {}
  * @return string|false On success, returns a string of the absolute path of the
  * <i>fd</i>. On failure, returns <b>FALSE</b>
  */
+#[Pure]
 function posix_ttyname ($file_descriptor) {}
 
 /**
@@ -242,6 +258,7 @@ function posix_ttyname ($file_descriptor) {}
  * @return bool <b>TRUE</b> if <i>fd</i> is an open descriptor connected
  * to a terminal and <b>FALSE</b> otherwise.
  */
+#[Pure]
 function posix_isatty ($file_descriptor) {}
 
 /**
@@ -251,6 +268,7 @@ function posix_isatty ($file_descriptor) {}
  * On error, returns <b>FALSE</b> and sets errno which can be checked with
  * <b>posix_get_last_error</b>.
  */
+#[Pure]
 function posix_getcwd () {}
 
 /**
@@ -360,6 +378,7 @@ function posix_access ($filename, $flags = POSIX_F_OK) {}
  * </tr>
  * </table>
  */
+#[Pure]
 function posix_getgrnam ($name) {}
 
 /**
@@ -408,6 +427,7 @@ function posix_getgrnam ($name) {}
  * </tr>
  * </table>
  */
+#[Pure]
 function posix_getgrgid ($group_id) {}
 
 /**
@@ -484,6 +504,7 @@ function posix_getgrgid ($group_id) {}
  * </tr>
  * </table>
  */
+#[Pure]
 function posix_getpwnam ($username) {}
 
 /**
@@ -559,6 +580,7 @@ function posix_getpwnam ($username) {}
  * </tr>
  * </table>
  */
+#[Pure]
 function posix_getpwuid ($user_id) {}
 
 /**
@@ -643,6 +665,7 @@ function posix_getpwuid ($user_id) {}
  * </tr>
  * </table>
  */
+#[Pure]
 function posix_getrlimit () {}
 
 /**
@@ -651,12 +674,14 @@ function posix_getrlimit () {}
  * @return int the errno (error number) set by the last posix function that
  * failed. If no errors exist, 0 is returned.
  */
+#[Pure]
 function posix_get_last_error () {}
 
 /**
  * Alias of <b>posix_get_last_error</b>
  * @link https://php.net/manual/en/function.posix-errno.php
  */
+#[Pure]
 function posix_errno () {}
 
 /**
@@ -669,6 +694,7 @@ function posix_errno () {}
  * </p>
  * @return string the error message, as a string.
  */
+#[Pure]
 function posix_strerror ($error_code) {}
 
 /**
@@ -682,6 +708,7 @@ function posix_strerror ($error_code) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
+#[Pure]
 function posix_initgroups ($username, $group_id) {}
 
 

@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * Opens a bzip2 compressed file
  * @link https://php.net/manual/en/function.bzopen.php
@@ -14,6 +16,7 @@
  * @return resource|false If the open fails, <b>bzopen</b> returns <b>FALSE</b>, otherwise
  * it returns a pointer to the newly opened file.
  */
+#[Pure]
 function bzopen ($file, $mode) {}
 
 /**
@@ -82,6 +85,7 @@ function bzclose ($bz) {}
  * </p>
  * @return int the error number as an integer.
  */
+#[Pure]
 function bzerrno ($bz) {}
 
 /**
@@ -93,6 +97,7 @@ function bzerrno ($bz) {}
  * </p>
  * @return string a string containing the error message.
  */
+#[Pure]
 function bzerrstr ($bz) {}
 
 /**
@@ -106,6 +111,7 @@ function bzerrstr ($bz) {}
  * errno entry, and the error message in the
  * errstr entry.
  */
+#[Pure]
 function bzerror ($bz) {}
 
 /**
@@ -130,6 +136,7 @@ function bzerror ($bz) {}
  * </p>
  * @return mixed The compressed string, or an error number if an error occurred.
  */
+#[Pure]
 function bzcompress ($data, $block_size = 4, $work_factor = 0) {}
 
 /**
@@ -149,4 +156,5 @@ function bzcompress ($data, $block_size = 4, $work_factor = 0) {}
  * </p>
  * @return mixed The decompressed string, or an error number if an error occurred.
  */
+#[Pure]
 function bzdecompress ($data, $use_less_memory = 0) {}
