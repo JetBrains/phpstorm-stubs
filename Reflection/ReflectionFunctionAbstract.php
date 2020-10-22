@@ -13,7 +13,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
     /**
      * @var string Name of the function, same as calling the {@see ReflectionFunctionAbstract::getName()} method
      */
-    #[Immutable] public $name;
+    #[Immutable]
+    public string $name;
 
     /**
      * Clones function

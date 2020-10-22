@@ -13,12 +13,14 @@ class ReflectionMethod extends ReflectionFunctionAbstract
     /**
      * @var string Name of the method, same as calling the {@see ReflectionMethod::getName()} method
      */
-    #[Immutable] public $name;
+    #[Immutable]
+    public string $name;
 
     /**
      * @var string Fully qualified class name where this method was defined
      */
-    #[Immutable] public $class;
+    #[Immutable]
+    public string $class;
 
     /**
      * Indicates that the method is static.

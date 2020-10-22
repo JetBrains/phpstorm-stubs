@@ -395,14 +395,16 @@ abstract class EvWatcher
     /**
      * @var bool TRUE if the watcher is active. FALSE otherwise.
      */
-    #[Immutable] public $is_active;
+    #[Immutable]
+    public bool $is_active;
 
     /**
      * @var bool TRUE if the watcher is pending, i.e. it has outstanding events, but its callback
      *      has not yet been invoked. FALSE otherwise. As long, as a watcher is pending (but not active), one must not
      *      change its priority.
      */
-    #[Immutable] public $is_pending;
+    #[Immutable]
+    public bool $is_pending;
 
     /**
      * Abstract constructor of a watcher object
@@ -556,17 +558,20 @@ final class EvChild extends EvWatcher
     /**
      * @var int The process ID this watcher watches out for, or 0, meaning any process ID.
      */
-    #[Immutable] public $pid;
+    #[Immutable]
+    public int $pid;
 
     /**
      * @var int The process ID that detected a status change.
      */
-    #[Immutable] public $rpid;
+    #[Immutable]
+    public int $rpid;
 
     /**
      * @var int The process exit status caused by rpid.
      */
-    #[Immutable] public $rstatus;
+    #[Immutable]
+    public int $rstatus;
 
     /**
      * Constructs the EvChild watcher object.
@@ -631,7 +636,8 @@ final class EvEmbed extends EvWatcher
     /**
      * @var EvLoop The embedded loop
      */
-    #[Immutable] public $embed;
+    #[Immutable]
+    public EvLoop $embed;
 
     /**
      * Constructs the EvEmbed object.
@@ -706,12 +712,14 @@ final class EvIo extends EvWatcher
     /**
      * @var resource A stream opened with fopen() or similar functions, numeric file descriptor, or socket.
      */
-    #[Immutable] public $fd;
+    #[Immutable]
+    public $fd;
 
     /**
      * @var int Ev::READ and/or Ev::WRITE. See the bit masks.
      */
-    #[Immutable] public $events;
+    #[Immutable]
+    public int $events;
 
     /**
      * Constructs EvIo watcher object.
@@ -927,7 +935,8 @@ final class EvSignal extends EvWatcher
     /**
      * @var int Signal number. See the constants exported by pcntl extension. See also signal(7) man page.
      */
-    #[Immutable] public int $signum;
+    #[Immutable]
+    public int $signum;
 
     /**
      * Constructs EvSignal watcher object
@@ -990,12 +999,14 @@ final class EvStat extends EvWatcher
      * @var float  Hint on how quickly a change is expected to be detected and should normally be
      *      specified as 0.0 to let libev choose a suitable value.
      */
-    #[Immutable] public $interval;
+    #[Immutable]
+    public float $interval;
 
     /**
      * @var string The path to wait for status changes on.
      */
-    #[Immutable] public $path;
+    #[Immutable]
+    public string $path;
 
     /**
      * Constructs EvStat watcher object.
@@ -1238,12 +1249,14 @@ final class EvLoop
     /**
      * @var int The Ev::BACKEND_* flag indicating the event backend in use.
      */
-    #[Immutable] public $backend;
+    #[Immutable]
+    public int $backend;
 
     /**
      * @var bool TRUE if it is the default event loop.
      */
-    #[Immutable] public $is_default_loop;
+    #[Immutable]
+    public bool $is_default_loop;
 
     /**
      * @var mixed Custom data attached to the loop.

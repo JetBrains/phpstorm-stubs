@@ -13,7 +13,8 @@ class ReflectionParameter implements Reflector
     /**
      * @var string Name of the parameter, same as calling the {@see ReflectionParameter::getName()} method
      */
-    #[Immutable] public $name;
+    #[Immutable]
+    public string $name;
 
     /**
      * Construct
