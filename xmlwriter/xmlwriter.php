@@ -541,64 +541,64 @@ function xmlwriter_open_memory () {}
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Toggle indentation on/off
  * @link https://php.net/manual/en/function.xmlwriter-set-indent.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p>
- * @param bool $indent <p>
+ * @param bool $enable <p>
  * Whether indentation is enabled.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_set_indent ($xmlwriter, $indent) {}
+function xmlwriter_set_indent ($writer, $enable) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Set string used for indenting
  * @link https://php.net/manual/en/function.xmlwriter-set-indent-string.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p>
- * @param string $indentString <p>
+ * @param string $indentation <p>
  * The indentation string.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_set_indent_string ($xmlwriter, $indentString) {}
+function xmlwriter_set_indent_string ($writer, $indentation) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 1.0.0)<br/>
  * Create start comment
  * @link https://php.net/manual/en/function.xmlwriter-start-comment.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_comment ($xmlwriter) {}
+function xmlwriter_start_comment ($writer) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 1.0.0)<br/>
  * Create end comment
  * @link https://php.net/manual/en/function.xmlwriter-end-comment.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_comment ($xmlwriter) {}
+function xmlwriter_end_comment ($writer) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Create start attribute
  * @link https://php.net/manual/en/function.xmlwriter-start-attribute.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -608,25 +608,25 @@ function xmlwriter_end_comment ($xmlwriter) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_attribute ($xmlwriter, $name) {}
+function xmlwriter_start_attribute ($writer, $name) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * End attribute
  * @link https://php.net/manual/en/function.xmlwriter-end-attribute.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_attribute ($xmlwriter) {}
+function xmlwriter_end_attribute ($writer) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Write full attribute
  * @link https://php.net/manual/en/function.xmlwriter-write-attribute.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -639,13 +639,13 @@ function xmlwriter_end_attribute ($xmlwriter) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_attribute ($xmlwriter, $name, $value) {}
+function xmlwriter_write_attribute ($writer, $name, $value) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Create start namespaced attribute
  * @link https://php.net/manual/en/function.xmlwriter-start-attribute-ns.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -656,18 +656,18 @@ function xmlwriter_write_attribute ($xmlwriter, $name, $value) {}
  * @param string $name <p>
  * The attribute name.
  * </p>
- * @param string $uri <p>
+ * @param string $namespace <p>
  * The namespace URI.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_attribute_ns ($xmlwriter, $prefix, $name, $uri) {}
+function xmlwriter_start_attribute_ns ($writer, $prefix, $name, $namespace) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Write full namespaced attribute
  * @link https://php.net/manual/en/function.xmlwriter-write-attribute-ns.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -678,21 +678,21 @@ function xmlwriter_start_attribute_ns ($xmlwriter, $prefix, $name, $uri) {}
  * @param string $name <p>
  * The attribute name.
  * </p>
- * @param string $uri <p>
+ * @param string $namespace <p>
  * The namespace URI.
  * </p>
- * @param string $content <p>
+ * @param string $value <p>
  * The attribute value.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_attribute_ns ($xmlwriter, $prefix, $name, $uri, $content) {}
+function xmlwriter_write_attribute_ns ($writer, $prefix, $name, $namespace, $value) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Create start element tag
  * @link https://php.net/manual/en/function.xmlwriter-start-element.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -702,37 +702,37 @@ function xmlwriter_write_attribute_ns ($xmlwriter, $prefix, $name, $uri, $conten
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_element ($xmlwriter, $name) {}
+function xmlwriter_start_element ($writer, $name) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * End current element
  * @link https://php.net/manual/en/function.xmlwriter-end-element.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_element ($xmlwriter) {}
+function xmlwriter_end_element ($writer) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0, PECL xmlwriter &gt;= 2.0.4)<br/>
  * End current element
  * @link https://php.net/manual/en/function.xmlwriter-full-end-element.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_full_end_element ($xmlwriter) {}
+function xmlwriter_full_end_element ($writer) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Create start namespaced element tag
  * @link https://php.net/manual/en/function.xmlwriter-start-element-ns.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -743,18 +743,18 @@ function xmlwriter_full_end_element ($xmlwriter) {}
  * @param string $name <p>
  * The element name.
  * </p>
- * @param string $uri <p>
+ * @param string $namespace <p>
  * The namespace URI.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_element_ns ($xmlwriter, $prefix, $name, $uri) {}
+function xmlwriter_start_element_ns ($writer, $prefix, $name, $namespace) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Write full element tag
  * @link https://php.net/manual/en/function.xmlwriter-write-element.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -767,13 +767,13 @@ function xmlwriter_start_element_ns ($xmlwriter, $prefix, $name, $uri) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_element ($xmlwriter, $name, $content = null) {}
+function xmlwriter_write_element ($writer, $name, $content = null) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Write full namespaced element tag
  * @link https://php.net/manual/en/function.xmlwriter-write-element-ns.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -784,7 +784,7 @@ function xmlwriter_write_element ($xmlwriter, $name, $content = null) {}
  * @param string $name <p>
  * The element name.
  * </p>
- * @param string $uri <p>
+ * @param string $namespace <p>
  * The namespace URI.
  * </p>
  * @param string $content [optional] <p>
@@ -792,13 +792,13 @@ function xmlwriter_write_element ($xmlwriter, $name, $content = null) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_element_ns ($xmlwriter, $prefix, $name, $uri, $content = null) {}
+function xmlwriter_write_element_ns ($writer, $prefix, $name, $namespace, $content = null) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Create start PI tag
  * @link https://php.net/manual/en/function.xmlwriter-start-pi.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -808,25 +808,25 @@ function xmlwriter_write_element_ns ($xmlwriter, $prefix, $name, $uri, $content 
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_pi ($xmlwriter, $target) {}
+function xmlwriter_start_pi ($writer, $target) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * End current PI
  * @link https://php.net/manual/en/function.xmlwriter-end-pi.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_pi ($xmlwriter) {}
+function xmlwriter_end_pi ($writer) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Writes a PI
  * @link https://php.net/manual/en/function.xmlwriter-write-pi.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -840,39 +840,39 @@ function xmlwriter_end_pi ($xmlwriter) {}
  *
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_pi ($xmlwriter, $target, $content) {}
+function xmlwriter_write_pi ($writer, $target, $content) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Create start CDATA tag
  * @link https://php.net/manual/en/function.xmlwriter-start-cdata.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_cdata ($xmlwriter) {}
+function xmlwriter_start_cdata ($writer) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * End current CDATA
  * @link https://php.net/manual/en/function.xmlwriter-end-cdata.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_cdata ($xmlwriter) {}
+function xmlwriter_end_cdata ($writer) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Write full CDATA tag
  * @link https://php.net/manual/en/function.xmlwriter-write-cdata.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -882,13 +882,13 @@ function xmlwriter_end_cdata ($xmlwriter) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_cdata ($xmlwriter, $content) {}
+function xmlwriter_write_cdata ($writer, $content) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Write text
  * @link https://php.net/manual/en/function.xmlwriter-text.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -898,13 +898,13 @@ function xmlwriter_write_cdata ($xmlwriter, $content) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_text ($xmlwriter, $content) {}
+function xmlwriter_text ($writer, $content) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0, PECL xmlwriter &gt;= 2.0.4)<br/>
  * Write a raw XML text
  * @link https://php.net/manual/en/function.xmlwriter-write-raw.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -914,13 +914,13 @@ function xmlwriter_text ($xmlwriter, $content) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_raw ($xmlwriter, $content) {}
+function xmlwriter_write_raw ($writer, $content) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Create document tag
  * @link https://php.net/manual/en/function.xmlwriter-start-document.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -936,26 +936,26 @@ function xmlwriter_write_raw ($xmlwriter, $content) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_document ($xmlwriter, $version = '1.0', $encoding = null, $standalone = null) {}
+function xmlwriter_start_document ($writer, $version = '1.0', $encoding = null, $standalone = null) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * End current document
  * @link https://php.net/manual/en/function.xmlwriter-end-document.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_document ($xmlwriter) {}
+function xmlwriter_end_document ($writer) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Write full comment tag
  * @link https://php.net/manual/en/function.xmlwriter-write-comment.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -965,13 +965,13 @@ function xmlwriter_end_document ($xmlwriter) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_comment ($xmlwriter, $content) {}
+function xmlwriter_write_comment ($writer, $content) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Create start DTD tag
  * @link https://php.net/manual/en/function.xmlwriter-start-dtd.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -987,25 +987,25 @@ function xmlwriter_write_comment ($xmlwriter, $content) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_dtd ($xmlwriter, $qualifiedName, $publicId = null, $systemId = null) {}
+function xmlwriter_start_dtd ($writer, $qualifiedName, $publicId = null, $systemId = null) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * End current DTD
  * @link https://php.net/manual/en/function.xmlwriter-end-dtd.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_dtd ($xmlwriter) {}
+function xmlwriter_end_dtd ($writer) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Write full DTD tag
  * @link https://php.net/manual/en/function.xmlwriter-write-dtd.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -1019,18 +1019,18 @@ function xmlwriter_end_dtd ($xmlwriter) {}
  * @param string $systemId [optional] <p>
  * The external subset system identifier.
  * </p>
- * @param string $subset [optional] <p>
+ * @param string $content [optional] <p>
  * The content of the DTD.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_dtd ($xmlwriter, $name, $publicId = null, $systemId = null, $subset = null) {}
+function xmlwriter_write_dtd ($writer, $name, $publicId = null, $systemId = null, $content = null) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Create start DTD element
  * @link https://php.net/manual/en/function.xmlwriter-start-dtd-element.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -1040,22 +1040,22 @@ function xmlwriter_write_dtd ($xmlwriter, $name, $publicId = null, $systemId = n
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_dtd_element ($xmlwriter, $qualifiedName) {}
+function xmlwriter_start_dtd_element ($writer, $qualifiedName) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * End current DTD element
  * @link https://php.net/manual/en/function.xmlwriter-end-dtd-element.php
- * @param $xmlwriter
+ * @param $writer
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_dtd_element ($xmlwriter) {}
+function xmlwriter_end_dtd_element ($writer) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Write full DTD element tag
  * @link https://php.net/manual/en/function.xmlwriter-write-dtd-element.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -1068,13 +1068,13 @@ function xmlwriter_end_dtd_element ($xmlwriter) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_dtd_element ($xmlwriter, $name, $content) {}
+function xmlwriter_write_dtd_element ($writer, $name, $content) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Create start DTD AttList
  * @link https://php.net/manual/en/function.xmlwriter-start-dtd-attlist.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -1084,25 +1084,25 @@ function xmlwriter_write_dtd_element ($xmlwriter, $name, $content) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_dtd_attlist ($xmlwriter, $name) {}
+function xmlwriter_start_dtd_attlist ($writer, $name) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * End current DTD AttList
  * @link https://php.net/manual/en/function.xmlwriter-end-dtd-attlist.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_dtd_attlist ($xmlwriter) {}
+function xmlwriter_end_dtd_attlist ($writer) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Write full DTD AttList tag
  * @link https://php.net/manual/en/function.xmlwriter-write-dtd-attlist.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -1115,13 +1115,13 @@ function xmlwriter_end_dtd_attlist ($xmlwriter) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_dtd_attlist ($xmlwriter, $name, $content) {}
+function xmlwriter_write_dtd_attlist ($writer, $name, $content) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Create start DTD Entity
  * @link https://php.net/manual/en/function.xmlwriter-start-dtd-entity.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -1129,28 +1129,28 @@ function xmlwriter_write_dtd_attlist ($xmlwriter, $name, $content) {}
  * @param string $name <p>
  * The name of the entity.
  * </p>
- * @param bool $isparam
+ * @param bool $isParam
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_start_dtd_entity ($xmlwriter, $name, $isparam) {}
+function xmlwriter_start_dtd_entity ($writer, $name, $isParam) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * End current DTD Entity
  * @link https://php.net/manual/en/function.xmlwriter-end-dtd-entity.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
  * or {@link https://php.net/manual/en/function.xmlwriter-open-memory.php" xmlwriter_open_memory()}.</p> * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_end_dtd_entity ($xmlwriter) {}
+function xmlwriter_end_dtd_entity ($writer) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Write full DTD Entity tag
  * @link https://php.net/manual/en/function.xmlwriter-write-dtd-entity.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -1167,13 +1167,13 @@ function xmlwriter_end_dtd_entity ($xmlwriter) {}
  * @param string $ndataid
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xmlwriter_write_dtd_entity ($xmlwriter, $name, $content, $pe, $pubid, $sysid, $ndataid) {}
+function xmlwriter_write_dtd_entity ($writer, $name, $content, $pe, $pubid, $sysid, $ndataid) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>
  * Returns current buffer
  * @link https://php.net/manual/en/function.xmlwriter-output-memory.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -1183,13 +1183,13 @@ function xmlwriter_write_dtd_entity ($xmlwriter, $name, $content, $pe, $pubid, $
  * </p>
  * @return string the current buffer as a string.
  */
-function xmlwriter_output_memory ($xmlwriter, $flush = true) {}
+function xmlwriter_output_memory ($writer, $flush = true) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 1.0.0)<br/>
  * Flush current buffer
  * @link https://php.net/manual/en/function.xmlwriter-flush.php
- * @param resource|XMLWriter $xmlwriter
+ * @param resource|XMLWriter $writer
  * <p>Only for procedural calls.
  * The XMLWriter {@link https://php.net/manual/en/language.types.resource.php" resource} that is being modified.
  * This resource comes from a call to {@link https://php.net/manual/en/function.xmlwriter-open-uri.php" xmlwriter_open_uri()}
@@ -1201,4 +1201,4 @@ function xmlwriter_output_memory ($xmlwriter, $flush = true) {}
  * Else, if using URI, this function will write the buffer and return the number of
  * written bytes.
  */
-function xmlwriter_flush ($xmlwriter, $empty = true) {}
+function xmlwriter_flush ($writer, $empty = true) {}

@@ -1,16 +1,27 @@
 <?php
 
+use JetBrains\PhpStorm\Immutable;
+
 /**
  * The ReflectionClassConstant class reports information about a class constant.
- *
- * @property-read string $name Constant name, same as calling the {@see ReflectionClassConstant::getName()} method
- * @property-read string $class Fully qualified class name where this constant was defined
  *
  * @link https://www.php.net/manual/en/class.reflectionclassconstant.php
  * @since 7.1
  */
 class ReflectionClassConstant implements Reflector
 {
+    /**
+     * @var string Constant name, same as calling the {@see ReflectionClassConstant::getName()} method
+     */
+    #[Immutable]
+    public $name;
+
+    /**
+     * @var string Fully qualified class name where this constant was defined
+     */
+    #[Immutable]
+    public $class;
+
     /**
      * Indicates that the constant is public.
      *

@@ -1,6 +1,7 @@
 <?php
 
 // Start of pcre v.
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Perform a regular expression match
@@ -11,7 +12,7 @@
  * @param string $subject <p>
  * The input string.
  * </p>
- * @param string[] &$subpatterns [optional] <p>
+ * @param string[] &$matches [optional] <p>
  * If <i>matches</i> is provided, then it is filled with
  * the results of search. $matches[0] will contain the
  * text that matched the full pattern, $matches[1]
@@ -154,7 +155,7 @@
  * matches given <i>subject</i>, 0 if it does not, or <b>FALSE</b>
  * if an error occurred.
  */
-function preg_match ($pattern, $subject, array &$subpatterns = null, $flags = 0, $offset = 0) {}
+function preg_match ($pattern, $subject, array &$matches = null, $flags = 0, $offset = 0) {}
 
 /**
  * Perform a global regular expression match
@@ -165,7 +166,7 @@ function preg_match ($pattern, $subject, array &$subpatterns = null, $flags = 0,
  * @param string $subject <p>
  * The input string.
  * </p>
- * @param string[][] &$subpatterns [optional] <p>
+ * @param string[][] &$matches [optional] <p>
  * Array of all matches in multi-dimensional array ordered according to flags.
  * </p>
  * @param int $flags [optional] <p>
@@ -214,12 +215,12 @@ function preg_match ($pattern, $subject, array &$subpatterns = null, $flags = 0,
  * @return int|false the number of full pattern matches (which might be zero),
  * or <b>FALSE</b> if an error occurred.
  */
-function preg_match_all ($pattern, $subject, array &$subpatterns = null, $flags = PREG_PATTERN_ORDER, $offset = 0) {}
+function preg_match_all ($pattern, $subject, array &$matches = null, $flags = PREG_PATTERN_ORDER, $offset = 0) {}
 
 /**
  * Perform a regular expression search and replace
  * @link https://php.net/manual/en/function.preg-replace.php
- * @param string|string[] $regex <p>
+ * @param string|string[] $pattern <p>
  * The pattern to search for. It can be either a string or an array with
  * strings.
  * </p>
@@ -228,7 +229,7 @@ function preg_match_all ($pattern, $subject, array &$subpatterns = null, $flags 
  * are also available, including the deprecated 'e'
  * (PREG_REPLACE_EVAL), which is specific to this function.
  * </p>
- * @param string|string[] $replace <p>
+ * @param string|string[] $replacement <p>
  * The string or an array with strings to replace. If this parameter is a
  * string and the <i>pattern</i> parameter is an array,
  * all patterns will be replaced by that string. If both
@@ -302,12 +303,12 @@ function preg_match_all ($pattern, $subject, array &$subpatterns = null, $flags 
  * be returned, otherwise <i>subject</i> will be
  * returned unchanged or <b>NULL</b> if an error occurred.
  */
-function preg_replace ($regex, $replace, $subject, $limit = -1, &$count = null) {}
+function preg_replace ($pattern, $replacement, $subject, $limit = -1, &$count = null) {}
 
 /**
  * Perform a regular expression search and replace using a callback
  * @link https://php.net/manual/en/function.preg-replace-callback.php
- * @param string|string[] $regex <p>
+ * @param string|string[] $pattern <p>
  * The pattern to search for. It can be either a string or an array with
  * strings.
  * </p>
@@ -373,7 +374,7 @@ function preg_replace ($regex, $replace, $subject, $limit = -1, &$count = null) 
  * If matches are found, the new subject will be returned, otherwise
  * <i>subject</i> will be returned unchanged.
  */
-function preg_replace_callback ($regex, callable $callback, $subject, $limit = -1, &$count = null, $flags=[]) {}
+function preg_replace_callback ($pattern, callable $callback, $subject, $limit = -1, &$count = null, $flags=[]) {}
 
 /**
  * Perform a regular expression search and replace using callbacks
@@ -391,8 +392,8 @@ function preg_replace_callback_array ($pattern, $subject , $limit = -1, &$count 
 /**
  * Perform a regular expression search and replace
  * @link https://php.net/manual/en/function.preg-filter.php
- * @param string|string[] $regex
- * @param string|string[] $replace
+ * @param string|string[] $pattern
+ * @param string|string[] $replacement
  * @param string|string[] $subject
  * @param int $limit [optional]
  * @param int &$count [optional]
@@ -404,7 +405,7 @@ function preg_replace_callback_array ($pattern, $subject , $limit = -1, &$count 
  * is returned when <i>subject</i> is an array
  * or <b>NULL</b> otherwise.
  */
-function preg_filter ($regex, $replace, $subject, $limit = -1, &$count = null) {}
+function preg_filter ($pattern, $replacement, $subject, $limit = -1, &$count = null) {}
 
 /**
  * Split string by a regular expression
@@ -432,6 +433,7 @@ function preg_filter ($regex, $replace, $subject, $limit = -1, &$count = null) {
  * split along boundaries matched by <i>pattern</i>, or <b>FALSE</b>
  * if an error occurred.
  */
+#[Pure]
 function preg_split ($pattern, $subject, $limit = -1, $flags = 0) {}
 
 /**
@@ -440,7 +442,7 @@ function preg_split ($pattern, $subject, $limit = -1, $flags = 0) {}
  * @param string $str <p>
  * The input string.
  * </p>
- * @param string $delim_char [optional] <p>
+ * @param string $delimiter [optional] <p>
  * If the optional <i>delimiter</i> is specified, it
  * will also be escaped. This is useful for escaping the delimiter
  * that is required by the PCRE functions. The / is the most commonly
@@ -448,15 +450,16 @@ function preg_split ($pattern, $subject, $limit = -1, $flags = 0) {}
  * </p>
  * @return string the quoted (escaped) string.
  */
-function preg_quote ($str, $delim_char = null) {}
+#[Pure]
+function preg_quote ($str, $delimiter = null) {}
 
 /**
  * Return array entries that match the pattern
  * @link https://php.net/manual/en/function.preg-grep.php
- * @param string $regex <p>
+ * @param string $pattern <p>
  * The pattern to search for, as a string.
  * </p>
- * @param array $input <p>
+ * @param array $array <p>
  * The input array.
  * </p>
  * @param int $flags [optional] <p>
@@ -467,7 +470,8 @@ function preg_quote ($str, $delim_char = null) {}
  * @return array|false an array indexed using the keys from the
  * <i>input</i> array or false when pattern cannot be compiled.
  */
-function preg_grep ($regex, array $input, $flags = 0) {}
+#[Pure]
+function preg_grep ($pattern, array $array, $flags = 0) {}
 
 /**
  * Returns the error code of the last PCRE regex execution
@@ -480,6 +484,7 @@ function preg_grep ($regex, array $input, $flags = 0) {}
  * <b>PREG_BAD_UTF8_ERROR</b>
  * <b>PREG_BAD_UTF8_OFFSET_ERROR</b> (since PHP 5.3.0)
  */
+#[Pure]
 function preg_last_error () {}
 
 /**
@@ -488,6 +493,7 @@ function preg_last_error () {}
  * @return string one of the error messages or "No error" if there is no error.
  * @since 8.0
  */
+#[Pure]
 function preg_last_error_msg(): string {}
 
 /**

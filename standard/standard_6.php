@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Runs the equivalent of the select() system call on the given
@@ -542,7 +543,7 @@ function stream_socket_pair ($domain, $type, $protocol) {}
  * @param resource $to <p>
  * The destination stream
  * </p>
- * @param int $max_length [optional] <p>
+ * @param int $length [optional] <p>
  * Maximum bytes to copy
  * </p>
  * @param int $offset [optional] <p>
@@ -550,7 +551,7 @@ function stream_socket_pair ($domain, $type, $protocol) {}
  * </p>
  * @return int|false the total count of bytes copied, or false on failure.
  */
-function stream_copy_to_stream ($from, $to, $max_length = null, $offset = null) {}
+function stream_copy_to_stream ($from, $to, $length = null, $offset = null) {}
 
 /**
  * Reads remainder of a stream into a string
@@ -558,7 +559,7 @@ function stream_copy_to_stream ($from, $to, $max_length = null, $offset = null) 
  * @param resource $stream <p>
  * A stream resource (e.g. returned from fopen)
  * </p>
- * @param int $max_length [optional] <p>
+ * @param int $length [optional] <p>
  * The maximum bytes to read. Defaults to -1 (read all the remaining
  * buffer).
  * </p>
@@ -567,7 +568,7 @@ function stream_copy_to_stream ($from, $to, $max_length = null, $offset = null) 
  * </p>
  * @return string|false a string or false on failure.
  */
-function stream_get_contents ($stream, $max_length = null, $offset = null) {}
+function stream_get_contents ($stream, $length = null, $offset = null) {}
 
 /**
  * Tells whether the stream supports locking.
@@ -692,6 +693,7 @@ function flock ($stream, $operation, &$would_block = null) {}
  * '_', the rest is converted to lower case. If two meta tags have the same
  * name, only the last one is returned.
  */
+#[Pure]
 function get_meta_tags ($filename, $use_include_path = null) {}
 
 /**
@@ -871,6 +873,8 @@ function socket_set_blocking ($stream, $enable) {}
     "mode" => "string",
     "seekable" => "bool",
     "uri" => "string",
+    "crypto" => "array",
+    "mediatype" => "string",
 ])]
 function stream_get_meta_data ($stream) {}
 
@@ -880,7 +884,7 @@ function stream_get_meta_data ($stream) {}
  * @param resource $stream <p>
  * A valid file handle.
  * </p>
- * @param int $max_length <p>
+ * @param int $length <p>
  * The number of bytes to read from the handle.
  * </p>
  * @param string $ending [optional] <p>
@@ -892,7 +896,7 @@ function stream_get_meta_data ($stream) {}
  * <p>
  * If an error occurs, returns false.
  */
-function stream_get_line ($stream, $max_length, $ending = null) {}
+function stream_get_line ($stream, $length, $ending = null) {}
 
 /**
  * Register a URL wrapper implemented as a PHP class
@@ -973,6 +977,7 @@ function stream_wrapper_restore ($protocol) {}
  * @return array an indexed array containing the name of all stream wrappers
  * available on the running system.
  */
+#[Pure]
 function stream_get_wrappers () {}
 
 /**
@@ -980,6 +985,7 @@ function stream_get_wrappers () {}
  * @link https://php.net/manual/en/function.stream-get-transports.php
  * @return array an indexed array of socket transports names.
  */
+#[Pure]
 function stream_get_transports () {}
 
 /**
@@ -991,6 +997,7 @@ function stream_get_transports () {}
  * @return bool true on success or false on failure.
  * @since 5.2.4
  */
+#[Pure]
 function stream_is_local ($stream) {}
 
 /**
@@ -1008,6 +1015,7 @@ function stream_is_local ($stream) {}
  * @return array|false an indexed or associative array with the headers, or false on
  * failure.
  */
+#[Pure]
 function get_headers ($url, $as_assoc_array = null, $context = null) {}
 
 /**
@@ -1121,6 +1129,7 @@ function socket_get_status ($stream) {}
  * realpath returns false on failure, e.g. if
  * the file does not exist.
  */
+#[Pure]
 function realpath ($path) {}
 
 /**

@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * Check for alphanumeric character(s)
  * @link https://php.net/manual/en/function.ctype-alnum.php
@@ -9,6 +11,7 @@
  * @return bool <b>TRUE</b> if every character in <i>text</i> is either
  * a letter or a digit, <b>FALSE</b> otherwise.
  */
+#[Pure]
 function ctype_alnum ($text) {}
 
 /**
@@ -20,6 +23,7 @@ function ctype_alnum ($text) {}
  * @return bool <b>TRUE</b> if every character in <i>text</i> is
  * a letter from the current locale, <b>FALSE</b> otherwise.
  */
+#[Pure]
 function ctype_alpha ($text) {}
 
 /**
@@ -31,6 +35,7 @@ function ctype_alpha ($text) {}
  * @return bool <b>TRUE</b> if every character in <i>text</i> is
  * a control character from the current locale, <b>FALSE</b> otherwise.
  */
+#[Pure]
 function ctype_cntrl ($text) {}
 
 /**
@@ -42,6 +47,7 @@ function ctype_cntrl ($text) {}
  * @return bool <b>TRUE</b> if every character in the string
  * <i>text</i> is a decimal digit, <b>FALSE</b> otherwise.
  */
+#[Pure]
 function ctype_digit ($text) {}
 
 /**
@@ -53,6 +59,7 @@ function ctype_digit ($text) {}
  * @return bool <b>TRUE</b> if every character in <i>text</i> is
  * a lowercase letter in the current locale.
  */
+#[Pure]
 function ctype_lower ($text) {}
 
 /**
@@ -65,6 +72,7 @@ function ctype_lower ($text) {}
  * printable and actually creates visible output (no white space), <b>FALSE</b>
  * otherwise.
  */
+#[Pure]
 function ctype_graph ($text) {}
 
 /**
@@ -78,6 +86,7 @@ function ctype_graph ($text) {}
  * <i>text</i> contains control characters or characters
  * that do not have any output or control function at all.
  */
+#[Pure]
 function ctype_print ($text) {}
 
 /**
@@ -90,6 +99,7 @@ function ctype_print ($text) {}
  * @return bool <b>TRUE</b> if every character in <i>text</i>
  * is printable, but neither letter, digit or blank, <b>FALSE</b> otherwise.
  */
+#[Pure]
 function ctype_punct ($text) {}
 
 /**
@@ -103,6 +113,7 @@ function ctype_punct ($text) {}
  * blank character this also includes tab, vertical tab, line feed,
  * carriage return and form feed characters.
  */
+#[Pure]
 function ctype_space ($text) {}
 
 /**
@@ -114,6 +125,7 @@ function ctype_space ($text) {}
  * @return bool <b>TRUE</b> if every character in <i>text</i> is
  * an uppercase letter in the current locale.
  */
+#[Pure]
 function ctype_upper ($text) {}
 
 /**
@@ -126,4 +138,5 @@ function ctype_upper ($text) {}
  * a hexadecimal 'digit', that is a decimal digit or a character from
  * [A-Fa-f] , <b>FALSE</b> otherwise.
  */
+#[Pure]
 function ctype_xdigit ($text) {}

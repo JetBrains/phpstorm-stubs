@@ -1,6 +1,7 @@
 <?php
 
 // Start of tokenizer v.0.1
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Split given source into PHP tokens
@@ -26,6 +27,7 @@
  * or a three element array containing the token index in element 0, the string
  * content of the original token in element 1 and the line number in element 2.
  */
+#[Pure]
 function token_get_all ($code, $flags = 0) {}
 
 /**
@@ -36,6 +38,7 @@ function token_get_all ($code, $flags = 0) {}
  * </p>
  * @return string The symbolic name of the given <i>token</i>.
  */
+#[Pure]
 function token_name ($id) {}
 
 define('TOKEN_PARSE', 1);

@@ -16,10 +16,10 @@ function readline ($prompt = null) {}
 /**
  * Gets/sets various internal readline variables
  * @link https://php.net/manual/en/function.readline-info.php
- * @param string $varname [optional] <p>
+ * @param string $var_name [optional] <p>
  * A variable name.
  * </p>
- * @param string $newvalue [optional] <p>
+ * @param string $value [optional] <p>
  * If provided, this will be the new value of the setting.
  * </p>
  * @return mixed If called with no parameters, this function returns an array of
@@ -31,7 +31,7 @@ function readline ($prompt = null) {}
  * <p>
  * If called with one or two parameters, the old value is returned.
  */
-function readline_info ($varname = null, $newvalue = null) {}
+function readline_info ($var_name = null, $value = null) {}
 
 /**
  * Adds a line to the history
@@ -81,13 +81,13 @@ function readline_write_history ($filename = null) {}
 /**
  * Registers a completion function
  * @link https://php.net/manual/en/function.readline-completion-function.php
- * @param callable $funcname <p>
+ * @param callable $callback <p>
  * You must supply the name of an existing function which accepts a
  * partial command line and returns an array of possible matches.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function readline_completion_function (callable $funcname) {}
+function readline_completion_function (callable $callback) {}
 
 /**
  * Initializes the readline callback interface and terminal, prints the prompt and returns immediately

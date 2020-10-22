@@ -8,19 +8,19 @@
  * @param int $key <p>
  * Message queue numeric ID
  * </p>
- * @param int $perms [optional] <p>
+ * @param int $permissions [optional] <p>
  * Queue permissions. Default to 0666. If the message queue already
  * exists, the <i>perms</i> will be ignored.
  * </p>
  * @return resource|SysvMessageQueue a resource handle that can be used to access the System V message queue.
  */
-function msg_get_queue ($key, $perms = 0666) {}
+function msg_get_queue ($key, $permissions = 0666) {}
 
 /**
  * Send a message to a message queue
  * @link https://php.net/manual/en/function.msg-send.php
  * @param resource $queue
- * @param int $msgtype
+ * @param int $message_type
  * @param mixed $message
  * @param bool $serialize [optional] <p>
  * The optional <i>serialize</i> controls how the
@@ -43,7 +43,7 @@ function msg_get_queue ($key, $perms = 0666) {}
  * indicating that you should try to send your message again a little
  * later on.
  * </p>
- * @param int &$errorcode [optional]
+ * @param int &$error_code [optional]
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * </p>
  * <p>
@@ -52,13 +52,13 @@ function msg_get_queue ($key, $perms = 0666) {}
  * calling process, <i>msg_qnum</i> is incremented by 1 and
  * <i>msg_stime</i> is set to the current time.
  */
-function msg_send ($queue, $msgtype, $message, $serialize = true, $blocking = true, &$errorcode = null) {}
+function msg_send ($queue, $message_type, $message, $serialize = true, $blocking = true, &$error_code = null) {}
 
 /**
  * Receive a message from a message queue
  * @link https://php.net/manual/en/function.msg-receive.php
  * @param resource $queue
- * @param int $desiredmsgtype <p>
+ * @param int $desired_message_type <p>
  * If <i>desiredmsgtype</i> is 0, the message from the front
  * of the queue is returned. If <i>desiredmsgtype</i> is
  * greater than 0, then the first message of that type is returned.
@@ -70,11 +70,11 @@ function msg_send ($queue, $msgtype, $message, $serialize = true, $blocking = tr
  * by specifying <b>MSG_IPC_NOWAIT</b> in the
  * <i>flags</i> parameter.
  * </p>
- * @param int &$msgtype <p>
+ * @param int &$received_message_type <p>
  * The type of the message that was received will be stored in this
  * parameter.
  * </p>
- * @param int $maxsize <p>
+ * @param int $max_message_size <p>
  * The maximum size of message to be accepted is specified by the
  * <i>maxsize</i>; if the message in the queue is larger
  * than this size the function will fail (unless you set
@@ -127,7 +127,7 @@ function msg_send ($queue, $msgtype, $message, $serialize = true, $blocking = tr
  * </tr>
  * </table>
  * </p>
- * @param int $errorcode [optional] <p>
+ * @param int $error_code [optional] <p>
  * If the function fails, the optional <i>errorcode</i>
  * will be set to the value of the system errno variable.
  * </p>
@@ -139,7 +139,7 @@ function msg_send ($queue, $msgtype, $message, $serialize = true, $blocking = tr
  * calling process, msg_qnum is decremented by 1 and
  * msg_rtime is set to the current time.
  */
-function msg_receive ($queue, $desiredmsgtype, &$msgtype, $maxsize, &$message, $unserialize = true, $flags = 0, &$errorcode = null) {}
+function msg_receive ($queue, $desired_message_type, &$received_message_type, $max_message_size, &$message, $unserialize = true, $flags = 0, &$error_code = null) {}
 
 /**
  * Destroy a message queue
@@ -260,7 +260,13 @@ define ('MSG_EXCEPT', 4);
 /**
  * @since 8.0
  */
-final class SysvMessageQueue{}
+final class SysvMessageQueue{
+    /**
+     * Cannot directly construct SysvMessageQueue, use msg_get_queue() instead
+     * @see msg_get_queue()
+     */
+    private function __construct(){}
+}
 
 // End of sysvmsg v.
 ?>

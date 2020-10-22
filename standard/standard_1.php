@@ -1,6 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
 
 
 /**
@@ -11,6 +12,7 @@ use JetBrains\PhpStorm\ArrayShape;
  * </p>
  * @return string the uppercased string.
  */
+#[Pure]
 function strtoupper ($string) {}
 
 /**
@@ -21,6 +23,7 @@ function strtoupper ($string) {}
  * </p>
  * @return string the lowercased string.
  */
+#[Pure]
 function strtolower ($string) {}
 
 /**
@@ -47,6 +50,7 @@ function strtolower ($string) {}
  * Returns <b>FALSE</b> if the needle was not found.
  * </p>
  */
+#[Pure]
 function strpos ($haystack, $needle, $offset = 0) {}
 
 /**
@@ -72,6 +76,7 @@ function strpos ($haystack, $needle, $offset = 0) {}
  * @return int|false If needle is not found,
  * stripos will return boolean false.
  */
+#[Pure]
 function stripos ($haystack, $needle, $offset = null) {}
 
 /**
@@ -96,6 +101,7 @@ function stripos ($haystack, $needle, $offset = null) {}
  * Returns <b>FALSE</b> if the needle was not found.
  * </p>
  */
+#[Pure]
 function strrpos ($haystack, $needle, $offset = 0) {}
 
 /**
@@ -124,6 +130,7 @@ function strrpos ($haystack, $needle, $offset = 0) {}
  * <p>
  * If needle is not found, false is returned.
  */
+#[Pure]
 function strripos ($haystack, $needle, $offset = null) {}
 
 /**
@@ -134,6 +141,7 @@ function strripos ($haystack, $needle, $offset = null) {}
  * </p>
  * @return string the reversed string.
  */
+#[Pure]
 function strrev ($string) {}
 
 /**
@@ -148,6 +156,7 @@ function strrev ($string) {}
  * </p>
  * @return string the visual string.
  */
+#[Pure]
 function hebrev ($string, $max_chars_per_line = null) {}
 
 /**
@@ -177,6 +186,7 @@ function hebrevc ($hebrew_text, $max_chars_per_line = null) {}
  * </p>
  * @return string the altered string.
  */
+#[Pure]
 function nl2br ($string, $use_xhtml = true) {}
 
 /**
@@ -196,6 +206,7 @@ function nl2br ($string, $use_xhtml = true) {}
  * </p>
  * @return string the base name of the given path.
  */
+#[Pure]
 function basename ($path, $suffix = null) {}
 
 /**
@@ -219,6 +230,7 @@ function basename ($path, $suffix = null) {}
  * path with any trailing
  * /component removed.
  */
+#[Pure]
 function dirname ($path, $levels = 1) {}
 
 /**
@@ -244,6 +256,7 @@ function dirname ($path, $levels = 1) {}
  * If options is used, this function will return a
  * string if not all elements are requested.
  */
+#[Pure]
 function pathinfo ($path, $flags = null) {}
 
 /**
@@ -257,6 +270,7 @@ function pathinfo ($path, $flags = null) {}
  * Double backslashes (\\) are made into a single
  * backslash (\).
  */
+#[Pure]
 function stripslashes ($string) {}
 
 /**
@@ -267,6 +281,7 @@ function stripslashes ($string) {}
  * </p>
  * @return string the unescaped string.
  */
+#[Pure]
 function stripcslashes ($string) {}
 
 /**
@@ -287,6 +302,7 @@ function stripcslashes ($string) {}
  * @return string|false the portion of string, or false if needle
  * is not found.
  */
+#[Pure]
 function strstr ($haystack, $needle, $before_needle = null) {}
 
 /**
@@ -307,6 +323,7 @@ function strstr ($haystack, $needle, $before_needle = null) {}
  * @return string|false the matched substring. If needle is not
  * found, returns false.
  */
+#[Pure]
 function stristr ($haystack, $needle, $before_needle = null) {}
 
 /**
@@ -328,6 +345,7 @@ function stristr ($haystack, $needle, $before_needle = null) {}
  * <b>needle</b> is not found.
  * </p>
  */
+#[Pure]
 function strrchr ($haystack, $needle) {}
 
 /**
@@ -338,6 +356,7 @@ function strrchr ($haystack, $needle) {}
  * </p>
  * @return string the shuffled string.
  */
+#[Pure]
 function str_shuffle ($string) {}
 
 /**
@@ -357,6 +376,7 @@ function str_shuffle ($string) {}
  * @return string[]|int an array or an integer, depending on the
  * format chosen.
  */
+#[Pure]
 function str_word_count ($string, $format = null, $characters = null) {}
 
 /**
@@ -379,6 +399,7 @@ function str_word_count ($string, $format = null, $characters = null) {}
  * string, the entire string is returned as the first
  * (and only) array element.
  */
+#[Pure]
 function str_split ($string, $length = 1) {}
 
 /**
@@ -393,6 +414,7 @@ function str_split ($string, $length = 1) {}
  * @return string|false a string starting from the character found, or false if it is
  * not found.
  */
+#[Pure]
 function strpbrk ($string, $characters) {}
 
 /**
@@ -423,6 +445,7 @@ function strpbrk ($string, $characters) {}
  * is less than 1, substr_compare prints a warning and returns
  * false.
  */
+#[Pure]
 function substr_compare ($haystack, $needle, $offset, $length = null, $case_insensitive = null) {}
 
 /**
@@ -439,6 +462,7 @@ function substr_compare ($haystack, $needle, $offset, $length = null, $case_inse
  * str1 is greater than
  * str2, and 0 if they are equal.
  */
+#[Pure]
 function strcoll ($string1, $string2) {}
 
 /**
@@ -522,6 +546,7 @@ function money_format ($format, $number) {}
  * </pre>
  * @return string|false the extracted part of string or false on failure.
  */
+#[Pure]
 function substr ($string, $offset, $length = null) {}
 
 /**
@@ -559,6 +584,7 @@ function substr ($string, $offset, $length = null) {}
  * @return string|string[] The result string is returned. If string is an
  * array then array is returned.
  */
+#[Pure]
 function substr_replace ($string, $replace, $offset, $length = null) {}
 
 /**
@@ -569,6 +595,7 @@ function substr_replace ($string, $replace, $offset, $length = null) {}
  * </p>
  * @return string the string with meta characters quoted.
  */
+#[Pure]
 function quotemeta ($string) {}
 
 /**
@@ -579,6 +606,7 @@ function quotemeta ($string) {}
  * </p>
  * @return string the resulting string.
  */
+#[Pure]
 function ucfirst ($string) {}
 
 /**
@@ -589,6 +617,7 @@ function ucfirst ($string) {}
  * </p>
  * @return string the resulting string.
  */
+#[Pure]
 function lcfirst ($string) {}
 
 /**
@@ -600,6 +629,7 @@ function lcfirst ($string) {}
  * @param string $separators [optional] <p>
  * @return string the modified string.
  */
+#[Pure]
 function ucwords ($string, $separators = " \t\r\n\f\v") {}
 
 /**
@@ -619,6 +649,7 @@ function ucwords ($string, $separators = " \t\r\n\f\v") {}
  * from to the corresponding character in
  * to.
  */
+#[Pure]
 function strtr ($string, $from, $to) {}
 
 /**
@@ -628,6 +659,7 @@ function strtr ($string, $from, $to) {}
  * @param array $replace_pairs The replace_pairs parameter may be used as a substitute for to and from in which case it's an array in the form array('from' => 'to', ...).
  * @return string A copy of str, translating all occurrences of each character in from to the corresponding character in to.
  */
+#[Pure]
 function strtr ($str, array $replace_pairs) {}
 
 /**
@@ -638,6 +670,7 @@ function strtr ($str, array $replace_pairs) {}
  * </p>
  * @return string the escaped string.
  */
+#[Pure]
 function addslashes ($string) {}
 
 /**
@@ -690,6 +723,7 @@ function addslashes ($string) {}
  * </p>
  * @return string the escaped string.
  */
+#[Pure]
 function addcslashes ($string, $characters) {}
 
 /**
@@ -715,6 +749,7 @@ function addcslashes ($string, $characters) {}
  * </p>
  * @return string the modified string.
  */
+#[Pure]
 function rtrim ($string, $characters = " \t\n\r\0\x0B") {}
 
 /**
@@ -784,6 +819,7 @@ function str_ireplace ($search, $replace, $subject, &$count = null) {}
  * </p>
  * @return string the repeated string.
  */
+#[Pure]
 function str_repeat ($string, $times) {}
 
 /**
@@ -806,6 +842,7 @@ function str_repeat ($string, $times) {}
  * 3 - a string containing all unique characters is returned.
  * 4 - a string containing all not used characters is returned.
  */
+#[Pure]
 function count_chars ($string, $mode = null) {}
 
 /**
@@ -822,6 +859,7 @@ function count_chars ($string, $mode = null) {}
  * </p>
  * @return string the chunked string.
  */
+#[Pure]
 function chunk_split ($string, $length = 76, $separator = "\r\n") {}
 
 /**
@@ -838,6 +876,7 @@ function chunk_split ($string, $length = 76, $separator = "\r\n") {}
  * </p>
  * @return string The trimmed string.
  */
+#[Pure]
 function trim ($string, $characters = " \t\n\r\0\x0B") {}
 
 /**
@@ -869,6 +908,7 @@ function trim ($string, $characters = " \t\n\r\0\x0B") {}
  * "\x0B" (ASCII 11
  * (0x0B)), a vertical tab.
  */
+#[Pure]
 function ltrim ($string, $characters = " \t\n\r\0\x0B") {}
 
 /**
@@ -888,6 +928,7 @@ function ltrim ($string, $characters = " \t\n\r\0\x0B") {}
  * </p>
  * @return string the stripped string.
  */
+#[Pure]
 function strip_tags ($string, $allowed_tags = null) {}
 
 /**
@@ -937,6 +978,7 @@ function similar_text ($string1, $string2, &$percent = null) {}
  * returned. For any other limit, an array containing
  * string will be returned.
  */
+#[Pure]
 function explode ($separator, $string, $limit = null) {}
 
 /**
@@ -953,6 +995,7 @@ function explode ($separator, $string, $limit = null) {}
  * @return string a string containing a string representation of all the array
  * elements in the same order, with the glue string between each element.
  */
+#[Pure]
 function implode ($separator = "", array $array) {}
 
 /**
@@ -969,6 +1012,7 @@ function implode ($separator = "", array $array) {}
  * @return string a string containing a string representation of all the array
  * elements in the same order, with the glue string between each element.
  */
+#[Pure]
 function join ($separator = "", $array) {}
 
 /**
@@ -1181,4 +1225,5 @@ function setlocale ($category, $locales, ...$rest) {}
     "p_sign_posn" => "int",
     "n_sign_posn" => "int",
 ])]
+#[Pure]
 function localeconv () {}

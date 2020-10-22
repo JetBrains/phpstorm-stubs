@@ -5,8 +5,8 @@ namespace JetBrains\PhpStorm;
 use Attribute;
 
 /**
- * The attribute marks function that has no impact on program state or passed parameters that are used after function exectuion.
- * In other words, it means that function call that resolved to such function can be safely removed if result of execution is not used in code after.
+ * The attribute marks the function that has no impact on the program state or passed parameters used after the function execution.
+ * This means that a function call that resolves to such a function can be safely removed if the execution result is not used in code afterwards.
  *
  * @since 8.0
  */

@@ -1,6 +1,7 @@
 <?php
 
 // Start of json v.1.3.1
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Objects implementing JsonSerializable
@@ -69,7 +70,7 @@ class JsonIncrementalParser  {
  * JSON - it will also encode and decode scalar types and <b>NULL</b>. The JSON standard
  * only supports these values when they are nested inside an array or an object.
  * </p>
- * @param int $options [optional] <p>
+ * @param int $flags [optional] <p>
  * Bitmask consisting of <b>JSON_HEX_QUOT</b>,
  * <b>JSON_HEX_TAG</b>,
  * <b>JSON_HEX_AMP</b>,
@@ -88,7 +89,7 @@ class JsonIncrementalParser  {
  * </p>
  * @return string|false a JSON encoded string on success or <b>FALSE</b> on failure.
  */
-function json_encode ($value, $options = 0, $depth = 512) {}
+function json_encode ($value, $flags = 0, $depth = 512) {}
 
 /**
  * (PHP 5 &gt;= 5.2.0, PECL json &gt;= 1.2.0)<br/>
@@ -104,14 +105,14 @@ function json_encode ($value, $options = 0, $depth = 512) {}
  * JSON - it will also encode and decode scalar types and <b>NULL</b>. The JSON standard
  * only supports these values when they are nested inside an array or an object.
  * </p>
- * @param bool $assoc [optional] <p>
+ * @param bool $associative [optional] <p>
  * When <b>TRUE</b>, returned objects will be converted into
  * associative arrays.
  * </p>
  * @param int $depth [optional] <p>
  * User specified recursion depth.
  * </p>
- * @param int $options [optional] <p>
+ * @param int $flags [optional] <p>
  * Bitmask of JSON decode options:<br/>
  * {@see JSON_BIGINT_AS_STRING} decodes large integers as their original string value.<br/>
  * {@see JSON_INVALID_UTF8_IGNORE} ignores invalid UTF-8 characters,<br/>
@@ -126,7 +127,7 @@ function json_encode ($value, $options = 0, $depth = 512) {}
  * <i>json</i> cannot be decoded or if the encoded
  * data is deeper than the recursion limit.
  */
-function json_decode ($json, $assoc = false, $depth = 512, $options = 0) {}
+function json_decode ($json, $associative = false, $depth = 512, $flags = 0) {}
 
 /**
  * Returns the last error occurred
@@ -134,6 +135,7 @@ function json_decode ($json, $assoc = false, $depth = 512, $options = 0) {}
  * @return int an integer, the value can be one of the following
  * constants:
  */
+#[Pure]
 function json_last_error () {}
 
 /**
@@ -142,6 +144,7 @@ function json_last_error () {}
  * @return string|false Returns the error message on success, "No error" if no error has occurred, or FALSE on failure.
  * @since 5.5
  */
+#[Pure]
 function json_last_error_msg () {}
 
 

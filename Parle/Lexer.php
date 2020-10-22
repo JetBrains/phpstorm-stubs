@@ -1,5 +1,7 @@
 <?php namespace Parle;
 
+use JetBrains\PhpStorm\Immutable;
+
 /**
  * Single state lexer class.
  *
@@ -33,21 +35,21 @@ class Lexer
 
     /**
      * @var int Current lexer state, readonly.
-     * @property-read
      */
-    public $state = 0 ;
+    #[Immutable]
+    public $state = 0;
 
     /**
      * @var int Position of the latest token match, readonly.
-     * @property-read
      */
-    public $marker = 0 ;
+    #[Immutable]
+    public $marker = 0;
 
     /**
      * @var int Current input offset, readonly.
-     * @property-read
      */
-    public $cursor = 0 ;
+    #[Immutable]
+    public $cursor = 0;
 
     /* Methods */
 

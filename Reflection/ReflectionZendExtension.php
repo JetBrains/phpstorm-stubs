@@ -1,13 +1,19 @@
 <?php
 
+use JetBrains\PhpStorm\Immutable;
+
 /**
- * @property-read string $name Name of the extension, same as calling the {@see ReflectionZendExtension::getName()} method
- *
  * @link https://secure.php.net/manual/en/class.reflectionzendextension.php
  * @since 5.4
  */
 class ReflectionZendExtension implements Reflector
 {
+    /**
+     * @var string Name of the extension, same as calling the {@see ReflectionZendExtension::getName()} method
+     */
+    #[Immutable]
+    public $name;
+
     /**
      * Constructs a ReflectionZendExtension object
      *

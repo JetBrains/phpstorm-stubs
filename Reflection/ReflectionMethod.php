@@ -1,16 +1,27 @@
 <?php
 
+use JetBrains\PhpStorm\Immutable;
+
 /**
  * The <b>ReflectionMethod</b> class reports
  * information about a method.
- *
- * @property-read string $name Name of the method, same as calling the {@see ReflectionMethod::getName()} method
- * @property-read string $class Fully qualified class name where this method was defined
  *
  * @link https://php.net/manual/en/class.reflectionmethod.php
  */
 class ReflectionMethod extends ReflectionFunctionAbstract
 {
+    /**
+     * @var string Name of the method, same as calling the {@see ReflectionMethod::getName()} method
+     */
+    #[Immutable]
+    public $name;
+
+    /**
+     * @var string Fully qualified class name where this method was defined
+     */
+    #[Immutable]
+    public $class;
+
     /**
      * Indicates that the method is static.
      */

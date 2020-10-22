@@ -4,19 +4,21 @@
 namespace Parle;
 
 
+use JetBrains\PhpStorm\Immutable;
+
 class Stack
 {
     /* Properties */
     /**
      * @var bool Whether the stack is empty, readonly.
-     * @property-read
      */
+    #[Immutable]
     public $empty = true;
 
     /**
      * @var int Stack size, readonly.
-     * @property-read
      */
+    #[Immutable]
     public $size = 0;
 
     /**

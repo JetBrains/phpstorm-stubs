@@ -1,6 +1,7 @@
 <?php
 
 // Start of date v.5.3.2-0.dotdeb.1
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Parse about any English textual datetime description into a Unix timestamp
@@ -16,6 +17,7 @@
  * @return int|false a timestamp on success, false otherwise. Previous to PHP 5.1.0,
  * this function would return -1 on failure.
  */
+#[Pure]
 function strtotime ($datetime, $baseTimestamp = 'time()') {}
 
 /**
@@ -285,6 +287,7 @@ function strtotime ($datetime, $baseTimestamp = 'time()') {}
  * timestamp, false is returned and an
  * E_WARNING level error is emitted.
  */
+#[Pure]
 function date ($format, $timestamp = 'time()') {}
 
 /**
@@ -380,6 +383,7 @@ function date ($format, $timestamp = 'time()') {}
  * as they can't start with a "0", idate may return
  * fewer digits than you would expect. See the example below.
  */
+#[Pure]
 function idate ($format, $timestamp = null) {}
 
 /**
@@ -394,6 +398,7 @@ function idate ($format, $timestamp = null) {}
  * timestamp, false is returned and an
  * E_WARNING level error is emitted.
  */
+#[Pure]
 function gmdate ($format, $timestamp = null) {}
 
 /**
@@ -447,6 +452,7 @@ function gmdate ($format, $timestamp = null) {}
  * If the arguments are invalid, the function returns false (before PHP 5.1
  * it returned -1).
  */
+#[Pure]
 function mktime ($hour = null, $minute = null, $second = null, $month = null, $day = null, $year = null, $is_dst = -1) {}
 
 /**
@@ -476,6 +482,7 @@ function mktime ($hour = null, $minute = null, $second = null, $month = null, $d
  * </p>
  * @return int a integer Unix timestamp.
  */
+#[Pure]
 function gmmktime ($hour = null, $minute = null, $second = null, $month = null, $day = null, $year = null, $is_dst = null) {}
 
 /**
@@ -494,6 +501,7 @@ function gmmktime ($hour = null, $minute = null, $second = null, $month = null, 
  * </p>
  * @return bool true if the date given is valid; otherwise returns false.
  */
+#[Pure]
 function checkdate ($month, $day, $year) {}
 
 /**
@@ -794,6 +802,7 @@ function time () {}
  * "tm_sec" - seconds
  * @return array
  */
+#[Pure]
 function localtime ($timestamp = null, $associative = null) {}
 
 /**
@@ -875,6 +884,7 @@ function localtime ($timestamp = null, $associative = null) {}
  * </tr>
  * </table>
  */
+#[Pure]
 function getdate ($timestamp = null) {}
 
 /**
@@ -888,6 +898,7 @@ function getdate ($timestamp = null) {}
  * </p>
  * @return DateTime|false DateTime object on success or false on failure.
  */
+#[Pure]
 function date_create ($datetime = null, DateTimeZone $timezone = null ) {}
 
 /**
@@ -904,6 +915,7 @@ function date_create ($datetime = null, DateTimeZone $timezone = null ) {}
  * </p>
  * @return DateTimeImmutable|false DateTime object on success or false on failure.
  */
+#[Pure]
 function date_create_immutable ($datetime = null, DateTimeZone $timezone = null ) {}
 
 /**
@@ -914,6 +926,7 @@ function date_create_immutable ($datetime = null, DateTimeZone $timezone = null 
  * @param DateTimeZone $timezone [optional]
  * @return DateTimeImmutable
  */
+#[Pure]
 function date_create_immutable_from_format ($format, $datetime, DateTimeZone $timezone = null) {}
 
 /**
@@ -929,6 +942,7 @@ function date_create_immutable_from_format ($format, $datetime, DateTimeZone $ti
  * @return DateTime|false <p> Returns a new
  * {@see DateTime} instance or <b>FALSE</b> on failure.</p>
  */
+#[Pure]
 function date_create_from_format ($format, $datetime, $timezone = null) {}
 
 /**
@@ -940,6 +954,7 @@ function date_create_from_format ($format, $datetime, $timezone = null) {}
  * @return array|false array with information about the parsed date
  * on success or false on failure.
  */
+#[Pure]
 function date_parse ($datetime) {}
 
 /**
@@ -953,6 +968,7 @@ function date_parse ($datetime) {}
  * </p>
  * @return array associative array with detailed info about given date.
  */
+#[Pure]
 function date_parse_from_format ($format, $datetime) {}
 
 /**
@@ -961,6 +977,7 @@ function date_parse_from_format ($format, $datetime) {}
  * @link https://php.net/manual/en/function.date-get-last-errors.php
  * @return array <p>Returns array containing info about warnings and errors.</p>
  */
+#[Pure]
 function date_get_last_errors () {}
 
 /**
@@ -971,6 +988,7 @@ function date_get_last_errors () {}
  * @param $format
  * @return string|false formatted date string on success or <b>FALSE</b> on failure.
  */
+#[Pure]
 function date_format ($object, $format) {}
 
 /**
@@ -983,6 +1001,7 @@ function date_format ($object, $format) {}
  * @param string $modifier A date/time string. Valid formats are explained in {@link https://secure.php.net/manual/en/datetime.formats.php Date and Time Formats}.
  * @return DateTime|false Returns the DateTime object for method chaining or <b>FALSE</b> on failure.
  */
+#[Pure]
 function date_modify ($object, $modifier) {}
 
 /**
@@ -996,6 +1015,7 @@ function date_modify ($object, $modifier) {}
  * @return DateTime|false <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
+#[Pure]
 function date_add ($object, $interval) {}
 
 /**
@@ -1010,6 +1030,7 @@ function date_add ($object, $interval) {}
  * @return DateTime|false <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
+#[Pure]
 function date_sub ($object, $interval) {}
 
 /**
@@ -1027,6 +1048,7 @@ function date_sub ($object, $interval) {}
  * or <b>FALSE</b> on failure.
  * </p>
  */
+#[Pure]
 function date_timezone_get ($object) {}
 
 /**
@@ -1041,6 +1063,7 @@ function date_timezone_get ($object) {}
  * @return DateTime|false <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
+#[Pure]
 function date_timezone_set ($object, $timezone) {}
 
 /**
@@ -1051,6 +1074,7 @@ function date_timezone_set ($object, $timezone) {}
  * returned by {@see date_create()}</p>
  * @return int|false <p>Returns the timezone offset in seconds from UTC on success or <b>FALSE</b> on failure.</p>
  */
+#[Pure]
 function date_offset_get ($object) {}
 
 /**
@@ -1062,6 +1086,7 @@ function date_offset_get ($object) {}
  * @param bool $absolute [optional] Whether to return absolute difference.
  * @return DateInterval|false The DateInterval object representing the difference between the two dates or FALSE on failure.
  */
+#[Pure]
 function date_diff ($baseObject, $targetObject, $absolute = false) {}
 
 /**
@@ -1075,6 +1100,7 @@ function date_diff ($baseObject, $targetObject, $absolute = false) {}
  * @return DateTime|false <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
+#[Pure]
 function date_time_set ($object, $hour, $minute, $second = 0, $microsecond = 0) {}
 
 /**
@@ -1127,6 +1153,7 @@ function date_timestamp_set ($object, $timestamp) {}
  * @param DateTimeInterface $object
  * @return int <p>Returns the Unix timestamp representing the date.</p>
  */
+#[Pure]
 function date_timestamp_get ($object) {}
 
 /**
@@ -1138,6 +1165,7 @@ function date_timestamp_get ($object) {}
  * </p>
  * @return DateTimeZone|false DateTimeZone object on success or false on failure.
  */
+#[Pure]
 function timezone_open ($timezone) {}
 
 /**
@@ -1147,6 +1175,7 @@ function timezone_open ($timezone) {}
  * {@see DateTimeZone} for which to get a name.</p>
  * @return string One of the timezone names in the list of timezones.
  */
+#[Pure]
 function timezone_name_get ($object) {}
 
 /**
@@ -1169,6 +1198,7 @@ function timezone_name_get ($object) {}
  * @return string|false time zone name on success or false on failure.
  * @since 5.1.3
  */
+#[Pure]
 function timezone_name_from_abbr ($abbr, $utcOffset = null, $isDST = null) {}
 
 /**
@@ -1182,6 +1212,7 @@ function timezone_name_from_abbr ($abbr, $utcOffset = null, $isDST = null) {}
  * @param $datetime <p>DateTime that contains the date/time to compute the offset from.</p>
  * @return int|false <p>Returns time zone offset in seconds on success or <b>FALSE</b> on failure.</p>
  */
+#[Pure]
 function timezone_offset_get ($object, $datetime) {}
 
 /**
@@ -1195,6 +1226,7 @@ function timezone_offset_get ($object, $datetime) {}
  * @param int $timestampEnd [optional] <p>End timestamp</p>
  * @return array|false <p>Returns numerically indexed array containing associative array with all transitions on success or FALSE on failure.</p>
  */
+#[Pure]
 function timezone_transitions_get ($object, $timestampBegin, $timestampEnd) {}
 
 /**
@@ -1203,6 +1235,7 @@ function timezone_transitions_get ($object, $timestampBegin, $timestampEnd) {}
  * @param $object <p>Procedural style only: A {@see DateTimeZone} object returned by {@see timezone_open()}
  * @return array <p>Array containing location information about timezone.</p>
  */
+#[Pure]
 function timezone_location_get ($object) {}
 
 /**
@@ -1214,6 +1247,7 @@ function timezone_location_get ($object) {}
  * @return array|false Returns array on success or FALSE on failure.
  * Note: This option is only used when what is set to DateTimeZone::PER_COUNTRY.
  */
+#[Pure]
 function timezone_identifiers_list ($timezoneGroup = DateTimeZone::ALL, $countryCode = null) {}
 
 /**
@@ -1223,6 +1257,7 @@ function timezone_identifiers_list ($timezoneGroup = DateTimeZone::ALL, $country
  * @link https://php.net/manual/en/function.timezone-abbreviations-list.php
  * @return array|false Array on success or <b>FALSE</b> on failure.
  */
+#[Pure]
 function timezone_abbreviations_list () {}
 
 /**
@@ -1230,6 +1265,7 @@ function timezone_abbreviations_list () {}
  * @link https://php.net/manual/en/function.timezone-version-get.php
  * @return string a string.
  */
+#[Pure]
 function timezone_version_get () {}
 
 /**
@@ -1243,6 +1279,7 @@ function timezone_version_get () {}
  * @return DateInterval
  * <p>Returns a new DateInterval instance.</p>
  */
+#[Pure]
 function date_interval_create_from_date_string ($datetime) {}
 
 /**
@@ -1252,6 +1289,7 @@ function date_interval_create_from_date_string ($datetime) {}
  * @param $format
  * @return DateInterval
  */
+#[Pure]
 function date_interval_format ($object, $format) {}
 
 /**
@@ -1266,13 +1304,14 @@ function date_interval_format ($object, $format) {}
  * timezone_identifier isn't valid, or true
  * otherwise.
  */
-function date_default_timezone_set ($timezoneID) {}
+function date_default_timezone_set ($timezoneId) {}
 
 /**
  * Gets the default timezone used by all date/time functions in a script
  * @link https://php.net/manual/en/function.date-default-timezone-get.php
  * @return string a string.
  */
+#[Pure]
 function date_default_timezone_get () {}
 
 /**
@@ -1322,6 +1361,7 @@ function date_default_timezone_get () {}
  * @return mixed the sunrise time in a specified format on
  * success or false on failure.
  */
+#[Pure]
 function date_sunrise ($timestamp, $returnFormat = null, $latitude = null, $longitude = null, $zenith = null, $utcOffset = null) {}
 
 /**
@@ -1371,6 +1411,7 @@ function date_sunrise ($timestamp, $returnFormat = null, $latitude = null, $long
  * @return mixed the sunset time in a specified format on
  * success or false on failure.
  */
+#[Pure]
 function date_sunset ($timestamp, $returnFormat = null, $latitude = null, $longitude = null, $zenith = null, $utcOffset = null) {}
 
 /**
@@ -1388,6 +1429,7 @@ function date_sunset ($timestamp, $returnFormat = null, $latitude = null, $longi
  * @return array|false array on success or false on failure.
  * @since 5.1.2
  */
+#[Pure]
 function date_sun_info ($timestamp, $latitude, $longitude) {}
 
 // End of date v.5.3.2-0.dotdeb.1

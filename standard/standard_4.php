@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Get the last occurred error
@@ -16,6 +17,7 @@ use JetBrains\PhpStorm\Deprecated;
     "file" => "string",
     "line" => "int",
 ])]
+#[Pure]
 function error_get_last () {}
 
 /**
@@ -139,7 +141,7 @@ function serialize ($value) {}
 /**
  * Creates a PHP value from a stored representation
  * @link https://php.net/manual/en/function.unserialize.php
- * @param string $value <p>
+ * @param string $data <p>
  * The serialized string.
  * </p>
  * <p>
@@ -177,7 +179,7 @@ function serialize ($value) {}
  * In case the passed string is not unserializeable, false is returned and
  * E_NOTICE is issued.
  */
-function unserialize (string $value, array $options = []) {}
+function unserialize (string $data, array $options = []) {}
 
 /**
  * Dumps information about a variable
@@ -247,6 +249,7 @@ function print_r ($value, $return = null) {}
  * </p>
  * @return int the memory amount in bytes.
  */
+#[Pure]
 function memory_get_usage ($real_usage = false) {}
 
 /**
@@ -259,6 +262,7 @@ function memory_get_usage ($real_usage = false) {}
  * </p>
  * @return int the memory peak in bytes.
  */
+#[Pure]
 function memory_get_peak_usage ($real_usage = false) {}
 
 /**
@@ -359,6 +363,7 @@ function highlight_string ($string, $return = false) {}
  * @return int[]|int|float Returns an array of integers in the form [seconds, nanoseconds], if the parameter get_as_number is false.
  * Otherwise the nanoseconds are returned as integer (64bit platforms) or float (32bit platforms).
  */
+#[Pure]
 function hrtime($as_number = false) {}
 
 /**
@@ -376,6 +381,7 @@ function hrtime($as_number = false) {}
  * prior behavior, see bug report
  * #29606.
  */
+#[Pure]
 function php_strip_whitespace ($filename) {}
 
 /**
@@ -388,6 +394,7 @@ function php_strip_whitespace ($filename) {}
  * @return string the value of the configuration option as a string on success, or
  * an empty string on failure or for null values.
  */
+#[Pure]
 function ini_get ($name) {}
 
 /**
@@ -423,6 +430,7 @@ function ini_get ($name) {}
  * It's possible for a directive to have multiple access levels, which is
  * why access shows the appropriate bitmask values.
  */
+#[Pure]
 function ini_get_all ($extension = null, $details = null) {}
 
 /**
@@ -469,6 +477,7 @@ function ini_restore ($name) {}
  * @link https://php.net/manual/en/function.get-include-path.php
  * @return string the path, as a string.
  */
+#[Pure]
 function get_include_path () {}
 
 /**
@@ -697,6 +706,7 @@ function headers_sent (&$filename = null, &$line = null) {}
  * @link https://php.net/manual/en/function.headers-list.php
  * @return array a numerically indexed array of headers.
  */
+#[Pure]
 function headers_list () {}
 
 /**
@@ -704,6 +714,7 @@ function headers_list () {}
  * @link https://php.net/manual/en/function.apache-request-headers.php
  * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b on failure.
  */
+#[Pure]
 function apache_request_headers () {}
 
 /**
@@ -712,6 +723,7 @@ function apache_request_headers () {}
  * @link https://php.net/manual/en/function.getallheaders.php
  * @return array|false An associative array of all the HTTP headers in the current request, or <b>FALSE</b> on failure.
  */
+#[Pure]
 function getallheaders () {}
 
 /**
@@ -719,6 +731,7 @@ function getallheaders () {}
  * @link https://php.net/manual/en/function.connection-aborted.php
  * @return int 1 if client disconnected, 0 otherwise.
  */
+#[Pure]
 function connection_aborted () {}
 
 /**
@@ -728,6 +741,7 @@ function connection_aborted () {}
  * CONNECTION_XXX constants to determine the connection
  * status.
  */
+#[Pure]
 function connection_status () {}
 
 /**
@@ -792,6 +806,7 @@ function parse_ini_file ($filename, $process_sections = false, $scanner_mode = I
  * @return array|false The settings are returned as an associative array on success,
  * and false on failure.
  */
+#[Pure]
 function parse_ini_string ($ini_string, $process_sections = false, $scanner_mode = INI_SCANNER_NORMAL) {}
 
 /**
@@ -802,6 +817,7 @@ function parse_ini_string ($ini_string, $process_sections = false, $scanner_mode
  * </p>
  * @return bool true on success or false on failure.
  */
+#[Pure]
 function is_uploaded_file ($filename) {}
 
 /**
@@ -830,6 +846,7 @@ function move_uploaded_file ($from, $to) {}
  * @return array|false
  * @since 7.3
  */
+#[Pure]
 function net_get_interfaces() {}
 
 /**
@@ -841,6 +858,7 @@ function net_get_interfaces() {}
  * @return string the host name or the unmodified ip_address
  * on failure.
  */
+#[Pure]
 function gethostbyaddr ($ip) {}
 
 /**
@@ -852,6 +870,7 @@ function gethostbyaddr ($ip) {}
  * @return string the IPv4 address or a string containing the unmodified
  * hostname on failure.
  */
+#[Pure]
 function gethostbyname ($hostname) {}
 
 /**
@@ -864,6 +883,7 @@ function gethostbyname ($hostname) {}
  * @return array|false an array of IPv4 addresses or false if
  * hostname could not be resolved.
  */
+#[Pure]
 function gethostbynamel ($hostname) {}
 
 /**
@@ -872,6 +892,7 @@ function gethostbynamel ($hostname) {}
  * @return string|false a string with the hostname on success, otherwise false is
  * returned.
  */
+#[Pure]
 function gethostname () {}
 
 /**
@@ -903,6 +924,7 @@ function dns_check_record ($hostname, $type = 'MX') {}
  * @return bool true if any records are found; returns false if no records
  * were found or if an error occurred.
  */
+#[Pure]
 function checkdnsrr ($hostname, $type = null) {}
 
 /**

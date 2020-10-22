@@ -1,14 +1,21 @@
 <?php
 
+use JetBrains\PhpStorm\Immutable;
+
 /**
  * The <b>ReflectionExtension</b> class reports information about an extension.
- *
- * @property-read string $name Name of the extension, same as calling the {@see ReflectionExtension::getName()} method
  *
  * @link https://php.net/manual/en/class.reflectionextension.php
  */
 class ReflectionExtension implements Reflector
 {
+
+    /**
+     * @var string Name of the extension, same as calling the {@see ReflectionExtension::getName()} method
+     */
+    #[Immutable]
+    public $name;
+
     /**
      * Constructs a ReflectionExtension
      *

@@ -3,6 +3,7 @@
 // Start of intl v.1.1.0
 
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Pure;
 
 class Collator {
     const DEFAULT_VALUE = -1;
@@ -3270,6 +3271,7 @@ class IntlTimeZone {
  * @return Collator|null Return new instance of <b>Collator</b> object, or <b>NULL</b>
  * on error.
  */
+#[Pure]
 function collator_create($locale) { }
 
 /**
@@ -3302,6 +3304,7 @@ function collator_create($locale) { }
  * <b>FALSE</b>
  * is returned.
  */
+#[Pure]
 function collator_compare(Collator $object, $str1, $str2) { }
 
 /**
@@ -3314,6 +3317,7 @@ function collator_compare(Collator $object, $str1, $str2) { }
  * </p>
  * @return int|false Attribute value, or boolean <b>FALSE</b> on error.
  */
+#[Pure]
 function collator_get_attribute(Collator $object, $attr) { }
 
 /**
@@ -3336,6 +3340,7 @@ function collator_set_attribute(Collator $object, $attr, $val) { }
  * @param Collator $object
  * @return int|false current collation strength, or boolean <b>FALSE</b> on error.
  */
+#[Pure]
 function collator_get_strength(Collator $object) { }
 
 /**
@@ -3414,6 +3419,7 @@ function collator_asort(Collator $object, array &$array, $sort_flag = null) { }
  * instantiated from rules or an error occurred, returns
  * boolean <b>FALSE</b>.
  */
+#[Pure]
 function collator_get_locale(Collator $object, $type = null) { }
 
 /**
@@ -3423,6 +3429,7 @@ function collator_get_locale(Collator $object, $type = null) { }
  * @param Collator $object
  * @return int|false Error code returned by the last Collator API function call.
  */
+#[Pure]
 function collator_get_error_code(Collator $object) { }
 
 /**
@@ -3432,6 +3439,7 @@ function collator_get_error_code(Collator $object) { }
  * @param Collator $object
  * @return string|false Description of an error occurred in the last Collator API function call.
  */
+#[Pure]
 function collator_get_error_message(Collator $object) { }
 
 /**
@@ -3444,6 +3452,7 @@ function collator_get_error_message(Collator $object) { }
  * </p>
  * @return string|false the collation key for the string. Collation keys can be compared directly instead of strings.
  */
+#[Pure]
 function collator_get_sort_key(Collator $object, $str) { }
 
 /**
@@ -3470,6 +3479,7 @@ function collator_get_sort_key(Collator $object, $str) { }
  * </p>
  * @return NumberFormatter|false <b>NumberFormatter</b> object or <b>FALSE</b> on error.
  */
+#[Pure]
 function numfmt_create($locale, $style, $pattern = null) { }
 
 /**
@@ -3487,6 +3497,7 @@ function numfmt_create($locale, $style, $pattern = null) { }
  * </p>
  * @return string|false the string containing formatted value, or <b>FALSE</b> on error.
  */
+#[Pure]
 function numfmt_format(NumberFormatter $fmt, $value, $type = null) { }
 
 /**
@@ -3506,6 +3517,7 @@ function numfmt_format(NumberFormatter $fmt, $value, $type = null) { }
  * </p>
  * @return int|float|false The value of the parsed number or <b>FALSE</b> on error.
  */
+#[Pure]
 function numfmt_parse(NumberFormatter $fmt, $value, $type = null, &$position = null) { }
 
 /**
@@ -3521,6 +3533,7 @@ function numfmt_parse(NumberFormatter $fmt, $value, $type = null, &$position = n
  * </p>
  * @return string|false String representing the formatted currency value.
  */
+#[Pure]
 function numfmt_format_currency(NumberFormatter $fmt, $value, $currency) { }
 
 /**
@@ -3568,6 +3581,7 @@ function numfmt_set_attribute(NumberFormatter $fmt, $attr, $value) { }
  * </p>
  * @return int|float|false Return attribute value on success, or <b>FALSE</b> on error.
  */
+#[Pure]
 function numfmt_get_attribute(NumberFormatter $fmt, $attr) { }
 
 /**
@@ -3598,6 +3612,7 @@ function numfmt_set_text_attribute(NumberFormatter $fmt, $attr, $value) { }
  * </p>
  * @return string|false Return attribute value on success, or <b>FALSE</b> on error.
  */
+#[Pure]
 function numfmt_get_text_attribute(NumberFormatter $fmt, $attr) { }
 
 /**
@@ -3627,6 +3642,7 @@ function numfmt_set_symbol(NumberFormatter $fmt, $attr, $value) { }
  * </p>
  * @return string|false The symbol string or <b>FALSE</b> on error.
  */
+#[Pure]
 function numfmt_get_symbol(NumberFormatter $fmt, $attr) { }
 
 /**
@@ -3650,6 +3666,7 @@ function numfmt_set_pattern(NumberFormatter $fmt, $pattern) { }
  * @param NumberFormatter $fmt
  * @return string|false Pattern string that is used by the formatter, or <b>FALSE</b> if an error happens.
  */
+#[Pure]
 function numfmt_get_pattern(NumberFormatter $fmt) { }
 
 /**
@@ -3665,6 +3682,7 @@ function numfmt_get_pattern(NumberFormatter $fmt) { }
  * </p>
  * @return string|false The locale name used to create the formatter.
  */
+#[Pure]
 function numfmt_get_locale(NumberFormatter $fmt, $type = null) { }
 
 /**
@@ -3674,6 +3692,7 @@ function numfmt_get_locale(NumberFormatter $fmt, $type = null) { }
  * @param NumberFormatter $fmt
  * @return int error code from last formatter call.
  */
+#[Pure]
 function numfmt_get_error_code(NumberFormatter $fmt) { }
 
 /**
@@ -3683,6 +3702,7 @@ function numfmt_get_error_code(NumberFormatter $fmt) { }
  * @param NumberFormatter $fmt
  * @return string error message from last formatter call.
  */
+#[Pure]
 function numfmt_get_error_message(NumberFormatter $fmt) { }
 
 /**
@@ -3693,6 +3713,7 @@ function numfmt_get_error_message(NumberFormatter $fmt) { }
  * @param string $form [optional] <p>One of the normalization forms.</p>
  * @return string|null The normalized string or <b>NULL</b> if an error occurred.
  */
+#[Pure]
 function normalizer_normalize($input, $form = Normalizer::FORM_C) { }
 
 /**
@@ -3706,6 +3727,7 @@ form.
  * </p>
  * @return bool <b>TRUE</b> if normalized, <b>FALSE</b> otherwise or if there an error
  */
+#[Pure]
 function normalizer_is_normalized($input, $form = Normalizer::FORM_C) { }
 
 /**
@@ -3713,6 +3735,7 @@ function normalizer_is_normalized($input, $form = Normalizer::FORM_C) { }
  * @link https://php.net/manual/en/function.locale-get-default.php
  * @return string a string with the current Locale.
  */
+#[Pure]
 function locale_get_default() { }
 
 /**
@@ -3736,6 +3759,7 @@ function locale_set_default($name) { }
  * </p>
  * @return string|null The language code associated with the language or <b>NULL</b> in case of error.
  */
+#[Pure]
 function locale_get_primary_language($locale) { }
 
 /**
@@ -3747,6 +3771,7 @@ function locale_get_primary_language($locale) { }
  * </p>
  * @return string|null The script subtag for the locale or <b>NULL</b> if not present
  */
+#[Pure]
 function locale_get_script($locale) { }
 
 /**
@@ -3758,6 +3783,7 @@ function locale_get_script($locale) { }
  * </p>
  * @return string|null The region subtag for the locale or <b>NULL</b> if not present
  */
+#[Pure]
 function locale_get_region($locale) { }
 
 /**
@@ -3769,6 +3795,7 @@ function locale_get_region($locale) { }
  * </p>
  * @return array|false|null Associative array containing the keyword-value pairs for this locale
  */
+#[Pure]
 function locale_get_keywords($locale) { }
 
 /**
@@ -3784,6 +3811,7 @@ function locale_get_keywords($locale) { }
  * @return string|false Display name of the script for the $locale in the format appropriate for
  * $in_locale.
  */
+#[Pure]
 function locale_get_display_script($locale, $in_locale = null) { }
 
 /**
@@ -3799,6 +3827,7 @@ function locale_get_display_script($locale, $in_locale = null) { }
  * @return string display name of the region for the $locale in the format appropriate for
  * $in_locale.
  */
+#[Pure]
 function locale_get_display_region($locale, $in_locale = null) { }
 
 /**
@@ -3811,6 +3840,7 @@ function locale_get_display_region($locale, $in_locale = null) { }
  * @param string $in_locale [optional] <p>optional format locale</p>
  * @return string Display name of the locale in the format appropriate for $in_locale.
  */
+#[Pure]
 function locale_get_display_name($locale, $in_locale = null) { }
 
 /**
@@ -3826,6 +3856,7 @@ function locale_get_display_name($locale, $in_locale = null) { }
  * @return string display name of the language for the $locale in the format appropriate for
  * $in_locale.
  */
+#[Pure]
 function locale_get_display_language($locale, $in_locale = null) { }
 
 /**
@@ -3841,6 +3872,7 @@ function locale_get_display_language($locale, $in_locale = null) { }
  * @return string Display name of the variant for the $locale in the format appropriate for
  * $in_locale.
  */
+#[Pure]
 function locale_get_display_variant($locale, $in_locale = null) { }
 
 /**
@@ -3867,6 +3899,7 @@ function locale_get_display_variant($locale, $in_locale = null) { }
  * </p>
  * @return string The corresponding locale identifier.
  */
+#[Pure]
 function locale_compose(array $subtags) { }
 
 /**
@@ -3885,6 +3918,7 @@ function locale_compose(array $subtags) { }
  * returned array will have variant0=&gt;varX , variant1=&gt;varY ,
  * variant2=&gt;varZ
  */
+#[Pure]
 function locale_parse($locale) { }
 
 /**
@@ -3897,6 +3931,7 @@ function locale_parse($locale) { }
  * @return array|null The array containing the list of all variants subtag for the locale
  * or <b>NULL</b> if not present
  */
+#[Pure]
 function locale_get_all_variants($locale) { }
 
 /**
@@ -3915,6 +3950,7 @@ function locale_get_all_variants($locale) { }
  * </p>
  * @return bool <b>TRUE</b> if $locale matches $langtag <b>FALSE</b> otherwise.
  */
+#[Pure]
 function locale_filter_matches($langtag, $locale, $canonicalize = false) { }
 
 /**
@@ -3922,6 +3958,7 @@ function locale_filter_matches($langtag, $locale, $canonicalize = false) { }
  *
  * @return null|string
  */
+#[Pure]
 function locale_canonicalize($locale) { }
 
 /**
@@ -3944,6 +3981,7 @@ function locale_canonicalize($locale) { }
  * </p>
  * @return string The closest matching language tag or default value.
  */
+#[Pure]
 function locale_lookup(array $langtag, $locale, $canonicalize = false, $default = null) { }
 
 /**
@@ -3955,6 +3993,7 @@ function locale_lookup(array $langtag, $locale, $canonicalize = false, $default 
  * </p>
  * @return string The corresponding locale identifier.
  */
+#[Pure]
 function locale_accept_from_http($header) { }
 
 /**
@@ -3962,6 +4001,7 @@ function locale_accept_from_http($header) { }
  * @param string $pattern
  * @return MessageFormatter|null
  */
+#[Pure]
 function msgfmt_create($locale, $pattern) { }
 
 /**
@@ -3974,6 +4014,7 @@ function msgfmt_create($locale, $pattern) { }
  * </p>
  * @return string|false The formatted string, or <b>FALSE</b> if an error occurred
  */
+#[Pure]
 function msgfmt_format(MessageFormatter $fmt, array $args) { }
 
 /**
@@ -3994,6 +4035,7 @@ function msgfmt_format(MessageFormatter $fmt, array $args) { }
  * </p>
  * @return string|false The formatted pattern string or <b>FALSE</b> if an error occurred
  */
+#[Pure]
 function msgfmt_format_message(string $locale, string $pattern, array $args) { }
 
 /**
@@ -4006,6 +4048,7 @@ function msgfmt_format_message(string $locale, string $pattern, array $args) { }
  * </p>
  * @return array|false An array containing the items extracted, or <b>FALSE</b> on error
  */
+#[Pure]
 function msgfmt_parse(MessageFormatter $fmt, $value) { }
 
 /**
@@ -4023,6 +4066,7 @@ function msgfmt_parse(MessageFormatter $fmt, $value) { }
  * </p>
  * @return array|false An array containing items extracted, or <b>FALSE</b> on error
  */
+#[Pure]
 function msgfmt_parse_message($locale, $pattern, $source) { }
 
 /**
@@ -4047,6 +4091,7 @@ function msgfmt_set_pattern(MessageFormatter $fmt, $pattern) { }
  * @param MessageFormatter $fmt
  * @return string|false The pattern string for this message formatter
  */
+#[Pure]
 function msgfmt_get_pattern(MessageFormatter $fmt) { }
 
 /**
@@ -4056,6 +4101,7 @@ function msgfmt_get_pattern(MessageFormatter $fmt) { }
  * @param MessageFormatter $fmt
  * @return string The locale name
  */
+#[Pure]
 function msgfmt_get_locale(MessageFormatter $fmt) { }
 
 /**
@@ -4065,6 +4111,7 @@ function msgfmt_get_locale(MessageFormatter $fmt) { }
  * @param MessageFormatter $fmt
  * @return int The error code, one of UErrorCode values. Initial value is U_ZERO_ERROR.
  */
+#[Pure]
 function msgfmt_get_error_code(MessageFormatter $fmt) { }
 
 /**
@@ -4074,6 +4121,7 @@ function msgfmt_get_error_code(MessageFormatter $fmt) { }
  * @param MessageFormatter $fmt
  * @return string Description of the last error.
  */
+#[Pure]
 function msgfmt_get_error_message(MessageFormatter $fmt) { }
 
 /**
@@ -4111,6 +4159,7 @@ function msgfmt_get_error_message(MessageFormatter $fmt) { }
  * </p>
  * @return IntlDateFormatter
  */
+#[Pure]
 function datefmt_create($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = '') { }
 
 /**
@@ -4120,6 +4169,7 @@ function datefmt_create($locale, $datetype, $timetype, $timezone = null, $calend
  * @param IntlDateFormatter $df
  * @return int|false The current date type value of the formatter.
  */
+#[Pure]
 function datefmt_get_datetype(IntlDateFormatter $df) { }
 
 /**
@@ -4129,6 +4179,7 @@ function datefmt_get_datetype(IntlDateFormatter $df) { }
  * @param IntlDateFormatter $fmt
  * @return int|false The current date type value of the formatter.
  */
+#[Pure]
 function datefmt_get_timetype(IntlDateFormatter $fmt) { }
 
 /**
@@ -4138,6 +4189,7 @@ function datefmt_get_timetype(IntlDateFormatter $fmt) { }
  * @param IntlDateFormatter $fmt
  * @return int The calendar being used by the formatter.
  */
+#[Pure]
 function datefmt_get_calendar(IntlDateFormatter $fmt) { }
 
 /**
@@ -4161,6 +4213,7 @@ function datefmt_set_calendar(IntlDateFormatter $df, $which) { }
  * @param int $which [optional]
  * @return string|false the locale of this formatter or 'false' if error
  */
+#[Pure]
 function datefmt_get_locale(IntlDateFormatter $df, int $which = ULOC_ACTUAL_LOCALE) { }
 
 /**
@@ -4170,6 +4223,7 @@ function datefmt_get_locale(IntlDateFormatter $df, int $which = ULOC_ACTUAL_LOCA
  * @param IntlDateFormatter $df
  * @return string|false ID string for the time zone used by this formatter.
  */
+#[Pure]
 function datefmt_get_timezone_id(IntlDateFormatter $df) { }
 
 /**
@@ -4179,6 +4233,7 @@ function datefmt_get_timezone_id(IntlDateFormatter $df) { }
  * @param IntlDateFormatter $df
  * @return IntlCalendar|false|null A copy of the internal calendar object used by this formatter.
  */
+#[Pure]
 function datefmt_get_calendar_object(IntlDateFormatter $df) { }
 
 /**
@@ -4187,6 +4242,7 @@ function datefmt_get_calendar_object(IntlDateFormatter $df) { }
  * @link https://secure.php.net/manual/en/intldateformatter.gettimezone.php
  * @return IntlTimeZone|false The associated IntlTimeZone object or FALSE on failure.
  */
+#[Pure]
 function datefmt_get_timezone() { }
 
 /**
@@ -4253,6 +4309,7 @@ function datefmt_set_timezone(IntlDateFormatter $df, $zone) { }
  * @param IntlDateFormatter $df
  * @return string|false The pattern string being used to format/parse.
  */
+#[Pure]
 function datefmt_get_pattern(IntlDateFormatter $df) { }
 
 /**
@@ -4276,6 +4333,7 @@ function datefmt_set_pattern(IntlDateFormatter $df, $pattern) { }
  * @param IntlDateFormatter $df
  * @return bool <b>TRUE</b> if parser is lenient, <b>FALSE</b> if parser is strict. By default the parser is lenient.
  */
+#[Pure]
 function datefmt_is_lenient(IntlDateFormatter $df) { }
 
 /**
@@ -4303,6 +4361,7 @@ function datefmt_set_lenient(IntlDateFormatter $df, $lenient) { }
  * </p>
  * @return string|false The formatted string or, if an error occurred, <b>FALSE</b>.
  */
+#[Pure]
 function datefmt_format(IntlDateFormatter $df, $value) { }
 
 /**
@@ -4329,6 +4388,7 @@ function datefmt_format(IntlDateFormatter $df, $value) { }
  * The locale to use, or NULL to use the default one.</p>
  * @return string|false The formatted string or, if an error occurred, <b>FALSE</b>.
  */
+#[Pure]
 function datefmt_format_object($object, $format = null, $locale = null) { }
 
 /**
@@ -4375,6 +4435,7 @@ function datefmt_localtime(IntlDateFormatter $df, $value, &$position = null) { }
  * @param IntlDateFormatter $df
  * @return int The error code, one of UErrorCode values. Initial value is U_ZERO_ERROR.
  */
+#[Pure]
 function datefmt_get_error_code(IntlDateFormatter $df) { }
 
 /**
@@ -4384,6 +4445,7 @@ function datefmt_get_error_code(IntlDateFormatter $df) { }
  * @param IntlDateFormatter $df
  * @return string Description of the last error.
  */
+#[Pure]
 function datefmt_get_error_message(IntlDateFormatter $df) { }
 
 /**
@@ -4395,6 +4457,7 @@ function datefmt_get_error_message(IntlDateFormatter $df) { }
  * </p>
  * @return int|false|null The length of the string on success, and 0 if the string is empty.
  */
+#[Pure]
 function grapheme_strlen($input) { }
 
 /**
@@ -4415,6 +4478,7 @@ function grapheme_strlen($input) { }
  * </p>
  * @return int|false the position as an integer. If needle is not found, strpos() will return boolean FALSE.
  */
+#[Pure]
 function grapheme_strpos($haystack, $needle, $offset = 0) { }
 
 /**
@@ -4435,6 +4499,7 @@ function grapheme_strpos($haystack, $needle, $offset = 0) { }
  * </p>
  * @return int|false the position as an integer. If needle is not found, grapheme_stripos() will return boolean FALSE.
  */
+#[Pure]
 function grapheme_stripos($haystack, $needle, $offset = 0) { }
 
 /**
@@ -4455,6 +4520,7 @@ function grapheme_stripos($haystack, $needle, $offset = 0) { }
  * </p>
  * @return int|false the position as an integer. If needle is not found, grapheme_strrpos() will return boolean FALSE.
  */
+#[Pure]
 function grapheme_strrpos($haystack, $needle, $offset = 0) { }
 
 /**
@@ -4475,6 +4541,7 @@ function grapheme_strrpos($haystack, $needle, $offset = 0) { }
  * </p>
  * @return int|false the position as an integer. If needle is not found, grapheme_strripos() will return boolean FALSE.
  */
+#[Pure]
 function grapheme_strripos($haystack, $needle, $offset = 0) { }
 
 /**
@@ -4504,6 +4571,7 @@ function grapheme_strripos($haystack, $needle, $offset = 0) { }
                         or <strong>FALSE</strong> if $length is negative and $start denotes a position beyond truncation $length,<br />
                         or also <strong>FALSE</strong> if $start denotes a position beyond $string length</p>
  */
+#[Pure]
 function grapheme_substr($string, $start, $length = null) { }
 
 /**
@@ -4522,6 +4590,7 @@ function grapheme_substr($string, $start, $length = null) { }
  * </p>
  * @return string|false the portion of string, or FALSE if needle is not found.
  */
+#[Pure]
 function grapheme_strstr($haystack, $needle, $before_needle = false) { }
 
 /**
@@ -4540,6 +4609,7 @@ function grapheme_strstr($haystack, $needle, $before_needle = false) { }
  * </p>
  * @return string|false the portion of $haystack, or FALSE if $needle is not found.
  */
+#[Pure]
 function grapheme_stristr($haystack, $needle, $before_needle = false) { }
 
 /**
@@ -4680,6 +4750,7 @@ function idn_to_utf8($domain, $options = 0, $variant = INTL_IDNA_VARIANT_UTS46, 
  * failure.
  * @since 5.5
  */
+#[Pure]
 function intlcal_create_instance($timeZone = null, $locale = null) { }
 
 /**
@@ -4699,6 +4770,7 @@ function intlcal_create_instance($timeZone = null, $locale = null) { }
  * @return Iterator|false An iterator that yields strings with the locale keyword values or <b>FALSE</b> on failure.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_keyword_values_for_locale($key, $locale, $commonlyUsed) { }
 
 /**
@@ -4708,6 +4780,7 @@ function intlcal_get_keyword_values_for_locale($key, $locale, $commonlyUsed) { }
  * @return float A float representing a number of milliseconds since the epoch, not counting leap seconds.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_now() { }
 
 /**
@@ -4717,6 +4790,7 @@ function intlcal_get_now() { }
  * @return string[] An array of strings, one for which locale.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_available_locales() { }
 
 /**
@@ -4734,6 +4808,7 @@ function intlcal_get_available_locales() { }
  * @return int An integer with the value of the time field.
  * @since 5.5
  */
+#[Pure]
 function intl_get($calendar, $field) { }
 
 /**
@@ -4745,6 +4820,7 @@ function intl_get($calendar, $field) { }
  * reference time (1 Jan 1970 00:00:00 UTC).
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_time($calendar) { }
 
 /**
@@ -4843,6 +4919,7 @@ function intlcal_set_time_zone($calendar, $timeZone) { }
  * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to detect error conditions.
  * @since 5.5
  */
+#[Pure]
 function intlcal_after(IntlCalendar $calendarObject, IntlCalendar $calendar) { }
 
 /**
@@ -4861,6 +4938,7 @@ function intlcal_after(IntlCalendar $calendarObject, IntlCalendar $calendar) { }
  * </p>
  * @since 5.5
  */
+#[Pure]
 function intlcal_before(IntlCalendar $calendarObject, IntlCalendar $calendar) { }
 
 
@@ -4967,6 +5045,7 @@ function intlcal_clear($calendar, $field = null) { }
  * specified field or <b>FALSE</b> on failure.
  * @since 5.5
  */
+#[Pure]
 function intlcal_field_difference($calendar, $when, $field) { }
 
 
@@ -4987,6 +5066,7 @@ function intlcal_field_difference($calendar, $when, $field) { }
  * with the given <em>field</em> or <b>FALSE</b> on failure.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_actual_maximum($calendar, $field) { }
 
 /**
@@ -5006,6 +5086,7 @@ function intlcal_get_actual_maximum($calendar, $field) { }
  * unit or <b>FALSE</b> on failure.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_actual_minimum($calendar, $field) { }
 
 /**
@@ -5028,6 +5109,7 @@ function intlcal_get_actual_minimum($calendar, $field) { }
  * <b>IntlCalendar::DOW_TYPE_WEEKEND_CEASE</b> or <b>FALSE</b> on failure.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_day_of_week_type($calendar, $dayOfWeek) { }
 
 /**
@@ -5043,6 +5125,7 @@ function intlcal_get_day_of_week_type($calendar, $dayOfWeek) { }
  * <b>IntlCalendar::DOW_SATURDAY</b> or <b>FALSE</b> on failure.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_first_day_of_week($calendar) { }
 
 /**
@@ -5061,11 +5144,12 @@ function intlcal_get_first_day_of_week($calendar) { }
  * unit, or <b>FALSE</b> on failure.
  * @since 5.5
  */
+#[Pure]
 function intlcal_greates_minimum($calendar, $field) { }
 
 /**
  * (PHP &gt;= 5.5.0, PECL intl &gt;= 3.0.0a1)<br/>
- * GGets the value for a specific field.
+ * Gets the value for a specific field.
  * @link https://www.php.net/manual/en/intlcalendar.get.php
  * @param IntlCalendar $calendar <p>
  * The IntlCalendar resource.
@@ -5075,6 +5159,7 @@ function intlcal_greates_minimum($calendar, $field) { }
  * </p>
  * @return int An integer with the value of the time field.
  */
+#[Pure]
 function intlcal_get($calendar, $field) { }
 
 /**
@@ -5095,6 +5180,7 @@ function intlcal_get($calendar, $field) { }
  * </p>
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_least_maximum($calendar, $field) { }
 
 /**
@@ -5113,6 +5199,7 @@ function intlcal_get_least_maximum($calendar, $field) { }
  * unit, or <b>FALSE</b> on failure.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_greatest_minimum($calendar, $field) { }
 
 /**
@@ -5134,6 +5221,7 @@ function intlcal_get_greatest_minimum($calendar, $field) { }
  * A locale string or <b>FALSE</b> on failure.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_locale($calendar, $localeType) { }
 
 /**
@@ -5152,6 +5240,7 @@ function intlcal_get_locale($calendar, $localeType) { }
  * A locale string or <b>FALSE</b> on failure.
  * @since 5.5
  */
+#[Pure]
 function intcal_get_maximum($calendar, $field) { }
 
 
@@ -5166,6 +5255,7 @@ function intcal_get_maximum($calendar, $field) { }
  * An {@link https://secure.php.net/manual/en/language.types.integer.php  int} representing a number of days or <b>FALSE</b> on failure.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_minimal_days_in_first_week($calendar) { }
 
 /**
@@ -5184,6 +5274,7 @@ function intlcal_get_minimal_days_in_first_week($calendar) { }
  * An int representing a value for the given field in the field's unit or FALSE on failure.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_minimum($calendar, $field) { }
 
 /**
@@ -5198,6 +5289,7 @@ function intlcal_get_minimum($calendar, $field) { }
  * internally in this object.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_time_zone($calendar) { }
 
 /**
@@ -5212,6 +5304,7 @@ function intlcal_get_time_zone($calendar) { }
  * <em>'gregorian'</em>, <em>'islamic'</em>, etc.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_type($calendar) { }
 
 /**
@@ -5231,6 +5324,7 @@ function intlcal_get_type($calendar) { }
  * ends or <b>FALSE</b> on failure.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_weekend_transition($calendar, $dayOfWeek) { }
 
 /**
@@ -5247,6 +5341,7 @@ function intlcal_get_weekend_transition($calendar, $dayOfWeek) { }
  * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.
  * @since 5.5
  */
+#[Pure]
 function intlcal_in_daylight_time($calendar) { }
 
 /**
@@ -5260,6 +5355,7 @@ function intlcal_in_daylight_time($calendar) { }
  * A {@link https://secure.php.net/manual/en/language.types.boolean.php bool} representing whether the calendar is set to lenient mode.
  * @since 5.5
  */
+#[Pure]
 function intlcal_is_lenient($calendar) { }
 
 /**
@@ -5277,6 +5373,7 @@ function intlcal_is_lenient($calendar) { }
  * @return bool Assuming there are no argument errors, returns <b>TRUE</b> iif the field is set.
  * @since 5.5
  */
+#[Pure]
 function intlcal_is_set($calendar, $field) { }
 
 /**
@@ -5295,6 +5392,7 @@ function intlcal_is_set($calendar, $field) { }
  * A locale string or <b>FALSE</b> on failure.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_maximum($calendar, $field) { }
 
 /**
@@ -5309,6 +5407,7 @@ function intlcal_get_maximum($calendar, $field) { }
  * Assuming there are no argument errors, returns <b>TRUE</b> iif the calendars are equivalent except possibly for their set time.
  * @since 5.5
  */
+#[Pure]
 function intlcal_is_equivalent_to(IntlCalendar $calendarObject, IntlCalendar $calendar) { }
 
 /**
@@ -5333,6 +5432,7 @@ function intlcal_is_equivalent_to(IntlCalendar $calendarObject, IntlCalendar $ca
  * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.</p>
  * @since 5.5
  */
+#[Pure]
 function intlcal_is_weekend($calendar, $date = null) { }
 
 
@@ -5381,6 +5481,7 @@ function intlcal_set_lenient($calendar, $isLenient) { }
  * <b>IntlCalendar::WALLTIME_LAST</b>.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_repeated_wall_time_option($calendar) { }
 
 /**
@@ -5400,6 +5501,7 @@ function intlcal_get_repeated_wall_time_option($calendar) { }
  * </p>
  * @since 5.5
  */
+#[Pure]
 function intlcal_equals($calendarObject, $calendar) { }
 
 /**
@@ -5415,6 +5517,7 @@ function intlcal_equals($calendarObject, $calendar) { }
  * <b>IntlCalendar::WALLTIME_NEXT_VALID</b>.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_skipped_wall_time_option($calendar) { }
 
 /**
@@ -5469,6 +5572,7 @@ function intlcal_set_skipped_wall_time_option($calendar, $wallTimeOption) { }
  * inside the {@link https://secure.php.net/manual/en/class.datetime.php DateTime} constructor is propagated.
  * @since 5.5
  */
+#[Pure]
 function intlcal_from_date_time($dateTime, $locale = null) { }
 
 
@@ -5486,6 +5590,7 @@ function intlcal_from_date_time($dateTime, $locale = null) { }
  * Returns <b>FALSE</b> on failure.
  * @since 5.5
  */
+#[Pure]
 function intlcal_to_date_time($calendar) { }
 
 
@@ -5499,6 +5604,7 @@ function intlcal_to_date_time($calendar) { }
  * @return int An ICU error code indicating either success, failure or a warning.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_error_code($calendar) { }
 
 /**
@@ -5511,6 +5617,7 @@ function intlcal_get_error_code($calendar) { }
  * @return string|false The error message associated with last error that occurred in a function call on this object, or a string indicating the non-existance of an error.
  * @since 5.5
  */
+#[Pure]
 function intlcal_get_error_message($calendar) { }
 
 
@@ -5522,6 +5629,7 @@ function intlcal_get_error_message($calendar) { }
  * @return int|false
  * @since 5.5
  */
+#[Pure]
 function intltz_count_equivalent_ids($zoneId) { }
 
 /**
@@ -5531,6 +5639,7 @@ function intltz_count_equivalent_ids($zoneId) { }
  * @return IntlTimeZone
  * @since 5.5
  */
+#[Pure]
 function intlz_create_default() { }
 
 /**
@@ -5540,6 +5649,7 @@ function intlz_create_default() { }
  * @return IntlIterator|false
  * @since 5.5
  */
+#[Pure]
 function intltz_create_enumeration($countryOrRawOffset) { }
 
 /**
@@ -5549,6 +5659,7 @@ function intltz_create_enumeration($countryOrRawOffset) { }
  * @return IntlTimeZone
  * @since 5.5
  */
+#[Pure]
 function intltz_create_time_zone($zoneId) { }
 
 /**
@@ -5558,6 +5669,7 @@ function intltz_create_time_zone($zoneId) { }
  * @return IntlTimeZone
  * @since 5.5
  */
+#[Pure]
 function intltz_from_date_time_zone($zoneId) { }
 
 /**
@@ -5569,6 +5681,7 @@ function intltz_from_date_time_zone($zoneId) { }
  * @return string|false
  * @since 5.5
  */
+#[Pure]
 function intltz_get_canonical_id($zoneId, &$isSystemID) { }
 
 /**
@@ -5583,6 +5696,7 @@ function intltz_get_canonical_id($zoneId, &$isSystemID) { }
  * @return string|false
  * @since 5.5
  */
+#[Pure]
 function intltz_get_display_name($obj, $isDaylight, $style, $locale) { }
 
 /**
@@ -5595,6 +5709,7 @@ function intltz_get_display_name($obj, $isDaylight, $style, $locale) { }
  * @return int
  * @since 5.5
  */
+#[Pure]
 function intltz_get_dst_savings($obj) { }
 
 /**
@@ -5606,6 +5721,7 @@ function intltz_get_dst_savings($obj) { }
  * @return string|false
  * @since 5.5
  */
+#[Pure]
 function intltz_get_equivalent_id($zoneId, $index) { }
 
 /**
@@ -5618,6 +5734,7 @@ function intltz_get_equivalent_id($zoneId, $index) { }
  * @return int|false
  * @since 5.5
  */
+#[Pure]
 function intltz_get_error_code($obj) { }
 
 /**
@@ -5630,6 +5747,7 @@ function intltz_get_error_code($obj) { }
  * @return string|false
  * @since 5.5
  */
+#[Pure]
 function intltz_get_error_message($obj) { }
 
 /**
@@ -5639,6 +5757,7 @@ function intltz_get_error_message($obj) { }
  * @return IntlTimeZone
  * @since 5.5
  */
+#[Pure]
 function intltz_getGMT() { }
 
 /**
@@ -5649,6 +5768,7 @@ function intltz_getGMT() { }
  * @return string|false
  * @since 5.5
  */
+#[Pure]
 function intltz_get_id($obj) { }
 
 /**
@@ -5663,6 +5783,7 @@ function intltz_get_id($obj) { }
  * @return int
  * @since 5.5
  */
+#[Pure]
 function intltz_get_offset($obj, $date, $local, &$rawOffset, &$dstOffset) { }
 
 /**
@@ -5671,6 +5792,7 @@ function intltz_get_offset($obj, $date, $local, &$rawOffset, &$dstOffset) { }
  * @param IntlTimeZone $obj
  * @return int
  */
+#[Pure]
 function intltz_get_raw_offset($obj) { }
 
 /**
@@ -5680,6 +5802,7 @@ function intltz_get_raw_offset($obj) { }
  * @return string|false
  * @since 5.5
  */
+#[Pure]
 function intltz_get_tz_data_version() { }
 
 /**
@@ -5691,6 +5814,7 @@ function intltz_get_tz_data_version() { }
  * @return bool
  * @since 5.5
  */
+#[Pure]
 function intltz_has_same_rules($obj, $otherTimeZone) { }
 
 /**
@@ -5701,6 +5825,7 @@ function intltz_has_same_rules($obj, $otherTimeZone) { }
  * @return DateTimeZone|false
  * @since 5.5
  */
+#[Pure]
 function intltz_to_date_time_zone($obj) { }
 
 /**
@@ -5711,6 +5836,7 @@ function intltz_to_date_time_zone($obj) { }
  * @return bool
  * @since 5.5
  */
+#[Pure]
 function intltz_use_daylight_time($obj) { }
 
 
@@ -5721,6 +5847,7 @@ function intltz_use_daylight_time($obj) { }
  * @return IntlGregorianCalendar|null
  * @since 5.5
  */
+#[Pure]
 function intlgregcal_create_instance($timeZoneOrYear = null, $locale = null) { }
 
 /**
@@ -5734,12 +5861,14 @@ function intlgregcal_set_gregorian_change($obj, $change) { }
  * @param IntlGregorianCalendar $obj
  * @return float
  */
+#[Pure]
 function intlgregcal_get_gregorian_change($obj) { }
 
 /**
  * @param int $year
  * @return bool
  */
+#[Pure]
 function intlgregcal_is_leap_year($year) { }
 
 
@@ -5758,6 +5887,7 @@ function intlgregcal_is_leap_year($year) { }
  * </p>
  * @return ResourceBundle|false <b>ResourceBundle</b> object or <b>FALSE</b> on error.
  */
+#[Pure]
 function resourcebundle_create($locale, $bundlename, $fallback = null) { }
 
 /**
@@ -5773,6 +5903,7 @@ function resourcebundle_create($locale, $bundlename, $fallback = null) { }
  * are returned as corresponding PHP types, integer array is returned as PHP array. Complex types are
  * returned as <b>ResourceBundle</b> object.
  */
+#[Pure]
 function resourcebundle_get(ResourceBundle $r, $index, $fallback = true) { }
 
 /**
@@ -5782,6 +5913,7 @@ function resourcebundle_get(ResourceBundle $r, $index, $fallback = true) { }
  * @param ResourceBundle $bundle
  * @return int number of elements in the bundle.
  */
+#[Pure]
 function resourcebundle_count(ResourceBundle $bundle) { }
 
 /**
@@ -5794,6 +5926,7 @@ function resourcebundle_count(ResourceBundle $bundle) { }
  * </p>
  * @return array the list of locales supported by the bundle.
  */
+#[Pure]
 function resourcebundle_locales($bundlename) { }
 
 /**
@@ -5803,6 +5936,7 @@ function resourcebundle_locales($bundlename) { }
  * @param $bundle
  * @return int error code from last bundle object call.
  */
+#[Pure]
 function resourcebundle_get_error_code(ResourceBundle $bundle) { }
 
 /**
@@ -5812,6 +5946,7 @@ function resourcebundle_get_error_code(ResourceBundle $bundle) { }
  * @param $bundle
  * @return string error message from last bundle object's call.
  */
+#[Pure]
 function resourcebundle_get_error_message(ResourceBundle $bundle) { }
 
 /**
@@ -5831,6 +5966,7 @@ function resourcebundle_get_error_message(ResourceBundle $bundle) { }
  * or <b>NULL</b> on failure.
  * @since 5.4
  */
+#[Pure]
 function transliterator_create($id, $direction = null) { }
 
 /**
@@ -5850,6 +5986,7 @@ function transliterator_create($id, $direction = null) { }
  * or <b>NULL</b> on failure.
  * @since 5.4
  */
+#[Pure]
 function transliterator_create_from_rules($rules, $direction = null) { }
 
 /**
@@ -5860,6 +5997,7 @@ function transliterator_create_from_rules($rules, $direction = null) { }
  * or <b>FALSE</b> on failure.
  * @since 5.4
  */
+#[Pure]
 function transliterator_list_ids() { }
 
 /**
@@ -5871,6 +6009,7 @@ function transliterator_list_ids() { }
  * or <b>NULL</b> on failure
  * @since 5.4
  */
+#[Pure]
 function transliterator_create_inverse(Transliterator $orig_trans) { }
 
 /**
@@ -5894,6 +6033,7 @@ function transliterator_create_inverse(Transliterator $orig_trans) { }
  * @return string|false The transfomed string on success, or <b>FALSE</b> on failure.
  * @since 5.4
  */
+#[Pure]
 function transliterator_transliterate($transliterator, $subject, $start = null, $end = null) { }
 
 /**
@@ -5905,6 +6045,7 @@ function transliterator_transliterate($transliterator, $subject, $start = null, 
  * or <b>FALSE</b> if none exists, or on failure.
  * @since 5.4
  */
+#[Pure]
 function transliterator_get_error_code(Transliterator $trans) { }
 
 /**
@@ -5916,6 +6057,7 @@ function transliterator_get_error_code(Transliterator $trans) { }
  * or <b>FALSE</b> if none exists, or on failure.
  * @since 5.4
  */
+#[Pure]
 function transliterator_get_error_message(Transliterator $trans) { }
 
 /**
@@ -5924,6 +6066,7 @@ function transliterator_get_error_message(Transliterator $trans) { }
  * @link https://php.net/manual/en/function.intl-get-error-code.php
  * @return int Error code returned by the last API function call.
  */
+#[Pure]
 function intl_get_error_code() { }
 
 /**
@@ -5932,6 +6075,7 @@ function intl_get_error_code() { }
  * @link https://php.net/manual/en/function.intl-get-error-message.php
  * @return string Description of an error occurred in the last API function call.
  */
+#[Pure]
 function intl_get_error_message() { }
 
 /**
@@ -5946,6 +6090,7 @@ function intl_get_error_message() { }
  * @return bool <b>TRUE</b> if it the code indicates some failure, and <b>FALSE</b>
  * in case of success or a warning.
  */
+#[Pure]
 function intl_is_failure($error_code) { }
 
 /**
@@ -5958,6 +6103,7 @@ function intl_is_failure($error_code) { }
  * @return string The returned string will be the same as the name of the error code
  * constant.
  */
+#[Pure]
 function intl_error_name($error_code) { }
 
 /**
@@ -5970,24 +6116,28 @@ function intl_error_name($error_code) { }
  *
  * @since 7.3
  */
+#[Pure]
 function normalizer_get_raw_decomposition($input) { }
 
 /**
  * @return IntlTimeZone
  * @since 5.5
  */
+#[Pure]
 function intltz_create_default() { }
 
 /**
  * @return IntlTimeZone
  * @since 5.5
  */
+#[Pure]
 function intltz_get_gmt() { }
 
 /**
  * @return IntlTimeZone
  * @since 5.5
  */
+#[Pure]
 function intltz_get_unknown() { }
 
 /**
@@ -5997,6 +6147,7 @@ function intltz_get_unknown() { }
  * @return IntlIterator|false
  * @since 5.5
  */
+#[Pure]
 function intltz_create_time_zone_id_enumeration($zoneType, $region = null, $rawOffset = null) { }
 
 /**
@@ -6004,6 +6155,7 @@ function intltz_create_time_zone_id_enumeration($zoneType, $region = null, $rawO
  * @return string|false
  * @since 5.5
  */
+#[Pure]
 function intltz_get_region($zoneId) { }
 
 /**

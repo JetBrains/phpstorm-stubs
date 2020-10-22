@@ -1,6 +1,7 @@
 <?php
 
 // Start of iconv v.
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Convert string to requested character encoding
@@ -26,6 +27,7 @@
  * </p>
  * @return string|false the converted string or <b>FALSE</b> on failure.
  */
+#[Pure]
 function iconv ($from_encoding, $to_encoding, $string) {}
 
 /**
@@ -36,6 +38,7 @@ function iconv ($from_encoding, $to_encoding, $string) {}
  * @return string See <b>ob_start</b> for information about this handler
  * return values.
  */
+#[Pure]
 function ob_iconv_handler ($contents, $status) {}
 
 /**
@@ -56,6 +59,7 @@ function ob_iconv_handler ($contents, $status) {}
  * <b>iconv_get_encoding</b> returns an array that
  * stores all these variables.
  */
+#[Pure]
 function iconv_get_encoding ($type = "all") {}
 
 /**
@@ -87,6 +91,7 @@ function iconv_set_encoding ($type, $encoding) {}
  * </p>
  * @return int|false the character count of <i>str</i>, as an integer. False on error.
  */
+#[Pure]
 function iconv_strlen ($string, $encoding = 'ini_get("iconv.internal_encoding")') {}
 
 /**
@@ -141,6 +146,7 @@ function iconv_strlen ($string, $encoding = 'ini_get("iconv.internal_encoding")'
  * If <i>str</i> is shorter than <i>offset</i>
  * characters long, <b>FALSE</b> will be returned.
  */
+#[Pure]
 function iconv_substr ($string, $offset, $length = 'iconv_strlen($str, $charset)', $encoding = 'ini_get("iconv.internal_encoding")') {}
 
 /**
@@ -168,6 +174,7 @@ function iconv_substr ($string, $offset, $length = 'iconv_strlen($str, $charset)
  * If <i>needle</i> is not found,
  * <b>iconv_strpos</b> will return <b>FALSE</b>.
  */
+#[Pure]
 function iconv_strpos ($haystack, $needle, $offset = 0, $encoding = 'ini_get("iconv.internal_encoding")') {}
 
 /**
@@ -191,6 +198,7 @@ function iconv_strpos ($haystack, $needle, $offset = 0, $encoding = 'ini_get("ic
  * If <i>needle</i> is not found,
  * <b>iconv_strrpos</b> will return <b>FALSE</b>.
  */
+#[Pure]
 function iconv_strrpos ($haystack, $needle, $encoding = 'ini_get("iconv.internal_encoding")') {}
 
 /**
@@ -291,6 +299,7 @@ function iconv_strrpos ($haystack, $needle, $encoding = 'ini_get("iconv.internal
  * @return string|false an encoded MIME field on success,
  * or <b>FALSE</b> if an error occurs during the encoding.
  */
+#[Pure]
 function iconv_mime_encode ($field_name, $field_value, array $options = null) {}
 
 /**
@@ -342,6 +351,7 @@ function iconv_mime_encode ($field_name, $field_value, array $options = null) {}
  * @return string|false a decoded MIME field on success,
  * or <b>FALSE</b> if an error occurs during the decoding.
  */
+#[Pure]
 function iconv_mime_decode ($string, $mode = 0, $encoding = 'ini_get("iconv.internal_encoding")') {}
 
 /**
@@ -402,6 +412,7 @@ function iconv_mime_decode ($string, $mode = 0, $encoding = 'ini_get("iconv.inte
  * <b>iconv_mime_decode_headers</b> automatically incorporates
  * them into a numerically indexed array in the order of occurrence.
  */
+#[Pure]
 function iconv_mime_decode_headers ($headers, $mode = 0, $encoding = 'ini_get("iconv.internal_encoding")') {}
 
 

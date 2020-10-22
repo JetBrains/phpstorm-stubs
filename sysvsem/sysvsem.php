@@ -10,7 +10,7 @@
  * The number of processes that can acquire the semaphore simultaneously
  * is set to <i>max_acquire</i>.
  * </p>
- * @param int $perm [optional] <p>
+ * @param int $permissions [optional] <p>
  * The semaphore permissions. Actually this value is
  * set only if the process finds it is the only process currently
  * attached to the semaphore.
@@ -22,7 +22,7 @@
  * @return resource|false|SysvSemaphore a positive semaphore identifier on success, or <b>FALSE</b> on
  * error.
  */
-function sem_get ($key, $max_acquire = 1, $perm = 0666, $auto_release = 1) {}
+function sem_get ($key, $max_acquire = 1, $permissions = 0666, $auto_release = 1) {}
 
 /**
  * Acquire a semaphore
@@ -31,14 +31,14 @@ function sem_get ($key, $max_acquire = 1, $perm = 0666, $auto_release = 1) {}
  * <i>sem_identifier</i> is a semaphore resource,
  * obtained from <b>sem_get</b>.
  * </p>
- * @param bool $nowait [optional] <p>
+ * @param bool $non_blocking [optional] <p>
  * Specifies if the process shouldn't wait for the semaphore to be acquired.
  * If set to <i>true</i>, the call will return <i>false</i> immediately if a
  * semaphore cannot be immediately acquired.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function sem_acquire ($semaphore, $nowait = false) {}
+function sem_acquire ($semaphore, $non_blocking = false) {}
 
 /**
  * Release a semaphore
@@ -65,7 +65,13 @@ function sem_remove ($semaphore) {}
 /**
  * @since 8.0
  */
-final class SysvSemaphore{}
+final class SysvSemaphore{
+    /**
+     * Cannot directly construct SysvSemaphore, use sem_get() instead
+     * @see sem_get()
+     */
+    private function __construct(){}
+}
 
 // End of sysvsem v.
 ?>

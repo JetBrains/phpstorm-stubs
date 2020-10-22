@@ -2,6 +2,8 @@
 
 // Start of standard v.5.3.2-0.dotdeb.1
 
+use JetBrains\PhpStorm\Pure;
+
 class __PHP_Incomplete_Class  {
         /**
          * @var string
@@ -130,6 +132,7 @@ class Directory  {
  * @return mixed the value of the constant, or null if the constant is not
  * defined.
  */
+#[Pure]
 function constant ($name) {}
 
 /**
@@ -140,6 +143,7 @@ function constant ($name) {}
  * </p>
  * @return string the hexadecimal representation of the given string.
  */
+#[Pure]
 function bin2hex ($string) {}
 
 /**
@@ -258,6 +262,7 @@ function time_sleep_until ($timestamp) {}
  * </tr>
  * </table>
  */
+#[Pure]
 function strptime ($timestamp, $format) {}
 
 /**
@@ -288,6 +293,7 @@ function flush () {}
  * </p>
  * @return string the given string wrapped at the specified column.
  */
+#[Pure]
 function wordwrap ($string, $width = 75, $break = "\n", $cut_long_words = false) {}
 
 /**
@@ -406,6 +412,7 @@ function wordwrap ($string, $width = 75, $break = "\n", $cut_long_words = false)
  * </p>
  * @return string The converted string.
  */
+#[Pure]
 function htmlspecialchars ($string, $flags = ENT_COMPAT | ENT_HTML401, $encoding = 'UTF-8', $double_encode = true) {}
 
 /**
@@ -452,6 +459,7 @@ function htmlspecialchars ($string, $flags = ENT_COMPAT | ENT_HTML401, $encoding
  * </p>
  * @return string the encoded string.
  */
+#[Pure]
 function htmlentities ($string, $flags = null, $encoding = null, $double_encode = true) {}
 
 /**
@@ -493,6 +501,7 @@ function htmlentities ($string, $flags = null, $encoding = null, $double_encode 
  * &reference.strings.charsets;
  * @return string the decoded string.
  */
+#[Pure]
 function html_entity_decode ($string, $flags = null, $encoding = null) {}
 
 /**
@@ -526,6 +535,7 @@ function html_entity_decode ($string, $flags = null, $encoding = null) {}
  * </p>
  * @return string the decoded string.
  */
+#[Pure]
 function htmlspecialchars_decode ($string, $flags = null) {}
 
 /**
@@ -703,6 +713,7 @@ function htmlspecialchars_decode ($string, $flags = null) {}
  * </p></blockquote>
  * @return array the translation table as an array.
  */
+#[Pure]
 function get_html_translation_table ($table = null, $flags = null, string $encoding = "UTF-8") {}
 
 /**
@@ -719,6 +730,7 @@ function get_html_translation_table ($table = null, $flags = null, string $encod
  * </p>
  * @return string the sha1 hash as a string.
  */
+#[Pure]
 function sha1 ($string, $binary = false) {}
 
 /**
@@ -733,6 +745,7 @@ function sha1 ($string, $binary = false) {}
  * </p>
  * @return string|false a string on success, false otherwise.
  */
+#[Pure]
 function sha1_file ($filename, $binary = false) {}
 
 /**
@@ -748,6 +761,7 @@ function sha1_file ($filename, $binary = false) {}
  * </p>
  * @return string the hash as a 32-character hexadecimal number.
  */
+#[Pure]
 function md5 ($string, $binary = false) {}
 
 /**
@@ -762,6 +776,7 @@ function md5 ($string, $binary = false) {}
  * </p>
  * @return string|false a string on success, false otherwise.
  */
+#[Pure]
 function md5_file ($filename, $binary = false) {}
 
 /**
@@ -772,6 +787,7 @@ function md5_file ($filename, $binary = false) {}
  * </p>
  * @return int the crc32 checksum of str as an integer..1
  */
+#[Pure]
 function crc32 ($string) {}
 
 /**
@@ -784,6 +800,7 @@ function crc32 ($string) {}
  * @return array|false an array using the tagmarker as an index and the value as the
  * value. It returns false on error or if no IPTC data was found.
  */
+#[Pure]
 function iptcparse ($iptc_block) {}
 
 /**
@@ -953,6 +970,7 @@ function getimagesize ($filename, array &$image_info = null) {}
  * </tr>
  * </table>
  */
+#[Pure]
 function image_type_to_mime_type ($image_type) {}
 
 /**
@@ -967,6 +985,7 @@ function image_type_to_mime_type ($image_type) {}
  * </p>
  * @return string A string with the extension corresponding to the given image type.
  */
+#[Pure]
 function image_type_to_extension ($image_type, $include_dot = true) {}
 
 /**
@@ -1066,6 +1085,7 @@ function phpinfo ($flags = null) {}
  * extension, or false if there is no version information associated or
  * the extension isn't enabled.
  */
+#[Pure]
 function phpversion ($extension = null) {}
 
 /**
@@ -1139,6 +1159,7 @@ function phpcredits ($flags = null) {}
  * @link https://php.net/manual/en/function.php-logo-guid.php
  * @return string PHPE9568F34-D428-11d2-A769-00AA001ACF42.
  */
+#[Pure]
 function php_logo_guid () {}
 
 /**
@@ -1176,6 +1197,7 @@ function zend_logo_guid () {}
  * phttpd, pi3web, roxen,
  * thttpd, tux, and webjames.
  */
+#[Pure]
 function php_sapi_name () {}
 
 /**
@@ -1188,6 +1210,7 @@ function php_sapi_name () {}
  * the sequence "s n r v m".
  * @return string the description, as a string.
  */
+#[Pure]
 function php_uname ($mode = null) {}
 
 /**
@@ -1201,6 +1224,7 @@ function php_uname ($mode = null) {}
  * This PHP error will be seen both at compile time and while using
  * php_ini_scanned_files.
  */
+#[Pure]
 function php_ini_scanned_files () {}
 
 /**
@@ -1209,6 +1233,7 @@ function php_ini_scanned_files () {}
  * @return string|false The loaded &php.ini; path, or false if one is not loaded.
  * @since 5.2.4
  */
+#[Pure]
 function php_ini_loaded_file () {}
 
 /**
@@ -1225,6 +1250,7 @@ function php_ini_loaded_file () {}
  * 0 if str1 is greater than
  * str2, and 0 if they are equal.
  */
+#[Pure]
 function strnatcmp ($string1, $string2) {}
 
 /**
@@ -1241,6 +1267,7 @@ function strnatcmp ($string1, $string2) {}
  * 0 if str1 is greater than
  * str2, and 0 if they are equal.
  */
+#[Pure]
 function strnatcasecmp ($string1, $string2) {}
 
 /**
@@ -1262,6 +1289,7 @@ function strnatcasecmp ($string1, $string2) {}
  * </p>
  * @return int This functions returns an integer.
  */
+#[Pure]
 function substr_count ($haystack, $needle, $offset = null, $length = null) {}
 
 /**
@@ -1314,6 +1342,7 @@ function substr_count ($haystack, $needle, $offset = null, $length = null) {}
  * @return int the length of the initial segment of str1
  * which consists entirely of characters in str2.
  */
+#[Pure]
 function strspn ($string, $characters, $offset = null, $length = null) {}
 
 /**
@@ -1333,6 +1362,7 @@ function strspn ($string, $characters, $offset = null, $length = null) {}
  * </p>
  * @return int the length of the segment as an integer.
  */
+#[Pure]
 function strcspn ($string, $characters, $offset = null, $length = null) {}
 
 /**

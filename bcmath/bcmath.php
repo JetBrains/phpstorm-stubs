@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * Add two arbitrary precision numbers
  * @link https://php.net/manual/en/function.bcadd.php
@@ -17,6 +19,7 @@
  * </p>
  * @return string The sum of the two operands, as a string.
  */
+#[Pure]
 function bcadd ($num1, $num2, $scale = 0) {}
 
 /**
@@ -36,6 +39,7 @@ function bcadd ($num1, $num2, $scale = 0) {}
  * </p>
  * @return string The result of the subtraction, as a string.
  */
+#[Pure]
 function bcsub ($num1, $num2, $scale = 0) {}
 
 /**
@@ -55,6 +59,7 @@ function bcsub ($num1, $num2, $scale = 0) {}
  * </p>
  * @return string the result as a string.
  */
+#[Pure]
 function bcmul ($num1, $num2, $scale = 0) {}
 
 /**
@@ -75,6 +80,7 @@ function bcmul ($num1, $num2, $scale = 0) {}
  * @return string|null the result of the division as a string, or <b>NULL</b> if
  * <i>divisor</i> is 0.
  */
+#[Pure]
 function bcdiv ($num1, $num2, $scale = 0) {}
 
 /**
@@ -95,6 +101,7 @@ function bcdiv ($num1, $num2, $scale = 0) {}
  * @return string|null the modulus as a string, or <b>NULL</b> if
  * <i>divisor</i> is 0.
  */
+#[Pure]
 function bcmod ($num1, $num2, $scale = 0) {}
 
 /**
@@ -116,6 +123,7 @@ function bcmod ($num1, $num2, $scale = 0) {}
  * </p>
  * @return string the result as a string.
  */
+#[Pure]
 function bcpow ($num, $exponent, $scale = 0) {}
 
 /**
@@ -128,6 +136,7 @@ function bcpow ($num, $exponent, $scale = 0) {}
  * @return string|null the square root as a string, or <b>NULL</b> if
  * <i>operand</i> is negative.
  */
+#[Pure]
 function bcsqrt ($num, $scale = null) {}
 
 /**
@@ -138,6 +147,7 @@ function bcsqrt ($num, $scale = null) {}
  * </p>
  * @return int|true <b>INT</b> since 7.3.0 and <b>TRUE</b> before.
  */
+#[Pure]
 function bcscale ($scale = null) {}
 
 /**
@@ -158,6 +168,7 @@ function bcscale ($scale = null) {}
  * <i>left_operand</i> is larger than the
  * <i>right_operand</i>, -1 otherwise.
  */
+#[Pure]
 function bccomp ($num1, $num2, $scale = 0) {}
 
 /**
@@ -182,4 +193,5 @@ function bccomp ($num1, $num2, $scale = 0) {}
  * @return string|null the result as a string, or <b>NULL</b> if <i>modulus</i>
  * is 0 or <i>exponent</i> is negative.
  */
+#[Pure]
 function bcpowmod ($num, $exponent, $modulus, $scale = 0) {}

@@ -1,6 +1,7 @@
 <?php
 
 // Start of geoip v.1.1.0
+use JetBrains\PhpStorm\Pure;
 
 /**
  * (PECL geoip &gt;= 0.2.0)<br/>
@@ -13,6 +14,7 @@
  * </p>
  * @return string|null the corresponding database version, or <b>NULL</b> on error.
  */
+#[Pure]
 function geoip_database_info ($database = GEOIP_COUNTRY_EDITION) {}
 
 /**
@@ -25,6 +27,7 @@ function geoip_database_info ($database = GEOIP_COUNTRY_EDITION) {}
  * @return string|false the two letter ISO country code on success, or <b>FALSE</b>
  * if the address cannot be found in the database.
  */
+#[Pure]
 function geoip_country_code_by_name ($hostname) {}
 
 /**
@@ -37,6 +40,7 @@ function geoip_country_code_by_name ($hostname) {}
  * @return string|false the three letter country code on success, or <b>FALSE</b>
  * if the address cannot be found in the database.
  */
+#[Pure]
 function geoip_country_code3_by_name ($hostname) {}
 
 /**
@@ -49,6 +53,7 @@ function geoip_country_code3_by_name ($hostname) {}
  * @return string|false the country name on success, or <b>FALSE</b> if the address cannot
  * be found in the database.
  */
+#[Pure]
 function geoip_country_name_by_name ($hostname) {}
 
 /**
@@ -61,6 +66,7 @@ function geoip_country_name_by_name ($hostname) {}
  * @return string|false the two letter continent code on success, or <b>FALSE</b> if the
  * address cannot be found in the database.
  */
+#[Pure]
 function geoip_continent_code_by_name ($hostname) {}
 
 /**
@@ -73,6 +79,7 @@ function geoip_continent_code_by_name ($hostname) {}
  * @return string|false the organization name on success, or <b>FALSE</b> if the address
  * cannot be found in the database.
  */
+#[Pure]
 function geoip_org_by_name ($hostname) {}
 
 /**
@@ -85,6 +92,7 @@ function geoip_org_by_name ($hostname) {}
  * @return array|false the associative array on success, or <b>FALSE</b> if the address
  * cannot be found in the database.
  */
+#[Pure]
 function geoip_record_by_name ($hostname) {}
 
 /**
@@ -96,6 +104,7 @@ function geoip_record_by_name ($hostname) {}
  * </p>
  * @return int the connection type.
  */
+#[Pure]
 function geoip_id_by_name ($hostname) {}
 
 /**
@@ -108,6 +117,7 @@ function geoip_id_by_name ($hostname) {}
  * @return array|false the associative array on success, or <b>FALSE</b> if the address
  * cannot be found in the database.
  */
+#[Pure]
 function geoip_region_by_name ($hostname) {}
 
 /**
@@ -120,6 +130,7 @@ function geoip_region_by_name ($hostname) {}
  * @return string|false the ISP name on success, or <b>FALSE</b> if the address
  * cannot be found in the database.
  */
+#[Pure]
 function geoip_isp_by_name ($hostname) {}
 
 /**
@@ -133,6 +144,7 @@ function geoip_isp_by_name ($hostname) {}
  * </p>
  * @return bool|null <b>TRUE</b> is database exists, <b>FALSE</b> if not found, or <b>NULL</b> on error.
  */
+#[Pure]
 function geoip_db_avail ($database) {}
 
 /**
@@ -141,6 +153,7 @@ function geoip_db_avail ($database) {}
  * @link https://php.net/manual/en/function.geoip-db-get-all-info.php
  * @return array the associative array.
  */
+#[Pure]
 function geoip_db_get_all_info () {}
 
 /**
@@ -154,6 +167,7 @@ function geoip_db_get_all_info () {}
  * </p>
  * @return string|null the filename of the corresponding database, or <b>NULL</b> on error.
  */
+#[Pure]
 function geoip_db_filename ($database) {}
 
 /**
@@ -171,6 +185,7 @@ function geoip_db_filename ($database) {}
  * @return string|false the region name on success, or <b>FALSE</b> if the country and region code
  * combo cannot be found.
  */
+#[Pure]
 function geoip_region_name_by_code ($country_code, $region_code) {}
 
 /**
@@ -188,6 +203,7 @@ function geoip_region_name_by_code ($country_code, $region_code) {}
  * @return string|false the time zone on success, or <b>FALSE</b> if the country and region code
  * combo cannot be found.
  */
+#[Pure]
 function geoip_time_zone_by_country_and_region ($country_code, $region_code = null) {}
 
 define ('GEOIP_COUNTRY_EDITION', 1);

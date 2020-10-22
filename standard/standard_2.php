@@ -1,6 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Query language and locale information
@@ -145,6 +146,7 @@ use JetBrains\PhpStorm\ArrayShape;
  * @return string|false the element as a string, or false if item
  * is not valid.
  */
+#[Pure]
 function nl_langinfo ($item) {}
 
 /**
@@ -155,6 +157,7 @@ function nl_langinfo ($item) {}
  * </p>
  * @return string the soundex key as a string.
  */
+#[Pure]
 function soundex ($string) {}
 
 /**
@@ -195,6 +198,7 @@ function levenshtein ($string1, $string2, $insertion_cost = null, $repetition_co
  * </p>
  * @return string the specified character.
  */
+#[Pure]
 function chr ($codepoint) {}
 
 /**
@@ -205,6 +209,7 @@ function chr ($codepoint) {}
  * </p>
  * @return int the ASCII value as an integer.
  */
+#[Pure]
 function ord ($character) {}
 
 /**
@@ -240,6 +245,7 @@ function parse_str ($string, array &$result = null) {}
  * </p>
  * @return array an indexed array containing the fields read.
  */
+#[Pure]
 function str_getcsv ($string, $separator = ",", $enclosure = '"', $escape = "\\") {}
 
 /**
@@ -267,6 +273,7 @@ function str_getcsv ($string, $separator = ",", $enclosure = '"', $escape = "\\"
  * </p>
  * @return string the padded string.
  */
+#[Pure]
 function str_pad ($string, $length, $pad_string = " ", $pad_type = STR_PAD_RIGHT) {}
 
 /**
@@ -277,6 +284,7 @@ function str_pad ($string, $length, $pad_string = " ", $pad_type = STR_PAD_RIGHT
  * @link https://php.net/manual/en/function.chop.php
  * @see rtrim()
  */
+#[Pure]
 function chop ($string, $characters = null) {}
 
 /**
@@ -291,6 +299,7 @@ function chop ($string, $characters = null) {}
  * @param bool $before_needle [optional] If TRUE, strstr() returns the part of the haystack before the first occurrence of the needle (excluding the needle).
  * @return string|false Returns the portion of string, or FALSE if needle is not found.
  */
+#[Pure]
 function strchr ($haystack, $needle, $before_needle = false) {}
 
 /**
@@ -317,6 +326,7 @@ function strchr ($haystack, $needle, $before_needle = false) {}
  * @return string a string produced according to the formatting string
  * format.
  */
+#[Pure]
 function sprintf ($format, ...$values) {}
 
 /**
@@ -358,6 +368,7 @@ function vprintf ($format, array $values) {}
  * format (which is described in the documentation
  * for sprintf).
  */
+#[Pure]
 function vsprintf ($format, array $values) {}
 
 /**
@@ -472,6 +483,7 @@ function fscanf ($stream, $format, &...$vars) {}
     "path" => "string",
     "fragment" => "string",
 ])]
+#[Pure]
 function parse_url ($url, $component = -1) {}
 
 /**
@@ -490,6 +502,7 @@ function parse_url ($url, $component = -1) {}
  * rawurlencode) in that for historical reasons, spaces
  * are encoded as plus (+) signs.
  */
+#[Pure]
 function urlencode ($string) {}
 
 /**
@@ -500,6 +513,7 @@ function urlencode ($string) {}
  * </p>
  * @return string the decoded string.
  */
+#[Pure]
 function urldecode ($string) {}
 
 /**
@@ -516,6 +530,7 @@ function urldecode ($string) {}
  * delimiters, and for protecting URLs from being mangled by transmission
  * media with character conversions (like some email systems).
  */
+#[Pure]
 function rawurlencode ($string) {}
 
 /**
@@ -526,6 +541,7 @@ function rawurlencode ($string) {}
  * </p>
  * @return string the decoded URL, as a string.
  */
+#[Pure]
 function rawurldecode ($string) {}
 
 /**
@@ -561,6 +577,7 @@ function rawurldecode ($string) {}
  *  <p>If enc_type is PHP_QUERY_RFC3986, then encoding is performed according to » RFC 3986, and spaces will be percent encoded (%20).
  * @return string a URL-encoded string.
  */
+#[Pure]
 function http_build_query ($data, string $numeric_prefix = "", string $arg_separator = "&", int $encoding_type = PHP_QUERY_RFC1738){}
 
 /**
@@ -583,6 +600,7 @@ function readlink ($path) {}
  * of the Unix C stat structure returned by the lstat
  * system call. Returns 0 or false in case of error.
  */
+#[Pure]
 function linkinfo ($path) {}
 
 /**
@@ -674,6 +692,7 @@ function system ($command, &$result_code = null) {}
  * </p>
  * @return string The escaped string.
  */
+#[Pure]
 function escapeshellcmd ($command) {}
 
 /**
@@ -684,6 +703,7 @@ function escapeshellcmd ($command) {}
  * </p>
  * @return string The escaped string.
  */
+#[Pure]
 function escapeshellarg ($arg) {}
 
 /**
@@ -918,6 +938,7 @@ function proc_nice ($priority) {}
  * @return int A pseudo random value between min
  * (or 0) and max (or getrandmax, inclusive).
  */
+#[Pure]
 function rand ($min = 0, $max = null) {}
 
 /**
@@ -941,6 +962,7 @@ function srand ($seed = null, $mode = MT_RAND_MT19937) {}
  * @link https://php.net/manual/en/function.getrandmax.php
  * @return int The largest possible random value returned by rand
  */
+#[Pure]
 function getrandmax () {}
 
 /**
@@ -955,6 +977,7 @@ function getrandmax () {}
  * @return int A random integer value between min (or 0)
  * and max (or mt_getrandmax, inclusive)
  */
+#[Pure]
 function mt_rand ($min = 0, $max = null) {}
 
 /**
@@ -975,6 +998,7 @@ function mt_srand ($seed = null, $mode = MT_RAND_MT19937) {}
  * @link https://php.net/manual/en/function.mt-getrandmax.php
  * @return int the maximum random value returned by mt_rand
  */
+#[Pure]
 function mt_getrandmax () {}
 
 /**
@@ -990,6 +1014,7 @@ function mt_getrandmax () {}
  * @return int|false the port number, or false if service or
  * protocol is not found.
  */
+#[Pure]
 function getservbyname ($service, $protocol) {}
 
 /**
@@ -1004,6 +1029,7 @@ function getservbyname ($service, $protocol) {}
  * </p>
  * @return string the Internet service name as a string.
  */
+#[Pure]
 function getservbyport ($port, $protocol) {}
 
 /**
@@ -1014,6 +1040,7 @@ function getservbyport ($port, $protocol) {}
  * </p>
  * @return int the protocol number or -1 if the protocol is not found.
  */
+#[Pure]
 function getprotobyname ($protocol) {}
 
 /**
@@ -1024,6 +1051,7 @@ function getprotobyname ($protocol) {}
  * </p>
  * @return string the protocol name as a string.
  */
+#[Pure]
 function getprotobynumber ($protocol) {}
 
 /**
@@ -1031,6 +1059,7 @@ function getprotobynumber ($protocol) {}
  * @link https://php.net/manual/en/function.getmyuid.php
  * @return int|false the user ID of the current script, or false on error.
  */
+#[Pure]
 function getmyuid () {}
 
 /**
@@ -1038,6 +1067,7 @@ function getmyuid () {}
  * @link https://php.net/manual/en/function.getmygid.php
  * @return int|false the group ID of the current script, or false on error.
  */
+#[Pure]
 function getmygid () {}
 
 /**
@@ -1045,6 +1075,7 @@ function getmygid () {}
  * @link https://php.net/manual/en/function.getmypid.php
  * @return int|false the current PHP process ID, or false on error.
  */
+#[Pure]
 function getmypid () {}
 
 /**
@@ -1052,4 +1083,5 @@ function getmypid () {}
  * @link https://php.net/manual/en/function.getmyinode.php
  * @return int|false the current script's inode as an integer, or false on error.
  */
+#[Pure]
 function getmyinode () {}

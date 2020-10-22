@@ -1,6 +1,7 @@
 <?php
 
 // Start of SPL v.0.2
+use JetBrains\PhpStorm\Pure;
 
 
 /**
@@ -8,6 +9,7 @@
  * @link https://php.net/manual/en/function.spl-classes.php
  * @return array
  */
+#[Pure]
 function spl_classes () {}
 
 /**
@@ -44,7 +46,7 @@ function spl_autoload_extensions ($file_extensions = null) {}
 /**
  * Register given function as __autoload() implementation
  * @link https://php.net/manual/en/function.spl-autoload-register.php
- * @param callback $autoload_function [optional] <p>
+ * @param callback $callback [optional] <p>
  * The autoload function being registered.
  * If no parameter is provided, then the default implementation of
  * spl_autoload will be registered.
@@ -57,18 +59,18 @@ function spl_autoload_extensions ($file_extensions = null) {}
  * @throws TypeError Since 8.0.
  * @since 5.1.2
  */
-function spl_autoload_register ($autoload_function = null, $throw = true, $prepend = false) {}
+function spl_autoload_register ($callback = null, $throw = true, $prepend = false) {}
 
 /**
  * Unregister given function as __autoload() implementation
  * @link https://php.net/manual/en/function.spl-autoload-unregister.php
- * @param mixed $autoload_function <p>
+ * @param mixed $callback <p>
  * The autoload function being unregistered.
  * </p>
  * @return bool true on success or false on failure.
  * @since 5.1.2
  */
-function spl_autoload_unregister ($autoload_function) {}
+function spl_autoload_unregister ($callback) {}
 
 /**
  * Return all registered __autoload() functions
@@ -104,6 +106,7 @@ function spl_autoload_call ($class) {}
  * </p>
  * @return string[]|false An array on success, or false on error.
  */
+#[Pure]
 function class_parents ($object_or_class, $autoload = null) {}
 
 /**
@@ -119,6 +122,7 @@ function class_parents ($object_or_class, $autoload = null) {}
  * </p>
  * @return string[]|false An array on success, or false on error.
  */
+#[Pure]
 function class_implements ($object_or_class, $autoload = null) {}
 
 /**
@@ -128,6 +132,7 @@ function class_implements ($object_or_class, $autoload = null) {}
  * @return string A string that is unique for each object and is always the same for
  * the same object.
  */
+#[Pure]
 function spl_object_hash ($object) {}
 
 /**
@@ -136,12 +141,13 @@ function spl_object_hash ($object) {}
  * @param Traversable $iterator <p>
  * The iterator being copied.
  * </p>
- * @param bool $use_keys [optional] <p>
+ * @param bool $preserve_keys [optional] <p>
  * Whether to use the iterator element keys as index.
  * </p>
  * @return array An array containing the elements of the iterator.
  */
-function iterator_to_array (Traversable $iterator, $use_keys = true) {}
+#[Pure]
+function iterator_to_array (Traversable $iterator, $preserve_keys = true) {}
 
 /**
  * Count the elements in an iterator
@@ -151,6 +157,7 @@ function iterator_to_array (Traversable $iterator, $use_keys = true) {}
  * </p>
  * @return int The number of elements in iterator.
  */
+#[Pure]
 function iterator_count (Traversable $iterator) {}
 
 /**
@@ -159,7 +166,7 @@ function iterator_count (Traversable $iterator) {}
  * @param Traversable $iterator <p>
  * The class to iterate over.
  * </p>
- * @param callback $function <p>
+ * @param callback $callback <p>
  * The callback function to call on every element.
  * The function must return true in order to
  * continue iterating over the iterator.
@@ -169,7 +176,7 @@ function iterator_count (Traversable $iterator) {}
  * </p>
  * @return int the iteration count.
  */
-function iterator_apply (Traversable $iterator, $function, array $args = null) {}
+function iterator_apply (Traversable $iterator, $callback, array $args = null) {}
 
 // End of SPL v.0.2
 

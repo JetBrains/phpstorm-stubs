@@ -1,12 +1,12 @@
 <?php
 
 // The Event class
+use JetBrains\PhpStorm\Immutable;
+
 /**
  * Event.
  * Event class represents and event firing on a file descriptor being ready to read from or write to; a file descriptor becoming ready to read from or write to(edge-triggered I/O only); a timeout expiring; a signal occurring; a user-triggered event.
  * Every event is associated with EventBase . However, event will never fire until it is added (via Event::add() ). An added event remains in pending state until the registered event occurs, thus turning it to active state. To handle events user may register a callback which is called when event becomes active. If event is configured persistent , it remains pending. If it is not persistent, it stops being pending when it's callback runs. Event::del() method deletes event, thus making it non-pending. By means of Event::add() method it could be added again.
- *
- * @property-read  bool $pending
  *
  * @author Kazuaki MABUCHI
  * @copyright Сopyright (https://php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
@@ -15,6 +15,12 @@
  */
 final class Event
 {
+    /**
+     * @var bool
+     */
+    #[Immutable]
+    public $pending;
+
     const ET = 32;
     const PERSIST = 16;
     const READ = 2;
@@ -418,9 +424,6 @@ final class EventBase
  * EventBuffer represents Libevent's "evbuffer", an utility functionality for buffered I/O.
  * Event buffers are meant to be generally useful for doing the "buffer" part of buffered network I/O.
  *
- * @property-read  int $length
- * @property-read  int $contiguous_space
- *
  * @author Kazuaki MABUCHI
  * @copyright Copyright (https://php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
  *
@@ -428,6 +431,18 @@ final class EventBase
  */
 class EventBuffer
 {
+    /**
+     * @var int
+     */
+    #[Immutable]
+    public $length;
+
+    /**
+     * @var int
+     */
+    #[Immutable]
+    public $contiguous_space;
+
     const EOL_ANY = 0;
     const EOL_CRLF = 1;
     const EOL_CRLF_STRICT = 2;
@@ -748,11 +763,6 @@ class EventBuffer
  * Remember how much we wrote, and if we still have more data to write, wait for the connection to become writable again.
  * This buffered I/O pattern is common enough that Libevent provides a generic mechanism for it. A "buffer event" consists of an underlying transport (like a socket), a read buffer, and a write buffer. Instead of regular events, which give callbacks when the underlying transport is ready to be read or written, a buffer event invokes its user-supplied callbacks when it has read or written enough data.
  *
- * @property int $fd
- * @property int $priority
- * @property-read  EventBuffer $input
- * @property-read  EventBuffer $output
- *
  * @author Kazuaki MABUCHI
  * @copyright Copyright (https://php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
  *
@@ -760,6 +770,24 @@ class EventBuffer
  */
 final class EventBufferEvent
 {
+    /** @var int */
+    public $fd;
+
+    /** @var int */
+    public $priority;
+
+    /**
+     * @var EventBuffer
+     */
+    #[Immutable]
+    public $input;
+
+    /**
+     * @var EventBuffer
+     */
+    #[Immutable]
+    public $output;
+
     const READING = 1;
     const WRITING = 2;
     const EOF = 16;
@@ -1782,8 +1810,6 @@ class EventHttpRequest
  * EventListener.
  * Represents a connection listener.
  *
- * @property-read  int $fd
- *
  * @author Kazuaki MABUCHI
  * @copyright Copyright (https://secure.php.net/manual/cc.license.php) by the PHP Documentation Group is licensed under [CC by 3.0 or later](https://creativecommons.org/licenses/by/3.0/).
  *
@@ -1791,6 +1817,12 @@ class EventHttpRequest
  */
 final class EventListener
 {
+    /**
+     * @var int
+     */
+    #[Immutable]
+    public $fd;
+
     const OPT_LEAVE_SOCKETS_BLOCKING = 1;
     const OPT_CLOSE_ON_FREE = 2;
     const OPT_CLOSE_ON_EXEC = 4;

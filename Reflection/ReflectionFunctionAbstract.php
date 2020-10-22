@@ -1,15 +1,21 @@
 <?php
 
+use JetBrains\PhpStorm\Immutable;
+
 /**
  * A parent class to <b>ReflectionFunction</b>, read its
  * description for details.
- *
- * @property-read string $name Name of the function, same as calling the {@see ReflectionFunctionAbstract::getName()} method
  *
  * @link https://php.net/manual/en/class.reflectionfunctionabstract.php
  */
 abstract class ReflectionFunctionAbstract implements Reflector
 {
+    /**
+     * @var string Name of the function, same as calling the {@see ReflectionFunctionAbstract::getName()} method
+     */
+    #[Immutable]
+    public $name;
+
     /**
      * Clones function
      *

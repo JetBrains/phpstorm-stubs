@@ -1,5 +1,8 @@
 <?php
 
+use JetBrains\PhpStorm\ExpectedValues;
+use JetBrains\PhpStorm\Immutable;
+
 /**
  * Ev is a singleton providing access to the default loop and to some common operations.
  */
@@ -387,14 +390,22 @@ final class Ev
 
 /**
  * Class EvWatcher
- *
- * @property-read bool $is_active TRUE if the watcher is active. FALSE otherwise.
- * @property-read bool $is_pending TRUE if the watcher is pending, i.e. it has outstanding events, but its callback
- *      has not yet been invoked. FALSE otherwise. As long, as a watcher is pending (but not active), one must not
- *      change its priority.
  */
 abstract class EvWatcher
 {
+    /**
+     * @var bool TRUE if the watcher is active. FALSE otherwise.
+     */
+    #[Immutable]
+    public $is_active;
+
+    /**
+     * @var bool TRUE if the watcher is pending, i.e. it has outstanding events, but its callback
+     *      has not yet been invoked. FALSE otherwise. As long, as a watcher is pending (but not active), one must not
+     *      change its priority.
+     */
+    #[Immutable]
+    public $is_pending;
 
     /**
      * Abstract constructor of a watcher object
@@ -542,13 +553,27 @@ final class EvCheck extends EvWatcher
  * event loop iterations later or in the next callback invocation is not.
  *
  * It is allowed to register EvChild watchers in the default loop only.
- *
- * @property-read int $pid The process ID this watcher watches out for, or 0, meaning any process ID.
- * @property-read int $rpid The process ID that detected a status change.
- * @property-read int $rstatus The process exit status caused by rpid.
  */
 final class EvChild extends EvWatcher
 {
+    /**
+     * @var int The process ID this watcher watches out for, or 0, meaning any process ID.
+     */
+    #[Immutable]
+    public $pid;
+
+    /**
+     * @var int The process ID that detected a status change.
+     */
+    #[Immutable]
+    public $rpid;
+
+    /**
+     * @var int The process exit status caused by rpid.
+     */
+    #[Immutable]
+    public $rstatus;
+
     /**
      * Constructs the EvChild watcher object.
      *
@@ -606,11 +631,15 @@ final class EvChild extends EvWatcher
  * Class EvEmbed
  *
  * Used to embed one event loop into another.
- *
- * @property-read EvLoop $embed The embedded loop
  */
 final class EvEmbed extends EvWatcher
 {
+    /**
+     * @var EvLoop The embedded loop
+     */
+    #[Immutable]
+    public $embed;
+
     /**
      * Constructs the EvEmbed object.
      *
@@ -678,12 +707,22 @@ final class EvEmbed extends EvWatcher
  * block infinitely.
  *
  * Always consider using non-blocking mode.
- *
- * @property-read resource $fd A stream opened with fopen() or similar functions, numeric file descriptor, or socket.
- * @property-read int $events Ev::READ and/or Ev::WRITE. See the bit masks.
  */
 final class EvIo extends EvWatcher
 {
+    /**
+     * @var resource A stream opened with fopen() or similar functions, numeric file descriptor, or socket.
+     */
+    #[Immutable]
+    public $fd;
+
+    /**
+     * @var int Ev::READ and/or Ev::WRITE. See the bit masks.
+     */
+    #[Immutable]
+    #[ExpectedValues(flags: [Ev::READ, Ev::WRITE])]
+    public $events;
+
     /**
      * Constructs EvIo watcher object.
      *
@@ -892,11 +931,15 @@ final class EvPrepare extends EvWatcher
  * If possible and supported, libev will install its handlers with SA_RESTART (or equivalent) behaviour enabled, so
  * system calls should not be unduly interrupted. In case of a problem with system calls getting interrupted by signals,
  * all the signals can be blocked in an EvCheck watcher and unblocked in a EvPrepare watcher.
- *
- * @property-read int $signum Signal number. See the constants exported by pcntl extension. See also signal(7) man page.
  */
 final class EvSignal extends EvWatcher
 {
+    /**
+     * @var int Signal number. See the constants exported by pcntl extension. See also signal(7) man page.
+     */
+    #[Immutable]
+    public $signum;
+
     /**
      * Constructs EvSignal watcher object
      *
@@ -951,13 +994,22 @@ final class EvSignal extends EvWatcher
  *
  * This watcher type is not meant for massive numbers of EvStat watchers, as even with OS-supported change
  * notifications, this can be resource-intensive.
- *
- * @property-read float $interval Hint on how quickly a change is expected to be detected and should normally be
- *      specified as 0.0 to let libev choose a suitable value.
- * @property-read string $path The path to wait for status changes on.
  */
 final class EvStat extends EvWatcher
 {
+    /**
+     * @var float  Hint on how quickly a change is expected to be detected and should normally be
+     *      specified as 0.0 to let libev choose a suitable value.
+     */
+    #[Immutable]
+    public $interval;
+
+    /**
+     * @var string The path to wait for status changes on.
+     */
+    #[Immutable]
+    public $path;
+
     /**
      * Constructs EvStat watcher object.
      *
@@ -1193,12 +1245,22 @@ final class EvFork extends EvWatcher
  *
  * The default event loop is initialized automatically by Ev. It is accessible via methods of the Ev class, or via
  * EvLoop::defaultLoop() method.
- *
- * @property-read int $backend The Ev::BACKEND_* flag indicating the event backend in use.
- * @property-read bool $is_default_loop TRUE if it is the default event loop.
  */
 final class EvLoop
 {
+    /**
+     * @var int The Ev::BACKEND_* flag indicating the event backend in use.
+     */
+    #[Immutable]
+    #[ExpectedValues(flags: [Ev::BACKEND_ALL, Ev::BACKEND_DEVPOLL, Ev::BACKEND_EPOLL, Ev::BACKEND_KQUEUE, Ev::BACKEND_MASK, Ev::BACKEND_POLL, Ev::BACKEND_PORT, Ev::BACKEND_SELECT])]
+    public $backend;
+
+    /**
+     * @var bool TRUE if it is the default event loop.
+     */
+    #[Immutable]
+    public $is_default_loop;
+
     /**
      * @var mixed Custom data attached to the loop.
      */
