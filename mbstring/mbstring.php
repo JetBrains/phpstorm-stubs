@@ -904,7 +904,6 @@ function mb_check_encoding ($value = null, $encoding = null) {}
  * is NOT changed. If encoding is omitted, then the current character
  * encoding name for a multibyte regex is returned.
  */
-#[Pure]
 function mb_regex_encoding ($encoding = null) {}
 
 /**
