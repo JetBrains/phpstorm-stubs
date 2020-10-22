@@ -464,6 +464,32 @@ class SoapVar  {
 	 * @since 5.0.1
 	 */
 	public function __construct ($data, $encoding, $type_name = null, $type_namespace = null, $node_name = null, $node_namespace = null) {}
+	
+	/**
+	 * SoapVar constructor
+	 * @link https://php.net/manual/en/soapvar.soapvar.php
+	 * @param mixed $data <p>
+	 * The data to pass or return.
+	 * </p>
+	 * @param string|int $encoding <p>
+	 * The encoding ID, one of the XSD_... constants.
+	 * </p>
+	 * @param string $type_name [optional] <p>
+	 * The type name.
+	 * </p>
+	 * @param string $type_namespace [optional] <p>
+	 * The type namespace.
+	 * </p>
+	 * @param string $node_name [optional] <p>
+	 * The XML node name.
+	 * </p>
+	 * @param string $node_namespace [optional] <p>
+	 * The XML node namespace.
+	 * </p>
+	 * @since 5.0.1
+	 * @removed 8.0
+	 */
+	public function SoapVar ($data, $encoding, $type_name = null, $type_namespace = null, $node_name = null, $node_namespace = null) {}
 
 }
 
@@ -514,6 +540,49 @@ class SoapServer  {
 	 * @since 5.0.1
 	 */
 	public function __construct ($wsdl, array $options = null) {}
+	
+	/**
+	 * SoapServer constructor
+	 * @link https://php.net/manual/en/soapserver.soapserver.php
+	 * @param mixed $wsdl <p>
+	 * To use the SoapServer in WSDL mode, pass the URI of a WSDL file.
+	 * Otherwise, pass <b>NULL</b> and set the uri option to the
+	 * target namespace for the server.
+	 * </p>
+	 * @param array $options [optional] <p>
+	 * Allow setting a default SOAP version (soap_version),
+	 * internal character encoding (encoding),
+	 * and actor URI (actor).
+	 * </p>
+	 * <p>
+	 * The classmap option can be used to map some WSDL
+	 * types to PHP classes. This option must be an array with WSDL types
+	 * as keys and names of PHP classes as values.
+	 * </p>
+	 * <p>
+	 * The typemap option is an array of type mappings.
+	 * Type mapping is an array with keys type_name,
+	 * type_ns (namespace URI), from_xml
+	 * (callback accepting one string parameter) and to_xml
+	 * (callback accepting one object parameter).
+	 * </p>
+	 * <p>
+	 * The cache_wsdl option is one of
+	 * <b>WSDL_CACHE_NONE</b>,
+	 * <b>WSDL_CACHE_DISK</b>,
+	 * <b>WSDL_CACHE_MEMORY</b> or
+	 * <b>WSDL_CACHE_BOTH</b>.
+	 * </p>
+	 * <p>
+	 * There is also a features option which can be set to
+	 * <b>SOAP_WAIT_ONE_WAY_CALLS</b>,
+	 * <b>SOAP_SINGLE_ELEMENT_ARRAYS</b>,
+	 * <b>SOAP_USE_XSI_ARRAY_TYPE</b>.
+	 * </p>
+	 * @since 5.0.1
+	 * @since 8.0
+	 */
+	public function SoapServer ($wsdl, array $options = null) {}
 
 	/**
 	 * Sets SoapServer persistence mode
@@ -694,6 +763,33 @@ class SoapFault extends Exception  {
 	 * @since 5.0.1
 	 */
 	public function __construct ($faultcode, $faultstring, $faultactor = null, $detail = null, $faultname = null, $headerfault = null) {}
+	
+	/**
+	 * SoapFault constructor
+	 * @link https://php.net/manual/en/soapfault.soapfault.php
+	 * @param string $faultcode <p>
+	 * The error code of the <b>SoapFault</b>.
+	 * </p>
+	 * @param string $faultstring <p>
+	 * The error message of the <b>SoapFault</b>.
+	 * </p>
+	 * @param string $faultactor [optional] <p>
+	 * A string identifying the actor that caused the error.
+	 * </p>
+	 * @param mixed $detail [optional] <p>
+	 * More details about the cause of the error.
+	 * </p>
+	 * @param string $faultname [optional] <p>
+	 * Can be used to select the proper fault encoding from WSDL.
+	 * </p>
+	 * @param mixed $headerfault [optional] <p>
+	 * Can be used during SOAP header handling to report an error in the
+	 * response header.
+	 * </p>
+	 * @since 5.0.1
+	 * @removed 8.0
+	 */
+	public function SoapFault ($faultcode, $faultstring, $faultactor = null, $detail = null, $faultname = null, $headerfault = null) {}
 
 	/**
 	 * Obtain a string representation of a SoapFault
@@ -726,6 +822,22 @@ class SoapParam  {
 	 * @since 5.0.1
 	 */
 	public function __construct ($data, $name) {}
+	
+	/**
+	 * SoapParam constructor
+	 * @link https://php.net/manual/en/soapparam.soapparam.php
+	 * @param mixed $data <p>
+	 * The data to pass or return. This parameter can be passed directly as PHP
+	 * value, but in this case it will be named as paramN and
+	 * the SOAP service may not understand it.
+	 * </p>
+	 * @param string $name <p>
+	 * The parameter name.
+	 * </p>
+	 * @since 5.0.1
+	 * @removed 8.0
+	 */
+	public function SoapParam ($data, $name) {}
 
 }
 
