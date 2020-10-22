@@ -334,6 +334,8 @@ class mysqli  {
 	 * @param string $database [optional]
 	 * @param int $port [optional]
 	 * @param string $socket [optional]
+	 *
+	 * @removed 8.0
 	 */
 	public function mysqli ($host = null, $username = null, $password = null, $database = null, $port = null, $socket = null) {}
 

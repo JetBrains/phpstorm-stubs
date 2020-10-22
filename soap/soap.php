@@ -131,6 +131,8 @@ class SoapClient  {
 	 * <b>SOAP_SSL_METHOD_SSLv23</b>.
 	 * </p>
 	 * @since 5.0.1
+	 *
+	 * @removed 8.0
 	 */
 	public function SoapClient ($wsdl, array $options = null) {}
 
@@ -888,6 +890,7 @@ class SoapHeader  {
 	 * element.
 	 * </p>
 	 * @since 5.0.1
+	 * @removed 8.0
 	 */
 	public function SoapHeader ($namespace, $name, $data = null, $mustunderstand = false, $actor = null) {}
 
