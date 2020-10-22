@@ -1066,7 +1066,6 @@ function gc_status () {}
  * @return int Returns the number of bytes freed.
  * @since 7.0
  */
-#[Pure]
 function gc_mem_caches () {}
 
 /**
