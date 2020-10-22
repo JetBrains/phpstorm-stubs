@@ -28,12 +28,12 @@ class Deprecated {
      * The following variables are available in this template:
      * <ul>
      * <li>%parametersList%: parameters of the function call. For example, for the "f(1,2)" call, %parametersList% will be "1,2"</li>
-     * <li>%param0%,%param1%,%param2%,...: parameters of the function call. For example, for the "f(1,2)" call, %param1% will be "2"</li>
+     * <li>%parameter0%,%parameter1%,%parameter2%,...: parameters of the function call. For example, for the "f(1,2)" call, %parameter1% will be "2"</li>
      * <li>%name%: For "\x\f(1,2)", %name% will be "\x\f", for "$this->ff()", %name% will be "ff"</li>
      * <li>%class%: If the attribute is provided for method "m", then for "$this->f()->m()", %class% will be "$this->f()"</li>
      * </ul>
      * The following example shows how to wrap a function call in another call and swap arguments:<br />
-     * "#[Deprecated(replaceWith: "wrappedCall(%name%(%param1%, %param0%))")] f($a, $b){}<br />
+     * "#[Deprecated(replaceWith: "wrappedCall(%name%(%parameter1%, %parameter0%))")] f($a, $b){}<br />
      * f(1,2) will be replaced with wrappedCall(f(2,1))
      * @param string $since Element is deprecated starting with the provided PHP language level, applicable only for PhpStorm stubs entries
      */
