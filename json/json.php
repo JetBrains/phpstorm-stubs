@@ -89,7 +89,6 @@ class JsonIncrementalParser  {
  * </p>
  * @return string|false a JSON encoded string on success or <b>FALSE</b> on failure.
  */
-#[Pure]
 function json_encode ($value, $flags = 0, $depth = 512) {}
 
 /**
@@ -128,7 +127,6 @@ function json_encode ($value, $flags = 0, $depth = 512) {}
  * <i>json</i> cannot be decoded or if the encoded
  * data is deeper than the recursion limit.
  */
-#[Pure]
 function json_decode ($json, $associative = false, $depth = 512, $flags = 0) {}
 
 /**
