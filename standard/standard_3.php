@@ -1,5 +1,7 @@
 <?php
 
+
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -959,9 +961,9 @@ function magic_quotes_runtime ($new_setting) {}
  * false for off, true for on.
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated 5.4 This function has been DEPRECATED as of PHP 5.4.0. Raises an E_CORE_ERROR.
  * @removed 7.0
  */
+#[Deprecated(reason: "This function has been DEPRECATED as of PHP 5.4.0. Raises an E_CORE_ERROR", since: "5.4")]
 function set_magic_quotes_runtime ($new_setting) {}
 
 /**
@@ -1012,9 +1014,9 @@ function get_magic_quotes_runtime () {}
  * not displayed using the default error reporting level.
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
+#[Deprecated(reason: "This function has been DEPRECATED as of PHP 5.3.0", since: "5.3")]
 function import_request_variables ($types, $prefix = null) {}
 
 /**

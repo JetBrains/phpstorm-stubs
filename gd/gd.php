@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -2009,9 +2010,10 @@ function imagetypes () {}
  * Threshold value, between 0 and 8 (inclusive).
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated 7.2 Use imagecreatefromjpeg() and imagewbmp() instead
  * @removed 8.0
+ * @see imagecreatefromjpeg()
  */
+#[Deprecated(reason: "Use imagecreatefromjpeg() and imagewbmp() instead", since: "7.2")]
 function jpeg2wbmp ($jpegname, $wbmpname, $dest_height, $dest_width, $threshold) {}
 
 /**
@@ -2050,9 +2052,10 @@ function png2wbmp ($pngname, $wbmpname, $dest_height, $dest_width, $threshold) {
  * Threshold value, between 0 and 255 (inclusive).
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated 7.3 Use imagewbmp() instead
  * @removed 8.0
+ * @see imagewbmp()
  */
+#[Deprecated(replacement: "imagewbmp(%parametersList%)", since: "7.3")]
 function image2wbmp ($image, $filename = null, $threshold = null) {}
 
 /**

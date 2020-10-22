@@ -1,6 +1,7 @@
 <?php
 
 // Start of gmp v.
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -505,9 +506,12 @@ function gmp_sign ($a) {}
  * It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
  * @return resource|GMP A random GMP number.
- * @deprecated 7.2 Use {@see gmp_random_bits()} or {@see gmp_random_range()} instead.
+ * @see gmp_random_bits()
+ * @see gmp_random_range()
  * @removed 8.0
  */
+
+#[Deprecated(reason: "Use see gmp_random_bits() or see gmp_random_range() instead", since: "7.2")]
 #[Pure]
 function gmp_random ($limiter = 20) {}
 

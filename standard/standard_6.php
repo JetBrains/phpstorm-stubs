@@ -1,6 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -748,14 +749,15 @@ function set_file_buffer ($stream, $size) {}
  * <p>Sets blocking or non-blocking mode on a stream.
  * This function works for any stream that supports non-blocking mode (currently, regular files and socket streams).
  * @link https://php.net/manual/en/function.set-socket-blocking.php
- * @deprecated 5.3 use stream_set_blocking() instead
  * @param resource $socket
  * @param bool $mode If mode is FALSE, the given stream will be switched to non-blocking mode, and if TRUE, it will be switched to blocking mode.
  * This affects calls like fgets() and fread() that read from the stream.
  * In non-blocking mode an fgets() call will always return right away while in blocking mode it will wait for data to become available on the stream.
  * @return bool Returns TRUE on success or FALSE on failure.
  * @removed 7.0
+ * @see stream_set_blocking()
  */
+#[Deprecated(replacement: "stream_set_blocking(%parametersList%)", since: 5.3)]
 function set_socket_blocking ($socket, $mode) {}
 
 /**

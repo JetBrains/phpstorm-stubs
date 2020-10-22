@@ -1,6 +1,7 @@
 <?php
 
 // Start of exif v.1.4 $Id$
+use JetBrains\PhpStorm\Deprecated;
 
 /**
  * Reads the EXIF headers from JPEG or TIFF
@@ -85,9 +86,9 @@ function exif_read_data ($file, $required_sections = null, $as_arrays = false, $
  * @param $sections [optional]
  * @param $arrays [optional]
  * @param $thumbnail [optional]
- * @deprecated 7.2 Use {@see exif_read_data()} instead.
  * @removed 8.0
  */
+#[Deprecated(replacement: "exif_read_data(%parametersList%)", since: "7.2")]
 function read_exif_data ($filename, $sections = null, $arrays = false, $thumbnail = false) {}
 
 /**

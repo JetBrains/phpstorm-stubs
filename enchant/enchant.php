@@ -1,6 +1,7 @@
 <?php
 
 // Start of enchant v.1.1.0
+use JetBrains\PhpStorm\Deprecated;
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
@@ -18,8 +19,8 @@ function enchant_broker_init () {}
  * Broker resource
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @deprecated 8.0 Unset the object instead
  */
+#[Deprecated(reason: "Unset the object instead")]
 function enchant_broker_free ($broker) {}
 
 /**
