@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\ExpectedValues;
 use JetBrains\PhpStorm\Immutable;
 
 /**
@@ -719,6 +720,7 @@ final class EvIo extends EvWatcher
      * @var int Ev::READ and/or Ev::WRITE. See the bit masks.
      */
     #[Immutable]
+    #[ExpectedValues(flags: [Ev::READ, Ev::WRITE])]
     public int $events;
 
     /**
@@ -1250,6 +1252,7 @@ final class EvLoop
      * @var int The Ev::BACKEND_* flag indicating the event backend in use.
      */
     #[Immutable]
+    #[ExpectedValues(flags: [Ev::BACKEND_ALL, Ev::BACKEND_DEVPOLL, Ev::BACKEND_EPOLL, Ev::BACKEND_KQUEUE, Ev::BACKEND_MASK, Ev::BACKEND_POLL, Ev::BACKEND_PORT, Ev::BACKEND_SELECT])]
     public int $backend;
 
     /**
