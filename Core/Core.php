@@ -431,7 +431,6 @@ function property_exists ($object_or_class, $property) {}
  * @link https://secure.php.net/manual/en/function.trait-exists.php
  * @since 5.4
  */
-#[Pure]
 function trait_exists($trait, $autoload ) {}
 
 /**
@@ -461,7 +460,6 @@ function class_exists ($class, $autoload = true) {}
  * <i>interface_name</i> has been defined, false otherwise.
  * @since 5.0.2
  */
-#[Pure]
 function interface_exists ($interface, $autoload = true) {}
 
 /**
