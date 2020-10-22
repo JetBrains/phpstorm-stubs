@@ -207,7 +207,6 @@ function imagecolorat ($image, $x, $y) {}
  * @param int $blue <p>Value of blue component.</p>
  * @return int|false A color identifier or <b>FALSE</b> if the allocation failed.
  */
-#[Pure]
 function imagecolorallocate ($image, $red, $green, $blue) {}
 
 /**
