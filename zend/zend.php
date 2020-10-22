@@ -10,6 +10,8 @@ class ZendAPI_Queue {
      *
      * @param string $queue_url Full address where the queue is in the form host:port
      * @return zendapi_queue object
+     *
+     * @removed 8.0
      */
     function zendapi_queue($queue_url) {}
 
@@ -353,6 +355,8 @@ class ZendAPI_Job {
      *
      * @param string $script relative path (relative to document root supplied in ini file) of the script this job should call when it's executing
      * @return Job
+     *
+     * @removed 8.0
      */
     function ZendAPI_Job($script) {}
 
@@ -634,6 +638,8 @@ class java {
      *
      * @param string $classname
      * @return java
+     *
+     * @removed 8.0
      */
     function java($classname) {}
 
