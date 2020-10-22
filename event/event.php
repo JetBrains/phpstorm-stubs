@@ -15,8 +15,11 @@ use JetBrains\PhpStorm\Immutable;
  */
 final class Event
 {
+    /**
+     * @var bool
+     */
     #[Immutable]
-    public bool $pending;
+    public $pending;
 
     const ET = 32;
     const PERSIST = 16;
@@ -428,11 +431,17 @@ final class EventBase
  */
 class EventBuffer
 {
+    /**
+     * @var int
+     */
     #[Immutable]
-    public int $length;
+    public $length;
 
+    /**
+     * @var int
+     */
     #[Immutable]
-    public int $contiguous_space;
+    public $contiguous_space;
 
     const EOL_ANY = 0;
     const EOL_CRLF = 1;
@@ -767,11 +776,17 @@ final class EventBufferEvent
     /** @var int */
     public $priority;
 
+    /**
+     * @var EventBuffer
+     */
     #[Immutable]
-    public EventBuffer $input;
+    public $input;
 
+    /**
+     * @var EventBuffer
+     */
     #[Immutable]
-    public EventBuffer $output;
+    public $output;
 
     const READING = 1;
     const WRITING = 2;
@@ -1802,8 +1817,11 @@ class EventHttpRequest
  */
 final class EventListener
 {
+    /**
+     * @var int
+     */
     #[Immutable]
-    public int $fd;
+    public $fd;
 
     const OPT_LEAVE_SOCKETS_BLOCKING = 1;
     const OPT_CLOSE_ON_FREE = 2;

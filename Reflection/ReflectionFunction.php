@@ -14,7 +14,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @var string Function name, same as calling the {@see ReflectionFunction::getName()} method
      */
     #[Immutable]
-    public string $name;
+    public $name;
 
     /**
      * Indicates deprecated functions.

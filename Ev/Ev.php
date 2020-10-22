@@ -397,7 +397,7 @@ abstract class EvWatcher
      * @var bool TRUE if the watcher is active. FALSE otherwise.
      */
     #[Immutable]
-    public bool $is_active;
+    public $is_active;
 
     /**
      * @var bool TRUE if the watcher is pending, i.e. it has outstanding events, but its callback
@@ -405,7 +405,7 @@ abstract class EvWatcher
      *      change its priority.
      */
     #[Immutable]
-    public bool $is_pending;
+    public $is_pending;
 
     /**
      * Abstract constructor of a watcher object
@@ -560,19 +560,19 @@ final class EvChild extends EvWatcher
      * @var int The process ID this watcher watches out for, or 0, meaning any process ID.
      */
     #[Immutable]
-    public int $pid;
+    public $pid;
 
     /**
      * @var int The process ID that detected a status change.
      */
     #[Immutable]
-    public int $rpid;
+    public $rpid;
 
     /**
      * @var int The process exit status caused by rpid.
      */
     #[Immutable]
-    public int $rstatus;
+    public $rstatus;
 
     /**
      * Constructs the EvChild watcher object.
@@ -638,7 +638,7 @@ final class EvEmbed extends EvWatcher
      * @var EvLoop The embedded loop
      */
     #[Immutable]
-    public EvLoop $embed;
+    public $embed;
 
     /**
      * Constructs the EvEmbed object.
@@ -721,7 +721,7 @@ final class EvIo extends EvWatcher
      */
     #[Immutable]
     #[ExpectedValues(flags: [Ev::READ, Ev::WRITE])]
-    public int $events;
+    public $events;
 
     /**
      * Constructs EvIo watcher object.
@@ -938,7 +938,7 @@ final class EvSignal extends EvWatcher
      * @var int Signal number. See the constants exported by pcntl extension. See also signal(7) man page.
      */
     #[Immutable]
-    public int $signum;
+    public $signum;
 
     /**
      * Constructs EvSignal watcher object
@@ -1002,13 +1002,13 @@ final class EvStat extends EvWatcher
      *      specified as 0.0 to let libev choose a suitable value.
      */
     #[Immutable]
-    public float $interval;
+    public $interval;
 
     /**
      * @var string The path to wait for status changes on.
      */
     #[Immutable]
-    public string $path;
+    public $path;
 
     /**
      * Constructs EvStat watcher object.
@@ -1253,13 +1253,13 @@ final class EvLoop
      */
     #[Immutable]
     #[ExpectedValues(flags: [Ev::BACKEND_ALL, Ev::BACKEND_DEVPOLL, Ev::BACKEND_EPOLL, Ev::BACKEND_KQUEUE, Ev::BACKEND_MASK, Ev::BACKEND_POLL, Ev::BACKEND_PORT, Ev::BACKEND_SELECT])]
-    public int $backend;
+    public $backend;
 
     /**
      * @var bool TRUE if it is the default event loop.
      */
     #[Immutable]
-    public bool $is_default_loop;
+    public $is_default_loop;
 
     /**
      * @var mixed Custom data attached to the loop.

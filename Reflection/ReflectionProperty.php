@@ -15,13 +15,13 @@ class ReflectionProperty implements Reflector
      * @var string Name of the property, same as calling the {@see ReflectionProperty::getName()} method
      */
     #[Immutable]
-    public string $name;
+    public $name;
 
     /**
      * @var string Fully qualified class name where this property was defined
      */
     #[Immutable]
-    public string $class;
+    public $class;
 
     /**
      * Indicates that the property is static.

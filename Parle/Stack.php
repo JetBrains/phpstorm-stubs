@@ -13,13 +13,13 @@ class Stack
      * @var bool Whether the stack is empty, readonly.
      */
     #[Immutable]
-    public bool $empty = true;
+    public $empty = true;
 
     /**
      * @var int Stack size, readonly.
      */
     #[Immutable]
-    public int $size = 0;
+    public $size = 0;
 
     /**
      * @var mixed Element on the top of the stack.

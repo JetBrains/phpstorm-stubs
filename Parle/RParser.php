@@ -23,13 +23,13 @@ class RParser
      * @var int Current parser action that matches one of the action class constants, readonly.
      */
     #[Immutable]
-    public int $action = 0;
+    public $action = 0;
 
     /**
      * @var int Grammar rule id just processed in the reduce action. The value corresponds either to a token or to a production id. Readonly.
      */
     #[Immutable]
-    public int $reduceId = 0;
+    public $reduceId = 0;
 
     /* Methods */
     /**

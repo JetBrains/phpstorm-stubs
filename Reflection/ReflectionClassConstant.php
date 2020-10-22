@@ -14,12 +14,13 @@ class ReflectionClassConstant implements Reflector
      * @var string Constant name, same as calling the {@see ReflectionClassConstant::getName()} method
      */
     #[Immutable]
-    public string $name;
+    public $name;
 
     /**
      * @var string Fully qualified class name where this constant was defined
      */
-    #[Immutable] public $class;
+    #[Immutable]
+    public $class;
 
     /**
      * Indicates that the constant is public.

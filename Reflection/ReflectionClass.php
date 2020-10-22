@@ -13,7 +13,7 @@ class ReflectionClass implements Reflector
      * @var string Name of the class, same as calling the {@see ReflectionClass::getName()} method
      */
     #[Immutable]
-    public string $name;
+    public $name;
 
     /**
      * Indicates class that is abstract because it has some abstract methods.

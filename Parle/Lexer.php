@@ -37,19 +37,19 @@ class Lexer
      * @var int Current lexer state, readonly.
      */
     #[Immutable]
-    public int $state = 0;
+    public $state = 0;
 
     /**
      * @var int Position of the latest token match, readonly.
      */
     #[Immutable]
-    public int $marker = 0;
+    public $marker = 0;
 
     /**
      * @var int Current input offset, readonly.
      */
     #[Immutable]
-    public int $cursor = 0;
+    public $cursor = 0;
 
     /* Methods */
 

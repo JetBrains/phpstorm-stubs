@@ -14,7 +14,7 @@ class ReflectionExtension implements Reflector
      * @var string Name of the extension, same as calling the {@see ReflectionExtension::getName()} method
      */
     #[Immutable]
-    public string $name;
+    public $name;
 
     /**
      * Constructs a ReflectionExtension
