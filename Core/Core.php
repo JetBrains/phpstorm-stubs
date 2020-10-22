@@ -446,7 +446,6 @@ function trait_exists($trait, $autoload ) {}
  * @return bool true if <i>class_name</i> is a defined class,
  * false otherwise.
  */
-#[Pure]
 function class_exists ($class, $autoload = true) {}
 
 /**
