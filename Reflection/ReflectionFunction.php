@@ -1,15 +1,21 @@
 <?php
 
+use JetBrains\PhpStorm\Immutable;
+
 /**
  * The <b>ReflectionFunction</b> class reports
  * information about a function.
- *
- * @property-read string $name Function name, same as calling the {@see ReflectionFunction::getName()} method
  *
  * @link https://php.net/manual/en/class.reflectionfunction.php
  */
 class ReflectionFunction extends ReflectionFunctionAbstract
 {
+    /**
+     * @var string Function name, same as calling the {@see ReflectionFunction::getName()} method
+     */
+    #[Immutable]
+    public string $name;
+
     /**
      * Indicates deprecated functions.
      *

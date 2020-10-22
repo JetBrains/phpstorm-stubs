@@ -1,15 +1,21 @@
 <?php
 
+use JetBrains\PhpStorm\Immutable;
+
 /**
  * The <b>ReflectionParameter</b> class retrieves
  * information about function's or method's parameters.
- *
- * @property-read string $name Name of the parameter, same as calling the {@see ReflectionParameter::getName()} method
  *
  * @link https://php.net/manual/en/class.reflectionparameter.php
  */
 class ReflectionParameter implements Reflector
 {
+    /**
+     * @var string Name of the parameter, same as calling the {@see ReflectionParameter::getName()} method
+     */
+    #[Immutable]
+    public string $name;
+
     /**
      * Construct
      *

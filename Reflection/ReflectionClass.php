@@ -1,14 +1,20 @@
 <?php
 
+use JetBrains\PhpStorm\Immutable;
+
 /**
  * The <b>ReflectionClass</b> class reports information about a class.
- *
- * @property-read string $name Name of the class, same as calling the {@see ReflectionClass::getName()} method
  *
  * @link https://php.net/manual/en/class.reflectionclass.php
  */
 class ReflectionClass implements Reflector
 {
+    /**
+     * @var string Name of the class, same as calling the {@see ReflectionClass::getName()} method
+     */
+    #[Immutable]
+    public string $name;
+
     /**
      * Indicates class that is abstract because it has some abstract methods.
      *

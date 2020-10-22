@@ -1,5 +1,7 @@
 <?php namespace Parle;
 
+use JetBrains\PhpStorm\Immutable;
+
 /**
  * Parser class.
  *
@@ -23,15 +25,15 @@ class Parser
     /* Properties */
     /**
      * @var int Current parser action that matches one of the action class constants, readonly.
-     * @property-read
      */
-    public $action = 0;
+    #[Immutable]
+    public int $action = 0;
 
     /**
      * @var int Grammar rule id just processed in the reduce action. The value corresponds either to a token or to a production id. Readonly.
-     * @property-read
      */
-    public $reduceId = 0;
+    #[Immutable]
+    public int $reduceId = 0;
 
     /* Methods */
     /**

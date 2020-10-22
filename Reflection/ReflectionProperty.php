@@ -1,16 +1,28 @@
 <?php
 
+use JetBrains\PhpStorm\Immutable;
+
 /**
  * The <b>ReflectionProperty</b> class reports information about a classes
  * properties.
- *
- * @property-read string $name Name of the property, same as calling the {@see ReflectionProperty::getName()} method
- * @property-read string $class Fully qualified class name where this property was defined
  *
  * @link https://php.net/manual/en/class.reflectionproperty.php
  */
 class ReflectionProperty implements Reflector
 {
+
+    /**
+     * @var string Name of the property, same as calling the {@see ReflectionProperty::getName()} method
+     */
+    #[Immutable]
+    public string $name;
+
+    /**
+     * @var string Fully qualified class name where this property was defined
+     */
+    #[Immutable]
+    public string $class;
+
     /**
      * Indicates that the property is static.
      *
