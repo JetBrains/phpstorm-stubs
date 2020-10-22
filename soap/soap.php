@@ -582,7 +582,7 @@ class SoapServer  {
 	 * <b>SOAP_USE_XSI_ARRAY_TYPE</b>.
 	 * </p>
 	 * @since 5.0.1
-	 * @since 8.0
+	 * @removed 8.0
 	 */
 	public function SoapServer ($wsdl, array $options = null) {}
 
