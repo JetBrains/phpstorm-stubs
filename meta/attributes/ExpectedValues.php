@@ -35,7 +35,7 @@ use Attribute;
  * The attribute with the number of provided constructor arguments different from 1 will result in undefined behavior.
  * @since 8.0
  */
-#[Attribute(Attribute::TARGET_FUNCTION | Attribute::TARGET_METHOD | Attribute::TARGET_PARAMETER)]
+#[Attribute(Attribute::TARGET_FUNCTION | Attribute::TARGET_METHOD | Attribute::TARGET_PARAMETER | Attribute::TARGET_PROPERTY)]
 class ExpectedValues {
     public function __construct(array $values = [], array $flags = [], string $valuesFromClass = null, string $flagsFromClass = null)
     {
