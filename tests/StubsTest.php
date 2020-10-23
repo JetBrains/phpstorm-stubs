@@ -397,6 +397,7 @@ class StubsTest extends TestCase
             'deprecated',
             'example', //temporary addition due to the number of existing cases
             'inheritdoc',
+            'internal',
             'link',
             'meta',
             'method',
