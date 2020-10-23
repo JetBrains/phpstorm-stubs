@@ -9,10 +9,10 @@
 interface Reflector extends Stringable
 {
     /**
-     * Exports a class
+     * Exports a class.
      *
      * @link https://php.net/manual/en/reflector.export.php
-     * @return string|null
+     * @return string|void
      * @deprecated 7.4
      * @removed 8.0
      */
@@ -20,9 +20,6 @@ interface Reflector extends Stringable
 
     /**
      * Returns the string representation of any Reflection object.
-     *
-     * Please note that since PHP 8.0 this method is absent in this interface
-     * and inherits from the {@see Stringable} parent.
      *
      * @return string
      */
