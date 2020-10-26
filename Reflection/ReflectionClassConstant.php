@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
 
 /**
@@ -63,9 +64,9 @@ class ReflectionClassConstant implements Reflector
      * to {@see false} (the default) will do the opposite.
      * @return string|null
      * @since 7.1
-     * @deprecated 7.4
      * @removed 8.0
      */
+    #[Deprecated(since: "7.4")]
     public static function export($class, $name, $return = false)
     {
     }

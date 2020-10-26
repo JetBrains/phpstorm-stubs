@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Deprecated;
+
 /**
  * <b>Reflector</b> is an interface implemented by all
  * exportable Reflection classes.
@@ -13,9 +15,9 @@ interface Reflector extends Stringable
      *
      * @link https://php.net/manual/en/reflector.export.php
      * @return string|null
-     * @deprecated 7.4
      * @removed 8.0
      */
+    #[Deprecated(since: "7.4")]
     public static function export();
 
     /**

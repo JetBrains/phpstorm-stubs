@@ -40,9 +40,9 @@ class ReflectionParameter implements Reflector
      * as opposed to emitting it. Setting to {@see false} (the default) will do the
      * opposite.
      * @return string|null The exported reflection.
-     * @deprecated 7.4
      * @removed 8.0
      */
+    #[Deprecated(since: "7.4")]
     public static function export($function, $parameter, $return = false)
     {
     }
