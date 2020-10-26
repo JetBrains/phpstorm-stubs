@@ -1,6 +1,7 @@
 <?php
 
 // Start of date v.5.3.2-0.dotdeb.1
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -453,7 +454,7 @@ function gmdate ($format, $timestamp = null) {}
  * it returned -1).
  */
 #[Pure]
-function mktime ($hour = null, $minute = null, $second = null, $month = null, $day = null, $year = null, $is_dst = -1) {}
+function mktime ($hour = null, $minute = null, $second = null, $month = null, $day = null, $year = null, #[Deprecated("Use the new timezone handling functions instead")] $is_dst = -1) {}
 
 /**
  * Get Unix timestamp for a GMT date
