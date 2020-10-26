@@ -27,7 +27,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * Provides access to element's children
      * private Method not callable directly, stub exists for typehint only
      * @param string $name child name
-     * @return SimpleXMLElement
+     * @return static
      */
     private function __get($name) {}
 
