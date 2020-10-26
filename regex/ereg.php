@@ -213,7 +213,6 @@ function spliti ($pattern, $string, $limit = -1) {}
 /**
  * Make regular expression for case insensitive match
  * @link https://php.net/manual/en/function.sql-regcase.php
- * @deprecated 5.3
  * @param string $string <p>
  * The input string.
  * </p>
@@ -224,6 +223,7 @@ function spliti ($pattern, $string, $limit = -1) {}
  * uppercase and lowercase form. Other characters remain unchanged.
  * @removed 7.0
  */
+#[Deprecated(since: "5.3")]
 function sql_regcase ($string) {}
 
 // End of ereg v.
