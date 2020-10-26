@@ -1256,7 +1256,7 @@ function mbereg_match ($pattern, $string, $option) {}
  * @see mb_ereg_search
  * @removed 8.0
  */
-#[Deprecated(replacement: 'mb_ereg_search(%parametersList%)', since: '7.3')]
+#[Deprecated("use mb_ereg_search instead", replacement: "mb_ereg_search(%parametersList%)", since: "7.3")]
 function mbereg_search ($pattern, $option) {}
 
 /**
