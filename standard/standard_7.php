@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -1000,9 +1001,9 @@ function mail ($to, $subject, $message, $additional_headers = null, $additional_
  * The email address that's being hashed.
  * </p>
  * @return int The hash value of addr.
- * @deprecated 7.4
  * @removed 8.0
  */
+#[Deprecated(since: "7.4")]
 function ezmlm_hash ($addr) {}
 
 /**

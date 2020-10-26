@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Pure;
 
 
@@ -110,10 +111,10 @@ function stream_set_chunk_size ($stream , $size) {}
 /**
  * Initializes all syslog related variables
  * @link https://php.net/manual/en/function.define-syslog-variables.php
- * @deprecated 5.3
  * @return void
  * @removed 5.4
  */
+#[Deprecated(since: "5.3")]
 function define_syslog_variables () {}
 
 /**

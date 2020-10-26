@@ -907,10 +907,10 @@ function quoted_printable_encode ($string) {}
  * The target Cyrillic character set, as a single character.
  * </p>
  * @return string the converted string.
- * @deprecated 7.4
  * @removed 8.0
  */
 #[Pure]
+#[Deprecated(since: "7.4")]
 function convert_cyr_string ($str, $from, $to) {}
 
 /**
@@ -947,40 +947,39 @@ function get_cfg_var ($name) {}
 /**
  * &Alias; <function>set_magic_quotes_runtime</function>
  * @link https://php.net/manual/en/function.magic-quotes-runtime.php
- * @deprecated 5.3
  * @param bool $new_setting
  * @removed 7.0
  */
+#[Deprecated(since: "5.3")]
 function magic_quotes_runtime ($new_setting) {}
 
 /**
  * Sets the current active configuration setting of magic_quotes_runtime
  * @link https://php.net/manual/en/function.set-magic-quotes-runtime.php
- * @deprecated 5.3
  * @param bool $new_setting <p>
  * false for off, true for on.
  * </p>
  * @return bool true on success or false on failure.
  * @removed 7.0
  */
-#[Deprecated(reason: "This function has been DEPRECATED as of PHP 5.4.0. Raises an E_CORE_ERROR", since: "5.4")]
+#[Deprecated(reason: "This function has been DEPRECATED as of PHP 5.4.0. Raises an E_CORE_ERROR", since: "5.3")]
 function set_magic_quotes_runtime ($new_setting) {}
 
 /**
  * Gets the current configuration setting of magic quotes gpc
  * @link https://php.net/manual/en/function.get-magic-quotes-gpc.php
  * @return int 0 if magic quotes gpc are off, 1 otherwise.
- * @deprecated 7.4
  * @removed 8.0
  */
+#[Deprecated(since: "7.4")]
 function get_magic_quotes_gpc () {}
 
 /**
  * Gets the current active configuration setting of magic_quotes_runtime
  * @link https://php.net/manual/en/function.get-magic-quotes-runtime.php
  * @return int 0 if magic quotes runtime is off, 1 otherwise.
- * @deprecated 7.4
  */
+#[Deprecated(since: "7.4")]
 function get_magic_quotes_runtime () {}
 
 /**

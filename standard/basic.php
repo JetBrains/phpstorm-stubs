@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -32,10 +33,10 @@ use JetBrains\PhpStorm\Pure;
  * and execution is stopped. If <b>dl</b> fails because the
  * specified library couldn't be loaded, in addition to <b>FALSE</b> an
  * <b>E_WARNING</b> message is emitted.
- *@deprecated 5.3
  * Loads a PHP extension at runtime
  * @link https://php.net/manual/en/function.dl.php
  */
+#[Deprecated(since: "5.3")]
 function dl ($extension_filename) {}
 
 /**
