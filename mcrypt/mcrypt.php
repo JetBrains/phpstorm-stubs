@@ -4,7 +4,7 @@
 use JetBrains\PhpStorm\Deprecated;
 
 /**
- * Deprecated: Encrypt/decrypt data in ECB mode
+ * Encrypt/decrypt data in ECB mode
  * @link https://php.net/manual/en/function.mcrypt-ecb.php
  * @param string|int $cipher
  * @param string $key

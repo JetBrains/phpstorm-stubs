@@ -633,9 +633,9 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * @var string
-     * Deprecated. Version of XML, corresponds to xmlVersion
      * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.version
      */
+    #[Deprecated('Version of XML, corresponds to xmlVersion')]
     public $version ;
 
     /**

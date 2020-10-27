@@ -62,9 +62,6 @@ function newrelic_background_job($flag = true) {}
  * Enables the capturing of URL parameters for displaying in transaction traces. This will override the
  * newrelic.capture_params setting.
  *
- * Note: Until version 2.1.3 of the PHP agent, this function was called newrelic_enable_params. Although this alias
- * still exists, it is deprecated and will be removed in the future.
- *
  * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-capture-params
  *
  * @param bool $enable [optional]

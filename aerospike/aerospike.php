@@ -5013,8 +5013,6 @@ class Aerospike {
      */
     const OP_GEOCONTAINSPOINT = "GEOCONTAINS";
 
-    // Status values returned by scanInfo(). Deprecated in favor of jobInfo()
-
     /**
      * Scan status is undefined
      */

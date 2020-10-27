@@ -1,6 +1,7 @@
 <?php
 
 // Start of soap v.
+use JetBrains\PhpStorm\Deprecated;
 
 /**
  * The SoapClient class provides a client for SOAP 1.1, SOAP 1.2 servers. It can be used in WSDL
@@ -263,13 +264,13 @@ class SoapClient  {
     public function __construct ($wsdl, array $options = null) {}
 
 	/**
-	 * Calls a SOAP function (deprecated)
 	 * @link https://php.net/manual/en/soapclient.call.php
 	 * @param string $function_name
 	 * @param array $arguments
 	 * @return mixed
 	 * @since 5.0.1
 	 */
+	#[Deprecated]
 	public function __call ($function_name, $arguments) {}
 
 	/**

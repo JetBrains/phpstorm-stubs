@@ -150,28 +150,24 @@ class Client implements \SplSubject, \Countable {
 	/**
 	 * Enable usage of an event library like libevent, which might improve performance with big socket sets.
 	 *
-	 * > ***NOTE:***
-	 * > This method has been deprecated in 2.3.0, please use http\Client::configure() instead.
-	 *
 	 * @param bool $enable Whether to enable libevent usage.
 	 * @throws \http\Exception\InvalidArgumentException
 	 * @throws \http\Exception\UnexpectedValueException
 	 * @return \http\Client self.
+     * @see Client::configure()
 	 */
-	#[Deprecated]
+	#[Deprecated('This method has been deprecated in 2.3.0. Use http\Client::configure() instead')]
 	function enableEvents(bool $enable = true) {}
 	/**
 	 * Enable sending pipelined requests to the same host if the driver supports it.
-	 *
-	 * > ***NOTE:***
-	 * > This method has been deprecated in 2.3.0, please use http\Client::configure() instead.
 	 *
 	 * @param bool $enable Whether to enable pipelining.
 	 * @throws \http\Exception\InvalidArgumentException
 	 * @throws \http\Exception\UnexpectedValueException
 	 * @return \http\Client self.
+     * @see Client::configure()
 	 */
-	#[Deprecated]
+    #[Deprecated('This method has been deprecated in 2.3.0. Use http\Client::configure() instead')]
 	function enablePipelining(bool $enable = true) {}
 	/**
 	 * Add another http\Client\Request to the request queue.
