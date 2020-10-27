@@ -1447,8 +1447,8 @@ function imagesy ($image) {}
  * imagecolorallocate.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @deprecated Use combination of imagesetstyle() and imageline() instead
  */
+#[Deprecated("Use combination of imagesetstyle() and imageline() instead")]
 function imagedashedline ($image, $x1, $y1, $x2, $y2, $color) {}
 
 /**
@@ -2035,9 +2035,9 @@ function jpeg2wbmp ($jpegname, $wbmpname, $dest_height, $dest_width, $threshold)
  * Threshold value, between 0 and 8 (inclusive).
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated 7.2 Use imagecreatefrompng() and imagewbmp() instead
  * @removed 8.0
  */
+#[Deprecated("Use imagecreatefrompng() and imagewbmp() instead", since: "7.2")]
 function png2wbmp ($pngname, $wbmpname, $dest_height, $dest_width, $threshold) {}
 
 /**

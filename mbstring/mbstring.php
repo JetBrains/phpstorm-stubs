@@ -1163,9 +1163,9 @@ function mb_ereg_search_getregs () {}
  * Returns start point for next regular expression match
  * @link https://php.net/manual/en/function.mb-ereg-search-getpos.php
  * @return int
- * @deprecated 7.3
  */
 #[Pure]
+#[Deprecated(since: '7.3')]
 function mb_ereg_search_getpos () {}
 
 /**
@@ -1191,9 +1191,9 @@ function mbregex_encoding ($encoding) {}
  * @param string $pattern
  * @param string $string
  * @param array &$registers [optional]
- * @deprecated 7.3 use {@see mb_ereg} instead
  * @removed 8.0
  */
+#[Deprecated(replacement: 'mb_ereg(%parametersList%)',since: '7.3')]
 function mbereg ($pattern, $string, &$registers) {}
 
 /**
@@ -1211,9 +1211,9 @@ function mberegi ($pattern, $string, &$registers) {}
  * @param $replacement
  * @param $string
  * @param $option [optional]
- * @deprecated 7.3 use {@see mb_ereg_replace} instead
  * @removed 8.0
  */
+#[Deprecated(replacement: 'mb_ereg_replace(%parametersList%)', since: '7.3')]
 function mbereg_replace ($pattern, $replacement, $string, $option) {}
 
 /**
@@ -1232,9 +1232,9 @@ function mberegi_replace ($pattern, $replacement, $string, string $option = "msr
  * @param $pattern
  * @param $string
  * @param $limit [optional]
- * @deprecated 7.3 use {@see mb_split} instead
  * @removed 8.0
  */
+#[Deprecated(replacement: 'mb_split(%parametersList%)', since: '7.3')]
 function mbsplit ($pattern, $string, $limit) {}
 
 /**
@@ -1250,9 +1250,9 @@ function mbereg_match ($pattern, $string, $option) {}
 /**
  * @param $pattern [optional]
  * @param $option [optional]
- * @deprecated 7.3 use {@see mb_ereg_search} instead
  * @removed 8.0
  */
+#[Deprecated(replacement: 'mb_ereg_search(%parametersList%)', since: '7.3')]
 function mbereg_search ($pattern, $option) {}
 
 /**
@@ -1267,9 +1267,9 @@ function mbereg_search_pos ($pattern, $option) {}
 /**
  * @param $pattern [optional]
  * @param $option [optional]
- * @deprecated 7.3 use {@see mb_ereg_search_regs} instead
  * @removed 8.0
  */
+#[Deprecated(replacement: 'mb_ereg_search_regs(%parametersList%)', since: '7.3')]
 function mbereg_search_regs ($pattern, $option) {}
 
 /**
@@ -1283,9 +1283,9 @@ function mbereg_search_regs ($pattern, $option) {}
 function mbereg_search_init ($string, $pattern, $option) {}
 
 /**
- * @deprecated 7.3 use {@see mb_ereg_search_getregs} instead
  * @removed 8.0
  */
+#[Deprecated(replacement: 'mb_ereg_search_getregs(%parametersList%)', since: '7.3')]
 function mbereg_search_getregs () {}
 
 /**

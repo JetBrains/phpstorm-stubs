@@ -1,6 +1,7 @@
 <?php
 
 // Start of session v.
+use JetBrains\PhpStorm\Deprecated;
 
 /**
  * Get and/or set the current session name.<br/>
@@ -113,9 +114,9 @@ function session_decode ($data) {}
  * </p>
  * @param mixed ...$_ [optional]
  * @return bool true on success or false on failure.
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
+#[Deprecated(since: '5.3')]
 function session_register ($name, ...$_) {}
 
 /**
@@ -125,9 +126,9 @@ function session_register ($name, ...$_) {}
  * The variable name.
  * </p>
  * @return bool true on success or false on failure.
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
+#[Deprecated(since: '5.3')]
 function session_unregister ($name) {}
 
 /**
@@ -139,9 +140,9 @@ function session_unregister ($name) {}
  * @return bool <b>session_is_registered</b> returns true if there is a
  * global variable with the name <i>name</i> registered in
  * the current session, false otherwise.
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
+#[Deprecated(since: '5.3')]
 function session_is_registered ($name) {}
 
 /**

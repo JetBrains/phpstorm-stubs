@@ -1,6 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Pure;
 
 
@@ -170,9 +171,9 @@ function hebrev ($string, $max_chars_per_line = null) {}
  * line that will be returned.
  * </p>
  * @return string the visual string.
- * @deprecated 7.4
  * @removed 8.0
  */
+#[Deprecated(since: '7.4')]
 function hebrevc ($hebrew_text, $max_chars_per_line = null) {}
 
 /**
@@ -478,9 +479,9 @@ function strcoll ($string1, $string2) {}
  * string will be returned unchanged.
  * Non-numeric number causes returning null and
  * emitting E_WARNING.
- * @deprecated 7.4
  * @removed 8.0
  */
+#[Deprecated(since: '7.4')]
 function money_format ($format, $number) {}
 
 /**

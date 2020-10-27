@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Deprecated;
+
 /**
  * Helper autocomplete for php redis extension
  *
@@ -129,10 +131,8 @@ class Redis
      * @param float  $readTimeout   value in seconds (optional, default is 0 meaning unlimited)
      *
      * @return bool TRUE on success, FALSE on error
-     *
-     * @see        connect()
-     * @deprecated use Redis::connect()
      */
+    #[Deprecated(replacement: '%class%->connect(%parametersList%)')]
     public function open(
         $host,
         $port = 6379,
@@ -279,10 +279,8 @@ class Redis
      * @param float  $readTimeout
      *
      * @return bool
-     *
-     * @deprecated use Redis::pconnect()
-     * @see pconnect()
      */
+    #[Deprecated(replacement: '%class%->pconnect(%parametersList%)')]
     public function popen(
         $host,
         $port = 6379,
@@ -545,15 +543,13 @@ class Redis
     }
 
     /**
-     * @see del()
-     * @deprecated use Redis::del()
-     *
      * @param   string|string[] $key1
      * @param   string          $key2
      * @param   string          $key3
      *
      * @return int Number of keys deleted
      */
+    #[Deprecated(replacement: "%class%->del(%parametersList%)")]
     public function delete($key1, $key2 = null, $key3 = null)
     {
     }
@@ -1208,14 +1204,13 @@ class Redis
     }
 
     /**
-     * @see lLen()
      * @link https://redis.io/commands/llen
-     * @deprecated use Redis::lLen()
      *
      * @param string $key
      *
      * @return int The size of the list identified by Key exists
      */
+    #[Deprecated(replacement: '%class%->lLen(%parametersList%)')]
     public function lSize($key)
     {
     }
@@ -1248,14 +1243,13 @@ class Redis
     }
 
     /**
-     * @see lIndex()
      * @link https://redis.io/commands/lindex
-     * @deprecated use Redis::lIndex()
      *
      * @param string $key
      * @param int $index
      * @return mixed|bool the element at this index
      */
+    #[Deprecated(replacement: '%class%->lIndex(%parametersList%)')]
     public function lGet($key, $index)
     {
     }
@@ -1310,15 +1304,14 @@ class Redis
     }
 
     /**
-     * @see lRange()
      * @link https://redis.io/commands/lrange
-     * @deprecated use Redis::lRange()
      *
      * @param string    $key
      * @param int       $start
      * @param int       $end
      * @return array
      */
+    #[Deprecated(replacement: '%class%->lRange(%parametersList%)')]
     public function lGetRange($key, $start, $end)
     {
     }
@@ -1348,14 +1341,13 @@ class Redis
     }
 
     /**
-     * @see lTrim()
      * @link  https://redis.io/commands/ltrim
-     * @deprecated use Redis::lTrim()
      *
      * @param string    $key
      * @param int       $start
      * @param int       $stop
      */
+    #[Deprecated(replacement: '%class%->lTrim(%parametersList%)')]
     public function listTrim($key, $start, $stop)
     {
     }
@@ -1391,14 +1383,13 @@ class Redis
     }
 
     /**
-     * @see lRem
      * @link https://redis.io/commands/lremove
-     * @deprecated use Redis::lRem()
      *
      * @param string $key
      * @param string $value
      * @param int $count
      */
+    #[Deprecated(replacement: '%class%->lRem(%parametersList%)')]
     public function lRemove($key, $value, $count)
     {
     }
@@ -1483,13 +1474,12 @@ class Redis
     }
 
     /**
-     * @see sRem()
      * @link    https://redis.io/commands/srem
-     * @deprecated use Redis::sRem()
      *
      * @param   string  $key
      * @param   string|mixed  ...$member1
      */
+    #[Deprecated(replacement: '%class%->sRem(%parametersList%)')]
     public function sRemove($key, ...$member1)
     {
     }
@@ -1544,13 +1534,12 @@ class Redis
     }
 
     /**
-     * @see sIsMember()
      * @link    https://redis.io/commands/sismember
-     * @deprecated use Redis::sIsMember()
      *
      * @param string       $key
      * @param string|mixed $value
      */
+    #[Deprecated(replacement: '%class%->sIsMember(%parametersList%)')]
     public function sContains($key, $value)
     {
     }
@@ -1903,13 +1892,12 @@ class Redis
     }
 
     /**
-     * @see sMembers()
      * @link    https://redis.io/commands/smembers
-     * @deprecated use Redis::sMembers()
      *
      * @param  string  $key
      * @return array   An array of elements, the contents of the set
      */
+    #[Deprecated(replacement: '%class%->sMembers(%parametersList%)')]
     public function sGetMembers($key)
     {
     }
@@ -2040,13 +2028,12 @@ class Redis
     }
 
     /**
-     * @see rename()
      * @link    https://redis.io/commands/rename
-     * @deprecated use Redis::rename()
      *
      * @param   string  $srcKey
      * @param   string  $dstKey
      */
+    #[Deprecated(replacement: '%class%->rename(%parametersList%)')]
     public function renameKey($srcKey, $dstKey)
     {
     }
@@ -2118,14 +2105,13 @@ class Redis
     }
 
     /**
-     * @see expire()
      * @link    https://redis.io/commands/expire
-     * @deprecated use Redis::expire()
      *
      * @param   string  $key
      * @param   int     $ttl
      * @return  bool
      */
+    #[Deprecated(replacement: '%class%->expire(%parametersList%)')]
     public function setTimeout($key, $ttl)
     {
     }
@@ -2192,12 +2178,10 @@ class Redis
     }
 
     /**
-     * @see keys()
-     * @deprecated use Redis::keys()
-     *
      * @param string $pattern
      * @link    https://redis.io/commands/keys
      */
+    #[Deprecated(replacement: '%class%->keys(%parametersList%)')]
     public function getKeys($pattern)
     {
     }
@@ -2445,11 +2429,11 @@ class Redis
     /**
      * Return a substring of a larger string
      *
-     * @deprecated
      * @param   string  $key
      * @param   int     $start
      * @param   int     $end
      */
+    #[Deprecated]
     public function substr($key, $start, $end)
     {
     }
@@ -2843,7 +2827,6 @@ class Redis
      *
      * @return array Array containing the values related to keys in argument
      *
-     * @deprecated use Redis::mGet()
      * @example
      * <pre>
      * $redis->set('key1', 'value1');
@@ -2853,6 +2836,7 @@ class Redis
      * $redis->getMultiple(array('key0', 'key1', 'key5')); // array(`FALSE`, 'value2', `FALSE`);
      * </pre>
      */
+    #[Deprecated(replacement: '%class%->mGet(%parametersList%)')]
     public function getMultiple(array $keys)
     {
     }
@@ -3065,9 +3049,7 @@ class Redis
     }
 
     /**
-     * @see zRem()
      * @link https://redis.io/commands/zrem
-     * @deprecated use Redis::zRem()
      *
      * @param string       $key
      * @param string|mixed $member1
@@ -3075,6 +3057,7 @@ class Redis
      *
      * @return int Number of deleted values
      */
+    #[Deprecated(replacement: '%class%->zRem(%parametersList%)')]
     public function zDelete($key, $member1, ...$otherMembers)
     {
     }
@@ -3248,13 +3231,11 @@ class Redis
     }
 
     /**
-     * @see zRemRangeByScore()
-     * @deprecated use Redis::zRemRangeByScore()
-     *
      * @param string $key
      * @param float  $start
      * @param float  $end
      */
+    #[Deprecated(replacement: '%class%->zRemRangeByScore(%parametersList%)')]
     public function zDeleteRangeByScore($key, $start, $end)
     {
     }
@@ -3283,14 +3264,13 @@ class Redis
     }
 
     /**
-     * @see zRemRangeByRank()
      * @link    https://redis.io/commands/zremrangebyscore
-     * @deprecated use Redis::zRemRangeByRank()
      *
      * @param string $key
      * @param int    $start
      * @param int    $end
      */
+    #[Deprecated(replacement: '%class%->zRemRangeByRank(%parametersList%)')]
     public function zDeleteRangeByRank($key, $start, $end)
     {
     }
@@ -3316,12 +3296,10 @@ class Redis
     }
 
     /**
-     * @see zCard()
-     * @deprecated use Redis::zCard()
-     *
      * @param string $key
      * @return int
      */
+    #[Deprecated(replacement: '%class%->zCard(%parametersList%)')]
     public function zSize($key)
     {
     }
@@ -3449,14 +3427,12 @@ class Redis
     }
 
     /**
-     * @see zUnionStore
-     * @deprecated use Redis::zUnionStore()
-     *
      * @param string     $Output
      * @param array      $ZSetKeys
      * @param array|null $Weights
      * @param string     $aggregateFunction
      */
+    #[Deprecated(replacement: '%class%->zUnionStore(%parametersList%)')]
     public function zUnion($Output, $ZSetKeys, array $Weights = null, $aggregateFunction = 'SUM')
     {
     }
@@ -3509,14 +3485,12 @@ class Redis
     }
 
     /**
-     * @see zInterStore
-     * @deprecated use Redis::zInterStore()
-     *
      * @param $Output
      * @param $ZSetKeys
      * @param array|null $Weights
      * @param string $aggregateFunction
      */
+    #[Deprecated(replacement: '%class%->zInterStore(%parametersList%)')]
     public function zInter($Output, $ZSetKeys, array $Weights = null, $aggregateFunction = 'SUM')
     {
     }
@@ -4355,14 +4329,12 @@ class Redis
     }
 
     /**
-     * @see eval()
-     * @deprecated use Redis::eval()
-     *
      * @param   string  $script
      * @param   array   $args
      * @param   int     $numKeys
      * @return  mixed   @see eval()
      */
+    #[Deprecated(replacement: '%class%->eval(%parametersList%)')]
     public function evaluate($script, $args = array(), $numKeys = 0)
     {
     }
@@ -4392,13 +4364,11 @@ class Redis
     }
 
     /**
-     * @see evalSha()
-     * @deprecated use Redis::evalSha()
-     *
      * @param string $scriptSha
      * @param array  $args
      * @param int    $numKeys
      */
+    #[Deprecated(replacement: '%class%->evalSha(%parametersList%)')]
     public function evaluateSha($scriptSha, $args = array(), $numKeys = 0)
     {
     }

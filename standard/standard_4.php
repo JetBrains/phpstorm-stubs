@@ -495,9 +495,9 @@ function set_include_path ($include_path) {}
  * Restores the value of the include_path configuration option
  * @link https://php.net/manual/en/function.restore-include-path.php
  * @return void
- * @deprecated 7.4
  * @removed 8.0
  */
+#[Deprecated(since: '7.4')]
 function restore_include_path () {}
 
 /**

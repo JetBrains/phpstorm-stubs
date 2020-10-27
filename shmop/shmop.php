@@ -1,6 +1,7 @@
 <?php
 
 // Start of shmop v.
+use JetBrains\PhpStorm\Deprecated;
 
 /**
  * Create or open shared memory block
@@ -53,9 +54,8 @@ function shmop_read ($shmop, $offset, $size) {}
  * <b>shmop_open</b>
  * </p>
  * @return void No value is returned.
- *
- * @deprecated 8.0
  */
+#[Deprecated(since: '8.0')]
 function shmop_close ($shmop) {}
 
 /**

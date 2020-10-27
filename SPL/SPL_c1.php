@@ -1,6 +1,7 @@
 <?php
 
 // Start of SPL v.0.2
+use JetBrains\PhpStorm\Deprecated;
 
 /**
  * The SplFileInfo class offers a high-level object oriented interface to
@@ -744,9 +745,9 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * </p>
          * @return string|false a string containing the next line of the file with HTML and PHP
          * code stripped, or false on error.
-         * @deprecated 7.3
          * @removed 8.0
          */
+        #[Deprecated(since: '7.3')]
         public function fgetss ($allowable_tags = null) {}
 
         /**

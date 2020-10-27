@@ -9,6 +9,8 @@
  */
 namespace http;
 use http;
+use JetBrains\PhpStorm\Deprecated;
+
 /**
  * The HTTP client. See http\Client\Curl's [options](http/Client/Curl#Options:) which is the only driver currently supported.
  */
@@ -155,8 +157,8 @@ class Client implements \SplSubject, \Countable {
 	 * @throws \http\Exception\InvalidArgumentException
 	 * @throws \http\Exception\UnexpectedValueException
 	 * @return \http\Client self.
-	 * @deprecated
 	 */
+	#[Deprecated]
 	function enableEvents(bool $enable = true) {}
 	/**
 	 * Enable sending pipelined requests to the same host if the driver supports it.
@@ -168,8 +170,8 @@ class Client implements \SplSubject, \Countable {
 	 * @throws \http\Exception\InvalidArgumentException
 	 * @throws \http\Exception\UnexpectedValueException
 	 * @return \http\Client self.
-	 * @deprecated
 	 */
+	#[Deprecated]
 	function enablePipelining(bool $enable = true) {}
 	/**
 	 * Add another http\Client\Request to the request queue.

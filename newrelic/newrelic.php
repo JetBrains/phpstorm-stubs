@@ -1,4 +1,7 @@
 <?php
+
+use JetBrains\PhpStorm\Deprecated;
+
 /**
  * Add a custom parameter to the current web transaction with the specified value.
  *
@@ -106,9 +109,7 @@ function newrelic_custom_metric($metricName, $value) {}
  */
 function newrelic_disable_autorum() {}
 
-/**
- * @deprecated use newrelic_capture_params() instead
- */
+#[Deprecated(replacement: 'newrelic_capture_params()')]
 function newrelic_enable_params() {}
 
 /**

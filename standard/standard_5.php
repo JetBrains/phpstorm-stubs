@@ -1,5 +1,6 @@
 <?php
 
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -240,9 +241,9 @@ function is_double ($value) {}
  * </p>
  * @return bool true if var is a float,
  * false otherwise.
- * @deprecated 7.4
  */
 #[Pure]
+#[Deprecated(since: '7.4')]
 function is_real ($var) {}
 
 /**
@@ -496,9 +497,9 @@ function fgets ($stream, $length = null) {}
  * </p>
  * <p>
  * If an error occurs, returns false.
- * @deprecated 7.3
  * @removed 8.0
  */
+#[Deprecated(since: '7.3')]
 function fgetss ($handle, $length = null, $allowable_tags = null) {}
 
 /**

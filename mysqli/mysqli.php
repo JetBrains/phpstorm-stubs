@@ -3,6 +3,9 @@
  * Start of mysqli extension stubs v.0.1
  * @link https://php.net/manual/en/book.mysqli.php
  */
+
+use JetBrains\PhpStorm\Deprecated;
+
 /**
  * mysqli_sql_exception
  */
@@ -198,9 +201,9 @@ class mysqli  {
 	public function character_set_name () {}
 
 	/**
-	 * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
      * @removed 5.4
 	 */
+	#[Deprecated(since: '5.3')]
 	public function client_encoding () {}
 
 	/**
@@ -1395,9 +1398,9 @@ class mysqli_stmt  {
 
 	/**
 	 * No documentation available
-	 * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
      * @removed 5.4
 	 */
+    #[Deprecated(since: '5.3')]
 	public function stmt () {}
 
 	/**
@@ -1633,8 +1636,8 @@ function mysqli_stmt_execute ($statement) {}
  * Alias for <b>mysqli_stmt_execute</b>
  * @link https://php.net/manual/en/function.mysqli-execute.php
  * @param mysqli_stmt $statement
- * @deprecated
  */
+#[Deprecated(since: '5.3')]
 function mysqli_execute ($statement) {}
 
 /**
@@ -2514,9 +2517,9 @@ function mysqli_refresh ($mysql, $flags) {}
  * @link https://php.net/manual/en/function.mysqli-bind-param.php
  * @param mysqli_stmt $statement
  * @param string $types
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
+#[Deprecated(since: '5.3')]
 function mysqli_bind_param ($statement, $types) {}
 
 /**
@@ -2525,9 +2528,9 @@ function mysqli_bind_param ($statement, $types) {}
  * @param mysqli_stmt $statement
  * @param string $types
  * @param mixed &$var1
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
+#[Deprecated(since: '5.3')]
 function mysqli_bind_result ($statement, $types, &$var1) {}
 
 /**
@@ -2535,9 +2538,9 @@ function mysqli_bind_result ($statement, $types, &$var1) {}
  * @link https://php.net/manual/en/function.mysqli-client-encoding.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @return string
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
+#[Deprecated(since: '5.3')]
 function mysqli_client_encoding ($mysql) {}
 
 /**
@@ -2554,9 +2557,9 @@ function mysqli_escape_string ($mysql, $string) {}
  * @link https://php.net/manual/en/function.mysqli-fetch.php
  * @param mysqli_stmt $statement
  * @return bool
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
+#[Deprecated(since: '5.3')]
 function mysqli_fetch ($statement) {}
 
 /**
@@ -2564,9 +2567,9 @@ function mysqli_fetch ($statement) {}
  * @link https://php.net/manual/en/function.mysqli-param-count.php
  * @param mysqli_stmt $statement
  * @return int
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
+#[Deprecated(since: '5.3')]
 function mysqli_param_count ($statement) {}
 
 /**
@@ -2574,9 +2577,9 @@ function mysqli_param_count ($statement) {}
  * @link https://php.net/manual/en/function.mysqli-get-metadata.php
  * @param mysqli_stmt $statement
  * @return mysqli_result|false Returns a result object or FALSE if an error occurred
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
+#[Deprecated(since: '5.3')]
 function mysqli_get_metadata ($statement) {}
 
 /**
@@ -2586,9 +2589,9 @@ function mysqli_get_metadata ($statement) {}
  * @param int $param_num
  * @param string $data
  * @return bool
- * @deprecated 5.3 This function has been DEPRECATED as of PHP 5.3.0
  * @removed 5.4
  */
+#[Deprecated(since: '5.3')]
 function mysqli_send_long_data ($statement, $param_num, $data) {}
 
 /**
