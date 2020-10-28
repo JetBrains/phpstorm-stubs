@@ -1,6 +1,7 @@
 <?php
 
 // Start of SQLite v.2.0-dev
+use JetBrains\PhpStorm\Pure;
 
 /**
  * @link https://php.net/manual/en/ref.sqlite.php
@@ -530,7 +531,8 @@ final class SQLiteException extends RuntimeException  {
 	 * @param $previous [optional]
 	 * @since 5.1.0
 	 */
-	public function __construct ($message, $code, $previous) {}
+	#[Pure]
+    public function __construct ($message, $code, $previous) {}
 
 	/**
 	 * String representation of the exception

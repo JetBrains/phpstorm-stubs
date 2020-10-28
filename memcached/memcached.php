@@ -1523,7 +1523,8 @@ class Memcached  {
  * @link https://php.net/manual/en/class.memcachedexception.php
  */
 class MemcachedException extends RuntimeException  {
-	function __construct( $errmsg = "", $errcode  = 0 ) {}
+	#[\JetBrains\PhpStorm\Pure]
+    function __construct($errmsg = "", $errcode  = 0 ) {}
 }
 // End of memcached v.3.1.5
 ?>

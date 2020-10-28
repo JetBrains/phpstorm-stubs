@@ -2,6 +2,7 @@
 
 // Start of Core v.5.3.6-13ubuntu3.2
 use JetBrains\PhpStorm\ExpectedValues;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Created by typecasting to object.
@@ -274,6 +275,7 @@ class Exception implements Throwable {
      * @param int $code [optional] The Exception code.
      * @param Throwable $previous [optional] The previous throwable used for the exception chaining.
      */
+    #[Pure]
     public function __construct($message = "", $code = 0, Throwable $previous = null) { }
 
     /**
@@ -281,6 +283,7 @@ class Exception implements Throwable {
      * @link https://php.net/manual/en/exception.getmessage.php
      * @return string the Exception message as a string.
      */
+    #[Pure]
     final public function getMessage() { }
 
     /**
@@ -291,6 +294,7 @@ class Exception implements Throwable {
      * <b>Exception</b> descendants (for example as
      * string in <b>PDOException</b>).
      */
+    #[Pure]
     final public function getCode() { }
 
     /**
@@ -298,6 +302,7 @@ class Exception implements Throwable {
      * @link https://php.net/manual/en/exception.getfile.php
      * @return string the filename in which the exception was created.
      */
+    #[Pure]
     final public function getFile() { }
 
     /**
@@ -305,6 +310,7 @@ class Exception implements Throwable {
      * @link https://php.net/manual/en/exception.getline.php
      * @return int the line number where the exception was created.
      */
+    #[Pure]
     final public function getLine() { }
 
     /**
@@ -312,6 +318,7 @@ class Exception implements Throwable {
      * @link https://php.net/manual/en/exception.gettrace.php
      * @return array the Exception stack trace as an array.
      */
+    #[Pure]
     final public function getTrace() { }
 
     /**
@@ -320,6 +327,7 @@ class Exception implements Throwable {
      * @return Exception the previous <b>Exception</b> if available
      * or null otherwise.
      */
+    #[Pure]
     final public function getPrevious() { }
 
     /**
@@ -327,6 +335,7 @@ class Exception implements Throwable {
      * @link https://php.net/manual/en/exception.gettraceasstring.php
      * @return string the Exception stack trace as a string.
      */
+    #[Pure]
     final public function getTraceAsString() { }
 
     /**
@@ -538,6 +547,7 @@ class ErrorException extends Exception {
      * @param int $lineno [optional] The line number where the exception is thrown.
      * @param Exception $previous [optional] The previous exception used for the exception chaining.
      */
+    #[\JetBrains\PhpStorm\Pure]
     public function __construct($message = "", $code = 0, $severity = 1, $filename = __FILE__, $lineno = __LINE__, $previous = null) { }
 
     /**

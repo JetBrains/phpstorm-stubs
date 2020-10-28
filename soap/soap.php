@@ -765,7 +765,8 @@ class SoapFault extends Exception  {
 	 * </p>
 	 * @since 5.0.1
 	 */
-	public function __construct ($faultcode, $faultstring, $faultactor = null, $detail = null, $faultname = null, $headerfault = null) {}
+	#[\JetBrains\PhpStorm\Pure]
+    public function __construct ($faultcode, $faultstring, $faultactor = null, $detail = null, $faultname = null, $headerfault = null) {}
 	
 	/**
 	 * SoapFault constructor
