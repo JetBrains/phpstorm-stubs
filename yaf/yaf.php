@@ -1721,6 +1721,11 @@ abstract class Yaf_Response_Abstract {
     public function __toString(){ }
 
     /**
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.response.php
+     */
+    public function response(){ }
+
+    /**
      * Set content to response
      *
      * @link https://secure.php.net/manual/en/yaf-response-abstract.setbody.php
