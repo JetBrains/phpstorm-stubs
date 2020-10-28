@@ -9,6 +9,9 @@
  * Passing in this constant as a flag will forcefully disable all other flags.
  * Use this if you want to temporarily disable the amqp.auto_ack ini setting.
  */
+
+use JetBrains\PhpStorm\Deprecated;
+
 define('AMQP_NOPARAM', 0);
 
 /**
@@ -763,22 +766,20 @@ class AMQPConnection
     /**
      * Sets the interval of time to wait for income activity from AMQP broker
      *
-     * @deprecated use AMQPConnection::setReadTimout($timeout) instead
-     *
      * @param int $timeout
      *
      * @return bool
      */
+    #[Deprecated(replacement: "%class%->setReadTimout(%parameter0%)")]
     public function setTimeout($timeout) { }
 
     /**
      * Get the configured interval of time to wait for income activity
      * from AMQP broker
      *
-     * @deprecated use AMQPConnection::getReadTimout() instead
-     *
      * @return float
      */
+    #[Deprecated(replacement: '%class%->getReadTimout(%parameter0%)')]
     public function getTimeout() { }
 
     /**
@@ -1321,9 +1322,9 @@ class AMQPExchange
      * @throws AMQPExchangeException
      * @throws AMQPChannelException
      * @throws AMQPConnectionException
-     * @deprecated
      * @see AMQPExchange::declareExchange()
      */
+    #[Deprecated]
     public function declare() { }
 }
 
@@ -1677,9 +1678,9 @@ class AMQPQueue
      * @return int
      * @throws AMQPChannelException
      * @throws AMQPConnectionException
-     * @deprecated
      * @see AMQPQueue::declareQueue()
      */
+    #[Deprecated]
     public function declare() { }
 
 }

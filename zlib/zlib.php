@@ -1,6 +1,7 @@
 <?php
 
 // Start of zlib v.2.0
+use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -92,9 +93,9 @@ function gzgets ($stream, $length) {}
  * be stripped.
  * </p>
  * @return string|false The uncompressed and striped string, or <b>FALSE</b> on error.
- * @deprecated 7.3
  * @removed 8.0
  */
+#[Deprecated(since: "7.3")]
 function gzgetss ($zp, $length, $allowable_tags = null) {}
 
 /**

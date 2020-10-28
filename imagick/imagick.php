@@ -2,6 +2,8 @@
 
 // Start of imagick v.3.4.3
 
+use JetBrains\PhpStorm\Deprecated;
+
 class ImagickException extends Exception  {
 }
 
@@ -1978,8 +1980,8 @@ class Imagick implements Iterator, Countable {
 	 * Returns the image length in bytes
 	 * @link https://php.net/manual/en/imagick.getimagesize.php
 	 * @return int an int containing the current image size.
-	 * @deprecated use {@see Imagick::getImageLength()} instead
 	 */
+	#[Deprecated(replacement: "%class%->getImageLength()")]
 	public function getImageSize () {}
 
 	/**

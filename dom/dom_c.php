@@ -1,6 +1,7 @@
 <?php
 
 //20120405 AG synced to official docs
+use JetBrains\PhpStorm\Deprecated;
 
 /**
  * The DOMNode class
@@ -520,18 +521,17 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * @var string
-     * Deprecated. Actual encoding of the document, is a readonly equivalent to encoding.
      * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.actualencoding
-     * @deprecated
      */
+    #[Deprecated("Actual encoding of the document, is a readonly equivalent to encoding.")]
     public $actualEncoding;
 
     /**
      * @var DOMConfiguration
-     * Deprecated. Configuration used when {@link DOMDocument::normalizeDocument()} is invoked.
      * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.config
-     * @deprecated
+     * @see DOMDocument::normalizeDocument()
      */
+    #[Deprecated("Configuration used when DOMDocument::normalizeDocument() is invoked.")]
     public $config;
 
     /**
@@ -604,11 +604,9 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * @var bool
-     * Deprecated. Whether or not the document is standalone, as specified by the XML declaration,
-     * corresponds to xmlStandalone.
      * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.standalone
-     * @deprecated
      */
+    #[Deprecated("Whether or not the document is standalone, as specified by the XML declaration, corresponds to xmlStandalone.")]
     public $standalone ;
 
     /**
@@ -635,9 +633,9 @@ class DOMDocument extends DOMNode implements DOMParentNode {
 
     /**
      * @var string
-     * Deprecated. Version of XML, corresponds to xmlVersion
      * @link https://php.net/manual/en/class.domdocument.php#domdocument.props.version
      */
+    #[Deprecated('Version of XML, corresponds to xmlVersion')]
     public $version ;
 
     /**

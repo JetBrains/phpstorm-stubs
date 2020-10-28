@@ -475,6 +475,8 @@ namespace {
 
 namespace Cassandra {
 
+    use JetBrains\PhpStorm\Deprecated;
+
     /**
      * A PHP representation of a column
      * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/interface.Column/
@@ -5933,14 +5935,13 @@ namespace Cassandra {
     /**
      * Request execution options.
      *
-     * @deprecated Use an array of options instead of creating an instance of this class.
-     *
      * @see \Cassandra\Session::execute()
      * @see \Cassandra\Session::executeAsync()
      * @see \Cassandra\Session::prepare()
      * @see \Cassandra\Session::prepareAsync()
      * @link https://docs.datastax.com/en/developer/php-driver/latest/api/Cassandra/class.ExecutionOptions/
      */
+    #[Deprecated('Use an array of options instead of creating an instance of this class.')]
     final class ExecutionOptions
     {
 

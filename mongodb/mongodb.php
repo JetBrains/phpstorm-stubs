@@ -2016,6 +2016,7 @@ namespace MongoDB {}
      */
     namespace MongoDB\BSON {
 
+        use JetBrains\PhpStorm\Deprecated;
         use JsonSerializable;
         use MongoDB\Driver\Exception\InvalidArgumentException;
         use MongoDB\Driver\Exception\UnexpectedValueException;
@@ -2736,9 +2737,9 @@ namespace MongoDB {}
          * BSON type for the "Undefined" type. This BSON type is deprecated, and this class can not be instantiated. It will be created
          * from a BSON undefined type while converting BSON to PHP, and can also be converted back into BSON while storing documents in the database.
          *
-         * @deprecated
          * @link https://secure.php.net/manual/en/class.mongodb-bson-undefined.php
          */
+        #[Deprecated]
         final class Undefined implements Type,\Serializable, \JsonSerializable
         {
             final private function __construct()
@@ -2793,9 +2794,9 @@ namespace MongoDB {}
          * BSON type for the "Symbol" type. This BSON type is deprecated, and this class can not be instantiated. It will be created from a
          * BSON symbol type while converting BSON to PHP, and can also be converted back into BSON while storing documents in the database.
          *
-         * @deprecated
          * @link https://secure.php.net/manual/en/class.mongodb-bson-symbol.php
          */
+        #[Deprecated]
         final class Symbol implements Type,\Serializable, \JsonSerializable
         {
             final private function __construct()
@@ -2850,10 +2851,10 @@ namespace MongoDB {}
          * BSON type for the "DbPointer" type. This BSON type is deprecated, and this class can not be instantiated. It will be created from a
          * BSON symbol type while converting BSON to PHP, and can also be converted back into BSON while storing documents in the database.
          *
-         * @deprecated
          * @since 1.4.0
          * @link https://secure.php.net/manual/en/class.mongodb-bson-dbpointer.php
          */
+        #[Deprecated]
         final class DbPointer implements Type,\Serializable, \JsonSerializable
         {
             final private function __construct()
@@ -2915,10 +2916,10 @@ namespace MongoDB {}
          * roundtripped through a 32-bit PHP environment without any loss of precision. The __toString() method allows the 64-bit integer
          * value to be accessed as a string.
          *
-         * @deprecated
          * @since 1.5.0
          * @link https://secure.php.net/manual/en/class.mongodb-bson-int64.php
          */
+        #[Deprecated]
         final class Int64 implements Type,\Serializable, \JsonSerializable
         {
             final private function __construct()

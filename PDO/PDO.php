@@ -3,6 +3,7 @@
 // Start of PDO v.1.0.4dev
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
+use JetBrains\PhpStorm\Deprecated;
 
 /**
  * Represents an error raised by PDO. You should not throw a
@@ -743,9 +744,7 @@ class PDO  {
 	 */
 	const MYSQL_ATTR_SSL_VERIFY_SERVER_CERT = 1016;
 
-	/**
-	 * @deprecated 5.6 Use PDO::ATTR_EMULATE_PREPARES instead.
-	 */
+	#[Deprecated("Use PDO::ATTR_EMULATE_PREPARES instead")]
 	const PGSQL_ASSOC = 1;
 	const PGSQL_ATTR_DISABLE_NATIVE_PREPARED_STATEMENT = 1000;
 

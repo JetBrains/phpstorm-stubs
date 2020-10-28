@@ -1,6 +1,7 @@
 <?php
 
 // Start of ldap v.
+use JetBrains\PhpStorm\Deprecated;
 
 /**
  * PASSWD extended operation helper
@@ -793,10 +794,10 @@ function ldap_compare ($ldap, $dn, $attribute, $value, $controls = []) {}
  * @param string $sortfilter <p>
  * The attribute to use as a key in the sort.
  * </p>
- * @deprecated 7.0
  * @removed 8.0
  * @return bool
  */
+#[Deprecated(since: "7.0")]
 function ldap_sort ($ldap, $result, $sortfilter) {}
 
 /**
@@ -1101,9 +1102,9 @@ function ldap_set_rebind_proc ($ldap, callable $callback) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.4
- * @deprecated 7.4
  * @removed 8.0
  */
+#[Deprecated(since: "7.4")]
 function ldap_control_paged_result ($ldap, $pagesize, $iscritical = false, $cookie = "") {}
 
 /**
@@ -1121,9 +1122,9 @@ function ldap_control_paged_result ($ldap, $pagesize, $iscritical = false, $cook
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.4
- * @deprecated 7.4
- * @removed 8.0
+ * @removed 8.0
  */
+#[Deprecated(since: "7.4")]
 function ldap_control_paged_result_response ($ldap, $result, &$cookie = null, &$estimated = null) {}
 
 /**

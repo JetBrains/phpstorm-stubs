@@ -429,7 +429,6 @@ function gmdate ($format, $timestamp = null) {}
  * range was limited from 1970 to 2038 on some systems (e.g. Windows).
  * </p>
  * @param int $is_dst [optional] <p>
- * Deprecated since 5.3.0 - use Use the new timezone handling functions instead.<p>
  * This parameter can be set to 1 if the time is during daylight savings time (DST),
  * 0 if it is not, or -1 (the default) if it is unknown whether the time is within
  * daylight savings time or not. If it's unknown, PHP tries to figure it out itself.
@@ -454,7 +453,7 @@ function gmdate ($format, $timestamp = null) {}
  * it returned -1).
  */
 #[Pure]
-function mktime ($hour = null, $minute = null, $second = null, $month = null, $day = null, $year = null, #[Deprecated("Use the new timezone handling functions instead")] $is_dst = -1) {}
+function mktime ($hour = null, $minute = null, $second = null, $month = null, $day = null, $year = null, #[Deprecated('Use the new timezone handling functions instead', since: '5.3')] $is_dst = -1) {}
 
 /**
  * Get Unix timestamp for a GMT date

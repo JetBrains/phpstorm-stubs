@@ -23,6 +23,8 @@
  * @filesource
  */
 
+use JetBrains\PhpStorm\Deprecated;
+
 /**
  * The Aerospike client class
  *
@@ -4457,9 +4459,9 @@ class Aerospike {
     /**
      * Write request is rejected because XDR is not running.
      * Only occur when XDR configuration xdr-stop-writes-noxdr is on
-     * @deprecated Will be reused as ERR_ALWAYS_FORBIDDEN
      * @const ERR_NO_XDR
      */
+    #[Deprecated("Will be reused as ERR_ALWAYS_FORBIDDEN")]
     const ERR_ALWAYS_FORBIDDEN = "AEROSPIKE_ERR_ALWAYS_FORBIDDEN";
     /**
      * Server is not accepting requests.
@@ -5011,27 +5013,25 @@ class Aerospike {
      */
     const OP_GEOCONTAINSPOINT = "GEOCONTAINS";
 
-    // Status values returned by scanInfo(). Deprecated in favor of jobInfo()
-
     /**
      * Scan status is undefined
-     * @deprecated use JOB_STATUS_UNDEF along with jobInfo()
      */
+    #[Deprecated('use JOB_STATUS_UNDEF along with jobInfo()')]
     const SCAN_STATUS_UNDEF = "SCAN_STATUS_UNDEF";
     /**
      * Scan is currently running
-     * @deprecated use JOB_STATUS_INPROGRESS along with jobInfo()
      */
+    #[Deprecated('use JOB_STATUS_INPROGRESS along with jobInfo()')]
     const SCAN_STATUS_INPROGRESS = "SCAN_STATUS_INPROGRESS";
     /**
      * Scan completed successfully
-     * @deprecated
      */
+    #[Deprecated]
     const SCAN_STATUS_ABORTED = "SCAN_STATUS_ABORTED";
     /**
      * Scan was aborted due to failure or the user
-     * @deprecated use JOB_STATUS_COMPLETED along with jobInfo()
      */
+    #[Deprecated('use JOB_STATUS_COMPLETED along with jobInfo()')]
     const SCAN_STATUS_COMPLETED = "SCAN_STATUS_COMPLETED";
 
     // Status values returned by jobInfo()

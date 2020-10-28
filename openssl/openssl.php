@@ -1,6 +1,7 @@
 <?php
 
 // Start of openssl v.
+use JetBrains\PhpStorm\Deprecated;
 
 /**
  * Frees a private key
@@ -9,8 +10,8 @@
  * Resource holding the key.
  * </p>
  * @return void
- * @deprecated 8.0
  */
+#[Deprecated(since: '8.0')]
 function openssl_pkey_free($key) { }
 
 /**
@@ -130,8 +131,8 @@ function openssl_pkey_get_details($key) { }
  * @link https://php.net/manual/en/function.openssl-free-key.php
  * @param resource $key
  * @return void
- * @deprecated 8.0
  */
+#[Deprecated(since: '8.0')]
 function openssl_free_key($key) { }
 
 /**
@@ -239,8 +240,8 @@ function openssl_x509_fingerprint($certificate, $digest_algo, $binary) {}
  * @link https://php.net/manual/en/function.openssl-x509-free.php
  * @param resource $certificate
  * @return void
- * @deprecated 8.0
  */
+#[Deprecated(since: '8.0')]
 function openssl_x509_free($certificate) { }
 
 /**

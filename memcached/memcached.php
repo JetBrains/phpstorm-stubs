@@ -1,6 +1,7 @@
 <?php
 
 // Start of memcached v.3.1.5
+use JetBrains\PhpStorm\Deprecated;
 
 /**
  * Represents a connection to a set of memcached servers.
@@ -513,9 +514,9 @@ class Memcached  {
 	 */
 	const RES_CONNECTION_FAILURE = 3;
 	/**
-	 * <p>MEMCACHED_CONNECTION_BIND_FAILURE: Deprecated since version <0.30(libmemcached).
-	 * We were not able to bind() to the socket.</p>
+	 * MEMCACHED_CONNECTION_BIND_FAILURE: We were not able to bind() to the socket.
 	 */
+	#[Deprecated('Deprecated since version 0.30(libmemcached)')]
 	const RES_CONNECTION_BIND_FAILURE = 4;
 	/**
 	 * <p>MEMCACHED_READ_FAILURE: A read failure has occurred.</p>
@@ -534,9 +535,9 @@ class Memcached  {
 	 */
 	const RES_FAIL_UNIX_SOCKET = 27;
 	/**
-	 * <p>MEMCACHED_NO_KEY_PROVIDED: Deprecated since version <0.30(libmemcached): Use MEMCACHED_BAD_KEY_PROVIDED instead.
 	 * No key was provided.</p>
 	 */
+	#[Deprecated('Deprecated since version 0.30 (libmemcached). Use MEMCACHED_BAD_KEY_PROVIDED instead.')]
 	const RES_NO_KEY_PROVIDED = 29;
 	/**
 	 * <p>MEMCACHED_INVALID_ARGUMENTS: The arguments supplied to the given function were not valid.</p>

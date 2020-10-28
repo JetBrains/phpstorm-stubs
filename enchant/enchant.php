@@ -38,15 +38,15 @@ function enchant_broker_get_error ($broker) {}
  * @param $broker
  * @param $name
  * @param $value
- * @deprecated 8.0
  */
+#[Deprecated(since: '8.0')]
 function enchant_broker_set_dict_path ($broker, $name, $value) {}
 
 /**
  * @param $broker
  * @param $name
- * @deprecated 8.0
  */
+#[Deprecated(since: '8.0')]
 function enchant_broker_get_dict_path ($broker, $name) {}
 
 /**
@@ -96,8 +96,8 @@ function enchant_broker_request_pwl_dict ($broker, $filename) {}
  * Dictionary resource.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @deprecated 8.0 Unset the object instead
  */
+#[Deprecated("Unset the object instead",since: '8.0')]
 function enchant_broker_free_dict ($dict) {}
 
 /**
@@ -183,8 +183,9 @@ function enchant_dict_suggest ($dict, $word) {}
  * The word to add
  * </p>
  * @return void
- * @deprecated 8.0 Use {@link enchant_dict_add} instead
+ * @see enchant_dict_add()
  */
+#[Deprecated("Use enchant_dict_add instead")]
 function enchant_dict_add_to_personal ($dict, $word) {}
 
 /**
@@ -212,8 +213,9 @@ function enchant_dict_add_to_session ($dict, $word) {}
  * The word to lookup
  * </p>
  * @return bool <b>TRUE</b> if the word exists or <b>FALSE</b>
- * @deprecated 8.0 Use {@enchant_dict_is_added} instead.
+ * @see enchant_dict_is_added
  */
+#[Deprecated('Use enchant_dict_add instead')]
 function enchant_dict_is_in_session ($dict, $word) {}
 
 /**

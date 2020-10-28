@@ -76,6 +76,7 @@ class ReflectionProperty implements Reflector
      * @return string|null
      * @removed 8.0
      */
+
     #[Deprecated(since: "7.4")]
     public static function export($class, $name, $return = false)
     {

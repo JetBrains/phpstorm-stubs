@@ -1,6 +1,7 @@
 <?php
 
 // Start of Core v.5.3.6-13ubuntu3.2
+use JetBrains\PhpStorm\ExpectedValues;
 
 /**
  * Created by typecasting to object.
@@ -803,7 +804,7 @@ final class Attribute {
      * @param int $flags A value in the form of a bitmask indicating the places
      * where attributes can be defined.
      */
-    public function __construct($flags = self::TARGET_ALL)
+    public function __construct(#[ExpectedValues(flagsFromClass: Attribute::class)] $flags = self::TARGET_ALL)
     {
     }
 }

@@ -7,6 +7,8 @@
  * MongoClient: https://github.com/djsipe/PHP-Stubs
  */
 
+use JetBrains\PhpStorm\Deprecated;
+
 /**
  * A connection between PHP and MongoDB. This class is used to create and manage connections
  * See MongoClient::__construct() and the section on connecting for more information about creating connections.
@@ -127,13 +129,13 @@ class MongoClient
     public function connect() {}
 
     /**
-     * @deprecated Use MongoDB::drop() instead.
      * Drops a database
      *
      * @link https://secure.php.net/manual/en/mongoclient.dropdb.php
      * @param mixed $db The database to drop. Can be a MongoDB object or the name of the database.
      * @return array The database response.
      */
+    #[Deprecated(replacement: "%class%->drop()")]
     public function dropDB($db) {}
 
     /**
@@ -262,18 +264,19 @@ class MongoClient
  * The connection point between MongoDB and PHP.
  * This class is used to initiate a connection and for database server commands.
  * @link https://secure.php.net/manual/en/class.mongo.php
- * @deprecated This class has been DEPRECATED as of version 1.3.0.
  * Relying on this feature is highly discouraged. Please use MongoClient instead.
  * @see MongoClient
  */
+#[Deprecated("This class has been DEPRECATED as of version 1.3.0.")]
 class Mongo extends MongoClient {
     /**
-     * @deprecated This feature has been DEPRECATED as of version 1.2.3. Relying on this feature is highly discouraged. Please use MongoPool::getSize() instead.
      * (PECL mongo &gt;= 1.2.0)<br/>
      * Get pool size for connection pools
      * @link https://php.net/manual/en/mongo.getpoolsize.php
      * @return int Returns the current pool size.
+     * @see MongoPool::getSize()
      */
+    #[Deprecated('This feature has been DEPRECATED as of version 1.2.3. Relying on this feature is highly discouraged. Please use MongoPool::getSize() instead.')]
     public function getPoolSize() {}
     /**
      * (PECL mongo &gt;= 1.1.0)<br/>
@@ -296,16 +299,15 @@ class Mongo extends MongoClient {
     public function getSlaveOkay() {}
     /**
 	* Connects to paired database server
-	* @deprecated Pass a string of the form "mongodb://server1,server2" to the constructor instead of using this method.
 	* @link https://secure.php.net/manual/en/mongo.pairconnect.php
 	* @throws MongoConnectionException
     * @return bool
     */
+    #[Deprecated('Pass a string of the form "mongodb://server1,server2" to the constructor instead of using this method.')]
     public function pairConnect() {}
 
     /**
      * (PECL mongo &gt;= 1.2.0)<br/>
-     * @deprecated This feature has been DEPRECATED as of version 1.2.3. Relying on this feature is highly discouraged. Please use MongoPool::info() instead.
      * Returns information about all connection pools.
      * @link https://php.net/manual/en/mongo.pooldebug.php
      * @return array  Each connection pool has an identifier, which starts with the host. For each pool, this function shows the following fields:
@@ -323,8 +325,9 @@ class Mongo extends MongoClient {
      * <p><b>timeout</b></p>
      *
      * <p>The socket timeout for connections in this pool. This is how long connections in this pool will attempt to connect to a server before giving up.</p>
-     *
+     * @see MongoPool::info()
      */
+    #[Deprecated('@deprecated This feature has been DEPRECATED as of version 1.2.3. Relying on this feature is highly discouraged. Please use MongoPool::info() instead.')]
     public function poolDebug() {}
 
     /**
@@ -339,34 +342,35 @@ class Mongo extends MongoClient {
      */
     public function setSlaveOkay ($ok) {}
     /**
-     * @deprecated Relying on this feature is highly discouraged. Please use MongoPool::setSize() instead.
      *(PECL mongo &gt;= 1.2.0)<br/>
      * Set the size for future connection pools.
      * @link https://php.net/manual/en/mongo.setpoolsize.php
      * @param int $size <p>The max number of connections future pools will be able to create. Negative numbers mean that the pool will spawn an infinite number of connections.</p>
      * @return bool Returns the former value of pool size.
+     * @see MongoPool::setSize()
      */
+    #[Deprecated('Relying on this feature is highly discouraged. Please use MongoPool::setSize() instead.')]
     public function setPoolSize($size) {}
     /**
 	 * Creates a persistent connection with a database server
 	 * @link https://secure.php.net/manual/en/mongo.persistconnect.php
-	 * @deprecated Pass array("persist" => $id) to the constructor instead of using this method.
 	 * @param string $username A username used to identify the connection.
 	 * @param string $password A password used to identify the connection.
 	 * @throws MongoConnectionException
 	 * @return bool If the connection was successful.
 	 */
+    #[Deprecated('Pass array("persist" => $id) to the constructor instead of using this method.')]
     public function persistConnect($username = "", $password = "") {}
 
     /**
 	 * Creates a persistent connection with paired database servers
-	 * @deprecated Pass "mongodb://server1,server2" and array("persist" => $id) to the constructor instead of using this method.
 	 * @link https://secure.php.net/manual/en/mongo.pairpersistconnect.php
 	 * @param string $username A username used to identify the connection.
 	 * @param string $password A password used to identify the connection.
 	 * @throws MongoConnectionException
 	 * @return bool If the connection was successful.
 	 */
+    #[Deprecated('Pass "mongodb://server1,server2" and array("persist" => $id) to the constructor instead of using this method.')]
     public function pairPersistConnect($username = "", $password = "") {}
 
    /**
@@ -380,34 +384,38 @@ class Mongo extends MongoClient {
 
    /**
 	* Check if there was an error on the most recent db operation performed
-	* @deprecated Use MongoDB::lastError() instead.
 	* @link https://secure.php.net/manual/en/mongo.lasterror.php
     * @return array|null Returns the error, if there was one, or NULL.
+    * @see MongoDB::lastError()
     */
+   #[Deprecated('Use MongoDB::lastError() instead.')]
     public function lastError() {}
 
    /**
 	* Checks for the last error thrown during a database operation
-	* @deprecated Use MongoDB::prevError() instead.
 	* @link https://secure.php.net/manual/en/mongo.preverror.php
     * @return array Returns the error and the number of operations ago it occurred.
+    * @see MongoDB::prevError()
     */
+   #[Deprecated('Use MongoDB::prevError() instead.')]
     public function prevError() {}
 
    /**
 	* Clears any flagged errors on the connection
-	* @deprecated Use MongoDB::resetError() instead.
 	* @link https://secure.php.net/manual/en/mongo.reseterror.php
     * @return array Returns the database response.
+    * @see MongoDB::resetError()
     */
+    #[Deprecated('Use MongoDB::resetError() instead.')]
     public function resetError() {}
 
    /**
 	* Creates a database error on the database.
-	* @deprecated Use MongoDB::forceError() instead.
 	* @link https://secure.php.net/manual/en/mongo.forceerror.php
     * @return bool The database response.
+    * @see MongoDB::forceError()
     */
+    #[Deprecated('Use MongoDB::forceError() instead.')]
     public function forceError() {}
 }
 
@@ -635,12 +643,13 @@ class MongoDB {
 
     /**
      * (PECL mongo &gt;= 0.9.0)<br/>
-     * @deprecated Use MongoCollection::drop() instead.
      * Drops a collection
 	 * @link https://secure.php.net/manual/en/mongodb.dropcollection.php
 	 * @param MongoCollection|string $coll MongoCollection or name of collection to drop.
 	 * @return array Returns the database response.
+     * @see MongoCollection::drop()
 	 */
+    #[Deprecated('Use MongoCollection::drop() instead.')]
     public function dropCollection($coll) {}
 
    /**
@@ -1156,13 +1165,14 @@ class MongoCollection {
     public function createIndex(array $keys, array $options = array()) {}
 
     /**
-	 * @deprecated Use MongoCollection::createIndex() instead.
 	 * Creates an index on the given field(s), or does nothing if the index already exists
 	 * @link https://secure.php.net/manual/en/mongocollection.ensureindex.php
 	 * @param array $keys Field or fields to use as index.
 	 * @param array $options [optional] This parameter is an associative array of the form array("optionname" => <boolean>, ...).
 	 * @return true always true
+     * @see MongoCollection::createIndex()
 	 */
+    #[Deprecated('Use MongoCollection::createIndex() instead.')]
     public function ensureIndex(array $keys, array $options = array()) {}
 
     /**
