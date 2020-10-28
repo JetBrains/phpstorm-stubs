@@ -1726,6 +1726,17 @@ abstract class Yaf_Response_Abstract {
     public function response(){ }
 
     /**
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.setheader.php
+     *
+     * @param string $name
+     * @param string $value
+     * @param bool $replace
+     * 
+     * @return bool
+     */
+    public function setHeader($name, $value, $replace = false){ }
+
+    /**
      * Set content to response
      *
      * @link https://secure.php.net/manual/en/yaf-response-abstract.setbody.php
