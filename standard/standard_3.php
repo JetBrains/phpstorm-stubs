@@ -910,7 +910,7 @@ function quoted_printable_encode ($string) {}
  * @removed 8.0
  */
 #[Pure]
-#[Deprecated(since: '7.4')]
+#[Deprecated(since: "7.4")]
 function convert_cyr_string ($str, $from, $to) {}
 
 /**
@@ -950,7 +950,7 @@ function get_cfg_var ($name) {}
  * @param bool $new_setting
  * @removed 7.0
  */
-#[Deprecated(since: '5.3')]
+#[Deprecated(since: "5.3")]
 function magic_quotes_runtime ($new_setting) {}
 
 /**
@@ -971,7 +971,7 @@ function set_magic_quotes_runtime ($new_setting) {}
  * @return int 0 if magic quotes gpc are off, 1 otherwise.
  * @removed 8.0
  */
-#[Deprecated(since: '7.4')]
+#[Deprecated(since: "7.4")]
 function get_magic_quotes_gpc () {}
 
 /**
@@ -979,7 +979,7 @@ function get_magic_quotes_gpc () {}
  * @link https://php.net/manual/en/function.get-magic-quotes-runtime.php
  * @return int 0 if magic quotes runtime is off, 1 otherwise.
  */
-#[Deprecated(since: '7.4')]
+#[Deprecated(since: "7.4")]
 function get_magic_quotes_runtime () {}
 
 /**

@@ -497,7 +497,7 @@ function set_include_path ($include_path) {}
  * @return void
  * @removed 8.0
  */
-#[Deprecated(since: '7.4')]
+#[Deprecated(since: "7.4")]
 function restore_include_path () {}
 
 /**

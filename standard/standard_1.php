@@ -173,7 +173,7 @@ function hebrev ($string, $max_chars_per_line = null) {}
  * @return string the visual string.
  * @removed 8.0
  */
-#[Deprecated(since: '7.4')]
+#[Deprecated(since: "7.4")]
 function hebrevc ($hebrew_text, $max_chars_per_line = null) {}
 
 /**
@@ -481,7 +481,7 @@ function strcoll ($string1, $string2) {}
  * emitting E_WARNING.
  * @removed 8.0
  */
-#[Deprecated(since: '7.4')]
+#[Deprecated(since: "7.4")]
 function money_format ($format, $number) {}
 
 /**

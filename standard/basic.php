@@ -36,7 +36,7 @@ use JetBrains\PhpStorm\Pure;
  * Loads a PHP extension at runtime
  * @link https://php.net/manual/en/function.dl.php
  */
-#[Deprecated(since: '5.3')]
+#[Deprecated(since: "5.3")]
 function dl ($extension_filename) {}
 
 /**

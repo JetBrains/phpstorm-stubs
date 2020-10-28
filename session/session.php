@@ -116,7 +116,7 @@ function session_decode ($data) {}
  * @return bool true on success or false on failure.
  * @removed 5.4
  */
-#[Deprecated(since: '5.3')]
+#[Deprecated(since: "5.3")]
 function session_register ($name, ...$_) {}
 
 /**
@@ -128,7 +128,7 @@ function session_register ($name, ...$_) {}
  * @return bool true on success or false on failure.
  * @removed 5.4
  */
-#[Deprecated(since: '5.3')]
+#[Deprecated(since: "5.3")]
 function session_unregister ($name) {}
 
 /**
@@ -142,7 +142,7 @@ function session_unregister ($name) {}
  * the current session, false otherwise.
  * @removed 5.4
  */
-#[Deprecated(since: '5.3')]
+#[Deprecated(since: "5.3")]
 function session_is_registered ($name) {}
 
 /**

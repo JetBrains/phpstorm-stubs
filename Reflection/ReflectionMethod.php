@@ -87,7 +87,8 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * the export is returned as a string, otherwise {@see null} is returned.
      * @removed 8.0
      */
-    #[Deprecated(since: '7.4')]
+
+    #[Deprecated(since: "7.4")]
     public static function export($class, $name, $return = false)
     {
     }
