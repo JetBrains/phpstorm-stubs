@@ -4,8 +4,10 @@ declare(strict_types=1);
 namespace StubTests\Model;
 
 use Exception;
+use JetBrains\PhpStorm\Deprecated;
 use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use phpDocumentor\Reflection\Type;
+use PhpParser\Comment\Doc;
 use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Stmt\Function_;
 use PhpParser\NodeAbstract;
@@ -63,17 +65,10 @@ class PHPFunction extends BasePHPElement
 
     protected function checkDeprecationTag(FunctionLike $node): void
     {
-        if ($node->getDocComment() !== null) {
-            try {
-                $phpDoc = DocFactoryProvider::getDocFactory()->create($node->getDocComment()->getText());
-                if (empty($phpDoc->getTagsByName('deprecated'))) {
-                    $this->is_deprecated = false;
-                } else {
-                    $this->is_deprecated = true;
-                }
-            } catch (Exception $e) {
-                $this->parseError = $e;
-            }
+        try {
+            $this->is_deprecated = self::hasDeprecatedAttribute($node) || self::hasDeprecatedDocTag($node->getDocComment());
+        } catch (Exception $e) {
+            $this->parseError = $e;
         }
     }
 
@@ -109,5 +104,23 @@ class PHPFunction extends BasePHPElement
                 return;
             }
         }
+    }
+
+    private static function hasDeprecatedAttribute(FunctionLike $node) :bool
+    {
+        foreach ($node->getAttrGroups() as $group) {
+            foreach ($group->attrs as $attr) {
+                if ($attr->name == Deprecated::class) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private static function hasDeprecatedDocTag(?Doc $docComment) :bool
+    {
+        $phpDoc = $docComment != null ? DocFactoryProvider::getDocFactory()->create($docComment->getText()) : null;
+        return $phpDoc != null && !empty($phpDoc->getTagsByName('deprecated'));
     }
 }
