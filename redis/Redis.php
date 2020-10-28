@@ -55,6 +55,7 @@ class Redis
     const COMPRESSION_NONE      = 0;
     const COMPRESSION_LZF       = 1;
     const COMPRESSION_ZSTD      = 2;
+    const COMPRESSION_LZ4       = 3;
 
     /**
      * Compression ZSTD levels
