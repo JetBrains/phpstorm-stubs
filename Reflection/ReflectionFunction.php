@@ -56,8 +56,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * the export is returned as a string, otherwise {@see null} is returned.
      * @removed 8.0
      */
-
-    #[Deprecated(since: "7.4")]
+    #[Deprecated(since: '7.4')]
     public static function export($name, $return = false)
     {
     }
@@ -68,8 +67,7 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionfunction.isdisabled.php
      * @return bool {@see true} if it's disable, otherwise {@see false}
      */
-
-    #[Deprecated(since: "8.0")]
+    #[Deprecated(since: '8.0')]
     public function isDisabled()
     {
     }
