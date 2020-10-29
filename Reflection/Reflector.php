@@ -14,7 +14,7 @@ interface Reflector extends Stringable
      * Exports a class.
      *
      * @link https://php.net/manual/en/reflector.export.php
-     * @return string|void
+     * @return string|null
      * @removed 8.0
      */
     #[Deprecated(since: '7.4')]

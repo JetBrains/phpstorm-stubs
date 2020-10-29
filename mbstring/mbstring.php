@@ -1191,6 +1191,7 @@ function mbregex_encoding ($encoding) {}
  * @param string $pattern
  * @param string $string
  * @param array &$registers [optional]
+ * @see mb_ereg
  * @removed 8.0
  */
 #[Deprecated(replacement: 'mb_ereg(%parametersList%)',since: '7.3')]
@@ -1211,6 +1212,7 @@ function mberegi ($pattern, $string, &$registers) {}
  * @param $replacement
  * @param $string
  * @param $option [optional]
+ * @see mb_ereg_replace
  * @removed 8.0
  */
 #[Deprecated(replacement: 'mb_ereg_replace(%parametersList%)', since: '7.3')]
@@ -1232,6 +1234,7 @@ function mberegi_replace ($pattern, $replacement, $string, string $option = "msr
  * @param $pattern
  * @param $string
  * @param $limit [optional]
+ * @see mb_split
  * @removed 8.0
  */
 #[Deprecated(replacement: 'mb_split(%parametersList%)', since: '7.3')]
@@ -1250,6 +1253,7 @@ function mbereg_match ($pattern, $string, $option) {}
 /**
  * @param $pattern [optional]
  * @param $option [optional]
+ * @see mb_ereg_search
  * @removed 8.0
  */
 #[Deprecated(replacement: 'mb_ereg_search(%parametersList%)', since: '7.3')]
@@ -1267,6 +1271,7 @@ function mbereg_search_pos ($pattern, $option) {}
 /**
  * @param $pattern [optional]
  * @param $option [optional]
+ * @see mb_ereg_search_regs
  * @removed 8.0
  */
 #[Deprecated(replacement: 'mb_ereg_search_regs(%parametersList%)', since: '7.3')]
@@ -1283,6 +1288,7 @@ function mbereg_search_regs ($pattern, $option) {}
 function mbereg_search_init ($string, $pattern, $option) {}
 
 /**
+ * @see mb_ereg_search_getregs
  * @removed 8.0
  */
 #[Deprecated(replacement: 'mb_ereg_search_getregs(%parametersList%)', since: '7.3')]
