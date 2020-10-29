@@ -141,8 +141,6 @@ define('PASSWORD_ARGON2_DEFAULT_THREADS', 1);
 define('PASSWORD_ARGON2_PROVIDER', 'standard');
 
 /**
- * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>
- *
  * Returns information about the given hash
  * @link https://secure.php.net/manual/en/function.password-get-info.php
  * @param string $hash A hash created by password_hash().
@@ -185,8 +183,6 @@ function password_get_info ($hash) {}
 function password_hash ($password, $algo, $options = []) {}
 
 /**
- * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>
- *
  * Checks if the given hash matches the given options.
  * @link https://secure.php.net/manual/en/function.password-needs-rehash.php
  * @param string $hash A hash created by password_hash().
@@ -198,8 +194,6 @@ function password_hash ($password, $algo, $options = []) {}
 function password_needs_rehash ($hash, $algo, $options = []) {}
 
 /**
- * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>
- *
  * Checks if the given hash matches the given options.
  * @link https://secure.php.net/manual/en/function.password-verify.php
  * @param string $password The user's password.

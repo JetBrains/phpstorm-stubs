@@ -866,7 +866,7 @@ function sqlite_last_insert_rowid ($dbhandle) {}
  * (PHP 5, PECL sqlite &gt;= 1.0.0)<br/>
  * Returns the number of rows in a buffered result set
  * @link https://php.net/manual/en/function.sqlite-num-rows.php
- * @param $result <p>
+ * @param resource $result <p>
  * The SQLite result resource.  This parameter is not required when using
  * the object-oriented method.
  * </p>

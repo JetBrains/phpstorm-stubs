@@ -179,6 +179,7 @@ function apc_inc($key, $step = 1, &$success = null){}
 function apc_dec($key, $step = 1, &$success = null){}
 
 /**
+ * Updates an old value with a new value
  * @link https://php.net/manual/en/function.apc-cas.php
  * @param string $key
  * @param int $old

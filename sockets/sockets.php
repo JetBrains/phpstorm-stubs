@@ -1318,6 +1318,7 @@ function socket_import_stream ($stream) {}
 function socket_cmsg_space ($level, $type, $n = 0) {}
 
 /**
+ * Alias of {@see socket_get_option}
  * @param $socket
  * @param $level
  * @param $optname
@@ -1325,6 +1326,7 @@ function socket_cmsg_space ($level, $type, $n = 0) {}
 function socket_getopt ($socket, $level, $optname) {}
 
 /**
+ * Alias of {@see socket_set_option}
  * @param $socket
  * @param $level
  * @param $optname

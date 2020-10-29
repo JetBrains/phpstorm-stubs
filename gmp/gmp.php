@@ -43,7 +43,7 @@ function gmp_intval ($gmpnumber) {}
  * The seed to be set for the {@see gmp_random()}, {@see gmp_random_bits()}, and {@see gmp_random_range()} functions.
  * </p>
  * Either a GMP number resource in PHP 5.5 and earlier, a GMP object in PHP 5.6 and later, or a numeric string provided that it is possible to convert the latter to a number.
- * @return mixed Returns NULL on success.
+ * @return null|false Returns NULL on success.
  * @since 7.0
  */
 function gmp_random_seed ($seed ) {}

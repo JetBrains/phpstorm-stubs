@@ -1157,7 +1157,7 @@ class Normalizer {
      * Canonical Composition
      * @link https://secure.php.net/manual/en/class.normalizer.php
      */
-    const FORM_C = "4";
+    const FORM_C = 16;
     const NFC = 4;
 
     /**
@@ -1165,7 +1165,7 @@ class Normalizer {
      * Canonical Composition
      * @link https://secure.php.net/manual/en/class.normalizer.php
      */
-    const FORM_KC = "5";
+    const FORM_KC = 32;
     const NFKC = 5;
 
 
@@ -3529,7 +3529,7 @@ function collator_get_error_code(Collator $object) { }
 function collator_get_error_message(Collator $object) { }
 
 /**
- * (No version information available, might only be in SVN)<br/>
+ * (PHP 5 &gt;= 5.3.2, PHP 7, PECL intl &gt;= 1.0.3)<br/>
  * Get sorting key for a string
  * @link https://php.net/manual/en/collator.getsortkey.php
  * @param Collator $object
@@ -3796,7 +3796,7 @@ function numfmt_get_error_message(NumberFormatter $fmt) { }
  * Normalizes the input provided and returns the normalized string
  * @link https://php.net/manual/en/normalizer.normalize.php
  * @param string $input <p>The input string to normalize</p>
- * @param string $form [optional] <p>One of the normalization forms.</p>
+ * @param int $form [optional] <p>One of the normalization forms.</p>
  * @return string|null The normalized string or <b>NULL</b> if an error occurred.
  */
 #[Pure]
@@ -3808,7 +3808,7 @@ function normalizer_normalize($input, $form = Normalizer::FORM_C) { }
 form.
  * @link https://php.net/manual/en/normalizer.isnormalized.php
  * @param string $input <p>The input string to normalize</p>
- * @param string $form [optional] <p>
+ * @param int $form [optional] <p>
  * One of the normalization forms.
  * </p>
  * @return bool <b>TRUE</b> if normalized, <b>FALSE</b> otherwise or if there an error
@@ -3817,7 +3817,7 @@ form.
 function normalizer_is_normalized($input, $form = Normalizer::FORM_C) { }
 
 /**
- * Get the default Locale
+ * Gets the default locale value from the intl global 'default_locale'
  * @link https://php.net/manual/en/function.locale-get-default.php
  * @return string a string with the current Locale.
  */
@@ -3826,7 +3826,7 @@ function locale_get_default() { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
- * Set the default Locale
+ * Set the default runtime Locale
  * @link https://php.net/manual/en/function.locale-set-default.php
  * @param string $name <p>
  * The new Locale name. A comprehensive list of the supported locales is
@@ -4040,6 +4040,7 @@ function locale_get_all_variants($locale) { }
 function locale_filter_matches($langtag, $locale, $canonicalize = false) { }
 
 /**
+ * Canonicalize the locale string
  * @param string $locale
  *
  * @return null|string
@@ -4083,6 +4084,7 @@ function locale_lookup(array $langtag, $locale, $canonicalize = false, $default 
 function locale_accept_from_http($header) { }
 
 /**
+ * Constructs a new message formatter
  * @param string $locale
  * @param string $pattern
  * @return MessageFormatter|null
@@ -4270,7 +4272,7 @@ function datefmt_get_timetype(IntlDateFormatter $fmt) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
- * Get the calendar used for the IntlDateFormatter
+ * Get the calendar type used for the IntlDateFormatter
  * @link https://php.net/manual/en/intldateformatter.getcalendar.php
  * @param IntlDateFormatter $fmt
  * @return int The calendar being used by the formatter.
@@ -6062,7 +6064,7 @@ function transliterator_create($id, $direction = null) { }
  * @param string $rules <p>
  * The rules.
  * </p>
- * @param string $direction [optional] <p>
+ * @param int $direction [optional] <p>
  * The direction, defaults to
  * >Transliterator::FORWARD.
  * May also be set to

@@ -869,7 +869,7 @@ function touch ($filename, $mtime = null, $atime = null) {}
 function clearstatcache ($clear_realpath_cache = null, $filename = null) {}
 
 /**
- * Returns the total size of a directory
+ * Returns the total size of a filesystem or disk partition
  * @link https://php.net/manual/en/function.disk-total-space.php
  * @param string $directory <p>
  * A directory of the filesystem or disk partition.
@@ -897,7 +897,7 @@ function disk_total_space ($directory) {}
 function disk_free_space ($directory) {}
 
 /**
- * Alias of disk_free_space()
+ * Alias of {@see disk_free_space}
  * @link https://php.net/manual/en/function.diskfreespace.php
  * @see disk_free_space
  * @param string $directory

@@ -333,6 +333,247 @@
       ]
     },
     {
+      "name": "ctype_alpha",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_alnum",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_cntrl",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_digit",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_lower",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_graph",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_print",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_punct",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_space",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_upper",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_xdigit",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "sybase_connect",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "sybase_pconnect",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "sybase_query",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "sybase_unbuffered_query",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "sybase_unbuffered_query",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "sybase_fetch_row",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "sybase_fetch_array",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "sybase_fetch_assoc",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "sybase_auth_get_parameter",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "svn_update",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_init",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_random_seed",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_strval",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_strval",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_add",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_sub",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_mul",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_div_qr",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_div_q",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_div_r",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_div_r",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_div_r",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "gmp_mod",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "gmp_divexact",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "gmp_neg",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "gmp_abs",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "gmp_fact",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "gmp_sqrt",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "gmp_sqrtrem",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+
+    {
       "name": "gmmktime",
       "problems": [
         "parameter mismatch"

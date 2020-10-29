@@ -21,7 +21,7 @@ use JetBrains\PhpStorm\Pure;
 function error_get_last () {}
 
 /**
- * Call a user function given by the first parameter
+ * Call the callback given by the first parameter
  * @link https://php.net/manual/en/function.call-user-func.php
  * @param callback $callback <p>
  * The function to be called. Class methods may also be invoked
@@ -44,7 +44,7 @@ function error_get_last () {}
 function call_user_func ($callback, ...$args) {}
 
 /**
- * Call a user function given with an array of parameters
+ * Call a callback with an array of parameters
  * @link https://php.net/manual/en/function.call-user-func-array.php
  * @param callback $callback <p>
  * The function to be called.

@@ -463,7 +463,7 @@ function htmlspecialchars ($string, $flags = ENT_COMPAT | ENT_HTML401, $encoding
 function htmlentities ($string, $flags = null, $encoding = null, $double_encode = true) {}
 
 /**
- * Convert all HTML entities to their applicable characters
+ * Convert HTML entities  to their corresponding characters
  * @link https://php.net/manual/en/function.html-entity-decode.php
  * @param string $string <p>
  * The input string.
@@ -989,7 +989,7 @@ function image_type_to_mime_type ($image_type) {}
 function image_type_to_extension ($image_type, $include_dot = true) {}
 
 /**
- * Outputs lots of PHP information
+ * Outputs information about PHP's configuration
  * @link https://php.net/manual/en/function.phpinfo.php
  * @param int $flags [optional] <p>
  * The output may be customized by passing one or more of the
@@ -1154,8 +1154,8 @@ function phpversion ($extension = null) {}
 function phpcredits ($flags = null) {}
 
 /**
- * @removed 5.5
  * Gets the logo guid
+ * @removed 5.5
  * @link https://php.net/manual/en/function.php-logo-guid.php
  * @return string PHPE9568F34-D428-11d2-A769-00AA001ACF42.
  */
@@ -1173,8 +1173,8 @@ function php_real_logo_guid () {}
 function php_egg_logo_guid () {}
 
 /**
- * @removed 5.5
  * Gets the Zend guid
+ * @removed 5.5
  * @link https://php.net/manual/en/function.zend-logo-guid.php
  * @return string PHPE9568F35-D428-11d2-A769-00AA001ACF42.
  */
@@ -1293,7 +1293,7 @@ function strnatcasecmp ($string1, $string2) {}
 function substr_count ($haystack, $needle, $offset = null, $length = null) {}
 
 /**
- * Finds the length of the first segment of a string consisting
+ * Finds the length of the initial segment of a string consisting
  * entirely of characters contained within a given mask.
  * @link https://php.net/manual/en/function.strspn.php
  * @param string $string <p>

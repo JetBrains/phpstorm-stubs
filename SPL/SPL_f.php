@@ -83,7 +83,7 @@ function spl_autoload_unregister ($callback) {}
 function spl_autoload_functions () {}
 
 /**
- * Try all registered __autoload() function to load the requested class
+ * Try all registered __autoload() functions to load the requested class
  * @link https://php.net/manual/en/function.spl-autoload-call.php
  * @param string $class <p>
  * The class name being searched.
@@ -193,6 +193,7 @@ function iterator_apply (Traversable $iterator, $callback, array $args = null) {
 function class_uses($object_or_class, bool $autoload = true ) {}
 
 /**
+ * return the integer object handle for given object
  * @param object $object
  * @return int
  * @since 7.2

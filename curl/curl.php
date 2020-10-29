@@ -2540,6 +2540,7 @@ function curl_multi_info_read ($multi_handle, &$queued_messages = null) {}
 function curl_multi_close ($multi_handle) {}
 
 /**
+ * Return the last multi curl error number
  * @param resource $multi_handle
  * @return int
  * @since 7.1
@@ -2548,6 +2549,7 @@ function curl_multi_close ($multi_handle) {}
 function curl_multi_errno($multi_handle) {}
 
 /**
+ * Return the last share curl error number
  * @param resource $share_handle
  * @return int
  * @since 7.1
@@ -2556,6 +2558,7 @@ function curl_multi_errno($multi_handle) {}
 function curl_share_errno($share_handle) {}
 
 /**
+ * Return string describing the given error code
  * @param int $error_code
  * @return string
  * @since 7.1

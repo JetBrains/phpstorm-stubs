@@ -1713,8 +1713,8 @@ function db2_lob_read ($stmt, $colnum, $length) {}
 function db2_get_option ($resource, $option) {}
 
 /**
- * @link https://php.net/manual/en/function.db2-last-insert-id.php
  * Returns the auto generated ID of the last insert query that successfully executed on this connection.
+ * @link https://php.net/manual/en/function.db2-last-insert-id.php
  * The result of this function is not affected by any of the following:
  * <ul><li>A single row INSERT statement with a VALUES clause for a table without an identity column.
  * <li>A multiple row INSERT statement with a VALUES clause.

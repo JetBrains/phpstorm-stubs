@@ -1468,7 +1468,6 @@ class mysqli_stmt  {
 }
 
 /**
- * (PHP 5)<p>
  * Gets the number of affected rows in a previous MySQL operation
  * @link https://secure.php.net/manual/en/mysqli.affected-rows.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
@@ -2138,7 +2137,7 @@ function mysqli_real_query ($mysql, $query) {}
 function mysqli_reap_async_query ($mysql) {}
 
 /**
- * Set a named transaction savepoint
+ * Removes the named savepoint from the set of savepoints of the current transaction
  * @link https://secure.php.net/manual/en/mysqli.release-savepoint.php
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
  * @param string $name
@@ -2194,7 +2193,7 @@ function mysqli_set_charset ($mysql, $charset) {}
 function mysqli_stmt_affected_rows ($statement) {}
 
 /**
- * Get the current value of a statement attribute
+ * Used to get the current value of a statement attribute
  * @link https://php.net/manual/en/mysqli-stmt.attr-get.php
  * @param mysqli_stmt $statement
  * @param int $attribute
@@ -2203,7 +2202,7 @@ function mysqli_stmt_affected_rows ($statement) {}
 function mysqli_stmt_attr_get ($statement, $attribute) {}
 
 /**
- * Modify the behavior of a prepared statement
+ * Used to modify the behavior of a prepared statement
  * @link https://php.net/manual/en/mysqli-stmt.attr-set.php
  * @param mysqli_stmt $statement
  * @param int $attribute

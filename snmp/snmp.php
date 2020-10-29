@@ -516,7 +516,7 @@ function snmp_set_enum_print ($enum_print) {}
 function snmp_set_oid_output_format ($oid_format = SNMP_OID_OUTPUT_MODULE) {}
 
 /**
- * Return all objects including their respective object id within the specified one
+ * Set the oid output format
  * @link https://php.net/manual/en/function.snmp-set-oid-numeric-print.php
  * @param int $oid_format
  * @return void

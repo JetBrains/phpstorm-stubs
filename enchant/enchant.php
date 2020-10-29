@@ -12,13 +12,13 @@ use JetBrains\PhpStorm\Deprecated;
 function enchant_broker_init () {}
 
 /**
- * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
- * Free the broker resource and its dictionnaries
+ * Free the broker resource and its dictionaries
  * @link https://php.net/manual/en/function.enchant-broker-free.php
  * @param resource $broker <p>
  * Broker resource
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ * @since 5.3
  */
 #[Deprecated(reason: "Unset the object instead")]
 function enchant_broker_free ($broker) {}
@@ -35,19 +35,23 @@ function enchant_broker_free ($broker) {}
 function enchant_broker_get_error ($broker) {}
 
 /**
- * @param $broker
- * @param $name
- * @param $value
+ * Set the directory path for a given backend
+ * @link https://www.php.net/manual/en/function.enchant-broker-set-dict-path.php
+ * @param resource $broker
+ * @param int $dict_type
+ * @param string $value
  */
 #[Deprecated(since: '8.0')]
-function enchant_broker_set_dict_path ($broker, $name, $value) {}
+function enchant_broker_set_dict_path ($broker, int $dict_type, string $value) {}
 
 /**
- * @param $broker
- * @param $name
+ * Get the directory path for a given backend
+ * @link https://www.php.net/manual/en/function.enchant-broker-get-dict-path.php
+ * @param resource $broker
+ * @param int $dict_type
  */
 #[Deprecated(since: '8.0')]
-function enchant_broker_get_dict_path ($broker, $name) {}
+function enchant_broker_get_dict_path ($broker, $dict_type) {}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 1.0.1)<br/>

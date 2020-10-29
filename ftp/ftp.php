@@ -3,6 +3,7 @@
 // Start of ftp v.
 
 /**
+ * append the contents of a file to another file on the ftp server
  * @param resource $ftp
  * @param string $remote_filename
  * @param string $local_filename
@@ -13,6 +14,7 @@
 function ftp_append ($ftp, $remote_filename, $local_filename, $mode = FTP_BINARY){}
 
 /**
+ * returns a list of files in the given directory
  * @param resource $ftp
  * @param string $directory
  * @return array
@@ -42,7 +44,7 @@ function ftp_mlsd ($ftp,  $directory) {}
 function ftp_connect ($hostname, $port = 21, $timeout = 90) {}
 
 /**
- * Opens an Secure SSL-FTP connection
+ * Opens a Secure SSL-FTP connection
  * @link https://php.net/manual/en/function.ftp-ssl-connect.php
  * @param string $hostname <p>
  * The FTP server address. This parameter shouldn't have any trailing

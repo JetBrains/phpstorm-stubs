@@ -4902,7 +4902,7 @@ class ImagickDraw  {
 	public function getTextKerning () {}
 
 	/**
-	 * @param $kerning
+	 * @param float $kerning
 	 */
 	public function setTextKerning ($kerning) {}
 
@@ -6628,11 +6628,14 @@ class ImagickPixel  {
 	 */
 	public function setColorValueQuantum ($color_value) {}
 
+    /**
+     * Gets the colormap index of the pixel wand.
+     */
 	#[Pure]
 	public function getIndex () {}
 
 	/**
-	 * @param $index
+	 * @param int $index
 	 */
 	public function setIndex ($index) {}
 
@@ -6771,7 +6774,7 @@ class ImagickPixel  {
 	public function getColorCount () {}
 
 	/**
-	 * @param $colorCount
+	 * @param int $colorCount
 	 */
 	public function setColorCount ($colorCount) {}
 
