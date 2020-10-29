@@ -114,7 +114,7 @@ function stream_set_chunk_size ($stream , $size) {}
  * @return void
  * @removed 5.4
  */
-#[Deprecated(since: "5.3")]
+#[Deprecated(since: '5.3')]
 function define_syslog_variables () {}
 
 /**

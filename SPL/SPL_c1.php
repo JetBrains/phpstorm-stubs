@@ -747,7 +747,7 @@ class SplFileObject extends SplFileInfo implements RecursiveIterator, SeekableIt
          * code stripped, or false on error.
          * @removed 8.0
          */
-        #[Deprecated(since: "7.3")
+        #[Deprecated(since: '7.3')]
         public function fgetss ($allowable_tags = null) {}
 
         /**

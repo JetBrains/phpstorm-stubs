@@ -243,7 +243,7 @@ function is_double ($value) {}
  * false otherwise.
  */
 #[Pure]
-#[Deprecated(since: "7.4")]
+#[Deprecated(since: '7.4')]
 function is_real ($var) {}
 
 /**
@@ -499,7 +499,7 @@ function fgets ($stream, $length = null) {}
  * If an error occurs, returns false.
  * @removed 8.0
  */
-#[Deprecated(since: "7.3")]
+#[Deprecated(since: '7.3')]
 function fgetss ($handle, $length = null, $allowable_tags = null) {}
 
 /**
