@@ -2,6 +2,7 @@
 
 // The Event class
 use JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Event.
@@ -40,6 +41,7 @@ final class Event
      *
      * @see https://php.net/manual/en/event.construct.php
      */
+    #[Pure]
     public function __construct(EventBase $base, $fd, int $what, callable $cb, $arg = null)
     {
     }
@@ -313,6 +315,7 @@ final class EventBase
      *
      * @see https://php.net/manual/en/eventbase.getfeatures.php
      */
+    #[Pure]
     public function getFeatures(): int
     {
     }
@@ -325,6 +328,7 @@ final class EventBase
      *
      * @see https://php.net/manual/en/eventbase.getmethod.php
      */
+    #[Pure]
     public function getMethod(): string
     {
     }
@@ -337,6 +341,7 @@ final class EventBase
      *
      * @see https://php.net/manual/en/eventbase.gettimeofdaycached.php
      */
+    #[Pure]
     public function getTimeOfDayCached(): float
     {
     }
@@ -349,6 +354,7 @@ final class EventBase
      *
      * @see https://php.net/manual/en/eventbase.gotexit.php
      */
+    #[Pure]
     public function gotExit(): bool
     {
     }
@@ -361,6 +367,7 @@ final class EventBase
      *
      * @see https://php.net/manual/en/eventbase.gotstop.php
      */
+    #[Pure]
     public function gotStop(): bool
     {
     }
@@ -456,6 +463,7 @@ class EventBuffer
      *
      * @see https://php.net/manual/en/eventbuffer.construct.php
      */
+    #[Pure]
     public function __construct()
     {
     }
@@ -815,6 +823,7 @@ final class EventBufferEvent
      *
      * @see https://php.net/manual/en/eventbufferevent.construct.php
      */
+    #[Pure]
     public function __construct(EventBase $base, $socket = null, int $options = 0, callable $readcb = null, callable $writecb = null, callable $eventcb = null)
     {
     }
@@ -921,6 +930,7 @@ final class EventBufferEvent
      *
      * @see https://php.net/manual/en/eventbufferevent.getdnserrorstring.php
      */
+    #[Pure]
     public function getDnsErrorString(): string
     {
     }
@@ -933,6 +943,7 @@ final class EventBufferEvent
      *
      * @see https://php.net/manual/en/eventbufferevent.getenabled.php
      */
+    #[Pure]
     public function getEnabled(): int
     {
     }
@@ -945,6 +956,7 @@ final class EventBufferEvent
      *
      * @see https://php.net/manual/en/eventbufferevent.getinput.php
      */
+    #[Pure]
     public function getInput(): EventBuffer
     {
     }
@@ -957,6 +969,7 @@ final class EventBufferEvent
      *
      * @see https://php.net/manual/en/eventbufferevent.getoutput.php
      */
+    #[Pure]
     public function getOutput(): EventBuffer
     {
     }
@@ -1204,6 +1217,7 @@ final class EventConfig
      *
      * @see https://secure.php.net/manual/en/eventconfig.construct.php
      */
+    #[Pure]
     public function __construct()
     {
     }
@@ -1278,6 +1292,7 @@ final class EventDnsBase
      *
      * @see https://secure.php.net/manual/en/eventdnsbase.construct.php
      */
+    #[Pure]
     public function __construct(EventBase $base, bool $initialize)
     {
     }
@@ -1569,6 +1584,7 @@ class EventHttpConnection
      *
      * @see https://secure.php.net/manual/en/eventhttpconnection.construct.php
      */
+    #[Pure]
     public function __construct(EventBase $base, EventDnsBase $dns_base, string $address, int $port, EventSslContext $ctx = null)
     {
     }
@@ -1720,6 +1736,7 @@ class EventHttpRequest
      * @param callable $callback
      * @param mixed $data
      */
+    #[Pure]
     public function __construct(callable $callback, $data = null)
     {
     }
@@ -1748,34 +1765,42 @@ class EventHttpRequest
     {
     }
 
+    #[Pure]
     public function getCommand()
     {
     }
 
+    #[Pure]
     public function getHost()
     {
     }
 
+    #[Pure]
     public function getInputBuffer()
     {
     }
 
+    #[Pure]
     public function getInputHeaders()
     {
     }
 
+    #[Pure]
     public function getOutputBuffer()
     {
     }
 
+    #[Pure]
     public function getOutputHeaders()
     {
     }
 
+    #[Pure]
     public function getResponseCode()
     {
     }
 
+    #[Pure]
     public function getUri()
     {
     }
@@ -1964,6 +1989,7 @@ final class EventSslContext
      *
      * @see https://secure.php.net/manual/en/eventsslcontext.construct.php
      */
+    #[Pure]
     public function __construct(string $method, string $options)
     {
     }
