@@ -243,6 +243,7 @@ class Collator {
      * @link https://php.net/manual/en/collator.construct.php
      * @param string $locale
      */
+    #[Pure]
     public function __construct($locale) { }
 
     /**
@@ -289,6 +290,7 @@ class Collator {
      * <b>FALSE</b>
      * is returned.
      */
+    #[Pure]
     public function compare($str1, $str2) { }
 
     /**
@@ -343,6 +345,7 @@ class Collator {
      * </p>
      * @return int|false Attribute value, or boolean <b>FALSE</b> on error.
      */
+    #[Pure]
     public function getAttribute($attr) { }
 
     /**
@@ -363,6 +366,7 @@ class Collator {
      * @link https://php.net/manual/en/collator.getstrength.php
      * @return int|false current collation strength, or boolean <b>FALSE</b> on error.
      */
+    #[Pure]
     public function getStrength() { }
 
     /**
@@ -393,6 +397,7 @@ class Collator {
      * instantiated from rules or an error occurred, returns
      * boolean <b>FALSE</b>.
      */
+    #[Pure]
     public function getLocale($type = null) { }
 
     /**
@@ -401,6 +406,7 @@ class Collator {
      * @link https://php.net/manual/en/collator.geterrorcode.php
      * @return int Error code returned by the last Collator API function call.
      */
+    #[Pure]
     public function getErrorCode() { }
 
     /**
@@ -409,6 +415,7 @@ class Collator {
      * @link https://php.net/manual/en/collator.geterrormessage.php
      * @return string Description of an error occurred in the last Collator API function call.
      */
+    #[Pure]
     public function getErrorMessage() { }
 
     /**
@@ -420,6 +427,7 @@ class Collator {
      * </p>
      * @return string the collation key for the string. Collation keys can be compared directly instead of strings.
      */
+    #[Pure]
     public function getSortKey($str) { }
 }
 
@@ -878,6 +886,7 @@ class NumberFormatter {
      * @param $style
      * @param $pattern [optional]
      */
+    #[Pure]
     public function __construct($locale, $style, $pattern = null) { }
 
     /**
@@ -920,6 +929,7 @@ class NumberFormatter {
      * </p>
      * @return string|false the string containing formatted value, or <b>FALSE</b> on error.
      */
+    #[Pure]
     public function format($value, $type = null) { }
 
     /**
@@ -952,6 +962,7 @@ class NumberFormatter {
      * </p>
      * @return string String representing the formatted currency value.
      */
+    #[Pure]
     public function formatCurrency($value, $currency) { }
 
     /**
@@ -996,6 +1007,7 @@ class NumberFormatter {
      * </p>
      * @return int|false Return attribute value on success, or <b>FALSE</b> on error.
      */
+    #[Pure]
     public function getAttribute($attr) { }
 
     /**
@@ -1024,6 +1036,7 @@ class NumberFormatter {
      * </p>
      * @return string|false Return attribute value on success, or <b>FALSE</b> on error.
      */
+    #[Pure]
     public function getTextAttribute($attr) { }
 
     /**
@@ -1051,6 +1064,7 @@ class NumberFormatter {
      * </p>
      * @return string|false The symbol string or <b>FALSE</b> on error.
      */
+    #[Pure]
     public function getSymbol($attr) { }
 
     /**
@@ -1072,6 +1086,7 @@ class NumberFormatter {
      * @link https://php.net/manual/en/numberformatter.getpattern.php
      * @return string|false Pattern string that is used by the formatter, or <b>FALSE</b> if an error happens.
      */
+    #[Pure]
     public function getPattern() { }
 
     /**
@@ -1086,6 +1101,7 @@ class NumberFormatter {
      * </p>
      * @return string The locale name used to create the formatter.
      */
+    #[Pure]
     public function getLocale($type = null) { }
 
     /**
@@ -1094,6 +1110,7 @@ class NumberFormatter {
      * @link https://php.net/manual/en/numberformatter.geterrorcode.php
      * @return int error code from last formatter call.
      */
+    #[Pure]
     public function getErrorCode() { }
 
     /**
@@ -1102,6 +1119,7 @@ class NumberFormatter {
      * @link https://php.net/manual/en/numberformatter.geterrormessage.php
      * @return string error message from last formatter call.
      */
+    #[Pure]
     public function getErrorMessage() { }
 }
 
@@ -1505,6 +1523,7 @@ class MessageFormatter {
      * before being interpreted.
      * </p>
      */
+    #[Pure]
     public function __construct($locale, $pattern) { }
 
     /**
@@ -1533,6 +1552,7 @@ class MessageFormatter {
      * </p>
      * @return string|false The formatted string, or <b>FALSE</b> if an error occurred
      */
+    #[Pure]
     public function format(array $args) { }
 
     /**
@@ -1564,6 +1584,7 @@ class MessageFormatter {
      * </p>
      * @return array|false An array containing the items extracted, or <b>FALSE</b> on error
      */
+    #[Pure]
     public function parse($value) { }
 
     /**
@@ -1603,6 +1624,7 @@ class MessageFormatter {
      * @link https://php.net/manual/en/messageformatter.getpattern.php
      * @return string The pattern string for this message formatter
      */
+    #[Pure]
     public function getPattern() { }
 
     /**
@@ -1611,6 +1633,7 @@ class MessageFormatter {
      * @link https://php.net/manual/en/messageformatter.getlocale.php
      * @return string The locale name
      */
+    #[Pure]
     public function getLocale() { }
 
     /**
@@ -1619,6 +1642,7 @@ class MessageFormatter {
      * @link https://php.net/manual/en/messageformatter.geterrorcode.php
      * @return int The error code, one of UErrorCode values. Initial value is U_ZERO_ERROR.
      */
+    #[Pure]
     public function getErrorCode() { }
 
     /**
@@ -1627,6 +1651,7 @@ class MessageFormatter {
      * @link https://php.net/manual/en/messageformatter.geterrormessage.php
      * @return string Description of the last error.
      */
+    #[Pure]
     public function getErrorMessage() { }
 }
 
@@ -1688,6 +1713,7 @@ class IntlDateFormatter {
      * @param mixed|null $calendar [optional]
      * @param string $pattern [optional]
      */
+    #[Pure]
     public function __construct($locale, $datetype, $timetype, $timezone = null, $calendar = null, $pattern = '') { }
 
     /**
@@ -1733,6 +1759,7 @@ class IntlDateFormatter {
      * @link https://php.net/manual/en/intldateformatter.getdatetype.php
      * @return int The current date type value of the formatter.
      */
+    #[Pure]
     public function getDateType() { }
 
     /**
@@ -1741,6 +1768,7 @@ class IntlDateFormatter {
      * @link https://php.net/manual/en/intldateformatter.gettimetype.php
      * @return int The current date type value of the formatter.
      */
+    #[Pure]
     public function getTimeType() { }
 
     /**
@@ -1749,6 +1777,7 @@ class IntlDateFormatter {
      * @link https://php.net/manual/en/intldateformatter.getcalendar.php
      * @return int The calendar being used by the formatter.
      */
+    #[Pure]
     public function getCalendar() { }
 
     /**
@@ -1769,6 +1798,7 @@ class IntlDateFormatter {
      * @link https://php.net/manual/en/intldateformatter.gettimezoneid.php
      * @return string ID string for the time zone used by this formatter.
      */
+    #[Pure]
     public function getTimeZoneId() { }
 
     /**
@@ -1777,6 +1807,7 @@ class IntlDateFormatter {
      * @link https://secure.php.net/manual/en/intldateformatter.getcalendarobject.php
      * @return IntlCalendar A copy of the internal calendar object used by this formatter.
      */
+    #[Pure]
     public function getCalendarObject() { }
 
     /**
@@ -1785,6 +1816,7 @@ class IntlDateFormatter {
      * @link https://secure.php.net/manual/en/intldateformatter.gettimezone.php
      * @return IntlTimeZone|false The associated IntlTimeZone object or FALSE on failure.
      */
+    #[Pure]
     public function getTimeZone() { }
 
     /**
@@ -1861,6 +1893,7 @@ class IntlDateFormatter {
      * @link https://php.net/manual/en/intldateformatter.getpattern.php
      * @return string The pattern string being used to format/parse.
      */
+    #[Pure]
     public function getPattern() { }
 
     /**
@@ -1870,6 +1903,7 @@ class IntlDateFormatter {
      * @param int $which [optional]
      * @return string|false the locale of this formatter or 'false' if error
      */
+    #[Pure]
     public function getLocale($which = null) { }
 
     /**
@@ -1889,6 +1923,7 @@ class IntlDateFormatter {
      * @link https://php.net/manual/en/intldateformatter.islenient.php
      * @return bool <b>TRUE</b> if parser is lenient, <b>FALSE</b> if parser is strict. By default the parser is lenient.
      */
+    #[Pure]
     public function isLenient() { }
 
     /**
@@ -1972,6 +2007,7 @@ class IntlDateFormatter {
      * @link https://php.net/manual/en/intldateformatter.geterrorcode.php
      * @return int The error code, one of UErrorCode values. Initial value is U_ZERO_ERROR.
      */
+    #[Pure]
     public function getErrorCode() { }
 
     /**
@@ -1980,6 +2016,7 @@ class IntlDateFormatter {
      * @link https://php.net/manual/en/intldateformatter.geterrormessage.php
      * @return string Description of the last error.
      */
+    #[Pure]
     public function getErrorMessage() { }
 }
 
@@ -1990,6 +2027,7 @@ class ResourceBundle implements IteratorAggregate {
      * @param $bundlename
      * @param $fallback [optional]
      */
+    #[Pure]
     public function __construct($locale, $bundlename, $fallback) { }
 
     /**
@@ -2020,6 +2058,7 @@ class ResourceBundle implements IteratorAggregate {
      * are returned as corresponding PHP types, integer array is returned as PHP array. Complex types are
      * returned as <b>ResourceBundle</b> object.
      */
+    #[Pure]
     public function get($index) { }
 
     /**
@@ -2028,6 +2067,7 @@ class ResourceBundle implements IteratorAggregate {
      * @link https://php.net/manual/en/resourcebundle.count.php
      * @return int number of elements in the bundle.
      */
+    #[Pure]
     public function count() { }
 
     /**
@@ -2048,6 +2088,7 @@ class ResourceBundle implements IteratorAggregate {
      * @link https://php.net/manual/en/resourcebundle.geterrorcode.php
      * @return int error code from last bundle object call.
      */
+    #[Pure]
     public function getErrorCode() { }
 
     /**
@@ -2056,11 +2097,13 @@ class ResourceBundle implements IteratorAggregate {
      * @link https://php.net/manual/en/resourcebundle.geterrormessage.php
      * @return string error message from last bundle object's call.
      */
+    #[Pure]
     public function getErrorMessage() { }
 
     /**
      * @since 8.0
      */
+    #[Pure]
     public function getIterator(){}
 }
 
@@ -2124,6 +2167,7 @@ class Transliterator {
      * @return Transliterator|null a <b>Transliterator</b> object on success,
      * or <b>NULL</b> on failure
      */
+    #[Pure]
     public function createInverse() { }
 
     /**
@@ -2154,6 +2198,7 @@ class Transliterator {
      * </p>
      * @return string|false The transfomed string on success, or <b>FALSE</b> on failure.
      */
+    #[Pure]
     public function transliterate($subject, $start = null, $end = null) { }
 
     /**
@@ -2163,6 +2208,7 @@ class Transliterator {
      * @return int|false The error code on success,
      * or <b>FALSE</b> if none exists, or on failure.
      */
+    #[Pure]
     public function getErrorCode() { }
 
     /**
@@ -2172,6 +2218,7 @@ class Transliterator {
      * @return string|false The error code on success,
      * or <b>FALSE</b> if none exists, or on failure.
      */
+    #[Pure]
     public function getErrorMessage() { }
 }
 
@@ -2193,6 +2240,7 @@ class Spoofchecker {
      * Constructor
      * @link https://php.net/manual/en/spoofchecker.construct.php
      */
+    #[Pure]
     public function __construct() { }
 
     /**
@@ -2263,12 +2311,14 @@ class IntlGregorianCalendar extends IntlCalendar {
     /**
      * @return float
      */
+    #[Pure]
     public function getGregorianChange() { }
 
     /**
      * @param int $year
      * @return bool
      */
+    #[Pure]
     public function isLeapYear($year) { }
 }
 
@@ -2345,6 +2395,7 @@ class IntlCalendar {
      * Also returns <b>FALSE</b> on failure. You can use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or
      * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to detect error conditions.
      */
+    #[Pure]
     public function after(IntlCalendar $calendar) { }
 
     /**
@@ -2359,6 +2410,7 @@ class IntlCalendar {
      * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to detect error conditions.
      * </p>
      */
+    #[Pure]
     public function before(IntlCalendar $calendar) { }
 
     /**
@@ -2443,6 +2495,7 @@ class IntlCalendar {
      * distinguished by calling  {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()}.
      * </p>
      */
+    #[Pure]
     public function equals($calendar) { }
 
     /**
@@ -2468,6 +2521,7 @@ class IntlCalendar {
      * specified field or <b>FALSE</b> on failure.
      *
      */
+    #[Pure]
     public function fieldDifference($when, $field) { }
 
     /**
@@ -2496,6 +2550,7 @@ class IntlCalendar {
      * </p>
      * @return int An integer with the value of the time field.
      */
+    #[Pure]
     public function get($field) { }
 
     /**
@@ -2511,6 +2566,7 @@ class IntlCalendar {
      * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing the maximum value in the units associated
      * with the given <em>field</em> or <b>FALSE</b> on failure.
      */
+    #[Pure]
     public function getActualMaximum($field) { }
 
     /**
@@ -2526,6 +2582,7 @@ class IntlCalendar {
      * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing the minimum value in the field's
      * unit or <b>FALSE</b> on failure.
      */
+    #[Pure]
     public function getActualMinimum($field) { }
 
     /**
@@ -2552,6 +2609,7 @@ class IntlCalendar {
      * <b>IntlCalendar::DOW_TYPE_WEEKEND_CEASE</b> or <b>FALSE</b> on failure.
      *
      */
+    #[Pure]
     public function getDayOfWeekType($dayOfWeek) { }
 
     /**
@@ -2561,6 +2619,7 @@ class IntlCalendar {
      * @return int An ICU error code indicating either success, failure or a warning.
      *
      */
+    #[Pure]
     public function getErrorCode() { }
 
     /**
@@ -2569,6 +2628,7 @@ class IntlCalendar {
      * @link https://secure.php.net/manual/en/intlcalendar.geterrormessage.php
      * @return string The error message associated with last error that occurred in a function call on this object, or a string indicating the non-existance of an error.
      */
+    #[Pure]
     public function getErrorMessage() { }
 
     /**
@@ -2581,6 +2641,7 @@ class IntlCalendar {
      * <b>IntlCalendar::DOW_SATURDAY</b> or <b>FALSE</b> on failure.
      *
      */
+    #[Pure]
     public function getFirstDayOfWeek() { }
 
     /**
@@ -2595,6 +2656,7 @@ class IntlCalendar {
      * An {@link https://secure.php.net/manual/en/language.types.integer.php int} representing a field value, in the field's
      * unit, or <b>FALSE</b> on failure.
      */
+    #[Pure]
     public function getGreatestMinimum($field) { }
 
     /**
@@ -2629,6 +2691,7 @@ class IntlCalendar {
      * unit or <b>FALSE</b> on failure.
      * </p>
      */
+    #[Pure]
     public function getLeastMaximum($field) { }
 
     /**
@@ -2647,6 +2710,7 @@ class IntlCalendar {
      * A locale string or <b>FALSE</b> on failure.
      *
      */
+    #[Pure]
     public function getLocale($localeType) { }
 
     /**
@@ -2661,6 +2725,7 @@ class IntlCalendar {
      * @return string
      * A locale string or <b>FALSE</b> on failure.
      */
+    #[Pure]
     public function getMaximum($field) { }
 
     /**
@@ -2670,6 +2735,7 @@ class IntlCalendar {
      * @return int
      * An {@link https://secure.php.net/manual/en/language.types.integer.php  int} representing a number of days or <b>FALSE</b> on failure.
      */
+    #[Pure]
     public function getMinimalDaysInFirstWeek() { }
 
     /**
@@ -2684,6 +2750,7 @@ class IntlCalendar {
      * @return int
      * An int representing a value for the given field in the field's unit or FALSE on failure.
      */
+    #[Pure]
     public function getMinimum($field) { }
 
     /**
@@ -2702,6 +2769,7 @@ class IntlCalendar {
      * <b>IntlCalendar::WALLTIME_LAST</b>.
      *
      */
+    #[Pure]
     public function getRepeatedWallTimeOption() { }
 
     /**
@@ -2713,6 +2781,7 @@ class IntlCalendar {
      * <b>IntlCalendar::WALLTIME_LAST</b> or
      * <b>IntlCalendar::WALLTIME_NEXT_VALID</b>.
      */
+    #[Pure]
     public function getSkippedWallTimeOption() { }
 
     /**
@@ -2722,6 +2791,7 @@ class IntlCalendar {
      * A {@link https://secure.php.net/manual/en/language.types.float.php float} representing the number of milliseconds elapsed since the
      * reference time (1 Jan 1970 00:00:00 UTC).
      */
+    #[Pure]
     public function getTime() { }
 
     /**
@@ -2732,6 +2802,7 @@ class IntlCalendar {
      * An {@link https://secure.php.net/manual/en/class.intltimezone.php IntlTimeZone} object corresponding to the one used
      * internally in this object.
      */
+    #[Pure]
     public function getTimeZone() { }
 
     /**
@@ -2742,6 +2813,7 @@ class IntlCalendar {
      * A {@link https://secure.php.net/manual/en/language.types.string.php string} representing the calendar type, such as
      * <em>'gregorian'</em>, <em>'islamic'</em>, etc.
      */
+    #[Pure]
     public function getType() { }
 
     /**
@@ -2757,6 +2829,7 @@ class IntlCalendar {
      * The number of milliseconds into the day at which the the weekend begins or
      * ends or <b>FALSE</b> on failure.
      */
+    #[Pure]
     public function getWeekendTransition($dayOfWeek) { }
 
     /**
@@ -2769,6 +2842,7 @@ class IntlCalendar {
      * specifying invalid field values on non-lenient mode; use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or query
      * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.
      */
+    #[Pure]
     public function inDaylightTime() { }
 
     /**
@@ -2779,6 +2853,7 @@ class IntlCalendar {
      * @return bool
      * Assuming there are no argument errors, returns <b>TRUE</b> iif the calendars are equivalent except possibly for their set time.
      */
+    #[Pure]
     public function isEquivalentTo(IntlCalendar $calendar) { }
 
     /**
@@ -2788,6 +2863,7 @@ class IntlCalendar {
      * @return bool
      * A {@link https://secure.php.net/manual/en/language.types.boolean.php bool} representing whether the calendar is set to lenient mode.
      */
+    #[Pure]
     public function isLenient() { }
 
     /**
@@ -2808,6 +2884,7 @@ class IntlCalendar {
      * a date out of bounds on non-lenient mode; use {@link https://secure.php.net/manual/en/intl.configuration.php#ini.intl.use-exceptions exceptions} or query
      * {@link https://secure.php.net/manual/en/function.intl-get-error-code.php intl_get_error_code()} to disambiguate.</p>
      */
+    #[Pure]
     public function isWeekend($date = null) { }
 
     /**
@@ -3006,6 +3083,7 @@ class IntlCalendar {
      * except for the smaller precision (second precision instead of millisecond).
      * Returns <b>FALSE</b> on failure.
      */
+    #[Pure]
     public function toDateTime() { }
 }
 
@@ -3115,6 +3193,7 @@ class IntlTimeZone {
      * @param string $locale [optional]
      * @return string|false the timezone name or <b>FALSE</b> on failure
      */
+    #[Pure]
     public function getDisplayName($isDaylight, $style, $locale) { }
 
     /**
@@ -3123,6 +3202,7 @@ class IntlTimeZone {
      * @link https://secure.php.net/manual/en/intltimezone.getequivalentid.php
      * @return int
      */
+    #[Pure]
     public function  getDSTSavings() { }
 
     /**
@@ -3141,6 +3221,7 @@ class IntlTimeZone {
      * @link https://secure.php.net/manual/en/intltimezone.geterrorcode.php
      * @return int
      */
+    #[Pure]
     public function getErrorCode() { }
 
     /**
@@ -3149,6 +3230,7 @@ class IntlTimeZone {
      * @link https://secure.php.net/manual/en/intltimezone.geterrormessage.php
      * @return string
      */
+    #[Pure]
     public function getErrorMessage() { }
 
     /**
@@ -3164,6 +3246,7 @@ class IntlTimeZone {
      * Get timezone ID
      * @return string
      */
+    #[Pure]
     public function getID() { }
 
     /**
@@ -3194,6 +3277,7 @@ class IntlTimeZone {
      * @link https://secure.php.net/manual/en/intltimezone.getrawoffset.php
      * @return int
      */
+    #[Pure]
     public function  getRawOffset() { }
 
     /**
@@ -3239,6 +3323,7 @@ class IntlTimeZone {
      * @param IntlTimeZone $otherTimeZone
      * @return bool
      */
+    #[Pure]
     public function hasSameRules(IntlTimeZone $otherTimeZone) { }
 
     /**
@@ -3247,6 +3332,7 @@ class IntlTimeZone {
      * @link https://secure.php.net/manual/en/intltimezone.todatetimezone.php
      * @return DateTimeZone|false the DateTimeZone object or <b>FALSE</b> on failure
      */
+    #[Pure]
     public function toDateTimeZone() { }
 
     /**
@@ -6551,6 +6637,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @link https://secure.php.net/manual/en/intlbreakiterator.current.php
      * @return int
      */
+    #[Pure]
     public function current() { }
 
     /**
@@ -6574,6 +6661,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @link https://secure.php.net/manual/en/intlbreakiterator.geterrorcode.php
      * @return int
      */
+    #[Pure]
     public function getErrorCode() { }
 
     /**
@@ -6582,6 +6670,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @link https://secure.php.net/manual/en/intlbreakiterator.geterrormessage.php
      * @return string
      */
+    #[Pure]
     public function getErrorMessage() { }
 
 
@@ -6591,6 +6680,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @link https://secure.php.net/manual/en/intlbreakiterator.getlocale.php
      * @param string $locale_type
      */
+    #[Pure]
     public function getLocale($locale_type) { }
 
     /**
@@ -6599,6 +6689,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @link https://secure.php.net/manual/en/intlbreakiterator.getpartsiterator.php
      * @param string $key_type [optional]
      */
+    #[Pure]
     public function getPartsIterator($key_type = IntlPartsIterator::KEY_SEQUENTIAL) { }
 
     /**
@@ -6606,6 +6697,7 @@ class IntlBreakIterator implements IteratorAggregate
      * Get the text being scanned
      * @link https://secure.php.net/manual/en/intlbreakiterator.gettext.php
      */
+    #[Pure]
     public function getText() { }
 
     /**
@@ -6614,6 +6706,7 @@ class IntlBreakIterator implements IteratorAggregate
      * @link https://secure.php.net/manual/en/intlbreakiterator.isboundary.php
      * @param string $offset
      */
+    #[Pure]
     public function isBoundary($offset) { }
 
     /**
@@ -6655,6 +6748,7 @@ class IntlBreakIterator implements IteratorAggregate
      */
     public function setText($text) { }
 
+    #[Pure]
     public function getIterator(){}
 }
 
@@ -6667,6 +6761,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      * @param string $rules
      * @param string $areCompiled [optional]
      */
+    #[Pure]
     public function __construct($rules, $areCompiled) { }
 
     /**
@@ -6728,6 +6823,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      * Get the binary form of compiled rules
      * @return string
      */
+    #[Pure]
     public function getBinaryRules() { }
 
     /**
@@ -6736,6 +6832,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      * Get the rule set used to create this object
      * @return string
      */
+    #[Pure]
     public function getRules() { }
 
     /**
@@ -6744,6 +6841,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      * Get the largest status value from the break rules that determined the current break position
      * @return int
      */
+    #[Pure]
     public function getRuleStatus() { }
 
     /**
@@ -6752,6 +6850,7 @@ class IntlRuleBasedBreakIterator extends IntlBreakIterator implements Traversabl
      * Get the status values from the break rules that determined the current break position
      * @return array
      */
+    #[Pure]
     public function getRuleStatusVec() { }
 }
 
@@ -6768,6 +6867,7 @@ class IntlPartsIterator extends IntlIterator implements Iterator {
     /**
      * @return IntlBreakIterator
      */
+    #[Pure]
     public function getBreakIterator() { }
 }
 
@@ -6780,6 +6880,7 @@ class IntlCodePointBreakIterator extends IntlBreakIterator implements Traversabl
      * @link https://secure.php.net/manual/en/intlcodepointbreakiterator.getlastcodepoint.php
      * @return int
      */
+    #[Pure]
     public function getLastCodePoint() { }
 }
 
@@ -6836,6 +6937,7 @@ class UConverter {
      * @param string $destination_encoding
      * @param string $source_encoding
      */
+    #[Pure]
     public function __construct($destination_encoding = null, $source_encoding = null) { }
 
     /**
@@ -6846,6 +6948,7 @@ class UConverter {
      * @param bool $reverse
      * @return string
      */
+    #[Pure]
     public function convert($str, $reverse) { }
 
     /**
@@ -6883,6 +6986,7 @@ class UConverter {
      * @link https://php.net/manual/en/uconverter.getdestinationencoding.php
      * @return string
      */
+    #[Pure]
     public function getDestinationEncoding() { }
 
     /**
@@ -6891,6 +6995,7 @@ class UConverter {
      * @link https://php.net/manual/en/uconverter.getdestinationtype.php
      * @return int
      */
+    #[Pure]
     public function getDestinationType() { }
 
     /**
@@ -6899,6 +7004,7 @@ class UConverter {
      * @link https://php.net/manual/en/uconverter.geterrorcode.php
      * @return int
      */
+    #[Pure]
     public function getErrorCode() { }
 
     /**
@@ -6907,6 +7013,7 @@ class UConverter {
      * @link https://php.net/manual/en/uconverter.geterrormessage.php
      * @return string
      */
+    #[Pure]
     public function getErrorMessage() { }
 
     /**
@@ -6915,6 +7022,7 @@ class UConverter {
      * @link https://php.net/manual/en/uconverter.getsourceencoding.php
      * @return string
      */
+    #[Pure]
     public function getSourceEncoding() { }
 
     /**
@@ -6923,6 +7031,7 @@ class UConverter {
      * @link https://php.net/manual/en/uconverter.getsourcetype.php
      * @return int
      */
+    #[Pure]
     public function getSourceType() { }
 
     /**
@@ -6931,6 +7040,7 @@ class UConverter {
      * @link https://php.net/manual/en/uconverter.getstandards.php
      * @return array
      */
+    #[Pure]
     public static function getStandards() { }
 
     /**
@@ -6939,6 +7049,7 @@ class UConverter {
      * @link https://php.net/manual/en/uconverter.getsubstchars.php
      * @return string
      */
+    #[Pure]
     public function getSubstChars() { }
 
     /**
@@ -6948,6 +7059,7 @@ class UConverter {
      * @param int $reason
      * @return string
      */
+    #[Pure]
     public static function reasonText($reason) { }
 
     /**
