@@ -720,7 +720,7 @@ function gmp_rootrem (GMP $a, $nth) {}
 /**
  * Find next prime number
  * @link https://php.net/manual/en/function.gmp-nextprime.php
- * @param resource|string|GMP $a It can be either a GMP number resource, or a
+ * @param int|resource|string|GMP $a It can be either a GMP number resource, or a
  * numeric string given that it is possible to convert the latter to a number.</p>
  * @return resource Return the next prime number greater than <i>a</i>,
  * as a GMP number.

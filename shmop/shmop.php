@@ -10,7 +10,7 @@ use JetBrains\PhpStorm\Deprecated;
  * System's id for the shared memory block.
  * Can be passed as a decimal or hex.
  * </p>
- * @param string $mode <p>
+ * @param int $mode <p>
  * The flags that you can use:
  * "a" for access (sets SHM_RDONLY for shmat)
  * use this flag when you need to open an existing shared memory

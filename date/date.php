@@ -986,7 +986,7 @@ function date_get_last_errors () {}
  * {@see DateTime::format}
  * @link https://php.net/manual/en/function.date-format.php
  * @param DateTimeInterface $object
- * @param $format
+ * @param string $format
  * @return string|false formatted date string on success or <b>FALSE</b> on failure.
  */
 #[Pure]
@@ -1011,13 +1011,13 @@ function date_modify ($object, $modifier) {}
  * @param DateTime $object <p>Procedural style only: A
  * {@see DateTime} object returned by
  * {@see date_create()}. The function modifies this object.</p>
- * @param $interval <p>A
+ * @param DateInterval $interval <p>A
  * {@see DateInterval} object</p>
  * @return DateTime|false <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
 #[Pure]
-function date_add (DateTime $object, $interval) {}
+function date_add (DateTime $object, DateInterval $interval) {}
 
 /**
  * Subtracts an amount of days, months, years, hours, minutes and seconds from a datetime object
@@ -1097,15 +1097,15 @@ function date_diff ($baseObject, $targetObject, $absolute = false) {}
  * &Alias; <methodname>DateTime::setTime</methodname>
  * @link https://php.net/manual/en/function.date-time-set.php
  * @param DateTime $object
- * @param $hour
- * @param $minute
- * @param $second [optional]
- * @param $microsecond [optional]
- * @return DateTime|false <p>Returns the
+ * @param int $hour
+ * @param int $minute
+ * @param int $second [optional]
+ * @param int $microsecond [optional]
+ * @return void <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
 #[Pure]
-function date_time_set (DateTime $object, $hour, $minute, $second = 0, $microsecond = 0) {}
+function date_time_set (DateTime $object, int $hour, int $minute, $second = 0, $microsecond = 0) {}
 
 /**
  * &Alias; <methodname>DateTime::setDate</methodname>
@@ -1113,9 +1113,9 @@ function date_time_set (DateTime $object, $hour, $minute, $second = 0, $microsec
  * @param DateTime $object <p>Procedural style only: A {@see DateTime} object
  * returned by {@see date_create()}.
  * The function modifies this object.</p>
- * @param $year <p>Year of the date.</p>
- * @param $month <p>Month of the date.</p>
- * @param $day <p>Day of the date.</p>
+ * @param int $year <p>Year of the date.</p>
+ * @param int $month <p>Month of the date.</p>
+ * @param int $day <p>Day of the date.</p>
  * @return DateTime|false
  * <p>
  * Returns the
@@ -1215,11 +1215,11 @@ function timezone_name_from_abbr ($abbr, $utcOffset = null, $isDST = null) {}
  * {@see DateTimeZone} object
  * returned by
  * {@see timezone_open()}</p>
- * @param $datetime <p>DateTime that contains the date/time to compute the offset from.</p>
+ * @param DateTimeInterface $datetime <p>DateTime that contains the date/time to compute the offset from.</p>
  * @return int|false <p>Returns time zone offset in seconds on success or <b>FALSE</b> on failure.</p>
  */
 #[Pure]
-function timezone_offset_get (DateTimeZone $object, $datetime) {}
+function timezone_offset_get (DateTimeZone $object, DateTimeInterface $datetime) {}
 
 /**
  * Returns all transitions for the timezone

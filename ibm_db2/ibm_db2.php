@@ -102,11 +102,15 @@ function db2_pconnect ($database, $username, $password, array $options = null) {
  * A valid database connection resource variable as returned from
  * db2_connect or db2_pconnect.
  * </p>
- * @param int $value <p>
+ * @param bool $value <p>
  * One of the following constants:
  * DB2_AUTOCOMMIT_OFF
  * <p>
  * Turns AUTOCOMMIT off.
+ * </p>
+ * DB2_AUTOCOMMIT_ON
+ * <p>
+ * Turns AUTOCOMMIT on.
  * </p>
  * @return mixed When db2_autocommit receives only the
  * connection parameter, it returns the current state

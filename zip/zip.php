@@ -892,7 +892,7 @@ class ZipArchive implements Countable {
      * Set the encryption method of an entry defined by its name
      * @link https://php.net/manual/en/ziparchive.setencryptionname.php
      * @param string $name Name of the entry.
-     * @param string $method The encryption method defined by one of the ZipArchive::EM_ constants.
+     * @param int $method The encryption method defined by one of the ZipArchive::EM_ constants.
      * @param string $password [optional] Optional password, default used when missing.
      * @return bool Returns TRUE on success or FALSE on failure.
      * @since 7.2

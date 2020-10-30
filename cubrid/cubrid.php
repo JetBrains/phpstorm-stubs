@@ -221,7 +221,7 @@ function cubrid_execute ($conn_identifier, $sql, $option = null) {}
  * @param resource $request_identifier <p>
  * cubrid_prepare() identifier.
  * </p>
- * @param resource $option [optional] <p>
+ * @param int $option [optional] <p>
  * Query execution option CUBRID_INCLUDE_OID, CUBRID_ASYNC,
  * CUBRID_EXEC_QUERY_ALL.
  * </p>

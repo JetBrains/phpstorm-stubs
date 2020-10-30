@@ -184,8 +184,8 @@ function hash_update_file ($context, $filename, $stream_context = null) {}
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
  * Finalize an incremental hash and return resulting digest
  * @link https://php.net/manual/en/function.hash-final.php
- * @param resource $context <p>
- * Hashing context returned by <b>hash_init</b>.
+ * @param HashContext|resource $context <p>
+ * Hashing context returned by {@see hash_init}.
  * </p>
  * @param bool $binary [optional] <p>
  * When set to <b>TRUE</b>, outputs raw binary data.
@@ -200,8 +200,8 @@ function hash_final ($context, $binary = false) {}
 /**
  * Copy hashing context
  * @link https://php.net/manual/en/function.hash-copy.php
- * @param resource $context <p>
- * Hashing context returned by <b>hash_init</b>.
+ * @param HashContext|resource $context <p>
+ * Hashing context returned by {@see hash_init}.
  * </p>
  * @return HashContext|resource a copy of Hashing Context resource.
  */

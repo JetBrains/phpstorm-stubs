@@ -65,7 +65,7 @@ abstract class SolrUtils {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Prepares a phrase from an unescaped lucene string
 	 * @link https://php.net/manual/en/solrutils.queryphrase.php
-	 * @param $str <p>
+	 * @param string $str <p>
 	 * The lucene phrase.
 	 * </p>
 	 * @return string <p>

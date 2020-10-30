@@ -37,6 +37,7 @@ abstract class BasePHPElement
 
     public function hasMutedProblem(int $stubProblemType): bool
     {
+        var_dump($this->mutedProblems);
         return in_array($stubProblemType, $this->mutedProblems, true);
     }
 }

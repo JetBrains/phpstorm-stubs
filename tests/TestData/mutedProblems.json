@@ -572,7 +572,234 @@
         "wrong parmeter type in docs"
       ]
     },
-
+    {
+      "name": "min",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "specific overloading case"
+      ]
+    },
+    {
+      "name": "max",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "specific overloading case"
+      ]
+    },
+    {
+      "name": "uopz_add_function",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "uopz_del_function",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "numfmt_format",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "datefmt_format_object",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "Lua.call",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "$use_self appears to be bool"
+      ]
+    },
+    {
+      "name": "Lua.assign",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "$value appears to be mixed"
+      ]
+    },
+    {
+      "name": "parallel\\Sync.__construct",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "$value is scalar"
+      ]
+    },
+    {
+      "name": "parallel\\Sync.set",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "$value is scalar"
+      ]
+    },
+    {
+      "name": "NumberFormatter.format",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "$value is number"
+      ]
+    },
+    {
+      "name": "EvCheck.createStopped",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "EvCheck.__construct",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "EvPrepare.__construct",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "EvIdle.__construct",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "EvFork.__construct",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "EvLoop.__construct",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "Yaf_Registry.set",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "$value is mixed"
+      ]
+    },
+    {
+      "name": "Yaf_Router.addRoute",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "no Yaf_Route_Abstract found"
+      ]
+    },
+    {
+      "name": "Yaf_Request_Abstract.getServer",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "$default is mixed"
+      ]
+    },
+    {
+      "name": "Yaf_Request_Abstract.getEnv",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "$default is mixed"
+      ]
+    },
+    {
+      "name": "Yaf_Request_Abstract.getParam",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "$default is mixed"
+      ]
+    },
+    {
+      "name": "Yaf_Request_Abstract.getQuery",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "$default is mixed"
+      ]
+    },
+    {
+      "name": "Yaf_Request_Abstract.getPost",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "$default is mixed"
+      ]
+    },
+    {
+      "name": "Yaf_Request_Abstract.getCookie",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "$default is mixed"
+      ]
+    },
+    {
+      "name": "Yaf_Registry.offsetGet",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "$name is mixed cause it's derived from ArrayAccess"
+      ]
+    },
+    {
+      "name": "oci_lob_is_equal",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "Oci_lob vs Oci-lob"
+      ]
+    },
+    {
+      "name": "oci_lob_copy",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "Oci_lob vs Oci-lob"
+      ]
+    },
+    {
+      "name": "xmlrpc_server_register_method",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
     {
       "name": "gmmktime",
       "problems": [

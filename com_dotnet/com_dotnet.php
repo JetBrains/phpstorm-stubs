@@ -249,7 +249,7 @@ function variant_fix ( $variant ) {}
  * (PHP 5, PHP 7)<br/>
  * Returns the type of a variant object
  * @link https://php.net/manual/en/function.variant-get-type.php
- * @param mixed $variant
+ * @param VARIANT $variant
  * @return int
  */
 function variant_get_type ( $variant ) {}
@@ -355,7 +355,7 @@ function variant_round ( $variant, $decimals ) {}
  * (PHP 5, PHP 7)<br/>
  * Convert a variant into another type "in-place"
  * @link https://php.net/manual/en/function.variant-set-type.php
- * @param mixed $variant
+ * @param VARIANT $variant
  * @param int $type
  * @return void
  */
@@ -365,7 +365,7 @@ function variant_set_type ( $variant, $type ) {}
  * (PHP 5, PHP 7)<br/>
  * Assigns a new value for a variant object
  * @link https://php.net/manual/en/function.variant-set.php
- * @param mixed $variant
+ * @param VARIANT $variant
  * @param mixed $value
  * @return void
  */

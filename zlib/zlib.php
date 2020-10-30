@@ -368,7 +368,7 @@ function gzdecode ($data, $max_length = null) {}
  * </p>
  * @param int $encoding <p>
  * </p>
- * @param string $level [optional] default -1 <p>
+ * @param int $level [optional] default -1 <p>
  * </p>
  * @return string
  * @since 5.4

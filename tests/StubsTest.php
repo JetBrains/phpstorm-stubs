@@ -568,15 +568,7 @@ class StubsTest extends TestCase
             //echo "PHP doc is not found for " . $function_name;
         }
 
-        $summaryFromOfficialDocs = $functionsData === false ? "" : $functionsData["purpose"];
-        $stubs = $this->normalizeSummary($docBlockSummary);
-        if ($summaryFromOfficialDocs !== '') {
-            $official = $this->normalizeSummary($summaryFromOfficialDocs);
-            if ($official !== "description") {
-
-                self::assertEquals($official, $stubs, "function $function_name");
-            }
-        }
+        //$this->checkSummary($functionsData, $docBlockSummary, $function_name);
     }
 
     private function normalizeSummary(string $summary)
@@ -610,12 +602,23 @@ class StubsTest extends TestCase
             static::markTestSkipped('function is excluded');
         }
         $docBlock = DocFactoryProvider::getDocFactory()->create($doc->getText());
-        foreach ($docBlock->getTagsByName("param") as $parameter) {
-            $paramsData = self::$SQLite3->query("select * from params where function_name = '$function_name' and name = '{$parameter->getVariableName()}' ")->fetchArray();
-            if ($paramsData === false) {
-                //echo "parameter data for " . $function_name . " is not found in official docs";
-            } else {
-                self::assertEquals($this->normalizeType($paramsData["type"]), $this->normalizeType($this->filterNull($parameter) . ""), "parameter: $" . $parameter->getVariableName(), "function name: $function_name");
+        $tags = $docBlock->getTagsByName("param");
+        foreach ($tags as $parameter) {
+            $paramsDataFromDocs = self::$SQLite3->query("select * from params where function_name = '$function_name' and name = '{$parameter->getVariableName()}' ")->fetchArray();
+            if ($paramsDataFromDocs !== false) {
+                $normalizedDocType = $this->normalizeType($paramsDataFromDocs["type"]);
+                if ($normalizedDocType === "mixed") {
+                    self::markTestSkipped("Skipped for function '$function_name' parameter name '\${$parameter->getVariableName()}'");
+                } else {
+                    $noramlizedTypeFromStubs = $this->normalizeType($this->filterNull($parameter) . "");
+                    foreach (explode("|", $normalizedDocType) as $docType) {
+                        if ($docType === 'array') {
+                            self::assertTrue(str_contains($noramlizedTypeFromStubs, "[]") || str_contains($noramlizedTypeFromStubs, "array"), "no $docType found in $noramlizedTypeFromStubs parameterName:{$parameter->getVariableName()}");
+                        } else {
+                            self::assertContains($docType, explode("|", $noramlizedTypeFromStubs), "parameter: $" . $parameter->getVariableName() . "\nfunction name: $function_name doctype:$docType stubstype: $noramlizedTypeFromStubs");
+                        }
+                    }
+                }
             }
         }
     }
@@ -641,11 +644,14 @@ class StubsTest extends TestCase
      */
     private function normalizeType(string $parameterType): string
     {
-        return preg_replace("/\\\\(" . self::ID_PATTERN . ")/", "$1", $parameterType . "");
+        $strtolower = strtolower(trim($parameterType));
+        $types = explode("|", $strtolower);
+        $types = $this->trunkNamespaces($types);
+        return implode("|", $types);;
     }
 
     /**
-     * @param bool $functionsData
+     * @param array $functionsData
      * @param string $function_name
      * @param PHPFunction $function
      */
@@ -658,5 +664,44 @@ class StubsTest extends TestCase
             // echo "return type for " . $function_name . " is not found in official docs";
             self::assertEquals($functionsData["return_type"], $function->returnTag . "", "return type mismatch '$function_name'");
         }
+    }
+
+    /**
+     * @param mixed $functionsData
+     * @param string $docBlockSummary
+     * @param string|null $function_name
+     */
+    private function checkSummary(mixed $functionsData, string $docBlockSummary, ?string $function_name): void
+    {
+        $summaryFromOfficialDocs = $functionsData === false ? "" : $functionsData["purpose"];
+        $stubs = $this->normalizeSummary($docBlockSummary);
+        if ($summaryFromOfficialDocs !== '') {
+            $officialSummary = $this->normalizeSummary($summaryFromOfficialDocs);
+            if ($officialSummary !== "description") {
+
+                self::assertEquals($officialSummary, $stubs, "function $function_name");
+            }
+        }
+    }
+
+    /**
+     * @param mixed $type
+     */
+    private function trunkNameSpace(mixed $type): string
+    {
+        $explode = explode("\\", $type);
+        return $explode[sizeof($explode) - 1];
+    }
+
+    /**
+     * @param array|bool $types
+     */
+    private function trunkNamespaces(array|bool $types): array
+    {
+        $newTypes = [];
+        foreach ($types as $type) {
+            $newTypes[] = $this->trunkNameSpace($type);
+        }
+        return $newTypes;
     }
 }

@@ -3306,7 +3306,9 @@ class Imagick implements Iterator, Countable {
 	public function gaussianBlurImage ($radius, $sigma, $channel = Imagick::CHANNEL_ALL) {}
 
 	/**
-	 * @param $key
+     * @link https://www.php.net/manual/en/imagick.getimageattribute.php
+	 * @param string $key <p>The key of the attribute to get.</p>
+     * @return string
 	 */
 	#[Pure]
 	public function getImageAttribute ($key) {}
@@ -4579,7 +4581,7 @@ class Imagick implements Iterator, Countable {
 	/**
 	 * Change the brightness and/or contrast of an image. It converts the brightness and contrast parameters into slope and intercept and calls a polynomical function to apply to the image.
 	 * @link https://php.net/manual/en/imagick.brightnesscontrastimage.php
-	 * @param string $brightness
+	 * @param float $brightness
 	 * @param string $contrast
 	 * @param int $CHANNEL [optional]
 	 * @return void

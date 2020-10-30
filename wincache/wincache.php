@@ -218,7 +218,7 @@ function wincache_scache_meminfo() {}
  * <p>The added variable remains in the user cache unless its time to live expires
  * or it is deleted by using wincache_ucache_delete() or wincache_ucache_clear() functions.</p>
  * @link https://secure.php.net/manual/en/function.wincache-ucache-add.php
- * @param mixed $key <p>Store the variable using this key name. If a variable with
+ * @param string $key <p>Store the variable using this key name. If a variable with
  * same key is already present the function will fail and return FALSE. key is case
  * sensitive. To override the value even if key is present use wincache_ucache_set()
  * function instad. key can also take array of name =&gt; value pairs where names will

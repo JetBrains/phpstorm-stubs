@@ -79,7 +79,7 @@ function header_register_callback ( callable $callback ) {}
 
 /**
  * Get the size of an image from a string.
- * @since 5.4.0
+ * @since 5.4
  * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
  * @param string $string The image data, as a string.
  * @param array &$image_info This optional parameter allows you to extract<br>
@@ -99,7 +99,7 @@ function getimagesizefromstring ($string , array &$image_info = null) {}
 
 /**
  * Set the stream chunk size.
- * @since 5.4.0
+ * @since 5.4
  * @link https://secure.php.net/manual/en/function.stream-set-chunk-size.php
  * @param resource $stream The target stream.
  * @param int $size The desired new chunk size.

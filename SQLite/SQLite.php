@@ -341,14 +341,14 @@ final class SQLiteResult implements Iterator, Countable {
 	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
 	 * Fetches the current row from a result set as an array
 	 * @link https://php.net/manual/en/function.sqlite-current.php
-	 * @param $result_type [optional] <p>The optional <i>result_type</i>
+	 * @param int $result_type [optional] <p>The optional <i>result_type</i>
 	 * parameter accepts a constant and determines how the returned array will be
-	 * indexed. Using <b>SQLITE_ASSOC</b> will return only associative
-	 * indices (named fields) while <b>SQLITE_NUM</b> will return
+	 * indexed. Using {@see SQLITE_ASSOC} will return only associative
+	 * indices (named fields) while {@see SQLITE_NUM} will return
 	 * only numerical indices (ordinal field numbers). <b>SQLITE_BOTH</b>
 	 * will return both associative and numerical indices.
-	 * <b>SQLITE_BOTH</b> is the default for this function.</p>
-	 * @param $decode_binary [optional] <p>When the <i>decode_binary</i>
+	 * {@see SQLITE_BOTH} is the default for this function.</p>
+	 * @param bool $decode_binary [optional] <p>When the <i>decode_binary</i>
 	 * parameter is set to <b>TRUE</b> (the default), PHP will decode the binary encoding
 	 * it applied to the data if it was encoded using the
 	 * {@see sqlite_escape_string()}.  You should normally leave this

@@ -80,7 +80,7 @@ function openssl_pkey_export_to_file($key, $output_filename, $passphrase = null,
  * </li>
  * <li>A PEM formatted private key.</li>
  * </ol></p>
- * @param $passphrase [optional] <p>
+ * @param string $passphrase [optional] <p>
  * The optional parameter <b><em>passphrase</em></b> must be used
  * if the specified key is encrypted (protected by a passphrase).
  * </p>
