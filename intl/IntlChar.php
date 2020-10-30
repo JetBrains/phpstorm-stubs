@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * <p>IntlChar provides access to a number of utility methods that can be used to access information about Unicode characters.</p>
  * <p>The methods and constants adhere closely to the names and behavior used by the underlying ICU library.</p>
@@ -679,6 +681,7 @@ class IntlChar {
      * Or NULL if <em>codepoint</em> is out of bounds.
      * @since 7.0
      */
+    #[Pure]
     static public function hasBinaryProperty($codepoint, $property){}
 
     /**
