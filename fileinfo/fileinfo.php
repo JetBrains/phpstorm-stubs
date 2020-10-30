@@ -2,6 +2,8 @@
 
 // Start of fileinfo v.1.0.5
 
+use JetBrains\PhpStorm\Pure;
+
 class finfo  {
 
 	/**
@@ -39,6 +41,7 @@ class finfo  {
 	 * @return string a textual description of the contents of the
 	 * <i>filename</i> argument, or <b>FALSE</b> if an error occurred.
 	 */
+	#[Pure]
 	public function file ($file_name = null, $options = FILEINFO_NONE, $context = null) {}
 
 	/**
@@ -56,6 +59,7 @@ class finfo  {
 	 * @return string a textual description of the <i>string</i>
 	 * argument, or <b>FALSE</b> if an error occurred.
 	 */
+	#[Pure]
 	public function buffer ($string = null, $options = FILEINFO_NONE, $context = null) {}
 
 }
