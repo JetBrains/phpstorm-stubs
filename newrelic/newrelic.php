@@ -449,3 +449,4 @@ function newrelic_start_transaction($appName, $license = null) {}
  * @return mixed|false The return value of $callback is returned. If an error occurs, false is returned, and
  * an error at the E_WARNING level will be triggered
  */
+function newrelic_record_datastore_segment(callable $func, array $parameters) {}
