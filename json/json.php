@@ -32,8 +32,10 @@ class JsonIncrementalParser  {
 	 * @param int $depth [optional]
 	 * @param int $options [optional]
 	 */
+	#[Pure]
 	public function __construct ($depth, $options) {}
 
+	#[Pure]
 	public function getError () {}
 
 	public function reset () {}
@@ -51,6 +53,7 @@ class JsonIncrementalParser  {
 	/**
 	 * @param int $options [optional]
 	 */
+	#[Pure]
 	public function get ($options) {}
 
 }
