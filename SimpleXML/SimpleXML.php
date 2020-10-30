@@ -1,6 +1,7 @@
 <?php
 
 // Start of SimpleXML v.0.1
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Represents an element in an XML document.
@@ -19,6 +20,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @param bool $is_prefix TRUE if ns is a prefix, FALSE if it's a URI; defaults to FALSE.
 	 * @since 5.0.1
 	 */
+	#[Pure]
 	public function __construct ($data, $options = 0, $data_is_url = false, $ns = "", $is_prefix = false) {}
 
 	/**
@@ -42,6 +44,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 	 * successfully and <b>FALSE</b> otherwise.
 	 * @since 5.0.1
 	 */
+    #[Pure]
 	public function asXML ($filename = null) {}
 
 	/**
@@ -121,6 +124,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 	 * has children or not.
 	 * @since 5.0.1
 	 */
+    #[Pure]
 	public function children ($ns = null, $is_prefix = false) {}
 
 	/**
@@ -134,6 +138,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 	 * namespace names with their associated URIs.
 	 * @since 5.1.2
 	 */
+    #[Pure]
 	public function getNamespaces ($recursive = false) {}
 
 	/**
@@ -151,6 +156,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 	 * of namespace names with their associated URIs.
 	 * @since 5.1.2
 	 */
+    #[Pure]
 	public function getDocNamespaces ($recursive = false, $from_root = true) {}
 
 	/**
@@ -160,6 +166,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 	 * name of the XML tag referenced by the SimpleXMLElement object.
 	 * @since 5.1.3
 	 */
+    #[Pure]
 	public function getName () {}
 
 	/**
@@ -210,6 +217,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
 	 * @link https://php.net/manual/en/simplexmlelement.count.php
 	 * @return int the number of elements of an element.
 	 */
+    #[Pure]
 	public function count () {}
 
     /**
@@ -218,6 +226,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @param string|int $offset
      * @return bool true on success or false on failure.
      */
+    #[Pure]
     public function offsetExists ($offset) {}
 
     /**
@@ -226,6 +235,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @param string|int $offset
      * @return static Either a named attribute or an element from a list of children
      */
+    #[Pure]
     public function offsetGet ($offset) {}
 
     /**
@@ -257,6 +267,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @link https://php.net/manual/en/simplexmliterator.valid.php
      * @return bool <b>TRUE</b> if the current element is valid, otherwise <b>FALSE</b>
      */
+    #[Pure]
     public function valid () {}
 
     /**
@@ -264,6 +275,7 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @link https://php.net/manual/en/simplexmliterator.current.php
      * @return static|null the current element as a <b>SimpleXMLElement</b> object or <b>NULL</b> on failure.
      */
+    #[Pure]
     public function current () {}
 
     /**
@@ -284,11 +296,13 @@ class SimpleXMLElement implements Traversable, ArrayAccess, Countable, Iterator,
      * @return bool
      * @since 8.0
      */
+    #[Pure]
     public function hasChildren(){}
 
     /**
      * @since 8.0
      */
+    #[Pure]
     public function getChildren(){}
 }
 
@@ -310,6 +324,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 	 * @link https://php.net/manual/en/simplexmliterator.valid.php
 	 * @return bool <b>TRUE</b> if the current element is valid, otherwise <b>FALSE</b>
 	 */
+    #[Pure]
 	public function valid () {}
 
 	/**
@@ -317,6 +332,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 	 * @link https://php.net/manual/en/simplexmliterator.current.php
 	 * @return static|null the current element as a <b>SimpleXMLIterator</b> object or <b>NULL</b> on failure.
 	 */
+    #[Pure]
 	public function current () {}
 
 	/**
@@ -338,6 +354,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 	 * @link https://php.net/manual/en/simplexmliterator.haschildren.php
 	 * @return bool <b>TRUE</b> if the current element has sub-elements, otherwise <b>FALSE</b>
 	 */
+    #[Pure]
 	public function hasChildren () {}
 
 	/**
@@ -346,6 +363,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 	 * @return SimpleXMLIterator a <b>SimpleXMLIterator</b> object containing
 	 * the sub-elements of the current element.
 	 */
+    #[Pure]
 	public function getChildren () {}
 
 	/**
@@ -361,6 +379,7 @@ class SimpleXMLIterator extends SimpleXMLElement implements RecursiveIterator, C
 	 * @link https://php.net/manual/en/simplexmlelement.count.php
 	 * @return int the number of elements of an element.
 	 */
+    #[Pure]
 	public function count () {}
 
 }
