@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * Zookeeper class.
  * @link https://www.php.net/manual/en/class.zookeeper.php
@@ -202,6 +204,7 @@ class Zookeeper
      * @throws ZookeeperException       when connection not in connected status
      * @throws ZookeeperNoNodeException when path does not exist
      */
+    #[Pure]
     public function getChildren($path, $watcher_cb = null)
     {
     }
@@ -233,6 +236,7 @@ class Zookeeper
      *
      * @throws ZookeeperException when connection not in connected status
      */
+    #[Pure]
     public function getAcl($path)
     {
     }
@@ -265,6 +269,7 @@ class Zookeeper
      * @throws ZookeeperException
      * @throws ZookeeperConnectionException when connection not in connected status
      */
+    #[Pure]
     public function getClientId()
     {
     }
@@ -295,6 +300,7 @@ class Zookeeper
      * @throws ZookeeperException
      * @throws ZookeeperConnectionException when connection not in connected status
      */
+    #[Pure]
     public function getState()
     {
     }
@@ -310,6 +316,7 @@ class Zookeeper
      * @throws ZookeeperException
      * @throws ZookeeperConnectionException when connection not in connected status
      */
+    #[Pure]
     public function getRecvTimeout()
     {
     }
