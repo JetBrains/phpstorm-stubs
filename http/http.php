@@ -216,6 +216,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @link https://php.net/manual/en/function.httpmessage-getbody.php
 	 * @return string the message body as string.
 	 */
+    #[Pure]
 	public function getBody () {}
 
 	/**
@@ -238,6 +239,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * </p>
 	 * @return string|null the header value on success or NULL if the header does not exist.
 	 */
+    #[Pure]
 	public function getHeader ($header) {}
 
 	/**
@@ -246,6 +248,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @link https://php.net/manual/en/function.httpmessage-getheaders.php
 	 * @return array an associative array containing the messages HTTP headers.
 	 */
+    #[Pure]
 	public function getHeaders () {}
 
 	/**
@@ -281,6 +284,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @link https://php.net/manual/en/function.httpmessage-gettype.php
 	 * @return int the HttpMessage::TYPE.
 	 */
+    #[Pure]
 	public function getType () {}
 
 	/**
@@ -294,6 +298,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 */
 	public function setType ($type) {}
 
+    #[Pure]
 	public function getInfo () {}
 
 	/**
@@ -307,6 +312,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @link https://php.net/manual/en/function.httpmessage-getresponsecode.php
 	 * @return int|false the HTTP response code if the message is of type HttpMessage::TYPE_RESPONSE, else FALSE.
 	 */
+    #[Pure]
 	public function getResponseCode () {}
 
 	/**
@@ -328,6 +334,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @return string the HTTP response status string if the message is of type
 	 * HttpMessage::TYPE_RESPONSE, else FALSE.
 	 */
+    #[Pure]
 	public function getResponseStatus () {}
 
 	/**
@@ -349,6 +356,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @return string|false the request method name on success, or FALSE if the message is
 	 * not of type HttpMessage::TYPE_REQUEST.
 	 */
+    #[Pure]
 	public function getRequestMethod () {}
 
 	/**
@@ -370,6 +378,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @return string|false the request URL as string on success, or FALSE if the message
 	 * is not of type HttpMessage::TYPE_REQUEST.
 	 */
+    #[Pure]
 	public function getRequestUrl () {}
 
 	/**
@@ -390,6 +399,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @link https://php.net/manual/en/function.httpmessage-gethttpversion.php
 	 * @return string the HTTP protocol version as string.
 	 */
+    #[Pure]
 	public function getHttpVersion () {}
 
 	/**
@@ -423,6 +433,7 @@ class HttpMessage implements Countable, Serializable, Iterator {
 	 * @link https://php.net/manual/en/function.httpmessage-getparentmessage.php
 	 * @return HttpMessage the parent HttpMessage object.
 	 */
+    #[Pure]
 	public function getParentMessage () {}
 
 	/**
@@ -619,6 +630,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	 * </p>
 	 * @return mixed the value of the query string param or the whole query string if no key was specified on success or defval if key does not exist.
 	 */
+    #[Pure]
 	public function get ($key = null, $type = null, $defval = null, $delete = null) {}
 
 	/**
@@ -648,6 +660,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	 * @param $defval [optional]
 	 * @param $delete [optional]
 	 */
+    #[Pure]
 	public function getBool ($name, $defval, $delete) {}
 
 	/**
@@ -655,6 +668,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	 * @param $defval [optional]
 	 * @param $delete [optional]
 	 */
+    #[Pure]
 	public function getInt ($name, $defval, $delete) {}
 
 	/**
@@ -662,6 +676,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	 * @param $defval [optional]
 	 * @param $delete [optional]
 	 */
+    #[Pure]
 	public function getFloat ($name, $defval, $delete) {}
 
 	/**
@@ -669,6 +684,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	 * @param $defval [optional]
 	 * @param $delete [optional]
 	 */
+    #[Pure]
 	public function getString ($name, $defval, $delete) {}
 
 	/**
@@ -676,6 +692,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	 * @param $defval [optional]
 	 * @param $delete [optional]
 	 */
+    #[Pure]
 	public function getArray ($name, $defval, $delete) {}
 
 	/**
@@ -683,6 +700,7 @@ class HttpQueryString implements Serializable, ArrayAccess {
 	 * @param $defval [optional]
 	 * @param $delete [optional]
 	 */
+    #[Pure]
 	public function getObject ($name, $defval, $delete) {}
 
 	/**
@@ -898,6 +916,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getoptions.php
 	 * @return array an associative array containing currently set options.
 	 */
+    #[Pure]
 	public function getOptions () {}
 
 	/**
@@ -918,6 +937,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getssloptions.php
 	 * @return array an associative array containing any previously set SSL options.
 	 */
+    #[Pure]
 	public function getSslOptions () {}
 
 	/**
@@ -948,6 +968,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getheaders.php
 	 * @return array an associative array containing all currently set headers.
 	 */
+    #[Pure]
 	public function getHeaders () {}
 
 	/**
@@ -979,6 +1000,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getcookies.php
 	 * @return array an associative array containing any previously set cookies.
 	 */
+    #[Pure]
 	public function getCookies () {}
 
 	/**
@@ -1031,6 +1053,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getmethod.php
 	 * @return int the currently set request method.
 	 */
+    #[Pure]
 	public function getMethod () {}
 
 	/**
@@ -1050,6 +1073,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-geturl.php
 	 * @return string the currently set request url as string.
 	 */
+    #[Pure]
 	public function getUrl () {}
 
 	/**
@@ -1070,6 +1094,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getcontenttype.php
 	 * @return string the previously set content type as string.
 	 */
+    #[Pure]
 	public function getContentType () {}
 
 	/**
@@ -1091,6 +1116,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getquerydata.php
 	 * @return string a string containing the urlencoded query.
 	 */
+    #[Pure]
 	public function getQueryData () {}
 
 	/**
@@ -1122,6 +1148,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getpostfields.php
 	 * @return array the currently set post fields as associative array.
 	 */
+    #[Pure]
 	public function getPostFields () {}
 
 	/**
@@ -1140,6 +1167,7 @@ class HttpRequest  {
 	 */
 	public function setBody ($request_body_data) {}
 
+    #[Pure]
 	public function getBody () {}
 
 	/**
@@ -1164,6 +1192,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getrawpostdata.php
 	 * @return string a string containing the currently set raw post data.
 	 */
+    #[Pure]
 	public function getRawPostData () {}
 
 	/**
@@ -1213,6 +1242,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getpostfiles.php
 	 * @return array an array containing currently set post files.
 	 */
+    #[Pure]
 	public function getPostFiles () {}
 
 	/**
@@ -1233,6 +1263,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getputfile.php
 	 * @return string a string containing the path to the currently set put file.
 	 */
+    #[Pure]
 	public function getPutFile () {}
 
 	/**
@@ -1252,6 +1283,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getputdata.php
 	 * @return string a string containing the currently set PUT data.
 	 */
+    #[Pure]
 	public function getPutData () {}
 
 	/**
@@ -1281,6 +1313,7 @@ class HttpRequest  {
 	 * array holding all response headers, as well as the key "body" containing a
 	 * string with the response body.
 	 */
+    #[Pure]
 	public function getResponseData () {}
 
 	/**
@@ -1293,6 +1326,7 @@ class HttpRequest  {
 	 * @return mixed either a string with the value of the header matching name if requested,
 	 * FALSE on failure, or an associative array containing all response headers.
 	 */
+    #[Pure]
 	public function getResponseHeader ($name = null) {}
 
 	/**
@@ -1307,6 +1341,7 @@ class HttpRequest  {
 	 * </p>
 	 * @return stdClass[] an array of stdClass objects like http_parse_cookie would return.
 	 */
+    #[Pure]
 	public function getResponseCookies ($flags = null,  array $allowed_extras = null ) {}
 
 	/**
@@ -1315,6 +1350,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getresponsecode.php
 	 * @return int an int representing the response code.
 	 */
+    #[Pure]
 	public function getResponseCode () {}
 
 	/**
@@ -1323,6 +1359,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getresponsestatus.php
 	 * @return string a string containing the response status text.
 	 */
+    #[Pure]
 	public function getResponseStatus () {}
 
 	/**
@@ -1331,6 +1368,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getresponsebody.php
 	 * @return string a string containing the response body.
 	 */
+    #[Pure]
 	public function getResponseBody () {}
 
 	/**
@@ -1345,6 +1383,7 @@ class HttpRequest  {
 	 * requested, FALSE on failure, or an associative array containing all
 	 * available info.
 	 */
+    #[Pure]
 	public function getResponseInfo ($name = null) {}
 
 	/**
@@ -1353,6 +1392,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getresponsemessage.php
 	 * @return HttpMessage an HttpMessage object of the response.
 	 */
+    #[Pure]
 	public function getResponseMessage () {}
 
 	/**
@@ -1361,6 +1401,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getrawresponsemessage.php
 	 * @return string the complete web server response, including the headers in a form of a string.
 	 */
+    #[Pure]
 	public function getRawResponseMessage () {}
 
 	/**
@@ -1369,6 +1410,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getrequestmessage.php
 	 * @return HttpMessage an HttpMessage object representing the sent request.
 	 */
+    #[Pure]
 	public function getRequestMessage () {}
 
 	/**
@@ -1377,6 +1419,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-getrawrequestmessage.php
 	 * @return string an HttpMessage in a form of a string.
 	 */
+    #[Pure]
 	public function getRawRequestMessage () {}
 
 	/**
@@ -1385,6 +1428,7 @@ class HttpRequest  {
 	 * @link https://php.net/manual/en/function.httprequest-gethistory.php
 	 * @return HttpMessage an HttpMessage object representing the complete request/response history.
 	 */
+    #[Pure]
 	public function getHistory () {}
 
 	/**
@@ -1617,6 +1661,7 @@ class HttpRequestPool implements Countable, Iterator {
 	 * @link https://php.net/manual/en/function.httprequestpool-getattachedrequests.php
 	 * @return array an array containing all currently attached HttpRequest objects.
 	 */
+    #[Pure]
 	public function getAttachedRequests () {}
 
 	/**
@@ -1625,6 +1670,7 @@ class HttpRequestPool implements Countable, Iterator {
 	 * @link https://php.net/manual/en/function.httprequestpool-getfinishedrequests.php
 	 * @return array an array containing all attached HttpRequest objects that already have finished their work.
 	 */
+    #[Pure]
 	public function getFinishedRequests () {}
 
 	/**
