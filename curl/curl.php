@@ -27,6 +27,7 @@ class CURLFile {
      * @return string Returns file name.
      * @since 5.5
      */
+    #[Pure]
     public function getFilename() {
     }
 
@@ -36,6 +37,7 @@ class CURLFile {
      * @return string Returns MIME type.
      * @since 5.5
      */
+    #[Pure]
     public function getMimeType() {
     }
 
@@ -45,6 +47,7 @@ class CURLFile {
      * @return string Returns file name for POST.
      * @since 5.5
      */
+    #[Pure]
     public function getPostFilename() {
     }
 
