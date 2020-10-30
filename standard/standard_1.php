@@ -173,7 +173,7 @@ function hebrev ($string, $max_chars_per_line = null) {}
  * @return string the visual string.
  * @removed 8.0
  */
-#[Deprecated(since: '7.4')]
+#[Deprecated(replacement: 'nl2br(hebrev(%parameter0%))', since: '7.4')]
 function hebrevc ($hebrew_text, $max_chars_per_line = null) {}
 
 /**
@@ -480,8 +480,9 @@ function strcoll ($string1, $string2) {}
  * Non-numeric number causes returning null and
  * emitting E_WARNING.
  * @removed 8.0
+ * @see NumberFormatter
  */
-#[Deprecated(since: '7.4')]
+#[Deprecated(reason: 'Use the NumberFormatter functionality', since: '7.4')]
 function money_format ($format, $number) {}
 
 /**
@@ -1206,25 +1207,6 @@ function setlocale ($category, $locales, ...$rest) {}
  * no further grouping is done. If an array element is equal to 0, the previous
  * element should be used.
  */
-#[ArrayShape([
-    "decimal_point" => "string",
-    "thousands_sep" => "string",
-    "grouping" => "array",
-    "int_curr_symbol" => "string",
-    "currency_symbol" => "string",
-    "mon_decimal_point" => "string",
-    "mon_thousands_sep" => "string",
-    "mon_grouping" => "string",
-    "positive_sign" => "string",
-    "negative_sign" => "string",
-    "int_frac_digits" => "string",
-    "frac_digits" => "string",
-    "p_cs_precedes" => "bool",
-    "p_sep_by_space" => "bool",
-    "n_cs_precedes" => "bool",
-    "n_sep_by_space" => "bool",
-    "p_sign_posn" => "int",
-    "n_sign_posn" => "int",
-])]
+#[ArrayShape(["decimal_point" => "string", "thousands_sep" => "string", "grouping" => "array", "int_curr_symbol" => "string", "currency_symbol" => "string", "mon_decimal_point" => "string", "mon_thousands_sep" => "string", "mon_grouping" => "string", "positive_sign" => "string", "negative_sign" => "string", "int_frac_digits" => "string", "frac_digits" => "string", "p_cs_precedes" => "bool", "p_sep_by_space" => "bool", "n_cs_precedes" => "bool", "n_sep_by_space" => "bool", "p_sign_posn" => "int", "n_sign_posn" => "int",])]
 #[Pure]
 function localeconv () {}

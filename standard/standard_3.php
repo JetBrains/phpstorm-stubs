@@ -908,9 +908,12 @@ function quoted_printable_encode ($string) {}
  * </p>
  * @return string the converted string.
  * @removed 8.0
+ * @see mb_convert_string()
+ * @see iconv()
+ * @see UConverter
  */
 #[Pure]
-#[Deprecated(since: '7.4')]
+#[Deprecated(since: '7.4',reason: 'Us mb_convert_string(), iconv() or UConverter instead.')]
 function convert_cyr_string ($str, $from, $to) {}
 
 /**
