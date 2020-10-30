@@ -453,7 +453,8 @@ function gmdate ($format, $timestamp = null) {}
  * it returned -1).
  */
 #[Pure]
-function mktime ($hour = null, $minute = null, $second = null, $month = null, $day = null, $year = null, #[Deprecated('Use the new timezone handling functions instead', since: '5.3')] $is_dst = -1) {}
+function mktime ($hour = null, $minute = null, $second = null, $month = null, $day = null, $year = null, #[Deprecated('Use the new timezone handling functions instead', since: '5.3')]
+    $is_dst = -1) {}
 
 /**
  * Get Unix timestamp for a GMT date

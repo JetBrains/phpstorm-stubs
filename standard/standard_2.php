@@ -473,16 +473,7 @@ function fscanf ($stream, $format, &...$vars) {}
  * If the component parameter is specified a
  * string is returned instead of an array.
  */
-#[ArrayShape([
-    "scheme" => "string",
-    "host" => "string",
-    "port" => "int",
-    "user" => "string",
-    "pass" => "string",
-    "query" => "string",
-    "path" => "string",
-    "fragment" => "string",
-])]
+#[ArrayShape(["scheme" => "string", "host" => "string", "port" => "int", "user" => "string", "pass" => "string", "query" => "string", "path" => "string", "fragment" => "string",])]
 #[Pure]
 function parse_url ($url, $component = -1) {}
 
@@ -905,16 +896,7 @@ function proc_terminate ($process, $signal = 15) {}
  * </td>
  * </tr>
  */
-#[ArrayShape([
-    "command" => "string",
-    "pid" => "int",
-    "running" => "bool",
-    "signaled" => "bool",
-    "stopped" => "bool",
-    "exitcode" => "int",
-    "termsig" => "int",
-    "stopsig" => "int",
-])]
+#[ArrayShape(["command" => "string", "pid" => "int", "running" => "bool", "signaled" => "bool", "stopped" => "bool", "exitcode" => "int", "termsig" => "int", "stopsig" => "int",])]
 function proc_get_status ($process) {}
 
 /**

@@ -1,6 +1,8 @@
 <?php
 
 use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 class CURLFile {
@@ -139,19 +141,62 @@ function curl_copy_handle ($handle) {}
  * <td>An array of protocols names supported by cURL</td>
  * </tr>
  */
-#[ArrayShape([
-    "version_number" => "string",
-    "version" => "string",
-    "ssl_version_number" => "int",
-    "ssl_version" => "string",
-    "libz_version" => "string",
-    "host" => "string",
-    "age" => "int",
-    "features" => "int",
-    "protocols" => "array",
-])]
+#[ArrayShape(["version_number" => "string", "version" => "string", "ssl_version_number" => "int", "ssl_version" => "string", "libz_version" => "string", "host" => "string", "age" => "int", "features" => "int", "protocols" => "array",])]
 #[Pure]
-function curl_version ($age = null) {}
+#[PhpStormStubsElementAvailable(to: '8.0')]
+function curl_version (#[Deprecated(since: "7.4")]
+    $age = null) {}
+
+/**
+ * Gets cURL version information
+ * @link https://php.net/manual/en/function.curl-version.php
+ * @return array an associative array with the following elements:
+ * <tr valign="top">
+ * <td>Indice</td>
+ * <td>Value description</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>version_number</td>
+ * <td>cURL 24 bit version number</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>version</td>
+ * <td>cURL version number, as a string</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>ssl_version_number</td>
+ * <td>OpenSSL 24 bit version number</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>ssl_version</td>
+ * <td>OpenSSL version number, as a string</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>libz_version</td>
+ * <td>zlib version number, as a string</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>host</td>
+ * <td>Information about the host where cURL was built</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>age</td>
+ * <td></td>
+ * </tr>
+ * <tr valign="top">
+ * <td>features</td>
+ * <td>A bitmask of the CURL_VERSION_XXX constants</td>
+ * </tr>
+ * <tr valign="top">
+ * <td>protocols</td>
+ * <td>An array of protocols names supported by cURL</td>
+ * </tr>
+ */
+#[ArrayShape(['version_number' => 'string', 'version' => 'string', 'ssl_version_number' => 'int', 'ssl_version' => 'string', 'libz_version' => 'string', 'host' => 'string', 'age' => 'int', 'features' => 'int', 'protocols' => 'array',])]
+#[Pure]
+#[PhpStormStubsElementAvailable(from: "8.0")]
+function curl_version() {
+}
 
 /**
  * Set an option for a cURL transfer
