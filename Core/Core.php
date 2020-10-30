@@ -336,8 +336,7 @@ function error_reporting ($error_level = null) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function define ($constant_name, $value, #[Deprecated]
-    $case_insensitive = false) {}
+function define ($constant_name, $value, #[Deprecated] $case_insensitive = false) {}
 
 /**
  * Checks whether a given named constant exists

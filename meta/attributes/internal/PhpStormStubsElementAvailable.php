@@ -14,8 +14,8 @@ use JetBrains\PhpStorm\ExpectedValues;
 #[Attribute(Attribute::TARGET_FUNCTION | Attribute::TARGET_METHOD)]
 class PhpStormStubsElementAvailable
 {
-    public function __construct(#[ExpectedValues(Deprecated::PHP_VERSIONS)]
-        $from, #[ExpectedValues(Deprecated::PHP_VERSIONS)]
-        $to = null
+    public function __construct(
+        #[ExpectedValues(Deprecated::PHP_VERSIONS)] $from,
+        #[ExpectedValues(Deprecated::PHP_VERSIONS)] $to = null
     ) {}
 }
