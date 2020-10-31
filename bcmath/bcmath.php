@@ -147,7 +147,6 @@ function bcsqrt ($num, $scale = null) {}
  * </p>
  * @return int|true <b>INT</b> since 7.3.0 and <b>TRUE</b> before.
  */
-#[Pure]
 function bcscale ($scale = null) {}
 
 /**
