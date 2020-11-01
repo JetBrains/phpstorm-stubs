@@ -1539,7 +1539,7 @@ function mysqli_commit ($mysql, $flags = -1, $name = null) {}
  * Open a new connection to the MySQL server
  * Alias of <b>mysqli::__construct</b>
  * @link https://php.net/manual/en/mysqli.construct.php
- * @param string $host Can be either a host name or an IP address. Passing the NULL value or the string "localhost" to this parameter, the local host is assumed. When possible, pipes will be used instead of the TCP/IP protocol.
+ * @param string $hostname Can be either a host name or an IP address. Passing the NULL value or the string "localhost" to this parameter, the local host is assumed. When possible, pipes will be used instead of the TCP/IP protocol.
  * @param string $username The MySQL user name.
  * @param string $password If not provided or NULL, the MySQL server will attempt to authenticate the user against those user records which have no password only.
  * @param string $database If provided will specify the default database to be used when performing queries.
@@ -1547,7 +1547,7 @@ function mysqli_commit ($mysql, $flags = -1, $name = null) {}
  * @param string $socket Specifies the socket or named pipe that should be used.
  * @return mysqli|false object which represents the connection to a MySQL Server or false if an error occurred.
  */
-function mysqli_connect ($host = null, $username = null, $password = null, $database = null, $port = null, $socket = null) {}
+function mysqli_connect ($hostname = null, $username = null, $password = null, $database = null, $port = null, $socket = null) {}
 
 /**
  * Returns the error code from last connect call
@@ -1584,10 +1584,10 @@ function mysqli_dump_debug_info ($mysql) {}
 /**
  * Performs debugging operations using the Fred Fish debugging library.
  * @link https://php.net/manual/en/mysqli.debug.php
- * @param string $debug
+ * @param string $options
  * @return bool
  */
-function mysqli_debug ($debug) {}
+function mysqli_debug ($options) {}
 
 /**
  * Returns the error code for the most recent function call
@@ -1663,10 +1663,10 @@ function mysqli_fetch_fields ($result) {}
  * @link https://secure.php.net/manual/en/mysqli-result.fetch-field-direct.php
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
- * @param int $offset The field number. This value must be in the range from 0 to number of fields - 1.
+ * @param int $index The field number. This value must be in the range from 0 to number of fields - 1.
  * @return object|false Returns an object which contains field definition information or FALSE if no field information for specified fieldnr is available.
  */
-function mysqli_fetch_field_direct ($result, $offset) {}
+function mysqli_fetch_field_direct ($result, $index) {}
 
 /**
  * Returns the lengths of the columns of the current row in the result set
@@ -1717,13 +1717,13 @@ function mysqli_fetch_assoc ($result) {}
  * @param mysqli_result $result A result set identifier returned by mysqli_query(),
  * mysqli_store_result() or mysqli_use_result().
  * @param string $class The name of the class to instantiate, set the properties of and return. If not specified, a stdClass object is returned.
- * @param array|null $params An optional array of parameters to pass to the constructor for class_name objects.
+ * @param array|null $constructor_args An optional array of parameters to pass to the constructor for class_name objects.
  * @return object|null Returns an object with string properties that corresponds to the fetched row or NULL if there are no more rows in resultset.
  * If two or more columns of the result have the same field names, the last column will take precedence.
  * To access the other column(s) of the same name,
  * you either need to access the result with numeric indices by using mysqli_fetch_row() or add alias names.
  */
-function mysqli_fetch_object ($result, $class = 'stdClass', $params = null) {}
+function mysqli_fetch_object ($result, $class = 'stdClass', $constructor_args = null) {}
 
 /**
  * Get a result row as an enumerated array
@@ -2097,7 +2097,7 @@ function mysqli_query ($mysql, $query, $result_mode = MYSQLI_STORE_RESULT) {}
  * @link https://php.net/manual/en/mysqli.real-connect.php
  * @see mysqli_connect()
  * @param mysqli $mysql A link identifier returned by mysqli_connect() or mysqli_init()
- * @param string $host [optional]
+ * @param string $hostname [optional]
  * @param string $username [optional]
  * @param string $password [optional]
  * @param string $database [optional]
@@ -2106,7 +2106,7 @@ function mysqli_query ($mysql, $query, $result_mode = MYSQLI_STORE_RESULT) {}
  * @param int $flags [optional]
  * @return bool
  */
-function mysqli_real_connect ($mysql, $host = null, $username = null, $password = null, $database = null, $port = null, $socket = null, $flags = null) {}
+function mysqli_real_connect ($mysql, $hostname = null, $username = null, $password = null, $database = null, $port = null, $socket = null, $flags = null) {}
 
 /**
  * Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection

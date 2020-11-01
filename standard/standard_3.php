@@ -938,14 +938,14 @@ function set_time_limit ($seconds) {}
 /**
  * Gets the value of a PHP configuration option
  * @link https://php.net/manual/en/function.get-cfg-var.php
- * @param string $name <p>
+ * @param string $option <p>
  * The configuration option name.
  * </p>
  * @return string the current value of the PHP configuration variable specified by
  * option, or false if an error occurs.
  */
 #[Pure]
-function get_cfg_var ($name) {}
+function get_cfg_var ($option) {}
 
 /**
  * &Alias; <function>set_magic_quotes_runtime</function>
