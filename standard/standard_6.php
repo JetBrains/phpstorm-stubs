@@ -474,7 +474,7 @@ function stream_socket_sendto ($socket, $data, $flags = null, $address = null) {
  * @param bool $enable <p>
  * Enable/disable cryptography on the stream.
  * </p>
- * @param int $crypto_type [optional] <p>
+ * @param int $crypto_method [optional] <p>
  * Setup encryption on the stream.
  * Valid methods are
  * STREAM_CRYPTO_METHOD_SSLv2_CLIENT
@@ -485,7 +485,7 @@ function stream_socket_sendto ($socket, $data, $flags = null, $address = null) {
  * 0 if there isn't enough data and you should try again
  * (only for non-blocking sockets).
  */
-function stream_socket_enable_crypto ($stream, $enable, $crypto_type = null, $session_stream = null) {}
+function stream_socket_enable_crypto ($stream, $enable, $crypto_method = null, $session_stream = null) {}
 
 /**
  * Shutdown a full-duplex connection
@@ -1006,7 +1006,7 @@ function stream_is_local ($stream) {}
  * @param string $url <p>
  * The target URL.
  * </p>
- * @param int $as_assoc_array [optional] <p>
+ * @param int $associative [optional] <p>
  * If the optional format parameter is set to non-zero,
  * get_headers parses the response and sets the
  * array's keys.
@@ -1016,7 +1016,7 @@ function stream_is_local ($stream) {}
  * failure.
  */
 #[Pure]
-function get_headers ($url, $as_assoc_array = null, $context = null) {}
+function get_headers ($url, $associative = null, $context = null) {}
 
 /**
  * Set timeout period on a stream

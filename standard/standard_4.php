@@ -388,14 +388,14 @@ function php_strip_whitespace ($filename) {}
  * Gets the value of a configuration option
  * @link https://php.net/manual/en/function.ini-get.php
  * @link https://php.net/manual/en/ini.list.php
- * @param string $name <p>
+ * @param string $option <p>
  * The configuration option name.
  * </p>
  * @return string the value of the configuration option as a string on success, or
  * an empty string on failure or for null values.
  */
 #[Pure]
-function ini_get ($name) {}
+function ini_get ($option) {}
 
 /**
  * Gets all configuration options
@@ -437,7 +437,7 @@ function ini_get_all ($extension = null, $details = null) {}
  * Sets the value of a configuration option
  * @link https://php.net/manual/en/function.ini-set.php
  * @link https://php.net/manual/en/ini.list.php
- * @param string $name <p>
+ * @param string $option <p>
  * </p>
  * <p>
  * Not all the available options can be changed using
@@ -449,28 +449,28 @@ function ini_get_all ($extension = null, $details = null) {}
  * </p>
  * @return string|false the old value on success, false on failure.
  */
-function ini_set ($name, $value) {}
+function ini_set ($option, $value) {}
 
 /**
  * &Alias; <function>ini_set</function>
  * @link https://php.net/manual/en/function.ini-alter.php
  * @link https://php.net/manual/en/ini.list.php
- * @param string $name
+ * @param string $option
  * @param string $value
  * @return string|false
  */
-function ini_alter ($name, $value) {}
+function ini_alter ($option, $value) {}
 
 /**
  * Restores the value of a configuration option
  * @link https://php.net/manual/en/function.ini-restore.php
  * @link https://php.net/manual/en/ini.list.php
- * @param string $name <p>
+ * @param string $option <p>
  * The configuration option name.
  * </p>
  * @return void
  */
-function ini_restore ($name) {}
+function ini_restore ($option) {}
 
 /**
  * Gets the current include_path configuration option

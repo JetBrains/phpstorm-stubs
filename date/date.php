@@ -1127,12 +1127,12 @@ function date_date_set ($object, $year, $month, $day) {}
  * @param DateTime $object
  * @param int $year <p>Year of the date</p>
  * @param int $week <p>Week of the date.</p>
- * @param $day [optional] <p>Offset from the first day of the week.</p>
+ * @param $dayOfWeek [optional] <p>Offset from the first day of the week.</p>
  * @return DateTime|false <p>
  * Returns the {@see DateTime} object for method chaining or <strong><code>FALSE</code></strong> on failure.
  * </p>
  */
-function date_isodate_set ($object, $year, $week, $day = 1) {}
+function date_isodate_set ($object, $year, $week, $dayOfWeek = 1) {}
 
 /**
  * &Alias; <methodname>DateTime::setTimestamp</methodname>
