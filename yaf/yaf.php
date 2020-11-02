@@ -1721,6 +1721,7 @@ abstract class Yaf_Response_Abstract {
     public function __toString(){ }
 
     /**
+     * Send response
      * @link https://secure.php.net/manual/en/yaf-response-abstract.response.php
      * 
      * @return void
@@ -1728,6 +1729,7 @@ abstract class Yaf_Response_Abstract {
     public function response(){ }
 
     /**
+     * Set response header
      * @link https://secure.php.net/manual/en/yaf-response-abstract.setheader.php
      *
      * @param string $name header name
