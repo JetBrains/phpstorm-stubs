@@ -3648,6 +3648,7 @@ const FUNCTIONS = array (
   'newrelic_name_transaction' => 'newrelic/newrelic.php',
   'newrelic_notice_error' => 'newrelic/newrelic.php',
   'newrelic_record_custom_event' => 'newrelic/newrelic.php',
+  'newrelic_record_datastore_segment' => 'newrelic/newrelic.php',
   'newrelic_set_appname' => 'newrelic/newrelic.php',
   'newrelic_set_user_attributes' => 'newrelic/newrelic.php',
   'newrelic_start_transaction' => 'newrelic/newrelic.php',
