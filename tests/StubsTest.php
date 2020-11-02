@@ -554,20 +554,12 @@ class StubsTest extends TestCase
     private function compareWithOfficialDocs(PHPFunction $function)
     {
         $doc = $function->doc;
-        //self::assertNotNull($doc);
-        $docBlockSummary = $doc != null ? DocFactoryProvider::getDocFactory()->create($doc->getText())->getSummary() : "";
-
         $function_name = $function instanceof PHPMethod ? $function->parentName . "." . $function->name : $function->name;
-        $functionsData = self::$SQLite3->query("select * from functions where name = '$function_name'")->fetchArray();
-        if ($functionsData !== false) {
-            //$this->validateReturnTypes($functionsData, $function_name, $function);
-        }
         if ($doc !== null) {
             $this->validateParameters($function, $doc, $function_name);
-        } else {
-            //echo "PHP doc is not found for " . $function_name;
         }
-
+        //$this->validateReturnType($function_name, $function);
+        //$docBlockSummary = $doc != null ? DocFactoryProvider::getDocFactory()->create($doc->getText())->getSummary() : "";
         //$this->checkSummary($functionsData, $docBlockSummary, $function_name);
     }
 
@@ -598,6 +590,10 @@ class StubsTest extends TestCase
      */
     private function validateParameters(PHPFunction $function, ?Doc $doc, string $function_name): void
     {
+        if ($function_name === "parallel\Sync.__construct") {
+
+            var_dump($function->mutedProblems);
+        }
         if ($function->hasMutedProblem(StubProblemType::PARAMETER_TYPE_IS_WRONG_IN_OFICIAL_DOCS)) {
             static::markTestSkipped('function is excluded');
         }
@@ -615,7 +611,7 @@ class StubsTest extends TestCase
                         if ($docType === 'array') {
                             self::assertTrue(str_contains($noramlizedTypeFromStubs, "[]") || str_contains($noramlizedTypeFromStubs, "array"), "no $docType found in $noramlizedTypeFromStubs parameterName:{$parameter->getVariableName()}");
                         } else {
-                            self::assertContains($docType, explode("|", $noramlizedTypeFromStubs), "parameter: $" . $parameter->getVariableName() . "\nfunction name: $function_name doctype:$docType stubstype: $noramlizedTypeFromStubs");
+                            self::assertTrue($this->hasType($docType, $noramlizedTypeFromStubs), "parameter: $" . $parameter->getVariableName() . "\nfunction name: $function_name doctype:$docType stubstype: $noramlizedTypeFromStubs");
                         }
                     }
                 }
@@ -648,22 +644,6 @@ class StubsTest extends TestCase
         $types = explode("|", $strtolower);
         $types = $this->trunkNamespaces($types);
         return implode("|", $types);;
-    }
-
-    /**
-     * @param array $functionsData
-     * @param string $function_name
-     * @param PHPFunction $function
-     */
-    private function validateReturnTypes(array $functionsData, string $function_name, PHPFunction $function): void
-    {
-        if ($function->hasMutedProblem(StubProblemType::RETURN_TYPE_IS_WRONG_IN_OFICIAL_DOCS)) {
-            static::markTestSkipped('function is excluded');
-        }
-        if ($functionsData !== null) {
-            // echo "return type for " . $function_name . " is not found in official docs";
-            self::assertEquals($functionsData["return_type"], $function->returnTag . "", "return type mismatch '$function_name'");
-        }
     }
 
     /**
@@ -704,4 +684,90 @@ class StubsTest extends TestCase
         }
         return $newTypes;
     }
+
+    /**
+     * @param string|null $function_name
+     * @param PHPFunction $function
+     */
+    private function validateReturnType(?string $function_name, PHPFunction $function): void
+    {
+        $functionsData = self::$SQLite3->query("select * from functions where name = '$function_name'")->fetchArray();
+        if ($functionsData !== false) {
+            if ($function->hasMutedProblem(StubProblemType::RETURN_TYPE_IS_WRONG_IN_OFICIAL_DOCS)) {
+                static::markTestSkipped('function is excluded');
+            }
+            if ($functionsData !== null) {
+                // echo "return type for " . $function_name . " is not found in official docs";
+                self::assertEquals($functionsData["return_type"], $function->returnTag . "", "return type mismatch '$function_name'");
+            }
+        }
+    }
+
+    /**
+     * @param mixed $docType
+     * @param string $noramlizedTypeFromStubs
+     * @return bool
+     */
+    private function hasType(mixed $docType, string $noramlizedTypeFromStubs): bool
+    {
+        $types = explode("|", $noramlizedTypeFromStubs);
+        foreach ($types as $type) {
+            if ($this->typesAreEqual($type, $docType)) {
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+    /**
+     * @param mixed $type
+     * @param mixed $docType
+     * @return bool
+     */
+    private function typesAreEqual(mixed $type, mixed $docType): bool
+    {
+        if ($this->isInteger($docType) && $this->isInteger($type)) {
+            return true;
+        }
+        if ($this->isBoolean($docType) && $this->isBoolean($type)) {
+            return true;
+        }
+        if( $this->isFloat($docType) && $this->isFloat($type)) {
+            return true;
+        }
+        if( $this->isCallable($docType) && $type == "callable") {
+            return true;
+        }
+        return $type === $docType;
+    }
+
+    /**
+     * @param mixed $docType
+     * @return bool
+     */
+    private function isBoolean(mixed $docType): bool
+    {
+        return ($docType === "bool" || $docType === "boolean");
+    }
+
+    /**
+     * @param mixed $docType
+     * @return bool
+     */
+    private function isFloat(mixed $docType): bool
+    {
+        return ($docType === "float" || $docType === "double");
+    }
+
+    private function isInteger(mixed $docType)
+    {
+        return ($docType === "int" || $docType === "integer");
+    }
+
+    private function isCallable(mixed $docType)
+    {
+        return ($docType === "call" || $docType === "callable" || $docType === "callback");
+    }
+
 }

@@ -1892,7 +1892,7 @@ class SolrQuery extends SolrModifiableParams implements Serializable {
 	 * (PECL solr &gt;= 0.9.2)<br/>
 	 * Sets the maximum number of characters of the field to return
 	 * @link https://php.net/manual/en/solrquery.sethighlightmaxalternatefieldlength.php
-	 * @param string $fieldLength <p>
+	 * @param int $fieldLength <p>
 	 * The length of the field
 	 * </p>
 	 * <p>

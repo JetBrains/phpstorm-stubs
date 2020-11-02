@@ -1423,7 +1423,7 @@ abstract class Yaf_Request_Abstract {
      * @link https://secure.php.net/manual/en/yaf-request-abstract.getserver.php
      *
      * @param string $name the variable name, if not provided returns all
-     * @param mixed $default if this parameter is provide, this will be returned if the variable can not be found
+     * @param string $default if this parameter is provide, this will be returned if the variable can not be found
      *
      * @return mixed
      */
@@ -1435,7 +1435,7 @@ abstract class Yaf_Request_Abstract {
      * @link https://secure.php.net/manual/en/yaf-request-abstract.getenv.php
      *
      * @param string $name the variable name, if not provided returns all
-     * @param mixed $default if this parameter is provide, this will be returned if the variable can not be found
+     * @param string $default if this parameter is provide, this will be returned if the variable can not be found
      *
      * @return mixed
      */
@@ -1827,7 +1827,7 @@ interface Yaf_View_Interface {
      * @link https://secure.php.net/manual/en/yaf-view-interface.assign.php
      *
      * @param string|array $name
-     * @param mixed $value
+     * @param string $value
      * @return bool
      */
     function assign($name, $value);

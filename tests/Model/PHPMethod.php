@@ -85,6 +85,8 @@ class PHPMethod extends PHPFunction
                             'deprecated method' => StubProblemType::FUNCTION_IS_DEPRECATED,
                             'absent in meta' => StubProblemType::ABSENT_IN_META,
                             'wrong access' => StubProblemType::FUNCTION_ACCESS,
+                            'wrong return type in docs' => StubProblemType::RETURN_TYPE_IS_WRONG_IN_OFICIAL_DOCS,
+                            'wrong parmeter type in docs' => StubProblemType::PARAMETER_TYPE_IS_WRONG_IN_OFICIAL_DOCS,
                             default => -1
                         };
                     }

@@ -13,7 +13,7 @@ abstract class BasePHPElement
     public ?string $name = null;
     public bool $stubBelongsToCore = false;
     public ?Exception $parseError = null;
-    protected array $mutedProblems = [];
+    public array $mutedProblems = [];
 
     abstract public function readObjectFromReflection(Reflector $reflectionObject): static;
 
@@ -37,7 +37,6 @@ abstract class BasePHPElement
 
     public function hasMutedProblem(int $stubProblemType): bool
     {
-        var_dump($this->mutedProblems);
         return in_array($stubProblemType, $this->mutedProblems, true);
     }
 }

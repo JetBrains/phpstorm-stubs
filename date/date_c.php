@@ -665,7 +665,7 @@ class DateInterval {
 
     /**
      * Formats the interval
-     * @param $format
+     * @param string $format
      * @return string
      * @link https://php.net/manual/en/dateinterval.format.php
      */

@@ -110,7 +110,7 @@ class MongoClient
      * This method does not need to be called, except in unusual circumstances.
      * The driver will cleanly close the database connection when the Mongo object goes out of scope.
      * @link https://secure.php.net/manual/en/mongoclient.close.php
-     * @param  bool|string $connection [optional] <p>
+     * @param boolean|string $connection [optional] <p>
      * If connection is not given, or <b>FALSE</b> then connection that would be selected for writes would be closed. In a single-node configuration, that is then the whole connection, but if you are connected to a replica set, close() will only close the connection to the primary server.
      * If connection is <b>TRUE</b> then all connections as known by the connection manager will be closed. This can include connections that are not referenced in the connection string used to create the object that you are calling close on.
      * If connection is a string argument, then it will only close the connection identified by this hash. Hashes are identifiers for a connection and can be obtained by calling {@see MongoClient::getConnections()}.
@@ -1712,7 +1712,7 @@ class MongoGridFS extends MongoCollection {
     /**
      * Stores a file in the database
      * @link https://php.net/manual/en/mongogridfs.storefile.php
-     * @param string $filename The name of the file
+     * @param string|resource $filename The name of the file
      * @param array $extra Other metadata to add to the file saved
      * @param array $options Options for the store. "safe": Check that this store succeeded
      * @return mixed Returns the _id of the saved object
@@ -1906,7 +1906,7 @@ class MongoId {
      * (PECL mongo &gt;= 0.8.0)
 	 * Creates a new id
 	 * @link https://secure.php.net/manual/en/mongoid.construct.php
-	 * @param string $id [optional] A string to use as the id. Must be 24 hexadecimal characters. If an invalid string is passed to this constructor, the constructor will ignore it and create a new id value.
+	 * @param MongoId|string $id [optional] A string to use as the id. Must be 24 hexadecimal characters. If an invalid string is passed to this constructor, the constructor will ignore it and create a new id value.
      */
     public function __construct($id = null) {}
 
