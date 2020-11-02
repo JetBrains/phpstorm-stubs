@@ -1721,6 +1721,24 @@ abstract class Yaf_Response_Abstract {
     public function __toString(){ }
 
     /**
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.response.php
+     * 
+     * @return void
+     */
+    public function response(){ }
+
+    /**
+     * @link https://secure.php.net/manual/en/yaf-response-abstract.setheader.php
+     *
+     * @param string $name header name
+     * @param string $value header value
+     * @param bool $replace
+     * 
+     * @return bool
+     */
+    public function setHeader($name, $value, $replace = false){ }
+
+    /**
      * Set content to response
      *
      * @link https://secure.php.net/manual/en/yaf-response-abstract.setbody.php
