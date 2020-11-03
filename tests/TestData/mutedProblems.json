@@ -1464,6 +1464,45 @@
       ]
     },
     {
+      "name": "SoapFault",
+      "methods": [
+        {
+          "name": "SoapFault",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        },
+        {
+          "name": "__construct",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yaf_Route_Map",
+      "methods": [
+        {
+          "name": "__construct",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "XSLTProcessor",
+      "methods": [
+        {
+          "name": "transformToXml",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        }
+      ]
+    },
+    {
       "name": "SolrQuery",
       "methods": [
         {
