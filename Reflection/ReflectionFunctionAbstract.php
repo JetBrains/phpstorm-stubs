@@ -1,6 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * A parent class to <b>ReflectionFunction</b>, read its
@@ -42,7 +43,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.isclosure.php
      * @return bool {@see true} if it's a closure, otherwise {@see false}
      */
-    public function isClosure()
+    #[Pure]
+	public function isClosure()
     {
     }
 
@@ -52,7 +54,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.isdeprecated.php
      * @return bool {@see true} if it's deprecated, otherwise {@see false}
      */
-    public function isDeprecated()
+    #[Pure]
+	public function isDeprecated()
     {
     }
 
@@ -62,7 +65,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.isinternal.php
      * @return bool {@see true} if it's internal, otherwise {@see false}
      */
-    public function isInternal()
+    #[Pure]
+	public function isInternal()
     {
     }
 
@@ -72,7 +76,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.isuserdefined.php
      * @return bool {@see true} if it's user-defined, otherwise {@see false}
      */
-    public function isUserDefined()
+    #[Pure]
+	public function isUserDefined()
     {
     }
 
@@ -83,7 +88,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return bool {@see true} if the function is generator, otherwise {@see false}
      * @since 5.5
      */
-    public function isGenerator()
+    #[Pure]
+	public function isGenerator()
     {
     }
 
@@ -94,7 +100,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return bool {@see true} if the function is variadic, otherwise {@see false}
      * @since 5.6
      */
-    public function isVariadic()
+    #[Pure]
+	public function isVariadic()
     {
     }
 
@@ -104,7 +111,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.getclosurethis.php
      * @return object|null Returns $this pointer or {@see null} in case of an error.
      */
-    public function getClosureThis()
+    #[Pure]
+	public function getClosureThis()
     {
     }
 
@@ -116,7 +124,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * on failure.
      * @since 5.4
      */
-    public function getClosureScopeClass()
+    #[Pure]
+	public function getClosureScopeClass()
     {
     }
 
@@ -126,7 +135,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.getdoccomment.php
      * @return string|false The doc comment if it exists, otherwise {@see false}
      */
-    public function getDocComment()
+    #[Pure]
+	public function getDocComment()
     {
     }
 
@@ -137,7 +147,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return int|false The ending line number of the user defined function,
      * or {@see false} if unknown.
      */
-    public function getEndLine()
+    #[Pure]
+	public function getEndLine()
     {
     }
 
@@ -148,7 +159,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return ReflectionExtension|null The extension information, as a
      * {@see ReflectionExtension} object or {@see null} instead.
      */
-    public function getExtension()
+    #[Pure]
+	public function getExtension()
     {
     }
 
@@ -158,7 +170,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.getextensionname.php
      * @return string|null The extension's name or {@see null} instead.
      */
-    public function getExtensionName()
+    #[Pure]
+	public function getExtensionName()
     {
     }
 
@@ -168,7 +181,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.getfilename.php
      * @return string|false The file name or {@see false} in case of error.
      */
-    public function getFileName()
+    #[Pure]
+	public function getFileName()
     {
     }
 
@@ -178,7 +192,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.getname.php
      * @return string The name of the function.
      */
-    public function getName()
+    #[Pure]
+	public function getName()
     {
     }
 
@@ -188,7 +203,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.getnamespacename.php
      * @return string The namespace name.
      */
-    public function getNamespaceName()
+    #[Pure]
+	public function getNamespaceName()
     {
     }
 
@@ -199,7 +215,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return int The number of parameters.
      * @since 5.0.3
      */
-    public function getNumberOfParameters()
+    #[Pure]
+	public function getNumberOfParameters()
     {
     }
 
@@ -210,7 +227,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return int The number of required parameters.
      * @since 5.0.3
      */
-    public function getNumberOfRequiredParameters()
+    #[Pure]
+	public function getNumberOfRequiredParameters()
     {
     }
 
@@ -220,7 +238,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.getparameters.php
      * @return ReflectionParameter[] The parameters, as a ReflectionParameter objects.
      */
-    public function getParameters()
+    #[Pure]
+	public function getParameters()
     {
     }
 
@@ -232,7 +251,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * return type is specified, {@see null} otherwise.
      * @since 7.0
      */
-    public function getReturnType()
+    #[Pure]
+	public function getReturnType()
     {
     }
 
@@ -242,7 +262,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.getshortname.php
      * @return string The short name of the function.
      */
-    public function getShortName()
+    #[Pure]
+	public function getShortName()
     {
     }
 
@@ -252,7 +273,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.getstartline.php
      * @return int The starting line number.
      */
-    public function getStartLine()
+    #[Pure]
+	public function getStartLine()
     {
     }
 
@@ -262,7 +284,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @link https://php.net/manual/en/reflectionfunctionabstract.getstaticvariables.php
      * @return array An array of static variables.
      */
-    public function getStaticVariables()
+    #[Pure]
+	public function getStaticVariables()
     {
     }
 
@@ -296,7 +319,8 @@ abstract class ReflectionFunctionAbstract implements Reflector
      * @return ReflectionAttribute[]
      * @since 8.0
      */
-    public function getAttributes($name = null, $flags = 0)
+    #[Pure]
+	public function getAttributes($name = null, $flags = 0)
     {
     }
 }

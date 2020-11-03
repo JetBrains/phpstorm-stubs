@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * @since 8.0
  */
@@ -10,7 +12,8 @@ class ReflectionUnionType extends ReflectionType
      *
      * @return ReflectionNamedType[]
      */
-    public function getTypes()
+    #[Pure]
+	public function getTypes()
     {
     }
 }

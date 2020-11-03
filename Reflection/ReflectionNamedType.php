@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * @since 7.1
  */
@@ -12,7 +14,8 @@ class ReflectionNamedType extends ReflectionType
      * @return string Returns the text of the type hint.
      * @since 7.1
      */
-    public function getName()
+    #[Pure]
+	public function getName()
     {
     }
 
@@ -25,7 +28,8 @@ class ReflectionNamedType extends ReflectionType
      * @since 7.1 overrides the parent {@see ReflectionType::isBuiltin()} method.
      * @since 8.0 method was removed from the parent {@see ReflectionType} class.
      */
-    public function isBuiltin()
+    #[Pure]
+	public function isBuiltin()
     {
     }
 }

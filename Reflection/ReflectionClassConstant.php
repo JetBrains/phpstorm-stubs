@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * The ReflectionClassConstant class reports information about a class constant.
@@ -78,7 +79,8 @@ class ReflectionClassConstant implements Reflector
      * @link https://php.net/manual/en/reflectionclassconstant.getdeclaringclass.php
      * @since 7.1
      */
-    public function getDeclaringClass()
+    #[Pure]
+	public function getDeclaringClass()
     {
     }
 
@@ -89,7 +91,8 @@ class ReflectionClassConstant implements Reflector
      * @link https://php.net/manual/en/reflectionclassconstant.getdoccomment.php
      * @since 7.1
      */
-    public function getDocComment()
+    #[Pure]
+	public function getDocComment()
     {
     }
 
@@ -101,7 +104,8 @@ class ReflectionClassConstant implements Reflector
      * @link https://php.net/manual/en/reflectionclassconstant.getmodifiers.php
      * @since 7.1
      */
-    public function getModifiers()
+    #[Pure]
+	public function getModifiers()
     {
     }
 
@@ -112,7 +116,8 @@ class ReflectionClassConstant implements Reflector
      * @return string Returns the constant's name.
      * @since 7.1
      */
-    public function getName()
+    #[Pure]
+	public function getName()
     {
     }
 
@@ -123,7 +128,8 @@ class ReflectionClassConstant implements Reflector
      * @return mixed The value of the class constant.
      * @since 7.1
      */
-    public function getValue()
+    #[Pure]
+	public function getValue()
     {
     }
 
@@ -134,7 +140,8 @@ class ReflectionClassConstant implements Reflector
      * @return bool
      * @since 7.1
      */
-    public function isPrivate()
+    #[Pure]
+	public function isPrivate()
     {
     }
 
@@ -145,7 +152,8 @@ class ReflectionClassConstant implements Reflector
      * @return bool
      * @since 7.1
      */
-    public function isProtected()
+    #[Pure]
+	public function isProtected()
     {
     }
 
@@ -156,7 +164,8 @@ class ReflectionClassConstant implements Reflector
      * @return bool
      * @since 7.1
      */
-    public function isPublic()
+    #[Pure]
+	public function isPublic()
     {
     }
 
@@ -179,7 +188,8 @@ class ReflectionClassConstant implements Reflector
      * @return ReflectionAttribute[]
      * @since 8.0
      */
-    public function getAttributes($name = null, $flags = 0)
+    #[Pure]
+	public function getAttributes($name = null, $flags = 0)
     {
     }
 

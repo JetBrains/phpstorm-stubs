@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * The <b>ReflectionFunction</b> class reports
@@ -68,7 +69,8 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @return bool {@see true} if it's disable, otherwise {@see false}
      */
     #[Deprecated(since: '8.0')]
-    public function isDisabled()
+    #[Pure]
+	public function isDisabled()
     {
     }
 
@@ -104,7 +106,8 @@ class ReflectionFunction extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionfunction.getclosure.php
      * @return Closure Returns {@see Closure} or {@see null} in case of an error.
      */
-    public function getClosure()
+    #[Pure]
+	public function getClosure()
     {
     }
 }

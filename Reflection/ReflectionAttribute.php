@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * @since 8.0
  */
@@ -29,7 +31,8 @@ class ReflectionAttribute
      * @return string The name of the attribute parameter.
      * @since 8.0
      */
-    public function getName()
+    #[Pure]
+	public function getName()
     {
     }
 
@@ -39,7 +42,8 @@ class ReflectionAttribute
      * @return int
      * @since 8.0
      */
-    public function getTarget()
+    #[Pure]
+	public function getTarget()
     {
     }
 
@@ -49,7 +53,8 @@ class ReflectionAttribute
      * @return bool
      * @since 8.0
      */
-    public function isRepeated()
+    #[Pure]
+	public function isRepeated()
     {
     }
 
@@ -59,7 +64,8 @@ class ReflectionAttribute
      * @return array
      * @since 8.0
      */
-    public function getArguments()
+    #[Pure]
+	public function getArguments()
     {
     }
 

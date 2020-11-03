@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * The <b>ReflectionProperty</b> class reports information about a classes
@@ -97,7 +98,8 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.getname.php
      * @return string The name of the reflected property.
      */
-    public function getName()
+    #[Pure]
+	public function getName()
     {
     }
 
@@ -112,7 +114,8 @@ class ReflectionProperty implements Reflector
      * </p>
      * @return mixed The current value of the property.
      */
-    public function getValue($object = null)
+    #[Pure]
+	public function getValue($object = null)
     {
     }
 
@@ -136,7 +139,8 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.ispublic.php
      * @return bool Return {@see true} if the property is public, {@see false} otherwise.
      */
-    public function isPublic()
+    #[Pure]
+	public function isPublic()
     {
     }
 
@@ -146,7 +150,8 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.isprivate.php
      * @return bool Return {@see true} if the property is private, {@see false} otherwise.
      */
-    public function isPrivate()
+    #[Pure]
+	public function isPrivate()
     {
     }
 
@@ -156,7 +161,8 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.isprotected.php
      * @return bool Returns {@see true} if the property is protected, {@see false} otherwise.
      */
-    public function isProtected()
+    #[Pure]
+	public function isProtected()
     {
     }
 
@@ -166,7 +172,8 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.isstatic.php
      * @return bool Retruns {@see true} if the property is static, {@see false} otherwise.
      */
-    public function isStatic()
+    #[Pure]
+	public function isStatic()
     {
     }
 
@@ -177,7 +184,8 @@ class ReflectionProperty implements Reflector
      * @return bool Returns {@see true} if the property was declared at
      * compile-time, or {@see false} if it was created at run-time.
      */
-    public function isDefault()
+    #[Pure]
+	public function isDefault()
     {
     }
 
@@ -187,7 +195,8 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.getmodifiers.php
      * @return int A numeric representation of the modifiers.
      */
-    public function getModifiers()
+    #[Pure]
+	public function getModifiers()
     {
     }
 
@@ -197,7 +206,8 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.getdeclaringclass.php
      * @return ReflectionClass A {@see ReflectionClass} object.
      */
-    public function getDeclaringClass()
+    #[Pure]
+	public function getDeclaringClass()
     {
     }
 
@@ -207,7 +217,8 @@ class ReflectionProperty implements Reflector
      * @link https://php.net/manual/en/reflectionproperty.getdoccomment.php
      * @return string|false The doc comment if it exists, otherwise {@see false}
      */
-    public function getDocComment()
+    #[Pure]
+	public function getDocComment()
     {
     }
 
@@ -230,7 +241,8 @@ class ReflectionProperty implements Reflector
      * property has a type, and {@see null} otherwise.
      * @since 7.4
      */
-    public function getType()
+    #[Pure]
+	public function getType()
     {
     }
 
@@ -254,7 +266,8 @@ class ReflectionProperty implements Reflector
      * been explicitly {@see unset()}. For all other properties {@see true} will be returned.
      * @since 7.4
      */
-    public function isInitialized($object = null)
+    #[Pure]
+	public function isInitialized($object = null)
     {
     }
 
@@ -264,7 +277,8 @@ class ReflectionProperty implements Reflector
      * @return bool Returns {@see true} if the property was promoted or {@see false} instead.
      * @since 8.0
      */
-    public function isPromoted()
+    #[Pure]
+	public function isPromoted()
     {
     }
 
@@ -288,11 +302,13 @@ class ReflectionProperty implements Reflector
      * @return mixed
      * @since 8.0
      */
-    public function getDefaultValue(){}
+    #[Pure]
+	public function getDefaultValue(){}
 
     /**
      * @return ReflectionAttribute[]
      * @since 8.0
      */
-    public function getAttributes(?string $name = null, int $flags = 0): array {}
+    #[Pure]
+	public function getAttributes(?string $name = null, int $flags = 0): array {}
 }

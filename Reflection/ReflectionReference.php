@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * The ReflectionReference class provides information about a reference.
  *
@@ -35,7 +37,8 @@ class ReflectionReference
      * @link https://php.net/manual/en/reflectionreference.getid.php
      * @return int|string Returns an integer or string of unspecified format.
      */
-    public function getId()
+    #[Pure]
+	public function getId()
     {
     }
 

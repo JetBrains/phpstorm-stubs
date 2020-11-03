@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * The ReflectionGenerator class reports information about a generator.
  *
@@ -26,7 +28,8 @@ class ReflectionGenerator
      * in the generator.
      * @since 7.0
      */
-    public function getExecutingLine()
+    #[Pure]
+	public function getExecutingLine()
     {
     }
 
@@ -38,7 +41,8 @@ class ReflectionGenerator
      * executing generator.
      * @since 7.0
      */
-    public function getExecutingFile()
+    #[Pure]
+	public function getExecutingFile()
     {
     }
 
@@ -59,7 +63,8 @@ class ReflectionGenerator
      * @return array Returns the trace of the currently executing generator.
      * @since 7.0
      */
-    public function getTrace($options = DEBUG_BACKTRACE_PROVIDE_OBJECT)
+    #[Pure]
+	public function getTrace($options = DEBUG_BACKTRACE_PROVIDE_OBJECT)
     {
     }
 
@@ -73,7 +78,8 @@ class ReflectionGenerator
      * or {@see ReflectionMethod} for methods.
      * @since 7.0
      */
-    public function getFunction()
+    #[Pure]
+	public function getFunction()
     {
     }
 
@@ -85,7 +91,8 @@ class ReflectionGenerator
      * generator was not created in a class context.
      * @since 7.0
      */
-    public function getThis()
+    #[Pure]
+	public function getThis()
     {
     }
 
@@ -97,7 +104,8 @@ class ReflectionGenerator
      * @since 7.0
      *
      */
-    public function getExecutingGenerator()
+    #[Pure]
+	public function getExecutingGenerator()
     {
     }
 }

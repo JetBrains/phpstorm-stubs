@@ -1,6 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * @link https://secure.php.net/manual/en/class.reflectionzendextension.php
@@ -59,7 +60,8 @@ class ReflectionZendExtension implements Reflector
      * @return string
      * @since 5.4
      */
-    public function getName()
+    #[Pure]
+	public function getName()
     {
     }
 
@@ -70,7 +72,8 @@ class ReflectionZendExtension implements Reflector
      * @return string
      * @since 5.4
      */
-    public function getVersion()
+    #[Pure]
+	public function getVersion()
     {
     }
 
@@ -81,7 +84,8 @@ class ReflectionZendExtension implements Reflector
      * @return string
      * @since 5.4
      */
-    public function getAuthor()
+    #[Pure]
+	public function getAuthor()
     {
     }
 
@@ -92,7 +96,8 @@ class ReflectionZendExtension implements Reflector
      * @return string
      * @since 5.4
      */
-    public function getURL()
+    #[Pure]
+	public function getURL()
     {
     }
 
@@ -103,7 +108,8 @@ class ReflectionZendExtension implements Reflector
      * @return string
      * @since 5.4
      */
-    public function getCopyright()
+    #[Pure]
+	public function getCopyright()
     {
     }
 

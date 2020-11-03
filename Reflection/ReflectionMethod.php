@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Immutable;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * The <b>ReflectionMethod</b> class reports
@@ -108,7 +109,8 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionmethod.ispublic.php
      * @return bool Returns {@see true} if the method is public, otherwise {@see false}
      */
-    public function isPublic()
+    #[Pure]
+	public function isPublic()
     {
     }
 
@@ -118,7 +120,8 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionmethod.isprivate.php
      * @return bool Returns {@see true} if the method is private, otherwise {@see false}
      */
-    public function isPrivate()
+    #[Pure]
+	public function isPrivate()
     {
     }
 
@@ -128,7 +131,8 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionmethod.isprotected.php
      * @return bool Returns {@see true} if the method is protected, otherwise {@see false}
      */
-    public function isProtected()
+    #[Pure]
+	public function isProtected()
     {
     }
 
@@ -138,7 +142,8 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionmethod.isabstract.php
      * @return bool Returns {@see true} if the method is abstract, otherwise {@see false}
      */
-    public function isAbstract()
+    #[Pure]
+	public function isAbstract()
     {
     }
 
@@ -148,7 +153,8 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionmethod.isfinal.php
      * @return bool Returns {@see true} if the method is final, otherwise {@see false}
      */
-    public function isFinal()
+    #[Pure]
+	public function isFinal()
     {
     }
 
@@ -158,7 +164,8 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionmethod.isstatic.php
      * @return bool Returns {@see true} if the method is static, otherwise {@see false}
      */
-    public function isStatic()
+    #[Pure]
+	public function isStatic()
     {
     }
 
@@ -168,7 +175,8 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionmethod.isconstructor.php
      * @return bool Returns {@see true} if the method is a constructor, otherwise {@see false}
      */
-    public function isConstructor()
+    #[Pure]
+	public function isConstructor()
     {
     }
 
@@ -178,7 +186,8 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @link https://php.net/manual/en/reflectionmethod.isdestructor.php
      * @return bool Returns {@see true} if the method is a destructor, otherwise {@see false}
      */
-    public function isDestructor()
+    #[Pure]
+	public function isDestructor()
     {
     }
 
@@ -190,7 +199,8 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @return Closure Retruns {@see Closure} or {@see null} in case of an error.
      * @since 5.4
      */
-    public function getClosure($object = null)
+    #[Pure]
+	public function getClosure($object = null)
     {
     }
 
@@ -211,7 +221,8 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      *  - {@see ReflectionMethod::IS_ABSTRACT} - Indicates that the method is abstract.
      *  - {@see ReflectionMethod::IS_FINAL} - Indicates that the method is final.
      */
-    public function getModifiers()
+    #[Pure]
+	public function getModifiers()
     {
     }
 
@@ -256,7 +267,8 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @return ReflectionClass A {@see ReflectionClass} object of the class that the
      * reflected method is part of.
      */
-    public function getDeclaringClass()
+    #[Pure]
+	public function getDeclaringClass()
     {
     }
 
@@ -267,7 +279,8 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * @return ReflectionMethod A {@see ReflectionMethod} instance of the method prototype.
      * @throws ReflectionException if the method does not have a prototype
      */
-    public function getPrototype()
+    #[Pure]
+	public function getPrototype()
     {
     }
 
