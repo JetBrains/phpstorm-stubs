@@ -13,7 +13,7 @@ abstract class BasePHPElement
     public ?string $name = null;
     public bool $stubBelongsToCore = false;
     public ?Exception $parseError = null;
-    protected array $mutedProblems = [];
+    public array $mutedProblems = [];
 
     abstract public function readObjectFromReflection(Reflector $reflectionObject): static;
 

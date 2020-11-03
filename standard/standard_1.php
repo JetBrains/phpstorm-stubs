@@ -60,7 +60,7 @@ function strpos ($haystack, $needle, $offset = 0) {}
  * @param string $haystack <p>
  * The string to search in
  * </p>
- * @param string $needle <p>
+ * @param mixed $needle <p>
  * Note that the needle may be a string of one or
  * more characters.
  * </p>
@@ -86,7 +86,7 @@ function stripos ($haystack, $needle, $offset = null) {}
  * @param string $haystack <p>
  * The string to search in.
  * </p>
- * @param string $needle <p>
+ * @param mixed $needle <p>
  * If <b>needle</b> is not a string, it is converted to an integer and applied as the ordinal value of a character.
  * </p>
  * @param int $offset [optional] <p>
@@ -111,7 +111,7 @@ function strrpos ($haystack, $needle, $offset = 0) {}
  * @param string $haystack <p>
  * The string to search in
  * </p>
- * @param string $needle <p>
+ * @param mixed $needle <p>
  * Note that the needle may be a string of one or
  * more characters.
  * </p>
@@ -191,7 +191,7 @@ function hebrevc ($hebrew_text, $max_chars_per_line = null) {}
 function nl2br ($string, $use_xhtml = true) {}
 
 /**
- * Returns filename component of path
+ * Returns trailing name component of path
  * @link https://php.net/manual/en/function.basename.php
  * @param string $path <p>
  * A path.
@@ -211,7 +211,7 @@ function nl2br ($string, $use_xhtml = true) {}
 function basename ($path, $suffix = null) {}
 
 /**
- * Returns directory name component of path
+ * Returns a parent directory's path
  * @link https://php.net/manual/en/function.dirname.php
  * @param string $path <p>
  * A path.
@@ -286,7 +286,7 @@ function stripslashes ($string) {}
 function stripcslashes ($string) {}
 
 /**
- * Find first occurrence of a string
+ * Find the first occurrence of a string
  * @link https://php.net/manual/en/function.strstr.php
  * @param string $haystack <p>
  * The input string.
@@ -419,7 +419,7 @@ function str_split ($string, $length = 1) {}
 function strpbrk ($string, $characters) {}
 
 /**
- * Binary safe comparison of 2 strings from an offset, up to length characters
+ * Binary safe comparison of two strings from an offset, up to length characters
  * @link https://php.net/manual/en/function.substr-compare.php
  * @param string $haystack <p>
  * The main string being compared.
@@ -635,7 +635,7 @@ function lcfirst ($string) {}
 function ucwords ($string, $separators = " \t\r\n\f\v") {}
 
 /**
- * Translate certain characters
+ * Translate characters or replace substrings
  * @link https://php.net/manual/en/function.strtr.php
  * @param string $string <p>
  * The string being translated.
@@ -952,7 +952,7 @@ function strip_tags ($string, $allowed_tags = null) {}
 function similar_text ($string1, $string2, &$percent = null) {}
 
 /**
- * Split a string by string
+ * Split a string by a string
  * @link https://php.net/manual/en/function.explode.php
  * @param string $separator <p>
  * The boundary string.

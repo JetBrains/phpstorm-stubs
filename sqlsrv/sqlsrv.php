@@ -978,7 +978,7 @@ function sqlsrv_connect($server_name, $connection_info = array()){}
 function sqlsrv_close($conn){}
 
 /**
- * Commits a transaction.
+ * Commits a transaction that was begun with sqlsrv_begin_transaction.
  *
  * <br />Commits the current transaction on the specified connection and returns the connection to the auto-commit mode.
  * The current transaction includes all statements on the specified connection that were executed after the call to
@@ -999,7 +999,7 @@ function sqlsrv_close($conn){}
 function sqlsrv_commit($conn){}
 
 /**
- * Begins a transaction.
+ * Begins a database transaction.
  *
  * <br />Begins a transaction on a specified connection. The current transaction includes all statements on the specified
  * connection that were executed after the call to sqlsrv_begin_transaction and before any calls to sqlsrv_rollback or
@@ -1026,7 +1026,7 @@ function sqlsrv_commit($conn){}
 function sqlsrv_begin_transaction($conn){}
 
 /**
- * Rolls back a transaction.
+ * Rolls back a transaction that was begun with {@see sqlsrv_begin_transaction}.
  *
  * <br />Rolls back the current transaction on the specified connection and returns the connection to the auto-commit mode.
  * The current transaction includes all statements on the specified connection that were executed after the call to
@@ -1103,7 +1103,7 @@ function sqlsrv_rollback($conn){}
 function sqlsrv_errors($errorsAndOrWarnings = SQLSRV_ERR_ALL){}
 
 /**
- * Changes error handling and logging configurations.
+ * Changes the driver error handling and logging configurations.
  *
  * <br />Changes the settings for error handling and logging options.<br />
  *
@@ -1214,7 +1214,7 @@ function sqlsrv_get_config($setting){}
 function sqlsrv_prepare($conn, $tsql, $params=array(), $options=array()){}
 
 /**
- * Executes a prepared statement.
+ * Executes a statement prepared with {@see sqlsrv_prepare}
  *
  * <br />Executes a previously prepared statement. See {@link sqlsrv_prepare() sqlsrv_prepare} for information on preparing a statement
  * for execution.<br />
@@ -1288,7 +1288,7 @@ function sqlsrv_execute($stmt){}
 function sqlsrv_query($conn, $tsql, $params=array(), $options=array()){}
 
 /**
- * Makes the next row of data available for reading.
+ * Makes the next row in a result set available for reading.
  *
  * <br />Makes the next row of a result set available for reading. Use {@link sqlsrv_get_field() sqlsrv_get_field} to read fields of
  * the row.<br />
@@ -1443,7 +1443,7 @@ function sqlsrv_fetch_object($stmt, $class_name=null, $ctor_params=null, $row=nu
 function sqlsrv_has_rows($stmt){}
 
 /**
- * Retrieves the number of fields in an active result set.
+ * Retrieves the number of fields (columns) on a statemen.
  *
  * <br />Retrieves the number of fields in an active result set. Note that sqlsrv_num_fields can be called on any
  * prepared statement, before or after execution.<br />
@@ -1459,7 +1459,7 @@ function sqlsrv_has_rows($stmt){}
 function sqlsrv_num_fields($stmt){}
 
 /**
- * Makes the next result available for processing.
+ * Makes the next result of the specified statement active.
  *
  * <br />Makes the next result (result set, row count, or output parameter) of the specified statement active.<br />
  *
@@ -1477,7 +1477,7 @@ function sqlsrv_num_fields($stmt){}
 function sqlsrv_next_result($stmt){}
 
 /**
- * Reports the number of rows in a result set.
+ * Retrieves the number of rows in a result set.
  *
  * <br />sqlsrv_num_rows requires a client-side, static, or keyset cursor, and will return false if you use a forward cursor
  * or a dynamic cursor. (A forward cursor is the default.) For more information about cursors, see
@@ -1528,7 +1528,7 @@ function sqlsrv_rows_affected($stmt){}
 function sqlsrv_client_info($conn){}
 
 /**
- * Provides information about the server.
+ * Returns information about the server.
  *
  * <br />Returns information about the server. A connection must be established before calling this function.<br />
  *

@@ -593,12 +593,12 @@ namespace MongoDB {}
             /**
              * Construct immutable ReadPreference
              * @link https://php.net/manual/en/mongodb-driver-readpreference.construct.php
-             * @param int $mode
+             * @param string|int $mode
              * @param array|null $tagSets
              * @param array $options
              * @throws InvalidArgumentException if mode is invalid or if tagSets is provided for a primary read preference.
              */
-            final public function __construct($mode, array $tagSets = null, array $options = [])
+            final public function __construct(string|int $mode, array $tagSets = null, array $options = [])
             {
             }
 
@@ -2016,6 +2016,7 @@ namespace MongoDB {}
      */
     namespace MongoDB\BSON {
 
+        use DateTimeInterface;
         use JetBrains\PhpStorm\Deprecated;
         use JsonSerializable;
         use MongoDB\Driver\Exception\InvalidArgumentException;
@@ -2673,7 +2674,7 @@ namespace MongoDB {}
             /**
              * Construct a new UTCDateTime
              * @link https://php.net/manual/en/mongodb-bson-utcdatetime.construct.php
-             * @param integer $milliseconds
+             * @param int|float|string|DateTimeInterface $milliseconds
              */
             final public function __construct($milliseconds=null)
             {

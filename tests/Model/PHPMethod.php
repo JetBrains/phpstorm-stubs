@@ -51,6 +51,8 @@ class PHPMethod extends PHPFunction
         $this->collectTags($node);
         $this->checkDeprecationTag($node);
         $this->checkReturnTag($node);
+        $this->checkDoc($node);
+
 
         if (strncmp($this->name, 'PS_UNRESERVE_PREFIX_', 20) === 0) {
             $this->name = substr($this->name, strlen('PS_UNRESERVE_PREFIX_'));
@@ -83,6 +85,8 @@ class PHPMethod extends PHPFunction
                             'deprecated method' => StubProblemType::FUNCTION_IS_DEPRECATED,
                             'absent in meta' => StubProblemType::ABSENT_IN_META,
                             'wrong access' => StubProblemType::FUNCTION_ACCESS,
+                            'wrong return type in docs' => StubProblemType::RETURN_TYPE_IS_WRONG_IN_OFICIAL_DOCS,
+                            'wrong parmeter type in docs' => StubProblemType::PARAMETER_TYPE_IS_WRONG_IN_OFICIAL_DOCS,
                             default => -1
                         };
                     }

@@ -515,7 +515,7 @@ function get_included_files () {}
 function get_required_files () {}
 
 /**
- * Checks if the object has this class as one of its parents
+ * checks if the object has this class as one of its parents or implements it
  * @link https://php.net/manual/en/function.is-subclass-of.php
  * @param mixed $object_or_class <p>
  * A class name or an object instance

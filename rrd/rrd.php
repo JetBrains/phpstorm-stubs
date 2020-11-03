@@ -9,7 +9,7 @@
 // start of PECL/rrd v1.0
 
 /**
- * Returns latest global rrd error message.
+ * Gets latest error message
  * @link https://php.net/manual/en/function.rrd-error.php
  * @return string Latest error message.
  * @since PECL rrd >= 0.9.0

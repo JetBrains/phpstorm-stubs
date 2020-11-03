@@ -13,7 +13,7 @@ class SplFileInfo implements Stringable {
         /**
          * Construct a new SplFileInfo object
          * @link https://php.net/manual/en/splfileinfo.construct.php
-         * @param $file_name
+         * @param string $file_name
          * @since 5.1.2
          */
         public function __construct ($file_name) {}
@@ -294,7 +294,7 @@ class DirectoryIterator extends SplFileInfo implements SeekableIterator {
         /**
          * Constructs a new directory iterator from a path
          * @link https://php.net/manual/en/directoryiterator.construct.php
-         * @param $path
+         * @param string $path
          * @throws UnexpectedValueException if the path cannot be opened.
          * @throws RuntimeException if the path is an empty string.
          */
@@ -376,8 +376,8 @@ class FilesystemIterator extends DirectoryIterator {
         /**
          * Constructs a new filesystem iterator
          * @link https://php.net/manual/en/filesystemiterator.construct.php
-         * @param $path
-         * @param $flags [optional]
+         * @param string $path
+         * @param int $flags [optional]
          * @throws UnexpectedValueException if the path cannot be found.
          */
         public function __construct ($path, $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::SKIP_DOTS) {}
@@ -442,8 +442,8 @@ class RecursiveDirectoryIterator extends FilesystemIterator implements Recursive
         /**
          * Constructs a RecursiveDirectoryIterator
          * @link https://php.net/manual/en/recursivedirectoryiterator.construct.php
-         * @param $path
-         * @param $flags [optional]
+         * @param string $path
+         * @param int $flags [optional]
          * @throws UnexpectedValueException if the path cannot be found or is not a directory.
          * @since 5.1.2
          */
@@ -522,7 +522,7 @@ class GlobIterator extends FilesystemIterator implements Countable {
          * Construct a directory using glob
          * @link https://php.net/manual/en/globiterator.construct.php
          * @param $path
-         * @param $flags [optional]
+         * @param int $flags [optional]
          */
         public function __construct ($path, $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO) {}
 
@@ -1994,7 +1994,7 @@ class SplObjectStorage implements Countable, Iterator, Serializable, ArrayAccess
         /**
          * Calculate a unique identifier for the contained objects
          * @link https://php.net/manual/en/splobjectstorage.gethash.php
-         * @param $object  <p>
+         * @param object $object  <p>
          * object whose identifier is to be calculated.
          * @return string A string with the calculated identifier.
          * @since 5.4
@@ -2035,7 +2035,7 @@ class MultipleIterator implements Iterator {
         /**
          * Constructs a new MultipleIterator
          * @link https://php.net/manual/en/multipleiterator.construct.php
-         * @param $flags [optional] Defaults to MultipleIterator::MIT_NEED_ALL | MultipleIterator::MIT_KEYS_NUMERIC
+         * @param int $flags [optional] Defaults to MultipleIterator::MIT_NEED_ALL | MultipleIterator::MIT_KEYS_NUMERIC
          */
         public function __construct ($flags = MultipleIterator::MIT_NEED_ALL | MultipleIterator::MIT_KEYS_NUMERIC) {}
 

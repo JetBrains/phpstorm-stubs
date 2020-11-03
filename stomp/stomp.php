@@ -173,7 +173,7 @@ class StompException extends Exception
 function stomp_version() {}
 
 /**
- * Connect to server
+ * Opens a connection
  *
  * @param string $broker broker URI
  * @param string $username The username
@@ -184,7 +184,7 @@ function stomp_version() {}
 function stomp_connect($broker = null, $username = null, $password = null, array $headers = array()) {}
 
 /**
- * Get the current stomp session ID
+ * Gets the current stomp session ID
  *
  * @param resource $link identifier returned by stomp_connect
  * @return string|false stomp session ID if it exists, or FALSE otherwise
@@ -192,7 +192,7 @@ function stomp_connect($broker = null, $username = null, $password = null, array
 function stomp_get_session_id($link) {}
 
 /**
- * Close stomp connection
+ * Closes stomp connection
  *
  * @param resource $link identifier returned by stomp_connect
  * @return boolean TRUE on success, or FALSE on failure
@@ -211,7 +211,7 @@ function stomp_close($link) {}
 function stomp_send($link, $destination, $msg, array $headers = array()) {}
 
 /**
- * Register to listen to a given destination
+ * Registers to listen to a given destination
  *
  * @param resource $link identifier returned by stomp_connect
  * @param string    $destination indicates which destination to subscribe to
@@ -221,7 +221,7 @@ function stomp_send($link, $destination, $msg, array $headers = array()) {}
 function stomp_subscribe($link, $destination, array $headers = array()) {}
 
 /**
- * Remove an existing subscription
+ * Removes an existing subscription
  *
  * @param resource $link identifier returned by stomp_connect
  * @param string    $destination indicates which subscription to remove
@@ -231,7 +231,7 @@ function stomp_subscribe($link, $destination, array $headers = array()) {}
 function stomp_unsubscribe($link, $destination, array $headers = array()) {}
 
 /**
- * Indicate whether or not there is a frame ready to read
+ * Indicates whether or not there is a frame ready to read
  *
  * @param resource $link identifier returned by stomp_connect
  * @return boolean TRUE if there is one, or FALSE otherwise
@@ -239,7 +239,7 @@ function stomp_unsubscribe($link, $destination, array $headers = array()) {}
 function stomp_has_frame($link) {}
 
 /**
- * Read the next frame
+ * Reads the next frame
  *
  * @param resource $link identifier returned by stomp_connect
  * @return array|false on success, or FALSE on failure
@@ -247,7 +247,7 @@ function stomp_has_frame($link) {}
 function stomp_read_frame($link) {}
 
 /**
- * Start a transaction
+ * Starts a transaction
  *
  * @param resource $link identifier returned by stomp_connect
  * @param string    $transaction_id transaction id
@@ -256,7 +256,7 @@ function stomp_read_frame($link) {}
 function stomp_begin($link, $transaction_id) {}
 
 /**
- * Commit a transaction in progress
+ * Commits a transaction in progress
  *
  * @param resource $link identifier returned by stomp_connect
  * @param string    $transaction_id transaction id
@@ -265,7 +265,7 @@ function stomp_begin($link, $transaction_id) {}
 function stomp_commit($link, $transaction_id) {}
 
 /**
- * Roll back a transaction in progress
+ * Rolls back a transaction in progress
  *
  * @param resource $link identifier returned by stomp_connect
  * @param string    $transaction_id transaction id
@@ -284,7 +284,7 @@ function stomp_abort($link, $transaction_id) {}
 function stomp_ack($link, $msg, array $headers = array()) {}
 
 /**
- * Get the last stomp error
+ * Gets the last stomp error
  *
  * @param resource $link identifier returned by stomp_connect
  * @return string|false Error message, or FALSE if no error

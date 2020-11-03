@@ -96,7 +96,7 @@ function mcrypt_get_block_size ($cipher, $mode) {}
 function mcrypt_get_cipher_name ($cipher) {}
 
 /**
- * Create an initialization vector (IV) from a random source
+ * Creates an initialization vector (IV) from a random source
  * @link https://php.net/manual/en/function.mcrypt-create-iv.php
  * @param int $size <p>
  * Determines the size of the IV, parameter source
@@ -125,7 +125,7 @@ function mcrypt_get_cipher_name ($cipher) {}
 function mcrypt_create_iv ($size, $source = MCRYPT_DEV_URANDOM) {}
 
 /**
- * Get an array of all supported ciphers
+ * Gets an array of all supported ciphers
  * @link https://php.net/manual/en/function.mcrypt-list-algorithms.php
  * @param string $lib_dir [optional] <p>
  * Specifies the directory where all algorithms are located. If not
@@ -138,7 +138,7 @@ function mcrypt_create_iv ($size, $source = MCRYPT_DEV_URANDOM) {}
 function mcrypt_list_algorithms ($lib_dir = null) {}
 
 /**
- * Get an array of all supported modes
+ * Gets an array of all supported modes
  * @link https://php.net/manual/en/function.mcrypt-list-modes.php
  * @param string $lib_dir [optional] <p>
  * Specifies the directory where all modes are located. If not
@@ -323,7 +323,7 @@ function mcrypt_generic_init ($td, $key, $iv) {}
 function mcrypt_generic ($td, $data) {}
 
 /**
- * Decrypt data
+ * Decrypts data
  * @link https://php.net/manual/en/function.mdecrypt-generic.php
  * @param resource $td <p>
  * An encryption descriptor returned by
@@ -590,7 +590,7 @@ function mcrypt_module_get_algo_key_size ($algorithm, $lib_dir = null) {}
 function mcrypt_module_get_supported_key_sizes ($algorithm, $lib_dir = null) {}
 
 /**
- * Close the mcrypt module
+ * Closes the mcrypt module
  * @link https://php.net/manual/en/function.mcrypt-module-close.php
  * @param resource $td <p>
  * The encryption descriptor.

@@ -317,11 +317,12 @@ class DOMNode  {
 
     /**
      * Canonicalize nodes to a file.
-     * @param $uri Number of bytes written or FALSE on failure
-     * @param $exclusive [optional] Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.
-     * @param $with_comments [optional]  Retain comments in output.
-     * @param $xpath [optional] An array of xpaths to filter the nodes by.
-     * @param $ns_prefixes [optional] An array of namespace prefixes to filter the nodes by.
+     * @link https://www.php.net/manual/en/domnode.c14nfile
+     * @param string $uri Number of bytes written or FALSE on failure
+     * @param bool $exclusive [optional] Enable exclusive parsing of only the nodes matched by the provided xpath or namespace prefixes.
+     * @param bool $with_comments [optional]  Retain comments in output.
+     * @param array $xpath [optional] An array of xpaths to filter the nodes by.
+     * @param array $ns_prefixes [optional] An array of namespace prefixes to filter the nodes by.
      * @return int|false Number of bytes written or FALSE on failure
      */
     public function C14NFile ($uri, $exclusive, array $with_comments, array $xpath = null, $ns_prefixes = null) {}
@@ -957,7 +958,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * @param string $source <p>
      * The HTML string.
      * </p>
-     * @param string $options [optional] <p>
+     * @param int $options [optional] <p>
      * Since PHP 5.4.0 and Libxml 2.6.0, you may also
      * use the options parameter to specify additional Libxml parameters.
      * </p>
@@ -973,7 +974,7 @@ class DOMDocument extends DOMNode implements DOMParentNode {
      * @param string $filename <p>
      * The path to the HTML file.
      * </p>
-     * @param string $options [optional] <p>
+     * @param int $options [optional] <p>
      * Since PHP 5.4.0 and Libxml 2.6.0, you may also
      * use the options parameter to specify additional Libxml parameters.
      * </p>
@@ -1347,10 +1348,10 @@ class DOMAttr extends DOMNode
     public function isId() {}
 
     /**
-     * Creates a new <classname>DOMAttr</classname> object
+     * Creates a new {@see DOMAttr} object
      * @link https://php.net/manual/en/domattr.construct.php
-     * @param $name
-     * @param $value [optional]
+     * @param string $name <p>The tag name of the attribute.</p>
+     * @param string $value [optional] <p>The value of the attribute.</p>
      */
     public function __construct($name, $value) {}
 }
@@ -1718,7 +1719,7 @@ class DOMText extends DOMCharacterData  {
     /**
      * Creates a new <classname>DOMText</classname> object
      * @link https://php.net/manual/en/domtext.construct.php
-     * @param $value [optional] The value of the text node. If not supplied an empty text node is created.
+     * @param string $value [optional] The value of the text node. If not supplied an empty text node is created.
      */
     public function __construct ($value) {}
 
@@ -1734,7 +1735,7 @@ class DOMComment extends DOMCharacterData  {
     /**
      * Creates a new DOMComment object
      * @link https://php.net/manual/en/domcomment.construct.php
-     * @param $value [optional] The value of the comment
+     * @param string $value [optional] The value of the comment
      */
     public function __construct ($value) {}
 }

@@ -78,8 +78,8 @@ function closelog () {}
 function header_register_callback ( callable $callback ) {}
 
 /**
- * PHP > 5.4.0<br/>
  * Get the size of an image from a string.
+ * @since 5.4
  * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
  * @param string $string The image data, as a string.
  * @param array &$image_info This optional parameter allows you to extract<br>
@@ -98,8 +98,8 @@ function header_register_callback ( callable $callback ) {}
 function getimagesizefromstring ($string , array &$image_info = null) {}
 
 /**
- * PHP > 5.4.0<br/>
  * Set the stream chunk size.
+ * @since 5.4
  * @link https://secure.php.net/manual/en/function.stream-set-chunk-size.php
  * @param resource $stream The target stream.
  * @param int $size The desired new chunk size.
@@ -764,7 +764,7 @@ function max ($value, ...$values) {}
 function in_array ($needle, array $haystack, $strict = false) {}
 
 /**
- * Searches the array for a given value and returns the corresponding key if successful
+ * Searches the array for a given value and returns the first corresponding key if successful
  * @link https://php.net/manual/en/function.array-search.php
  * @param mixed $needle <p>
  * The searched value.

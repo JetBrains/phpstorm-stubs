@@ -310,7 +310,7 @@ class RecursiveIteratorIterator implements OuterIterator {
     /**
      * The current active sub iterator
      * @link https://php.net/manual/en/recursiveiteratoriterator.getsubiterator.php
-     * @param $level [optional]
+     * @param int $level [optional]
      * @return RecursiveIterator The current active sub iterator.
      */
     public function getSubIterator($level) { }
@@ -374,7 +374,7 @@ class RecursiveIteratorIterator implements OuterIterator {
     /**
      * Set max depth
      * @link https://php.net/manual/en/recursiveiteratoriterator.setmaxdepth.php
-     * @param string $max_depth [optional] <p>
+     * @param int $max_depth [optional] <p>
      * The maximum allowed depth. Default -1 is used
      * for any depth.
      * </p>
@@ -1815,7 +1815,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * User defined sort
      * @link https://php.net/manual/en/arrayiterator.uasort.php
-     * @param string $cmp_function <p>
+     * @param callable $cmp_function <p>
      * The compare function used for the sort.
      * </p>
      * @return void
@@ -1825,7 +1825,7 @@ class ArrayIterator implements SeekableIterator, ArrayAccess, Serializable, Coun
     /**
      * User defined sort
      * @link https://php.net/manual/en/arrayiterator.uksort.php
-     * @param string $cmp_function <p>
+     * @param callable $cmp_function <p>
      * The compare function used for the sort.
      * </p>
      * @return void

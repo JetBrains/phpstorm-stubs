@@ -753,7 +753,7 @@ class SoapFault extends Exception  {
 	 * @param string $faultactor [optional] <p>
 	 * A string identifying the actor that caused the error.
 	 * </p>
-	 * @param mixed $detail [optional] <p>
+	 * @param string $detail [optional] <p>
 	 * More details about the cause of the error.
 	 * </p>
 	 * @param string $faultname [optional] <p>
@@ -780,7 +780,7 @@ class SoapFault extends Exception  {
 	 * @param string $faultactor [optional] <p>
 	 * A string identifying the actor that caused the error.
 	 * </p>
-	 * @param mixed $detail [optional] <p>
+	 * @param string $detail [optional] <p>
 	 * More details about the cause of the error.
 	 * </p>
 	 * @param string $faultname [optional] <p>

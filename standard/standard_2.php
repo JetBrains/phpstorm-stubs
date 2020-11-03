@@ -191,7 +191,7 @@ function soundex ($string) {}
 function levenshtein ($string1, $string2, $insertion_cost = null, $repetition_cost = null, $deletion_cost = null) {}
 
 /**
- * Return a specific character
+ * Generate a single-byte string from a number
  * @link https://php.net/manual/en/function.chr.php
  * @param int $codepoint <p>
  * The ascii code.
@@ -202,7 +202,7 @@ function levenshtein ($string1, $string2, $insertion_cost = null, $repetition_co
 function chr ($codepoint) {}
 
 /**
- * Return ASCII value of character
+ * Convert the first byte of a string to a value between 0 and 255
  * @link https://php.net/manual/en/function.ord.php
  * @param string $character <p>
  * A character.
@@ -517,7 +517,7 @@ function urlencode ($string) {}
 function urldecode ($string) {}
 
 /**
- * URL-encode according to RFC 1738
+ * URL-encode according to RFC 3986
  * @link https://php.net/manual/en/function.rawurlencode.php
  * @param string $string <p>
  * The URL to be encoded.
@@ -803,7 +803,7 @@ function shell_exec ($command) {}
 function proc_open ($command, array $descriptor_spec, array &$pipes, $cwd = null, array $env_vars = null, array $options = null) {}
 
 /**
- * Close a process opened by <function>proc_open</function> and return the exit code of that process
+ * Close a process opened by {@see proc_open} and return the exit code of that process
  * @link https://php.net/manual/en/function.proc-close.php
  * @param resource $process <p>
  * The proc_open resource that will
@@ -831,7 +831,7 @@ function proc_close ($process) {}
 function proc_terminate ($process, $signal = 15) {}
 
 /**
- * Get information about a process opened by <function>proc_open</function>
+ * Get information about a process opened by {@see proc_open}
  * @link https://php.net/manual/en/function.proc-get-status.php
  * @param resource $process <p>
  * The proc_open resource that will
@@ -981,7 +981,7 @@ function getrandmax () {}
 function mt_rand ($min = 0, $max = null) {}
 
 /**
- * Seed the better random number generator
+ * Seeds the Mersenne Twister Random Number Generator
  * @link https://php.net/manual/en/function.mt-srand.php
  * @param int $seed [optional] <p>
  * An optional seed value

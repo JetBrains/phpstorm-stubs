@@ -275,10 +275,10 @@ class SQLite3  {
 	/**
 	 * Opens a stream resource to read a BLOB
 	 * @link https://php.net/manual/en/sqlite3.openblob.php
-	 * @param $table <p>The table name.</p>
-	 * @param $column <p>The column name.</p>
-	 * @param $rowid <p>The row ID.</p>
-	 * @param $dbname [optional] <p>The symbolic name of the DB</p>
+	 * @param string $table <p>The table name.</p>
+	 * @param string $column <p>The column name.</p>
+	 * @param int $rowid <p>The row ID.</p>
+	 * @param string $dbname [optional] <p>The symbolic name of the DB</p>
 	 * @param int $flags [optional]
 	 * <p>Either <b>SQLITE3_OPEN_READONLY</b> or <b>SQLITE3_OPEN_READWRITE</b> to open the stream for reading only, or for reading and writing, respectively.</p?
 	 * @return resource|false Returns a stream resource, or FALSE on failure.
@@ -286,7 +286,9 @@ class SQLite3  {
 	public function openBlob ($table, $column, $rowid, $dbname, int $flags = SQLITE3_OPEN_READONLY) {}
 
 	/**
-	 * @param $enableExceptions
+	 * Enable throwing exceptions
+	 * @link https://www.php.net/manual/en/sqlite3.enableexceptions
+	 * @param bool $enableExceptions
 	 */
 	public function enableExceptions ($enableExceptions) {}
 

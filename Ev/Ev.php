@@ -1326,7 +1326,7 @@ final class EvLoop
 
     /**
      * Creates EvChild object associated with the current event loop instance;
-     *
+     * @link https://www.php.net/manual/en/evloop.child.php
      * @param int $pid
      * @param bool $trace
      * @param callable $callback

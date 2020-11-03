@@ -369,7 +369,7 @@ function ming_setcubicthreshold ($threshold) {}
 /**
  * Set the global scaling factor.
  * @link https://php.net/manual/en/function.ming-setscale.php
- * @param int $scale <p>
+ * @param float $scale <p>
  * The scale to be set.
  * </p>
  * @return void

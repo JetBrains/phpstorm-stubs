@@ -1326,6 +1326,7 @@ function gearman_job_send_exception($job_object, $exception) {}
 function gearman_job_send_fail($job_object) {}
 
 /**
+ * Get the job handle
  * @param $job_object
  */
 function gearman_job_handle($job_object) {}
@@ -2017,7 +2018,7 @@ class GearmanWorker {
      * the list of available workers.
      *
      * @link https://php.net/manual/en/gearmanworker.setid.php
-     * @param int $id A string identifier
+     * @param string $id A string identifier
      * @return bool Returns TRUE on success or FALSE on failure
      */
     public function setId($id) {}
@@ -2138,7 +2139,7 @@ class GearmanJob {
      * Sets the return value for this job, indicates how the job completed.
      *
      * @link https://php.net/manual/en/gearmanjob.setreturn.php
-     * @param string $gearman_return_t A valid Gearman return value
+     * @param int $gearman_return_t A valid Gearman return value
      * @return bool Description
      */
     public function setReturn($gearman_return_t) {}

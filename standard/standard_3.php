@@ -719,7 +719,7 @@ function inet_ntop ($ip) {}
 function inet_pton ($ip) {}
 
 /**
- * Converts a string containing an (IPv4) Internet Protocol dotted address into a proper address
+ * Converts a string containing an (IPv4) Internet Protocol dotted address into a long integer
  * @link https://php.net/manual/en/function.ip2long.php
  * @param string $ip <p>
  * A standard format address.
@@ -731,7 +731,7 @@ function inet_pton ($ip) {}
 function ip2long ($ip) {}
 
 /**
- * Converts an (IPv4) Internet network address into a string in Internet standard dotted format
+ * Converts an long integer address into a string in (IPv4) internet standard dotted format
  * @link https://php.net/manual/en/function.long2ip.php
  * @param string|int $ip <p>
  * A proper address representation.
@@ -1022,7 +1022,7 @@ function get_magic_quotes_runtime () {}
 function import_request_variables ($types, $prefix = null) {}
 
 /**
- * Send an error message somewhere
+ * Send an error message to the defined error handling routines
  * @link https://php.net/manual/en/function.error-log.php
  * @param string $message <p>
  * The error message that should be logged.

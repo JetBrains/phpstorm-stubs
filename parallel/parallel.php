@@ -16,7 +16,7 @@ function bootstrap(string $file) : void{}
 
 /**
  * @see Runtime::run() for more details
- *
+ * @link https://www.php.net/manual/en/parallel.run
  * @param Closure $task
  * @param array   $argv
  *

@@ -149,7 +149,7 @@ function uopz_get_property ($class, string $property) {}
 function uopz_get_return (string $class, string $function) {}
 
 /**
- * Gets the static variables from method scope
+ * Gets the static variables from function or method scope
  * @link https://secure.php.net/manual/en/function.uopz-get-static.php
  * @param string $class The name of the class
  * @param string $function The name of the method
@@ -179,7 +179,7 @@ function uopz_implement (string $class, string $interface): bool {}
 function uopz_redefine (string $class, string $constant, $value): bool {}
 
 /**
- * Sets hook to execute when entering a method
+ * Sets hook to execute when entering a function or method
  * @link https://secure.php.net/manual/en/function.uopz-set-hook.php
  * @param string $class The name of the class
  * @param string $function The name of the method
@@ -221,7 +221,7 @@ function uopz_set_property ($class, string $property, $value): void {}
 function uopz_set_return (string $class, string $function, $value, $execute = false): bool {}
 
 /**
- * Sets the static variables in method scope
+ * Sets the static variables in function or method scope
  * @link https://secure.php.net/manual/en/function.uopz-set-static.php
  * @param string $class The name of the class
  * @param string $function The name of the method
@@ -241,7 +241,7 @@ function uopz_set_static (string $class, string $function , array $static): void
 function uopz_undefine (string $class, string $constant): bool {}
 
 /**
- * Removes the previously set hook on a method
+ * Removes previously set hook on function or method
  * @link https://secure.php.net/manual/en/function.uopz-unset-hook.php
  * @param string $class The name of the class
  * @param string $function The name of the method

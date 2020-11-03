@@ -58,7 +58,7 @@ function array_replace(array $array, array ...$replacements) { }
 function array_replace_recursive(array $array, array ...$replacements) { }
 
 /**
- * Return all the keys of an array
+ * Return all the keys or a subset of the keys of an array
  * @link https://php.net/manual/en/function.array-keys.php
  * @param array $array <p>
  * An array containing keys to return.
@@ -193,7 +193,7 @@ function array_pad(array $array, $length, $value) { }
 function array_flip(array $array) { }
 
 /**
- * Changes all keys in an array
+ * Changes the case of all keys in an arra
  * @link https://php.net/manual/en/function.array-change-key-case.php
  * @param array $array <p>
  * The array to work on
@@ -209,7 +209,7 @@ function array_flip(array $array) { }
 function array_change_key_case(array $array, $case = null) { }
 
 /**
- * Pick one or more random entries out of an array
+ * Pick one or more random keys out of an array
  * @link https://php.net/manual/en/function.array-rand.php
  * @param array $array <p>
  * The input array.
@@ -398,7 +398,7 @@ function array_uintersect_assoc(array $array1, array $array2, array $_ = null, $
 function array_intersect_uassoc(array $array1, array $array2, array $_ = null, $key_compare_func) { }
 
 /**
- * Computes the intersection of arrays with additional index check, compares data and indexes by a callback functions
+ * Computes the intersection of arrays with additional index check, compares data and indexes by separate callback functions
  * @link https://php.net/manual/en/function.array-uintersect-uassoc.php
  * @param array $array1 <p>
  * The first array.
@@ -1087,7 +1087,7 @@ function stream_bucket_make_writeable($brigade) { }
  * Prepend bucket to brigade
  * @link https://php.net/manual/en/function.stream-bucket-prepend.php
  * @param resource $brigade
- * @param resource $bucket
+ * @param object $bucket
  * @return void
  */
 function stream_bucket_prepend($brigade, $bucket) { }

@@ -221,7 +221,7 @@ function cubrid_execute ($conn_identifier, $sql, $option = null) {}
  * @param resource $request_identifier <p>
  * cubrid_prepare() identifier.
  * </p>
- * @param resource $option [optional] <p>
+ * @param int $option [optional] <p>
  * Query execution option CUBRID_INCLUDE_OID, CUBRID_ASYNC,
  * CUBRID_EXEC_QUERY_ALL.
  * </p>
@@ -440,7 +440,7 @@ function cubrid_affected_rows ($conn_identifier = null) {}
 
 /**
  * (PHP 5, CUBRID &gt;= 8.3.0)<br/>
- * Return the ID generated for the latest updated AUTO_INCREMENT column
+ * Return the ID generated for the last updated AUTO_INCREMENT column
  * @link https://php.net/manual/en/function.cubrid-insert-id.php
  * @param resource $conn_identifier [optional] <p>
  * The connection identifier previously obtained by a call
@@ -481,7 +481,7 @@ function cubrid_result ($result, $row, $field = 0) {}
 
 /**
  * (PHP 5, CUBRID &gt;= 8.3.0)<br/>
- * Get number of rows in result
+ * Get the number of rows in the result set
  * @link https://php.net/manual/en/function.cubrid-num-rows.php
  * @param resource $result <p>
  * result comes from a call to cubrid_execute(),
@@ -498,7 +498,7 @@ function cubrid_num_rows ($result) {}
 
 /**
  * (PHP 5, CUBRID &gt;= 8.3.0)<br/>
- * Get number of columns in the result set
+ * Return the number of columns in the result set
  * @link https://php.net/manual/en/function.cubrid-num-cols.php
  * @param resource $result <p>
  * Result.
@@ -512,7 +512,7 @@ function cubrid_num_cols ($result) {}
 
 /**
  * (PHP 5, CUBRID &gt;= 8.3.0)<br/>
- * Get number of fields in the result set
+ * Return the number of columns in the result set
  * @link https://php.net/manual/en/function.cubrid-num-fields.php
  * @param resource $result <p>
  * result comes from a call to cubrid_execute(),
@@ -623,7 +623,7 @@ function cubrid_fetch_array ($result, $type = CUBRID_BOTH) {}
  * @param resource $result <p>
  * result comes from a call to cubrid_execute()
  * </p>
- * @param resource $type [optional] <p>
+ * @param int $type [optional] <p>
  * Type can only be CUBRID_LOB, this parameter will be used
  * only when you need to operate the lob object.
  * </p>
@@ -637,7 +637,7 @@ function cubrid_fetch_assoc ($result, $type = null) {}
 
 /**
  * (PHP 5, CUBRID &gt;= 8.3.0)<br/>
- * Fetch the next row and returns it as an object
+ * Fetch the next row and return it as an object
  * @link https://php.net/manual/en/function.cubrid-fetch-object.php
  * @param resource $result <p>
  * result comes from a call to cubrid_execute()
@@ -758,7 +758,7 @@ function cubrid_column_types ($req_identifier) {}
 
 /**
  * (PHP 5, CUBRID &gt;= 8.3.0)<br/>
- * Move the result set cursor to a specified field offset
+ * Move the result set cursor to the specified field offset
  * @link https://php.net/manual/en/function.cubrid-field-seek.php
  * @param resource $result <p>
  * result comes from a call to cubrid_execute()
@@ -831,7 +831,7 @@ function cubrid_field_table ($result, $field_offset) {}
 
 /**
  * (PHP 5, CUBRID &gt;= 8.3.0)<br/>
- * Returns the length of the specified field
+ * Get the maximum length of the specified field
  * @link https://php.net/manual/en/function.cubrid-field-len.php
  * @param resource $result <p>
  * result comes from a call to cubrid_execute()
@@ -895,7 +895,7 @@ function cubrid_field_flags ($result, $field_offset) {}
 
 /**
  * (PHP 5, CUBRID &gt;= 8.3.0)<br/>
- * Escapes special characters in a string for use in a SQL statement
+ * Escapes special characters in a string for use in an SQL statement
  * @link https://php.net/manual/en/function.cubrid-real-escape-string.php
  * @param string $unescaped_string <p>
  * The string that is to be escaped.
@@ -913,7 +913,7 @@ function cubrid_real_escape_string ($unescaped_string, $conn_identifier = null) 
 
 /**
  * (PHP 5, CUBRID &gt;= 8.3.0)<br/>
- * Returns the current CUBRID connection charset
+ * Return the current CUBRID connection charset
  * @link https://php.net/manual/en/function.cubrid-client-encoding.php
  * @param resource $conn_identifier [optional] <p>
  * The CUBRID connection. If the connection identifier is not
@@ -1009,7 +1009,7 @@ function cubrid_get_charset ($conn_identifier) {}
 
 /**
  * (PHP 5, CUBRID &gt;= 8.4.0)<br/>
- * Get auto-commit mode of the connection
+ * Set auto-commit mode of the connection
  * @link https://php.net/manual/en/function.cubrid-set-autocommit.php
  * @param resource $conn_identifier <p>
  * Connection identifier.
@@ -1095,7 +1095,7 @@ function cubrid_get_query_timeout ($req_identifier) {}
 
 /**
  * (PHP 5, CUBRID &gt;= 8.4.1)<br/>
- * Get the query timeout value of the request
+ * Set the query timeout value of the request
  * @link https://php.net/manual/en/function.cubrid-set-query-timeout.php
  * @param resource $req_identifier <p>
  * Request identifier.

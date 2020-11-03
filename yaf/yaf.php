@@ -1423,7 +1423,7 @@ abstract class Yaf_Request_Abstract {
      * @link https://secure.php.net/manual/en/yaf-request-abstract.getserver.php
      *
      * @param string $name the variable name, if not provided returns all
-     * @param mixed $default if this parameter is provide, this will be returned if the variable can not be found
+     * @param string $default if this parameter is provide, this will be returned if the variable can not be found
      *
      * @return mixed
      */
@@ -1435,7 +1435,7 @@ abstract class Yaf_Request_Abstract {
      * @link https://secure.php.net/manual/en/yaf-request-abstract.getenv.php
      *
      * @param string $name the variable name, if not provided returns all
-     * @param mixed $default if this parameter is provide, this will be returned if the variable can not be found
+     * @param string $default if this parameter is provide, this will be returned if the variable can not be found
      *
      * @return mixed
      */
@@ -1827,7 +1827,7 @@ interface Yaf_View_Interface {
      * @link https://secure.php.net/manual/en/yaf-view-interface.assign.php
      *
      * @param string|array $name
-     * @param mixed $value
+     * @param string $value
      * @return bool
      */
     function assign($name, $value);
@@ -2206,7 +2206,7 @@ class Yaf_Request_Simple extends Yaf_Request_Abstract {
      * @param string $method
      * @param string $controller
      * @param string $action
-     * @param string $params
+     * @param array $params
      *
      * @throws Yaf_Exception_TypeError
      */
@@ -2364,7 +2364,7 @@ class Yaf_Config_Simple extends Yaf_Config_Abstract implements Iterator, Travers
      * @link https://secure.php.net/manual/en/yaf-config-simple.construct.php
      *
      * @param array $array
-     * @param string $readonly
+     * @param bool $readonly
      *
      */
     public function __construct(array $array, $readonly = null){ }
@@ -2555,7 +2555,7 @@ class Yaf_View_Simple implements Yaf_View_Interface {
      * <p>$name parameter can be empty since 2.1.11</p>
      * @link https://secure.php.net/manual/en/yaf-view-simple.get.php
      *
-     * @param null $name <p>the assigned variable name</p>
+     * @param string $name <p>the assigned variable name</p>
      * <br/>
      * <p>if this is empty, all assigned variables will be returned</p>
      *

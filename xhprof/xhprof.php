@@ -4,7 +4,7 @@
 
 /**
  * (PHP &gt;= 5.2.0, PECL xhprof &gt;= 0.9.0)<br/>
- * Start xhprof profiling.
+ * Start xhprof profiler.
  *
  * @link https://php.net/manual/en/function.xhprof-enable.php
  *

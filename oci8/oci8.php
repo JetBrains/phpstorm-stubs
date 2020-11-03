@@ -511,7 +511,7 @@ function oci_bind_array_by_name ($statement, $name, array &$var_array, $max_tabl
 
 /**
  * (PHP 5, PECL OCI8 &gt;= 1.1.0)<br/>
- * Checks if the field is <b>NULL</b>
+ * Checks if a field in the currently fetched row <b>NULL</b>
  * @link https://php.net/manual/en/function.oci-field-is-null.php
  * @param resource $statement <p>
  * A valid OCI statement identifier.
@@ -530,7 +530,7 @@ function oci_field_is_null ($statement, $field) {}
  * @param resource $statement <p>
  * A valid OCI statement identifier.
  * </p>
- * @param int $field <p>
+ * @param string|int $field <p>
  * Can be the field's index (1-based) or name.
  * </p>
  * @return string|false The name as a string, or <b>FALSE</b> on errors.
@@ -559,7 +559,7 @@ function oci_field_size ($statement, $field) {}
  * @param resource $statement <p>
  * A valid OCI statement identifier.
  * </p>
- * @param int $field <p>
+ * @param string|int $field <p>
  * Can be the field's index (1-based) or name.
  * </p>
  * @return int|false The scale as an integer, or <b>FALSE</b> on errors.
@@ -573,7 +573,7 @@ function oci_field_scale ($statement, $field) {}
  * @param resource $statement <p>
  * A valid OCI statement identifier.
  * </p>
- * @param int $field <p>
+ * @param string|int $field <p>
  * Can be the field's index (1-based) or name.
  * </p>
  * @return int|false The precision as an integer, or <b>FALSE</b> on errors.
@@ -587,7 +587,7 @@ function oci_field_precision ($statement, $field) {}
  * @param resource $statement <p>
  * A valid OCI statement identifier.
  * </p>
- * @param int $field <p>
+ * @param string|int $field <p>
  * Can be the field's index (1-based) or name.
  * </p>
  * @return mixed the field data type as a string, or <b>FALSE</b> on errors.

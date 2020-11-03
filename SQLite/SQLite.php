@@ -78,20 +78,20 @@ class SQLiteDatabase  {
 	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
 	 * Execute a query against a given database and returns an array
 	 * @link https://php.net/manual/en/function.sqlite-array-query.php
-	 * @param $query <p>
+	 * @param string $query <p>
 	 * The query to be executed.
 	 * </p>
 	 * <p>
 	 * Data inside the query should be {@link https://php.net/manual/en/function.sqlite-escape-string.php properly escaped}.
 	 * </p>
-	 * @param $result_type [optional] <p>The optional <i>result_type</i>
+	 * @param int $result_type [optional] <p>The optional <i>result_type</i>
 	 * parameter accepts a constant and determines how the returned array will be
 	 * indexed. Using <b>SQLITE_ASSOC</b> will return only associative
 	 * indices (named fields) while <b>SQLITE_NUM</b> will return
 	 * only numerical indices (ordinal field numbers). <b>SQLITE_BOTH</b>
 	 * will return both associative and numerical indices.
 	 * <b>SQLITE_BOTH</b> is the default for this function.</p>
-	 * @param $decode_binary [optional] <p>When the <i>decode_binary</i>
+	 * @param bool $decode_binary [optional] <p>When the <i>decode_binary</i>
 	 * parameter is set to <b>TRUE</b> (the default), PHP will decode the binary encoding
 	 * it applied to the data if it was encoded using the
 	 * {@see sqlite_escape_string()}.  You should normally leave this
@@ -158,10 +158,10 @@ class SQLiteDatabase  {
 	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
 	 * Register an aggregating UDF for use in SQL statements
 	 * @link https://php.net/manual/en/function.sqlite-create-aggregate.php
-	 * @param $function_name <p>The name of the function used in SQL statements.</p>
-	 * @param $step_func <p>Callback function called for each row of the result set. Function parameters are &$context, $value, ....</p>
-	 * @param $finalize_func <p>Callback function to aggregate the "stepped" data from each row. Function parameter is &$context and the function should return the final result of aggregation.</p>
-	 * @param $num_args [optional] <p>Hint to the SQLite parser if the callback function accepts a predetermined number of arguments.</p>
+	 * @param string $function_name <p>The name of the function used in SQL statements.</p>
+	 * @param callable $step_func <p>Callback function called for each row of the result set. Function parameters are &$context, $value, ....</p>
+	 * @param callable $finalize_func <p>Callback function to aggregate the "stepped" data from each row. Function parameter is &$context and the function should return the final result of aggregation.</p>
+	 * @param int $num_args [optional] <p>Hint to the SQLite parser if the callback function accepts a predetermined number of arguments.</p>
 	 */
 	public function createAggregate ($function_name, $step_func, $finalize_func, $num_args = -1) {}
 
@@ -169,15 +169,15 @@ class SQLiteDatabase  {
 	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
 	 * Registers a "regular" User Defined Function for use in SQL statements
 	 * @link https://php.net/manual/en/function.sqlite-create-function.php
-	 * @param $function_name <p>The name of the function used in SQL statements.</p>
-	 * @param $callback <p>
+	 * @param string $function_name <p>The name of the function used in SQL statements.</p>
+	 * @param callable $callback <p>
 	 * Callback function to handle the defined SQL function.
 	 * </p>
 	 * <blockquote><p><b>Note</b>:
 	 * Callback functions should return a type understood by SQLite (i.e.
 	 * {@link https://php.net/manual/en/language.types.intro.php scalar type}).
 	 * </p></blockquote>
-	 * @param $num_args [optional]   <blockquote><p><b>Note</b>: Two alternative syntaxes are
+	 * @param int $num_args [optional]   <blockquote><p><b>Note</b>: Two alternative syntaxes are
 	 * supported for compatibility with other database extensions (such as MySQL).
 	 * The preferred form is the first, where the <i>dbhandle</i>
 	 * parameter is the first parameter to the function.</p></blockquote>
@@ -188,7 +188,7 @@ class SQLiteDatabase  {
 	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
 	 * Set busy timeout duration, or disable busy handlers
 	 * @link https://php.net/manual/en/function.sqlite-busy-timeout.php
-	 * @param $milliseconds <p> The number of milliseconds. When set to 0, busy handlers will be disabled and SQLite will return immediately with a <b>SQLITE_BUSY</b> status code if another process/thread has the database locked for an update.
+	 * @param int $milliseconds <p> The number of milliseconds. When set to 0, busy handlers will be disabled and SQLite will return immediately with a <b>SQLITE_BUSY</b> status code if another process/thread has the database locked for an update.
 	 * PHP sets the default busy timeout to be 60 seconds when the database is opened.</p>
 	 * @return int <p>Returns an error code, or 0 if no error occurred.</p>
 	 */
@@ -206,8 +206,8 @@ class SQLiteDatabase  {
 	 * (PHP 5 &lt; 5.4.0)
 	 * Return an array of column types from a particular table
 	 * @link https://php.net/manual/en/function.sqlite-fetch-column-types.php
-	 * @param $table_name <p>The table name to query.</p>
-	 * @param $result_type [optional] <p>
+	 * @param string $table_name <p>The table name to query.</p>
+	 * @param int $result_type [optional] <p>
 	 * The optional <i>result_type</i> parameter accepts a
 	 * constant and determines how the returned array will be indexed. Using
 	 * <b>SQLITE_ASSOC</b> will return only associative indices
@@ -238,7 +238,7 @@ final class SQLiteResult implements Iterator, Countable {
 	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
 	 * Fetches the next row from a result set as an array
 	 * @link https://php.net/manual/en/function.sqlite-fetch-array.php
-	 * @param $result_type [optional]
+	 * @param int $result_type [optional]
 	 * <p>
 	 * The optional <i>result_type</i>
 	 * parameter accepts a constant and determines how the returned array will be
@@ -247,7 +247,7 @@ final class SQLiteResult implements Iterator, Countable {
 	 * only numerical indices (ordinal field numbers). <b>SQLITE_BOTH</b>
 	 * will return both associative and numerical indices.
 	 * <b>SQLITE_BOTH</b> is the default for this function.
-	 * @param $decode_binary [optional] <p>When the <i>decode_binary</i>
+	 * @param bool $decode_binary [optional] <p>When the <i>decode_binary</i>
 	 * parameter is set to <b>TRUE</b> (the default), PHP will decode the binary encoding
 	 * it applied to the data if it was encoded using the
 	 *{@link https://php.net/manual/en/sqlite.configuration.php#ini.sqlite.assoc-case sqlite.assoc_case}. You should normally leave this
@@ -288,13 +288,17 @@ final class SQLiteResult implements Iterator, Countable {
 	/**
 	 * (PHP 5 &lt; 5.4.0)
 	 * Fetches the next row from a result set as an object
-	 * @link https://php.net/manual/en/function.sqlite-fetch-object.php
-	 * @param resource $result_type [optional]
-	 * @param array $ctor_params [optional]
-	 * @param bool $decode_binary [optional]
-	 * @return object
+	 * @link https://www.php.net/manual/en/function.sqlite-fetch-all.php
+     * @param int $result_type [optional] <p>
+     * The optional result_type parameter accepts a constant and determines how the returned array will be indexed.
+     * Using SQLITE_ASSOC will return only associative indices (named fields) while SQLITE_NUM will return only numerical indices (ordinal field numbers).
+     * {@see SQLITE_BOTH} will return both associative and numerical indices. {@see SQLITE_BOTH} is the default for this function.</p>
+	 * @param bool $decode_binary [optional] <p> When the decode_binary parameter is set to TRUE (the default),
+     * PHP will decode the binary encoding it applied to the data if it was encoded using the {@see sqlite_escape_string()}.
+     * You should normally leave this value at its default, unless you are interoperating with databases created by other sqlite capable applications.</p>
+     * @return object
 	 */
-	public function fetchAll ($result_type, array $ctor_params,  $decode_binary = true) {}
+	public function fetchAll ($result_type, $decode_binary = true) {}
 
 	/**
 	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
@@ -323,7 +327,7 @@ final class SQLiteResult implements Iterator, Countable {
 	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
 	 * Returns the name of a particular field
 	 * @link https://php.net/manual/en/function.sqlite-field-name.php
-	 * @param $field_index <p>The ordinal column number in the result set.</p>
+	 * @param int $field_index <p>The ordinal column number in the result set.</p>
 	 * @return string <p>
 	 * Returns the name of a field in an SQLite result set, given the ordinal
 	 * column number; <b>FALSE</b> on error.
@@ -341,14 +345,14 @@ final class SQLiteResult implements Iterator, Countable {
 	 * (PHP 5 &lt; 5.4.0, PECL sqlite &gt;= 1.0.0)
 	 * Fetches the current row from a result set as an array
 	 * @link https://php.net/manual/en/function.sqlite-current.php
-	 * @param $result_type [optional] <p>The optional <i>result_type</i>
+	 * @param int $result_type [optional] <p>The optional <i>result_type</i>
 	 * parameter accepts a constant and determines how the returned array will be
-	 * indexed. Using <b>SQLITE_ASSOC</b> will return only associative
-	 * indices (named fields) while <b>SQLITE_NUM</b> will return
+	 * indexed. Using {@see SQLITE_ASSOC} will return only associative
+	 * indices (named fields) while {@see SQLITE_NUM} will return
 	 * only numerical indices (ordinal field numbers). <b>SQLITE_BOTH</b>
 	 * will return both associative and numerical indices.
-	 * <b>SQLITE_BOTH</b> is the default for this function.</p>
-	 * @param $decode_binary [optional] <p>When the <i>decode_binary</i>
+	 * {@see SQLITE_BOTH} is the default for this function.</p>
+	 * @param bool $decode_binary [optional] <p>When the <i>decode_binary</i>
 	 * parameter is set to <b>TRUE</b> (the default), PHP will decode the binary encoding
 	 * it applied to the data if it was encoded using the
 	 * {@see sqlite_escape_string()}.  You should normally leave this
@@ -460,26 +464,27 @@ final class SQLiteResult implements Iterator, Countable {
 final class SQLiteUnbuffered  {
 
 	/**
-	 * @param $result_type [optional]
-	 * @param $decode_binary [optional]
+	 * @param int $result_type [optional]
+	 * @param bool $decode_binary [optional]
 	 */
 	public function fetch ($result_type, $decode_binary) {}
 
 	/**
-	 * @param $class_name [optional]
-	 * @param $ctor_params [optional]
-	 * @param $decode_binary [optional]
+     * @link https://www.php.net/manual/en/function.sqlite-fetch-object.php
+	 * @param string $class_name [optional]
+	 * @param array $ctor_params [optional]
+	 * @param bool $decode_binary [optional]
 	 */
 	public function fetchObject ($class_name, $ctor_params, $decode_binary) {}
 
 	/**
-	 * @param $decode_binary [optional]
+	 * @param bool $decode_binary [optional]
 	 */
 	public function fetchSingle ($decode_binary) {}
 
 	/**
-	 * @param $result_type [optional]
-	 * @param $decode_binary [optional]
+	 * @param int $result_type [optional]
+	 * @param bool $decode_binary [optional]
 	 */
 	public function fetchAll ($result_type, $decode_binary) {}
 
@@ -492,13 +497,13 @@ final class SQLiteUnbuffered  {
 	public function numFields () {}
 
 	/**
-	 * @param $field_index
+	 * @param int $field_index
 	 */
 	public function fieldName ($field_index) {}
 
 	/**
-	 * @param $result_type [optional]
-	 * @param $decode_binary [optional]
+	 * @param int $result_type [optional]
+	 * @param bool $decode_binary [optional]
 	 */
 	public function current ($result_type, $decode_binary) {}
 
@@ -866,7 +871,7 @@ function sqlite_last_insert_rowid ($dbhandle) {}
  * (PHP 5, PECL sqlite &gt;= 1.0.0)<br/>
  * Returns the number of rows in a buffered result set
  * @link https://php.net/manual/en/function.sqlite-num-rows.php
- * @param $result <p>
+ * @param resource $result <p>
  * The SQLite result resource.  This parameter is not required when using
  * the object-oriented method.
  * </p>

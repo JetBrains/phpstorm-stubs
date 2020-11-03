@@ -115,11 +115,13 @@ class Yar_Concurrent_Client {
      * @param string $uri The RPC server URI(http, tcp)
      * @param string $method Service name(aka the method name)
      * @param array $parameters Parameters
-     * @param array ...$callback A function callback, which will be called while the response return.
-     * @return int
+     * @param callable $callback A function callback, which will be called while the response return.
+     * @param callable $error_callback A function callback, which will be called while the response return.
+     * @param array $options
+     * @return int An unique id, can be used to identified which call it is.
      * @link https://secure.php.net/manual/en/yar-concurrent-client.call.php
      */
-    public static function call (  $uri ,  $method ,  $parameters, ...$callback ){}
+    public static function call ($uri , $method , $parameters, callable $callback, callable $error_callback, array $options){}
 
     /**
      * Send all calls

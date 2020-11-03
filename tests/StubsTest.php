@@ -2,12 +2,17 @@
 
 namespace StubTests;
 
+use phpDocumentor\Reflection\DocBlock\Tag;
 use phpDocumentor\Reflection\DocBlock\Tags\Deprecated;
 use phpDocumentor\Reflection\DocBlock\Tags\Link;
 use phpDocumentor\Reflection\DocBlock\Tags\Reference\Url;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
 use phpDocumentor\Reflection\DocBlock\Tags\Since;
+use phpDocumentor\Reflection\Types\Compound;
+use phpDocumentor\Reflection\Types\Null_;
+use PhpParser\Comment\Doc;
 use PHPUnit\Framework\TestCase;
+use SQLite3;
 use StubTests\Model\BasePHPClass;
 use StubTests\Model\BasePHPElement;
 use StubTests\Model\PHPClass;
@@ -19,11 +24,23 @@ use StubTests\Model\PHPMethod;
 use StubTests\Model\PHPParameter;
 use StubTests\Model\StubProblemType;
 use StubTests\Model\Tags\RemovedTag;
+use StubTests\Parsers\DocFactoryProvider;
 use StubTests\Parsers\Utils;
 use StubTests\TestData\Providers\PhpStormStubsSingleton;
+use function array_filter;
+use function preg_replace;
 
 class StubsTest extends TestCase
 {
+    const ID_PATTERN = "[A-Za-z0-9_]+";
+    private static SQLite3 $SQLite3;
+
+    public static function setUpBeforeClass(): void
+    {
+        parent::setUpBeforeClass();
+        self::$SQLite3 = new SQLite3(__DIR__ . "/ide-sqlite.sqlite");
+        echo "current dir:" .dirname(__FILE__);
+    }
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
      */
@@ -356,6 +373,7 @@ class StubsTest extends TestCase
     public function testFunctionPHPDocs(PHPFunction $function): void
     {
         static::assertNull($function->parseError, $function->parseError ?: '');
+        $this->compareWithOfficialDocs($function);
         $this->checkPHPDocCorrectness($function, "function $function->name");
     }
 
@@ -377,6 +395,7 @@ class StubsTest extends TestCase
             static::assertNull($method->returnTag, '@return tag for __construct should be omitted');
         }
         static::assertNull($method->parseError, $method->parseError ?: '');
+        $this->compareWithOfficialDocs($method);
         $this->checkPHPDocCorrectness($method, "method $methodName");
     }
 
@@ -531,4 +550,224 @@ class StubsTest extends TestCase
             self::assertTrue(true, "Function '{$function->name}' has since version > 7");
         }
     }
+
+    private function compareWithOfficialDocs(PHPFunction $function)
+    {
+        $doc = $function->doc;
+        $function_name = $function instanceof PHPMethod ? $function->parentName . "." . $function->name : $function->name;
+        if ($doc !== null) {
+            $this->validateParameters($function, $doc, $function_name);
+        }
+        //$this->validateReturnType($function_name, $function);
+        //$docBlockSummary = $doc != null ? DocFactoryProvider::getDocFactory()->create($doc->getText())->getSummary() : "";
+        //$this->checkSummary($functionsData, $docBlockSummary, $function_name);
+    }
+
+    private function normalizeSummary(string $summary)
+    {
+        $summary = preg_replace('/\s+/', ' ', $summary);
+        $summary = preg_replace('/\\n/', '', $summary);
+
+        // $summary = preg_replace("/\&Alias;/", "alias", $summary);
+        $summary = preg_replace("/{@see (" . self::ID_PATTERN . ")}/", "$1", $summary);
+        $summary = str_replace(".", '', $summary);
+        $summary = preg_replace('/<b>/', '', $summary);
+        $summary = preg_replace('/<\/b>/', '', $summary);
+        $summary = preg_replace('/<i>/', '', $summary);
+        $summary = preg_replace('/<\/i>/', '', $summary);
+
+        //TODO REWRITE THIS
+        if (strpos($summary, "(PECL") !== false || strpos($summary, "(PHP ") !== false) {
+            $strpos = max(strpos($summary, "\n"), strpos($summary, "<br>") + 4, strpos($summary, "</br>") + 5, strpos($summary, "<br/>") + 5);
+            $summary = substr($summary, $strpos);
+        }
+        return strtolower(trim($summary));
+    }
+
+    /**
+     * @param Doc|null $doc
+     * @param string $function_name
+     */
+    private function validateParameters(PHPFunction $function, ?Doc $doc, string $function_name): void
+    {
+        if ($function_name === "parallel\Sync.__construct") {
+
+            var_dump($function->mutedProblems);
+        }
+        if ($function->hasMutedProblem(StubProblemType::PARAMETER_TYPE_IS_WRONG_IN_OFICIAL_DOCS)) {
+            static::markTestSkipped('function is excluded');
+        }
+        $docBlock = DocFactoryProvider::getDocFactory()->create($doc->getText());
+        $tags = $docBlock->getTagsByName("param");
+        foreach ($tags as $parameter) {
+            $paramsDataFromDocs = self::$SQLite3->query("select * from params where function_name = '$function_name' and name = '{$parameter->getVariableName()}' ")->fetchArray();
+            if ($paramsDataFromDocs !== false) {
+                $normalizedDocType = $this->normalizeType($paramsDataFromDocs["type"]);
+                if ($normalizedDocType === "mixed") {
+                    self::markTestSkipped("Skipped for function '$function_name' parameter name '\${$parameter->getVariableName()}'");
+                } else {
+                    $noramlizedTypeFromStubs = $this->normalizeType($this->filterNull($parameter) . "");
+                    foreach (explode("|", $normalizedDocType) as $docType) {
+                        if ($docType === 'array') {
+                            self::assertTrue(str_contains($noramlizedTypeFromStubs, "[]") || str_contains($noramlizedTypeFromStubs, "array"), "no $docType found in type: '$noramlizedTypeFromStubs' parameterName: \${$parameter->getVariableName()}");
+                        } else {
+                            self::assertTrue($this->hasType($docType, $noramlizedTypeFromStubs), "parameter: $" . $parameter->getVariableName() . "\nfunction name: $function_name doctype:$docType stubstype: $noramlizedTypeFromStubs");
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * @param Tag $parameter
+     * @return mixed
+     */
+    private function filterNull(Tag $parameter)
+    {
+        $types = $parameter->getType();
+        if ($types instanceof Compound) {
+            $types = new Compound(array_filter($types->getIterator()->getArrayCopy(), function ($a) {
+                return !$a instanceof Null_;
+            }));
+        }
+        return $types;
+    }
+
+    /**
+     * @param string $parameterType
+     * @return string
+     */
+    private function normalizeType(string $parameterType): string
+    {
+        $strtolower = strtolower(trim($parameterType));
+        $types = explode("|", $strtolower);
+        $types = $this->trunkNamespaces($types);
+        return implode("|", $types);;
+    }
+
+    /**
+     * @param mixed $functionsData
+     * @param string $docBlockSummary
+     * @param string|null $function_name
+     */
+    private function checkSummary(mixed $functionsData, string $docBlockSummary, ?string $function_name): void
+    {
+        $summaryFromOfficialDocs = $functionsData === false ? "" : $functionsData["purpose"];
+        $stubs = $this->normalizeSummary($docBlockSummary);
+        if ($summaryFromOfficialDocs !== '') {
+            $officialSummary = $this->normalizeSummary($summaryFromOfficialDocs);
+            if ($officialSummary !== "description") {
+
+                self::assertEquals($officialSummary, $stubs, "function $function_name");
+            }
+        }
+    }
+
+    /**
+     * @param mixed $type
+     */
+    private function trunkNameSpace(mixed $type): string
+    {
+        $explode = explode("\\", $type);
+        return $explode[sizeof($explode) - 1];
+    }
+
+    /**
+     * @param array|bool $types
+     */
+    private function trunkNamespaces(array|bool $types): array
+    {
+        $newTypes = [];
+        foreach ($types as $type) {
+            $newTypes[] = $this->trunkNameSpace($type);
+        }
+        return $newTypes;
+    }
+
+    /**
+     * @param string|null $function_name
+     * @param PHPFunction $function
+     */
+    private function validateReturnType(?string $function_name, PHPFunction $function): void
+    {
+        $functionsData = self::$SQLite3->query("select * from functions where name = '$function_name'")->fetchArray();
+        if ($functionsData !== false) {
+            if ($function->hasMutedProblem(StubProblemType::RETURN_TYPE_IS_WRONG_IN_OFICIAL_DOCS)) {
+                static::markTestSkipped('function is excluded');
+            }
+            if ($functionsData !== null) {
+                // echo "return type for " . $function_name . " is not found in official docs";
+                self::assertEquals($functionsData["return_type"], $function->returnTag . "", "return type mismatch '$function_name'");
+            }
+        }
+    }
+
+    /**
+     * @param mixed $docType
+     * @param string $noramlizedTypeFromStubs
+     * @return bool
+     */
+    private function hasType(mixed $docType, string $noramlizedTypeFromStubs): bool
+    {
+        $types = explode("|", $noramlizedTypeFromStubs);
+        foreach ($types as $type) {
+            if ($this->typesAreEqual($type, $docType)) {
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+    /**
+     * @param mixed $type
+     * @param mixed $docType
+     * @return bool
+     */
+    private function typesAreEqual(mixed $type, mixed $docType): bool
+    {
+        if ($this->isInteger($docType) && $this->isInteger($type)) {
+            return true;
+        }
+        if ($this->isBoolean($docType) && $this->isBoolean($type)) {
+            return true;
+        }
+        if( $this->isFloat($docType) && $this->isFloat($type)) {
+            return true;
+        }
+        if( $this->isCallable($docType) && $type == "callable") {
+            return true;
+        }
+        return $type === $docType;
+    }
+
+    /**
+     * @param mixed $docType
+     * @return bool
+     */
+    private function isBoolean(mixed $docType): bool
+    {
+        return ($docType === "bool" || $docType === "boolean");
+    }
+
+    /**
+     * @param mixed $docType
+     * @return bool
+     */
+    private function isFloat(mixed $docType): bool
+    {
+        return ($docType === "float" || $docType === "double");
+    }
+
+    private function isInteger(mixed $docType)
+    {
+        return ($docType === "int" || $docType === "integer");
+    }
+
+    private function isCallable(mixed $docType)
+    {
+        return ($docType === "call" || $docType === "callable" || $docType === "callback");
+    }
+
 }

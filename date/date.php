@@ -958,7 +958,7 @@ function date_create_from_format ($format, $datetime, $timezone = null) {}
 function date_parse ($datetime) {}
 
 /**
- * Get info about given date
+ * Get info about given date formatted according to the specified format
  * @link https://php.net/manual/en/function.date-parse-from-format.php
  * @param string $format <p>
  * Format accepted by date with some extras.
@@ -972,6 +972,7 @@ function date_parse ($datetime) {}
 function date_parse_from_format ($format, $datetime) {}
 
 /**
+ * Returns the warnings and errors
  * Alias:
  * {@see DateTime::getLastErrors}
  * @link https://php.net/manual/en/function.date-get-last-errors.php
@@ -984,12 +985,12 @@ function date_get_last_errors () {}
  * Alias:
  * {@see DateTime::format}
  * @link https://php.net/manual/en/function.date-format.php
- * @param $object
- * @param $format
+ * @param DateTimeInterface $object
+ * @param string $format
  * @return string|false formatted date string on success or <b>FALSE</b> on failure.
  */
 #[Pure]
-function date_format ($object, $format) {}
+function date_format (DateTimeInterface $object, $format) {}
 
 /**
  * Alter the timestamp of a DateTime object by incrementing or decrementing
@@ -1007,18 +1008,19 @@ function date_modify ($object, $modifier) {}
 /**
  * &Alias; <methodname>DateTime::add</methodname>
  * @link https://php.net/manual/en/function.date-add.php
- * @param $object <p>Procedural style only: A
+ * @param DateTime $object <p>Procedural style only: A
  * {@see DateTime} object returned by
  * {@see date_create()}. The function modifies this object.</p>
- * @param $interval <p>A
+ * @param DateInterval $interval <p>A
  * {@see DateInterval} object</p>
  * @return DateTime|false <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
 #[Pure]
-function date_add ($object, $interval) {}
+function date_add (DateTime $object, DateInterval $interval) {}
 
 /**
+ * Subtracts an amount of days, months, years, hours, minutes and seconds from a datetime object
  * Alias:
  * {@see DateTime::sub}
  * @link https://php.net/manual/en/function.date-sub.php
@@ -1037,7 +1039,7 @@ function date_sub ($object, $interval) {}
  * Alias:
  * {@see DateTime::getTimezone}
  * @link https://php.net/manual/en/function.date-timezone-get.php
- * @param $object <p>Procedural style only: A
+ * @param DateTimeInterface $object <p>Procedural style only: A
  * {@see DateTime} object
  * returned by
  * {@see date_create()}</p>
@@ -1049,9 +1051,10 @@ function date_sub ($object, $interval) {}
  * </p>
  */
 #[Pure]
-function date_timezone_get ($object) {}
+function date_timezone_get (DateTimeInterface $object) {}
 
 /**
+ * Sets the time zone for the datetime object
  * Alias:
  * {@see DateTime::setTimezone}
  * @link https://php.net/manual/en/function.date-timezone-set.php
@@ -1070,14 +1073,15 @@ function date_timezone_set ($object, $timezone) {}
  * Alias:
  * {@see DateTime::getOffset}
  * @link https://php.net/manual/en/function.date-offset-get.php
- * @param $object <p>Procedural style only: A {@see DateTime} object
+ * @param DateTimeInterface $object <p>Procedural style only: A {@see DateTime} object
  * returned by {@see date_create()}</p>
  * @return int|false <p>Returns the timezone offset in seconds from UTC on success or <b>FALSE</b> on failure.</p>
  */
 #[Pure]
-function date_offset_get ($object) {}
+function date_offset_get (DateTimeInterface $object) {}
 
 /**
+ * Returns the difference between two datetime objects
  * Alias:
  * {@see DateTime::diff}
  * @link https://php.net/manual/en/function.date-diff.php
@@ -1092,33 +1096,33 @@ function date_diff ($baseObject, $targetObject, $absolute = false) {}
 /**
  * &Alias; <methodname>DateTime::setTime</methodname>
  * @link https://php.net/manual/en/function.date-time-set.php
- * @param $object
- * @param $hour
- * @param $minute
- * @param $second [optional]
- * @param $microsecond [optional]
- * @return DateTime|false <p>Returns the
+ * @param DateTime $object
+ * @param int $hour
+ * @param int $minute
+ * @param int $second [optional]
+ * @param int $microsecond [optional]
+ * @return void <p>Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
 #[Pure]
-function date_time_set ($object, $hour, $minute, $second = 0, $microsecond = 0) {}
+function date_time_set (DateTime $object, int $hour, int $minute, $second = 0, $microsecond = 0) {}
 
 /**
  * &Alias; <methodname>DateTime::setDate</methodname>
  * @link https://php.net/manual/en/function.date-date-set.php
- * @param $object <p>Procedural style only: A {@see DateTime} object
+ * @param DateTime $object <p>Procedural style only: A {@see DateTime} object
  * returned by {@see date_create()}.
  * The function modifies this object.</p>
- * @param $year <p>Year of the date.</p>
- * @param $month <p>Month of the date.</p>
- * @param $day <p>Day of the date.</p>
+ * @param int $year <p>Year of the date.</p>
+ * @param int $month <p>Month of the date.</p>
+ * @param int $day <p>Day of the date.</p>
  * @return DateTime|false
  * <p>
  * Returns the
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.
  * </p>
  */
-function date_date_set ($object, $year, $month, $day) {}
+function date_date_set (DateTime $object, $year, $month, $day) {}
 
 /**
  * Alias:
@@ -1127,7 +1131,7 @@ function date_date_set ($object, $year, $month, $day) {}
  * @param DateTime $object
  * @param int $year <p>Year of the date</p>
  * @param int $week <p>Week of the date.</p>
- * @param $dayOfWeek [optional] <p>Offset from the first day of the week.</p>
+ * @param int $day [optional] <p>Offset from the first day of the week.</p>
  * @return DateTime|false <p>
  * Returns the {@see DateTime} object for method chaining or <strong><code>FALSE</code></strong> on failure.
  * </p>
@@ -1135,7 +1139,8 @@ function date_date_set ($object, $year, $month, $day) {}
 function date_isodate_set ($object, $year, $week, $dayOfWeek = 1) {}
 
 /**
- * &Alias; <methodname>DateTime::setTimestamp</methodname>
+ * Sets the date and time based on an unix timestamp
+ * Alias: {@see DateTime::setTimestamp}
  * @link https://php.net/manual/en/function.date-timestamp-set.php
  * @param DateTime $object <p>Procedural style only: A
  * {@see DateTime} object returned by
@@ -1147,6 +1152,7 @@ function date_isodate_set ($object, $year, $week, $dayOfWeek = 1) {}
 function date_timestamp_set ($object, $timestamp) {}
 
 /**
+ * Gets the unix timestamp
  * Alias:
  * {@see DateTime::getTimestamp}
  * @link https://php.net/manual/en/function.date-timestamp-get.php
@@ -1171,12 +1177,12 @@ function timezone_open ($timezone) {}
 /**
  * Alias: {@see DateTimeZone::getName}
  * @link https://php.net/manual/en/function.timezone-name-get.php
- * @param $object <p>The
+ * @param DateTimeZone $object <p>The
  * {@see DateTimeZone} for which to get a name.</p>
  * @return string One of the timezone names in the list of timezones.
  */
 #[Pure]
-function timezone_name_get ($object) {}
+function timezone_name_get (DateTimeZone $object) {}
 
 /**
  * Returns the timezone name from abbreviation
@@ -1205,17 +1211,18 @@ function timezone_name_from_abbr ($abbr, $utcOffset = null, $isDST = null) {}
  * Alias:
  * {@link DateTimeZone::getOffset}
  * @link https://php.net/manual/en/function.timezone-offset-get.php
- * @param $object <p>Procedural style only: A
+ * @param DateTimeZone $object <p>Procedural style only: A
  * {@see DateTimeZone} object
  * returned by
  * {@see timezone_open()}</p>
- * @param $datetime <p>DateTime that contains the date/time to compute the offset from.</p>
+ * @param DateTimeInterface $datetime <p>DateTime that contains the date/time to compute the offset from.</p>
  * @return int|false <p>Returns time zone offset in seconds on success or <b>FALSE</b> on failure.</p>
  */
 #[Pure]
-function timezone_offset_get ($object, $datetime) {}
+function timezone_offset_get (DateTimeZone $object, DateTimeInterface $datetime) {}
 
 /**
+ * Returns all transitions for the timezone
  * Alias:
  * {@see DateTimeZone::getTransitions}
  * @link https://php.net/manual/en/function.timezone-transitions-get.php
@@ -1232,13 +1239,14 @@ function timezone_transitions_get ($object, $timestampBegin, $timestampEnd) {}
 /**
  * &Alias; {@see DateTimeZone::getLocation}
  * @link https://php.net/manual/en/function.timezone-location-get.php
- * @param $object <p>Procedural style only: A {@see DateTimeZone} object returned by {@see timezone_open()}
+ * @param DateTimeZone $object <p>Procedural style only: A {@see DateTimeZone} object returned by {@see timezone_open()}
  * @return array <p>Array containing location information about timezone.</p>
  */
 #[Pure]
-function timezone_location_get ($object) {}
+function timezone_location_get (DateTimeZone $object) {}
 
 /**
+ * Returns a numerically indexed array containing all defined timezone identifiers
  * Alias:
  * {@see DateTimeZone::listIdentifiers()}
  * @link https://php.net/manual/en/function.timezone-identifiers-list.php

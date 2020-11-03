@@ -1146,7 +1146,7 @@ function ldap_escape ($value, $ignore = "", $flags = 0) {}
  * An LDAP link identifier, returned by
  * {@see ldap_connect()}.
  * </p>
- * @param $dn <p>The distinguished name of an LDAP entity.</p>
+ * @param  string $dn <p>The distinguished name of an LDAP entity.</p>
  * @param $modifications_info <p>An array that specifies the modifications to make. Each entry in this
  * array is an associative array with two or three keys:
  * <em>attrib</em> maps to the name of the attribute to modify,
@@ -1217,7 +1217,7 @@ function ldap_escape ($value, $ignore = "", $flags = 0) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.4
  */
-function ldap_modify_batch ($ldap , $dn , $modifications_info, $controls = []) {}
+function ldap_modify_batch ($ldap , string $dn , $modifications_info, $controls = []) {}
 
 /**
  * @param resource $ldap

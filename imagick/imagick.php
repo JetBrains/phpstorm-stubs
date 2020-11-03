@@ -1688,7 +1688,9 @@ class Imagick implements Iterator, Countable {
 	public function autoLevelImage ($CHANNEL) {}
 
 	/**
-	 * @param $factor [optional]
+     * @link https://www.php.net/manual/en/imagick.blueshiftimage.php
+	 * @param float $factor [optional]
+     * @return bool
 	 */
 	public function blueShiftImage ($factor) {}
 
@@ -1755,8 +1757,9 @@ class Imagick implements Iterator, Countable {
 	public function clampImage ($CHANNEL) {}
 
 	/**
-	 * @param $stack
-	 * @param $offset
+	 * @param bool $stack
+	 * @param int $offset
+     * @return Imagick
 	 */
 	public function smushImages ($stack, $offset) {}
 
@@ -2508,8 +2511,9 @@ class Imagick implements Iterator, Countable {
 	public function shadowImage ($opacity, $sigma, $x, $y) {}
 
 	/**
-	 * @param $key
-	 * @param $value
+	 * @param string $key
+	 * @param string $value
+     * @return bool
 	 */
 	public function setImageAttribute ($key, $value) {}
 
@@ -2975,8 +2979,8 @@ class Imagick implements Iterator, Countable {
 	public function clipPathImage ($pathname, $inside) {}
 
 	/**
-	 * @param $pathname
-	 * @param $inside
+	 * @param string $pathname
+	 * @param string $inside
 	 */
 	public function clipImagePath ($pathname, $inside) {}
 
@@ -3306,7 +3310,9 @@ class Imagick implements Iterator, Countable {
 	public function gaussianBlurImage ($radius, $sigma, $channel = Imagick::CHANNEL_ALL) {}
 
 	/**
-	 * @param $key
+     * @link https://www.php.net/manual/en/imagick.getimageattribute.php
+	 * @param string $key <p>The key of the attribute to get.</p>
+     * @return string
 	 */
 	#[Pure]
 	public function getImageAttribute ($key) {}
@@ -4579,8 +4585,8 @@ class Imagick implements Iterator, Countable {
 	/**
 	 * Change the brightness and/or contrast of an image. It converts the brightness and contrast parameters into slope and intercept and calls a polynomical function to apply to the image.
 	 * @link https://php.net/manual/en/imagick.brightnesscontrastimage.php
-	 * @param string $brightness
-	 * @param string $contrast
+	 * @param float $brightness
+	 * @param float $contrast
 	 * @param int $CHANNEL [optional]
 	 * @return void
 	 * @since 3.3.0
@@ -4613,7 +4619,7 @@ class Imagick implements Iterator, Countable {
 	 * Apply color transformation to an image. The method permits saturation changes, hue rotation, luminance to alpha, and various other effects. Although variable-sized transformation matrices can be used, typically one uses a 5x5 matrix for an RGBA image and a 6x6 for CMYKA (or RGBA with offsets).
 	 * The matrix is similar to those used by Adobe Flash except offsets are in column 6 rather than 5 (in support of CMYKA images) and offsets are normalized (divide Flash offset by 255)
 	 * @link https://php.net/manual/en/imagick.colormatriximage.php
-	 * @param string $color_matrix
+	 * @param array $color_matrix
 	 * @return void
 	 * @since 3.3.0
 	 */
@@ -4695,8 +4701,8 @@ class Imagick implements Iterator, Countable {
 	/**
 	 * Rotational blurs an image.
 	 * @link https://php.net/manual/en/imagick.rotationalblurimage.php
-	 * @param string $angle
-	 * @param string $CHANNEL
+	 * @param float $angle
+	 * @param int $CHANNEL
 	 * @return void
 	 * @since 3.3.0
 	 */
@@ -4902,7 +4908,7 @@ class ImagickDraw  {
 	public function getTextKerning () {}
 
 	/**
-	 * @param $kerning
+	 * @param float $kerning
 	 */
 	public function setTextKerning ($kerning) {}
 
@@ -4952,8 +4958,10 @@ class ImagickDraw  {
 	public function setFillAlpha ($opacity) {}
 
 	/**
-	 * @param $x_resolution
-	 * @param $y_resolution
+     * Sets the image resolution
+	 * @param float $x_resolution <p>The horizontal resolution.</p>
+	 * @param float $y_resolution <p>The vertical resolution.</p>
+     * @return bool
 	 */
 	public function setResolution ($x_resolution, $y_resolution) {}
 
@@ -6628,11 +6636,14 @@ class ImagickPixel  {
 	 */
 	public function setColorValueQuantum ($color_value) {}
 
+    /**
+     * Gets the colormap index of the pixel wand.
+     */
 	#[Pure]
 	public function getIndex () {}
 
 	/**
-	 * @param $index
+	 * @param int $index
 	 */
 	public function setIndex ($index) {}
 
@@ -6740,7 +6751,7 @@ class ImagickPixel  {
 	 * (PECL imagick 2.0.0)<br/>
 	 * Returns the color
 	 * @link https://php.net/manual/en/imagickpixel.getcolor.php
-	 * @param bool $normalized [optional] <p>
+	 * @param int $normalized [optional] <p>
 	 * Normalize the color values
 	 * </p>
 	 * @return array An array of channel values, each normalized if <b>TRUE</b> is given as param. Throws
@@ -6771,7 +6782,7 @@ class ImagickPixel  {
 	public function getColorCount () {}
 
 	/**
-	 * @param $colorCount
+	 * @param int $colorCount
 	 */
 	public function setColorCount ($colorCount) {}
 

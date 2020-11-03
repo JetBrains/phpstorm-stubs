@@ -80,7 +80,7 @@ use JetBrains\PhpStorm\Pure;
 function stream_select (array &$read, array &$write, array &$except, $seconds, $microseconds = null) {}
 
 /**
- * Create a streams context
+ * Create a stream context
  * @link https://php.net/manual/en/function.stream-context-create.php
  * @param null|array $options [optional] <p>
  * Must be an associative array of associative arrays in the format
@@ -160,7 +160,7 @@ function stream_context_set_option ($stream_or_context, array $options) {}
 function stream_context_get_options ($stream_or_context) {}
 
 /**
- * Retreive the default streams context
+ * Retreive the default stream context
  * @link https://php.net/manual/en/function.stream-context-get-default.php
  * @param null|array $options [optional] options must be an associative
  * array of associative arrays in the format
@@ -174,7 +174,7 @@ function stream_context_get_options ($stream_or_context) {}
 function stream_context_get_default (array $options = null) {}
 
 /**
- * Set the default streams context
+ * Set the default stream context
  * @link https://php.net/manual/en/function.stream-context-set-default.php
  * @param array $options <p>
  * The options to set for the default context.
@@ -360,7 +360,7 @@ function stream_socket_client ($address, &$error_code = null, &$error_message = 
 function stream_socket_server ($address, &$error_code = null, &$error_message = null, $flags = null, $context = null) {}
 
 /**
- * Accept a connection on a socket created by <function>stream_socket_server</function>
+ * Accept a connection on a socket created by {@see stream_socket_server}
  * @link https://php.net/manual/en/function.stream-socket-accept.php
  * @param resource $socket
  * @param float $timeout [optional] <p>
@@ -697,7 +697,7 @@ function flock ($stream, $operation, &$would_block = null) {}
 function get_meta_tags ($filename, $use_include_path = null) {}
 
 /**
- * Sets file buffering on the given stream
+ * Sets write file buffering on the given stream
  * @link https://php.net/manual/en/function.stream-set-write-buffer.php
  * @param resource $stream <p>
  * The file pointer.
@@ -714,7 +714,7 @@ function get_meta_tags ($filename, $use_include_path = null) {}
 function stream_set_write_buffer ($stream, $size) {}
 
 /**
- * Sets file buffering on the given stream
+ * Sets read file buffering on the given stream
  * @link https://php.net/manual/en/function.stream-set-read-buffer.php
  * @param resource $stream <p>
  * The file pointer.
@@ -1001,7 +1001,7 @@ function stream_get_transports () {}
 function stream_is_local ($stream) {}
 
 /**
- * Fetches all the headers sent by the server in response to a HTTP request
+ * Fetches all the headers sent by the server in response to an HTTP request
  * @link https://php.net/manual/en/function.get-headers.php
  * @param string $url <p>
  * The target URL.

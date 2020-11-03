@@ -974,9 +974,9 @@ function fann_num_output_train_data($data)
 
 /**
  * Prints the error string
+ * @link https://www.php.net/manual/en/function.fann-print-error.php
  *
- *
- * @param string $errdat
+ * @param resource $errdat
  *
  * @return void
  */

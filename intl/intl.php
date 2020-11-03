@@ -882,9 +882,10 @@ class NumberFormatter {
 
 
     /**
-     * @param $locale
-     * @param $style
-     * @param $pattern [optional]
+     * @link https://www.php.net/manual/en/class.numberformatter.php
+     * @param string $locale
+     * @param int $style
+     * @param string $pattern [optional]
      */
     #[Pure]
     public function __construct($locale, $style, $pattern = null) { }
@@ -1157,7 +1158,7 @@ class Normalizer {
      * Canonical Composition
      * @link https://secure.php.net/manual/en/class.normalizer.php
      */
-    const FORM_C = "4";
+    const FORM_C = 16;
     const NFC = 4;
 
     /**
@@ -1165,7 +1166,7 @@ class Normalizer {
      * Canonical Composition
      * @link https://secure.php.net/manual/en/class.normalizer.php
      */
-    const FORM_KC = "5";
+    const FORM_KC = 32;
     const NFKC = 5;
 
 
@@ -1174,7 +1175,7 @@ class Normalizer {
      * Normalizes the input provided and returns the normalized string
      * @link https://php.net/manual/en/normalizer.normalize.php
      * @param string $input <p>The input string to normalize</p>
-     * @param string $form [optional] <p>One of the normalization forms.</p>
+     * @param int $form [optional] <p>One of the normalization forms.</p>
      * @return string|null The normalized string or <b>NULL</b> if an error occurred.
      */
     public static function normalize($input, $form = Normalizer::FORM_C) { }
@@ -1184,7 +1185,7 @@ class Normalizer {
      * Checks if the provided string is already in the specified normalization form.
      * @link https://php.net/manual/en/normalizer.isnormalized.php
      * @param string $input <p>The input string to normalize</p>
-     * @param string $form [optional] <p>
+     * @param int $form [optional] <p>
      * One of the normalization forms.
      * </p>
      * @return bool <b>TRUE</b> if normalized, <b>FALSE</b> otherwise or if there an error
@@ -2023,9 +2024,10 @@ class IntlDateFormatter {
 class ResourceBundle implements IteratorAggregate {
 
     /**
-     * @param $locale
-     * @param $bundlename
-     * @param $fallback [optional]
+     * @link https://www.php.net/manual/en/resourcebundle.create.php
+     * @param string $locale <p>Locale for which the resources should be loaded (locale name, e.g. en_CA).</p>
+     * @param string $bundlename <p>The directory where the data is stored or the name of the .dat file.</p>
+     * @param bool $fallback [optional] <p>Whether locale should match exactly or fallback to parent locale is allowed.</p>
      */
     #[Pure]
     public function __construct($locale, $bundlename, $fallback) { }
@@ -2149,11 +2151,11 @@ class Transliterator {
      * @param string $rules <p>
      * The rules.
      * </p>
-     * @param string $direction [optional] <p>
+     * @param int $direction [optional] <p>
      * The direction, defaults to
-     * >Transliterator::FORWARD.
+     * {@see Transliterator::FORWARD}.
      * May also be set to
-     * Transliterator::REVERSE.
+     * {@see Transliterator::REVERSE}.
      * </p>
      * @return Transliterator|null a <b>Transliterator</b> object on success,
      * or <b>NULL</b> on failure.
@@ -2283,7 +2285,7 @@ class Spoofchecker {
      * (PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)<br/>
      * Set the checks to run
      * @link https://php.net/manual/en/spoofchecker.setchecks.php
-     * @param string $checks <p>
+     * @param int $checks <p>
      * </p>
      * @return void
      */
@@ -2982,7 +2984,7 @@ class IntlCalendar {
      * (PHP 5 &gt;=5.5.0 PECL intl &gt;= 3.0.0a1)<br/>
      * Set whether date/time interpretation is to be lenient
      * @link https://secure.php.net/manual/en/intlcalendar.setlenient.php
-     * @param string $isLenient <p>
+     * @param bool $isLenient <p>
      * Use <b>TRUE</b> to activate the lenient mode; <b>FALSE</b> otherwise.
      * </p>
      * @return bool Returns <b>TRUE</b> on success. Failure can only happen due to invalid parameters.
@@ -3529,7 +3531,7 @@ function collator_get_error_code(Collator $object) { }
 function collator_get_error_message(Collator $object) { }
 
 /**
- * (No version information available, might only be in SVN)<br/>
+ * (PHP 5 &gt;= 5.3.2, PHP 7, PECL intl &gt;= 1.0.3)<br/>
  * Get sorting key for a string
  * @link https://php.net/manual/en/collator.getsortkey.php
  * @param Collator $object
@@ -3796,7 +3798,7 @@ function numfmt_get_error_message(NumberFormatter $fmt) { }
  * Normalizes the input provided and returns the normalized string
  * @link https://php.net/manual/en/normalizer.normalize.php
  * @param string $input <p>The input string to normalize</p>
- * @param string $form [optional] <p>One of the normalization forms.</p>
+ * @param int $form [optional] <p>One of the normalization forms.</p>
  * @return string|null The normalized string or <b>NULL</b> if an error occurred.
  */
 #[Pure]
@@ -3808,7 +3810,7 @@ function normalizer_normalize($input, $form = Normalizer::FORM_C) { }
 form.
  * @link https://php.net/manual/en/normalizer.isnormalized.php
  * @param string $input <p>The input string to normalize</p>
- * @param string $form [optional] <p>
+ * @param int $form [optional] <p>
  * One of the normalization forms.
  * </p>
  * @return bool <b>TRUE</b> if normalized, <b>FALSE</b> otherwise or if there an error
@@ -3817,7 +3819,7 @@ form.
 function normalizer_is_normalized($input, $form = Normalizer::FORM_C) { }
 
 /**
- * Get the default Locale
+ * Gets the default locale value from the intl global 'default_locale'
  * @link https://php.net/manual/en/function.locale-get-default.php
  * @return string a string with the current Locale.
  */
@@ -3826,7 +3828,7 @@ function locale_get_default() { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
- * Set the default Locale
+ * Set the default runtime Locale
  * @link https://php.net/manual/en/function.locale-set-default.php
  * @param string $name <p>
  * The new Locale name. A comprehensive list of the supported locales is
@@ -4040,6 +4042,7 @@ function locale_get_all_variants($locale) { }
 function locale_filter_matches($langtag, $locale, $canonicalize = false) { }
 
 /**
+ * Canonicalize the locale string
  * @param string $locale
  *
  * @return null|string
@@ -4083,6 +4086,7 @@ function locale_lookup(array $langtag, $locale, $canonicalize = false, $default 
 function locale_accept_from_http($header) { }
 
 /**
+ * Constructs a new message formatter
  * @param string $locale
  * @param string $pattern
  * @return MessageFormatter|null
@@ -4270,7 +4274,7 @@ function datefmt_get_timetype(IntlDateFormatter $fmt) { }
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
- * Get the calendar used for the IntlDateFormatter
+ * Get the calendar type used for the IntlDateFormatter
  * @link https://php.net/manual/en/intldateformatter.getcalendar.php
  * @param IntlDateFormatter $fmt
  * @return int The calendar being used by the formatter.
@@ -6062,7 +6066,7 @@ function transliterator_create($id, $direction = null) { }
  * @param string $rules <p>
  * The rules.
  * </p>
- * @param string $direction [optional] <p>
+ * @param int $direction [optional] <p>
  * The direction, defaults to
  * >Transliterator::FORWARD.
  * May also be set to
@@ -6687,7 +6691,23 @@ class IntlBreakIterator implements IteratorAggregate
      * (PHP 5 &gt;=5.5.0)<br/>
      * Create iterator for navigating fragments between boundaries
      * @link https://secure.php.net/manual/en/intlbreakiterator.getpartsiterator.php
-     * @param string $key_type [optional]
+     * @param int $key_type [optional]
+     * <p>
+     * Optional key type. Possible values are:
+     * </p><ul>
+     * <li>
+     * {@see IntlPartsIterator::KEY_SEQUENTIAL}
+     * - The default. Sequentially increasing integers used as key.
+     * </li>
+     * <li>
+     * {@see IntlPartsIterator::KEY_LEFT}
+     * - Byte offset left of current part used as key.
+     * </li>
+     * <li>
+     * {@see IntlPartsIterator::KEY_RIGHT}
+     * - Byte offset right of current part used as key.
+     * </li>
+     * </ul>
      */
     #[Pure]
     public function getPartsIterator($key_type = IntlPartsIterator::KEY_SEQUENTIAL) { }
@@ -6704,7 +6724,7 @@ class IntlBreakIterator implements IteratorAggregate
      * (PHP 5 &gt;=5.5.0)<br/>
      * Tell whether an offset is a boundary's offset
      * @link https://secure.php.net/manual/en/intlbreakiterator.isboundary.php
-     * @param string $offset
+     * @param int $offset
      */
     #[Pure]
     public function isBoundary($offset) { }
@@ -6720,7 +6740,7 @@ class IntlBreakIterator implements IteratorAggregate
     /**
      * (PHP 5 &gt;=5.5.0)<br/>
      * @link https://secure.php.net/manual/en/intlbreakiterator.next.php
-     * @param string $offset [optional]
+     * @param int $offset [optional]
      * @return int
      */
     public function next($offset = null) { }

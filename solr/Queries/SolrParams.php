@@ -109,7 +109,7 @@ abstract class SolrParams implements Serializable {
 	 * @param string $name <p>
 	 * The name of the parameter
 	 * </p>
-	 * @param $value <p>
+	 * @param string $value <p>
 	 * The parameter value
 	 * </p>
 	 * @return SolrParams|false <p>
@@ -125,7 +125,7 @@ abstract class SolrParams implements Serializable {
 	 * @param string $name <p>
 	 * The name of the parameter
 	 * </p>
-	 * @param $value <p>
+	 * @param string $value <p>
 	 * The parameter value
 	 * </p>
 	 * @return SolrParams|false <p>

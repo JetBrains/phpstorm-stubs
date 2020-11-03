@@ -156,6 +156,7 @@ function mysql_select_db ($database_name, $link_identifier = null) {}
 function mysql_query ($query, $link_identifier = null) {}
 
 /**
+ * @deprecated 5.5
  * Send an SQL query to MySQL without fetching and buffering the result rows.
  * @link https://php.net/manual/en/function.mysql-unbuffered-query.php
  * @param string $query <p>
@@ -860,7 +861,7 @@ function mysql_listtables ($database_name, $link_identifier) {}
 function mysql_listfields ($database_name, $table_name, $link_identifier) {}
 
 /**
- * Retrieves database name from the call to <b>mysql_list_dbs</b>
+ * Retrieves database name from the call to {@see mysql_list_dbs}
  * @link https://php.net/manual/en/function.mysql-db-name.php
  * @param resource $result <p>
  * The result pointer from a call to <b>mysql_list_dbs</b>.

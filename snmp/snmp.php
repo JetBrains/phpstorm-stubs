@@ -516,7 +516,7 @@ function snmp_set_enum_print ($enum_print) {}
 function snmp_set_oid_output_format ($oid_format = SNMP_OID_OUTPUT_MODULE) {}
 
 /**
- * Return all objects including their respective object id within the specified one
+ * Set the oid output format
  * @link https://php.net/manual/en/function.snmp-set-oid-numeric-print.php
  * @param int $oid_format
  * @return void
@@ -833,10 +833,10 @@ function snmp3_walk ($host, $sec_name, $sec_level, $auth_protocol, $auth_passphr
  * @param string $object_id <p>
  * The SNMP object id.
  * </p>
- * @param string $timeout [optional] <p>
+ * @param int $timeout [optional] <p>
  * The number of microseconds until the first timeout.
  * </p>
- * @param string $retries [optional] <p>
+ * @param int $retries [optional] <p>
  * The number of times to retry if timeouts occur.
  * </p>
  * @return array an associative array of the

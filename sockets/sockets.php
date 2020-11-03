@@ -21,7 +21,6 @@
 function socket_addrinfo_lookup($host, $service, $hints) {}
 
 /**
- * (PHP 7 &gt;= 7.2.0)<br/>
  * Create a Socket resource, and connect it to the provided AddrInfo resource.<br/>
  * The return value of this function may be used with the rest of the socket functions.
  * @link https://www.php.net/manual/en/function.socket-addrinfo-connect.php
@@ -782,7 +781,7 @@ function socket_recvfrom ($socket, &$buf, $len, $flags, &$name, &$port = null) {
  * Read a message
  * @link https://secure.php.net/manual/en/function.socket-recvmsg.php
  * @param resource|Socket $socket
- * @param string $message
+ * @param array $message
  * @param int $flags [optional]
  * @return int|false
  * @since 5.5
@@ -1318,6 +1317,7 @@ function socket_import_stream ($stream) {}
 function socket_cmsg_space ($level, $type, $n = 0) {}
 
 /**
+ * Alias of {@see socket_get_option}
  * @param $socket
  * @param $level
  * @param $optname
@@ -1325,6 +1325,7 @@ function socket_cmsg_space ($level, $type, $n = 0) {}
 function socket_getopt ($socket, $level, $optname) {}
 
 /**
+ * Alias of {@see socket_set_option}
  * @param $socket
  * @param $level
  * @param $optname

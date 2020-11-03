@@ -366,9 +366,9 @@ function gzdecode ($data, $max_length = null) {}
  * @link https://php.net/manual/en/function.zlib-encode.php
  * @param string $data <p>
  * </p>
- * @param string $encoding <p>
+ * @param int $encoding <p>
  * </p>
- * @param string $level [optional] default -1 <p>
+ * @param int $level [optional] default -1 <p>
  * </p>
  * @return string
  * @since 5.4
@@ -479,7 +479,7 @@ function deflate_add ($context, $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
 function inflate_init ($encoding, $options = array()) {}
 
 /**
- * Incrementally inflate data
+ * Incrementally inflate encoded data
  * @link https://php.net/manual/en/function.inflate-add.php
  * @param resource $context <p>
  * A context created with <b>inflate_init()</b>.
@@ -502,6 +502,7 @@ function inflate_init ($encoding, $options = array()) {}
 function inflate_add ($context, $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
 
 /**
+ * Get number of bytes read so far
  * @param resource $context
  * @return bool
  * @since 7.2
@@ -510,6 +511,7 @@ function inflate_add ($context, $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
 function inflate_get_read_len ($context){}
 
 /**
+ * Get decompression status
  * @param resource $context
  * @return bool
  * @since 7.2

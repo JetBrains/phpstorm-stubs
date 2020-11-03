@@ -333,6 +333,312 @@
       ]
     },
     {
+      "name": "ctype_alpha",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_alnum",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_cntrl",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_digit",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_lower",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_graph",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_print",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_punct",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_space",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_upper",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "ctype_xdigit",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "sybase_connect",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "sybase_pconnect",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "sybase_query",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "sybase_unbuffered_query",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "sybase_unbuffered_query",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "sybase_fetch_row",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "sybase_fetch_array",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "sybase_fetch_assoc",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "sybase_auth_get_parameter",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "svn_update",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_init",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_random_seed",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_strval",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_strval",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_add",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_sub",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_mul",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_div_qr",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_div_q",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_div_r",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_div_r",
+      "problems": [
+        "wrong return type in docs"
+      ]
+    },
+    {
+      "name": "gmp_div_r",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "gmp_mod",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "gmp_divexact",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "gmp_neg",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "gmp_abs",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "gmp_fact",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "gmp_sqrt",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "gmp_sqrtrem",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "min",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "specific overloading case"
+      ]
+    },
+    {
+      "name": "max",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "specific overloading case"
+      ]
+    },
+    {
+      "name": "uopz_add_function",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "uopz_del_function",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "numfmt_format",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "datefmt_format_object",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
+      "name": "oci_lob_is_equal",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "Oci_lob vs Oci-lob"
+      ]
+    },
+    {
+      "name": "oci_lob_copy",
+      "problems": [
+        "wrong parmeter type in docs"
+      ],
+      "comment": [
+        "Oci_lob vs Oci-lob"
+      ]
+    },
+    {
+      "name": "xmlrpc_server_register_method",
+      "problems": [
+        "wrong parmeter type in docs"
+      ]
+    },
+    {
       "name": "gmmktime",
       "problems": [
         "parameter mismatch"
@@ -857,6 +1163,371 @@
     }
   ],
   "classes": [
+    {
+      "name": "Yaf_Dispatcher",
+      "methods": [
+        {
+          "name": "setErrorHandler",
+          "problems": [
+            "wrong parmeter type in docs"
+          ],
+          "comment": [
+            "call == callable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReflectionFunction",
+      "methods": [
+        {
+          "name": "export",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ZMQSocket",
+      "methods": [
+        {
+          "name": "getSockOpt",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ReflectionExtension",
+      "methods": [
+        {
+          "name": "export",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yaf_Request_Http",
+      "methods": [
+        {
+          "name": "getQuery",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        },
+        {
+          "name": "getPost",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        },
+        {
+          "name": "getCookie",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yaf_Request_Abstract",
+      "methods": [
+        {
+          "name": "getParam",
+          "problems": [
+            "wrong parmeter type in docs"
+          ],
+          "comment": [
+            "$default is mixed"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yaf_Registry",
+      "methods": [
+        {
+          "name": "set",
+          "problems": [
+            "wrong parmeter type in docs"
+          ],
+          "comment": [
+            "$value is mixed"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yaf_Request_Abstract",
+      "methods": [
+        {
+          "name": "getServer",
+          "problems": [
+            "wrong parmeter type in docs"
+          ],
+          "comment": [
+            "$value is mixed"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yaf_Session",
+      "methods": [
+        {
+          "name": "offsetGet",
+          "problems": [
+            "wrong parmeter type in docs"
+          ],
+          "comment": [
+            "$name is mixed in ArrayAccess"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yaf_Router",
+      "methods": [
+        {
+          "name": "addRoute",
+          "problems": [
+            "wrong parmeter type in docs"
+          ],
+          "comment": [
+            "There is no Yaf_Route_Abstract class"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NumberFormatter",
+      "methods": [
+        {
+          "name": "format",
+          "problems": [
+            "wrong parmeter type in docs"
+          ],
+          "comment": [
+            "$value is number"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EvCheck",
+      "methods": [{
+        "name": "createStopped",
+        "problems": [
+          "wrong parmeter type in docs"
+        ]
+      }]
+    },
+    {
+      "name": "EvPeriodic",
+      "methods": [
+        {
+          "name": "__construct",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EvPrepare",
+      "methods": [
+        {
+          "name": "__construct",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EvIdle",
+      "methods": [
+        {
+          "name": "createStopped",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EvLoop",
+      "methods": [
+        {
+          "name": "child",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        },
+        {
+          "name": "embed",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        },
+        {
+          "name": "check",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EvPrepare",
+      "methods": {
+        "name": "__construct",
+        "problems": [
+          "wrong parmeter type in docs"
+        ]
+      }
+    },
+    {
+      "name": "EvIdle",
+      "methods": {
+        "name": "__construct",
+        "problems": [
+          "wrong parmeter type in docs"
+        ]
+      }
+    },
+    {
+      "name": "EvFork",
+      "methods": [
+        {
+          "name": "__construct",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        },
+        {
+          "name": "createStopped",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "parallel\\Sync",
+      "methods": [
+        {
+          "name": "__construct",
+          "problems": [
+            "wrong parmeter type in docs"
+          ],
+          "comment": [
+            "$value is scalar"
+          ]
+        },
+        {
+          "name": "set",
+          "problems": [
+            "wrong parmeter type in docs"
+          ],
+          "comment": [
+            "$value is scalar"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lua",
+      "methods": [
+        {
+          "name": "call",
+          "problems": [
+            "wrong parmeter type in docs"
+          ],
+          "comment": [
+            "$use_self appears to be bool"
+          ]
+        },
+        {
+          "name": "assign",
+          "problems": [
+            "wrong parmeter type in docs"
+          ],
+          "comment": [
+            "$value appears to be mixed"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SoapFault",
+      "methods": [
+        {
+          "name": "SoapFault",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        },
+        {
+          "name": "__construct",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yaf_Route_Map",
+      "methods": [
+        {
+          "name": "__construct",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "XSLTProcessor",
+      "methods": [
+        {
+          "name": "transformToXml",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SolrQuery",
+      "methods": [
+        {
+          "name": "setFacetDateHardEnd",
+          "problems": [
+            "wrong parmeter type in docs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Imagick",
+      "methods": [
+        {
+          "name": "getImageDistortion",
+          "problems": [
+            "wrong parmeter type in docs"
+          ],
+          "comment": [
+            "magickwand is a type from c sources"
+          ]
+        }
+      ]
+    },
+
     {
       "name": "AMQPBasicProperties",
       "methods": [
