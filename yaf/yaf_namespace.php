@@ -2072,7 +2072,7 @@ abstract class Response_Abstract
      *
      * @link https://secure.php.net/manual/en/yaf-response-abstract.getbody.php
      *
-     * @param null|string $key <p>the content key, if you don't specific, then \Yaf\Response_Abstract::DEFAULT_BODY will be used. if you pass in a NULL, then all contents will be returned as a array</p>
+     * @param string|null $key <p>the content key, if you don't specific, then \Yaf\Response_Abstract::DEFAULT_BODY will be used. if you pass in a NULL, then all contents will be returned as a array</p>
      * <br/>
      * <b>Note:</b>
      * <p>this parameter is introduced as of 2.2.0</p>

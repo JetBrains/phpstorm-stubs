@@ -3151,7 +3151,7 @@ class Redis
      * @param int    $offset Optional argument if you wish to start somewhere other than the first element.
      * @param int    $limit  Optional argument if you wish to limit the number of elements returned.
      *
-     * @return array|bool Array containing the values in the specified range.
+     * @return array|false Array containing the values in the specified range.
      *
      * @link    https://redis.io/commands/zrangebylex
      * @example

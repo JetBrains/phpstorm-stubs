@@ -2245,7 +2245,7 @@ class MongoWriteBatch
 	 * <td>
 	 * <p>Raw update operation.</p>
 	 * <p>Required keys are <em>"q"</em> and <em>"u"</em>, which correspond to the
-	 * <code>$criteria</code> and <code$new_object</code> parameters of {@see MongoCollection::update()}, respectively.</p>
+	 * <code>$criteria</code> and <code>$new_object</code> parameters of {@see MongoCollection::update()}, respectively.</p>
 	 * <p>Optional keys are <em>"multi"</em> and <em>"upsert"</em>, which correspond to the
 	 * <em>"multiple"</em> and <em>"upsert"</em> options for {@see MongoCollection::update()}, respectively.
 	 * If unspecified, both options default to <strong><code>FALSE</code></strong>.</p>

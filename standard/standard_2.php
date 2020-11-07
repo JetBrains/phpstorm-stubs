@@ -642,7 +642,7 @@ function unlink ($filename, $context = null):bool {}
  * @param string $command <p>
  * The command that will be executed.
  * </p>
- * @param array $output [optional] <p>
+ * @param array &$output [optional] <p>
  * If the output argument is present, then the
  * specified array will be filled with every line of output from the
  * command. Trailing whitespace, such as \n, is not
