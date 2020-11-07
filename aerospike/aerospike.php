@@ -2228,7 +2228,7 @@ class Aerospike {
      * @param array  $key The key identifying the record. An array with keys `['ns','set','key']` or `['ns','set','digest']`
      * @param string $bin
      * @param int    $index
-     * @param mixed  &$element pass-by-reference param which will hold the returned element.
+     * @param array  &$element pass-by-reference param which will hold the returned element.
      * @param array  $options an optional array of policy options, whose keys include
      * * Aerospike::OPT_READ_TIMEOUT
      * * Aerospike::OPT_POLICY_KEY

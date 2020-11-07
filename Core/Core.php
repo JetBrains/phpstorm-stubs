@@ -688,15 +688,14 @@ function restore_exception_handler () {}
 /**
  * Returns an array with the name of the defined classes
  * @link https://php.net/manual/en/function.get-declared-classes.php
- * @return array an array of the names of the declared classes in the current
- * script.
- * </p>
+ * @return string[] an array of the names of the declared classes in the current script.
  * <p>
  * Note that depending on what extensions you have compiled or
  * loaded into PHP, additional classes could be present. This means that
  * you will not be able to define your own classes using these
  * names. There is a list of predefined classes in the Predefined Classes section of
  * the appendices.
+ * </p>
  */
 #[Pure]
 function get_declared_classes () {}
@@ -762,14 +761,14 @@ function create_function ($args, $code) {}
  * @param resource $resource <p>
  * The evaluated resource handle.
  * </p>
- * @return string If the given <i>handle</i> is a resource, this function
+ * @return string|false If the given <i>handle</i> is a resource, this function
  * will return a string representing its type. If the type is not identified
  * by this function, the return value will be the string
  * Unknown.
- * </p>
  * <p>
  * This function will return false and generate an error if
  * <i>handle</i> is not a resource.
+ * </p>
  */
 function get_resource_type ($resource) {}
 
@@ -1046,7 +1045,7 @@ function gc_disable () {}
 /**
  * Gets information about the garbage collector
  * @link https://php.net/manual/en/function.gc-status.php
- * @return array associative array with the following elements:
+ * @return int[] associative array with the following elements:
  * <ul>
  * <li>"runs"</li>
  * <li>"collected"</li>
@@ -1078,7 +1077,7 @@ function gc_mem_caches () {}
  *
  * If omitted, all resources will be returned.
  * </p>
- * @return array Returns an array of currently active resources, indexed by resource number.
+ * @return resource[] Returns an array of currently active resources, indexed by resource number.
  * @since 7.0
  */
 #[Pure]
