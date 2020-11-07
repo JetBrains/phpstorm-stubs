@@ -189,7 +189,7 @@ class Collator {
      * Possible values are:
      * <b>Collator::PRIMARY</b>
      * <b>Collator::SECONDARY</b>
-     * <b>Collator::TERTIARY</b>(<default)
+     * <b>Collator::TERTIARY</b>(default)
      * <b>Collator::QUATERNARY</b>
      * <b>Collator::IDENTICAL</b>
      * <b>Collator::DEFAULT_VALUE</b>
@@ -1176,7 +1176,7 @@ class Normalizer {
      * @link https://php.net/manual/en/normalizer.normalize.php
      * @param string $input <p>The input string to normalize</p>
      * @param int $form [optional] <p>One of the normalization forms.</p>
-     * @return string|null The normalized string or <b>NULL</b> if an error occurred.
+     * @return string|false The normalized string or <b>FALSE</b> if an error occurred.
      */
     public static function normalize($input, $form = Normalizer::FORM_C) { }
 
@@ -3799,7 +3799,7 @@ function numfmt_get_error_message(NumberFormatter $fmt) { }
  * @link https://php.net/manual/en/normalizer.normalize.php
  * @param string $input <p>The input string to normalize</p>
  * @param int $form [optional] <p>One of the normalization forms.</p>
- * @return string|null The normalized string or <b>NULL</b> if an error occurred.
+ * @return string|false The normalized string or <b>FALSE</b> if an error occurred.
  */
 #[Pure]
 function normalizer_normalize($input, $form = Normalizer::FORM_C) { }
