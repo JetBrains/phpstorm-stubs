@@ -235,7 +235,7 @@ class RRDCreator {
      * </p>
      * @since PECL rrd >= 0.9.0
      */
-    public function __construct($path, $startTime='', $step=0) {}
+    public function __construct($path, $startTime = '', $step = 0) {}
 
     /**
      * Saves the RRD database into file, which name is defined by RRDCreator::__construct()
@@ -327,7 +327,7 @@ class RRDUpdater {
      * @throws \Exception on error
      * @since PECL rrd >= 0.9.0
      */
-    public function update($values, $time='') {}
+    public function update($values, $time = '') {}
 
 }
 

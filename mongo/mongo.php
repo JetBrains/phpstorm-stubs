@@ -238,7 +238,7 @@ class MongoClient
      * @param array $tags
      * @return bool
      */
-    public function setReadPreference ($readPreference, $tags=null)
+    public function setReadPreference ($readPreference, $tags = null)
     {}
 
     /**

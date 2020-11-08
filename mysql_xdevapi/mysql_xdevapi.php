@@ -111,7 +111,7 @@ class Collection  {
      * @param mixed $document
      * @return \mysql_xdevapi\Result
      */
-    public function addOrReplaceOne($id,$document) : \mysql_xdevapi\Result {}
+    public function addOrReplaceOne($id, $document) : \mysql_xdevapi\Result {}
 
     /**
      * Get document count

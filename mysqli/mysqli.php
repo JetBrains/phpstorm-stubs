@@ -2144,7 +2144,7 @@ function mysqli_reap_async_query ($mysql) {}
  * @return bool Returns TRUE on success or FALSE on failure.
  * @since 5.5
  */
-function mysqli_release_savepoint ($mysql ,$name) {}
+function mysqli_release_savepoint ($mysql, $name) {}
 
 /**
  * Rolls back current transaction
@@ -2164,7 +2164,7 @@ function mysqli_rollback ($mysql, $flags = 0, $name = null) {}
  * @return bool Returns TRUE on success or FALSE on failure.
  * @since 5.5
  */
-function mysqli_savepoint ($mysql ,$name) {}
+function mysqli_savepoint ($mysql, $name) {}
 
 /**
  * Selects the default database for database queries

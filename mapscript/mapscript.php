@@ -1772,10 +1772,10 @@ final class layerObj
      * $map = new mapObj("gmap75.map");
      * $l = $map->getLayerByName("popplace");
      * $l->queryByRect($map->extent);
-     * for ($i=0; $i<$l->getNumResults();$i++){
-     * $s = $l->getShape($l->getResult($i));
-     * echo $s->getValue($l,"Name");
-     * echo "\n";
+     * for ($i = 0; $i < $l->getNumResults(); $i++) {
+     *     $s = $l->getShape($l->getResult($i));
+     *     echo $s->getValue($l,"Name");
+     *     echo "\n";
      * }
      *
      * @param resultObj $result

@@ -854,7 +854,7 @@ class IntlChar {
      * or <b>NULL</b> if <em>codepoint</em> is out of bound.
      * @since 7.0
      */
-    public static function digit ($codepoint,$radix = 10 ) {}
+    public static function digit ($codepoint, $radix = 10 ) {}
 
     /**
      * Enumerate all assigned Unicode characters within a range

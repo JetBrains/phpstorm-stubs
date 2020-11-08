@@ -350,7 +350,7 @@ class DateTime implements DateTimeInterface {
      * </p> <p></p></blockquote>
      * @throws Exception Emits Exception in case of an error.
      */
-    public function __construct ($time='now', DateTimeZone $timezone=null) {}
+    public function __construct ($time = 'now', DateTimeZone $timezone = null) {}
 
     /**
      * @return void
@@ -430,7 +430,7 @@ class DateTime implements DateTimeInterface {
      * @return static|false
      * @link https://php.net/manual/en/datetime.settime.php
      */
-    public function setTime ($hour, $minute, $second=0, $microseconds=0) {}
+    public function setTime ($hour, $minute, $second = 0, $microseconds = 0) {}
 
     /**
      * Sets the current date of the DateTime object to a different date.
@@ -450,7 +450,7 @@ class DateTime implements DateTimeInterface {
      * @return static
      * @link https://php.net/manual/en/datetime.setisodate.php
      */
-    public function setISODate ($year, $week, $day=1) {}
+    public function setISODate ($year, $week, $day = 1) {}
 
     /**
      * Sets the date and time based on a Unix timestamp.
@@ -485,7 +485,7 @@ class DateTime implements DateTimeInterface {
      * @return DateTime|false
      * @link https://php.net/manual/en/datetime.createfromformat.php
      */
-    public static function createFromFormat ($format, $time, DateTimeZone $timezone=null) {}
+    public static function createFromFormat ($format, $time, DateTimeZone $timezone = null) {}
 
     /**
      * Returns an array of warnings and errors found while parsing a date/time string
@@ -582,7 +582,7 @@ class DateTimeZone {
      * @return array
      * @link https://php.net/manual/en/datetimezone.listidentifiers.php
      */
-    public static function listIdentifiers ($what=DateTimeZone::ALL, $country=null) {}
+    public static function listIdentifiers ($what = DateTimeZone::ALL, $country = null) {}
 
     /**
      * @link https://php.net/manual/en/datetime.wakeup.php
@@ -734,7 +734,7 @@ class DatePeriod implements IteratorAggregate {
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link https://php.net/manual/en/dateperiod.construct.php
      */
-    public function __construct (DateTimeInterface $start, DateInterval $interval, DateTimeInterface $end, $options=0) {}
+    public function __construct (DateTimeInterface $start, DateInterval $interval, DateTimeInterface $end, $options = 0) {}
 
     /**
      * @param DateTimeInterface $start
@@ -743,14 +743,14 @@ class DatePeriod implements IteratorAggregate {
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link https://php.net/manual/en/dateperiod.construct.php
      */
-    public function __construct (DateTimeInterface $start, DateInterval $interval, $recurrences, $options=0) {}
+    public function __construct (DateTimeInterface $start, DateInterval $interval, $recurrences, $options = 0) {}
 
     /**
      * @param string $isostr String containing the ISO interval.
      * @param int $options Can be set to DatePeriod::EXCLUDE_START_DATE.
      * @link https://php.net/manual/en/dateperiod.construct.php
      */
-    public function __construct ($isostr, $options=0) {}
+    public function __construct ($isostr, $options = 0) {}
 
     /**
      * Gets the interval

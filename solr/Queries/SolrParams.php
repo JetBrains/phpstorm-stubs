@@ -44,7 +44,7 @@ abstract class SolrParams implements Serializable {
 	 * Returns a SolrParams instance on success and <b>FALSE</b> on failure.
 	 * </p>
 	 */
-	public function addParam($name ,$value) {}
+	public function addParam($name, $value) {}
 
 	/**
 	 * (PECL solr &gt;= 0.9.2)<br/>
