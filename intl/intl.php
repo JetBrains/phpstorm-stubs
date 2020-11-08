@@ -297,7 +297,7 @@ class Collator {
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Sort array using specified collator
      * @link https://php.net/manual/en/collator.sort.php
-     * @param array &$array <p>
+     * @param string[] &$array <p>
      * Array of strings to sort.
      * </p>
      * @param int $sort_flag [optional] <p>
@@ -316,7 +316,7 @@ class Collator {
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Sort array using specified collator and sort keys
      * @link https://php.net/manual/en/collator.sortwithsortkeys.php
-     * @param array &$array <p>Array of strings to sort</p>
+     * @param string[] &$array <p>Array of strings to sort</p>
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function sortWithSortKeys(array &$array) { }
@@ -325,7 +325,7 @@ class Collator {
      * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
      * Sort array maintaining index association
      * @link https://php.net/manual/en/collator.asort.php
-     * @param array &$array <p>Array of strings to sort.</p>
+     * @param string[] &$array <p>Array of strings to sort.</p>
      * @param int $sort_flag [optional] <p>
      * Optional sorting type, one of the following:
      * <p>
@@ -3451,7 +3451,7 @@ function collator_set_strength(Collator $object, $strength) { }
  * Sort array using specified collator
  * @link https://php.net/manual/en/collator.sort.php
  * @param Collator $object
- * @param array &$array <p>
+ * @param string[] &$array <p>
  * Array of strings to sort.
  * </p>
  * @param int $sort_flag [optional] <p>
@@ -3471,7 +3471,7 @@ function collator_sort(Collator $object, array &$array, $sort_flag = null) { }
  * Sort array using specified collator and sort keys
  * @link https://php.net/manual/en/collator.sortwithsortkeys.php
  * @param Collator $object
- * @param array &$array <p>Array of strings to sort</p>
+ * @param string[] &$array <p>Array of strings to sort</p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function collator_sort_with_sort_keys(Collator $object, array &$array) { }
@@ -3481,7 +3481,7 @@ function collator_sort_with_sort_keys(Collator $object, array &$array) { }
  * Sort array maintaining index association
  * @link https://php.net/manual/en/collator.asort.php
  * @param Collator $object
- * @param array &$array <p>Array of strings to sort.</p>
+ * @param string[] &$array <p>Array of strings to sort.</p>
  * @param int $sort_flag [optional] <p>
  * Optional sorting type, one of the following:
  * <p>
@@ -3967,7 +3967,7 @@ function locale_get_display_variant($locale, $in_locale = null) { }
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Returns a correctly ordered and delimited locale ID
  * @link https://php.net/manual/en/locale.composelocale.php
- * @param array $subtags <p>
+ * @param string[] $subtags <p>
  * an array containing a list of key-value pairs, where the keys identify
  * the particular locale ID subtags, and the values are the associated
  * subtag values.
@@ -3999,7 +3999,7 @@ function locale_compose(array $subtags) { }
  * 'private' subtags can take maximum 15 values whereas 'extlang' can take
  * maximum 3 values.
  * </p>
- * @return array an array containing a list of key-value pairs, where the keys
+ * @return string[]|null an array containing a list of key-value pairs, where the keys
  * identify the particular locale ID subtags, and the values are the
  * associated subtag values. The array will be ordered as the locale id
  * subtags e.g. in the locale id if variants are '-varX-varY-varZ' then the
@@ -4054,7 +4054,7 @@ function locale_canonicalize($locale) { }
  * (PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)<br/>
  * Searches the language tag list for the best match to the language
  * @link https://php.net/manual/en/locale.lookup.php
- * @param array $langtag <p>
+ * @param string[] $langtag <p>
  * An array containing a list of language tags to compare to
  * <i>locale</i>. Maximum 100 items allowed.
  * </p>
