@@ -394,7 +394,7 @@ function memcache_connect ($host, $port, $timeout = 1) {}
  * @param int $timeout
  * @return Memcache
  */
-function memcache_pconnect ($host, $port=null, $timeout=1) {}
+function memcache_pconnect ($host, $port = null, $timeout = 1) {}
 
 function memcache_add_server () {}
 

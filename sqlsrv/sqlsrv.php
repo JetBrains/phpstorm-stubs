@@ -1211,7 +1211,7 @@ function sqlsrv_get_config($setting){}
  * <li>SQLSRV_CURSOR_CLIENT_BUFFERED</li></ul>
  * @return resource|false A statement resource. If the statement resource cannot be created, false is returned.
  */
-function sqlsrv_prepare($conn, $tsql, $params=array(), $options=array()){}
+function sqlsrv_prepare($conn, $tsql, $params = array(), $options = array()){}
 
 /**
  * Executes a statement prepared with {@see sqlsrv_prepare}
@@ -1285,7 +1285,7 @@ function sqlsrv_execute($stmt){}
  * <li>SQLSRV_CURSOR_CLIENT_BUFFERED</li></ul>
  * @return resource|false A statement resource. If the statement cannot be created and/or executed, false is returned.
  */
-function sqlsrv_query($conn, $tsql, $params=array(), $options=array()){}
+function sqlsrv_query($conn, $tsql, $params = array(), $options = array()){}
 
 /**
  * Makes the next row in a result set available for reading.
@@ -1310,7 +1310,7 @@ function sqlsrv_query($conn, $tsql, $params=array(), $options=array()){}
  * @return bool|null If the next row of the result set was successfully retrieved, true is returned. If there are
  * no more results in the result set, null is returned. If an error occurred, false is returned.
  */
-function sqlsrv_fetch($stmt, $row=null, $offset=null){}
+function sqlsrv_fetch($stmt, $row = null, $offset = null){}
 
 /**
  * Retrieves a field in the current row by index. The PHP return type can be specified.
@@ -1393,7 +1393,7 @@ function sqlsrv_get_field($stmt, $field_index, $get_as_type=null){}
  * retrieve. The first record in the result set is 0.
  * @return array|null|false If a row of data is retrieved, an array is returned. If there are no more rows to retrieve, null is returned. If an error occurs, false is returned.
  */
-function sqlsrv_fetch_array($stmt, $fetch_type = null, $row=null, $offset=null){}
+function sqlsrv_fetch_array($stmt, $fetch_type = null, $row = null, $offset = null){}
 
 /**
  * Retrieves the next row of data as an object.
@@ -1426,7 +1426,7 @@ function sqlsrv_fetch_array($stmt, $fetch_type = null, $row=null, $offset=null){
  * The data type of a value in the returned object will be the default PHP data type. For information on default PHP data
  * types, see {@link http://msdn.microsoft.com/en-us/library/cc296193.aspx Default PHP Data Types}.<br />
  */
-function sqlsrv_fetch_object($stmt, $class_name=null, $ctor_params=null, $row=null, $offset=null){}
+function sqlsrv_fetch_object($stmt, $class_name = null, $ctor_params = null, $row = null, $offset = null){}
 
 /**
  * Detects if a result set has one or more rows.

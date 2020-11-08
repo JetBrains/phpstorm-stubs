@@ -1943,7 +1943,7 @@ class Yaf_Response_Http extends Yaf_Response_Abstract {
      *
      * @return bool
      */
-    public function setHeader($name,$value,$replace = false,$response_code = 0){ }
+    public function setHeader($name, $value, $replace = false, $response_code = 0){ }
 
     /**
      * @link https://secure.php.net/manual/en/yaf-response-abstract.setallheaders.php

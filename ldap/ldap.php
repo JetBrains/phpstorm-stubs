@@ -25,7 +25,7 @@ function ldap_exop_passwd ($ldap , $user = "" , $old_password = "" , $new_passwo
  * @return int|false From RFC: The responseTtl field is the time in seconds which the server chooses to have as the time-to-live field for that entry. It must not be any smaller than that which the client requested, and it may be larger. However, to allow servers to maintain a relatively accurate directory, and to prevent clients from abusing the dynamic extensions, servers are permitted to shorten a client-requested time-to-live value, down to a minimum of 86400 seconds (one day). FALSE will be returned on error.
  * @since 7.3
  */
-function ldap_exop_refresh ($ldap, $dn ,$ttl) {}
+function ldap_exop_refresh ($ldap, $dn, $ttl) {}
 
 /**
  * WHOAMI extended operation helper
