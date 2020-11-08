@@ -365,7 +365,7 @@ function preg_replace ($pattern, $replacement, $subject, $limit = -1, &$count = 
  * If specified, this variable will be filled with the number of
  * replacements done.
  * </p>
- * @param array $flags [optional]
+ * @param int $flags [optional]
  * @return string|string[]|null <b>preg_replace_callback</b> returns an array if the
  * <i>subject</i> parameter is an array, or a string
  * otherwise. On errors the return value is <b>NULL</b>
@@ -374,7 +374,7 @@ function preg_replace ($pattern, $replacement, $subject, $limit = -1, &$count = 
  * If matches are found, the new subject will be returned, otherwise
  * <i>subject</i> will be returned unchanged.
  */
-function preg_replace_callback ($pattern, callable $callback, $subject, $limit = -1, &$count = null, $flags=[]) {}
+function preg_replace_callback ($pattern, callable $callback, $subject, $limit = -1, &$count = null, $flags = 0) {}
 
 /**
  * Perform a regular expression search and replace using callbacks
