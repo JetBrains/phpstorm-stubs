@@ -389,16 +389,17 @@ function str_word_count ($string, $format = null, $characters = null) {}
  * @param int $length [optional] <p>
  * Maximum length of the chunk.
  * </p>
- * @return array If the optional split_length parameter is
+ * @return string[]|false If the optional split_length parameter is
  * specified, the returned array will be broken down into chunks with each
  * being split_length in length, otherwise each chunk
  * will be one character in length.
  * </p>
  * <p>
- * false is returned if split_length is less than 1.
+ * <b>FALSE</b> is returned if split_length is less than 1.
  * If the split_length length exceeds the length of
  * string, the entire string is returned as the first
  * (and only) array element.
+ * </p>
  */
 #[Pure]
 function str_split ($string, $length = 1) {}

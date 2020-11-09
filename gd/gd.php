@@ -825,7 +825,7 @@ function imagesetbrush ($image, $brush) {}
  * Set the style for line drawing
  * @link https://php.net/manual/en/function.imagesetstyle.php
  * @param resource|GdImage $image
- * @param array $style <p>
+ * @param int[] $style <p>
  * An array of pixel colors. You can use the
  * IMG_COLOR_TRANSPARENT constant to add a
  * transparent pixel.
@@ -1116,7 +1116,7 @@ function imagefill ($image, $x, $y, $color) {}
  * Draw a filled polygon
  * @link https://php.net/manual/en/function.imagefilledpolygon.php
  * @param resource|GdImage $image
- * @param array $points <p>
+ * @param int[] $points <p>
  * An array containing the x and y
  * coordinates of the polygons vertices consecutively.
  * </p>
@@ -1289,7 +1289,7 @@ function imageloadfont ($file) {}
  * Draws a polygon
  * @link https://php.net/manual/en/function.imagepolygon.php
  * @param resource|GdImage $image
- * @param array $points <p>
+ * @param int[] $points <p>
  * An array containing the polygon's vertices, e.g.:
  * <tr valign="top">
  * <td>points[0]</td>
@@ -2190,7 +2190,7 @@ function imagegetclip ($im) {}
 /**
  * <b>imageopenpolygon()</b> draws an open polygon on the given <b>image.</b> Contrary to {@see imagepolygon()}, no line is drawn between the last and the first point.
  * @param resource|GdImage $image An image resource, returned by one of the image creation functions, such as {@see imagecreatetruecolor()}.
- * @param array $points An array containing the polygon's vertices, e.g.:
+ * @param int[] $points An array containing the polygon's vertices, e.g.:
  * <pre>
  * points[0]	= x0
  * points[1]	= y0
@@ -2865,7 +2865,6 @@ function imageaffinematrixconcat(array $m1, array $m2) {}
  * @return array|bool Array with keys 0 to 5 and float values or <b>FALSE</b> on failure.
  * @since 5.5
  */
-
 function imageaffinematrixget ($type, $options = null) {}
 
 /**
