@@ -317,7 +317,7 @@ function error_reporting ($error_level = null) {}
  * @param string $constant_name <p>
  * The name of the constant.
  * </p>
- * @param mixed $value <p>
+ * @param null|array|bool|int|float|string $value <p>
  * The value of the constant.
  * In PHP 5, value must be a scalar value (integer, float, string, boolean, or null).
  * In PHP 7, array values are also accepted.
@@ -378,7 +378,7 @@ function get_called_class () {}
 /**
  * Retrieves the parent class name for object or class
  * @link https://php.net/manual/en/function.get-parent-class.php
- * @param mixed $object_or_class [optional] <p>
+ * @param object|string $object_or_class [optional] <p>
  * The tested object or class name
  * </p>
  * @return string|false <p>The name of the parent class of the class of which
@@ -396,7 +396,7 @@ function get_parent_class ($object_or_class = null) {}
 /**
  * Checks if the class method exists
  * @link https://php.net/manual/en/function.method-exists.php
- * @param mixed $object_or_class <p>
+ * @param object|string $object_or_class <p>
  * An object instance or a class name
  * </p>
  * @param string $method <p>
@@ -412,7 +412,7 @@ function method_exists ($object_or_class, $method) {}
 /**
  * Checks if the object or class has a property
  * @link https://php.net/manual/en/function.property-exists.php
- * @param mixed $object_or_class <p>
+ * @param object|string $object_or_class <p>
  * The class name or an object of the class to test for
  * </p>
  * @param string $property <p>
@@ -517,7 +517,7 @@ function get_required_files () {}
 /**
  * checks if the object has this class as one of its parents or implements it
  * @link https://php.net/manual/en/function.is-subclass-of.php
- * @param mixed $object_or_class <p>
+ * @param object|string $object_or_class <p>
  * A class name or an object instance
  * </p>
  * @param string $class <p>
@@ -583,10 +583,10 @@ function get_object_vars ($object) {}
 /**
  * Gets the class methods' names
  * @link https://php.net/manual/en/function.get-class-methods.php
- * @param mixed $object_or_class <p>
+ * @param object|string $object_or_class <p>
  * The class name or an object instance
  * </p>
- * @return array an array of method names defined for the class specified by
+ * @return string[] an array of method names defined for the class specified by
  * <i>class_name</i>. In case of an error, it returns null.
  */
 #[Pure]
@@ -703,7 +703,7 @@ function get_declared_classes () {}
 /**
  * Returns an array of all declared interfaces
  * @link https://php.net/manual/en/function.get-declared-interfaces.php
- * @return array an array of the names of the declared interfaces in the current
+ * @return string[] an array of the names of the declared interfaces in the current
  * script.
  */
 #[Pure]
@@ -775,7 +775,7 @@ function get_resource_type ($resource) {}
  * Only return Zend extensions, if not then regular extensions, like
  * mysqli are listed. Defaults to false (return regular extensions).
  * </p>
- * @return array an indexed array of all the modules names.
+ * @return string[] an indexed array of all the modules names.
  */
 #[Pure]
 function get_loaded_extensions ($zend_extensions = false) {}
