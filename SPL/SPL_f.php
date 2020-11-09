@@ -96,7 +96,7 @@ function spl_autoload_call ($class) {}
 /**
  * Return the parent classes of the given class
  * @link https://php.net/manual/en/function.class-parents.php
- * @param mixed $object_or_class <p>
+ * @param object|string $object_or_class <p>
  * An object (class instance) or a string (class name).
  * </p>
  * @param bool $autoload [optional] <p>
@@ -112,7 +112,7 @@ function class_parents ($object_or_class, $autoload = null) {}
 /**
  * Return the interfaces which are implemented by the given class
  * @link https://php.net/manual/en/function.class-implements.php
- * @param mixed $object_or_class <p>
+ * @param object|string $object_or_class <p>
  * An object (class instance) or a string (class name).
  * </p>
  * @param bool $autoload [optional] <p>
@@ -182,7 +182,7 @@ function iterator_apply (Traversable $iterator, $callback, array $args = null) {
 
 /**
  * Return the traits used by the given class
- * @param mixed $object_or_class An object (class instance) or a string (class name).
+ * @param object|string $object_or_class An object (class instance) or a string (class name).
  * @param bool $autoload Whether to allow this function to load the class automatically through the __autoload() magic method.
  * @return string[]|false An array on success, or false on error.
  * @link https://php.net/manual/en/function.class-uses.php
