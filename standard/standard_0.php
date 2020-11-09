@@ -1216,7 +1216,7 @@ function php_uname ($mode = null) {}
 /**
  * Return a list of .ini files parsed from the additional ini dir
  * @link https://php.net/manual/en/function.php-ini-scanned-files.php
- * @return string a comma-separated string of .ini files on success. Each comma is
+ * @return string|false a comma-separated string of .ini files on success. Each comma is
  * followed by a newline. If the directive --with-config-file-scan-dir wasn't set,
  * false is returned. If it was set and the directory was empty, an
  * empty string is returned. If a file is unrecognizable, the file will
