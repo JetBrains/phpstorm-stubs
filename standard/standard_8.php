@@ -637,7 +637,7 @@ function count ($value, $mode = COUNT_NORMAL) {}
 /**
  * Set the internal pointer of an array to its last element
  * @link https://php.net/manual/en/function.end.php
- * @param array &$array <p>
+ * @param ArrayAccess &$array <p>
  * The array. This array is passed by reference because it is modified by
  * the function. This means you must pass it a real variable and not
  * a function returning an array because only actual variables may be
@@ -646,12 +646,12 @@ function count ($value, $mode = COUNT_NORMAL) {}
  * @return mixed|false the value of the last element or false for empty array.
  * @meta
  */
-function end (array &$array) {}
+function end (&$array) {}
 
 /**
  * Rewind the internal array pointer
  * @link https://php.net/manual/en/function.prev.php
- * @param array &$array <p>
+ * @param ArrayAccess &$array <p>
  * The input array.
  * </p>
  * @return mixed the array value in the previous place that's pointed to by
@@ -659,36 +659,36 @@ function end (array &$array) {}
  * elements.
  * @meta
  */
-function prev (array &$array) {}
+function prev (&$array) {}
 
 /**
  * Advance the internal array pointer of an array
  * @link https://php.net/manual/en/function.next.php
- * @param array &$array <p>
+ * @param ArrayAccess &$array <p>
  * The array being affected.
  * </p>
  * @return mixed the array value in the next place that's pointed to by the
  * internal array pointer, or false if there are no more elements.
  * @meta
  */
-function next (array &$array) {}
+function next (&$array) {}
 
 /**
  * Set the internal pointer of an array to its first element
  * @link https://php.net/manual/en/function.reset.php
- * @param array &$array <p>
+ * @param ArrayAccess &$array <p>
  * The input array.
  * </p>
  * @return mixed|false the value of the first array element, or false if the array is
  * empty.
  * @meta
  */
-function reset (array &$array) {}
+function reset (&$array) {}
 
 /**
  * Return the current element in an array
  * @link https://php.net/manual/en/function.current.php
- * @param array $array <p>
+ * @param $array <p>
  * The array.
  * </p>
  * @return mixed The current function simply returns the
@@ -699,12 +699,12 @@ function reset (array &$array) {}
  * @meta
  */
 #[Pure]
-function current (array $array) {}
+function current (ArrayAccess $array) {}
 
 /**
  * Fetch a key from an array
  * @link https://php.net/manual/en/function.key.php
- * @param array $array <p>
+ * @param ArrayAccess $array <p>
  * The array.
  * </p>
  * @return int|string|null The key function simply returns the
@@ -714,7 +714,7 @@ function current (array $array) {}
  * empty, key returns null.
  */
 #[Pure]
-function key (array $array) {}
+function key ($array) {}
 
 /**
  * Find lowest value
