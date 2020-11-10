@@ -238,7 +238,7 @@ function imagepalettecopy ($destination, $source) {}
 #[Pure]
 function imagecreatefromstring ($image) {}
 
-#[PhpStormStubsElementAvailable("5.3",'8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create a new image from the image stream in the string
  * @link https://php.net/manual/en/function.imagecreatefromstring.php
@@ -530,7 +530,7 @@ function imagecopyresized ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $src_
 #[Pure]
 function imagecreate ($width, $height) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create a new palette based image
  * @link https://php.net/manual/en/function.imagecreate.php
@@ -562,7 +562,7 @@ function imagecreate($width, $height)
 #[Pure]
 function imagecreatetruecolor ($width, $height) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create a new true color image
  * @link https://php.net/manual/en/function.imagecreatetruecolor.php
@@ -588,7 +588,7 @@ function imagecreatetruecolor ($width, $height) {}
 #[Pure]
 function imageistruecolor ($image) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Finds whether an image is a truecolor image
  * @link https://php.net/manual/en/function.imageistruecolor.php
@@ -835,7 +835,7 @@ function imagecolorexactalpha ($image, $red, $green, $blue, $alpha) {}
  */
 function imagecopyresampled ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Rotate an image with a given angle
  * @link https://php.net/manual/en/function.imagerotate.php
@@ -929,7 +929,7 @@ function imagesetstyle ($image, array $style) {}
  */
 function imagecreatefrompng ($filename) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create a new image from file or URL
  * @link https://php.net/manual/en/function.imagecreatefrompng.php
@@ -951,7 +951,7 @@ function imagecreatefrompng ($filename) {}
  */
 function imagecreatefromgif ($filename) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create a new image from file or URL
  * @link https://php.net/manual/en/function.imagecreatefromgif.php
@@ -974,7 +974,7 @@ function imagecreatefromgif ($filename) {}
 function imagecreatefromjpeg ($filename) {}
 
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create a new image from file or URL
  * @link https://php.net/manual/en/function.imagecreatefromjpeg.php
@@ -996,7 +996,7 @@ function imagecreatefromjpeg ($filename) {}
  */
 function imagecreatefromwbmp ($filename) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create a new image from file or URL
  * @link https://php.net/manual/en/function.imagecreatefromwbmp.php
@@ -1019,7 +1019,7 @@ function imagecreatefromwbmp ($filename) {}
  */
 function imagecreatefromwebp ($filename) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create a new image from file or URL
  * @link https://php.net/manual/en/function.imagecreatefromwebp.php
@@ -1042,7 +1042,7 @@ function imagecreatefromwebp ($filename) {}
  */
 function imagecreatefromxbm ($filename) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create a new image from file or URL
  * @link https://php.net/manual/en/function.imagecreatefromxbm.php
@@ -1064,7 +1064,7 @@ function imagecreatefromxbm ($filename) {}
  */
 function imagecreatefromxpm ($filename) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create a new image from file or URL
  * @link https://php.net/manual/en/function.imagecreatefromxpm.php
@@ -1086,7 +1086,7 @@ function imagecreatefromxpm ($filename) {}
  */
 function imagecreatefromgd ($filename) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create a new image from GD file or URL
  * @link https://php.net/manual/en/function.imagecreatefromgd.php
@@ -1097,7 +1097,7 @@ function imagecreatefromgd ($filename) {}
  */
 function imagecreatefromgd ($filename) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create a new image from GD2 file or URL
  * @link https://php.net/manual/en/function.imagecreatefromgd2.php
@@ -1108,7 +1108,7 @@ function imagecreatefromgd ($filename) {}
  */
 function imagecreatefromgd2 ($filename) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create a new image from GD2 file or URL
  * @link https://php.net/manual/en/function.imagecreatefromgd2.php
@@ -1142,7 +1142,7 @@ function imagecreatefromgd2 ($filename) {}
  */
 function imagecreatefromgd2part ($filename, $srcX, $srcY, $width, $height) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create a new image from a given part of GD2 file or URL
  * @link https://php.net/manual/en/function.imagecreatefromgd2part.php
@@ -1350,7 +1350,7 @@ function imagefill ($image, $x, $y, $color) {}
  */
 function imagefilledpolygon ($image, array $points, $num_points, $color) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Draw a filled polygon
  * @link https://php.net/manual/en/function.imagefilledpolygon.php
@@ -1559,7 +1559,7 @@ function imageloadfont ($file) {}
  */
 function imagepolygon ($image, array $points, $num_points, $color) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Draws a polygon
  * @link https://php.net/manual/en/function.imagepolygon.php
@@ -2098,7 +2098,7 @@ function imagefttext ($image, $size, $angle, $x, $y, $color, $fontfile, $text, $
  */
 function imagepsloadfont ($filename) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Load a PostScript Type 1 font from file
  * @link https://php.net/manual/en/function.imagepsloadfont.php
@@ -2496,7 +2496,7 @@ function imagegetclip ($im) {}
  */
 function imageopenpolygon ($image , $points, $num_points, $color) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * <b>imageopenpolygon()</b> draws an open polygon on the given <b>image.</b> Contrary to {@see imagepolygon()}, no line is drawn between the last and the first point.
  * @param resource|GdImage $image An image resource, returned by one of the image creation functions, such as {@see imagecreatetruecolor()}.
@@ -2527,7 +2527,7 @@ function imageopenpolygon ($image , $points, $num_points, $color) {}
  */
 function imagecreatefrombmp($filename){}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * <b>imagecreatefrombmp()</b> returns an image identifier representing the image obtained from the given filename.
  * <b>TIP</b> A URL can be used as a filename with this function if the fopen wrappers have been enabled. See {@see fopen()} for more details on how to specify the filename. See the Supported Protocols and Wrappers for links to information about what abilities the various wrappers have, notes on their usage, and information on any predefined variables they may provide.
@@ -2560,7 +2560,7 @@ function imagebmp ($image, $to = null, $compressed = true) {}
  */
 function imagecreatefromtga($filename) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * @param string $filename
  * @return resource|false
@@ -2578,7 +2578,7 @@ function imagecreatefromtga($filename) {}
 #[Pure]
 function imagegrabscreen() {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Captures the whole screen
  *
@@ -2602,7 +2602,7 @@ function imagegrabscreen() {}
 #[Pure]
 function imagegrabwindow($handle, $client_area = null) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Captures a window
  *
@@ -3204,7 +3204,7 @@ define('IMG_TGA', 128);
  */
 function imageaffine($image, $affine, $clip = null) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Return an image containing the affine tramsformed src image, using an optional clipping area
  * @link https://secure.php.net/manual/en/function.imageaffine.php
@@ -3250,7 +3250,7 @@ function imageaffinematrixget ($type, $options = null) {}
  */
 function imagecrop ($image, $rect) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Crop an image using the given coordinates and size, x, y, width and height
  * @link https://secure.php.net/manual/en/function.imagecrop.php
@@ -3285,7 +3285,7 @@ function imagecrop ($image, $rect) {}
  */
 function imagecropauto ($image, $mode = IMG_CROP_DEFAULT, $threshold = .5, $color = -1) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Crop an image automatically using one of the available modes
  * @link https://secure.php.net/manual/en/function.imagecropauto.php
@@ -3374,7 +3374,7 @@ function imagepalettetotruecolor ($image) {}
  */
 function imagescale ($image, $new_width, $new_height = -1, $mode = IMG_BILINEAR_FIXED) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * @since 5.5
  * Scale an image using the given new width and height

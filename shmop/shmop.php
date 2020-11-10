@@ -31,7 +31,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  */
 function shmop_open ($key, $mode, $permissions, $size) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create or open shared memory block
  * @link https://php.net/manual/en/function.shmop-open.php

@@ -108,7 +108,7 @@ function imap_num_recent ($imap_stream) {}
  */
 function imap_headers ($imap_stream) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Read the header of the message
  * @link https://php.net/manual/en/function.imap-headerinfo.php

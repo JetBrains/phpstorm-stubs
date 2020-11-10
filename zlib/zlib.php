@@ -433,7 +433,7 @@ function ob_gzhandler ($data, $flags) {}
 #[Pure]
 function deflate_init ($encoding, $options = array()) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Initialize an incremental deflate context
  * @link https://php.net/manual/en/function.deflate-init.php
@@ -506,7 +506,7 @@ function deflate_add ($context, $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
 #[Pure]
 function inflate_init ($encoding, $options = array()) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Initialize an incremental inflate context
  * @link https://php.net/manual/en/function.inflate-init.php

@@ -26,7 +26,7 @@ use JetBrains\PhpStorm\Pure;
 #[Pure]
 function xml_parser_create ($encoding = null) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create an XML parser
  * @link https://php.net/manual/en/function.xml-parser-create.php

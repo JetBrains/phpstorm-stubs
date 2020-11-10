@@ -13,7 +13,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  */
 function enchant_broker_init () {}
 
-#[PhpStormStubsElementAvailable('5.3',"8.0")]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * create a new broker object capable of requesting

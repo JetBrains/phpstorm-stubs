@@ -22,7 +22,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  */
 function shm_attach ($key, $size = null, $permissions = 0666) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Creates or open a shared memory segment
  * @link https://php.net/manual/en/function.shm-attach.php
