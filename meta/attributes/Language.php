@@ -5,8 +5,8 @@ namespace JetBrains\PhpStorm;
 use Attribute;
 
 /**
- * Specifies that parameters is a string that represents source code in another language.
- * IDE will automatically inject specified language into passed string literals.
+ * Specifies that the parameter is a string that represents source code in a different language.
+ * An IDE will automatically inject the specified language into the passed string literals.
  *
  * @since 8.0
  */
