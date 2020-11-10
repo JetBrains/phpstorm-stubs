@@ -1,8 +1,10 @@
 <?php
 
 // Start of xml v.
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
+#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Create an XML parser
  * @link https://php.net/manual/en/function.xml-parser-create.php
@@ -19,7 +21,29 @@ use JetBrains\PhpStorm\Pure;
  * encodings are ISO-8859-1, UTF-8 and
  * US-ASCII.
  * </p>
- * @return resource|false|XmlParser a resource handle for the new XML parser.
+ * @return false|XmlParser a resource handle for the new XML parser.
+ */
+#[Pure]
+function xml_parser_create ($encoding = null) {}
+
+#[PhpStormStubsElementAvailable('5.3','8.0')]
+/**
+ * Create an XML parser
+ * @link https://php.net/manual/en/function.xml-parser-create.php
+ * @param string $encoding [optional] <p>
+ * The optional <i>encoding</i> specifies the character
+ * encoding for the input/output in PHP 4. Starting from PHP 5, the input
+ * encoding is automatically detected, so that the
+ * <i>encoding</i> parameter specifies only the output
+ * encoding. In PHP 4, the default output encoding is the same as the
+ * input charset. If empty string is passed, the parser attempts to identify
+ * which encoding the document is encoded in by looking at the heading 3 or
+ * 4 bytes. In PHP 5.0.0 and 5.0.1, the default output charset is
+ * ISO-8859-1, while in PHP 5.0.2 and upper is UTF-8. The supported
+ * encodings are ISO-8859-1, UTF-8 and
+ * US-ASCII.
+ * </p>
+ * @return resource|false a resource handle for the new XML parser.
  */
 #[Pure]
 function xml_parser_create ($encoding = null) {}

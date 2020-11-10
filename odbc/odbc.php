@@ -1,6 +1,7 @@
 <?php
 
 // Start of odbc v.1.0
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
  * Toggle autocommit behaviour
@@ -216,6 +217,7 @@ function odbc_error ($connection_id = null) {}
  */
 function odbc_errormsg ($connection_id = null) {}
 
+#[PhpStormStubsElementAvailable("5.3","8.0")]
 /**
  * Prepare and execute an SQL statement
  * @link https://php.net/manual/en/function.odbc-exec.php
@@ -231,6 +233,22 @@ function odbc_errormsg ($connection_id = null) {}
  * successfully, or <b>FALSE</b> on error.
  */
 function odbc_exec ($connection_id, $query_string, $flags = null) {}
+
+#[PhpStormStubsElementAvailable('8.0')]
+/**
+ * Prepare and execute an SQL statement
+ * @link https://php.net/manual/en/function.odbc-exec.php
+ * @param resource $connection_id The ODBC connection identifier,
+ * see <b>odbc_connect</b> for details.</p>
+ * @param string $query_string <p>
+ * The SQL statement.
+ * </p>
+ * @return resource|false an ODBC result identifier if the SQL command was executed
+ * successfully, or <b>FALSE</b> on error.
+ */
+function odbc_exec($connection_id, $query_string)
+{
+}
 
 /**
  * Fetch a result row as an associative array

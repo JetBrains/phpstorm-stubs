@@ -3,6 +3,7 @@
 // Start of mbstring v.
 
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 
@@ -186,6 +187,7 @@ function mb_detect_order ($encoding = null) {}
  */
 function mb_substitute_character ($substitute_character = null) {}
 
+#[PhpStormStubsElementAvailable('5.3', '8.0')]
 /**
  * Parse GET/POST/COOKIE data and set global variable
  * @link https://php.net/manual/en/function.mb-parse-str.php
@@ -198,6 +200,20 @@ function mb_substitute_character ($substitute_character = null) {}
  * @return bool true on success or false on failure.
  */
 function mb_parse_str ($string, array &$result = null) {}
+
+#[PhpStormStubsElementAvailable('8.0')]
+/**
+ * Parse GET/POST/COOKIE data and set global variable
+ * @link https://php.net/manual/en/function.mb-parse-str.php
+ * @param string $string <p>
+ * The URL encoded data.
+ * </p>
+ * @param array &$result <p>
+ * An array containing decoded and character encoded converted values.
+ * </p>
+ * @return bool true on success or false on failure.
+ */
+function mb_parse_str ($string, array &$result) {}
 
 /**
  * Callback function converts character encoding in output buffer
@@ -832,6 +848,7 @@ function mb_convert_variables ($to_encoding, $from_encoding, &$var, &...$vars) {
 #[Pure]
 function mb_encode_numericentity ($string, array $map, $encoding = null, $hex = false) {}
 
+#[PhpStormStubsElementAvailable('5.3','8.0')]
 /**
  * Decode HTML numeric string reference to character
  * @link https://php.net/manual/en/function.mb-decode-numericentity.php
@@ -850,6 +867,23 @@ function mb_encode_numericentity ($string, array $map, $encoding = null, $hex = 
  */
 #[Pure]
 function mb_decode_numericentity ($string, array $map, $encoding = null, $is_hex = false) {}
+
+#[PhpStormStubsElementAvailable('8.0')]
+/**
+ * Decode HTML numeric string reference to character
+ * @link https://php.net/manual/en/function.mb-decode-numericentity.php
+ * @param string $str <p>
+ * The string being decoded.
+ * </p>
+ * @param int[] $map <p>
+ * convmap is an array that specifies
+ * the code area to convert.
+ * </p>
+ * @param string $encoding &mbstring.encoding.parameter;
+ * @return string|false|null The converted string.
+ */
+#[Pure]
+function mb_decode_numericentity ($string, array $map, $encoding = null) {}
 
 /**
  * Send encoded mail

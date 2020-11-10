@@ -1,6 +1,7 @@
 <?php
 
 // Start of pgsql v.
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 /**
  * Open a PostgreSQL connection
@@ -1234,6 +1235,7 @@ function pg_lo_write ($large_object, $data, $len = null) {}
  */
 function pg_lo_read_all ($large_object) {}
 
+#[PhpStormStubsElementAvailable('5.3','8.0')]
 /**
  * Import a large object from file
  * @link https://php.net/manual/en/function.pg-lo-import.php
@@ -1259,6 +1261,33 @@ function pg_lo_read_all ($large_object) {}
  */
 function pg_lo_import ($connection = null, $pathname, $object_id = null) {}
 
+#[PhpStormStubsElementAvailable('8.0')]
+/**
+ * Import a large object from file
+ * @link https://php.net/manual/en/function.pg-lo-import.php
+ * @param resource $connection <p>
+ * PostgreSQL database connection resource. When
+ * <i>connection</i> is not present, the default connection
+ * is used. The default connection is the last connection made by
+ * <b>pg_connect</b> or <b>pg_pconnect</b>.
+ * </p>
+ * @param string $pathname <p>
+ * The full path and file name of the file on the client
+ * filesystem from which to read the large object data.
+ * </p>
+ * @param mixed $object_id [optional] <p>
+ * If an <i>object_id</i> is given the function
+ * will try to create a large object with this id, else a free
+ * object id is assigned by the server. The parameter
+ * was added in PHP 5.3 and relies on functionality that first
+ * appeared in PostgreSQL 8.1.
+ * </p>
+ * @return int The OID of the newly created large object, or
+ * <b>FALSE</b> on failure.
+ */
+function pg_lo_import ($connection, $pathname, $object_id = null) {}
+
+#[PhpStormStubsElementAvailable('5.3','8.0')]
 /**
  * Export a large object to file
  * @link https://php.net/manual/en/function.pg-lo-export.php
@@ -1278,6 +1307,27 @@ function pg_lo_import ($connection = null, $pathname, $object_id = null) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 function pg_lo_export ($connection = null, $oid, $pathname) {}
+
+#[PhpStormStubsElementAvailable('8.0')]
+/**
+ * Export a large object to file
+ * @link https://php.net/manual/en/function.pg-lo-export.php
+ * @param resource $connection <p>
+ * PostgreSQL database connection resource. When
+ * <i>connection</i> is not present, the default connection
+ * is used. The default connection is the last connection made by
+ * <b>pg_connect</b> or <b>pg_pconnect</b>.
+ * </p>
+ * @param int $oid <p>
+ * The OID of the large object in the database.
+ * </p>
+ * @param string $pathname <p>
+ * The full path and file name of the file in which to write the
+ * large object on the client filesystem.
+ * </p>
+ * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+ */
+function pg_lo_export ($connection, $oid, $pathname) {}
 
 /**
  * Seeks position within a large object

@@ -2,6 +2,7 @@
 
 // Start of zlib v.2.0
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -407,6 +408,7 @@ function zlib_get_coding_type () {}
  */
 function ob_gzhandler ($data, $flags) {}
 
+#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Initialize an incremental deflate context
  * @link https://php.net/manual/en/function.deflate-init.php
@@ -422,7 +424,32 @@ function ob_gzhandler ($data, $flags) {}
  * <b>ZLIB_RLE</b>, <b>ZLIB_FIXED</b> or <b>ZLIB_DEFAULT_STRATEGY</b> (the
  * default). <b>dictionary</b>A string or an array of strings of the preset
  * dictionary (default: no preset dictionary).</p>
- * @return resource|false|DeflateContext <p>
+ * @return false|DeflateContext <p>
+ * Returns a deflate context resource (zlib.deflate) on success, or
+ * <b>FALSE</b> on failure.
+ * </p>
+ * @since 7.0
+ */
+#[Pure]
+function deflate_init ($encoding, $options = array()) {}
+
+#[PhpStormStubsElementAvailable('5.3','8.0')]
+/**
+ * Initialize an incremental deflate context
+ * @link https://php.net/manual/en/function.deflate-init.php
+ * @param int $encoding <p>
+ * One of the <b>ZLIB_ENCODING_*</b> constants.
+ * </p>
+ * @param array $options <p>
+ * An associative array which may contain the following elements:
+ * <b>level</b>The compression level in range -1..9; defaults to -1.
+ * <b>memory</b>The compression memory level in range 1..9; defaults to 8.
+ * <b>window</b>The zlib window size (logarithmic) in range 8..15; defaults
+ * to 15. <b>strategy</b>One of <b>ZLIB_FILTERED</b>, <b>ZLIB_HUFFMAN_ONLY</b>,
+ * <b>ZLIB_RLE</b>, <b>ZLIB_FIXED</b> or <b>ZLIB_DEFAULT_STRATEGY</b> (the
+ * default). <b>dictionary</b>A string or an array of strings of the preset
+ * dictionary (default: no preset dictionary).</p>
+ * @return resource|false <p>
  * Returns a deflate context resource (zlib.deflate) on success, or
  * <b>FALSE</b> on failure.
  * </p>
@@ -454,6 +481,7 @@ function deflate_init ($encoding, $options = array()) {}
  */
 function deflate_add ($context, $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
 
+#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Initialize an incremental inflate context
  * @link https://php.net/manual/en/function.inflate-init.php
@@ -469,7 +497,32 @@ function deflate_add ($context, $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
  * <b>ZLIB_RLE</b>, <b>ZLIB_FIXED</b> or <b>ZLIB_DEFAULT_STRATEGY</b> (the
  * default). <b>dictionary</b>A string or an array of strings of the preset
  * dictionary (default: no preset dictionary).</p>
- * @return resource|false|InflateContext <p>
+ * @return false|InflateContext <p>
+ * Returns an inflate context resource (zlib.inflate) on success, or
+ * <b>FALSE</b> on failure.
+ * </p>
+ * @since 7.0
+ */
+#[Pure]
+function inflate_init ($encoding, $options = array()) {}
+
+#[PhpStormStubsElementAvailable('5.3','8.0')]
+/**
+ * Initialize an incremental inflate context
+ * @link https://php.net/manual/en/function.inflate-init.php
+ * @param int $encoding <p>
+ * One of the ZLIB_ENCODING_* constants.
+ * </p>
+ * @param array $options [optional] <p>
+ * An associative array which may contain the following elements:
+ * <b>level</b>The compression level in range -1..9; defaults to -1.
+ * <b>memory</b>The compression memory level in range 1..9; defaults to 8.
+ * <b>window</b>The zlib window size (logarithmic) in range 8..15; defaults
+ * to 15. <b>strategy</b>One of <b>ZLIB_FILTERED</b>, <b>ZLIB_HUFFMAN_ONLY</b>,
+ * <b>ZLIB_RLE</b>, <b>ZLIB_FIXED</b> or <b>ZLIB_DEFAULT_STRATEGY</b> (the
+ * default). <b>dictionary</b>A string or an array of strings of the preset
+ * dictionary (default: no preset dictionary).</p>
+ * @return resource|false <p>
  * Returns an inflate context resource (zlib.inflate) on success, or
  * <b>FALSE</b> on failure.
  * </p>
