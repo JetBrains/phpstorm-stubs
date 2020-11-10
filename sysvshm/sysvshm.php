@@ -1,7 +1,9 @@
 <?php
 
 // Start of sysvshm v.
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
+#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Creates or open a shared memory segment
  * @link https://php.net/manual/en/function.shm-attach.php
@@ -16,7 +18,26 @@
  * @param int $permissions [optional] <p>
  * The optional permission bits. Default to 0666.
  * </p>
- * @return resource|SysvSharedMemory a shared memory segment identifier.
+ * @return SysvSharedMemory a shared memory segment identifier.
+ */
+function shm_attach ($key, $size = null, $permissions = 0666) {}
+
+#[PhpStormStubsElementAvailable('5.3','8.0')]
+/**
+ * Creates or open a shared memory segment
+ * @link https://php.net/manual/en/function.shm-attach.php
+ * @param int $key <p>
+ * A numeric shared memory segment ID
+ * </p>
+ * @param int $size [optional] <p>
+ * The memory size. If not provided, default to the
+ * sysvshm.init_mem in the <i>php.ini</i>, otherwise 10000
+ * bytes.
+ * </p>
+ * @param int $permissions [optional] <p>
+ * The optional permission bits. Default to 0666.
+ * </p>
+ * @return resource a shared memory segment identifier.
  */
 function shm_attach ($key, $size = null, $permissions = 0666) {}
 

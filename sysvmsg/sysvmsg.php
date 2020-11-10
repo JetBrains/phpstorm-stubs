@@ -1,7 +1,7 @@
 <?php
+use \JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
-// Start of sysvmsg v.
-
+#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Create or attach to a message queue
  * @link https://php.net/manual/en/function.msg-get-queue.php
@@ -12,7 +12,22 @@
  * Queue permissions. Default to 0666. If the message queue already
  * exists, the <i>perms</i> will be ignored.
  * </p>
- * @return resource|SysvMessageQueue a resource handle that can be used to access the System V message queue.
+ * @return SysvMessageQueue a resource handle that can be used to access the System V message queue.
+ */
+function msg_get_queue ($key, $permissions = 0666) {}
+
+#[PhpStormStubsElementAvailable('5.3','8.0')]
+/**
+ * Create or attach to a message queue
+ * @link https://php.net/manual/en/function.msg-get-queue.php
+ * @param int $key <p>
+ * Message queue numeric ID
+ * </p>
+ * @param int $permissions [optional] <p>
+ * Queue permissions. Default to 0666. If the message queue already
+ * exists, the <i>perms</i> will be ignored.
+ * </p>
+ * @return resource a resource handle that can be used to access the System V message queue.
  */
 function msg_get_queue ($key, $permissions = 0666) {}
 

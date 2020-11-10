@@ -4,6 +4,7 @@
  * @since 5.6
  */
 
+use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 define ("ARRAY_FILTER_USE_BOTH", 1);
@@ -259,6 +260,24 @@ function array_rand(array $array, $num = null) { }
 #[Pure]
 function array_unique(array $array, $flags = SORT_STRING) { }
 
+#[PhpStormStubsElementAvailable('8.0')]
+/**
+ * Computes the intersection of arrays
+ * @link https://php.net/manual/en/function.array-intersect.php
+ * @param array $array <p>
+ * The array with main values to check.
+ * </p>
+ * @param mixed ...$arrays <p>
+ * An array to compare values against.
+ * </p>
+ * @return array an array containing all of the values in
+ * array1 whose values exist in all of the parameters.
+ * @meta
+ */
+#[Pure]
+function array_intersect(array $array, ...$arrays) { }
+
+#[PhpStormStubsElementAvailable('5.3','8.0')]
 /**
  * Computes the intersection of arrays
  * @link https://php.net/manual/en/function.array-intersect.php
@@ -424,6 +443,23 @@ function array_intersect_uassoc(array $array1, array $array2, array $_ = null, $
 #[Pure]
 function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, $data_compare_func, $key_compare_func) { }
 
+#[PhpStormStubsElementAvailable('8.0')]
+/**
+ * Computes the difference of arrays
+ * @link https://php.net/manual/en/function.array-diff.php
+ * @param array $array <p>
+ * The array to compare from
+ * </p>
+ * @param mixed ...$excludes <p>
+ * An array to compare against
+ * @return array an array containing all the entries from
+ * array1 that are not present in any of the other arrays.
+ * @meta
+ */
+#[Pure]
+function array_diff(array $array, ...$excludes) { }
+
+#[PhpStormStubsElementAvailable('5.3','8.0')]
 /**
  * Computes the difference of arrays
  * @link https://php.net/manual/en/function.array-diff.php
