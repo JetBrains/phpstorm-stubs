@@ -240,7 +240,7 @@ class ReflectionMethod extends ReflectionFunctionAbstract
      * instance of the class that this method was declared in or the method
      * invocation failed.
      */
-    public function invoke($object = null, ...$args)
+    public function invoke($object, ...$args)
     {
     }
 
