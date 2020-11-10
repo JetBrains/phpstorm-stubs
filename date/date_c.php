@@ -790,6 +790,7 @@ class DatePeriod implements IteratorAggregate {
     public function getRecurrences () {}
 
     /**
+     * @return DateTimeInterface[]
      * @since 8.0
      */
     public function getIterator(){}
