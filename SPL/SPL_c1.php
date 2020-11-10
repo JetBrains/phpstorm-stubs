@@ -1626,18 +1626,18 @@ class SplFixedArray implements Iterator, ArrayAccess, Countable, IteratorAggrega
         public function toArray () {}
 
         /**
-	 * Import a PHP array in a <b>SplFixedArray</b> instance
+         * Import a PHP array in a <b>SplFixedArray</b> instance
          * @link https://php.net/manual/en/splfixedarray.fromarray.php
          * @param array $array <p>
          * The array to import.
          * </p>
-	 * @param bool $save_indexes [optional] <p>
+         * @param bool $save_indexes [optional] <p>
          * Try to save the numeric indexes used in the original array.
          * </p>
-	 * @return SplFixedArray an instance of <b>SplFixedArray</b>
+         * @return SplFixedArray an instance of <b>SplFixedArray</b>
          * containing the array content.
          */
-	public static function fromArray (array $array, $save_indexes = true) {}
+        public static function fromArray ($array, $save_indexes = true) {}
 
         /**
          * Gets the size of the array
