@@ -98,6 +98,7 @@ class SQLiteDatabase  {
 	 * value at its default, unless you are interoperating with databases created by
 	 * other sqlite capable applications.</p>
 	 * <p>
+     * @return array|false
 	 * Returns an array of the entire result set; <b>FALSE</b> otherwise.
 	 * </p>
 	 * <p>The column names returned by
