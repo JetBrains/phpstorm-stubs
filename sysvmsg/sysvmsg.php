@@ -16,7 +16,7 @@ use \JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  */
 function msg_get_queue ($key, $permissions = 0666) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create or attach to a message queue
  * @link https://php.net/manual/en/function.msg-get-queue.php

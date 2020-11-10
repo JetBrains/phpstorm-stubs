@@ -848,7 +848,7 @@ function mb_convert_variables ($to_encoding, $from_encoding, &$var, &...$vars) {
 #[Pure]
 function mb_encode_numericentity ($string, array $map, $encoding = null, $hex = false) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Decode HTML numeric string reference to character
  * @link https://php.net/manual/en/function.mb-decode-numericentity.php

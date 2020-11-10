@@ -90,7 +90,7 @@ class CURLFile {
  */
 function curl_init ($url = null) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Initialize a cURL session
  * @link https://php.net/manual/en/function.curl-init.php
@@ -2178,7 +2178,7 @@ function curl_share_close ($share_handle) {}
  */
 function curl_share_init () {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Initialize a cURL share handle
@@ -2403,7 +2403,7 @@ function curl_close ($handle) {}
  */
 function curl_multi_init () {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Returns a new cURL multi handle
  * @link https://php.net/manual/en/function.curl-multi-init.php

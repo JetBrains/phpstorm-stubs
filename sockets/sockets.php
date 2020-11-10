@@ -22,7 +22,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  */
 function socket_addrinfo_lookup($host, $service, $hints) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * (PHP 7 &gt;= 7.2.0)<br/>
  * Get array with contents of getaddrinfo about the given hostname.
@@ -54,7 +54,7 @@ function socket_addrinfo_lookup($host, $service, $hints) {}
  */
 function socket_addrinfo_connect($addr) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create a Socket resource, and connect it to the provided AddrInfo resource.<br/>
  * The return value of this function may be used with the rest of the socket functions.
@@ -81,7 +81,7 @@ function socket_addrinfo_connect($addr) {}
  */
 function socket_addrinfo_bind($addr) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * (PHP 7 &gt;= 7.2.0)<br/>
  * Create a Socket resource, and bind it to the provided AddrInfo resource.<br/>
@@ -296,7 +296,7 @@ function socket_select (array &$read, array &$write, array &$except, $tv_sec, $t
  */
 function socket_create ($domain, $type, $protocol) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Create a socket (endpoint for communication)
  * @link https://php.net/manual/en/function.socket-create.php
@@ -442,7 +442,7 @@ function socket_create ($domain, $type, $protocol) {}
  */
 function socket_export_stream($socket) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * @param resource $socket
  * @return resource|false
@@ -519,7 +519,7 @@ function socket_create_pair ($domain, $type, $protocol, array &$fd) {}
 function socket_accept ($socket) {}
 
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Accepts a connection on a socket
  * @link https://php.net/manual/en/function.socket-accept.php
@@ -546,7 +546,7 @@ function socket_accept ($socket) {}
  */
 function socket_set_nonblock ($socket) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Sets nonblocking mode for file descriptor fd
  * @link https://php.net/manual/en/function.socket-set-nonblock.php
@@ -570,7 +570,7 @@ function socket_set_nonblock ($socket) {}
  */
 function socket_set_block ($socket) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Sets blocking mode on a socket resource
  * @link https://php.net/manual/en/function.socket-set-block.php
@@ -612,7 +612,7 @@ function socket_set_block ($socket) {}
  */
 function socket_listen ($socket, $backlog = 0) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Listens for a connection on a socket
  * @link https://php.net/manual/en/function.socket-listen.php
@@ -654,7 +654,7 @@ function socket_listen ($socket, $backlog = 0) {}
  */
 function socket_close ($socket) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Closes a socket resource
  * @link https://php.net/manual/en/function.socket-close.php
@@ -694,7 +694,7 @@ function socket_close ($socket) {}
  */
 function socket_write ($socket, $buffer, $length = 0) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Write to a socket
  * @link https://php.net/manual/en/function.socket-write.php
@@ -754,7 +754,7 @@ function socket_write ($socket, $buffer, $length = 0) {}
  */
 function socket_read ($socket, $length, $type = PHP_BINARY_READ) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Reads a maximum of length bytes from a socket
  * @link https://php.net/manual/en/function.socket-read.php
@@ -1653,7 +1653,7 @@ function socket_clear_error ($socket = null) {}
  */
 function socket_import_stream ($stream) {}
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Import a stream
  * @link https://php.net/manual/en/function.socket-import-stream.php
@@ -1720,7 +1720,7 @@ function socket_wsaprotocol_info_export($socket, $target_pid) {}
 function socket_wsaprotocol_info_import($info_id) {}
 
 
-#[PhpStormStubsElementAvailable('5.3','8.0')]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Imports a Socket from another Process
  *

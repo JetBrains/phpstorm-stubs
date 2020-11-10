@@ -217,7 +217,7 @@ function odbc_error ($connection_id = null) {}
  */
 function odbc_errormsg ($connection_id = null) {}
 
-#[PhpStormStubsElementAvailable("5.3","8.0")]
+#[PhpStormStubsElementAvailable('5.3','7.4')]
 /**
  * Prepare and execute an SQL statement
  * @link https://php.net/manual/en/function.odbc-exec.php
