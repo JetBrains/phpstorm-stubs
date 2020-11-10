@@ -568,7 +568,7 @@ function stream_copy_to_stream ($from, $to, $length = null, $offset = null) {}
  * </p>
  * @return string|false a string or false on failure.
  */
-function stream_get_contents ($stream, $length = null, $offset = null) {}
+function stream_get_contents ($stream, $length = null, $offset = -1) {}
 
 /**
  * Tells whether the stream supports locking.
