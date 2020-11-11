@@ -111,14 +111,14 @@ function pcntl_waitpid ($process_id, &$status, $flags = 0, array &$resource_usag
  * </p>
  * @param int $flags [optional] <p>
  * If wait3 is available on your system (mostly BSD-style systems), you can
- * provide the optional <i>options</i> parameter. If this
+ * provide the optional <i>flags</i> parameter. If this
  * parameter is not provided, wait will be used for the system call. If
- * wait3 is not available, providing a value for <i>options
- * </i> will have no effect. The value of <i>options
+ * wait3 is not available, providing a value for <i>flags
+ * </i> will have no effect. The value of <i>flags
  * </i> is the value of zero or more of the following two constants
  * OR'ed together:
  * <table>
- * Possible values for <i>options</i>
+ * Possible values for <i>flags</i>
  * <tr valign="top">
  * <td>WNOHANG</td>
  * <td>
@@ -374,7 +374,7 @@ function pcntl_setpriority ($priority, $process_id, $mode = PRIO_PROCESS) {}
  * List of signals.
  * </p>
  * @param array &$old_signals [optional] <p>
- * The <i>oldset</i> parameter is set to an array
+ * The <i>old_signals</i> parameter is set to an array
  * containing the list of the previously blocked signals.
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
@@ -388,7 +388,7 @@ function pcntl_sigprocmask ($mode, array $signals, array &$old_signals = null) {
  * Array of signals to wait for.
  * </p>
  * @param array &$info [optional] <p>
- * The <i>siginfo</i> parameter is set to an array containing
+ * The <i>info</i> parameter is set to an array containing
  * informations about the signal.
  * </p>
  * <p>
@@ -444,7 +444,7 @@ function pcntl_sigtimedwait (array $signals, array &$info = null, $seconds = 0, 
 
 /**
  * Enable/disable asynchronous signal handling or return the old setting.<br>
- * If the <b>on</b> parameter is omitted, it returns whether asynchronous
+ * If the <b>enable</b> parameter is omitted, it returns whether asynchronous
  * signal handling is enabled.
  * @link https://www.php.net/manual/en/function.pcntl-async-signals.php
  *
