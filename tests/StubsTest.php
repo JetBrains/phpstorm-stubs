@@ -39,8 +39,9 @@ class StubsTest extends TestCase
     {
         parent::setUpBeforeClass();
         self::$SQLite3 = new SQLite3(__DIR__ . "/ide-sqlite.sqlite");
-        echo "current dir:" .dirname(__FILE__);
+        echo "current dir: " . dirname(__FILE__);
     }
+
     /**
      * @dataProvider \StubTests\TestData\Providers\ReflectionTestDataProviders::constantProvider
      */
@@ -110,11 +111,11 @@ class StubsTest extends TestCase
             );
             if ($phpstormFunction->stubBelongsToCore) {
                 foreach ($function->parameters as $parameter) {
-                    if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_NAME_MISMATCH)){
+                    if (!$parameter->hasMutedProblem(StubProblemType::PARAMETER_NAME_MISMATCH)) {
                         self::assertNotEmpty(array_filter($phpstormFunction->parameters,
                             fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name),
                             "Function ${functionName} has signature $functionName(" . $this->printParameters($function->parameters) . ')' .
-                            "but stub function has signature $functionName(" . $this->printParameters($phpstormFunction->parameters) . ")");
+                            " but stub function has signature $functionName(" . $this->printParameters($phpstormFunction->parameters) . ")");
                     }
                 }
             }
@@ -338,6 +339,7 @@ class StubsTest extends TestCase
     public function testCoreMethodsTypeHints(string $methodName, PHPMethod $stubFunction): void
     {
         $firstSinceVersion = 5;
+        $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($stubFunction->parentName);
         if (!empty($stubFunction->sinceTags)) {
             $sinceVersions = array_map(fn(Since $tag) => (int)$tag->getVersion(), $stubFunction->sinceTags);
             sort($sinceVersions, SORT_DESC);
@@ -346,7 +348,7 @@ class StubsTest extends TestCase
             self::markTestSkipped("Function '$methodName' contains inheritdoc.");
         } elseif ($stubFunction->parentName === "___PHPSTORM_HELPERS\object") {
             self::markTestSkipped("Function '$methodName' is declared in ___PHPSTORM_HELPERS\object.");
-        } elseif ($stubFunction->name === "__construct") {
+        } elseif (!empty($parentClass->sinceTags) || $stubFunction->name === "__construct") {
             $parentClass = PhpStormStubsSingleton::getPhpStormStubs()->getClass($stubFunction->parentName);
             if (!empty($parentClass->sinceTags)) {
                 $sinceVersions = array_map(fn(Since $tag) => (int)$tag->getVersion(), $parentClass->sinceTags);
@@ -619,11 +621,7 @@ class StubsTest extends TestCase
         }
     }
 
-    /**
-     * @param Tag $parameter
-     * @return mixed
-     */
-    private function filterNull(Tag $parameter)
+    private function filterNull(Tag $parameter): mixed
     {
         $types = $parameter->getType();
         if ($types instanceof Compound) {
@@ -634,10 +632,6 @@ class StubsTest extends TestCase
         return $types;
     }
 
-    /**
-     * @param string $parameterType
-     * @return string
-     */
     private function normalizeType(string $parameterType): string
     {
         $strtolower = strtolower(trim($parameterType));
@@ -646,11 +640,6 @@ class StubsTest extends TestCase
         return implode("|", $types);;
     }
 
-    /**
-     * @param mixed $functionsData
-     * @param string $docBlockSummary
-     * @param string|null $function_name
-     */
     private function checkSummary(mixed $functionsData, string $docBlockSummary, ?string $function_name): void
     {
         $summaryFromOfficialDocs = $functionsData === false ? "" : $functionsData["purpose"];
@@ -664,18 +653,12 @@ class StubsTest extends TestCase
         }
     }
 
-    /**
-     * @param mixed $type
-     */
     private function trunkNameSpace(mixed $type): string
     {
         $explode = explode("\\", $type);
         return $explode[sizeof($explode) - 1];
     }
 
-    /**
-     * @param array|bool $types
-     */
     private function trunkNamespaces(array|bool $types): array
     {
         $newTypes = [];
@@ -685,10 +668,6 @@ class StubsTest extends TestCase
         return $newTypes;
     }
 
-    /**
-     * @param string|null $function_name
-     * @param PHPFunction $function
-     */
     private function validateReturnType(?string $function_name, PHPFunction $function): void
     {
         $functionsData = self::$SQLite3->query("select * from functions where name = '$function_name'")->fetchArray();
@@ -703,11 +682,6 @@ class StubsTest extends TestCase
         }
     }
 
-    /**
-     * @param mixed $docType
-     * @param string $noramlizedTypeFromStubs
-     * @return bool
-     */
     private function hasType(mixed $docType, string $noramlizedTypeFromStubs): bool
     {
         $types = explode("|", $noramlizedTypeFromStubs);
@@ -720,11 +694,6 @@ class StubsTest extends TestCase
 
     }
 
-    /**
-     * @param mixed $type
-     * @param mixed $docType
-     * @return bool
-     */
     private function typesAreEqual(mixed $type, mixed $docType): bool
     {
         if ($this->isInteger($docType) && $this->isInteger($type)) {
@@ -733,39 +702,31 @@ class StubsTest extends TestCase
         if ($this->isBoolean($docType) && $this->isBoolean($type)) {
             return true;
         }
-        if( $this->isFloat($docType) && $this->isFloat($type)) {
+        if ($this->isFloat($docType) && $this->isFloat($type)) {
             return true;
         }
-        if( $this->isCallable($docType) && $type == "callable") {
+        if ($this->isCallable($docType) && $type == "callable") {
             return true;
         }
         return $type === $docType;
     }
 
-    /**
-     * @param mixed $docType
-     * @return bool
-     */
     private function isBoolean(mixed $docType): bool
     {
         return ($docType === "bool" || $docType === "boolean");
     }
 
-    /**
-     * @param mixed $docType
-     * @return bool
-     */
     private function isFloat(mixed $docType): bool
     {
         return ($docType === "float" || $docType === "double");
     }
 
-    private function isInteger(mixed $docType)
+    private function isInteger(mixed $docType): bool
     {
         return ($docType === "int" || $docType === "integer");
     }
 
-    private function isCallable(mixed $docType)
+    private function isCallable(mixed $docType): bool
     {
         return ($docType === "call" || $docType === "callable" || $docType === "callback");
     }
