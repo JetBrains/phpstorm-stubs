@@ -236,7 +236,7 @@ function get_browser ($user_agent = null, $return_array = null) {}
 #[Pure]
 function crypt ($string, $salt) {}
 
-#[PhpStormStubsElementAvailable('5.3','7.4')]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * One-way string encryption (hashing)
  * @link https://php.net/manual/en/function.crypt.php

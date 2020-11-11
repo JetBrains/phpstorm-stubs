@@ -1235,7 +1235,7 @@ function pg_lo_write ($large_object, $data, $len = null) {}
  */
 function pg_lo_read_all ($large_object) {}
 
-#[PhpStormStubsElementAvailable('5.3','7.4')]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Import a large object from file
  * @link https://php.net/manual/en/function.pg-lo-import.php
@@ -1287,7 +1287,7 @@ function pg_lo_import ($connection = null, $pathname, $object_id = null) {}
  */
 function pg_lo_import ($connection, $pathname, $object_id = null) {}
 
-#[PhpStormStubsElementAvailable('5.3','7.4')]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Export a large object to file
  * @link https://php.net/manual/en/function.pg-lo-export.php

@@ -15,7 +15,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 #[Deprecated(since: '8.0')]
 function openssl_pkey_free($key) { }
 
-#[PhpStormStubsElementAvailable('5.3','7.4')]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Generates a new private key
  * @link https://php.net/manual/en/function.openssl-pkey-new.php
@@ -238,7 +238,7 @@ function openssl_spki_export_challenge (&$spki ) {}
  */
 function openssl_spki_export (&$spki ) {}
 
-#[PhpStormStubsElementAvailable('5.3','7.4')]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Parse an X.509 certificate and return a resource identifier for
  * it
@@ -455,7 +455,7 @@ function openssl_pkcs12_export_to_file($certificate, $output_filename, $private_
  */
 function openssl_pkcs12_read($pkcs12, array &$certificates, $passphrase) { }
 
-#[PhpStormStubsElementAvailable('5.3','7.4')]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Generates a CSR
  * @link https://php.net/manual/en/function.openssl-csr-new.php
@@ -670,7 +670,7 @@ function openssl_csr_export($csr, &$output, $no_text = true) { }
  */
 function openssl_csr_export_to_file($csr, $output_filename, $no_text = true) { }
 
-#[PhpStormStubsElementAvailable('5.3','7.4')]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Sign a CSR with another certificate (or itself) and generate a certificate
  * @link https://php.net/manual/en/function.openssl-csr-sign.php
@@ -873,7 +873,7 @@ function openssl_sign($data, &$signature, $private_key, $algorithm = OPENSSL_ALG
  */
 function openssl_verify($data, $signature, $public_key, $algorithm = OPENSSL_ALGO_SHA1) { }
 
-#[PhpStormStubsElementAvailable('5.3','7.4')]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Seal (encrypt) data
  * @link https://php.net/manual/en/function.openssl-seal.php
@@ -909,7 +909,7 @@ function openssl_seal($data, &$sealed_data, array &$encrypted_keys, array $publi
 {
 }
 
-#[PhpStormStubsElementAvailable('5.3','7.4')]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Open sealed data
  * @link https://php.net/manual/en/function.openssl-open.php

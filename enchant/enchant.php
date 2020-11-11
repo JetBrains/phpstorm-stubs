@@ -4,7 +4,7 @@
 use JetBrains\PhpStorm\Deprecated;
 use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
-#[PhpStormStubsElementAvailable("8.0")]
+#[PhpStormStubsElementAvailable('8.0')]
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * create a new broker object capable of requesting
@@ -13,7 +13,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  */
 function enchant_broker_init () {}
 
-#[PhpStormStubsElementAvailable('5.3','7.4')]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * create a new broker object capable of requesting
@@ -77,7 +77,7 @@ function enchant_broker_get_dict_path ($broker, $dict_type) {}
  */
 function enchant_broker_list_dicts ($broker) {}
 
-#[PhpStormStubsElementAvailable('5.3', '8.0')]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * create a new dictionary using a tag
@@ -122,7 +122,7 @@ function enchant_broker_request_dict ($broker, $tag) {}
  */
 function enchant_broker_request_pwl_dict ($broker, $filename) {}
 
-#[PhpStormStubsElementAvailable('5.3', '8.0')]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * creates a dictionary using a PWL file

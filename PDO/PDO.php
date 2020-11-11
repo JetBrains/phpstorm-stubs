@@ -978,7 +978,7 @@ class PDO  {
 	 */
 	public function exec ($statement) {}
 
-	#[PhpStormStubsElementAvailable('5.3','7.4')]
+	#[PhpStormStubsElementAvailable(to: '7.4')]
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
 	 * Executes an SQL statement, returning a result set as a PDOStatement object
@@ -1572,7 +1572,7 @@ class PDOStatement implements IteratorAggregate
 	 */
 	public function getColumnMeta ($column) {}
 
-	#[PhpStormStubsElementAvailable('5.3','7.4')]
+	#[PhpStormStubsElementAvailable(to: '7.4')]
 	/**
 	 * (PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)<br/>
 	 * Set the default fetch mode for this statement
