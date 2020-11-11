@@ -277,7 +277,7 @@ function array_unique(array $array, $flags = SORT_STRING) { }
 #[Pure]
 function array_intersect(array $array, ...$arrays) { }
 
-#[PhpStormStubsElementAvailable('5.3','7.4')]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Computes the intersection of arrays
  * @link https://php.net/manual/en/function.array-intersect.php
@@ -459,7 +459,7 @@ function array_uintersect_uassoc(array $array1, array $array2, array $_ = null, 
 #[Pure]
 function array_diff(array $array, ...$excludes) { }
 
-#[PhpStormStubsElementAvailable('5.3','7.4')]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Computes the difference of arrays
  * @link https://php.net/manual/en/function.array-diff.php

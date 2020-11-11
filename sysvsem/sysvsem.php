@@ -26,7 +26,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  */
 function sem_get ($key, $max_acquire = 1, $permissions = 0666, $auto_release = 1) {}
 
-#[PhpStormStubsElementAvailable('5.3','7.4')]
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Get a semaphore id
  * @link https://php.net/manual/en/function.sem-get.php
