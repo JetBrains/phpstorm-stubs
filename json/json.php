@@ -137,6 +137,91 @@ function json_decode ($json, $associative = false, $depth = 512, $flags = 0) {}
  * @link https://php.net/manual/en/function.json-last-error.php
  * @return int an integer, the value can be one of the following
  * constants:
+ * <table class='doctable table'>
+ * <thead>
+ * <tr>
+ * <th>Constant</th>
+ * <th>Meaning</th>
+ * <th>Availability</th>
+ * </tr>
+ *
+ * </thead>
+ *
+ * <tbody class='tbody'>
+ * <tr>
+ * <td><strong><code>JSON_ERROR_NONE</code></strong></td>
+ * <td>No error has occurred</td>
+ * <td class='empty'>&nbsp;</td>
+ * </tr>
+ *
+ * <tr>
+ * <td><strong><code>JSON_ERROR_DEPTH</code></strong></td>
+ * <td>The maximum stack depth has been exceeded</td>
+ * <td class='empty'>&nbsp;</td>
+ * </tr>
+ *
+ * <tr>
+ * <td><strong><code>JSON_ERROR_STATE_MISMATCH</code></strong></td>
+ * <td>Invalid or malformed JSON</td>
+ * <td class='empty'>&nbsp;</td>
+ * </tr>
+ *
+ * <tr>
+ * <td><strong><code>JSON_ERROR_CTRL_CHAR</code></strong></td>
+ * <td>Control character error, possibly incorrectly encoded</td>
+ * <td class='empty'>&nbsp;</td>
+ * </tr>
+ *
+ * <tr>
+ * <td><strong><code>JSON_ERROR_SYNTAX</code></strong></td>
+ * <td>Syntax error</td>
+ * <td class='empty'>&nbsp;</td>
+ * </tr>
+ *
+ * <tr>
+ * <td><strong><code>JSON_ERROR_UTF8</code></strong></td>
+ * <td>Malformed UTF-8 characters, possibly incorrectly encoded</td>
+ * <td>PHP 5.3.3</td>
+ * </tr>
+ *
+ * <tr>
+ * <td><strong><code>JSON_ERROR_RECURSION</code></strong></td>
+ * <td>One or more recursive references in the value to be encoded</td>
+ * <td>PHP 5.5.0</td>
+ * </tr>
+ *
+ * <tr>
+ * <td><strong><code>JSON_ERROR_INF_OR_NAN</code></strong></td>
+ * <td>
+ * One or more
+ * <a href='language.types.float.php#language.types.float.nan' class='link'><strong><code>NAN</code></strong></a>
+ * or <a href='function.is-infinite.php' class='link'><strong><code>INF</code></strong></a>
+ * values in the value to be encoded
+ * </td>
+ * <td>PHP 5.5.0</td>
+ * </tr>
+ *
+ * <tr>
+ * <td><strong><code>JSON_ERROR_UNSUPPORTED_TYPE</code></strong></td>
+ * <td>A value of a type that cannot be encoded was given</td>
+ * <td>PHP 5.5.0</td>
+ * </tr>
+ *
+ * <tr>
+ * <td><strong><code>JSON_ERROR_INVALID_PROPERTY_NAME</code></strong></td>
+ * <td>A property name that cannot be encoded was given</td>
+ * <td>PHP 7.0.0</td>
+ * </tr>
+ *
+ * <tr>
+ * <td><strong><code>JSON_ERROR_UTF16</code></strong></td>
+ * <td>Malformed UTF-16 characters, possibly incorrectly encoded</td>
+ * <td>PHP 7.0.0</td>
+ * </tr>
+ *
+ * </tbody>
+ *
+ * </table>
  */
 #[Pure]
 function json_last_error () {}
