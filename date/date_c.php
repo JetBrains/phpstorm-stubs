@@ -4,18 +4,69 @@
  * @since 5.5
  */
 interface DateTimeInterface {
+    /**
+     * @since 7.2
+     */
     const ATOM = 'Y-m-d\TH:i:sP';
+    
+    /**
+     * @since 7.2
+     */
     const COOKIE = 'l, d-M-Y H:i:s T';
+    
+    /**
+     * @since 7.2
+     */
     const ISO8601 = 'Y-m-d\TH:i:sO';
+    
+    /**
+     * @since 7.2
+     */
     const RFC822 = 'D, d M y H:i:s O';
+    
+    /**
+     * @since 7.2
+     */
     const RFC850 = 'l, d-M-y H:i:s T';
+    
+    /**
+     * @since 7.2
+     */
     const RFC1036 = 'D, d M y H:i:s O';
+    
+    /**
+     * @since 7.2
+     */
     const RFC1123 = 'D, d M Y H:i:s O';
+    
+    /**
+     * @since 7.2
+     */
     const RFC2822 = 'D, d M Y H:i:s O';
+    
+    /**
+     * @since 7.2
+     */
     const RFC3339 = 'Y-m-d\TH:i:sP';
+    
+    /**
+     * @since 7.2
+     */
     const RFC3339_EXTENDED = 'Y-m-d\TH:i:s.vP';
+    
+    /**
+     * @since 7.2
+     */
     const RFC7231 = 'D, d M Y H:i:s \G\M\T';
+    
+    /**
+     * @since 7.2
+     */
     const RSS = 'D, d M Y H:i:s O';
+    
+    /**
+     * @since 7.2
+     */
     const W3C = 'Y-m-d\TH:i:sP';
 
     /* Methods */
@@ -322,6 +373,71 @@ class DateTimeImmutable implements DateTimeInterface {
  * @link https://php.net/manual/en/class.datetime.php
  */
 class DateTime implements DateTimeInterface {
+    /**
+     * @removed 7.2
+     */
+    const ATOM = 'Y-m-d\TH:i:sP';
+    
+    /**
+     * @removed 7.2
+     */
+    const COOKIE = 'l, d-M-Y H:i:s T';
+    
+    /**
+     * @removed 7.2
+     */
+    const ISO8601 = 'Y-m-d\TH:i:sO';
+    
+    /**
+     * @removed 7.2
+     */
+    const RFC822 = 'D, d M y H:i:s O';
+    
+    /**
+     * @removed 7.2
+     */
+    const RFC850 = 'l, d-M-y H:i:s T';
+    
+    /**
+     * @removed 7.2
+     */
+    const RFC1036 = 'D, d M y H:i:s O';
+    
+    /**
+     * @removed 7.2
+     */
+    const RFC1123 = 'D, d M Y H:i:s O';
+    
+    /**
+     * @removed 7.2
+     */
+    const RFC2822 = 'D, d M Y H:i:s O';
+    
+    /**
+     * @removed 7.2
+     */
+    const RFC3339 = 'Y-m-d\TH:i:sP';
+    
+    /**
+     * @removed 7.2
+     */
+    const RFC3339_EXTENDED = 'Y-m-d\TH:i:s.vP';
+    
+    /**
+     * @removed 7.2
+     */
+    const RFC7231 = 'D, d M Y H:i:s \G\M\T';
+    
+    /**
+     * @removed 7.2
+     */
+    const RSS = 'D, d M Y H:i:s O';
+    
+    /**
+     * @removed 7.2
+     */
+    const W3C = 'Y-m-d\TH:i:sP';
+    
     /**
      * (PHP 5 &gt;=5.2.0)<br/>
      * @link https://php.net/manual/en/datetime.construct.php
