@@ -1,10 +1,10 @@
-FROM php:8.0.0RC3-alpine
+FROM php:8.0.0RC4-alpine
 RUN echo 'memory_limit = 512M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 RUN set -eux; \
     apk add --no-cache --virtual .build-deps \
-    gcc g++ make autoconf pkgconfig \
+    gcc g++ make autoconf pkgconfig git \
     bzip2-dev gettext-dev libxml2-dev php7-dev libffi-dev openssl-dev php7-pear php7-pecl-amqp  rabbitmq-c rabbitmq-c-dev \
     librrd rrdtool-dev yaml yaml-dev fann fann-dev openldap-dev librdkafka librdkafka-dev libcurl curl-dev gpgme gpgme-dev
 RUN docker-php-ext-install ldap bz2 mysqli bcmath calendar dba exif gettext opcache pcntl pdo_mysql shmop sysvmsg \
