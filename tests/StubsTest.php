@@ -472,13 +472,15 @@ class StubsTest extends TestCase
                     $link->getLink(),
                     "In $elementName @link doesn't start with https"
                 );
-                if (getenv("CHECK_LINKS") === true){
-                    $request = curl_init($link->getLink());
-                    curl_exec($request);
-                    $response = curl_getinfo($request, CURLINFO_RESPONSE_CODE);
-                    echo $response . "\n";
-                    curl_close($request);
-                    static::assertTrue($response < 400);
+                if (getenv("CHECK_LINKS") === "true"){
+                    if ($element->stubBelongsToCore){
+                        $request = curl_init($link->getLink());
+                        curl_setopt($request,CURLOPT_RETURNTRANSFER,1);
+                        curl_exec($request);
+                        $response = curl_getinfo($request, CURLINFO_RESPONSE_CODE);
+                        curl_close($request);
+                        static::assertTrue($response < 400);
+                    }
                 }
             }
         }
