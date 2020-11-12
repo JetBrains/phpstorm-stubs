@@ -688,7 +688,7 @@ function reset (&$array) {}
 /**
  * Return the current element in an array
  * @link https://php.net/manual/en/function.current.php
- * @param $array <p>
+ * @param ArrayAccess $array <p>
  * The array.
  * </p>
  * @return mixed The current function simply returns the
