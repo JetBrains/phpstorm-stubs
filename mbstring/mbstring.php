@@ -284,6 +284,26 @@ function mb_strpos ($haystack, $needle, $offset = 0, $encoding = null) {}
 function mb_strrpos ($haystack, $needle, $offset = 0, $encoding = null) {}
 
 /**
+ * Find position of last occurrence of a string in a string
+ * @link https://php.net/manual/en/function.mb-strrpos.php
+ * @param string $haystack <p>
+ * The string being checked, for the last occurrence
+ * of needle
+ * </p>
+ * @param string $needle <p>
+ * The string to find in haystack.
+ * </p>
+ * @param string $encoding &mbstring.encoding.parameter;
+ * @return int|false the numeric position of
+ * the last occurrence of needle in the
+ * haystack string. If
+ * needle is not found, it returns false.
+ */
+#[Pure]
+#[Deprecated(since: "7.4")]
+function mb_strrpos ($haystack, $needle, $encoding) {}
+
+/**
  * Finds position of first occurrence of a string within another, case insensitive
  * @link https://php.net/manual/en/function.mb-stripos.php
  * @param string $haystack <p>
