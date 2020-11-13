@@ -123,7 +123,7 @@ class ReflectionParameter implements Reflector
      * @return ReflectionClass|null A {@see ReflectionClass} object.
      * @see ReflectionParameter::getType()
      */
-    #[Deprecated(reason: "Use ReflectionParameter::getType() and the ReflectionType APIs should be usedinstead.", since: "8.0")]
+    #[Deprecated(reason: "Use ReflectionParameter::getType() and the ReflectionType APIs should be used instead.", since: "8.0")]
     #[Pure]
 	public function getClass()
     {
@@ -160,7 +160,7 @@ class ReflectionParameter implements Reflector
      * @return bool {@see true} if an array is expected, {@see false} otherwise.
      * @see ReflectionParameter::getType()
      */
-    #[Deprecated(reason: "Use ReflectionParameter::getType() and the ReflectionType APIs should be usedinstead.", since: "8.0")]
+    #[Deprecated(reason: "Use ReflectionParameter::getType() and the ReflectionType APIs should be used instead.", since: "8.0")]
     #[Pure]
 	public function isArray()
     {
@@ -175,7 +175,7 @@ class ReflectionParameter implements Reflector
      * @since 5.4
      * @see ReflectionParameter::getType()
      */
-    #[Deprecated(reason: "Use ReflectionParameter::getType() and the ReflectionType APIs should be usedinstead.", since: "8.0")]
+    #[Deprecated(reason: "Use ReflectionParameter::getType() and the ReflectionType APIs should be used instead.", since: "8.0")]
     #[Pure]
 	public function isCallable()
     {
