@@ -987,35 +987,6 @@ function explode ($separator, $string, $limit = null) {}
 /**
  * Join array elements with a string
  * @link https://php.net/manual/en/function.implode.php
- * @param string $separator<p>
- * Defaults to an empty string. This is not the preferred usage of
- * implode as glue would be
- * the second parameter and thus, the bad prototype would be used.
- * </p>
- * @param array $array <p>
- * The array of strings to implode.
- * </p>
- * @return string a string containing a string representation of all the array
- * elements in the same order, with the glue string between each element.
- */
-#[Pure]
-function implode($separator, array $array){}
-
-/**
- * Join array elements with a string
- * @link https://php.net/manual/en/function.implode.php
- * @param array $pieces <p>
- * The array of strings to implode.
- * </p>
- * @return string a string containing a string representation of all the array
- * elements in the same order, with the glue string between each element.
- */
-#[Pure]
-function implode(array $pieces){}
-
-/**
- * Join array elements with a string
- * @link https://php.net/manual/en/function.implode.php
  * @param string $separator [optional]<p>
  * Defaults to an empty string. This is not the preferred usage of
  * implode as glue would be
@@ -1028,8 +999,7 @@ function implode(array $pieces){}
  * elements in the same order, with the glue string between each element.
  */
 #[Pure]
-#[Deprecated("Passing the glue after the pieces (i.e. not using the documented order of parameters) has been deprecated", replacement: "%name%(%parameter1%, %parameter0%)", since: "7.4")]
-function implode(array $array, $separator){}
+function implode ($separator = "", array $array) {}
 
 /**
  * &Alias; <function>implode</function>
