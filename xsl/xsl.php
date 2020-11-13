@@ -57,7 +57,7 @@ class XSLTProcessor  {
 	 * @param string $namespace <p>
 	 * The namespace URI of the XSLT parameter.
 	 * </p>
-	 * @param string $options <p>
+	 * @param array $options <p>
 	 * An array of name => value pairs. This syntax is available since PHP 5.1.0.
 	 * </p>
 	 * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
