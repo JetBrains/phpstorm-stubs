@@ -78,6 +78,23 @@ function convert_uudecode ($string) {}
 #[Pure]
 function abs ($num) {}
 
+#[PhpStormStubsElementAvailable('8.0')]
+/**
+ * Round fractions up
+ * @link https://php.net/manual/en/function.ceil.php
+ * @param float $num <p>
+ * The value to round
+ * </p>
+ * @return float value rounded up to the next highest
+ * integer.
+ * The return value of ceil is still of type
+ * float as the value range of float is
+ * usually bigger than that of integer.
+ */
+#[Pure]
+function ceil ($num) {}
+
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Round fractions up
  * @link https://php.net/manual/en/function.ceil.php
@@ -93,6 +110,22 @@ function abs ($num) {}
 #[Pure]
 function ceil ($num) {}
 
+#[PhpStormStubsElementAvailable('8.0')]
+/**
+ * Round fractions down
+ * @link https://php.net/manual/en/function.floor.php
+ * @param float $num <p>
+ * The numeric value to round
+ * </p>
+ * @return float value rounded to the next lowest integer.
+ * The return value of floor is still of type
+ * float because the value range of float is
+ * usually bigger than that of integer.
+ */
+#[Pure]
+function floor ($num) {}
+
+#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Round fractions down
  * @link https://php.net/manual/en/function.floor.php
