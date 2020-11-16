@@ -1,5 +1,6 @@
 # phpstorm-stubs 
 
+
 [![official JetBrains project](http://jb.gg/badges/official.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub) 
 [![Build Status](https://travis-ci.org/JetBrains/phpstorm-stubs.svg?branch=master)](https://travis-ci.org/JetBrains/phpstorm-stubs)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
