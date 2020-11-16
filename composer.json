@@ -31,10 +31,5 @@
   "scripts": {
     "cs": "php-cs-fixer fix -v --diff --dry-run",
     "cs-fix": "php-cs-fixer fix -v --diff"
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "2020.x"
-    }
   }
 }
