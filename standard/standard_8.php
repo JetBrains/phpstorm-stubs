@@ -637,7 +637,7 @@ function count ($value, $mode = COUNT_NORMAL) {}
 /**
  * Set the internal pointer of an array to its last element
  * @link https://php.net/manual/en/function.end.php
- * @param ArrayAccess &$array <p>
+ * @param ArrayAccess|array &$array <p>
  * The array. This array is passed by reference because it is modified by
  * the function. This means you must pass it a real variable and not
  * a function returning an array because only actual variables may be
@@ -651,7 +651,7 @@ function end (&$array) {}
 /**
  * Rewind the internal array pointer
  * @link https://php.net/manual/en/function.prev.php
- * @param ArrayAccess &$array <p>
+ * @param ArrayAccess|array &$array <p>
  * The input array.
  * </p>
  * @return mixed the array value in the previous place that's pointed to by
@@ -664,7 +664,7 @@ function prev (&$array) {}
 /**
  * Advance the internal array pointer of an array
  * @link https://php.net/manual/en/function.next.php
- * @param ArrayAccess &$array <p>
+ * @param ArrayAccess|array &$array <p>
  * The array being affected.
  * </p>
  * @return mixed the array value in the next place that's pointed to by the
@@ -676,7 +676,7 @@ function next (&$array) {}
 /**
  * Set the internal pointer of an array to its first element
  * @link https://php.net/manual/en/function.reset.php
- * @param ArrayAccess &$array <p>
+ * @param ArrayAccess|array &$array <p>
  * The input array.
  * </p>
  * @return mixed|false the value of the first array element, or false if the array is
@@ -688,7 +688,7 @@ function reset (&$array) {}
 /**
  * Return the current element in an array
  * @link https://php.net/manual/en/function.current.php
- * @param ArrayAccess $array <p>
+ * @param ArrayAccess|array $array <p>
  * The array.
  * </p>
  * @return mixed The current function simply returns the
@@ -699,12 +699,12 @@ function reset (&$array) {}
  * @meta
  */
 #[Pure]
-function current (ArrayAccess $array) {}
+function current ($array) {}
 
 /**
  * Fetch a key from an array
  * @link https://php.net/manual/en/function.key.php
- * @param ArrayAccess $array <p>
+ * @param ArrayAccess|array $array <p>
  * The array.
  * </p>
  * @return int|string|null The key function simply returns the
