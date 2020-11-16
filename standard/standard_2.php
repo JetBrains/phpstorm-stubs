@@ -938,7 +938,6 @@ function proc_nice ($priority) {}
  * @return int A pseudo random value between min
  * (or 0) and max (or getrandmax, inclusive).
  */
-#[Pure]
 function rand ($min = 0, $max = null) {}
 
 /**
@@ -977,7 +976,6 @@ function getrandmax () {}
  * @return int A random integer value between min (or 0)
  * and max (or mt_getrandmax, inclusive)
  */
-#[Pure]
 function mt_rand ($min = 0, $max = null) {}
 
 /**
