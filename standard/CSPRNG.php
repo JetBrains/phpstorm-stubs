@@ -7,7 +7,7 @@
  * @since 7.0
  * @throws Exception if it was not possible to gather sufficient entropy.
  */
-function random_bytes ($length) {}
+function random_bytes (int $length) {}
 
 /**
  * Generates cryptographically secure pseudo-random integers
@@ -18,4 +18,4 @@ function random_bytes ($length) {}
  * @since 7.0
  * @throws Exception if it was not possible to gather sufficient entropy.
  */
-function random_int ($min, $max) {}
+function random_int (int $min, int $max) {}

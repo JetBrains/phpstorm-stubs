@@ -18,7 +18,7 @@
  * </p>
  * @return resource|SysvSharedMemory a shared memory segment identifier.
  */
-function shm_attach ($key, $size = null, $permissions = 0666) {}
+function shm_attach (int $key, int $size, int $permissions = 0666) {}
 
 /**
  * Removes shared memory from Unix systems

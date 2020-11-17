@@ -32,7 +32,7 @@ function func_num_args () {}
  * @return mixed|false the specified argument, or false on error.
  */
 #[Pure]
-function func_get_arg ($position) {}
+function func_get_arg (int $position) {}
 
 /**
  * Returns an array comprising a function's argument list
@@ -53,7 +53,7 @@ function func_get_args () {}
  * and 0 if the <i>string</i> is empty.
  */
 #[Pure]
-function strlen ($string) {}
+function strlen (string $string) {}
 
 /**
  * Binary safe string comparison
@@ -70,7 +70,7 @@ function strlen ($string) {}
  * equal.
  */
 #[Pure]
-function strcmp ($string1, $string2) {}
+function strcmp (string $string1, string $string2) {}
 
 /**
  * Binary safe string comparison of the first n characters
@@ -90,7 +90,7 @@ function strcmp ($string1, $string2) {}
  * equal.
  */
 #[Pure]
-function strncmp ($string1, $string2, $length) {}
+function strncmp (string $string1, string $string2, int $length) {}
 
 /**
  * Binary safe case-insensitive string comparison
@@ -107,7 +107,7 @@ function strncmp ($string1, $string2, $length) {}
  * equal.
  */
 #[Pure]
-function strcasecmp ($string1, $string2) {}
+function strcasecmp (string $string1, string $string2) {}
 
 /**
  * Binary safe case-insensitive string comparison of the first n characters
@@ -126,7 +126,7 @@ function strcasecmp ($string1, $string2) {}
  * greater than <i>str2</i>, and 0 if they are equal.
  */
 #[Pure]
-function strncasecmp ($string1, $string2, $length) {}
+function strncasecmp (string $string1, string $string2, int $length) {}
 
 /**
  * The function returns {@see true} if the passed $haystack starts from the
@@ -309,7 +309,7 @@ function each (array &$array) {}
  * level or the current level if no <i>level</i> parameter is
  * given.
  */
-function error_reporting ($error_level = null) {}
+function error_reporting (int $error_level) {}
 
 /**
  * Defines a named constant
@@ -336,7 +336,7 @@ function error_reporting ($error_level = null) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function define ($constant_name, $value, #[Deprecated] $case_insensitive = false) {}
+function define (string $constant_name, $value, #[Deprecated] bool $case_insensitive = false) {}
 
 /**
  * Checks whether a given named constant exists
@@ -348,7 +348,7 @@ function define ($constant_name, $value, #[Deprecated] $case_insensitive = false
  * has been defined, false otherwise.
  */
 #[Pure]
-function defined ($constant_name) {}
+function defined (string $constant_name) {}
 
 /**
  * Returns the name of the class of an object
@@ -365,7 +365,7 @@ function defined ($constant_name) {}
  * name of that class is returned.
  */
 #[Pure]
-function get_class ($object = null) {}
+function get_class (object $object) {}
 
 /**
  * the "Late Static Binding" class name
@@ -391,7 +391,7 @@ function get_called_class () {}
  * If called without parameter outside object, this function returns false.
  */
 #[Pure]
-function get_parent_class ($object_or_class = null) {}
+function get_parent_class (object|string $object_or_class) {}
 
 /**
  * Checks if the class method exists
@@ -407,7 +407,7 @@ function get_parent_class ($object_or_class = null) {}
  * otherwise.
  */
 #[Pure]
-function method_exists ($object_or_class, $method) {}
+function method_exists (mixed $object_or_class, string $method) {}
 
 /**
  * Checks if the object or class has a property
@@ -422,7 +422,7 @@ function method_exists ($object_or_class, $method) {}
  * null in case of an error.
  */
 #[Pure]
-function property_exists ($object_or_class, $property) {}
+function property_exists (mixed $object_or_class, string $property) {}
 
 /**
  * Checks if the trait exists
@@ -432,7 +432,7 @@ function property_exists ($object_or_class, $property) {}
  * @link https://secure.php.net/manual/en/function.trait-exists.php
  * @since 5.4
  */
-function trait_exists($trait, $autoload ) {}
+function trait_exists(string $trait, bool $autoload) {}
 
 /**
  * Checks if the class has been defined
@@ -446,7 +446,7 @@ function trait_exists($trait, $autoload ) {}
  * @return bool true if <i>class_name</i> is a defined class,
  * false otherwise.
  */
-function class_exists ($class, $autoload = true) {}
+function class_exists (string $class, bool $autoload = true) {}
 
 /**
  * Checks if the interface has been defined
@@ -461,7 +461,7 @@ function class_exists ($class, $autoload = true) {}
  * <i>interface_name</i> has been defined, false otherwise.
  * @since 5.0.2
  */
-function interface_exists ($interface, $autoload = true) {}
+function interface_exists (string $interface, bool $autoload = true) {}
 
 /**
  * Return true if the given function has been defined
@@ -477,7 +477,7 @@ function interface_exists ($interface, $autoload = true) {}
  * <b>include_once</b> and <b>echo</b>.
  */
 #[Pure]
-function function_exists ($function) {}
+function function_exists (string $function) {}
 
 /**
  * Creates an alias for a class
@@ -487,7 +487,7 @@ function function_exists ($function) {}
  * @param bool $autoload [optional] Whether to autoload if the original class is not found.
  * @return bool true on success or false on failure.
  */
-function class_alias ($class, $alias, $autoload = true) {}
+function class_alias (string $class, string $alias, bool $autoload = true) {}
 
 /**
  * Returns an array with the names of included or required files
@@ -532,7 +532,7 @@ function get_required_files () {}
  * <i>class_name</i>, false otherwise.
  */
 #[Pure]
-function is_subclass_of ($object_or_class, $class, $allow_string = true) {}
+function is_subclass_of (mixed $object_or_class, string $class, bool $allow_string = true) {}
 
 /**
  * Checks if the object is of this class or has this class as one of its parents
@@ -551,7 +551,7 @@ function is_subclass_of ($object_or_class, $class, $allow_string = true) {}
  * its parents, <b>FALSE</b> otherwise.
  */
 #[Pure]
-function is_a ($object_or_class, $class, $allow_string = false) {}
+function is_a (mixed $object_or_class, string $class, bool $allow_string = false) {}
 
 /**
  * Get the default properties of the class
@@ -565,7 +565,7 @@ function is_a ($object_or_class, $class, $allow_string = false) {}
  * varname => value.
  */
 #[Pure]
-function get_class_vars ($class) {}
+function get_class_vars (string $class) {}
 
 /**
  * Gets the properties of the given object
@@ -578,7 +578,7 @@ function get_class_vars ($class) {}
  * not been assigned a value, it will be returned with a null value.
  */
 #[Pure]
-function get_object_vars ($object) {}
+function get_object_vars (object $object) {}
 
 /**
  * Gets the class methods' names
@@ -590,7 +590,7 @@ function get_object_vars ($object) {}
  * <i>class_name</i>. In case of an error, it returns null.
  */
 #[Pure]
-function get_class_methods ($object_or_class) {}
+function get_class_methods (object|string $object_or_class) {}
 
 /**
  * Generates a user-level error/warning/notice message
@@ -607,22 +607,22 @@ function get_class_methods ($object_or_class) {}
  * @return bool This function returns false if wrong <i>error_type</i> is
  * specified, true otherwise.
  */
-function trigger_error ($message, $error_level = E_USER_NOTICE) {}
+function trigger_error (string $message, int $error_level = E_USER_NOTICE) {}
 
 /**
  * Alias of <b>trigger_error</b>
  * @link https://php.net/manual/en/function.user-error.php
  * @param string $message
- * @param int    $error_level [optional]
+ * @param int $error_level [optional]
  * @return bool This function returns false if wrong <i>error_type</i> is
  * specified, true otherwise.
  */
-function user_error ($message, $error_level = E_USER_NOTICE) {}
+function user_error (string $message, int $error_level = E_USER_NOTICE) {}
 
 /**
  * Sets a user-defined error handler function
  * @link https://php.net/manual/en/function.set-error-handler.php
- * @param callable|null $callback <p>
+ * @param callable $callback <p>
  * The user function needs to accept two parameters: the error code, and a
  * string describing the error. Then there are three optional parameters
  * that may be supplied: the filename in which the error occurred, the
@@ -640,7 +640,7 @@ function user_error ($message, $error_level = E_USER_NOTICE) {}
  * <i>errno</i>
  * The first parameter, <i>errno</i>, contains the
  * level of the error raised, as an integer.
- * @param int $error_levels [optional] <p>
+ * @param int|string $error_levels [optional] <p>
  * Can be used to mask the triggering of the
  * <i>error_handler</i> function just like the error_reporting ini setting
  * controls which errors are shown. Without this mask set the
@@ -653,7 +653,8 @@ function user_error ($message, $error_level = E_USER_NOTICE) {}
  * was a class method, this function will return an indexed array with the class
  * and the method name.
  */
-function set_error_handler ($callback, $error_levels = E_ALL | E_STRICT) {}
+function set_error_handler (callable $callback, int $error_levels = E_ALL | E_STRICT)
+{}
 
 /**
  * Restores the previous error handler function
@@ -665,7 +666,7 @@ function restore_error_handler () {}
 /**
  * Sets a user-defined exception handler function
  * @link https://php.net/manual/en/function.set-exception-handler.php
- * @param callable|null $callback <p>
+ * @param callable $callback <p>
  * Name of the function to be called when an uncaught exception occurs.
  * This function must be defined before calling
  * <b>set_exception_handler</b>. This handler function
@@ -676,7 +677,7 @@ function restore_error_handler () {}
  * @return callable|null the name of the previously defined exception handler, or null on error. If
  * no previous handler was defined, null is also returned.
  */
-function set_exception_handler ($callback) {}
+function set_exception_handler (callable $callback) {}
 
 /**
  * Restores the previously defined exception handler function
@@ -730,7 +731,7 @@ function get_declared_traits() {}
  * below).
  */
 #[Pure]
-function get_defined_functions ($exclude_disabled = false) {}
+function get_defined_functions (bool $exclude_disabled = false) {}
 
 /**
  * Returns an array of all defined variables
@@ -753,7 +754,7 @@ function get_defined_vars () {}
  * @removed 8.0
  */
 #[Deprecated(reason: "Use anonymous functions instead", since: "7.2")]
-function create_function ($args, $code) {}
+function create_function (string $args, string $code) {}
 
 /**
  * Returns the resource type
@@ -778,7 +779,7 @@ function get_resource_type ($resource) {}
  * @return string[] an indexed array of all the modules names.
  */
 #[Pure]
-function get_loaded_extensions ($zend_extensions = false) {}
+function get_loaded_extensions (bool $zend_extensions = false) {}
 
 /**
  * Find out whether an extension is loaded
@@ -813,7 +814,7 @@ function get_loaded_extensions ($zend_extensions = false) {}
  * is loaded, false otherwise.
  */
 #[Pure]
-function extension_loaded ($extension) {}
+function extension_loaded (string $extension) {}
 
 /**
  * Returns an array with the names of the functions of a module
@@ -828,7 +829,7 @@ function extension_loaded ($extension) {}
  * <i>module_name</i> is not a valid extension.
  */
 #[Pure]
-function get_extension_funcs ($extension) {}
+function get_extension_funcs (string $extension) {}
 
 /**
  * Returns an associative array with the names of all the constants and their values
@@ -885,7 +886,7 @@ function get_extension_funcs ($extension) {}
  * @return array
  */
 #[Pure]
-function get_defined_constants ($categorize = false) {}
+function get_defined_constants (bool $categorize = false) {}
 
 /**
  * Generates a backtrace
@@ -983,7 +984,7 @@ function get_defined_constants ($categorize = false) {}
  * </tr>
  * </table>
  */
-function debug_backtrace ($options = DEBUG_BACKTRACE_PROVIDE_OBJECT, $limit = 0) {}
+function debug_backtrace (int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT, int $limit = 0) {}
 
 /**
  * Prints a backtrace
@@ -1007,7 +1008,7 @@ function debug_backtrace ($options = DEBUG_BACKTRACE_PROVIDE_OBJECT, $limit = 0)
  * </p>
  * @return void
  */
-function debug_print_backtrace ($options = 0, $limit = 0) {}
+function debug_print_backtrace (int $options = 0, int $limit = 0) {}
 
 /**
  * Forces collection of any existing garbage cycles
@@ -1077,4 +1078,4 @@ function gc_mem_caches () {}
  * @since 7.0
  */
 #[Pure]
-function get_resources ($type = null) {}
+function get_resources (string $type) {}

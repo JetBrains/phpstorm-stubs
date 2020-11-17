@@ -161,7 +161,7 @@ define('PASSWORD_ARGON2_PROVIDER', 'standard');
  * @since 5.5
  */
 #[ArrayShape(["algo" => "int", "algoName" => "string", "options" => "array"])]
-function password_get_info ($hash) {}
+function password_get_info (string $hash) {}
 
 /**
  * (PHP 5 &gt;= 5.5.0, PHP 5)<br/>
@@ -180,18 +180,18 @@ function password_get_info ($hash) {}
  * @return string|false|null Returns the hashed password, or FALSE on failure, or null if the algorithm is invalid
  * @since 5.5
  */
-function password_hash ($password, $algo, $options = []) {}
+function password_hash (string $password, string|int|null $algo, array $options = []) {}
 
 /**
  * Checks if the given hash matches the given options.
  * @link https://secure.php.net/manual/en/function.password-needs-rehash.php
  * @param string $hash A hash created by password_hash().
- * @param int $algo A <a href="https://secure.php.net/manual/en/password.constants.php" class="link">password algorithm constant</a> denoting the algorithm to use when hashing the password.
+ * @param string|int $algo A <a href="https://secure.php.net/manual/en/password.constants.php" class="link">password algorithm constant</a> denoting the algorithm to use when hashing the password.
  * @param array $options [optional] <p> An associative array containing options. See the password algorithm constants for documentation on the supported options for each algorithm.
  * @return bool Returns TRUE if the hash should be rehashed to match the given algo and options, or FALSE otherwise.
  * @since 5.5
  */
-function password_needs_rehash ($hash, $algo, $options = []) {}
+function password_needs_rehash (string $hash, string|int|null $algo, array $options = []) {}
 
 /**
  * Checks if the given hash matches the given options.
@@ -201,7 +201,7 @@ function password_needs_rehash ($hash, $algo, $options = []) {}
  * @return bool Returns TRUE if the password and hash match, or FALSE otherwise.
  * @since 5.5
  */
-function password_verify ($password, $hash) {}
+function password_verify (string $password, string $hash) {}
 
 /**
  * Return a complete list of all registered password hashing algorithms.

@@ -25,7 +25,7 @@ namespace {
      * @param mixed ...$_ [optional] <p>Another variable ...</p>
      * @return array the assigned array.
      */
-    function PS_UNRESERVE_PREFIX_list($var1, ...$_){};
+    function PS_UNRESERVE_PREFIX_list(mixed $var1, ...$_){};
 
     /**
      * <p>Terminates execution of the script. Shutdown functions and object destructors will always be executed even if exit is called.</p>
@@ -90,7 +90,7 @@ namespace {
      * </ul>
      * </p>
      */
-    function PS_UNRESERVE_PREFIX_empty($var){};
+    function PS_UNRESERVE_PREFIX_empty(mixed $var){};
 
     /**
      * <p>Determine if a variable is set and is not <b>NULL</b>.</p>
@@ -103,7 +103,7 @@ namespace {
      * @param mixed ...$_ [optional] <p>Another variable ...</p>
      * @return bool Returns <b>TRUE</b> if var exists and has value other than <b>NULL</b>, <b>FALSE</b> otherwise.
      */
-    function PS_UNRESERVE_PREFIX_isset($var, ...$_){};
+    function PS_UNRESERVE_PREFIX_isset(mixed $var, ...$_){};
 
     /**
      * <p>Destroys the specified variables.</p>
@@ -113,7 +113,7 @@ namespace {
      * @param mixed ...$_ [optional] <p>Another variable ...</p>
      * @return void
      */
-    function PS_UNRESERVE_PREFIX_unset($var, ...$_){};
+    function PS_UNRESERVE_PREFIX_unset(mixed $var, ...$_){};
 
     /**
      * <p>Evaluates the given code as PHP.</p>
@@ -145,7 +145,7 @@ namespace {
      * case <b>eval()</b> returned <b>FALSE</b> and execution of the following code continued normally. It is not possible to catch a parse
      * error in <b>eval()</b> using set_error_handler().
      */
-    function PS_UNRESERVE_PREFIX_eval($code){};
+    function PS_UNRESERVE_PREFIX_eval(string $code){};
 
     /**
      * Generator objects are returned from generators, cannot be instantiated via new.
@@ -184,7 +184,7 @@ namespace {
          * @param mixed $value
          * @return mixed
          */
-        function send($value) {}
+        function send(mixed $value) {}
 
         /**
          * Throws an exception at the current suspension point in the generator.
@@ -280,15 +280,15 @@ class object {
    */
   public function __get(string $name) {}
 
-  /**
-   * run when writing data to inaccessible members.
-   *
-   * @param string $name
-   * @param mixed $value
-   * @return void
-   * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
-   */
-  public function __set(string $name, $value): void {}
+    /**
+     * run when writing data to inaccessible members.
+     *
+     * @param string $name
+     * @param mixed $value
+     * @return void
+     * @link https://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
+     */
+  public function __set(string $name, mixed $value): void {}
 
   /**
    * is triggered by calling isset() or empty() on inaccessible members.

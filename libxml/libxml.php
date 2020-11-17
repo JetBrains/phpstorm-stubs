@@ -82,7 +82,7 @@ function libxml_set_streams_context ($context) {}
  * @return bool This function returns the previous value of
  * <i>use_errors</i>.
  */
-function libxml_use_internal_errors ($use_errors = false) {}
+function libxml_use_internal_errors (bool $use_errors = false) {}
 
 /**
  * Retrieve last error from libxml
@@ -121,7 +121,7 @@ function libxml_get_errors () {}
  * @since 5.2.11
  */
 #[Deprecated(since: "8.0")]
-function libxml_disable_entity_loader ($disable = true) {}
+function libxml_disable_entity_loader (bool $disable = true) {}
 
 /**
  * Changes the default external entity loader

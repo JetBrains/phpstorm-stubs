@@ -23,7 +23,7 @@ use JetBrains\PhpStorm\Deprecated;
  * </p>
  * @return string the name of the current session.
  */
-function session_name ($name = null) {}
+function session_name (string $name) {}
 
 /**
  * Get and/or set the current session module.<br/>
@@ -35,7 +35,7 @@ function session_name ($name = null) {}
  * </p>
  * @return string the name of the current session module.
  */
-function session_module_name ($module = null) {}
+function session_module_name (string $module) {}
 
 /**
  * Get and/or set the current session save path
@@ -54,7 +54,7 @@ function session_module_name ($module = null) {}
  * </p>
  * @return string the path of the current directory used for data storage.
  */
-function session_save_path ($path = null) {}
+function session_save_path (string $path) {}
 
 /**
  * Get and/or set the current session id
@@ -75,7 +75,7 @@ function session_save_path ($path = null) {}
  * session or the empty string ("") if there is no current
  * session (no current session id exists).
  */
-function session_id ($id = null) {}
+function session_id (string $id) {}
 
 /**
  * Update the current session id with a newly generated one
@@ -85,7 +85,7 @@ function session_id ($id = null) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function session_regenerate_id ($delete_old_session = false) {}
+function session_regenerate_id (bool $delete_old_session = false) {}
 
 /**
  * PHP > 5.4.0 <br/>
@@ -103,7 +103,7 @@ function session_register_shutdown  () {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function session_decode ($data) {}
+function session_decode (string $data) {}
 
 /**
  * Register one or more global variables with the current session
@@ -117,7 +117,7 @@ function session_decode ($data) {}
  * @removed 5.4
  */
 #[Deprecated(since: '5.3')]
-function session_register ($name, ...$_) {}
+function session_register (mixed $name, ...$_) {}
 
 /**
  * Unregister a global variable from the current session
@@ -129,7 +129,7 @@ function session_register ($name, ...$_) {}
  * @removed 5.4
  */
 #[Deprecated(since: '5.3')]
-function session_unregister ($name) {}
+function session_unregister (string $name) {}
 
 /**
  * Find out whether a global variable is registered in a session
@@ -143,7 +143,7 @@ function session_unregister ($name) {}
  * @removed 5.4
  */
 #[Deprecated(since: '5.3')]
-function session_is_registered ($name) {}
+function session_is_registered (string $name) {}
 
 /**
  * Encodes the current session data as a string
@@ -160,7 +160,7 @@ function session_encode () {}
  * @return bool This function returns true if a session was successfully started,
  * otherwise false.
  */
-function session_start ($options = []) {}
+function session_start (array $options = []) {}
 
 /**
  * Create new session id
@@ -172,7 +172,7 @@ function session_start ($options = []) {}
  * If it is used without active session, it omits collision check.
  * @since 7.1
  */
-function session_create_id($prefix) {}
+function session_create_id(string $prefix) {}
 
 /**
  * Perform session data garbage collection
@@ -243,7 +243,8 @@ function session_unset () {}
  * @param callback $update_timestamp [optional]
  * @return bool true on success or false on failure.
  */
-function session_set_save_handler ($open, $close, $read, $write, $destroy, $gc, $create_sid = null, $validate_sid = null,  $update_timestamp = null) {}
+function session_set_save_handler (callable $open, callable $close, callable $read, callable $write, callable $destroy, callable $gc, $create_sid, $validate_sid, $update_timestamp)
+{}
 
 /**
  * (PHP 5.4)<br/>
@@ -312,12 +313,12 @@ function session_set_save_handler (SessionHandlerInterface $session_handler, $re
  * </table>
  * @return string the name of the current cache limiter.
  */
-function session_cache_limiter ($value = null) {}
+function session_cache_limiter (string $value) {}
 
 /**
  * Return current cache expire
  * @link https://php.net/manual/en/function.session-cache-expire.php
- * @param string $value [optional] <p>
+ * @param int $value [optional] <p>
  * If <i>new_cache_expire</i> is given, the current cache
  * expire is replaced with <i>new_cache_expire</i>.
  * </p>
@@ -329,7 +330,7 @@ function session_cache_limiter ($value = null) {}
  * @return int the current setting of session.cache_expire.
  * The value returned should be read in minutes, defaults to 180.
  */
-function session_cache_expire ($value = null) {}
+function session_cache_expire (int $value) {}
 
 /**
  * Set the session cookie parameters
@@ -346,13 +347,13 @@ function session_cache_expire ($value = null) {}
  * @return bool returns true on success or false on failure.
  * @since 7.3
  */
-function session_set_cookie_params ($options) {}
+function session_set_cookie_params (array $options) {}
 
 
 /**
  * Set the session cookie parameters
  * @link https://php.net/manual/en/function.session-set-cookie-params.php
- * @param int $lifetime_or_options <p>
+ * @param array|int $lifetime_or_options <p>
  * Lifetime of the
  * session cookie, defined in seconds.
  * </p>
@@ -377,7 +378,8 @@ function session_set_cookie_params ($options) {}
  * </p>
  * @return void|bool since 7.2.0 returns true on success or false on failure.
  */
-function session_set_cookie_params ($lifetime_or_options, $path = null, $domain = null, $secure = false, $httponly = false) {}
+function session_set_cookie_params (array|int $lifetime_or_options, string $path, string $domain, bool $secure = false, bool $httponly = false)
+{}
 
 /**
  * Get the session cookie parameters

@@ -257,7 +257,7 @@ function openssl_x509_free($certificate) { }
  * @return array|false The structure of the returned data is (deliberately) not
  * yet documented, as it is still subject to change.
  */
-function openssl_x509_parse($certificate, $short_names = true) { }
+function openssl_x509_parse(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate, $short_names = true) { }
 
 /**
  * Verifies if a certificate can be used for a particular purpose
@@ -319,7 +319,7 @@ function openssl_x509_parse($certificate, $short_names = true) { }
  * @return int|bool true if the certificate can be used for the intended purpose,
  * false if it cannot, or -1 on error.
  */
-function openssl_x509_checkpurpose($certificate, $purpose, array $ca_info = null, $untrusted_certificates_file = null) { }
+function openssl_x509_checkpurpose(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate, $purpose, array $ca_info = null, $untrusted_certificates_file = null) { }
 
 /**
  * Checks if a private key corresponds to a certificate
@@ -333,31 +333,31 @@ function openssl_x509_checkpurpose($certificate, $purpose, array $ca_info = null
  * @return bool true if <i>key</i> is the private key that
  * corresponds to <i>cert</i>, or false otherwise.
  */
-function openssl_x509_check_private_key($certificate, $private_key) { }
+function openssl_x509_check_private_key(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate, $private_key) { }
 
 /**
  * Exports a certificate as a string
  * @link https://php.net/manual/en/function.openssl-x509-export.php
- * @param mixed $certificate
+ * @param OpenSSLCertificate|string|resource $certificate
  * @param string &$output <p>
  * On success, this will hold the PEM.
  * </p>
  * @param bool $no_text [optional] &note.openssl.param-notext;
  * @return bool true on success or false on failure.
  */
-function openssl_x509_export($certificate, &$output, $no_text = true) { }
+function openssl_x509_export(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate, &$output, $no_text = true) { }
 
 /**
  * Exports a certificate to file
  * @link https://php.net/manual/en/function.openssl-x509-export-to-file.php
- * @param mixed $certificate
+ * @param OpenSSLCertificate|string|resource $certificate
  * @param string $output_filename <p>
  * Path to the output file.
  * </p>
  * @param bool $no_text [optional] &note.openssl.param-notext;
  * @return bool true on success or false on failure.
  */
-function openssl_x509_export_to_file($certificate, $output_filename, $no_text = true) { }
+function openssl_x509_export_to_file(#[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")] $certificate, $output_filename, $no_text = true) { }
 
 /**
  * Verifies digital signature of x509 certificate against a public key

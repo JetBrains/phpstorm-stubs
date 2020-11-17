@@ -147,7 +147,7 @@ use JetBrains\PhpStorm\Pure;
  * is not valid.
  */
 #[Pure]
-function nl_langinfo ($item) {}
+function nl_langinfo (int $item) {}
 
 /**
  * Calculate the soundex key of a string
@@ -158,7 +158,7 @@ function nl_langinfo ($item) {}
  * @return string the soundex key as a string.
  */
 #[Pure]
-function soundex ($string) {}
+function soundex (string $string) {}
 
 /**
  * Calculate Levenshtein distance between two strings
@@ -188,7 +188,8 @@ function soundex ($string) {}
  * two argument strings or -1, if one of the argument strings
  * is longer than the limit of 255 characters.
  */
-function levenshtein ($string1, $string2, $insertion_cost = null, $repetition_cost = null, $deletion_cost = null) {}
+function levenshtein (string $string1, string $string2, int $insertion_cost, int $repetition_cost, int $deletion_cost) {
+}
 
 /**
  * Generate a single-byte string from a number
@@ -199,7 +200,7 @@ function levenshtein ($string1, $string2, $insertion_cost = null, $repetition_co
  * @return string the specified character.
  */
 #[Pure]
-function chr ($codepoint) {}
+function chr (int $codepoint) {}
 
 /**
  * Convert the first byte of a string to a value between 0 and 255
@@ -210,7 +211,7 @@ function chr ($codepoint) {}
  * @return int the ASCII value as an integer.
  */
 #[Pure]
-function ord ($character) {}
+function ord (string $character) {}
 
 /**
  * Parses the string into variables
@@ -225,7 +226,8 @@ function ord ($character) {}
  * </p>
  * @return void
  */
-function parse_str ($string, array &$result = null) {}
+function parse_str (string $string, &$result)
+{}
 
 /**
  * Parse a CSV string into an array
@@ -246,7 +248,7 @@ function parse_str ($string, array &$result = null) {}
  * @return array an indexed array containing the fields read.
  */
 #[Pure]
-function str_getcsv ($string, $separator = ",", $enclosure = '"', $escape = "\\") {}
+function str_getcsv (string $string, string $separator = ",", string $enclosure = '"', string $escape = "\\") {}
 
 /**
  * Pad a string to a certain length with another string
@@ -274,7 +276,7 @@ function str_getcsv ($string, $separator = ",", $enclosure = '"', $escape = "\\"
  * @return string the padded string.
  */
 #[Pure]
-function str_pad ($string, $length, $pad_string = " ", $pad_type = STR_PAD_RIGHT) {}
+function str_pad (string $string, int $length, string $pad_string = " ", int $pad_type = STR_PAD_RIGHT) {}
 
 /**
  * &Alias; <function>rtrim</function>
@@ -285,7 +287,7 @@ function str_pad ($string, $length, $pad_string = " ", $pad_type = STR_PAD_RIGHT
  * @see rtrim()
  */
 #[Pure]
-function chop ($string, $characters = null) {}
+function chop (string $string, string $characters) {}
 
 /**
  * &Alias; <function>strstr</function>
@@ -295,12 +297,12 @@ function chop ($string, $characters = null) {}
  * use the faster and less memory intensive function strpos() instead.
  *
  * @param string $haystack The input string.
- * @param mixed $needle If needle is not a string, it is converted to an integer and applied as the ordinal value of a character.
+ * @param string $needle If needle is not a string, it is converted to an integer and applied as the ordinal value of a character.
  * @param bool $before_needle [optional] If TRUE, strstr() returns the part of the haystack before the first occurrence of the needle (excluding the needle).
  * @return string|false Returns the portion of string, or FALSE if needle is not found.
  */
 #[Pure]
-function strchr ($haystack, $needle, $before_needle = false) {}
+function strchr (string $haystack, string $needle, bool $before_needle = false) {}
 
 /**
  * Return a formatted string
@@ -327,7 +329,7 @@ function strchr ($haystack, $needle, $before_needle = false) {}
  * format.
  */
 #[Pure]
-function sprintf ($format, ...$values) {}
+function sprintf (string $format, ...$values) {}
 
 /**
  * Output a formatted string
@@ -340,7 +342,7 @@ function sprintf ($format, ...$values) {}
  * </p>
  * @return int the length of the outputted string.
  */
-function printf ($format, ...$values) {}
+function printf (string $format, ...$values) {}
 
 /**
  * Output a formatted string
@@ -353,7 +355,7 @@ function printf ($format, ...$values) {}
  * </p>
  * @return int the length of the outputted string.
  */
-function vprintf ($format, array $values) {}
+function vprintf (string $format, array $values) {}
 
 /**
  * Return a formatted string
@@ -369,7 +371,7 @@ function vprintf ($format, array $values) {}
  * for sprintf).
  */
 #[Pure]
-function vsprintf ($format, array $values) {}
+function vsprintf (string $format, array $values) {}
 
 /**
  * Write a formatted string to a stream
@@ -383,7 +385,7 @@ function vsprintf ($format, array $values) {}
  * </p>
  * @return int the length of the string written.
  */
-function fprintf ($stream, $format, ...$values) {}
+function fprintf ($stream, string $format, ...$values) {}
 
 /**
  * Write a formatted string to a stream
@@ -398,7 +400,7 @@ function fprintf ($stream, $format, ...$values) {}
  * </p>
  * @return int the length of the outputted string.
  */
-function vfprintf ($stream, $format, array $values) {}
+function vfprintf ($stream, string $format, array $values) {}
 
 /**
  * Parses input from a string according to a format
@@ -424,7 +426,7 @@ function vfprintf ($stream, $format, array $values) {}
  * the function will return the number of assigned values. The optional
  * parameters must be passed by reference.
  */
-function sscanf ($string, $format, &...$vars) {}
+function sscanf (string $string, string $format, mixed &...$vars) {}
 
 /**
  * Parses input from a file according to a format
@@ -440,7 +442,7 @@ function sscanf ($string, $format, &...$vars) {}
  * function will return the number of assigned values. The optional
  * parameters must be passed by reference.
  */
-function fscanf ($stream, $format, &...$vars) {}
+function fscanf ($stream, string $format, mixed &...$vars) {}
 
 /**
  * Parse a URL and return its components
@@ -484,7 +486,7 @@ function fscanf ($stream, $format, &...$vars) {}
     "fragment" => "string",
 ])]
 #[Pure]
-function parse_url ($url, $component = -1) {}
+function parse_url (string $url, int $component = -1) {}
 
 /**
  * URL-encodes string
@@ -503,7 +505,7 @@ function parse_url ($url, $component = -1) {}
  * are encoded as plus (+) signs.
  */
 #[Pure]
-function urlencode ($string) {}
+function urlencode (string $string) {}
 
 /**
  * Decodes URL-encoded string
@@ -514,7 +516,7 @@ function urlencode ($string) {}
  * @return string the decoded string.
  */
 #[Pure]
-function urldecode ($string) {}
+function urldecode (string $string) {}
 
 /**
  * URL-encode according to RFC 3986
@@ -531,7 +533,7 @@ function urldecode ($string) {}
  * media with character conversions (like some email systems).
  */
 #[Pure]
-function rawurlencode ($string) {}
+function rawurlencode (string $string) {}
 
 /**
  * Decode URL-encoded strings
@@ -542,12 +544,12 @@ function rawurlencode ($string) {}
  * @return string the decoded URL, as a string.
  */
 #[Pure]
-function rawurldecode ($string) {}
+function rawurldecode (string $string) {}
 
 /**
  * Generate URL-encoded query string
  * @link https://php.net/manual/en/function.http-build-query.php
- * @param mixed $data <p>
+ * @param object|array $data <p>
  * May be an array or object containing properties.
  * </p>
  * <p>
@@ -578,7 +580,7 @@ function rawurldecode ($string) {}
  * @return string a URL-encoded string.
  */
 #[Pure]
-function http_build_query ($data, string $numeric_prefix = "", string $arg_separator = "&", int $encoding_type = PHP_QUERY_RFC1738){}
+function http_build_query (object|array $data, string $numeric_prefix = "", string $arg_separator = "&", int $encoding_type = PHP_QUERY_RFC1738){}
 
 /**
  * Returns the target of a symbolic link
@@ -588,7 +590,7 @@ function http_build_query ($data, string $numeric_prefix = "", string $arg_separ
  * </p>
  * @return string|false the contents of the symbolic link path or false on error.
  */
-function readlink ($path) {}
+function readlink (string $path) {}
 
 /**
  * Gets information about a link
@@ -601,7 +603,7 @@ function readlink ($path) {}
  * system call. Returns 0 or false in case of error.
  */
 #[Pure]
-function linkinfo ($path) {}
+function linkinfo (string $path) {}
 
 /**
  * Creates a symbolic link
@@ -614,7 +616,7 @@ function linkinfo ($path) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function symlink ($target, $link) {}
+function symlink (string $target, string $link) {}
 
 /**
  * Create a hard link
@@ -634,7 +636,7 @@ function link (string $target , string $link):bool {}
  * @param resource $context [optional] &note.context-support;
  * @return bool true on success or false on failure.
  */
-function unlink ($filename, $context = null):bool {}
+function unlink (string $filename, $context):bool {}
 
 /**
  * Execute an external program
@@ -666,7 +668,8 @@ function unlink ($filename, $context = null):bool {}
  * To get the output of the executed command, be sure to set and use the
  * output parameter.
  */
-function exec ($command, array &$output = null, &$result_code = null) {}
+function exec (string $command, &$output, &$result_code)
+{}
 
 /**
  * Execute an external program and display the output
@@ -682,7 +685,8 @@ function exec ($command, array &$output = null, &$result_code = null) {}
  * @return string|false the last line of the command output on success, and false
  * on failure.
  */
-function system ($command, &$result_code = null) {}
+function system (string $command, &$result_code)
+{}
 
 /**
  * Escape shell metacharacters
@@ -693,7 +697,7 @@ function system ($command, &$result_code = null) {}
  * @return string The escaped string.
  */
 #[Pure]
-function escapeshellcmd ($command) {}
+function escapeshellcmd (string $command) {}
 
 /**
  * Escape a string to be used as a shell argument
@@ -704,7 +708,7 @@ function escapeshellcmd ($command) {}
  * @return string The escaped string.
  */
 #[Pure]
-function escapeshellarg ($arg) {}
+function escapeshellarg (string $arg) {}
 
 /**
  * Execute an external program and display raw output
@@ -718,7 +722,8 @@ function escapeshellarg ($arg) {}
  * </p>
  * @return void
  */
-function passthru ($command, &$result_code = null) {}
+function passthru (string $command, &$result_code)
+{}
 
 /**
  * Execute command via shell and return the complete output as a string
@@ -728,7 +733,7 @@ function passthru ($command, &$result_code = null) {}
  * </p>
  * @return string|null The output from the executed command or NULL if an error occurred or the command produces no output.
  */
-function shell_exec ($command) {}
+function shell_exec (string $command) {}
 
 /**
  * Execute a command and open file pointers for input/output
@@ -800,7 +805,8 @@ function shell_exec ($command) {}
  * proc_close when you are finished with it. On failure
  * returns false.
  */
-function proc_open ($command, array $descriptor_spec, array &$pipes, $cwd = null, array $env_vars = null, array $options = null) {}
+function proc_open (array|string $command, array $descriptor_spec, &$pipes, string $cwd, array $env_vars, array $options)
+{}
 
 /**
  * Close a process opened by {@see proc_open} and return the exit code of that process
@@ -828,7 +834,7 @@ function proc_close ($process) {}
  * </p>
  * @return bool the termination status of the process that was run.
  */
-function proc_terminate ($process, $signal = 15) {}
+function proc_terminate ($process, int $signal = 15) {}
 
 /**
  * Get information about a process opened by {@see proc_open}
@@ -928,7 +934,7 @@ function proc_get_status ($process) {}
  * If an error occurs, like the user lacks permission to change the priority,
  * an error of level E_WARNING is also generated.
  */
-function proc_nice ($priority) {}
+function proc_nice (int $priority) {}
 
 /**
  * Generate a random integer
@@ -938,7 +944,7 @@ function proc_nice ($priority) {}
  * @return int A pseudo random value between min
  * (or 0) and max (or getrandmax, inclusive).
  */
-function rand ($min = 0, $max = null) {}
+function rand (int $min = 0, int $max) {}
 
 /**
  * Seed the random number generator
@@ -954,7 +960,7 @@ function rand ($min = 0, $max = null) {}
  * </p>
  * @return void
  */
-function srand ($seed = null, $mode = MT_RAND_MT19937) {}
+function srand (int $seed, int $mode = MT_RAND_MT19937) {}
 
 /**
  * Show largest possible random value
@@ -976,7 +982,7 @@ function getrandmax () {}
  * @return int A random integer value between min (or 0)
  * and max (or mt_getrandmax, inclusive)
  */
-function mt_rand ($min = 0, $max = null) {}
+function mt_rand (int $min = 0, int $max) {}
 
 /**
  * Seeds the Mersenne Twister Random Number Generator
@@ -989,7 +995,7 @@ function mt_rand ($min = 0, $max = null) {}
  * </p>
  * @return void
  */
-function mt_srand ($seed = null, $mode = MT_RAND_MT19937) {}
+function mt_srand (int $seed, int $mode = MT_RAND_MT19937) {}
 
 /**
  * Show largest possible random value
@@ -1013,7 +1019,7 @@ function mt_getrandmax () {}
  * protocol is not found.
  */
 #[Pure]
-function getservbyname ($service, $protocol) {}
+function getservbyname (string $service, string $protocol) {}
 
 /**
  * Get Internet service which corresponds to port and protocol
@@ -1028,7 +1034,7 @@ function getservbyname ($service, $protocol) {}
  * @return string the Internet service name as a string.
  */
 #[Pure]
-function getservbyport ($port, $protocol) {}
+function getservbyport (int $port, string $protocol) {}
 
 /**
  * Get protocol number associated with protocol name
@@ -1039,7 +1045,7 @@ function getservbyport ($port, $protocol) {}
  * @return int the protocol number or -1 if the protocol is not found.
  */
 #[Pure]
-function getprotobyname ($protocol) {}
+function getprotobyname (string $protocol) {}
 
 /**
  * Get protocol name associated with protocol number
@@ -1050,7 +1056,7 @@ function getprotobyname ($protocol) {}
  * @return string the protocol name as a string.
  */
 #[Pure]
-function getprotobynumber ($protocol) {}
+function getprotobynumber (int $protocol) {}
 
 /**
  * Gets PHP script owner's UID

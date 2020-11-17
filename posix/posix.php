@@ -14,7 +14,7 @@ use JetBrains\PhpStorm\Pure;
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_kill ($process_id, $signal) {}
+function posix_kill (int $process_id, int $signal) {}
 
 /**
  * Return the current process identifier
@@ -48,7 +48,7 @@ function posix_getuid () {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_setuid ($user_id) {}
+function posix_setuid (int $user_id) {}
 
 /**
  * Return the effective user ID of the current process
@@ -66,7 +66,7 @@ function posix_geteuid () {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_seteuid ($user_id) {}
+function posix_seteuid (int $user_id) {}
 
 /**
  * Set system resource limits
@@ -81,7 +81,7 @@ function posix_seteuid ($user_id) {}
  * @return bool Returns TRUE on success or FALSE on failure.
  * @since 7.0
  */
-function posix_setrlimit ($resource, $soft_limit, $hard_limit ) {}
+function posix_setrlimit (int $resource, int $soft_limit, int $hard_limit) {}
 /**
  * Return the real group ID of the current process
  * @link https://php.net/manual/en/function.posix-getgid.php
@@ -98,7 +98,7 @@ function posix_getgid () {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_setgid ($group_id) {}
+function posix_setgid (int $group_id) {}
 
 /**
  * Return the effective group ID of the current process
@@ -116,7 +116,7 @@ function posix_getegid () {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_setegid ($group_id) {}
+function posix_setegid (int $group_id) {}
 
 /**
  * Return the group set of the current process
@@ -161,7 +161,7 @@ function posix_setsid () {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_setpgid ($process_id, $process_group_id) {}
+function posix_setpgid (int $process_id, int $process_group_id) {}
 
 /**
  * Get process group id for job control
@@ -172,7 +172,7 @@ function posix_setpgid ($process_id, $process_group_id) {}
  * @return int the identifier, as an integer.
  */
 #[Pure]
-function posix_getpgid ($process_id) {}
+function posix_getpgid (int $process_id) {}
 
 /**
  * Get the current sid of the process
@@ -186,7 +186,7 @@ function posix_getpgid ($process_id) {}
  * @return int the identifier, as an integer.
  */
 #[Pure]
-function posix_getsid ($process_id) {}
+function posix_getsid (int $process_id) {}
 
 /**
  * Get system name
@@ -286,7 +286,7 @@ function posix_getcwd () {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_mkfifo ($filename, $permissions) {}
+function posix_mkfifo (string $filename, int $permissions) {}
 
 /**
  * Create a special or ordinary file (POSIX.1)
@@ -310,7 +310,7 @@ function posix_mkfifo ($filename, $permissions) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_mknod ($filename, $flags, $major = 0, $minor = 0) {}
+function posix_mknod (string $filename, int $flags, int $major = 0, int $minor = 0) {}
 
 /**
  * Determine accessibility of a file
@@ -332,7 +332,7 @@ function posix_mknod ($filename, $flags, $major = 0, $minor = 0) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function posix_access ($filename, $flags = POSIX_F_OK) {}
+function posix_access (string $filename, int $flags = POSIX_F_OK) {}
 
 /**
  * Return info about a group by name
@@ -379,7 +379,7 @@ function posix_access ($filename, $flags = POSIX_F_OK) {}
  * </table>
  */
 #[Pure]
-function posix_getgrnam ($name) {}
+function posix_getgrnam (string $name) {}
 
 /**
  * Return info about a group by group id
@@ -428,7 +428,7 @@ function posix_getgrnam ($name) {}
  * </table>
  */
 #[Pure]
-function posix_getgrgid ($group_id) {}
+function posix_getgrgid (int $group_id) {}
 
 /**
  * Return info about a user by username
@@ -505,7 +505,7 @@ function posix_getgrgid ($group_id) {}
  * </table>
  */
 #[Pure]
-function posix_getpwnam ($username) {}
+function posix_getpwnam (string $username) {}
 
 /**
  * Return info about a user by user id
@@ -581,7 +581,7 @@ function posix_getpwnam ($username) {}
  * </table>
  */
 #[Pure]
-function posix_getpwuid ($user_id) {}
+function posix_getpwuid (int $user_id) {}
 
 /**
  * Return info about system resource limits
@@ -695,7 +695,7 @@ function posix_errno () {}
  * @return string the error message, as a string.
  */
 #[Pure]
-function posix_strerror ($error_code) {}
+function posix_strerror (int $error_code) {}
 
 /**
  * Calculate the group access list
@@ -709,7 +709,7 @@ function posix_strerror ($error_code) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 #[Pure]
-function posix_initgroups ($username, $group_id) {}
+function posix_initgroups (string $username, int $group_id) {}
 
 
 /**

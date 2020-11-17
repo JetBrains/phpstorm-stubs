@@ -15,14 +15,14 @@
  * set only if the process finds it is the only process currently
  * attached to the semaphore.
  * </p>
- * @param int $auto_release [optional] <p>
+ * @param bool $auto_release [optional] <p>
  * Specifies if the semaphore should be automatically released on request
  * shutdown.
  * </p>
  * @return resource|false|SysvSemaphore a positive semaphore identifier on success, or <b>FALSE</b> on
  * error.
  */
-function sem_get ($key, $max_acquire = 1, $permissions = 0666, $auto_release = 1) {}
+function sem_get (int $key, int $max_acquire = 1, int $permissions = 0666, bool $auto_release) {}
 
 /**
  * Acquire a semaphore

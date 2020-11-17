@@ -58,7 +58,6 @@ class php_user_filter  {
      * The filter experienced an unrecoverable error and cannot continue.
      * </td>
      * </tr>
-     *
      */
     public function filter($in, $out, &$consumed, $closing)
     {
@@ -133,7 +132,7 @@ class Directory  {
  * defined.
  */
 #[Pure]
-function constant ($name) {}
+function constant (string $name) {}
 
 /**
  * Convert binary data into hexadecimal representation
@@ -144,7 +143,7 @@ function constant ($name) {}
  * @return string the hexadecimal representation of the given string.
  */
 #[Pure]
-function bin2hex ($string) {}
+function bin2hex (string $string) {}
 
 /**
  * Delay execution
@@ -156,7 +155,7 @@ function bin2hex ($string) {}
  * by a signal, sleep returns the number of seconds left
  * to sleep.
  */
-function sleep ($seconds) {}
+function sleep (int $seconds) {}
 
 /**
  * Delay execution in microseconds
@@ -167,7 +166,7 @@ function sleep ($seconds) {}
  * </p>
  * @return void
  */
-function usleep ($microseconds) {}
+function usleep (int $microseconds) {}
 
 /**
  * Delay for a number of seconds and nanoseconds
@@ -188,7 +187,7 @@ function usleep ($microseconds) {}
  * nanoseconds - number of nanoseconds
  * remaining in the delay
  */
-function time_nanosleep ($seconds, $nanoseconds) {}
+function time_nanosleep (int $seconds, int $nanoseconds) {}
 
 /**
  * Make the script sleep until the specified time
@@ -198,7 +197,7 @@ function time_nanosleep ($seconds, $nanoseconds) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function time_sleep_until ($timestamp) {}
+function time_sleep_until (float $timestamp) {}
 
 /**
  * Parse a time/date generated with <function>strftime</function>
@@ -263,7 +262,7 @@ function time_sleep_until ($timestamp) {}
  * </table>
  */
 #[Pure]
-function strptime ($timestamp, $format) {}
+function strptime (string $timestamp, string $format) {}
 
 /**
  * Flush the output buffer
@@ -294,7 +293,7 @@ function flush () {}
  * @return string the given string wrapped at the specified column.
  */
 #[Pure]
-function wordwrap ($string, $width = 75, $break = "\n", $cut_long_words = false) {}
+function wordwrap (string $string, int $width = 75, string $break = "\n", bool $cut_long_words = false) {}
 
 /**
  * Convert special characters to HTML entities
@@ -302,7 +301,7 @@ function wordwrap ($string, $width = 75, $break = "\n", $cut_long_words = false)
  * @param string $string <p>
  * The {@link https://secure.php.net/manual/en/language.types.string.php string} being converted.
  * </p>
- * @param int $flags [optional] <p>
+ * @param int|string $flags [optional] <p>
  * A bitmask of one or more of the following flags, which specify how to handle quotes,
  * invalid code unit sequences and the used document type. The default is
  * <em><b>ENT_COMPAT | ENT_HTML401</b></em>.
@@ -413,7 +412,8 @@ function wordwrap ($string, $width = 75, $break = "\n", $cut_long_words = false)
  * @return string The converted string.
  */
 #[Pure]
-function htmlspecialchars ($string, $flags = ENT_COMPAT | ENT_HTML401, $encoding = 'UTF-8', $double_encode = true) {}
+function htmlspecialchars (string $string, int $flags = ENT_COMPAT | ENT_HTML401, string $encoding = 'UTF-8', bool $double_encode = true)
+{}
 
 /**
  * Convert all applicable characters to HTML entities
@@ -460,7 +460,8 @@ function htmlspecialchars ($string, $flags = ENT_COMPAT | ENT_HTML401, $encoding
  * @return string the encoded string.
  */
 #[Pure]
-function htmlentities ($string, $flags = null, $encoding = null, $double_encode = true) {}
+function htmlentities (string $string, int $flags, string $encoding, bool $double_encode = true)
+{}
 
 /**
  * Convert HTML entities  to their corresponding characters
@@ -502,7 +503,8 @@ function htmlentities ($string, $flags = null, $encoding = null, $double_encode 
  * @return string the decoded string.
  */
 #[Pure]
-function html_entity_decode ($string, $flags = null, $encoding = null) {}
+function html_entity_decode (string $string, int $flags, string $encoding)
+{}
 
 /**
  * Convert special HTML entities back to characters
@@ -536,7 +538,8 @@ function html_entity_decode ($string, $flags = null, $encoding = null) {}
  * @return string the decoded string.
  */
 #[Pure]
-function htmlspecialchars_decode ($string, $flags = null) {}
+function htmlspecialchars_decode (string $string, int $flags)
+{}
 
 /**
  * Returns the translation table used by <function>htmlspecialchars</function> and <function>htmlentities</function>
@@ -714,7 +717,7 @@ function htmlspecialchars_decode ($string, $flags = null) {}
  * @return array the translation table as an array.
  */
 #[Pure]
-function get_html_translation_table ($table = null, $flags = null, string $encoding = "UTF-8") {}
+function get_html_translation_table (int $table, int $flags, string $encoding = "UTF-8") {}
 
 /**
  * Calculate the sha1 hash of a string
@@ -731,7 +734,7 @@ function get_html_translation_table ($table = null, $flags = null, string $encod
  * @return string the sha1 hash as a string.
  */
 #[Pure]
-function sha1 ($string, $binary = false) {}
+function sha1 (string $string, bool $binary = false) {}
 
 /**
  * Calculate the sha1 hash of a file
@@ -746,7 +749,7 @@ function sha1 ($string, $binary = false) {}
  * @return string|false a string on success, false otherwise.
  */
 #[Pure]
-function sha1_file ($filename, $binary = false) {}
+function sha1_file (string $filename, bool $binary = false) {}
 
 /**
  * Calculate the md5 hash of a string
@@ -762,7 +765,7 @@ function sha1_file ($filename, $binary = false) {}
  * @return string the hash as a 32-character hexadecimal number.
  */
 #[Pure]
-function md5 ($string, $binary = false) {}
+function md5 (string $string, bool $binary = false) {}
 
 /**
  * Calculates the md5 hash of a given file
@@ -777,7 +780,7 @@ function md5 ($string, $binary = false) {}
  * @return string|false a string on success, false otherwise.
  */
 #[Pure]
-function md5_file ($filename, $binary = false) {}
+function md5_file (string $filename, bool $binary = false) {}
 
 /**
  * Calculates the crc32 polynomial of a string
@@ -788,7 +791,7 @@ function md5_file ($filename, $binary = false) {}
  * @return int the crc32 checksum of str as an integer..1
  */
 #[Pure]
-function crc32 ($string) {}
+function crc32 (string $string) {}
 
 /**
  * Parse a binary IPTC block into single tags.
@@ -801,7 +804,7 @@ function crc32 ($string) {}
  * value. It returns false on error or if no IPTC data was found.
  */
 #[Pure]
-function iptcparse ($iptc_block) {}
+function iptcparse (string $iptc_block) {}
 
 /**
  * Embeds binary IPTC data into a JPEG image.
@@ -820,7 +823,8 @@ function iptcparse ($iptc_block) {}
  * @return string|bool If success and spool flag is lower than 2 then the JPEG will not be
  * returned as a string, false on errors.
  */
-function iptcembed ($iptc_data, $filename, $spool = null) {}
+function iptcembed (string $iptc_data, string $filename, int $spool)
+{}
 
 /**
  * Get the size of an image
@@ -883,7 +887,8 @@ function iptcembed ($iptc_data, $filename, $spool = null) {}
  * <p>
  * On failure, false is returned.
  */
-function getimagesize ($filename, array &$image_info = null) {}
+function getimagesize (string $filename, &$image_info)
+{}
 
 /**
  * Get Mime-Type for image-type returned by getimagesize, exif_read_data, exif_thumbnail, exif_imagetype
@@ -971,7 +976,7 @@ function getimagesize ($filename, array &$image_info = null) {}
  * </table>
  */
 #[Pure]
-function image_type_to_mime_type ($image_type) {}
+function image_type_to_mime_type (int $image_type) {}
 
 /**
  * Get file extension for image type
@@ -986,7 +991,7 @@ function image_type_to_mime_type ($image_type) {}
  * @return string A string with the extension corresponding to the given image type.
  */
 #[Pure]
-function image_type_to_extension ($image_type, $include_dot = true) {}
+function image_type_to_extension (int $image_type, $include_dot = true) {}
 
 /**
  * Outputs information about PHP's configuration
@@ -1072,7 +1077,7 @@ function image_type_to_extension ($image_type, $include_dot = true) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function phpinfo ($flags = null) {}
+function phpinfo (int $flags) {}
 
 /**
  * Gets the current PHP version
@@ -1086,7 +1091,7 @@ function phpinfo ($flags = null) {}
  * the extension isn't enabled.
  */
 #[Pure]
-function phpversion ($extension = null) {}
+function phpversion (string $extension) {}
 
 /**
  * Prints out the credits for PHP
@@ -1151,7 +1156,7 @@ function phpversion ($extension = null) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function phpcredits ($flags = null) {}
+function phpcredits (int $flags) {}
 
 /**
  * Gets the logo guid
@@ -1211,7 +1216,7 @@ function php_sapi_name () {}
  * @return string the description, as a string.
  */
 #[Pure]
-function php_uname ($mode = null) {}
+function php_uname (string $mode) {}
 
 /**
  * Return a list of .ini files parsed from the additional ini dir
@@ -1251,7 +1256,7 @@ function php_ini_loaded_file () {}
  * str2, and 0 if they are equal.
  */
 #[Pure]
-function strnatcmp ($string1, $string2) {}
+function strnatcmp (string $string1, string $string2) {}
 
 /**
  * Case insensitive string comparisons using a "natural order" algorithm
@@ -1268,7 +1273,7 @@ function strnatcmp ($string1, $string2) {}
  * str2, and 0 if they are equal.
  */
 #[Pure]
-function strnatcasecmp ($string1, $string2) {}
+function strnatcasecmp (string $string1, string $string2) {}
 
 /**
  * Count the number of substring occurrences
@@ -1290,7 +1295,8 @@ function strnatcasecmp ($string1, $string2) {}
  * @return int This functions returns an integer.
  */
 #[Pure]
-function substr_count ($haystack, $needle, $offset = null, $length = null) {}
+function substr_count (string $haystack, string $needle, int $offset, int $length)
+{}
 
 /**
  * Finds the length of the initial segment of a string consisting
@@ -1343,7 +1349,8 @@ function substr_count ($haystack, $needle, $offset = null, $length = null) {}
  * which consists entirely of characters in str2.
  */
 #[Pure]
-function strspn ($string, $characters, $offset = null, $length = null) {}
+function strspn (string $string, string $characters, int $offset, int $length)
+{}
 
 /**
  * Find length of initial segment not matching mask
@@ -1363,7 +1370,8 @@ function strspn ($string, $characters, $offset = null, $length = null) {}
  * @return int the length of the segment as an integer.
  */
 #[Pure]
-function strcspn ($string, $characters, $offset = null, $length = null) {}
+function strcspn (string $string, string $characters, int $offset, int $length)
+{}
 
 /**
  * Tokenize string
@@ -1381,4 +1389,5 @@ function strcspn ($string, $characters, $offset = null, $length = null) {}
  * </p>
  * @return string A string token.
  */
-function strtok ($string = null, $token) {}
+function strtok (string $string, string $token)
+{}

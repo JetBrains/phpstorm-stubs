@@ -18,7 +18,7 @@ use JetBrains\PhpStorm\Pure;
  * The ID of the filter to apply. The
  * manual page lists the available filters.
  * </p>
- * @param mixed $options [optional] <p>
+ * @param array|int $options [optional] <p>
  * Associative array of options or bitwise disjunction of flags. If filter
  * accepts options, flags can be provided in "flags" field of array.
  * </p>
@@ -28,7 +28,7 @@ use JetBrains\PhpStorm\Pure;
  * returns <b>FALSE</b> if the variable is not set and <b>NULL</b> if the filter fails.
  */
 #[Pure]
-function filter_input ($type, $var_name, $filter = FILTER_DEFAULT, $options = null) {}
+function filter_input (int $type, string $var_name, int $filter = FILTER_DEFAULT, array|int $options) {}
 
 /**
  * Filters a variable with a specified filter
@@ -40,7 +40,7 @@ function filter_input ($type, $var_name, $filter = FILTER_DEFAULT, $options = nu
  * The ID of the filter to apply. The
  * manual page lists the available filters.
  * </p>
- * @param mixed $options [optional] <p>
+ * @param array|int $options [optional] <p>
  * Associative array of options or bitwise disjunction of flags. If filter
  * accepts options, flags can be provided in "flags" field of array. For
  * the "callback" filter, callable type should be passed. The
@@ -84,7 +84,7 @@ function filter_input ($type, $var_name, $filter = FILTER_DEFAULT, $options = nu
  * @return mixed the filtered data, or <b>FALSE</b> if the filter fails.
  */
 #[Pure]
-function filter_var ($value, $filter = FILTER_DEFAULT, $options = null) {}
+function filter_var (mixed $value, int $filter = FILTER_DEFAULT, array|int $options) {}
 
 /**
  * Gets external variables and optionally filters them
@@ -94,7 +94,7 @@ function filter_var ($value, $filter = FILTER_DEFAULT, $options = null) {}
  * <b>INPUT_COOKIE</b>, <b>INPUT_SERVER</b>, or
  * <b>INPUT_ENV</b>.
  * </p>
- * @param mixed $options [optional] <p>
+ * @param array|int $options [optional] <p>
  * An array defining the arguments. A valid key is a string
  * containing a variable name and a valid value is either a filter type, or an array
  * optionally specifying the filter, flags and options. If the value is an
@@ -118,7 +118,7 @@ function filter_var ($value, $filter = FILTER_DEFAULT, $options = null) {}
  * fails.
  */
 #[Pure]
-function filter_input_array ($type, $options = null, $add_empty = true) {}
+function filter_input_array (int $type, array|int $options, bool $add_empty = true) {}
 
 /**
  * Gets multiple variables and optionally filters them
@@ -126,7 +126,7 @@ function filter_input_array ($type, $options = null, $add_empty = true) {}
  * @param array $array <p>
  * An array with string keys containing the data to filter.
  * </p>
- * @param mixed $options [optional] <p>
+ * @param array|int $options [optional] <p>
  * An array defining the arguments. A valid key is a string
  * containing a variable name and a valid value is either a
  * filter type, or an
@@ -149,7 +149,7 @@ function filter_input_array ($type, $options = null, $add_empty = true) {}
  * the variable is not set.
  */
 #[Pure]
-function filter_var_array (array $array, $options = null, $add_empty = true) {}
+function filter_var_array (array $array, array|int $options, bool $add_empty = true) {}
 
 /**
  * Returns a list of all supported filters
@@ -175,7 +175,7 @@ function filter_list () {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
 #[Pure]
-function filter_has_var ($input_type, $var_name) {}
+function filter_has_var (int $input_type, string $var_name) {}
 
 /**
  * Returns the filter ID belonging to a named filter
@@ -186,7 +186,7 @@ function filter_has_var ($input_type, $var_name) {}
  * @return int|false ID of a filter on success or <b>FALSE</b> if filter doesn't exist.
  */
 #[Pure]
-function filter_id ($name) {}
+function filter_id (string $name) {}
 
 
 /**

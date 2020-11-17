@@ -22,7 +22,7 @@ use JetBrains\PhpStorm\Pure;
  * @return resource|false|XmlParser a resource handle for the new XML parser.
  */
 #[Pure]
-function xml_parser_create ($encoding = null) {}
+function xml_parser_create (string $encoding) {}
 
 /**
  * Create an XML parser with namespace support
@@ -46,7 +46,7 @@ function xml_parser_create ($encoding = null) {}
  * @return resource|false|XmlParser a resource handle for the new XML parser.
  */
 #[Pure]
-function xml_parser_create_ns ($encoding = null, $separator = ':') {}
+function xml_parser_create_ns (string $encoding, string $separator = ':') {}
 
 /**
  * Use XML Parser within an object
@@ -59,7 +59,7 @@ function xml_parser_create_ns ($encoding = null, $separator = ':') {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function xml_set_object ($parser, &$object) {}
+function xml_set_object ($parser, object &$object) {}
 
 /**
  * Set up start and end element handlers
@@ -337,7 +337,7 @@ function xml_set_end_namespace_decl_handler ($parser, callable $handler) {}
  * Entity errors are reported at the end of the data thus only if
  * <i>is_final</i> is set and <b>TRUE</b>.
  */
-function xml_parse ($parser, $data, $is_final = false) {}
+function xml_parse ($parser, string $data, $is_final = false) {}
 
 /**
  * Parse XML data into an array structure
@@ -358,7 +358,8 @@ function xml_parse ($parser, $data, $is_final = false) {}
  * success. This is not the same as <b>FALSE</b> and <b>TRUE</b>, be careful with
  * operators such as ===.
  */
-function xml_parse_into_struct ($parser, $data, array &$values, array &$index = null) {}
+function xml_parse_into_struct ($parser, string $data, array &$values, array &$index)
+{}
 
 /**
  * Get XML parser error code
@@ -384,7 +385,7 @@ function xml_get_error_code ($parser) {}
  * <i>code</i>, or <b>FALSE</b> if no description was found.
  */
 #[Pure]
-function xml_error_string ($error_code) {}
+function xml_error_string (int $error_code) {}
 
 /**
  * Get current line number for an XML parser
@@ -497,7 +498,7 @@ function xml_parser_free ($parser) {}
  * refer to a valid parser, or if the option could not be set. Else the
  * option is set and <b>TRUE</b> is returned.
  */
-function xml_parser_set_option ($parser, $option, $value) {}
+function xml_parser_set_option ($parser, int $option, mixed $value) {}
 
 /**
  * Get options from an XML parser
@@ -512,7 +513,7 @@ function xml_parser_set_option ($parser, $option, $value) {}
  * Else the option's value is returned.
  */
 #[Pure]
-function xml_parser_get_option ($parser, $option) {}
+function xml_parser_get_option ($parser, int $option) {}
 
 define ('XML_ERROR_NONE', 0);
 define ('XML_ERROR_NO_MEMORY', 1);

@@ -11,7 +11,7 @@
  * @return string|false a single string from the user. The line returned has the ending newline removed.
  * If there is no more data to read, then FALSE is returned.
  */
-function readline ($prompt = null) {}
+function readline (string $prompt) {}
 
 /**
  * Gets/sets various internal readline variables
@@ -31,7 +31,7 @@ function readline ($prompt = null) {}
  * <p>
  * If called with one or two parameters, the old value is returned.
  */
-function readline_info ($var_name = null, $value = null) {}
+function readline_info (string $var_name, $value) {}
 
 /**
  * Adds a line to the history
@@ -41,7 +41,7 @@ function readline_info ($var_name = null, $value = null) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function readline_add_history ($prompt) {}
+function readline_add_history (string $prompt) {}
 
 /**
  * Clears the history
@@ -66,7 +66,7 @@ function readline_list_history () {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function readline_read_history ($filename = null) {}
+function readline_read_history (string $filename) {}
 
 /**
  * Writes the history
@@ -76,7 +76,7 @@ function readline_read_history ($filename = null) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function readline_write_history ($filename = null) {}
+function readline_write_history (string $filename) {}
 
 /**
  * Registers a completion function
@@ -101,7 +101,7 @@ function readline_completion_function (callable $callback) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function readline_callback_handler_install ($prompt, callable $callback) {}
+function readline_callback_handler_install (string $prompt, callable $callback) {}
 
 /**
  * Reads a character and informs the readline callback interface when a line is received

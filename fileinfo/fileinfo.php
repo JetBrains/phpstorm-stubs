@@ -82,7 +82,7 @@ class finfo  {
  * </p>
  * @return resource|false a magic database resource on success or <b>FALSE</b> on failure.
  */
-function finfo_open ($flags = null, $magic_database = null) {}
+function finfo_open (int $flags, string $magic_database) {}
 
 /**
  * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
@@ -108,7 +108,7 @@ function finfo_close ($finfo) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function finfo_set_flags ($finfo, $flags) {}
+function finfo_set_flags ($finfo, int $flags) {}
 
 /**
  * (PHP &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
@@ -130,7 +130,8 @@ function finfo_set_flags ($finfo, $flags) {}
  * @return mixed a textual description of the contents of the
  * <i>filename</i> argument, or <b>FALSE</b> if an error occurred.
  */
-function finfo_file ($finfo, $filename, $flags = null, $context = null) {}
+function finfo_file ($finfo, string $filename, int $flags, $context)
+{}
 
 /**
  * (PHP 5 &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)<br/>
@@ -155,7 +156,7 @@ function finfo_file ($finfo, $filename, $flags = null, $context = null) {}
  * @return string|false a textual description of the <i>string</i>
  * argument, or <b>FALSE</b> if an error occurred.
  */
-function finfo_buffer ($finfo , $string, $flags = FILEINFO_NONE, $context = null) {}
+function finfo_buffer ($finfo , string $string, int $flags = FILEINFO_NONE, $context) {}
 
 /**
  * Detect MIME Content-type for a file

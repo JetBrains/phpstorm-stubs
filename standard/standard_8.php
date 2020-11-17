@@ -58,7 +58,7 @@ use JetBrains\PhpStorm\Pure;
  * </p>
  * @return bool true on success or false on failure.
  */
-function syslog ($priority, $message) {}
+function syslog (int $priority, string $message) {}
 
 /**
  * Close connection to system logger
@@ -94,19 +94,23 @@ function header_register_callback ( callable $callback ) {}
  * Index 3 is a text string with the correct <b>height="yyy" width="xxx"</b> string<br>
  * that can be used directly in an IMG tag.<br>
  * On failure, FALSE is returned.
+ * @link https://secure.php.net/manual/en/function.getimagesizefromstring.php
+ * @since 5.4
  */
-function getimagesizefromstring ($string , array &$image_info = null) {}
+function getimagesizefromstring (string $string , &$image_info)
+{}
 
 /**
  * Set the stream chunk size.
- * @since 5.4
- * @link https://secure.php.net/manual/en/function.stream-set-chunk-size.php
  * @param resource $stream The target stream.
  * @param int $size The desired new chunk size.
  * @return int|false Returns the previous chunk size on success.<br>
  * Will return <b>FALSE</b> if chunk_size is less than 1 or greater than <b>PHP_INT_MAX</b>.
+ * @link https://secure.php.net/manual/en/function.stream-set-chunk-size.php
+ * @since 5.4
  */
-function stream_set_chunk_size ($stream , $size) {}
+function stream_set_chunk_size ($stream , int $size)
+{}
 
 /**
  * Initializes all syslog related variables
@@ -137,7 +141,7 @@ function lcg_value () {}
  * @return string|false the metaphone key as a string, or FALSE on failure
  */
 #[Pure]
-function metaphone ($string, $max_phonemes = 0) {}
+function metaphone (string $string, int $max_phonemes = 0) {}
 
 /**
  * Turn on output buffering
@@ -204,7 +208,7 @@ function metaphone ($string, $max_phonemes = 0) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function ob_start ($callback = null, $chunk_size = null, $flags = PHP_OUTPUT_HANDLER_STDFLAGS) {}
+function ob_start ($callback, int $chunk_size, int $flags = PHP_OUTPUT_HANDLER_STDFLAGS) {}
 
 /**
  * Flush (send) the output buffer
@@ -338,7 +342,7 @@ function ob_get_level () {}
  * <tr><td>blocksize</td><td>...</td></tr>
  * </table>
  */
-function ob_get_status ($full_status = null) {}
+function ob_get_status (bool $full_status) {}
 
 /**
  * Return the contents of the output buffer
@@ -382,7 +386,7 @@ function ob_list_handlers () {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function ksort (array &$array, $flags = null) {}
+function ksort (array &$array, int $flags) {}
 
 /**
  * Sort an array by key in reverse order
@@ -397,7 +401,7 @@ function ksort (array &$array, $flags = null) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function krsort (array &$array, $flags = null) {}
+function krsort (array &$array, int $flags) {}
 
 /**
  * Sort an array using a "natural order" algorithm
@@ -432,7 +436,7 @@ function natcasesort (array &$array) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function asort (array &$array, $flags = null) {}
+function asort (array &$array, int $flags) {}
 
 /**
  * Sort an array in reverse order and maintain index association
@@ -447,7 +451,7 @@ function asort (array &$array, $flags = null) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function arsort (array &$array, $flags = null) {}
+function arsort (array &$array, int $flags) {}
 
 /**
  * Sort an array
@@ -465,7 +469,7 @@ function arsort (array &$array, $flags = null) {}
  * (don't change types)
  * @return bool true on success or false on failure.
  */
-function sort (array &$array, $flags = null) {}
+function sort (array &$array, int $flags) {}
 
 /**
  * Sort an array in reverse order
@@ -480,7 +484,7 @@ function sort (array &$array, $flags = null) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function rsort (array &$array, $flags = null) {}
+function rsort (array &$array, int $flags) {}
 
 /**
  * Sort an array by values using a user-defined comparison function
@@ -495,7 +499,7 @@ function rsort (array &$array, $flags = null) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function usort (array &$array, $callback) {}
+function usort (array &$array, callable $callback) {}
 
 /**
  * Sort an array with a user-defined comparison function and maintain index association
@@ -509,7 +513,7 @@ function usort (array &$array, $callback) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function uasort (array &$array, $callback) {}
+function uasort (array &$array, callable $callback) {}
 
 /**
  * Sort an array by keys using a user-defined comparison function
@@ -530,7 +534,7 @@ function uasort (array &$array, $callback) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function uksort (array &$array, $callback) {}
+function uksort (array &$array, callable $callback) {}
 
 /**
  * Shuffle an array
@@ -574,7 +578,8 @@ function shuffle (array &$array) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_walk (array &$array, $callback, $arg = null) {}
+function array_walk (object|array &$array, callable $callback, mixed $arg)
+{}
 
 /**
  * Apply a user function recursively to every member of an array
@@ -602,7 +607,8 @@ function array_walk (array &$array, $callback, $arg = null) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_walk_recursive (array &$array, $callback, $arg = null) {}
+function array_walk_recursive (object|array &$array, callable $callback, mixed $arg)
+{}
 
 /**
  * Counts all elements in an array, or something in an object.
@@ -610,7 +616,7 @@ function array_walk_recursive (array &$array, $callback, $arg = null) {}
  * The interface has exactly one method, {@see Countable::count()}, which returns the return value for the count() function.
  * Please see the {@see Array} section of the manual for a detailed explanation of how arrays are implemented and used in PHP.
  * @link https://php.net/manual/en/function.count.php
- * @param array|Countable $value  The array or the object.
+ * @param array|Countable $value The array or the object.
  * @param int $mode [optional] If the optional mode parameter is set to
  * COUNT_RECURSIVE (or 1), count
  * will recursively count the array. This is particularly useful for
@@ -632,7 +638,7 @@ function array_walk_recursive (array &$array, $callback, $arg = null) {}
  * empty array. Use isset to test if a variable is set.
  */
 #[Pure]
-function count ($value, $mode = COUNT_NORMAL) {}
+function count (Countable|array $value, int $mode = COUNT_NORMAL) {}
 
 /**
  * Set the internal pointer of an array to its last element
@@ -646,7 +652,7 @@ function count ($value, $mode = COUNT_NORMAL) {}
  * @return mixed|false the value of the last element or false for empty array.
  * @meta
  */
-function end (&$array) {}
+function end (object|array &$array) {}
 
 /**
  * Rewind the internal array pointer
@@ -659,7 +665,7 @@ function end (&$array) {}
  * elements.
  * @meta
  */
-function prev (&$array) {}
+function prev (object|array &$array) {}
 
 /**
  * Advance the internal array pointer of an array
@@ -671,7 +677,7 @@ function prev (&$array) {}
  * internal array pointer, or false if there are no more elements.
  * @meta
  */
-function next (&$array) {}
+function next (object|array &$array) {}
 
 /**
  * Set the internal pointer of an array to its first element
@@ -683,7 +689,7 @@ function next (&$array) {}
  * empty.
  * @meta
  */
-function reset (&$array) {}
+function reset (object|array &$array) {}
 
 /**
  * Return the current element in an array
@@ -699,7 +705,7 @@ function reset (&$array) {}
  * @meta
  */
 #[Pure]
-function current ($array) {}
+function current (object|array $array) {}
 
 /**
  * Fetch a key from an array
@@ -714,7 +720,7 @@ function current ($array) {}
  * empty, key returns null.
  */
 #[Pure]
-function key ($array) {}
+function key (object|array $array) {}
 
 /**
  * Find lowest value
@@ -725,7 +731,7 @@ function key ($array) {}
  * parameter values.
  */
 #[Pure]
-function min ($value, ...$values) {}
+function min (mixed $value, mixed ...$values) {}
 
 /**
  * Find highest value
@@ -736,7 +742,7 @@ function min ($value, ...$values) {}
  * parameter values, either within a arg array or two arguments.
  */
 #[Pure]
-function max ($value, ...$values) {}
+function max (mixed $value, mixed ...$values) {}
 
 /**
  * Checks if a value exists in an array
@@ -761,7 +767,7 @@ function max ($value, ...$values) {}
  * false otherwise.
  */
 #[Pure]
-function in_array ($needle, array $haystack, $strict = false) {}
+function in_array (mixed $needle, array $haystack, bool $strict = false) {}
 
 /**
  * Searches the array for a given value and returns the first corresponding key if successful
@@ -792,7 +798,8 @@ function in_array ($needle, array $haystack, $strict = false) {}
  * search_value parameter instead.
  */
 #[Pure]
-function array_search ($needle, array $haystack, $strict = null) {}
+function array_search (mixed $needle, array $haystack, bool $strict)
+{}
 
 /**
  * Import variables into the current symbol table from an array
@@ -820,7 +827,7 @@ function array_search ($needle, array $haystack, $strict = null) {}
  * @return int the number of variables successfully imported into the symbol
  * table.
  */
-function extract (array $array, $flags = null, $prefix = null) {}
+function extract (array $array, int $flags, string $prefix) {}
 
 /**
  * Create array containing variables and their values
@@ -836,7 +843,7 @@ function extract (array $array, $flags = null, $prefix = null) {}
  * @return array the output array with all the variables added to it.
  */
 #[Pure]
-function compact ($var_name, ...$var_names) {}
+function compact (mixed $var_name, ...$var_names) {}
 
 /**
  * Fill an array with values
@@ -854,7 +861,7 @@ function compact ($var_name, ...$var_names) {}
  * @return array the filled array
  */
 #[Pure]
-function array_fill ($start_index, $count, $value) {}
+function array_fill (int $start_index, int $count, mixed $value) {}
 
 /**
  * Fill an array with values, specifying keys
@@ -869,7 +876,7 @@ function array_fill ($start_index, $count, $value) {}
  * @return array the filled array
  */
 #[Pure]
-function array_fill_keys (array $keys, $value) {}
+function array_fill_keys (array $keys, mixed $value) {}
 
 /**
  * Create an array containing a range of elements
@@ -890,7 +897,8 @@ function array_fill_keys (array $keys, $value) {}
  * end, inclusive.
  */
 #[Pure]
-function range ($start, $end, $step = 1) {}
+function range ($start, $end, int|float $step = 1)
+{}
 
 /**
  * Sort multiple or multi-dimensional arrays
@@ -905,7 +913,7 @@ function range ($start, $end, $step = 1) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function array_multisort (array &$array, &...$rest) {}
+function array_multisort (&$array, &...$rest) {}
 
 /**
  * Push elements onto the end of array
@@ -1006,7 +1014,8 @@ function array_unshift (array &$array, ...$values) {}
  * </p>
  * @return array the array consisting of the extracted elements.
  */
-function array_splice (array &$array, $offset, $length = null, $replacement = null) {}
+function array_splice (array &$array, int $offset, int $length, mixed $replacement)
+{}
 
 /**
  * Extract a slice of the array
@@ -1038,7 +1047,8 @@ function array_splice (array &$array, $offset, $length = null, $replacement = nu
  * @meta
  */
 #[Pure]
-function array_slice (array $array, $offset, $length = null, $preserve_keys = false) {}
+function array_slice (array $array, int $offset, int $length, bool $preserve_keys = false)
+{}
 
 /**
  * Merge one or more arrays

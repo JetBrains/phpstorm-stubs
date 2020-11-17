@@ -25,7 +25,8 @@ function spl_classes () {}
  * @return void
  * @since 5.1.2
  */
-function spl_autoload ($class, $file_extensions = null) {}
+function spl_autoload (string $class, string $file_extensions)
+{}
 
 /**
  * Register and return default file extensions for spl_autoload
@@ -41,7 +42,7 @@ function spl_autoload ($class, $file_extensions = null) {}
  * spl_autoload.
  * @since 5.1.2
  */
-function spl_autoload_extensions ($file_extensions = null) {}
+function spl_autoload_extensions (string $file_extensions) {}
 
 /**
  * Register given function as __autoload() implementation
@@ -59,18 +60,18 @@ function spl_autoload_extensions ($file_extensions = null) {}
  * @throws TypeError Since 8.0.
  * @since 5.1.2
  */
-function spl_autoload_register ($callback = null, $throw = true, $prepend = false) {}
+function spl_autoload_register (callable $callback, bool $throw = true, bool $prepend = false) {}
 
 /**
  * Unregister given function as __autoload() implementation
  * @link https://php.net/manual/en/function.spl-autoload-unregister.php
- * @param mixed $callback <p>
+ * @param callable $callback <p>
  * The autoload function being unregistered.
  * </p>
  * @return bool true on success or false on failure.
  * @since 5.1.2
  */
-function spl_autoload_unregister ($callback) {}
+function spl_autoload_unregister (callable $callback) {}
 
 /**
  * Return all registered __autoload() functions
@@ -91,7 +92,7 @@ function spl_autoload_functions () {}
  * @return void
  * @since 5.1.2
  */
-function spl_autoload_call ($class) {}
+function spl_autoload_call (string $class) {}
 
 /**
  * Return the parent classes of the given class
@@ -107,7 +108,8 @@ function spl_autoload_call ($class) {}
  * @return string[]|false An array on success, or false on error.
  */
 #[Pure]
-function class_parents ($object_or_class, $autoload = null) {}
+function class_parents ($object_or_class, bool $autoload)
+{}
 
 /**
  * Return the interfaces which are implemented by the given class
@@ -123,7 +125,8 @@ function class_parents ($object_or_class, $autoload = null) {}
  * @return string[]|false An array on success, or false on error.
  */
 #[Pure]
-function class_implements ($object_or_class, $autoload = null) {}
+function class_implements ($object_or_class, bool $autoload)
+{}
 
 /**
  * Return hash id for given object
@@ -133,7 +136,7 @@ function class_implements ($object_or_class, $autoload = null) {}
  * the same object.
  */
 #[Pure]
-function spl_object_hash ($object) {}
+function spl_object_hash (object $object) {}
 
 /**
  * Copy the iterator into an array
@@ -147,7 +150,7 @@ function spl_object_hash ($object) {}
  * @return array An array containing the elements of the iterator.
  */
 #[Pure]
-function iterator_to_array (Traversable $iterator, $preserve_keys = true) {}
+function iterator_to_array (Traversable $iterator, bool $preserve_keys = true) {}
 
 /**
  * Count the elements in an iterator
@@ -176,7 +179,8 @@ function iterator_count (Traversable $iterator) {}
  * </p>
  * @return int the iteration count.
  */
-function iterator_apply (Traversable $iterator, $callback, array $args = null) {}
+function iterator_apply (Traversable $iterator, callable $callback, array $args)
+{}
 
 // End of SPL v.0.2
 
@@ -190,7 +194,7 @@ function iterator_apply (Traversable $iterator, $callback, array $args = null) {
  * @see get_declared_traits()
  * @since 5.4
  */
-function class_uses($object_or_class, bool $autoload = true ) {}
+function class_uses($object_or_class, bool $autoload = true) {}
 
 /**
  * return the integer object handle for given object
@@ -198,6 +202,6 @@ function class_uses($object_or_class, bool $autoload = true ) {}
  * @return int
  * @since 7.2
  */
-function spl_object_id($object) {}
+function spl_object_id(object $object) {}
 
 ?>

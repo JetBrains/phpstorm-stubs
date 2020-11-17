@@ -38,7 +38,7 @@ use JetBrains\PhpStorm\Pure;
  * @link https://php.net/manual/en/function.dl.php
  */
 #[Deprecated(since: '5.3')]
-function dl ($extension_filename) {}
+function dl (string $extension_filename) {}
 
 /**
  * Sets the process title
@@ -49,7 +49,7 @@ function dl ($extension_filename) {}
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  * @since 5.5
  */
-function cli_set_process_title ($title) {}
+function cli_set_process_title (string $title) {}
 
 /**
  * Returns the current process title
@@ -68,7 +68,7 @@ function cli_get_process_title () {}
  * @link https://php.net/manual/en/function.is-iterable.php
  */
 #[Pure]
-function is_iterable($value) {}
+function is_iterable(mixed $value) {}
 
 /**
  * Encodes an ISO-8859-1 string to UTF-8
@@ -79,7 +79,7 @@ function is_iterable($value) {}
  * @return string the UTF-8 translation of <i>data</i>.
  */
 #[Pure]
-function utf8_encode ($string) {}
+function utf8_encode (string $string) {}
 
 /**
  * Converts a string with ISO-8859-1 characters encoded with UTF-8
@@ -91,7 +91,7 @@ function utf8_encode ($string) {}
  * @return string the ISO-8859-1 translation of <i>data</i>.
  */
 #[Pure]
-function utf8_decode ($string) {}
+function utf8_decode (string $string) {}
 
 /**
  * Clear the most recent error
@@ -107,7 +107,7 @@ function error_clear_last () {}
  * @return int
  * @since 7.1
  */
-function sapi_windows_cp_get($kind) {}
+function sapi_windows_cp_get(string $kind) {}
 
 /**
  * Set process codepage
@@ -115,7 +115,7 @@ function sapi_windows_cp_get($kind) {}
  * @return bool
  * @since 7.1
  */
-function sapi_windows_cp_set($cp) {}
+function sapi_windows_cp_set(int $cp) {}
 
 /**
  * Convert string from one codepage to another
@@ -125,7 +125,7 @@ function sapi_windows_cp_set($cp) {}
  * @return string
  * @since 7.1
  */
-function sapi_windows_cp_conv($in_codepage, $out_codepage, $subject) {}
+function sapi_windows_cp_conv(int|string $in_codepage, int|string $out_codepage, string $subject) {}
 
 /**
  * Indicates whether the codepage is utf-8 compatible
@@ -155,7 +155,7 @@ function sapi_windows_cp_is_utf8() {}
  * If <i>enable</i> is specified: Returns TRUE on success or FALSE on failure.
  * @since 7.2
  */
-function sapi_windows_vt100_support ($stream, $enable) {}
+function sapi_windows_vt100_support ($stream, bool $enable) {}
 
 /**
  * Set or remove a CTRL event handler.

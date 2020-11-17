@@ -14,7 +14,7 @@
  * </p>
  * @return resource|SysvMessageQueue a resource handle that can be used to access the System V message queue.
  */
-function msg_get_queue ($key, $permissions = 0666) {}
+function msg_get_queue (int $key, int $permissions = 0666) {}
 
 /**
  * Send a message to a message queue
@@ -249,7 +249,7 @@ function msg_set_queue ($queue, array $data) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function msg_queue_exists ($key) {}
+function msg_queue_exists (int $key) {}
 
 define ('MSG_IPC_NOWAIT', 1);
 define ('MSG_EAGAIN', 11);

@@ -6,14 +6,14 @@ use JetBrains\PhpStorm\Pure;
 /**
  * Sets the default domain
  * @link https://php.net/manual/en/function.textdomain.php
- * @param string|null $domain <p>
+ * @param string $domain <p>
  * The new message domain, or <b>NULL</b> to get the current setting without
  * changing it
  * </p>
  * @return string If successful, this function returns the current message
  * domain, after possibly changing it.
  */
-function textdomain ($domain) {}
+function textdomain (string $domain) {}
 
 /**
  * Lookup a message in the current domain
@@ -25,7 +25,7 @@ function textdomain ($domain) {}
  * translation table, or the submitted message if not found.
  */
 #[Pure]
-function _ ($message) {}
+function _ (string $message) {}
 
 /**
  * Lookup a message in the current domain
@@ -37,7 +37,7 @@ function _ ($message) {}
  * translation table, or the submitted message if not found.
  */
 #[Pure]
-function gettext ($message) {}
+function gettext (string $message) {}
 
 /**
  * Override the current domain
@@ -50,7 +50,7 @@ function gettext ($message) {}
  * </p>
  * @return string A string on success.
  */
-function dgettext ($domain, $message) {}
+function dgettext (string $domain, string $message) {}
 
 /**
  * Overrides the domain for a single lookup
@@ -66,7 +66,7 @@ function dgettext ($domain, $message) {}
  * </p>
  * @return string A string on success.
  */
-function dcgettext ($domain, $message, $category) {}
+function dcgettext (string $domain, string $message, int $category) {}
 
 /**
  * Sets the path for a domain
@@ -79,7 +79,7 @@ function dcgettext ($domain, $message, $category) {}
  * </p>
  * @return string The full pathname for the <i>domain</i> currently being set.
  */
-function bindtextdomain ($domain, $directory) {}
+function bindtextdomain (string $domain, string $directory) {}
 
 /**
  * Plural version of gettext
@@ -92,7 +92,7 @@ function bindtextdomain ($domain, $directory) {}
  * for count <i>n</i>.
  */
 #[Pure]
-function ngettext ($singular, $plural, $count) {}
+function ngettext (string $singular, string $plural, int $count) {}
 
 /**
  * Plural version of dgettext
@@ -106,7 +106,7 @@ function ngettext ($singular, $plural, $count) {}
  * @return string A string on success.
  */
 #[Pure]
-function dngettext ($domain, $singular, $plural, $count) {}
+function dngettext (string $domain, string $singular, string $plural, int $count) {}
 
 /**
  * Plural version of dcgettext
@@ -121,7 +121,7 @@ function dngettext ($domain, $singular, $plural, $count) {}
  * @return string A string on success.
  */
 #[Pure]
-function dcngettext ($domain, $singular, $plural, $count, $category) {}
+function dcngettext (string $domain, string $singular, string $plural, int $count, int $category) {}
 
 /**
  * Specify the character encoding in which the messages from the DOMAIN message catalog will be returned
@@ -134,7 +134,7 @@ function dcngettext ($domain, $singular, $plural, $count, $category) {}
  * </p>
  * @return string A string on success.
  */
-function bind_textdomain_codeset ($domain, $codeset) {}
+function bind_textdomain_codeset (string $domain, string $codeset) {}
 
 // End of gettext v.
 ?>

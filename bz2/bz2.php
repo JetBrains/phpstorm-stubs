@@ -17,7 +17,7 @@ use JetBrains\PhpStorm\Pure;
  * it returns a pointer to the newly opened file.
  */
 #[Pure]
-function bzopen ($file, $mode) {}
+function bzopen ($file, string $mode) {}
 
 /**
  * Binary safe bzip2 file read
@@ -33,7 +33,7 @@ function bzopen ($file, $mode) {}
  * </p>
  * @return string the uncompressed data, or <b>FALSE</b> on error.
  */
-function bzread ($bz, $length = 1024) {}
+function bzread ($bz, int $length = 1024) {}
 
 /**
  * Binary safe bzip2 file write
@@ -52,7 +52,8 @@ function bzread ($bz, $length = 1024) {}
  * </p>
  * @return int the number of bytes written, or <b>FALSE</b> on error.
  */
-function bzwrite ($bz, $data, $length = null) {}
+function bzwrite ($bz, string $data, int $length)
+{}
 
 /**
  * Force a write of all buffered data
@@ -137,7 +138,7 @@ function bzerror ($bz) {}
  * @return mixed The compressed string, or an error number if an error occurred.
  */
 #[Pure]
-function bzcompress ($data, $block_size = 4, $work_factor = 0) {}
+function bzcompress (string $data, int $block_size = 4, int $work_factor = 0) {}
 
 /**
  * Decompresses bzip2 encoded data
@@ -145,7 +146,7 @@ function bzcompress ($data, $block_size = 4, $work_factor = 0) {}
  * @param string $data <p>
  * The string to decompress.
  * </p>
- * @param int $use_less_memory [optional] <p>
+ * @param bool $use_less_memory [optional] <p>
  * If <b>TRUE</b>, an alternative decompression algorithm will be used which
  * uses less memory (the maximum memory requirement drops to around 2300K)
  * but works at roughly half the speed.
@@ -157,4 +158,4 @@ function bzcompress ($data, $block_size = 4, $work_factor = 0) {}
  * @return mixed The decompressed string, or an error number if an error occurred.
  */
 #[Pure]
-function bzdecompress ($data, $use_less_memory = 0) {}
+function bzdecompress (string $data, bool $use_less_memory) {}

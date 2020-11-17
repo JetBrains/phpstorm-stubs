@@ -22,7 +22,7 @@ use JetBrains\PhpStorm\Pure;
  * binary representation of the message digest is returned.
  */
 #[Pure]
-function hash ($algo, $data, $binary = false) {}
+function hash (string $algo, string $data, bool $binary = false) {}
 
 /**
  * Timing attack safe string comparison
@@ -33,7 +33,7 @@ function hash ($algo, $data, $binary = false) {}
  * @since 5.6
  */
 #[Pure]
-function hash_equals($known_string, $user_string) {}
+function hash_equals(string $known_string, string $user_string) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -54,7 +54,7 @@ function hash_equals($known_string, $user_string) {}
  * binary representation of the message digest is returned.
  */
 #[Pure]
-function hash_file ($algo, $filename, $binary = false) {}
+function hash_file (string $algo, string $filename, bool $binary = false) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -79,7 +79,7 @@ function hash_file ($algo, $filename, $binary = false) {}
  * binary representation of the message digest is returned.
  */
 #[Pure]
-function hash_hmac ($algo, $data, $key, $binary = false) {}
+function hash_hmac (string $algo, string $data, string $key, bool $binary = false) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -104,7 +104,7 @@ function hash_hmac ($algo, $data, $key, $binary = false) {}
  * binary representation of the message digest is returned.
  */
 #[Pure]
-function hash_hmac_file ($algo, $data, $key, $binary = false) {}
+function hash_hmac_file (string $algo, string $data, string $key, bool $binary = false) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -129,7 +129,8 @@ function hash_hmac_file ($algo, $data, $key, $binary = false) {}
  * and <b>hash_final</b>.
  */
 #[Pure]
-function hash_init ($algo, $flags = 0, $key = null) {}
+function hash_init (string $algo, int $flags = 0, string $key)
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -143,7 +144,7 @@ function hash_init ($algo, $flags = 0, $key = null) {}
  * </p>
  * @return bool <b>TRUE</b>.
  */
-function hash_update ($context, $data) {}
+function hash_update ($context, string $data){}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -161,7 +162,8 @@ function hash_update ($context, $data) {}
  * </p>
  * @return int Actual number of bytes added to the hashing context from <i>handle</i>.
  */
-function hash_update_stream ($context, $stream, $length = -1) {}
+function hash_update_stream ($context, $stream, int $length = -1)
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -178,7 +180,8 @@ function hash_update_stream ($context, $stream, $length = -1) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function hash_update_file ($context, $filename, $stream_context = null) {}
+function hash_update_file ($context, string $filename, $stream_context = null)
+{}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)<br/>
@@ -195,7 +198,8 @@ function hash_update_file ($context, $filename, $stream_context = null) {}
  * unless <i>raw_output</i> is set to true in which case the raw
  * binary representation of the message digest is returned.
  */
-function hash_final ($context, $binary = false) {}
+function hash_final ($context, bool $binary = false)
+{}
 
 /**
  * Copy hashing context
@@ -281,7 +285,7 @@ function hash_hmac_algos() {}
  * @since 5.5
  */
 #[Pure]
-function hash_pbkdf2 ($algo, $password, $salt, $iterations, $length = 0, $binary = false) {}
+function hash_pbkdf2 (string $algo, string $password, string $salt, int $iterations, int $length = 0, bool $binary = false) {}
 
 /**
  * Generates a key
@@ -306,7 +310,7 @@ function hash_pbkdf2 ($algo, $password, $salt, $iterations, $length = 0, $binary
  * @return string|false the generated key as a string, or <b>FALSE</b> on error.
  */
 #[Pure]
-function mhash_keygen_s2k ($algo, $password, $salt, $length) {}
+function mhash_keygen_s2k (int $algo, string $password, string $salt, int $length) {}
 
 /**
  * Gets the block size of the specified hash
@@ -318,7 +322,7 @@ function mhash_keygen_s2k ($algo, $password, $salt, $length) {}
  * does not exist.
  */
 #[Pure]
-function mhash_get_block_size ($algo) {}
+function mhash_get_block_size (int $algo) {}
 
 /**
  * Gets the name of the specified hash
@@ -329,7 +333,7 @@ function mhash_get_block_size ($algo) {}
  * @return string|false the name of the hash or <b>FALSE</b>, if the hash does not exist.
  */
 #[Pure]
-function mhash_get_hash_name ($algo) {}
+function mhash_get_hash_name (int $algo) {}
 
 /**
  * Gets the highest available hash ID
@@ -359,7 +363,8 @@ function mhash_count () {}
  * <b>FALSE</b> on error.
  */
 #[Pure]
-function mhash ($algo, $data, $key = null) {}
+function mhash (int $algo, string $data, string $key)
+{}
 
 
 /**

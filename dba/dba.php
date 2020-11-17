@@ -119,7 +119,8 @@
  * @param mixed ...$handler_params [optional]
  * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
-function dba_open ($path, $mode, $handler = null, ...$handler_params) {}
+function dba_open ($path, $mode, $handler, ...$handler_params)
+{}
 
 /**
  * Open database persistently
@@ -142,7 +143,8 @@ function dba_open ($path, $mode, $handler = null, ...$handler_params) {}
  * @param mixed ...$handler_params [optional]
  * @return resource|false a positive handle on success or <b>FALSE</b> on failure.
  */
-function dba_popen ($path, $mode, $handler = null, ...$handler_params) {}
+function dba_popen ($path, $mode, $handler, ...$handler_params)
+{}
 
 /**
  * Close a DBA database
@@ -241,7 +243,7 @@ function dba_fetch ($key, $skip, $dba) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_insert ($key, $value, $dba) {}
+function dba_insert ($key, string $value, $dba) {}
 
 /**
  * Replace or insert entry
@@ -258,7 +260,7 @@ function dba_insert ($key, $value, $dba) {}
  * </p>
  * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
  */
-function dba_replace ($key, $value, $dba) {}
+function dba_replace ($key, string $value, $dba) {}
 
 /**
  * Fetch first key
@@ -319,7 +321,7 @@ function dba_sync ($dba) {}
  * When the internal cdb library is used you will see
  * cdb and cdb_make.
  */
-function dba_handlers ($full_info = false) {}
+function dba_handlers (bool $full_info = false) {}
 
 /**
  * List all open database files
@@ -331,13 +333,13 @@ function dba_list () {}
 /**
  * Splits a key in string representation into array representation
  * @link https://php.net/manual/en/function.dba-key-split.php
- * @param mixed $key <p>
+ * @param string|false|null $key <p>
  * The key in string representation.
  * </p>
  * @return array|false an array of the form array(0 =&gt; group, 1 =&gt;
  * value_name). This function will return <b>FALSE</b> if
  * <i>key</i> is <b>NULL</b> or <b>FALSE</b>.
  */
-function dba_key_split ($key) {}
+function dba_key_split (string|false|null $key) {}
 
 // End of dba v.

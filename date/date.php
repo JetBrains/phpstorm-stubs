@@ -20,7 +20,7 @@ use JetBrains\PhpStorm\Pure;
  * this function would return -1 on failure.
  */
 #[Pure]
-function strtotime ($datetime, $baseTimestamp) {}
+function strtotime (string $datetime, int $baseTimestamp) {}
 
 /**
  * Format a local time/date
@@ -289,7 +289,7 @@ function strtotime ($datetime, $baseTimestamp) {}
  * E_WARNING level error is emitted.
  */
 #[Pure]
-function date ($format, $timestamp) {}
+function date (string $format, int $timestamp) {}
 
 /**
  * Format a local time/date as integer
@@ -385,7 +385,7 @@ function date ($format, $timestamp) {}
  * fewer digits than you would expect. See the example below.
  */
 #[Pure]
-function idate ($format, $timestamp = null) {}
+function idate (string $format, int $timestamp) {}
 
 /**
  * Format a GMT/UTC date/time
@@ -400,7 +400,7 @@ function idate ($format, $timestamp = null) {}
  * E_WARNING level error is emitted.
  */
 #[Pure]
-function gmdate ($format, $timestamp = null) {}
+function gmdate (string $format, int $timestamp) {}
 
 /**
  * Get Unix timestamp for a date
@@ -502,7 +502,7 @@ function gmmktime ($hour = null, $minute = null, $second = null, $month = null, 
  * @return bool true if the date given is valid; otherwise returns false.
  */
 #[Pure]
-function checkdate ($month, $day, $year) {}
+function checkdate (int $month, int $day, int $year) {}
 
 /**
  * Format a local time/date according to locale settings
@@ -762,7 +762,8 @@ function checkdate ($month, $day, $year) {}
  * other language-dependent strings respect the current locale set
  * with setlocale.
  */
-function strftime ($format, $timestamp = null) {}
+function strftime (string $format, int $timestamp)
+{}
 
 /**
  * Format a GMT/UTC time/date according to locale settings
@@ -777,7 +778,7 @@ function strftime ($format, $timestamp = null) {}
  * other language dependent strings respect the current locale set
  * with setlocale.
  */
-function gmstrftime ($format, $timestamp = null) {}
+function gmstrftime (string $format, int $timestamp) {}
 
 /**
  * Return current Unix timestamp
@@ -803,7 +804,7 @@ function time () {}
  * @return array
  */
 #[Pure]
-function localtime ($timestamp = null, $associative = null) {}
+function localtime (int $timestamp, bool $associative) {}
 
 /**
  * Get date/time information
@@ -885,7 +886,7 @@ function localtime ($timestamp = null, $associative = null) {}
  * </table>
  */
 #[Pure]
-function getdate ($timestamp = null) {}
+function getdate (int $timestamp) {}
 
 /**
  * Returns new DateTime object
@@ -899,7 +900,7 @@ function getdate ($timestamp = null) {}
  * @return DateTime|false DateTime object on success or false on failure.
  */
 #[Pure]
-function date_create ($datetime = null, DateTimeZone $timezone = null ) {}
+function date_create (string $datetime, DateTimeZone $timezone ) {}
 
 /**
  * (PHP 5.5)<br/>
@@ -916,7 +917,7 @@ function date_create ($datetime = null, DateTimeZone $timezone = null ) {}
  * @return DateTimeImmutable|false DateTime object on success or false on failure.
  */
 #[Pure]
-function date_create_immutable ($datetime = null, DateTimeZone $timezone = null ) {}
+function date_create_immutable (string $datetime, DateTimeZone $timezone) {}
 
 /**
  * Returns new DateTimeImmutable object formatted according to the specified format
@@ -927,7 +928,7 @@ function date_create_immutable ($datetime = null, DateTimeZone $timezone = null 
  * @return DateTimeImmutable
  */
 #[Pure]
-function date_create_immutable_from_format ($format, $datetime, DateTimeZone $timezone = null) {}
+function date_create_immutable_from_format (string $format, string $datetime, DateTimeZone $timezone) {}
 
 /**
  * Alias:
@@ -943,7 +944,7 @@ function date_create_immutable_from_format ($format, $datetime, DateTimeZone $ti
  * {@see DateTime} instance or <b>FALSE</b> on failure.</p>
  */
 #[Pure]
-function date_create_from_format ($format, $datetime, $timezone = null) {}
+function date_create_from_format (string $format, string $datetime, DateTimeZone $timezone) {}
 
 /**
  * Returns associative array with detailed info about given date
@@ -955,7 +956,7 @@ function date_create_from_format ($format, $datetime, $timezone = null) {}
  * on success or false on failure.
  */
 #[Pure]
-function date_parse ($datetime) {}
+function date_parse (string $datetime) {}
 
 /**
  * Get info about given date formatted according to the specified format
@@ -969,7 +970,7 @@ function date_parse ($datetime) {}
  * @return array associative array with detailed info about given date.
  */
 #[Pure]
-function date_parse_from_format ($format, $datetime) {}
+function date_parse_from_format (string $format, string $datetime) {}
 
 /**
  * Returns the warnings and errors
@@ -990,7 +991,7 @@ function date_get_last_errors () {}
  * @return string|false formatted date string on success or <b>FALSE</b> on failure.
  */
 #[Pure]
-function date_format (DateTimeInterface $object, $format) {}
+function date_format (DateTimeInterface $object, string $format) {}
 
 /**
  * Alter the timestamp of a DateTime object by incrementing or decrementing
@@ -1003,7 +1004,7 @@ function date_format (DateTimeInterface $object, $format) {}
  * @return DateTime|false Returns the DateTime object for method chaining or <b>FALSE</b> on failure.
  */
 #[Pure]
-function date_modify ($object, $modifier) {}
+function date_modify (DateTime $object, string $modifier) {}
 
 /**
  * &Alias; <methodname>DateTime::add</methodname>
@@ -1033,7 +1034,7 @@ function date_add (DateTime $object, DateInterval $interval) {}
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
 #[Pure]
-function date_sub ($object, $interval) {}
+function date_sub (DateTime $object, DateInterval $interval) {}
 
 /**
  * Alias:
@@ -1067,7 +1068,7 @@ function date_timezone_get (DateTimeInterface $object) {}
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
 #[Pure]
-function date_timezone_set ($object, $timezone) {}
+function date_timezone_set (DateTimeInterface $object, DateTimeZone $timezone) {}
 
 /**
  * Alias:
@@ -1086,12 +1087,12 @@ function date_offset_get (DateTimeInterface $object) {}
  * {@see DateTime::diff}
  * @link https://php.net/manual/en/function.date-diff.php
  * @param DateTime $baseObject
- * @param DateTime $targetObject The date to compare to
+ * @param DateTimeInterface $targetObject The date to compare to
  * @param bool $absolute [optional] Whether to return absolute difference.
  * @return DateInterval|false The DateInterval object representing the difference between the two dates or FALSE on failure.
  */
 #[Pure]
-function date_diff ($baseObject, $targetObject, $absolute = false) {}
+function date_diff (DateTimeInterface $baseObject, DateTimeInterface $targetObject, bool $absolute = false) {}
 
 /**
  * &Alias; <methodname>DateTime::setTime</methodname>
@@ -1105,7 +1106,7 @@ function date_diff ($baseObject, $targetObject, $absolute = false) {}
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.</p>
  */
 #[Pure]
-function date_time_set (DateTime $object, int $hour, int $minute, $second = 0, $microsecond = 0) {}
+function date_time_set (DateTime $object, int $hour, int $minute, int $second = 0, int $microsecond = 0) {}
 
 /**
  * &Alias; <methodname>DateTime::setDate</methodname>
@@ -1122,7 +1123,7 @@ function date_time_set (DateTime $object, int $hour, int $minute, $second = 0, $
  * {@see DateTime} object for method chaining or <b>FALSE</b> on failure.
  * </p>
  */
-function date_date_set (DateTime $object, $year, $month, $day) {}
+function date_date_set (DateTime $object, int $year, int $month, int $day) {}
 
 /**
  * Alias:
@@ -1136,7 +1137,7 @@ function date_date_set (DateTime $object, $year, $month, $day) {}
  * Returns the {@see DateTime} object for method chaining or <strong><code>FALSE</code></strong> on failure.
  * </p>
  */
-function date_isodate_set ($object, $year, $week, $dayOfWeek = 1) {}
+function date_isodate_set (DateTime $object, int $year, int $week, int $dayOfWeek = 1) {}
 
 /**
  * Sets the date and time based on an unix timestamp
@@ -1149,7 +1150,7 @@ function date_isodate_set ($object, $year, $week, $dayOfWeek = 1) {}
  * @return DateTime|false
  * {@see DateTime} object for call chaining or <b>FALSE</b> on failure
  */
-function date_timestamp_set ($object, $timestamp) {}
+function date_timestamp_set (DateTime $object, int $timestamp) {}
 
 /**
  * Gets the unix timestamp
@@ -1160,7 +1161,7 @@ function date_timestamp_set ($object, $timestamp) {}
  * @return int <p>Returns the Unix timestamp representing the date.</p>
  */
 #[Pure]
-function date_timestamp_get ($object) {}
+function date_timestamp_get (DateTimeInterface $object) {}
 
 /**
  * Returns new DateTimeZone object
@@ -1172,7 +1173,7 @@ function date_timestamp_get ($object) {}
  * @return DateTimeZone|false DateTimeZone object on success or false on failure.
  */
 #[Pure]
-function timezone_open ($timezone) {}
+function timezone_open (string $timezone) {}
 
 /**
  * Alias: {@see DateTimeZone::getName}
@@ -1205,7 +1206,8 @@ function timezone_name_get (DateTimeZone $object) {}
  * @since 5.1.3
  */
 #[Pure]
-function timezone_name_from_abbr ($abbr, $utcOffset = null, $isDST = null) {}
+function timezone_name_from_abbr (string $abbr, int $utcOffset, int $isDST)
+{}
 
 /**
  * Alias:
@@ -1234,7 +1236,7 @@ function timezone_offset_get (DateTimeZone $object, DateTimeInterface $datetime)
  * @return array|false <p>Returns numerically indexed array containing associative array with all transitions on success or FALSE on failure.</p>
  */
 #[Pure]
-function timezone_transitions_get ($object, $timestampBegin, $timestampEnd) {}
+function timezone_transitions_get (DateTimeZone $object, int $timestampBegin, int $timestampEnd) {}
 
 /**
  * &Alias; {@see DateTimeZone::getLocation}
@@ -1256,7 +1258,7 @@ function timezone_location_get (DateTimeZone $object) {}
  * Note: This option is only used when what is set to DateTimeZone::PER_COUNTRY.
  */
 #[Pure]
-function timezone_identifiers_list ($timezoneGroup = DateTimeZone::ALL, $countryCode = null) {}
+function timezone_identifiers_list (int $timezoneGroup = DateTimeZone::ALL, string $countryCode) {}
 
 /**
  * Returns associative array containing dst, offset and the timezone name
@@ -1288,17 +1290,17 @@ function timezone_version_get () {}
  * <p>Returns a new DateInterval instance.</p>
  */
 #[Pure]
-function date_interval_create_from_date_string ($datetime) {}
+function date_interval_create_from_date_string (string $datetime) {}
 
 /**
  * &Alias; <methodname>DateInterval::format</methodname>
  * @link https://php.net/manual/en/function.date-interval-format.php
- * @param $object
- * @param $format
+ * @param DateInterval $object
+ * @param string $format
  * @return DateInterval
  */
 #[Pure]
-function date_interval_format ($object, $format) {}
+function date_interval_format (DateInterval $object, string $format) {}
 
 /**
  * Sets the default timezone used by all date/time functions in a script
@@ -1312,7 +1314,8 @@ function date_interval_format ($object, $format) {}
  * timezone_identifier isn't valid, or true
  * otherwise.
  */
-function date_default_timezone_set ($timezoneId) {}
+function date_default_timezone_set (string $timezoneId): bool
+{}
 
 /**
  * Gets the default timezone used by all date/time functions in a script
@@ -1370,7 +1373,7 @@ function date_default_timezone_get () {}
  * success or false on failure.
  */
 #[Pure]
-function date_sunrise ($timestamp, $returnFormat = null, $latitude = null, $longitude = null, $zenith = null, $utcOffset = null) {}
+function date_sunrise (int $timestamp, int $returnFormat, float $latitude, float $longitude, float $zenith, float $utcOffset) {}
 
 /**
  * Returns time of sunset for a given day and location
@@ -1420,7 +1423,7 @@ function date_sunrise ($timestamp, $returnFormat = null, $latitude = null, $long
  * success or false on failure.
  */
 #[Pure]
-function date_sunset ($timestamp, $returnFormat = null, $latitude = null, $longitude = null, $zenith = null, $utcOffset = null) {}
+function date_sunset (int $timestamp, int $returnFormat, float $latitude, float $longitude, float $zenith, float $utcOffset) {}
 
 /**
  * Returns an array with information about sunset/sunrise and twilight begin/end
@@ -1438,6 +1441,6 @@ function date_sunset ($timestamp, $returnFormat = null, $latitude = null, $longi
  * @since 5.1.2
  */
 #[Pure]
-function date_sun_info ($timestamp, $latitude, $longitude) {}
+function date_sun_info (int $timestamp, float $latitude, float $longitude) {}
 
 // End of date v.5.3.2-0.dotdeb.1

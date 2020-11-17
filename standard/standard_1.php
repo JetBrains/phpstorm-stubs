@@ -14,7 +14,7 @@ use JetBrains\PhpStorm\Pure;
  * @return string the uppercased string.
  */
 #[Pure]
-function strtoupper ($string) {}
+function strtoupper (string $string) {}
 
 /**
  * Make a string lowercase
@@ -25,7 +25,7 @@ function strtoupper ($string) {}
  * @return string the lowercased string.
  */
 #[Pure]
-function strtolower ($string) {}
+function strtolower (string $string) {}
 
 /**
  * Find the position of the first occurrence of a substring in a string
@@ -33,7 +33,7 @@ function strtolower ($string) {}
  * @param string $haystack <p>
  * The string to search in
  * </p>
- * @param mixed $needle <p>
+ * @param string $needle <p>
  * If <b>needle</b> is not a string, it is converted
  * to an integer and applied as the ordinal value of a character.
  * </p>
@@ -52,7 +52,7 @@ function strtolower ($string) {}
  * </p>
  */
 #[Pure]
-function strpos ($haystack, $needle, $offset = 0) {}
+function strpos (string $haystack, string $needle, int $offset = 0) {}
 
 /**
  * Find position of first occurrence of a case-insensitive string
@@ -60,7 +60,7 @@ function strpos ($haystack, $needle, $offset = 0) {}
  * @param string $haystack <p>
  * The string to search in
  * </p>
- * @param mixed $needle <p>
+ * @param string $needle <p>
  * Note that the needle may be a string of one or
  * more characters.
  * </p>
@@ -78,7 +78,8 @@ function strpos ($haystack, $needle, $offset = 0) {}
  * stripos will return boolean false.
  */
 #[Pure]
-function stripos ($haystack, $needle, $offset = null) {}
+function stripos (string $haystack, string $needle, int $offset)
+{}
 
 /**
  * Find the position of the last occurrence of a substring in a string
@@ -86,7 +87,7 @@ function stripos ($haystack, $needle, $offset = null) {}
  * @param string $haystack <p>
  * The string to search in.
  * </p>
- * @param mixed $needle <p>
+ * @param string $needle <p>
  * If <b>needle</b> is not a string, it is converted to an integer and applied as the ordinal value of a character.
  * </p>
  * @param int $offset [optional] <p>
@@ -103,7 +104,7 @@ function stripos ($haystack, $needle, $offset = null) {}
  * </p>
  */
 #[Pure]
-function strrpos ($haystack, $needle, $offset = 0) {}
+function strrpos (string $haystack, string $needle, int $offset = 0) {}
 
 /**
  * Find position of last occurrence of a case-insensitive string in a string
@@ -111,7 +112,7 @@ function strrpos ($haystack, $needle, $offset = 0) {}
  * @param string $haystack <p>
  * The string to search in
  * </p>
- * @param mixed $needle <p>
+ * @param string $needle <p>
  * Note that the needle may be a string of one or
  * more characters.
  * </p>
@@ -132,7 +133,8 @@ function strrpos ($haystack, $needle, $offset = 0) {}
  * If needle is not found, false is returned.
  */
 #[Pure]
-function strripos ($haystack, $needle, $offset = null) {}
+function strripos (string $haystack, string $needle, int $offset)
+{}
 
 /**
  * Reverse a string
@@ -143,7 +145,7 @@ function strripos ($haystack, $needle, $offset = null) {}
  * @return string the reversed string.
  */
 #[Pure]
-function strrev ($string) {}
+function strrev (string $string) {}
 
 /**
  * Convert logical Hebrew text to visual text
@@ -158,7 +160,8 @@ function strrev ($string) {}
  * @return string the visual string.
  */
 #[Pure]
-function hebrev ($string, $max_chars_per_line = null) {}
+function hebrev (string $string, int $max_chars_per_line)
+{}
 
 /**
  * Convert logical Hebrew text to visual text with newline conversion
@@ -174,7 +177,8 @@ function hebrev ($string, $max_chars_per_line = null) {}
  * @removed 8.0
  */
 #[Deprecated(replacement: 'nl2br(hebrev(%parameter0%))', since: '7.4')]
-function hebrevc ($hebrew_text, $max_chars_per_line = null) {}
+function hebrevc (string $hebrew_text, $max_chars_per_line)
+{}
 
 /**
  * Inserts HTML line breaks before all newlines in a string
@@ -188,7 +192,7 @@ function hebrevc ($hebrew_text, $max_chars_per_line = null) {}
  * @return string the altered string.
  */
 #[Pure]
-function nl2br ($string, $use_xhtml = true) {}
+function nl2br (string $string, bool $use_xhtml = true) {}
 
 /**
  * Returns trailing name component of path
@@ -208,7 +212,8 @@ function nl2br ($string, $use_xhtml = true) {}
  * @return string the base name of the given path.
  */
 #[Pure]
-function basename ($path, $suffix = null) {}
+function basename (string $path, string $suffix)
+{}
 
 /**
  * Returns a parent directory's path
@@ -232,7 +237,7 @@ function basename ($path, $suffix = null) {}
  * /component removed.
  */
 #[Pure]
-function dirname ($path, $levels = 1) {}
+function dirname (string $path, int $levels = 1) {}
 
 /**
  * Returns information about a file path
@@ -258,7 +263,8 @@ function dirname ($path, $levels = 1) {}
  * string if not all elements are requested.
  */
 #[Pure]
-function pathinfo ($path, $flags = null) {}
+function pathinfo (string $path, int $flags)
+{}
 
 /**
  * Un-quotes a quoted string
@@ -272,7 +278,7 @@ function pathinfo ($path, $flags = null) {}
  * backslash (\).
  */
 #[Pure]
-function stripslashes ($string) {}
+function stripslashes (string $string) {}
 
 /**
  * Un-quote string quoted with <function>addcslashes</function>
@@ -283,7 +289,7 @@ function stripslashes ($string) {}
  * @return string the unescaped string.
  */
 #[Pure]
-function stripcslashes ($string) {}
+function stripcslashes (string $string) {}
 
 /**
  * Find the first occurrence of a string
@@ -291,7 +297,7 @@ function stripcslashes ($string) {}
  * @param string $haystack <p>
  * The input string.
  * </p>
- * @param mixed $needle <p>
+ * @param string $needle <p>
  * If needle is not a string, it is converted to
  * an integer and applied as the ordinal value of a character.
  * </p>
@@ -304,7 +310,8 @@ function stripcslashes ($string) {}
  * is not found.
  */
 #[Pure]
-function strstr ($haystack, $needle, $before_needle = null) {}
+function strstr (string $haystack, string $needle, bool $before_needle)
+{}
 
 /**
  * Case-insensitive <function>strstr</function>
@@ -312,7 +319,7 @@ function strstr ($haystack, $needle, $before_needle = null) {}
  * @param string $haystack <p>
  * The string to search in
  * </p>
- * @param mixed $needle <p>
+ * @param string $needle <p>
  * If needle is not a string, it is converted to
  * an integer and applied as the ordinal value of a character.
  * </p>
@@ -325,7 +332,8 @@ function strstr ($haystack, $needle, $before_needle = null) {}
  * found, returns false.
  */
 #[Pure]
-function stristr ($haystack, $needle, $before_needle = null) {}
+function stristr (string $haystack, string $needle, bool $before_needle)
+{}
 
 /**
  * Find the last occurrence of a character in a string
@@ -333,7 +341,7 @@ function stristr ($haystack, $needle, $before_needle = null) {}
  * @param string $haystack <p>
  * The string to search in
  * </p>
- * @param mixed $needle <p>
+ * @param string $needle <p>
  * If <b>needle</b> contains more than one character,
  * only the first is used. This behavior is different from that of {@see strstr()}.
  * </p>
@@ -347,7 +355,7 @@ function stristr ($haystack, $needle, $before_needle = null) {}
  * </p>
  */
 #[Pure]
-function strrchr ($haystack, $needle) {}
+function strrchr (string $haystack, string $needle) {}
 
 /**
  * Randomly shuffles a string
@@ -358,7 +366,7 @@ function strrchr ($haystack, $needle) {}
  * @return string the shuffled string.
  */
 #[Pure]
-function str_shuffle ($string) {}
+function str_shuffle (string $string) {}
 
 /**
  * Return information about words used in a string
@@ -378,7 +386,8 @@ function str_shuffle ($string) {}
  * format chosen.
  */
 #[Pure]
-function str_word_count ($string, $format = null, $characters = null) {}
+function str_word_count (string $string, int $format, string $characters)
+{}
 
 /**
  * Convert a string to an array
@@ -402,7 +411,7 @@ function str_word_count ($string, $format = null, $characters = null) {}
  * </p>
  */
 #[Pure]
-function str_split ($string, $length = 1) {}
+function str_split (string $string, int $length = 1) {}
 
 /**
  * Search a string for any of a set of characters
@@ -417,7 +426,7 @@ function str_split ($string, $length = 1) {}
  * not found.
  */
 #[Pure]
-function strpbrk ($string, $characters) {}
+function strpbrk (string $string, string $characters) {}
 
 /**
  * Binary safe comparison of two strings from an offset, up to length characters
@@ -448,7 +457,8 @@ function strpbrk ($string, $characters) {}
  * false.
  */
 #[Pure]
-function substr_compare ($haystack, $needle, $offset, $length = null, $case_insensitive = null) {}
+function substr_compare (string $haystack, string $needle, int $offset, int $length, bool $case_insensitive)
+{}
 
 /**
  * Locale based string comparison
@@ -465,7 +475,7 @@ function substr_compare ($haystack, $needle, $offset, $length = null, $case_inse
  * str2, and 0 if they are equal.
  */
 #[Pure]
-function strcoll ($string1, $string2) {}
+function strcoll (string $string1, string $string2) {}
 
 /**
  * Formats a number as a currency string
@@ -484,7 +494,7 @@ function strcoll ($string1, $string2) {}
  * @see NumberFormatter
  */
 #[Deprecated(reason: 'Use the NumberFormatter functionality', since: '7.4')]
-function money_format ($format, $number) {}
+function money_format (string $format, float $number) {}
 
 /**
  * Return part of a string
@@ -550,18 +560,19 @@ function money_format ($format, $number) {}
  * @return string|false the extracted part of string or false on failure.
  */
 #[Pure]
-function substr ($string, $offset, $length = null) {}
+function substr (string $string, int $offset, int $length)
+{}
 
 /**
  * Replace text within a portion of a string
  * @link https://php.net/manual/en/function.substr-replace.php
- * @param mixed $string <p>
+ * @param array|string $string <p>
  * The input string.
  * </p>
- * @param string $replace <p>
+ * @param string|array $replace <p>
  * The replacement string.
  * </p>
- * @param int $offset <p>
+ * @param array|int $offset <p>
  * If start is positive, the replacing will
  * begin at the start'th offset into
  * string.
@@ -588,7 +599,8 @@ function substr ($string, $offset, $length = null) {}
  * array then array is returned.
  */
 #[Pure]
-function substr_replace ($string, $replace, $offset, $length = null) {}
+function substr_replace (array|string $string, array|string $replace, array|int $offset, array|int $length = null)
+{}
 
 /**
  * Quote meta characters
@@ -599,7 +611,7 @@ function substr_replace ($string, $replace, $offset, $length = null) {}
  * @return string the string with meta characters quoted.
  */
 #[Pure]
-function quotemeta ($string) {}
+function quotemeta (string $string) {}
 
 /**
  * Make a string's first character uppercase
@@ -610,7 +622,7 @@ function quotemeta ($string) {}
  * @return string the resulting string.
  */
 #[Pure]
-function ucfirst ($string) {}
+function ucfirst (string $string) {}
 
 /**
  * Make a string's first character lowercase
@@ -621,7 +633,7 @@ function ucfirst ($string) {}
  * @return string the resulting string.
  */
 #[Pure]
-function lcfirst ($string) {}
+function lcfirst (string $string) {}
 
 /**
  * Uppercase the first character of each word in a string
@@ -633,7 +645,7 @@ function lcfirst ($string) {}
  * @return string the modified string.
  */
 #[Pure]
-function ucwords ($string, $separators = " \t\r\n\f\v") {}
+function ucwords (string $string, string $separators = " \t\r\n\f\v") {}
 
 /**
  * Translate characters or replace substrings
@@ -653,7 +665,7 @@ function ucwords ($string, $separators = " \t\r\n\f\v") {}
  * to.
  */
 #[Pure]
-function strtr ($string, $from, $to) {}
+function strtr (string $string, string $from, string $to) {}
 
 /**
  * Translate certain characters
@@ -663,7 +675,7 @@ function strtr ($string, $from, $to) {}
  * @return string A copy of str, translating all occurrences of each character in from to the corresponding character in to.
  */
 #[Pure]
-function strtr ($str, array $replace_pairs) {}
+function strtr (string $str, array $replace_pairs) {}
 
 /**
  * Quote string with slashes
@@ -674,7 +686,7 @@ function strtr ($str, array $replace_pairs) {}
  * @return string the escaped string.
  */
 #[Pure]
-function addslashes ($string) {}
+function addslashes (string $string) {}
 
 /**
  * Quote string with slashes in a C style
@@ -727,7 +739,7 @@ function addslashes ($string) {}
  * @return string the escaped string.
  */
 #[Pure]
-function addcslashes ($string, $characters) {}
+function addcslashes (string $string, string $characters) {}
 
 /**
  * Strip whitespace (or other characters) from the end of a string.
@@ -753,7 +765,7 @@ function addcslashes ($string, $characters) {}
  * @return string the modified string.
  */
 #[Pure]
-function rtrim ($string, $characters = " \t\n\r\0\x0B") {}
+function rtrim (string $string, string $characters = " \t\n\r\0\x0B") {}
 
 /**
  * Replace all occurrences of the search string with the replacement string
@@ -779,7 +791,7 @@ function rtrim ($string, $characters = " \t\n\r\0\x0B") {}
  * @param int &$count [optional] If passed, this will hold the number of matched and replaced needles.
  * @return string|string[] This function returns a string or an array with the replaced values.
  */
-function str_replace ($search, $replace, $subject, &$count = null) {}
+function str_replace (array|string $search, array|string $replace, array|string $subject, &$count) {}
 
 /**
  * Case-insensitive version of <function>str_replace</function>.
@@ -788,9 +800,9 @@ function str_replace ($search, $replace, $subject, &$count = null) {}
  * Every replacement with search array is
  * performed on the result of previous replacement.
  * </p>
- * @param mixed $replace <p>
+ * @param array|string $replace <p>
  * </p>
- * @param mixed $subject <p>
+ * @param array|string $subject <p>
  * If subject is an array, then the search and
  * replace is performed with every entry of
  * subject, and the return value is an array as
@@ -803,7 +815,8 @@ function str_replace ($search, $replace, $subject, &$count = null) {}
  * </p>
  * @return string|string[] a string or an array of replacements.
  */
-function str_ireplace ($search, $replace, $subject, &$count = null) {}
+function str_ireplace (array|string $search, array|string $replace, array|string $subject, &$count)
+{}
 
 /**
  * Repeat a string
@@ -823,7 +836,7 @@ function str_ireplace ($search, $replace, $subject, &$count = null) {}
  * @return string the repeated string.
  */
 #[Pure]
-function str_repeat ($string, $times) {}
+function str_repeat (string $string, int $times) {}
 
 /**
  * Return information about characters used in a string
@@ -846,7 +859,8 @@ function str_repeat ($string, $times) {}
  * 4 - a string containing all not used characters is returned.
  */
 #[Pure]
-function count_chars ($string, $mode = null) {}
+function count_chars (string $string, int $mode)
+{}
 
 /**
  * Split a string into smaller chunks
@@ -863,7 +877,7 @@ function count_chars ($string, $mode = null) {}
  * @return string the chunked string.
  */
 #[Pure]
-function chunk_split ($string, $length = 76, $separator = "\r\n") {}
+function chunk_split (string $string, int $length = 76, string $separator = "\r\n") {}
 
 /**
  * Strip whitespace (or other characters) from the beginning and end of a string
@@ -880,7 +894,7 @@ function chunk_split ($string, $length = 76, $separator = "\r\n") {}
  * @return string The trimmed string.
  */
 #[Pure]
-function trim ($string, $characters = " \t\n\r\0\x0B") {}
+function trim (string $string, string $characters = " \t\n\r\0\x0B") {}
 
 /**
  * Strip whitespace (or other characters) from the beginning of a string
@@ -912,7 +926,7 @@ function trim ($string, $characters = " \t\n\r\0\x0B") {}
  * (0x0B)), a vertical tab.
  */
 #[Pure]
-function ltrim ($string, $characters = " \t\n\r\0\x0B") {}
+function ltrim (string $string, string $characters = " \t\n\r\0\x0B") {}
 
 /**
  * Strip HTML and PHP tags from a string
@@ -932,7 +946,8 @@ function ltrim ($string, $characters = " \t\n\r\0\x0B") {}
  * @return string the stripped string.
  */
 #[Pure]
-function strip_tags ($string, $allowed_tags = null) {}
+function strip_tags (string $string, array|string $allowed_tags = null)
+{}
 
 /**
  * Calculate the similarity between two strings
@@ -950,7 +965,8 @@ function strip_tags ($string, $allowed_tags = null) {}
  * </p>
  * @return int the number of matching chars in both strings.
  */
-function similar_text ($string1, $string2, &$percent = null) {}
+function similar_text (string $string1, string $string2, &$percent)
+{}
 
 /**
  * Split a string by a string
@@ -982,12 +998,13 @@ function similar_text ($string1, $string2, &$percent = null) {}
  * string will be returned.
  */
 #[Pure]
-function explode ($separator, $string, $limit = null) {}
+function explode (string $separator, string $string, int $limit)
+{}
 
 /**
  * Join array elements with a string
  * @link https://php.net/manual/en/function.implode.php
- * @param string $separator [optional]<p>
+ * @param array|string  $separator [optional]<p>
  * Defaults to an empty string. This is not the preferred usage of
  * implode as glue would be
  * the second parameter and thus, the bad prototype would be used.
@@ -999,12 +1016,12 @@ function explode ($separator, $string, $limit = null) {}
  * elements in the same order, with the glue string between each element.
  */
 #[Pure]
-function implode ($separator = "", array $array) {}
+function implode (array|string $separator = "", array $array) {}
 
 /**
  * &Alias; <function>implode</function>
  * @link https://php.net/manual/en/function.join.php
- * @param string $separator [optional] <p>
+ * @param array|string  $separator [optional] <p>
  * Defaults to an empty string. This is not the preferred usage of
  * implode as glue would be
  * the second parameter and thus, the bad prototype would be used.
@@ -1016,7 +1033,7 @@ function implode ($separator = "", array $array) {}
  * elements in the same order, with the glue string between each element.
  */
 #[Pure]
-function join ($separator = "", $array) {}
+function join (array|string  $separator = "", array $array) {}
 
 /**
  * Set locale information
@@ -1088,7 +1105,7 @@ function join ($separator = "", $array) {}
  * on the system that PHP is running. It returns exactly
  * what the system setlocale function returns.
  */
-function setlocale ($category, $locales, ...$rest) {}
+function setlocale (int $category, array|string $locales, ...$rest) {}
 
 /**
  * Get numeric formatting information

@@ -3,9 +3,15 @@ declare(strict_types=1);
 
 namespace StubTests\Model;
 
+use PhpParser\Node\Expr;
+use PhpParser\Node\Identifier;
+use PhpParser\Node\Name;
+use PhpParser\Node\NullableType;
 use PhpParser\Node\Param;
+use PhpParser\Node\UnionType;
 use ReflectionNamedType;
 use ReflectionParameter;
+use ReflectionUnionType;
 use stdClass;
 
 class PHPParameter extends BasePHPElement
@@ -25,6 +31,12 @@ class PHPParameter extends BasePHPElement
         if ($parameterType instanceof ReflectionNamedType) {
             $this->type = $parameterType->getName();
         }
+        if ($parameterType instanceof ReflectionUnionType) {
+            foreach ($parameterType->getTypes() as $type) {
+                $this->type .= $type->getName() . '|';
+            }
+            $this->type = substr($this->type, 0, -1);
+        }
         $this->is_vararg = $reflectionObject->isVariadic();
         $this->is_passed_by_ref = $reflectionObject->isPassedByReference();
         return $this;
@@ -36,15 +48,21 @@ class PHPParameter extends BasePHPElement
      */
     public function readObjectFromStubNode($node): static
     {
+        // #[LanguageLevelTypeAware(["8.0" => "OpenSSLCertificate|string"], default: "resource|string")]
         $this->name = $node->var->name;
-        if ($node->type !== null) {
-            if (empty($node->type->name)) {
-                if (!empty($node->type->parts)) {
-                    $this->type = $node->type->parts[0];
+        $type = $node->type;
+        if ($type !== null) {
+            if ($type instanceof UnionType) {
+                foreach ($type->types as $type) {
+                    $this->type .= $this->getTypeNameFromNode($type) . '|';
                 }
+                $this->type = substr($this->type, 0, -1);
             } else {
-                $this->type = $node->type->name;
+                $this->type = $this->getTypeNameFromNode($type);
             }
+        }
+        if($node->default instanceof Expr\ConstFetch && $node->default->name->parts[0] === "null"){
+            $this->type .= "|null";
         }
         $this->is_vararg = $node->variadic;
         $this->is_passed_by_ref = $node->byRef;
@@ -67,6 +85,20 @@ class PHPParameter extends BasePHPElement
                 }
                 return;
             }
+        }
+    }
+
+    protected function getTypeNameFromNode(Name|Identifier|NullableType|string $type): string
+    {
+        if($type instanceof NullableType){
+            $type = $type->type;
+        }
+        if (empty($type->name)) {
+            if (!empty($type->parts)) {
+                return $type->parts[0];
+            }
+        } else {
+            return $type->name;
         }
     }
 }

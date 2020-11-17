@@ -523,7 +523,7 @@ class XMLWriter  {
  * Procedural style: Returns a new xmlwriter resource for later use with the
  * xmlwriter functions on success, <b>FALSE</b> on error.
  */
-function xmlwriter_open_uri ($uri) {}
+function xmlwriter_open_uri (string $uri) {}
 
 /**
  * (PHP 5 &gt;= 5.1.2, PECL xmlwriter &gt;= 0.1.0)<br/>

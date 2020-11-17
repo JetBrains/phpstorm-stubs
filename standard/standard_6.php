@@ -77,7 +77,8 @@ use JetBrains\PhpStorm\Pure;
  * is returned and a warning raised (this can happen if the system call is
  * interrupted by an incoming signal).
  */
-function stream_select (array &$read, array &$write, array &$except, $seconds, $microseconds = null) {}
+function stream_select (array &$read, array &$write, array &$except, int $seconds, int $microseconds)
+{}
 
 /**
  * Create a stream context
@@ -97,7 +98,7 @@ function stream_select (array &$read, array &$write, array &$except, $seconds, $
  * </p>
  * @return resource A stream context resource.
  */
-function stream_context_create (array $options = null, array $params = null) {}
+function stream_context_create (array $options, array $params) {}
 
 /**
  * Set parameters for a stream/wrapper/context
@@ -138,7 +139,7 @@ function stream_context_get_params ($context) {}
  * @param mixed $value
  * @return bool true on success or false on failure.
  */
-function stream_context_set_option ($context, $wrapper_or_options, $option_name, $value) {}
+function stream_context_set_option ($context, string $wrapper_or_options, string $option_name, mixed $value) {}
 
 /**
  * Sets an option for a stream/wrapper/context
@@ -171,7 +172,7 @@ function stream_context_get_options ($stream_or_context) {}
  * </p>
  * @return resource A stream context resource.
  */
-function stream_context_get_default (array $options = null) {}
+function stream_context_get_default (array $options) {}
 
 /**
  * Set the default stream context
@@ -221,7 +222,8 @@ function stream_context_set_default (array $options) {}
  * @return resource|false a resource which can be used to refer to this filter
  * instance during a call to stream_filter_remove.
  */
-function stream_filter_prepend ($stream, $filter_name, $mode = null, $params = null) {}
+function stream_filter_prepend ($stream, string $filter_name, int $mode, mixed $params)
+{}
 
 /**
  * Attach a filter to a stream
@@ -255,7 +257,8 @@ function stream_filter_prepend ($stream, $filter_name, $mode = null, $params = n
  * @return resource|false a resource which can be used to refer to this filter
  * instance during a call to stream_filter_remove.
  */
-function stream_filter_append ($stream, $filter_name, $mode = null, $params = null) {}
+function stream_filter_append ($stream, string $filter_name, int $mode, mixed $params)
+{}
 
 /**
  * Remove a filter from a stream
@@ -307,7 +310,7 @@ function stream_filter_remove ($stream_filter) {}
  * fwrite, fclose, and
  * feof), false on failure.
  */
-function stream_socket_client ($address, &$error_code = null, &$error_message = null, $timeout = null, $flags = null, $context = null) {}
+function stream_socket_client (string $address, &$error_code, &$error_message, float $timeout, int $flags, $context) {}
 
 /**
  * Create an Internet or Unix domain server socket
@@ -357,7 +360,7 @@ function stream_socket_client ($address, &$error_code = null, &$error_message = 
  * </p>
  * @return resource|false the created stream, or false on error.
  */
-function stream_socket_server ($address, &$error_code = null, &$error_message = null, $flags = null, $context = null) {}
+function stream_socket_server (string $address, &$error_code, &$error_message, int $flags, $context) {}
 
 /**
  * Accept a connection on a socket created by {@see stream_socket_server}
@@ -377,7 +380,7 @@ function stream_socket_server ($address, &$error_code = null, &$error_message = 
  * </p>
  * @return resource|false Returns a stream to the accepted socket connection or FALSE on failure.
  */
-function stream_socket_accept ($socket, $timeout = null, &$peer_name = null) {}
+function stream_socket_accept ($socket, float $timeout, &$peer_name) {}
 
 /**
  * Retrieve the name of the local or remote sockets
@@ -391,7 +394,7 @@ function stream_socket_accept ($socket, $timeout = null, &$peer_name = null) {}
  * </p>
  * @return string|false The name of the socket or false on error.
  */
-function stream_socket_get_name ($socket, $remote) {}
+function stream_socket_get_name ($socket, bool $remote) {}
 
 /**
  * Receives data from a socket, connected or not
@@ -430,7 +433,8 @@ function stream_socket_get_name ($socket, $remote) {}
  * </p>
  * @return string|false the read data, as a string, or false on error
  */
-function stream_socket_recvfrom ($socket, $length, $flags = null, &$address = null) {}
+function stream_socket_recvfrom ($socket, int $length, int $flags, &$address)
+{}
 
 /**
  * Sends a message to a socket, whether it is connected or not
@@ -463,7 +467,8 @@ function stream_socket_recvfrom ($socket, $length, $flags = null, &$address = nu
  * </p>
  * @return int|false a result code, as an integer.
  */
-function stream_socket_sendto ($socket, $data, $flags = null, $address = null) {}
+function stream_socket_sendto ($socket, string $data, int $flags, string $address)
+{}
 
 /**
  * Turns encryption on/off on an already connected socket
@@ -485,7 +490,8 @@ function stream_socket_sendto ($socket, $data, $flags = null, $address = null) {
  * 0 if there isn't enough data and you should try again
  * (only for non-blocking sockets).
  */
-function stream_socket_enable_crypto ($stream, $enable, $crypto_method = null, $session_stream = null) {}
+function stream_socket_enable_crypto ($stream, bool $enable, int $crypto_method, $session_stream)
+{}
 
 /**
  * Shutdown a full-duplex connection
@@ -504,7 +510,7 @@ function stream_socket_enable_crypto ($stream, $enable, $crypto_method = null, $
  * @return bool true on success or false on failure.
  * @since 5.2.1
  */
-function stream_socket_shutdown ($stream, $mode) {}
+function stream_socket_shutdown ($stream, int $mode) {}
 
 /**
  * Creates a pair of connected, indistinguishable socket streams
@@ -532,7 +538,7 @@ function stream_socket_shutdown ($stream, $mode) {}
  * @return array|false an array with the two socket resources on success, or
  * false on failure.
  */
-function stream_socket_pair ($domain, $type, $protocol) {}
+function stream_socket_pair (int $domain, int $type, int $protocol) {}
 
 /**
  * Copies data from one stream to another
@@ -551,7 +557,7 @@ function stream_socket_pair ($domain, $type, $protocol) {}
  * </p>
  * @return int|false the total count of bytes copied, or false on failure.
  */
-function stream_copy_to_stream ($from, $to, $length = null, $offset = null) {}
+function stream_copy_to_stream ($from, $to, int $length, int $offset) {}
 
 /**
  * Reads remainder of a stream into a string
@@ -568,7 +574,7 @@ function stream_copy_to_stream ($from, $to, $length = null, $offset = null) {}
  * </p>
  * @return string|false a string or false on failure.
  */
-function stream_get_contents ($stream, $length = -1, $offset = -1) {}
+function stream_get_contents ($stream, int $length = -1, int $offset = -1) {}
 
 /**
  * Tells whether the stream supports locking.
@@ -617,7 +623,7 @@ function stream_supports_lock ($stream) {}
  * handle is supplied or false on other errors,
  * including end of file.
  */
-function fgetcsv ($stream, $length = 0, $separator = ',', $enclosure = '"', $escape = '\\') {}
+function fgetcsv ($stream, int $length = 0, string $separator = ',', string $enclosure = '"', string $escape = '\\') {}
 
 /**
  * Format line as CSV and write to file pointer
@@ -637,7 +643,7 @@ function fgetcsv ($stream, $length = 0, $separator = ',', $enclosure = '"', $esc
  * @param string $escape The optional escape_char parameter sets the escape character (one character only).
  * @return int|false the length of the written string or false on failure.
  */
-function fputcsv ($stream, array $fields, $separator = ",", $enclosure = '"', $escape = "\\") {}
+function fputcsv ($stream, array $fields, string $separator = ",", string $enclosure = '"', string $escape = "\\") {}
 
 /**
  * Portable advisory file locking
@@ -654,7 +660,8 @@ function fputcsv ($stream, array $fields, $separator = ",", $enclosure = '"', $e
  * </p>
  * @return bool true on success or false on failure.
  */
-function flock ($stream, $operation, &$would_block = null) {}
+function flock ($stream, int $operation, &$would_block)
+{}
 
 /**
  * Extracts all meta tag content attributes from a file and returns an array
@@ -694,7 +701,8 @@ function flock ($stream, $operation, &$would_block = null) {}
  * name, only the last one is returned.
  */
 #[Pure]
-function get_meta_tags ($filename, $use_include_path = null) {}
+function get_meta_tags (string $filename, bool $use_include_path)
+{}
 
 /**
  * Sets write file buffering on the given stream
@@ -711,7 +719,7 @@ function get_meta_tags ($filename, $use_include_path = null) {}
  * @return int 0 on success, or EOF if the request cannot be honored.
  * @see stream_set_read_buffer()
  */
-function stream_set_write_buffer ($stream, $size) {}
+function stream_set_write_buffer ($stream, int $size) {}
 
 /**
  * Sets read file buffering on the given stream
@@ -728,7 +736,7 @@ function stream_set_write_buffer ($stream, $size) {}
  * @return int 0 on success, or EOF if the request cannot be honored.
  * @see stream_set_write_buffer()
  */
-function stream_set_read_buffer ($stream, $size) {}
+function stream_set_read_buffer ($stream, int $size) {}
 
 /**
  * &Alias; <function>stream_set_write_buffer</function>
@@ -742,7 +750,7 @@ function stream_set_read_buffer ($stream, $size) {}
  * This ensures that all writes with fwrite() are completed before other processes are allowed to write to that output stream.
  * @return int
  */
-function set_file_buffer ($stream, $size) {}
+function set_file_buffer ($stream, int $size) {}
 
 /**
  * &Alias; <function>stream_set_blocking</function>
@@ -758,7 +766,7 @@ function set_file_buffer ($stream, $size) {}
  * @see stream_set_blocking()
  */
 #[Deprecated(replacement: "stream_set_blocking(%parametersList%)", since: 5.3)]
-function set_socket_blocking ($socket, $mode) {}
+function set_socket_blocking ($socket, bool $mode) {}
 
 /**
  * Set blocking/non-blocking mode on a stream
@@ -778,7 +786,7 @@ function set_socket_blocking ($socket, $mode) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function stream_set_blocking ($stream, $enable) {}
+function stream_set_blocking ($stream, bool $enable) {}
 
 /**
  * &Alias; <function>stream_set_blocking</function>
@@ -798,7 +806,7 @@ function stream_set_blocking ($stream, $enable) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function socket_set_blocking ($stream, $enable) {}
+function socket_set_blocking ($stream, bool $enable) {}
 
 /**
  * Retrieves header/meta data from streams/file pointers
@@ -896,7 +904,8 @@ function stream_get_meta_data ($stream) {}
  * <p>
  * If an error occurs, returns false.
  */
-function stream_get_line ($stream, $length, $ending = null) {}
+function stream_get_line ($stream, int $length, string $ending)
+{}
 
 /**
  * Register a URL wrapper implemented as a PHP class
@@ -918,7 +927,8 @@ function stream_get_line ($stream, $length, $ending = null) {}
  * stream_wrapper_register will return false if the
  * protocol already has a handler.
  */
-function stream_wrapper_register ($protocol, $class, $flags = null) {}
+function stream_wrapper_register (string $protocol, string $class, int $flags)
+{}
 
 /**
  * &Alias; <function>stream_wrapper_register</function>
@@ -941,7 +951,7 @@ function stream_wrapper_register ($protocol, $class, $flags = null) {}
  * stream_wrapper_register will return false if the
  * protocol already has a handler.
  */
-function stream_register_wrapper ($protocol, $class, $flags = 0) {}
+function stream_register_wrapper (string $protocol, string $class, int $flags = 0) {}
 
 /**
  * Resolve filename against the include path according to the same rules as fopen()/include().
@@ -951,7 +961,7 @@ function stream_register_wrapper ($protocol, $class, $flags = 0) {}
  * @return string|false containing the resolved absolute filename, or FALSE on failure.
  * @since 5.3.2
  */
-function stream_resolve_include_path ($filename) {}
+function stream_resolve_include_path (string $filename) {}
 
 /**
  * Unregister a URL wrapper
@@ -960,7 +970,7 @@ function stream_resolve_include_path ($filename) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function stream_wrapper_unregister ($protocol) {}
+function stream_wrapper_unregister (string $protocol) {}
 
 /**
  * Restores a previously unregistered built-in wrapper
@@ -969,7 +979,7 @@ function stream_wrapper_unregister ($protocol) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function stream_wrapper_restore ($protocol) {}
+function stream_wrapper_restore (string $protocol) {}
 
 /**
  * Retrieve list of registered streams
@@ -1016,7 +1026,8 @@ function stream_is_local ($stream) {}
  * failure.
  */
 #[Pure]
-function get_headers ($url, $associative = null, $context = null) {}
+function get_headers (string $url, bool $associative, $context)
+{}
 
 /**
  * Set timeout period on a stream
@@ -1032,7 +1043,8 @@ function get_headers ($url, $associative = null, $context = null) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function stream_set_timeout ($stream, $seconds, $microseconds = null) {}
+function stream_set_timeout ($stream, int $seconds, int $microseconds)
+{}
 
 /**
  * &Alias; <function>stream_set_timeout</function>
@@ -1049,7 +1061,7 @@ function stream_set_timeout ($stream, $seconds, $microseconds = null) {}
  * </p>
  * @return bool true on success or false on failure.
  */
-function socket_set_timeout ($stream, $seconds, $microseconds = 0) {}
+function socket_set_timeout ($stream, int $seconds, int $microseconds = 0) {}
 
 /**
  * &Alias; <function>stream_get_meta_data</function>
@@ -1130,7 +1142,7 @@ function socket_get_status ($stream) {}
  * the file does not exist.
  */
 #[Pure]
-function realpath ($path) {}
+function realpath (string $path) {}
 
 /**
  * Match filename against a pattern
@@ -1188,5 +1200,6 @@ function realpath ($path) {}
  * </p>
  * @return bool true if there is a match, false otherwise.
  */
-function fnmatch ($pattern, $filename, $flags = null) {}
+function fnmatch (string $pattern, string $filename, int $flags)
+{}
 ?>

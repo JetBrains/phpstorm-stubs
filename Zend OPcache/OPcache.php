@@ -11,7 +11,7 @@
  * cache is disabled.
  * @since 5.5
  */
-function opcache_compile_file($filename) { }
+function opcache_compile_file(string $filename) { }
 
 /**
  * (PHP 5 &gt;= 5.5.0, PECL ZendOpcache &gt;= 7.0.0 )<br/>
@@ -25,7 +25,7 @@ function opcache_compile_file($filename) { }
  * cache is disabled.
  * @since 5.5
  */
-function opcache_invalidate($filename, $force = false) { }
+function opcache_invalidate(string $filename, bool $force = false) { }
 
 /**
  * (PHP 5 &gt;= 5.5.0, PECL ZendOpcache &gt;= 7.0.0 )<br/>
@@ -44,7 +44,7 @@ function opcache_reset() { }
  * @return array <p>Returns an array of information, optionally containing script specific state information</p>
  * @since 5.5
  */
-function opcache_get_status ($include_scripts = true) {}
+function opcache_get_status (bool $include_scripts = true) {}
 
 /**
  * (PHP 5 &gt;= 5.5.5, PECL ZendOpcache &gt;= 7.0.2 )<br/>
@@ -64,4 +64,4 @@ function opcache_get_configuration() {}
  * @return bool Returns TRUE if file is cached in OPCache, FALSE otherwise.
  * @since 5.6
  */
-function opcache_is_script_cached($filename) {}
+function opcache_is_script_cached(string $filename) {}

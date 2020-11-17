@@ -27,7 +27,7 @@ use JetBrains\PhpStorm\Deprecated;
  * use to access the shared memory segment you've created. <b>FALSE</b> is
  * returned on failure.
  */
-function shmop_open ($key, $mode, $permissions, $size) {}
+function shmop_open (int $key, string $mode, int $permissions, int $size) {}
 
 /**
  * Read data from shared memory block

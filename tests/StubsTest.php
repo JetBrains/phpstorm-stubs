@@ -116,6 +116,8 @@ class StubsTest extends TestCase
                             fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name),
                             "Function ${functionName} has signature $functionName(" . $this->printParameters($function->parameters) . ')' .
                             " but stub function has signature $functionName(" . $this->printParameters($phpstormFunction->parameters) . ")");
+                        self::assertEquals($parameter->type, current(array_filter($phpstormFunction->parameters,
+                            fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name))->type, "Type mismatch $functionName: \$$parameter->name ");
                     }
                 }
             }

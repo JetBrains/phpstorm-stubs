@@ -348,7 +348,7 @@ function sodium_crypto_stream_keygen(): string {}
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_pad ($string, $length): string {}
+function sodium_pad (string $string, int $length): string {}
 
 /**
  * Remove padding data
@@ -358,7 +358,7 @@ function sodium_pad ($string, $length): string {}
  * @throws SodiumException
  * @since 7.2
  */
-function sodium_unpad ($string, $block_size): string {}
+function sodium_unpad (string $string, int $block_size): string {}
 
 
 
@@ -1154,7 +1154,7 @@ function sodium_crypto_secretstream_xchacha20poly1305_push(string &$state, strin
  * @since 7.2
  * @see https://www.php.net/manual/en/function.sodium-crypto-secretstream-xchacha20poly1305-init-pull.php
  */
-function sodium_crypto_secretstream_xchacha20poly1305_init_pull($header, $key): string{}
+function sodium_crypto_secretstream_xchacha20poly1305_init_pull(string $header, string $key): string{}
 
 /**
  * @throws SodiumException

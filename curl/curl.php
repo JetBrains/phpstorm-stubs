@@ -85,7 +85,7 @@ class CURLFile {
  * </p>
  * @return resource|false|CurlHandle a cURL handle on success, false on errors.
  */
-function curl_init ($url = null) {}
+function curl_init (string $url) {}
 
 /**
  * Copy a cURL handle along with all of its preferences
@@ -2253,7 +2253,7 @@ function curl_share_setopt ($share_handle, $option, $value ) {}
  * @since 5.5
  */
 #[Pure]
-function curl_strerror ($error_code) {}
+function curl_strerror (int $error_code) {}
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
@@ -2469,7 +2469,7 @@ function curl_multi_setopt ($multi_handle, $option, $value) {}
  * @return string|null Returns error string for valid error code, NULL otherwise.
  * @since 5.5
  */
-function curl_multi_strerror ($error_code) {}
+function curl_multi_strerror (int $error_code) {}
 
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
@@ -2564,7 +2564,7 @@ function curl_share_errno($share_handle) {}
  * @since 7.1
  */
 #[Pure]
-function curl_share_strerror($error_code){}
+function curl_share_strerror(int $error_code){}
 
 /**
  * @since 8.0

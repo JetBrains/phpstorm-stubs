@@ -17,7 +17,7 @@ use JetBrains\PhpStorm\Pure;
  * </p>
  * @return int|false the number of (uncompressed) bytes read from the file, or FALSE on error
  */
-function readgzfile ($filename, $use_include_path = 0) {}
+function readgzfile (string $filename, int $use_include_path = 0) {}
 
 /**
  * Rewind the position of a gz-file pointer
@@ -76,7 +76,7 @@ function gzgetc ($stream) {}
  * </p>
  * @return string|false The uncompressed string, or <b>FALSE</b> on error.
  */
-function gzgets ($stream, $length) {}
+function gzgets ($stream, int $length) {}
 
 /**
  * Get line from gz-file pointer and strip HTML tags
@@ -96,7 +96,8 @@ function gzgets ($stream, $length) {}
  * @removed 8.0
  */
 #[Deprecated(since: "7.3")]
-function gzgetss ($zp, $length, $allowable_tags = null) {}
+function gzgetss ($zp, int $length, $allowable_tags)
+{}
 
 /**
  * Binary-safe gz-file read
@@ -110,7 +111,7 @@ function gzgetss ($zp, $length, $allowable_tags = null) {}
  * </p>
  * @return string The data that have been read.
  */
-function gzread ($stream, $length) {}
+function gzread ($stream, int $length) {}
 
 /**
  * Open gz-file
@@ -139,7 +140,7 @@ function gzread ($stream, $length) {}
  * <p>
  * If the open fails, the function returns <b>FALSE</b>.
  */
-function gzopen ($filename, $mode, $use_include_path = 0) {}
+function gzopen (string $filename, string $mode, int $use_include_path = 0) {}
 
 /**
  * Output all remaining data on a gz-file pointer
@@ -175,7 +176,7 @@ function gzpassthru ($stream) {}
  * @return int Upon success, returns 0; otherwise, returns -1. Note that seeking
  * past EOF is not considered an error.
  */
-function gzseek ($stream, $offset, $whence = SEEK_SET) {}
+function gzseek ($stream, int $offset, int $whence = SEEK_SET) {}
 
 /**
  * Tell gz-file pointer read/write position
@@ -213,7 +214,8 @@ function gztell ($stream) {}
  * @return int the number of (uncompressed) bytes written to the given gz-file
  * stream.
  */
-function gzwrite ($stream, $data, $length = null) {}
+function gzwrite ($stream, string $data, int $length)
+{}
 
 /**
  * Alias of <b>gzwrite</b>
@@ -222,7 +224,7 @@ function gzwrite ($stream, $data, $length = null) {}
  * @param string $data
  * @param int $length [optional]
  */
-function gzputs ($stream, $data, $length) {}
+function gzputs ($stream, string $data, int $length) {}
 
 /**
  * Read entire gz-file into an array
@@ -236,7 +238,7 @@ function gzputs ($stream, $data, $length) {}
  * </p>
  * @return array An array containing the file, one line per cell.
  */
-function gzfile ($filename, $use_include_path = 0) {}
+function gzfile (string $filename, int $use_include_path = 0) {}
 
 /**
  * Compress a string
@@ -257,7 +259,7 @@ function gzfile ($filename, $use_include_path = 0) {}
  * @return string|false The compressed string or <b>FALSE</b> if an error occurred.
  */
 #[Pure]
-function gzcompress ($data, $level = -1, $encoding = ZLIB_ENCODING_DEFLATE) {}
+function gzcompress (string $data, int $level = -1, int $encoding = ZLIB_ENCODING_DEFLATE) {}
 
 /**
  * Uncompress a compressed string
@@ -276,7 +278,7 @@ function gzcompress ($data, $level = -1, $encoding = ZLIB_ENCODING_DEFLATE) {}
  * or more than the optional parameter <i>length</i>.
  */
 #[Pure]
-function gzuncompress ($data, $max_length = 0) {}
+function gzuncompress (string $data, int $max_length = 0) {}
 
 /**
  * Deflate a string
@@ -295,7 +297,7 @@ function gzuncompress ($data, $max_length = 0) {}
  * @return string|false The deflated string or <b>FALSE</b> if an error occurred.
  */
 #[Pure]
-function gzdeflate ($data, $level = -1, $encoding = ZLIB_ENCODING_RAW) {}
+function gzdeflate (string $data, int $level = -1, int $encoding = ZLIB_ENCODING_RAW) {}
 
 /**
  * Inflate a deflated string
@@ -314,7 +316,7 @@ function gzdeflate ($data, $level = -1, $encoding = ZLIB_ENCODING_RAW) {}
  * or more than the optional parameter <i>length</i>.
  */
 #[Pure]
-function gzinflate ($data, $max_length = 0) {}
+function gzinflate (string $data, int $max_length = 0) {}
 
 /**
  * Create a gzip compressed string
@@ -344,7 +346,7 @@ function gzinflate ($data, $max_length = 0) {}
  * @return string|false The encoded string, or <b>FALSE</b> if an error occurred.
  */
 #[Pure]
-function gzencode ($data, $level = -1, $encoding = FORCE_GZIP) {}
+function gzencode (string $data, int $level = -1, int $encoding = FORCE_GZIP) {}
 
 /**
  * Decodes a gzip compressed string
@@ -359,7 +361,8 @@ function gzencode ($data, $level = -1, $encoding = FORCE_GZIP) {}
  * @since 5.4
  */
 #[Pure]
-function gzdecode ($data, $max_length = null) {}
+function gzdecode (string $data, int $max_length)
+{}
 
 /**
  * Compress data with the specified encoding
@@ -374,7 +377,7 @@ function gzdecode ($data, $max_length = null) {}
  * @since 5.4
  */
 #[Pure]
-function zlib_encode ($data, $encoding, $level) {}
+function zlib_encode (string $data, int $encoding, int $level) {}
 
 /**
  * Uncompress any raw/gzip/zlib encoded data
@@ -387,7 +390,8 @@ function zlib_encode ($data, $encoding, $level) {}
  * @since 5.4
  */
 #[Pure]
-function zlib_decode ($data, $max_length = null) {}
+function zlib_decode (string $data, int $max_length)
+{}
 
 /**
  * Returns the coding type used for output compression
@@ -405,7 +409,7 @@ function zlib_get_coding_type () {}
  * @param int $flags
  * @return string
  */
-function ob_gzhandler ($data, $flags) {}
+function ob_gzhandler (string $data, int $flags) {}
 
 /**
  * Initialize an incremental deflate context
@@ -429,7 +433,7 @@ function ob_gzhandler ($data, $flags) {}
  * @since 7.0
  */
 #[Pure]
-function deflate_init ($encoding, $options = array()) {}
+function deflate_init (int $encoding, array $options = array()) {}
 
 /**
  * Incrementally deflate data
@@ -452,7 +456,7 @@ function deflate_init ($encoding, $options = array()) {}
  * </p>
  * @since 7.0
  */
-function deflate_add ($context, $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
+function deflate_add ($context, string $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
 
 /**
  * Initialize an incremental inflate context
@@ -476,7 +480,7 @@ function deflate_add ($context, $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
  * @since 7.0
  */
 #[Pure]
-function inflate_init ($encoding, $options = array()) {}
+function inflate_init (int $encoding, array $options = array()) {}
 
 /**
  * Incrementally inflate encoded data
@@ -499,7 +503,7 @@ function inflate_init ($encoding, $options = array()) {}
  * </p>
  * @since 7.0
  */
-function inflate_add ($context, $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
+function inflate_add ($context, string $data, $flush_mode = ZLIB_SYNC_FLUSH) {}
 
 /**
  * Get number of bytes read so far
