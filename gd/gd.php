@@ -1,7 +1,6 @@
 <?php
 
 use JetBrains\PhpStorm\Deprecated;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 /**
@@ -224,36 +223,18 @@ function imagecolorallocate ($image, $red, $green, $blue) {}
  */
 function imagepalettecopy ($destination, $source) {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Create a new image from the image stream in the string
  * @link https://php.net/manual/en/function.imagecreatefromstring.php
  * @param string $image <p>
  * A string containing the image data.
  * </p>
- * @return GdImage|false An image resource will be returned on success. <b>FALSE</b> is returned if
+ * @return resource|GdImage|false An image resource will be returned on success. <b>FALSE</b> is returned if
  * the image type is unsupported, the data is not in a recognised format,
  * or the image is corrupt and cannot be loaded.
  */
 #[Pure]
 function imagecreatefromstring ($image) {}
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Create a new image from the image stream in the string
- * @link https://php.net/manual/en/function.imagecreatefromstring.php
- * @param string $image <p>
- * A string containing the image data.
- * </p>
- * @return resource|false An image resource will be returned on success. <b>FALSE</b> is returned if
- * the image type is unsupported, the data is not in a recognised format,
- * or the image is corrupt and cannot be loaded.
- */
-#[Pure]
-function imagecreatefromstring($image)
-{
-}
-
 
 /**
  * Get the index of the closest color to the specified color
@@ -515,7 +496,6 @@ function imagecopymergegray ($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $
  */
 function imagecopyresized ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h) {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Create a new palette based image
  * @link https://php.net/manual/en/function.imagecreate.php
@@ -525,29 +505,11 @@ function imagecopyresized ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $src_
  * @param int $height <p>
  * The image height.
  * </p>
- * @return GdImage|false an image resource identifier on success, false on errors.
+ * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
 #[Pure]
 function imagecreate ($width, $height) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Create a new palette based image
- * @link https://php.net/manual/en/function.imagecreate.php
- * @param int $width <p>
- * The image width.
- * </p>
- * @param int $height <p>
- * The image height.
- * </p>
- * @return resource|false an image resource identifier on success, false on errors.
- */
-#[Pure]
-function imagecreate($width, $height)
-{
-}
-
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Create a new true color image
  * @link https://php.net/manual/en/function.imagecreatetruecolor.php
@@ -557,42 +519,15 @@ function imagecreate($width, $height)
  * @param int $height <p>
  * Image height.
  * </p>
- * @return GdImage|false an image resource identifier on success, false on errors.
+ * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
 #[Pure]
 function imagecreatetruecolor ($width, $height) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Create a new true color image
- * @link https://php.net/manual/en/function.imagecreatetruecolor.php
- * @param int $width <p>
- * Image width.
- * </p>
- * @param int $height <p>
- * Image height.
- * </p>
- * @return resource|false an image resource identifier on success, false on errors.
- */
-#[Pure]
-function imagecreatetruecolor ($width, $height) {}
-
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Finds whether an image is a truecolor image
  * @link https://php.net/manual/en/function.imageistruecolor.php
- * @param GdImage $image
- * @return bool true if the image is truecolor, false
- * otherwise.
- */
-#[Pure]
-function imageistruecolor ($image) {}
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Finds whether an image is a truecolor image
- * @link https://php.net/manual/en/function.imageistruecolor.php
- * @param resource $image
+ * @param resource|GdImage $image
  * @return bool true if the image is truecolor, false
  * otherwise.
  */
@@ -835,7 +770,6 @@ function imagecolorexactalpha ($image, $red, $green, $blue, $alpha) {}
  */
 function imagecopyresampled ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Rotate an image with a given angle
  * @link https://php.net/manual/en/function.imagerotate.php
@@ -849,25 +783,7 @@ function imagecopyresampled ($dst_image, $src_image, $dst_x, $dst_y, $src_x, $sr
  * @param int $ignore_transparent [optional] <p>
  * If set and non-zero, transparent colors are ignored (otherwise kept).
  * </p>
- * @return resource|false the rotated image or <b>FALSE</b> on failure
- */
-function imagerotate ($image, $angle, $bgd_color, $ignore_transparent = null) {}
-
-#[PhpStormStubsElementAvailable('8.0')]
-/**
- * Rotate an image with a given angle
- * @link https://php.net/manual/en/function.imagerotate.php
- * @param resource|GdImage $image
- * @param float $angle <p>
- * Rotation angle, in degrees.
- * </p>
- * @param int $bgd_color <p>
- * Specifies the color of the uncovered zone after the rotation
- * </p>
- * @param int $ignore_transparent [optional] <p>
- * If set and non-zero, transparent colors are ignored (otherwise kept).
- * </p>
- * @return GdImage|false the rotated image or <b>FALSE</b> on failure
+ * @return resource|GdImage|false the rotated image or <b>FALSE</b> on failure
  */
 function imagerotate ($image, $angle, $bgd_color, $ignore_transparent = null) {}
 
@@ -918,208 +834,97 @@ function imagesetbrush ($image, $brush) {}
  */
 function imagesetstyle ($image, array $style) {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Create a new image from file or URL
  * @link https://php.net/manual/en/function.imagecreatefrompng.php
  * @param string $filename <p>
  * Path to the PNG image.
  * </p>
- * @return GdImage|false an image resource identifier on success, false on errors.
+ * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
 function imagecreatefrompng ($filename) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Create a new image from file or URL
- * @link https://php.net/manual/en/function.imagecreatefrompng.php
- * @param string $filename <p>
- * Path to the PNG image.
- * </p>
- * @return resource|false an image resource identifier on success, false on errors.
- */
-function imagecreatefrompng ($filename) {}
-
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Create a new image from file or URL
  * @link https://php.net/manual/en/function.imagecreatefromgif.php
  * @param string $filename <p>
  * Path to the GIF image.
  * </p>
- * @return GdImage|false an image resource identifier on success, false on errors.
+ * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
 function imagecreatefromgif ($filename) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Create a new image from file or URL
- * @link https://php.net/manual/en/function.imagecreatefromgif.php
- * @param string $filename <p>
- * Path to the GIF image.
- * </p>
- * @return resource|false an image resource identifier on success, false on errors.
- */
-function imagecreatefromgif ($filename) {}
-
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Create a new image from file or URL
  * @link https://php.net/manual/en/function.imagecreatefromjpeg.php
  * @param string $filename <p>
  * Path to the JPEG image.
  * </p>
- * @return GdImage|false an image resource identifier on success, false on errors.
+ * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
 function imagecreatefromjpeg ($filename) {}
 
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Create a new image from file or URL
- * @link https://php.net/manual/en/function.imagecreatefromjpeg.php
- * @param string $filename <p>
- * Path to the JPEG image.
- * </p>
- * @return resource|false an image resource identifier on success, false on errors.
- */
-function imagecreatefromjpeg ($filename) {}
-
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Create a new image from file or URL
  * @link https://php.net/manual/en/function.imagecreatefromwbmp.php
  * @param string $filename <p>
  * Path to the WBMP image.
  * </p>
- * @return GdImage|false an image resource identifier on success, false on errors.
+ * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
 function imagecreatefromwbmp ($filename) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Create a new image from file or URL
- * @link https://php.net/manual/en/function.imagecreatefromwbmp.php
- * @param string $filename <p>
- * Path to the WBMP image.
- * </p>
- * @return resource|false an image resource identifier on success, false on errors.
- */
-function imagecreatefromwbmp ($filename) {}
-
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Create a new image from file or URL
  * @link https://php.net/manual/en/function.imagecreatefromwebp.php
  * @param string $filename <p>
  * Path to the WebP image.
  * </p>
- * @return GdImage|false an image resource identifier on success, false on errors.
+ * @return resource|GdImage|false an image resource identifier on success, false on errors.
  * @since 5.4
  */
 function imagecreatefromwebp ($filename) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Create a new image from file or URL
- * @link https://php.net/manual/en/function.imagecreatefromwebp.php
- * @param string $filename <p>
- * Path to the WebP image.
- * </p>
- * @return resource|false an image resource identifier on success, false on errors.
- * @since 5.4
- */
-function imagecreatefromwebp ($filename) {}
-
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Create a new image from file or URL
  * @link https://php.net/manual/en/function.imagecreatefromxbm.php
  * @param string $filename <p>
  * Path to the XBM image.
  * </p>
- * @return GdImage|false an image resource identifier on success, false on errors.
+ * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
 function imagecreatefromxbm ($filename) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Create a new image from file or URL
- * @link https://php.net/manual/en/function.imagecreatefromxbm.php
- * @param string $filename <p>
- * Path to the XBM image.
- * </p>
- * @return resource|false an image resource identifier on success, false on errors.
- */
-function imagecreatefromxbm ($filename) {}
-
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Create a new image from file or URL
  * @link https://php.net/manual/en/function.imagecreatefromxpm.php
  * @param string $filename <p>
  * Path to the XPM image.
  * </p>
- * @return GdImage|false an image resource identifier on success, false on errors.
+ * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
 function imagecreatefromxpm ($filename) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Create a new image from file or URL
- * @link https://php.net/manual/en/function.imagecreatefromxpm.php
- * @param string $filename <p>
- * Path to the XPM image.
- * </p>
- * @return resource|false an image resource identifier on success, false on errors.
- */
-function imagecreatefromxpm ($filename) {}
-
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Create a new image from GD file or URL
  * @link https://php.net/manual/en/function.imagecreatefromgd.php
  * @param string $filename <p>
  * Path to the GD file.
  * </p>
- * @return GdImage|false an image resource identifier on success, false on errors.
+ * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
 function imagecreatefromgd ($filename) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Create a new image from GD file or URL
- * @link https://php.net/manual/en/function.imagecreatefromgd.php
- * @param string $filename <p>
- * Path to the GD file.
- * </p>
- * @return resource|false an image resource identifier on success, false on errors.
- */
-function imagecreatefromgd ($filename) {}
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * Create a new image from GD2 file or URL
  * @link https://php.net/manual/en/function.imagecreatefromgd2.php
  * @param string $filename <p>
  * Path to the GD2 image.
  * </p>
- * @return GdImage|false an image resource identifier on success, false on errors.
+ * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
 function imagecreatefromgd2 ($filename) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Create a new image from GD2 file or URL
- * @link https://php.net/manual/en/function.imagecreatefromgd2.php
- * @param string $filename <p>
- * Path to the GD2 image.
- * </p>
- * @return resource|false an image resource identifier on success, false on errors.
- */
-function imagecreatefromgd2 ($filename) {}
-
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Create a new image from a given part of GD2 file or URL
  * @link https://php.net/manual/en/function.imagecreatefromgd2part.php
@@ -1138,30 +943,7 @@ function imagecreatefromgd2 ($filename) {}
  * @param int $height <p>
  * Source height.
  * </p>
- * @return GdImage|false an image resource identifier on success, false on errors.
- */
-function imagecreatefromgd2part ($filename, $srcX, $srcY, $width, $height) {}
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Create a new image from a given part of GD2 file or URL
- * @link https://php.net/manual/en/function.imagecreatefromgd2part.php
- * @param string $filename <p>
- * Path to the GD2 image.
- * </p>
- * @param int $srcX <p>
- * x-coordinate of source point.
- * </p>
- * @param int $srcY <p>
- * y-coordinate of source point.
- * </p>
- * @param int $width <p>
- * Source width.
- * </p>
- * @param int $height <p>
- * Source height.
- * </p>
- * @return resource|false an image resource identifier on success, false on errors.
+ * @return resource|GdImage|false an image resource identifier on success, false on errors.
  */
 function imagecreatefromgd2part ($filename, $srcX, $srcY, $width, $height) {}
 
@@ -1330,7 +1112,6 @@ function imagegammacorrect ($image, $inputgamma, $outputgamma) {}
  */
 function imagefill ($image, $x, $y, $color) {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Draw a filled polygon
  * @link https://php.net/manual/en/function.imagefilledpolygon.php
@@ -1340,26 +1121,6 @@ function imagefill ($image, $x, $y, $color) {}
  * coordinates of the polygons vertices consecutively.
  * </p>
  * @param int $num_points [optional] <p>
- * Total number of vertices, which must be at least 3.
- * </p>
- * @param int $color <p>
- * A color identifier created with
- * imagecolorallocate.
- * </p>
- * @return bool true on success or false on failure.
- */
-function imagefilledpolygon ($image, array $points, $num_points, $color) {}
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Draw a filled polygon
- * @link https://php.net/manual/en/function.imagefilledpolygon.php
- * @param resource|GdImage $image
- * @param array $points <p>
- * An array containing the x and y
- * coordinates of the polygons vertices consecutively.
- * </p>
- * @param int $num_points <p>
  * Total number of vertices, which must be at least 3.
  * </p>
  * @param int $color <p>
@@ -1524,7 +1285,6 @@ function imageline ($image, $x1, $y1, $x2, $y2, $color) {}
  */
 function imageloadfont ($file) {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Draws a polygon
  * @link https://php.net/manual/en/function.imagepolygon.php
@@ -1549,41 +1309,6 @@ function imageloadfont ($file) {}
  * </tr>
  * </p>
  * @param int $num_points [optional] <p>
- * Total number of points (vertices).
- * </p>
- * @param int $color <p>
- * A color identifier created with
- * imagecolorallocate.
- * </p>
- * @return bool true on success or false on failure.
- */
-function imagepolygon ($image, array $points, $num_points, $color) {}
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Draws a polygon
- * @link https://php.net/manual/en/function.imagepolygon.php
- * @param resource|GdImage $image
- * @param array $points <p>
- * An array containing the polygon's vertices, e.g.:
- * <tr valign="top">
- * <td>points[0]</td>
- * <td>= x0</td>
- * </tr>
- * <tr valign="top">
- * <td>points[1]</td>
- * <td>= y0</td>
- * </tr>
- * <tr valign="top">
- * <td>points[2]</td>
- * <td>= x1</td>
- * </tr>
- * <tr valign="top">
- * <td>points[3]</td>
- * <td>= y1</td>
- * </tr>
- * </p>
- * @param int $num_points <p>
  * Total number of points (vertices).
  * </p>
  * @param int $color <p>
@@ -2085,27 +1810,13 @@ function imageftbbox ($size, $angle, $fontfile, $text, $extrainfo = null ) {}
  */
 function imagefttext ($image, $size, $angle, $x, $y, $color, $fontfile, $text, $extrainfo = null ) {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Load a PostScript Type 1 font from file
  * @link https://php.net/manual/en/function.imagepsloadfont.php
  * @param string $filename <p>
  * Path to the Postscript font file.
  * </p>
- * @return GdImage|false In the case everything went right, a valid font index will be returned and
- * can be used for further purposes. Otherwise the function returns false.
- * @removed 7.0 This function was REMOVED in PHP 7.0.0.
- */
-function imagepsloadfont ($filename) {}
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Load a PostScript Type 1 font from file
- * @link https://php.net/manual/en/function.imagepsloadfont.php
- * @param string $filename <p>
- * Path to the Postscript font file.
- * </p>
- * @return resource|false In the case everything went right, a valid font index will be returned and
+ * @return resource|GdImage|false In the case everything went right, a valid font index will be returned and
  * can be used for further purposes. Otherwise the function returns false.
  * @removed 7.0 This function was REMOVED in PHP 7.0.0.
  */
@@ -2476,7 +2187,6 @@ function imagesetclip ($im, $x1, $y1, $x2, $y2) {}
  */
 function imagegetclip ($im) {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * <b>imageopenpolygon()</b> draws an open polygon on the given <b>image.</b> Contrary to {@see imagepolygon()}, no line is drawn between the last and the first point.
  * @param resource|GdImage $image An image resource, returned by one of the image creation functions, such as {@see imagecreatetruecolor()}.
@@ -2496,43 +2206,11 @@ function imagegetclip ($im) {}
  */
 function imageopenpolygon ($image , $points, $num_points, $color) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * <b>imageopenpolygon()</b> draws an open polygon on the given <b>image.</b> Contrary to {@see imagepolygon()}, no line is drawn between the last and the first point.
- * @param resource|GdImage $image An image resource, returned by one of the image creation functions, such as {@see imagecreatetruecolor()}.
- * @param array $points An array containing the polygon's vertices, e.g.:
- * <pre>
- * points[0]	= x0
- * points[1]	= y0
- * points[2]	= x1
- * points[3]	= y1
- * </pre>
- * @param int $num_points Total number of points (vertices).
- * @param int $color A color identifier created with {@see imagecolorallocate()}.
- * @return bool Returns <b>TRUE</b> on success or <b>FALSE</b> on failure.
- * @link https://php.net/manual/en/function.imageopenpolygon.php
- * @since 7.2
- * @see imageplygon()
- */
-function imageopenpolygon ($image , $points, $num_points, $color) {}
-
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * <b>imagecreatefrombmp()</b> returns an image identifier representing the image obtained from the given filename.
  * <b>TIP</b> A URL can be used as a filename with this function if the fopen wrappers have been enabled. See {@see fopen()} for more details on how to specify the filename. See the Supported Protocols and Wrappers for links to information about what abilities the various wrappers have, notes on their usage, and information on any predefined variables they may provide.
  * @param string $filename Path to the BMP image.
- * @return GdImage|false Returns an image resource identifier on success, <b>FALSE</b> on errors.
- * @link https://php.net/manual/en/function.imagecreatefrombmp.php
- * @since 7.2
- */
-function imagecreatefrombmp($filename){}
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * <b>imagecreatefrombmp()</b> returns an image identifier representing the image obtained from the given filename.
- * <b>TIP</b> A URL can be used as a filename with this function if the fopen wrappers have been enabled. See {@see fopen()} for more details on how to specify the filename. See the Supported Protocols and Wrappers for links to information about what abilities the various wrappers have, notes on their usage, and information on any predefined variables they may provide.
- * @param string $filename Path to the BMP image.
- * @return resource|false Returns an image resource identifier on success, <b>FALSE</b> on errors.
+ * @return resource|GdImage|false Returns an image resource identifier on success, <b>FALSE</b> on errors.
  * @link https://php.net/manual/en/function.imagecreatefrombmp.php
  * @since 7.2
  */
@@ -2553,43 +2231,22 @@ function imagecreatefrombmp($filename){}
  */
 function imagebmp ($image, $to = null, $compressed = true) {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * @param string $filename
- * @return GdImage|false
+ * @return resource|GdImage|false
  */
 function imagecreatefromtga($filename) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * @param string $filename
- * @return resource|false
- */
-function imagecreatefromtga($filename) {}
-
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Captures the whole screen
  *
  * https://www.php.net/manual/en/function.imagegrabscreen.php
  *
- * @return GdImage|false
+ * @return resource|GdImage|false
  */
 #[Pure]
 function imagegrabscreen() {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Captures the whole screen
- *
- * https://www.php.net/manual/en/function.imagegrabscreen.php
- *
- * @return resource|false
- */
-#[Pure]
-function imagegrabscreen() {}
-
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Captures a window
  *
@@ -2597,20 +2254,7 @@ function imagegrabscreen() {}
  *
  * @param int $handle
  * @param int|null $client_area
- * @return GdImage|false
- */
-#[Pure]
-function imagegrabwindow($handle, $client_area = null) {}
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Captures a window
- *
- * @link https://www.php.net/manual/en/function.imagegrabwindow.php
- *
- * @param int $handle
- * @param int|null $client_area
- * @return resource|false
+ * @return resource|GdImage|false
  */
 #[Pure]
 function imagegrabwindow($handle, $client_area = null) {}
@@ -3192,7 +2836,6 @@ define('IMG_TRIANGLE', 20);
 
 define('IMG_TGA', 128);
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Return an image containing the affine tramsformed src image, using an optional clipping area
  * @link https://secure.php.net/manual/en/function.imageaffine.php
@@ -3200,19 +2843,7 @@ define('IMG_TGA', 128);
  * such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.</p>
  * @param array $affine <p>Array with keys 0 to 5.</p>
  * @param array $clip [optional] <p>Array with keys "x", "y", "width" and "height".</p>
- * @return GdImage|false Return affined image resource on success or FALSE on failure.
- */
-function imageaffine($image, $affine, $clip = null) {}
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Return an image containing the affine tramsformed src image, using an optional clipping area
- * @link https://secure.php.net/manual/en/function.imageaffine.php
- * @param resource|GdImage $image <p>An image resource, returned by one of the image creation functions,
- * such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.</p>
- * @param array $affine <p>Array with keys 0 to 5.</p>
- * @param array $clip [optional] <p>Array with keys "x", "y", "width" and "height".</p>
- * @return resource|false Return affined image resource on success or FALSE on failure.
+ * @return resource|GdImage|false Return affined image resource on success or FALSE on failure.
  */
 function imageaffine($image, $affine, $clip = null) {}
 
@@ -3236,7 +2867,6 @@ function imageaffinematrixconcat(array $m1, array $m2) {}
  */
 function imageaffinematrixget ($type, $options = null) {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Crop an image using the given coordinates and size, x, y, width and height
  * @link https://secure.php.net/manual/en/function.imagecrop.php
@@ -3244,29 +2874,15 @@ function imageaffinematrixget ($type, $options = null) {}
  * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
  * </p>
  * @param array $rect <p>Array with keys "x", "y", "width" and "height".</p>
- * @return GdImage|false Return cropped image resource on success or FALSE on failure.
+ * @return resource|GdImage|false Return cropped image resource on success or FALSE on failure.
  * @since 5.5
  */
 function imagecrop ($image, $rect) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Crop an image using the given coordinates and size, x, y, width and height
- * @link https://secure.php.net/manual/en/function.imagecrop.php
- * @param resource|GdImage $image <p>
- * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
- * </p>
- * @param array $rect <p>Array with keys "x", "y", "width" and "height".</p>
- * @return resource|false Return cropped image resource on success or FALSE on failure.
- * @since 5.5
- */
-function imagecrop ($image, $rect) {}
-
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Crop an image automatically using one of the available modes
  * @link https://secure.php.net/manual/en/function.imagecropauto.php
- * @param GdImage $image <p>
+ * @param resource|GdImage $image <p>
  * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
  * </p>
  * @param int $mode [optional] <p>
@@ -3279,29 +2895,7 @@ function imagecrop ($image, $rect) {}
  * <p>
  * Used in <b>IMG_CROP_THRESHOLD</b> mode.
  * </p>
- * @return GdImage|bool Return cropped image resource on success or <b>FALSE</b> on failure.
- * @since 5.5
- */
-function imagecropauto ($image, $mode = IMG_CROP_DEFAULT, $threshold = .5, $color = -1) {}
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Crop an image automatically using one of the available modes
- * @link https://secure.php.net/manual/en/function.imagecropauto.php
- * @param resource $image <p>
- * An image resource, returned by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
- * </p>
- * @param int $mode [optional] <p>
- * One of <b>IMG_CROP_*</b> constants.
- * </p>
- * @param float $threshold [optional] <p>
- * Used <b>IMG_CROP_THRESHOLD</b> mode.
- * </p>
- * @param int $color [optional]
- * <p>
- * Used in <b>IMG_CROP_THRESHOLD</b> mode.
- * </p>
- * @return resource|bool Return cropped image resource on success or <b>FALSE</b> on failure.
+ * @return resource|GdImage|bool Return cropped image resource on success or <b>FALSE</b> on failure.
  * @since 5.5
  */
 function imagecropauto ($image, $mode = IMG_CROP_DEFAULT, $threshold = .5, $color = -1) {}
@@ -3358,7 +2952,6 @@ function imageflip ($image, $mode) {}
  */
 function imagepalettetotruecolor ($image) {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * @since 5.5
  * Scale an image using the given new width and height
@@ -3369,23 +2962,9 @@ function imagepalettetotruecolor ($image) {}
  * @param int $new_width
  * @param int $new_height [optional]
  * @param int $mode [optional] One of <b>IMG_NEAREST_NEIGHBOUR</b>, <b>IMG_BILINEAR_FIXED</b>, <b>IMG_BICUBIC</b>, <b>IMG_BICUBIC_FIXED</b> or anything else (will use two pass).
- * @return GdImage|false Return scaled image resource on success or <b>FALSE</b> on failure.
+ * @return resource|GdImage|false Return scaled image resource on success or <b>FALSE</b> on failure.
  */
-function imagescale ($image, $new_width, $new_height = -1, $mode = IMG_BILINEAR_FIXED) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * @since 5.5
- * Scale an image using the given new width and height
- * @link https://secure.php.net/manual/en/function.imagescale.php
- * @param resource|GdImage $image <p>
- * An image resource, returnd by one of the image creation functions, such as {@link https://secure.php.net/manual/en/function.imagecreatetruecolor.php imagecreatetruecolor()}.
- * </p>
- * @param int $new_width
- * @param int $new_height [optional]
- * @param int $mode [optional] One of <b>IMG_NEAREST_NEIGHBOUR</b>, <b>IMG_BILINEAR_FIXED</b>, <b>IMG_BICUBIC</b>, <b>IMG_BICUBIC_FIXED</b> or anything else (will use two pass).
- * @return resource|false Return scaled image resource on success or <b>FALSE</b> on failure.
- */
 function imagescale ($image, $new_width, $new_height = -1, $mode = IMG_BILINEAR_FIXED) {}
 
 /**

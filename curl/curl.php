@@ -1,7 +1,6 @@
 <?php
 
 use JetBrains\PhpStorm\ArrayShape;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 use JetBrains\PhpStorm\Pure;
 
 class CURLFile {
@@ -76,8 +75,6 @@ class CURLFile {
     public function __wakeup() {
     }
 }
-
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Initialize a cURL session
  * @link https://php.net/manual/en/function.curl-init.php
@@ -86,20 +83,7 @@ class CURLFile {
  * to its value. You can manually set this using the
  * curl_setopt function.
  * </p>
- * @return false|CurlHandle a cURL handle on success, false on errors.
- */
-function curl_init ($url = null) {}
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Initialize a cURL session
- * @link https://php.net/manual/en/function.curl-init.php
- * @param string $url [optional] <p>
- * If provided, the CURLOPT_URL option will be set
- * to its value. You can manually set this using the
- * curl_setopt function.
- * </p>
- * @return resource|false a cURL handle on success, false on errors.
+ * @return resource|false|CurlHandle a cURL handle on success, false on errors.
  */
 function curl_init ($url = null) {}
 
@@ -2168,22 +2152,11 @@ function curl_setopt_array ($handle, array $options) {}
  */
 function curl_share_close ($share_handle) {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * (PHP 5 &gt;=5.5.0)<br/>
  * Initialize a cURL share handle
  * @link https://secure.php.net/manual/en/function.curl-share-init.php
- * @return CurlShareHandle Returns resource of type "cURL Share Handle".
- * @since 5.5
- */
-function curl_share_init () {}
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * (PHP 5 &gt;=5.5.0)<br/>
- * Initialize a cURL share handle
- * @link https://secure.php.net/manual/en/function.curl-share-init.php
- * @return resource Returns resource of type "cURL Share Handle".
+ * @return resource|CurlShareHandle Returns resource of type "cURL Share Handle".
  * @since 5.5
  */
 function curl_share_init () {}
@@ -2395,19 +2368,10 @@ function curl_file_create($filename, $mime_type = '', $posted_filename = '') {}
  */
 function curl_close ($handle) {}
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Returns a new cURL multi handle
  * @link https://php.net/manual/en/function.curl-multi-init.php
- * @return false|CurlMultiHandle a cURL multi handle resource on success, false on failure.
- */
-function curl_multi_init () {}
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Returns a new cURL multi handle
- * @link https://php.net/manual/en/function.curl-multi-init.php
- * @return resource|false a cURL multi handle resource on success, false on failure.
+ * @return resource|false|CurlMultiHandle a cURL multi handle resource on success, false on failure.
  */
 function curl_multi_init () {}
 

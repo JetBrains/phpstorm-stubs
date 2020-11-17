@@ -1,9 +1,7 @@
 <?php
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
 // Start of sysvsem v.
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Get a semaphore id
  * @link https://php.net/manual/en/function.sem-get.php
@@ -21,30 +19,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  * Specifies if the semaphore should be automatically released on request
  * shutdown.
  * </p>
- * @return false|SysvSemaphore a positive semaphore identifier on success, or <b>FALSE</b> on
- * error.
- */
-function sem_get ($key, $max_acquire = 1, $permissions = 0666, $auto_release = 1) {}
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Get a semaphore id
- * @link https://php.net/manual/en/function.sem-get.php
- * @param int $key
- * @param int $max_acquire [optional] <p>
- * The number of processes that can acquire the semaphore simultaneously
- * is set to <i>max_acquire</i>.
- * </p>
- * @param int $permissions [optional] <p>
- * The semaphore permissions. Actually this value is
- * set only if the process finds it is the only process currently
- * attached to the semaphore.
- * </p>
- * @param int $auto_release [optional] <p>
- * Specifies if the semaphore should be automatically released on request
- * shutdown.
- * </p>
- * @return resource|false a positive semaphore identifier on success, or <b>FALSE</b> on
+ * @return resource|false|SysvSemaphore a positive semaphore identifier on success, or <b>FALSE</b> on
  * error.
  */
 function sem_get ($key, $max_acquire = 1, $permissions = 0666, $auto_release = 1) {}

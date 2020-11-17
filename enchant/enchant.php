@@ -2,27 +2,14 @@
 
 // Start of enchant v.1.1.0
 use JetBrains\PhpStorm\Deprecated;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * create a new broker object capable of requesting
  * @link https://php.net/manual/en/function.enchant-broker-init.php
- * @return false|EnchantBroker a broker resource on success or <b>FALSE</b>.
+ * @return resource|false|EnchantBroker a broker resource on success or <b>FALSE</b>.
  */
 function enchant_broker_init () {}
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
- * create a new broker object capable of requesting
- * @link https://php.net/manual/en/function.enchant-broker-init.php
- * @return false|resource a broker resource on success or <b>FALSE</b>.
- */
-function enchant_broker_init()
-{
-}
 
 /**
  * Free the broker resource and its dictionaries
@@ -77,7 +64,6 @@ function enchant_broker_get_dict_path ($broker, $dict_type) {}
  */
 function enchant_broker_list_dicts ($broker) {}
 
-#[PhpStormStubsElementAvailable(to: '7.4')]
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * create a new dictionary using a tag
@@ -88,26 +74,10 @@ function enchant_broker_list_dicts ($broker) {}
  * @param string $tag <p>
  * A tag describing the locale, for example en_US, de_DE
  * </p>
- * @return resource|false a dictionary resource on success or <b>FALSE</b> on failure.
+ * @return resource|false|EnchantDictionary a dictionary resource on success or <b>FALSE</b> on failure.
  */
 function enchant_broker_request_dict ($broker, $tag) {}
 
-#[PhpStormStubsElementAvailable('8.0')]
-/**
- * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
- * create a new dictionary using a tag
- * @link https://php.net/manual/en/function.enchant-broker-request-dict.php
- * @param resource $broker <p>
- * Broker resource
- * </p>
- * @param string $tag <p>
- * A tag describing the locale, for example en_US, de_DE
- * </p>
- * @return EnchantDictionary|false a dictionary resource on success or <b>FALSE</b> on failure.
- */
-function enchant_broker_request_dict ($broker, $tag) {}
-
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
  * creates a dictionary using a PWL file
@@ -118,22 +88,7 @@ function enchant_broker_request_dict ($broker, $tag) {}
  * @param string $filename <p>
  * Path to the PWL file.
  * </p>
- * @return false|EnchantDictionary a dictionary resource on success or <b>FALSE</b> on failure.
- */
-function enchant_broker_request_pwl_dict ($broker, $filename) {}
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * (PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )<br/>
- * creates a dictionary using a PWL file
- * @link https://php.net/manual/en/function.enchant-broker-request-pwl-dict.php
- * @param resource $broker <p>
- * Broker resource
- * </p>
- * @param string $filename <p>
- * Path to the PWL file.
- * </p>
- * @return resource|false a dictionary resource on success or <b>FALSE</b> on failure.
+ * @return resource|false|EnchantDictionary a dictionary resource on success or <b>FALSE</b> on failure.
  */
 function enchant_broker_request_pwl_dict ($broker, $filename) {}
 

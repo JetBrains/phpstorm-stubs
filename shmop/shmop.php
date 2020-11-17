@@ -2,9 +2,7 @@
 
 // Start of shmop v.
 use JetBrains\PhpStorm\Deprecated;
-use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
 
-#[PhpStormStubsElementAvailable('8.0')]
 /**
  * Create or open shared memory block
  * @link https://php.net/manual/en/function.shmop-open.php
@@ -25,34 +23,7 @@ use JetBrains\PhpStorm\Internal\PhpStormStubsElementAvailable;
  * @param int $size <p>
  * The size of the shared memory block you wish to create in bytes
  * </p>
- * @return false|Shmop On success <b>shmop_open</b> will return an id that you can
- * use to access the shared memory segment you've created. <b>FALSE</b> is
- * returned on failure.
- */
-function shmop_open ($key, $mode, $permissions, $size) {}
-
-#[PhpStormStubsElementAvailable(to: '7.4')]
-/**
- * Create or open shared memory block
- * @link https://php.net/manual/en/function.shmop-open.php
- * @param int $key <p>
- * System's id for the shared memory block.
- * Can be passed as a decimal or hex.
- * </p>
- * @param int $mode <p>
- * The flags that you can use:
- * "a" for access (sets SHM_RDONLY for shmat)
- * use this flag when you need to open an existing shared memory
- * segment for read only
- * @param int $permissions <p>
- * The permissions that you wish to assign to your memory segment, those
- * are the same as permission for a file. Permissions need to be passed
- * in octal form, like for example 0644
- * </p>
- * @param int $size <p>
- * The size of the shared memory block you wish to create in bytes
- * </p>
- * @return resource|false On success <b>shmop_open</b> will return an id that you can
+ * @return resource|false|Shmop On success <b>shmop_open</b> will return an id that you can
  * use to access the shared memory segment you've created. <b>FALSE</b> is
  * returned on failure.
  */
