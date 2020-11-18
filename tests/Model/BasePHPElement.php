@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace StubTests\Model;
 
 use Exception;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use PhpParser\Node;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Identifier;
@@ -93,7 +94,7 @@ abstract class BasePHPElement
     {
         foreach ($attrGroups as $attrGroup) {
             foreach ($attrGroup->attrs as $attr) {
-                if ($attr->name->toString() === "LanguageLevelTypeAware") {
+                if ($attr->name->toString() === LanguageLevelTypeAware::class) {
                     $arg = $attr->args[0]->value;
                     if ($arg instanceof Array_) {
                         $value = $arg->items[0]->value;
