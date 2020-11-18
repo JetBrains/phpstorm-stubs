@@ -120,6 +120,8 @@ class StubsTest extends TestCase
                             fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name))->type, "Type mismatch $functionName: \$$parameter->name ");
                         self::assertEquals($parameter->is_passed_by_ref, current(array_filter($phpstormFunction->parameters,
                             fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name))->is_passed_by_ref, "Invalid pass by ref $functionName: \$$parameter->name ");
+                        self::assertEquals($parameter->is_vararg, current(array_filter($phpstormFunction->parameters,
+                            fn(PHPParameter $stubParameter) => $stubParameter->name === $parameter->name))->is_vararg, "Invalid pass by ref $functionName: \$$parameter->name ");
                     }
                 }
             }
