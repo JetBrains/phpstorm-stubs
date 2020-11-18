@@ -363,7 +363,6 @@ function newrelic_start_transaction($appName, $license = null) {}
  * This function allows an unsupported datastore to be instrumented in the same way as the PHP agent automatically
  * instruments its supported datastores.
  *
- * @since 7.5.0.199
  * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelic_record_datastore_segment
  *
  * @param callable $func The function that should be timed to create the datastore segment.
