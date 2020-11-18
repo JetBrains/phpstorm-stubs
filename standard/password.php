@@ -38,6 +38,7 @@
  */
 
 use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 define("PASSWORD_DEFAULT", "2y");
 

@@ -1,6 +1,7 @@
 <?php
 
 // Start of sysvsem v.
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * Get a semaphore id

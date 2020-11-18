@@ -2,6 +2,7 @@
 
 // Start of openssl v.
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * Frees a private key

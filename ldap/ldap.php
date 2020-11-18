@@ -2,6 +2,7 @@
 
 // Start of ldap v.
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * PASSWD extended operation helper

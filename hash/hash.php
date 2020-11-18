@@ -1,6 +1,7 @@
 <?php
 
 // Start of hash v.1.0
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
 /**

@@ -1,6 +1,7 @@
 <?php
 
 // Start of xml v.
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
 /**

@@ -1,6 +1,7 @@
 <?php
 
 // Start of sysvmsg v.
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * Create or attach to a message queue

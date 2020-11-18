@@ -2,6 +2,8 @@
 
 // Start of xmlwriter v.0.1
 
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
+
 class XMLWriter  {
 
 	/**

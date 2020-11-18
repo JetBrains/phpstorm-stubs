@@ -5,6 +5,7 @@
  */
 
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * mysqli_sql_exception

@@ -1,6 +1,7 @@
 <?php
 
 // Start of sysvshm v.
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 
 /**
  * Creates or open a shared memory segment

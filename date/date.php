@@ -2,6 +2,7 @@
 
 // Start of date v.5.3.2-0.dotdeb.1
 use JetBrains\PhpStorm\Deprecated;
+use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 use JetBrains\PhpStorm\Pure;
 
 /**
